@@ -1,15 +1,21 @@
-import * as React from 'react'
+import React from 'react'
 import { shallow } from 'enzyme'
-import { Menu, MenuProps, generateMenuConfig, callbackAppClick } from '../menu'
-import toJson from 'enzyme-to-json'
 import { getMockRouterProps } from '@/core/__mocks__/mock-router'
+import { Menu, MenuProps, generateMenuConfig, callbackAppClick } from '@/components/ui/menu'
+import { AuthContext } from '@/core/index'
+import { mockContext } from '@/core/__mocks__/mock-context'
 
 describe('Menu', () => {
   it('should match a snapshot', () => {
     const props = {
       ...getMockRouterProps({ params: {}, search: '' }),
     } as MenuProps
-    expect(toJson(shallow(<Menu {...props} />))).toMatchSnapshot()
+    const wrapper = shallow(
+      <AuthContext.Provider value={mockContext}>
+        <Menu {...props} />
+      </AuthContext.Provider>,
+    )
+    expect(wrapper).toMatchSnapshot()
   })
 
   describe('generateMenuConfig', () => {

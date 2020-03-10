@@ -80,6 +80,8 @@
     "@octokit/rest": "^16.38.1",
     "@redux-saga/testing-utils": "^1.0.5",
     "@sentry/webpack-plugin": "^1.10.0",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/jest-dom": "^5.1.1",
     "@testing-library/react-hooks": "^2.0.3",
     "@types/diff": "^4.0.2",
     "@types/enzyme": "^3.10.3",
