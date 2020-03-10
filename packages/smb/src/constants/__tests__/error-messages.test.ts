@@ -1,4 +1,4 @@
-import errorMessages from './error-messages'
+import errorMessages from '../error-messages'
 describe('error-messages', () => {
   describe('MINIMUM_CHARACTER_LENGTH', () => {
     it('should run correctly', () => {
