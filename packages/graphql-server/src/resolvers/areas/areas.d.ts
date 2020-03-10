@@ -26,7 +26,7 @@ export type GetAreasReturn = Promise<PagedResultAreaModel_ | UserInputError>
 
 // temporarily return boolean, will change later
 export type CreateAreaReturn = Promise<boolean | UserInputError>
-export type UpdateAreaReturn = Promise<boolean | UserInputError>
+export type UpdateAreaReturn = Promise<AreaModel | UserInputError>
 
 // resolver type
 export type QueryGetAreaByIdReturn = AuthenticationError | GetAreaByIdReturn

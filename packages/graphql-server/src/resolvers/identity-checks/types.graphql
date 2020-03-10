@@ -78,5 +78,5 @@ type Mutation {
     identityDocument1: IdentityCheckModelIdentityDocumentInput
     identityDocument2: IdentityCheckModelIdentityDocumentInput
     metadata: JSON
-  ): JSON!
+  ): IdentityCheckModel!
 }

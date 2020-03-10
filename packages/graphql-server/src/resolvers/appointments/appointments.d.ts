@@ -35,7 +35,7 @@ export type GetAppointmentsReturn = Promise<PagedResultAppointmentModel_ | UserI
 
 // temporarily return boolean, will change later
 export type CreateAppointmentReturn = Promise<boolean | UserInputError>
-export type UpdateAppointmentReturn = Promise<boolean | UserInputError>
+export type UpdateAppointmentReturn = Promise<AppointmentModel | UserInputError>
 
 // resolver type
 export type QueryGetAppointmentByIdReturn = AuthenticationError | GetAppointmentByIdReturn

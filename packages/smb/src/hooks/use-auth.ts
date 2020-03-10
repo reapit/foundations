@@ -10,14 +10,14 @@ import {
 } from '@reapit/cognito-auth'
 import { COOKIE_SESSION_KEY } from '../constants/api'
 
-export type AuthContext = {
-  loginSession: LoginSession | null
+export type AuthHook = {
+  loginSession?: LoginSession | null
   logout: () => void
   getLoginSession: (refreshParams: RefreshParams | null) => Promise<void>
-  refreshParams: RefreshParams | null
+  refreshParams?: RefreshParams | null
 }
 
-export const useAuth = (): AuthContext => {
+export const useAuth = (): AuthHook => {
   const [isFetchSession, setFetchSession] = React.useState(false)
   const [loginSession, setLoginSession] = React.useState<LoginSession | null>(null)
   const urlParams: RefreshParams | null = getTokenFromQueryString(

@@ -34,7 +34,7 @@ export type GetIdentityChecksReturn = Promise<PagedResultIdentityCheckModel_ | U
 
 // temporarily return boolean, will change later
 export type CreateIdentityCheckReturn = Promise<boolean | UserInputError>
-export type UpdateIdentityCheckReturn = Promise<boolean | UserInputError>
+export type UpdateIdentityCheckReturn = Promise<IdentityCheckModel | UserInputError>
 
 // resolver type
 export type QueryGetIdentityCheckByIdReturn = AuthenticationError | GetIdentityCheckByIdReturn
