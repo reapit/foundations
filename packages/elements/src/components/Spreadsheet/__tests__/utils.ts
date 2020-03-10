@@ -6,6 +6,8 @@ import {
   unparseDataToCsvString,
   convertToCompatibleData,
   convertDataToCsv,
+  changedCellsGenerate,
+  validatedDataGenerate,
 } from '../utils'
 import fs from 'fs'
 import path from 'path'
@@ -25,6 +27,9 @@ describe('getMaxRowAndCol', () => {
 
     const result = getMaxRowAndCol(newData)
     expect(result).toEqual({ maxRow: newData.length, maxCol: data[0].length })
+  })
+  it('should return 0 0 if undefined data', () => {
+    expect(getMaxRowAndCol(undefined)).toEqual({ maxCol: 0, maxRow: 0 })
   })
 })
 
@@ -62,5 +67,88 @@ describe('convertToCompatibleData', () => {
 describe('convertDataToCsv', () => {
   it('should return correct result', () => {
     expect(convertDataToCsv(data)).toEqual(parseResult.data)
+  })
+})
+
+describe('changedCellsGenerate', () => {
+  it('should return correct diff', () => {
+    const newData = [[{ value: 'new1' }], [{ value: 'new2' }]]
+    const oldData = [[{ value: 'old1' }], [{ value: 'old2' }]]
+    const changedCells = changedCellsGenerate(newData, oldData)
+    const expectedResult = [
+      { oldCell: { value: 'old1' }, row: 0, col: 0, newCell: { value: 'new1' } },
+      { oldCell: { value: 'old2' }, row: 1, col: 0, newCell: { value: 'new2' } },
+    ]
+    expect(changedCells).toEqual(expectedResult)
+  })
+
+  it('should return correct diff in delete row case', () => {
+    const oldData = [[{ value: 'old1' }], [{ value: 'old2' }]]
+    const newData = [[{ value: 'old1' }]]
+    const changedCells = changedCellsGenerate(newData, oldData)
+    const expectedResult = [{ oldCell: { value: 'old2' }, row: 1, col: 0, newCell: { value: null } }]
+    expect(changedCells).toEqual(expectedResult)
+  })
+
+  it('should return correct diff in add row case', () => {
+    const oldData = [[{ value: 'old1' }], [{ value: 'old2' }]]
+    const newData = [[{ value: 'old1' }], [{ value: 'old2' }], [{ value: 'new' }]]
+    const changedCells = changedCellsGenerate(newData, oldData)
+    const expectedResult = [{ oldCell: { value: null }, row: 2, col: 0, newCell: { value: 'new' } }]
+    expect(changedCells).toEqual(expectedResult)
+  })
+
+  it('should return correct diff in initial case', () => {
+    const oldData = undefined
+    const newData = [[{ value: 'new1' }, { value: 'new2' }], [{ value: 'new3' }]]
+    const changedCells = changedCellsGenerate(newData, oldData)
+    const expectedResult = [
+      { oldCell: { value: null }, row: 0, col: 0, newCell: { value: 'new1' } },
+      { oldCell: { value: null }, row: 0, col: 1, newCell: { value: 'new2' } },
+      { oldCell: { value: null }, row: 1, col: 0, newCell: { value: 'new3' } },
+    ]
+    expect(changedCells).toEqual(expectedResult)
+  })
+  it('should return correct diff in delete all case', () => {
+    const oldData = [[{ value: 'old1' }, { value: 'old2' }], [{ value: 'old3' }]]
+    const newData = undefined
+    const changedCells = changedCellsGenerate(newData, oldData)
+    const expectedResult = [
+      { oldCell: { value: 'old1' }, row: 0, col: 0, newCell: { value: null } },
+      { oldCell: { value: 'old2' }, row: 0, col: 1, newCell: { value: null } },
+      { oldCell: { value: 'old3' }, row: 1, col: 0, newCell: { value: null } },
+    ]
+    expect(changedCells).toEqual(expectedResult)
+  })
+})
+
+describe('validatedDataGenerate', () => {
+  it('should return with correct isValidated if validateFunction is function', () => {
+    const validate = jest.fn().mockReturnValue([[true, false], [true]])
+    const data = [[{ value: 'old1' }, { value: 'old2' }], [{ value: 'old3' }]]
+    const expectedResult = [
+      [
+        { value: 'old1', isValidated: true },
+        { value: 'old2', isValidated: false },
+      ],
+      [{ value: 'old3', isValidated: true }],
+    ]
+    const result = validatedDataGenerate(data, validate)
+    expect(validate).toHaveBeenCalledWith(data)
+    expect(result).toEqual(expectedResult)
+  })
+
+  it('should return with correct isValidated if validateFunction is undefined', () => {
+    const validate = undefined
+    const data = [[{ value: 'old1' }, { value: 'old2' }], [{ value: 'old3' }]]
+    const expectedResult = [
+      [
+        { value: 'old1', isValidated: true },
+        { value: 'old2', isValidated: true },
+      ],
+      [{ value: 'old3', isValidated: true }],
+    ]
+    const result = validatedDataGenerate(data, validate)
+    expect(result).toEqual(expectedResult)
   })
 })

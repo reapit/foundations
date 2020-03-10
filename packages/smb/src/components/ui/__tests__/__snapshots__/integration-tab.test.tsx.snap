@@ -220,152 +220,196 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                 Array [
                   Array [
                     Object {
+                      "isValidated": true,
                       "readOnly": true,
                       "value": "Integrations",
                     },
                     Object {
+                      "isValidated": true,
                       "readOnly": true,
                       "value": "Building Name",
                     },
                     Object {
+                      "isValidated": true,
                       "readOnly": true,
                       "value": "Building No.",
                     },
                     Object {
+                      "isValidated": true,
                       "readOnly": true,
                       "value": "Address 1",
                     },
                     Object {
+                      "isValidated": true,
                       "readOnly": true,
                       "value": "Address 2",
                     },
                     Object {
+                      "isValidated": true,
                       "readOnly": true,
                       "value": "Address 3",
                     },
                     Object {
+                      "isValidated": true,
                       "readOnly": true,
                       "value": "Address 4",
                     },
                     Object {
+                      "isValidated": true,
                       "readOnly": true,
                       "value": "Post Code",
                     },
                     Object {
+                      "isValidated": true,
                       "readOnly": true,
                       "value": "Telephone",
                     },
                     Object {
+                      "isValidated": true,
                       "readOnly": true,
                       "value": "Fax",
                     },
                     Object {
+                      "isValidated": true,
                       "readOnly": true,
                       "value": "Email",
                     },
                   ],
                   Array [
                     Object {
+                      "isValidated": true,
                       "value": "London",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "The White House",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "15",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "London 1",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "Londom 3",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "EC12NH",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "0845 0000",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "row1@gmail.com",
                     },
                   ],
                   Array [
                     Object {
+                      "isValidated": true,
                       "value": "London2",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "The Black House",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "11",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "Adress 3",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "EC12NH",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "087 471 929",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "row2@gmail.com",
                     },
                   ],
                   Array [
                     Object {
+                      "isValidated": true,
                       "value": "New York",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "Building A",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "11",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "City Z",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "AL7187",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "017 7162 9121",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "row3@gmail.com",
                     },
                   ],
@@ -400,152 +444,196 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
             Array [
               Array [
                 Object {
+                  "isValidated": true,
                   "readOnly": true,
                   "value": "Integrations",
                 },
                 Object {
+                  "isValidated": true,
                   "readOnly": true,
                   "value": "Building Name",
                 },
                 Object {
+                  "isValidated": true,
                   "readOnly": true,
                   "value": "Building No.",
                 },
                 Object {
+                  "isValidated": true,
                   "readOnly": true,
                   "value": "Address 1",
                 },
                 Object {
+                  "isValidated": true,
                   "readOnly": true,
                   "value": "Address 2",
                 },
                 Object {
+                  "isValidated": true,
                   "readOnly": true,
                   "value": "Address 3",
                 },
                 Object {
+                  "isValidated": true,
                   "readOnly": true,
                   "value": "Address 4",
                 },
                 Object {
+                  "isValidated": true,
                   "readOnly": true,
                   "value": "Post Code",
                 },
                 Object {
+                  "isValidated": true,
                   "readOnly": true,
                   "value": "Telephone",
                 },
                 Object {
+                  "isValidated": true,
                   "readOnly": true,
                   "value": "Fax",
                 },
                 Object {
+                  "isValidated": true,
                   "readOnly": true,
                   "value": "Email",
                 },
               ],
               Array [
                 Object {
+                  "isValidated": true,
                   "value": "London",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "The White House",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "15",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "London 1",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "Londom 3",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "EC12NH",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "0845 0000",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "row1@gmail.com",
                 },
               ],
               Array [
                 Object {
+                  "isValidated": true,
                   "value": "London2",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "The Black House",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "11",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "Adress 3",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "EC12NH",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "087 471 929",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "row2@gmail.com",
                 },
               ],
               Array [
                 Object {
+                  "isValidated": true,
                   "value": "New York",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "Building A",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "11",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "City Z",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "AL7187",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "017 7162 9121",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "",
                 },
                 Object {
+                  "isValidated": true,
                   "value": "row3@gmail.com",
                 },
               ],
@@ -573,152 +661,196 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                 Array [
                   Array [
                     Object {
+                      "isValidated": true,
                       "readOnly": true,
                       "value": "Integrations",
                     },
                     Object {
+                      "isValidated": true,
                       "readOnly": true,
                       "value": "Building Name",
                     },
                     Object {
+                      "isValidated": true,
                       "readOnly": true,
                       "value": "Building No.",
                     },
                     Object {
+                      "isValidated": true,
                       "readOnly": true,
                       "value": "Address 1",
                     },
                     Object {
+                      "isValidated": true,
                       "readOnly": true,
                       "value": "Address 2",
                     },
                     Object {
+                      "isValidated": true,
                       "readOnly": true,
                       "value": "Address 3",
                     },
                     Object {
+                      "isValidated": true,
                       "readOnly": true,
                       "value": "Address 4",
                     },
                     Object {
+                      "isValidated": true,
                       "readOnly": true,
                       "value": "Post Code",
                     },
                     Object {
+                      "isValidated": true,
                       "readOnly": true,
                       "value": "Telephone",
                     },
                     Object {
+                      "isValidated": true,
                       "readOnly": true,
                       "value": "Fax",
                     },
                     Object {
+                      "isValidated": true,
                       "readOnly": true,
                       "value": "Email",
                     },
                   ],
                   Array [
                     Object {
+                      "isValidated": true,
                       "value": "London",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "The White House",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "15",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "London 1",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "Londom 3",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "EC12NH",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "0845 0000",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "row1@gmail.com",
                     },
                   ],
                   Array [
                     Object {
+                      "isValidated": true,
                       "value": "London2",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "The Black House",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "11",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "Adress 3",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "EC12NH",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "087 471 929",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "row2@gmail.com",
                     },
                   ],
                   Array [
                     Object {
+                      "isValidated": true,
                       "value": "New York",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "Building A",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "11",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "City Z",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "AL7187",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "017 7162 9121",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "",
                     },
                     Object {
+                      "isValidated": true,
                       "value": "row3@gmail.com",
                     },
                   ],
@@ -733,46 +865,57 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                     cells={
                       Array [
                         Object {
+                          "isValidated": true,
                           "readOnly": true,
                           "value": "Integrations",
                         },
                         Object {
+                          "isValidated": true,
                           "readOnly": true,
                           "value": "Building Name",
                         },
                         Object {
+                          "isValidated": true,
                           "readOnly": true,
                           "value": "Building No.",
                         },
                         Object {
+                          "isValidated": true,
                           "readOnly": true,
                           "value": "Address 1",
                         },
                         Object {
+                          "isValidated": true,
                           "readOnly": true,
                           "value": "Address 2",
                         },
                         Object {
+                          "isValidated": true,
                           "readOnly": true,
                           "value": "Address 3",
                         },
                         Object {
+                          "isValidated": true,
                           "readOnly": true,
                           "value": "Address 4",
                         },
                         Object {
+                          "isValidated": true,
                           "readOnly": true,
                           "value": "Post Code",
                         },
                         Object {
+                          "isValidated": true,
                           "readOnly": true,
                           "value": "Telephone",
                         },
                         Object {
+                          "isValidated": true,
                           "readOnly": true,
                           "value": "Fax",
                         },
                         Object {
+                          "isValidated": true,
                           "readOnly": true,
                           "value": "Email",
                         },
@@ -785,6 +928,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "readOnly": true,
                             "value": "Integrations",
                           }
@@ -812,6 +956,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "readOnly": true,
                               "value": "Integrations",
                             }
@@ -840,6 +985,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "readOnly": true,
                                   "value": "Integrations",
                                 }
@@ -860,6 +1006,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "readOnly": true,
                             "value": "Building Name",
                           }
@@ -887,6 +1034,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "readOnly": true,
                               "value": "Building Name",
                             }
@@ -915,6 +1063,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "readOnly": true,
                                   "value": "Building Name",
                                 }
@@ -935,6 +1084,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "readOnly": true,
                             "value": "Building No.",
                           }
@@ -962,6 +1112,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "readOnly": true,
                               "value": "Building No.",
                             }
@@ -990,6 +1141,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "readOnly": true,
                                   "value": "Building No.",
                                 }
@@ -1010,6 +1162,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "readOnly": true,
                             "value": "Address 1",
                           }
@@ -1037,6 +1190,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "readOnly": true,
                               "value": "Address 1",
                             }
@@ -1065,6 +1219,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "readOnly": true,
                                   "value": "Address 1",
                                 }
@@ -1085,6 +1240,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "readOnly": true,
                             "value": "Address 2",
                           }
@@ -1112,6 +1268,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "readOnly": true,
                               "value": "Address 2",
                             }
@@ -1140,6 +1297,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "readOnly": true,
                                   "value": "Address 2",
                                 }
@@ -1160,6 +1318,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "readOnly": true,
                             "value": "Address 3",
                           }
@@ -1187,6 +1346,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "readOnly": true,
                               "value": "Address 3",
                             }
@@ -1215,6 +1375,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "readOnly": true,
                                   "value": "Address 3",
                                 }
@@ -1235,6 +1396,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "readOnly": true,
                             "value": "Address 4",
                           }
@@ -1262,6 +1424,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "readOnly": true,
                               "value": "Address 4",
                             }
@@ -1290,6 +1453,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "readOnly": true,
                                   "value": "Address 4",
                                 }
@@ -1310,6 +1474,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "readOnly": true,
                             "value": "Post Code",
                           }
@@ -1337,6 +1502,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "readOnly": true,
                               "value": "Post Code",
                             }
@@ -1365,6 +1531,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "readOnly": true,
                                   "value": "Post Code",
                                 }
@@ -1385,6 +1552,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "readOnly": true,
                             "value": "Telephone",
                           }
@@ -1412,6 +1580,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "readOnly": true,
                               "value": "Telephone",
                             }
@@ -1440,6 +1609,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "readOnly": true,
                                   "value": "Telephone",
                                 }
@@ -1460,6 +1630,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "readOnly": true,
                             "value": "Fax",
                           }
@@ -1487,6 +1658,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "readOnly": true,
                               "value": "Fax",
                             }
@@ -1515,6 +1687,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "readOnly": true,
                                   "value": "Fax",
                                 }
@@ -1535,6 +1708,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "readOnly": true,
                             "value": "Email",
                           }
@@ -1562,6 +1736,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "readOnly": true,
                               "value": "Email",
                             }
@@ -1590,6 +1765,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "readOnly": true,
                                   "value": "Email",
                                 }
@@ -1613,36 +1789,47 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                     cells={
                       Array [
                         Object {
+                          "isValidated": true,
                           "value": "London",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "The White House",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "15",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "London 1",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "Londom 3",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "EC12NH",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "0845 0000",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "row1@gmail.com",
                         },
                       ]
@@ -1654,6 +1841,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "London",
                           }
                         }
@@ -1680,6 +1868,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "London",
                             }
                           }
@@ -1707,6 +1896,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "London",
                                 }
                               }
@@ -1726,6 +1916,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "The White House",
                           }
                         }
@@ -1752,6 +1943,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "The White House",
                             }
                           }
@@ -1779,6 +1971,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "The White House",
                                 }
                               }
@@ -1798,6 +1991,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "15",
                           }
                         }
@@ -1824,6 +2018,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "15",
                             }
                           }
@@ -1851,6 +2046,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "15",
                                 }
                               }
@@ -1870,6 +2066,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "London 1",
                           }
                         }
@@ -1896,6 +2093,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "London 1",
                             }
                           }
@@ -1923,6 +2121,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "London 1",
                                 }
                               }
@@ -1942,6 +2141,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "",
                           }
                         }
@@ -1968,6 +2168,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "",
                             }
                           }
@@ -1995,6 +2196,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "",
                                 }
                               }
@@ -2012,6 +2214,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "Londom 3",
                           }
                         }
@@ -2038,6 +2241,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "Londom 3",
                             }
                           }
@@ -2065,6 +2269,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "Londom 3",
                                 }
                               }
@@ -2084,6 +2289,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "",
                           }
                         }
@@ -2110,6 +2316,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "",
                             }
                           }
@@ -2137,6 +2344,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "",
                                 }
                               }
@@ -2154,6 +2362,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "EC12NH",
                           }
                         }
@@ -2180,6 +2389,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "EC12NH",
                             }
                           }
@@ -2207,6 +2417,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "EC12NH",
                                 }
                               }
@@ -2226,6 +2437,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "0845 0000",
                           }
                         }
@@ -2252,6 +2464,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "0845 0000",
                             }
                           }
@@ -2279,6 +2492,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "0845 0000",
                                 }
                               }
@@ -2298,6 +2512,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "",
                           }
                         }
@@ -2324,6 +2539,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "",
                             }
                           }
@@ -2351,6 +2567,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "",
                                 }
                               }
@@ -2368,6 +2585,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "row1@gmail.com",
                           }
                         }
@@ -2394,6 +2612,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "row1@gmail.com",
                             }
                           }
@@ -2421,6 +2640,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "row1@gmail.com",
                                 }
                               }
@@ -2443,36 +2663,47 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                     cells={
                       Array [
                         Object {
+                          "isValidated": true,
                           "value": "London2",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "The Black House",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "11",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "Adress 3",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "EC12NH",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "087 471 929",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "row2@gmail.com",
                         },
                       ]
@@ -2484,6 +2715,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "London2",
                           }
                         }
@@ -2510,6 +2742,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "London2",
                             }
                           }
@@ -2537,6 +2770,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "London2",
                                 }
                               }
@@ -2556,6 +2790,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "The Black House",
                           }
                         }
@@ -2582,6 +2817,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "The Black House",
                             }
                           }
@@ -2609,6 +2845,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "The Black House",
                                 }
                               }
@@ -2628,6 +2865,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "11",
                           }
                         }
@@ -2654,6 +2892,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "11",
                             }
                           }
@@ -2681,6 +2920,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "11",
                                 }
                               }
@@ -2700,6 +2940,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "",
                           }
                         }
@@ -2726,6 +2967,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "",
                             }
                           }
@@ -2753,6 +2995,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "",
                                 }
                               }
@@ -2770,6 +3013,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "",
                           }
                         }
@@ -2796,6 +3040,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "",
                             }
                           }
@@ -2823,6 +3068,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "",
                                 }
                               }
@@ -2840,6 +3086,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "Adress 3",
                           }
                         }
@@ -2866,6 +3113,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "Adress 3",
                             }
                           }
@@ -2893,6 +3141,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "Adress 3",
                                 }
                               }
@@ -2912,6 +3161,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "",
                           }
                         }
@@ -2938,6 +3188,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "",
                             }
                           }
@@ -2965,6 +3216,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "",
                                 }
                               }
@@ -2982,6 +3234,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "EC12NH",
                           }
                         }
@@ -3008,6 +3261,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "EC12NH",
                             }
                           }
@@ -3035,6 +3289,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "EC12NH",
                                 }
                               }
@@ -3054,6 +3309,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "087 471 929",
                           }
                         }
@@ -3080,6 +3336,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "087 471 929",
                             }
                           }
@@ -3107,6 +3364,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "087 471 929",
                                 }
                               }
@@ -3126,6 +3384,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "",
                           }
                         }
@@ -3152,6 +3411,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "",
                             }
                           }
@@ -3179,6 +3439,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "",
                                 }
                               }
@@ -3196,6 +3457,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "row2@gmail.com",
                           }
                         }
@@ -3222,6 +3484,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "row2@gmail.com",
                             }
                           }
@@ -3249,6 +3512,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "row2@gmail.com",
                                 }
                               }
@@ -3271,36 +3535,47 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                     cells={
                       Array [
                         Object {
+                          "isValidated": true,
                           "value": "New York",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "Building A",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "11",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "City Z",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "AL7187",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "017 7162 9121",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "",
                         },
                         Object {
+                          "isValidated": true,
                           "value": "row3@gmail.com",
                         },
                       ]
@@ -3312,6 +3587,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "New York",
                           }
                         }
@@ -3338,6 +3614,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "New York",
                             }
                           }
@@ -3365,6 +3642,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "New York",
                                 }
                               }
@@ -3384,6 +3662,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "Building A",
                           }
                         }
@@ -3410,6 +3689,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "Building A",
                             }
                           }
@@ -3437,6 +3717,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "Building A",
                                 }
                               }
@@ -3456,6 +3737,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "11",
                           }
                         }
@@ -3482,6 +3764,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "11",
                             }
                           }
@@ -3509,6 +3792,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "11",
                                 }
                               }
@@ -3528,6 +3812,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "",
                           }
                         }
@@ -3554,6 +3839,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "",
                             }
                           }
@@ -3581,6 +3867,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "",
                                 }
                               }
@@ -3598,6 +3885,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "",
                           }
                         }
@@ -3624,6 +3912,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "",
                             }
                           }
@@ -3651,6 +3940,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "",
                                 }
                               }
@@ -3668,6 +3958,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "City Z",
                           }
                         }
@@ -3694,6 +3985,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "City Z",
                             }
                           }
@@ -3721,6 +4013,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "City Z",
                                 }
                               }
@@ -3740,6 +4033,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "",
                           }
                         }
@@ -3766,6 +4060,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "",
                             }
                           }
@@ -3793,6 +4088,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "",
                                 }
                               }
@@ -3810,6 +4106,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "AL7187",
                           }
                         }
@@ -3836,6 +4133,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "AL7187",
                             }
                           }
@@ -3863,6 +4161,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "AL7187",
                                 }
                               }
@@ -3882,6 +4181,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "017 7162 9121",
                           }
                         }
@@ -3908,6 +4208,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "017 7162 9121",
                             }
                           }
@@ -3935,6 +4236,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "017 7162 9121",
                                 }
                               }
@@ -3954,6 +4256,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "",
                           }
                         }
@@ -3980,6 +4283,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "",
                             }
                           }
@@ -4007,6 +4311,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "",
                                 }
                               }
@@ -4024,6 +4329,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                       <DataCell
                         cell={
                           Object {
+                            "isValidated": true,
                             "value": "row3@gmail.com",
                           }
                         }
@@ -4050,6 +4356,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                         <Component
                           cell={
                             Object {
+                              "isValidated": true,
                               "value": "row3@gmail.com",
                             }
                           }
@@ -4077,6 +4384,7 @@ exports[`IntegrationsTab IntegrationsTab should match a snapshot 1`] = `
                             <ValueViewer
                               cell={
                                 Object {
+                                  "isValidated": true,
                                   "value": "row3@gmail.com",
                                 }
                               }

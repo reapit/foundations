@@ -4,6 +4,7 @@ import { Cell, SetData, ValidateFunction, ChangedCells } from './types'
 
 export const usePrevious = value => {
   const ref = React.useRef()
+  /* istanbul ignore next */
   React.useEffect(() => {
     ref.current = value
   })
@@ -67,7 +68,7 @@ export const convertDataToCsv = (data: Cell[][]): string[][] =>
   data.map(rowArray => rowArray.map(({ value }) => value)) as string[][]
 
 // Diffing algorithm to find differences between data array
-export const changedCellsGenerate = (newData: Cell[][], oldData?: Cell[][]): ChangedCells => {
+export const changedCellsGenerate = (newData?: Cell[][], oldData?: Cell[][]): ChangedCells => {
   const { maxCol: maxColOld, maxRow: maxRowOld } = getMaxRowAndCol(oldData)
   const { maxCol: maxColNew, maxRow: maxRowNew } = getMaxRowAndCol(newData)
   const maxRow = Math.max(maxRowNew, maxRowOld)

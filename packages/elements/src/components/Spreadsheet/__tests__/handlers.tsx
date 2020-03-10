@@ -13,6 +13,8 @@ import {
   handleContextMenu,
   handleAfterDataChanged,
   hideContextMenu,
+  handleSetContextMenu,
+  handleInitialDataChanged,
 } from '../handlers'
 import {
   data,
@@ -449,5 +451,28 @@ describe('hideContextMenu', () => {
       top: 0,
       left: 0,
     })
+  })
+})
+
+describe('handleSetContextMenu', () => {
+  it('should call addEventListener with correct argumen', () => {
+    const setContextMenuPropMock = jest.fn()
+    const addEventListenerSpy = jest.spyOn(window, 'addEventListener')
+    const fn = handleSetContextMenu(setContextMenuPropMock)
+    fn()
+    expect(addEventListenerSpy).toHaveBeenCalledWith('click', setContextMenuPropMock)
+  })
+})
+
+describe('handleInitialDataChanged', () => {
+  it('should call validatedDataGenerate and setData with correct arguments', () => {
+    const initialData = [[{ value: 'init' }]]
+    const data = [[{ value: 'data' }]]
+    const setDataMock = jest.fn()
+    const validate = jest.fn()
+    const fn = handleInitialDataChanged(initialData, data, setDataMock, validate)
+    fn()
+    expect(validatedDataGenerate).toHaveBeenCalledWith(initialData, validate)
+    expect(setDataMock).toHaveBeenCalledWith('validated data')
   })
 })
