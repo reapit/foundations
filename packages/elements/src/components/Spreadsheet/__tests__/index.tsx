@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { Spreadsheet, UploadButton, DownloadButton, AddRowButton, handleEffect } from '../index'
-import { data, setContextMenuProp } from '../__stubs__'
+import { Spreadsheet, UploadButton, DownloadButton, AddRowButton } from '../index'
+import { data } from '../__stubs__'
 
 describe('Spreadsheet', () => {
   it('should match snapshot with default props', () => {
@@ -39,14 +39,5 @@ describe('AddRowButton', () => {
   it('should match snapshot', () => {
     const addNewRow = jest.fn()
     expect(shallow(<AddRowButton addNewRow={addNewRow} />)).toMatchSnapshot()
-  })
-})
-
-describe('handleEffect', () => {
-  it('should add event', () => {
-    const addEventListenerSpy = jest.spyOn(window, 'addEventListener')
-    const fn = handleEffect(setContextMenuProp)
-    fn()
-    expect(addEventListenerSpy).toHaveBeenCalled()
   })
 })

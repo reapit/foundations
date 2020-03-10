@@ -458,7 +458,8 @@ storiesOf('Spreadsheet', module)
       <Spreadsheet
         data={dataBasic}
         afterDataChanged={(data, changedCells) => {
-          console.log('Changed!', changedCells)
+          console.log('Data after changed', data)
+          console.log('ChangedCell!', changedCells)
         }}
         description={
           <p>

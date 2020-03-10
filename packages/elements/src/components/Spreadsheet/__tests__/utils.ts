@@ -6,7 +6,6 @@ import {
   unparseDataToCsvString,
   convertToCompatibleData,
   convertDataToCsv,
-  hideContextMenu,
 } from '../utils'
 import fs from 'fs'
 import path from 'path'
@@ -63,26 +62,5 @@ describe('convertToCompatibleData', () => {
 describe('convertDataToCsv', () => {
   it('should return correct result', () => {
     expect(convertDataToCsv(data)).toEqual(parseResult.data)
-  })
-})
-
-describe('hideContextMenu', () => {
-  it('should return ContextMenuProp with visible = false', () => {
-    const mockState = { visible: true, top: 0, left: 0 }
-    expect(hideContextMenu(mockState)).toEqual({
-      visible: false,
-      top: 0,
-      left: 0,
-    })
-  })
-})
-describe('hideContextMenu', () => {
-  it('should return ContextMenuProp with visible = false', () => {
-    const mockState = { visible: true, top: 0, left: 0 }
-    expect(hideContextMenu(mockState)).toEqual({
-      visible: false,
-      top: 0,
-      left: 0,
-    })
   })
 })

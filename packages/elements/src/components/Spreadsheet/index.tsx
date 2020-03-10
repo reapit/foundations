@@ -78,7 +78,7 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
 
   React.useEffect(handleInitialDataChanged(initialData, data, setData, validate), [initialData, validate])
 
-  React.useEffect(handleAfterDataChanged(afterDataChanged, data, prevData), [data])
+  React.useEffect(handleAfterDataChanged(data, prevData, afterDataChanged), [data])
 
   return (
     <div className="spreadsheet">

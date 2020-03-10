@@ -118,7 +118,7 @@ export const customCellRenderer = (data: Cell[][], setData: SetData, setSelected
   )
 }
 
-export const handleAddNewRow = (data: Cell[][], setData: SetData, validate: ValidateFunction) => () => {
+export const handleAddNewRow = (data: Cell[][], setData: SetData, validate?: ValidateFunction) => () => {
   const { maxRow, maxCol } = getMaxRowAndCol(data)
   const lastRow = data[maxRow - 1]
   /* [
@@ -144,16 +144,16 @@ export const handleAddNewRow = (data: Cell[][], setData: SetData, validate: Vali
     })
 
   const newData = [...data, newEmptyRow]
-  const dataWithIsValidated = validatedDataGenerate(validate, newData)
+  const dataWithIsValidated = validatedDataGenerate(newData, validate)
   setData(dataWithIsValidated)
 }
 
-export const handleCellsChanged = (data: Cell[][], setData: SetData, validate) => changes => {
+export const handleCellsChanged = (data: Cell[][], setData: SetData, validate?: ValidateFunction) => changes => {
   const newData = data.map(row => [...row])
   changes.forEach(({ row, col, value }) => {
     newData[row][col] = { ...newData[row][col], value }
   })
-  const dataWithIsValidated = validatedDataGenerate(validate, newData)
+  const dataWithIsValidated = validatedDataGenerate(newData, validate)
   setData(dataWithIsValidated)
 }
 
@@ -167,7 +167,7 @@ export const handleClickUpload = (ref: React.RefObject<HTMLInputElement>) => () 
   return false
 }
 
-export const handleOnChangeInput = (data: Cell[][], setData: SetData, validate: ValidateFunction) => async (event: {
+export const handleOnChangeInput = (data: Cell[][], setData: SetData, validate?: ValidateFunction) => async (event: {
   target: HTMLInputElement
 }) => {
   const { target } = event
@@ -175,9 +175,9 @@ export const handleOnChangeInput = (data: Cell[][], setData: SetData, validate: 
     const file = target.files[0]
     const result = await parseCsvFile(file)
     const compatibleData = convertToCompatibleData(result)
-    const dataWithIsValidated = validatedDataGenerate(validate, compatibleData)
+    const dataWithIsValidated = validatedDataGenerate(compatibleData, validate)
     setData(dataWithIsValidated)
-    return true
+    return 'validated'
   }
   return false
 }
@@ -212,11 +212,11 @@ export const handleSetContextMenu = (setContextMenuProp: SetContextMenuProp) => 
 }
 
 export const handleAfterDataChanged = (
-  afterDataChanged: (data: Cell[][], changedCells: ChangedCells) => any,
   data: Cell[][],
-  prevData: Cell[][],
+  prevData?: Cell[][],
+  afterDataChanged?: (data: Cell[][], changedCells: ChangedCells) => any,
 ) => () => {
-  const changedCells = changedCellsGenerate(prevData, data)
+  const changedCells = changedCellsGenerate(data, prevData)
   if (typeof afterDataChanged === 'function') {
     afterDataChanged(data, changedCells)
   }
@@ -226,8 +226,8 @@ export const handleInitialDataChanged = (
   initialData: Cell[][],
   data: Cell[][],
   setData: SetData,
-  validateFunction: ValidateFunction,
+  validateFunction?: ValidateFunction,
 ) => () => {
-  const newData = validatedDataGenerate(validateFunction, initialData)
+  const newData = validatedDataGenerate(initialData, validateFunction)
   setData(newData)
 }

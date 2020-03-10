@@ -11,7 +11,7 @@ export const usePrevious = value => {
 }
 
 /** Get max row and col of data */
-export const getMaxRowAndCol = (data: Cell[][]): { maxRow: number; maxCol: number } => {
+export const getMaxRowAndCol = (data?: Cell[][]): { maxRow: number; maxCol: number } => {
   if (!data) {
     return { maxRow: 0, maxCol: 0 }
   }
@@ -67,7 +67,7 @@ export const convertDataToCsv = (data: Cell[][]): string[][] =>
   data.map(rowArray => rowArray.map(({ value }) => value)) as string[][]
 
 // Diffing algorithm to find differences between data array
-export const changedCellsGenerate = (oldData: Cell[][], newData: Cell[][]): ChangedCells => {
+export const changedCellsGenerate = (newData: Cell[][], oldData?: Cell[][]): ChangedCells => {
   const { maxCol: maxColOld, maxRow: maxRowOld } = getMaxRowAndCol(oldData)
   const { maxCol: maxColNew, maxRow: maxRowNew } = getMaxRowAndCol(newData)
   const maxRow = Math.max(maxRowNew, maxRowOld)
@@ -90,7 +90,7 @@ export const changedCellsGenerate = (oldData: Cell[][], newData: Cell[][]): Chan
   return changedCells
 }
 
-export const validatedDataGenerate = (validateFunction: ValidateFunction, data: Cell[][]): Cell[][] => {
+export const validatedDataGenerate = (data: Cell[][], validateFunction?: ValidateFunction): Cell[][] => {
   // if valdateFunction is not set, then by default isValidated = true
   const dataWithIsValidated =
     typeof validateFunction === 'function'
