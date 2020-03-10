@@ -1,6 +1,12 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
-import { Login } from '../login'
+import { render } from '@testing-library/react'
+import { createBrowserHistory } from 'history'
+import { AuthContext } from '@/core/index'
+import { mockContext } from '@/core/__mocks__/mock-context'
+import { AuthHook } from '@/hooks/use-auth'
+import * as cognito from '@reapit/cognito-auth'
+import { redirectToLoginPage, Login } from '@/components/pages/login/login'
+import { Router, Route } from 'react-router-dom'
 
 jest.mock('@reapit/cognito-auth', () => ({
   redirectToLogin: jest.fn(),
@@ -10,7 +16,31 @@ jest.mock('@reapit/cognito-auth', () => ({
 
 describe('Login', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<Login />)
+    const history = createBrowserHistory()
+    const wrapper = render(
+      <AuthContext.Provider value={mockContext}>
+        <Router history={history}>
+          <Route>
+            <Login />
+          </Route>
+        </Router>
+      </AuthContext.Provider>,
+    )
     expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should match a snapshot', () => {
+    const wrapper = render(
+      <AuthContext.Provider value={{} as AuthHook}>
+        <Login />
+      </AuthContext.Provider>,
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should call redirectToLogin a snapshot', () => {
+    const spy = jest.spyOn(cognito, 'redirectToLogin')
+    redirectToLoginPage()
+    expect(spy).toBeCalled()
   })
 })

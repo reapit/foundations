@@ -1,115 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App should match a snapshot 1`] = `
-<ApolloProvider
-  client={
-    DefaultClient {
-      "cache": InMemoryCache {
-        "addTypename": true,
-        "cacheKeyRoot": KeyTrie {
-          "weakness": true,
-        },
-        "config": Object {
-          "addTypename": true,
-          "dataIdFromObject": [Function],
-          "fragmentMatcher": HeuristicFragmentMatcher {},
-          "freezeResults": false,
-          "resultCaching": true,
-        },
-        "data": DepTrackingCache {
-          "data": Object {},
-          "depend": [Function],
-        },
-        "maybeBroadcastWatch": [Function],
-        "optimisticData": DepTrackingCache {
-          "data": Object {},
-          "depend": [Function],
-        },
-        "silenceBroadcast": false,
-        "storeReader": StoreReader {
-          "executeSelectionSet": [Function],
-          "executeStoreQuery": [Function],
-          "executeSubSelectedArray": [Function],
-          "freezeResults": false,
-        },
-        "storeWriter": StoreWriter {},
-        "typenameDocumentCache": Map {
-          Object {
-            "definitions": Array [
-              Object {
-                "kind": "OperationDefinition",
-                "name": Object {
-                  "kind": "Name",
-                  "value": "GeneratedClientQuery",
-                },
-                "operation": "query",
-                "selectionSet": Object {
-                  "kind": "SelectionSet",
-                  "selections": Array [],
-                },
-              },
-            ],
-            "kind": "Document",
-          } => Object {
-            "definitions": Array [
-              Object {
-                "kind": "OperationDefinition",
-                "name": Object {
-                  "kind": "Name",
-                  "value": "GeneratedClientQuery",
-                },
-                "operation": "query",
-                "selectionSet": Object {
-                  "kind": "SelectionSet",
-                  "selections": Array [],
-                },
-              },
-            ],
-            "kind": "Document",
-          },
-          Object {
-            "definitions": Array [
-              Object {
-                "kind": "OperationDefinition",
-                "name": Object {
-                  "kind": "Name",
-                  "value": "GeneratedClientQuery",
-                },
-                "operation": "query",
-                "selectionSet": Object {
-                  "kind": "SelectionSet",
-                  "selections": Array [],
-                },
-              },
-            ],
-            "kind": "Document",
-          } => Object {
-            "definitions": Array [
-              Object {
-                "kind": "OperationDefinition",
-                "name": Object {
-                  "kind": "Name",
-                  "value": "GeneratedClientQuery",
-                },
-                "operation": "query",
-                "selectionSet": Object {
-                  "kind": "SelectionSet",
-                  "selections": Array [],
-                },
-              },
-            ],
-            "kind": "Document",
-          },
-        },
-        "watches": Set {},
-      },
-      "clearStoreCallbacks": Array [],
-      "defaultOptions": Object {},
-      "disableNetworkFetches": false,
-      "link": ApolloLink {
-        "request": [Function],
-      },
-      "localState": LocalState {
+<ContextProvider
+  value={
+    Object {
+      "getLoginSession": [Function],
+      "loginSession": null,
+      "logout": [Function],
+      "refreshParams": null,
+    }
+  }
+>
+  <ApolloProvider
+    client={
+      DefaultClient {
         "cache": InMemoryCache {
           "addTypename": true,
           "cacheKeyRoot": KeyTrie {
@@ -209,127 +113,9 @@ exports[`App should match a snapshot 1`] = `
           },
           "watches": Set {},
         },
-        "client": [Circular],
-        "resolvers": Object {
-          "Mutation": Object {},
-          "Query": Object {
-            "contacts": [Function],
-          },
-        },
-      },
-      "mutate": [Function],
-      "query": [Function],
-      "queryDeduplication": true,
-      "queryManager": QueryManager {
-        "assumeImmutableResults": false,
-        "clientAwareness": Object {
-          "name": undefined,
-          "version": undefined,
-        },
-        "dataStore": DataStore {
-          "cache": InMemoryCache {
-            "addTypename": true,
-            "cacheKeyRoot": KeyTrie {
-              "weakness": true,
-            },
-            "config": Object {
-              "addTypename": true,
-              "dataIdFromObject": [Function],
-              "fragmentMatcher": HeuristicFragmentMatcher {},
-              "freezeResults": false,
-              "resultCaching": true,
-            },
-            "data": DepTrackingCache {
-              "data": Object {},
-              "depend": [Function],
-            },
-            "maybeBroadcastWatch": [Function],
-            "optimisticData": DepTrackingCache {
-              "data": Object {},
-              "depend": [Function],
-            },
-            "silenceBroadcast": false,
-            "storeReader": StoreReader {
-              "executeSelectionSet": [Function],
-              "executeStoreQuery": [Function],
-              "executeSubSelectedArray": [Function],
-              "freezeResults": false,
-            },
-            "storeWriter": StoreWriter {},
-            "typenameDocumentCache": Map {
-              Object {
-                "definitions": Array [
-                  Object {
-                    "kind": "OperationDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "GeneratedClientQuery",
-                    },
-                    "operation": "query",
-                    "selectionSet": Object {
-                      "kind": "SelectionSet",
-                      "selections": Array [],
-                    },
-                  },
-                ],
-                "kind": "Document",
-              } => Object {
-                "definitions": Array [
-                  Object {
-                    "kind": "OperationDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "GeneratedClientQuery",
-                    },
-                    "operation": "query",
-                    "selectionSet": Object {
-                      "kind": "SelectionSet",
-                      "selections": Array [],
-                    },
-                  },
-                ],
-                "kind": "Document",
-              },
-              Object {
-                "definitions": Array [
-                  Object {
-                    "kind": "OperationDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "GeneratedClientQuery",
-                    },
-                    "operation": "query",
-                    "selectionSet": Object {
-                      "kind": "SelectionSet",
-                      "selections": Array [],
-                    },
-                  },
-                ],
-                "kind": "Document",
-              } => Object {
-                "definitions": Array [
-                  Object {
-                    "kind": "OperationDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "GeneratedClientQuery",
-                    },
-                    "operation": "query",
-                    "selectionSet": Object {
-                      "kind": "SelectionSet",
-                      "selections": Array [],
-                    },
-                  },
-                ],
-                "kind": "Document",
-              },
-            },
-            "watches": Set {},
-          },
-        },
-        "fetchQueryRejectFns": Map {},
-        "idCounter": 1,
-        "inFlightLinkObservables": Map {},
+        "clearStoreCallbacks": Array [],
+        "defaultOptions": Object {},
+        "disableNetworkFetches": false,
         "link": ApolloLink {
           "request": [Function],
         },
@@ -441,207 +227,361 @@ exports[`App should match a snapshot 1`] = `
             },
           },
         },
-        "mutationStore": MutationStore {
-          "store": Object {},
-        },
-        "onBroadcast": [Function],
-        "pollingInfoByQueryId": Map {},
-        "queries": Map {},
+        "mutate": [Function],
+        "query": [Function],
         "queryDeduplication": true,
-        "queryStore": QueryStore {
-          "store": Object {},
-        },
-        "ssrMode": false,
-        "transformCache": WeakMap {},
-      },
-      "reFetchObservableQueries": [Function],
-      "resetStore": [Function],
-      "resetStoreCallbacks": Array [],
-      "store": DataStore {
-        "cache": InMemoryCache {
-          "addTypename": true,
-          "cacheKeyRoot": KeyTrie {
-            "weakness": true,
+        "queryManager": QueryManager {
+          "assumeImmutableResults": false,
+          "clientAwareness": Object {
+            "name": undefined,
+            "version": undefined,
           },
-          "config": Object {
+          "dataStore": DataStore {
+            "cache": InMemoryCache {
+              "addTypename": true,
+              "cacheKeyRoot": KeyTrie {
+                "weakness": true,
+              },
+              "config": Object {
+                "addTypename": true,
+                "dataIdFromObject": [Function],
+                "fragmentMatcher": HeuristicFragmentMatcher {},
+                "freezeResults": false,
+                "resultCaching": true,
+              },
+              "data": DepTrackingCache {
+                "data": Object {},
+                "depend": [Function],
+              },
+              "maybeBroadcastWatch": [Function],
+              "optimisticData": DepTrackingCache {
+                "data": Object {},
+                "depend": [Function],
+              },
+              "silenceBroadcast": false,
+              "storeReader": StoreReader {
+                "executeSelectionSet": [Function],
+                "executeStoreQuery": [Function],
+                "executeSubSelectedArray": [Function],
+                "freezeResults": false,
+              },
+              "storeWriter": StoreWriter {},
+              "typenameDocumentCache": Map {
+                Object {
+                  "definitions": Array [
+                    Object {
+                      "kind": "OperationDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "GeneratedClientQuery",
+                      },
+                      "operation": "query",
+                      "selectionSet": Object {
+                        "kind": "SelectionSet",
+                        "selections": Array [],
+                      },
+                    },
+                  ],
+                  "kind": "Document",
+                } => Object {
+                  "definitions": Array [
+                    Object {
+                      "kind": "OperationDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "GeneratedClientQuery",
+                      },
+                      "operation": "query",
+                      "selectionSet": Object {
+                        "kind": "SelectionSet",
+                        "selections": Array [],
+                      },
+                    },
+                  ],
+                  "kind": "Document",
+                },
+                Object {
+                  "definitions": Array [
+                    Object {
+                      "kind": "OperationDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "GeneratedClientQuery",
+                      },
+                      "operation": "query",
+                      "selectionSet": Object {
+                        "kind": "SelectionSet",
+                        "selections": Array [],
+                      },
+                    },
+                  ],
+                  "kind": "Document",
+                } => Object {
+                  "definitions": Array [
+                    Object {
+                      "kind": "OperationDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "GeneratedClientQuery",
+                      },
+                      "operation": "query",
+                      "selectionSet": Object {
+                        "kind": "SelectionSet",
+                        "selections": Array [],
+                      },
+                    },
+                  ],
+                  "kind": "Document",
+                },
+              },
+              "watches": Set {},
+            },
+          },
+          "fetchQueryRejectFns": Map {},
+          "idCounter": 1,
+          "inFlightLinkObservables": Map {},
+          "link": ApolloLink {
+            "request": [Function],
+          },
+          "localState": LocalState {
+            "cache": InMemoryCache {
+              "addTypename": true,
+              "cacheKeyRoot": KeyTrie {
+                "weakness": true,
+              },
+              "config": Object {
+                "addTypename": true,
+                "dataIdFromObject": [Function],
+                "fragmentMatcher": HeuristicFragmentMatcher {},
+                "freezeResults": false,
+                "resultCaching": true,
+              },
+              "data": DepTrackingCache {
+                "data": Object {},
+                "depend": [Function],
+              },
+              "maybeBroadcastWatch": [Function],
+              "optimisticData": DepTrackingCache {
+                "data": Object {},
+                "depend": [Function],
+              },
+              "silenceBroadcast": false,
+              "storeReader": StoreReader {
+                "executeSelectionSet": [Function],
+                "executeStoreQuery": [Function],
+                "executeSubSelectedArray": [Function],
+                "freezeResults": false,
+              },
+              "storeWriter": StoreWriter {},
+              "typenameDocumentCache": Map {
+                Object {
+                  "definitions": Array [
+                    Object {
+                      "kind": "OperationDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "GeneratedClientQuery",
+                      },
+                      "operation": "query",
+                      "selectionSet": Object {
+                        "kind": "SelectionSet",
+                        "selections": Array [],
+                      },
+                    },
+                  ],
+                  "kind": "Document",
+                } => Object {
+                  "definitions": Array [
+                    Object {
+                      "kind": "OperationDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "GeneratedClientQuery",
+                      },
+                      "operation": "query",
+                      "selectionSet": Object {
+                        "kind": "SelectionSet",
+                        "selections": Array [],
+                      },
+                    },
+                  ],
+                  "kind": "Document",
+                },
+                Object {
+                  "definitions": Array [
+                    Object {
+                      "kind": "OperationDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "GeneratedClientQuery",
+                      },
+                      "operation": "query",
+                      "selectionSet": Object {
+                        "kind": "SelectionSet",
+                        "selections": Array [],
+                      },
+                    },
+                  ],
+                  "kind": "Document",
+                } => Object {
+                  "definitions": Array [
+                    Object {
+                      "kind": "OperationDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "GeneratedClientQuery",
+                      },
+                      "operation": "query",
+                      "selectionSet": Object {
+                        "kind": "SelectionSet",
+                        "selections": Array [],
+                      },
+                    },
+                  ],
+                  "kind": "Document",
+                },
+              },
+              "watches": Set {},
+            },
+            "client": [Circular],
+            "resolvers": Object {
+              "Mutation": Object {},
+              "Query": Object {
+                "contacts": [Function],
+              },
+            },
+          },
+          "mutationStore": MutationStore {
+            "store": Object {},
+          },
+          "onBroadcast": [Function],
+          "pollingInfoByQueryId": Map {},
+          "queries": Map {},
+          "queryDeduplication": true,
+          "queryStore": QueryStore {
+            "store": Object {},
+          },
+          "ssrMode": false,
+          "transformCache": WeakMap {},
+        },
+        "reFetchObservableQueries": [Function],
+        "resetStore": [Function],
+        "resetStoreCallbacks": Array [],
+        "store": DataStore {
+          "cache": InMemoryCache {
             "addTypename": true,
-            "dataIdFromObject": [Function],
-            "fragmentMatcher": HeuristicFragmentMatcher {},
-            "freezeResults": false,
-            "resultCaching": true,
-          },
-          "data": DepTrackingCache {
-            "data": Object {},
-            "depend": [Function],
-          },
-          "maybeBroadcastWatch": [Function],
-          "optimisticData": DepTrackingCache {
-            "data": Object {},
-            "depend": [Function],
-          },
-          "silenceBroadcast": false,
-          "storeReader": StoreReader {
-            "executeSelectionSet": [Function],
-            "executeStoreQuery": [Function],
-            "executeSubSelectedArray": [Function],
-            "freezeResults": false,
-          },
-          "storeWriter": StoreWriter {},
-          "typenameDocumentCache": Map {
-            Object {
-              "definitions": Array [
-                Object {
-                  "kind": "OperationDefinition",
-                  "name": Object {
-                    "kind": "Name",
-                    "value": "GeneratedClientQuery",
-                  },
-                  "operation": "query",
-                  "selectionSet": Object {
-                    "kind": "SelectionSet",
-                    "selections": Array [],
-                  },
-                },
-              ],
-              "kind": "Document",
-            } => Object {
-              "definitions": Array [
-                Object {
-                  "kind": "OperationDefinition",
-                  "name": Object {
-                    "kind": "Name",
-                    "value": "GeneratedClientQuery",
-                  },
-                  "operation": "query",
-                  "selectionSet": Object {
-                    "kind": "SelectionSet",
-                    "selections": Array [],
-                  },
-                },
-              ],
-              "kind": "Document",
+            "cacheKeyRoot": KeyTrie {
+              "weakness": true,
             },
-            Object {
-              "definitions": Array [
-                Object {
-                  "kind": "OperationDefinition",
-                  "name": Object {
-                    "kind": "Name",
-                    "value": "GeneratedClientQuery",
-                  },
-                  "operation": "query",
-                  "selectionSet": Object {
-                    "kind": "SelectionSet",
-                    "selections": Array [],
-                  },
-                },
-              ],
-              "kind": "Document",
-            } => Object {
-              "definitions": Array [
-                Object {
-                  "kind": "OperationDefinition",
-                  "name": Object {
-                    "kind": "Name",
-                    "value": "GeneratedClientQuery",
-                  },
-                  "operation": "query",
-                  "selectionSet": Object {
-                    "kind": "SelectionSet",
-                    "selections": Array [],
-                  },
-                },
-              ],
-              "kind": "Document",
+            "config": Object {
+              "addTypename": true,
+              "dataIdFromObject": [Function],
+              "fragmentMatcher": HeuristicFragmentMatcher {},
+              "freezeResults": false,
+              "resultCaching": true,
             },
+            "data": DepTrackingCache {
+              "data": Object {},
+              "depend": [Function],
+            },
+            "maybeBroadcastWatch": [Function],
+            "optimisticData": DepTrackingCache {
+              "data": Object {},
+              "depend": [Function],
+            },
+            "silenceBroadcast": false,
+            "storeReader": StoreReader {
+              "executeSelectionSet": [Function],
+              "executeStoreQuery": [Function],
+              "executeSubSelectedArray": [Function],
+              "freezeResults": false,
+            },
+            "storeWriter": StoreWriter {},
+            "typenameDocumentCache": Map {
+              Object {
+                "definitions": Array [
+                  Object {
+                    "kind": "OperationDefinition",
+                    "name": Object {
+                      "kind": "Name",
+                      "value": "GeneratedClientQuery",
+                    },
+                    "operation": "query",
+                    "selectionSet": Object {
+                      "kind": "SelectionSet",
+                      "selections": Array [],
+                    },
+                  },
+                ],
+                "kind": "Document",
+              } => Object {
+                "definitions": Array [
+                  Object {
+                    "kind": "OperationDefinition",
+                    "name": Object {
+                      "kind": "Name",
+                      "value": "GeneratedClientQuery",
+                    },
+                    "operation": "query",
+                    "selectionSet": Object {
+                      "kind": "SelectionSet",
+                      "selections": Array [],
+                    },
+                  },
+                ],
+                "kind": "Document",
+              },
+              Object {
+                "definitions": Array [
+                  Object {
+                    "kind": "OperationDefinition",
+                    "name": Object {
+                      "kind": "Name",
+                      "value": "GeneratedClientQuery",
+                    },
+                    "operation": "query",
+                    "selectionSet": Object {
+                      "kind": "SelectionSet",
+                      "selections": Array [],
+                    },
+                  },
+                ],
+                "kind": "Document",
+              } => Object {
+                "definitions": Array [
+                  Object {
+                    "kind": "OperationDefinition",
+                    "name": Object {
+                      "kind": "Name",
+                      "value": "GeneratedClientQuery",
+                    },
+                    "operation": "query",
+                    "selectionSet": Object {
+                      "kind": "SelectionSet",
+                      "selections": Array [],
+                    },
+                  },
+                ],
+                "kind": "Document",
+              },
+            },
+            "watches": Set {},
           },
-          "watches": Set {},
         },
-      },
-      "typeDefs": Object {
-        "definitions": Array [
-          Object {
-            "directives": Array [],
-            "fields": Array [
-              Object {
-                "arguments": Array [
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "id",
-                    },
-                    "type": Object {
-                      "kind": "NonNullType",
-                      "type": Object {
-                        "kind": "NamedType",
-                        "name": Object {
-                          "kind": "Name",
-                          "value": "String",
-                        },
-                      },
-                    },
-                  },
-                ],
-                "directives": Array [],
-                "kind": "FieldDefinition",
-                "name": Object {
-                  "kind": "Name",
-                  "value": "contact",
-                },
-                "type": Object {
-                  "kind": "NonNullType",
-                  "type": Object {
-                    "kind": "NamedType",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "Contact",
-                    },
-                  },
-                },
-              },
-              Object {
-                "arguments": Array [
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "name",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
+        "typeDefs": Object {
+          "definitions": Array [
+            Object {
+              "directives": Array [],
+              "fields": Array [
+                Object {
+                  "arguments": Array [
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
                       "name": Object {
                         "kind": "Name",
-                        "value": "String",
+                        "value": "id",
                       },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "address",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "String",
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "negotiatorId",
-                    },
-                    "type": Object {
-                      "kind": "ListType",
                       "type": Object {
                         "kind": "NonNullType",
                         "type": Object {
@@ -653,1078 +593,1148 @@ exports[`App should match a snapshot 1`] = `
                         },
                       },
                     },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "officeId",
-                    },
-                    "type": Object {
-                      "kind": "ListType",
-                      "type": Object {
-                        "kind": "NonNullType",
-                        "type": Object {
-                          "kind": "NamedType",
-                          "name": Object {
-                            "kind": "Name",
-                            "value": "String",
-                          },
-                        },
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "active",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "Boolean",
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "pageNumber",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "Int",
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "pageSize",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "Int",
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "sortBy",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "String",
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "identityCheck",
-                    },
-                    "type": Object {
-                      "kind": "ListType",
-                      "type": Object {
-                        "kind": "NonNullType",
-                        "type": Object {
-                          "kind": "NamedType",
-                          "name": Object {
-                            "kind": "Name",
-                            "value": "String",
-                          },
-                        },
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "marketingConsent",
-                    },
-                    "type": Object {
-                      "kind": "ListType",
-                      "type": Object {
-                        "kind": "NonNullType",
-                        "type": Object {
-                          "kind": "NamedType",
-                          "name": Object {
-                            "kind": "Name",
-                            "value": "String",
-                          },
-                        },
-                      },
-                    },
-                  },
-                ],
-                "directives": Array [],
-                "kind": "FieldDefinition",
-                "name": Object {
-                  "kind": "Name",
-                  "value": "contacts",
-                },
-                "type": Object {
-                  "kind": "NonNullType",
-                  "type": Object {
-                    "kind": "NamedType",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "Contacts",
-                    },
-                  },
-                },
-              },
-              Object {
-                "arguments": Array [
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "id",
-                    },
-                    "type": Object {
-                      "kind": "NonNullType",
-                      "type": Object {
-                        "kind": "NamedType",
-                        "name": Object {
-                          "kind": "Name",
-                          "value": "String",
-                        },
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "checkId",
-                    },
-                    "type": Object {
-                      "kind": "NonNullType",
-                      "type": Object {
-                        "kind": "NamedType",
-                        "name": Object {
-                          "kind": "Name",
-                          "value": "String",
-                        },
-                      },
-                    },
-                  },
-                ],
-                "directives": Array [],
-                "kind": "FieldDefinition",
-                "name": Object {
-                  "kind": "Name",
-                  "value": "contactIdentityCheck",
-                },
-                "type": Object {
-                  "kind": "NonNullType",
-                  "type": Object {
-                    "kind": "NamedType",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "ContactIdentityCheck",
-                    },
-                  },
-                },
-              },
-              Object {
-                "arguments": Array [
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "id",
-                    },
-                    "type": Object {
-                      "kind": "NonNullType",
-                      "type": Object {
-                        "kind": "NamedType",
-                        "name": Object {
-                          "kind": "Name",
-                          "value": "String",
-                        },
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "pageNumber",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "Int",
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "pageSize",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "Int",
-                      },
-                    },
-                  },
-                ],
-                "directives": Array [],
-                "kind": "FieldDefinition",
-                "name": Object {
-                  "kind": "Name",
-                  "value": "contactIdentityChecks",
-                },
-                "type": Object {
-                  "kind": "NonNullType",
-                  "type": Object {
-                    "kind": "NamedType",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "ContactIdentityChecks",
-                    },
-                  },
-                },
-              },
-            ],
-            "interfaces": Array [],
-            "kind": "ObjectTypeDefinition",
-            "name": Object {
-              "kind": "Name",
-              "value": "Query",
-            },
-          },
-          Object {
-            "directives": Array [],
-            "fields": Array [
-              Object {
-                "arguments": Array [
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "title",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "String",
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "forename",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "String",
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "surname",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "String",
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "dateOfBirth",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "String",
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "active",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "Boolean",
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "marketingConsent",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "String",
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "communications",
-                    },
-                    "type": Object {
-                      "kind": "ListType",
-                      "type": Object {
-                        "kind": "NonNullType",
-                        "type": Object {
-                          "kind": "NamedType",
-                          "name": Object {
-                            "kind": "Name",
-                            "value": "ContactCommunicationInput",
-                          },
-                        },
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "officeIds",
-                    },
-                    "type": Object {
-                      "kind": "ListType",
-                      "type": Object {
-                        "kind": "NonNullType",
-                        "type": Object {
-                          "kind": "NamedType",
-                          "name": Object {
-                            "kind": "Name",
-                            "value": "String",
-                          },
-                        },
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "negotiatorIds",
-                    },
-                    "type": Object {
-                      "kind": "ListType",
-                      "type": Object {
-                        "kind": "NonNullType",
-                        "type": Object {
-                          "kind": "NamedType",
-                          "name": Object {
-                            "kind": "Name",
-                            "value": "String",
-                          },
-                        },
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "addresses",
-                    },
-                    "type": Object {
-                      "kind": "ListType",
-                      "type": Object {
-                        "kind": "NonNullType",
-                        "type": Object {
-                          "kind": "NamedType",
-                          "name": Object {
-                            "kind": "Name",
-                            "value": "ContactAddressInput",
-                          },
-                        },
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "metadata",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "JSON",
-                      },
-                    },
-                  },
-                ],
-                "directives": Array [],
-                "kind": "FieldDefinition",
-                "name": Object {
-                  "kind": "Name",
-                  "value": "createContact",
-                },
-                "type": Object {
-                  "kind": "NonNullType",
-                  "type": Object {
-                    "kind": "NamedType",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "Contact",
-                    },
-                  },
-                },
-              },
-              Object {
-                "arguments": Array [
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "id",
-                    },
-                    "type": Object {
-                      "kind": "NonNullType",
-                      "type": Object {
-                        "kind": "NamedType",
-                        "name": Object {
-                          "kind": "Name",
-                          "value": "String",
-                        },
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "title",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "String",
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "forename",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "String",
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "surname",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "String",
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "dateOfBirth",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "String",
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "active",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "Boolean",
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "marketingConsent",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "String",
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "communications",
-                    },
-                    "type": Object {
-                      "kind": "ListType",
-                      "type": Object {
-                        "kind": "NonNullType",
-                        "type": Object {
-                          "kind": "NamedType",
-                          "name": Object {
-                            "kind": "Name",
-                            "value": "ContactCommunicationInput",
-                          },
-                        },
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "officeIds",
-                    },
-                    "type": Object {
-                      "kind": "ListType",
-                      "type": Object {
-                        "kind": "NonNullType",
-                        "type": Object {
-                          "kind": "NamedType",
-                          "name": Object {
-                            "kind": "Name",
-                            "value": "String",
-                          },
-                        },
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "negotiatorIds",
-                    },
-                    "type": Object {
-                      "kind": "ListType",
-                      "type": Object {
-                        "kind": "NonNullType",
-                        "type": Object {
-                          "kind": "NamedType",
-                          "name": Object {
-                            "kind": "Name",
-                            "value": "String",
-                          },
-                        },
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "addresses",
-                    },
-                    "type": Object {
-                      "kind": "ListType",
-                      "type": Object {
-                        "kind": "NonNullType",
-                        "type": Object {
-                          "kind": "NamedType",
-                          "name": Object {
-                            "kind": "Name",
-                            "value": "ContactAddressInput",
-                          },
-                        },
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "metadata",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "JSON",
-                      },
-                    },
-                  },
-                ],
-                "directives": Array [],
-                "kind": "FieldDefinition",
-                "name": Object {
-                  "kind": "Name",
-                  "value": "updateContact",
-                },
-                "type": Object {
-                  "kind": "NonNullType",
-                  "type": Object {
-                    "kind": "NamedType",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "Contact",
-                    },
-                  },
-                },
-              },
-              Object {
-                "arguments": Array [
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "contactId",
-                    },
-                    "type": Object {
-                      "kind": "NonNullType",
-                      "type": Object {
-                        "kind": "NamedType",
-                        "name": Object {
-                          "kind": "Name",
-                          "value": "String",
-                        },
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "checkDate",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "String",
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "status",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "String",
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "negotiatorId",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "String",
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "documents",
-                    },
-                    "type": Object {
-                      "kind": "ListType",
-                      "type": Object {
-                        "kind": "NonNullType",
-                        "type": Object {
-                          "kind": "NamedType",
-                          "name": Object {
-                            "kind": "Name",
-                            "value": "ContactIdentityDocumentInput",
-                          },
-                        },
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "metadata",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "JSON",
-                      },
-                    },
-                  },
-                ],
-                "directives": Array [],
-                "kind": "FieldDefinition",
-                "name": Object {
-                  "kind": "Name",
-                  "value": "createContactIdentityCheck",
-                },
-                "type": Object {
-                  "kind": "NonNullType",
-                  "type": Object {
-                    "kind": "NamedType",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "ContactIdentityCheck",
-                    },
-                  },
-                },
-              },
-              Object {
-                "arguments": Array [
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "id",
-                    },
-                    "type": Object {
-                      "kind": "NonNullType",
-                      "type": Object {
-                        "kind": "NamedType",
-                        "name": Object {
-                          "kind": "Name",
-                          "value": "String",
-                        },
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "contactId",
-                    },
-                    "type": Object {
-                      "kind": "NonNullType",
-                      "type": Object {
-                        "kind": "NamedType",
-                        "name": Object {
-                          "kind": "Name",
-                          "value": "String",
-                        },
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "checkDate",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "String",
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "status",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "String",
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "negotiatorId",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "String",
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "documents",
-                    },
-                    "type": Object {
-                      "kind": "ListType",
-                      "type": Object {
-                        "kind": "NonNullType",
-                        "type": Object {
-                          "kind": "NamedType",
-                          "name": Object {
-                            "kind": "Name",
-                            "value": "ContactIdentityDocumentInput",
-                          },
-                        },
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "metadata",
-                    },
-                    "type": Object {
-                      "kind": "NamedType",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "JSON",
-                      },
-                    },
-                  },
-                ],
-                "directives": Array [],
-                "kind": "FieldDefinition",
-                "name": Object {
-                  "kind": "Name",
-                  "value": "updateIdentityCheck",
-                },
-                "type": Object {
-                  "kind": "NonNullType",
-                  "type": Object {
-                    "kind": "NamedType",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "ContactIdentityCheck",
-                    },
-                  },
-                },
-              },
-              Object {
-                "arguments": Array [
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "userName",
-                    },
-                    "type": Object {
-                      "kind": "NonNullType",
-                      "type": Object {
-                        "kind": "NamedType",
-                        "name": Object {
-                          "kind": "Name",
-                          "value": "String",
-                        },
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "password",
-                    },
-                    "type": Object {
-                      "kind": "NonNullType",
-                      "type": Object {
-                        "kind": "NamedType",
-                        "name": Object {
-                          "kind": "Name",
-                          "value": "String",
-                        },
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "loginType",
-                    },
-                    "type": Object {
-                      "kind": "NonNullType",
-                      "type": Object {
-                        "kind": "NamedType",
-                        "name": Object {
-                          "kind": "Name",
-                          "value": "LoginType",
-                        },
-                      },
-                    },
-                  },
-                  Object {
-                    "directives": Array [],
-                    "kind": "InputValueDefinition",
-                    "name": Object {
-                      "kind": "Name",
-                      "value": "mode",
-                    },
-                    "type": Object {
-                      "kind": "NonNullType",
-                      "type": Object {
-                        "kind": "NamedType",
-                        "name": Object {
-                          "kind": "Name",
-                          "value": "LoginMode",
-                        },
-                      },
-                    },
-                  },
-                ],
-                "directives": Array [],
-                "kind": "FieldDefinition",
-                "name": Object {
-                  "kind": "Name",
-                  "value": "login",
-                },
-                "type": Object {
-                  "kind": "NamedType",
+                  ],
+                  "directives": Array [],
+                  "kind": "FieldDefinition",
                   "name": Object {
                     "kind": "Name",
-                    "value": "Token",
+                    "value": "contact",
+                  },
+                  "type": Object {
+                    "kind": "NonNullType",
+                    "type": Object {
+                      "kind": "NamedType",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "Contact",
+                      },
+                    },
                   },
                 },
+                Object {
+                  "arguments": Array [
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "name",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "String",
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "address",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "String",
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "negotiatorId",
+                      },
+                      "type": Object {
+                        "kind": "ListType",
+                        "type": Object {
+                          "kind": "NonNullType",
+                          "type": Object {
+                            "kind": "NamedType",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "String",
+                            },
+                          },
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "officeId",
+                      },
+                      "type": Object {
+                        "kind": "ListType",
+                        "type": Object {
+                          "kind": "NonNullType",
+                          "type": Object {
+                            "kind": "NamedType",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "String",
+                            },
+                          },
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "active",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "Boolean",
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "pageNumber",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "Int",
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "pageSize",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "Int",
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "sortBy",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "String",
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "identityCheck",
+                      },
+                      "type": Object {
+                        "kind": "ListType",
+                        "type": Object {
+                          "kind": "NonNullType",
+                          "type": Object {
+                            "kind": "NamedType",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "String",
+                            },
+                          },
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "marketingConsent",
+                      },
+                      "type": Object {
+                        "kind": "ListType",
+                        "type": Object {
+                          "kind": "NonNullType",
+                          "type": Object {
+                            "kind": "NamedType",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "String",
+                            },
+                          },
+                        },
+                      },
+                    },
+                  ],
+                  "directives": Array [],
+                  "kind": "FieldDefinition",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "contacts",
+                  },
+                  "type": Object {
+                    "kind": "NonNullType",
+                    "type": Object {
+                      "kind": "NamedType",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "Contacts",
+                      },
+                    },
+                  },
+                },
+                Object {
+                  "arguments": Array [
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "id",
+                      },
+                      "type": Object {
+                        "kind": "NonNullType",
+                        "type": Object {
+                          "kind": "NamedType",
+                          "name": Object {
+                            "kind": "Name",
+                            "value": "String",
+                          },
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "checkId",
+                      },
+                      "type": Object {
+                        "kind": "NonNullType",
+                        "type": Object {
+                          "kind": "NamedType",
+                          "name": Object {
+                            "kind": "Name",
+                            "value": "String",
+                          },
+                        },
+                      },
+                    },
+                  ],
+                  "directives": Array [],
+                  "kind": "FieldDefinition",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "contactIdentityCheck",
+                  },
+                  "type": Object {
+                    "kind": "NonNullType",
+                    "type": Object {
+                      "kind": "NamedType",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "ContactIdentityCheck",
+                      },
+                    },
+                  },
+                },
+                Object {
+                  "arguments": Array [
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "id",
+                      },
+                      "type": Object {
+                        "kind": "NonNullType",
+                        "type": Object {
+                          "kind": "NamedType",
+                          "name": Object {
+                            "kind": "Name",
+                            "value": "String",
+                          },
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "pageNumber",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "Int",
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "pageSize",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "Int",
+                        },
+                      },
+                    },
+                  ],
+                  "directives": Array [],
+                  "kind": "FieldDefinition",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "contactIdentityChecks",
+                  },
+                  "type": Object {
+                    "kind": "NonNullType",
+                    "type": Object {
+                      "kind": "NamedType",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "ContactIdentityChecks",
+                      },
+                    },
+                  },
+                },
+              ],
+              "interfaces": Array [],
+              "kind": "ObjectTypeDefinition",
+              "name": Object {
+                "kind": "Name",
+                "value": "Query",
               },
-            ],
-            "interfaces": Array [],
-            "kind": "ObjectTypeDefinition",
-            "name": Object {
-              "kind": "Name",
-              "value": "Mutation",
             },
-          },
-        ],
-        "kind": "Document",
-        "loc": Object {
-          "end": 1872,
-          "source": Object {
-            "body": "type Query {
+            Object {
+              "directives": Array [],
+              "fields": Array [
+                Object {
+                  "arguments": Array [
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "title",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "String",
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "forename",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "String",
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "surname",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "String",
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "dateOfBirth",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "String",
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "active",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "Boolean",
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "marketingConsent",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "String",
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "communications",
+                      },
+                      "type": Object {
+                        "kind": "ListType",
+                        "type": Object {
+                          "kind": "NonNullType",
+                          "type": Object {
+                            "kind": "NamedType",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "ContactCommunicationInput",
+                            },
+                          },
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "officeIds",
+                      },
+                      "type": Object {
+                        "kind": "ListType",
+                        "type": Object {
+                          "kind": "NonNullType",
+                          "type": Object {
+                            "kind": "NamedType",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "String",
+                            },
+                          },
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "negotiatorIds",
+                      },
+                      "type": Object {
+                        "kind": "ListType",
+                        "type": Object {
+                          "kind": "NonNullType",
+                          "type": Object {
+                            "kind": "NamedType",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "String",
+                            },
+                          },
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "addresses",
+                      },
+                      "type": Object {
+                        "kind": "ListType",
+                        "type": Object {
+                          "kind": "NonNullType",
+                          "type": Object {
+                            "kind": "NamedType",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "ContactAddressInput",
+                            },
+                          },
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "metadata",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "JSON",
+                        },
+                      },
+                    },
+                  ],
+                  "directives": Array [],
+                  "kind": "FieldDefinition",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "createContact",
+                  },
+                  "type": Object {
+                    "kind": "NonNullType",
+                    "type": Object {
+                      "kind": "NamedType",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "Contact",
+                      },
+                    },
+                  },
+                },
+                Object {
+                  "arguments": Array [
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "id",
+                      },
+                      "type": Object {
+                        "kind": "NonNullType",
+                        "type": Object {
+                          "kind": "NamedType",
+                          "name": Object {
+                            "kind": "Name",
+                            "value": "String",
+                          },
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "title",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "String",
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "forename",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "String",
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "surname",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "String",
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "dateOfBirth",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "String",
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "active",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "Boolean",
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "marketingConsent",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "String",
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "communications",
+                      },
+                      "type": Object {
+                        "kind": "ListType",
+                        "type": Object {
+                          "kind": "NonNullType",
+                          "type": Object {
+                            "kind": "NamedType",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "ContactCommunicationInput",
+                            },
+                          },
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "officeIds",
+                      },
+                      "type": Object {
+                        "kind": "ListType",
+                        "type": Object {
+                          "kind": "NonNullType",
+                          "type": Object {
+                            "kind": "NamedType",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "String",
+                            },
+                          },
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "negotiatorIds",
+                      },
+                      "type": Object {
+                        "kind": "ListType",
+                        "type": Object {
+                          "kind": "NonNullType",
+                          "type": Object {
+                            "kind": "NamedType",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "String",
+                            },
+                          },
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "addresses",
+                      },
+                      "type": Object {
+                        "kind": "ListType",
+                        "type": Object {
+                          "kind": "NonNullType",
+                          "type": Object {
+                            "kind": "NamedType",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "ContactAddressInput",
+                            },
+                          },
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "metadata",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "JSON",
+                        },
+                      },
+                    },
+                  ],
+                  "directives": Array [],
+                  "kind": "FieldDefinition",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "updateContact",
+                  },
+                  "type": Object {
+                    "kind": "NonNullType",
+                    "type": Object {
+                      "kind": "NamedType",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "Contact",
+                      },
+                    },
+                  },
+                },
+                Object {
+                  "arguments": Array [
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "contactId",
+                      },
+                      "type": Object {
+                        "kind": "NonNullType",
+                        "type": Object {
+                          "kind": "NamedType",
+                          "name": Object {
+                            "kind": "Name",
+                            "value": "String",
+                          },
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "checkDate",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "String",
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "status",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "String",
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "negotiatorId",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "String",
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "documents",
+                      },
+                      "type": Object {
+                        "kind": "ListType",
+                        "type": Object {
+                          "kind": "NonNullType",
+                          "type": Object {
+                            "kind": "NamedType",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "ContactIdentityDocumentInput",
+                            },
+                          },
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "metadata",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "JSON",
+                        },
+                      },
+                    },
+                  ],
+                  "directives": Array [],
+                  "kind": "FieldDefinition",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "createContactIdentityCheck",
+                  },
+                  "type": Object {
+                    "kind": "NonNullType",
+                    "type": Object {
+                      "kind": "NamedType",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "ContactIdentityCheck",
+                      },
+                    },
+                  },
+                },
+                Object {
+                  "arguments": Array [
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "id",
+                      },
+                      "type": Object {
+                        "kind": "NonNullType",
+                        "type": Object {
+                          "kind": "NamedType",
+                          "name": Object {
+                            "kind": "Name",
+                            "value": "String",
+                          },
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "contactId",
+                      },
+                      "type": Object {
+                        "kind": "NonNullType",
+                        "type": Object {
+                          "kind": "NamedType",
+                          "name": Object {
+                            "kind": "Name",
+                            "value": "String",
+                          },
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "checkDate",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "String",
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "status",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "String",
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "negotiatorId",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "String",
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "documents",
+                      },
+                      "type": Object {
+                        "kind": "ListType",
+                        "type": Object {
+                          "kind": "NonNullType",
+                          "type": Object {
+                            "kind": "NamedType",
+                            "name": Object {
+                              "kind": "Name",
+                              "value": "ContactIdentityDocumentInput",
+                            },
+                          },
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "metadata",
+                      },
+                      "type": Object {
+                        "kind": "NamedType",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "JSON",
+                        },
+                      },
+                    },
+                  ],
+                  "directives": Array [],
+                  "kind": "FieldDefinition",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "updateIdentityCheck",
+                  },
+                  "type": Object {
+                    "kind": "NonNullType",
+                    "type": Object {
+                      "kind": "NamedType",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "ContactIdentityCheck",
+                      },
+                    },
+                  },
+                },
+                Object {
+                  "arguments": Array [
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "userName",
+                      },
+                      "type": Object {
+                        "kind": "NonNullType",
+                        "type": Object {
+                          "kind": "NamedType",
+                          "name": Object {
+                            "kind": "Name",
+                            "value": "String",
+                          },
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "password",
+                      },
+                      "type": Object {
+                        "kind": "NonNullType",
+                        "type": Object {
+                          "kind": "NamedType",
+                          "name": Object {
+                            "kind": "Name",
+                            "value": "String",
+                          },
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "loginType",
+                      },
+                      "type": Object {
+                        "kind": "NonNullType",
+                        "type": Object {
+                          "kind": "NamedType",
+                          "name": Object {
+                            "kind": "Name",
+                            "value": "LoginType",
+                          },
+                        },
+                      },
+                    },
+                    Object {
+                      "directives": Array [],
+                      "kind": "InputValueDefinition",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "mode",
+                      },
+                      "type": Object {
+                        "kind": "NonNullType",
+                        "type": Object {
+                          "kind": "NamedType",
+                          "name": Object {
+                            "kind": "Name",
+                            "value": "LoginMode",
+                          },
+                        },
+                      },
+                    },
+                  ],
+                  "directives": Array [],
+                  "kind": "FieldDefinition",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "login",
+                  },
+                  "type": Object {
+                    "kind": "NamedType",
+                    "name": Object {
+                      "kind": "Name",
+                      "value": "Token",
+                    },
+                  },
+                },
+              ],
+              "interfaces": Array [],
+              "kind": "ObjectTypeDefinition",
+              "name": Object {
+                "kind": "Name",
+                "value": "Mutation",
+              },
+            },
+          ],
+          "kind": "Document",
+          "loc": Object {
+            "end": 1872,
+            "source": Object {
+              "body": "type Query {
   # contact
   contact(
     id: String!,
@@ -1816,21 +1826,22 @@ type Mutation {
   ): Token
 }
 ",
-            "locationOffset": Object {
-              "column": 1,
-              "line": 1,
+              "locationOffset": Object {
+                "column": 1,
+                "line": 1,
+              },
+              "name": "GraphQL request",
             },
-            "name": "GraphQL request",
+            "start": 0,
           },
-          "start": 0,
         },
-      },
-      "version": "2.6.8",
-      "watchQuery": [Function],
+        "version": "2.6.8",
+        "watchQuery": [Function],
+      }
     }
-  }
->
-  <Component />
-  <GlobalStyleComponent />
-</ApolloProvider>
+  >
+    <Component />
+    <GlobalStyleComponent />
+  </ApolloProvider>
+</ContextProvider>
 `;

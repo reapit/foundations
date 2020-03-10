@@ -4,10 +4,10 @@ import { withRouter, RouteComponentProps } from 'react-router'
 import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
 import { LoginMode } from '@reapit/cognito-auth'
 import { Location } from 'history'
+import { IoIosPeople } from 'react-icons/io'
 import { FaSignOutAlt, FaCloud, FaHome, FaBuilding, FaClipboardList, FaDownload } from 'react-icons/fa'
 import { MdWeb, MdLibraryBooks, MdLiveHelp } from 'react-icons/md'
-import { IoIosPeople } from 'react-icons/io'
-import useAuth from '@/hooks/use-auth'
+import { AuthContext } from '@/core/index'
 
 export const generateMenuConfig = (logout: () => void, location: Location<any>, mode: LoginMode): MenuConfig => {
   return {
@@ -103,7 +103,7 @@ export const callbackAppClick = () =>
 export type MenuProps = RouteComponentProps
 
 export const Menu: React.FC<MenuProps> = ({ location }: MenuProps) => {
-  const { logout, loginSession } = useAuth()
+  const { logout, loginSession } = React.useContext(AuthContext)
   const mode = loginSession?.mode || 'WEB'
 
   const menuConfigs = generateMenuConfig(logout, location, mode)

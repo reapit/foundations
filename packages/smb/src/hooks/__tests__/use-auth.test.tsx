@@ -1,6 +1,6 @@
 import { renderHook, act } from '@testing-library/react-hooks'
 import { RefreshParams } from '@reapit/cognito-auth'
-import useAuth, { AuthContext } from '../use-auth'
+import { useAuth, AuthHook } from '../use-auth'
 import mountReactHook from '../__mocks__/mount-react-hook'
 
 const refreshParams: RefreshParams = {
@@ -45,11 +45,11 @@ jest.mock('@reapit/cognito-auth', () => ({
 describe('use-auth (pure)', () => {
   describe('getLoginSession', () => {
     it('should return the current loginSession', () => {
-      const { result } = renderHook<{}, AuthContext>(() => useAuth())
+      const { result } = renderHook<{}, AuthHook>(() => useAuth())
       expect(result.current.loginSession).toEqual(null)
     })
     it('should return the current loginSession', async () => {
-      const { result } = renderHook<{}, AuthContext>(() => useAuth())
+      const { result } = renderHook<{}, AuthHook>(() => useAuth())
       await act(async () => {
         await result.current.getLoginSession(refreshParams)
       })
@@ -58,7 +58,7 @@ describe('use-auth (pure)', () => {
   })
   describe('logout', () => {
     it('should remove session', async () => {
-      const { result } = renderHook<{}, AuthContext>(() => useAuth())
+      const { result } = renderHook<{}, AuthHook>(() => useAuth())
       await act(async () => {
         await result.current.logout()
       })
