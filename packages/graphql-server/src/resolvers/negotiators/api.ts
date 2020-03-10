@@ -108,17 +108,7 @@ export const callUpdateNegotiatorAPI = async (
     })
 
     if (updateResponse) {
-      const getResponse = await fetcher({
-        url: `${URLS.negotiators}/${args.id}`,
-        api: process.env.PLATFORM_API_BASE_URL,
-        method: 'GET',
-        headers: {
-          Authorization: context.authorization,
-          'Content-Type': 'application/json',
-          'api-version': API_VERSION,
-        },
-      })
-      return getResponse
+      return callGetNegotiatorByIdAPI({ id: args.id }, context)
     }
     return errors.generateUserInputError(traceId)
   } catch (error) {

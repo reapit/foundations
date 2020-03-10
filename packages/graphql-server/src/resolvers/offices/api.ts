@@ -99,17 +99,7 @@ export const callUpdateOfficeAPI = async (args: UpdateOfficeArgs, context: Serve
     })
 
     if (updateResponse) {
-      const getResponse = await fetcher({
-        url: `${URLS.offices}/${args.id}`,
-        api: process.env.PLATFORM_API_BASE_URL,
-        method: 'GET',
-        headers: {
-          Authorization: context.authorization,
-          'Content-Type': 'application/json',
-          'api-version': API_VERSION,
-        },
-      })
-      return getResponse
+      return callGetOfficeByIdAPI({ id: args.id }, context)
     }
     return errors.generateUserInputError(traceId)
   } catch (error) {
