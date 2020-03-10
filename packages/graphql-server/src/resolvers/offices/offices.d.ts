@@ -26,7 +26,7 @@ export type GetOfficesReturn = Promise<PagedResultOfficeModel_ | UserInputError>
 
 // temporarily return boolean, will change later
 export type CreateOfficeReturn = Promise<boolean | UserInputError>
-export type UpdateOfficeReturn = Promise<boolean | UserInputError>
+export type UpdateOfficeReturn = Promise<OfficeModel | UserInputError>
 
 // resolver type
 export type QueryGetOfficeByIdReturn = AuthenticationError | GetOfficeByIdReturn
