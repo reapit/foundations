@@ -131,6 +131,7 @@ jest.mock('../utils', () => {
     convertToCompatibleData: jest.fn(() => parseResult.data),
     convertDataToCsv: jest.fn().mockReturnValue(parseResult.data),
     unparseDataToCsvString: jest.fn().mockReturnValue('unparse data'),
+    validatedDataGenerate: jest.fn().mockReturnValue('validated data'),
   }
 })
 
@@ -237,8 +238,8 @@ describe('handleAddNewRow', () => {
   it('should call setData with correct arg when columns in row have same length', () => {
     const fn = handleAddNewRow(data, setData)
     fn()
-    const expectedResult = [...data]
-    expectedResult.push([
+    const expectedArg = [...data]
+    expectedArg.push([
       { value: '' },
       { value: '' },
       { value: '' },
@@ -251,7 +252,8 @@ describe('handleAddNewRow', () => {
       { value: '' },
       { value: '' },
     ])
-    expect(setData).toHaveBeenCalledWith(expectedResult)
+    expect(validatedDataGenerate).toHaveBeenCalledWith(expectedArg)
+    expect(setData).toHaveBeenCalledWith('validated data')
   })
 
   it('should call setData with correct arg when a random row have fewer column', () => {
@@ -285,7 +287,7 @@ describe('handleAddNewRow', () => {
 
     const fn = handleAddNewRow(dataNotEqualColLength, setData)
     fn()
-    const expectedResult = [
+    const expectedArg = [
       ...dataNotEqualColLength,
       [
         { readOnly: true, value: '' },
@@ -301,7 +303,8 @@ describe('handleAddNewRow', () => {
         { value: '' },
       ],
     ]
-    expect(setData).toHaveBeenCalledWith(expectedResult)
+    expect(validatedDataGenerate).toHaveBeenCalledWith(expectedArg)
+    expect(setData).toHaveBeenCalledWith('validated data')
   })
 })
 

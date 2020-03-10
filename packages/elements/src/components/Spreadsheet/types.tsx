@@ -7,13 +7,14 @@ export class MyReactDataSheet extends ReactDataSheet<Cell, string> {}
  * https://github.com/nadbm/react-datasheet/blob/master/types/react-datasheet.d.ts
  * plus some properties below
  */
+export type ChangedCells = { oldCell: Cell; row: number; col: number; newCell: Cell }[]
 export type SetData = React.Dispatch<React.SetStateAction<Cell[][]>>
 export type SetSelected = React.Dispatch<React.SetStateAction<SelectedMatrix | null>>
 export interface Cell extends ReactDataSheet.Cell<Cell, string> {
   /** The value of the cell, always a string */
-  value: string
+  value: string | null
   /** The validate function, receive Cell as param, must return boolean */
-  validate?: (cell: Cell) => boolean
+  isValidated?: boolean
   /** Additional className for styling cell */
   className?: string
   style?: React.CSSProperties
@@ -25,10 +26,6 @@ export interface Cell extends ReactDataSheet.Cell<Cell, string> {
   }>
 }
 
-export interface CellWithValidate extends Cell {
-  validate: (cell: Cell) => boolean
-}
-
 export interface DoubleClickPayLoad {
   row: number
   col: number
@@ -37,6 +34,8 @@ export interface DoubleClickPayLoad {
   isReadOnly?: boolean
 }
 
+export type ValidateFunction = (data: Cell[][]) => boolean[][]
+
 export interface SpreadsheetProps {
   data: Cell[][]
   description?: React.ReactNode
@@ -44,7 +43,7 @@ export interface SpreadsheetProps {
   hasDownloadButton?: boolean
   hasAddButton?: boolean
   /** This will run before data is set to table, must return data with validate function */
-  validateUpload?: (data: Cell[][]) => CellWithValidate[][]
+  validate?: ValidateFunction
   afterDataChanged?: (data: Cell[][]) => any
 }
 
