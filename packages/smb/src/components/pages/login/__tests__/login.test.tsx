@@ -1,14 +1,12 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
 import { createBrowserHistory } from 'history'
-import { AuthContext } from '@/core'
+import { AuthContext } from '@/core/index'
 import { mockContext } from '@/core/__mocks__/mock-context'
 import { AuthHook } from '@/hooks/use-auth'
 import * as cognito from '@reapit/cognito-auth'
 import { redirectToLoginPage, Login } from '@/components/pages/login/login'
 import { Router, Route } from 'react-router-dom'
-
-jest.mock('@reapit/cognito-auth')
 
 jest.mock('@reapit/cognito-auth', () => ({
   redirectToLogin: jest.fn(),
