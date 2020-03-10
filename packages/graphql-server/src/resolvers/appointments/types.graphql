@@ -138,5 +138,5 @@ type Mutation {
     cancelled: Boolean
     followUp: UpdateAppointmentModelFollowUpInput
     _eTag: String!
-  ): JSON!
+  ): AppointmentModel!
 }

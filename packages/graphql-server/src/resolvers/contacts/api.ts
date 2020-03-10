@@ -85,7 +85,7 @@ export const callUpdateContactAPI = async (args: UpdateContactArgs, context: Ser
   logger.info('callUpdateContactAPI', { traceId, args })
   try {
     const { _eTag, ...payload } = args
-    const response = await fetcher({
+    const updateResponse = await fetcher({
       url: `${URLS.contacts}/${args.id}`,
       api: process.env.PLATFORM_API_BASE_URL,
       method: 'PATCH',
@@ -97,7 +97,10 @@ export const callUpdateContactAPI = async (args: UpdateContactArgs, context: Ser
       },
       body: payload,
     })
-    return response
+    if (updateResponse) {
+      return callGetContactByIdAPI({ id: args.id }, context)
+    }
+    return errors.generateUserInputError(traceId)
   } catch (error) {
     logger.error('callUpdateContactAPI', { traceId, error: JSON.stringify(error) })
     return errors.generateUserInputError(traceId)

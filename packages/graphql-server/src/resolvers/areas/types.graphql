@@ -55,5 +55,5 @@ type Mutation {
     officeIds: [String!]
     id: String!
     _eTag: String!
-  ): JSON!
+  ): AreaModel!
 }

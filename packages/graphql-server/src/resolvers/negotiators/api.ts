@@ -94,7 +94,7 @@ export const callUpdateNegotiatorAPI = async (
   logger.info('callUpdateNegotiatorAPI', { traceId, args })
   try {
     const { _eTag, ...payload } = args
-    const response = await fetcher({
+    const updateResponse = await fetcher({
       url: `${URLS.negotiators}/${args.id}`,
       api: process.env.PLATFORM_API_BASE_URL,
       method: 'PATCH',
@@ -106,7 +106,11 @@ export const callUpdateNegotiatorAPI = async (
       },
       body: payload,
     })
-    return response
+
+    if (updateResponse) {
+      return callGetNegotiatorByIdAPI({ id: args.id }, context)
+    }
+    return errors.generateUserInputError(traceId)
   } catch (error) {
     logger.error('callUpdateNegotiatorAPI', { traceId, error: JSON.stringify(error) })
     return errors.generateUserInputError(traceId)

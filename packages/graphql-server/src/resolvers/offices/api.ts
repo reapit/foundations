@@ -85,7 +85,7 @@ export const callUpdateOfficeAPI = async (args: UpdateOfficeArgs, context: Serve
   logger.info('callUpdateOfficeAPI', { traceId, args })
   try {
     const { _eTag, ...payload } = args
-    const response = await fetcher({
+    const updateResponse = await fetcher({
       url: `${URLS.offices}/${args.id}`,
       api: process.env.PLATFORM_API_BASE_URL,
       method: 'PATCH',
@@ -97,7 +97,11 @@ export const callUpdateOfficeAPI = async (args: UpdateOfficeArgs, context: Serve
       },
       body: payload,
     })
-    return response
+
+    if (updateResponse) {
+      return callGetOfficeByIdAPI({ id: args.id }, context)
+    }
+    return errors.generateUserInputError(traceId)
   } catch (error) {
     logger.error('callUpdateOfficeAPI', { traceId, error: JSON.stringify(error) })
     return errors.generateUserInputError(traceId)
