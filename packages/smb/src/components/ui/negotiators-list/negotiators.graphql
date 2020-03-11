@@ -19,3 +19,18 @@ query GetNegotiators(
     _links
   }
 }
+
+mutation UpdateNegotiator(
+  $id: String!,
+  $_eTag: String!,
+  $name: String,
+  $jobTitle: String,
+  $active: Boolean,
+  $workPhone: String,
+  $mobilePhone: String,
+  $email: String
+) {
+  UpdateNegotiator(id: $id, _eTag: $_eTag, name: $name, jobTitle: $jobTitle, active: $active, workPhone: $workPhone, mobilePhone: $mobilePhone, email: $email) {
+    ...Negotiator
+  }
+}

@@ -1,15 +1,13 @@
 import * as React from 'react'
 import { useLocation, useHistory } from 'react-router-dom'
-import { useQuery } from '@apollo/react-hooks'
+import { useQuery, useMutation } from '@apollo/react-hooks'
 import { QueryResult } from '@apollo/react-common'
 import { ApolloError } from 'apollo-boost'
-import { Loader, Cell, Alert, Section, Pagination, Spreadsheet } from '@reapit/elements'
+import { Loader, Cell, Alert, Section, Pagination, Spreadsheet, ChangedCells } from '@reapit/elements'
 import { getParamsFromPath, stringifyObjectIntoQueryString } from '@/utils/client-url-params'
-import { GetNegotiators } from './negotiators-list.graphql'
-import {
-  PagedResultNegotiatorModel_,
-  NegotiatorModel,
-} from '@reapit/elements/node_modules/@reapit/foundations-ts-definitions/types'
+import { GetNegotiators, UpdateNegotiator } from './negotiators.graphql'
+
+import { NegotiatorModel, PagedResultNegotiatorModel_ } from '@reapit/foundations-ts-definitions'
 import { NEGOTIATORS_PER_PAGE } from '@/constants/paginators'
 
 export const tableHeaders: DataTableRow[] = [
@@ -49,6 +47,8 @@ export type RenderNegotiatorListParams = {
   totalCount?: number
   dataTable: DataTableRow[][]
   handleChangePage: (page: number) => void
+  updateNegotiator: () => void
+  updatedNegotiator?: NegotiatorModel
 }
 
 const NegotiatorStatusCheckbox = ({ cellRenderProps }) => {
@@ -72,7 +72,7 @@ export const getDataTable = (data: NegotiatorsQueryResponse): DataTableRow[][] =
   let dataTable: DataTableRow[][] = [tableHeaders]
   const negotiators: NegotiatorModel[] = data.GetNegotiators?._embedded || []
   const dataRows: DataTableRow[][] = negotiators.map((negotiator: NegotiatorModel) => {
-    const { name, jobTitle, email, mobilePhone, officeId, active } = negotiator
+    const { name, jobTitle, email, mobilePhone, officeId, active, id, _eTag } = negotiator
     return [
       { value: name },
       { value: jobTitle },
@@ -80,6 +80,8 @@ export const getDataTable = (data: NegotiatorsQueryResponse): DataTableRow[][] =
       { value: mobilePhone },
       { value: officeId },
       { value: active, CustomComponent: NegotiatorStatusCheckbox },
+      { value: id },
+      { value: _eTag },
     ]
   })
   dataTable = [tableHeaders, ...dataRows]
@@ -95,6 +97,33 @@ export const handleChangePage = ({ history }) => (pageNumber: number) => {
   })
 }
 
+export const handleSpreadSheetDataChanged = (updateNegotiator, updatedNegotiator) => {
+  return (data: Cell[][], changedCells: ChangedCells) => {
+    if (changedCells.length === 1) {
+      const selectedRow = data[changedCells[0].row]
+      console.log('handleSpreadSheetDataChanged -> selectedRow', selectedRow)
+      const name = selectedRow[0].value
+      const jobTitle = selectedRow[1].value
+      const email = selectedRow[2].value
+      const mobilePhone = selectedRow[3].value
+      const active = selectedRow[5].value
+      const id = selectedRow[6].value
+      const _eTag = selectedRow[7].value
+      updateNegotiator({
+        variables: {
+          id,
+          _eTag,
+          name,
+          jobTitle,
+          active,
+          mobilePhone,
+          email,
+        },
+      })
+    }
+  }
+}
+
 export const renderNegotiatorList = ({
   loading,
   error,
@@ -103,6 +132,8 @@ export const renderNegotiatorList = ({
   pageSize = 0,
   totalCount = 0,
   handleChangePage,
+  updateNegotiator,
+  updatedNegotiator,
 }: RenderNegotiatorListParams) => {
   if (loading) {
     return <Loader />
@@ -114,13 +145,12 @@ export const renderNegotiatorList = ({
     <React.Fragment>
       <Spreadsheet
         data={dataTable as Cell[][]}
+        afterDataChanged={handleSpreadSheetDataChanged(updateNegotiator, updatedNegotiator)}
         description={
           <p>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-              industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-              and scrambled it to make a type specimen book.
-            </p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book.
           </p>
         }
       />
@@ -136,11 +166,16 @@ export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
   const history = useHistory()
   const params = getParamsFromPath(location?.search)
   const page = Number(params?.page) || 1
-  const { loading, error, data } = useQuery<NegotiatorsQueryResponse, NegotiatorsQueryParams>(GetNegotiators, {
-    variables: { pageSize: NEGOTIATORS_PER_PAGE, pageNumber: page },
-    fetchPolicy: 'network-only',
-  }) as QueryResult<NegotiatorsQueryResponse, NegotiatorsQueryParams>
-  const dataTable = getDataTable(data || { GetNegotiators: { _embedded: [] } })
+  const [updateNegotiator, { data }] = useMutation(UpdateNegotiator)
+
+  const { loading, error, data: negotiatorData } = useQuery<NegotiatorsQueryResponse, NegotiatorsQueryParams>(
+    GetNegotiators,
+    {
+      variables: { pageSize: NEGOTIATORS_PER_PAGE, pageNumber: page },
+      fetchPolicy: 'network-only',
+    },
+  ) as QueryResult<NegotiatorsQueryResponse, NegotiatorsQueryParams>
+  const dataTable = getDataTable(negotiatorData || { GetNegotiators: { _embedded: [] } })
   return (
     <div>
       {renderNegotiatorList({
@@ -151,6 +186,8 @@ export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
         pageSize: data?.GetNegotiators?.pageSize,
         totalCount: data?.GetNegotiators?.totalCount,
         handleChangePage: handleChangePage({ history }),
+        updateNegotiator: updateNegotiator,
+        updatedNegotiator: data,
       })}
     </div>
   )

@@ -11,7 +11,7 @@ import {
   tableHeaders,
   handleChangePage,
 } from '../negotiators-list'
-import { GetNegotiators } from '../negotiators-list.graphql'
+import { GetNegotiators } from '../negotiators.graphql'
 import { negotiators } from '../__mocks__/negotiators'
 import { error } from '@/graphql/__mocks__/error'
 import { getMockRouterProps } from '@/core/__mocks__/mock-router'
@@ -48,6 +48,8 @@ describe('NegotiatorList', () => {
         error: undefined,
         handleChangePage: jest.fn(),
         dataTable: [],
+        updateNegotiator: jest.fn(),
+        updatedNegotiator: undefined,
       }
       const wrapper = shallow(<div>{renderNegotiatorList(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
@@ -59,6 +61,8 @@ describe('NegotiatorList', () => {
         error,
         handleChangePage: jest.fn(),
         dataTable: [],
+        updateNegotiator: jest.fn(),
+        updatedNegotiator: undefined,
       }
       const wrapper = shallow(<div>{renderNegotiatorList(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
@@ -70,6 +74,8 @@ describe('NegotiatorList', () => {
         error: undefined,
         handleChangePage: jest.fn(),
         dataTable: getDataTable(negotiators),
+        updateNegotiator: jest.fn(),
+        updatedNegotiator: undefined,
       }
       const wrapper = shallow(<div>{renderNegotiatorList(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
