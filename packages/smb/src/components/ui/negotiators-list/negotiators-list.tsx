@@ -5,12 +5,12 @@ import { QueryResult } from '@apollo/react-common'
 import { ApolloError } from 'apollo-boost'
 import { Loader, Cell, Alert, Section, Pagination, Spreadsheet } from '@reapit/elements'
 import { getParamsFromPath, stringifyObjectIntoQueryString } from '@/utils/client-url-params'
-import { GetUsers } from './user-list.graphql'
+import { GetNegotiators } from './negotiators-list.graphql'
 import {
   PagedResultNegotiatorModel_,
   NegotiatorModel,
 } from '@reapit/elements/node_modules/@reapit/foundations-ts-definitions/types'
-import { USERS_PER_PAGE } from '@/constants/paginators'
+import { NEGOTIATORS_PER_PAGE } from '@/constants/paginators'
 
 export const tableHeaders: DataTableRow[] = [
   { readOnly: true, value: 'Username' },
@@ -26,9 +26,9 @@ export type DataTableRow = {
   readOnly?: boolean
 }
 
-export type UserListProps = {}
+export type NegotiatorListProps = {}
 
-export interface UsersQueryParams {
+export interface NegotiatorsQueryParams {
   pageSize: number
   pageNumber: number
   sortBy?: string
@@ -37,11 +37,11 @@ export interface UsersQueryParams {
   name?: string
 }
 
-export type UsersQueryResponse = {
+export type NegotiatorsQueryResponse = {
   GetNegotiators?: PagedResultNegotiatorModel_
 }
 
-export type RenderUserListParams = {
+export type RenderNegotiatorListParams = {
   loading: boolean
   error?: ApolloError
   pageNumber?: number
@@ -51,7 +51,7 @@ export type RenderUserListParams = {
   handleChangePage: (page: number) => void
 }
 
-const UserStatusCheckbox = ({ cellRenderProps }) => {
+const NegotiatorStatusCheckbox = ({ cellRenderProps }) => {
   const {
     row,
     col,
@@ -68,7 +68,7 @@ const UserStatusCheckbox = ({ cellRenderProps }) => {
   )
 }
 
-export const getDataTable = (data: UsersQueryResponse): DataTableRow[][] => {
+export const getDataTable = (data: NegotiatorsQueryResponse): DataTableRow[][] => {
   let dataTable: DataTableRow[][] = [tableHeaders]
   const users: NegotiatorModel[] = data.GetNegotiators?._embedded || []
   const dataRows: DataTableRow[][] = users.map((user: NegotiatorModel) => [
@@ -77,7 +77,7 @@ export const getDataTable = (data: UsersQueryResponse): DataTableRow[][] => {
     { value: user.email },
     { value: user.mobilePhone },
     { value: user.officeId },
-    { value: user.active, CustomComponent: UserStatusCheckbox },
+    { value: user.active, CustomComponent: NegotiatorStatusCheckbox },
   ])
   dataTable = [tableHeaders, ...dataRows]
   return dataTable
@@ -92,7 +92,7 @@ export const handleChangePage = ({ history }) => (pageNumber: number) => {
   })
 }
 
-export const renderUserList = ({
+export const renderNegotiatorList = ({
   loading,
   error,
   dataTable,
@@ -100,7 +100,7 @@ export const renderUserList = ({
   pageSize = 0,
   totalCount = 0,
   handleChangePage,
-}: RenderUserListParams) => {
+}: RenderNegotiatorListParams) => {
   if (loading) {
     return <Loader />
   }
@@ -128,19 +128,19 @@ export const renderUserList = ({
   )
 }
 
-export const UserList: React.FC<UserListProps> = () => {
+export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
   const location = useLocation()
   const history = useHistory()
   const params = getParamsFromPath(location?.search)
   const page = Number(params?.page) || 1
-  const { loading, error, data } = useQuery<UsersQueryResponse, UsersQueryParams>(GetUsers, {
-    variables: { pageSize: USERS_PER_PAGE, pageNumber: page },
+  const { loading, error, data } = useQuery<NegotiatorsQueryResponse, NegotiatorsQueryParams>(GetNegotiators, {
+    variables: { pageSize: NEGOTIATORS_PER_PAGE, pageNumber: page },
     fetchPolicy: 'network-only',
-  }) as QueryResult<UsersQueryResponse, UsersQueryParams>
+  }) as QueryResult<NegotiatorsQueryResponse, NegotiatorsQueryParams>
   const dataTable = getDataTable(data || { GetNegotiators: { _embedded: [] } })
   return (
     <div>
-      {renderUserList({
+      {renderNegotiatorList({
         loading,
         error,
         dataTable,
@@ -153,4 +153,4 @@ export const UserList: React.FC<UserListProps> = () => {
   )
 }
 
-export default UserList
+export default NegotiatorList

@@ -1,6 +1,6 @@
-import { UsersQueryResponse } from '../user-list'
+import { NegotiatorsQueryResponse } from '../negotiators-list'
 
-export const users: UsersQueryResponse = {
+export const negotiators: NegotiatorsQueryResponse = {
   GetNegotiators: {
     _embedded: [
       {

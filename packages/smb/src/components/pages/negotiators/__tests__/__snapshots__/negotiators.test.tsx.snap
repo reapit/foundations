@@ -67,7 +67,7 @@ exports[`Users Users should match a snapshot 1`] = `
                       "kind": "OperationDefinition",
                       "name": Object {
                         "kind": "Name",
-                        "value": "GetUsers",
+                        "value": "GetNegotiators",
                       },
                       "operation": "query",
                       "selectionSet": Object {
@@ -513,11 +513,11 @@ exports[`Users Users should match a snapshot 1`] = `
                   ],
                   "kind": "Document",
                   "loc": Object {
-                    "end": 435,
+                    "end": 462,
                     "source": Object {
                       "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -552,7 +552,7 @@ query GetUsers(
                       "kind": "OperationDefinition",
                       "name": Object {
                         "kind": "Name",
-                        "value": "GetUsers",
+                        "value": "GetNegotiators",
                       },
                       "operation": "query",
                       "selectionSet": Object {
@@ -1019,11 +1019,11 @@ query GetUsers(
                   ],
                   "kind": "Document",
                   "loc": Object {
-                    "end": 435,
+                    "end": 462,
                     "source": Object {
                       "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -1059,7 +1059,7 @@ query GetUsers(
                       "kind": "OperationDefinition",
                       "name": Object {
                         "kind": "Name",
-                        "value": "GetUsers",
+                        "value": "GetNegotiators",
                       },
                       "operation": "query",
                       "selectionSet": Object {
@@ -1526,11 +1526,11 @@ query GetUsers(
                   ],
                   "kind": "Document",
                   "loc": Object {
-                    "end": 435,
+                    "end": 462,
                     "source": Object {
                       "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -1565,7 +1565,7 @@ query GetUsers(
                       "kind": "OperationDefinition",
                       "name": Object {
                         "kind": "Name",
-                        "value": "GetUsers",
+                        "value": "GetNegotiators",
                       },
                       "operation": "query",
                       "selectionSet": Object {
@@ -2032,11 +2032,11 @@ query GetUsers(
                   ],
                   "kind": "Document",
                   "loc": Object {
-                    "end": 435,
+                    "end": 462,
                     "source": Object {
                       "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -2078,7 +2078,7 @@ query GetUsers(
                         "kind": "OperationDefinition",
                         "name": Object {
                           "kind": "Name",
-                          "value": "GetUsers",
+                          "value": "GetNegotiators",
                         },
                         "operation": "query",
                         "selectionSet": Object {
@@ -2545,11 +2545,11 @@ query GetUsers(
                     ],
                     "kind": "Document",
                     "loc": Object {
-                      "end": 435,
+                      "end": 462,
                       "source": Object {
                         "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -2630,7 +2630,7 @@ query GetUsers(
                         "kind": "OperationDefinition",
                         "name": Object {
                           "kind": "Name",
-                          "value": "GetUsers",
+                          "value": "GetNegotiators",
                         },
                         "operation": "query",
                         "selectionSet": Object {
@@ -3076,11 +3076,11 @@ query GetUsers(
                     ],
                     "kind": "Document",
                     "loc": Object {
-                      "end": 435,
+                      "end": 462,
                       "source": Object {
                         "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -3115,7 +3115,7 @@ query GetUsers(
                         "kind": "OperationDefinition",
                         "name": Object {
                           "kind": "Name",
-                          "value": "GetUsers",
+                          "value": "GetNegotiators",
                         },
                         "operation": "query",
                         "selectionSet": Object {
@@ -3582,11 +3582,11 @@ query GetUsers(
                     ],
                     "kind": "Document",
                     "loc": Object {
-                      "end": 435,
+                      "end": 462,
                       "source": Object {
                         "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -3622,7 +3622,7 @@ query GetUsers(
                         "kind": "OperationDefinition",
                         "name": Object {
                           "kind": "Name",
-                          "value": "GetUsers",
+                          "value": "GetNegotiators",
                         },
                         "operation": "query",
                         "selectionSet": Object {
@@ -4089,11 +4089,11 @@ query GetUsers(
                     ],
                     "kind": "Document",
                     "loc": Object {
-                      "end": 435,
+                      "end": 462,
                       "source": Object {
                         "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -4128,7 +4128,7 @@ query GetUsers(
                         "kind": "OperationDefinition",
                         "name": Object {
                           "kind": "Name",
-                          "value": "GetUsers",
+                          "value": "GetNegotiators",
                         },
                         "operation": "query",
                         "selectionSet": Object {
@@ -4595,11 +4595,11 @@ query GetUsers(
                     ],
                     "kind": "Document",
                     "loc": Object {
-                      "end": 435,
+                      "end": 462,
                       "source": Object {
                         "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -4641,7 +4641,7 @@ query GetUsers(
                           "kind": "OperationDefinition",
                           "name": Object {
                             "kind": "Name",
-                            "value": "GetUsers",
+                            "value": "GetNegotiators",
                           },
                           "operation": "query",
                           "selectionSet": Object {
@@ -5108,11 +5108,11 @@ query GetUsers(
                       ],
                       "kind": "Document",
                       "loc": Object {
-                        "end": 435,
+                        "end": 462,
                         "source": Object {
                           "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -5197,7 +5197,7 @@ query GetUsers(
                           "kind": "OperationDefinition",
                           "name": Object {
                             "kind": "Name",
-                            "value": "GetUsers",
+                            "value": "GetNegotiators",
                           },
                           "operation": "query",
                           "selectionSet": Object {
@@ -5643,11 +5643,11 @@ query GetUsers(
                       ],
                       "kind": "Document",
                       "loc": Object {
-                        "end": 435,
+                        "end": 462,
                         "source": Object {
                           "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -5682,7 +5682,7 @@ query GetUsers(
                           "kind": "OperationDefinition",
                           "name": Object {
                             "kind": "Name",
-                            "value": "GetUsers",
+                            "value": "GetNegotiators",
                           },
                           "operation": "query",
                           "selectionSet": Object {
@@ -6149,11 +6149,11 @@ query GetUsers(
                       ],
                       "kind": "Document",
                       "loc": Object {
-                        "end": 435,
+                        "end": 462,
                         "source": Object {
                           "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -6189,7 +6189,7 @@ query GetUsers(
                           "kind": "OperationDefinition",
                           "name": Object {
                             "kind": "Name",
-                            "value": "GetUsers",
+                            "value": "GetNegotiators",
                           },
                           "operation": "query",
                           "selectionSet": Object {
@@ -6656,11 +6656,11 @@ query GetUsers(
                       ],
                       "kind": "Document",
                       "loc": Object {
-                        "end": 435,
+                        "end": 462,
                         "source": Object {
                           "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -6695,7 +6695,7 @@ query GetUsers(
                           "kind": "OperationDefinition",
                           "name": Object {
                             "kind": "Name",
-                            "value": "GetUsers",
+                            "value": "GetNegotiators",
                           },
                           "operation": "query",
                           "selectionSet": Object {
@@ -7162,11 +7162,11 @@ query GetUsers(
                       ],
                       "kind": "Document",
                       "loc": Object {
-                        "end": 435,
+                        "end": 462,
                         "source": Object {
                           "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -7208,7 +7208,7 @@ query GetUsers(
                             "kind": "OperationDefinition",
                             "name": Object {
                               "kind": "Name",
-                              "value": "GetUsers",
+                              "value": "GetNegotiators",
                             },
                             "operation": "query",
                             "selectionSet": Object {
@@ -7675,11 +7675,11 @@ query GetUsers(
                         ],
                         "kind": "Document",
                         "loc": Object {
-                          "end": 435,
+                          "end": 462,
                           "source": Object {
                             "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -7726,7 +7726,7 @@ query GetUsers(
                       "kind": "OperationDefinition",
                       "name": Object {
                         "kind": "Name",
-                        "value": "GetUsers",
+                        "value": "GetNegotiators",
                       },
                       "operation": "query",
                       "selectionSet": Object {
@@ -8193,11 +8193,11 @@ query GetUsers(
                   ],
                   "kind": "Document",
                   "loc": Object {
-                    "end": 435,
+                    "end": 462,
                     "source": Object {
                       "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -8269,7 +8269,7 @@ query GetUsers(
                           "kind": "OperationDefinition",
                           "name": Object {
                             "kind": "Name",
-                            "value": "GetUsers",
+                            "value": "GetNegotiators",
                           },
                           "operation": "query",
                           "selectionSet": Object {
@@ -8715,11 +8715,11 @@ query GetUsers(
                       ],
                       "kind": "Document",
                       "loc": Object {
-                        "end": 435,
+                        "end": 462,
                         "source": Object {
                           "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -8754,7 +8754,7 @@ query GetUsers(
                           "kind": "OperationDefinition",
                           "name": Object {
                             "kind": "Name",
-                            "value": "GetUsers",
+                            "value": "GetNegotiators",
                           },
                           "operation": "query",
                           "selectionSet": Object {
@@ -9221,11 +9221,11 @@ query GetUsers(
                       ],
                       "kind": "Document",
                       "loc": Object {
-                        "end": 435,
+                        "end": 462,
                         "source": Object {
                           "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -9261,7 +9261,7 @@ query GetUsers(
                           "kind": "OperationDefinition",
                           "name": Object {
                             "kind": "Name",
-                            "value": "GetUsers",
+                            "value": "GetNegotiators",
                           },
                           "operation": "query",
                           "selectionSet": Object {
@@ -9728,11 +9728,11 @@ query GetUsers(
                       ],
                       "kind": "Document",
                       "loc": Object {
-                        "end": 435,
+                        "end": 462,
                         "source": Object {
                           "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -9767,7 +9767,7 @@ query GetUsers(
                           "kind": "OperationDefinition",
                           "name": Object {
                             "kind": "Name",
-                            "value": "GetUsers",
+                            "value": "GetNegotiators",
                           },
                           "operation": "query",
                           "selectionSet": Object {
@@ -10234,11 +10234,11 @@ query GetUsers(
                       ],
                       "kind": "Document",
                       "loc": Object {
-                        "end": 435,
+                        "end": 462,
                         "source": Object {
                           "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -10280,7 +10280,7 @@ query GetUsers(
                             "kind": "OperationDefinition",
                             "name": Object {
                               "kind": "Name",
-                              "value": "GetUsers",
+                              "value": "GetNegotiators",
                             },
                             "operation": "query",
                             "selectionSet": Object {
@@ -10747,11 +10747,11 @@ query GetUsers(
                         ],
                         "kind": "Document",
                         "loc": Object {
-                          "end": 435,
+                          "end": 462,
                           "source": Object {
                             "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -10804,7 +10804,7 @@ query GetUsers(
                         "kind": "OperationDefinition",
                         "name": Object {
                           "kind": "Name",
-                          "value": "GetUsers",
+                          "value": "GetNegotiators",
                         },
                         "operation": "query",
                         "selectionSet": Object {
@@ -11271,11 +11271,11 @@ query GetUsers(
                     ],
                     "kind": "Document",
                     "loc": Object {
-                      "end": 435,
+                      "end": 462,
                       "source": Object {
                         "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -11365,7 +11365,7 @@ query GetUsers(
                             "kind": "OperationDefinition",
                             "name": Object {
                               "kind": "Name",
-                              "value": "GetUsers",
+                              "value": "GetNegotiators",
                             },
                             "operation": "query",
                             "selectionSet": Object {
@@ -11811,11 +11811,11 @@ query GetUsers(
                         ],
                         "kind": "Document",
                         "loc": Object {
-                          "end": 435,
+                          "end": 462,
                           "source": Object {
                             "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -11851,7 +11851,7 @@ query GetUsers(
                     },
                     "queryId": "1",
                     "queryManager": [Circular],
-                    "queryName": "GetUsers",
+                    "queryName": "GetNegotiators",
                     "shouldSubscribe": true,
                     "subscriptions": Set {},
                     "variables": Object {
@@ -11873,7 +11873,7 @@ query GetUsers(
                           "kind": "OperationDefinition",
                           "name": Object {
                             "kind": "Name",
-                            "value": "GetUsers",
+                            "value": "GetNegotiators",
                           },
                           "operation": "query",
                           "selectionSet": Object {
@@ -12340,11 +12340,11 @@ query GetUsers(
                       ],
                       "kind": "Document",
                       "loc": Object {
-                        "end": 435,
+                        "end": 462,
                         "source": Object {
                           "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -12433,7 +12433,7 @@ query GetUsers(
                         "kind": "OperationDefinition",
                         "name": Object {
                           "kind": "Name",
-                          "value": "GetUsers",
+                          "value": "GetNegotiators",
                         },
                         "operation": "query",
                         "selectionSet": Object {
@@ -12879,11 +12879,11 @@ query GetUsers(
                     ],
                     "kind": "Document",
                     "loc": Object {
-                      "end": 435,
+                      "end": 462,
                       "source": Object {
                         "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -12918,7 +12918,7 @@ query GetUsers(
                         "kind": "OperationDefinition",
                         "name": Object {
                           "kind": "Name",
-                          "value": "GetUsers",
+                          "value": "GetNegotiators",
                         },
                         "operation": "query",
                         "selectionSet": Object {
@@ -13385,11 +13385,11 @@ query GetUsers(
                     ],
                     "kind": "Document",
                     "loc": Object {
-                      "end": 435,
+                      "end": 462,
                       "source": Object {
                         "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -13425,7 +13425,7 @@ query GetUsers(
                         "kind": "OperationDefinition",
                         "name": Object {
                           "kind": "Name",
-                          "value": "GetUsers",
+                          "value": "GetNegotiators",
                         },
                         "operation": "query",
                         "selectionSet": Object {
@@ -13892,11 +13892,11 @@ query GetUsers(
                     ],
                     "kind": "Document",
                     "loc": Object {
-                      "end": 435,
+                      "end": 462,
                       "source": Object {
                         "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -13931,7 +13931,7 @@ query GetUsers(
                         "kind": "OperationDefinition",
                         "name": Object {
                           "kind": "Name",
-                          "value": "GetUsers",
+                          "value": "GetNegotiators",
                         },
                         "operation": "query",
                         "selectionSet": Object {
@@ -14398,11 +14398,11 @@ query GetUsers(
                     ],
                     "kind": "Document",
                     "loc": Object {
-                      "end": 435,
+                      "end": 462,
                       "source": Object {
                         "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
@@ -14444,7 +14444,7 @@ query GetUsers(
                           "kind": "OperationDefinition",
                           "name": Object {
                             "kind": "Name",
-                            "value": "GetUsers",
+                            "value": "GetNegotiators",
                           },
                           "operation": "query",
                           "selectionSet": Object {
@@ -14911,11 +14911,11 @@ query GetUsers(
                       ],
                       "kind": "Document",
                       "loc": Object {
-                        "end": 435,
+                        "end": 462,
                         "source": Object {
                           "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],

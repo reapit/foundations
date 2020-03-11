@@ -2,16 +2,16 @@ import * as React from 'react'
 import { mount } from 'enzyme'
 import { MockedProvider } from '@apollo/react-testing'
 import { BrowserRouter as Router } from 'react-router-dom'
-import { Users, UsersProps } from '../users'
+import { Negotiators, NegotiatorsProps } from '../negotiators'
 
 describe('Users', () => {
   describe('Users', () => {
     it('should match a snapshot', () => {
-      const mockProps: UsersProps = {}
+      const mockProps: NegotiatorsProps = {}
       const wrapper = mount(
         <Router>
           <MockedProvider mocks={[]} addTypename={true}>
-            <Users {...mockProps} />
+            <Negotiators {...mockProps} />
           </MockedProvider>
         </Router>,
       )

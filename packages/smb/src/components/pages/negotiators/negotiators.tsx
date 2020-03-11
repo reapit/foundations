@@ -1,18 +1,18 @@
 import * as React from 'react'
 import { H3, FlexContainerBasic, FlexContainerResponsive } from '@reapit/elements'
-import UserList from '@/components/ui/user-list'
+import NegotiatorList from '@/components/ui/negotiators-list'
 
-export type UsersProps = {}
+export type NegotiatorsProps = {}
 
-export const Users: React.FC<UsersProps> = () => {
+export const Negotiators: React.FC<NegotiatorsProps> = () => {
   return (
     <FlexContainerBasic hasPadding hasBackground>
       <FlexContainerResponsive flexColumn hasPadding hasBackground>
         <H3>Users</H3>
-        <UserList />
+        <NegotiatorList />
       </FlexContainerResponsive>
     </FlexContainerBasic>
   )
 }
 
-export default Users
+export default Negotiators

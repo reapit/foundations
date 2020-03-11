@@ -1,6 +1,6 @@
 #import "../../../graphql/fragments/negotiator.graphql"
 
-query GetUsers(
+query GetNegotiators(
   $id: [String!],
   $name: String,
   $officeId: [String!],
