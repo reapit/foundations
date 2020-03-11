@@ -1,0 +1,21 @@
+#import "../../../graphql/fragments/negotiator.graphql"
+
+query GetNegotiators(
+  $id: [String!],
+  $name: String,
+  $officeId: [String!],
+  $pageSize: Int,
+  $pageNumber: Int,
+  $sortBy: String
+  ) {
+  GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy) {
+    _embedded {
+      ...Negotiator
+    }
+    pageNumber
+    pageSize
+    pageCount
+    totalCount
+    _links
+  }
+}
