@@ -482,7 +482,7 @@ exports[`NegotiatorList NegotiatorList should match a snapshot 1`] = `
                 ],
                 "kind": "Document",
                 "loc": Object {
-                  "end": 462,
+                  "end": 441,
                   "source": Object {
                     "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
@@ -1096,7 +1096,7 @@ query GetNegotiators(
                     ],
                     "kind": "Document",
                     "loc": Object {
-                      "end": 462,
+                      "end": 441,
                       "source": Object {
                         "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
@@ -1598,7 +1598,7 @@ query GetNegotiators(
                         ],
                         "kind": "Document",
                         "loc": Object {
-                          "end": 462,
+                          "end": 441,
                           "source": Object {
                             "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
@@ -2210,7 +2210,7 @@ query GetNegotiators(
                       ],
                       "kind": "Document",
                       "loc": Object {
-                        "end": 462,
+                        "end": 441,
                         "source": Object {
                           "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
@@ -2750,7 +2750,7 @@ query GetNegotiators(
                         ],
                         "kind": "Document",
                         "loc": Object {
-                          "end": 462,
+                          "end": 441,
                           "source": Object {
                             "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
@@ -3247,7 +3247,7 @@ query GetNegotiators(
                   ],
                   "kind": "Document",
                   "loc": Object {
-                    "end": 462,
+                    "end": 441,
                     "source": Object {
                       "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
@@ -3740,7 +3740,7 @@ query GetNegotiators(
                           ],
                           "kind": "Document",
                           "loc": Object {
-                            "end": 462,
+                            "end": 441,
                             "source": Object {
                               "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
@@ -4352,7 +4352,7 @@ query GetNegotiators(
                         ],
                         "kind": "Document",
                         "loc": Object {
-                          "end": 462,
+                          "end": 441,
                           "source": Object {
                             "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
@@ -4855,7 +4855,7 @@ query GetNegotiators(
                     ],
                     "kind": "Document",
                     "loc": Object {
-                      "end": 462,
+                      "end": 441,
                       "source": Object {
                         "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
@@ -5395,7 +5395,7 @@ query GetNegotiators(
                         ],
                         "kind": "Document",
                         "loc": Object {
-                          "end": 462,
+                          "end": 441,
                           "source": Object {
                             "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
@@ -5903,7 +5903,7 @@ query GetNegotiators(
                       ],
                       "kind": "Document",
                       "loc": Object {
-                        "end": 462,
+                        "end": 441,
                         "source": Object {
                           "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 
@@ -6447,7 +6447,7 @@ query GetNegotiators(
                       ],
                       "kind": "Document",
                       "loc": Object {
-                        "end": 462,
+                        "end": 441,
                         "source": Object {
                           "body": "#import \\"../../../graphql/fragments/negotiator.graphql\\"
 

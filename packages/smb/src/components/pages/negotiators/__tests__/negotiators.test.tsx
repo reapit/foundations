@@ -4,8 +4,8 @@ import { MockedProvider } from '@apollo/react-testing'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Negotiators, NegotiatorsProps } from '../negotiators'
 
-describe('Users', () => {
-  describe('Users', () => {
+describe('Negotiators', () => {
+  describe('Negotiators', () => {
     it('should match a snapshot', () => {
       const mockProps: NegotiatorsProps = {}
       const wrapper = mount(

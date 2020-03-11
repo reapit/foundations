@@ -70,15 +70,18 @@ const NegotiatorStatusCheckbox = ({ cellRenderProps }) => {
 
 export const getDataTable = (data: NegotiatorsQueryResponse): DataTableRow[][] => {
   let dataTable: DataTableRow[][] = [tableHeaders]
-  const users: NegotiatorModel[] = data.GetNegotiators?._embedded || []
-  const dataRows: DataTableRow[][] = users.map((user: NegotiatorModel) => [
-    { value: user.name },
-    { value: user.jobTitle },
-    { value: user.email },
-    { value: user.mobilePhone },
-    { value: user.officeId },
-    { value: user.active, CustomComponent: NegotiatorStatusCheckbox },
-  ])
+  const negotiators: NegotiatorModel[] = data.GetNegotiators?._embedded || []
+  const dataRows: DataTableRow[][] = negotiators.map((negotiator: NegotiatorModel) => {
+    const { name, jobTitle, email, mobilePhone, officeId, active } = negotiator
+    return [
+      { value: name },
+      { value: jobTitle },
+      { value: email },
+      { value: mobilePhone },
+      { value: officeId },
+      { value: active, CustomComponent: NegotiatorStatusCheckbox },
+    ]
+  })
   dataTable = [tableHeaders, ...dataRows]
   return dataTable
 }
