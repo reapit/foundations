@@ -1,0 +1,16 @@
+fragment Negotiator on NegotiatorModel {
+  id
+  created
+  modified
+  name
+  jobTitle
+  active
+  officeId
+  workPhone
+  mobilePhone
+  email
+  metadata
+  _eTag
+  _links
+  _embedded
+}
