@@ -1,25 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ApiDocs should match a snapshot 1`] = `
-<Connect(ErrorBoundary)>
-  <Component
-    flexColumn={true}
-    hasPadding={true}
-  >
-    <Component
-      className="container"
-    >
-      <iframe
-        height="100%"
-        src="https://reapit-1.gitbook.io/reapit-foundations/"
-        style={
-          Object {
-            "border": "none",
-          }
-        }
-        width="100%"
-      />
-    </Component>
-  </Component>
-</Connect(ErrorBoundary)>
+<ContextProvider
+  value={
+    Object {
+      "history": Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+        },
+        "push": [Function],
+        "replace": [Function],
+      },
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+      },
+      "match": Object {
+        "isExact": true,
+        "params": Object {},
+        "path": "/",
+        "url": "/",
+      },
+      "staticContext": undefined,
+    }
+  }
+>
+  <Route>
+    <ApiDocsPage />
+  </Route>
+</ContextProvider>
 `;
