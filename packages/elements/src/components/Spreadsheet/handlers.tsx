@@ -4,10 +4,12 @@ import {
   Cell,
   DoubleClickPayLoad,
   SelectedMatrix,
-  SpreadsheetProps,
   SetContextMenuProp,
   SetData,
   SetSelected,
+  ChangedCells,
+  ValidateFunction,
+  ContextMenuProp,
 } from './types'
 import {
   getMaxRowAndCol,
@@ -15,9 +17,11 @@ import {
   unparseDataToCsvString,
   convertToCompatibleData,
   convertDataToCsv,
+  changedCellsGenerate,
+  validatedDataGenerate,
 } from './utils'
 
-export const valueRenderer = (cell: Cell): string => cell.value
+export const valueRenderer = (cell: Cell): string | null => cell.value
 
 /** Double click on first read-only cell */
 export const onDoubleClickCell = (payload: DoubleClickPayLoad, setSelected: SetSelected, onDoubleClickDefault) => (
@@ -55,13 +59,12 @@ export const customCellRenderer = (data: Cell[][], setData: SetData, setSelected
   const { style: defaultStyle, cell, onDoubleClick, ...restProps } = props
   const {
     CustomComponent = false,
-    validate = () => true,
+    isValidated = true,
     className = '',
     readOnly,
     style: customStyle,
     ...restCell
   } = cell
-  const isValid = validate(cell)
   const { maxRow: maxRowIndex, maxCol: maxColIndex } = getMaxRowAndCol(data)
   const payload = {
     row: props.row,
@@ -102,7 +105,7 @@ export const customCellRenderer = (data: Cell[][], setData: SetData, setSelected
     <td
       {...domProps}
       {...restCell}
-      className={`${props.className} ${!isValid ? 'error-cell' : ''} ${className}`}
+      className={`${props.className} ${!isValidated ? 'error-cell' : ''} ${className}`}
       style={style}
       onDoubleClick={onDoubleClickCell(payload, setSelected, onDoubleClick)}
     >
@@ -115,7 +118,7 @@ export const customCellRenderer = (data: Cell[][], setData: SetData, setSelected
   )
 }
 
-export const handleAddNewRow = (data: Cell[][], setData: SetData) => () => {
+export const handleAddNewRow = (data: Cell[][], setData: SetData, validate?: ValidateFunction) => () => {
   const { maxRow, maxCol } = getMaxRowAndCol(data)
   const lastRow = data[maxRow - 1]
   /* [
@@ -139,16 +142,19 @@ export const handleAddNewRow = (data: Cell[][], setData: SetData) => () => {
       }
       return e
     })
+
   const newData = [...data, newEmptyRow]
-  setData(newData)
+  const dataWithIsValidated = validatedDataGenerate(newData, validate)
+  setData(dataWithIsValidated)
 }
 
-export const handleCellsChanged = (prevData: Cell[][], setData: SetData) => changes => {
-  const newData = prevData.map(row => [...row])
+export const handleCellsChanged = (data: Cell[][], setData: SetData, validate?: ValidateFunction) => changes => {
+  const newData = data.map(row => [...row])
   changes.forEach(({ row, col, value }) => {
     newData[row][col] = { ...newData[row][col], value }
   })
-  setData(newData)
+  const dataWithIsValidated = validatedDataGenerate(newData, validate)
+  setData(dataWithIsValidated)
 }
 
 export const handleClickUpload = (ref: React.RefObject<HTMLInputElement>) => () => {
@@ -161,23 +167,17 @@ export const handleClickUpload = (ref: React.RefObject<HTMLInputElement>) => () 
   return false
 }
 
-export const handleOnChangeInput = (
-  validateUpload: SpreadsheetProps['validateUpload'],
-  setData: SetData,
-) => async (event: { target: HTMLInputElement }) => {
+export const handleOnChangeInput = (data: Cell[][], setData: SetData, validate?: ValidateFunction) => async (event: {
+  target: HTMLInputElement
+}) => {
   const { target } = event
   if (target && target.files && target.files[0]) {
     const file = target.files[0]
     const result = await parseCsvFile(file)
     const compatibleData = convertToCompatibleData(result)
-    if (validateUpload) {
-      const dataValidated = validateUpload(compatibleData)
-      setData(dataValidated)
-      return 'validated'
-    }
-    /* if not set validate function */
-    setData(compatibleData)
-    return true
+    const dataWithIsValidated = validatedDataGenerate(compatibleData, validate)
+    setData(dataWithIsValidated)
+    return 'validated'
   }
   return false
 }
@@ -200,11 +200,34 @@ export const handleDownload = (data: Cell[][], window, document: Document | unde
   return false
 }
 
+export const hideContextMenu = (prev: ContextMenuProp): ContextMenuProp => ({ ...prev, visible: false })
+
+export const handleSetContextMenu = (setContextMenuProp: SetContextMenuProp) => () => {
+  /**
+   * To hide context menu when click outside.
+   * must use window instead of document for stopPropagation to work
+   * https://github.com/facebook/react/issues/4335
+   */
+  window.addEventListener('click', setContextMenuProp as any)
+}
+
 export const handleAfterDataChanged = (
   data: Cell[][],
-  afterDataChanged: ((data: Cell[][]) => any) | undefined,
+  prevData?: Cell[][],
+  afterDataChanged?: (data: Cell[][], changedCells: ChangedCells) => any,
 ) => () => {
+  const changedCells = changedCellsGenerate(data, prevData)
   if (typeof afterDataChanged === 'function') {
-    afterDataChanged(data)
+    afterDataChanged(data, changedCells)
   }
+}
+
+export const handleInitialDataChanged = (
+  initialData: Cell[][],
+  data: Cell[][],
+  setData: SetData,
+  validateFunction?: ValidateFunction,
+) => () => {
+  const newData = validatedDataGenerate(initialData, validateFunction)
+  setData(newData)
 }

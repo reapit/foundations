@@ -12,6 +12,9 @@ import {
   handleDownload,
   handleContextMenu,
   handleAfterDataChanged,
+  hideContextMenu,
+  handleSetContextMenu,
+  handleInitialDataChanged,
 } from '../handlers'
 import {
   data,
@@ -22,18 +25,9 @@ import {
   parseResult,
   setContextMenuProp,
 } from '../__stubs__'
-import { getMaxRowAndCol, convertDataToCsv, unparseDataToCsvString } from '../utils'
+import { getMaxRowAndCol, convertDataToCsv, unparseDataToCsvString, validatedDataGenerate } from '../utils'
 
 const onDoubleClickDefault = jest.fn()
-
-const validateUpload = jest.fn(data =>
-  data.map(row =>
-    row.map(cell => ({
-      ...cell,
-      validate: cell => Number.isInteger(Number(cell.value)),
-    })),
-  ),
-)
 
 jest.mock('../utils', () => {
   const data = [
@@ -131,8 +125,12 @@ jest.mock('../utils', () => {
     convertToCompatibleData: jest.fn(() => parseResult.data),
     convertDataToCsv: jest.fn().mockReturnValue(parseResult.data),
     unparseDataToCsvString: jest.fn().mockReturnValue('unparse data'),
+    validatedDataGenerate: jest.fn().mockReturnValue('validated data'),
+    changedCellsGenerate: jest.fn().mockReturnValue('changes'),
   }
 })
+
+const validate = jest.fn()
 
 afterEach(() => {
   jest.clearAllMocks()
@@ -225,7 +223,7 @@ describe('customCellRenderer', () => {
   it('should match snapshot with invalid cell', () => {
     const cellRenderPropsInvalid = {
       ...cellRenderProps,
-      cell: { value: '11aa', validate: cell => Number.isInteger(Number(cell.value)) },
+      cell: { value: '11aa', isValidated: false },
     }
 
     const CellComponent = customCellRenderer(data, setData, setSelected)
@@ -235,10 +233,10 @@ describe('customCellRenderer', () => {
 
 describe('handleAddNewRow', () => {
   it('should call setData with correct arg when columns in row have same length', () => {
-    const fn = handleAddNewRow(data, setData)
+    const fn = handleAddNewRow(data, setData, validate)
     fn()
-    const expectedResult = [...data]
-    expectedResult.push([
+    const expectedData = [...data]
+    expectedData.push([
       { value: '' },
       { value: '' },
       { value: '' },
@@ -251,7 +249,8 @@ describe('handleAddNewRow', () => {
       { value: '' },
       { value: '' },
     ])
-    expect(setData).toHaveBeenCalledWith(expectedResult)
+    expect(validatedDataGenerate).toHaveBeenCalledWith(expectedData, validate)
+    expect(setData).toHaveBeenCalledWith('validated data')
   })
 
   it('should call setData with correct arg when a random row have fewer column', () => {
@@ -283,9 +282,9 @@ describe('handleAddNewRow', () => {
       maxCol: dataNotEqualColLength[0].length,
     }))
 
-    const fn = handleAddNewRow(dataNotEqualColLength, setData)
+    const fn = handleAddNewRow(dataNotEqualColLength, setData, validate)
     fn()
-    const expectedResult = [
+    const expectedData = [
       ...dataNotEqualColLength,
       [
         { readOnly: true, value: '' },
@@ -301,47 +300,43 @@ describe('handleAddNewRow', () => {
         { value: '' },
       ],
     ]
-    expect(setData).toHaveBeenCalledWith(expectedResult)
+    expect(validatedDataGenerate).toHaveBeenCalledWith(expectedData, validate)
+    expect(setData).toHaveBeenCalledWith('validated data')
   })
 })
 
 describe('handleCellsChanged', () => {
   it('should call setData with correct arg', () => {
-    const fn = handleCellsChanged(data, setData)
+    const fn = handleCellsChanged(data, setData, validate)
 
     const changes = [{ row: 1, col: 2, value: 'new' }]
     fn(changes)
-    const expectResult = data.map(row => [...row])
-    expectResult[1][2] = { ...expectResult[1][2], value: 'new' }
-    expect(setData).toHaveBeenCalledWith(expectResult)
+    const expectedData = data.map(row => [...row])
+    expectedData[1][2] = { ...expectedData[1][2], value: 'new' }
+    expect(validatedDataGenerate).toHaveBeenCalledWith(expectedData, validate)
+    expect(setData).toHaveBeenCalledWith('validated data')
   })
 })
 
 describe('handleOnChangeInput', () => {
-  it('should return with correct value when have validateUpload', async () => {
-    const fn = handleOnChangeInput(validateUpload, setData)
+  it('should return with correct value when have target', async () => {
+    const fn = handleOnChangeInput(data, setData, validate)
     const eventMock: any = {
       target: {
         files: ['data'],
       },
     }
     const returnData = await fn(eventMock)
+    expect(validatedDataGenerate).toHaveBeenCalledWith(parseResult.data, validate)
     expect(returnData).toBe('validated')
   })
-  it('should return with correct value when dont have validateUpload', async () => {
-    const fn = handleOnChangeInput(undefined, setData)
+
+  it('should return with correct value when dont have file', async () => {
+    const fn = handleOnChangeInput(data, setData, validate)
     const eventMock: any = {
       target: {
-        files: ['data'],
+        files: null,
       },
-    }
-    const returnData = await fn(eventMock)
-    expect(returnData).toBe(true)
-  })
-  it('should return with correct value when dont have target', async () => {
-    const fn = handleOnChangeInput(undefined, setData)
-    const eventMock: any = {
-      target: undefined,
     }
     const returnData = await fn(eventMock)
     expect(returnData).toBe(false)
@@ -419,50 +414,11 @@ describe('handleAfterDataChanged', () => {
         { value: 'Fax' },
         { value: 'Email' },
       ],
-      [
-        { value: 'London' },
-        { value: 'The White House' },
-        { value: '15' },
-        { value: 'London 1' },
-        { value: '' },
-        { value: 'Londom 3' },
-        { value: '' },
-        { value: 'EC12NH' },
-        { value: '0845 0000' },
-        { value: '' },
-        { value: 'row1@gmail.com' },
-      ],
-      [
-        { value: 'London2' },
-        { value: 'The Black House' },
-        { value: '11' },
-        { value: 'Test Addres' },
-        { value: '' },
-        { value: 'Adress 3' },
-        { value: '' },
-        { value: 'EC12NH' },
-        { value: '087 471 929' },
-        { value: '' },
-        { value: 'row2@gmail.com' },
-      ],
-      [
-        { value: 'New York' },
-        { value: 'Building A' },
-        { value: '11' },
-        { value: '' },
-        { value: '' },
-        { value: 'City Z' },
-        { value: '' },
-        { value: 'AL7187' },
-        { value: '017 7162 9121' },
-        { value: '' },
-        { value: 'row3@gmail.com' },
-      ],
     ]
     const afterDataChanged = jest.fn()
-    const fn = handleAfterDataChanged(data, afterDataChanged)
+    const fn = handleAfterDataChanged(data, data, afterDataChanged)
     fn()
-    expect(afterDataChanged).toHaveBeenCalledWith(data)
+    expect(afterDataChanged).toHaveBeenCalledWith(data, 'changes')
   })
   it('should not call afterDataChanged if it undefined', () => {
     const data = [
@@ -479,49 +435,44 @@ describe('handleAfterDataChanged', () => {
         { value: 'Fax' },
         { value: 'Email' },
       ],
-      [
-        { value: 'London' },
-        { value: 'The White House' },
-        { value: '15' },
-        { value: 'London 1' },
-        { value: '' },
-        { value: 'Londom 3' },
-        { value: '' },
-        { value: 'EC12NH' },
-        { value: '0845 0000' },
-        { value: '' },
-        { value: 'row1@gmail.com' },
-      ],
-      [
-        { value: 'London2' },
-        { value: 'The Black House' },
-        { value: '11' },
-        { value: 'Test Addres' },
-        { value: '' },
-        { value: 'Adress 3' },
-        { value: '' },
-        { value: 'EC12NH' },
-        { value: '087 471 929' },
-        { value: '' },
-        { value: 'row2@gmail.com' },
-      ],
-      [
-        { value: 'New York' },
-        { value: 'Building A' },
-        { value: '11' },
-        { value: '' },
-        { value: '' },
-        { value: 'City Z' },
-        { value: '' },
-        { value: 'AL7187' },
-        { value: '017 7162 9121' },
-        { value: '' },
-        { value: 'row3@gmail.com' },
-      ],
     ]
     const afterDataChanged = undefined
-    const fn = handleAfterDataChanged(data, afterDataChanged)
+    const fn = handleAfterDataChanged(data, data, afterDataChanged as any)
     const result = fn()
     expect(result).toBeUndefined()
+  })
+})
+
+describe('hideContextMenu', () => {
+  it('should return ContextMenuProp with visible = false', () => {
+    const mockState = { visible: true, top: 0, left: 0 }
+    expect(hideContextMenu(mockState)).toEqual({
+      visible: false,
+      top: 0,
+      left: 0,
+    })
+  })
+})
+
+describe('handleSetContextMenu', () => {
+  it('should call addEventListener with correct argumen', () => {
+    const setContextMenuPropMock = jest.fn()
+    const addEventListenerSpy = jest.spyOn(window, 'addEventListener')
+    const fn = handleSetContextMenu(setContextMenuPropMock)
+    fn()
+    expect(addEventListenerSpy).toHaveBeenCalledWith('click', setContextMenuPropMock)
+  })
+})
+
+describe('handleInitialDataChanged', () => {
+  it('should call validatedDataGenerate and setData with correct arguments', () => {
+    const initialData = [[{ value: 'init' }]]
+    const data = [[{ value: 'data' }]]
+    const setDataMock = jest.fn()
+    const validate = jest.fn()
+    const fn = handleInitialDataChanged(initialData, data, setDataMock, validate)
+    fn()
+    expect(validatedDataGenerate).toHaveBeenCalledWith(initialData, validate)
+    expect(setDataMock).toHaveBeenCalledWith('validated data')
   })
 })

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { ContextMenuData, SetData, Cell, SelectedMatrix, ContextMenuFCProps } from './types'
-import { hideContextMenu } from './utils'
+import { hideContextMenu } from './handlers'
 
 export const clearRowSetData = (currentRowIndex: number) => (prevData: Cell[][]): Cell[][] => {
   const newData = prevData.map((row, rowIndex) => {
