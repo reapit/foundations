@@ -559,6 +559,7 @@ export interface Applicants {
   LastCallTo?: string
   NextCallFrom?: string
   NextCallTo?: string
+  Embed?: ('areas' | 'department' | 'documents' | 'negotiators' | 'offers' | 'offices' | 'solicitor' | 'source')[]
   Age?: ('period' | 'new' | 'modern')[]
   Furnishing?: ('furnished' | 'unfurnished' | 'partFurnished')[]
   Locality?: ('rural' | 'village' | 'townCity')[]
@@ -936,6 +937,7 @@ export interface Companies {
   TypeId?: string
   CreatedFrom?: string
   CreatedTo?: string
+  Embed?: 'companyTypes'[]
 }
 /**
  * Representation of the physical address of a building or premise
@@ -3346,6 +3348,129 @@ export interface CreateTaskModel {
   recipientType?: string
   /**
    * App specific metadata that has been set against the task
+   */
+  metadata?: {
+    [name: string]: any
+  }
+}
+/**
+ * Representation of a works order item
+ * example:
+ * [object Object]
+ */
+export interface CreateWorksOrderItemModel {
+  /**
+   * The notes attached to the works order item
+   */
+  notes?: string
+  /**
+   * The party to be charged for the work being carried out (landlord/tenant)
+   */
+  chargeTo?: string
+  /**
+   * The estimate of any costs associated with the work being carried out given to the party to be charged for the work
+   */
+  estimate?: number // double
+  /**
+   * The type of estimate supplied (agent/verbal/written)
+   */
+  estimateType?: string
+  /**
+   * The net cost of the work to be carried out
+   */
+  netAmount?: number // double
+  /**
+   * The cost of the vat associated with the work
+   */
+  vatAmount?: number // double
+}
+/**
+ * Request body used to create a new works order
+ * example:
+ * [object Object]
+ */
+export interface CreateWorksOrderModel {
+  /**
+   * The unique identifier of the company that has been selected to perform the work
+   */
+  companyId?: string
+  /**
+   * The unique identifier of the property where the work is to be carried out
+   */
+  propertyId?: string
+  /**
+   * The unique identifier of the tenancy that the works order originated from
+   */
+  tenancyId?: string
+  /**
+   * The unique identifier of the negotiator that booked the works order
+   */
+  negotiatorId?: string
+  /**
+   * The unique id of the type of work that needs to be carried out
+   */
+  typeId?: string
+  /**
+   * The current status of the works order (pendingApproval/pendingQuote/raised/raisedToChase/landlordToComplete/complete/cancelled)
+   */
+  status?: string
+  /**
+   * A free text description of the work required
+   */
+  description?: string
+  /**
+   * The party requesting the work to be carried out (landlord/tenant/other)
+   */
+  reporter?: string
+  /**
+   * The date when the works order was booked
+   * example:
+   * 2019-08-14
+   */
+  booked?: string // date
+  /**
+   * The date when the work is required to be completed by
+   * example:
+   * 2019-08-14
+   */
+  required?: string // date
+  /**
+   * The date when the work was completed
+   * example:
+   * 2019-08-14
+   */
+  completed?: string // date
+  /**
+   * Individual work items to attach to the works order
+   */
+  items?: {
+    /**
+     * The notes attached to the works order item
+     */
+    notes?: string
+    /**
+     * The party to be charged for the work being carried out (landlord/tenant)
+     */
+    chargeTo?: string
+    /**
+     * The estimate of any costs associated with the work being carried out given to the party to be charged for the work
+     */
+    estimate?: number // double
+    /**
+     * The type of estimate supplied (agent/verbal/written)
+     */
+    estimateType?: string
+    /**
+     * The net cost of the work to be carried out
+     */
+    netAmount?: number // double
+    /**
+     * The cost of the vat associated with the work
+     */
+    vatAmount?: number // double
+  }[]
+  /**
+   * App specific metadata to set against the works order
    */
   metadata?: {
     [name: string]: any
@@ -6875,6 +7000,239 @@ export interface PagedResultTaskModel_ {
     }
   }
 }
+export interface PagedResultTenancyContactRelationshipModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the tenancy relationship
+     */
+    id?: string
+    /**
+     * The date and time when the relationship was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the relationship was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The unique identifier of the tenancy
+     */
+    tenancyId?: string
+    /**
+     * The type of related entity (contact/company)
+     */
+    associatedType?: string
+    /**
+     * The unique identifier of the related contact or company
+     */
+    associatedId?: string
+    /**
+     * A flag denoting whether or not this contact or company should be regarded as the main tenant
+     */
+    isMain?: boolean
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface PagedResultTenancyModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the tenancy
+     */
+    id?: string
+    /**
+     * The date and time when the tenancy was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the tenancy was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * example:
+     * 2019-08-14
+     */
+    startDate?: string // date
+    /**
+     * example:
+     * 2019-08-14
+     */
+    endDate?: string // date
+    /**
+     * The current status of the tenancy (offerPending/offerWithdrawn/offerRejected/arranging/current/finished/cancelled)
+     */
+    status?: string
+    /**
+     * The role that the agent is performing for this tenancy (managed/rentCollection/collectFirstPayment/collectRentToDate/lettingOnly/introducingTenant)
+     */
+    agentRole?: string
+    /**
+     * The amount of rent required, returned in relation to the collection frequency
+     */
+    rent?: number // int32
+    /**
+     * The rent collection frequency (weekly/monthly/annually)
+     */
+    rentFrequency?: string
+    /**
+     * A flag determining whether or not this tenancy is confirmed to finish at the end date
+     */
+    endDateConfirmed?: boolean
+    /**
+     * A flag determining whether or not this tenancy has been extended indefinitely
+     */
+    isPeriodic?: boolean
+    /**
+     * The unique identifier of the type of tenancy
+     */
+    typeId?: string
+    /**
+     * The unique identifier of the negotiator who is managing this tenancy
+     */
+    negotiatorId?: string
+    /**
+     * The unique identifier of the property in which this tenancy is for
+     */
+    propertyId?: string
+    /**
+     * The unique identifier of the applicant who has applied to be a tenant
+     */
+    applicantId?: string
+    /**
+     * The source of the tenancy
+     */
+    source?: {
+      /**
+       * The unique identifier of the source for this tenancy
+       */
+      id?: string
+      /**
+       * The source type (office/source)
+       */
+      type?: string
+    }
+    /**
+     * A collection of contact / company tenants associated to this tenancy. The first item in the collection is considered the primary relationship
+     */
+    related?: {
+      /**
+       * The unique identifier of the contact or company
+       */
+      id?: string
+      /**
+       * The name of the contact or company
+       */
+      name?: string
+      /**
+       * The type of the contact (company/contact)
+       */
+      type?: string
+      /**
+       * The home phone number of the contact or company
+       */
+      homePhone?: string
+      /**
+       * The work phone number of the contact or company
+       */
+      workPhone?: string
+      /**
+       * The mobile phone number of the contact or company
+       */
+      mobilePhone?: string
+      /**
+       * The email address of the contact or company
+       */
+      email?: string
+      /**
+       * The primary address of the contact or company
+       */
+      primaryAddress?: {
+        /**
+         * The building name
+         */
+        buildingName?: string
+        /**
+         * The building number
+         */
+        buildingNumber?: string
+        /**
+         * The first line of the address
+         */
+        line1?: string
+        /**
+         * The second line of the address
+         */
+        line2?: string
+        /**
+         * The third line of the address
+         */
+        line3?: string
+        /**
+         * The fourth line of the address
+         */
+        line4?: string
+        /**
+         * The postcode
+         */
+        postcode?: string
+        /**
+         * The ISO-3166 country code that the address resides within
+         */
+        countryId?: string
+      }
+    }[]
+    /**
+     * App specific metadata that has been set against the tenancy
+     */
+    metadata?: {
+      [name: string]: any
+    }
+    /**
+     * The ETag for the current version of the tenancy. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
 export interface PagedResultVendorContactRelationshipModel_ {
   _embedded?: {
     /**
@@ -7090,6 +7448,253 @@ export interface PagedResultVendorModel_ {
     }
   }
 }
+export interface PagedResultWorksOrderItemModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the works order item
+     */
+    id?: string
+    /**
+     * The unique identifier of the parent works order
+     */
+    worksOrderId?: string
+    /**
+     * The date and time when the works order item was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the works order item was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The notes attached to the works order item
+     */
+    notes?: string
+    /**
+     * The party to be charged for the work being carried out (landlord/tenant)
+     */
+    chargeTo?: string
+    /**
+     * The estimate of any costs associated with the work being carried out given to the party to be charged for the work
+     */
+    estimate?: number // double
+    /**
+     * The type of estimate supplied (agent/verbal/written)
+     */
+    estimateType?: string
+    /**
+     * The net cost of the work to be carried out
+     */
+    netAmount?: number // double
+    /**
+     * The additional vat cost for the work to be carried out
+     */
+    vatAmount?: number // double
+    /**
+     * The gross cost of the work to be carried out
+     */
+    grossAmount?: number // double
+    /**
+     * The ETag for the current version of the works order item. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface PagedResultWorksOrderModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the works order
+     */
+    id?: string
+    /**
+     * The date and time when the works order was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the works order was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The unique identifier of the company that has been selected to perform the work
+     */
+    companyId?: string
+    /**
+     * The unique identifier of the property where the work is to be carried out
+     */
+    propertyId?: string
+    /**
+     * The unique identifier of the tenancy that the works order originated from
+     */
+    tenancyId?: string
+    /**
+     * The unique identifier of the negotiator that booked the works order
+     */
+    negotiatorId?: string
+    /**
+     * The unique identifier of the type of work that needs to be carried out
+     */
+    typeId?: string
+    /**
+     * The current status of the works order (pendingApproval/pendingQuote/raised/raisedToChase/landlordToComplete/complete/cancelled)
+     */
+    status?: string
+    /**
+     * A free text description of the work required
+     */
+    description?: string
+    /**
+     * The party requesting the work to be carried out (landlord/tenant/other)
+     */
+    reporter?: string
+    /**
+     * The date when the works order was booked
+     * example:
+     * 2019-08-14
+     */
+    booked?: string // date
+    /**
+     * The date when the work is required to be completed by
+     * example:
+     * 2019-08-14
+     */
+    required?: string // date
+    /**
+     * The date when the work was completed
+     * example:
+     * 2019-08-14
+     */
+    completed?: string // date
+    /**
+     * The total net cost for all of the items of work to be carried out
+     */
+    totalNetAmount?: number // double
+    /**
+     * The total additional vat cost for all of the items of work to be carried out
+     */
+    totalVatAmount?: number // double
+    /**
+     * The total gross cost for all of the items of work to be carried out
+     */
+    totalGrossAmount?: number // double
+    /**
+     * A collection of jobs/items of work that the works order should fulfill
+     */
+    items?: {
+      /**
+       * The unique identifier of the works order item
+       */
+      id?: string
+      /**
+       * The unique identifier of the parent works order
+       */
+      worksOrderId?: string
+      /**
+       * The date and time when the works order item was created
+       * example:
+       * 2019-08-14T12:30:02.0000000Z
+       */
+      created?: string // date-time
+      /**
+       * The date and time when the works order item was last modified
+       * example:
+       * 2019-08-14T12:30:02.0000000Z
+       */
+      modified?: string // date-time
+      /**
+       * The notes attached to the works order item
+       */
+      notes?: string
+      /**
+       * The party to be charged for the work being carried out (landlord/tenant)
+       */
+      chargeTo?: string
+      /**
+       * The estimate of any costs associated with the work being carried out given to the party to be charged for the work
+       */
+      estimate?: number // double
+      /**
+       * The type of estimate supplied (agent/verbal/written)
+       */
+      estimateType?: string
+      /**
+       * The net cost of the work to be carried out
+       */
+      netAmount?: number // double
+      /**
+       * The additional vat cost for the work to be carried out
+       */
+      vatAmount?: number // double
+      /**
+       * The gross cost of the work to be carried out
+       */
+      grossAmount?: number // double
+      /**
+       * The ETag for the current version of the works order item. Used for managing update concurrency
+       */
+      readonly _eTag?: string
+      readonly _links?: {
+        [name: string]: {
+          href?: string
+        }
+      }
+      readonly _embedded?: {
+        [name: string]: any
+      }
+    }[]
+    /**
+     * App specific metadata that has been set against the works order
+     */
+    metadata?: {
+      [name: string]: any
+    }
+    /**
+     * The ETag for the current version of the works order. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
 export interface PagingLinkModel {
   href?: string
 }
@@ -7108,6 +7713,7 @@ export interface Properties {
   RentFrom?: number
   RentTo?: number
   InternetAdvertising?: boolean
+  Embed?: ('area' | 'department' | 'documents' | 'images' | 'negotiator' | 'offers' | 'offices' | 'vendor')[]
   Age?: ('period' | 'new' | 'modern')[]
   LettingStatus?: (
     | 'valuation'
@@ -7991,6 +8597,358 @@ export interface Tasks {
   ActivatesTo?: string
   CreatedFrom?: string
   CreatedTo?: string
+}
+export interface Tenancies {
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  embed?: ('applicant' | 'documents' | 'negotiator' | 'property' | 'source' | 'tasks' | 'type')[]
+  id?: string[]
+  negotiatorId?: string[]
+  applicantId?: string[]
+  propertyId?: string[]
+  status?: ('offerPending' | 'offerWithdrawn' | 'offerRejected' | 'arranging' | 'current' | 'finished' | 'cancelled')[]
+  createdFrom?: string
+  createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
+}
+/**
+ * Representation of the physical address of a building or premise
+ */
+export interface TenancyContactAddressModel {
+  /**
+   * The building name
+   */
+  buildingName?: string
+  /**
+   * The building number
+   */
+  buildingNumber?: string
+  /**
+   * The first line of the address
+   */
+  line1?: string
+  /**
+   * The second line of the address
+   */
+  line2?: string
+  /**
+   * The third line of the address
+   */
+  line3?: string
+  /**
+   * The fourth line of the address
+   */
+  line4?: string
+  /**
+   * The postcode
+   */
+  postcode?: string
+  /**
+   * The ISO-3166 country code that the address resides within
+   */
+  countryId?: string
+}
+/**
+ * A summarised view of the details of a contact or company associated to a tenancy
+ */
+export interface TenancyContactModel {
+  /**
+   * The unique identifier of the contact or company
+   */
+  id?: string
+  /**
+   * The name of the contact or company
+   */
+  name?: string
+  /**
+   * The type of the contact (company/contact)
+   */
+  type?: string
+  /**
+   * The home phone number of the contact or company
+   */
+  homePhone?: string
+  /**
+   * The work phone number of the contact or company
+   */
+  workPhone?: string
+  /**
+   * The mobile phone number of the contact or company
+   */
+  mobilePhone?: string
+  /**
+   * The email address of the contact or company
+   */
+  email?: string
+  /**
+   * The primary address of the contact or company
+   */
+  primaryAddress?: {
+    /**
+     * The building name
+     */
+    buildingName?: string
+    /**
+     * The building number
+     */
+    buildingNumber?: string
+    /**
+     * The first line of the address
+     */
+    line1?: string
+    /**
+     * The second line of the address
+     */
+    line2?: string
+    /**
+     * The third line of the address
+     */
+    line3?: string
+    /**
+     * The fourth line of the address
+     */
+    line4?: string
+    /**
+     * The postcode
+     */
+    postcode?: string
+    /**
+     * The ISO-3166 country code that the address resides within
+     */
+    countryId?: string
+  }
+}
+/**
+ * Representation of a relationship between a tenancy and a contact or company
+ */
+export interface TenancyContactRelationshipModel {
+  /**
+   * The unique identifier of the tenancy relationship
+   */
+  id?: string
+  /**
+   * The date and time when the relationship was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the relationship was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The unique identifier of the tenancy
+   */
+  tenancyId?: string
+  /**
+   * The type of related entity (contact/company)
+   */
+  associatedType?: string
+  /**
+   * The unique identifier of the related contact or company
+   */
+  associatedId?: string
+  /**
+   * A flag denoting whether or not this contact or company should be regarded as the main tenant
+   */
+  isMain?: boolean
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+/**
+ * Representation of a tenancy
+ */
+export interface TenancyModel {
+  /**
+   * The unique identifier of the tenancy
+   */
+  id?: string
+  /**
+   * The date and time when the tenancy was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the tenancy was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * example:
+   * 2019-08-14
+   */
+  startDate?: string // date
+  /**
+   * example:
+   * 2019-08-14
+   */
+  endDate?: string // date
+  /**
+   * The current status of the tenancy (offerPending/offerWithdrawn/offerRejected/arranging/current/finished/cancelled)
+   */
+  status?: string
+  /**
+   * The role that the agent is performing for this tenancy (managed/rentCollection/collectFirstPayment/collectRentToDate/lettingOnly/introducingTenant)
+   */
+  agentRole?: string
+  /**
+   * The amount of rent required, returned in relation to the collection frequency
+   */
+  rent?: number // int32
+  /**
+   * The rent collection frequency (weekly/monthly/annually)
+   */
+  rentFrequency?: string
+  /**
+   * A flag determining whether or not this tenancy is confirmed to finish at the end date
+   */
+  endDateConfirmed?: boolean
+  /**
+   * A flag determining whether or not this tenancy has been extended indefinitely
+   */
+  isPeriodic?: boolean
+  /**
+   * The unique identifier of the type of tenancy
+   */
+  typeId?: string
+  /**
+   * The unique identifier of the negotiator who is managing this tenancy
+   */
+  negotiatorId?: string
+  /**
+   * The unique identifier of the property in which this tenancy is for
+   */
+  propertyId?: string
+  /**
+   * The unique identifier of the applicant who has applied to be a tenant
+   */
+  applicantId?: string
+  /**
+   * The source of the tenancy
+   */
+  source?: {
+    /**
+     * The unique identifier of the source for this tenancy
+     */
+    id?: string
+    /**
+     * The source type (office/source)
+     */
+    type?: string
+  }
+  /**
+   * A collection of contact / company tenants associated to this tenancy. The first item in the collection is considered the primary relationship
+   */
+  related?: {
+    /**
+     * The unique identifier of the contact or company
+     */
+    id?: string
+    /**
+     * The name of the contact or company
+     */
+    name?: string
+    /**
+     * The type of the contact (company/contact)
+     */
+    type?: string
+    /**
+     * The home phone number of the contact or company
+     */
+    homePhone?: string
+    /**
+     * The work phone number of the contact or company
+     */
+    workPhone?: string
+    /**
+     * The mobile phone number of the contact or company
+     */
+    mobilePhone?: string
+    /**
+     * The email address of the contact or company
+     */
+    email?: string
+    /**
+     * The primary address of the contact or company
+     */
+    primaryAddress?: {
+      /**
+       * The building name
+       */
+      buildingName?: string
+      /**
+       * The building number
+       */
+      buildingNumber?: string
+      /**
+       * The first line of the address
+       */
+      line1?: string
+      /**
+       * The second line of the address
+       */
+      line2?: string
+      /**
+       * The third line of the address
+       */
+      line3?: string
+      /**
+       * The fourth line of the address
+       */
+      line4?: string
+      /**
+       * The postcode
+       */
+      postcode?: string
+      /**
+       * The ISO-3166 country code that the address resides within
+       */
+      countryId?: string
+    }
+  }[]
+  /**
+   * App specific metadata that has been set against the tenancy
+   */
+  metadata?: {
+    [name: string]: any
+  }
+  /**
+   * The ETag for the current version of the tenancy. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+/**
+ * A tenancy source of enquiry
+ */
+export interface TenancySourceModel {
+  /**
+   * The unique identifier of the source for this tenancy
+   */
+  id?: string
+  /**
+   * The source type (office/source)
+   */
+  type?: string
 }
 /**
  * The details specific to applicants with a marketingMode of buying
@@ -9855,6 +10813,100 @@ export interface UpdateVendorModel {
   }
 }
 /**
+ * Representation of a works order item
+ * example:
+ * [object Object]
+ */
+export interface UpdateWorksOrderItemModel {
+  /**
+   * The notes attached to the works order item
+   */
+  notes?: string
+  /**
+   * The party to be charged for the work being carried out (landlord/tenant)
+   */
+  chargeTo?: string
+  /**
+   * The estimate of any costs associated with the work being carried out given to the party to be charged for the work
+   */
+  estimate?: number // double
+  /**
+   * The type of estimate supplied (agent/verbal/written)
+   */
+  estimateType?: string
+  /**
+   * The net cost of the work to be carried out
+   */
+  netAmount?: number // double
+  /**
+   * The cost of the vat associated with the work
+   */
+  vatAmount?: number // double
+}
+/**
+ * Request body used to update an existing works order
+ * example:
+ * [object Object]
+ */
+export interface UpdateWorksOrderModel {
+  /**
+   * The unique identifier of the company that has been selected to perform the work
+   */
+  companyId?: string
+  /**
+   * The unique identifier of the property where the work is to be carried out
+   */
+  propertyId?: string
+  /**
+   * The unique identifier of the tenancy that the works order originated from
+   */
+  tenancyId?: string
+  /**
+   * The unique identifier of the negotiator that booked the works order
+   */
+  negotiatorId?: string
+  /**
+   * The unique id of the type of work that needs to be carried out
+   */
+  typeId?: string
+  /**
+   * The current status of the works order (pendingApproval/pendingQuote/raised/raisedToChase/landlordToComplete/complete/cancelled)
+   */
+  status?: string
+  /**
+   * A free text description of the work required
+   */
+  description?: string
+  /**
+   * The party requesting the work to be carried out (landlord/tenant/other)
+   */
+  reporter?: string
+  /**
+   * The date when the works order was booked
+   * example:
+   * 2019-08-14
+   */
+  booked?: string // date
+  /**
+   * The date when the work is required to be completed by
+   * example:
+   * 2019-08-14
+   */
+  required?: string // date
+  /**
+   * The date when the work was completed
+   * example:
+   * 2019-08-14
+   */
+  completed?: string // date
+  /**
+   * App specific metadata to set against the works order
+   */
+  metadata?: {
+    [name: string]: any
+  }
+}
+/**
  * Representation of the physical address of a building or premise
  */
 export interface VendorContactAddressModel {
@@ -10206,4 +11258,262 @@ export interface Vendors {
   NextCallFrom?: string
   NextCallTo?: string
   Embed?: ('negotiator' | 'offices' | 'sellingReason' | 'solicitor' | 'source' | 'type')[]
+}
+/**
+ * Representation of a works order item
+ */
+export interface WorksOrderItemModel {
+  /**
+   * The unique identifier of the works order item
+   */
+  id?: string
+  /**
+   * The unique identifier of the parent works order
+   */
+  worksOrderId?: string
+  /**
+   * The date and time when the works order item was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the works order item was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The notes attached to the works order item
+   */
+  notes?: string
+  /**
+   * The party to be charged for the work being carried out (landlord/tenant)
+   */
+  chargeTo?: string
+  /**
+   * The estimate of any costs associated with the work being carried out given to the party to be charged for the work
+   */
+  estimate?: number // double
+  /**
+   * The type of estimate supplied (agent/verbal/written)
+   */
+  estimateType?: string
+  /**
+   * The net cost of the work to be carried out
+   */
+  netAmount?: number // double
+  /**
+   * The additional vat cost for the work to be carried out
+   */
+  vatAmount?: number // double
+  /**
+   * The gross cost of the work to be carried out
+   */
+  grossAmount?: number // double
+  /**
+   * The ETag for the current version of the works order item. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+/**
+ * Representation of a works order
+ */
+export interface WorksOrderModel {
+  /**
+   * The unique identifier of the works order
+   */
+  id?: string
+  /**
+   * The date and time when the works order was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the works order was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The unique identifier of the company that has been selected to perform the work
+   */
+  companyId?: string
+  /**
+   * The unique identifier of the property where the work is to be carried out
+   */
+  propertyId?: string
+  /**
+   * The unique identifier of the tenancy that the works order originated from
+   */
+  tenancyId?: string
+  /**
+   * The unique identifier of the negotiator that booked the works order
+   */
+  negotiatorId?: string
+  /**
+   * The unique identifier of the type of work that needs to be carried out
+   */
+  typeId?: string
+  /**
+   * The current status of the works order (pendingApproval/pendingQuote/raised/raisedToChase/landlordToComplete/complete/cancelled)
+   */
+  status?: string
+  /**
+   * A free text description of the work required
+   */
+  description?: string
+  /**
+   * The party requesting the work to be carried out (landlord/tenant/other)
+   */
+  reporter?: string
+  /**
+   * The date when the works order was booked
+   * example:
+   * 2019-08-14
+   */
+  booked?: string // date
+  /**
+   * The date when the work is required to be completed by
+   * example:
+   * 2019-08-14
+   */
+  required?: string // date
+  /**
+   * The date when the work was completed
+   * example:
+   * 2019-08-14
+   */
+  completed?: string // date
+  /**
+   * The total net cost for all of the items of work to be carried out
+   */
+  totalNetAmount?: number // double
+  /**
+   * The total additional vat cost for all of the items of work to be carried out
+   */
+  totalVatAmount?: number // double
+  /**
+   * The total gross cost for all of the items of work to be carried out
+   */
+  totalGrossAmount?: number // double
+  /**
+   * A collection of jobs/items of work that the works order should fulfill
+   */
+  items?: {
+    /**
+     * The unique identifier of the works order item
+     */
+    id?: string
+    /**
+     * The unique identifier of the parent works order
+     */
+    worksOrderId?: string
+    /**
+     * The date and time when the works order item was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the works order item was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The notes attached to the works order item
+     */
+    notes?: string
+    /**
+     * The party to be charged for the work being carried out (landlord/tenant)
+     */
+    chargeTo?: string
+    /**
+     * The estimate of any costs associated with the work being carried out given to the party to be charged for the work
+     */
+    estimate?: number // double
+    /**
+     * The type of estimate supplied (agent/verbal/written)
+     */
+    estimateType?: string
+    /**
+     * The net cost of the work to be carried out
+     */
+    netAmount?: number // double
+    /**
+     * The additional vat cost for the work to be carried out
+     */
+    vatAmount?: number // double
+    /**
+     * The gross cost of the work to be carried out
+     */
+    grossAmount?: number // double
+    /**
+     * The ETag for the current version of the works order item. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  /**
+   * App specific metadata that has been set against the works order
+   */
+  metadata?: {
+    [name: string]: any
+  }
+  /**
+   * The ETag for the current version of the works order. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+export interface WorksOrders {
+  PageSize?: number
+  PageNumber?: number
+  SortBy?: string
+  Id?: string[]
+  CompanyId?: string[]
+  NegotiatorId?: string[]
+  PropertyId?: string[]
+  TenancyId?: string[]
+  TypeId?: string[]
+  CompletedFrom?: string
+  CompletedTo?: string
+  CreatedFrom?: string
+  CreatedTo?: string
+  RequiredFrom?: string
+  RequiredTo?: string
+  Embed?: ('company' | 'documents' | 'negotiator' | 'property' | 'tenancy' | 'type')[]
+  Status?: (
+    | 'pendingApproval'
+    | 'pendingQuote'
+    | 'raised'
+    | 'raisedToChase'
+    | 'landlordToComplete'
+    | 'complete'
+    | 'cancelled'
+  )[]
 }
