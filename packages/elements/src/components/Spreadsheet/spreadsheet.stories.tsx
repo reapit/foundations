@@ -75,6 +75,8 @@ storiesOf('Spreadsheet', module)
     )
   })
   .add('Validate', () => {
+    // eslint-disable-next-line
+    const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
     const dataValidate = [
       [
         { readOnly: true, value: 'Office Name' },
@@ -105,7 +107,7 @@ storiesOf('Spreadsheet', module)
       [
         { value: 'London2' },
         { value: 'The Black House' },
-        { value: '11aa', validate: cell => Number.isInteger(Number(cell.value)) },
+        { value: '11' },
         { value: '' },
         { value: '' },
         { value: 'Adress 3' },
@@ -128,17 +130,25 @@ storiesOf('Spreadsheet', module)
         { value: '' },
         {
           value: 'row3@com',
-          validate: cell => {
-            // eslint-disable-next-line
-            const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
-            return emailRegex.test(cell.value)
-          },
         },
       ],
     ]
     return (
       <Spreadsheet
         data={dataValidate}
+        validate={data =>
+          data.map((row, rowIndex) =>
+            row.map((cell, colIndex) => {
+              if (colIndex === 10) {
+                if (emailRegex.test(data[rowIndex][colIndex].value as string)) {
+                  return true
+                }
+                return false
+              }
+              return true
+            }),
+          )
+        }
         description={
           <p>
             <strong>DataSheet with validate</strong>
@@ -389,51 +399,6 @@ storiesOf('Spreadsheet', module)
 
     return <Spreadsheet data={dataBasic} hasAddButton={false} hasUploadButton={false} hasDownloadButton={false} />
   })
-  .add('Spreadsheet with validate upload', () => {
-    const dataBasic = [
-      [
-        { readOnly: true, value: 'Office Name' },
-        { readOnly: true, value: 'Building Name' },
-        { readOnly: true, value: 'Building No.' },
-        { readOnly: true, value: 'Address 1' },
-        { readOnly: true, value: 'Address 2' },
-        { readOnly: true, value: 'Address 3' },
-        { readOnly: true, value: 'Address 4' },
-        { readOnly: true, value: 'Post Code' },
-        { readOnly: true, value: 'Telephone' },
-        { readOnly: true, value: 'Fax' },
-        { readOnly: true, value: 'Email' },
-      ],
-    ]
-
-    return (
-      <Spreadsheet
-        data={dataBasic}
-        validateUpload={data =>
-          data.map(row =>
-            row.map(cell => {
-              return {
-                ...cell,
-                validate: cell => Number.isInteger(Number(cell.value)),
-              }
-            }),
-          )
-        }
-        description={
-          <p>
-            <strong>
-              DataSheet with <code>validateUpload</code>, try to upload a csv file
-            </strong>
-            <br />
-            <code>validateUpload</code> function will run before data is set to table, should return{' '}
-            <code>Cell[][]</code> with each cell contain <code>validate</code> property
-            <br />
-            Here, check if cell value is convertible to integer
-          </p>
-        }
-      />
-    )
-  })
   .add('Spreadsheet with afterDataChanged', () => {
     const dataBasic = [
       [
@@ -492,7 +457,10 @@ storiesOf('Spreadsheet', module)
     return (
       <Spreadsheet
         data={dataBasic}
-        afterDataChanged={data => console.log('Changed!', data)}
+        afterDataChanged={(data, changedCells) => {
+          console.log('Data after changed', data)
+          console.log('ChangedCell!', changedCells)
+        }}
         description={
           <p>
             <strong>

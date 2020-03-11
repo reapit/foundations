@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { MyReactDataSheet, Cell, SpreadsheetProps, SelectedMatrix, ContextMenuProp, SetContextMenuProp } from './types'
+import { MyReactDataSheet, Cell, SpreadsheetProps, SelectedMatrix, ContextMenuProp } from './types'
 import {
   valueRenderer,
   onSelectCells,
@@ -10,11 +10,14 @@ import {
   handleOnChangeInput,
   handleDownload,
   handleContextMenu,
+  hideContextMenu,
+  handleSetContextMenu,
   handleAfterDataChanged,
+  handleInitialDataChanged,
 } from './handlers'
 import { Button } from '../Button'
 import { ContextMenu } from './context-menu'
-import { hideContextMenu } from './utils'
+import { usePrevious } from './utils'
 
 export const UploadButton = ({ onChangeInput }) => {
   const uploadRef = React.useRef<HTMLInputElement>(null)
@@ -48,29 +51,20 @@ export const AddRowButton = ({ addNewRow }) => {
   )
 }
 
-export const handleEffect = (setContextMenuProp: SetContextMenuProp) => () => {
-  /**
-   * To hide context menu when click outside.
-   * must use window instead of document for stopPropagation to work
-   * https://github.com/facebook/react/issues/4335
-   */
-  window.addEventListener('click', setContextMenuProp as any)
-}
-
 export const Spreadsheet: React.FC<SpreadsheetProps> = ({
   data: initialData,
   description = '',
   hasUploadButton = true,
   hasDownloadButton = true,
   hasAddButton = true,
-  validateUpload,
   afterDataChanged,
+  validate,
 }) => {
   const [selected, setSelected] = React.useState<SelectedMatrix | null>(null)
 
-  const [data, setData] = React.useState<Cell[][]>(initialData)
+  const [data, setData] = React.useState<Cell[][]>([[]])
 
-  const setDataToInitial = setData.bind(null, initialData)
+  const prevData = usePrevious(data)
 
   const [contextMenuProp, setContextMenuProp] = React.useState<ContextMenuProp>({
     visible: false,
@@ -79,23 +73,19 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
   })
 
   const cellRenderer = React.useCallback(customCellRenderer(data, setData, setSelected), [data])
-  const onSelect = React.useCallback(onSelectCells(setSelected), [])
-  const onCellsChanged = React.useCallback(handleCellsChanged(data, setData), [data])
-  const addNewRow = React.useCallback(handleAddNewRow(data, setData), [data])
-  const onChangeInput = React.useCallback(handleOnChangeInput(validateUpload, setData), [validateUpload])
-  const onContextMenu = React.useCallback(handleContextMenu(setContextMenuProp), [])
-  // call setContextMenuProp will hide context menu by default
-  React.useEffect(handleEffect(setContextMenuProp.bind(null, hideContextMenu)), [])
-  // call setData when initialData changed
-  React.useEffect(setDataToInitial, [initialData])
-  // call after data changed
-  React.useEffect(handleAfterDataChanged(data, afterDataChanged), [data])
+
+  React.useEffect(handleSetContextMenu(setContextMenuProp.bind(null, hideContextMenu)), [])
+
+  React.useEffect(handleInitialDataChanged(initialData, data, setData, validate), [initialData, validate])
+
+  React.useEffect(handleAfterDataChanged(data, prevData, afterDataChanged), [data])
+
   return (
     <div className="spreadsheet">
       <div className="wrap-top">
         <div className="description">{description}</div>
         <div className="button-group">
-          {hasUploadButton && <UploadButton onChangeInput={onChangeInput} />}
+          {hasUploadButton && <UploadButton onChangeInput={handleOnChangeInput(data, setData, validate)} />}
           {hasDownloadButton && <DownloadButton data={data} />}
         </div>
       </div>
@@ -104,12 +94,14 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
         data={data}
         selected={selected}
         valueRenderer={valueRenderer}
-        onCellsChanged={onCellsChanged}
-        onSelect={onSelect}
-        onContextMenu={onContextMenu}
+        onCellsChanged={handleCellsChanged(data, setData, validate)}
+        onSelect={onSelectCells(setSelected)}
+        onContextMenu={handleContextMenu(setContextMenuProp)}
         cellRenderer={cellRenderer}
       />
-      <div className="wrap-bottom">{hasAddButton && <AddRowButton addNewRow={addNewRow} />}</div>
+      <div className="wrap-bottom">
+        {hasAddButton && <AddRowButton addNewRow={handleAddNewRow(data, setData, validate)} />}
+      </div>
       <ContextMenu
         selected={selected}
         contextMenuProp={contextMenuProp}
@@ -121,4 +113,6 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
 }
 
 export * from './types'
+export * from './utils'
+
 export * from './utils'
