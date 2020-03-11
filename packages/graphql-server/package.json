@@ -14,7 +14,7 @@
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,js src\"",
     "lint:fix": "prettier \"src/**/*.{graphql,gql}\" --write && eslint --cache --ext=ts,js src --fix",
     "release:dev": "yarn build:schema && serverless deploy --stage dev",
-    "release:prod": "yarn build-schema && node ../../scripts/release/release-serverless.js graphql-server",
+    "release:prod": "yarn build:schema && node ../../scripts/release/release-serverless.js graphql-server",
     "start:dev": "cross-env REAPIT_ENV=LOCAL NODE_ENV=development nodemon",
     "start:prod": "node ./dist/app.js",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",

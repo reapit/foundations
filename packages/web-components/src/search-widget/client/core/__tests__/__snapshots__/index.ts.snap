@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReapitSearchWidgetComponent should match a snapshot 1`] = `
+Search_widget {
+  "$$": Object {
+    "after_update": Array [],
+    "before_update": Array [],
+    "bound": Object {},
+    "callbacks": Object {},
+    "context": Map {},
+    "ctx": Array [
+      "css-h4w50h",
+      "css-gnah7l",
+      Object {
+        "baseBackgroundColor": "white",
+      },
+      "SOME_KEY",
+    ],
+    "dirty": Array [
+      -1,
+    ],
+    "fragment": Object {
+      "c": [Function],
+      "d": [Function],
+      "i": [Function],
+      "l": [Function],
+      "m": [Function],
+      "o": [Function],
+      "p": [Function],
+    },
+    "not_equal": [Function],
+    "on_destroy": Array [
+      [Function],
+    ],
+    "on_mount": Array [],
+    "props": Object {
+      "apiKey": 3,
+      "theme": 2,
+    },
+    "update": [Function],
+  },
+  "$capture_state": [Function],
+  "$inject_state": [Function],
+  "$set": [Function],
+}
+`;

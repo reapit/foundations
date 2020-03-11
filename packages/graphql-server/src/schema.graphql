@@ -79,33 +79,239 @@ input UpdateAppointmentModelFollowUpInput {
 }
 
 type Query {
-  GetAppointments(pageSize: Int, pageNumber: Int, sortBy: String, id: [String!], typeId: [String!], negotiatorId: [String!], officeId: [String!], propertyId: [String!], start: String!, end: String!, includeCancelled: Boolean, includeUnconfirmed: Boolean): PagedResultAppointmentModel!
+  GetAppointments(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String!]
+    typeId: [String!]
+    negotiatorId: [String!]
+    officeId: [String!]
+    propertyId: [String!]
+    start: String!
+    end: String!
+    includeCancelled: Boolean
+    includeUnconfirmed: Boolean
+  ): PagedResultAppointmentModel!
   GetAppointmentById(id: String!): AppointmentModel!
-  GetAreas(pageSize: Int, pageNumber: Int, sortBy: String, id: [String!], departmentId: [String!], officeId: [String!], name: String, active: Boolean): PagedResultAreaModel!
+  GetAreas(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String!]
+    departmentId: [String!]
+    officeId: [String!]
+    name: String
+    active: Boolean
+  ): PagedResultAreaModel!
   GetAreaById(id: String!): AreaModel!
-  GetContacts(pageSize: Int, pageNumber: Int, sortBy: String, id: [String!], negotiatorId: [String!], officeId: [String!], address: String, identityCheck: String, name: String, marketingConsent: String, active: Boolean, createdFrom: String, createdTo: String): PagedResultContactModel!
+  GetContacts(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String!]
+    negotiatorId: [String!]
+    officeId: [String!]
+    address: String
+    identityCheck: String
+    name: String
+    marketingConsent: String
+    active: Boolean
+    createdFrom: String
+    createdTo: String
+  ): PagedResultContactModel!
   GetContactById(id: String!): ContactModel!
-  GetIdChecks(id: [String!], pageSize: Int, pageNumber: Int, sortBy: String, contactId: [String!], negotiatorId: [String!], checkDateFrom: String, checkDateTo: String, createdFrom: String, createdTo: String, status: [String!]): PagedResultIdentityCheckModel!
+  GetIdChecks(
+    id: [String!]
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    contactId: [String!]
+    negotiatorId: [String!]
+    checkDateFrom: String
+    checkDateTo: String
+    createdFrom: String
+    createdTo: String
+    status: [String!]
+  ): PagedResultIdentityCheckModel!
   GetIdCheckById(id: String!): IdentityCheckModel!
-  GetNegotiators(pageSize: Int, pageNumber: Int, sortBy: String, id: [String!], officeId: [String!], name: String, embed: [String!]): PagedResultNegotiatorModel!
+  GetNegotiators(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String!]
+    officeId: [String!]
+    name: String
+    embed: [String!]
+  ): PagedResultNegotiatorModel!
   GetNegotiatorById(id: String!, embed: [String!]): NegotiatorModel!
-  GetOffices(pageSize: Int, pageNumber: Int, sortBy: String, id: [String!], address: String, name: String, embed: [String!]): PagedResultOfficeModel!
+  GetOffices(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String!]
+    address: String
+    name: String
+    embed: [String!]
+  ): PagedResultOfficeModel!
   GetOfficeById(id: String!, embed: [String!]): OfficeModel!
 }
 
 type Mutation {
-  CreateAppointment(start: String, end: String, followUpOn: String, typeId: String, description: String, organiserId: String, negotiatorIds: [String!], officeIds: [String!], propertyId: String, accompanied: Boolean, negotiatorConfirmed: Boolean, attendeeConfirmed: Boolean, propertyConfirmed: Boolean, recurrence: AppointmentModelRecurrenceInput, metadata: JSON, attendee: CreateAppointmentModelAttendeeInput): JSON!
-  UpdateAppointment(id: String!, start: String, end: String, followUpOn: String, typeId: String, description: String, organiserId: String, negotiatorIds: [String!], officeIds: [String!], propertyId: String, accompanied: Boolean, negotiatorConfirmed: Boolean, attendeeConfirmed: Boolean, propertyConfirmed: Boolean, recurrence: AppointmentModelRecurrenceInput, metadata: JSON, attendee: UpdateAppointmentModelAttendeeInput, cancelled: Boolean, followUp: UpdateAppointmentModelFollowUpInput, _eTag: String!): AppointmentModel!
-  CreateArea(name: String, type: String, area: [String!], departmentIds: [String!], officeIds: [String!], parentId: String): JSON!
-  UpdateArea(name: String, area: [String!], departmentIds: [String!], officeIds: [String!], id: String!, _eTag: String!): AreaModel!
-  CreateContact(title: String, forename: String, surname: String, dateOfBirth: String, active: Boolean, marketingConsent: String, source: ContactModelSourceInput, homePhone: String, workPhone: String, mobilePhone: String, email: String, officeIds: [String!], negotiatorIds: [String!], primaryAddress: ContactModelAddressInput, secondaryAddress: ContactModelAddressInput, workAddress: ContactModelAddressInput, metadata: JSON): JSON!
-  UpdateContact(id: String!, _eTag: String!, title: String, forename: String, surname: String, dateOfBirth: String, active: Boolean, marketingConsent: String, source: ContactModelSourceInput, homePhone: String, workPhone: String, mobilePhone: String, email: String, officeIds: [String!], negotiatorIds: [String!], primaryAddress: ContactModelAddressInput, secondaryAddress: ContactModelAddressInput, workAddress: ContactModelAddressInput, metadata: JSON): ContactModel!
-  CreateIdentityCheck(contactId: String, checkDate: String, status: String, negotiatorId: String, identityDocument1: IdentityCheckModelIdentityDocumentInput, identityDocument2: IdentityCheckModelIdentityDocumentInput, metadata: JSON): JSON!
-  UpdateIdentityCheck(id: String!, _eTag: String!, checkDate: String, status: String, negotiatorId: String, identityDocument1: IdentityCheckModelIdentityDocumentInput, identityDocument2: IdentityCheckModelIdentityDocumentInput, metadata: JSON): IdentityCheckModel!
-  CreateNegotiator(name: String, jobTitle: String, active: Boolean, officeId: String, workPhone: String, mobilePhone: String, email: String, metadata: JSON): JSON!
-  UpdateNegotiator(id: String!, _eTag: String!, name: String, jobTitle: String, active: Boolean, workPhone: String, mobilePhone: String, email: String, metadata: JSON): NegotiatorModel!
-  CreateOffice(name: String, manager: String, address: OfficeModelAddressInput, workPhone: String, email: String, metadata: JSON): JSON!
-  UpdateOffice(id: String!, _eTag: String!, name: String, manager: String, address: OfficeModelAddressInput, workPhone: String, email: String, metadata: JSON): OfficeModel!
+  CreateAppointment(
+    start: String
+    end: String
+    followUpOn: String
+    typeId: String
+    description: String
+    organiserId: String
+    negotiatorIds: [String!]
+    officeIds: [String!]
+    propertyId: String
+    accompanied: Boolean
+    negotiatorConfirmed: Boolean
+    attendeeConfirmed: Boolean
+    propertyConfirmed: Boolean
+    recurrence: AppointmentModelRecurrenceInput
+    metadata: JSON
+    attendee: CreateAppointmentModelAttendeeInput
+  ): JSON!
+  UpdateAppointment(
+    id: String!
+    start: String
+    end: String
+    followUpOn: String
+    typeId: String
+    description: String
+    organiserId: String
+    negotiatorIds: [String!]
+    officeIds: [String!]
+    propertyId: String
+    accompanied: Boolean
+    negotiatorConfirmed: Boolean
+    attendeeConfirmed: Boolean
+    propertyConfirmed: Boolean
+    recurrence: AppointmentModelRecurrenceInput
+    metadata: JSON
+    attendee: UpdateAppointmentModelAttendeeInput
+    cancelled: Boolean
+    followUp: UpdateAppointmentModelFollowUpInput
+    _eTag: String!
+  ): AppointmentModel!
+  CreateArea(
+    name: String
+    type: String
+    area: [String!]
+    departmentIds: [String!]
+    officeIds: [String!]
+    parentId: String
+  ): JSON!
+  UpdateArea(
+    name: String
+    area: [String!]
+    departmentIds: [String!]
+    officeIds: [String!]
+    id: String!
+    _eTag: String!
+  ): AreaModel!
+  CreateContact(
+    title: String
+    forename: String
+    surname: String
+    dateOfBirth: String
+    active: Boolean
+    marketingConsent: String
+    source: ContactModelSourceInput
+    homePhone: String
+    workPhone: String
+    mobilePhone: String
+    email: String
+    officeIds: [String!]
+    negotiatorIds: [String!]
+    primaryAddress: ContactModelAddressInput
+    secondaryAddress: ContactModelAddressInput
+    workAddress: ContactModelAddressInput
+    metadata: JSON
+  ): JSON!
+  UpdateContact(
+    id: String!
+    _eTag: String!
+    title: String
+    forename: String
+    surname: String
+    dateOfBirth: String
+    active: Boolean
+    marketingConsent: String
+    source: ContactModelSourceInput
+    homePhone: String
+    workPhone: String
+    mobilePhone: String
+    email: String
+    officeIds: [String!]
+    negotiatorIds: [String!]
+    primaryAddress: ContactModelAddressInput
+    secondaryAddress: ContactModelAddressInput
+    workAddress: ContactModelAddressInput
+    metadata: JSON
+  ): ContactModel!
+  CreateIdentityCheck(
+    contactId: String
+    checkDate: String
+    status: String
+    negotiatorId: String
+    identityDocument1: IdentityCheckModelIdentityDocumentInput
+    identityDocument2: IdentityCheckModelIdentityDocumentInput
+    metadata: JSON
+  ): JSON!
+  UpdateIdentityCheck(
+    id: String!
+    _eTag: String!
+    checkDate: String
+    status: String
+    negotiatorId: String
+    identityDocument1: IdentityCheckModelIdentityDocumentInput
+    identityDocument2: IdentityCheckModelIdentityDocumentInput
+    metadata: JSON
+  ): IdentityCheckModel!
+  CreateNegotiator(
+    name: String
+    jobTitle: String
+    active: Boolean
+    officeId: String
+    workPhone: String
+    mobilePhone: String
+    email: String
+    metadata: JSON
+  ): JSON!
+  UpdateNegotiator(
+    id: String!
+    _eTag: String!
+    name: String
+    jobTitle: String
+    active: Boolean
+    workPhone: String
+    mobilePhone: String
+    email: String
+    metadata: JSON
+  ): NegotiatorModel!
+  CreateOffice(
+    name: String
+    manager: String
+    address: OfficeModelAddressInput
+    workPhone: String
+    email: String
+    metadata: JSON
+  ): JSON!
+  UpdateOffice(
+    id: String!
+    _eTag: String!
+    name: String
+    manager: String
+    address: OfficeModelAddressInput
+    workPhone: String
+    email: String
+    metadata: JSON
+  ): OfficeModel!
 }
 
 type AreaModel {
