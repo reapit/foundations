@@ -7,8 +7,9 @@ query GetNegotiators(
   $pageSize: Int,
   $pageNumber: Int,
   $sortBy: String
+  $embed: [String!]
   ) {
-  GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy) {
+  GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
       ...Negotiator
     }

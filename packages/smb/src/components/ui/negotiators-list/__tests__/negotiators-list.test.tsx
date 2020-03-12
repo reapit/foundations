@@ -49,7 +49,6 @@ describe('NegotiatorList', () => {
         handleChangePage: jest.fn(),
         dataTable: [],
         updateNegotiator: jest.fn(),
-        updatedNegotiator: undefined,
       }
       const wrapper = shallow(<div>{renderNegotiatorList(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
@@ -62,7 +61,6 @@ describe('NegotiatorList', () => {
         handleChangePage: jest.fn(),
         dataTable: [],
         updateNegotiator: jest.fn(),
-        updatedNegotiator: undefined,
       }
       const wrapper = shallow(<div>{renderNegotiatorList(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
@@ -75,7 +73,6 @@ describe('NegotiatorList', () => {
         handleChangePage: jest.fn(),
         dataTable: getDataTable(negotiators),
         updateNegotiator: jest.fn(),
-        updatedNegotiator: undefined,
       }
       const wrapper = shallow(<div>{renderNegotiatorList(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
