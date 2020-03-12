@@ -7713,7 +7713,17 @@ export interface Properties {
   RentFrom?: number
   RentTo?: number
   InternetAdvertising?: boolean
-  Embed?: ('area' | 'department' | 'documents' | 'images' | 'negotiator' | 'offers' | 'offices' | 'vendor')[]
+  Embed?: (
+    | 'area'
+    | 'department'
+    | 'documents'
+    | 'images'
+    | 'landlord'
+    | 'negotiator'
+    | 'offers'
+    | 'offices'
+    | 'vendor'
+  )[]
   Age?: ('period' | 'new' | 'modern')[]
   LettingStatus?: (
     | 'valuation'
@@ -8597,6 +8607,7 @@ export interface Tasks {
   ActivatesTo?: string
   CreatedFrom?: string
   CreatedTo?: string
+  Embed?: ('applicant' | 'contact' | 'landlord' | 'property' | 'tenancy' | 'type')[]
 }
 export interface Tenancies {
   pageSize?: number
