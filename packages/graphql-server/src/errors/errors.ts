@@ -5,7 +5,7 @@ export const errorMessages = {
   notAuthorized: '[E4010] Not Authorized',
   badRequestError: '[E4000] Bad Request',
   notFound: '[E4040] Not Found',
-  forBidden: '[E4030] Forbidden',
+  forbidden: '[E4030] Forbidden',
   internalServerError: '[E5000] Internal Server Error',
 }
 
@@ -34,7 +34,7 @@ export const generateSyntaxError = (traceId?: string) => {
 }
 
 export const generateForbiddenError = (traceId?: string) => {
-  const error = new ForbiddenError(`${traceId || ''} - ${errorMessages.forBidden}`)
+  const error = new ForbiddenError(`${traceId || ''} - ${errorMessages.forbidden}`)
   logger.info('generateForbiddenError', { traceId, error: JSON.stringify(error) })
   return error
 }
