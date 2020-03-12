@@ -21,8 +21,6 @@ if (process.env.NODE_ENV === 'development') {
   }
 }
 
-console.log(process.env.PLATFORM_API_BASE_URL)
-
 export type ExpressContext = {
   req: express.Request
   res: express.Response

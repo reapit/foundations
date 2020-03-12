@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { API_VERSION } from '@/constants/api'
+import { API_VERSION } from '../constants/api'
 
 export const createPlatformAxiosInstance = () => {
   return axios.create({
