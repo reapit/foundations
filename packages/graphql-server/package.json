@@ -27,6 +27,7 @@
     "apollo-server": "^2.9.16",
     "apollo-server-lambda": "^2.10.1",
     "async": "^3.2.0",
+    "axios": "^0.19.2",
     "color-convert": "^2.0.1",
     "color-name": "^1.1.4",
     "colors": "^1.4.0",

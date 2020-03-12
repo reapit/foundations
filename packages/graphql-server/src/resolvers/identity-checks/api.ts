@@ -1,4 +1,3 @@
-import { fetcher } from '@reapit/elements'
 import qs from 'query-string'
 import logger from '../../logger'
 import { ServerContext } from '../../app'
@@ -13,7 +12,9 @@ import {
   UpdateIdentityCheckReturn,
 } from './identity-checks'
 import errors from '../../errors'
-import { API_VERSION, URLS } from '../../constants/api'
+import { URLS } from '../../constants/api'
+import { createPlatformAxiosInstance } from '../../utils/axios-instances'
+import handleError from '../../utils/handle-error'
 
 export const callGetIdentityCheckByIdAPI = async (
   args: GetIdentityCheckByIdArgs,
@@ -22,20 +23,17 @@ export const callGetIdentityCheckByIdAPI = async (
   const traceId = context.traceId
   logger.info('callGetIdentityCheckByIdAPI', { traceId, args })
   try {
-    const response = await fetcher({
-      url: `${URLS.identityChecks}/${args.id}`,
-      api: process.env.PLATFORM_API_BASE_URL,
-      method: 'GET',
-      headers: {
-        Authorization: context.authorization,
-        'Content-Type': 'application/json',
-        'api-version': API_VERSION,
+    const response = await createPlatformAxiosInstance().get<GetIdentityCheckByIdReturn>(
+      `${URLS.identityChecks}/${args.id}`,
+      {
+        headers: {
+          Authorization: context.authorization,
+        },
       },
-    })
-    return response
+    )
+    return response?.data
   } catch (error) {
-    logger.error('callGetIdentityCheckByIdAPI', { traceId, error: JSON.stringify(error) })
-    return errors.generateUserInputError(traceId)
+    return handleError({ error, traceId, caller: 'callGetIdentityCheckByIdAPI' })
   }
 }
 
@@ -47,20 +45,17 @@ export const callGetIdentityChecksAPI = async (
   logger.info('callGetIdentityChecksAPI', { args, traceId })
   try {
     const params = qs.stringify(args)
-    const response = fetcher({
-      url: `${URLS.identityChecks}/?${params}`,
-      api: process.env.PLATFORM_API_BASE_URL,
-      method: 'GET',
-      headers: {
-        Authorization: context.authorization,
-        'Content-Type': 'application/json',
-        'api-version': API_VERSION,
+    const response = await createPlatformAxiosInstance().get<GetIdentityChecksReturn>(
+      `${URLS.identityChecks}?${params}`,
+      {
+        headers: {
+          Authorization: context.authorization,
+        },
       },
-    })
-    return response
+    )
+    return response?.data
   } catch (error) {
-    logger.error('callGetIdentityChecksAPI', { traceId, error: JSON.stringify(error) })
-    return errors.generateUserInputError(traceId)
+    return handleError({ error, traceId, caller: 'callGetIdentityChecksAPI' })
   }
 }
 
@@ -71,21 +66,14 @@ export const callCreateIdentityCheckAPI = async (
   const traceId = context.traceId
   logger.info('callCreateIdentityCheckAPI', { traceId, args })
   try {
-    const response = await fetcher({
-      url: URLS.identityChecks,
-      api: process.env.PLATFORM_API_BASE_URL,
-      method: 'POST',
+    const response = await createPlatformAxiosInstance().post<CreateIdentityCheckReturn>(URLS.identityChecks, args, {
       headers: {
         Authorization: context.authorization,
-        'Content-Type': 'application/json',
-        'api-version': API_VERSION,
       },
-      body: args,
     })
-    return response
+    return response?.data
   } catch (error) {
-    logger.error('callCreateIdentityCheckAPI', { traceId, error: JSON.stringify(error) })
-    return errors.generateUserInputError(traceId)
+    return handleError({ error, traceId, caller: 'callCreateIdentityCheckAPI' })
   }
 }
 
@@ -97,24 +85,21 @@ export const callUpdateIdentityCheckAPI = async (
   logger.info('callUpdateIdentityCheckAPI', { traceId, args })
   try {
     const { _eTag, ...payload } = args
-    const updateResponse = await fetcher({
-      url: `${URLS.identityChecks}/${args.id}`,
-      api: process.env.PLATFORM_API_BASE_URL,
-      method: 'PATCH',
-      headers: {
-        Authorization: context.authorization,
-        'Content-Type': 'application/json',
-        'api-version': API_VERSION,
-        'If-Match': _eTag,
+    const updateResponse = await createPlatformAxiosInstance().patch<UpdateIdentityCheckReturn>(
+      `${URLS.identityChecks}/${args.id}`,
+      payload,
+      {
+        headers: {
+          Authorization: context.authorization,
+          'If-Match': _eTag,
+        },
       },
-      body: payload,
-    })
-    if (updateResponse) {
+    )
+    if (updateResponse?.data) {
       return callGetIdentityCheckByIdAPI({ id: args.id }, context)
     }
     return errors.generateUserInputError(traceId)
   } catch (error) {
-    logger.error('callUpdateIdentityCheckAPI', { traceId, error: JSON.stringify(error) })
-    return errors.generateUserInputError(traceId)
+    return handleError({ error, traceId, caller: 'callUpdateIdentityCheckAPI' })
   }
 }

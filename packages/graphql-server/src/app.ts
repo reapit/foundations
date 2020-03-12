@@ -1,4 +1,3 @@
-import 'isomorphic-fetch'
 import path from 'path'
 import express from 'express'
 import uuidv4 from 'uuid/v4'
@@ -21,6 +20,8 @@ if (process.env.NODE_ENV === 'development') {
     process.env[k] = configs[k]
   }
 }
+
+console.log(process.env.PLATFORM_API_BASE_URL)
 
 export type ExpressContext = {
   req: express.Request
@@ -71,6 +72,7 @@ export const server = new ApolloServer({
     origin: '*',
     methods: ['POST', 'OPTION', 'GET'],
   },
+  debug: process.env.NODE_ENV === 'development',
   formatResponse,
 })
 

@@ -1,5 +1,5 @@
-import { fetcher } from '@reapit/elements'
 import qs from 'query-string'
+import { createPlatformAxiosInstance } from '@/utils/axios-instances'
 import logger from '../../logger'
 import { ServerContext } from '../../app'
 import {
@@ -13,7 +13,8 @@ import {
   UpdateNegotiatorReturn,
 } from './negotiators'
 import errors from '../../errors'
-import { API_VERSION, URLS } from '../../constants/api'
+import { handleError } from '../../utils/handle-error'
+import { URLS } from '../../constants/api'
 
 export const callGetNegotiatorByIdAPI = async (
   args: GetNegotiatorByIdArgs,
@@ -22,20 +23,17 @@ export const callGetNegotiatorByIdAPI = async (
   const traceId = context.traceId
   logger.info('callGetNegotiatorByIdAPI', { traceId, args })
   try {
-    const response = await fetcher({
-      url: `${URLS.negotiators}/${args.id}`,
-      api: process.env.PLATFORM_API_BASE_URL,
-      method: 'GET',
-      headers: {
-        Authorization: context.authorization,
-        'Content-Type': 'application/json',
-        'api-version': API_VERSION,
+    const response = await createPlatformAxiosInstance().get<GetNegotiatorByIdReturn>(
+      `${URLS.negotiators}/${args.id}`,
+      {
+        headers: {
+          Authorization: context.authorization,
+        },
       },
-    })
-    return response
+    )
+    return response?.data
   } catch (error) {
-    logger.error('callGetNegotiatorByIdAPI', { traceId, error: JSON.stringify(error) })
-    return errors.generateUserInputError(traceId)
+    return handleError({ error, traceId, caller: 'callGetNegotiatorByIdAPI' })
   }
 }
 
@@ -44,20 +42,15 @@ export const callGetNegotiatorsAPI = async (args: GetNegotiatorsArgs, context: S
   logger.info('callGetNegotiatorsAPI', { args, traceId })
   try {
     const params = qs.stringify(args)
-    const response = fetcher({
-      url: `${URLS.negotiators}/?${params}`,
-      api: process.env.PLATFORM_API_BASE_URL,
-      method: 'GET',
+    const response = await createPlatformAxiosInstance().get<GetNegotiatorsReturn>(`${URLS.negotiators}?${params}`, {
       headers: {
         Authorization: context.authorization,
-        'Content-Type': 'application/json',
-        'api-version': API_VERSION,
       },
     })
-    return response
+    return response?.data
   } catch (error) {
-    logger.error('callGetNegotiatorsAPI', { traceId, error: JSON.stringify(error) })
-    return errors.generateUserInputError(traceId)
+    console.log(error)
+    return handleError({ error, traceId, caller: 'callGetNegotiatorsAPI' })
   }
 }
 
@@ -68,21 +61,14 @@ export const callCreateNegotiatorAPI = async (
   const traceId = context.traceId
   logger.info('callCreateNegotiatorAPI', { traceId, args })
   try {
-    const response = await fetcher({
-      url: URLS.negotiators,
-      api: process.env.PLATFORM_API_BASE_URL,
-      method: 'POST',
+    const response = await createPlatformAxiosInstance().post<CreateNegotiatorReturn>(URLS.negotiators, args, {
       headers: {
         Authorization: context.authorization,
-        'Content-Type': 'application/json',
-        'api-version': API_VERSION,
       },
-      body: args,
     })
-    return response
+    return response?.data
   } catch (error) {
-    logger.error('callCreateNegotiatorAPI', { traceId, error: JSON.stringify(error) })
-    return errors.generateUserInputError(traceId)
+    return handleError({ error, traceId, caller: 'callCreateNegotiatorAPI' })
   }
 }
 
@@ -94,25 +80,21 @@ export const callUpdateNegotiatorAPI = async (
   logger.info('callUpdateNegotiatorAPI', { traceId, args })
   try {
     const { _eTag, ...payload } = args
-    const updateResponse = await fetcher({
-      url: `${URLS.negotiators}/${args.id}`,
-      api: process.env.PLATFORM_API_BASE_URL,
-      method: 'PATCH',
-      headers: {
-        Authorization: context.authorization,
-        'Content-Type': 'application/json',
-        'api-version': API_VERSION,
-        'If-Match': _eTag,
+    const updateResponse = await createPlatformAxiosInstance().patch<CreateNegotiatorReturn>(
+      `${URLS.negotiators}/${args.id}`,
+      payload,
+      {
+        headers: {
+          Authorization: context.authorization,
+          'If-Match': _eTag,
+        },
       },
-      body: payload,
-    })
-
-    if (updateResponse) {
+    )
+    if (updateResponse?.data) {
       return callGetNegotiatorByIdAPI({ id: args.id }, context)
     }
     return errors.generateUserInputError(traceId)
   } catch (error) {
-    logger.error('callUpdateNegotiatorAPI', { traceId, error: JSON.stringify(error) })
-    return errors.generateUserInputError(traceId)
+    return handleError({ error, traceId, caller: 'callUpdateNegotiatorAPI' })
   }
 }
