@@ -15,6 +15,7 @@ import errors from '../../errors'
 import { URLS } from '../../constants/api'
 import { createPlatformAxiosInstance } from '../../utils/axios-instances'
 import { handleError } from '../../utils/handle-error'
+import { getIdFromCreateHeaders } from '../../utils/get-id-from-create-headers'
 
 export const callGetContactByIdAPI = async (args: GetContactByIdArgs, context: ServerContext): GetContactByIdReturn => {
   const traceId = context.traceId
@@ -56,7 +57,11 @@ export const callCreateContactAPI = async (args: CreateContactArgs, context: Ser
         Authorization: context.authorization,
       },
     })
-    return response?.data
+    const id = getIdFromCreateHeaders({ headers: response.headers })
+    if (id) {
+      return callGetContactByIdAPI({ id }, context)
+    }
+    return null
   } catch (error) {
     return handleError({ error, traceId, caller: 'callCreateContactAPI' })
   }

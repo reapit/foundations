@@ -3,9 +3,9 @@ import {
   errorMessages,
   generateUserInputError,
   generateValidationError,
-  generateSyntaxError,
   generateForbiddenError,
   generateInternalServerError,
+  generateNotFoundError,
 } from '../errors'
 import { AuthenticationError, UserInputError, ApolloError, ForbiddenError, ValidationError } from 'apollo-server'
 
@@ -28,14 +28,14 @@ describe('generateAuthenticationError', () => {
 describe('generateUserInputError', () => {
   it('should return UserInputError', () => {
     const traceId = 'traceId'
-    const output = `${traceId} - ${errorMessages.badRequestError}`
+    const output = `${traceId} - ${errorMessages.badRequest}`
     const result = generateUserInputError(traceId)
     expect(result).toEqual(new UserInputError(output))
   })
 
   it('should return UserInputError', () => {
     const traceId = undefined
-    const output = ` - ${errorMessages.badRequestError}`
+    const output = ` - ${errorMessages.badRequest}`
     const result = generateUserInputError(traceId)
     expect(result).toEqual(new UserInputError(output))
   })
@@ -44,32 +44,16 @@ describe('generateUserInputError', () => {
 describe('generateValidationError', () => {
   it('should return ValidationError', () => {
     const traceId = 'traceId'
-    const output = `${traceId} - ${errorMessages.badRequestError}`
+    const output = `${traceId} - ${errorMessages.badRequest}`
     const result = generateValidationError(traceId)
     expect(result).toEqual(new ValidationError(output))
   })
 
   it('should return ValidationError', () => {
     const traceId = undefined
-    const output = ` - ${errorMessages.badRequestError}`
+    const output = ` - ${errorMessages.badRequest}`
     const result = generateValidationError(traceId)
     expect(result).toEqual(new ValidationError(output))
-  })
-})
-
-describe('generateSyntaxError', () => {
-  it('should return SyntaxError', () => {
-    const traceId = 'traceId'
-    const output = `${traceId} - ${errorMessages.badRequestError}`
-    const result = generateSyntaxError(traceId)
-    expect(result).toEqual(new SyntaxError(output))
-  })
-
-  it('should return SyntaxError', () => {
-    const traceId = undefined
-    const output = ` - ${errorMessages.badRequestError}`
-    const result = generateSyntaxError(traceId)
-    expect(result).toEqual(new SyntaxError(output))
   })
 })
 
@@ -92,15 +76,31 @@ describe('generateForbiddenError', () => {
 describe('generateInternalServerError', () => {
   it('should return ApolloError', () => {
     const traceId = 'traceId'
-    const output = `${traceId} - ${errorMessages.internalServerError}`
+    const output = `${traceId} - ${errorMessages.internalServer}`
     const result = generateInternalServerError(traceId)
     expect(result).toEqual(new ApolloError(output))
   })
 
   it('should return ApolloError', () => {
     const traceId = undefined
-    const output = ` - ${errorMessages.internalServerError}`
+    const output = ` - ${errorMessages.internalServer}`
     const result = generateInternalServerError(traceId)
+    expect(result).toEqual(new ApolloError(output))
+  })
+})
+
+describe('generateNotFoundError', () => {
+  it('should return ApolloError', () => {
+    const traceId = 'traceId'
+    const output = `${traceId} - ${errorMessages.notFound}`
+    const result = generateNotFoundError(traceId)
+    expect(result).toEqual(new ApolloError(output))
+  })
+
+  it('should return ApolloError', () => {
+    const traceId = undefined
+    const output = ` - ${errorMessages.notFound}`
+    const result = generateNotFoundError(traceId)
     expect(result).toEqual(new ApolloError(output))
   })
 })

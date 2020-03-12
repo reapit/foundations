@@ -23,9 +23,7 @@ export type GetAreasArgs = {
 // api return type
 export type GetAreaByIdReturn = Promise<AreaModel | UserInputError>
 export type GetAreasReturn = Promise<PagedResultAreaModel_ | UserInputError>
-
-// temporarily return boolean, will change later
-export type CreateAreaReturn = Promise<boolean | UserInputError>
+export type CreateAreaReturn = Promise<AreaModel | UserInputError>
 export type UpdateAreaReturn = Promise<AreaModel | UserInputError>
 
 // resolver type

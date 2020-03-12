@@ -15,6 +15,7 @@ import errors from '../../errors'
 import { URLS } from '../../constants/api'
 import { createPlatformAxiosInstance } from '../../utils/axios-instances'
 import handleError from '../../utils/handle-error'
+import { getIdFromCreateHeaders } from '../../utils/get-id-from-create-headers'
 
 export const callGetIdentityCheckByIdAPI = async (
   args: GetIdentityCheckByIdArgs,
@@ -71,7 +72,11 @@ export const callCreateIdentityCheckAPI = async (
         Authorization: context.authorization,
       },
     })
-    return response?.data
+    const id = getIdFromCreateHeaders({ headers: response.headers })
+    if (id) {
+      return callGetIdentityCheckByIdAPI({ id }, context)
+    }
+    return null
   } catch (error) {
     return handleError({ error, traceId, caller: 'callCreateIdentityCheckAPI' })
   }

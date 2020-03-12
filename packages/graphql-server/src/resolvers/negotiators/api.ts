@@ -15,6 +15,7 @@ import {
 import errors from '../../errors'
 import { handleError } from '../../utils/handle-error'
 import { URLS } from '../../constants/api'
+import { getIdFromCreateHeaders } from '../../utils/get-id-from-create-headers'
 
 export const callGetNegotiatorByIdAPI = async (
   args: GetNegotiatorByIdArgs,
@@ -66,7 +67,11 @@ export const callCreateNegotiatorAPI = async (
         Authorization: context.authorization,
       },
     })
-    return response?.data
+    const id = getIdFromCreateHeaders({ headers: response.headers })
+    if (id) {
+      return callGetNegotiatorByIdAPI({ id }, context)
+    }
+    return null
   } catch (error) {
     return handleError({ error, traceId, caller: 'callCreateNegotiatorAPI' })
   }

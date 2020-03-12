@@ -23,9 +23,7 @@ export type GetOfficesArgs = {
 // api return type
 export type GetOfficeByIdReturn = Promise<OfficeModel | UserInputError>
 export type GetOfficesReturn = Promise<PagedResultOfficeModel_ | UserInputError>
-
-// temporarily return boolean, will change later
-export type CreateOfficeReturn = Promise<boolean | UserInputError>
+export type CreateOfficeReturn = Promise<OfficeModel | UserInputError>
 export type UpdateOfficeReturn = Promise<OfficeModel | UserInputError>
 
 // resolver type

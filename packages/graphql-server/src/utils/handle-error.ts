@@ -10,9 +10,24 @@ export type HandleErrorParams = {
 }
 
 export const handleError = ({ error, traceId, caller }: HandleErrorParams): ApolloError => {
-  logger.error(caller, { traceId, error: error?.response?.data, headers: error.response?.headers })
+  logger.error(caller, { traceId, error: error?.response?.data, headers: error?.response?.headers })
+  if (error?.response?.status === 400) {
+    return errors.generateValidationError(traceId)
+  }
   if (error?.response?.status === 401) {
     return errors.generateAuthenticationError(traceId)
+  }
+  if (error?.response?.status === 403) {
+    return errors.generateForbiddenError(traceId)
+  }
+  if (error?.response?.status === 404) {
+    return errors.generateNotFoundError(traceId)
+  }
+  if (error?.response?.status === 412) {
+    return errors.generateUserInputError(traceId)
+  }
+  if (error?.response?.status === 422) {
+    return errors.generateUserInputError(traceId)
   }
   return errors.generateInternalServerError(traceId)
 }

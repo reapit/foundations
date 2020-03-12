@@ -15,6 +15,7 @@ import errors from '../../errors'
 import { URLS } from '../../constants/api'
 import { createPlatformAxiosInstance } from '../../utils/axios-instances'
 import { handleError } from '../../utils/handle-error'
+import { getIdFromCreateHeaders } from '../../utils/get-id-from-create-headers'
 
 export const callGetAreaByIdAPI = async (args: GetAreaByIdArgs, context: ServerContext): GetAreaByIdReturn => {
   const traceId = context.traceId
@@ -56,7 +57,11 @@ export const callCreateAreaAPI = async (args: CreateAreaArgs, context: ServerCon
         Authorization: context.authorization,
       },
     })
-    return response?.data
+    const id = getIdFromCreateHeaders({ headers: response.headers })
+    if (id) {
+      return callGetAreaByIdAPI({ id }, context)
+    }
+    return null
   } catch (error) {
     return handleError({ error, traceId, caller: 'callCreateAreaAPI' })
   }
