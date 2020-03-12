@@ -1,4 +1,3 @@
-import 'isomorphic-fetch'
 import path from 'path'
 import express from 'express'
 import uuidv4 from 'uuid/v4'
@@ -16,7 +15,6 @@ const typeDefs = importSchema('./src/schema.graphql')
 if (process.env.NODE_ENV === 'development') {
   const envConfig = require(path.resolve(__dirname, '../../..', 'reapit-config.json'))
   const configs = envConfig[process.env.REAPIT_ENV || 'LOCAL']
-
   for (const k in configs) {
     process.env[k] = configs[k]
   }
@@ -32,7 +30,10 @@ export type ServerContext = Context<{ traceId: string; authorization: string }>
 export type GraphQLContextFunction = ContextFunction<ExpressContext, ServerContext> | Context<ServerContext>
 
 export const formatError = (error: GraphQLError): GraphQLFormattedError => {
-  return { message: error.message, extensions: { code: error.extensions?.code } }
+  if (process.env.NODE_ENV === 'production') {
+    return { message: error.message, extensions: { code: error.extensions?.code } }
+  }
+  return error
 }
 
 export const handleContext = ({ req }: ExpressContext): GraphQLContextFunction => {
@@ -71,6 +72,7 @@ export const server = new ApolloServer({
     origin: '*',
     methods: ['POST', 'OPTION', 'GET'],
   },
+  debug: process.env.NODE_ENV === 'development',
   formatResponse,
 })
 

@@ -2,5 +2,5 @@
   "watch": ["src"],
   "ext": "ts,ejs,graphql",
   "ignore": ["src/**/*.test.ts", "src/schema.graphql"],
-  "exec": "yarn build:schema && ts-node -r tsconfig-paths/register -P tsconfig.json ./src/app.ts"
+  "exec": "ts-node -r tsconfig-paths/register -P tsconfig.json ./src/app.ts"
 }

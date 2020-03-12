@@ -1,15 +1,12 @@
-import { AuthenticationError, UserInputError } from 'apollo-server'
+import { AuthenticationError, UserInputError, ForbiddenError, ValidationError, ApolloError } from 'apollo-server'
 import logger from '../logger'
 
 export const errorMessages = {
-  badRequestError: '[E4000] Bad Request',
   notAuthorized: '[E4010] Not Authorized',
-  forBidden: '[E4030] Forbidden',
+  badRequest: '[E4000] Bad Request',
   notFound: '[E4040] Not Found',
-  requestTimeout: '[E4080] Request Timeout',
-  internalServerError: '[E5000] Internal Server Error',
-  gatewayTimeout: '[E5040] Gateway Timeout',
-  unprocessableEntity: '[E4220] Unprocessable Entity',
+  forbidden: '[E4030] Forbidden',
+  internalServer: '[E5000] Internal Server Error',
 }
 
 export const generateAuthenticationError = (traceId?: string) => {
@@ -19,14 +16,42 @@ export const generateAuthenticationError = (traceId?: string) => {
 }
 
 export const generateUserInputError = (traceId?: string) => {
-  const error = new UserInputError(`${traceId || ''} - ${errorMessages.unprocessableEntity}`)
+  const error = new UserInputError(`${traceId || ''} - ${errorMessages.badRequest}`)
   logger.info('generateAuthenticationError', { traceId, error: JSON.stringify(error) })
+  return error
+}
+
+export const generateValidationError = (traceId?: string) => {
+  const error = new ValidationError(`${traceId || ''} - ${errorMessages.badRequest}`)
+  logger.info('generateValidationError', { traceId, error: JSON.stringify(error) })
+  return error
+}
+
+export const generateForbiddenError = (traceId?: string) => {
+  const error = new ForbiddenError(`${traceId || ''} - ${errorMessages.forbidden}`)
+  logger.info('generateForbiddenError', { traceId, error: JSON.stringify(error) })
+  return error
+}
+
+export const generateInternalServerError = (traceId?: string) => {
+  const error = new ApolloError(`${traceId || ''} - ${errorMessages.internalServer}`, 'INTERNAL_SERVER_ERROR')
+  logger.info('generateInternalServerError', { traceId, error: JSON.stringify(error) })
+  return error
+}
+
+export const generateNotFoundError = (traceId?: string) => {
+  const error = new ApolloError(`${traceId || ''} - ${errorMessages.notFound}`, 'NOT_FOUND')
+  logger.info('generateNotFoundError', { traceId, error: JSON.stringify(error) })
   return error
 }
 
 const errors = {
   generateAuthenticationError,
   generateUserInputError,
+  generateValidationError,
+  generateForbiddenError,
+  generateInternalServerError,
+  generateNotFoundError,
 }
 
 export default errors
