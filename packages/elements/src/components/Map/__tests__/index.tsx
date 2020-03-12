@@ -30,6 +30,13 @@ describe('Map', () => {
   let mockBounds: any = null
   let mockMarker: any = null
   let mockMarkers: any[] = []
+  const mockDrawingManager: any = null
+  const mockDrawingOptions: any = null
+  const mockLibrary: any = null
+  const mockOnDrawingMarkerClick = jest.fn()
+  const mockOnDrawingMarkerComplete = jest.fn()
+  const mockOnDrawingPolygonClick = jest.fn()
+  const mockOnDrawingPolygonComplete = jest.fn()
   const mockMarkerComponent = () => <div>Test</div>
   const mockError = new Error('some error')
   const currentLocationLatLng = {
@@ -252,6 +259,15 @@ describe('Map', () => {
         },
         boundsRef: mockBounds,
         onLoaded: mockOnLoadedDirection,
+        drawingManagerRef: {
+          current: mockDrawingManager,
+        },
+        drawingOptions: mockDrawingOptions,
+        libraries: mockLibrary,
+        onDrawingMarkerClick: mockOnDrawingMarkerClick,
+        onDrawingMarkerComplete: mockOnDrawingMarkerComplete,
+        onDrawingPolygonClick: mockOnDrawingPolygonClick,
+        onDrawingPolygonComplete: mockOnDrawingPolygonComplete,
       })
       fn(mockGoogleMaps, mockMap)
       expect(mockOnLoadedDirection).toBeCalled()
@@ -282,6 +298,15 @@ describe('Map', () => {
         zoom: 10,
         coordinates: mockCoordinates,
         component: mockMarkerComponent,
+        drawingManagerRef: {
+          current: mockDrawingManager,
+        },
+        drawingOptions: mockDrawingOptions,
+        libraries: mockLibrary,
+        onDrawingMarkerClick: mockOnDrawingMarkerClick,
+        onDrawingMarkerComplete: mockOnDrawingMarkerComplete,
+        onDrawingPolygonClick: mockOnDrawingPolygonClick,
+        onDrawingPolygonComplete: mockOnDrawingPolygonComplete,
       })
       const component = fn(mockGoogleMaps, undefined)
       const wrapper = shallow(<div>{component}</div>)
@@ -311,6 +336,15 @@ describe('Map', () => {
         zoom: 10,
         coordinates: mockCoordinates,
         component: mockMarkerComponent,
+        drawingManagerRef: {
+          current: mockDrawingManager,
+        },
+        drawingOptions: mockDrawingOptions,
+        libraries: mockLibrary,
+        onDrawingMarkerClick: mockOnDrawingMarkerClick,
+        onDrawingMarkerComplete: mockOnDrawingMarkerComplete,
+        onDrawingPolygonClick: mockOnDrawingPolygonClick,
+        onDrawingPolygonComplete: mockOnDrawingPolygonComplete,
       })
       const component = fn(mockGoogleMaps, mockError)
       const wrapper = shallow(<div>{component}</div>)
@@ -339,6 +373,15 @@ describe('Map', () => {
         zoom: 10,
         coordinates: mockCoordinates,
         component: mockMarkerComponent,
+        drawingManagerRef: {
+          current: mockDrawingManager,
+        },
+        drawingOptions: mockDrawingOptions,
+        libraries: mockLibrary,
+        onDrawingMarkerClick: mockOnDrawingMarkerClick,
+        onDrawingMarkerComplete: mockOnDrawingMarkerComplete,
+        onDrawingPolygonClick: mockOnDrawingPolygonClick,
+        onDrawingPolygonComplete: mockOnDrawingPolygonComplete,
       })
       const component = fn(mockGoogleMaps, new Error('Network Error'))
       const wrapper = shallow(<div>{component}</div>)
