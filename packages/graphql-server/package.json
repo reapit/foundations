@@ -23,7 +23,6 @@
   },
   "dependencies": {
     "@reapit/cognito-auth": "^2.0.19",
-    "@reapit/elements": "^0.5.39",
     "apollo-server": "^2.9.16",
     "apollo-server-lambda": "^2.10.1",
     "async": "^3.2.0",
