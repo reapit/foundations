@@ -20,7 +20,7 @@ export const parseIframeUrl = (hash: string): string => {
       return '/open-source'
     case '#contributing':
       return '/open-source/contributing'
-    case '#package':
+    case '#packages':
       return '/open-source/packages'
     case '#whats-new':
       return '/whats-new'
