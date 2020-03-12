@@ -8,6 +8,24 @@ const onLoadedDirection = response => {
   console.log(response)
 }
 
+const onDrawingMarkerComplete = marker => {
+  console.log(marker)
+}
+
+const onDrawingMarkerClick = marker => {
+  console.log(marker)
+}
+
+const onDrawingPolygonComplete = (googleMaps, polygon) => {
+  console.log(googleMaps)
+  console.log(polygon)
+}
+
+const onDrawingPolygonClick = (googleMaps, polygon) => {
+  console.log(googleMaps)
+  console.log(polygon)
+}
+
 const onLoaded = response => {
   console.log(response)
 }
@@ -16,7 +34,7 @@ storiesOf('Map', module).add('Map', () => {
   return (
     <Map
       apiKey={MAP_API_KEY}
-      libraries="places"
+      libraries="places,drawing"
       autoFitBounds={true}
       coordinates={[
         {
@@ -43,6 +61,10 @@ storiesOf('Map', module).add('Map', () => {
       ]}
       onLoaded={onLoaded}
       onLoadedDirection={onLoadedDirection}
+      onDrawingMarkerComplete={onDrawingMarkerComplete}
+      onDrawingMarkerClick={onDrawingMarkerClick}
+      onDrawingPolygonComplete={onDrawingPolygonComplete}
+      onDrawingPolygonClick={onDrawingPolygonClick}
       center={{ lat: 10.801147, lng: 106.655838 }}
       zoom={10}
     />
