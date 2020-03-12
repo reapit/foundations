@@ -21,6 +21,7 @@ export interface Cell extends ReactDataSheet.Cell<Cell, string> {
     cellRenderProps: ReactDataSheet.CellRendererProps<Cell>
     setData: SetData
     setSelected: SetSelected
+    afterCellsChanged: AfterCellsChanged
   }>
 }
 
@@ -33,8 +34,10 @@ export interface DoubleClickPayLoad {
 }
 
 export type ValidateFunction = (data: Cell[][]) => boolean[][]
+export type AfterCellsChanged = (changes: ChangedCells, data: Cell[][], setData: SetData) => any
+export type AfterDataChanged = (changes: ChangedCells, data: Cell[][]) => any
 
-export interface SpreadsheetProps {
+export interface SpreadsheetProps extends ReactDataSheet.DataSheetProps {
   data: Cell[][]
   description?: React.ReactNode
   hasUploadButton?: boolean
@@ -45,7 +48,8 @@ export interface SpreadsheetProps {
    * format like [[true, false], [true, true]] and have to match with spreadsheet data
    */
   validate?: ValidateFunction
-  afterDataChanged?: (data: Cell[][], changedCells: ChangedCells) => any
+  afterCellsChanged?: AfterCellsChanged
+  afterDataChanged?: AfterDataChanged
 }
 
 export type SelectedMatrix = {
@@ -71,4 +75,9 @@ export interface ContextMenuFCProps {
   contextMenuProp: ContextMenuProp
   setData: SetData
   setContextMenuProp: SetContextMenuProp
+  onCellsChanged: OnCellsChanged
+  data: Cell[][]
 }
+
+export type ChangesArray = ReactDataSheet.CellsChangedArgs<Cell>
+export type OnCellsChanged = (changes: ChangesArray) => any
