@@ -59,7 +59,7 @@ describe('ApiDocs', () => {
       expect(result).toEqual('/open-source/contributing')
     })
     it('should return /open-source/packages', () => {
-      const input = '#package'
+      const input = '#packages'
       const result = parseIframeUrl(input)
       expect(result).toEqual('/open-source/packages')
     })
