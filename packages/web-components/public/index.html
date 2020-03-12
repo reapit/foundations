@@ -10,6 +10,9 @@
         max-width: 1024px;
         margin: 0 auto;
       }
+      #google-map-widget {
+        height: 100vh;
+      }
     </style>
     <link rel="stylesheet" href="./dist/search-widget.css" />
   </head>
@@ -25,6 +28,18 @@
           },
           apiKey: '',
           target: document.getElementById('search-widget'),
+        })
+    </script> -->
+
+    <script src="./dist/google-map-widget.js"></script>
+    <script>
+      ReapitGoogleMapWidgetComponent &&
+        new ReapitGoogleMapWidgetComponent({
+          apiKey: '',
+          target: document.getElementById('google-map-widget'),
+          center: { lat: 10.801147, lng: 106.655838 },
+          zoom: 10,
+          coordinates: [],
         })
     </script>
   </body>
