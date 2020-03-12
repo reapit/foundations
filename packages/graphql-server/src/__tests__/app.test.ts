@@ -87,6 +87,28 @@ describe('app.js', () => {
 
   describe('formatError', () => {
     it('should run correctly', () => {
+      process.env.NODE_ENV = 'development'
+      const mockError = {
+        message: 'mock error',
+        extensions: {
+          code: {
+            mockCode: 'mockCode',
+          },
+        },
+        locations: undefined,
+        path: undefined,
+        nodes: undefined,
+        source: undefined,
+        positions: undefined,
+        originalError: undefined,
+        name: 'Error',
+      } as GraphQLError
+      const result = formatError(mockError)
+      expect(result).toEqual(mockError)
+    })
+
+    it('should run correctly', () => {
+      process.env.NODE_ENV = 'production'
       const mockError = {
         message: 'mock error',
         extensions: {

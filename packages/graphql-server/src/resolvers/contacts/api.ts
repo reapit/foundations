@@ -1,4 +1,3 @@
-import { fetcher } from '@reapit/elements'
 import qs from 'query-string'
 import logger from '../../logger'
 import { ServerContext } from '../../app'
@@ -13,26 +12,23 @@ import {
   UpdateContactReturn,
 } from './contacts'
 import errors from '../../errors'
-import { API_VERSION, URLS } from '../../constants/api'
+import { URLS } from '../../constants/api'
+import { createPlatformAxiosInstance } from '../../utils/axios-instances'
+import { handleError } from '../../utils/handle-error'
+import { getIdFromCreateHeaders } from '../../utils/get-id-from-create-headers'
 
 export const callGetContactByIdAPI = async (args: GetContactByIdArgs, context: ServerContext): GetContactByIdReturn => {
   const traceId = context.traceId
   logger.info('callGetContactByIdAPI', { traceId, args })
   try {
-    const response = await fetcher({
-      url: `${URLS.contacts}/${args.id}`,
-      api: process.env.PLATFORM_API_BASE_URL,
-      method: 'GET',
+    const response = await createPlatformAxiosInstance().get<GetContactByIdReturn>(`${URLS.contacts}/${args.id}`, {
       headers: {
         Authorization: context.authorization,
-        'Content-Type': 'application/json',
-        'api-version': API_VERSION,
       },
     })
-    return response
+    return response?.data
   } catch (error) {
-    logger.error('callGetContactByIdAPI', { traceId, error: JSON.stringify(error) })
-    return errors.generateUserInputError(traceId)
+    return handleError({ error, traceId, caller: 'callGetContactByIdAPI' })
   }
 }
 
@@ -41,20 +37,14 @@ export const callGetContactsAPI = async (args: GetContactsArgs, context: ServerC
   logger.info('callGetContactsAPI', { args, traceId })
   try {
     const params = qs.stringify(args)
-    const response = fetcher({
-      url: `${URLS.contacts}/?${params}`,
-      api: process.env.PLATFORM_API_BASE_URL,
-      method: 'GET',
+    const response = await createPlatformAxiosInstance().get<GetContactsReturn>(`${URLS.contacts}?${params}`, {
       headers: {
         Authorization: context.authorization,
-        'Content-Type': 'application/json',
-        'api-version': API_VERSION,
       },
     })
-    return response
+    return response?.data
   } catch (error) {
-    logger.error('callGetContactsAPI', { traceId, error: JSON.stringify(error) })
-    return errors.generateUserInputError(traceId)
+    return handleError({ error, traceId, caller: 'callGetContactsAPI' })
   }
 }
 
@@ -62,21 +52,18 @@ export const callCreateContactAPI = async (args: CreateContactArgs, context: Ser
   const traceId = context.traceId
   logger.info('callCreateContactAPI', { traceId, args })
   try {
-    const response = await fetcher({
-      url: URLS.contacts,
-      api: process.env.PLATFORM_API_BASE_URL,
-      method: 'POST',
+    const response = await createPlatformAxiosInstance().post<CreateContactReturn>(URLS.contacts, args, {
       headers: {
         Authorization: context.authorization,
-        'Content-Type': 'application/json',
-        'api-version': API_VERSION,
       },
-      body: args,
     })
-    return response
+    const id = getIdFromCreateHeaders({ headers: response.headers })
+    if (id) {
+      return callGetContactByIdAPI({ id }, context)
+    }
+    return null
   } catch (error) {
-    logger.error('callCreateContactAPI', { traceId, error: JSON.stringify(error) })
-    return errors.generateUserInputError(traceId)
+    return handleError({ error, traceId, caller: 'callCreateContactAPI' })
   }
 }
 
@@ -85,24 +72,21 @@ export const callUpdateContactAPI = async (args: UpdateContactArgs, context: Ser
   logger.info('callUpdateContactAPI', { traceId, args })
   try {
     const { _eTag, ...payload } = args
-    const updateResponse = await fetcher({
-      url: `${URLS.contacts}/${args.id}`,
-      api: process.env.PLATFORM_API_BASE_URL,
-      method: 'PATCH',
-      headers: {
-        Authorization: context.authorization,
-        'Content-Type': 'application/json',
-        'api-version': API_VERSION,
-        'If-Match': _eTag,
+    const updateResponse = await createPlatformAxiosInstance().patch<UpdateContactReturn>(
+      `${URLS.contacts}/${args.id}`,
+      payload,
+      {
+        headers: {
+          Authorization: context.authorization,
+          'If-Match': _eTag,
+        },
       },
-      body: payload,
-    })
-    if (updateResponse) {
+    )
+    if (updateResponse?.data) {
       return callGetContactByIdAPI({ id: args.id }, context)
     }
     return errors.generateUserInputError(traceId)
   } catch (error) {
-    logger.error('callUpdateContactAPI', { traceId, error: JSON.stringify(error) })
-    return errors.generateUserInputError(traceId)
+    return handleError({ error, traceId, caller: 'callUpdateContactAPI' })
   }
 }
