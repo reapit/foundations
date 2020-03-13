@@ -2,9 +2,8 @@ import * as React from 'react'
 import { withRouter, RouteComponentProps } from 'react-router-dom'
 import Menu from '@/components/ui/menu'
 import { Loader, AppNavContainer, Section } from '@reapit/elements'
-import { RefreshParams, getTokenFromQueryString, redirectToOAuth, getSessionCookie } from '@reapit/cognito-auth'
-import { useAuthContext } from '@/context/auth-context'
-import { COOKIE_SESSION_KEY } from '../constants/api'
+import { redirectToOAuth } from '@reapit/cognito-auth'
+import { AuthContext } from '@/context'
 
 const { Suspense } = React
 
@@ -12,15 +11,10 @@ export type PrivateRouteWrapperProps = RouteComponentProps & {
   path: string
 }
 
-export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children, location }) => {
-  const cognitoClientId = process.env.COGNITO_CLIENT_ID_<%= nameInConstantCase %> as string
-  const cookieParams = getSessionCookie(COOKIE_SESSION_KEY)
-  const urlParams: RefreshParams | null = getTokenFromQueryString(location.search, cognitoClientId)
-  const refreshParams = cookieParams ? cookieParams : urlParams
-  const { loginSession, getLoginSession, fetching } = useAuthContext()
-
-  if (!loginSession && !fetching && !refreshParams) {
-    redirectToOAuth(cognitoClientId)
+export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children }) => {
+  const { loginSession, refreshParams, getLoginSession } = React.useContext(AuthContext)
+  if (!loginSession && !refreshParams) {
+    redirectToOAuth(process.env.COGNITO_CLIENT_ID_<%= nameInConstantCase %> as string)
     return null
   }
 

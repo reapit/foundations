@@ -4,7 +4,7 @@ import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
 import { Location } from 'history'
 import { FaSignOutAlt, FaCloud } from 'react-icons/fa'
 import { LoginMode } from '@reapit/cognito-auth'
-import { useAuthContext } from '@/context/auth-context'
+import { AuthContext } from '@/context'
 
 export const generateMenuConfig = (
   logoutCallback: () => void,
@@ -25,10 +25,7 @@ export const generateMenuConfig = (
         title: 'Apps',
         key: 'APPS',
         icon: <FaCloud className="nav-item-icon" />,
-        callback: () =>
-          (window.location.href = window.location.href.includes('dev') || window.location.href.includes('localhost')
-            ? 'https://dev.marketplace.reapit.cloud/client/installed'
-            : 'https://marketplace.reapit.cloud/client/installed'),
+        callback: callbackAppClick,
         type: 'PRIMARY',
       },
       {
@@ -42,12 +39,21 @@ export const generateMenuConfig = (
   }
 }
 
+export const callbackAppClick = () =>
+  (window.location.href =
+    window.location.href.includes('dev') || window.location.href.includes('localhost')
+      ? 'https://dev.marketplace.reapit.cloud/client/installed'
+      : 'https://marketplace.reapit.cloud/client/installed')
+
+
 export type MenuProps = RouteComponentProps
 
 export const Menu: React.FunctionComponent<MenuProps> = ({ location }) => {
-  const { logout } = useAuthContext()
-  const mode = 'WEB'
+  const { logout, loginSession } = React.useContext(AuthContext)
+  const mode = loginSession?.mode || 'WEB'
+
   const menuConfigs = generateMenuConfig(logout, location, mode)
+
   return <Sidebar {...menuConfigs} location={location} />
 }
 
