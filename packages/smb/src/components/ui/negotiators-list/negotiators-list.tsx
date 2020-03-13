@@ -8,7 +8,7 @@ import { getParamsFromPath, stringifyObjectIntoQueryString } from '@/utils/clien
 import { GetNegotiators, UpdateNegotiator } from './negotiators.graphql'
 import NegotiatorStatusCheckbox from './negotiator-status-checkbox'
 
-import { NegotiatorModel, PagedResultNegotiatorModel_ } from '@reapit/foundations-ts-definitions'
+import { NegotiatorModel, PagedResultNegotiatorModel_, OfficeModel } from '@reapit/foundations-ts-definitions'
 import { NEGOTIATORS_PER_PAGE } from '@/constants/paginators'
 
 export const tableHeaders: DataTableRow[] = [
@@ -62,13 +62,14 @@ export const getDataTable = (data: NegotiatorsQueryResponse): DataTableRow[][] =
   }
 
   const dataRows: DataTableRow[][] = negotiators.map((negotiator: NegotiatorModel) => {
-    const { name, jobTitle, email, mobilePhone, officeId, active, id, _eTag } = negotiator
+    const { name, jobTitle, email, mobilePhone, active, id, _eTag, _embedded } = negotiator
+    const office: OfficeModel = _embedded?.office
     return [
       { value: name },
       { value: jobTitle },
       { value: email },
       { value: mobilePhone },
-      { value: officeId },
+      { readOnly: true, value: office.name },
       { disableEvents: true, value: active, CustomComponent: StatusCheckbox },
       { value: id },
       { value: _eTag },
