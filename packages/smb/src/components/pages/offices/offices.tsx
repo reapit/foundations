@@ -3,21 +3,23 @@ import { H3, FlexContainerBasic, FlexContainerResponsive, TabConfig, Tabs } from
 import { useLocation, matchPath, useHistory } from 'react-router-dom'
 import { Route } from 'react-router'
 import OfficesTab from '@/components/ui/offices-tab'
-
 import AreasTab from '@/components/ui/areas-tab'
 import GlobalSettingsTab from '@/components/ui/global-settings-tab'
 import IntegrationsTab from '@/components/ui/integration-tab'
 import Routes from '@/constants/routes'
+import { History } from 'history'
 
 type ExtendedTabConfig = TabConfig & { path: string; Component: React.FC }
 
+type HandleChangeTab = (tabIdentifier: string) => void
+
 type GetConfigParams = {
-  handleChangeTab: (tabIdentifier: string) => void
+  handleChangeTab: HandleChangeTab
   officesUrlPart: string
   currentBrowserUrl: string
 }
 
-type GetTabConfigs = (params: GetConfigParams) => ExtendedTabConfig[]
+export type GetTabConfigs = (params: GetConfigParams) => ExtendedTabConfig[]
 
 export const getTabConfigs: GetTabConfigs = ({ handleChangeTab, officesUrlPart, currentBrowserUrl }) =>
   [
@@ -62,23 +64,33 @@ export const getTabConfigs: GetTabConfigs = ({ handleChangeTab, officesUrlPart, 
 
 export type OfficesProps = {}
 
+export const createHandleChangeTabFn = (history: History) => (path: string) => {
+  history.push(path)
+}
+
+export const createGetTabConfigsFn = ({
+  pathname,
+  handleChangeTab,
+  getTabConfigs,
+}: {
+  pathname: string
+  handleChangeTab: HandleChangeTab
+  getTabConfigs: GetTabConfigs
+}) => () => {
+  return getTabConfigs({
+    handleChangeTab,
+    officesUrlPart: Routes.OFFICES,
+    currentBrowserUrl: pathname,
+  })
+}
+
 export const Offices: React.FC<OfficesProps> = () => {
   const { pathname } = useLocation()
   const history = useHistory()
 
-  const handleChangeTab = React.useCallback(path => {
-    history.push(path)
-  }, [])
+  const handleChangeTab = React.useCallback(createHandleChangeTabFn(history), [])
 
-  const tabConfigs = React.useMemo(
-    () =>
-      getTabConfigs({
-        handleChangeTab,
-        officesUrlPart: Routes.OFFICES,
-        currentBrowserUrl: pathname,
-      }),
-    [pathname],
-  )
+  const tabConfigs = React.useMemo(createGetTabConfigsFn({ pathname, handleChangeTab, getTabConfigs }), [pathname])
 
   const currentTabConfig = tabConfigs.find(tabConfig => tabConfig.active)
 

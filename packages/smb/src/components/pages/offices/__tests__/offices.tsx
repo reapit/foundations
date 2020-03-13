@@ -2,7 +2,16 @@ import * as React from 'react'
 import { mount } from 'enzyme'
 import { MockedProvider } from '@apollo/react-testing'
 import { BrowserRouter as Router } from 'react-router-dom'
-import { Offices, OfficesProps, getTabConfigs } from '../offices'
+import {
+  Offices,
+  OfficesProps,
+  getTabConfigs,
+  createHandleChangeTabFn,
+  createGetTabConfigsFn,
+  GetTabConfigs,
+} from '../offices'
+import Routes from '@/constants/routes'
+import { History } from 'history'
 
 import AreasTab from '@/components/ui/areas-tab'
 import GlobalSettingsTab from '@/components/ui/global-settings-tab'
@@ -11,6 +20,35 @@ import OfficesTab from '@/components/ui/offices-tab'
 
 describe('Page Offices Component', () => {
   describe('Offices', () => {
+    test('fn created by createHandleChangeTabFn should run correctly', () => {
+      const mockedHistory = {
+        push: jest.fn(),
+      }
+      const mockedPath = '/abc'
+      createHandleChangeTabFn((mockedHistory as unknown) as History)(mockedPath)
+      expect(mockedHistory.push).toHaveBeenCalledWith(mockedPath)
+    })
+
+    test('fn created by createGetTabConfigsFn should run correctly', () => {
+      const handleChangeTab = () => {}
+      const getTabConfigs = jest.fn(() => true)
+      const pathname = 'abc'
+
+      expect(
+        createGetTabConfigsFn({
+          handleChangeTab,
+          getTabConfigs: (getTabConfigs as unknown) as GetTabConfigs,
+          pathname,
+        })(),
+      ).toBe(true)
+
+      expect(getTabConfigs).toHaveBeenCalledWith({
+        handleChangeTab,
+        officesUrlPart: Routes.OFFICES,
+        currentBrowserUrl: 'abc',
+      })
+    })
+
     it('should match a snapshot', () => {
       const mockProps: OfficesProps = {}
       const wrapper = mount(
