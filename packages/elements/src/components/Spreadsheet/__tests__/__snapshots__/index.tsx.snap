@@ -50,7 +50,7 @@ exports[`Spreadsheet should match snapshot with default props 1`] = `
     onCellsChanged={[Function]}
     onContextMenu={[Function]}
     onSelect={[Function]}
-    overflow="clip"
+    overflow="wrap"
     rowRenderer={[Function]}
     selected={null}
     sheetRenderer={[Function]}
@@ -72,9 +72,14 @@ exports[`Spreadsheet should match snapshot with default props 1`] = `
         "visible": false,
       }
     }
+    data={
+      Array [
+        Array [],
+      ]
+    }
+    onCellsChanged={[Function]}
     selected={null}
     setContextMenuProp={[Function]}
-    setData={[Function]}
   />
 </div>
 `;
@@ -106,7 +111,7 @@ exports[`Spreadsheet should match snapshot with full props 1`] = `
     onCellsChanged={[Function]}
     onContextMenu={[Function]}
     onSelect={[Function]}
-    overflow="clip"
+    overflow="wrap"
     rowRenderer={[Function]}
     selected={null}
     sheetRenderer={[Function]}
@@ -124,9 +129,14 @@ exports[`Spreadsheet should match snapshot with full props 1`] = `
         "visible": false,
       }
     }
+    data={
+      Array [
+        Array [],
+      ]
+    }
+    onCellsChanged={[Function]}
     selected={null}
     setContextMenuProp={[Function]}
-    setData={[Function]}
   />
 </div>
 `;

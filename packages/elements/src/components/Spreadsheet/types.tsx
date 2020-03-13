@@ -1,7 +1,7 @@
 import * as React from 'react'
 import ReactDataSheet from 'react-datasheet'
 
-export class MyReactDataSheet extends ReactDataSheet<Cell, string> {}
+export class MyReactDataSheet extends ReactDataSheet<Cell, string | null> {}
 
 /** Cell contain predefined value
  * https://github.com/nadbm/react-datasheet/blob/master/types/react-datasheet.d.ts
@@ -10,7 +10,7 @@ export class MyReactDataSheet extends ReactDataSheet<Cell, string> {}
 export type ChangedCells = { oldCell: Cell; row: number; col: number; newCell: Cell }[]
 export type SetData = React.Dispatch<React.SetStateAction<Cell[][]>>
 export type SetSelected = React.Dispatch<React.SetStateAction<SelectedMatrix | null>>
-export interface Cell extends ReactDataSheet.Cell<Cell, string> {
+export interface Cell extends ReactDataSheet.Cell<Cell, string | null> {
   value: string | null
   isValidated?: boolean
   /** Additional className for styling cell */
@@ -18,9 +18,10 @@ export interface Cell extends ReactDataSheet.Cell<Cell, string> {
   style?: React.CSSProperties
   CustomComponent?: React.FC<{
     data: Cell[][]
-    cellRenderProps: ReactDataSheet.CellRendererProps<Cell>
+    cellRenderProps: ReactDataSheet.CellRendererProps<Cell, string | null>
     setData: SetData
     setSelected: SetSelected
+    afterCellsChanged?: AfterCellsChanged
   }>
 }
 
@@ -33,6 +34,8 @@ export interface DoubleClickPayLoad {
 }
 
 export type ValidateFunction = (data: Cell[][]) => boolean[][]
+export type AfterCellsChanged = (changes: ChangedCells, data: Cell[][], setData: SetData) => any
+export type AfterDataChanged = (changes: ChangedCells, data: Cell[][]) => any
 
 export interface SpreadsheetProps {
   data: Cell[][]
@@ -45,7 +48,8 @@ export interface SpreadsheetProps {
    * format like [[true, false], [true, true]] and have to match with spreadsheet data
    */
   validate?: ValidateFunction
-  afterDataChanged?: (data: Cell[][], changedCells: ChangedCells) => any
+  afterCellsChanged?: AfterCellsChanged
+  afterDataChanged?: AfterDataChanged
 }
 
 export type SelectedMatrix = {
@@ -69,6 +73,10 @@ export interface ContextMenuData {
 export interface ContextMenuFCProps {
   selected: SelectedMatrix | null
   contextMenuProp: ContextMenuProp
-  setData: SetData
   setContextMenuProp: SetContextMenuProp
+  onCellsChanged: OnCellsChanged
+  data: Cell[][]
 }
+
+export type ChangesArray = ReactDataSheet.CellsChangedArgs<Cell, string | null>
+export type OnCellsChanged = (changes: ChangesArray) => any
