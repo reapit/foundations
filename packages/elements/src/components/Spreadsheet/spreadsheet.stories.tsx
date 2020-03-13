@@ -153,6 +153,11 @@ storiesOf('Spreadsheet', module)
           <p>
             <strong>Spreadsheet with validate</strong>
             <br />
+            The <code>validate</code> function must return with correct format
+            <br />
+            For example: return <code>[ [true, false], [true, true] ]</code> in case your spreadsheet has{' '}
+            <code>2x2</code> (row X column)
+            <br />
             Errors are marked with red background
           </p>
         }
