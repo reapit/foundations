@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { Cell, SetData, SetSelected, SetContextMenuProp } from '../types'
-import ReactDataSheet from 'react-datasheet'
+import { Cell, SetData, SetSelected, SetContextMenuProp, AfterCellsChanged } from '../types'
 
 export const parseResult = {
   data: [
@@ -92,14 +91,14 @@ export const data: Cell[][] = [
   ],
 ]
 
-export const cellRenderProps: ReactDataSheet.CellRendererProps<Cell> = {
+export const cellRenderProps = {
   row: 3,
   col: 10,
   cell: { value: 'row3@gmail.com' },
   selected: false,
   editing: false,
   updated: false,
-  attributesRenderer: jest.fn() as ReactDataSheet.AttributesRenderer<Cell>,
+  attributesRenderer: jest.fn() as any,
   className: 'cell',
   style: { background: 'red' },
   onMouseDown: jest.fn(),
@@ -118,3 +117,5 @@ export const selectedMatrix = {
   start: { i: 0, j: 1 },
   end: { i: 2, j: 3 },
 }
+
+export const afterCellsChanged = jest.fn() as AfterCellsChanged

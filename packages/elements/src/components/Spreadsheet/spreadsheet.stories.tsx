@@ -261,9 +261,11 @@ storiesOf('Spreadsheet', module)
             const newData = data.map(row => row.map(cell => ({ ...cell })))
             newData[row][col].value = newValue
             setData(newData)
-            // create changes and trigger afterCellsChanged
-            const changes = [{ oldCell, row, col, newCell: { ...oldCell, value: newValue } }]
-            afterCellsChanged(changes, newData, setData)
+            if (typeof afterCellsChanged === 'function') {
+              // create changes and trigger afterCellsChanged
+              const changes = [{ oldCell, row, col, newCell: { ...oldCell, value: newValue } }]
+              afterCellsChanged(changes, newData, setData)
+            }
           }}
         >
           <option value="White House">White House</option>
@@ -332,7 +334,7 @@ storiesOf('Spreadsheet', module)
     ]
     return (
       <Spreadsheet
-        data={dataCustomComponent}
+        data={dataCustomComponent as Cell[][]}
         afterCellsChanged={(changes, data, setData) => {
           console.log('changes', changes)
           console.log('data after change', data)
@@ -345,7 +347,7 @@ storiesOf('Spreadsheet', module)
             </strong>
             <br />
             You can create a cell which include custom component by using CustomComponent property, here we use{' '}
-            <code>&#x3C;select&#x3E;</code> as an example. Follow this pattern to create various types of custom
+            <code>&#x3C;select&#x3E;</code> as an example. Follow the below pattern to create various types of custom
             components
           </p>
         }
@@ -475,12 +477,12 @@ storiesOf('Spreadsheet', module)
         description={
           <p>
             <strong>
-              Spreadsheet with <code>afterDataChanged</code>
+              Spreadsheet with <code>afterDataChanged</code> (open console to see the logs)
             </strong>
             <br />
-            The <code>afterDataChanged</code> function will be call after data is changed
+            The <code>afterDataChanged</code> function will be call <strong>EVERYTIME</strong> after data is changed
             <br />
-            Calling <code>setData</code> will trigger <code>afterDataChanged</code>
+            Calling <code>setData</code> <strong>WILL TRIGGER</strong> <code>afterDataChanged</code>
           </p>
         }
       />
@@ -567,84 +569,26 @@ storiesOf('Spreadsheet', module)
         description={
           <p>
             <strong>
-              Spreadsheet with <code>afterCellsChanged</code>
+              Spreadsheet with <code>afterCellsChanged</code> (open console to see the logs)
             </strong>
             <br />
-            The <code>afterCellsChanged</code> function will be call after an input in a cell changed Calling
+            The <code>afterCellsChanged</code> function will be call <strong>ONLY AFTER THESE CASES:</strong>
             <br />
-            Calling <code>setData</code> will not trigger afterCellsChanged
-          </p>
-        }
-      />
-    )
-  })
-  .add('Spreadsheet with custom props', () => {
-    const dataBasic = [
-      [
-        { readOnly: true, value: 'Office Name' },
-        { readOnly: true, value: 'Building Name' },
-        { readOnly: true, value: 'Building No.' },
-        { readOnly: true, value: 'Address 1' },
-        { readOnly: true, value: 'Address 2' },
-        { readOnly: true, value: 'Address 3' },
-        { readOnly: true, value: 'Address 4' },
-        { readOnly: true, value: 'Post Code' },
-        { readOnly: true, value: 'Telephone' },
-        { readOnly: true, value: 'Fax' },
-        { readOnly: true, value: 'Email' },
-      ],
-      [
-        { value: 'London' },
-        { value: 'The White House' },
-        { value: '15' },
-        { value: 'London 1' },
-        { value: '' },
-        { value: 'Londom 3' },
-        { value: '' },
-        { value: 'EC12NH' },
-        { value: '0845 0000' },
-        { value: '' },
-        { value: 'row1@gmail.com' },
-      ],
-      [
-        { value: 'London2' },
-        { value: 'The Black House' },
-        { value: '11' },
-        { value: '' },
-        { value: '' },
-        { value: 'Adress 3' },
-        { value: '' },
-        { value: 'EC12NH' },
-        { value: '087 471 929' },
-        { value: '' },
-        { value: 'row2@gmail.com' },
-      ],
-      [
-        { value: 'New York' },
-        { value: 'Building A' },
-        { value: '11' },
-        { value: '' },
-        { value: '' },
-        { value: 'City Z' },
-        { value: '' },
-        { value: 'AL7187' },
-        { value: '017 7162 9121' },
-        { value: '' },
-        { value: 'row3@gmail' },
-      ],
-    ]
-    return (
-      <Spreadsheet
-        data={dataBasic}
-        overflow="clip"
-        description={
-          <p>
-            <strong>Spreadsheet with custom props</strong>
+            <ul>
+              <li>- Typing into a cell&apos; input</li>
+              <li>- Clear row (in context menu right-click)</li>
+              <li>
+                - Remove row (in context menu right-click), in this case, <code>newCell</code> will be{' '}
+                <code>&#123; value:null &#125;</code>
+              </li>
+              <li>- Clear column (in context menu right-click)</li>
+              <li>
+                - Remove column (in context menu right-click), in this case, <code>newCell</code> will be{' '}
+                <code>&#123; value:null &#125;</code>
+              </li>
+            </ul>
             <br />
-            You can provide custom props here, see list of supported props{' '}
-            <a href="https://github.com/nadbm/react-datasheet#options">here</a>
-            <br />
-            For example, here we set <code>overflow=&quot;clip&quot;</code>
+            Calling <code>setData</code> <strong>WILL NOT TRIGGER</strong> <code>afterCellsChanged</code>
           </p>
         }
       />

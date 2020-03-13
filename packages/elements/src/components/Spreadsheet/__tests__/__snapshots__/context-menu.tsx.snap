@@ -32,15 +32,6 @@ exports[`ContextMenu should match snapshot with visible false 1`] = `
           Clear row
         </a>
       </li>
-      <li
-        key="clear-col"
-      >
-        <a
-          id="clear-col"
-        >
-          Clear column
-        </a>
-      </li>
     </ul>
   </div>
   <div
@@ -62,15 +53,6 @@ exports[`ContextMenu should match snapshot with visible false 1`] = `
           id="remove-row"
         >
           Remove row
-        </a>
-      </li>
-      <li
-        key="remove-col"
-      >
-        <a
-          id="remove-col"
-        >
-          Remove column
         </a>
       </li>
     </ul>
@@ -110,15 +92,6 @@ exports[`ContextMenu should match snapshot with visible true 1`] = `
           Clear row
         </a>
       </li>
-      <li
-        key="clear-col"
-      >
-        <a
-          id="clear-col"
-        >
-          Clear column
-        </a>
-      </li>
     </ul>
   </div>
   <div
@@ -140,15 +113,6 @@ exports[`ContextMenu should match snapshot with visible true 1`] = `
           id="remove-row"
         >
           Remove row
-        </a>
-      </li>
-      <li
-        key="remove-col"
-      >
-        <a
-          id="remove-col"
-        >
-          Remove column
         </a>
       </li>
     </ul>

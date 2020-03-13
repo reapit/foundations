@@ -15,6 +15,7 @@ exports[`customCellRenderer should match snapshot with CustomComponent 1`] = `
   value="row3@gmail.com"
 >
   <CustomComponent
+    afterCellsChanged={[MockFunction]}
     cellRenderProps={
       Object {
         "attributesRenderer": [MockFunction],

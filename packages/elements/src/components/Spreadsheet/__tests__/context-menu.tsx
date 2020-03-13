@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import { ContextMenu, handleContextClick, clearRow, clearCol, removeRow, removeCol } from '../context-menu'
-import { selectedMatrix, setData, setContextMenuProp, data } from '../__stubs__'
+import { selectedMatrix, setContextMenuProp, data } from '../__stubs__'
 
 const onCellsChanged = jest.fn()
 

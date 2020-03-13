@@ -59,8 +59,8 @@ export const customCellRenderer = (
   data: Cell[][],
   setData: SetData,
   setSelected: SetSelected,
-  afterCellsChanged: AfterCellsChanged,
-) => (props: ReactDataSheet.CellRendererProps<Cell>) => {
+  afterCellsChanged?: AfterCellsChanged,
+) => (props: ReactDataSheet.CellRendererProps<Cell, string | null>) => {
   const { style: defaultStyle, cell, onDoubleClick, ...restProps } = props
   const {
     CustomComponent = false,
@@ -169,8 +169,8 @@ export const handleCellsChanged = (
     return
   }
   const newData = data.map(row => [...row])
-  let newCell = null
   // remove row case
+  let newCell: Cell = { value: 'newValue' }
   if (changes.every(({ value, row }, index, changesArray) => value === null && row === changesArray[0].row)) {
     const rowIndexToRemove = changes[0].row
     newData.splice(rowIndexToRemove, 1)
@@ -197,7 +197,9 @@ export const handleCellsChanged = (
       oldCell: data[row][col],
       row,
       col,
-      newCell: newCell === null ? dataWithIsValidated[row][col] : newCell,
+      /* Replace newCell with validated data, if cannot find, then it was deleted,
+         replace with value = null */
+      newCell: newCell.value === null ? { value: null } : dataWithIsValidated[row][col],
     }))
     afterCellsChanged(changedCells, dataWithIsValidated, setData)
   }

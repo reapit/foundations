@@ -24,6 +24,7 @@ import {
   setSelected,
   parseResult,
   setContextMenuProp,
+  afterCellsChanged,
 } from '../__stubs__'
 import { getMaxRowAndCol, convertDataToCsv, unparseDataToCsvString, validatedDataGenerate } from '../utils'
 
@@ -204,7 +205,7 @@ describe('onSelectCell', () => {
 
 describe('customCellRenderer', () => {
   it('should match snapshot without CustomComponent', () => {
-    const CellComponent = customCellRenderer(data, setData, setSelected)
+    const CellComponent = customCellRenderer(data, setData, setSelected, afterCellsChanged)
     expect(shallow(<CellComponent {...cellRenderProps} />)).toMatchSnapshot()
   })
   it('should match snapshot with CustomComponent', () => {
@@ -216,7 +217,7 @@ describe('customCellRenderer', () => {
         CustomComponent,
       },
     }
-    const CellComponent = customCellRenderer(data, setData, setSelected)
+    const CellComponent = customCellRenderer(data, setData, setSelected, afterCellsChanged)
     expect(shallow(<CellComponent {...cellRenderPropsCustomComponent} />)).toMatchSnapshot()
   })
 
@@ -226,7 +227,7 @@ describe('customCellRenderer', () => {
       cell: { value: '11aa', isValidated: false },
     }
 
-    const CellComponent = customCellRenderer(data, setData, setSelected)
+    const CellComponent = customCellRenderer(data, setData, setSelected, afterCellsChanged)
     expect(shallow(<CellComponent {...cellRenderPropsInvalid} />)).toMatchSnapshot()
   })
 })
@@ -306,15 +307,169 @@ describe('handleAddNewRow', () => {
 })
 
 describe('handleCellsChanged', () => {
-  it('should call setData with correct arg', () => {
-    const fn = handleCellsChanged(data, setData, validate)
+  const data = [
+    [{ value: 'Office name' }, { value: 'Building Name' }],
+    [{ value: 'London2' }, { value: 'The Black House' }],
+    [{ value: 'New York' }, { value: 'Building A' }],
+  ]
+  afterAll(() => {
+    ;(validatedDataGenerate as jest.Mock).mockImplementation(() => 'validated data')
+  })
+  it('should return with underfined if changes length = 0', () => {
+    const fn = handleCellsChanged(data, setData, validate, afterCellsChanged)
+    const result = fn([])
+    expect(result).toBeUndefined()
+  })
 
-    const changes = [{ row: 1, col: 2, value: 'new' }]
+  it('remove row case should work', () => {
+    const changes = [
+      { cell: { value: 'London2' }, row: 1, col: 0, value: null },
+      {
+        cell: { value: 'The Black House' },
+        row: 1,
+        col: 1,
+        value: null,
+      },
+    ]
+    const fn = handleCellsChanged(data, setData, validate, afterCellsChanged)
     fn(changes)
-    const expectedData = data.map(row => [...row])
-    expectedData[1][2] = { ...expectedData[1][2], value: 'new' }
-    expect(validatedDataGenerate).toHaveBeenCalledWith(expectedData, validate)
+    const expectedNewData = [
+      [{ value: 'Office name' }, { value: 'Building Name' }],
+      [{ value: 'New York' }, { value: 'Building A' }],
+    ]
+    const expectedChangedCells = [
+      { oldCell: { value: 'London2' }, row: 1, col: 0, newCell: { value: null } },
+      {
+        oldCell: { value: 'The Black House' },
+        row: 1,
+        col: 1,
+        newCell: { value: null },
+      },
+    ]
+    expect(validatedDataGenerate).toHaveBeenCalledWith(expectedNewData, validate)
+    expect(afterCellsChanged).toHaveBeenCalledWith(expectedChangedCells, 'validated data', setData)
     expect(setData).toHaveBeenCalledWith('validated data')
+  })
+
+  it('remove col case should work', () => {
+    const changes = [
+      { cell: { value: 'Building name' }, row: 0, col: 1, value: null },
+      {
+        cell: { value: 'The Black House' },
+        row: 1,
+        col: 1,
+        value: null,
+      },
+      {
+        cell: { value: 'Building A' },
+        row: 2,
+        col: 1,
+        value: null,
+      },
+    ]
+    const fn = handleCellsChanged(data, setData, validate, afterCellsChanged)
+    fn(changes)
+    const expectedNewData = [[{ value: 'Office name' }], [{ value: 'London2' }], [{ value: 'New York' }]]
+    const expectedChangedCells = [
+      { oldCell: { value: 'Building Name' }, row: 0, col: 1, newCell: { value: null } },
+      {
+        oldCell: { value: 'The Black House' },
+        row: 1,
+        col: 1,
+        newCell: { value: null },
+      },
+      {
+        oldCell: { value: 'Building A' },
+        row: 2,
+        col: 1,
+        newCell: { value: null },
+      },
+    ]
+    expect(validatedDataGenerate).toHaveBeenCalledWith(expectedNewData, validate)
+    expect(afterCellsChanged).toHaveBeenCalledWith(expectedChangedCells, 'validated data', setData)
+    expect(setData).toHaveBeenCalledWith('validated data')
+  })
+
+  it('other cases should work', () => {
+    const changes = [
+      { cell: { value: 'Office name' }, row: 0, col: 0, value: '' },
+      {
+        cell: { value: 'London2' },
+        row: 1,
+        col: 0,
+        value: '',
+      },
+    ]
+    const fn = handleCellsChanged(data, setData, validate, afterCellsChanged)
+    const newDataWithValidate = [
+      [
+        { value: '', isValidated: true },
+        { value: 'Building Name', isValidated: true },
+      ],
+      [
+        { value: '', isValidated: true },
+        { value: 'The Black House', isValidated: true },
+      ],
+      [
+        { value: 'New York', isValidated: true },
+        { value: 'Building A', isValidated: true },
+      ],
+    ]
+    ;(validatedDataGenerate as jest.Mock).mockImplementation(() => newDataWithValidate)
+    fn(changes)
+    const expectedNewData = [
+      [{ value: '' }, { value: 'Building Name' }],
+      [{ value: '' }, { value: 'The Black House' }],
+      [{ value: 'New York' }, { value: 'Building A' }],
+    ]
+    const expectedChangedCells = [
+      { oldCell: { value: 'Office name' }, row: 0, col: 0, newCell: { value: '', isValidated: true } },
+      {
+        oldCell: { value: 'London2' },
+        row: 1,
+        col: 0,
+        newCell: { value: '', isValidated: true },
+      },
+    ]
+    expect(validatedDataGenerate).toHaveBeenCalledWith(expectedNewData, validate)
+    expect(afterCellsChanged).toHaveBeenCalledWith(expectedChangedCells, newDataWithValidate, setData)
+    expect(setData).toHaveBeenCalledWith(newDataWithValidate)
+  })
+  it('should work with afterCellsChanged undefined', () => {
+    const changes = [
+      { cell: { value: 'Office name' }, row: 0, col: 0, value: '' },
+      {
+        cell: { value: 'London2' },
+        row: 1,
+        col: 0,
+        value: '',
+      },
+    ]
+    const fn = handleCellsChanged(data, setData, validate, undefined)
+    const newDataWithValidate = [
+      [
+        { value: '', isValidated: true },
+        { value: 'Building Name', isValidated: true },
+      ],
+      [
+        { value: '', isValidated: true },
+        { value: 'The Black House', isValidated: true },
+      ],
+      [
+        { value: 'New York', isValidated: true },
+        { value: 'Building A', isValidated: true },
+      ],
+    ]
+    ;(validatedDataGenerate as jest.Mock).mockImplementation(() => newDataWithValidate)
+    fn(changes)
+    const expectedNewData = [
+      [{ value: '' }, { value: 'Building Name' }],
+      [{ value: '' }, { value: 'The Black House' }],
+      [{ value: 'New York' }, { value: 'Building A' }],
+    ]
+
+    expect(validatedDataGenerate).toHaveBeenCalledWith(expectedNewData, validate)
+    expect(setData).toHaveBeenCalledWith(newDataWithValidate)
   })
 })
 
@@ -418,7 +573,7 @@ describe('handleAfterDataChanged', () => {
     const afterDataChanged = jest.fn()
     const fn = handleAfterDataChanged(data, data, afterDataChanged)
     fn()
-    expect(afterDataChanged).toHaveBeenCalledWith(data, 'changes')
+    expect(afterDataChanged).toHaveBeenCalledWith('changes', data)
   })
   it('should not call afterDataChanged if it undefined', () => {
     const data = [
