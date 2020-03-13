@@ -31,9 +31,7 @@ export type GetIdentityChecksArgs = {
 // api return type
 export type GetIdentityCheckByIdReturn = Promise<IdentityCheckModel | UserInputError>
 export type GetIdentityChecksReturn = Promise<PagedResultIdentityCheckModel_ | UserInputError>
-
-// temporarily return boolean, will change later
-export type CreateIdentityCheckReturn = Promise<boolean | UserInputError>
+export type CreateIdentityCheckReturn = Promise<IdentityCheckModel | UserInputError>
 export type UpdateIdentityCheckReturn = Promise<IdentityCheckModel | UserInputError>
 
 // resolver type

@@ -23,6 +23,10 @@ export type GoogleMapProps<T> = T & {
   center: Coords
   zoom: number
   destinationAddress?: string
+  onDrawingMarkerComplete?: Function | null
+  onDrawingMarkerClick?: Function | null
+  onDrawingPolygonComplete?: Function | null
+  onDrawingPolygonClick?: Function | null
 }
 
 export type MapProps<T> = T &
@@ -30,6 +34,7 @@ export type MapProps<T> = T &
     apiKey: string
     component?: any
     libraries?: string
+    drawingOptions?: any
   }
 
 export const renderMarkers = ({ coordinates, googleMaps, map, markerCallBack }) =>
@@ -211,22 +216,121 @@ export const renderDirectionAndMarkers = ({
   }
 }
 
+export const onMarkerClick = onDrawingMarkerClick => {
+  return marker => {
+    if (onDrawingMarkerClick) {
+      onDrawingMarkerClick(marker)
+    }
+  }
+}
+
+export const onMarkerComplete = (onDrawingMarkerComplete, onDrawingMarkerClick) => {
+  return marker => {
+    if (onDrawingMarkerComplete) {
+      onDrawingMarkerComplete(marker)
+    }
+    marker.addListener('click', onMarkerClick(onDrawingMarkerClick))
+  }
+}
+
+export const onPolygonClick = (googleMaps, onDrawingPolygonClick) => {
+  return polygon => {
+    if (onDrawingPolygonClick) {
+      onDrawingPolygonClick(googleMaps, polygon)
+    }
+  }
+}
+
+export const onPolygonComplete = (googleMaps, onDrawingPolygonComplete, onDrawingPolygonClick) => {
+  return polygon => {
+    if (onDrawingPolygonComplete) {
+      onDrawingPolygonComplete(googleMaps, polygon)
+    }
+    polygon.addListener('click', onPolygonClick(googleMaps, onDrawingPolygonClick))
+  }
+}
+
+export const initMapDrawingManager = (
+  drawingManager,
+  drawingManagerRef,
+  googleMaps,
+  map,
+  onDrawingMarkerClick,
+  onDrawingMarkerComplete,
+  onDrawingPolygonClick,
+  onDrawingPolygonComplete,
+) => {
+  drawingManagerRef.current = drawingManager
+  googleMaps.event.addListener(
+    drawingManager,
+    'markercomplete',
+    onMarkerComplete(onDrawingMarkerComplete, onDrawingMarkerClick),
+  )
+  googleMaps.event.addListener(
+    drawingManager,
+    'polygoncomplete',
+    onPolygonComplete(googleMaps, onDrawingPolygonComplete, onDrawingPolygonClick),
+  )
+  drawingManager.setMap(map)
+}
+
+export const createGoogleMapDrawingManager = (googleMaps, drawingOptions) => {
+  const defaultDrawingOptions = {
+    drawingMode: googleMaps.drawing.OverlayType.MARKER,
+    drawingControl: true,
+    drawingControlOptions: {
+      position: googleMaps.ControlPosition.TOP_CENTER,
+      drawingModes: ['marker', 'polygon'],
+    },
+    polygonOptions: {
+      fillOpacity: 0.5,
+      strokeWeight: 3,
+      editable: true,
+      zIndex: 1,
+    },
+  }
+  const drawingManager = new googleMaps.drawing.DrawingManager(drawingOptions || defaultDrawingOptions)
+  return drawingManager
+}
+
 export const handleOnLoaded = ({
   googleMapsRef,
   mapRef,
   directionsServiceRef,
   directionsRendererRef,
+  drawingManagerRef,
+  libraries,
   boundsRef,
   onLoaded,
+  drawingOptions,
+  onDrawingMarkerClick,
+  onDrawingMarkerComplete,
+  onDrawingPolygonClick,
+  onDrawingPolygonComplete,
 }) => (googleMaps, map) => {
   googleMapsRef.current = googleMaps
   mapRef.current = map
   const bounds = new googleMaps.LatLngBounds()
   const directionsService = new googleMaps.DirectionsService()
   const directionsRenderer = new googleMaps.DirectionsRenderer()
+
   boundsRef.current = bounds
   directionsServiceRef.current = directionsService
   directionsRendererRef.current = directionsRenderer
+
+  if (libraries?.indexOf('drawing') > -1) {
+    const drawingManager = createGoogleMapDrawingManager(googleMaps, drawingOptions)
+    initMapDrawingManager(
+      drawingManager,
+      drawingManagerRef,
+      googleMaps,
+      map,
+      onDrawingMarkerClick,
+      onDrawingMarkerComplete,
+      onDrawingPolygonClick,
+      onDrawingPolygonComplete,
+    )
+  }
 
   if (onLoaded) {
     onLoaded({ googleMaps, map, bounds, directionsService, directionsRenderer })
@@ -245,8 +349,15 @@ export const renderMap = ({
   directionsRendererRef,
   boundsRef,
   directionsServiceRef,
+  drawingManagerRef,
   center,
   zoom,
+  libraries,
+  drawingOptions,
+  onDrawingMarkerClick,
+  onDrawingMarkerComplete,
+  onDrawingPolygonClick,
+  onDrawingPolygonComplete,
   mapContainerStyles,
   ...restProps
 }) => (googleMaps, error) => {
@@ -262,6 +373,13 @@ export const renderMap = ({
             directionsRendererRef,
             boundsRef,
             directionsServiceRef,
+            drawingManagerRef,
+            libraries,
+            drawingOptions,
+            onDrawingMarkerClick,
+            onDrawingMarkerComplete,
+            onDrawingPolygonClick,
+            onDrawingPolygonComplete,
           })}
           center={center}
           zoom={zoom}
@@ -328,6 +446,7 @@ export const handleUseEffect = ({
 export const Map: React.FC<MapProps<any>> = ({
   apiKey,
   libraries,
+  drawingOptions,
   coordinates,
   component,
   center,
@@ -336,6 +455,10 @@ export const Map: React.FC<MapProps<any>> = ({
   destinationPoint,
   travelMode = 'DRIVING',
   onLoadedDirection,
+  onDrawingMarkerClick,
+  onDrawingMarkerComplete,
+  onDrawingPolygonClick,
+  onDrawingPolygonComplete,
   mapContainerStyles,
   markerCallBack,
   destinationAddress,
@@ -347,6 +470,7 @@ export const Map: React.FC<MapProps<any>> = ({
   const directionsRendererRef = React.useRef(null)
   const boundsRef = React.useRef(null)
   const directionsServiceRef = React.useRef(null)
+  const drawingManagerRef = React.useRef(null)
 
   React.useEffect(
     handleUseEffect({
@@ -380,10 +504,17 @@ export const Map: React.FC<MapProps<any>> = ({
         directionsRendererRef,
         boundsRef,
         directionsServiceRef,
+        drawingManagerRef,
         center,
         zoom,
         coordinates,
         component,
+        libraries,
+        drawingOptions,
+        onDrawingMarkerClick,
+        onDrawingMarkerComplete,
+        onDrawingPolygonClick,
+        onDrawingPolygonComplete,
         mapContainerStyles,
         ...restProps,
       })}

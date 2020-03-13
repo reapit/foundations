@@ -1,4 +1,3 @@
-import { fetcher } from '@reapit/elements'
 import qs from 'query-string'
 import logger from '../../logger'
 import { ServerContext } from '../../app'
@@ -13,26 +12,23 @@ import {
   UpdateOfficeReturn,
 } from './offices'
 import errors from '../../errors'
-import { API_VERSION, URLS } from '../../constants/api'
+import { URLS } from '../../constants/api'
+import { createPlatformAxiosInstance } from '../../utils/axios-instances'
+import { handleError } from '../../utils/handle-error'
+import { getIdFromCreateHeaders } from '../../utils/get-id-from-create-headers'
 
 export const callGetOfficeByIdAPI = async (args: GetOfficeByIdArgs, context: ServerContext): GetOfficeByIdReturn => {
   const traceId = context.traceId
   logger.info('callGetOfficeByIdAPI', { traceId, args })
   try {
-    const response = await fetcher({
-      url: `${URLS.offices}/${args.id}`,
-      api: process.env.PLATFORM_API_BASE_URL,
-      method: 'GET',
+    const response = await createPlatformAxiosInstance().get<GetOfficeByIdReturn>(`${URLS.offices}/${args.id}`, {
       headers: {
         Authorization: context.authorization,
-        'Content-Type': 'application/json',
-        'api-version': API_VERSION,
       },
     })
-    return response
+    return response?.data
   } catch (error) {
-    logger.error('callGetOfficeByIdAPI', { traceId, error: JSON.stringify(error) })
-    return errors.generateUserInputError(traceId)
+    return handleError({ error, traceId, caller: 'callGetOfficeByIdAPI' })
   }
 }
 
@@ -41,20 +37,14 @@ export const callGetOfficesAPI = async (args: GetOfficesArgs, context: ServerCon
   logger.info('callGetOfficesAPI', { args, traceId })
   try {
     const params = qs.stringify(args)
-    const response = fetcher({
-      url: `${URLS.offices}/?${params}`,
-      api: process.env.PLATFORM_API_BASE_URL,
-      method: 'GET',
+    const response = await createPlatformAxiosInstance().get<GetOfficesReturn>(`${URLS.offices}?${params}`, {
       headers: {
         Authorization: context.authorization,
-        'Content-Type': 'application/json',
-        'api-version': API_VERSION,
       },
     })
-    return response
+    return response?.data
   } catch (error) {
-    logger.error('callGetOfficesAPI', { traceId, error: JSON.stringify(error) })
-    return errors.generateUserInputError(traceId)
+    return handleError({ error, traceId, caller: 'callGetOfficesAPI' })
   }
 }
 
@@ -62,21 +52,18 @@ export const callCreateOfficeAPI = async (args: CreateOfficeArgs, context: Serve
   const traceId = context.traceId
   logger.info('callCreateOfficeAPI', { traceId, args })
   try {
-    const response = await fetcher({
-      url: URLS.offices,
-      api: process.env.PLATFORM_API_BASE_URL,
-      method: 'POST',
+    const response = await createPlatformAxiosInstance().post<CreateOfficeReturn>(URLS.offices, args, {
       headers: {
         Authorization: context.authorization,
-        'Content-Type': 'application/json',
-        'api-version': API_VERSION,
       },
-      body: args,
     })
-    return response
+    const id = getIdFromCreateHeaders({ headers: response.headers })
+    if (id) {
+      return callGetOfficeByIdAPI({ id }, context)
+    }
+    return null
   } catch (error) {
-    logger.error('callCreateOfficeAPI', { traceId, error: JSON.stringify(error) })
-    return errors.generateUserInputError(traceId)
+    return handleError({ error, traceId, caller: 'callCreateOfficeAPI' })
   }
 }
 
@@ -85,25 +72,21 @@ export const callUpdateOfficeAPI = async (args: UpdateOfficeArgs, context: Serve
   logger.info('callUpdateOfficeAPI', { traceId, args })
   try {
     const { _eTag, ...payload } = args
-    const updateResponse = await fetcher({
-      url: `${URLS.offices}/${args.id}`,
-      api: process.env.PLATFORM_API_BASE_URL,
-      method: 'PATCH',
-      headers: {
-        Authorization: context.authorization,
-        'Content-Type': 'application/json',
-        'api-version': API_VERSION,
-        'If-Match': _eTag,
+    const updateResponse = await createPlatformAxiosInstance().patch<UpdateOfficeReturn>(
+      `${URLS.offices}/${args.id}`,
+      payload,
+      {
+        headers: {
+          Authorization: context.authorization,
+          'If-Match': _eTag,
+        },
       },
-      body: payload,
-    })
-
-    if (updateResponse) {
+    )
+    if (updateResponse?.data) {
       return callGetOfficeByIdAPI({ id: args.id }, context)
     }
     return errors.generateUserInputError(traceId)
   } catch (error) {
-    logger.error('callUpdateOfficeAPI', { traceId, error: JSON.stringify(error) })
-    return errors.generateUserInputError(traceId)
+    return handleError({ error, traceId, caller: 'callUpdateOfficeAPI' })
   }
 }

@@ -32,6 +32,7 @@ const server = new ApolloServer({
   context: handleContext,
   validationRules: [depthLimit(10)],
   formatResponse,
+  debug: process.env.NODE_ENV === 'development',
 })
 
 export const graphqlHandler = server.createHandler({

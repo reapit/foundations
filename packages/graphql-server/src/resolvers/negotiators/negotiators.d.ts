@@ -23,9 +23,7 @@ export type GetNegotiatorsArgs = {
 // api return type
 export type GetNegotiatorByIdReturn = Promise<NegotiatorModel | UserInputError>
 export type GetNegotiatorsReturn = Promise<PagedResultNegotiatorModel_ | UserInputError>
-
-// temporarily return boolean, will change later
-export type CreateNegotiatorReturn = Promise<boolean | UserInputError>
+export type CreateNegotiatorReturn = Promise<NegotiatorModel | UserInputError>
 export type UpdateNegotiatorReturn = Promise<NegotiatorModel | UserInputError>
 
 // resolver type

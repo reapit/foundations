@@ -28,9 +28,7 @@ export type GetContactsArgs = {
 // api return type
 export type GetContactByIdReturn = Promise<ContactModel | UserInputError>
 export type GetContactsReturn = Promise<PagedResultContactModel_ | UserInputError>
-
-// temporarily return boolean, will change later
-export type CreateContactReturn = Promise<boolean | UserInputError>
+export type CreateContactReturn = Promise<ContactModel | UserInputError>
 export type UpdateContactReturn = Promise<ContactModel | UserInputError>
 
 // resolver type
