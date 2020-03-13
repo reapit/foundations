@@ -37,8 +37,8 @@ const ApiDocsPage: React.FC = () => {
   const { location } = useHistory()
   return (
     <ErrorBoundary>
-      <FlexContainerBasic flexColumn hasPadding>
-        <FlexContainerBasic className="container">
+      <FlexContainerBasic flexColumn hasPadding className="is-full-height">
+        <FlexContainerBasic className="container is-full-height">
           <iframe
             style={{ border: 'none' }}
             src={`${IFRAME_URLS.documentation}${parseIframeUrl(location.hash)}`}
