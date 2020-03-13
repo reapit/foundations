@@ -7,9 +7,11 @@ import {
   SetContextMenuProp,
   SetData,
   SetSelected,
-  ChangedCells,
   ValidateFunction,
   ContextMenuProp,
+  AfterDataChanged,
+  AfterCellsChanged,
+  ChangesArray,
 } from './types'
 import {
   getMaxRowAndCol,
@@ -53,9 +55,12 @@ export const handleContextMenu = (setContextMenuProp: SetContextMenuProp) => e =
 }
 
 /** all the customization of cell go here */
-export const customCellRenderer = (data: Cell[][], setData: SetData, setSelected: SetSelected) => (
-  props: ReactDataSheet.CellRendererProps<Cell>,
-) => {
+export const customCellRenderer = (
+  data: Cell[][],
+  setData: SetData,
+  setSelected: SetSelected,
+  afterCellsChanged?: AfterCellsChanged,
+) => (props: ReactDataSheet.CellRendererProps<Cell, string | null>) => {
   const { style: defaultStyle, cell, onDoubleClick, ...restProps } = props
   const {
     CustomComponent = false,
@@ -110,7 +115,13 @@ export const customCellRenderer = (data: Cell[][], setData: SetData, setSelected
       onDoubleClick={onDoubleClickCell(payload, setSelected, onDoubleClick)}
     >
       {CustomComponent ? (
-        <CustomComponent cellRenderProps={props} data={data} setData={setData} setSelected={setSelected} />
+        <CustomComponent
+          cellRenderProps={props}
+          data={data}
+          setData={setData}
+          setSelected={setSelected}
+          afterCellsChanged={afterCellsChanged}
+        />
       ) : (
         props.children
       )}
@@ -148,12 +159,51 @@ export const handleAddNewRow = (data: Cell[][], setData: SetData, validate?: Val
   setData(dataWithIsValidated)
 }
 
-export const handleCellsChanged = (data: Cell[][], setData: SetData, validate?: ValidateFunction) => changes => {
+export const handleCellsChanged = (
+  data: Cell[][],
+  setData: SetData,
+  validate?: ValidateFunction,
+  afterCellsChanged?: AfterCellsChanged,
+) => (changes: ChangesArray): any => {
+  if (changes.length === 0) {
+    return
+  }
   const newData = data.map(row => [...row])
-  changes.forEach(({ row, col, value }) => {
-    newData[row][col] = { ...newData[row][col], value }
-  })
+  // remove row case
+  let newCell: Cell = { value: 'newValue' }
+  if (changes.every(({ value, row }, index, changesArray) => value === null && row === changesArray[0].row)) {
+    const rowIndexToRemove = changes[0].row
+    newData.splice(rowIndexToRemove, 1)
+    newCell = { value: null }
+  }
+  // remove column case
+  else if (changes.every(({ value, col }, index, changesArray) => value === null && col === changesArray[0].col)) {
+    const colIndexToRemove = changes[0].col
+    newData.forEach((row, rowIndex) => {
+      newData[rowIndex].splice(colIndexToRemove, 1)
+    })
+    newCell = { value: null }
+  }
+  // all other cases
+  else {
+    changes.forEach(({ row, col, value }) => {
+      newData[row][col] = { ...newData[row][col], value }
+    })
+  }
+  // validate data after changed
   const dataWithIsValidated = validatedDataGenerate(newData, validate)
+  if (typeof afterCellsChanged === 'function') {
+    const changedCells = changes.map(({ row, col }) => ({
+      oldCell: data[row][col],
+      row,
+      col,
+      /* Replace newCell with validated data, if cannot find, then it was deleted,
+         replace with value = null */
+      newCell: newCell.value === null ? { value: null } : dataWithIsValidated[row][col],
+    }))
+    afterCellsChanged(changedCells, dataWithIsValidated, setData)
+  }
+  // and set to spreadsheet
   setData(dataWithIsValidated)
 }
 
@@ -214,11 +264,11 @@ export const handleSetContextMenu = (setContextMenuProp: SetContextMenuProp) => 
 export const handleAfterDataChanged = (
   data: Cell[][],
   prevData?: Cell[][],
-  afterDataChanged?: (data: Cell[][], changedCells: ChangedCells) => any,
+  afterDataChanged?: AfterDataChanged,
 ) => () => {
-  const changedCells = changedCellsGenerate(data, prevData)
   if (typeof afterDataChanged === 'function') {
-    afterDataChanged(data, changedCells)
+    const changedCells = changedCellsGenerate(data, prevData)
+    afterDataChanged(changedCells, data)
   }
 }
 

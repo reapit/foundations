@@ -1,58 +1,92 @@
 import * as React from 'react'
-import { ContextMenuData, SetData, Cell, SelectedMatrix, ContextMenuFCProps } from './types'
+import { ContextMenuData, SetContextMenuProp, Cell, SelectedMatrix, ContextMenuFCProps, OnCellsChanged } from './types'
 import { hideContextMenu } from './handlers'
 
-export const clearRowSetData = (currentRowIndex: number) => (prevData: Cell[][]): Cell[][] => {
-  const newData = prevData.map((row, rowIndex) => {
-    /* Loop through row, check if row index = current selected row,
-          if equal, clear that row value */
-    return rowIndex === currentRowIndex ? row.map(cell => ({ ...cell, value: '' })) : row
-  })
-  return newData
+// clear means set value to empty string ""
+export const clearRow = (data: Cell[][], currentRowIndex: number, onCellsChanged: OnCellsChanged) => {
+  const oldRow = data[currentRowIndex]
+  const changedCells = oldRow
+    .map((oldCell, colIndex) => ({
+      cell: oldRow[colIndex],
+      row: currentRowIndex,
+      col: colIndex,
+      value: '',
+    }))
+    .filter(({ cell: { readOnly } }) => !readOnly)
+  // trigger onCellsChanged
+  onCellsChanged(changedCells)
 }
 
-export const clearColSetData = (currentColIndex: number) => (prevData: Cell[][]): Cell[][] => {
-  const newData = prevData.map(row => {
-    /* Loop through row, in each row, loop through cells, check if col index = current selected col
-          if equal, clear that cell value */
-    return row.map((cell, colIndex) => {
-      return colIndex === currentColIndex ? { ...cell, value: '' } : cell
-    })
-  })
-  return newData
+export const clearCol = (data: Cell[][], currentColIndex: number, onCellsChanged: OnCellsChanged) => {
+  const oldCol = data.map(row => row[currentColIndex])
+  const changedCells = oldCol
+    .map((cell, rowIndex) => ({
+      cell: oldCol[rowIndex],
+      row: rowIndex,
+      col: currentColIndex,
+      value: '',
+    }))
+    .filter(({ cell: { readOnly } }) => !readOnly)
+
+  // trigger onCellsChanged
+  onCellsChanged(changedCells)
 }
 
-export const removeRowSetData = (currentRowIndex: number) => (prevData: Cell[][]): Cell[][] => {
-  const newData = prevData.filter((row, rowIndex) => row && rowIndex !== currentRowIndex)
-  return newData
+// remove is completely remove the data from sheet
+export const removeRow = (data: Cell[][], currentRowIndex: number, onCellsChanged: OnCellsChanged) => {
+  const oldRow = data[currentRowIndex]
+  /* After remove, set value to null in changedCells so afterCellsChaned can detect that it was removed */
+  const changedCells = oldRow
+    .map((oldCell, colIndex) => ({
+      cell: oldCell,
+      row: currentRowIndex,
+      col: colIndex,
+      value: null,
+    }))
+    .filter(({ cell: { readOnly } }) => !readOnly)
+  onCellsChanged(changedCells)
 }
 
-export const removeColSetData = (currentColIndex: number) => (prevData: Cell[][]): Cell[][] => {
-  const newData = prevData.map(row => row.filter((cell, colIndex) => cell && colIndex !== currentColIndex))
-  return newData
+export const removeCol = (data: Cell[][], currentColIndex: number, onCellsChanged: OnCellsChanged) => {
+  const oldCol = data.map(row => row[currentColIndex])
+  const changedCells = oldCol
+    .map((cell, rowIndex) => ({
+      cell: oldCol[rowIndex],
+      row: rowIndex,
+      col: currentColIndex,
+      value: null,
+    }))
+    .filter(({ cell: { readOnly } }) => !readOnly)
+  // trigger onCellsChanged
+  onCellsChanged(changedCells)
 }
 /** delegate event handler */
-export const handleContextClick = (selected: SelectedMatrix | null, setData: SetData, setContextMenuProp) => event => {
+export const handleContextClick = (
+  data: Cell[][],
+  selected: SelectedMatrix | null,
+  setContextMenuProp: SetContextMenuProp,
+  onCellsChanged: OnCellsChanged,
+) => event => {
   event.stopPropagation()
   const {
     start: { i: currentRowIndex, j: currentColIndex },
   } = selected as SelectedMatrix
   switch (event.target.id) {
     case 'clear-row':
-      setData(clearRowSetData(currentRowIndex))
-      setContextMenuProp()
+      clearRow(data, currentRowIndex, onCellsChanged)
+      setContextMenuProp(hideContextMenu)
       return 'clear-row'
     case 'clear-col':
-      setData(clearColSetData(currentColIndex))
-      setContextMenuProp()
+      clearCol(data, currentColIndex, onCellsChanged)
+      setContextMenuProp(hideContextMenu)
       return 'clear-col'
     case 'remove-row':
-      setData(removeRowSetData(currentRowIndex))
-      setContextMenuProp()
+      removeRow(data, currentRowIndex, onCellsChanged)
+      setContextMenuProp(hideContextMenu)
       return 'remove-row'
     case 'remove-col':
-      setData(removeColSetData(currentColIndex))
-      setContextMenuProp()
+      removeCol(data, currentColIndex, onCellsChanged)
+      setContextMenuProp(hideContextMenu)
       return 'remove-col'
     default:
       return ''
@@ -82,10 +116,11 @@ const dataMenu: ContextMenuData[] = [
         id: 'clear-row',
         text: 'Clear row',
       },
-      {
-        id: 'clear-col',
-        text: 'Clear column',
-      },
+      // temporary disable
+      // {
+      //   id: 'clear-col',
+      //   text: 'Clear column',
+      // },
     ],
   },
   {
@@ -95,26 +130,28 @@ const dataMenu: ContextMenuData[] = [
         id: 'remove-row',
         text: 'Remove row',
       },
-      {
-        id: 'remove-col',
-        text: 'Remove column',
-      },
+      // temporary disable
+      // {
+      //   id: 'remove-col',
+      //   text: 'Remove column',
+      // },
     ],
   },
 ]
 
 export const ContextMenu: React.FC<ContextMenuFCProps> = ({
+  data,
   selected,
   contextMenuProp: { visible, top, left },
-  setData,
   setContextMenuProp,
+  onCellsChanged,
 }) => {
   const visibleClass = visible ? 'spreadsheet-context-menu-visible' : 'spreadsheet-context-menu-hidden'
   return (
     <div
       style={{ top, left }}
       className={`spreadsheet-context-menu ${visibleClass}`}
-      onClick={handleContextClick(selected, setData, setContextMenuProp.bind(null, hideContextMenu))}
+      onClick={handleContextClick(data, selected, setContextMenuProp, onCellsChanged)}
     >
       {createMenu(dataMenu)}
     </div>
