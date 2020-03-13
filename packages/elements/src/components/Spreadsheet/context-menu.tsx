@@ -3,36 +3,30 @@ import { ContextMenuData, SetContextMenuProp, Cell, SelectedMatrix, ContextMenuF
 import { hideContextMenu } from './handlers'
 
 // clear means set value to empty string ""
-
 export const clearRow = (data: Cell[][], currentRowIndex: number, onCellsChanged: OnCellsChanged) => {
-  const oldRow = [...data[currentRowIndex]]
-  const newRowAfterClear = []
-  const changedCells = []
-
-  oldRow.forEach((cell, colIndex) => {
-    const cellAfterClear = { ...oldRow[colIndex], value: '' }
-    // the type of this must compatible with react-datasheet arrayOfChanges
-    const changedCell = { cell: oldRow[colIndex], row: currentRowIndex, col: colIndex, value: cellAfterClear.value }
-    newRowAfterClear.push(cellAfterClear)
-    changedCells.push(changedCell)
-  })
-
+  const oldRow = data[currentRowIndex]
+  const changedCells = oldRow
+    .map((oldCell, colIndex) => ({
+      cell: oldRow[colIndex],
+      row: currentRowIndex,
+      col: colIndex,
+      value: '',
+    }))
+    .filter(({ cell: { readOnly } }) => !readOnly)
   // trigger onCellsChanged
   onCellsChanged(changedCells)
 }
 
 export const clearCol = (data: Cell[][], currentColIndex: number, onCellsChanged: OnCellsChanged) => {
   const oldCol = data.map(row => row[currentColIndex])
-  const newColAfterClear = []
-  const changedCells = []
-
-  oldCol.forEach((cell, rowIndex) => {
-    const cellAfterClear = { ...oldCol[rowIndex], value: '' }
-    // the type of this must compatible with react-datasheet arrayOfChanges
-    const changedCell = { cell: oldCol[rowIndex], row: rowIndex, col: currentColIndex, value: cellAfterClear.value }
-    newColAfterClear.push(cellAfterClear)
-    changedCells.push(changedCell)
-  })
+  const changedCells = oldCol
+    .map((cell, rowIndex) => ({
+      cell: oldCol[rowIndex],
+      row: rowIndex,
+      col: currentColIndex,
+      value: '',
+    }))
+    .filter(({ cell: { readOnly } }) => !readOnly)
 
   // trigger onCellsChanged
   onCellsChanged(changedCells)
@@ -42,18 +36,29 @@ export const clearCol = (data: Cell[][], currentColIndex: number, onCellsChanged
 export const removeRow = (data: Cell[][], currentRowIndex: number, onCellsChanged: OnCellsChanged) => {
   const oldRow = data[currentRowIndex]
   /* After remove, set value to null in changedCells so afterCellsChaned can detect that it was removed */
-  const changedCells = oldRow.map((oldCell, colIndex) => ({
-    cell: oldCell,
-    row: currentRowIndex,
-    col: colIndex,
-    value: null,
-  }))
+  const changedCells = oldRow
+    .map((oldCell, colIndex) => ({
+      cell: oldCell,
+      row: currentRowIndex,
+      col: colIndex,
+      value: null,
+    }))
+    .filter(({ cell: { readOnly } }) => !readOnly)
   onCellsChanged(changedCells)
 }
 
-export const removeColSetData = (currentColIndex: number) => (prevData: Cell[][]): Cell[][] => {
-  const newData = prevData.map(row => row.filter((cell, colIndex) => cell && colIndex !== currentColIndex))
-  return newData
+export const removeCol = (data: Cell[][], currentColIndex: number, onCellsChanged: OnCellsChanged) => {
+  const oldCol = data.map(row => row[currentColIndex])
+  const changedCells = oldCol
+    .map((cell, rowIndex) => ({
+      cell: oldCol[rowIndex],
+      row: rowIndex,
+      col: currentColIndex,
+      value: null,
+    }))
+    .filter(({ cell: { readOnly } }) => !readOnly)
+  // trigger onCellsChanged
+  onCellsChanged(changedCells)
 }
 /** delegate event handler */
 export const handleContextClick = (
@@ -69,19 +74,19 @@ export const handleContextClick = (
   switch (event.target.id) {
     case 'clear-row':
       clearRow(data, currentRowIndex, onCellsChanged)
-      setContextMenuProp()
+      setContextMenuProp(hideContextMenu)
       return 'clear-row'
     case 'clear-col':
       clearCol(data, currentColIndex, onCellsChanged)
-      setContextMenuProp()
+      setContextMenuProp(hideContextMenu)
       return 'clear-col'
     case 'remove-row':
       removeRow(data, currentRowIndex, onCellsChanged)
-      setContextMenuProp()
+      setContextMenuProp(hideContextMenu)
       return 'remove-row'
     case 'remove-col':
-      setData(removeColSetData(currentColIndex))
-      setContextMenuProp()
+      removeCol(data, currentColIndex, onCellsChanged)
+      setContextMenuProp(hideContextMenu)
       return 'remove-col'
     default:
       return ''
@@ -111,10 +116,11 @@ const dataMenu: ContextMenuData[] = [
         id: 'clear-row',
         text: 'Clear row',
       },
-      {
-        id: 'clear-col',
-        text: 'Clear column',
-      },
+      // temporary disable
+      // {
+      //   id: 'clear-col',
+      //   text: 'Clear column',
+      // },
     ],
   },
   {
@@ -124,10 +130,11 @@ const dataMenu: ContextMenuData[] = [
         id: 'remove-row',
         text: 'Remove row',
       },
-      {
-        id: 'remove-col',
-        text: 'Remove column',
-      },
+      // temporary disable
+      // {
+      //   id: 'remove-col',
+      //   text: 'Remove column',
+      // },
     ],
   },
 ]
@@ -144,7 +151,7 @@ export const ContextMenu: React.FC<ContextMenuFCProps> = ({
     <div
       style={{ top, left }}
       className={`spreadsheet-context-menu ${visibleClass}`}
-      onClick={handleContextClick(data, selected, setContextMenuProp.bind(null, hideContextMenu), onCellsChanged)}
+      onClick={handleContextClick(data, selected, setContextMenuProp, onCellsChanged)}
     >
       {createMenu(dataMenu)}
     </div>

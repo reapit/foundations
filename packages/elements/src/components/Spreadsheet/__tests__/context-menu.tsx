@@ -1,24 +1,24 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import {
-  ContextMenu,
-  handleContextClick,
-  clearRowSetData,
-  clearColSetData,
-  removeRowSetData,
-  removeColSetData,
-} from '../context-menu'
+import { ContextMenu, handleContextClick, clearRow, clearCol, removeRow, removeCol } from '../context-menu'
 import { selectedMatrix, setData, setContextMenuProp, data } from '../__stubs__'
+
+const onCellsChanged = jest.fn()
+
+afterEach(() => {
+  jest.clearAllMocks()
+})
 
 describe('ContextMenu', () => {
   it('should match snapshot with visible true', () => {
     expect(
       shallow(
         <ContextMenu
+          data={data}
           selected={selectedMatrix}
-          setData={setData}
           setContextMenuProp={setContextMenuProp}
           contextMenuProp={{ visible: true, top: 0, left: 0 }}
+          onCellsChanged={onCellsChanged}
         />,
       ),
     ).toMatchSnapshot()
@@ -28,10 +28,11 @@ describe('ContextMenu', () => {
     expect(
       shallow(
         <ContextMenu
+          data={data}
           selected={selectedMatrix}
-          setData={setData}
           setContextMenuProp={setContextMenuProp}
           contextMenuProp={{ visible: false, top: 0, left: 0 }}
+          onCellsChanged={onCellsChanged}
         />,
       ),
     ).toMatchSnapshot()
@@ -45,11 +46,8 @@ describe('handleContextClick', () => {
       id: '',
     },
   }
-  const fn = handleContextClick(selectedMatrix, setData, setContextMenuProp)
 
-  afterEach(() => {
-    jest.clearAllMocks()
-  })
+  const fn = handleContextClick(data, selectedMatrix, setContextMenuProp, onCellsChanged)
 
   it('should return correct value clear-row', () => {
     const mockEvent = {
@@ -106,237 +104,152 @@ describe('handleContextClick', () => {
   })
 })
 
-describe('clearRowSetData', () => {
-  it('should return correct data', () => {
+describe('clearRow', () => {
+  it('should clear correct data', () => {
     const currentRowIndex = 1
-    const expectedResult = [
-      [
-        { value: 'Office name' },
-        { value: 'Building Name' },
-        { value: 'Building No.' },
-        { value: 'Address 1' },
-        { value: 'Address 2' },
-        { value: 'Address 3' },
-        { value: 'Address 4' },
-        { value: 'Post Code' },
-        { value: 'Telephone' },
-        { value: 'Fax' },
-        { value: 'Email' },
-      ],
-      [
-        { value: '' },
-        { value: '' },
-        { value: '' },
-        { value: '' },
-        { value: '' },
-        { value: '' },
-        { value: '' },
-        { value: '' },
-        { value: '' },
-        { value: '' },
-        { value: '' },
-      ],
-      [
-        { value: 'London2' },
-        { value: 'The Black House' },
-        { value: '11' },
-        { value: 'Test Addres' },
-        { value: '' },
-        { value: 'Adress 3' },
-        { value: '' },
-        { value: 'EC12NH' },
-        { value: '087 471 929' },
-        { value: '' },
-        { value: 'row2@gmail.com' },
-      ],
-      [
-        { value: 'New York' },
-        { value: 'Building A' },
-        { value: '11' },
-        { value: '' },
-        { value: '' },
-        { value: 'City Z' },
-        { value: '' },
-        { value: 'AL7187' },
-        { value: '017 7162 9121' },
-        { value: '' },
-        { value: 'row3@gmail.com' },
-      ],
+    const data = [
+      [{ value: 'Office name' }, { value: 'Building Name' }],
+      [{ value: 'London2' }, { value: 'The Black House' }],
+      [{ value: 'New York' }, { value: 'Building A' }],
     ]
-    const fn = clearRowSetData(currentRowIndex)
-    const result = fn(data)
-    expect(result).toEqual(expectedResult)
-  })
-})
-
-describe('clearColSetData', () => {
-  it('should return correct data', () => {
-    const currentColIndex = 1
-    const expectedResult = [
-      [
-        { value: 'Office name' },
-        { value: '' },
-        { value: 'Building No.' },
-        { value: 'Address 1' },
-        { value: 'Address 2' },
-        { value: 'Address 3' },
-        { value: 'Address 4' },
-        { value: 'Post Code' },
-        { value: 'Telephone' },
-        { value: 'Fax' },
-        { value: 'Email' },
-      ],
-      [
-        { value: 'London' },
-        { value: '' },
-        { value: '15' },
-        { value: 'London 1' },
-        { value: '' },
-        { value: 'Londom 3' },
-        { value: '' },
-        { value: 'EC12NH' },
-        { value: '0845 0000' },
-        { value: '' },
-        { value: 'row1@gmail.com' },
-      ],
-      [
-        { value: 'London2' },
-        { value: '' },
-        { value: '11' },
-        { value: 'Test Addres' },
-        { value: '' },
-        { value: 'Adress 3' },
-        { value: '' },
-        { value: 'EC12NH' },
-        { value: '087 471 929' },
-        { value: '' },
-        { value: 'row2@gmail.com' },
-      ],
-      [
-        { value: 'New York' },
-        { value: '' },
-        { value: '11' },
-        { value: '' },
-        { value: '' },
-        { value: 'City Z' },
-        { value: '' },
-        { value: 'AL7187' },
-        { value: '017 7162 9121' },
-        { value: '' },
-        { value: 'row3@gmail.com' },
-      ],
+    clearRow(data, currentRowIndex, onCellsChanged)
+    const expectedChangedCells = [
+      { cell: { value: 'London2' }, row: currentRowIndex, col: 0, value: '' },
+      {
+        cell: { value: 'The Black House' },
+        row: currentRowIndex,
+        col: 1,
+        value: '',
+      },
     ]
-    const fn = clearColSetData(currentColIndex)
-    const result = fn(data)
-    expect(result).toEqual(expectedResult)
+    expect(onCellsChanged).toHaveBeenCalledWith(expectedChangedCells)
   })
-})
-
-describe('removeRowSetData', () => {
-  it('should return correct data', () => {
+  it('should not clear readOnly row', () => {
     const currentRowIndex = 1
-    const expectedResult = [
+    const data = [
+      [{ value: 'Office name' }, { value: 'Building Name' }],
       [
-        { value: 'Office name' },
-        { value: 'Building Name' },
-        { value: 'Building No.' },
-        { value: 'Address 1' },
-        { value: 'Address 2' },
-        { value: 'Address 3' },
-        { value: 'Address 4' },
-        { value: 'Post Code' },
-        { value: 'Telephone' },
-        { value: 'Fax' },
-        { value: 'Email' },
+        { value: 'London2', readOnly: true },
+        { value: 'The Black House', readOnly: true },
       ],
-      [
-        { value: 'London2' },
-        { value: 'The Black House' },
-        { value: '11' },
-        { value: 'Test Addres' },
-        { value: '' },
-        { value: 'Adress 3' },
-        { value: '' },
-        { value: 'EC12NH' },
-        { value: '087 471 929' },
-        { value: '' },
-        { value: 'row2@gmail.com' },
-      ],
-      [
-        { value: 'New York' },
-        { value: 'Building A' },
-        { value: '11' },
-        { value: '' },
-        { value: '' },
-        { value: 'City Z' },
-        { value: '' },
-        { value: 'AL7187' },
-        { value: '017 7162 9121' },
-        { value: '' },
-        { value: 'row3@gmail.com' },
-      ],
+      [{ value: 'New York' }, { value: 'Building A' }],
     ]
-    const fn = removeRowSetData(currentRowIndex)
-    const result = fn(data)
-    expect(result).toEqual(expectedResult)
+    clearRow(data, currentRowIndex, onCellsChanged)
+    const expectedChangedCells = []
+    expect(onCellsChanged).toHaveBeenCalledWith(expectedChangedCells)
   })
 })
 
-describe('removeColSetData', () => {
-  it('should return correct data', () => {
+describe('clearCol', () => {
+  it('should clear correct data', () => {
     const currentColIndex = 1
-    const expectedResult = [
-      [
-        { value: 'Office name' },
-        { value: 'Building No.' },
-        { value: 'Address 1' },
-        { value: 'Address 2' },
-        { value: 'Address 3' },
-        { value: 'Address 4' },
-        { value: 'Post Code' },
-        { value: 'Telephone' },
-        { value: 'Fax' },
-        { value: 'Email' },
-      ],
-      [
-        { value: 'London' },
-        { value: '15' },
-        { value: 'London 1' },
-        { value: '' },
-        { value: 'Londom 3' },
-        { value: '' },
-        { value: 'EC12NH' },
-        { value: '0845 0000' },
-        { value: '' },
-        { value: 'row1@gmail.com' },
-      ],
-      [
-        { value: 'London2' },
-        { value: '11' },
-        { value: 'Test Addres' },
-        { value: '' },
-        { value: 'Adress 3' },
-        { value: '' },
-        { value: 'EC12NH' },
-        { value: '087 471 929' },
-        { value: '' },
-        { value: 'row2@gmail.com' },
-      ],
-      [
-        { value: 'New York' },
-        { value: '11' },
-        { value: '' },
-        { value: '' },
-        { value: 'City Z' },
-        { value: '' },
-        { value: 'AL7187' },
-        { value: '017 7162 9121' },
-        { value: '' },
-        { value: 'row3@gmail.com' },
-      ],
+    const data = [
+      [{ value: 'Office name' }, { value: 'Building Name' }],
+      [{ value: 'London2' }, { value: 'The Black House' }],
+      [{ value: 'New York' }, { value: 'Building A' }],
     ]
-    const fn = removeColSetData(currentColIndex)
-    const result = fn(data)
-    expect(result).toEqual(expectedResult)
+    clearCol(data, currentColIndex, onCellsChanged)
+    const expectedChangedCells = [
+      { cell: { value: 'Building Name' }, row: 0, col: currentColIndex, value: '' },
+      {
+        cell: { value: 'The Black House' },
+        row: 1,
+        col: currentColIndex,
+        value: '',
+      },
+      {
+        cell: { value: 'Building A' },
+        row: 2,
+        col: currentColIndex,
+        value: '',
+      },
+    ]
+    expect(onCellsChanged).toHaveBeenCalledWith(expectedChangedCells)
+  })
+  it('should not clear readOnly col', () => {
+    const currentColIndex = 1
+    const data = [
+      [{ value: 'Office name' }, { value: 'Building Name', readOnly: true }],
+      [{ value: 'London2' }, { value: 'The Black House', readOnly: true }],
+      [{ value: 'New York' }, { value: 'Building A', readOnly: true }],
+    ]
+    clearCol(data, currentColIndex, onCellsChanged)
+    const expectedChangedCells = []
+    expect(onCellsChanged).toHaveBeenCalledWith(expectedChangedCells)
+  })
+})
+
+describe('removeRow', () => {
+  it('should remove correct data', () => {
+    const currentRowIndex = 1
+    const data = [
+      [{ value: 'Office name' }, { value: 'Building Name' }],
+      [{ value: 'London2' }, { value: 'The Black House' }],
+      [{ value: 'New York' }, { value: 'Building A' }],
+    ]
+    removeRow(data, currentRowIndex, onCellsChanged)
+    const expectedChangedCells = [
+      { cell: { value: 'London2' }, row: currentRowIndex, col: 0, value: null },
+      {
+        cell: { value: 'The Black House' },
+        row: currentRowIndex,
+        col: 1,
+        value: null,
+      },
+    ]
+    expect(onCellsChanged).toHaveBeenCalledWith(expectedChangedCells)
+  })
+  it('should not remove readOnly row', () => {
+    const currentRowIndex = 1
+    const data = [
+      [{ value: 'Office name' }, { value: 'Building Name' }],
+      [
+        { value: 'London2', readOnly: true },
+        { value: 'The Black House', readOnly: true },
+      ],
+      [{ value: 'New York' }, { value: 'Building A' }],
+    ]
+    removeRow(data, currentRowIndex, onCellsChanged)
+    const expectedChangedCells = []
+    expect(onCellsChanged).toHaveBeenCalledWith(expectedChangedCells)
+  })
+})
+
+describe('removeCol', () => {
+  it('should clear correct data', () => {
+    const currentColIndex = 1
+    const data = [
+      [{ value: 'Office name' }, { value: 'Building Name' }],
+      [{ value: 'London2' }, { value: 'The Black House' }],
+      [{ value: 'New York' }, { value: 'Building A' }],
+    ]
+    removeCol(data, currentColIndex, onCellsChanged)
+    const expectedChangedCells = [
+      { cell: { value: 'Building Name' }, row: 0, col: currentColIndex, value: null },
+      {
+        cell: { value: 'The Black House' },
+        row: 1,
+        col: currentColIndex,
+        value: null,
+      },
+      {
+        cell: { value: 'Building A' },
+        row: 2,
+        col: currentColIndex,
+        value: null,
+      },
+    ]
+    expect(onCellsChanged).toHaveBeenCalledWith(expectedChangedCells)
+  })
+  it('should not clear readOnly col', () => {
+    const currentColIndex = 1
+    const data = [
+      [{ value: 'Office name' }, { value: 'Building Name', readOnly: true }],
+      [{ value: 'London2' }, { value: 'The Black House', readOnly: true }],
+      [{ value: 'New York' }, { value: 'Building A', readOnly: true }],
+    ]
+    removeCol(data, currentColIndex, onCellsChanged)
+    const expectedChangedCells = []
+    expect(onCellsChanged).toHaveBeenCalledWith(expectedChangedCells)
   })
 })

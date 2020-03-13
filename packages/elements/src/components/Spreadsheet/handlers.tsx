@@ -165,6 +165,9 @@ export const handleCellsChanged = (
   validate?: ValidateFunction,
   afterCellsChanged?: AfterCellsChanged,
 ) => (changes: ChangesArray): any => {
+  if (changes.length === 0) {
+    return
+  }
   const newData = data.map(row => [...row])
   let newCell = null
   // remove row case
@@ -176,9 +179,8 @@ export const handleCellsChanged = (
   // remove column case
   else if (changes.every(({ value, col }, index, changesArray) => value === null && col === changesArray[0].col)) {
     const colIndexToRemove = changes[0].col
-    newData = newData.map(row => {
-      row.splice(colIndexToRemove, 1)
-      return row
+    newData.forEach((row, rowIndex) => {
+      newData[rowIndex].splice(colIndexToRemove, 1)
     })
     newCell = { value: null }
   }
@@ -188,7 +190,7 @@ export const handleCellsChanged = (
       newData[row][col] = { ...newData[row][col], value }
     })
   }
-
+  // validate data after changed
   const dataWithIsValidated = validatedDataGenerate(newData, validate)
   if (typeof afterCellsChanged === 'function') {
     const changedCells = changes.map(({ row, col }) => ({
@@ -199,6 +201,7 @@ export const handleCellsChanged = (
     }))
     afterCellsChanged(changedCells, dataWithIsValidated, setData)
   }
+  // and set to spreadsheet
   setData(dataWithIsValidated)
 }
 

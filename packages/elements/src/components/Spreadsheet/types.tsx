@@ -73,7 +73,6 @@ export interface ContextMenuData {
 export interface ContextMenuFCProps {
   selected: SelectedMatrix | null
   contextMenuProp: ContextMenuProp
-  setData: SetData
   setContextMenuProp: SetContextMenuProp
   onCellsChanged: OnCellsChanged
   data: Cell[][]
