@@ -120,8 +120,6 @@ export interface ApplicantContactModel {
 }
 /**
  * Representation of a relationship between an applicant and a contact or company
- * example:
- * 2019-08-14T12:30:02.0000000Z
  */
 export interface ApplicantContactRelationshipModel {
   /**
@@ -197,8 +195,6 @@ export interface ApplicantInternalAreaModel {
 }
 /**
  * Representation of an applicant
- * example:
- * 2019-08-14T12:30:02.0000000Z
  */
 export interface ApplicantModel {
   /**
@@ -538,34 +534,19 @@ export interface ApplicantSourceModel {
   type?: string
 }
 export interface Applicants {
-  PageSize?: number
-  PageNumber?: number
-  SortBy?: string
-  Id?: string[]
-  NegotiatorId?: string[]
-  OfficeId?: string[]
-  Address?: string
-  DepartmentId?: string
-  Name?: string
-  PriceFrom?: number
-  PriceTo?: number
-  RentFrom?: number
-  RentTo?: number
-  BedroomsFrom?: number
-  BedroomsTo?: number
-  CreatedFrom?: string
-  CreatedTo?: string
-  LastCallFrom?: string
-  LastCallTo?: string
-  NextCallFrom?: string
-  NextCallTo?: string
-  Embed?: ('areas' | 'department' | 'documents' | 'negotiators' | 'offers' | 'offices' | 'solicitor' | 'source')[]
-  Age?: ('period' | 'new' | 'modern')[]
-  Furnishing?: ('furnished' | 'unfurnished' | 'partFurnished')[]
-  Locality?: ('rural' | 'village' | 'townCity')[]
-  Parking?: ('residents' | 'offStreet' | 'secure' | 'underground' | 'garage' | 'doubleGarage' | 'tripleGarage')[]
-  Situation?: ('garden' | 'land' | 'patio' | 'roofTerrace' | 'conservatory' | 'balcony' | 'communalGardens')[]
-  Style?: (
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  embed?: ('areas' | 'department' | 'documents' | 'negotiators' | 'offers' | 'offices' | 'solicitor' | 'source')[]
+  id?: string[]
+  age?: ('period' | 'new' | 'modern')[]
+  furnishing?: ('furnished' | 'unfurnished' | 'partFurnished')[]
+  locality?: ('rural' | 'village' | 'townCity')[]
+  negotiatorId?: string[]
+  officeId?: string[]
+  parking?: ('residents' | 'offStreet' | 'secure' | 'underground' | 'garage' | 'doubleGarage' | 'tripleGarage')[]
+  situation?: ('garden' | 'land' | 'patio' | 'roofTerrace' | 'conservatory' | 'balcony' | 'communalGardens')[]
+  style?: (
     | 'terraced'
     | 'endTerrace'
     | 'detached'
@@ -580,7 +561,7 @@ export interface Applicants {
     | 'upperFloorWithLift'
     | 'penthouse'
   )[]
-  Type?: (
+  type?: (
     | 'house'
     | 'bungalow'
     | 'flatApartment'
@@ -592,7 +573,22 @@ export interface Applicants {
     | 'townhouse'
     | 'developmentPlot'
   )[]
-  MarketingMode?: ('selling' | 'letting' | 'sellingAndLetting')[]
+  address?: string
+  departmentId?: string
+  marketingMode?: ('selling' | 'letting' | 'sellingAndLetting')[]
+  name?: string
+  priceFrom?: number
+  priceTo?: number
+  rentFrom?: number
+  rentTo?: number
+  bedroomsFrom?: number
+  bedroomsTo?: number
+  createdFrom?: string
+  createdTo?: string
+  lastCallFrom?: string
+  lastCallTo?: string
+  nextCallFrom?: string
+  nextCallTo?: string
 }
 /**
  * An appointment attendee
@@ -845,19 +841,19 @@ export interface AppointmentModel {
   }
 }
 export interface Appointments {
-  PageSize?: number
-  PageNumber?: number
-  SortBy?: string
-  Id?: string[]
-  TypeId?: string[]
-  NegotiatorId?: string[]
-  OfficeId?: string[]
-  PropertyId?: string[]
-  Start?: string
-  End?: string
-  IncludeCancelled?: boolean
-  IncludeUnconfirmed?: boolean
-  Embed?: ('negotiators' | 'offices' | 'organiser' | 'property' | 'type')[]
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  embed?: ('negotiators' | 'offices' | 'organiser' | 'property' | 'type')[]
+  id?: string[]
+  typeId?: string[]
+  negotiatorId?: string[]
+  officeId?: string[]
+  propertyId?: string[]
+  start?: string
+  end?: string
+  includeCancelled?: boolean
+  includeUnconfirmed?: boolean
 }
 /**
  * Representation of an area that properties reside in, or applicants are looking to buy/rent in
@@ -917,27 +913,27 @@ export interface AreaModel {
   }
 }
 export interface Areas {
-  PageSize?: number
-  PageNumber?: number
-  SortBy?: string
-  Id?: string[]
-  DepartmentId?: string[]
-  OfficeId?: string[]
-  Name?: string
-  Active?: boolean
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  id?: string[]
+  departmentId?: string[]
+  officeId?: string[]
+  name?: string
+  active?: boolean
 }
 export interface Companies {
-  PageSize?: number
-  PageNumber?: number
-  SortBy?: string
-  Id?: string[]
-  Address?: string
-  Branch?: string
-  Name?: string
-  TypeId?: string
-  CreatedFrom?: string
-  CreatedTo?: string
-  Embed?: 'companyTypes'[]
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  embed?: 'companyTypes'[]
+  id?: string[]
+  address?: string
+  branch?: string
+  name?: string
+  typeId?: string
+  createdFrom?: string
+  createdTo?: string
 }
 /**
  * Representation of the physical address of a building or premise
@@ -978,8 +974,6 @@ export interface CompanyAddressModel {
 }
 /**
  * Representation of a company
- * example:
- * 2019-08-14T12:30:02.0000000Z
  */
 export interface CompanyModel {
   /**
@@ -1140,8 +1134,6 @@ export interface ContactAddressModel {
 }
 /**
  * Representation of an individual contact
- * example:
- * 2019-08-14T12:30:02.0000000Z
  */
 export interface ContactModel {
   /**
@@ -1371,8 +1363,6 @@ export interface ContactModel {
 }
 /**
  * Representation of the roles that an individual contacts possesses
- * example:
- * 2019-08-14T12:30:02.0000000Z
  */
 export interface ContactRoleModel {
   /**
@@ -1426,20 +1416,20 @@ export interface ContactSourceModel {
   type?: string
 }
 export interface Contacts {
-  PageSize?: number
-  PageNumber?: number
-  SortBy?: string
-  Id?: string[]
-  NegotiatorId?: string[]
-  OfficeId?: string[]
-  Address?: string
-  IdentityCheck?: string
-  Name?: string
-  MarketingConsent?: string
-  Active?: boolean
-  CreatedFrom?: string
-  CreatedTo?: string
-  Embed?: ('documents' | 'identityChecks' | 'negotiators' | 'offices' | 'source')[]
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  embed?: ('documents' | 'identityChecks' | 'negotiators' | 'offices' | 'source')[]
+  id?: string[]
+  negotiatorId?: string[]
+  officeId?: string[]
+  address?: string
+  identityCheck?: string
+  name?: string
+  marketingConsent?: string
+  active?: boolean
+  createdFrom?: string
+  createdTo?: string
 }
 /**
  * The details specific to applicants with a marketingMode of buying
@@ -3478,8 +3468,6 @@ export interface CreateWorksOrderModel {
 }
 /**
  * Representation of a department
- * example:
- * 2019-08-14T12:30:02.0000000Z
  */
 export interface DepartmentModel {
   /**
@@ -3540,15 +3528,13 @@ export interface DepartmentModel {
   }
 }
 export interface Departments {
-  PageSize?: number
-  PageNumber?: number
-  Id?: string[]
-  Name?: string
+  pageSize?: number
+  pageNumber?: number
+  id?: string[]
+  name?: string
 }
 /**
  * Representation of a document
- * example:
- * 2019-08-14T12:30:02.0000000Z
  */
 export interface DocumentModel {
   /**
@@ -3597,14 +3583,13 @@ export interface DocumentModel {
   }
 }
 export interface Documents {
-  PageSize?: number
-  PageNumber?: number
-  SortBy?: string
-  Id?: string[]
-  AssociatedId?: string[]
-  TypeId?: string[]
-  Embed?: 'documentType'[]
-  AssociatedType?: (
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  embed?: 'documentType'[]
+  id?: string[]
+  associatedId?: string[]
+  associatedType?: (
     | 'appliance'
     | 'applicant'
     | 'bankStatement'
@@ -3624,6 +3609,7 @@ export interface Documents {
     | 'tenancyRenewal'
     | 'worksOrder'
   )[]
+  typeId?: string[]
 }
 export interface EntityTagHeaderValue {
   readonly tag?: {
@@ -3653,8 +3639,6 @@ export interface FileResult {
 }
 /**
  * Representation of a contact identity check
- * example:
- * 2019-08-14T12:30:02.0000000Z
  */
 export interface IdentityCheckModel {
   /**
@@ -3757,18 +3741,18 @@ export interface IdentityCheckModel {
   }
 }
 export interface IdentityChecks {
-  PageSize?: number
-  PageNumber?: number
-  SortBy?: string
-  Id?: string[]
-  ContactId?: string[]
-  NegotiatorId?: string[]
-  CheckDateFrom?: string
-  CheckDateTo?: string
-  CreatedFrom?: string
-  CreatedTo?: string
-  Embed?: ('contact' | 'document1' | 'document2' | 'documentType1' | 'documentType2')[]
-  Status?: ('unknown' | 'unchecked' | 'pending' | 'fail' | 'cancelled' | 'warnings' | 'pass')[]
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  embed?: ('contact' | 'document1' | 'document2' | 'documentType1' | 'documentType2')[]
+  id?: string[]
+  contactId?: string[]
+  negotiatorId?: string[]
+  status?: ('unknown' | 'unchecked' | 'pending' | 'fail' | 'cancelled' | 'warnings' | 'pass')[]
+  checkDateFrom?: string
+  checkDateTo?: string
+  createdFrom?: string
+  createdTo?: string
 }
 /**
  * Representation of a single identity document that was provided as part of a contact identity check (eg. passport)
