@@ -29,7 +29,7 @@ export const fetchInterceptor = (params: InterceptorParams, accessToken: string 
     ...params,
     headers: {
       ...params.headers,
-      'api-version': 'latest',
+      'api-version': '2020-01-31',
       Authorization: `Bearer ${accessToken}`,
     },
   }
