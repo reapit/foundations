@@ -26,7 +26,7 @@ describe('Swagger', () => {
       ...request,
       headers: {
         ...request.headers,
-        'api-version': 'latest',
+        'api-version': '2020-01-31',
         Authorization: `Bearer ${token}`,
       },
     }

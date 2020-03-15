@@ -57,8 +57,10 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
   hasUploadButton = true,
   hasDownloadButton = true,
   hasAddButton = true,
-  afterDataChanged,
   validate,
+  afterDataChanged,
+  afterCellsChanged,
+  ...rest
 }) => {
   const [selected, setSelected] = React.useState<SelectedMatrix | null>(null)
 
@@ -72,7 +74,9 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
     left: 0,
   })
 
-  const cellRenderer = React.useCallback(customCellRenderer(data, setData, setSelected), [data])
+  const cellRenderer = React.useCallback(customCellRenderer(data, setData, setSelected, afterCellsChanged), [data])
+
+  const onCellsChanged = handleCellsChanged(data, setData, validate, afterCellsChanged)
 
   React.useEffect(handleSetContextMenu(setContextMenuProp.bind(null, hideContextMenu)), [])
 
@@ -90,14 +94,15 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
         </div>
       </div>
       <MyReactDataSheet
-        overflow="clip"
+        overflow="wrap"
         data={data}
         selected={selected}
         valueRenderer={valueRenderer}
-        onCellsChanged={handleCellsChanged(data, setData, validate)}
+        onCellsChanged={onCellsChanged}
         onSelect={onSelectCells(setSelected)}
         onContextMenu={handleContextMenu(setContextMenuProp)}
         cellRenderer={cellRenderer}
+        {...rest}
       />
       <div className="wrap-bottom">
         {hasAddButton && <AddRowButton addNewRow={handleAddNewRow(data, setData, validate)} />}
@@ -105,14 +110,13 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
       <ContextMenu
         selected={selected}
         contextMenuProp={contextMenuProp}
-        setData={setData}
+        data={data}
         setContextMenuProp={setContextMenuProp}
+        onCellsChanged={onCellsChanged}
       />
     </div>
   )
 }
 
 export * from './types'
-export * from './utils'
-
 export * from './utils'

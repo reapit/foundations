@@ -37,6 +37,10 @@
     overflow-x: hidden;
   }
 
+  &.is-full-height {
+    height: 100%;
+  }
+
   &.has-background {
     background-color: $white;
   }

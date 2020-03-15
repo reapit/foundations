@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Spreadsheet, setCurrentCellValue, Cell } from './index'
+import { Spreadsheet, Cell } from './index'
 
 storiesOf('Spreadsheet', module)
   .add('Basic', () => {
@@ -64,7 +64,7 @@ storiesOf('Spreadsheet', module)
         data={dataBasic}
         description={
           <p>
-            <strong>Basic DataSheet</strong>
+            <strong>Basic Spreadsheet</strong>
             <br />
             You can double click a column header to select the entire column&apos;s cells.
             <br />
@@ -151,7 +151,12 @@ storiesOf('Spreadsheet', module)
         }
         description={
           <p>
-            <strong>DataSheet with validate</strong>
+            <strong>Spreadsheet with validate</strong>
+            <br />
+            The <code>validate</code> function must return with correct format
+            <br />
+            For example: return <code>[ [true, false], [true, true] ]</code> in case your spreadsheet has{' '}
+            <code>2x2</code> (row X column)
             <br />
             Errors are marked with red background
           </p>
@@ -237,7 +242,7 @@ storiesOf('Spreadsheet', module)
         data={dataCustomStyle}
         description={
           <p>
-            <strong>DataSheet with custom styles</strong>
+            <strong>Spreadsheet with custom styles</strong>
             <br />
             Add custom style to cell by using className property of cell
             <br />
@@ -248,16 +253,24 @@ storiesOf('Spreadsheet', module)
     )
   })
   .add('Custom Component', () => {
-    /* follow this pattern to create custom eleemnt */
-    const CustomComponent = ({ cellRenderProps, data, setData }) => {
+    /* follow this pattern to create custom component */
+    const CustomComponent = ({ cellRenderProps, data, setData, afterCellsChanged }) => {
       return (
         <select
-          /* use the cell value as select value */
+          // use the cell value as select value
           value={cellRenderProps.cell.value}
           onChange={e => {
-            const { row, col } = cellRenderProps
-            /* set the current cell value */
-            setCurrentCellValue(e.target.value, data, row, col, setData)
+            const newValue = e.target.value
+            const { row, col, cell: oldCell } = cellRenderProps
+            // create new data array
+            const newData = data.map(row => row.map(cell => ({ ...cell })))
+            newData[row][col].value = newValue
+            setData(newData)
+            if (typeof afterCellsChanged === 'function') {
+              // create changes and trigger afterCellsChanged
+              const changes = [{ oldCell, row, col, newCell: { ...oldCell, value: newValue } }]
+              afterCellsChanged(changes, newData, setData)
+            }
           }}
         >
           <option value="White House">White House</option>
@@ -326,15 +339,20 @@ storiesOf('Spreadsheet', module)
     ]
     return (
       <Spreadsheet
-        data={dataCustomComponent}
+        data={dataCustomComponent as Cell[][]}
+        afterCellsChanged={(changes, data, setData) => {
+          console.log('changes', changes)
+          console.log('data after change', data)
+          console.log('setData', setData)
+        }}
         description={
           <p>
             <strong>
-              DataSheet with <code>&#x3C;select&#x3E;</code>
+              Spreadsheet with <code>&#x3C;select&#x3E;</code>
             </strong>
             <br />
             You can create a cell which include custom component by using CustomComponent property, here we use{' '}
-            <code>&#x3C;select&#x3E;</code> as an example. Follow this pattern to create various types of custom
+            <code>&#x3C;select&#x3E;</code> as an example. Follow the below pattern to create various types of custom
             components
           </p>
         }
@@ -457,17 +475,125 @@ storiesOf('Spreadsheet', module)
     return (
       <Spreadsheet
         data={dataBasic}
-        afterDataChanged={(data, changedCells) => {
-          console.log('Data after changed', data)
-          console.log('ChangedCell!', changedCells)
+        afterDataChanged={(data, changes) => {
+          console.log('data after changes', data)
+          console.log('changes', changes)
         }}
         description={
           <p>
             <strong>
-              DataSheet with <code>afterDataChanged</code>
+              Spreadsheet with <code>afterDataChanged</code> (open console to see the logs)
             </strong>
             <br />
-            The <code>afterDataChanged</code> function will be call after data is changed
+            The <code>afterDataChanged</code> function will be call <strong>EVERYTIME</strong> after data is changed
+            <br />
+            Calling <code>setData</code> <strong>WILL TRIGGER</strong> <code>afterDataChanged</code>
+          </p>
+        }
+      />
+    )
+  })
+  .add('Spreadsheet with afterCellsChanged', () => {
+    // eslint-disable-next-line
+    const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+    const dataBasic = [
+      [
+        { readOnly: true, value: 'Office Name' },
+        { readOnly: true, value: 'Building Name' },
+        { readOnly: true, value: 'Building No.' },
+        { readOnly: true, value: 'Address 1' },
+        { readOnly: true, value: 'Address 2' },
+        { readOnly: true, value: 'Address 3' },
+        { readOnly: true, value: 'Address 4' },
+        { readOnly: true, value: 'Post Code' },
+        { readOnly: true, value: 'Telephone' },
+        { readOnly: true, value: 'Fax' },
+        { readOnly: true, value: 'Email' },
+      ],
+      [
+        { value: 'London' },
+        { value: 'The White House' },
+        { value: '15' },
+        { value: 'London 1' },
+        { value: '' },
+        { value: 'Londom 3' },
+        { value: '' },
+        { value: 'EC12NH' },
+        { value: '0845 0000' },
+        { value: '' },
+        { value: 'row1@gmail.com' },
+      ],
+      [
+        { value: 'London2' },
+        { value: 'The Black House' },
+        { value: '11' },
+        { value: '' },
+        { value: '' },
+        { value: 'Adress 3' },
+        { value: '' },
+        { value: 'EC12NH' },
+        { value: '087 471 929' },
+        { value: '' },
+        { value: 'row2@gmail.com' },
+      ],
+      [
+        { value: 'New York' },
+        { value: 'Building A' },
+        { value: '11' },
+        { value: '' },
+        { value: '' },
+        { value: 'City Z' },
+        { value: '' },
+        { value: 'AL7187' },
+        { value: '017 7162 9121' },
+        { value: '' },
+        { value: 'row3@gmail' },
+      ],
+    ]
+    return (
+      <Spreadsheet
+        data={dataBasic}
+        validate={data =>
+          data.map((row, rowIndex) =>
+            row.map((cell, colIndex) => {
+              if (colIndex === 10) {
+                if (emailRegex.test(data[rowIndex][colIndex].value as string)) {
+                  return true
+                }
+                return false
+              }
+              return true
+            }),
+          )
+        }
+        afterCellsChanged={(changes, data, setData) => {
+          console.log('changes', changes)
+          console.log('data after changes', data)
+          console.log('setData', setData)
+        }}
+        description={
+          <p>
+            <strong>
+              Spreadsheet with <code>afterCellsChanged</code> (open console to see the logs)
+            </strong>
+            <br />
+            The <code>afterCellsChanged</code> function will be call <strong>ONLY AFTER THESE CASES:</strong>
+            <br />
+            <ul>
+              <li>- Typing into a cell&apos; input</li>
+              <li>- Clear row (in context menu right-click)</li>
+              <li>
+                - Remove row (in context menu right-click), in this case, <code>newCell</code> will be{' '}
+                <code>&#123; value:null &#125;</code>
+              </li>
+              <li>- Clear column (in context menu right-click)</li>
+              <li>
+                - Remove column (in context menu right-click), in this case, <code>newCell</code> will be{' '}
+                <code>&#123; value:null &#125;</code>
+              </li>
+            </ul>
+            <br />
+            Calling <code>setData</code> <strong>WILL NOT TRIGGER</strong> <code>afterCellsChanged</code>
           </p>
         }
       />
