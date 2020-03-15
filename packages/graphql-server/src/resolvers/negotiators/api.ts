@@ -85,20 +85,12 @@ export const callUpdateNegotiatorAPI = async (
   logger.info('callUpdateNegotiatorAPI', { traceId, args })
   try {
     const { _eTag, ...payload } = args
-    const updateResponse = await createPlatformAxiosInstance().patch<CreateNegotiatorReturn>(
-      `${URLS.negotiators}/${args.id}`,
-      payload,
-      {
-        headers: {
-          Authorization: context.authorization,
-          'If-Match': _eTag,
-        },
+    await createPlatformAxiosInstance().patch<CreateNegotiatorReturn>(`${URLS.negotiators}/${args.id}`, payload, {
+      headers: {
+        Authorization: context.authorization,
+        'If-Match': _eTag,
       },
-    )
-    if (updateResponse?.data) {
-      return callGetNegotiatorByIdAPI({ id: args.id }, context)
-    }
-    return errors.generateUserInputError(traceId)
+    })
   } catch (error) {
     return handleError({ error, traceId, caller: 'callUpdateNegotiatorAPI' })
   }
