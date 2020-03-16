@@ -1,14 +1,16 @@
 <script lang="typescript">
   import { onMount, createEventDispatcher } from 'svelte'
   import { mapLoaded, mapLoading } from '../core/store'
-  import loaderUtils from '../utils/loader-util'
+  import { loader } from '../../../common/utils/loader'
 
   const dispatch = createEventDispatcher()
 
   export let apiKey: string = ''
-  export let libraries: string
+  export let libraries: string = 'places'
 
-  $: $mapLoaded && dispatch('ready')
+  $: {
+    if ($mapLoaded) dispatch('ready')
+  }
 
   onMount(() => {
     window.onMapReady = () => {
@@ -28,7 +30,7 @@
       ].join('')
       mapLoading.set(true)
 
-      loaderUtils(url, () => {
+      loader(url, () => {
         return $mapLoaded
       })
     }

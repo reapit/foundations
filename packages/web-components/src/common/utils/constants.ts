@@ -10,3 +10,6 @@ export const DEFAULT_HEADERS_SERVER = {
 export enum PACKAGE_SUFFIXES {
   'SEARCH_WIDGET' = 'SEARCH_WIDGET',
 }
+
+export const DEFAULT_CENTER = { lat: 51.507325, lng: -0.127716 }
+export const DEFAULT_ZOOM = 15

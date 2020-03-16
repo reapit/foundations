@@ -6,9 +6,9 @@
     "module": "ESNEXT",
     "strict": true,
     "moduleResolution": "node",
-    "types": ["svelte", "jest", "node"],
+    "types": ["svelte", "jest", "node", "googlemaps"],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
   }
 }

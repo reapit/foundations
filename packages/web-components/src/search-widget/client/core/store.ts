@@ -18,3 +18,7 @@ const searchWidgetStore: Writable<SearchWidgetStore> = writable({
 })
 
 export default searchWidgetStore
+
+export const mapLoaded = writable<boolean>(false)
+export const mapLoading = writable<boolean>(false)
+export const markers = writable<google.maps.Marker[]>([])

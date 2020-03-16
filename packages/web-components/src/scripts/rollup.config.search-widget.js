@@ -23,6 +23,7 @@ export default {
       'process.env.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET': JSON.stringify(
         config.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET,
       ),
+      'process.env.GOOGLE_MAPS_API_KEY': JSON.stringify(config.GOOGLE_MAPS_API_KEY),
     }),
     svelte({
       ...svelteOptions,

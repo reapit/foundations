@@ -10,16 +10,13 @@
         max-width: 1024px;
         margin: 0 auto;
       }
-      #google-map-widget {
-        height: 100vh;
-      }
     </style>
-    <link rel="stylesheet" href="./dist/search-widget.css" />
+    <link rel="stylesheet" href="./dist/client/search-widget.css" />
   </head>
 
   <body>
     <div id="search-widget"></div>
-    <script src="./dist/search-widget.js"></script>
+    <script src="./dist/client/search-widget.js"></script>
     <script>
       ReapitSearchWidgetComponent &&
         new ReapitSearchWidgetComponent({
@@ -28,18 +25,6 @@
           },
           apiKey: '',
           target: document.getElementById('search-widget'),
-        })
-    </script> -->
-
-    <script src="./dist/google-map-widget.js"></script>
-    <script>
-      ReapitGoogleMapWidgetComponent &&
-        new ReapitGoogleMapWidgetComponent({
-          apiKey: '',
-          target: document.getElementById('google-map-widget'),
-          center: { lat: 10.801147, lng: 106.655838 },
-          zoom: 10,
-          coordinates: [],
         })
     </script>
   </body>

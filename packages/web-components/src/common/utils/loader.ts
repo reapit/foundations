@@ -1,4 +1,4 @@
-export default function(url: string, callback: () => {}, options = { async: true, defer: true }) {
+export const loader = (url: string, callback: () => {}, options = { async: true, defer: true }) => {
   const tag = document.createElement('script')
   tag.src = url
   tag.async = options.async
