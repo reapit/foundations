@@ -7,12 +7,6 @@ export type NegotiatorStatusCheckboxProps = {
   data: any
 }
 
-// export const handleUseEffect = () => {
-//   return () => {
-
-//   }
-// }
-
 export const NegotiatorStatusCheckbox: React.FC<NegotiatorStatusCheckboxProps> = ({ cellRenderProps, data }) => {
   const {
     row,

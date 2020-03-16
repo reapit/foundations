@@ -11,7 +11,7 @@ query GetNegotiators(
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
-      ...Negotiator
+        ...Negotiator
     }
     pageNumber
     pageSize
@@ -27,11 +27,16 @@ mutation UpdateNegotiator(
   $name: String,
   $jobTitle: String,
   $active: Boolean,
-  $workPhone: String,
   $mobilePhone: String,
   $email: String
 ) {
-  UpdateNegotiator(id: $id, _eTag: $_eTag, name: $name, jobTitle: $jobTitle, active: $active, workPhone: $workPhone, mobilePhone: $mobilePhone, email: $email) {
-    ...Negotiator
+  UpdateNegotiator(id: $id, _eTag: $_eTag, name: $name, jobTitle: $jobTitle, active: $active, mobilePhone: $mobilePhone, email: $email) {
+      id
+      name
+      jobTitle
+      active
+      mobilePhone
+      email
+      _eTag
   }
 }
