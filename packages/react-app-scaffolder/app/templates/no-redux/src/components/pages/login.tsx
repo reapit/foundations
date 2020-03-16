@@ -7,16 +7,21 @@ import { Button, Level } from '@reapit/elements'
 <% if (stylesSolution == 'styledComponents') { %>import { Container, Wrapper, ImageContainer } from './__styles__/login'<%}%>
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 import connectImage from '@/assets/images/reapit-connect.png'
-import { useAuthContext } from '@/context/auth-context'
+import { AuthContext } from '@/context'
 import { redirectToLogin } from '@reapit/cognito-auth'
+
+export const redirectToLoginPage = () => {
+  const cognitoClientId = process.env.COGNITO_CLIENT_ID_<%= nameInConstantCase %> as string
+  redirectToLogin(cognitoClientId, `${window.location.origin}`)
+}
 
 export const Login: React.FunctionComponent = () => {
   const cognitoClientId = process.env.COGNITO_CLIENT_ID_<%= nameInConstantCase %> as string
-  const loginHandler = () => redirectToLogin(cognitoClientId, `${window.location.origin}`)
+  const loginHandler = React.useCallback(redirectToLoginPage, [])
 
   <% if (stylesSolution == 'sass') { %>const { wrapper, container, image } = loginStyles<%}%>
 
-  const { loginSession } = useAuthContext()
+  const { loginSession } = React.useContext(AuthContext)
 
   if (loginSession) {
     return <Redirect to={Routes.HOME} />
