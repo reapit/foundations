@@ -14,7 +14,9 @@ exports[`AMLProgressBar AMLProgressBar should match snapshot 1`] = `
         <Component>
           <Component>
             <div>
-              <Component>
+              <Component
+                className="mb-6"
+              >
                 <Component
                   dynamicLinkParams={
                     Object {
