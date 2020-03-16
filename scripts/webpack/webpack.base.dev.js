@@ -16,7 +16,7 @@ const tagName = getVersionTag()
 module.exports = {
   mode: 'development',
   context: process.cwd(),
-  entry: PATHS.entryWeb,
+  entry: ['@babel/polyfill', 'core-js', 'isomorphic-fetch', 'regenerator-runtime/runtime', PATHS.entryWeb],
   output: {
     path: PATHS.output,
     filename: '[name].[hash].js',

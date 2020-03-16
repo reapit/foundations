@@ -2,8 +2,8 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { getMockRouterProps } from '@/core/__mocks__/mock-router'
 import { Menu, MenuProps, generateMenuConfig, callbackAppClick } from '@/components/ui/menu'
-import { AuthContext } from '@/core/index'
-import { mockContext } from '@/core/__mocks__/mock-context'
+import { AuthContext } from '@/context'
+import { mockContext } from '@/context/__mocks__/mock-context'
 
 describe('Menu', () => {
   it('should match a snapshot', () => {

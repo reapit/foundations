@@ -1,13 +1,13 @@
 import ApolloClient, { InMemoryCache, Operation, defaultDataIdFromObject, IdGetterObj } from 'apollo-boost'
 import { ErrorHandler, ErrorResponse } from 'apollo-link-error'
 import { ApolloCache } from 'apollo-cache'
+import typeDefs from './schema.graphql'
+import resolvers from './resolvers'
 
-export const request = async (operation: Operation) => {
-  // TODO implement later
-  const authorization = localStorage.getItem('token')
+export const generateRequest = (accessToken: string) => async (operation: Operation) => {
   operation.setContext({
     headers: {
-      authorization,
+      authorization: accessToken,
     },
   })
 }
@@ -38,16 +38,17 @@ const cache: ApolloCache<any> = new InMemoryCache({
 const clientState = {
   cache,
   defaults: {},
-  resolvers: {},
-  typeDefs: '',
+  resolvers,
+  typeDefs,
 }
 
-const client = new ApolloClient({
-  uri: 'http://localhost:4000',
-  onError,
-  cache,
-  request,
-  clientState,
-})
+export const getClient = (accessToken: string) =>
+  new ApolloClient({
+    uri: process.env.GRAPHQL_SERVER_URI,
+    onError,
+    cache,
+    request: generateRequest(accessToken),
+    clientState,
+  })
 
-export default client
+export default getClient

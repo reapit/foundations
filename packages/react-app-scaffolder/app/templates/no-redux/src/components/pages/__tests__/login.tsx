@@ -1,63 +1,46 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
-import { Login } from '../login'
-import * as AuthContext from '@/context/auth-context'
-import { redirectToLogin } from '@reapit/cognito-auth'
-import { Button } from '@reapit/elements'
+import { render } from '@testing-library/react'
+import { createBrowserHistory } from 'history'
+import { AuthContext } from '@/context'
+import { mockContext } from '@/context/__mocks__/mock-context'
+import { AuthHook } from '@/hooks/use-auth'
+import * as cognito from '@reapit/cognito-auth'
+import { redirectToLoginPage, Login } from '@/components/pages/login'
+import { Router, Route } from 'react-router-dom'
 
-jest.mock('../../../context/auth-context.tsx')
 jest.mock('@reapit/cognito-auth', () => ({
   redirectToLogin: jest.fn(),
+  getTokenFromQueryString: jest.fn(),
+  getSessionCookie: jest.fn(),
 }))
-
-const contextValues: AuthContext.AuthContext = {
-  logout: jest.fn(),
-  getLoginSession: jest.fn(),
-  setAuthState: jest.fn(),
-  fetching: false,
-  loginSession: {
-    userName: '1',
-    accessToken: '1',
-    accessTokenExpiry: 1000,
-    idToken: '1',
-    idTokenExpiry: 1000,
-    refreshToken: 'string',
-    loginType: 'DEVELOPER',
-    loginIdentity: {
-      email: '1',
-      name: '1',
-      developerId: null,
-      clientId: null,
-      adminId: null,
-      userCode: null,
-    },
-    mode: 'WEB',
-    cognitoClientId: '1',
-  },
-}
 
 describe('Login', () => {
   it('should match a snapshot', () => {
-    jest.spyOn(AuthContext, 'useAuthContext').mockImplementation(() => ({ ...contextValues, loginSession: null }))
-
-    expect(shallow(<Login />)).toMatchSnapshot()
-  })
-
-  it('loginHandler should run correcly', () => {
-    jest.spyOn(AuthContext, 'useAuthContext').mockImplementation(() => ({ ...contextValues, loginSession: null }))
-
-    const wrapper = shallow(<Login />)
-
-    wrapper.find(Button).simulate('click')
-
-    expect(redirectToLogin).toBeCalledWith(
-      process.env.COGNITO_CLIENT_ID_APP_NAME as string,
-      `${window.location.origin}`,
+    const history = createBrowserHistory()
+    const wrapper = render(
+      <AuthContext.Provider value={mockContext}>
+        <Router history={history}>
+          <Route>
+            <Login />
+          </Route>
+        </Router>
+      </AuthContext.Provider>,
     )
+    expect(wrapper).toMatchSnapshot()
   })
 
-  it('should match a snapshot with loginSession', () => {
-    jest.spyOn(AuthContext, 'useAuthContext').mockImplementation(() => contextValues)
-    expect(shallow(<Login />)).toMatchSnapshot()
+  it('should match a snapshot', () => {
+    const wrapper = render(
+      <AuthContext.Provider value={{} as AuthHook}>
+        <Login />
+      </AuthContext.Provider>,
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should call redirectToLogin a snapshot', () => {
+    const spy = jest.spyOn(cognito, 'redirectToLogin')
+    redirectToLoginPage()
+    expect(spy).toBeCalled()
   })
 })
