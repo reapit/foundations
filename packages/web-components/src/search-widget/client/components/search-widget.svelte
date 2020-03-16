@@ -5,7 +5,6 @@
   import * as Styles from '../../../common/styles/index'
   import SearchForm from './search-form.svelte'
   import GoogleMap from './google-map.svelte'
-  import { DEFAULT_CENTER, DEFAULT_ZOOM } from '../../../common/utils/constants'
 
   export let theme: Styles.InitializerTheme = {}
   export let apiKey: string = ''
@@ -44,12 +43,7 @@
   <div class={globalCSSTheme}>
     <SearchForm />
     <div class="map-wrap">
-      <GoogleMap
-        properties={$searchWidgetStore.properties ? $searchWidgetStore.properties._embedded : []}
-        propertyImages={$searchWidgetStore.propertyImages}
-        center={DEFAULT_CENTER}
-        zoom={DEFAULT_ZOOM}
-        apiKey={process.env.GOOGLE_MAPS_API_KEY} />
+      <GoogleMap />
     </div>
   </div>
 </div>

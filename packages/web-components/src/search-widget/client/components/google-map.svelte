@@ -1,80 +1,54 @@
 <script lang="typescript">
-  import { onMount, createEventDispatcher, afterUpdate } from 'svelte'
-  import store from '../core/store'
-  import { markers } from '../core/store'
-  import GoogleMapLoader from './google-map-loader.svelte'
-  import { DEFAULT_CENTER, DEFAULT_ZOOM } from '../../../common/utils/constants'
+  import { onMount, onDestroy } from 'svelte'
+  import * as SearchWidgetStore from '../core/store'
   import { getLatLng, createMarker } from '../../../common/utils/map-helper'
+  import { DEFAULT_CENTER, DEFAULT_ZOOM } from '../../../common/utils/constants'
+  import { showPropertiesMarker } from '../utils/google-map'
+  import { loader } from '../../../common/utils/loader'
+  
+  const searchWidgetStore = SearchWidgetStore.default
 
-  const dispatch = createEventDispatcher()
-
-  export let apiKey: string = ''
-  export let libraries: string = 'places'
-  export let center: google.maps.LatLngLiteral
-  export let zoom: number
-  export let properties: any[] = []
-  export let propertyImages: any = {}
-  export let property = null
-
-  let mapElement: HTMLElement
+  let storeInstance: SearchWidgetStore.SearchWidgetStore
   let map: google.maps.Map
+  let mapElement: HTMLDivElement
+  let mapLoading: boolean = false
 
-  afterUpdate(() => {
-    if (map) {
-      showPropertiesMarker(map)
+  const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
+    if (map && storeInstance && storeInstance.properties !== store.properties) {
+      showPropertiesMarker(map, store, searchWidgetStore)
+      storeInstance = store
+    }
+
+    storeInstance = store
+  })
+
+  onMount(() => {
+    (window as any).onMapReady = () => {
+      map = new google.maps.Map(mapElement, {
+        center: DEFAULT_CENTER,
+        zoom: DEFAULT_ZOOM,
+      })
+    
+      mapLoading = false
+    }
+
+    if (!mapLoading && !window.google) {
+      const url = [
+        `//maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_MAPS_API_KEY}&libraries=places&callback=onMapReady`,
+      ].join('')
+      mapLoading = true
+
+      loader(url, () => {
+        console.log('maps loaded')
+        return {}
+      })
     }
   })
 
-  const initialiseMap = () => {
-    const google = window['google']
-    map = new google.maps.Map(mapElement, {
-      center: center,
-      zoom: zoom,
-    })
-
-    showPropertiesMarker(map)
-  }
-
-  const showPropertiesMarker = (map: google.maps.Map) => {
-    const infoWindows: any[] = []
-    if (properties) {
-      // clear marker
-      $markers.forEach(marker => marker.setMap(null))
-      // push marker to store
-      properties.forEach(property => {
-        const newMarker = createMarker({
-          property,
-          map,
-          infoWindows,
-          propertyImages,
-          searchType: $store.searchType,
-        })
-
-        if (newMarker) {
-          infoWindows.push(newMarker.infoWindow)
-          markers.update(current => [...current, newMarker.marker])
-        }
-      })
-
-      if (properties && !property) {
-        const bounds = new google.maps.LatLngBounds()
-        $markers.forEach(marker => bounds.extend(marker.getPosition()))
-        map.fitBounds(bounds)
-        return
-      }
-
-      if (property) {
-        const { latitude, longitude } = getLatLng(property) as {
-          latitude: number
-          longitude: number
-        }
-        const centerPoint = new google.maps.LatLng(latitude, longitude)
-        map.setCenter(centerPoint)
-        map.setZoom(DEFAULT_ZOOM)
-        return
-      }
-    }
-  }
+  onDestroy(() => {
+    unsubscribeSearchWidgetStore()
+  })
+  
 </script>
 
 <style>
@@ -84,5 +58,4 @@
   }
 </style>
 
-<GoogleMapLoader {apiKey} {libraries} on:ready={initialiseMap} />
 <div class="map-wrap" bind:this={mapElement} />
