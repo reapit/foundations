@@ -46,6 +46,7 @@
     <div class="map-wrap">
       <GoogleMap
         properties={$searchWidgetStore.properties ? $searchWidgetStore.properties._embedded : []}
+        propertyImages={$searchWidgetStore.propertyImages}
         center={DEFAULT_CENTER}
         zoom={DEFAULT_ZOOM}
         apiKey={process.env.GOOGLE_MAPS_API_KEY} />

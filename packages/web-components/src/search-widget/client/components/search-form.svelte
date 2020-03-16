@@ -12,15 +12,24 @@
 
   const handleInput = ({ target }: Event) => {
     inputValue = (target as HTMLInputElement).value
+    searchWidgetStore.update(values => ({
+      ...values,
+      searchKeyword: inputValue,
+    }))
   }
 
   const handleFetchProperties = async (isRental: boolean) => {
+    searchWidgetStore.update(values => ({
+      ...values,
+      searchType: isRental ? 'Rent' : 'Sale',
+    }))
+
     const properties = await getProperties(inputValue, isRental, apiKey)
 
     if (properties) {
       searchWidgetStore.update(values => ({
         ...values,
-        properties
+        properties,
       }))
     }
   }
@@ -32,6 +41,10 @@
 
 <form on:submit|preventDefault on:input|preventDefault={handleInput}>
   <input type="text" data-testid="search-input" id="search" />
-  <button on:click|preventDefault={() => handleFetchProperties(true)} data-testid="lettings" type="button">For rent</button>
-  <button on:click|preventDefault={() => handleFetchProperties(false)} data-testid="sales" type="button">For sale</button>
+  <button on:click|preventDefault={() => handleFetchProperties(true)} data-testid="lettings" type="button">
+    For rent
+  </button>
+  <button on:click|preventDefault={() => handleFetchProperties(false)} data-testid="sales" type="button">
+    For sale
+  </button>
 </form>
