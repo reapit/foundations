@@ -9,6 +9,9 @@ describe('store', () => {
       },
       properties: null,
       propertyImages: null,
+      mapLoading: false,
+      markers: [],
+      selectedProperty: null,
     }
     const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
       expect(store).toEqual(expected)

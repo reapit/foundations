@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`search-widget it matches a snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="map-wrap svelte-1nt7ax3"
+    />
+  </div>
+</body>
+`;

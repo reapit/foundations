@@ -8,12 +8,12 @@ export const showPropertiesMarker = (
   storeInstance: SearchWidgetStore,
   searchWidgetStore: Writable<SearchWidgetStore>,
 ) => {
-  const { properties, propertyImages, markers, selectedProperty, searchType } = storeInstance
+  const { properties, propertyImages, markers: storeMarkers, selectedProperty, searchType } = storeInstance
   const infoWindows: any[] = []
-  console.log('called', properties)
+  const markers: google.maps.Marker[] = []
   if (properties && properties._embedded) {
-    // clear marker
-    markers.forEach(marker => marker.setMap(null))
+    // clear current marker from map
+    storeMarkers.forEach(marker => marker.setMap(null))
     // push marker to store
     properties._embedded.forEach(property => {
       console.log(property)
@@ -24,9 +24,9 @@ export const showPropertiesMarker = (
         propertyImages,
         searchType,
       })
-      console.log(newMarker)
       if (newMarker) {
         infoWindows.push(newMarker.infoWindow)
+        markers.push(newMarker.marker)
         searchWidgetStore.update(current => ({
           ...current,
           markers: [...current.markers, newMarker.marker],

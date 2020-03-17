@@ -121,8 +121,8 @@ export const createMarker = ({ property, map, infoWindows, propertyImages, searc
     const lettingPrice = property?.letting?.rent
     const rentFrequency = property?.letting?.rentFrequency
 
-    const bedrooms = property && property.bedrooms
-    const bathrooms = property && property.bathrooms
+    const bedrooms = property?.bedrooms
+    const bathrooms = property?.bathrooms
     const infoWindow = new google.maps.InfoWindow({
       content: getContent({
         price,
