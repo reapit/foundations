@@ -1,5 +1,3 @@
-#import "../../../graphql/fragments/negotiator.graphql"
-
 query GetNegotiators(
   $id: [String!],
   $name: String,
@@ -11,7 +9,20 @@ query GetNegotiators(
   ) {
   GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
     _embedded {
-        ...Negotiator
+      id
+      created
+      modified
+      name
+      jobTitle
+      active
+      officeId
+      workPhone
+      mobilePhone
+      email
+      metadata
+      _eTag
+      _links
+      _embedded
     }
     pageNumber
     pageSize
@@ -39,4 +50,15 @@ mutation UpdateNegotiator(
       email
       _eTag
   }
+}
+
+mutation CreateNegotiator(
+  $name: String,
+  $jobTitle: String,
+  $active: Boolean,
+  $officeId: String,
+  $mobilePhone: String,
+  $email: String
+) {
+  CreateNegotiator(name: $name, jobTitle: $jobTitle, active: $active, officeId: $officeId, mobilePhone: $mobilePhone, email: $email)
 }

@@ -1,4 +1,43 @@
-import { NegotiatorsQueryResponse } from '../negotiators-list'
+import { NegotiatorsQueryResponse, NegotiatorUpdateParams, NegotiatorCreateParams } from '../negotiators-list'
+import { NegotiatorModel } from '@reapit/elements/node_modules/@reapit/foundations-ts-definitions/types'
+
+export const updateNegotiatorParams: NegotiatorUpdateParams = {
+  id: 'MGL',
+  name: 'Abel Robertson',
+  active: true,
+  email: 'abel.robertson@reapitestates.net',
+  mobilePhone: '1002291122',
+  _eTag: '"10109C0209C684789B72FFC53730E31C"',
+}
+
+export const createNegotiatorParams: NegotiatorCreateParams = {
+  name: 'Abel Robertson',
+  active: true,
+  email: 'abel.robertson@reapitestates.net',
+  mobilePhone: '1002291122',
+  officeId: 'OFF',
+  jobTitle: 'Senior Manager',
+}
+
+export const negotiatorDetail: NegotiatorModel = {
+  id: 'MGL',
+  created: '2014-12-26T12:22:01.0000000Z',
+  modified: '2016-11-29T09:57:32.0000000Z',
+  name: 'Abel Robertson',
+  active: true,
+  officeId: 'NPG',
+  email: 'abel.robertson@reapitestates.net',
+  metadata: {},
+  _eTag: '"10109C0209C684789B72FFC53730E31C"',
+  _links: {
+    self: {
+      href: '/negotiators/MGL',
+    },
+    office: {
+      href: '/offices/NPG',
+    },
+  },
+}
 
 export const negotiators: NegotiatorsQueryResponse = {
   GetNegotiators: {

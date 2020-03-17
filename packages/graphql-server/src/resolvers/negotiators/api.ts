@@ -71,7 +71,7 @@ export const callCreateNegotiatorAPI = async (
     })
     const id = getIdFromCreateHeaders({ headers: response.headers })
     if (id) {
-      return callGetNegotiatorByIdAPI({ id }, context)
+      return callGetNegotiatorByIdAPI({ id, embed: ['office'] }, context)
     }
     return null
   } catch (error) {

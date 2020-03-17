@@ -4,6 +4,7 @@ import { useQuery, useMutation } from '@apollo/react-hooks'
 import { QueryResult } from '@apollo/react-common'
 import { ApolloError } from 'apollo-boost'
 import {
+  Toast,
   Loader,
   Cell,
   Alert,
@@ -14,9 +15,10 @@ import {
   fieldValidateRequire,
   isEmail,
   isNumberOnly,
+  ErrorData,
 } from '@reapit/elements'
 import { getParamsFromPath, stringifyObjectIntoQueryString } from '@/utils/client-url-params'
-import { GetNegotiators, UpdateNegotiator } from './negotiators.graphql'
+import { GetNegotiators, UpdateNegotiator, CreateNegotiator } from './negotiators.graphql'
 import NegotiatorStatusCheckbox from './negotiator-status-checkbox'
 import NegotiatorOfficeSelectbox from './negotiator-office-selectbox'
 
@@ -52,8 +54,31 @@ export interface NegotiatorsQueryParams {
   embed?: string[]
 }
 
+export interface NegotiatorUpdateParams {
+  id: string
+  _eTag: string
+  name: string
+  jobTitle?: string
+  active: boolean
+  mobilePhone: string
+  email: string
+}
+
+export interface NegotiatorCreateParams {
+  name: string
+  jobTitle?: string
+  active: boolean
+  officeId: string
+  mobilePhone: string
+  email: string
+}
+
 export type NegotiatorsQueryResponse = {
   GetNegotiators?: PagedResultNegotiatorModel_
+}
+
+export type CreateNegotiatorMutationResponse = {
+  CreateNegotiator: NegotiatorModel
 }
 
 export type RenderNegotiatorListParams = {
@@ -65,20 +90,40 @@ export type RenderNegotiatorListParams = {
   dataTable: DataTableRow[][]
   handleChangePage: (page: number) => void
   updateNegotiator: () => void
+  createNegotiator: () => void
 }
 
-export const getDataTable = (data: NegotiatorsQueryResponse, officeData?: OfficesQueryResponse): DataTableRow[][] => {
+export const getDataTable = (
+  data: NegotiatorsQueryResponse,
+  updateNegotiator: (params) => void,
+  createNegotiator: (params) => void,
+  officeData?: OfficesQueryResponse,
+): DataTableRow[][] => {
   let dataTable: DataTableRow[][] = [tableHeaders]
   const negotiators: NegotiatorModel[] = data.GetNegotiators?._embedded || []
 
   const StatusCheckbox = props => {
-    const { cellRenderProps, data: sheetData } = props
-    return <NegotiatorStatusCheckbox cellRenderProps={cellRenderProps} data={sheetData} />
+    const { cellRenderProps, data } = props
+    return (
+      <NegotiatorStatusCheckbox
+        cellRenderProps={cellRenderProps}
+        data={data}
+        updateNegotiator={updateNegotiator}
+        createNegotiator={createNegotiator}
+      />
+    )
   }
 
   const OfficeSelectbox = props => {
-    const { cellRenderProps } = props
-    return <NegotiatorOfficeSelectbox cellRenderProps={cellRenderProps} data={officeData} />
+    const { cellRenderProps, data } = props
+    return (
+      <NegotiatorOfficeSelectbox
+        cellRenderProps={cellRenderProps}
+        officeData={officeData}
+        spreadsheetData={data}
+        createNegotiator={createNegotiator}
+      />
+    )
   }
 
   const dataRows: DataTableRow[][] = negotiators.map((negotiator: NegotiatorModel) => {
@@ -89,7 +134,7 @@ export const getDataTable = (data: NegotiatorsQueryResponse, officeData?: Office
       { value: jobTitle },
       { value: email },
       { value: mobilePhone },
-      { readOnly: true, value: office?.id, CustomComponent: OfficeSelectbox },
+      { readOnly: true, value: `${office?.id}|${office?.name}`, CustomComponent: OfficeSelectbox },
       { disableEvents: true, value: active, CustomComponent: StatusCheckbox },
       { value: id, className: 'hidden' },
       { value: _eTag, className: 'hidden' },
@@ -124,11 +169,15 @@ export const validate = (data: Cell[][]) =>
       if (cellIndex === 3) {
         return !fieldValidateRequire(cell.value as string) && isNumberOnly(cell.value)
       }
+      // Office is required
+      if (cellIndex === 4) {
+        return !fieldValidateRequire(cell.value as string)
+      }
       return true
     }),
   )
 
-export const handleAfterCellsChanged = updateNegotiator => {
+export const handleAfterCellsChanged = (updateNegotiator, createNegotiator) => {
   return (changes: ChangedCells, data: Cell[][]) => {
     const selectedRow = data[changes[0].row]
     const selectedCell = selectedRow[changes[0].col]
@@ -139,6 +188,7 @@ export const handleAfterCellsChanged = updateNegotiator => {
     const jobTitle = selectedRow[1].value
     const email = selectedRow[2].value
     const mobilePhone = selectedRow[3].value
+    const officeId = selectedRow[4].value
     const active = selectedRow[5].value
     const id = selectedRow[6].value
     const _eTag = selectedRow[7].value
@@ -165,9 +215,61 @@ export const handleAfterCellsChanged = updateNegotiator => {
       })
     } else {
       const isValid = selectedRow.every(item => item.isValidated)
-      console.log('isValid', isValid)
+      if (isValid) {
+        const createNegotiatorVariables = {
+          name,
+          jobTitle,
+          active,
+          officeId,
+          mobilePhone,
+          email,
+        }
+        createNegotiator({
+          variables: createNegotiatorVariables,
+        })
+      }
     }
   }
+}
+
+export const updateApolloCacheAfterCreateNegotiator = (cache, response, page) => {
+  const createNegotiatorResponse: CreateNegotiatorMutationResponse = response.data
+  const data: NegotiatorsQueryResponse = cache.readQuery({
+    query: GetNegotiators,
+    variables: {
+      pageSize: NEGOTIATORS_PER_PAGE,
+      pageNumber: page,
+      embed: ['office'],
+    },
+  }) || { GetNegotiators: { _embedded: [] } }
+
+  const { _embedded: existingNegotiators, pageNumber, pageSize, pageCount, totalCount, _links } =
+    data.GetNegotiators || {}
+
+  const addedNegotiator = {
+    ...createNegotiatorResponse.CreateNegotiator,
+    __typename: 'NegotiatorModel',
+  }
+
+  cache.writeQuery({
+    query: GetNegotiators,
+    data: {
+      GetNegotiators: {
+        __typename: 'PagedResultNegotiatorModel',
+        _embedded: existingNegotiators?.concat([addedNegotiator]),
+        pageNumber,
+        pageSize,
+        pageCount,
+        totalCount: totalCount || 0 + 1,
+        _links,
+      },
+    },
+    variables: {
+      pageSize: NEGOTIATORS_PER_PAGE,
+      pageNumber: page,
+      embed: ['office'],
+    },
+  })
 }
 
 export const renderNegotiatorList = ({
@@ -179,6 +281,7 @@ export const renderNegotiatorList = ({
   totalCount = 0,
   handleChangePage,
   updateNegotiator,
+  createNegotiator,
 }: RenderNegotiatorListParams) => {
   if (loading) {
     return <Loader />
@@ -191,7 +294,7 @@ export const renderNegotiatorList = ({
     <React.Fragment>
       <Spreadsheet
         data={dataTable as Cell[][]}
-        afterCellsChanged={handleAfterCellsChanged(updateNegotiator)}
+        afterCellsChanged={handleAfterCellsChanged(updateNegotiator, createNegotiator)}
         validate={validate}
         description={
           <p>
@@ -209,35 +312,79 @@ export const renderNegotiatorList = ({
 }
 
 export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
+  const [serverError, setErrorServer] = React.useState<ErrorData | null>(null)
+  const [componentError, setErrorComponent] = React.useState<ErrorData | null>(null)
   const location = useLocation()
   const history = useHistory()
   const params = getParamsFromPath(location?.search)
   const page = Number(params?.page) || 1
-  const [updateNegotiator] = useMutation(UpdateNegotiator)
-  const { loading, error, data: negotiatorData } = useQuery<NegotiatorsQueryResponse, NegotiatorsQueryParams>(
-    GetNegotiators,
-    {
-      variables: { pageSize: NEGOTIATORS_PER_PAGE, pageNumber: page, embed: ['office'] },
+  const [updateNegotiator, { error: updateNegotiatorError }] = useMutation(UpdateNegotiator)
+
+  const { loading, error: getNegotiatorsError, data: negotiatorData } = useQuery<
+    NegotiatorsQueryResponse,
+    NegotiatorsQueryParams
+  >(GetNegotiators, {
+    variables: { pageSize: NEGOTIATORS_PER_PAGE, pageNumber: page, embed: ['office'] },
+  }) as QueryResult<NegotiatorsQueryResponse, NegotiatorsQueryParams>
+
+  const [createNegotiator, { error: createNegotiatorError }] = useMutation(CreateNegotiator, {
+    update(cache, response) {
+      updateApolloCacheAfterCreateNegotiator(cache, response, page)
     },
-  ) as QueryResult<NegotiatorsQueryResponse, NegotiatorsQueryParams>
+  })
 
   const { data: officeData } = useQuery<OfficesQueryResponse, OfficesQueryParams>(OFFICES, {
     variables: { pageSize: 100, pageNumber: 1 },
   }) as QueryResult<OfficesQueryResponse, OfficesQueryParams>
 
-  const dataTable = getDataTable(negotiatorData || { GetNegotiators: { _embedded: [] } }, officeData)
+  React.useEffect(() => {
+    if (createNegotiatorError) {
+      setErrorServer({
+        type: 'SERVER',
+        message: createNegotiatorError.message,
+      })
+    }
+    if (updateNegotiatorError) {
+      setErrorServer({
+        type: 'SERVER',
+        message: updateNegotiatorError.message,
+      })
+    }
+  }, [createNegotiatorError, updateNegotiatorError])
+
+  const errorClearedComponent = () => {
+    setErrorComponent(null)
+  }
+
+  const errorClearedServer = () => {
+    setErrorServer(null)
+  }
+
+  const dataTable = getDataTable(
+    negotiatorData || { GetNegotiators: { _embedded: [] } },
+    updateNegotiator,
+    createNegotiator,
+    officeData,
+  )
   return (
     <div>
       {renderNegotiatorList({
         loading,
-        error,
+        error: getNegotiatorsError,
         dataTable,
         pageNumber: negotiatorData?.GetNegotiators?.pageNumber,
         pageSize: negotiatorData?.GetNegotiators?.pageSize,
         totalCount: negotiatorData?.GetNegotiators?.totalCount,
         handleChangePage: handleChangePage({ history }),
         updateNegotiator: updateNegotiator,
+        createNegotiator: createNegotiator,
       })}
+      <Toast
+        componentError={componentError}
+        serverError={serverError}
+        errorClearedComponent={errorClearedComponent}
+        errorClearedServer={errorClearedServer}
+      />
     </div>
   )
 }

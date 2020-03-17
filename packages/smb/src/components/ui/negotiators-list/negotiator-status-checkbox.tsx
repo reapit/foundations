@@ -1,13 +1,18 @@
 import * as React from 'react'
-import { useMutation } from '@apollo/react-hooks'
-import { UpdateNegotiator } from './negotiators.graphql'
 
 export type NegotiatorStatusCheckboxProps = {
   cellRenderProps: any
   data: any
+  updateNegotiator: (params) => void
+  createNegotiator: (params) => void
 }
 
-export const NegotiatorStatusCheckbox: React.FC<NegotiatorStatusCheckboxProps> = ({ cellRenderProps, data }) => {
+export const NegotiatorStatusCheckbox: React.FC<NegotiatorStatusCheckboxProps> = ({
+  cellRenderProps,
+  data,
+  updateNegotiator,
+  createNegotiator,
+}) => {
   const {
     row,
     col,
@@ -20,18 +25,22 @@ export const NegotiatorStatusCheckbox: React.FC<NegotiatorStatusCheckboxProps> =
     setChecked(value)
   }, [value])
 
-  const [updateNegotiator] = useMutation(UpdateNegotiator)
-
   const handleOnChange = e => {
-    setChecked(e.target.checked)
     const selectedRow = data[row]
     const id = selectedRow[6].value
     const _eTag = selectedRow[7].value
+    const updateNegotiatorVariables = {
+      id,
+      _eTag,
+      active: e.target.checked,
+    }
     updateNegotiator({
-      variables: {
-        id,
-        _eTag,
-        active: e.target.checked,
+      variables: updateNegotiatorVariables,
+      optimisticResponse: {
+        UpdateNegotiator: {
+          ...updateNegotiatorVariables,
+          __typename: 'NegotiatorModel',
+        },
       },
     })
   }

@@ -11,8 +11,8 @@ import {
   tableHeaders,
   handleChangePage,
 } from '../negotiators-list'
-import { GetNegotiators } from '../negotiators.graphql'
-import { negotiators } from '../__mocks__/negotiators'
+import { GetNegotiators, UpdateNegotiator, CreateNegotiator } from '../negotiators.graphql'
+import { negotiators, updateNegotiatorParams, createNegotiatorParams, negotiatorDetail } from '../__mocks__/negotiators'
 import { error } from '@/graphql/__mocks__/error'
 import { getMockRouterProps } from '@/core/__mocks__/mock-router'
 
@@ -26,13 +26,29 @@ const mockQueries = {
   },
 }
 
+const mockUpdateMutation = {
+  request: {
+    query: UpdateNegotiator,
+    variables: updateNegotiatorParams,
+    result: { data: '' },
+  },
+}
+
+const mockCreateMutation = {
+  request: {
+    query: CreateNegotiator,
+    variables: createNegotiatorParams,
+    result: { data: negotiatorDetail },
+  },
+}
+
 describe('NegotiatorList', () => {
   describe('NegotiatorList', () => {
     it('should match a snapshot', () => {
       const mockProps: NegotiatorListProps = getMockRouterProps({ params: {}, search: '?page=1' })
       const wrapper = mount(
         <Router>
-          <MockedProvider mocks={[mockQueries]} addTypename={false}>
+          <MockedProvider mocks={[mockQueries, mockUpdateMutation, mockCreateMutation]} addTypename={false}>
             <NegotiatorList {...mockProps} />
           </MockedProvider>
         </Router>,
@@ -49,6 +65,7 @@ describe('NegotiatorList', () => {
         handleChangePage: jest.fn(),
         dataTable: [],
         updateNegotiator: jest.fn(),
+        createNegotiator: jest.fn(),
       }
       const wrapper = shallow(<div>{renderNegotiatorList(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
@@ -61,26 +78,32 @@ describe('NegotiatorList', () => {
         handleChangePage: jest.fn(),
         dataTable: [],
         updateNegotiator: jest.fn(),
+        createNegotiator: jest.fn(),
       }
       const wrapper = shallow(<div>{renderNegotiatorList(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
     })
 
     it('should match snapshot', () => {
+      const mockUpdateNegotiator = jest.fn()
+      const mockCreateNegotiator = jest.fn()
       const mockParams: RenderNegotiatorListParams = {
         loading: false,
         error: undefined,
         handleChangePage: jest.fn(),
-        dataTable: getDataTable(negotiators),
         updateNegotiator: jest.fn(),
+        createNegotiator: jest.fn(),
+        dataTable: getDataTable(negotiators, mockUpdateNegotiator, mockCreateNegotiator),
       }
       const wrapper = shallow(<div>{renderNegotiatorList(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
     })
 
     describe('getDataTable', () => {
+      const mockUpdateNegotiator = jest.fn()
+      const mockCreateNegotiator = jest.fn()
       it('should run correctly', () => {
-        const dataTable = getDataTable(negotiators)
+        const dataTable = getDataTable(negotiators, mockUpdateNegotiator, mockCreateNegotiator)
         expect(Array.isArray(dataTable)).toBe(true)
         expect(dataTable.length).toBe(4)
         expect(dataTable[0]).toEqual(tableHeaders)
