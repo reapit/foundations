@@ -1089,7 +1089,7 @@ export interface CompanyModel {
   }
 }
 export interface ConfigurationCompanyTypes {
-  Id?: string[]
+  id?: string[]
 }
 /**
  * Representation of the physical address of a building or premise
@@ -3943,8 +3943,6 @@ export interface LandlordContactModel {
 }
 /**
  * Representation of relationship between a landlord and a contact or company
- * example:
- * 2019-08-14T12:30:02.0000000Z
  */
 export interface LandlordContactRelationshipModel {
   /**
@@ -3990,8 +3988,6 @@ export interface LandlordContactRelationshipModel {
 }
 /**
  * Representation of a landlord
- * example:
- * 2019-08-14T12:30:02.0000000Z
  */
 export interface LandlordModel {
   /**
@@ -4138,16 +4134,16 @@ export interface LandlordSourceModel {
   type?: string
 }
 export interface Landlords {
-  PageSize?: number
-  PageNumber?: number
-  SortBy?: string
-  Id?: string[]
-  Active?: boolean
-  Address?: string
-  Name?: string
-  CreatedFrom?: string
-  CreatedTo?: string
-  Embed?: ('documents' | 'office' | 'solicitor' | 'source')[]
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  embed?: ('documents' | 'office' | 'solicitor' | 'source')[]
+  id?: string[]
+  active?: boolean
+  address?: string
+  name?: string
+  createdFrom?: string
+  createdTo?: string
 }
 export interface LinkModel {
   href?: string
@@ -4167,8 +4163,6 @@ export interface ListItemModel {
 }
 /**
  * Representation of a negotiator
- * example:
- * 2019-08-14T12:30:02.0000000Z
  */
 export interface NegotiatorModel {
   /**
@@ -4235,13 +4229,13 @@ export interface NegotiatorModel {
   }
 }
 export interface Negotiators {
-  PageSize?: number
-  PageNumber?: number
-  SortBy?: string
-  Id?: string[]
-  OfficeId?: string[]
-  Name?: string
-  Embed?: 'office'[]
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  embed?: 'office'[]
+  id?: string[]
+  officeId?: string[]
+  name?: string
 }
 /**
  * Representation of the physical address of a building or premise
@@ -4352,8 +4346,6 @@ export interface OfferContactModel {
 }
 /**
  * Representation of an offer
- * example:
- * 2019-08-14T12:30:02.0000000Z
  */
 export interface OfferModel {
   /**
@@ -4504,20 +4496,20 @@ export interface OfferModel {
   }
 }
 export interface Offers {
-  PageSize?: number
-  PageNumber?: number
-  SortBy?: string
-  Id?: string[]
-  ApplicantId?: string[]
-  PropertyId?: string[]
-  Address?: string
-  Name?: string
-  AmountFrom?: number
-  AmountTo?: number
-  DateFrom?: string
-  DateTo?: string
-  Embed?: ('applicant' | 'property' | 'negotiator')[]
-  Status?: ('pending' | 'withdrawn' | 'rejected' | 'accepted' | 'noteOfInterest' | 'noteOfInterestWithdrawn')[]
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  embed?: ('applicant' | 'property' | 'negotiator')[]
+  id?: string[]
+  applicantId?: string[]
+  propertyId?: string[]
+  status?: ('pending' | 'withdrawn' | 'rejected' | 'accepted' | 'noteOfInterest' | 'noteOfInterestWithdrawn')[]
+  address?: string
+  name?: string
+  amountFrom?: number
+  amountTo?: number
+  dateFrom?: string
+  dateTo?: string
 }
 /**
  * Representation of the physical address of a building or premise
@@ -4558,8 +4550,6 @@ export interface OfficeAddressModel {
 }
 /**
  * Representation of an office
- * example:
- * 2019-08-14T12:30:02.0000000Z
  */
 export interface OfficeModel {
   /**
@@ -4651,13 +4641,13 @@ export interface OfficeModel {
   }
 }
 export interface Offices {
-  PageSize?: number
-  PageNumber?: number
-  SortBy?: string
-  Id?: string[]
-  Address?: string
-  Name?: string
-  Embed?: 'negotiators'[]
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  embed?: 'negotiators'[]
+  id?: string[]
+  address?: string
+  name?: string
 }
 export interface PagedResultApplicantContactRelationshipModel_ {
   _embedded?: {
@@ -7683,21 +7673,10 @@ export interface PagingLinkModel {
   href?: string
 }
 export interface Properties {
-  PageSize?: number
-  PageNumber?: number
-  SortBy?: string
-  Id?: string[]
-  LandlordId?: string[]
-  Address?: string
-  DepartmentId?: string
-  BedroomsFrom?: number
-  BedroomsTo?: number
-  PriceFrom?: number
-  PriceTo?: number
-  RentFrom?: number
-  RentTo?: number
-  InternetAdvertising?: boolean
-  Embed?: (
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  embed?: (
     | 'area'
     | 'department'
     | 'documents'
@@ -7708,8 +7687,10 @@ export interface Properties {
     | 'offices'
     | 'vendor'
   )[]
-  Age?: ('period' | 'new' | 'modern')[]
-  LettingStatus?: (
+  id?: string[]
+  age?: ('period' | 'new' | 'modern')[]
+  landlordId?: string[]
+  lettingStatus?: (
     | 'valuation'
     | 'toLet'
     | 'toLetUnavailable'
@@ -7727,9 +7708,9 @@ export interface Properties {
     | 'provisional'
     | 'withdrawn'
   )[]
-  Locality?: ('rural' | 'village' | 'townCity')[]
-  Parking?: ('residents' | 'offStreet' | 'secure' | 'underground' | 'garage' | 'doubleGarage' | 'tripleGarage')[]
-  SellingStatus?: (
+  locality?: ('rural' | 'village' | 'townCity')[]
+  parking?: ('residents' | 'offStreet' | 'secure' | 'underground' | 'garage' | 'doubleGarage' | 'tripleGarage')[]
+  sellingStatus?: (
     | 'preAppraisal'
     | 'valuation'
     | 'paidValuation'
@@ -7743,8 +7724,8 @@ export interface Properties {
     | 'soldExternally'
     | 'withdrawn'
   )[]
-  Situation?: ('garden' | 'land' | 'patio' | 'roofTerrace' | 'conservatory' | 'balcony' | 'communalGardens')[]
-  Style?: (
+  situation?: ('garden' | 'land' | 'patio' | 'roofTerrace' | 'conservatory' | 'balcony' | 'communalGardens')[]
+  style?: (
     | 'terraced'
     | 'endTerrace'
     | 'detached'
@@ -7759,7 +7740,7 @@ export interface Properties {
     | 'upperFloorWithLift'
     | 'penthouse'
   )[]
-  Type?: (
+  type?: (
     | 'house'
     | 'bungalow'
     | 'flatApartment'
@@ -7771,7 +7752,16 @@ export interface Properties {
     | 'townhouse'
     | 'developmentPlot'
   )[]
-  MarketingMode?: ('selling' | 'letting' | 'sellingAndLetting')[]
+  address?: string
+  departmentId?: string
+  marketingMode?: ('selling' | 'letting' | 'sellingAndLetting')[]
+  bedroomsFrom?: number
+  bedroomsTo?: number
+  priceFrom?: number
+  priceTo?: number
+  rentFrom?: number
+  rentTo?: number
+  internetAdvertising?: boolean
 }
 /**
  * Representation of the physical address of a building or premise
@@ -7880,8 +7870,6 @@ export interface PropertyGeolocationModel {
 }
 /**
  * Representation of a property image
- * example:
- * 2019-08-14T12:30:02.0000000Z
  */
 export interface PropertyImageModel {
   /**
@@ -7934,13 +7922,13 @@ export interface PropertyImageModel {
   }
 }
 export interface PropertyImages {
-  PageSize?: number
-  PageNumber?: number
-  SortBy?: string
-  Id?: string[]
-  PropertyId?: string[]
-  Embed?: 'property'[]
-  Type?: ('photograph' | 'map' | 'floorPlan' | 'epc')[]
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  id?: string[]
+  embed?: 'property'[]
+  propertyId?: string[]
+  type?: ('photograph' | 'map' | 'floorPlan' | 'epc')[]
 }
 /**
  * Representation of the internal dimensions of a property
@@ -8004,8 +7992,6 @@ export interface PropertyLettingModel {
 }
 /**
  * Representation of a property
- * example:
- * 2019-08-14T12:30:02.0000000Z
  */
 export interface PropertyModel {
   /**
@@ -8462,16 +8448,16 @@ export interface SourceModel {
   }
 }
 export interface Sources {
-  PageSize?: number
-  PageNumber?: number
-  SortBy?: string
-  Id?: string[]
-  OfficeId?: string[]
-  DepartmentId?: string[]
-  Name?: string
-  Type?: string
-  CreatedFrom?: string
-  CreatedTo?: string
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  id?: string[]
+  officeId?: string[]
+  departmentId?: string[]
+  name?: string
+  type?: string
+  createdFrom?: string
+  createdTo?: string
 }
 export interface StringSegment {
   readonly buffer?: string
@@ -8482,8 +8468,6 @@ export interface StringSegment {
 }
 /**
  * Representation of a task, which can also be an internal message
- * example:
- * 2019-08-14T12:30:02.0000000Z
  */
 export interface TaskModel {
   /**
@@ -8574,24 +8558,24 @@ export interface TaskModel {
   }
 }
 export interface Tasks {
-  PageSize?: number
-  PageNumber?: number
-  SortBy?: string
-  Id?: string[]
-  ApplicantId?: string[]
-  ContactId?: string[]
-  LandlordId?: string[]
-  OfficeId?: string[]
-  PropertyId?: string[]
-  RecipientId?: string[]
-  SenderId?: string[]
-  TypeId?: string[]
-  TenancyId?: string[]
-  ActivatesFrom?: string
-  ActivatesTo?: string
-  CreatedFrom?: string
-  CreatedTo?: string
-  Embed?: ('applicant' | 'contact' | 'landlord' | 'property' | 'tenancy' | 'type')[]
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  embed?: ('applicant' | 'contact' | 'landlord' | 'property' | 'tenancy' | 'type')[]
+  id?: string[]
+  applicantId?: string[]
+  contactId?: string[]
+  landlordId?: string[]
+  officeId?: string[]
+  propertyId?: string[]
+  recipientId?: string[]
+  senderId?: string[]
+  typeId?: string[]
+  tenancyId?: string[]
+  activatesFrom?: string
+  activatesTo?: string
+  createdFrom?: string
+  createdTo?: string
 }
 export interface Tenancies {
   pageSize?: number
@@ -11486,23 +11470,15 @@ export interface WorksOrderModel {
   }
 }
 export interface WorksOrders {
-  PageSize?: number
-  PageNumber?: number
-  SortBy?: string
-  Id?: string[]
-  CompanyId?: string[]
-  NegotiatorId?: string[]
-  PropertyId?: string[]
-  TenancyId?: string[]
-  TypeId?: string[]
-  CompletedFrom?: string
-  CompletedTo?: string
-  CreatedFrom?: string
-  CreatedTo?: string
-  RequiredFrom?: string
-  RequiredTo?: string
-  Embed?: ('company' | 'documents' | 'negotiator' | 'property' | 'tenancy' | 'type')[]
-  Status?: (
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  embed?: ('company' | 'documents' | 'negotiator' | 'property' | 'tenancy' | 'type')[]
+  id?: string[]
+  companyId?: string[]
+  negotiatorId?: string[]
+  propertyId?: string[]
+  status?: (
     | 'pendingApproval'
     | 'pendingQuote'
     | 'raised'
@@ -11511,4 +11487,12 @@ export interface WorksOrders {
     | 'complete'
     | 'cancelled'
   )[]
+  tenancyId?: string[]
+  typeId?: string[]
+  completedFrom?: string
+  completedTo?: string
+  createdFrom?: string
+  createdTo?: string
+  requiredFrom?: string
+  requiredTo?: string
 }
