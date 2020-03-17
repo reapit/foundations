@@ -14,32 +14,29 @@ storiesOf('Checkbox', module)
           action('Form Values' + values)
         }}
       >
-        {() => (
-          <Form>
-            <div className="column is-half-desktop">
-              <Checkbox id="checked" name="checked" labelText="Checkbox" />
-            </div>
-          </Form>
-        )}
+        <Form>
+          <div className="column is-half-desktop">
+            <Checkbox id="checked" name="checked" labelText="Checkbox" />
+          </div>
+        </Form>
       </Formik>
     </section>
   ))
   .add('Use as Group', () => (
     <section className="section">
       <Formik
-        initialValues={{ checked: ['1'] }}
+        initialValues={{ checkboxGroup: ['checkboxA'] }}
         onSubmit={values => {
+          console.log(values)
           action('Form Values' + values)
         }}
       >
-        {() => (
-          <Form>
-            <div className="column is-half-desktop">
-              <Checkbox id="checked" name="checked" labelText="Checkbox" value="1" />
-              <Checkbox id="checked" name="checked" labelText="Checkbox" value="2" />
-            </div>
-          </Form>
-        )}
+        <Form>
+          <div className="column is-half-desktop">
+            <Checkbox name="checkboxGroup" id="checkboxA" labelText="Checkbox A" value="checkboxA" />
+            <Checkbox name="checkboxGroup" id="checkboxB" labelText="Checkbox B" value="checkboxB" />
+          </div>
+        </Form>
       </Formik>
     </section>
   ))
