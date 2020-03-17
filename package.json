@@ -55,7 +55,9 @@
     "**/**/rollup": "1.31.1",
     "**/**/styled-components": "4.4.1",
     "**/**/eslint-plugin-react-hooks": "2.4.0",
-    "**/**/react-test-renderer": "16.12.0"
+    "**/**/react-test-renderer": "16.12.0",
+    "eslint/**/acorn": "^6.4.1",
+    "eslint/**/minimist": "^1.2.2"
   },
   "dependencies": {
     "@sentry/browser": "^5.11.1",
