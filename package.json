@@ -19,7 +19,7 @@
   "scripts": {
     "build": "lerna run build:prod --stream",
     "fetch-config": "yarn config-manager getSecret reapit-marketplace-app-config",
-    "fetch-config1": "lerna run fetch-config --parallel",
+    "fetch-config1": "lerna run --parallel --stream fetch-config --",
     "lint": "lerna run lint --parallel --stream",
     "lint:fix": "lerna run --parallel --stream lint:fix --",
     "release:dev": "lerna run release:dev --parallel",

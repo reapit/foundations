@@ -48,7 +48,7 @@ export const tabConfigs = ({ loginType, history }: LoginProps): TabConfig[] => [
 ]
 
 export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {
-  const isDevelopment = window.reapit.config.appEnv === 'development'
+  const isProduction = window.reapit.config.appEnv === 'production'
   const isPasswordChanged = localStorage.getItem('isPasswordChanged') === 'true'
   const { hasSession, loginType, location, authChangeLoginType, showNotiAfterPasswordChanged } = props
   const { wrapper, container, image, tabsContainer /* , register */ } = loginStyles
@@ -80,7 +80,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
         </Level>
         <p className="pb-8">Welcome to Reapit {`${loginType === 'CLIENT' ? 'Marketplace' : 'Foundations'}`}</p>
 
-        {loginType !== 'ADMIN' && isDevelopment && (
+        {loginType !== 'ADMIN' && !isProduction && (
           <div className={tabsContainer}>
             <Tabs tabConfigs={tabConfigs(props)} />
           </div>

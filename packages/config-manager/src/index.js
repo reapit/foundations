@@ -12,6 +12,7 @@ const { REAPIT_CONFIG_IN_CWD_PATH, TEMP_FOLDER, TEMP_LOCAL_CONFIG_FILE, TEMP_REM
 AWS.config.update({ region: 'eu-west-2' })
 
 const secretsManager = new AWS.SecretsManager()
+const ssm = new AWS.SSM()
 
 const createSecret = secretName => {
   secretsManager.createSecret(
@@ -190,14 +191,15 @@ const fetchConfig = (secretName, env = 'local') => {
   if (env === 'LOCAL') {
     env = 'local'
   }
-  secretsManager.getSecretValue({ SecretId: `${secretName}-${env}` }, (err, data) => {
+  ssm.getParameter({ Name: `${secretName}-${env}`, WithDecryption: false }, (err, data) => {
     if (err) {
       console.log('Something went wrong when fetch the config.json')
       console.error(err, err.stack)
       process.exit(1)
     }
     try {
-      return fs.writeFileSync(`${process.cwd()}/public/config.json`, data.SecretString)
+      const config = (data && data.Parameter && data.Parameter.Value) || {}
+      return fs.writeFileSync(`${process.cwd()}/public/config.json`, config)
     } catch (err) {
       console.log(
         'Something went wrong when parsing base configuration. Detailed error with stack trace is provided below:',

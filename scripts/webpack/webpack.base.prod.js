@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
+const CopyPlugin = require('copy-webpack-plugin')
 const { GenerateSW } = require('workbox-webpack-plugin')
 const HashedModuleIdsPlugin = require('webpack').HashedModuleIdsPlugin
 const { EnvironmentPlugin } = require('webpack')
@@ -27,6 +28,7 @@ module.exports = {
     new ResolveTSPathsToWebpackAlias({
       tsconfig: PATHS.tsConfig,
     }),
+    new CopyPlugin([{ from: 'public/config.json', to: PATHS.output }]),
     new HtmlWebpackPlugin({
       hash: true,
       inject: true,
