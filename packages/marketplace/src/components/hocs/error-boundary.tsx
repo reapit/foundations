@@ -40,7 +40,8 @@ export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
       type: 'COMPONENT',
       message: errorMessages.DEFAULT_COMPONENT_ERROR,
     })
-    if (process.env.NODE_ENV === 'production') {
+    const isDevelopment = window.reapit.config.appEnv === 'development'
+    if (!isDevelopment) {
       Sentry.withScope(scope => {
         scope.setExtras(info)
         Sentry.captureException(error)

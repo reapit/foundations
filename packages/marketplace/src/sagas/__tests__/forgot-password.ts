@@ -17,7 +17,7 @@ jest.mock('../../core/router', () => ({
 }))
 
 describe('requestForgotPassword', () => {
-  process.env.COGNITO_CLIENT_ID_MARKETPLACE = 'cognitoClientId'
+  window.reapit.config.cognitoClientId = 'cognitoClientId'
   const gen = cloneableGenerator(requestForgotPassword)({ data: 'abc@gmail.com' })
   expect(gen.next().value).toEqual(put(forgotPasswordLoading(true)))
   expect(gen.next().value).toEqual(

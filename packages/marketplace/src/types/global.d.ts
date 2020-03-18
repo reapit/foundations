@@ -1,0 +1,20 @@
+export type Config = {
+  appEnv: string
+  sentryDns: string
+  marketplaceApiUrl: string
+  marketplaceApiKey: string
+  uploadApiUrl: string
+  swaggerUrl: string
+  elementDocumentUrl: string
+  cognitoClientId: string
+  googleAnalyticsKey: string
+}
+
+declare global {
+  interface Window {
+    reapit: {
+      config: Config
+    }
+    __REDUX_DEVTOOLS_EXTENSION__?: Function
+  }
+}

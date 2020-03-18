@@ -427,6 +427,22 @@ Object.defineProperty(window, 'google', {
   value: createGoogleMapsMock(),
 })
 
+Object.defineProperty(window, 'reapit', {
+  value: {
+    config: {
+      appEnv: 'development',
+      sentryDns: '',
+      marketplaceApiUrl: '',
+      marketplaceApiKey: '',
+      uploadApiUrl: '',
+      swaggerUrl: '',
+      elementDocumentUrl: '',
+      cognitoClientId: '',
+      googleAnalyticsKey: '',
+    },
+  },
+})
+
 Object.defineProperty(window, 'getComputedStyle', {
   value: () => ({
     getPropertyValue: () => {

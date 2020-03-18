@@ -1,0 +1,11 @@
+{
+  "appEnv": "development",
+  "sentryDns": "",
+  "marketplaceApiUrl": "",
+  "marketplaceApiKey": "",
+  "uploadApiUrl": "",
+  "swaggerUrl": "",
+  "elementDocumentUrl": "",
+  "cognitoClientId": "",
+  "googleAnalyticsKey": ""
+}

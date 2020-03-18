@@ -13,7 +13,7 @@ describe('Swagger', () => {
   })
 
   it('should have a fetchInterceptor that adds a token when the url is not swagger', () => {
-    process.env.SWAGGER_BASE_URL = 'https://some-url.com'
+    window.reapit.config.swaggerUrl = 'https://some-url.com'
     const request = {
       url: 'https://some-other-url.com',
       headers: {
@@ -34,9 +34,9 @@ describe('Swagger', () => {
   })
 
   it('should have a fetchInterceptor that returns the params when the url is swagger', async () => {
-    process.env.SWAGGER_BASE_URL = 'https://some-url.com'
+    window.reapit.config.swaggerUrl = 'https://some-url.com'
     const request = {
-      url: process.env.SWAGGER_BASE_URL,
+      url: 'https://some-url.com',
       headers: {
         'Content-Type': 'application/json',
       },

@@ -21,7 +21,7 @@ export const fetchAccessToken = async (setAccessToken: React.Dispatch<React.SetS
 }
 
 export const fetchInterceptor = (params: InterceptorParams, accessToken: string | null) => {
-  if (params.url === process.env.SWAGGER_BASE_URL) {
+  if (params.url === window.reapit.config.swaggerUrl) {
     return params
   }
 
@@ -37,7 +37,7 @@ export const fetchInterceptor = (params: InterceptorParams, accessToken: string 
 
 export const SwaggerPage: React.SFC = () => {
   const [loading, setLoading] = React.useState(true)
-  const [accessToken, setAccessToken] = React.useState()
+  const [accessToken, setAccessToken] = React.useState<string | null>(null)
   const requestInterceptor = (params: InterceptorParams) => fetchInterceptor(params, accessToken)
 
   React.useEffect(() => {
@@ -50,7 +50,7 @@ export const SwaggerPage: React.SFC = () => {
         {(loading || !accessToken) && <Loader />}
         <div className={`${loading ? 'swagger-loading' : ''}`}>
           <SwaggerUI
-            url={process.env.SWAGGER_BASE_URL}
+            url={window.reapit.config.swaggerUrl}
             onComplete={handleOnComplete(setLoading)}
             docExpansion="none"
             requestInterceptor={requestInterceptor}

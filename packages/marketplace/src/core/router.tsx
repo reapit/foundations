@@ -33,9 +33,9 @@ const RegisterConfirm = React.lazy(() => import('../components/pages/register-co
 const AdminStats = React.lazy(() => import('../components/pages/admin-stats'))
 
 const Router = () => {
-  const isReapitEnvProd = process.env.REAPIT_ENV === 'PROD'
+  const isDevelopment = window.reapit.config.appEnv === 'development'
   const paths = [Routes.DEVELOPER_LOGIN, Routes.ADMIN_LOGIN]
-  if (!isReapitEnvProd) {
+  if (isDevelopment) {
     paths.push(Routes.CLIENT_LOGIN)
   }
   return (
@@ -139,4 +139,5 @@ const Router = () => {
     </BrowserRouter>
   )
 }
+
 export default Router

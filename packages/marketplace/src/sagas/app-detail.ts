@@ -1,5 +1,5 @@
 import { fetcher } from '@reapit/elements'
-import { URLS, MARKETPLACE_HEADERS } from '../constants/api'
+import { URLS, generateHeader } from '../constants/api'
 import {
   appDetailLoading,
   appDetailReceiveData,
@@ -19,9 +19,9 @@ import { logger } from 'logger'
 export const fetchAppDetail = async ({ clientId, id }) => {
   const response = await fetcher({
     url: clientId ? `${URLS.apps}/${id}?clientId=${clientId}` : `${URLS.apps}/${id}`,
-    api: process.env.MARKETPLACE_API_BASE_URL as string,
+    api: window.reapit.config.marketplaceApiUrl,
     method: 'GET',
-    headers: MARKETPLACE_HEADERS,
+    headers: generateHeader(window.reapit.config.marketplaceApiKey),
   })
   return response
 }
@@ -51,9 +51,9 @@ export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
 export const fetchAuthCode = id =>
   fetcher({
     url: `${URLS.apps}/${id}/secret`,
-    api: process.env.MARKETPLACE_API_BASE_URL as string,
+    api: window.reapit.config.marketplaceApiUrl,
     method: 'GET',
-    headers: MARKETPLACE_HEADERS,
+    headers: generateHeader(window.reapit.config.marketplaceApiKey),
   })
 
 export const requestAuthCode = function*({ data: id }: Action<string>) {

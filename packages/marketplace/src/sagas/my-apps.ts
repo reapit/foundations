@@ -3,7 +3,7 @@ import { put, fork, takeLatest, call, all, select } from '@redux-saga/core/effec
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
-import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
+import { URLS, generateHeader } from '@/constants/api'
 import { fetcher } from '@reapit/elements'
 import { Action } from '@/types/core'
 import { APPS_PER_PAGE } from '@/constants/paginator'
@@ -22,8 +22,8 @@ export const myAppsDataFetch = function*({ data: page }) {
     const response = yield call(fetcher, {
       url: `${URLS.apps}?clientId=${clientId}&OnlyInstalled=true&PageNumber=${page}&PageSize=${APPS_PER_PAGE}`,
       method: 'GET',
-      api: process.env.MARKETPLACE_API_BASE_URL as string,
-      headers: MARKETPLACE_HEADERS,
+      api: window.reapit.config.marketplaceApiUrl,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
     })
     if (response) {
       yield put(myAppsReceiveData({ data: response }))

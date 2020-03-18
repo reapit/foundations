@@ -1,5 +1,5 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
-import { URLS, MARKETPLACE_HEADERS } from '../constants/api'
+import { URLS, generateHeader } from '../constants/api'
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { Action } from '../types/core'
@@ -17,9 +17,9 @@ const { APP_USAGE_STATS_REQUEST_DATA } = ActionTypes
 export const fetchAppUsageStats = async (data: AppUsageStatsParams) => {
   const response = await fetcher({
     url: `${URLS.statistics}?${setQueryParams({ ...data })}`,
-    api: process.env.MARKETPLACE_API_BASE_URL as string,
+    api: window.reapit.config.marketplaceApiUrl,
     method: 'GET',
-    headers: MARKETPLACE_HEADERS,
+    headers: generateHeader(window.reapit.config.marketplaceApiKey),
   })
   return response
 }

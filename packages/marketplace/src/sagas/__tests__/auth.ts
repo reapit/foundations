@@ -117,7 +117,7 @@ describe('auth thunks', () => {
       expect(gen.next().value).toEqual(
         call(
           redirectToLogout,
-          process.env.COGNITO_CLIENT_ID_MARKETPLACE as string,
+          window.reapit.config.marketplaceApiUrl,
           `${window.location.origin}${Routes.CLIENT_LOGIN}`,
         ),
       )
