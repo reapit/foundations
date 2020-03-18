@@ -16,6 +16,7 @@ import {
   isEmail,
   isNumberOnly,
   ErrorData,
+  minLengthValidator,
 } from '@reapit/elements'
 import { getParamsFromPath, stringifyObjectIntoQueryString } from '@/utils/client-url-params'
 import { GetNegotiators, UpdateNegotiator, CreateNegotiator } from './negotiators.graphql'
@@ -154,7 +155,7 @@ export const validate = (data: Cell[][]) => {
       if (rowIndex === 0) return true // dont need to validate header row
       // cell name is required
       if (cellIndex === 0) {
-        return !fieldValidateRequire(cell.value as string)
+        return !fieldValidateRequire(cell.value as string) && minLengthValidator(5)(cell.value as string)
       }
       // cell email is required
       if (cellIndex === 2) {
