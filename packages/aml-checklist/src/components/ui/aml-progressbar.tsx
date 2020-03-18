@@ -50,7 +50,7 @@ export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({ contact, idCheck
             <LevelLeft>
               <LevelItem>
                 <div>
-                  <H3>
+                  <H3 className="mb-6">
                     <AcLink
                       dynamicLinkParams={{
                         appMode: loginMode,

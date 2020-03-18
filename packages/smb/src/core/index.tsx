@@ -1,11 +1,14 @@
+import * as OfflinePluginRuntime from 'offline-plugin/runtime'
+OfflinePluginRuntime.install()
 import * as React from 'react'
 import { render } from 'react-dom'
 import { createGlobalStyle } from 'styled-components'
 import { ApolloProvider } from '@apollo/react-hooks'
-import { useAuth, AuthHook } from '@/hooks/use-auth'
+import { useAuth } from '@/hooks/use-auth'
+import { AuthContext } from '@/context'
+import getClient from '@/graphql/client'
 import Router from './router'
 import globalCss from 'raw-loader!@reapit/elements/dist/index.css'
-import getClient from '@/graphql/client'
 const GlobalStyle = createGlobalStyle`
   ${globalCss};
   body {
@@ -14,9 +17,6 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const rootElement = document.querySelector('#root') as Element
-
-export const AuthContext = React.createContext<AuthHook>({} as AuthHook)
-AuthContext.displayName = 'AuthContext'
 
 const App = () => {
   const { loginSession, refreshParams, getLoginSession, ...rest } = useAuth()

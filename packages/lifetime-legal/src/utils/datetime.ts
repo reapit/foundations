@@ -53,8 +53,12 @@ export const changeTimeZoneUTCForIdentityCheck = (identityChecks: IdentityCheckM
 }
 
 export const formatDateForContact = (contact: ContactModel) => {
-  return {
-    ...contact,
-    dateOfBirth: dayjs(contact.dateOfBirth).format(DATE_TIME_FORMAT.YYYY_MM_DD),
+  if (contact.dateOfBirth) {
+    return {
+      ...contact,
+      dateOfBirth: dayjs(contact.dateOfBirth).format(DATE_TIME_FORMAT.YYYY_MM_DD),
+    }
   }
+
+  return contact
 }

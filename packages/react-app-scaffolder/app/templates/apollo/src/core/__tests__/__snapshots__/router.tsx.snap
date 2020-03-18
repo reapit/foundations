@@ -16,7 +16,6 @@ exports[`Router should match a snapshot 1`] = `
         "hash": "",
         "pathname": "/",
         "search": "",
-        "state": undefined,
       },
       "push": [Function],
       "replace": [Function],
@@ -37,19 +36,62 @@ exports[`Router should match a snapshot 1`] = `
           }
         }
         exact={true}
-        path="/"
-      />
-      <Route
-        component={
-          Object {
-            "$$typeof": Symbol(react.lazy),
-            "_ctor": [Function],
-            "_result": null,
-            "_status": -1,
-          }
-        }
         path="/login"
       />
+      <withRouter()
+        path="/"
+      >
+        <Switch>
+          <Component
+            allow="CLIENT"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            path="/home"
+          />
+          <Component
+            allow="CLIENT"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            path="/offices"
+          />
+          <Component
+            allow="CLIENT"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            path="/users"
+          />
+          <Component
+            allow="CLIENT"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            path="/get-started"
+          />
+        </Switch>
+      </withRouter()>
       <Redirect
         to="/login"
       />

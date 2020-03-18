@@ -56,6 +56,15 @@ describe('daytime', () => {
   })
 
   describe('formatDateForContact', () => {
+    it('should return the original input when field "dateOfBirth" is falsy', () => {
+      const contact = {
+        otherData: 'data',
+      } as ContactModel
+      expect(formatDateForContact(contact)).toEqual({
+        otherData: 'data',
+      })
+    })
+
     it('should run correctly', () => {
       const contact = {
         otherData: 'data',

@@ -1,3 +1,5 @@
+import * as OfflinePluginRuntime from 'offline-plugin/runtime'
+OfflinePluginRuntime.install()
 import '../styles/index.scss'
 import * as React from 'react'
 import * as Sentry from '@sentry/browser'

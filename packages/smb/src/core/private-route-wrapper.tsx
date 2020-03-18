@@ -3,7 +3,7 @@ import { withRouter, RouteComponentProps, Redirect } from 'react-router-dom'
 import Menu from '@/components/ui/menu'
 import { Loader, AppNavContainer, Section, FlexContainerBasic } from '@reapit/elements'
 import { redirectToOAuth } from '@reapit/cognito-auth'
-import { AuthContext } from '@/core/index'
+import { AuthContext } from '@/context'
 import Routes from '@/constants/routes'
 
 const { Suspense } = React

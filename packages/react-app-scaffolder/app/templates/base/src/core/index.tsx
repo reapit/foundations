@@ -1,20 +1,18 @@
 import * as React from 'react'
 import { render } from 'react-dom'
 import Router from './router'
-
 <% if (redux) { %>
 import store from './store'
-  import { Provider } from 'react-redux'
+import { Provider } from 'react-redux'
 <% } %>
-
-<% if (!redux) { %>
-  import { AuthProvider } from '@/context/auth-context'
-<% } %>
-
 <% if (graphql) { %>
 import { ApolloProvider } from '@apollo/react-hooks'
+import getClient from '@/graphql/client'
 <% } %>
-
+<% if (!redux) { %>
+import { useAuth } from '@/hooks/use-auth'
+import { AuthContext } from '@/context'
+<% } %>
 <% if (stylesSolution == 'sass') { %>
 import '@/styles/index.scss'
 <% } else { %>
@@ -30,39 +28,42 @@ import globalCss from 'raw-loader!@reapit/elements/dist/index.css'
 
 const rootElement = document.querySelector('#root') as Element
 
-const App = () => (
-  <>
-    <% if (graphql) { %>
-      <ApolloProvider client={client}>
+const App = () => {
+  <% if (!redux && !graphql) { %>
+    const { loginSession, refreshParams, getLoginSession, ...rest } = useAuth()
+  <% } %>
+  <% if (graphql) { %>
+    const { loginSession, refreshParams, getLoginSession, ...rest } = useAuth()
+    if (!loginSession && refreshParams) {
+      getLoginSession(refreshParams)
+    }
+    const accessToken = loginSession?.accessToken || ''
+  <% } %>
+  return (
+    <% if (!redux) { %>
+    <AuthContext.Provider value={{ loginSession, refreshParams, getLoginSession, ...rest }}>
     <% } %>
-
+    <% if (graphql) { %>
+      <ApolloProvider client={getClient(accessToken)}>
+    <% } %>
     <% if (redux) { %>
       <Provider store={store.reduxStore}>
     <% } %>
-
-    <% if (!redux) { %>
-      <AuthProvider>
-    <% } %>
-
       <Router />
-
-    <% if (!redux) { %>
-      </AuthProvider>
-    <% } %>
-
-    <% if (redux) { %>
-      </Provider>
-    <% } %>
-
-    <% if (graphql) { %>
-      </ApolloProvider>
-    <% } %>
-
     <% if (stylesSolution === 'styledComponents') { %>
       <GlobalStyle />
     <% } %>
-  </>
-)
+    <% if (redux) { %>
+      </Provider>
+    <% } %>
+    <% if (graphql) { %>
+      </ApolloProvider>
+    <% } %>
+    <% if (!redux) { %>
+      </AuthContext.Provider>
+    <% } %>
+  )
+}
 
 if (rootElement) {
   render(<App />, rootElement)

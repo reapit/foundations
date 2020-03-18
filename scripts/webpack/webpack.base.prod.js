@@ -11,13 +11,14 @@ const config = require(PATHS.config)
 const hashFiles = require('../utils/hash-files')
 const path = require('path')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
+const OfflinePlugin = require('offline-plugin')
 
 const tagName = getVersionTag()
 
 module.exports = {
   mode: 'production',
   context: process.cwd(),
-  entry: ['@babel/polyfill', 'core-js', 'isomorphic-fetch', PATHS.entryWeb],
+  entry: ['@babel/polyfill', 'core-js', 'isomorphic-fetch', 'regenerator-runtime/runtime', PATHS.entryWeb],
   output: {
     path: PATHS.output,
     filename: '[name].[hash].js',
@@ -93,6 +94,7 @@ module.exports = {
         files: ['yarn.lock'],
       },
     }),
+    new OfflinePlugin(),
   ],
   module: {
     rules: [

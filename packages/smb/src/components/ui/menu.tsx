@@ -7,7 +7,7 @@ import { Location } from 'history'
 import { IoIosPeople } from 'react-icons/io'
 import { FaSignOutAlt, FaCloud, FaHome, FaBuilding, FaClipboardList, FaDownload } from 'react-icons/fa'
 import { MdWeb, MdLibraryBooks, MdLiveHelp } from 'react-icons/md'
-import { AuthContext } from '@/core/index'
+import { AuthContext } from '@/context'
 
 export const generateMenuConfig = (logout: () => void, location: Location<any>, mode: LoginMode): MenuConfig => {
   return {

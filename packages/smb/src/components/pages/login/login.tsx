@@ -5,7 +5,7 @@ import { redirectToLogin } from '@reapit/cognito-auth'
 import Routes from '@/constants/routes'
 import connectImage from '@/assets/images/reapit-connect.png'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
-import { AuthContext } from '@/core/index'
+import { AuthContext } from '@/context'
 import { Container, Wrapper, ImageContainer } from './__styles__/styles'
 
 export const redirectToLoginPage = () => {
