@@ -10994,8 +10994,6 @@ export interface VendorContactModel {
 }
 /**
  * Representation of a relationship between a vendor and a contact or company
- * example:
- * 2019-08-14T12:30:02.0000000Z
  */
 export interface VendorContactRelationshipModel {
   /**
@@ -11041,8 +11039,6 @@ export interface VendorContactRelationshipModel {
 }
 /**
  * Representation of a vendor
- * example:
- * 2019-08-14T12:30:02.0000000Z
  */
 export interface VendorModel {
   /**
@@ -11222,21 +11218,21 @@ export interface VendorUpdateSourceModel {
   type?: string
 }
 export interface Vendors {
-  PageSize?: number
-  PageNumber?: number
-  SortBy?: string
-  Id?: string[]
-  NegotiatorId?: string[]
-  OfficeId?: string[]
-  Address?: string
-  Name?: string
-  CreatedFrom?: string
-  CreatedTo?: string
-  LastCallFrom?: string
-  LastCallTo?: string
-  NextCallFrom?: string
-  NextCallTo?: string
-  Embed?: ('negotiator' | 'offices' | 'sellingReason' | 'solicitor' | 'source' | 'type')[]
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  embed?: ('negotiator' | 'offices' | 'sellingReason' | 'solicitor' | 'source' | 'type')[]
+  id?: string[]
+  negotiatorId?: string[]
+  officeId?: string[]
+  address?: string
+  name?: string
+  createdFrom?: string
+  createdTo?: string
+  lastCallFrom?: string
+  lastCallTo?: string
+  nextCallFrom?: string
+  nextCallTo?: string
 }
 /**
  * Representation of a works order item
