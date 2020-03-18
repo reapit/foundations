@@ -1,17 +1,18 @@
 import * as React from 'react'
+import ReactDataSheet from 'react-datasheet'
+import { Cell } from '@reapit/elements/src/components/Spreadsheet/types'
+import { prepareUpdateNegeotiatorParams } from './negotiators-list'
 
 export type NegotiatorStatusCheckboxProps = {
-  cellRenderProps: any
-  data: any
+  cellRenderProps: ReactDataSheet.CellRendererProps<Cell, string | null>
+  data: Cell[][]
   updateNegotiator: (params) => void
-  createNegotiator: (params) => void
 }
 
 export const NegotiatorStatusCheckbox: React.FC<NegotiatorStatusCheckboxProps> = ({
   cellRenderProps,
   data,
   updateNegotiator,
-  createNegotiator,
 }) => {
   const {
     row,
@@ -22,16 +23,16 @@ export const NegotiatorStatusCheckbox: React.FC<NegotiatorStatusCheckboxProps> =
   const [checked, setChecked] = React.useState(false)
 
   React.useEffect(() => {
-    setChecked(value)
+    if (value || value === 'true') {
+      setChecked(true)
+    } else {
+      setChecked(false)
+    }
   }, [value])
 
   const handleOnChange = e => {
-    const selectedRow = data[row]
-    const id = selectedRow[6].value
-    const _eTag = selectedRow[7].value
     const updateNegotiatorVariables = {
-      id,
-      _eTag,
+      ...prepareUpdateNegeotiatorParams(data, row),
       active: e.target.checked,
     }
     updateNegotiator({
