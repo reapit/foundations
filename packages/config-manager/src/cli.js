@@ -5,6 +5,7 @@ const getSecret = require('./index').getSecret
 const deleteSecret = require('./index').deleteSecret
 const setEnv = require('./index').setEnv
 const getAllSecrets = require('./index').getAllSecrets
+const fetchConfig = require('./index').fetchConfig
 
 const parseFlags = flags => {
   const result = {}
@@ -37,6 +38,8 @@ return (() => {
         return deleteSecret(secretName)
       case 'setEnv':
         return setEnv(secretName)
+      case 'fetchConfig':
+        return fetchConfig(secretName, reapitEnv)
       default:
         console.error('Method Not Found')
         process.exit(1)

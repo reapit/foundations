@@ -185,4 +185,27 @@ const setEnv = secretName => {
   )
 }
 
-module.exports = { getSecret, createSecret, updateSecret, deleteSecret, setEnv, getAllSecrets }
+const fetchConfig = (secretName, env = 'local') => {
+  // TODO: will remove if when finish migration
+  if (env === 'LOCAL') {
+    env = 'local'
+  }
+  secretsManager.getSecretValue({ SecretId: `${secretName}-${env}` }, (err, data) => {
+    if (err) {
+      console.log('Something went wrong when fetch the config.json')
+      console.error(err, err.stack)
+      process.exit(1)
+    }
+    try {
+      return fs.writeFileSync(`${process.cwd()}/public/config.json`, data.SecretString)
+    } catch (err) {
+      console.log(
+        'Something went wrong when parsing base configuration. Detailed error with stack trace is provided below:',
+      )
+      console.error(err, err.stack)
+      process.exit(1)
+    }
+  })
+}
+
+module.exports = { getSecret, createSecret, updateSecret, deleteSecret, setEnv, getAllSecrets, fetchConfig }
