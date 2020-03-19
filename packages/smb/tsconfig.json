@@ -6,7 +6,6 @@
     "paths": {
       "@/*": ["src/*"],
       "@reapit/elements": ["../elements/src"],
-      "@reapit/elements/*": ["../elements/*"],
       "@reapit/cognito-auth": ["../cognito-auth/src"]
     }
   },
