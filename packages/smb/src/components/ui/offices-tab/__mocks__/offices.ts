@@ -1,4 +1,6 @@
-import { OfficesQueryResponse } from '../offices-tab'
+import { OfficeModel } from '@reapit/foundations-ts-definitions'
+import { OfficesQueryResponse, CreateOfficeParams, UpdateOfficeParams } from '../offices-tab'
+import { ChangedCells } from '@reapit/elements/src/components/Spreadsheet/types'
 
 export const offices: OfficesQueryResponse = {
   GetOffices: {
@@ -82,3 +84,76 @@ export const offices: OfficesQueryResponse = {
     },
   },
 }
+
+export const office: OfficeModel = {
+  id: 'REA',
+  created: '2020-02-28T10:34:06.0000000Z',
+  modified: '2020-02-28T10:34:06.0000000Z',
+  name: 'Reapit',
+  manager: 'Mr John Smith',
+  address: {
+    buildingName: '',
+    buildingNumber: '15',
+    line1: 'Example street',
+    line2: 'Solihull',
+    line3: 'West Midlands',
+    line4: '',
+    postcode: 'B91 2XX',
+    countryId: 'GB',
+  },
+  workPhone: '01234 567890',
+  email: 'example@email.com',
+  metadata: {},
+  _eTag: '"104F6D31FAFEB3B1DE6BB9CF8E071094"',
+  _links: { self: { href: '/offices/REA' }, negotiators: { href: '/negotiators/?officeId=REA' } },
+}
+
+export const mockCreateOfficeParams: CreateOfficeParams = {
+  name: 'Reapit',
+  address: {
+    line1: 'London road',
+    postcode: 'HP19 9QL',
+  },
+  workPhone: '0987654321',
+  email: 'tester@reapit.com',
+}
+
+export const mockUpdateOfficeParams: UpdateOfficeParams = {
+  id: 'REA',
+  _eTag: '"104F6D31FAFEB3B1DE6BB9CF8E071094"',
+  name: 'New Reapit',
+}
+
+export const mockChangeCellsForUpdateCase: ChangedCells = [
+  {
+    oldCell: {
+      key: 'name',
+      value: 'Reapit',
+      isValidated: true,
+    },
+    newCell: {
+      key: 'name',
+      value: 'Reapit new name',
+      isValidated: true,
+    },
+    row: 1,
+    col: 0,
+  },
+]
+
+export const mockChangeCellsForCreateCase: ChangedCells = [
+  {
+    oldCell: {
+      key: 'name',
+      value: '',
+      isValidated: true,
+    },
+    newCell: {
+      key: 'name',
+      value: 'Reapit',
+      isValidated: true,
+    },
+    row: 1,
+    col: 0,
+  },
+]
