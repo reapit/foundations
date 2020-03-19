@@ -73,7 +73,7 @@ export const mockChangeCellsForCreateCase: ChangedCells = [
 export const mockOfficeCellRenderProps = {
   row: 1,
   col: 5,
-  cell: { value: 'REA|Reapit' },
+  cell: { value: 'Reapit' },
   selected: false,
   editing: false,
   updated: false,
@@ -130,7 +130,7 @@ export const mockSpreadSheetDataForUpdateCase: Cell[][] = [
     },
     {
       readOnly: true,
-      value: 'BDF|River Town',
+      value: 'River Town',
     },
     {
       readOnly: true,
@@ -193,7 +193,7 @@ export const mockSpreadSheetDataForCreateCase: Cell[][] = [
     },
     {
       readOnly: true,
-      value: 'BDF|River Town',
+      value: 'River Town',
       isValidated: true,
     },
     {

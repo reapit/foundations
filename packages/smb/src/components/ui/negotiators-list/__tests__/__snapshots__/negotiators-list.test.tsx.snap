@@ -14990,7 +14990,7 @@ exports[`NegotiatorList renderNegotiatorList should match snapshot 3`] = `
           Object {
             "CustomComponent": [Function],
             "readOnly": true,
-            "value": "BDF|River Town",
+            "value": "River Town",
           },
           Object {
             "CustomComponent": [Function],
@@ -15022,7 +15022,7 @@ exports[`NegotiatorList renderNegotiatorList should match snapshot 3`] = `
           Object {
             "CustomComponent": [Function],
             "readOnly": true,
-            "value": "BDF|River Town",
+            "value": "River Town",
           },
           Object {
             "CustomComponent": [Function],
@@ -15054,7 +15054,7 @@ exports[`NegotiatorList renderNegotiatorList should match snapshot 3`] = `
           Object {
             "CustomComponent": [Function],
             "readOnly": true,
-            "value": "BDF|River Town",
+            "value": "River Town",
           },
           Object {
             "CustomComponent": [Function],

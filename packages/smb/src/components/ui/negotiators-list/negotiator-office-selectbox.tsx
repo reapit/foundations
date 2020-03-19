@@ -57,19 +57,13 @@ export const NegotiatorOfficeSelectbox: React.FC<NegotiatorOfficeSelectboxProps>
     cell: { value: office },
   } = cellRenderProps
 
-  const [value, setValue] = React.useState<string>()
+  const [value, setValue] = React.useState<string>('')
 
-  const officeId = office?.split('|')[0]
-  const officeName = office?.split('|')[1]
   const selectedRow = spreadsheetData[row]
   const id = selectedRow[6].value
 
-  React.useEffect(() => {
-    setValue(officeId)
-  }, [officeId])
-
   return id ? (
-    <span className="value-viewer">{officeName}</span>
+    <span className="value-viewer">{office}</span>
   ) : (
     <div>
       <div className="field">

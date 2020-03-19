@@ -45,6 +45,16 @@ export const handleCheckBoxChange = ({ e, data, row, col, disabled, setChecked, 
   })
 }
 
+export const handleUseEffect = (value, setChecked) => {
+  return () => {
+    if (value || value === 'true') {
+      setChecked(true)
+    } else {
+      setChecked(false)
+    }
+  }
+}
+
 export const NegotiatorStatusCheckbox: React.FC<NegotiatorStatusCheckboxProps> = ({
   cellRenderProps,
   data,
@@ -60,13 +70,7 @@ export const NegotiatorStatusCheckbox: React.FC<NegotiatorStatusCheckboxProps> =
 
   const [checked, setChecked] = React.useState(false)
 
-  React.useEffect(() => {
-    if (value || value === 'true') {
-      setChecked(true)
-    } else {
-      setChecked(false)
-    }
-  }, [value])
+  React.useEffect(handleUseEffect(value, setChecked), [value])
 
   const onChange = e => {
     const params = {

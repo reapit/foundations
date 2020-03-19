@@ -137,7 +137,7 @@ export const getDataTable = (
       { value: jobTitle },
       { value: email },
       { value: mobilePhone },
-      { readOnly: true, value: `${office?.id}|${office?.name}`, CustomComponent: OfficeSelectbox },
+      { readOnly: true, value: office?.name, CustomComponent: OfficeSelectbox },
       { readOnly: true, value: active, CustomComponent: StatusCheckbox },
       { value: id, className: 'hidden' },
       { value: _eTag, className: 'hidden' },
@@ -247,36 +247,37 @@ export const handleAfterCellsChanged = (updateNegotiator, createNegotiator) => {
           },
         },
       })
-    } else {
-      const isValid = selectedRow.every(item => item.isValidated)
-      if (!isValid) {
-        return
-      }
-      const createNegotiatorVariables = prepareCreateNegeotiatorParams(data, changes[0].row)
-      createNegotiator({
-        variables: createNegotiatorVariables,
-        optimisticResponse: {
-          __typename: 'Mutation',
-          CreateNegotiator: {
-            ...createNegotiatorVariables,
-            id: Math.random(),
-            created: new Date().toISOString,
-            modified: new Date().toISOString,
-            workPhone: null,
-            metadata: null,
-            _eTag: null,
-            _links: null,
-            _embedded: {
-              office: {
-                id: officeId,
-                name: officeName,
-              },
-            },
-            __typename: 'NegotiatorModel',
-          },
-        },
-      })
+      return
     }
+
+    const isValid = selectedRow.every(item => item.isValidated)
+    if (!isValid) {
+      return
+    }
+    const createNegotiatorVariables = prepareCreateNegeotiatorParams(data, changes[0].row)
+    createNegotiator({
+      variables: createNegotiatorVariables,
+      optimisticResponse: {
+        __typename: 'Mutation',
+        CreateNegotiator: {
+          ...createNegotiatorVariables,
+          id: Math.random(),
+          created: new Date().toISOString,
+          modified: new Date().toISOString,
+          workPhone: null,
+          metadata: null,
+          _eTag: null,
+          _links: null,
+          _embedded: {
+            office: {
+              id: officeId,
+              name: officeName,
+            },
+          },
+          __typename: 'NegotiatorModel',
+        },
+      },
+    })
   }
 }
 

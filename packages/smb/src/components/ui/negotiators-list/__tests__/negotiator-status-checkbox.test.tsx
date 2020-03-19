@@ -8,6 +8,7 @@ import {
 import NegotiatorStatusCheckbox, {
   NegotiatorStatusCheckboxProps,
   handleCheckBoxChange,
+  handleUseEffect,
 } from '../negotiator-status-checkbox'
 
 const mockProps: NegotiatorStatusCheckboxProps = {
@@ -48,6 +49,17 @@ describe('NegotiatorStatusCheckbox', () => {
   it('should match a snapshot', () => {
     expect(shallow(<NegotiatorStatusCheckbox {...mockProps} />)).toMatchSnapshot()
   })
+
+  describe('handleUseEffect', () => {
+    it('should run correctly', () => {
+      const mockFunction = jest.fn()
+      const mockCheckboxValue = true
+      const fn = handleUseEffect(mockCheckboxValue, mockFunction)
+      fn()
+      expect(mockFunction).toBeCalled()
+    })
+  })
+
   describe('handleCheckBoxChange', () => {
     it('should return if checkbox is disabled', () => {
       if (mockProps.disabled) {

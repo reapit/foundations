@@ -227,7 +227,7 @@ describe('NegotiatorList', () => {
           name: 'Abel Robertson',
           jobTitle: undefined,
           active: true,
-          officeId: 'BDF|River Town',
+          officeId: 'River Town',
           mobilePhone: '9481221233',
           email: 'abel.robertson@reapitestates.net',
         })
