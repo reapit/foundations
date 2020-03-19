@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NegotiatorOfficeSelectbox should match a snapshot 1`] = `
+<span
+  className="value-viewer"
+>
+  Reapit
+</span>
+`;

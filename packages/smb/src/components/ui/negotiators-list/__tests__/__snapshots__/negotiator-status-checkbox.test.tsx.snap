@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NegotiatorStatusCheckbox should match a snapshot 1`] = `
+<div
+  className="field field-checkbox"
+>
+  <input
+    checked={false}
+    className="checkbox"
+    id="1-5"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <label
+    className="label"
+    htmlFor="1-5"
+  >
+    IS ACTIVE
+  </label>
+</div>
+`;
