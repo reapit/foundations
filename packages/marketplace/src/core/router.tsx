@@ -23,7 +23,8 @@ const SwaggerPage = React.lazy(() => import('../components/pages/swagger'))
 const ElementsPage = React.lazy(() => import('../components/pages/elements'))
 const SettingsPage = React.lazy(() => import('../components/pages/settings'))
 const DeveloperWelcomePage = React.lazy(() => import('../components/pages/developer-welcome'))
-const HelpPage = React.lazy(() => import('../components/pages/help'))
+const DeveloperHelpPage = React.lazy(() => import('../components/pages/developer-help'))
+const ClientHelpPage = React.lazy(() => import('../components/pages/client-help'))
 const AnalyticsPage = React.lazy(() => import('../components/pages/analytics'))
 const ResetPassword = React.lazy(() => import('../components/pages/reset-password'))
 const ForgotPassword = React.lazy(() => import('../components/pages/forgot-password/forgot-password'))
@@ -55,6 +56,7 @@ const Router = () => {
               <PrivateRoute allow="CLIENT" path={Routes.MY_APPS} component={MyApps} fetcher exact />
               <PrivateRoute allow="CLIENT" path={Routes.CLIENT} component={Client} exact fetcher />
               <PrivateRoute allow="CLIENT" path={Routes.CLIENT_WELCOME} component={ClientWelcomePage} exact fetcher />
+              <PrivateRoute allow="CLIENT" path={Routes.CLIENT_HELP} exact fetcher component={ClientHelpPage} />
 
               <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_MY_APPS} component={DeveloperHome} exact fetcher />
               <PrivateRoute
@@ -97,7 +99,13 @@ const Router = () => {
                 exact
                 component={DeveloperWelcomePage}
               />
-              <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_HELP} exact fetcher component={HelpPage} />
+              <PrivateRoute
+                allow="DEVELOPER"
+                path={Routes.DEVELOPER_HELP}
+                exact
+                fetcher
+                component={DeveloperHelpPage}
+              />
 
               <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS} component={AdminApprovalsPage} exact fetcher />
               <PrivateRoute

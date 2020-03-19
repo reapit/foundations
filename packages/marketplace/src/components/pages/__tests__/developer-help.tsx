@@ -2,19 +2,17 @@ import * as React from 'react'
 import initChatBot from '../../../scripts/chat-bot'
 import { shallow } from 'enzyme'
 import {
-  HelpPage,
+  DeveloperHelpPage,
   handleGotoWelcomeGuide,
   handleReportBug,
   handleRequestEndpoint,
   handleFaq,
-  helpItems,
-  renderHelpItems,
   handleViewRoadmap,
   handleWhatsNew,
-} from '../help'
+} from '../developer-help'
 import Routes from '@/constants/routes'
 import { history } from '@/core/router'
-import { HelpLinks } from '@/constants/help-links'
+import { HelpLinks } from '@/constants/developer-help-links'
 import { mockLoginSession } from '../../../sagas/__tests__/auth'
 
 jest.mock('../../../scripts/chat-bot')
@@ -29,9 +27,9 @@ afterEach(() => {
   jest.clearAllMocks()
 })
 
-describe('HelpPage', () => {
+describe('DeveloperHelpPage', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<HelpPage loginIdentity={mockLoginSession.loginIdentity} />)).toMatchSnapshot()
+    expect(shallow(<DeveloperHelpPage loginIdentity={mockLoginSession.loginIdentity} />)).toMatchSnapshot()
   })
 })
 
@@ -76,11 +74,5 @@ describe('handleFaq', () => {
     handleFaq(mockLoginSession.loginIdentity)
     expect(initChatBot).toHaveBeenCalledTimes(1)
     expect(initChatBot).toHaveBeenCalledWith(mockLoginSession.loginIdentity)
-  })
-})
-
-describe('renderHelpItems', () => {
-  it('should match snapshot', () => {
-    expect(renderHelpItems(helpItems(mockLoginSession.loginIdentity))).toMatchSnapshot()
   })
 })
