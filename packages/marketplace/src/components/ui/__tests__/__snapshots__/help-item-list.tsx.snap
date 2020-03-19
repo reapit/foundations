@@ -1,0 +1,226 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HelpItemList should match a snapshot 1`] = `
+<Component>
+  <Component
+    key="Welcome Guide"
+  >
+    <Component
+      centerContent={true}
+      flexColumn={true}
+      hasPadding={true}
+    >
+      <div>
+        <img
+          alt="Welcome Guide"
+          src=""
+        />
+      </div>
+      <Component
+        isCentered={true}
+      >
+        Welcome Guide
+      </Component>
+      <p>
+        Need a little help? Have a look through the Welcome Guide, which we’ve put
+      together to help you navigate through your Developer portal.
+      </p>
+      <p>
+        <Component
+          disabled={false}
+          fullWidth={false}
+          loading={false}
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          VIEW
+        </Component>
+      </p>
+    </Component>
+  </Component>
+  <Component
+    key="Request a Feature"
+  >
+    <Component
+      centerContent={true}
+      flexColumn={true}
+      hasPadding={true}
+    >
+      <div>
+        <img
+          alt="Request a Feature"
+          src=""
+        />
+      </div>
+      <Component
+        isCentered={true}
+      >
+        Request a Feature
+      </Component>
+      <p>
+        Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will
+      look at all requests carefully however, we cannot guarantee all will be implemented.
+      </p>
+      <p>
+        <Component
+          disabled={false}
+          fullWidth={false}
+          loading={false}
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          REQUEST
+        </Component>
+      </p>
+    </Component>
+  </Component>
+  <Component
+    key="Report a Bug"
+  >
+    <Component
+      centerContent={true}
+      flexColumn={true}
+      hasPadding={true}
+    >
+      <div>
+        <img
+          alt="Report a Bug"
+          src=""
+        />
+      </div>
+      <Component
+        isCentered={true}
+      >
+        Report a Bug
+      </Component>
+      <p>
+        Please report details of any bugs in relation to the Reapit Developer portal or Reapit Foundations API here. 
+      </p>
+      <p>
+        <Component
+          disabled={false}
+          fullWidth={false}
+          loading={false}
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          REPORT
+        </Component>
+      </p>
+    </Component>
+  </Component>
+  <Component
+    key="Roadmap"
+  >
+    <Component
+      centerContent={true}
+      flexColumn={true}
+      hasPadding={true}
+    >
+      <div>
+        <img
+          alt="Roadmap"
+          src=""
+        />
+      </div>
+      <Component
+        isCentered={true}
+      >
+        Roadmap
+      </Component>
+      <p>
+        Want to see what we are building or check on the progress of your feature requests?
+      You can see our product roadmap milestones here. 
+      </p>
+      <p>
+        <Component
+          disabled={false}
+          fullWidth={false}
+          loading={false}
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          VIEW
+        </Component>
+      </p>
+    </Component>
+  </Component>
+  <Component
+    key="Need Help?"
+  >
+    <Component
+      centerContent={true}
+      flexColumn={true}
+      hasPadding={true}
+    >
+      <div>
+        <img
+          alt="Need Help?"
+          src=""
+        />
+      </div>
+      <Component
+        isCentered={true}
+      >
+        Need Help?
+      </Component>
+      <p>
+        If you need any support, we are here to help. Why not talk to one of our Developers or Product Owners directly.
+      </p>
+      <p>
+        <Component
+          disabled={false}
+          fullWidth={false}
+          loading={false}
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          START CHAT
+        </Component>
+      </p>
+    </Component>
+  </Component>
+  <Component
+    key="What’s New"
+  >
+    <Component
+      centerContent={true}
+      flexColumn={true}
+      hasPadding={true}
+    >
+      <div>
+        <img
+          alt="What’s New"
+          src=""
+        />
+      </div>
+      <Component
+        isCentered={true}
+      >
+        What’s New
+      </Component>
+      <p>
+        We are constantly working to improve your experience with the Foundations Platform. Have a look to see what
+      new features and fixes have been released.
+      </p>
+      <p>
+        <Component
+          disabled={false}
+          fullWidth={false}
+          loading={false}
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          VIEW
+        </Component>
+      </p>
+    </Component>
+  </Component>
+</Component>
+`;

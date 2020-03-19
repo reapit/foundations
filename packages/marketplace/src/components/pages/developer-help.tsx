@@ -1,9 +1,9 @@
 import * as React from 'react'
 import initChatBot from '../../scripts/chat-bot'
 import { history } from '@/core/router'
-import { H3, Button, GridFourCol, GridFourColItem, H4, FlexContainerBasic } from '@reapit/elements'
+import { H3 } from '@reapit/elements'
 import Routes from '@/constants/routes'
-import { HelpLinks } from '@/constants/help-links'
+import { HelpLinks } from '@/constants/developer-help-links'
 import styles from '@/styles/pages/help.scss?mod'
 import welcomeImg from '@/assets/images/help/welcome-guide.jpg'
 import requestEndpointImg from '@/assets/images/help/request-endpoint.jpg'
@@ -11,6 +11,7 @@ import reportBugImg from '@/assets/images/help/report-bugs.jpg'
 import liveChatImg from '@/assets/images/help/live-chat.jpg'
 import roadmapImg from '@/assets/images/help/time-line.jpg'
 import whatNewImg from '@/assets/images/help/what-new.png'
+import { HelpItem, HelpItemList } from '@/components/ui/help-item-list'
 
 import { LoginIdentity } from '@reapit/cognito-auth'
 import { ReduxState } from '../../types/core'
@@ -38,14 +39,6 @@ export const handleWhatsNew = () => {
 
 export const handleFaq = (loginIdentity?: LoginIdentity) => {
   initChatBot(loginIdentity)
-}
-
-export interface HelpItem {
-  imgSrc: string
-  header: string
-  text: string
-  buttonText: string
-  buttonOnClick: () => void
 }
 
 export const helpItems = (loginIdentity?: LoginIdentity): HelpItem[] => [
@@ -99,35 +92,6 @@ export const helpItems = (loginIdentity?: LoginIdentity): HelpItem[] => [
   },
 ]
 
-export const renderHelpItems = (items: HelpItem[]): React.ReactNode => (
-  <GridFourCol className={styles.wrapListItems}>
-    {items.map(({ imgSrc, header, text, buttonText, buttonOnClick }) => (
-      <GridFourColItem className={styles.item} key={header}>
-        <FlexContainerBasic className={styles.wrapBoxContent} flexColumn centerContent hasPadding>
-          <div className={styles.wrapImage}>
-            <img className={styles.image} src={imgSrc} alt={header} />
-          </div>
-          <H4 isCentered>{header}</H4>
-          <p className={styles.text}>{text}</p>
-          <p className={styles.wrapButton}>
-            <Button
-              className={styles.button}
-              type="button"
-              variant="primary"
-              onClick={buttonOnClick}
-              disabled={false}
-              loading={false}
-              fullWidth={false}
-            >
-              {buttonText}
-            </Button>
-          </p>
-        </FlexContainerBasic>
-      </GridFourColItem>
-    ))}
-  </GridFourCol>
-)
-
 export interface HelpMappedProps {
   loginIdentity?: LoginIdentity
 }
@@ -136,13 +100,13 @@ export const mapStateToProps = (state: ReduxState): HelpMappedProps => ({
   loginIdentity: state.auth.loginSession?.loginIdentity,
 })
 
-export const HelpPage: React.FC<HelpMappedProps> = ({ loginIdentity }) => {
+export const DeveloperHelpPage: React.FC<HelpMappedProps> = ({ loginIdentity }) => {
   return (
     <div className={styles.wrapHelp}>
       <H3>Help</H3>
-      {renderHelpItems(helpItems(loginIdentity))}
+      <HelpItemList items={helpItems(loginIdentity)} />
     </div>
   )
 }
 
-export default connect(mapStateToProps, {})(HelpPage)
+export default connect(mapStateToProps, {})(DeveloperHelpPage)
