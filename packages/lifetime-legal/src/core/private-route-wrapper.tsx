@@ -10,7 +10,6 @@ import { Dispatch } from 'redux'
 import { authSetRefreshSession } from '../actions/auth'
 import Menu from '@/components/ui/menu'
 import styles from '@/styles/index.scss?mod'
-import { getMarketplaceGlobalsByKey } from '@reapit/elements'
 
 const { Suspense } = React
 
@@ -36,11 +35,9 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   setRefreshSession,
 }: PrivateRouteWrapperProps) => {
   const cognitoClientId = process.env.COGNITO_CLIENT_ID_LTL_APP as string
-  const refreshParamsRaw = getTokenFromQueryString(location.search, cognitoClientId)
-  const marketplaceGlobalObject = getMarketplaceGlobalsByKey()
+  const refreshParams = getTokenFromQueryString(location.search, cognitoClientId)
 
-  if (refreshParamsRaw && !hasSession) {
-    const refreshParams: RefreshParams = { ...refreshParamsRaw, mode: marketplaceGlobalObject ? 'DESKTOP' : 'WEB' }
+  if (refreshParams && !hasSession) {
     setRefreshSession(refreshParams)
     return null
   }

@@ -10,7 +10,6 @@ import { authSetRefreshSession } from '../actions/auth'
 import { Dispatch } from 'redux'
 import { withRouter } from 'react-router'
 import { redirectToOAuth } from '@reapit/cognito-auth'
-import { getMarketplaceGlobalsByKey } from '@reapit/elements'
 
 const { Suspense } = React
 
@@ -37,11 +36,9 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   hasSession,
 }) => {
   const cognitoClientId = process.env.COGNITO_CLIENT_ID_GEO_DIARY as string
-  const refreshParamsRaw = getTokenFromQueryString(location.search, cognitoClientId)
-  const marketplaceGlobalObject = getMarketplaceGlobalsByKey()
+  const refreshParams = getTokenFromQueryString(location.search, cognitoClientId)
 
-  if (refreshParamsRaw && !hasSession) {
-    const refreshParams: RefreshParams = { ...refreshParamsRaw, mode: marketplaceGlobalObject ? 'DESKTOP' : 'WEB' }
+  if (refreshParams && !hasSession) {
     setRefreshSession(refreshParams)
     return null
   }

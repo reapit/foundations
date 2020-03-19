@@ -11,7 +11,6 @@ import { withRouter, Redirect } from 'react-router'
 import { getDefaultRouteByLoginType, getAuthRouteByLoginType } from '@/utils/auth-route'
 import { authSetRefreshSession, checkTermsAcceptedWithCookie, setTermsAcceptedWithCookie } from '../actions/auth'
 import { getCookieString, COOKIE_FIRST_TIME_LOGIN } from '@/utils/cookie'
-import { getMarketplaceGlobalsByKey } from '@reapit/elements'
 
 const { Suspense } = React
 
@@ -53,16 +52,14 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const firstLoginCookie = getCookieString(COOKIE_FIRST_TIME_LOGIN)
   const route = getDefaultRouteByLoginType(type, firstLoginCookie)
   const cognitoClientId = process.env.COGNITO_CLIENT_ID_MARKETPLACE as string
-  const refreshParamsRaw = getTokenFromQueryString(location.search, cognitoClientId, type, route)
-  const marketplaceGlobalObject = getMarketplaceGlobalsByKey()
+  const refreshParams = getTokenFromQueryString(location.search, cognitoClientId, type, route)
 
   if (type && location.pathname === '/') {
     const path = getAuthRouteByLoginType(type)
     return <Redirect to={path} />
   }
 
-  if (refreshParamsRaw && !hasSession) {
-    const refreshParams: RefreshParams = { ...refreshParamsRaw, mode: marketplaceGlobalObject ? 'DESKTOP' : 'WEB' }
+  if (refreshParams && !hasSession) {
     setRefreshSession(refreshParams)
     return null
   }

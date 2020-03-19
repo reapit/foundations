@@ -4,7 +4,6 @@ import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import RouteFetcher from '../components/hocs/route-fetcher'
 import Routes from '@/constants/routes'
-import { getMarketplaceGlobalsByKey } from '@reapit/elements'
 
 export type LoginType = 'CLIENT' | 'DEVELOPER'
 
@@ -37,7 +36,8 @@ export const PrivateRoute = ({
           return <Redirect to="/404" />
         }
 
-        const cntCode = getMarketplaceGlobalsByKey('cntCode')
+        const searchParams = new URLSearchParams(props.location.search)
+        const cntCode = searchParams && searchParams.get('cntCode') ? searchParams.get('cntCode') : null
 
         if (cntCode) {
           return <Redirect to={`${Routes.CHECKLIST_DETAIL_WITHOUT_ID}/${cntCode}`} />
