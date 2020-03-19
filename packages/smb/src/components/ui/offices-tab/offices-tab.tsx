@@ -2,14 +2,33 @@ import * as React from 'react'
 import { useLocation, useHistory } from 'react-router-dom'
 import queryString from 'query-string'
 import { ApolloError } from 'apollo-boost'
-import { useQuery } from '@apollo/react-hooks'
+import { useQuery, useMutation } from '@apollo/react-hooks'
 import { QueryResult } from '@apollo/react-common'
-import { Loader, Cell, Alert, Section, Pagination, Spreadsheet } from '@reapit/elements'
-import { PagedResultOfficeModel_, OfficeModel } from '@reapit/foundations-ts-definitions'
-import { OFFICES } from './offices-tab.graphql'
+import {
+  Loader,
+  Cell,
+  AfterCellsChanged,
+  Alert,
+  Section,
+  Pagination,
+  Spreadsheet,
+  ChangedCells,
+  isEmail,
+  fieldValidateRequire,
+  Toast,
+  ErrorData,
+} from '@reapit/elements'
+import {
+  PagedResultOfficeModel_,
+  OfficeModel,
+  CreateOfficeModel,
+  UpdateOfficeModel,
+} from '@reapit/foundations-ts-definitions'
+import { GET_OFFICES, CREATE_OFFICE, UPDATE_OFFICE } from './offices-tab.graphql'
 import { OFFICES_PER_PAGE } from '@/constants/paginators'
+import { isNumber } from '@/utils/validators'
 
-export const tableHeaders: DataTableRow[] = [
+export const tableHeaders: Cell[] = [
   { readOnly: true, value: 'Office Name' },
   { readOnly: true, value: 'Building Name' },
   { readOnly: true, value: 'Building No.' },
@@ -37,9 +56,16 @@ export type OfficesQueryResponse = {
   GetOffices?: PagedResultOfficeModel_
 }
 
-export type DataTableRow = {
-  value?: string
-  readOnly?: boolean
+export type CreateOfficeParams = CreateOfficeModel
+
+export type CreateOfficeResponse = {
+  CreateOffice: OfficeModel
+}
+
+export type UpdateOfficeParams = { id: string; _eTag: string } & UpdateOfficeModel
+
+export type UpdateOfficeResponse = {
+  UpdateOffice: OfficeModel
 }
 
 export type RenderContentParams = {
@@ -48,8 +74,9 @@ export type RenderContentParams = {
   pageNumber?: number
   pageSize?: number
   totalCount?: number
-  dataTable: DataTableRow[][]
+  dataTable: Cell[][]
   handleChangePage: (page: number) => void
+  afterCellsChanged: AfterCellsChanged
 }
 
 export const renderContent = ({
@@ -60,6 +87,7 @@ export const renderContent = ({
   pageSize = 0,
   totalCount = 0,
   handleChangePage,
+  afterCellsChanged,
 }: RenderContentParams) => {
   if (loading) {
     return <Loader />
@@ -69,18 +97,7 @@ export const renderContent = ({
   }
   return (
     <React.Fragment>
-      <Spreadsheet
-        data={dataTable as Cell[][]}
-        description={
-          <p>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-              industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-              and scrambled it to make a type specimen book.
-            </p>
-          </p>
-        }
-      />
+      <Spreadsheet data={dataTable as Cell[][]} validate={validate} afterCellsChanged={afterCellsChanged} />
       <Section>
         <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />
       </Section>
@@ -97,17 +114,155 @@ export const handleChangePage = ({ history }) => (pageNumber: number) => {
   })
 }
 
+export const handleAfterCellChange = (createOffice, updateOffice) => (changedCells: ChangedCells, data: Cell[][]) => {
+  const [changes] = changedCells
+  const {
+    newCell: { isValidated },
+    row,
+  } = changes
+  if (!isValidated) return
+  const rowData = data[row]
+  const id = rowData[0].value as string
+  const eTag = rowData[1].value as string
+  const isEditMode = id && eTag
+  if (isEditMode) {
+    const updateOfficeParams = prepareUpdateOfficeParams(changedCells, data)
+    updateOffice({
+      variables: updateOfficeParams,
+    })
+  } else {
+    const isValidRow = rowData.every(row => row.isValidated)
+    if (!isValidRow) {
+      return
+    }
+    const createOfficeParams = prepareCreateOfficeParams(changedCells, data)
+    createOffice({
+      variables: createOfficeParams,
+    })
+  }
+}
+
+export const prepareUpdateOfficeParams = (changedCells: ChangedCells, data: Cell[][]): UpdateOfficeParams => {
+  const [changes] = changedCells
+  const {
+    newCell: { key, value },
+    row,
+  } = changes
+  const rowData = data[row]
+  const id = rowData[0].value as string
+  const eTag = rowData[1].value as string
+  const updateObj: UpdateOfficeModel = {}
+  if (key?.startsWith('address')) {
+    const addressNestedKey = key.split('.')[1]
+    updateObj.address = { [addressNestedKey]: value }
+  } else {
+    updateObj[key || ''] = value
+  }
+
+  return {
+    id,
+    _eTag: eTag,
+    ...updateObj,
+  }
+}
+
+export const prepareCreateOfficeParams = (changedCells: ChangedCells, data: Cell[][]): CreateOfficeParams => {
+  const [changes] = changedCells
+  const { row } = changes
+  const rowData = data[row]
+  const name = rowData[2].value as string
+  const buildingName = rowData[3].value as string
+  const buildingNumber = rowData[4].value as string
+  const line1 = rowData[5].value as string
+  const line2 = rowData[6].value as string
+  const line3 = rowData[7].value as string
+  const line4 = rowData[8].value as string
+  const postcode = rowData[9].value as string
+  const workPhone = rowData[10].value as string
+  const email = rowData[11].value as string
+
+  return {
+    name,
+    address: {
+      buildingName,
+      buildingNumber,
+      line1,
+      line2,
+      line3,
+      line4,
+      postcode,
+    },
+    workPhone,
+    email,
+  }
+}
+
+export const handleErrorMessageUseEffect = (createOfficeError, updateOfficeError, setErrorServer) => {
+  return () => {
+    if (createOfficeError) {
+      setErrorServer({
+        type: 'SERVER',
+        message: createOfficeError.message,
+      })
+    }
+    if (updateOfficeError) {
+      setErrorServer({
+        type: 'SERVER',
+        message: updateOfficeError.message,
+      })
+    }
+  }
+}
+
 export const OfficesTab: React.FC<OfficesTabProps> = () => {
   const location = useLocation()
   const history = useHistory()
   const params = queryString.parse(location?.search)
   const page = Number(params?.page) || 1
-  const { loading, error, data } = useQuery<OfficesQueryResponse, OfficesQueryParams>(OFFICES, {
+  const [serverError, setErrorServer] = React.useState<ErrorData | null>(null)
+  const [componentError, setErrorComponent] = React.useState<ErrorData | null>(null)
+  const { loading, error, data } = useQuery<OfficesQueryResponse, OfficesQueryParams>(GET_OFFICES, {
     variables: { pageSize: OFFICES_PER_PAGE, pageNumber: page },
-    fetchPolicy: 'network-only',
   }) as QueryResult<OfficesQueryResponse, OfficesQueryParams>
+  const [createOffice, { error: createOfficeError }] = useMutation<CreateOfficeResponse, CreateOfficeParams>(
+    CREATE_OFFICE,
+    {
+      update: (proxy, fetchResult) => {
+        const cacheData = proxy.readQuery<OfficesQueryResponse, OfficesQueryParams>({
+          query: GET_OFFICES,
+          variables: { pageSize: OFFICES_PER_PAGE, pageNumber: page },
+        })
+        proxy.writeQuery({
+          query: GET_OFFICES,
+          variables: { pageSize: OFFICES_PER_PAGE, pageNumber: page },
+          data: {
+            GetOffices: {
+              ...cacheData?.GetOffices,
+              _embedded: [...(cacheData?.GetOffices?._embedded || []), fetchResult.data?.CreateOffice],
+            },
+          },
+        })
+      },
+    },
+  )
+  const [updateOffice, { error: updateOfficeError }] = useMutation<UpdateOfficeResponse, UpdateOfficeParams>(
+    UPDATE_OFFICE,
+  )
 
-  const dataTable = getDataTable(data || { GetOffices: { _embedded: [] } })
+  const dataTable = React.useMemo(() => getDataTable(data || { GetOffices: { _embedded: [] } }), [data])
+
+  React.useEffect(handleErrorMessageUseEffect(createOfficeError, updateOfficeError, setErrorServer), [
+    createOfficeError,
+    updateOfficeError,
+  ])
+
+  const errorClearedComponent = () => {
+    setErrorComponent(null)
+  }
+
+  const errorClearedServer = () => {
+    setErrorServer(null)
+  }
 
   return (
     <div>
@@ -119,28 +274,65 @@ export const OfficesTab: React.FC<OfficesTabProps> = () => {
         pageSize: data?.GetOffices?.pageSize,
         totalCount: data?.GetOffices?.totalCount,
         handleChangePage: handleChangePage({ history }),
+        afterCellsChanged: handleAfterCellChange(createOffice, updateOffice),
       })}
+      <Toast
+        componentError={componentError}
+        serverError={serverError}
+        errorClearedComponent={errorClearedComponent}
+        errorClearedServer={errorClearedServer}
+      />
     </div>
   )
 }
 
-export function getDataTable(data: OfficesQueryResponse): DataTableRow[][] {
-  let dataTable: DataTableRow[][] = [tableHeaders]
+export function getDataTable(data: OfficesQueryResponse): Cell[][] {
+  let dataTable: Cell[][] = [tableHeaders]
   const offices: OfficeModel[] = data.GetOffices?._embedded || []
-  const dataRows: DataTableRow[][] = offices.map((office: OfficeModel) => [
-    { value: office.name },
-    { value: office.address?.buildingName },
-    { value: office.address?.buildingNumber },
-    { value: office.address?.line1 },
-    { value: office.address?.line2 },
-    { value: office.address?.line3 },
-    { value: office.address?.line4 },
-    { value: office.address?.postcode },
-    { value: office.workPhone },
-    { value: office.email },
-  ])
+  const dataRows = offices.map((office: OfficeModel) => [
+    { value: office.id, key: 'id', readOnly: true, className: 'hidden-cell' },
+    { value: office._eTag, key: '_eTag', readOnly: true, className: 'hidden-cell' },
+    { value: office.name, key: 'name' },
+    { value: office.address?.buildingName, key: 'address.buildingName' },
+    { value: office.address?.buildingNumber, key: 'address.buildingNumber' },
+    { value: office.address?.line1, key: 'address.line1' },
+    { value: office.address?.line2, key: 'address.line2' },
+    { value: office.address?.line3, key: 'address.line3' },
+    { value: office.address?.line4, key: 'address.line4' },
+    { value: office.address?.postcode, key: 'address.postcode' },
+    { value: office.workPhone, key: 'workPhone' },
+    { value: office.email, key: 'email' },
+  ]) as Cell[][]
   dataTable = [tableHeaders, ...dataRows]
   return dataTable
 }
+
+export const validate = (data: Cell[][]) =>
+  data.map((row, rowIndex) =>
+    row.map((cell, cellIndex) => {
+      if (rowIndex === 0) return true // dont need to validate header row
+      // cell name is required
+      if (cellIndex === 2) {
+        return !fieldValidateRequire(cell.value as string)
+      }
+      // cell addess1 is required
+      if (cellIndex === 5) {
+        return !fieldValidateRequire(cell.value as string)
+      }
+      // cell postalcode is required
+      if (cellIndex === 9) {
+        return !fieldValidateRequire(cell.value as string)
+      }
+      // cell telephone is required
+      if (cellIndex === 10) {
+        return !fieldValidateRequire(cell.value as string) && isNumber(cell.value as string)
+      }
+      // cell email is required
+      if (cellIndex === 11) {
+        return !fieldValidateRequire(cell.value as string) && isEmail(cell.value as string)
+      }
+      return true
+    }),
+  )
 
 export default OfficesTab

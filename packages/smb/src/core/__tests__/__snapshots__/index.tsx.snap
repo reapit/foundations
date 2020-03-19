@@ -1729,10 +1729,140 @@ exports[`App should match a snapshot 1`] = `
                 "value": "Mutation",
               },
             },
+            Object {
+              "directives": Array [],
+              "fields": Array [
+                Object {
+                  "directives": Array [],
+                  "kind": "InputValueDefinition",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "buildingName",
+                  },
+                  "type": Object {
+                    "kind": "NamedType",
+                    "name": Object {
+                      "kind": "Name",
+                      "value": "String",
+                    },
+                  },
+                },
+                Object {
+                  "directives": Array [],
+                  "kind": "InputValueDefinition",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "buildingNumber",
+                  },
+                  "type": Object {
+                    "kind": "NamedType",
+                    "name": Object {
+                      "kind": "Name",
+                      "value": "String",
+                    },
+                  },
+                },
+                Object {
+                  "directives": Array [],
+                  "kind": "InputValueDefinition",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "line1",
+                  },
+                  "type": Object {
+                    "kind": "NamedType",
+                    "name": Object {
+                      "kind": "Name",
+                      "value": "String",
+                    },
+                  },
+                },
+                Object {
+                  "directives": Array [],
+                  "kind": "InputValueDefinition",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "line2",
+                  },
+                  "type": Object {
+                    "kind": "NamedType",
+                    "name": Object {
+                      "kind": "Name",
+                      "value": "String",
+                    },
+                  },
+                },
+                Object {
+                  "directives": Array [],
+                  "kind": "InputValueDefinition",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "line3",
+                  },
+                  "type": Object {
+                    "kind": "NamedType",
+                    "name": Object {
+                      "kind": "Name",
+                      "value": "String",
+                    },
+                  },
+                },
+                Object {
+                  "directives": Array [],
+                  "kind": "InputValueDefinition",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "line4",
+                  },
+                  "type": Object {
+                    "kind": "NamedType",
+                    "name": Object {
+                      "kind": "Name",
+                      "value": "String",
+                    },
+                  },
+                },
+                Object {
+                  "directives": Array [],
+                  "kind": "InputValueDefinition",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "postcode",
+                  },
+                  "type": Object {
+                    "kind": "NamedType",
+                    "name": Object {
+                      "kind": "Name",
+                      "value": "String",
+                    },
+                  },
+                },
+                Object {
+                  "directives": Array [],
+                  "kind": "InputValueDefinition",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "countryId",
+                  },
+                  "type": Object {
+                    "kind": "NamedType",
+                    "name": Object {
+                      "kind": "Name",
+                      "value": "String",
+                    },
+                  },
+                },
+              ],
+              "kind": "InputObjectTypeDefinition",
+              "name": Object {
+                "kind": "Name",
+                "value": "OfficeModelAddressInput",
+              },
+            },
           ],
           "kind": "Document",
           "loc": Object {
-            "end": 1872,
+            "end": 2058,
             "source": Object {
               "body": "type Query {
   # contact
@@ -1824,6 +1954,17 @@ type Mutation {
     loginType: LoginType!,
     mode: LoginMode!,
   ): Token
+}
+
+input OfficeModelAddressInput {
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
 }
 ",
               "locationOffset": Object {
