@@ -16,6 +16,7 @@ import { mockCognitoUserSession, mockLoginSession } from '../__mocks__/cognito-s
 import hardtack from 'hardtack'
 import { LoginIdentity } from '../core/types'
 import { redirectToLogout } from './cognito'
+import { getMarketplaceGlobalsByKey } from '@reapit/elements'
 
 jest.mock('amazon-cognito-identity-js', () => require('../__mocks__/cognito-session').mockCognito)
 
@@ -31,6 +32,10 @@ jest.mock('jsonwebtoken', () => ({
       email: 'SOME_EMAIL',
     }),
   },
+}))
+
+jest.mock('@reapit/elements', () => ({
+  getMarketplaceGlobalsByKey: jest.fn(() => ({ key: 'value' })),
 }))
 
 describe('Session utils', () => {
@@ -103,6 +108,7 @@ describe('Session utils', () => {
 
   describe('getTokenFromQueryString', () => {
     it('should correctly return RefreshParams for desktop mode', () => {
+      ;(getMarketplaceGlobalsByKey as jest.Mock).mockImplementation(() => ({ key: 'value' }))
       const validQuery = '?code=TOKEN&state=DEVELOPER,DESKTOP'
       ;(window.location as any).origin = 'some.origin'
       const cognitoClientId = 'cognitoClientId'
@@ -123,6 +129,23 @@ describe('Session utils', () => {
       const invalidQuery = '?somerandomquery=wmcvay@reapit.com&somerandomtoken=TOKEN'
       const cognitoClientId = 'cognitoClientId'
       expect(getTokenFromQueryString(invalidQuery, cognitoClientId)).toBe(null)
+    })
+
+    it('should return with mode WEB when doesnt have global object', () => {
+      ;(getMarketplaceGlobalsByKey as jest.Mock).mockImplementation(() => undefined)
+      const validQuery = '?code=TOKEN&state=DEVELOPER,DESKTOP'
+      ;(window.location as any).origin = 'some.origin'
+      const cognitoClientId = 'cognitoClientId'
+      expect(getTokenFromQueryString(validQuery, cognitoClientId)).toEqual({
+        loginType: 'CLIENT',
+        mode: 'WEB',
+        cognitoClientId,
+        authorizationCode: 'TOKEN',
+        redirectUri: 'some.origin',
+        state: 'DEVELOPER,DESKTOP',
+        refreshToken: null,
+        userName: null,
+      })
     })
   })
 

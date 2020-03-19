@@ -2,6 +2,7 @@ import hardtack from 'hardtack'
 import jwt from 'jsonwebtoken'
 import { CognitoUserPool, CognitoUser, CognitoUserSession } from 'amazon-cognito-identity-js'
 import { LoginSession, RefreshParams, LoginType, LoginIdentity, CoginitoIdentity } from '../core/types'
+import { getMarketplaceGlobalsByKey } from '@reapit/elements'
 
 export const COOKIE_SESSION_KEY = 'reapit-marketplace-session'
 export const COOKIE_EXPIRY = new Date(Date.now() + 2629800000).toUTCString() // 1month from now
@@ -72,7 +73,8 @@ export const getTokenFromQueryString = (
   const params = new URLSearchParams(queryString)
   const authorizationCode = params.get('code')
   const state = params.get('state')
-  const mode = state && state.includes('DESKTOP') ? 'DESKTOP' : 'WEB'
+  const marketplaceGlobalObject = getMarketplaceGlobalsByKey()
+  const mode = marketplaceGlobalObject ? 'DESKTOP' : 'WEB'
 
   if (authorizationCode) {
     return {

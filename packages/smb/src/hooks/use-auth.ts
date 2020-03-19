@@ -9,6 +9,7 @@ import {
   getSessionCookie,
 } from '@reapit/cognito-auth'
 import { COOKIE_SESSION_KEY } from '../constants/api'
+import { getMarketplaceGlobalsByKey } from '@reapit/elements'
 
 export type AuthHook = {
   loginSession?: LoginSession | null
@@ -24,8 +25,13 @@ export const useAuth = (): AuthHook => {
     window.location.search,
     process.env.COGNITO_CLIENT_ID_SMB as string,
   )
-  const cookieParams = getSessionCookie(COOKIE_SESSION_KEY)
-  const refreshParams = cookieParams ? cookieParams : urlParams
+  const cookieParams: RefreshParams | null = getSessionCookie(COOKIE_SESSION_KEY)
+  const refreshParamsRaw: RefreshParams | null = cookieParams ? cookieParams : urlParams
+  const marketplaceGlobalObject = getMarketplaceGlobalsByKey()
+  const refreshParams: RefreshParams | null = refreshParamsRaw && {
+    ...refreshParamsRaw,
+    mode: marketplaceGlobalObject ? 'DESKTOP' : 'WEB',
+  }
   const getLoginSession = async () => {
     if (isFetchSession) return
     setFetchSession(true)
