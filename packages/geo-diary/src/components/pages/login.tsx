@@ -13,8 +13,7 @@ export interface LoginProps {
   hasSession: boolean
 }
 
-const loginHandler = () =>
-  redirectToLogin(process.env.COGNITO_CLIENT_ID_GEO_DIARY as string, `${window.location.origin}`)
+const loginHandler = () => redirectToLogin(window.reapit.config.cognitoClientId, `${window.location.origin}`)
 
 export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {
   const { hasSession } = props

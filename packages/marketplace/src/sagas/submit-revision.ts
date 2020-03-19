@@ -1,6 +1,6 @@
 import { imageUploaderHelper } from './submit-app'
 import { fetcher } from '@reapit/elements'
-import { URLS, MARKETPLACE_HEADERS } from '../constants/api'
+import { URLS, generateHeader } from '../constants/api'
 import { submitRevisionSetFormState } from '../actions/submit-revision'
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
@@ -56,10 +56,10 @@ export const submitRevision = function*({ data }: Action<CreateAppRevisionModel 
 
     const regResponse: true | undefined = yield call(fetcher, {
       url: `${URLS.apps}/${id}/revisions`,
-      api: process.env.MARKETPLACE_API_BASE_URL as string,
+      api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
       body: updatedValuesAfterValidatingCategoryId,
-      headers: MARKETPLACE_HEADERS,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
     })
 
     const status = regResponse ? 'SUCCESS' : 'ERROR'

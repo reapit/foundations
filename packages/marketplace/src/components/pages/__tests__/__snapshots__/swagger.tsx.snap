@@ -13,6 +13,7 @@ exports[`Swagger should match a snapshot 1`] = `
         docExpansion="none"
         onComplete={[Function]}
         requestInterceptor={[Function]}
+        url=""
       />
     </div>
     <Component

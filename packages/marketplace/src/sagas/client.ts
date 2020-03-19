@@ -4,7 +4,7 @@ import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effec
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
-import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
+import { URLS, generateHeader } from '@/constants/api'
 import { APPS_PER_PAGE, FEATURED_APPS } from '@/constants/paginator'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { Action } from '@/types/core'
@@ -41,25 +41,25 @@ export const clientDataFetch = function*({ data }) {
           IsFeatured: isFilteringForDirectApiApps ? undefined : false,
           IsDirectApi: isFilteringForDirectApiApps ? true : undefined,
         })}`,
-        api: process.env.MARKETPLACE_API_BASE_URL as string,
+        api: window.reapit.config.marketplaceApiUrl,
         method: 'GET',
-        headers: MARKETPLACE_HEADERS,
+        headers: generateHeader(window.reapit.config.marketplaceApiKey),
       }),
       !!search || !!category
         ? currentFeaturedApps
         : call(fetcher, {
             url: `${URLS.apps}?clientId=${clientId}&PageNumber=1&PageSize=${FEATURED_APPS}&IsFeatured=true`,
-            api: process.env.MARKETPLACE_API_BASE_URL as string,
+            api: window.reapit.config.marketplaceApiUrl,
             method: 'GET',
-            headers: MARKETPLACE_HEADERS,
+            headers: generateHeader(window.reapit.config.marketplaceApiKey),
           }),
       currentCategories.length > 1
         ? currentCategories
         : call(fetcher, {
             url: `${URLS.categories}`,
             method: 'GET',
-            api: process.env.MARKETPLACE_API_BASE_URL as string,
-            headers: MARKETPLACE_HEADERS,
+            api: window.reapit.config.marketplaceApiUrl,
+            headers: generateHeader(window.reapit.config.marketplaceApiKey),
           }),
     ])
     if (apps && categories && featuredApps) {

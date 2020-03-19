@@ -5,7 +5,7 @@ const { compilerOptions } = require('./tsconfig.json')
 module.exports = {
   ...baseConfig,
   transform: {
-    '^.+\\.graphql$': 'jest-transform-graphql',
+    "\\.(gql|graphql)$": "jest-transform-graphql"
   },
   coveragePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]', 'index.ts'],
   moduleNameMapper: {

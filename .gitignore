@@ -27,6 +27,7 @@
 .env.production.local
 .vscode
 reapit-config.json
+config.json
 reapit-config-types.ts
 env.yml
 

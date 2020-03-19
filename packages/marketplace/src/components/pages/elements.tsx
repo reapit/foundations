@@ -9,7 +9,7 @@ const ElementsPage: React.SFC = () => (
         <iframe
           style={{ border: 'none', height: '100%' }}
           scrolling="no"
-          src={process.env.ELEMENTS_DOCUMENT_URL}
+          src={window.reapit.config.elementDocumentUrl}
           width="100%"
           height="100%"
         />

@@ -5,7 +5,7 @@ import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'
 import messages from '@/constants/messages'
-import { MARKETPLACE_HEADERS, URLS } from '@/constants/api'
+import { generateHeader, URLS } from '@/constants/api'
 import { settingShowLoading, requestDeveloperDataSuccess, ChangePasswordParams } from '@/actions/settings'
 import { errorThrownServer } from '@/actions/error'
 import { showNotificationMessage } from '@/actions/notification-message'
@@ -17,9 +17,9 @@ import { logger } from 'logger'
 export const fetchDeveloperInfo = async (developerId: string | null | undefined) => {
   const response = await fetcher({
     url: `${URLS.developers}/${developerId}`,
-    api: process.env.MARKETPLACE_API_BASE_URL as string,
+    api: window.reapit.config.marketplaceApiUrl,
     method: 'GET',
-    headers: MARKETPLACE_HEADERS,
+    headers: generateHeader(window.reapit.config.marketplaceApiKey),
   })
   return response
 }
@@ -56,9 +56,9 @@ export type UpdateDeveloperInfoParams = {
 export const updateDeveloperInfo = async ({ developerId, values }: UpdateDeveloperInfoParams) => {
   const response = await fetcher({
     url: `${URLS.developers}/${developerId}`,
-    api: process.env.MARKETPLACE_API_BASE_URL as string,
+    api: window.reapit.config.marketplaceApiUrl,
     method: 'PUT',
-    headers: MARKETPLACE_HEADERS,
+    headers: generateHeader(window.reapit.config.marketplaceApiKey),
     body: values,
   })
   return response
@@ -106,7 +106,7 @@ export const developerPasswordChange = function*({ data }: Action<ChangePassword
     const email = yield select(selectDeveloperEmail)
     /* rename for compatible reason */
     const { currentPassword: password, password: newPassword } = data
-    const cognitoClientId = process.env.COGNITO_CLIENT_ID_MARKETPLACE || ''
+    const cognitoClientId = window.reapit.config.cognitoClientId
     const response = yield call(changePassword, {
       userName: email,
       password,

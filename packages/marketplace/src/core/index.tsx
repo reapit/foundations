@@ -2,42 +2,64 @@ import * as OfflinePluginRuntime from 'offline-plugin/runtime'
 OfflinePluginRuntime.install()
 import '../styles/index.scss'
 import * as Sentry from '@sentry/browser'
-import * as React from 'react'
+import React from 'react'
 import { render } from 'react-dom'
-import Router from './router'
-import { Provider } from 'react-redux'
-import store from './store'
-import Toast from '../components/ui/toast'
-import ToastMessage from '../components/ui/toast-message'
-import { PortalProvider } from '@reapit/elements'
 import ReactGA from 'react-ga'
+import { Config } from '@/types/global'
+import App from './app'
 
-if (process.env.NODE_ENV === 'production') {
-  Sentry.init({
-    release: process.env.APP_VERSION,
-    dsn: process.env.SENTRY_PROJECT_URL_MARKETPLACE,
+// Init global config
+window.reapit = {
+  config: {
+    appEnv: 'production',
+    sentryDns: '',
+    marketplaceApiUrl: '',
+    marketplaceApiKey: '',
+    uploadApiUrl: '',
+    swaggerUrl: '',
+    elementDocumentUrl: '',
+    cognitoClientId: '',
+    googleAnalyticsKey: '',
+    cognitoOAuthUrl: '',
+  },
+}
+
+export const renderApp = (Component: React.ComponentType) => {
+  const rootElement = document.querySelector('#root') as Element
+  if (rootElement) {
+    render(<Component />, rootElement)
+  }
+}
+
+const run = async () => {
+  await fetch('config.json')
+    .then(response => response.json())
+    .then((config: Config) => {
+      window.reapit.config = config
+      const isLocal = config.appEnv === 'local'
+      if (!isLocal && config.sentryDns) {
+        Sentry.init({
+          release: process.env.APP_VERSION,
+          dsn: config.sentryDns,
+          environment: config.appEnv,
+        })
+      }
+      if (!isLocal && config.googleAnalyticsKey) {
+        ReactGA.initialize(config.googleAnalyticsKey)
+        ReactGA.pageview(window.location.pathname + window.location.search)
+      }
+      renderApp(App)
+    })
+    .catch(error => {
+      console.error('Cannot fetch config', error)
+    })
+}
+
+if (module['hot']) {
+  module['hot'].accept('./app', () => {
+    const NextApp = require('./app').default
+    renderApp(NextApp)
   })
 }
 
-if (process.env.NODE_ENV !== 'development' && process.env.MARKETPLACE_GOOGLE_ANALYTICS_KEY) {
-  ReactGA.initialize(process.env.MARKETPLACE_GOOGLE_ANALYTICS_KEY)
-  ReactGA.pageview(window.location.pathname + window.location.search)
-}
-
-const rootElement = document.querySelector('#root') as Element
-
-const App = () => (
-  <Provider store={store.reduxStore}>
-    <PortalProvider>
-      <Router />
-    </PortalProvider>
-    <Toast />
-    <ToastMessage />
-  </Provider>
-)
-
-if (rootElement) {
-  render(<App />, rootElement)
-}
-
-export default App
+run()

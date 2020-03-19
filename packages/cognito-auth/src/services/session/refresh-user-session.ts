@@ -34,7 +34,7 @@ export const codeRefreshUserSessionService = async (
 ): Promise<Partial<LoginSession>> => {
   const session = await fetcher({
     method: 'POST',
-    api: process.env.COGNITO_OAUTH_URL as string,
+    api: window.reapit.config.cognitoOAuthUrl,
     url:
       `/token?grant_type=authorization_code&client_id=${cognitoClientId}` +
       `&code=${authorizationCode}&redirect_uri=${redirectUri}&state=${loginType}`,

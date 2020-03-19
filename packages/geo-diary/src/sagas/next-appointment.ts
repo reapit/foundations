@@ -8,7 +8,7 @@ import { Action } from '@/types/core'
 import { getLoggedInUser } from '../components/common/appointment-detail/appointment-detail'
 import { logger } from 'logger'
 
-type Position = {
+export type Position = {
   lat: number
   lng: number
 }

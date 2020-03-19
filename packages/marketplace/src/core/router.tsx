@@ -33,9 +33,9 @@ const RegisterConfirm = React.lazy(() => import('../components/pages/register-co
 const AdminStats = React.lazy(() => import('../components/pages/admin-stats'))
 
 const Router = () => {
-  const isReapitEnvProd = process.env.REAPIT_ENV === 'PROD'
+  const isProduction = window.reapit.config.appEnv === 'production'
   const paths = [Routes.DEVELOPER_LOGIN, Routes.ADMIN_LOGIN]
-  if (!isReapitEnvProd) {
+  if (!isProduction) {
     paths.push(Routes.CLIENT_LOGIN)
   }
   return (
@@ -92,13 +92,7 @@ const Router = () => {
                 component={AnalyticsPage}
               />
               <PrivateRoute allow="DEVELOPER" path={Routes.SETTINGS} fetcher exact component={SettingsPage} />
-              <PrivateRoute
-                allow="DEVELOPER"
-                path={Routes.DEVELOPER_WELCOME}
-                fetcher
-                exact
-                component={DeveloperWelcomePage}
-              />
+              <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_WELCOME} exact component={DeveloperWelcomePage} />
               <PrivateRoute
                 allow="DEVELOPER"
                 path={Routes.DEVELOPER_HELP}
@@ -139,4 +133,5 @@ const Router = () => {
     </BrowserRouter>
   )
 }
+
 export default Router

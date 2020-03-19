@@ -1,5 +1,5 @@
 import { fetcher } from '@reapit/elements'
-import { URLS, MARKETPLACE_HEADERS } from '../constants/api'
+import { URLS, generateHeader } from '../constants/api'
 import {
   revisionDetailLoading,
   revisionDetailReceiveData,
@@ -25,15 +25,15 @@ export const revisionDetailDataFetch = function*({
   try {
     const response = yield call(fetcher, {
       url: `${URLS.apps}/${appId}/revisions/${appRevisionId}`,
-      api: process.env.MARKETPLACE_API_BASE_URL as string,
+      api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: MARKETPLACE_HEADERS,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
     })
     const scopes = yield call(fetcher, {
       url: `${URLS.scopes}`,
       method: 'GET',
-      api: process.env.MARKETPLACE_API_BASE_URL as string,
-      headers: MARKETPLACE_HEADERS,
+      api: window.reapit.config.marketplaceApiUrl,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
     })
 
     if (response && scopes) {
@@ -70,9 +70,9 @@ export const approveRevision = function*({ data: params }: Action<RevisionApprov
   try {
     const response = yield call(fetcher, {
       url: `${URLS.apps}/${appId}/revisions/${appRevisionId}/approve`,
-      api: process.env.MARKETPLACE_API_BASE_URL as string,
+      api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
-      headers: MARKETPLACE_HEADERS,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
       body,
     })
 
@@ -104,9 +104,9 @@ export const declineRevision = function*({ data: params }: Action<RevisionDeclin
   try {
     const response = yield call(fetcher, {
       url: `${URLS.apps}/${appId}/revisions/${appRevisionId}/reject`,
-      api: process.env.MARKETPLACE_API_BASE_URL as string,
+      api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
-      headers: MARKETPLACE_HEADERS,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
       body,
     })
 

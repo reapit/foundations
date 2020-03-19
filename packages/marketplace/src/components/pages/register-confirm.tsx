@@ -7,7 +7,7 @@ export const handleUseEffect = ({ userName, verificationCode, replace }) => () =
   confirmRegistration({
     userName,
     verificationCode,
-    cognitoClientId: process.env.COGNITO_CLIENT_ID_MARKETPLACE as string,
+    cognitoClientId: window.reapit.config.cognitoClientId,
   })
     .then(() => {
       replace(`${Routes.DEVELOPER_LOGIN}?isSuccess=1`)

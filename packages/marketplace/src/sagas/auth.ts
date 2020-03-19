@@ -42,11 +42,7 @@ export const doLogout = function*() {
     const authRoute = getAuthRouteByLoginType(loginType)
 
     yield call(removeSession, COOKIE_SESSION_KEY_MARKETPLACE)
-    yield call(
-      redirectToLogout,
-      process.env.COGNITO_CLIENT_ID_MARKETPLACE as string,
-      `${window.location.origin}${authRoute}`,
-    )
+    yield call(redirectToLogout, window.reapit.config.cognitoClientId, `${window.location.origin}${authRoute}`)
   } catch (err) {
     logger(err)
   }

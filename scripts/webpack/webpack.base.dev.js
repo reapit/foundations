@@ -7,7 +7,6 @@ const { EnvironmentPlugin } = require('webpack')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const { PATHS } = require('./constants')
 const { getVersionTag } = require('../release/utils')
-const config = require(PATHS.config)
 const hashFiles = require('../utils/hash-files')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 
@@ -33,7 +32,6 @@ module.exports = {
       excludeWarnings: false,
     }),
     new EnvironmentPlugin({
-      ...config[process.env.REAPIT_ENV || 'LOCAL'],
       APP_VERSION: `${tagName.packageName}_${tagName.version}`,
     }),
     new HtmlWebpackPlugin({
@@ -135,6 +133,8 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   devServer: {
+    contentBase: [path.join(process.cwd(), 'public'), path.join(process.cwd())],
+    compress: true,
     clientLogLevel: 'warning',
     historyApiFallback: true,
     stats: {

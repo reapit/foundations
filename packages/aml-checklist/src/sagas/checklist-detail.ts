@@ -35,7 +35,7 @@ export const fetchChecklist = async ({ id, headers }) => {
   try {
     const response = await fetcher({
       url: `${URLS.contacts}/${id}`,
-      api: process.env.PLATFORM_API_BASE_URL as string,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
       headers: headers,
     })
@@ -50,7 +50,7 @@ export const fetchIdentityCheck = async ({ contactId, headers }) => {
   try {
     const response = await fetcher({
       url: `${URLS.idChecks}?ContactId=${contactId}`,
-      api: process.env.PLATFORM_API_BASE_URL as string,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
       headers: headers,
     })
@@ -73,7 +73,7 @@ export const updateChecklist = async ({ contact, headers }) => {
     const { _eTag, ...otherData } = formattedContact
     const response = await fetcher({
       url: `${URLS.contacts}/${contact.id}`,
-      api: process.env.PLATFORM_API_BASE_URL as string,
+      api: window.reapit.config.platformApiUrl,
       method: 'PATCH',
       headers: {
         ...headers,
@@ -97,7 +97,7 @@ export const uploadImage = async ({ name, imageData, headers }) => {
   try {
     const response = await fetcher({
       url: '/',
-      api: process.env.UPLOAD_FILE_BASE_URL as string,
+      api: window.reapit.config.uploadApiUrl,
       method: 'POST',
       headers: headersWithoutVersion,
       body: {
@@ -118,7 +118,7 @@ export const updateIdentityCheck = async ({ identityChecks, headers }) => {
     const formatedIdentityChecks = changeTimeZoneUTCForIdentityCheck(otherData)
     const response = await fetcher({
       url: `${URLS.idChecks}/${identityChecks.id}`,
-      api: process.env.PLATFORM_API_BASE_URL as string,
+      api: window.reapit.config.platformApiUrl,
       method: 'PATCH',
       headers: {
         ...headers,
@@ -138,7 +138,7 @@ export const createIdentityCheck = async ({ identityChecks, headers }) => {
     const formatedIdentityChecks = changeTimeZoneUTCForIdentityCheck(identityChecks)
     const response = await fetcher({
       url: URLS.idChecks,
-      api: process.env.PLATFORM_API_BASE_URL as string,
+      api: window.reapit.config.platformApiUrl,
       method: 'POST',
       headers: headers,
       body: formatedIdentityChecks,
