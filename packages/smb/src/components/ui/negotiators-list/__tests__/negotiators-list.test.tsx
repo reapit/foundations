@@ -128,13 +128,14 @@ describe('NegotiatorList', () => {
     it('should match snapshot', () => {
       const mockUpdateNegotiator = jest.fn()
       const mockCreateNegotiator = jest.fn()
+      const mockUpdateNegotiatorLoading = false
       const mockParams: RenderNegotiatorListParams = {
         loading: false,
         error: undefined,
         handleChangePage: jest.fn(),
         updateNegotiator: jest.fn(),
         createNegotiator: jest.fn(),
-        dataTable: getDataTable(negotiators, mockUpdateNegotiator, mockCreateNegotiator),
+        dataTable: getDataTable(negotiators, mockUpdateNegotiator, mockUpdateNegotiatorLoading, mockCreateNegotiator),
       }
       const wrapper = shallow(<div>{renderNegotiatorList(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
@@ -143,8 +144,14 @@ describe('NegotiatorList', () => {
     describe('getDataTable', () => {
       const mockUpdateNegotiator = jest.fn()
       const mockCreateNegotiator = jest.fn()
+      const mockUpdateNegotiatorLoading = false
       it('should run correctly', () => {
-        const dataTable = getDataTable(negotiators, mockUpdateNegotiator, mockCreateNegotiator)
+        const dataTable = getDataTable(
+          negotiators,
+          mockUpdateNegotiator,
+          mockUpdateNegotiatorLoading,
+          mockCreateNegotiator,
+        )
         expect(Array.isArray(dataTable)).toBe(true)
         expect(dataTable.length).toBe(4)
         expect(dataTable[0]).toEqual(tableHeaders)
@@ -164,7 +171,13 @@ describe('NegotiatorList', () => {
       it('should run correctly', () => {
         const mockUpdateNegotiator = jest.fn()
         const mockCreateNegotiator = jest.fn()
-        const dataTable = getDataTable(negotiators, mockUpdateNegotiator, mockCreateNegotiator)
+        const mockUpdateNegotiatorLoading = false
+        const dataTable = getDataTable(
+          negotiators,
+          mockUpdateNegotiator,
+          mockUpdateNegotiatorLoading,
+          mockCreateNegotiator,
+        )
         expect(validate(dataTable as Cell[][])).toEqual([
           [true, true, true, true, true, true],
           [true, true, true, true, true, true, true, true],
@@ -179,7 +192,13 @@ describe('NegotiatorList', () => {
         const mockRowIndex = 1
         const mockUpdateNegotiator = jest.fn()
         const mockCreateNegotiator = jest.fn()
-        const dataTable = getDataTable(negotiators, mockUpdateNegotiator, mockCreateNegotiator)
+        const mockUpdateNegotiatorLoading = false
+        const dataTable = getDataTable(
+          negotiators,
+          mockUpdateNegotiator,
+          mockUpdateNegotiatorLoading,
+          mockCreateNegotiator,
+        )
         expect(prepareUpdateNegeotiatorParams(dataTable as Cell[][], mockRowIndex)).toEqual({
           id: 'MGL',
           name: 'Abel Robertson',
@@ -197,7 +216,13 @@ describe('NegotiatorList', () => {
         const mockRowIndex = 1
         const mockUpdateNegotiator = jest.fn()
         const mockCreateNegotiator = jest.fn()
-        const dataTable = getDataTable(negotiators, mockUpdateNegotiator, mockCreateNegotiator)
+        const mockUpdateNegotiatorLoading = false
+        const dataTable = getDataTable(
+          negotiators,
+          mockUpdateNegotiator,
+          mockUpdateNegotiatorLoading,
+          mockCreateNegotiator,
+        )
         expect(prepareCreateNegeotiatorParams(dataTable as Cell[][], mockRowIndex)).toEqual({
           name: 'Abel Robertson',
           jobTitle: undefined,

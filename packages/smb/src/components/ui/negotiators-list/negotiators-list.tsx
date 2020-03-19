@@ -97,6 +97,7 @@ export type RenderNegotiatorListParams = {
 export const getDataTable = (
   data: NegotiatorsQueryResponse,
   updateNegotiator: (params) => void,
+  updateNegotiatorLoading: boolean,
   createNegotiator: (params) => void,
   officeData?: OfficesQueryResponse,
 ): DataTableRow[][] => {
@@ -104,9 +105,15 @@ export const getDataTable = (
   const negotiators: NegotiatorModel[] = data.GetNegotiators?._embedded || []
 
   const StatusCheckbox = props => {
-    const { cellRenderProps, data } = props
+    const { cellRenderProps, data, setData } = props
     return (
-      <NegotiatorStatusCheckbox cellRenderProps={cellRenderProps} data={data} updateNegotiator={updateNegotiator} />
+      <NegotiatorStatusCheckbox
+        cellRenderProps={cellRenderProps}
+        data={data}
+        setData={setData}
+        updateNegotiator={updateNegotiator}
+        disabled={updateNegotiatorLoading}
+      />
     )
   }
 
@@ -336,7 +343,9 @@ export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
   const history = useHistory()
   const params = getParamsFromPath(location?.search)
   const page = Number(params?.page) || 1
-  const [updateNegotiator, { error: updateNegotiatorError }] = useMutation(UpdateNegotiator)
+  const [updateNegotiator, { error: updateNegotiatorError, loading: updateNegotiatorLoading }] = useMutation(
+    UpdateNegotiator,
+  )
 
   const { loading, error: getNegotiatorsError, data: negotiatorData } = useQuery<
     NegotiatorsQueryResponse,
@@ -407,6 +416,7 @@ export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
   const dataTable = getDataTable(
     negotiatorData || { GetNegotiators: { _embedded: [] } },
     updateNegotiator,
+    updateNegotiatorLoading,
     createNegotiator,
     officeData,
   )
