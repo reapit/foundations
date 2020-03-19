@@ -1,6 +1,7 @@
 <script lang="typescript">
   import { onMount, onDestroy } from 'svelte'
-  import searchWidgetStore from '../core/store'
+  import * as TSDefinitions from '@reapit/foundations-ts-definitions'
+  import * as SearchWidgetStore from '../core/store'
   import { generateGlobalTheme } from '../../../common/styles/theme'
   import * as Styles from '../../../common/styles/index'
   import SearchForm from './search-form.svelte'
@@ -8,11 +9,13 @@
 
   export let theme: Styles.InitializerTheme = {}
   export let apiKey: string = ''
+  let storeInstance: SearchWidgetStore.SearchWidgetStore
 
+  const searchWidgetStore = SearchWidgetStore.default
   const { resetCSS } = Styles
   const globalCSSTheme = generateGlobalTheme(theme)
   const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
-    console.log(store)
+    storeInstance = store
   })
 
   onMount(() => {
@@ -28,22 +31,57 @@
   onDestroy(() => {
     unsubscribeSearchWidgetStore()
   })
+
+  const handleItemClick = (property: TSDefinitions.PropertyModel) => {
+    searchWidgetStore.update(values => ({
+      ...values,
+      selectedProperty: property,
+    }))
+  }
 </script>
 
 <style>
+  .content {
+    display: flex;
+    margin-top: 30px;
+  }
+  .search-results {
+    width: 20%;
+  }
+  .search-results__item {
+    padding: 16px;
+  }
+  .search-results__item:hover {
+    background-color: grey;
+    color: white;
+  }
+  .search-results__item--selected {
+    border-radius: 4px;
+    border: 1px solid blue;
+  }
   .map-wrap {
     width: 600px;
     height: 600px;
-    margin-bottom: 30px;
-    margin-top: 30px;
+    margin-left: 20px;
   }
 </style>
 
 <div class={resetCSS}>
   <div class={globalCSSTheme}>
     <SearchForm />
-    <div class="map-wrap">
-      <GoogleMap />
+    <div class="content">
+      <ul class="search-results">
+        {#each storeInstance && storeInstance.properties ? storeInstance.properties._embedded : [] as property (property.id)}
+          <li on:click={e => handleItemClick(property)}
+            class="search-results__item { storeInstance.selectedProperty && storeInstance.selectedProperty.id === property.id ? 'search-results__item--selected' : '' }">{property.id}</li>
+        {/each}
+      </ul>
+      <div class="map-wrap">
+        <GoogleMap
+          properties={storeInstance && storeInstance.properties ? storeInstance.properties._embedded : []}
+          propertyImages={storeInstance.propertyImages}
+          selectedProperty={storeInstance.selectedProperty} />
+      </div>
     </div>
   </div>
 </div>

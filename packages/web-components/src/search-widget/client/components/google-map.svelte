@@ -1,36 +1,77 @@
 <script lang="typescript">
-  import { onMount, onDestroy } from 'svelte'
+  import { onMount, onDestroy, afterUpdate, beforeUpdate, setContext } from 'svelte'
+  import * as TSDefinitions from '@reapit/foundations-ts-definitions'
   import * as SearchWidgetStore from '../core/store'
   import { getLatLng, createMarker } from '../../../common/utils/map-helper'
-  import { DEFAULT_CENTER, DEFAULT_ZOOM } from '../../../common/utils/constants'
-  import { showPropertiesMarker } from '../utils/google-map'
+  import { DEFAULT_CENTER, GOOGLE_MAP_CONTEXT_NAME, DEFAULT_ZOOM } from '../../../common/utils/constants'
   import { loader } from '../../../common/utils/loader'
-  
+  import Marker from './marker.svelte'
+  import WindowInfo from './window-info.svelte'
+
   const searchWidgetStore = SearchWidgetStore.default
 
   let storeInstance: SearchWidgetStore.SearchWidgetStore
   let map: google.maps.Map
   let mapElement: HTMLDivElement
   let mapLoading: boolean = false
+  let selectedMarker: {
+    marker: google.maps.Marker
+    property: TSDefinitions.PropertyModel
+  } | null
+
+  export let properties: TSDefinitions.PropertyModel[] = []
+  export let propertyImages: Record<string, TSDefinitions.PropertyImageModel>
+  export let selectedProperty: TSDefinitions.PropertyModel
 
   const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
-    if (map && storeInstance && storeInstance.properties !== store.properties) {
-      showPropertiesMarker(map, store, searchWidgetStore)
-      storeInstance = store
-    }
-
     storeInstance = store
   })
 
+  afterUpdate(() => {
+    if (properties.length > 0 && !selectedProperty) {
+      const bounds = new google.maps.LatLngBounds()
+      properties.forEach(property =>
+        bounds.extend({
+          lat: property?.address?.geolocation?.latitude || DEFAULT_CENTER.lat,
+          lng: property?.address?.geolocation?.longitude || DEFAULT_CENTER.lng,
+        }),
+      )
+      map.fitBounds(bounds)
+    }
+    if (selectedProperty) {
+      const { latitude, longitude } = getLatLng(selectedProperty) as {
+        latitude: number
+        longitude: number
+      }
+      const centerPoint = new google.maps.LatLng(latitude, longitude)
+      map.setCenter(centerPoint)
+      map.setZoom(DEFAULT_ZOOM)
+      return
+    }
+  })
+
+  const handleMarkerClick = (event: CustomEvent) => {
+    selectedMarker = event.detail
+  }
+
+  const handleCloseWindowInfo = () => {
+    selectedMarker = null
+  }
+
+  setContext(GOOGLE_MAP_CONTEXT_NAME, {
+    getMap: () => map,
+  })
+
   onMount(() => {
-    (window as any).onMapReady = () => {
-      map = new google.maps.Map(mapElement, {
+    Object.defineProperty(window, 'onMapReady', {
+      value: () => {
+        map = new google.maps.Map(mapElement, {
         center: DEFAULT_CENTER,
         zoom: DEFAULT_ZOOM,
       })
-    
       mapLoading = false
-    }
+      }
+    });
 
     if (!mapLoading && !window.google) {
       const url = [
@@ -48,7 +89,6 @@
   onDestroy(() => {
     unsubscribeSearchWidgetStore()
   })
-  
 </script>
 
 <style>
@@ -58,4 +98,11 @@
   }
 </style>
 
-<div class="map-wrap" bind:this={mapElement} />
+<div class="map-wrap" bind:this={mapElement}>
+  {#if properties.length > 0 && !!selectedMarker}
+    <WindowInfo on:click={handleCloseWindowInfo} propertyImages={propertyImages} property={selectedMarker.property} marker={selectedMarker.marker} searchType={'Rent'} />
+  {/if}
+  {#each properties as property (property.id)}
+    <Marker {property} on:click={handleMarkerClick} />
+  {/each}
+</div>

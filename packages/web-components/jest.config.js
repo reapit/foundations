@@ -9,13 +9,13 @@ module.exports = {
   moduleNameMapper: {
     '^.+.(?=.*scss|sass|css|png|jpg).*': '<rootDir>/../../scripts/jest/css-stub.js',
   },
-  moduleFileExtensions: ['js','ts', 'svelte'],
+  moduleFileExtensions: ['js', 'ts', 'svelte'],
   coverageThreshold: {
     global: {
       branches: 60,
-      functions: 70,
-      lines: 90,
-      statements: 90,
+      functions: 90,
+      lines: 98,
+      statements: 97,
     },
   },
   transform: {

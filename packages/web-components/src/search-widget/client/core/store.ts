@@ -11,8 +11,6 @@ export interface SearchWidgetStore {
   selectedProperty: PropertyModel | null
   searchType?: SearchType
   searchKeyword?: string
-  markers: google.maps.Marker[]
-  mapLoading: boolean
 }
 
 const searchWidgetStore: Writable<SearchWidgetStore> = writable({
@@ -23,8 +21,6 @@ const searchWidgetStore: Writable<SearchWidgetStore> = writable({
   properties: null,
   propertyImages: null,
   selectedProperty: null,
-  markers: [],
-  mapLoading: false,
 })
 
 export default searchWidgetStore
