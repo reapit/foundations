@@ -45,6 +45,15 @@ exports[`Menu should match a snapshot 1`] = `
         "url": "/client/manage",
       },
       Object {
+        "icon": <MdHelp
+          className="nav-item-icon"
+        />,
+        "key": "HELP",
+        "title": "Help",
+        "type": "PRIMARY",
+        "url": "/client/help",
+      },
+      Object {
         "callback": [Function],
         "icon": <FaSignOutAlt
           className="nav-item-icon"

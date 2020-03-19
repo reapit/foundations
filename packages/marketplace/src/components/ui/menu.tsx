@@ -176,6 +176,13 @@ export const generateMenuConfig = (
           icon: <FaClipboardList className="nav-item-icon" />,
         },
         {
+          title: 'Help',
+          key: 'HELP',
+          url: Routes.CLIENT_HELP,
+          type: 'PRIMARY',
+          icon: <MdHelp className="nav-item-icon" />,
+        },
+        {
           title: 'Logout',
           key: 'LOGOUT',
           callback: logoutCallback,

@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeveloperHelpPage should match a snapshot 1`] = `
+<div>
+  <Component>
+    Help
+  </Component>
+  <Component
+    items={
+      Array [
+        Object {
+          "buttonOnClick": [Function],
+          "buttonText": "VIEW",
+          "header": "Welcome Guide",
+          "imgSrc": "",
+          "text": "Need a little help? Have a look through the Welcome Guide, which we’ve put
+      together to help you navigate through your Developer portal.",
+        },
+        Object {
+          "buttonOnClick": [Function],
+          "buttonText": "REQUEST",
+          "header": "Request a Feature",
+          "imgSrc": "",
+          "text": "Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will
+      look at all requests carefully however, we cannot guarantee all will be implemented.",
+        },
+        Object {
+          "buttonOnClick": [Function],
+          "buttonText": "REPORT",
+          "header": "Report a Bug",
+          "imgSrc": "",
+          "text": "Please report details of any bugs in relation to the Reapit Developer portal or Reapit Foundations API here. ",
+        },
+        Object {
+          "buttonOnClick": [Function],
+          "buttonText": "VIEW",
+          "header": "Roadmap",
+          "imgSrc": "",
+          "text": "Want to see what we are building or check on the progress of your feature requests?
+      You can see our product roadmap milestones here. ",
+        },
+        Object {
+          "buttonOnClick": [Function],
+          "buttonText": "START CHAT",
+          "header": "Need Help?",
+          "imgSrc": "",
+          "text": "If you need any support, we are here to help. Why not talk to one of our Developers or Product Owners directly.",
+        },
+        Object {
+          "buttonOnClick": [Function],
+          "buttonText": "VIEW",
+          "header": "What’s New",
+          "imgSrc": "",
+          "text": "We are constantly working to improve your experience with the Foundations Platform. Have a look to see what
+      new features and fixes have been released.",
+        },
+      ]
+    }
+  />
+</div>
+`;
