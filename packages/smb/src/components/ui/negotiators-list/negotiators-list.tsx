@@ -19,14 +19,16 @@ import {
   minLengthValidator,
 } from '@reapit/elements'
 import { getParamsFromPath, stringifyObjectIntoQueryString } from '@/utils/client-url-params'
-import { GetNegotiators, UpdateNegotiator, CreateNegotiator } from './negotiators.graphql'
+import GET_NEGOTIATORS from './gql/get-negotiators.graphql'
+import UPDATE_NEGOTIATOR from './gql/update-negotiator.graphql'
+import CREATE_NEGOTIATOR from './gql/create-negotiator.graphql'
 import NegotiatorStatusCheckbox from './negotiator-status-checkbox'
 import NegotiatorOfficeSelectbox from './negotiator-office-selectbox'
 
 import { NegotiatorModel, PagedResultNegotiatorModel_, OfficeModel } from '@reapit/foundations-ts-definitions'
 import { NEGOTIATORS_PER_PAGE, NEGOTIATOR_OFFICE_PER_PAGE } from '@/constants/paginators'
 
-import { OFFICES } from '../offices-tab/offices-tab.graphql'
+import GET_OFFICES from '../offices-tab/gql/get-offices.graphql'
 import { OfficesQueryResponse, OfficesQueryParams } from '../offices-tab/offices-tab'
 
 export const tableHeaders: DataTableRow[] = [
@@ -345,21 +347,21 @@ export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
   const params = getParamsFromPath(location?.search)
   const page = Number(params?.page) || 1
   const [updateNegotiator, { error: updateNegotiatorError, loading: updateNegotiatorLoading }] = useMutation(
-    UpdateNegotiator,
+    UPDATE_NEGOTIATOR,
   )
 
   const { loading, error: getNegotiatorsError, data: negotiatorData } = useQuery<
     NegotiatorsQueryResponse,
     NegotiatorsQueryParams
-  >(GetNegotiators, {
+  >(GET_NEGOTIATORS, {
     variables: { pageSize: NEGOTIATORS_PER_PAGE, pageNumber: page, embed: ['office'] },
   }) as QueryResult<NegotiatorsQueryResponse, NegotiatorsQueryParams>
 
-  const [createNegotiator, { error: createNegotiatorError }] = useMutation(CreateNegotiator, {
+  const [createNegotiator, { error: createNegotiatorError }] = useMutation(CREATE_NEGOTIATOR, {
     update(cache, response) {
       const createNegotiatorResponse: CreateNegotiatorMutationResponse = response.data
       const data: NegotiatorsQueryResponse = cache.readQuery({
-        query: GetNegotiators,
+        query: GET_NEGOTIATORS,
         variables: {
           pageSize: NEGOTIATORS_PER_PAGE,
           pageNumber: page,
@@ -376,7 +378,7 @@ export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
       }
 
       cache.writeQuery({
-        query: GetNegotiators,
+        query: GET_NEGOTIATORS,
         data: {
           GetNegotiators: {
             __typename: 'PagedResultNegotiatorModel',
@@ -397,7 +399,7 @@ export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
     },
   })
 
-  const { data: officeData } = useQuery<OfficesQueryResponse, OfficesQueryParams>(OFFICES, {
+  const { data: officeData } = useQuery<OfficesQueryResponse, OfficesQueryParams>(GET_OFFICES, {
     variables: { pageSize: NEGOTIATOR_OFFICE_PER_PAGE, pageNumber: 1 },
   }) as QueryResult<OfficesQueryResponse, OfficesQueryParams>
 

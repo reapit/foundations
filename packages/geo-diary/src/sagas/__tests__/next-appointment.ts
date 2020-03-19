@@ -13,26 +13,6 @@ import { nextAppointmentClear } from '@/actions/next-appointment'
 jest.mock('../../core/store')
 jest.mock('@reapit/elements')
 
-describe('getCurrentPosition', () => {
-  it('should return correctly', done => {
-    getCurrentPosition().then(result => {
-      expect(result).toEqual({
-        coords: {
-          accuracy: 16850,
-          altitudeAccuracy: null,
-          attitude: null,
-          heading: null,
-          latitude: 1.352083,
-          longitude: 105.819836,
-          speed: null,
-        },
-        timestamp: 1584618637173,
-      })
-      done()
-    })
-  })
-})
-
 describe('next appointment validate', () => {
   describe('validateNextAppointment', () => {
     it('should call api success', () => {

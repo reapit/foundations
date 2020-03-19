@@ -20,12 +20,12 @@
     "build": "lerna run build:prod --stream",
     "fetch-config": "yarn config-manager getSecret reapit-marketplace-app-config",
     "fetch-config1": "lerna run --parallel --stream fetch-config --",
-    "lint": "lerna run --parallel --stream lint --",
+    "lint": "lerna run --parallel --stream lint",
     "lint:fix": "lerna run --parallel --stream lint:fix --",
-    "release:dev": "lerna run --parallel release:dev --",
-    "release:prod": "lerna run --parallel release:prod --",
-    "test": "lerna run --parallel -- --runInBand test:ci --",
-    "test-e2e:ci": "lerna run --parallel test-e2e:ci --"
+    "release:dev": "lerna run --parallel release:dev",
+    "release:prod": "lerna run --parallel release:prod",
+    "test": "lerna run --parallel test:ci -- --runInBand",
+    "test-e2e:ci": "lerna run --parallel test-e2e:ci"
   },
   "husky": {
     "hooks": {

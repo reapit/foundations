@@ -12,7 +12,7 @@ module.exports = {
   moduleNameMapper: {
     '^.+.(?=.*scss|sass|css|png|jpg).*': '<rootDir>/../../scripts/jest/css-stub.js',
   },
-  moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx'],
+  moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx', 'graphql', 'gql'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   verbose: false,
   bail: 1,

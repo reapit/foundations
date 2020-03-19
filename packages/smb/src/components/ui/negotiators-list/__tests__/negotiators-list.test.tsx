@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { mount, shallow } from 'enzyme'
 import { MockedProvider } from '@apollo/react-testing'
+import { Cell } from '@reapit/elements'
+import { ApolloError } from 'apollo-boost'
 import { BrowserRouter as Router } from 'react-router-dom'
 import {
   NegotiatorList,
@@ -16,7 +18,9 @@ import {
   handleAfterCellsChanged,
   handleErrorMessageUseEffect,
 } from '../negotiators-list'
-import { GetNegotiators, UpdateNegotiator, CreateNegotiator } from '../negotiators.graphql'
+import GET_NEGOTIATORS from '../gql/get-negotiators.graphql'
+import UPDATE_NEGOTIATOR from '../gql/update-negotiator.graphql'
+import CREATE_NEGOTIATOR from '../gql/create-negotiator.graphql'
 import {
   negotiators,
   updateNegotiatorParams,
@@ -29,12 +33,10 @@ import {
 } from '../__mocks__/negotiators'
 import { error } from '@/graphql/__mocks__/error'
 import { getMockRouterProps } from '@/core/__mocks__/mock-router'
-import { Cell } from '@reapit/elements'
-import { ApolloError } from 'apollo-boost'
 
 const mockQueries = {
   request: {
-    query: GetNegotiators,
+    query: GET_NEGOTIATORS,
     variables: { pageSize: 100, pageNumber: 1 },
   },
   result: {
@@ -44,7 +46,7 @@ const mockQueries = {
 
 const mockUpdateMutation = {
   request: {
-    query: UpdateNegotiator,
+    query: UPDATE_NEGOTIATOR,
     variables: updateNegotiatorParams,
     result: { data: '' },
   },
@@ -52,7 +54,7 @@ const mockUpdateMutation = {
 
 const mockCreateMutation = {
   request: {
-    query: CreateNegotiator,
+    query: CREATE_NEGOTIATOR,
     variables: createNegotiatorParams,
     result: { data: negotiatorDetail },
   },
