@@ -17,7 +17,13 @@ import { AuthContext } from '@/context'
 import '@/styles/index.scss'
 <% } else { %>
 import { createGlobalStyle } from 'styled-components'
-import globalCss from 'raw-loader!@reapit/elements/dist/index.css'
+
+<% if (isFoundation) { %>
+import globalCss from 'raw-loader!sass-loader!@reapit/elements/styles/index.scss'
+<% } else { %>
+import globalCss from 'raw-loader!sass-loader!@reapit/elements/dist/index.css'
+<% } %>
+
   const GlobalStyle = createGlobalStyle`
   ${globalCss};
   body {
@@ -25,6 +31,11 @@ import globalCss from 'raw-loader!@reapit/elements/dist/index.css'
   }
 `
     <% } %>
+
+<% if (isFoundation) { %>
+import * as OfflinePluginRuntime from 'offline-plugin/runtime'
+OfflinePluginRuntime.install()
+<% } %>
 
 const rootElement = document.querySelector('#root') as Element
 

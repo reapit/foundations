@@ -8,9 +8,8 @@ import { useAuth } from '@/hooks/use-auth'
 import { AuthContext } from '@/context'
 import getClient from '@/graphql/client'
 import Router from './router'
-import globalCss from 'raw-loader!@reapit/elements/dist/index.css'
+
 const GlobalStyle = createGlobalStyle`
-  ${globalCss};
   body {
     background-color: unset;
   }
