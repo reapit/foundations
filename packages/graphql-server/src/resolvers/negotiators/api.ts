@@ -24,8 +24,10 @@ export const callGetNegotiatorByIdAPI = async (
   const traceId = context.traceId
   logger.info('callGetNegotiatorByIdAPI', { traceId, args })
   try {
+    const { id, ...rest } = args
+    const params = qs.stringify(rest)
     const response = await createPlatformAxiosInstance().get<GetNegotiatorByIdReturn>(
-      `${URLS.negotiators}/${args.id}`,
+      `${URLS.negotiators}/${id}?${params}`,
       {
         headers: {
           Authorization: context.authorization,
@@ -69,7 +71,7 @@ export const callCreateNegotiatorAPI = async (
     })
     const id = getIdFromCreateHeaders({ headers: response.headers })
     if (id) {
-      return callGetNegotiatorByIdAPI({ id }, context)
+      return callGetNegotiatorByIdAPI({ id, embed: ['office'] }, context)
     }
     return null
   } catch (error) {
@@ -95,8 +97,8 @@ export const callUpdateNegotiatorAPI = async (
         },
       },
     )
-    if (updateResponse?.data) {
-      return callGetNegotiatorByIdAPI({ id: args.id }, context)
+    if (updateResponse) {
+      return callGetNegotiatorByIdAPI({ id: args.id, embed: ['office'] }, context)
     }
     return errors.generateUserInputError(traceId)
   } catch (error) {

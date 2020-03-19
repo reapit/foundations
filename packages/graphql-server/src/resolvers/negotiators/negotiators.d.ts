@@ -7,6 +7,7 @@ export type UpdateNegotiatorArgs = { id: string; _eTag: string } & UpdateNegotia
 
 export type GetNegotiatorByIdArgs = {
   id: string
+  embed?: string[]
 }
 
 export type GetNegotiatorsArgs = {
