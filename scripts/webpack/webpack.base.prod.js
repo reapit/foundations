@@ -8,7 +8,6 @@ const { EnvironmentPlugin } = require('webpack')
 // const SentryWebpackPlugin = require('@sentry/webpack-plugin')
 const { PATHS } = require('./constants')
 const { getVersionTag } = require('../release/utils')
-const config = require(PATHS.config)
 const hashFiles = require('../utils/hash-files')
 const path = require('path')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
@@ -67,7 +66,6 @@ module.exports = {
       },
     }),
     new EnvironmentPlugin({
-      ...config[process.env.REAPIT_ENV || 'DEV'],
       APP_VERSION: `${tagName.packageName}_${tagName.version}`,
     }),
     new HashedModuleIdsPlugin(),

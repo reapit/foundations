@@ -35,14 +35,15 @@ const run = async () => {
     .then(response => response.json())
     .then((config: Config) => {
       window.reapit.config = config
-      const isDevelopment = config.appEnv === 'development'
-      if (!isDevelopment && config.sentryDns) {
+      const isLocal = config.appEnv === 'local'
+      if (!isLocal && config.sentryDns) {
         Sentry.init({
           release: process.env.APP_VERSION,
           dsn: config.sentryDns,
+          environment: config.appEnv,
         })
       }
-      if (!isDevelopment && config.googleAnalyticsKey) {
+      if (!isLocal && config.googleAnalyticsKey) {
         ReactGA.initialize(config.googleAnalyticsKey)
         ReactGA.pageview(window.location.pathname + window.location.search)
       }

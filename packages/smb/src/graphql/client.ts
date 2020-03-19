@@ -42,9 +42,9 @@ const clientState = {
   typeDefs,
 }
 
-export const getClient = (accessToken: string) =>
+export const getClient = (accessToken: string, uri: string) =>
   new ApolloClient({
-    uri: process.env.GRAPHQL_SERVER_URI,
+    uri,
     onError,
     cache,
     request: generateRequest(accessToken),

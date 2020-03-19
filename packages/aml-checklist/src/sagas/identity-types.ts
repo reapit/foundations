@@ -14,7 +14,7 @@ export const identityTypesDataFetch = function*() {
   try {
     const response = yield call(fetcher, {
       url: `${URLS.configuration}/identityDocumentTypes`,
-      api: process.env.PLATFORM_API_BASE_URL as string,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
       headers: headers,
     })

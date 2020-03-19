@@ -112,7 +112,7 @@ export const MapContainer = ({
       >
         <Map
           autoFitBounds={true}
-          apiKey={process.env.GOOGLE_MAPS_API_KEY as string}
+          apiKey={window.reapit.config.googleMapApiKey}
           coordinates={coordinates}
           markerCallBack={handleOnClick}
           destinationPoint={destinationLatLng}

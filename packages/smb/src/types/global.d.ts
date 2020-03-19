@@ -1,11 +1,7 @@
 export type Config = {
   appEnv: 'local' | 'development' | 'production'
   sentryDns: string
-  marketplaceApiUrl: string
-  marketplaceApiKey: string
-  uploadApiUrl: string
-  swaggerUrl: string
-  elementDocumentUrl: string
+  graphqlUri: string
   cognitoClientId: string
   googleAnalyticsKey: string
 }

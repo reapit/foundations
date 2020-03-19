@@ -7,8 +7,6 @@ const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const HashedModuleIdsPlugin = require('webpack').HashedModuleIdsPlugin
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const PurgecssWhitelister = require('purgecss-whitelister')
-const readReapitConfig = require('./read-reapit-config')
-const { EnvironmentPlugin } = require('webpack')
 const { PATHS } = require('./constants')
 
 
@@ -73,7 +71,6 @@ module.exports = {
         windows: false
       }
     }),
-    new EnvironmentPlugin(readReapitConfig()),
     new HashedModuleIdsPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash].css'
