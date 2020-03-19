@@ -199,7 +199,7 @@ const fetchConfig = (secretName, env = 'local') => {
     }
     try {
       const config = (data && data.Parameter && data.Parameter.Value) || {}
-      return fs.writeFileSync(`${process.cwd()}/public/config.json`, config)
+      return fs.writeFileSync(`${process.cwd()}/config.json`, config)
     } catch (err) {
       console.log(
         'Something went wrong when parsing base configuration. Detailed error with stack trace is provided below:',

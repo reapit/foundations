@@ -434,11 +434,13 @@ Object.defineProperty(window, 'reapit', {
       sentryDns: '',
       marketplaceApiUrl: '',
       marketplaceApiKey: '',
+      platformApiUrl: '',
       uploadApiUrl: '',
       swaggerUrl: '',
       elementDocumentUrl: '',
       cognitoClientId: '',
       googleAnalyticsKey: '',
+      googleMapApiKey: '',
     },
   },
 })

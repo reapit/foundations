@@ -6,6 +6,7 @@ exports[`Map Should match snapshot 1`] = `
     className="undefined  "
   >
     <Component
+      apiKey=""
       autoFitBounds={true}
       coordinates={
         Array [
@@ -314,6 +315,7 @@ exports[`Map Should match snapshot 2`] = `
     className="undefined  "
   >
     <Component
+      apiKey=""
       autoFitBounds={true}
       coordinates={Array []}
       destinationAddress="mockAddress"

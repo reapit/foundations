@@ -27,7 +27,7 @@ module.exports = {
     new ResolveTSPathsToWebpackAlias({
       tsconfig: PATHS.tsConfig,
     }),
-    new CopyPlugin([{ from: 'public/config.json', to: PATHS.output }]),
+    new CopyPlugin([{ from: 'config.json', to: PATHS.output }]),
     new HtmlWebpackPlugin({
       hash: true,
       inject: true,

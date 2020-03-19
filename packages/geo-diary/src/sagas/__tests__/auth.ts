@@ -56,7 +56,7 @@ describe('auth sagas', () => {
       expect(gen.next().value).toEqual(call(store.purgeStore))
       expect(gen.next().value).toEqual(call(removeSession, COOKIE_SESSION_KEY_GEO_DIARY))
       expect(gen.next().value).toEqual(
-        call(redirectToLogout, process.env.COGNITO_CLIENT_ID_GEO_DIARY as string, `${window.location.origin}/login`),
+        call(redirectToLogout, window.reapit.config.cognitoClientId as string, `${window.location.origin}/login`),
       )
       expect(gen.next().done).toBe(true)
     })
