@@ -89,3 +89,14 @@ type Mutation {
     mode: LoginMode!,
   ): Token
 }
+
+input OfficeModelAddressInput {
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
+}

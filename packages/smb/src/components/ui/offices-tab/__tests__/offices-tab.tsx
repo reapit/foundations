@@ -4,21 +4,30 @@ import { MockedProvider } from '@apollo/react-testing'
 import { BrowserRouter as Router } from 'react-router-dom'
 import {
   OfficesTab,
-  OfficesTabProps,
   renderContent,
   RenderContentParams,
   getDataTable,
   tableHeaders,
   handleChangePage,
+  prepareUpdateOfficeParams,
+  prepareCreateOfficeParams,
+  validate,
+  handleAfterCellChange,
 } from '../offices-tab'
-import { OFFICES } from '../offices-tab.graphql'
-import { offices } from '../__mocks__/offices'
+import { GET_OFFICES, CREATE_OFFICE, UPDATE_OFFICE } from '../offices-tab.graphql'
+import {
+  offices,
+  office,
+  mockCreateOfficeParams,
+  mockUpdateOfficeParams,
+  mockChangeCellsForCreateCase,
+  mockChangeCellsForUpdateCase,
+} from '../__mocks__/offices'
 import { error } from '@/graphql/__mocks__/error'
-import { getMockRouterProps } from '@/core/__mocks__/mock-router'
 
 const mockQueries = {
   request: {
-    query: OFFICES,
+    query: GET_OFFICES,
     variables: { pageSize: 100, pageNumber: 1 },
   },
   result: {
@@ -26,14 +35,29 @@ const mockQueries = {
   },
 }
 
+const mockCreateMutation = {
+  request: {
+    query: CREATE_OFFICE,
+    variables: mockCreateOfficeParams,
+    result: { data: office },
+  },
+}
+
+const mockUpdateMutation = {
+  request: {
+    query: UPDATE_OFFICE,
+    variables: mockUpdateOfficeParams,
+    result: { data: office },
+  },
+}
+
 describe('OfficesTab', () => {
   describe('OfficesTab', () => {
     it('should match a snapshot', () => {
-      const mockProps: OfficesTabProps = getMockRouterProps({ params: {}, search: '?page=1' })
       const wrapper = mount(
         <Router>
-          <MockedProvider mocks={[mockQueries]} addTypename={false}>
-            <OfficesTab {...mockProps} />
+          <MockedProvider mocks={[mockQueries, mockCreateMutation, mockUpdateMutation]} addTypename={false}>
+            <OfficesTab />
           </MockedProvider>
         </Router>,
       )
@@ -47,6 +71,7 @@ describe('OfficesTab', () => {
         loading: true,
         error: undefined,
         handleChangePage: jest.fn(),
+        afterCellsChanged: jest.fn(),
         dataTable: [],
       }
       const wrapper = shallow(<div>{renderContent(mockParams)}</div>)
@@ -58,6 +83,7 @@ describe('OfficesTab', () => {
         loading: false,
         error,
         handleChangePage: jest.fn(),
+        afterCellsChanged: jest.fn(),
         dataTable: [],
       }
       const wrapper = shallow(<div>{renderContent(mockParams)}</div>)
@@ -69,6 +95,7 @@ describe('OfficesTab', () => {
         loading: false,
         error: undefined,
         handleChangePage: jest.fn(),
+        afterCellsChanged: jest.fn(),
         dataTable: getDataTable(offices),
       }
       const wrapper = shallow(<div>{renderContent(mockParams)}</div>)
@@ -91,6 +118,87 @@ describe('OfficesTab', () => {
       const fn = handleChangePage(mockParams)
       fn(2)
       expect(mockParams.history.push).toBeCalledWith({ search: 'page=2' })
+    })
+  })
+
+  describe('prepareCreateOfficeParams', () => {
+    it('should run correctly', () => {
+      const result = {
+        name: 'Reapit',
+        address: {
+          buildingName: '',
+          buildingNumber: '15',
+          line1: 'Example street',
+          line2: 'Solihull',
+          line3: 'West Midlands',
+          line4: '',
+          postcode: 'B91 2XX',
+        },
+        workPhone: '01234 567890',
+        email: 'example@email.com',
+      }
+      const dataTable = getDataTable(offices)
+      expect(prepareCreateOfficeParams(mockChangeCellsForCreateCase, dataTable)).toEqual(result)
+    })
+  })
+
+  describe('prepareUpdateOfficeParams', () => {
+    it('should run correctly', () => {
+      const result = {
+        name: 'Reapit new name',
+        _eTag: '"104F6D31FAFEB3B1DE6BB9CF8E071094"',
+        id: 'REA',
+      }
+      const dataTable = getDataTable(offices)
+      expect(prepareUpdateOfficeParams(mockChangeCellsForUpdateCase, dataTable)).toEqual(result)
+    })
+  })
+
+  describe('validate', () => {
+    it('should run correctly', () => {
+      const result = [
+        [true, true, true, true, true, true, true, true, true, true],
+        [true, true, true, true, true, true, true, true, true, true, true, true],
+        [true, true, true, true, true, true, true, true, true, true, false, true],
+        [true, true, true, true, true, true, true, true, true, true, false, true],
+      ]
+      const dataTable = getDataTable(offices)
+      expect(validate(dataTable)).toEqual(result)
+    })
+  })
+
+  describe('handleAfterCellChange', () => {
+    const createFuntion = jest.fn()
+    const updateFuntion = jest.fn()
+    const dataTable = getDataTable(offices)
+
+    it('should run create function', () => {
+      const preparedRow = [
+        { value: '', key: 'id', isValidated: true },
+        { value: '', key: '_eTag', isValidated: true },
+        { value: '', key: 'name', isValidated: true },
+        { value: '', key: 'address.buildingName', isValidated: true },
+        { value: '', key: 'address.buildingNumber', isValidated: true },
+        { value: 'London road', key: 'address.line1', isValidated: true },
+        { value: '', key: 'address.line2', isValidated: true },
+        { value: '', key: 'address.line3', isValidated: true },
+        { value: '', key: 'address.line4', isValidated: true },
+        { value: 'GP GXX', key: 'address.postcode', isValidated: true },
+        { value: '0987654321', key: 'workPhone', isValidated: true },
+        { value: 'tester@reapit.com', key: 'email', isValidated: true },
+      ]
+      // const newDataTable = [...dataTable, preparedRow]
+      dataTable.push(preparedRow)
+      handleAfterCellChange(createFuntion, updateFuntion)(
+        [{ ...mockChangeCellsForCreateCase[0], row: dataTable.length - 1 }],
+        dataTable,
+      )
+      expect(createFuntion).toHaveBeenCalled()
+    })
+
+    it('should run update function', () => {
+      handleAfterCellChange(createFuntion, updateFuntion)(mockChangeCellsForUpdateCase, dataTable)
+      expect(updateFuntion).toHaveBeenCalled()
     })
   })
 })

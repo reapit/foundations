@@ -11,6 +11,9 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: unset;
   }
+  td.hidden-cell {
+    display: none;
+  }
 `
 
 const rootElement = document.querySelector('#root') as Element
