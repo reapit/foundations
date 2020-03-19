@@ -1,11 +1,11 @@
 import * as React from 'react'
 
-type alertType = 'primary' | 'danger' | 'success' | 'warning' | 'info'
+export type AlertType = 'primary' | 'danger' | 'success' | 'warning' | 'info'
 
 export interface AlertProps {
   message: string | React.ReactNode
   closable?: boolean
-  type?: alertType
+  type?: AlertType
   className?: string
   dataTest?: string
   afterClose?: (event: React.MouseEvent<HTMLButtonElement>) => void
