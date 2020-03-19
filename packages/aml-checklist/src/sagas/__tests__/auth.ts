@@ -55,7 +55,7 @@ describe('auth sagas', () => {
       const gen = doLogout()
       expect(gen.next().value).toEqual(call(removeSession, COOKIE_SESSION_KEY_AML_APP))
       expect(gen.next().value).toEqual(
-        call(redirectToLogout, process.env.COGNITO_CLIENT_ID_AML_APP as string, `${window.location.origin}/login`),
+        call(redirectToLogout, window.reapit.config.cognitoClientId, `${window.location.origin}/login`),
       )
       expect(gen.next().done).toBe(true)
     })

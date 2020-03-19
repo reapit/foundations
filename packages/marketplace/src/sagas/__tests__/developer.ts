@@ -12,7 +12,7 @@ import {
   developerRequestDataFailure,
   developerSetFormState,
 } from '@/actions/developer'
-import { MARKETPLACE_HEADERS, URLS } from '@/constants/api'
+import { generateHeader, URLS } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { fetcher } from '@reapit/elements'
 import { APPS_PER_PAGE } from '@/constants/paginator'
@@ -39,14 +39,14 @@ describe('developer fetch data', () => {
       call(fetcher, {
         url: `${URLS.apps}?developerId=${developerId}&PageNumber=${params.data.page}&PageSize=${APPS_PER_PAGE}`,
         method: 'GET',
-        api: process.env.MARKETPLACE_API_BASE_URL as string,
-        headers: MARKETPLACE_HEADERS,
+        api: window.reapit.config.marketplaceApiUrl,
+        headers: generateHeader(window.reapit.config.marketplaceApiKey),
       }),
       call(fetcher, {
         url: `${URLS.scopes}`,
         method: 'GET',
-        api: process.env.MARKETPLACE_API_BASE_URL as string,
-        headers: MARKETPLACE_HEADERS,
+        api: window.reapit.config.marketplaceApiUrl,
+        headers: generateHeader(window.reapit.config.marketplaceApiKey),
       }),
     ]),
   )
@@ -97,10 +97,10 @@ describe('developer create', () => {
   expect(gen.next().value).toEqual(
     call(fetcher, {
       url: URLS.developers,
-      api: process.env.MARKETPLACE_API_BASE_URL as string,
+      api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
       body: params,
-      headers: MARKETPLACE_HEADERS,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
     }),
   )
   it('api call success', () => {

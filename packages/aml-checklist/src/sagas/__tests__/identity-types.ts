@@ -23,7 +23,7 @@ describe('identity fetch data', () => {
   expect(gen.next(mockHeaders as any).value).toEqual(
     call(fetcher, {
       url: `${URLS.configuration}/identityDocumentTypes`,
-      api: process.env.PLATFORM_API_BASE_URL as string,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
       headers: mockHeaders,
     }),

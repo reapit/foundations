@@ -126,7 +126,7 @@ export const redirectToOAuth = (
   loginType: LoginType = 'CLIENT',
 ): void => {
   window.location.href =
-    `${process.env.COGNITO_OAUTH_URL}/authorize?` +
+    `${window.reapit.config.cognitoOAuthUrl}/authorize?` +
     `response_type=code&client_id=${congitoClientId}&redirect_uri=${redirectUri}&state=${loginType}`
 }
 
@@ -136,7 +136,7 @@ export const redirectToLogin = (
   loginType: LoginType = 'CLIENT',
 ): void => {
   window.location.href =
-    `${process.env.COGNITO_OAUTH_URL}/login?` +
+    `${window.reapit.config.cognitoOAuthUrl}/login?` +
     `response_type=code&client_id=${congitoClientId}&redirect_uri=${redirectUri}&state=${loginType}`
 }
 
@@ -146,6 +146,6 @@ export const redirectToLogout = (
   loginType: LoginType = 'CLIENT',
 ): void => {
   window.location.href =
-    `${process.env.COGNITO_OAUTH_URL}/logout?` +
+    `${window.reapit.config.cognitoOAuthUrl}/logout?` +
     `client_id=${congitoClientId}&logout_uri=${redirectUri}&state=${loginType}`
 }

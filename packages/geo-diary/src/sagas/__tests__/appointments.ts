@@ -124,7 +124,7 @@ describe('appointments should fetch data', () => {
         `/appointments?NegotiatorId=${mockNegotiatorId}` +
         '&Start=2019-10-10T00:00:00.000Z&' +
         'End=2019-10-10T23:59:59.999Z&IncludeCancelled=true&IncludeUnconfirmed=true',
-      api: process.env.PLATFORM_API_BASE_URL as string,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
       headers: mockHeaders,
     }),
@@ -147,7 +147,7 @@ describe('appointments should fetch data', () => {
     expect(clone.next(appointmentsDataStub.appointments?._embedded).value).toEqual(
       call(fetcher, {
         url: URLS.appointmentTypes,
-        api: process.env.PLATFORM_API_BASE_URL as string,
+        api: window.reapit.config.platformApiUrl,
         method: 'GET',
         headers: mockHeaders,
       }),
@@ -194,7 +194,7 @@ describe('appointments should fetch data tomowrrow', () => {
         `/appointments?NegotiatorId=${mockNegotiatorId}` +
         '&Start=2019-10-11T00:00:00.000Z&End=2019-10-11T23:59:59.999Z&' +
         'IncludeCancelled=true&IncludeUnconfirmed=true',
-      api: process.env.PLATFORM_API_BASE_URL as string,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
       headers: mockHeaders,
     }),
@@ -216,7 +216,7 @@ describe('appointments should fetch data tomowrrow', () => {
     expect(clone.next(appointmentsDataStub.appointments?._embedded).value).toEqual(
       call(fetcher, {
         url: URLS.appointmentTypes,
-        api: process.env.PLATFORM_API_BASE_URL as string,
+        api: window.reapit.config.platformApiUrl,
         method: 'GET',
         headers: mockHeaders,
       }),
@@ -263,7 +263,7 @@ describe('appointments should fetch data week view', () => {
         `/appointments?NegotiatorId=${mockNegotiatorId}` +
         '&Start=2019-10-10T00:00:00.000Z&End=2019-10-16T23:59:59.999Z' +
         '&IncludeCancelled=true&IncludeUnconfirmed=true',
-      api: process.env.PLATFORM_API_BASE_URL as string,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
       headers: mockHeaders,
     }),
@@ -285,7 +285,7 @@ describe('appointments should fetch data week view', () => {
     expect(clone.next(appointmentsDataStub.appointments?._embedded).value).toEqual(
       call(fetcher, {
         url: URLS.appointmentTypes,
-        api: process.env.PLATFORM_API_BASE_URL as string,
+        api: window.reapit.config.platformApiUrl,
         method: 'GET',
         headers: mockHeaders,
       }),

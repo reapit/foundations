@@ -222,7 +222,7 @@ describe('Session utils', () => {
   describe('redirectToOAuth', () => {
     it('should redirect to the OAuth endpoint for authorize', () => {
       window.location.href = ''
-      process.env.COGNITO_OAUTH_URL = ''
+      window.reapit.config.cognitoOAuthUrl = ''
       redirectToOAuth('cognitoClientId', 'redirectUri', 'DEVELOPER')
       expect(window.location.href).toEqual(
         '/authorize?response_type=code&client_id=cognitoClientId&redirect_uri=redirectUri&state=DEVELOPER',
@@ -233,7 +233,7 @@ describe('Session utils', () => {
   describe('redirectToLogin', () => {
     it('should redirect to the OAuth endpoint for login', () => {
       window.location.href = ''
-      process.env.COGNITO_OAUTH_URL = ''
+      window.reapit.config.cognitoOAuthUrl = ''
       redirectToLogin('cognitoClientId', 'redirectUri', 'DEVELOPER')
       expect(window.location.href).toEqual(
         '/login?response_type=code&client_id=cognitoClientId&redirect_uri=redirectUri&state=DEVELOPER',

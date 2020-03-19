@@ -51,7 +51,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
   const firstLoginCookie = getCookieString(COOKIE_FIRST_TIME_LOGIN)
   const route = getDefaultRouteByLoginType(type, firstLoginCookie)
-  const cognitoClientId = process.env.COGNITO_CLIENT_ID_MARKETPLACE as string
+  const cognitoClientId = window.reapit.config.cognitoClientId
   const refreshParams = getTokenFromQueryString(location.search, cognitoClientId, type, route)
 
   if (type && location.pathname === '/') {

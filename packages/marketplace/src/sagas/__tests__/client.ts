@@ -6,7 +6,7 @@ import { categoriesReceiveData } from '@/actions/app-categories'
 import { featuredAppsDataStub, appsDataStub } from '../__stubs__/apps'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { fetcher, setQueryParams } from '@reapit/elements'
-import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
+import { URLS, generateHeader } from '@/constants/api'
 import { APPS_PER_PAGE, FEATURED_APPS } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
@@ -42,21 +42,21 @@ describe('client fetch data', () => {
           pageSize: APPS_PER_PAGE,
           IsFeatured: false,
         })}`,
-        api: process.env.MARKETPLACE_API_BASE_URL as string,
+        api: window.reapit.config.marketplaceApiUrl,
         method: 'GET',
-        headers: MARKETPLACE_HEADERS,
+        headers: generateHeader(window.reapit.config.marketplaceApiKey),
       }),
       call(fetcher, {
         url: `${URLS.apps}?clientId=1&PageNumber=${params.data.page}&PageSize=${FEATURED_APPS}&IsFeatured=true`,
-        api: process.env.MARKETPLACE_API_BASE_URL as string,
+        api: window.reapit.config.marketplaceApiUrl,
         method: 'GET',
-        headers: MARKETPLACE_HEADERS,
+        headers: generateHeader(window.reapit.config.marketplaceApiKey),
       }),
       call(fetcher, {
         url: `${URLS.categories}`,
         method: 'GET',
-        api: process.env.MARKETPLACE_API_BASE_URL as string,
-        headers: MARKETPLACE_HEADERS,
+        api: window.reapit.config.marketplaceApiUrl,
+        headers: generateHeader(window.reapit.config.marketplaceApiKey),
       }),
     ]),
   )

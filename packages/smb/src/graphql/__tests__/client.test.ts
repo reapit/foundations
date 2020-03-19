@@ -7,7 +7,8 @@ describe('client', () => {
   describe('getClient', () => {
     it('should run correctly', () => {
       const mockAccessToken = 'mockAccessToken'
-      const result = getClient(mockAccessToken)
+      const mockClientUri = 'mockUri'
+      const result = getClient(mockAccessToken, mockClientUri)
       expect(result).toBeDefined()
     })
   })

@@ -1,0 +1,21 @@
+#import "../../../../graphql/fragments/office.graphql"
+
+mutation CREATE_OFFICE(
+  $name: String
+  $manager: String
+  $address: OfficeModelAddressInput
+  $workPhone: String
+  $email: String
+  $metadata: JSON
+) {
+  CreateOffice(
+    name: $name
+    manager: $manager
+    address: $address
+    workPhone: $workPhone
+    email: $email
+    metadata: $metadata
+  ) {
+    ...Office
+  }
+}

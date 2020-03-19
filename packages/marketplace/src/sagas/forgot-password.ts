@@ -12,7 +12,7 @@ export const requestForgotPassword = function*({ data: email }) {
   try {
     const response = yield call(resetPassword, {
       userName: email,
-      cognitoClientId: process.env.COGNITO_CLIENT_ID_MARKETPLACE as string,
+      cognitoClientId: window.reapit.config.cognitoClientId,
     })
     if (response.CodeDeliveryDetails) {
       yield history.push(`${Routes.FORGOT_PASSWORD}?isSuccess=1`)

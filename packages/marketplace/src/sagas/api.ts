@@ -1,5 +1,5 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
-import { URLS, MARKETPLACE_HEADERS } from '../constants/api'
+import { URLS, generateHeader } from '../constants/api'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { logger } from 'logger'
 
@@ -10,9 +10,9 @@ export const fetchAdminApps = async ({ params }) => {
         ...params,
         pageSize: APPS_PER_PAGE,
       })}`,
-      api: process.env.MARKETPLACE_API_BASE_URL as string,
+      api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: MARKETPLACE_HEADERS,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {
@@ -25,9 +25,9 @@ export const deleteApp = async ({ appId }) => {
   try {
     const response = await fetcher({
       url: `${URLS.apps}/${appId}`,
-      api: process.env.MARKETPLACE_API_BASE_URL as string,
+      api: window.reapit.config.marketplaceApiUrl,
       method: 'DELETE',
-      headers: MARKETPLACE_HEADERS,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
   } catch (error) {

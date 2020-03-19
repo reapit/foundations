@@ -12,6 +12,7 @@ exports[`Elements should match a snapshot 1`] = `
       <iframe
         height="100%"
         scrolling="no"
+        src=""
         style={
           Object {
             "border": "none",

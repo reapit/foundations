@@ -1,0 +1,33 @@
+query GetNegotiators(
+  $id: [String!],
+  $name: String,
+  $officeId: [String!],
+  $pageSize: Int,
+  $pageNumber: Int,
+  $sortBy: String
+  $embed: [String!]
+  ) {
+  GetNegotiators(id: $id, name: $name, officeId: $officeId, pageSize: $pageSize, pageNumber: $pageNumber, sortBy: $sortBy, embed: $embed) {
+    _embedded {
+      id
+      created
+      modified
+      name
+      jobTitle
+      active
+      officeId
+      workPhone
+      mobilePhone
+      email
+      metadata
+      _eTag
+      _links
+      _embedded
+    }
+    pageNumber
+    pageSize
+    pageCount
+    totalCount
+    _links
+  }
+}

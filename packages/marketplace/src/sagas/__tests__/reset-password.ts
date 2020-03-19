@@ -13,7 +13,7 @@ import { confirmPassword } from '@reapit/cognito-auth'
 jest.mock('@reapit/cognito-auth')
 
 describe('developerResetPassword', () => {
-  process.env.COGNITO_CLIENT_ID_MARKETPLACE = 'cognitoClientId'
+  window.reapit.config.cognitoClientId = 'cognitoClientId'
   const gen = cloneableGenerator(developerResetPassword)({
     type: 'RESET_PASSWORD',
     data: { password: '123', email: '123@gmail.com', verificationCode: '123', confirmPassword: '123' },

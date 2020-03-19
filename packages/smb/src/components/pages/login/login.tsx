@@ -9,7 +9,7 @@ import { AuthContext } from '@/context'
 import { Container, Wrapper, ImageContainer } from './__styles__/styles'
 
 export const redirectToLoginPage = () => {
-  const cognitoClientId = process.env.COGNITO_CLIENT_ID_SMB as string
+  const cognitoClientId = window.reapit.config.cognitoClientId
   redirectToLogin(cognitoClientId, `${window.location.origin}`)
 }
 

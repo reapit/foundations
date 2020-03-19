@@ -7,7 +7,7 @@ import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
-import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
+import { URLS, generateHeader } from '@/constants/api'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
 import { fetcher } from '@reapit/elements'
 import { Action } from '@/types/core'
@@ -19,9 +19,9 @@ export const adminApprovalsDataFetch = function*({ data: page }) {
   try {
     const response = yield call(fetcher, {
       url: `${URLS.approvals}?PageNumber=${page}&PageSize=${REVISIONS_PER_PAGE}`,
-      api: process.env.MARKETPLACE_API_BASE_URL as string,
+      api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: MARKETPLACE_HEADERS,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
     })
     if (response) {
       yield put(adminApprovalsReceiveData({ data: response }))

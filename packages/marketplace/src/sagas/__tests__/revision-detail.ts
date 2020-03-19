@@ -22,7 +22,7 @@ import {
 } from '@/actions/revision-detail'
 import { Action } from '@/types/core'
 import { fetcher } from '@reapit/elements'
-import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
+import { URLS, generateHeader } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { adminApprovalsDataFetch } from '../admin-approvals'
 
@@ -39,9 +39,9 @@ describe('revision-detail fetch data', () => {
   expect(gen.next().value).toEqual(
     call(fetcher, {
       url: `${URLS.apps}/${params.data.appId}/revisions/${params.data.appRevisionId}`,
-      api: process.env.MARKETPLACE_API_BASE_URL as string,
+      api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: MARKETPLACE_HEADERS,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
     }),
   )
 
@@ -49,8 +49,8 @@ describe('revision-detail fetch data', () => {
     call(fetcher, {
       url: `${URLS.scopes}`,
       method: 'GET',
-      api: process.env.MARKETPLACE_API_BASE_URL as string,
-      headers: MARKETPLACE_HEADERS,
+      api: window.reapit.config.marketplaceApiUrl,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
     }),
   )
 
@@ -89,9 +89,9 @@ describe('revision approve submmit', () => {
   expect(gen.next().value).toEqual(
     call(fetcher, {
       url: `${URLS.apps}/${appId}/revisions/${appRevisionId}/approve`,
-      api: process.env.MARKETPLACE_API_BASE_URL as string,
+      api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
-      headers: MARKETPLACE_HEADERS,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
       body,
     }),
   )
@@ -129,9 +129,9 @@ describe('revision decline submmit', () => {
   expect(gen.next().value).toEqual(
     call(fetcher, {
       url: `${URLS.apps}/${appId}/revisions/${appRevisionId}/reject`,
-      api: process.env.MARKETPLACE_API_BASE_URL as string,
+      api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
-      headers: MARKETPLACE_HEADERS,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
       body,
     }),
   )

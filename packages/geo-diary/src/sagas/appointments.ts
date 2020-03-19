@@ -96,7 +96,7 @@ export const appointmentsDataFetch = function*({ data: { time } }: Action<Appoin
       url:
         `${URLS.appointments}?NegotiatorId=${userCode}&Start=${start.toISOString()}&End=${end.toISOString()}` +
         '&IncludeCancelled=true&IncludeUnconfirmed=true',
-      api: process.env.PLATFORM_API_BASE_URL as string,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
       headers,
     })
@@ -112,7 +112,7 @@ export const appointmentsDataFetch = function*({ data: { time } }: Action<Appoin
 
     const appointmentTypes = yield call(fetcher, {
       url: URLS.appointmentTypes,
-      api: process.env.PLATFORM_API_BASE_URL as string,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
       headers,
     })

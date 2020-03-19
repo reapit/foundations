@@ -1,6 +1,6 @@
 import { fetcher, FetchError, isBase64 } from '@reapit/elements'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
-import { URLS, MARKETPLACE_HEADERS } from '../constants/api'
+import { URLS, generateHeader } from '../constants/api'
 import { submitAppSetFormState, submitAppLoading, submitAppReceiveData } from '../actions/submit-app'
 import { categoriesReceiveData } from '../actions/app-categories'
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
@@ -30,9 +30,9 @@ export const imageUploaderHelper = async (object: ImageUploaderReq) => {
 
   return fetcher({
     url: '/',
-    api: process.env.UPLOAD_FILE_BASE_URL as string,
+    api: window.reapit.config.uploadApiUrl,
     method: 'POST',
-    headers: MARKETPLACE_HEADERS,
+    headers: generateHeader(window.reapit.config.marketplaceApiKey),
     body: object,
   })
 }
@@ -82,10 +82,10 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
 
     yield call(fetcher, {
       url: URLS.apps,
-      api: process.env.MARKETPLACE_API_BASE_URL as string,
+      api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
       body: updatedValuesAfterValidatingCategoryId,
-      headers: MARKETPLACE_HEADERS,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
     })
 
     yield put(submitAppSetFormState('SUCCESS'))
@@ -126,14 +126,14 @@ export const submitAppsDataFetch = function*() {
       call(fetcher, {
         url: `${URLS.scopes}`,
         method: 'GET',
-        api: process.env.MARKETPLACE_API_BASE_URL as string,
-        headers: MARKETPLACE_HEADERS,
+        api: window.reapit.config.marketplaceApiUrl,
+        headers: generateHeader(window.reapit.config.marketplaceApiKey),
       }),
       call(fetcher, {
         url: `${URLS.categories}`,
         method: 'GET',
-        api: process.env.MARKETPLACE_API_BASE_URL as string,
-        headers: MARKETPLACE_HEADERS,
+        api: window.reapit.config.marketplaceApiUrl,
+        headers: generateHeader(window.reapit.config.marketplaceApiKey),
       }),
     ])
     yield put(submitAppLoading(false))

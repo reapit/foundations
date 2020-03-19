@@ -5,7 +5,7 @@ import Router from '../router'
 
 describe('Router', () => {
   it('should match a snapshot', () => {
-    process.env.REAPIT_ENV = 'DEV'
+    window.reapit.config.appEnv === 'development'
     expect(shallow(<Router />)).toMatchSnapshot()
   })
 })
