@@ -3,5 +3,6 @@
   "sentryDns": "",
   "graphqlUri": "",
   "cognitoClientId": "",
-  "googleAnalyticsKey": ""
+  "googleAnalyticsKey": "",
+  "cognitoOAuthUrl": ""
 }

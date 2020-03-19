@@ -92,13 +92,7 @@ const Router = () => {
                 component={AnalyticsPage}
               />
               <PrivateRoute allow="DEVELOPER" path={Routes.SETTINGS} fetcher exact component={SettingsPage} />
-              <PrivateRoute
-                allow="DEVELOPER"
-                path={Routes.DEVELOPER_WELCOME}
-                fetcher
-                exact
-                component={DeveloperWelcomePage}
-              />
+              <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_WELCOME} exact component={DeveloperWelcomePage} />
               <PrivateRoute
                 allow="DEVELOPER"
                 path={Routes.DEVELOPER_HELP}

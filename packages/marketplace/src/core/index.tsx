@@ -11,7 +11,7 @@ import App from './app'
 // Init global config
 window.reapit = {
   config: {
-    appEnv: 'development',
+    appEnv: 'production',
     sentryDns: '',
     marketplaceApiUrl: '',
     marketplaceApiKey: '',
@@ -20,6 +20,7 @@ window.reapit = {
     elementDocumentUrl: '',
     cognitoClientId: '',
     googleAnalyticsKey: '',
+    cognitoOAuthUrl: '',
   },
 }
 

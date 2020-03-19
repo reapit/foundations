@@ -48,7 +48,7 @@ export const Documentation = () => {
         we have created various sections to provide additional help and support. Each section can be accessed from the
         navigation bar. For example:
       </p>
-      <p className="mb-5">
+      <div className="mb-5">
         <p>
           <strong>
             <a className={linkStyles.link} href={Routes.DEVELOPER_SWAGGER}>
@@ -63,8 +63,8 @@ export const Documentation = () => {
           here
         </a>
         .
-      </p>
-      <p className="mb-5">
+      </div>
+      <div className="mb-5">
         <p>
           <strong>
             <a
@@ -88,7 +88,7 @@ export const Documentation = () => {
         </a>
         . Providing a host of components which have been tested to work with a mobile or desktop application and allows
         you to build your Apps in compliance with our Reapit Brand Guidelines.
-      </p>
+      </div>
       <Button type="button" variant="primary" onClick={handleChangeSteps(goPrev)}>
         Prev
       </Button>

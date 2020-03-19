@@ -17,6 +17,7 @@ window.reapit = {
     uploadApiUrl: '',
     cognitoClientId: '',
     googleAnalyticsKey: '',
+    cognitoOAuthUrl: '',
   },
 }
 

@@ -15,10 +15,10 @@ window.reapit = {
     appEnv: 'production',
     sentryDns: '',
     platformApiUrl: '',
-    uploadApiUrl: '',
     cognitoClientId: '',
     googleAnalyticsKey: '',
     googleMapApiKey: '',
+    cognitoOAuthUrl: '',
   },
 }
 

@@ -461,6 +461,27 @@ Object.defineProperty(window, 'alert', {
   value: jest.fn(),
 })
 
+Object.defineProperty(navigator, 'geolocation', {
+  value: {
+    getCurrentPosition: jest.fn((success, failure, options) => {
+      success({
+        coords: {
+          latitude: 1.352083,
+          longitude: 105.819836,
+          attitude: null,
+          accuracy: 16850,
+          altitudeAccuracy: null,
+          heading: null,
+          speed: null,
+        },
+        timestamp: 1584618637173,
+      })
+    }),
+    stopObserving: jest.fn(),
+    watchPosition: jest.fn(),
+  },
+})
+
 // browserMock.js
 Object.defineProperty(document, 'currentScript', {
   value: (document.createElement('div').id = 'coordinate-0-0'),

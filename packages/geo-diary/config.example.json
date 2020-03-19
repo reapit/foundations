@@ -4,5 +4,6 @@
   "platformApiUrl": "",
   "cognitoClientId": "",
   "googleAnalyticsKey": "",
-  "googleMapApiKey": ""
+  "googleMapApiKey": "",
+  "cognitoOAuthUrl": ""
 }

@@ -7,7 +7,8 @@ module.exports = {
   coveragePathIgnorePatterns: [
     '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]',
     '<rootDir>/src/sagas/api.ts',
-    'service-worker.ts'
+    'service-worker.ts',
+    'index.tsx'
   ],
   moduleNameMapper: {
     ...baseConfig.moduleNameMapper,

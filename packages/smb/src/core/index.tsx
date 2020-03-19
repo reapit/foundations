@@ -16,6 +16,7 @@ window.reapit = {
     graphqlUri: '',
     cognitoClientId: '',
     googleAnalyticsKey: '',
+    cognitoOAuthUrl: '',
   },
 }
 

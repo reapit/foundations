@@ -4,5 +4,6 @@
   "platformApiUrl": "",
   "uploadApiUrl": "",
   "cognitoClientId": "",
-  "googleAnalyticsKey": ""
+  "googleAnalyticsKey": "",
+  "cognitoOAuthUrl": ""
 }

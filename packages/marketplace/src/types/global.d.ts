@@ -8,6 +8,7 @@ export type Config = {
   elementDocumentUrl: string
   cognitoClientId: string
   googleAnalyticsKey: string
+  cognitoOAuthUrl: string
 }
 
 declare global {

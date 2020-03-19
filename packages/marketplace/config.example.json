@@ -7,5 +7,6 @@
   "swaggerUrl": "",
   "elementDocumentUrl": "",
   "cognitoClientId": "",
-  "googleAnalyticsKey": ""
+  "googleAnalyticsKey": "",
+  "cognitoOAuthUrl": ""
 }

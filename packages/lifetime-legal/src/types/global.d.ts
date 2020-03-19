@@ -5,6 +5,7 @@ export type Config = {
   uploadApiUrl: string
   cognitoClientId: string
   googleAnalyticsKey: string
+  cognitoOAuthUrl: string
 }
 
 declare global {
