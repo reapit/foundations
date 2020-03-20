@@ -14,10 +14,8 @@ import { AdminApprovalsState } from '@/reducers/admin-approvals'
 import { RevisionDetailState } from '@/reducers/revision-detail'
 import { AppDetailModalState } from '@/reducers/app-detail-modal'
 import { AppCategoriesState } from '@/reducers/app-categories'
-import { ForgotPasswordState } from '@/reducers/forgot-password'
 import { SettingsState } from '@/reducers/settings'
 import { AdminAppsState } from '@/reducers/admin-apps'
-import { ResetPasswordState } from '@/reducers/reset-password'
 import { AppInstallationsState } from '@/reducers/app-installations'
 import { AppUsageStatsState } from '@/reducers/app-usage-stats'
 import { NotificationMessageState } from '@/reducers/notification-message'
@@ -76,9 +74,7 @@ export interface ReduxState {
   appDetailModal: AppDetailModalState
   appDelete: RequestState
   appCategories: AppCategoriesState
-  forgotPassword: ForgotPasswordState
   settings: SettingsState
-  resetPassword: ResetPasswordState
   installations: AppInstallationsState
   appUsageStats: AppUsageStatsState
   noticationMessage: NotificationMessageState
