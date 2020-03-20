@@ -14,7 +14,9 @@ import {
   validate,
   handleAfterCellChange,
 } from '../offices-tab'
-import { GET_OFFICES, CREATE_OFFICE, UPDATE_OFFICE } from '../offices-tab.graphql'
+import GET_OFFICES from '../gql/get-offices.graphql'
+import CREATE_OFFICE from '../gql/create-office.graphql'
+import UPDATE_OFFICE from '../gql/update-office.graphql'
 import {
   offices,
   office,

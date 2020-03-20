@@ -7,7 +7,7 @@ import { put, fork, takeLatest, call, all, select } from '@redux-saga/core/effec
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
-import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
+import { URLS, generateHeader } from '@/constants/api'
 import { fetcher } from '@reapit/elements'
 import { Action } from '@/types/core'
 import { INSTALLED_APPS_PERPAGE } from '@/constants/paginator'
@@ -46,8 +46,8 @@ export const fetchInstalledApps = async ({ clientId, page }) => {
       `${URLS.apps}?clientId=${clientId}&OnlyInstalled=true&PageNumber=` +
       `${page}&PageSize=${INSTALLED_APPS_PERPAGE}&IsDirectApi=false`,
     method: 'GET',
-    api: process.env.MARKETPLACE_API_BASE_URL as string,
-    headers: MARKETPLACE_HEADERS,
+    api: window.reapit.config.marketplaceApiUrl,
+    headers: generateHeader(window.reapit.config.marketplaceApiKey),
   })
 }
 

@@ -1,0 +1,19 @@
+mutation UpdateNegotiator(
+  $id: String!,
+  $_eTag: String!,
+  $name: String,
+  $jobTitle: String,
+  $active: Boolean,
+  $mobilePhone: String,
+  $email: String
+) {
+  UpdateNegotiator(id: $id, _eTag: $_eTag, name: $name, jobTitle: $jobTitle, active: $active, mobilePhone: $mobilePhone, email: $email) {
+      id
+      name
+      jobTitle
+      active
+      mobilePhone
+      email
+      _eTag
+  }
+}

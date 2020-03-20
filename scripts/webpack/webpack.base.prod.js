@@ -1,13 +1,13 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
+const CopyPlugin = require('copy-webpack-plugin')
 const { GenerateSW } = require('workbox-webpack-plugin')
 const HashedModuleIdsPlugin = require('webpack').HashedModuleIdsPlugin
 const { EnvironmentPlugin } = require('webpack')
 // const SentryWebpackPlugin = require('@sentry/webpack-plugin')
 const { PATHS } = require('./constants')
 const { getVersionTag } = require('../release/utils')
-const config = require(PATHS.config)
 const hashFiles = require('../utils/hash-files')
 const path = require('path')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
@@ -27,6 +27,7 @@ module.exports = {
     new ResolveTSPathsToWebpackAlias({
       tsconfig: PATHS.tsConfig,
     }),
+    new CopyPlugin([{ from: 'config.json', to: PATHS.output }]),
     new HtmlWebpackPlugin({
       hash: true,
       inject: true,
@@ -65,7 +66,6 @@ module.exports = {
       },
     }),
     new EnvironmentPlugin({
-      ...config[process.env.REAPIT_ENV || 'DEV'],
       APP_VERSION: `${tagName.packageName}_${tagName.version}`,
     }),
     new HashedModuleIdsPlugin(),

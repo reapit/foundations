@@ -1,0 +1,25 @@
+#import "../../../../graphql/fragments/office.graphql"
+
+mutation UPDATE_OFFICE(
+  $id: String!
+  $_eTag: String!
+  $name: String
+  $manager: String
+  $address: OfficeModelAddressInput
+  $workPhone: String
+  $email: String
+  $metadata: JSON
+) {
+  UpdateOffice(
+    id: $id
+    _eTag: $_eTag
+    name: $name
+    manager: $manager
+    address: $address
+    workPhone: $workPhone
+    email: $email
+    metadata: $metadata
+  ) {
+    ...Office
+  }
+}

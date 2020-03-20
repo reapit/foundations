@@ -23,7 +23,7 @@ export const useAuth = (): AuthHook => {
   const [loginSession, setLoginSession] = React.useState<LoginSession | null>(null)
   const urlParams: RefreshParams | null = getTokenFromQueryString(
     window.location.search,
-    process.env.COGNITO_CLIENT_ID_SMB as string,
+    window.reapit.config.cognitoClientId,
   )
   const cookieParams: RefreshParams | null = getSessionCookie(COOKIE_SESSION_KEY)
   const refreshParamsRaw: RefreshParams | null = cookieParams ? cookieParams : urlParams

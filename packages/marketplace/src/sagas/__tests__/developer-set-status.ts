@@ -10,7 +10,7 @@ import {
 import errorMessages from '@/constants/error-messages'
 import { developerStub } from '../__stubs__/developer'
 import { fetcher } from '@reapit/elements'
-import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
+import { URLS, generateHeader } from '@/constants/api'
 
 describe('developerSetStatusRequestSaga', () => {
   const gen = cloneableGenerator(developerSetStatusRequestSaga)({ data: developerStub })
@@ -19,10 +19,10 @@ describe('developerSetStatusRequestSaga', () => {
   expect(gen.next().value).toEqual(
     call(fetcher, {
       url: `${URLS.developers}/${developerStub.id}`,
-      api: process.env.MARKETPLACE_API_BASE_URL as string,
+      api: window.reapit.config.marketplaceApiUrl,
       body: { ...developerStub, companyName: developerStub.company },
       method: 'PUT',
-      headers: MARKETPLACE_HEADERS,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
     }),
   )
 

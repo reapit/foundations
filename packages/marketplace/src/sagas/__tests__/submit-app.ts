@@ -15,7 +15,7 @@ import { errorThrownServer } from '@/actions/error'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { fetcher } from '@reapit/elements'
-import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
+import { URLS, generateHeader } from '@/constants/api'
 import { appSubmitStubWithActions, appSubmitStub } from '../__stubs__/apps-submit'
 import { appCategorieStub } from '../__stubs__/app-categories'
 import { ScopeModel, PagedResultCategoryModel_ } from '@reapit/foundations-ts-definitions'
@@ -60,10 +60,10 @@ describe('submit-app post data', () => {
   expect(gen.next(imageUploaderResults).value).toEqual(
     call(fetcher, {
       url: URLS.apps,
-      api: process.env.MARKETPLACE_API_BASE_URL as string,
+      api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
       body: { ...updatedData, categoryId: undefined },
-      headers: MARKETPLACE_HEADERS,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
     }),
   )
 
@@ -119,14 +119,14 @@ describe('submit-app fetch data', () => {
       call(fetcher, {
         url: `${URLS.scopes}`,
         method: 'GET',
-        api: process.env.MARKETPLACE_API_BASE_URL as string,
-        headers: MARKETPLACE_HEADERS,
+        api: window.reapit.config.marketplaceApiUrl,
+        headers: generateHeader(window.reapit.config.marketplaceApiKey),
       }),
       call(fetcher, {
         url: `${URLS.categories}`,
         method: 'GET',
-        api: process.env.MARKETPLACE_API_BASE_URL as string,
-        headers: MARKETPLACE_HEADERS,
+        api: window.reapit.config.marketplaceApiUrl,
+        headers: generateHeader(window.reapit.config.marketplaceApiKey),
       }),
     ]),
   )

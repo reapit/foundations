@@ -48,8 +48,7 @@ export const tabConfigs = ({ loginType, history }: LoginProps): TabConfig[] => [
 ]
 
 export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {
-  const reapitEnv = process.env.REAPIT_ENV || 'LOCAL'
-  const isReapitEnvProd = reapitEnv === 'PROD'
+  const isProduction = window.reapit.config.appEnv === 'production'
   const isPasswordChanged = localStorage.getItem('isPasswordChanged') === 'true'
   const { hasSession, loginType, location, authChangeLoginType, showNotiAfterPasswordChanged } = props
   const { wrapper, container, image, tabsContainer /* , register */ } = loginStyles
@@ -70,7 +69,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   }
   const loginHandler = () => {
     const redirectRoute = getDefaultRouteByLoginType(loginType, firstLoginCookie)
-    redirectToLogin(process.env.COGNITO_CLIENT_ID_MARKETPLACE as string, redirectRoute, loginType)
+    redirectToLogin(window.reapit.config.cognitoClientId, redirectRoute, loginType)
   }
 
   return (
@@ -81,7 +80,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
         </Level>
         <p className="pb-8">Welcome to Reapit {`${loginType === 'CLIENT' ? 'Marketplace' : 'Foundations'}`}</p>
 
-        {loginType !== 'ADMIN' && !isReapitEnvProd && (
+        {loginType !== 'ADMIN' && !isProduction && (
           <div className={tabsContainer}>
             <Tabs tabConfigs={tabConfigs(props)} />
           </div>

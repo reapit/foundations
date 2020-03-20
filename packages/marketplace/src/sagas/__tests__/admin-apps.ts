@@ -4,7 +4,7 @@ import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effec
 import { appsDataStub, featuredAppsDataStub } from '../__stubs__/apps'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { fetcher } from '@reapit/elements'
-import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
+import { URLS, generateHeader } from '@/constants/api'
 import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
@@ -78,10 +78,10 @@ describe('adminAppsFeatured', () => {
   expect(gen.next(appsDataStub.data).value).toEqual(
     call(fetcher, {
       url: `${URLS.apps}/1/feature`,
-      api: process.env.MARKETPLACE_API_BASE_URL as string,
+      api: window.reapit.config.marketplaceApiUrl,
       body: featuredParams.data.isFeatured ? { isFeatured: featuredParams.data.isFeatured } : undefined,
       method: featuredParams.data.isFeatured ? 'PUT' : 'DELETE',
-      headers: MARKETPLACE_HEADERS,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
     }),
   )
 

@@ -35,7 +35,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   isDesktopMode,
   hasSession,
 }) => {
-  const cognitoClientId = process.env.COGNITO_CLIENT_ID_GEO_DIARY as string
+  const cognitoClientId = window.reapit.config.cognitoClientId
   const refreshParams = getTokenFromQueryString(location.search, cognitoClientId)
 
   if (refreshParams && !hasSession) {

@@ -19,12 +19,13 @@
   "scripts": {
     "build": "lerna run build:prod --stream",
     "fetch-config": "yarn config-manager getSecret reapit-marketplace-app-config",
-    "lint": "lerna run lint --parallel --stream",
+    "fetch-config1": "lerna run --parallel --stream fetch-config --",
+    "lint": "lerna run --parallel --stream lint",
     "lint:fix": "lerna run --parallel --stream lint:fix --",
-    "release:dev": "lerna run release:dev --parallel",
-    "release:prod": "lerna run release:prod --parallel",
-    "test": "lerna run test:ci --parallel -- --runInBand",
-    "test-e2e:ci": "lerna run test-e2e:ci --parallel"
+    "release:dev": "lerna run --parallel release:dev",
+    "release:prod": "lerna run --parallel release:prod",
+    "test": "lerna run --parallel test:ci -- --runInBand",
+    "test-e2e:ci": "lerna run --parallel test-e2e:ci"
   },
   "husky": {
     "hooks": {
@@ -133,7 +134,7 @@
     "graphql-tag": "^2.10.1",
     "hard-source-webpack-plugin": "^0.13.1",
     "html-webpack-plugin": "^3.2.0",
-    "husky": "^4.2.0",
+    "husky": "^4.2.3",
     "isomorphic-fetch": "^2.2.1",
     "jest": "^25.1.0",
     "jest-config": "^25.1.0",

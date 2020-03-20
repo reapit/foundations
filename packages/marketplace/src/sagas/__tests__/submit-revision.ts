@@ -5,7 +5,7 @@ import { submitRevisionSetFormState } from '@/actions/submit-revision'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { fetcher } from '@reapit/elements'
-import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
+import { URLS, generateHeader } from '@/constants/api'
 import { CreateAppRevisionModel } from '@reapit/foundations-ts-definitions'
 import { revisionSubmitStub } from '../__stubs__/revision-submit'
 import { appDetailRequestData } from '@/actions/app-detail'
@@ -51,10 +51,10 @@ describe('submit-revision post data', () => {
   expect(gen.next(imageUploaderResults).value).toEqual(
     call(fetcher, {
       url: `${URLS.apps}/${id}/revisions`,
-      api: process.env.MARKETPLACE_API_BASE_URL as string,
+      api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
       body: { ...updatedData, categoryId: undefined },
-      headers: MARKETPLACE_HEADERS,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
     }),
   )
 

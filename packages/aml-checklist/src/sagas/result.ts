@@ -16,7 +16,7 @@ export const resultFetch = function*(params: Action<ContactsParams>) {
     const headers = yield call(initAuthorizedRequestHeaders)
     const responseContacts = yield call(fetcher, {
       url: `${URLS.contacts}/?${queryParams({ ...params.data, pageSize: CONTACTS_PER_PAGE })}`,
-      api: process.env.PLATFORM_API_BASE_URL as string,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
       headers,
     })

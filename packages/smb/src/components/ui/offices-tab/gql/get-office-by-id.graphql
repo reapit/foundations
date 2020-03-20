@@ -1,0 +1,7 @@
+#import "../../../../graphql/fragments/office.graphql"
+
+query GET_OFFICE_BY_ID($id: String!, $embed: [String!]) {
+  GetOfficeById(id: $id, embed: $embed) {
+    ...Office
+  }
+}

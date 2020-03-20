@@ -26,7 +26,7 @@ export const doLogout = function*() {
   try {
     yield call(store.purgeStore)
     yield call(removeSession, COOKIE_SESSION_KEY_GEO_DIARY)
-    yield call(redirectToLogout, process.env.COGNITO_CLIENT_ID_GEO_DIARY as string, `${window.location.origin}/login`)
+    yield call(redirectToLogout, window.reapit.config.cognitoClientId, `${window.location.origin}/login`)
   } catch (err) {
     logger(err)
   }

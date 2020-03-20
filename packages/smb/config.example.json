@@ -1,0 +1,8 @@
+{
+  "appEnv": "local",
+  "sentryDns": "",
+  "graphqlUri": "",
+  "cognitoClientId": "",
+  "googleAnalyticsKey": "",
+  "cognitoOAuthUrl": ""
+}

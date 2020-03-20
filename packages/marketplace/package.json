@@ -19,7 +19,8 @@
     "test-e2e:ci": "yarn start:prod && cypress run --project './src/tests'",
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src\"",
-    "lint:fix": "eslint --cache --ext=ts,tsx src --fix"
+    "lint:fix": "eslint --cache --ext=ts,tsx src --fix",
+    "fetch-config": "yarn config-manager fetchConfig marketplace"
   },
   "dependencies": {
     "@reapit/elements": "^0.5.39",

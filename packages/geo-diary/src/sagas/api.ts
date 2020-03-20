@@ -65,7 +65,7 @@ export const fetchProperty = async ({ id }) => {
   const headers = await initAuthorizedRequestHeaders()
   const response = await fetcher({
     url: `${URLS.properties}/${id}`,
-    api: process.env.PLATFORM_API_BASE_URL as string,
+    api: window.reapit.config.platformApiUrl,
     method: 'GET',
     headers: headers,
   })
@@ -76,7 +76,7 @@ export const fetchNegotiator = async ({ id }) => {
   const headers = await initAuthorizedRequestHeaders()
   const response = await fetcher({
     url: `${URLS.negotiators}/${id}`,
-    api: process.env.PLATFORM_API_BASE_URL as string,
+    api: window.reapit.config.platformApiUrl,
     method: 'GET',
     headers: headers,
   })
@@ -87,7 +87,7 @@ export const fetchOffice = async ({ id }) => {
   const headers = await initAuthorizedRequestHeaders()
   const response = await fetcher({
     url: `${URLS.offices}/${id}`,
-    api: process.env.PLATFORM_API_BASE_URL as string,
+    api: window.reapit.config.platformApiUrl,
     method: 'GET',
     headers: headers,
   })
@@ -98,7 +98,7 @@ export const fetchAppointment = async ({ id }) => {
   const headers = await initAuthorizedRequestHeaders()
   const response = await fetcher({
     url: `${URLS.appointments}/${id}`,
-    api: process.env.PLATFORM_API_BASE_URL as string,
+    api: window.reapit.config.platformApiUrl,
     method: 'GET',
     headers: headers,
   })
@@ -109,7 +109,7 @@ export const updateAppointment = async ({ id, ...rest }: ExtendedAppointmentMode
   const headers = await initAuthorizedRequestHeaders()
   const response = await fetcher({
     url: `${URLS.appointments}/${id}`,
-    api: process.env.PLATFORM_API_BASE_URL as string,
+    api: window.reapit.config.platformApiUrl,
     method: 'PATCH',
     headers: {
       ...headers,

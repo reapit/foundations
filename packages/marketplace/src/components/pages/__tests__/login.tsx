@@ -2,21 +2,19 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import { Login, LoginProps, mapStateToProps, mapDispatchToProps } from '../login'
 import { ReduxState } from '@/types/core'
+import { getMockRouterProps } from '@/utils/mock-helper'
 
 const props: LoginProps = {
+  showNotiAfterPasswordChanged: jest.fn(),
   hasSession: false,
-  login: jest.fn(),
   authChangeLoginType: jest.fn(),
   loginType: 'CLIENT',
-  // @ts-ignore: ignore to fullfil the definition of RouteComponentProps
-  location: {
-    pathname: '/client',
-  },
+  ...getMockRouterProps({}),
 }
 
 describe('Login', () => {
   it('should match a snapshot', () => {
-    process.env.REAPIT_ENV = 'DEV'
+    window.reapit.config.appEnv = 'development'
     expect(shallow(<Login {...props} />)).toMatchSnapshot()
   })
 

@@ -80,7 +80,6 @@ module.exports = {
     //       windows: false,
     //     },
     //   }),
-    //   new EnvironmentPlugin(config[process.env.REAPIT_ENV || 'DEV']),
     //   new HashedModuleIdsPlugin(),
     //   new GenerateSW({
     //     clientsClaim: true,

@@ -1,0 +1,10 @@
+mutation CreateNegotiator(
+  $name: String,
+  $jobTitle: String,
+  $active: Boolean,
+  $officeId: String,
+  $mobilePhone: String,
+  $email: String
+) {
+  CreateNegotiator(name: $name, jobTitle: $jobTitle, active: $active, officeId: $officeId, mobilePhone: $mobilePhone, email: $email)
+}

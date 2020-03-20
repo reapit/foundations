@@ -301,7 +301,6 @@ exports[`Router should match a snapshot 1`] = `
               }
             }
             exact={true}
-            fetcher={true}
             path="/developer/welcome"
           />
           <Connect(Component)
