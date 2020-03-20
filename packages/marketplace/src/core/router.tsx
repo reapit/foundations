@@ -26,8 +26,6 @@ const DeveloperWelcomePage = React.lazy(() => import('../components/pages/develo
 const DeveloperHelpPage = React.lazy(() => import('../components/pages/developer-help'))
 const ClientHelpPage = React.lazy(() => import('../components/pages/client-help'))
 const AnalyticsPage = React.lazy(() => import('../components/pages/analytics'))
-const ResetPassword = React.lazy(() => import('../components/pages/reset-password'))
-const ForgotPassword = React.lazy(() => import('../components/pages/forgot-password/forgot-password'))
 const AdminAppsPage = React.lazy(() => import('../components/pages/admin-apps'))
 const RegisterConfirm = React.lazy(() => import('../components/pages/register-confirm'))
 const AdminStats = React.lazy(() => import('../components/pages/admin-stats'))
@@ -43,10 +41,7 @@ const Router = () => {
       <React.Suspense fallback={null}>
         <Switch>
           <Route path={paths} exact render={() => <Login />} />
-          <Route path={Routes.DEVELOPER_RESET_PASSWORD} component={ResetPassword} />
-          {/* <Route path={Routes.REGISTER} exact component={Register} /> */}
           <Route path={Routes.REGISTER_CONFIRM} exact component={RegisterConfirm} />
-          <Route path={Routes.FORGOT_PASSWORD} component={ForgotPassword} />
           <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
           <PrivateRouteWrapper path="/">
             <Switch>

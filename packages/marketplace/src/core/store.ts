@@ -39,12 +39,8 @@ import adminDevManagementSagas from '../sagas/admin-dev-management'
 import developerSetStatusSagas from '../sagas/developer-set-status'
 import revisionDetailSagas from '../sagas/revision-detail'
 import appDeleteSagas from '../sagas/app-delete'
-import forgotPasswordSagas from '../sagas/forgot-password'
-import forgotPasswordReducer from '../reducers/forgot-password'
 import settingSagas from '../sagas/settings'
 import adminAppsSagas from '../sagas/admin-apps'
-import resetPasswordReducer from '../reducers/reset-password'
-import resetPasswordSagas from '../sagas/reset-password'
 import appInstallationsSagas from '../sagas/app-installations'
 import noticationMessage from '../reducers/notification-message'
 import adminStatsSaga from '../sagas/admin-stats'
@@ -82,9 +78,7 @@ export class Store {
     appDetailModal,
     appDelete: appDeleteReducer,
     appCategories,
-    forgotPassword: forgotPasswordReducer,
     settings: settingsReducer,
-    resetPassword: resetPasswordReducer,
     installations: appInstallationsReducer,
     appUsageStats: appUsageStatsReducer,
     noticationMessage,
@@ -107,10 +101,8 @@ export class Store {
       fork(developerSetStatusSagas),
       fork(revisionDetailSagas),
       fork(appDeleteSagas),
-      fork(forgotPasswordSagas),
       fork(settingSagas),
       fork(adminAppsSagas),
-      fork(resetPasswordSagas),
       fork(appInstallationsSagas),
       fork(adminStatsSaga),
     ])
