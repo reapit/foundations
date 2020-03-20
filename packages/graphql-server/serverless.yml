@@ -2,7 +2,7 @@ service: graphql-server
 plugins:
   - serverless-webpack
 custom:
-  env: ${file(../../reapit-config.json)}
+  env: ${file(./config.json)}
   webpack:
     webpackConfig: 'webpack.config.js'
     includeModules: true
@@ -22,9 +22,9 @@ provider:
     blockPublicAccess: false
   environment:
     NODE_ENV: 'production'
-    COGNITO_USERPOOL_ID: ${self:custom.env.${file(./yml-helpers.js):provider.stage.uppercase}.COGNITO_USERPOOL_ID}
-    MARKETPLACE_API_BASE_URL: ${self:custom.env.${file(./yml-helpers.js):provider.stage.uppercase}.MARKETPLACE_API_BASE_URL}
-    PLATFORM_API_BASE_URL: ${self:custom.env.${file(./yml-helpers.js):provider.stage.uppercase}.PLATFORM_API_BASE_URL}
+    COGNITO_USERPOOL_ID: ${self:custom.env.COGNITO_USERPOOL_ID}
+    MARKETPLACE_API_BASE_URL: ${self:custom.env.MARKETPLACE_API_BASE_URL}
+    PLATFORM_API_BASE_URL: ${self:custom.env.PLATFORM_API_BASE_URL}
 
 package:
   individually: true

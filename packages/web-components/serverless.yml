@@ -3,7 +3,7 @@ plugins:
   - serverless-webpack
   - serverless-offline
 custom:
-  env: ${file(../../reapit-config.json)}
+  env: ${file(./config.json)}
   webpack:
     webpackConfig: 'webpack.config.js'
     includeModules: true
@@ -22,12 +22,12 @@ provider:
     name: web-components.${self:provider.stage}
     blockPublicAccess: false
   environment:
-    NODE_ENV: ${self:custom.env.${file(./yml-helpers.js):provider.stage.uppercase}.NODE_ENV}
-    REAPIT_ENV: ${self:custom.env.${file(./yml-helpers.js):provider.stage.uppercase}.REAPIT_ENV}
-    PLATFORM_API_BASE_URL: ${self:custom.env.${file(./yml-helpers.js):provider.stage.uppercase}.PLATFORM_API_BASE_URL}
-    COGNITO_CLIENT_SECRET_SEARCH_WIDGET: ${self:custom.env.${file(./yml-helpers.js):provider.stage.uppercase}.COGNITO_CLIENT_SECRET_SEARCH_WIDGET}
-    COGNITO_CLIENT_ID_SEARCH_WIDGET: ${self:custom.env.${file(./yml-helpers.js):provider.stage.uppercase}.COGNITO_CLIENT_ID_SEARCH_WIDGET}
-    COGNITO_OAUTH_URL: ${self:custom.env.${file(./yml-helpers.js):provider.stage.uppercase}.COGNITO_OAUTH_URL}
+    NODE_ENV: ${self:custom.env.NODE_ENV}
+    APP_ENV: ${self:custom.env.APP_ENV}
+    PLATFORM_API_BASE_URL: ${self:custom.env.PLATFORM_API_BASE_URL}
+    COGNITO_CLIENT_SECRET_SEARCH_WIDGET: ${self:custom.env.COGNITO_CLIENT_SECRET_SEARCH_WIDGET}
+    COGNITO_CLIENT_ID_SEARCH_WIDGET: ${self:custom.env.COGNITO_CLIENT_ID_SEARCH_WIDGET}
+    COGNITO_OAUTH_URL: ${self:custom.env.COGNITO_OAUTH_URL}
 package:
   individually: true
   include:

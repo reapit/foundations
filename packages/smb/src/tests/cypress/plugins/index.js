@@ -3,7 +3,7 @@ const wp = require('@cypress/webpack-preprocessor')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const tsConfigPath = path.resolve(__dirname, '../../tsconfig.json')
 
-const reapitConfig = require('../../../../reapit-config.json')
+const reapitConfig = require('../../../../config.json')
 
 module.exports = (on, config) => {
   // https://basarat.gitbooks.io/typescript/docs/testing/cypress.html

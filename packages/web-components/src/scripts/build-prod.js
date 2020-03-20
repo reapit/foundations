@@ -8,8 +8,8 @@ return (() => {
   }
   setEnv()
 
-  const REAPIT_ENV = process.env.REAPIT_ENV || 'LOCAL'
-  const serverScript = `serverless webpack --out public/dist --stage ${REAPIT_ENV.toLowerCase()}`
+  const APP_ENV = process.env.APP_ENV || 'local'
+  const serverScript = `serverless webpack --out public/dist --stage ${APP_ENV.toLowerCase()}`
 
   execSync(serverScript, opts)
 

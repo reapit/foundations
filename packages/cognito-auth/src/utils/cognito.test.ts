@@ -244,7 +244,7 @@ describe('Session utils', () => {
   describe('redirectToLogout', () => {
     it('should redirect to the OAuth endpoint for logout', () => {
       window.location.href = ''
-      process.env.COGNITO_OAUTH_URL = ''
+      window.reapit.config.cognitoOAuthUrl = ''
       redirectToLogout('cognitoClientId', 'redirectUri', 'DEVELOPER')
       expect(window.location.href).toEqual('/logout?client_id=cognitoClientId&logout_uri=redirectUri&state=DEVELOPER')
     })
