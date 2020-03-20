@@ -92,11 +92,7 @@ jobs:
 
       - name: Fetch config
         run: |
-          yarn fetch-config DEV
-
-      - name: Fetch config1
-        run: |
-          yarn fetch-config1 development
+          yarn fetch-config development
 
       - name: Build
         run: |

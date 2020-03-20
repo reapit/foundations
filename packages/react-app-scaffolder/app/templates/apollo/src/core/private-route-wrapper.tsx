@@ -16,7 +16,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const { loginSession, refreshParams, getLoginSession } = React.useContext(AuthContext)
 
   if (!loginSession && !refreshParams) {
-    redirectToOAuth(process.env.COGNITO_CLIENT_ID_<%= nameInConstantCase %> as string)
+    redirectToOAuth(window.reapit.config.cognitoClientId)
     return null
   }
 

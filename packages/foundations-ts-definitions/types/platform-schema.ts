@@ -2324,6 +2324,143 @@ export interface CreateDocumentModel {
   fileData?: string
 }
 /**
+ * Request body used to create a enquiries address
+ */
+export interface CreateEnquiryAddressModel {
+  /**
+   * Sets the building name
+   */
+  buildingName?: string
+  /**
+   * Sets the building number
+   */
+  buildingNumber?: string
+  /**
+   * Sets the first line of the address
+   */
+  line1?: string
+  /**
+   * Sets the second line of the address
+   */
+  line2?: string
+  /**
+   * Sets the third line of the address
+   */
+  line3?: string
+  /**
+   * Sets the fourth line of the address
+   */
+  line4?: string
+  /**
+   * Sets the postcode
+   */
+  postcode?: string
+  /**
+   * Sets the ISO-3166 country code that the address resides within
+   */
+  countryId?: string
+}
+/**
+ * Request body used to create an enquiry
+ * example:
+ * [object Object]
+ */
+export interface CreateEnquiryModel {
+  /**
+   * The title of the individual making the enquiry
+   */
+  title?: string
+  /**
+   * The forename of the individual making the enquiry
+   */
+  forename?: string
+  /**
+   * The surname of the individual making the enquiry
+   */
+  surname?: string
+  /**
+   * The selling position of the individual making the enquiry (renting/instructedThisAgent/instructedOtherAgent/privateSale/notOnMarket)
+   */
+  position?: string
+  /**
+   * The type of enquiry. Enquiries can created for applicants interested in buying/renting, as well as prospective vendors and landlords (salesApplicant/lettingsApplicant/salesProperty/lettingsProperty)
+   */
+  enquiryType?: string
+  /**
+   * Textual information about the nature of the enquiry - usually the message text from the individual making the enquiry
+   */
+  message?: string
+  /**
+   * The unique identifier of the related office
+   */
+  officeId?: string
+  /**
+   * The marketing consent status of the individual making the enquiry (grant/deny/notAsked)
+   */
+  marketingConsent?: string
+  /**
+   * The name of the source that the enquiry was generated from
+   */
+  sourceName?: string
+  /**
+   * The home phone number of the individual making the enquiry
+   */
+  homePhone?: string
+  /**
+   * The work phone number of the individual making the enquiry
+   */
+  workPhone?: string
+  /**
+   * The mobile phone number of the individual making the enquiry
+   */
+  mobilePhone?: string
+  /**
+   * The email of the individual making the enquiry
+   */
+  email?: string
+  /**
+   * The address of the individual making the enquiry
+   */
+  address?: {
+    /**
+     * Sets the building name
+     */
+    buildingName?: string
+    /**
+     * Sets the building number
+     */
+    buildingNumber?: string
+    /**
+     * Sets the first line of the address
+     */
+    line1?: string
+    /**
+     * Sets the second line of the address
+     */
+    line2?: string
+    /**
+     * Sets the third line of the address
+     */
+    line3?: string
+    /**
+     * Sets the fourth line of the address
+     */
+    line4?: string
+    /**
+     * Sets the postcode
+     */
+    postcode?: string
+    /**
+     * Sets the ISO-3166 country code that the address resides within
+     */
+    countryId?: string
+  }
+  /**
+   * A list of unique property identifiers that the enquiry relates to
+   */
+  propertyIds?: string[]
+}
+/**
  * Request body used to create a new contact identity check
  * example:
  * [object Object]
@@ -2434,6 +2571,29 @@ export interface CreateIdentityDocumentModel {
    * The filename to store the document as
    */
   name?: string
+}
+/**
+ * Request body to create a journal entry
+ * example:
+ * [object Object]
+ */
+export interface CreateJournalEntryModel {
+  /**
+   * The unique identifier of the property the journal entry is related to. Can additionally be associated to another type
+   */
+  propertyId?: string
+  /**
+   * The entity type the journal entry has been raised against (applicant/contact/company/landlord/tenancy)
+   */
+  associatedType?: string
+  /**
+   * The unique identifier of the entity the journal entry has been raised against. Can additionally be associated to a property
+   */
+  associatedId?: string
+  /**
+   * The textual description of the journal entry event
+   */
+  description?: string
 }
 /**
  * Request body used to create a new relationship between a landlord and a contact or company
@@ -2991,6 +3151,14 @@ export interface CreatePropertyModel {
    * The arrangements regarding viewing the property
    */
   viewingArrangements?: string
+  /**
+   * The url of a video associated with this property, such as a virtual tour
+   */
+  videoUrl?: string
+  /**
+   * The caption for the video url associated with this property
+   */
+  videoCaption?: string
   /**
    * Details of the EPC statistics
    */
@@ -3613,6 +3781,177 @@ export interface Documents {
   )[]
   typeId?: string[]
 }
+export interface Enquiries {
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  enquiryType?: string
+  createdFrom?: string
+  createdTo?: string
+}
+/**
+ * Representation of the physical address of a building or premise
+ */
+export interface EnquiryAddressModel {
+  /**
+   * The building name
+   */
+  buildingName?: string
+  /**
+   * The building number
+   */
+  buildingNumber?: string
+  /**
+   * The first line of the address
+   */
+  line1?: string
+  /**
+   * The second line of the address
+   */
+  line2?: string
+  /**
+   * The third line of the address
+   */
+  line3?: string
+  /**
+   * The fourth line of the address
+   */
+  line4?: string
+  /**
+   * The postcode
+   */
+  postcode?: string
+  /**
+   * The ISO-3166 country code that the address resides within
+   */
+  countryId?: string
+}
+/**
+ * Representation of an enquiry
+ */
+export interface EnquiryModel {
+  /**
+   * The unique identifier of the enquiry
+   */
+  id?: number // int32
+  /**
+   * The date and time when the enquiry was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the enquiry was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The title of the individual making the enquiry
+   */
+  title?: string
+  /**
+   * The forename of the individual making the enquiry
+   */
+  forename?: string
+  /**
+   * The surname of the individual making the enquiry
+   */
+  surname?: string
+  /**
+   * The type of enquiry. Enquiries can created for applicants interested in buying/renting, as well as prospective vendors and landlords (salesApplicant/lettingsApplicant/salesProperty/lettingsProperty)
+   */
+  enquiryType?: string
+  /**
+   * Textual information about the nature of the enquiry - usually the message text from the individual making the enquiry
+   */
+  message?: string
+  /**
+   * The status of the enquiry (pending/added/rejected/alreadyExists/duplicateEntry/spam)
+   */
+  status?: string
+  /**
+   * The marketing consent status of the individual making the enquiry (grant/deny/notAsked)
+   */
+  marketingConsent?: string
+  /**
+   * The selling position of the individual making the enquiry (renting/instructedThisAgent/instructedOtherAgent/privateSale/notOnMarket)
+   */
+  position?: string
+  /**
+   * The unique identifier of the office related to the enquiry
+   */
+  officeId?: string
+  /**
+   * The name of the source that the enquiry was generated by
+   */
+  sourceName?: string
+  /**
+   * The home phone number of the individual making the enquiry
+   */
+  homePhone?: string
+  /**
+   * The work phone number of the individual making the enquiry
+   */
+  workPhone?: string
+  /**
+   * The mobile phone number of the individual making the enquiry
+   */
+  mobilePhone?: string
+  /**
+   * The email of the individual making the enquiry
+   */
+  email?: string
+  /**
+   * The address of the individual making the enquiry
+   */
+  address?: {
+    /**
+     * The building name
+     */
+    buildingName?: string
+    /**
+     * The building number
+     */
+    buildingNumber?: string
+    /**
+     * The first line of the address
+     */
+    line1?: string
+    /**
+     * The second line of the address
+     */
+    line2?: string
+    /**
+     * The third line of the address
+     */
+    line3?: string
+    /**
+     * The fourth line of the address
+     */
+    line4?: string
+    /**
+     * The postcode
+     */
+    postcode?: string
+    /**
+     * The ISO-3166 country code that the address resides within
+     */
+    countryId?: string
+  }
+  /**
+   * A list of unique property identifiers that this enquiry relates to
+   */
+  propertyIds?: string[]
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
 export interface EntityTagHeaderValue {
   readonly tag?: {
     readonly buffer?: string
@@ -3835,6 +4174,60 @@ export interface InsertVendorContactRelationshipModel {
    * Flag denoting whether or not this relationship should be considered to be the main/primary relationship. Setting to true will automatically demote the existing primary relationship
    */
   isMain?: boolean
+}
+export interface JournalEntries {
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  associatedType?: ('applicant' | 'contact' | 'company' | 'landlord' | 'tenancy')[]
+  associatedId?: string[]
+  negotiatorId?: string[]
+  typeId?: string[]
+  createdFrom?: string
+  createdTo?: string
+}
+/**
+ * Representation of a journal entry
+ */
+export interface JournalEntryModel {
+  /**
+   * The date and time when the journal entry was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The unique identifier of the property the journal entry is related to. Can additionally be associated to another type
+   */
+  propertyId?: string
+  /**
+   * The entity type the journal entry has been raised against (applicant/contact/company/landlord/tenancy)
+   */
+  associatedType?: string
+  /**
+   * The unique identifier of the entity the journal entry has been raised against. Can additionally be associated to a property
+   */
+  associatedId?: string
+  /**
+   * The type of journal entry
+   */
+  typeId?: string
+  /**
+   * The unique identifier of the negotiator that created the entry
+   */
+  negotiatorId?: string
+  /**
+   * The textual description of the journal entry event
+   */
+  description?: string
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
 }
 /**
  * Representation of the physical address of a building or premise
@@ -5777,6 +6170,140 @@ export interface PagedResultDocumentModel_ {
     }
   }
 }
+export interface PagedResultEnquiryModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the enquiry
+     */
+    id?: number // int32
+    /**
+     * The date and time when the enquiry was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the enquiry was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The title of the individual making the enquiry
+     */
+    title?: string
+    /**
+     * The forename of the individual making the enquiry
+     */
+    forename?: string
+    /**
+     * The surname of the individual making the enquiry
+     */
+    surname?: string
+    /**
+     * The type of enquiry. Enquiries can created for applicants interested in buying/renting, as well as prospective vendors and landlords (salesApplicant/lettingsApplicant/salesProperty/lettingsProperty)
+     */
+    enquiryType?: string
+    /**
+     * Textual information about the nature of the enquiry - usually the message text from the individual making the enquiry
+     */
+    message?: string
+    /**
+     * The status of the enquiry (pending/added/rejected/alreadyExists/duplicateEntry/spam)
+     */
+    status?: string
+    /**
+     * The marketing consent status of the individual making the enquiry (grant/deny/notAsked)
+     */
+    marketingConsent?: string
+    /**
+     * The selling position of the individual making the enquiry (renting/instructedThisAgent/instructedOtherAgent/privateSale/notOnMarket)
+     */
+    position?: string
+    /**
+     * The unique identifier of the office related to the enquiry
+     */
+    officeId?: string
+    /**
+     * The name of the source that the enquiry was generated by
+     */
+    sourceName?: string
+    /**
+     * The home phone number of the individual making the enquiry
+     */
+    homePhone?: string
+    /**
+     * The work phone number of the individual making the enquiry
+     */
+    workPhone?: string
+    /**
+     * The mobile phone number of the individual making the enquiry
+     */
+    mobilePhone?: string
+    /**
+     * The email of the individual making the enquiry
+     */
+    email?: string
+    /**
+     * The address of the individual making the enquiry
+     */
+    address?: {
+      /**
+       * The building name
+       */
+      buildingName?: string
+      /**
+       * The building number
+       */
+      buildingNumber?: string
+      /**
+       * The first line of the address
+       */
+      line1?: string
+      /**
+       * The second line of the address
+       */
+      line2?: string
+      /**
+       * The third line of the address
+       */
+      line3?: string
+      /**
+       * The fourth line of the address
+       */
+      line4?: string
+      /**
+       * The postcode
+       */
+      postcode?: string
+      /**
+       * The ISO-3166 country code that the address resides within
+       */
+      countryId?: string
+    }
+    /**
+     * A list of unique property identifiers that this enquiry relates to
+     */
+    propertyIds?: string[]
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
 export interface PagedResultIdentityCheckModel_ {
   _embedded?: {
     /**
@@ -5869,6 +6396,57 @@ export interface PagedResultIdentityCheckModel_ {
      * The ETag for the current version of the identity check. Used for managing update concurrency
      */
     readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface PagedResultJournalEntryModel_ {
+  _embedded?: {
+    /**
+     * The date and time when the journal entry was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The unique identifier of the property the journal entry is related to. Can additionally be associated to another type
+     */
+    propertyId?: string
+    /**
+     * The entity type the journal entry has been raised against (applicant/contact/company/landlord/tenancy)
+     */
+    associatedType?: string
+    /**
+     * The unique identifier of the entity the journal entry has been raised against. Can additionally be associated to a property
+     */
+    associatedId?: string
+    /**
+     * The type of journal entry
+     */
+    typeId?: string
+    /**
+     * The unique identifier of the negotiator that created the entry
+     */
+    negotiatorId?: string
+    /**
+     * The textual description of the journal entry event
+     */
+    description?: string
     readonly _links?: {
       [name: string]: {
         href?: string
@@ -6602,6 +7180,14 @@ export interface PagedResultPropertyModel_ {
      * The arrangements regarding viewing the property
      */
     viewingArrangements?: string
+    /**
+     * The url of a video associated with this property, such as a virtual tour
+     */
+    videoUrl?: string
+    /**
+     * The caption for the video url associated with this property
+     */
+    videoCaption?: string
     /**
      * Details of the external land area associated to this property
      */
@@ -8119,6 +8705,14 @@ export interface PropertyModel {
    * The arrangements regarding viewing the property
    */
   viewingArrangements?: string
+  /**
+   * The url of a video associated with this property, such as a virtual tour
+   */
+  videoUrl?: string
+  /**
+   * The caption for the video url associated with this property
+   */
+  videoCaption?: string
   /**
    * Details of the external land area associated to this property
    */
@@ -10424,6 +11018,14 @@ export interface UpdatePropertyModel {
    * The arrangements regarding viewing the property
    */
   viewingArrangements?: string
+  /**
+   * The url of a video associated with this property, such as a virtual tour
+   */
+  videoUrl?: string
+  /**
+   * The caption for the video url associated with this property
+   */
+  videoCaption?: string
   /**
    * Details of the EPC statistics
    */

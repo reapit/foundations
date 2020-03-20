@@ -6,9 +6,7 @@ const sw2dts = require('sw2dts')
 const prettifyCode = require('./format-code')
 
 const { FOUNDATION_TYPES_FOLDER } = require('./constants')
-const config = require(path.resolve(__dirname, '../../reapit-config.json'))
-const configDev = config['DEV']
-const { MARKETPLACE_API_BASE_URL, MARKETPLACE_API_KEY } = configDev
+const { PLATFORM_API_BASE_URL } = require(path.resolve(__dirname, '..', 'config.json'))
 
 // Fetch definitions for a given schema
 const fetchDefinitionsForSchema = async schemaConfig => {
@@ -30,15 +28,20 @@ const fetchDefinitionsForSchema = async schemaConfig => {
     const formatDefinitions = prettifyCode(cookedDefinitions)
 
     // Write interfaces to file
+    fs.writeFileSync(
+      definitionFile,
+      formatDefinitions,
 
-    fs.writeFileSync(definitionFile, formatDefinitions, { flag: 'a+' }, error => {
-      if (error) {
-        console.error(`Failed to write type definitions for: ${endpoint}`)
-        throw error
-      } else {
-        console.log(`Successfully wrote type definitions for: ${endpoint}`)
-      }
-    })
+      { flag: 'a+' },
+      error => {
+        if (error) {
+          console.error(`Failed to write type definitions for: ${endpoint}`)
+          throw error
+        } else {
+          console.log(`Successfully wrote type definitions for: ${endpoint}`)
+        }
+      },
+    )
   } else {
     throw new Error(`Failed to fetch type definitions for: ${endpoint}`)
   }
@@ -48,13 +51,13 @@ const fetchDefinitionsForSchema = async schemaConfig => {
 module.exports = async apiVersion => {
   const apiSchema = [
     {
-      definitionFile: path.resolve(FOUNDATION_TYPES_FOLDER, './marketplace-api-schema.ts'),
-      endpoint: `${MARKETPLACE_API_BASE_URL}/swagger/v1/swagger.json`,
+      definitionFile: path.resolve(FOUNDATION_TYPES_FOLDER, './platform-schema.ts'),
+      endpoint: `${PLATFORM_API_BASE_URL}/docs`,
       headers: {
-        'X-Api-Key': MARKETPLACE_API_KEY,
         'api-version': apiVersion,
       },
     },
   ]
+
   return Promise.all(apiSchema.map(fetchDefinitionsForSchema))
 }

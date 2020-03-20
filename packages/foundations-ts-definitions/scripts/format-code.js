@@ -1,5 +1,5 @@
 const prettier = require('prettier')
-const prettierBaseConfig = require('../../.prettierrc.js')
+const prettierBaseConfig = require('../../../.prettierrc.js')
 
 module.exports = content => {
   const formatContent = prettier.format(content, {

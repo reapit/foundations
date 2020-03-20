@@ -23,6 +23,18 @@ const mockStorage = (() => {
   }
 })()
 
+Object.defineProperty(window, 'reapit', {
+  value: {
+    config: {
+      appEnv: 'development',
+      sentryDns: '',
+      cognitoClientId: '',
+      googleAnalyticsKey: '',
+      graphqlUri: '',
+    },
+  },
+})
+
 Object.defineProperty(window, 'localStorage', {
   value: mockStorage
 })

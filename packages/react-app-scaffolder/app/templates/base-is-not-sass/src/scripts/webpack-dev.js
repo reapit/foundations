@@ -82,6 +82,7 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   devServer: {
+    contentBase: [path.join(process.cwd(), 'public'), path.join(process.cwd())],
     open: true,
     clientLogLevel: 'warning',
     historyApiFallback: true,

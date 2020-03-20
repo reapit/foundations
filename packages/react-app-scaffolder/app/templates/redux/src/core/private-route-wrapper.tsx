@@ -33,7 +33,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   location,
   hasSession,
 }) => {
-  const cognitoClientId = process.env.COGNITO_CLIENT_ID_<%= nameInConstantCase %> as string
+  const cognitoClientId = window.reapit.config.cognitoClientId
   const refreshParams = getTokenFromQueryString(location.search, cognitoClientId)
 
   if (refreshParams && !hasSession) {

@@ -1,0 +1,6 @@
+{
+  "appEnv": "development",
+  "sentryDns": "",
+  "cognitoClientId": "",
+  "googleAnalyticsKey": ""
+}

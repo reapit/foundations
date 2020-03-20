@@ -1,11 +1,12 @@
 const Octokit = require('@octokit/rest')
-const getCurrentTimeStamp = require('./get-current-time-stamp-string')
 const fs = require('fs')
 const path = require('path')
+const getCurrentTimeStamp = require('./get-current-time-stamp-string')
 const { FOUNDATION_ROOT_FOLDER } = require('./constants')
-const { GITHUB_TOKEN } = process.env
-const { runCommand } = require('../release/utils')
+const { runCommand } = require('../../../scripts/release/utils')
 const { execSync } = require('child_process')
+
+const { GITHUB_TOKEN } = process.env
 
 module.exports = async () => {
   try {
