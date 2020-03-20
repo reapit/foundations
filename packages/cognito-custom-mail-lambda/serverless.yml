@@ -1,5 +1,5 @@
 service: cognito-mailer
-custom: ${file(../../reapit-config.json)}
+custom: ${file(./config.json)}
 provider:
   name: aws
   runtime: nodejs10.x
@@ -9,8 +9,8 @@ provider:
     name: cognito.mailer.${self:provider.stage}
     blockPublicAccess: false
   environment:
-    COGNITO_USERPOOL_ID: ${self:custom.${file(./yml-helpers.js):provider.stage.uppercase}.COGNITO_USERPOOL_ID}
-    MARKET_PLACE_URL: ${self:custom.${file(./yml-helpers.js):provider.stage.uppercase}.MARKET_PLACE_URL}
+    COGNITO_USERPOOL_ID: ${self:custom.COGNITO_USERPOOL_ID}
+    MARKET_PLACE_URL: ${self:custom.MARKET_PLACE_URL}
 package:
   include:
     - dist/**
@@ -37,6 +37,6 @@ functions:
     handler: dist/app.cognitoCustomMailerHandler
     events:
       - cognitoUserPool:
-        pool: ${self:custom.${file(./yml-helpers.js):provider.stage.uppercase}.COGNITO_USERPOOL_ID}
+        pool: ${self:custom.COGNITO_USERPOOL_ID}
         trigger: CustomMessage
         existing: true

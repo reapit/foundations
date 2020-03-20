@@ -24,7 +24,6 @@ const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 // const HashedModuleIdsPlugin = require('webpack').HashedModuleIdsPlugin
 // const { EnvironmentPlugin } = require('webpack')
 const { PATHS } = require('./constants')
-// const config = require(PATHS.config)
 
 module.exports = {
   // context: process.cwd(),

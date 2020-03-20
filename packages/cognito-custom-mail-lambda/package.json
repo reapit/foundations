@@ -14,7 +14,8 @@
     "release:prod": "node ../../scripts/release/release-serverless.js cognito-custom-mail-lambda",
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
-    "lint:fix": "eslint --cache --ext=ts,tsx,js src --fix"
+    "lint:fix": "eslint --cache --ext=ts,tsx,js src --fix",
+    "fetch-config": "yarn config-manager fetchConfig cognito-custom-mail-lambda"
   },
   "repository": {
     "type": "git",

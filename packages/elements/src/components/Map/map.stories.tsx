@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Map } from './index'
 
-const MAP_API_KEY = process.env.MAP_API_KEY || ''
+const GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY || ''
 
 const onLoadedDirection = response => {
   console.log(response)
@@ -33,7 +33,7 @@ const onLoaded = response => {
 storiesOf('Map', module).add('Map', () => {
   return (
     <Map
-      apiKey={MAP_API_KEY}
+      apiKey={GOOGLE_MAPS_API_KEY}
       libraries="places,drawing"
       autoFitBounds={true}
       coordinates={[

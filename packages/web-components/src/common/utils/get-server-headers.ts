@@ -10,7 +10,7 @@ export const getServerHeaders = async (req: Request, packageSuffix: PACKAGE_SUFF
   // For local development, I need to get a token from my client secret, in prod, this is added as a
   // header by my lambda authorizer so not required
   const authHeaders = await (async () => {
-    if (process.env.REAPIT_ENV === 'LOCAL') {
+    if (process.env.APP_ENV === 'local') {
       const clientId = process.env[`COGNITO_CLIENT_ID_${packageSuffix}`] as string
       const clientSecret = process.env[`COGNITO_CLIENT_SECRET_${packageSuffix}`] as string
       const base64Encoded = Buffer.from(`${clientId}:${clientSecret}`).toString('base64')

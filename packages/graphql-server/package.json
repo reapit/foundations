@@ -19,7 +19,8 @@
     "start:prod": "node ./dist/app.js",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
-    "fetch-ts-definitions": "node scripts/fetch-ts-definitions.js"
+    "fetch-ts-definitions": "node scripts/fetch-ts-definitions.js",
+    "fetch-config": "yarn config-manager fetchConfig graphql-server"
   },
   "dependencies": {
     "@reapit/cognito-auth": "^2.0.19",

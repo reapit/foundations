@@ -18,7 +18,7 @@ describe('getServerHeaders', () => {
   })
 
   it('should return the correct headers for local development', async () => {
-    process.env.REAPIT_ENV = 'LOCAL'
+    process.env.APP_ENV = 'local'
     const token = 'SOME_TOKEN'
     ;(fetcher as jest.Mock).mockImplementation(() => ({
       access_token: token,

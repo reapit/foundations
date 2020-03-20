@@ -29,7 +29,8 @@
     "start:prod": "cross-env NODE_ENV=development tsdx watch",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
-    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
+    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
+    "fetch-config": "yarn config-manager fetchConfig elements"
   },
   "browserslist": [
     "> 1%",

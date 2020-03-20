@@ -3,7 +3,7 @@ const wp = require('@cypress/webpack-preprocessor')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const tsConfigPath = path.resolve(__dirname, '../../tsconfig.json')
 
-const reapitConfig = require('../../../../reapit-config.json')
+const reapitConfig = require('../../config.json')
 
 module.exports = (on, config) => {
   // https://basarat.gitbooks.io/typescript/docs/testing/cypress.html
@@ -46,7 +46,7 @@ module.exports = (on, config) => {
   const reapitEnv = process.env.REAPIT_ENV || 'LOCAL'
 
   if (typeof reapitConfig !== 'object') {
-    throw new Error("reapit-config.json's content is invalid. Its type should be an object")
+    throw new Error("config.json's content is invalid. Its type should be an object")
   }
 
   const reapitConfigMatchedEnv = reapitConfig[reapitEnv]
