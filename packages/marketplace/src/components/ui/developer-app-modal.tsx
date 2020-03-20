@@ -12,6 +12,7 @@ import { Dispatch } from 'redux'
 import styles from '@/styles/blocks/developer-app-modal.scss?mod'
 import AppInstallations from './app-installations/app-installations-modal'
 import { removeAuthenticationCode } from '@/actions/app-detail'
+import { DeveloperAppHighlightedChangesModal } from './developer-app-highlighted-changes-modal'
 
 export interface DeveloperAppModalMappedProps {
   appDetailState: AppDetailState
@@ -26,6 +27,12 @@ export interface DeveloperAppModalMappedAction {
 export type DeveloperAppInnerProps = DeveloperAppModalMappedProps & DeveloperAppModalMappedAction & RouteComponentProps
 export type DeveloperAppModalProps = Pick<ModalProps, 'visible' | 'afterClose'> & RouteComponentProps
 
+export const handlePendingRevisionButtonClick = setIsAppHighlightedChangesModalOpen => {
+  return () => {
+    setIsAppHighlightedChangesModalOpen(true)
+  }
+}
+
 export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerProps> = ({
   appDetailState,
   fetchDeveloperApps,
@@ -35,6 +42,7 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
 }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false)
   const [isInstallationsModalOpen, setIsInstallationsModalOpen] = React.useState(false)
+  const [isAppHighlightedChangesModalOpen, setIsAppHighlightedChangesModalOpen] = React.useState(false)
 
   if (appDetailState.loading) {
     return <ModalBody body={<Loader />} />
@@ -77,18 +85,28 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
               >
                 Delete App
               </Button>
-              <Button
-                type="button"
-                variant="primary"
-                dataTest="detail-modal-edit-button"
-                onClick={() => {
-                  removeAuthenticationCode()
-                  history.push(`${routes.DEVELOPER_MY_APPS}/${id}/edit`)
-                }}
-                disabled={pendingRevisions}
-              >
-                {pendingRevisions ? 'Pending Revision' : 'Edit Detail'}
-              </Button>
+              {pendingRevisions ? (
+                <Button
+                  type="button"
+                  variant="primary"
+                  dataTest="detail-modal-edit-button"
+                  onClick={handlePendingRevisionButtonClick(setIsAppHighlightedChangesModalOpen)}
+                >
+                  Pending Revision
+                </Button>
+              ) : (
+                <Button
+                  type="button"
+                  variant="primary"
+                  dataTest="detail-modal-edit-button"
+                  onClick={() => {
+                    removeAuthenticationCode()
+                    history.push(`${routes.DEVELOPER_MY_APPS}/${id}/edit`)
+                  }}
+                >
+                  Edit Detail
+                </Button>
+              )}
             </LevelRight>
           </Level>
         }
@@ -116,6 +134,8 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
           setIsInstallationsModalOpen(false)
         }}
       />
+
+      <DeveloperAppHighlightedChangesModal visible={isAppHighlightedChangesModalOpen} />
     </>
   )
 }
