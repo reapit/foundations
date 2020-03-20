@@ -581,6 +581,7 @@ export interface Applicants {
   priceTo?: number
   rentFrom?: number
   rentTo?: number
+  rentFrequency?: ('weekly' | 'monthly' | 'annually')[]
   bedroomsFrom?: number
   bedroomsTo?: number
   createdFrom?: string
@@ -1421,6 +1422,7 @@ export interface Contacts {
   sortBy?: string
   embed?: ('documents' | 'identityChecks' | 'negotiators' | 'offices' | 'source')[]
   id?: string[]
+  email?: string[]
   negotiatorId?: string[]
   officeId?: string[]
   address?: string
@@ -7761,6 +7763,7 @@ export interface Properties {
   priceTo?: number
   rentFrom?: number
   rentTo?: number
+  rentFrequency?: ('weekly' | 'monthly' | 'annually')[]
   internetAdvertising?: boolean
 }
 /**
