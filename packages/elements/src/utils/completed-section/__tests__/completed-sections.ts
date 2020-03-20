@@ -9,7 +9,7 @@ import {
 
 describe('completed-sections', () => {
   describe('isCompletedProfile', () => {
-    it('should run correctly', () => {
+    it('should return true', () => {
       const params = {
         title: 'Mr',
         surname: 'A',
@@ -24,7 +24,7 @@ describe('completed-sections', () => {
       expect(result).toBeTruthy()
     })
 
-    it('should run correctly', () => {
+    it('should return false', () => {
       const params = {
         title: 'Mr',
         surname: 'A',
@@ -34,6 +34,42 @@ describe('completed-sections', () => {
       }
       const result = isCompletedProfile(params)
       expect(result).toBeFalsy()
+    })
+
+    it('should return true', () => {
+      const params = {
+        title: 'Mr',
+        surname: 'A',
+        forename: 'B',
+        dateOfBirth: '04/04/1996',
+        homePhone: '0123456789',
+      }
+      const result = isCompletedProfile(params)
+      expect(result).toBeTruthy()
+    })
+
+    it('should return true', () => {
+      const params = {
+        title: 'Mr',
+        surname: 'A',
+        forename: 'B',
+        dateOfBirth: '04/04/1996',
+        workPhone: '0123456789',
+      }
+      const result = isCompletedProfile(params)
+      expect(result).toBeTruthy()
+    })
+
+    it('should return true', () => {
+      const params = {
+        title: 'Mr',
+        surname: 'A',
+        forename: 'B',
+        dateOfBirth: '04/04/1996',
+        mobilePhone: '0123456789',
+      }
+      const result = isCompletedProfile(params)
+      expect(result).toBeTruthy()
     })
 
     it('should run correctly', () => {
