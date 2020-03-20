@@ -1,9 +1,9 @@
 const path = require('path')
 
-const reapitConfig = require(path.resolve(__dirname, '../../../..', 'reapit-config.json'))
+const reapitConfig = require(path.resolve(__dirname, '../..', 'config.json'))
 
 const setEnv = () => {
-  const configs = reapitConfig[process.env.REAPIT_ENV]
+  const configs = reapitConfig[process.env.APP_ENV]
 
   for (const k in configs) {
     process.env[k] = configs[k]

@@ -1,6 +1,6 @@
 const { EnvironmentPlugin } = require('webpack')
 const path = require('path')
-const envConfig = require('../../../reapit-config.json')
+const configEnv = require('../config.json')
 const { getVersionTag } = require('../../../scripts/release/utils')
 
 module.exports = ({ config }) => {
@@ -49,7 +49,7 @@ module.exports = ({ config }) => {
   )
   config.resolve.extensions.push('.ts', '.tsx')
   config.plugins.push(new EnvironmentPlugin({
-    ...envConfig[process.env.REAPIT_ENV || 'LOCAL'],
+    ...configEnv,
       APP_VERSION: `${getVersionTag().version}`,
   }))
   return config
