@@ -30,9 +30,7 @@ describe('completed-sections', () => {
         surname: 'A',
         forename: 'B',
         dateOfBirth: '04/04/1996',
-        homePhone: '0123456789',
-        workPhone: '0123456789',
-        mobilePhone: '0123456789',
+        email: 'tanphamhaiduong@gmail.com',
       }
       const result = isCompletedProfile(params)
       expect(result).toBeFalsy()

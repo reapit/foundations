@@ -6,10 +6,7 @@ export const isCompletedProfile = (contact?: ContactModel | null) => {
     contact?.surname &&
     contact?.forename &&
     contact?.dateOfBirth &&
-    contact?.homePhone &&
-    contact?.workPhone &&
-    contact?.mobilePhone &&
-    contact?.email
+    (contact?.homePhone || contact?.workPhone || contact?.mobilePhone)
   return !!isValidProfile
 }
 
@@ -33,32 +30,14 @@ export const isCompletedSecondaryID = (identityCheck?: IdentityCheckModel | null
 
 export const isCompletedAddress = (contact?: ContactModel | null) => {
   const isValidPrimaryAddress =
-    !!contact?.primaryAddress?.buildingName &&
-    !!contact?.primaryAddress?.buildingNumber &&
     !!contact?.primaryAddress?.line1 &&
-    !!contact?.primaryAddress?.line2 &&
     !!contact?.primaryAddress?.line3 &&
-    !!contact?.primaryAddress?.line4 &&
+    !!contact?.primaryAddress?.postcode &&
     !!contact?.metadata?.primaryAddress?.year &&
     !!contact?.metadata?.primaryAddress?.month &&
     !!contact?.metadata?.primaryAddress?.documentType &&
     !!contact?.metadata?.primaryAddress?.documentImage
-  const isValidSecondaryAddress =
-    !!contact?.secondaryAddress?.buildingName &&
-    !!contact?.secondaryAddress?.buildingNumber &&
-    !!contact?.secondaryAddress?.line1 &&
-    !!contact?.secondaryAddress?.line2 &&
-    !!contact?.secondaryAddress?.line3 &&
-    !!contact?.secondaryAddress?.line4 &&
-    !!contact?.metadata?.secondaryAddress?.year &&
-    !!contact?.metadata?.secondaryAddress?.month &&
-    !!contact?.metadata?.secondaryAddress?.documentType &&
-    !!contact?.metadata?.secondaryAddress?.documentImage
-
-  if (contact?.primaryAddress && !contact?.secondaryAddress) {
-    return !!isValidPrimaryAddress
-  }
-  return !!isValidPrimaryAddress && !!isValidSecondaryAddress
+  return !!isValidPrimaryAddress
 }
 
 export const isCompletedDeclarationRisk = (contact: ContactModel | null) => {
