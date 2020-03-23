@@ -1,8 +1,8 @@
 import {
   getAuthRouteByLoginType,
   getLoginTypeByPath,
-  getDefaultPathByLoginType,
   getDefaultRouteByLoginType,
+  getDefaultPathByLoginType,
 } from '../auth-route'
 import Routes from '../../constants/routes'
 
@@ -23,42 +23,93 @@ describe('getLoginTypeByPath', () => {
 })
 
 describe('getDefaultRouteByLoginType', () => {
-  it('should return correct route', () => {
-    const firstLoginCookie = '1'
-    expect(getDefaultRouteByLoginType('ADMIN', firstLoginCookie)).toEqual(
-      `${window.location.origin}${Routes.ADMIN_APPROVALS}`,
-    )
-    expect(getDefaultRouteByLoginType('DEVELOPER', firstLoginCookie)).toEqual(
-      `${window.location.origin}${Routes.DEVELOPER_MY_APPS}`,
-    )
-    expect(getDefaultRouteByLoginType('CLIENT', firstLoginCookie)).toEqual(
-      `${window.location.origin}${Routes.INSTALLED_APPS}`,
-    )
+  it('should return origin url + Routes.ADMIN_APPROVALS if loginType = ADMIN ', () => {
+    expect(
+      getDefaultRouteByLoginType({
+        loginType: 'ADMIN',
+      }),
+    ).toEqual(`${window.location.origin}${Routes.ADMIN_APPROVALS}`)
   })
 
-  it('should return correct route DEVELOPER when not found firstLoginCookie', () => {
-    const firstLoginCookie = undefined
-
-    expect(getDefaultRouteByLoginType('DEVELOPER', firstLoginCookie)).toEqual(
-      `${window.location.origin}${Routes.DEVELOPER_WELCOME}`,
-    )
-    expect(getDefaultRouteByLoginType('CLIENT', firstLoginCookie)).toEqual(
-      `${window.location.origin}${Routes.CLIENT_WELCOME}`,
-    )
+  /* eslint-disable max-len */
+  it('should return origin url + Routes.DEVELOPER_MY_APPS if loginType = DEVELOPER and isDeveloperFirstTimeLoginComplete is true', () => {
+    expect(
+      getDefaultRouteByLoginType({
+        loginType: 'DEVELOPER',
+        isDeveloperFirstTimeLoginComplete: true,
+      }),
+    ).toEqual(`${window.location.origin}${Routes.DEVELOPER_MY_APPS}`)
   })
+
+  it('should return origin url + Routes.DEVELOPER_WELCOME if loginType = DEVELOPER and isDeveloperFirstTimeLoginComplete is false', () => {
+    expect(
+      getDefaultRouteByLoginType({
+        loginType: 'DEVELOPER',
+      }),
+    ).toEqual(`${window.location.origin}${Routes.DEVELOPER_WELCOME}`)
+  })
+
+  it('should return origin url + Routes.INSTALLED_APPS if loginType = CLIENT and isClientFirstTimeLoginComplete is true', () => {
+    expect(
+      getDefaultRouteByLoginType({
+        loginType: 'CLIENT',
+        isClientFirstTimeLoginComplete: true,
+      }),
+    ).toEqual(`${window.location.origin}${Routes.INSTALLED_APPS}`)
+  })
+
+  it('should return origin url + Routes.CLIENT_WELCOME if loginType = CLIENT and isClientFirstTimeLoginComplete is false', () => {
+    expect(
+      getDefaultRouteByLoginType({
+        loginType: 'CLIENT',
+      }),
+    ).toEqual(`${window.location.origin}${Routes.CLIENT_WELCOME}`)
+  })
+  /* eslint-enable*/
 })
 
 describe('getDefaultPathByLoginType', () => {
-  it('should return correct path', () => {
-    const firstLoginCookie = '1'
-    expect(getDefaultPathByLoginType('ADMIN', firstLoginCookie)).toEqual(Routes.ADMIN_APPROVALS)
-    expect(getDefaultPathByLoginType('DEVELOPER', firstLoginCookie)).toEqual(Routes.DEVELOPER_MY_APPS)
-    expect(getDefaultPathByLoginType('CLIENT', firstLoginCookie)).toEqual(Routes.INSTALLED_APPS)
+  it('should return Routes.ADMIN_APPROVALS if loginType = ADMIN ', () => {
+    expect(
+      getDefaultPathByLoginType({
+        loginType: 'ADMIN',
+      }),
+    ).toEqual(Routes.ADMIN_APPROVALS)
   })
 
-  it('should return correct path DEVELOPER when not found firstLoginCookie', () => {
-    const firstLoginCookie = undefined
-    expect(getDefaultPathByLoginType('DEVELOPER', firstLoginCookie)).toEqual(Routes.DEVELOPER_WELCOME)
-    expect(getDefaultPathByLoginType('CLIENT', firstLoginCookie)).toEqual(Routes.CLIENT_WELCOME)
+  /* eslint-disable max-len */
+  it('should return Routes.DEVELOPER_MY_APPS if loginType = DEVELOPER and isDeveloperFirstTimeLoginComplete is true', () => {
+    expect(
+      getDefaultPathByLoginType({
+        loginType: 'DEVELOPER',
+        isDeveloperFirstTimeLoginComplete: true,
+      }),
+    ).toEqual(Routes.DEVELOPER_MY_APPS)
   })
+
+  it('should return Routes.DEVELOPER_WELCOME if loginType = DEVELOPER and isDeveloperFirstTimeLoginComplete is false', () => {
+    expect(
+      getDefaultPathByLoginType({
+        loginType: 'DEVELOPER',
+      }),
+    ).toEqual(Routes.DEVELOPER_WELCOME)
+  })
+
+  it('should return Routes.INSTALLED_APPS if loginType = CLIENT and isClientFirstTimeLoginComplete is true', () => {
+    expect(
+      getDefaultPathByLoginType({
+        loginType: 'CLIENT',
+        isClientFirstTimeLoginComplete: true,
+      }),
+    ).toEqual(Routes.INSTALLED_APPS)
+  })
+
+  it('should return Routes.CLIENT_WELCOME if loginType = CLIENT and isClientFirstTimeLoginComplete is false', () => {
+    expect(
+      getDefaultPathByLoginType({
+        loginType: 'CLIENT',
+      }),
+    ).toEqual(Routes.CLIENT_WELCOME)
+  })
+  /* eslint-enable*/
 })

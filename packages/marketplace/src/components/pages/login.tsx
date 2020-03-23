@@ -11,7 +11,11 @@ import loginStyles from '@/styles/pages/login.scss?mod'
 import { withRouter, RouteComponentProps } from 'react-router'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 import { getLoginTypeByPath, getDefaultPathByLoginType, getDefaultRouteByLoginType } from '@/utils/auth-route'
-import { getCookieString, COOKIE_FIRST_TIME_LOGIN } from '@/utils/cookie'
+import {
+  getCookieString,
+  COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE,
+  COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE,
+} from '@/utils/cookie'
 import connectImage from '@/assets/images/reapit-connect.png'
 import { showNotificationMessage } from '@/actions/notification-message'
 import messages from '@/constants/messages'
@@ -56,7 +60,8 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   const currentLoginType = getLoginTypeByPath(location.pathname)
   authChangeLoginType(currentLoginType)
 
-  const firstLoginCookie = getCookieString(COOKIE_FIRST_TIME_LOGIN)
+  const isDeveloperFirstTimeLoginComplete = Boolean(getCookieString(COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE))
+  const isClientFirstTimeLoginComplete = Boolean(getCookieString(COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE))
 
   if (isPasswordChanged) {
     showNotiAfterPasswordChanged()
@@ -64,11 +69,20 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   }
 
   if (hasSession) {
-    const redirectRoute = getDefaultPathByLoginType(loginType, firstLoginCookie)
+    const redirectRoute = getDefaultPathByLoginType({
+      loginType,
+      isDeveloperFirstTimeLoginComplete,
+      isClientFirstTimeLoginComplete,
+    })
     return <Redirect to={redirectRoute} />
   }
   const loginHandler = () => {
-    const redirectRoute = getDefaultRouteByLoginType(loginType, firstLoginCookie)
+    const redirectRoute = getDefaultRouteByLoginType({
+      loginType,
+      isDeveloperFirstTimeLoginComplete,
+      isClientFirstTimeLoginComplete,
+    })
+
     redirectToLogin(window.reapit.config.cognitoClientId, redirectRoute, loginType)
   }
 

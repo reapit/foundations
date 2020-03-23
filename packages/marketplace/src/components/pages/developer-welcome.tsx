@@ -1,9 +1,7 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
 import { FlexContainerResponsive, useHelpGuideContext, HelpGuide, Button } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { history } from '@/core/router'
-import { userAcceptTermAndCondition } from '@/actions/auth'
 import styles from '@/styles/pages/developer-welcome.scss?mod'
 import Step1 from '@/assets/images/step-1.png'
 import Step2 from '@/assets/images/step-2.png'
@@ -11,10 +9,9 @@ import Step3 from '@/assets/images/step-3.png'
 import Step4 from '@/assets/images/step-4.png'
 import Step5 from '@/assets/images/step-5.png'
 import linkStyles from '@/styles/elements/link.scss?mod'
+import { setCookieString, COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE, COOKIE_MAX_AGE_INFINITY } from '@/utils/cookie'
 
-export interface DevelopeWelcomeMappedActions {
-  userAcceptTermAndCondition: () => void
-}
+export interface DevelopeWelcomeMappedActions {}
 
 export type DeveloperWelcomeMessageProps = DevelopeWelcomeMappedActions
 
@@ -151,7 +148,7 @@ export const Managing = () => {
   )
 }
 
-export const Support = ({ onAccept }) => {
+export const Support = () => {
   const { goPrev } = useHelpGuideContext()
   return (
     <div className={styles.content}>
@@ -170,15 +167,16 @@ export const Support = ({ onAccept }) => {
       <Button type="button" variant="primary" onClick={handleChangeSteps(goPrev)}>
         Prev
       </Button>
-      <Button variant="primary" type="button" onClick={handleUserAccept(onAccept, history)}>
+      <Button variant="primary" type="button" onClick={handleUserAccept(history)}>
         Get Started
       </Button>
     </div>
   )
 }
 
-export const handleUserAccept = (userAcceptTermAndCondition, history) => () => {
-  userAcceptTermAndCondition()
+export const handleUserAccept = history => () => {
+  setCookieString(COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE, new Date(), COOKIE_MAX_AGE_INFINITY)
+
   history.push(Routes.DEVELOPER_MY_APPS)
 }
 
@@ -187,7 +185,7 @@ export const handleChangeSteps = (goTo: () => void) => () => {
   document.getElementById('developer-welcome')?.scrollIntoView({ behavior: 'smooth' })
 }
 
-export const DeveloperWelcomeMessage: React.FC<DeveloperWelcomeMessageProps> = ({ userAcceptTermAndCondition }) => {
+export const DeveloperWelcomeMessage: React.FC<DeveloperWelcomeMessageProps> = () => {
   return (
     <div id="developer-welcome" className={styles.container}>
       <FlexContainerResponsive className="welcome-container" flexColumn hasBackground hasPadding>
@@ -222,7 +220,7 @@ export const DeveloperWelcomeMessage: React.FC<DeveloperWelcomeMessageProps> = (
           />
           <HelpGuide.Step
             id="step-5"
-            render={<Support onAccept={userAcceptTermAndCondition} />}
+            render={<Support />}
             heading="On going support"
             subHeading="We’re here to help."
             graphic={<img className={styles.graphic} alt="step-5" src={Step5} />}
@@ -233,8 +231,4 @@ export const DeveloperWelcomeMessage: React.FC<DeveloperWelcomeMessageProps> = (
   )
 }
 
-export const mapDispatchToProps = (dispatch: any): DevelopeWelcomeMappedActions => ({
-  userAcceptTermAndCondition: () => dispatch(userAcceptTermAndCondition()),
-})
-
-export default connect(null, mapDispatchToProps)(DeveloperWelcomeMessage)
+export default DeveloperWelcomeMessage

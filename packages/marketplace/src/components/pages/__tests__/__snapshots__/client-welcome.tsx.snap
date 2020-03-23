@@ -236,11 +236,7 @@ exports[`ClientWelcomeMessage should match a snapshot 1`] = `
         }
         heading="Lorem Ipsum"
         id="step-5"
-        render={
-          <Unknown
-            onAccept={[MockFunction]}
-          />
-        }
+        render={<Unknown />}
         subHeading="What is Lorem Ipsum?"
       />
     </Component>

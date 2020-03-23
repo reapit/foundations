@@ -7,9 +7,10 @@ import {
   authChangeLoginType,
   authSetRefreshSession,
   authClear,
-  checkFirstTimeLogin,
-  toggleFirstLogin,
-  userAcceptTermAndCondition,
+  setInitDeveloperTermsAcceptedStateFromCookie,
+  setDeveloperTermAcceptedCookieAndState,
+  setInitClientTermsAcceptedStateFromCookie,
+  setClientTermAcceptedCookieAndState,
 } from '../auth'
 import ActionTypes from '../../constants/action-types'
 import { LoginType, LoginSession, LoginMode } from '@reapit/cognito-auth'
@@ -29,6 +30,28 @@ describe('auth actions', () => {
     } as LoginSession
     expect(authLoginSuccess.type).toEqual(ActionTypes.AUTH_LOGIN_SUCCESS)
     expect(authLoginSuccess(loginSession).data).toEqual(loginSession)
+  })
+
+  it('should create a setInitDeveloperTermsAcceptedStateFromCookie action', () => {
+    expect(setInitDeveloperTermsAcceptedStateFromCookie.type).toEqual(
+      ActionTypes.SET_INIT_DEVELOPER_TERMS_ACCEPTED_STATE_FROM_COOKIE,
+    )
+  })
+
+  it('should create a setDeveloperTermAcceptedCookieAndState action', () => {
+    expect(setDeveloperTermAcceptedCookieAndState.type).toEqual(
+      ActionTypes.SET_DEVELOPER_TERM_ACCEPTED_COOKIE_AND_STATE,
+    )
+  })
+
+  it('should create a setInitClientTermsAcceptedStateFromCookie action', () => {
+    expect(setInitClientTermsAcceptedStateFromCookie.type).toEqual(
+      ActionTypes.SET_INIT_CLIENT_TERMS_ACCEPTED_STATE_FROM_COOKIE,
+    )
+  })
+
+  it('should create a setClientTermAcceptedCookieAndState action', () => {
+    expect(setClientTermAcceptedCookieAndState.type).toEqual(ActionTypes.SET_CLIENT_TERM_ACCEPTED_COOKIE_AND_STATE)
   })
 
   it('should create a authLoginFailure action', () => {
@@ -66,20 +89,5 @@ describe('auth actions', () => {
   it('should create a authClear action', () => {
     expect(authClear.type).toEqual(ActionTypes.AUTH_CLEAR)
     expect(authClear().data).toEqual(undefined)
-  })
-
-  it('should create a checkFirstTimeLogin action', () => {
-    expect(checkFirstTimeLogin.type).toEqual(ActionTypes.CHECK_FIRST_TIME_LOGIN)
-    expect(checkFirstTimeLogin().data).toBeUndefined()
-  })
-
-  it('should create a toggleFirstLogin action', () => {
-    expect(toggleFirstLogin.type).toEqual(ActionTypes.TOGGLE_FIRST_LOGIN)
-    expect(toggleFirstLogin(true).data).toBeTruthy()
-  })
-
-  it('should create a userAcceptTermAndCondition action', () => {
-    expect(userAcceptTermAndCondition.type).toEqual(ActionTypes.USER_ACCEPT_TERM_AND_CONDITION)
-    expect(userAcceptTermAndCondition().data).toBeUndefined()
   })
 })

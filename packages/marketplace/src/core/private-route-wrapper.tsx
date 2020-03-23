@@ -1,4 +1,5 @@
 import * as React from 'react'
+import ClientWelcomeMessageModal from '@/components/ui/client-welcome-message'
 import { RouteComponentProps } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { ReduxState } from 'src/types/core'
@@ -9,15 +10,28 @@ import { LoginType, RefreshParams, getTokenFromQueryString, redirectToOAuth } fr
 import { Dispatch } from 'redux'
 import { withRouter, Redirect } from 'react-router'
 import { getDefaultRouteByLoginType, getAuthRouteByLoginType } from '@/utils/auth-route'
-import { authSetRefreshSession, checkTermsAcceptedWithCookie, setTermsAcceptedWithCookie } from '../actions/auth'
-import { getCookieString, COOKIE_FIRST_TIME_LOGIN } from '@/utils/cookie'
+import {
+  authSetRefreshSession,
+  setInitDeveloperTermsAcceptedStateFromCookie,
+  setInitClientTermsAcceptedStateFromCookie,
+  setClientTermAcceptedCookieAndState,
+  setDeveloperTermAcceptedCookieAndState,
+} from '../actions/auth'
+
+import {
+  getCookieString,
+  COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE,
+  COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE,
+} from '@/utils/cookie'
 
 const { Suspense } = React
 
 export interface PrivateRouteWrapperConnectActions {
   setRefreshSession: (refreshParams: RefreshParams) => void
-  checkTermsAcceptedWithCookie: () => void
-  setTermsAcceptedWithCookie: () => void
+  setInitClientTermsAcceptedStateFromCookie: () => void
+  setInitDeveloperTermsAcceptedStateFromCookie: () => void
+  setClientTermAcceptedCookieAndState: () => void
+  setDeveloperTermAcceptedCookieAndState: () => void
 }
 
 export interface PrivateRouteWrapperConnectState {
@@ -39,29 +53,48 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   hasSession,
   loginType,
   location,
-  checkTermsAcceptedWithCookie,
-  setTermsAcceptedWithCookie,
+  setInitDeveloperTermsAcceptedStateFromCookie,
+  setInitClientTermsAcceptedStateFromCookie,
   isTermAccepted,
+  setClientTermAcceptedCookieAndState,
+  setDeveloperTermAcceptedCookieAndState,
 }) => {
-  React.useEffect(checkTermsAcceptedWithCookie, [])
+  React.useEffect(() => {
+    setInitClientTermsAcceptedStateFromCookie()
+    setInitDeveloperTermsAcceptedStateFromCookie()
+  }, [])
 
   const params = new URLSearchParams(location.search)
   const state = params.get('state')
   const type = state && state.includes('ADMIN') ? 'ADMIN' : state && state.includes('CLIENT') ? 'CLIENT' : loginType
 
-  const firstLoginCookie = getCookieString(COOKIE_FIRST_TIME_LOGIN)
-  const route = getDefaultRouteByLoginType(type, firstLoginCookie)
+  const isDeveloperFirstTimeLoginComplete = Boolean(getCookieString(COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE))
+  const isClientFirstTimeLoginComplete = Boolean(getCookieString(COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE))
+
+  const route = getDefaultRouteByLoginType({
+    isClientFirstTimeLoginComplete,
+    isDeveloperFirstTimeLoginComplete,
+    /**
+     * loginType default in reducer = DEVELOPER
+     * when redirecting back to app after login
+     *   -> use state in url param (this was setted by cognito)
+     *   -> save the valid type to logintype
+     * further works will use loginType in reducer if param state isn't specificied in url param
+     */
+    loginType: type || loginType,
+  })
+
   const cognitoClientId = window.reapit.config.cognitoClientId
   const refreshParams = getTokenFromQueryString(location.search, cognitoClientId, type, route)
-
-  if (type && location.pathname === '/') {
-    const path = getAuthRouteByLoginType(type)
-    return <Redirect to={path} />
-  }
 
   if (refreshParams && !hasSession) {
     setRefreshSession(refreshParams)
     return null
+  }
+
+  if (type && location.pathname === '/') {
+    const path = getAuthRouteByLoginType(type || loginType)
+    return <Redirect to={path} />
   }
 
   if (!hasSession) {
@@ -72,11 +105,17 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   return (
     <AppNavContainer>
       <Menu />
-      <TermsAndConditionsModal
-        visible={!isTermAccepted}
-        onAccept={setTermsAcceptedWithCookie}
-        tapOutsideToDissmiss={false}
-      />
+      {loginType === 'DEVELOPER' && (
+        <TermsAndConditionsModal
+          visible={!isTermAccepted}
+          onAccept={setDeveloperTermAcceptedCookieAndState}
+          tapOutsideToDissmiss={false}
+        />
+      )}
+
+      {loginType === 'CLIENT' && (
+        <ClientWelcomeMessageModal visible={!isTermAccepted} onAccept={setClientTermAcceptedCookieAndState} />
+      )}
       <FlexContainerBasic isScrollable flexColumn>
         <Suspense
           fallback={
@@ -92,19 +131,23 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   )
 }
 
-const mapStateToProps = (state: ReduxState): PrivateRouteWrapperConnectState => ({
+export const mapStateToProps = (state: ReduxState): PrivateRouteWrapperConnectState => ({
   hasSession: !!state.auth.loginSession || !!state.auth.refreshSession,
-  loginType: state.auth.loginType,
+  loginType: state?.auth?.loginType,
   isDesktopMode: state?.auth?.refreshSession?.mode === 'DESKTOP',
-  isTermAccepted: state.auth.isTermAccepted,
+  isTermAccepted: state?.auth?.isTermAccepted,
 })
 
-const mapDispatchToProps = (dispatch: Dispatch): PrivateRouteWrapperConnectActions => ({
+export const mapDispatchToProps = (dispatch: Dispatch): PrivateRouteWrapperConnectActions => ({
   setRefreshSession: refreshParams => dispatch(authSetRefreshSession(refreshParams)),
-  checkTermsAcceptedWithCookie: () => {
-    dispatch(checkTermsAcceptedWithCookie())
+  setInitDeveloperTermsAcceptedStateFromCookie: () => {
+    dispatch(setInitDeveloperTermsAcceptedStateFromCookie())
   },
-  setTermsAcceptedWithCookie: () => dispatch(setTermsAcceptedWithCookie(true)),
+  setInitClientTermsAcceptedStateFromCookie: () => {
+    dispatch(setInitClientTermsAcceptedStateFromCookie())
+  },
+  setClientTermAcceptedCookieAndState: () => dispatch(setClientTermAcceptedCookieAndState(true)),
+  setDeveloperTermAcceptedCookieAndState: () => dispatch(setDeveloperTermAcceptedCookieAndState(true)),
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PrivateRouteWrapper))
