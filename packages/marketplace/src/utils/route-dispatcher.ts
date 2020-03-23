@@ -14,7 +14,6 @@ import { submitAppRequestData } from '../actions/submit-app'
 import { getAccessToken } from './session'
 import { requestDeveloperData } from '@/actions/settings'
 import { getParamsFromPath } from '@/utils/client-url-params'
-import { checkFirstTimeLogin } from '@/actions/auth'
 import { adminAppsRequestData } from '@/actions/admin-apps'
 import { appInstallationsRequestData } from '@/actions/app-installations'
 import { selectClientId } from '@/selector/client'
@@ -27,7 +26,6 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
 
   switch (route) {
     case Routes.CLIENT:
-      store.dispatch(checkFirstTimeLogin())
       store.dispatch(clientRequestData(getParamsFromPath(search || '')))
       break
     case Routes.INSTALLED_APPS:

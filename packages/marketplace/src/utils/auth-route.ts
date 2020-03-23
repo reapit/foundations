@@ -12,16 +12,24 @@ export function getAuthRouteByLoginType(loginType: LoginType) {
   }
 }
 
-export function getDefaultRouteByLoginType(loginType: LoginType, firstLoginCookie?: string | undefined) {
+export function getDefaultRouteByLoginType({
+  loginType,
+  isDeveloperFirstTimeLoginComplete,
+  isClientFirstTimeLoginComplete,
+}: {
+  loginType: LoginType
+  isDeveloperFirstTimeLoginComplete?: boolean
+  isClientFirstTimeLoginComplete?: boolean
+}) {
   switch (loginType) {
     case 'ADMIN':
       return `${window.location.origin}${Routes.ADMIN_APPROVALS}`
     case 'DEVELOPER':
-      return !firstLoginCookie
+      return !isDeveloperFirstTimeLoginComplete
         ? `${window.location.origin}${Routes.DEVELOPER_WELCOME}`
         : `${window.location.origin}${Routes.DEVELOPER_MY_APPS}`
     default:
-      return !firstLoginCookie
+      return !isClientFirstTimeLoginComplete
         ? `${window.location.origin}${Routes.CLIENT_WELCOME}`
         : `${window.location.origin}${Routes.INSTALLED_APPS}`
   }
@@ -38,13 +46,21 @@ export function getLoginTypeByPath(path: string) {
   }
 }
 
-export function getDefaultPathByLoginType(loginType: LoginType, firstLoginCookie?: string) {
+export function getDefaultPathByLoginType({
+  loginType,
+  isDeveloperFirstTimeLoginComplete,
+  isClientFirstTimeLoginComplete,
+}: {
+  loginType: LoginType
+  isDeveloperFirstTimeLoginComplete?: boolean
+  isClientFirstTimeLoginComplete?: boolean
+}) {
   switch (loginType) {
     case 'ADMIN':
       return Routes.ADMIN_APPROVALS
     case 'DEVELOPER':
-      return !firstLoginCookie ? Routes.DEVELOPER_WELCOME : Routes.DEVELOPER_MY_APPS
+      return !isDeveloperFirstTimeLoginComplete ? Routes.DEVELOPER_WELCOME : Routes.DEVELOPER_MY_APPS
     default:
-      return !firstLoginCookie ? Routes.CLIENT_WELCOME : Routes.INSTALLED_APPS
+      return !isClientFirstTimeLoginComplete ? Routes.CLIENT_WELCOME : Routes.INSTALLED_APPS
   }
 }

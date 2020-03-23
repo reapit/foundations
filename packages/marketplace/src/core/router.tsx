@@ -50,7 +50,7 @@ const Router = () => {
               <PrivateRoute allow="CLIENT" path={Routes.MY_APPS_PAGINATE} component={MyApps} fetcher />
               <PrivateRoute allow="CLIENT" path={Routes.MY_APPS} component={MyApps} fetcher exact />
               <PrivateRoute allow="CLIENT" path={Routes.CLIENT} component={Client} exact fetcher />
-              <PrivateRoute allow="CLIENT" path={Routes.CLIENT_WELCOME} component={ClientWelcomePage} exact fetcher />
+              <PrivateRoute allow="CLIENT" path={Routes.CLIENT_WELCOME} component={ClientWelcomePage} exact />
               <PrivateRoute allow="CLIENT" path={Routes.CLIENT_HELP} exact fetcher component={ClientHelpPage} />
 
               <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_MY_APPS} component={DeveloperHome} exact fetcher />

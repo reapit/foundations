@@ -14,16 +14,13 @@ import { selectClientId } from '@/selector/client'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import styles from '@/styles/pages/client.scss?mod'
 import { appInstallationsSetFormState } from '@/actions/app-installations'
-import ClientWelcomeMessageModal from '@/components/ui/client-welcome-message'
 import { addQuery, getParamValueFromPath, hasFilterParams } from '@/utils/client-url-params'
 import { setAppDetailModalStateBrowse } from '@/actions/app-detail-modal'
-import { userAcceptTermAndCondition } from '@/actions/auth'
 
 export interface ClientMappedActions {
   setStateViewBrowse: () => void
   fetchAppDetail: (id: string, clientId: string) => void
   installationsSetFormState: (formState: FormState) => void
-  userAcceptTermAndCondition: () => void
 }
 
 export interface ClientMappedProps {
@@ -31,7 +28,6 @@ export interface ClientMappedProps {
   appDetail: AppDetailState
   clientId: string
   installationsFormState: FormState
-  firstLogin?: boolean
 }
 
 export const handleAfterClose = ({ setVisible }) => () => setVisible(false)
@@ -90,8 +86,6 @@ export const Client: React.FunctionComponent<ClientProps> = ({
   setStateViewBrowse,
   installationsFormState,
   installationsSetFormState,
-  firstLogin = false,
-  userAcceptTermAndCondition,
 }) => {
   const pageNumber =
     !isNaN(Number(getParamValueFromPath(location.search, 'page'))) &&
@@ -156,7 +150,6 @@ export const Client: React.FunctionComponent<ClientProps> = ({
         )}
       </div>
       <AppDetailModal visible={visible} afterClose={handleAfterClose({ setVisible })} />
-      <ClientWelcomeMessageModal visible={firstLogin} onAccept={() => userAcceptTermAndCondition()} />
     </ErrorBoundary>
   )
 }
@@ -166,14 +159,12 @@ export const mapStateToProps = (state: ReduxState): ClientMappedProps => ({
   appDetail: state.appDetail,
   clientId: selectClientId(state),
   installationsFormState: state.installations.formState,
-  firstLogin: state.auth.firstLogin,
 })
 
 export const mapDispatchToProps = (dispatch: any): ClientMappedActions => ({
   setStateViewBrowse: () => dispatch(setAppDetailModalStateBrowse()),
   fetchAppDetail: (id: string, clientId: string) => dispatch(appDetailRequestData({ id, clientId })),
   installationsSetFormState: (formState: FormState) => dispatch(appInstallationsSetFormState(formState)),
-  userAcceptTermAndCondition: () => dispatch(userAcceptTermAndCondition()),
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Client))

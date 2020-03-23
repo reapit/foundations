@@ -1,4 +1,3 @@
-import MockDate from 'mockdate'
 import { select, put, all, takeLatest, call, fork } from '@redux-saga/core/effects'
 import { setUserSession, removeSession, LoginParams, LoginSession, redirectToLogout } from '@reapit/cognito-auth'
 import { Action } from '@/types/core'
@@ -6,9 +5,9 @@ import { cloneableGenerator } from '@redux-saga/testing-utils'
 import {
   getCookieString,
   setCookieString,
-  COOKIE_FIRST_TIME_LOGIN,
-  COOKIE_TERMS_ACCEPTED,
   COOKIE_MAX_AGE_INFINITY,
+  COOKIE_DEVELOPER_TERMS_ACCEPTED,
+  COOKIE_CLIENT_TERMS_ACCEPTED,
 } from '@/utils/cookie'
 import authSagas, {
   doLogin,
@@ -17,23 +16,17 @@ import authSagas, {
   logoutListen,
   clearAuthListen,
   clearAuth,
-  setFirstLoginListen,
-  setFirstTimeLogin,
-  checkFirstTimeLoginListen,
-  checkFirstTimeLogin,
-  setTermsAcceptedWithCookieHelper,
-  checkTermsAcceptedWithCookieHelper,
-  checkTermsAcceptedListen,
-  setTermsAcceptedListen,
+  setInitDeveloperTermsAcceptedStateFromCookie,
+  setDeveloperTermAcceptedCookieAndState,
+  setInitDeveloperTermsAcceptedStateFromCookieListen,
+  setDeveloperTermAcceptedCookieAndStateListen,
+  setClientTermAcceptedCookieAndState,
+  setInitClientTermsAcceptedStateFromCookieListen,
+  setInitClientTermsAcceptedStateFromCookie,
+  setClientTermAcceptedCookieAndStateListen,
 } from '../auth'
 import ActionTypes from '../../constants/action-types'
-import {
-  authLoginSuccess,
-  authLogoutSuccess,
-  authLoginFailure,
-  toggleFirstLogin,
-  setTermsAcceptedState,
-} from '../../actions/auth'
+import { authLoginSuccess, authLogoutSuccess, authLoginFailure, setTermsAcceptedState } from '../../actions/auth'
 import Routes from '../../constants/routes'
 import { ActionType } from '../../types/core'
 import { COOKIE_SESSION_KEY_MARKETPLACE } from '../../constants/api'
@@ -152,22 +145,6 @@ describe('auth thunks', () => {
     })
   })
 
-  describe('checkFirstTimeLoginListen', () => {
-    it('should trigger checkFirstTimeLogin action', () => {
-      const gen = checkFirstTimeLoginListen()
-      expect(gen.next().value).toEqual(takeLatest(ActionTypes.CHECK_FIRST_TIME_LOGIN, checkFirstTimeLogin))
-      expect(gen.next().done).toBe(true)
-    })
-  })
-
-  describe('setFirstLoginListen', () => {
-    it('should trigger setFirstTimeLogin action', () => {
-      const gen = setFirstLoginListen()
-      expect(gen.next().value).toEqual(takeLatest(ActionTypes.USER_ACCEPT_TERM_AND_CONDITION, setFirstTimeLogin))
-      expect(gen.next().done).toBe(true)
-    })
-  })
-
   describe('itemSagas', () => {
     it('should wait for login and logout action get called', () => {
       const gen = authSagas()
@@ -177,10 +154,10 @@ describe('auth thunks', () => {
           fork(loginListen),
           fork(logoutListen),
           fork(clearAuthListen),
-          fork(checkFirstTimeLoginListen),
-          fork(setFirstLoginListen),
-          fork(checkTermsAcceptedListen),
-          fork(setTermsAcceptedListen),
+          fork(setInitDeveloperTermsAcceptedStateFromCookieListen),
+          fork(setDeveloperTermAcceptedCookieAndStateListen),
+          fork(setInitClientTermsAcceptedStateFromCookieListen),
+          fork(setClientTermAcceptedCookieAndStateListen),
         ]),
       )
       expect(gen.next().done).toBe(true)
@@ -196,77 +173,119 @@ describe('auth thunks', () => {
     })
   })
 
-  describe('setFirstTimeLogin', () => {
-    it('should run correctly', () => {
-      const TIME_OFFSET = 0
-      MockDate.set('2019-12-18T16:30:00', TIME_OFFSET)
-      const gen = cloneableGenerator(setFirstTimeLogin)()
-      expect(gen.next().value).toEqual(
-        call(setCookieString, COOKIE_FIRST_TIME_LOGIN, new Date(), COOKIE_MAX_AGE_INFINITY),
-      )
-      expect(gen.next().value).toEqual(put(toggleFirstLogin(false)))
-      expect(gen.next().done).toBe(true)
-      MockDate.reset()
-    })
-  })
-
-  describe('checkFirstTimeLogin', () => {
-    it('should run correctly', () => {
-      const gen = cloneableGenerator(checkFirstTimeLogin)()
-      expect(gen.next().value).toEqual(call(getCookieString, COOKIE_FIRST_TIME_LOGIN))
-      expect(gen.next().value).toEqual(put(toggleFirstLogin(true)))
-      expect(gen.next().done).toBe(true)
-    })
-  })
-
-  describe('checkTermsAcceptedWithCookie', () => {
+  describe('setInitClientTermsAcceptedStateFromCookie', () => {
     it('should run correctly with developer login type', () => {
-      const gen = cloneableGenerator(checkTermsAcceptedWithCookieHelper)()
+      const gen = cloneableGenerator(setInitClientTermsAcceptedStateFromCookie)()
       expect(gen.next().value).toEqual(select(selectLoginType))
-      expect(gen.next('DEVELOPER').value).toEqual(call(getCookieString, COOKIE_TERMS_ACCEPTED))
+      expect(gen.next('CLIENT').value).toEqual(call(getCookieString, COOKIE_CLIENT_TERMS_ACCEPTED))
       expect(gen.next('2019-12-18T16:30:00').value).toEqual(put(setTermsAcceptedState(true)))
       expect(gen.next().done).toBe(true)
     })
 
     it('should run correctly with other login type', () => {
-      const gen = cloneableGenerator(checkTermsAcceptedWithCookieHelper)()
+      const gen = cloneableGenerator(setInitClientTermsAcceptedStateFromCookie)()
       expect(gen.next().value).toEqual(select(selectLoginType))
-      expect(gen.next('CLIENT').done).toBe(true)
+      expect(gen.next('DEVELOPER').done).toBe(true)
     })
   })
 
-  describe('setTermsAcceptedWithCookieHelper', () => {
+  describe('setClientTermAcceptedCookieAndState', () => {
     it('should run correctly with true', () => {
-      const gen = cloneableGenerator(setTermsAcceptedWithCookieHelper)({ data: true })
+      const gen = cloneableGenerator(setClientTermAcceptedCookieAndState)({ data: true })
       expect(gen.next().value).toEqual(
-        call(setCookieString, COOKIE_TERMS_ACCEPTED, new Date(), COOKIE_MAX_AGE_INFINITY),
+        call(setCookieString, COOKIE_CLIENT_TERMS_ACCEPTED, new Date(), COOKIE_MAX_AGE_INFINITY),
       )
       expect(gen.next().value).toEqual(put(setTermsAcceptedState(true)))
       expect(gen.next().done).toBe(true)
     })
 
     it('should run correctly with false', () => {
-      const gen = cloneableGenerator(setTermsAcceptedWithCookieHelper)({ data: false })
+      const gen = cloneableGenerator(setClientTermAcceptedCookieAndState)({ data: false })
       expect(gen.next().value).toEqual(put(setTermsAcceptedState(false)))
       expect(gen.next().done).toBe(true)
     })
   })
 
-  describe('checkTermsAcceptedListen', () => {
-    it('should run correctly', () => {
-      const gen = checkTermsAcceptedListen()
+  describe('setInitDeveloperTermsAcceptedStateFromCookie', () => {
+    it('should run correctly with developer login type', () => {
+      const gen = cloneableGenerator(setInitDeveloperTermsAcceptedStateFromCookie)()
+      expect(gen.next().value).toEqual(select(selectLoginType))
+      expect(gen.next('DEVELOPER').value).toEqual(call(getCookieString, COOKIE_DEVELOPER_TERMS_ACCEPTED))
+      expect(gen.next('2019-12-18T16:30:00').value).toEqual(put(setTermsAcceptedState(true)))
+      expect(gen.next().done).toBe(true)
+    })
+
+    it('should run correctly with other login type', () => {
+      const gen = cloneableGenerator(setInitDeveloperTermsAcceptedStateFromCookie)()
+      expect(gen.next().value).toEqual(select(selectLoginType))
+      expect(gen.next('CLIENT').done).toBe(true)
+    })
+  })
+
+  describe('setDeveloperTermAcceptedCookieAndState', () => {
+    it('should run correctly with true', () => {
+      const gen = cloneableGenerator(setDeveloperTermAcceptedCookieAndState)({ data: true })
       expect(gen.next().value).toEqual(
-        takeLatest(ActionTypes.CHECK_TERM_ACCEPTED_WITH_COOKIE, checkTermsAcceptedWithCookieHelper),
+        call(setCookieString, COOKIE_DEVELOPER_TERMS_ACCEPTED, new Date(), COOKIE_MAX_AGE_INFINITY),
+      )
+      expect(gen.next().value).toEqual(put(setTermsAcceptedState(true)))
+      expect(gen.next().done).toBe(true)
+    })
+
+    it('should run correctly with false', () => {
+      const gen = cloneableGenerator(setDeveloperTermAcceptedCookieAndState)({ data: false })
+      expect(gen.next().value).toEqual(put(setTermsAcceptedState(false)))
+      expect(gen.next().done).toBe(true)
+    })
+  })
+
+  describe('setInitDeveloperTermsAcceptedStateFromCookieListen', () => {
+    it('should run correctly', () => {
+      const gen = setInitDeveloperTermsAcceptedStateFromCookieListen()
+      expect(gen.next().value).toEqual(
+        takeLatest(
+          ActionTypes.SET_INIT_DEVELOPER_TERMS_ACCEPTED_STATE_FROM_COOKIE,
+          setInitDeveloperTermsAcceptedStateFromCookie,
+        ),
       )
       expect(gen.next().done).toBe(true)
     })
   })
 
-  describe('setTermsAcceptedListen', () => {
+  describe('setDeveloperTermAcceptedCookieAndStateListen', () => {
     it('should run correctly', () => {
-      const gen = setTermsAcceptedListen()
+      const gen = setDeveloperTermAcceptedCookieAndStateListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<boolean>>(ActionTypes.SET_TERMS_ACCEPTED_WITH_COOKIE, setTermsAcceptedWithCookieHelper),
+        takeLatest<Action<boolean>>(
+          ActionTypes.SET_DEVELOPER_TERM_ACCEPTED_COOKIE_AND_STATE,
+          setDeveloperTermAcceptedCookieAndState,
+        ),
+      )
+      expect(gen.next().done).toBe(true)
+    })
+  })
+
+  describe('setInitClientTermsAcceptedStateFromCookieListen', () => {
+    it('should run correctly', () => {
+      const gen = setInitDeveloperTermsAcceptedStateFromCookieListen()
+      expect(gen.next().value).toEqual(
+        takeLatest(
+          ActionTypes.SET_INIT_DEVELOPER_TERMS_ACCEPTED_STATE_FROM_COOKIE,
+          setInitDeveloperTermsAcceptedStateFromCookie,
+        ),
+      )
+      expect(gen.next().done).toBe(true)
+    })
+  })
+
+  describe('setClientTermAcceptedCookieAndStateListen', () => {
+    it('should run correctly', () => {
+      const gen = setDeveloperTermAcceptedCookieAndStateListen()
+      expect(gen.next().value).toEqual(
+        takeLatest<Action<boolean>>(
+          ActionTypes.SET_DEVELOPER_TERM_ACCEPTED_COOKIE_AND_STATE,
+          setDeveloperTermAcceptedCookieAndState,
+        ),
       )
       expect(gen.next().done).toBe(true)
     })
