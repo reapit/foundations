@@ -8,5 +8,6 @@
   "elementDocumentUrl": "",
   "cognitoClientId": "",
   "googleAnalyticsKey": "",
-  "cognitoOAuthUrl": ""
+  "cognitoOAuthUrl": "",
+  "cognitoUserPoolId": ""
 }

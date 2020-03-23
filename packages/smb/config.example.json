@@ -4,5 +4,6 @@
   "graphqlUri": "",
   "cognitoClientId": "",
   "googleAnalyticsKey": "",
-  "cognitoOAuthUrl": ""
+  "cognitoOAuthUrl": "",
+  "cognitoUserPoolId": ""
 }
