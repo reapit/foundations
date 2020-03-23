@@ -22,7 +22,7 @@ module.exports = function(loginIdentity) {
       (n.src = 'https://w.chatlio.com/w.chatlio-widget.js'),
       (n.async = !0),
       n.setAttribute('data-embed-version', '2.3')
-    n.setAttribute('data-widget-id', process.env.CHATBOT_APP_ID)
+    n.setAttribute('data-widget-id', window.reapit.config.chatbotAppId)
     c.parentNode.insertBefore(n, c)
 
     if (loginIdentity) {

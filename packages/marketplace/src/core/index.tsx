@@ -22,6 +22,7 @@ window.reapit = {
     googleAnalyticsKey: '',
     cognitoOAuthUrl: '',
     cognitoUserPoolId: '',
+    chatbotAppId: '',
   },
 }
 
