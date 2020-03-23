@@ -177,6 +177,8 @@ const createGoogleMapsMock = (libraries = []) => {
       createMVCObject(this)
       // @ts-ignore
       createMockFuncsFromArray(this, ['setContent', 'open'])
+      // @ts-ignore
+      this.close = jest.fn()
     }),
     KmlLayer: function() {},
     KmlLayerStatus: {

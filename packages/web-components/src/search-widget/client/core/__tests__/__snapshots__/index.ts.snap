@@ -9,12 +9,31 @@ Search_widget {
     "callbacks": Object {},
     "context": Map {},
     "ctx": Array [
+      Object {
+        "initializers": Object {
+          "apiKey": "SOME_KEY",
+          "theme": Object {
+            "baseBackgroundColor": "white",
+          },
+        },
+        "properties": null,
+        "propertyImages": null,
+        "selectedProperty": null,
+      },
       "css-h4w50h",
       "css-gnah7l",
+      [Function],
       Object {
         "baseBackgroundColor": "white",
       },
       "SOME_KEY",
+      Object {
+        "set": [Function],
+        "subscribe": [Function],
+        "update": [Function],
+      },
+      [Function],
+      [Function],
     ],
     "dirty": Array [
       -1,
@@ -34,8 +53,8 @@ Search_widget {
     ],
     "on_mount": Array [],
     "props": Object {
-      "apiKey": 3,
-      "theme": 2,
+      "apiKey": 5,
+      "theme": 4,
     },
     "update": [Function],
   },

@@ -1,5 +1,5 @@
 <script lang="typescript">
-  import { onMount, onDestroy, afterUpdate, beforeUpdate, setContext } from 'svelte'
+  import { onMount, onDestroy, afterUpdate, beforeUpdate } from 'svelte'
   import * as TSDefinitions from '@reapit/foundations-ts-definitions'
   import * as SearchWidgetStore from '../core/store'
   import { getLatLng, createMarker } from '../../../common/utils/map-helper'
@@ -58,10 +58,6 @@
     selectedMarker = null
   }
 
-  setContext(GOOGLE_MAP_CONTEXT_NAME, {
-    getMap: () => map,
-  })
-
   onMount(() => {
     Object.defineProperty(window, 'onMapReady', {
       value: () => {
@@ -100,9 +96,9 @@
 
 <div class="map-wrap" bind:this={mapElement}>
   {#if properties.length > 0 && !!selectedMarker}
-    <WindowInfo on:click={handleCloseWindowInfo} propertyImages={propertyImages} property={selectedMarker.property} marker={selectedMarker.marker} searchType={'Rent'} />
+    <WindowInfo on:windowInfoClick={handleCloseWindowInfo} propertyImages={propertyImages} property={selectedMarker.property} marker={selectedMarker.marker} searchType={'Rent'} {map} />
   {/if}
   {#each properties as property (property.id)}
-    <Marker {property} on:click={handleMarkerClick} />
+    <Marker {property} on:markerClick={handleMarkerClick} {map} />
   {/each}
 </div>

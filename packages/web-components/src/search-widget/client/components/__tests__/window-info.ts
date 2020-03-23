@@ -15,11 +15,18 @@ describe('WindowInfo', () => {
       map: mockMap,
     })
 
+    Object.defineProperty(window, 'google', {
+      value: {
+        maps: createGoogleMapsMock(),
+      },
+    })
+
     const props = {
       marker: mockMarker,
       propertyImages: null,
       property: mockProperty,
       searchType: 'Rent',
+      map: mockGoogleMap,
     }
     const wrapper = render(WindowInfo, props)
     const { container } = wrapper

@@ -4,10 +4,10 @@ exports[`search-widget it matches a snapshot 1`] = `
 <body>
   <div>
     <div
-      class="css-h4w50h svelte-15zoynd"
+      class="css-h4w50h svelte-1m1ov0c"
     >
       <div
-        class="css-yau5c8 svelte-15zoynd"
+        class="css-yau5c8 svelte-1m1ov0c"
       >
         <form>
           <input
@@ -32,14 +32,28 @@ exports[`search-widget it matches a snapshot 1`] = `
         </form>
          
         <div
-          class="map-wrap svelte-15zoynd"
+          class="content svelte-1m1ov0c"
         >
-          <div
-            class="map-wrap svelte-1nt7ax3"
+          <ul
+            class="search-results svelte-1m1ov0c"
           />
+           
+          <div
+            class="map-wrap svelte-1m1ov0c"
+          >
+            <div
+              class="map-wrap svelte-1nt7ax3"
+            >
+               
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <script
+    defer=""
+    src="//maps.googleapis.com/maps/api/js?key=undefined&libraries=places&callback=onMapReady"
+  />
 </body>
 `;

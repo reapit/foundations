@@ -2,17 +2,16 @@
   import { onMount, onDestroy, getContext, createEventDispatcher } from 'svelte'
   import * as TSDefinitions from '@reapit/foundations-ts-definitions'
   import { getLatLng } from '../../../common/utils/map-helper'
-  import { DEFAULT_CENTER, GOOGLE_MAP_CONTEXT_NAME } from '../../../common/utils/constants'
+  import { DEFAULT_CENTER } from '../../../common/utils/constants'
 
   const dispatch = createEventDispatcher()
 
   export let property: TSDefinitions.PropertyModel
+  export let map: google.maps.Map
   let marker: google.maps.Marker
 
-  const { getMap } = getContext(GOOGLE_MAP_CONTEXT_NAME)
-  const map = getMap()
-
   onMount(() => {
+    console.log(property)
     const { latitude, longitude } = getLatLng(property)
     marker = new google.maps.Marker({
       position: {
@@ -23,7 +22,7 @@
     })
 
     google.maps.event.addListener(marker, 'click', () => {
-      dispatch('click', {
+      dispatch('markerClick', {
         marker: marker,
         property: property,
       })

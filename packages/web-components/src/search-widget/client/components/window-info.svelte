@@ -1,5 +1,5 @@
 <script lang="typescript">
-  import { onMount, onDestroy, getContext, createEventDispatcher } from 'svelte'
+  import { onMount, onDestroy, createEventDispatcher } from 'svelte'
   import * as TSDefinitions from '@reapit/foundations-ts-definitions'
   import * as SearchWidgetStore from '../core/store'
   import { getContent, getPrice, getLatLng } from '../../../common/utils/map-helper'
@@ -11,6 +11,8 @@
   export let propertyImages: Record<string, TSDefinitions.PropertyImageModel>
   export let property: TSDefinitions.PropertyModel
   export let searchType: SearchWidgetStore.SearchType
+  export let map: google.maps.Map
+
   let windowInfo: google.maps.InfoWindow
 
   let content
@@ -39,9 +41,6 @@
     const bedrooms = property?.bedrooms
     const bathrooms = property?.bathrooms
 
-    const { getMap } = getContext(GOOGLE_MAP_CONTEXT_NAME)
-    const map = getMap()
-
     windowInfo = new google.maps.InfoWindow({
       content: getContent({
         price,
@@ -58,7 +57,7 @@
     })
 
     google.maps.event.addListener(windowInfo,'closeclick',function(){
-      dispatch('click')
+      dispatch('windowInfoClick')
     });
 
     windowInfo.open(map, marker)
