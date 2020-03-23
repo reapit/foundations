@@ -45,6 +45,7 @@ module.exports = {
     'packages/*/build',
     'packages/*/dist',
     'packages/*/public/dist',
+    'chat-bot.js'
   ],
   rules: {
     quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: false }],
