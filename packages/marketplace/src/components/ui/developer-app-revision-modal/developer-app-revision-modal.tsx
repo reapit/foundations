@@ -16,7 +16,7 @@ import { RevisionDetailState } from '@/reducers/revision-detail'
 import { LoginIdentity } from '@reapit/cognito-auth'
 
 import { Modal, Loader, Button } from '@reapit/elements'
-import AppHighlightedChanges from '../app-highlighted-changes/app-highlighted-changes'
+import AppRevisionComparision from '../app-revision-comparision/app-revision-comparision'
 import CallToAction from '@/components/ui/call-to-action'
 
 export interface OwnProps {
@@ -84,7 +84,7 @@ export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps>
   const { revisions } = revisionsState
   const revisionsData = revisions?.data
   const appRevisionId = revisionsData && revisionsData[0].id
-  const { declineFormState } = revisionDetailState
+  const { declineFormState, loading: revisionDetailLoading } = revisionDetailState
   const isLoading = declineFormState === 'SUBMITTING'
   const isDeclinedSuccessfully = declineFormState === 'SUCCESS'
 
@@ -116,21 +116,23 @@ export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps>
       title="Pending Revisions"
       afterClose={afterClose}
       footerItems={
-        <Button
-          variant="primary"
-          type="button"
-          onClick={() => setIsConfirmationModalVisible(true)}
-          dataTest="revision-approve-button"
-        >
-          CANCEL PENDING REVISIONS
-        </Button>
+        !revisionDetailLoading && (
+          <Button
+            variant="primary"
+            type="button"
+            onClick={() => setIsConfirmationModalVisible(true)}
+            dataTest="revision-approve-button"
+          >
+            CANCEL PENDING REVISIONS
+          </Button>
+        )
       }
     >
       <>
-        {revisionDetailState && appDetailState ? (
-          <AppHighlightedChanges appDetailState={appDetailState} revisionDetailState={revisionDetailState} />
-        ) : (
+        {revisionDetailLoading ? (
           <Loader />
+        ) : (
+          <AppRevisionComparision appDetailState={appDetailState} revisionDetailState={revisionDetailState} />
         )}
         <Modal
           visible={isConfirmationModalVisible}
@@ -164,11 +166,12 @@ export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps>
           <CallToAction
             title="SUCCESS"
             type="success"
-            buttonText="Back to App"
+            buttonText="BACK TO APP"
             onButtonClick={backToAppDetailsModal(fetchAppDetail, appId)}
             isCenter
           >
-            Revision has been declined successfully.
+            All pending revisions for this app have been cancelled. You can now use the ‘Edit Detail’ option to make any
+            additional changes as required.
           </CallToAction>
         </Modal>
       </>

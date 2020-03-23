@@ -6,7 +6,7 @@ import DiffMedia from '@/components/ui/diff-media'
 import DiffCheckbox from '../diff-checkbox'
 import DiffViewer from '../diff-viewer'
 
-export type AppHighlightedChangesProps = {
+export type AppRevisionComparisionProps = {
   revisionDetailState: RevisionDetailState
   appDetailState: AppDetailState
 }
@@ -82,7 +82,7 @@ export const getChangedMediaList = ({ app, revision }): DiffMediaModel[] => {
   }))
 }
 
-export const AppHighlightedChanges: React.FC<AppHighlightedChangesProps> = ({
+export const AppRevisionComparision: React.FC<AppRevisionComparisionProps> = ({
   revisionDetailState,
   appDetailState,
 }) => {
@@ -158,4 +158,4 @@ export const AppHighlightedChanges: React.FC<AppHighlightedChangesProps> = ({
   )
 }
 
-export default AppHighlightedChanges
+export default AppRevisionComparision

@@ -2,17 +2,17 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 
 import {
-  AppHighlightedChanges,
-  AppHighlightedChangesProps,
+  AppRevisionComparision,
+  AppRevisionComparisionProps,
   isAppearInScope,
   renderCheckboxesDiff,
   getChangedMediaList,
-} from '../app-highlighted-changes'
+} from '../app-revision-comparision'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { revisionDetailDataStub } from '@/sagas/__stubs__/revision-detail'
 import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
 
-const props = (loading: boolean, error: boolean): AppHighlightedChangesProps => ({
+const props = (loading: boolean, error: boolean): AppRevisionComparisionProps => ({
   appDetailState: {
     loading,
     error,
@@ -34,7 +34,7 @@ const props = (loading: boolean, error: boolean): AppHighlightedChangesProps => 
 
 describe('AdminRevisionModalInner', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<AppHighlightedChanges {...props(true, false)} />)).toMatchSnapshot()
+    expect(shallow(<AppRevisionComparision {...props(true, false)} />)).toMatchSnapshot()
   })
 })
 
@@ -92,12 +92,12 @@ describe('renderCheckboxesDiff', () => {
 
 describe('renderAdditionalCheckboxes', () => {
   it('should render Is Listed checkbox', () => {
-    const wrapper = shallow(<AppHighlightedChanges {...props(false, false)}></AppHighlightedChanges>)
+    const wrapper = shallow(<AppRevisionComparision {...props(false, false)}></AppRevisionComparision>)
     expect(wrapper.find('h4[data-test="chkIsListed"]')).toHaveLength(1)
   })
 
   it('should render Is Direct API checkbox', () => {
-    const wrapper = shallow(<AppHighlightedChanges {...props(false, false)}></AppHighlightedChanges>)
+    const wrapper = shallow(<AppRevisionComparision {...props(false, false)}></AppRevisionComparision>)
     expect(wrapper.find('h4[data-test="chkIsDirectApi"]')).toHaveLength(1)
   })
 })
