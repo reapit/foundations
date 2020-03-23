@@ -1,7 +1,7 @@
 const { json2ts } = require('json-ts')
 const fs = require('fs')
 const { REAPIT_TS_DEF_IN_CWD_PATH, REAPIT_TS_DEF_NAME } = require('../paths')
-const formatCode = require('../../../../scripts/foundations-ts-definitions/format-code')
+const formatCode = require('../../../foundations-ts-definitions/scripts/format-code')
 
 exports.generateConfigTsDef = config => {
   try {

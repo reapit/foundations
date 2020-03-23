@@ -1,5 +1,5 @@
 const { execSync } = require('child_process')
-const { getPreviousTag, editReleaseNote, getVersionTag } = require('../release/utils')
+const { getPreviousTag, editReleaseNote, getVersionTag } = require('../../../scripts/release/utils')
 const publishTimeStampTag = require('./publish-time-stamp-tag')
 const { FOUNDATION_ROOT_FOLDER } = require('./constants')
 

@@ -41,27 +41,31 @@ jobs:
       - name: Install Global Dependencies
         run: |
           yarn global add aws-cli serverless@1.59.3
+
       - name: Set up workspace experimental
         run: |
           yarn config set workspaces-experimental true
+
       - name: Install dependencies
         run: |
           yarn
+
       - name: Lint
         run: |
           yarn lint
+
       - name: Fetch config
         run: |
-          yarn fetch-config DEV
-      - name: Fetch config1
-        run: |
-          yarn fetch-config1 development
+          yarn fetch-config development
+
       - name: Build
         run: |
           yarn build
+
       - name: Test
         run: |
           yarn test
+
       - name: Release Develop
         run: |
           yarn release:dev
@@ -74,6 +78,7 @@ jobs:
           key: ${{ runner.os }}-jest-cache-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-jest-cache-
+
       - name: Write marketplace build cache
         uses: actions/cache@v1
         with:
