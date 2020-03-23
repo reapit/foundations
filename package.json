@@ -24,7 +24,7 @@
     "lint:fix": "lerna run --parallel --stream lint:fix --",
     "release:dev": "lerna run --parallel release:dev",
     "release:prod": "lerna run --parallel release:prod",
-    "test": "lerna run --parallel test:ci -- --runInBand",
+    "test": "lerna run --parallel test:ci -- --runInBand --detectOpenHandles",
     "test-e2e:ci": "lerna run --parallel test-e2e:ci"
   },
   "husky": {
@@ -55,7 +55,9 @@
     "**/**/prop-types": "^15.7.2",
     "**/**/rollup": "1.31.1",
     "**/**/styled-components": "4.4.1",
-    "**/**/react-test-renderer": "16.12.0"
+    "**/**/react-test-renderer": "16.12.0",
+    "acorn": "^6.4.1",
+    "minimist": "^1.2.2"
   },
   "dependencies": {
     "@sentry/browser": "^5.11.1",

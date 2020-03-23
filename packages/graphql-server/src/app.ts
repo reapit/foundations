@@ -13,7 +13,7 @@ import resolvers from './resolvers'
 const typeDefs = importSchema('./src/schema.graphql')
 
 if (process.env.NODE_ENV === 'development') {
-  const envConfig = require(path.resolve(__dirname, '../../..', 'reapit-config.json'))
+  const envConfig = require(path.resolve(__dirname, '..', 'config.json'))
   const configs = envConfig[process.env.REAPIT_ENV || 'LOCAL']
   for (const k in configs) {
     process.env[k] = configs[k]
