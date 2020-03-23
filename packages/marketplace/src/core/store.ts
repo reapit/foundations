@@ -24,6 +24,7 @@ import adminApps from '../reducers/admin-apps'
 import appInstallationsReducer from '../reducers/app-installations'
 import appUsageStatsReducer from '../reducers/app-usage-stats'
 import adminStatsReducer from '../reducers/admin-stats'
+import revisionsReducer from '../reducers/revisions'
 
 import authSagas from '../sagas/auth'
 import clientSagas from '../sagas/client'
@@ -38,6 +39,7 @@ import adminApprovalSagas from '../sagas/admin-approvals'
 import adminDevManagementSagas from '../sagas/admin-dev-management'
 import developerSetStatusSagas from '../sagas/developer-set-status'
 import revisionDetailSagas from '../sagas/revision-detail'
+import revisionsSagas from '../sagas/revisions'
 import appDeleteSagas from '../sagas/app-delete'
 import settingSagas from '../sagas/settings'
 import adminAppsSagas from '../sagas/admin-apps'
@@ -75,6 +77,7 @@ export class Store {
     adminDevManagement,
     developerSetStatus,
     revisionDetail,
+    revisions: revisionsReducer,
     appDetailModal,
     appDelete: appDeleteReducer,
     appCategories,
@@ -100,6 +103,7 @@ export class Store {
       fork(adminDevManagementSagas),
       fork(developerSetStatusSagas),
       fork(revisionDetailSagas),
+      fork(revisionsSagas),
       fork(appDeleteSagas),
       fork(settingSagas),
       fork(adminAppsSagas),

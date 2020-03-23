@@ -2,26 +2,26 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { AppDetailState } from '@/reducers/app-detail'
+import { developerRequestData } from '@/actions/developer'
 import { Button, Modal, ModalProps, Loader, Alert, ModalBody, Level, LevelLeft, LevelRight } from '@reapit/elements'
 import AppDelete from '@/components/ui/app-delete'
 import AppDetail from './app-detail'
 import { withRouter, RouteComponentProps } from 'react-router'
 import routes from '@/constants/routes'
-import { developerRequestData } from '@/actions/developer'
 import { Dispatch } from 'redux'
 import styles from '@/styles/blocks/developer-app-modal.scss?mod'
 import AppInstallations from './app-installations/app-installations-modal'
 import { removeAuthenticationCode } from '@/actions/app-detail'
-import { DeveloperAppHighlightedChangesModal } from './developer-app-highlighted-changes-modal'
+import DeveloperAppRevisionModal from './developer-app-revision-modal'
 
 export interface DeveloperAppModalMappedProps {
   appDetailState: AppDetailState
   closeParentModal?: () => void
-  removeAuthenticationCode: () => void
 }
 
 export interface DeveloperAppModalMappedAction {
   fetchDeveloperApps: (page: number) => void
+  removeAuthenticationCode: () => void
 }
 
 export type DeveloperAppInnerProps = DeveloperAppModalMappedProps & DeveloperAppModalMappedAction & RouteComponentProps
@@ -135,7 +135,12 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
         }}
       />
 
-      <DeveloperAppHighlightedChangesModal visible={isAppHighlightedChangesModalOpen} />
+      <DeveloperAppRevisionModal
+        visible={isAppHighlightedChangesModalOpen}
+        appId={id || ''}
+        appDetailState={appDetailState}
+        afterClose={() => setIsAppHighlightedChangesModalOpen(false)}
+      />
     </>
   )
 }
