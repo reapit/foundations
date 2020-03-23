@@ -19,6 +19,7 @@ window.reapit = {
     googleAnalyticsKey: '',
     googleMapApiKey: '',
     cognitoOAuthUrl: '',
+    cognitoUserPoolId: '',
   },
 }
 

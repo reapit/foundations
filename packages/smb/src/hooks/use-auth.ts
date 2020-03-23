@@ -49,7 +49,7 @@ export const useAuth = (): AuthHook => {
 
   const logout = React.useCallback(() => {
     removeSession(COOKIE_SESSION_KEY)
-    redirectToLogout(process.env.COGNITO_CLIENT_ID_SMB as string, `${window.location.origin}/login`)
+    redirectToLogout(window.reapit.config.cognitoClientId, `${window.location.origin}/login`)
   }, [])
 
   return {

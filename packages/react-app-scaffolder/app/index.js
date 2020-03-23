@@ -111,6 +111,14 @@ module.exports = class extends Generator {
         name,
       })
 
+      this.fs.copyTpl(this.templatePath('_config.json'), this.destinationPath('./config.json'), {
+        clientId,
+      })
+
+      this.fs.copyTpl(this.templatePath('_config.example.json'), this.destinationPath('./config.example.json'), {
+        clientId,
+      })
+
       this.fs.copyTpl(this.templatePath('./base'), this.destinationPath('./'), {
         name,
         nameInConstantCase: constantCase(name),
@@ -230,12 +238,6 @@ module.exports = class extends Generator {
         message: 'Pick project type',
         choices: ['Redux', 'No Redux'],
       },
-      // {
-      //   type: 'confirm',
-      //   name: 'azure',
-      //   message: 'Would you like an Azure Pipeline?',
-      //   default: false,
-      // },
       {
         type: 'confirm',
         name: 'githubPush',
@@ -243,8 +245,6 @@ module.exports = class extends Generator {
         default: false,
       },
     ])
-
-    this.answers.azure = false
 
     const { stateManagementStyle, stylesSolution } = this.answers
     if (stateManagementStyle === 'Redux') {

@@ -4,6 +4,8 @@ export type Config = {
   cognitoClientId: string
   googleAnalyticsKey: string
   graphqlUri: string
+  cognitoOAuthUrl: string
+  cognitoUserPoolId: string
 }
 
 declare global {

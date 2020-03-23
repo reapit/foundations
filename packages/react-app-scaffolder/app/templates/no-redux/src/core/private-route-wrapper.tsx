@@ -1,9 +1,10 @@
 import * as React from 'react'
-import { withRouter, RouteComponentProps } from 'react-router-dom'
+import { withRouter, RouteComponentProps, Redirect } from 'react-router-dom'
 import Menu from '@/components/ui/menu'
 import { Loader, AppNavContainer, Section } from '@reapit/elements'
 import { redirectToOAuth } from '@reapit/cognito-auth'
 import { AuthContext } from '@/context'
+import Routes from '@/constants/routes'
 
 const { Suspense } = React
 
@@ -13,6 +14,7 @@ export type PrivateRouteWrapperProps = RouteComponentProps & {
 
 export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children }) => {
   const { loginSession, refreshParams, getLoginSession } = React.useContext(AuthContext)
+
   if (!loginSession && !refreshParams) {
     redirectToOAuth(window.reapit.config.cognitoClientId)
     return null
@@ -24,6 +26,10 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
   if (!loginSession) {
     return null
+  }
+
+  if (location.pathname === '/') {
+    return <Redirect to={Routes.HOME} />
   }
 
   return (

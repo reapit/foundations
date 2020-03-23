@@ -125,7 +125,7 @@ describe('settings', () => {
           password: '123',
           newPassword: '456',
           userName: 'abc@gmail.com',
-          cognitoClientId: process.env.COGNITO_CLIENT_ID_MARKETPLACE || '',
+          cognitoClientId: window.reapit.config.cognitoClientId || '',
         }),
       )
       expect(clone.next('SUCCESS').value).toEqual(call(removeSession))
@@ -141,7 +141,7 @@ describe('settings', () => {
           password: '123',
           newPassword: '456',
           userName: 'abc@gmail.com',
-          cognitoClientId: process.env.COGNITO_CLIENT_ID_MARKETPLACE || '',
+          cognitoClientId: window.reapit.config.cognitoClientId || '',
         }),
       )
       expect(clone.next('FAIL').value).toEqual(

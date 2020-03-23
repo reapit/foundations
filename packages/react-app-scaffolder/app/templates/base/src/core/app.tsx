@@ -18,6 +18,8 @@ import '@/styles/index.scss'
 import { createGlobalStyle } from 'styled-components'
 
 <% if (isFoundation) { %>
+  import * as OfflinePluginRuntime from 'offline-plugin/runtime'
+OfflinePluginRuntime.install()
 import globalCss from 'raw-loader!sass-loader!@reapit/elements/styles/index.scss'
 <% } else { %>
 import globalCss from 'raw-loader!sass-loader!@reapit/elements/dist/index.css'
@@ -31,16 +33,12 @@ import globalCss from 'raw-loader!sass-loader!@reapit/elements/dist/index.css'
 `
     <% } %>
 
-<% if (isFoundation) { %>
-import * as OfflinePluginRuntime from 'offline-plugin/runtime'
-OfflinePluginRuntime.install()
-<% } %>
-
-const rootElement = document.querySelector('#root') as Element
-
 const App = () => {
   <% if (!redux && !graphql) { %>
     const { loginSession, refreshParams, getLoginSession, ...rest } = useAuth()
+    if (!loginSession && refreshParams) {
+      getLoginSession(refreshParams)
+    }
   <% } %>
   <% if (graphql) { %>
     const { loginSession, refreshParams, getLoginSession, ...rest } = useAuth()
@@ -74,3 +72,5 @@ const App = () => {
     <% } %>
   )
 }
+
+export default App

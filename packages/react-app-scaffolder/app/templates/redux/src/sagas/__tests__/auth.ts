@@ -28,7 +28,7 @@ describe('auth sagas', () => {
       userName: 'bob@acme.com',
       password: 'xxxxxx',
       mode: 'WEB',
-      cognitoClientId: 'cognitoClientId',
+      cognitoClientId: '123',
     }
     const action: Action<LoginParams> = {
       type: ActionTypes.AUTH_LOGIN as ActionType,
