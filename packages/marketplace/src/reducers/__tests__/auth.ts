@@ -63,12 +63,6 @@ describe('auth reducer', () => {
     expect(newState.refreshSession).toEqual(data)
   })
 
-  it('should set the firstLogin state when the TOGGLE_FIRST_LOGIN is called', () => {
-    const data = true
-    const newState = authReducer(undefined, { type: ActionTypes.TOGGLE_FIRST_LOGIN as ActionType, data })
-    expect(newState.firstLogin).toEqual(data)
-  })
-
   it('should set isTermAccepted state when SET_TERMS_ACCEPTED_STATE is called ', () => {
     const newState = authReducer(undefined, {
       type: ActionTypes.SET_TERMS_ACCEPTED_STATE as ActionType,

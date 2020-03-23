@@ -348,11 +348,7 @@ exports[`DeveloperWelcomeMessage should match a snapshot 1`] = `
         }
         heading="On going support"
         id="step-5"
-        render={
-          <Unknown
-            onAccept={[MockFunction]}
-          />
-        }
+        render={<Unknown />}
         subHeading="We’re here to help."
       />
     </Component>

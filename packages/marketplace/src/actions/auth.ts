@@ -10,9 +10,20 @@ export const authLogoutSuccess = actionCreator<void>(ActionTypes.AUTH_LOGOUT_SUC
 export const authSetRefreshSession = actionCreator<RefreshParams>(ActionTypes.AUTH_SET_REFRESH_SESSION)
 export const authChangeLoginType = actionCreator<LoginType>(ActionTypes.AUTH_CHANGE_LOGIN_TYPE)
 export const authClear = actionCreator<void>(ActionTypes.AUTH_CLEAR)
-export const checkFirstTimeLogin = actionCreator<void>(ActionTypes.CHECK_FIRST_TIME_LOGIN)
-export const toggleFirstLogin = actionCreator<boolean>(ActionTypes.TOGGLE_FIRST_LOGIN)
-export const userAcceptTermAndCondition = actionCreator<void>(ActionTypes.USER_ACCEPT_TERM_AND_CONDITION)
-export const checkTermsAcceptedWithCookie = actionCreator<void>(ActionTypes.CHECK_TERM_ACCEPTED_WITH_COOKIE)
-export const setTermsAcceptedWithCookie = actionCreator<boolean>(ActionTypes.SET_TERMS_ACCEPTED_WITH_COOKIE)
+
+export const setInitDeveloperTermsAcceptedStateFromCookie = actionCreator<void>(
+  ActionTypes.SET_INIT_DEVELOPER_TERMS_ACCEPTED_STATE_FROM_COOKIE,
+)
+export const setDeveloperTermAcceptedCookieAndState = actionCreator<boolean>(
+  ActionTypes.SET_DEVELOPER_TERM_ACCEPTED_COOKIE_AND_STATE,
+)
+
+export const setInitClientTermsAcceptedStateFromCookie = actionCreator<void>(
+  ActionTypes.SET_INIT_CLIENT_TERMS_ACCEPTED_STATE_FROM_COOKIE,
+)
+
+export const setClientTermAcceptedCookieAndState = actionCreator<boolean>(
+  ActionTypes.SET_CLIENT_TERM_ACCEPTED_COOKIE_AND_STATE,
+)
+
 export const setTermsAcceptedState = actionCreator<boolean>(ActionTypes.SET_TERMS_ACCEPTED_STATE)

@@ -56,8 +56,6 @@ const props = (loading: boolean): ClientProps => ({
   installationsFormState: 'PENDING',
   installationsSetFormState: jest.fn(),
   fetchAppDetail: jest.fn(),
-  userAcceptTermAndCondition: jest.fn(),
-  firstLogin: false,
   ...routerProps,
 })
 
@@ -105,8 +103,6 @@ describe('Client', () => {
       setStateViewBrowse: jest.fn(),
       installationsSetFormState: jest.fn(),
       fetchAppDetail: jest.fn(),
-      userAcceptTermAndCondition: jest.fn(),
-      firstLogin: false,
       ...routerProps,
     }
 
@@ -137,8 +133,6 @@ describe('Client', () => {
       setStateViewBrowse: jest.fn(),
       installationsSetFormState: jest.fn(),
       fetchAppDetail: jest.fn(),
-      userAcceptTermAndCondition: jest.fn(),
-      firstLogin: false,
       ...routerProps,
     }
 
@@ -246,7 +240,7 @@ describe('Client', () => {
       const wrapper = mount(
         <Provider store={store.reduxStore}>
           <Router>
-            <Client {...props(false)} firstLogin />
+            <Client {...props(false)} />
           </Router>
         </Provider>,
       )
