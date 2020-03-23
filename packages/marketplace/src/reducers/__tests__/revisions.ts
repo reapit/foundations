@@ -44,4 +44,16 @@ describe('revisions reducer', () => {
     }
     expect(newState).toEqual(expected)
   })
+
+  it('should clear revisions data when REVISIONS_CLEAR_DATA action is called', () => {
+    const newState = revisionsReduer(defaultState, {
+      type: ActionTypes.REVISIONS_CLEAR_DATA as ActionType,
+      data: null,
+    })
+    const expected = {
+      ...defaultState,
+      revisions: null,
+    }
+    expect(newState).toEqual(expected)
+  })
 })

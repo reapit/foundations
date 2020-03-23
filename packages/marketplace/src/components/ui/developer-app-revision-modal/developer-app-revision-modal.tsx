@@ -8,8 +8,9 @@ import {
   RevisionDetailRequestParams,
   declineRevision,
   RevisionDeclineRequestParams,
+  revisionDetailClearData,
 } from '@/actions/revision-detail'
-import { revisionsRequestData } from '@/actions/revisions'
+import { revisionsRequestData, revisionsClearData } from '@/actions/revisions'
 import { AppDetailState } from '@/reducers/app-detail'
 import { RevisionsState } from '@/reducers/revisions'
 import { RevisionDetailState } from '@/reducers/revision-detail'
@@ -37,9 +38,19 @@ export interface DeveloperAppModalMappedAction {
   fetchAppRevisions: (appId: string) => void
   fetchAppRevisionDetail: (params: RevisionDetailRequestParams) => void
   declineAppRevision: (params: RevisionDeclineRequestParams) => void
+  clearAppRevisionDetail: () => void
+  clearAppRevisions: () => void
 }
 
 export type DeveloperAppRevisionModalProps = OwnProps & DeveloperAppModalMappedProps & DeveloperAppModalMappedAction
+
+export const handleAppRevisionModalAfterClose = (afterClose, clearAppRevisionDetail, clearAppRevisions) => {
+  return () => {
+    clearAppRevisions()
+    clearAppRevisionDetail()
+    afterClose()
+  }
+}
 
 export const handleCancelPendingRevisionsButtonClick = (
   declineAppRevision: (params: RevisionDeclineRequestParams) => void,
@@ -79,6 +90,8 @@ export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps>
   fetchAppRevisions,
   fetchAppRevisionDetail,
   declineAppRevision,
+  clearAppRevisionDetail,
+  clearAppRevisions,
   afterClose,
 }) => {
   const { revisions } = revisionsState
@@ -114,7 +127,7 @@ export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps>
     <Modal
       visible={visible}
       title="Pending Revisions"
-      afterClose={afterClose}
+      afterClose={handleAppRevisionModalAfterClose(afterClose, clearAppRevisionDetail, clearAppRevisions)}
       footerItems={
         !revisionDetailLoading && (
           <Button
@@ -190,6 +203,8 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   fetchAppRevisions: (appId: string) => dispatch(revisionsRequestData({ appId })),
   fetchAppRevisionDetail: param => dispatch(revisionDetailRequestData(param)),
   declineAppRevision: params => dispatch(declineRevision(params)),
+  clearAppRevisionDetail: () => dispatch(revisionDetailClearData(null)),
+  clearAppRevisions: () => dispatch(revisionsClearData(null)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeveloperAppRevisionModal)

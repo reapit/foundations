@@ -1,4 +1,9 @@
-import { revisionsReceiveData, revisionsRequestData, revisionsRequestDataFailure } from '../revisions'
+import {
+  revisionsReceiveData,
+  revisionsRequestData,
+  revisionsRequestDataFailure,
+  revisionsClearData,
+} from '../revisions'
 import ActionTypes from '@/constants/action-types'
 import { revisionsDataStub } from '@/sagas/__stubs__/revisions'
 
@@ -13,5 +18,9 @@ describe('app revisions', () => {
   })
   it('should create a revisionsRequestDataFailure action', () => {
     expect(revisionsRequestDataFailure.type).toEqual(ActionTypes.REVISIONS_REQUEST_DATA_FAILURE)
+  })
+  it('should create a revisionsClearData action', () => {
+    expect(revisionsReceiveData.type).toEqual(ActionTypes.REVISIONS_CLEAR_DATA)
+    expect(revisionsClearData(null).data).toEqual(null)
   })
 })

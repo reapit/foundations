@@ -11,3 +11,4 @@ export interface RevisionsRequestParams {
 export const revisionsRequestData = actionCreator<RevisionsRequestParams>(ActionTypes.REVISIONS_REQUEST_DATA)
 export const revisionsReceiveData = actionCreator<PagedResultAppRevisionModel_>(ActionTypes.REVISIONS_RECEIVE_DATA)
 export const revisionsRequestDataFailure = actionCreator<void>(ActionTypes.REVISIONS_REQUEST_DATA_FAILURE)
+export const revisionsClearData = actionCreator<null>(ActionTypes.REVISIONS_CLEAR_DATA)

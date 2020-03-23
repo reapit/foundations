@@ -1,7 +1,12 @@
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
 import { PagedResultAppRevisionModel_ } from '@reapit/foundations-ts-definitions'
-import { revisionsRequestData, revisionsReceiveData, revisionsRequestDataFailure } from '@/actions/revisions'
+import {
+  revisionsRequestData,
+  revisionsReceiveData,
+  revisionsRequestDataFailure,
+  revisionsClearData,
+} from '@/actions/revisions'
 
 export interface RevisionsState {
   loading: boolean
@@ -22,6 +27,9 @@ const revisionsReducer = (state: RevisionsState = defaultState, action: Action<a
   }
   if (isType(action, revisionsRequestDataFailure)) {
     return { ...state, loading: false }
+  }
+  if (isType(action, revisionsClearData)) {
+    return { ...state, loading: false, revisions: action.data }
   }
   return state
 }
