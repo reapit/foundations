@@ -28,7 +28,7 @@ describe('auth sagas', () => {
       userName: 'bob@acme.com',
       password: 'xxxxxx',
       mode: 'WEB',
-      cognitoClientId: 'cognitoClientId',
+      cognitoClientId: '123',
     }
     const action: Action<LoginParams> = {
       type: ActionTypes.AUTH_LOGIN as ActionType,
@@ -55,7 +55,7 @@ describe('auth sagas', () => {
       const gen = doLogout()
       expect(gen.next().value).toEqual(call(removeSession, COOKIE_SESSION_KEY))
       expect(gen.next().value).toEqual(
-        call(redirectToLogout, process.env.COGNITO_CLIENT_ID_<%= nameInConstantCase %> as string, `${window.location.origin}/login`),
+        call(redirectToLogout, window.reapit.config.cognitoClientId, `${window.location.origin}/login`),
       )
       expect(gen.next().done).toBe(true)
     })

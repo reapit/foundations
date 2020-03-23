@@ -1,9 +1,8 @@
 {
   "appEnv": "local",
   "sentryDns": "",
-  "graphqlUri": "",
-  "cognitoClientId": "",
+  "cognitoClientId": "<%= clientId %>",
   "googleAnalyticsKey": "",
-  "cognitoOAuthUrl": "",
+  "cognitoOAuthUrl": "https://dev.connect.reapit.cloud",
   "cognitoUserPoolId": ""
 }

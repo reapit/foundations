@@ -1,10 +1,9 @@
 export type Config = {
   appEnv: 'local' | 'development' | 'production'
   sentryDns: string
-  platformApiUrl: string
-  uploadApiUrl: string
   cognitoClientId: string
   googleAnalyticsKey: string
+  graphqlUri: string
   cognitoOAuthUrl: string
   cognitoUserPoolId: string
 }
@@ -14,6 +13,5 @@ declare global {
     reapit: {
       config: Config
     }
-    __REDUX_DEVTOOLS_EXTENSION__?: Function
   }
 }

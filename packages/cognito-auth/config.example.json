@@ -1,3 +1,4 @@
 {
-  "cognitoOAuthUrl": ""
+  "cognitoOAuthUrl": "",
+  "cognitoUserPoolId": ""
 }

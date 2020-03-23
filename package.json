@@ -18,8 +18,7 @@
   },
   "scripts": {
     "build": "lerna run build:prod --stream",
-    "fetch-config": "yarn config-manager getSecret reapit-marketplace-app-config",
-    "fetch-config1": "lerna run --parallel --stream fetch-config --",
+    "fetch-config": "lerna run --parallel --stream fetch-config --",
     "lint": "lerna run --parallel --stream lint",
     "lint:fix": "lerna run --parallel --stream lint:fix --",
     "release:dev": "lerna run --parallel release:dev",
@@ -71,6 +70,7 @@
     "react": "^16.12.0",
     "react-datepicker": "^2.9.6",
     "react-dom": "^16.12.0",
+    "react-ga": "^2.7.0",
     "react-redux": "^7.1.3",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",

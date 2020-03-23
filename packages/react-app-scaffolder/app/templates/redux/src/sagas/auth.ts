@@ -23,7 +23,7 @@ export const doLogin = function*({ data }: Action<LoginParams>) {
 export const doLogout = function*() {
   try {
     yield call(removeSession, COOKIE_SESSION_KEY)
-    yield call(redirectToLogout, process.env.COGNITO_CLIENT_ID_<%= nameInConstantCase %> as string, `${window.location.origin}/login`)
+    yield call(redirectToLogout, window.reapit.config.cognitoClientId, `${window.location.origin}/login`)
   } catch (err) {
     console.error(err.message)
   }

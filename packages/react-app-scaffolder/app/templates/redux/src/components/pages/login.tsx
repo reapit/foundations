@@ -17,7 +17,7 @@ export interface LoginProps {
   hasSession: boolean
 }
 
-const loginHandler = () => redirectToLogin(process.env.COGNITO_CLIENT_ID_<%= nameInConstantCase %> as string, `${window.location.origin}`)
+const loginHandler = () => redirectToLogin(window.reapit.config.cognitoClientId, `${window.location.origin}`)
 
 export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {
   <% if (stylesSolution == 'sass') { %>const { wrapper, container, image } = loginStyles<%}%>

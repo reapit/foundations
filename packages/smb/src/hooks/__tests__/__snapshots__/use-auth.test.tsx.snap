@@ -7,7 +7,7 @@ Object {
     "loginSession": Object {
       "accessToken": "123",
       "accessTokenExpiry": 1583492838,
-      "cognitoClientId": "ue1e0vujti1p9f133ckfkbkdh",
+      "cognitoClientId": "123",
       "idToken": "123",
       "idTokenExpiry": 1583492838,
       "loginIdentity": Object {
@@ -27,7 +27,7 @@ Object {
     "refreshParams": Object {
       "accessToken": "123",
       "accessTokenExpiry": 1583492838,
-      "cognitoClientId": "ue1e0vujti1p9f133ckfkbkdh",
+      "cognitoClientId": "123",
       "idToken": "123",
       "idTokenExpiry": 1583492838,
       "loginIdentity": Object {

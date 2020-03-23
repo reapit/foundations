@@ -1,83 +1,58 @@
-import * as React from 'react'
+import * as Sentry from '@sentry/browser'
+import React from 'react'
 import { render } from 'react-dom'
-import Router from './router'
-<% if (redux) { %>
-import store from './store'
-import { Provider } from 'react-redux'
-<% } %>
-<% if (graphql) { %>
-import { ApolloProvider } from '@apollo/react-hooks'
-import getClient from '@/graphql/client'
-<% } %>
-<% if (!redux) { %>
-import { useAuth } from '@/hooks/use-auth'
-import { AuthContext } from '@/context'
-<% } %>
-<% if (stylesSolution == 'sass') { %>
-import '@/styles/index.scss'
-<% } else { %>
-import { createGlobalStyle } from 'styled-components'
+import ReactGA from 'react-ga'
+import { Config } from '@/types/global'
+import App from './app'
 
-<% if (isFoundation) { %>
-import globalCss from 'raw-loader!sass-loader!@reapit/elements/styles/index.scss'
-<% } else { %>
-import globalCss from 'raw-loader!sass-loader!@reapit/elements/dist/index.css'
-<% } %>
+// Init global config
+window.reapit = {
+  config: {
+    appEnv: 'production',
+    sentryDns: '',
+    cognitoClientId: '',
+    googleAnalyticsKey: '',
+    cognitoOAuthUrl: '',
+    cognitoUserPoolId: '',
+  },
+}
 
-  const GlobalStyle = createGlobalStyle`
-  ${globalCss};
-  body {
-    background-color: unset;
+export const renderApp = (Component: React.ComponentType) => {
+  const rootElement = document.querySelector('#root') as Element
+  if (rootElement) {
+    render(<Component />, rootElement)
   }
-`
-    <% } %>
-
-<% if (isFoundation) { %>
-import * as OfflinePluginRuntime from 'offline-plugin/runtime'
-OfflinePluginRuntime.install()
-<% } %>
-
-const rootElement = document.querySelector('#root') as Element
-
-const App = () => {
-  <% if (!redux && !graphql) { %>
-    const { loginSession, refreshParams, getLoginSession, ...rest } = useAuth()
-  <% } %>
-  <% if (graphql) { %>
-    const { loginSession, refreshParams, getLoginSession, ...rest } = useAuth()
-    if (!loginSession && refreshParams) {
-      getLoginSession(refreshParams)
-    }
-    const accessToken = loginSession?.accessToken || ''
-  <% } %>
-  return (
-    <% if (!redux) { %>
-    <AuthContext.Provider value={{ loginSession, refreshParams, getLoginSession, ...rest }}>
-    <% } %>
-    <% if (graphql) { %>
-      <ApolloProvider client={getClient(accessToken)}>
-    <% } %>
-    <% if (redux) { %>
-      <Provider store={store.reduxStore}>
-    <% } %>
-      <Router />
-    <% if (stylesSolution === 'styledComponents') { %>
-      <GlobalStyle />
-    <% } %>
-    <% if (redux) { %>
-      </Provider>
-    <% } %>
-    <% if (graphql) { %>
-      </ApolloProvider>
-    <% } %>
-    <% if (!redux) { %>
-      </AuthContext.Provider>
-    <% } %>
-  )
 }
 
-if (rootElement) {
-  render(<App />, rootElement)
+const run = async () => {
+  await fetch('config.json')
+    .then(response => response.json())
+    .then((config: Config) => {
+      window.reapit.config = config
+      const isLocal = config.appEnv === 'local'
+      if (!isLocal && config.sentryDns) {
+        Sentry.init({
+          release: process.env.APP_VERSION,
+          dsn: config.sentryDns,
+          environment: config.appEnv,
+        })
+      }
+      if (!isLocal && config.googleAnalyticsKey) {
+        ReactGA.initialize(config.googleAnalyticsKey)
+        ReactGA.pageview(window.location.pathname + window.location.search)
+      }
+      renderApp(App)
+    })
+    .catch(error => {
+      console.error('Cannot fetch config', error)
+    })
 }
 
-export default App
+if (module['hot']) {
+  module['hot'].accept('./app', () => {
+    const NextApp = require('./app').default
+    renderApp(NextApp)
+  })
+}
+
+run()

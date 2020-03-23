@@ -11,12 +11,11 @@ import { AuthContext } from '@/context'
 import { redirectToLogin } from '@reapit/cognito-auth'
 
 export const redirectToLoginPage = () => {
-  const cognitoClientId = process.env.COGNITO_CLIENT_ID_<%= nameInConstantCase %> as string
+  const cognitoClientId = window.reapit.config.cognitoClientId
   redirectToLogin(cognitoClientId, `${window.location.origin}`)
 }
 
 export const Login: React.FunctionComponent = () => {
-  const cognitoClientId = process.env.COGNITO_CLIENT_ID_<%= nameInConstantCase %> as string
   const loginHandler = React.useCallback(redirectToLoginPage, [])
 
   <% if (stylesSolution == 'sass') { %>const { wrapper, container, image } = loginStyles<%}%>

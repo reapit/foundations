@@ -4,7 +4,7 @@ import { useAuth, AuthHook } from '../use-auth'
 import mountReactHook from '../__mocks__/mount-react-hook'
 
 const refreshParams: RefreshParams = {
-  cognitoClientId: '1',
+  cognitoClientId: '123',
   loginType: 'CLIENT',
   mode: 'WEB',
   redirectUri: '1',
@@ -20,7 +20,7 @@ const session = {
   idToken: '123',
   idTokenExpiry: 1583492838,
   refreshToken: '123',
-  cognitoClientId: 'ue1e0vujti1p9f133ckfkbkdh',
+  cognitoClientId: '123',
   loginType: 'CLIENT',
   userName: 'cbryan@reapit.com',
   mode: 'WEB',

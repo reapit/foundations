@@ -22,7 +22,7 @@ export const useAuth = (): AuthHook => {
   const [loginSession, setLoginSession] = React.useState<LoginSession | null>(null)
   const urlParams: RefreshParams | null = getTokenFromQueryString(
     window.location.search,
-    process.env.COGNITO_CLIENT_ID_<%= nameInConstantCase %> as string,
+    window.reapit.config.cognitoClientId
   )
   const cookieParams = getSessionCookie(COOKIE_SESSION_KEY)
   const refreshParams = cookieParams ? cookieParams : urlParams
@@ -43,7 +43,7 @@ export const useAuth = (): AuthHook => {
 
   const logout = React.useCallback(() => {
     removeSession(COOKIE_SESSION_KEY)
-    redirectToLogout(process.env.COGNITO_CLIENT_ID_<%= nameInConstantCase %>  as string, `${window.location.origin}/login`)
+    redirectToLogout(window.reapit.config.cognitoClientId, `${window.location.origin}/login`)
   }, [])
 
   return {

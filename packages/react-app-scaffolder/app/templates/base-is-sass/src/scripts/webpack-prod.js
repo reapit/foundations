@@ -2,6 +2,7 @@ const path = require('path')
 const glob = require('glob')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const HashedModuleIdsPlugin = require('webpack').HashedModuleIdsPlugin
@@ -29,6 +30,7 @@ module.exports = {
     new ResolveTSPathsToWebpackAlias({
       tsconfig: path.resolve(__dirname, '../..', 'tsconfig.json')
     }),
+    new CopyPlugin([{ from: 'config.json', to: PATHS.output }]),
     new ForkTsCheckerWebpackPlugin({
       async: false,
       useTypescriptIncrementalApi: true,

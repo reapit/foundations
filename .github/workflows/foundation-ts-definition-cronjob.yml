@@ -36,7 +36,7 @@ jobs:
 
       - name: Fetch config
         run: |
-          yarn fetch-config DEV
+          yarn fetch-config production
 
       - name: Fetch latest definition
         run: yarn workspace @reapit/foundations-ts-definitions fetch-definition
