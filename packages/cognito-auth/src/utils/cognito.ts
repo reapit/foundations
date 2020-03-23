@@ -21,7 +21,7 @@ export const getLoginSession = (session: CognitoUserSession): Partial<LoginSessi
 
 export const getNewUser = (userName: string, cognitoClientId: string) => {
   const poolData = {
-    UserPoolId: process.env.COGNITO_USERPOOL_ID as string,
+    UserPoolId: window.reapit.config.cognitoUserPoolId,
     ClientId: cognitoClientId,
   }
   const userPool = new CognitoUserPool(poolData)

@@ -7,6 +7,7 @@
 # misc
 .DS_Store
 reapit-config.json
+config.json
 
 # log files
 npm-debug.log*

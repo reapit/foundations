@@ -3,10 +3,7 @@ const ForkTsCheckerNotifierWebpackPlugin = require('fork-ts-checker-notifier-web
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
-const { EnvironmentPlugin } = require('webpack')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
-const readReapitConfig = require('./read-reapit-config')
-const { PATHS } = require('./constants')
 
 module.exports = {
   context: process.cwd(),
@@ -26,7 +23,6 @@ module.exports = {
       title: 'TypeScript',
       excludeWarnings: false,
     }),
-    new EnvironmentPlugin(readReapitConfig()),
     new HtmlWebpackPlugin({
       inject: true,
       template: 'public/index.html',

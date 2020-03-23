@@ -33,7 +33,7 @@ describe('Menu', () => {
   describe('callbackAppClick', () => {
     it('should run correcly', () => {
       const fn = callbackAppClick()
-      expect(fn).toEqual('https://marketplace.reapit.cloud/client/installed')
+      expect(fn).toEqual('https://dev.marketplace.reapit.cloud/client/installed')
     })
   })
 

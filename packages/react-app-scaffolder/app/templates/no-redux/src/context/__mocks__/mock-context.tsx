@@ -17,7 +17,7 @@ export const mockContext = {
       userCode: 'mockUserCode',
     },
     loginType: 'CLIENT',
-    cognitoClientId: 'mockCognitoClientId',
+    cognitoClientId: '123',
     refreshToken: 'mockRefreshToken',
   },
   logout: jest.fn(),

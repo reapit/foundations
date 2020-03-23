@@ -16,7 +16,6 @@ export const redirectToLoginPage = () => {
 }
 
 export const Login: React.FunctionComponent = () => {
-  const cognitoClientId = window.reapit.config.cognitoClientId
   const loginHandler = React.useCallback(redirectToLoginPage, [])
 
   <% if (stylesSolution == 'sass') { %>const { wrapper, container, image } = loginStyles<%}%>

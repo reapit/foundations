@@ -5,5 +5,6 @@
   "uploadApiUrl": "",
   "cognitoClientId": "",
   "googleAnalyticsKey": "",
-  "cognitoOAuthUrl": ""
+  "cognitoOAuthUrl": "",
+  "cognitoUserPoolId": ""
 }

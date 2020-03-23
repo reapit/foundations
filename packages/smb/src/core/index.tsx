@@ -16,6 +16,7 @@ window.reapit = {
     cognitoClientId: '',
     googleAnalyticsKey: '',
     cognitoOAuthUrl: '',
+    cognitoUserPoolId: '',
   },
 }
 

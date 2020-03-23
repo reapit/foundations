@@ -3,6 +3,8 @@ export type Config = {
   sentryDns: string
   cognitoClientId: string
   googleAnalyticsKey: string
+  cognitoOAuthUrl: string
+  cognitoUserPoolId: string
 }
 
 declare global {

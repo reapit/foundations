@@ -1,6 +1,3 @@
-import * as OfflinePluginRuntime from 'offline-plugin/runtime'
-OfflinePluginRuntime.install()
-import '../styles/index.scss'
 import * as Sentry from '@sentry/browser'
 import React from 'react'
 import { render } from 'react-dom'
@@ -15,6 +12,8 @@ window.reapit = {
     sentryDns: '',
     cognitoClientId: '',
     googleAnalyticsKey: '',
+    cognitoOAuthUrl: '',
+    cognitoUserPoolId: '',
   },
 }
 
