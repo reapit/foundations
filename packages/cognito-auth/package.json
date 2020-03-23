@@ -23,7 +23,7 @@
   "types": "dist/cognito-auth/src/index.d.ts",
   "scripts": {
     "build:prod": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd",
-    "release:prod": "node ../../scripts/release/release-npm.js @reapit/cognito-auth",
+    "release:prod": "node ../../scripts/release/release-npm.js cognito-auth",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
