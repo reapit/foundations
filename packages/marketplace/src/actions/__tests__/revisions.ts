@@ -20,7 +20,7 @@ describe('app revisions', () => {
     expect(revisionsRequestDataFailure.type).toEqual(ActionTypes.REVISIONS_REQUEST_DATA_FAILURE)
   })
   it('should create a revisionsClearData action', () => {
-    expect(revisionsReceiveData.type).toEqual(ActionTypes.REVISIONS_CLEAR_DATA)
+    expect(revisionsClearData.type).toEqual(ActionTypes.REVISIONS_CLEAR_DATA)
     expect(revisionsClearData(null).data).toEqual(null)
   })
 })

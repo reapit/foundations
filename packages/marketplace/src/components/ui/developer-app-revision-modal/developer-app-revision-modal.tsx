@@ -65,11 +65,35 @@ export const handleCancelPendingRevisionsButtonClick = (
   }
 }
 
+export const handelePendingRevisionsModalAfterClose = (afterClose, clearAppRevisions, clearAppRevisionDetail) => {
+  return () => {
+    afterClose()
+    clearAppRevisions()
+    clearAppRevisionDetail()
+  }
+}
+
 export const backToAppDetailsModal = (fetchAppDetail, clearAppRevisions, clearAppRevisionDetail, appId) => {
   return () => {
     clearAppRevisions()
     clearAppRevisionDetail()
     fetchAppDetail(appId)
+  }
+}
+
+export const handleUseEffecttoFetchAppRevisions = (appId, fetchAppRevisions, visible) => {
+  return () => {
+    if (appId && visible) {
+      fetchAppRevisions(appId)
+    }
+  }
+}
+
+export const handleUseEffecttoFetchAppRevisionDetail = (appId, appRevisionId, fetchAppRevisionDetail, visible) => {
+  return () => {
+    if (appId && appRevisionId && visible) {
+      fetchAppRevisionDetail({ appId, appRevisionId })
+    }
   }
 }
 
@@ -102,23 +126,22 @@ export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps>
 
   const [isConfirmationModalVisible, setIsConfirmationModalVisible] = React.useState(false)
 
-  React.useEffect(() => {
-    if (appId && visible) {
-      fetchAppRevisions(appId)
-    }
-  }, [appId, fetchAppRevisions, visible])
+  React.useEffect(handleUseEffecttoFetchAppRevisions(appId, fetchAppRevisions, visible), [
+    appId,
+    fetchAppRevisions,
+    visible,
+  ])
 
-  React.useEffect(() => {
-    if (appId && latestAppRevisionId && visible) {
-      fetchAppRevisionDetail({ appId, appRevisionId: latestAppRevisionId })
-    }
-  }, [appId, latestAppRevisionId, fetchAppRevisionDetail, visible])
+  React.useEffect(
+    handleUseEffecttoFetchAppRevisionDetail(appId, latestAppRevisionId, fetchAppRevisionDetail, visible),
+    [appId, latestAppRevisionId, fetchAppRevisionDetail, visible],
+  )
 
   return (
     <Modal
       visible={visible}
       title="Pending Revisions"
-      afterClose={afterClose}
+      afterClose={handelePendingRevisionsModalAfterClose(afterClose, clearAppRevisions, clearAppRevisionDetail)}
       footerItems={
         <Button
           disabled={!hasRevisionDetailData}

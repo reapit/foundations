@@ -1,6 +1,6 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS, generateHeader } from '../constants/api'
-import { put, call, takeLatest } from '@redux-saga/core/effects'
+import { put, call, takeLatest, all, fork } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { Action } from '../types/core'
 import { errorThrownServer } from '../actions/error'
@@ -39,4 +39,8 @@ export const appRevisionsListen = function*() {
   yield takeLatest<Action<RevisionsRequestParams>>(ActionTypes.REVISIONS_REQUEST_DATA, appRevisionsSaga)
 }
 
-export default appRevisionsListen
+export const revisionsSagas = function*() {
+  yield all([fork(appRevisionsListen)])
+}
+
+export default revisionsSagas
