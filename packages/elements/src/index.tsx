@@ -44,6 +44,7 @@ export * from './components/Helper'
 export * from './components/Spreadsheet'
 export * from './components/HelpGuide'
 export * from './components/HelpGuide/context'
+export * from './components/Notification'
 
 // Utils
 export * from './utils/validators'
