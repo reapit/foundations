@@ -12,7 +12,6 @@ import {
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { revisionDetailDataStub } from '@/sagas/__stubs__/revision-detail'
 import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
-import { ModalBody } from '@reapit/elements'
 
 const props = (loading: boolean, error: boolean): AdminApprovalModalInnerProps => ({
   appDetailState: {

@@ -8,8 +8,7 @@ export const revisionsDataStub: PagedResultAppRevisionModel_ = {
       developerId: '47a37635-5044-4f20-b981-4f25970ac9cf',
       name: 'Dont Approve This',
       summary: 'The section below relates to the fields that comprise the listing of your application as it w',
-      description:
-        'The section below relates to the fields that comprise the listing of your application as it wThe section below relates to the fields that comprise the listing of your application as it wThe section below relates to the fields that comprise the listing of your application as it w',
+      description: 'The section below relates to the fields that comprise the listing of your application as it wThe ',
       supportEmail: 'testingonly@asd.asd',
       telephone: '0845 123 4567',
       homePage: 'https://asd.com',
@@ -82,8 +81,7 @@ export const revisionsDataStub: PagedResultAppRevisionModel_ = {
       developerId: '47a37635-5044-4f20-b981-4f25970ac9cf',
       name: 'Dont Approve This',
       summary: 'The section below relates to the fields that comprise the listing of your application as it w',
-      description:
-        'The section below relates to the fields that comprise the listing of your application as it wThe section below relates to the fields that comprise the listing of your application as it wThe section below relates to the fields that comprise the listing of your application as it w',
+      description: 'The section below relates to the fields that comprise the listing of your application as it',
       supportEmail: 'testingonly@asd.asd',
       telephone: '12312312323',
       homePage: 'https://asd.com',
