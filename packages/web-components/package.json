@@ -45,7 +45,7 @@
     "start:prod": "sirv public",
     "start:dev": "node ./src/scripts/start-dev.js",
     "test:dev": "jest --watch --color",
-    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
+    "test:ci": "cross-env TZ=UTC jest --colors --silent --forceExit",
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
     "lint:fix": "eslint --cache --ext=ts,tsx,js src --fix",
     "fetch-config": "yarn config-manager fetchConfig web-components",
