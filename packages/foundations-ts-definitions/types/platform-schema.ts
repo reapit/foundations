@@ -3043,6 +3043,10 @@ export interface CreatePropertyLettingModel {
    */
   rentFrequency?: string
   /**
+   * The furnishing state that the property can be offered in (furnished/unfurnished/partFurnished)
+   */
+  furnishing?: string[]
+  /**
    * The acceptable letting terms (short/long/any)
    */
   term?: string
@@ -3286,6 +3290,10 @@ export interface CreatePropertyModel {
      * The frequency at which rent will be collected (weekly/monthly/yearly)
      */
     rentFrequency?: string
+    /**
+     * The furnishing state that the property can be offered in (furnished/unfurnished/partFurnished)
+     */
+    furnishing?: string[]
     /**
      * The acceptable letting terms (short/long/any)
      */
@@ -7320,6 +7328,10 @@ export interface PagedResultPropertyModel_ {
        */
       rentFrequency?: string
       /**
+       * The furnishing state that the property can be offered in (furnished/unfurnished/partFurnished)
+       */
+      furnishing?: string[]
+      /**
        * The acceptable letting terms (short/long/any)
        */
       term?: string
@@ -8567,6 +8579,10 @@ export interface PropertyLettingModel {
    */
   rentFrequency?: string
   /**
+   * The furnishing state that the property can be offered in (furnished/unfurnished/partFurnished)
+   */
+  furnishing?: string[]
+  /**
    * The acceptable letting terms (short/long/any)
    */
   term?: string
@@ -8844,6 +8860,10 @@ export interface PropertyModel {
      * The frequency at which rent will be collected (weekly/monthly/yearly)
      */
     rentFrequency?: string
+    /**
+     * The furnishing state that the property can be offered in (furnished/unfurnished/partFurnished)
+     */
+    furnishing?: string[]
     /**
      * The acceptable letting terms (short/long/any)
      */
@@ -10918,6 +10938,10 @@ export interface UpdatePropertyLettingModel {
    */
   rentFrequency?: string
   /**
+   * The furnishing state that the property can be offered in (furnished/unfurnished/partFurnished)
+   */
+  furnishing?: string[]
+  /**
    * The acceptable letting terms (short/long/any)
    */
   term?: string
@@ -11153,6 +11177,10 @@ export interface UpdatePropertyModel {
      * The frequency at which rent will be collected (weekly/monthly/yearly)
      */
     rentFrequency?: string
+    /**
+     * The furnishing state that the property can be offered in (furnished/unfurnished/partFurnished)
+     */
+    furnishing?: string[]
     /**
      * The acceptable letting terms (short/long/any)
      */
