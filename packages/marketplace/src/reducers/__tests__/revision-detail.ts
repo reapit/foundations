@@ -53,6 +53,8 @@ describe('revision-detail reducer', () => {
     const expected = {
       ...defaultState,
       revisionDetailData: null,
+      approveFormState: 'PENDING',
+      declineFormState: 'PENDING',
     }
     expect(newState).toEqual(expected)
   })

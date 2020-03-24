@@ -44,14 +44,6 @@ export interface DeveloperAppModalMappedAction {
 
 export type DeveloperAppRevisionModalProps = OwnProps & DeveloperAppModalMappedProps & DeveloperAppModalMappedAction
 
-export const handleAppRevisionModalAfterClose = (afterClose, clearAppRevisionDetail, clearAppRevisions) => {
-  return () => {
-    clearAppRevisions()
-    clearAppRevisionDetail()
-    afterClose()
-  }
-}
-
 export const handleCancelPendingRevisionsButtonClick = (
   declineAppRevision: (params: RevisionDeclineRequestParams) => void,
   appId: string,
@@ -73,8 +65,10 @@ export const handleCancelPendingRevisionsButtonClick = (
   }
 }
 
-export const backToAppDetailsModal = (fetchAppDetail, appId) => {
+export const backToAppDetailsModal = (fetchAppDetail, clearAppRevisions, clearAppRevisionDetail, appId) => {
   return () => {
+    clearAppRevisions()
+    clearAppRevisionDetail()
     fetchAppDetail(appId)
   }
 }
@@ -96,13 +90,17 @@ export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps>
 }) => {
   const { revisions } = revisionsState
   const revisionsData = revisions?.data
-  const appRevisionId = revisionsData && revisionsData[0].id
-  const { declineFormState, loading: revisionDetailLoading } = revisionDetailState
-  const isLoading = declineFormState === 'SUBMITTING'
+  const latestAppRevisionId = revisionsData && revisionsData[0].id
+  const { declineFormState, revisionDetailData } = revisionDetailState
+
+  const isDeclining = declineFormState === 'SUBMITTING'
   const isDeclinedSuccessfully = declineFormState === 'SUCCESS'
+  let hasRevisionDetailData = false
+  if (revisionDetailData) {
+    hasRevisionDetailData = true
+  }
 
   const [isConfirmationModalVisible, setIsConfirmationModalVisible] = React.useState(false)
-  const [isSuccessModalVisible, setIsSuccessModalVisible] = React.useState(false)
 
   React.useEffect(() => {
     if (appId && visible) {
@@ -111,38 +109,30 @@ export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps>
   }, [appId, fetchAppRevisions, visible])
 
   React.useEffect(() => {
-    if (appId && appRevisionId && visible) {
-      fetchAppRevisionDetail({ appId, appRevisionId })
+    if (appId && latestAppRevisionId && visible) {
+      fetchAppRevisionDetail({ appId, appRevisionId: latestAppRevisionId })
     }
-  }, [appId, appRevisionId, fetchAppRevisionDetail, visible])
-
-  React.useEffect(() => {
-    if (isDeclinedSuccessfully) {
-      setIsSuccessModalVisible(true)
-      setIsConfirmationModalVisible(false)
-    }
-  }, [appId, fetchAppDetail, isDeclinedSuccessfully])
+  }, [appId, latestAppRevisionId, fetchAppRevisionDetail, visible])
 
   return (
     <Modal
       visible={visible}
       title="Pending Revisions"
-      afterClose={handleAppRevisionModalAfterClose(afterClose, clearAppRevisionDetail, clearAppRevisions)}
+      afterClose={afterClose}
       footerItems={
-        !revisionDetailLoading && (
-          <Button
-            variant="primary"
-            type="button"
-            onClick={() => setIsConfirmationModalVisible(true)}
-            dataTest="revision-approve-button"
-          >
-            CANCEL PENDING REVISIONS
-          </Button>
-        )
+        <Button
+          disabled={!hasRevisionDetailData}
+          variant="primary"
+          type="button"
+          onClick={() => setIsConfirmationModalVisible(true)}
+          dataTest="revision-approve-button"
+        >
+          CANCEL PENDING REVISIONS
+        </Button>
       }
     >
       <>
-        {revisionDetailLoading ? (
+        {!hasRevisionDetailData ? (
           <Loader />
         ) : (
           <AppRevisionComparision appDetailState={appDetailState} revisionDetailState={revisionDetailState} />
@@ -156,11 +146,11 @@ export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps>
               <Button
                 variant="danger"
                 type="button"
-                loading={isLoading}
+                loading={isDeclining}
                 onClick={handleCancelPendingRevisionsButtonClick(
                   declineAppRevision,
                   appId,
-                  appRevisionId,
+                  latestAppRevisionId,
                   loginIdentity,
                 )}
               >
@@ -175,12 +165,15 @@ export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps>
           <p>Are you sure you wish to cancel any pending revisions for this App?</p>
         </Modal>
 
-        <Modal visible={isSuccessModalVisible} afterClose={backToAppDetailsModal(fetchAppDetail, appId)}>
+        <Modal
+          visible={isDeclinedSuccessfully}
+          afterClose={backToAppDetailsModal(fetchAppDetail, clearAppRevisions, clearAppRevisionDetail, appId)}
+        >
           <CallToAction
             title="SUCCESS"
             type="success"
             buttonText="BACK TO APP"
-            onButtonClick={backToAppDetailsModal(fetchAppDetail, appId)}
+            onButtonClick={backToAppDetailsModal(fetchAppDetail, clearAppRevisions, clearAppRevisionDetail, appId)}
             isCenter
           >
             All pending revisions for this app have been cancelled. You can now use the ‘Edit Detail’ option to make any
