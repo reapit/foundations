@@ -143,7 +143,6 @@ export interface ArgsProps {
   prefixCls?: string
   className?: string
   readonly type?: NotificationType
-  // onClick?: () => void
   top?: number
   bottom?: number
   getContainer?: () => HTMLElement
@@ -167,7 +166,6 @@ function getRCNoticeProps(args: ArgsProps) {
     duration,
     closable: true,
     onClose: args.onClose,
-    // onClick: args.onClick,
     key: args.key,
     style: args.style || {},
     className: args.className,
@@ -205,7 +203,6 @@ const api = {
       type: type as NotificationType,
     })
 })
-// api.useNotification = createUseNotification(getNotificationInstance, getRCNoticeProps)
 
 export interface NotificationInstance {
   success(args: ArgsProps): void
@@ -219,7 +216,6 @@ export interface NotificationApi extends NotificationInstance {
   close(key: string): void
   config(options: ConfigProps): void
   destroy(): void
-  // Hooks
   useNotification: () => [NotificationInstance, React.ReactElement]
 }
 
