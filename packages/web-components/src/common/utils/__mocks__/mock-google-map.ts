@@ -1,3 +1,4 @@
+/* tslint:disable */
 const createMockFuncsFromArray = (instance: any, names: string[] = []) => {
   names.forEach(name => {
     instance[name] = jest.fn().mockName(name)
@@ -176,6 +177,8 @@ const createGoogleMapsMock = (libraries = []) => {
       createMVCObject(this)
       // @ts-ignore
       createMockFuncsFromArray(this, ['setContent', 'open'])
+      // @ts-ignore
+      this.close = jest.fn()
     }),
     KmlLayer: function() {},
     KmlLayerStatus: {
@@ -378,8 +381,13 @@ const createGoogleMapsMock = (libraries = []) => {
       })),
     }
   }
-  // @ts-ignore
-  window.google.maps = maps
+
+  Object.defineProperty(window, 'google', {
+    value: {
+      maps,
+    },
+  })
+
   return maps
 }
 

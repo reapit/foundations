@@ -77,10 +77,7 @@
         {/each}
       </ul>
       <div class="map-wrap">
-        <GoogleMap
-          properties={storeInstance && storeInstance.properties ? storeInstance.properties._embedded : []}
-          propertyImages={storeInstance.propertyImages}
-          selectedProperty={storeInstance.selectedProperty} />
+        <GoogleMap />
       </div>
     </div>
   </div>

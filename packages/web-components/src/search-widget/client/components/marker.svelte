@@ -1,7 +1,7 @@
 <script lang="typescript">
-  import { onMount, onDestroy, getContext, createEventDispatcher } from 'svelte'
+  import { onMount, createEventDispatcher } from 'svelte'
   import * as TSDefinitions from '@reapit/foundations-ts-definitions'
-  import { getLatLng } from '../../../common/utils/map-helper'
+  import { getMarker } from '../../../common/utils/map-helpers'
   import { DEFAULT_CENTER } from '../../../common/utils/constants'
 
   const dispatch = createEventDispatcher()
@@ -11,25 +11,12 @@
   let marker: google.maps.Marker
 
   onMount(() => {
-    console.log(property)
-    const { latitude, longitude } = getLatLng(property)
-    marker = new google.maps.Marker({
-      position: {
-        lat: latitude || DEFAULT_CENTER.lat,
-        lng: longitude || DEFAULT_CENTER.lng,
-      },
-      map,
-    })
-
+    marker = getMarker(property, map)
     google.maps.event.addListener(marker, 'click', () => {
       dispatch('markerClick', {
-        marker: marker,
-        property: property,
+        selectedMarker: marker,
+        selectedProperty: property,
       })
     })
-  })
-
-  onDestroy(() => {
-    marker.setMap(null)
   })
 </script>

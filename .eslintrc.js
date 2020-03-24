@@ -27,13 +27,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'prettier', 'react-hooks', 'svelte3'],
-  overrides: [
-    {
-      files: ['**/*.svelte'],
-      processor: 'svelte3/svelte3'
-    }
-  ],
+  plugins: ['react', '@typescript-eslint', 'prettier', 'react-hooks'],
   ignorePatterns: [
     'node_modules/',
     'setup-tests.ts',

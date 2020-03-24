@@ -3,10 +3,15 @@ import { render } from '@testing-library/svelte'
 import { get } from 'svelte/store'
 import { property as mockProperty } from '../../../../common/utils/__mocks__/property'
 import searchWidgetStore from '../../core/store'
+import createGoogleMapsMock from '../../../../common/utils/__mocks__/mock-google-map'
 
 jest.mock('../../../../common/utils/loader')
 
-describe('search-widget', () => {
+describe('google map', () => {
+  beforeAll(() => {
+    createGoogleMapsMock()
+  })
+
   it('it matches a snapshot', () => {
     const props = {
       properties: [mockProperty],

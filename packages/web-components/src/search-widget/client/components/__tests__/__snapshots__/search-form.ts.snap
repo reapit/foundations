@@ -51,9 +51,5 @@ exports[`search-form it matches a snapshot 1`] = `
       </div>
     </div>
   </div>
-  <script
-    defer=""
-    src="//maps.googleapis.com/maps/api/js?key=undefined&libraries=places&callback=onMapReady"
-  />
 </body>
 `;

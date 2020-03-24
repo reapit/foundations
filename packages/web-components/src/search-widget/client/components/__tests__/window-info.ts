@@ -1,7 +1,7 @@
 import WindowInfo from '../window-info.svelte'
 import { render } from '@testing-library/svelte'
 import { property as mockProperty } from '../../../../common/utils/__mocks__/property'
-import createGoogleMapsMock from '../../helpers/mock-google-maps'
+import createGoogleMapsMock from '../../../../common/utils/__mocks__/mock-google-map'
 
 describe('WindowInfo', () => {
   it('it matches a snapshot', () => {
@@ -15,16 +15,10 @@ describe('WindowInfo', () => {
       map: mockMap,
     })
 
-    Object.defineProperty(window, 'google', {
-      value: {
-        maps: createGoogleMapsMock(),
-      },
-    })
-
     const props = {
-      marker: mockMarker,
+      selectedMarker: mockMarker,
       propertyImages: null,
-      property: mockProperty,
+      selectedProperty: mockProperty,
       searchType: 'Rent',
       map: mockGoogleMap,
     }
