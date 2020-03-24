@@ -14,7 +14,7 @@ export default {
     sourcemap: !production,
     format: 'iife',
     name: 'app',
-    file: './public/dist/client/search-widget.js',
+    file: './public/dist/search-widget.js',
   },
   plugins: [
     replace({
@@ -28,7 +28,7 @@ export default {
       ...svelteOptions,
       dev: !production,
       css: css => {
-        css.write('./public/dist/client/search-widget.css')
+        css.write('./public/dist/search-widget.css')
       },
     }),
     ...baseConfig.plugins,
