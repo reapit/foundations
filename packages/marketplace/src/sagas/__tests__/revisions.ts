@@ -1,4 +1,5 @@
-import revisionsSagas, { appRevisionsSaga, appRevisionsListen, fetchAppRevisions } from '../revisions'
+import { fetchAppRevisions } from '../api'
+import revisionsSagas, { appRevisionsSaga, appRevisionsListen } from '../revisions'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import ActionTypes from '@/constants/action-types'

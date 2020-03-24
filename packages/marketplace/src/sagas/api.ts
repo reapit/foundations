@@ -1,5 +1,6 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS, generateHeader } from '../constants/api'
+import { RevisionsRequestParams } from '@/actions/revisions'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { logger } from 'logger'
 
@@ -27,6 +28,22 @@ export const deleteApp = async ({ appId }) => {
       url: `${URLS.apps}/${appId}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'DELETE',
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+    })
+    return response
+  } catch (error) {
+    logger(error)
+    throw new Error(error)
+  }
+}
+
+export const fetchAppRevisions = async (params: RevisionsRequestParams) => {
+  try {
+    const { appId, ...rest } = params
+    const response = await fetcher({
+      url: `${URLS.apps}/${appId}/revisions?${setQueryParams({ ...rest })}`,
+      api: window.reapit.config.marketplaceApiUrl,
+      method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response

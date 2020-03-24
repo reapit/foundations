@@ -1,5 +1,3 @@
-import { fetcher, setQueryParams } from '@reapit/elements'
-import { URLS, generateHeader } from '../constants/api'
 import { put, call, takeLatest, all, fork } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { Action } from '../types/core'
@@ -7,17 +5,7 @@ import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { revisionsReceiveData, revisionsRequestDataFailure, RevisionsRequestParams } from '@/actions/revisions'
 import { logger } from 'logger'
-
-export const fetchAppRevisions = async (params: RevisionsRequestParams) => {
-  const { appId, ...rest } = params
-  const response = await fetcher({
-    url: `${URLS.apps}/${appId}/revisions?${setQueryParams({ ...rest })}`,
-    api: window.reapit.config.marketplaceApiUrl,
-    method: 'GET',
-    headers: generateHeader(window.reapit.config.marketplaceApiKey),
-  })
-  return response
-}
+import { fetchAppRevisions } from './api'
 
 export const appRevisionsSaga = function*({ data }) {
   try {
