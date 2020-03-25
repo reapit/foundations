@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UploadProgress should match snapshot 1`] = `
+<div
+  className="upload-progress has-background-info visible"
+>
+  <span>
+    Uploading...
+  </span>
+  <div
+    className="upload-progress-inner"
+  >
+    <div
+      className="upload-progress-bg"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+  <span>
+    Complete 4/10
+  </span>
+</div>
+`;
