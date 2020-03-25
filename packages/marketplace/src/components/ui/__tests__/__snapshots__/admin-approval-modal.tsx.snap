@@ -19,116 +19,72 @@ exports[`AdminRevisionModalInner should match a snapshot when LOADING false 1`] 
   />
   <Component
     body={
-      <React.Fragment>
-        <div
-          className="mb-3"
-        >
-          <h4
-            className="mb-2"
-          >
-            Name
-          </h4>
-          <DiffViewer
-            changedString="Amazon Shopping 2"
-            currentString="Peter's Properties"
-            type="words"
-          />
-        </div>
-        <div
-          className="mb-3"
-        >
-          <h4
-            className="mb-2"
-          >
-            Category
-          </h4>
-          <DiffViewer
-            changedString=""
-            currentString=""
-            type="words"
-          />
-        </div>
-        <div
-          className="mb-3"
-        >
-          <h4
-            className="mb-2"
-          >
-            Home page
-          </h4>
-          <DiffViewer
-            changedString="https://www.amazon.com/"
-            currentString="http://myawesomeproptechproduct.io"
-            type="words"
-          />
-        </div>
-        <div
-          className="mb-3"
-        >
-          <h4
-            className="mb-2"
-          >
-            Launch URI
-          </h4>
-          <DiffViewer
-            changedString=""
-            currentString=""
-            type="words"
-          />
-        </div>
-        <div
-          className="mb-3"
-        >
-          <h4
-            className="mb-2"
-          >
-            Support Email
-          </h4>
-          <DiffViewer
-            changedString="VBNApplication@test.com"
-            currentString="support@reapit.com"
-            type="words"
-          />
-        </div>
-        <div
-          className="mb-3"
-        >
-          <h4
-            className="mb-2"
-          >
-            Telephone
-          </h4>
-          <DiffViewer
-            changedString="0800 279 7234"
-            currentString="0113 288 2900"
-            type="words"
-          />
-        </div>
-        <div
-          className="mb-3"
-        >
-          <h4
-            className="mb-2"
-          >
-            Summary
-          </h4>
-          <DiffViewer
-            changedString="Shop millions of products, never miss amazing deals, compare prices and reviews 
-      and track your orders easily with the Amazon Shopping App!"
-            currentString="vitae elementum curabitur vitae nunc sed velit eget gravida cum sociis natoque!!"
-            type="words"
-          />
-        </div>
-        <div
-          className="mb-3"
-        >
-          <h4
-            className="mb-2"
-          >
-            Description
-          </h4>
-          <DiffViewer
-            changedString="Download the app now and start shopping our selection of fashion, books, toys, home 
+      <Unknown
+        appDetailState={
+          Object {
+            "appDetailData": Object {
+              "data": Object {
+                "description": "enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam 
+      pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras 
+      sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar 
+      elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla 
+      at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet 
+      proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum co",
+                "developer": "Pete's Proptech World Ltd",
+                "homePage": "http://myawesomeproptechproduct.io",
+                "id": "9b6fd5f7-2c15-483d-b925-01b650538e52",
+                "media": Array [
+                  Object {
+                    "description": "Application Icon",
+                    "type": "icon",
+                    "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg",
+                  },
+                  Object {
+                    "description": "Application Image",
+                    "type": "image",
+                    "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png",
+                  },
+                  Object {
+                    "description": "Application Image",
+                    "type": "image",
+                    "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png",
+                  },
+                ],
+                "name": "Peter's Properties",
+                "scopes": Array [
+                  Object {
+                    "description": "Read data about developers",
+                    "name": "Marketplace/developers.read",
+                  },
+                  Object {
+                    "description": "Write data about developers",
+                    "name": "Marketplace/developers.write",
+                  },
+                ],
+                "summary": "vitae elementum curabitur vitae nunc sed velit eget gravida cum sociis natoque!!",
+                "supportEmail": "support@reapit.com",
+                "telephone": "0113 288 2900",
+              },
+            },
+            "authentication": Object {
+              "code": "",
+              "loading": false,
+            },
+            "error": false,
+            "isStale": false,
+            "loading": false,
+          }
+        }
+        revisionDetailState={
+          Object {
+            "approveFormState": "PENDING",
+            "declineFormState": "PENDING",
+            "error": false,
+            "loading": false,
+            "revisionDetailData": Object {
+              "data": Object {
+                "appId": "029b80f2-dc1c-4f80-adca-86dd6d4ff89b",
+                "description": "Download the app now and start shopping our selection of fashion, books, toys, home 
       appliances, sport accessories and much more.
 
 -Easy
@@ -141,143 +97,57 @@ Once you complete your order,
 Never 
       miss a deal or a discount with easy access to Lighting Deals and Deal of the Day.
 Get 
-      notifications when a new deal is available."
-            currentString="enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam 
-      pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras 
-      sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar 
-      elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla 
-      at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet 
-      proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum co"
-            type="words"
-          />
-        </div>
-        <div
-          className="mb-3"
-        >
-          <h4
-            className="mb-2"
-          >
-            Redirect URIs
-          </h4>
-          <DiffViewer
-            changedString=""
-            currentString=""
-            type="words"
-          />
-        </div>
-        <div
-          className="mb-3"
-        >
-          <h4
-            className="mb-2"
-          >
-            Signout URIs
-          </h4>
-          <DiffViewer
-            changedString=""
-            currentString=""
-            type="words"
-          />
-        </div>
-        <div
-          className="mb-3"
-        >
-          <h4
-            className="mb-2"
-          >
-            Read data about developers
-          </h4>
-          <DiffCheckbox
-            changedChecked={true}
-            currentChecked={true}
-          />
-        </div>
-        <div
-          className="mb-3"
-        >
-          <h4
-            className="mb-2"
-          >
-            Write data about developers
-          </h4>
-          <DiffCheckbox
-            changedChecked={true}
-            currentChecked={true}
-          />
-        </div>
-        <div
-          className="mb-3"
-        >
-          <h4
-            className="mb-2"
-            data-test="chkIsListed"
-          >
-            Is listed
-          </h4>
-          <DiffCheckbox
-            changedChecked={false}
-            currentChecked={false}
-            dataTest="revision-diff-isListed"
-          />
-        </div>
-        <div
-          className="mb-3"
-        >
-          <h4
-            className="mb-2"
-            data-test="chkIsDirectApi"
-          >
-            Is Direct API
-          </h4>
-          <DiffCheckbox
-            changedChecked={false}
-            currentChecked={false}
-            dataTest="revision-diff-isDirectApi"
-          />
-        </div>
-        <div
-          className="mb-3"
-        >
-          <h4
-            className="mb-2 capitalize"
-          >
-            icon
-             
-          </h4>
-          <DiffMedia
-            currentMedia="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg"
-            type="icon"
-          />
-        </div>
-        <div
-          className="mb-3"
-        >
-          <h4
-            className="mb-2 capitalize"
-          >
-            image
-             
-          </h4>
-          <DiffMedia
-            currentMedia="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png"
-            type="image"
-          />
-        </div>
-        <div
-          className="mb-3"
-        >
-          <h4
-            className="mb-2 capitalize"
-          >
-            image
-             
-          </h4>
-          <DiffMedia
-            currentMedia="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png"
-            type="image"
-          />
-        </div>
-      </React.Fragment>
+      notifications when a new deal is available.",
+                "developerId": "abbc4353-8ef7-44fc-8181-0e2e68217b62",
+                "homePage": "https://www.amazon.com/",
+                "id": "1265b090-1113-4f25-ace2-adb19656d3bc",
+                "links": Array [
+                  Object {
+                    "action": "GET",
+                    "href": "http://reapit.cloud.tyk.io/marketplace/apps/029b80f2-dc1c-4f80-adca-86dd6d4ff89b/revisions/1265b090-1113-4f25-ace2-adb19656d3bc",
+                    "rel": "self",
+                  },
+                  Object {
+                    "action": "GET",
+                    "href": "http://reapit.cloud.tyk.io/marketplace/apps/029b80f2-dc1c-4f80-adca-86dd6d4ff89b",
+                    "rel": "app",
+                  },
+                  Object {
+                    "action": "GET",
+                    "href": "http://reapit.cloud.tyk.io/marketplace/developers/abbc4353-8ef7-44fc-8181-0e2e68217b62",
+                    "rel": "developer",
+                  },
+                ],
+                "name": "Amazon Shopping 2",
+                "scopes": Array [
+                  Object {
+                    "description": "Read data about developers",
+                    "name": "Marketplace/developers.read",
+                  },
+                  Object {
+                    "description": "Write data about developers",
+                    "name": "Marketplace/developers.write",
+                  },
+                ],
+                "summary": "Shop millions of products, never miss amazing deals, compare prices and reviews 
+      and track your orders easily with the Amazon Shopping App!",
+                "supportEmail": "VBNApplication@test.com",
+                "telephone": "0800 279 7234",
+              },
+              "scopes": Array [
+                Object {
+                  "description": "Read data about developers",
+                  "name": "Marketplace/developers.read",
+                },
+                Object {
+                  "description": "Write data about developers",
+                  "name": "Marketplace/developers.write",
+                },
+              ],
+            },
+          }
+        }
+      />
     }
   />
   <Component
