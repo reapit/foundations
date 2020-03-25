@@ -1,7 +1,7 @@
 module.exports = {
   preset: 'ts-jest',
   testPathIgnorePatterns: ['<rootDir>/src/scripts'],
-  collectCoverageFrom: ['<rootDir>/src/**/*.ts'],
+  collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/src/**/*.svelte'],
   coverageDirectory: './src/tests/coverage',
   coveragePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]'],
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'],
@@ -12,10 +12,10 @@ module.exports = {
   moduleFileExtensions: ['js', 'ts', 'svelte'],
   coverageThreshold: {
     global: {
-      branches: 70,
+      branches: 60,
       functions: 80,
-      lines: 90,
-      statements: 90,
+      lines: 84,
+      statements: 84,
     },
   },
   transform: {
