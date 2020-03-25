@@ -25,18 +25,10 @@ Search_widget {
       },
       "css-h4w50h",
       "css-gnah7l",
-      [Function],
       Object {
         "baseBackgroundColor": "white",
       },
       "SOME_KEY",
-      Object {
-        "set": [Function],
-        "subscribe": [Function],
-        "update": [Function],
-      },
-      [Function],
-      [Function],
     ],
     "dirty": Array [
       -1,
@@ -56,8 +48,8 @@ Search_widget {
     ],
     "on_mount": Array [],
     "props": Object {
-      "apiKey": 5,
-      "theme": 4,
+      "apiKey": 4,
+      "theme": 3,
     },
     "update": [Function],
   },

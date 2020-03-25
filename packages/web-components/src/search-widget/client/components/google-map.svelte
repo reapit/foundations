@@ -1,15 +1,12 @@
 <script>
-  import { onMount, onDestroy, afterUpdate, beforeUpdate } from 'svelte'
+  import { onMount, onDestroy, afterUpdate } from 'svelte'
   import searchWidgetStore from '../core/store'
-  import { getLatLng, loadMap, centerMapToMarker, fitMapToBounds } from '../../../common/utils/map-helpers'
-  import { DEFAULT_CENTER, GOOGLE_MAP_CONTEXT_NAME, DEFAULT_ZOOM } from '../../../common/utils/constants'
-  import { loader } from '../../../common/utils/loader'
+  import { loadMap, centerMapToMarker, fitMapToBounds } from '../utils/map-helpers'
   import Marker from './marker.svelte'
   import WindowInfo from './window-info.svelte'
 
   let map
   let mapElement
-  let mapLoading = false
   let selectedMarker
   let properties = []
   let propertyImages
@@ -22,7 +19,6 @@
     propertyImages = store.propertyImages
     selectedProperty = store.selectedProperty
     searchType = store.searchType
-    console.log(properties)
   })
 
   const handleMarkerClick = event => {

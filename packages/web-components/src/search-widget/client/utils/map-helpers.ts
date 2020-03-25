@@ -1,6 +1,6 @@
 import { PropertyModel, PropertyImageModel } from '@reapit/foundations-ts-definitions'
-import { INVALID_BACKGROUND_AS_BASE64, DEFAULT_CENTER, DEFAULT_ZOOM } from './constants'
-import { loader } from './loader'
+import { INVALID_BACKGROUND_AS_BASE64, DEFAULT_CENTER, DEFAULT_ZOOM } from '../../../common/utils/constants'
+import { loader } from '../../../common/utils/loader'
 
 export const getLatLng = (property: PropertyModel) => {
   const latitude = property?.address?.geolocation?.latitude ?? DEFAULT_CENTER.lat

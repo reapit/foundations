@@ -4,7 +4,7 @@ import { getProperties } from '../../api/properties'
 import { propertiesStub } from '../../../server/api/__stubs__/properties'
 import searchWidgetStore from '../../core/store'
 import { get } from 'svelte/store'
-import createGoogleMapsMock from '../../../../common/utils/__mocks__/mock-google-map'
+import createGoogleMapsMock from '../../utils/__mocks__/mock-google-map'
 
 jest.mock('../../api/properties')
 

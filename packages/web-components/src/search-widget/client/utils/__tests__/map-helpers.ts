@@ -8,7 +8,7 @@ import {
   fitMapToBounds,
 } from '../map-helpers'
 import { property } from '../__mocks__/property'
-import { DEFAULT_CENTER } from '../constants'
+import { DEFAULT_CENTER } from '../../../../common/utils/constants'
 import createGoogleMapsMock from '../__mocks__/mock-google-map'
 
 describe('map-helper', () => {

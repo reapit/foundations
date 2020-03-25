@@ -6,6 +6,7 @@
   import * as Styles from '../../../common/styles/index'
   import SearchForm from './search-form.svelte'
   import GoogleMap from './google-map.svelte'
+  import SearchResult from './search-result.svelte'
 
   export let theme = {}
   export let apiKey = ''
@@ -33,12 +34,6 @@
     unsubscribeSearchWidgetStore()
   })
 
-  const handleItemClick = (property) => {
-    searchWidgetStore.update(values => ({
-      ...values,
-      selectedProperty: property,
-    }))
-  }
 </script>
 
 <style>
@@ -46,20 +41,21 @@
     display: flex;
     margin-top: 30px;
   }
-  .search-results {
-    width: 20%;
+
+  .search-results-items {
+    display: flex;
+    flex-wrap: wrap;
   }
-  .search-results__item {
-    padding: 16px;
+
+  .search-results-items div {
+    padding-bottom: 2.5rem;
+    box-sizing: border-box;
   }
-  .search-results__item:hover {
-    background-color: grey;
-    color: white;
+
+  .search-results-items *:not(img) {
+    margin-top: 0.7rem;
   }
-  .search-results__item--selected {
-    border-radius: 4px;
-    border: 1px solid blue;
-  }
+
   .map-wrap {
     width: 600px;
     height: 600px;
@@ -71,12 +67,11 @@
   <div class={globalCSSTheme}>
     <SearchForm />
     <div class="content">
-      <ul class="search-results">
+      <div class="search-results-items">
         {#each storeInstance && storeInstance.properties ? storeInstance.properties._embedded : [] as property (property.id)}
-          <li on:click={e => handleItemClick(property)}
-            class="search-results__item { storeInstance.selectedProperty && storeInstance.selectedProperty.id === property.id ? 'search-results__item--selected' : '' }">{property.id}</li>
+          <SearchResult {property} />
         {/each}
-      </ul>
+      </div>
       <div class="map-wrap">
         <GoogleMap />
       </div>

@@ -2,7 +2,7 @@ import GoogleMap from '../google-map.svelte'
 import { render } from '@testing-library/svelte'
 import { get } from 'svelte/store'
 import searchWidgetStore from '../../core/store'
-import createGoogleMapsMock from '../../../../common/utils/__mocks__/mock-google-map'
+import createGoogleMapsMock from '../../utils/__mocks__/mock-google-map'
 
 jest.mock('../../../../common/utils/loader')
 

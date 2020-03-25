@@ -1,7 +1,7 @@
 import WindowInfo from '../window-info.svelte'
 import { render } from '@testing-library/svelte'
-import { property as mockProperty } from '../../../../common/utils/__mocks__/property'
-import createGoogleMapsMock from '../../../../common/utils/__mocks__/mock-google-map'
+import { property as mockProperty } from '../../utils/__mocks__/property'
+import createGoogleMapsMock from '../../utils/__mocks__/mock-google-map'
 
 describe('WindowInfo', () => {
   it('it matches a snapshot', () => {

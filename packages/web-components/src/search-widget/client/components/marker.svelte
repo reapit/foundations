@@ -1,6 +1,6 @@
 <script>
   import { onMount, createEventDispatcher } from 'svelte'
-  import { getMarker } from '../../../common/utils/map-helpers'
+  import { getMarker } from '../utils/map-helpers'
   import { DEFAULT_CENTER } from '../../../common/utils/constants'
 
   const dispatch = createEventDispatcher()

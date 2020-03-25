@@ -13,7 +13,7 @@ module.exports = {
     'prettier',
     'prettier/@typescript-eslint',
     'prettier/react',
-    'prettier/standard'
+    'prettier/standard',
   ],
   globals: {
     Atomics: 'readonly',
@@ -28,11 +28,11 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react', '@typescript-eslint', 'prettier', 'react-hooks', 'svelte3'],
-  overrides: [	
-    {	
-      files: ['**/*.svelte'],	
-      processor: 'svelte3/svelte3'	
-    }	
+  overrides: [
+    {
+      files: ['**/*.svelte'],
+      processor: 'svelte3/svelte3',
+    },
   ],
   ignorePatterns: [
     'node_modules/',
@@ -45,7 +45,7 @@ module.exports = {
     'packages/*/build',
     'packages/*/dist',
     'packages/*/public/dist',
-    'chat-bot.js'
+    'chat-bot.js',
   ],
   rules: {
     quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: false }],

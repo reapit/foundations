@@ -4,10 +4,10 @@ exports[`search-form it matches a snapshot 1`] = `
 <body>
   <div>
     <div
-      class="css-h4w50h svelte-1m1ov0c"
+      class="css-h4w50h svelte-1r8gbjg"
     >
       <div
-        class="css-yau5c8 svelte-1m1ov0c"
+        class="css-yau5c8 svelte-1r8gbjg"
       >
         <form>
           <input
@@ -32,14 +32,14 @@ exports[`search-form it matches a snapshot 1`] = `
         </form>
          
         <div
-          class="content svelte-1m1ov0c"
+          class="content svelte-1r8gbjg"
         >
-          <ul
-            class="search-results svelte-1m1ov0c"
+          <div
+            class="search-results-items svelte-1r8gbjg"
           />
            
           <div
-            class="map-wrap svelte-1m1ov0c"
+            class="map-wrap svelte-1r8gbjg"
           >
             <div
               class="map-wrap svelte-1nt7ax3"

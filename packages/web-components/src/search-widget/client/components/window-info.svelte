@@ -1,6 +1,6 @@
 <script>
   import { onMount, onDestroy, afterUpdate, createEventDispatcher } from 'svelte'
-  import { getInfoWindow } from '../../../common/utils/map-helpers'
+  import { getInfoWindow } from '../utils/map-helpers'
   import { GOOGLE_MAP_CONTEXT_NAME, INVALID_BACKGROUND_AS_BASE64 } from '../../../common/utils/constants'
 
   const dispatch = createEventDispatcher()

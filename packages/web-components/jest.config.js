@@ -20,7 +20,7 @@ module.exports = {
   },
   transform: {
     '^.+\\.svg$': '<rootDir>/../../scripts/jest/svg-transform.js',
-    '^.+\\.svelte$': ['svelte-jester', { preprocess: true }],
+    '^.+\\.svelte$': 'svelte-jester',
   },
   coverageReporters: ['json-summary', 'text', 'lcov'],
 }

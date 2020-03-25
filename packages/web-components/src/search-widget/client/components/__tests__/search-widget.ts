@@ -2,7 +2,7 @@ import SearchWidget from '../search-widget.svelte'
 import { render } from '@testing-library/svelte'
 import searchWidgetStore from '../../core/store'
 import { get } from 'svelte/store'
-import createGoogleMapsMock from '../../../../common/utils/__mocks__/mock-google-map'
+import createGoogleMapsMock from '../../utils/__mocks__/mock-google-map'
 
 describe('search-widget', () => {
   beforeAll(() => {
