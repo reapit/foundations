@@ -236,42 +236,11 @@ Get
     <h4
       className="mb-2 capitalize"
     >
-      icon
+      media
        
     </h4>
     <DiffMedia
-      currentMedia="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg"
-      type="icon"
-    />
-  </div>
-  <div
-    className="mb-3"
-    key="0"
-  >
-    <h4
-      className="mb-2 capitalize"
-    >
-      image
-       
-    </h4>
-    <DiffMedia
-      currentMedia="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png"
-      type="image"
-    />
-  </div>
-  <div
-    className="mb-3"
-    key="0"
-  >
-    <h4
-      className="mb-2 capitalize"
-    >
-      image
-       
-    </h4>
-    <DiffMedia
-      currentMedia="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png"
-      type="image"
+      type="media"
     />
   </div>
 </div>
