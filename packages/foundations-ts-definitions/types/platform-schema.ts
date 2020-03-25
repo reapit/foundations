@@ -3245,6 +3245,18 @@ export interface CreatePropertyModel {
      */
     status?: string
     /**
+     * The date the property sale was completed
+     * example:
+     * 2019-08-14
+     */
+    completed?: string // date
+    /**
+     * The date the property was exchanged
+     * example:
+     * 2019-08-14
+     */
+    exchanged?: string // date
+    /**
      * Details about the tenure of the property
      */
     tenure?: {
@@ -3402,6 +3414,18 @@ export interface CreatePropertySellingModel {
    * The current status of the sale (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
    */
   status?: string
+  /**
+   * The date the property sale was completed
+   * example:
+   * 2019-08-14
+   */
+  completed?: string // date
+  /**
+   * The date the property was exchanged
+   * example:
+   * 2019-08-14
+   */
+  exchanged?: string // date
   /**
    * Details about the tenure of the property
    */
@@ -7278,6 +7302,18 @@ export interface PagedResultPropertyModel_ {
        */
       status?: string
       /**
+       * The date the property sale was completed
+       * example:
+       * 2019-08-14
+       */
+      completed?: string // date
+      /**
+       * The date the property was exchanged
+       * example:
+       * 2019-08-14
+       */
+      exchanged?: string // date
+      /**
        * Details about the tenure of the property
        */
       tenure?: {
@@ -8811,6 +8847,18 @@ export interface PropertyModel {
      */
     status?: string
     /**
+     * The date the property sale was completed
+     * example:
+     * 2019-08-14
+     */
+    completed?: string // date
+    /**
+     * The date the property was exchanged
+     * example:
+     * 2019-08-14
+     */
+    exchanged?: string // date
+    /**
      * Details about the tenure of the property
      */
     tenure?: {
@@ -8980,6 +9028,18 @@ export interface PropertySellingModel {
    * The current status of the sale (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
    */
   status?: string
+  /**
+   * The date the property sale was completed
+   * example:
+   * 2019-08-14
+   */
+  completed?: string // date
+  /**
+   * The date the property was exchanged
+   * example:
+   * 2019-08-14
+   */
+  exchanged?: string // date
   /**
    * Details about the tenure of the property
    */
@@ -11132,6 +11192,18 @@ export interface UpdatePropertyModel {
      */
     status?: string
     /**
+     * The date the property sale was completed
+     * example:
+     * 2019-08-14
+     */
+    completed?: string // date
+    /**
+     * The date the property was exchanged
+     * example:
+     * 2019-08-14
+     */
+    exchanged?: string // date
+    /**
      * Details about the tenure of the property
      */
     tenure?: {
@@ -11255,6 +11327,18 @@ export interface UpdatePropertySellingModel {
    * The current status of the sale (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
    */
   status?: string
+  /**
+   * The date the property sale was completed
+   * example:
+   * 2019-08-14
+   */
+  completed?: string // date
+  /**
+   * The date the property was exchanged
+   * example:
+   * 2019-08-14
+   */
+  exchanged?: string // date
   /**
    * Details about the tenure of the property
    */
