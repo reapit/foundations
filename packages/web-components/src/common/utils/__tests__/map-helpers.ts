@@ -1,4 +1,12 @@
-import { getLatLng, getMarker, formatPriceAndQuantifier, getPrice } from '../map-helpers'
+import {
+  getLatLng,
+  getMarker,
+  formatPriceAndQuantifier,
+  getPrice,
+  getInfoWindow,
+  centerMapToMarker,
+  fitMapToBounds,
+} from '../map-helpers'
 import { property } from '../__mocks__/property'
 import { DEFAULT_CENTER } from '../constants'
 import createGoogleMapsMock from '../__mocks__/mock-google-map'
@@ -55,6 +63,38 @@ describe('map-helper', () => {
     it('runs correctly', () => {
       expect(getPrice(property, 'Rent')).toEqual('£0 MockRentFrequency')
       expect(getPrice(property, 'Sale')).toEqual('Guide Price £0')
+    })
+  })
+
+  describe('getMarker', () => {
+    it('runs correctly', () => {
+      const mockMap = new google.maps.Map(document.body)
+      const marker = getMarker(property, mockMap)
+      expect(marker).toBeInstanceOf(google.maps.Marker)
+    })
+  })
+
+  describe('getInfoWindow', () => {
+    it('runs correctly', () => {
+      const windowInfo = getInfoWindow(property, 'Rent', {})
+      expect(windowInfo).toBeInstanceOf(google.maps.InfoWindow)
+    })
+  })
+
+  describe('centerMapToMarker', () => {
+    it('runs correctly', () => {
+      const mockMap = new google.maps.Map(document.body)
+      centerMapToMarker(property, mockMap)
+      expect(mockMap.setCenter).toHaveBeenCalled()
+      expect(mockMap.setZoom).toHaveBeenCalled()
+    })
+  })
+
+  describe('fitMapToBounds', () => {
+    it('runs correctly', () => {
+      const mockMap = new google.maps.Map(document.body)
+      fitMapToBounds([property], mockMap)
+      expect(mockMap.fitBounds).toHaveBeenCalled()
     })
   })
 })
