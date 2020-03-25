@@ -42,6 +42,7 @@ package:
     - src/**
     - tsconfig.json
     - yml-helpers.js
+    - public/**
 
 functions:
   searchWidgetHandler:

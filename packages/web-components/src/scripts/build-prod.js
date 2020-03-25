@@ -8,18 +8,13 @@ return (() => {
   }
   setEnv()
 
-  const APP_ENV = process.env.APP_ENV || 'local'
-  const serverScript = `serverless webpack --out public/dist --stage ${APP_ENV.toLowerCase()}`
-
-  execSync(serverScript, opts)
+  const clearPublic = 'rimraf ./public/dist'
+  execSync(clearPublic, opts)
 
   packages.forEach(package => {
     try {
-      const clearPublic = 'rimraf ./public/dist'
       const clientScript = `rollup -c './src/scripts/rollup.config.${package}.js'`
-      const startDev = `${clearPublic} && ${clientScript}`
-
-      execSync(startDev, opts)
+      execSync(clientScript, opts)
     } catch (err) {
       console.error('Error in dev server', err)
       process.exit(1)
