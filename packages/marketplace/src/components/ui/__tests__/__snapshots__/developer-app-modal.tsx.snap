@@ -124,6 +124,66 @@ exports[`DeveloperAppModalInner should match a snapshot when LOADING false 1`] =
     onUninstallSuccess={[Function]}
     visible={false}
   />
+  <Connect(Component)
+    afterClose={[Function]}
+    appDetailState={
+      Object {
+        "appDetailData": Object {
+          "data": Object {
+            "description": "enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam 
+      pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras 
+      sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar 
+      elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla 
+      at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet 
+      proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum co",
+            "developer": "Pete's Proptech World Ltd",
+            "homePage": "http://myawesomeproptechproduct.io",
+            "id": "9b6fd5f7-2c15-483d-b925-01b650538e52",
+            "media": Array [
+              Object {
+                "description": "Application Icon",
+                "type": "icon",
+                "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg",
+              },
+              Object {
+                "description": "Application Image",
+                "type": "image",
+                "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png",
+              },
+              Object {
+                "description": "Application Image",
+                "type": "image",
+                "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png",
+              },
+            ],
+            "name": "Peter's Properties",
+            "scopes": Array [
+              Object {
+                "description": "Read data about developers",
+                "name": "Marketplace/developers.read",
+              },
+              Object {
+                "description": "Write data about developers",
+                "name": "Marketplace/developers.write",
+              },
+            ],
+            "summary": "vitae elementum curabitur vitae nunc sed velit eget gravida cum sociis natoque!!",
+            "supportEmail": "support@reapit.com",
+            "telephone": "0113 288 2900",
+          },
+        },
+        "authentication": Object {
+          "code": "",
+          "loading": false,
+        },
+        "error": false,
+        "isStale": false,
+        "loading": false,
+      }
+    }
+    appId="9b6fd5f7-2c15-483d-b925-01b650538e52"
+    visible={false}
+  />
 </Fragment>
 `;
 

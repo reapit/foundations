@@ -2,29 +2,36 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { AppDetailState } from '@/reducers/app-detail'
+import { developerRequestData } from '@/actions/developer'
 import { Button, Modal, ModalProps, Loader, Alert, ModalBody, Level, LevelLeft, LevelRight } from '@reapit/elements'
 import AppDelete from '@/components/ui/app-delete'
 import AppDetail from './app-detail'
 import { withRouter, RouteComponentProps } from 'react-router'
 import routes from '@/constants/routes'
-import { developerRequestData } from '@/actions/developer'
 import { Dispatch } from 'redux'
 import styles from '@/styles/blocks/developer-app-modal.scss?mod'
 import AppInstallations from './app-installations/app-installations-modal'
 import { removeAuthenticationCode } from '@/actions/app-detail'
+import DeveloperAppRevisionModal from './developer-app-revision-modal'
 
 export interface DeveloperAppModalMappedProps {
   appDetailState: AppDetailState
   closeParentModal?: () => void
-  removeAuthenticationCode: () => void
 }
 
 export interface DeveloperAppModalMappedAction {
   fetchDeveloperApps: (page: number) => void
+  removeAuthenticationCode: () => void
 }
 
 export type DeveloperAppInnerProps = DeveloperAppModalMappedProps & DeveloperAppModalMappedAction & RouteComponentProps
 export type DeveloperAppModalProps = Pick<ModalProps, 'visible' | 'afterClose'> & RouteComponentProps
+
+export const handlePendingRevisionButtonClick = setIsAppRevisionComparisionModalOpen => {
+  return () => {
+    setIsAppRevisionComparisionModalOpen(true)
+  }
+}
 
 export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerProps> = ({
   appDetailState,
@@ -35,6 +42,7 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
 }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false)
   const [isInstallationsModalOpen, setIsInstallationsModalOpen] = React.useState(false)
+  const [isAppRevisionComparisionModalOpen, setIsAppRevisionComparisionModalOpen] = React.useState(false)
 
   if (appDetailState.loading) {
     return <ModalBody body={<Loader />} />
@@ -77,18 +85,28 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
               >
                 Delete App
               </Button>
-              <Button
-                type="button"
-                variant="primary"
-                dataTest="detail-modal-edit-button"
-                onClick={() => {
-                  removeAuthenticationCode()
-                  history.push(`${routes.DEVELOPER_MY_APPS}/${id}/edit`)
-                }}
-                disabled={pendingRevisions}
-              >
-                {pendingRevisions ? 'Pending Revision' : 'Edit Detail'}
-              </Button>
+              {pendingRevisions ? (
+                <Button
+                  type="button"
+                  variant="primary"
+                  dataTest="detail-modal-edit-button"
+                  onClick={handlePendingRevisionButtonClick(setIsAppRevisionComparisionModalOpen)}
+                >
+                  Pending Revision
+                </Button>
+              ) : (
+                <Button
+                  type="button"
+                  variant="primary"
+                  dataTest="detail-modal-edit-button"
+                  onClick={() => {
+                    removeAuthenticationCode()
+                    history.push(`${routes.DEVELOPER_MY_APPS}/${id}/edit`)
+                  }}
+                >
+                  Edit Detail
+                </Button>
+              )}
             </LevelRight>
           </Level>
         }
@@ -115,6 +133,13 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
           closeParentModal && closeParentModal()
           setIsInstallationsModalOpen(false)
         }}
+      />
+
+      <DeveloperAppRevisionModal
+        visible={isAppRevisionComparisionModalOpen}
+        appId={id || ''}
+        appDetailState={appDetailState}
+        afterClose={() => setIsAppRevisionComparisionModalOpen(false)}
       />
     </>
   )

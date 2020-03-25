@@ -57,6 +57,8 @@ const revisionDetailReducer = (state: RevisionDetailState = defaultState, action
       loading: false,
       error: false,
       revisionDetailData: action.data,
+      approveFormState: 'PENDING',
+      declineFormState: 'PENDING',
     }
   }
 

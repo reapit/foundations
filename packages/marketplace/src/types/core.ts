@@ -12,6 +12,7 @@ import { SubmitAppState } from '../reducers/submit-app'
 import { SubmitRevisionState } from '@/reducers/submit-revision'
 import { AdminApprovalsState } from '@/reducers/admin-approvals'
 import { RevisionDetailState } from '@/reducers/revision-detail'
+import { RevisionsState } from '@/reducers/revisions'
 import { AppDetailModalState } from '@/reducers/app-detail-modal'
 import { AppCategoriesState } from '@/reducers/app-categories'
 import { SettingsState } from '@/reducers/settings'
@@ -71,6 +72,7 @@ export interface ReduxState {
   adminDevManagement: AdminDevManamgenetState
   developerSetStatus: RequestState
   revisionDetail: RevisionDetailState
+  revisions: RevisionsState
   appDetailModal: AppDetailModalState
   appDelete: RequestState
   appCategories: AppCategoriesState
