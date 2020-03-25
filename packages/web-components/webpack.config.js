@@ -14,7 +14,7 @@ module.exports = {
   devtool: 'inline-cheap-module-source-map',
   output: {
     libraryTarget: 'commonjs',
-    path: path.resolve(__dirname, 'public'),
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
   },
   plugins: [new ContextReplacementPlugin(/express|encoding/)],

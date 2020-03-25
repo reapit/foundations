@@ -47,6 +47,13 @@
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
     "lint:fix": "eslint --cache --ext=ts,tsx,js src --fix",
-    "fetch-config": "yarn config-manager fetchConfig web-components"
+    "fetch-config": "yarn config-manager fetchConfig web-components",
+    "build:serverless": "serverless webpack --out dist --stage dev",
+    "release:server:dev": "serverless deploy --stage dev",
+    "release:server:prod": "node ../../scripts/release/release-serverless.js web-components",
+    "release:client:dev": "node ../../scripts/release/release-dev.js web-components search-widget-dev",
+    "release:client:prod": "node ../../scripts/release/release-prod.js web-components search-widget-prod",
+    "release:prod": "yarn release:server:prod && yarn release:client:prod",
+    "release:dev": "yarn release:server:dev && yarn release:client:dev"
   }
 }
