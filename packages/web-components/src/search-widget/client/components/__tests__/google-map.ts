@@ -1,7 +1,6 @@
 import GoogleMap from '../google-map.svelte'
 import { render } from '@testing-library/svelte'
 import { get } from 'svelte/store'
-import { property as mockProperty } from '../../../../common/utils/__mocks__/property'
 import searchWidgetStore from '../../core/store'
 import createGoogleMapsMock from '../../../../common/utils/__mocks__/mock-google-map'
 
@@ -13,12 +12,7 @@ describe('google map', () => {
   })
 
   it('it matches a snapshot', () => {
-    const props = {
-      properties: [mockProperty],
-      propertyImages: null,
-      selectedProperty: null,
-    }
-    const wrapper = render(GoogleMap, props)
+    const wrapper = render(GoogleMap)
     const { container } = wrapper
 
     expect(container).toMatchSnapshot()

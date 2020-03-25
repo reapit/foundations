@@ -23,7 +23,7 @@
     "lint:fix": "lerna run --parallel --stream lint:fix --",
     "release:dev": "lerna run --parallel release:dev",
     "release:prod": "lerna run --parallel release:prod",
-    "test": "lerna run --parallel test:ci --",
+    "test": "lerna run --parallel test:ci -- --detectOpenHandles --runInBand",
     "test-e2e:ci": "lerna run --parallel test-e2e:ci",
     "update-doc": "node --unhandled-rejections=strict ./scripts/document-update/get-release-and-create-pr.js"
   },
@@ -129,6 +129,7 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^2.3.0",
+    "eslint-plugin-svelte3": "^2.7.3",
     "favicons-webpack-plugin": "^2.1.0",
     "file-loader": "^3.0.1",
     "fork-ts-checker-notifier-webpack-plugin": "^1.0.0",

@@ -1,18 +1,17 @@
-<script lang="typescript">
+<script>
   import { onMount, onDestroy, afterUpdate, createEventDispatcher } from 'svelte'
-  import * as TSDefinitions from '@reapit/foundations-ts-definitions'
   import { getInfoWindow } from '../../../common/utils/map-helpers'
   import { GOOGLE_MAP_CONTEXT_NAME, INVALID_BACKGROUND_AS_BASE64 } from '../../../common/utils/constants'
 
   const dispatch = createEventDispatcher()
 
-  export let selectedMarker: google.maps.Marker
-  export let propertyImages: Record<string, TSDefinitions.PropertyImageModel>
-  export let selectedProperty: TSDefinitions.PropertyModel
-  export let searchType: 'Sale' | 'Rent'
-  export let map: google.maps.Map
+  export let selectedMarker
+  export let propertyImages
+  export let selectedProperty
+  export let searchType
+  export let map
 
-  let windowInfo: google.maps.InfoWindow
+  let windowInfo
 
   onMount(() => {
     windowInfo = getInfoWindow(selectedProperty, searchType, propertyImages)

@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script>
   import { onMount, onDestroy } from 'svelte'
   import * as TSDefinitions from '@reapit/foundations-ts-definitions'
   import * as SearchWidgetStore from '../core/store'
@@ -7,9 +7,10 @@
   import SearchForm from './search-form.svelte'
   import GoogleMap from './google-map.svelte'
 
-  export let theme: Styles.InitializerTheme = {}
-  export let apiKey: string = ''
-  let storeInstance: SearchWidgetStore.SearchWidgetStore
+  export let theme = {}
+  export let apiKey = ''
+
+  let storeInstance
 
   const searchWidgetStore = SearchWidgetStore.default
   const { resetCSS } = Styles
@@ -32,7 +33,7 @@
     unsubscribeSearchWidgetStore()
   })
 
-  const handleItemClick = (property: TSDefinitions.PropertyModel) => {
+  const handleItemClick = (property) => {
     searchWidgetStore.update(values => ({
       ...values,
       selectedProperty: property,

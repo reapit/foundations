@@ -1,24 +1,24 @@
-<script lang="typescript">
+<script>
   import { onDestroy } from 'svelte'
   import { getProperties } from '../api/properties'
   import searchWidgetStore from '../core/store'
 
-  let inputValue: string = ''
-  let apiKey: string = ''
+  let inputValue = ''
+  let apiKey = ''
 
   const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
     apiKey = store.initializers.apiKey
   })
 
-  const handleInput = ({ target }: Event) => {
-    inputValue = (target as HTMLInputElement).value
+  const handleInput = ({ target }) => {
+    inputValue = target.value
     searchWidgetStore.update(values => ({
       ...values,
       searchKeyword: inputValue,
     }))
   }
 
-  const handleFetchProperties = async (isRental: boolean) => {
+  const handleFetchProperties = async isRental => {
     searchWidgetStore.update(values => ({
       ...values,
       searchType: isRental ? 'Rent' : 'Sale',
