@@ -7,7 +7,7 @@
     "dist"
   ],
   "scripts": {
-    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
+    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
     "build:prod": "rimraf dist && tsc --p tsconfig.json && rimraf dist/mailer/templates/ejs && ncp ./src/mailer/templates/ejs ./dist/mailer/templates/ejs",
     "release:dev": "cross-env CI=true serverless deploy --stage dev",

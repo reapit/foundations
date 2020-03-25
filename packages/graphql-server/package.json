@@ -17,7 +17,7 @@
     "release:prod": "yarn build:schema && node ../../scripts/release/release-serverless.js graphql-server",
     "start:dev": "yarn build:schema && cross-env NODE_ENV=development REAPIT_ENV=LOCAL nodemon",
     "start:prod": "node ./dist/app.js",
-    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
+    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
     "fetch-ts-definitions": "node scripts/fetch-ts-definitions.js",
     "fetch-config": "yarn config-manager fetchConfig graphql-server"
