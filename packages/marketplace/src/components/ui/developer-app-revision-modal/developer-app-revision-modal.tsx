@@ -81,7 +81,7 @@ export const backToAppDetailsModal = (fetchAppDetail, clearAppRevisions, clearAp
   }
 }
 
-export const handleUseEffecttoFetchAppRevisions = (appId, fetchAppRevisions, visible) => {
+export const handleUseEffectToFetchAppRevisions = (appId, fetchAppRevisions, visible) => {
   return () => {
     if (appId && visible) {
       fetchAppRevisions(appId)
@@ -89,7 +89,7 @@ export const handleUseEffecttoFetchAppRevisions = (appId, fetchAppRevisions, vis
   }
 }
 
-export const handleUseEffecttoFetchAppRevisionDetail = (appId, appRevisionId, fetchAppRevisionDetail, visible) => {
+export const handleUseEffectToFetchAppRevisionDetail = (appId, appRevisionId, fetchAppRevisionDetail, visible) => {
   return () => {
     if (appId && appRevisionId && visible) {
       fetchAppRevisionDetail({ appId, appRevisionId })
@@ -126,14 +126,14 @@ export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps>
 
   const [isConfirmationModalVisible, setIsConfirmationModalVisible] = React.useState(false)
 
-  React.useEffect(handleUseEffecttoFetchAppRevisions(appId, fetchAppRevisions, visible), [
+  React.useEffect(handleUseEffectToFetchAppRevisions(appId, fetchAppRevisions, visible), [
     appId,
     fetchAppRevisions,
     visible,
   ])
 
   React.useEffect(
-    handleUseEffecttoFetchAppRevisionDetail(appId, latestAppRevisionId, fetchAppRevisionDetail, visible),
+    handleUseEffectToFetchAppRevisionDetail(appId, latestAppRevisionId, fetchAppRevisionDetail, visible),
     [appId, latestAppRevisionId, fetchAppRevisionDetail, visible],
   )
 

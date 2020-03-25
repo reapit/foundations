@@ -64,7 +64,7 @@ export const renderCheckboxesDiff = ({
 
 export const getChangedMediaList = ({ app, revision }): DiffMediaModel[] => {
   // Check the longest array to compare
-  const isNewMediaMoreItemThanOldOne = revision?.media?.length >= app?.media?.length
+  const isNewMediaMoreItemThanOldOne = revision.media?.length >= app.media?.length
   if (isNewMediaMoreItemThanOldOne) {
     return revision.media.map((revisionMedia: MediaModel, index: number) => ({
       changedMedia: revisionMedia?.uri,

@@ -4,8 +4,8 @@ import { shallow } from 'enzyme'
 import {
   DeveloperAppRevisionModal,
   DeveloperAppRevisionModalProps,
-  handleUseEffecttoFetchAppRevisionDetail,
-  handleUseEffecttoFetchAppRevisions,
+  handleUseEffectToFetchAppRevisionDetail,
+  handleUseEffectToFetchAppRevisions,
   handelePendingRevisionsModalAfterClose,
   handleCancelPendingRevisionsButtonClick,
   backToAppDetailsModal,
@@ -60,7 +60,7 @@ describe('DeveloperAppRevisionModal', () => {
   it('should match a snapshot', () => {
     expect(shallow(<DeveloperAppRevisionModal {...props} />)).toMatchSnapshot()
   })
-  describe('handleUseEffecttoFetchAppRevisionDetail', () => {
+  describe('handleUseEffectToFetchAppRevisionDetail', () => {
     it('should run correctly', () => {
       const {
         appId,
@@ -69,7 +69,7 @@ describe('DeveloperAppRevisionModal', () => {
         visible,
       } = props
       const appRevisionId = appDetailData?.data.id || ''
-      const fn = handleUseEffecttoFetchAppRevisionDetail(appId, appRevisionId, fetchAppRevisionDetail, visible)
+      const fn = handleUseEffectToFetchAppRevisionDetail(appId, appRevisionId, fetchAppRevisionDetail, visible)
       fn()
       expect(fetchAppRevisionDetail).toBeCalledWith({
         appId,
@@ -77,10 +77,10 @@ describe('DeveloperAppRevisionModal', () => {
       })
     })
   })
-  describe('handleUseEffecttoFetchAppRevisions', () => {
+  describe('handleUseEffectToFetchAppRevisions', () => {
     it('should run correctly', () => {
       const { appId, fetchAppRevisions, visible } = props
-      const fn = handleUseEffecttoFetchAppRevisions(appId, fetchAppRevisions, visible)
+      const fn = handleUseEffectToFetchAppRevisions(appId, fetchAppRevisions, visible)
       fn()
       expect(fetchAppRevisions).toBeCalledWith(appId)
     })
