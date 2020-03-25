@@ -1,0 +1,73 @@
+name: Create PR for foundations-documentation
+
+on:
+  release:
+    types: [published, edited]
+
+env:
+  GH_PAT: ${{ secrets.GH_PAT }}
+  API_GITHUB_ENDPOINT: https://api.github.com
+  MAIN_REPO: reapit/foundations
+  MAIN_CLONE_PATH: ${{ github.workspace }}/foundations
+  DOC_REPO: reapit/foundations-documentation
+  DOC_CLONE_PATH: ${{ github.workspace }}/foundations-documentation
+
+jobs:
+  create-pr-update-doc:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install jq (json parser)
+        run: |
+          sudo apt-get install jq
+
+      - name: Get current tags
+        run: |
+          echo "::set-env name=CURRENT_TAG::${GITHUB_REF#refs/tags/}" && \
+          echo "CURRENT_TAG is ${GITHUB_REF#refs/tags/}"
+
+      - name: Get current release name (title)
+        run: |
+          curl -s \
+          --request GET \
+          --url "${API_GITHUB_ENDPOINT}/repos/${MAIN_REPO}/releases/tags/${CURRENT_TAG}" \
+          --header "authorization: Bearer ${GH_PAT}" \
+          | jq ".name" \
+          | xargs -I {} echo "::set-env name=CURRENT_RELEASE_NAME::{}"
+
+      # skip from there if CURRENT_RELEASE_NAME not endsWith _released
+      - name: Checking out foundations repo
+        if: endsWith(env.CURRENT_RELEASE_NAME, '_released')
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ env.MAIN_REPO }}
+          path: ${{ env.MAIN_CLONE_PATH }}
+
+      - name: Setup NodeJS
+        if: endsWith(env.CURRENT_RELEASE_NAME, '_released')
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: Install depedencies
+        if: endsWith(env.CURRENT_RELEASE_NAME, '_released')
+        run: |
+          cd $MAIN_CLONE_PATH && yarn install --frozen-lockfile
+
+      - name: Checking out foundations-documentation repo
+        if: endsWith(env.CURRENT_RELEASE_NAME, '_released')
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ env.DOC_REPO }}
+          path: ${{ env.DOC_CLONE_PATH }}
+
+      - name: Set up SSH Auth
+        if: endsWith(env.CURRENT_RELEASE_NAME, '_released')
+        uses: webfactory/ssh-agent@v0.2.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Run script
+        if: endsWith(env.CURRENT_RELEASE_NAME, '_released')
+        run: |
+          cd $MAIN_CLONE_PATH && yarn update-doc
