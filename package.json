@@ -24,7 +24,8 @@
     "release:dev": "lerna run --parallel release:dev",
     "release:prod": "lerna run --parallel release:prod",
     "test": "lerna run --parallel test:ci -- --runInBand --detectOpenHandles",
-    "test-e2e:ci": "lerna run --parallel test-e2e:ci"
+    "test-e2e:ci": "lerna run --parallel test-e2e:ci",
+    "update-doc": "node --unhandled-rejections=strict ./scripts/document-update/get-release-and-create-pr.js"
   },
   "husky": {
     "hooks": {
