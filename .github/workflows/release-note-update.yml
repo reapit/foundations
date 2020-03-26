@@ -5,6 +5,7 @@ on:
     types: [published, edited]
 
 env:
+  NPM_TOKEN: ${{secrets.NPM_TOKEN}}
   GH_PAT: ${{ secrets.GH_PAT }}
   API_GITHUB_ENDPOINT: https://api.github.com
   MAIN_REPO: reapit/foundations
@@ -34,6 +35,10 @@ jobs:
           --header "authorization: Bearer ${GH_PAT}" \
           | jq ".name" \
           | xargs -I {} echo "::set-env name=CURRENT_RELEASE_NAME::{}"
+
+      - name: Echo $CURRENT_RELEASE_NAME
+        run: |
+          echo "CURRENT_RELEASE_NAME is ${CURRENT_RELEASE_NAME}"
 
       # skip from there if CURRENT_RELEASE_NAME not endsWith _released
       - name: Checking out foundations repo
