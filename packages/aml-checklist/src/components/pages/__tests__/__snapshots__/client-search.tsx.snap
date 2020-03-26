@@ -86,7 +86,7 @@ exports[`ClientSearch renderForm should match a snapshot when loginMode is DESKT
             "entityType": "contacts",
             "queryParams": Object {
               "address": undefined,
-              "appId": "77f7c64f-0214-49eb-8963-f0b98f747072",
+              "appId": undefined,
               "appParam": "cntCode",
               "name": undefined,
             },
