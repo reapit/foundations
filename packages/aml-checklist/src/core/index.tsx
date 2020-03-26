@@ -11,6 +11,7 @@ import App from './app'
 // Init global config
 window.reapit = {
   config: {
+    appId: '',
     appEnv: 'production',
     sentryDns: '',
     platformApiUrl: '',

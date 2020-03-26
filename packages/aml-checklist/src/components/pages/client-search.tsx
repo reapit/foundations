@@ -71,8 +71,7 @@ export const renderForm = ({ loginMode }) => ({ values }) => {
                 queryParams: {
                   name: values.name,
                   address: values.address,
-                  // TODO - this should be dynamic - is the hardcoded AML dev id
-                  appId: '77f7c64f-0214-49eb-8963-f0b98f747072',
+                  appId: window.reapit.config.appId,
                   appParam: AppParams.CONTACT_CODE,
                 },
                 appMode: loginMode,
