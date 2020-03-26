@@ -5,6 +5,7 @@ on:
     types: [published, edited]
 
 env:
+  NPM_TOKEN: ${{secrets.NPM_TOKEN}}
   GH_PAT: ${{ secrets.GH_PAT }}
   API_GITHUB_ENDPOINT: https://api.github.com
   MAIN_REPO: reapit/foundations
