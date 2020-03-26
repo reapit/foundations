@@ -21,21 +21,11 @@ export const fetchAppointmentMetadata = async (appointment: ExtendedAppointmentM
   if (!appointment.id) {
     throw new Error('key propertyId of reponse of appointment is required')
   }
-  const appointmentId = appointment.id
-  if (!appointment.propertyId) {
-    throw new Error(`key propertyId of appointment id ${appointmentId} is required`)
-  }
-  if (!appointment.officeIds) {
-    throw new Error(`key officeIds of appointment id ${appointmentId} is required`)
-  }
-  if (!appointment.negotiatorIds) {
-    throw new Error(`key NegotiatorIds of appointment id ${appointmentId} is required`)
-  }
 
   const [property, negotiators, offices] = await Promise.all([
-    fetchProperty({ id: appointment.propertyId }),
-    fetchNegotiators(appointment.negotiatorIds),
-    fetchOffices(appointment.officeIds),
+    appointment.propertyId && fetchProperty({ id: appointment.propertyId }),
+    appointment.negotiatorIds && fetchNegotiators(appointment.negotiatorIds),
+    appointment.officeIds && fetchOffices(appointment.officeIds),
   ])
 
   // avoid modifying the original object
