@@ -134,7 +134,7 @@
   }
 </style>
 
-<div class="result-item" on:click|preventDefault={selectProperty}>
+<div class="result-item" data-testid="select-property" on:click|preventDefault={selectProperty}>
   <div class="result-image-container {isSelectedProperty ? 'selected' : ''}">
     {#if sellingStatus === 'underOffer'}
       <div class="result-offer-flag">Under Offer</div>

@@ -81,11 +81,14 @@ export const formatType = (style: string) => {
 }
 
 export const combineAddress = (address: ContactAddressModel | undefined): string => {
-  return address
-    ? Object.keys(address).reduce((prev, next) => {
-        return `${prev}, ${address[next as keyof ContactAddressModel]}`
-      }, '')
-    : ''
+  if (!address) return ''
+  const { line2, line3, line4, postcode } = address
+  return [line2, line3, line4, postcode].reduce((prev, next, index) => {
+    if (next) {
+      return `${prev}${index ? ', ' : ''}${next}`
+    }
+    return prev
+  }, '') as string
 }
 
 export const getPrice = (result: PropertyModel, searchType: 'Sale' | 'Rent') => {

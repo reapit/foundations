@@ -39,7 +39,13 @@
   })
 </script>
 
-<form on:submit|preventDefault on:input|preventDefault={handleInput}>
+<style> 
+  form.search-form {
+    margin: 30px auto;
+  }
+</style>
+
+<form class="search-form" on:submit|preventDefault on:input|preventDefault={handleInput}>
   <input type="text" data-testid="search-input" id="search" />
   <button on:click|preventDefault={() => handleFetchProperties(true)} data-testid="lettings" type="button">
     For rent

@@ -39,12 +39,15 @@
 <style>
   .content {
     display: flex;
-    margin-top: 30px;
+    flex-direction: column;
+    margin: 30px auto;
+    width: 70%;
   }
 
   .search-results-items {
     display: flex;
-    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: column;
   }
 
   .search-results-items div {
@@ -52,12 +55,8 @@
     box-sizing: border-box;
   }
 
-  .search-results-items *:not(img) {
-    margin-top: 0.7rem;
-  }
-
   .map-wrap {
-    width: 600px;
+    width: 100%;
     height: 600px;
     margin-left: 20px;
   }
@@ -65,8 +64,8 @@
 
 <div class={resetCSS}>
   <div class={globalCSSTheme}>
-    <SearchForm />
     <div class="content">
+      <SearchForm />
       <div class="search-results-items">
         {#each storeInstance && storeInstance.properties ? storeInstance.properties._embedded : [] as property (property.id)}
           <SearchResult {property} />
