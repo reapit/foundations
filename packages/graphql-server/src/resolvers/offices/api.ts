@@ -82,7 +82,7 @@ export const callUpdateOfficeAPI = async (args: UpdateOfficeArgs, context: Serve
         },
       },
     )
-    if (updateResponse?.data) {
+    if (updateResponse.status === 204) {
       return callGetOfficeByIdAPI({ id: args.id }, context)
     }
     return errors.generateUserInputError(traceId)
