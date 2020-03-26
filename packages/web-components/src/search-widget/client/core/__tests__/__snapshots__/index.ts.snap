@@ -9,6 +9,20 @@ Search_widget {
     "callbacks": Object {},
     "context": Map {},
     "ctx": Array [
+      Object {
+        "initializers": Object {
+          "apiKey": "SOME_KEY",
+          "theme": Object {
+            "baseBackgroundColor": "white",
+          },
+        },
+        "properties": null,
+        "propertyImages": null,
+        "searchKeyword": "",
+        "searchType": "Sale",
+        "selectedMarker": null,
+        "selectedProperty": null,
+      },
       "css-h4w50h",
       "css-gnah7l",
       Object {
@@ -34,8 +48,8 @@ Search_widget {
     ],
     "on_mount": Array [],
     "props": Object {
-      "apiKey": 3,
-      "theme": 2,
+      "apiKey": 4,
+      "theme": 3,
     },
     "update": [Function],
   },

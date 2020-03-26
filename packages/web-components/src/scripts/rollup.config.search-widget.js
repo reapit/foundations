@@ -4,7 +4,6 @@ import replace from '@rollup/plugin-replace'
 import path from 'path'
 
 const config = require(path.resolve(__dirname, '../..', 'config.json'))
-const svelteOptions = require('../../svelte.config')
 const production = !process.env.ROLLUP_WATCH
 
 export default {
@@ -23,9 +22,9 @@ export default {
       'process.env.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET': JSON.stringify(
         config.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET,
       ),
+      'process.env.GOOGLE_MAPS_API_KEY': JSON.stringify(config.GOOGLE_MAPS_API_KEY),
     }),
     svelte({
-      ...svelteOptions,
       dev: !production,
       css: css => {
         css.write('./public/dist/search-widget.css')

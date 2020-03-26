@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WindowInfo it matches a snapshot 1`] = `
+<body>
+  <div />
+</body>
+`;

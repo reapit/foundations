@@ -4,32 +4,52 @@ exports[`search-form it matches a snapshot 1`] = `
 <body>
   <div>
     <div
-      class="css-h4w50h"
+      class="css-h4w50h svelte-10ns1kb"
     >
       <div
-        class="css-yau5c8"
+        class="css-yau5c8 svelte-10ns1kb"
       >
-        <form>
-          <input
-            data-testid="search-input"
-            id="search"
-            type="text"
+        <div
+          class="content svelte-10ns1kb"
+        >
+          <form
+            class="search-form svelte-1w21vqh"
+          >
+            <input
+              data-testid="search-input"
+              id="search"
+              type="text"
+            />
+             
+            <button
+              data-testid="lettings"
+              type="button"
+            >
+              For rent
+            </button>
+             
+            <button
+              data-testid="sales"
+              type="button"
+            >
+              For sale
+            </button>
+          </form>
+           
+          <div
+            class="search-results-items svelte-10ns1kb"
           />
            
-          <button
-            data-testid="lettings"
-            type="button"
+          <div
+            class="map-wrap svelte-10ns1kb"
           >
-            For rent
-          </button>
-           
-          <button
-            data-testid="sales"
-            type="button"
-          >
-            For sale
-          </button>
-        </form>
+            <div
+              class="map-wrap svelte-1nt7ax3"
+            >
+               
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

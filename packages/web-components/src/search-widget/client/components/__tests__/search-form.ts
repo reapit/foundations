@@ -4,10 +4,15 @@ import { getProperties } from '../../api/properties'
 import { propertiesStub } from '../../../server/api/__stubs__/properties'
 import searchWidgetStore from '../../core/store'
 import { get } from 'svelte/store'
+import createGoogleMapsMock from '../../utils/__mocks__/mock-google-map'
 
 jest.mock('../../api/properties')
 
 describe('search-form', () => {
+  beforeAll(() => {
+    createGoogleMapsMock()
+  })
+
   it('it matches a snapshot', () => {
     const wrapper = render(SearchForm, {
       theme: {},

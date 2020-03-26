@@ -1,0 +1,41 @@
+<script>
+  import { onMount, onDestroy, afterUpdate, createEventDispatcher } from 'svelte'
+  import { getInfoWindow } from '../utils/map-helpers'
+  import { GOOGLE_MAP_CONTEXT_NAME, INVALID_BACKGROUND_AS_BASE64 } from '../../../common/utils/constants'
+
+  const dispatch = createEventDispatcher()
+
+  export let selectedMarker
+  export let propertyImages
+  export let selectedProperty
+  export let searchType
+  export let map
+
+  let windowInfo
+
+  onMount(() => {
+    windowInfo = getInfoWindow(selectedProperty, searchType, propertyImages)
+
+    google.maps.event.addListener(windowInfo, 'closeclick', () => {
+      dispatch('windowInfoClick')
+    })
+
+    windowInfo.open(map, selectedMarker)
+  })
+
+  afterUpdate(() => {
+    windowInfo.close()
+
+    windowInfo = getInfoWindow(selectedProperty, searchType, propertyImages)
+
+    google.maps.event.addListener(windowInfo, 'closeclick', () => {
+      dispatch('windowInfoClick')
+    })
+
+    windowInfo.open(map, selectedMarker)
+  })
+
+  onDestroy(() => {
+    windowInfo.close()
+  })
+</script>

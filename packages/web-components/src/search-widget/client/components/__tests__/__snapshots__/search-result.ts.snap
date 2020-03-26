@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchResult it matches a snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="result-item svelte-1r3rfgm"
+      data-testid="select-property"
+    >
+      <div
+        class="result-image-container selected svelte-1r3rfgm"
+      >
+         
+         
+        <img
+          alt="property image"
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88xYAAssB20Ea4T8AAAAASUVORK5CYII="
+        />
+      </div>
+       
+      <div>
+        <div
+          class="result-item-address-secondary svelte-1r3rfgm"
+        >
+          <div
+            class="result-item-address-primary svelte-1r3rfgm"
+          >
+            Sussex Way
+          </div>
+           
+          Archway, London, N19 4JF
+        </div>
+      </div>
+       
+      <div
+        class="result-item-pricing-text svelte-1r3rfgm"
+      >
+        Guide Price £0
+      </div>
+       
+      <div
+        class="result-item-beds-text svelte-1r3rfgm"
+      >
+        0 Bed  
+      </div>
+       
+      <div
+        class="result-item-description-text svelte-1r3rfgm"
+      >
+        This is a flat
+      </div>
+       
+      <div
+        class="result-item-icon-container svelte-1r3rfgm"
+      >
+        <span
+          class="result-item-icon svelte-1r3rfgm"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            id=""
+            role="img"
+            style="height:1em;vertical-align:-.125em;overflow:visible;"
+            viewBox="0 0 640 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              transform="translate(256 256)"
+            >
+              <g
+                transform=""
+              >
+                <path
+                  d="M176 256c44.11 0 80-35.89 80-80s-35.89-80-80-80-80 35.89-80 80 35.89 80 80 80zm352-128H304c-8.84 0-16 7.16-16 16v144H64V80c0-8.84-7.16-16-16-16H16C7.16 64 0 71.16 0 80v352c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16v-48h512v48c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16V240c0-61.86-50.14-112-112-112z"
+                  fill="currentColor"
+                  transform="translate(-256 -256)"
+                />
+              </g>
+            </g>
+          </svg>
+          
+        </span>
+         
+        0
+         
+        <span
+          class="result-item-icon svelte-1r3rfgm"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            id=""
+            role="img"
+            style="height:1em;vertical-align:-.125em;overflow:visible;"
+            viewBox="0 0 384 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              transform="translate(256 256)"
+            >
+              <g
+                transform=""
+              >
+                <path
+                  d="M368 48c8.8 0 16-7.2 16-16V16c0-8.8-7.2-16-16-16H16C7.2 0 0 7.2 0 16v16c0 8.8 7.2 16 16 16h16v156.7C11.8 214.8 0 226.9 0 240c0 67.2 34.6 126.2 86.8 160.5l-21.4 70.2C59.1 491.2 74.5 512 96 512h192c21.5 0 36.9-20.8 30.6-41.3l-21.4-70.2C349.4 366.2 384 307.2 384 240c0-13.1-11.8-25.2-32-35.3V48h16zM80 72c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H88c-4.4 0-8-3.6-8-8V72zm112 200c-77.1 0-139.6-14.3-139.6-32s62.5-32 139.6-32 139.6 14.3 139.6 32-62.5 32-139.6 32z"
+                  fill="currentColor"
+                  transform="translate(-256 -256)"
+                />
+              </g>
+            </g>
+          </svg>
+          
+        </span>
+         
+        0
+      </div>
+    </div>
+  </div>
+</body>
+`;
