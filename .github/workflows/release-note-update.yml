@@ -36,6 +36,10 @@ jobs:
           | jq ".name" \
           | xargs -I {} echo "::set-env name=CURRENT_RELEASE_NAME::{}"
 
+      - name: Echo $CURRENT_RELEASE_NAME
+        run: |
+          echo "CURRENT_RELEASE_NAME is ${CURRENT_RELEASE_NAME}"
+
       # skip from there if CURRENT_RELEASE_NAME not endsWith _released
       - name: Checking out foundations repo
         if: endsWith(env.CURRENT_RELEASE_NAME, '_released')
