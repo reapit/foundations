@@ -68,7 +68,7 @@ type Mutation {
     workPhone: String
     email: String
     metadata: JSON
-  ): JSON!
+  ): OfficeModel!
 
   UpdateOffice(
     id: String!
