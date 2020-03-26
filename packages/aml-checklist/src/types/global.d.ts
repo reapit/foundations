@@ -1,5 +1,6 @@
 export type Config = {
   appEnv: 'local' | 'development' | 'production'
+  appId?: string
   sentryDns: string
   platformApiUrl: string
   uploadApiUrl: string
