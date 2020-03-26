@@ -28,7 +28,7 @@
     "lint": "eslint --ext=jsx,ts,tsx src --fix",
   <% } %>
     "start:prod": "serve public/dist -s -l 8080",
-    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
+    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
     "fetch-config": "yarn config-manager fetchConfig <%= name %>"
