@@ -530,17 +530,6 @@ describe('handleOnChangeInput', () => {
     expect(result).toBe(false)
   })
 
-  it('should return correctly when dont have target file', async () => {
-    const fn = handleOnChangeInput({ maxUploadRow: 30, setUploadData, validate })
-    const eventMock: any = {
-      target: {
-        files: null,
-      },
-    }
-    const result = await fn(eventMock)
-    expect(result).toBe(false)
-  })
-
   it('should return correctly when error', async () => {
     const fn = handleOnChangeInput({ maxUploadRow: 30, setUploadData, validate: () => [[true]] })
     const eventMock: any = {
@@ -549,6 +538,7 @@ describe('handleOnChangeInput', () => {
       },
     }
     const result = await fn(eventMock)
+    expect(setUploadData).toHaveBeenCalled()
     expect(result).toBe('error')
   })
 })
