@@ -14,7 +14,7 @@ const Routes = {
   DEVELOPER_MY_APPS_EDIT: '/developer/apps/:appid/edit',
   DEVELOPER_API_DOCS: '/developer/api-docs',
   DEVELOPER_ANALYTICS: '/developer/analytics',
-  DEVELOPER_ANALYTICS_PAGINATE: '/developer/analytics/:page',
+  DEVELOPER_ANALYTICS_TAB: '/developer/analytics/:activeTab?',
   DEVELOPER_RESET_PASSWORD: '/developer/reset-password',
   SETTINGS: '/developer/settings',
   SUBMIT_APP: '/developer/submit-app',

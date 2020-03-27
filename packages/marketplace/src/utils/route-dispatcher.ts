@@ -43,8 +43,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
     case Routes.DEVELOPER_MY_APPS:
       store.dispatch(developerRequestData({ page: 1 }))
       break
-    case Routes.DEVELOPER_ANALYTICS_PAGINATE:
-    case Routes.DEVELOPER_ANALYTICS: {
+    case Routes.DEVELOPER_ANALYTICS_TAB: {
       // Need to fetch all apps to count Total current installations for each app
       store.dispatch(appInstallationsRequestData({ pageSize: GET_ALL_PAGE_SIZE }))
       // Fetch all apps to map app name to installations
