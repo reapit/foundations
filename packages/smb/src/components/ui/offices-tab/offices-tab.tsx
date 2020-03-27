@@ -30,6 +30,8 @@ import UPDATE_OFFICE from './gql/update-office.graphql'
 import { OFFICES_PER_PAGE } from '@/constants/paginators'
 import { isNumber } from '@/utils/validators'
 
+import Worker from 'worker-loader!../../../core/upload.worker'
+
 export const tableHeaders: Cell[] = [
   { readOnly: true, value: 'Office Name' },
   { readOnly: true, value: 'Building Name' },
@@ -79,6 +81,7 @@ export type RenderContentParams = {
   dataTable: Cell[][]
   handleChangePage: (page: number) => void
   afterCellsChanged: AfterCellsChanged
+  handleSubmitFileData: (fileData: any) => void
 }
 
 export const renderContent = ({
@@ -90,6 +93,7 @@ export const renderContent = ({
   totalCount = 0,
   handleChangePage,
   afterCellsChanged,
+  handleSubmitFileData,
 }: RenderContentParams) => {
   if (loading) {
     return <Loader />
@@ -99,7 +103,12 @@ export const renderContent = ({
   }
   return (
     <React.Fragment>
-      <Spreadsheet data={dataTable as Cell[][]} validate={validate} afterCellsChanged={afterCellsChanged} />
+      <Spreadsheet
+        data={dataTable as Cell[][]}
+        validate={validate}
+        afterCellsChanged={afterCellsChanged}
+        onSubmitFileData={handleSubmitFileData}
+      />
       <Section>
         <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />
       </Section>
@@ -117,6 +126,7 @@ export const handleChangePage = ({ history }) => (pageNumber: number) => {
 }
 
 export const handleAfterCellChange = (createOffice, updateOffice) => (changedCells: ChangedCells, data: Cell[][]) => {
+  console.log('changedCells', changedCells)
   const [changes] = changedCells
   const {
     newCell: { isValidated },
@@ -138,10 +148,29 @@ export const handleAfterCellChange = (createOffice, updateOffice) => (changedCel
       return
     }
     const createOfficeParams = prepareCreateOfficeParams(changedCells, data)
+    console.log('changedCells', changedCells)
+    console.log('data', data)
+    console.log('createOfficeParams', createOfficeParams)
     createOffice({
       variables: createOfficeParams,
     })
   }
+}
+
+
+export const handleSubmitFileData = (fileData: any) => {
+  const params = {
+    type: 'office',
+    data: fileData
+  }
+  
+  const uploadWorker = new Worker();
+  uploadWorker.postMessage(params);
+
+  uploadWorker.addEventListener('message', e => {
+    const { totalRecord } = e.data
+    console.log('totalRecord', totalRecord)
+  })
 }
 
 export const prepareUpdateOfficeParams = (changedCells: ChangedCells, data: Cell[][]): UpdateOfficeParams => {
@@ -277,6 +306,7 @@ export const OfficesTab: React.FC<OfficesTabProps> = () => {
         totalCount: data?.GetOffices?.totalCount,
         handleChangePage: handleChangePage({ history }),
         afterCellsChanged: handleAfterCellChange(createOffice, updateOffice),
+        handleSubmitFileData,
       })}
       <Toast
         componentError={componentError}
