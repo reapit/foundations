@@ -3546,6 +3546,100 @@ export interface CreateTaskModel {
   }
 }
 /**
+ * Request body used to create a new tenancy check
+ * example:
+ * [object Object]
+ */
+export interface CreateTenancyCheckModel {
+  /**
+   * Short, descriptive text describing the purpose of the check
+   */
+  description?: string
+  /**
+   * The type of the tenancy check (preTenancy/postTenancy)
+   */
+  type?: string
+  /**
+   * The status of the tenancy check (needed/notNeeded/arranging/completed)
+   */
+  status?: string
+}
+/**
+ * Request body used to create a new tenancy
+ * example:
+ * [object Object]
+ */
+export interface CreateTenancyModel {
+  /**
+   * example:
+   * 2019-08-14
+   */
+  startDate?: string // date
+  /**
+   * example:
+   * 2019-08-14
+   */
+  endDate?: string // date
+  /**
+   * The role that the agent is performing for the tenancy (managed/rentCollection/collectFirstPayment/collectRentToDate/lettingOnly/introducingTenant)
+   */
+  agentRole?: string
+  /**
+   * The amount of rent required, returned in relation to the collection frequency
+   */
+  rent?: number // int32
+  /**
+   * The rent collection frequency (weekly/monthly/annually)
+   */
+  rentFrequency?: string
+  /**
+   * A flag determining whether or not the tenancy has been extended indefinitely
+   */
+  isPeriodic?: boolean
+  /**
+   * The unique identifier of the type of tenancy
+   */
+  typeId?: string
+  /**
+   * The unique identifier of the negotiator who is managing the tenancy
+   */
+  negotiatorId?: string
+  /**
+   * The unique identifier of the property that relates to the tenancy
+   */
+  propertyId?: string
+  /**
+   * The unique identifier of the applicant who has applied to be a tenant
+   */
+  applicantId?: string
+  /**
+   * The source of enquiry for the tenancy
+   */
+  source?: {
+    /**
+     * The unique identifier of the source for the tenancy
+     */
+    id?: string
+    /**
+     * The source type (office/source)
+     */
+    type?: string
+  }
+}
+/**
+ * Request body used to set the source of a new tenancy
+ */
+export interface CreateTenancySourceModel {
+  /**
+   * The unique identifier of the source for the tenancy
+   */
+  id?: string
+  /**
+   * The source type (office/source)
+   */
+  type?: string
+}
+/**
  * Representation of a works order item
  * example:
  * [object Object]
@@ -7610,6 +7704,63 @@ export interface PagedResultTaskModel_ {
     }
   }
 }
+export interface PagedResultTenancyCheckModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the tenancy check
+     */
+    id?: string
+    /**
+     * The date and time when the tenancy check was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the tenancy check was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * Textual description of what the tenancy check relates to
+     */
+    description?: string
+    /**
+     * The status of the tenancy check (needed/notNeeded/arranging/completed)
+     */
+    status?: string
+    /**
+     * The type of the tenancy check (preTenancy/postTenancy)
+     */
+    type?: string
+    /**
+     * The unique identifier of the tenancy that this check relates to
+     */
+    tenancyId?: string
+    /**
+     * The ETag for the current version of the teanncy check. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
 export interface PagedResultTenancyContactRelationshipModel_ {
   _embedded?: {
     /**
@@ -7708,11 +7859,11 @@ export interface PagedResultTenancyModel_ {
      */
     rentFrequency?: string
     /**
-     * A flag determining whether or not this tenancy is confirmed to finish at the end date
+     * A flag determining whether or not the tenancy is confirmed to finish at the end date
      */
     endDateConfirmed?: boolean
     /**
-     * A flag determining whether or not this tenancy has been extended indefinitely
+     * A flag determining whether or not the tenancy has been extended indefinitely
      */
     isPeriodic?: boolean
     /**
@@ -7720,11 +7871,11 @@ export interface PagedResultTenancyModel_ {
      */
     typeId?: string
     /**
-     * The unique identifier of the negotiator who is managing this tenancy
+     * The unique identifier of the negotiator who is managing the tenancy
      */
     negotiatorId?: string
     /**
-     * The unique identifier of the property in which this tenancy is for
+     * The unique identifier of the property that relates to the tenancy
      */
     propertyId?: string
     /**
@@ -7745,7 +7896,7 @@ export interface PagedResultTenancyModel_ {
       type?: string
     }
     /**
-     * A collection of contact / company tenants associated to this tenancy. The first item in the collection is considered the primary relationship
+     * A collection of contact / company tenants associated to the tenancy. The first item in the collection is considered the primary relationship
      */
     related?: {
       /**
@@ -7814,12 +7965,6 @@ export interface PagedResultTenancyModel_ {
         countryId?: string
       }
     }[]
-    /**
-     * App specific metadata that has been set against the tenancy
-     */
-    metadata?: {
-      [name: string]: any
-    }
     /**
      * The ETag for the current version of the tenancy. Used for managing update concurrency
      */
@@ -9270,6 +9415,55 @@ export interface Tenancies {
   modifiedTo?: string
 }
 /**
+ * Representation of a tenancy check - a process that needs to happen before a tenancy can commence or ends
+ */
+export interface TenancyCheckModel {
+  /**
+   * The unique identifier of the tenancy check
+   */
+  id?: string
+  /**
+   * The date and time when the tenancy check was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the tenancy check was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * Textual description of what the tenancy check relates to
+   */
+  description?: string
+  /**
+   * The status of the tenancy check (needed/notNeeded/arranging/completed)
+   */
+  status?: string
+  /**
+   * The type of the tenancy check (preTenancy/postTenancy)
+   */
+  type?: string
+  /**
+   * The unique identifier of the tenancy that this check relates to
+   */
+  tenancyId?: string
+  /**
+   * The ETag for the current version of the teanncy check. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+/**
  * Representation of the physical address of a building or premise
  */
 export interface TenancyContactAddressModel {
@@ -9468,11 +9662,11 @@ export interface TenancyModel {
    */
   rentFrequency?: string
   /**
-   * A flag determining whether or not this tenancy is confirmed to finish at the end date
+   * A flag determining whether or not the tenancy is confirmed to finish at the end date
    */
   endDateConfirmed?: boolean
   /**
-   * A flag determining whether or not this tenancy has been extended indefinitely
+   * A flag determining whether or not the tenancy has been extended indefinitely
    */
   isPeriodic?: boolean
   /**
@@ -9480,11 +9674,11 @@ export interface TenancyModel {
    */
   typeId?: string
   /**
-   * The unique identifier of the negotiator who is managing this tenancy
+   * The unique identifier of the negotiator who is managing the tenancy
    */
   negotiatorId?: string
   /**
-   * The unique identifier of the property in which this tenancy is for
+   * The unique identifier of the property that relates to the tenancy
    */
   propertyId?: string
   /**
@@ -9505,7 +9699,7 @@ export interface TenancyModel {
     type?: string
   }
   /**
-   * A collection of contact / company tenants associated to this tenancy. The first item in the collection is considered the primary relationship
+   * A collection of contact / company tenants associated to the tenancy. The first item in the collection is considered the primary relationship
    */
   related?: {
     /**
@@ -9574,12 +9768,6 @@ export interface TenancyModel {
       countryId?: string
     }
   }[]
-  /**
-   * App specific metadata that has been set against the tenancy
-   */
-  metadata?: {
-    [name: string]: any
-  }
   /**
    * The ETag for the current version of the tenancy. Used for managing update concurrency
    */
@@ -11457,6 +11645,17 @@ export interface UpdateTaskModel {
   metadata?: {
     [name: string]: any
   }
+}
+/**
+ * Model for updat of an existing tenancy check
+ * example:
+ * [object Object]
+ */
+export interface UpdateTenancyCheckModel {
+  /**
+   * The status of the tenancy check (needed/notNeeded/arranging/completed)
+   */
+  status?: string
 }
 /**
  * Request body used to update an existing vendor
