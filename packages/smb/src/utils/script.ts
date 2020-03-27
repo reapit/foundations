@@ -45,5 +45,4 @@ export const createOfficeAsync = (filedata: any) => {
   // createOffice({
   //   variables: createOfficeParams,
   // })
-
 }

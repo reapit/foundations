@@ -157,15 +157,14 @@ export const handleAfterCellChange = (createOffice, updateOffice) => (changedCel
   }
 }
 
-
 export const handleSubmitFileData = (fileData: any) => {
   const params = {
     type: 'office',
-    data: fileData
+    data: fileData,
   }
-  
-  const uploadWorker = new Worker();
-  uploadWorker.postMessage(params);
+
+  const uploadWorker = new Worker()
+  uploadWorker.postMessage(params)
 
   uploadWorker.addEventListener('message', e => {
     const { totalRecord } = e.data
