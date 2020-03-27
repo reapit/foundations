@@ -23,7 +23,7 @@ describe('properties client API', () => {
     const propertyImage = propertyImagesStub._embedded as PropertyImageModel[]
 
     expect(fetcher).toHaveBeenCalledWith({
-      url: `http://localhost:3000/propertyimages${getPropertyQuery(properties)}`,
+      url: `http://localhost:3000/propertyImages/${getPropertyQuery(properties)}`,
       headers: getClientHeaders('API_KEY'),
     })
     expect(response).toEqual({

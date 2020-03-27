@@ -17,7 +17,7 @@ export const getPropertyImages = async (
 ): Promise<Record<string, PropertyImageModel>> => {
   const propertyQuery = getPropertyQuery(properties)
   const response = await fetcher<PagedResultPropertyImageModel_, null>({
-    url: `${process.env.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET}/propertyimages${propertyQuery}`,
+    url: `${process.env.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET}/propertyImages/${propertyQuery}`,
     headers: getClientHeaders(apiKey),
   })
 

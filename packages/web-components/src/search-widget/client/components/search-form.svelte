@@ -1,6 +1,7 @@
 <script>
   import { onDestroy } from 'svelte'
   import { getProperties } from '../api/properties'
+  import { getPropertyImages } from '../api/property-images'
   import searchWidgetStore from '../core/store'
 
   let inputValue = ''
@@ -26,10 +27,19 @@
 
     const properties = await getProperties(inputValue, isRental, apiKey)
 
+    const propertyImages = await getPropertyImages(properties._embedded, apiKey)
+
     if (properties) {
       searchWidgetStore.update(values => ({
         ...values,
         properties,
+      }))
+    }
+
+    if (propertyImages) {
+      searchWidgetStore.update(values => ({
+        ...values,
+        propertyImages,
       }))
     }
   }
@@ -39,7 +49,7 @@
   })
 </script>
 
-<style> 
+<style>
   form.search-form {
     margin: 30px auto;
   }

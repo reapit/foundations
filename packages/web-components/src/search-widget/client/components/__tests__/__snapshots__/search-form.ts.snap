@@ -13,7 +13,7 @@ exports[`search-form it matches a snapshot 1`] = `
           class="content svelte-10ns1kb"
         >
           <form
-            class="search-form svelte-1w21vqh"
+            class="search-form svelte-1l6qfbr"
           >
             <input
               data-testid="search-input"

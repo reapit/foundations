@@ -8,7 +8,6 @@ import { errorHandler } from '../../../common/utils/error-handler'
 export const getPropertyImages = async (req: Request, res: Response) => {
   try {
     const headers = await getServerHeaders(req, PACKAGE_SUFFIXES.SEARCH_WIDGET)
-
     const refreshResponse = await fetcher<PagedResultPropertyImageModel_, undefined>({
       url: `${process.env.PLATFORM_API_BASE_URL}${req.url}`,
       headers,
