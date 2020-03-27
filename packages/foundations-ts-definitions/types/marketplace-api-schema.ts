@@ -68,13 +68,17 @@ export interface AppDetailModel {
    */
   launchUri?: string
   /**
-   * Gets the app revisions redirect uri (or uris) where a user will be redirected to immediately after a successful authentication
+   * Gets the apps redirect uri (or uris) where a user will be redirected to immediately after a successful authentication
    */
   redirectUris?: string[]
   /**
-   * Gets the app revisions signout uri (or uris) where a user will be redirected to immediately after a successful logout
+   * Gets the apps signout uri (or uris) where a user will be redirected to immediately after a successful logout
    */
   signoutUris?: string[]
+  /**
+   * Gets the unique identifier of clients that the app is visible to
+   */
+  limitToClientIds?: string[]
   /**
    * Gets the date the app was installed for a specific client
    */
@@ -188,6 +192,10 @@ export interface AppRevisionModel {
    * Gets a flag determining whether or not the app will appear in the marketplace
    */
   isDirectApi?: boolean
+  /**
+   * Gets the unique identifier of clients that the app is visible to
+   */
+  limitToClientIds?: string[]
   /**
    * Gets the app revisions category
    */
@@ -436,6 +444,10 @@ export interface CreateAppModel {
    */
   isWebComponent?: boolean
   /**
+   * Sets the unique identifier of the client that the app is visible to. Multiple ids can be passed in the array
+   */
+  limitToClientIds?: string[]
+  /**
    * Sets the application authorisation flow type (authorisationCode/clientCredentials)
    */
   authFlow?: string
@@ -549,6 +561,10 @@ export interface CreateAppRevisionModel {
    * When false, the app will not be visible in marketplace app listings
    */
   isListed?: boolean
+  /**
+   * Sets the unique identifier of the client that the app is visible to. Multiple ids can be passed in the array
+   */
+  limitToClientIds?: string[]
   /**
    * Sets the list of scope keys required for this app revision
    */
