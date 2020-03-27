@@ -7,7 +7,7 @@ describe('router', () => {
   })
 
   it('should handle get requests to propertyimages', () => {
-    expect(router.stack[1].route.path).toEqual('/propertyimages')
+    expect(router.stack[1].route.path).toEqual('/propertyImages')
     expect(router.stack[1].route.methods.get).toBe(true)
   })
 })

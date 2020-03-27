@@ -33,6 +33,13 @@
     }))
   }
 
+  const handleImageError = source => {
+    source.src = INVALID_BACKGROUND_AS_BASE64
+    source.target.src = INVALID_BACKGROUND_AS_BASE64
+    source.onerror = ''
+    return true
+  }
+
   onDestroy(() => {
     unsubscribeSearchWidgetStore()
   })
@@ -50,6 +57,11 @@
     border-radius: 5px;
     position: relative;
     overflow: hidden;
+  }
+
+  .result-image-container > img {
+    width: 100%;
+    height: auto;
   }
 
   .result-image-container.selected {
@@ -142,7 +154,7 @@
     {#if lettingStatus === 'underOffer'}
       <div class="result-offer-flag">Let Agreed</div>
     {/if}
-    <img alt="property image" src={imageUrl} />
+    <img alt="property image" src={imageUrl} on:error={handleImageError} />
   </div>
   <div>
     <div class="result-item-address-secondary">
