@@ -12,6 +12,9 @@ import {
   AfterDataChanged,
   AfterCellsChanged,
   ChangesArray,
+  SetUploadData,
+  UploadData,
+  InvalidIndies,
 } from './types'
 import {
   getMaxRowAndCol,
@@ -217,19 +220,83 @@ export const handleClickUpload = (ref: React.RefObject<HTMLInputElement>) => () 
   return false
 }
 
-export const handleOnChangeInput = (data: Cell[][], setData: SetData, validate?: ValidateFunction) => async (event: {
-  target: HTMLInputElement
-}) => {
-  const { target } = event
-  if (target && target.files && target.files[0]) {
-    const file = target.files[0]
-    const result = await parseCsvFile(file)
-    const compatibleData = convertToCompatibleData(result)
-    const dataWithIsValidated = validatedDataGenerate(compatibleData, validate)
-    setData(dataWithIsValidated)
-    return 'validated'
+export const handleOnChangeInput = ({
+  setUploadData,
+  maxUploadRow,
+  validate,
+}: {
+  setUploadData: SetUploadData
+  maxUploadRow: number
+  validate?: ValidateFunction
+}) => async (event: { target: HTMLInputElement }) => {
+  try {
+    const { target } = event
+    if (target && target.files && target.files[0]) {
+      const file = target.files[0]
+      const result = await parseCsvFile(file)
+      const compatibleData = convertToCompatibleData(result)
+      const totalRow = compatibleData.length
+      // only allow maxUploadRow row
+      const slicedData = compatibleData.slice(0, maxUploadRow)
+      if (typeof validate !== 'function') {
+        setUploadData(
+          setUploadDataCallback({
+            validatedData: slicedData.map(row => row.map(cell => ({ ...cell, isValidated: true }))),
+            invalidIndies: [],
+            totalRow,
+            exceedMaxRow: totalRow > maxUploadRow,
+            isModalOpen: true,
+          }),
+        )
+        return 'not validated'
+      }
+      // remove all invalid rows
+      let dataWithInvalidRowsRemoved: Cell[][] = []
+      // store row, col, cell of invalid rows
+      let invalidIndies: InvalidIndies = []
+      const validateMatrix = validate(compatibleData)
+      // loop through, validate each cell
+      // if invalid cell, push into invalidIndies
+      // only push into dataWithInvalidRowsRemoved if all cells in that row are valid
+      slicedData.forEach((row, rowIndex) => {
+        let currentRowValid = true
+        const currentRow = [...row]
+        currentRow.forEach((cell, colIndex) => {
+          currentRow[colIndex] = { ...currentRow[colIndex], isValidated: validateMatrix[rowIndex][colIndex] }
+          if (!currentRow[colIndex].isValidated) {
+            invalidIndies.push({ row: rowIndex, col: colIndex, cell: currentRow[colIndex] })
+            currentRowValid = false
+            return
+          }
+        })
+        if (currentRowValid) {
+          dataWithInvalidRowsRemoved.push(currentRow)
+        }
+      })
+
+      setUploadData(
+        setUploadDataCallback({
+          validatedData: dataWithInvalidRowsRemoved,
+          invalidIndies,
+          isModalOpen: true,
+          totalRow,
+          exceedMaxRow: totalRow > maxUploadRow,
+        }),
+      )
+      return 'validated'
+    }
+    return false
+  } catch (err) {
+    setUploadData(
+      setUploadDataCallback({
+        validatedData: [],
+        invalidIndies: [],
+        isModalOpen: true,
+        totalRow: 0,
+      }),
+    )
+    return 'error'
   }
-  return false
 }
 
 export const handleDownload = (data: Cell[][], window, document: Document | undefined) => (): boolean => {
@@ -281,3 +348,14 @@ export const handleInitialDataChanged = (
   const newData = validatedDataGenerate(initialData, validateFunction)
   setData(newData)
 }
+
+export const handleCloseUploadModal = (setUploadData: SetUploadData) => () =>
+  setUploadData(setUploadDataCallback({ isModalOpen: false }))
+
+export const handleProcessValidRows = (setUploadData: SetUploadData) => () =>
+  setUploadData(setUploadDataCallback({ shouldProcess: true, isModalOpen: false }))
+
+export const setUploadDataCallback = (uploadDataPartial: Partial<UploadData>) => (prev: UploadData) => ({
+  ...prev,
+  ...uploadDataPartial,
+})

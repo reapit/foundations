@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { MyReactDataSheet, Cell, SpreadsheetProps, SelectedMatrix, ContextMenuProp } from './types'
+import { MyReactDataSheet, Cell, SpreadsheetProps, SelectedMatrix, ContextMenuProp, UploadData } from './types'
 import {
   valueRenderer,
   onSelectCells,
@@ -18,6 +18,7 @@ import {
 import { Button } from '../Button'
 import { ContextMenu } from './context-menu'
 import { usePrevious } from './utils'
+import { ModalUpload } from './modal-upload'
 
 export const UploadButton = ({ onChangeInput }) => {
   const uploadRef = React.useRef<HTMLInputElement>(null)
@@ -51,6 +52,15 @@ export const AddRowButton = ({ addNewRow }) => {
   )
 }
 
+const initialUploadData: UploadData = {
+  totalRow: 0,
+  validatedData: [[]],
+  invalidIndies: [],
+  shouldProcess: false,
+  isModalOpen: false,
+  exceedMaxRow: false,
+}
+
 export const Spreadsheet: React.FC<SpreadsheetProps> = ({
   data: initialData,
   description = '',
@@ -60,11 +70,16 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
   validate,
   afterDataChanged,
   afterCellsChanged,
+  afterUploadDataValidated,
+  maxUploadRow = 30,
   ...rest
 }) => {
   const [selected, setSelected] = React.useState<SelectedMatrix | null>(null)
 
   const [data, setData] = React.useState<Cell[][]>([[]])
+
+  // store data relevant to upload handler
+  const [uploadData, setUploadData] = React.useState<UploadData>(initialUploadData)
 
   const prevData = usePrevious(data)
 
@@ -84,12 +99,27 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
 
   React.useEffect(handleAfterDataChanged(data, prevData, afterDataChanged), [data])
 
+  React.useEffect(() => {
+    if (uploadData.shouldProcess && typeof afterUploadDataValidated === 'function') {
+      afterUploadDataValidated({ uploadData, currentData: data, setData })
+      setUploadData({ ...initialUploadData })
+    }
+  }, [afterUploadDataValidated, uploadData, data])
+
   return (
     <div className="spreadsheet">
       <div className="wrap-top">
         <div className="description">{description}</div>
         <div className="button-group">
-          {hasUploadButton && <UploadButton onChangeInput={handleOnChangeInput(data, setData, validate)} />}
+          {hasUploadButton && (
+            <UploadButton
+              onChangeInput={handleOnChangeInput({
+                setUploadData,
+                maxUploadRow,
+                validate,
+              })}
+            />
+          )}
           {hasDownloadButton && <DownloadButton data={data} />}
         </div>
       </div>
@@ -114,6 +144,7 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
         setContextMenuProp={setContextMenuProp}
         onCellsChanged={onCellsChanged}
       />
+      <ModalUpload uploadData={uploadData} setUploadData={setUploadData} />
     </div>
   )
 }

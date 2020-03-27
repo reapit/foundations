@@ -8,6 +8,7 @@ import {
   convertDataToCsv,
   changedCellsGenerate,
   validatedDataGenerate,
+  calculateNumberOfInvalidRows,
 } from '../utils'
 import fs from 'fs'
 import path from 'path'
@@ -150,5 +151,18 @@ describe('validatedDataGenerate', () => {
     ]
     const result = validatedDataGenerate(data, validate)
     expect(result).toEqual(expectedResult)
+  })
+})
+
+describe('calculateNumberOfInvalidRows', () => {
+  it('should return correctly', () => {
+    const invalidIndies = [
+      { row: 1, col: 2, cell: { value: 'hi' } },
+      { row: 2, col: 2, cell: { value: 'hi' } },
+      { row: 1, col: 4, cell: { value: 'hi' } },
+      { row: 1, col: 5, cell: { value: 'hi' } },
+    ]
+    const result = calculateNumberOfInvalidRows(invalidIndies)
+    expect(result).toBe(2)
   })
 })
