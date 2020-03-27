@@ -4,26 +4,27 @@ exports[`SearchResult it matches a snapshot 1`] = `
 <body>
   <div>
     <div
-      class="result-item svelte-1r3rfgm"
+      class="result-item svelte-1b6ad7q"
       data-testid="select-property"
     >
       <div
-        class="result-image-container selected svelte-1r3rfgm"
+        class="result-image-container selected svelte-1b6ad7q"
       >
          
          
         <img
           alt="property image"
+          class="svelte-1b6ad7q"
           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88xYAAssB20Ea4T8AAAAASUVORK5CYII="
         />
       </div>
        
       <div>
         <div
-          class="result-item-address-secondary svelte-1r3rfgm"
+          class="result-item-address-secondary svelte-1b6ad7q"
         >
           <div
-            class="result-item-address-primary svelte-1r3rfgm"
+            class="result-item-address-primary svelte-1b6ad7q"
           >
             Sussex Way
           </div>
@@ -33,28 +34,28 @@ exports[`SearchResult it matches a snapshot 1`] = `
       </div>
        
       <div
-        class="result-item-pricing-text svelte-1r3rfgm"
+        class="result-item-pricing-text svelte-1b6ad7q"
       >
         Guide Price £0
       </div>
        
       <div
-        class="result-item-beds-text svelte-1r3rfgm"
+        class="result-item-beds-text svelte-1b6ad7q"
       >
         0 Bed  
       </div>
        
       <div
-        class="result-item-description-text svelte-1r3rfgm"
+        class="result-item-description-text svelte-1b6ad7q"
       >
         This is a flat
       </div>
        
       <div
-        class="result-item-icon-container svelte-1r3rfgm"
+        class="result-item-icon-container svelte-1b6ad7q"
       >
         <span
-          class="result-item-icon svelte-1r3rfgm"
+          class="result-item-icon svelte-1b6ad7q"
         >
           <svg
             aria-hidden="true"
@@ -85,7 +86,7 @@ exports[`SearchResult it matches a snapshot 1`] = `
         0
          
         <span
-          class="result-item-icon svelte-1r3rfgm"
+          class="result-item-icon svelte-1b6ad7q"
         >
           <svg
             aria-hidden="true"

@@ -53,6 +53,6 @@ functions:
           method: get
           cors: true
       - http:
-          path: propertyimages
+          path: propertyImages
           method: get
           cors: true
