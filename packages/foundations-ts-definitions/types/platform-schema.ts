@@ -851,6 +851,8 @@ export interface Appointments {
   negotiatorId?: string[]
   officeId?: string[]
   propertyId?: string[]
+  attendeeId?: string[]
+  attendeeType?: ('applicant' | 'contact' | 'landlord' | 'tenancy')[]
   start?: string
   end?: string
   includeCancelled?: boolean
