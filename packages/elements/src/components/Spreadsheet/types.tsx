@@ -8,6 +8,16 @@ export class MyReactDataSheet extends ReactDataSheet<Cell, string | null> {}
  * plus some properties below
  */
 export type ChangedCells = { oldCell: Cell; row: number; col: number; newCell: Cell }[]
+export type InvalidIndies = { row: number; col: number; cell: Cell }[]
+export interface UploadData {
+  totalRow: number
+  validatedData: Cell[][]
+  invalidIndies: InvalidIndies
+  shouldProcess: boolean
+  isModalOpen: boolean
+  exceedMaxRow: boolean
+}
+export type SetUploadData = React.Dispatch<React.SetStateAction<UploadData>>
 export type SetData = React.Dispatch<React.SetStateAction<Cell[][]>>
 export type SetSelected = React.Dispatch<React.SetStateAction<SelectedMatrix | null>>
 export interface Cell extends ReactDataSheet.Cell<Cell, string | null> {
@@ -36,6 +46,11 @@ export interface DoubleClickPayLoad {
 export type ValidateFunction = (data: Cell[][]) => boolean[][]
 export type AfterCellsChanged = (changes: ChangedCells, data: Cell[][], setData: SetData) => any
 export type AfterDataChanged = (changes: ChangedCells, data: Cell[][]) => any
+export type AfterUploadDataValidated = (params: {
+  uploadData: UploadData
+  currentData: Cell[][]
+  setData: SetData
+}) => any
 
 export interface SpreadsheetProps {
   data: Cell[][]
@@ -50,6 +65,8 @@ export interface SpreadsheetProps {
   validate?: ValidateFunction
   afterCellsChanged?: AfterCellsChanged
   afterDataChanged?: AfterDataChanged
+  afterUploadDataValidated?: AfterUploadDataValidated
+  maxUploadRow?: number
 }
 
 export type SelectedMatrix = {
@@ -61,6 +78,11 @@ export interface ContextMenuProp {
   visible: boolean
   top: number
   left: number
+}
+
+export interface ModalUploadProp {
+  uploadData: UploadData
+  setUploadData: SetUploadData
 }
 
 export type SetContextMenuProp = React.Dispatch<React.SetStateAction<ContextMenuProp>>

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Cell, SetData, SetSelected, SetContextMenuProp, AfterCellsChanged } from '../types'
+import { Cell, SetData, SetSelected, SetUploadData, SetContextMenuProp, AfterCellsChanged } from '../types'
 
 export const parseResult = {
   data: [
@@ -112,6 +112,7 @@ export const setData: SetData = jest.fn()
 
 export const setSelected: SetSelected = jest.fn()
 export const setContextMenuProp: SetContextMenuProp = jest.fn()
+export const setUploadData: SetUploadData = jest.fn()
 
 export const selectedMatrix = {
   start: { i: 0, j: 1 },

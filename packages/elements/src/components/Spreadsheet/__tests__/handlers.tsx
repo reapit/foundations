@@ -15,6 +15,9 @@ import {
   hideContextMenu,
   handleSetContextMenu,
   handleInitialDataChanged,
+  setUploadDataCallback,
+  handleCloseUploadModal,
+  handleProcessValidRows,
 } from '../handlers'
 import {
   data,
@@ -25,8 +28,17 @@ import {
   parseResult,
   setContextMenuProp,
   afterCellsChanged,
+  setUploadData,
 } from '../__stubs__'
-import { getMaxRowAndCol, convertDataToCsv, unparseDataToCsvString, validatedDataGenerate } from '../utils'
+import {
+  getMaxRowAndCol,
+  convertDataToCsv,
+  unparseDataToCsvString,
+  validatedDataGenerate,
+  parseCsvFile,
+  convertToCompatibleData,
+  createDataWithInvalidRowsRemoved,
+} from '../utils'
 
 const onDoubleClickDefault = jest.fn()
 
@@ -123,15 +135,23 @@ jest.mock('../utils', () => {
   return {
     getMaxRowAndCol: jest.fn().mockReturnValue({ maxRow: data.length, maxCol: data[0].length }),
     parseCsvFile: jest.fn().mockResolvedValue(parseResult),
-    convertToCompatibleData: jest.fn(() => parseResult.data),
+    convertToCompatibleData: jest.fn().mockReturnValue(data),
     convertDataToCsv: jest.fn().mockReturnValue(parseResult.data),
     unparseDataToCsvString: jest.fn().mockReturnValue('unparse data'),
     validatedDataGenerate: jest.fn().mockReturnValue('validated data'),
     changedCellsGenerate: jest.fn().mockReturnValue('changes'),
+    createDataWithInvalidRowsRemoved: jest.fn().mockReturnValue([...data[0], ...data[1]]),
   }
 })
 
-const validate = jest.fn()
+const validateMatrix = [
+  [true, true, true, true, true, true, true, true, true, true, true],
+  [true, true, true, true, true, true, true, true, true, true, true],
+  [true, true, true, true, true, true, true, true, true, true, false],
+  [true, true, true, true, true, true, true, true, true, true, false],
+]
+
+const validate = jest.fn(() => validateMatrix)
 
 afterEach(() => {
   jest.clearAllMocks()
@@ -474,27 +494,64 @@ describe('handleCellsChanged', () => {
 })
 
 describe('handleOnChangeInput', () => {
-  it('should return with correct value when have target', async () => {
-    const fn = handleOnChangeInput(data, setData, validate)
+  afterAll(() => {
+    ;(createDataWithInvalidRowsRemoved as jest.Mocked<any>).mockReturnValue([...data[0], ...data[1]])
+  })
+
+  it('should return correctly when dont have validation function', async () => {
+    const fn = handleOnChangeInput({ maxUploadRow: 1, setUploadData, validate: undefined })
     const eventMock: any = {
       target: {
         files: ['data'],
       },
     }
-    const returnData = await fn(eventMock)
-    expect(validatedDataGenerate).toHaveBeenCalledWith(parseResult.data, validate)
-    expect(returnData).toBe('validated')
+    const result = await fn(eventMock)
+    expect(parseCsvFile).toHaveBeenCalledWith('data')
+    expect(convertToCompatibleData).toHaveBeenCalledWith(parseResult)
+    expect(setUploadData).toHaveBeenCalled()
+    expect(result).toBe('not validated')
   })
 
-  it('should return with correct value when dont have file', async () => {
-    const fn = handleOnChangeInput(data, setData, validate)
+  it('should return correctly when have validation function', async () => {
+    const fn = handleOnChangeInput({ maxUploadRow: 3, setUploadData, validate })
+    const eventMock: any = {
+      target: {
+        files: ['data'],
+      },
+    }
+    const result = await fn(eventMock)
+    expect(parseCsvFile).toHaveBeenCalledWith('data')
+    expect(convertToCompatibleData).toHaveBeenCalledWith(parseResult)
+    expect(validate).toHaveBeenCalledWith(data.slice(0, 3))
+    expect(createDataWithInvalidRowsRemoved).toHaveBeenCalledWith(data.slice(0, 3), validateMatrix)
+    expect(setUploadData).toHaveBeenCalled()
+    expect(result).toBe('validated')
+  })
+
+  it('should return correctly when dont have target file', async () => {
+    const fn = handleOnChangeInput({ maxUploadRow: 30, setUploadData, validate })
     const eventMock: any = {
       target: {
         files: null,
       },
     }
-    const returnData = await fn(eventMock)
-    expect(returnData).toBe(false)
+    const result = await fn(eventMock)
+    expect(result).toBe(false)
+  })
+
+  it('should return correctly when error', async () => {
+    ;(createDataWithInvalidRowsRemoved as jest.Mocked<any>).mockImplementation(() => {
+      throw new Error('error1')
+    })
+    const fn = handleOnChangeInput({ maxUploadRow: 30, setUploadData, validate: () => [[true]] })
+    const eventMock: any = {
+      target: {
+        files: ['data'],
+      },
+    }
+    const result = await fn(eventMock)
+    expect(setUploadData).toHaveBeenCalled()
+    expect(result).toBe('error')
   })
 })
 
@@ -629,5 +686,40 @@ describe('handleInitialDataChanged', () => {
     fn()
     expect(validatedDataGenerate).toHaveBeenCalledWith(initialData, validate)
     expect(setDataMock).toHaveBeenCalledWith('validated data')
+  })
+})
+
+describe('handleCloseUploadModal', () => {
+  it('should call setUploadData', () => {
+    const fn = handleCloseUploadModal(setUploadData)
+    fn()
+    expect(setUploadData).toHaveBeenCalled()
+  })
+})
+
+describe('handleProcessValidRows', () => {
+  it('should call setUploadData', () => {
+    const fn = handleProcessValidRows(setUploadData)
+    fn()
+    expect(setUploadData).toHaveBeenCalled()
+  })
+})
+
+describe('setUploadDataCallback', () => {
+  it('should return correct value', () => {
+    const prevUploadData = {
+      totalRow: 0,
+      validatedData: [[]],
+      invalidIndies: [],
+      shouldProcess: false,
+      isModalOpen: false,
+      exceedMaxRow: false,
+    }
+    const partialData = {
+      isModalOpen: true,
+    }
+    const fn = setUploadDataCallback(partialData)
+    const result = fn(prevUploadData)
+    expect(result).toEqual({ ...prevUploadData, isModalOpen: true })
   })
 })
