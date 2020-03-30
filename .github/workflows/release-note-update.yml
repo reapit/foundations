@@ -70,7 +70,7 @@ jobs:
         if: endsWith(env.CURRENT_RELEASE_NAME, '_released')
         uses: webfactory/ssh-agent@v0.2.0
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY_DOC }}
 
       - name: Run script
         if: endsWith(env.CURRENT_RELEASE_NAME, '_released')
