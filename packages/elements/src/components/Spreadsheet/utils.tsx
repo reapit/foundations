@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Papa from 'papaparse'
-import { Cell, SetData, ValidateFunction, ChangedCells } from './types'
+import { Cell, SetData, ValidateFunction, ChangedCells, InvalidIndies } from './types'
 
 export const usePrevious = value => {
   const ref = React.useRef()
@@ -93,11 +93,57 @@ export const changedCellsGenerate = (newData?: Cell[][], oldData?: Cell[][]): Ch
 
 export const validatedDataGenerate = (data: Cell[][], validateFunction?: ValidateFunction): Cell[][] => {
   // if valdateFunction is not set, then by default isValidated = true
-  const dataWithIsValidated =
-    typeof validateFunction === 'function'
-      ? data.map((row, rowIndex) =>
-          row.map((cell, colIndex) => ({ ...cell, isValidated: validateFunction(data)[rowIndex][colIndex] })),
-        )
-      : data.map(row => row.map(cell => ({ ...cell, isValidated: true })))
-  return dataWithIsValidated
+  if (typeof validateFunction === 'function') {
+    const validateMatrix = validateFunction(data)
+    return data.map((row, rowIndex) =>
+      row.map((cell, colIndex) => ({ ...cell, isValidated: validateMatrix[rowIndex][colIndex] })),
+    )
+  }
+  return data.map(row => row.map(cell => ({ ...cell, isValidated: true })))
+}
+
+/**
+ * Calculate number of invalid rows, using invalidIndies
+ */
+export const calculateNumberOfInvalidRows = (invalidIndies: InvalidIndies): number => {
+  let hashMap = {}
+  invalidIndies.forEach(({ row }) => {
+    if (hashMap[row]) {
+      hashMap[row]++
+      return
+    }
+    hashMap[row] = 1
+  })
+  return Object.keys(hashMap).length
+}
+
+/**
+ * Remove all rows which include at least one invalid row
+ */
+export const createDataWithInvalidRowsRemoved = (
+  data: Cell[][],
+  validateMatrix: boolean[][],
+): { dataWithInvalidRowsRemoved: Cell[][]; invalidIndies: InvalidIndies } => {
+  let dataWithInvalidRowsRemoved: Cell[][] = []
+  // store row, col, cell of invalid rows
+  let invalidIndies: InvalidIndies = []
+  // loop through, check validate each cell
+  // if invalid cell, push into invalidIndies
+  // only push into dataWithInvalidRowsRemoved if all cells in that row are valid
+  data.forEach((row, rowIndex) => {
+    let currentRowValid = true
+    const currentRow = [...row]
+    currentRow.forEach((cell, colIndex) => {
+      currentRow[colIndex] = { ...currentRow[colIndex], isValidated: validateMatrix[rowIndex][colIndex] }
+      if (!currentRow[colIndex].isValidated) {
+        invalidIndies.push({ row: rowIndex, col: colIndex, cell: currentRow[colIndex] })
+        currentRowValid = false
+        return
+      }
+    })
+    if (currentRowValid) {
+      dataWithInvalidRowsRemoved.push(currentRow)
+    }
+  })
+  return { dataWithInvalidRowsRemoved, invalidIndies }
 }
