@@ -1,4 +1,5 @@
 import * as React from 'react'
+import dayjs from 'dayjs'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { FlexContainerBasic, Grid, GridItem, FlexContainerResponsive } from '@reapit/elements'
 import orderBy from 'lodash.orderby'
@@ -11,11 +12,12 @@ import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-defin
 import { DeveloperState } from '@/reducers/developer'
 import { AppInstallationsState } from '@/reducers/app-installations'
 
-import styles from '@/styles/pages/analytics.scss?mod'
 import DeveloperInstallationsChart from '@/components/ui/developer-installations-chart'
 import DeveloperTrafficChart from '@/components/ui/developer-traffic-chart'
 import DeveloperTrafficTable from '@/components/ui/developer-traffic-table'
 import InstallationTable, { InstallationModelWithAppName } from './installation-table'
+import styles from '@/styles/pages/analytics.scss?mod'
+import FilterBar from './filter-bar'
 
 export interface DetailedTabMappedProps {
   developer?: DeveloperState
@@ -24,7 +26,7 @@ export interface DetailedTabMappedProps {
 }
 
 export interface DetailedTabMappedActions {
-  loadStats?: (params: AppUsageStatsParams) => void
+  loadStats: (params: AppUsageStatsParams) => void
 }
 
 export type DetailedTabProps = DetailedTabMappedProps & DetailedTabMappedActions
@@ -44,20 +46,21 @@ export const handleMapAppNameToInstallation = (
 
 export const handleFetchAppUsageStatsDataUseCallback = (
   developerAppDataArray: AppSummaryModel[] = [],
-  loadStats?: (params: AppUsageStatsParams) => void,
+  loadStats: (params: AppUsageStatsParams) => void,
 ) => {
   return () => {
-    if (loadStats) {
-      const orderredDeveloperAppDataArray = orderBy(developerAppDataArray, ['created'], ['asc'])
-      const firstCreatedApp = orderredDeveloperAppDataArray[0]
-      const appIds = orderredDeveloperAppDataArray.map((app: AppSummaryModel) => {
-        return app.id
-      })
-      loadStats({
-        appId: appIds,
-        dateFrom: firstCreatedApp?.created,
-      })
-    }
+    const orderredDeveloperAppDataArray = orderBy(developerAppDataArray, ['created'], ['asc'])
+    const appIds = orderredDeveloperAppDataArray.map((app: AppSummaryModel) => {
+      return app.id
+    })
+    const lastWeek = dayjs().subtract(1, 'week')
+    const lastMonday = lastWeek.day(1)
+    const lastSunday = lastWeek.day(7)
+    loadStats({
+      appId: appIds,
+      dateFrom: lastMonday.toISOString(),
+      dateTo: lastSunday.toISOString(),
+    })
   }
 }
 
@@ -92,7 +95,12 @@ export const DetailedTab: React.FC<DetailedTabProps> = ({ installations, develop
     <ErrorBoundary>
       <FlexContainerBasic hasPadding flexColumn>
         <FlexContainerResponsive flexColumn hasBackground hasPadding className={styles.wrapAnalytics}>
-          <Grid isMultiLine>
+          <FilterBar
+            loadStats={loadStats}
+            developerAppsData={developerAppsData}
+            installationAppDataArray={installationAppDataArray || []}
+          />
+          <Grid isMultiLine className="mt-5">
             <GridItem>
               <DeveloperTrafficChart
                 stats={appUsageStatsData}
