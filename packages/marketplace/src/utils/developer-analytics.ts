@@ -1,6 +1,6 @@
 import dayjs from 'dayjs'
 import orderBy from 'lodash.orderby'
-import { InstallationModelWithAppName } from '@/components/pages/analytics'
+import { InstallationModelWithAppName } from '@/components/ui/analytics/detailed/detailed-tab'
 
 export interface InstallationModelWithDateObject extends InstallationModelWithAppName {
   createdDate: Date

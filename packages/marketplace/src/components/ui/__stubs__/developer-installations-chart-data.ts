@@ -1,4 +1,4 @@
-import { InstallationModelWithAppName } from '@/components/pages/analytics'
+import { InstallationModelWithAppName } from '@/components/ui/analytics/detailed/detailed-tab'
 
 export const installedAppsStub: Array<InstallationModelWithAppName> = [
   {
