@@ -14,7 +14,6 @@ import {
   ChangesArray,
   SetUploadData,
   UploadData,
-  InvalidIndies,
 } from './types'
 import {
   getMaxRowAndCol,
@@ -24,6 +23,7 @@ import {
   convertDataToCsv,
   changedCellsGenerate,
   validatedDataGenerate,
+  createDataWithInvalidRowsRemoved,
 } from './utils'
 
 export const valueRenderer = (cell: Cell): string | null => cell.value
@@ -250,29 +250,10 @@ export const handleOnChangeInput = ({
         )
         return 'not validated'
       }
-      // remove all invalid rows
-      let dataWithInvalidRowsRemoved: Cell[][] = []
-      // store row, col, cell of invalid rows
-      let invalidIndies: InvalidIndies = []
-      const validateMatrix = validate(compatibleData)
-      // loop through, validate each cell
-      // if invalid cell, push into invalidIndies
-      // only push into dataWithInvalidRowsRemoved if all cells in that row are valid
-      slicedData.forEach((row, rowIndex) => {
-        let currentRowValid = true
-        const currentRow = [...row]
-        currentRow.forEach((cell, colIndex) => {
-          currentRow[colIndex] = { ...currentRow[colIndex], isValidated: validateMatrix[rowIndex][colIndex] }
-          if (!currentRow[colIndex].isValidated) {
-            invalidIndies.push({ row: rowIndex, col: colIndex, cell: currentRow[colIndex] })
-            currentRowValid = false
-            return
-          }
-        })
-        if (currentRowValid) {
-          dataWithInvalidRowsRemoved.push(currentRow)
-        }
-      })
+
+      const validateMatrix = validate(slicedData)
+
+      const { dataWithInvalidRowsRemoved, invalidIndies } = createDataWithInvalidRowsRemoved(slicedData, validateMatrix)
 
       setUploadData(
         setUploadDataCallback({

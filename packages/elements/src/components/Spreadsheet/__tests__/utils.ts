@@ -9,6 +9,7 @@ import {
   changedCellsGenerate,
   validatedDataGenerate,
   calculateNumberOfInvalidRows,
+  createDataWithInvalidRowsRemoved,
 } from '../utils'
 import fs from 'fs'
 import path from 'path'
@@ -164,5 +165,88 @@ describe('calculateNumberOfInvalidRows', () => {
     ]
     const result = calculateNumberOfInvalidRows(invalidIndies)
     expect(result).toBe(2)
+  })
+})
+describe('calculateNumberOfInvalidRows', () => {
+  it('should return correctly', () => {
+    const data = [
+      [
+        { value: 'Office name' },
+        { value: 'Building Name' },
+        { value: 'Building No.' },
+        { value: 'Address 1' },
+        { value: 'Address 2' },
+        { value: 'Address 3' },
+        { value: 'Address 4' },
+        { value: 'Post Code' },
+        { value: 'Telephone' },
+        { value: 'Fax' },
+        { value: 'Email' },
+      ],
+      [
+        { value: 'London' },
+        { value: 'The White House' },
+        { value: '15' },
+        { value: 'London 1' },
+        { value: '' },
+        { value: 'Londom 3' },
+        { value: '' },
+        { value: 'EC12NH' },
+        { value: '0845 0000' },
+        { value: '' },
+        { value: 'row1@gmail.com' },
+      ],
+      [
+        { value: 'London2' },
+        { value: 'The Black House' },
+        { value: '11' },
+        { value: 'Test Addres' },
+        { value: '' },
+        { value: 'Adress 3' },
+        { value: '' },
+        { value: 'EC12NH' },
+        { value: '087 471 929' },
+        { value: '' },
+        { value: 'row2@gmail.com' },
+      ],
+    ]
+    const validateMatrix = [
+      [true, true, true, true, true, true, true, true, true, true, false],
+      [true, true, true, true, true, true, true, true, true, true, true],
+      [true, true, true, true, true, true, true, true, true, true, true],
+    ]
+    const result = createDataWithInvalidRowsRemoved(data, validateMatrix)
+    const expectedResult = {
+      dataWithInvalidRowsRemoved: [
+        [
+          { value: 'London', isValidated: true },
+          { value: 'The White House', isValidated: true },
+          { value: '15', isValidated: true },
+          { value: 'London 1', isValidated: true },
+          { value: '', isValidated: true },
+          { value: 'Londom 3', isValidated: true },
+          { value: '', isValidated: true },
+          { value: 'EC12NH', isValidated: true },
+          { value: '0845 0000', isValidated: true },
+          { value: '', isValidated: true },
+          { value: 'row1@gmail.com', isValidated: true },
+        ],
+        [
+          { value: 'London2', isValidated: true },
+          { value: 'The Black House', isValidated: true },
+          { value: '11', isValidated: true },
+          { value: 'Test Addres', isValidated: true },
+          { value: '', isValidated: true },
+          { value: 'Adress 3', isValidated: true },
+          { value: '', isValidated: true },
+          { value: 'EC12NH', isValidated: true },
+          { value: '087 471 929', isValidated: true },
+          { value: '', isValidated: true },
+          { value: 'row2@gmail.com', isValidated: true },
+        ],
+      ],
+      invalidIndies: [{ row: 0, col: 10, cell: { value: 'Email', isValidated: false } }],
+    }
+    expect(result).toEqual(expectedResult)
   })
 })

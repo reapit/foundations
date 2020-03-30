@@ -116,3 +116,34 @@ export const calculateNumberOfInvalidRows = (invalidIndies: InvalidIndies): numb
   })
   return Object.keys(hashMap).length
 }
+
+/**
+ * Remove all rows which include at least one invalid row
+ */
+export const createDataWithInvalidRowsRemoved = (
+  data: Cell[][],
+  validateMatrix: boolean[][],
+): { dataWithInvalidRowsRemoved: Cell[][]; invalidIndies: InvalidIndies } => {
+  let dataWithInvalidRowsRemoved: Cell[][] = []
+  // store row, col, cell of invalid rows
+  let invalidIndies: InvalidIndies = []
+  // loop through, check validate each cell
+  // if invalid cell, push into invalidIndies
+  // only push into dataWithInvalidRowsRemoved if all cells in that row are valid
+  data.forEach((row, rowIndex) => {
+    let currentRowValid = true
+    const currentRow = [...row]
+    currentRow.forEach((cell, colIndex) => {
+      currentRow[colIndex] = { ...currentRow[colIndex], isValidated: validateMatrix[rowIndex][colIndex] }
+      if (!currentRow[colIndex].isValidated) {
+        invalidIndies.push({ row: rowIndex, col: colIndex, cell: currentRow[colIndex] })
+        currentRowValid = false
+        return
+      }
+    })
+    if (currentRowValid) {
+      dataWithInvalidRowsRemoved.push(currentRow)
+    }
+  })
+  return { dataWithInvalidRowsRemoved, invalidIndies }
+}

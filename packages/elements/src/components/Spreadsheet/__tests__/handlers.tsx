@@ -37,6 +37,7 @@ import {
   validatedDataGenerate,
   parseCsvFile,
   convertToCompatibleData,
+  createDataWithInvalidRowsRemoved,
 } from '../utils'
 
 const onDoubleClickDefault = jest.fn()
@@ -139,15 +140,18 @@ jest.mock('../utils', () => {
     unparseDataToCsvString: jest.fn().mockReturnValue('unparse data'),
     validatedDataGenerate: jest.fn().mockReturnValue('validated data'),
     changedCellsGenerate: jest.fn().mockReturnValue('changes'),
+    createDataWithInvalidRowsRemoved: jest.fn().mockReturnValue([...data[0], ...data[1]]),
   }
 })
 
-const validate = jest.fn(() => [
+const validateMatrix = [
   [true, true, true, true, true, true, true, true, true, true, true],
   [true, true, true, true, true, true, true, true, true, true, true],
   [true, true, true, true, true, true, true, true, true, true, false],
   [true, true, true, true, true, true, true, true, true, true, false],
-])
+]
+
+const validate = jest.fn(() => validateMatrix)
 
 afterEach(() => {
   jest.clearAllMocks()
@@ -490,6 +494,10 @@ describe('handleCellsChanged', () => {
 })
 
 describe('handleOnChangeInput', () => {
+  afterAll(() => {
+    ;(createDataWithInvalidRowsRemoved as jest.Mocked<any>).mockReturnValue([...data[0], ...data[1]])
+  })
+
   it('should return correctly when dont have validation function', async () => {
     const fn = handleOnChangeInput({ maxUploadRow: 1, setUploadData, validate: undefined })
     const eventMock: any = {
@@ -505,7 +513,7 @@ describe('handleOnChangeInput', () => {
   })
 
   it('should return correctly when have validation function', async () => {
-    const fn = handleOnChangeInput({ maxUploadRow: 30, setUploadData, validate })
+    const fn = handleOnChangeInput({ maxUploadRow: 3, setUploadData, validate })
     const eventMock: any = {
       target: {
         files: ['data'],
@@ -514,7 +522,8 @@ describe('handleOnChangeInput', () => {
     const result = await fn(eventMock)
     expect(parseCsvFile).toHaveBeenCalledWith('data')
     expect(convertToCompatibleData).toHaveBeenCalledWith(parseResult)
-    expect(validate).toHaveBeenCalledWith(data)
+    expect(validate).toHaveBeenCalledWith(data.slice(0, 3))
+    expect(createDataWithInvalidRowsRemoved).toHaveBeenCalledWith(data.slice(0, 3), validateMatrix)
     expect(setUploadData).toHaveBeenCalled()
     expect(result).toBe('validated')
   })
@@ -531,6 +540,9 @@ describe('handleOnChangeInput', () => {
   })
 
   it('should return correctly when error', async () => {
+    ;(createDataWithInvalidRowsRemoved as jest.Mocked<any>).mockImplementation(() => {
+      throw new Error('error1')
+    })
     const fn = handleOnChangeInput({ maxUploadRow: 30, setUploadData, validate: () => [[true]] })
     const eventMock: any = {
       target: {
