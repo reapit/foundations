@@ -12,6 +12,7 @@
   let propertyImages
   let selectedProperty
   let searchType
+  let theme
 
   const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
     selectedMarker = store.selectedMarker
@@ -19,6 +20,7 @@
     propertyImages = store.propertyImages
     selectedProperty = store.selectedProperty
     searchType = store.searchType
+    theme = store.initializers.theme
   })
 
   const handleMarkerClick = event => {
@@ -39,7 +41,7 @@
 
   onMount(async () => {
     if (!window.google) {
-      map = await loadMap(mapElement)
+      map = await loadMap(mapElement, theme)
     }
   })
 
@@ -58,23 +60,29 @@
 </script>
 
 <style>
-  .map-wrap {
-    height: 100%;
+  .map-container {
     width: 100%;
+    height: 600px;
+  }
+
+  .map-outer-container {
+    padding: 1em;
   }
 </style>
 
-<div class="map-wrap" bind:this={mapElement}>
-  {#if properties.length > 0 && selectedMarker}
-    <WindowInfo
-      on:windowInfoClick={handleCloseWindowInfo}
-      {propertyImages}
-      {selectedProperty}
-      {selectedMarker}
-      {searchType}
-      {map} />
-  {/if}
-  {#each properties as property (property.id)}
-    <Marker on:markerClick={handleMarkerClick} {map} {property} />
-  {/each}
+<div class="map-outer-container">
+  <div class="map-container" bind:this={mapElement}>
+    {#if properties.length > 0 && selectedMarker}
+      <WindowInfo
+        on:windowInfoClick={handleCloseWindowInfo}
+        {propertyImages}
+        {selectedProperty}
+        {selectedMarker}
+        {searchType}
+        {map} />
+    {/if}
+    {#each properties as property (property.id)}
+      <Marker on:markerClick={handleMarkerClick} {map} {property} />
+    {/each}
+  </div>
 </div>

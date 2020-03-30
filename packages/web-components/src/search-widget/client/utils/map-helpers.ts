@@ -1,6 +1,7 @@
 import { PropertyModel, PropertyImageModel } from '@reapit/foundations-ts-definitions'
 import { INVALID_BACKGROUND_AS_BASE64, DEFAULT_CENTER, DEFAULT_ZOOM } from '../../../common/utils/constants'
 import { loader } from '../../../common/utils/loader'
+import { generateMapStyles, InitializerTheme } from '../../../common/styles/theme'
 
 export const getLatLng = (property: PropertyModel) => {
   const latitude = property?.address?.geolocation?.latitude ?? DEFAULT_CENTER.lat
@@ -75,12 +76,13 @@ export const fitMapToBounds = (properties: PropertyModel[], map: google.maps.Map
   map.fitBounds(bounds)
 }
 
-export const loadMap = (mapElement: HTMLDivElement): Promise<unknown> => {
+export const loadMap = (mapElement: HTMLDivElement, theme: Partial<InitializerTheme>): Promise<unknown> => {
   return new Promise((resolve, reject) => {
     const getMap = () => {
       const map = new google.maps.Map(mapElement, {
         center: DEFAULT_CENTER,
         zoom: DEFAULT_ZOOM,
+        styles: generateMapStyles(theme) as any,
       })
       if (map) {
         return resolve(map)

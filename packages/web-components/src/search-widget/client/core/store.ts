@@ -15,7 +15,17 @@ export interface SearchWidgetStore {
 const searchWidgetStore: Writable<SearchWidgetStore> = writable({
   initializers: {
     apiKey: '',
-    theme: {},
+    theme: {
+      globalStyles: '',
+      primaryHeading: '',
+      secondaryHeading: '',
+      primaryStrapline: '',
+      secondaryStrapline: '',
+      selectedItem: '',
+      bodyText: '',
+      button: '',
+      input: '',
+    },
   },
   properties: null,
   propertyImages: null,

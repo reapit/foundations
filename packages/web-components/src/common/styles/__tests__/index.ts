@@ -5,9 +5,9 @@ describe('styles', () => {
     expect(Styles.resetCSS).toMatchSnapshot()
   })
 
-  it('should generate a global CSS theme', () => {
+  it('should generate an object of CSS classes', () => {
     expect(
-      Styles.generateGlobalTheme({
+      Styles.generateThemeStyles({
         baseBackgroundColor: 'white',
       }),
     ).toMatchSnapshot()

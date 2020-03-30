@@ -11,11 +11,23 @@
   let selectedProperty
   let searchType
   let propertyImages
+  let bodyText
+  let primaryHeading
+  let secondaryHeading
+  let primaryStrapline
+  let secondaryStrapline
+  let selectedItem
 
   const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
     selectedProperty = store.selectedProperty
     searchType = store.searchType
     propertyImages = store.propertyImages
+    primaryHeading = store.initializers.theme.primaryHeading
+    secondaryHeading = store.initializers.theme.secondaryHeading
+    primaryStrapline = store.initializers.theme.primaryStrapline
+    secondaryStrapline = store.initializers.theme.secondaryStrapline
+    bodyText = store.initializers.theme.bodyText
+    selectedItem = store.initializers.theme.selectedItem
   })
 
   const id = (property && property.id) || ''
@@ -47,25 +59,41 @@
 
 <style>
   .result-item {
+    box-sizing: border-box;
     cursor: pointer;
+    padding: 1em;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 1200px) {
+    .result-item {
+      width: 25%;
+    }
+  }
+
+  @media screen and (min-width: 960px) and (max-width: 1199px) {
+    .result-item {
+      width: 33.333333%;
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 959px) {
+    .result-item {
+      width: 50%;
+    }
+  }
+
+  .result-item img {
+    width: 100%;
+    height: 12em;
   }
 
   .result-image-container {
-    border: 0px solid grey;
-    margin-top: 0px;
     width: 100%;
-    border-radius: 5px;
+    border-radius: 0.3em;
     position: relative;
     overflow: hidden;
-  }
-
-  .result-image-container > img {
-    width: 100%;
-    height: auto;
-  }
-
-  .result-image-container.selected {
-    border-width: 2px;
+    margin-bottom: 0.5em;
   }
 
   .result-offer-flag {
@@ -77,43 +105,29 @@
     top: 30px;
     right: -60px;
     transform: rotate(45deg);
-    font-size: 1rem;
     font-weight: 600;
     color: #fff;
-  }
-
-  .result-item-address-primary {
-    font-size: 18px;
-    font-weight: bold;
-    margin-right: 5px;
   }
 
   .result-item-address-secondary {
     hyphens: auto;
     display: contents;
-    color: grey;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    height: 65px;
-    line-height: 22px;
-    font-size: 18px;
+    height: 3.6em;
+    line-height: 1.2em;
   }
 
   .result-item-pricing-text {
-    color: grey;
-    font-size: 24px;
-    font-weight: bold;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
   }
 
   .result-item-beds-text {
-    font-weight: bold;
-    font-size: 18px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -126,28 +140,26 @@
     max-width: 700px;
     overflow: hidden;
     text-overflow: ellipsis;
-    height: 130px;
-    font-size: 16px;
-    line-height: 22px;
+    height: 8.1em;
+    line-height: 1.2em;
   }
 
   .result-item-icon-container {
-    color: grey;
     display: flex;
     align-items: center;
   }
 
   .result-item-icon {
-    margin-right: 0.3rem;
+    margin-right: 0.33em;
   }
 
   .result-item-icon:last-child {
-    margin-left: 1rem;
+    margin-left: 1em;
   }
 </style>
 
 <div class="result-item" data-testid="select-property" on:click|preventDefault={selectProperty}>
-  <div class="result-image-container {isSelectedProperty ? 'selected' : ''}">
+  <div class="result-image-container {isSelectedProperty ? selectedItem : ''}">
     {#if sellingStatus === 'underOffer'}
       <div class="result-offer-flag">Under Offer</div>
     {/if}
@@ -157,15 +169,17 @@
     <img alt="property image" src={imageUrl} on:error={handleImageError} />
   </div>
   <div>
-    <div class="result-item-address-secondary">
-      <div class="result-item-address-primary">{(property.address && property.address.line1) || ''}</div>
+    <div class={`${secondaryStrapline} result-item-address-secondary`}>
+      <div class={`${secondaryHeading} result-item-address-primary`}>
+        {(property.address && property.address.line1) || ''}
+      </div>
       {combineAddress(property.address)}
     </div>
   </div>
-  <div class="result-item-pricing-text">{getPrice(property, searchType)}</div>
-  <div class="result-item-beds-text">{combineNumberBedTypeStyle(property)}</div>
-  <div class="result-item-description-text">{property.description}</div>
-  <div class="result-item-icon-container">
+  <div class={`${primaryHeading} result-item-pricing-text`}>{getPrice(property, searchType)}</div>
+  <div class={`${secondaryStrapline} result-item-beds-text`}>{combineNumberBedTypeStyle(property)}</div>
+  <div class={`${bodyText} result-item-description-text`}>{property.description}</div>
+  <div class={`${secondaryHeading} result-item-icon-container`}>
     <span class="result-item-icon">
       <Fa icon={faBed} />
     </span>

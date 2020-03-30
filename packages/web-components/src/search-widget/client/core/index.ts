@@ -1,8 +1,8 @@
 import SearchWidget from '../components/search-widget.svelte'
-import { InitializerTheme } from '../../../common/styles/index'
+import { ThemeStyles } from '../../../common/styles/index'
 
 export interface SearchWidgeInitializers {
-  theme: InitializerTheme
+  theme: ThemeStyles
   apiKey: string
   target?: HTMLElement
 }

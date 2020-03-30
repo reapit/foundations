@@ -1,14 +1,18 @@
 <script>
-  import { onDestroy } from 'svelte'
+  import { onDestroy, onMount } from 'svelte'
   import { getProperties } from '../api/properties'
   import { getPropertyImages } from '../api/property-images'
   import searchWidgetStore from '../core/store'
 
   let inputValue = ''
   let apiKey = ''
+  let button = ''
+  let input = ''
 
   const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
     apiKey = store.initializers.apiKey
+    button = store.initializers.theme.button
+    input = store.initializers.theme.input
   })
 
   const handleInput = ({ target }) => {
@@ -44,23 +48,63 @@
     }
   }
 
+  onMount(() => {
+    inputValue = 'london'
+
+    handleFetchProperties(false)
+  })
+
   onDestroy(() => {
     unsubscribeSearchWidgetStore()
   })
 </script>
 
 <style>
-  form.search-form {
-    margin: 30px auto;
+  .search-form {
+    width: 20em;
+    margin: 1em auto;
+    display: flex;
+    flex-direction: column;
   }
+
+  .search-button-container {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .search-button {
+    padding: 0.5em;
+    transition: all 0.2s ease-in-out;
+    width: 50%;
+  }
+
+  .search-input {
+    padding: 0.5em;
+    margin-bottom: 1em;
+  }
+
+  .search-button:focus, .search-input:focus {
+    outline: none;
+  }
+
 </style>
 
 <form class="search-form" on:submit|preventDefault on:input|preventDefault={handleInput}>
-  <input type="text" data-testid="search-input" id="search" />
-  <button on:click|preventDefault={() => handleFetchProperties(true)} data-testid="lettings" type="button">
-    For rent
-  </button>
-  <button on:click|preventDefault={() => handleFetchProperties(false)} data-testid="sales" type="button">
-    For sale
-  </button>
+  <input class={`${input} search-input`} type="text" data-testid="search-input" id="search" placeholder="Town or Postcode" />
+  <div class="search-button-container">
+    <button
+      class={`${button} search-button`}
+      on:click|preventDefault={() => handleFetchProperties(true)}
+      data-testid="lettings"
+      type="button">
+      TO RENT
+    </button>
+    <button
+      class={`${button} search-button`}
+      on:click|preventDefault={() => handleFetchProperties(false)}
+      data-testid="sales"
+      type="button">
+      FOR SALE
+    </button>
+  </div>
 </form>
