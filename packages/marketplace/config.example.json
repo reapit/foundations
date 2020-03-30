@@ -9,5 +9,6 @@
   "cognitoClientId": "",
   "googleAnalyticsKey": "",
   "cognitoOAuthUrl": "",
-  "cognitoUserPoolId": ""
+  "cognitoUserPoolId": "",
+  "marketplaceUrl": ""
 }
