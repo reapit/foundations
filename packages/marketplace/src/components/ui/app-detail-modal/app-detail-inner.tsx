@@ -55,13 +55,15 @@ export const handleCloseModal = (
   installationsSetFormState: (formState: FormState) => void,
   afterClose?: () => void,
 ) => () => {
-  const dynamicLinkParams = {
-    appMode: loginMode,
-    entityType: EntityType.APPS,
-    entityCode: 'refresh',
-  } as DynamicLinkParams
+  if (loginMode === 'DESKTOP') {
+    const dynamicLinkParams = {
+      appMode: loginMode,
+      entityType: EntityType.APPS,
+      entityCode: 'refresh',
+    } as DynamicLinkParams
 
-  navigateDynamicApp(dynamicLinkParams, window)
+    navigateDynamicApp(dynamicLinkParams, window, window.reapit.config.marketplaceUrl)
+  }
 
   afterClose && afterClose()
   installationsSetFormState('DONE')

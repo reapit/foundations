@@ -5,6 +5,8 @@ import toJson from 'enzyme-to-json'
 import { dynamicLinkScenarios } from '../dynamic-links.stories'
 import { getDynamicLink } from '../dynamic-link-gen'
 
+const postMessageOrigin = process.env.MARKETPLACE_URL
+
 describe('AcButton AcLink', () => {
   const mockWindow = ({
     postMessage: jest.fn(),
@@ -65,7 +67,7 @@ describe('AcButton AcLink', () => {
         component.simulate('click', { preventDefault: jest.fn() })
         expect(mockWindow.postMessage).toHaveBeenLastCalledWith(
           { dynamicLink: scenario.expectedLink },
-          'https://dev.reapit.marketplace.com',
+          postMessageOrigin,
         )
       }
     })
@@ -80,7 +82,7 @@ describe('AcButton AcLink', () => {
       if (scenario.expectedLink) {
         expect(mockWindow.postMessage).toHaveBeenLastCalledWith(
           { dynamicLink: scenario.expectedLink },
-          'https://dev.reapit.marketplace.com',
+          postMessageOrigin,
         )
       }
     })
