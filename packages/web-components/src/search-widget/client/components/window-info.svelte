@@ -10,11 +10,12 @@
   export let selectedProperty
   export let searchType
   export let map
+  export let themeClasses
 
   let windowInfo
 
   onMount(() => {
-    windowInfo = getInfoWindow(selectedProperty, searchType, propertyImages)
+    windowInfo = getInfoWindow(selectedProperty, searchType, propertyImages, themeClasses)
 
     google.maps.event.addListener(windowInfo, 'closeclick', () => {
       dispatch('windowInfoClick')
@@ -26,7 +27,7 @@
   afterUpdate(() => {
     windowInfo.close()
 
-    windowInfo = getInfoWindow(selectedProperty, searchType, propertyImages)
+    windowInfo = getInfoWindow(selectedProperty, searchType, propertyImages, themeClasses)
 
     google.maps.event.addListener(windowInfo, 'closeclick', () => {
       dispatch('windowInfoClick')

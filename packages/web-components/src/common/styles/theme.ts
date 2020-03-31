@@ -13,9 +13,15 @@ export interface InitializerTheme {
   primaryAccentColor: string
   secondaryAccentColor: string
   mapAccentColor: string
+  breakPoints: {
+    mobile: string
+    tablet: string
+    laptop: string
+    desktop: string
+  }
 }
 
-export interface ThemeStyles {
+export interface ThemeClasses {
   globalStyles: string
   primaryHeading: string
   secondaryHeading: string
@@ -25,21 +31,27 @@ export interface ThemeStyles {
   bodyText: string
   button: string
   input: string
+  resultItem: string
+  searchBox: string
 }
 
-export const generateThemeStyles = ({
-  baseBackgroundColor,
-  basefontSize,
-  basefontColor,
-  inverseFontColor,
-  baseFontFamily,
-  primaryHeadingFontSize,
-  secondaryHeadingFontSize,
-  headingFontFamily,
-  primaryAccentColor,
-  secondaryfontColor,
-  secondaryAccentColor,
-}: Partial<InitializerTheme>): ThemeStyles => ({
+export const generateThemeClasses = (
+  {
+    baseBackgroundColor,
+    basefontSize,
+    basefontColor,
+    inverseFontColor,
+    baseFontFamily,
+    primaryHeadingFontSize,
+    secondaryHeadingFontSize,
+    headingFontFamily,
+    primaryAccentColor,
+    secondaryfontColor,
+    secondaryAccentColor,
+    breakPoints,
+  }: Partial<InitializerTheme>,
+  target: string,
+): ThemeClasses => ({
   globalStyles: css`
     font-size: ${basefontSize || '16px'};
     font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'};
@@ -47,61 +59,120 @@ export const generateThemeStyles = ({
     color: ${basefontColor || '#000'};
   `,
   primaryHeading: css`
-    font-family: ${headingFontFamily || 'Helvetica, Arial, sans-serif'} !important;
-    font-size: ${primaryHeadingFontSize || '22px'} !important;
-    font-weight: bold !important;
-    color: ${primaryAccentColor || basefontColor || '#000'} !important;
-    margin-bottom: 0.1em !important;
+    ${target || 'body'} & {
+      font-family: ${headingFontFamily || 'Helvetica, Arial, sans-serif'};
+      font-size: ${primaryHeadingFontSize || '22px'};
+      font-weight: bold;
+      color: ${primaryAccentColor || basefontColor || '#000'};
+      margin-bottom: 0.1em;
+    }
   `,
   secondaryHeading: css`
-    font-family: ${headingFontFamily || 'Helvetica, Arial, sans-serif'} !important;
-    font-size: ${secondaryHeadingFontSize || '18px'} !important;
-    font-weight: bold !important;
-    color: ${secondaryAccentColor || basefontColor || '#000'} !important;
-    margin-bottom: 0.1em !important;
+    ${target || 'body'} & {
+      font-family: ${headingFontFamily || 'Helvetica, Arial, sans-serif'};
+      font-size: ${secondaryHeadingFontSize || '18px'};
+      font-weight: bold;
+      color: ${secondaryAccentColor || basefontColor || '#000'};
+      margin-bottom: 0.1em;
+    }
   `,
   primaryStrapline: css`
-    font-family: ${headingFontFamily || 'Helvetica, Arial, sans-serif'} !important;
-    font-size: ${secondaryHeadingFontSize || '18px'} !important;
-    font-weight: bold !important;
-    color: ${secondaryfontColor || basefontColor || 'grey'} !important;
-    margin-bottom: 0.5em !important;
+    ${target || 'body'} & {
+      font-family: ${headingFontFamily || 'Helvetica, Arial, sans-serif'};
+      font-size: ${secondaryHeadingFontSize || '18px'};
+      font-weight: bold;
+      color: ${secondaryfontColor || basefontColor || 'grey'};
+      margin-bottom: 0.5em;
+    }
   `,
   secondaryStrapline: css`
-    font-family: ${headingFontFamily || 'Helvetica, Arial, sans-serif'} !important;
-    font-size: ${basefontSize || '16px'} !important;
-    font-weight: bold !important;
-    color: ${secondaryfontColor || basefontColor || 'grey'} !important;
-    margin-bottom: 0.5em !important;
+    ${target || 'body'} & {
+      font-family: ${headingFontFamily || 'Helvetica, Arial, sans-serif'};
+      font-size: ${basefontSize || '16px'};
+      font-weight: bold;
+      color: ${secondaryfontColor || basefontColor || 'grey'};
+      margin-bottom: 0.5em;
+    }
   `,
   selectedItem: css`
-    border: 1px solid ${primaryAccentColor || 'grey'} !important; 
+    ${target || 'body'} & {
+      border-color: ${primaryAccentColor || 'grey'};
+    }
   `,
   bodyText: css`
-    font-size: ${basefontSize || '16px'} !important;
-    font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'} !important;
-    margin-bottom: 1em !important;
+    ${target || 'body'} & {
+      font-size: ${basefontSize || '16px'};
+      font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'};
+      margin-bottom: 1em;
+    }
   `,
   button: css`
-    font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'} !important;
-    font-size: ${secondaryHeadingFontSize || '18px'} !important;
-    color: ${primaryAccentColor || '#000'} !important;
-    border: 1px solid ${primaryAccentColor || 'grey'} !important;
-    background: ${baseBackgroundColor || '#fff'} !important;
+    ${target || 'body'} & {
+      font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'};
+      font-size: ${secondaryHeadingFontSize || '18px'};
+      color: ${primaryAccentColor || '#000'};
+      border: 1px solid ${primaryAccentColor || 'grey'};
+      background: ${baseBackgroundColor || '#fff'};
 
-    &:hover {
-      background: ${primaryAccentColor || 'grey'} !important;
-      color: ${inverseFontColor || '#fff'} !important;
-    }
+      &:hover {
+        background: ${primaryAccentColor || 'grey'};
+        color: ${inverseFontColor || '#fff'};
+      }
 
-    :last-child {
-      border-left: none !important;
+      :last-child {
+        border-left: none;
+      }
     }
   `,
   input: css`
-    font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'} !important;
-    font-size: ${secondaryHeadingFontSize || '18px'} !important;
-    border: 1px solid ${primaryAccentColor || 'grey'} !important;
+    ${target || 'body'} & {
+      font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'};
+      font-size: ${secondaryHeadingFontSize || '18px'};
+      border: 1px solid ${primaryAccentColor || 'grey'};
+    }
+  `,
+  resultItem: css`
+    ${target || 'body'} & {
+      width: 100%;
+
+      @media screen and (min-width: ${breakPoints?.desktop || '1200px'}) {
+        & {
+          width: 25%;
+        }
+      }
+
+      @media screen and (min-width: ${breakPoints?.laptop || '960px'}) and (max-width: ${breakPoints?.desktop ||
+          '1200px'}) {
+        & {
+          width: 33.333333%;
+        }
+      }
+
+      @media screen and (min-width: ${breakPoints?.tablet || '768px'}) and (max-width: ${breakPoints?.laptop ||
+          '960px'}) {
+        & {
+          width: 50%;
+        }
+      }
+    }
+  `,
+  searchBox: css`
+    ${target || 'body'} & {
+      width: 100%;
+
+      @media screen and (min-width: ${breakPoints?.laptop || '960px'}) {
+        & {
+          width: 33.333333%;
+        }
+      }
+
+      @media screen and (min-width: ${breakPoints?.mobile || '560px'}) and (max-width: ${breakPoints?.laptop ||
+          '960px'}) {
+        & {
+          width: 50%;
+        }
+      }
+    }
   `,
 })
 

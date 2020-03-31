@@ -6,6 +6,12 @@
 
     <title>Web Components</title>
     <link rel="stylesheet" href="./dist/search-widget.css" />
+    <style>
+      #search-widget {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+    </style>
   </head>
 
   <body>
@@ -18,7 +24,7 @@
             baseBackgroundColor: 'white',
           },
           apiKey: '',
-          target: document.getElementById('search-widget'),
+          target: '#search-widget',
         })
     </script>
   </body>

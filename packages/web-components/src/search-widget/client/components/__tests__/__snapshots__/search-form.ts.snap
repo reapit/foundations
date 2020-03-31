@@ -4,51 +4,53 @@ exports[`search-form it matches a snapshot 1`] = `
 <body>
   <div>
     <div
-      class="css-h4w50h svelte-10ns1kb"
+      class="css-h4w50h css-zv1dn4 search-widget svelte-1n9j2id"
     >
+      <form
+        class="search-form svelte-1w3uy45"
+      >
+        <input
+          class="css-1g0ct8n search-input svelte-1w3uy45"
+          data-testid="search-input"
+          id="search"
+          placeholder="Town or Postcode"
+          type="text"
+        />
+         
+        <div
+          class="search-button-container svelte-1w3uy45"
+        >
+          <button
+            class="css-bsrhk search-button svelte-1w3uy45"
+            data-testid="lettings"
+            type="button"
+          >
+            TO RENT
+          </button>
+           
+          <button
+            class="css-bsrhk search-button svelte-1w3uy45"
+            data-testid="sales"
+            type="button"
+          >
+            FOR SALE
+          </button>
+        </div>
+      </form>
+       
       <div
-        class="css-yau5c8 svelte-10ns1kb"
+        class="search-results-items svelte-1n9j2id"
+      >
+         
+      </div>
+       
+      <div
+        class="map-outer-container svelte-a3dv4p"
       >
         <div
-          class="content svelte-10ns1kb"
+          class="map-container svelte-a3dv4p"
         >
-          <form
-            class="search-form svelte-1l6qfbr"
-          >
-            <input
-              data-testid="search-input"
-              id="search"
-              type="text"
-            />
-             
-            <button
-              data-testid="lettings"
-              type="button"
-            >
-              For rent
-            </button>
-             
-            <button
-              data-testid="sales"
-              type="button"
-            >
-              For sale
-            </button>
-          </form>
            
-          <div
-            class="search-results-items svelte-10ns1kb"
-          />
-           
-          <div
-            class="map-wrap svelte-10ns1kb"
-          >
-            <div
-              class="map-wrap svelte-1nt7ax3"
-            >
-               
-            </div>
-          </div>
         </div>
       </div>
     </div>

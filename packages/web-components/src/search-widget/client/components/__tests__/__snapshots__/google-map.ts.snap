@@ -4,9 +4,13 @@ exports[`google map it matches a snapshot 1`] = `
 <body>
   <div>
     <div
-      class="map-wrap svelte-1nt7ax3"
+      class="map-outer-container svelte-a3dv4p"
     >
-       
+      <div
+        class="map-container svelte-a3dv4p"
+      >
+         
+      </div>
     </div>
   </div>
 </body>

@@ -11,32 +11,32 @@
   let selectedProperty
   let searchType
   let propertyImages
-  let bodyText
-  let primaryHeading
-  let secondaryHeading
-  let primaryStrapline
-  let secondaryStrapline
-  let selectedItem
+  let themeClasses = {}
 
   const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
     selectedProperty = store.selectedProperty
     searchType = store.searchType
     propertyImages = store.propertyImages
-    primaryHeading = store.initializers.theme.primaryHeading
-    secondaryHeading = store.initializers.theme.secondaryHeading
-    primaryStrapline = store.initializers.theme.primaryStrapline
-    secondaryStrapline = store.initializers.theme.secondaryStrapline
-    bodyText = store.initializers.theme.bodyText
-    selectedItem = store.initializers.theme.selectedItem
+    themeClasses = store.themeClasses
   })
+
+  const {
+    primaryHeading,
+    secondaryHeading,
+    primaryStrapline,
+    secondaryStrapline,
+    bodyText,
+    selectedItem,
+    resultItem,
+  } = themeClasses
 
   const id = (property && property.id) || ''
   const propertyImage = propertyImages && propertyImages[id]
   const imageUrl = (propertyImage && propertyImage.url) || INVALID_BACKGROUND_AS_BASE64
   const sellingStatus = (property.selling && property.selling.status) || ''
   const lettingStatus = (property.letting && property.letting.status) || ''
-  const selectedPropertyId = (selectedProperty && selectedProperty.id) || ''
-  const isSelectedProperty = property.id === selectedPropertyId
+
+  $: isSelectedProperty = property.id === (selectedProperty && selectedProperty.id) || ''
 
   const selectProperty = () => {
     searchWidgetStore.update(store => ({
@@ -61,26 +61,9 @@
   .result-item {
     box-sizing: border-box;
     cursor: pointer;
-    padding: 1em;
-    width: 100%;
-  }
-
-  @media screen and (min-width: 1200px) {
-    .result-item {
-      width: 25%;
-    }
-  }
-
-  @media screen and (min-width: 960px) and (max-width: 1199px) {
-    .result-item {
-      width: 33.333333%;
-    }
-  }
-
-  @media screen and (min-width: 768px) and (max-width: 959px) {
-    .result-item {
-      width: 50%;
-    }
+    padding: 0.5em;
+    border: 1px solid transparent;
+    border-radius: 0.3em;
   }
 
   .result-item img {
@@ -140,7 +123,7 @@
     max-width: 700px;
     overflow: hidden;
     text-overflow: ellipsis;
-    height: 8.1em;
+    height: 7em;
     line-height: 1.2em;
   }
 
@@ -158,8 +141,11 @@
   }
 </style>
 
-<div class="result-item" data-testid="select-property" on:click|preventDefault={selectProperty}>
-  <div class="result-image-container {isSelectedProperty ? selectedItem : ''}">
+<div
+  class={`result-item ${resultItem} ${isSelectedProperty ? selectedItem : ''}`}
+  data-testid="select-property"
+  on:click|preventDefault={selectProperty}>
+  <div class="result-image-container">
     {#if sellingStatus === 'underOffer'}
       <div class="result-offer-flag">Under Offer</div>
     {/if}

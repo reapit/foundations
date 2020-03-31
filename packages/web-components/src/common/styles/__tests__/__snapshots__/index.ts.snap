@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`styles should generate a global CSS theme 1`] = `"css-gnah7l"`;
-
 exports[`styles should generate a reset css class 1`] = `"css-h4w50h"`;
+
+exports[`styles should generate an object of CSS classes 1`] = `
+Object {
+  "bodyText": "css-633wxo",
+  "button": "css-1xe5r5h",
+  "globalStyles": "css-baggir",
+  "input": "css-1g0ct8n",
+  "primaryHeading": "css-1jaj6be",
+  "primaryStrapline": "css-1ladwwl",
+  "secondaryHeading": "css-1qiupp1",
+  "secondaryStrapline": "css-ozm3od",
+  "selectedItem": "css-11q0vrl",
+}
+`;

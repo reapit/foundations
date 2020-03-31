@@ -1,19 +1,20 @@
 <script>
-  import { onDestroy, onMount } from 'svelte'
+  import { onDestroy } from 'svelte'
   import { getProperties } from '../api/properties'
   import { getPropertyImages } from '../api/property-images'
   import searchWidgetStore from '../core/store'
 
   let inputValue = ''
   let apiKey = ''
-  let button = ''
-  let input = ''
+  let themeClasses = {}
 
   const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
-    apiKey = store.initializers.apiKey
-    button = store.initializers.theme.button
-    input = store.initializers.theme.input
+    themeClasses = store.themeClasses
   })
+
+  $: input = themeClasses.input
+  $: button = themeClasses.button
+  $: searchBox = themeClasses.searchBox
 
   const handleInput = ({ target }) => {
     inputValue = target.value
@@ -26,6 +27,10 @@
   const handleFetchProperties = async isRental => {
     searchWidgetStore.update(values => ({
       ...values,
+      isLoading: true,
+      resultsMessage: '',
+      properties: null,
+      propertyImages: null,
       searchType: isRental ? 'Rent' : 'Sale',
     }))
 
@@ -34,8 +39,13 @@
     const propertyImages = await getPropertyImages(properties._embedded, apiKey)
 
     if (properties) {
+      const numberResults = (properties._embedded && properties._embedded.length) || 0
       searchWidgetStore.update(values => ({
         ...values,
+        isLoading: false,
+        resultsMessage: `${numberResults} result${numberResults === 1 ? '' : 's'} for ${inputValue}, for ${
+          isRental ? 'rent' : 'sale'
+        }`,
         properties,
       }))
     }
@@ -48,12 +58,6 @@
     }
   }
 
-  onMount(() => {
-    inputValue = 'london'
-
-    handleFetchProperties(false)
-  })
-
   onDestroy(() => {
     unsubscribeSearchWidgetStore()
   })
@@ -61,7 +65,6 @@
 
 <style>
   .search-form {
-    width: 20em;
     margin: 1em auto;
     display: flex;
     flex-direction: column;
@@ -83,14 +86,19 @@
     margin-bottom: 1em;
   }
 
-  .search-button:focus, .search-input:focus {
+  .search-button:focus,
+  .search-input:focus {
     outline: none;
   }
-
 </style>
 
-<form class="search-form" on:submit|preventDefault on:input|preventDefault={handleInput}>
-  <input class={`${input} search-input`} type="text" data-testid="search-input" id="search" placeholder="Town or Postcode" />
+<form class={`search-form ${searchBox}`} on:submit|preventDefault on:input|preventDefault={handleInput}>
+  <input
+    class={`${input} search-input`}
+    type="text"
+    data-testid="search-input"
+    id="search"
+    placeholder="Town or Postcode" />
   <div class="search-button-container">
     <button
       class={`${button} search-button`}

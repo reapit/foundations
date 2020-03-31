@@ -10,9 +10,9 @@
   let selectedMarker
   let properties = []
   let propertyImages
-  let selectedProperty
   let searchType
-  let theme
+  let themeClasses
+  let selectedProperty
 
   const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
     selectedMarker = store.selectedMarker
@@ -20,11 +20,12 @@
     propertyImages = store.propertyImages
     selectedProperty = store.selectedProperty
     searchType = store.searchType
-    theme = store.initializers.theme
+    themeClasses = store.themeClasses
   })
 
   const handleMarkerClick = event => {
     const { selectedProperty, selectedMarker } = event.detail
+
     searchWidgetStore.update(store => ({
       ...store,
       selectedProperty,
@@ -41,7 +42,7 @@
 
   onMount(async () => {
     if (!window.google) {
-      map = await loadMap(mapElement, theme)
+      map = await loadMap(mapElement, themeClasses)
     }
   })
 
@@ -66,19 +67,20 @@
   }
 
   .map-outer-container {
-    padding: 1em;
+    padding: 0.5em;
   }
 </style>
 
 <div class="map-outer-container">
   <div class="map-container" bind:this={mapElement}>
-    {#if properties.length > 0 && selectedMarker}
+    {#if properties.length > 0 && selectedProperty}
       <WindowInfo
         on:windowInfoClick={handleCloseWindowInfo}
         {propertyImages}
         {selectedProperty}
         {selectedMarker}
         {searchType}
+        {themeClasses}
         {map} />
     {/if}
     {#each properties as property (property.id)}
