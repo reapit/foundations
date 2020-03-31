@@ -6,7 +6,7 @@ import AppDetail from '@/components/ui/app-detail'
 import AppInstallConfirm from '@/components/ui/app-confirm-install'
 import AppUninstallConfirm from '@/components/ui/app-confirm-uninstall'
 import CallToAction from '../call-to-action'
-import { Button, EntityType, navigateDynamicApp, DynamicLinkParams } from '@reapit/elements'
+import { Button } from '@reapit/elements'
 import {
   setAppDetailModalStateBrowse,
   setAppDetailModalStateUninstall,
@@ -17,6 +17,7 @@ import { AppDetailModel } from '@/types/marketplace-api-schema'
 import styles from '@/styles/blocks/app-detail.scss?mod'
 import { FaCheck } from 'react-icons/fa'
 import { LoginMode } from '@reapit/cognito-auth'
+import { DESKTOP_REFRESH_URL } from '@/constants/desktop-urls'
 
 export interface AppDetailInnerMappedProps {
   appDetailModalState: AppDetailModalState
@@ -56,13 +57,7 @@ export const handleCloseModal = (
   afterClose?: () => void,
 ) => () => {
   if (loginMode === 'DESKTOP') {
-    const dynamicLinkParams = {
-      appMode: loginMode,
-      entityType: EntityType.APPS,
-      entityCode: 'refresh',
-    } as DynamicLinkParams
-
-    navigateDynamicApp(dynamicLinkParams, window, window.reapit.config.marketplaceUrl)
+    window.location.href = DESKTOP_REFRESH_URL
   }
 
   afterClose && afterClose()
