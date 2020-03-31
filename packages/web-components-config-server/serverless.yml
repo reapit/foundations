@@ -1,4 +1,4 @@
-service: graphql-server
+service: web-components-config-server
 plugins:
   - serverless-webpack
 custom:
@@ -18,7 +18,7 @@ provider:
   stage: ${opt:stage, 'dev'}
   region: eu-west-2
   deploymentBucket:
-    name: graphql-server.${self:provider.stage}
+    name: web-components-config-server.${self:provider.stage}
     blockPublicAccess: false
   environment:
     NODE_ENV: 'production'
@@ -43,14 +43,26 @@ package:
     - yml-helpers.js
 
 functions:
-  graphqlHandler:
-    handler: src/index.graphqlHandler
+  webComponentsConfigServer:
+    handler: src/index.webComponentsConfigServer
     events:
       - http:
-          path: v1/graphql
+          path: v1/health
+          method: get
+          cors: true
+      - http:
+          path: /v1/web-components-config
+          method: get
+          cors: true
+      - http:
+          path: /v1/web-components-config/:clientId
+          method: get
+          cors: true
+      - http:
+          path: /v1/web-components-config
           method: post
           cors: true
       - http:
-          path: v1/graphql
-          method: get
+          path: /v1/web-components-config/:clientId
+          method: patch
           cors: true
