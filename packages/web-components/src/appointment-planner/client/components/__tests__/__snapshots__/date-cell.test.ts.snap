@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`data-cell it matches a snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="date-cell__container svelte-h5k9pn"
+      title="Click on the cell for more detail"
+    >
+      <div
+        class="date-cell__header svelte-h5k9pn"
+      >
+        Tue Mar 31
+      </div>
+       
+      <div
+        class="time-cell__container svelte-h5k9pn"
+      >
+        <div
+          class="time-cell__container css-u6fsfx svelte-1p4mc7p"
+        >
+          <div>
+            
+          </div>
+        </div>
+        <div
+          class="time-cell__container css-vlflf1 svelte-1p4mc7p"
+        >
+          <div>
+            11:11
+          </div>
+        </div>
+        <div
+          class="time-cell__container css-vlflf1 svelte-1p4mc7p"
+        >
+          <div>
+            22:22
+          </div>
+        </div>
+        <div
+          class="time-cell__container css-u6fsfx svelte-1p4mc7p"
+        >
+          <div>
+            
+          </div>
+        </div>
+        <div
+          class="time-cell__container css-u6fsfx svelte-1p4mc7p"
+        >
+          <div>
+            
+          </div>
+        </div>
+        <div
+          class="time-cell__container css-vlflf1 svelte-1p4mc7p"
+        >
+          <div>
+            55:55
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

@@ -8,11 +8,10 @@
   import DateTimePicker from './date-time-picker.svelte'
 
   import { apointmentPlannerSvg } from '../styles/appointment-planner.styles'
-  import {generateGlobalTheme} from '../core/theme'
+  import {injectGlobalCss} from '../core/theme'
 
   export let theme = {}
-
-  generateGlobalTheme(theme)
+  injectGlobalCss(theme)
 </script>
 
 <style type="text/scss">
@@ -20,7 +19,8 @@
   .appointment-planner__container {
     padding: 20px;
     box-shadow: 1px 1px 7px 1px #d4d4d4;
-    border-radius: 4px
+    border-radius: 4px;
+    overflow: scroll;
   }
 
   .appointment-planner__header-container {

@@ -4,7 +4,7 @@
 
   export let date
 
-  // generate dummy meeting between 00-00 -> 10-00 - duration - on hours
+  // generate dummy meeting slots between 00-00 -> 10-00 - duration - on hours
   export const mockedTimes = []
   for (let i = 0; i <= 5; i++) {
     const randomBool = Math.random() >= 0.5

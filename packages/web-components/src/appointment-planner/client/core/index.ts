@@ -1,5 +1,5 @@
 import AppointmentPlanner from '../components/appointment-planner.svelte'
-import { InitializerTheme } from '../../../common/styles/index'
+import { InitializerTheme } from './theme'
 
 export interface AppointmentPlannerInitializers {
   theme: InitializerTheme
