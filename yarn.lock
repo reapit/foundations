@@ -4880,6 +4880,11 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
   integrity sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
 
+"@types/pug@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@types/pug/-/pug-2.0.4.tgz#8772fcd0418e3cd2cc171555d73007415051f4b2"
+  integrity sha1-h3L80EGOPNLMFxVV1zAHQVBR9LI=
+
 "@types/q@^1.5.1":
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.2.tgz#690a1475b84f2a884fd07cd797c00f5f31356ea8"
@@ -4995,6 +5000,13 @@
   integrity sha512-dZfyfL/u9l/oi984hEXdmAjX3JHry7TLWw43u1HQ8HhPv6KtfxnrZ3T/bleJ0GEvnk9t5sM7eePkgMqz3yBcGg==
   dependencies:
     "@types/glob" "*"
+    "@types/node" "*"
+
+"@types/sass@^1.16.0":
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/@types/sass/-/sass-1.16.0.tgz#b41ac1c17fa68ffb57d43e2360486ef526b3d57d"
+  integrity sha512-2XZovu4NwcqmtZtsBR5XYLw18T8cBCnU2USFHTnYLLHz9fkhnoEMoDsqShJIOFsFhn5aJHjweiUUdTrDGujegA==
+  dependencies:
     "@types/node" "*"
 
 "@types/semver@^7.1.0":
@@ -23399,6 +23411,16 @@ svelte-jester@^1.0.4:
   integrity sha512-UVQNYXHw1ujoPjSVwKES9bT4LPaZlWulW3rRE0rFXnRDrWt58BpxQxpcixGBpIsE0y6D5QMiCoFoMQOSkar+zg==
   dependencies:
     cosmiconfig "^6.0.0"
+
+svelte-preprocess@^3.7.1:
+  version "3.7.1"
+  resolved "https://registry.yarnpkg.com/svelte-preprocess/-/svelte-preprocess-3.7.1.tgz#d368783221f9bd2896ba47d72c534dd43c4f1a24"
+  integrity sha512-7Padl2rCwQAakLGnNhk52NJw4eUJHs+q432rRvcCs/Ul7pKoSoZ69HCptXTH8ChjRFl1hqrVsLVYu7wGvYgR1A==
+  dependencies:
+    "@types/pug" "^2.0.4"
+    "@types/sass" "^1.16.0"
+    detect-indent "^6.0.0"
+    strip-indent "^3.0.0"
 
 svelte@^3.19.0:
   version "3.20.1"

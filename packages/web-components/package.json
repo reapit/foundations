@@ -27,7 +27,8 @@
     "serverless-offline": "^5.12.1",
     "serverless-webpack": "^5.3.1",
     "sirv-cli": "^0.4.5",
-    "svelte-jester": "^1.0.4"
+    "svelte-jester": "^1.0.4",
+    "svelte-preprocess": "^3.7.1"
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
