@@ -8,3 +8,7 @@ export const apointmentPlannerSvg = css`
   width: 15px;
   height: 15px !important;
 `
+
+export const cellBackGround = css`
+  background: #f6f6f6;
+`

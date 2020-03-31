@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf8" />
-    <meta name="viewport" content="width=device-width" />
 
-    <title>Web Components - Appointment Planner</title>
-    <style>
-      #search-widget {
-        max-width: 1024px;
-        margin: 0 auto;
-      }
-    </style>
-    <link rel="stylesheet" href="./dist/appointment-planner.css" />
-  </head>
+<head>
+  <meta charset="utf8" />
+  <meta name="viewport" content="width=device-width" />
 
-  <body>
+  <title>Web Components - Appointment Planner</title>
+  <style>
+    #appointment-planner {
+      max-width: 700px;
+      margin: 0 auto;
+      margin-top: 50px;
+    }
+  </style>
+  <link rel="stylesheet" href="./dist/appointment-planner.css" />
+</head>
+
+<body>
+  <div>
     <div id="appointment-planner"></div>
-    <script src="./dist/appointment-planner.js"></script>
-    <script>
-      ReapitAppointmentPlannerComponent &&
-        new ReapitAppointmentPlannerComponent({
-          theme: {
-            baseBackgroundColor: 'white',
-          },
-          apiKey: '',
-          target: document.getElementById('appointment-planner'),
-        })
-    </script>
-  </body>
+  </div>
+  <script src="./dist/appointment-planner.js"></script>
+  <script>
+    ReapitAppointmentPlannerComponent &&
+      new ReapitAppointmentPlannerComponent({
+        theme: {
+          hoverBackgroundColor: 'white',
+        },
+        apiKey: '',
+        target: document.getElementById('appointment-planner'),
+      })
+  </script>
+</body>
+
 </html>
