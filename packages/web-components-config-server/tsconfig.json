@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es6",
+    "noImplicitAny": false,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "typeRoots": ["./node_modules/@types"],
+    "paths": {
+      "@/*": ["src/*"],
+      "@reapit/cognito-auth": ["../cognito-auth/src"],
+      "logger": ["../../scripts/logger/sentry-logger.ts"],
+      "@reapit/foundations-ts-definitions": ["src/types"]
+    }
+  },
+  "include": ["./src/**/*"],
+
+  "exclude": [
+    "./public",
+    "./dist",
+    "./node_modules",
+    "./src/tests/coverage",
+    "./src/**/*.test.ts",
+    "./src/**/__mocks__"
+  ]
+}

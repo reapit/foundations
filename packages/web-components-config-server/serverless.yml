@@ -1,0 +1,68 @@
+service: web-components-config-server
+plugins:
+  - serverless-webpack
+custom:
+  env: ${file(./config.json)}
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: true
+    packager: 'yarn'
+    packagerOptions:
+      noFrozenLockFile: false
+    excludeFiles: src/**/*.test.ts
+    keepOutputDirectory: true
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: ${opt:stage, 'dev'}
+  region: eu-west-2
+  deploymentBucket:
+    name: web-components-config-server.${self:provider.stage}
+    blockPublicAccess: false
+  environment:
+    NODE_ENV: 'production'
+    COGNITO_USERPOOL_ID: ${self:custom.env.COGNITO_USERPOOL_ID}
+    MARKETPLACE_API_BASE_URL: ${self:custom.env.MARKETPLACE_API_BASE_URL}
+    PLATFORM_API_BASE_URL: ${self:custom.env.PLATFORM_API_BASE_URL}
+
+package:
+  individually: true
+  include:
+    - dist/**
+  exclude:
+    - package.json
+    - node_modules/**
+    - error.log
+    - info.log
+    - jest.config.js
+    - nodemon.json
+    - serverless.yml
+    - src/**
+    - tsconfig.json
+    - yml-helpers.js
+
+functions:
+  webComponentsConfigServer:
+    handler: src/index.webComponentsConfigServer
+    events:
+      - http:
+          path: v1/health
+          method: get
+          cors: true
+      - http:
+          path: /v1/web-components-config
+          method: get
+          cors: true
+      - http:
+          path: /v1/web-components-config/:clientId
+          method: get
+          cors: true
+      - http:
+          path: /v1/web-components-config
+          method: post
+          cors: true
+      - http:
+          path: /v1/web-components-config/:clientId
+          method: patch
+          cors: true
