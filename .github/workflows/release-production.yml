@@ -14,6 +14,7 @@ env:
   SENTRY_AUTH_TOKEN: ${{secrets.SENTRY_AUTH_TOKEN}}
   REAPIT_ENV: PROD
   CI: true
+  GH_PAT: ${{secrets.GH_PAT}}
 
 jobs:
   release_production:
