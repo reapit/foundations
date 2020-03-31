@@ -1,42 +1,57 @@
 import * as React from 'react'
+import { Dispatch } from 'redux'
 import dayjs from 'dayjs'
-import { Button, ButtonGroup, Grid, GridItem } from '@reapit/elements'
-import { AppUsageStatsParams } from '@/actions/app-usage-stats'
+import { useDispatch } from 'react-redux'
+import { Button, ButtonGroup, Grid, GridItem, DATE_TIME_FORMAT } from '@reapit/elements'
+import { appUsageStatsRequestData } from '@/actions/app-usage-stats'
+import { appInstallationsRequestData } from '@/actions/app-installations'
+import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 
 type DefaultFilterGroupProps = {
   appIds: string[]
   clientIds: string[]
-  loadStats: (params: AppUsageStatsParams) => void
   setDateFrom: (date: string) => void
   setDateTo: (date: string) => void
 }
 
-enum FilterType {
+export enum FilterType {
   YESTERDAY = 0,
   LAST_WEEK = 1,
   LAST_MONTH = 2,
 }
 
+export type DateParams = {
+  dateFrom: string
+  dateTo: string
+}
+
 export const prepareDefaultFilterDateParams = () => {
   const yesterday = dayjs()
     .subtract(1, 'day')
-    .toISOString()
+    .startOf('day')
+    .format(DATE_TIME_FORMAT.YYYY_MM_DD)
   const yesterdayParams = {
     dateFrom: yesterday,
-    dateTo: dayjs().toISOString(),
+    dateTo: dayjs().format(DATE_TIME_FORMAT.YYYY_MM_DD),
   }
 
   const lastWeek = dayjs().subtract(1, 'week')
-  const lastMonday = lastWeek.day(1).toISOString()
-  const lastSunday = lastWeek.day(7).toISOString()
+  const lastMonday = lastWeek
+    .startOf('week')
+    .add(1, 'day')
+    .format(DATE_TIME_FORMAT.YYYY_MM_DD)
+  const lastSunday = lastWeek
+    .endOf('week')
+    .add(1, 'day')
+    .format(DATE_TIME_FORMAT.YYYY_MM_DD)
   const lastWeekParams = {
     dateFrom: lastMonday,
     dateTo: lastSunday,
   }
 
   const lastMonth = dayjs().subtract(1, 'month')
-  const firstDayInMonth = lastMonth.startOf('month').toISOString()
-  const lastDayInMonth = lastMonth.endOf('month').toString()
+  const firstDayInMonth = lastMonth.startOf('month').format(DATE_TIME_FORMAT.YYYY_MM_DD)
+  const lastDayInMonth = lastMonth.endOf('month').format(DATE_TIME_FORMAT.YYYY_MM_DD)
   const lastMonthParams = {
     dateFrom: firstDayInMonth,
     dateTo: lastDayInMonth,
@@ -48,31 +63,49 @@ export const prepareDefaultFilterDateParams = () => {
   }
 }
 
-export const handleFilter = (loadStats, dateParams, appIds, setDateFrom, setDateTo) => {
+export const handleFilter = (
+  dateParams: DateParams,
+  appIds: string[],
+  clientIds: string[],
+  setDateFrom: (date: string) => void,
+  setDateTo: (date: string) => void,
+  dispatch: Dispatch,
+) => {
   setDateFrom(dateParams.dateFrom)
   setDateTo(dateParams.dateTo)
-  loadStats({
-    appId: appIds,
-    ...dateParams,
-  })
+  dispatch(
+    appUsageStatsRequestData({
+      ...dateParams,
+      appId: appIds,
+    }),
+  )
+  dispatch(
+    appInstallationsRequestData({
+      appId: appIds,
+      clientId: clientIds,
+      pageSize: GET_ALL_PAGE_SIZE,
+      installedDateFrom: dateParams.dateFrom,
+      installedDateTo: dateParams.dateTo,
+    }),
+  )
 }
 
-const DefaultFilterGroup: React.FC<DefaultFilterGroupProps> = props => {
-  const { appIds, clientIds, loadStats, setDateFrom, setDateTo } = props
-  const [isActive, setIsActive] = React.useState<FilterType | null>(null)
+const DefaultFilterGroup: React.FC<DefaultFilterGroupProps> = ({ appIds, clientIds, setDateFrom, setDateTo }) => {
+  const [isActive, setIsActive] = React.useState(FilterType.LAST_WEEK)
+  const dispatch = useDispatch()
 
   const onFilterButtonClick = filterType => {
     return () => {
       const { yesterdayParams, lastWeekParams, lastMonthParams } = prepareDefaultFilterDateParams()
       switch (filterType) {
         case FilterType.YESTERDAY:
-          handleFilter(loadStats, yesterdayParams, appIds, setDateFrom, setDateTo)
+          handleFilter(yesterdayParams, appIds, clientIds, setDateFrom, setDateTo, dispatch)
           break
         case FilterType.LAST_WEEK:
-          handleFilter(loadStats, lastWeekParams, appIds, setDateFrom, setDateTo)
+          handleFilter(lastWeekParams, appIds, clientIds, setDateFrom, setDateTo, dispatch)
           break
         case FilterType.LAST_MONTH:
-          handleFilter(loadStats, lastMonthParams, appIds, setDateFrom, setDateTo)
+          handleFilter(lastMonthParams, appIds, clientIds, setDateFrom, setDateTo, dispatch)
           break
         default:
           break

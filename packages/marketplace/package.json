@@ -23,10 +23,11 @@
     "fetch-config": "yarn config-manager fetchConfig marketplace"
   },
   "dependencies": {
-    "@reapit/elements": "^0.5.39",
     "@reapit/cognito-auth": "^2.0.19",
+    "@reapit/elements": "^0.5.39",
     "chart.js": "^2.9.3",
     "diff": "^4.0.1",
+    "lodash.isequal": "^4.5.0",
     "lodash.orderby": "^4.6.0",
     "react-chartjs-2": "^2.8.0",
     "react-slick": "^0.24.0",
@@ -34,7 +35,8 @@
   },
   "devDependencies": {
     "@reapit/foundations-ts-definitions": "2020-02-13",
-    "@types/nanoid": "^2.1.0"
+    "@types/nanoid": "^2.1.0",
+    "redux-mock-store": "^1.5.4"
   },
   "husky": {
     "hooks": {

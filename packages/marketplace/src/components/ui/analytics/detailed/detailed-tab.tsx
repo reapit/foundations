@@ -1,35 +1,32 @@
 import * as React from 'react'
-import dayjs from 'dayjs'
-import ErrorBoundary from '@/components/hocs/error-boundary'
-import { FlexContainerBasic, Grid, GridItem, FlexContainerResponsive } from '@reapit/elements'
 import orderBy from 'lodash.orderby'
-import { Dispatch } from 'redux'
-import { connect } from 'react-redux'
-import { ReduxState } from '@/types/core'
-import { AppUsageStatsState } from '@/reducers/app-usage-stats'
-import { appUsageStatsRequestData, AppUsageStatsParams } from '@/actions/app-usage-stats'
-import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import { DeveloperState } from '@/reducers/developer'
-import { AppInstallationsState } from '@/reducers/app-installations'
+import dayjs from 'dayjs'
 
+import { Dispatch } from 'redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { ReduxState } from '@/types/core'
+
+import { appUsageStatsRequestData, AppUsageStatsParams } from '@/actions/app-usage-stats'
+import { appInstallationsRequestData, InstallationParams } from '@/actions/app-installations'
+import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
+import { getAppUsageStats } from '@/selector/analytics'
+import { getDevelopers } from '@/selector/developer'
+import { getInstallations } from '@/selector/installations'
+
+import { FlexContainerBasic, Grid, GridItem, FlexContainerResponsive, DATE_TIME_FORMAT } from '@reapit/elements'
 import DeveloperInstallationsChart from '@/components/ui/developer-installations-chart'
 import DeveloperTrafficChart from '@/components/ui/developer-traffic-chart'
 import DeveloperTrafficTable from '@/components/ui/developer-traffic-table'
 import InstallationTable, { InstallationModelWithAppName } from './installation-table'
-import styles from '@/styles/pages/analytics.scss?mod'
 import FilterBar from './filter-bar'
+import ErrorBoundary from '@/components/hocs/error-boundary'
+import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
+import styles from '@/styles/pages/analytics.scss?mod'
+import { AppInstallationsState } from '@/reducers/app-installations'
+import { DeveloperState } from '@/reducers/developer'
+import { AppUsageStatsState } from '@/reducers/app-usage-stats'
 
-export interface DetailedTabMappedProps {
-  developer?: DeveloperState
-  installations?: AppInstallationsState
-  appUsageStats?: AppUsageStatsState
-}
-
-export interface DetailedTabMappedActions {
-  loadStats: (params: AppUsageStatsParams) => void
-}
-
-export type DetailedTabProps = DetailedTabMappedProps & DetailedTabMappedActions
+export type DetailedTabProps = {}
 
 export const handleMapAppNameToInstallation = (
   installationsAppDataArray: InstallationModel[] = [],
@@ -46,7 +43,8 @@ export const handleMapAppNameToInstallation = (
 
 export const handleFetchAppUsageStatsDataUseCallback = (
   developerAppDataArray: AppSummaryModel[] = [],
-  loadStats: (params: AppUsageStatsParams) => void,
+  loadAppUsageStats: (params: AppUsageStatsParams) => void,
+  loadInstallations: (params: InstallationParams) => void,
 ) => {
   return () => {
     const orderredDeveloperAppDataArray = orderBy(developerAppDataArray, ['created'], ['asc'])
@@ -54,12 +52,25 @@ export const handleFetchAppUsageStatsDataUseCallback = (
       return app.id
     })
     const lastWeek = dayjs().subtract(1, 'week')
-    const lastMonday = lastWeek.day(1)
-    const lastSunday = lastWeek.day(7)
-    loadStats({
+    const lastMonday = lastWeek
+      .startOf('week')
+      .add(1, 'day')
+      .format(DATE_TIME_FORMAT.YYYY_MM_DD)
+    const lastSunday = lastWeek
+      .endOf('week')
+      .add(1, 'day')
+      .format(DATE_TIME_FORMAT.YYYY_MM_DD)
+
+    loadAppUsageStats({
       appId: appIds,
-      dateFrom: lastMonday.toISOString(),
-      dateTo: lastSunday.toISOString(),
+      dateFrom: lastMonday,
+      dateTo: lastSunday,
+    })
+
+    loadInstallations({
+      installedDateFrom: lastMonday,
+      installedDateTo: lastSunday,
+      pageSize: GET_ALL_PAGE_SIZE,
     })
   }
 }
@@ -70,18 +81,47 @@ export const handleFetchAppUsageStatsDataUseEffect = (fetchAppUsageStatsData: ()
   }
 }
 
-export const DetailedTab: React.FC<DetailedTabProps> = ({ installations, developer, appUsageStats, loadStats }) => {
+export type MapState = {
+  installations: AppInstallationsState
+  developer: DeveloperState
+  appUsageStats: AppUsageStatsState
+}
+
+export const mapState = (state: ReduxState): MapState => {
+  return {
+    installations: getInstallations(state),
+    developer: getDevelopers(state),
+    appUsageStats: getAppUsageStats(state),
+  }
+}
+
+export const handleLoadAppUsageStatsUseCallback = (dispatch: Dispatch) => {
+  return (params: AppUsageStatsParams) => {
+    dispatch(appUsageStatsRequestData(params))
+  }
+}
+
+export const handleLoadInstallationsUseCallback = (dispatch: Dispatch) => {
+  return (params: InstallationParams) => {
+    dispatch(appInstallationsRequestData(params))
+  }
+}
+
+export const DetailedTab: React.FC<DetailedTabProps> = () => {
+  const dispatch = useDispatch()
+  const { appUsageStats, developer, installations } = useSelector(mapState)
   const installationAppDataArray = installations?.installationsAppData?.data
   const developerDataArray = developer?.developerData?.data?.data
-
   const installationAppDataArrayWithName = React.useMemo(
     handleMapAppNameToInstallation(installationAppDataArray, developerDataArray),
     [installationAppDataArray, developerDataArray],
   )
 
+  const loadAppUsageStats = React.useCallback(handleLoadAppUsageStatsUseCallback(dispatch), [])
+  const loadInstallations = React.useCallback(handleLoadInstallationsUseCallback(dispatch), [])
   const fetchAppUsageStatsData = React.useCallback(
-    handleFetchAppUsageStatsDataUseCallback(developerDataArray, loadStats),
-    [developerDataArray, loadStats],
+    handleFetchAppUsageStatsDataUseCallback(developerDataArray, loadAppUsageStats, loadInstallations),
+    [developerDataArray],
   )
 
   React.useEffect(handleFetchAppUsageStatsDataUseEffect(fetchAppUsageStatsData), [fetchAppUsageStatsData])
@@ -95,11 +135,7 @@ export const DetailedTab: React.FC<DetailedTabProps> = ({ installations, develop
     <ErrorBoundary>
       <FlexContainerBasic hasPadding flexColumn>
         <FlexContainerResponsive flexColumn hasBackground hasPadding className={styles.wrapAnalytics}>
-          <FilterBar
-            loadStats={loadStats}
-            developerAppsData={developerAppsData}
-            installationAppDataArray={installationAppDataArray || []}
-          />
+          <FilterBar developerAppsData={developerAppsData} installationAppDataArray={installationAppDataArray || []} />
           <Grid isMultiLine className="mt-5">
             <GridItem>
               <DeveloperTrafficChart
@@ -133,14 +169,4 @@ export const DetailedTab: React.FC<DetailedTabProps> = ({ installations, develop
   )
 }
 
-export const mapStateToProps: (state: ReduxState) => DetailedTabMappedProps = state => ({
-  installations: state.installations,
-  developer: state.developer,
-  appUsageStats: state.appUsageStats,
-})
-
-export const mapDispatchToProps = (dispatch: Dispatch): DetailedTabMappedActions => ({
-  loadStats: (params: AppUsageStatsParams) => dispatch(appUsageStatsRequestData(params)),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(DetailedTab)
+export default DetailedTab

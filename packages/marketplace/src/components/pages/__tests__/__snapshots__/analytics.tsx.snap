@@ -8,7 +8,7 @@ exports[`AnalyticsPage renenderTabContent should render Billing Tab 1`] = `
 
 exports[`AnalyticsPage renenderTabContent should render Detailed Tab 1`] = `
 <div>
-  <Connect(Component) />
+  <Component />
 </div>
 `;
 
@@ -49,7 +49,7 @@ exports[`AnalyticsPage should match a snapshot 1`] = `
         />
       </div>
       <div>
-        <Connect(Component) />
+        <Component />
       </div>
     </Component>
   </Component>

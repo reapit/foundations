@@ -2,13 +2,12 @@ import * as React from 'react'
 import dayjs from 'dayjs'
 import DefaultFilterGroup from './default-filter-group'
 import FilterForm from './filter-form'
-import { AppUsageStatsParams } from '@/actions/app-usage-stats'
 import { PagedResultAppSummaryModel_, AppSummaryModel, InstallationModel } from '@reapit/foundations-ts-definitions'
+import { DATE_TIME_FORMAT } from '@reapit/elements'
 
 export type FilterBarProps = {
   developerAppsData: PagedResultAppSummaryModel_
   installationAppDataArray: InstallationModel[]
-  loadStats: (params: AppUsageStatsParams) => void
 }
 
 export type FilterFormInitialValues = {
@@ -18,11 +17,19 @@ export type FilterFormInitialValues = {
   appId?: string
 }
 
-const lastWeek = dayjs().subtract(1, 'week')
-const lastMonday = lastWeek.day(1).toISOString()
-const lastSunday = lastWeek.day(7).toISOString()
+const lastWeek = dayjs()
+  .utc()
+  .subtract(1, 'week')
+const lastMonday = lastWeek
+  .startOf('week')
+  .add(1, 'day')
+  .format(DATE_TIME_FORMAT.YYYY_MM_DD)
+const lastSunday = lastWeek
+  .endOf('week')
+  .add(1, 'day')
+  .format(DATE_TIME_FORMAT.YYYY_MM_DD)
 
-const FilterBar: React.FC<FilterBarProps> = ({ loadStats, developerAppsData, installationAppDataArray }) => {
+const FilterBar: React.FC<FilterBarProps> = ({ developerAppsData, installationAppDataArray }) => {
   const [dateFrom, setDateFrom] = React.useState(lastMonday)
   const [dateTo, setDateTo] = React.useState(lastSunday)
 
@@ -31,9 +38,11 @@ const FilterBar: React.FC<FilterBarProps> = ({ loadStats, developerAppsData, ins
     return app.id || ''
   })
 
-  const clientIds = installationAppDataArray.map((installation: InstallationModel) => {
-    return installation.client || ''
-  })
+  const clientIds = installationAppDataArray
+    .map((installation: InstallationModel) => {
+      return installation.client || ''
+    })
+    .filter((x, i, a) => a.indexOf(x) == i)
 
   const prepareFilterFormInitialValues = React.useCallback((): FilterFormInitialValues => {
     return {
@@ -49,14 +58,13 @@ const FilterBar: React.FC<FilterBarProps> = ({ loadStats, developerAppsData, ins
       <DefaultFilterGroup
         appIds={developerAppIds}
         clientIds={clientIds}
-        loadStats={loadStats}
         setDateFrom={setDateFrom}
         setDateTo={setDateTo}
       />
       <FilterForm
         initialValues={prepareFilterFormInitialValues()}
         developerApps={developerApps}
-        installationApps={installationAppDataArray}
+        clientIds={clientIds}
       />
     </>
   )

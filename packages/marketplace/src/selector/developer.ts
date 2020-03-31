@@ -7,3 +7,7 @@ export const selectDeveloperId = (state: ReduxState) => {
 export const selectDeveloperEmail = (state: ReduxState) => {
   return state?.settings?.developerInfomation?.email
 }
+
+export const getDevelopers = (state: ReduxState) => {
+  return state.developer
+}
