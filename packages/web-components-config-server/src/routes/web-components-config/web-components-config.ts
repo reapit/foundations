@@ -16,7 +16,7 @@ import logger from '@/logger'
 
 const webComponentsConfig = express.Router()
 
-webComponentsConfig.get('/:clientId', async (req: AppRequest, res: AppResponse) => {
+export const webComponentsConfigGetByIdHandler = async (req: AppRequest, res: AppResponse) => {
   try {
     const params = {
       clientId: req.params.clientId,
@@ -28,9 +28,9 @@ webComponentsConfig.get('/:clientId', async (req: AppRequest, res: AppResponse) 
     logger.error('webComponentsConfig.getById', { traceId: req.traceId, error: JSON.stringify(err) })
     return res.send({ message: err.message, code: err.code, traceId: req.traceId })
   }
-})
+}
 
-webComponentsConfig.get('/', async (req: AppRequest, res: AppResponse) => {
+export const webComponentsConfigsGetHandler = async (req: AppRequest, res: AppResponse) => {
   try {
     const params = { traceId: req.traceId } as GetConfigsParams
     const result = await getConfigs(params)
@@ -39,21 +39,20 @@ webComponentsConfig.get('/', async (req: AppRequest, res: AppResponse) => {
     logger.error('webComponentsConfig.get', { traceId: req.traceId, error: JSON.stringify(err) })
     return res.send({ message: err.message, code: err.code, traceId: req.traceId })
   }
-})
+}
 
-webComponentsConfig.post('/', async (req: AppRequest, res: AppResponse) => {
+export const webComponentsConfigPostHandler = async (req: AppRequest, res: AppResponse) => {
   try {
     const params = { traceId: req.traceId, item: req.body } as CreateConfigParams
     const result = await createConfig(params)
-    console.log(result)
     return res.send(result)
   } catch (err) {
     logger.error('webComponentsConfig.post', { traceId: req.traceId, error: JSON.stringify(err) })
     return res.send({ message: err.message, code: err.code, traceId: req.traceId })
   }
-})
+}
 
-webComponentsConfig.patch('/:clientId', async (req: AppRequest, res: AppResponse) => {
+export const webComponentsConfigPatchHandler = async (req: AppRequest, res: AppResponse) => {
   try {
     delete req.body.clientId
     const params = {
@@ -67,9 +66,9 @@ webComponentsConfig.patch('/:clientId', async (req: AppRequest, res: AppResponse
     logger.error('webComponentsConfig.patch', { traceId: req.traceId, error: JSON.stringify(err) })
     return res.send({ message: err.message, code: err.code, traceId: req.traceId })
   }
-})
+}
 
-webComponentsConfig.delete('/:clientId', async (req: AppRequest, res: AppResponse) => {
+export const webComponentsConfigDeleteHandler = async (req: AppRequest, res: AppResponse) => {
   try {
     const params = {
       clientId: req.params.clientId,
@@ -81,6 +80,12 @@ webComponentsConfig.delete('/:clientId', async (req: AppRequest, res: AppRespons
     logger.error('webComponentsConfig.delete', { traceId: req.traceId, error: JSON.stringify(err) })
     return res.send({ message: err.message, code: err.code, traceId: req.traceId })
   }
-})
+}
+
+webComponentsConfig.get('/:clientId', webComponentsConfigGetByIdHandler)
+webComponentsConfig.get('/', webComponentsConfigsGetHandler)
+webComponentsConfig.post('/', webComponentsConfigPostHandler)
+webComponentsConfig.patch('/:clientId', webComponentsConfigPatchHandler)
+webComponentsConfig.delete('/:clientId', webComponentsConfigDeleteHandler)
 
 export default webComponentsConfig

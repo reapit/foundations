@@ -2,8 +2,10 @@ import express from 'express'
 
 const health = express.Router()
 
-health.get('/', (req, res) => {
-  return res.json({ message: 'Service is running' })
-})
+export const healthGetHandler = (req, res) => {
+  return res.send({ message: 'Service is running' })
+}
+
+health.get('/', healthGetHandler)
 
 export default health

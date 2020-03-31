@@ -9,12 +9,15 @@ module.exports = {
     '.d.ts',
     'index.ts',
   ],
+  moduleNameMapper: {
+    "^@[/](.+)": "<rootDir>/src/$1",
+  },
   coverageThreshold: {
     global: {
-      branches: 77,
-      functions: 95,
-      lines: 95,
-      statements: 95,
+      branches: 80,
+      functions: 80,
+      lines: 80,
+      statements: 80,
     },
   },
 }

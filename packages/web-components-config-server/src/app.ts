@@ -1,11 +1,4 @@
 import path from 'path'
-if (process.env.NODE_ENV === 'development') {
-  const configs = require(path.resolve(__dirname, '..', 'config.json'))
-  for (const k in configs) {
-    process.env[k] = configs[k]
-  }
-}
-
 import express from 'express'
 import bodyParser from 'body-parser'
 import uuid from 'uuid/v4'
@@ -13,6 +6,13 @@ import morgan from 'morgan'
 import health from './routes/health'
 import webComponentsConfig from './routes/web-components-config'
 import logger from './logger'
+
+if (process.env.NODE_ENV === 'development') {
+  const configs = require(path.resolve(__dirname, '..', 'config.json'))
+  for (const k in configs) {
+    process.env[k] = configs[k]
+  }
+}
 
 const app = express()
 const cors = require('cors')
@@ -22,7 +22,7 @@ export type AppRequest = express.Request & {
   traceId: string
 }
 
-const morganLogging = morgan((tokens, req: AppRequest, res: AppResponse) => {
+export const parseLog = (tokens, req: AppRequest, res: AppResponse): string => {
   const log = {
     traceId: req.traceId,
     method: tokens.method(req, res),
@@ -34,9 +34,20 @@ const morganLogging = morgan((tokens, req: AppRequest, res: AppResponse) => {
     reqBody: JSON.stringify(req.body),
   }
   logger.info(log)
-})
+  return [
+    tokens.method(req, res),
+    tokens.url(req, res),
+    tokens.status(req, res),
+    tokens.res(req, res, 'content-length'),
+    '-',
+    tokens['response-time'](req, res),
+    'ms',
+  ].join(' ')
+}
 
-const traceIdMiddleware = (req, res, next) => {
+const morganLogging = morgan(parseLog)
+
+export const traceIdMiddleware = (req, res, next) => {
   const traceId = uuid()
   req.traceId = traceId
   next()

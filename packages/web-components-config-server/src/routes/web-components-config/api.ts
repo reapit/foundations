@@ -119,7 +119,6 @@ export const createConfig = ({ traceId, item }: CreateConfigParams): Promise<AWS
         logger.error('Created Config Failed', { traceId, error: JSON.stringify(error) })
         return reject(error)
       }
-      console.log(data)
       logger.info('Created Config Success', { traceId, item })
       return resolve((data.Attributes as Config) || (item as Config))
     })
@@ -154,7 +153,6 @@ export const updateConfig = ({ traceId, clientId, item }: UpdateConfigParams): P
         logger.error('Updated Config Failed', { traceId, error: JSON.stringify(error) })
         return reject(error)
       }
-      console.log({ data })
       logger.info('Updated Config Success', { traceId, item })
       return resolve(data.Attributes as Config)
     })
