@@ -22,7 +22,7 @@
   "scripts": {
     "build:prod": "concurrently \"cross-env NODE_ENV=production && rimraf dist && tsdx build --format=cjs,esm,umd && rollup -c\" \"cross-env NODE_ENV=production && rimraf public/dist && build-storybook -o public/dist\"",
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
-    "release:prod": "node ../../scripts/release/release-npm.js elements && node ../../scripts/release/release-prod.js elements reapit-elements-prod",
+    "release:prod": "node ../../scripts/release/release-npm.js elements --skip-edit-release-note && node ../../scripts/release/release-prod.js elements reapit-elements-prod",
     "release:dev": "node ../../scripts/release/release-dev.js elements reapit-elements-dev",
     "lint:fix": "eslint --cache --ext=ts,tsx,js src --fix",
     "start:dev": "start-storybook -p 6006",

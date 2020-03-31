@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const spawn = require('child_process').spawnSync
 const execSync = require('child_process').execSync
-const Octokit = require('@octokit/rest')
+const { Octokit } = require('@octokit/rest')
 const path = require('path')
 
 const removeUnuseChar = value => {
@@ -122,7 +122,7 @@ monitor: https://sentry.io/organizations/reapit-ltd/projects/`
 const editReleaseNote = async ({ packageName, version, previousTag }) => {
   try {
     const commitLog = runCommand('git', ['log', `${packageName}_${version}...${previousTag}`, '.'])
-    const token = process.env.GITHUB_TOKEN
+    const token = process.env.GH_PAT
     const octokit = new Octokit({ auth: token })
     const latestRelease = await octokit.repos.getReleaseByTag({
       owner: 'reapit',
