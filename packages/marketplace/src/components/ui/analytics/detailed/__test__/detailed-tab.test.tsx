@@ -82,7 +82,6 @@ describe('OverviewPage', () => {
 
   describe('handleLoadAppUsageStatsUseCallback', () => {
     it('should run correctly', () => {
-      const dispatch = spyDispatch
       const mockAppUsageStatsParams: AppUsageStatsParams = {
         appId: ['1'],
         dateFrom: dayjs()
@@ -90,15 +89,14 @@ describe('OverviewPage', () => {
           .format(DATE_TIME_FORMAT.YYYY_MM_DD),
         dateTo: dayjs().format(DATE_TIME_FORMAT.YYYY_MM_DD),
       }
-      const fn = handleLoadAppUsageStatsUseCallback(dispatch)
+      const fn = handleLoadAppUsageStatsUseCallback(spyDispatch)
       fn(mockAppUsageStatsParams)
-      expect(dispatch).toBeCalledWith(appUsageStatsRequestData(mockAppUsageStatsParams))
+      expect(spyDispatch).toBeCalledWith(appUsageStatsRequestData(mockAppUsageStatsParams))
     })
   })
 
   describe('handleLoadInstallationsUseCallback', () => {
     it('should run correctly', () => {
-      const dispatch = spyDispatch
       const mockInstallationsParams: InstallationParams = {
         appId: ['1'],
         installedDateFrom: dayjs()
@@ -106,13 +104,9 @@ describe('OverviewPage', () => {
           .format(DATE_TIME_FORMAT.YYYY_MM_DD),
         installedDateTo: dayjs().format(DATE_TIME_FORMAT.YYYY_MM_DD),
       }
-      const fn = handleLoadInstallationsUseCallback(dispatch)
+      const fn = handleLoadInstallationsUseCallback(spyDispatch)
       fn(mockInstallationsParams)
-      expect(dispatch).toBeCalledWith(
-        appInstallationsRequestData({
-          appId: ['1'],
-        }),
-      )
+      expect(spyDispatch).toBeCalledWith(appInstallationsRequestData(mockInstallationsParams))
     })
   })
 })
