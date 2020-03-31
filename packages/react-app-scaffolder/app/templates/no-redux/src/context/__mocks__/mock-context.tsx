@@ -20,6 +20,7 @@ export const mockContext = {
     cognitoClientId: '123',
     refreshToken: 'mockRefreshToken',
   },
+  isFetchSession: false,
   logout: jest.fn(),
   getLoginSession: jest.fn(),
   refreshParams: null,

@@ -6,6 +6,7 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 
 module.exports = {
+  mode: 'development',
   context: process.cwd(),
   entry: './src/core/index.tsx',
   output: {
@@ -132,6 +133,7 @@ module.exports = {
     open: true,
     clientLogLevel: 'warning',
     historyApiFallback: true,
+    disableHostCheck: true,
     stats: {
       cached: false,
       cachedAssets: false,
