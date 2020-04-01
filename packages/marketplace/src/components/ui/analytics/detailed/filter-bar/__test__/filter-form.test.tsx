@@ -2,7 +2,6 @@ import * as React from 'react'
 import * as ReactRedux from 'react-redux'
 import configureStore from 'redux-mock-store'
 import { shallow } from 'enzyme'
-import MockDate from 'mockdate'
 import {
   FilterForm,
   FilterFormProps,
