@@ -4,9 +4,13 @@
   "private": true,
   "homepage": "https://demo-site.reapit.cloud",
   "scripts": {
+    "build:prod": "node ./scripts/build.js",
+    "fetch-config": "yarn config-manager fetchConfig demo-site",
     "release:dev": "echo 'node ../../scripts/release/release-dev.js demo-site reapit-demo-site'",
     "release:prod": "node ../../scripts/release/release-prod.js demo-site reapit-demo-site",
     "start:prod": "serve -d public -l 8080"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "ejs": "^3.0.2"
+  }
 }
