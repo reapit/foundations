@@ -17,6 +17,7 @@ import submitChecks from '../reducers/submit-checks'
 import createSagaMiddleware from 'redux-saga'
 import submitChecksSagas from '../sagas/submit-checks'
 import { all, fork } from '@redux-saga/core/effects'
+import { injectSwitchModeToWindow } from '@reapit/elements'
 
 export class Store {
   static _instance: Store
@@ -62,6 +63,7 @@ export class Store {
   reduxStore: ReduxStore<ReduxState>
 
   constructor() {
+    injectSwitchModeToWindow()
     const composed = Store.composeEnhancers(applyMiddleware(Store.sagaMiddleware))
 
     this.reduxStore = createStore(Store.reducers, composed)

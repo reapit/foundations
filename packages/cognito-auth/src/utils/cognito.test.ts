@@ -90,6 +90,7 @@ describe('Session utils', () => {
     it('should get a session from the cookie if it exists', () => {
       const stringifiedSession = JSON.stringify({
         refreshToken: mockLoginSession.refreshToken,
+        mode: 'DESKTOP',
         loginType: mockLoginSession.loginType,
         userName: mockLoginSession.userName,
       })
