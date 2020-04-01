@@ -1,12 +1,11 @@
 <script>
   import { onMount, onDestroy } from 'svelte'
   import searchWidgetStore from '../core/store'
-  import { generateThemeClasses } from '../../../common/styles/theme'
-  import * as Styles from '../../../common/styles/index'
+  import { generateThemeClasses, resetCSS } from '../../../common/styles'
   import SearchForm from './search-form.svelte'
   import GoogleMap from './google-map.svelte'
   import SearchResult from './search-result.svelte'
-  import Loader from './loader.svelte'
+  import Loader from '../../../common/components/loader.svelte'
 
   export let theme
   export let apiKey
@@ -19,7 +18,6 @@
   $: isLoading = false
   $: properties = []
 
-  const { resetCSS } = Styles
   const themeClasses = generateThemeClasses(theme, target)
   const { globalStyles, primaryHeading } = themeClasses
 
@@ -58,13 +56,13 @@
     width: 100%;
   }
 
-  .search-results-heading {
+  .search-widget-heading {
     display: block;
     width: 100%;
     margin-bottom: 0.5em;
   }
 
-  .search-results-items {
+  .search-widget-items {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -74,9 +72,9 @@
 
 <div class={`${resetCSS} ${globalStyles} search-widget`}>
   <SearchForm />
-  <div class="search-results-items">
+  <div class="search-widget-items">
     {#if properties.length && !isLoading}
-      <div class="search-results-heading">
+      <div class="search-widget-heading">
         <h2 class={`${primaryHeading}`}>{resultsMessage}</h2>
       </div>
     {/if}

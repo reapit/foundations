@@ -61,18 +61,18 @@
 </script>
 
 <style>
-  .map-container {
+  .google-map-container {
     width: 100%;
     height: 600px;
   }
 
-  .map-outer-container {
+  .google-map-outer-container {
     padding: 0.5em;
   }
 </style>
 
-<div class="map-outer-container">
-  <div class="map-container" bind:this={mapElement}>
+<div class="google-map-outer-container">
+  <div class="google-map-container" bind:this={mapElement}>
     {#if properties.length > 0 && selectedProperty}
       <WindowInfo
         on:windowInfoClick={handleCloseWindowInfo}
