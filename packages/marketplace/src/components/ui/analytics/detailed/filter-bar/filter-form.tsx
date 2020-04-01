@@ -57,7 +57,6 @@ export const handleAutoSave = (developerApps: AppSummaryModel[], clientIds: stri
       appUsageStatsRequestData({
         ...values,
         appId: appId || appIds,
-        clientId: clientId || clientIds,
       }),
     )
     dispatch(
@@ -72,7 +71,7 @@ export const handleAutoSave = (developerApps: AppSummaryModel[], clientIds: stri
   }
 }
 
-const FilterForm: React.FC<FilterFormProps> = ({ initialValues, developerApps, clientIds }) => {
+export const FilterForm: React.FC<FilterFormProps> = ({ initialValues, developerApps, clientIds }) => {
   const dispatch = useDispatch()
   return (
     <Formik initialValues={initialValues} enableReinitialize={true} onSubmit={() => {}}>

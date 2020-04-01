@@ -1,32 +1,24 @@
 import * as React from 'react'
-import { Provider } from 'react-redux'
-import * as ReactReduxHooks from './react-redux-hooks'
+import * as ReactRedux from 'react-redux'
 import configureStore from 'redux-mock-store'
 import { shallow } from 'enzyme'
-import dayjs from 'dayjs'
 import {
   DetailedTab,
   handleMapAppNameToInstallation,
   handleFetchAppUsageStatsDataUseCallback,
   handleFetchAppUsageStatsDataUseEffect,
   mapState,
-  handleLoadAppUsageStatsUseCallback,
-  handleLoadInstallationsUseCallback,
   MapState,
 } from '../detailed-tab'
 import { usageStatsDataStub } from '@/sagas/__stubs__/app-usage-stats'
 import { installationsStub } from '@/sagas/__stubs__/installations'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { ReduxState } from '@/types/core'
-import { DATE_TIME_FORMAT } from '@reapit/elements'
-import { AppUsageStatsParams, appUsageStatsRequestData } from '@/actions/app-usage-stats'
-import { InstallationParams, appInstallationsRequestData } from '@/actions/app-installations'
+import { appUsageStatsRequestData } from '@/actions/app-usage-stats'
+import { appInstallationsRequestData } from '@/actions/app-installations'
 import { developerState } from '@/sagas/__stubs__/developer'
 
-// jest.mock('react-redux', () => ({
-//   useSelector: jest.fn(fn => fn(mockState)),
-//   useDispatch: () => jest.fn(),
-// }))
+0
 jest.mock('@reapit/elements', () => ({
   ...jest.requireActual('@reapit/elements'),
   toLocalTime: jest.fn().mockReturnValue('localtime'),
@@ -55,17 +47,17 @@ describe('OverviewPage', () => {
     const mockStore = configureStore()
     store = mockStore(mockState)
     /* mocking useSelector on our mock store */
-    spySelector = jest.spyOn(ReactReduxHooks, 'useSelector').mockImplementation(() => mapState(mockState))
+    spySelector = jest.spyOn(ReactRedux, 'useSelector').mockImplementation(() => mapState(mockState))
     /* mocking useDispatch on our mock store  */
-    spyDispatch = jest.spyOn(ReactReduxHooks, 'useDispatch').mockImplementation(() => store.dispatch)
+    spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
   })
 
   it('should match snapshot', () => {
     expect(
       shallow(
-        <Provider store={store}>
+        <ReactRedux.Provider store={store}>
           <DetailedTab />
-        </Provider>,
+        </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()
   })
@@ -80,46 +72,26 @@ describe('OverviewPage', () => {
     })
   })
 
-  describe('handleLoadAppUsageStatsUseCallback', () => {
+  describe('handleFetchAppUsageStatsDataUseCallback', () => {
     it('should run correctly', () => {
-      const mockAppUsageStatsParams: AppUsageStatsParams = {
-        appId: ['1'],
-        dateFrom: dayjs()
-          .subtract(1, 'day')
-          .format(DATE_TIME_FORMAT.YYYY_MM_DD),
-        dateTo: dayjs().format(DATE_TIME_FORMAT.YYYY_MM_DD),
-      }
-      const fn = handleLoadAppUsageStatsUseCallback(spyDispatch)
-      fn(mockAppUsageStatsParams)
-      expect(spyDispatch).toBeCalledWith(appUsageStatsRequestData(mockAppUsageStatsParams))
+      const developerAppData = appsDataStub.data.data || []
+      const fn = handleFetchAppUsageStatsDataUseCallback(developerAppData, spyDispatch)
+      fn()
+      expect(spyDispatch).toBeCalledWith(
+        appUsageStatsRequestData({
+          appId: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
+          dateFrom: '2019-09-30',
+          dateTo: '2019-10-06',
+        }),
+      )
+      expect(spyDispatch).toBeCalledWith(
+        appInstallationsRequestData({
+          installedDateFrom: '2019-09-30',
+          installedDateTo: '2019-10-06',
+          pageSize: 9999,
+        }),
+      )
     })
-  })
-
-  describe('handleLoadInstallationsUseCallback', () => {
-    it('should run correctly', () => {
-      const mockInstallationsParams: InstallationParams = {
-        appId: ['1'],
-        installedDateFrom: dayjs()
-          .subtract(1, 'day')
-          .format(DATE_TIME_FORMAT.YYYY_MM_DD),
-        installedDateTo: dayjs().format(DATE_TIME_FORMAT.YYYY_MM_DD),
-      }
-      const fn = handleLoadInstallationsUseCallback(spyDispatch)
-      fn(mockInstallationsParams)
-      expect(spyDispatch).toBeCalledWith(appInstallationsRequestData(mockInstallationsParams))
-    })
-  })
-})
-
-describe('handleFetchAppUsageStatsDataUseCallback', () => {
-  it('should run correctly', () => {
-    const loadStats = jest.fn()
-    const loadInstallations = jest.fn()
-    const developerAppData = appsDataStub.data.data || []
-    const fn = handleFetchAppUsageStatsDataUseCallback(developerAppData, loadStats, loadInstallations)
-    fn()
-    expect(loadStats).toBeCalled()
-    expect(loadInstallations).toBeCalled()
   })
 })
 

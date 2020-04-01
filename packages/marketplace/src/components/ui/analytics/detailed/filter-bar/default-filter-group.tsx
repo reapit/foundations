@@ -7,7 +7,7 @@ import { appUsageStatsRequestData } from '@/actions/app-usage-stats'
 import { appInstallationsRequestData } from '@/actions/app-installations'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 
-type DefaultFilterGroupProps = {
+export type DefaultFilterGroupProps = {
   appIds: string[]
   clientIds: string[]
   setDateFrom: (date: string) => void
@@ -90,29 +90,83 @@ export const handleFilter = (
   )
 }
 
-const DefaultFilterGroup: React.FC<DefaultFilterGroupProps> = ({ appIds, clientIds, setDateFrom, setDateTo }) => {
+export const handleFilterButtonClick = (
+  filterType,
+  appIds,
+  clientIds,
+  setDateFrom,
+  setDateTo,
+  dispatch,
+  setIsActive,
+) => {
+  return () => {
+    const { yesterdayParams, lastWeekParams, lastMonthParams } = prepareDefaultFilterDateParams()
+    switch (filterType) {
+      case FilterType.YESTERDAY:
+        handleFilter(yesterdayParams, appIds, clientIds, setDateFrom, setDateTo, dispatch)
+        break
+      case FilterType.LAST_WEEK:
+        handleFilter(lastWeekParams, appIds, clientIds, setDateFrom, setDateTo, dispatch)
+        break
+      case FilterType.LAST_MONTH:
+        handleFilter(lastMonthParams, appIds, clientIds, setDateFrom, setDateTo, dispatch)
+        break
+      default:
+        break
+    }
+    setIsActive(filterType)
+  }
+}
+
+export const renderFiterButtons = (
+  buttonText,
+  buttonFilterType,
+  isActive,
+  onFilterButtonClick,
+  appIds,
+  clientIds,
+  setDateFrom,
+  setDateTo,
+  dispatch,
+  setIsActive,
+) => {
+  return (
+    <Button
+      type="button"
+      className={`${isActive === buttonFilterType && 'is-info'}`}
+      variant="secondary"
+      onClick={onFilterButtonClick(buttonFilterType, appIds, clientIds, setDateFrom, setDateTo, dispatch, setIsActive)}
+      fullWidth={false}
+    >
+      {buttonText}
+    </Button>
+  )
+}
+
+export const filterButtons = [
+  {
+    text: 'Yesterday',
+    filterType: FilterType.YESTERDAY,
+  },
+  {
+    text: 'Last Week',
+    filterType: FilterType.LAST_WEEK,
+  },
+  {
+    text: 'Last Month',
+    filterType: FilterType.LAST_MONTH,
+  },
+]
+
+export const DefaultFilterGroup: React.FC<DefaultFilterGroupProps> = ({
+  appIds,
+  clientIds,
+  setDateFrom,
+  setDateTo,
+}) => {
   const [isActive, setIsActive] = React.useState(FilterType.LAST_WEEK)
   const dispatch = useDispatch()
-
-  const onFilterButtonClick = filterType => {
-    return () => {
-      const { yesterdayParams, lastWeekParams, lastMonthParams } = prepareDefaultFilterDateParams()
-      switch (filterType) {
-        case FilterType.YESTERDAY:
-          handleFilter(yesterdayParams, appIds, clientIds, setDateFrom, setDateTo, dispatch)
-          break
-        case FilterType.LAST_WEEK:
-          handleFilter(lastWeekParams, appIds, clientIds, setDateFrom, setDateTo, dispatch)
-          break
-        case FilterType.LAST_MONTH:
-          handleFilter(lastMonthParams, appIds, clientIds, setDateFrom, setDateTo, dispatch)
-          break
-        default:
-          break
-      }
-      setIsActive(filterType)
-    }
-  }
+  const onFilterButtonClick = React.useCallback(handleFilterButtonClick, [])
 
   return (
     <>
@@ -122,33 +176,20 @@ const DefaultFilterGroup: React.FC<DefaultFilterGroupProps> = ({ appIds, clientI
         </GridItem>
         <GridItem className="is-narrow">
           <ButtonGroup className="are-small">
-            <Button
-              type="button"
-              className={`${isActive === FilterType.YESTERDAY && 'is-info'}`}
-              variant="secondary"
-              onClick={onFilterButtonClick(FilterType.YESTERDAY)}
-              fullWidth={false}
-            >
-              Yesterday
-            </Button>
-            <Button
-              type="button"
-              className={`${isActive === FilterType.LAST_WEEK && 'is-info'}`}
-              variant="secondary"
-              onClick={onFilterButtonClick(FilterType.LAST_WEEK)}
-              fullWidth={false}
-            >
-              Last Week
-            </Button>
-            <Button
-              type="button"
-              className={`${isActive === FilterType.LAST_MONTH && 'is-info'}`}
-              variant="secondary"
-              onClick={onFilterButtonClick(FilterType.LAST_MONTH)}
-              fullWidth={false}
-            >
-              Last Month
-            </Button>
+            {filterButtons.map(button => {
+              return renderFiterButtons(
+                button.text,
+                button.filterType,
+                isActive,
+                onFilterButtonClick,
+                appIds,
+                clientIds,
+                setDateFrom,
+                setDateTo,
+                dispatch,
+                setIsActive,
+              )
+            })}
           </ButtonGroup>
         </GridItem>
       </Grid>

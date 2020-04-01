@@ -2,12 +2,11 @@ import * as React from 'react'
 import orderBy from 'lodash.orderby'
 import dayjs from 'dayjs'
 
-import { Dispatch } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
 import { ReduxState } from '@/types/core'
 
-import { appUsageStatsRequestData, AppUsageStatsParams } from '@/actions/app-usage-stats'
-import { appInstallationsRequestData, InstallationParams } from '@/actions/app-installations'
+import { appUsageStatsRequestData } from '@/actions/app-usage-stats'
+import { appInstallationsRequestData } from '@/actions/app-installations'
 import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { getAppUsageStats } from '@/selector/analytics'
 import { getDevelopers } from '@/selector/developer'
@@ -41,11 +40,7 @@ export const handleMapAppNameToInstallation = (
   })
 }
 
-export const handleFetchAppUsageStatsDataUseCallback = (
-  developerAppDataArray: AppSummaryModel[] = [],
-  loadAppUsageStats: (params: AppUsageStatsParams) => void,
-  loadInstallations: (params: InstallationParams) => void,
-) => {
+export const handleFetchAppUsageStatsDataUseCallback = (developerAppDataArray: AppSummaryModel[] = [], dispatch) => {
   return () => {
     const orderredDeveloperAppDataArray = orderBy(developerAppDataArray, ['created'], ['asc'])
     const appIds = orderredDeveloperAppDataArray.map((app: AppSummaryModel) => {
@@ -61,17 +56,21 @@ export const handleFetchAppUsageStatsDataUseCallback = (
       .add(1, 'day')
       .format(DATE_TIME_FORMAT.YYYY_MM_DD)
 
-    loadAppUsageStats({
-      appId: appIds,
-      dateFrom: lastMonday,
-      dateTo: lastSunday,
-    })
+    dispatch(
+      appUsageStatsRequestData({
+        appId: appIds,
+        dateFrom: lastMonday,
+        dateTo: lastSunday,
+      }),
+    )
 
-    loadInstallations({
-      installedDateFrom: lastMonday,
-      installedDateTo: lastSunday,
-      pageSize: GET_ALL_PAGE_SIZE,
-    })
+    dispatch(
+      appInstallationsRequestData({
+        installedDateFrom: lastMonday,
+        installedDateTo: lastSunday,
+        pageSize: GET_ALL_PAGE_SIZE,
+      }),
+    )
   }
 }
 
@@ -95,18 +94,6 @@ export const mapState = (state: ReduxState): MapState => {
   }
 }
 
-export const handleLoadAppUsageStatsUseCallback = (dispatch: Dispatch) => {
-  return (params: AppUsageStatsParams) => {
-    dispatch(appUsageStatsRequestData(params))
-  }
-}
-
-export const handleLoadInstallationsUseCallback = (dispatch: Dispatch) => {
-  return (params: InstallationParams) => {
-    dispatch(appInstallationsRequestData(params))
-  }
-}
-
 export const DetailedTab: React.FC<DetailedTabProps> = () => {
   const dispatch = useDispatch()
   const { appUsageStats, developer, installations } = useSelector(mapState)
@@ -117,10 +104,8 @@ export const DetailedTab: React.FC<DetailedTabProps> = () => {
     [installationAppDataArray, developerDataArray],
   )
 
-  const loadAppUsageStats = React.useCallback(handleLoadAppUsageStatsUseCallback(dispatch), [])
-  const loadInstallations = React.useCallback(handleLoadInstallationsUseCallback(dispatch), [])
   const fetchAppUsageStatsData = React.useCallback(
-    handleFetchAppUsageStatsDataUseCallback(developerDataArray, loadAppUsageStats, loadInstallations),
+    handleFetchAppUsageStatsDataUseCallback(developerDataArray, dispatch),
     [developerDataArray],
   )
 

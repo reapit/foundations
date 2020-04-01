@@ -20,38 +20,58 @@ export type FilterFormInitialValues = {
 const lastWeek = dayjs()
   .utc()
   .subtract(1, 'week')
-const lastMonday = lastWeek
+export const lastMonday = lastWeek
   .startOf('week')
   .add(1, 'day')
   .format(DATE_TIME_FORMAT.YYYY_MM_DD)
-const lastSunday = lastWeek
+export const lastSunday = lastWeek
   .endOf('week')
   .add(1, 'day')
   .format(DATE_TIME_FORMAT.YYYY_MM_DD)
 
-const FilterBar: React.FC<FilterBarProps> = ({ developerAppsData, installationAppDataArray }) => {
-  const [dateFrom, setDateFrom] = React.useState(lastMonday)
-  const [dateTo, setDateTo] = React.useState(lastSunday)
-
+export const prepareAppDeveloperAppData = developerAppsData => {
   const developerApps = developerAppsData.data || []
   const developerAppIds = developerApps.map((app: AppSummaryModel) => {
     return app.id || ''
   })
+  return {
+    developerApps,
+    developerAppIds,
+  }
+}
 
+export const prepareClientIds = installationAppDataArray => {
   const clientIds = installationAppDataArray
     .map((installation: InstallationModel) => {
       return installation.client || ''
     })
     .filter((x, i, a) => a.indexOf(x) == i)
+  return clientIds
+}
 
-  const prepareFilterFormInitialValues = React.useCallback((): FilterFormInitialValues => {
+export const handleUseCallbackToPrepareFilterFormInitialValues = (dateFrom, dateTo) => {
+  return () => {
     return {
       dateFrom: dateFrom,
       dateTo: dateTo,
       clientId: '',
       appId: '',
-    }
-  }, [dateFrom, dateTo])
+    } as FilterFormInitialValues
+  }
+}
+
+export const FilterBar: React.FC<FilterBarProps> = ({ developerAppsData, installationAppDataArray }) => {
+  const [dateFrom, setDateFrom] = React.useState(lastMonday)
+  const [dateTo, setDateTo] = React.useState(lastSunday)
+
+  const prepareFilterFormInitialValues = React.useCallback(
+    handleUseCallbackToPrepareFilterFormInitialValues(dateFrom, dateTo),
+    [dateFrom, dateTo],
+  )
+
+  const initialValues = prepareFilterFormInitialValues()
+  const { developerApps, developerAppIds } = prepareAppDeveloperAppData(developerAppsData)
+  const clientIds = prepareClientIds(installationAppDataArray)
 
   return (
     <>
@@ -61,11 +81,7 @@ const FilterBar: React.FC<FilterBarProps> = ({ developerAppsData, installationAp
         setDateFrom={setDateFrom}
         setDateTo={setDateTo}
       />
-      <FilterForm
-        initialValues={prepareFilterFormInitialValues()}
-        developerApps={developerApps}
-        clientIds={clientIds}
-      />
+      <FilterForm initialValues={initialValues} developerApps={developerApps} clientIds={clientIds} />
     </>
   )
 }
