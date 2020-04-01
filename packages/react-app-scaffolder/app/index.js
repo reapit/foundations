@@ -276,7 +276,7 @@ module.exports = class extends Generator {
      * else current path
      */
     if (this.answers.isFoundation) {
-      this.packagePath = path.resolve(__dirname, `../../${this.answers.name}`)
+      this.packagePath = path.resolve(__dirname, '../..', this.answers.name)
       /**
        * create directory if not
        */
