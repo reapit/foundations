@@ -81,6 +81,21 @@ exports[`Spreadsheet should match snapshot with default props 1`] = `
     selected={null}
     setContextMenuProp={[Function]}
   />
+  <Component
+    setUploadData={[Function]}
+    uploadData={
+      Object {
+        "exceedMaxRow": false,
+        "invalidIndies": Array [],
+        "isModalOpen": false,
+        "shouldProcess": false,
+        "totalRow": 0,
+        "validatedData": Array [
+          Array [],
+        ],
+      }
+    }
+  />
 </div>
 `;
 
@@ -137,6 +152,21 @@ exports[`Spreadsheet should match snapshot with full props 1`] = `
     onCellsChanged={[Function]}
     selected={null}
     setContextMenuProp={[Function]}
+  />
+  <Component
+    setUploadData={[Function]}
+    uploadData={
+      Object {
+        "exceedMaxRow": false,
+        "invalidIndies": Array [],
+        "isModalOpen": false,
+        "shouldProcess": false,
+        "totalRow": 0,
+        "validatedData": Array [
+          Array [],
+        ],
+      }
+    }
   />
 </div>
 `;

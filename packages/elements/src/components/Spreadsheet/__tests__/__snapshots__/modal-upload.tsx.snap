@@ -1,0 +1,170 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModalUpload should match snapshot with default prop 1`] = `
+<Component
+  afterClose={[Function]}
+  footerItems={
+    <React.Fragment>
+      <Unknown
+        onClick={[Function]}
+        type="button"
+        variant="secondary"
+      >
+        Close
+      </Unknown>
+      <Unknown
+        onClick={[Function]}
+        type="button"
+        variant="primary"
+      >
+        Process valid rows
+      </Unknown>
+    </React.Fragment>
+  }
+  tapOutsideToDissmiss={false}
+  title="Process with 1 valid rows?"
+  visible={true}
+>
+  <div>
+    <Component
+      className="has-text-info"
+    >
+      All rows are valid!
+    </Component>
+    <ul />
+  </div>
+</Component>
+`;
+
+exports[`ModalUpload should match snapshot with modified props 1`] = `
+<Component
+  afterClose={[Function]}
+  footerItems={
+    <React.Fragment>
+      <Unknown
+        onClick={[Function]}
+        type="button"
+        variant="secondary"
+      >
+        Close
+      </Unknown>
+      <Unknown
+        onClick={[Function]}
+        type="button"
+        variant="primary"
+      >
+        Process valid rows
+      </Unknown>
+    </React.Fragment>
+  }
+  tapOutsideToDissmiss={false}
+  title="Process with 4 valid rows?"
+  visible={true}
+>
+  <div>
+    <Component
+      className="has-text-danger"
+    >
+      Found 2 invalid rows
+    </Component>
+    <ul>
+      <li
+        key="0"
+      >
+        Row: 
+        <span
+          className="has-text-danger"
+        >
+          2
+        </span>
+        , Columns:
+         
+        <span
+          className="has-text-danger"
+        >
+          3
+        </span>
+        , Value:
+         
+        <span
+          className="has-text-danger"
+        >
+          hi
+        </span>
+      </li>
+      <li
+        key="1"
+      >
+        Row: 
+        <span
+          className="has-text-danger"
+        >
+          3
+        </span>
+        , Columns:
+         
+        <span
+          className="has-text-danger"
+        >
+          3
+        </span>
+        , Value:
+         
+        <span
+          className="has-text-danger"
+        >
+          hi
+        </span>
+      </li>
+      <li
+        key="2"
+      >
+        Row: 
+        <span
+          className="has-text-danger"
+        >
+          2
+        </span>
+        , Columns:
+         
+        <span
+          className="has-text-danger"
+        >
+          5
+        </span>
+        , Value:
+         
+        <span
+          className="has-text-danger"
+        >
+          hi
+        </span>
+      </li>
+      <li
+        key="3"
+      >
+        Row: 
+        <span
+          className="has-text-danger"
+        >
+          2
+        </span>
+        , Columns:
+         
+        <span
+          className="has-text-danger"
+        >
+          6
+        </span>
+        , Value:
+         
+        <span
+          className="has-text-danger"
+        >
+          hi
+        </span>
+      </li>
+    </ul>
+  </div>
+</Component>
+`;
