@@ -601,6 +601,39 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                         />
                       </GridItem>
                     </Grid>
+                    <Grid>
+                      <GridItem>
+                        <FormHeading>Private Apps</FormHeading>
+                        <FormSubHeading>
+                          If your App is a Private App and you would like it to only be visible to certain customers,
+                          please select ‘Yes’ below. You should then enter the ‘Customer ID’ of the customer(s) you wish
+                          to share your app with. If you select ‘No’, your Ppp will be visible to all on the
+                          Marketplace. For multiple customers, please separate the Customer IDs using a comma, e.g. ABC,
+                          DEF. For information on how to obtain the Customer ID, please click here (TBC)
+                        </FormSubHeading>
+                        <RadioSelect
+                          setFieldValue={setFieldValue}
+                          state={values['isPrivateApp']}
+                          disabled={!isSubmitApp}
+                          options={[
+                            { label: 'YES', value: 1 },
+                            { label: 'NO', value: 0 },
+                          ]}
+                          name="isPrivateApp"
+                          id="isPrivateApp"
+                        />
+                        <Input
+                          disabled={values['isPrivateApp'] === 0}
+                          dataTest="submit-app-limited-to-client-ids"
+                          type="text"
+                          id="limitToClientIds"
+                          name="limitToClientIds"
+                          placeholder={
+                            'Please enter the Customer ID. For multiple Customer ID’s, please separate using a comma'
+                          }
+                        />
+                      </GridItem>
+                    </Grid>
                   </FormSection>
                   <FormSection>
                     <FormHeading>Images</FormHeading>
