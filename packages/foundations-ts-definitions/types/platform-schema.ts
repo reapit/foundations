@@ -3049,6 +3049,10 @@ export interface CreatePropertyLettingModel {
    */
   furnishing?: string[]
   /**
+   * The role that the agent will be performing for this lettings property (managed/rentCollection/collectFirstPayment/collectRentToDate/lettingOnly/introducingTenant)
+   */
+  agentRole?: string
+  /**
    * The acceptable letting terms (short/long/any)
    */
   term?: string
@@ -3308,6 +3312,10 @@ export interface CreatePropertyModel {
      * The furnishing state that the property can be offered in (furnished/unfurnished/partFurnished)
      */
     furnishing?: string[]
+    /**
+     * The role that the agent will be performing for this lettings property (managed/rentCollection/collectFirstPayment/collectRentToDate/lettingOnly/introducingTenant)
+     */
+    agentRole?: string
     /**
      * The acceptable letting terms (short/long/any)
      */
@@ -7472,6 +7480,10 @@ export interface PagedResultPropertyModel_ {
        */
       status?: string
       /**
+       * The role that the agent will be performing for this lettings property (managed/rentCollection/collectFirstPayment/collectRentToDate/lettingOnly/introducingTenant)
+       */
+      agentRole?: string
+      /**
        * The unique identifier of the landlord letting the property
        */
       landlordId?: string
@@ -8774,6 +8786,10 @@ export interface PropertyLettingModel {
    */
   status?: string
   /**
+   * The role that the agent will be performing for this lettings property (managed/rentCollection/collectFirstPayment/collectRentToDate/lettingOnly/introducingTenant)
+   */
+  agentRole?: string
+  /**
    * The unique identifier of the landlord letting the property
    */
   landlordId?: string
@@ -9067,6 +9083,10 @@ export interface PropertyModel {
      * The current status of the let (valuation/toLet/toLetUnavailable/underOffer/underOfferUnavailable/arrangingTenancyUnavailable/arrangingTenancy/tenancyCurrentUnavailable/tenancyCurrent/tenancyFinished/tenancyCancelled/sold/letByOtherAgent/letPrivately/provisional/withdrawn)
      */
     status?: string
+    /**
+     * The role that the agent will be performing for this lettings property (managed/rentCollection/collectFirstPayment/collectRentToDate/lettingOnly/introducingTenant)
+     */
+    agentRole?: string
     /**
      * The unique identifier of the landlord letting the property
      */
@@ -11199,6 +11219,10 @@ export interface UpdatePropertyLettingModel {
    * The current status of the let (valuation/toLet/toLetUnavailable/underOffer/underOfferUnavailable/arrangingTenancyUnavailable/arrangingTenancy/tenancyCurrentUnavailable/tenancyCurrent/tenancyFinished/tenancyCancelled/sold/letByOtherAgent/letPrivately/provisional/withdrawn)
    */
   status?: string
+  /**
+   * The role that the agent will be performing for this lettings property (managed/rentCollection/collectFirstPayment/collectRentToDate/lettingOnly/introducingTenant)
+   */
+  agentRole?: string
 }
 /**
  * Request body used to update an existing property
@@ -11451,6 +11475,10 @@ export interface UpdatePropertyModel {
      * The current status of the let (valuation/toLet/toLetUnavailable/underOffer/underOfferUnavailable/arrangingTenancyUnavailable/arrangingTenancy/tenancyCurrentUnavailable/tenancyCurrent/tenancyFinished/tenancyCancelled/sold/letByOtherAgent/letPrivately/provisional/withdrawn)
      */
     status?: string
+    /**
+     * The role that the agent will be performing for this lettings property (managed/rentCollection/collectFirstPayment/collectRentToDate/lettingOnly/introducingTenant)
+     */
+    agentRole?: string
   }
   /**
    * The property type attributes
