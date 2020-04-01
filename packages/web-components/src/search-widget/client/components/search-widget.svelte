@@ -9,25 +9,10 @@
 
   export let theme
   export let apiKey
-  export let target
+  export let parentSelector
 
-  let searchKeyword
-  let searchType
-  let resultsMessage
-
-  $: isLoading = false
-  $: properties = []
-
-  const themeClasses = generateThemeClasses(theme, target)
+  const themeClasses = generateThemeClasses(theme, parentSelector)
   const { globalStyles, primaryHeading } = themeClasses
-
-  const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
-    properties = (store.properties && store.properties._embedded) || []
-    searchKeyword = store.searchKeyword
-    searchType = store.searchType
-    isLoading = store.isLoading
-    resultsMessage = store.resultsMessage
-  })
 
   onMount(() => {
     searchWidgetStore.update(values => ({
@@ -35,14 +20,10 @@
       initializers: {
         theme,
         apiKey,
-        target,
+        parentSelector,
       },
       themeClasses,
     }))
-  })
-
-  onDestroy(() => {
-    unsubscribeSearchWidgetStore()
   })
 </script>
 
@@ -70,20 +51,20 @@
   }
 </style>
 
-<div class={`${resetCSS} ${globalStyles} search-widget`}>
+<div class="{resetCSS} {globalStyles} search-widget">
   <SearchForm />
   <div class="search-widget-items">
-    {#if properties.length && !isLoading}
+    {#if $searchWidgetStore.properties.length && !$searchWidgetStore.isLoading}
       <div class="search-widget-heading">
-        <h2 class={`${primaryHeading}`}>{resultsMessage}</h2>
+        <h2 class="{primaryHeading}">{$searchWidgetStore.resultsMessage}</h2>
       </div>
     {/if}
-    {#if isLoading}
+    {#if $searchWidgetStore.isLoading}
       <Loader />
     {/if}
-    {#each properties as property (property.id)}
+    {#each $searchWidgetStore.properties as property (property.id)}
       <SearchResult {property} />
     {/each}
   </div>
-  <GoogleMap />
+  <GoogleMap {theme} />
 </div>

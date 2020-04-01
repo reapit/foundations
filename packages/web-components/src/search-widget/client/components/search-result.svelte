@@ -28,6 +28,7 @@
     bodyText,
     selectedItem,
     resultItem,
+    offerBanner,
   } = themeClasses
 
   const id = (property && property.id) || ''
@@ -79,17 +80,15 @@
     margin-bottom: 0.5em;
   }
 
-  .search-result-offer-flag {
-    background: grey;
+  .search-result-offer-banner {
     text-align: center;
     position: absolute;
-    width: 200px;
-    padding: 20px;
-    top: 30px;
-    right: -60px;
+    width: 12.5em;
+    padding: 1.2em;
+    top: 2em;
+    right: -3.75em;
     transform: rotate(45deg);
     font-weight: 600;
-    color: #fff;
   }
 
   .search-result-item-address-secondary {
@@ -142,30 +141,30 @@
 </style>
 
 <div
-  class={`search-result-item ${resultItem} ${isSelectedProperty ? selectedItem : ''}`}
+  class="search-result-item {resultItem} {isSelectedProperty ? selectedItem : ''}"
   data-testid="select-property"
   on:click|preventDefault={selectProperty}>
   <div class="search-result-image-container">
     {#if sellingStatus === 'underOffer'}
-      <div class="search-result-offer-flag">Under Offer</div>
+      <div class="search-result-offer-banner {offerBanner}">Under Offer</div>
     {/if}
     {#if lettingStatus === 'underOffer'}
-      <div class="search-result-offer-flag">Let Agreed</div>
+      <div class="search-result-offer-banner {offerBanner}">Let Agreed</div>
     {/if}
     <img alt="property image" src={imageUrl} on:error={handleImageError} />
   </div>
   <div>
-    <div class={`${secondaryStrapline} search-result-item-address-secondary`}>
-      <div class={`${secondaryHeading} search-result-item-address-primary`}>
+    <div class="{secondaryStrapline} search-result-item-address-secondary">
+      <div class="{secondaryHeading} search-result-item-address-primary">
         {(property.address && property.address.line1) || ''}
       </div>
       {combineAddress(property.address)}
     </div>
   </div>
-  <div class={`${primaryHeading} search-result-item-pricing-text`}>{getPrice(property, searchType)}</div>
-  <div class={`${secondaryStrapline} search-result-item-beds-text`}>{combineNumberBedTypeStyle(property)}</div>
-  <div class={`${bodyText} search-result-item-description-text`}>{property.description}</div>
-  <div class={`${secondaryHeading} search-result-item-icon-container`}>
+  <div class="{primaryHeading} search-result-item-pricing-text">{getPrice(property, searchType)}</div>
+  <div class="{secondaryStrapline} search-result-item-beds-text">{combineNumberBedTypeStyle(property)}</div>
+  <div class="{bodyText} search-result-item-description-text">{property.description}</div>
+  <div class="{secondaryHeading} search-result-item-icon-container">
     <span class="search-result-item-icon">
       <Fa icon={faBed} />
     </span>

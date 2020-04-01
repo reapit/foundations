@@ -1,6 +1,6 @@
 import { PropertyModel } from '@reapit/foundations-ts-definitions'
 
-export const property: PropertyModel = {
+export const propertyStub: PropertyModel = {
   id: 'AYL190002',
   created: '2019-09-17T11:57:27',
   modified: '2019-09-17T12:06:06',

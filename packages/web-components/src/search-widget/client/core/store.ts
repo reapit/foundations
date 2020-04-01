@@ -1,12 +1,12 @@
 import { writable, Writable } from 'svelte/store'
 import { SearchWidgeInitializers } from './index'
-import { PagedResultPropertyModel_, PropertyImageModel, PropertyModel } from '@reapit/foundations-ts-definitions'
+import { PropertyImageModel, PropertyModel } from '@reapit/foundations-ts-definitions'
 import { ThemeClasses } from '../../../common/styles'
 
 export interface SearchWidgetStore {
   initializers: SearchWidgeInitializers
   themeClasses: ThemeClasses
-  properties: PagedResultPropertyModel_ | null
+  properties: PropertyModel[]
   propertyImages: Record<string, PropertyImageModel> | null
   selectedProperty: PropertyModel | null
   selectedMarker: google.maps.Marker | null
@@ -20,7 +20,7 @@ const searchWidgetStore: Writable<SearchWidgetStore> = writable({
   initializers: {
     apiKey: '',
     theme: {},
-    target: '',
+    parentSelector: '',
   },
   themeClasses: {
     globalStyles: '',
@@ -34,9 +34,10 @@ const searchWidgetStore: Writable<SearchWidgetStore> = writable({
     input: '',
     resultItem: '',
     searchBox: '',
+    offerBanner: '',
   },
-  properties: null,
-  propertyImages: null,
+  properties: [],
+  propertyImages: {},
   selectedProperty: null,
   selectedMarker: null,
   searchType: 'Sale',

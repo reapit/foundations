@@ -16,6 +16,7 @@
 /packages/*/public/service
 /packages/*/public/dist
 /packages/*/.serverless
+/packages/web-components/public/*
 .rts2_cache*
 
 # misc

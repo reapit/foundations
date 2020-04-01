@@ -3,7 +3,7 @@ module.exports = {
   testPathIgnorePatterns: ['<rootDir>/src/scripts'],
   collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/src/**/*.svelte'],
   coverageDirectory: './src/tests/coverage',
-  coveragePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]'],
+  coveragePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts|src/tests|src/common/styles/__themes__)[/\\\\]'],
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'],
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|poc-archive)[/\\\\]'],
   moduleNameMapper: {
@@ -14,8 +14,8 @@ module.exports = {
     global: {
       branches: 75,
       functions: 85,
-      lines: 95,
-      statements: 95,
+      lines: 90,
+      statements: 90,
     },
   },
   transform: {

@@ -5,23 +5,10 @@
   import Marker from './marker.svelte'
   import WindowInfo from './window-info.svelte'
 
+  export let theme
+  
   let map
   let mapElement
-  let selectedMarker
-  let properties = []
-  let propertyImages
-  let searchType
-  let themeClasses
-  let selectedProperty
-
-  const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
-    selectedMarker = store.selectedMarker
-    properties = (store.properties && store.properties._embedded) || []
-    propertyImages = store.propertyImages
-    selectedProperty = store.selectedProperty
-    searchType = store.searchType
-    themeClasses = store.themeClasses
-  })
 
   const handleMarkerClick = event => {
     const { selectedProperty, selectedMarker } = event.detail
@@ -42,21 +29,17 @@
 
   onMount(async () => {
     if (!window.google) {
-      map = await loadMap(mapElement, themeClasses)
+      map = await loadMap(mapElement, theme)
     }
   })
 
   afterUpdate(() => {
-    if (properties.length > 0 && !selectedProperty) {
-      fitMapToBounds(properties, map)
+    if ($searchWidgetStore.properties.length > 0 && !$searchWidgetStore.selectedProperty) {
+      fitMapToBounds($searchWidgetStore.properties, map)
     }
-    if (selectedProperty) {
-      centerMapToMarker(selectedProperty, map)
+    if ($searchWidgetStore.selectedProperty) {
+      centerMapToMarker($searchWidgetStore.selectedProperty, map)
     }
-  })
-
-  onDestroy(() => {
-    unsubscribeSearchWidgetStore()
   })
 </script>
 
@@ -73,17 +56,17 @@
 
 <div class="google-map-outer-container">
   <div class="google-map-container" bind:this={mapElement}>
-    {#if properties.length > 0 && selectedProperty}
+    {#if $searchWidgetStore.properties.length > 0 && $searchWidgetStore.selectedProperty}
       <WindowInfo
         on:windowInfoClick={handleCloseWindowInfo}
-        {propertyImages}
-        {selectedProperty}
-        {selectedMarker}
-        {searchType}
-        {themeClasses}
+        propertyImages={$searchWidgetStore.propertyImages}
+        selectedProperty={$searchWidgetStore.selectedProperty}
+        selectedMarker={$searchWidgetStore.selectedMarker}
+        searchType={$searchWidgetStore.searchType}
+        themeClasses={$searchWidgetStore.themeClasses}
         {map} />
     {/if}
-    {#each properties as property (property.id)}
+    {#each $searchWidgetStore.properties as property (property.id)}
       <Marker on:markerClick={handleMarkerClick} {map} {property} />
     {/each}
   </div>

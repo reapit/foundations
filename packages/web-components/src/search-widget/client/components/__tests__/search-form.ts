@@ -1,4 +1,4 @@
-import SearchForm from '../search-widget.svelte'
+import SearchForm from '../search-form.svelte'
 import { render, fireEvent } from '@testing-library/svelte'
 import { getProperties } from '../../api/properties'
 import { getPropertyImages } from '../../api/property-images'
@@ -17,10 +17,7 @@ describe('search-form', () => {
   })
 
   it('it matches a snapshot', () => {
-    const wrapper = render(SearchForm, {
-      theme: {},
-      apiKey: '',
-    })
+    const wrapper = render(SearchForm)
     const { container } = wrapper
 
     expect(container).toMatchSnapshot()
@@ -39,8 +36,10 @@ describe('search-form', () => {
 
     const store = get(searchWidgetStore)
 
-    expect(store.properties).toEqual(propertiesStub)
+    expect(store.properties).toEqual(propertiesStub._embedded)
     expect(store.propertyImages).toEqual(propertyImagesStub)
+    expect(store.isLoading).toBe(false)
+    expect(store.resultsMessage).toBe('1 result for rent')
   })
 
   it('it triggers a data fetch for sales', async () => {
@@ -55,7 +54,9 @@ describe('search-form', () => {
     await fireEvent.click(getSales)
 
     const store = get(searchWidgetStore)
-    expect(store.properties).toEqual(propertiesStub)
+    expect(store.properties).toEqual(propertiesStub._embedded)
     expect(store.propertyImages).toEqual(propertyImagesStub)
+    expect(store.isLoading).toBe(false)
+    expect(store.resultsMessage).toBe('1 result for sale')
   })
 })

@@ -21,11 +21,11 @@
       dispatch('windowInfoClick')
     })
 
-    windowInfo.open(map, selectedMarker)
+    windowInfo && windowInfo.open && windowInfo.open(map, selectedMarker)
   })
 
   afterUpdate(() => {
-    windowInfo.close()
+    windowInfo && windowInfo.close && windowInfo.close()
 
     windowInfo = getInfoWindow(selectedProperty, searchType, propertyImages, themeClasses)
 
@@ -33,10 +33,10 @@
       dispatch('windowInfoClick')
     })
 
-    windowInfo.open(map, selectedMarker)
+    windowInfo && windowInfo.open && windowInfo.open(map, selectedMarker)
   })
 
   onDestroy(() => {
-    windowInfo.close()
+    windowInfo && windowInfo.close && windowInfo.close()
   })
 </script>

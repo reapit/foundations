@@ -3,57 +3,37 @@
 exports[`search-form it matches a snapshot 1`] = `
 <body>
   <div>
-    <div
-      class="css-h4w50h css-zv1dn4 search-widget svelte-1n9j2id"
+    <form
+      class="search-form  svelte-1hu8mn5"
     >
-      <form
-        class="search-form svelte-1w3uy45"
-      >
-        <input
-          class="css-1g0ct8n search-input svelte-1w3uy45"
-          data-testid="search-input"
-          id="search"
-          placeholder="Town or Postcode"
-          type="text"
-        />
-         
-        <div
-          class="search-button-container svelte-1w3uy45"
-        >
-          <button
-            class="css-bsrhk search-button svelte-1w3uy45"
-            data-testid="lettings"
-            type="button"
-          >
-            TO RENT
-          </button>
-           
-          <button
-            class="css-bsrhk search-button svelte-1w3uy45"
-            data-testid="sales"
-            type="button"
-          >
-            FOR SALE
-          </button>
-        </div>
-      </form>
+      <input
+        class=" search-form-input svelte-1hu8mn5"
+        data-testid="search-form-input"
+        id="search"
+        placeholder="Town or Postcode"
+        type="text"
+      />
        
       <div
-        class="search-results-items svelte-1n9j2id"
+        class="search-form-button-container svelte-1hu8mn5"
       >
-         
-      </div>
-       
-      <div
-        class="map-outer-container svelte-a3dv4p"
-      >
-        <div
-          class="map-container svelte-a3dv4p"
+        <button
+          class=" search-form-button svelte-1hu8mn5"
+          data-testid="lettings"
+          type="button"
         >
-           
-        </div>
+          TO RENT
+        </button>
+         
+        <button
+          class=" search-form-button svelte-1hu8mn5"
+          data-testid="sales"
+          type="button"
+        >
+          FOR SALE
+        </button>
       </div>
-    </div>
+    </form>
   </div>
 </body>
 `;

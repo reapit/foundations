@@ -6,15 +6,6 @@
 
   let inputValue = ''
   let apiKey = ''
-  let themeClasses = {}
-
-  const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
-    themeClasses = store.themeClasses
-  })
-
-  $: input = themeClasses.input
-  $: button = themeClasses.button
-  $: searchBox = themeClasses.searchBox
 
   const handleInput = ({ target }) => {
     inputValue = target.value
@@ -29,8 +20,10 @@
       ...values,
       isLoading: true,
       resultsMessage: '',
-      properties: null,
-      propertyImages: null,
+      properties: [],
+      propertyImages: {},
+      selectedMarker: null,
+      selectedProperty: null,
       searchType: isRental ? 'Rent' : 'Sale',
     }))
 
@@ -38,15 +31,18 @@
 
     const propertyImages = await getPropertyImages(properties._embedded, apiKey)
 
-    if (properties) {
-      const numberResults = (properties._embedded && properties._embedded.length) || 0
+    if (properties && properties._embedded.length) {
+      const propertiesArray = properties._embedded
+      const numberResults = propertiesArray.length
+      const resultsMessage = `${numberResults} result${numberResults === 1 ? '' : 's'}${
+        inputValue.length ? ` for ${inputValue},` : ''
+      } for ${isRental ? 'rent' : 'sale'}`
+  
       searchWidgetStore.update(values => ({
         ...values,
         isLoading: false,
-        resultsMessage: `${numberResults} result${numberResults === 1 ? '' : 's'} for ${inputValue}, for ${
-          isRental ? 'rent' : 'sale'
-        }`,
-        properties,
+        resultsMessage,
+        properties: propertiesArray,
       }))
     }
 
@@ -57,10 +53,6 @@
       }))
     }
   }
-
-  onDestroy(() => {
-    unsubscribeSearchWidgetStore()
-  })
 </script>
 
 <style>
@@ -92,23 +84,26 @@
   }
 </style>
 
-<form class={`search-form ${searchBox}`} on:submit|preventDefault on:input|preventDefault={handleInput}>
+<form
+  class="search-form {$searchWidgetStore.themeClasses.searchBox}"
+  on:submit|preventDefault
+  on:input|preventDefault={handleInput}>
   <input
-    class={`${input} search-form-input`}
+    class="{$searchWidgetStore.themeClasses.input} search-form-input"
     type="text"
     data-testid="search-form-input"
     id="search"
     placeholder="Town or Postcode" />
   <div class="search-form-button-container">
     <button
-      class={`${button} search-form-button`}
+      class="{$searchWidgetStore.themeClasses.button} search-form-button"
       on:click|preventDefault={() => handleFetchProperties(true)}
       data-testid="lettings"
       type="button">
       TO RENT
     </button>
     <button
-      class={`${button} search-form-button`}
+      class="{$searchWidgetStore.themeClasses.button} search-form-button"
       on:click|preventDefault={() => handleFetchProperties(false)}
       data-testid="sales"
       type="button">

@@ -33,6 +33,7 @@ export interface ThemeClasses {
   input: string
   resultItem: string
   searchBox: string
+  offerBanner: string
 }
 
 export const generateThemeClasses = (
@@ -50,7 +51,7 @@ export const generateThemeClasses = (
     secondaryAccentColor,
     breakPoints,
   }: Partial<InitializerTheme>,
-  target: string,
+  parentSelector: string,
 ): ThemeClasses => ({
   globalStyles: css`
     font-size: ${basefontSize || '16px'};
@@ -59,25 +60,25 @@ export const generateThemeClasses = (
     color: ${basefontColor || '#000'};
   `,
   primaryHeading: css`
-    ${target || 'body'} & {
+    ${parentSelector || 'body'} & {
       font-family: ${headingFontFamily || 'Helvetica, Arial, sans-serif'};
       font-size: ${primaryHeadingFontSize || '22px'};
       font-weight: bold;
       color: ${primaryAccentColor || basefontColor || '#000'};
-      margin-bottom: 0.1em;
+      margin-bottom: 0.2em;
     }
   `,
   secondaryHeading: css`
-    ${target || 'body'} & {
+    ${parentSelector || 'body'} & {
       font-family: ${headingFontFamily || 'Helvetica, Arial, sans-serif'};
       font-size: ${secondaryHeadingFontSize || '18px'};
       font-weight: bold;
       color: ${secondaryAccentColor || basefontColor || '#000'};
-      margin-bottom: 0.1em;
+      margin-bottom: 0.2em;
     }
   `,
   primaryStrapline: css`
-    ${target || 'body'} & {
+    ${parentSelector || 'body'} & {
       font-family: ${headingFontFamily || 'Helvetica, Arial, sans-serif'};
       font-size: ${secondaryHeadingFontSize || '18px'};
       font-weight: bold;
@@ -86,7 +87,7 @@ export const generateThemeClasses = (
     }
   `,
   secondaryStrapline: css`
-    ${target || 'body'} & {
+    ${parentSelector || 'body'} & {
       font-family: ${headingFontFamily || 'Helvetica, Arial, sans-serif'};
       font-size: ${basefontSize || '16px'};
       font-weight: bold;
@@ -95,19 +96,19 @@ export const generateThemeClasses = (
     }
   `,
   selectedItem: css`
-    ${target || 'body'} & {
+    ${parentSelector || 'body'} & {
       border-color: ${primaryAccentColor || 'grey'};
     }
   `,
   bodyText: css`
-    ${target || 'body'} & {
+    ${parentSelector || 'body'} & {
       font-size: ${basefontSize || '16px'};
       font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'};
       margin-bottom: 1em;
     }
   `,
   button: css`
-    ${target || 'body'} & {
+    ${parentSelector || 'body'} & {
       font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'};
       font-size: ${secondaryHeadingFontSize || '18px'};
       color: ${primaryAccentColor || '#000'};
@@ -125,14 +126,14 @@ export const generateThemeClasses = (
     }
   `,
   input: css`
-    ${target || 'body'} & {
+    ${parentSelector || 'body'} & {
       font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'};
       font-size: ${secondaryHeadingFontSize || '18px'};
       border: 1px solid ${primaryAccentColor || 'grey'};
     }
   `,
   resultItem: css`
-    ${target || 'body'} & {
+    ${parentSelector || 'body'} & {
       width: 100%;
 
       @media screen and (min-width: ${breakPoints?.desktop || '1200px'}) {
@@ -157,7 +158,7 @@ export const generateThemeClasses = (
     }
   `,
   searchBox: css`
-    ${target || 'body'} & {
+    ${parentSelector || 'body'} & {
       width: 100%;
 
       @media screen and (min-width: ${breakPoints?.laptop || '960px'}) {
@@ -174,175 +175,186 @@ export const generateThemeClasses = (
       }
     }
   `,
+  offerBanner: css`
+    ${parentSelector || 'body'} & {
+      background: ${primaryAccentColor || 'grey'};
+      font-size: ${basefontSize || '16px'};
+      font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'};
+      color: ${inverseFontColor || '#fff'};
+    }
+  `,
 })
 
-export const generateMapStyles = ({ mapAccentColor }: Partial<InitializerTheme>) => [
-  {
-    featureType: 'all',
-    elementType: 'geometry.fill',
-    stylers: [
-      {
-        weight: '2.00',
-      },
-    ],
-  },
-  {
-    featureType: 'all',
-    elementType: 'geometry.stroke',
-    stylers: [
-      {
-        color: '#9c9c9c',
-      },
-    ],
-  },
-  {
-    featureType: 'all',
-    elementType: 'labels.text',
-    stylers: [
-      {
-        visibility: 'on',
-      },
-    ],
-  },
-  {
-    featureType: 'landscape',
-    elementType: 'all',
-    stylers: [
-      {
-        color: '#f2f2f2',
-      },
-    ],
-  },
-  {
-    featureType: 'landscape',
-    elementType: 'geometry.fill',
-    stylers: [
-      {
-        color: '#ffffff',
-      },
-    ],
-  },
-  {
-    featureType: 'landscape.man_made',
-    elementType: 'geometry.fill',
-    stylers: [
-      {
-        color: '#ffffff',
-      },
-    ],
-  },
-  {
-    featureType: 'poi',
-    elementType: 'all',
-    stylers: [
-      {
-        visibility: 'off',
-      },
-    ],
-  },
-  {
-    featureType: 'road',
-    elementType: 'all',
-    stylers: [
-      {
-        saturation: -100,
-      },
-      {
-        lightness: 45,
-      },
-    ],
-  },
-  {
-    featureType: 'road',
-    elementType: 'geometry.fill',
-    stylers: [
-      {
-        color: '#eeeeee',
-      },
-    ],
-  },
-  {
-    featureType: 'road',
-    elementType: 'labels.text.fill',
-    stylers: [
-      {
-        color: '#7b7b7b',
-      },
-    ],
-  },
-  {
-    featureType: 'road',
-    elementType: 'labels.text.stroke',
-    stylers: [
-      {
-        color: '#ffffff',
-      },
-    ],
-  },
-  {
-    featureType: 'road.highway',
-    elementType: 'all',
-    stylers: [
-      {
-        visibility: 'simplified',
-      },
-    ],
-  },
-  {
-    featureType: 'road.arterial',
-    elementType: 'labels.icon',
-    stylers: [
-      {
-        visibility: 'off',
-      },
-    ],
-  },
-  {
-    featureType: 'transit',
-    elementType: 'all',
-    stylers: [
-      {
-        visibility: 'off',
-      },
-    ],
-  },
-  {
-    featureType: 'water',
-    elementType: 'all',
-    stylers: [
-      {
-        color: mapAccentColor || '#c8d7d4',
-      },
-      {
-        visibility: 'on',
-      },
-    ],
-  },
-  {
-    featureType: 'water',
-    elementType: 'geometry.fill',
-    stylers: [
-      {
-        color: mapAccentColor || '#c8d7d4',
-      },
-    ],
-  },
-  {
-    featureType: 'water',
-    elementType: 'labels.text.fill',
-    stylers: [
-      {
-        color: '#070707',
-      },
-    ],
-  },
-  {
-    featureType: 'water',
-    elementType: 'labels.text.stroke',
-    stylers: [
-      {
-        color: '#ffffff',
-      },
-    ],
-  },
-]
+export const generateMapStyles = ({ mapAccentColor }: Partial<InitializerTheme>) => {
+  console.log(mapAccentColor)
+  return [
+    {
+      featureType: 'all',
+      elementType: 'geometry.fill',
+      stylers: [
+        {
+          weight: '2.00',
+        },
+      ],
+    },
+    {
+      featureType: 'all',
+      elementType: 'geometry.stroke',
+      stylers: [
+        {
+          color: '#9c9c9c',
+        },
+      ],
+    },
+    {
+      featureType: 'all',
+      elementType: 'labels.text',
+      stylers: [
+        {
+          visibility: 'on',
+        },
+      ],
+    },
+    {
+      featureType: 'landscape',
+      elementType: 'all',
+      stylers: [
+        {
+          color: '#f2f2f2',
+        },
+      ],
+    },
+    {
+      featureType: 'landscape',
+      elementType: 'geometry.fill',
+      stylers: [
+        {
+          color: '#ffffff',
+        },
+      ],
+    },
+    {
+      featureType: 'landscape.man_made',
+      elementType: 'geometry.fill',
+      stylers: [
+        {
+          color: '#ffffff',
+        },
+      ],
+    },
+    {
+      featureType: 'poi',
+      elementType: 'all',
+      stylers: [
+        {
+          visibility: 'off',
+        },
+      ],
+    },
+    {
+      featureType: 'road',
+      elementType: 'all',
+      stylers: [
+        {
+          saturation: -100,
+        },
+        {
+          lightness: 45,
+        },
+      ],
+    },
+    {
+      featureType: 'road',
+      elementType: 'geometry.fill',
+      stylers: [
+        {
+          color: '#eeeeee',
+        },
+      ],
+    },
+    {
+      featureType: 'road',
+      elementType: 'labels.text.fill',
+      stylers: [
+        {
+          color: '#7b7b7b',
+        },
+      ],
+    },
+    {
+      featureType: 'road',
+      elementType: 'labels.text.stroke',
+      stylers: [
+        {
+          color: '#ffffff',
+        },
+      ],
+    },
+    {
+      featureType: 'road.highway',
+      elementType: 'all',
+      stylers: [
+        {
+          visibility: 'simplified',
+        },
+      ],
+    },
+    {
+      featureType: 'road.arterial',
+      elementType: 'labels.icon',
+      stylers: [
+        {
+          visibility: 'off',
+        },
+      ],
+    },
+    {
+      featureType: 'transit',
+      elementType: 'all',
+      stylers: [
+        {
+          visibility: 'off',
+        },
+      ],
+    },
+    {
+      featureType: 'water',
+      elementType: 'all',
+      stylers: [
+        {
+          color: mapAccentColor || '#c8d7d4',
+        },
+        {
+          visibility: 'on',
+        },
+      ],
+    },
+    {
+      featureType: 'water',
+      elementType: 'geometry.fill',
+      stylers: [
+        {
+          color: mapAccentColor || '#c8d7d4',
+        },
+      ],
+    },
+    {
+      featureType: 'water',
+      elementType: 'labels.text.fill',
+      stylers: [
+        {
+          color: '#070707',
+        },
+      ],
+    },
+    {
+      featureType: 'water',
+      elementType: 'labels.text.stroke',
+      stylers: [
+        {
+          color: '#ffffff',
+        },
+      ],
+    },
+  ]
+}

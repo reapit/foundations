@@ -4,16 +4,16 @@ import { InitializerTheme } from '../../../common/styles/index'
 export interface SearchWidgeInitializers {
   theme: Partial<InitializerTheme>
   apiKey: string
-  target: string
+  parentSelector: string
 }
 
-export const ReapitSearchWidgetComponent = ({ target, apiKey, theme }: SearchWidgeInitializers) =>
+export const ReapitSearchWidgetComponent = ({ parentSelector, apiKey, theme }: SearchWidgeInitializers) =>
   new SearchWidget({
-    target: document.querySelector(target) || document.body,
+    target: document.querySelector(parentSelector) || document.body,
     props: {
       theme,
       apiKey,
-      target,
+      parentSelector,
     },
   })
 
