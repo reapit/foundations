@@ -14,7 +14,6 @@ import {
   validate,
   handleAfterCellChange,
   convertUploadedCellToTableCell,
-  handleAfterUpload,
 } from '../offices-tab'
 import GET_OFFICES from '../gql/get-offices.graphql'
 import CREATE_OFFICE from '../gql/create-office.graphql'
@@ -28,7 +27,7 @@ import {
   mockChangeCellsForUpdateCase,
 } from '../__mocks__/offices'
 import { error } from '@/graphql/__mocks__/error'
-import { Cell, UploadData } from '@reapit/elements'
+import { Cell } from '@reapit/elements'
 
 const mockQueries = {
   request: {
