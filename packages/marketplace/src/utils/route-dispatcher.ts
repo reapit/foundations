@@ -15,7 +15,6 @@ import { getAccessToken } from './session'
 import { requestDeveloperData } from '@/actions/settings'
 import { getParamsFromPath } from '@/utils/client-url-params'
 import { adminAppsRequestData } from '@/actions/admin-apps'
-import { appInstallationsRequestData } from '@/actions/app-installations'
 import { selectClientId } from '@/selector/client'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
@@ -44,8 +43,6 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(developerRequestData({ page: 1 }))
       break
     case Routes.DEVELOPER_ANALYTICS_TAB: {
-      // Need to fetch all apps to count Total current installations for each app
-      store.dispatch(appInstallationsRequestData({ pageSize: GET_ALL_PAGE_SIZE }))
       // Fetch all apps to map app name to installations
       store.dispatch(developerRequestData({ page: 1, appsPerPage: GET_ALL_PAGE_SIZE }))
       if (appId) {

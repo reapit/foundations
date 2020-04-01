@@ -11,7 +11,6 @@ import { adminApprovalsRequestData } from '../../actions/admin-approvals'
 import { getAccessToken } from '../../utils/session'
 import { requestDeveloperData } from '@/actions/settings'
 import { getParamsFromPath } from '@/utils/client-url-params'
-import { appInstallationsRequestData } from '@/actions/app-installations'
 
 jest.mock('@reapit/elements')
 jest.mock('../../utils/session')
@@ -77,7 +76,6 @@ describe('routeDispatcher', () => {
 
   it('should dispatch to appInstallationsRequestData & developerRequestData for the analytics route', async () => {
     await routeDispatcher(Routes.DEVELOPER_ANALYTICS_TAB as RouteValue)
-    expect(store.dispatch).toHaveBeenCalledWith(appInstallationsRequestData({ pageSize: GET_ALL_PAGE_SIZE }))
     expect(store.dispatch).toHaveBeenCalledWith(developerRequestData({ appsPerPage: GET_ALL_PAGE_SIZE, page: 1 }))
   })
 })

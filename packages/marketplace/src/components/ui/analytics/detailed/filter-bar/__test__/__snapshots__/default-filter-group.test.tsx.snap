@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OverviewPage should match snapshot 1`] = `
+exports[`FilterBar should match a snapshot 1`] = `
 <ContextProvider
   value={
     Object {
@@ -32,6 +32,20 @@ exports[`OverviewPage should match snapshot 1`] = `
     }
   }
 >
-  <Component />
+  <Component
+    appIds={
+      Array [
+        "09043eb8-9e5e-4650-b7f1-f0cb62699027",
+        "261da083-cee2-4f5c-a18f-8f9375f1f5af",
+      ]
+    }
+    clientIds={
+      Array [
+        "DXX",
+      ]
+    }
+    setDateFrom={[MockFunction]}
+    setDateTo={[MockFunction]}
+  />
 </ContextProvider>
 `;

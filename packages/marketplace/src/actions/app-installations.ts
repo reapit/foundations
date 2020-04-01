@@ -14,6 +14,8 @@ export interface InstallationParams {
   externalAppId?: string[]
   showTerminated?: boolean
   isInstalled?: boolean
+  installedDateFrom?: string
+  installedDateTo?: string
   pageSize?: number
   pageNumber?: number
 }
