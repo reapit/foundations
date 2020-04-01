@@ -45,6 +45,7 @@ export * from './components/Spreadsheet'
 export * from './components/HelpGuide'
 export * from './components/HelpGuide/context'
 export * from './components/Notification'
+export * from './components/UploadProgress'
 
 // Utils
 export * from './utils/validators'
