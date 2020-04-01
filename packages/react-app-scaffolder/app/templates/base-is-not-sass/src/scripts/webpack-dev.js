@@ -7,6 +7,7 @@ const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const {PATHS} = require('./constants')
 
 module.exports = {
+  mode: 'development',
   context: process.cwd(),
   entry: PATHS.entryWeb,
   output: {
@@ -86,6 +87,7 @@ module.exports = {
     open: true,
     clientLogLevel: 'warning',
     historyApiFallback: true,
+    disableHostCheck: true,
     stats: {
       cached: false,
       cachedAssets: false,

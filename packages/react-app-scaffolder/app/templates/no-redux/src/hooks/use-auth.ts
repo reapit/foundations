@@ -15,6 +15,7 @@ export type AuthHook = {
   logout: () => void
   getLoginSession: (refreshParams: RefreshParams | null) => Promise<void>
   refreshParams?: RefreshParams | null
+  isFetchSession: boolean
 }
 
 export const useAuth = (): AuthHook => {
@@ -22,7 +23,7 @@ export const useAuth = (): AuthHook => {
   const [loginSession, setLoginSession] = React.useState<LoginSession | null>(null)
   const urlParams: RefreshParams | null = getTokenFromQueryString(
     window.location.search,
-    window.reapit.config.cognitoClientId
+    window.reapit.config.cognitoClientId,
   )
   const cookieParams = getSessionCookie(COOKIE_SESSION_KEY)
   const refreshParams = cookieParams ? cookieParams : urlParams
@@ -51,6 +52,7 @@ export const useAuth = (): AuthHook => {
     loginSession,
     logout,
     getLoginSession,
+    isFetchSession,
   }
 }
 

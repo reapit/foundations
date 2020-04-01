@@ -4,5 +4,6 @@
   "cognitoClientId": "<%= clientId %>",
   "googleAnalyticsKey": "",
   "cognitoOAuthUrl": "https://dev.connect.reapit.cloud",
-  "cognitoUserPoolId": ""
+  "cognitoUserPoolId": "eu-west-2_hbt0B7yys",
+  "platformApiUrl": "https://dev.platform.reapit.cloud"
 }
