@@ -46,23 +46,5 @@ functions:
   webComponentsConfigServer:
     handler: src/index.webComponentsConfigServer
     events:
-      - http:
-          path: v1/health
-          method: get
-          cors: true
-      - http:
-          path: /v1/web-components-config
-          method: get
-          cors: true
-      - http:
-          path: /v1/web-components-config/:clientId
-          method: get
-          cors: true
-      - http:
-          path: /v1/web-components-config
-          method: post
-          cors: true
-      - http:
-          path: /v1/web-components-config/:clientId
-          method: patch
-          cors: true
+      - http: ANY /
+      - http: 'ANY {proxy+}'
