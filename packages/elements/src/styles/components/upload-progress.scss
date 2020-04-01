@@ -1,16 +1,17 @@
 @import '../base/layout.scss';
 
 .upload-progress {
-  width: 100%;
   padding: $layout-base;
   position: fixed;
   z-index: 100;
   bottom: 0;
-  left: 0;
+  left: $layout-base;
+  right: 2 * $layout-base;
   transform: translateY(100%);
   transition: transform 0.2s ease-in-out;
   display: flex;
   align-items: center;
+  justify-content: space-around;
   color: white;
   text-transform: uppercase;
   font-size: 1rem;
@@ -36,6 +37,9 @@
 
 @media screen and (min-width: 768px) {
   .upload-progress {
+    left: 72px;
+    right: $layout-base;
+
     &-inner {
       width: 50%;
     }
