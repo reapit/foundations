@@ -21117,9 +21117,20 @@ exports[`OfficesTab renderContent should match snapshot 3`] = `
 <div>
   <Component
     afterCellsChanged={[MockFunction]}
+    afterUploadDataValidated={[MockFunction]}
     data={
       Array [
         Array [
+          Object {
+            "className": "hidden-cell",
+            "readOnly": true,
+            "value": "id",
+          },
+          Object {
+            "className": "hidden-cell",
+            "readOnly": true,
+            "value": "_eTag",
+          },
           Object {
             "readOnly": true,
             "value": "Office Name",
@@ -21166,52 +21177,64 @@ exports[`OfficesTab renderContent should match snapshot 3`] = `
             "className": "hidden-cell",
             "key": "id",
             "readOnly": true,
+            "title": "id",
             "value": "REA",
           },
           Object {
             "className": "hidden-cell",
             "key": "_eTag",
             "readOnly": true,
+            "title": "etag",
             "value": "\\"104F6D31FAFEB3B1DE6BB9CF8E071094\\"",
           },
           Object {
             "key": "name",
+            "title": "Office Name",
             "value": "Reapit",
           },
           Object {
             "key": "address.buildingName",
+            "title": "Building Name",
             "value": "",
           },
           Object {
             "key": "address.buildingNumber",
+            "title": "Building No.",
             "value": "15",
           },
           Object {
             "key": "address.line1",
+            "title": "Address 1",
             "value": "Example street",
           },
           Object {
             "key": "address.line2",
+            "title": "Address 2",
             "value": "Solihull",
           },
           Object {
             "key": "address.line3",
+            "title": "Address 3",
             "value": "West Midlands",
           },
           Object {
             "key": "address.line4",
+            "title": "Address 4",
             "value": "",
           },
           Object {
             "key": "address.postcode",
+            "title": "Post Code",
             "value": "B91 2XX",
           },
           Object {
             "key": "workPhone",
+            "title": "Telephone",
             "value": "01234 567890",
           },
           Object {
             "key": "email",
+            "title": "Email",
             "value": "example@email.com",
           },
         ],
@@ -21220,52 +21243,64 @@ exports[`OfficesTab renderContent should match snapshot 3`] = `
             "className": "hidden-cell",
             "key": "id",
             "readOnly": true,
+            "title": "id",
             "value": "STL",
           },
           Object {
             "className": "hidden-cell",
             "key": "_eTag",
             "readOnly": true,
+            "title": "etag",
             "value": "\\"17465C0780A21582FFE1B06E35DEE37D\\"",
           },
           Object {
             "key": "name",
+            "title": "Office Name",
             "value": "Stevenage Lettings",
           },
           Object {
             "key": "address.buildingName",
+            "title": "Building Name",
             "value": "",
           },
           Object {
             "key": "address.buildingNumber",
+            "title": "Building No.",
             "value": "",
           },
           Object {
             "key": "address.line1",
+            "title": "Address 1",
             "value": "St George's Way",
           },
           Object {
             "key": "address.line2",
+            "title": "Address 2",
             "value": "Stevenage",
           },
           Object {
             "key": "address.line3",
+            "title": "Address 3",
             "value": "Hertfordshire",
           },
           Object {
             "key": "address.line4",
+            "title": "Address 4",
             "value": "",
           },
           Object {
             "key": "address.postcode",
+            "title": "Post Code",
             "value": "SG1 1XB",
           },
           Object {
             "key": "workPhone",
+            "title": "Telephone",
             "value": undefined,
           },
           Object {
             "key": "email",
+            "title": "Email",
             "value": "lettings@hughmason.co.uk",
           },
         ],
@@ -21274,57 +21309,71 @@ exports[`OfficesTab renderContent should match snapshot 3`] = `
             "className": "hidden-cell",
             "key": "id",
             "readOnly": true,
+            "title": "id",
             "value": "STV",
           },
           Object {
             "className": "hidden-cell",
             "key": "_eTag",
             "readOnly": true,
+            "title": "etag",
             "value": "\\"7B2C4CFDFFA0EE83468BABC0F4A8D63C\\"",
           },
           Object {
             "key": "name",
+            "title": "Office Name",
             "value": "Stevenage",
           },
           Object {
             "key": "address.buildingName",
+            "title": "Building Name",
             "value": "",
           },
           Object {
             "key": "address.buildingNumber",
+            "title": "Building No.",
             "value": "",
           },
           Object {
             "key": "address.line1",
+            "title": "Address 1",
             "value": "St George's Way",
           },
           Object {
             "key": "address.line2",
+            "title": "Address 2",
             "value": "Stevenage",
           },
           Object {
             "key": "address.line3",
+            "title": "Address 3",
             "value": "Hertfordshire",
           },
           Object {
             "key": "address.line4",
+            "title": "Address 4",
             "value": "",
           },
           Object {
             "key": "address.postcode",
+            "title": "Post Code",
             "value": "SG1 1XB",
           },
           Object {
             "key": "workPhone",
+            "title": "Telephone",
             "value": undefined,
           },
           Object {
             "key": "email",
+            "title": "Email",
             "value": "stevenage.sales@hughmason.co.uk",
           },
         ],
       ]
     }
+    hasDownloadButton={true}
+    hasUploadButton={true}
     validate={[Function]}
   />
   <Component>

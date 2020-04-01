@@ -12,6 +12,9 @@ import {
   Section,
   Pagination,
   Spreadsheet,
+  AfterUploadDataValidated,
+  UploadData,
+  SetData,
   ChangedCells,
   isEmail,
   fieldValidateRequire,
@@ -29,10 +32,15 @@ import CREATE_OFFICE from './gql/create-office.graphql'
 import UPDATE_OFFICE from './gql/update-office.graphql'
 import { OFFICES_PER_PAGE } from '@/constants/paginators'
 import { isNumber } from '@/utils/validators'
+import { useUploadDispatch } from '@/hooks/use-upload'
+import { Dispatch, startUpload, completeUpload, setUploadProgress } from '@/core/upload-provider'
+import { UploadCsvMessage, UploadCsvResponseMessage } from '@/utils/worker-upload-helper'
 
-import Worker from 'worker-loader!../../../core/upload.worker'
+import Worker from 'worker-loader!../../../worker/csv-upload.worker.ts'
 
 export const tableHeaders: Cell[] = [
+  { readOnly: true, value: 'id', className: 'hidden-cell' },
+  { readOnly: true, value: '_eTag', className: 'hidden-cell' },
   { readOnly: true, value: 'Office Name' },
   { readOnly: true, value: 'Building Name' },
   { readOnly: true, value: 'Building No.' },
@@ -81,7 +89,7 @@ export type RenderContentParams = {
   dataTable: Cell[][]
   handleChangePage: (page: number) => void
   afterCellsChanged: AfterCellsChanged
-  handleSubmitFileData: (fileData: any) => void
+  handleAfterUpload: AfterUploadDataValidated
 }
 
 export const renderContent = ({
@@ -93,7 +101,7 @@ export const renderContent = ({
   totalCount = 0,
   handleChangePage,
   afterCellsChanged,
-  handleSubmitFileData,
+  handleAfterUpload,
 }: RenderContentParams) => {
   if (loading) {
     return <Loader />
@@ -107,7 +115,9 @@ export const renderContent = ({
         data={dataTable as Cell[][]}
         validate={validate}
         afterCellsChanged={afterCellsChanged}
-        onSubmitFileData={handleSubmitFileData}
+        hasUploadButton
+        hasDownloadButton
+        afterUploadDataValidated={handleAfterUpload}
       />
       <Section>
         <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />
@@ -126,7 +136,6 @@ export const handleChangePage = ({ history }) => (pageNumber: number) => {
 }
 
 export const handleAfterCellChange = (createOffice, updateOffice) => (changedCells: ChangedCells, data: Cell[][]) => {
-  console.log('changedCells', changedCells)
   const [changes] = changedCells
   const {
     newCell: { isValidated },
@@ -148,28 +157,49 @@ export const handleAfterCellChange = (createOffice, updateOffice) => (changedCel
       return
     }
     const createOfficeParams = prepareCreateOfficeParams(changedCells, data)
-    console.log('changedCells', changedCells)
-    console.log('data', data)
-    console.log('createOfficeParams', createOfficeParams)
     createOffice({
       variables: createOfficeParams,
     })
   }
 }
-
-export const handleSubmitFileData = (fileData: any) => {
-  const params = {
-    type: 'office',
-    data: fileData,
+/* istanbul ignore next */
+export const handleAfterUpload = (dispatch: Dispatch) => (params: {
+  uploadData: UploadData
+  currentData: Cell[][]
+  setData: SetData
+}) => {
+  const { uploadData } = params
+  const message: UploadCsvMessage = {
+    from: 'FROM_MAIN',
+    type: 'OFFICE',
+    data: uploadData.validatedData,
+    graphqlUri: window.reapit.config.graphqlUri,
+    accessToken: window.reapit.config.accessToken,
   }
-
   const uploadWorker = new Worker()
-  uploadWorker.postMessage(params)
-
-  uploadWorker.addEventListener('message', e => {
-    const { totalRecord } = e.data
-    console.log('totalRecord', totalRecord)
+  uploadWorker.postMessage(message)
+  uploadWorker.addEventListener('message', event => {
+    handleWorkerMessage(event.data, dispatch)
   })
+}
+
+/* istanbul ignore next */
+export const handleWorkerMessage = (data: UploadCsvResponseMessage, dispatch: Dispatch) => {
+  const { status, total = 0, success = 0, failed = 0, details = [] } = data
+  if (status === 'STARTED') {
+    dispatch(startUpload(total))
+  } else if (status === 'INPROGRESS') {
+    dispatch(setUploadProgress(success + failed))
+  } else if (data.status === 'FINISH') {
+    dispatch(
+      completeUpload({
+        total,
+        success,
+        failed,
+        details,
+      }),
+    )
+  }
 }
 
 export const prepareUpdateOfficeParams = (changedCells: ChangedCells, data: Cell[][]): UpdateOfficeParams => {
@@ -278,6 +308,9 @@ export const OfficesTab: React.FC<OfficesTabProps> = () => {
   const [updateOffice, { error: updateOfficeError }] = useMutation<UpdateOfficeResponse, UpdateOfficeParams>(
     UPDATE_OFFICE,
   )
+  const dispatch = useUploadDispatch()
+  // const [uploading, setUploading] = React.useState(false)
+  // const [uploadProgress, setUploadProgress] = React.useState({ total: 0, current: 0 })
 
   const dataTable = React.useMemo(() => getDataTable(data || { GetOffices: { _embedded: [] } }), [data])
 
@@ -305,7 +338,7 @@ export const OfficesTab: React.FC<OfficesTabProps> = () => {
         totalCount: data?.GetOffices?.totalCount,
         handleChangePage: handleChangePage({ history }),
         afterCellsChanged: handleAfterCellChange(createOffice, updateOffice),
-        handleSubmitFileData,
+        handleAfterUpload: handleAfterUpload(dispatch),
       })}
       <Toast
         componentError={componentError}
@@ -321,18 +354,18 @@ export function getDataTable(data: OfficesQueryResponse): Cell[][] {
   let dataTable: Cell[][] = [tableHeaders]
   const offices: OfficeModel[] = data.GetOffices?._embedded || []
   const dataRows = offices.map((office: OfficeModel) => [
-    { value: office.id, key: 'id', readOnly: true, className: 'hidden-cell' },
-    { value: office._eTag, key: '_eTag', readOnly: true, className: 'hidden-cell' },
-    { value: office.name, key: 'name' },
-    { value: office.address?.buildingName, key: 'address.buildingName' },
-    { value: office.address?.buildingNumber, key: 'address.buildingNumber' },
-    { value: office.address?.line1, key: 'address.line1' },
-    { value: office.address?.line2, key: 'address.line2' },
-    { value: office.address?.line3, key: 'address.line3' },
-    { value: office.address?.line4, key: 'address.line4' },
-    { value: office.address?.postcode, key: 'address.postcode' },
-    { value: office.workPhone, key: 'workPhone' },
-    { value: office.email, key: 'email' },
+    { value: office.id, key: 'id', readOnly: true, className: 'hidden-cell', title: 'id' },
+    { value: office._eTag, key: '_eTag', readOnly: true, className: 'hidden-cell', title: 'etag' },
+    { value: office.name, key: 'name', title: 'Office Name' },
+    { value: office.address?.buildingName, key: 'address.buildingName', title: 'Building Name' },
+    { value: office.address?.buildingNumber, key: 'address.buildingNumber', title: 'Building No.' },
+    { value: office.address?.line1, key: 'address.line1', title: 'Address 1' },
+    { value: office.address?.line2, key: 'address.line2', title: 'Address 2' },
+    { value: office.address?.line3, key: 'address.line3', title: 'Address 3' },
+    { value: office.address?.line4, key: 'address.line4', title: 'Address 4' },
+    { value: office.address?.postcode, key: 'address.postcode', title: 'Post Code' },
+    { value: office.workPhone, key: 'workPhone', title: 'Telephone' },
+    { value: office.email, key: 'email', title: 'Email' },
   ]) as Cell[][]
   dataTable = [tableHeaders, ...dataRows]
   return dataTable
@@ -365,5 +398,11 @@ export const validate = (data: Cell[][]) =>
       return true
     }),
   )
+
+export const convertUploadedCellToTableCell = (cell: Cell[]): Cell[] => {
+  cell[0] = { ...cell[0], key: 'id', readOnly: true, className: 'hidden-cell' }
+  cell[1] = { ...cell[1], key: '_eTag', readOnly: true, className: 'hidden-cell' }
+  return cell
+}
 
 export default OfficesTab
