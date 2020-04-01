@@ -45,7 +45,7 @@ export const prepareClientIds = installationAppDataArray => {
     .map((installation: InstallationModel) => {
       return installation.client || ''
     })
-    .filter((x, i, a) => a.indexOf(x) == i)
+    .filter((element, index, array) => array.indexOf(element) == index)
   return clientIds
 }
 
