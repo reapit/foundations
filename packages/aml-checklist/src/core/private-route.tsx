@@ -39,7 +39,7 @@ export const PrivateRoute = ({
 
         const cntCode = getMarketplaceGlobalsByKey('cntCode')
 
-        if (cntCode) {
+        if (cntCode && location.pathname !== `${Routes.CHECKLIST_DETAIL_WITHOUT_ID}/${cntCode}`) {
           return <Redirect to={`${Routes.CHECKLIST_DETAIL_WITHOUT_ID}/${cntCode}`} />
         }
         if (fetcher) {
