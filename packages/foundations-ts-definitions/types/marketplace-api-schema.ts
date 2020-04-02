@@ -80,6 +80,10 @@ export interface AppDetailModel {
    */
   limitToClientIds?: string[]
   /**
+   * Gets the apps desktop integration type ids
+   */
+  desktopIntegrationTypeIds?: string /* uuid */[]
+  /**
    * Gets the date the app was installed for a specific client
    */
   installedOn?: string // date-time
@@ -197,6 +201,10 @@ export interface AppRevisionModel {
    */
   limitToClientIds?: string[]
   /**
+   * Gets the desktop integration type ids of this revision
+   */
+  desktopIntegrationTypeIds?: string /* uuid */[]
+  /**
    * Gets the app revisions category
    */
   category?: CategoryModel
@@ -269,6 +277,10 @@ export interface AppSummaryModel {
    * Gets the public Url for accessing this app's icon
    */
   iconUri?: string
+  /**
+   * Gets the desktop integration types of this app
+   */
+  desktopIntegrationTypeIds?: string /* uuid */[]
   /**
    * Gets the time stamp of the installed date
    */
@@ -448,6 +460,10 @@ export interface CreateAppModel {
    */
   limitToClientIds?: string[]
   /**
+   * Sets the apps desktop integration types. Multiple type ids can be passed in the array
+   */
+  desktopIntegrationTypeIds?: string[]
+  /**
    * Sets the application authorisation flow type (authorisationCode/clientCredentials)
    */
   authFlow?: string
@@ -566,6 +582,10 @@ export interface CreateAppRevisionModel {
    */
   limitToClientIds?: string[]
   /**
+   * Sets the apps desktop integration type. Multiple type ids can be passed in the array
+   */
+  desktopIntegrationTypeIds?: string[]
+  /**
    * Sets the list of scope keys required for this app revision
    */
   scopes?: string[]
@@ -586,6 +606,15 @@ export interface CreateCategoryModel {
    * Sets the description of the category
    */
   description?: string
+}
+/**
+ * The model responsible for creation of a desktop integration type
+ */
+export interface CreateDesktopIntegrationTypeModel {
+  /**
+   * Sets the desktop integrations name
+   */
+  name?: string
 }
 /**
  * The model responsible for creation of a developer
@@ -636,6 +665,23 @@ export interface CreateInstallationModel {
    * Sets the termination date of the installation (this could be used for app trials etc)
    */
   terminatesOn?: string // date-time
+}
+/**
+ * Model that represents a desktop integration type
+ */
+export interface DesktopIntegrationTypeModel {
+  /**
+   * The unique identifier of the integration type
+   */
+  id?: string // uuid
+  /**
+   * The name of the integration type
+   */
+  name?: string
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * Model that represents a developer

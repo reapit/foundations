@@ -8094,9 +8094,13 @@ export interface PagedResultVendorModel_ {
      */
     sellingReasonId?: string
     /**
-     * The unique identifier of the vendor's solicitor
+     * The unique identifier of the solicitor associated to the vendor
      */
     solicitorId?: string
+    /**
+     * The unique identifier of the property associated to the vendor
+     */
+    propertyId?: string
     /**
      * The source of the vendor
      */
@@ -8484,6 +8488,14 @@ export interface Properties {
   )[]
   id?: string[]
   age?: ('period' | 'new' | 'modern')[]
+  agentRole?: (
+    | 'managed'
+    | 'rentCollection'
+    | 'collectFirstPayment'
+    | 'collectRentToDate'
+    | 'lettingOnly'
+    | 'introducingTenant'
+  )[]
   landlordId?: string[]
   lettingStatus?: (
     | 'valuation'
@@ -12024,9 +12036,13 @@ export interface VendorModel {
    */
   sellingReasonId?: string
   /**
-   * The unique identifier of the vendor's solicitor
+   * The unique identifier of the solicitor associated to the vendor
    */
   solicitorId?: string
+  /**
+   * The unique identifier of the property associated to the vendor
+   */
+  propertyId?: string
   /**
    * The source of the vendor
    */
