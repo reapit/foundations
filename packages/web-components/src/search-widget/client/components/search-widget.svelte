@@ -1,24 +1,18 @@
 <script>
   import { onMount, onDestroy } from 'svelte'
-  import * as TSDefinitions from '@reapit/foundations-ts-definitions'
-  import * as SearchWidgetStore from '../core/store'
-  import { generateGlobalTheme } from '../../../common/styles/theme'
-  import * as Styles from '../../../common/styles/index'
+  import searchWidgetStore from '../core/store'
+  import { generateThemeClasses, resetCSS } from '../../../common/styles'
   import SearchForm from './search-form.svelte'
   import GoogleMap from './google-map.svelte'
   import SearchResult from './search-result.svelte'
+  import Loader from '../../../common/components/loader.svelte'
 
-  export let theme = {}
-  export let apiKey = ''
+  export let theme
+  export let apiKey
+  export let parentSelector
 
-  let storeInstance
-
-  const searchWidgetStore = SearchWidgetStore.default
-  const { resetCSS } = Styles
-  const globalCSSTheme = generateGlobalTheme(theme)
-  const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
-    storeInstance = store
-  })
+  const themeClasses = generateThemeClasses(theme, parentSelector)
+  const { globalStyles, primaryHeading } = themeClasses
 
   onMount(() => {
     searchWidgetStore.update(values => ({
@@ -26,54 +20,51 @@
       initializers: {
         theme,
         apiKey,
+        parentSelector,
       },
+      themeClasses,
     }))
   })
-
-  onDestroy(() => {
-    unsubscribeSearchWidgetStore()
-  })
-
 </script>
 
 <style>
-  .content {
-    display: flex;
-    flex-direction: column;
-    margin: 30px auto;
-    width: 70%;
-  }
-
-  .search-results-items {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-  }
-
-  .search-results-items div {
-    padding-bottom: 2.5rem;
+  .search-widget {
+    margin: 0 auto;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    width: 100%;
   }
 
-  .map-wrap {
+  .search-widget-heading {
+    display: block;
     width: 100%;
-    height: 600px;
-    margin-left: 20px;
+    margin-bottom: 0.5em;
+  }
+
+  .search-widget-items {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 0.5em;
   }
 </style>
 
-<div class={resetCSS}>
-  <div class={globalCSSTheme}>
-    <div class="content">
-      <SearchForm />
-      <div class="search-results-items">
-        {#each storeInstance && storeInstance.properties ? storeInstance.properties._embedded : [] as property (property.id)}
-          <SearchResult {property} />
-        {/each}
+<div class="{resetCSS} {globalStyles} search-widget">
+  <SearchForm />
+  <div class="search-widget-items">
+    {#if $searchWidgetStore.properties.length && !$searchWidgetStore.isLoading}
+      <div class="search-widget-heading">
+        <h2 class="{primaryHeading}">{$searchWidgetStore.resultsMessage}</h2>
       </div>
-      <div class="map-wrap">
-        <GoogleMap />
-      </div>
-    </div>
+    {/if}
+    {#if $searchWidgetStore.isLoading}
+      <Loader />
+    {/if}
+    {#each $searchWidgetStore.properties as property (property.id)}
+      <SearchResult {property} />
+    {/each}
   </div>
+  <GoogleMap {theme} />
 </div>

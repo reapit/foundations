@@ -1,12 +1,13 @@
 import { ReapitSearchWidgetComponent } from '../index'
+import { stubTheme } from '../../utils/__stubs__/theme'
 
 describe('ReapitSearchWidgetComponent', () => {
   it('should match a snapshot', () => {
     expect(
       ReapitSearchWidgetComponent({
-        target: document.body,
+        parentSelector: '#search-widget',
         apiKey: 'SOME_KEY',
-        theme: { baseBackgroundColor: 'white' },
+        theme: stubTheme,
       }),
     ).toMatchSnapshot()
   })

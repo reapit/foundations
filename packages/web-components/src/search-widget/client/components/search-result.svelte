@@ -11,20 +11,33 @@
   let selectedProperty
   let searchType
   let propertyImages
+  let themeClasses = {}
 
   const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
     selectedProperty = store.selectedProperty
     searchType = store.searchType
     propertyImages = store.propertyImages
+    themeClasses = store.themeClasses
   })
+
+  const {
+    primaryHeading,
+    secondaryHeading,
+    primaryStrapline,
+    secondaryStrapline,
+    bodyText,
+    selectedItem,
+    resultItem,
+    offerBanner,
+  } = themeClasses
 
   const id = (property && property.id) || ''
   const propertyImage = propertyImages && propertyImages[id]
   const imageUrl = (propertyImage && propertyImage.url) || INVALID_BACKGROUND_AS_BASE64
   const sellingStatus = (property.selling && property.selling.status) || ''
   const lettingStatus = (property.letting && property.letting.status) || ''
-  const selectedPropertyId = (selectedProperty && selectedProperty.id) || ''
-  const isSelectedProperty = property.id === selectedPropertyId
+
+  $: isSelectedProperty = property.id === (selectedProperty && selectedProperty.id) || ''
 
   const selectProperty = () => {
     searchWidgetStore.update(store => ({
@@ -46,131 +59,117 @@
 </script>
 
 <style>
-  .result-item {
+  .search-result-item {
+    box-sizing: border-box;
     cursor: pointer;
+    padding: 0.5em;
+    border: 1px solid transparent;
+    border-radius: 0.3em;
   }
 
-  .result-image-container {
-    border: 0px solid grey;
-    margin-top: 0px;
+  .search-result-item img {
     width: 100%;
-    border-radius: 5px;
+    height: 12em;
+  }
+
+  .search-result-image-container {
+    width: 100%;
+    border-radius: 0.3em;
     position: relative;
     overflow: hidden;
+    margin-bottom: 0.5em;
   }
 
-  .result-image-container > img {
-    width: 100%;
-    height: auto;
-  }
-
-  .result-image-container.selected {
-    border-width: 2px;
-  }
-
-  .result-offer-flag {
-    background: grey;
+  .search-result-offer-banner {
     text-align: center;
     position: absolute;
-    width: 200px;
-    padding: 20px;
-    top: 30px;
-    right: -60px;
+    width: 12.5em;
+    padding: 1.2em;
+    top: 2em;
+    right: -3.75em;
     transform: rotate(45deg);
-    font-size: 1rem;
     font-weight: 600;
-    color: #fff;
   }
 
-  .result-item-address-primary {
-    font-size: 18px;
-    font-weight: bold;
-    margin-right: 5px;
-  }
-
-  .result-item-address-secondary {
+  .search-result-item-address-secondary {
     hyphens: auto;
     display: contents;
-    color: grey;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    height: 65px;
-    line-height: 22px;
-    font-size: 18px;
+    height: 3.6em;
+    line-height: 1.2em;
   }
 
-  .result-item-pricing-text {
-    color: grey;
-    font-size: 24px;
-    font-weight: bold;
+  .search-result-item-pricing-text {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
   }
 
-  .result-item-beds-text {
-    font-weight: bold;
-    font-size: 18px;
+  .search-result-item-beds-text {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
   }
 
-  .result-item-description-text {
+  .search-result-item-description-text {
     display: -webkit-box;
     -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
     max-width: 700px;
     overflow: hidden;
     text-overflow: ellipsis;
-    height: 130px;
-    font-size: 16px;
-    line-height: 22px;
+    height: 7em;
+    line-height: 1.2em;
   }
 
-  .result-item-icon-container {
-    color: grey;
+  .search-result-item-icon-container {
     display: flex;
     align-items: center;
   }
 
-  .result-item-icon {
-    margin-right: 0.3rem;
+  .search-result-item-icon {
+    margin-right: 0.33em;
   }
 
-  .result-item-icon:last-child {
-    margin-left: 1rem;
+  .search-result-item-icon:last-child {
+    margin-left: 1em;
   }
 </style>
 
-<div class="result-item" data-testid="select-property" on:click|preventDefault={selectProperty}>
-  <div class="result-image-container {isSelectedProperty ? 'selected' : ''}">
+<div
+  class="search-result-item {resultItem} {isSelectedProperty ? selectedItem : ''}"
+  data-testid="select-property"
+  on:click|preventDefault={selectProperty}>
+  <div class="search-result-image-container">
     {#if sellingStatus === 'underOffer'}
-      <div class="result-offer-flag">Under Offer</div>
+      <div class="search-result-offer-banner {offerBanner}">Under Offer</div>
     {/if}
     {#if lettingStatus === 'underOffer'}
-      <div class="result-offer-flag">Let Agreed</div>
+      <div class="search-result-offer-banner {offerBanner}">Let Agreed</div>
     {/if}
     <img alt="property image" src={imageUrl} on:error={handleImageError} />
   </div>
   <div>
-    <div class="result-item-address-secondary">
-      <div class="result-item-address-primary">{(property.address && property.address.line1) || ''}</div>
+    <div class="{secondaryStrapline} search-result-item-address-secondary">
+      <div class="{secondaryHeading} search-result-item-address-primary">
+        {(property.address && property.address.line1) || ''}
+      </div>
       {combineAddress(property.address)}
     </div>
   </div>
-  <div class="result-item-pricing-text">{getPrice(property, searchType)}</div>
-  <div class="result-item-beds-text">{combineNumberBedTypeStyle(property)}</div>
-  <div class="result-item-description-text">{property.description}</div>
-  <div class="result-item-icon-container">
-    <span class="result-item-icon">
+  <div class="{primaryHeading} search-result-item-pricing-text">{getPrice(property, searchType)}</div>
+  <div class="{secondaryStrapline} search-result-item-beds-text">{combineNumberBedTypeStyle(property)}</div>
+  <div class="{bodyText} search-result-item-description-text">{property.description}</div>
+  <div class="{secondaryHeading} search-result-item-icon-container">
+    <span class="search-result-item-icon">
       <Fa icon={faBed} />
     </span>
     {property.bedrooms || 0}
-    <span class="result-item-icon">
+    <span class="search-result-item-icon">
       <Fa icon={faToilet} />
     </span>
     {property.bathrooms || 0}
