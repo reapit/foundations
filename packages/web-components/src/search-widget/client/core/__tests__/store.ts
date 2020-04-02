@@ -6,13 +6,30 @@ describe('store', () => {
       initializers: {
         apiKey: '',
         theme: {},
+        parentSelector: '',
       },
-      properties: null,
-      propertyImages: null,
+      themeClasses: {
+        globalStyles: '',
+        primaryHeading: '',
+        secondaryHeading: '',
+        primaryStrapline: '',
+        secondaryStrapline: '',
+        selectedItem: '',
+        bodyText: '',
+        button: '',
+        input: '',
+        resultItem: '',
+        searchBox: '',
+        offerBanner: '',
+      },
+      properties: [],
+      propertyImages: {},
       selectedProperty: null,
       selectedMarker: null,
       searchType: 'Sale',
       searchKeyword: '',
+      isLoading: false,
+      resultsMessage: '',
     }
     const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
       expect(store).toEqual(expected)

@@ -10,32 +10,33 @@
   export let selectedProperty
   export let searchType
   export let map
+  export let themeClasses
 
   let windowInfo
 
   onMount(() => {
-    windowInfo = getInfoWindow(selectedProperty, searchType, propertyImages)
+    windowInfo = getInfoWindow(selectedProperty, searchType, propertyImages, themeClasses)
 
     google.maps.event.addListener(windowInfo, 'closeclick', () => {
       dispatch('windowInfoClick')
     })
 
-    windowInfo.open(map, selectedMarker)
+    windowInfo && windowInfo.open && windowInfo.open(map, selectedMarker)
   })
 
   afterUpdate(() => {
-    windowInfo.close()
+    windowInfo && windowInfo.close && windowInfo.close()
 
-    windowInfo = getInfoWindow(selectedProperty, searchType, propertyImages)
+    windowInfo = getInfoWindow(selectedProperty, searchType, propertyImages, themeClasses)
 
     google.maps.event.addListener(windowInfo, 'closeclick', () => {
       dispatch('windowInfoClick')
     })
 
-    windowInfo.open(map, selectedMarker)
+    windowInfo && windowInfo.open && windowInfo.open(map, selectedMarker)
   })
 
   onDestroy(() => {
-    windowInfo.close()
+    windowInfo && windowInfo.close && windowInfo.close()
   })
 </script>

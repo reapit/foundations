@@ -4,14 +4,36 @@ import searchWidgetStore from '../../core/store'
 import { get } from 'svelte/store'
 import createGoogleMapsMock from '../../utils/__mocks__/mock-google-map'
 
+const theme = {
+  baseBackgroundColor: '',
+  basefontSize: '',
+  basefontColor: 'red',
+  inverseFontColor: '',
+  secondaryfontColor: '',
+  primaryHeadingFontSize: '',
+  secondaryHeadingFontSize: '',
+  baseFontFamily: '',
+  headingFontFamily: '',
+  primaryAccentColor: '',
+  secondaryAccentColor: '',
+  mapAccentColor: '',
+  breakPoints: {
+    mobile: '',
+    tablet: '',
+    laptop: '',
+    desktop: '',
+  },
+}
+
 describe('search-widget', () => {
   beforeAll(() => {
     createGoogleMapsMock()
   })
   it('it matches a snapshot', () => {
     const wrapper = render(SearchWidget, {
-      theme: {},
+      theme,
       apiKey: '',
+      parentSelector: '#search-widget',
     })
     const { container } = wrapper
 
@@ -20,10 +42,9 @@ describe('search-widget', () => {
 
   it('it updates the default store on mount', () => {
     const props = {
-      theme: {
-        baseBackgroundColor: 'white',
-      },
+      theme,
       apiKey: 'SOME_KEY',
+      parentSelector: '#search-widget',
     }
     render(SearchWidget, props)
     const store = get(searchWidgetStore)

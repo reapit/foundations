@@ -4,27 +4,27 @@ exports[`SearchResult it matches a snapshot 1`] = `
 <body>
   <div>
     <div
-      class="result-item svelte-1b6ad7q"
+      class="search-result-item   svelte-1vgkp5v"
       data-testid="select-property"
     >
       <div
-        class="result-image-container selected svelte-1b6ad7q"
+        class="search-result-image-container svelte-1vgkp5v"
       >
          
          
         <img
           alt="property image"
-          class="svelte-1b6ad7q"
+          class="svelte-1vgkp5v"
           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88xYAAssB20Ea4T8AAAAASUVORK5CYII="
         />
       </div>
        
       <div>
         <div
-          class="result-item-address-secondary svelte-1b6ad7q"
+          class=" search-result-item-address-secondary svelte-1vgkp5v"
         >
           <div
-            class="result-item-address-primary svelte-1b6ad7q"
+            class=" search-result-item-address-primary svelte-1vgkp5v"
           >
             Sussex Way
           </div>
@@ -34,28 +34,28 @@ exports[`SearchResult it matches a snapshot 1`] = `
       </div>
        
       <div
-        class="result-item-pricing-text svelte-1b6ad7q"
+        class=" search-result-item-pricing-text svelte-1vgkp5v"
       >
         Guide Price £0
       </div>
        
       <div
-        class="result-item-beds-text svelte-1b6ad7q"
+        class=" search-result-item-beds-text svelte-1vgkp5v"
       >
         0 Bed  
       </div>
        
       <div
-        class="result-item-description-text svelte-1b6ad7q"
+        class=" search-result-item-description-text svelte-1vgkp5v"
       >
         This is a flat
       </div>
        
       <div
-        class="result-item-icon-container svelte-1b6ad7q"
+        class=" search-result-item-icon-container svelte-1vgkp5v"
       >
         <span
-          class="result-item-icon svelte-1b6ad7q"
+          class="search-result-item-icon svelte-1vgkp5v"
         >
           <svg
             aria-hidden="true"
@@ -86,7 +86,7 @@ exports[`SearchResult it matches a snapshot 1`] = `
         0
          
         <span
-          class="result-item-icon svelte-1b6ad7q"
+          class="search-result-item-icon svelte-1vgkp5v"
         >
           <svg
             aria-hidden="true"
