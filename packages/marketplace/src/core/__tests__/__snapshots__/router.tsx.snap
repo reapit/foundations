@@ -154,6 +154,20 @@ exports[`Router should match a snapshot 1`] = `
             path="/client/help"
           />
           <Connect(Component)
+            allow="CLIENT"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            exact={true}
+            fetcher={true}
+            path="/client/settings"
+          />
+          <Connect(Component)
             allow="DEVELOPER"
             component={
               Object {
