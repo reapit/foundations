@@ -1,19 +1,17 @@
 <script>
   import { css } from 'emotion'
   import cx from 'classnames'
+  import { themeStore  } from '../core/store/theme-store'
 
   export let startTime = ''
 
-  const backgroundStyle = css`
-    background: ${startTime ? '#e6e6e6' : ''};
-    &:hover {
-      background: ${startTime ? 'var(--hoverBackgroundColor)' : ''};
-    }
+  const visibilityStyle = css`
+   visible: ${startTime ? 'visible' : 'hidden'}
   `
 </script>
 
 <style>
-  .time-cell__container {
+  .time-cell-container {
     padding: 10px;
     margin-bottom: var(--cellSpacing);
     height: 5vw;
@@ -21,6 +19,6 @@
   }
 </style>
 
-<div class={cx('time-cell__container', backgroundStyle)}>
+<div class={cx('time-cell-container', visibilityStyle, $themeStore.item)}>
   <div>{startTime || ''}</div>
 </div>

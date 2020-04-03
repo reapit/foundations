@@ -4,12 +4,12 @@
 </script>
 
 <style>
-.date-time-picker__container {
+.date-time-picker-container {
   display: flex;
 }
 </style>
 
-<div class="date-time-picker__container">
+<div class="date-time-picker-container">
   {#each $derrivedDayOfWeek as date }
     <DateCell {date} />
   {/each}

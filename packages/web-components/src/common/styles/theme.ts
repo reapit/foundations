@@ -187,7 +187,6 @@ export const generateThemeClasses = (
 })
 
 export const generateMapStyles = ({ mapAccentColor }: Partial<InitializerTheme>) => {
-  console.log(mapAccentColor)
   return [
     {
       featureType: 'all',

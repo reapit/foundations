@@ -1,19 +1,15 @@
 import AppointmentPlanner from '../components/appointment-planner.svelte'
-import { InitializerTheme } from './theme'
+import { AppointmentPlannerThemeClasses } from './theme'
 
 export interface AppointmentPlannerInitializers {
-  theme: InitializerTheme
+  theme: AppointmentPlannerThemeClasses
   apiKey: string
-  target?: HTMLElement
+  parentSelector: string
 }
 
-export const ReapitAppointmentPlannerComponent = ({
-  target = document.body,
-  apiKey,
-  theme,
-}: AppointmentPlannerInitializers) =>
+export const ReapitAppointmentPlannerComponent = ({ parentSelector, apiKey, theme }: AppointmentPlannerInitializers) =>
   new AppointmentPlanner({
-    target,
+    target: document.querySelector(parentSelector) || document.body,
     props: {
       theme,
       apiKey,

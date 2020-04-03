@@ -1,13 +1,28 @@
-/* istanbul ignore file */
-import { injectGlobal } from 'emotion'
+import { css } from 'emotion'
+import { InitializerTheme } from '../../../common/styles/theme'
 
-export interface InitializerTheme {
-  hoverBackgroundColor?: string
+/* istanbul ignore file */
+export interface AppointmentPlannerThemeClasses {
+  item: string
 }
 
-export const injectGlobalCss = ({ hoverBackgroundColor }: InitializerTheme) => injectGlobal`
-  :root {
-    --cellSpacing: 2px;
-    --hoverBackgroundColor: ${hoverBackgroundColor};
+export type AppointmentPlannerInitializerTheme = InitializerTheme & {
+  itemBackgroundColor: string
+  itemBackgroundColorHover: string
+}
+
+export const generateAppointmentPlannerThemeClasses = ({
+  itemBackgroundColor,
+  itemBackgroundColorHover,
+}: AppointmentPlannerInitializerTheme): AppointmentPlannerThemeClasses => {
+  console.log(itemBackgroundColor)
+
+  return {
+    item: css`
+      background: ${itemBackgroundColor};
+      &:hover {
+        background: ${itemBackgroundColorHover};
+      }
+    `,
   }
-`
+}

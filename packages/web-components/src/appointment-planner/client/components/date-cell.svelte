@@ -23,17 +23,17 @@
 </script>
 
 <style>
-  .date-cell__container {
+  .date-cell-container {
     flex: 1;
     margin-right: var(--cellSpacing)
 
   }
 
-  .time-cell__container {
+  .time-cell-container {
     background: #F2F2F2;
   }
 
-  .date-cell__header {
+  .date-cell-header {
     padding: 10px;
     font-weight: bold;
     background: #F2F2F2;
@@ -44,9 +44,9 @@
   }
 </style>
 
-<div class="date-cell__container" title="Click on the cell for more detail">
-  <div class="date-cell__header">{formatHeader(date)}</div>
-  <div class="time-cell__container">
+<div class="date-cell-container" title="Click on the cell for more detail">
+  <div class="date-cell-header">{formatHeader(date)}</div>
+  <div class="time-cell-container">
     {#each mockedTimes as startTime}
       <TimeCell {startTime} />
     {/each}
