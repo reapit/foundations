@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 import { fetcher } from '../../../common/utils/fetcher-server'
-import { PagedResultPropertyModel_ } from '@reapit/foundations-ts-definitions'
+import { PickedPagedResultPropertyModel_ } from '../../types'
 import { errorHandler } from '../../../common/utils/error-handler'
 import { getServerHeaders } from '../../../common/utils/get-server-headers'
 import { PACKAGE_SUFFIXES } from '../../../common/utils/constants'
