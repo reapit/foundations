@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { State, Dispatch } from '@/core/upload-provider'
+import { State, Dispatch } from '@/components/providers/upload-provider/reducers'
 
 export const UploadStateContext = React.createContext<State>({} as State)
 UploadStateContext.displayName = 'UploadStateContext'

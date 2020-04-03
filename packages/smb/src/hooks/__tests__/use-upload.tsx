@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { renderHook } from '@testing-library/react-hooks'
 import { useUploadState, useUploadDispatch } from '../use-upload'
-import UploadProvider, { State, Dispatch, initialState } from '@/core/upload-provider'
+import { State, Dispatch, initialState } from '@/components/providers/upload-provider/reducers'
+import UploadProvider from '@/components/providers/upload-provider/upload-provider'
 
 describe('use-upload', () => {
   describe('useUploadState', () => {

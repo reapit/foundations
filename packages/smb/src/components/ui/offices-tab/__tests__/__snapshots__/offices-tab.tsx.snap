@@ -4696,7 +4696,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                   },
                   "variables": Object {
                     "pageNumber": 1,
-                    "pageSize": 12,
+                    "pageSize": 10,
                   },
                 },
               },
@@ -9379,7 +9379,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                     },
                     "variables": Object {
                       "pageNumber": 1,
-                      "pageSize": 12,
+                      "pageSize": 10,
                     },
                   },
                 },
@@ -10566,7 +10566,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                       },
                       "variables": Object {
                         "pageNumber": 1,
-                        "pageSize": 12,
+                        "pageSize": 10,
                       },
                     },
                   },
@@ -16383,7 +16383,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                       },
                       "variables": Object {
                         "pageNumber": 1,
-                        "pageSize": 12,
+                        "pageSize": 10,
                       },
                     },
                   },
@@ -18695,7 +18695,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                       },
                       "variables": Object {
                         "pageNumber": 1,
-                        "pageSize": 12,
+                        "pageSize": 10,
                       },
                     },
                     "queryId": "1",
@@ -18705,7 +18705,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                     "subscriptions": Set {},
                     "variables": Object {
                       "pageNumber": 1,
-                      "pageSize": 12,
+                      "pageSize": 10,
                     },
                   },
                   "subscriptions": Set {},
@@ -19858,7 +19858,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                     "previousVariables": null,
                     "variables": Object {
                       "pageNumber": 1,
-                      "pageSize": 12,
+                      "pageSize": 10,
                     },
                   },
                 },
@@ -21040,7 +21040,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                     },
                     "variables": Object {
                       "pageNumber": 1,
-                      "pageSize": 12,
+                      "pageSize": 10,
                     },
                   },
                 },

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Modal, H4, Button } from '@reapit/elements'
-import { UploadResults } from '@/core/upload-provider'
+import { UploadResults } from '@/components/providers/upload-provider/reducers'
 import styled from 'styled-components'
 
 export const TD = styled.td`
@@ -38,7 +38,7 @@ export const UploadResultModal: React.FC<UploadResultModalProp> = ({ visible, re
               return (
                 <li key={index}>
                   {/* Need to + 1 for user-readable reason */}
-                  <p>Row: {index + 1}</p>
+                  <p className="has-text-danger">Row: {index + 1}</p>
                   <p>
                     <table>
                       <tbody>

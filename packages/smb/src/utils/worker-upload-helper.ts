@@ -1,7 +1,7 @@
 import { ExecutionResult, GraphQLError } from 'graphql'
 import { CreateOfficeModel } from '@reapit/foundations-ts-definitions'
 import { Cell } from '@reapit/elements'
-import { UploadResultDetail } from '@/core/upload-provider'
+import { UploadResultDetail } from '@/components/providers/upload-provider/reducers'
 
 export interface WorkerMessage {
   from: 'FROM_MAIN' | 'FROM_WORKER'
@@ -79,12 +79,11 @@ export const mutation = <T>({
             data: { operationName, query, variables },
             errors: response.errors.map((error: GraphQLError) => ({ message: error.message })),
           })
-        } else {
-          resolve({
-            success: true,
-            data: { operationName, query, variables },
-          })
         }
+        resolve({
+          success: true,
+          data: { operationName, query, variables },
+        })
       })
       .catch(error =>
         resolve({

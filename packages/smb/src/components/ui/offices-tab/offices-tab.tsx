@@ -33,7 +33,8 @@ import UPDATE_OFFICE from './gql/update-office.graphql'
 import { OFFICES_PER_PAGE } from '@/constants/paginators'
 import { isNumber } from '@/utils/validators'
 import { useUploadDispatch } from '@/hooks/use-upload'
-import { Dispatch, startUpload, completeUpload, setUploadProgress } from '@/core/upload-provider'
+import { startUpload, completeUpload, setUploadProgress } from '@/components/providers/upload-provider/actions'
+import { Dispatch } from '@/components/providers/upload-provider/reducers'
 import { UploadCsvMessage, UploadCsvResponseMessage } from '@/utils/worker-upload-helper'
 
 import Worker from 'worker-loader!../../../worker/csv-upload.worker.ts'
@@ -168,7 +169,7 @@ export const handleAfterUpload = (dispatch: Dispatch) => (params: {
   currentData: Cell[][]
   setData: SetData
 }) => {
-  const { uploadData } = params
+  const { uploadData, setData } = params
   const message: UploadCsvMessage = {
     from: 'FROM_MAIN',
     type: 'OFFICE',
@@ -179,12 +180,12 @@ export const handleAfterUpload = (dispatch: Dispatch) => (params: {
   const uploadWorker = new Worker()
   uploadWorker.postMessage(message)
   uploadWorker.addEventListener('message', event => {
-    handleWorkerMessage(event.data, dispatch)
+    handleWorkerMessage(event.data, dispatch, setData, uploadData)
   })
 }
 
 /* istanbul ignore next */
-export const handleWorkerMessage = (data: UploadCsvResponseMessage, dispatch: Dispatch) => {
+export const handleWorkerMessage = (data: UploadCsvResponseMessage, dispatch: Dispatch, setData, uploadData) => {
   const { status, total = 0, success = 0, failed = 0, details = [] } = data
   if (status === 'STARTED') {
     dispatch(startUpload(total))
@@ -199,6 +200,7 @@ export const handleWorkerMessage = (data: UploadCsvResponseMessage, dispatch: Di
         details,
       }),
     )
+    setData(prev => [...prev, ...uploadData.validatedData.map(row => convertUploadedCellToTableCell(row))])
   }
 }
 
@@ -309,8 +311,6 @@ export const OfficesTab: React.FC<OfficesTabProps> = () => {
     UPDATE_OFFICE,
   )
   const dispatch = useUploadDispatch()
-  // const [uploading, setUploading] = React.useState(false)
-  // const [uploadProgress, setUploadProgress] = React.useState({ total: 0, current: 0 })
 
   const dataTable = React.useMemo(() => getDataTable(data || { GetOffices: { _embedded: [] } }), [data])
 
