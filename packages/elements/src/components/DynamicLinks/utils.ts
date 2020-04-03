@@ -88,7 +88,8 @@ export const injectSwitchModeToWindow = () => {
   // Only restore if window[GLOBAL_KEY] is writable
   // In REAL DESKTOP mode, window.__REAPIT_MARKETPLACE_GLOBALS__ writable is false
   // and this function will not be executed
-  if (Object.getOwnPropertyDescriptor(window, GLOBAL_KEY)?.writable) {
-    restoreGlobalObjectFromLS()
+  if (Object.getOwnPropertyDescriptor(window, GLOBAL_KEY)?.writable === false) {
+    return
   }
+  restoreGlobalObjectFromLS()
 }
