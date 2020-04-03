@@ -90,6 +90,21 @@ describe('Session utils', () => {
     it('should get a session from the cookie if it exists', () => {
       const stringifiedSession = JSON.stringify({
         refreshToken: mockLoginSession.refreshToken,
+        mode: 'DESKTOP',
+        loginType: mockLoginSession.loginType,
+        userName: mockLoginSession.userName,
+      })
+
+      document.cookie = `${COOKIE_SESSION_KEY}=${stringifiedSession}`
+
+      expect(getSessionCookie()).toEqual(JSON.parse(stringifiedSession))
+    })
+
+    it('should return with mode WEB if dont have global object', () => {
+      ;(getMarketplaceGlobalsByKey as jest.Mock).mockImplementation(() => undefined)
+      const stringifiedSession = JSON.stringify({
+        refreshToken: mockLoginSession.refreshToken,
+        mode: 'WEB',
         loginType: mockLoginSession.loginType,
         userName: mockLoginSession.userName,
       })
