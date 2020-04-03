@@ -53,9 +53,9 @@
     "build:serverless": "serverless webpack --out dist --stage dev",
     "release:server:dev": "serverless deploy --stage dev",
     "release:server:prod": "node ../../scripts/release/release-serverless.js web-components",
-    "release:client:dev": "node ../../scripts/release/release-dev.js web-components search-widget-dev",
-    "release:client:prod": "node ../../scripts/release/release-prod.js web-components search-widget-prod",
+    "release:client:dev": "node ../../scripts/release/release-dev.js web-components reapit-web-components",
+    "release:client:prod": "node ../../scripts/release/release-prod.js web-components reapit-web-components",
     "release:prod": "yarn release:server:prod && yarn release:client:prod",
-    "release:dev": "yarn release:server:dev && yarn release:client:dev"
+    "release:dev": "yarn release:server:dev"
   }
 }
