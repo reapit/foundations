@@ -95,7 +95,7 @@ exports[`DeveloperSubmitApp should match submit revision form snapshot 1`] = `
             "iconImageUrl": "",
             "isDirectApi": undefined,
             "isListed": undefined,
-            "isPrivateApp": "yes",
+            "isPrivateApp": "no",
             "launchUri": undefined,
             "limitToClientIds": "",
             "name": "Peter's Properties",
