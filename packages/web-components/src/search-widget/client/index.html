@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Web Components</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto|Roboto+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./dist/search-widget.css" />
+    <style>
+      #search-widget {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="search-widget"></div>
+    <script src="./dist/search-widget.js"></script>
+    <script src="./themes/search-widget.js"></script>
+    <script>
+      ReapitSearchWidgetComponent &&
+        new ReapitSearchWidgetComponent({
+          theme: window.theme,
+          apiKey: '',
+          parentSelector: '#search-widget',
+        })
+    </script>
+  </body>
+</html>

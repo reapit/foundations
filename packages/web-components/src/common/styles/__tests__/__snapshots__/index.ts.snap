@@ -1,5 +1,193 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`styles should generate a global CSS theme 1`] = `"css-gnah7l"`;
+exports[`styles should generate a map theme 1`] = `
+Array [
+  Object {
+    "elementType": "geometry.fill",
+    "featureType": "all",
+    "stylers": Array [
+      Object {
+        "weight": "2.00",
+      },
+    ],
+  },
+  Object {
+    "elementType": "geometry.stroke",
+    "featureType": "all",
+    "stylers": Array [
+      Object {
+        "color": "#9c9c9c",
+      },
+    ],
+  },
+  Object {
+    "elementType": "labels.text",
+    "featureType": "all",
+    "stylers": Array [
+      Object {
+        "visibility": "on",
+      },
+    ],
+  },
+  Object {
+    "elementType": "all",
+    "featureType": "landscape",
+    "stylers": Array [
+      Object {
+        "color": "#f2f2f2",
+      },
+    ],
+  },
+  Object {
+    "elementType": "geometry.fill",
+    "featureType": "landscape",
+    "stylers": Array [
+      Object {
+        "color": "#ffffff",
+      },
+    ],
+  },
+  Object {
+    "elementType": "geometry.fill",
+    "featureType": "landscape.man_made",
+    "stylers": Array [
+      Object {
+        "color": "#ffffff",
+      },
+    ],
+  },
+  Object {
+    "elementType": "all",
+    "featureType": "poi",
+    "stylers": Array [
+      Object {
+        "visibility": "off",
+      },
+    ],
+  },
+  Object {
+    "elementType": "all",
+    "featureType": "road",
+    "stylers": Array [
+      Object {
+        "saturation": -100,
+      },
+      Object {
+        "lightness": 45,
+      },
+    ],
+  },
+  Object {
+    "elementType": "geometry.fill",
+    "featureType": "road",
+    "stylers": Array [
+      Object {
+        "color": "#eeeeee",
+      },
+    ],
+  },
+  Object {
+    "elementType": "labels.text.fill",
+    "featureType": "road",
+    "stylers": Array [
+      Object {
+        "color": "#7b7b7b",
+      },
+    ],
+  },
+  Object {
+    "elementType": "labels.text.stroke",
+    "featureType": "road",
+    "stylers": Array [
+      Object {
+        "color": "#ffffff",
+      },
+    ],
+  },
+  Object {
+    "elementType": "all",
+    "featureType": "road.highway",
+    "stylers": Array [
+      Object {
+        "visibility": "simplified",
+      },
+    ],
+  },
+  Object {
+    "elementType": "labels.icon",
+    "featureType": "road.arterial",
+    "stylers": Array [
+      Object {
+        "visibility": "off",
+      },
+    ],
+  },
+  Object {
+    "elementType": "all",
+    "featureType": "transit",
+    "stylers": Array [
+      Object {
+        "visibility": "off",
+      },
+    ],
+  },
+  Object {
+    "elementType": "all",
+    "featureType": "water",
+    "stylers": Array [
+      Object {
+        "color": "green",
+      },
+      Object {
+        "visibility": "on",
+      },
+    ],
+  },
+  Object {
+    "elementType": "geometry.fill",
+    "featureType": "water",
+    "stylers": Array [
+      Object {
+        "color": "green",
+      },
+    ],
+  },
+  Object {
+    "elementType": "labels.text.fill",
+    "featureType": "water",
+    "stylers": Array [
+      Object {
+        "color": "#070707",
+      },
+    ],
+  },
+  Object {
+    "elementType": "labels.text.stroke",
+    "featureType": "water",
+    "stylers": Array [
+      Object {
+        "color": "#ffffff",
+      },
+    ],
+  },
+]
+`;
 
 exports[`styles should generate a reset css class 1`] = `"css-h4w50h"`;
+
+exports[`styles should generate an object of CSS classes 1`] = `
+Object {
+  "bodyText": "css-a6q1sx",
+  "button": "css-bupbnq",
+  "globalStyles": "css-1uga67g",
+  "input": "css-hn09wq",
+  "offerBanner": "css-sbpty0",
+  "primaryHeading": "css-1f7qsls",
+  "primaryStrapline": "css-r0ul6y",
+  "resultItem": "css-1b54o3e",
+  "searchBox": "css-1usiam2",
+  "secondaryHeading": "css-1wj8bm7",
+  "secondaryStrapline": "css-318gpk",
+  "selectedItem": "css-dh3fna",
+}
+`;

@@ -4,51 +4,54 @@ exports[`search-widget it matches a snapshot 1`] = `
 <body>
   <div>
     <div
-      class="css-h4w50h svelte-10ns1kb"
+      class="css-h4w50h css-okx25b search-widget svelte-q3uqx4"
     >
+      <form
+        class="search-form css-15w1nlj svelte-1hu8mn5"
+      >
+        <input
+          class="css-1am5rtx search-form-input svelte-1hu8mn5"
+          data-testid="search-form-input"
+          id="search"
+          placeholder="Town or Postcode"
+          type="text"
+        />
+         
+        <div
+          class="search-form-button-container svelte-1hu8mn5"
+        >
+          <button
+            class="css-mgi7xd search-form-button svelte-1hu8mn5"
+            data-testid="lettings"
+            type="button"
+          >
+            TO RENT
+          </button>
+           
+          <button
+            class="css-mgi7xd search-form-button svelte-1hu8mn5"
+            data-testid="sales"
+            type="button"
+          >
+            FOR SALE
+          </button>
+        </div>
+      </form>
+       
       <div
-        class="css-yau5c8 svelte-10ns1kb"
+        class="search-widget-items svelte-q3uqx4"
+      >
+         
+         
+      </div>
+       
+      <div
+        class="google-map-outer-container svelte-cqeihd"
       >
         <div
-          class="content svelte-10ns1kb"
+          class="google-map-container svelte-cqeihd"
         >
-          <form
-            class="search-form svelte-1l6qfbr"
-          >
-            <input
-              data-testid="search-input"
-              id="search"
-              type="text"
-            />
-             
-            <button
-              data-testid="lettings"
-              type="button"
-            >
-              For rent
-            </button>
-             
-            <button
-              data-testid="sales"
-              type="button"
-            >
-              For sale
-            </button>
-          </form>
            
-          <div
-            class="search-results-items svelte-10ns1kb"
-          />
-           
-          <div
-            class="map-wrap svelte-10ns1kb"
-          >
-            <div
-              class="map-wrap svelte-1nt7ax3"
-            >
-               
-            </div>
-          </div>
         </div>
       </div>
     </div>

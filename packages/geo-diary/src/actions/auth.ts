@@ -8,3 +8,4 @@ export const authLoginFailure = actionCreator<void>(ActionTypes.AUTH_LOGIN_FAILU
 export const authLogout = actionCreator<void>(ActionTypes.AUTH_LOGOUT)
 export const authLogoutSuccess = actionCreator<void>(ActionTypes.AUTH_LOGOUT_SUCCESS)
 export const authSetRefreshSession = actionCreator<RefreshParams>(ActionTypes.AUTH_SET_REFRESH_SESSION)
+export const authSetRefreshSessionLoginMode = actionCreator<void>(ActionTypes.AUTH_SET_REFRESH_SESSION_LOGIN_TYPE)

@@ -1,28 +1,49 @@
 import { writable, Writable } from 'svelte/store'
 import { SearchWidgeInitializers } from './index'
-import { PagedResultPropertyModel_, PropertyImageModel, PropertyModel } from '@reapit/foundations-ts-definitions'
+import { PropertyImageModel, PropertyModel } from '@reapit/foundations-ts-definitions'
+import { ThemeClasses } from '../../../common/styles'
 
 export interface SearchWidgetStore {
   initializers: SearchWidgeInitializers
-  properties: PagedResultPropertyModel_ | null
+  themeClasses: ThemeClasses
+  properties: PropertyModel[]
   propertyImages: Record<string, PropertyImageModel> | null
   selectedProperty: PropertyModel | null
   selectedMarker: google.maps.Marker | null
   searchType: 'Sale' | 'Rent'
   searchKeyword: string
+  isLoading: boolean
+  resultsMessage: string
 }
 
 const searchWidgetStore: Writable<SearchWidgetStore> = writable({
   initializers: {
     apiKey: '',
     theme: {},
+    parentSelector: '',
   },
-  properties: null,
-  propertyImages: null,
+  themeClasses: {
+    globalStyles: '',
+    primaryHeading: '',
+    secondaryHeading: '',
+    primaryStrapline: '',
+    secondaryStrapline: '',
+    selectedItem: '',
+    bodyText: '',
+    button: '',
+    input: '',
+    resultItem: '',
+    searchBox: '',
+    offerBanner: '',
+  },
+  properties: [],
+  propertyImages: {},
   selectedProperty: null,
   selectedMarker: null,
   searchType: 'Sale',
   searchKeyword: '',
+  isLoading: false,
+  resultsMessage: '',
 })
 
 export default searchWidgetStore

@@ -1,6 +1,7 @@
 import { PropertyModel, PropertyImageModel } from '@reapit/foundations-ts-definitions'
 import { INVALID_BACKGROUND_AS_BASE64, DEFAULT_CENTER, DEFAULT_ZOOM } from '../../../common/utils/constants'
 import { loader } from '../../../common/utils/loader'
+import { generateMapStyles, InitializerTheme, ThemeClasses } from '../../../common/styles/theme'
 
 export const getLatLng = (property: PropertyModel) => {
   const latitude = property?.address?.geolocation?.latitude ?? DEFAULT_CENTER.lat
@@ -75,12 +76,13 @@ export const fitMapToBounds = (properties: PropertyModel[], map: google.maps.Map
   map.fitBounds(bounds)
 }
 
-export const loadMap = (mapElement: HTMLDivElement): Promise<unknown> => {
+export const loadMap = (mapElement: HTMLDivElement, theme: Partial<InitializerTheme>): Promise<unknown> => {
   return new Promise((resolve, reject) => {
     const getMap = () => {
       const map = new google.maps.Map(mapElement, {
         center: DEFAULT_CENTER,
         zoom: DEFAULT_ZOOM,
+        styles: generateMapStyles(theme) as any,
       })
       if (map) {
         return resolve(map)
@@ -109,6 +111,7 @@ export const getInfoWindow = (
   selectedProperty: PropertyModel,
   searchType: 'Sale' | 'Rent',
   propertyImages: Record<string, PropertyImageModel>,
+  themeClasses: ThemeClasses,
 ) => {
   const propertyImage = selectedProperty?.id && propertyImages ? propertyImages[selectedProperty?.id] : {}
   const imageUrl = propertyImage?.url ?? INVALID_BACKGROUND_AS_BASE64
@@ -121,31 +124,34 @@ export const getInfoWindow = (
   }
   const bedrooms = selectedProperty?.bedrooms
   const bathrooms = selectedProperty?.bathrooms
+  const { globalStyles, secondaryHeading, secondaryStrapline, bodyText } = themeClasses
 
   return new google.maps.InfoWindow({
     content: `
-      <div style="display:flex; font-family: 'Open Sans', sans-serif" id="coordinate-${latitude}-${longitude}">
-        <div><img style="width: 110px; height: 110px; object-fit: cover" src="${imageUrl}"></div>
-        <div style="padding: 0rem 1rem;">
-          <div style="margin-bottom: 2px; font-weight:bold;font-size:1rem; color: #12263f">${address.line1}</div>
-          <div style="margin-bottom: 2px; font-size:1rem; color: #12263f">${address.line2}</div>
+      <div style="display:flex;" class="${globalStyles}" id="coordinate-${latitude}-${longitude}">
+        <div>
+          <img style="width: 110px; height: 110px; object-fit: cover"
+            src="${imageUrl}" onerror=this.src="${INVALID_BACKGROUND_AS_BASE64}"
+          >
+        </div>
+        <div style="padding: 0rem 1em;">
+          <div class="${secondaryHeading}">${address.line1}</div>
+          <div class="${secondaryStrapline}">${address.line2}</div>
           ${
             marketingMode === 'selling'
-              ? `<div style="color: #887d97;font-weight:bold;font-size:1rem">${price}</div>`
-              : `<div style="color: #887d97;font-weight:bold;font-size:1rem">${price}</div>`
+              ? `<div class="${secondaryHeading}">${price}</div>`
+              : `<div class="${secondaryHeading}">${price}</div>`
           }
           <div style="display:flex; margin-top: 2px">
-            <div style="margin-right: 1.2rem">
-              <span style="color: gray">
-                icon TBC
+            <div style="margin-right: 1.2em">
+              <span class="${bodyText}">
+                ${bedrooms} bedrooms
               </span>
-              <div>${bedrooms}</div>
             </div>
             <div>
-              <span style="color: gray">
-                icon TBC
+              <span class="${bodyText}">
+                ${bathrooms} bathrooms
               </span>
-              <div>${bathrooms}</div>
             </div>
           </div>
         </div>
@@ -162,5 +168,6 @@ export const getMarker = (property: PropertyModel, map: google.maps.Map) => {
       lng: longitude,
     },
     map,
+    animation: google.maps.Animation.DROP,
   })
 }
