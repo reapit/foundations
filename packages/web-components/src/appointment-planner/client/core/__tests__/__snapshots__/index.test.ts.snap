@@ -23,6 +23,7 @@ Appointment_planner {
         "secondaryHeading": "css-1j7xy3x",
         "secondaryStrapline": "css-16igqs7",
         "selectedItem": "css-1bsmlup",
+        "svgNavigation": "css-16x7wo5",
       },
       Object {
         "baseBackgroundColor": "#4C566A",
@@ -40,6 +41,7 @@ Appointment_planner {
         "itemBackgroundColor": "green",
         "itemBackgroundColorHover": "red",
         "mapAccentColor": "#8FBCBB",
+        "navigateButtonColor": "red",
         "primaryAccentColor": "#A3BE8C",
         "primaryHeadingFontSize": "28px",
         "secondaryAccentColor": "##88C0D0",

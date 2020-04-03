@@ -1,6 +1,7 @@
 const variantA = {
   itemBackgroundColor: '#ececec',
   itemBackgroundColorHover: 'white',
+  navigateButtonColor: 'pink',
 }
 
 const params = new URLSearchParams(window.location.search)

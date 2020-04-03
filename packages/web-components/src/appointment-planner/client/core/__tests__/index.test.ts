@@ -7,6 +7,7 @@ describe('ReapitAppointmentPlannerComponent', () => {
         parentSelector: 'body',
         apiKey: 'test',
         theme: {
+          navigateButtonColor: 'red',
           itemBackgroundColor: 'green',
           itemBackgroundColorHover: 'red',
           baseBackgroundColor: '#4C566A',

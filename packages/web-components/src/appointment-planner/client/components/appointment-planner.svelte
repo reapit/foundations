@@ -12,6 +12,7 @@
 
   const themeClasses = {...generateThemeClasses(theme, parentSelector), ...generateAppointmentPlannerThemeClasses(theme)}
 
+
   themeStore.set(themeClasses)
 
   import DateTimePicker from './date-time-picker.svelte'
@@ -53,13 +54,13 @@
 <div class={cx(resetCSS, themeClasses.globalStyles, themeClasses.bodyText, 'appointment-planner-container')}>
   <div class='appointment-planner-header-container'>
     <button on:click={weekStore.decrement}>
-      <Fa class={apointmentPlannerSvg} icon={faChevronLeft} />
+      <Fa class={cx(apointmentPlannerSvg, themeClasses.svgNavigation)} icon={faChevronLeft} />
     </button>
 
     <h1 class={themeClasses.primaryHeading}>Choose an Appointment</h1>
 
     <button on:click={weekStore.increment}>
-      <Fa class={apointmentPlannerSvg} icon={faChevronRight} />
+      <Fa class={cx(apointmentPlannerSvg, themeClasses.svgNavigation)} icon={faChevronRight} />
     </button>
     <div />
   </div>

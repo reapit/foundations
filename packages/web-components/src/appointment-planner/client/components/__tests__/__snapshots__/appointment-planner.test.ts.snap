@@ -14,7 +14,7 @@ exports[`appointment-planner it matches a snapshot 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="css-1nffhxz"
+            class="css-g4f5gc css-advsbx"
             id=""
             role="img"
             style="height:1em;vertical-align:-.125em;overflow:visible;"
@@ -49,7 +49,7 @@ exports[`appointment-planner it matches a snapshot 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="css-1nffhxz"
+            class="css-g4f5gc css-advsbx"
             id=""
             role="img"
             style="height:1em;vertical-align:-.125em;overflow:visible;"
@@ -102,6 +102,13 @@ exports[`appointment-planner it matches a snapshot 1`] = `
               </div>
             </div>
             <div
+              class="time-cell-container css-1sidysf css-1ifce5w svelte-15rf3tu"
+            >
+              <div>
+                11:11
+              </div>
+            </div>
+            <div
               class="time-cell-container css-jxa5xf css-1ifce5w svelte-15rf3tu"
             >
               <div>
@@ -119,21 +126,14 @@ exports[`appointment-planner it matches a snapshot 1`] = `
               class="time-cell-container css-1sidysf css-1ifce5w svelte-15rf3tu"
             >
               <div>
-                33:33
+                44:44
               </div>
             </div>
             <div
-              class="time-cell-container css-jxa5xf css-1ifce5w svelte-15rf3tu"
+              class="time-cell-container css-1sidysf css-1ifce5w svelte-15rf3tu"
             >
               <div>
-                
-              </div>
-            </div>
-            <div
-              class="time-cell-container css-jxa5xf css-1ifce5w svelte-15rf3tu"
-            >
-              <div>
-                
+                55:55
               </div>
             </div>
           </div>
@@ -152,10 +152,10 @@ exports[`appointment-planner it matches a snapshot 1`] = `
             class="time-cell-container svelte-yhurmg"
           >
             <div
-              class="time-cell-container css-jxa5xf css-1ifce5w svelte-15rf3tu"
+              class="time-cell-container css-1sidysf css-1ifce5w svelte-15rf3tu"
             >
               <div>
-                
+                00:00
               </div>
             </div>
             <div
@@ -166,10 +166,10 @@ exports[`appointment-planner it matches a snapshot 1`] = `
               </div>
             </div>
             <div
-              class="time-cell-container css-1sidysf css-1ifce5w svelte-15rf3tu"
+              class="time-cell-container css-jxa5xf css-1ifce5w svelte-15rf3tu"
             >
               <div>
-                22:22
+                
               </div>
             </div>
             <div
@@ -209,10 +209,10 @@ exports[`appointment-planner it matches a snapshot 1`] = `
             class="time-cell-container svelte-yhurmg"
           >
             <div
-              class="time-cell-container css-1sidysf css-1ifce5w svelte-15rf3tu"
+              class="time-cell-container css-jxa5xf css-1ifce5w svelte-15rf3tu"
             >
               <div>
-                00:00
+                
               </div>
             </div>
             <div
@@ -237,17 +237,17 @@ exports[`appointment-planner it matches a snapshot 1`] = `
               </div>
             </div>
             <div
+              class="time-cell-container css-1sidysf css-1ifce5w svelte-15rf3tu"
+            >
+              <div>
+                44:44
+              </div>
+            </div>
+            <div
               class="time-cell-container css-jxa5xf css-1ifce5w svelte-15rf3tu"
             >
               <div>
                 
-              </div>
-            </div>
-            <div
-              class="time-cell-container css-1sidysf css-1ifce5w svelte-15rf3tu"
-            >
-              <div>
-                55:55
               </div>
             </div>
           </div>
@@ -287,10 +287,10 @@ exports[`appointment-planner it matches a snapshot 1`] = `
               </div>
             </div>
             <div
-              class="time-cell-container css-1sidysf css-1ifce5w svelte-15rf3tu"
+              class="time-cell-container css-jxa5xf css-1ifce5w svelte-15rf3tu"
             >
               <div>
-                33:33
+                
               </div>
             </div>
             <div
@@ -301,10 +301,10 @@ exports[`appointment-planner it matches a snapshot 1`] = `
               </div>
             </div>
             <div
-              class="time-cell-container css-1sidysf css-1ifce5w svelte-15rf3tu"
+              class="time-cell-container css-jxa5xf css-1ifce5w svelte-15rf3tu"
             >
               <div>
-                55:55
+                
               </div>
             </div>
           </div>
@@ -351,17 +351,17 @@ exports[`appointment-planner it matches a snapshot 1`] = `
               </div>
             </div>
             <div
-              class="time-cell-container css-1sidysf css-1ifce5w svelte-15rf3tu"
+              class="time-cell-container css-jxa5xf css-1ifce5w svelte-15rf3tu"
             >
               <div>
-                44:44
+                
               </div>
             </div>
             <div
-              class="time-cell-container css-1sidysf css-1ifce5w svelte-15rf3tu"
+              class="time-cell-container css-jxa5xf css-1ifce5w svelte-15rf3tu"
             >
               <div>
-                55:55
+                
               </div>
             </div>
           </div>
@@ -401,10 +401,10 @@ exports[`appointment-planner it matches a snapshot 1`] = `
               </div>
             </div>
             <div
-              class="time-cell-container css-jxa5xf css-1ifce5w svelte-15rf3tu"
+              class="time-cell-container css-1sidysf css-1ifce5w svelte-15rf3tu"
             >
               <div>
-                
+                33:33
               </div>
             </div>
             <div
@@ -415,10 +415,10 @@ exports[`appointment-planner it matches a snapshot 1`] = `
               </div>
             </div>
             <div
-              class="time-cell-container css-1sidysf css-1ifce5w svelte-15rf3tu"
+              class="time-cell-container css-jxa5xf css-1ifce5w svelte-15rf3tu"
             >
               <div>
-                55:55
+                
               </div>
             </div>
           </div>
@@ -437,10 +437,10 @@ exports[`appointment-planner it matches a snapshot 1`] = `
             class="time-cell-container svelte-yhurmg"
           >
             <div
-              class="time-cell-container css-1sidysf css-1ifce5w svelte-15rf3tu"
+              class="time-cell-container css-jxa5xf css-1ifce5w svelte-15rf3tu"
             >
               <div>
-                00:00
+                
               </div>
             </div>
             <div
@@ -451,6 +451,20 @@ exports[`appointment-planner it matches a snapshot 1`] = `
               </div>
             </div>
             <div
+              class="time-cell-container css-1sidysf css-1ifce5w svelte-15rf3tu"
+            >
+              <div>
+                22:22
+              </div>
+            </div>
+            <div
+              class="time-cell-container css-1sidysf css-1ifce5w svelte-15rf3tu"
+            >
+              <div>
+                33:33
+              </div>
+            </div>
+            <div
               class="time-cell-container css-jxa5xf css-1ifce5w svelte-15rf3tu"
             >
               <div>
@@ -462,20 +476,6 @@ exports[`appointment-planner it matches a snapshot 1`] = `
             >
               <div>
                 
-              </div>
-            </div>
-            <div
-              class="time-cell-container css-1sidysf css-1ifce5w svelte-15rf3tu"
-            >
-              <div>
-                44:44
-              </div>
-            </div>
-            <div
-              class="time-cell-container css-1sidysf css-1ifce5w svelte-15rf3tu"
-            >
-              <div>
-                55:55
               </div>
             </div>
           </div>
