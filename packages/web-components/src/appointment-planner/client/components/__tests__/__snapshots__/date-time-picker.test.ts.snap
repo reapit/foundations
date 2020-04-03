@@ -1,417 +1,108 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DateTimePicker it matches a snapshot 1`] = `
-.emotion-0 {
-  visible: visible;
-}
-
-.emotion-2 {
-  visible: hidden;
-}
-
 <body>
   <div>
     <div
       class="date-time-picker-container svelte-114k6yq"
     >
       <div
-        class="date-cell-container svelte-yhurmg"
+        class="date-cell-container svelte-1pn3mlr"
         title="Click on the cell for more detail"
       >
         <div
-          class="date-cell-header svelte-yhurmg"
+          class="date-cell-header svelte-1pn3mlr"
         >
           Mon Mar 30
         </div>
          
         <div
-          class="time-cell-container svelte-yhurmg"
-        >
-          <div
-            class="time-cell-container emotion-0 svelte-15rf3tu"
-          >
-            <div>
-              00:00
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-0 svelte-15rf3tu"
-          >
-            <div>
-              11:11
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-2 svelte-15rf3tu"
-          >
-            <div>
-              
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-0 svelte-15rf3tu"
-          >
-            <div>
-              33:33
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-2 svelte-15rf3tu"
-          >
-            <div>
-              
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-0 svelte-15rf3tu"
-          >
-            <div>
-              55:55
-            </div>
-          </div>
-        </div>
+          class="time-cell-container svelte-1pn3mlr"
+        />
       </div>
       <div
-        class="date-cell-container svelte-yhurmg"
+        class="date-cell-container svelte-1pn3mlr"
         title="Click on the cell for more detail"
       >
         <div
-          class="date-cell-header svelte-yhurmg"
+          class="date-cell-header svelte-1pn3mlr"
         >
           Tue Mar 31
         </div>
          
         <div
-          class="time-cell-container svelte-yhurmg"
-        >
-          <div
-            class="time-cell-container emotion-0 svelte-15rf3tu"
-          >
-            <div>
-              00:00
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-2 svelte-15rf3tu"
-          >
-            <div>
-              
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-2 svelte-15rf3tu"
-          >
-            <div>
-              
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-2 svelte-15rf3tu"
-          >
-            <div>
-              
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-0 svelte-15rf3tu"
-          >
-            <div>
-              44:44
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-2 svelte-15rf3tu"
-          >
-            <div>
-              
-            </div>
-          </div>
-        </div>
+          class="time-cell-container svelte-1pn3mlr"
+        />
       </div>
       <div
-        class="date-cell-container svelte-yhurmg"
+        class="date-cell-container svelte-1pn3mlr"
         title="Click on the cell for more detail"
       >
         <div
-          class="date-cell-header svelte-yhurmg"
+          class="date-cell-header svelte-1pn3mlr"
         >
           Wed Apr 01
         </div>
          
         <div
-          class="time-cell-container svelte-yhurmg"
-        >
-          <div
-            class="time-cell-container emotion-2 svelte-15rf3tu"
-          >
-            <div>
-              
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-0 svelte-15rf3tu"
-          >
-            <div>
-              11:11
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-2 svelte-15rf3tu"
-          >
-            <div>
-              
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-0 svelte-15rf3tu"
-          >
-            <div>
-              33:33
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-2 svelte-15rf3tu"
-          >
-            <div>
-              
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-0 svelte-15rf3tu"
-          >
-            <div>
-              55:55
-            </div>
-          </div>
-        </div>
+          class="time-cell-container svelte-1pn3mlr"
+        />
       </div>
       <div
-        class="date-cell-container svelte-yhurmg"
+        class="date-cell-container svelte-1pn3mlr"
         title="Click on the cell for more detail"
       >
         <div
-          class="date-cell-header svelte-yhurmg"
+          class="date-cell-header svelte-1pn3mlr"
         >
           Thu Apr 02
         </div>
          
         <div
-          class="time-cell-container svelte-yhurmg"
-        >
-          <div
-            class="time-cell-container emotion-2 svelte-15rf3tu"
-          >
-            <div>
-              
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-2 svelte-15rf3tu"
-          >
-            <div>
-              
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-0 svelte-15rf3tu"
-          >
-            <div>
-              22:22
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-0 svelte-15rf3tu"
-          >
-            <div>
-              33:33
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-2 svelte-15rf3tu"
-          >
-            <div>
-              
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-2 svelte-15rf3tu"
-          >
-            <div>
-              
-            </div>
-          </div>
-        </div>
+          class="time-cell-container svelte-1pn3mlr"
+        />
       </div>
       <div
-        class="date-cell-container svelte-yhurmg"
+        class="date-cell-container svelte-1pn3mlr"
         title="Click on the cell for more detail"
       >
         <div
-          class="date-cell-header svelte-yhurmg"
+          class="date-cell-header svelte-1pn3mlr"
         >
           Fri Apr 03
         </div>
          
         <div
-          class="time-cell-container svelte-yhurmg"
-        >
-          <div
-            class="time-cell-container emotion-0 svelte-15rf3tu"
-          >
-            <div>
-              00:00
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-2 svelte-15rf3tu"
-          >
-            <div>
-              
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-0 svelte-15rf3tu"
-          >
-            <div>
-              22:22
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-0 svelte-15rf3tu"
-          >
-            <div>
-              33:33
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-0 svelte-15rf3tu"
-          >
-            <div>
-              44:44
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-0 svelte-15rf3tu"
-          >
-            <div>
-              55:55
-            </div>
-          </div>
-        </div>
+          class="time-cell-container svelte-1pn3mlr"
+        />
       </div>
       <div
-        class="date-cell-container svelte-yhurmg"
+        class="date-cell-container svelte-1pn3mlr"
         title="Click on the cell for more detail"
       >
         <div
-          class="date-cell-header svelte-yhurmg"
+          class="date-cell-header svelte-1pn3mlr"
         >
           Sat Apr 04
         </div>
          
         <div
-          class="time-cell-container svelte-yhurmg"
-        >
-          <div
-            class="time-cell-container emotion-0 svelte-15rf3tu"
-          >
-            <div>
-              00:00
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-0 svelte-15rf3tu"
-          >
-            <div>
-              11:11
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-0 svelte-15rf3tu"
-          >
-            <div>
-              22:22
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-2 svelte-15rf3tu"
-          >
-            <div>
-              
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-0 svelte-15rf3tu"
-          >
-            <div>
-              44:44
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-2 svelte-15rf3tu"
-          >
-            <div>
-              
-            </div>
-          </div>
-        </div>
+          class="time-cell-container svelte-1pn3mlr"
+        />
       </div>
       <div
-        class="date-cell-container svelte-yhurmg"
+        class="date-cell-container svelte-1pn3mlr"
         title="Click on the cell for more detail"
       >
         <div
-          class="date-cell-header svelte-yhurmg"
+          class="date-cell-header svelte-1pn3mlr"
         >
           Sun Apr 05
         </div>
          
         <div
-          class="time-cell-container svelte-yhurmg"
-        >
-          <div
-            class="time-cell-container emotion-2 svelte-15rf3tu"
-          >
-            <div>
-              
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-0 svelte-15rf3tu"
-          >
-            <div>
-              11:11
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-2 svelte-15rf3tu"
-          >
-            <div>
-              
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-0 svelte-15rf3tu"
-          >
-            <div>
-              33:33
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-0 svelte-15rf3tu"
-          >
-            <div>
-              44:44
-            </div>
-          </div>
-          <div
-            class="time-cell-container emotion-0 svelte-15rf3tu"
-          >
-            <div>
-              55:55
-            </div>
-          </div>
-        </div>
+          class="time-cell-container svelte-1pn3mlr"
+        />
       </div>
     </div>
   </div>

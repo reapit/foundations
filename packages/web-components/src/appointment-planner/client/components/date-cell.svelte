@@ -6,15 +6,19 @@
 
   // generate dummy meeting slots between 00-00 -> 10-00 - duration - on hours
   export const mockedTimes = []
-  for (let i = 0; i <= 5; i++) {
-    const randomBool = Math.random() >= 0.5
 
-    if (randomBool) {
-      mockedTimes.push(`${i}${i}:${i}${i}`)
-      continue;
+  // if not testing
+  if (typeof window.process === 'undefined') {
+    for (let i = 0; i <= 5; i++) {
+      const randomBool = Math.random() >= 0.5
+
+      if (randomBool) {
+        mockedTimes.push(`${i}${i}:${i}${i}`)
+        continue
+      }
+
+      mockedTimes.push(null)
     }
-
-    mockedTimes.push(null)
   }
 
   export const formatHeader = date => {
@@ -25,18 +29,17 @@
 <style>
   .date-cell-container {
     flex: 1;
-    margin-right: var(--cellSpacing)
-
+    margin-right: var(--cellSpacing);
   }
 
   .time-cell-container {
-    background: #F2F2F2;
+    background: #f2f2f2;
   }
 
   .date-cell-header {
     padding: 10px;
     font-weight: bold;
-    background: #F2F2F2;
+    background: #f2f2f2;
     display: flex;
     justify-content: center;
     margin-bottom: 2px;

@@ -8,7 +8,7 @@ exports[`DateTimePicker it matches a snapshot 1`] = `
 <body>
   <div>
     <div
-      class="time-cell-container emotion-0 svelte-15rf3tu"
+      class="time-cell-container emotion-0  svelte-15rf3tu"
     >
       <div>
         

@@ -1,89 +1,89 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`appointment-planner it matches a snapshot 1`] = `
-.emotion-89 html,
-.emotion-89 body,
-.emotion-89 div,
-.emotion-89 span,
-.emotion-89 applet,
-.emotion-89 object,
-.emotion-89 iframe,
-.emotion-89 h1,
-.emotion-89 h2,
-.emotion-89 h3,
-.emotion-89 h4,
-.emotion-89 h5,
-.emotion-89 h6,
-.emotion-89 p,
-.emotion-89 blockquote,
-.emotion-89 pre,
-.emotion-89 a,
-.emotion-89 abbr,
-.emotion-89 acronym,
-.emotion-89 address,
-.emotion-89 big,
-.emotion-89 cite,
-.emotion-89 code,
-.emotion-89 del,
-.emotion-89 dfn,
-.emotion-89 em,
-.emotion-89 img,
-.emotion-89 ins,
-.emotion-89 kbd,
-.emotion-89 q,
-.emotion-89 s,
-.emotion-89 samp,
-.emotion-89 small,
-.emotion-89 strike,
-.emotion-89 strong,
-.emotion-89 sub,
-.emotion-89 sup,
-.emotion-89 tt,
-.emotion-89 var,
-.emotion-89 b,
-.emotion-89 u,
-.emotion-89 i,
-.emotion-89 center,
-.emotion-89 dl,
-.emotion-89 dt,
-.emotion-89 dd,
-.emotion-89 menu,
-.emotion-89 ol,
-.emotion-89 ul,
-.emotion-89 li,
-.emotion-89 fieldset,
-.emotion-89 form,
-.emotion-89 label,
-.emotion-89 legend,
-.emotion-89 table,
-.emotion-89 caption,
-.emotion-89 tbody,
-.emotion-89 tfoot,
-.emotion-89 thead,
-.emotion-89 tr,
-.emotion-89 th,
-.emotion-89 td,
-.emotion-89 article,
-.emotion-89 aside,
-.emotion-89 canvas,
-.emotion-89 details,
-.emotion-89 embed,
-.emotion-89 figure,
-.emotion-89 figcaption,
-.emotion-89 footer,
-.emotion-89 header,
-.emotion-89 hgroup,
-.emotion-89 main,
-.emotion-89 menu,
-.emotion-89 nav,
-.emotion-89 output,
-.emotion-89 ruby,
-.emotion-89 section,
-.emotion-89 summary,
-.emotion-89 time,
-.emotion-89 mark,
-.emotion-89 audio,
-.emotion-89 video {
+.emotion-5 html,
+.emotion-5 body,
+.emotion-5 div,
+.emotion-5 span,
+.emotion-5 applet,
+.emotion-5 object,
+.emotion-5 iframe,
+.emotion-5 h1,
+.emotion-5 h2,
+.emotion-5 h3,
+.emotion-5 h4,
+.emotion-5 h5,
+.emotion-5 h6,
+.emotion-5 p,
+.emotion-5 blockquote,
+.emotion-5 pre,
+.emotion-5 a,
+.emotion-5 abbr,
+.emotion-5 acronym,
+.emotion-5 address,
+.emotion-5 big,
+.emotion-5 cite,
+.emotion-5 code,
+.emotion-5 del,
+.emotion-5 dfn,
+.emotion-5 em,
+.emotion-5 img,
+.emotion-5 ins,
+.emotion-5 kbd,
+.emotion-5 q,
+.emotion-5 s,
+.emotion-5 samp,
+.emotion-5 small,
+.emotion-5 strike,
+.emotion-5 strong,
+.emotion-5 sub,
+.emotion-5 sup,
+.emotion-5 tt,
+.emotion-5 var,
+.emotion-5 b,
+.emotion-5 u,
+.emotion-5 i,
+.emotion-5 center,
+.emotion-5 dl,
+.emotion-5 dt,
+.emotion-5 dd,
+.emotion-5 menu,
+.emotion-5 ol,
+.emotion-5 ul,
+.emotion-5 li,
+.emotion-5 fieldset,
+.emotion-5 form,
+.emotion-5 label,
+.emotion-5 legend,
+.emotion-5 table,
+.emotion-5 caption,
+.emotion-5 tbody,
+.emotion-5 tfoot,
+.emotion-5 thead,
+.emotion-5 tr,
+.emotion-5 th,
+.emotion-5 td,
+.emotion-5 article,
+.emotion-5 aside,
+.emotion-5 canvas,
+.emotion-5 details,
+.emotion-5 embed,
+.emotion-5 figure,
+.emotion-5 figcaption,
+.emotion-5 footer,
+.emotion-5 header,
+.emotion-5 hgroup,
+.emotion-5 main,
+.emotion-5 menu,
+.emotion-5 nav,
+.emotion-5 output,
+.emotion-5 ruby,
+.emotion-5 section,
+.emotion-5 summary,
+.emotion-5 time,
+.emotion-5 mark,
+.emotion-5 audio,
+.emotion-5 video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -92,49 +92,49 @@ exports[`appointment-planner it matches a snapshot 1`] = `
   vertical-align: baseline;
 }
 
-.emotion-89 article,
-.emotion-89 aside,
-.emotion-89 details,
-.emotion-89 figcaption,
-.emotion-89 figure,
-.emotion-89 footer,
-.emotion-89 header,
-.emotion-89 hgroup,
-.emotion-89 main,
-.emotion-89 menu,
-.emotion-89 nav,
-.emotion-89 section {
+.emotion-5 article,
+.emotion-5 aside,
+.emotion-5 details,
+.emotion-5 figcaption,
+.emotion-5 figure,
+.emotion-5 footer,
+.emotion-5 header,
+.emotion-5 hgroup,
+.emotion-5 main,
+.emotion-5 menu,
+.emotion-5 nav,
+.emotion-5 section {
   display: block;
 }
 
-.emotion-89 *[hidden] {
+.emotion-5 *[hidden] {
   display: none;
 }
 
-.emotion-89 body {
+.emotion-5 body {
   line-height: 1;
 }
 
-.emotion-89 menu,
-.emotion-89 ol,
-.emotion-89 ul {
+.emotion-5 menu,
+.emotion-5 ol,
+.emotion-5 ul {
   list-style: none;
 }
 
-.emotion-89 blockquote,
-.emotion-89 q {
+.emotion-5 blockquote,
+.emotion-5 q {
   quotes: none;
 }
 
-.emotion-89 blockquote:before,
-.emotion-89 blockquote:after,
-.emotion-89 q:before,
-.emotion-89 q:after {
+.emotion-5 blockquote:before,
+.emotion-5 blockquote:after,
+.emotion-5 q:before,
+.emotion-5 q:after {
   content: '';
   content: none;
 }
 
-.emotion-89 table {
+.emotion-5 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
@@ -144,7 +144,7 @@ exports[`appointment-planner it matches a snapshot 1`] = `
   height: 15px !important;
 }
 
-.emotion-90 {
+.emotion-6 {
   font-size: 16px;
   font-family: Helvetica,Arial,sans-serif;
   background: #fff;
@@ -159,24 +159,16 @@ body .emotion-2 {
   margin-bottom: 0.2em;
 }
 
-body .emotion-91 {
+body .emotion-7 {
   font-size: 16px;
   font-family: Helvetica,Arial,sans-serif;
   margin-bottom: 1em;
 }
 
-.emotion-5 {
-  visible: hidden;
-}
-
-.emotion-7 {
-  visible: visible;
-}
-
 <body>
   <div>
     <div
-      class="emotion-89 emotion-90 emotion-91 appointment-planner-container svelte-bzg8ng"
+      class="emotion-5 emotion-6 emotion-7 appointment-planner-container svelte-bzg8ng"
     >
       <div
         class="appointment-planner-header-container svelte-bzg8ng"
@@ -254,403 +246,102 @@ body .emotion-91 {
         class="date-time-picker-container svelte-114k6yq"
       >
         <div
-          class="date-cell-container svelte-yhurmg"
+          class="date-cell-container svelte-1pn3mlr"
           title="Click on the cell for more detail"
         >
           <div
-            class="date-cell-header svelte-yhurmg"
+            class="date-cell-header svelte-1pn3mlr"
           >
             Mon Mar 30
           </div>
            
           <div
-            class="time-cell-container svelte-yhurmg"
-          >
-            <div
-              class="time-cell-container emotion-5 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-7 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                11:11
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-5 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-7 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                33:33
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-7 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                44:44
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-5 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                
-              </div>
-            </div>
-          </div>
+            class="time-cell-container svelte-1pn3mlr"
+          />
         </div>
         <div
-          class="date-cell-container svelte-yhurmg"
+          class="date-cell-container svelte-1pn3mlr"
           title="Click on the cell for more detail"
         >
           <div
-            class="date-cell-header svelte-yhurmg"
+            class="date-cell-header svelte-1pn3mlr"
           >
             Tue Mar 31
           </div>
            
           <div
-            class="time-cell-container svelte-yhurmg"
-          >
-            <div
-              class="time-cell-container emotion-7 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                00:00
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-5 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-7 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                22:22
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-5 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-5 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-7 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                55:55
-              </div>
-            </div>
-          </div>
+            class="time-cell-container svelte-1pn3mlr"
+          />
         </div>
         <div
-          class="date-cell-container svelte-yhurmg"
+          class="date-cell-container svelte-1pn3mlr"
           title="Click on the cell for more detail"
         >
           <div
-            class="date-cell-header svelte-yhurmg"
+            class="date-cell-header svelte-1pn3mlr"
           >
             Wed Apr 01
           </div>
            
           <div
-            class="time-cell-container svelte-yhurmg"
-          >
-            <div
-              class="time-cell-container emotion-7 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                00:00
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-7 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                11:11
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-7 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                22:22
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-7 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                33:33
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-5 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-7 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                55:55
-              </div>
-            </div>
-          </div>
+            class="time-cell-container svelte-1pn3mlr"
+          />
         </div>
         <div
-          class="date-cell-container svelte-yhurmg"
+          class="date-cell-container svelte-1pn3mlr"
           title="Click on the cell for more detail"
         >
           <div
-            class="date-cell-header svelte-yhurmg"
+            class="date-cell-header svelte-1pn3mlr"
           >
             Thu Apr 02
           </div>
            
           <div
-            class="time-cell-container svelte-yhurmg"
-          >
-            <div
-              class="time-cell-container emotion-7 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                00:00
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-7 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                11:11
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-7 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                22:22
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-5 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-5 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-7 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                55:55
-              </div>
-            </div>
-          </div>
+            class="time-cell-container svelte-1pn3mlr"
+          />
         </div>
         <div
-          class="date-cell-container svelte-yhurmg"
+          class="date-cell-container svelte-1pn3mlr"
           title="Click on the cell for more detail"
         >
           <div
-            class="date-cell-header svelte-yhurmg"
+            class="date-cell-header svelte-1pn3mlr"
           >
             Fri Apr 03
           </div>
            
           <div
-            class="time-cell-container svelte-yhurmg"
-          >
-            <div
-              class="time-cell-container emotion-7 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                00:00
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-5 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-5 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-7 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                33:33
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-5 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-7 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                55:55
-              </div>
-            </div>
-          </div>
+            class="time-cell-container svelte-1pn3mlr"
+          />
         </div>
         <div
-          class="date-cell-container svelte-yhurmg"
+          class="date-cell-container svelte-1pn3mlr"
           title="Click on the cell for more detail"
         >
           <div
-            class="date-cell-header svelte-yhurmg"
+            class="date-cell-header svelte-1pn3mlr"
           >
             Sat Apr 04
           </div>
            
           <div
-            class="time-cell-container svelte-yhurmg"
-          >
-            <div
-              class="time-cell-container emotion-5 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-7 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                11:11
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-5 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-7 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                33:33
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-5 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-5 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                
-              </div>
-            </div>
-          </div>
+            class="time-cell-container svelte-1pn3mlr"
+          />
         </div>
         <div
-          class="date-cell-container svelte-yhurmg"
+          class="date-cell-container svelte-1pn3mlr"
           title="Click on the cell for more detail"
         >
           <div
-            class="date-cell-header svelte-yhurmg"
+            class="date-cell-header svelte-1pn3mlr"
           >
             Sun Apr 05
           </div>
            
           <div
-            class="time-cell-container svelte-yhurmg"
-          >
-            <div
-              class="time-cell-container emotion-7 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                00:00
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-7 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                11:11
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-7 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                22:22
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-7 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                33:33
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-5 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                
-              </div>
-            </div>
-            <div
-              class="time-cell-container emotion-7 emotion-6 svelte-15rf3tu"
-            >
-              <div>
-                55:55
-              </div>
-            </div>
-          </div>
+            class="time-cell-container svelte-1pn3mlr"
+          />
         </div>
       </div>
     </div>

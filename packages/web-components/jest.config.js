@@ -24,5 +24,4 @@ module.exports = {
   },
   coverageReporters: ['json-summary', 'text', 'lcov'],
   snapshotSerializers: ['jest-emotion']
-
 }

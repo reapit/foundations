@@ -19,6 +19,6 @@
   }
 </style>
 
-<div class={cx('time-cell-container', visibilityStyle, $themeStore.item)}>
+<div class="time-cell-container {visibilityStyle} {$themeStore.item}">
   <div>{startTime || ''}</div>
 </div>
