@@ -26,6 +26,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
             "homePage": "",
             "iconImageUrl": "",
             "launchUri": "",
+            "limitToClientIds": "",
             "name": "",
             "redirectUris": "",
             "scopes": Array [],
@@ -94,7 +95,9 @@ exports[`DeveloperSubmitApp should match submit revision form snapshot 1`] = `
             "iconImageUrl": "",
             "isDirectApi": undefined,
             "isListed": undefined,
+            "isPrivateApp": "yes",
             "launchUri": undefined,
+            "limitToClientIds": "",
             "name": "Peter's Properties",
             "redirectUris": "",
             "scopes": Array [

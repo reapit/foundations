@@ -50,9 +50,11 @@ import dayjs from 'dayjs'
 import DOCS_LINKS from '@/constants/docs-links'
 import DAY_FORMATS from '@/constants/date-formats'
 
-export type CustomCreateAppModel = Omit<CreateAppModel, 'redirectUris' | 'signoutUris'> & {
+export type CustomCreateAppModel = Omit<CreateAppModel, 'redirectUris' | 'signoutUris' | 'limitToClientIds'> & {
   redirectUris?: string
   signoutUris?: string
+  limitToClientIds?: string
+  isPrivateApp?: string
 }
 
 export interface SubmitAppMappedActions {
@@ -88,6 +90,7 @@ export const labelTextOfField = {
   iconImageUrl: 'Icon',
   scopes: 'Permissions',
   authFlow: 'Authentication flow',
+  limitToClientIds: 'Private Apps',
 }
 
 export type SubmitAppProps = SubmitAppMappedActions & SubmitAppMappedProps & RouteComponentProps<{ appid?: string }>
@@ -175,6 +178,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       scopes: appScopes,
       redirectUris = [],
       signoutUris = [],
+      limitToClientIds = [],
     } = appDetail
 
     const icon = (media || []).filter(({ order }) => order === 0)[0]
@@ -202,6 +206,8 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       scopes: appScopes ? appScopes.map(item => item.name) : [],
       redirectUris: redirectUris.join(','),
       signoutUris: signoutUris.join(','),
+      limitToClientIds: limitToClientIds.join(','),
+      isPrivateApp: limitToClientIds.length > 0 ? 'yes' : 'no',
       ...images,
     }
   } else {
@@ -225,6 +231,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       scopes: [],
       redirectUris: '',
       signoutUris: '',
+      limitToClientIds: '',
     }
   }
 
@@ -242,20 +249,30 @@ export const handleSubmitApp = ({
   //   setShouldShowError(true)
   //   return
   // }
-  const { redirectUris, signoutUris, ...otherData } = appModel
-  const appToSubmit =
-    appModel.authFlow === 'clientCredentials'
-      ? otherData
-      : {
-          ...otherData,
-          redirectUris: redirectUris ? redirectUris.split(',') : [],
-          signoutUris: signoutUris ? signoutUris.split(',') : [],
-        }
+  const { redirectUris, signoutUris, limitToClientIds, ...otherData } = appModel
+  let appToSubmit: CreateAppModel
+  if (appModel.authFlow === 'clientCredentials') {
+    appToSubmit = otherData
+  } else {
+    appToSubmit = {
+      ...otherData,
+      redirectUris: redirectUris ? redirectUris.split(',') : [],
+      signoutUris: signoutUris ? signoutUris.split(',') : [],
+    }
+  }
+
+  if (appModel.isPrivateApp === 'yes') {
+    appToSubmit.limitToClientIds = limitToClientIds ? limitToClientIds.split(',') : []
+  }
+
   if (!appId) {
     submitApp(appToSubmit, actions)
   } else {
     if (appToSubmit.authFlow) {
       delete appToSubmit.authFlow
+    }
+    if (appModel.isPrivateApp === 'no') {
+      appToSubmit.limitToClientIds = []
     }
     submitRevision(appId, appToSubmit)
   }
@@ -614,16 +631,15 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                         <RadioSelect
                           setFieldValue={setFieldValue}
                           state={values['isPrivateApp']}
-                          disabled={!isSubmitApp}
                           options={[
-                            { label: 'YES', value: 1 },
-                            { label: 'NO', value: 0 },
+                            { label: 'YES', value: 'yes' },
+                            { label: 'NO', value: 'no' },
                           ]}
                           name="isPrivateApp"
                           id="isPrivateApp"
                         />
                         <Input
-                          disabled={values['isPrivateApp'] === 0}
+                          disabled={values['isPrivateApp'] === 'no'}
                           dataTest="submit-app-limited-to-client-ids"
                           type="text"
                           id="limitToClientIds"

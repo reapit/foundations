@@ -6,6 +6,7 @@ import {
   isValidHttpUrl,
   checkValidCustomScheme,
   isValidUrlWithCustomScheme,
+  isValidLimitToClientIds,
 } from '../validate'
 
 describe('isEmail', () => {
@@ -135,5 +136,24 @@ describe('isValidUrlWithCustomScheme', () => {
     expect(isValidUrlWithCustomScheme(urls3)).toBe(false)
     expect(isValidUrlWithCustomScheme(urls4)).toBe(false)
     expect(isValidUrlWithCustomScheme(urls5)).toBe(false)
+  })
+})
+
+describe('isValidLimitToClientIds', () => {
+  it('should return true with valid clientIds', () => {
+    const clientIds1 = 'abc'
+    const clientIds2 = 'abc,123,moz'
+    const clientIds3 = 'abc,123,ie9'
+    expect(isValidLimitToClientIds(clientIds1)).toBe(true)
+    expect(isValidLimitToClientIds(clientIds2)).toBe(true)
+    expect(isValidLimitToClientIds(clientIds3)).toBe(true)
+  })
+  it('should return false with invalid clientIds', () => {
+    const clientIds1 = 'abc,'
+    const clientIds2 = 'abc1'
+    const clientIds3 = 'abc,123z,ie9'
+    expect(isValidLimitToClientIds(clientIds1)).toBe(false)
+    expect(isValidLimitToClientIds(clientIds2)).toBe(false)
+    expect(isValidLimitToClientIds(clientIds3)).toBe(false)
   })
 })
