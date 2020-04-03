@@ -36,6 +36,7 @@
     "emotion": "^10.0.27",
     "express": "^4.17.1",
     "isomorphic-fetch": "^2.2.1",
+    "lodash.pickby": "^4.6.0",
     "serverless-http": "^2.3.2",
     "svelte": "^3.19.0",
     "svelte-fa": "^2.1.1",
