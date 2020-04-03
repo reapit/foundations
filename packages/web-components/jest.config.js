@@ -23,4 +23,6 @@ module.exports = {
     '^.+\\.svelte$': "svelte-jester",
   },
   coverageReporters: ['json-summary', 'text', 'lcov'],
+  snapshotSerializers: ['jest-emotion']
+
 }

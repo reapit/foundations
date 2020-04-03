@@ -1,10 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DateTimePicker it matches a snapshot 1`] = `
+.emotion-0 {
+  visible: hidden;
+}
+
 <body>
   <div>
     <div
-      class="time-cell-container css-jxa5xf svelte-15rf3tu"
+      class="time-cell-container emotion-0 svelte-15rf3tu"
     >
       <div>
         
