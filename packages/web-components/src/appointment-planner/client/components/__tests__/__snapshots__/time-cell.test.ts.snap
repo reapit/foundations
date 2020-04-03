@@ -2,6 +2,14 @@
 
 exports[`DateTimePicker it matches a snapshot 1`] = `
 <body>
-  <div />
+  <div>
+    <div
+      class="time-cell-container css-jxa5xf svelte-15rf3tu"
+    >
+      <div>
+        
+      </div>
+    </div>
+  </div>
 </body>
 `;

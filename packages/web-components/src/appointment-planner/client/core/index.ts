@@ -1,8 +1,8 @@
 import AppointmentPlanner from '../components/appointment-planner.svelte'
-import { AppointmentPlannerThemeClasses } from './theme'
+import { AppointmentPlannerInitializerTheme } from './theme'
 
 export interface AppointmentPlannerInitializers {
-  theme: AppointmentPlannerThemeClasses
+  theme: AppointmentPlannerInitializerTheme
   apiKey: string
   parentSelector: string
 }

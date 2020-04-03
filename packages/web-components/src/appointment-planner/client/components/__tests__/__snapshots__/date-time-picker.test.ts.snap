@@ -2,6 +2,410 @@
 
 exports[`DateTimePicker it matches a snapshot 1`] = `
 <body>
-  <div />
+  <div>
+    <div
+      class="date-time-picker-container svelte-114k6yq"
+    >
+      <div
+        class="date-cell-container svelte-yhurmg"
+        title="Click on the cell for more detail"
+      >
+        <div
+          class="date-cell-header svelte-yhurmg"
+        >
+          Mon Mar 30
+        </div>
+         
+        <div
+          class="time-cell-container svelte-yhurmg"
+        >
+          <div
+            class="time-cell-container css-jxa5xf svelte-15rf3tu"
+          >
+            <div>
+              
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-jxa5xf svelte-15rf3tu"
+          >
+            <div>
+              
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-jxa5xf svelte-15rf3tu"
+          >
+            <div>
+              
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-jxa5xf svelte-15rf3tu"
+          >
+            <div>
+              
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-1sidysf svelte-15rf3tu"
+          >
+            <div>
+              44:44
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-1sidysf svelte-15rf3tu"
+          >
+            <div>
+              55:55
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="date-cell-container svelte-yhurmg"
+        title="Click on the cell for more detail"
+      >
+        <div
+          class="date-cell-header svelte-yhurmg"
+        >
+          Tue Mar 31
+        </div>
+         
+        <div
+          class="time-cell-container svelte-yhurmg"
+        >
+          <div
+            class="time-cell-container css-1sidysf svelte-15rf3tu"
+          >
+            <div>
+              00:00
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-jxa5xf svelte-15rf3tu"
+          >
+            <div>
+              
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-jxa5xf svelte-15rf3tu"
+          >
+            <div>
+              
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-1sidysf svelte-15rf3tu"
+          >
+            <div>
+              33:33
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-1sidysf svelte-15rf3tu"
+          >
+            <div>
+              44:44
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-1sidysf svelte-15rf3tu"
+          >
+            <div>
+              55:55
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="date-cell-container svelte-yhurmg"
+        title="Click on the cell for more detail"
+      >
+        <div
+          class="date-cell-header svelte-yhurmg"
+        >
+          Wed Apr 01
+        </div>
+         
+        <div
+          class="time-cell-container svelte-yhurmg"
+        >
+          <div
+            class="time-cell-container css-1sidysf svelte-15rf3tu"
+          >
+            <div>
+              00:00
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-1sidysf svelte-15rf3tu"
+          >
+            <div>
+              11:11
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-1sidysf svelte-15rf3tu"
+          >
+            <div>
+              22:22
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-1sidysf svelte-15rf3tu"
+          >
+            <div>
+              33:33
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-jxa5xf svelte-15rf3tu"
+          >
+            <div>
+              
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-1sidysf svelte-15rf3tu"
+          >
+            <div>
+              55:55
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="date-cell-container svelte-yhurmg"
+        title="Click on the cell for more detail"
+      >
+        <div
+          class="date-cell-header svelte-yhurmg"
+        >
+          Thu Apr 02
+        </div>
+         
+        <div
+          class="time-cell-container svelte-yhurmg"
+        >
+          <div
+            class="time-cell-container css-1sidysf svelte-15rf3tu"
+          >
+            <div>
+              00:00
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-1sidysf svelte-15rf3tu"
+          >
+            <div>
+              11:11
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-1sidysf svelte-15rf3tu"
+          >
+            <div>
+              22:22
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-1sidysf svelte-15rf3tu"
+          >
+            <div>
+              33:33
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-1sidysf svelte-15rf3tu"
+          >
+            <div>
+              44:44
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-jxa5xf svelte-15rf3tu"
+          >
+            <div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="date-cell-container svelte-yhurmg"
+        title="Click on the cell for more detail"
+      >
+        <div
+          class="date-cell-header svelte-yhurmg"
+        >
+          Fri Apr 03
+        </div>
+         
+        <div
+          class="time-cell-container svelte-yhurmg"
+        >
+          <div
+            class="time-cell-container css-jxa5xf svelte-15rf3tu"
+          >
+            <div>
+              
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-jxa5xf svelte-15rf3tu"
+          >
+            <div>
+              
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-jxa5xf svelte-15rf3tu"
+          >
+            <div>
+              
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-1sidysf svelte-15rf3tu"
+          >
+            <div>
+              33:33
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-jxa5xf svelte-15rf3tu"
+          >
+            <div>
+              
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-jxa5xf svelte-15rf3tu"
+          >
+            <div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="date-cell-container svelte-yhurmg"
+        title="Click on the cell for more detail"
+      >
+        <div
+          class="date-cell-header svelte-yhurmg"
+        >
+          Sat Apr 04
+        </div>
+         
+        <div
+          class="time-cell-container svelte-yhurmg"
+        >
+          <div
+            class="time-cell-container css-1sidysf svelte-15rf3tu"
+          >
+            <div>
+              00:00
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-1sidysf svelte-15rf3tu"
+          >
+            <div>
+              11:11
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-jxa5xf svelte-15rf3tu"
+          >
+            <div>
+              
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-jxa5xf svelte-15rf3tu"
+          >
+            <div>
+              
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-jxa5xf svelte-15rf3tu"
+          >
+            <div>
+              
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-1sidysf svelte-15rf3tu"
+          >
+            <div>
+              55:55
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="date-cell-container svelte-yhurmg"
+        title="Click on the cell for more detail"
+      >
+        <div
+          class="date-cell-header svelte-yhurmg"
+        >
+          Sun Apr 05
+        </div>
+         
+        <div
+          class="time-cell-container svelte-yhurmg"
+        >
+          <div
+            class="time-cell-container css-jxa5xf svelte-15rf3tu"
+          >
+            <div>
+              
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-jxa5xf svelte-15rf3tu"
+          >
+            <div>
+              
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-1sidysf svelte-15rf3tu"
+          >
+            <div>
+              22:22
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-1sidysf svelte-15rf3tu"
+          >
+            <div>
+              33:33
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-1sidysf svelte-15rf3tu"
+          >
+            <div>
+              44:44
+            </div>
+          </div>
+          <div
+            class="time-cell-container css-jxa5xf svelte-15rf3tu"
+          >
+            <div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 `;

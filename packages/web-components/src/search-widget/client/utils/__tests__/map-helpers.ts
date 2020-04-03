@@ -52,6 +52,7 @@ describe('map-helper', () => {
         ['offersInExcess', 'OIEO £500,000'],
         ['fixedPrice', 'Fixed Price £500,000'],
         ['priceReducedTo', '£500,000'],
+        ['default', '500000 default'],
       ]
 
       for (let testCase of testCases) {

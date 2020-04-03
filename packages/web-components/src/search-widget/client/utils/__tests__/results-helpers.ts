@@ -4,9 +4,18 @@ import {
   formatPriceAndQuantifier,
   formatStyle,
   formatType,
+  getPrice,
 } from '../results-helpers'
 
+import { propertyStub } from '../__stubs__/property'
+
 describe('results helpers', () => {
+  describe('getPrice', () => {
+    it('runs correctly', () => {
+      expect(getPrice(propertyStub, 'Rent')).toEqual('£0 MockRentFrequency')
+      expect(getPrice(propertyStub, 'Sale')).toEqual('Guide Price £0')
+    })
+  })
   it('runs formatPriceAndQuantifier correctly', () => {
     // 0 = input, 1 = input
     const testCases = [
@@ -18,6 +27,7 @@ describe('results helpers', () => {
       ['offersInExcess', 'OIEO £500,000'],
       ['fixedPrice', 'Fixed Price £500,000'],
       ['priceReducedTo', '£500,000'],
+      ['default', '500000 default'],
     ]
 
     for (let testCase of testCases) {
@@ -73,6 +83,8 @@ describe('results helpers', () => {
         postcode: '5',
       }),
     ).toBe('2, 3, 4, 5')
+
+    expect(combineAddress(undefined)).toBe('')
   })
 
   it('handles combineNumberBedTypeStyle correcly', () => {

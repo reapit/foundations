@@ -1,5 +1,6 @@
 const variantA = {
-  hoverBackgroundColor: 'green',
+  itemBackgroundColor: '#ececec',
+  itemBackgroundColorHover: 'white',
 }
 
 const params = new URLSearchParams(window.location.search)

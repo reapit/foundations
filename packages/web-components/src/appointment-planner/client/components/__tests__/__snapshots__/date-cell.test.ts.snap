@@ -2,6 +2,64 @@
 
 exports[`data-cell it matches a snapshot 1`] = `
 <body>
-  <div />
+  <div>
+    <div
+      class="date-cell-container svelte-yhurmg"
+      title="Click on the cell for more detail"
+    >
+      <div
+        class="date-cell-header svelte-yhurmg"
+      >
+        Fri Apr 03
+      </div>
+       
+      <div
+        class="time-cell-container svelte-yhurmg"
+      >
+        <div
+          class="time-cell-container css-1sidysf svelte-15rf3tu"
+        >
+          <div>
+            00:00
+          </div>
+        </div>
+        <div
+          class="time-cell-container css-1sidysf svelte-15rf3tu"
+        >
+          <div>
+            11:11
+          </div>
+        </div>
+        <div
+          class="time-cell-container css-1sidysf svelte-15rf3tu"
+        >
+          <div>
+            22:22
+          </div>
+        </div>
+        <div
+          class="time-cell-container css-jxa5xf svelte-15rf3tu"
+        >
+          <div>
+            
+          </div>
+        </div>
+        <div
+          class="time-cell-container css-jxa5xf svelte-15rf3tu"
+        >
+          <div>
+            
+          </div>
+        </div>
+        <div
+          class="time-cell-container css-1sidysf svelte-15rf3tu"
+        >
+          <div>
+            55:55
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 `;

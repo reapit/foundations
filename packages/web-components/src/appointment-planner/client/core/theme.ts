@@ -15,8 +15,6 @@ export const generateAppointmentPlannerThemeClasses = ({
   itemBackgroundColor,
   itemBackgroundColorHover,
 }: AppointmentPlannerInitializerTheme): AppointmentPlannerThemeClasses => {
-  console.log(itemBackgroundColor)
-
   return {
     item: css`
       background: ${itemBackgroundColor};
