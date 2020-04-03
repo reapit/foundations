@@ -128,10 +128,29 @@ describe('restoreGlobalObjectFromLS', () => {
 })
 
 describe('injectSwitchModeToWindow', () => {
-  it('should call correctly', () => {
+  beforeAll(() => {
+    ;(restoreGlobalObjectFromLS as jest.Mocked<any>) = jest.fn()
     Object.defineProperty = jest.fn()
-    const spyDefineProperty = window.spyOn(Object, 'defineProperty')
+  })
+
+  afterAll(() => {
+    ;(restoreGlobalObjectFromLS as jest.Mocked<any>).mockRestore()
+  })
+
+  afterEach(() => {
+    ;(Object.defineProperty as jest.Mocked<any>).mockClear()
+    ;(restoreGlobalObjectFromLS as jest.Mocked<any>).mockClear()
+  })
+  it('should call correctly', () => {
     injectSwitchModeToWindow()
-    expect(spyDefineProperty).toHaveBeenCalledTimes(2)
+    expect(Object.defineProperty).toHaveBeenCalledTimes(2)
+    expect(restoreGlobalObjectFromLS).toHaveBeenCalledTimes(1)
+  })
+
+  it('should not call restoreGlobalObjectFromLS if not writable or window[GLOBAL_KEY] is undefined', () => {
+    Object.getOwnPropertyDescriptor = jest.fn(() => ({ writable: false }))
+    injectSwitchModeToWindow()
+    expect(Object.defineProperty).toHaveBeenCalledTimes(2)
+    expect(restoreGlobalObjectFromLS).not.toHaveBeenCalled()
   })
 })
