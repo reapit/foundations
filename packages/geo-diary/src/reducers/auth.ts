@@ -1,8 +1,16 @@
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
-import { authLogin, authLoginFailure, authLoginSuccess, authLogoutSuccess, authSetRefreshSession } from '@/actions/auth'
+import {
+  authLogin,
+  authLoginFailure,
+  authLoginSuccess,
+  authLogoutSuccess,
+  authSetRefreshSession,
+  authSetRefreshSessionLoginMode,
+} from '@/actions/auth'
 import { RefreshParams, LoginSession, getSessionCookie } from '@reapit/cognito-auth'
 import { COOKIE_SESSION_KEY_GEO_DIARY } from '../constants/api'
+import { getMarketplaceGlobalsByKey } from '@reapit/elements'
 
 export interface AuthState {
   error: boolean
@@ -52,6 +60,17 @@ const authReducer = (state: AuthState = defaultState(), action: Action<any>): Au
     return {
       ...state,
       refreshSession: action.data,
+    }
+  }
+
+  if (isType(action, authSetRefreshSessionLoginMode)) {
+    const { refreshSession } = state
+    const mode = getMarketplaceGlobalsByKey() ? 'DESKTOP' : 'WEB'
+    const newRefreshSession: RefreshParams | null =
+      typeof refreshSession === 'object' && refreshSession !== null ? { ...refreshSession, mode } : refreshSession
+    return {
+      ...state,
+      refreshSession: newRefreshSession,
     }
   }
 

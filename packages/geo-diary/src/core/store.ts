@@ -32,6 +32,8 @@ import homeSagas from '@/sagas/home'
 import appointmentsSagas from '@/sagas/appointments'
 import appointmentDetailSagas from '@/sagas/appointment-detail'
 import nextAppointmentSaga from '@/sagas/next-appointment'
+import { injectSwitchModeToWindow } from '@reapit/elements'
+import { authSetRefreshSessionLoginMode } from '@/actions/auth'
 
 export class Store {
   static _instance: Store
@@ -79,6 +81,7 @@ export class Store {
   persistor: Persistor
 
   constructor() {
+    injectSwitchModeToWindow()
     const persistConfig = {
       key: 'root',
       storage: localForage,
@@ -89,7 +92,11 @@ export class Store {
     this.reduxStore = createStore(persistedReducer, composed)
 
     Store.sagaMiddleware.run(Store.sagas)
-    this.persistor = persistStore(this.reduxStore)
+
+    this.persistor = persistStore(this.reduxStore, undefined, () =>
+      // Need this to set correct mode after finish redux-persist rehydrate
+      this.reduxStore.dispatch(authSetRefreshSessionLoginMode()),
+    )
 
     this.hotModuleReloading()
 
