@@ -45,3 +45,11 @@ export function isValidUrlWithCustomScheme(urls: string): boolean {
     .filter(url => url)
     .every(url => checkValidCustomScheme(url))
 }
+
+export function isValidLimitToClientIds(clientIds: string): boolean {
+  // Only allow strings with 3 characters seperated by a comma
+  return clientIds
+    .replace(/\s/g, '')
+    .split(',')
+    .every(clientId => /^.{3}$/.test(clientId))
+}

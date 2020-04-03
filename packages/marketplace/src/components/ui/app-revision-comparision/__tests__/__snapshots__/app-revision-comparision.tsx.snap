@@ -173,6 +173,21 @@ Get
   </div>
   <div
     className="mb-3"
+    key="limitToClientIds"
+  >
+    <h4
+      className="mb-2"
+    >
+      Private Apps
+    </h4>
+    <DiffViewer
+      changedString=""
+      currentString=""
+      type="words"
+    />
+  </div>
+  <div
+    className="mb-3"
     key="Marketplace/developers.read"
   >
     <h4
