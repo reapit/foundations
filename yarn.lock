@@ -3287,6 +3287,11 @@
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
 
+"@reapit/foundations-ts-definitions@0.0.76":
+  version "0.0.76"
+  resolved "https://registry.yarnpkg.com/@reapit/foundations-ts-definitions/-/foundations-ts-definitions-0.0.76.tgz#4282f28111ea872e701feed6247f52b13bd264b5"
+  integrity sha512-gMUPNSyU0eSn2zarFo02l5uR2LPbjNB7ajfAV4uBXfA4kPt5UFe9G8SFYcOfuA+F+7DKduqj3XOlTe+gM2/gyA==
+
 "@reapit/foundations-ts-definitions@2020-02-13":
   version "0.0.68"
   resolved "https://registry.yarnpkg.com/@reapit/foundations-ts-definitions/-/foundations-ts-definitions-0.0.68.tgz#61331dc5552900159eb66ad5e496695b53597add"
