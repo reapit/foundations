@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { SettingsPageProps, SettingsPage, mapStateToProps, mapDispatchToProps } from '../settings'
+import { SettingsPageProps, SettingsPage, mapStateToProps, mapDispatchToProps } from '../developer-settings'
 import { ReduxState } from '@/types/core'
 import { developerStub } from '@/sagas/__stubs__/developer'
 
