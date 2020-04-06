@@ -177,17 +177,17 @@ exports[`styles should generate a reset css class 1`] = `"css-h4w50h"`;
 
 exports[`styles should generate an object of CSS classes 1`] = `
 Object {
-  "bodyText": "css-a6q1sx",
-  "button": "css-bupbnq",
-  "globalStyles": "css-1uga67g",
-  "input": "css-hn09wq",
-  "offerBanner": "css-sbpty0",
-  "primaryHeading": "css-1f7qsls",
-  "primaryStrapline": "css-r0ul6y",
-  "resultItem": "css-1b54o3e",
-  "searchBox": "css-1usiam2",
-  "secondaryHeading": "css-1wj8bm7",
-  "secondaryStrapline": "css-318gpk",
-  "selectedItem": "css-dh3fna",
+  "bodyText": "css-11v9sqy",
+  "button": "css-1lkoqc0",
+  "globalStyles": "css-ya093n",
+  "input": "css-u6oic2",
+  "offerBanner": "css-gl5ek3",
+  "primaryHeading": "css-1me750l",
+  "primaryStrapline": "css-i73fze",
+  "resultItem": "css-camhmr",
+  "searchBox": "css-1q88d2c",
+  "secondaryHeading": "css-1at1tp4",
+  "secondaryStrapline": "css-kyb1t1",
+  "selectedItem": "css-6jh9tu",
 }
 `;

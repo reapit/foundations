@@ -53,62 +53,63 @@ export const generateThemeClasses = (
     breakPoints,
   }: Partial<InitializerTheme>,
   parentSelector: string,
-): ThemeClasses => ({
-  globalStyles: css`
-    font-size: ${basefontSize || '16px'};
-    font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'};
-    background: ${baseBackgroundColor || '#fff'};
-    color: ${basefontColor || '#000'};
-  `,
-  primaryHeading: css`
-    ${parentSelector || 'body'} & {
-      font-family: ${headingFontFamily || 'Helvetica, Arial, sans-serif'};
-      font-size: ${primaryHeadingFontSize || '22px'};
-      font-weight: bold;
-      color: ${primaryAccentColor || basefontColor || '#000'};
-      margin-bottom: 0.2em;
-    }
-  `,
-  secondaryHeading: css`
-    ${parentSelector || 'body'} & {
-      font-family: ${headingFontFamily || 'Helvetica, Arial, sans-serif'};
-      font-size: ${secondaryHeadingFontSize || '18px'};
-      font-weight: bold;
-      color: ${secondaryAccentColor || basefontColor || '#000'};
-      margin-bottom: 0.2em;
-    }
-  `,
-  primaryStrapline: css`
-    ${parentSelector || 'body'} & {
-      font-family: ${headingFontFamily || 'Helvetica, Arial, sans-serif'};
-      font-size: ${secondaryHeadingFontSize || '18px'};
-      font-weight: bold;
-      color: ${secondaryfontColor || basefontColor || 'grey'};
-      margin-bottom: 0.5em;
-    }
-  `,
-  secondaryStrapline: css`
-    ${parentSelector || 'body'} & {
-      font-family: ${headingFontFamily || 'Helvetica, Arial, sans-serif'};
-      font-size: ${basefontSize || '16px'};
-      font-weight: bold;
-      color: ${secondaryfontColor || basefontColor || 'grey'};
-      margin-bottom: 0.5em;
-    }
-  `,
-  selectedItem: css`
-    ${parentSelector || 'body'} & {
-      border-color: ${primaryAccentColor || 'grey'};
-    }
-  `,
-  bodyText: css`
-    ${parentSelector || 'body'} & {
+): ThemeClasses => {
+  return {
+    globalStyles: css`
       font-size: ${basefontSize || '16px'};
       font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'};
-      margin-bottom: 1em;
-    }
-  `,
-  button: css`
+      background: ${baseBackgroundColor || '#fff'};
+      color: ${basefontColor || '#000'};
+    `,
+    primaryHeading: css`
+      ${parentSelector || 'body'} & {
+        font-family: ${headingFontFamily || 'Helvetica, Arial, sans-serif'};
+        font-size: ${primaryHeadingFontSize || '22px'};
+        font-weight: bold;
+        color: ${primaryAccentColor || basefontColor || '#000'};
+        margin-bottom: 0.2em;
+      }
+    `,
+    secondaryHeading: css`
+      ${parentSelector || 'body'} & {
+        font-family: ${headingFontFamily || 'Helvetica, Arial, sans-serif'};
+        font-size: ${secondaryHeadingFontSize || '18px'};
+        font-weight: bold;
+        color: ${secondaryAccentColor || basefontColor || '#000'};
+        margin-bottom: 0.2em;
+      }
+    `,
+    primaryStrapline: css`
+      ${parentSelector || 'body'} & {
+        font-family: ${headingFontFamily || 'Helvetica, Arial, sans-serif'};
+        font-size: ${secondaryHeadingFontSize || '18px'};
+        font-weight: bold;
+        color: ${secondaryfontColor || basefontColor || 'grey'};
+        margin-bottom: 0.5em;
+      }
+    `,
+    secondaryStrapline: css`
+      ${parentSelector || 'body'} & {
+        font-family: ${headingFontFamily || 'Helvetica, Arial, sans-serif'};
+        font-size: ${basefontSize || '16px'};
+        font-weight: bold;
+        color: ${secondaryfontColor || basefontColor || 'grey'};
+        margin-bottom: 0.5em;
+      }
+    `,
+    selectedItem: css`
+      ${parentSelector || 'body'} & {
+        border-color: ${primaryAccentColor || 'grey'};
+      }
+    `,
+    bodyText: css`
+      ${parentSelector || 'body'} & {
+        font-size: ${basefontSize || '16px'};
+        font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'};
+        margin-bottom: 1em;
+      }
+    `,
+    button: css`
     ${parentSelector || 'body'} & {
       font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'};
       font-size: ${secondaryHeadingFontSize || '18px'};
@@ -116,8 +117,6 @@ export const generateThemeClasses = (
       border: 1px solid ${primaryAccentColor || 'grey'};
       background: ${baseBackgroundColor || '#fff'};
 
-      &:hover {
-        background: ${primaryAccentColor || 'grey'};
         color: ${inverseFontColor || '#fff'};
       }
 
@@ -126,65 +125,66 @@ export const generateThemeClasses = (
       }
     }
   `,
-  input: css`
-    ${parentSelector || 'body'} & {
-      font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'};
-      font-size: ${secondaryHeadingFontSize || '18px'};
-      border: 1px solid ${primaryAccentColor || 'grey'};
-    }
-  `,
-  resultItem: css`
-    ${parentSelector || 'body'} & {
-      width: 100%;
+    input: css`
+      ${parentSelector || 'body'} & {
+        font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'};
+        font-size: ${secondaryHeadingFontSize || '18px'};
+        border: 1px solid ${primaryAccentColor || 'grey'};
+      }
+    `,
+    resultItem: css`
+      ${parentSelector || 'body'} & {
+        width: 100%;
 
-      @media screen and (min-width: ${breakPoints?.desktop || '1200px'}) {
-        & {
-          width: 25%;
+        @media screen and (min-width: ${breakPoints?.desktop || '1200px'}) {
+          & {
+            width: 25%;
+          }
+        }
+
+        @media screen and (min-width: ${breakPoints?.laptop || '960px'}) and (max-width: ${breakPoints?.desktop ||
+            '1200px'}) {
+          & {
+            width: 33.333333%;
+          }
+        }
+
+        @media screen and (min-width: ${breakPoints?.tablet || '768px'}) and (max-width: ${breakPoints?.laptop ||
+            '960px'}) {
+          & {
+            width: 50%;
+          }
         }
       }
+    `,
+    searchBox: css`
+      ${parentSelector || 'body'} & {
+        width: 100%;
 
-      @media screen and (min-width: ${breakPoints?.laptop || '960px'}) and (max-width: ${breakPoints?.desktop ||
-          '1200px'}) {
-        & {
-          width: 33.333333%;
+        @media screen and (min-width: ${breakPoints?.laptop || '960px'}) {
+          & {
+            width: 33.333333%;
+          }
+        }
+
+        @media screen and (min-width: ${breakPoints?.mobile || '560px'}) and (max-width: ${breakPoints?.laptop ||
+            '960px'}) {
+          & {
+            width: 50%;
+          }
         }
       }
-
-      @media screen and (min-width: ${breakPoints?.tablet || '768px'}) and (max-width: ${breakPoints?.laptop ||
-          '960px'}) {
-        & {
-          width: 50%;
-        }
+    `,
+    offerBanner: css`
+      ${parentSelector || 'body'} & {
+        background: ${primaryAccentColor || 'grey'};
+        font-size: ${basefontSize || '16px'};
+        font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'};
+        color: ${inverseFontColor || '#fff'};
       }
-    }
-  `,
-  searchBox: css`
-    ${parentSelector || 'body'} & {
-      width: 100%;
-
-      @media screen and (min-width: ${breakPoints?.laptop || '960px'}) {
-        & {
-          width: 33.333333%;
-        }
-      }
-
-      @media screen and (min-width: ${breakPoints?.mobile || '560px'}) and (max-width: ${breakPoints?.laptop ||
-          '960px'}) {
-        & {
-          width: 50%;
-        }
-      }
-    }
-  `,
-  offerBanner: css`
-    ${parentSelector || 'body'} & {
-      background: ${primaryAccentColor || 'grey'};
-      font-size: ${basefontSize || '16px'};
-      font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'};
-      color: ${inverseFontColor || '#fff'};
-    }
-  `,
-})
+    `,
+  }
+}
 
 export const generateMapStyles = ({ mapAccentColor }: Partial<InitializerTheme>) => {
   return [

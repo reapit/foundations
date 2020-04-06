@@ -4,6 +4,7 @@ describe('ReapitAppointmentBookingComponent', () => {
   it('should match a snapshot', () => {
     expect(
       ReapitAppointmentBookingComponent({
+        variant: 'VALUATION',
         parentSelector: 'body',
         apiKey: 'test',
         theme: {
