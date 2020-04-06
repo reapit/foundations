@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ClientSettingsPage should match snapshot 1`] = `
+<Component
+  flexColumn={true}
+  hasPadding={true}
+>
+  <Component>
+    <Component
+      flexColumn={true}
+      hasBackground={true}
+      hasPadding={true}
+    >
+      <Component>
+        Settings
+      </Component>
+      <Component>
+        <Component>
+          <Component>
+            <Form>
+              <Component>
+                Customer ID
+              </Component>
+              <Component>
+                This is your Customer ID which you will need for use with Private Apps and Web Components.
+              </Component>
+              <Component>
+                <Component>
+                  <Component
+                    dataTest="customerId"
+                    id="customerId"
+                    labelText="Customer ID"
+                    name="customerId"
+                    type="text"
+                  />
+                </Component>
+              </Component>
+            </Form>
+          </Component>
+        </Component>
+        <Component />
+      </Component>
+      <Component>
+        <Component>
+          <Component
+            dataTest="logout-btn"
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            Logout
+          </Component>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Component>
+`;
