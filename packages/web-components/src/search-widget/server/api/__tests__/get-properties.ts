@@ -1,13 +1,17 @@
 import { fetcher } from '../../../../common/utils/fetcher-server'
-import { propertiesStub } from '../../../server/api/__stubs__/properties'
+import { propertiesStub, propertiesMinimalStub } from '../../../server/api/__stubs__/properties'
 import { getProperties } from '../get-properties'
 import { getServerHeaders } from '../../../../common/utils/get-server-headers'
 import { Request, Response } from 'express'
 import { PACKAGE_SUFFIXES } from '../../../../common/utils/constants'
 import { errorHandler } from '../../../../common/utils/error-handler'
+import { mapMinimalProperties } from '../../utils/map-minimal-properties'
 
 jest.mock('../../../../common/utils/fetcher-server')
 jest.mock('../../../../common/utils/error-handler')
+jest.mock('../../utils/map-minimal-properties', () => ({
+  mapMinimalProperties: jest.fn().mockReturnValue(propertiesMinimalStub),
+}))
 
 describe('properties server API', () => {
   it('should correctly call the fetcher for properties', async () => {
@@ -32,8 +36,21 @@ describe('properties server API', () => {
       url: `${process.env.PLATFORM_API_BASE_URL}${req.url}`,
       headers,
     })
+    const includedProps = [
+      'address',
+      'bathrooms',
+      'bedrooms',
+      'description',
+      'id',
+      'letting',
+      'marketingMode',
+      'selling',
+      'style',
+      'type',
+    ]
+    expect(mapMinimalProperties).toHaveBeenCalledWith(propertiesStub, includedProps)
     expect(res.status).toHaveBeenCalledWith(200)
-    expect(res.json).toHaveBeenCalledWith(propertiesStub)
+    expect(res.json).toHaveBeenCalledWith(propertiesMinimalStub)
     expect(res.end).toHaveBeenCalledTimes(1)
   })
 

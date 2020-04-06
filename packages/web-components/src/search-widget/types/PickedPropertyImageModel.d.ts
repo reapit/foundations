@@ -3,5 +3,5 @@ import { PropertyImageModel, PagedResultPropertyImageModel_ } from '@reapit/foun
 export type PickedPropertyImageModel = Pick<PropertyImageModel, 'id' | 'url' | 'propertyId'>
 
 export type PickedPagedResultPropertyImageModel_ = Omit<PagedResultPropertyImageModel_, '_embedded'> & {
-  _embedded: PickedPropertyImageModel[]
+  _embedded?: PickedPropertyImageModel[]
 }

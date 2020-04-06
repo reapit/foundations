@@ -1,9 +1,11 @@
 import { Request, Response } from 'express'
 import { fetcher } from '../../../common/utils/fetcher-server'
-import { PickedPagedResultPropertyModel_, PagedResultPropertyModel_ } from '../../types'
+import { PagedResultPropertyModel_ } from '@reapit/foundations-ts-definitions'
 import { errorHandler } from '../../../common/utils/error-handler'
 import { getServerHeaders } from '../../../common/utils/get-server-headers'
 import { PACKAGE_SUFFIXES } from '../../../common/utils/constants'
+import { mapMinimalProperties } from '../utils/map-minimal-properties'
+import { PickedPagedResultPropertyModel_ } from '../../types'
 
 export const getProperties = async (req: Request, res: Response) => {
   try {
@@ -15,8 +17,21 @@ export const getProperties = async (req: Request, res: Response) => {
     })
 
     if (fullPagedResult) {
+      const includedProps = [
+        'address',
+        'bathrooms',
+        'bedrooms',
+        'description',
+        'id',
+        'letting',
+        'marketingMode',
+        'selling',
+        'style',
+        'type',
+      ]
+      const minimalResult: PickedPagedResultPropertyModel_ = mapMinimalProperties(fullPagedResult, includedProps)
       res.status(200)
-      res.json(fullPagedResult)
+      res.json(minimalResult)
       res.end()
     }
   } catch (err) {

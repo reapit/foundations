@@ -2,9 +2,18 @@ import { PropertyModel, PagedResultPropertyModel_ } from '@reapit/foundations-ts
 
 export type PickedPropertyModel = Pick<
   PropertyModel,
-  'address' | 'bathrooms' | 'bedrooms' | 'id' | 'letting' | 'marketingMode' | 'selling' | 'style' | 'type'
+  | 'address'
+  | 'bathrooms'
+  | 'bedrooms'
+  | 'description'
+  | 'id'
+  | 'letting'
+  | 'marketingMode'
+  | 'selling'
+  | 'style'
+  | 'type'
 >
 
 export type PickedPagedResultPropertyModel_ = Omit<PagedResultPropertyModel_, '_embedded'> & {
-  _embedded: PickedPropertyModel[]
+  _embedded?: PickedPropertyModel[]
 }

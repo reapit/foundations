@@ -1,10 +1,10 @@
-import { PropertyModel, PropertyImageModel, PagedResultPropertyImageModel_ } from '@reapit/foundations-ts-definitions'
 import { fetcher } from '../../../common/utils/fetcher-client'
 import { getClientHeaders } from '../../../common/utils/get-client-headers'
+import { PickedPagedResultPropertyImageModel_, PickedPropertyImageModel, PickedPropertyModel } from '../../types'
 
-export const getPropertyQuery = (properties: PropertyModel[]) =>
+export const getPropertyQuery = (properties: PickedPropertyModel[]) =>
   properties
-    .map((property: PropertyModel) => {
+    .map((property: PickedPropertyModel) => {
       if (property.id) {
         return property.id
       }
@@ -12,17 +12,17 @@ export const getPropertyQuery = (properties: PropertyModel[]) =>
     .reduce((prev, next, index) => `${prev}${index ? '&' : '?'}propertyId=${next}`, '')
 
 export const getPropertyImages = async (
-  properties: PropertyModel[],
+  properties: PickedPropertyModel[],
   apiKey: string,
-): Promise<Record<string, PropertyImageModel>> => {
+): Promise<Record<string, PickedPropertyImageModel>> => {
   const propertyQuery = getPropertyQuery(properties)
-  const response = await fetcher<PagedResultPropertyImageModel_, null>({
+  const response = await fetcher<PickedPagedResultPropertyImageModel_, null>({
     url: `${process.env.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET}/propertyImages/${propertyQuery}`,
     headers: getClientHeaders(apiKey),
   })
 
   if (response && response._embedded) {
-    const imageMap: Record<string, PropertyImageModel> = {}
+    const imageMap: Record<string, PickedPropertyImageModel> = {}
     for (const propertyImage of response._embedded) {
       const propertyId = propertyImage.propertyId || 'invalid'
       imageMap[propertyId] = propertyImage
@@ -30,5 +30,5 @@ export const getPropertyImages = async (
 
     return imageMap
   }
-  return {} as Record<string, PropertyImageModel>
+  return {} as Record<string, PickedPropertyImageModel>
 }

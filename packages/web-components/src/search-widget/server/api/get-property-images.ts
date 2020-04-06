@@ -4,18 +4,22 @@ import { PagedResultPropertyImageModel_ } from '@reapit/foundations-ts-definitio
 import { PACKAGE_SUFFIXES } from '../../../common/utils/constants'
 import { getServerHeaders } from '../../../common/utils/get-server-headers'
 import { errorHandler } from '../../../common/utils/error-handler'
+import { mapMinimalProperties } from '../utils/map-minimal-properties'
+import { PickedPagedResultPropertyImageModel_ } from '../../types'
 
 export const getPropertyImages = async (req: Request, res: Response) => {
   try {
     const headers = await getServerHeaders(req, PACKAGE_SUFFIXES.SEARCH_WIDGET)
-    const refreshResponse = await fetcher<PagedResultPropertyImageModel_, undefined>({
+    const fullPagedResult = await fetcher<PagedResultPropertyImageModel_, undefined>({
       url: `${process.env.PLATFORM_API_BASE_URL}${req.url}`,
       headers,
     })
 
-    if (refreshResponse) {
+    if (fullPagedResult) {
+      const includedProps = ['id', 'url', 'propertyId']
+      const minimalResult: PickedPagedResultPropertyImageModel_ = mapMinimalProperties(fullPagedResult, includedProps)
       res.status(200)
-      res.json(refreshResponse)
+      res.json(minimalResult)
       res.end()
     }
   } catch (err) {
