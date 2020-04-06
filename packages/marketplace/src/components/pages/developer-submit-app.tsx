@@ -262,7 +262,7 @@ export const handleSubmitApp = ({
   }
 
   if (appModel.isPrivateApp === 'yes') {
-    appToSubmit.limitToClientIds = limitToClientIds ? limitToClientIds.split(',') : []
+    appToSubmit.limitToClientIds = limitToClientIds ? limitToClientIds.replace(/ /g, '').split(',') : []
   }
 
   if (!appId) {
