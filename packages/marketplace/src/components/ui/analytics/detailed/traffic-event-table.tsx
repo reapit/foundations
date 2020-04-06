@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Table, Grid, GridItem } from '@reapit/elements'
+import { Table, H4 } from '@reapit/elements'
 
 export type TrafficEventTableProps = {}
 
@@ -24,25 +24,26 @@ export const trafficEventTableColumn = [
   {
     Header: 'Endpoint',
     accessor: 'endpoint',
+    columnProps: {
+      width: 500,
+    },
+    Footer: 'Total',
   },
   {
     Header: 'Hits',
     accessor: 'requestCount',
+    Footer: () => {
+      // Only calculate total visits if rows change
+      return mockData.totalRequestCount
+    },
   },
 ]
 
 export const TrafficEventTable: React.FC<TrafficEventTableProps> = () => {
   return (
     <>
+      <H4>Hits By Endpoint</H4>
       <Table bordered scrollable columns={trafficEventTableColumn} data={mockData.requestsByEndpoint} loading={false} />
-      <Grid>
-        <GridItem>
-          <p style={{ padding: '0.5em 0.75em' }}>Total</p>
-        </GridItem>
-        <GridItem>
-          <p style={{ padding: '0.5em 0.75em' }}>{mockData.totalRequestCount}</p>
-        </GridItem>
-      </Grid>
     </>
   )
 }

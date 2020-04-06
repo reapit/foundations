@@ -26,10 +26,11 @@ export const Table = ({
   bordered = false,
 }) => {
   // Use the state and functions returned from useTable to build your UI
-  const { getTableProps, headerGroups, rows, prepareRow } = useTable({
+  const chiendo = useTable({
     columns,
     data,
   })
+  const { getTableProps, headerGroups, footerGroups, rows, prepareRow } = chiendo
 
   // Render the UI for your table
   const renderTable = () => (
@@ -75,6 +76,19 @@ export const Table = ({
           )
         )}
       </tbody>
+      {footerGroups && (
+        <tfoot>
+          {footerGroups.map((footerGroup, index) => (
+            <tr key={index} {...footerGroup.getFooterGroupProps()}>
+              {footerGroup.headers.map((column, index) => (
+                <th key={index} {...column.getFooterProps()}>
+                  {column.render('Footer')}
+                </th>
+              ))}
+            </tr>
+          ))}
+        </tfoot>
+      )}
     </table>
   )
 
