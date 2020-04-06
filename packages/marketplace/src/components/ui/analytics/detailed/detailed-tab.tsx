@@ -16,7 +16,9 @@ import { Dispatch } from 'redux'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { AppUsageStatsState } from '@/reducers/app-usage-stats'
+import { AppHttpTrafficEventState } from '@/reducers/app-http-traffic-event'
 import { appUsageStatsRequestData, AppUsageStatsParams } from '@/actions/app-usage-stats'
+import { httpTrafficPerDayRequestData, HttpTrafficPerDayParams } from '@/actions/app-http-traffic-event'
 import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { DeveloperState } from '@/reducers/developer'
 import { AppInstallationsState } from '@/reducers/app-installations'
@@ -25,6 +27,7 @@ import styles from '@/styles/pages/analytics.scss?mod'
 import DeveloperInstallationsChart from '@/components/ui/developer-installations-chart'
 import DeveloperTrafficChart from '@/components/ui/developer-traffic-chart'
 import DeveloperTrafficTable from '@/components/ui/developer-traffic-table'
+import DeveloperHitsPerDayChart from '@/components/ui/developer-hits-per-day-chart'
 
 export const installationTableColumn = [
   { Header: 'App Name', accessor: 'appName' },
@@ -48,10 +51,12 @@ export interface DetailedTabMappedProps {
   developer?: DeveloperState
   installations?: AppInstallationsState
   appUsageStats?: AppUsageStatsState
+  appHttpTraffic?: AppHttpTrafficEventState
 }
 
 export interface DetailedTabMappedActions {
   loadStats?: (params: AppUsageStatsParams) => void
+  loadHttpTrafficPerDay?: (params: HttpTrafficPerDayParams) => void
 }
 
 export interface InstallationModelWithAppName extends InstallationModel {
@@ -221,7 +226,34 @@ export const handleFetchAppUsageStatsDataUseEffect = (fetchAppUsageStatsData: ()
   }
 }
 
-export const DetailedTab: React.FC<DetailedTabProps> = ({ installations, developer, appUsageStats, loadStats }) => {
+export const handleFetchHttpTrafficPerDayDataUseCallback = (
+  loadHttpTrafficPerDay?: (params: HttpTrafficPerDayParams) => void,
+) => {
+  return () => {
+    if (loadHttpTrafficPerDay) {
+      loadHttpTrafficPerDay({
+        applicationId: ['4fbbb1e8-bad0-43a2-98f9-bfb9bba366e7'],
+        dateFrom: '2020-03-25',
+        dateTo: '2020-04-05'
+      })
+    }
+  }
+}
+
+export const handleFetchHttpTrafficPerDayDataUseEffect = (fetchHttpTrafficPerDayData: () => void) => {
+  return () => {
+    fetchHttpTrafficPerDayData()
+  }
+}
+
+export const DetailedTab: React.FC<DetailedTabProps> = ({
+  installations,
+  developer,
+  appUsageStats,
+  loadStats,
+  loadHttpTrafficPerDay,
+  appHttpTraffic,
+}) => {
   const installationAppDataArray = installations?.installationsAppData?.data
   const developerDataArray = developer?.developerData?.data?.data
 
@@ -235,17 +267,36 @@ export const DetailedTab: React.FC<DetailedTabProps> = ({ installations, develop
     [developerDataArray, loadStats],
   )
 
+  const fetchHttpTrafficPerDayData = React.useCallback(
+    handleFetchHttpTrafficPerDayDataUseCallback(loadHttpTrafficPerDay),
+    [developerDataArray, loadHttpTrafficPerDay],
+  )
+
   React.useEffect(handleFetchAppUsageStatsDataUseEffect(fetchAppUsageStatsData), [fetchAppUsageStatsData])
+
+  React.useEffect(handleFetchHttpTrafficPerDayDataUseEffect(fetchHttpTrafficPerDayData), [fetchHttpTrafficPerDayData])
 
   const appUsageStatsLoading = appUsageStats?.loading
   const appUsageStatsData = appUsageStats?.appUsageStatsData || {}
   const developerAppsData = developer?.developerData?.data || {}
   const installationsAppLoading = installations?.loading
 
+  const appHttpTrafficPerDayLoading = appHttpTraffic?.perDayLoading
+  const apphttpTrafficPerDayData = appHttpTraffic?.requestsByDate
+
   return (
     <ErrorBoundary>
       <FlexContainerBasic hasPadding flexColumn>
         <FlexContainerResponsive flexColumn hasBackground hasPadding className={styles.wrapAnalytics}>
+          <Grid isMultiLine>
+            <GridItem>
+              <DeveloperHitsPerDayChart stats={apphttpTrafficPerDayData} loading={appHttpTrafficPerDayLoading} />
+            </GridItem>
+            <GridItem>
+              {/* Chart showing Hits By Endpoint here */}
+              <p>Hits per endpoint</p>
+            </GridItem>
+          </Grid>
           <Grid isMultiLine>
             <GridItem>
               <DeveloperTrafficChart
@@ -283,10 +334,12 @@ export const mapStateToProps: (state: ReduxState) => DetailedTabMappedProps = st
   installations: state.installations,
   developer: state.developer,
   appUsageStats: state.appUsageStats,
+  appHttpTraffic: state.appHttpTraffic,
 })
 
 export const mapDispatchToProps = (dispatch: Dispatch): DetailedTabMappedActions => ({
   loadStats: (params: AppUsageStatsParams) => dispatch(appUsageStatsRequestData(params)),
+  loadHttpTrafficPerDay: (params: HttpTrafficPerDayParams) => dispatch(httpTrafficPerDayRequestData(params)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(DetailedTab)
