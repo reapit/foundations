@@ -77,7 +77,7 @@ export const validate = (values: CustomCreateAppModel) => {
   }
 
   if (values.limitToClientIds && !isValidLimitToClientIds(values.limitToClientIds)) {
-    errors.limitToClientIds = 'Invalid Customer ID(s). Each Customer ID must has exactly 3 characters'
+    errors.limitToClientIds = 'Invalid Customer ID(s). Each Customer ID should consist of 3 characters.'
   }
 
   if (values.homePage && !whiteListLocalhostAndIsValidUrl(values.homePage) && !isValidHttpUrl(values.homePage)) {
