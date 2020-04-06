@@ -156,4 +156,16 @@ describe('renderShowApiKeyForWebComponent', () => {
     const wrapper = shallow(<div>{renderShowApiKeyForWebComponent(input)}</div>)
     expect(wrapper).toMatchSnapshot()
   })
+
+  it('should match snapshot and return null', () => {
+    const input = {
+      isWebComponent: true,
+      setIsShowApikey: jest.fn(),
+      isShowApiKey: true,
+      apiKey: undefined,
+      isCurrentLoggedUserDeveloper: true,
+    }
+    const wrapper = shallow(<div>{renderShowApiKeyForWebComponent(input)}</div>)
+    expect(wrapper).toMatchSnapshot()
+  })
 })
