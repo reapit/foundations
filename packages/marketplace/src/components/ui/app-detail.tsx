@@ -17,7 +17,7 @@ import styles from '@/styles/blocks/app-detail.scss?mod'
 import '@/styles/vendor/slick.scss'
 
 export interface AppDetailModalInnerProps {
-  data: AppDetailModel
+  data: AppDetailModel & { apiKey?: string }
   afterClose?: () => void
   footerItems?: React.ReactNode
 }
@@ -51,7 +51,7 @@ export const handleCopyAlert = () => alert('Copied')
 export type RenderShowApiKeyForWebComponent = HandleShowApiKey & {
   isWebComponent?: boolean
   isCurrentLoggedUserDeveloper: boolean
-  apiKey: string
+  apiKey?: string
 }
 
 export const renderShowApiKeyForWebComponent = ({
@@ -75,13 +75,13 @@ export const renderShowApiKeyForWebComponent = ({
       <span>Authentication:</span>&nbsp;
       <span>
         <a onClick={handleShowApiKey({ setIsShowApikey, isShowApiKey })}>
-          <u>Show API key</u>
+          <u>{!isShowApiKey ? 'Show' : 'Hide'} API key</u>
         </a>
       </span>
       {isShowApiKey && (
         <CopyToClipboard text={apiKey} onCopy={handleCopyAlert}>
           <div className="control has-icons-right">
-            <input className="input is-primary" id="apiKey" type="text" name="apiKey" value={apiKey} />
+            <input className="input is-primary" id="apiKey" type="text" name="apiKey" value={apiKey || ''} readOnly />
             <span className="icon is-right">
               <FaCopy />
             </span>
@@ -116,6 +116,7 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
     authFlow,
     externalId,
     isWebComponent,
+    apiKey,
   } = data
   const icon = media.filter(({ type }) => type === 'icon')[0]
   const carouselImages = media.filter(({ type }) => type === 'image')
@@ -184,7 +185,7 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
               isWebComponent,
               isShowApiKey,
               setIsShowApikey,
-              apiKey: 'mockApiKey',
+              apiKey: apiKey,
               isCurrentLoggedUserDeveloper,
             })}
             {carouselImages.length > 0 && (

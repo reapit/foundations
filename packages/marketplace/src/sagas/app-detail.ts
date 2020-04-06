@@ -26,13 +26,26 @@ export const fetchAppDetail = async ({ clientId, id }) => {
   return response
 }
 
+export const fetchAppApiKey = async ({ installationId }) => {
+  const response = await fetcher({
+    url: `${URLS.installations}/${installationId}/apiKey`,
+    api: window.reapit.config.marketplaceApiUrl,
+    method: 'GET',
+    headers: generateHeader(window.reapit.config.marketplaceApiKey),
+  })
+  return response
+}
+
 export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
   yield put(appDetailLoading(true))
   try {
-    const response = yield call(fetchAppDetail, { clientId: data.clientId, id: data.id })
-    if (response) {
-      yield put(appDetailReceiveData({ data: response }))
-
+    const appDetailResponse = yield call(fetchAppDetail, { clientId: data.clientId, id: data.id })
+    if (appDetailResponse?.isWebComponent && appDetailResponse?.installationId) {
+      const apiKeyResponse = yield call(fetchAppApiKey, { installationId: appDetailResponse.installationId })
+      appDetailResponse.apiKey = apiKeyResponse?.apiKey || ''
+    }
+    if (appDetailResponse) {
+      yield put(appDetailReceiveData({ data: appDetailResponse }))
       yield put(setAppDetailStale(false))
     } else {
       yield put(appDetailFailure())

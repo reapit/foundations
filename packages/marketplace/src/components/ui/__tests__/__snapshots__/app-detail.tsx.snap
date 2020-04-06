@@ -79,6 +79,8 @@ exports[`renderShowApiKeyForWebComponent should match snapshot and return null 1
 
 exports[`renderShowApiKeyForWebComponent should match snapshot and return null 2`] = `<div />`;
 
+exports[`renderShowApiKeyForWebComponent should match snapshot and return null 3`] = `<div />`;
+
 exports[`renderShowApiKeyForWebComponent should match snapshot not show api key 1`] = `
 <div>
   <Component
@@ -98,7 +100,8 @@ exports[`renderShowApiKeyForWebComponent should match snapshot not show api key 
       onClick={[Function]}
     >
       <u>
-        Show API key
+        Show
+         API key
       </u>
     </a>
   </span>
@@ -126,7 +129,8 @@ exports[`renderShowApiKeyForWebComponent should match snapshot when isWebCompone
       onClick={[Function]}
     >
       <u>
-        Show API key
+        Hide
+         API key
       </u>
     </a>
   </span>
@@ -141,6 +145,7 @@ exports[`renderShowApiKeyForWebComponent should match snapshot when isWebCompone
         className="input is-primary"
         id="apiKey"
         name="apiKey"
+        readOnly={true}
         type="text"
         value="mockApiKey"
       />
