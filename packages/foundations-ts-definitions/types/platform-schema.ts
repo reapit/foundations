@@ -12183,7 +12183,7 @@ export interface Vendors {
   pageSize?: number
   pageNumber?: number
   sortBy?: string
-  embed?: ('negotiator' | 'offices' | 'sellingReason' | 'solicitor' | 'source' | 'type')[]
+  embed?: ('negotiator' | 'offices' | 'property' | 'sellingReason' | 'solicitor' | 'source' | 'type')[]
   id?: string[]
   negotiatorId?: string[]
   officeId?: string[]

@@ -82,7 +82,7 @@ export interface AppDetailModel {
   /**
    * Gets the apps desktop integration type ids
    */
-  desktopIntegrationTypeIds?: string /* uuid */[]
+  desktopIntegrationTypeIds?: string[]
   /**
    * Gets the date the app was installed for a specific client
    */
@@ -203,7 +203,7 @@ export interface AppRevisionModel {
   /**
    * Gets the desktop integration type ids of this revision
    */
-  desktopIntegrationTypeIds?: string /* uuid */[]
+  desktopIntegrationTypeIds?: string[]
   /**
    * Gets the app revisions category
    */
@@ -280,7 +280,7 @@ export interface AppSummaryModel {
   /**
    * Gets the desktop integration types of this app
    */
-  desktopIntegrationTypeIds?: string /* uuid */[]
+  desktopIntegrationTypeIds?: string[]
   /**
    * Gets the time stamp of the installed date
    */
@@ -612,9 +612,21 @@ export interface CreateCategoryModel {
  */
 export interface CreateDesktopIntegrationTypeModel {
   /**
+   * Sets the unique identifier of the desktop integration
+   */
+  id?: string
+  /**
    * Sets the desktop integrations name
    */
   name?: string
+  /**
+   * Sets the desktop integrations description
+   */
+  description?: string
+  /**
+   * Sets a link to the desktop integrations documentation
+   */
+  url?: string
 }
 /**
  * The model responsible for creation of a developer
@@ -673,11 +685,19 @@ export interface DesktopIntegrationTypeModel {
   /**
    * The unique identifier of the integration type
    */
-  id?: string // uuid
+  id?: string
   /**
    * The name of the integration type
    */
   name?: string
+  /**
+   * The description of the integration type
+   */
+  description?: string
+  /**
+   * A link to the integration types documentation
+   */
+  url?: string
   /**
    * Gets the links associated to this model
    */

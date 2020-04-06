@@ -12,6 +12,7 @@ const Login = React.lazy(() => import('../components/pages/login'))
 const Client = React.lazy(() => import('../components/pages/client'))
 const ClientWelcomePage = React.lazy(() => import('../components/pages/client-welcome'))
 const InstalledApps = React.lazy(() => import('../components/pages/installed-apps'))
+const ClientSetting = React.lazy(() => import('../components/pages/settings/client-setting'))
 const MyApps = React.lazy(() => import('../components/pages/my-apps'))
 // const Register = React.lazy(() => import('../components/pages/register'))
 const DeveloperHome = React.lazy(() => import('../components/pages/developer-home'))
@@ -21,7 +22,7 @@ const AdminDevManagementPage = React.lazy(() => import('../components/pages/admi
 const ApiDocsPage = React.lazy(() => import('../components/pages/api-docs'))
 const SwaggerPage = React.lazy(() => import('../components/pages/swagger'))
 const ElementsPage = React.lazy(() => import('../components/pages/elements'))
-const SettingsPage = React.lazy(() => import('../components/pages/settings'))
+const DeveloperSettings = React.lazy(() => import('../components/pages/settings/developer-settings'))
 const DeveloperWelcomePage = React.lazy(() => import('../components/pages/developer-welcome'))
 const DeveloperHelpPage = React.lazy(() => import('../components/pages/developer-help'))
 const ClientHelpPage = React.lazy(() => import('../components/pages/client-help'))
@@ -52,6 +53,7 @@ const Router = () => {
               <PrivateRoute allow="CLIENT" path={Routes.CLIENT} component={Client} exact fetcher />
               <PrivateRoute allow="CLIENT" path={Routes.CLIENT_WELCOME} component={ClientWelcomePage} exact />
               <PrivateRoute allow="CLIENT" path={Routes.CLIENT_HELP} exact fetcher component={ClientHelpPage} />
+              <PrivateRoute allow="CLIENT" path={Routes.CLIENT_SETTINGS} exact fetcher component={ClientSetting} />
 
               <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_MY_APPS} component={DeveloperHome} exact fetcher />
               <PrivateRoute
@@ -79,7 +81,7 @@ const Router = () => {
                 exact
                 component={AnalyticsPage}
               />
-              <PrivateRoute allow="DEVELOPER" path={Routes.SETTINGS} fetcher exact component={SettingsPage} />
+              <PrivateRoute allow="DEVELOPER" path={Routes.SETTINGS} fetcher exact component={DeveloperSettings} />
               <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_WELCOME} exact component={DeveloperWelcomePage} />
               <PrivateRoute
                 allow="DEVELOPER"
