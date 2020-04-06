@@ -24,6 +24,7 @@ import styles from '@/styles/pages/analytics.scss?mod'
 import { AppInstallationsState } from '@/reducers/app-installations'
 import { DeveloperState } from '@/reducers/developer'
 import { AppUsageStatsState } from '@/reducers/app-usage-stats'
+import TrafficEventTable from './traffic-event-table'
 
 export type DetailedTabProps = {}
 
@@ -130,11 +131,12 @@ export const DetailedTab: React.FC<DetailedTabProps> = () => {
               />
             </GridItem>
             <GridItem>
-              <DeveloperTrafficTable
+              {/* <DeveloperTrafficTable
                 stats={appUsageStatsData}
                 apps={developerAppsData}
                 loading={appUsageStatsLoading}
-              />
+              /> */}
+              <TrafficEventTable />
             </GridItem>
           </Grid>
           <InstallationTable
