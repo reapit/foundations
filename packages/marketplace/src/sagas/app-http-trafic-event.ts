@@ -19,7 +19,7 @@ export const fetchHttpTraficPerDay = async (data: HttpTrafficPerDayParams) => {
     url: `${URLS.trafficEvents}/trafficStatistics?${setQueryParams({ ...data })}`,
     api: 'https://dev.platformmarketplace.reapit.cloud', //window.reapit.config.marketplaceApiUrl,
     method: 'GET',
-    headers: { ...generateHeader(window.reapit.config.marketplaceApiKey)},
+    headers: { ...generateHeader(window.reapit.config.marketplaceApiKey) },
   })
   return response
 }

@@ -7,7 +7,7 @@ export interface ChartDataModel {
   requestCount: number
 }
 
-export const getAppHttpTrafficPerDayChartData = (stats) => {
+export const getAppHttpTrafficPerDayChartData = stats => {
   const chartDataStats = [...stats]
 
   const labels: string[] = []

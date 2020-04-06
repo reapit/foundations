@@ -234,7 +234,7 @@ export const handleFetchHttpTrafficPerDayDataUseCallback = (
       loadHttpTrafficPerDay({
         applicationId: ['4fbbb1e8-bad0-43a2-98f9-bfb9bba366e7'],
         dateFrom: '2020-03-25',
-        dateTo: '2020-04-05'
+        dateTo: '2020-04-05',
       })
     }
   }
