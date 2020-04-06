@@ -1,9 +1,9 @@
-import { ReapitAppointmentPlannerComponent } from '../index'
+import { ReapitAppointmentBookingComponent } from '../index'
 
-describe('ReapitAppointmentPlannerComponent', () => {
+describe('ReapitAppointmentBookingComponent', () => {
   it('should match a snapshot', () => {
     expect(
-      ReapitAppointmentPlannerComponent({
+      ReapitAppointmentBookingComponent({
         parentSelector: 'body',
         apiKey: 'test',
         theme: {

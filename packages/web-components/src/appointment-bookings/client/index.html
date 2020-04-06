@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+    <title>Web Components</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto|Roboto+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./dist/appointment-bookings.css" />
+    <style>
+      #appointment-bookings {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="appointment-bookings"></div>
+    <script src="./dist/appointment-bookings.js"></script>
+    <script src="./themes/appointment-bookings.js"></script>
+    <script>
+      ReapitAppointmentBookingComponent &&
+        new ReapitAppointmentBookingComponent({
+          theme: window.theme,
+          apiKey: '',
+          parentSelector: '#appointment-bookings',
+        })
+    </script>
+  </body>
+</html>

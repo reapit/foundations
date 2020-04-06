@@ -8,18 +8,18 @@ const production = !process.env.ROLLUP_WATCH
 
 export default {
   ...baseConfig,
-  input: 'src/appointment-planner/client/core/index.ts',
+  input: 'src/appointment-bookings/client/core/index.ts',
   output: {
     sourcemap: !production,
     format: 'iife',
     name: 'app',
-    file: './public/dist/appointment-planner.js',
+    file: './public/dist/appointment-bookings.js',
   },
   plugins: [
     svelte({
       dev: !production,
       css: css => {
-        css.write('./public/dist/appointment-planner.css')
+        css.write('./public/dist/appointment-bookings.css')
       },
     }),
     replace({

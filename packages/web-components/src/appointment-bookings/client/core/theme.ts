@@ -2,22 +2,22 @@ import { css } from 'emotion'
 import { InitializerTheme } from '../../../common/styles/theme'
 
 /* istanbul ignore file */
-export interface AppointmentPlannerThemeClasses {
+export interface AppointmentBookingThemeClasses {
   item: string
   svgNavigation: string
 }
 
-export type AppointmentPlannerInitializerTheme = InitializerTheme & {
+export type AppointmentBookingInitializerTheme = InitializerTheme & {
   itemBackgroundColor: string
   itemBackgroundColorHover: string
   navigateButtonColor: string
 }
 
-export const generateAppointmentPlannerThemeClasses = ({
+export const generateAppointmentBookingThemeClasses = ({
   itemBackgroundColor,
   itemBackgroundColorHover,
   navigateButtonColor,
-}: AppointmentPlannerInitializerTheme): AppointmentPlannerThemeClasses => {
+}: AppointmentBookingInitializerTheme): AppointmentBookingThemeClasses => {
   return {
     item: css`
       background: ${itemBackgroundColor};

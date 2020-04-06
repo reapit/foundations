@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ReapitAppointmentPlannerComponent should match a snapshot 1`] = `
+exports[`ReapitAppointmentBookingComponent should match a snapshot 1`] = `
 Appointment_planner {
   "$$": Object {
     "after_update": Array [],

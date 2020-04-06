@@ -2,7 +2,7 @@
 return (() => {
   const { execSync } = require('child_process')
   const { setEnv } = require('./get-env')
-  const packages = ['search-widget', 'appointment-planner']
+  const packages = ['search-widget', 'appointment-bookings']
   const opts = {
     stdio: 'inherit',
   }

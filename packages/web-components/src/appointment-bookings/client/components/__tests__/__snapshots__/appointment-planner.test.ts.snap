@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`appointment-planner it matches a snapshot 1`] = `
+exports[`appointment-bookings it matches a snapshot 1`] = `
 .emotion-5 html,
 .emotion-5 body,
 .emotion-5 div,
@@ -168,10 +168,10 @@ body .emotion-7 {
 <body>
   <div>
     <div
-      class="emotion-5 emotion-6 emotion-7 appointment-planner-container svelte-bzg8ng"
+      class="emotion-5 emotion-6 emotion-7 appointment-bookings-container svelte-bzg8ng"
     >
       <div
-        class="appointment-planner-header-container svelte-bzg8ng"
+        class="appointment-bookings-header-container svelte-bzg8ng"
       >
         <button
           class="svelte-bzg8ng"
@@ -199,15 +199,15 @@ body .emotion-7 {
               </g>
             </g>
           </svg>
-          
+
         </button>
-         
+
         <h1
           class="emotion-2 svelte-bzg8ng"
         >
           Choose an Appointment
         </h1>
-         
+
         <button
           class="svelte-bzg8ng"
         >
@@ -234,14 +234,14 @@ body .emotion-7 {
               </g>
             </g>
           </svg>
-          
+
         </button>
-         
+
         <div
           class="svelte-bzg8ng"
         />
       </div>
-       
+
       <div
         class="date-time-picker-container svelte-114k6yq"
       >
@@ -254,7 +254,7 @@ body .emotion-7 {
           >
             Mon Mar 30
           </div>
-           
+
           <div
             class="time-cell-container svelte-1pn3mlr"
           />
@@ -268,7 +268,7 @@ body .emotion-7 {
           >
             Tue Mar 31
           </div>
-           
+
           <div
             class="time-cell-container svelte-1pn3mlr"
           />
@@ -282,7 +282,7 @@ body .emotion-7 {
           >
             Wed Apr 01
           </div>
-           
+
           <div
             class="time-cell-container svelte-1pn3mlr"
           />
@@ -296,7 +296,7 @@ body .emotion-7 {
           >
             Thu Apr 02
           </div>
-           
+
           <div
             class="time-cell-container svelte-1pn3mlr"
           />
@@ -310,7 +310,7 @@ body .emotion-7 {
           >
             Fri Apr 03
           </div>
-           
+
           <div
             class="time-cell-container svelte-1pn3mlr"
           />
@@ -324,7 +324,7 @@ body .emotion-7 {
           >
             Sat Apr 04
           </div>
-           
+
           <div
             class="time-cell-container svelte-1pn3mlr"
           />
@@ -338,7 +338,7 @@ body .emotion-7 {
           >
             Sun Apr 05
           </div>
-           
+
           <div
             class="time-cell-container svelte-1pn3mlr"
           />
