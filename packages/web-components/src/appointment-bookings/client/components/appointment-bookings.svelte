@@ -25,7 +25,7 @@
   }
 
   .appointment-bookings-container {
-    padding: 20px;
+    padding: 1.5em;
     box-shadow: 1px 1px 7px 1px #d4d4d4;
     border-radius: 4px;
     overflow: scroll;
@@ -34,12 +34,12 @@
   .appointment-bookings-header-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 1em;
   }
 
   .appointment-bookings-header-container h1 {
       font-weight: bold;
-      font-size: 1.5rem;
+      font-size: 1.5em;
       margin-left: auto;
       margin-right: auto;
     }

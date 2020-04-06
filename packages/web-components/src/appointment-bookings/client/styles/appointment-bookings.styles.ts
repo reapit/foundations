@@ -1,6 +1,6 @@
 import { css } from 'emotion'
 
 export const apointmentPlannerSvg = css`
-  width: 15px;
-  height: 15px !important;
+  width: 1em;
+  height: 1em !important;
 `

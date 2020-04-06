@@ -12,7 +12,7 @@
 
 <style>
   .time-cell-container {
-    padding: 10px;
+    padding: 1em;
     margin-bottom: var(--cellSpacing);
     height: 5vw;
     cursor: pointer;

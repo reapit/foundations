@@ -37,13 +37,13 @@
   }
 
   .date-cell-header {
-    padding: 10px;
+    padding: 1em;
     font-weight: bold;
     background: #f2f2f2;
     display: flex;
     justify-content: center;
     margin-bottom: 2px;
-    min-height: 36px;
+    min-height: 2.5em;
   }
 </style>
 
