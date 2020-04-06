@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { H4, Loader } from '@reapit/elements'
 import { Line } from 'react-chartjs-2'
-import { HttpTrafficPerdayStatsModel } from '@reapit/foundations-ts-definitions'
+import { RequestByDateModel } from '@/reducers/app-http-traffic-event'
 import { getAppHttpTrafficPerDayChartData, getChartConfig, getChartOptions } from '@/utils/app-http-traffic.ts'
 
 export type DeveloperHitsPerDayProps = {
-  stats: HttpTrafficPerdayStatsModel[]
+  stats: RequestByDateModel[]
   loading?: Boolean | false
 }
 

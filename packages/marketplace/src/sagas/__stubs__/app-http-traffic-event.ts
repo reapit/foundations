@@ -1,24 +1,34 @@
-import { HttpTrafficPerdayStatsModel } from '@reapit/foundations-ts-definitions'
+import { TrafficEventsModel } from '@/reducers/app-http-traffic-event'
 
-export const httpTrafficPerDayStub: HttpTrafficPerdayStatsModel[] = [
-  {
-    applicationId: '4fbbb1e8-bad0-43a2-98f9-bfb9bba366e7',
-    serviceName: 'propertyImages',
-    endpointRoute: null,
-    endpointMethod: 'GET',
-    endpointVersion: '2020-02-18',
-    customerId: 'DXX',
-    requestId: '297c5a13-1568-4a8c-8d7c-ec602227ee3c',
-    timeStamp: '2020-03-30T17:22:52.3640000+00:00',
-  },
-  {
-    applicationId: '4fbbb1e8-bad0-43a2-98f9-bfb9bba366e7',
-    serviceName: 'propertyImages',
-    endpointRoute: null,
-    endpointMethod: 'GET',
-    endpointVersion: '2020-02-19',
-    customerId: 'DXX',
-    requestId: '297c5a13-1568-4a8c-8d7c-ec602227ee3c',
-    timeStamp: '2020-03-30T17:22:52.3640000+00:00',
-  },
-]
+export const httpTrafficPerDayStub: TrafficEventsModel = {
+  from: '2020-02-17',
+  to: '2020-04-05',
+  totalRequestCount: 178,
+  totalEndpointCount: 2,
+  requestsByEndpoint: [
+    {
+      endpoint: 'properties',
+      requestCount: 90,
+    },
+    {
+      endpoint: 'propertyImages',
+      requestCount: 88,
+    },
+  ],
+  requestsByDate: [
+    {
+      date: '2020-04-04',
+      requestCount: 4,
+    },
+    {
+      date: '2020-04-05',
+      requestCount: 65,
+    },
+  ],
+  requestsByCustomer: [
+    {
+      customerId: 'DXX',
+      requestCount: 178,
+    },
+  ],
+}

@@ -8,13 +8,10 @@ const {
 } = ActionTypes
 
 export interface HttpTrafficPerDayParams {
-  applicationId: string
-  params: {
-    customerId?: string
-    endpointVersion?: string
-    dateFrom?: string
-    dateTo?: string
-  }
+  applicationId?: string[]
+  customerId?: string[]
+  dateFrom?: string
+  dateTo?: string
 }
 
 export const httpTrafficPerDayRequestData = actionCreator<HttpTrafficPerDayParams>(HTTP_TRAFFIC_PER_DAY_REQUEST_DATA)

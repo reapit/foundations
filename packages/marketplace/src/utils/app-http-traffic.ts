@@ -1,14 +1,15 @@
-import { HttpTrafficPerdayStatsModel } from '@reapit/foundations-ts-definitions'
-import orderBy from 'lodash.orderby'
-import { toLocalTime } from '@reapit/elements'
+import { RequestByDateModel } from '@/reducers/app-http-traffic-event'
 
 export interface ChartDataModel {
   date: string
   requestCount: number
 }
 
-export const getAppHttpTrafficPerDayChartData = stats => {
-  const chartDataStats = [...stats]
+export const getAppHttpTrafficPerDayChartData = (stats: RequestByDateModel[]) => {
+  let chartDataStats: ChartDataModel[] = []
+  if (stats) {
+    chartDataStats = [...stats]
+  }
 
   const labels: string[] = []
   const data: number[] = []

@@ -1,5 +1,5 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
-import { URLS, generateHeader, API_VERSION } from '../constants/api'
+import { URLS, generateHeader } from '../constants/api'
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { Action } from '../types/core'
@@ -17,7 +17,7 @@ const { HTTP_TRAFFIC_PER_DAY_REQUEST_DATA } = ActionTypes
 export const fetchHttpTraficPerDay = async (data: HttpTrafficPerDayParams) => {
   const response = await fetcher({
     url: `${URLS.trafficEvents}/trafficStatistics?${setQueryParams({ ...data })}`,
-    api: 'https://dev.platformmarketplace.reapit.cloud', //window.reapit.config.marketplaceApiUrl,
+    api: window.reapit.config.marketplaceApiUrl,
     method: 'GET',
     headers: { ...generateHeader(window.reapit.config.marketplaceApiKey) },
   })

@@ -21,10 +21,8 @@ jest.mock('@reapit/elements')
 const params = {
   type: 'HTTP_TRAFFIC_PER_DAY_REQUEST_DATA' as ActionType,
   data: {
-    applicationId: '4fbbb1e8-bad0-43a2-98f9-bfb9bba366e7',
-    params: {
-      dateFrom: '2020-02-17T10:27:44Z',
-    },
+    applicationId: ['4fbbb1e8-bad0-43a2-98f9-bfb9bba366e7'],
+    dateFrom: '2020-02-17T10:27:44Z',
   },
 }
 

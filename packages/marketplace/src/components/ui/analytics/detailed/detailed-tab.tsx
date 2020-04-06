@@ -233,7 +233,7 @@ export const handleFetchHttpTrafficPerDayDataUseCallback = (
     if (loadHttpTrafficPerDay) {
       loadHttpTrafficPerDay({
         applicationId: ['4fbbb1e8-bad0-43a2-98f9-bfb9bba366e7'],
-        dateFrom: '2020-03-25',
+        dateFrom: '2020-02-17',
         dateTo: '2020-04-05',
       })
     }
@@ -282,7 +282,7 @@ export const DetailedTab: React.FC<DetailedTabProps> = ({
   const installationsAppLoading = installations?.loading
 
   const appHttpTrafficPerDayLoading = appHttpTraffic?.perDayLoading
-  const apphttpTrafficPerDayData = appHttpTraffic?.requestsByDate
+  const apphttpTrafficPerDayData = appHttpTraffic?.trafficEvents?.requestsByDate || []
 
   return (
     <ErrorBoundary>
