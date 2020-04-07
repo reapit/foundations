@@ -9,6 +9,9 @@
 
   let map
   let mapElement
+  let mapContainerElement
+
+  $: isVisible = false
 
   const handleMarkerClick = event => {
     const { selectedProperty, selectedMarker } = event.detail
@@ -27,35 +30,76 @@
     }))
   }
 
-  onMount(async () => {
-    if (!window.google) {
-      map = await loadMap(mapElement, theme)
-    }
-  })
+  const handleIsVisible = () => {
+    isVisible = !isVisible
+  }
 
-  afterUpdate(() => {
+  const handleMapCenter = () => {
     if ($searchWidgetStore.properties.length > 0 && !$searchWidgetStore.selectedProperty) {
       fitMapToBounds($searchWidgetStore.properties, map)
     }
     if ($searchWidgetStore.selectedProperty) {
       centerMapToMarker($searchWidgetStore.selectedProperty, map)
     }
+  }
+
+  onMount(async () => {
+    mapContainerElement.addEventListener('transitionend', event => {
+      if (event.target.classList.contains('google-map-outer-container')) {
+        handleMapCenter()
+      }
+    })
+
+    if (!window.google) {
+      map = await loadMap(mapElement, theme)
+    }
+  })
+
+  afterUpdate(() => {
+    handleMapCenter()
   })
 </script>
 
 <style>
-  .google-map-container {
-    width: 100%;
-    height: 600px;
+  .google-map-outer-container {
+    position: absolute;
+    transition: 0.4s all ease-in-out;
+    width: 0%;
+    right: 0px;
+    height: 100%;
+    z-index: 1;
   }
 
-  .google-map-outer-container {
-    padding: 0.5em;
+  .google-map-outer-container.google-map-visible {
+    width: 100%;
+  }
+
+  .google-map-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .google-map-toggle-switch {
+    height: 50px;
+    width: 50px;
+    background: grey;
+    border-radius: 50%;
+    position: absolute;
+    right: 0%;
+    top: 0px;
+    transition: 0.4s all ease-in-out;
+    z-index: 1;
+  }
+
+  .google-map-toggle-switch.google-map-visible {
+    right: 100%;
   }
 </style>
 
-<div class="google-map-outer-container">
+<div class="google-map-outer-container {isVisible ? 'google-map-visible' : ''}" bind:this={mapContainerElement}>
+  <div class="google-map-toggle-switch {isVisible ? 'google-map-visible' : ''}" on:click|preventDefault={handleIsVisible} />
   <div class="google-map-container" bind:this={mapElement}>
+
     {#if $searchWidgetStore.properties.length > 0 && $searchWidgetStore.selectedProperty}
       <WindowInfo
         on:windowInfoClick={handleCloseWindowInfo}
