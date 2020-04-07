@@ -1,24 +1,26 @@
 <script>
-  import { css } from 'emotion'
-  import cx from 'classnames'
   import { themeStore  } from '../core/store/theme-store'
 
   export let startTime = ''
-
-  const visibilityStyle = css`
-   visible: ${startTime ? 'visible' : 'hidden'}
-  `
 </script>
 
 <style>
   .time-cell-container {
     padding: 1em;
-    margin-bottom: var(--cellSpacing);
+    margin-bottom: 2px;
     height: 5vw;
     cursor: pointer;
   }
+
+  .time-cell-container-visible {
+    visibility: visible
+  }
+
+  .time-cell-container-not-visible {
+    visibility: hidden;
+  }
 </style>
 
-<div class="time-cell-container {visibilityStyle} {$themeStore.item}">
+<div class="time-cell-container {startTime ? 'time-cell-container-visible' : 'time-cell-container-not-visible'} {$themeStore.item}">
   <div>{startTime || ''}</div>
 </div>

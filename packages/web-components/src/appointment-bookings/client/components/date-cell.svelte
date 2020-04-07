@@ -29,7 +29,7 @@
 <style>
   .date-cell-container {
     flex: 1;
-    margin-right: var(--cellSpacing);
+    margin-right: 2px;
   }
 
   .time-cell-container {

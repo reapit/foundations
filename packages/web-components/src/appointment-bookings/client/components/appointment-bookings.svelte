@@ -3,11 +3,11 @@
   import { themeStore } from '../core/store/theme-store'
   import Fa from 'svelte-fa'
   import ClickOutSide from './click-out-side.svelte'
+  import {css} from 'emotion'
 
   import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
   import { resetCSS, generateThemeClasses } from '../../../common/styles'
   import { generateAppointmentBookingThemeClasses } from '../core/theme'
-  import cx from 'classnames'
 
   export let theme
   export let parentSelector
@@ -26,21 +26,16 @@
 
   const themeClasses = {
     ...generateThemeClasses(theme, parentSelector),
-    ...generateAppointmentBookingThemeClasses(theme),
+    ...generateAppointmentBookingThemeClasses(theme, parentSelector),
   }
-  const { button } = themeClasses
+  const { button, svgNavigation } = themeClasses
 
   themeStore.set(themeClasses)
 
   import DateTimePicker from './date-time-picker.svelte'
-  import { apointmentPlannerSvg } from '../styles/appointment-bookings.styles'
 </script>
 
 <style>
-  :root {
-    --cellSpacing: 2px;
-  }
-
   .appointment-bookings-modal-wrapper {
     position: fixed;
     top: 0;
@@ -60,8 +55,6 @@
     box-shadow: 1px 1px 7px 1px #d4d4d4;
     border-radius: 4px;
     overflow: scroll;
-    max-width: 80vw;
-    max-height: 80vh;
   }
 
   .appointment-bookings-modal-header-container {
@@ -75,6 +68,7 @@
     font-size: 1.5em;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
   }
 
   .appointment-bookings-modal-header-container button {
@@ -92,18 +86,18 @@
 <button on:click={toggleModal} class="appoitment-bookings-select-button">Select Appointment</button>
 {#if isModalOpen}
   <div data-testid="appointment-bookings-modal-wrapper" class="appointment-bookings-modal-wrapper">
-    <div class={cx(resetCSS, themeClasses.globalStyles, themeClasses.bodyText, 'appointment-bookings-modal-container')}>
+    <div class="{resetCSS} { themeClasses.globalStyles } { themeClasses.bodyText } appointment-bookings-modal-container">
       <ClickOutSide on:click-out-side={toggleModal}>
         <div data-testid="appointment-booking-modal">
           <div data-testid="appointment-bookings-modal-header-container" class="appointment-bookings-modal-header-container">
             <button on:click={weekStore.decrement}>
-              <Fa class={cx(apointmentPlannerSvg, themeClasses.svgNavigation)} icon={faChevronLeft} />
+              <Fa class=" {svgNavigation}" icon={faChevronLeft} />
             </button>
 
             <h1 class={themeClasses.primaryHeading}>Choose an Appointment</h1>
 
             <button on:click={weekStore.increment}>
-              <Fa class={cx(apointmentPlannerSvg, themeClasses.svgNavigation)} icon={faChevronRight} />
+              <Fa class=" {svgNavigation}" icon={faChevronRight} />
             </button>
             <div />
           </div>

@@ -5,7 +5,8 @@ export interface AppointmentBookingInitializers {
   theme: AppointmentBookingInitializerTheme
   apiKey: string
   parentSelector: string
-  variant: string
+  variant: 'VIEWING' | 'VALUATION'
+
 }
 
 export const ReapitAppointmentBookingComponent = ({

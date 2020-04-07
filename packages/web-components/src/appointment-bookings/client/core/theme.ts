@@ -13,21 +13,26 @@ export type AppointmentBookingInitializerTheme = InitializerTheme & {
   navigateButtonColor: string
 }
 
-export const generateAppointmentBookingThemeClasses = ({
-  itemBackgroundColor,
-  itemBackgroundColorHover,
-  navigateButtonColor,
-}: AppointmentBookingInitializerTheme): AppointmentBookingThemeClasses => {
+export const generateAppointmentBookingThemeClasses = (
+  { itemBackgroundColorHover, itemBackgroundColor, navigateButtonColor }: AppointmentBookingInitializerTheme,
+  parentSelector: string,
+) => {
   return {
     item: css`
-      background: ${itemBackgroundColor};
-      &:hover {
-        background: ${itemBackgroundColorHover};
+      ${parentSelector || 'body'} & {
+        background: ${itemBackgroundColor};
+        &:hover {
+          background: ${itemBackgroundColorHover};
+        }
       }
     `,
     svgNavigation: css`
-      path {
-        fill: ${navigateButtonColor};
+      ${parentSelector || 'body'} & {
+        path {
+          fill: ${navigateButtonColor};
+        }
+        width: 1em;
+        height: 1em;
       }
     `,
   }
