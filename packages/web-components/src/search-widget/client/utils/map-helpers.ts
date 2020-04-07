@@ -1,9 +1,9 @@
-import { PropertyModel, PropertyImageModel } from '@reapit/foundations-ts-definitions'
+import { PickedPropertyModel, PickedPropertyImageModel } from '../../types'
 import { INVALID_BACKGROUND_AS_BASE64, DEFAULT_CENTER, DEFAULT_ZOOM } from '../../../common/utils/constants'
 import { loader } from '../../../common/utils/loader'
 import { generateMapStyles, InitializerTheme, ThemeClasses } from '../../../common/styles/theme'
 
-export const getLatLng = (property: PropertyModel) => {
+export const getLatLng = (property: PickedPropertyModel) => {
   const latitude = property?.address?.geolocation?.latitude ?? DEFAULT_CENTER.lat
   const longitude = property?.address?.geolocation?.longitude ?? DEFAULT_CENTER.lng
   return {
@@ -18,7 +18,7 @@ const currencyFormatter = new Intl.NumberFormat('en-GB', {
   minimumFractionDigits: 0,
 })
 
-export const getPrice = (result: PropertyModel, searchType: 'Sale' | 'Rent') => {
+export const getPrice = (result: PickedPropertyModel, searchType: 'Sale' | 'Rent') => {
   if (searchType === 'Rent') {
     const rent = result?.letting?.rent || 0
     const formattedPrice = currencyFormatter.format(rent)
@@ -58,14 +58,14 @@ export const formatPriceAndQuantifier = (price: number, quantifier: string) => {
   }
 }
 
-export const centerMapToMarker = (selectedProperty: PropertyModel, map: google.maps.Map): void => {
+export const centerMapToMarker = (selectedProperty: PickedPropertyModel, map: google.maps.Map): void => {
   const { latitude, longitude } = getLatLng(selectedProperty)
   const centerPoint = new google.maps.LatLng(latitude, longitude)
   map.setCenter(centerPoint)
   map.setZoom(DEFAULT_ZOOM)
 }
 
-export const fitMapToBounds = (properties: PropertyModel[], map: google.maps.Map): void => {
+export const fitMapToBounds = (properties: PickedPropertyModel[], map: google.maps.Map): void => {
   const bounds = new google.maps.LatLngBounds()
   properties.forEach(property =>
     bounds.extend({
@@ -108,9 +108,9 @@ export const loadMap = (mapElement: HTMLDivElement, theme: Partial<InitializerTh
 }
 
 export const getInfoWindow = (
-  selectedProperty: PropertyModel,
+  selectedProperty: PickedPropertyModel,
   searchType: 'Sale' | 'Rent',
-  propertyImages: Record<string, PropertyImageModel>,
+  propertyImages: Record<string, PickedPropertyImageModel>,
   themeClasses: ThemeClasses,
 ) => {
   const propertyImage = selectedProperty?.id && propertyImages ? propertyImages[selectedProperty?.id] : {}
@@ -160,7 +160,7 @@ export const getInfoWindow = (
   })
 }
 
-export const getMarker = (property: PropertyModel, map: google.maps.Map) => {
+export const getMarker = (property: PickedPropertyModel, map: google.maps.Map) => {
   const { latitude, longitude } = getLatLng(property)
   return new google.maps.Marker({
     position: {
