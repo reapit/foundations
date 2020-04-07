@@ -6,6 +6,7 @@ import { Request, Response } from 'express'
 import { PACKAGE_SUFFIXES } from '../../../../common/utils/constants'
 import { errorHandler } from '../../../../common/utils/error-handler'
 import { mapMinimalProperties } from '../../utils/map-minimal-properties'
+import { INCLUDED_PROPS } from '../../constants/api'
 
 jest.mock('../../../../common/utils/fetcher-server')
 jest.mock('../../../../common/utils/error-handler')
@@ -36,8 +37,7 @@ describe('property images server API', () => {
       url: `${process.env.PLATFORM_API_BASE_URL}${req.url}`,
       headers,
     })
-    const includedProps = ['id', 'url', 'propertyId']
-    expect(mapMinimalProperties).toHaveBeenCalledWith(propertyImagesStub, includedProps)
+    expect(mapMinimalProperties).toHaveBeenCalledWith(propertyImagesStub, INCLUDED_PROPS.GET_PROPERTY_IMAGES)
     expect(res.status).toHaveBeenCalledWith(200)
     expect(res.json).toHaveBeenCalledWith(propertyImagesMinimalStub)
     expect(res.end).toHaveBeenCalledTimes(1)

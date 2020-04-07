@@ -6,6 +6,7 @@ import { getServerHeaders } from '../../../common/utils/get-server-headers'
 import { errorHandler } from '../../../common/utils/error-handler'
 import { mapMinimalProperties } from '../utils/map-minimal-properties'
 import { PickedPagedResultPropertyImageModel_ } from '../../types'
+import { INCLUDED_PROPS } from '../constants/api'
 
 export const getPropertyImages = async (req: Request, res: Response) => {
   try {
@@ -16,8 +17,10 @@ export const getPropertyImages = async (req: Request, res: Response) => {
     })
 
     if (fullPagedResult) {
-      const includedProps = ['id', 'url', 'propertyId']
-      const minimalResult: PickedPagedResultPropertyImageModel_ = mapMinimalProperties(fullPagedResult, includedProps)
+      const minimalResult = mapMinimalProperties<PagedResultPropertyImageModel_, PickedPagedResultPropertyImageModel_>(
+        fullPagedResult,
+        INCLUDED_PROPS.GET_PROPERTY_IMAGES,
+      )
       res.status(200)
       res.json(minimalResult)
       res.end()

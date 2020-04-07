@@ -1,34 +1,21 @@
 import pickBy from 'lodash.pickby'
-import { PagedResultPropertyModel_, PagedResultPropertyImageModel_ } from '@reapit/foundations-ts-definitions'
-import {
-  PickedPagedResultPropertyModel_,
-  PickedPagedResultPropertyImageModel_,
-  PickedPropertyModel,
-  PickedPropertyImageModel,
-} from '../../types'
-
-type InputObject = PagedResultPropertyModel_ | PagedResultPropertyImageModel_
-type PickedModel = PickedPropertyModel | PickedPropertyImageModel
-type OutputObject = PickedPagedResultPropertyModel_ | PickedPagedResultPropertyImageModel_
 
 /**
  * Map through to return only necessary properties
  */
-export const mapMinimalProperties = (
-  { _embedded, ...rest }: InputObject,
+export const mapMinimalProperties = <T extends { _embedded?: any[] }, R extends Partial<T>>(
+  { _embedded, ...rest }: T,
   includedEmbeddedProps: string[],
-): OutputObject => {
+): R => {
   if (!_embedded) {
     return {
       ...rest,
       _embedded,
-    }
+    } as R
   }
-  const pickedEmbedded = (_embedded as PickedModel[]).map(obj =>
-    pickBy(obj, (value, key) => includedEmbeddedProps.includes(key)),
-  )
+  const pickedEmbedded = _embedded.map(obj => pickBy(obj, (value, key) => includedEmbeddedProps.includes(key)))
   return {
     ...rest,
     _embedded: pickedEmbedded,
-  }
+  } as R
 }

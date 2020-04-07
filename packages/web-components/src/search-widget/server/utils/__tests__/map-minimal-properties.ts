@@ -1,35 +1,22 @@
 import { mapMinimalProperties } from '../map-minimal-properties'
 import { propertiesStub, propertiesMinimalStub } from '../../api/__stubs__/properties'
 import { propertyImagesStub, propertyImagesMinimalStub } from '../../api/__stubs__/property-images'
+import { INCLUDED_PROPS } from '../../constants/api'
 
-describe('mappingMinimalProperties', () => {
+describe('mapMinimalProperties', () => {
   it('should return correct minimalResult for properties', () => {
-    const includedProps = [
-      'address',
-      'bathrooms',
-      'bedrooms',
-      'description',
-      'id',
-      'letting',
-      'marketingMode',
-      'selling',
-      'style',
-      'type',
-    ]
-    const result = mapMinimalProperties(propertiesStub, includedProps)
+    const result = mapMinimalProperties(propertiesStub, INCLUDED_PROPS.GET_PROPERTIES)
     expect(result).toEqual(propertiesMinimalStub)
   })
 
   it('should return correct minimalResult for propertyImages', () => {
-    const includedProps = ['id', 'url', 'propertyId']
-    const result = mapMinimalProperties(propertyImagesStub, includedProps)
+    const result = mapMinimalProperties(propertyImagesStub, INCLUDED_PROPS.GET_PROPERTY_IMAGES)
     expect(result).toEqual(propertyImagesMinimalStub)
   })
 
   it('should return correctly with _embedded undefined', () => {
-    const includedProps = ['id', 'url', 'propertyId']
     const propertyImagesStubWithUndefinedEmbedded = { ...propertyImagesStub, _embedded: undefined }
-    const result = mapMinimalProperties(propertyImagesStubWithUndefinedEmbedded, includedProps)
+    const result = mapMinimalProperties(propertyImagesStubWithUndefinedEmbedded, INCLUDED_PROPS.GET_PROPERTY_IMAGES)
     expect(result).toEqual(propertyImagesStubWithUndefinedEmbedded)
   })
 })
