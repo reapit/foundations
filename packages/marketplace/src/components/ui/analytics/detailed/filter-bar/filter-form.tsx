@@ -2,7 +2,6 @@ import * as React from 'react'
 import { Dispatch } from 'redux'
 import { useDispatch } from 'react-redux'
 import dayjs from 'dayjs'
-import { appUsageStatsRequestData } from '@/actions/app-usage-stats'
 import { appInstallationsRequestData } from '@/actions/app-installations'
 import { httpTrafficPerDayRequestData } from '@/actions/app-http-traffic-event'
 import { Grid, GridItem, DatePicker, SelectBox } from '@reapit/elements'
@@ -54,14 +53,6 @@ export const handleAutoSave = (developerApps: AppSummaryModel[], clientIds: stri
     const appIds = developerApps.map((app: AppSummaryModel) => {
       return app.id || ''
     })
-
-    dispatch(
-      appUsageStatsRequestData({
-        ...values,
-        appId: appId || appIds,
-      }),
-    )
-
     dispatch(
       appInstallationsRequestData({
         appId: appId || appIds,

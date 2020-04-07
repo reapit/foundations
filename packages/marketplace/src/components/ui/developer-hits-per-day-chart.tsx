@@ -9,22 +9,22 @@ export type DeveloperHitsPerDayProps = {
   loading?: Boolean | false
 }
 
+export const renderChart = appHttpTrafficPerDayChartData => {
+  const { labels, data, chartDataStats } = appHttpTrafficPerDayChartData
+  const chartData = getChartConfig(labels, data)
+  const chartOptions = getChartOptions(chartDataStats)
+  return (
+    <>
+      <H4>Hits Per Day</H4>
+      <Line data={chartData} options={chartOptions} />
+    </>
+  )
+}
+
 export const DeveloperHitsPerDay: React.FC<DeveloperHitsPerDayProps> = ({ stats, loading }) => {
   const appHttpTrafficPerDayChartData = getAppHttpTrafficPerDayChartData(stats)
 
-  function renderChart() {
-    const { labels, data, chartDataStats } = appHttpTrafficPerDayChartData
-    const chartData = getChartConfig(labels, data)
-    const chartOptions = getChartOptions(chartDataStats)
-    return (
-      <>
-        <H4>Hits Per Day</H4>
-        <Line data={chartData} options={chartOptions} />
-      </>
-    )
-  }
-
-  return <div>{loading ? <Loader /> : renderChart()}</div>
+  return <div>{loading ? <Loader /> : renderChart(appHttpTrafficPerDayChartData)}</div>
 }
 
 export default DeveloperHitsPerDay

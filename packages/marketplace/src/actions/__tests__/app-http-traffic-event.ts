@@ -14,8 +14,12 @@ describe('app-http-traffic-per-day actions', () => {
         applicationId: ['1'],
         dateFrom: '2020-02-17',
         dateTo: '2020-04-05',
-      }),
-    ).toEqual({ applicationId: '1' })
+      }).data,
+    ).toEqual({
+      applicationId: ['1'],
+      dateFrom: '2020-02-17',
+      dateTo: '2020-04-05',
+    })
   })
   it('should create a httpTrafficPerDayReceiveData action', () => {
     expect(httpTrafficPerDayReceiveData.type).toEqual(ActionTypes.HTTP_TRAFFIC_PER_DAY_RECEIVE_DATA)

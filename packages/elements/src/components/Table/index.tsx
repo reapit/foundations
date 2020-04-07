@@ -14,9 +14,10 @@ export interface TableProps {
   bordered?: boolean
   striped?: boolean
   fullWidth?: boolean
+  maxHeight?: number
 }
 
-export const Table = ({
+export const Table: React.FC<TableProps> = ({
   columns,
   data,
   loading,
@@ -24,6 +25,7 @@ export const Table = ({
   fullWidth = true,
   scrollable = false,
   bordered = false,
+  maxHeight,
 }) => {
   // Use the state and functions returned from useTable to build your UI
   const chiendo = useTable({
@@ -93,7 +95,11 @@ export const Table = ({
   )
 
   if (scrollable) {
-    return <div className="table-responsive">{renderTable()}</div>
+    return (
+      <div className="table-responsive">
+        <div style={{ maxHeight: maxHeight }}>{renderTable()}</div>
+      </div>
+    )
   }
 
   return renderTable()

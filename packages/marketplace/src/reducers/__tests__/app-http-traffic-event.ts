@@ -32,7 +32,9 @@ describe('app-http-traffic-event reducer', () => {
     })
     const expected = {
       ...defaultState,
-      appHttpTrafficPerDay: httpTrafficPerDayStub,
+      perDayLoading: false,
+      trafficEvents: httpTrafficPerDayStub,
+      // appHttpTrafficPerDay: httpTrafficPerDayStub,
     }
     expect(newState).toEqual(expected)
   })

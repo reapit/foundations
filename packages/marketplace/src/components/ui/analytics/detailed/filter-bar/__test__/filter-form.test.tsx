@@ -9,7 +9,6 @@ import {
   renderClientSelectOptions,
   handleAutoSave,
 } from '../filter-form'
-import { appUsageStatsRequestData } from '@/actions/app-usage-stats'
 import { appInstallationsRequestData } from '@/actions/app-installations'
 import { httpTrafficPerDayRequestData } from '@/actions/app-http-traffic-event'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
@@ -59,13 +58,6 @@ describe('FilterForm', () => {
       fn(mockFormValues)
 
       expect(spyDispatch).toBeCalledWith(
-        appUsageStatsRequestData({
-          ...mockFormValues,
-          appId: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
-        }),
-      )
-
-      expect(spyDispatch).toBeCalledWith(
         appInstallationsRequestData({
           appId: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
           clientId: ['DXX'],
@@ -77,8 +69,10 @@ describe('FilterForm', () => {
 
       expect(spyDispatch).toBeCalledWith(
         httpTrafficPerDayRequestData({
-          ...mockFormValues,
           applicationId: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
+          customerId: ['DXX'],
+          dateFrom: mockFormValues.dateFrom,
+          dateTo: mockFormValues.dateTo,
         }),
       )
     })
@@ -95,13 +89,6 @@ describe('FilterForm', () => {
       fn(mockFormValues)
 
       expect(spyDispatch).toBeCalledWith(
-        appUsageStatsRequestData({
-          ...mockFormValues,
-          appId: mockFormValues.appId,
-        }),
-      )
-
-      expect(spyDispatch).toBeCalledWith(
         appInstallationsRequestData({
           appId: mockFormValues.appId,
           clientId: mockFormValues.clientId,
@@ -113,8 +100,10 @@ describe('FilterForm', () => {
 
       expect(spyDispatch).toBeCalledWith(
         httpTrafficPerDayRequestData({
-          ...mockFormValues,
           applicationId: mockFormValues.appId,
+          customerId: mockFormValues.clientId,
+          dateFrom: mockFormValues.dateFrom,
+          dateTo: mockFormValues.dateTo,
         }),
       )
     })

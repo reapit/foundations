@@ -5,7 +5,6 @@ import dayjs from 'dayjs'
 import { useDispatch, useSelector } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { AppHttpTrafficEventState } from '@/reducers/app-http-traffic-event'
-import { appUsageStatsRequestData } from '@/actions/app-usage-stats'
 import { httpTrafficPerDayRequestData } from '@/actions/app-http-traffic-event'
 
 import { appInstallationsRequestData } from '@/actions/app-installations'
@@ -16,8 +15,6 @@ import { getInstallations } from '@/selector/installations'
 
 import { FlexContainerBasic, Grid, GridItem, FlexContainerResponsive, DATE_TIME_FORMAT } from '@reapit/elements'
 import DeveloperInstallationsChart from '@/components/ui/developer-installations-chart'
-import DeveloperTrafficChart from '@/components/ui/developer-traffic-chart'
-import DeveloperTrafficTable from '@/components/ui/developer-traffic-table'
 import DeveloperHitsPerDayChart from '@/components/ui/developer-hits-per-day-chart'
 import InstallationTable, { InstallationModelWithAppName } from './installation-table'
 import FilterBar from './filter-bar'
@@ -69,16 +66,7 @@ const handleDefaultFilter = (developerAppDataArray: AppSummaryModel[]) => {
 
 export const handleFetchAppUsageStatsDataUseCallback = (developerAppDataArray: AppSummaryModel[] = [], dispatch) => {
   return () => {
-    const { lastMonday, lastSunday, appIds } = handleDefaultFilter(developerAppDataArray)
-
-    dispatch(
-      appUsageStatsRequestData({
-        appId: appIds,
-        dateFrom: lastMonday,
-        dateTo: lastSunday,
-      }),
-    )
-
+    const { lastMonday, lastSunday } = handleDefaultFilter(developerAppDataArray)
     dispatch(
       appInstallationsRequestData({
         installedDateFrom: lastMonday,
@@ -136,7 +124,7 @@ export const mapState = (state: ReduxState): MapState => {
 
 export const DetailedTab: React.FC<DetailedTabProps> = () => {
   const dispatch = useDispatch()
-  const { appUsageStats, developer, installations, appHttpTraffic } = useSelector(mapState)
+  const { developer, installations, appHttpTraffic } = useSelector(mapState)
   const installationAppDataArray = installations?.installationsAppData?.data
   const developerDataArray = developer?.developerData?.data?.data
   const installationAppDataArrayWithName = React.useMemo(
@@ -158,13 +146,12 @@ export const DetailedTab: React.FC<DetailedTabProps> = () => {
 
   React.useEffect(handleFetchHttpTrafficPerDayDataUseEffect(fetchHttpTrafficPerDayData), [fetchHttpTrafficPerDayData])
 
-  const appUsageStatsLoading = appUsageStats?.loading
-  const appUsageStatsData = appUsageStats?.appUsageStatsData || {}
   const developerAppsData = developer?.developerData?.data || {}
   const installationsAppLoading = installations?.loading
 
   const appHttpTrafficPerDayLoading = appHttpTraffic?.perDayLoading
   const appHttpTrafficPerDayData = appHttpTraffic?.trafficEvents?.requestsByDate || []
+  const trafficEvents = appHttpTraffic?.trafficEvents
 
   return (
     <ErrorBoundary>
@@ -176,25 +163,7 @@ export const DetailedTab: React.FC<DetailedTabProps> = () => {
               <DeveloperHitsPerDayChart stats={appHttpTrafficPerDayData} loading={appHttpTrafficPerDayLoading} />
             </GridItem>
             <GridItem>
-              {/* Chart showing Hits By Endpoint here */}
-              <p>Hits per endpoint</p>
-            </GridItem>
-          </Grid>
-          <Grid isMultiLine>
-            <GridItem>
-              <DeveloperTrafficChart
-                stats={appUsageStatsData}
-                apps={developerAppsData}
-                loading={appUsageStatsLoading}
-              />
-            </GridItem>
-            <GridItem>
-              {/* <DeveloperTrafficTable
-                stats={appUsageStatsData}
-                apps={developerAppsData}
-                loading={appUsageStatsLoading}
-              /> */}
-              <TrafficEventTable />
+              <TrafficEventTable trafficEvents={trafficEvents} loading={appHttpTrafficPerDayLoading} />
             </GridItem>
           </Grid>
           <InstallationTable

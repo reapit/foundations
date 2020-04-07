@@ -9,6 +9,7 @@ import {
   handleFetchAppUsageStatsDataUseEffect,
   mapState,
   MapState,
+  handleFetchHttpTrafficPerDayDataUseCallback,
 } from '../detailed-tab'
 import { usageStatsDataStub } from '@/sagas/__stubs__/app-usage-stats'
 import { installationsStub } from '@/sagas/__stubs__/installations'
@@ -79,19 +80,20 @@ describe('OverviewPage', () => {
       const fn = handleFetchAppUsageStatsDataUseCallback(developerAppData, spyDispatch)
       fn()
       expect(spyDispatch).toBeCalledWith(
-        appUsageStatsRequestData({
-          appId: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
-          dateFrom: '2019-09-30',
-          dateTo: '2019-10-06',
-        }),
-      )
-      expect(spyDispatch).toBeCalledWith(
         appInstallationsRequestData({
           installedDateFrom: '2019-09-30',
           installedDateTo: '2019-10-06',
           pageSize: 9999,
         }),
       )
+    })
+  })
+
+  describe('handleFetchAppUsageStatsDataUseCallback', () => {
+    it('should run correctly', () => {
+      const developerAppData = appsDataStub.data.data || []
+      const fn = handleFetchHttpTrafficPerDayDataUseCallback(developerAppData, spyDispatch)
+      fn()
       expect(spyDispatch).toBeCalledWith(
         httpTrafficPerDayRequestData({
           applicationId: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
