@@ -392,7 +392,9 @@ const createGoogleMapsMock = (libraries = []) => {
 }
 
 const mockStorage = (() => {
-  let store = {}
+  let store = {
+    __REAPIT_MARKETPLACE_GLOBALS__: null,
+  }
   return {
     getItem: key => {
       return store[key]

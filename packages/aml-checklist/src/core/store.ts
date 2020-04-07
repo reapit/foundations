@@ -23,6 +23,7 @@ import resultSagas from '@/sagas/result'
 import authSagas from '@/sagas/auth'
 import checklistDetailSagas from '@/sagas/checklist-detail'
 import identityTypesSagas from '@/sagas/identity-types'
+import { injectSwitchModeToWindow } from '@reapit/elements'
 
 export class Store {
   static _instance: Store
@@ -59,6 +60,7 @@ export class Store {
   reduxStore: ReduxStore<ReduxState>
 
   constructor() {
+    injectSwitchModeToWindow()
     const composed = Store.composeEnhancers(applyMiddleware(Store.sagaMiddleware))
 
     this.reduxStore = createStore(Store.reducers, composed)

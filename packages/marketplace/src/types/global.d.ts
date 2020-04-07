@@ -11,6 +11,7 @@ export type Config = {
   cognitoOAuthUrl: string
   cognitoUserPoolId: string
   chatbotAppId: string
+  marketplaceUrl: string
 }
 
 declare global {

@@ -1,6 +1,14 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { AppDetail, AppDetailProps, mapDispatchToProps, SlickButtonNav } from '../app-detail'
+import {
+  AppDetail,
+  AppDetailProps,
+  mapDispatchToProps,
+  SlickButtonNav,
+  handleShowApiKey,
+  handleCopyAlert,
+  renderShowApiKeyForWebComponent,
+} from '../app-detail'
 import { setDeveloperAppModalStateDelete } from '@/actions/developer-app-modal'
 import { setAppDetailModalStateInstall, setAppDetailModalStateUninstall } from '@/actions/app-detail-modal'
 
@@ -61,6 +69,103 @@ describe('SlickButtonNav', () => {
         <div>mockComponent</div>
       </SlickButtonNav>,
     )
+    expect(wrapper).toMatchSnapshot()
+  })
+})
+
+describe('handleShowApiKey', () => {
+  it('should run correctly', () => {
+    const input = { setIsShowApikey: jest.fn(), isShowApiKey: true }
+    const fn = handleShowApiKey(input)
+    fn()
+    expect(input.setIsShowApikey).toBeCalledWith(!input.isShowApiKey)
+  })
+})
+
+describe('handleCopyAlert', () => {
+  it('should run correctly', () => {
+    window.alert = jest.fn()
+    handleCopyAlert()
+    expect(window.alert).toBeCalledWith('Copied')
+  })
+})
+
+describe('renderShowApiKeyForWebComponent', () => {
+  it('should match snapshot when isWebComponent', () => {
+    const input = {
+      isWebComponent: true,
+      setIsShowApikey: jest.fn(),
+      isShowApiKey: true,
+      apiKey: 'mockApiKey',
+      isCurrentLoggedUserDeveloper: false,
+    }
+    const wrapper = shallow(<div>{renderShowApiKeyForWebComponent(input)}</div>)
+    const apiInput = wrapper.find('[id="apiKey"]')
+    expect(apiInput).toHaveLength(1)
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should match snapshot return null', () => {
+    const input = {
+      isWebComponent: false,
+      setIsShowApikey: jest.fn(),
+      isShowApiKey: true,
+      apiKey: 'mockApiKey',
+      isCurrentLoggedUserDeveloper: false,
+    }
+    const wrapper = shallow(<div>{renderShowApiKeyForWebComponent(input)}</div>)
+    const apiInput = wrapper.find('[id="apiKey"]')
+    expect(apiInput).toHaveLength(0)
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should match snapshot not show api key', () => {
+    const input = {
+      isWebComponent: true,
+      setIsShowApikey: jest.fn(),
+      isShowApiKey: false,
+      apiKey: 'mockApiKey',
+      isCurrentLoggedUserDeveloper: false,
+    }
+    const wrapper = shallow(<div>{renderShowApiKeyForWebComponent(input)}</div>)
+    const apiInput = wrapper.find('[id="apiKey"]')
+    expect(apiInput).toHaveLength(0)
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should match snapshot and return null', () => {
+    const input = {
+      isWebComponent: true,
+      setIsShowApikey: jest.fn(),
+      isShowApiKey: false,
+      apiKey: 'mockApiKey',
+      isCurrentLoggedUserDeveloper: true,
+    }
+    const wrapper = shallow(<div>{renderShowApiKeyForWebComponent(input)}</div>)
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should match snapshot and return null', () => {
+    const input = {
+      isWebComponent: false,
+      setIsShowApikey: jest.fn(),
+      isShowApiKey: false,
+      apiKey: 'mockApiKey',
+      isCurrentLoggedUserDeveloper: true,
+    }
+    const wrapper = shallow(<div>{renderShowApiKeyForWebComponent(input)}</div>)
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should match snapshot and return null', () => {
+    const input = {
+      isWebComponent: true,
+      setIsShowApikey: jest.fn(),
+      isShowApiKey: true,
+      apiKey: undefined,
+      isCurrentLoggedUserDeveloper: true,
+    }
+    const wrapper = shallow(<div>{renderShowApiKeyForWebComponent(input)}</div>)
     expect(wrapper).toMatchSnapshot()
   })
 })

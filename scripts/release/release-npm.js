@@ -1,11 +1,15 @@
 #!/usr/bin/env node
 const { getPreviousTag, editReleaseNote, getVersionTag, runCommand } = require('./utils')
 const execSync = require('child_process').execSync
+const yargs = require('yargs')
 
 const releaseNpm = async () => {
   try {
     const [, , ...args] = process.argv
     const packageName = args[0]
+    // if pass --skip-edit-release-note, then skip editReleaseNote
+    // by default it will edit release note
+    const skipEditReleaseNote = yargs.argv.skipEditReleaseNote
     const { version, packageName: packageNameOnTag } = getVersionTag()
 
     if (!packageName) {
@@ -18,6 +22,9 @@ const releaseNpm = async () => {
       execSync(`git config --global user.email "${process.env.GITHUB_ACTOR}@email.com"`)
       execSync(`git config --global user.name "${process.env.GITHUB_ACTOR}"`)
       runCommand('yarn', ['publish'])
+      if (skipEditReleaseNote) {
+        return
+      }
       const previousTag = getPreviousTag({ packageName: packageNameOnTag })
       await editReleaseNote({ packageName: packageNameOnTag, version, previousTag })
     }

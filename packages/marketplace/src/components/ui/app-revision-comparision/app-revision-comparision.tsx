@@ -29,6 +29,7 @@ const diffStringList: { [k in keyof AppRevisionModel]: string } = {
   description: 'Description',
   redirectUris: 'Redirect URIs',
   signoutUris: 'Signout URIs',
+  limitToClientIds: 'Private Apps',
 }
 
 export const isAppearInScope = (nameNeedToFind: string | undefined, scopes: ScopeModel[] = []): boolean => {
@@ -117,7 +118,7 @@ export const AppRevisionComparision: React.FC<AppRevisionComparisionProps> = ({
             </div>
           )
         }
-        if (['redirectUris', 'signoutUris'].includes(key)) {
+        if (['redirectUris', 'signoutUris', 'limitToClientIds'].includes(key)) {
           const currentString = Array.isArray(app[key]) ? app[key].join(' ') : ''
           const changedString = Array.isArray(revision[key]) ? revision[key].join(' ') : ''
           return (

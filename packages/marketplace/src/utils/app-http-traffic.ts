@@ -32,7 +32,7 @@ export const getChartOptions = data => {
       mode: 'label',
       callbacks: {
         label: function(tooltipItem) {
-          return data.find(x => x.label === tooltipItem.label).data
+          return data.find(x => x.date === tooltipItem.label).requestCount
         },
       },
     },

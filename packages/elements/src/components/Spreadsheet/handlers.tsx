@@ -12,6 +12,8 @@ import {
   AfterDataChanged,
   AfterCellsChanged,
   ChangesArray,
+  SetUploadData,
+  UploadData,
 } from './types'
 import {
   getMaxRowAndCol,
@@ -21,6 +23,7 @@ import {
   convertDataToCsv,
   changedCellsGenerate,
   validatedDataGenerate,
+  createDataWithInvalidRowsRemoved,
 } from './utils'
 
 export const valueRenderer = (cell: Cell): string | null => cell.value
@@ -217,19 +220,64 @@ export const handleClickUpload = (ref: React.RefObject<HTMLInputElement>) => () 
   return false
 }
 
-export const handleOnChangeInput = (data: Cell[][], setData: SetData, validate?: ValidateFunction) => async (event: {
-  target: HTMLInputElement
-}) => {
-  const { target } = event
-  if (target && target.files && target.files[0]) {
-    const file = target.files[0]
-    const result = await parseCsvFile(file)
-    const compatibleData = convertToCompatibleData(result)
-    const dataWithIsValidated = validatedDataGenerate(compatibleData, validate)
-    setData(dataWithIsValidated)
-    return 'validated'
+export const handleOnChangeInput = ({
+  setUploadData,
+  maxUploadRow,
+  validate,
+}: {
+  setUploadData: SetUploadData
+  maxUploadRow: number
+  validate?: ValidateFunction
+}) => async (event: { target: HTMLInputElement }) => {
+  try {
+    const { target } = event
+    if (target && target.files && target.files[0]) {
+      const file = target.files[0]
+      const result = await parseCsvFile(file)
+      const compatibleData = convertToCompatibleData(result)
+      const totalRow = compatibleData.length
+      // only allow maxUploadRow row
+      const slicedData = compatibleData.slice(0, maxUploadRow)
+      if (typeof validate !== 'function') {
+        setUploadData(
+          setUploadDataCallback({
+            validatedData: slicedData.map(row => row.map(cell => ({ ...cell, isValidated: true }))),
+            invalidIndies: [],
+            totalRow,
+            exceedMaxRow: totalRow > maxUploadRow,
+            isModalOpen: true,
+          }),
+        )
+        return 'not validated'
+      }
+
+      const validateMatrix = validate(slicedData)
+
+      const { dataWithInvalidRowsRemoved, invalidIndies } = createDataWithInvalidRowsRemoved(slicedData, validateMatrix)
+
+      setUploadData(
+        setUploadDataCallback({
+          validatedData: dataWithInvalidRowsRemoved,
+          invalidIndies,
+          isModalOpen: true,
+          totalRow,
+          exceedMaxRow: totalRow > maxUploadRow,
+        }),
+      )
+      return 'validated'
+    }
+    return false
+  } catch (err) {
+    setUploadData(
+      setUploadDataCallback({
+        validatedData: [],
+        invalidIndies: [],
+        isModalOpen: true,
+        totalRow: 0,
+      }),
+    )
+    return 'error'
   }
-  return false
 }
 
 export const handleDownload = (data: Cell[][], window, document: Document | undefined) => (): boolean => {
@@ -281,3 +329,14 @@ export const handleInitialDataChanged = (
   const newData = validatedDataGenerate(initialData, validateFunction)
   setData(newData)
 }
+
+export const handleCloseUploadModal = (setUploadData: SetUploadData) => () =>
+  setUploadData(setUploadDataCallback({ isModalOpen: false }))
+
+export const handleProcessValidRows = (setUploadData: SetUploadData) => () =>
+  setUploadData(setUploadDataCallback({ shouldProcess: true, isModalOpen: false }))
+
+export const setUploadDataCallback = (uploadDataPartial: Partial<UploadData>) => (prev: UploadData) => ({
+  ...prev,
+  ...uploadDataPartial,
+})

@@ -1,6 +1,11 @@
 import { validateRequire, validateEmail } from '@reapit/elements'
 import { CustomCreateAppModel } from '@/components/pages/developer-submit-app'
-import { isValidUrlWithCustomScheme, whiteListLocalhostAndIsValidUrl, isValidHttpUrl } from '@/utils/validate'
+import {
+  isValidUrlWithCustomScheme,
+  whiteListLocalhostAndIsValidUrl,
+  isValidHttpUrl,
+  isValidLimitToClientIds,
+} from '@/utils/validate'
 
 export type SubmitAppFormErrorKeys =
   | 'name'
@@ -16,6 +21,7 @@ export type SubmitAppFormErrorKeys =
   | 'redirectUris'
   | 'signoutUris'
   | 'scopes'
+  | 'limitToClientIds'
 
 const MIN_DESCRIPTION_LENGTH = 150
 const MAX_DESCRIPTION_LENGTH = 1000
@@ -64,6 +70,14 @@ export const validate = (values: CustomCreateAppModel) => {
 
   if (values.signoutUris && !isValidUrlWithCustomScheme(values.signoutUris)) {
     errors.signoutUris = 'Invalid sign out uri(s)'
+  }
+
+  if (values.isPrivateApp && values.limitToClientIds?.length === 0) {
+    errors.limitToClientIds = 'At least one Customer ID is required'
+  }
+
+  if (values.limitToClientIds && !isValidLimitToClientIds(values.limitToClientIds)) {
+    errors.limitToClientIds = 'Invalid Customer ID(s). Each Customer ID should consist of 3 characters.'
   }
 
   if (values.homePage && !whiteListLocalhostAndIsValidUrl(values.homePage) && !isValidHttpUrl(values.homePage)) {

@@ -151,9 +151,10 @@ export interface DatePickerProps {
   id: string
   labelText: string
   required?: boolean
+  reactDatePickerProps?: any
 }
 
-export const DatePicker = ({ name, id, labelText, required = false }: DatePickerProps) => {
+export const DatePicker = ({ name, id, labelText, required = false, reactDatePickerProps }: DatePickerProps) => {
   return (
     <Field name={name} validate={required ? fieldValidateRequire : null}>
       {({ field, meta }: FieldProps<string>) => {
@@ -180,16 +181,22 @@ export const DatePicker = ({ name, id, labelText, required = false }: DatePicker
               <ReactDatePicker
                 className={className}
                 id={id}
-                labelText={labelText}
+                {...reactDatePickerProps}
                 {...field}
                 value={fieldValue}
                 selected={parseDate}
-                onChange={value =>
+                onChange={value => {
+                  if (!value) {
+                    return
+                  }
                   field.onChange({ target: { value: dayjs(value).format('YYYY-MM-DDTHH:mm:ss'), name: field.name } })
-                }
-                onSelect={value =>
+                }}
+                onSelect={value => {
+                  if (!value) {
+                    return
+                  }
                   field.onChange({ target: { value: dayjs(value).format('YYYY-MM-DDTHH:mm:ss'), name: field.name } })
-                }
+                }}
                 customInput={<CustomInput className={className} />}
               />
               {hasError && (

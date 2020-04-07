@@ -48,6 +48,7 @@ import adminAppsSagas from '../sagas/admin-apps'
 import appInstallationsSagas from '../sagas/app-installations'
 import noticationMessage from '../reducers/notification-message'
 import adminStatsSaga from '../sagas/admin-stats'
+import { injectSwitchModeToWindow } from '@reapit/elements'
 
 export class Store {
   static _instance: Store
@@ -124,6 +125,7 @@ export class Store {
   reduxStore: ReduxStore<ReduxState>
 
   constructor() {
+    injectSwitchModeToWindow()
     const composed = Store.composeEnhancers(applyMiddleware(Store.sagaMiddleware))
 
     this.reduxStore = createStore(Store.reducers, composed)

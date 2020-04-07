@@ -12,31 +12,19 @@ env:
   MAIN_CLONE_PATH: ${{ github.workspace }}/foundations
   DOC_REPO: reapit/foundations-documentation
   DOC_CLONE_PATH: ${{ github.workspace }}/foundations-documentation
+  CURRENT_TAG: ${{ github.event.release.tag_name }}
+  CURRENT_RELEASE_NAME: ${{ github.event.release.name }}
 
 jobs:
   create-pr-update-doc:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Install jq (json parser)
-        run: |
-          sudo apt-get install jq
-
       - name: Get current tags
         run: |
-          echo "::set-env name=CURRENT_TAG::${GITHUB_REF#refs/tags/}" && \
-          echo "CURRENT_TAG is ${GITHUB_REF#refs/tags/}"
+          echo "CURRENT_TAG is ${CURRENT_TAG}"
 
       - name: Get current release name (title)
-        run: |
-          curl -s \
-          --request GET \
-          --url "${API_GITHUB_ENDPOINT}/repos/${MAIN_REPO}/releases/tags/${CURRENT_TAG}" \
-          --header "authorization: Bearer ${GH_PAT}" \
-          | jq ".name" \
-          | xargs -I {} echo "::set-env name=CURRENT_RELEASE_NAME::{}"
-
-      - name: Echo $CURRENT_RELEASE_NAME
         run: |
           echo "CURRENT_RELEASE_NAME is ${CURRENT_RELEASE_NAME}"
 
@@ -70,7 +58,7 @@ jobs:
         if: endsWith(env.CURRENT_RELEASE_NAME, '_released')
         uses: webfactory/ssh-agent@v0.2.0
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY_DOC }}
 
       - name: Run script
         if: endsWith(env.CURRENT_RELEASE_NAME, '_released')

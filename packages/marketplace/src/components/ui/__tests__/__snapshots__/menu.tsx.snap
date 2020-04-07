@@ -54,13 +54,13 @@ exports[`Menu should match a snapshot 1`] = `
         "url": "/client/help",
       },
       Object {
-        "callback": [Function],
-        "icon": <FaSignOutAlt
+        "icon": <FaCog
           className="nav-item-icon"
         />,
-        "key": "LOGOUT",
-        "title": "Logout",
+        "key": "SETTINGS",
+        "title": "Settings",
         "type": "SECONDARY",
+        "url": "/client/settings",
       },
     ]
   }

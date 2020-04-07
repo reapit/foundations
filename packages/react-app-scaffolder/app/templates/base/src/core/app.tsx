@@ -35,21 +35,21 @@ import globalCss from 'raw-loader!sass-loader!@reapit/elements/dist/index.css'
 
 const App = () => {
   <% if (!redux && !graphql) { %>
-    const { loginSession, refreshParams, getLoginSession, ...rest } = useAuth()
-    if (!loginSession && refreshParams) {
+    const { loginSession, refreshParams, getLoginSession, isFetchSession, ...rest } = useAuth()
+    if (!loginSession && refreshParams && !isFetchSession) {
       getLoginSession(refreshParams)
     }
   <% } %>
   <% if (graphql) { %>
-    const { loginSession, refreshParams, getLoginSession, ...rest } = useAuth()
-    if (!loginSession && refreshParams) {
+    const { loginSession, refreshParams, getLoginSession, isFetchSession, ...rest } = useAuth()
+    if (!loginSession && refreshParams && !isFetchSession) {
       getLoginSession(refreshParams)
     }
     const accessToken = loginSession?.accessToken || ''
   <% } %>
   return (
     <% if (!redux) { %>
-    <AuthContext.Provider value={{ loginSession, refreshParams, getLoginSession, ...rest }}>
+    <AuthContext.Provider value={{ loginSession, refreshParams, getLoginSession, isFetchSession, ...rest }}>
     <% } %>
     <% if (graphql) { %>
       <ApolloProvider client={getClient(accessToken, window.reapit.config.graphqlUri)}>

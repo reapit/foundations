@@ -2,17 +2,18 @@ import SearchWidget from '../components/search-widget.svelte'
 import { InitializerTheme } from '../../../common/styles/index'
 
 export interface SearchWidgeInitializers {
-  theme: InitializerTheme
+  theme: Partial<InitializerTheme>
   apiKey: string
-  target?: HTMLElement
+  parentSelector: string
 }
 
-export const ReapitSearchWidgetComponent = ({ target = document.body, apiKey, theme }: SearchWidgeInitializers) =>
+export const ReapitSearchWidgetComponent = ({ parentSelector, apiKey, theme }: SearchWidgeInitializers) =>
   new SearchWidget({
-    target,
+    target: document.querySelector(parentSelector) || document.body,
     props: {
       theme,
       apiKey,
+      parentSelector,
     },
   })
 

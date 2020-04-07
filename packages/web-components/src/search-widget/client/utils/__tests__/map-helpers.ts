@@ -7,22 +7,23 @@ import {
   centerMapToMarker,
   fitMapToBounds,
 } from '../map-helpers'
-import { property } from '../__mocks__/property'
+import { propertyStub } from '../__stubs__/property'
 import { DEFAULT_CENTER } from '../../../../common/utils/constants'
 import createGoogleMapsMock from '../__mocks__/mock-google-map'
+import { generateThemeClasses } from '../../../../common/styles/theme'
 
 describe('map-helper', () => {
   describe('getLatLng', () => {
     it('should run correctly', () => {
-      const result = getLatLng(property)
+      const result = getLatLng(propertyStub)
       expect(result).toEqual({
-        latitude: property?.address?.geolocation?.latitude,
-        longitude: property?.address?.geolocation?.longitude,
+        latitude: propertyStub?.address?.geolocation?.latitude,
+        longitude: propertyStub?.address?.geolocation?.longitude,
       })
     })
     it('should return default value when property address empty', () => {
       const newProperty = {
-        ...property,
+        ...propertyStub,
         address: {},
       }
       const result = getLatLng(newProperty)
@@ -34,7 +35,7 @@ describe('map-helper', () => {
     it('should run correctly', () => {
       const mockGoogleMap = createGoogleMapsMock()
       const mockMap = new mockGoogleMap.Map()
-      const result = getMarker(property, mockMap)
+      const result = getMarker(propertyStub, mockMap)
       expect(result).toBeDefined()
     })
   })
@@ -61,22 +62,22 @@ describe('map-helper', () => {
 
   describe('getPrice', () => {
     it('runs correctly', () => {
-      expect(getPrice(property, 'Rent')).toEqual('£0 MockRentFrequency')
-      expect(getPrice(property, 'Sale')).toEqual('Guide Price £0')
+      expect(getPrice(propertyStub, 'Rent')).toEqual('£0 MockRentFrequency')
+      expect(getPrice(propertyStub, 'Sale')).toEqual('Guide Price £0')
     })
   })
 
   describe('getMarker', () => {
     it('runs correctly', () => {
       const mockMap = new google.maps.Map(document.body)
-      const marker = getMarker(property, mockMap)
+      const marker = getMarker(propertyStub, mockMap)
       expect(marker).toBeInstanceOf(google.maps.Marker)
     })
   })
 
   describe('getInfoWindow', () => {
     it('runs correctly', () => {
-      const windowInfo = getInfoWindow(property, 'Rent', {})
+      const windowInfo = getInfoWindow(propertyStub, 'Rent', {}, generateThemeClasses({}, '#search-widget'))
       expect(windowInfo).toBeInstanceOf(google.maps.InfoWindow)
     })
   })
@@ -84,7 +85,7 @@ describe('map-helper', () => {
   describe('centerMapToMarker', () => {
     it('runs correctly', () => {
       const mockMap = new google.maps.Map(document.body)
-      centerMapToMarker(property, mockMap)
+      centerMapToMarker(propertyStub, mockMap)
       expect(mockMap.setCenter).toHaveBeenCalled()
       expect(mockMap.setZoom).toHaveBeenCalled()
     })
@@ -93,7 +94,7 @@ describe('map-helper', () => {
   describe('fitMapToBounds', () => {
     it('runs correctly', () => {
       const mockMap = new google.maps.Map(document.body)
-      fitMapToBounds([property], mockMap)
+      fitMapToBounds([propertyStub], mockMap)
       expect(mockMap.fitBounds).toHaveBeenCalled()
     })
   })

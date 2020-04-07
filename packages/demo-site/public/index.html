@@ -1,77 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="shortcut icon" href="./images/favicon.ico" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./styles/styles.css" />
-    <title>Reapit Demo Site</title>
+    <meta charset="utf8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Web Components</title>
+    <style>
+      #search-widget {
+        max-width: 1024px;
+        margin: 0 auto;
+      }
+    </style>
+    <link rel="stylesheet" href="https://web-components.reapit.cloud/search-widget.css" />
   </head>
 
   <body>
-    <!-- Navbar -->
-    <div id="navbar">
-      <!-- Menu Icon -->
-      <svg
-        preserveAspectRatio="xMidYMid meet"
-        xmlns="http://www.w3.org/2000/svg"
-        width="36"
-        height="36"
-        viewBox="0 0 24 24"
-      >
-        <path d="M0 0h24v24H0z" fill="none" />
-        <path id="path-bar" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
-      </svg>
+    <div id="search-widget"></div>
+    <script src="https://web-components.reapit.cloud/search-widget.js"></script>
+    <script>
+      const variantA = {
+        baseBackgroundColor: '#fff',
+        basefontSize: '16px',
+        basefontColor: '#556986',
+        inverseFontColor: '#fff',
+        secondaryfontColor: '#95aac9',
+        primaryHeadingFontSize: '22px',
+        secondaryHeadingFontSize: '18px',
+        baseFontFamily: '"Open Sans", sans-serif',
+        headingFontFamily: '"Montserrat", sans-serif',
+        primaryAccentColor: '#887e96',
+        secondaryAccentColor: '#7d9d88',
+        mapAccentColor: '',
+        breakPoints: {
+          mobile: '',
+          tablet: '',
+          laptop: '',
+          desktop: '',
+        },
+      }
 
-      <!-- Header -->
-      <!-- <h1>AGENT & SONS</h1> -->
-      <img src="./images/agent-and-son.png" />
+      const variantB = {
+        baseBackgroundColor: '#f9fbfd',
+        basefontSize: '14px',
+        basefontColor: '#12263f',
+        inverseFontColor: '#f9fbfd',
+        secondaryfontColor: '#1e2554',
+        primaryHeadingFontSize: '24px',
+        secondaryHeadingFontSize: '20px',
+        baseFontFamily: '"Roboto", sans-serif',
+        headingFontFamily: '"Open Sans", sans-serif',
+        primaryAccentColor: '#0061a8',
+        secondaryAccentColor: '#1e2554',
+        mapAccentColor: '#7bc9eb',
+        breakPoints: {
+          mobile: '',
+          tablet: '',
+          laptop: '',
+          desktop: '',
+        },
+      }
 
-      <!-- Empty div for align purpose -->
-      <div></div>
-    </div>
+      const variantC = {
+        baseBackgroundColor: '#4C566A',
+        basefontSize: '14px',
+        basefontColor: '#fff',
+        inverseFontColor: '#4C566A',
+        secondaryfontColor: '#88C0D0',
+        primaryHeadingFontSize: '28px',
+        secondaryHeadingFontSize: '24px',
+        baseFontFamily: '"Open Sans", sans-serif',
+        headingFontFamily: '"Roboto Slab", serif',
+        primaryAccentColor: '#A3BE8C',
+        secondaryAccentColor: '##88C0D0',
+        mapAccentColor: '#8FBCBB',
+        breakPoints: {
+          mobile: '',
+          tablet: '',
+          laptop: '',
+          desktop: '',
+        },
+      }
 
-    <!-- Widget -->
-    <div id="widget">
-      <img src="./images/header.jpg" />
-      <div id="reapit-search-widget-container">
-        <div id="reapit-search-widget"></div>
-      </div>
-    </div>
-    <div id="root"></div>
+      const params = new URLSearchParams(window.location.search)
 
-    <!-- Search results -->
-    <div id="reapit-search-widget-result"></div>
+      const variant = params.get('variant')
 
-    <!-- Our approach -->
-    <div id="approach">
-      <div id="our-approach">
-        <h1>Our Approach</h1>
-        <p>
-          Agent and Sons are an independent Estate Agent based in London,
-          incorporating a professional team offering services in Sales and
-          Lettings . Our dedicated Property Managers and Negotiators have a vast
-          knowledge in the local and surrounding areas which allows us to
-          provide a personal service.
-        </p>
-        <p>
-          Being an independent agent allows us to put our clients first. Whether
-          you are selling, letting, buying or renting our experienced and
-          friendly team can help.
-        </p>
-        <button>MORE</button>
-      </div>
-      <div id="img-approach">
-        <img src="./images/approach.jpg" />
-      </div>
-    </div>
-
-    <script src="https://web-components.reapit.com/search-widget.js"></script>
-    <script src="./scripts/theme.js"></script>
+      switch (variant) {
+        case 'A':
+          window.theme = variantA
+          break
+        case 'B':
+          window.theme = variantB
+          break
+        case 'C':
+          window.theme = variantC
+          break
+        default:
+          window.theme = {}
+      }
+    </script>
+    <script>
+      ReapitSearchWidgetComponent &&
+        new ReapitSearchWidgetComponent({
+          theme: window.theme,
+          apiKey: '',
+          parentSelector: '#search-widget',
+        })
+    </script>
   </body>
 </html>

@@ -56,7 +56,9 @@ export const getSessionCookie = (identifier: string = COOKIE_SESSION_KEY): Refre
   try {
     const session = hardtack.get(identifier)
     if (session) {
-      return JSON.parse(session) as RefreshParams
+      const marketplaceGlobalObject = getMarketplaceGlobalsByKey()
+      const mode = marketplaceGlobalObject ? 'DESKTOP' : 'WEB'
+      return { ...JSON.parse(session), mode } as RefreshParams
     }
     return null
   } catch {

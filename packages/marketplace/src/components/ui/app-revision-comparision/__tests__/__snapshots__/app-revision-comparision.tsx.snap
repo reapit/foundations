@@ -133,11 +133,11 @@ Never
 Get 
       notifications when a new deal is available."
       currentString="enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam 
-      pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras 
-      sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar 
-      elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla 
-      at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet 
-      proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum co"
+    pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras 
+    sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar 
+    elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla 
+    at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet 
+    proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum co"
       type="words"
     />
   </div>
@@ -164,6 +164,21 @@ Get
       className="mb-2"
     >
       Signout URIs
+    </h4>
+    <DiffViewer
+      changedString=""
+      currentString=""
+      type="words"
+    />
+  </div>
+  <div
+    className="mb-3"
+    key="limitToClientIds"
+  >
+    <h4
+      className="mb-2"
+    >
+      Private Apps
     </h4>
     <DiffViewer
       changedString=""
