@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`appointment-bookings it matches a snapshot 1`] = `
+exports[`appointment bookings it matches a snapshot 1`] = `
 <body>
   <div>
     <button
-      class="appoitment-bookings-select-button svelte-1ofeced"
+      class="appoitment-bookings-select-button svelte-1tnzqzy"
     >
       Select Appointment
     </button>
@@ -13,7 +13,7 @@ exports[`appointment-bookings it matches a snapshot 1`] = `
   </div>
   <div>
     <button
-      class="appoitment-bookings-select-button svelte-1ofeced"
+      class="appoitment-bookings-select-button svelte-1tnzqzy"
     >
       Select Appointment
     </button>
