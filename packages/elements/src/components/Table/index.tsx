@@ -28,11 +28,10 @@ export const Table: React.FC<TableProps> = ({
   maxHeight,
 }) => {
   // Use the state and functions returned from useTable to build your UI
-  const chiendo = useTable({
+  const { getTableProps, headerGroups, footerGroups, rows, prepareRow } = useTable({
     columns,
     data,
   })
-  const { getTableProps, headerGroups, footerGroups, rows, prepareRow } = chiendo
 
   // Render the UI for your table
   const renderTable = () => (
