@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Upload-context UploadDispatchContext should return correctly 1`] = `""`;
+
+exports[`Upload-context UploadStateContext should return correctly 1`] = `""`;
