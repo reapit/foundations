@@ -20,6 +20,7 @@ window.reapit = {
     googleAnalyticsKey: '',
     cognitoOAuthUrl: '',
     cognitoUserPoolId: '',
+    accessToken: '',
   },
 }
 
