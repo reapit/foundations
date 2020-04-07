@@ -4,18 +4,18 @@ import dayjs from 'dayjs'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { ReduxState } from '@/types/core'
+import { AppHttpTrafficEventState } from '@/reducers/app-http-traffic-event'
+import { httpTrafficPerDayRequestData } from '@/actions/app-http-traffic-event'
 
-import { appUsageStatsRequestData } from '@/actions/app-usage-stats'
 import { appInstallationsRequestData } from '@/actions/app-installations'
 import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import { getAppUsageStats } from '@/selector/analytics'
+import { getAppUsageStats, getAppHttpTraffic } from '@/selector/analytics'
 import { getDevelopers } from '@/selector/developer'
 import { getInstallations } from '@/selector/installations'
 
 import { FlexContainerBasic, Grid, GridItem, FlexContainerResponsive, DATE_TIME_FORMAT } from '@reapit/elements'
 import DeveloperInstallationsChart from '@/components/ui/developer-installations-chart'
-import DeveloperTrafficChart from '@/components/ui/developer-traffic-chart'
-import DeveloperTrafficTable from '@/components/ui/developer-traffic-table'
+import DeveloperHitsPerDayChart from '@/components/ui/developer-hits-per-day-chart'
 import InstallationTable, { InstallationModelWithAppName } from './installation-table'
 import FilterBar from './filter-bar'
 import ErrorBoundary from '@/components/hocs/error-boundary'
@@ -24,6 +24,7 @@ import styles from '@/styles/pages/analytics.scss?mod'
 import { AppInstallationsState } from '@/reducers/app-installations'
 import { DeveloperState } from '@/reducers/developer'
 import { AppUsageStatsState } from '@/reducers/app-usage-stats'
+import TrafficEventTable from './traffic-event-table'
 
 export type DetailedTabProps = {}
 
@@ -40,30 +41,32 @@ export const handleMapAppNameToInstallation = (
   })
 }
 
+const handleDefaultFilter = (developerAppDataArray: AppSummaryModel[]) => {
+  const orderredDeveloperAppDataArray = orderBy(developerAppDataArray, ['created'], ['asc'])
+  const appIds = orderredDeveloperAppDataArray.map((app: AppSummaryModel) => {
+    return app.id
+  })
+
+  const lastWeek = dayjs().subtract(1, 'week')
+  const lastMonday = lastWeek
+    .startOf('week')
+    .add(1, 'day')
+    .format(DATE_TIME_FORMAT.YYYY_MM_DD)
+  const lastSunday = lastWeek
+    .endOf('week')
+    .add(1, 'day')
+    .format(DATE_TIME_FORMAT.YYYY_MM_DD)
+
+  return {
+    lastMonday,
+    lastSunday,
+    appIds,
+  }
+}
+
 export const handleFetchAppUsageStatsDataUseCallback = (developerAppDataArray: AppSummaryModel[] = [], dispatch) => {
   return () => {
-    const orderredDeveloperAppDataArray = orderBy(developerAppDataArray, ['created'], ['asc'])
-    const appIds = orderredDeveloperAppDataArray.map((app: AppSummaryModel) => {
-      return app.id
-    })
-    const lastWeek = dayjs().subtract(1, 'week')
-    const lastMonday = lastWeek
-      .startOf('week')
-      .add(1, 'day')
-      .format(DATE_TIME_FORMAT.YYYY_MM_DD)
-    const lastSunday = lastWeek
-      .endOf('week')
-      .add(1, 'day')
-      .format(DATE_TIME_FORMAT.YYYY_MM_DD)
-
-    dispatch(
-      appUsageStatsRequestData({
-        appId: appIds,
-        dateFrom: lastMonday,
-        dateTo: lastSunday,
-      }),
-    )
-
+    const { lastMonday, lastSunday } = handleDefaultFilter(developerAppDataArray)
     dispatch(
       appInstallationsRequestData({
         installedDateFrom: lastMonday,
@@ -80,10 +83,34 @@ export const handleFetchAppUsageStatsDataUseEffect = (fetchAppUsageStatsData: ()
   }
 }
 
+export const handleFetchHttpTrafficPerDayDataUseCallback = (
+  developerAppDataArray: AppSummaryModel[] = [],
+  dispatch,
+) => () => {
+  const { lastMonday, lastSunday, appIds } = handleDefaultFilter(developerAppDataArray)
+
+  if (appIds.length) {
+    dispatch(
+      httpTrafficPerDayRequestData({
+        applicationId: appIds,
+        dateFrom: lastMonday,
+        dateTo: lastSunday,
+      }),
+    )
+  }
+}
+
+export const handleFetchHttpTrafficPerDayDataUseEffect = (fetchHttpTrafficPerDayData: () => void) => {
+  return () => {
+    fetchHttpTrafficPerDayData()
+  }
+}
+
 export type MapState = {
   installations: AppInstallationsState
   developer: DeveloperState
   appUsageStats: AppUsageStatsState
+  appHttpTraffic: AppHttpTrafficEventState
 }
 
 export const mapState = (state: ReduxState): MapState => {
@@ -91,12 +118,13 @@ export const mapState = (state: ReduxState): MapState => {
     installations: getInstallations(state),
     developer: getDevelopers(state),
     appUsageStats: getAppUsageStats(state),
+    appHttpTraffic: getAppHttpTraffic(state),
   }
 }
 
 export const DetailedTab: React.FC<DetailedTabProps> = () => {
   const dispatch = useDispatch()
-  const { appUsageStats, developer, installations } = useSelector(mapState)
+  const { developer, installations, appHttpTraffic } = useSelector(mapState)
   const installationAppDataArray = installations?.installationsAppData?.data
   const developerDataArray = developer?.developerData?.data?.data
   const installationAppDataArrayWithName = React.useMemo(
@@ -109,12 +137,21 @@ export const DetailedTab: React.FC<DetailedTabProps> = () => {
     [developerDataArray],
   )
 
+  const fetchHttpTrafficPerDayData = React.useCallback(
+    handleFetchHttpTrafficPerDayDataUseCallback(developerDataArray, dispatch),
+    [developerDataArray],
+  )
+
   React.useEffect(handleFetchAppUsageStatsDataUseEffect(fetchAppUsageStatsData), [fetchAppUsageStatsData])
 
-  const appUsageStatsLoading = appUsageStats?.loading
-  const appUsageStatsData = appUsageStats?.appUsageStatsData || {}
+  React.useEffect(handleFetchHttpTrafficPerDayDataUseEffect(fetchHttpTrafficPerDayData), [fetchHttpTrafficPerDayData])
+
   const developerAppsData = developer?.developerData?.data || {}
   const installationsAppLoading = installations?.loading
+
+  const appHttpTrafficPerDayLoading = appHttpTraffic?.perDayLoading
+  const appHttpTrafficPerDayData = appHttpTraffic?.trafficEvents?.requestsByDate || []
+  const trafficEvents = appHttpTraffic?.trafficEvents
 
   return (
     <ErrorBoundary>
@@ -123,18 +160,10 @@ export const DetailedTab: React.FC<DetailedTabProps> = () => {
           <FilterBar developerAppsData={developerAppsData} installationAppDataArray={installationAppDataArray || []} />
           <Grid isMultiLine className="mt-5">
             <GridItem>
-              <DeveloperTrafficChart
-                stats={appUsageStatsData}
-                apps={developerAppsData}
-                loading={appUsageStatsLoading}
-              />
+              <DeveloperHitsPerDayChart stats={appHttpTrafficPerDayData} loading={appHttpTrafficPerDayLoading} />
             </GridItem>
             <GridItem>
-              <DeveloperTrafficTable
-                stats={appUsageStatsData}
-                apps={developerAppsData}
-                loading={appUsageStatsLoading}
-              />
+              <TrafficEventTable trafficEvents={trafficEvents} loading={appHttpTrafficPerDayLoading} />
             </GridItem>
           </Grid>
           <InstallationTable

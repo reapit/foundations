@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "0.5.49",
+  "version": "0.5.50",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "homepage": "https://github.com/reapit/foundations#readme",
   "bugs": {
@@ -54,7 +54,7 @@
     "react-google-map": "^3.1.1",
     "react-google-maps-loader": "^4.2.5",
     "react-icons": "^3.7.0",
-    "react-table": "7.0.0-alpha.35",
+    "react-table": "7.0.4",
     "styled-components": "^4.4.1"
   },
   "devDependencies": {
