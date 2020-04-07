@@ -1,14 +1,14 @@
 import { writable, Writable } from 'svelte/store'
 import { SearchWidgeInitializers } from './index'
-import { PropertyImageModel, PropertyModel } from '@reapit/foundations-ts-definitions'
+import { PickedPropertyModel, PickedPropertyImageModel } from '../../types'
 import { ThemeClasses } from '../../../common/styles'
 
 export interface SearchWidgetStore {
   initializers: SearchWidgeInitializers
   themeClasses: ThemeClasses
-  properties: PropertyModel[]
-  propertyImages: Record<string, PropertyImageModel> | null
-  selectedProperty: PropertyModel | null
+  properties: PickedPropertyModel[]
+  propertyImages: Record<string, PickedPropertyImageModel> | null
+  selectedProperty: PickedPropertyModel | null
   selectedMarker: google.maps.Marker | null
   searchType: 'Sale' | 'Rent'
   searchKeyword: string
