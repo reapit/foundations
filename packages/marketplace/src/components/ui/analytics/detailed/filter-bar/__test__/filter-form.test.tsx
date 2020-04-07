@@ -11,6 +11,7 @@ import {
 } from '../filter-form'
 import { appUsageStatsRequestData } from '@/actions/app-usage-stats'
 import { appInstallationsRequestData } from '@/actions/app-installations'
+import { httpTrafficPerDayRequestData } from '@/actions/app-http-traffic-event'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 
@@ -73,6 +74,13 @@ describe('FilterForm', () => {
           installedDateTo: mockFormValues.dateTo,
         }),
       )
+
+      expect(spyDispatch).toBeCalledWith(
+        httpTrafficPerDayRequestData({
+          ...mockFormValues,
+          applicationId: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
+        }),
+      )
     })
 
     it('should run correctly', () => {
@@ -100,6 +108,13 @@ describe('FilterForm', () => {
           pageSize: GET_ALL_PAGE_SIZE,
           installedDateFrom: mockFormValues.dateFrom,
           installedDateTo: mockFormValues.dateTo,
+        }),
+      )
+
+      expect(spyDispatch).toBeCalledWith(
+        httpTrafficPerDayRequestData({
+          ...mockFormValues,
+          applicationId: mockFormValues.appId,
         }),
       )
     })

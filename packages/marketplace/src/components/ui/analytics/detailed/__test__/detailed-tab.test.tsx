@@ -16,6 +16,7 @@ import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { ReduxState } from '@/types/core'
 import { appUsageStatsRequestData } from '@/actions/app-usage-stats'
 import { appInstallationsRequestData } from '@/actions/app-installations'
+import { httpTrafficPerDayRequestData } from '@/actions/app-http-traffic-event'
 import { developerState } from '@/sagas/__stubs__/developer'
 
 0
@@ -89,6 +90,13 @@ describe('OverviewPage', () => {
           installedDateFrom: '2019-09-30',
           installedDateTo: '2019-10-06',
           pageSize: 9999,
+        }),
+      )
+      expect(spyDispatch).toBeCalledWith(
+        httpTrafficPerDayRequestData({
+          applicationId: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
+          dateFrom: '2019-09-30',
+          dateTo: '2019-10-06',
         }),
       )
     })
