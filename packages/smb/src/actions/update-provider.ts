@@ -1,4 +1,4 @@
-import { Action, UploadResults } from './reducers'
+import { Action, UploadResults } from '@/reducers/update-provider'
 
 export const startUpload = (totalItem: number): Action => ({
   type: 'START_UPLOAD',

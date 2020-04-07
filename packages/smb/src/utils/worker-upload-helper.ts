@@ -1,7 +1,7 @@
 import { ExecutionResult, GraphQLError } from 'graphql'
 import { CreateOfficeModel } from '@reapit/foundations-ts-definitions'
 import { Cell } from '@reapit/elements'
-import { UploadResultDetail } from '@/components/providers/upload-provider/reducers'
+import { UploadResultDetail } from '@/reducers/update-provider'
 
 export interface WorkerMessage {
   from: 'FROM_MAIN' | 'FROM_WORKER'

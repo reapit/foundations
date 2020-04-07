@@ -1,4 +1,4 @@
-import { startUpload, setUploadProgress, completeUpload, resetState } from '../actions'
+import { startUpload, setUploadProgress, completeUpload, resetState } from '../update-provider'
 
 describe('Actions', () => {
   test('startUpload', () => {

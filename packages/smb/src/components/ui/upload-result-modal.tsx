@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Modal, H4, Button } from '@reapit/elements'
-import { UploadResults } from '@/components/providers/upload-provider/reducers'
+import { UploadResults } from '@/reducers/update-provider'
 import styled from 'styled-components'
 
 export const TD = styled.td`

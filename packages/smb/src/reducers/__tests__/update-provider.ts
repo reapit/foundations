@@ -1,4 +1,4 @@
-import { reducer, initialState, Action } from '../reducers'
+import { reducer, initialState, Action } from '../update-provider'
 
 describe('reducer', () => {
   test('should handle START_UPLOAD', () => {

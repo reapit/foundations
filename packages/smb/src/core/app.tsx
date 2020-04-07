@@ -6,7 +6,7 @@ import { useAuth } from '@/hooks/use-auth'
 import { AuthContext } from '@/context'
 import getClient from '@/graphql/client'
 import Router from './router'
-import UploadProvider from '@/components/providers/upload-provider/upload-provider'
+import UploadProvider from '@/components/providers/upload-provider'
 
 const GlobalStyle = createGlobalStyle`
   body {

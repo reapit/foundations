@@ -2,8 +2,8 @@ import * as React from 'react'
 import { UploadStateContext, UploadDispatchContext } from '@/context'
 import { UploadProgress } from '@reapit/elements'
 import { UploadResultModal } from '@/components/ui/upload-result-modal'
-import { reducer, initialState } from './reducers'
-import { resetState } from './actions'
+import { reducer, initialState } from '@/reducers/update-provider'
+import { resetState } from '@/actions/update-provider'
 
 export type UploadProviderProps = { children: JSX.Element }
 

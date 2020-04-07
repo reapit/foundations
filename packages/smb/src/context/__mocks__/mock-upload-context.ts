@@ -1,4 +1,4 @@
-import { State, Dispatch } from '@/components/providers/upload-provider/reducers'
+import { State, Dispatch } from '@/reducers/update-provider'
 
 export const mockUploadStateContext: State = {
   status: 'IDLE',
