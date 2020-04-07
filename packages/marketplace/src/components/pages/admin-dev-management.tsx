@@ -126,7 +126,7 @@ export const AdminDevManagement: React.FC<AdminDevManagementProps> = ({
         <H3>App Management</H3>
         <AdminDevManagementFilterForm filterValues={filterValues} onSearch={onSearch} />
         <Content className={styles.contentBlock}>
-          <Table scrollable={true} loading={false} data={data.data} columns={columns} />
+          <Table scrollable={true} loading={false} data={data.data || []} columns={columns} />
         </Content>
         <Pagination
           onChange={onPageChange}

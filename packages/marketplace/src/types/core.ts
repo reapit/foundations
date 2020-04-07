@@ -21,6 +21,7 @@ import { AppInstallationsState } from '@/reducers/app-installations'
 import { AppUsageStatsState } from '@/reducers/app-usage-stats'
 import { NotificationMessageState } from '@/reducers/notification-message'
 import { AdminStatsState } from '@/reducers/admin-stats'
+import { AppHttpTrafficEventState } from '@/reducers/app-http-traffic-event'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -81,4 +82,5 @@ export interface ReduxState {
   appUsageStats: AppUsageStatsState
   noticationMessage: NotificationMessageState
   adminStats: AdminStatsState
+  appHttpTraffic: AppHttpTrafficEventState
 }
