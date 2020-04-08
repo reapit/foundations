@@ -1,8 +1,8 @@
 export const HelpLinks = {
   WHATS_NEW: '/developer/api-docs#whats-new',
   BUG_REPORT:
-    'https://github.com/reapit/foundations/issues/new?labels=bug&projects=reapit/foundations/2&body=Summary:%0d%0dSteps%20to%20reproduce:%0d%0dExpected%20Results:%0d%0dActual%20Results',
+    'https://github.com/reapit/foundations/issues/new?assignees=&labels=bug%2C+needs-triage&template=bug_report.md&title=',
   API_REQUEST:
-    'https://github.com/reapit/foundations/issues/new?labels=feature-request&projects=reapit/foundations/3&body=Summary%20of%20Request:%0d%0dExpected%20Behaviour',
+    'https://github.com/reapit/foundations/issues/new?assignees=&labels=feature-request%2C+needs-triage&template=feature_request.md&title=',
   ROADMAP: 'https://github.com/reapit/foundations/milestones?direction=asc&sort=due_date&state=open',
 }
