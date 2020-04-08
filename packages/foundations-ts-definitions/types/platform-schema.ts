@@ -726,6 +726,25 @@ export interface AppointmentModel {
    */
   recurring?: boolean
   /**
+   * Recurrence information relating to the appointment
+   */
+  recurrence?: {
+    /**
+     * The recurrence interval
+     */
+    interval?: number // int32
+    /**
+     * The recurrence type
+     */
+    type?: string
+    /**
+     * The date the appointment recurs until
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    until?: string // date-time
+  }
+  /**
    * A flag denoting whether or not the appointment has been cancelled
    */
   cancelled?: boolean
@@ -5580,6 +5599,25 @@ export interface PagedResultAppointmentModel_ {
      */
     recurring?: boolean
     /**
+     * Recurrence information relating to the appointment
+     */
+    recurrence?: {
+      /**
+       * The recurrence interval
+       */
+      interval?: number // int32
+      /**
+       * The recurrence type
+       */
+      type?: string
+      /**
+       * The date the appointment recurs until
+       * example:
+       * 2019-08-14T12:30:02.0000000Z
+       */
+      until?: string // date-time
+    }
+    /**
      * A flag denoting whether or not the appointment has been cancelled
      */
     cancelled?: boolean
@@ -9253,6 +9291,25 @@ export interface PropertyTenureModel {
    * 2019-08-14
    */
   expiry?: string // date
+}
+/**
+ * Representation of an appointments recurrence details
+ */
+export interface RecurrenceModel {
+  /**
+   * The recurrence interval
+   */
+  interval?: number // int32
+  /**
+   * The recurrence type
+   */
+  type?: string
+  /**
+   * The date the appointment recurs until
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  until?: string // date-time
 }
 /**
  * Representation of a source of business
