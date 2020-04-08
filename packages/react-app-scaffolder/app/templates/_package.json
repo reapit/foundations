@@ -14,7 +14,7 @@
     <% if (isFoundation) { %>
     <% if (stylesSolution === 'styledComponents') { %>
     "build:prod": "node '../../scripts/webpack/webpack-styled-components-prod.js'",
-    "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ../../scripts/webpack/webpack.base.dev.js",
+    "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ../../scripts/webpack/webpack.sass.dev.js",
     <% } else { %>
     "build:prod": "node '../../scripts/webpack/webpack-sass-prod/index.js'",
     "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ../../scripts/webpack/webpack.sass.dev.js",
@@ -115,14 +115,15 @@
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.4.1",
     "sass-loader": "^7.1.0",
-    "node-sass": "^4.12.0"
+    "node-sass": "^4.12.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "style-loader": "^1.1.3",
+    "css-loader": "^3.5.1"
     <% if (stylesSolution === 'sass') { %>
-    ,"css-loader": "^3.0.0",
-      "loader-utils": "^1.2.3",
+      ,"loader-utils": "^1.2.3",
       "mini-css-extract-plugin": "^0.7.0",
       "purgecss": "^1.3.0",
-      "purgecss-whitelister": "^2.4.0",
-      "style-loader": "^0.23.1"
+      "purgecss-whitelister": "^2.4.0"
     <% } %>
     <% if (redux) { %>
     ,"@redux-saga/testing-utils": "^1.0.5",

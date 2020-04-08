@@ -12,8 +12,8 @@ import { propertyStub } from '../__stubs__/property'
 describe('results helpers', () => {
   describe('getPrice', () => {
     it('runs correctly', () => {
-      expect(getPrice(propertyStub, 'Rent')).toEqual('£0 MockRentFrequency')
-      expect(getPrice(propertyStub, 'Sale')).toEqual('Guide Price £0')
+      expect(getPrice(propertyStub, 'Rent')).toEqual('£750 Monthly')
+      expect(getPrice(propertyStub, 'Sale')).toEqual('£250,000')
     })
   })
   it('runs formatPriceAndQuantifier correctly', () => {
