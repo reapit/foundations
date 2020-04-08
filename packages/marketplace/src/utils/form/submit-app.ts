@@ -72,7 +72,7 @@ export const validate = (values: CustomCreateAppModel) => {
     errors.signoutUris = 'Invalid sign out uri(s)'
   }
 
-  if (values.isPrivateApp && values.limitToClientIds?.length === 0) {
+  if (values.isPrivateApp === 'yes' && values.limitToClientIds?.length === 0) {
     errors.limitToClientIds = 'At least one Customer ID is required'
   }
 
