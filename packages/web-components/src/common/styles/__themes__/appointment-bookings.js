@@ -1,8 +1,9 @@
 const defaultVariant = {
   // appointment-bookings's specific styles
-  itemBackgroundColor: '#ececec',
-  itemBackgroundColorHover: 'white',
-  navigateButtonColor: 'pink',
+  dateCellHeaderBackgroundColor: '#ececec',
+  timeCellBackgroundColor: '#dfdfdf',
+  timeCellBackgroundColorHover: '#d3d3d3',
+  timeCellsContainerBackgroundColor: '#f9f9f9',
 
   // base
   baseBackgroundColor: '#f9fbfd',

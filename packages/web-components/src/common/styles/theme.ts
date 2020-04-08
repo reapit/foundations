@@ -1,4 +1,3 @@
-/* istanbul ignore file */
 import { css } from 'emotion'
 
 export interface InitializerTheme {
@@ -110,12 +109,12 @@ export const generateThemeClasses = (
       }
     `,
     button: css`
-    ${parentSelector || 'body'} & {
-      font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'};
-      font-size: ${secondaryHeadingFontSize || '18px'};
-      color: ${primaryAccentColor || '#000'};
-      border: 1px solid ${primaryAccentColor || 'grey'};
-      background: ${baseBackgroundColor || '#fff'};
+      ${parentSelector || 'body'} & {
+        font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'};
+        font-size: ${secondaryHeadingFontSize || '18px'};
+        color: ${primaryAccentColor || '#000'};
+        border: 1px solid ${primaryAccentColor || 'grey'};
+        background: ${baseBackgroundColor || '#fff'};
 
         color: ${inverseFontColor || '#fff'};
       }
@@ -123,8 +122,7 @@ export const generateThemeClasses = (
       :last-child {
         border-left: none;
       }
-    }
-  `,
+    `,
     input: css`
       ${parentSelector || 'body'} & {
         font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'};

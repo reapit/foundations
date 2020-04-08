@@ -8,8 +8,8 @@
   .time-cell-container {
     padding: 1em;
     margin-bottom: 2px;
-    height: 5vw;
     cursor: pointer;
+    min-height: 50px
   }
 
   .time-cell-container-visible {
@@ -21,6 +21,6 @@
   }
 </style>
 
-<div class="time-cell-container {startTime ? 'time-cell-container-visible' : 'time-cell-container-not-visible'} {$themeStore.item}">
+<div class="time-cell-container {startTime ? 'time-cell-container-visible' : 'time-cell-container-not-visible'} {$themeStore.timeCell}">
   <div>{startTime || ''}</div>
 </div>

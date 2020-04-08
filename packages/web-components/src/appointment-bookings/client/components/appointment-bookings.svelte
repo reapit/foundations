@@ -1,13 +1,14 @@
 <script>
   import { weekStore } from '../core/store/week-store'
   import { themeStore } from '../core/store/theme-store'
+  import {onMount} from 'svelte'
   import Fa from 'svelte-fa'
   import ClickOutSide from './click-out-side.svelte'
-  import {css} from 'emotion'
 
   import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
   import { resetCSS, generateThemeClasses } from '../../../common/styles'
   import { generateAppointmentBookingThemeClasses } from '../core/theme'
+  import DateTimePicker from './date-time-picker.svelte'
 
   export let theme
   export let parentSelector
@@ -17,7 +18,7 @@
 
   let isModalOpen = false
 
-  let toggleModal = e => {
+  const toggleModal = e => {
     isModalOpen = !isModalOpen
 
     // click event of component 'ClickOutSide' is added before this event buble up -> break toggle behavior
@@ -30,9 +31,11 @@
   }
   const { button, svgNavigation } = themeClasses
 
-  themeStore.set(themeClasses)
+onMount(()=>{
 
-  import DateTimePicker from './date-time-picker.svelte'
+  themeStore.set(themeClasses)
+})
+
 </script>
 
 <style>

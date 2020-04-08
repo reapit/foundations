@@ -4,17 +4,17 @@ exports[`data-cell it matches a snapshot 1`] = `
 <body>
   <div>
     <div
-      class="date-cell-container svelte-qkykrs"
+      class="date-cell-container svelte-hlfy7d"
       title="Click on the cell for more detail"
     >
       <div
-        class="date-cell-header svelte-qkykrs"
+        class=" svelte-hlfy7d"
       >
-        Tue Apr 07
+        Wed Apr 08
       </div>
        
       <div
-        class="time-cell-container svelte-qkykrs"
+        class=" svelte-hlfy7d"
       />
     </div>
   </div>
