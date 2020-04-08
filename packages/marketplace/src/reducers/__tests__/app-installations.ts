@@ -45,6 +45,46 @@ describe('app-installations reducer', () => {
     expect(newState).toEqual(expected)
   })
 
+  '  -------------------------------------------------'
+
+  it('should return loading true when APP_INSTALLATIONS_FILTER_REQUEST_DATA action is called', () => {
+    const newState = appInstallationsReducer(defaultState, {
+      type: ActionTypes.APP_INSTALLATIONS_FILTER_REQUEST_DATA as ActionType,
+      data: null,
+    })
+    const expected = {
+      ...defaultState,
+      loadingFilter: true,
+    }
+    expect(newState).toEqual(expected)
+  })
+
+  it('should return installationsAppData when APP_INSTALLATIONS_FILTER_RECEIVE_DATA action is called', () => {
+    const newState = appInstallationsReducer(defaultState, {
+      type: ActionTypes.APP_INSTALLATIONS_FILTER_RECEIVE_DATA as ActionType,
+      data: installationStub,
+    })
+    const expected = {
+      ...defaultState,
+      installationsFilteredAppData: installationStub,
+    }
+    expect(newState).toEqual(expected)
+  })
+
+  it('should return loading false when APP_INSTALLATIONS_FILTER_REQUEST_DATA_FAILURE action is called', () => {
+    const newState = appInstallationsReducer(defaultState, {
+      type: ActionTypes.APP_INSTALLATIONS_FILTER_REQUEST_DATA_FAILURE as ActionType,
+      data: null,
+    })
+    const expected = {
+      ...defaultState,
+      loadingFilter: false,
+    }
+    expect(newState).toEqual(expected)
+  })
+
+  '  -------------------------------------------------'
+
   it('should return formState when APP_INSTALLATIONS_SET_FORM_STATEL action is called', () => {
     const newState = appInstallationsReducer(defaultState, {
       type: ActionTypes.APP_INSTALLATIONS_SET_FORM_STATE as ActionType,

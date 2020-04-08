@@ -1,12 +1,6 @@
 import * as React from 'react'
-import { Dispatch } from 'redux'
 import dayjs from 'dayjs'
-import { useDispatch } from 'react-redux'
 import { Button, ButtonGroup, Grid, GridItem, DATE_TIME_FORMAT } from '@reapit/elements'
-import { appUsageStatsRequestData } from '@/actions/app-usage-stats'
-import { appInstallationsRequestData } from '@/actions/app-installations'
-import { httpTrafficPerDayRequestData } from '@/actions/app-http-traffic-event'
-import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 
 export type DefaultFilterGroupProps = {
   appIds: string[]
@@ -25,6 +19,21 @@ export type DateParams = {
   dateFrom: string
   dateTo: string
 }
+
+export const filterButtons = [
+  {
+    text: 'Yesterday',
+    filterType: FilterType.YESTERDAY,
+  },
+  {
+    text: 'Last Week',
+    filterType: FilterType.LAST_WEEK,
+  },
+  {
+    text: 'Last Month',
+    filterType: FilterType.LAST_MONTH,
+  },
+]
 
 export const prepareDefaultFilterDateParams = () => {
   const yesterday = dayjs()
@@ -66,64 +75,27 @@ export const prepareDefaultFilterDateParams = () => {
 
 export const handleFilter = (
   dateParams: DateParams,
-  appIds: string[],
-  clientIds: string[],
   setDateFrom: (date: string) => void,
   setDateTo: (date: string) => void,
-  dispatch: Dispatch,
 ) => {
   const { dateFrom, dateTo } = dateParams
 
   setDateFrom(dateFrom)
   setDateTo(dateTo)
-
-  dispatch(
-    appUsageStatsRequestData({
-      ...dateParams,
-      appId: appIds,
-    }),
-  )
-
-  dispatch(
-    appInstallationsRequestData({
-      appId: appIds,
-      clientId: clientIds,
-      pageSize: GET_ALL_PAGE_SIZE,
-      installedDateFrom: dateFrom,
-      installedDateTo: dateTo,
-    }),
-  )
-
-  dispatch(
-    httpTrafficPerDayRequestData({
-      applicationId: appIds,
-      customerId: clientIds,
-      dateFrom,
-      dateTo,
-    }),
-  )
 }
 
-export const handleFilterButtonClick = (
-  filterType,
-  appIds,
-  clientIds,
-  setDateFrom,
-  setDateTo,
-  dispatch,
-  setIsActive,
-) => {
+export const handleFilterButtonClick = (filterType, setDateFrom, setDateTo, setIsActive) => {
   return () => {
     const { yesterdayParams, lastWeekParams, lastMonthParams } = prepareDefaultFilterDateParams()
     switch (filterType) {
       case FilterType.YESTERDAY:
-        handleFilter(yesterdayParams, appIds, clientIds, setDateFrom, setDateTo, dispatch)
+        handleFilter(yesterdayParams, setDateFrom, setDateTo)
         break
       case FilterType.LAST_WEEK:
-        handleFilter(lastWeekParams, appIds, clientIds, setDateFrom, setDateTo, dispatch)
+        handleFilter(lastWeekParams, setDateFrom, setDateTo)
         break
       case FilterType.LAST_MONTH:
-        handleFilter(lastMonthParams, appIds, clientIds, setDateFrom, setDateTo, dispatch)
+        handleFilter(lastMonthParams, setDateFrom, setDateTo)
         break
       default:
         break
@@ -137,11 +109,8 @@ export const renderFiterButtons = (
   buttonFilterType,
   isActive,
   onFilterButtonClick,
-  appIds,
-  clientIds,
   setDateFrom,
   setDateTo,
-  dispatch,
   setIsActive,
 ) => {
   return (
@@ -149,7 +118,7 @@ export const renderFiterButtons = (
       type="button"
       className={`${isActive === buttonFilterType && 'is-info'}`}
       variant="secondary"
-      onClick={onFilterButtonClick(buttonFilterType, appIds, clientIds, setDateFrom, setDateTo, dispatch, setIsActive)}
+      onClick={onFilterButtonClick(buttonFilterType, setDateFrom, setDateTo, setIsActive)}
       fullWidth={false}
     >
       {buttonText}
@@ -157,29 +126,8 @@ export const renderFiterButtons = (
   )
 }
 
-export const filterButtons = [
-  {
-    text: 'Yesterday',
-    filterType: FilterType.YESTERDAY,
-  },
-  {
-    text: 'Last Week',
-    filterType: FilterType.LAST_WEEK,
-  },
-  {
-    text: 'Last Month',
-    filterType: FilterType.LAST_MONTH,
-  },
-]
-
-export const DefaultFilterGroup: React.FC<DefaultFilterGroupProps> = ({
-  appIds,
-  clientIds,
-  setDateFrom,
-  setDateTo,
-}) => {
+export const DefaultFilterGroup: React.FC<DefaultFilterGroupProps> = ({ setDateFrom, setDateTo }) => {
   const [isActive, setIsActive] = React.useState(FilterType.LAST_WEEK)
-  const dispatch = useDispatch()
   const onFilterButtonClick = React.useCallback(handleFilterButtonClick, [])
 
   return (
@@ -196,11 +144,8 @@ export const DefaultFilterGroup: React.FC<DefaultFilterGroupProps> = ({
                 button.filterType,
                 isActive,
                 onFilterButtonClick,
-                appIds,
-                clientIds,
                 setDateFrom,
                 setDateTo,
-                dispatch,
                 setIsActive,
               )
             })}

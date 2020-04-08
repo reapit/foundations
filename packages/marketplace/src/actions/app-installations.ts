@@ -33,6 +33,16 @@ export const appInstallationsReceiveData = actionCreator<PagedResultInstallation
 export const appInstallationsRequestDataFailure = actionCreator<void>(
   ActionTypes.APP_INSTALLATIONS_REQUEST_DATA_FAILURE,
 )
+export const appInstallationsFilterRequestData = actionCreator<InstallationParams>(
+  ActionTypes.APP_INSTALLATIONS_FILTER_REQUEST_DATA,
+)
+export const appInstallationsFilterReceiveData = actionCreator<PagedResultInstallationModel_>(
+  ActionTypes.APP_INSTALLATIONS_FILTER_RECEIVE_DATA,
+)
+export const appInstallationsFilterRequestDataFailure = actionCreator<void>(
+  ActionTypes.APP_INSTALLATIONS_FILTER_REQUEST_DATA_FAILURE,
+)
+
 export const appInstallationsRequestInstall = actionCreator<InstallParams>(
   ActionTypes.APP_INSTALLATIONS_REQUEST_INSTALL,
 )

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Dispatch } from 'redux'
 import { useDispatch } from 'react-redux'
 import dayjs from 'dayjs'
-import { appInstallationsRequestData } from '@/actions/app-installations'
+import { appInstallationsFilterRequestData } from '@/actions/app-installations'
 import { httpTrafficPerDayRequestData } from '@/actions/app-http-traffic-event'
 import { Grid, GridItem, DatePicker, SelectBox } from '@reapit/elements'
 import { Form, Formik } from 'formik'
@@ -54,7 +54,7 @@ export const handleAutoSave = (developerApps: AppSummaryModel[], clientIds: stri
       return app.id || ''
     })
     dispatch(
-      appInstallationsRequestData({
+      appInstallationsFilterRequestData({
         appId: appId || appIds,
         clientId: clientId || clientIds,
         pageSize: GET_ALL_PAGE_SIZE,

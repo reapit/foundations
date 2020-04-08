@@ -6,8 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { AppHttpTrafficEventState } from '@/reducers/app-http-traffic-event'
 import { httpTrafficPerDayRequestData } from '@/actions/app-http-traffic-event'
-
-import { appInstallationsRequestData } from '@/actions/app-installations'
+import { appInstallationsRequestData, appInstallationsFilterRequestData } from '@/actions/app-installations'
 import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { getAppUsageStats, getAppHttpTraffic } from '@/selector/analytics'
 import { getDevelopers } from '@/selector/developer'
@@ -68,9 +67,14 @@ export const handleFetchAppUsageStatsDataUseCallback = (developerAppDataArray: A
   return () => {
     const { lastMonday, lastSunday } = handleDefaultFilter(developerAppDataArray)
     dispatch(
-      appInstallationsRequestData({
+      appInstallationsFilterRequestData({
         installedDateFrom: lastMonday,
         installedDateTo: lastSunday,
+        pageSize: GET_ALL_PAGE_SIZE,
+      }),
+    )
+    dispatch(
+      appInstallationsRequestData({
         pageSize: GET_ALL_PAGE_SIZE,
       }),
     )
@@ -126,10 +130,16 @@ export const DetailedTab: React.FC<DetailedTabProps> = () => {
   const dispatch = useDispatch()
   const { developer, installations, appHttpTraffic } = useSelector(mapState)
   const installationAppDataArray = installations?.installationsAppData?.data
+  const installationFilterAppDataArray = installations?.installationsFilteredAppData?.data
   const developerDataArray = developer?.developerData?.data?.data
+
   const installationAppDataArrayWithName = React.useMemo(
     handleMapAppNameToInstallation(installationAppDataArray, developerDataArray),
     [installationAppDataArray, developerDataArray],
+  )
+  const installationFilterAppDataArrayWithName = React.useMemo(
+    handleMapAppNameToInstallation(installationFilterAppDataArray, developerDataArray),
+    [installationFilterAppDataArray, developerDataArray],
   )
 
   const fetchAppUsageStatsData = React.useCallback(
@@ -168,13 +178,17 @@ export const DetailedTab: React.FC<DetailedTabProps> = () => {
           </Grid>
           <InstallationTable
             installedApps={installationAppDataArrayWithName}
+            filteredInstalledApps={installationFilterAppDataArrayWithName}
             installations={installations}
             developer={developer}
             loading={installationsAppLoading}
           />
           <Grid>
             <GridItem className="is-half">
-              <DeveloperInstallationsChart data={installationAppDataArrayWithName} loading={installationsAppLoading} />
+              <DeveloperInstallationsChart
+                data={installationFilterAppDataArrayWithName}
+                loading={installationsAppLoading}
+              />
             </GridItem>
           </Grid>
         </FlexContainerResponsive>

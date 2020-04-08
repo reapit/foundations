@@ -105,10 +105,11 @@ export const installationTableColumn = [
 
 export const InstallationTable: React.FC<{
   installedApps: InstallationModelWithAppName[]
+  filteredInstalledApps: InstallationModelWithAppName[]
   installations?: AppInstallationsState
   developer?: DeveloperState
   loading?: boolean
-}> = ({ installedApps, installations, developer, loading }) => {
+}> = ({ installedApps, filteredInstalledApps, installations, developer, loading }) => {
   const [pageNumber, setPageNumber] = React.useState<number>(1)
 
   const developerDataArray = developer?.developerData?.data?.data ?? []
@@ -117,7 +118,10 @@ export const InstallationTable: React.FC<{
     installedApps,
     developerDataArray,
   ])
-  const memoizedData = React.useMemo(handleUseMemoData(installedApps, pageNumber), [installedApps, pageNumber])
+  const memoizedData = React.useMemo(handleUseMemoData(filteredInstalledApps, pageNumber), [
+    filteredInstalledApps,
+    pageNumber,
+  ])
 
   return (
     <div>
@@ -143,7 +147,7 @@ export const InstallationTable: React.FC<{
             pageNumber={pageNumber}
             onChange={handleSetPageNumber(setPageNumber)}
             pageSize={INSTALLATIONS_PER_PAGE}
-            totalCount={installations?.installationsAppData?.totalCount ?? 0}
+            totalCount={installations?.installationsFilteredAppData?.totalCount ?? 0}
           />
         </>
       )}
