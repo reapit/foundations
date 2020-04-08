@@ -20,6 +20,7 @@
     "@types/googlemaps": "^3.39.3",
     "@types/lodash.pickby": "^4.6.6",
     "@wessberg/rollup-plugin-ts": "^1.2.17",
+    "jest-emotion": "^10.0.32",
     "rollup": "^1.32.0",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-livereload": "^1.0.4",
