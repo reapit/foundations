@@ -15,7 +15,9 @@
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
     "lint:fix": "eslint --cache --ext=ts,tsx,js src --fix",
-    "fetch-config": "yarn config-manager fetchConfig cognito-custom-mail-lambda"
+    "fetch-config": "yarn config-manager fetchConfig cognito-custom-mail-lambda",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -31,10 +33,12 @@
   "dependencies": {
     "aws-lambda": "^1.0.5",
     "ejs": "^3.0.1",
-    "serverless": "^1.64.1"
+    "serverless": "^1.64.1",
+    "snyk": "^1.305.1"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.39",
     "@types/ejs": "^2.7.0"
-  }
+  },
+  "snyk": true
 }
