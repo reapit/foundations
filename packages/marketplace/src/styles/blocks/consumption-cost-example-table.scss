@@ -1,0 +1,21 @@
+.table {
+  td, th {
+    padding: 0.5rem;
+  }
+
+  tr > th {
+    min-width: 160px;
+    text-align: right;
+    font-weight: 400;
+  }
+
+  tr > th.total-cost-th-cell {
+    font-weight: bold;
+  }
+}
+
+
+.total-cost-td-cell {
+  border: 1px solid black;
+  font-weight: bold;
+}

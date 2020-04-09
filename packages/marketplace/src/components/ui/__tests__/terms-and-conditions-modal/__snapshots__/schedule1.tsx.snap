@@ -1,0 +1,370 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Schedule1 it matches a snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <h4
+          class="title is-4  "
+          id=""
+        >
+          SCHEDULE 1 – APPLICATION USER TERM PRINCIPLES
+        </h4>
+        <ol
+          class="undefined undefined"
+        >
+          <li
+            class="undefined undefined"
+          >
+            <h6
+              class="title is-6  "
+              id=""
+            >
+              GENERAL
+            </h6>
+            <ol
+              class="undefined undefined"
+            >
+              <li
+                class="undefined undefined"
+              >
+                <span>
+                  The Developer must not include any terms in the Application User Terms, which conflict with the Developer’s obligations pursuant to this Agreement.
+                </span>
+                <ol
+                  class="undefined undefined"
+                />
+              </li>
+              <li
+                class="undefined undefined"
+              >
+                <span>
+                  The Developer must ensure that the Application:
+                </span>
+                <ol
+                  class="undefined undefined"
+                >
+                  <li
+                    class="undefined undefined"
+                  >
+                    <span>
+                      should access only the minimum data fields which that Application needs to work properly; and
+                    </span>
+                    <ol
+                      class="undefined undefined"
+                    />
+                  </li>
+                  <li
+                    class="undefined undefined"
+                  >
+                    <span>
+                      ensure any data is collected, processed, transmitted, maintained and used in accordance with the Application User Terms, all applicable laws and reasonable measures that protect the privacy and security of the relevant end user (including at a minimum those set out below at Paragraph 2).
+                    </span>
+                    <ol
+                      class="undefined undefined"
+                    />
+                  </li>
+                </ol>
+              </li>
+              <li
+                class="undefined undefined"
+              >
+                <span>
+                  Without prejudice to the foregoing, the Application User Terms must contain clear and legally adequate disclosures about the nature of the Application’s integration with the Reapit Software (and any other software) and the User Data collected by the Application, as well as the Developer’s intended use of it.
+                </span>
+                <ol
+                  class="undefined undefined"
+                />
+              </li>
+              <li
+                class="undefined undefined"
+              >
+                <span>
+                  The Application User Terms should include a clear statement that the Application has not been developed by Reapit and that Reapit bears no responsibility or liability for the Application and does not warrant that it does (or will in the future) function and integrate with the Reapit Software.
+                </span>
+                <ol
+                  class="undefined undefined"
+                />
+              </li>
+            </ol>
+          </li>
+          <li
+            class="undefined undefined"
+          >
+            <h6
+              class="title is-6  "
+              id=""
+            >
+              DATA PROTECTION
+            </h6>
+            <ol
+              class="undefined undefined"
+            >
+              <li
+                class="undefined undefined"
+              >
+                <span>
+                  The Application User Terms must comply with Data Protection Laws.
+                </span>
+                <ol
+                  class="undefined undefined"
+                />
+              </li>
+              <li
+                class="undefined undefined"
+              >
+                <span>
+                  Without prejudice to the generality of the paragraph 2.1, the Developer must clearly notify the end users of the relevant Application as to:
+                </span>
+                <ol
+                  class="undefined undefined"
+                >
+                  <li
+                    class="undefined undefined"
+                  >
+                    <span>
+                      the types of personal data collected or processed by the Developer and the intended processing purposes of that personal data;
+                    </span>
+                    <ol
+                      class="undefined undefined"
+                    />
+                  </li>
+                  <li
+                    class="undefined undefined"
+                  >
+                    <span>
+                      where such Personal Data is stored (identity and location of entity maintaining the relevant database); and
+                    </span>
+                    <ol
+                      class="undefined undefined"
+                    />
+                  </li>
+                  <li
+                    class="undefined undefined"
+                  >
+                    <span>
+                      whether any third parties are involved as sub-processors of the Personal Data.
+                    </span>
+                    <ol
+                      class="undefined undefined"
+                    />
+                  </li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+        </ol>
+        ;
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <h4
+        class="title is-4  "
+        id=""
+      >
+        SCHEDULE 1 – APPLICATION USER TERM PRINCIPLES
+      </h4>
+      <ol
+        class="undefined undefined"
+      >
+        <li
+          class="undefined undefined"
+        >
+          <h6
+            class="title is-6  "
+            id=""
+          >
+            GENERAL
+          </h6>
+          <ol
+            class="undefined undefined"
+          >
+            <li
+              class="undefined undefined"
+            >
+              <span>
+                The Developer must not include any terms in the Application User Terms, which conflict with the Developer’s obligations pursuant to this Agreement.
+              </span>
+              <ol
+                class="undefined undefined"
+              />
+            </li>
+            <li
+              class="undefined undefined"
+            >
+              <span>
+                The Developer must ensure that the Application:
+              </span>
+              <ol
+                class="undefined undefined"
+              >
+                <li
+                  class="undefined undefined"
+                >
+                  <span>
+                    should access only the minimum data fields which that Application needs to work properly; and
+                  </span>
+                  <ol
+                    class="undefined undefined"
+                  />
+                </li>
+                <li
+                  class="undefined undefined"
+                >
+                  <span>
+                    ensure any data is collected, processed, transmitted, maintained and used in accordance with the Application User Terms, all applicable laws and reasonable measures that protect the privacy and security of the relevant end user (including at a minimum those set out below at Paragraph 2).
+                  </span>
+                  <ol
+                    class="undefined undefined"
+                  />
+                </li>
+              </ol>
+            </li>
+            <li
+              class="undefined undefined"
+            >
+              <span>
+                Without prejudice to the foregoing, the Application User Terms must contain clear and legally adequate disclosures about the nature of the Application’s integration with the Reapit Software (and any other software) and the User Data collected by the Application, as well as the Developer’s intended use of it.
+              </span>
+              <ol
+                class="undefined undefined"
+              />
+            </li>
+            <li
+              class="undefined undefined"
+            >
+              <span>
+                The Application User Terms should include a clear statement that the Application has not been developed by Reapit and that Reapit bears no responsibility or liability for the Application and does not warrant that it does (or will in the future) function and integrate with the Reapit Software.
+              </span>
+              <ol
+                class="undefined undefined"
+              />
+            </li>
+          </ol>
+        </li>
+        <li
+          class="undefined undefined"
+        >
+          <h6
+            class="title is-6  "
+            id=""
+          >
+            DATA PROTECTION
+          </h6>
+          <ol
+            class="undefined undefined"
+          >
+            <li
+              class="undefined undefined"
+            >
+              <span>
+                The Application User Terms must comply with Data Protection Laws.
+              </span>
+              <ol
+                class="undefined undefined"
+              />
+            </li>
+            <li
+              class="undefined undefined"
+            >
+              <span>
+                Without prejudice to the generality of the paragraph 2.1, the Developer must clearly notify the end users of the relevant Application as to:
+              </span>
+              <ol
+                class="undefined undefined"
+              >
+                <li
+                  class="undefined undefined"
+                >
+                  <span>
+                    the types of personal data collected or processed by the Developer and the intended processing purposes of that personal data;
+                  </span>
+                  <ol
+                    class="undefined undefined"
+                  />
+                </li>
+                <li
+                  class="undefined undefined"
+                >
+                  <span>
+                    where such Personal Data is stored (identity and location of entity maintaining the relevant database); and
+                  </span>
+                  <ol
+                    class="undefined undefined"
+                  />
+                </li>
+                <li
+                  class="undefined undefined"
+                >
+                  <span>
+                    whether any third parties are involved as sub-processors of the Personal Data.
+                  </span>
+                  <ol
+                    class="undefined undefined"
+                  />
+                </li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+      </ol>
+      ;
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

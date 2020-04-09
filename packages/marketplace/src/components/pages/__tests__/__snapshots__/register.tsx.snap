@@ -72,33 +72,21 @@ exports[`Register should match a snapshot for PENDING state 1`] = `
           name="confirmPassword"
           type="password"
         />
-        <div
-          className="field field-checkbox flex justify-end"
-        >
-          <input
-            checked={false}
-            className="checkbox"
-            id="terms"
-            name="terms"
-            onClick={[Function]}
-            type="checkbox"
-          />
-          <label
-            className="label undefined"
-            htmlFor="terms"
-          >
-            I agree to the Terms and Conditions
-          </label>
-        </div>
       </Component>
       <Component>
         <Component>
           <Component
+            afterClose={[Function]}
+            onAccept={[Function]}
+            onDecline={[Function]}
+            visible={false}
+          />
+          <Component
             disabled={false}
             fullWidth={true}
             loading={false}
-            onClick={[MockFunction]}
-            type="submit"
+            onClick={[Function]}
+            type="button"
             variant="primary"
           >
             Register
@@ -121,12 +109,6 @@ exports[`Register should match a snapshot for PENDING state 1`] = `
       src=""
     />
   </div>
-  <Component
-    afterClose={[Function]}
-    onAccept={[Function]}
-    onDecline={[Function]}
-    visible={false}
-  />
 </div>
 `;
 
@@ -161,11 +143,5 @@ exports[`Register should match a snapshot for SUCCESS state 1`] = `
       src=""
     />
   </div>
-  <Component
-    afterClose={[Function]}
-    onAccept={[Function]}
-    onDecline={[Function]}
-    visible={false}
-  />
 </div>
 `;

@@ -48,7 +48,7 @@ export interface RegisterFormValues {
 
 export type RegisterProps = RegisterMappedActions & RegisterMappedProps
 
-const { container, wrapper, disabled, image, labelTerms } = loginStyles
+const { container, wrapper, disabled, image } = loginStyles
 
 export const handleOpenModal = (visible: boolean, setVisible: (visible: boolean) => void) => () => {
   setVisible(visible)
@@ -58,9 +58,14 @@ export const handleChangeAgree = (
   agreedTerms: boolean,
   setAgree: (agreedTerms: boolean) => void,
   setVisible: (visible: boolean) => void,
+  handleSubmit: () => void,
 ) => () => {
   setVisible(false)
   setAgree(agreedTerms)
+
+  if (agreedTerms) {
+    handleSubmit()
+  }
 }
 
 export const Register: React.FunctionComponent<RegisterProps & FormikProps<RegisterFormValues>> = ({
@@ -164,25 +169,19 @@ export const Register: React.FunctionComponent<RegisterProps & FormikProps<Regis
                   id="confirmPassword"
                   name="confirmPassword"
                 />
-                <div className="field field-checkbox flex justify-end">
-                  <input
-                    className="checkbox"
-                    type="checkbox"
-                    id="terms"
-                    name="terms"
-                    checked={agreedTerms}
-                    onClick={handleOpenModal(true, setVisible)}
-                  />
-                  <label className={`label ${labelTerms}`} htmlFor="terms">
-                    I agree to the Terms and Conditions
-                  </label>
-                </div>
               </FormSection>
               <FormSection>
                 <Level>
+                  <TermsAndConditionsModal
+                    visible={visible}
+                    afterClose={handleOpenModal(false, setVisible)}
+                    onAccept={handleChangeAgree(true, setAgreedTerms, setVisible, handleSubmit)}
+                    onDecline={handleChangeAgree(false, setAgreedTerms, setVisible, handleSubmit)}
+                  />
+
                   <Button
-                    type="submit"
-                    onClick={handleSubmit}
+                    type="button"
+                    onClick={handleOpenModal(true, setVisible)}
                     loading={isDisabled}
                     variant="primary"
                     disabled={isDisabled}
@@ -211,12 +210,6 @@ export const Register: React.FunctionComponent<RegisterProps & FormikProps<Regis
       <div className={image}>
         <img src={logoImage} alt="Reapit graphic" />
       </div>
-      <TermsAndConditionsModal
-        visible={visible}
-        afterClose={handleOpenModal(false, setVisible)}
-        onAccept={handleChangeAgree(true, setAgreedTerms, setVisible)}
-        onDecline={handleChangeAgree(false, setAgreedTerms, setVisible)}
-      />
     </div>
   )
 }
@@ -232,17 +225,16 @@ export const mapDispatchToProps = (dispatch: Dispatch): RegisterMappedActions =>
 
 export const mapPropsToValues = () =>
   ({
-    name: '',
-    companyName: '',
-    email: '',
-    telephone: '',
-    password: '',
-    confirmPassword: '',
+    name: 'a',
+    companyName: 'a',
+    email: 'a@a.com',
+    telephone: '1',
+    password: 'Superman123a',
+    confirmPassword: 'Superman123a',
     agreedTerms: '',
   } as RegisterFormValues)
 
 export const handleSubmitCreateDeveloper = (values: CreateDeveloperModel, { props }) => {
-  console.log('here')
   props.developerCreate(values)
 }
 

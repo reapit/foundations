@@ -1,5 +1,13 @@
 @import '../base/colors.scss';
 
+.heading-paragraph {
+  margin-bottom: 0.6em;
+}
+
+.sub-title {
+  margin-bottom: 0.6em;
+}
+
 .title {
   text-align: center;
 }
@@ -9,6 +17,12 @@
   counter-reset: item;
   margin: 0;
   padding: 0;
+}
+
+.parent > .child.child-with-alpha-bullet{
+  &:before {
+    content: "(" counter(item, lower-alpha) ")" !important;
+  }
 }
 
 .parent > .child {
@@ -25,8 +39,8 @@
   }
 }
 
+
 .child .parent > .child {
-  margin: 0;
   &:before {
     content: counters(item, '.') ' ';
   }

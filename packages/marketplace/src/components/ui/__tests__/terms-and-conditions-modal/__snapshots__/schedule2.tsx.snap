@@ -1,0 +1,1016 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Schedule1 it matches a snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <h4
+          class="title is-4  "
+          id=""
+        >
+          SCHEDULE 2 – FEES 
+        </h4>
+        <div>
+          <table
+            class="table  is-fullwidth is-bordered"
+          >
+            <thead>
+              <tr
+                class=""
+              >
+                <th
+                  class=""
+                  colspan="1"
+                >
+                  Type
+                </th>
+                <th
+                  class=""
+                  colspan="1"
+                >
+                  Amount
+                </th>
+                <th
+                  class=""
+                  colspan="1"
+                >
+                  Payable
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                class=""
+              >
+                <td
+                  class=""
+                >
+                  Annual Registration Fee
+                </td>
+                <td
+                  class=""
+                >
+                  £995
+                </td>
+                <td
+                  class=""
+                >
+                  Per Contract year, payable in advance
+                </td>
+              </tr>
+              <tr
+                class=""
+              >
+                <td
+                  class=""
+                >
+                  Monthly App Marketplace Fee
+                </td>
+                <td
+                  class=""
+                >
+                  £49.50 
+                </td>
+                <td
+                  class=""
+                >
+                  Payable for each Application approved in accordance with clauses 2.6 and 2.6.2, and payable per calendar month (orpart thereof) in arrears .
+                </td>
+              </tr>
+              <tr
+                class=""
+              >
+                <td
+                  class=""
+                >
+                  Monthly Data Storage Fee - Per 1GB
+                </td>
+                <td
+                  class=""
+                >
+                  £0.50
+                </td>
+                <td
+                  class=""
+                >
+                  Payable monthly in arrears
+                </td>
+              </tr>
+              <tr
+                class=""
+              >
+                <td
+                  class=""
+                >
+                  Total Consumption Cost 
+                </td>
+                <td
+                  class=""
+                >
+                  Calculated in accordance with the table below.
+                </td>
+                <td
+                  class=""
+                >
+                  Payable monthly in arrears
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div
+          class="mt-10"
+        >
+          <div
+            class="mb-3"
+          >
+            <u>
+              Calculation of Total Consumption Cost - Methodology:
+            </u>
+            <table
+              class="table is-bordered undefined"
+            >
+              <tr>
+                <th>
+                  Monthly API Calls
+                </th>
+                <th>
+                  first 1,000
+                </th>
+                <th>
+                  1,001-2,500
+                </th>
+                <th>
+                  2,501-5,000
+                </th>
+                <th>
+                  5,001-10,000
+                </th>
+                <th>
+                  10,001-25,000
+                </th>
+                <th>
+                  25,001-50,000
+                </th>
+                <th>
+                  above 50,000
+                </th>
+              </tr>
+              <tr>
+                <td />
+                <td
+                  colspan="7"
+                >
+                  cost per API Call
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  1-5
+                </td>
+                <td>
+                  £0.010000
+                </td>
+                <td>
+                  £0.008000
+                </td>
+                <td>
+                  £0.006000
+                </td>
+                <td>
+                  £0.005000
+                </td>
+                <td>
+                  £0.004000
+                </td>
+                <td>
+                  £0.002500
+                </td>
+                <td>
+                  £0.001000
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  6-10
+                </td>
+                <td>
+                  £0.011000
+                </td>
+                <td>
+                  £0.008800
+                </td>
+                <td>
+                  £0.006600
+                </td>
+                <td>
+                  £0.005500
+                </td>
+                <td>
+                  £0.004400
+                </td>
+                <td>
+                  £0.00270
+                </td>
+                <td>
+                  £0.001100
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  11-20
+                </td>
+                <td>
+                  £0.012500
+                </td>
+                <td>
+                  £0.010000
+                </td>
+                <td>
+                  £0.007500
+                </td>
+                <td>
+                  £0.006250
+                </td>
+                <td>
+                  £0.005000
+                </td>
+                <td>
+                  £0.003125
+                </td>
+                <td>
+                  £0.001250
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  21-30
+                </td>
+                <td>
+                  £0.014500
+                </td>
+                <td>
+                  £0.011600
+                </td>
+                <td>
+                  £0.008700
+                </td>
+                <td>
+                  £0.007250
+                </td>
+                <td>
+                  £0.005800
+                </td>
+                <td>
+                  £0.003625
+                </td>
+                <td>
+                  £0.001450
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  31-40
+                </td>
+                <td>
+                  £0.017000
+                </td>
+                <td>
+                  £0.013600
+                </td>
+                <td>
+                  £0.010200
+                </td>
+                <td>
+                  £0.008500
+                </td>
+                <td>
+                  £0.006800
+                </td>
+                <td>
+                  £0.004250
+                </td>
+                <td>
+                  £0.001700
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  41-50
+                </td>
+                <td>
+                  £0.020000
+                </td>
+                <td>
+                  £0.016000
+                </td>
+                <td>
+                  £0.012000
+                </td>
+                <td>
+                  £0.010000
+                </td>
+                <td>
+                  £0.008000
+                </td>
+                <td>
+                  £0.005000
+                </td>
+                <td>
+                  £0.002000
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  51+
+                </td>
+                <td>
+                  £0.023500
+                </td>
+                <td>
+                  £0.018800
+                </td>
+                <td>
+                  £0.014000
+                </td>
+                <td>
+                  £0.011750
+                </td>
+                <td>
+                  £0.009400
+                </td>
+                <td>
+                  £0.005875
+                </td>
+                <td>
+                  £0.002350
+                </td>
+              </tr>
+              <tr>
+                <td
+                  colspan="8"
+                >
+                  Number of Endpoints used (on last day of monthly billing period)
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div
+          class="mt-10"
+        >
+          <div
+            class="mb-3"
+          >
+            <u>
+              Calculation of Total Consumption Cost - Example for representative purposes only: 
+            </u>
+          </div>
+          <table>
+            <tr>
+              <th>
+                <u>
+                  Example
+                </u>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                Endpoints used
+              </th>
+              <td>
+                21-30
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Monthly API calls
+              </th>
+              <td>
+                100,000
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Calls within band (A)
+              </th>
+              <td>
+                1,000
+              </td>
+              <td>
+                1,500
+              </td>
+              <td>
+                2,500
+              </td>
+              <td>
+                5,000
+              </td>
+              <td>
+                15,000
+              </td>
+              <td>
+                25,000
+              </td>
+              <td>
+                50,000
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Band cost per call (B)
+              </th>
+              <td>
+                £0.014500
+              </td>
+              <td>
+                £0.011600
+              </td>
+              <td>
+                £0.008700
+              </td>
+              <td>
+                £0.007250
+              </td>
+              <td>
+                £0.005800
+              </td>
+              <td>
+                £0.003625
+              </td>
+              <td>
+                £0.001450
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Cost per band (A)
+              </th>
+              <td>
+                £14.50
+              </td>
+              <td>
+                £17.40
+              </td>
+              <td>
+                £21.75
+              </td>
+              <td>
+                £36.25
+              </td>
+              <td>
+                £87.00
+              </td>
+              <td>
+                £90.63
+              </td>
+              <td>
+                £72.50
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Total monthly cost
+              </th>
+              <td>
+                £340.03
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <h4
+        class="title is-4  "
+        id=""
+      >
+        SCHEDULE 2 – FEES 
+      </h4>
+      <div>
+        <table
+          class="table  is-fullwidth is-bordered"
+        >
+          <thead>
+            <tr
+              class=""
+            >
+              <th
+                class=""
+                colspan="1"
+              >
+                Type
+              </th>
+              <th
+                class=""
+                colspan="1"
+              >
+                Amount
+              </th>
+              <th
+                class=""
+                colspan="1"
+              >
+                Payable
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              class=""
+            >
+              <td
+                class=""
+              >
+                Annual Registration Fee
+              </td>
+              <td
+                class=""
+              >
+                £995
+              </td>
+              <td
+                class=""
+              >
+                Per Contract year, payable in advance
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class=""
+              >
+                Monthly App Marketplace Fee
+              </td>
+              <td
+                class=""
+              >
+                £49.50 
+              </td>
+              <td
+                class=""
+              >
+                Payable for each Application approved in accordance with clauses 2.6 and 2.6.2, and payable per calendar month (orpart thereof) in arrears .
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class=""
+              >
+                Monthly Data Storage Fee - Per 1GB
+              </td>
+              <td
+                class=""
+              >
+                £0.50
+              </td>
+              <td
+                class=""
+              >
+                Payable monthly in arrears
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class=""
+              >
+                Total Consumption Cost 
+              </td>
+              <td
+                class=""
+              >
+                Calculated in accordance with the table below.
+              </td>
+              <td
+                class=""
+              >
+                Payable monthly in arrears
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div
+        class="mt-10"
+      >
+        <div
+          class="mb-3"
+        >
+          <u>
+            Calculation of Total Consumption Cost - Methodology:
+          </u>
+          <table
+            class="table is-bordered undefined"
+          >
+            <tr>
+              <th>
+                Monthly API Calls
+              </th>
+              <th>
+                first 1,000
+              </th>
+              <th>
+                1,001-2,500
+              </th>
+              <th>
+                2,501-5,000
+              </th>
+              <th>
+                5,001-10,000
+              </th>
+              <th>
+                10,001-25,000
+              </th>
+              <th>
+                25,001-50,000
+              </th>
+              <th>
+                above 50,000
+              </th>
+            </tr>
+            <tr>
+              <td />
+              <td
+                colspan="7"
+              >
+                cost per API Call
+              </td>
+            </tr>
+            <tr>
+              <td>
+                1-5
+              </td>
+              <td>
+                £0.010000
+              </td>
+              <td>
+                £0.008000
+              </td>
+              <td>
+                £0.006000
+              </td>
+              <td>
+                £0.005000
+              </td>
+              <td>
+                £0.004000
+              </td>
+              <td>
+                £0.002500
+              </td>
+              <td>
+                £0.001000
+              </td>
+            </tr>
+            <tr>
+              <td>
+                6-10
+              </td>
+              <td>
+                £0.011000
+              </td>
+              <td>
+                £0.008800
+              </td>
+              <td>
+                £0.006600
+              </td>
+              <td>
+                £0.005500
+              </td>
+              <td>
+                £0.004400
+              </td>
+              <td>
+                £0.00270
+              </td>
+              <td>
+                £0.001100
+              </td>
+            </tr>
+            <tr>
+              <td>
+                11-20
+              </td>
+              <td>
+                £0.012500
+              </td>
+              <td>
+                £0.010000
+              </td>
+              <td>
+                £0.007500
+              </td>
+              <td>
+                £0.006250
+              </td>
+              <td>
+                £0.005000
+              </td>
+              <td>
+                £0.003125
+              </td>
+              <td>
+                £0.001250
+              </td>
+            </tr>
+            <tr>
+              <td>
+                21-30
+              </td>
+              <td>
+                £0.014500
+              </td>
+              <td>
+                £0.011600
+              </td>
+              <td>
+                £0.008700
+              </td>
+              <td>
+                £0.007250
+              </td>
+              <td>
+                £0.005800
+              </td>
+              <td>
+                £0.003625
+              </td>
+              <td>
+                £0.001450
+              </td>
+            </tr>
+            <tr>
+              <td>
+                31-40
+              </td>
+              <td>
+                £0.017000
+              </td>
+              <td>
+                £0.013600
+              </td>
+              <td>
+                £0.010200
+              </td>
+              <td>
+                £0.008500
+              </td>
+              <td>
+                £0.006800
+              </td>
+              <td>
+                £0.004250
+              </td>
+              <td>
+                £0.001700
+              </td>
+            </tr>
+            <tr>
+              <td>
+                41-50
+              </td>
+              <td>
+                £0.020000
+              </td>
+              <td>
+                £0.016000
+              </td>
+              <td>
+                £0.012000
+              </td>
+              <td>
+                £0.010000
+              </td>
+              <td>
+                £0.008000
+              </td>
+              <td>
+                £0.005000
+              </td>
+              <td>
+                £0.002000
+              </td>
+            </tr>
+            <tr>
+              <td>
+                51+
+              </td>
+              <td>
+                £0.023500
+              </td>
+              <td>
+                £0.018800
+              </td>
+              <td>
+                £0.014000
+              </td>
+              <td>
+                £0.011750
+              </td>
+              <td>
+                £0.009400
+              </td>
+              <td>
+                £0.005875
+              </td>
+              <td>
+                £0.002350
+              </td>
+            </tr>
+            <tr>
+              <td
+                colspan="8"
+              >
+                Number of Endpoints used (on last day of monthly billing period)
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div
+        class="mt-10"
+      >
+        <div
+          class="mb-3"
+        >
+          <u>
+            Calculation of Total Consumption Cost - Example for representative purposes only: 
+          </u>
+        </div>
+        <table>
+          <tr>
+            <th>
+              <u>
+                Example
+              </u>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              Endpoints used
+            </th>
+            <td>
+              21-30
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Monthly API calls
+            </th>
+            <td>
+              100,000
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Calls within band (A)
+            </th>
+            <td>
+              1,000
+            </td>
+            <td>
+              1,500
+            </td>
+            <td>
+              2,500
+            </td>
+            <td>
+              5,000
+            </td>
+            <td>
+              15,000
+            </td>
+            <td>
+              25,000
+            </td>
+            <td>
+              50,000
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Band cost per call (B)
+            </th>
+            <td>
+              £0.014500
+            </td>
+            <td>
+              £0.011600
+            </td>
+            <td>
+              £0.008700
+            </td>
+            <td>
+              £0.007250
+            </td>
+            <td>
+              £0.005800
+            </td>
+            <td>
+              £0.003625
+            </td>
+            <td>
+              £0.001450
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Cost per band (A)
+            </th>
+            <td>
+              £14.50
+            </td>
+            <td>
+              £17.40
+            </td>
+            <td>
+              £21.75
+            </td>
+            <td>
+              £36.25
+            </td>
+            <td>
+              £87.00
+            </td>
+            <td>
+              £90.63
+            </td>
+            <td>
+              £72.50
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Total monthly cost
+            </th>
+            <td>
+              £340.03
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

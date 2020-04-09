@@ -1,0 +1,280 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <table
+          class="table  is-fullwidth is-bordered"
+        >
+          <thead>
+            <tr
+              class=""
+            >
+              <th
+                class=""
+                colspan="1"
+              >
+                Type
+              </th>
+              <th
+                class=""
+                colspan="1"
+              >
+                Amount
+              </th>
+              <th
+                class=""
+                colspan="1"
+              >
+                Payable
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              class=""
+            >
+              <td
+                class=""
+              >
+                Annual Registration Fee
+              </td>
+              <td
+                class=""
+              >
+                £995
+              </td>
+              <td
+                class=""
+              >
+                Per Contract year, payable in advance
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class=""
+              >
+                Monthly App Marketplace Fee
+              </td>
+              <td
+                class=""
+              >
+                £49.50 
+              </td>
+              <td
+                class=""
+              >
+                Payable for each Application approved in accordance with clauses 2.6 and 2.6.2, and payable per calendar month (orpart thereof) in arrears .
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class=""
+              >
+                Monthly Data Storage Fee - Per 1GB
+              </td>
+              <td
+                class=""
+              >
+                £0.50
+              </td>
+              <td
+                class=""
+              >
+                Payable monthly in arrears
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class=""
+              >
+                Total Consumption Cost 
+              </td>
+              <td
+                class=""
+              >
+                Calculated in accordance with the table below.
+              </td>
+              <td
+                class=""
+              >
+                Payable monthly in arrears
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <table
+        class="table  is-fullwidth is-bordered"
+      >
+        <thead>
+          <tr
+            class=""
+          >
+            <th
+              class=""
+              colspan="1"
+            >
+              Type
+            </th>
+            <th
+              class=""
+              colspan="1"
+            >
+              Amount
+            </th>
+            <th
+              class=""
+              colspan="1"
+            >
+              Payable
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            class=""
+          >
+            <td
+              class=""
+            >
+              Annual Registration Fee
+            </td>
+            <td
+              class=""
+            >
+              £995
+            </td>
+            <td
+              class=""
+            >
+              Per Contract year, payable in advance
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class=""
+            >
+              Monthly App Marketplace Fee
+            </td>
+            <td
+              class=""
+            >
+              £49.50 
+            </td>
+            <td
+              class=""
+            >
+              Payable for each Application approved in accordance with clauses 2.6 and 2.6.2, and payable per calendar month (orpart thereof) in arrears .
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class=""
+            >
+              Monthly Data Storage Fee - Per 1GB
+            </td>
+            <td
+              class=""
+            >
+              £0.50
+            </td>
+            <td
+              class=""
+            >
+              Payable monthly in arrears
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class=""
+            >
+              Total Consumption Cost 
+            </td>
+            <td
+              class=""
+            >
+              Calculated in accordance with the table below.
+            </td>
+            <td
+              class=""
+            >
+              Payable monthly in arrears
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
