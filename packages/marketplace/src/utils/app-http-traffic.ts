@@ -28,6 +28,9 @@ export const getAppHttpTrafficPerDayChartData = (stats: RequestByDateModel[]) =>
 export const getChartOptions = data => {
   return {
     legend: null,
+    width: 100,
+    height: 50,
+    maintainAspectRatio: true,
     tooltips: {
       mode: 'label',
       callbacks: {

@@ -6,6 +6,7 @@ import appInstallationsSagas, {
   fetchInstallations,
   fetchInstallApp,
   fetchUninstallApp,
+  installationsFilterSaga,
 } from '../app-installations'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
@@ -20,6 +21,8 @@ import {
   appInstallationsReceiveData,
   appInstallationsRequestDataFailure,
   appInstallationsSetFormState,
+  appInstallationsFilterReceiveData,
+  appInstallationsFilterRequestDataFailure,
 } from '@/actions/app-installations'
 import { installationsStub } from '../__stubs__/installations'
 import { selectClientId, selectLoggedUserEmail } from '@/selector/client'
@@ -61,6 +64,33 @@ describe('app-installations sagas', () => {
       const clone = gen.clone()
       if (clone.throw) {
         expect(clone.throw(new Error('')).value).toEqual(put(appInstallationsRequestDataFailure()))
+        expect(clone.next().value).toEqual(
+          put(
+            errorThrownServer({
+              type: 'SERVER',
+              message: errorMessages.DEFAULT_SERVER_ERROR,
+            }),
+          ),
+        )
+      }
+      expect(clone.next().done).toBe(true)
+    })
+  })
+
+  describe('installationsFilterFetchData', () => {
+    const gen = cloneableGenerator(installationsFilterSaga)(installationsParams)
+    expect(gen.next().value).toEqual(select(selectDeveloperId))
+    expect(gen.next().value).toEqual(call(fetchInstallations, installationsParams.data))
+
+    test('api call success', () => {
+      const clone = gen.clone()
+      expect(clone.next(installationsStub).value).toEqual(put(appInstallationsFilterReceiveData(installationsStub)))
+    })
+
+    test('api fail sagas', () => {
+      const clone = gen.clone()
+      if (clone.throw) {
+        expect(clone.throw(new Error('')).value).toEqual(put(appInstallationsFilterRequestDataFailure()))
         expect(clone.next().value).toEqual(
           put(
             errorThrownServer({
@@ -138,6 +168,12 @@ describe('app-installations sagas', () => {
         const gen = appInstallationsListen()
         expect(gen.next().value).toEqual(
           takeLatest<Action<InstallationParams>>(ActionTypes.APP_INSTALLATIONS_REQUEST_DATA, installationsSaga),
+        )
+        expect(gen.next().value).toEqual(
+          takeLatest<Action<InstallationParams>>(
+            ActionTypes.APP_INSTALLATIONS_FILTER_REQUEST_DATA,
+            installationsFilterSaga,
+          ),
         )
         expect(gen.next().value).toEqual(
           takeLatest<Action<UninstallParams>>(ActionTypes.APP_INSTALLATIONS_REQUEST_UNINSTALL, appUninstallSaga),

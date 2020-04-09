@@ -12,6 +12,8 @@ import {
   UninstallParams,
   InstallParams,
   appInstallationsRequestDataFailure,
+  appInstallationsFilterReceiveData,
+  appInstallationsFilterRequestDataFailure,
 } from '@/actions/app-installations'
 import { selectLoggedUserEmail, selectClientId } from '@/selector/client'
 import { selectDeveloperId } from '@/selector/developer'
@@ -68,6 +70,23 @@ export const installationsSaga = function*({ data }) {
   }
 }
 
+export const installationsFilterSaga = function*({ data }) {
+  try {
+    const developerId = yield select(selectDeveloperId)
+    const response = yield call(fetchInstallations, { ...data, developerId })
+    yield put(appInstallationsFilterReceiveData(response))
+  } catch (err) {
+    logger(err)
+    yield put(appInstallationsFilterRequestDataFailure())
+    yield put(
+      errorThrownServer({
+        type: 'SERVER',
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
+    )
+  }
+}
+
 export const appInstallSaga = function*({ data }) {
   try {
     yield put(appInstallationsSetFormState('SUBMITTING'))
@@ -114,6 +133,10 @@ export const appUninstallSaga = function*({ data }) {
 
 export const appInstallationsListen = function*() {
   yield takeLatest<Action<InstallationParams>>(ActionTypes.APP_INSTALLATIONS_REQUEST_DATA, installationsSaga)
+  yield takeLatest<Action<InstallationParams>>(
+    ActionTypes.APP_INSTALLATIONS_FILTER_REQUEST_DATA,
+    installationsFilterSaga,
+  )
   yield takeLatest<Action<UninstallParams>>(ActionTypes.APP_INSTALLATIONS_REQUEST_UNINSTALL, appUninstallSaga)
   yield takeLatest<Action<InstallParams>>(ActionTypes.APP_INSTALLATIONS_REQUEST_INSTALL, appInstallSaga)
 }

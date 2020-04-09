@@ -2,6 +2,9 @@ import {
   appInstallationsReceiveData,
   appInstallationsRequestData,
   appInstallationsRequestDataFailure,
+  appInstallationsFilterReceiveData,
+  appInstallationsFilterRequestData,
+  appInstallationsFilterRequestDataFailure,
   appInstallationsRequestInstall,
   appInstallationsRequestUninstall,
   appInstallationsSetFormState,
@@ -21,6 +24,21 @@ describe('app install actions', () => {
   it('should create a appInstallationsRequestDataFailure action', () => {
     expect(appInstallationsRequestDataFailure.type).toEqual(ActionTypes.APP_INSTALLATIONS_REQUEST_DATA_FAILURE)
   })
+
+  it('should create a appInstallationsFilterReceiveData action', () => {
+    expect(appInstallationsFilterReceiveData.type).toEqual(ActionTypes.APP_INSTALLATIONS_FILTER_RECEIVE_DATA)
+    expect(appInstallationsFilterReceiveData(installationsStub).data).toEqual(installationsStub)
+  })
+  it('should create a appInstallationsFilterRequestData action', () => {
+    expect(appInstallationsFilterRequestData.type).toEqual(ActionTypes.APP_INSTALLATIONS_FILTER_REQUEST_DATA)
+    expect(appInstallationsFilterRequestData({ appId: ['1'] }).data).toEqual({ appId: ['1'] })
+  })
+  it('should create a appInstallationsFilterRequestDataFailure action', () => {
+    expect(appInstallationsFilterRequestDataFailure.type).toEqual(
+      ActionTypes.APP_INSTALLATIONS_FILTER_REQUEST_DATA_FAILURE,
+    )
+  })
+
   it('should create a appInstallationsRequestInstall action', () => {
     expect(appInstallationsRequestInstall.type).toEqual(ActionTypes.APP_INSTALLATIONS_REQUEST_INSTALL)
     expect(appInstallationsRequestInstall({ appId: '1' }).data).toEqual({ appId: '1' })

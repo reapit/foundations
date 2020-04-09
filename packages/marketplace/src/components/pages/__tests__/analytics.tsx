@@ -23,7 +23,9 @@ describe('AnalyticsPage', () => {
         push: jest.fn(),
       }
       const result = tabConfigs({ currentTab: mockCurrentTab, history })
-      expect(result).toHaveLength(2)
+      // expect(result).toHaveLength(2)
+      // Expect columns to have length 1 because we temporarily hide the Billing tab as it will not be ready for Beta
+      expect(result).toHaveLength(1)
     })
   })
   describe('handleUseEffectToSetCurrentTab', () => {

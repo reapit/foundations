@@ -41,13 +41,16 @@ exports[`DeveloperHitsPerDay should match a snapshot 1`] = `
     }
     options={
       Object {
+        "height": 50,
         "legend": null,
+        "maintainAspectRatio": true,
         "tooltips": Object {
           "callbacks": Object {
             "label": [Function],
           },
           "mode": "label",
         },
+        "width": 100,
       }
     }
   />
