@@ -97,10 +97,10 @@ export const getPrice = (result: PickedPropertyModel, searchType: 'Sale' | 'Rent
     const rent = result?.letting?.rent || 0
     const formattedPrice = currencyFormatter.format(rent)
     const rentFrequency = result?.letting?.rentFrequency || ''
-    const displayRentFrequency = `
-      ${rentFrequency.charAt(0).toUpperCase()}
-      ${rentFrequency.substr(1, rentFrequency.length - 1)}
-    `
+    const displayRentFrequency = `${rentFrequency.charAt(0).toUpperCase()}${rentFrequency.substr(
+      1,
+      rentFrequency.length - 1,
+    )}`
     return `${formattedPrice} ${displayRentFrequency}`
   }
 

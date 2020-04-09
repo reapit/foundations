@@ -1,16 +1,196 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`search-widget it matches a snapshot 1`] = `
+.emotion-4 html,
+.emotion-4 body,
+.emotion-4 div,
+.emotion-4 span,
+.emotion-4 applet,
+.emotion-4 object,
+.emotion-4 iframe,
+.emotion-4 h1,
+.emotion-4 h2,
+.emotion-4 h3,
+.emotion-4 h4,
+.emotion-4 h5,
+.emotion-4 h6,
+.emotion-4 p,
+.emotion-4 blockquote,
+.emotion-4 pre,
+.emotion-4 a,
+.emotion-4 abbr,
+.emotion-4 acronym,
+.emotion-4 address,
+.emotion-4 big,
+.emotion-4 cite,
+.emotion-4 code,
+.emotion-4 del,
+.emotion-4 dfn,
+.emotion-4 em,
+.emotion-4 img,
+.emotion-4 ins,
+.emotion-4 kbd,
+.emotion-4 q,
+.emotion-4 s,
+.emotion-4 samp,
+.emotion-4 small,
+.emotion-4 strike,
+.emotion-4 strong,
+.emotion-4 sub,
+.emotion-4 sup,
+.emotion-4 tt,
+.emotion-4 var,
+.emotion-4 b,
+.emotion-4 u,
+.emotion-4 i,
+.emotion-4 center,
+.emotion-4 dl,
+.emotion-4 dt,
+.emotion-4 dd,
+.emotion-4 menu,
+.emotion-4 ol,
+.emotion-4 ul,
+.emotion-4 li,
+.emotion-4 fieldset,
+.emotion-4 form,
+.emotion-4 label,
+.emotion-4 legend,
+.emotion-4 table,
+.emotion-4 caption,
+.emotion-4 tbody,
+.emotion-4 tfoot,
+.emotion-4 thead,
+.emotion-4 tr,
+.emotion-4 th,
+.emotion-4 td,
+.emotion-4 article,
+.emotion-4 aside,
+.emotion-4 canvas,
+.emotion-4 details,
+.emotion-4 embed,
+.emotion-4 figure,
+.emotion-4 figcaption,
+.emotion-4 footer,
+.emotion-4 header,
+.emotion-4 hgroup,
+.emotion-4 main,
+.emotion-4 menu,
+.emotion-4 nav,
+.emotion-4 output,
+.emotion-4 ruby,
+.emotion-4 section,
+.emotion-4 summary,
+.emotion-4 time,
+.emotion-4 mark,
+.emotion-4 audio,
+.emotion-4 video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+.emotion-4 article,
+.emotion-4 aside,
+.emotion-4 details,
+.emotion-4 figcaption,
+.emotion-4 figure,
+.emotion-4 footer,
+.emotion-4 header,
+.emotion-4 hgroup,
+.emotion-4 main,
+.emotion-4 menu,
+.emotion-4 nav,
+.emotion-4 section {
+  display: block;
+}
+
+.emotion-4 *[hidden] {
+  display: none;
+}
+
+.emotion-4 body {
+  line-height: 1;
+}
+
+.emotion-4 menu,
+.emotion-4 ol,
+.emotion-4 ul {
+  list-style: none;
+}
+
+.emotion-4 blockquote,
+.emotion-4 q {
+  quotes: none;
+}
+
+.emotion-4 blockquote:before,
+.emotion-4 blockquote:after,
+.emotion-4 q:before,
+.emotion-4 q:after {
+  content: '';
+  content: none;
+}
+
+.emotion-4 table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.emotion-5 {
+  font-size: 16px;
+  font-family: Helvetica,Arial,sans-serif;
+  background: #fff;
+  color: red;
+}
+
+#search-widget .emotion-1 {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 18px;
+  color: #000;
+  border: 1px solid grey;
+  background: #fff;
+  color: #fff;
+}
+
+.emotion-1:last-child {
+  border-left: none;
+}
+
+#search-widget .emotion-0 {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 18px;
+  border: 1px solid grey;
+}
+
+#search-widget .emotion-3 {
+  width: 100%;
+}
+
+@media screen and (min-width:960px) {
+  #search-widget .emotion-3 {
+    width: 33.333333%;
+  }
+}
+
+@media screen and (min-width:560px) and (max-width:960px) {
+  #search-widget .emotion-3 {
+    width: 50%;
+  }
+}
+
 <body>
   <div>
     <div
-      class="css-h4w50h css-okx25b search-widget svelte-q3uqx4"
+      class="emotion-4 emotion-5 search-widget svelte-q3uqx4"
     >
       <form
-        class="search-form css-15w1nlj svelte-1hu8mn5"
+        class="search-form emotion-3 svelte-1hu8mn5"
       >
         <input
-          class="css-1am5rtx search-form-input svelte-1hu8mn5"
+          class="emotion-0 search-form-input svelte-1hu8mn5"
           data-testid="search-form-input"
           id="search"
           placeholder="Town or Postcode"
@@ -21,7 +201,7 @@ exports[`search-widget it matches a snapshot 1`] = `
           class="search-form-button-container svelte-1hu8mn5"
         >
           <button
-            class="css-mgi7xd search-form-button svelte-1hu8mn5"
+            class="emotion-1 search-form-button svelte-1hu8mn5"
             data-testid="lettings"
             type="button"
           >
@@ -29,7 +209,7 @@ exports[`search-widget it matches a snapshot 1`] = `
           </button>
            
           <button
-            class="css-mgi7xd search-form-button svelte-1hu8mn5"
+            class="emotion-1 search-form-button svelte-1hu8mn5"
             data-testid="sales"
             type="button"
           >

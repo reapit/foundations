@@ -974,6 +974,23 @@ export interface TerminateInstallationModel {
   terminatesOn?: string // date-time
 }
 /**
+ * The model responsible for updating a desktop integration type
+ */
+export interface UpdateDesktopIntegrationTypeModel {
+  /**
+   * Sets the desktop integrations name
+   */
+  name?: string
+  /**
+   * Sets the desktop integrations description
+   */
+  description?: string
+  /**
+   * Sets a link to the desktop integrations documentation
+   */
+  url?: string
+}
+/**
  * The model responsible for updating of a developer
  */
 export interface UpdateDeveloperModel {
