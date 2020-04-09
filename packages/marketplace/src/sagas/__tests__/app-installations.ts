@@ -170,6 +170,12 @@ describe('app-installations sagas', () => {
           takeLatest<Action<InstallationParams>>(ActionTypes.APP_INSTALLATIONS_REQUEST_DATA, installationsSaga),
         )
         expect(gen.next().value).toEqual(
+          takeLatest<Action<InstallationParams>>(
+            ActionTypes.APP_INSTALLATIONS_FILTER_REQUEST_DATA,
+            installationsFilterSaga,
+          ),
+        )
+        expect(gen.next().value).toEqual(
           takeLatest<Action<UninstallParams>>(ActionTypes.APP_INSTALLATIONS_REQUEST_UNINSTALL, appUninstallSaga),
         )
         expect(gen.next().value).toEqual(

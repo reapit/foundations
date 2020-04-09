@@ -83,57 +83,66 @@ export const FilterForm: React.FC<FilterFormProps> = ({ initialValues, developer
         return (
           <Form>
             <Grid>
-              <GridItem className="is-narrow">
-                <Grid className="is-vcentered">
-                  <GridItem className="is-narrow">
-                    <h6 className="title is-6">Date from</h6>
+              <GridItem className="is-two-thirds-fullhd is-four-fifths-desktop">
+                <Grid>
+                  <GridItem>
+                    <Grid className="is-vcentered">
+                      <GridItem className="is-narrow">
+                        <h6 className="title is-6">Date from</h6>
+                      </GridItem>
+                      <GridItem>
+                        <DatePicker name="dateFrom" labelText="" id="dateFrom" />
+                      </GridItem>
+                    </Grid>
                   </GridItem>
-                  <GridItem className="is-narrow">
-                    <DatePicker name="dateFrom" labelText="" id="dateFrom" />
+                  <GridItem>
+                    <Grid className="is-vcentered">
+                      <GridItem className="is-narrow">
+                        <h6 className="title is-6">To</h6>
+                      </GridItem>
+                      <GridItem>
+                        <DatePicker
+                          name="dateTo"
+                          labelText=""
+                          id="dateTo"
+                          reactDatePickerProps={{
+                            minDate: dayjs(dateFrom)
+                              .add(1, 'day')
+                              .toDate(),
+                          }}
+                        />
+                      </GridItem>
+                    </Grid>
                   </GridItem>
-                </Grid>
-              </GridItem>
-              <GridItem className="is-narrow">
-                <Grid className="is-vcentered">
-                  <GridItem className="is-narrow">
-                    <h6 className="title is-6">To</h6>
+                  <GridItem>
+                    <Grid className="is-vcentered">
+                      <GridItem className="is-narrow">
+                        <h6 className="title is-6">Client</h6>
+                      </GridItem>
+                      <GridItem>
+                        <SelectBox
+                          name="clientId"
+                          options={renderClientSelectOptions(clientIds)}
+                          labelText=""
+                          id="clientId"
+                        />
+                      </GridItem>
+                    </Grid>
                   </GridItem>
-                  <GridItem className="is-narrow">
-                    <DatePicker
-                      name="dateTo"
-                      labelText=""
-                      id="dateTo"
-                      reactDatePickerProps={{
-                        minDate: dayjs(dateFrom)
-                          .add(1, 'day')
-                          .toDate(),
-                      }}
-                    />
-                  </GridItem>
-                </Grid>
-              </GridItem>
-              <GridItem className="is-narrow">
-                <Grid className="is-vcentered">
-                  <GridItem className="is-narrow">
-                    <h6 className="title is-6">Client</h6>
-                  </GridItem>
-                  <GridItem className="is-narrow">
-                    <SelectBox
-                      name="clientId"
-                      options={renderClientSelectOptions(clientIds)}
-                      labelText=""
-                      id="clientId"
-                    />
-                  </GridItem>
-                </Grid>
-              </GridItem>
-              <GridItem className="is-narrow">
-                <Grid className="is-vcentered">
-                  <GridItem className="is-narrow">
-                    <h6 className="title is-6">App</h6>
-                  </GridItem>
-                  <GridItem className="is-narrow">
-                    <SelectBox name="appId" options={renderAppSelectOptions(developerApps)} labelText="" id="appId" />
+                  <GridItem>
+                    <Grid className="is-vcentered">
+                      <GridItem className="is-narrow">
+                        <h6 className="title is-6">App</h6>
+                      </GridItem>
+                      <GridItem>
+                        <SelectBox
+                          name="appId"
+                          options={renderAppSelectOptions(developerApps)}
+                          labelText=""
+                          id="appId"
+                        />
+                      </GridItem>
+                    </Grid>
                   </GridItem>
                 </Grid>
               </GridItem>

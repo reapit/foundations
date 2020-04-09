@@ -40,7 +40,7 @@ export const handleMapAppNameToInstallation = (
   })
 }
 
-const handleDefaultFilter = (developerAppDataArray: AppSummaryModel[]) => {
+export const handleDefaultFilter = (developerAppDataArray: AppSummaryModel[]) => {
   const orderredDeveloperAppDataArray = orderBy(developerAppDataArray, ['created'], ['asc'])
   const appIds = orderredDeveloperAppDataArray.map((app: AppSummaryModel) => {
     return app.id
@@ -169,10 +169,10 @@ export const DetailedTab: React.FC<DetailedTabProps> = () => {
         <FlexContainerResponsive flexColumn hasBackground hasPadding className={styles.wrapAnalytics}>
           <FilterBar developerAppsData={developerAppsData} installationAppDataArray={installationAppDataArray || []} />
           <Grid isMultiLine className="mt-5">
-            <GridItem>
+            <GridItem className="is-half">
               <DeveloperHitsPerDayChart stats={appHttpTrafficPerDayData} loading={appHttpTrafficPerDayLoading} />
             </GridItem>
-            <GridItem>
+            <GridItem className="is-half">
               <TrafficEventTable trafficEvents={trafficEvents} loading={appHttpTrafficPerDayLoading} />
             </GridItem>
           </Grid>

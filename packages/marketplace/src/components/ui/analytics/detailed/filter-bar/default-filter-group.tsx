@@ -79,7 +79,6 @@ export const handleFilter = (
   setDateTo: (date: string) => void,
 ) => {
   const { dateFrom, dateTo } = dateParams
-
   setDateFrom(dateFrom)
   setDateTo(dateTo)
 }
@@ -132,7 +131,7 @@ export const DefaultFilterGroup: React.FC<DefaultFilterGroupProps> = ({ setDateF
 
   return (
     <>
-      <Grid className="is-vcentered">
+      <Grid className="is-vcentered is-mobile" isMultiLine>
         <GridItem className="is-narrow">
           <h6 className="title is-6">Filter by: </h6>
         </GridItem>

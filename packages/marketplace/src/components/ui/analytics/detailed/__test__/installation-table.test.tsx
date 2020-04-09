@@ -42,7 +42,14 @@ describe('InstallationTable', () => {
 
   it('should match snapshot', () => {
     expect(
-      shallow(<InstallationTable installedApps={installedApps} installations={installations} developer={developer} />),
+      shallow(
+        <InstallationTable
+          installedApps={installedApps}
+          filteredInstalledApps={installedApps}
+          installations={installations}
+          developer={developer}
+        />,
+      ),
     ).toMatchSnapshot()
   })
 
@@ -52,6 +59,7 @@ describe('InstallationTable', () => {
       shallow(
         <InstallationTable
           installedApps={installedApps}
+          filteredInstalledApps={installedApps}
           installations={installationsWithoutData}
           developer={developer}
         />,
@@ -65,6 +73,7 @@ describe('InstallationTable', () => {
       shallow(
         <InstallationTable
           installedApps={installedApps}
+          filteredInstalledApps={installedApps}
           installations={installations}
           developer={developerWithoutData}
         />,

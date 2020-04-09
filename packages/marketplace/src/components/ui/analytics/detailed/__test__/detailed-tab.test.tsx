@@ -2,6 +2,7 @@ import * as React from 'react'
 import * as ReactRedux from 'react-redux'
 import configureStore from 'redux-mock-store'
 import { shallow } from 'enzyme'
+import MockDate from 'mockdate'
 import {
   DetailedTab,
   handleMapAppNameToInstallation,
@@ -10,16 +11,18 @@ import {
   mapState,
   MapState,
   handleFetchHttpTrafficPerDayDataUseCallback,
+  handleDefaultFilter,
+  handleFetchHttpTrafficPerDayDataUseEffect,
 } from '../detailed-tab'
 import { usageStatsDataStub } from '@/sagas/__stubs__/app-usage-stats'
 import { installationsStub } from '@/sagas/__stubs__/installations'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { ReduxState } from '@/types/core'
-import { appInstallationsRequestData } from '@/actions/app-installations'
+import { appInstallationsRequestData, appInstallationsFilterRequestData } from '@/actions/app-installations'
 import { httpTrafficPerDayRequestData } from '@/actions/app-http-traffic-event'
 import { developerState } from '@/sagas/__stubs__/developer'
+import { httpTrafficPerDayStub } from '@/sagas/__stubs__/app-http-traffic-event'
 
-0
 jest.mock('@reapit/elements', () => ({
   ...jest.requireActual('@reapit/elements'),
   toLocalTime: jest.fn().mockReturnValue('localtime'),
@@ -37,6 +40,10 @@ const mockState = {
     loading: false,
   },
   developer: developerState,
+  appHttpTraffic: {
+    perDayLoading: false,
+    trafficEvents: httpTrafficPerDayStub,
+  },
 } as ReduxState
 
 describe('OverviewPage', () => {
@@ -66,10 +73,11 @@ describe('OverviewPage', () => {
   describe('mapState', () => {
     it('should run correctly', () => {
       const mockedUseSelector = spySelector as jest.Mock<MapState>
-      const { appUsageStats, developer, installations } = mockedUseSelector(state => mapState(state))
+      const { appUsageStats, developer, installations, appHttpTraffic } = mockedUseSelector(state => mapState(state))
       expect(appUsageStats).toEqual(mockState.appUsageStats)
       expect(developer).toEqual(mockState.developer)
       expect(installations).toEqual(mockState.installations)
+      expect(appHttpTraffic).toEqual(mockState.appHttpTraffic)
     })
   })
 
@@ -79,16 +87,21 @@ describe('OverviewPage', () => {
       const fn = handleFetchAppUsageStatsDataUseCallback(developerAppData, spyDispatch)
       fn()
       expect(spyDispatch).toBeCalledWith(
-        appInstallationsRequestData({
+        appInstallationsFilterRequestData({
           installedDateFrom: '2019-09-30',
           installedDateTo: '2019-10-06',
+          pageSize: 9999,
+        }),
+      )
+      expect(spyDispatch).toBeCalledWith(
+        appInstallationsRequestData({
           pageSize: 9999,
         }),
       )
     })
   })
 
-  describe('handleFetchAppUsageStatsDataUseCallback', () => {
+  describe('handleFetchHttpTrafficPerDayDataUseCallback', () => {
     it('should run correctly', () => {
       const developerAppData = appsDataStub.data.data || []
       const fn = handleFetchHttpTrafficPerDayDataUseCallback(developerAppData, spyDispatch)
@@ -101,6 +114,32 @@ describe('OverviewPage', () => {
         }),
       )
     })
+    it('should run correctly', () => {
+      const developerAppData = []
+      const mockDispatch = jest.fn()
+      const fn = handleFetchHttpTrafficPerDayDataUseCallback(developerAppData, mockDispatch)
+      fn()
+      expect(mockDispatch).toHaveBeenCalledTimes(0)
+    })
+  })
+})
+
+describe('handleDefaultFilter', () => {
+  const mockDateString = '2020-04-01'
+  beforeEach(() => {
+    MockDate.set(new Date(mockDateString))
+  })
+  afterEach(() => {
+    MockDate.reset()
+  })
+  it('should run correctly', () => {
+    const developerAppData = appsDataStub.data.data || []
+    const result = handleDefaultFilter(developerAppData)
+    expect(result).toEqual({
+      lastMonday: '2020-03-23',
+      lastSunday: '2020-03-29',
+      appIds: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
+    })
   })
 })
 
@@ -108,6 +147,15 @@ describe('handleFetchAppUsageStatsDataUseEffect', () => {
   it('should run correctly', () => {
     const mockFunction = jest.fn()
     const fn = handleFetchAppUsageStatsDataUseEffect(mockFunction)
+    fn()
+    expect(mockFunction).toBeCalled()
+  })
+})
+
+describe('handleFetchHttpTrafficPerDayDataUseEffect', () => {
+  it('should run correctly', () => {
+    const mockFunction = jest.fn()
+    const fn = handleFetchHttpTrafficPerDayDataUseEffect(mockFunction)
     fn()
     expect(mockFunction).toBeCalled()
   })
