@@ -15,6 +15,7 @@ import {
   Form,
   withFormik,
   FormikProps,
+  FormikErrors,
 } from '@reapit/elements'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import { registerValidate } from '@/utils/form/register'
@@ -50,7 +51,8 @@ export type RegisterProps = RegisterMappedActions & RegisterMappedProps
 
 const { container, wrapper, disabled, image } = loginStyles
 
-export const handleOpenModal = (visible: boolean, setVisible: (visible: boolean) => void) => () => {
+export type HandleOpenModal = (visible: boolean, setVisible: (visible: boolean) => void) => () => void
+export const handleOpenModal: HandleOpenModal = (visible, setVisible) => () => {
   setVisible(visible)
 }
 
@@ -68,6 +70,31 @@ export const handleChangeAgree = (
   }
 }
 
+export interface HandleSubmitParams {
+  validateForm: () => Promise<FormikErrors<RegisterFormValues>>
+  setVisible: (visible: boolean) => void
+  handleOpenModal: HandleOpenModal
+  handleSubmit: () => void
+}
+export const handleSubmitButtonOnClick = ({
+  handleOpenModal,
+  handleSubmit,
+  setVisible,
+  validateForm,
+}: HandleSubmitParams) => () => {
+  validateForm().then(errors => {
+    console.log('asdas')
+
+    if (Object.keys(errors).length > 0) {
+      // marked all fields as touched to show errors
+      handleSubmit()
+      return
+    }
+
+    handleOpenModal(true, setVisible)()
+  })
+}
+
 export const Register: React.FunctionComponent<RegisterProps & FormikProps<RegisterFormValues>> = ({
   formState,
   developerSetFormState,
@@ -75,6 +102,7 @@ export const Register: React.FunctionComponent<RegisterProps & FormikProps<Regis
   touched,
   setFieldValue,
   handleSubmit,
+  validateForm,
 }) => {
   const [visible, setVisible] = React.useState<boolean>(false)
   const [agreedTerms, setAgreedTerms] = React.useState<boolean>(false)
@@ -181,7 +209,7 @@ export const Register: React.FunctionComponent<RegisterProps & FormikProps<Regis
 
                   <Button
                     type="button"
-                    onClick={handleOpenModal(true, setVisible)}
+                    onClick={handleSubmitButtonOnClick({ validateForm, setVisible, handleOpenModal, handleSubmit })}
                     loading={isDisabled}
                     variant="primary"
                     disabled={isDisabled}
@@ -225,12 +253,12 @@ export const mapDispatchToProps = (dispatch: Dispatch): RegisterMappedActions =>
 
 export const mapPropsToValues = () =>
   ({
-    name: 'a',
-    companyName: 'a',
-    email: 'a@a.com',
-    telephone: '1',
-    password: 'Superman123a',
-    confirmPassword: 'Superman123a',
+    name: '',
+    companyName: '',
+    email: '',
+    telephone: '',
+    password: '',
+    confirmPassword: '',
     agreedTerms: '',
   } as RegisterFormValues)
 

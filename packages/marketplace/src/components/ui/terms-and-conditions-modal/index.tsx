@@ -22,7 +22,7 @@ export const TermsAndConditionsModal: React.FunctionComponent<TermsAndConditions
     <Modal
       title="Terms and Conditions"
       size="medium"
-      visible={true}
+      visible={visible}
       afterClose={afterClose}
       tapOutsideToDissmiss={tapOutsideToDissmiss}
       footerItems={
