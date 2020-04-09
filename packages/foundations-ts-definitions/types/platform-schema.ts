@@ -537,7 +537,17 @@ export interface Applicants {
   pageSize?: number
   pageNumber?: number
   sortBy?: string
-  embed?: ('areas' | 'department' | 'documents' | 'negotiators' | 'offers' | 'offices' | 'solicitor' | 'source')[]
+  embed?: (
+    | 'appointments'
+    | 'areas'
+    | 'department'
+    | 'documents'
+    | 'negotiators'
+    | 'offers'
+    | 'offices'
+    | 'solicitor'
+    | 'source'
+  )[]
   id?: string[]
   age?: ('period' | 'new' | 'modern')[]
   furnishing?: ('furnished' | 'unfurnished' | 'partFurnished')[]
@@ -725,6 +735,25 @@ export interface AppointmentModel {
    * A flag denoting whether or not the appointment recurs
    */
   recurring?: boolean
+  /**
+   * Recurrence information relating to the appointment
+   */
+  recurrence?: {
+    /**
+     * The recurrence interval
+     */
+    interval?: number // int32
+    /**
+     * The type of unit that the `interval` applies to (daily/weekly/yearly/monthly)
+     */
+    type?: string
+    /**
+     * The date the appointment recurs until
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    until?: string // date-time
+  }
   /**
    * A flag denoting whether or not the appointment has been cancelled
    */
@@ -1428,9 +1457,9 @@ export interface Contacts {
   negotiatorId?: string[]
   officeId?: string[]
   address?: string
-  identityCheck?: string
+  identityCheck?: ('pass' | 'fail' | 'pending' | 'warnings' | 'unchecked')[]
   name?: string
-  marketingConsent?: string
+  marketingConsent?: ('grant' | 'deny' | 'notAsked')[]
   active?: boolean
   createdFrom?: string
   createdTo?: string
@@ -1843,7 +1872,7 @@ export interface CreateAppointmentModel {
      */
     interval?: number // int32
     /**
-     * The type of unit that the `interval` applies to
+     * The type of unit that the `interval` applies to (daily/weekly/yearly/monthly)
      */
     type?: string
     /**
@@ -1869,7 +1898,7 @@ export interface CreateAppointmentRecurrenceModel {
    */
   interval?: number // int32
   /**
-   * The type of unit that the `interval` applies to
+   * The type of unit that the `interval` applies to (daily/weekly/yearly/monthly)
    */
   type?: string
   /**
@@ -4668,7 +4697,7 @@ export interface Landlords {
   pageSize?: number
   pageNumber?: number
   sortBy?: string
-  embed?: ('documents' | 'office' | 'properties' | 'solicitor' | 'source')[]
+  embed?: ('appointments' | 'documents' | 'office' | 'properties' | 'solicitor' | 'source')[]
   id?: string[]
   active?: boolean
   address?: string
@@ -5579,6 +5608,25 @@ export interface PagedResultAppointmentModel_ {
      * A flag denoting whether or not the appointment recurs
      */
     recurring?: boolean
+    /**
+     * Recurrence information relating to the appointment
+     */
+    recurrence?: {
+      /**
+       * The recurrence interval
+       */
+      interval?: number // int32
+      /**
+       * The type of unit that the `interval` applies to (daily/weekly/yearly/monthly)
+       */
+      type?: string
+      /**
+       * The date the appointment recurs until
+       * example:
+       * 2019-08-14T12:30:02.0000000Z
+       */
+      until?: string // date-time
+    }
     /**
      * A flag denoting whether or not the appointment has been cancelled
      */
@@ -8476,6 +8524,7 @@ export interface Properties {
   pageNumber?: number
   sortBy?: string
   embed?: (
+    | 'appointments'
     | 'area'
     | 'department'
     | 'documents'
@@ -9255,6 +9304,25 @@ export interface PropertyTenureModel {
   expiry?: string // date
 }
 /**
+ * Representation of an appointments recurrence details
+ */
+export interface RecurrenceModel {
+  /**
+   * The recurrence interval
+   */
+  interval?: number // int32
+  /**
+   * The type of unit that the `interval` applies to (daily/weekly/yearly/monthly)
+   */
+  type?: string
+  /**
+   * The date the appointment recurs until
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  until?: string // date-time
+}
+/**
  * Representation of a source of business
  */
 export interface SourceModel {
@@ -9437,7 +9505,7 @@ export interface Tenancies {
   pageSize?: number
   pageNumber?: number
   sortBy?: string
-  embed?: ('applicant' | 'documents' | 'negotiator' | 'property' | 'source' | 'tasks' | 'type')[]
+  embed?: ('appointments' | 'applicant' | 'documents' | 'negotiator' | 'property' | 'source' | 'tasks' | 'type')[]
   id?: string[]
   negotiatorId?: string[]
   applicantId?: string[]
@@ -10244,7 +10312,7 @@ export interface UpdateAppointmentModel {
    */
   recurrence?: {
     /**
-     * The type of unit that the `interval` applies to
+     * The type of unit that the `interval` applies to (daily/weekly/yearly/monthly)
      */
     type?: string
     /**
@@ -10270,7 +10338,7 @@ export interface UpdateAppointmentModel {
  */
 export interface UpdateAppointmentRecurrenceModel {
   /**
-   * The type of unit that the `interval` applies to
+   * The type of unit that the `interval` applies to (daily/weekly/yearly/monthly)
    */
   type?: string
   /**
@@ -12183,7 +12251,7 @@ export interface Vendors {
   pageSize?: number
   pageNumber?: number
   sortBy?: string
-  embed?: ('negotiator' | 'offices' | 'sellingReason' | 'solicitor' | 'source' | 'type')[]
+  embed?: ('negotiator' | 'offices' | 'property' | 'sellingReason' | 'solicitor' | 'source' | 'type')[]
   id?: string[]
   negotiatorId?: string[]
   officeId?: string[]

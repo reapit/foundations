@@ -52,6 +52,7 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
             },
           ]
         }
+        data={Array []}
         loading={false}
         scrollable={true}
       />

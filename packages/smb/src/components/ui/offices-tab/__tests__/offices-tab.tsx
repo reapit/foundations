@@ -13,6 +13,7 @@ import {
   prepareCreateOfficeParams,
   validate,
   handleAfterCellChange,
+  convertUploadedCellToTableCell,
 } from '../offices-tab'
 import GET_OFFICES from '../gql/get-offices.graphql'
 import CREATE_OFFICE from '../gql/create-office.graphql'
@@ -26,6 +27,7 @@ import {
   mockChangeCellsForUpdateCase,
 } from '../__mocks__/offices'
 import { error } from '@/graphql/__mocks__/error'
+import { Cell } from '@reapit/elements'
 
 const mockQueries = {
   request: {
@@ -74,6 +76,7 @@ describe('OfficesTab', () => {
         error: undefined,
         handleChangePage: jest.fn(),
         afterCellsChanged: jest.fn(),
+        handleAfterUpload: jest.fn(),
         dataTable: [],
       }
       const wrapper = shallow(<div>{renderContent(mockParams)}</div>)
@@ -86,6 +89,7 @@ describe('OfficesTab', () => {
         error,
         handleChangePage: jest.fn(),
         afterCellsChanged: jest.fn(),
+        handleAfterUpload: jest.fn(),
         dataTable: [],
       }
       const wrapper = shallow(<div>{renderContent(mockParams)}</div>)
@@ -98,6 +102,7 @@ describe('OfficesTab', () => {
         error: undefined,
         handleChangePage: jest.fn(),
         afterCellsChanged: jest.fn(),
+        handleAfterUpload: jest.fn(),
         dataTable: getDataTable(offices),
       }
       const wrapper = shallow(<div>{renderContent(mockParams)}</div>)
@@ -159,7 +164,7 @@ describe('OfficesTab', () => {
   describe('validate', () => {
     it('should run correctly', () => {
       const result = [
-        [true, true, true, true, true, true, true, true, true, true],
+        [true, true, true, true, true, true, true, true, true, true, true, true],
         [true, true, true, true, true, true, true, true, true, true, true, true],
         [true, true, true, true, true, true, true, true, true, true, false, true],
         [true, true, true, true, true, true, true, true, true, true, false, true],
@@ -189,7 +194,6 @@ describe('OfficesTab', () => {
         { value: '0987654321', key: 'workPhone', isValidated: true },
         { value: 'tester@reapit.com', key: 'email', isValidated: true },
       ]
-      // const newDataTable = [...dataTable, preparedRow]
       dataTable.push(preparedRow)
       handleAfterCellChange(createFuntion, updateFuntion)(
         [{ ...mockChangeCellsForCreateCase[0], row: dataTable.length - 1 }],
@@ -202,5 +206,16 @@ describe('OfficesTab', () => {
       handleAfterCellChange(createFuntion, updateFuntion)(mockChangeCellsForUpdateCase, dataTable)
       expect(updateFuntion).toHaveBeenCalled()
     })
+  })
+
+  describe('convertUploadedCellToTableCell', () => {
+    const uploadedCell: Cell[] = [{ value: '' }, { value: '' }, { value: 'Office name' }, { value: 'Building name' }]
+    const expectCell: Cell[] = [
+      { value: '', key: 'id', readOnly: true, className: 'hidden-cell' },
+      { value: '', key: '_eTag', readOnly: true, className: 'hidden-cell' },
+      { value: 'Office name' },
+      { value: 'Building name' },
+    ]
+    expect(convertUploadedCellToTableCell(uploadedCell)).toEqual(expectCell)
   })
 })

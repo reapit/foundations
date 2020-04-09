@@ -5,6 +5,7 @@ import appDetailSagas, {
   requestAuthCode,
   fetchAuthCode,
   fetchAppDetail,
+  fetchAppApiKey,
 } from '../app-detail'
 import { appDetailDataStub } from '../__stubs__/app-detail'
 import ActionTypes from '@/constants/action-types'
@@ -87,6 +88,41 @@ describe('app-detail fetch data without clientId', () => {
       put(
         appDetailReceiveData({
           data: appDetailDataStub.data,
+        }),
+      ),
+    )
+    expect(clone.next().value).toEqual(put(setAppDetailStale(false)))
+    expect(clone.next().done).toBe(true)
+  })
+
+  test('api call fail', () => {
+    const clone = gen.clone()
+    expect(clone.next().value).toEqual(put(appDetailFailure()))
+    expect(clone.next().done).toBe(true)
+  })
+})
+
+describe('app-detail fetch data and fetch apiKey', () => {
+  const gen = cloneableGenerator(appDetailDataFetch)(params)
+  expect(gen.next().value).toEqual(put(appDetailLoading(true)))
+  expect(gen.next().value).toEqual(call(fetchAppDetail, { id: params.data.id, clientId: undefined }))
+
+  test('api call success', () => {
+    const clone = gen.clone()
+    const installationId = '09682122-0811-4f36-9bfa-05e337de3065'
+    const isWebComponent = true
+    const apiKey = 'mockApiKey'
+    expect(
+      clone.next({
+        ...appDetailDataStub.data,
+        isWebComponent,
+        installationId,
+      }).value,
+    ).toEqual(call(fetchAppApiKey, { installationId }))
+    expect(clone.next({ apiKey }).value).toEqual(
+      put(
+        appDetailReceiveData({
+          data: { ...appDetailDataStub.data, isWebComponent, installationId, apiKey },
         }),
       ),
     )

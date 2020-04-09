@@ -1,6 +1,7 @@
 <script>
   import TimeCell from './time-cell.svelte'
   import dayjs from 'dayjs'
+  import { themeStore  } from '../core/store/theme-store'
 
   export let date
 
@@ -31,25 +32,11 @@
     flex: 1;
     margin-right: 2px;
   }
-
-  .time-cell-container {
-    background: #f2f2f2;
-  }
-
-  .date-cell-header {
-    padding: 1em;
-    font-weight: bold;
-    background: #f2f2f2;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2px;
-    min-height: 2.5em;
-  }
 </style>
 
 <div class="date-cell-container" title="Click on the cell for more detail">
-  <div class="date-cell-header">{formatHeader(date)}</div>
-  <div class="time-cell-container">
+  <div class="{$themeStore.dateCellHeader}">{formatHeader(date)}</div>
+  <div class="{$themeStore.timeCellsContainer}">
     {#each mockedTimes as startTime}
       <TimeCell {startTime} />
     {/each}

@@ -24,12 +24,13 @@
   },
   "dependencies": {
     "@reapit/cognito-auth": "^2.0.19",
-    "@reapit/elements": "^0.5.39",
+    "@reapit/elements": "^0.5.50",
     "chart.js": "^2.9.3",
     "diff": "^4.0.1",
     "lodash.isequal": "^4.5.0",
     "lodash.orderby": "^4.6.0",
     "react-chartjs-2": "^2.8.0",
+    "react-copy-to-clipboard": "^5.0.2",
     "react-slick": "^0.24.0",
     "swagger-ui-react": "^3.24.3"
   },

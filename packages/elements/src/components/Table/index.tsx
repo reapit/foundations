@@ -14,9 +14,10 @@ export interface TableProps {
   bordered?: boolean
   striped?: boolean
   fullWidth?: boolean
+  maxHeight?: number
 }
 
-export const Table = ({
+export const Table: React.FC<TableProps> = ({
   columns,
   data,
   loading,
@@ -24,9 +25,10 @@ export const Table = ({
   fullWidth = true,
   scrollable = false,
   bordered = false,
+  maxHeight,
 }) => {
   // Use the state and functions returned from useTable to build your UI
-  const { getTableProps, headerGroups, rows, prepareRow } = useTable({
+  const { getTableProps, headerGroups, footerGroups, rows, prepareRow } = useTable({
     columns,
     data,
   })
@@ -75,11 +77,28 @@ export const Table = ({
           )
         )}
       </tbody>
+      {footerGroups && (
+        <tfoot>
+          {footerGroups.map((footerGroup, index) => (
+            <tr key={index} {...footerGroup.getFooterGroupProps()}>
+              {footerGroup.headers.map((column, index) => (
+                <th key={index} {...column.getFooterProps()}>
+                  {column.render('Footer')}
+                </th>
+              ))}
+            </tr>
+          ))}
+        </tfoot>
+      )}
     </table>
   )
 
   if (scrollable) {
-    return <div className="table-responsive">{renderTable()}</div>
+    return (
+      <div className="table-responsive">
+        <div style={{ maxHeight: maxHeight }}>{renderTable()}</div>
+      </div>
+    )
   }
 
   return renderTable()

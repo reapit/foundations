@@ -15,6 +15,7 @@ import {
 } from '../default-filter-group'
 import { appUsageStatsRequestData } from '@/actions/app-usage-stats'
 import { appInstallationsRequestData } from '@/actions/app-installations'
+import { httpTrafficPerDayRequestData } from '@/actions/app-http-traffic-event'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 
 const mockProps: DefaultFilterGroupProps = {
@@ -67,6 +68,14 @@ describe('FilterBar', () => {
           pageSize: GET_ALL_PAGE_SIZE,
           installedDateFrom: mockDateParams.dateFrom,
           installedDateTo: mockDateParams.dateTo,
+        }),
+      )
+      expect(spyDispatch).toBeCalledWith(
+        httpTrafficPerDayRequestData({
+          applicationId: appIds,
+          customerId: clientIds,
+          dateFrom: mockDateParams.dateFrom,
+          dateTo: mockDateParams.dateTo,
         }),
       )
     })

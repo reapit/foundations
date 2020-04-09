@@ -14,7 +14,7 @@ import {
 } from '../actions/app-detail'
 
 export interface AppDetailItem {
-  data: AppDetailModel
+  data: AppDetailModel & { apiKey?: string }
 }
 
 export interface AppAuthDetailState {

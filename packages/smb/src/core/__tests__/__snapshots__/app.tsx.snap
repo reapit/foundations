@@ -1981,7 +1981,11 @@ input OfficeModelAddressInput {
       }
     }
   >
-    <Component />
+    <Component>
+      <UploadProvider>
+        <Component />
+      </UploadProvider>
+    </Component>
     <GlobalStyleComponent />
   </ApolloProvider>
 </ContextProvider>

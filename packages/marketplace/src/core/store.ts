@@ -25,12 +25,14 @@ import appInstallationsReducer from '../reducers/app-installations'
 import appUsageStatsReducer from '../reducers/app-usage-stats'
 import adminStatsReducer from '../reducers/admin-stats'
 import revisionsReducer from '../reducers/revisions'
+import appHttpTrafficEventReducer from '../reducers/app-http-traffic-event'
 
 import authSagas from '../sagas/auth'
 import clientSagas from '../sagas/client'
 import appDetailSagas from '../sagas/app-detail'
 import installedAppsSagas from '../sagas/installed-apps'
 import appUsageStatsSagas from '../sagas/app-usage-stats'
+import appHttpTrafficEventSagas from '../sagas/app-http-trafic-event'
 import myAppsSagas from '../sagas/my-apps'
 import developerSagas from '../sagas/developer'
 import submitAppSagas from '../sagas/submit-app'
@@ -87,6 +89,7 @@ export class Store {
     appUsageStats: appUsageStatsReducer,
     noticationMessage,
     adminStats: adminStatsReducer,
+    appHttpTraffic: appHttpTrafficEventReducer,
   })
 
   static sagas = function*() {
@@ -110,6 +113,7 @@ export class Store {
       fork(adminAppsSagas),
       fork(appInstallationsSagas),
       fork(adminStatsSaga),
+      fork(appHttpTrafficEventSagas),
     ])
   }
 

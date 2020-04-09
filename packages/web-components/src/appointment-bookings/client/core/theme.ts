@@ -1,28 +1,53 @@
 import { css } from 'emotion'
 import { InitializerTheme } from '../../../common/styles/theme'
 
-/* istanbul ignore file */
 export interface AppointmentBookingThemeClasses {
-  item: string
+  timeCell: string
   svgNavigation: string
+  dateCellHeader: string
+  timeCellsContainer: string
 }
 
 export type AppointmentBookingInitializerTheme = InitializerTheme & {
-  itemBackgroundColor: string
-  itemBackgroundColorHover: string
+  timeCellBackgroundColor: string
+  timeCellBackgroundColorHover: string
   navigateButtonColor: string
+  dateCellHeaderBackgroundColor: string
+  timeCellsContainerBackgroundColor: string
 }
 
 export const generateAppointmentBookingThemeClasses = (
-  { itemBackgroundColorHover, itemBackgroundColor, navigateButtonColor }: AppointmentBookingInitializerTheme,
+  {
+    timeCellBackgroundColorHover,
+    timeCellBackgroundColor,
+    navigateButtonColor,
+    dateCellHeaderBackgroundColor,
+    timeCellsContainerBackgroundColor,
+  }: AppointmentBookingInitializerTheme,
   parentSelector: string,
 ) => {
   return {
-    item: css`
+    timeCellsContainer: css`
       ${parentSelector || 'body'} & {
-        background: ${itemBackgroundColor};
+        background: ${timeCellsContainerBackgroundColor};
+      }
+    `,
+    dateCellHeader: css`
+      ${parentSelector || 'body'} & {
+        padding: 1em;
+        font-weight: bold;
+        background: ${dateCellHeaderBackgroundColor};
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2px;
+        min-height: 2.5em;
+      }
+    `,
+    timeCell: css`
+      ${parentSelector || 'body'} & {
+        background: ${timeCellBackgroundColor};
         &:hover {
-          background: ${itemBackgroundColorHover};
+          background: ${timeCellBackgroundColorHover};
         }
       }
     `,

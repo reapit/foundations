@@ -10,6 +10,11 @@ exports[`SearchResult it matches a snapshot 1`] = `
       <div
         class="search-result-image-container svelte-1vgkp5v"
       >
+        <div
+          class="search-result-offer-banner  svelte-1vgkp5v"
+        >
+          Under Offer
+        </div>
          
          
         <img
@@ -26,29 +31,29 @@ exports[`SearchResult it matches a snapshot 1`] = `
           <div
             class=" search-result-item-address-primary svelte-1vgkp5v"
           >
-            Sussex Way
+            Example street
           </div>
            
-          Archway, London, N19 4JF
+          Solihull, West Midlands, B91 2XX
         </div>
       </div>
        
       <div
         class=" search-result-item-pricing-text svelte-1vgkp5v"
       >
-        Guide Price £0
+        £250,000
       </div>
        
       <div
         class=" search-result-item-beds-text svelte-1vgkp5v"
       >
-        0 Bed  
+        4 Bed Detached House
       </div>
        
       <div
         class=" search-result-item-description-text svelte-1vgkp5v"
       >
-        This is a flat
+        We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.
       </div>
        
       <div
@@ -83,7 +88,7 @@ exports[`SearchResult it matches a snapshot 1`] = `
           
         </span>
          
-        0
+        4
          
         <span
           class="search-result-item-icon svelte-1vgkp5v"
@@ -114,7 +119,7 @@ exports[`SearchResult it matches a snapshot 1`] = `
           
         </span>
          
-        0
+        2
       </div>
     </div>
   </div>

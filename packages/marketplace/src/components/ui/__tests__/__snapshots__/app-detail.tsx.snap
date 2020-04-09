@@ -74,3 +74,87 @@ exports[`SlickButtonNav should match snapshot 1`] = `
   </div>
 </button>
 `;
+
+exports[`renderShowApiKeyForWebComponent should match snapshot and return null 1`] = `<div />`;
+
+exports[`renderShowApiKeyForWebComponent should match snapshot and return null 2`] = `<div />`;
+
+exports[`renderShowApiKeyForWebComponent should match snapshot and return null 3`] = `<div />`;
+
+exports[`renderShowApiKeyForWebComponent should match snapshot not show api key 1`] = `
+<div>
+  <Component
+    className="mb-0"
+  >
+    API key
+  </Component>
+  <p>
+    To obtain your unique API key, click on 'Show API Key' below. For installation instructions, please click here
+  </p>
+  <span>
+    Authentication:
+  </span>
+   
+  <span>
+    <a
+      onClick={[Function]}
+    >
+      <u>
+        Show
+         API key
+      </u>
+    </a>
+  </span>
+</div>
+`;
+
+exports[`renderShowApiKeyForWebComponent should match snapshot return null 1`] = `<div />`;
+
+exports[`renderShowApiKeyForWebComponent should match snapshot when isWebComponent 1`] = `
+<div>
+  <Component
+    className="mb-0"
+  >
+    API key
+  </Component>
+  <p>
+    To obtain your unique API key, click on 'Show API Key' below. For installation instructions, please click here
+  </p>
+  <span>
+    Authentication:
+  </span>
+   
+  <span>
+    <a
+      onClick={[Function]}
+    >
+      <u>
+        Hide
+         API key
+      </u>
+    </a>
+  </span>
+  <CopyToClipboard
+    onCopy={[Function]}
+    text="mockApiKey"
+  >
+    <div
+      className="control has-icons-right"
+    >
+      <input
+        className="input is-primary"
+        id="apiKey"
+        name="apiKey"
+        readOnly={true}
+        type="text"
+        value="mockApiKey"
+      />
+      <span
+        className="icon is-right"
+      >
+        <FaCopy />
+      </span>
+    </div>
+  </CopyToClipboard>
+</div>
+`;

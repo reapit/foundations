@@ -1,4 +1,5 @@
-import { ContactAddressModel, PropertyModel } from '@reapit/foundations-ts-definitions'
+import { ContactAddressModel } from '@reapit/foundations-ts-definitions'
+import { PickedPropertyModel } from '../../types'
 
 const currencyFormatter = new Intl.NumberFormat('en-GB', {
   style: 'currency',
@@ -91,7 +92,7 @@ export const combineAddress = (address: ContactAddressModel | undefined): string
   }, '') as string
 }
 
-export const getPrice = (result: PropertyModel, searchType: 'Sale' | 'Rent') => {
+export const getPrice = (result: PickedPropertyModel, searchType: 'Sale' | 'Rent') => {
   if (searchType === 'Rent') {
     const rent = result?.letting?.rent || 0
     const formattedPrice = currencyFormatter.format(rent)
@@ -108,7 +109,7 @@ export const getPrice = (result: PropertyModel, searchType: 'Sale' | 'Rent') => 
   return formatPriceAndQuantifier(price, qualifier)
 }
 
-export const combineNumberBedTypeStyle = (result: PropertyModel) => {
+export const combineNumberBedTypeStyle = (result: PickedPropertyModel) => {
   const style = (result?.style || []).map(formatStyle).join(' ')
   const type = (result?.type || []).map(formatType).join(' ')
   const numberBedRoom = result?.bedrooms || 0

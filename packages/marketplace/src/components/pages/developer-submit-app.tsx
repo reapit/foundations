@@ -262,7 +262,7 @@ export const handleSubmitApp = ({
   }
 
   if (appModel.isPrivateApp === 'yes') {
-    appToSubmit.limitToClientIds = limitToClientIds ? limitToClientIds.split(',') : []
+    appToSubmit.limitToClientIds = limitToClientIds ? limitToClientIds.replace(/ /g, '').split(',') : []
   }
 
   if (!appId) {
@@ -624,7 +624,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                         <FormSubHeading>
                           If your App is a Private App and you would like it to only be visible to certain customers,
                           please select ‘Yes’ below. You should then enter the ‘Customer ID’ of the customer(s) you wish
-                          to share your app with. If you select ‘No’, your Ppp will be visible to all on the
+                          to share your app with. If you select ‘No’, your App will be visible to all on the
                           Marketplace. For multiple customers, please separate the Customer IDs using a comma, e.g. ABC,
                           DEF. For information on how to obtain the Customer ID, please click here (TBC)
                         </FormSubHeading>

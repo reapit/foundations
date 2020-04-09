@@ -1,6 +1,6 @@
 import { fetcher } from '../../../common/utils/fetcher-client'
 import { getClientHeaders } from '../../../common/utils/get-client-headers'
-import { PagedResultPropertyModel_ } from '@reapit/foundations-ts-definitions'
+import { PickedPagedResultPropertyModel_ } from '../../types'
 
 export const getUrlQuery = (isRental: boolean, keywords: string) => {
   const url = new URL(`${process.env.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET}/properties`)
@@ -20,8 +20,8 @@ export const getProperties = async (
   keywords: string,
   isRental: boolean,
   apiKey: string,
-): Promise<PagedResultPropertyModel_ | undefined> => {
-  return fetcher<PagedResultPropertyModel_, null>({
+): Promise<PickedPagedResultPropertyModel_ | undefined> => {
+  return fetcher<PickedPagedResultPropertyModel_, null>({
     url: getUrlQuery(isRental, keywords),
     headers: getClientHeaders(apiKey),
   })

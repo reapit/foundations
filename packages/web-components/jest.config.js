@@ -3,7 +3,11 @@ module.exports = {
   testPathIgnorePatterns: ['<rootDir>/src/scripts'],
   collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/src/**/*.svelte'],
   coverageDirectory: './src/tests/coverage',
-  coveragePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts|src/tests|src/common/styles/__themes__)[/\\\\]'],
+  coveragePathIgnorePatterns: [
+    '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts|src/tests|src/common/styles/__themes__)[/\\\\]',
+    '__stubs__',
+    '.d.ts',
+  ],
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'],
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|poc-archive)[/\\\\]'],
   moduleNameMapper: {

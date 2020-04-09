@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UploadResultModal TD should match a snapshot 1`] = `
+<styled.td>
+  <StyledComponent
+    forwardedComponent={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "sc-bwzfXH",
+          "isStatic": false,
+          "lastClassName": "gKWvdT",
+          "rules": Array [
+            "
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+",
+          ],
+        },
+        "displayName": "styled.td",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "sc-bwzfXH",
+        "target": "td",
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      }
+    }
+    forwardedRef={null}
+  >
+    <td
+      className="sc-bwzfXH gKWvdT"
+    />
+  </StyledComponent>
+</styled.td>
+`;
+
+exports[`UploadResultModal UploadResultModal should match a snapshot 1`] = `
+<Component
+  onCloseClick={[MockFunction]}
+  results={
+    Object {
+      "details": Array [],
+      "failed": 0,
+      "success": 0,
+      "total": 0,
+    }
+  }
+  visible={true}
+>
+  <Component
+    footerItems={
+      <React.Fragment>
+        <Unknown
+          onClick={[MockFunction]}
+          type="button"
+          variant="secondary"
+        >
+          Close
+        </Unknown>
+      </React.Fragment>
+    }
+    tapOutsideToDissmiss={false}
+    title="Upload Complete"
+    visible={true}
+  />
+</Component>
+`;

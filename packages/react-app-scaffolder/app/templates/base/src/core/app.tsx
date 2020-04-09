@@ -1,3 +1,7 @@
+<% if (isFoundation) { %>
+import * as OfflinePluginRuntime from 'offline-plugin/runtime'
+OfflinePluginRuntime.install()
+<% } %>
 import * as React from 'react'
 import Router from './router'
 <% if (redux) { %>
@@ -14,19 +18,19 @@ import { AuthContext } from '@/context'
 <% } %>
 <% if (stylesSolution == 'sass') { %>
 import '@/styles/index.scss'
+  <% if (!isFoundation) { %>
+import '@reapit/elements/dist/index.css'
+  <% } %>
+
 <% } else { %>
 import { createGlobalStyle } from 'styled-components'
-
-<% if (isFoundation) { %>
-  import * as OfflinePluginRuntime from 'offline-plugin/runtime'
-OfflinePluginRuntime.install()
-import globalCss from 'raw-loader!sass-loader!@reapit/elements/styles/index.scss'
-<% } else { %>
-import globalCss from 'raw-loader!sass-loader!@reapit/elements/dist/index.css'
+  <% if (isFoundation) { %>
+import '@reapit/elements/styles/index.scss'
+  <% } else { %>
+import '@reapit/elements/dist/index.css'
 <% } %>
 
   const GlobalStyle = createGlobalStyle`
-  ${globalCss};
   body {
     background-color: unset;
   }

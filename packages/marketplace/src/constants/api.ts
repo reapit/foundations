@@ -21,4 +21,5 @@ export const URLS = {
   categories: '/categories',
   docs: '/docs',
   statistics: '/statistics',
+  trafficEvents: '/trafficevents',
 }
