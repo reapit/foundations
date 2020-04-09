@@ -11,7 +11,7 @@ const mockedOptions = [
 ]
 const dropdownSelectProps: DropdownSelectProps = {
   name: 'demo',
-  labelText: 'demo'
+  labelText: 'demo',
 }
 
 const createFormikWrapper = () => {
@@ -20,7 +20,7 @@ const createFormikWrapper = () => {
       {() => (
         <Form>
           <div className="column is-half-desktop">
-            <DropdownSelect name='demo' mode="tags" labelText='Demo' options={mockedOptions} />
+            <DropdownSelect name="demo" mode="tags" labelText="Demo" options={mockedOptions} />
           </div>
         </Form>
       )}
@@ -50,7 +50,7 @@ const ErrorFomrikComponent = () => {
         {() => (
           <Form>
             <div className="column is-half-desktop">
-              <DropdownSelect name='demo' mode="tags" labelText='Demo' options={mockedOptions} />
+              <DropdownSelect name="demo" mode="tags" labelText="Demo" options={mockedOptions} />
             </div>
           </Form>
         )}

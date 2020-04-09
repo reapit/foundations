@@ -3,7 +3,7 @@ import Select, { Option, SelectProps } from 'rc-select'
 import { Field, FieldProps } from 'formik'
 import './index.scss'
 
-const handleChangeOption = field => (value) => {
+const handleChangeOption = field => value => {
   field.onChange({ target: { value: value, name: field.name } })
 }
 
@@ -20,11 +20,13 @@ export const DropdownSelect: React.FC<SelectProps & DropdownSelectProps> = props
           {({ field }: FieldProps<string | string[]>) => {
             return (
               <div className="field field-dropdown-select">
-                <label className="label" htmlFor=''>
+                <label className="label" htmlFor="">
                   {props.labelText}
                 </label>
                 <Select {...props} onChange={handleChangeOption(field)}>
-                  {props.options?.map(option => <Option value={option.value}>{option.label}</Option>)}
+                  {props.options?.map(option => (
+                    <Option value={option.value}>{option.label}</Option>
+                  ))}
                 </Select>
               </div>
             )

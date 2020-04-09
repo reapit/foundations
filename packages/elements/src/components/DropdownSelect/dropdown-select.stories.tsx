@@ -8,7 +8,7 @@ import { action } from '@storybook/addon-actions'
 const options = [
   { value: 'jack', label: 'Jack' },
   { value: 'lucy', label: 'Lucy' },
-  { value: 'yiminghe', label: 'Yiminghe' }
+  { value: 'yiminghe', label: 'Yiminghe' },
 ]
 
 storiesOf('DropdownSelect', module).add('Primary', () => {
@@ -21,7 +21,7 @@ storiesOf('DropdownSelect', module).add('Primary', () => {
         }}
       >
         <Form>
-          <DropdownSelect name='dropdown-select-field' mode="tags" labelText='Dropdown Select' options={options} />
+          <DropdownSelect name="dropdown-select-field" mode="tags" labelText="Dropdown Select" options={options} />
         </Form>
       </Formik>
     </section>
