@@ -537,7 +537,17 @@ export interface Applicants {
   pageSize?: number
   pageNumber?: number
   sortBy?: string
-  embed?: ('areas' | 'department' | 'documents' | 'negotiators' | 'offers' | 'offices' | 'solicitor' | 'source')[]
+  embed?: (
+    | 'appointments'
+    | 'areas'
+    | 'department'
+    | 'documents'
+    | 'negotiators'
+    | 'offers'
+    | 'offices'
+    | 'solicitor'
+    | 'source'
+  )[]
   id?: string[]
   age?: ('period' | 'new' | 'modern')[]
   furnishing?: ('furnished' | 'unfurnished' | 'partFurnished')[]
@@ -734,7 +744,7 @@ export interface AppointmentModel {
      */
     interval?: number // int32
     /**
-     * The recurrence type
+     * The type of unit that the `interval` applies to (daily/weekly/yearly/monthly)
      */
     type?: string
     /**
@@ -1447,9 +1457,9 @@ export interface Contacts {
   negotiatorId?: string[]
   officeId?: string[]
   address?: string
-  identityCheck?: string
+  identityCheck?: ('pass' | 'fail' | 'pending' | 'warnings' | 'unchecked')[]
   name?: string
-  marketingConsent?: string
+  marketingConsent?: ('grant' | 'deny' | 'notAsked')[]
   active?: boolean
   createdFrom?: string
   createdTo?: string
@@ -1862,7 +1872,7 @@ export interface CreateAppointmentModel {
      */
     interval?: number // int32
     /**
-     * The type of unit that the `interval` applies to
+     * The type of unit that the `interval` applies to (daily/weekly/yearly/monthly)
      */
     type?: string
     /**
@@ -1888,7 +1898,7 @@ export interface CreateAppointmentRecurrenceModel {
    */
   interval?: number // int32
   /**
-   * The type of unit that the `interval` applies to
+   * The type of unit that the `interval` applies to (daily/weekly/yearly/monthly)
    */
   type?: string
   /**
@@ -4687,7 +4697,7 @@ export interface Landlords {
   pageSize?: number
   pageNumber?: number
   sortBy?: string
-  embed?: ('documents' | 'office' | 'properties' | 'solicitor' | 'source')[]
+  embed?: ('appointments' | 'documents' | 'office' | 'properties' | 'solicitor' | 'source')[]
   id?: string[]
   active?: boolean
   address?: string
@@ -5607,7 +5617,7 @@ export interface PagedResultAppointmentModel_ {
        */
       interval?: number // int32
       /**
-       * The recurrence type
+       * The type of unit that the `interval` applies to (daily/weekly/yearly/monthly)
        */
       type?: string
       /**
@@ -8514,6 +8524,7 @@ export interface Properties {
   pageNumber?: number
   sortBy?: string
   embed?: (
+    | 'appointments'
     | 'area'
     | 'department'
     | 'documents'
@@ -9301,7 +9312,7 @@ export interface RecurrenceModel {
    */
   interval?: number // int32
   /**
-   * The recurrence type
+   * The type of unit that the `interval` applies to (daily/weekly/yearly/monthly)
    */
   type?: string
   /**
@@ -9494,7 +9505,7 @@ export interface Tenancies {
   pageSize?: number
   pageNumber?: number
   sortBy?: string
-  embed?: ('applicant' | 'documents' | 'negotiator' | 'property' | 'source' | 'tasks' | 'type')[]
+  embed?: ('appointments' | 'applicant' | 'documents' | 'negotiator' | 'property' | 'source' | 'tasks' | 'type')[]
   id?: string[]
   negotiatorId?: string[]
   applicantId?: string[]
@@ -10301,7 +10312,7 @@ export interface UpdateAppointmentModel {
    */
   recurrence?: {
     /**
-     * The type of unit that the `interval` applies to
+     * The type of unit that the `interval` applies to (daily/weekly/yearly/monthly)
      */
     type?: string
     /**
@@ -10327,7 +10338,7 @@ export interface UpdateAppointmentModel {
  */
 export interface UpdateAppointmentRecurrenceModel {
   /**
-   * The type of unit that the `interval` applies to
+   * The type of unit that the `interval` applies to (daily/weekly/yearly/monthly)
    */
   type?: string
   /**
