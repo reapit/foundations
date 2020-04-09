@@ -86,7 +86,7 @@ exports[`InstallationTable should match snapshot 1`] = `
     onChange={[Function]}
     pageNumber={1}
     pageSize={5}
-    totalCount={1}
+    totalCount={0}
   />
 </div>
 `;
@@ -156,7 +156,7 @@ exports[`InstallationTable should match with null developerData 1`] = `
     onChange={[Function]}
     pageNumber={1}
     pageSize={5}
-    totalCount={1}
+    totalCount={0}
   />
 </div>
 `;

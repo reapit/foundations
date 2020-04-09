@@ -13,6 +13,9 @@ exports[`TrafficEventTable should match snapshot 1`] = `
           "Footer": "Total",
           "Header": "Endpoint",
           "accessor": "endpoint",
+          "columnProps": Object {
+            "className": "capitalize",
+          },
         },
         Object {
           "Footer": [Function],
@@ -52,6 +55,9 @@ exports[`TrafficEventTable should match snapshot if data is empty 1`] = `
           "Footer": "Total",
           "Header": "Endpoint",
           "accessor": "endpoint",
+          "columnProps": Object {
+            "className": "capitalize",
+          },
         },
         Object {
           "Footer": [Function],
@@ -80,6 +86,9 @@ exports[`TrafficEventTable should match snapshot when loading 1`] = `
           "Footer": "Total",
           "Header": "Endpoint",
           "accessor": "endpoint",
+          "columnProps": Object {
+            "className": "capitalize",
+          },
         },
         Object {
           "Footer": [Function],

@@ -13,6 +13,9 @@ export const prepareColumnsData = (trafficEvents: TrafficEventsModel | null) => 
       {
         Header: 'Endpoint',
         accessor: 'endpoint',
+        columnProps: {
+          className: 'capitalize',
+        },
         Footer: 'Total',
       },
       {

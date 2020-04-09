@@ -1,6 +1,5 @@
 import * as React from 'react'
-import * as ReactRedux from 'react-redux'
-import configureStore from 'redux-mock-store'
+
 import { shallow } from 'enzyme'
 import MockDate from 'mockdate'
 import {
@@ -13,10 +12,6 @@ import {
   renderFiterButtons,
   filterButtons,
 } from '../default-filter-group'
-import { appUsageStatsRequestData } from '@/actions/app-usage-stats'
-import { appInstallationsRequestData } from '@/actions/app-installations'
-import { httpTrafficPerDayRequestData } from '@/actions/app-http-traffic-event'
-import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 
 const mockProps: DefaultFilterGroupProps = {
   appIds: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
@@ -26,23 +21,8 @@ const mockProps: DefaultFilterGroupProps = {
 }
 
 describe('FilterBar', () => {
-  let store
-  let spyDispatch
-  beforeEach(() => {
-    /* mocking store */
-    const mockStore = configureStore()
-    store = mockStore({})
-    /* mocking useDispatch on our mock store  */
-    spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
-  })
   it('should match a snapshot', () => {
-    expect(
-      shallow(
-        <ReactRedux.Provider store={store}>
-          <DefaultFilterGroup {...mockProps} />
-        </ReactRedux.Provider>,
-      ),
-    ).toMatchSnapshot()
+    expect(shallow(<DefaultFilterGroup {...mockProps} />)).toMatchSnapshot()
   })
 
   describe('handleFilter', () => {
@@ -51,33 +31,10 @@ describe('FilterBar', () => {
         dateFrom: '2020-03-31',
         dateTo: '2020-04-01',
       }
-      const { appIds, clientIds, setDateTo, setDateFrom } = mockProps
-      handleFilter(mockDateParams, appIds, clientIds, setDateFrom, setDateTo, spyDispatch)
+      const { setDateTo, setDateFrom } = mockProps
+      handleFilter(mockDateParams, setDateFrom, setDateTo)
       expect(setDateFrom).toBeCalledWith(mockDateParams.dateFrom)
       expect(setDateTo).toBeCalledWith(mockDateParams.dateTo)
-      expect(spyDispatch).toBeCalledWith(
-        appUsageStatsRequestData({
-          ...mockDateParams,
-          appId: appIds,
-        }),
-      )
-      expect(spyDispatch).toBeCalledWith(
-        appInstallationsRequestData({
-          appId: appIds,
-          clientId: clientIds,
-          pageSize: GET_ALL_PAGE_SIZE,
-          installedDateFrom: mockDateParams.dateFrom,
-          installedDateTo: mockDateParams.dateTo,
-        }),
-      )
-      expect(spyDispatch).toBeCalledWith(
-        httpTrafficPerDayRequestData({
-          applicationId: appIds,
-          customerId: clientIds,
-          dateFrom: mockDateParams.dateFrom,
-          dateTo: mockDateParams.dateTo,
-        }),
-      )
     })
   })
 
@@ -88,31 +45,15 @@ describe('FilterBar', () => {
     const mockDispatch = jest.fn()
     const mockHandleFilter = jest.fn()
     it('should run correctly when filter type is yesterday', () => {
-      const fn = handleFilterButtonClick(
-        FilterType.YESTERDAY,
-        appIds,
-        clientIds,
-        setDateFrom,
-        setDateTo,
-        mockDispatch,
-        mockSetIsActive,
-      )
+      const fn = handleFilterButtonClick(FilterType.YESTERDAY, setDateFrom, setDateTo, mockSetIsActive)
       fn()
       expect(mockSetIsActive).toBeCalled()
-      mockHandleFilter(yesterdayParams, appIds, clientIds, setDateFrom, setDateTo, mockDispatch)
-      expect(mockHandleFilter).toBeCalledWith(yesterdayParams, appIds, clientIds, setDateFrom, setDateTo, mockDispatch)
+      mockHandleFilter(yesterdayParams, setDateFrom, setDateTo)
+      expect(mockHandleFilter).toBeCalledWith(yesterdayParams, setDateFrom, setDateTo)
     })
 
     it('should run correctly when filter type is last week', () => {
-      const fn = handleFilterButtonClick(
-        FilterType.LAST_WEEK,
-        appIds,
-        clientIds,
-        setDateFrom,
-        setDateTo,
-        mockDispatch,
-        mockSetIsActive,
-      )
+      const fn = handleFilterButtonClick(FilterType.LAST_WEEK, setDateFrom, setDateTo, mockSetIsActive)
       fn()
       expect(mockSetIsActive).toBeCalled()
       mockHandleFilter(lastWeekParams, appIds, clientIds, setDateFrom, setDateTo, mockDispatch)
@@ -120,15 +61,7 @@ describe('FilterBar', () => {
     })
 
     it('should run correctly when filter type is last month', () => {
-      const fn = handleFilterButtonClick(
-        FilterType.LAST_MONTH,
-        appIds,
-        clientIds,
-        setDateFrom,
-        setDateTo,
-        mockDispatch,
-        mockSetIsActive,
-      )
+      const fn = handleFilterButtonClick(FilterType.LAST_MONTH, setDateFrom, setDateTo, mockSetIsActive)
       fn()
       expect(mockSetIsActive).toBeCalled()
       mockHandleFilter(lastMonthParams, appIds, clientIds, setDateFrom, setDateTo, mockDispatch)
@@ -163,20 +96,16 @@ describe('FilterBar', () => {
 
   describe('renderFiterButtons', () => {
     it('should match a snapshot', () => {
-      const { appIds, clientIds, setDateFrom, setDateTo } = mockProps
+      const { setDateFrom, setDateTo } = mockProps
       const mockSetIsActive = jest.fn()
-      const mockDispatch = jest.fn()
       const filterButtonGroup = filterButtons.map(button => {
         return renderFiterButtons(
           button.text,
           button.filterType,
           FilterType.LAST_WEEK,
           jest.fn(),
-          appIds,
-          clientIds,
           setDateFrom,
           setDateTo,
-          mockDispatch,
           mockSetIsActive,
         )
       })
