@@ -32,6 +32,14 @@ module.exports = {
     {
       files: ['**/*.svelte'],
       processor: 'svelte3/svelte3',
+      rules: {
+        'prettier/prettier': [
+          'off',
+          {
+            endOfLine: 'auto',
+          },
+        ],
+      },
     },
   ],
   ignorePatterns: [
@@ -53,7 +61,7 @@ module.exports = {
     'no-unused-vars': ['error', { vars: 'all', args: 'after-used' }],
     '@typescript-eslint/no-unused-vars': [2, { args: 'none' }],
     'prettier/prettier': [
-      'error',
+      'warn',
       {
         endOfLine: 'auto',
       },

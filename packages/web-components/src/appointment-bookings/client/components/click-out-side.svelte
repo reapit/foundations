@@ -7,12 +7,14 @@
 
   const onClick = event => {
     if (!containerElement.contains(event.target)) {
+      event.stopPropagation()
       dispatch('click-out-side')
     }
   }
 
   onMount(() => {
-    document.addEventListener('click', onClick)
+    // true to use capture instead
+    document.addEventListener('click', onClick, true)
   })
 
   onDestroy(() => {

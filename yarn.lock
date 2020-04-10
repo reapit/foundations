@@ -24110,7 +24110,7 @@ svelte-jester@^1.0.4:
   dependencies:
     cosmiconfig "^6.0.0"
 
-svelte@^3.19.0:
+svelte@^3.20.1:
   version "3.20.1"
   resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.20.1.tgz#8417fcd883a2f534b642a0737368272e651cf3ac"
   integrity sha512-m/dw52BZf+p6KYnyKLErIcGalu4pwJrQbUM7VZriRw6ZlJj1qMAZsLcIWzEB3I0hhdJwkKb7LrrvUIeqmbO92Q==

@@ -6,4 +6,11 @@ export const themeStore = writable<AppointmentBookingThemeClasses | null>({
   svgNavigation: '',
   timeCellsContainer: '',
   dateCellHeader: '',
+  formBlock: '',
+  formInput: '',
+  formHeader: '',
+  formLabel: '',
+  formSeparator: '',
+  formButtonPrimary: '',
+  formButtonSecondary: '',
 })
