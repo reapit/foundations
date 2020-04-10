@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Modal, ModalProps, H4, H6 } from '@reapit/elements'
+import { Button, Modal, ModalProps } from '@reapit/elements'
 import styles from '@/styles/blocks/term-and-conditions-modal.scss?mod'
 import { TermAndConditions } from './term-and-conditions'
 import { Schedule1 } from './schedule1'

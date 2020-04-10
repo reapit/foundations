@@ -101,10 +101,10 @@ export const TermAndConditions = () => (
                 General Data Protection Regulation (EU Regulation 2016/679) (<b>GDPR</b>); (d) at such time as the
                 United Kingdom leaves the European Union and the GDPR no longer has direct effect in United Kingdom law,
                 the GDPR as transposed into the national legislation of the United Kingdom by operation of section 3 of
-                the European Union (Withdrawal) Act 2018 ("<b>UK GDPR</b>") and (e) any laws or regulations ratifying,
-                implementing, adopting, supplementing or replacing GDPR, UK GDPR or DPA and in each case as amended or
-                replaced from time to time, together with any binding guidance and codes of practice issued from time to
-                time by relevant supervisory authorities.
+                the European Union (Withdrawal) Act 2018 (&quot;<b>UK GDPR</b>&quot;) and (e) any laws or regulations
+                ratifying, implementing, adopting, supplementing or replacing GDPR, UK GDPR or DPA and in each case as
+                amended or replaced from time to time, together with any binding guidance and codes of practice issued
+                from time to time by relevant supervisory authorities.
               </span>
             </li>
 
@@ -756,7 +756,7 @@ export const TermAndConditions = () => (
         <li className={styles['child']}>
           <span>
             If either Party receives any complaint, notice or communication which relates directly or indirectly to the
-            processing of Personal Data by the other Party or to either Party's compliance with the Data Protection
+            processing of Personal Data by the other Party or to either Party&apos;s compliance with the Data Protection
             Laws, it shall promptly notify the other Party and it shall provide the other Party with reasonable
             co-operation and assistance in relation to any such complaint, notice or communication.
           </span>
