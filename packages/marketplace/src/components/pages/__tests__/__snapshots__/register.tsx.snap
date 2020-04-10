@@ -58,20 +58,6 @@ exports[`Register should match a snapshot for PENDING state 1`] = `
           placeholder="0800 800 800"
           type="tel"
         />
-        <Component
-          dataTest="register-password"
-          id="password"
-          labelText="Password"
-          name="password"
-          type="password"
-        />
-        <Component
-          dataTest="register-confirm-password"
-          id="confirmPassword"
-          labelText="Confirm password"
-          name="confirmPassword"
-          type="password"
-        />
       </Component>
       <Component>
         <Component>

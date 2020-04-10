@@ -42,8 +42,6 @@ export interface RegisterFormValues {
   companyName: string
   email: string
   telephone: string
-  password: string
-  confirmPassword: string
   agreedTerms: string
 }
 
@@ -182,20 +180,6 @@ export const Register: React.FunctionComponent<RegisterProps & FormikProps<Regis
                   id="telephone"
                   name="telephone"
                   placeholder="0800 800 800"
-                />
-                <Input
-                  dataTest="register-password"
-                  type="password"
-                  labelText="Password"
-                  id="password"
-                  name="password"
-                />
-                <Input
-                  dataTest="register-confirm-password"
-                  type="password"
-                  labelText="Confirm password"
-                  id="confirmPassword"
-                  name="confirmPassword"
                 />
               </FormSection>
               <FormSection>
