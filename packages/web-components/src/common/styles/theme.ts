@@ -116,8 +116,6 @@ export const generateThemeClasses = (
         color: ${primaryAccentColor || '#000'};
         border: 1px solid ${primaryAccentColor || 'grey'};
         background: ${baseBackgroundColor || '#fff'};
-
-        color: ${inverseFontColor || '#fff'};
       }
 
       :last-child {

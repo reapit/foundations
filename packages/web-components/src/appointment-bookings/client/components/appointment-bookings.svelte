@@ -10,6 +10,8 @@
   import { generateAppointmentBookingThemeClasses } from '../core/theme'
   import DateTimePicker from './date-time-picker.svelte'
 
+  import AppointmentConfirmation from './appointment-confirmation.svelte'
+
   export let theme
   export let parentSelector
 
@@ -111,3 +113,4 @@ onMount(()=>{
     </div>
   </div>
 {/if}
+<AppointmentConfirmation theme={theme}/>
