@@ -29,6 +29,7 @@ Search_widget {
         "secondaryHeadingFontSize": "22px",
         "secondaryfontColor": "#fff",
       },
+      null,
       Object {
         "initializers": Object {
           "apiKey": "SOME_KEY",
@@ -79,6 +80,8 @@ Search_widget {
       },
       "css-ya093n",
       "css-1me750l",
+      [Function],
+      [Function],
       "SOME_KEY",
       "#search-widget",
     ],
@@ -100,8 +103,8 @@ Search_widget {
     ],
     "on_mount": Array [],
     "props": Object {
-      "apiKey": 4,
-      "parentSelector": 5,
+      "apiKey": 7,
+      "parentSelector": 8,
       "theme": 0,
     },
     "update": [Function],

@@ -1,18 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchResult it matches a snapshot 1`] = `
+exports[`PropertyDetail it matches a snapshot 1`] = `
 <body>
   <div>
     <div
-      class="search-result-item 
-   svelte-1l1qfnz"
+      class="property-item svelte-7f8chm"
       data-testid="select-property"
     >
+      <a
+        class=" svelte-7f8chm"
+        data-testid="btn-back"
+        href="/"
+      >
+        Back to results
+      </a>
+       
       <div
-        class="search-result-image-container svelte-1l1qfnz"
+        class="property-image-container svelte-7f8chm"
       >
         <div
-          class="search-result-offer-banner  svelte-1l1qfnz"
+          class="property-offer-banner  svelte-7f8chm"
         >
           Under Offer
         </div>
@@ -20,17 +27,17 @@ exports[`SearchResult it matches a snapshot 1`] = `
          
         <img
           alt="property image"
-          class="svelte-1l1qfnz"
+          class="svelte-7f8chm"
           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88xYAAssB20Ea4T8AAAAASUVORK5CYII="
         />
       </div>
        
       <div>
         <div
-          class=" search-result-item-address-secondary svelte-1l1qfnz"
+          class=" property-item-address-secondary svelte-7f8chm"
         >
           <div
-            class=" search-result-item-address-primary svelte-1l1qfnz"
+            class=" property-item-address-primary svelte-7f8chm"
           >
             Example street
           </div>
@@ -40,29 +47,29 @@ exports[`SearchResult it matches a snapshot 1`] = `
       </div>
        
       <div
-        class=" search-result-item-pricing-text svelte-1l1qfnz"
+        class=" property-item-pricing-text svelte-7f8chm"
       >
         £250,000
       </div>
        
       <div
-        class=" search-result-item-beds-text svelte-1l1qfnz"
+        class=" property-item-beds-text svelte-7f8chm"
       >
         4 Bed Detached House
       </div>
        
       <div
-        class=" search-result-item-description-text svelte-1l1qfnz"
+        class=" property-item-description-text svelte-7f8chm"
       >
         We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.
       </div>
        
       <div
-        class=" search-result-item-icon-container svelte-1l1qfnz"
+        class=" property-item-icon-container svelte-7f8chm"
       >
         <div>
           <span
-            class="search-result-item-icon svelte-1l1qfnz"
+            class="property-item-icon svelte-7f8chm"
           >
             <svg
               aria-hidden="true"
@@ -93,7 +100,7 @@ exports[`SearchResult it matches a snapshot 1`] = `
           4
            
           <span
-            class="search-result-item-icon svelte-1l1qfnz"
+            class="property-item-icon svelte-7f8chm"
           >
             <svg
               aria-hidden="true"
@@ -123,13 +130,6 @@ exports[`SearchResult it matches a snapshot 1`] = `
            
           2
         </div>
-         
-        <a
-          class=" search-result-item-address-primary svelte-1l1qfnz"
-          href="/"
-        >
-          View Detail
-        </a>
       </div>
     </div>
   </div>
