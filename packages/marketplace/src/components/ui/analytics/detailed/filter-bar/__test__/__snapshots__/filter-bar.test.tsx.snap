@@ -11,6 +11,7 @@ exports[`FilterBar should match a snapshot 1`] = `
     }
     clientIds={
       Array [
+        "SBOX",
         "DXX",
       ]
     }
@@ -20,6 +21,7 @@ exports[`FilterBar should match a snapshot 1`] = `
   <Component
     clientIds={
       Array [
+        "SBOX",
         "DXX",
       ]
     }
