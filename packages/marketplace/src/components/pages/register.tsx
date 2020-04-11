@@ -81,8 +81,6 @@ export const handleSubmitButtonOnClick = ({
   validateForm,
 }: HandleSubmitParams) => () => {
   validateForm().then(errors => {
-    console.log('asdas')
-
     if (Object.keys(errors).length > 0) {
       // marked all fields as touched to show errors
       handleSubmit()
