@@ -1,5 +1,5 @@
 <script>
-  import { onDestroy } from 'svelte'
+  import { onDestroy, onMount } from 'svelte'
   import { createEventDispatcher } from 'svelte'
   import Fa from 'svelte-fa'
   import { faBed, faToilet } from '@fortawesome/free-solid-svg-icons'
@@ -50,11 +50,14 @@
 
   const dispatch = createEventDispatcher()
 
-  const handleViewDetail = () => {
-    dispatch('propertyClick', {
-      property: property,
-    })
+  const handleBack = () => {
+    dispatch('back')
   }
+
+  onMount(() => {
+    document.body.scrollTop = 0
+    document.documentElement.scrollTop = 0
+  })
 
   onDestroy(() => {
     unsubscribeSearchWidgetStore()
@@ -62,7 +65,7 @@
 </script>
 
 <style>
-  .search-result-item {
+  .property-detail-item {
     box-sizing: border-box;
     cursor: pointer;
     padding: 0.5em;
@@ -70,12 +73,12 @@
     border-radius: 0.3em;
   }
 
-  .search-result-item img {
+  .property-detail-item img {
     width: 100%;
     height: 12em;
   }
 
-  .search-result-image-container {
+  .property-detail-image-container {
     width: 100%;
     border-radius: 0.3em;
     position: relative;
@@ -83,7 +86,7 @@
     margin-bottom: 0.5em;
   }
 
-  .search-result-offer-banner {
+  .property-detail-offer-banner {
     text-align: center;
     position: absolute;
     width: 12.5em;
@@ -94,7 +97,7 @@
     font-weight: 600;
   }
 
-  .search-result-item-address-secondary {
+  .property-detail-item-address-secondary {
     hyphens: auto;
     display: contents;
     display: -webkit-box;
@@ -106,19 +109,19 @@
     line-height: 1.2em;
   }
 
-  .search-result-item-pricing-text {
+  .property-detail-item-pricing-text {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
   }
 
-  .search-result-item-beds-text {
+  .property-detail-item-beds-text {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
   }
 
-  .search-result-item-description-text {
+  .property-detail-item-description-text {
     display: -webkit-box;
     -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
@@ -129,62 +132,53 @@
     line-height: 1.2em;
   }
 
-  .search-result-item-icon-container {
+  .property-detail-item-icon-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
-  .search-result-item-icon {
+  .property-detail-item-icon {
     margin-right: 0.33em;
   }
 
-  .search-result-item-icon:last-child {
+  .property-detail-item-icon:last-child {
     margin-left: 1em;
   }
 </style>
 
-<div
-  class="search-result-item {resultItem}
-  {isSelectedProperty ? selectedItem : ''}"
-  data-testid="select-property"
-  on:click|preventDefault={selectProperty}>
-  <div class="search-result-image-container">
+<div class="property-detail-item" data-testid="select-property-detail">
+  <a data-testid="btn-back" class={secondaryHeading} on:click|preventDefault={handleBack} href="/">Back to results</a>
+  <div class="property-detail-image-container">
     {#if sellingStatus === 'underOffer'}
-      <div class="search-result-offer-banner {offerBanner}">Under Offer</div>
+      <div class="property-detail-offer-banner {offerBanner}">Under Offer</div>
     {/if}
     {#if lettingStatus === 'underOffer'}
-      <div class="search-result-offer-banner {offerBanner}">Let Agreed</div>
+      <div class="property-detail-offer-banner {offerBanner}">Let Agreed</div>
     {/if}
-    <img alt="property image" src={imageUrl} on:error={handleImageError} />
+    <img alt="property-detail image" src={imageUrl} on:error={handleImageError} />
   </div>
   <div>
-    <div class="{secondaryStrapline} search-result-item-address-secondary">
-      <div class="{secondaryHeading} search-result-item-address-primary">
+    <div class="{secondaryStrapline} property-detail-item-address-secondary">
+      <div class="{secondaryHeading} property-detail-item-address-primary">
         {(property.address && property.address.line1) || ''}
       </div>
       {combineAddress(property.address)}
     </div>
   </div>
-  <div class="{primaryHeading} search-result-item-pricing-text">{getPrice(property, searchType)}</div>
-  <div class="{secondaryStrapline} search-result-item-beds-text">{combineNumberBedTypeStyle(property)}</div>
-  <div class="{bodyText} search-result-item-description-text">{property.description}</div>
-  <div class="{secondaryHeading} search-result-item-icon-container">
+  <div class="{primaryHeading} property-detail-item-pricing-text">{getPrice(property, searchType)}</div>
+  <div class="{secondaryStrapline} property-detail-item-beds-text">{combineNumberBedTypeStyle(property)}</div>
+  <div class="{bodyText} property-detail-item-description-text">{property.description}</div>
+  <div class="{secondaryHeading} property-detail-item-icon-container">
     <div>
-      <span class="search-result-item-icon">
+      <span class="property-detail-item-icon">
         <Fa icon={faBed} />
       </span>
       {property.bedrooms || 0}
-      <span class="search-result-item-icon">
+      <span class="property-detail-item-icon">
         <Fa icon={faToilet} />
       </span>
       {property.bathrooms || 0}
     </div>
-    <a
-      class="{secondaryHeading} search-result-item-address-primary"
-      on:click|preventDefault={handleViewDetail}
-      href="/">
-      View Detail
-    </a>
   </div>
 </div>
