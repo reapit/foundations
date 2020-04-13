@@ -7,6 +7,7 @@
   import SearchResult from './search-result.svelte'
   import PropertyDetail from './property-detail.svelte'
   import Loader from '../../../common/components/loader.svelte'
+  import Pagination from './pagination.svelte'
 
   export let theme
   export let apiKey
@@ -84,6 +85,9 @@
         {#each $searchWidgetStore.properties as property (property.id)}
           <SearchResult {property} on:propertyClick={handleItemClick} />
         {/each}
+        {#if $searchWidgetStore.properties.length > 0 && !$searchWidgetStore.isLoading}
+          <Pagination />
+        {/if}
       </div>
     {/if}
     <GoogleMap {theme} />

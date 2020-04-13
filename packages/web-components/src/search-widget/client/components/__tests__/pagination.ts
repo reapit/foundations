@@ -1,4 +1,4 @@
-import SearchForm from '../search-form.svelte'
+import Pagination from '../pagination.svelte'
 import { render, fireEvent } from '@testing-library/svelte'
 import { getProperties } from '../../api/properties'
 import { getPropertyImages } from '../../api/property-images'
@@ -11,52 +11,68 @@ import createGoogleMapsMock from '../../utils/__mocks__/mock-google-map'
 jest.mock('../../api/properties')
 jest.mock('../../api/property-images')
 
-describe('search-form', () => {
+describe('pagination', () => {
   beforeAll(() => {
     createGoogleMapsMock()
   })
 
   it('it matches a snapshot', () => {
-    const wrapper = render(SearchForm)
+    searchWidgetStore.update(store => ({
+      ...store,
+      properties: [],
+      totalPage: 10,
+      pageNumber: 2,
+    }))
+    const wrapper = render(Pagination)
     const { container } = wrapper
 
     expect(container).toMatchSnapshot()
   })
 
-  it('it triggers a data fetch for rentals', async () => {
+  it('it triggers a data fetch for first-page', async () => {
+    searchWidgetStore.update(store => ({
+      ...store,
+      properties: [],
+      totalPage: 10,
+      pageNumber: 2,
+    }))
     ;(getProperties as jest.Mock).mockImplementation(() => propertiesMinimalStub)
     ;(getPropertyImages as jest.Mock).mockImplementation(() => propertyImagesMinimalStub)
 
-    const wrapper = render(SearchForm)
+    const wrapper = render(Pagination)
     const { getByTestId } = wrapper
 
-    const getLettings = getByTestId('lettings')
+    const firstPage = getByTestId('first-page')
 
-    await fireEvent.click(getLettings)
+    await fireEvent.click(firstPage)
 
     const store = get(searchWidgetStore)
 
     expect(store.properties).toEqual(propertiesMinimalStub._embedded)
     expect(store.propertyImages).toEqual(propertyImagesMinimalStub)
     expect(store.isLoading).toBe(false)
-    expect(store.resultsMessage).toBe('3096 results for rent')
   })
 
-  it('it triggers a data fetch for sales', async () => {
+  it('it triggers a data fetch for last-page', async () => {
+    searchWidgetStore.update(store => ({
+      ...store,
+      properties: [],
+      totalPage: 10,
+      pageNumber: 2,
+    }))
     ;(getProperties as jest.Mock).mockImplementation(() => propertiesMinimalStub)
     ;(getPropertyImages as jest.Mock).mockImplementation(() => propertyImagesMinimalStub)
 
-    const wrapper = render(SearchForm)
+    const wrapper = render(Pagination)
     const { getByTestId } = wrapper
 
-    const getSales = getByTestId('sales')
+    const lastPage = getByTestId('last-page')
 
-    await fireEvent.click(getSales)
+    await fireEvent.click(lastPage)
 
     const store = get(searchWidgetStore)
     expect(store.properties).toEqual(propertiesMinimalStub._embedded)
     expect(store.propertyImages).toEqual(propertyImagesMinimalStub)
     expect(store.isLoading).toBe(false)
-    expect(store.resultsMessage).toBe('3096 results for sale')
   })
 })

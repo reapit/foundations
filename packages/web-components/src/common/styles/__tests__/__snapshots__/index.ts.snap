@@ -182,6 +182,8 @@ Object {
   "globalStyles": "css-ya093n",
   "input": "css-u6oic2",
   "offerBanner": "css-gl5ek3",
+  "pagination": "css-1mlub6j",
+  "paginationActive": "css-1mlub6j",
   "primaryHeading": "css-1me750l",
   "primaryStrapline": "css-i73fze",
   "resultItem": "css-camhmr",
