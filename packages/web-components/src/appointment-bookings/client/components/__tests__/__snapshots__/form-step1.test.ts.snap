@@ -1,0 +1,190 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormStep1 should match snapshot 1`] = `
+<body>
+  <div>
+    <form
+      class="form-step1-wrap svelte-16qy3kq"
+    >
+      <div
+        class="form-step1-header svelte-16qy3kq"
+      >
+        <span
+          class="form-step1-header-back svelte-16qy3kq"
+          href="/"
+        >
+          <svg
+            aria-hidden="true"
+            class="svgNavigation"
+            id=""
+            role="img"
+            style="height:1em;vertical-align:-.125em;overflow:visible;"
+            viewBox="0 0 320 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              transform="translate(256 256)"
+            >
+              <g
+                transform=""
+              >
+                <path
+                  d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"
+                  fill="currentColor"
+                  transform="translate(-256 -256)"
+                />
+              </g>
+            </g>
+          </svg>
+          
+        </span>
+         
+        <h3
+          class="form-step1-header-title formHeader svelte-16qy3kq"
+        >
+          Book a Valuation
+        </h3>
+      </div>
+       
+      <p
+        class="form-step1-sub-title svelte-16qy3kq"
+      >
+        To book a valuation, please enter your e-mail address below
+      </p>
+       
+      <hr
+        class="formSeparator svelte-16qy3kq"
+      />
+       
+      <div
+        class="form-step1-form-block formBlock svelte-16qy3kq"
+      >
+        <label
+          class="form-step1-label-block formLabel svelte-16qy3kq"
+          for="looking-for"
+        >
+          Looking for
+        </label>
+         
+        <div
+          class="form-step1-value-block svelte-16qy3kq"
+          id="looking-for"
+        >
+          <input
+            id="sell-a-property"
+            name="looking-for"
+            type="radio"
+            value="sell"
+          />
+           
+          <label
+            for="sell-a-property"
+          >
+            Sell a property
+          </label>
+           
+          <input
+            id="let-a-property"
+            name="looking-for"
+            type="radio"
+            value="let"
+          />
+           
+          <label
+            for="let-a-property"
+          >
+            Let a property
+          </label>
+           
+        </div>
+      </div>
+       
+      <hr
+        class="formSeparator svelte-16qy3kq"
+      />
+       
+      <div
+        class="form-step1-form-block formBlock svelte-16qy3kq"
+      >
+        <label
+          class="form-step1-label-block formLabel svelte-16qy3kq"
+          for="your-email"
+        >
+          Email*
+        </label>
+         
+        <div
+          class="form-step1-value-block svelte-16qy3kq"
+        >
+          <input
+            class="formInput svelte-16qy3kq"
+            id="your-email"
+            novalidate=""
+            placeholder="Your e-mail address"
+            type="email"
+          />
+           
+        </div>
+      </div>
+       
+      <hr
+        class="formSeparator svelte-16qy3kq"
+      />
+       
+      <div
+        class="form-step1-form-block formBlock svelte-16qy3kq"
+      >
+        <label
+          class="form-step1-label-block formLabel svelte-16qy3kq"
+          for="postcode"
+        >
+          Postcode*
+        </label>
+         
+        <div
+          class="form-step1-value-block svelte-16qy3kq"
+        >
+          <input
+            class="formInput svelte-16qy3kq"
+            id="postcode"
+            placeholder="Postcode of the property"
+            type="text"
+          />
+           
+        </div>
+      </div>
+       
+      <hr
+        class="formSeparator svelte-16qy3kq"
+      />
+       
+      <div
+        class="form-step1-form-block formBlock svelte-16qy3kq"
+      >
+        <label
+          class="form-step1-label-block formLabel svelte-16qy3kq"
+          for="submit"
+        />
+         
+        <div
+          class="form-step1-button-group svelte-16qy3kq"
+        >
+          <button
+            class="form-step1-button-get-appointments formButtonPrimary svelte-16qy3kq"
+            data-testid="submit-button-form1"
+            type="submit"
+          >
+            Get Appointments
+          </button>
+           
+          <button
+            class="form-step1-button-cancel formButtonSecondary svelte-16qy3kq"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+`;

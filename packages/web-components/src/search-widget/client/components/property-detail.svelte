@@ -22,16 +22,7 @@
     themeClasses = store.themeClasses
   })
 
-  const {
-    primaryHeading,
-    secondaryHeading,
-    primaryStrapline,
-    secondaryStrapline,
-    bodyText,
-    selectedItem,
-    resultItem,
-    offerBanner,
-  } = themeClasses
+  const { primaryHeading, secondaryHeading, secondaryStrapline, bodyText, offerBanner } = themeClasses
 
   const id = (property && property.id) || ''
   const propertyImage = propertyImages && propertyImages[id]
@@ -40,13 +31,6 @@
   const lettingStatus = (property.letting && property.letting.status) || ''
 
   $: isSelectedProperty = property.id === (selectedProperty && selectedProperty.id) || ''
-
-  const selectProperty = () => {
-    searchWidgetStore.update(store => ({
-      ...store,
-      selectedProperty: property,
-    }))
-  }
 
   const dispatch = createEventDispatcher()
 

@@ -25,7 +25,6 @@
   const {
     primaryHeading,
     secondaryHeading,
-    primaryStrapline,
     secondaryStrapline,
     bodyText,
     selectedItem,
