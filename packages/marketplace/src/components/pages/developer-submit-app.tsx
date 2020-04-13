@@ -626,7 +626,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                           please select ‘Yes’ below. You should then enter the ‘Customer ID’ of the customer(s) you wish
                           to share your app with. If you select ‘No’, your App will be visible to all on the
                           Marketplace. For multiple customers, please separate the Customer IDs using a comma, e.g. ABC,
-                          DEF. For information on how to obtain the Customer ID, please click here (TBC)
+                          DEF.
                         </FormSubHeading>
                         <RadioSelect
                           setFieldValue={setFieldValue}
