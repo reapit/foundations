@@ -61,9 +61,10 @@ describe('AppSidebar', () => {
   describe('handleSelectCategory', () => {
     it('should call history.push with addQuery({categoryId}) when passed categoryId', () => {
       const categoryId = '1'
+      const page = '1'
       const fn = handleSelectCategory(history)
       fn(categoryId)
-      expect(addQuery).toHaveBeenCalledWith({ category: categoryId })
+      expect(addQuery).toHaveBeenCalledWith({ category: categoryId, page })
       expect(spy).toHaveBeenCalledTimes(1)
     })
 
@@ -78,9 +79,10 @@ describe('AppSidebar', () => {
   describe('handleSearchApp', () => {
     it('should call history.push with addQuery({searchApp}) when passed values that have search', () => {
       const values = { search: 'search' }
+      const page = '1'
       const fn = handleSearchApp(history)
       fn(values)
-      expect(addQuery).toHaveBeenCalledWith({ search: values.search })
+      expect(addQuery).toHaveBeenCalledWith({ search: values.search, page })
       expect(spy).toHaveBeenCalledTimes(1)
     })
 
