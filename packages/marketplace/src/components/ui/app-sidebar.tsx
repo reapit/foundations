@@ -33,7 +33,7 @@ export interface FilterFormValues {
 
 export const handleSelectCategory = (history: History) => (categoryId?: string) => {
   if (categoryId) {
-    history.push(addQuery({ category: categoryId }))
+    history.push(addQuery({ category: categoryId, page: '1' }))
   } else {
     history.push(removeQuery(['category', 'search', 'searchBy']))
   }
@@ -42,7 +42,7 @@ export const handleSelectCategory = (history: History) => (categoryId?: string) 
 export const handleSearchApp = (history: History) => (values: FilterFormValues) => {
   const { search, searchBy } = values
   if (search) {
-    history.push(addQuery({ search, searchBy }))
+    history.push(addQuery({ search, searchBy, page: '1' }))
   } else {
     history.push(removeQuery(['search', 'searchBy']))
   }
