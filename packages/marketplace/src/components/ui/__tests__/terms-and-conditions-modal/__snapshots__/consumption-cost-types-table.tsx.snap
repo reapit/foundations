@@ -8,26 +8,27 @@ Object {
       <div>
         <table
           class="table  is-fullwidth is-bordered"
+          role="table"
         >
           <thead>
             <tr
-              class=""
+              role="row"
             >
               <th
-                class=""
                 colspan="1"
+                role="columnheader"
               >
                 Type
               </th>
               <th
-                class=""
                 colspan="1"
+                role="columnheader"
               >
                 Amount
               </th>
               <th
-                class=""
                 colspan="1"
+                role="columnheader"
               >
                 Payable
               </th>
@@ -35,82 +36,101 @@ Object {
           </thead>
           <tbody>
             <tr
-              class=""
+              role="row"
             >
               <td
-                class=""
+                role="cell"
               >
                 Annual Registration Fee
               </td>
               <td
-                class=""
+                role="cell"
               >
                 £995
               </td>
               <td
-                class=""
+                role="cell"
               >
                 Per Contract year, payable in advance
               </td>
             </tr>
             <tr
-              class=""
+              role="row"
             >
               <td
-                class=""
+                role="cell"
               >
                 Monthly App Marketplace Fee
               </td>
               <td
-                class=""
+                role="cell"
               >
                 £49.50 
               </td>
               <td
-                class=""
+                role="cell"
               >
                 Payable for each Application approved in accordance with clauses 2.6 and 2.6.2, and payable per calendar month (orpart thereof) in arrears .
               </td>
             </tr>
             <tr
-              class=""
+              role="row"
             >
               <td
-                class=""
+                role="cell"
               >
                 Monthly Data Storage Fee - Per 1GB
               </td>
               <td
-                class=""
+                role="cell"
               >
                 £0.50
               </td>
               <td
-                class=""
+                role="cell"
               >
                 Payable monthly in arrears
               </td>
             </tr>
             <tr
-              class=""
+              role="row"
             >
               <td
-                class=""
+                role="cell"
               >
                 Total Consumption Cost 
               </td>
               <td
-                class=""
+                role="cell"
               >
                 Calculated in accordance with the table below.
               </td>
               <td
-                class=""
+                role="cell"
               >
                 Payable monthly in arrears
               </td>
             </tr>
           </tbody>
+          <tfoot>
+            <tr>
+              <th
+                colspan="1"
+              >
+                 
+              </th>
+              <th
+                colspan="1"
+              >
+                 
+              </th>
+              <th
+                colspan="1"
+              >
+                 
+              </th>
+            </tr>
+          </tfoot>
         </table>
       </div>
     </div>
@@ -119,26 +139,27 @@ Object {
     <div>
       <table
         class="table  is-fullwidth is-bordered"
+        role="table"
       >
         <thead>
           <tr
-            class=""
+            role="row"
           >
             <th
-              class=""
               colspan="1"
+              role="columnheader"
             >
               Type
             </th>
             <th
-              class=""
               colspan="1"
+              role="columnheader"
             >
               Amount
             </th>
             <th
-              class=""
               colspan="1"
+              role="columnheader"
             >
               Payable
             </th>
@@ -146,82 +167,101 @@ Object {
         </thead>
         <tbody>
           <tr
-            class=""
+            role="row"
           >
             <td
-              class=""
+              role="cell"
             >
               Annual Registration Fee
             </td>
             <td
-              class=""
+              role="cell"
             >
               £995
             </td>
             <td
-              class=""
+              role="cell"
             >
               Per Contract year, payable in advance
             </td>
           </tr>
           <tr
-            class=""
+            role="row"
           >
             <td
-              class=""
+              role="cell"
             >
               Monthly App Marketplace Fee
             </td>
             <td
-              class=""
+              role="cell"
             >
               £49.50 
             </td>
             <td
-              class=""
+              role="cell"
             >
               Payable for each Application approved in accordance with clauses 2.6 and 2.6.2, and payable per calendar month (orpart thereof) in arrears .
             </td>
           </tr>
           <tr
-            class=""
+            role="row"
           >
             <td
-              class=""
+              role="cell"
             >
               Monthly Data Storage Fee - Per 1GB
             </td>
             <td
-              class=""
+              role="cell"
             >
               £0.50
             </td>
             <td
-              class=""
+              role="cell"
             >
               Payable monthly in arrears
             </td>
           </tr>
           <tr
-            class=""
+            role="row"
           >
             <td
-              class=""
+              role="cell"
             >
               Total Consumption Cost 
             </td>
             <td
-              class=""
+              role="cell"
             >
               Calculated in accordance with the table below.
             </td>
             <td
-              class=""
+              role="cell"
             >
               Payable monthly in arrears
             </td>
           </tr>
         </tbody>
+        <tfoot>
+          <tr>
+            <th
+              colspan="1"
+            >
+               
+            </th>
+            <th
+              colspan="1"
+            >
+               
+            </th>
+            <th
+              colspan="1"
+            >
+               
+            </th>
+          </tr>
+        </tfoot>
       </table>
     </div>
   </div>,
