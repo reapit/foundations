@@ -1,12 +1,12 @@
 <script>
-  import { onMount, onDestroy, afterUpdate } from 'svelte'
+  import { onMount, afterUpdate } from 'svelte'
   import searchWidgetStore from '../core/store'
   import { loadMap, centerMapToMarker, fitMapToBounds } from '../utils/map-helpers'
   import Marker from './marker.svelte'
   import WindowInfo from './window-info.svelte'
 
   export let theme
-  
+
   let map
   let mapElement
 

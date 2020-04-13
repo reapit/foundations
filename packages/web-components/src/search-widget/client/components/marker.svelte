@@ -1,7 +1,6 @@
 <script>
   import { onMount, createEventDispatcher } from 'svelte'
   import { getMarker } from '../utils/map-helpers'
-  import { DEFAULT_CENTER } from '../../../common/utils/constants'
 
   const dispatch = createEventDispatcher()
 
@@ -11,8 +10,7 @@
 
   onMount(() => {
     marker = getMarker(property, map)
-
-    google.maps.event.addListener(marker, 'click', () => {
+    window.google.maps.event.addListener(marker, 'click', () => {
       dispatch('markerClick', {
         selectedMarker: marker,
         selectedProperty: property,

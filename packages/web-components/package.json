@@ -40,7 +40,6 @@
     "isomorphic-fetch": "^2.2.1",
     "lodash.pickby": "^4.6.0",
     "serverless-http": "^2.3.2",
-    "svelte": "^3.19.0",
     "svelte-fa": "^2.1.1",
     "typescript": "~3.7.2"
   },
@@ -50,8 +49,8 @@
     "start:dev": "node ./src/scripts/start-dev.js",
     "test:dev": "jest --watch --color",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
-    "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
-    "lint:fix": "eslint --cache --ext=ts,tsx,js src --fix",
+    "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js,svelte src\"",
+    "lint:fix": "eslint --cache --ext=ts,tsx,js,svelte src --fix",
     "fetch-config": "yarn config-manager fetchConfig web-components",
     "build:serverless": "serverless webpack --out dist --stage dev",
     "release:server:dev": "serverless deploy --stage dev",

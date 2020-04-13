@@ -1,5 +1,4 @@
 <script>
-  import { onDestroy } from 'svelte'
   import { getProperties } from '../api/properties'
   import { getPropertyImages } from '../api/property-images'
   import searchWidgetStore from '../core/store'
@@ -37,7 +36,7 @@
       const resultsMessage = `${numberResults} result${numberResults === 1 ? '' : 's'}${
         inputValue.length ? ` for ${inputValue},` : ''
       } for ${isRental ? 'rent' : 'sale'}`
-  
+
       searchWidgetStore.update(values => ({
         ...values,
         isLoading: false,
