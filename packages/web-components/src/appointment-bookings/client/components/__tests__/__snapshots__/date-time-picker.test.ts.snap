@@ -13,7 +13,7 @@ exports[`DateTimePicker it matches a snapshot 1`] = `
         <div
           class=" svelte-hlfy7d"
         >
-          Mon Apr 06
+          Mon Apr 13
         </div>
          
         <div
@@ -27,7 +27,7 @@ exports[`DateTimePicker it matches a snapshot 1`] = `
         <div
           class=" svelte-hlfy7d"
         >
-          Tue Apr 07
+          Tue Apr 14
         </div>
          
         <div
@@ -41,7 +41,7 @@ exports[`DateTimePicker it matches a snapshot 1`] = `
         <div
           class=" svelte-hlfy7d"
         >
-          Wed Apr 08
+          Wed Apr 15
         </div>
          
         <div
@@ -55,7 +55,7 @@ exports[`DateTimePicker it matches a snapshot 1`] = `
         <div
           class=" svelte-hlfy7d"
         >
-          Thu Apr 09
+          Thu Apr 16
         </div>
          
         <div
@@ -69,7 +69,7 @@ exports[`DateTimePicker it matches a snapshot 1`] = `
         <div
           class=" svelte-hlfy7d"
         >
-          Fri Apr 10
+          Fri Apr 17
         </div>
          
         <div
@@ -83,7 +83,7 @@ exports[`DateTimePicker it matches a snapshot 1`] = `
         <div
           class=" svelte-hlfy7d"
         >
-          Sat Apr 11
+          Sat Apr 18
         </div>
          
         <div
@@ -97,7 +97,7 @@ exports[`DateTimePicker it matches a snapshot 1`] = `
         <div
           class=" svelte-hlfy7d"
         >
-          Sun Apr 12
+          Sun Apr 19
         </div>
          
         <div

@@ -5,6 +5,7 @@
   import { faBed, faToilet } from '@fortawesome/free-solid-svg-icons'
   import searchWidgetStore from '../core/store'
   import { combineAddress, getPrice, combineNumberBedTypeStyle } from '../utils/results-helpers'
+  import { handleImageError } from '../utils/image-helpers'
   import { INVALID_BACKGROUND_AS_BASE64 } from '../../../common/utils/constants'
 
   export let property
@@ -45,13 +46,6 @@
       ...store,
       selectedProperty: property,
     }))
-  }
-
-  const handleImageError = source => {
-    source.src = INVALID_BACKGROUND_AS_BASE64
-    source.target.src = INVALID_BACKGROUND_AS_BASE64
-    source.onerror = ''
-    return true
   }
 
   const dispatch = createEventDispatcher()

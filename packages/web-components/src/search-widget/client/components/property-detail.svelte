@@ -5,6 +5,7 @@
   import { faBed, faToilet } from '@fortawesome/free-solid-svg-icons'
   import searchWidgetStore from '../core/store'
   import { combineAddress, getPrice, combineNumberBedTypeStyle } from '../utils/results-helpers'
+  import { handleImageError } from '../utils/image-helpers'
   import { INVALID_BACKGROUND_AS_BASE64 } from '../../../common/utils/constants'
 
   export let property
@@ -47,13 +48,6 @@
     }))
   }
 
-  const handleImageError = source => {
-    source.src = INVALID_BACKGROUND_AS_BASE64
-    source.target.src = INVALID_BACKGROUND_AS_BASE64
-    source.onerror = ''
-    return true
-  }
-
   const dispatch = createEventDispatcher()
 
   const handleBack = () => {
@@ -71,7 +65,7 @@
 </script>
 
 <style>
-  .property-item {
+  .property-detail-item {
     box-sizing: border-box;
     cursor: pointer;
     padding: 0.5em;
@@ -79,12 +73,12 @@
     border-radius: 0.3em;
   }
 
-  .property-item img {
+  .property-detail-item img {
     width: 100%;
     height: 12em;
   }
 
-  .property-image-container {
+  .property-detail-image-container {
     width: 100%;
     border-radius: 0.3em;
     position: relative;
@@ -92,7 +86,7 @@
     margin-bottom: 0.5em;
   }
 
-  .property-offer-banner {
+  .property-detail-offer-banner {
     text-align: center;
     position: absolute;
     width: 12.5em;
@@ -103,7 +97,7 @@
     font-weight: 600;
   }
 
-  .property-item-address-secondary {
+  .property-detail-item-address-secondary {
     hyphens: auto;
     display: contents;
     display: -webkit-box;
@@ -115,19 +109,19 @@
     line-height: 1.2em;
   }
 
-  .property-item-pricing-text {
+  .property-detail-item-pricing-text {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
   }
 
-  .property-item-beds-text {
+  .property-detail-item-beds-text {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
   }
 
-  .property-item-description-text {
+  .property-detail-item-description-text {
     display: -webkit-box;
     -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
@@ -138,50 +132,50 @@
     line-height: 1.2em;
   }
 
-  .property-item-icon-container {
+  .property-detail-item-icon-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
-  .property-item-icon {
+  .property-detail-item-icon {
     margin-right: 0.33em;
   }
 
-  .property-item-icon:last-child {
+  .property-detail-item-icon:last-child {
     margin-left: 1em;
   }
 </style>
 
-<div class="property-item" data-testid="select-property">
+<div class="property-detail-item" data-testid="select-property-detail">
   <a data-testid="btn-back" class={secondaryHeading} on:click|preventDefault={handleBack} href="/">Back to results</a>
-  <div class="property-image-container">
+  <div class="property-detail-image-container">
     {#if sellingStatus === 'underOffer'}
-      <div class="property-offer-banner {offerBanner}">Under Offer</div>
+      <div class="property-detail-offer-banner {offerBanner}">Under Offer</div>
     {/if}
     {#if lettingStatus === 'underOffer'}
-      <div class="property-offer-banner {offerBanner}">Let Agreed</div>
+      <div class="property-detail-offer-banner {offerBanner}">Let Agreed</div>
     {/if}
-    <img alt="property image" src={imageUrl} on:error={handleImageError} />
+    <img alt="property-detail image" src={imageUrl} on:error={handleImageError} />
   </div>
   <div>
-    <div class="{secondaryStrapline} property-item-address-secondary">
-      <div class="{secondaryHeading} property-item-address-primary">
+    <div class="{secondaryStrapline} property-detail-item-address-secondary">
+      <div class="{secondaryHeading} property-detail-item-address-primary">
         {(property.address && property.address.line1) || ''}
       </div>
       {combineAddress(property.address)}
     </div>
   </div>
-  <div class="{primaryHeading} property-item-pricing-text">{getPrice(property, searchType)}</div>
-  <div class="{secondaryStrapline} property-item-beds-text">{combineNumberBedTypeStyle(property)}</div>
-  <div class="{bodyText} property-item-description-text">{property.description}</div>
-  <div class="{secondaryHeading} property-item-icon-container">
+  <div class="{primaryHeading} property-detail-item-pricing-text">{getPrice(property, searchType)}</div>
+  <div class="{secondaryStrapline} property-detail-item-beds-text">{combineNumberBedTypeStyle(property)}</div>
+  <div class="{bodyText} property-detail-item-description-text">{property.description}</div>
+  <div class="{secondaryHeading} property-detail-item-icon-container">
     <div>
-      <span class="property-item-icon">
+      <span class="property-detail-item-icon">
         <Fa icon={faBed} />
       </span>
       {property.bedrooms || 0}
-      <span class="property-item-icon">
+      <span class="property-detail-item-icon">
         <Fa icon={faToilet} />
       </span>
       {property.bathrooms || 0}
