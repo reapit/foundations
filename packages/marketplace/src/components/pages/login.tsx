@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Button, Tabs, TabConfig, Level, FlexContainerBasic } from '@reapit/elements'
 import { LoginType, redirectToLogin } from '@reapit/cognito-auth'
@@ -55,7 +56,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   const isProduction = window.reapit.config.appEnv === 'production'
   const isPasswordChanged = localStorage.getItem('isPasswordChanged') === 'true'
   const { hasSession, loginType, location, authChangeLoginType, showNotiAfterPasswordChanged } = props
-  const { wrapper, container, image, tabsContainer /* , register */ } = loginStyles
+  const { wrapper, container, image, tabsContainer, register, registerLevel } = loginStyles
 
   const currentLoginType = getLoginTypeByPath(location.pathname)
   authChangeLoginType(currentLoginType)
@@ -100,16 +101,16 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
           </div>
         )}
 
-        <Level>
-          {/* {loginType === 'DEVELOPER' && (
-            <div className={register}>
-              Don't have an account yet?&nbsp;
-              <Link to={Routes.REGISTER}>Register</Link>
-            </div>
-          )} */}
+        <Level className={registerLevel}>
           <Button type="button" onClick={loginHandler} loading={false} variant="primary" disabled={false} fullWidth>
             Login
           </Button>
+          {loginType === 'DEVELOPER' && (
+            <div className={register}>
+              Don&apos;t have an account yet?&nbsp;
+              <Link to={Routes.REGISTER}>Register</Link>
+            </div>
+          )}
         </Level>
         <FlexContainerBasic className="pt-8" centerContent>
           {process.env.APP_VERSION}
