@@ -7,7 +7,7 @@ exports[`DateTimePicker it matches a snapshot 1`] = `
       class="time-cell-container time-cell-container-visible  svelte-bob1ip"
     >
       <div>
-        1586736000000
+        1588291200000
       </div>
     </div>
   </div>

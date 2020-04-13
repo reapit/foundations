@@ -4,7 +4,7 @@ exports[`SearchResult it matches a snapshot 1`] = `
 <body>
   <div>
     <div
-      class="search-result-item
+      class="search-result-item 
    svelte-1l1qfnz"
       data-testid="select-property"
     >
@@ -16,15 +16,15 @@ exports[`SearchResult it matches a snapshot 1`] = `
         >
           Under Offer
         </div>
-
-
+         
+         
         <img
           alt="property image"
           class="svelte-1l1qfnz"
           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88xYAAssB20Ea4T8AAAAASUVORK5CYII="
         />
       </div>
-
+       
       <div>
         <div
           class=" search-result-item-address-secondary svelte-1l1qfnz"
@@ -34,29 +34,29 @@ exports[`SearchResult it matches a snapshot 1`] = `
           >
             Example street
           </div>
-
+           
           Solihull, West Midlands, B91 2XX
         </div>
       </div>
-
+       
       <div
         class=" search-result-item-pricing-text svelte-1l1qfnz"
       >
         £250,000
       </div>
-
+       
       <div
         class=" search-result-item-beds-text svelte-1l1qfnz"
       >
         4 Bed Detached House
       </div>
-
+       
       <div
         class=" search-result-item-description-text svelte-1l1qfnz"
       >
         We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.
       </div>
-
+       
       <div
         class=" search-result-item-icon-container svelte-1l1qfnz"
       >
@@ -87,11 +87,11 @@ exports[`SearchResult it matches a snapshot 1`] = `
                 </g>
               </g>
             </svg>
-
+            
           </span>
-
+           
           4
-
+           
           <span
             class="search-result-item-icon svelte-1l1qfnz"
           >
@@ -118,12 +118,12 @@ exports[`SearchResult it matches a snapshot 1`] = `
                 </g>
               </g>
             </svg>
-
+            
           </span>
-
+           
           2
         </div>
-
+         
         <a
           class=" search-result-item-address-primary svelte-1l1qfnz"
           href="/"
