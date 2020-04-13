@@ -2,7 +2,6 @@ import { writable } from 'svelte/store'
 
 type FormDataStoreValue = {
   value: string
-  // null means untouched, false means validate error , true means no error
   valid: boolean
 }
 
