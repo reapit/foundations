@@ -20,7 +20,7 @@
     selectedProperty = event.detail.property
   }
 
-  const handleBackToResults = event => {
+  const handleBackToResults = () => {
     selectedProperty = null
   }
 
