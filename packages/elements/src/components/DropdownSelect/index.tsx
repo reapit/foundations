@@ -1,31 +1,54 @@
 import * as React from 'react'
 import Select, { Option, SelectProps } from 'rc-select'
+import { CustomTagProps } from 'rc-select/lib/interface/generator'
 import { Field, FieldProps } from 'formik'
-import './index.scss'
-
-const handleChangeOption = field => value => {
-  field.onChange({ target: { value: value, name: field.name } })
-}
+import CustomTag from './custom-tag'
 
 export interface DropdownSelectProps {
   labelText: string
   name: string
+  options: SelectOption[]
 }
 
-export const DropdownSelect: React.FC<SelectProps & DropdownSelectProps> = props => {
+export interface SelectOption {
+  label: string
+  value: string
+  description: string
+  link: string
+}
+
+export const DropdownSelect: React.FC<SelectProps & DropdownSelectProps> = ({ labelText, name, options }) => {
+  const handleRenderTags = (props: CustomTagProps) => {
+    const { value, onClose } = props
+    const option = options.find(option => option.value === value) as SelectOption
+    return <CustomTag label={option?.value} description={option.description} link={option.link} onClose={onClose} />
+  }
+
+  const handleChangeOption = field => value => {
+    field.onChange({ target: { value: value, name: field.name } })
+  }
+
   return (
     <div className="field pb-4">
       <div className="control">
-        <Field name={props.name}>
+        <Field name={name}>
           {({ field }: FieldProps<string | string[]>) => {
             return (
               <div className="field field-dropdown-select">
                 <label className="label" htmlFor="">
-                  {props.labelText}
+                  {labelText}
                 </label>
-                <Select {...props} onChange={handleChangeOption(field)}>
-                  {props.options?.map(option => (
-                    <Option value={option.value}>{option.label}</Option>
+                <Select
+                  className="is-primary input"
+                  dropdownClassName="abc"
+                  mode="tags"
+                  tagRender={handleRenderTags}
+                  onChange={handleChangeOption(field)}
+                >
+                  {options?.map((option: SelectOption) => (
+                    <Option key={option.value} value={option.value}>
+                      {option.label}
+                    </Option>
                   ))}
                 </Select>
               </div>
