@@ -68,10 +68,10 @@
 
 <div class="{resetCSS} {globalStyles} search-widget">
   <SearchForm />
-  {#if selectedProperty}
-    <PropertyDetail property={selectedProperty} on:back={handleBackToResults} />
-  {:else}
-    <div class="search-widget-items-container">
+  <div class="search-widget-items-container">
+    {#if selectedProperty}
+      <PropertyDetail property={selectedProperty} on:back={handleBackToResults} />
+    {:else}
       <div class="search-widget-items">
         {#if $searchWidgetStore.properties.length && !$searchWidgetStore.isLoading}
           <div class="search-widget-heading">
@@ -85,7 +85,7 @@
           <SearchResult {property} on:propertyClick={handleItemClick} />
         {/each}
       </div>
-      <GoogleMap {theme} />
-    </div>
-  {/if}
+    {/if}
+    <GoogleMap {theme} />
+  </div>
 </div>
