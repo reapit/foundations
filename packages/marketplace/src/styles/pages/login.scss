@@ -67,6 +67,10 @@
   }
 }
 
+.register-level {
+  flex-direction: column;
+}
+
 .register {
   @media screen and (max-width: 768px) {
     padding-top: 1rem;

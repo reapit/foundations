@@ -14,7 +14,7 @@ const ClientWelcomePage = React.lazy(() => import('../components/pages/client-we
 const InstalledApps = React.lazy(() => import('../components/pages/installed-apps'))
 const ClientSetting = React.lazy(() => import('../components/pages/settings/client-setting'))
 const MyApps = React.lazy(() => import('../components/pages/my-apps'))
-// const Register = React.lazy(() => import('../components/pages/register'))
+const Register = React.lazy(() => import('../components/pages/register'))
 const DeveloperHome = React.lazy(() => import('../components/pages/developer-home'))
 const DeveloperSubmitApp = React.lazy(() => import('../components/pages/developer-submit-app'))
 const AdminApprovalsPage = React.lazy(() => import('../components/pages/admin-approvals'))
@@ -42,6 +42,7 @@ const Router = () => {
       <React.Suspense fallback={null}>
         <Switch>
           <Route path={paths} exact render={() => <Login />} />
+          <Route allow="DEVELOPER" path={Routes.REGISTER} render={() => <Register />} />
           <Route path={Routes.REGISTER_CONFIRM} exact component={RegisterConfirm} />
           <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
           <PrivateRouteWrapper path="/">
