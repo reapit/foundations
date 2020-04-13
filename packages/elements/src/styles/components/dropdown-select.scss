@@ -6,10 +6,10 @@
   display: inline-block;
   position: relative;
   background-color: #fff;
-  border-color: #dbdbdb;
-  border-radius: 4px;
-  color: #363636;
-  border: 1px solid transparent;
+  //   border-color: #dbdbdb;
+  //   border-radius: 4px;
+  //   color: #363636;
+  //   border: 1px solid transparent;
   font-size: 1rem;
   line-height: 1.5;
   padding-bottom: calc(0.375em - 1px);
@@ -18,7 +18,7 @@
   padding-top: calc(0.375em - 1px);
   position: relative;
   vertical-align: top;
-  box-shadow: inset 0 1px 2px rgba(10,10,10,0.1);
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
   max-width: 100%;
   width: 100%;
   height: auto;
@@ -53,16 +53,22 @@
   opacity: 0.4;
 }
 
+.rc-select-selector > span:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
 .rc-select-single {
   .rc-select-selector {
     display: flex;
     position: relative;
 
-    .rc-select-selection-search, .rc-select-selection-search-input {
+    .rc-select-selection-search,
+    .rc-select-selection-search-input {
       width: 100%;
     }
 
-    .rc-select-selection-item, .rc-select-selection-placeholder {
+    .rc-select-selection-item,
+    .rc-select-selection-placeholder {
       position: absolute;
       top: 1px;
       left: 3px;
@@ -182,7 +188,7 @@
   min-height: 100px;
   position: absolute;
   background: #fff;
-  box-shadow: 0 3px 6px -4px rgba(0,0,0,.12), 0 6px 16px 0 rgba(0,0,0,.08), 0 9px 28px 8px rgba(0,0,0,.05);
+  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
 }
 
 .rc-select-dropdown-hidden {
@@ -253,7 +259,8 @@
   }
 }
 
-.rc-select-dropdown-slide-up-enter, .rc-select-dropdown-slide-up-appear {
+.rc-select-dropdown-slide-up-enter,
+.rc-select-dropdown-slide-up-appear {
   animation-duration: 0.3s;
   animation-fill-mode: both;
   transform-origin: 0 0;
@@ -271,7 +278,8 @@
   animation-play-state: paused;
 }
 
-.rc-select-dropdown-slide-up-enter.rc-select-dropdown-slide-up-enter-active.rc-select-dropdown-placement-bottomLeft, .rc-select-dropdown-slide-up-appear.rc-select-dropdown-slide-up-appear-active.rc-select-dropdown-placement-bottomLeft {
+.rc-select-dropdown-slide-up-enter.rc-select-dropdown-slide-up-enter-active.rc-select-dropdown-placement-bottomLeft,
+.rc-select-dropdown-slide-up-appear.rc-select-dropdown-slide-up-appear-active.rc-select-dropdown-placement-bottomLeft {
   animation-name: rcSelectDropdownSlideUpIn;
   animation-play-state: running;
 }
@@ -281,7 +289,8 @@
   animation-play-state: running;
 }
 
-.rc-select-dropdown-slide-up-enter.rc-select-dropdown-slide-up-enter-active.rc-select-dropdown-placement-topLeft, .rc-select-dropdown-slide-up-appear.rc-select-dropdown-slide-up-appear-active.rc-select-dropdown-placement-topLeft {
+.rc-select-dropdown-slide-up-enter.rc-select-dropdown-slide-up-enter-active.rc-select-dropdown-placement-topLeft,
+.rc-select-dropdown-slide-up-appear.rc-select-dropdown-slide-up-appear-active.rc-select-dropdown-placement-topLeft {
   animation-name: rcSelectDropdownSlideDownIn;
   animation-play-state: running;
 }
@@ -289,6 +298,72 @@
 .rc-select-dropdown-slide-up-leave.rc-select-dropdown-slide-up-leave-active.rc-select-dropdown-placement-topLeft {
   animation-name: rcSelectDropdownSlideDownOut;
   animation-play-state: running;
+}
+
+.custom-tag {
+  cursor: pointer;
+}
+
+.reapit-tooltip {
+  position: absolute;
+  z-index: 1070;
+  display: block;
+  visibility: visible;
+  line-height: 1.5;
+  font-size: 12px;
+  padding: 0 1px 1px;
+
+  &-hidden {
+    display: none;
+  }
+}
+
+.reapit-tooltip-placement-bottomLeft .reapit-tooltip-arrow-inner {
+  top: 1px;
+  margin-left: -6px;
+  border-width: 0 6px 6px;
+  border-bottom-color: #ffffff;
+}
+
+.reapit-tooltip-placement-bottomLeft .reapit-tooltip-arrow {
+  left: 10%;
+  top: -4px;
+  margin-left: -6px;
+  border-width: 0 6px 6px;
+  border-bottom-color: #575757;
+}
+
+.reapit-tooltip-arrow,
+.reapit-tooltip-arrow-inner {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+
+.reapit-tooltip-inner {
+  padding: 8px 10px;
+  text-align: left;
+  text-decoration: none;
+  border-radius: 3px;
+  min-height: 34px;
+}
+
+.reapit-tooltip-arrow-inner {
+  border-bottom-color: #575757;
+}
+
+.reapit-tooltip-content {
+  background-color: #575757;
+  border-radius: 4px;
+  color: white;
+}
+
+.reapit-tooltip-content > a {
+  text-decoration: underline;
+  margin-left: 2px;
+  color: white;
 }
 
 @keyframes rcSelectDropdownSlideUpIn {

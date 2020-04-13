@@ -8,7 +8,7 @@ exports[`Dropdown-select should match a snapshot 1`] = `
     className="control"
   >
     <Field
-      name="test"
+      name="demo"
     >
       <Component />
     </Field>
