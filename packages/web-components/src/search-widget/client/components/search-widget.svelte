@@ -1,5 +1,5 @@
 <script>
-  import { onMount, onDestroy } from 'svelte'
+  import { onMount } from 'svelte'
   import searchWidgetStore from '../core/store'
   import { generateThemeClasses, resetCSS } from '../../../common/styles'
   import SearchForm from './search-form.svelte'

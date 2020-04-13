@@ -5,11 +5,8 @@ const defaultVariant = {
   timeCellBackgroundColorHover: '#d3d3d3',
   timeCellsContainerBackgroundColor: '#f9f9f9',
   formLabelColor: '#737373',
-  // formBlockVerticalPadding: '0.5rem',
-  // formInputHeight: '27px',
   formHrSeparatorFontColor: '#e6e6e6',
   formButtonFontSize: '1.2rem',
-  // formButtonVerticalPadding: '0.5rem',
 
   // base
   baseBackgroundColor: '#f9fbfd',

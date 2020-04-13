@@ -69,7 +69,7 @@
     <ClickOutSide on:click-out-side={toggleModal}>
       <div class="{resetCSS} {themeClasses.globalStyles} {themeClasses.bodyText} appointment-bookings-modal-container">
         {#if currentStep === 1}
-          <FormStep1 {handleNextStep} {themeClasses} />
+          <FormStep1 {toggleModal} {handleNextStep} {themeClasses} />
         {/if}
 
         {#if currentStep === 2}

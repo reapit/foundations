@@ -29,11 +29,11 @@
 </style>
 
 <div data-testid="appointment-bookings-modal-header-container" class="appointment-bookings-modal-header-container">
-  <button on:click={weekStore.decrement}>
+  <button data-testid="prev-week" on:click={weekStore.decrement}>
     <Fa class=" {svgNavigation}" icon={faChevronLeft} />
   </button>
   <h1 class={themeClasses.primaryHeading}>Choose an Appointment</h1>
-  <button on:click={weekStore.increment}>
+  <button data-testid="next-week" on:click={weekStore.increment}>
     <Fa class=" {svgNavigation}" icon={faChevronRight} />
   </button>
   <div />

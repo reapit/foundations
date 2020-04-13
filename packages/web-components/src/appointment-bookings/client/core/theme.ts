@@ -127,5 +127,11 @@ export const generateAppointmentBookingThemeClasses = (
         cursor: pointer;
       }
     `,
+    formError: css`
+      ${parentSelector || 'body'} & {
+        font-size: calc(${basefontSize} * 80 / 100);
+        color: #dd0000;
+      }
+    `,
   }
 }

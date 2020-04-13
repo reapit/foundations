@@ -6,6 +6,7 @@
 
   export let themeClasses
   export let handleNextStep
+  export let toggleModal
 
   const {
     svgNavigation,
@@ -16,6 +17,7 @@
     formSeparator,
     formButtonPrimary,
     formButtonSecondary,
+    formError,
   } = themeClasses
 </script>
 
@@ -66,9 +68,9 @@
   }
 </style>
 
-<form on:submit|preventDefault={handleSubmitFormStep1($formStore, handleNextStep)} class="form-step1-wrap">
+<form on:submit|preventDefault={handleSubmitFormStep1(handleNextStep)} class="form-step1-wrap">
   <div class="form-step1-header">
-    <span class="form-step1-header-back" href="/">
+    <span on:click={toggleModal} class="form-step1-header-back" href="/">
       <Fa class={svgNavigation} icon={faChevronLeft} />
     </span>
     <h3 class="form-step1-header-title {formHeader}">Book a Valuation</h3>
@@ -81,11 +83,18 @@
   <div class="form-step1-form-block {formBlock}">
     <label class="form-step1-label-block {formLabel}" for="looking-for">Looking for</label>
     <div id="looking-for" class="form-step1-value-block">
-      <input bind:group={$formStore.lookingFor} name="looking-for" id="sell-a-property" type="radio" value="sell" />
+      <input
+        bind:group={$formStore.lookingFor.value}
+        name="looking-for"
+        id="sell-a-property"
+        type="radio"
+        value="sell" />
       <label for="sell-a-property">Sell a property</label>
-
-      <input bind:group={$formStore.lookingFor} name="looking-for" id="let-a-property" type="radio" value="let" />
+      <input bind:group={$formStore.lookingFor.value} name="looking-for" id="let-a-property" type="radio" value="let" />
       <label for="let-a-property">Let a property</label>
+      {#if !$formStore.lookingFor.valid}
+        <p class={formError}>Please select a valid type</p>
+      {/if}
     </div>
   </div>
 
@@ -95,12 +104,15 @@
     <label class="form-step1-label-block {formLabel}" for="your-email">Email*</label>
     <div class="form-step1-value-block">
       <input
-        required
-        bind:value={$formStore.email}
+        novalidate
+        bind:value={$formStore.email.value}
         class={formInput}
         type="email"
         id="your-email"
         placeholder="Your e-mail address" />
+      {#if !$formStore.email.valid}
+        <p class={formError}>Please enter a valid email address</p>
+      {/if}
     </div>
   </div>
 
@@ -110,12 +122,15 @@
     <label class="form-step1-label-block {formLabel}" for="postcode">Postcode*</label>
     <div class="form-step1-value-block">
       <input
-        required
-        bind:value={$formStore.postCode}
+        bind:value={$formStore.postCode.value}
         class={formInput}
         type="text"
         id="postcode"
         placeholder="Postcode of the property" />
+
+      {#if !$formStore.postCode.valid}
+        <p class={formError}>Please enter a valid postcode</p>
+      {/if}
     </div>
   </div>
 
@@ -124,8 +139,13 @@
   <div class="form-step1-form-block {formBlock}">
     <label class="form-step1-label-block {formLabel}" for="submit" />
     <div class="form-step1-button-group">
-      <button type="submit" class="form-step1-button-get-appointments {formButtonPrimary}">Get Appointments</button>
-      <button class="form-step1-button-cancel {formButtonSecondary}">Cancel</button>
+      <button
+        data-testid="submit-button-form1"
+        type="submit"
+        class="form-step1-button-get-appointments {formButtonPrimary}">
+        Get Appointments
+      </button>
+      <button on:click={toggleModal} class="form-step1-button-cancel {formButtonSecondary}">Cancel</button>
     </div>
   </div>
 
