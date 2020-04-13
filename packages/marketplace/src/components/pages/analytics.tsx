@@ -28,14 +28,15 @@ export const tabConfigs = ({ currentTab, history }: TabConfigsProps): TabConfig[
     },
     active: currentTab === AnalyticsTab.DETAILED,
   },
-  {
-    tabIdentifier: AnalyticsTab.BILLING,
-    displayText: 'BILLING',
-    onTabClick: () => {
-      history.push(`${Routes.DEVELOPER_ANALYTICS}/${AnalyticsTab.BILLING}`)
-    },
-    active: currentTab === AnalyticsTab.BILLING,
-  },
+  // Temporarily hide the Billing tab as it will not be ready for Beta
+  // {
+  //   tabIdentifier: AnalyticsTab.BILLING,
+  //   displayText: 'BILLING',
+  //   onTabClick: () => {
+  //     history.push(`${Routes.DEVELOPER_ANALYTICS}/${AnalyticsTab.BILLING}`)
+  //   },
+  //   active: currentTab === AnalyticsTab.BILLING,
+  // },
 ]
 
 export const handleUseEffectToSetCurrentTab = (activeTab, setCurrentTab) => {

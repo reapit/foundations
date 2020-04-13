@@ -12,6 +12,7 @@ import {
 } from '../filter-bar'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { installationsStub } from '@/sagas/__stubs__/installations'
+import { SANDBOX_CLIENT_ID } from '../../../../../../constants/api'
 
 const mockProps: FilterBarProps = {
   developerAppsData: appsDataStub.data,
@@ -34,7 +35,7 @@ describe('FilterBar', () => {
     it('should run correctly', () => {
       const { installationAppDataArray } = mockProps
       const clientIds = prepareClientIds(installationAppDataArray)
-      expect(clientIds).toEqual(['DXX'])
+      expect(clientIds).toEqual([SANDBOX_CLIENT_ID, 'DXX'])
     })
   })
   describe('handleUseCallbackToPrepareFilterFormInitialValues', () => {

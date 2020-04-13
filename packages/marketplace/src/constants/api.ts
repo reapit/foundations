@@ -23,3 +23,5 @@ export const URLS = {
   statistics: '/statistics',
   trafficEvents: '/trafficevents',
 }
+
+export const SANDBOX_CLIENT_ID = 'SBOX'

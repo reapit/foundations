@@ -1,51 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FilterBar should match a snapshot 1`] = `
-<ContextProvider
-  value={
-    Object {
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "subscription": Subscription {
-        "handleChangeWrapper": [Function],
-        "listeners": Object {
-          "notify": [Function],
-        },
-        "onStateChange": [Function],
-        "parentSub": undefined,
-        "store": Object {
-          "clearActions": [Function],
-          "dispatch": [Function],
-          "getActions": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-        },
-        "unsubscribe": null,
-      },
-    }
-  }
->
+<Fragment>
   <Component
-    appIds={
-      Array [
-        "09043eb8-9e5e-4650-b7f1-f0cb62699027",
-        "261da083-cee2-4f5c-a18f-8f9375f1f5af",
-      ]
-    }
-    clientIds={
-      Array [
-        "DXX",
-      ]
-    }
-    setDateFrom={[MockFunction]}
-    setDateTo={[MockFunction]}
-  />
-</ContextProvider>
+    className="is-vcentered is-mobile"
+    isMultiLine={true}
+  >
+    <Component
+      className="is-narrow"
+    >
+      <h6
+        className="title is-6"
+      >
+        Filter by: 
+      </h6>
+    </Component>
+    <Component
+      className="is-narrow"
+    >
+      <Component
+        className="are-small"
+      >
+        <Component
+          className="false"
+          fullWidth={false}
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Yesterday
+        </Component>
+        <Component
+          className="is-info"
+          fullWidth={false}
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Last Week
+        </Component>
+        <Component
+          className="false"
+          fullWidth={false}
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Last Month
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Fragment>
 `;

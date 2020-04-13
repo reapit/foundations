@@ -4,6 +4,7 @@ import DefaultFilterGroup from './default-filter-group'
 import FilterForm from './filter-form'
 import { PagedResultAppSummaryModel_, AppSummaryModel, InstallationModel } from '@reapit/foundations-ts-definitions'
 import { DATE_TIME_FORMAT } from '@reapit/elements'
+import { SANDBOX_CLIENT_ID } from '../../../../../constants/api'
 
 export type FilterBarProps = {
   developerAppsData: PagedResultAppSummaryModel_
@@ -46,7 +47,7 @@ export const prepareClientIds = installationAppDataArray => {
       return installation.client || ''
     })
     .filter((element, index, array) => array.indexOf(element) == index)
-  return clientIds
+  return [SANDBOX_CLIENT_ID, ...clientIds]
 }
 
 export const handleUseCallbackToPrepareFilterFormInitialValues = (dateFrom, dateTo) => {

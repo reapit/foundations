@@ -38,12 +38,6 @@ exports[`AnalyticsPage should match a snapshot 1`] = `
                 "onTabClick": [Function],
                 "tabIdentifier": "detailed",
               },
-              Object {
-                "active": false,
-                "displayText": "BILLING",
-                "onTabClick": [Function],
-                "tabIdentifier": "billing",
-              },
             ]
           }
         />
