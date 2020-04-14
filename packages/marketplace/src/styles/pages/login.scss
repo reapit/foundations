@@ -25,7 +25,8 @@
   }
 
   h1,
-  p, img {
+  p,
+  img {
     text-align: center;
   }
 
@@ -35,7 +36,8 @@
     display: block;
   }
 
-  button, .tabsContainer {
+  button,
+  .tabsContainer {
     margin: 0 auto 2rem auto;
     max-width: 400px;
   }
@@ -72,6 +74,10 @@
 }
 
 .register {
+  max-width: 400px;
+  width: 100%;
+  text-align: right;
+  margin: 0 auto;
   @media screen and (max-width: 768px) {
     padding-top: 1rem;
   }
@@ -97,4 +103,10 @@
   font-size: 0.8rem;
   display: flex;
   align-items: center;
+}
+
+// Need this to override default without !important
+.loginButton.loginButton {
+  margin-right: auto;
+  margin-left: auto;
 }
