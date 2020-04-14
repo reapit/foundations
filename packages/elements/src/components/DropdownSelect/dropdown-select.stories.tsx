@@ -10,13 +10,19 @@ storiesOf('DropdownSelect', module).add('Primary', () => {
   return (
     <section className="section">
       <Formik
-        initialValues={{ desktopTypes: '' }}
+        initialValues={{ desktopTypes: [] }}
         onSubmit={values => {
           action('Form Values' + values)
         }}
       >
         <Form>
-          <DropdownSelect name="desktopTypes" labelText="Dropdown Select" options={options} />
+          <DropdownSelect
+            id="desktopTypes"
+            placeholder="Please select"
+            name="desktopTypes"
+            labelText="Dropdown Select"
+            options={options}
+          />
         </Form>
       </Formik>
     </section>
