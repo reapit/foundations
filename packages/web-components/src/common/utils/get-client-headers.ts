@@ -1,8 +1,6 @@
-import { DEFAULT_HEADERS } from './constants'
-
 export const getClientHeaders = (apiKey: string = '') => {
   return {
-    ...DEFAULT_HEADERS,
+    'Content-Type': 'application/json',
     'x-api-key': apiKey,
   }
 }

@@ -6,6 +6,7 @@ import toJson from 'enzyme-to-json'
 import { options as mockOptions } from '../__stubs__/options'
 
 const dropdownSelectProps: DropdownSelectProps = {
+  id: 'demo',
   name: 'demo',
   labelText: 'demo',
   options: mockOptions,
@@ -13,11 +14,11 @@ const dropdownSelectProps: DropdownSelectProps = {
 
 const createFormikWrapper = () => {
   const wrapper = mount(
-    <Formik onSubmit={jest.fn()} initialValues={{ demo: 'b' }}>
+    <Formik onSubmit={jest.fn()} initialValues={{ demo: [] }}>
       {() => (
         <Form>
           <div className="column is-half-desktop">
-            <DropdownSelect name="demo" mode="tags" labelText="Demo" options={mockOptions} />
+            <DropdownSelect id="demo" name="demo" mode="tags" labelText="Demo" options={mockOptions} />
           </div>
         </Form>
       )}

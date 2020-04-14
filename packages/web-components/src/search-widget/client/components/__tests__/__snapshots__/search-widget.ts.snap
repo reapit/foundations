@@ -1,89 +1,89 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`search-widget it matches a snapshot 1`] = `
-.emotion-4 html,
-.emotion-4 body,
-.emotion-4 div,
-.emotion-4 span,
-.emotion-4 applet,
-.emotion-4 object,
-.emotion-4 iframe,
-.emotion-4 h1,
-.emotion-4 h2,
-.emotion-4 h3,
-.emotion-4 h4,
-.emotion-4 h5,
-.emotion-4 h6,
-.emotion-4 p,
-.emotion-4 blockquote,
-.emotion-4 pre,
-.emotion-4 a,
-.emotion-4 abbr,
-.emotion-4 acronym,
-.emotion-4 address,
-.emotion-4 big,
-.emotion-4 cite,
-.emotion-4 code,
-.emotion-4 del,
-.emotion-4 dfn,
-.emotion-4 em,
-.emotion-4 img,
-.emotion-4 ins,
-.emotion-4 kbd,
-.emotion-4 q,
-.emotion-4 s,
-.emotion-4 samp,
-.emotion-4 small,
-.emotion-4 strike,
-.emotion-4 strong,
-.emotion-4 sub,
-.emotion-4 sup,
-.emotion-4 tt,
-.emotion-4 var,
-.emotion-4 b,
-.emotion-4 u,
-.emotion-4 i,
-.emotion-4 center,
-.emotion-4 dl,
-.emotion-4 dt,
-.emotion-4 dd,
-.emotion-4 menu,
-.emotion-4 ol,
-.emotion-4 ul,
-.emotion-4 li,
-.emotion-4 fieldset,
-.emotion-4 form,
-.emotion-4 label,
-.emotion-4 legend,
-.emotion-4 table,
-.emotion-4 caption,
-.emotion-4 tbody,
-.emotion-4 tfoot,
-.emotion-4 thead,
-.emotion-4 tr,
-.emotion-4 th,
-.emotion-4 td,
-.emotion-4 article,
-.emotion-4 aside,
-.emotion-4 canvas,
-.emotion-4 details,
-.emotion-4 embed,
-.emotion-4 figure,
-.emotion-4 figcaption,
-.emotion-4 footer,
-.emotion-4 header,
-.emotion-4 hgroup,
-.emotion-4 main,
-.emotion-4 menu,
-.emotion-4 nav,
-.emotion-4 output,
-.emotion-4 ruby,
-.emotion-4 section,
-.emotion-4 summary,
-.emotion-4 time,
-.emotion-4 mark,
-.emotion-4 audio,
-.emotion-4 video {
+.emotion-5 html,
+.emotion-5 body,
+.emotion-5 div,
+.emotion-5 span,
+.emotion-5 applet,
+.emotion-5 object,
+.emotion-5 iframe,
+.emotion-5 h1,
+.emotion-5 h2,
+.emotion-5 h3,
+.emotion-5 h4,
+.emotion-5 h5,
+.emotion-5 h6,
+.emotion-5 p,
+.emotion-5 blockquote,
+.emotion-5 pre,
+.emotion-5 a,
+.emotion-5 abbr,
+.emotion-5 acronym,
+.emotion-5 address,
+.emotion-5 big,
+.emotion-5 cite,
+.emotion-5 code,
+.emotion-5 del,
+.emotion-5 dfn,
+.emotion-5 em,
+.emotion-5 img,
+.emotion-5 ins,
+.emotion-5 kbd,
+.emotion-5 q,
+.emotion-5 s,
+.emotion-5 samp,
+.emotion-5 small,
+.emotion-5 strike,
+.emotion-5 strong,
+.emotion-5 sub,
+.emotion-5 sup,
+.emotion-5 tt,
+.emotion-5 var,
+.emotion-5 b,
+.emotion-5 u,
+.emotion-5 i,
+.emotion-5 center,
+.emotion-5 dl,
+.emotion-5 dt,
+.emotion-5 dd,
+.emotion-5 menu,
+.emotion-5 ol,
+.emotion-5 ul,
+.emotion-5 li,
+.emotion-5 fieldset,
+.emotion-5 form,
+.emotion-5 label,
+.emotion-5 legend,
+.emotion-5 table,
+.emotion-5 caption,
+.emotion-5 tbody,
+.emotion-5 tfoot,
+.emotion-5 thead,
+.emotion-5 tr,
+.emotion-5 th,
+.emotion-5 td,
+.emotion-5 article,
+.emotion-5 aside,
+.emotion-5 canvas,
+.emotion-5 details,
+.emotion-5 embed,
+.emotion-5 figure,
+.emotion-5 figcaption,
+.emotion-5 footer,
+.emotion-5 header,
+.emotion-5 hgroup,
+.emotion-5 main,
+.emotion-5 menu,
+.emotion-5 nav,
+.emotion-5 output,
+.emotion-5 ruby,
+.emotion-5 section,
+.emotion-5 summary,
+.emotion-5 time,
+.emotion-5 mark,
+.emotion-5 audio,
+.emotion-5 video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -92,54 +92,54 @@ exports[`search-widget it matches a snapshot 1`] = `
   vertical-align: baseline;
 }
 
-.emotion-4 article,
-.emotion-4 aside,
-.emotion-4 details,
-.emotion-4 figcaption,
-.emotion-4 figure,
-.emotion-4 footer,
-.emotion-4 header,
-.emotion-4 hgroup,
-.emotion-4 main,
-.emotion-4 menu,
-.emotion-4 nav,
-.emotion-4 section {
+.emotion-5 article,
+.emotion-5 aside,
+.emotion-5 details,
+.emotion-5 figcaption,
+.emotion-5 figure,
+.emotion-5 footer,
+.emotion-5 header,
+.emotion-5 hgroup,
+.emotion-5 main,
+.emotion-5 menu,
+.emotion-5 nav,
+.emotion-5 section {
   display: block;
 }
 
-.emotion-4 *[hidden] {
+.emotion-5 *[hidden] {
   display: none;
 }
 
-.emotion-4 body {
+.emotion-5 body {
   line-height: 1;
 }
 
-.emotion-4 menu,
-.emotion-4 ol,
-.emotion-4 ul {
+.emotion-5 menu,
+.emotion-5 ol,
+.emotion-5 ul {
   list-style: none;
 }
 
-.emotion-4 blockquote,
-.emotion-4 q {
+.emotion-5 blockquote,
+.emotion-5 q {
   quotes: none;
 }
 
-.emotion-4 blockquote:before,
-.emotion-4 blockquote:after,
-.emotion-4 q:before,
-.emotion-4 q:after {
+.emotion-5 blockquote:before,
+.emotion-5 blockquote:after,
+.emotion-5 q:before,
+.emotion-5 q:after {
   content: '';
   content: none;
 }
 
-.emotion-4 table {
+.emotion-5 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-.emotion-5 {
+.emotion-4 {
   font-size: 16px;
   font-family: Helvetica,Arial,sans-serif;
   background: #fff;
@@ -152,9 +152,15 @@ exports[`search-widget it matches a snapshot 1`] = `
   color: #000;
   border: 1px solid grey;
   background: #fff;
+  color: grey;
 }
 
-.emotion-1:last-child {
+#search-widget .emotion-1:hover {
+  background: grey;
+  color: #fff;
+}
+
+#search-widget .emotion-1:last-child {
   border-left: none;
 }
 
@@ -183,7 +189,7 @@ exports[`search-widget it matches a snapshot 1`] = `
 <body>
   <div>
     <div
-      class="emotion-4 emotion-5 search-widget svelte-q3uqx4"
+      class="emotion-5 emotion-4 search-widget svelte-1th1kgw"
     >
       <form
         class="search-form emotion-3 svelte-1hu8mn5"
@@ -218,19 +224,26 @@ exports[`search-widget it matches a snapshot 1`] = `
       </form>
        
       <div
-        class="search-widget-items svelte-q3uqx4"
-      >
-         
-         
-      </div>
-       
-      <div
-        class="google-map-outer-container svelte-cqeihd"
+        class="search-widget-items-container svelte-1th1kgw"
       >
         <div
-          class="google-map-container svelte-cqeihd"
+          class="search-widget-items svelte-1th1kgw"
         >
            
+           
+           
+        </div>
+         
+        <div
+          class="google-map-outer-container 
+  emotion-4 svelte-1t98is9"
+        >
+           
+          <div
+            class="google-map-container  svelte-1t98is9"
+          >
+             
+          </div>
         </div>
       </div>
     </div>

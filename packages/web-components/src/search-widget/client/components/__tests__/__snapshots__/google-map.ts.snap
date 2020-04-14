@@ -4,10 +4,12 @@ exports[`google map it matches a snapshot 1`] = `
 <body>
   <div>
     <div
-      class="google-map-outer-container svelte-cqeihd"
+      class="google-map-outer-container 
+   svelte-1t98is9"
     >
+       
       <div
-        class="google-map-container svelte-cqeihd"
+        class="google-map-container  svelte-1t98is9"
       >
          
       </div>

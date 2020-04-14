@@ -47,7 +47,7 @@
     "build:prod": "node ./src/scripts/build-prod.js",
     "start:prod": "sirv public",
     "start:dev": "node ./src/scripts/start-dev.js",
-    "test:dev": "jest --watch --color",
+    "test:dev": "cross-env TZ=UTC jest --watch --color",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js,svelte src\"",
     "lint:fix": "eslint --cache --ext=ts,tsx,js,svelte src --fix",

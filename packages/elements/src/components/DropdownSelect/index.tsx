@@ -5,8 +5,10 @@ import { Field, FieldProps } from 'formik'
 import CustomTag from './custom-tag'
 
 export interface DropdownSelectProps {
+  id: string
   labelText: string
   name: string
+  placeholder?: string
   options: SelectOption[]
 }
 
@@ -17,7 +19,13 @@ export interface SelectOption {
   link: string
 }
 
-export const DropdownSelect: React.FC<SelectProps & DropdownSelectProps> = ({ labelText, name, options }) => {
+export const DropdownSelect: React.FC<SelectProps & DropdownSelectProps> = ({
+  id,
+  labelText,
+  name,
+  placeholder,
+  options,
+}) => {
   const handleRenderTags = (props: CustomTagProps) => {
     const { value, onClose } = props
     const option = options.find(option => option.value === value) as SelectOption
@@ -39,8 +47,10 @@ export const DropdownSelect: React.FC<SelectProps & DropdownSelectProps> = ({ la
                   {labelText}
                 </label>
                 <Select
+                  id={id}
+                  placeholder={placeholder}
+                  value={field.value || []}
                   className="is-primary input"
-                  dropdownClassName="abc"
                   mode="tags"
                   tagRender={handleRenderTags}
                   onChange={handleChangeOption(field)}
