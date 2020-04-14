@@ -13,6 +13,9 @@ interface ConsumptionCost {
 
 export const Schedule2 = () => (
   <div>
+    <H4 className={`${styles['title']} ${styles['warn']}`}>
+      There are no fees or consumption costs during the Beta period
+    </H4>
     <H4 className={styles['title']}>SCHEDULE 2 – FEES </H4>
     <ConsumptionCostTypesTable />
     <ConsumptionCostMethodologyTable />
