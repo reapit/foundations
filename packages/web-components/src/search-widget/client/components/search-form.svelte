@@ -2,15 +2,16 @@
   import { getProperties } from '../api/properties'
   import { getPropertyImages } from '../api/property-images'
   import searchWidgetStore from '../core/store'
+  import { calculateTotalPage, getResultMessage } from '../utils/results-helpers'
 
-  let inputValue = ''
-  let apiKey = ''
+  let searchKeyword = ''
+  let currentPage = 1
 
   const handleInput = ({ target }) => {
-    inputValue = target.value
+    searchKeyword = target.value
     searchWidgetStore.update(values => ({
       ...values,
-      searchKeyword: inputValue,
+      searchKeyword: searchKeyword,
     }))
   }
 
@@ -25,32 +26,38 @@
       selectedProperty: null,
       searchType: isRental ? 'Rent' : 'Sale',
     }))
-
-    const properties = await getProperties(inputValue, isRental, apiKey)
-
-    const propertyImages = await getPropertyImages(properties._embedded, apiKey)
-
+    const properties = await getProperties(
+      searchKeyword,
+      isRental,
+      $searchWidgetStore.initializers.apiKey,
+      $searchWidgetStore.pageNumber
+    )
+    const propertyImages = await getPropertyImages(
+      properties._embedded,
+      $searchWidgetStore.initializers.apiKey
+    )
     if (properties && properties._embedded.length) {
-      const propertiesArray = properties._embedded
-      const numberResults = propertiesArray.length
-      const resultsMessage = `${numberResults} result${numberResults === 1 ? '' : 's'}${
-        inputValue.length ? ` for ${inputValue},` : ''
-      } for ${isRental ? 'rent' : 'sale'}`
-
+      const resultsMessage = getResultMessage({ properties, searchKeyword, isRental })
+      const totalPage = calculateTotalPage(properties.totalCount)
       searchWidgetStore.update(values => ({
         ...values,
         isLoading: false,
         resultsMessage,
-        properties: propertiesArray,
+        properties: properties._embedded,
+        totalPage,
       }))
     }
-
     if (propertyImages) {
       searchWidgetStore.update(values => ({
         ...values,
         propertyImages,
       }))
     }
+  }
+
+  $: if ($searchWidgetStore.pageNumber !== currentPage) {
+    currentPage = $searchWidgetStore.pageNumber
+    handleFetchProperties($searchWidgetStore.searchType === 'Rent')
   }
 </script>
 

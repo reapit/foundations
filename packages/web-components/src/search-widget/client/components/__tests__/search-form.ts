@@ -39,7 +39,7 @@ describe('search-form', () => {
     expect(store.properties).toEqual(propertiesMinimalStub._embedded)
     expect(store.propertyImages).toEqual(propertyImagesMinimalStub)
     expect(store.isLoading).toBe(false)
-    expect(store.resultsMessage).toBe('2 results for rent')
+    expect(store.resultsMessage).toBe('3096 results for rent')
   })
 
   it('it triggers a data fetch for sales', async () => {
@@ -57,6 +57,6 @@ describe('search-form', () => {
     expect(store.properties).toEqual(propertiesMinimalStub._embedded)
     expect(store.propertyImages).toEqual(propertyImagesMinimalStub)
     expect(store.isLoading).toBe(false)
-    expect(store.resultsMessage).toBe('2 results for sale')
+    expect(store.resultsMessage).toBe('3096 results for sale')
   })
 })

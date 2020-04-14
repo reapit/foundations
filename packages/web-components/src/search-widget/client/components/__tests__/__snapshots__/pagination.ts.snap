@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pagination it matches a snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="search-form-pagination svelte-109aysm"
+    >
+      <a
+        class=" svelte-109aysm"
+        data-testid="first-page"
+        href="javascript:void()"
+      >
+        &lt;&lt;
+      </a>
+       
+      <a
+        class=" svelte-109aysm"
+        data-testid="prev-page"
+        href="javascript:void()"
+      >
+        1
+      </a>
+       
+      <a
+        class=" svelte-109aysm"
+        data-testid="current-page"
+        href="javascript:void()"
+      >
+        2
+      </a>
+       
+      <a
+        class=" svelte-109aysm"
+        data-testid="next-page"
+        href="javascript:void()"
+      >
+        3
+      </a>
+       
+      <a
+        class=" svelte-109aysm"
+        data-testid="last-page"
+        href="javascript:void()"
+      >
+        &gt;&gt;
+      </a>
+    </div>
+  </div>
+</body>
+`;
