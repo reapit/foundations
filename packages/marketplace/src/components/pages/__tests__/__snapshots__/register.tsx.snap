@@ -123,7 +123,7 @@ exports[`Register should match a snapshot for SUCCESS state 1`] = `
       <div
         className="mb-3"
       >
-        Check you email to confirm your account
+        Check your email to confirm your account
       </div>
     </CallToAction>
   </div>
