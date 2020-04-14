@@ -53,6 +53,11 @@
     margin-bottom: 0.5em;
   }
 
+  .search-widget-items-container {
+    display: flex;
+    position: relative;
+  }
+
   .search-widget-items {
     display: flex;
     flex-wrap: wrap;
@@ -63,22 +68,24 @@
 
 <div class="{resetCSS} {globalStyles} search-widget">
   <SearchForm />
-  {#if selectedProperty}
-    <PropertyDetail property={selectedProperty} on:back={handleBackToResults} />
-  {:else}
-    <div class="search-widget-items">
-      {#if $searchWidgetStore.properties.length && !$searchWidgetStore.isLoading}
-        <div class="search-widget-heading">
-          <h2 class={primaryHeading}>{$searchWidgetStore.resultsMessage}</h2>
-        </div>
-      {/if}
-      {#if $searchWidgetStore.isLoading}
-        <Loader />
-      {/if}
-      {#each $searchWidgetStore.properties as property (property.id)}
-        <SearchResult {property} on:propertyClick={handleItemClick} />
-      {/each}
-    </div>
-  {/if}
-  <GoogleMap {theme} />
+  <div class="search-widget-items-container">
+    {#if selectedProperty}
+      <PropertyDetail property={selectedProperty} on:back={handleBackToResults} />
+    {:else}
+      <div class="search-widget-items">
+        {#if $searchWidgetStore.properties.length && !$searchWidgetStore.isLoading}
+          <div class="search-widget-heading">
+            <h2 class={primaryHeading}>{$searchWidgetStore.resultsMessage}</h2>
+          </div>
+        {/if}
+        {#if $searchWidgetStore.isLoading}
+          <Loader />
+        {/if}
+        {#each $searchWidgetStore.properties as property (property.id)}
+          <SearchResult {property} on:propertyClick={handleItemClick} />
+        {/each}
+      </div>
+    {/if}
+    <GoogleMap {theme} />
+  </div>
 </div>

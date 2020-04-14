@@ -4,11 +4,11 @@ exports[`PropertyDetail it matches a snapshot 1`] = `
 <body>
   <div>
     <div
-      class="property-detail-item svelte-1qgi4sg"
+      class="property-detail-item svelte-1bg8awb"
       data-testid="select-property-detail"
     >
       <a
-        class=" svelte-1qgi4sg"
+        class=" svelte-1bg8awb"
         data-testid="btn-back"
         href="/"
       >
@@ -16,10 +16,10 @@ exports[`PropertyDetail it matches a snapshot 1`] = `
       </a>
        
       <div
-        class="property-detail-image-container svelte-1qgi4sg"
+        class="property-detail-image-container svelte-1bg8awb"
       >
         <div
-          class="property-detail-offer-banner  svelte-1qgi4sg"
+          class="property-detail-offer-banner  svelte-1bg8awb"
         >
           Under Offer
         </div>
@@ -27,17 +27,17 @@ exports[`PropertyDetail it matches a snapshot 1`] = `
          
         <img
           alt="property-detail image"
-          class="svelte-1qgi4sg"
+          class="svelte-1bg8awb"
           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88xYAAssB20Ea4T8AAAAASUVORK5CYII="
         />
       </div>
        
       <div>
         <div
-          class=" property-detail-item-address-secondary svelte-1qgi4sg"
+          class=" property-detail-item-address-secondary svelte-1bg8awb"
         >
           <div
-            class=" property-detail-item-address-primary svelte-1qgi4sg"
+            class=" property-detail-item-address-primary svelte-1bg8awb"
           >
             Example street
           </div>
@@ -47,29 +47,29 @@ exports[`PropertyDetail it matches a snapshot 1`] = `
       </div>
        
       <div
-        class=" property-detail-item-pricing-text svelte-1qgi4sg"
+        class=" property-detail-item-pricing-text svelte-1bg8awb"
       >
         £250,000
       </div>
        
       <div
-        class=" property-detail-item-beds-text svelte-1qgi4sg"
+        class=" property-detail-item-beds-text svelte-1bg8awb"
       >
         4 Bed Detached House
       </div>
        
       <div
-        class=" property-detail-item-description-text svelte-1qgi4sg"
+        class=" property-detail-item-description-text svelte-1bg8awb"
       >
         We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.
       </div>
        
       <div
-        class=" property-detail-item-icon-container svelte-1qgi4sg"
+        class=" property-detail-item-icon-container svelte-1bg8awb"
       >
         <div>
           <span
-            class="property-detail-item-icon svelte-1qgi4sg"
+            class="property-detail-item-icon svelte-1bg8awb"
           >
             <svg
               aria-hidden="true"
@@ -100,7 +100,7 @@ exports[`PropertyDetail it matches a snapshot 1`] = `
           4
            
           <span
-            class="property-detail-item-icon svelte-1qgi4sg"
+            class="property-detail-item-icon svelte-1bg8awb"
           >
             <svg
               aria-hidden="true"
