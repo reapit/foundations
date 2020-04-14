@@ -511,7 +511,11 @@ export const TermAndConditions = () => (
         </li>
       </ol>
     </li>
-
+    <li className="mb-4">
+      <H6 className={styles['warn']} isCentered>
+        There are no fees or consumption costs during the Beta period
+      </H6>
+    </li>
     <li className={styles['child']}>
       <H6 data-header1>FEES AND PAYMENT</H6>
       <ol className={styles['parent']}>
