@@ -55,6 +55,7 @@
     padding: 0.5em;
     border: 1px solid transparent;
     border-radius: 0.3em;
+    position: absolute;
   }
 
   .property-detail-item img {

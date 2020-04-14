@@ -9,8 +9,8 @@
 
   export let theme
   export let parentSelector
-
-  // TBC
+  // TODO - will need to import later
+  // export let apiKey
   // export let variant
 
   let isModalOpen = false
