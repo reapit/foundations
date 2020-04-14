@@ -56,7 +56,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   const isProduction = window.reapit.config.appEnv === 'production'
   const isPasswordChanged = localStorage.getItem('isPasswordChanged') === 'true'
   const { hasSession, loginType, location, authChangeLoginType, showNotiAfterPasswordChanged } = props
-  const { wrapper, container, image, tabsContainer, register, registerLevel } = loginStyles
+  const { wrapper, container, image, tabsContainer, register, registerLevel, loginButton } = loginStyles
 
   const currentLoginType = getLoginTypeByPath(location.pathname)
   authChangeLoginType(currentLoginType)
@@ -102,7 +102,15 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
         )}
 
         <Level className={registerLevel}>
-          <Button type="button" onClick={loginHandler} loading={false} variant="primary" disabled={false} fullWidth>
+          <Button
+            className={loginButton}
+            type="button"
+            onClick={loginHandler}
+            loading={false}
+            variant="primary"
+            disabled={false}
+            fullWidth
+          >
             Login
           </Button>
           {loginType === 'DEVELOPER' && (
