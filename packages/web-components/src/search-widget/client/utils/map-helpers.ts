@@ -99,7 +99,6 @@ export const loadMap = (mapElement: HTMLDivElement, theme: Partial<InitializerTh
     })
 
     loader(url, () => {
-      console.log('maps loaded')
       return {}
     })
   }).catch(err => {

@@ -14,6 +14,8 @@ export interface SearchWidgetStore {
   searchKeyword: string
   isLoading: boolean
   resultsMessage: string
+  pageNumber: number
+  totalPage: number
 }
 
 const searchWidgetStore: Writable<SearchWidgetStore> = writable({
@@ -35,6 +37,8 @@ const searchWidgetStore: Writable<SearchWidgetStore> = writable({
     resultItem: '',
     searchBox: '',
     offerBanner: '',
+    pagination: '',
+    paginationActive: '',
   },
   properties: [],
   propertyImages: {},
@@ -44,6 +48,8 @@ const searchWidgetStore: Writable<SearchWidgetStore> = writable({
   searchKeyword: '',
   isLoading: false,
   resultsMessage: '',
+  pageNumber: 1,
+  totalPage: 1,
 })
 
 export default searchWidgetStore

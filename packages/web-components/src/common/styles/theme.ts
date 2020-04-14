@@ -34,6 +34,8 @@ export interface ThemeClasses {
   resultItem: string
   searchBox: string
   offerBanner: string
+  pagination: string
+  paginationActive: string
 }
 
 export const generateThemeClasses = (
@@ -183,6 +185,18 @@ export const generateThemeClasses = (
         font-size: ${basefontSize || '16px'};
         font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'};
         color: ${inverseFontColor || '#fff'};
+      }
+    `,
+    pagination: css`
+      ${parentSelector || 'body'} & {
+        color: ${primaryAccentColor || '#000'};
+        background-color: ${baseBackgroundColor || '#fff'};
+      }
+    `,
+    paginationActive: css`
+      ${parentSelector || 'body'} & {
+        color: ${primaryAccentColor || basefontColor || '#fff'};
+        background-color: ${baseBackgroundColor || 'grey'};
       }
     `,
   }
