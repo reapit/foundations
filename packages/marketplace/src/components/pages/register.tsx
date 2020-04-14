@@ -135,7 +135,7 @@ export const Register: React.FunctionComponent<RegisterProps & FormikProps<Regis
             }
             isCenter
           >
-            Check you email to confirm your account
+            <div className="mb-3">Check your email to confirm your account</div>
           </CallToAction>
         ) : (
           <>
