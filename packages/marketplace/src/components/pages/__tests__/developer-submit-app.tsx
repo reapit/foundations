@@ -22,6 +22,7 @@ import {
 } from '../developer-submit-app'
 import { appDetailDataStub } from '../../../sagas/__stubs__/app-detail'
 import { appCategorieStub } from '../../../sagas/__stubs__/app-categories'
+import { integrationTypesStub } from '../../../sagas/__stubs__/integration-types'
 import { Loader, Checkbox } from '@reapit/elements'
 import MockDate from 'mockdate'
 import DOCS_LINKS from '@/constants/docs-links'
@@ -111,6 +112,7 @@ describe('DeveloperSubmitApp', () => {
       history: mockRouterProps.history,
       location: mockRouterProps.location,
       categories: appCategorieStub?.data || [],
+      integrationTypes: integrationTypesStub.data || [],
     }
     expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
   })
@@ -134,6 +136,7 @@ describe('DeveloperSubmitApp', () => {
       history: mockRouterProps.history,
       location: mockRouterProps.location,
       categories: appCategorieStub?.data || [],
+      integrationTypes: integrationTypesStub.data || [],
     }
     const wrapper = mount(<SubmitApp {...props} />)
     expect(wrapper.find(Loader)).toHaveLength(1)
@@ -168,6 +171,7 @@ describe('DeveloperSubmitApp', () => {
       history: mockRouterProps.history,
       location: mockRouterProps.location,
       categories: appCategorieStub?.data || [],
+      integrationTypes: integrationTypesStub.data || [],
     }
     expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
   })
@@ -201,6 +205,7 @@ describe('DeveloperSubmitApp', () => {
       history: mockRouterProps.history,
       location: mockRouterProps.location,
       categories: appCategorieStub?.data || [],
+      integrationTypes: integrationTypesStub.data || [],
     }
     const wrapper = shallow(<SubmitApp {...props} />)
     const screenshot1Value = wrapper.find('#screenshot1+span+span>a') // see css selectors
@@ -238,6 +243,7 @@ describe('DeveloperSubmitApp', () => {
       history: mockRouterProps.history,
       location: mockRouterProps.location,
       categories: appCategorieStub?.data || [],
+      integrationTypes: integrationTypesStub.data || [],
     }
     expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
   })
@@ -271,6 +277,7 @@ describe('DeveloperSubmitApp', () => {
       history: mockRouterProps.history,
       location: mockRouterProps.location,
       categories: appCategorieStub?.data || [],
+      integrationTypes: integrationTypesStub.data || [],
     }
     expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
   })
@@ -304,6 +311,7 @@ describe('DeveloperSubmitApp', () => {
       history: mockRouterProps.history,
       location: mockRouterProps.location,
       categories: appCategorieStub?.data || [],
+      integrationTypes: integrationTypesStub.data || [],
     }
     expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
   })
@@ -333,6 +341,7 @@ describe('DeveloperSubmitApp', () => {
       history: mockRouterProps.history,
       location: mockRouterProps.location,
       categories: appCategorieStub?.data || [],
+      integrationTypes: integrationTypesStub.data || [],
     }
     expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
   })
@@ -366,6 +375,7 @@ describe('DeveloperSubmitApp', () => {
       history: mockRouterProps.history,
       location: mockRouterProps.location,
       categories: appCategorieStub?.data || [],
+      integrationTypes: integrationTypesStub.data || [],
     }
     expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
   })
@@ -395,6 +405,7 @@ describe('DeveloperSubmitApp', () => {
       history: mockRouterProps.history,
       location: mockRouterProps.location,
       categories: appCategorieStub?.data || [],
+      integrationTypes: integrationTypesStub.data || [],
     }
     const wrapper = mount(<SubmitApp {...props} />)
     expect(wrapper.find(Checkbox)).toHaveLength(2)
@@ -427,6 +438,7 @@ describe('DeveloperSubmitApp', () => {
       history: mockHistory,
       location: mockRouterProps.location,
       categories: appCategorieStub?.data || [],
+      integrationTypes: integrationTypesStub.data || [],
     }
     const wrapper = mount(<SubmitApp {...props} />)
     const goBackButton = wrapper.findWhere(n => n.type() === 'button' && n.text().toLowerCase() === 'back to apps')

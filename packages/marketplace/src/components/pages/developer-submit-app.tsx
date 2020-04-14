@@ -28,6 +28,8 @@ import {
   RadioSelect,
   FlexContainerResponsive,
   Helper,
+  DropdownSelect,
+  SelectOption,
 } from '@reapit/elements'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
 
@@ -40,8 +42,10 @@ import { SubmitRevisionState } from '@/reducers/submit-revision'
 import { CreateAppModel, ScopeModel, AppDetailModel, CategoryModel } from '@reapit/foundations-ts-definitions'
 import Routes from '@/constants/routes'
 import { submitRevisionSetFormState, submitRevision } from '@/actions/submit-revision'
+import { DesktopIntegrationTypeModel } from '@/actions/app-integration-types'
 import DeveloperSubmitAppSuccessfully from './developer-submit-app-successfully'
 import { selectCategories } from '../../selector/app-categories'
+import { selectIntegrationTypes } from '@/selector/integration-types'
 import styles from '@/styles/pages/developer-submit-app.scss?mod'
 import linkStyles from '@/styles/elements/link.scss?mod'
 import { getCookieString, setCookieString, COOKIE_FIRST_SUBMIT, COOKIE_MAX_AGE_INFINITY } from '@/utils/cookie'
@@ -74,6 +78,7 @@ export interface SubmitAppMappedProps {
   submitRevisionState: SubmitRevisionState
   developerId: string | null
   categories: CategoryModel[]
+  integrationTypes: DesktopIntegrationTypeModel[]
 }
 
 export const labelTextOfField = {
@@ -179,6 +184,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       redirectUris = [],
       signoutUris = [],
       limitToClientIds = [],
+      desktopIntegrationTypeIds = [],
     } = appDetail
 
     const icon = (media || []).filter(({ order }) => order === 0)[0]
@@ -208,6 +214,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       signoutUris: signoutUris.join(','),
       limitToClientIds: limitToClientIds.join(','),
       isPrivateApp: limitToClientIds.length > 0 ? 'yes' : 'no',
+      desktopIntegrationTypeIds: desktopIntegrationTypeIds,
       ...images,
     }
   } else {
@@ -232,6 +239,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       redirectUris: '',
       signoutUris: '',
       limitToClientIds: '',
+      desktopIntegrationTypeIds: '',
     }
   }
 
@@ -337,6 +345,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
   match,
   history,
   categories,
+  integrationTypes,
 }) => {
   let initialValues
   let formState
@@ -412,6 +421,13 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
   const categoryOptions: SelectBoxOptions[] = categories.map(category => ({
     value: category.id as string,
     label: category.name as string,
+  }))
+
+  const integrationTypeOptions: SelectOption[] = integrationTypes.map(integrationType => ({
+    value: integrationType.id || '',
+    label: integrationType.name || '',
+    description: integrationType.description || '',
+    link: integrationType.url || '',
   }))
 
   return (
@@ -542,6 +558,28 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                       </GridItem>
                     </Grid>
                   </FormSection>
+
+                  <FormSection>
+                    <FormHeading>Agency Cloud Integration</FormHeading>
+                    <FormSubHeading>
+                      To be able to associate your application with an action in Agency Cloud the application will need
+                      to be given a desktop type. Please select the type of integration your app requires from the list
+                      below. For more information on Desktop Types, please click here (link to
+                      https://foundations-documentation.reapit.cloud/api/desktop-api#desktop-types)
+                    </FormSubHeading>
+                    <Grid>
+                      <GridItem>
+                        <DropdownSelect
+                          options={integrationTypeOptions}
+                          labelText="Integration Type"
+                          name="desktopIntegrationTypeIds"
+                          id="desktopIntegrationTypeIds"
+                          placeholder="Please select"
+                        />
+                      </GridItem>
+                    </Grid>
+                  </FormSection>
+
                   <FormSection>
                     <FormHeading>AUTHENTICATION FLOW</FormHeading>
                     <FormSubHeading>
@@ -856,6 +894,7 @@ const mapStateToProps = (state: ReduxState): SubmitAppMappedProps => ({
   submitRevisionState: state.submitRevision,
   developerId: state.auth.loginSession ? state.auth.loginSession.loginIdentity.developerId : null,
   categories: selectCategories(state),
+  integrationTypes: selectIntegrationTypes(state),
 })
 
 const mapDispatchToProps = (dispatch: any): SubmitAppMappedActions => ({
