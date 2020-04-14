@@ -4,7 +4,6 @@ import { RouteComponentProps } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { ReduxState } from 'src/types/core'
 import Menu from '@/components/ui/menu'
-import TermsAndConditionsModal from '@/components/ui/terms-and-conditions-modal'
 import { Loader, Section, FlexContainerBasic, AppNavContainer } from '@reapit/elements'
 import { LoginType, RefreshParams, getTokenFromQueryString, redirectToOAuth } from '@reapit/cognito-auth'
 import { Dispatch } from 'redux'
@@ -15,7 +14,6 @@ import {
   setInitDeveloperTermsAcceptedStateFromCookie,
   setInitClientTermsAcceptedStateFromCookie,
   setClientTermAcceptedCookieAndState,
-  setDeveloperTermAcceptedCookieAndState,
 } from '../actions/auth'
 
 import {
@@ -31,7 +29,6 @@ export interface PrivateRouteWrapperConnectActions {
   setInitClientTermsAcceptedStateFromCookie: () => void
   setInitDeveloperTermsAcceptedStateFromCookie: () => void
   setClientTermAcceptedCookieAndState: () => void
-  setDeveloperTermAcceptedCookieAndState: () => void
 }
 
 export interface PrivateRouteWrapperConnectState {
@@ -57,7 +54,6 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   setInitClientTermsAcceptedStateFromCookie,
   isTermAccepted,
   setClientTermAcceptedCookieAndState,
-  setDeveloperTermAcceptedCookieAndState,
 }) => {
   React.useEffect(() => {
     setInitClientTermsAcceptedStateFromCookie()
@@ -105,13 +101,6 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   return (
     <AppNavContainer>
       <Menu />
-      {loginType === 'DEVELOPER' && (
-        <TermsAndConditionsModal
-          visible={!isTermAccepted}
-          onAccept={setDeveloperTermAcceptedCookieAndState}
-          tapOutsideToDissmiss={false}
-        />
-      )}
 
       {loginType === 'CLIENT' && (
         <ClientWelcomeMessageModal visible={!isTermAccepted} onAccept={setClientTermAcceptedCookieAndState} />
@@ -147,7 +136,6 @@ export const mapDispatchToProps = (dispatch: Dispatch): PrivateRouteWrapperConne
     dispatch(setInitClientTermsAcceptedStateFromCookie())
   },
   setClientTermAcceptedCookieAndState: () => dispatch(setClientTermAcceptedCookieAndState(true)),
-  setDeveloperTermAcceptedCookieAndState: () => dispatch(setDeveloperTermAcceptedCookieAndState(true)),
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PrivateRouteWrapper))
