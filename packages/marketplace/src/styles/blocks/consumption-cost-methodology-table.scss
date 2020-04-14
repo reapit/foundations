@@ -1,0 +1,11 @@
+.title-cell {
+  text-align: center !important;
+  font-weight: bold;
+}
+
+.table {
+  tr > th {
+    min-width: 160px;
+    text-align: right;
+  }
+}

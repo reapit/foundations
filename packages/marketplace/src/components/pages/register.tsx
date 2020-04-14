@@ -15,6 +15,7 @@ import {
   Form,
   withFormik,
   FormikProps,
+  FormikErrors,
 } from '@reapit/elements'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import { registerValidate } from '@/utils/form/register'
@@ -41,16 +42,15 @@ export interface RegisterFormValues {
   companyName: string
   email: string
   telephone: string
-  password: string
-  confirmPassword: string
   agreedTerms: string
 }
 
 export type RegisterProps = RegisterMappedActions & RegisterMappedProps
 
-const { container, wrapper, disabled, image, labelTerms } = loginStyles
+const { container, wrapper, disabled, image } = loginStyles
 
-export const handleOpenModal = (visible: boolean, setVisible: (visible: boolean) => void) => () => {
+export type HandleOpenModal = (visible: boolean, setVisible: (visible: boolean) => void) => () => void
+export const handleOpenModal: HandleOpenModal = (visible, setVisible) => () => {
   setVisible(visible)
 }
 
@@ -58,9 +58,37 @@ export const handleChangeAgree = (
   agreedTerms: boolean,
   setAgree: (agreedTerms: boolean) => void,
   setVisible: (visible: boolean) => void,
+  handleSubmit: () => void,
 ) => () => {
   setVisible(false)
   setAgree(agreedTerms)
+
+  if (agreedTerms) {
+    handleSubmit()
+  }
+}
+
+export interface HandleSubmitParams {
+  validateForm: () => Promise<FormikErrors<RegisterFormValues>>
+  setVisible: (visible: boolean) => void
+  handleOpenModal: HandleOpenModal
+  handleSubmit: () => void
+}
+export const handleSubmitButtonOnClick = ({
+  handleOpenModal,
+  handleSubmit,
+  setVisible,
+  validateForm,
+}: HandleSubmitParams) => () => {
+  validateForm().then(errors => {
+    if (Object.keys(errors).length > 0) {
+      // marked all fields as touched to show errors
+      handleSubmit()
+      return
+    }
+
+    handleOpenModal(true, setVisible)()
+  })
 }
 
 export const Register: React.FunctionComponent<RegisterProps & FormikProps<RegisterFormValues>> = ({
@@ -70,6 +98,7 @@ export const Register: React.FunctionComponent<RegisterProps & FormikProps<Regis
   touched,
   setFieldValue,
   handleSubmit,
+  validateForm,
 }) => {
   const [visible, setVisible] = React.useState<boolean>(false)
   const [agreedTerms, setAgreedTerms] = React.useState<boolean>(false)
@@ -150,39 +179,19 @@ export const Register: React.FunctionComponent<RegisterProps & FormikProps<Regis
                   name="telephone"
                   placeholder="0800 800 800"
                 />
-                <Input
-                  dataTest="register-password"
-                  type="password"
-                  labelText="Password"
-                  id="password"
-                  name="password"
-                />
-                <Input
-                  dataTest="register-confirm-password"
-                  type="password"
-                  labelText="Confirm password"
-                  id="confirmPassword"
-                  name="confirmPassword"
-                />
-                <div className="field field-checkbox flex justify-end">
-                  <input
-                    className="checkbox"
-                    type="checkbox"
-                    id="terms"
-                    name="terms"
-                    checked={agreedTerms}
-                    onClick={handleOpenModal(true, setVisible)}
-                  />
-                  <label className={`label ${labelTerms}`} htmlFor="terms">
-                    I agree to the Terms and Conditions
-                  </label>
-                </div>
               </FormSection>
               <FormSection>
                 <Level>
+                  <TermsAndConditionsModal
+                    visible={visible}
+                    afterClose={handleOpenModal(false, setVisible)}
+                    onAccept={handleChangeAgree(true, setAgreedTerms, setVisible, handleSubmit)}
+                    onDecline={handleChangeAgree(false, setAgreedTerms, setVisible, handleSubmit)}
+                  />
+
                   <Button
-                    type="submit"
-                    onClick={handleSubmit}
+                    type="button"
+                    onClick={handleSubmitButtonOnClick({ validateForm, setVisible, handleOpenModal, handleSubmit })}
                     loading={isDisabled}
                     variant="primary"
                     disabled={isDisabled}
@@ -211,12 +220,6 @@ export const Register: React.FunctionComponent<RegisterProps & FormikProps<Regis
       <div className={image}>
         <img src={logoImage} alt="Reapit graphic" />
       </div>
-      <TermsAndConditionsModal
-        visible={visible}
-        afterClose={handleOpenModal(false, setVisible)}
-        onAccept={handleChangeAgree(true, setAgreedTerms, setVisible)}
-        onDecline={handleChangeAgree(false, setAgreedTerms, setVisible)}
-      />
     </div>
   )
 }
@@ -242,7 +245,6 @@ export const mapPropsToValues = () =>
   } as RegisterFormValues)
 
 export const handleSubmitCreateDeveloper = (values: CreateDeveloperModel, { props }) => {
-  console.log('here')
   props.developerCreate(values)
 }
 

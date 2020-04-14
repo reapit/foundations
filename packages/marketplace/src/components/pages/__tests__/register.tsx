@@ -8,6 +8,8 @@ import {
   handleSubmitCreateDeveloper,
   RegisterProps,
   RegisterFormValues,
+  handleSubmitButtonOnClick,
+  HandleSubmitParams,
 } from '../register'
 import { FormState, ReduxState } from '../../../types/core'
 import { mockWithFormik } from '@/utils/mock-formik'
@@ -38,6 +40,50 @@ describe('Register', () => {
 
   it('should match a snapshot for SUCCESS state', () => {
     expect(shallow(<Register {...{ ...props, formState: 'SUCCESS' }} />)).toMatchSnapshot()
+  })
+
+  describe('handleSubmitButtonOnClick', () => {
+    /* eslint-disable-next-line max-len */
+    it('should call handleOpenModal with correct params if promise returned by validateForm resolve empty object', done => {
+      const fnReturnedByHandleOpenModal = jest.fn()
+      const params: HandleSubmitParams = {
+        handleOpenModal: jest.fn(() => fnReturnedByHandleOpenModal),
+        validateForm: jest.fn(
+          () =>
+            new Promise(resolve => {
+              resolve({})
+            }),
+        ),
+        setVisible: jest.fn(),
+        handleSubmit: jest.fn(),
+      }
+
+      handleSubmitButtonOnClick(params)()
+      process.nextTick(() => {
+        expect(params.handleOpenModal).toHaveBeenCalledWith(true, params.setVisible)
+        expect(fnReturnedByHandleOpenModal).toHaveBeenCalled()
+        done()
+      })
+    })
+  })
+  it('should call handleOpenModal if promise returned by validateForm resolve non empty object', async done => {
+    const params: HandleSubmitParams = {
+      handleOpenModal: jest.fn(),
+      validateForm: jest.fn(
+        () =>
+          new Promise(resolve => {
+            resolve({ telephone: 'required' })
+          }),
+      ),
+      setVisible: jest.fn(),
+      handleSubmit: jest.fn(),
+    }
+
+    handleSubmitButtonOnClick(params)()
+    process.nextTick(() => {
+      expect(params.handleSubmit).toHaveBeenCalled()
+      done()
+    })
   })
 
   describe('handleSubmitCreateDeveloper', () => {

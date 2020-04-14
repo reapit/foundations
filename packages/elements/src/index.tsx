@@ -46,6 +46,7 @@ export * from './components/HelpGuide'
 export * from './components/HelpGuide/context'
 export * from './components/Notification'
 export * from './components/UploadProgress'
+export * from './components/DropdownSelect'
 
 // Utils
 export * from './utils/validators'

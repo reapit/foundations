@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppointmentBookings should match snapshot 1`] = `
+<body>
+  <div>
+    <button
+      class="appointment-bookings-select-button svelte-1ybenol"
+    >
+      Select Appointment
+    </button>
+     
+    
+  </div>
+</body>
+`;
