@@ -1,13 +1,40 @@
 <script>
   import { resetCSS, generateThemeClasses } from '../../../common/styles'
-  export let theme
-  const parentSelector = 'appointment-confirmation';
+  import { requiredValidator, phoneNumberValidator } from '../validation/validator';
+  import { createFieldValidator } from '../validation';
 
+  export let theme
+  export let postCode
+
+  const parentSelector = 'appointment-confirmation';
   const themeClasses = {
     ...generateThemeClasses(theme, `#${parentSelector}`),
   };
-  console.log('themeClasses ne', themeClasses)
   const { button, primaryHeading, globalStyles, input } = themeClasses;
+
+  let title = null;
+  let firstName = null;
+  let surName = null;
+  let houseName = null;
+  let houseNo = null;
+  let address = null;
+  let town = null;
+  let country = null;
+  let mobileNumber = null;
+  let notes = null;
+  let lookingToBuy = null;
+  let marketingCommunication = null;
+
+  const [ firstNameValidity, firstNameValidate ] = createFieldValidator(requiredValidator());
+  const [ surnameValidity, surnameValidate ] = createFieldValidator(requiredValidator());
+  const [ addressValidity, addressValidate ] = createFieldValidator(requiredValidator());
+  const [ mobileNumberValidity, mobileNumberValidate ] = createFieldValidator(requiredValidator(), phoneNumberValidator());
+
+  $: isFirstNameError = !$firstNameValidity.valid && $firstNameValidity.dirty;
+  $: isSurnameError = !$surnameValidity.valid && $surnameValidity.dirty;
+  $: isAddressError = !$addressValidity.valid && $addressValidity.dirty;
+  $: isMobileNumberError = !$mobileNumberValidity.valid && $mobileNumberValidity.dirty;
+
 </script>
 
 <style>
@@ -44,7 +71,7 @@
   box-sizing: border-box;
 }
 
-.button, .input, .textarea, .select select {
+.button, .input, .textarea {
   -moz-appearance: none;
   -webkit-appearance: none;
   align-items: center;
@@ -62,26 +89,30 @@
   box-sizing: inherit;
 }
 
-.input, .textarea, .select select {
+.input, .textarea {
   background-color: white;
   border-color: #dbdbdb;
   border-radius: 4px;
   color: #363636;
 }
 
-.input::-moz-placeholder, .textarea::-moz-placeholder, .select select::-moz-placeholder {
+.is-danger.input, .is-danger.textarea {
+  border-color: #f14668;
+}
+
+.input::-moz-placeholder, .textarea::-moz-placeholder {
   color: rgba(54, 54, 54, 0.3);
 }
 
-.input::-webkit-input-placeholder, .textarea::-webkit-input-placeholder, .select select::-webkit-input-placeholder {
+.input::-webkit-input-placeholder, .textarea::-webkit-input-placeholder {
   color: rgba(54, 54, 54, 0.3);
 }
 
-.input:-moz-placeholder, .textarea:-moz-placeholder, .select select:-moz-placeholder {
+.input:-moz-placeholder, .textarea:-moz-placeholder {
   color: rgba(54, 54, 54, 0.3);
 }
 
-.input:-ms-input-placeholder, .textarea:-ms-input-placeholder, .select select:-ms-input-placeholder {
+.input:-ms-input-placeholder, .textarea:-ms-input-placeholder {
   color: rgba(54, 54, 54, 0.3);
 }
 
@@ -141,13 +172,18 @@
       <div class="field-body">
         <div class="field is-narrow">
           <div class="control">
-            <input class="input" placeholder="Title" />
+            <input class="input" placeholder="Title" bind:value={title} />
           </div>
         </div>
         <div class="field">
           <div class="control">
-            <input class="input" placeholder="First name*" />
+            <input class="input" placeholder="First name*" bind:value={firstName} class:is-danger={isFirstNameError} use:firstNameValidate={firstName}/>
           </div>
+          {#if isFirstNameError}
+             <p class="error">
+              {$firstNameValidity.message}
+            </p>
+          {/if}
         </div>
       </div>
     </div>
@@ -158,8 +194,13 @@
       <div class="field-body">
         <div class="field">
           <div class="control">
-            <input class="input" placeholder="Surname*" />
+            <input class="input" placeholder="Surname*" bind:value={surName} class:is-danger={isSurnameError} use:surnameValidate={surName} />
           </div>
+          {#if isSurnameError}
+             <p class="error">
+              {$surnameValidity.message}
+            </p>
+          {/if}
         </div>
       </div>
     </div>
@@ -173,37 +214,7 @@
       <div class="field-body">
         <div class="field">
           <div class="control">
-            <input class="input is-danger" type="text" placeholder="House name"/>
-          </div>
-          <!-- <p class="error">
-            This field is required
-          </p> -->
-        </div>
-      </div>
-    </div>
-    <div class="field is-horizontal">
-      <div class="field-label">
-      </div>
-      <div class="field-body">
-        <div class="field is-narrow">
-          <div class="control">
-            <input class="input" placeholder="House no." />
-          </div>
-        </div>
-        <div class="field">
-          <div class="control">
-            <input class="input" placeholder="Address*" />
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="field is-horizontal">
-      <div class="field-label">
-      </div>
-      <div class="field-body">
-        <div class="field">
-          <div class="control">
-            <input class="input" placeholder="Town" />
+            <input class="input" type="text" placeholder="House name"/>
           </div>
         </div>
       </div>
@@ -214,12 +225,44 @@
       <div class="field-body">
         <div class="field is-narrow">
           <div class="control">
-            <input class="input" placeholder="Country" />
+            <input class="input" placeholder="House no." bind:value={houseNo} />
           </div>
         </div>
         <div class="field">
           <div class="control">
-            <input class="input" value="NN1 1DF" disabled />
+            <input class="input" placeholder="Address*" bind:value={address} class:is-danger={isAddressError} use:addressValidate={address} />
+          </div>
+          {#if isAddressError}
+             <p class="error">
+              {$addressValidity.message}
+            </p>
+          {/if}
+        </div>
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class="field-label">
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control">
+            <input class="input" placeholder="Town"bind:value={town} />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class="field-label">
+      </div>
+      <div class="field-body">
+        <div class="field is-narrow">
+          <div class="control">
+            <input class="input" placeholder="Country" bind:value={country} />
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <input class="input" value={postCode} disabled />
           </div>
         </div>
       </div>
@@ -232,8 +275,13 @@
       <div class="field-body">
         <div class="field">
           <div class="control">
-            <input class="input" placeholder="Mobile number*"/>
+            <input class="input" placeholder="Mobile number*" bind:value={mobileNumber} class:is-danger={isMobileNumberError} use:mobileNumberValidate={mobileNumber}/>
           </div>
+          {#if isMobileNumberError}
+             <p class="error">
+              {$mobileNumberValidity.message}
+            </p>
+          {/if}
         </div>
       </div>
     </div>
@@ -245,7 +293,7 @@
       <div class="field-body">
         <div class="field">
           <div class="control">
-            <textarea class="textarea" placeholder="Notes"></textarea>
+            <textarea class="textarea" placeholder="Notes"bind:value={notes}></textarea>
           </div>
         </div>
       </div>
@@ -259,11 +307,11 @@
         <div class="field">
           <div class="control">
             <label class="radio">
-              <input type="radio" name="member">
+              <input type="radio" name="lookingToBuy" bind:group={lookingToBuy} value="yes">
               Yes
             </label>
             <label class="radio">
-              <input type="radio" name="member">
+              <input type="radio" name="lookingToBuy" bind:group={lookingToBuy} value="no">
               No
             </label>
           </div>
@@ -276,7 +324,7 @@
         <div class="field">
           <div class="control">
             <label class="checkbox">
-              <input type="checkbox">
+              <input type="checkbox" bind:checked={marketingCommunication}>
               Tick here to opt in to marketing communications
             </label>
           </div>
