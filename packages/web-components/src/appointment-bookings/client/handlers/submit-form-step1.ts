@@ -1,6 +1,6 @@
 import { get } from 'svelte/store'
-import { FormDataStore, formStore } from '../core/store/form-store'
-import { validateEmail } from '../utils/email-verify'
+import { Form1DataStore as FormDataStore, form1Store as formStore } from '../core/store/form-store'
+import { validateEmail } from '../utils/validator'
 
 export const handleSubmitFormStep1 = (handleNextStep: () => void) => () => {
   const formDataStore: FormDataStore = get(formStore)

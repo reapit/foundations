@@ -1,0 +1,468 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormStep1 should match snapshot 1`] = `
+<body>
+  <div>
+    <form
+      class="form-step3-wrap svelte-s5n39j"
+    >
+      <div
+        class="form-step3-header svelte-s5n39j"
+      >
+        <span
+          class="form-step3-header-back svelte-s5n39j"
+          href="/"
+        >
+          <svg
+            aria-hidden="true"
+            class="svgNavigation"
+            id=""
+            role="img"
+            style="height:1em;vertical-align:-.125em;overflow:visible;"
+            viewBox="0 0 320 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              transform="translate(256 256)"
+            >
+              <g
+                transform=""
+              >
+                <path
+                  d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"
+                  fill="currentColor"
+                  transform="translate(-256 -256)"
+                />
+              </g>
+            </g>
+          </svg>
+          
+        </span>
+         
+        <h3
+          class="form-step3-header-title formHeader svelte-s5n39j"
+        >
+          Your Details
+        </h3>
+      </div>
+       
+      <p
+        class="form-step3-sub-title svelte-s5n39j"
+      >
+        Book  your valuation for 
+        
+         at 
+        
+      </p>
+       
+      <hr
+        class="formSeparator svelte-s5n39j"
+      />
+       
+      <div
+        class="field is-horizontal svelte-s5n39j"
+      >
+        <div
+          class="field-label svelte-s5n39j"
+        >
+          <label
+            class="formLabel svelte-s5n39j"
+          >
+            Your name
+          </label>
+        </div>
+         
+        <div
+          class="field-body svelte-s5n39j"
+        >
+          <div
+            class="field is-narrow svelte-s5n39j"
+          >
+            <div
+              class="control svelte-s5n39j"
+            >
+              <input
+                class="formInput svelte-s5n39j"
+                placeholder="Title"
+                type="text"
+              />
+            </div>
+          </div>
+           
+          <div
+            class="field svelte-s5n39j"
+          >
+            <div
+              class="control svelte-s5n39j"
+            >
+              <input
+                class="formInput svelte-s5n39j"
+                placeholder="First name*"
+                type="text"
+              />
+            </div>
+             
+          </div>
+        </div>
+      </div>
+       
+      <div
+        class="field is-horizontal svelte-s5n39j"
+      >
+        <div
+          class="field-label svelte-s5n39j"
+        />
+         
+        <div
+          class="field-body svelte-s5n39j"
+        >
+          <div
+            class="field svelte-s5n39j"
+          >
+            <div
+              class="control svelte-s5n39j"
+            >
+              <input
+                class="formInput svelte-s5n39j"
+                placeholder="Surname*"
+                type="text"
+              />
+            </div>
+             
+          </div>
+        </div>
+      </div>
+       
+      <hr
+        class="formSeparator svelte-s5n39j"
+      />
+       
+      <div
+        class="field is-horizontal svelte-s5n39j"
+      >
+        <div
+          class="field-label  svelte-s5n39j"
+        >
+          <label
+            class="formLabel svelte-s5n39j"
+          >
+            Address
+          </label>
+        </div>
+         
+        <div
+          class="field-body svelte-s5n39j"
+        >
+          <div
+            class="field svelte-s5n39j"
+          >
+            <div
+              class="control svelte-s5n39j"
+            >
+              <input
+                class="formInput svelte-s5n39j"
+                placeholder="House name"
+                type="text"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+       
+      <div
+        class="field is-horizontal svelte-s5n39j"
+      >
+        <div
+          class="field-label svelte-s5n39j"
+        />
+         
+        <div
+          class="field-body svelte-s5n39j"
+        >
+          <div
+            class="field is-narrow svelte-s5n39j"
+          >
+            <div
+              class="control svelte-s5n39j"
+            >
+              <input
+                class="formInput svelte-s5n39j"
+                placeholder="House no."
+                type="text"
+              />
+            </div>
+          </div>
+           
+          <div
+            class="field svelte-s5n39j"
+          >
+            <div
+              class="control svelte-s5n39j"
+            >
+              <input
+                class="formInput svelte-s5n39j"
+                placeholder="Address*"
+                type="text"
+              />
+            </div>
+             
+          </div>
+        </div>
+      </div>
+       
+      <div
+        class="field is-horizontal svelte-s5n39j"
+      >
+        <div
+          class="field-label svelte-s5n39j"
+        />
+         
+        <div
+          class="field-body svelte-s5n39j"
+        >
+          <div
+            class="field svelte-s5n39j"
+          >
+            <div
+              class="control svelte-s5n39j"
+            >
+              <input
+                class="formInput svelte-s5n39j"
+                placeholder="Town"
+                type="text"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+       
+      <div
+        class="field is-horizontal svelte-s5n39j"
+      >
+        <div
+          class="field-label svelte-s5n39j"
+        />
+         
+        <div
+          class="field-body svelte-s5n39j"
+        >
+          <div
+            class="field is-narrow svelte-s5n39j"
+          >
+            <div
+              class="control svelte-s5n39j"
+            >
+              <input
+                class="formInput svelte-s5n39j"
+                placeholder="Country"
+                type="text"
+              />
+            </div>
+          </div>
+           
+          <div
+            class="field svelte-s5n39j"
+          >
+            <div
+              class="control svelte-s5n39j"
+            >
+              <input
+                class="formInput svelte-s5n39j"
+                disabled=""
+                type="text"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+       
+      <hr
+        class="formSeparator svelte-s5n39j"
+      />
+       
+      <div
+        class="field is-horizontal svelte-s5n39j"
+      >
+        <div
+          class="field-label  svelte-s5n39j"
+        >
+          <label
+            class="formLabel svelte-s5n39j"
+          >
+            Contact
+          </label>
+        </div>
+         
+        <div
+          class="field-body svelte-s5n39j"
+        >
+          <div
+            class="field svelte-s5n39j"
+          >
+            <div
+              class="control svelte-s5n39j"
+            >
+              <input
+                class="formInput svelte-s5n39j"
+                placeholder="Mobile number*"
+                type="text"
+              />
+            </div>
+             
+          </div>
+        </div>
+      </div>
+       
+      <hr
+        class="formSeparator svelte-s5n39j"
+      />
+       
+      <div
+        class="field is-horizontal svelte-s5n39j"
+      >
+        <div
+          class="field-label  svelte-s5n39j"
+        >
+          <label
+            class="formLabel svelte-s5n39j"
+          >
+            Notes
+          </label>
+        </div>
+         
+        <div
+          class="field-body svelte-s5n39j"
+        >
+          <div
+            class="field svelte-s5n39j"
+          >
+            <div
+              class="control svelte-s5n39j"
+            >
+              <textarea
+                class="formInput svelte-s5n39j"
+                placeholder="Please enter any additional notes about the appointment or property"
+                rows="3"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+       
+      <hr
+        class="formSeparator svelte-s5n39j"
+      />
+       
+      <div
+        class="field is-horizontal svelte-s5n39j"
+      >
+        <div
+          class="field-label svelte-s5n39j"
+        >
+          <label
+            class="formLabel svelte-s5n39j"
+          >
+            Looking to buy?
+          </label>
+        </div>
+         
+        <div
+          class="field-body svelte-s5n39j"
+        >
+          <div
+            class="field svelte-s5n39j"
+          >
+            <div
+              class="control svelte-s5n39j"
+            >
+              <label
+                class="radio"
+              >
+                <input
+                  name="lookingToBuy"
+                  type="radio"
+                  value="yes"
+                />
+                
+              Yes
+              </label>
+               
+              <label
+                class="radio"
+              >
+                <input
+                  name="lookingToBuy"
+                  type="radio"
+                  value="no"
+                />
+                
+              No
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+      <hr
+        class="formSeparator svelte-s5n39j"
+      />
+       
+      <div
+        class="field is-horizontal svelte-s5n39j"
+      >
+        <div
+          class="field-body svelte-s5n39j"
+        >
+          <div
+            class="field svelte-s5n39j"
+          >
+            <div
+              class="control svelte-s5n39j"
+            >
+              <label
+                class="formLabel svelte-s5n39j"
+              >
+                <input
+                  type="checkbox"
+                />
+                
+              Tick here to opt in to marketing communications
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+      <hr
+        class="formSeparator svelte-s5n39j"
+      />
+       
+      <div
+        class="field is-horizontal svelte-s5n39j"
+      >
+        <div
+          class="field-label svelte-s5n39j"
+        />
+         
+        <div
+          class="field-body svelte-s5n39j"
+        >
+          <div
+            class="field svelte-s5n39j"
+          >
+            <div
+              class="control svelte-s5n39j"
+            >
+              <button
+                class="formButtonPrimary request-appountment-button svelte-s5n39j"
+              >
+                Request Appointment
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+`;
