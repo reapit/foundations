@@ -5,6 +5,7 @@
   import { calculateTotalPage, getResultMessage } from '../utils/results-helpers'
 
   let searchKeyword = ''
+  let currentPage = 1
 
   const handleInput = ({ target }) => {
     searchKeyword = target.value
@@ -52,6 +53,11 @@
         propertyImages,
       }))
     }
+  }
+
+  $: if ($searchWidgetStore.pageNumber !== currentPage) {
+    currentPage = $searchWidgetStore.pageNumber
+    handleFetchProperties($searchWidgetStore.searchType === 'Rent')
   }
 </script>
 

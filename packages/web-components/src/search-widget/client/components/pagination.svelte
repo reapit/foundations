@@ -1,38 +1,11 @@
 <script>
-  import { getProperties } from '../api/properties'
-  import { getPropertyImages } from '../api/property-images'
   import searchWidgetStore from '../core/store'
 
   const handlePageChangeClick = (pageNumber) => async() => {
     searchWidgetStore.update(values => ({
       ...values,
-      isLoading: true,
-      resultsMessage: '',
-      properties: [],
-      propertyImages: {},
-      selectedMarker: null,
-      selectedProperty: null,
-      searchType: values.isRental ? 'Rent' : 'Sale',
+      pageNumber: pageNumber
     }))
-    const properties = await getProperties(
-      $searchWidgetStore.searchKeyword, $searchWidgetStore.isRental, $searchWidgetStore.initializers.apiKey, pageNumber
-    )
-    const propertyImages = await getPropertyImages(properties._embedded, $searchWidgetStore.initializers.apiKey)
-    if (properties && properties._embedded.length) {
-      const propertiesArray = properties._embedded
-      searchWidgetStore.update(values => ({
-        ...values,
-        isLoading: false,
-        properties: propertiesArray,
-        pageNumber,
-      }))
-    }
-    if (propertyImages) {
-      searchWidgetStore.update(values => ({
-        ...values,
-        propertyImages,
-      }))
-    }
   }
 
 </script>
