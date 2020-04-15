@@ -157,4 +157,8 @@ export class Store {
   }
 }
 
+if (window.Cypress) {
+  window.store = Store.instance.reduxStore
+}
+
 export default Store.instance

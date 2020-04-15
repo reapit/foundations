@@ -1,10 +1,11 @@
 import nanoid from 'nanoid'
 import appRequest, { sampleApp } from '../requests/app'
-import loginPage from '../pages/login-page'
 import routes from '../fixtures/routes'
 import developerAppsPage from '../pages/developer-apps-page'
 import clientAppsPage from '../pages/client-apps-page'
 import adminApprovalsPage from '../pages/admin-approvals-page'
+import { loginDeveloperHook, loginClientHook, loginAdminHook } from '../hooks/login'
+import ROUTES from '@/constants/routes'
 
 const appName = `Filter App By Name And Category - ${nanoid()}`
 const { categoryId } = sampleApp
@@ -12,10 +13,6 @@ const { categoryId } = sampleApp
 const {
   actions: { deleteAppWithName },
 } = developerAppsPage
-
-const {
-  actions: { loginUsingClientAccount, loginUsingDeveloperAccount, loginUsingAdminAccount },
-} = loginPage
 
 const {
   actions: { clickViewDetailsButtonWithAppId },
@@ -36,8 +33,11 @@ describe('Created app should appear in client search result happy path', () => {
       appId = res.body.data[0].id
       const appRes = appRequest.getAppById(appId)
       appRes.then(app => {
+        console.log(app)
         appRequest.createAppRevision(appId, app.body, { isListed: true })
-        loginUsingAdminAccount()
+        loginAdminHook(routes.approveApp)
+
+        cy.visit(ROUTES.ADMIN_APPROVALS)
 
         clickViewDetailsButtonWithAppId(appId)
         cy.get(buttonApprove).click()
@@ -51,8 +51,7 @@ describe('Created app should appear in client search result happy path', () => {
 
   it('Should return the app that was created before by name and by category', () => {
     cy.server()
-    cy.clearCookies()
-    loginUsingClientAccount()
+    loginClientHook()
     cy.get(btnAcceptWelcomeMessageModal).click()
     cy.get(searchInput).type(`${appName}{enter}`)
     cy.get(`div[data-test-app-id="${appId}"]`).should('have.length', 1)
@@ -65,8 +64,7 @@ describe('Created app should appear in client search result happy path', () => {
 
   after(() => {
     cy.server()
-    cy.clearCookies()
-    loginUsingDeveloperAccount()
+    loginDeveloperHook()
     deleteAppWithName(appName)
   })
 })

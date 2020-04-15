@@ -37,6 +37,7 @@ exports[`Login should match a snapshot 1`] = `
     </div>
     <Component>
       <Component
+        dataTest="login-button"
         disabled={false}
         fullWidth={true}
         loading={false}

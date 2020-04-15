@@ -10,3 +10,7 @@ import 'cypress-file-upload'
 Cypress.on('window:before:load', win => {
   delete win.fetch
 })
+
+Cypress.Screenshot.defaults({
+  screenshotOnRunFailure: false,
+})

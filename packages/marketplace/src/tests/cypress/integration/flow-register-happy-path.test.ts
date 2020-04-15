@@ -4,19 +4,13 @@ import nanoid from 'nanoid'
 
 const { selectors: registerPageSelectors } = registerPage
 
-/**
- * To test this, you will need to uncomment the route component rendering the register page at ./src/core/router.tsx
- */
-describe.skip('Register happy path', () => {
-  it('Should register successfully and be able to login using the registered account', () => {
-    // routes.REGISTER have been commented out so this test case won't work.
+describe('Register happy path', () => {
+  it('Should register successfully ', () => {
     cy.visit(registerPage.url)
     cy.server()
     cy.route('POST', routes.developers).as('requestRegisterDeveloper')
     const inputTestData: any = {
       textBoxTel: '0123456789',
-      textBoxPassword: 'q1W2e3R4t5Y6',
-      textBoxConfirmPassword: 'q1W2e3R4t5Y6',
       textBoxFullName: 'Test name',
       textBoxEmail: `testEmail${nanoid(5)}@gmail.com`,
       textBoxCompanyName: 'Test company',
@@ -26,15 +20,9 @@ describe.skip('Register happy path', () => {
       const selector = (registerPageSelectors as any)[inputTestDataSelector]
       cy.get(selector).type(data)
     }
-    const {
-      checkBoxTermsAndConditions,
-      btnAcceptTermsAndConditions,
-      buttonSubmitRegister,
-      divRegisterSuccessfully,
-    } = registerPageSelectors
-    cy.get(checkBoxTermsAndConditions).click({ force: true })
-    cy.get(btnAcceptTermsAndConditions).click()
+    const { btnAcceptTermsAndConditions, buttonSubmitRegister, divRegisterSuccessfully } = registerPageSelectors
     cy.get(buttonSubmitRegister).click()
+    cy.get(btnAcceptTermsAndConditions).click()
     cy.wait('@requestRegisterDeveloper')
     cy.get(divRegisterSuccessfully).should('have.length', 1)
   })

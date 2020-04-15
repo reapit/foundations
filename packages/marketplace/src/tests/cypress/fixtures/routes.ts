@@ -1,4 +1,4 @@
-const apiEndPoint = Cypress.env('MARKETPLACE_API_BASE_URL')
+const apiEndPoint = Cypress.env('marketplaceApiUrl')
 
 export default {
   categories: `${apiEndPoint}/categories`,

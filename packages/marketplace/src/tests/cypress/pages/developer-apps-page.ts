@@ -13,7 +13,7 @@ const developerAppsPageMetadata = {
 }
 
 const {
-  selectors: { checkBoxIsListed, buttonSubmit, checkboxAgreeTheTermsAndConditions },
+  selectors: { checkBoxIsListed, buttonSubmit },
 } = developerSubmitAppPage
 
 const developerAppsPageActions = {
@@ -54,15 +54,12 @@ const developerAppsPageActions = {
     cy.wait('@requestGetScopes')
 
     cy.get(checkBoxIsListed).click({ force: true })
-    cy.get(checkboxAgreeTheTermsAndConditions).click({ force: true })
 
     cy.route('POST', apiRoutes.revision).as('requestSubmitRevision')
     cy.get(buttonSubmit).click()
     cy.wait('@requestSubmitRevision')
 
-    cy.get(buttonEditDetails)
-      .should('have.text', 'Pending Revision')
-      .should('be.disabled')
+    cy.get(buttonEditDetails).should('have.text', 'Pending Revision')
   },
 }
 

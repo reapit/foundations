@@ -1,10 +1,6 @@
-import loginPage from '../pages/login-page'
 import adminAppPage from '../pages/admin-apps-page'
 import parseXhrBodyToJson from '../utils/parse-xhr-body-to-json'
-
-const {
-  actions: { loginUsingAdminAccount },
-} = loginPage
+import { loginAdminHook } from '../hooks/login'
 
 const {
   url,
@@ -13,15 +9,14 @@ const {
 } = adminAppPage
 
 before(() => {
-  cy.server()
-  loginUsingAdminAccount()
+  loginAdminHook()
 })
 
 describe('Search app happy path', () => {
   it('should have at least 1 app with correct data', () => {
-    cy.visit(url)
     cy.server()
     cy.route(apiGetAppList).as('getAppList')
+    cy.visit(url)
     cy.wait('@getAppList')
       .then(xhr => (parseXhrBodyToJson as any)(xhr))
       .then(({ data: appList }) => {

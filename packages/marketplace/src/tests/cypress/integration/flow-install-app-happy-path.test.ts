@@ -1,4 +1,3 @@
-import loginPage from '../pages/login-page'
 import apiRoutes from '../fixtures/routes'
 import appRequest from '../requests/app'
 import developerAppsPage from '../pages/developer-apps-page'
@@ -6,18 +5,11 @@ import adminApprovalsPage from '../pages/admin-approvals-page'
 import installedAppsPage from '../pages/installed-apps-page'
 import manageAppsPage from '../pages/manage-apps-page'
 
-import clientWelcomeModal from '../components/client-welcome-modal'
 import appDetailModal from '../components/app-detail-modal'
 import appCard from '../components/app-card'
 import nanoid from 'nanoid'
-
-const {
-  actions: { loginUsingClientAccount, loginUsingDeveloperAccount, loginUsingAdminAccount },
-} = loginPage
-
-const {
-  selectors: { buttonAceptWelcome },
-} = clientWelcomeModal
+import { loginDeveloperHook, loginAdminHook, loginClientHook } from '../hooks/login'
+import ROUTES from '@/constants/routes'
 
 const {
   actions: { listedAppWithName },
@@ -55,7 +47,7 @@ describe('Install app happy path', () => {
 
   it('Log into developer and listed app successfully', () => {
     cy.server()
-    loginUsingDeveloperAccount()
+    loginDeveloperHook()
     listedAppWithName(appName, res => {
       appId = res
     })
@@ -63,23 +55,21 @@ describe('Install app happy path', () => {
 
   it('Log into admin and approve app successfully', () => {
     cy.server()
-    loginUsingAdminAccount()
+    loginAdminHook()
     approveAppWithId(appId)
   })
 
   it('Log into client and install and uninstall app successfully', () => {
     cy.server()
-    cy.clearCookies()
 
     cy.route('GET', apiRoutes.manageApps).as('getManageApps')
     cy.route('GET', apiRoutes.installedApps).as('getInstalledApps')
     cy.route('POST', apiRoutes.installations).as('installApp')
     cy.route('POST', apiRoutes.terminateApp).as('uninstallApp')
 
-    loginUsingClientAccount()
+    loginClientHook()
 
-    cy.wait(500)
-    cy.get(buttonAceptWelcome).click()
+    cy.visit(ROUTES.CLIENT)
 
     cy.get(`div[data-test-app-name="${appName}"]`).click()
 
