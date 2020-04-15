@@ -3,6 +3,7 @@
   import { themeStore } from '../core/store/theme-store'
 
   export let date
+  export let handleNextStep
 
   // generate dummy meeting slots between 00-00 -> 10-00 - duration - on hours
   export const mockedTimes = []
@@ -37,7 +38,7 @@
   <div class={$themeStore.dateCellHeader}>{formatHeader(date)}</div>
   <div class={$themeStore.timeCellsContainer}>
     {#each mockedTimes as startTime}
-      <TimeCell {startTime} />
+      <TimeCell {date} {startTime} {handleNextStep} />
     {/each}
   </div>
 </div>

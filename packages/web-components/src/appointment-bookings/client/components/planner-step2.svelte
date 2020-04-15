@@ -5,6 +5,7 @@
   import DateTimePicker from './date-time-picker.svelte'
 
   export let themeClasses
+  export let handleNextStep
   const { svgNavigation } = themeClasses
 </script>
 
@@ -38,4 +39,4 @@
   </button>
   <div />
 </div>
-<DateTimePicker />
+<DateTimePicker {handleNextStep} />

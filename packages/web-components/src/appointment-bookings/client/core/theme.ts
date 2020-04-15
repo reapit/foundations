@@ -85,8 +85,12 @@ export const generateAppointmentBookingThemeClasses = (
     `,
     formInput: css`
       ${parentSelector || 'body'} & {
+        padding-left: 5px;
         height: 27px;
         font-size: ${basefontSize};
+        &:disabled {
+          cursor: not-allowed;
+        }
       }
     `,
     formHeader: css`
