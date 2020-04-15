@@ -1,6 +1,7 @@
 import '../src/styles/index.scss'
-import { configure, addParameters } from '@storybook/react'
+import { configure, addParameters, addDecorator } from '@storybook/react'
 import { create } from '@storybook/theming'
+import { withHTML } from '@whitespace/storybook-addon-html/react'
 // Taking out logo for now so can be embedded more easily
 // import logo from './logo.png'
 
@@ -39,9 +40,11 @@ addParameters({
 
       brandTitle: `Elements ${process.env.APP_VERSION}`,
       brandUrl: process.env.ELEMENTS_DOCUMENT_URL,
-      brandImage: ''
-    })
-  }
+      brandImage: '',
+    }),
+  },
 })
+
+addDecorator(withHTML)
 
 configure([require.context('../src', true, /\.stories\.(tsx|mdx)$/)], module)
