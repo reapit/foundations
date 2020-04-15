@@ -22,6 +22,7 @@ import { AppUsageStatsState } from '@/reducers/app-usage-stats'
 import { NotificationMessageState } from '@/reducers/notification-message'
 import { AdminStatsState } from '@/reducers/admin-stats'
 import { AppHttpTrafficEventState } from '@/reducers/app-http-traffic-event'
+import { IntegrationTypeState } from '@/reducers/app-integration-types'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -83,4 +84,5 @@ export interface ReduxState {
   noticationMessage: NotificationMessageState
   adminStats: AdminStatsState
   appHttpTraffic: AppHttpTrafficEventState
+  desktopIntegrationTypes: IntegrationTypeState
 }
