@@ -53,6 +53,11 @@ export const handleAutoSave = (developerApps: AppSummaryModel[], clientIds: stri
     const appIds = developerApps.map((app: AppSummaryModel) => {
       return app.id || ''
     })
+
+    if (!appId && appIds.length === 0) {
+      return
+    }
+
     dispatch(
       appInstallationsFilterRequestData({
         appId: appId || appIds,
