@@ -3,6 +3,7 @@ import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
 import { URLS, generateHeader } from '../constants/api'
 import { submitAppSetFormState, submitAppLoading, submitAppReceiveData } from '../actions/submit-app'
 import { categoriesReceiveData } from '../actions/app-categories'
+import { integrationTypesReceiveData } from '@/actions/app-integration-types'
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { Action } from '../types/core'
@@ -122,7 +123,7 @@ export const submitAppsDataFetch = function*() {
   yield put(submitAppLoading(true))
 
   try {
-    const [scopes, categories] = yield all([
+    const [scopes, categories, integrationTypes] = yield all([
       call(fetcher, {
         url: `${URLS.scopes}`,
         method: 'GET',
@@ -135,10 +136,17 @@ export const submitAppsDataFetch = function*() {
         api: window.reapit.config.marketplaceApiUrl,
         headers: generateHeader(window.reapit.config.marketplaceApiKey),
       }),
+      call(fetcher, {
+        url: URLS.desktopIntegrationTypes,
+        method: 'GET',
+        api: window.reapit.config.marketplaceApiUrl,
+        headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      }),
     ])
     yield put(submitAppLoading(false))
     yield put(submitAppReceiveData(scopes))
     yield put(categoriesReceiveData(categories))
+    yield put(integrationTypesReceiveData(integrationTypes))
   } catch (err) {
     logger(err)
     yield put(submitAppLoading(false))

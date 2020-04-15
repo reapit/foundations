@@ -11,6 +11,7 @@ import errorMessages from '@/constants/error-messages'
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import { submitAppSetFormState, SubmitAppArgs, submitAppLoading, submitAppReceiveData } from '@/actions/submit-app'
 import { categoriesReceiveData } from '@/actions/app-categories'
+import { integrationTypesReceiveData, PagedResultDesktopIntegrationTypeModel_ } from '@/actions/app-integration-types'
 import { errorThrownServer } from '@/actions/error'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
@@ -128,6 +129,12 @@ describe('submit-app fetch data', () => {
         api: window.reapit.config.marketplaceApiUrl,
         headers: generateHeader(window.reapit.config.marketplaceApiKey),
       }),
+      call(fetcher, {
+        url: `${URLS.desktopIntegrationTypes}`,
+        method: 'GET',
+        api: window.reapit.config.marketplaceApiUrl,
+        headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      }),
     ]),
   )
 
@@ -137,6 +144,9 @@ describe('submit-app fetch data', () => {
     expect(clone.next(response).value).toEqual(put(submitAppLoading(false)))
     expect(clone.next().value).toEqual(put(submitAppReceiveData(response[0] as ScopeModel[])))
     expect(clone.next().value).toEqual(put(categoriesReceiveData(response[1] as PagedResultCategoryModel_)))
+    expect(clone.next().value).toEqual(
+      put(integrationTypesReceiveData(response[2] as PagedResultDesktopIntegrationTypeModel_)),
+    )
     expect(clone.next().done).toBe(true)
   })
 
