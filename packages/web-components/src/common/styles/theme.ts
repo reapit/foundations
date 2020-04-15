@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { css } from 'emotion'
 
 export interface InitializerTheme {

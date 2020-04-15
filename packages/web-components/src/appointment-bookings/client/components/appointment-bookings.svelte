@@ -6,6 +6,7 @@
   import { generateAppointmentBookingThemeClasses } from '../core/theme'
   import FormStep1 from './form-step1.svelte'
   import PlannerStep2 from './planner-step2.svelte'
+  import BookingConfirmationStep3 from './booking-confirmation-step3.svelte'
 
   export let theme
   export let parentSelector
@@ -18,6 +19,10 @@
 
   const handleNextStep = () => {
     currentStep += 1
+  }
+
+  const handlePreviousStep = () => {
+    currentStep -= 1
   }
 
   const toggleModal = e => {
@@ -73,7 +78,11 @@
         {/if}
 
         {#if currentStep === 2}
-          <PlannerStep2 {themeClasses} />
+          <PlannerStep2 {themeClasses} {handleNextStep} />
+        {/if}
+
+        {#if currentStep === 3}
+          <BookingConfirmationStep3 {themeClasses} {handlePreviousStep}/>
         {/if}
       </div>
     </ClickOutSide>

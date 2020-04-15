@@ -1,7 +1,7 @@
 <script>
   import Fa from 'svelte-fa'
   import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
-  import { formStore } from '../core/store/form-store.ts'
+  import { form1Store as formStore } from '../core/store/form-store.ts'
   import { handleSubmitFormStep1 } from '../handlers/submit-form-step1.ts'
 
   export let themeClasses

@@ -6,103 +6,124 @@ exports[`DateTimePicker it matches a snapshot 1`] = `
     <div
       class="date-time-picker-container svelte-114k6yq"
     >
-      <div
-        class="date-cell-container svelte-hlfy7d"
-        title="Click on the cell for more detail"
-      >
+      <div>
         <div
-          class=" svelte-hlfy7d"
+          class="date-cell-container svelte-hlfy7d"
+          title="Click on the cell for more detail"
         >
-          Mon Apr 13
+          <div
+            class=" svelte-hlfy7d"
+          >
+            Mon Apr 13
+          </div>
+           
+          <div
+            class=" svelte-hlfy7d"
+          />
         </div>
          
-        <div
-          class=" svelte-hlfy7d"
-        />
       </div>
-      <div
-        class="date-cell-container svelte-hlfy7d"
-        title="Click on the cell for more detail"
-      >
+      <div>
         <div
-          class=" svelte-hlfy7d"
+          class="date-cell-container svelte-hlfy7d"
+          title="Click on the cell for more detail"
         >
-          Tue Apr 14
+          <div
+            class=" svelte-hlfy7d"
+          >
+            Tue Apr 14
+          </div>
+           
+          <div
+            class=" svelte-hlfy7d"
+          />
         </div>
          
-        <div
-          class=" svelte-hlfy7d"
-        />
       </div>
-      <div
-        class="date-cell-container svelte-hlfy7d"
-        title="Click on the cell for more detail"
-      >
+      <div>
         <div
-          class=" svelte-hlfy7d"
+          class="date-cell-container svelte-hlfy7d"
+          title="Click on the cell for more detail"
         >
-          Wed Apr 15
+          <div
+            class=" svelte-hlfy7d"
+          >
+            Wed Apr 15
+          </div>
+           
+          <div
+            class=" svelte-hlfy7d"
+          />
         </div>
          
-        <div
-          class=" svelte-hlfy7d"
-        />
       </div>
-      <div
-        class="date-cell-container svelte-hlfy7d"
-        title="Click on the cell for more detail"
-      >
+      <div>
         <div
-          class=" svelte-hlfy7d"
+          class="date-cell-container svelte-hlfy7d"
+          title="Click on the cell for more detail"
         >
-          Thu Apr 16
+          <div
+            class=" svelte-hlfy7d"
+          >
+            Thu Apr 16
+          </div>
+           
+          <div
+            class=" svelte-hlfy7d"
+          />
         </div>
          
-        <div
-          class=" svelte-hlfy7d"
-        />
       </div>
-      <div
-        class="date-cell-container svelte-hlfy7d"
-        title="Click on the cell for more detail"
-      >
+      <div>
         <div
-          class=" svelte-hlfy7d"
+          class="date-cell-container svelte-hlfy7d"
+          title="Click on the cell for more detail"
         >
-          Fri Apr 17
+          <div
+            class=" svelte-hlfy7d"
+          >
+            Fri Apr 17
+          </div>
+           
+          <div
+            class=" svelte-hlfy7d"
+          />
         </div>
          
-        <div
-          class=" svelte-hlfy7d"
-        />
       </div>
-      <div
-        class="date-cell-container svelte-hlfy7d"
-        title="Click on the cell for more detail"
-      >
+      <div>
         <div
-          class=" svelte-hlfy7d"
+          class="date-cell-container svelte-hlfy7d"
+          title="Click on the cell for more detail"
         >
-          Sat Apr 18
+          <div
+            class=" svelte-hlfy7d"
+          >
+            Sat Apr 18
+          </div>
+           
+          <div
+            class=" svelte-hlfy7d"
+          />
         </div>
          
-        <div
-          class=" svelte-hlfy7d"
-        />
       </div>
-      <div
-        class="date-cell-container svelte-hlfy7d"
-        title="Click on the cell for more detail"
-      >
+      <div>
         <div
-          class=" svelte-hlfy7d"
+          class="date-cell-container svelte-hlfy7d"
+          title="Click on the cell for more detail"
         >
-          Sun Apr 19
+          <div
+            class=" svelte-hlfy7d"
+          >
+            Sun Apr 19
+          </div>
+           
+          <div
+            class=" svelte-hlfy7d"
+          />
         </div>
          
-        <div
-          class=" svelte-hlfy7d"
-        />
       </div>
     </div>
   </div>
