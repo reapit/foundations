@@ -96,7 +96,16 @@ export const FilterForm: React.FC<FilterFormProps> = ({ initialValues, developer
                         <h6 className="title is-6">Date from</h6>
                       </GridItem>
                       <GridItem>
-                        <DatePicker name="dateFrom" labelText="" id="dateFrom" />
+                        <DatePicker
+                          name="dateFrom"
+                          labelText=""
+                          id="dateFrom"
+                          reactDatePickerProps={{
+                            maxDate: dayjs()
+                              .subtract(1, 'day')
+                              .toDate(),
+                          }}
+                        />
                       </GridItem>
                     </Grid>
                   </GridItem>
@@ -114,6 +123,7 @@ export const FilterForm: React.FC<FilterFormProps> = ({ initialValues, developer
                             minDate: dayjs(dateFrom)
                               .add(1, 'day')
                               .toDate(),
+                            maxDate: dayjs().toDate(),
                           }}
                         />
                       </GridItem>
