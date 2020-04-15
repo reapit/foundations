@@ -10,11 +10,10 @@ describe('getServerHeaders', () => {
     const apiKey = 'SOME_KEY'
     const req = ({
       headers: {
-        ...DEFAULT_HEADERS,
         'x-api-key': apiKey,
       },
     } as unknown) as Request
-    expect(await getServerHeaders(req, PACKAGE_SUFFIXES.SEARCH_WIDGET)).toEqual(req.headers)
+    expect(await getServerHeaders(req, PACKAGE_SUFFIXES.SEARCH_WIDGET)).toEqual({ ...req.headers, ...DEFAULT_HEADERS })
   })
 
   it('should return the correct headers for local development', async () => {
