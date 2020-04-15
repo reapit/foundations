@@ -115,7 +115,9 @@ export const FilterForm: React.FC<FilterFormProps> = ({ initialValues, developer
                           labelText=""
                           id="dateTo"
                           reactDatePickerProps={{
-                            minDate: dayjs(dateFrom).toDate(),
+                            minDate: dayjs(dateFrom)
+                              .add(1, 'day')
+                              .toDate(),
                             maxDate: dayjs().toDate(),
                           }}
                         />
