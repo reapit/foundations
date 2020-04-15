@@ -18,9 +18,6 @@ provider:
   runtime: nodejs10.x
   stage: ${opt:stage, 'local'}
   region: eu-west-2
-  apiGateway:
-    restApiId: ${self:custom.env.GATEWAY_REST_API_ID}
-    restApiRootResourceId: ${self:custom.env.GATEWAY_REST_API_ROOT_RESOURCE_ID}
   deploymentBucket:
     name: web-components.${self:provider.stage}
     blockPublicAccess: false
@@ -55,7 +52,23 @@ functions:
           path: properties
           method: get
           cors: true
+          private: true
+          request:
+            parameters:
+              headers:
+                api-key: false
+                Authorization: false
+                reapit-customer: false
+          authorizer: arn:aws:lambda:eu-west-2:717858862261:function:web-component-authorizer
       - http:
           path: propertyImages
           method: get
           cors: true
+          private: true
+          request:
+            parameters:
+              headers:
+                api-key: false
+                Authorization: false
+                reapit-customer: false
+          authorizer: arn:aws:lambda:eu-west-2:717858862261:function:web-component-authorizer
