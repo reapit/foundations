@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import dayjs from 'dayjs'
 import { appInstallationsFilterRequestData } from '@/actions/app-installations'
 import { httpTrafficPerDayRequestData } from '@/actions/app-http-traffic-event'
-import { Grid, GridItem, DatePicker, SelectBox } from '@reapit/elements'
+import { Grid, GridItem, DatePicker, SelectBox, DATE_TIME_FORMAT } from '@reapit/elements'
 import { Form, Formik } from 'formik'
 import { FilterFormInitialValues } from './filter-bar'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
@@ -49,22 +49,23 @@ export const renderClientSelectOptions = clientIds => {
 
 export const handleAutoSave = (developerApps: AppSummaryModel[], clientIds: string[], dispatch: Dispatch) => {
   return values => {
-    const { appId, clientId } = values
+    const { appId, clientId, dateFrom, dateTo } = values
     const appIds = developerApps.map((app: AppSummaryModel) => {
       return app.id || ''
     })
-
     if (!appId && appIds.length === 0) {
       return
     }
+    const formattedDateForm = dayjs(dateFrom).format(DATE_TIME_FORMAT.YYYY_MM_DD)
+    const formattedDateTo = dayjs(dateTo).format(DATE_TIME_FORMAT.YYYY_MM_DD)
 
     dispatch(
       appInstallationsFilterRequestData({
         appId: appId || appIds,
         clientId: clientId || clientIds,
         pageSize: GET_ALL_PAGE_SIZE,
-        installedDateFrom: values.dateFrom,
-        installedDateTo: values.dateTo,
+        installedDateFrom: formattedDateForm,
+        installedDateTo: formattedDateTo,
       }),
     )
 
@@ -72,8 +73,8 @@ export const handleAutoSave = (developerApps: AppSummaryModel[], clientIds: stri
       httpTrafficPerDayRequestData({
         applicationId: appId || appIds,
         customerId: clientId || clientIds,
-        dateFrom: values.dateFrom.split('T')[0],
-        dateTo: values.dateTo.split('T')[0],
+        dateFrom: formattedDateForm,
+        dateTo: formattedDateTo,
       }),
     )
   }
@@ -123,7 +124,9 @@ export const FilterForm: React.FC<FilterFormProps> = ({ initialValues, developer
                             minDate: dayjs(dateFrom)
                               .add(1, 'day')
                               .toDate(),
-                            maxDate: dayjs().toDate(),
+                            maxDate: dayjs()
+                              .subtract(1, 'day')
+                              .toDate(),
                           }}
                         />
                       </GridItem>

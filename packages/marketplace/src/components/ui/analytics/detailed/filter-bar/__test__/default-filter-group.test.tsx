@@ -81,7 +81,7 @@ describe('FilterBar', () => {
       const { yesterdayParams, lastWeekParams, lastMonthParams } = prepareDefaultFilterDateParams()
       expect(yesterdayParams).toEqual({
         dateFrom: '2020-03-31',
-        dateTo: '2020-04-01',
+        dateTo: '2020-03-31',
       })
       expect(lastWeekParams).toEqual({
         dateFrom: '2020-03-23',

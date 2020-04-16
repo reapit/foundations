@@ -1,4 +1,5 @@
 import * as React from 'react'
+import dayjs from 'dayjs'
 import * as ReactRedux from 'react-redux'
 import configureStore from 'redux-mock-store'
 import { shallow } from 'enzyme'
@@ -13,6 +14,7 @@ import { appInstallationsFilterRequestData } from '@/actions/app-installations'
 import { httpTrafficPerDayRequestData } from '@/actions/app-http-traffic-event'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
+import { DATE_TIME_FORMAT } from '@reapit/elements'
 
 const mockProps: FilterFormProps = {
   initialValues: {
@@ -62,8 +64,8 @@ describe('FilterForm', () => {
           appId: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
           clientId: ['DXX'],
           pageSize: GET_ALL_PAGE_SIZE,
-          installedDateFrom: mockFormValues.dateFrom,
-          installedDateTo: mockFormValues.dateTo,
+          installedDateFrom: dayjs(mockFormValues.dateFrom).format(DATE_TIME_FORMAT.YYYY_MM_DD),
+          installedDateTo: dayjs(mockFormValues.dateTo).format(DATE_TIME_FORMAT.YYYY_MM_DD),
         }),
       )
 
@@ -71,8 +73,8 @@ describe('FilterForm', () => {
         httpTrafficPerDayRequestData({
           applicationId: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
           customerId: ['DXX'],
-          dateFrom: mockFormValues.dateFrom,
-          dateTo: mockFormValues.dateTo,
+          dateFrom: dayjs(mockFormValues.dateFrom).format(DATE_TIME_FORMAT.YYYY_MM_DD),
+          dateTo: dayjs(mockFormValues.dateTo).format(DATE_TIME_FORMAT.YYYY_MM_DD),
         }),
       )
     })
@@ -93,8 +95,8 @@ describe('FilterForm', () => {
           appId: mockFormValues.appId,
           clientId: mockFormValues.clientId,
           pageSize: GET_ALL_PAGE_SIZE,
-          installedDateFrom: mockFormValues.dateFrom,
-          installedDateTo: mockFormValues.dateTo,
+          installedDateFrom: dayjs(mockFormValues.dateFrom).format(DATE_TIME_FORMAT.YYYY_MM_DD),
+          installedDateTo: dayjs(mockFormValues.dateTo).format(DATE_TIME_FORMAT.YYYY_MM_DD),
         }),
       )
 
@@ -102,8 +104,8 @@ describe('FilterForm', () => {
         httpTrafficPerDayRequestData({
           applicationId: mockFormValues.appId,
           customerId: mockFormValues.clientId,
-          dateFrom: mockFormValues.dateFrom,
-          dateTo: mockFormValues.dateTo,
+          dateFrom: dayjs(mockFormValues.dateFrom).format(DATE_TIME_FORMAT.YYYY_MM_DD),
+          dateTo: dayjs(mockFormValues.dateTo).format(DATE_TIME_FORMAT.YYYY_MM_DD),
         }),
       )
     })
