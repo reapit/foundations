@@ -1,6 +1,6 @@
 <script>
-  import Carousel from './Carousel.svelte'
-  import Widget from './Widget.svelte'
+  import Carousel from './carousel.svelte'
+  import Widget from './widget.svelte'
 
   export let displayItemQuantity = 5
   export let images
