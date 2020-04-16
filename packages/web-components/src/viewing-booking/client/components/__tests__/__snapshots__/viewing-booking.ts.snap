@@ -1,0 +1,237 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`viewing-booking it matches a snapshot 1`] = `
+.emotion-2 html,
+.emotion-2 body,
+.emotion-2 div,
+.emotion-2 span,
+.emotion-2 applet,
+.emotion-2 object,
+.emotion-2 iframe,
+.emotion-2 h1,
+.emotion-2 h2,
+.emotion-2 h3,
+.emotion-2 h4,
+.emotion-2 h5,
+.emotion-2 h6,
+.emotion-2 p,
+.emotion-2 blockquote,
+.emotion-2 pre,
+.emotion-2 a,
+.emotion-2 abbr,
+.emotion-2 acronym,
+.emotion-2 address,
+.emotion-2 big,
+.emotion-2 cite,
+.emotion-2 code,
+.emotion-2 del,
+.emotion-2 dfn,
+.emotion-2 em,
+.emotion-2 img,
+.emotion-2 ins,
+.emotion-2 kbd,
+.emotion-2 q,
+.emotion-2 s,
+.emotion-2 samp,
+.emotion-2 small,
+.emotion-2 strike,
+.emotion-2 strong,
+.emotion-2 sub,
+.emotion-2 sup,
+.emotion-2 tt,
+.emotion-2 var,
+.emotion-2 b,
+.emotion-2 u,
+.emotion-2 i,
+.emotion-2 center,
+.emotion-2 dl,
+.emotion-2 dt,
+.emotion-2 dd,
+.emotion-2 menu,
+.emotion-2 ol,
+.emotion-2 ul,
+.emotion-2 li,
+.emotion-2 fieldset,
+.emotion-2 form,
+.emotion-2 label,
+.emotion-2 legend,
+.emotion-2 table,
+.emotion-2 caption,
+.emotion-2 tbody,
+.emotion-2 tfoot,
+.emotion-2 thead,
+.emotion-2 tr,
+.emotion-2 th,
+.emotion-2 td,
+.emotion-2 article,
+.emotion-2 aside,
+.emotion-2 canvas,
+.emotion-2 details,
+.emotion-2 embed,
+.emotion-2 figure,
+.emotion-2 figcaption,
+.emotion-2 footer,
+.emotion-2 header,
+.emotion-2 hgroup,
+.emotion-2 main,
+.emotion-2 menu,
+.emotion-2 nav,
+.emotion-2 output,
+.emotion-2 ruby,
+.emotion-2 section,
+.emotion-2 summary,
+.emotion-2 time,
+.emotion-2 mark,
+.emotion-2 audio,
+.emotion-2 video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+.emotion-2 article,
+.emotion-2 aside,
+.emotion-2 details,
+.emotion-2 figcaption,
+.emotion-2 figure,
+.emotion-2 footer,
+.emotion-2 header,
+.emotion-2 hgroup,
+.emotion-2 main,
+.emotion-2 menu,
+.emotion-2 nav,
+.emotion-2 section {
+  display: block;
+}
+
+.emotion-2 *[hidden] {
+  display: none;
+}
+
+.emotion-2 body {
+  line-height: 1;
+}
+
+.emotion-2 menu,
+.emotion-2 ol,
+.emotion-2 ul {
+  list-style: none;
+}
+
+.emotion-2 blockquote,
+.emotion-2 q {
+  quotes: none;
+}
+
+.emotion-2 blockquote:before,
+.emotion-2 blockquote:after,
+.emotion-2 q:before,
+.emotion-2 q:after {
+  content: '';
+  content: none;
+}
+
+.emotion-2 table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.emotion-0 {
+  background: url(https://tracker.reapit.net/demo/_demo/webservice/rest/property/rps_demo-SCO190002/thumbnail?ApiKey=8ed799bbe77c96311e71f64b99ec2ddde765d13a&Width=480&Height=285&Crop=1);
+}
+
+<body>
+  <div>
+    <button
+      class="viewing_booking-btn svelte-8wgex8"
+    >
+      Book a viewing
+    </button>
+     
+    <div
+      class="emotion-1  emotion-2 booking-viewing-modal-overlay svelte-w0x3xb"
+    >
+      <div
+        class="booking-viewing-modal svelte-w0x3xb"
+      >
+        <div
+          class="modal-close svelte-w0x3xb"
+        >
+          <i
+            class="modal-close-btn svelte-w0x3xb"
+          />
+        </div>
+         
+        <h3
+          class="modal-title svelte-w0x3xb"
+          title="Book a Viewing"
+        >
+          Book a Viewing
+        </h3>
+         
+        <div
+          class="modal-content"
+        >
+          <form>
+            <div
+              class="property-image emotion-0 svelte-8wgex8"
+            >
+              <h4
+                class="svelte-8wgex8"
+              >
+                Kirknewton, Midlothian
+        
+                <strong
+                  class="svelte-8wgex8"
+                >
+                  £1,700,000
+                </strong>
+              </h4>
+            </div>
+             
+            <div
+              class="viewing-booking-email-form svelte-8wgex8"
+            >
+              <p
+                class="svelte-8wgex8"
+              >
+                To book a viewing, please enter your e-mail below.
+              </p>
+               
+              <label
+                class="svelte-8wgex8"
+                for="viewing-booking-email"
+              >
+                E-mail*
+              </label>
+               
+              <input
+                class="svelte-8wgex8"
+                id="viewing-booking-email"
+                placeholder="Your e-mail address"
+                type="email"
+              />
+               
+            </div>
+             
+            <div
+              class="viewing-booking-form-submit svelte-8wgex8"
+            >
+              <button
+                class="svelte-8wgex8"
+                type="submit"
+              >
+                Get Appointments
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</body>
+`;

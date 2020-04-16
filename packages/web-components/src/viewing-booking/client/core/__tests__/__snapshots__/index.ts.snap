@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReactViewingWidgetComponent test match snapshot 1`] = `
+Viewing_booking {
+  "$$": Object {
+    "after_update": Array [],
+    "before_update": Array [],
+    "bound": Object {},
+    "callbacks": Object {},
+    "context": Map {},
+    "ctx": Array [
+      true,
+      false,
+      "css-1mmqh89",
+      true,
+      "css-11c02ub",
+      [Function],
+      [Function],
+      [Function],
+      Object {
+        "baseBackgroundColor": "#f9fbfd",
+        "baseFontFamily": "\\"Roboto\\", sans-serif",
+        "basefontColor": "#12263f",
+        "basefontSize": "14px",
+        "breakPoints": Object {
+          "desktop": "",
+          "laptop": "",
+          "mobile": "",
+          "tablet": "",
+        },
+        "headingFontFamily": "\\"Open Sans\\", sans-serif",
+        "inverseFontColor": "#f9fbfd",
+        "mapAccentColor": "#7bc9eb",
+        "primaryAccentColor": "#0061a8",
+        "primaryHeadingFontSize": "24px",
+        "secondaryAccentColor": "#1e2554",
+        "secondaryHeadingFontSize": "20px",
+        "secondaryfontColor": "#1e2554",
+      },
+      "",
+      "#appointment-bookings-viewing",
+      null,
+      undefined,
+      undefined,
+      "https://tracker.reapit.net/demo/_demo/webservice/rest/property/rps_demo-SCO190002/thumbnail?ApiKey=8ed799bbe77c96311e71f64b99ec2ddde765d13a&Width=480&Height=285&Crop=1",
+    ],
+    "dirty": Array [
+      -1,
+    ],
+    "fragment": Object {
+      "c": [Function],
+      "d": [Function],
+      "i": [Function],
+      "l": [Function],
+      "m": [Function],
+      "o": [Function],
+      "p": [Function],
+    },
+    "not_equal": [Function],
+    "on_destroy": Array [
+      [Function],
+    ],
+    "on_mount": Array [],
+    "props": Object {
+      "apiKey": 9,
+      "parentSelector": 10,
+      "submitAction": 11,
+      "theme": 8,
+    },
+    "update": [Function],
+  },
+  "$capture_state": [Function],
+  "$inject_state": [Function],
+  "$set": [Function],
+}
+`;
