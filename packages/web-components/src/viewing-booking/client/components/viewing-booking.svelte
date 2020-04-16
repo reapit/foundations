@@ -99,6 +99,7 @@
     border: 1px solid #ddd;
     outline: none;
     padding: 0 0.5em;
+    font-size: 1em;
   }
   .property-image {
     background-size: cover;

@@ -146,7 +146,7 @@ exports[`viewing-booking it matches a snapshot 1`] = `
 <body>
   <div>
     <button
-      class="viewing_booking-btn svelte-8wgex8"
+      class="viewing_booking-btn svelte-jadfmp"
     >
       Book a viewing
     </button>
@@ -177,15 +177,15 @@ exports[`viewing-booking it matches a snapshot 1`] = `
         >
           <form>
             <div
-              class="property-image emotion-0 svelte-8wgex8"
+              class="property-image emotion-0 svelte-jadfmp"
             >
               <h4
-                class="svelte-8wgex8"
+                class="svelte-jadfmp"
               >
                 Kirknewton, Midlothian
         
                 <strong
-                  class="svelte-8wgex8"
+                  class="svelte-jadfmp"
                 >
                   £1,700,000
                 </strong>
@@ -193,23 +193,23 @@ exports[`viewing-booking it matches a snapshot 1`] = `
             </div>
              
             <div
-              class="viewing-booking-email-form svelte-8wgex8"
+              class="viewing-booking-email-form svelte-jadfmp"
             >
               <p
-                class="svelte-8wgex8"
+                class="svelte-jadfmp"
               >
                 To book a viewing, please enter your e-mail below.
               </p>
                
               <label
-                class="svelte-8wgex8"
+                class="svelte-jadfmp"
                 for="viewing-booking-email"
               >
                 E-mail*
               </label>
                
               <input
-                class="svelte-8wgex8"
+                class="svelte-jadfmp"
                 id="viewing-booking-email"
                 placeholder="Your e-mail address"
                 type="email"
@@ -218,10 +218,10 @@ exports[`viewing-booking it matches a snapshot 1`] = `
             </div>
              
             <div
-              class="viewing-booking-form-submit svelte-8wgex8"
+              class="viewing-booking-form-submit svelte-jadfmp"
             >
               <button
-                class="svelte-8wgex8"
+                class="svelte-jadfmp"
                 type="submit"
               >
                 Get Appointments
