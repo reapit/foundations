@@ -20,10 +20,10 @@ describe('Register happy path', () => {
       const selector = (registerPageSelectors as any)[inputTestDataSelector]
       cy.get(selector).type(data)
     }
-    const { btnAcceptTermsAndConditions, buttonSubmitRegister, divRegisterSuccessfully } = registerPageSelectors
+    const { buttonAcceptTerm, buttonSubmitRegister, divSuccess } = registerPageSelectors
     cy.get(buttonSubmitRegister).click()
-    cy.get(btnAcceptTermsAndConditions).click()
+    cy.get(buttonAcceptTerm).click()
     cy.wait('@requestRegisterDeveloper')
-    cy.get(divRegisterSuccessfully).should('have.length', 1)
+    cy.get(divSuccess).should('have.length', 1)
   })
 })

@@ -73,7 +73,6 @@ export default {
     })
   },
   createAppRevision: (appId: string, existingApp: AppDetailModel, newRevision: Partial<CreateAppRevisionModel>) => {
-    console.log(existingApp)
     return cy.request({
       url: `${routes.apps}/${appId}/revisions`,
       method: 'POST',

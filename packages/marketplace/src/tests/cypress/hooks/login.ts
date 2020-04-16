@@ -17,7 +17,7 @@ async function login(params: LoginParams): LoginSession {
   return loginSession
 }
 
-const loginFlow = ({ userName, password, loginType, loginRoute, shouldWait, beforeLogin }) => {
+const loginFlow = ({ userName, password, loginType, loginRoute, beforeLogin }) => {
   const { cognitoClientId, cognitoUserPoolId } = CypressEnv
   const params = {
     userName,
@@ -33,7 +33,9 @@ const loginFlow = ({ userName, password, loginType, loginRoute, shouldWait, befo
   if (typeof beforeLogin === 'function') {
     beforeLogin()
   }
+  cy.wait(1000)
   cy.wrap(login(params)).then(loginSession => {
+    cy.wait(1000)
     const { refreshToken, userName, loginType, mode } = loginSession
     const refreshParams = {
       cognitoClientId: cognitoClientId,
@@ -52,10 +54,8 @@ const loginFlow = ({ userName, password, loginType, loginRoute, shouldWait, befo
     cy.window()
       .its('store')
       .invoke('dispatch', authLoginSuccess(loginSession))
-
-    if (shouldWait) {
-      cy.wait('@loginRequest')
-    }
+    cy.wait('@loginRequest')
+    cy.wait(3000)
   })
 }
 
@@ -66,9 +66,7 @@ export const loginAdminHook = () => {
     password: adminPassword,
     loginType: 'ADMIN',
     loginRoute: ROUTES.ADMIN_LOGIN,
-    shouldWait: true,
   })
-  cy.visit(ROUTES.ADMIN_APPROVALS)
 }
 
 export const loginDeveloperHook = () => {
@@ -78,15 +76,12 @@ export const loginDeveloperHook = () => {
     password: developerPassword,
     loginType: 'DEVELOPER',
     loginRoute: ROUTES.DEVELOPER_LOGIN,
-    shouldWait: false,
     beforeLogin: () => {
       cy.setCookie(COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE, new Date().toString())
       cy.setCookie(COOKIE_DEVELOPER_TERMS_ACCEPTED, new Date().toString())
       cy.setCookie(COOKIE_FIRST_SUBMIT, new Date().toString())
     },
   })
-  cy.wait('@loginRequest')
-  cy.visit(ROUTES.DEVELOPER_MY_APPS)
 }
 export const loginClientHook = () => {
   const { clientUserName, clientPassword } = CypressEnv
@@ -95,12 +90,9 @@ export const loginClientHook = () => {
     password: clientPassword,
     loginType: 'CLIENT',
     loginRoute: ROUTES.CLIENT_LOGIN,
-    shouldWait: false,
     beforeLogin: () => {
       cy.setCookie(COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE, new Date().toString())
       cy.setCookie(COOKIE_CLIENT_TERMS_ACCEPTED, new Date().toString())
     },
   })
-  cy.wait('@loginRequest')
-  cy.visit(ROUTES.MY_APPS)
 }

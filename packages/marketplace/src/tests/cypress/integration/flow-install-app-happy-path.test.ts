@@ -36,17 +36,14 @@ let appId = ''
 
 describe('Install app happy path', () => {
   before(() => {
-    cy.server()
     appRequest.createApp(appName)
   })
 
   after(() => {
-    cy.server()
     appRequest.deleteApp(appId)
   })
 
   it('Log into developer and listed app successfully', () => {
-    cy.server()
     loginDeveloperHook()
     listedAppWithName(appName, res => {
       appId = res
@@ -54,7 +51,6 @@ describe('Install app happy path', () => {
   })
 
   it('Log into admin and approve app successfully', () => {
-    cy.server()
     loginAdminHook()
     approveAppWithId(appId)
   })

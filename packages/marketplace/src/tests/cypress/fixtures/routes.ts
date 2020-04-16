@@ -9,7 +9,7 @@ export default {
   developerApps: `${apiEndPoint}/apps?developerId=**`,
   approvals: `${apiEndPoint}/approvals`,
   appDetail: `${apiEndPoint}/apps/**?clientId=**`,
-  installedApps: `${apiEndPoint}/apps?clientId=**&OnlyInstalled=**&PageNumber=**&PageSize=**&IsDirectApi=**`,
+  installedApps: `${apiEndPoint}/apps?clientId=*&OnlyInstalled=*&PageNumber=*&PageSize=*&IsDirectApi=*`,
   manageApps: `${apiEndPoint}/apps?clientId=**&OnlyInstalled=**&PageNumber=**&PageSize=**`,
   developers: `${apiEndPoint}/developers`,
   approveApp: `${apiEndPoint}/apps/**/revisions/**/approve`,
