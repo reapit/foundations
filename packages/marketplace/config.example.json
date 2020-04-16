@@ -10,6 +10,7 @@
   "googleAnalyticsKey": "",
   "cognitoOAuthUrl": "",
   "cognitoUserPoolId": "",
+  "chatbotAppId": "",
   "marketplaceUrl": "",
   "adminUserName": "",
   "adminPassword": "",
