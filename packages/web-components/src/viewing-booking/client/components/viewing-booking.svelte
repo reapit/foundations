@@ -1,5 +1,6 @@
 <script>
   import { css } from 'emotion'
+  import { getProperty } from '../api/property'
   import { generateThemeClasses, resetCSS } from '../../../common/styles'
   import { onMount, onDestroy } from 'svelte'
   import ViewingBookingModal from '../../../common/components/modal.svelte'
@@ -13,9 +14,12 @@
 
   let isModalOpen = true
   let isLoading
+
   let email
   let inputValue
-  let image
+
+  let propertyData
+
   let backgroundImage
   let correctEmail = true
 
@@ -42,18 +46,20 @@
   const unsubscribe = viewBookingStore.subscribe(store => {
     isLoading = store.isLoading
     email = store.email
-    image = store.image
+    propertyData = store.propertyData
   })
 
-  function updateImage(image) {
+  function updateImage(propertyData) {
     backgroundImage = css`
-      background: url(${image});
+      background: url(${propertyData && propertyData.image});
     `
   }
+  $: updateImage(propertyData)
 
-  $: updateImage(image)
+  onMount(async () => {
+    isLoading = true
+    const propertyData = await getProperty()
 
-  onMount(() => {
     viewBookingStore.update(values => ({
       ...values,
       initializers: {
@@ -62,10 +68,11 @@
         parentSelector,
       },
       themeClasses,
-      image:
-        'https://tracker.reapit.net/demo/_demo/webservice/rest/property/rps_demo-SCO190002/thumbnail?ApiKey=8ed799bbe77c96311e71f64b99ec2ddde765d13a&Width=480&Height=285&Crop=1',
+      propertyData,
     }))
+    isLoading = false
   })
+
   onDestroy(() => unsubscribe())
 </script>
 
@@ -160,8 +167,8 @@
   <form on:submit|preventDefault={submitForm}>
     <div class="property-image {backgroundImage}">
       <h4>
-        Kirknewton, Midlothian
-        <strong>£1,700,000</strong>
+        {propertyData && propertyData.address}
+        <strong>{propertyData && propertyData.price}</strong>
       </h4>
     </div>
     <div class="viewing-booking-email-form">

@@ -1,89 +1,89 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`viewing-booking it matches a snapshot 1`] = `
-.emotion-2 html,
-.emotion-2 body,
-.emotion-2 div,
-.emotion-2 span,
-.emotion-2 applet,
-.emotion-2 object,
-.emotion-2 iframe,
-.emotion-2 h1,
-.emotion-2 h2,
-.emotion-2 h3,
-.emotion-2 h4,
-.emotion-2 h5,
-.emotion-2 h6,
-.emotion-2 p,
-.emotion-2 blockquote,
-.emotion-2 pre,
-.emotion-2 a,
-.emotion-2 abbr,
-.emotion-2 acronym,
-.emotion-2 address,
-.emotion-2 big,
-.emotion-2 cite,
-.emotion-2 code,
-.emotion-2 del,
-.emotion-2 dfn,
-.emotion-2 em,
-.emotion-2 img,
-.emotion-2 ins,
-.emotion-2 kbd,
-.emotion-2 q,
-.emotion-2 s,
-.emotion-2 samp,
-.emotion-2 small,
-.emotion-2 strike,
-.emotion-2 strong,
-.emotion-2 sub,
-.emotion-2 sup,
-.emotion-2 tt,
-.emotion-2 var,
-.emotion-2 b,
-.emotion-2 u,
-.emotion-2 i,
-.emotion-2 center,
-.emotion-2 dl,
-.emotion-2 dt,
-.emotion-2 dd,
-.emotion-2 menu,
-.emotion-2 ol,
-.emotion-2 ul,
-.emotion-2 li,
-.emotion-2 fieldset,
-.emotion-2 form,
-.emotion-2 label,
-.emotion-2 legend,
-.emotion-2 table,
-.emotion-2 caption,
-.emotion-2 tbody,
-.emotion-2 tfoot,
-.emotion-2 thead,
-.emotion-2 tr,
-.emotion-2 th,
-.emotion-2 td,
-.emotion-2 article,
-.emotion-2 aside,
-.emotion-2 canvas,
-.emotion-2 details,
-.emotion-2 embed,
-.emotion-2 figure,
-.emotion-2 figcaption,
-.emotion-2 footer,
-.emotion-2 header,
-.emotion-2 hgroup,
-.emotion-2 main,
-.emotion-2 menu,
-.emotion-2 nav,
-.emotion-2 output,
-.emotion-2 ruby,
-.emotion-2 section,
-.emotion-2 summary,
-.emotion-2 time,
-.emotion-2 mark,
-.emotion-2 audio,
-.emotion-2 video {
+.emotion-1 html,
+.emotion-1 body,
+.emotion-1 div,
+.emotion-1 span,
+.emotion-1 applet,
+.emotion-1 object,
+.emotion-1 iframe,
+.emotion-1 h1,
+.emotion-1 h2,
+.emotion-1 h3,
+.emotion-1 h4,
+.emotion-1 h5,
+.emotion-1 h6,
+.emotion-1 p,
+.emotion-1 blockquote,
+.emotion-1 pre,
+.emotion-1 a,
+.emotion-1 abbr,
+.emotion-1 acronym,
+.emotion-1 address,
+.emotion-1 big,
+.emotion-1 cite,
+.emotion-1 code,
+.emotion-1 del,
+.emotion-1 dfn,
+.emotion-1 em,
+.emotion-1 img,
+.emotion-1 ins,
+.emotion-1 kbd,
+.emotion-1 q,
+.emotion-1 s,
+.emotion-1 samp,
+.emotion-1 small,
+.emotion-1 strike,
+.emotion-1 strong,
+.emotion-1 sub,
+.emotion-1 sup,
+.emotion-1 tt,
+.emotion-1 var,
+.emotion-1 b,
+.emotion-1 u,
+.emotion-1 i,
+.emotion-1 center,
+.emotion-1 dl,
+.emotion-1 dt,
+.emotion-1 dd,
+.emotion-1 menu,
+.emotion-1 ol,
+.emotion-1 ul,
+.emotion-1 li,
+.emotion-1 fieldset,
+.emotion-1 form,
+.emotion-1 label,
+.emotion-1 legend,
+.emotion-1 table,
+.emotion-1 caption,
+.emotion-1 tbody,
+.emotion-1 tfoot,
+.emotion-1 thead,
+.emotion-1 tr,
+.emotion-1 th,
+.emotion-1 td,
+.emotion-1 article,
+.emotion-1 aside,
+.emotion-1 canvas,
+.emotion-1 details,
+.emotion-1 embed,
+.emotion-1 figure,
+.emotion-1 figcaption,
+.emotion-1 footer,
+.emotion-1 header,
+.emotion-1 hgroup,
+.emotion-1 main,
+.emotion-1 menu,
+.emotion-1 nav,
+.emotion-1 output,
+.emotion-1 ruby,
+.emotion-1 section,
+.emotion-1 summary,
+.emotion-1 time,
+.emotion-1 mark,
+.emotion-1 audio,
+.emotion-1 video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -92,55 +92,51 @@ exports[`viewing-booking it matches a snapshot 1`] = `
   vertical-align: baseline;
 }
 
-.emotion-2 article,
-.emotion-2 aside,
-.emotion-2 details,
-.emotion-2 figcaption,
-.emotion-2 figure,
-.emotion-2 footer,
-.emotion-2 header,
-.emotion-2 hgroup,
-.emotion-2 main,
-.emotion-2 menu,
-.emotion-2 nav,
-.emotion-2 section {
+.emotion-1 article,
+.emotion-1 aside,
+.emotion-1 details,
+.emotion-1 figcaption,
+.emotion-1 figure,
+.emotion-1 footer,
+.emotion-1 header,
+.emotion-1 hgroup,
+.emotion-1 main,
+.emotion-1 menu,
+.emotion-1 nav,
+.emotion-1 section {
   display: block;
 }
 
-.emotion-2 *[hidden] {
+.emotion-1 *[hidden] {
   display: none;
 }
 
-.emotion-2 body {
+.emotion-1 body {
   line-height: 1;
 }
 
-.emotion-2 menu,
-.emotion-2 ol,
-.emotion-2 ul {
+.emotion-1 menu,
+.emotion-1 ol,
+.emotion-1 ul {
   list-style: none;
 }
 
-.emotion-2 blockquote,
-.emotion-2 q {
+.emotion-1 blockquote,
+.emotion-1 q {
   quotes: none;
 }
 
-.emotion-2 blockquote:before,
-.emotion-2 blockquote:after,
-.emotion-2 q:before,
-.emotion-2 q:after {
+.emotion-1 blockquote:before,
+.emotion-1 blockquote:after,
+.emotion-1 q:before,
+.emotion-1 q:after {
   content: '';
   content: none;
 }
 
-.emotion-2 table {
+.emotion-1 table {
   border-collapse: collapse;
   border-spacing: 0;
-}
-
-.emotion-0 {
-  background: url(https://tracker.reapit.net/demo/_demo/webservice/rest/property/rps_demo-SCO190002/thumbnail?ApiKey=8ed799bbe77c96311e71f64b99ec2ddde765d13a&Width=480&Height=285&Crop=1);
 }
 
 <body>
@@ -152,7 +148,7 @@ exports[`viewing-booking it matches a snapshot 1`] = `
     </button>
      
     <div
-      class="emotion-1  emotion-2 booking-viewing-modal-overlay svelte-w0x3xb"
+      class="emotion-0  emotion-1 booking-viewing-modal-overlay svelte-w0x3xb"
     >
       <div
         class="booking-viewing-modal svelte-w0x3xb"
@@ -175,59 +171,29 @@ exports[`viewing-booking it matches a snapshot 1`] = `
         <div
           class="modal-content"
         >
-          <form>
+          <div
+            class="loader-spinner-container svelte-26x9wx"
+          >
             <div
-              class="property-image emotion-0 svelte-jadfmp"
+              class="loader-spinner svelte-26x9wx"
             >
-              <h4
-                class="svelte-jadfmp"
-              >
-                Kirknewton, Midlothian
-        
-                <strong
-                  class="svelte-jadfmp"
-                >
-                  £1,700,000
-                </strong>
-              </h4>
-            </div>
-             
-            <div
-              class="viewing-booking-email-form svelte-jadfmp"
-            >
-              <p
-                class="svelte-jadfmp"
-              >
-                To book a viewing, please enter your e-mail below.
-              </p>
-               
-              <label
-                class="svelte-jadfmp"
-                for="viewing-booking-email"
-              >
-                E-mail*
-              </label>
-               
-              <input
-                class="svelte-jadfmp"
-                id="viewing-booking-email"
-                placeholder="Your e-mail address"
-                type="email"
+              <div
+                class="svelte-26x9wx"
               />
                
+              <div
+                class="svelte-26x9wx"
+              />
+               
+              <div
+                class="svelte-26x9wx"
+              />
+               
+              <div
+                class="svelte-26x9wx"
+              />
             </div>
-             
-            <div
-              class="viewing-booking-form-submit svelte-jadfmp"
-            >
-              <button
-                class="svelte-jadfmp"
-                type="submit"
-              >
-                Get Appointments
-              </button>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>

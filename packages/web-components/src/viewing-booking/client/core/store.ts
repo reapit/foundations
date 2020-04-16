@@ -1,19 +1,20 @@
 import { writable, Writable } from 'svelte/store'
-import { ViewingBookingInitializers } from './index'
+import { ViewingBookingInitializers, PropertyData } from './index'
 import { ThemeClasses } from '../../../common/styles'
 
 export interface ViewingBookingStore {
   initializers: ViewingBookingInitializers
-  email: string
-  isLoading: boolean
   themeClasses: ThemeClasses
+
+  email: string
+  propertyData: PropertyData
+  isLoading: boolean
 }
 
 const viewBookingStore: Writable<ViewingBookingStore> = writable({
   initializers: {
     apiKey: '',
     parentSelector: '',
-    submitAction: null,
     theme: {},
   },
   themeClasses: {
@@ -31,8 +32,12 @@ const viewBookingStore: Writable<ViewingBookingStore> = writable({
     offerBanner: '',
   },
   email: '',
-  image: '',
   isLoading: false,
+  propertyData: {
+    image: '',
+    address: '',
+    price: '',
+  },
 })
 
 export default viewBookingStore

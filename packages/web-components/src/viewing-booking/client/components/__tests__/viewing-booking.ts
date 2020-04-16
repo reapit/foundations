@@ -6,7 +6,6 @@ describe('viewing-booking', () => {
     const wrapper = render(ViewingBooking, {
       apiKey: '',
       parentSelector: '#appointment-bookings-viewing',
-      submitAction: null,
       theme: {
         baseBackgroundColor: '#f9fbfd',
         basefontSize: '14px',

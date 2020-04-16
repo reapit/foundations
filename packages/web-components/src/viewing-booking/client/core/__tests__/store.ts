@@ -6,11 +6,10 @@ describe('store', () => {
       initializers: {
         apiKey: '',
         parentSelector: '',
-        submitAction: null,
         theme: {},
       },
       email: '',
-      image: '',
+      propertyData: { image: '', address: '', price: '' },
       isLoading: false,
       themeClasses: {
         globalStyles: '',
