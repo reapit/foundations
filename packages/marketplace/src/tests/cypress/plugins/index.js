@@ -14,7 +14,7 @@ module.exports = (on, config) => {
   require('cypress-plugin-retries/lib/plugin')(on)
 
   const envVariables = require(configJsonPath)
-  const baseUrl = envVariables.marketplaceUrl
+  const baseUrl = envVariables.cypressBaseUrl
 
   return { ...config, baseUrl, env: envVariables }
 }

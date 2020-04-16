@@ -1,15 +1,10 @@
 import nanoid from 'nanoid'
 import adminApprovalsPage from '../pages/admin-approvals-page'
 import apiRoutes from '../fixtures/routes'
-import loginPage from '../pages/login-page'
 import appRequest from '../requests/app'
 import developerAppsPage from '../pages/developer-apps-page'
 import developerSubmitAppPage from '../pages/developer-submit-app-page'
-import clientAppsPage from '../pages/client-apps-page'
-
-const {
-  selectors: { getDivAppCardWithName },
-} = clientAppsPage
+import { loginDeveloperHook, loginAdminHook } from '../hooks/login'
 
 const {
   actions: { clickViewDetailsButtonWithAppId },
@@ -17,16 +12,12 @@ const {
 } = adminApprovalsPage
 
 const {
-  actions: { loginUsingDeveloperAccount, loginUsingAdminAccount, loginUsingClientAccount },
-} = loginPage
-
-const {
   actions: { clickAppCardWithName, deleteAppWithName },
   selectors: { buttonEditDetails },
 } = developerAppsPage
 
 const {
-  selectors: { textBoxName, checkBoxIsListed, buttonSubmit, checkboxAgreeTheTermsAndConditions },
+  selectors: { name, isListed, submitButton },
 } = developerSubmitAppPage
 
 const appName = `Update App And Delist App - ${nanoid()}`
@@ -35,21 +26,11 @@ let appId = ''
 
 describe('Update and delist an app happy path', () => {
   before(() => {
-    cy.server()
     appRequest.createApp(appName)
   })
 
-  after(() => {
-    cy.server()
-    cy.clearCookies()
-    loginUsingDeveloperAccount()
-    deleteAppWithName(appNameAfterChanged)
-  })
-
   it('should edit the app, change some details and set listed status successfully', () => {
-    cy.server()
-    loginUsingDeveloperAccount()
-
+    loginDeveloperHook()
     clickAppCardWithName(appName)
       .invoke('data', 'test-app-id')
       .then(res => {
@@ -58,31 +39,29 @@ describe('Update and delist an app happy path', () => {
 
     cy.route(apiRoutes.categories).as('requestGetCategories')
     cy.route(apiRoutes.scopes).as('requestGetScopes')
+    cy.route(apiRoutes.desktopIntegrationTypes).as('getIntegrationTypes')
 
     cy.get(buttonEditDetails).click()
 
     cy.wait('@requestGetCategories')
     cy.wait('@requestGetScopes')
+    cy.wait('@getIntegrationTypes')
 
-    cy.get(checkBoxIsListed).click({
+    cy.get(isListed).click({
       force: true,
     })
-    cy.get(textBoxName).type(' - changed')
-    cy.get(checkboxAgreeTheTermsAndConditions).click({ force: true })
+    cy.get(name).type(' - changed')
 
     cy.route('POST', apiRoutes.revision).as('requestSubmitRevision')
-    cy.get(buttonSubmit).click()
+    cy.get(submitButton).click()
     cy.wait('@requestSubmitRevision')
 
-    cy.get(buttonEditDetails)
-      .should('have.text', 'Pending Revision')
-      .should('be.disabled')
+    cy.get(buttonEditDetails).should('have.text', 'Pending Revision')
   })
 
   it('should login admin and approve changes successfully', () => {
+    loginAdminHook()
     cy.server()
-    cy.clearCookies()
-    loginUsingAdminAccount()
     clickViewDetailsButtonWithAppId(appId)
     cy.get(buttonApprove).click()
 
@@ -93,11 +72,8 @@ describe('Update and delist an app happy path', () => {
     cy.get(divApproveAppSuccessfully).should('have.length', 1)
   })
 
-  it('should Login client, see app in list and verify changed data successfully', () => {
-    cy.server()
-    cy.clearCookies()
-    loginUsingClientAccount()
-    cy.visit(clientAppsPage.url)
-    getDivAppCardWithName(appNameAfterChanged)
+  it('should delete app', () => {
+    loginDeveloperHook()
+    deleteAppWithName(appNameAfterChanged)
   })
 })

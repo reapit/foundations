@@ -3,7 +3,6 @@ const webpack = require('webpack')
 
 module.exports = function({ tsConfigPath, configJsonPath }) {
   const configObject = require(configJsonPath)
-  console.log(configObject)
   return {
     resolve: {
       extensions: ['.ts', '.tsx', '.js', '.jsx'],
