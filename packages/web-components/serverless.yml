@@ -59,7 +59,11 @@ functions:
                 api-key: false
                 Authorization: false
                 reapit-customer: false
-          authorizer: arn:aws:lambda:eu-west-2:717858862261:function:web-component-authorizer
+          authorizer:
+            arn: arn:aws:lambda:eu-west-2:717858862261:function:web-component-authorizer
+            resultTtlInSeconds: 600
+            identitySource: method.request.header.X-Api-Key
+            type: request
       - http:
           path: propertyImages
           method: get
@@ -71,4 +75,8 @@ functions:
                 api-key: false
                 Authorization: false
                 reapit-customer: false
-          authorizer: arn:aws:lambda:eu-west-2:717858862261:function:web-component-authorizer
+          authorizer:
+            arn: arn:aws:lambda:eu-west-2:717858862261:function:web-component-authorizer
+            resultTtlInSeconds: 600
+            identitySource: method.request.header.X-Api-Key
+            type: request
