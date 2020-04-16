@@ -205,6 +205,7 @@
 
 .rc-select-item-option {
   position: relative;
+  font-size: 14px;
 }
 
 .rc-select-item-option-grouped {
@@ -356,10 +357,11 @@
   color: white;
 }
 
-.reapit-tooltip-content > a {
+.reapit-tooltip-content  a {
   text-decoration: underline;
   margin-left: 2px;
   color: white;
+  font-weight: 700;
 }
 
 @keyframes rcSelectDropdownSlideUpIn {
