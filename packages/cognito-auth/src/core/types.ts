@@ -8,6 +8,7 @@ export interface LoginParams {
   loginType: LoginType
   mode: LoginMode
   cognitoClientId: string
+  userPoolId?: string
 }
 
 export interface RefreshParams {

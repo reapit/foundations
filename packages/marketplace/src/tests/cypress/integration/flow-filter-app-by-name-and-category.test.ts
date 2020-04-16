@@ -1,21 +1,13 @@
 import nanoid from 'nanoid'
 import appRequest, { sampleApp } from '../requests/app'
-import loginPage from '../pages/login-page'
 import routes from '../fixtures/routes'
-import developerAppsPage from '../pages/developer-apps-page'
 import clientAppsPage from '../pages/client-apps-page'
 import adminApprovalsPage from '../pages/admin-approvals-page'
+import { loginClientHook, loginAdminHook } from '../hooks/login'
+import ROUTES from '@/constants/routes'
 
 const appName = `Filter App By Name And Category - ${nanoid()}`
 const { categoryId } = sampleApp
-
-const {
-  actions: { deleteAppWithName },
-} = developerAppsPage
-
-const {
-  actions: { loginUsingClientAccount, loginUsingDeveloperAccount, loginUsingAdminAccount },
-} = loginPage
 
 const {
   actions: { clickViewDetailsButtonWithAppId },
@@ -23,50 +15,53 @@ const {
 } = adminApprovalsPage
 
 const {
-  selectors: { searchInput, getCategoryWithId, btnAcceptWelcomeMessageModal },
+  selectors: { searchInput, getCategoryWithId },
 } = clientAppsPage
 
 describe('Created app should appear in client search result happy path', () => {
   let appId = ''
   before(() => {
-    cy.server()
     appRequest.createApp(appName)
     const appIdRes = appRequest.getAppIdByAppName(appName)
     appIdRes.then(res => {
       appId = res.body.data[0].id
       const appRes = appRequest.getAppById(appId)
-      appRes.then(app => {
-        appRequest.createAppRevision(appId, app.body, { isListed: true })
-        loginUsingAdminAccount()
-
-        clickViewDetailsButtonWithAppId(appId)
-        cy.get(buttonApprove).click()
-        cy.route('POST', routes.approveApp).as('approveAppRequest')
-        cy.get(btnConfirmApproval).click()
-        cy.wait('@approveAppRequest')
-        cy.get(btnApproveSuccess).click()
-      })
+      appRes
+        .then(app => {
+          return appRequest.createAppRevision(appId, app.body, { isListed: true })
+        })
+        .then(() => {
+          loginAdminHook()
+          cy.visit(ROUTES.ADMIN_APPROVALS)
+          cy.server()
+          clickViewDetailsButtonWithAppId(appId)
+          cy.get(buttonApprove).click()
+          cy.route('POST', routes.approveApp).as('approveAppRequest')
+          cy.get(btnConfirmApproval).click()
+          cy.wait('@approveAppRequest')
+          cy.get(btnApproveSuccess).click()
+          cy.clearCookies()
+          cy.wait(2000)
+        })
     })
   })
 
   it('Should return the app that was created before by name and by category', () => {
+    loginClientHook()
+    cy.visit(ROUTES.CLIENT)
     cy.server()
-    cy.clearCookies()
-    loginUsingClientAccount()
-    cy.get(btnAcceptWelcomeMessageModal).click()
+    cy.route('GET', routes.clientApps).as('clientApps')
+    cy.wait('@clientApps')
     cy.get(searchInput).type(`${appName}{enter}`)
     cy.get(`div[data-test-app-id="${appId}"]`).should('have.length', 1)
     cy.get(searchInput).clear()
-
     getCategoryWithId(parseInt(categoryId, 10)).click()
-
     cy.get(`div[data-test-app-id="${appId}"]`).should('have.length', 1)
+    cy.clearCookies()
+    cy.wait(2000)
   })
 
   after(() => {
-    cy.server()
-    cy.clearCookies()
-    loginUsingDeveloperAccount()
-    deleteAppWithName(appName)
+    appRequest.deleteApp(appId)
   })
 })

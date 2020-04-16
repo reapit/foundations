@@ -7,6 +7,7 @@ export const loginUserSessionService = async ({
   userName,
   password,
   cognitoClientId,
+  userPoolId,
 }: LoginParams): Promise<Partial<LoginSession>> => {
   return new Promise((resolve, reject) => {
     const authenticationData = {
@@ -14,7 +15,7 @@ export const loginUserSessionService = async ({
       Password: password,
     }
     const authenticationDetails = new AuthenticationDetails(authenticationData)
-    const cognitoUser = getNewUser(userName, cognitoClientId)
+    const cognitoUser = getNewUser(userName, cognitoClientId, userPoolId)
     cognitoUser.authenticateUser(authenticationDetails, {
       onSuccess: session => {
         resolve(getLoginSession(session))

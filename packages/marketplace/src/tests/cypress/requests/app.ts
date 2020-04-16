@@ -6,23 +6,26 @@ const sampleImageData =
   'AfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg=='
 
 export const sampleApp = {
-  categoryId: '3',
+  categoryId: '9',
   authFlow: 'authorisationCode',
-  telephone: '01234567890',
-  supportEmail: 'submitAppHappyFlow@gmail.com',
-  launchUri: 'https://google.com',
-  homePage: 'https://google.com',
-  description: `Lorem ipsum dolor amet organic fashion axe man bun cray kitsch hashtag post-ironic normcore copper 
-    mug keytar fam actually street art air plant. Copper mug put a bird on it kombucha pop-up. Man bun kickstarter 
-    fam pour-over plaid, franzen blog. Activated charcoal letterpress mlkshk kickstarter master cleanse. Paleo austin 
-    actually blue bottle mixtape mustache bicycle rights gochujang humblebrag. Direct trade affogato cliche, 
-    asymmetrical sartorial pinterest chambray coloring book.`,
-  summary: `Lorem ipsum dolor amet messenger bag pinterest af umami. Master cleanse 
-    photo booth cardigan, jean shorts dreamcatcher butcher ethical YOLO.`,
-  developerId: '47a37635-5044-4f20-b981-4f25970ac9cf',
-  scopes: [],
-  isFeatured: false,
-  isDirectApi: false,
+  screen5ImageUrl: '',
+  screen4ImageUrl: '',
+  screen3ImageUrl: '',
+  screen2ImageUrl: '',
+  telephone: '080808080',
+  supportEmail: 'hi@gmail.com',
+  launchUri: 'https://google.com/',
+  iconImageUrl: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/hi-icon(1).png',
+  homePage: 'https://google.com/',
+  description:
+    // eslint-disable-next-line
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+  summary: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+  developerId: '15fa9b2b-6c73-432d-a1f4-9f3391743da4',
+  scopes: ['agencyCloud/applicants.read'],
+  isPrivateApp: 'no',
+  redirectUris: ['https://google.com'],
+  signoutUris: ['https://google.com'],
 }
 
 export default {
@@ -33,7 +36,7 @@ export default {
        * must be from configured s3 bucket - a proper link is required )
        * And create an app
        */
-      url: Cypress.env('UPLOAD_FILE_BASE_URL'),
+      url: Cypress.env('uploadApiUrl'),
       method: 'POST',
       body: {
         name: 'e2e-test-image',
@@ -54,7 +57,7 @@ export default {
         url: `${routes.apps}`,
         method: 'POST',
         headers: {
-          'x-api-key': Cypress.env('MARKETPLACE_API_KEY'),
+          'x-api-key': Cypress.env('marketplaceApiKey'),
         },
         body: {
           ...sampleApp,
@@ -74,10 +77,11 @@ export default {
       url: `${routes.apps}/${appId}/revisions`,
       method: 'POST',
       headers: {
-        'x-api-key': Cypress.env('MARKETPLACE_API_KEY'),
+        'x-api-key': Cypress.env('marketplaceApiKey'),
       },
       body: {
         ...existingApp,
+        scopes: ['agencyCloud/applicants.read'],
         iconImageUrl: existingApp.media[0].uri,
         screen1ImageUrl: existingApp.media[0].uri,
         categoryId: existingApp.category.id,
@@ -90,7 +94,7 @@ export default {
       url: `${routes.apps}/${appId}`,
       method: 'DELETE',
       headers: {
-        'x-api-key': Cypress.env('MARKETPLACE_API_KEY'),
+        'x-api-key': Cypress.env('marketplaceApiKey'),
       },
     })
   },
@@ -102,7 +106,7 @@ export default {
         AppName: appName,
       },
       headers: {
-        'x-api-key': Cypress.env('MARKETPLACE_API_KEY'),
+        'x-api-key': Cypress.env('marketplaceApiKey'),
       },
     })
   },
@@ -111,7 +115,7 @@ export default {
       url: `${routes.apps}/${appId}`,
       method: 'GET',
       headers: {
-        'x-api-key': Cypress.env('MARKETPLACE_API_KEY'),
+        'x-api-key': Cypress.env('marketplaceApiKey'),
       },
     })
   },

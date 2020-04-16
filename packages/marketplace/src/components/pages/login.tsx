@@ -110,6 +110,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
             variant="primary"
             disabled={false}
             fullWidth
+            dataTest="login-button"
           >
             Login
           </Button>
