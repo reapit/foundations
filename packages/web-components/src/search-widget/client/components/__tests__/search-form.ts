@@ -24,8 +24,8 @@ describe('search-form', () => {
   })
 
   it('it triggers a data fetch for rentals', async () => {
-    ; (getProperties as jest.Mock).mockImplementation(() => propertiesMinimalStub)
-      ; (getPropertyImages as jest.Mock).mockImplementation(() => propertyImagesMinimalStub)
+    ;(getProperties as jest.Mock).mockImplementation(() => propertiesMinimalStub)
+    ;(getPropertyImages as jest.Mock).mockImplementation(() => propertyImagesMinimalStub)
 
     const wrapper = render(SearchForm)
     const { getByTestId } = wrapper
@@ -43,8 +43,8 @@ describe('search-form', () => {
   })
 
   it('it triggers a data fetch for sales', async () => {
-    ; (getProperties as jest.Mock).mockImplementation(() => propertiesMinimalStub)
-      ; (getPropertyImages as jest.Mock).mockImplementation(() => propertyImagesMinimalStub)
+    ;(getProperties as jest.Mock).mockImplementation(() => propertiesMinimalStub)
+    ;(getPropertyImages as jest.Mock).mockImplementation(() => propertyImagesMinimalStub)
 
     const wrapper = render(SearchForm)
     const { getByTestId } = wrapper

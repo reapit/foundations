@@ -2,7 +2,7 @@ import searchWidgetStore, { SearchWidgetStore } from '../store'
 
 describe('store', () => {
   it('should return a default object', () => {
-    const expected = {
+    const expected: SearchWidgetStore = {
       initializers: {
         apiKey: '',
         theme: {},

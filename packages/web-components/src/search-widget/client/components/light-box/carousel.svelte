@@ -13,10 +13,6 @@
   $: carouselTranslateOffset = -imageSize * (currentCarouselPage * displayItemQuantity)
   $: imageSize = containerWidth / displayItemQuantity
 
-  const setCurrentCarouselPage = value => {
-    currentCarouselPage = value
-  }
-
   /*
     -1 because we are using based zero number
   */

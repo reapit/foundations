@@ -16,7 +16,7 @@ describe('properties client API', () => {
 
   it('should correctly call the fetcher for sale properties', async () => {
     process.env.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET = 'http://localhost:3000'
-      ; (fetcher as jest.Mock).mockImplementation(() => propertyImagesStub)
+    ;(fetcher as jest.Mock).mockImplementation(() => propertyImagesStub)
     const properties = propertiesMinimalStub._embedded as PickedPropertyModel[]
 
     const response = await getPropertyImages(properties, 'API_KEY')
