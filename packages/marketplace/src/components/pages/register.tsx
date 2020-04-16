@@ -196,6 +196,7 @@ export const Register: React.FunctionComponent<RegisterProps & FormikProps<Regis
                     variant="primary"
                     disabled={isDisabled}
                     fullWidth
+                    dataTest="button-register"
                   >
                     Register
                   </Button>

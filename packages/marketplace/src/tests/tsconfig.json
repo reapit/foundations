@@ -1,17 +1,16 @@
 {
   "compilerOptions": {
+    "noImplicitAny": false,
+    "allowJs": true,
     "esModuleInterop": true,
-    "strict": true,
     "baseUrl": ".",
     "target": "es5",
     "lib": ["es5", "dom", "ES2015"],
     "typeRoots": ["../../node_modules/@types"],
     "types": ["cypress"],
+    "jsx": "react",
     "paths": {
       "@/*": ["../*"]
     }
-  },
-  "include": [
-    "**/*.ts"
-  ]
+  }
 }
