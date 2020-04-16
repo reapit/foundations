@@ -12,7 +12,7 @@ export const sampleApp = {
   screen4ImageUrl: '',
   screen3ImageUrl: '',
   screen2ImageUrl: '',
-  telephone: 'hi@gmail.com',
+  telephone: '080808080',
   supportEmail: 'hi@gmail.com',
   launchUri: 'https://google.com/',
   iconImageUrl: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/hi-icon(1).png',

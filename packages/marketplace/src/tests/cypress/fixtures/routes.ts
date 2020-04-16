@@ -17,4 +17,5 @@ export default {
   installations: `${apiEndPoint}/installations`,
   terminateApp: `${apiEndPoint}/installations/**/terminate`,
   auth: 'https://cognito-idp.eu-west-2.amazonaws.com/',
+  desktopIntegrationTypes: `${apiEndPoint}/DesktopIntegrationTypes**`,
 }
