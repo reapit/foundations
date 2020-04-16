@@ -137,10 +137,10 @@ export const getInfoWindow = (
           <div class="${secondaryHeading}">${address.line1}</div>
           <div class="${secondaryStrapline}">${address.line2}</div>
           ${
-            marketingMode === 'selling'
-              ? `<div class="${secondaryHeading}">${price}</div>`
-              : `<div class="${secondaryHeading}">${price}</div>`
-          }
+      marketingMode === 'selling'
+        ? `<div class="${secondaryHeading}">${price}</div>`
+        : `<div class="${secondaryHeading}">${price}</div>`
+      }
           <div style="display:flex; margin-top: 2px">
             <div style="margin-right: 1.2em">
               <span class="${bodyText}">

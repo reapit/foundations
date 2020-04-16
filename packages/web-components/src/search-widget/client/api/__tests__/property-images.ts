@@ -16,19 +16,19 @@ describe('properties client API', () => {
 
   it('should correctly call the fetcher for sale properties', async () => {
     process.env.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET = 'http://localhost:3000'
-    ;(fetcher as jest.Mock).mockImplementation(() => propertyImagesStub)
+      ; (fetcher as jest.Mock).mockImplementation(() => propertyImagesStub)
     const properties = propertiesMinimalStub._embedded as PickedPropertyModel[]
 
     const response = await getPropertyImages(properties, 'API_KEY')
-    const propertyImage = propertyImagesStub._embedded as PickedPropertyImageModel[]
+    const propertyImagesByPropertyId = propertyImagesStub._embedded as PickedPropertyImageModel[]
 
     expect(fetcher).toHaveBeenCalledWith({
       url: `http://localhost:3000/propertyImages/${getPropertyQuery(properties)}`,
       headers: getClientHeaders('API_KEY'),
     })
     expect(response).toEqual({
-      [propertyImage[0].propertyId as string]: propertyImage[0],
-      [propertyImage[1].propertyId as string]: propertyImage[1],
+      [propertyImagesByPropertyId[0].propertyId as string]: [propertyImagesByPropertyId[0]],
+      [propertyImagesByPropertyId[1].propertyId as string]: [propertyImagesByPropertyId[1]],
     })
   })
 

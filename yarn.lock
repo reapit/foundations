@@ -1061,6 +1061,13 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@beyonk/svelte-carousel@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@beyonk/svelte-carousel/-/svelte-carousel-2.4.0.tgz#6c5b2340b7eb966c21e2a8b2162d52265fd4dc0f"
+  integrity sha512-sCwNBxtdtJW39DiL8S0RQqL+3coytLNrDwcKFoA1247A3ZoiZO39LSUP+jYoP6cRBeCVs5CHiNRbOQRerzl6Sw==
+  dependencies:
+    siema "^1.5.1"
+
 "@braintree/sanitize-url@^3.0.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@braintree/sanitize-url/-/sanitize-url-3.1.0.tgz#8ff71d51053cd5ee4981e5a501d80a536244f7fd"
@@ -23060,6 +23067,11 @@ side-channel@^1.0.2:
     es-abstract "^1.17.0-next.1"
     object-inspect "^1.7.0"
 
+siema@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/siema/-/siema-1.5.1.tgz#eff312b77e8340fa4d81d5d053ebbeb9113ff888"
+  integrity sha1-7/MSt36DQPpNgdXQU+u+uRE/+Ig=
+
 sigmund@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/sigmund/-/sigmund-1.0.1.tgz#3ff21f198cad2175f9f3b781853fd94d0d19b590"
@@ -24310,6 +24322,11 @@ svelte-fa@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/svelte-fa/-/svelte-fa-2.1.1.tgz#57935335b8966f416b93bfb7794dac52fa0b777e"
   integrity sha512-Oj563sJH0eLo6Pd1MsALgx5if9qKHtfCrMY5elMzggu00fP9zM47Vcv2b92g5vc+FNodxKPHhkUFTI8KK8CwGA==
+
+svelte-feather-icons@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/svelte-feather-icons/-/svelte-feather-icons-3.2.2.tgz#fdb4ecc7ac9127442d06d8bbeee52d3be0491834"
+  integrity sha512-GY86mGZYjZCRRnY2t5caiY+2gzSWrYvG8dUjhnOi6YlaWVZEAzDOBuTDiZ1abOz2mM9fCpdpbgj1JZajjzEEAw==
 
 svelte-jester@^1.0.4:
   version "1.0.5"

@@ -58,7 +58,7 @@ Search_widget {
         "isLoading": false,
         "pageNumber": 1,
         "properties": Array [],
-        "propertyImages": Object {},
+        "propertyImagesByPropertyId": Object {},
         "resultsMessage": "",
         "searchKeyword": "",
         "searchType": "Sale",

@@ -8,6 +8,7 @@
   import PropertyDetail from './property-detail.svelte'
   import Loader from '../../../common/components/loader.svelte'
   import Pagination from './pagination.svelte'
+  import LightBox from './light-box/light-box.svelte'
 
   export let theme
   export let apiKey

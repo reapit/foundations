@@ -24,8 +24,8 @@ describe('search-form', () => {
   })
 
   it('it triggers a data fetch for rentals', async () => {
-    ;(getProperties as jest.Mock).mockImplementation(() => propertiesMinimalStub)
-    ;(getPropertyImages as jest.Mock).mockImplementation(() => propertyImagesMinimalStub)
+    ; (getProperties as jest.Mock).mockImplementation(() => propertiesMinimalStub)
+      ; (getPropertyImages as jest.Mock).mockImplementation(() => propertyImagesMinimalStub)
 
     const wrapper = render(SearchForm)
     const { getByTestId } = wrapper
@@ -37,14 +37,14 @@ describe('search-form', () => {
     const store = get(searchWidgetStore)
 
     expect(store.properties).toEqual(propertiesMinimalStub._embedded)
-    expect(store.propertyImages).toEqual(propertyImagesMinimalStub)
+    expect(store.propertyImagesByPropertyId).toEqual(propertyImagesMinimalStub)
     expect(store.isLoading).toBe(false)
     expect(store.resultsMessage).toBe('3096 results for rent')
   })
 
   it('it triggers a data fetch for sales', async () => {
-    ;(getProperties as jest.Mock).mockImplementation(() => propertiesMinimalStub)
-    ;(getPropertyImages as jest.Mock).mockImplementation(() => propertyImagesMinimalStub)
+    ; (getProperties as jest.Mock).mockImplementation(() => propertiesMinimalStub)
+      ; (getPropertyImages as jest.Mock).mockImplementation(() => propertyImagesMinimalStub)
 
     const wrapper = render(SearchForm)
     const { getByTestId } = wrapper
@@ -55,7 +55,7 @@ describe('search-form', () => {
 
     const store = get(searchWidgetStore)
     expect(store.properties).toEqual(propertiesMinimalStub._embedded)
-    expect(store.propertyImages).toEqual(propertyImagesMinimalStub)
+    expect(store.propertyImagesByPropertyId).toEqual(propertyImagesMinimalStub)
     expect(store.isLoading).toBe(false)
     expect(store.resultsMessage).toBe('3096 results for sale')
   })
