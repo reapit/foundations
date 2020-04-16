@@ -13,7 +13,7 @@ const developerAppsPageMetadata = {
 }
 
 const {
-  selectors: { checkBoxIsListed, buttonSubmit },
+  selectors: { isListed, submitButton },
 } = developerSubmitAppPage
 
 const developerAppsPageActions = {
@@ -47,16 +47,18 @@ const developerAppsPageActions = {
 
     cy.route(apiRoutes.categories).as('requestGetCategories')
     cy.route(apiRoutes.scopes).as('requestGetScopes')
+    cy.route(apiRoutes.desktopIntegrationTypes).as('getIntegrationTypes')
 
     cy.get(buttonEditDetails).click()
 
     cy.wait('@requestGetCategories')
     cy.wait('@requestGetScopes')
+    cy.wait('@getIntegrationTypes')
 
-    cy.get(checkBoxIsListed).click({ force: true })
+    cy.get(isListed).click({ force: true })
 
     cy.route('POST', apiRoutes.revision).as('requestSubmitRevision')
-    cy.get(buttonSubmit).click()
+    cy.get(submitButton).click()
     cy.wait('@requestSubmitRevision')
 
     cy.get(buttonEditDetails).should('have.text', 'Pending Revision')

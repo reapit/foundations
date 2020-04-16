@@ -19,5 +19,6 @@ export default {
     screenshot1: 'input#screenshot1',
     submitButton: 'button[data-test=submit-app-button]',
     divSuccess: 'div[data-test=submit-success-section]',
+    isListed: 'input#isListed',
   },
 }
