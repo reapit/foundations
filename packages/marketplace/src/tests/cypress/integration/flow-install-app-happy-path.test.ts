@@ -56,26 +56,25 @@ describe('Install app happy path', () => {
   })
 
   it('Log into client and install and uninstall app successfully', () => {
+    loginClientHook()
     cy.server()
 
     cy.route('GET', apiRoutes.manageApps).as('getManageApps')
     cy.route('GET', apiRoutes.installedApps).as('getInstalledApps')
+    cy.route('GET', apiRoutes.appDetail).as('getAppDetail')
     cy.route('POST', apiRoutes.installations).as('installApp')
     cy.route('POST', apiRoutes.terminateApp).as('uninstallApp')
-
-    loginClientHook()
 
     cy.visit(ROUTES.CLIENT)
 
     cy.get(`div[data-test-app-name="${appName}"]`).click()
 
-    cy.get(buttonInstallApp).should('have.length', 1)
+    cy.wait('@getAppDetail')
+
     cy.get(buttonInstallApp).click()
     cy.get(buttonAgree).click()
 
     cy.wait('@installApp')
-
-    cy.route('GET', apiRoutes.appDetail).as('getAppDetail')
 
     cy.get(divSuccessMessage).should('have.length', 1)
     cy.get(buttonSuccess).click()
