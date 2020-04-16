@@ -35,7 +35,6 @@
     "swagger-ui-react": "^3.24.3"
   },
   "devDependencies": {
-    "@beyonk/svelte-carousel": "^2.4.0",
     "@reapit/foundations-ts-definitions": "0.0.76",
     "@types/nanoid": "^2.1.0",
     "redux-mock-store": "^1.5.4"
