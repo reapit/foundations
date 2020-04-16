@@ -66,6 +66,10 @@ jobs:
         run: |
           yarn test
 
+      - name: Test E2E
+        run: |
+          yarn test-e2e:ci
+
       - name: Release Develop
         run: |
           yarn release:dev
