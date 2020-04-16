@@ -68,11 +68,10 @@
     }
 
     // If move to the prev image and
-    // Smaller than minCurrentDisplayImageIndexOfCurrentCarousePage (touch the right edge)
+    // Smaller than minCurrentDisplayImageIndexOfCurrentCarousePage (touch the left edge)
     // -> proceed to slide the carousel backward
     // And set currentDisplayImageIndex to the first display item (image) on the carousel
-
-    // For page 0, when move prev -> move to the last page
+    // For page 0, when move to the prev image -> move to the last page
     if (currentCarouselPage === 0) {
       setDisplayImageIndex({
         detail: indexOfLastImageInTheCarousel,
@@ -95,13 +94,12 @@
       return
     }
 
-    // If move to the prev image and
-    // touch the ledge edge
+    // If move to the next image and
+    // touch the right edge
     // -> proceed to slide the carousel backward
     // And set currentDisplayImageIndex to the first display item (image) on the carousel
-
     // -1 because zero based number
-    // For the last page, when move next -> move to page 0
+    // For the last page, when move to the next iamge -> move to page 0
     if (currentCarouselPage === maxCarouselPage - 1) {
       setDisplayImageIndex({
         detail: 0,

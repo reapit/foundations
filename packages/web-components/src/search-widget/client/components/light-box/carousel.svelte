@@ -18,10 +18,10 @@
   }
 
   /*
-    -1 because we are using baesd zero button
+    -1 because we are using based zero number
   */
   const onCarouselSlideNext = () => {
-    // if reach at the lastest page and slide next -> move to page 0
+    // if reach at the last page and slide next -> move to page 0
     if (currentCarouselPage === maxCarouselPage - 1) {
       currentCarouselPage = 0
       // set the begin item of the next page
