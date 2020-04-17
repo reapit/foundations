@@ -1,89 +1,89 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`search-widget it matches a snapshot 1`] = `
-.emotion-5 html,
-.emotion-5 body,
-.emotion-5 div,
-.emotion-5 span,
-.emotion-5 applet,
-.emotion-5 object,
-.emotion-5 iframe,
-.emotion-5 h1,
-.emotion-5 h2,
-.emotion-5 h3,
-.emotion-5 h4,
-.emotion-5 h5,
-.emotion-5 h6,
-.emotion-5 p,
-.emotion-5 blockquote,
-.emotion-5 pre,
-.emotion-5 a,
-.emotion-5 abbr,
-.emotion-5 acronym,
-.emotion-5 address,
-.emotion-5 big,
-.emotion-5 cite,
-.emotion-5 code,
-.emotion-5 del,
-.emotion-5 dfn,
-.emotion-5 em,
-.emotion-5 img,
-.emotion-5 ins,
-.emotion-5 kbd,
-.emotion-5 q,
-.emotion-5 s,
-.emotion-5 samp,
-.emotion-5 small,
-.emotion-5 strike,
-.emotion-5 strong,
-.emotion-5 sub,
-.emotion-5 sup,
-.emotion-5 tt,
-.emotion-5 var,
-.emotion-5 b,
-.emotion-5 u,
-.emotion-5 i,
-.emotion-5 center,
-.emotion-5 dl,
-.emotion-5 dt,
-.emotion-5 dd,
-.emotion-5 menu,
-.emotion-5 ol,
-.emotion-5 ul,
-.emotion-5 li,
-.emotion-5 fieldset,
-.emotion-5 form,
-.emotion-5 label,
-.emotion-5 legend,
-.emotion-5 table,
-.emotion-5 caption,
-.emotion-5 tbody,
-.emotion-5 tfoot,
-.emotion-5 thead,
-.emotion-5 tr,
-.emotion-5 th,
-.emotion-5 td,
-.emotion-5 article,
-.emotion-5 aside,
-.emotion-5 canvas,
-.emotion-5 details,
-.emotion-5 embed,
-.emotion-5 figure,
-.emotion-5 figcaption,
-.emotion-5 footer,
-.emotion-5 header,
-.emotion-5 hgroup,
-.emotion-5 main,
-.emotion-5 menu,
-.emotion-5 nav,
-.emotion-5 output,
-.emotion-5 ruby,
-.emotion-5 section,
-.emotion-5 summary,
-.emotion-5 time,
-.emotion-5 mark,
-.emotion-5 audio,
-.emotion-5 video {
+.emotion-8 html,
+.emotion-8 body,
+.emotion-8 div,
+.emotion-8 span,
+.emotion-8 applet,
+.emotion-8 object,
+.emotion-8 iframe,
+.emotion-8 h1,
+.emotion-8 h2,
+.emotion-8 h3,
+.emotion-8 h4,
+.emotion-8 h5,
+.emotion-8 h6,
+.emotion-8 p,
+.emotion-8 blockquote,
+.emotion-8 pre,
+.emotion-8 a,
+.emotion-8 abbr,
+.emotion-8 acronym,
+.emotion-8 address,
+.emotion-8 big,
+.emotion-8 cite,
+.emotion-8 code,
+.emotion-8 del,
+.emotion-8 dfn,
+.emotion-8 em,
+.emotion-8 img,
+.emotion-8 ins,
+.emotion-8 kbd,
+.emotion-8 q,
+.emotion-8 s,
+.emotion-8 samp,
+.emotion-8 small,
+.emotion-8 strike,
+.emotion-8 strong,
+.emotion-8 sub,
+.emotion-8 sup,
+.emotion-8 tt,
+.emotion-8 var,
+.emotion-8 b,
+.emotion-8 u,
+.emotion-8 i,
+.emotion-8 center,
+.emotion-8 dl,
+.emotion-8 dt,
+.emotion-8 dd,
+.emotion-8 menu,
+.emotion-8 ol,
+.emotion-8 ul,
+.emotion-8 li,
+.emotion-8 fieldset,
+.emotion-8 form,
+.emotion-8 label,
+.emotion-8 legend,
+.emotion-8 table,
+.emotion-8 caption,
+.emotion-8 tbody,
+.emotion-8 tfoot,
+.emotion-8 thead,
+.emotion-8 tr,
+.emotion-8 th,
+.emotion-8 td,
+.emotion-8 article,
+.emotion-8 aside,
+.emotion-8 canvas,
+.emotion-8 details,
+.emotion-8 embed,
+.emotion-8 figure,
+.emotion-8 figcaption,
+.emotion-8 footer,
+.emotion-8 header,
+.emotion-8 hgroup,
+.emotion-8 main,
+.emotion-8 menu,
+.emotion-8 nav,
+.emotion-8 output,
+.emotion-8 ruby,
+.emotion-8 section,
+.emotion-8 summary,
+.emotion-8 time,
+.emotion-8 mark,
+.emotion-8 audio,
+.emotion-8 video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -92,58 +92,72 @@ exports[`search-widget it matches a snapshot 1`] = `
   vertical-align: baseline;
 }
 
-.emotion-5 article,
-.emotion-5 aside,
-.emotion-5 details,
-.emotion-5 figcaption,
-.emotion-5 figure,
-.emotion-5 footer,
-.emotion-5 header,
-.emotion-5 hgroup,
-.emotion-5 main,
-.emotion-5 menu,
-.emotion-5 nav,
-.emotion-5 section {
+.emotion-8 article,
+.emotion-8 aside,
+.emotion-8 details,
+.emotion-8 figcaption,
+.emotion-8 figure,
+.emotion-8 footer,
+.emotion-8 header,
+.emotion-8 hgroup,
+.emotion-8 main,
+.emotion-8 menu,
+.emotion-8 nav,
+.emotion-8 section {
   display: block;
 }
 
-.emotion-5 *[hidden] {
+.emotion-8 *[hidden] {
   display: none;
 }
 
-.emotion-5 body {
+.emotion-8 body {
   line-height: 1;
 }
 
-.emotion-5 menu,
-.emotion-5 ol,
-.emotion-5 ul {
+.emotion-8 menu,
+.emotion-8 ol,
+.emotion-8 ul {
   list-style: none;
 }
 
-.emotion-5 blockquote,
-.emotion-5 q {
+.emotion-8 blockquote,
+.emotion-8 q {
   quotes: none;
 }
 
-.emotion-5 blockquote:before,
-.emotion-5 blockquote:after,
-.emotion-5 q:before,
-.emotion-5 q:after {
+.emotion-8 blockquote:before,
+.emotion-8 blockquote:after,
+.emotion-8 q:before,
+.emotion-8 q:after {
   content: '';
   content: none;
 }
 
-.emotion-5 table {
+.emotion-8 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-.emotion-4 {
+.emotion-7 {
   font-size: 16px;
   font-family: Helvetica,Arial,sans-serif;
   background: #fff;
   color: red;
+}
+
+#search-widget .emotion-6 {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: red;
+  margin-bottom: 0.5em;
+}
+
+#search-widget .emotion-2 {
+  font-size: 16px;
+  font-family: Helvetica,Arial,sans-serif;
+  margin-bottom: 1em;
 }
 
 #search-widget .emotion-1 {
@@ -170,18 +184,18 @@ exports[`search-widget it matches a snapshot 1`] = `
   border: 1px solid grey;
 }
 
-#search-widget .emotion-3 {
+#search-widget .emotion-5 {
   width: 100%;
 }
 
 @media screen and (min-width:960px) {
-  #search-widget .emotion-3 {
+  #search-widget .emotion-5 {
     width: 33.333333%;
   }
 }
 
 @media screen and (min-width:560px) and (max-width:960px) {
-  #search-widget .emotion-3 {
+  #search-widget .emotion-5 {
     width: 50%;
   }
 }
@@ -189,37 +203,98 @@ exports[`search-widget it matches a snapshot 1`] = `
 <body>
   <div>
     <div
-      class="emotion-5 emotion-4 search-widget svelte-1th1kgw"
+      class="emotion-8 emotion-7 search-widget svelte-1th1kgw"
     >
-      <form
-        class="search-form emotion-3 svelte-1hu8mn5"
-      >
-        <input
-          class="emotion-0 search-form-input svelte-1hu8mn5"
-          data-testid="search-form-input"
-          id="search"
-          placeholder="Town or Postcode"
-          type="text"
-        />
-         
+      <form>
         <div
-          class="search-form-button-container svelte-1hu8mn5"
+          class="search-form emotion-5 svelte-1p0t1uj"
         >
-          <button
-            class="emotion-1 search-form-button svelte-1hu8mn5"
-            data-testid="lettings"
-            type="button"
-          >
-            TO RENT
-          </button>
+          <input
+            class="emotion-0 search-form-input svelte-1p0t1uj"
+            data-testid="search-form-input"
+            id="search"
+            placeholder="Town or Postcode"
+            type="text"
+          />
            
           <button
-            class="emotion-1 search-form-button svelte-1hu8mn5"
-            data-testid="sales"
+            class="emotion-1 search-form-button svelte-1p0t1uj"
+            data-testid="btnSearch"
             type="button"
           >
-            FOR SALE
+            Search Properties
           </button>
+           
+          <div
+            class="search-form-control svelte-1p0t1uj"
+          >
+            <label
+              class="emotion-2 search-form-control-radio svelte-1p0t1uj"
+            >
+              <input
+                data-testid="sales"
+                name="searchType"
+                type="radio"
+                value="Sale"
+              />
+              
+        For sell
+            </label>
+             
+            <label
+              class="emotion-2 search-form-control-radio svelte-1p0t1uj"
+            >
+              <input
+                data-testid="lettings"
+                name="searchType"
+                type="radio"
+                value="Rent"
+              />
+              
+        To rent
+            </label>
+             
+            <button
+              class="emotion-2 search-form-advanced-search svelte-1p0t1uj"
+              data-testid="btnAdvancedSearch"
+              type="button"
+            >
+              Advanced Search
+        
+              <svg
+                aria-hidden="true"
+                class=""
+                id=""
+                role="img"
+                style="height:1em;vertical-align:-.125em;overflow:visible;"
+                viewBox="0 0 512 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  transform="translate(256 256)"
+                >
+                  <g
+                    transform=""
+                  >
+                    <path
+                      d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+                      fill="currentColor"
+                      transform="translate(-256 -256)"
+                    />
+                  </g>
+                </g>
+              </svg>
+              
+            </button>
+          </div>
+        </div>
+         
+         
+        <div
+          class="filter-value emotion-6 svelte-1p0t1uj"
+        >
+          Properties For Sell in , No min - No max bed, Price range £0 – £0, Property type: All, Order results by: Price descending, Added In: Any time
+          ,
         </div>
       </form>
        
@@ -236,7 +311,7 @@ exports[`search-widget it matches a snapshot 1`] = `
          
         <div
           class="google-map-outer-container 
-  emotion-4 svelte-1t98is9"
+  emotion-7 svelte-1t98is9"
         >
            
           <div

@@ -1,7 +1,7 @@
 import { ContactAddressModel } from '@reapit/foundations-ts-definitions'
 import { PickedPropertyModel, PickedPagedResultPropertyModel_ } from '../../types'
 
-const currencyFormatter = new Intl.NumberFormat('en-GB', {
+export const currencyFormatter = new Intl.NumberFormat('en-GB', {
   style: 'currency',
   currency: 'GBP',
   minimumFractionDigits: 0,
