@@ -1,7 +1,7 @@
 <script>
   import { themeStore } from '../core/store/theme-store'
   import { onMount } from 'svelte'
-  import ClickOutSide from './click-out-side.svelte'
+  import ClickOutSide from '../../../common/components/click-out-side.svelte'
   import { resetCSS, generateThemeClasses } from '../../../common/styles'
   import { generateAppointmentBookingThemeClasses } from '../core/theme'
   import FormStep1 from './form-step1.svelte'
@@ -58,6 +58,7 @@
   .appointment-bookings-modal-container {
     padding: 1.5em;
     box-shadow: 1px 1px 7px 1px #d4d4d4;
+    box-sizing: border-box;
     border-radius: 4px;
     overflow: scroll;
   }
@@ -82,7 +83,7 @@
         {/if}
 
         {#if currentStep === 3}
-          <BookingConfirmationStep3 {themeClasses} {handlePreviousStep}/>
+          <BookingConfirmationStep3 {themeClasses} {handlePreviousStep} />
         {/if}
       </div>
     </ClickOutSide>

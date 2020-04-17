@@ -24,6 +24,8 @@ describe('store', () => {
         resultItem: '',
         searchBox: '',
         offerBanner: '',
+        pagination: '',
+        paginationActive: '',
       },
     }
     const unsubscribe = viewingBookingStore.subscribe(store => {

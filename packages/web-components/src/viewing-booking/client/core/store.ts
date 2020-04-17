@@ -30,6 +30,8 @@ const viewBookingStore: Writable<ViewingBookingStore> = writable({
     resultItem: '',
     searchBox: '',
     offerBanner: '',
+    pagination: '',
+    paginationActive: '',
   },
   email: '',
   isLoading: false,

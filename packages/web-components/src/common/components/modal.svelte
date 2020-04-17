@@ -1,33 +1,25 @@
 <script>
-  import { onMount, onDestroy } from 'svelte'
-  import Loader from './loader.svelte'
-
+  import ClickOutSide from './click-out-side.svelte'
+  export let isModalOpen
+  export let toggleModal
   export let title = 'Modal Title'
-  export let isOpen = false
-  export let isLoading = false
-  export let closeModal = () => {}
-  export let className
-
-  let contentEle
-
-  function onClickOutside(evt) {
-    if (!contentEle.contains(evt.target)) {
-      evt.stopPropagation()
-      closeModal()
-    }
-  }
-
-  onMount(() => {
-    document.addEventListener('click', onClickOutside, true)
-  })
-  onDestroy(() => {
-    document.removeEventListener('click', onClickOutside)
-  })
 </script>
 
 <style>
+  .reapit-modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #00000052;
+    z-index: 1;
+  }
   @media only screen and (min-width: 48em) {
-    .booking-viewing-modal {
+    .reapit-modal-wrapper .reapit-modal {
       top: 50% !important;
       left: 50% !important;
       width: auto !important;
@@ -39,7 +31,7 @@
     }
   }
 
-  .booking-viewing-modal {
+  .reapit-modal-wrapper .reapit-modal {
     position: absolute;
     top: 0;
     left: 0;
@@ -52,7 +44,7 @@
     overflow: hidden;
   }
 
-  .booking-viewing-modal .modal-title {
+  .reapit-modal-wrapper .modal-title {
     font-weight: 600;
     border-bottom: 1px solid #ddd;
     margin: 0;
@@ -64,28 +56,18 @@
     white-space: nowrap;
   }
 
-  .booking-viewing-modal-overlay {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    z-index: 9999;
-    background-color: rgba(0, 0, 0, 0.2);
-  }
-
-  .booking-viewing-modal .modal-close {
+  .reapit-modal-wrapper .modal-close {
     position: absolute;
     top: 0;
     left: 0;
     padding: 1em 1.2em;
     cursor: pointer;
   }
-  .booking-viewing-modal .modal-close:hover {
+  .reapit-modal-wrapper .modal-close:hover {
     background: #ddd;
   }
 
-  .booking-viewing-modal .modal-close-btn {
+  .reapit-modal-wrapper .modal-close-btn {
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
     border: solid black;
@@ -96,21 +78,18 @@
   }
 </style>
 
-{#if isOpen}
-  <div class="{className} booking-viewing-modal-overlay">
-    <div class="booking-viewing-modal" bind:this={contentEle}>
-      <div class="modal-close" on:click={closeModal}>
-        <i class="modal-close-btn" />
-      </div>
-
-      <h3 class="modal-title" {title}>{title}</h3>
-      <div class="modal-content">
-        {#if isLoading}
-          <Loader />
-        {:else}
+{#if isModalOpen}
+  <div class="reapit-modal-wrapper">
+    <ClickOutSide on:click-out-side={toggleModal}>
+      <div class="reapit-modal">
+        <div class="modal-close" on:click={toggleModal}>
+          <i class="modal-close-btn" />
+        </div>
+        <h3 class="modal-title" {title}>{title}</h3>
+        <div class="modal-content">
           <slot />
-        {/if}
+        </div>
       </div>
-    </div>
+    </ClickOutSide>
   </div>
 {/if}

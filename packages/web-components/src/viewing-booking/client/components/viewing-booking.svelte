@@ -3,7 +3,7 @@
   import { getProperty } from '../api/property'
   import { generateThemeClasses, resetCSS } from '../../../common/styles'
   import { onMount, onDestroy } from 'svelte'
-  import ViewingBookingModal from '../../../common/components/modal.svelte'
+  import Modal from '../../../common/components/modal.svelte'
   import viewBookingStore from '../core/store'
   import { validateEmail } from '../../../common/utils/validate'
 
@@ -98,7 +98,7 @@
     line-height: 1em;
   }
   .viewing-booking-email-form input {
-    width: 80%;
+    width: 70%;
     float: right;
     height: 2em;
     border-radius: 3px;
@@ -135,6 +135,7 @@
     padding: 0.3em;
     border-radius: 3px;
     cursor: pointer;
+    border: 1px solid !important;
   }
 
   .invaild-email {
@@ -146,15 +147,9 @@
 </style>
 
 <button on:click={handleToggleModal} class="viewing_booking-btn">Book a viewing</button>
-<ViewingBookingModal
-  isOpen={isModalOpen}
-  closeModal={handleToggleModal}
-  {isLoading}
-  title="Book a Viewing"
-  className="{themeClasses.globalStyles}
-  {resetCSS}">
+<Modal {isModalOpen} closeModal={handleToggleModal} {isLoading} title="Book a Viewing">
 
-  <form on:submit|preventDefault={submitForm}>
+  <form on:submit|preventDefault={submitForm} class="{themeClasses.globalStyles} {resetCSS}">
     <div class="property-image {backgroundImage}">
       <h4>
         {propertyData && propertyData.address}
@@ -178,4 +173,5 @@
       <button class={themeClasses.button} type="submit">Get Appointments</button>
     </div>
   </form>
-</ViewingBookingModal>
+
+</Modal>

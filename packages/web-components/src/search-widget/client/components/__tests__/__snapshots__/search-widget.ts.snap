@@ -152,7 +152,6 @@ exports[`search-widget it matches a snapshot 1`] = `
   color: #000;
   border: 1px solid grey;
   background: #fff;
-  color: grey;
 }
 
 #search-widget .emotion-1:hover {

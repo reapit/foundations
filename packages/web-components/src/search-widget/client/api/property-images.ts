@@ -14,7 +14,7 @@ export const getPropertyQuery = (properties: PickedPropertyModel[]) =>
 export const getPropertyImages = async (
   properties: PickedPropertyModel[],
   apiKey: string,
-): Promise<Record<string, PickedPropertyImageModel>> => {
+): Promise<Record<string, PickedPropertyImageModel[]>> => {
   const propertyQuery = getPropertyQuery(properties)
   const response = await fetcher<PickedPagedResultPropertyImageModel_, null>({
     url: `${process.env.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET}/propertyImages/${propertyQuery}`,
@@ -22,13 +22,17 @@ export const getPropertyImages = async (
   })
 
   if (response && response._embedded) {
-    const imageMap: Record<string, PickedPropertyImageModel> = {}
+    const imageMap: Record<string, PickedPropertyImageModel[]> = {}
     for (const propertyImage of response._embedded) {
       const propertyId = propertyImage.propertyId || 'invalid'
-      imageMap[propertyId] = propertyImage
+      if (imageMap[propertyId]) {
+        imageMap[propertyId].push(propertyImage)
+      } else {
+        imageMap[propertyId] = [propertyImage]
+      }
     }
 
     return imageMap
   }
-  return {} as Record<string, PickedPropertyImageModel>
+  return {} as Record<string, PickedPropertyImageModel[]>
 }

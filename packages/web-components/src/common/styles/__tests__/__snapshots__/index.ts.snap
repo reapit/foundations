@@ -178,7 +178,7 @@ exports[`styles should generate a reset css class 1`] = `"css-h4w50h"`;
 exports[`styles should generate an object of CSS classes 1`] = `
 Object {
   "bodyText": "css-11v9sqy",
-  "button": "css-naokd4",
+  "button": "css-laiipo",
   "globalStyles": "css-ya093n",
   "input": "css-u6oic2",
   "offerBanner": "css-gl5ek3",
