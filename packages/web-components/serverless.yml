@@ -22,7 +22,7 @@ provider:
     restApiId: ${self:custom.env.GATEWAY_REST_API_ID}
     restApiRootResourceId: ${self:custom.env.GATEWAY_REST_API_ROOT_RESOURCE_ID}
   deploymentBucket:
-    name: web-components.${self:provider.stage}
+    name: web-components-${self:provider.stage}
     blockPublicAccess: false
   environment:
     NODE_ENV: ${self:custom.env.NODE_ENV}
