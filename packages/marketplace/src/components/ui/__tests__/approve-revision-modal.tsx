@@ -8,6 +8,7 @@ import {
   handleOnSubmit,
 } from '../approve-revision-modal'
 import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
+import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
 
 const props: ApproveRevisionModalProps = {
   onApproveSuccess: jest.fn(),
@@ -23,6 +24,7 @@ const props: ApproveRevisionModalProps = {
         id: 'revisionID',
       },
       scopes: appPermissionStub,
+      desktopIntegrationTypes: integrationTypesStub,
     },
     approveFormState: 'PENDING',
   },

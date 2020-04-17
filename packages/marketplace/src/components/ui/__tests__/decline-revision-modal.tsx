@@ -8,6 +8,7 @@ import {
   handleOnSubmit,
 } from '../decline-revision-modal'
 import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
+import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
 
 const props: DeclineRevisionModalProps = {
   onDeclineSuccess: jest.fn(),
@@ -23,6 +24,7 @@ const props: DeclineRevisionModalProps = {
         id: 'revisionID',
       },
       scopes: appPermissionStub,
+      desktopIntegrationTypes: integrationTypesStub,
     },
     approveFormState: 'PENDING',
   },

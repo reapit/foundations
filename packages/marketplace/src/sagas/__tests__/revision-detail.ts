@@ -34,29 +34,38 @@ const params: Action<RevisionDetailRequestParams> = {
 }
 
 describe('revision-detail fetch data', () => {
-  const gen = cloneableGenerator(revisionDetailDataFetch)(params)
+  const gen = cloneableGenerator(revisionDetailDataFetch as any)(params)
+  const {
+    data: { appId, appRevisionId },
+  } = params
   expect(gen.next().value).toEqual(put(revisionDetailLoading(true)))
   expect(gen.next().value).toEqual(
-    call(fetcher, {
-      url: `${URLS.apps}/${params.data.appId}/revisions/${params.data.appRevisionId}`,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    }),
-  )
-
-  expect(gen.next(revisionDetailDataStub.data).value).toEqual(
-    call(fetcher, {
-      url: `${URLS.scopes}`,
-      method: 'GET',
-      api: window.reapit.config.marketplaceApiUrl,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    }),
+    all([
+      call(fetcher, {
+        url: `${URLS.apps}/${appId}/revisions/${appRevisionId}`,
+        api: window.reapit.config.marketplaceApiUrl,
+        method: 'GET',
+        headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      }),
+      call(fetcher, {
+        url: `${URLS.scopes}`,
+        method: 'GET',
+        api: window.reapit.config.marketplaceApiUrl,
+        headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      }),
+      call(fetcher, {
+        url: URLS.desktopIntegrationTypes,
+        method: 'GET',
+        api: window.reapit.config.marketplaceApiUrl,
+        headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      }),
+    ]),
   )
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(revisionDetailDataStub.scopes).value).toEqual(
+    const { data, scopes, desktopIntegrationTypes } = revisionDetailDataStub
+    expect(clone.next([data, scopes, desktopIntegrationTypes]).value).toEqual(
       put(revisionDetailReceiveData(revisionDetailDataStub)),
     )
     expect(clone.next().done).toBe(true)
@@ -64,7 +73,7 @@ describe('revision-detail fetch data', () => {
 
   test('api call fail', () => {
     const clone = gen.clone()
-    expect(clone.next(undefined).value).toEqual(put(revisionDetailFailure()))
+    expect(clone.next([undefined, undefined, undefined]).value).toEqual(put(revisionDetailFailure()))
     expect(clone.next().done).toBe(true)
   })
 })
