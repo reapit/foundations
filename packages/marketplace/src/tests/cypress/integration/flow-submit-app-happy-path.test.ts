@@ -75,6 +75,7 @@ describe('Submit app happy path', () => {
 
     cy.get(submitButton).click()
     cy.wait('@postSubmitApp')
+    cy.wait(1000)
     cy.get(divSuccess).should('have.length', 1)
   })
 

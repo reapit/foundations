@@ -32,8 +32,10 @@ describe('Created app should appear in client search result happy path', () => {
         })
         .then(() => {
           loginAdminHook()
-          cy.visit(ROUTES.ADMIN_APPROVALS)
           cy.server()
+          cy.route('GET', routes.approvals).as('approvals')
+          cy.visit(ROUTES.ADMIN_APPROVALS)
+          cy.wait('@approvals')
           clickViewDetailsButtonWithAppId(appId)
           cy.get(buttonApprove).click()
           cy.route('POST', routes.approveApp).as('approveAppRequest')
