@@ -22963,6 +22963,11 @@ serverless-offline@^5.12.1:
     update-notifier "^3.0.1"
     velocityjs "^1.1.5"
 
+serverless-single-page-app-plugin@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/serverless-single-page-app-plugin/-/serverless-single-page-app-plugin-1.0.2.tgz#6f714ab7506d44b2cbd4f3c68d1a6c2030b7b7b8"
+  integrity sha1-b3FKt1BtRLLL1PPGjRpsIDC3t7g=
+
 serverless-webpack@^5.3.1:
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/serverless-webpack/-/serverless-webpack-5.3.1.tgz#39c3d0b23f92273702ac418fd33fa7029e085176"
