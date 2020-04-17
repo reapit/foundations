@@ -30,7 +30,6 @@ const loginFlow = ({ userName, password, loginType, loginRoute, beforeLogin }) =
     userPoolId: cognitoUserPoolId,
   }
   cy.server()
-  cy.route({ url: '**cognito**', method: 'POST' }).as('loginRequest')
   cy.visit(loginRoute)
   if (typeof beforeLogin === 'function') {
     beforeLogin()
@@ -56,9 +55,8 @@ const loginFlow = ({ userName, password, loginType, loginRoute, beforeLogin }) =
     cy.window()
       .its('store')
       .invoke('dispatch', authLoginSuccess(loginSession))
+    cy.wait(5000)
   })
-  cy.wait('@loginRequest')
-  cy.wait(3000)
 }
 
 export const loginAdminHook = () => {
