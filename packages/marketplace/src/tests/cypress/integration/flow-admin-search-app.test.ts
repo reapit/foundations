@@ -7,8 +7,8 @@ const {
   selectors: { listAppTr, buttonSubmit, buttonRefresh },
   apiGetAppList,
 } = adminAppPage
-
-describe('Search app happy path', () => {
+// temporary skip
+describe.skip('Search app happy path', () => {
   it('should have at least 1 app with correct data', () => {
     loginAdminHook()
     cy.server()
