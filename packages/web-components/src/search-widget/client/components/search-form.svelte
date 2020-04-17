@@ -30,11 +30,11 @@
       searchKeyword,
       isRental,
       $searchWidgetStore.initializers.apiKey,
-      $searchWidgetStore.pageNumber
+      $searchWidgetStore.pageNumber,
     )
-    const propertyImages = await getPropertyImages(
+    const propertyImagesByPropertyId = await getPropertyImages(
       properties._embedded,
-      $searchWidgetStore.initializers.apiKey
+      $searchWidgetStore.initializers.apiKey,
     )
     if (properties && properties._embedded.length) {
       const resultsMessage = getResultMessage({ properties, searchKeyword, isRental })
@@ -47,10 +47,10 @@
         totalPage,
       }))
     }
-    if (propertyImages) {
+    if (propertyImagesByPropertyId) {
       searchWidgetStore.update(values => ({
         ...values,
-        propertyImages,
+        propertyImagesByPropertyId,
       }))
     }
   }

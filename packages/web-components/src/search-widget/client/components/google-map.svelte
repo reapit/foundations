@@ -115,7 +115,7 @@
     {#if $searchWidgetStore.properties.length > 0 && $searchWidgetStore.selectedProperty}
       <WindowInfo
         on:windowInfoClick={handleCloseWindowInfo}
-        propertyImages={$searchWidgetStore.propertyImages}
+        propertyImages={$searchWidgetStore.propertyImagesByPropertyId}
         selectedProperty={$searchWidgetStore.selectedProperty}
         selectedMarker={$searchWidgetStore.selectedMarker}
         searchType={$searchWidgetStore.searchType}

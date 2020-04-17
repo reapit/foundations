@@ -1,4 +1,5 @@
 <script>
+  import LightBox from './light-box/light-box.svelte'
   import { onDestroy, onMount } from 'svelte'
   import { createEventDispatcher } from 'svelte'
   import Fa from 'svelte-fa'
@@ -12,21 +13,23 @@
 
   let selectedProperty
   let searchType
-  let propertyImages
+  let propertyImagesByPropertyId
   let themeClasses = {}
 
   const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
     selectedProperty = store.selectedProperty
     searchType = store.searchType
-    propertyImages = store.propertyImages
+    console.log(store)
+
+    propertyImagesByPropertyId = store.propertyImagesByPropertyId
     themeClasses = store.themeClasses
   })
 
   const { primaryHeading, secondaryHeading, secondaryStrapline, bodyText, offerBanner } = themeClasses
 
   const id = (property && property.id) || ''
-  const propertyImage = propertyImages && propertyImages[id]
-  const imageUrl = (propertyImage && propertyImage.url) || INVALID_BACKGROUND_AS_BASE64
+  const propertyImages = (propertyImagesByPropertyId && propertyImagesByPropertyId[id]) || []
+  const transformedPropertyImages = propertyImages.map(propertyImage => propertyImage.url)
   const sellingStatus = (property.selling && property.selling.status) || ''
   const lettingStatus = (property.letting && property.letting.status) || ''
 
@@ -130,6 +133,10 @@
   .property-detail-item-icon:last-child {
     margin-left: 1em;
   }
+
+  .property-detail-light-box-container {
+    width: 1000px;
+  }
 </style>
 
 <div class="property-detail-item" data-testid="select-property-detail">
@@ -141,7 +148,14 @@
     {#if lettingStatus === 'underOffer'}
       <div class="property-detail-offer-banner {offerBanner}">Let Agreed</div>
     {/if}
-    <img alt="property-detail image" src={imageUrl} on:error={handleImageError} />
+
+    {#if !transformedPropertyImages || transformedPropertyImages.length === 0}
+      <img alt="property-detail image" src={INVALID_BACKGROUND_AS_BASE64} on:error={handleImageError} />
+    {:else}
+      <div class="property-detail-light-box-container">
+        <LightBox images={transformedPropertyImages} />
+      </div>
+    {/if}
   </div>
   <div>
     <div class="{secondaryStrapline} property-detail-item-address-secondary">
