@@ -18,7 +18,7 @@ provider:
   stage: ${opt:stage, 'dev'}
   region: eu-west-2
   deploymentBucket:
-    name: web-components-config-server-${self:provider.stage}
+    name: web-components-config-server.${self:provider.stage}
     blockPublicAccess: false
   environment:
     NODE_ENV: 'production'
