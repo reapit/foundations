@@ -95,6 +95,23 @@ export const getChangedMediaList = ({ app, revision }): DiffMediaModel[] => {
   }))
 }
 
+export const mapIntegrationIdArrayToNameArray = (
+  desktopIntegrationTypeIds?: string[],
+  desktopIntegrationTypesArray?: DesktopIntegrationTypeModel[],
+): string[] => {
+  if (!desktopIntegrationTypeIds || !desktopIntegrationTypesArray) {
+    return []
+  }
+  const result = desktopIntegrationTypeIds.map((id: string) => {
+    const matchedIntegration = desktopIntegrationTypesArray.find(
+      (integration: DesktopIntegrationTypeModel) => integration.id === id,
+    )
+    return matchedIntegration?.name ?? ''
+  })
+  const filteredResult = result.filter(r => r)
+  return filteredResult
+}
+
 export const AppRevisionComparision: React.FC<AppRevisionComparisionProps> = ({
   revisionDetailState,
   appDetailState,
@@ -121,25 +138,21 @@ export const AppRevisionComparision: React.FC<AppRevisionComparisionProps> = ({
           )
         }
         if (key === 'desktopIntegrationTypeIds') {
-          const oldIntegrationTypeArray =
-            app.desktopIntegrationTypeIds?.map(
-              id =>
-                desktopIntegrationTypes.data?.find((integration: DesktopIntegrationTypeModel) => integration.id === id)
-                  ?.name,
-            ) ?? []
-          const newIntegrationTypeArray =
-            revision.desktopIntegrationTypeIds?.map(
-              id =>
-                desktopIntegrationTypes.data?.find((integration: DesktopIntegrationTypeModel) => integration.id === id)
-                  ?.name,
-            ) ?? []
+          const oldIntegrationTypeArray = mapIntegrationIdArrayToNameArray(
+            app.desktopIntegrationTypeIds,
+            desktopIntegrationTypes.data,
+          )
+          const newIntegrationTypeArray = mapIntegrationIdArrayToNameArray(
+            revision.desktopIntegrationTypeIds,
+            desktopIntegrationTypes.data,
+          )
           return (
             <div className="mb-3" key={key}>
               <h4 className="mb-2">{diffStringList[key]}</h4>
               <DiffViewer
                 currentString={oldIntegrationTypeArray.join(', ')}
                 changedString={newIntegrationTypeArray.join(', ')}
-                type="words"
+                type="lines"
               />
             </div>
           )

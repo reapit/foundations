@@ -7,6 +7,7 @@ import {
   isAppearInScope,
   renderCheckboxesDiff,
   getChangedMediaList,
+  mapIntegrationIdArrayToNameArray,
 } from '../app-revision-comparision'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { revisionDetailDataStub } from '@/sagas/__stubs__/revision-detail'
@@ -363,5 +364,35 @@ describe('getChangedMediaList', () => {
       },
     ]
     expect(result).toEqual(output)
+  })
+})
+
+describe('mapIntegrationIdArrayToNameArray', () => {
+  it('should return correctly', () => {
+    const ids = ['IdCheck', 'PrpMarketing']
+    const result = mapIntegrationIdArrayToNameArray(ids, integrationTypesStub.data)
+    expect(result).toEqual(['Identity Check', 'Property Marketing Information'])
+  })
+  it('should return correctly with undefined', () => {
+    const result = mapIntegrationIdArrayToNameArray(undefined, undefined)
+    expect(result).toEqual([])
+  })
+  it('should return correctly with noname', () => {
+    const ids = ['IdCheck', 'PrpMarketing']
+    const desktopIntegrationTypesArray = [
+      {
+        id: 'IdCheck',
+        description: 'Replaces the standard ID check screen',
+        url: 'https://foundations-documentation.reapit.cloud/api/desktop-api#id-check',
+      },
+      {
+        id: 'PrpMarketing',
+        name: 'Property Marketing Information',
+        description: 'Replaces the standard property marketing screen',
+        url: 'https://foundations-documentation.reapit.cloud/api/desktop-api#property-marketing-information',
+      },
+    ]
+    const result = mapIntegrationIdArrayToNameArray(ids, desktopIntegrationTypesArray)
+    expect(result).toEqual(['Property Marketing Information'])
   })
 })
