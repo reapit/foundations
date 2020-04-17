@@ -40,23 +40,19 @@ describe('PrivateRouter', () => {
       const mockDispatch = jest.fn()
 
       const {
-        setDeveloperTermAcceptedCookieAndState,
         setRefreshSession,
         setInitDeveloperTermsAcceptedStateFromCookie,
         setClientTermAcceptedCookieAndState,
       } = mapDispatchToProps(mockDispatch)
 
-      setDeveloperTermAcceptedCookieAndState()
+      setRefreshSession(({ key: 'val' } as unknown) as RefreshParams)
       expect(mockDispatch).toHaveBeenCalledTimes(1)
 
-      setRefreshSession(({ key: 'val' } as unknown) as RefreshParams)
+      setInitDeveloperTermsAcceptedStateFromCookie()
       expect(mockDispatch).toHaveBeenCalledTimes(2)
 
-      setInitDeveloperTermsAcceptedStateFromCookie()
-      expect(mockDispatch).toHaveBeenCalledTimes(3)
-
       setClientTermAcceptedCookieAndState()
-      expect(mockDispatch).toHaveBeenCalledTimes(4)
+      expect(mockDispatch).toHaveBeenCalledTimes(3)
     })
   })
 

@@ -26,6 +26,7 @@ import appUsageStatsReducer from '../reducers/app-usage-stats'
 import adminStatsReducer from '../reducers/admin-stats'
 import revisionsReducer from '../reducers/revisions'
 import appHttpTrafficEventReducer from '../reducers/app-http-traffic-event'
+import integrationTypes from '../reducers/app-integration-types'
 
 import authSagas from '../sagas/auth'
 import clientSagas from '../sagas/client'
@@ -90,6 +91,7 @@ export class Store {
     noticationMessage,
     adminStats: adminStatsReducer,
     appHttpTraffic: appHttpTrafficEventReducer,
+    desktopIntegrationTypes: integrationTypes,
   })
 
   static sagas = function*() {
@@ -153,6 +155,10 @@ export class Store {
   get state(): ReduxState {
     return this.reduxStore.getState()
   }
+}
+
+if (window.Cypress) {
+  window.store = Store.instance.reduxStore
 }
 
 export default Store.instance

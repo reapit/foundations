@@ -1,13 +1,13 @@
 {
   "name": "demo-site",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "homepage": "https://demo-site.reapit.cloud",
   "scripts": {
     "build:prod": "node ./scripts/build.js",
     "fetch-config": "yarn config-manager fetchConfig demo-site",
-    "release:dev": "echo 'node ../../scripts/release/release-dev.js demo-site reapit-demo-site'",
-    "release:prod": "node ../../scripts/release/release-prod.js demo-site reapit-demo-site",
+    "release:dev": "node ../../scripts/release/release-dev.js demo-site reapit-demo-site",
+    "release:prod": "echo 'node ../../scripts/release/release-prod.js demo-site reapit-demo-site'",
     "start:prod": "serve -d public -l 8080"
   },
   "devDependencies": {

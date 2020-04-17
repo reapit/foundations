@@ -42,7 +42,7 @@ export const prepareDefaultFilterDateParams = () => {
     .format(DATE_TIME_FORMAT.YYYY_MM_DD)
   const yesterdayParams = {
     dateFrom: yesterday,
-    dateTo: dayjs().format(DATE_TIME_FORMAT.YYYY_MM_DD),
+    dateTo: yesterday,
   }
 
   const lastWeek = dayjs().subtract(1, 'week')

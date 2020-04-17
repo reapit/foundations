@@ -9,14 +9,14 @@ describe('properties client API', () => {
   it('should correctly return a URL query for a rental', () => {
     process.env.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET = 'http://localhost:3000'
     const expected =
-      'http://localhost:3000/properties?SellingStatuses=forSale%2CunderOffer&InternetAdvertising=true&PageSize=8&Address=E2&marketingMode=letting%2CsellingAndLetting'
+      'http://localhost:3000/properties?SellingStatuses=forSale%2CunderOffer&InternetAdvertising=true&PageSize=8&pageNumber=1&Address=E2&marketingMode=letting%2CsellingAndLetting'
     expect(getUrlQuery(true, 'E2')).toEqual(expected)
   })
 
   it('should correctly return a URL query for sales', () => {
     process.env.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET = 'http://localhost:3000'
     const expected =
-      'http://localhost:3000/properties?SellingStatuses=forSale%2CunderOffer&InternetAdvertising=true&PageSize=8&Address=E2&marketingMode=selling%2CsellingAndLetting'
+      'http://localhost:3000/properties?SellingStatuses=forSale%2CunderOffer&InternetAdvertising=true&PageSize=8&pageNumber=1&Address=E2&marketingMode=selling%2CsellingAndLetting'
     expect(getUrlQuery(false, 'E2')).toEqual(expected)
   })
 

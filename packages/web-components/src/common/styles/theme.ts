@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { css } from 'emotion'
 
 export interface InitializerTheme {
@@ -34,6 +35,8 @@ export interface ThemeClasses {
   resultItem: string
   searchBox: string
   offerBanner: string
+  pagination: string
+  paginationActive: string
 }
 
 export const generateThemeClasses = (
@@ -115,10 +118,16 @@ export const generateThemeClasses = (
         color: ${primaryAccentColor || '#000'};
         border: 1px solid ${primaryAccentColor || 'grey'};
         background: ${baseBackgroundColor || '#fff'};
-      }
+        color: ${inverseFontColor || 'grey'};
 
-      :last-child {
-        border-left: none;
+        &:hover {
+          background: ${inverseFontColor || 'grey'};
+          color: ${baseBackgroundColor || '#fff'};
+        }
+
+        &:last-child {
+          border-left: none;
+        }
       }
     `,
     input: css`
@@ -177,6 +186,18 @@ export const generateThemeClasses = (
         font-size: ${basefontSize || '16px'};
         font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'};
         color: ${inverseFontColor || '#fff'};
+      }
+    `,
+    pagination: css`
+      ${parentSelector || 'body'} & {
+        color: ${primaryAccentColor || '#000'};
+        background-color: ${baseBackgroundColor || '#fff'};
+      }
+    `,
+    paginationActive: css`
+      ${parentSelector || 'body'} & {
+        color: ${primaryAccentColor || basefontColor || '#fff'};
+        background-color: ${baseBackgroundColor || 'grey'};
       }
     `,
   }

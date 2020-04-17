@@ -5,6 +5,8 @@ import {
   formatStyle,
   formatType,
   getPrice,
+  calculateTotalPage,
+  getResultMessage,
 } from '../results-helpers'
 
 import { propertyStub } from '../__stubs__/property'
@@ -95,5 +97,66 @@ describe('results helpers', () => {
         type: ['type1', 'type2'],
       }),
     ).toBe('1 Bed style1 style2 type1 type2')
+  })
+
+  describe('calculateTotalPage', () => {
+    it('return correctly when totalRecord = 10', () => {
+      const totalRecord = 10
+      const result = calculateTotalPage(totalRecord)
+      expect(result).toEqual(2)
+    })
+
+    it('return correctly when totalRecord = 0', () => {
+      const totalRecord = 0
+      const result = calculateTotalPage(totalRecord)
+      expect(result).toEqual(1)
+    })
+
+    it('return correctly when total record = 16', () => {
+      const totalRecord = 16
+      const result = calculateTotalPage(totalRecord)
+      expect(result).toEqual(2)
+    })
+  })
+
+  describe('getResultMessage', () => {
+    it('should return correctly when totalCount = 2 and isRental true', () => {
+      const input = {
+        properties: {
+          _embedded: [{}, {}],
+          totalCount: 2,
+        },
+        searchKeyword: 'mockSearchKeyword',
+        isRental: true,
+      }
+      const result = getResultMessage(input)
+      expect(result).toEqual('2 results for mockSearchKeyword, for rent')
+    })
+
+    it('should return correctly when totalCount = 1 and isRental true', () => {
+      const input = {
+        properties: {
+          _embedded: [{}],
+          totalCount: 1,
+        },
+        searchKeyword: 'mockSearchKeyword',
+        isRental: true,
+      }
+      const result = getResultMessage(input)
+      expect(result).toEqual('1 result for mockSearchKeyword, for rent')
+    })
+
+    it('should return correctly when totalCount = 1 and isRental false', () => {
+      const input = {
+        properties: {
+          _embedded: [{}],
+          totalCount: 1,
+        },
+        searchKeyword: 'mockSearchKeyword',
+        isRental: false,
+      }
+      const result = getResultMessage(input)
+      expect(result).toEqual('1 result for mockSearchKeyword, for sale')
+    })
   })
 })

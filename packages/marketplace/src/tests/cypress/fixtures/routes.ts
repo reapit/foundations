@@ -1,4 +1,4 @@
-const apiEndPoint = Cypress.env('MARKETPLACE_API_BASE_URL')
+const apiEndPoint = Cypress.env('marketplaceApiUrl')
 
 export default {
   categories: `${apiEndPoint}/categories`,
@@ -9,7 +9,7 @@ export default {
   developerApps: `${apiEndPoint}/apps?developerId=**`,
   approvals: `${apiEndPoint}/approvals`,
   appDetail: `${apiEndPoint}/apps/**?clientId=**`,
-  installedApps: `${apiEndPoint}/apps?clientId=**&OnlyInstalled=**&PageNumber=**&PageSize=**&IsDirectApi=**`,
+  installedApps: `${apiEndPoint}/apps?clientId=*&OnlyInstalled=*&PageNumber=*&PageSize=*&IsDirectApi=*`,
   manageApps: `${apiEndPoint}/apps?clientId=**&OnlyInstalled=**&PageNumber=**&PageSize=**`,
   developers: `${apiEndPoint}/developers`,
   approveApp: `${apiEndPoint}/apps/**/revisions/**/approve`,
@@ -17,4 +17,5 @@ export default {
   installations: `${apiEndPoint}/installations`,
   terminateApp: `${apiEndPoint}/installations/**/terminate`,
   auth: 'https://cognito-idp.eu-west-2.amazonaws.com/',
+  desktopIntegrationTypes: `${apiEndPoint}/DesktopIntegrationTypes**`,
 }

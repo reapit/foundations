@@ -1,5 +1,5 @@
 import { ContactAddressModel } from '@reapit/foundations-ts-definitions'
-import { PickedPropertyModel } from '../../types'
+import { PickedPropertyModel, PickedPagedResultPropertyModel_ } from '../../types'
 
 const currencyFormatter = new Intl.NumberFormat('en-GB', {
   style: 'currency',
@@ -114,4 +114,30 @@ export const combineNumberBedTypeStyle = (result: PickedPropertyModel) => {
   const type = (result?.type || []).map(formatType).join(' ')
   const numberBedRoom = result?.bedrooms || 0
   return `${numberBedRoom} Bed ${style} ${type}`
+}
+
+export const calculateTotalPage = (totalRecord: number) => {
+  if (!totalRecord) {
+    return 1
+  }
+  const ITEM_PER_PAGE = 8
+  const totalPage = Math.ceil(totalRecord / ITEM_PER_PAGE)
+  return totalPage
+}
+
+export type GetResultMessageParams = {
+  properties: PickedPagedResultPropertyModel_
+  searchKeyword: string
+  isRental: boolean
+}
+
+export const getResultMessage = ({ properties, searchKeyword, isRental }: GetResultMessageParams) => {
+  if (properties && properties._embedded && properties._embedded.length) {
+    const numberResults = properties.totalCount
+    const resultsMessage = `${numberResults} result${numberResults === 1 ? '' : 's'}${
+      searchKeyword.length ? ` for ${searchKeyword},` : ''
+    } for ${isRental ? 'rent' : 'sale'}`
+    return resultsMessage
+  }
+  return ''
 }

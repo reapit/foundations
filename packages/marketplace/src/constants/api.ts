@@ -22,6 +22,7 @@ export const URLS = {
   docs: '/docs',
   statistics: '/statistics',
   trafficEvents: '/trafficevents',
+  desktopIntegrationTypes: '/DesktopIntegrationTypes',
 }
 
 export const SANDBOX_CLIENT_ID = 'SBOX'

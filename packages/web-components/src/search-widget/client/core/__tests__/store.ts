@@ -1,4 +1,4 @@
-import searchWidgetStore from '../store'
+import searchWidgetStore, { SearchWidgetStore } from '../store'
 
 describe('store', () => {
   it('should return a default object', () => {
@@ -21,6 +21,8 @@ describe('store', () => {
         resultItem: '',
         searchBox: '',
         offerBanner: '',
+        pagination: '',
+        paginationActive: '',
       },
       properties: [],
       propertyImages: {},
@@ -30,7 +32,9 @@ describe('store', () => {
       searchKeyword: '',
       isLoading: false,
       resultsMessage: '',
-    }
+      pageNumber: 1,
+      totalPage: 1,
+    } as SearchWidgetStore
     const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
       expect(store).toEqual(expected)
     })

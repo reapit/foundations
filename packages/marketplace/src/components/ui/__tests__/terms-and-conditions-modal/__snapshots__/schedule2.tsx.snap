@@ -7,6 +7,12 @@ Object {
     <div>
       <div>
         <h4
+          class="title is-4 undefined undefined "
+          id=""
+        >
+          There are no fees or consumption costs during the Beta period
+        </h4>
+        <h4
           class="title is-4  "
           id=""
         >
@@ -505,6 +511,12 @@ Object {
   </body>,
   "container": <div>
     <div>
+      <h4
+        class="title is-4 undefined undefined "
+        id=""
+      >
+        There are no fees or consumption costs during the Beta period
+      </h4>
       <h4
         class="title is-4  "
         id=""

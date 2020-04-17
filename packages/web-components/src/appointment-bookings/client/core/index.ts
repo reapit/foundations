@@ -10,16 +10,18 @@ export interface AppointmentBookingInitializers {
 
 export const ReapitAppointmentBookingComponent = ({
   parentSelector,
-  apiKey,
   theme,
-  variant,
-}: AppointmentBookingInitializers) => {
+}: // apiKey,
+// variant,
+AppointmentBookingInitializers) => {
   new AppointmentBooking({
     target: document.querySelector(parentSelector) || document.body,
     props: {
       theme,
-      apiKey,
-      variant,
+      // TODO - will need to reference later
+      // apiKey,
+      // variant,
+      parentSelector,
     },
   })
 }

@@ -21,7 +21,14 @@ export const CustomTag: React.FC<CustomTagProps> = ({ label, description, link, 
       overlay={
         <span className="reapit-tooltip-content">
           {description}
-          {link && <a href={link}>More Info</a>}
+          {link && (
+            <span>
+              For more information on <b>{label}</b>, please{' '}
+              <a className="reapit-tooltip-link" href={link} rel="noopener noreferrer" target="_blank">
+                click here
+              </a>
+            </span>
+          )}
         </span>
       }
     >

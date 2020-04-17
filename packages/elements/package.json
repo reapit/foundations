@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "0.5.52",
+  "version": "0.5.53",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "homepage": "https://github.com/reapit/foundations#readme",
   "bugs": {
@@ -77,6 +77,7 @@
     "@types/googlemaps": "^3.37.5",
     "@types/jsonwebtoken": "^8.3.5",
     "@types/papaparse": "^5.0.3",
+    "@whitespace/storybook-addon-html": "^1.2.1",
     "rollup": "1.27.13",
     "rollup-plugin-scss": "^1.0.2"
   },

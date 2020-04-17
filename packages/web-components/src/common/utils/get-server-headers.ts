@@ -33,7 +33,10 @@ export const getServerHeaders = async (req: Request, packageSuffix: PACKAGE_SUFF
       }
     }
     // In prod, I just forward the headers from the request that was decorated by the lambda athorizer
-    return req.headers
+    return {
+      ...DEFAULT_HEADERS,
+      ...req.headers,
+    }
   })()
 
   return {

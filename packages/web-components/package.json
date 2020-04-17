@@ -1,6 +1,6 @@
 {
   "name": "@reapit/web-components",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "homepage": "https://github.com/reapit/foundations",
   "bugs": {
     "url": "https://github.com/reapit/foundations/issues"
@@ -47,7 +47,7 @@
     "build:prod": "node ./src/scripts/build-prod.js",
     "start:prod": "sirv public",
     "start:dev": "node ./src/scripts/start-dev.js",
-    "test:dev": "jest --watch --color",
+    "test:dev": "cross-env TZ=UTC jest --watch --color",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js,svelte src\"",
     "lint:fix": "eslint --cache --ext=ts,tsx,js,svelte src --fix",
@@ -57,7 +57,6 @@
     "release:server:prod": "node ../../scripts/release/release-serverless.js web-components",
     "release:client:dev": "node ../../scripts/release/release-dev.js web-components reapit-web-components",
     "release:client:prod": "node ../../scripts/release/release-prod.js web-components reapit-web-components",
-    "release:prod": "yarn release:server:prod && yarn release:client:prod",
-    "release:dev": "yarn release:server:dev"
+    "release:dev": "yarn release:server:dev && yarn release:client:dev"
   }
 }

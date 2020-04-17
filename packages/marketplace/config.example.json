@@ -10,5 +10,13 @@
   "googleAnalyticsKey": "",
   "cognitoOAuthUrl": "",
   "cognitoUserPoolId": "",
-  "marketplaceUrl": ""
+  "chatbotAppId": "",
+  "marketplaceUrl": "",
+  "adminUserName": "",
+  "adminPassword": "",
+  "developerUserName": "",
+  "developerPassword": "",
+  "clientUserName": "",
+  "clientPassword": "",
+  "cypressBaseUrl": "http://localhost:8080"
 }

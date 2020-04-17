@@ -8,11 +8,22 @@ exports[`CustomTag should match a snapshot 1`] = `
     >
       The type of Property will be given to an application that can be launched for a 
     specific property from Agency Cloud.
-      <a
-        href="https://foundations-documentation.reapit.cloud/api/desktop-api#property-1"
-      >
-        More Info
-      </a>
+      <span>
+        For more information on 
+        <b>
+          Property
+        </b>
+        , please
+         
+        <a
+          className="reapit-tooltip-link"
+          href="https://foundations-documentation.reapit.cloud/api/desktop-api#property-1"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          click here
+        </a>
+      </span>
     </span>
   }
   placement="bottomLeft"
