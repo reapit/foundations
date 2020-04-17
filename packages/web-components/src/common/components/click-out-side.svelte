@@ -6,7 +6,7 @@
   const dispatch = createEventDispatcher()
 
   const onClick = event => {
-    if (!containerElement.contains(event.target)) {
+    if (containerElement && !containerElement.contains(event.target)) {
       event.stopPropagation()
       dispatch('click-out-side')
     }

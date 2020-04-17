@@ -2,7 +2,7 @@ import searchWidgetStore, { SearchWidgetStore } from '../store'
 
 describe('store', () => {
   it('should return a default object', () => {
-    const expected = {
+    const expected: SearchWidgetStore = {
       initializers: {
         apiKey: '',
         theme: {},
@@ -25,7 +25,7 @@ describe('store', () => {
         paginationActive: '',
       },
       properties: [],
-      propertyImages: {},
+      propertyImagesByPropertyId: {},
       selectedProperty: null,
       selectedMarker: null,
       searchType: 'Sale',
@@ -34,7 +34,7 @@ describe('store', () => {
       resultsMessage: '',
       pageNumber: 1,
       totalPage: 1,
-    } as SearchWidgetStore
+    }
     const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
       expect(store).toEqual(expected)
     })

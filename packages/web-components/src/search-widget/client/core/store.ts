@@ -7,7 +7,7 @@ export interface SearchWidgetStore {
   initializers: SearchWidgeInitializers
   themeClasses: ThemeClasses
   properties: PickedPropertyModel[]
-  propertyImages: Record<string, PickedPropertyImageModel> | null
+  propertyImagesByPropertyId: Record<string, PickedPropertyImageModel[]> | null
   selectedProperty: PickedPropertyModel | null
   selectedMarker: google.maps.Marker | null
   searchType: 'Sale' | 'Rent'
@@ -41,7 +41,7 @@ const searchWidgetStore: Writable<SearchWidgetStore> = writable({
     paginationActive: '',
   },
   properties: [],
-  propertyImages: {},
+  propertyImagesByPropertyId: {},
   selectedProperty: null,
   selectedMarker: null,
   searchType: 'Sale',
