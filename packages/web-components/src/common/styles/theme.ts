@@ -123,10 +123,6 @@ export const generateThemeClasses = (
           background: ${primaryAccentColor || 'grey'};
           color: ${baseBackgroundColor || '#fff'};
         }
-
-        &:last-child {
-          border-left: none;
-        }
       }
     `,
     input: css`

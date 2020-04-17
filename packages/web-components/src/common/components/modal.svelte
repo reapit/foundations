@@ -18,21 +18,22 @@
     background: #00000052;
     z-index: 1;
   }
-  @media only screen and (min-width: 48em) {
+  @media only screen and (min-width: 48rem) {
     .reapit-modal-wrapper .reapit-modal {
-      top: 50% !important;
-      left: 50% !important;
-      width: auto !important;
-      height: auto !important;
+      top: 50%;
+      left: 50%;
+      width: auto;
+      height: auto;
       transform: translate(-50%, -50%);
-      border-radius: 4px;
+      border-radius: 0.25em;
       overflow: hidden;
       max-width: 80%;
+      position: fixed;
     }
   }
 
-  .reapit-modal-wrapper .reapit-modal {
-    position: absolute;
+  .reapit-modal {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -50,7 +51,7 @@
     margin: 0;
     text-align: center;
     font-size: 1em;
-    padding: 1em 50px;
+    padding: 1em 3em;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

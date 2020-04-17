@@ -173,10 +173,6 @@ exports[`viewing-booking it matches a snapshot 1`] = `
   color: #f9fbfd;
 }
 
-#appointment-bookings-viewing .emotion-4:last-child {
-  border-left: none;
-}
-
 #appointment-bookings-viewing .emotion-3 {
   font-family: "Roboto",sans-serif;
   font-size: 20px;
@@ -190,28 +186,28 @@ exports[`viewing-booking it matches a snapshot 1`] = `
 <body>
   <div>
     <button
-      class="viewing_booking-btn svelte-19gr3cp"
+      class="viewing_booking-btn svelte-18bjhk"
     >
       Book a viewing
     </button>
      
     <div
-      class="reapit-modal-wrapper svelte-1sav4va"
+      class="reapit-modal-wrapper svelte-dwjkb3"
     >
       <div>
         <div
-          class="reapit-modal svelte-1sav4va"
+          class="reapit-modal svelte-dwjkb3"
         >
           <div
-            class="modal-close svelte-1sav4va"
+            class="modal-close svelte-dwjkb3"
           >
             <i
-              class="modal-close-btn svelte-1sav4va"
+              class="modal-close-btn svelte-dwjkb3"
             />
           </div>
            
           <h3
-            class="modal-title svelte-1sav4va"
+            class="modal-title svelte-dwjkb3"
             title="Book a Viewing"
           >
             Book a Viewing
@@ -221,18 +217,18 @@ exports[`viewing-booking it matches a snapshot 1`] = `
             class="modal-content"
           >
             <form
-              class="emotion-5 emotion-6 svelte-19gr3cp"
+              class="emotion-5 emotion-6 svelte-18bjhk"
             >
               <div
-                class="property-image emotion-0 svelte-19gr3cp"
+                class="property-image emotion-0 svelte-18bjhk"
               >
                 <h4
-                  class="svelte-19gr3cp"
+                  class="svelte-18bjhk"
                 >
                   
                    
                   <strong
-                    class="svelte-19gr3cp"
+                    class="svelte-18bjhk"
                   >
                     
                   </strong>
@@ -240,23 +236,23 @@ exports[`viewing-booking it matches a snapshot 1`] = `
               </div>
                
               <div
-                class="viewing-booking-email-form svelte-19gr3cp"
+                class="viewing-booking-email-form svelte-18bjhk"
               >
                 <p
-                  class="emotion-1 svelte-19gr3cp"
+                  class="emotion-1 svelte-18bjhk"
                 >
                   To book a viewing, please enter your e-mail below.
                 </p>
                  
                 <label
-                  class="emotion-2 svelte-19gr3cp"
+                  class="emotion-2 svelte-18bjhk"
                   for="viewing-booking-email"
                 >
                   E-mail*
                 </label>
                  
                 <input
-                  class="emotion-3 svelte-19gr3cp"
+                  class="emotion-3 svelte-18bjhk"
                   id="viewing-booking-email"
                   placeholder="Your e-mail address"
                   type="email"
@@ -265,10 +261,10 @@ exports[`viewing-booking it matches a snapshot 1`] = `
               </div>
                
               <div
-                class="viewing-booking-form-submit svelte-19gr3cp"
+                class="viewing-booking-form-submit svelte-18bjhk"
               >
                 <button
-                  class="emotion-4 svelte-19gr3cp"
+                  class="emotion-4 svelte-18bjhk"
                   type="submit"
                 >
                   Get Appointments

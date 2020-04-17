@@ -159,10 +159,6 @@ exports[`search-widget it matches a snapshot 1`] = `
   color: #fff;
 }
 
-#search-widget .emotion-1:last-child {
-  border-left: none;
-}
-
 #search-widget .emotion-0 {
   font-family: Helvetica,Arial,sans-serif;
   font-size: 18px;

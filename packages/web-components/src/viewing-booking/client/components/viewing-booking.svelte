@@ -90,7 +90,6 @@
   .viewing-booking-email-form p {
     padding: 0.5em 0;
     line-height: 1em;
-    margin-bottom: 0.5em !important;
   }
   .viewing-booking-email-form label {
     float: left;
@@ -101,7 +100,7 @@
     width: 70%;
     float: right;
     height: 2em;
-    border-radius: 3px;
+    border-radius: 0.25em;
     outline: none;
     padding: 0 0.5em;
   }
@@ -133,9 +132,8 @@
   .viewing-booking-form-submit button {
     width: 100%;
     padding: 0.3em;
-    border-radius: 3px;
+    border-radius: 0.25em;
     cursor: pointer;
-    border: 1px solid !important;
   }
 
   .invaild-email {

@@ -4,22 +4,22 @@ exports[`Carousel should match snapshot 1`] = `
 <body>
   <div>
     <div
-      class="reapit-modal-wrapper svelte-1sav4va"
+      class="reapit-modal-wrapper svelte-dwjkb3"
     >
       <div>
         <div
-          class="reapit-modal svelte-1sav4va"
+          class="reapit-modal svelte-dwjkb3"
         >
           <div
-            class="modal-close svelte-1sav4va"
+            class="modal-close svelte-dwjkb3"
           >
             <i
-              class="modal-close-btn svelte-1sav4va"
+              class="modal-close-btn svelte-dwjkb3"
             />
           </div>
            
           <h3
-            class="modal-title svelte-1sav4va"
+            class="modal-title svelte-dwjkb3"
             title="Modal Title"
           >
             Modal Title
