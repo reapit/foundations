@@ -12,9 +12,11 @@ import {
 
 const CypressEnv = Cypress.env()
 
-async function login(params: LoginParams): LoginSession {
-  const loginSession = await setUserSession(params, COOKIE_SESSION_KEY_MARKETPLACE)
-  return loginSession
+function login(params: LoginParams): LoginSession {
+  return new Cypress.Promise(async resolve => {
+    const loginSession = await setUserSession(params, COOKIE_SESSION_KEY_MARKETPLACE)
+    resolve(loginSession)
+  })
 }
 
 const loginFlow = ({ userName, password, loginType, loginRoute, beforeLogin }) => {
