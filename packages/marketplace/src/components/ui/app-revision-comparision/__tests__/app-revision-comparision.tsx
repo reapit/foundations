@@ -11,6 +11,7 @@ import {
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { revisionDetailDataStub } from '@/sagas/__stubs__/revision-detail'
 import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
+import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
 
 const props = (loading: boolean, error: boolean): AppRevisionComparisionProps => ({
   appDetailState: {
@@ -26,7 +27,11 @@ const props = (loading: boolean, error: boolean): AppRevisionComparisionProps =>
   revisionDetailState: {
     loading,
     error,
-    revisionDetailData: { data: revisionDetailDataStub.data, scopes: appPermissionStub },
+    revisionDetailData: {
+      data: revisionDetailDataStub.data,
+      scopes: appPermissionStub,
+      desktopIntegrationTypes: integrationTypesStub,
+    },
     approveFormState: 'PENDING',
     declineFormState: 'PENDING',
   },
