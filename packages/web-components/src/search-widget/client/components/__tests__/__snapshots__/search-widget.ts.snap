@@ -152,7 +152,6 @@ exports[`search-widget it matches a snapshot 1`] = `
   color: #000;
   border: 1px solid grey;
   background: #fff;
-  color: #fff;
 }
 
 .emotion-1:last-child {

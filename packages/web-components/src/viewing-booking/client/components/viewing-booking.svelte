@@ -24,7 +24,6 @@
   let correctEmail = true
 
   const themeClasses = generateThemeClasses(theme, parentSelector)
-  const { globalStyles } = themeClasses
 
   function handleToggleModal() {
     isModalOpen = !isModalOpen
@@ -59,7 +58,6 @@
   onMount(async () => {
     isLoading = true
     const propertyData = await getProperty()
-
     viewBookingStore.update(values => ({
       ...values,
       initializers: {
@@ -82,7 +80,7 @@
     font-size: 1em;
   }
   .viewing-booking-email-form {
-    padding: 0.5em 1em;
+    padding: 0.5em;
   }
   .viewing-booking-email-form::after {
     content: '';
@@ -92,6 +90,7 @@
   .viewing-booking-email-form p {
     padding: 0.5em 0;
     line-height: 1em;
+    margin-bottom: 0.5em !important;
   }
   .viewing-booking-email-form label {
     float: left;
@@ -103,10 +102,8 @@
     float: right;
     height: 2em;
     border-radius: 3px;
-    border: 1px solid #ddd;
     outline: none;
     padding: 0 0.5em;
-    font-size: 1em;
   }
   .property-image {
     background-size: cover;
@@ -119,10 +116,10 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    color: #ffffff;
     padding: 0.5em;
     box-sizing: border-box;
     font-size: 1.1em;
+    background: linear-gradient(transparent, #c8c8c8);
   }
   .property-image h4 strong {
     float: right;
@@ -130,28 +127,21 @@
   }
   .viewing-booking-form-submit {
     width: 100%;
-    padding: 0.25em 1em 1em;
+    padding: 0.5em 0.5em 1em;
     box-sizing: border-box;
   }
   .viewing-booking-form-submit button {
     width: 100%;
     padding: 0.3em;
     border-radius: 3px;
-    background: #f2f2f2;
-    border: 1px solid #ddd;
-    font-size: inherit;
-    outline: none;
-  }
-  .viewing-booking-form-submit button:hover {
     cursor: pointer;
-    background: #00a7e3;
-    color: #ffffff;
-    border: 1px solid #00a7e3;
   }
+
   .invaild-email {
     float: right;
     color: #d8000c;
     font-size: 0.8em;
+    padding: 0.5em;
   }
 </style>
 
@@ -161,7 +151,7 @@
   closeModal={handleToggleModal}
   {isLoading}
   title="Book a Viewing"
-  className="{globalStyles}
+  className="{themeClasses.globalStyles}
   {resetCSS}">
 
   <form on:submit|preventDefault={submitForm}>
@@ -172,15 +162,20 @@
       </h4>
     </div>
     <div class="viewing-booking-email-form">
-      <p>To book a viewing, please enter your e-mail below.</p>
-      <label for="viewing-booking-email">E-mail*</label>
-      <input type="email" id="viewing-booking-email" on:input={handleInput} placeholder="Your e-mail address" />
+      <p class={themeClasses.bodyText}>To book a viewing, please enter your e-mail below.</p>
+      <label class={themeClasses.secondaryStrapline} for="viewing-booking-email">E-mail*</label>
+      <input
+        class={themeClasses.input}
+        type="email"
+        id="viewing-booking-email"
+        on:input={handleInput}
+        placeholder="Your e-mail address" />
       {#if !correctEmail}
-        <p class="invaild-email">Please enter a valid e-mail address</p>
+        <span class="invaild-email {themeClasses.errorText}">Please enter a valid e-mail address</span>
       {/if}
     </div>
     <div class="viewing-booking-form-submit">
-      <button type="submit">Get Appointments</button>
+      <button class={themeClasses.button} type="submit">Get Appointments</button>
     </div>
   </form>
 </ViewingBookingModal>

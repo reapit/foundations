@@ -142,7 +142,7 @@ exports[`viewing-booking it matches a snapshot 1`] = `
 <body>
   <div>
     <button
-      class="viewing_booking-btn svelte-jadfmp"
+      class="viewing_booking-btn svelte-1nnyg4w"
     >
       Book a viewing
     </button>
