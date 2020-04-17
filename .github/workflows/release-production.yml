@@ -15,6 +15,7 @@ env:
   REAPIT_ENV: PROD
   CI: true
   GH_PAT: ${{secrets.GH_PAT}}
+  SLS_DEBUG: *
 
 jobs:
   release_production:
