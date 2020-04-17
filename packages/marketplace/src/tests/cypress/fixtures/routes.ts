@@ -5,7 +5,7 @@ export default {
   scopes: `${apiEndPoint}/scopes`,
   appsOfDeveloper: `${apiEndPoint}/apps?developerId=**&PageNumber=**&PageSize=**`,
   apps: `${apiEndPoint}/apps`,
-  clientApps: `${apiEndPoint}/apps?clientId=**&PageNumber=**&PageSize=**&IsFeatured=true`,
+  clientApps: `${apiEndPoint}/apps?clientId=**&PageNumber=**&PageSize=**`,
   developerApps: `${apiEndPoint}/apps?developerId=**`,
   approvals: `${apiEndPoint}/approvals**`,
   appDetail: `${apiEndPoint}/apps/**?clientId=**`,
