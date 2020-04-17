@@ -146,13 +146,15 @@ export const AppRevisionComparision: React.FC<AppRevisionComparisionProps> = ({
             revision.desktopIntegrationTypeIds,
             desktopIntegrationTypes.data,
           )
+          const sortedOldArray = [...oldIntegrationTypeArray].sort()
+          const sortedNewArray = [...newIntegrationTypeArray].sort()
           return (
             <div className="mb-3" key={key}>
               <h4 className="mb-2">{diffStringList[key]}</h4>
               <DiffViewer
-                currentString={oldIntegrationTypeArray.join(', ')}
-                changedString={newIntegrationTypeArray.join(', ')}
-                type="lines"
+                currentString={sortedOldArray.join(', ')}
+                changedString={sortedNewArray.join(', ')}
+                type="wordsWithSpace"
               />
             </div>
           )

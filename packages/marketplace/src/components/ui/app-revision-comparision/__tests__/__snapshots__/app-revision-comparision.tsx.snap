@@ -198,7 +198,7 @@ Get
     <DiffViewer
       changedString=""
       currentString=""
-      type="lines"
+      type="wordsWithSpace"
     />
   </div>
   <div
