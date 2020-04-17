@@ -90,7 +90,7 @@ describe('Install app happy path', () => {
     cy.wait('@getManageApps')
 
     clickAppCardSettingWithId(appId)
-
+    cy.wait(1000)
     cy.get(buttonUninstallApp).click()
     cy.get(buttonAgree).click()
 

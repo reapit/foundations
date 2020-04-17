@@ -102,7 +102,7 @@ exports[`AdminRevisionModalInner should match a snapshot 1`] = `
       Summary
     </h4>
     <DiffViewer
-      changedString="Shop millions of products, never miss amazing deals, compare prices and reviews 
+      changedString="Shop millions of products, never miss amazing deals, compare prices and reviews
       and track your orders easily with the Amazon Shopping App!"
       currentString="vitae elementum curabitur vitae nunc sed velit eget gravida cum sociis natoque!!"
       type="words"
@@ -118,19 +118,19 @@ exports[`AdminRevisionModalInner should match a snapshot 1`] = `
       Description
     </h4>
     <DiffViewer
-      changedString="Download the app now and start shopping our selection of fashion, books, toys, home 
+      changedString="Download the app now and start shopping our selection of fashion, books, toys, home
       appliances, sport accessories and much more.
 
 -Easy
-Compare prices and check 
+Compare prices and check
       availability instantly by using your voice, scanning a 
-Once you complete your order, 
+Once you complete your order,
       track it easily and get notifications about your shipment.
 
 - Convenient
-Never 
+Never
       miss a deal or a discount with easy access to Lighting Deals and Deal of the Day.
-Get 
+Get
       notifications when a new deal is available."
       currentString="enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam 
     pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras 
@@ -184,6 +184,21 @@ Get
       changedString=""
       currentString=""
       type="words"
+    />
+  </div>
+  <div
+    className="mb-3"
+    key="desktopIntegrationTypeIds"
+  >
+    <h4
+      className="mb-2"
+    >
+      Integration Type
+    </h4>
+    <DiffViewer
+      changedString=""
+      currentString=""
+      type="wordsWithSpace"
     />
   </div>
   <div
