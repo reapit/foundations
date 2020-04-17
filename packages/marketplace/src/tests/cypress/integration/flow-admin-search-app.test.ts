@@ -8,11 +8,10 @@ const {
   apiGetAppList,
 } = adminAppPage
 
-before(() => {
-  loginAdminHook()
-})
-
 describe('Search app happy path', () => {
+  beforeEach(() => {
+    loginAdminHook()
+  })
   it('should have at least 1 app with correct data', () => {
     cy.server()
     cy.route(apiGetAppList).as('getAppList')
@@ -40,6 +39,7 @@ describe('Search app happy path', () => {
   })
 
   it('should show all apps when click refresh', () => {
+    cy.visit(url)
     cy.server()
     cy.route(apiGetAppList).as('getAppList')
     cy.get(buttonRefresh)
@@ -50,6 +50,7 @@ describe('Search app happy path', () => {
   })
 
   it('should not find any data with stub empty app list', () => {
+    cy.visit(url)
     cy.server()
     cy.route({
       method: 'GET',
