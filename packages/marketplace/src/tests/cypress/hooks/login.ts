@@ -55,8 +55,8 @@ const loginFlow = ({ userName, password, loginType, loginRoute, beforeLogin }) =
     cy.window()
       .its('store')
       .invoke('dispatch', authLoginSuccess(loginSession))
+    cy.wait(5000)
   })
-  cy.wait(5000)
 }
 
 export const loginAdminHook = () => {
