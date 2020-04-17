@@ -121,7 +121,7 @@
     "core-js": "^3.6.4",
     "cross-env": "^6.0.3",
     "css-loader": "^3.0.0",
-    "cypress": "^3.8.0",
+    "cypress": "4.4.0",
     "cypress-file-upload": "^3.5.1",
     "cypress-plugin-retries": "^1.5.2",
     "dotenv": "^8.2.0",
