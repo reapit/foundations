@@ -119,7 +119,7 @@
     display: flex;
     color: white;
 
-    margin-top: -40px;
+    margin-top: -2.5em;
     margin-bottom: 15px;
     z-index: 0;
     position: relative;
