@@ -29,6 +29,7 @@ const loginFlow = ({ userName, password, loginType, loginRoute, beforeLogin }) =
     mode: 'WEB',
     userPoolId: cognitoUserPoolId,
   }
+  cy.server()
   cy.visit(loginRoute)
   if (typeof beforeLogin === 'function') {
     beforeLogin()
