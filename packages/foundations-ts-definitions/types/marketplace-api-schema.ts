@@ -898,6 +898,19 @@ export interface PagedResultCategoryModel_ {
 /**
  * Model to handle paged data and information
  */
+export interface PagedResultDesktopIntegrationTypeModel_ {
+  /**
+   * List of paged data
+   */
+  data?: DesktopIntegrationTypeModel[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+}
+/**
+ * Model to handle paged data and information
+ */
 export interface PagedResultDeveloperModel_ {
   /**
    * List of paged data
