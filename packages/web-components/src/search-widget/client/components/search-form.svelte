@@ -2,7 +2,7 @@
   import { slide } from 'svelte/transition'
   import { cubicInOut } from 'svelte/easing'
   import Fa from 'svelte-fa'
-  import { faBed, faToilet, faSearch } from '@fortawesome/free-solid-svg-icons'
+  import { faSearch } from '@fortawesome/free-solid-svg-icons'
   import { getProperties } from '../api/properties'
   import { getPropertyImages } from '../api/property-images'
   import searchWidgetStore from '../core/store'
@@ -147,26 +147,18 @@
     cursor: pointer;
   }
 
-  .filter-form {
-    margin: 1em auto;
-  }
-
   @media screen and (min-width: 560px) {
-    .filter-form {
-      width: 80% !important;
-    }
-
     .filter-form-container {
       display: flex;
-      margin-left: -8px;
-      margin-right: -8px;
+      margin-left: -0.5rem;
+      margin-right: -0.5rem;
     }
 
     .filter-form-column {
       flex: 1;
       margin-top: 0;
-      padding-left: 8px;
-      padding-right: 8px;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
     }
   }
 
@@ -175,7 +167,7 @@
   }
 
   .filter-form-input-container:not(:first-child) {
-    margin-top: 16px;
+    margin-top: 1rem;
   }
 
   .filter-form-input-container legend,
@@ -185,7 +177,7 @@
   }
 
   .filter-form-input-container-body {
-    margin-top: 8px;
+    margin-top: 0.5rem;
   }
 
   .filter-form-input-container-body > select {
@@ -201,11 +193,11 @@
     width: 46%;
   }
   .filter-form-column {
-    margin-top: 16px;
+    margin-top: 1rem;
   }
 
   .filter-value {
-    margin-top: 16px;
+    margin-top: 1rem;
   }
 </style>
 
@@ -323,6 +315,11 @@
     </div>
   {/if}
   <div class="filter-value {$searchWidgetStore.themeClasses.primaryStrapline}">
-    {`Properties ${showSearchTypeFilter(searchType)} in ${searchKeyword}, ${showBedRange(minBedroom, maxBedroom)}, Price range ${currencyFormatter.format(minPrice)} – ${currencyFormatter.format(maxPrice)}, ${showSearchPropertyType(propertyType)}, ${showOrderResultsBy(orderPrice)}, ${showAddedIn(addedIn)}`},
+    {`Properties ${showSearchTypeFilter(searchType)} in ${searchKeyword}, 
+    ${showBedRange(minBedroom, maxBedroom)}, 
+    Price range ${currencyFormatter.format(minPrice)} – ${currencyFormatter.format(maxPrice)}, 
+    ${showSearchPropertyType(propertyType)}, 
+    ${showOrderResultsBy(orderPrice)}, 
+    ${showAddedIn(addedIn)}`},
   </div>
 </form>

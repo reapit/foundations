@@ -6,7 +6,7 @@ import { getClientHeaders } from '../../../../common/utils/get-client-headers'
 jest.mock('../../../../common/utils/fetcher-client')
 
 describe('properties client API', () => {
-  it('should correctly return a URL query for a rental', () => {
+  it('should correctly return a URL query for a rental case 1', () => {
     process.env.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET = 'http://localhost:3000'
     const params: GetPropertiesType = {
       apiKey: 'apiKey',
@@ -25,7 +25,20 @@ describe('properties client API', () => {
     expect(getUrlQuery(params)).toEqual(expected)
   })
 
-  it('should correctly return a URL query for sales', () => {
+  it('should correctly return a URL query for a rental case 2', () => {
+    process.env.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET = 'http://localhost:3000'
+    const params: GetPropertiesType = {
+      apiKey: 'apiKey',
+      keywords: 'london',
+      pageNumber: 1,
+      isRental: true,
+    }
+    const expected =
+      'http://localhost:3000/properties?SellingStatuses=forSale%2CunderOffer&InternetAdvertising=true&PageSize=8&pageNumber=1&Address=london&marketingMode=letting%2CsellingAndLetting&sortBy=&propertyType='
+    expect(getUrlQuery(params)).toEqual(expected)
+  })
+
+  it('should correctly return a URL query for sales case 1', () => {
     process.env.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET = 'http://localhost:3000'
     const params: GetPropertiesType = {
       apiKey: 'apiKey',
@@ -41,6 +54,19 @@ describe('properties client API', () => {
     }
     const expected =
       'http://localhost:3000/properties?SellingStatuses=forSale%2CunderOffer&InternetAdvertising=true&PageSize=8&pageNumber=1&Address=london&marketingMode=selling%2CsellingAndLetting&bedroomsFrom=1&bedroomsTo=4&sortBy=price&priceFrom=10000&priceTo=200000&propertyType=house'
+    expect(getUrlQuery(params)).toEqual(expected)
+  })
+
+  it('should correctly return a URL query for sales case 2', () => {
+    process.env.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET = 'http://localhost:3000'
+    const params: GetPropertiesType = {
+      apiKey: 'apiKey',
+      keywords: 'london',
+      pageNumber: 1,
+      isRental: false,
+    }
+    const expected =
+      'http://localhost:3000/properties?SellingStatuses=forSale%2CunderOffer&InternetAdvertising=true&PageSize=8&pageNumber=1&Address=london&marketingMode=selling%2CsellingAndLetting&sortBy=&propertyType='
     expect(getUrlQuery(params)).toEqual(expected)
   })
 

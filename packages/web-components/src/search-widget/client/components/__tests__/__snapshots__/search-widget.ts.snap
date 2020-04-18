@@ -207,10 +207,10 @@ exports[`search-widget it matches a snapshot 1`] = `
     >
       <form>
         <div
-          class="search-form emotion-5 svelte-1p0t1uj"
+          class="search-form emotion-5 svelte-gq9n7i"
         >
           <input
-            class="emotion-0 search-form-input svelte-1p0t1uj"
+            class="emotion-0 search-form-input svelte-gq9n7i"
             data-testid="search-form-input"
             id="search"
             placeholder="Town or Postcode"
@@ -218,7 +218,7 @@ exports[`search-widget it matches a snapshot 1`] = `
           />
            
           <button
-            class="emotion-1 search-form-button svelte-1p0t1uj"
+            class="emotion-1 search-form-button svelte-gq9n7i"
             data-testid="btnSearch"
             type="button"
           >
@@ -226,10 +226,10 @@ exports[`search-widget it matches a snapshot 1`] = `
           </button>
            
           <div
-            class="search-form-control svelte-1p0t1uj"
+            class="search-form-control svelte-gq9n7i"
           >
             <label
-              class="emotion-2 search-form-control-radio svelte-1p0t1uj"
+              class="emotion-2 search-form-control-radio svelte-gq9n7i"
             >
               <input
                 data-testid="sales"
@@ -242,7 +242,7 @@ exports[`search-widget it matches a snapshot 1`] = `
             </label>
              
             <label
-              class="emotion-2 search-form-control-radio svelte-1p0t1uj"
+              class="emotion-2 search-form-control-radio svelte-gq9n7i"
             >
               <input
                 data-testid="lettings"
@@ -255,7 +255,7 @@ exports[`search-widget it matches a snapshot 1`] = `
             </label>
              
             <button
-              class="emotion-2 search-form-advanced-search svelte-1p0t1uj"
+              class="emotion-2 search-form-advanced-search svelte-gq9n7i"
               data-testid="btnAdvancedSearch"
               type="button"
             >
@@ -291,7 +291,7 @@ exports[`search-widget it matches a snapshot 1`] = `
          
          
         <div
-          class="filter-value emotion-6 svelte-1p0t1uj"
+          class="filter-value emotion-6 svelte-gq9n7i"
         >
           Properties For Sell in , No min - No max bed, Price range £0 – £0, Property type: All, Order results by: Price descending, Added In: Any time
           ,

@@ -5,10 +5,10 @@ exports[`search-form it matches a snapshot 1`] = `
   <div>
     <form>
       <div
-        class="search-form  svelte-1p0t1uj"
+        class="search-form  svelte-gq9n7i"
       >
         <input
-          class=" search-form-input svelte-1p0t1uj"
+          class=" search-form-input svelte-gq9n7i"
           data-testid="search-form-input"
           id="search"
           placeholder="Town or Postcode"
@@ -16,7 +16,7 @@ exports[`search-form it matches a snapshot 1`] = `
         />
          
         <button
-          class=" search-form-button svelte-1p0t1uj"
+          class=" search-form-button svelte-gq9n7i"
           data-testid="btnSearch"
           type="button"
         >
@@ -24,10 +24,10 @@ exports[`search-form it matches a snapshot 1`] = `
         </button>
          
         <div
-          class="search-form-control svelte-1p0t1uj"
+          class="search-form-control svelte-gq9n7i"
         >
           <label
-            class=" search-form-control-radio svelte-1p0t1uj"
+            class=" search-form-control-radio svelte-gq9n7i"
           >
             <input
               data-testid="sales"
@@ -40,7 +40,7 @@ exports[`search-form it matches a snapshot 1`] = `
           </label>
            
           <label
-            class=" search-form-control-radio svelte-1p0t1uj"
+            class=" search-form-control-radio svelte-gq9n7i"
           >
             <input
               data-testid="lettings"
@@ -53,7 +53,7 @@ exports[`search-form it matches a snapshot 1`] = `
           </label>
            
           <button
-            class=" search-form-advanced-search svelte-1p0t1uj"
+            class=" search-form-advanced-search svelte-gq9n7i"
             data-testid="btnAdvancedSearch"
             type="button"
           >
@@ -89,7 +89,7 @@ exports[`search-form it matches a snapshot 1`] = `
        
        
       <div
-        class="filter-value  svelte-1p0t1uj"
+        class="filter-value  svelte-gq9n7i"
       >
         Properties For Sell in , No min - No max bed, Price range £0 – £0, Property type: All, Order results by: Price descending, Added In: Any time
         ,
