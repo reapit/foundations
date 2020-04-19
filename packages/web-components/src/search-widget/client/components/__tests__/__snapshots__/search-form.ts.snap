@@ -91,7 +91,12 @@ exports[`search-form it matches a snapshot 1`] = `
       <div
         class="filter-value  svelte-gq9n7i"
       >
-        Properties For Sell in , No min - No max bed, Price range £0 – £0, Property type: All, Order results by: Price descending, Added In: Any time
+        Properties For Sell in , 
+    No min - No max bed, 
+    Price range £0 – £0, 
+    Property type: All, 
+    Order results by: Price descending, 
+    Added In: Any time
         ,
       </div>
     </form>
