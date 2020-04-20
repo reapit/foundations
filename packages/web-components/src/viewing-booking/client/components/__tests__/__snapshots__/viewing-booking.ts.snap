@@ -1,0 +1,281 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`viewing-booking it matches a snapshot 1`] = `
+.emotion-6 html,
+.emotion-6 body,
+.emotion-6 div,
+.emotion-6 span,
+.emotion-6 applet,
+.emotion-6 object,
+.emotion-6 iframe,
+.emotion-6 h1,
+.emotion-6 h2,
+.emotion-6 h3,
+.emotion-6 h4,
+.emotion-6 h5,
+.emotion-6 h6,
+.emotion-6 p,
+.emotion-6 blockquote,
+.emotion-6 pre,
+.emotion-6 a,
+.emotion-6 abbr,
+.emotion-6 acronym,
+.emotion-6 address,
+.emotion-6 big,
+.emotion-6 cite,
+.emotion-6 code,
+.emotion-6 del,
+.emotion-6 dfn,
+.emotion-6 em,
+.emotion-6 img,
+.emotion-6 ins,
+.emotion-6 kbd,
+.emotion-6 q,
+.emotion-6 s,
+.emotion-6 samp,
+.emotion-6 small,
+.emotion-6 strike,
+.emotion-6 strong,
+.emotion-6 sub,
+.emotion-6 sup,
+.emotion-6 tt,
+.emotion-6 var,
+.emotion-6 b,
+.emotion-6 u,
+.emotion-6 i,
+.emotion-6 center,
+.emotion-6 dl,
+.emotion-6 dt,
+.emotion-6 dd,
+.emotion-6 menu,
+.emotion-6 ol,
+.emotion-6 ul,
+.emotion-6 li,
+.emotion-6 fieldset,
+.emotion-6 form,
+.emotion-6 label,
+.emotion-6 legend,
+.emotion-6 table,
+.emotion-6 caption,
+.emotion-6 tbody,
+.emotion-6 tfoot,
+.emotion-6 thead,
+.emotion-6 tr,
+.emotion-6 th,
+.emotion-6 td,
+.emotion-6 article,
+.emotion-6 aside,
+.emotion-6 canvas,
+.emotion-6 details,
+.emotion-6 embed,
+.emotion-6 figure,
+.emotion-6 figcaption,
+.emotion-6 footer,
+.emotion-6 header,
+.emotion-6 hgroup,
+.emotion-6 main,
+.emotion-6 menu,
+.emotion-6 nav,
+.emotion-6 output,
+.emotion-6 ruby,
+.emotion-6 section,
+.emotion-6 summary,
+.emotion-6 time,
+.emotion-6 mark,
+.emotion-6 audio,
+.emotion-6 video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+.emotion-6 article,
+.emotion-6 aside,
+.emotion-6 details,
+.emotion-6 figcaption,
+.emotion-6 figure,
+.emotion-6 footer,
+.emotion-6 header,
+.emotion-6 hgroup,
+.emotion-6 main,
+.emotion-6 menu,
+.emotion-6 nav,
+.emotion-6 section {
+  display: block;
+}
+
+.emotion-6 *[hidden] {
+  display: none;
+}
+
+.emotion-6 body {
+  line-height: 1;
+}
+
+.emotion-6 menu,
+.emotion-6 ol,
+.emotion-6 ul {
+  list-style: none;
+}
+
+.emotion-6 blockquote,
+.emotion-6 q {
+  quotes: none;
+}
+
+.emotion-6 blockquote:before,
+.emotion-6 blockquote:after,
+.emotion-6 q:before,
+.emotion-6 q:after {
+  content: '';
+  content: none;
+}
+
+.emotion-6 table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.emotion-5 {
+  font-size: 14px;
+  font-family: "Roboto",sans-serif;
+  background: #f9fbfd;
+  color: #12263f;
+}
+
+#appointment-bookings-viewing .emotion-2 {
+  font-family: "Open Sans",sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #1e2554;
+  margin-bottom: 0.5em;
+}
+
+#appointment-bookings-viewing .emotion-1 {
+  font-size: 14px;
+  font-family: "Roboto",sans-serif;
+  margin-bottom: 1em;
+}
+
+#appointment-bookings-viewing .emotion-4 {
+  font-family: "Roboto",sans-serif;
+  font-size: 20px;
+  color: #0061a8;
+  border: 1px solid #0061a8;
+  background: #f9fbfd;
+}
+
+#appointment-bookings-viewing .emotion-4:hover {
+  background: #0061a8;
+  color: #f9fbfd;
+}
+
+#appointment-bookings-viewing .emotion-3 {
+  font-family: "Roboto",sans-serif;
+  font-size: 20px;
+  border: 1px solid #0061a8;
+}
+
+.emotion-0 {
+  background: url();
+}
+
+<body>
+  <div>
+    <button
+      class="viewing_booking-btn svelte-18bjhk"
+    >
+      Book a viewing
+    </button>
+     
+    <div
+      class="reapit-modal-wrapper svelte-dwjkb3"
+    >
+      <div>
+        <div
+          class="reapit-modal svelte-dwjkb3"
+        >
+          <div
+            class="modal-close svelte-dwjkb3"
+          >
+            <i
+              class="modal-close-btn svelte-dwjkb3"
+            />
+          </div>
+           
+          <h3
+            class="modal-title svelte-dwjkb3"
+            title="Book a Viewing"
+          >
+            Book a Viewing
+          </h3>
+           
+          <div
+            class="modal-content"
+          >
+            <form
+              class="emotion-5 emotion-6 svelte-18bjhk"
+            >
+              <div
+                class="property-image emotion-0 svelte-18bjhk"
+              >
+                <h4
+                  class="svelte-18bjhk"
+                >
+                  
+                   
+                  <strong
+                    class="svelte-18bjhk"
+                  >
+                    
+                  </strong>
+                </h4>
+              </div>
+               
+              <div
+                class="viewing-booking-email-form svelte-18bjhk"
+              >
+                <p
+                  class="emotion-1 svelte-18bjhk"
+                >
+                  To book a viewing, please enter your e-mail below.
+                </p>
+                 
+                <label
+                  class="emotion-2 svelte-18bjhk"
+                  for="viewing-booking-email"
+                >
+                  E-mail*
+                </label>
+                 
+                <input
+                  class="emotion-3 svelte-18bjhk"
+                  id="viewing-booking-email"
+                  placeholder="Your e-mail address"
+                  type="email"
+                />
+                 
+              </div>
+               
+              <div
+                class="viewing-booking-form-submit svelte-18bjhk"
+              >
+                <button
+                  class="emotion-4 svelte-18bjhk"
+                  type="submit"
+                >
+                  Get Appointments
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</body>
+`;
