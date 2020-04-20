@@ -8,6 +8,7 @@ export const URLS = {
   identityChecks: '/identityChecks',
   negotiators: '/negotiators',
   properties: '/properties',
+  propertyTypes: '/configuration/appointmentTypes',
 }
 
 export const HEADERS = {

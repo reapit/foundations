@@ -184,6 +184,7 @@ type Query {
     internetAdvertising: Boolean
   ): PagedResultPropertyModel!
   GetPropertyById(id: String!, embed: [String!]): PropertyModel!
+  GetPropertyTypes: [ListItemModel]
 }
 
 type Mutation {
@@ -801,6 +802,9 @@ type PropertyRoomModel {
   name: String
   dimensions: String
   description: String
+type ListItemModel {
+  id: String
+  value: String
 }
 
 schema {

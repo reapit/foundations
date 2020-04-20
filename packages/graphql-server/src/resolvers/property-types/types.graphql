@@ -1,0 +1,8 @@
+type ListItemModel {
+  id: String
+  value: String
+}
+
+type Query {
+  GetPropertyTypes: [ListItemModel]
+}

@@ -6,6 +6,7 @@ import Offices from './offices/resolvers'
 import Appointments from './appointments/resolvers'
 import Negotiators from './negotiators/resolvers'
 import Properties from './properties/resolvers'
+import PropertyTypes from './property-types/resolver'
 
 export const resolvers = merge(
   {
@@ -17,5 +18,6 @@ export const resolvers = merge(
   Appointments,
   Negotiators,
   Properties,
+  PropertyTypes,
 )
 export default resolvers
