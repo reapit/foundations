@@ -87,7 +87,7 @@ exports[`appointment bookings it matches a snapshot 1`] = `
           <div
             class=" svelte-hlfy7d"
           >
-            Mon Apr 13
+            Mon Apr 20
           </div>
            
           <div
@@ -104,7 +104,7 @@ exports[`appointment bookings it matches a snapshot 1`] = `
           <div
             class=" svelte-hlfy7d"
           >
-            Tue Apr 14
+            Tue Apr 21
           </div>
            
           <div
@@ -121,7 +121,7 @@ exports[`appointment bookings it matches a snapshot 1`] = `
           <div
             class=" svelte-hlfy7d"
           >
-            Wed Apr 15
+            Wed Apr 22
           </div>
            
           <div
@@ -138,7 +138,7 @@ exports[`appointment bookings it matches a snapshot 1`] = `
           <div
             class=" svelte-hlfy7d"
           >
-            Thu Apr 16
+            Thu Apr 23
           </div>
            
           <div
@@ -155,7 +155,7 @@ exports[`appointment bookings it matches a snapshot 1`] = `
           <div
             class=" svelte-hlfy7d"
           >
-            Fri Apr 17
+            Fri Apr 24
           </div>
            
           <div
@@ -172,7 +172,7 @@ exports[`appointment bookings it matches a snapshot 1`] = `
           <div
             class=" svelte-hlfy7d"
           >
-            Sat Apr 18
+            Sat Apr 25
           </div>
            
           <div
@@ -189,7 +189,7 @@ exports[`appointment bookings it matches a snapshot 1`] = `
           <div
             class=" svelte-hlfy7d"
           >
-            Sun Apr 19
+            Sun Apr 26
           </div>
            
           <div
