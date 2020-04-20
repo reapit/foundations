@@ -1,0 +1,16 @@
+name: Clear cache
+on:
+  schedule:
+    - cron: '0 0 * * 6' # run every staturday
+
+jobs:
+  clear-cache:
+    runs-on: ubuntu-latest
+    steps:
+    - name: free disk space
+      run: |
+        sudo swapoff -a
+        sudo rm -f /swapfile
+        sudo apt clean
+        docker rmi $(docker image ls -aq)
+        df -h
