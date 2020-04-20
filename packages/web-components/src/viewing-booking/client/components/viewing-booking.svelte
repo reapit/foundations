@@ -3,7 +3,7 @@
   import { getProperty } from '../api/property'
   import { generateThemeClasses, resetCSS } from '../../../common/styles'
   import { onMount, onDestroy } from 'svelte'
-  import Modal from '../../../common/components/modal.svelte'
+  import Modal from './modal.svelte'
   import viewBookingStore from '../core/store'
   import { validateEmail } from '../../../common/utils/validate'
 
