@@ -13,8 +13,7 @@ export const propertiesMock: PagedResultPropertyModel_ = {
       },
       areaId: null,
       strapline: null,
-      description:
-        'We are so so delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.',
+      description: 'We are so so delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY.',
       summary: null,
       departmentId: 'G',
       negotiatorId: 'JAS',
@@ -41,8 +40,7 @@ export const propertiesMock: PagedResultPropertyModel_ = {
       },
       areaId: 'BRM',
       strapline: null,
-      description:
-        'We are so so delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.',
+      description: 'We are so so delighted to offer for sale this EXTENDED THREE BEDROO.',
       summary: null,
       departmentId: 'G',
       negotiatorId: 'JAS',
