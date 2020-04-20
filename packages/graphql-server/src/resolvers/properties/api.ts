@@ -61,13 +61,11 @@ export const callCreatePropertyAPI = async (args: CreatePropertyArgs, context: S
       },
     })
     const id = getIdFromCreateHeaders({ headers: response.headers })
-    logger.info('-------------id neeee', { traceId, id })
     if (id) {
       return callGetPropertyByIdAPI({ id }, context)
     }
     return null
   } catch (error) {
-    logger.info('-------------ERRRRRRRRRR', { traceId, error })
     return handleError({ error, traceId, caller: 'callCreatePropertyAPI' })
   }
 }
