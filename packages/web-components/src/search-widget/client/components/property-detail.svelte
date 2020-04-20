@@ -50,6 +50,7 @@
       apiKey: '',
       parentSelector: '#appointment-bookings-viewing',
       variant: 'VIEWING',
+      propertyId: id,
     })
   })
 

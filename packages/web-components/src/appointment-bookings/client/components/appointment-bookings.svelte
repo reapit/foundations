@@ -13,6 +13,8 @@
   // TODO - will need to import later
   // export let apiKey
   // export let variant
+  // export let propertyId
+
 
   let isModalOpen = false
   let currentStep = 1
