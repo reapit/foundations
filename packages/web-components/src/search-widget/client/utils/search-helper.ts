@@ -1,4 +1,5 @@
 import { currencyFormatter } from './results-helpers'
+import { PickedPagedResultPropertyModel_ } from '../../types'
 
 export const minNumOfBedrooms: { value: number; label: string }[] = [
   { value: 0, label: 'No min' },
@@ -75,7 +76,7 @@ export const getMaxPriceRange = (): PriceRange[] => {
   return maxPriceRange
 }
 
-export const showSearchTypeFilter = (type: 'Rent' | 'Sale'): string => {
+export const showSearchType = (type: 'Rent' | 'Sale'): string => {
   return type === 'Rent' ? 'To Rent' : 'For Sell'
 }
 
@@ -83,12 +84,16 @@ export const showBedRange = (minBed: number, maxBed: number): string => {
   return `${minBed === 0 ? 'No min' : minBed} - ${maxBed === 0 ? 'No max' : maxBed} bed`
 }
 
+export const showPriceRange = (minPrice: number, maxPrice: number): string => {
+  return `Price range ${currencyFormatter.format(minPrice)} – ${currencyFormatter.format(maxPrice)}`
+}
+
 export const showSearchPropertyType = (propertyType: string): string => {
   const property = propertyTypes.find((type: { value: string; label: string }) => type.value === propertyType)
   return `Property type: ${property?.label}`
 }
 
-export const showOrderResultsBy = (orderBy: string): string => {
+export const showOrderResultsBy = (orderBy: string = 'price'): string => {
   const orderByObject = orderByPrices.find((type: { value: string; label: string }) => type.value === orderBy)
   return `Order results by: ${orderByObject?.label}`
 }
@@ -96,4 +101,42 @@ export const showOrderResultsBy = (orderBy: string): string => {
 export const showAddedIn = (addedIn: string): string => {
   const addedInObject = addedInTimes.find((type: { value: string; label: string }) => type.value === addedIn)
   return `Added In: ${addedInObject?.label}`
+}
+
+export type GetResultMessageParams = {
+  properties: PickedPagedResultPropertyModel_
+  searchKeyword: string
+  searchType: 'Rent' | 'Sale'
+  minBeds?: number
+  maxBeds?: number
+  orderBy?: string
+  propertyType?: string
+  minPrice?: number
+  maxPrice?: number
+  addedIn?: string // ignore for now
+}
+
+export const getResultMessage = ({
+  properties,
+  searchKeyword,
+  searchType,
+  minBeds = 0,
+  maxBeds = 0,
+  minPrice = 0,
+  maxPrice = 0,
+  propertyType = '',
+  orderBy,
+  addedIn = '',
+}: GetResultMessageParams) => {
+  if (properties && properties._embedded && properties._embedded.length) {
+    const numberResults = properties.totalCount
+    const resultsMessage = `${numberResults} result${numberResults === 1 ? '' : 's'}${
+      searchKeyword.length ? ` for ${searchKeyword},` : ''
+    } ${showSearchType(searchType)}, ${showBedRange(minBeds, maxBeds)}, ${showPriceRange(
+      minPrice,
+      maxPrice,
+    )}, ${showSearchPropertyType(propertyType)}, ${showOrderResultsBy(orderBy)}, ${showAddedIn(addedIn)}.`
+    return resultsMessage
+  }
+  return ''
 }

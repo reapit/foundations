@@ -19,7 +19,6 @@
   const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
     selectedProperty = store.selectedProperty
     searchType = store.searchType
-    console.log(store)
 
     propertyImagesByPropertyId = store.propertyImagesByPropertyId
     themeClasses = store.themeClasses

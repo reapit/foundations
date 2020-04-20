@@ -6,7 +6,7 @@
   import { getProperties } from '../api/properties'
   import { getPropertyImages } from '../api/property-images'
   import searchWidgetStore from '../core/store'
-  import { calculateTotalPage, getResultMessage, currencyFormatter } from '../utils/results-helpers'
+  import { calculateTotalPage } from '../utils/results-helpers'
   import {
     minNumOfBedrooms,
     maxNumOfBedrooms,
@@ -15,11 +15,7 @@
     addedInTimes,
     getMinPriceRange,
     getMaxPriceRange,
-    showSearchTypeFilter,
-    showBedRange,
-    showSearchPropertyType,
-    showOrderResultsBy,
-    showAddedIn,
+    getResultMessage,
   } from '../utils/search-helper'
 
   let searchKeyword = ''
@@ -76,7 +72,18 @@
     showAdvancedSearch = false
 
     if (properties && properties._embedded.length) {
-      const resultsMessage = getResultMessage({ properties, searchKeyword, isRental })
+      const resultsMessage = getResultMessage({
+        properties,
+        searchKeyword,
+        searchType,
+        minBeds: minBedroom,
+        maxBeds: maxBedroom,
+        minPrice,
+        maxPrice,
+        orderBy: orderPrice,
+        propertyType,
+        addedIn,
+      })
       const totalPage = calculateTotalPage(properties.totalCount)
       searchWidgetStore.update(values => ({
         ...values,
@@ -195,10 +202,6 @@
   .filter-form-column {
     margin-top: 1rem;
   }
-
-  .filter-value {
-    margin-top: 1rem;
-  }
 </style>
 
 <form on:submit|preventDefault>
@@ -248,12 +251,18 @@
           <div class="filter-form-input-container-body filter-form-input-container-body-horizontal">
             <select bind:value={minBedroom} class={$searchWidgetStore.themeClasses.input}>
               {#each minNumOfBedrooms as numOfBedroom}
-                <option value={numOfBedroom.value}>{numOfBedroom.label}</option>
+                <option
+                  disabled={numOfBedroom.value != 0 && numOfBedroom.value >= maxBedroom && maxBedroom != 0}
+                  value={numOfBedroom.value}>
+                  {numOfBedroom.label}
+                </option>
               {/each}
             </select>
             <select bind:value={maxBedroom} class={$searchWidgetStore.themeClasses.input}>
               {#each maxNumOfBedrooms as numOfBedroom}
-                <option disabled={numOfBedroom.value <= minBedroom} value={numOfBedroom.value}>
+                <option
+                  disabled={numOfBedroom.value != 0 && numOfBedroom.value <= minBedroom && minBedroom != 0}
+                  value={numOfBedroom.value}>
                   {numOfBedroom.label}
                 </option>
               {/each}
@@ -301,12 +310,20 @@
           <div class="filter-form-input-container-body filter-form-input-container-body-horizontal">
             <select bind:value={minPrice} class={$searchWidgetStore.themeClasses.input}>
               {#each getMinPriceRange() as minPrice}
-                <option value={minPrice.value}>{minPrice.label}</option>
+                <option
+                  disabled={minPrice.value != 0 && minPrice.value >= maxPrice && maxPrice != 0}
+                  value={minPrice.value}>
+                  {minPrice.label}
+                </option>
               {/each}
             </select>
             <select bind:value={maxPrice} class={$searchWidgetStore.themeClasses.input}>
               {#each getMaxPriceRange() as maxPrice}
-                <option value={maxPrice.value}>{maxPrice.label}</option>
+                <option
+                  disabled={maxPrice.value != 0 && maxPrice.value <= minPrice && minPrice != 0}
+                  value={maxPrice.value}>
+                  {maxPrice.label}
+                </option>
               {/each}
             </select>
           </div>
@@ -314,12 +331,4 @@
       </div>
     </div>
   {/if}
-  <div class="filter-value {$searchWidgetStore.themeClasses.primaryStrapline}">
-    {`Properties ${showSearchTypeFilter(searchType)} in ${searchKeyword}, 
-    ${showBedRange(minBedroom, maxBedroom)}, 
-    Price range ${currencyFormatter.format(minPrice)} – ${currencyFormatter.format(maxPrice)}, 
-    ${showSearchPropertyType(propertyType)}, 
-    ${showOrderResultsBy(orderPrice)}, 
-    ${showAddedIn(addedIn)}`},
-  </div>
 </form>
