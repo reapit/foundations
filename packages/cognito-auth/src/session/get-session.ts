@@ -15,7 +15,7 @@ export const getSession = async (
   }
 
   try {
-    const env = appEnv ?? window.reapit.config.appEnv
+    const env = appEnv ?? window?.reapit?.config?.appEnv
     const sessionToRefresh = refreshSession || getSessionCookie(cookieSessionKey, env)
     const refreshedSession = sessionToRefresh && (await setRefreshSession(sessionToRefresh, cookieSessionKey, env))
 

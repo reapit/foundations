@@ -22,7 +22,7 @@ export const setUserSession = async (
   identifier?: string,
   appEnv?: string,
 ): Promise<LoginSession | null> => {
-  const env = appEnv ?? window.reapit.config.appEnv
+  const env = appEnv ?? window.reapit?.config?.appEnv
   const { userName, loginType, mode } = params
 
   const loginDetails: Partial<LoginSession> | undefined = await loginUserSession(params)

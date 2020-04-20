@@ -21,7 +21,7 @@ export const getLoginSession = (session: CognitoUserSession): Partial<LoginSessi
 
 export const getNewUser = (userName: string, cognitoClientId: string, userPoolId?: string) => {
   const poolData = {
-    UserPoolId: userPoolId || window.reapit?.config?.cognitoUserPoolId,
+    UserPoolId: userPoolId || window?.reapit?.config?.cognitoUserPoolId,
     ClientId: cognitoClientId,
   }
   const userPool = new CognitoUserPool(poolData)
@@ -37,7 +37,7 @@ export const setSessionCookie = (
   identifier: string = COOKIE_SESSION_KEY,
   appEnv?: string,
 ): void => {
-  const env = appEnv ?? window.reapit.config.appEnv
+  const env = appEnv ?? window?.reapit?.config?.appEnv
   const { userName, refreshToken, loginType, mode, cognitoClientId } = session
   const identifierWithEnv = env ? `${env}-${identifier}` : identifier
   hardtack.set(

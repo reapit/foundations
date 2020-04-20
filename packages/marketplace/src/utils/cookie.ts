@@ -33,7 +33,7 @@ export const setCookieString = (
 ): void => {
   const hrefString = href ?? window.location.href
   const whitelistedHost = COOKIE_DOMAIN_WHITELIST.filter(item => hrefString.includes(item))[0]
-  const env = appEnv ?? window.reapit.config.appEnv
+  const env = appEnv ?? window?.reapit?.config?.appEnv
   const keyWithEnv = env ? `${env}-${key}` : key
 
   if (whitelistedHost) {
