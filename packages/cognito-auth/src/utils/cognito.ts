@@ -5,8 +5,8 @@ import { LoginSession, RefreshParams, LoginType, LoginIdentity, CoginitoIdentity
 import { getMarketplaceGlobalsByKey } from '@reapit/elements'
 
 export const COOKIE_SESSION_KEY = 'reapit-marketplace-session'
-export const COOKIE_EXPIRY = new Date(Date.now() + 2629800000).toUTCString() // 1month from now
-export const TOKEN_EXPIRY = Math.round(new Date().getTime() / 1000) + 60 // 1 minute from now
+export const COOKIE_EXPIRY = new Date(Date.now() + 2629800000).toUTCString() // 1 month from now
+export const TOKEN_EXPIRY = Math.round(new Date().getTime() / 1000) + 300 // 5 minutes from now
 /**
  * Convenience method to deserialize a CognitoUser session - necessary as these getter methods are
  * not available when I have saved and retreived the session from localStorage

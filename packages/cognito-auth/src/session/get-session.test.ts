@@ -10,11 +10,11 @@ describe('getSession', () => {
   })
 
   it('should the accessToken if not expired', async () => {
-    const expiresInTwoMins = Math.round(new Date().getTime() / 1000) + 120
+    const expiresInSixMins = Math.round(new Date().getTime() / 1000) + 360
     const accessToken = 'MOCK_ACCESS_TOKEN'
     const loginSession = {
       accessToken,
-      accessTokenExpiry: expiresInTwoMins,
+      accessTokenExpiry: expiresInSixMins,
     } as LoginSession
 
     expect(await getSession(loginSession, null)).toEqual(loginSession)

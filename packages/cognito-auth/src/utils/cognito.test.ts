@@ -190,13 +190,13 @@ describe('Session utils', () => {
 
   describe('tokenExpired', () => {
     it('should return true if token has expired', () => {
-      const expiredTwoMinsAgo = Math.round(new Date().getTime() / 1000) - 120
-      expect(tokenExpired(expiredTwoMinsAgo)).toBe(true)
+      const expiredSixMinsAgo = Math.round(new Date().getTime() / 1000) - 360
+      expect(tokenExpired(expiredSixMinsAgo)).toBe(true)
     })
 
     it('should return false if token has not expired', () => {
-      const expiresInTwoMins = Math.round(new Date().getTime() / 1000) + 120
-      expect(tokenExpired(expiresInTwoMins)).toBe(false)
+      const expiresInSixMins = Math.round(new Date().getTime() / 1000) + 360
+      expect(tokenExpired(expiresInSixMins)).toBe(false)
     })
   })
 
