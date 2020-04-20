@@ -6,12 +6,13 @@
 
     <title>Web Components</title>
     <style>
-      #search-widget {
-        max-width: 1024px;
-        margin: 0 auto;
-      }
       #appointment-bookings-valuation {
         float: right;
+        margin-bottom: 1em;
+      }
+      .page-container {
+        max-width: 1024px;
+        margin: 0 auto;
       }
     </style>
     <link rel="stylesheet" href="<%= CDN_URL %>/search-widget.css" />
@@ -19,8 +20,10 @@
   </head>
 
   <body>
-    <div id="appointment-bookings-valuation"></div>
-    <div id="search-widget"></div>
+    <div class="page-container">
+      <div id="appointment-bookings-valuation"></div>
+      <div id="search-widget"></div>
+    </div>
     <script src="<%= CDN_URL %>/search-widget.js"></script>
     <script src="<%= CDN_URL %>/appointment-bookings.js"></script>
     <script>
@@ -152,4 +155,4 @@
         })
     </script>
   </body>
-</html>
+  </html>
