@@ -60,7 +60,8 @@ export const setSessionCookie = (
 
 export const getSessionCookie = (identifier: string = COOKIE_SESSION_KEY, appEnv?: string): RefreshParams | null => {
   try {
-    const identifierWithEnv = appEnv ? `${appEnv}-${identifier}` : identifier
+    const env = appEnv ?? window?.reapit?.config?.appEnv
+    const identifierWithEnv = env ? `${env}-${identifier}` : identifier
     const session = hardtack.get(identifierWithEnv)
     if (session) {
       const marketplaceGlobalObject = getMarketplaceGlobalsByKey()
