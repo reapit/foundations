@@ -131,6 +131,10 @@ exports[`PropertyDetail it matches a snapshot 1`] = `
           2
         </div>
       </div>
+       
+      <div
+        id="appointment-bookings-viewing"
+      />
     </div>
   </div>
 </body>

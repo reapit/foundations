@@ -4,7 +4,7 @@ exports[`AppointmentBookings should match snapshot 1`] = `
 <body>
   <div>
     <button
-      class="appointment-bookings-select-button svelte-m1dnky"
+      class="appointment-bookings-select-button svelte-57wp4a"
     >
       Select Appointment
     </button>
