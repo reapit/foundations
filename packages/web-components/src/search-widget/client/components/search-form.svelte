@@ -135,9 +135,9 @@
   }
 
   .search-form-control {
-    margin-top: 8px;
+    margin-top: 0.5em;
     text-align: left;
-    font-size: 1rem;
+    font-size: 1em;
   }
 
   .search-form-control-radio {
@@ -157,15 +157,15 @@
   @media screen and (min-width: 560px) {
     .filter-form-container {
       display: flex;
-      margin-left: -0.5rem;
-      margin-right: -0.5rem;
+      margin-left: -0.5em;
+      margin-right: -0.5em;
     }
 
     .filter-form-column {
       flex: 1;
       margin-top: 0;
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
+      padding-left: 0.5em;
+      padding-right: 0.5em;
     }
   }
 
@@ -174,7 +174,7 @@
   }
 
   .filter-form-input-container:not(:first-child) {
-    margin-top: 1rem;
+    margin-top: 1em;
   }
 
   .filter-form-input-container legend,
@@ -184,7 +184,7 @@
   }
 
   .filter-form-input-container-body {
-    margin-top: 0.5rem;
+    margin-top: 0.5em;
   }
 
   .filter-form-input-container-body > select {
@@ -200,7 +200,7 @@
     width: 46%;
   }
   .filter-form-column {
-    margin-top: 1rem;
+    margin-top: 1em;
   }
 </style>
 
