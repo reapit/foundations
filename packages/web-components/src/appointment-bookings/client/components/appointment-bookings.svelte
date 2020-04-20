@@ -13,6 +13,8 @@
   // TODO - will need to import later
   // export let apiKey
   // export let variant
+  // export let propertyId
+
 
   let isModalOpen = false
   let currentStep = 1
@@ -60,7 +62,6 @@
     box-shadow: 1px 1px 7px 1px #d4d4d4;
     box-sizing: border-box;
     border-radius: 4px;
-    overflow: scroll;
   }
 
   .appointment-bookings-select-button {

@@ -6,18 +6,57 @@
 
     <title>Web Components</title>
     <style>
-      #search-widget {
+      #appointment-bookings-valuation {
+        float: right;
+        margin-bottom: 1em;
+      }
+      .page-container {
         max-width: 1024px;
         margin: 0 auto;
       }
     </style>
     <link rel="stylesheet" href="<%= CDN_URL %>/search-widget.css" />
+    <link rel="stylesheet" href="<%= CDN_URL %>/appointment-bookings.css" />
   </head>
 
   <body>
-    <div id="search-widget"></div>
+    <div class="page-container">
+      <div id="appointment-bookings-valuation"></div>
+      <div id="search-widget"></div>
+    </div>
     <script src="<%= CDN_URL %>/search-widget.js"></script>
+    <script src="<%= CDN_URL %>/appointment-bookings.js"></script>
     <script>
+      const variantDefault = {
+        // appointment-bookings's specific styles
+        dateCellHeaderBackgroundColor: '#ececec',
+        timeCellBackgroundColor: '#dfdfdf',
+        timeCellBackgroundColorHover: '#d3d3d3',
+        timeCellsContainerBackgroundColor: '#f9f9f9',
+        formLabelColor: '#737373',
+        formHrSeparatorFontColor: '#e6e6e6',
+        formButtonFontSize: '1.2rem',
+
+        // base
+        baseBackgroundColor: '#f9fbfd',
+        basefontSize: '16px',
+        basefontColor: '#12263f',
+        secondaryfontColor: '#1e2554',
+        primaryHeadingFontSize: '24px',
+        secondaryHeadingFontSize: '20px',
+        baseFontFamily: '"Roboto", sans-serif',
+        headingFontFamily: '"Open Sans", sans-serif',
+        primaryAccentColor: '#0061a8',
+        secondaryAccentColor: '#6c757d',
+        mapAccentColor: '#7bc9eb',
+        breakPoints: {
+          mobile: '',
+          tablet: '',
+          laptop: '',
+          desktop: '',
+        },
+      }
+
       const variantA = {
         baseBackgroundColor: '#fff',
         basefontSize: '16px',
@@ -96,7 +135,7 @@
           window.theme = variantC
           break
         default:
-          window.theme = {}
+          window.theme = variantDefault
       }
     </script>
     <script>
@@ -106,6 +145,14 @@
           apiKey: '<%= API_KEY %>',
           parentSelector: '#search-widget',
         })
+
+      ReapitAppointmentBookingComponent && 
+        new ReapitAppointmentBookingComponent({
+          theme: window.theme,
+          apiKey: '<%= API_KEY %>',
+          parentSelector: '#appointment-bookings-valuation',
+          variant: 'VALUATION',
+        })
     </script>
   </body>
-</html>
+  </html>

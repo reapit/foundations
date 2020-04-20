@@ -44,6 +44,14 @@
   onMount(() => {
     document.body.scrollTop = 0
     document.documentElement.scrollTop = 0
+    window.ReapitAppointmentBookingComponent &&
+    new window.ReapitAppointmentBookingComponent({
+      theme: window.theme,
+      apiKey: '',
+      parentSelector: '#appointment-bookings-viewing',
+      variant: 'VIEWING',
+      propertyId: id,
+    })
   })
 
   onDestroy(() => {
@@ -180,4 +188,5 @@
       {property.bathrooms || 0}
     </div>
   </div>
+  <div id="appointment-bookings-viewing"></div>
 </div>
