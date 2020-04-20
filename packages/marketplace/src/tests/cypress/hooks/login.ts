@@ -12,9 +12,11 @@ import {
 
 const CypressEnv = Cypress.env()
 
-async function login(params: LoginParams): LoginSession {
-  const loginSession = await setUserSession(params, COOKIE_SESSION_KEY_MARKETPLACE)
-  return loginSession
+function login(params: LoginParams): LoginSession {
+  return new Cypress.Promise(async resolve => {
+    const loginSession = await setUserSession(params, COOKIE_SESSION_KEY_MARKETPLACE)
+    resolve(loginSession)
+  })
 }
 
 const loginFlow = ({ userName, password, loginType, loginRoute, beforeLogin }) => {
@@ -28,7 +30,6 @@ const loginFlow = ({ userName, password, loginType, loginRoute, beforeLogin }) =
     userPoolId: cognitoUserPoolId,
   }
   cy.server()
-  cy.route({ url: '**cognito**', method: 'POST' }).as('loginRequest')
   cy.visit(loginRoute)
   if (typeof beforeLogin === 'function') {
     beforeLogin()
@@ -54,8 +55,7 @@ const loginFlow = ({ userName, password, loginType, loginRoute, beforeLogin }) =
     cy.window()
       .its('store')
       .invoke('dispatch', authLoginSuccess(loginSession))
-    cy.wait('@loginRequest')
-    cy.wait(3000)
+    cy.wait(5000)
   })
 }
 

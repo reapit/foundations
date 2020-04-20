@@ -5,6 +5,7 @@ import { AppRevisionModel, MediaModel, ScopeModel } from '@reapit/foundations-ts
 import DiffMedia from '@/components/ui/diff-media'
 import DiffCheckbox from '../diff-checkbox'
 import DiffViewer from '../diff-viewer'
+import { DesktopIntegrationTypeModel } from '@/actions/app-integration-types'
 
 export type AppRevisionComparisionProps = {
   revisionDetailState: RevisionDetailState
@@ -30,6 +31,7 @@ const diffStringList: { [k in keyof AppRevisionModel]: string } = {
   redirectUris: 'Redirect URIs',
   signoutUris: 'Signout URIs',
   limitToClientIds: 'Private Apps',
+  desktopIntegrationTypeIds: 'Integration Type',
 }
 
 export const isAppearInScope = (nameNeedToFind: string | undefined, scopes: ScopeModel[] = []): boolean => {
@@ -93,6 +95,23 @@ export const getChangedMediaList = ({ app, revision }): DiffMediaModel[] => {
   }))
 }
 
+export const mapIntegrationIdArrayToNameArray = (
+  desktopIntegrationTypeIds?: string[],
+  desktopIntegrationTypesArray?: DesktopIntegrationTypeModel[],
+): string[] => {
+  if (!desktopIntegrationTypeIds || !desktopIntegrationTypesArray) {
+    return []
+  }
+  const result = desktopIntegrationTypeIds.map((id: string) => {
+    const matchedIntegration = desktopIntegrationTypesArray.find(
+      (integration: DesktopIntegrationTypeModel) => integration.id === id,
+    )
+    return matchedIntegration?.name ?? ''
+  })
+  const filteredResult = result.filter(r => r)
+  return filteredResult
+}
+
 export const AppRevisionComparision: React.FC<AppRevisionComparisionProps> = ({
   revisionDetailState,
   appDetailState,
@@ -100,7 +119,7 @@ export const AppRevisionComparision: React.FC<AppRevisionComparisionProps> = ({
   if (!revisionDetailState.revisionDetailData || !appDetailState.appDetailData) {
     return null
   }
-  const { data: revision, scopes } = revisionDetailState.revisionDetailData
+  const { data: revision, scopes, desktopIntegrationTypes } = revisionDetailState.revisionDetailData
   const app = appDetailState.appDetailData.data
 
   return (
@@ -118,7 +137,29 @@ export const AppRevisionComparision: React.FC<AppRevisionComparisionProps> = ({
             </div>
           )
         }
-        if (['redirectUris', 'signoutUris', 'limitToClientIds'].includes(key)) {
+        if (key === 'desktopIntegrationTypeIds') {
+          const oldIntegrationTypeArray = mapIntegrationIdArrayToNameArray(
+            app.desktopIntegrationTypeIds,
+            desktopIntegrationTypes.data,
+          )
+          const newIntegrationTypeArray = mapIntegrationIdArrayToNameArray(
+            revision.desktopIntegrationTypeIds,
+            desktopIntegrationTypes.data,
+          )
+          const sortedOldArray = [...oldIntegrationTypeArray].sort()
+          const sortedNewArray = [...newIntegrationTypeArray].sort()
+          return (
+            <div className="mb-3" key={key}>
+              <h4 className="mb-2">{diffStringList[key]}</h4>
+              <DiffViewer
+                currentString={sortedOldArray.join(', ')}
+                changedString={sortedNewArray.join(', ')}
+                type="wordsWithSpace"
+              />
+            </div>
+          )
+        }
+        if (['redirectUris', 'signoutUris', 'limitToClientIds', 'desktopIntegrationTypeIds'].includes(key)) {
           const currentString = Array.isArray(app[key]) ? app[key].join(' ') : ''
           const changedString = Array.isArray(revision[key]) ? revision[key].join(' ') : ''
           return (
@@ -127,14 +168,13 @@ export const AppRevisionComparision: React.FC<AppRevisionComparisionProps> = ({
               <DiffViewer currentString={currentString} changedString={changedString} type="words" />
             </div>
           )
-        } else {
-          return (
-            <div className="mb-3" key={key}>
-              <h4 className="mb-2">{diffStringList[key]}</h4>
-              <DiffViewer currentString={app[key] || ''} changedString={revision[key] || ''} type="words" />
-            </div>
-          )
         }
+        return (
+          <div className="mb-3" key={key}>
+            <h4 className="mb-2">{diffStringList[key]}</h4>
+            <DiffViewer currentString={app[key] || ''} changedString={revision[key] || ''} type="words" />
+          </div>
+        )
       })}
       {renderCheckboxesDiff({ scopes, appScopes: app.scopes, revisionScopes: revision.scopes })}
       <div className="mb-3">

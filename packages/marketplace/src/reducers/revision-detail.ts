@@ -9,10 +9,12 @@ import {
   approveRevisionSetFormState,
   declineRevisionSetFormState,
 } from '../actions/revision-detail'
+import { PagedResultDesktopIntegrationTypeModel_ } from '@/actions/app-integration-types'
 
 export interface RevisionDetailItem {
   data: AppRevisionModel
   scopes: ScopeModel[]
+  desktopIntegrationTypes: PagedResultDesktopIntegrationTypeModel_
 }
 
 export interface RevisionDetailState {

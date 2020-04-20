@@ -14,6 +14,7 @@ import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { revisionDetailDataStub } from '@/sagas/__stubs__/revision-detail'
 import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
 import { revisionsDataStub } from '@/sagas/__stubs__/revisions'
+import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
 
 const props: DeveloperAppRevisionModalProps = {
   appId: '1',
@@ -31,7 +32,11 @@ const props: DeveloperAppRevisionModalProps = {
   revisionDetailState: {
     loading: false,
     error: false,
-    revisionDetailData: { data: revisionDetailDataStub.data, scopes: appPermissionStub },
+    revisionDetailData: {
+      data: revisionDetailDataStub.data,
+      scopes: appPermissionStub,
+      desktopIntegrationTypes: integrationTypesStub,
+    },
     approveFormState: 'PENDING',
     declineFormState: 'PENDING',
   },

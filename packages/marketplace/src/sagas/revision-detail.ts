@@ -23,21 +23,29 @@ export const revisionDetailDataFetch = function*({
 }: Action<RevisionDetailRequestParams>) {
   yield put(revisionDetailLoading(true))
   try {
-    const response = yield call(fetcher, {
-      url: `${URLS.apps}/${appId}/revisions/${appRevisionId}`,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    })
-    const scopes = yield call(fetcher, {
-      url: `${URLS.scopes}`,
-      method: 'GET',
-      api: window.reapit.config.marketplaceApiUrl,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    })
+    const [response, scopes, desktopIntegrationTypes] = yield all([
+      call(fetcher, {
+        url: `${URLS.apps}/${appId}/revisions/${appRevisionId}`,
+        api: window.reapit.config.marketplaceApiUrl,
+        method: 'GET',
+        headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      }),
+      call(fetcher, {
+        url: `${URLS.scopes}`,
+        method: 'GET',
+        api: window.reapit.config.marketplaceApiUrl,
+        headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      }),
+      call(fetcher, {
+        url: URLS.desktopIntegrationTypes,
+        method: 'GET',
+        api: window.reapit.config.marketplaceApiUrl,
+        headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      }),
+    ])
 
-    if (response && scopes) {
-      yield put(revisionDetailReceiveData({ data: response, scopes }))
+    if (response && scopes && desktopIntegrationTypes) {
+      yield put(revisionDetailReceiveData({ data: response, scopes, desktopIntegrationTypes }))
     } else {
       yield put(revisionDetailFailure())
     }
