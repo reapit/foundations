@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Web Components</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto|Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./dist/viewing-booking.css" />
+    <style>
+      #appointment-bookings {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    Book a viewing
+    <div id="appointment-bookings-viewing"></div>
+
+    <script src="./dist/viewing-booking.js"></script>
+    <script src="./themes/viewing-booking.js"></script>
+    <script>
+      if (window.ReapitViewingBookingComponent) {
+        new ReapitViewingBookingComponent({
+          theme: window.theme,
+          apiKey: '',
+          parentSelector: '#appointment-bookings-viewing',
+        })
+      }
+    </script>
+  </body>
+</html>
