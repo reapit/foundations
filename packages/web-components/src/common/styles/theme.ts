@@ -118,10 +118,15 @@ export const generateThemeClasses = (
         color: ${primaryAccentColor || '#000'};
         border: 1px solid ${primaryAccentColor || 'grey'};
         background: ${baseBackgroundColor || '#fff'};
+        color: ${inverseFontColor || 'grey'};
 
         &:hover {
-          background: ${primaryAccentColor || 'grey'};
+          background: ${inverseFontColor || 'grey'};
           color: ${baseBackgroundColor || '#fff'};
+        }
+
+        &:last-child {
+          border-left: none;
         }
       }
     `,
