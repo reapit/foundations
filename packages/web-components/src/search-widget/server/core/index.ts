@@ -19,4 +19,20 @@ app.use((err: Error, _req: Request, res: Response) => {
 
 const expressApp = serverless(app)
 
-export const searchWidgetHandler = async (event: APIGatewayProxyEvent, context: Context) => expressApp(event, context)
+export const parseHeadersFromEvent = (event: APIGatewayProxyEvent) => {
+  const authorization = event?.requestContext?.authorizer?.authorization?.trim()
+  const newHeaders = {
+    ...event.headers,
+    ...event?.requestContext?.authorizer,
+    authorization: `Bearer ${authorization}`,
+  } as { [name: string]: string }
+  return newHeaders
+}
+
+export const searchWidgetHandler = async (event: APIGatewayProxyEvent, context: Context) => {
+  console.log('searchWidgetHandler', { event, context })
+  const newHeaders = parseHeadersFromEvent(event)
+  event.headers = newHeaders
+  console.log('searchWidgetHandler', { newHeaders })
+  return expressApp(event, context)
+}

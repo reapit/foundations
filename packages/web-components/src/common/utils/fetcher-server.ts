@@ -16,12 +16,13 @@ export const fetcher = async <T, B>({
     method,
     body: JSON.stringify(body),
   } as RequestInit)
-
+  console.log('fetcher', { res })
   if (res.ok) {
     try {
       const jsonVal = await res.json()
       return jsonVal as T
     } catch (err) {
+      console.error('fetcher', { err })
       return {} as T
     }
   }

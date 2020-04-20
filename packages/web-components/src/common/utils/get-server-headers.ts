@@ -9,7 +9,7 @@ type Token = {
 export const getServerHeaders = async (req: Request, packageSuffix: PACKAGE_SUFFIXES) => {
   // For local development, I need to get a token from my client secret, in prod, this is added as a
   // header by my lambda authorizer so not required
-  const authHeaders = await (async () => {
+  const generateAuthHeaders = async () => {
     if (process.env.APP_ENV === 'local') {
       const clientId = process.env[`COGNITO_CLIENT_ID_${packageSuffix}`] as string
       const clientSecret = process.env[`COGNITO_CLIENT_SECRET_${packageSuffix}`] as string
@@ -35,9 +35,11 @@ export const getServerHeaders = async (req: Request, packageSuffix: PACKAGE_SUFF
     // In prod, I just forward the headers from the request that was decorated by the lambda athorizer
     return {
       ...DEFAULT_HEADERS,
-      ...req.headers,
+      'reapit-customer': req?.headers?.['reapit-customer'],
+      Authorization: req?.headers?.authorization,
     }
-  })()
+  }
+  const authHeaders = (await generateAuthHeaders()) as { [name: string]: string }
 
   return {
     ...authHeaders,

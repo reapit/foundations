@@ -11,9 +11,15 @@ describe('getServerHeaders', () => {
     const req = ({
       headers: {
         'x-api-key': apiKey,
+        authorization: 'Bearer mockAuthorization',
+        'reapit-customer': 'DXX',
       },
     } as unknown) as Request
-    expect(await getServerHeaders(req, PACKAGE_SUFFIXES.SEARCH_WIDGET)).toEqual({ ...req.headers, ...DEFAULT_HEADERS })
+    expect(await getServerHeaders(req, PACKAGE_SUFFIXES.SEARCH_WIDGET)).toEqual({
+      ...DEFAULT_HEADERS,
+      Authorization: 'Bearer mockAuthorization',
+      'reapit-customer': 'DXX',
+    })
   })
 
   it('should return the correct headers for local development', async () => {
