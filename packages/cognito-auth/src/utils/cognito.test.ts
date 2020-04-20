@@ -84,6 +84,29 @@ describe('Session utils', () => {
         },
       )
     })
+    it('should set a refresh cookie with appEnv key', () => {
+      window.location.hostname = 'some.host'
+      hardtack.set = jest.fn()
+
+      setSessionCookie(mockLoginSession, COOKIE_SESSION_KEY, 'development')
+
+      expect(hardtack.set).toHaveBeenCalledWith(
+        `development-${COOKIE_SESSION_KEY}`,
+        JSON.stringify({
+          refreshToken: mockLoginSession.refreshToken,
+          loginType: mockLoginSession.loginType,
+          userName: mockLoginSession.userName,
+          mode: 'WEB',
+          cognitoClientId: 'SOME_CLIENT_ID',
+        }),
+        {
+          path: '/',
+          domain: 'some.host',
+          expires: COOKIE_EXPIRY,
+          samesite: 'lax',
+        },
+      )
+    })
   })
 
   describe('getSessionCookie', () => {
@@ -98,6 +121,19 @@ describe('Session utils', () => {
       document.cookie = `${COOKIE_SESSION_KEY}=${stringifiedSession}`
 
       expect(getSessionCookie()).toEqual(JSON.parse(stringifiedSession))
+    })
+
+    it('should get a session from the cookie with correct appEnv if it exists', () => {
+      const stringifiedSession = JSON.stringify({
+        refreshToken: mockLoginSession.refreshToken,
+        mode: 'DESKTOP',
+        loginType: mockLoginSession.loginType,
+        userName: mockLoginSession.userName,
+      })
+
+      document.cookie = `development-${COOKIE_SESSION_KEY}=${stringifiedSession}`
+
+      expect(getSessionCookie(COOKIE_SESSION_KEY, 'development')).toEqual(JSON.parse(stringifiedSession))
     })
 
     it('should return with mode WEB if dont have global object', () => {

@@ -6,6 +6,7 @@ export const getSession = async (
   loginSession: LoginSession | null,
   refreshSession: RefreshParams | null,
   cookieSessionKey: string = COOKIE_SESSION_KEY,
+  appEnv?: string,
 ): Promise<LoginSession | null> => {
   const sessionExpired = loginSession && tokenExpired(loginSession.accessTokenExpiry)
 
@@ -14,8 +15,9 @@ export const getSession = async (
   }
 
   try {
-    const sessionToRefresh = refreshSession || getSessionCookie(cookieSessionKey)
-    const refreshedSession = sessionToRefresh && (await setRefreshSession(sessionToRefresh, cookieSessionKey))
+    const env = appEnv ?? window.reapit.config.appEnv
+    const sessionToRefresh = refreshSession || getSessionCookie(cookieSessionKey, env)
+    const refreshedSession = sessionToRefresh && (await setRefreshSession(sessionToRefresh, cookieSessionKey, env))
 
     if (refreshedSession) {
       return refreshedSession

@@ -13,9 +13,11 @@ export const COOKIE_CLIENT_TERMS_ACCEPTED = 'reapit-client-term-accepted'
 
 export const COOKIE_DOMAIN_WHITELIST = ['.reapit.cloud', 'localhost']
 
-export const getCookieString = (key: string): string => {
+export const getCookieString = (key: string, appEnv?: string): string => {
   try {
-    const cookie = hardtack.get(key) as string
+    const env = appEnv || window.reapit.config.appEnv
+    const keyWithEnv = env ? `${env}-${key}` : key
+    const cookie = hardtack.get(keyWithEnv) as string
     return cookie
   } catch {
     return ''
@@ -26,12 +28,16 @@ export const setCookieString = (
   key: string,
   value: string | Date,
   maxAge?: number,
-  href: string = window.location.href,
+  href?: string,
+  appEnv?: string,
 ): void => {
-  const whitelistedHost = COOKIE_DOMAIN_WHITELIST.filter(item => href.includes(item))[0]
+  const hrefString = href ?? window.location.href
+  const whitelistedHost = COOKIE_DOMAIN_WHITELIST.filter(item => hrefString.includes(item))[0]
+  const env = appEnv ?? window.reapit.config.appEnv
+  const keyWithEnv = env ? `${env}-${key}` : key
 
   if (whitelistedHost) {
-    hardtack.set(key, value.toString(), {
+    hardtack.set(keyWithEnv, value.toString(), {
       path: '/',
       domain: whitelistedHost,
       samesite: 'lax',
