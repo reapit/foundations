@@ -6,7 +6,7 @@ import {
   formatType,
   getPrice,
   calculateTotalPage,
-  getResultMessage,
+  // getResultMessage,
 } from '../results-helpers'
 
 import { propertyStub } from '../__stubs__/property'
@@ -116,47 +116,6 @@ describe('results helpers', () => {
       const totalRecord = 16
       const result = calculateTotalPage(totalRecord)
       expect(result).toEqual(2)
-    })
-  })
-
-  describe('getResultMessage', () => {
-    it('should return correctly when totalCount = 2 and isRental true', () => {
-      const input = {
-        properties: {
-          _embedded: [{}, {}],
-          totalCount: 2,
-        },
-        searchKeyword: 'mockSearchKeyword',
-        isRental: true,
-      }
-      const result = getResultMessage(input)
-      expect(result).toEqual('2 results for mockSearchKeyword, for rent')
-    })
-
-    it('should return correctly when totalCount = 1 and isRental true', () => {
-      const input = {
-        properties: {
-          _embedded: [{}],
-          totalCount: 1,
-        },
-        searchKeyword: 'mockSearchKeyword',
-        isRental: true,
-      }
-      const result = getResultMessage(input)
-      expect(result).toEqual('1 result for mockSearchKeyword, for rent')
-    })
-
-    it('should return correctly when totalCount = 1 and isRental false', () => {
-      const input = {
-        properties: {
-          _embedded: [{}],
-          totalCount: 1,
-        },
-        searchKeyword: 'mockSearchKeyword',
-        isRental: false,
-      }
-      const result = getResultMessage(input)
-      expect(result).toEqual('1 result for mockSearchKeyword, for sale')
     })
   })
 })

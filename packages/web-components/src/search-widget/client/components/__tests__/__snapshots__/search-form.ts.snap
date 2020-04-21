@@ -3,36 +3,90 @@
 exports[`search-form it matches a snapshot 1`] = `
 <body>
   <div>
-    <form
-      class="search-form  svelte-1hu8mn5"
-    >
-      <input
-        class=" search-form-input svelte-1hu8mn5"
-        data-testid="search-form-input"
-        id="search"
-        placeholder="Town or Postcode"
-        type="text"
-      />
-       
+    <form>
       <div
-        class="search-form-button-container svelte-1hu8mn5"
+        class="search-form  svelte-121erkf"
       >
-        <button
-          class=" search-form-button svelte-1hu8mn5"
-          data-testid="lettings"
-          type="button"
-        >
-          TO RENT
-        </button>
+        <input
+          class=" search-form-input svelte-121erkf"
+          data-testid="search-form-input"
+          id="search"
+          placeholder="Town or Postcode"
+          type="text"
+        />
          
         <button
-          class=" search-form-button svelte-1hu8mn5"
-          data-testid="sales"
+          class=" search-form-button svelte-121erkf"
+          data-testid="btnSearch"
           type="button"
         >
-          FOR SALE
+          Search Properties
         </button>
+         
+        <div
+          class="search-form-control svelte-121erkf"
+        >
+          <label
+            class=" search-form-control-radio svelte-121erkf"
+          >
+            <input
+              data-testid="sales"
+              name="searchType"
+              type="radio"
+              value="Sale"
+            />
+            
+        For sell
+          </label>
+           
+          <label
+            class=" search-form-control-radio svelte-121erkf"
+          >
+            <input
+              data-testid="lettings"
+              name="searchType"
+              type="radio"
+              value="Rent"
+            />
+            
+        To rent
+          </label>
+           
+          <button
+            class=" search-form-advanced-search svelte-121erkf"
+            data-testid="btnAdvancedSearch"
+            type="button"
+          >
+            Advanced Search
+        
+            <svg
+              aria-hidden="true"
+              class=""
+              id=""
+              role="img"
+              style="height:1em;vertical-align:-.125em;overflow:visible;"
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                transform="translate(256 256)"
+              >
+                <g
+                  transform=""
+                >
+                  <path
+                    d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+                    fill="currentColor"
+                    transform="translate(-256 -256)"
+                  />
+                </g>
+              </g>
+            </svg>
+            
+          </button>
+        </div>
       </div>
+       
     </form>
   </div>
 </body>

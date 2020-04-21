@@ -1,7 +1,7 @@
 import { ContactAddressModel } from '@reapit/foundations-ts-definitions'
-import { PickedPropertyModel, PickedPagedResultPropertyModel_ } from '../../types'
+import { PickedPropertyModel } from '../../types'
 
-const currencyFormatter = new Intl.NumberFormat('en-GB', {
+export const currencyFormatter = new Intl.NumberFormat('en-GB', {
   style: 'currency',
   currency: 'GBP',
   minimumFractionDigits: 0,
@@ -123,21 +123,4 @@ export const calculateTotalPage = (totalRecord: number) => {
   const ITEM_PER_PAGE = 8
   const totalPage = Math.ceil(totalRecord / ITEM_PER_PAGE)
   return totalPage
-}
-
-export type GetResultMessageParams = {
-  properties: PickedPagedResultPropertyModel_
-  searchKeyword: string
-  isRental: boolean
-}
-
-export const getResultMessage = ({ properties, searchKeyword, isRental }: GetResultMessageParams) => {
-  if (properties && properties._embedded && properties._embedded.length) {
-    const numberResults = properties.totalCount
-    const resultsMessage = `${numberResults} result${numberResults === 1 ? '' : 's'}${
-      searchKeyword.length ? ` for ${searchKeyword},` : ''
-    } for ${isRental ? 'rent' : 'sale'}`
-    return resultsMessage
-  }
-  return ''
 }

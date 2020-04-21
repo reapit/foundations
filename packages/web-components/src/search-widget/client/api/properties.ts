@@ -2,7 +2,33 @@ import { fetcher } from '../../../common/utils/fetcher-client'
 import { getClientHeaders } from '../../../common/utils/get-client-headers'
 import { PickedPagedResultPropertyModel_ } from '../../types'
 
-export const getUrlQuery = (isRental: boolean, keywords: string, pageNumber: number = 1) => {
+export type GetPropertiesType = {
+  keywords?: string
+  isRental?: boolean
+  apiKey: string
+  pageNumber?: number
+  bedroomsFrom?: number
+  bedroomsTo?: number
+  priceFrom?: number
+  priceTo?: number
+  sortBy?: string
+  propertyType?: string
+  addedIn?: string
+}
+
+export const getUrlQuery = (params: Omit<GetPropertiesType, 'apiKey'> = { pageNumber: 1 }) => {
+  const {
+    keywords = '',
+    isRental,
+    pageNumber,
+    bedroomsFrom = 0,
+    bedroomsTo = 0,
+    priceFrom = 0,
+    priceTo = 0,
+    sortBy = '',
+    propertyType = '',
+  } = params
+
   const url = new URL(`${process.env.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET}/properties`)
   url.searchParams.append('SellingStatuses', ['forSale', 'underOffer'].join(','))
   url.searchParams.append('InternetAdvertising', 'true')
@@ -14,17 +40,35 @@ export const getUrlQuery = (isRental: boolean, keywords: string, pageNumber: num
   } else {
     url.searchParams.append('marketingMode', ['selling', 'sellingAndLetting'].join(','))
   }
+  // bedrooms
+  if (bedroomsFrom > 0) {
+    url.searchParams.append('bedroomsFrom', String(bedroomsFrom))
+  }
+  if (bedroomsTo > 0) {
+    url.searchParams.append('bedroomsTo', String(bedroomsTo))
+  }
+  // sortBy
+  url.searchParams.append('sortBy', sortBy)
+  // price range
+  if (isRental) {
+    priceFrom > 0 && url.searchParams.append('rentFrom', String(priceFrom))
+    priceTo > 0 && url.searchParams.append('rentTo', String(priceTo))
+  } else {
+    priceFrom > 0 && url.searchParams.append('priceFrom', String(priceFrom))
+    priceTo > 0 && url.searchParams.append('priceTo', String(priceTo))
+  }
+  //propertyType
+  url.searchParams.append('propertyType', propertyType)
+
   return String(url)
 }
 
 export const getProperties = async (
-  keywords: string,
-  isRental: boolean,
-  apiKey: string,
-  pageNumber: number = 1,
+  params: GetPropertiesType = { pageNumber: 1, apiKey: '' },
 ): Promise<PickedPagedResultPropertyModel_ | undefined> => {
+  const { apiKey, ...otherParams } = params
   return fetcher<PickedPagedResultPropertyModel_, null>({
-    url: getUrlQuery(isRental, keywords, pageNumber),
+    url: getUrlQuery(otherParams),
     headers: getClientHeaders(apiKey),
   })
 }
