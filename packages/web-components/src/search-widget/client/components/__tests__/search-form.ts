@@ -34,12 +34,19 @@ describe('search-form', () => {
 
     await fireEvent.click(getLettings)
 
+    const btnSearch = getByTestId('btnSearch')
+
+    await fireEvent.click(btnSearch)
+
     const store = get(searchWidgetStore)
 
     expect(store.properties).toEqual(propertiesMinimalStub._embedded)
     expect(store.propertyImagesByPropertyId).toEqual(propertyImagesMinimalStub)
     expect(store.isLoading).toBe(false)
-    expect(store.resultsMessage).toBe('3096 results for rent')
+    expect(store.resultsMessage).toBe(
+      '3096 results To Rent, No min - No max bed, Price range £0 – £0, Property type: All, ' +
+        'Order results by: Price descending, Added In: Any time.',
+    )
   })
 
   it('it triggers a data fetch for sales', async () => {
@@ -53,10 +60,34 @@ describe('search-form', () => {
 
     await fireEvent.click(getSales)
 
+    const btnSearch = getByTestId('btnSearch')
+
+    await fireEvent.click(btnSearch)
+
     const store = get(searchWidgetStore)
     expect(store.properties).toEqual(propertiesMinimalStub._embedded)
     expect(store.propertyImagesByPropertyId).toEqual(propertyImagesMinimalStub)
     expect(store.isLoading).toBe(false)
-    expect(store.resultsMessage).toBe('3096 results for sale')
+    expect(store.resultsMessage).toBe(
+      '3096 results For Sell, No min - No max bed, Price range £0 – £0, ' +
+        'Property type: All, Order results by: Price descending, Added In: Any time.',
+    )
+  })
+
+  it('show/hide advanced search container', async () => {
+    jest.useFakeTimers()
+
+    const wrapper = render(SearchForm)
+    const { getByTestId } = wrapper
+
+    const btnAdvancedSearch = getByTestId('btnAdvancedSearch')
+    await fireEvent.click(btnAdvancedSearch)
+
+    setTimeout(() => {
+      const advancedSearchContainer = getByTestId('advanced-search-container')
+      expect(advancedSearchContainer).toBeInstanceOf(HTMLElement)
+    }, 500)
+
+    jest.clearAllTimers()
   })
 })

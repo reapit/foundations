@@ -51,6 +51,7 @@
   .search-widget-heading {
     display: block;
     width: 100%;
+    margin-top: 1em;
     margin-bottom: 0.5em;
   }
 
