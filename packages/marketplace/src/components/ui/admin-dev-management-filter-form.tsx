@@ -40,6 +40,12 @@ export const AdminDevManagementFilterForm: React.FC<AdminDevManagementFilterForm
             <GridItem>
               <Input type="text" labelText="Company" id="company" name="company" />
             </GridItem>
+            <GridItem>
+              <Input type="text" labelText="Registered From " id="name" name="name" />
+            </GridItem>
+            <GridItem>
+              <Input type="text" labelText="Registered To" id="company" name="company" />
+            </GridItem>
             <GridItem className="mt-4">
               <Button type="submit" variant="primary">
                 Search
