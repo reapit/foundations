@@ -88,6 +88,7 @@ export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
 export const withRedux = connect(mapStateToProps, mapDispatchToProps)
 
 export const withCustomerIdForm = withFormik({
+  enableReinitialize: true,
   displayName: 'WithCustomerIdForm',
   mapPropsToValues: (props: StateProps) => ({
     customerId: props.customerId,
