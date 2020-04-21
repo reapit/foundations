@@ -12,25 +12,8 @@ exports[`App should match a snapshot 1`] = `
     }
   }
 >
-  <PersistGate
-    loading={null}
-    persistor={
-      Object {
-        "dispatch": [Function],
-        "flush": [Function],
-        "getState": [Function],
-        "pause": [Function],
-        "persist": [Function],
-        "purge": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-        Symbol(observable): [Function],
-      }
-    }
-  >
-    <Component>
-      <Component />
-    </Component>
-  </PersistGate>
+  <Component>
+    <Component />
+  </Component>
 </Provider>
 `;

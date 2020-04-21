@@ -24,10 +24,9 @@
     "fetch-config": "yarn config-manager fetchConfig geo-diary"
   },
   "dependencies": {
-    "@reapit/elements": "^0.5.39",
     "@reapit/cognito-auth": "^2.0.19",
-    "localforage": "^1.7.3",
-    "redux-persist": "^5.10.0"
+    "@reapit/elements": "^0.5.39",
+    "localforage": "^1.7.3"
   },
   "devDependencies": {
     "@reapit/foundations-ts-definitions": "2020-02-13"
