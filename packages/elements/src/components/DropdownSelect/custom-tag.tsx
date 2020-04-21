@@ -20,7 +20,8 @@ export const CustomTag: React.FC<CustomTagProps> = ({ label, description, link, 
       placement="bottomLeft"
       overlay={
         <span className="reapit-tooltip-content">
-          {description}{' '}
+          {description}
+          {'. '}
           {link && (
             <span>
               For more information on <b>{label}</b>, please{' '}
