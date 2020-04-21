@@ -168,7 +168,9 @@ export const mapStateToProps = (state: ReduxState, ownState: RouteComponentProps
   const queryParams = new URLSearchParams(ownState.location.search)
   const name = queryParams.get('name') || ''
   const company = queryParams.get('company') || ''
-  const filterValues = { name, company } as AdminDevManagementFilterFormValues
+  const registeredFrom = queryParams.get('registeredFrom') || ''
+  const registeredTo = queryParams.get('registeredTo') || ''
+  const filterValues = { name, company, registeredFrom, registeredTo } as AdminDevManagementFilterFormValues
 
   return {
     adminDevManagementState: state.adminDevManagement,
