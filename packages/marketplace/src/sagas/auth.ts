@@ -15,7 +15,6 @@ import {
 import { COOKIE_SESSION_KEY_MARKETPLACE } from '../constants/api'
 import { selectLoginType } from '@/selector/auth'
 import { logger } from 'logger'
-import config from '../../config.json'
 
 export const doLogin = function*({ data }: Action<LoginParams>) {
   try {
@@ -36,7 +35,7 @@ export const doLogout = function*() {
     const loginType = store?.state?.auth?.loginSession?.loginType || 'CLIENT'
     const authRoute = getAuthRouteByLoginType(loginType)
 
-    yield call(removeSession, COOKIE_SESSION_KEY_MARKETPLACE, config.appEnv)
+    yield call(removeSession, COOKIE_SESSION_KEY_MARKETPLACE, window.reapit.config.appEnv)
     yield call(redirectToLogout, window.reapit.config.cognitoClientId, `${window.location.origin}${authRoute}`)
   } catch (err) {
     logger(err)

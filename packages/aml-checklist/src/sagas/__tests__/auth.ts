@@ -20,13 +20,6 @@ jest.mock('@reapit/cognito-auth', () => ({
   removeSession: jest.fn(),
   redirectToLogout: jest.fn(),
 }))
-jest.mock(
-  '../../../config.json',
-  () => ({
-    appEnv: 'development',
-  }),
-  { virtual: true },
-)
 
 describe('auth sagas', () => {
   describe('login submit', () => {

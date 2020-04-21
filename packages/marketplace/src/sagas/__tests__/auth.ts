@@ -40,13 +40,6 @@ jest.mock('../../core/router', () => ({
 }))
 jest.mock('../../core/store')
 jest.mock('@reapit/cognito-auth')
-jest.mock(
-  '../../../config.json',
-  () => ({
-    appEnv: 'development',
-  }),
-  { virtual: true },
-)
 
 /* mock to make new Date() a consistent value */
 const RealDate = Date

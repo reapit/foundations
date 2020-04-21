@@ -14,13 +14,6 @@ jest.mock('../../core/router', () => ({
     push: jest.fn(),
   },
 }))
-jest.mock(
-  '../../../config.json',
-  () => ({
-    appEnv: 'development',
-  }),
-  { virtual: true },
-)
 
 jest.mock('@reapit/cognito-auth', () => ({
   setUserSession: jest.fn(),

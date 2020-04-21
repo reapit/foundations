@@ -27,11 +27,11 @@ export interface AuthState {
   isTermAccepted: boolean
 }
 
-export const defaultState = {
+export const defaultState: AuthState = {
   error: false,
   loginSession: null,
   isTermAccepted: false,
-  loginType: 'DEVELOPER',
+  loginType: 'DEVELOPER' as LoginType,
   refreshSession: null,
 }
 
@@ -60,7 +60,7 @@ const authReducer = (state: AuthState = defaultState, action: Action<any>): Auth
 
   if (isType(action, authLogoutSuccess)) {
     return {
-      ...defaultState(),
+      ...defaultState,
       refreshSession: null,
     }
   }
