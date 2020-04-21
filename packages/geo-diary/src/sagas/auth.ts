@@ -4,7 +4,6 @@ import ActionTypes from '@/constants/action-types'
 import { authLoginSuccess, authLoginFailure } from '@/actions/auth'
 import { LoginParams, LoginSession, setUserSession, removeSession, redirectToLogout } from '@reapit/cognito-auth'
 import { COOKIE_SESSION_KEY_GEO_DIARY } from '../constants/api'
-import store from '@/core/store'
 import { logger } from 'logger'
 
 export const doLogin = function*({ data }: Action<LoginParams>) {
@@ -24,7 +23,6 @@ export const doLogin = function*({ data }: Action<LoginParams>) {
 
 export const doLogout = function*() {
   try {
-    yield call(store.purgeStore)
     yield call(removeSession, COOKIE_SESSION_KEY_GEO_DIARY)
     yield call(redirectToLogout, window.reapit.config.cognitoClientId, `${window.location.origin}/login`)
   } catch (err) {

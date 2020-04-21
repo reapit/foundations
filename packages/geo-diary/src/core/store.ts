@@ -10,10 +10,6 @@ import {
   Reducer,
 } from 'redux'
 import createSagaMiddleware from 'redux-saga'
-// @ts-ignore
-import { persistStore, persistReducer, Persistor } from 'redux-persist'
-// @ts-ignore
-import * as localForage from 'localforage'
 import { ReduxState, Action } from '@/types/core'
 import { all, fork } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
@@ -33,7 +29,6 @@ import appointmentsSagas from '@/sagas/appointments'
 import appointmentDetailSagas from '@/sagas/appointment-detail'
 import nextAppointmentSaga from '@/sagas/next-appointment'
 import { injectSwitchModeToWindow } from '@reapit/elements'
-import { authSetRefreshSessionLoginMode } from '@/actions/auth'
 
 export class Store {
   static _instance: Store
@@ -78,35 +73,18 @@ export class Store {
 
   reduxStore: ReduxStore<ReduxState>
 
-  persistor: Persistor
-
   constructor() {
     injectSwitchModeToWindow()
-    const persistConfig = {
-      key: 'root',
-      storage: localForage,
-      blacklist: ['online'],
-    }
-    const persistedReducer = persistReducer(persistConfig, Store.reducers)
     const composed = Store.composeEnhancers(applyMiddleware(Store.sagaMiddleware))
-    this.reduxStore = createStore(persistedReducer, composed)
+    this.reduxStore = createStore(Store.reducers, composed)
 
     Store.sagaMiddleware.run(Store.sagas)
-
-    this.persistor = persistStore(this.reduxStore, undefined, () =>
-      // Need this to set correct mode after finish redux-persist rehydrate
-      this.reduxStore.dispatch(authSetRefreshSessionLoginMode()),
-    )
 
     this.hotModuleReloading()
 
     // online/offline listeners
     window.addEventListener('online', () => this.dispatch({ type: ActionTypes.ONLINE }))
     window.addEventListener('offline', () => this.dispatch({ type: ActionTypes.OFFLINE }))
-  }
-
-  async purgeStore() {
-    Store.instance.persistor.purge()
   }
 
   hotModuleReloading() {
