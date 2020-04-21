@@ -213,7 +213,7 @@ export const AdminApps: React.FunctionComponent<AdminAppsProps> = ({
   const [deleteModal, setDeleteModal] = React.useState({ visible: false, appId: '', appName: '', developerName: '' })
   const columns = React.useMemo(generateColumns({ onChangeFeatured, setDeleteModal, deleteModal }), [data])
 
-  const filterInitValues = {
+  const formInitValues = {
     ...queryParams,
     RegisteredFrom: queryParams.RegisteredFrom || '',
     RegisteredTo: queryParams.RegisteredTo || '',
@@ -233,7 +233,7 @@ export const AdminApps: React.FunctionComponent<AdminAppsProps> = ({
         )}
         <div className="mb-5">
           <H3>App Management</H3>
-          <Formik initialValues={filterInitValues} onSubmit={handleOnSubmit(history, pageNumber)}>
+          <Formik initialValues={formInitValues} onSubmit={handleOnSubmit(history, pageNumber)}>
             {renderForm(handleOnSubmit(history, pageNumber))}
           </Formik>
         </div>
