@@ -7,6 +7,7 @@ export const URLS = {
   appointments: '/appointments',
   identityChecks: '/identityChecks',
   negotiators: '/negotiators',
+  properties: '/properties',
 }
 
 export const HEADERS = {
