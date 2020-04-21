@@ -14,6 +14,13 @@ jest.mock('../../core/router', () => ({
     push: jest.fn(),
   },
 }))
+jest.mock(
+  '../../../config.json',
+  () => ({
+    appEnv: 'development',
+  }),
+  { virtual: true },
+)
 
 jest.mock('@reapit/cognito-auth', () => ({
   setUserSession: jest.fn(),
@@ -52,7 +59,7 @@ describe('auth sagas', () => {
   describe('authLogout', () => {
     it('should redirect to login page', () => {
       const gen = doLogout()
-      expect(gen.next().value).toEqual(call(removeSession, COOKIE_SESSION_KEY_LTL_APP))
+      expect(gen.next().value).toEqual(call(removeSession, COOKIE_SESSION_KEY_LTL_APP, 'development'))
       expect(gen.next().value).toEqual(
         call(redirectToLogout, window.reapit.config.cognitoClientId, `${window.location.origin}/login`),
       )

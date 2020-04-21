@@ -11,6 +11,7 @@ import {
 import { RefreshParams, LoginSession, getSessionCookie } from '@reapit/cognito-auth'
 import { COOKIE_SESSION_KEY_GEO_DIARY } from '../constants/api'
 import { getMarketplaceGlobalsByKey } from '@reapit/elements'
+import config from '../../config.json'
 
 export interface AuthState {
   error: boolean
@@ -18,7 +19,9 @@ export interface AuthState {
   refreshSession: RefreshParams | null
 }
 export const defaultState = (): AuthState => {
-  const refreshSession = getSessionCookie(COOKIE_SESSION_KEY_GEO_DIARY)
+  // window.config.reapit is undefined here, need to directly import from config.json
+  const refreshSession = getSessionCookie(COOKIE_SESSION_KEY_GEO_DIARY, config.appEnv)
+
   return {
     error: false,
     loginSession: null,

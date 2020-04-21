@@ -30,12 +30,11 @@ export interface AuthState {
 }
 
 export const defaultState = (): AuthState => {
-  // window.config.reapit is undefined here, need to directly import config.json
+  // window.config.reapit is undefined here, need to directly import from config.json
   const refreshSession = getSessionCookie(COOKIE_SESSION_KEY_MARKETPLACE, config.appEnv)
   return {
     error: false,
     loginSession: null,
-
     isTermAccepted: false,
     loginType: refreshSession ? refreshSession.loginType : 'DEVELOPER',
     refreshSession,

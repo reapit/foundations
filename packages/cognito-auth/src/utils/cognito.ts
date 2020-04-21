@@ -37,9 +37,8 @@ export const setSessionCookie = (
   identifier: string = COOKIE_SESSION_KEY,
   appEnv?: string,
 ): void => {
-  const env = appEnv ?? window?.reapit?.config?.appEnv
   const { userName, refreshToken, loginType, mode, cognitoClientId } = session
-  const identifierWithEnv = env ? `${env}-${identifier}` : identifier
+  const identifierWithEnv = appEnv ? `${appEnv}-${identifier}` : identifier
   hardtack.set(
     identifierWithEnv,
     JSON.stringify({
@@ -60,8 +59,7 @@ export const setSessionCookie = (
 
 export const getSessionCookie = (identifier: string = COOKIE_SESSION_KEY, appEnv?: string): RefreshParams | null => {
   try {
-    const env = appEnv ?? window?.reapit?.config?.appEnv
-    const identifierWithEnv = env ? `${env}-${identifier}` : identifier
+    const identifierWithEnv = appEnv ? `${appEnv}-${identifier}` : identifier
     const session = hardtack.get(identifierWithEnv)
     if (session) {
       const marketplaceGlobalObject = getMarketplaceGlobalsByKey()

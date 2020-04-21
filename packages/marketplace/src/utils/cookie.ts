@@ -1,4 +1,5 @@
 import hardtack from 'hardtack'
+import config from '../../config.json'
 
 // cookie 10 years
 export const COOKIE_MAX_AGE_INFINITY = 60 * 60 * 24 * 365 * 10
@@ -15,7 +16,7 @@ export const COOKIE_DOMAIN_WHITELIST = ['.reapit.cloud', 'localhost']
 
 export const getCookieString = (key: string, appEnv?: string): string => {
   try {
-    const env = appEnv || window.reapit.config.appEnv
+    const env = appEnv ?? config.appEnv
     const keyWithEnv = env ? `${env}-${key}` : key
     const cookie = hardtack.get(keyWithEnv) as string
     return cookie
@@ -33,7 +34,7 @@ export const setCookieString = (
 ): void => {
   const hrefString = href ?? window.location.href
   const whitelistedHost = COOKIE_DOMAIN_WHITELIST.filter(item => hrefString.includes(item))[0]
-  const env = appEnv ?? window?.reapit?.config?.appEnv
+  const env = appEnv ?? config.appEnv
   const keyWithEnv = env ? `${env}-${key}` : key
 
   if (whitelistedHost) {

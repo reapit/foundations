@@ -5,6 +5,7 @@ import { authLoginSuccess, authLoginFailure } from '@/actions/auth'
 import { LoginParams, LoginSession, setUserSession, removeSession, redirectToLogout } from '@reapit/cognito-auth'
 import { COOKIE_SESSION_KEY_AML_APP } from '../constants/api'
 import { logger } from 'logger'
+import config from '../../config.json'
 
 export const doLogin = function*({ data }: Action<LoginParams>) {
   try {
@@ -23,7 +24,7 @@ export const doLogin = function*({ data }: Action<LoginParams>) {
 
 export const doLogout = function*() {
   try {
-    yield call(removeSession, COOKIE_SESSION_KEY_AML_APP)
+    yield call(removeSession, COOKIE_SESSION_KEY_AML_APP, config.appEnv)
     yield call(redirectToLogout, window.reapit.config.cognitoClientId, `${window.location.origin}/login`)
   } catch (err) {
     logger(err)

@@ -40,6 +40,13 @@ jest.mock('../../core/router', () => ({
 }))
 jest.mock('../../core/store')
 jest.mock('@reapit/cognito-auth')
+jest.mock(
+  '../../../config.json',
+  () => ({
+    appEnv: 'development',
+  }),
+  { virtual: true },
+)
 
 /* mock to make new Date() a consistent value */
 const RealDate = Date
@@ -106,7 +113,7 @@ describe('auth thunks', () => {
   describe('authLogout', () => {
     it('should redirect to login page', () => {
       const gen = doLogout()
-      expect(gen.next().value).toEqual(call(removeSession, COOKIE_SESSION_KEY_MARKETPLACE))
+      expect(gen.next().value).toEqual(call(removeSession, COOKIE_SESSION_KEY_MARKETPLACE, 'development'))
       expect(gen.next().value).toEqual(
         call(
           redirectToLogout,

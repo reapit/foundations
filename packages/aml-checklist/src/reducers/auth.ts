@@ -3,6 +3,7 @@ import { isType } from '@/utils/actions'
 import { authLogin, authLoginFailure, authLoginSuccess, authLogoutSuccess, authSetRefreshSession } from '@/actions/auth'
 import { RefreshParams, LoginSession, getSessionCookie } from '@reapit/cognito-auth'
 import { COOKIE_SESSION_KEY_AML_APP } from '../constants/api'
+import config from '../../config.json'
 
 export interface AuthState {
   error: boolean
@@ -11,7 +12,8 @@ export interface AuthState {
 }
 
 export const defaultState = (): AuthState => {
-  const refreshSession = getSessionCookie(COOKIE_SESSION_KEY_AML_APP)
+  // window.config.reapit is undefined here, need to directly import from config.json
+  const refreshSession = getSessionCookie(COOKIE_SESSION_KEY_AML_APP, config.appEnv)
   return {
     error: false,
     loginSession: null,
