@@ -9,9 +9,7 @@ import {
   authChangeLoginType,
   setTermsAcceptedState,
 } from '../actions/auth'
-import { LoginSession, RefreshParams, LoginType, getSessionCookie } from '@reapit/cognito-auth'
-import { COOKIE_SESSION_KEY_MARKETPLACE } from '../constants/api'
-import config from '../../config.json'
+import { LoginSession, RefreshParams, LoginType } from '@reapit/cognito-auth'
 
 export interface AuthState {
   error: boolean
@@ -29,19 +27,15 @@ export interface AuthState {
   isTermAccepted: boolean
 }
 
-export const defaultState = (): AuthState => {
-  // window.config.reapit is undefined here, need to directly import from config.json
-  const refreshSession = getSessionCookie(COOKIE_SESSION_KEY_MARKETPLACE, config.appEnv)
-  return {
-    error: false,
-    loginSession: null,
-    isTermAccepted: false,
-    loginType: refreshSession ? refreshSession.loginType : 'DEVELOPER',
-    refreshSession,
-  }
+export const defaultState = {
+  error: false,
+  loginSession: null,
+  isTermAccepted: false,
+  loginType: 'DEVELOPER',
+  refreshSession: null,
 }
 
-const authReducer = (state: AuthState = defaultState(), action: Action<any>): AuthState => {
+const authReducer = (state: AuthState = defaultState, action: Action<any>): AuthState => {
   if (isType(action, authLogin)) {
     return {
       ...state,
