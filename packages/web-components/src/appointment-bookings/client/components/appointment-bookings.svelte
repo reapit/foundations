@@ -55,6 +55,7 @@
     justify-content: center;
     align-items: center;
     background: #00000052;
+    z-index: 1000;
   }
 
   .appointment-bookings-modal-container {
