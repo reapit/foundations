@@ -26,7 +26,6 @@ export const setRefreshSession = async (
   cookieSessionKey: string = COOKIE_SESSION_KEY,
   appEnv?: string,
 ): Promise<LoginSession | null> => {
-  const env = appEnv ?? window?.reapit?.config?.appEnv
   const { userName, loginType, mode } = params
   const refreshedSession: Partial<LoginSession> | undefined | void = await refreshUserSession(params)
   const loginIdentity = refreshedSession && deserializeIdToken(refreshedSession)
@@ -39,7 +38,7 @@ export const setRefreshSession = async (
       loginIdentity,
     } as LoginSession
 
-    setSessionCookie(loginSession, cookieSessionKey, env)
+    setSessionCookie(loginSession, cookieSessionKey, appEnv)
 
     return loginSession
   }
