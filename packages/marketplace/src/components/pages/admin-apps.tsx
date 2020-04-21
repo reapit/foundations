@@ -19,6 +19,7 @@ import {
   FormSubHeading,
   Content,
   FlexContainerBasic,
+  DatePicker,
 } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { AdminAppsState } from '@/reducers/admin-apps'
@@ -106,6 +107,10 @@ export const refreshForm = (onSubmit, resetForm) => () => {
 
 export const renderForm = onSubmit => ({ values, resetForm }) => {
   const disabled = !values.appName && !values.companyName && !values.developerName
+
+  const startDate = values.RegisteredFrom ? new Date(values.RegisteredFrom) : ''
+  const endDate = values.RegisteredTo ? new Date(values.RegisteredTo) : ''
+
   return (
     <Form>
       <FormSection>
@@ -121,6 +126,33 @@ export const renderForm = onSubmit => ({ values, resetForm }) => {
             </GridItem>
             <GridItem>
               <Input type="text" name="companyName" id="companyName" labelText="Company Name" />
+            </GridItem>
+          </Grid>
+          <Grid>
+            <GridItem>
+              <DatePicker
+                name="RegisteredFrom"
+                labelText="Registered From"
+                id="RegisteredFrom"
+                reactDatePickerProps={{
+                  selectsStart: true,
+                  startDate,
+                  endDate,
+                }}
+              />
+            </GridItem>
+            <GridItem>
+              <DatePicker
+                name="RegisteredTo"
+                labelText="Registered To"
+                id="RegisteredTo"
+                reactDatePickerProps={{
+                  selectsEnd: true,
+                  startDate,
+                  endDate,
+                  minDate: startDate,
+                }}
+              />
             </GridItem>
             <GridItem className={styles.filterButton}>
               <Button type="submit" variant="primary" disabled={disabled}>
@@ -145,6 +177,8 @@ export type FormValues = {
   appName: string
   companyName: string
   developerName: string
+  RegisteredFrom: string
+  RegisteredTo: string
 }
 
 export const handleOnSubmit = (history, pageNumber: number) => (formValues: FormValues) => {
@@ -179,6 +213,12 @@ export const AdminApps: React.FunctionComponent<AdminAppsProps> = ({
   const [deleteModal, setDeleteModal] = React.useState({ visible: false, appId: '', appName: '', developerName: '' })
   const columns = React.useMemo(generateColumns({ onChangeFeatured, setDeleteModal, deleteModal }), [data])
 
+  const formInitValues = {
+    ...queryParams,
+    RegisteredFrom: queryParams.RegisteredFrom || '',
+    RegisteredTo: queryParams.RegisteredTo || '',
+  }
+
   if (unfetched) {
     return <Loader />
   }
@@ -193,18 +233,22 @@ export const AdminApps: React.FunctionComponent<AdminAppsProps> = ({
         )}
         <div className="mb-5">
           <H3>App Management</H3>
-          <Formik initialValues={queryParams} onSubmit={handleOnSubmit(history, pageNumber)}>
+          <Formik initialValues={formInitValues} onSubmit={handleOnSubmit(history, pageNumber)}>
             {renderForm(handleOnSubmit(history, pageNumber))}
           </Formik>
         </div>
         <div className={styles.contentBlock}>
+          <FlexContainerBasic hasPadding>
+            <span>Total apps: {totalCount}</span>
+          </FlexContainerBasic>
+
           {!loading && !data.length ? (
             <Alert message="You currently have no apps listed " type="info" />
           ) : (
-            <div className="mb-5">
-              <Table scrollable={true} loading={false} data={data} columns={columns} />
-            </div>
-          )}
+              <div className="mb-5">
+                <Table scrollable={true} loading={false} data={data} columns={columns} />
+              </div>
+            )}
         </div>
         <Pagination
           onChange={handleChangePageNumber(history)}

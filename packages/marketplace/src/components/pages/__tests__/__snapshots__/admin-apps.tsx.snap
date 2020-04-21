@@ -35,6 +35,37 @@ exports[`AdminApps renderForm should return correctly 1`] = `
             type="text"
           />
         </Unknown>
+      </Unknown>
+      <Unknown>
+        <Unknown>
+          <Unknown
+            id="RegisteredFrom"
+            labelText="Registered From"
+            name="RegisteredFrom"
+            reactDatePickerProps={
+              Object {
+                "endDate": "",
+                "selectsStart": true,
+                "startDate": "",
+              }
+            }
+          />
+        </Unknown>
+        <Unknown>
+          <Unknown
+            id="RegisteredTo"
+            labelText="Registered To"
+            name="RegisteredTo"
+            reactDatePickerProps={
+              Object {
+                "endDate": "",
+                "minDate": "",
+                "selectsEnd": true,
+                "startDate": "",
+              }
+            }
+          />
+        </Unknown>
         <Unknown>
           <Unknown
             disabled={true}
@@ -74,6 +105,8 @@ exports[`AdminApps should match a snapshot when LOADING false 1`] = `
       <Formik
         initialValues={
           Object {
+            "RegisteredFrom": "",
+            "RegisteredTo": "",
             "page": 1,
           }
         }
@@ -83,6 +116,14 @@ exports[`AdminApps should match a snapshot when LOADING false 1`] = `
       </Formik>
     </div>
     <div>
+      <Component
+        hasPadding={true}
+      >
+        <span>
+          Total apps: 
+          6
+        </span>
+      </Component>
       <div
         className="mb-5"
       >
@@ -220,6 +261,8 @@ exports[`AdminApps should match a snapshot when LOADING true 1`] = `
       <Formik
         initialValues={
           Object {
+            "RegisteredFrom": "",
+            "RegisteredTo": "",
             "page": 1,
           }
         }
@@ -229,6 +272,14 @@ exports[`AdminApps should match a snapshot when LOADING true 1`] = `
       </Formik>
     </div>
     <div>
+      <Component
+        hasPadding={true}
+      >
+        <span>
+          Total apps: 
+          6
+        </span>
+      </Component>
       <div
         className="mb-5"
       >
