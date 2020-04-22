@@ -1,6 +1,6 @@
 
-smb:
-  - packages/smb/**
+smb-onboarder:
+  - packages/smb-onboarder/**
 
 graphql-server:
   - packages/graphql-server/**
