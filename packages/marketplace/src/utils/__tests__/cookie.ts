@@ -1,13 +1,6 @@
 import hardtack from 'hardtack'
 import { getCookieString, setCookieString, COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE } from '../cookie'
 
-jest.mock(
-  '../../../config.json',
-  () => ({
-    appEnv: 'development',
-  }),
-  { virtual: true },
-)
 describe('cookie utils', () => {
   describe('getCookieString', () => {
     it('should get a session from the cookie if it exists', () => {
