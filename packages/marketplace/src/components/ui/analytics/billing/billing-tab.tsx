@@ -1,9 +1,14 @@
 import * as React from 'react'
+import CostCalculator from './cost-calculator'
 
 export type BillingTabProps = {}
 
 export const BillingTab: React.FC<BillingTabProps> = () => {
-  return <h1>Billing Tab</h1>
+  return (
+    <div>
+      <CostCalculator />
+    </div>
+  )
 }
 
 export default BillingTab
