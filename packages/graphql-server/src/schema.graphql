@@ -105,6 +105,8 @@ type Query {
     active: Boolean
   ): PagedResultAreaModel!
   GetAreaById(id: String!): AreaModel!
+  GetConfigurationsByType(type: ConfigurationType): [ListItemModel]
+  GetConfigurationByTypeAndId(type: ConfigurationType, id: String): ListItemModel
   GetContacts(
     pageSize: Int
     pageNumber: Int
@@ -429,6 +431,26 @@ type PagedResultAreaModel {
   pageCount: Int
   totalCount: Int
   _links: JSON
+}
+
+type ListItemModel {
+  id: String
+  value: String
+}
+
+enum ConfigurationType {
+  appointmentTypes
+  companyTypes
+  identityDocumentTypes
+  documentTypes
+  journalEntryTypes
+  followUpResponses
+  sellingReasons
+  supplierTypes
+  taskTypes
+  tenancyTypes
+  vendorTypes
+  worksOrderTypes
 }
 
 type ContactModel {

@@ -1,0 +1,24 @@
+type ListItemModel {
+  id: String
+  value: String
+}
+
+enum ConfigurationType {
+  appointmentTypes
+  companyTypes
+  identityDocumentTypes
+  documentTypes
+  journalEntryTypes
+  followUpResponses
+  sellingReasons
+  supplierTypes
+  taskTypes
+  tenancyTypes
+  vendorTypes
+  worksOrderTypes
+}
+
+type Query {
+  GetConfigurationsByType(type: ConfigurationType): [ListItemModel]
+  GetConfigurationByTypeAndId(type: ConfigurationType, id: String): ListItemModel
+}

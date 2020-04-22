@@ -1,6 +1,11 @@
 import { ListItemModel } from '../../../types'
 
-export const propertyTypesMock: ListItemModel[] = [
+export const appointmentTypeMock: ListItemModel = {
+  id: 'AP',
+  value: 'Appointment',
+}
+
+export const appointmentTypesMock: ListItemModel[] = [
   {
     id: 'AP',
     value: 'Appointment',
