@@ -1,5 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`DeveloperWebHooks should match a snapshot 1`] = `
+<Component
+  hasPadding={true}
+>
+  <Component
+    flexColumn={true}
+    hasBackground={true}
+    hasPadding={true}
+  >
+    <Component>
+      Manage Webhook Subscriptions
+    </Component>
+    <Component>
+      <Component>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore excepturi aliquam dolor, dolore placeat molestias illum quod quasi nihil. Modi consectetur praesentium sint quod qui quos soluta repellat porro minus.
+      </Component>
+      <Formik
+        initialValues={
+          Object {
+            "demo": null,
+          }
+        }
+        onSubmit={[Function]}
+      >
+        <Component />
+      </Formik>
+    </Component>
+  </Component>
+</Component>
+`;
+
 exports[`Swagger should match a snapshot 1`] = `
 <Component
   hasPadding={true}
