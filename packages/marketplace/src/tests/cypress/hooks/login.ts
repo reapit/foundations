@@ -11,10 +11,11 @@ import {
 } from '@/utils/cookie'
 
 const CypressEnv = Cypress.env()
+const env = CypressEnv.appEnv
 
 function login(params: LoginParams): LoginSession {
   return new Cypress.Promise(async resolve => {
-    const loginSession = await setUserSession(params, COOKIE_SESSION_KEY_MARKETPLACE)
+    const loginSession = await setUserSession(params, COOKIE_SESSION_KEY_MARKETPLACE, env)
     resolve(loginSession)
   })
 }
@@ -77,9 +78,9 @@ export const loginDeveloperHook = () => {
     loginType: 'DEVELOPER',
     loginRoute: ROUTES.DEVELOPER_LOGIN,
     beforeLogin: () => {
-      cy.setCookie(COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE, new Date().toString())
-      cy.setCookie(COOKIE_DEVELOPER_TERMS_ACCEPTED, new Date().toString())
-      cy.setCookie(COOKIE_FIRST_SUBMIT, new Date().toString())
+      cy.setCookie(`${env}-${COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE}`, new Date().toString())
+      cy.setCookie(`${env}-${COOKIE_DEVELOPER_TERMS_ACCEPTED}`, new Date().toString())
+      cy.setCookie(`${env}-${COOKIE_FIRST_SUBMIT}`, new Date().toString())
     },
   })
 }
@@ -91,8 +92,8 @@ export const loginClientHook = () => {
     loginType: 'CLIENT',
     loginRoute: ROUTES.CLIENT_LOGIN,
     beforeLogin: () => {
-      cy.setCookie(COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE, new Date().toString())
-      cy.setCookie(COOKIE_CLIENT_TERMS_ACCEPTED, new Date().toString())
+      cy.setCookie(`${env}-${COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE}`, new Date().toString())
+      cy.setCookie(`${env}-${COOKIE_CLIENT_TERMS_ACCEPTED}`, new Date().toString())
     },
   })
 }

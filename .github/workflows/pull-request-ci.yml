@@ -86,13 +86,13 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-smb
       # End cache
 
-      - name: Lint
-        run: |
-          yarn lint
-
       - name: Fetch config
         run: |
           yarn fetch-config development
+
+      - name: Lint
+        run: |
+          yarn lint
 
       - name: Build
         run: |

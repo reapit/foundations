@@ -17,7 +17,11 @@ export const loginUserSession = async (params: LoginParams): Promise<Partial<Log
   }
 }
 
-export const setUserSession = async (params: LoginParams, identifier?: string): Promise<LoginSession | null> => {
+export const setUserSession = async (
+  params: LoginParams,
+  identifier?: string,
+  appEnv?: string,
+): Promise<LoginSession | null> => {
   const { userName, loginType, mode } = params
 
   const loginDetails: Partial<LoginSession> | undefined = await loginUserSession(params)
@@ -25,7 +29,7 @@ export const setUserSession = async (params: LoginParams, identifier?: string): 
   if (loginIdentity && checkHasIdentityId(loginType, loginIdentity)) {
     const loginSession = { ...loginDetails, loginType, mode, userName, loginIdentity } as LoginSession
 
-    setSessionCookie(loginSession, identifier)
+    setSessionCookie(loginSession, identifier, appEnv)
 
     return loginSession
   }

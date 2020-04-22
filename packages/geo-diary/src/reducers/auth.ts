@@ -8,8 +8,7 @@ import {
   authSetRefreshSession,
   authSetRefreshSessionLoginMode,
 } from '@/actions/auth'
-import { RefreshParams, LoginSession, getSessionCookie } from '@reapit/cognito-auth'
-import { COOKIE_SESSION_KEY_GEO_DIARY } from '../constants/api'
+import { RefreshParams, LoginSession } from '@reapit/cognito-auth'
 import { getMarketplaceGlobalsByKey } from '@reapit/elements'
 
 export interface AuthState {
@@ -17,16 +16,13 @@ export interface AuthState {
   loginSession: LoginSession | null
   refreshSession: RefreshParams | null
 }
-export const defaultState = (): AuthState => {
-  const refreshSession = getSessionCookie(COOKIE_SESSION_KEY_GEO_DIARY)
-  return {
-    error: false,
-    loginSession: null,
-    refreshSession,
-  }
+export const defaultState: AuthState = {
+  error: false,
+  loginSession: null,
+  refreshSession: null,
 }
 
-const authReducer = (state: AuthState = defaultState(), action: Action<any>): AuthState => {
+const authReducer = (state: AuthState = defaultState, action: Action<any>): AuthState => {
   if (isType(action, authLogin)) {
     return {
       ...state,
@@ -51,7 +47,7 @@ const authReducer = (state: AuthState = defaultState(), action: Action<any>): Au
 
   if (isType(action, authLogoutSuccess)) {
     return {
-      ...defaultState(),
+      ...defaultState,
       refreshSession: null,
     }
   }

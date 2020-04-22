@@ -35,7 +35,7 @@ export const useAuth = (): AuthHook => {
   const getLoginSession = async () => {
     if (isFetchSession) return
     setFetchSession(true)
-    const session = await getSession(loginSession, refreshParams, COOKIE_SESSION_KEY)
+    const session = await getSession(loginSession, refreshParams, COOKIE_SESSION_KEY, window.reapit.config.appEnv)
     const isChangeSession = session !== loginSession
     if (!isChangeSession) {
       setFetchSession(false)
@@ -48,7 +48,7 @@ export const useAuth = (): AuthHook => {
   }
 
   const logout = React.useCallback(() => {
-    removeSession(COOKIE_SESSION_KEY)
+    removeSession(COOKIE_SESSION_KEY, window.reapit.config.appEnv)
     redirectToLogout(window.reapit.config.cognitoClientId, `${window.location.origin}/login`)
   }, [])
 

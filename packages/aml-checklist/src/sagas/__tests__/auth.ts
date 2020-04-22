@@ -53,7 +53,7 @@ describe('auth sagas', () => {
   describe('authLogout', () => {
     it('should redirect to login page', () => {
       const gen = doLogout()
-      expect(gen.next().value).toEqual(call(removeSession, COOKIE_SESSION_KEY_AML_APP))
+      expect(gen.next().value).toEqual(call(removeSession, COOKIE_SESSION_KEY_AML_APP, 'development'))
       expect(gen.next().value).toEqual(
         call(redirectToLogout, window.reapit.config.cognitoClientId, `${window.location.origin}/login`),
       )
