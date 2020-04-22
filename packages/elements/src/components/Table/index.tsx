@@ -32,7 +32,7 @@ export const Table: React.FC<TableProps> = ({
     columns,
     data,
   })
-  const hasFooter = columns.find(item => item.Footer)
+  const hasFooter = columns.some(item => item.Footer)
 
   // Render the UI for your table
   const renderTable = () => (
