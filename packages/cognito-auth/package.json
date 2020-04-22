@@ -1,6 +1,6 @@
 {
   "name": "@reapit/cognito-auth",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "Simple wrapper around AWS Cognito for basic authentication flow",
   "keywords": [],
   "homepage": "https://github.com/reapit/foundations#readme",
