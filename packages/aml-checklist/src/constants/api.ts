@@ -13,4 +13,5 @@ export const URLS = {
   contacts: '/contacts',
   idChecks: '/identityChecks',
   configuration: '/configuration',
+  documents: '/documents',
 }
