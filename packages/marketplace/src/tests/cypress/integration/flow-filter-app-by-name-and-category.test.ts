@@ -26,26 +26,25 @@ describe('Created app should appear in client search result happy path', () => {
     appIdRes.then(res => {
       appId = res.body.data[0].id
       const appRes = appRequest.getAppById(appId)
-      appRes
-        .then(app => {
-          return appRequest.createAppRevision(appId, app.body, { isListed: true })
-        })
-        .then(() => {
-          loginAdminHook()
-          cy.server()
-          cy.route('GET', routes.approvals).as('approvals')
-          cy.visit(ROUTES.ADMIN_APPROVALS)
-          cy.wait('@approvals')
-          clickViewDetailsButtonWithAppId(appId)
-          cy.get(buttonApprove).click()
-          cy.route('POST', routes.approveApp).as('approveAppRequest')
-          cy.get(btnConfirmApproval).click()
-          cy.wait('@approveAppRequest')
-          cy.get(btnApproveSuccess).click()
-          cy.clearCookies()
-          cy.wait(2000)
-        })
+      appRes.then(app => {
+        return appRequest.createAppRevision(appId, app.body, { isListed: true })
+      })
     })
+    cy.wait(3000)
+  })
+
+  it('should create app and approve', () => {
+    loginAdminHook()
+    cy.server()
+    cy.route('GET', routes.approvals).as('approvals')
+    cy.visit(ROUTES.ADMIN_APPROVALS)
+    cy.wait('@approvals')
+    clickViewDetailsButtonWithAppId(appId)
+    cy.get(buttonApprove).click()
+    cy.route('POST', routes.approveApp).as('approveAppRequest')
+    cy.get(btnConfirmApproval).click()
+    cy.wait('@approveAppRequest')
+    cy.get(btnApproveSuccess).click()
   })
 
   it('Should return the app that was created before by name and by category', () => {
