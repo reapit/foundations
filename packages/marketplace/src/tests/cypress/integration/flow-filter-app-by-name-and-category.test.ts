@@ -33,7 +33,7 @@ describe('Created app should appear in client search result happy path', () => {
     cy.wait(3000)
   })
 
-  it('should create app and approve', () => {
+  it('Should approve app', () => {
     loginAdminHook()
     cy.server()
     cy.route('GET', routes.approvals).as('approvals')
