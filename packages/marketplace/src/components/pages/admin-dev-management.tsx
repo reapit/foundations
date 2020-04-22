@@ -123,10 +123,11 @@ export const AdminDevManagement: React.FC<AdminDevManagementProps> = ({
   return (
     <ErrorBoundary>
       <FlexContainerBasic flexColumn hasBackground hasPadding>
-        <H3>App Management</H3>
+        <H3>Developer Management</H3>
         <AdminDevManagementFilterForm filterValues={filterValues} onSearch={onSearch} />
         <Content className={styles.contentBlock}>
           <Table scrollable={true} loading={false} data={data.data || []} columns={columns} />
+          <div className={styles.totalRecordLabel}>Total: {data.totalCount}</div>
         </Content>
         <Pagination
           onChange={onPageChange}

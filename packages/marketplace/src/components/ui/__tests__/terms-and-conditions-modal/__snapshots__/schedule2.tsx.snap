@@ -125,25 +125,6 @@ Object {
                 </td>
               </tr>
             </tbody>
-            <tfoot>
-              <tr>
-                <th
-                  colspan="1"
-                >
-                   
-                </th>
-                <th
-                  colspan="1"
-                >
-                   
-                </th>
-                <th
-                  colspan="1"
-                >
-                   
-                </th>
-              </tr>
-            </tfoot>
           </table>
         </div>
         <div
@@ -630,25 +611,6 @@ Object {
               </td>
             </tr>
           </tbody>
-          <tfoot>
-            <tr>
-              <th
-                colspan="1"
-              >
-                 
-              </th>
-              <th
-                colspan="1"
-              >
-                 
-              </th>
-              <th
-                colspan="1"
-              >
-                 
-              </th>
-            </tr>
-          </tfoot>
         </table>
       </div>
       <div

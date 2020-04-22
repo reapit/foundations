@@ -52,6 +52,7 @@ export const AdminDevManagementFilterForm: React.FC<AdminDevManagementFilterForm
                     labelText="Registered From"
                     id="registeredFrom"
                     reactDatePickerProps={{
+                      className: styles.datePicker,
                       maxDate: dayjs()
                         .subtract(1, 'day')
                         .toDate(),
@@ -64,6 +65,7 @@ export const AdminDevManagementFilterForm: React.FC<AdminDevManagementFilterForm
                     labelText="Registered To"
                     id="registeredTo"
                     reactDatePickerProps={{
+                      className: styles.datePicker,
                       minDate: dayjs(registeredFrom)
                         .add(1, 'day')
                         .toDate(),

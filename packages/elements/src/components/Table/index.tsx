@@ -32,6 +32,7 @@ export const Table: React.FC<TableProps> = ({
     columns,
     data,
   })
+  const hasFooter = columns.find(item => item.Footer)
 
   // Render the UI for your table
   const renderTable = () => (
@@ -77,7 +78,7 @@ export const Table: React.FC<TableProps> = ({
           )
         )}
       </tbody>
-      {footerGroups && (
+      {footerGroups && hasFooter && (
         <tfoot>
           {footerGroups.map((footerGroup, index) => (
             <tr key={index} {...footerGroup.getFooterGroupProps()}>
