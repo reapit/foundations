@@ -49,7 +49,7 @@ describe('auth sagas', () => {
     it('should redirect to login page', () => {
       const gen = doLogout()
 
-      expect(gen.next().value).toEqual(call(removeSession, COOKIE_SESSION_KEY_GEO_DIARY))
+      expect(gen.next().value).toEqual(call(removeSession, COOKIE_SESSION_KEY_GEO_DIARY, 'development'))
       expect(gen.next().value).toEqual(
         call(redirectToLogout, window.reapit.config.cognitoClientId, `${window.location.origin}/login`),
       )
@@ -58,7 +58,7 @@ describe('auth sagas', () => {
 
     it('on logout fail', () => {
       const gen = doLogout()
-      expect(gen.next().value).toEqual(call(removeSession, COOKIE_SESSION_KEY_GEO_DIARY))
+      expect(gen.next().value).toEqual(call(removeSession, COOKIE_SESSION_KEY_GEO_DIARY, 'development'))
       gen.next(gen.throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value)
       expect(gen.next().done).toBe(true)
     })

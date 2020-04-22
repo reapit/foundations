@@ -61,13 +61,13 @@ jobs:
         run: |
           yarn
 
-      - name: Lint
-        run: |
-          yarn lint
-
       - name: Fetch config
         run: |
           yarn fetch-config production
+
+      - name: Lint
+        run: |
+          yarn lint
 
       - name: Build
         run: |
