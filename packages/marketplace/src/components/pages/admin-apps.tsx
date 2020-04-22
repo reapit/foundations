@@ -106,7 +106,8 @@ export const refreshForm = (onSubmit, resetForm) => () => {
 }
 
 export const renderForm = onSubmit => ({ values, resetForm }) => {
-  const disabled = !values.appName && !values.companyName && !values.developerName
+  const disabled =
+    !values.appName && !values.companyName && !values.developerName && !values.RegisteredFrom && !values.RegisteredTo
 
   const startDate = values.RegisteredFrom ? new Date(values.RegisteredFrom) : ''
   const endDate = values.RegisteredTo ? new Date(values.RegisteredTo) : ''
