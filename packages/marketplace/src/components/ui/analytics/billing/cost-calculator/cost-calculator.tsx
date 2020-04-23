@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { H4 } from '@reapit/elements'
 import CostCalculatorForm, { CostCalculatorFormValues } from './cost-calculator-form'
+import TotalCostTable from './total-cost-table'
 
 export type CostCalculatorProps = {}
 
@@ -28,213 +29,211 @@ export const endpointsUsedRange: EndpointsUsedRange = {
   tier7: '50+',
 }
 
-export const foundationPricing: TierPrice[] = [
-  {
-    tier1: {
-      maxPrice: 0.001,
-      priceRange: [
-        {
-          limit: 1000,
-          price: 0.01,
-        },
-        {
-          limit: 2500,
-          price: 0.008,
-        },
-        {
-          limit: 5000,
-          price: 0.006,
-        },
-        {
-          limit: 10000,
-          price: 0.005,
-        },
-        {
-          limit: 25000,
-          price: 0.004,
-        },
-        {
-          limit: 50000,
-          price: 0.0025,
-        },
-      ],
-    },
-    tier2: {
-      maxPrice: 0.0011,
-      priceRange: [
-        {
-          limit: 1000,
-          price: 0.011,
-        },
-        {
-          limit: 2500,
-          price: 0.0066,
-        },
-        {
-          limit: 5000,
-          price: 0.0055,
-        },
-        {
-          limit: 10000,
-          price: 0.0044,
-        },
-        {
-          limit: 25000,
-          price: 0.00275,
-        },
-        {
-          limit: 50000,
-          price: 0.0025,
-        },
-      ],
-    },
-    tier3: {
-      maxPrice: 0.00125,
-      priceRange: [
-        {
-          limit: 1000,
-          price: 0.0125,
-        },
-        {
-          limit: 2500,
-          price: 0.01,
-        },
-        {
-          limit: 5000,
-          price: 0.0075,
-        },
-        {
-          limit: 10000,
-          price: 0.00625,
-        },
-        {
-          limit: 25000,
-          price: 0.005,
-        },
-        {
-          limit: 50000,
-          price: 0.003125,
-        },
-      ],
-    },
-    tier4: {
-      maxPrice: 0.00145,
-      priceRange: [
-        {
-          limit: 1000,
-          price: 0.0145,
-        },
-        {
-          limit: 2500,
-          price: 0.0116,
-        },
-        {
-          limit: 5000,
-          price: 0.0087,
-        },
-        {
-          limit: 10000,
-          price: 0.00725,
-        },
-        {
-          limit: 25000,
-          price: 0.0058,
-        },
-        {
-          limit: 50000,
-          price: 0.003625,
-        },
-      ],
-    },
-    tier5: {
-      maxPrice: 0.00145,
-      priceRange: [
-        {
-          limit: 1000,
-          price: 0.0145,
-        },
-        {
-          limit: 2500,
-          price: 0.0116,
-        },
-        {
-          limit: 5000,
-          price: 0.0087,
-        },
-        {
-          limit: 10000,
-          price: 0.00725,
-        },
-        {
-          limit: 25000,
-          price: 0.0058,
-        },
-        {
-          limit: 50000,
-          price: 0.003625,
-        },
-      ],
-    },
-    tier6: {
-      maxPrice: 0.002,
-      priceRange: [
-        {
-          limit: 1000,
-          price: 0.02,
-        },
-        {
-          limit: 2500,
-          price: 0.016,
-        },
-        {
-          limit: 5000,
-          price: 0.012,
-        },
-        {
-          limit: 10000,
-          price: 0.01,
-        },
-        {
-          limit: 25000,
-          price: 0.008,
-        },
-        {
-          limit: 50000,
-          price: 0.005,
-        },
-      ],
-    },
-    tier7: {
-      maxPrice: 0.00235,
-      priceRange: [
-        {
-          limit: 1000,
-          price: 0.0235,
-        },
-        {
-          limit: 2500,
-          price: 0.0188,
-        },
-        {
-          limit: 5000,
-          price: 0.0141,
-        },
-        {
-          limit: 10000,
-          price: 0.01175,
-        },
-        {
-          limit: 25000,
-          price: 0.0094,
-        },
-        {
-          limit: 50000,
-          price: 0.004875,
-        },
-      ],
-    },
+export const foundationPricing: TierPrice = {
+  tier1: {
+    maxPrice: 0.001,
+    priceRange: [
+      {
+        limit: 1000,
+        price: 0.01,
+      },
+      {
+        limit: 1500,
+        price: 0.008,
+      },
+      {
+        limit: 2500,
+        price: 0.006,
+      },
+      {
+        limit: 5000,
+        price: 0.005,
+      },
+      {
+        limit: 15000,
+        price: 0.004,
+      },
+      {
+        limit: 25000,
+        price: 0.0025,
+      },
+    ],
   },
-]
+  tier2: {
+    maxPrice: 0.0011,
+    priceRange: [
+      {
+        limit: 1000,
+        price: 0.011,
+      },
+      {
+        limit: 1500,
+        price: 0.0066,
+      },
+      {
+        limit: 2500,
+        price: 0.0055,
+      },
+      {
+        limit: 5000,
+        price: 0.0044,
+      },
+      {
+        limit: 15000,
+        price: 0.00275,
+      },
+      {
+        limit: 25000,
+        price: 0.0025,
+      },
+    ],
+  },
+  tier3: {
+    maxPrice: 0.00125,
+    priceRange: [
+      {
+        limit: 1000,
+        price: 0.0125,
+      },
+      {
+        limit: 1500,
+        price: 0.01,
+      },
+      {
+        limit: 2500,
+        price: 0.0075,
+      },
+      {
+        limit: 5000,
+        price: 0.00625,
+      },
+      {
+        limit: 15000,
+        price: 0.005,
+      },
+      {
+        limit: 25000,
+        price: 0.003125,
+      },
+    ],
+  },
+  tier4: {
+    maxPrice: 0.00145,
+    priceRange: [
+      {
+        limit: 1000,
+        price: 0.0145,
+      },
+      {
+        limit: 1500,
+        price: 0.0116,
+      },
+      {
+        limit: 2500,
+        price: 0.0087,
+      },
+      {
+        limit: 5000,
+        price: 0.00725,
+      },
+      {
+        limit: 15000,
+        price: 0.0058,
+      },
+      {
+        limit: 25000,
+        price: 0.003625,
+      },
+    ],
+  },
+  tier5: {
+    maxPrice: 0.00145,
+    priceRange: [
+      {
+        limit: 1000,
+        price: 0.0145,
+      },
+      {
+        limit: 1500,
+        price: 0.0116,
+      },
+      {
+        limit: 2500,
+        price: 0.0087,
+      },
+      {
+        limit: 5000,
+        price: 0.00725,
+      },
+      {
+        limit: 15000,
+        price: 0.0058,
+      },
+      {
+        limit: 25000,
+        price: 0.003625,
+      },
+    ],
+  },
+  tier6: {
+    maxPrice: 0.002,
+    priceRange: [
+      {
+        limit: 1000,
+        price: 0.02,
+      },
+      {
+        limit: 1500,
+        price: 0.016,
+      },
+      {
+        limit: 2500,
+        price: 0.012,
+      },
+      {
+        limit: 5000,
+        price: 0.01,
+      },
+      {
+        limit: 15000,
+        price: 0.008,
+      },
+      {
+        limit: 25000,
+        price: 0.005,
+      },
+    ],
+  },
+  tier7: {
+    maxPrice: 0.00235,
+    priceRange: [
+      {
+        limit: 1000,
+        price: 0.0235,
+      },
+      {
+        limit: 1500,
+        price: 0.0188,
+      },
+      {
+        limit: 2500,
+        price: 0.0141,
+      },
+      {
+        limit: 5000,
+        price: 0.01175,
+      },
+      {
+        limit: 15000,
+        price: 0.0094,
+      },
+      {
+        limit: 25000,
+        price: 0.004875,
+      },
+    ],
+  },
+}
 
 export const prepareInitialValues = (endpointsUsed: string, apiCalls: string) => {
   return () => {
@@ -257,9 +256,9 @@ export const handleOnSubmit = (
 }
 
 const CostCalculator: React.FC<CostCalculatorProps> = () => {
-  const [endpointsUsed, setEndpointsUsed] = React.useState('')
-  const [apiCalls, setApiCalls] = React.useState('')
-  const initialValues = React.useMemo(prepareInitialValues(endpointsUsed, apiCalls), [endpointsUsed, apiCalls])
+  const [endpointsUsed, setEndpointsUsed] = React.useState('tier4')
+  const [apiCalls, setApiCalls] = React.useState('100000')
+  const formValues = React.useMemo(prepareInitialValues(endpointsUsed, apiCalls), [endpointsUsed, apiCalls])
   const onSubmit = React.useCallback(handleOnSubmit(setEndpointsUsed, setApiCalls), [])
   return (
     <>
@@ -275,7 +274,12 @@ const CostCalculator: React.FC<CostCalculatorProps> = () => {
           here
         </a>
       </p>
-      <CostCalculatorForm initialValues={initialValues} endpointsUsedRange={endpointsUsedRange} onSubmit={onSubmit} />
+      <CostCalculatorForm initialValues={formValues} endpointsUsedRange={endpointsUsedRange} onSubmit={onSubmit} />
+      <TotalCostTable
+        formValues={formValues}
+        endpointsUsedRange={endpointsUsedRange}
+        foundationPricing={foundationPricing}
+      />
     </>
   )
 }
