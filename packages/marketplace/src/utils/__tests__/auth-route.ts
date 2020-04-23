@@ -59,11 +59,16 @@ describe('getDefaultRouteByLoginType', () => {
   })
 
   it('should return origin url + Routes.CLIENT_WELCOME if loginType = CLIENT and isClientFirstTimeLoginComplete is false', () => {
+    // expect(
+    //   getDefaultRouteByLoginType({
+    //     loginType: 'CLIENT',
+    //   }),
+    // ).toEqual(`${window.location.origin}${Routes.CLIENT_WELCOME}`)
     expect(
       getDefaultRouteByLoginType({
         loginType: 'CLIENT',
       }),
-    ).toEqual(`${window.location.origin}${Routes.CLIENT_WELCOME}`)
+    ).toEqual(`${window.location.origin}${Routes.INSTALLED_APPS}`)
   })
   /* eslint-enable*/
 })
@@ -105,11 +110,16 @@ describe('getDefaultPathByLoginType', () => {
   })
 
   it('should return Routes.CLIENT_WELCOME if loginType = CLIENT and isClientFirstTimeLoginComplete is false', () => {
+    // expect(
+    //   getDefaultPathByLoginType({
+    //     loginType: 'CLIENT',
+    //   }),
+    // ).toEqual(Routes.CLIENT_WELCOME)
     expect(
       getDefaultPathByLoginType({
         loginType: 'CLIENT',
       }),
-    ).toEqual(Routes.CLIENT_WELCOME)
+    ).toEqual(Routes.INSTALLED_APPS)
   })
   /* eslint-enable*/
 })
