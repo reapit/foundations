@@ -11,7 +11,7 @@ const fakeResponse = {} as PagedResultDeveloperModel_
 const params = {
   data: {
     page: 1,
-    queryString: '?name=name&company=company',
+    queryString: '?name=name&company=company&registeredFrom=2020-03-04&registeredTo=2020-04-04"',
   },
 }
 
@@ -21,7 +21,8 @@ describe('adminDevManagementRequestDataHandler', () => {
   expect(gen.next().value).toEqual(put(adminDevManagementLoading(true)))
   expect(gen.next().value).toEqual(
     call(fetcher, {
-      url: `${URLS.developers}?PageNumber=${1}&PageSize=${REVISIONS_PER_PAGE}&Name=${'name'}&Company=${'company'}`,
+      url: `${URLS.developers}?PageNumber=${1}&PageSize=${REVISIONS_PER_PAGE}&Name=${'name'}&Company=${'company'}
+      &RegisteredFrom=2020-03-04&RegisteredTo=2020-04-04`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
