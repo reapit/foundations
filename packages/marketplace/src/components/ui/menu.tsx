@@ -19,6 +19,7 @@ import {
   FaPortrait,
   FaTable,
   FaChartBar,
+  FaBolt,
 } from 'react-icons/fa'
 import { MdHelp } from 'react-icons/md'
 import { GoDatabase, GoCode } from 'react-icons/go'
@@ -113,6 +114,13 @@ export const generateMenuConfig = (
           url: Routes.DEVELOPER_SWAGGER,
           type: 'PRIMARY',
           icon: <GoDatabase className="nav-item-icon" />,
+        },
+        {
+          title: 'Webhooks',
+          key: 'WEBHOOKS',
+          url: Routes.DEVELOPER_WEBHOOKS,
+          type: 'PRIMARY',
+          icon: <FaBolt className="nav-item-icon" />,
         },
         {
           title: 'Docs',

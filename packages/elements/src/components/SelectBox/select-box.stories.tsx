@@ -23,7 +23,13 @@ storiesOf('SelectBox', module)
           {() => (
             <Form>
               <div className="column is-half-desktop">
-                <SelectBox name="demo" options={mockedOptions} labelText="Demo" id="test" />
+                <SelectBox
+                  helpText="This is helper text"
+                  name="demo"
+                  options={mockedOptions}
+                  labelText="Demo"
+                  id="test"
+                />
               </div>
             </Form>
           )}
