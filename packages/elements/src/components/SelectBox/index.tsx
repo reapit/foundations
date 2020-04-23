@@ -11,7 +11,7 @@ export interface SelectBoxOptions {
 export interface SelectBoxProps {
   options: SelectBoxOptions[]
   dataTest?: string
-  labelText: string
+  labelText?: string
   name: string
   id: string
   required?: boolean
@@ -26,9 +26,11 @@ export const SelectBox = ({ options, dataTest = '', labelText, id, name, require
         return (
           <div className="field pb-2">
             <div className="control">
-              <label className={`label ${required ? 'required-label' : ''}`} htmlFor={id}>
-                {labelText}
-              </label>
+              {labelText && (
+                <label className={`label ${required ? 'required-label' : ''}`} htmlFor={id}>
+                  {labelText}
+                </label>
+              )}
               <select data-test={dataTest} className={className} {...field} value={field.value || ''}>
                 {options.map(({ label, value }) => (
                   <option key={value} value={value}>

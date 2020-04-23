@@ -3,6 +3,11 @@
 .wrapAnalytics {
   width: 100%;
 }
+.tabContainer {
+  @media screen and (min-width: 1025px) {
+    max-width: 50%;
+  }
+}
 .hr {
   margin: 0 0 20px;
   border: 0.5px solid $grey;
@@ -16,5 +21,11 @@
   float: right;
   @media (min-width: 480px) {
     width: 300px;
+  }
+}
+.costCalculatorFormContainer {
+  margin-top: 15px;
+  @media screen and (min-width: 1200px) {
+    max-width: 40%;
   }
 }
