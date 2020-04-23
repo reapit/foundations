@@ -246,10 +246,10 @@ export const AdminApps: React.FunctionComponent<AdminAppsProps> = ({
           {!loading && !data.length ? (
             <Alert message="You currently have no apps listed " type="info" />
           ) : (
-              <div className="mb-5">
-                <Table scrollable={true} loading={false} data={data} columns={columns} />
-              </div>
-            )}
+            <div className="mb-5">
+              <Table scrollable={true} loading={false} data={data} columns={columns} />
+            </div>
+          )}
         </div>
         <Pagination
           onChange={handleChangePageNumber(history)}

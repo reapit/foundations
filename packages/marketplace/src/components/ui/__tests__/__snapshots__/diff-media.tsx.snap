@@ -9,7 +9,7 @@ exports[`DiffMedia should match a snapshot 1`] = `
       className="undefined undefined"
       style={
         Object {
-          "backgroundImage": "url(image-2)",
+          "backgroundImage": "url(\\"image-2\\")",
         }
       }
     />
@@ -24,7 +24,7 @@ exports[`DiffMedia should match a snapshot 1`] = `
       className="undefined undefined"
       style={
         Object {
-          "backgroundImage": "url(image-1)",
+          "backgroundImage": "url(\\"image-1\\")",
         }
       }
     />
