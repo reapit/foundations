@@ -15,9 +15,18 @@ export interface SelectBoxProps {
   name: string
   id: string
   required?: boolean
+  helpText?: string
 }
 
-export const SelectBox = ({ options, dataTest = '', labelText, id, name, required = false }: SelectBoxProps) => {
+export const SelectBox = ({
+  options,
+  dataTest = '',
+  labelText,
+  id,
+  name,
+  required = false,
+  helpText,
+}: SelectBoxProps) => {
   return (
     <Field name={name} validate={required ? fieldValidateRequire : null}>
       {({ field, meta }: FieldProps<string>) => {
@@ -29,6 +38,7 @@ export const SelectBox = ({ options, dataTest = '', labelText, id, name, require
               <label className={`label ${required ? 'required-label' : ''}`} htmlFor={id}>
                 {labelText}
               </label>
+              {helpText && <i>{helpText}</i>}
               <select data-test={dataTest} className={className} {...field} value={field.value || ''}>
                 {options.map(({ label, value }) => (
                   <option key={value} value={value}>

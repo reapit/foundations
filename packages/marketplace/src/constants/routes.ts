@@ -17,6 +17,7 @@ const Routes = {
   DEVELOPER_ANALYTICS: '/developer/analytics',
   DEVELOPER_ANALYTICS_TAB: '/developer/analytics/:activeTab?',
   DEVELOPER_RESET_PASSWORD: '/developer/reset-password',
+  DEVELOPER_WEBHOOKS: '/developer/webhooks',
   SETTINGS: '/developer/settings',
   SUBMIT_APP: '/developer/submit-app',
   DEVELOPER_HELP: '/developer/help',
