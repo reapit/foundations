@@ -1,18 +1,17 @@
 # https://www.npmjs.com/package/serverless-single-page-app-plugin
-service: smb
+service: smb-onboarder
 
 plugins:
   - serverless-single-page-app-plugin
 
 
 custom:
-  s3Bucket: reapit-smb-${self:provider.stage}
-  s3LocalPath: public/dist
+  s3Bucket: reapit-smb-onboarder-${self:provider.stage}
 
 provider:
   name: aws
   runtime: nodejs10.x
-  stage: ${opt:stage, 'local'}
+  stage: ${opt:stage, 'dev'}
   region: eu-west-2
 
 resources:
