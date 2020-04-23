@@ -89,7 +89,7 @@ describe('mapStateToProps', () => {
     } as ReduxState
 
     const ownState: RouteComponentProps = mockRouterProps
-    const filterValues = { name: '', company: '' }
+    const filterValues = { name: '', company: '', registeredFrom: '', registeredTo: '' }
 
     const result = mapStateToProps(mockState, ownState)
     const output = {
