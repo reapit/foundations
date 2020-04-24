@@ -1,5 +1,5 @@
 import * as React from 'react'
-import ClientWelcomeMessageModal from '@/components/ui/client-welcome-message'
+// import ClientWelcomeMessageModal from '@/components/ui/client-welcome-message'
 import { RouteComponentProps } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { ReduxState } from 'src/types/core'
@@ -52,8 +52,8 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   location,
   setInitDeveloperTermsAcceptedStateFromCookie,
   setInitClientTermsAcceptedStateFromCookie,
-  isTermAccepted,
-  setClientTermAcceptedCookieAndState,
+  // isTermAccepted,
+  // setClientTermAcceptedCookieAndState,
 }) => {
   React.useEffect(() => {
     setInitClientTermsAcceptedStateFromCookie()
@@ -101,10 +101,10 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   return (
     <AppNavContainer>
       <Menu />
-
-      {loginType === 'CLIENT' && (
+      {/* Temporary comment due to https://github.com/reapit/foundations/issues/1055 */}
+      {/* {loginType === 'CLIENT' && (
         <ClientWelcomeMessageModal visible={!isTermAccepted} onAccept={setClientTermAcceptedCookieAndState} />
-      )}
+      )} */}
       <FlexContainerBasic isScrollable flexColumn>
         <Suspense
           fallback={
