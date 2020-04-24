@@ -255,11 +255,24 @@ export const handleOnSubmit = (
   }
 }
 
+export const handleOnClear = (
+  setEndpointsUsed: (endpointsUsed: string) => void,
+  setApiCalls: (apiCalls: string) => void,
+) => {
+  return () => {
+    setEndpointsUsed('')
+    setApiCalls('')
+  }
+}
+
 const CostCalculator: React.FC<CostCalculatorProps> = () => {
-  const [endpointsUsed, setEndpointsUsed] = React.useState('tier4')
-  const [apiCalls, setApiCalls] = React.useState('100000')
+  const [endpointsUsed, setEndpointsUsed] = React.useState('')
+  const [apiCalls, setApiCalls] = React.useState('')
   const formValues = React.useMemo(prepareInitialValues(endpointsUsed, apiCalls), [endpointsUsed, apiCalls])
   const onSubmit = React.useCallback(handleOnSubmit(setEndpointsUsed, setApiCalls), [])
+
+  const onClear = React.useCallback(handleOnClear(setEndpointsUsed, setApiCalls), [])
+
   return (
     <>
       <H4>Cost Calculator</H4>
@@ -274,7 +287,12 @@ const CostCalculator: React.FC<CostCalculatorProps> = () => {
           here
         </a>
       </p>
-      <CostCalculatorForm initialValues={formValues} endpointsUsedRange={endpointsUsedRange} onSubmit={onSubmit} />
+      <CostCalculatorForm
+        initialValues={formValues}
+        endpointsUsedRange={endpointsUsedRange}
+        onSubmit={onSubmit}
+        onClear={onClear}
+      />
       <TotalCostTable
         formValues={formValues}
         endpointsUsedRange={endpointsUsedRange}

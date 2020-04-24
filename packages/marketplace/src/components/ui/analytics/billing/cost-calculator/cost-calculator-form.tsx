@@ -1,13 +1,23 @@
 import * as React from 'react'
 import { Form, Formik } from 'formik'
 import { EndpointsUsedRange } from './cost-calculator'
-import { Grid, GridItem, SelectBox, Input, FlexContainerResponsive, Button } from '@reapit/elements'
+import {
+  Grid,
+  GridItem,
+  SelectBox,
+  Input,
+  FlexContainerResponsive,
+  Button,
+  FormikErrors,
+  isNumberOnly,
+} from '@reapit/elements'
 import styles from '@/styles/pages/analytics.scss?mod'
 
 export type CostCalculatorFormProps = {
   initialValues: CostCalculatorFormValues
   endpointsUsedRange: EndpointsUsedRange
   onSubmit: (values: CostCalculatorFormValues) => void
+  onClear: () => void
 }
 
 export type CostCalculatorFormValues = {
@@ -31,10 +41,27 @@ export const renderEndpointsUsedOptions = (endpointsUsedRange: EndpointsUsedRang
   ]
 }
 
-const CostCalculatorForm: React.FC<CostCalculatorFormProps> = ({ initialValues, endpointsUsedRange, onSubmit }) => {
+export const validate = (values: CostCalculatorFormValues): FormikErrors<CostCalculatorFormValues> => {
+  const errors = {} as FormikErrors<CostCalculatorFormValues>
+  if (!values.endpointsUsed) {
+    errors.endpointsUsed = 'Endpoints Used is required'
+  }
+
+  if (!isNumberOnly(values.apiCalls)) {
+    errors.apiCalls = 'Invalid Monthly API calls'
+  }
+  return errors
+}
+
+const CostCalculatorForm: React.FC<CostCalculatorFormProps> = ({
+  initialValues,
+  endpointsUsedRange,
+  onSubmit,
+  onClear,
+}) => {
   return (
     <div className={styles.costCalculatorFormContainer}>
-      <Formik initialValues={initialValues} onSubmit={onSubmit}>
+      <Formik initialValues={initialValues} validate={validate} onSubmit={onSubmit} enableReinitialize>
         <Form>
           <Grid>
             <GridItem className="is-one-quarter">
@@ -57,6 +84,9 @@ const CostCalculatorForm: React.FC<CostCalculatorFormProps> = ({ initialValues, 
             </GridItem>
           </Grid>
           <FlexContainerResponsive>
+            <Button variant="danger" type="button" onClick={onClear}>
+              clear
+            </Button>
             <Button variant="primary" type="submit">
               Calculate
             </Button>

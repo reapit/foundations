@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { CostCalculatorFormValues } from './cost-calculator-form'
 import { EndpointsUsedRange, TierPrice } from './cost-calculator'
-import { formatCurrency, formatNumbber } from '@/utils/number-formatter'
+import { formatCurrency, formatNumber } from '@/utils/number-formatter'
 
 type TotalCostTableProps = {
   formValues: CostCalculatorFormValues
@@ -24,19 +24,20 @@ export const prepareData = (endpointsUsed: string, apiCalls: string, foundationP
   const data = foundationPricing[endpointsUsed]
   let remaining = parseFloat(apiCalls)
   const { priceRange, maxPrice } = data
-  for (let i = 0; i < priceRange.length; i++) {
-    const element = priceRange[i]
-    if (remaining <= element.limit) {
+
+  for (const element of priceRange) {
+    const { limit, price } = element
+    bandCostPerCall.push(price)
+
+    if (remaining <= limit) {
       bands.push(remaining)
-      bandCostPerCall.push(element.price)
-      totalMonthlyCost += remaining * element.price
+      totalMonthlyCost += remaining * price
       remaining = 0
       break
     } else {
-      bands.push(element.limit)
-      bandCostPerCall.push(element.price)
-      totalMonthlyCost += element.limit * element.price
-      remaining -= element.limit
+      bands.push(limit)
+      totalMonthlyCost += limit * price
+      remaining -= limit
     }
   }
 
@@ -58,6 +59,42 @@ export const prepareData = (endpointsUsed: string, apiCalls: string, foundationP
   }
 }
 
+export const renderEndpointsUsed = (bands, endpointsUsedRange, endpointsUsed) => {
+  return bands.map((_: any, index) => {
+    if (index === 0) {
+      return <td key={index}>{endpointsUsedRange[endpointsUsed]}</td>
+    }
+    return <td key={index}></td>
+  })
+}
+
+export const renderApiCalls = (bands, apiCalls) => {
+  return bands.map((_: any, index) => {
+    if (index === 0) {
+      return <td key={index}>{formatNumber(parseFloat(apiCalls))}</td>
+    }
+    return <td key={index}></td>
+  })
+}
+
+export const renderBand = bands => {
+  return bands.map((item, index) => {
+    return <td key={index}>{formatNumber(item)}</td>
+  })
+}
+
+export const renderBandCostPerCall = bandCostPerCall => {
+  return bandCostPerCall.map((item, index) => {
+    return <td key={index}>{formatCurrency(item, 6)}</td>
+  })
+}
+
+export const renderCostPerBand = costPerBand => {
+  return costPerBand.map((item, index) => {
+    return <td key={index}>{formatCurrency(item)}</td>
+  })
+}
+
 const TotalCostTable: React.FC<TotalCostTableProps> = ({
   formValues: { endpointsUsed, apiCalls },
   endpointsUsedRange,
@@ -73,42 +110,6 @@ const TotalCostTable: React.FC<TotalCostTableProps> = ({
     foundationPricing,
   )
 
-  const renderEndpointsUsed = () => {
-    return bands.map((item, index) => {
-      if (index === 0) {
-        return <td key={index}>{endpointsUsedRange[endpointsUsed]}</td>
-      }
-      return <td key={index}></td>
-    })
-  }
-
-  const renderApiCalls = () => {
-    return bands.map((item, index) => {
-      if (index === 0) {
-        return <td key={index}>{formatNumbber(parseFloat(apiCalls))}</td>
-      }
-      return <td key={index}></td>
-    })
-  }
-
-  const renderBand = () => {
-    return bands.map((item, index) => {
-      return <td key={index}>{formatNumbber(item)}</td>
-    })
-  }
-
-  const renderBandCostPerCall = () => {
-    return bandCostPerCall.map((item, index) => {
-      return <td key={index}>{formatCurrency(item, 6)}</td>
-    })
-  }
-
-  const renderCostPerBand = () => {
-    return costPerBand.map((item, index) => {
-      return <td key={index}>{formatCurrency(Math.round(item * 100) / 100)}</td>
-    })
-  }
-
   return (
     <div className="table-container mt-5">
       <table className="table is-striped is-bordered is-fullwidth">
@@ -117,36 +118,36 @@ const TotalCostTable: React.FC<TotalCostTableProps> = ({
             <td>
               <strong>Endpoints Used</strong>
             </td>
-            {renderEndpointsUsed()}
+            {renderEndpointsUsed(bands, endpointsUsedRange, endpointsUsed)}
           </tr>
           <tr>
             <td>
               <strong>Monthly API calls</strong>
             </td>
-            {renderApiCalls()}
+            {renderApiCalls(bands, apiCalls)}
           </tr>
           <tr>
             <td>
               <strong>Calls within band (A)</strong>
             </td>
-            {renderBand()}
+            {renderBand(bands)}
           </tr>
           <tr>
             <td>
               <strong>Band cost per call (B)</strong>
             </td>
-            {renderBandCostPerCall()}
+            {renderBandCostPerCall(bandCostPerCall)}
           </tr>
           <tr>
             <td>
               <strong>Cost per band (A) x (B)</strong>
             </td>
-            {renderCostPerBand()}
+            {renderCostPerBand(costPerBand)}
           </tr>
         </tbody>
       </table>
       <div className="is-pulled-right is-size-5">
-        <strong>Estimated Total monthly cost: {formatCurrency(Math.round(totalMonthlyCost * 100) / 100)}</strong>
+        <strong>Estimated Total monthly cost: {formatCurrency(totalMonthlyCost)}</strong>
       </div>
     </div>
   )
