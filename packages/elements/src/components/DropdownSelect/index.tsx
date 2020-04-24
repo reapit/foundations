@@ -3,6 +3,8 @@ import Select, { Option, SelectProps } from 'rc-select'
 import { CustomTagProps } from 'rc-select/lib/interface/generator'
 import { Field, FieldProps } from 'formik'
 import CustomTag from './custom-tag'
+import { dropdownSelectFieldValidateRequire } from '../../utils/validators'
+import { checkError } from '../../utils/form'
 
 export interface DropdownSelectProps {
   id: string
@@ -10,6 +12,8 @@ export interface DropdownSelectProps {
   name: string
   placeholder?: string
   options: SelectOption[]
+  required?: boolean
+  rcSelectProps?: SelectProps
 }
 
 export interface SelectOption {
@@ -25,6 +29,8 @@ export const DropdownSelect: React.FC<SelectProps & DropdownSelectProps> = ({
   name,
   placeholder,
   options,
+  rcSelectProps,
+  required = false,
 }) => {
   const handleRenderTags = (props: CustomTagProps) => {
     const { value, onClose } = props
@@ -36,11 +42,16 @@ export const DropdownSelect: React.FC<SelectProps & DropdownSelectProps> = ({
     field.onChange({ target: { value: value, name: field.name } })
   }
 
+  const handleFieldTouched = (form, field) => () => {
+    form.setFieldTouched(field.name)
+  }
+
   return (
     <div className="field pb-4">
       <div className="control">
-        <Field name={name}>
-          {({ field }: FieldProps<string | string[]>) => {
+        <Field name={name} validate={required ? dropdownSelectFieldValidateRequire : null}>
+          {({ field, meta, form }: FieldProps<string | string[]>) => {
+            const hasError = checkError(meta)
             return (
               <div className="field field-dropdown-select">
                 <label className="label" htmlFor="">
@@ -54,6 +65,8 @@ export const DropdownSelect: React.FC<SelectProps & DropdownSelectProps> = ({
                   mode="tags"
                   tagRender={handleRenderTags}
                   onChange={handleChangeOption(field)}
+                  onBlur={handleFieldTouched(form, field)}
+                  {...rcSelectProps}
                 >
                   {options?.map((option: SelectOption) => (
                     <Option key={option.value} value={option.value}>
@@ -61,6 +74,11 @@ export const DropdownSelect: React.FC<SelectProps & DropdownSelectProps> = ({
                     </Option>
                   ))}
                 </Select>
+                {hasError && (
+                  <div className="has-text-danger" data-test="input-error">
+                    {meta.error}
+                  </div>
+                )}
               </div>
             )
           }}

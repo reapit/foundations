@@ -9,6 +9,6 @@ export {
 } from './validate-character-length'
 export { validateEmail, isEmail } from './validate-email'
 export { isNumberOnly } from './validate-number'
-export { validateRequire, fieldValidateRequire } from './validate-require'
+export { validateRequire, fieldValidateRequire, dropdownSelectFieldValidateRequire } from './validate-require'
 export { validateURI } from './validate-uri'
 export { validatePassword, isValidPassword } from './validate-password'

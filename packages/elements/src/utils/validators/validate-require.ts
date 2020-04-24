@@ -22,3 +22,17 @@ export const fieldValidateRequire = (value: string) => {
   }
   return errorMessages.FIELD_REQUIRED
 }
+export function isEmpty(value) {
+  return (
+    value === undefined ||
+    value === null ||
+    (typeof value === 'object' && Object.keys(value).length === 0) ||
+    (typeof value === 'string' && value.trim().length === 0)
+  )
+}
+export const dropdownSelectFieldValidateRequire = (value: string | string[]) => {
+  if (!isEmpty(value)) {
+    return null
+  }
+  return errorMessages.FIELD_REQUIRED
+}
