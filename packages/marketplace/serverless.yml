@@ -1,81 +1,18 @@
-service: web-components
+# https://www.npmjs.com/package/serverless-single-page-app-plugin
+service: marketplace
+
 plugins:
-  - serverless-webpack
-  - serverless-offline
+  - serverless-single-page-app-plugin
   - serverless-plugin-ifelse
 
 custom:
-  env: ${file(./config.json)}
-  s3Bucket: reapit-web-components-${self:provider.stage}
-  webpack:
-    webpackConfig: 'webpack.config.js'
-    includeModules: true
-    packager: 'yarn'
-    packagerOptions:
-      noFrozenLockFile: false
-    excludeFiles: src/**/*.test.ts
-    keepOutputDirectory: true
+  s3Bucket: reapit-marketplace-${self:provider.stage}
 
 provider:
   name: aws
   runtime: nodejs10.x
   stage: ${opt:stage, 'dev'}
   region: eu-west-2
-  apiGateway:
-    restApiId: ${self:custom.env.GATEWAY_REST_API_ID}
-    restApiRootResourceId: ${self:custom.env.GATEWAY_REST_API_ROOT_RESOURCE_ID}
-  deploymentBucket:
-    name: web-components.${self:provider.stage}
-    blockPublicAccess: false
-  environment:
-    NODE_ENV: ${self:custom.env.NODE_ENV}
-    APP_ENV: ${self:custom.env.APP_ENV}
-    PLATFORM_API_BASE_URL: ${self:custom.env.PLATFORM_API_BASE_URL}
-    COGNITO_CLIENT_SECRET_SEARCH_WIDGET: ${self:custom.env.COGNITO_CLIENT_SECRET_SEARCH_WIDGET}
-    COGNITO_CLIENT_ID_SEARCH_WIDGET: ${self:custom.env.COGNITO_CLIENT_ID_SEARCH_WIDGET}
-    COGNITO_OAUTH_URL: ${self:custom.env.COGNITO_OAUTH_URL}
-package:
-  individually: true
-  include:
-    - dist/**
-  exclude:
-    - package.json
-    - node_modules/**
-    - error.log
-    - info.log
-    - jest.config.js
-    - serverless.yml
-    - src/**
-    - tsconfig.json
-    - yml-helpers.js
-    - public/**
-
-functions:
-  searchWidgetHandler:
-    handler: src/search-widget/server/core/index.searchWidgetHandler
-    events:
-      - http:
-          path: properties
-          method: get
-          cors: true
-          private: true
-          request:
-            parameters:
-              headers:
-                api-version: false
-                Authorization: false
-                reapit-customer: false
-      - http:
-          path: propertyImages
-          method: get
-          cors: true
-          private: true
-          request:
-            parameters:
-              headers:
-                api-version: false
-                Authorization: false
-                reapit-customer: false
 
 resources:
   Resources:
@@ -137,9 +74,9 @@ resources:
           # Aliases:
           #   If: '"${opt:stage, 'dev'}" == "dev"'
           #   Set:
-          #     - dev.web-components.reapit.cloud
+          #     - dev.marketplace.reapit.cloud
           #   ElseSet:
-          #     - web-components.reapit.cloud
+          #     - marketplace.reapit.cloud
           DefaultRootObject: index.html
           CustomErrorResponses:
             - ErrorCode: 404
