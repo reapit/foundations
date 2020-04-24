@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { CostCalculatorFormValues } from './cost-calculator-form'
-import { EndpointsUsedRange, TierPrice, TierPriceLimit } from './cost-calculator'
-import { Grid, GridItem } from '@reapit/elements'
+import { EndpointsUsedRange, TierPrice } from './cost-calculator'
+import { formatCurrency, formatNumbber } from '@/utils/number-formatter'
 
 type TotalCostTableProps = {
   formValues: CostCalculatorFormValues
@@ -73,54 +73,81 @@ const TotalCostTable: React.FC<TotalCostTableProps> = ({
     foundationPricing,
   )
 
+  const renderEndpointsUsed = () => {
+    return bands.map((item, index) => {
+      if (index === 0) {
+        return <td key={index}>{endpointsUsedRange[endpointsUsed]}</td>
+      }
+      return <td key={index}></td>
+    })
+  }
+
+  const renderApiCalls = () => {
+    return bands.map((item, index) => {
+      if (index === 0) {
+        return <td key={index}>{formatNumbber(parseFloat(apiCalls))}</td>
+      }
+      return <td key={index}></td>
+    })
+  }
+
   const renderBand = () => {
     return bands.map((item, index) => {
-      return <GridItem key={index}>{item}</GridItem>
+      return <td key={index}>{formatNumbber(item)}</td>
     })
   }
 
   const renderBandCostPerCall = () => {
     return bandCostPerCall.map((item, index) => {
-      return <GridItem key={index}>${item.toFixed(6)}</GridItem>
+      return <td key={index}>{formatCurrency(item, 6)}</td>
     })
   }
 
   const renderCostPerBand = () => {
     return costPerBand.map((item, index) => {
-      return <GridItem key={index}>${Math.round(item * 100) / 100}</GridItem>
+      return <td key={index}>{formatCurrency(Math.round(item * 100) / 100)}</td>
     })
   }
 
   return (
-    <div>
-      <Grid>
-        <GridItem className="is-3 has-text-right">Endpoints Used</GridItem>
-        <GridItem>{endpointsUsedRange[endpointsUsed]}</GridItem>
-      </Grid>
-      <Grid>
-        <GridItem className="is-3 has-text-right">Monthly API calls</GridItem>
-        <GridItem>{apiCalls}</GridItem>
-      </Grid>
-      <Grid>
-        <GridItem className="is-3 has-text-right">Calls within band (A)</GridItem>
-        {renderBand()}
-      </Grid>
-      <Grid>
-        <GridItem className="is-3 has-text-right">Band cost per call (B)</GridItem>
-        {renderBandCostPerCall()}
-      </Grid>
-      <Grid>
-        <GridItem className="is-3 has-text-right">Cost per band (A) x (B)</GridItem>
-        {renderCostPerBand()}
-      </Grid>
-      <Grid>
-        <GridItem className="is-3 has-text-right">
-          <strong>Total monthly cost</strong>
-        </GridItem>
-        <GridItem>
-          <strong>${Math.round(totalMonthlyCost * 100) / 100}</strong>
-        </GridItem>
-      </Grid>
+    <div className="table-container mt-5">
+      <table className="table is-striped is-bordered is-fullwidth">
+        <tbody>
+          <tr>
+            <td>
+              <strong>Endpoints Used</strong>
+            </td>
+            {renderEndpointsUsed()}
+          </tr>
+          <tr>
+            <td>
+              <strong>Monthly API calls</strong>
+            </td>
+            {renderApiCalls()}
+          </tr>
+          <tr>
+            <td>
+              <strong>Calls within band (A)</strong>
+            </td>
+            {renderBand()}
+          </tr>
+          <tr>
+            <td>
+              <strong>Band cost per call (B)</strong>
+            </td>
+            {renderBandCostPerCall()}
+          </tr>
+          <tr>
+            <td>
+              <strong>Cost per band (A) x (B)</strong>
+            </td>
+            {renderCostPerBand()}
+          </tr>
+        </tbody>
+      </table>
+      <div className="is-pulled-right is-size-5">
+        <strong>Estimated Total monthly cost: {formatCurrency(Math.round(totalMonthlyCost * 100) / 100)}</strong>
+      </div>
     </div>
   )
 }
