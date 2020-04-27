@@ -11,6 +11,23 @@ exports[`BillingTab should match a snapshot 1`] = `
       hasBackground={true}
       hasPadding={true}
     >
+      <Component
+        className="mt-5"
+        isMultiLine={true}
+      >
+        <Component
+          className="is-half"
+        >
+          <h1>
+            Render Chart here
+          </h1>
+        </Component>
+        <Component
+          className="is-half"
+        >
+          <TransactionHistory />
+        </Component>
+      </Component>
       <CostCalculator />
     </Component>
   </Component>
