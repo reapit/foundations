@@ -2,9 +2,9 @@ import {
   requestSupcriptionData,
   fetchWebhookSubscriptionTopics,
   fetchWebhookSubscriptionCustomers,
-} from '../developer-webhook-modal'
+} from '../webhook-create-modal'
 import { call, put, all } from '@redux-saga/core/effects'
-import { requestDeveloperWebhookReceiveData, developerWebhookLoading } from '@/actions/developer-webhook-modal'
+import { requestDeveloperWebhookReceiveData, developerWebhookLoading } from '@/actions/webhook-edit-modal'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { webhookDataStub } from '../__stubs__/developer-webhook'

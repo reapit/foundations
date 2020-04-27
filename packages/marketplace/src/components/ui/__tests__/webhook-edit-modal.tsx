@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import WebhookCreateModal, { WebhookCreateProps } from '../webhook-create-modal'
+import WebhookCreateModal, { WebhookCreateProps } from '../webhook-edit-modal'
 
 const props: WebhookCreateProps = {
   appId: '',

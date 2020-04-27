@@ -4,7 +4,7 @@ import {
   createDeveloperWebhook,
   CreateDeveloperWebhookParams,
   developerWebhookLoading,
-} from '../developer-webhook-modal'
+} from '../webhook-edit-modal'
 import ActionTypes from '../../constants/action-types'
 import { webhookDataStub } from '@/sagas/__stubs__/developer-webhook'
 

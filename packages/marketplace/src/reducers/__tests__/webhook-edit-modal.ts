@@ -1,4 +1,4 @@
-import DeveloperWebhookReducer, { defaultState } from '../developer-webhook-modal'
+import DeveloperWebhookReducer, { defaultState } from '../webhook-edit-modal'
 import { ActionType } from '../../types/core'
 import ActionTypes from '../../constants/action-types'
 import { webhookDataStub } from '@/sagas/__stubs__/developer-webhook'

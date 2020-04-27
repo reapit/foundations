@@ -4,7 +4,7 @@ import {
   requestDeveloperWebhookReceiveData,
   developerWebhookLoading,
   developerWebhookRequestDataFailure,
-} from '../actions/developer-webhook-modal'
+} from '../actions/webhook-edit-modal'
 
 export interface DeveloperWebhookSubscriptionCustomersRequest {
   appId: number

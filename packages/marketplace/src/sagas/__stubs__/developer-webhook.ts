@@ -1,4 +1,4 @@
-import { DeveloperWebhookState } from '@/reducers/developer-webhook-modal'
+import { DeveloperWebhookState } from '@/reducers/webhook-edit-modal'
 
 export const webhookDataStub: DeveloperWebhookState = {
   subcriptionCustomers: {

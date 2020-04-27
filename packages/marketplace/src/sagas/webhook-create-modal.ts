@@ -1,7 +1,7 @@
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import { Action } from '../types/core'
 import ActionTypes from '../constants/action-types'
-import { DeveloperWebhookDataRequest, DeveloperWebhookState } from '@/reducers/developer-webhook-modal'
+import { DeveloperWebhookDataRequest, DeveloperWebhookState } from '@/reducers/webhook-edit-modal'
 import {
   requestDeveloperWebhookReceiveData,
   CreateDeveloperWebhookParams,
@@ -9,7 +9,7 @@ import {
   developerWebhookRequestDataFailure,
   SubscriptionCustomersRequestParams,
   SubscriptionTopicsRequestParams,
-} from '@/actions/developer-webhook-modal'
+} from '@/actions/webhook-edit-modal'
 import { logger } from 'logger'
 import errorMessages from '../constants/error-messages'
 import { errorThrownServer } from '../actions/error'

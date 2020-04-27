@@ -20,8 +20,8 @@ import {
   requestDeveloperWebhookData,
   CreateDeveloperWebhookParams,
   createDeveloperWebhook,
-} from '@/actions/developer-webhook-modal'
-import { DeveloperWebhookState } from '@/reducers/developer-webhook-modal'
+} from '@/actions/webhook-edit-modal'
+import { DeveloperWebhookState } from '@/reducers/webhook-edit-modal'
 
 const CREATE_MODAL = {
   title: 'Add New Webhook',

@@ -1,6 +1,6 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
-import { DeveloperWebhookState } from '@/reducers/developer-webhook-modal'
+import { DeveloperWebhookState } from '@/reducers/webhook-edit-modal'
 import { StringMap } from '../../../elements/src/types/core'
 
 export interface SubscriptionCustomersRequestParams {
