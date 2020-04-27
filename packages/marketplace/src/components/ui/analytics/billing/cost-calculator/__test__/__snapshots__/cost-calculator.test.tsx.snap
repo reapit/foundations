@@ -97,23 +97,23 @@ exports[`CostCalculator should match a snapshot 1`] = `
             },
             Object {
               "limit": 1500,
-              "price": 0.0066,
+              "price": 0.0088,
             },
             Object {
               "limit": 2500,
-              "price": 0.0055,
+              "price": 0.0066,
             },
             Object {
               "limit": 5000,
-              "price": 0.0044,
+              "price": 0.0055,
             },
             Object {
               "limit": 15000,
-              "price": 0.00275,
+              "price": 0.0044,
             },
             Object {
               "limit": 25000,
-              "price": 0.0025,
+              "price": 0.00275,
             },
           ],
         },
@@ -176,31 +176,31 @@ exports[`CostCalculator should match a snapshot 1`] = `
           ],
         },
         "tier5": Object {
-          "maxPrice": 0.00145,
+          "maxPrice": 0.0017,
           "priceRange": Array [
             Object {
               "limit": 1000,
-              "price": 0.0145,
+              "price": 0.017,
             },
             Object {
               "limit": 1500,
-              "price": 0.0116,
+              "price": 0.0136,
             },
             Object {
               "limit": 2500,
-              "price": 0.0087,
+              "price": 0.0102,
             },
             Object {
               "limit": 5000,
-              "price": 0.00725,
+              "price": 0.0085,
             },
             Object {
               "limit": 15000,
-              "price": 0.0058,
+              "price": 0.0068,
             },
             Object {
               "limit": 25000,
-              "price": 0.003625,
+              "price": 0.00425,
             },
           ],
         },
@@ -258,7 +258,7 @@ exports[`CostCalculator should match a snapshot 1`] = `
             },
             Object {
               "limit": 25000,
-              "price": 0.004875,
+              "price": 0.005875,
             },
           ],
         },

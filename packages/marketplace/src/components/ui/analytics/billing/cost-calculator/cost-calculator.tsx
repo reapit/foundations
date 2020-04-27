@@ -68,23 +68,23 @@ export const foundationPricing: TierPrice = {
       },
       {
         limit: 1500,
-        price: 0.0066,
+        price: 0.0088,
       },
       {
         limit: 2500,
-        price: 0.0055,
+        price: 0.0066,
       },
       {
         limit: 5000,
-        price: 0.0044,
+        price: 0.0055,
       },
       {
         limit: 15000,
-        price: 0.00275,
+        price: 0.0044,
       },
       {
         limit: 25000,
-        price: 0.0025,
+        price: 0.00275,
       },
     ],
   },
@@ -147,31 +147,31 @@ export const foundationPricing: TierPrice = {
     ],
   },
   tier5: {
-    maxPrice: 0.00145,
+    maxPrice: 0.0017,
     priceRange: [
       {
         limit: 1000,
-        price: 0.0145,
+        price: 0.017,
       },
       {
         limit: 1500,
-        price: 0.0116,
+        price: 0.0136,
       },
       {
         limit: 2500,
-        price: 0.0087,
+        price: 0.0102,
       },
       {
         limit: 5000,
-        price: 0.00725,
+        price: 0.0085,
       },
       {
         limit: 15000,
-        price: 0.0058,
+        price: 0.0068,
       },
       {
         limit: 25000,
-        price: 0.003625,
+        price: 0.00425,
       },
     ],
   },
@@ -229,7 +229,7 @@ export const foundationPricing: TierPrice = {
       },
       {
         limit: 25000,
-        price: 0.004875,
+        price: 0.005875,
       },
     ],
   },
