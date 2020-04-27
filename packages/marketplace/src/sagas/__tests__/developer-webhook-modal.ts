@@ -1,10 +1,13 @@
-import { requestSupcriptionData } from '../developer-webhook-modal'
+import {
+  requestSupcriptionData,
+  fetchWebhookSubscriptionTopics,
+  fetchWebhookSubscriptionCustomers,
+} from '../developer-webhook-modal'
 import { call, put, all } from '@redux-saga/core/effects'
 import { requestDeveloperWebhookReceiveData, developerWebhookLoading } from '@/actions/developer-webhook-modal'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { webhookDataStub } from '../__stubs__/developer-webhook'
-import api from '../api'
 
 jest.mock('@reapit/elements')
 const ApplicationId = '1161242a-f650-4d1d-aed7-909853fe7ee1'
@@ -20,8 +23,8 @@ describe('developer fetch subscription data', () => {
 
   expect(gen.next(mockHeaders as any).value).toEqual(
     all([
-      call(api.fetchWebhookSubscriptionTopics, { ApplicationId, headers: mockHeaders }),
-      call(api.fetchWebhookSubscriptionCustomers, { AppId: ApplicationId }),
+      call(fetchWebhookSubscriptionTopics, { ApplicationId, headers: mockHeaders }),
+      call(fetchWebhookSubscriptionCustomers, { AppId: ApplicationId }),
     ]),
   )
 
