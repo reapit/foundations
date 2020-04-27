@@ -1,3 +1,4 @@
 {
-  "APP_ENV": "development"
+  "APP_ENV": "development",
+  "AWS_REGION": "eu-west-2"
 }
