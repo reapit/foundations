@@ -8,9 +8,11 @@ module.exports = {
     'api.ts',
     '.d.ts',
     'index.ts',
+    'schema.ts',
+    'dynamodb-mapper',
   ],
   moduleNameMapper: {
-    "^@[/](.+)": "<rootDir>/src/$1",
+    '^@[/](.+)': '<rootDir>/src/$1',
   },
   coverageThreshold: {
     global: {
