@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WebhookCreateProps should match a snapshot 1`] = `
+<Component
+  renderChildren={true}
+  visible={true}
+>
+  <Connect(Component)
+    appId=""
+    isUpdate={false}
+  />
+</Component>
+`;

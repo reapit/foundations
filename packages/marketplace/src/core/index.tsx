@@ -24,6 +24,7 @@ window.reapit = {
     cognitoUserPoolId: '',
     chatbotAppId: '',
     marketplaceUrl: '',
+    platformApiUrl: '',
   },
 }
 

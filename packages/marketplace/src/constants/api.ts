@@ -23,6 +23,8 @@ export const URLS = {
   statistics: '/statistics',
   trafficEvents: '/trafficevents',
   desktopIntegrationTypes: '/DesktopIntegrationTypes',
+  webhook: '/webhooks',
 }
 
 export const SANDBOX_CLIENT_ID = 'SBOX'
+export const API_VERSION = '2020-01-31'
