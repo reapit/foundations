@@ -3,48 +3,51 @@ import { CostCalculatorFormValues } from './cost-calculator-form'
 import { EndpointsUsedRange, TierPrice } from './cost-calculator'
 import { formatCurrency, formatNumber } from '@/utils/number-formatter'
 
-type TotalCostTableProps = {
+export type TotalCostTableProps = {
   formValues: CostCalculatorFormValues
   endpointsUsedRange: EndpointsUsedRange
   foundationPricing: TierPrice
 }
 
-type TableResult = {
+export type TotalCostTableData = {
   bands: number[]
   bandCostPerCall: number[]
   costPerBand: number[]
   totalMonthlyCost: number
 }
 
-export const prepareData = (endpointsUsed: string, apiCalls: string, foundationPricing: TierPrice): TableResult => {
+export const prepareData = (
+  endpointsUsed: string,
+  apiCalls: string,
+  foundationPricing: TierPrice,
+): TotalCostTableData => {
   const bands: number[] = []
   const bandCostPerCall: number[] = []
   let totalMonthlyCost: number = 0
 
-  const data = foundationPricing[endpointsUsed]
-  let remaining = parseFloat(apiCalls)
-  const { priceRange, maxPrice } = data
+  let remainingApiCalls = parseFloat(apiCalls)
+  const { priceRange, maxPrice } = foundationPricing[endpointsUsed]
 
-  for (const element of priceRange) {
-    const { limit, price } = element
+  for (const tierPriceLimit of priceRange) {
+    const { limit, price } = tierPriceLimit
     bandCostPerCall.push(price)
 
-    if (remaining <= limit) {
-      bands.push(remaining)
-      totalMonthlyCost += remaining * price
-      remaining = 0
-      break
-    } else {
+    if (remainingApiCalls > limit) {
       bands.push(limit)
       totalMonthlyCost += limit * price
-      remaining -= limit
+      remainingApiCalls -= limit
+    } else {
+      bands.push(remainingApiCalls)
+      totalMonthlyCost += remainingApiCalls * price
+      remainingApiCalls = 0
+      break
     }
   }
 
-  if (remaining > 0) {
-    bands.push(remaining)
+  if (remainingApiCalls > 0) {
+    bands.push(remainingApiCalls)
     bandCostPerCall.push(maxPrice)
-    totalMonthlyCost += maxPrice * remaining
+    totalMonthlyCost += maxPrice * remainingApiCalls
   }
 
   const costPerBand = bandCostPerCall.map((item, index) => {

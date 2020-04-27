@@ -270,7 +270,6 @@ const CostCalculator: React.FC<CostCalculatorProps> = () => {
   const [apiCalls, setApiCalls] = React.useState('')
   const formValues = React.useMemo(prepareInitialValues(endpointsUsed, apiCalls), [endpointsUsed, apiCalls])
   const onSubmit = React.useCallback(handleOnSubmit(setEndpointsUsed, setApiCalls), [])
-
   const onClear = React.useCallback(handleOnClear(setEndpointsUsed, setApiCalls), [])
 
   return (
