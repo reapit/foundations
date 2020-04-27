@@ -23213,6 +23213,11 @@ serverless-offline@^6.1.4:
     velocityjs "^2.0.0"
     ws "^7.2.1"
 
+serverless-plugin-ifelse@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/serverless-plugin-ifelse/-/serverless-plugin-ifelse-1.0.5.tgz#38d43bfd4fe01bc47105d6aec6ca8614f8355f8d"
+  integrity sha512-NsL+DASRYNmExAPIqrR4G3QDPFmiLl//22r/tJ16iJVJpAhCgVR1g9sG3qhYUvS3xRgeRV+rqnNfCu8GU3RQyQ==
+
 serverless-single-page-app-plugin@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/serverless-single-page-app-plugin/-/serverless-single-page-app-plugin-1.0.2.tgz#6f714ab7506d44b2cbd4f3c68d1a6c2030b7b7b8"
