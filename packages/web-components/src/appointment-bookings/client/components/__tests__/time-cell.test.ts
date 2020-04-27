@@ -4,7 +4,7 @@ import dayjs from 'dayjs'
 import MockDate from 'mockdate'
 
 beforeEach(() => {
-  MockDate.set(new Date(2020, 4, 1))
+  MockDate.set(1570747191389)
 })
 afterEach(() => {
   MockDate.reset()
