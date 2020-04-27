@@ -1,0 +1,154 @@
+service: <%= appName %>
+plugins:
+  - serverless-webpack
+  - serverless-offline
+  - serverless-plugin-ifelse
+
+custom:
+  env: ${file(./config.json)}
+  s3Bucket: <%= appName %>-${self:provider.stage}
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: true
+    packager: 'yarn'
+    packagerOptions:
+      noFrozenLockFile: false
+    excludeFiles: src/**/*.test.ts
+    keepOutputDirectory: true
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: ${opt:stage, 'dev'}
+  region: eu-west-2
+  apiGateway:
+    restApiId: ${self:custom.env.GATEWAY_REST_API_ID}
+    restApiRootResourceId: ${self:custom.env.GATEWAY_REST_API_ROOT_RESOURCE_ID}
+  deploymentBucket:
+    name: lambda-<%= appName %>-${self:provider.stage}
+    blockPublicAccess: false
+  environment:
+    NODE_ENV: ${self:custom.env.NODE_ENV}
+    APP_ENV: ${self:custom.env.APP_ENV}
+    PLATFORM_API_BASE_URL: ${self:custom.env.PLATFORM_API_BASE_URL}
+    COGNITO_CLIENT_SECRET_SEARCH_WIDGET: ${self:custom.env.COGNITO_CLIENT_SECRET_SEARCH_WIDGET}
+    COGNITO_CLIENT_ID_SEARCH_WIDGET: ${self:custom.env.COGNITO_CLIENT_ID_SEARCH_WIDGET}
+    COGNITO_OAUTH_URL: ${self:custom.env.COGNITO_OAUTH_URL}
+package:
+  individually: true
+  include:
+    - dist/**
+  exclude:
+    - package.json
+    - node_modules/**
+    - error.log
+    - info.log
+    - jest.config.js
+    - serverless.yml
+    - src/**
+    - tsconfig.json
+    - yml-helpers.js
+    - public/**
+
+functions:
+  <%= appName %>Server:
+    handler: src/index.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
+
+resources:
+  Resources:
+    ## Specifying the S3 Bucket
+    WebAppS3Bucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.s3Bucket}
+        AccessControl: PublicRead
+        WebsiteConfiguration:
+          IndexDocument: index.html
+          ErrorDocument: error.html
+
+    ## Specifying the policies to make sure all files inside the Bucket are available to CloudFront
+    WebAppS3BucketPolicy:
+      Type: AWS::S3::BucketPolicy
+      Properties:
+        Bucket:
+          Ref: WebAppS3Bucket
+        PolicyDocument:
+          Statement:
+            - Sid: PublicReadGetObject
+              Effect: Allow
+              Principal: "*"
+              Action:
+              - s3:GetObject
+              Resource:
+                Fn::Join: [
+                  "", [
+                    "arn:aws:s3:::",
+                    { "Ref": "WebAppS3Bucket" },
+                    "/*"
+                  ]
+                ]
+
+    ## Specifying the CloudFront Distribution to server your Web Application
+    WebAppCloudFrontDistribution:
+      Type: AWS::CloudFront::Distribution
+      Properties:
+        DistributionConfig:
+          Origins:
+            - DomainName:
+                Fn::Join: [
+                  "", [
+                    { "Ref": "WebAppS3Bucket" },
+                    ".s3.amazonaws.com"
+                  ]
+                ]
+              Id: S3-${self:custom.s3Bucket}
+              CustomOriginConfig:
+                HTTPPort: 80
+                HTTPSPort: 443
+                OriginProtocolPolicy: https-only
+              ## In case you want to restrict the bucket access use S3OriginConfig and remove CustomOriginConfig
+              # S3OriginConfig:
+              #   OriginAccessIdentity: origin-access-identity/cloudfront/E127EXAMPLE51Z
+          Enabled: 'true'
+          ## Uncomment the following section in case you are using a custom domain
+          # Aliases:
+          #   If: '"${opt:stage, 'dev'}" == "dev"'
+          #   Set:
+          #     - dev.<%= appName %>.reapit.cloud
+          #   ElseSet:
+          #     - <%= appName %>.reapit.cloud
+          DefaultRootObject: index.html
+          CustomErrorResponses:
+            - ErrorCode: 404
+              ResponseCode: 200
+              ResponsePagePath: /index.html
+            - ErrorCode: 403
+              ResponseCode: 200
+              ResponsePagePath: /index.html
+            - ErrorCode: 400
+              ResponseCode: 200
+              ResponsePagePath: /index.html
+          DefaultCacheBehavior:
+            AllowedMethods:
+              - GET
+              - HEAD
+              - OPTIONS
+            TargetOriginId: S3-${self:custom.s3Bucket}
+            ForwardedValues:
+              QueryString: 'false'
+              Cookies:
+                Forward: none
+            ViewerProtocolPolicy: redirect-to-https
+          ViewerCertificate:
+            CloudFrontDefaultCertificate: 'true'
+          # Logging:
+          #   IncludeCookies: 'false'
+          #   Bucket: mylogs.s3.amazonaws.com
+          #   Prefix: myprefix
+  Outputs:
+    WebAppCloudFrontDistributionOutput:
+      Value:
+        'Fn::GetAtt': [ WebAppCloudFrontDistribution, DomainName ]
