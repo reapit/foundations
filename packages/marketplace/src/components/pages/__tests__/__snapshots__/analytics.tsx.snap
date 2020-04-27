@@ -26,9 +26,7 @@ exports[`AnalyticsPage should match a snapshot 1`] = `
       <Component>
         Dashboard
       </Component>
-      <div
-        className="column is-half-desktop"
-      >
+      <div>
         <Component
           tabConfigs={
             Array [

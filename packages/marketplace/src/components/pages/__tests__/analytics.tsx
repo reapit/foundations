@@ -17,15 +17,24 @@ describe('AnalyticsPage', () => {
     expect(shallow(<AnalyticsPage />)).toMatchSnapshot()
   })
   describe('tabConfigs', () => {
-    it('should run correctly', () => {
+    it('should run correctly on prod env', () => {
       const mockCurrentTab = 'detailed'
       const history = {
         push: jest.fn(),
       }
       const result = tabConfigs({ currentTab: mockCurrentTab, history })
-      // expect(result).toHaveLength(2)
-      // Expect columns to have length 1 because we temporarily hide the Billing tab as it will not be ready for Beta
+      // Expect columns to have length 1 because we temporarily hide the Billing tab on Prod
       expect(result).toHaveLength(1)
+    })
+    it('should run correctly on dev env', () => {
+      if (process.env.NODE_ENV === 'development') {
+        const mockCurrentTab = 'detailed'
+        const history = {
+          push: jest.fn(),
+        }
+        const result = tabConfigs({ currentTab: mockCurrentTab, history })
+        expect(result).toHaveLength(2)
+      }
     })
   })
   describe('handleUseEffectToSetCurrentTab', () => {

@@ -1,7 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BillingTab should match a snapshot 1`] = `
-<h1>
-  Billing Tab
-</h1>
+<Connect(ErrorBoundary)>
+  <Component
+    flexColumn={true}
+    hasPadding={true}
+  >
+    <Component
+      flexColumn={true}
+      hasBackground={true}
+      hasPadding={true}
+    >
+      <CostCalculator />
+    </Component>
+  </Component>
+</Connect(ErrorBoundary)>
 `;
