@@ -19,25 +19,29 @@ export enum AnalyticsTab {
   BILLING = 'billing',
 }
 
-export const tabConfigs = ({ currentTab, history }: TabConfigsProps): TabConfig[] => [
-  {
-    tabIdentifier: AnalyticsTab.DETAILED,
-    displayText: 'DETAILED',
-    onTabClick: () => {
-      history.push(Routes.DEVELOPER_ANALYTICS)
+export const tabConfigs = ({ currentTab, history }: TabConfigsProps): TabConfig[] => {
+  const configs = [
+    {
+      tabIdentifier: AnalyticsTab.DETAILED,
+      displayText: 'DETAILED',
+      onTabClick: () => {
+        history.push(Routes.DEVELOPER_ANALYTICS)
+      },
+      active: currentTab === AnalyticsTab.DETAILED,
     },
-    active: currentTab === AnalyticsTab.DETAILED,
-  },
-  // Temporarily hide the Billing tab as it will not be ready for Beta
-  // {
-  //   tabIdentifier: AnalyticsTab.BILLING,
-  //   displayText: 'BILLING',
-  //   onTabClick: () => {
-  //     history.push(`${Routes.DEVELOPER_ANALYTICS}/${AnalyticsTab.BILLING}`)
-  //   },
-  //   active: currentTab === AnalyticsTab.BILLING,
-  // },
-]
+  ]
+  if (process.env.NODE_ENV === 'development') {
+    configs.push({
+      tabIdentifier: AnalyticsTab.BILLING,
+      displayText: 'BILLING',
+      onTabClick: () => {
+        history.push(`${Routes.DEVELOPER_ANALYTICS}/${AnalyticsTab.BILLING}`)
+      },
+      active: currentTab === AnalyticsTab.BILLING,
+    })
+  }
+  return configs
+}
 
 export const handleUseEffectToSetCurrentTab = (activeTab, setCurrentTab) => {
   return () => {
@@ -78,7 +82,7 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = () => {
       <FlexContainerBasic hasPadding flexColumn>
         <FlexContainerResponsive flexColumn hasBackground hasPadding className={styles.wrapAnalytics}>
           <H3>Dashboard</H3>
-          <div className="column is-half-desktop">
+          <div className={styles.tabContainer}>
             <Tabs tabConfigs={tabConfigs({ currentTab, history })} />
           </div>
           <div>{renenderTabContent(currentTab)}</div>
