@@ -7,6 +7,8 @@ const initProps = (): AdminDevManagementFilterFormProps => ({
   filterValues: {
     name: 'name',
     company: 'company',
+    registeredFrom: '2020/04/03',
+    registeredTo: '2020/04/04',
   },
   onSearch: jest.fn(),
 })

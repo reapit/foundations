@@ -7,6 +7,10 @@ import { render } from 'react-dom'
 import ReactGA from 'react-ga'
 import { Config } from '@/types/global'
 import App from './app'
+import { getSessionCookie } from '@reapit/cognito-auth'
+import { COOKIE_SESSION_KEY_MARKETPLACE } from '../constants/api'
+import store from './store'
+import { authSetRefreshSession } from '../actions/auth'
 
 // Init global config
 window.reapit = {
@@ -29,6 +33,10 @@ window.reapit = {
 
 export const renderApp = (Component: React.ComponentType) => {
   const rootElement = document.querySelector('#root') as Element
+  const refreshSessionFromCookie = getSessionCookie(COOKIE_SESSION_KEY_MARKETPLACE, window.reapit.config.appEnv)
+  if (refreshSessionFromCookie) {
+    store.dispatch(authSetRefreshSession(refreshSessionFromCookie))
+  }
   if (rootElement) {
     render(<Component />, rootElement)
   }

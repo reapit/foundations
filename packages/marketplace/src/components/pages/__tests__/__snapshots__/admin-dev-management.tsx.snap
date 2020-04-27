@@ -10,7 +10,7 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
     hasPadding={true}
   >
     <Component>
-      App Management
+      Developer Management
     </Component>
     <Component
       filterValues={Object {}}
@@ -56,6 +56,9 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
         loading={false}
         scrollable={true}
       />
+      <div>
+        Total: 
+      </div>
     </Component>
     <Component
       onChange={[MockFunction]}

@@ -53,12 +53,12 @@ describe('user session getters', () => {
   describe('setUserSession', () => {
     it('should fetch and return a login session', async () => {
       ;(loginUserSession as jest.Mock) = jest.fn().mockReturnValue(mockLoginSession)
-      expect(await setUserSession(mockLoginParams)).toEqual(mockLoginSession)
+      expect(await setUserSession(mockLoginParams, 'KEY', 'development')).toEqual(mockLoginSession)
     })
 
     it('should return null if login fails', async () => {
       ;(loginUserSession as jest.Mock) = jest.fn().mockReturnValue(undefined)
-      expect(await setUserSession(mockLoginParams)).toBeNull()
+      expect(await setUserSession(mockLoginParams, 'KEY', 'development')).toBeNull()
     })
   })
 

@@ -3,6 +3,7 @@ import { tokenRefreshUserSessionService, codeRefreshUserSessionService } from '.
 import errorStrings from '../constants/error-strings'
 import { RefreshParams } from '../core/types'
 import { mockRefreshParams, mockLoginSession } from '../__mocks__/cognito-session'
+import { COOKIE_SESSION_KEY } from '../utils/cognito'
 
 jest.mock('../services/session/refresh-user-session')
 jest.mock('../utils/cognito')
@@ -66,12 +67,12 @@ describe('refresh session getters', () => {
   describe('setRefreshSession', () => {
     it('should fetch and return a login session', async () => {
       ;(refreshUserSession as jest.Mock) = jest.fn().mockReturnValue(mockLoginSession)
-      expect(await setRefreshSession(mockRefreshParams)).toEqual(mockLoginSession)
+      expect(await setRefreshSession(mockRefreshParams, COOKIE_SESSION_KEY, 'development')).toEqual(mockLoginSession)
     })
 
     it('should return null if login fails', async () => {
       ;(refreshUserSession as jest.Mock) = jest.fn().mockReturnValue(undefined)
-      expect(await setRefreshSession(mockRefreshParams)).toBeNull()
+      expect(await setRefreshSession(mockRefreshParams, COOKIE_SESSION_KEY, 'development')).toBeNull()
     })
   })
 

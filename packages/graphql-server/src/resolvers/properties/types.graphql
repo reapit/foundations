@@ -70,7 +70,6 @@ input CreatePropertyRoomModelInput {
   description: String
 }
 
-
 type Mutation {
   CreateProperty(
     marketingMode: String
@@ -106,35 +105,35 @@ type Mutation {
   ): PropertyModel!
 
   UpdateProperty(
-    id: String!,
-    _eTag: String!,
-    strapline: String,
-    description: String,
-    summary: String,
-    address: AddressInput,
-    bedrooms: Int,
-    receptions: Int,
-    bathrooms: Int,
-    councilTax: String,
-    internetAdvertising: Boolean,
-    viewingArrangements: String,
-    videoUrl: String,
-    videoCaption: String,
-    epc: EpcInput,
-    externalArea: ExternalAreaInput,
-    internalArea: InternalAreaInput,
-    selling: SellingInput,
-    letting: lettingInput,
-    type: [String!],
-    style: [String!],
-    situation: [String!],
-    parking: [String!],
-    age: [String!],
-    locality: [String!],
-    negotiatorId: String,
-    officeIds: [String!],
-    areaId: String,
-    metadata: JSON,
+    id: String!
+    _eTag: String!
+    strapline: String
+    description: String
+    summary: String
+    address: AddressInput
+    bedrooms: Int
+    receptions: Int
+    bathrooms: Int
+    councilTax: String
+    internetAdvertising: Boolean
+    viewingArrangements: String
+    videoUrl: String
+    videoCaption: String
+    epc: EpcInput
+    externalArea: ExternalAreaInput
+    internalArea: InternalAreaInput
+    selling: SellingInput
+    letting: lettingInput
+    type: [String!]
+    style: [String!]
+    situation: [String!]
+    parking: [String!]
+    age: [String!]
+    locality: [String!]
+    negotiatorId: String
+    officeIds: [String!]
+    areaId: String
+    metadata: JSON
   ): PropertyModel!
 }
 
@@ -262,36 +261,33 @@ type PropertyRoomModel {
 
 type Query {
   GetProperties(
-    pageSize: Int,
-    pageNumber: Int,
-    sortBy: String,
-    embed: [String!],
-    id: [String!],
-    age: [String!],
-    agentRole: [String!],
-    landlordId: [String!],
-    lettingStatus: [String!],
-    locality: [String!],
-    parking: [String!],
-    sellingStatus: [String!],
-    situation: [String!],
-    style: [String!],
-    type: [String!],
-    address: String,
-    departmentId: String,
-    marketingMode: [String!],
-    bedroomsFrom: Int,
-    bedroomsTo: Int,
-    priceFrom: Int,
-    priceTo: Int,
-    rentFrom: Float,
-    rentTo: Float,
-    rentFrequency: [String!],
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    embed: [String!]
+    id: [String!]
+    age: [String!]
+    agentRole: [String!]
+    landlordId: [String!]
+    lettingStatus: [String!]
+    locality: [String!]
+    parking: [String!]
+    sellingStatus: [String!]
+    situation: [String!]
+    style: [String!]
+    type: [String!]
+    address: String
+    departmentId: String
+    marketingMode: [String!]
+    bedroomsFrom: Int
+    bedroomsTo: Int
+    priceFrom: Int
+    priceTo: Int
+    rentFrom: Float
+    rentTo: Float
+    rentFrequency: [String!]
     internetAdvertising: Boolean
   ): PagedResultPropertyModel!
-  
-  GetPropertyById(
-    id: String!,
-    embed: [String!]
-  ): PropertyModel!
+
+  GetPropertyById(id: String!, embed: [String!]): PropertyModel!
 }

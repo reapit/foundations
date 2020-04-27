@@ -61,13 +61,13 @@ jobs:
         run: |
           yarn
 
-      - name: Lint
-        run: |
-          yarn lint
-
       - name: Fetch config
         run: |
           yarn fetch-config production
+
+      - name: Lint
+        run: |
+          yarn lint
 
       - name: Build
         run: |
@@ -77,9 +77,10 @@ jobs:
         run: |
           yarn test
 
-      - name: Test E2E
-        run: |
-          yarn test-e2e:ci
+      # Temporary disable https://github.com/reapit/foundations/issues/1056
+      # - name: Test E2E
+      #   run: |
+      #     yarn test-e2e:ci
 
       - name: Release Production
         run: |

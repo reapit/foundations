@@ -6,7 +6,12 @@ import { COOKIE_SESSION_KEY_GEO_DIARY } from '../constants/api'
 export const getAccessToken = async (): Promise<string | null> => {
   const { loginSession, refreshSession } = store.state.auth
 
-  const session = await getSession(loginSession, refreshSession, COOKIE_SESSION_KEY_GEO_DIARY)
+  const session = await getSession(
+    loginSession,
+    refreshSession,
+    COOKIE_SESSION_KEY_GEO_DIARY,
+    window.reapit.config.appEnv,
+  )
 
   if (session) {
     store.dispatch(authLoginSuccess(session))

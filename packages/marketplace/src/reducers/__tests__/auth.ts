@@ -6,12 +6,12 @@ import { LoginType } from '@reapit/cognito-auth'
 describe('auth reducer', () => {
   it('should return default state if action not matched', () => {
     const newState = authReducer(undefined, { type: 'UNKNOWN' as ActionType, data: undefined })
-    expect(newState).toEqual(defaultState())
+    expect(newState).toEqual(defaultState)
   })
 
   it('should reset the state to default when AUTH_LOGIN action is called', () => {
     const newState = authReducer(undefined, { type: ActionTypes.AUTH_LOGIN as ActionType, data: undefined })
-    const expected = defaultState()
+    const expected = defaultState
     expect(newState).toEqual(expected)
   })
 
@@ -24,19 +24,19 @@ describe('auth reducer', () => {
       sessionExpiry: 1,
     }
     const newState = authReducer(undefined, { type: ActionTypes.AUTH_LOGIN_SUCCESS as ActionType, data })
-    const expected = { ...defaultState(), loginSession: data }
+    const expected = { ...defaultState, loginSession: data }
     expect(newState).toEqual(expected)
   })
 
   it('should set error to false when AUTH_LOGIN_FAILURE action is called', () => {
     const newState = authReducer(undefined, { type: ActionTypes.AUTH_LOGIN_FAILURE as ActionType, data: undefined })
-    const expected = { ...defaultState(), error: true }
+    const expected = { ...defaultState, error: true }
     expect(newState).toEqual(expected)
   })
 
   it('should reset the state to default when AUTH_LOGOUT_SUCCESS action is called', () => {
     const newState = authReducer(undefined, { type: ActionTypes.AUTH_LOGOUT_SUCCESS as ActionType, data: undefined })
-    const expected = defaultState()
+    const expected = defaultState
     expect(newState).toEqual(expected)
   })
 
@@ -46,7 +46,7 @@ describe('auth reducer', () => {
       data: 'DEVELOPER',
     })
     const expected = {
-      ...defaultState(),
+      ...defaultState,
       loginType: 'DEVELOPER',
     }
     expect(newState).toEqual(expected)
@@ -69,7 +69,7 @@ describe('auth reducer', () => {
       data: true,
     })
     const expected = {
-      ...defaultState(),
+      ...defaultState,
       isTermAccepted: true,
     }
     expect(newState).toEqual(expected)

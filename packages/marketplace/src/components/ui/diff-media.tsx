@@ -14,11 +14,11 @@ const DiffMedia = ({ currentMedia, changedMedia, type }: DiffMediaProps) => {
   return (
     <div className={styles.container}>
       <div className={`${styles.block} ${blockStyle} ${isDiff ? styles.red : ''}`}>
-        <div className={`${styles.image} ${imageStyle}`} style={{ backgroundImage: `url(${currentMedia})` }} />
+        <div className={`${styles.image} ${imageStyle}`} style={{ backgroundImage: `url("${currentMedia}")` }} />
       </div>
       <span className={styles.arrow}>&#8594;</span>
       <div className={`${styles.block} ${blockStyle} ${isDiff ? styles.green : ''}`}>
-        <div className={`${styles.image} ${imageStyle}`} style={{ backgroundImage: `url(${changedMedia})` }} />
+        <div className={`${styles.image} ${imageStyle}`} style={{ backgroundImage: `url("${changedMedia}")` }} />
       </div>
     </div>
   )
