@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '@/styles/blocks/consumption-cost-methodology-table.scss?mod'
 
-const columns = [
+const tableHeadings = [
   'Monthly API Calls',
   'first 1,000',
   '1,001-2,500',
@@ -11,6 +11,8 @@ const columns = [
   '25,001-50,000',
   'above 50,000',
 ]
+
+const tableSubHeadings = ['Number of Endpoints used', 'Cost per API Call', '', '', '', '', '', '']
 
 // ^ data matched columns above
 const consumptionCostsByMonth = [
@@ -23,22 +25,34 @@ const consumptionCostsByMonth = [
   ['51+', '£0.023500', '£0.018800', '£0.014000', '£0.011750', '£0.009400', '£0.005875', '£0.002350'],
 ]
 
+console.log(consumptionCostsByMonth.length)
+
 export const ConsumptionCostMethodologyTable = () => (
   <div className="mt-10">
     <div className="mb-3">
       <u>Calculation of Total Consumption Cost - Methodology:</u>
-      <table className={`table is-bordered ${styles['table']}`}>
+      <table cellPadding="0" cellSpacing="0" className={`table is-bordered ${styles['table']}`}>
         <tr>
-          {columns.map(column => (
-            <th key={column}>{column}</th>
+          <td style={{ border: 'none' }}></td>
+          {tableHeadings.map((heading, index) => (
+            <th key={index}>{heading}</th>
           ))}
         </tr>
         <tr>
-          <td></td>
-          <td className={styles['title-cell']} colSpan={7}>
-            cost per API Call
-          </td>
+          <td style={{ border: 'none' }}></td>
+          {tableSubHeadings.map((subHeading, index) => (
+            <td className={styles['title-cell']} key={index}>
+              {subHeading}
+            </td>
+          ))}
         </tr>
+        <td
+          style={{ verticalAlign: 'middle', transform: 'rotate(-90deg)', whiteSpace: 'nowrap' }}
+          className={styles['title-cell']}
+          rowSpan={consumptionCostsByMonth.length + 1}
+        >
+          (on last day <br /> of monthly billing period)
+        </td>
         {consumptionCostsByMonth.map((consumptionCosts, index) => (
           <tr key={index}>
             {consumptionCosts.map(consumptionCost => (
@@ -46,11 +60,6 @@ export const ConsumptionCostMethodologyTable = () => (
             ))}
           </tr>
         ))}
-        <tr>
-          <td className={styles['title-cell']} colSpan={8}>
-            Number of Endpoints used (on last day of monthly billing period)
-          </td>
-        </tr>
       </table>
     </div>
   </div>
