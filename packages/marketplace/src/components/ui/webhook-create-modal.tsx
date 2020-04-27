@@ -73,14 +73,13 @@ export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps &
   const loading = developerWebhook?.loading
 
   const topicOptions: SelectOption[] = topics.map(topic => ({
-    value: topic.name,
+    value: topic.id,
     label: topic.name,
-    description: topic.client,
+    description: topic.description,
   }))
   const customerOptions: SelectOption[] = customers.map(customer => ({
     value: customer.client,
     label: customer.client,
-    description: customer.client,
   }))
 
   useEffect(() => {
