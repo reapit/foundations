@@ -11,6 +11,7 @@ exports[`BillingTab should match a snapshot 1`] = `
       hasBackground={true}
       hasPadding={true}
     >
+      <Component />
       <CostCalculator />
     </Component>
   </Component>
