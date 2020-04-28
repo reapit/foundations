@@ -1,6 +1,6 @@
 import React from 'react'
 import { Bar } from 'react-chartjs-2'
-import { H4, H5, FlexContainerResponsive } from '@reapit/elements'
+import { H4, FlexContainerResponsive } from '@reapit/elements'
 import styles from '@/styles/pages/analytics.scss?mod'
 
 export const ServiceChart: React.FC = () => {
@@ -28,7 +28,7 @@ export const ServiceChart: React.FC = () => {
     ],
   }
   return (
-    <FlexContainerResponsive hasPadding className={styles.serviceChart}>
+    <FlexContainerResponsive className={styles.serviceChart}>
       <div className={styles.barChartContainer}>
         <H4>Services</H4>
         <Bar
@@ -39,23 +39,6 @@ export const ServiceChart: React.FC = () => {
             maintainAspectRatio: false,
           }}
         />
-      </div>
-      <div className={styles.transactionHistoryContainer}>
-        <H4>Transaction History</H4>
-        <H5>This month transaction</H5>
-        <FlexContainerResponsive className={styles.downloadSection}>
-          <div>April 2020</div>
-          <a>Download</a>
-        </FlexContainerResponsive>
-        <H5>Previous transaction</H5>
-        <FlexContainerResponsive className={styles.downloadSection}>
-          <div>March 2020</div>
-          <a>Download</a>
-        </FlexContainerResponsive>
-        <FlexContainerResponsive className={styles.downloadSection}>
-          <div>Feb 2020</div>
-          <a>Download</a>
-        </FlexContainerResponsive>
       </div>
     </FlexContainerResponsive>
   )

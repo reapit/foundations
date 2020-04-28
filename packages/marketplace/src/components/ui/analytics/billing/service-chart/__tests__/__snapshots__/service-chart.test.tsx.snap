@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ServiceChart should match a snapshot 1`] = `
-<Component
-  hasPadding={true}
->
+<Component>
   <div>
     <Component>
       Services
@@ -57,41 +55,6 @@ exports[`ServiceChart should match a snapshot 1`] = `
       }
       width={50}
     />
-  </div>
-  <div>
-    <Component>
-      Transaction History
-    </Component>
-    <Component>
-      This month transaction
-    </Component>
-    <Component>
-      <div>
-        April 2020
-      </div>
-      <a>
-        Download
-      </a>
-    </Component>
-    <Component>
-      Previous transaction
-    </Component>
-    <Component>
-      <div>
-        March 2020
-      </div>
-      <a>
-        Download
-      </a>
-    </Component>
-    <Component>
-      <div>
-        Feb 2020
-      </div>
-      <a>
-        Download
-      </a>
-    </Component>
   </div>
 </Component>
 `;
