@@ -11,7 +11,7 @@ export interface SubscriptionTopicsRequestParams {
   headers: StringMap
 }
 
-export interface CreateDeveloperWebhookParams {
+export interface CreateWebhookParams {
   ApplicationId: string
   url: string
   description?: string
@@ -19,12 +19,20 @@ export interface CreateDeveloperWebhookParams {
   customerIds: string[]
   active: boolean
 }
-export const developerWebhookLoading = actionCreator<boolean>(ActionTypes.DEVELOPER_WEBHOOK_LOADING)
-export const requestDeveloperWebhookData = actionCreator<string>(ActionTypes.DEVELOPER_WEBHOOK_REQUEST_DATA)
-export const requestDeveloperWebhookReceiveData = actionCreator<DeveloperWebhookState>(
-  ActionTypes.DEVELOPER_WEBHOOK_RECEIVE_DATA,
+export interface WebhookDataRequestParams {
+  webhookId: string
+}
+
+export interface WebhookSubcriptionDataRequest {
+  appId: number
+}
+
+export const webhookEditLoading = actionCreator<boolean>(ActionTypes.WEBHOOK_EDIT_LOADING)
+export const requestWebhookSubcriptionData = actionCreator<string>(ActionTypes.WEBHOOK_EDIT_SUBCRIPTION_REQUEST_DATA)
+export const requestWebhookSubcriptionReceiveData = actionCreator<DeveloperWebhookState>(
+  ActionTypes.WEBHOOK_EDIT_SUBCRIPTION_RECEIVE_DATA,
 )
-export const createDeveloperWebhook = actionCreator<CreateDeveloperWebhookParams>(ActionTypes.DEVELOPER_WEBHOOK_CREATE)
-export const developerWebhookRequestDataFailure = actionCreator<void>(
-  ActionTypes.DEVELOPER_WEBHOOK_REQUEST_DATA_FAILURE,
+export const requestWebhookSubcriptionReceiveFailure = actionCreator<void>(
+  ActionTypes.WEBHOOK_EDIT_SUBCRIPTION_REQUEST_DATA_FAILURE,
 )
+export const createWebhook = actionCreator<CreateWebhookParams>(ActionTypes.WEBHOOK_CREATE)

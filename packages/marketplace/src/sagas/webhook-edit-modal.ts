@@ -1,14 +1,16 @@
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import { Action } from '../types/core'
 import ActionTypes from '../constants/action-types'
-import { DeveloperWebhookDataRequest, DeveloperWebhookState } from '@/reducers/webhook-edit-modal'
+import { DeveloperWebhookState } from '@/reducers/webhook-edit-modal'
 import {
-  requestDeveloperWebhookReceiveData,
-  CreateDeveloperWebhookParams,
-  developerWebhookLoading,
-  developerWebhookRequestDataFailure,
+  webhookEditLoading,
+  requestWebhookSubcriptionReceiveFailure,
+  requestWebhookSubcriptionReceiveData,
   SubscriptionCustomersRequestParams,
   SubscriptionTopicsRequestParams,
+  WebhookDataRequestParams,
+  CreateWebhookParams,
+  WebhookSubcriptionDataRequest,
 } from '@/actions/webhook-edit-modal'
 import { logger } from 'logger'
 import errorMessages from '../constants/error-messages'
@@ -49,7 +51,24 @@ export const fetchWebhookSubscriptionCustomers = async (params: SubscriptionCust
   }
 }
 
-export const createNewDeveloperWebhook = async (params: CreateDeveloperWebhookParams) => {
+export const fetchWebhookData = async (params: WebhookDataRequestParams) => {
+  try {
+    const { webhookId } = params
+    const headers = await initAuthorizedRequestHeaders()
+    const response = await fetcher({
+      url: `${URLS.webhook}/subscriptions/${webhookId}`,
+      api: window.reapit.config.platformApiUrl,
+      method: 'GET',
+      headers: headers,
+    })
+    return response
+  } catch (error) {
+    logger(error)
+    throw new Error(error)
+  }
+}
+
+export const fetchCreateNewWebhook = async (params: CreateWebhookParams) => {
   try {
     const headers = await initAuthorizedRequestHeaders()
     const response = await fetcher({
@@ -67,7 +86,7 @@ export const createNewDeveloperWebhook = async (params: CreateDeveloperWebhookPa
 }
 
 export const requestSupcriptionData = function*({ data: ApplicationId }) {
-  yield put(developerWebhookLoading(true))
+  yield put(webhookEditLoading(true))
   const headers = yield call(initAuthorizedRequestHeaders)
   try {
     const [subcriptionTopics, subcriptionCustomers] = yield all([
@@ -79,9 +98,9 @@ export const requestSupcriptionData = function*({ data: ApplicationId }) {
       subcriptionTopics,
     }
     if (data) {
-      yield put(requestDeveloperWebhookReceiveData(data))
+      yield put(requestWebhookSubcriptionReceiveData(data))
     } else {
-      yield put(developerWebhookRequestDataFailure())
+      yield put(requestWebhookSubcriptionReceiveFailure())
     }
   } catch (err) {
     logger(err)
@@ -94,9 +113,9 @@ export const requestSupcriptionData = function*({ data: ApplicationId }) {
   }
 }
 
-export const createNewWebhook = function*({ data }) {
+export const createNewWebhook = function*({ data }: Action<CreateWebhookParams>) {
   try {
-    yield call(createNewDeveloperWebhook, data)
+    yield call(fetchCreateNewWebhook, data)
   } catch (err) {
     logger(err)
     yield put(
@@ -108,19 +127,41 @@ export const createNewWebhook = function*({ data }) {
   }
 }
 
-export const requestDeveloperWebhookDataListen = function*() {
-  yield takeLatest<Action<DeveloperWebhookDataRequest>>(
-    ActionTypes.DEVELOPER_WEBHOOK_REQUEST_DATA,
+export const requestWebhookData = function*({ data }: Action<WebhookDataRequestParams>) {
+  try {
+    yield call(fetchWebhookData, data)
+  } catch (err) {
+    logger(err)
+    yield put(
+      errorThrownServer({
+        type: 'SERVER',
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
+    )
+  }
+}
+
+export const requestWebhookSupcriptionDataListen = function*() {
+  yield takeLatest<Action<WebhookSubcriptionDataRequest>>(
+    ActionTypes.WEBHOOK_EDIT_SUBCRIPTION_REQUEST_DATA,
     requestSupcriptionData,
   )
 }
 
 export const createDeveloperWebhookListen = function*() {
-  yield takeLatest<Action<CreateDeveloperWebhookParams>>(ActionTypes.DEVELOPER_WEBHOOK_CREATE, createNewWebhook)
+  yield takeLatest<Action<CreateWebhookParams>>(ActionTypes.WEBHOOK_CREATE, createNewWebhook)
+}
+
+export const requestWebhookDataListen = function*() {
+  yield takeLatest<Action<WebhookDataRequestParams>>(ActionTypes.WEBHOOK_REQUEST_DATA, requestWebhookData)
 }
 
 const developerWebhookSagas = function*() {
-  yield all([fork(requestDeveloperWebhookDataListen), fork(createDeveloperWebhookListen)])
+  yield all([
+    fork(requestWebhookSupcriptionDataListen),
+    fork(createDeveloperWebhookListen),
+    fork(requestWebhookDataListen),
+  ])
 }
 
 export default developerWebhookSagas

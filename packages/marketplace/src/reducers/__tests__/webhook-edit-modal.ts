@@ -11,7 +11,7 @@ describe('developer webhook reducer', () => {
 
   it('should return new state when reveice data', () => {
     const newState = DeveloperWebhookReducer(undefined, {
-      type: ActionTypes.DEVELOPER_WEBHOOK_RECEIVE_DATA as ActionType,
+      type: ActionTypes.WEBHOOK_EDIT_SUBCRIPTION_RECEIVE_DATA as ActionType,
       data: webhookDataStub,
     })
     const expected = {

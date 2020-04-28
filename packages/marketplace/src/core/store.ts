@@ -51,7 +51,7 @@ import appInstallationsSagas from '../sagas/app-installations'
 import noticationMessage from '../reducers/notification-message'
 import adminStatsSaga from '../sagas/admin-stats'
 import { injectSwitchModeToWindow } from '@reapit/elements'
-import developerWebhookSagas from '../sagas/webhook-create-modal'
+import developerWebhookSagas from '../sagas/webhook-edit-modal'
 
 export class Store {
   static _instance: Store

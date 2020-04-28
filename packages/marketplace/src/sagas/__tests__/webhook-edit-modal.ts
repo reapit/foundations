@@ -2,9 +2,9 @@ import {
   requestSupcriptionData,
   fetchWebhookSubscriptionTopics,
   fetchWebhookSubscriptionCustomers,
-} from '../webhook-create-modal'
+} from '../webhook-edit-modal'
 import { call, put, all } from '@redux-saga/core/effects'
-import { requestDeveloperWebhookReceiveData, developerWebhookLoading } from '@/actions/webhook-edit-modal'
+import { requestWebhookSubcriptionReceiveData, webhookEditLoading } from '@/actions/webhook-edit-modal'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { webhookDataStub } from '../__stubs__/developer-webhook'
@@ -17,7 +17,7 @@ const mockHeaders = {
 }
 describe('developer fetch subscription data', () => {
   const gen = cloneableGenerator(requestSupcriptionData as any)(params)
-  expect(gen.next().value).toEqual(put(developerWebhookLoading(true)))
+  expect(gen.next().value).toEqual(put(webhookEditLoading(true)))
   const header = gen.next().value
   expect(header).toEqual(call(initAuthorizedRequestHeaders))
 
@@ -31,7 +31,7 @@ describe('developer fetch subscription data', () => {
   it('api call success', () => {
     const clone = gen.clone()
     expect(clone.next([webhookDataStub.subcriptionTopics, webhookDataStub.subcriptionCustomers] as any).value).toEqual(
-      put(requestDeveloperWebhookReceiveData(webhookDataStub)),
+      put(requestWebhookSubcriptionReceiveData(webhookDataStub)),
     )
   })
 })

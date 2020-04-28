@@ -16,11 +16,7 @@ import {
   Loader,
 } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
-import {
-  requestDeveloperWebhookData,
-  CreateDeveloperWebhookParams,
-  createDeveloperWebhook,
-} from '@/actions/webhook-edit-modal'
+import { requestWebhookSubcriptionData, CreateWebhookParams, createWebhook } from '@/actions/webhook-edit-modal'
 import { DeveloperWebhookState } from '@/reducers/webhook-edit-modal'
 
 const CREATE_MODAL = {
@@ -42,12 +38,13 @@ export type WebhookModalInnerProps = {
 export type WebhookCreateProps = {
   isUpdate?: boolean
   appId: string
+  webhookId: string
   visible: boolean
   closeModal?: () => void
 }
 export interface WebhookModalInnerMappedAction {
-  requestDeveloperWebhookData: (appId: string) => void
-  createDeveloperWebhook: (data: CreateDeveloperWebhookParams) => void
+  requestWebhookSubcriptionData: (appId: string) => void
+  createWebhook: (data: CreateWebhookParams) => void
 }
 
 export const WebhookCreateModal: React.FunctionComponent<WebhookCreateProps> = ({
@@ -83,11 +80,11 @@ export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps &
   }))
 
   useEffect(() => {
-    props.requestDeveloperWebhookData(props.appId)
+    props.requestWebhookSubcriptionData(props.appId)
   }, [])
 
   const onSubmit = values => {
-    const params: CreateDeveloperWebhookParams = {
+    const params: CreateWebhookParams = {
       ApplicationId: props.appId,
       url: values.WebhookURL,
       description: '',
@@ -95,7 +92,7 @@ export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps &
       customerIds: values.SubscriptionCustomers,
       active: values.active,
     }
-    props.createDeveloperWebhook(params)
+    props.createWebhook(params)
   }
 
   if (loading) return <Loader />
@@ -186,8 +183,8 @@ export const mapStateToProps = (state: ReduxState): StateProps => ({
 
 export const mapDispatchToProps = (dispatch: any): WebhookModalInnerMappedAction => {
   return {
-    requestDeveloperWebhookData: (appId: string) => dispatch(requestDeveloperWebhookData(appId)),
-    createDeveloperWebhook: (data: CreateDeveloperWebhookParams) => dispatch(createDeveloperWebhook(data)),
+    requestWebhookSubcriptionData: (appId: string) => dispatch(requestWebhookSubcriptionData(appId)),
+    createWebhook: (data: CreateWebhookParams) => dispatch(createWebhook(data)),
   }
 }
 
