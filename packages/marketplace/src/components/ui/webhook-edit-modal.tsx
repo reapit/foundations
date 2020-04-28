@@ -42,6 +42,7 @@ export type WebhookEditProps = {
   webhookId?: string
   visible: boolean
   closeModal?: () => void
+  afterClose?: () => void
 }
 export interface WebhookModalInnerMappedAction {
   requestWebhookSubcriptionData: (appId: string) => void
@@ -56,9 +57,10 @@ export const WebhookCreateModal: React.FunctionComponent<WebhookEditProps> = ({
   visible,
   webhookId,
   closeModal,
+  afterClose,
 }) => {
   return (
-    <Modal visible={visible} renderChildren>
+    <Modal visible={visible} renderChildren afterClose={afterClose}>
       <WebhookModalInnerWithConnect isUpdate={isUpdate} closeModal={closeModal} appId={appId} webhookId={webhookId} />
     </Modal>
   )
@@ -127,7 +129,7 @@ export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps> 
 
   const initFormValues = {
     WebhookURL: webhookData?.url,
-    SubscriptionTopics: webhookData?.topicIds,
+    SubscriptionTopics: webhookData?.id,
     SubscriptionCustomers: webhookData?.customerIds,
     active: webhookData?.active,
   }

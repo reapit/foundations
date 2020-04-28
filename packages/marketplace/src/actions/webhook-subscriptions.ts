@@ -8,3 +8,4 @@ export const webhookSubscriptionsReceiveData = actionCreator<PagedResultWebhookM
 )
 export const webhookTopicsRequestData = actionCreator<string>(ActionTypes.WEBHOOK_TOPICS_REQUEST_DATA)
 export const webhookTopicsReceiveData = actionCreator<PagedResultTopicModel_>(ActionTypes.WEBHOOK_TOPICS_RECEIVE_DATA)
+export const setApplicationId = actionCreator<string>(ActionTypes.WEBHOOK_SET_APPLICATION_ID)

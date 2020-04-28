@@ -24,8 +24,10 @@ import {
   selectSubscriptionsLoading,
   selectTopicsData,
   selectTopicsLoading,
+  selectApplicationId,
 } from '@/selector/wehooks'
 import FormikAutoSave from '@/components/hocs/formik-auto-save'
+import WebhookEditModal from '../ui/webhook-edit-modal'
 
 export const columns = [
   {
@@ -50,18 +52,38 @@ export const columns = [
   },
 ]
 
+const MODAL_TYPE = {
+  EDIT: 'EDIT',
+  CREATE: 'CREATE',
+}
+
 export const handleSubscriptionChange = fetchTopics => values => {
   fetchTopics(values.subscriptions)
 }
 
-export const getTableTopicsData = topics => {
+export const openCreateModal = setModalOpen => () => {
+  setModalOpen(MODAL_TYPE.CREATE)
+}
+export const openEditModal = (setModalOpen, setWebhookId) => (webhookId: string) => {
+  setModalOpen(MODAL_TYPE.EDIT)
+  setWebhookId(webhookId)
+}
+
+export const getTableTopicsData = (topics, onOpenEditModal) => {
   return topics.map((topic: TopicModel) => ({
     url: topic.url,
     topics: topic.associatedScope,
     customer: 'All Customers (*)',
     test: 'Ping',
     edit: (
-      <Button dataTest="edit-btn" variant="primary" type="button" onClick={() => {}}>
+      <Button
+        dataTest="edit-btn"
+        variant="primary"
+        type="button"
+        onClick={() => {
+          onOpenEditModal(topic.id)
+        }}
+      >
         Edit
       </Button>
     ),
@@ -73,6 +95,7 @@ export type StateProps = {
   subscriptionsLoading: boolean
   topics: TopicModel[]
   topicsLoading: boolean
+  applicationId: string
 }
 
 export type DeveloperWebhooksProps = StateProps & DispatchProps
@@ -83,9 +106,22 @@ export const DeveloperWebhooks = ({
   subscriptionsLoading,
   topics,
   topicsLoading,
+  applicationId,
 }: DeveloperWebhooksProps) => {
   if (subscriptionsLoading) {
     return <Loader />
+  }
+  console.log(subscriptions, subscriptionsLoading, topics, topicsLoading)
+  const [modalOpen, setModalOpen] = React.useState<string | undefined>()
+  const [webhookId, setWebhookId] = React.useState<string | undefined>()
+
+  const onOpenCreateModal = openCreateModal(setModalOpen)
+  const onOpenEditModal = openEditModal(setModalOpen, setWebhookId)
+  const onCloseModal = () => setModalOpen(undefined)
+
+  const afterClose = (): void => {
+    setModalOpen(undefined)
+    setWebhookId(undefined)
   }
 
   const selectBoxOptions: SelectBoxOptions[] = subscriptions.map((subscription: WebhookModel) => ({
@@ -107,7 +143,7 @@ export const DeveloperWebhooks = ({
             {() => (
               <Form>
                 <SelectBox
-                  helpText="Please select an App from the list below to view the associated Webhooks:"
+                  // helpText="Please select an App from the list below to view the associated Webhooks:"
                   name="subscriptions"
                   options={selectBoxOptions}
                   labelText="App"
@@ -119,7 +155,7 @@ export const DeveloperWebhooks = ({
           </Formik>
           <Section>
             <LevelRight>
-              <Button dataTest="logout-btn" variant="primary" type="button" onClick={() => {}}>
+              <Button dataTest="logout-btn" variant="primary" type="button" onClick={onOpenCreateModal}>
                 Add New Webhook
               </Button>
             </LevelRight>
@@ -127,10 +163,18 @@ export const DeveloperWebhooks = ({
           {topicsLoading ? (
             <Loader />
           ) : (
-            <Table scrollable columns={columns} data={getTableTopicsData(topics)} loading={false} />
+            <Table scrollable columns={columns} data={getTableTopicsData(topics, onOpenEditModal)} loading={false} />
           )}
         </FormSection>
       </FlexContainerResponsive>
+      <WebhookEditModal
+        visible={!!modalOpen}
+        isUpdate={modalOpen === MODAL_TYPE.EDIT}
+        appId={applicationId}
+        webhookId={webhookId}
+        afterClose={afterClose}
+        closeModal={onCloseModal}
+      />
     </FlexContainerBasic>
   )
 }
@@ -144,6 +188,7 @@ export const mapStateToProps = (state: ReduxState): StateProps => ({
   subscriptionsLoading: selectSubscriptionsLoading(state),
   topics: selectTopicsData(state),
   topicsLoading: selectTopicsLoading(state),
+  applicationId: selectApplicationId(state),
 })
 
 export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {

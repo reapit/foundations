@@ -5,7 +5,11 @@ import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
 import errorMessages from '@/constants/error-messages'
 import { errorThrownServer } from '@/actions/error'
-import { webhookSubscriptionsReceiveData, webhookTopicsReceiveData } from '@/actions/webhook-subscriptions'
+import {
+  webhookSubscriptionsReceiveData,
+  webhookTopicsReceiveData,
+  setApplicationId,
+} from '@/actions/webhook-subscriptions'
 
 export const fetchSubscriptions = async () => {
   const headers = await initAuthorizedRequestHeaders()
@@ -47,6 +51,7 @@ export const webhookSubscriptionsFetch = function*() {
 
 export const webhookTopicsFetch = function*({ data: applicationId }: Action<string>) {
   try {
+    yield put(setApplicationId(applicationId))
     const response = yield call(fetchWebhookTopic, applicationId)
     if (response) {
       yield put(webhookTopicsReceiveData(response))
