@@ -13,7 +13,7 @@ export const BillingTab: React.FC<BillingTabProps> = () => {
     <ErrorBoundary>
       <FlexContainerBasic hasPadding flexColumn>
         <FlexContainerResponsive flexColumn hasBackground hasPadding className={styles.wrapAnalytics}>
-          <Grid isMultiLine className="mt-5">
+          <Grid isMultiLine className="mt-5 is-variable is-8">
             <GridItem className="is-half">
               <ServiceChart />
             </GridItem>

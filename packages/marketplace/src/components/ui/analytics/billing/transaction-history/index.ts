@@ -1,2 +1,2 @@
-import TransactionHistory from './TransactionHistory'
+import TransactionHistory from './transaction-history'
 export default TransactionHistory
