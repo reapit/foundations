@@ -2,6 +2,7 @@ import * as React from 'react'
 import { CostCalculatorFormValues } from './cost-calculator-form'
 import { EndpointsUsedRange, TierPrice } from './cost-calculator'
 import { formatCurrency, formatNumber } from '@/utils/number-formatter'
+import { Table, Grid, GridItem, H6, H4 } from '@reapit/elements'
 
 export type TotalCostTableProps = {
   formValues: CostCalculatorFormValues
@@ -9,93 +10,94 @@ export type TotalCostTableProps = {
   foundationPricing: TierPrice
 }
 
+export type TableRow = {
+  numberOfApiCalls: number
+  costPerApiCall: number
+  totalCost: number
+}
+
 export type TotalCostTableData = {
-  bands: number[]
-  bandCostPerCall: number[]
-  costPerBand: number[]
+  tableData: TableRow[]
   totalMonthlyCost: number
 }
 
-export const prepareData = (
-  endpointsUsed: string,
-  apiCalls: string,
-  foundationPricing: TierPrice,
-): TotalCostTableData => {
-  const bands: number[] = []
-  const bandCostPerCall: number[] = []
-  let totalMonthlyCost: number = 0
+export const prepareData = (endpointsUsed: string, apiCalls: string, foundationPricing: TierPrice) => {
+  return (): TotalCostTableData => {
+    const bands: number[] = []
+    const bandCostPerCall: number[] = []
+    let totalMonthlyCost: number = 0
 
-  let remainingApiCalls = parseFloat(apiCalls)
-  const { priceRange, maxPrice } = foundationPricing[endpointsUsed]
+    let remainingApiCalls = parseFloat(apiCalls)
+    const { priceRange, maxPrice } = foundationPricing[endpointsUsed]
 
-  for (const tierPriceLimit of priceRange) {
-    const { limit, price } = tierPriceLimit
-    bandCostPerCall.push(price)
+    for (const tierPriceLimit of priceRange) {
+      const { limit, price } = tierPriceLimit
+      bandCostPerCall.push(price)
 
-    if (remainingApiCalls > limit) {
-      bands.push(limit)
-      totalMonthlyCost += limit * price
-      remainingApiCalls -= limit
-    } else {
+      if (remainingApiCalls > limit) {
+        bands.push(limit)
+        totalMonthlyCost += limit * price
+        remainingApiCalls -= limit
+      } else {
+        bands.push(remainingApiCalls)
+        totalMonthlyCost += remainingApiCalls * price
+        remainingApiCalls = 0
+        break
+      }
+    }
+
+    if (remainingApiCalls > 0) {
       bands.push(remainingApiCalls)
-      totalMonthlyCost += remainingApiCalls * price
-      remainingApiCalls = 0
-      break
+      bandCostPerCall.push(maxPrice)
+      totalMonthlyCost += maxPrice * remainingApiCalls
+    }
+
+    const costPerBand = bandCostPerCall.map((item, index) => {
+      return item * bands[index]
+    })
+
+    const tableData = bands.map((item, index) => {
+      return {
+        numberOfApiCalls: item,
+        costPerApiCall: bandCostPerCall[index],
+        totalCost: costPerBand[index],
+      }
+    })
+
+    return {
+      tableData,
+      totalMonthlyCost,
     }
   }
+}
 
-  if (remainingApiCalls > 0) {
-    bands.push(remainingApiCalls)
-    bandCostPerCall.push(maxPrice)
-    totalMonthlyCost += maxPrice * remainingApiCalls
+const prepareTableColumns = totalMonthlyCost => {
+  return () => {
+    return [
+      {
+        Header: 'Number of API Calls',
+        accessor: row => {
+          return formatNumber(row.numberOfApiCalls)
+        },
+      },
+      {
+        Header: 'Cost Per API Call',
+        accessor: row => {
+          return formatCurrency(row.costPerApiCall, 6)
+        },
+        Footer: 'Estimated total monthly cost',
+      },
+      {
+        Header: 'Total Cost',
+        accessor: row => {
+          return formatCurrency(row.totalCost)
+        },
+        Footer: () => {
+          return formatCurrency(totalMonthlyCost)
+        },
+      },
+    ]
   }
-
-  const costPerBand = bandCostPerCall.map((item, index) => {
-    return item * bands[index]
-  })
-
-  return {
-    bands,
-    bandCostPerCall,
-    costPerBand,
-    totalMonthlyCost,
-  }
-}
-
-export const renderEndpointsUsed = (bands, endpointsUsedRange, endpointsUsed) => {
-  return bands.map((_: any, index) => {
-    if (index === 0) {
-      return <td key={index}>{endpointsUsedRange[endpointsUsed]}</td>
-    }
-    return <td key={index}></td>
-  })
-}
-
-export const renderApiCalls = (bands, apiCalls) => {
-  return bands.map((_: any, index) => {
-    if (index === 0) {
-      return <td key={index}>{formatNumber(parseFloat(apiCalls))}</td>
-    }
-    return <td key={index}></td>
-  })
-}
-
-export const renderBand = bands => {
-  return bands.map((item, index) => {
-    return <td key={index}>{formatNumber(item)}</td>
-  })
-}
-
-export const renderBandCostPerCall = bandCostPerCall => {
-  return bandCostPerCall.map((item, index) => {
-    return <td key={index}>{formatCurrency(item, 6)}</td>
-  })
-}
-
-export const renderCostPerBand = costPerBand => {
-  return costPerBand.map((item, index) => {
-    return <td key={index}>{formatCurrency(item)}</td>
-  })
 }
 
 const TotalCostTable: React.FC<TotalCostTableProps> = ({
@@ -107,51 +109,27 @@ const TotalCostTable: React.FC<TotalCostTableProps> = ({
     return null
   }
 
-  const { bands, bandCostPerCall, costPerBand, totalMonthlyCost } = prepareData(
+  const { tableData, totalMonthlyCost } = React.useMemo(prepareData(endpointsUsed, apiCalls, foundationPricing), [
     endpointsUsed,
     apiCalls,
     foundationPricing,
-  )
+  ])
+  const tableColumns = React.useMemo(prepareTableColumns(totalMonthlyCost), [totalMonthlyCost])
 
   return (
     <div className="table-container mt-5">
-      <table className="table is-striped is-bordered is-fullwidth">
-        <tbody>
-          <tr>
-            <td>
-              <strong>Endpoints Used</strong>
-            </td>
-            {renderEndpointsUsed(bands, endpointsUsedRange, endpointsUsed)}
-          </tr>
-          <tr>
-            <td>
-              <strong>Monthly API calls</strong>
-            </td>
-            {renderApiCalls(bands, apiCalls)}
-          </tr>
-          <tr>
-            <td>
-              <strong>Calls within band (A)</strong>
-            </td>
-            {renderBand(bands)}
-          </tr>
-          <tr>
-            <td>
-              <strong>Band cost per call (B)</strong>
-            </td>
-            {renderBandCostPerCall(bandCostPerCall)}
-          </tr>
-          <tr>
-            <td>
-              <strong>Cost per band (A) x (B)</strong>
-            </td>
-            {renderCostPerBand(costPerBand)}
-          </tr>
-        </tbody>
-      </table>
-      <div className="is-pulled-right is-size-5">
-        <strong>Estimated Total monthly cost: {formatCurrency(totalMonthlyCost)}</strong>
-      </div>
+      <Grid>
+        <GridItem className="is-half has-text-right">
+          <H6>{endpointsUsedRange[endpointsUsed]} Endoints Used</H6>
+          <H6>{formatNumber(parseFloat(apiCalls))} Monthly API Calls</H6>
+          <H4 className="mt-mt-5">Estimated total monthly cost: {formatCurrency(totalMonthlyCost)}</H4>
+        </GridItem>
+      </Grid>
+      <Grid>
+        <GridItem>
+          <Table bordered scrollable columns={tableColumns} data={tableData} maxHeight={450} />
+        </GridItem>
+      </Grid>
     </div>
   )
 }
