@@ -19,4 +19,5 @@ export const stubTheme: InitializerTheme = {
     laptop: '1000px',
     desktop: '1300px',
   },
+  searchPlaceholder: 'e.g. London or EC1N',
 }

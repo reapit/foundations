@@ -179,6 +179,7 @@ exports[`styles should generate an object of CSS classes 1`] = `
 Object {
   "bodyText": "css-11v9sqy",
   "button": "css-1tgg1a8",
+  "formError": "css-76s5ja",
   "globalStyles": "css-ya093n",
   "input": "css-u6oic2",
   "offerBanner": "css-gl5ek3",

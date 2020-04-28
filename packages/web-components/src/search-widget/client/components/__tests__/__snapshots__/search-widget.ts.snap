@@ -194,29 +194,29 @@ exports[`search-widget it matches a snapshot 1`] = `
     >
       <form>
         <div
-          class="search-form emotion-5 svelte-121erkf"
+          class="search-form emotion-5 svelte-mf1zut"
         >
           <input
-            class="emotion-0 search-form-input svelte-121erkf"
+            class="emotion-0 search-form-input svelte-mf1zut"
             data-testid="search-form-input"
             id="search"
-            placeholder="Town or Postcode"
             type="text"
           />
            
+           
           <button
-            class="emotion-1 search-form-button svelte-121erkf"
+            class="emotion-1 search-form-button svelte-mf1zut"
             data-testid="btnSearch"
-            type="button"
+            type="submit"
           >
             Search Properties
           </button>
            
           <div
-            class="search-form-control svelte-121erkf"
+            class="search-form-control svelte-mf1zut"
           >
             <label
-              class="emotion-2 search-form-control-radio svelte-121erkf"
+              class="emotion-2 search-form-control-radio svelte-mf1zut"
             >
               <input
                 data-testid="sales"
@@ -225,11 +225,11 @@ exports[`search-widget it matches a snapshot 1`] = `
                 value="Sale"
               />
               
-        For sell
+        For Sale
             </label>
              
             <label
-              class="emotion-2 search-form-control-radio svelte-121erkf"
+              class="emotion-2 search-form-control-radio svelte-mf1zut"
             >
               <input
                 data-testid="lettings"
@@ -238,11 +238,11 @@ exports[`search-widget it matches a snapshot 1`] = `
                 value="Rent"
               />
               
-        To rent
+        To Rent
             </label>
              
             <button
-              class="emotion-2 search-form-advanced-search svelte-121erkf"
+              class="emotion-2 search-form-advanced-search svelte-mf1zut"
               data-testid="btnAdvancedSearch"
               type="button"
             >
