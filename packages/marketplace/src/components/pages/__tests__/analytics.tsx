@@ -18,7 +18,7 @@ describe('AnalyticsPage', () => {
   })
   describe('tabConfigs', () => {
     it('should run correctly on prod env', () => {
-      if (process.env.NODE_ENV === 'production') {
+      if (window.reapit.config.appEnv === 'production') {
         const mockCurrentTab = 'detailed'
         const history = {
           push: jest.fn(),
@@ -28,8 +28,8 @@ describe('AnalyticsPage', () => {
         expect(result).toHaveLength(1)
       }
     })
-    it('should run correctly on dev env', () => {
-      if (process.env.NODE_ENV !== 'production') {
+    it('should run correctly on other env', () => {
+      if (window.reapit.config.appEnv !== 'production') {
         const mockCurrentTab = 'detailed'
         const history = {
           push: jest.fn(),

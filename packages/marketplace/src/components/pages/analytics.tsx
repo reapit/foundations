@@ -30,8 +30,7 @@ export const tabConfigs = ({ currentTab, history }: TabConfigsProps): TabConfig[
       active: currentTab === AnalyticsTab.DETAILED,
     },
   ]
-  console.log('process.env.NODE_ENV', process.env.NODE_ENV)
-  if (process.env.NODE_ENV !== 'production') {
+  if (window.reapit.config.appEnv !== 'production') {
     configs.push({
       tabIdentifier: AnalyticsTab.BILLING,
       displayText: 'BILLING',
