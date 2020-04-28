@@ -41,7 +41,6 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(myAppsRequestData(params && params.page ? Number(params.page) : 1))
       break
     case Routes.DEVELOPER_MY_APPS:
-    case Routes.DEVELOPER_WEBHOOKS:
       store.dispatch(developerRequestData({ page: 1 }))
       break
     case Routes.DEVELOPER_ANALYTICS_TAB: {
@@ -93,6 +92,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       break
     case Routes.DEVELOPER_WEBHOOKS:
       store.dispatch(webhookSubscriptionsRequestData())
+      store.dispatch(developerRequestData({ page: 1 }))
       break
     default:
       console.error('Route not found, nothing to fetch')
