@@ -145,7 +145,7 @@ const TotalCostTable: React.FC<TotalCostTableProps> = ({
         <Grid>
           <GridItem>
             <div className="table-container">
-              <Table bordered scrollable columns={tableColumns} data={tableData} maxHeight={450} />
+              <Table bordered scrollable columns={tableColumns} data={tableData} />
             </div>
           </GridItem>
         </Grid>
