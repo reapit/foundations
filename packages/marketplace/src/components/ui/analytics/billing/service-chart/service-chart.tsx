@@ -3,30 +3,23 @@ import { Bar } from 'react-chartjs-2'
 import { H4, FlexContainerResponsive } from '@reapit/elements'
 import styles from '@/styles/pages/analytics.scss?mod'
 
+// TODO will replace mock data when have API
+const data = {
+  labels: ['January', 'February', 'March', 'April'],
+  datasets: [
+    {
+      label: 'Resource',
+      backgroundColor: 'rgba(255,99,132,0.2)',
+      borderColor: 'rgba(255,99,132,1)',
+      borderWidth: 1,
+      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+      hoverBorderColor: 'rgba(255,99,132,1)',
+      data: [10, 5, 10, 20],
+    },
+  ],
+}
+
 export const ServiceChart: React.FC = () => {
-  const data = {
-    labels: ['January', 'February', 'March', 'April'],
-    datasets: [
-      {
-        label: 'First',
-        backgroundColor: 'red',
-        borderColor: 'red',
-        borderWidth: 1,
-        hoverBackgroundColor: 'red',
-        hoverBorderColor: 'red',
-        data: [10, 5, 10, 20],
-      },
-      {
-        label: 'Last',
-        backgroundColor: 'green',
-        borderColor: 'green',
-        borderWidth: 1,
-        hoverBackgroundColor: 'green',
-        hoverBorderColor: 'green',
-        data: [3, 1, 100, 200],
-      },
-    ],
-  }
   return (
     <FlexContainerResponsive className={styles.serviceChart}>
       <div className={styles.barChartContainer}>
@@ -37,6 +30,16 @@ export const ServiceChart: React.FC = () => {
           height={50}
           options={{
             maintainAspectRatio: false,
+            scales: {
+              yAxes: [
+                {
+                  scaleLabel: {
+                    display: true,
+                    labelString: 'Total cost',
+                  },
+                },
+              ],
+            },
           }}
         />
       </div>
