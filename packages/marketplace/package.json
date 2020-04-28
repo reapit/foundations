@@ -15,6 +15,7 @@
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
     "release:dev": "node ../../scripts/release/release-dev.js marketplace reapit-app-store",
     "release:prod": "node ../../scripts/release/release-prod.js marketplace reapit-app-store-prod",
+    "handle-purge-unsed-assets-cronjob": "node ../../scripts/s3/purge-unused-assets-from-s3.js reapit-app-store reapit-app-store-prod",
     "test-e2e:dev": "cypress open --project './src/tests'",
     "cypress:ci": "cypress run --project \"./src/tests\"",
     "test-e2e:ci": "start-server-and-test start:prod http://localhost:8080 cypress:ci",

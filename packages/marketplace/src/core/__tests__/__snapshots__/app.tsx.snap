@@ -17,5 +17,11 @@ exports[`App should match a snapshot 1`] = `
   </Component>
   <Connect(Component) />
   <Connect(Component) />
+  <Component
+    message="A new version is available. Please refresh your browser or click on this notification to receive the latest update."
+    preventClose={true}
+    variant="primary"
+    visible={false}
+  />
 </Provider>
 `;
