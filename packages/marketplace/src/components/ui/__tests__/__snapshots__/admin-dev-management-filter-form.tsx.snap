@@ -6,53 +6,12 @@ exports[`AdminDevManagementFilterForm should match a snapshot 1`] = `
     Object {
       "company": "company",
       "name": "name",
+      "registeredFrom": "2020/04/03",
+      "registeredTo": "2020/04/04",
     }
   }
   onSubmit={[Function]}
 >
-  <Form
-    noValidate={true}
-  >
-    <Component>
-      <Component>
-        <Component>
-          Developer Management Filter Form
-        </Component>
-        <Component>
-          Filter the result by Name and Company
-        </Component>
-        <Component
-          className="items-center"
-        >
-          <Component>
-            <Component
-              id="name"
-              labelText="Name"
-              name="name"
-              type="text"
-            />
-          </Component>
-          <Component>
-            <Component
-              id="company"
-              labelText="Company"
-              name="company"
-              type="text"
-            />
-          </Component>
-          <Component
-            className="mt-4"
-          >
-            <Component
-              type="submit"
-              variant="primary"
-            >
-              Search
-            </Component>
-          </Component>
-        </Component>
-      </Component>
-    </Component>
-  </Form>
+  <Component />
 </Formik>
 `;

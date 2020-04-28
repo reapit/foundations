@@ -1,6 +1,7 @@
 import { getSession } from './get-session'
 import { LoginSession, RefreshParams } from '../core/types'
 import { mockLoginSession } from '../__mocks__/cognito-session'
+import { COOKIE_SESSION_KEY } from '../utils/cognito'
 
 jest.mock('./refresh-user-session')
 
@@ -17,7 +18,7 @@ describe('getSession', () => {
       accessTokenExpiry: expiresInSixMins,
     } as LoginSession
 
-    expect(await getSession(loginSession, null)).toEqual(loginSession)
+    expect(await getSession(loginSession, null, COOKIE_SESSION_KEY, 'development')).toEqual(loginSession)
   })
 
   it('should refresh the session if no login session but has a refresh session', async () => {
@@ -27,7 +28,7 @@ describe('getSession', () => {
       refreshToken,
     } as RefreshParams
 
-    expect(await getSession(null, refreshSession)).toEqual(mockLoginSession)
+    expect(await getSession(null, refreshSession, COOKIE_SESSION_KEY, 'development')).toEqual(mockLoginSession)
   })
 
   afterEach(() => {

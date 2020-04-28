@@ -34,7 +34,7 @@ export const Input = ({
       return (
         <div className="field pb-4">
           <div className={`control ${rightIcon ? 'has-icons-right' : ''}`}>
-            {type !== 'hidden' && !rightIcon && (
+            {type !== 'hidden' && !rightIcon && labelText && (
               <label className={`label ${required ? 'required-label' : ''}`} htmlFor={id}>
                 {labelText}
               </label>

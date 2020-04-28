@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ServiceChart should match a snapshot 1`] = `
+<Component>
+  <div>
+    <Component>
+      Services
+    </Component>
+    <Bar
+      data={
+        Object {
+          "datasets": Array [
+            Object {
+              "backgroundColor": "red",
+              "borderColor": "red",
+              "borderWidth": 1,
+              "data": Array [
+                10,
+                5,
+                10,
+                20,
+              ],
+              "hoverBackgroundColor": "red",
+              "hoverBorderColor": "red",
+              "label": "First",
+            },
+            Object {
+              "backgroundColor": "green",
+              "borderColor": "green",
+              "borderWidth": 1,
+              "data": Array [
+                3,
+                1,
+                100,
+                200,
+              ],
+              "hoverBackgroundColor": "green",
+              "hoverBorderColor": "green",
+              "label": "Last",
+            },
+          ],
+          "labels": Array [
+            "January",
+            "February",
+            "March",
+            "April",
+          ],
+        }
+      }
+      height={50}
+      options={
+        Object {
+          "maintainAspectRatio": false,
+        }
+      }
+      width={50}
+    />
+  </div>
+</Component>
+`;

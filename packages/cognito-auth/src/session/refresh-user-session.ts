@@ -24,6 +24,7 @@ export const refreshUserSession = async (params: RefreshParams): Promise<Partial
 export const setRefreshSession = async (
   params: RefreshParams,
   cookieSessionKey: string = COOKIE_SESSION_KEY,
+  appEnv?: string,
 ): Promise<LoginSession | null> => {
   const { userName, loginType, mode } = params
   const refreshedSession: Partial<LoginSession> | undefined | void = await refreshUserSession(params)
@@ -37,7 +38,7 @@ export const setRefreshSession = async (
       loginIdentity,
     } as LoginSession
 
-    setSessionCookie(loginSession, cookieSessionKey)
+    setSessionCookie(loginSession, cookieSessionKey, appEnv)
 
     return loginSession
   }

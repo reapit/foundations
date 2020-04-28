@@ -61,14 +61,14 @@ describe('Session utils', () => {
   })
 
   describe('setSessionCookie', () => {
-    it('should set a refresh cookie', () => {
+    it('should set a refresh cookie with appEnv key', () => {
       window.location.hostname = 'some.host'
       hardtack.set = jest.fn()
 
-      setSessionCookie(mockLoginSession)
+      setSessionCookie(mockLoginSession, COOKIE_SESSION_KEY, 'development')
 
       expect(hardtack.set).toHaveBeenCalledWith(
-        COOKIE_SESSION_KEY,
+        `development-${COOKIE_SESSION_KEY}`,
         JSON.stringify({
           refreshToken: mockLoginSession.refreshToken,
           loginType: mockLoginSession.loginType,
@@ -95,9 +95,22 @@ describe('Session utils', () => {
         userName: mockLoginSession.userName,
       })
 
-      document.cookie = `${COOKIE_SESSION_KEY}=${stringifiedSession}`
+      document.cookie = `development-${COOKIE_SESSION_KEY}=${stringifiedSession}`
 
-      expect(getSessionCookie()).toEqual(JSON.parse(stringifiedSession))
+      expect(getSessionCookie(COOKIE_SESSION_KEY, 'development')).toEqual(JSON.parse(stringifiedSession))
+    })
+
+    it('should get a session from the cookie with correct appEnv if it exists', () => {
+      const stringifiedSession = JSON.stringify({
+        refreshToken: mockLoginSession.refreshToken,
+        mode: 'DESKTOP',
+        loginType: mockLoginSession.loginType,
+        userName: mockLoginSession.userName,
+      })
+
+      document.cookie = `development-${COOKIE_SESSION_KEY}=${stringifiedSession}`
+
+      expect(getSessionCookie(COOKIE_SESSION_KEY, 'development')).toEqual(JSON.parse(stringifiedSession))
     })
 
     it('should return with mode WEB if dont have global object', () => {
@@ -115,9 +128,9 @@ describe('Session utils', () => {
     })
 
     it('should return null if no cookie', () => {
-      document.cookie = `${COOKIE_SESSION_KEY}=`
+      document.cookie = `development-${COOKIE_SESSION_KEY}=`
 
-      expect(getSessionCookie()).toBeNull()
+      expect(getSessionCookie(COOKIE_SESSION_KEY, 'development')).toBeNull()
     })
   })
 

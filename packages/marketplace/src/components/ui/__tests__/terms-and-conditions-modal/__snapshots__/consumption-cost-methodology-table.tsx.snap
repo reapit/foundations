@@ -15,9 +15,12 @@ Object {
             Calculation of Total Consumption Cost - Methodology:
           </u>
           <table
+            cellpadding="0"
+            cellspacing="0"
             class="table is-bordered undefined"
           >
             <tr>
+              <td />
               <th>
                 Monthly API Calls
               </th>
@@ -45,12 +48,27 @@ Object {
             </tr>
             <tr>
               <td />
-              <td
-                colspan="7"
-              >
-                cost per API Call
+              <td>
+                Number of Endpoints used
               </td>
+              <td>
+                Cost per API Call
+              </td>
+              <td />
+              <td />
+              <td />
+              <td />
+              <td />
+              <td />
             </tr>
+            <td
+              rowspan="8"
+              style="vertical-align: middle; transform: rotate(-90deg); white-space: nowrap;"
+            >
+              (on last day 
+              <br />
+               of monthly billing period)
+            </td>
             <tr>
               <td>
                 1-5
@@ -233,13 +251,6 @@ Object {
                 £0.002350
               </td>
             </tr>
-            <tr>
-              <td
-                colspan="8"
-              >
-                Number of Endpoints used (on last day of monthly billing period)
-              </td>
-            </tr>
           </table>
         </div>
       </div>
@@ -256,9 +267,12 @@ Object {
           Calculation of Total Consumption Cost - Methodology:
         </u>
         <table
+          cellpadding="0"
+          cellspacing="0"
           class="table is-bordered undefined"
         >
           <tr>
+            <td />
             <th>
               Monthly API Calls
             </th>
@@ -286,12 +300,27 @@ Object {
           </tr>
           <tr>
             <td />
-            <td
-              colspan="7"
-            >
-              cost per API Call
+            <td>
+              Number of Endpoints used
             </td>
+            <td>
+              Cost per API Call
+            </td>
+            <td />
+            <td />
+            <td />
+            <td />
+            <td />
+            <td />
           </tr>
+          <td
+            rowspan="8"
+            style="vertical-align: middle; transform: rotate(-90deg); white-space: nowrap;"
+          >
+            (on last day 
+            <br />
+             of monthly billing period)
+          </td>
           <tr>
             <td>
               1-5
@@ -472,13 +501,6 @@ Object {
             </td>
             <td>
               £0.002350
-            </td>
-          </tr>
-          <tr>
-            <td
-              colspan="8"
-            >
-              Number of Endpoints used (on last day of monthly billing period)
             </td>
           </tr>
         </table>

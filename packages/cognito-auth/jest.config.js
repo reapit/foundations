@@ -13,7 +13,8 @@ module.exports = {
     "<rootDir>[/\\\\](node_modules|src/core)[/\\\\]",
     "<rootDir>/src/app.ts",
     "<rootDir>/src/app.dev.ts",
-    "<rootDir>/src/index.ts"
+    "<rootDir>/src/index.ts",
+    ".d.ts"
   ],
   coverageThreshold: {
     global: {

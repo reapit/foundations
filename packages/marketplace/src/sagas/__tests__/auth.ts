@@ -106,7 +106,7 @@ describe('auth thunks', () => {
   describe('authLogout', () => {
     it('should redirect to login page', () => {
       const gen = doLogout()
-      expect(gen.next().value).toEqual(call(removeSession, COOKIE_SESSION_KEY_MARKETPLACE))
+      expect(gen.next().value).toEqual(call(removeSession, COOKIE_SESSION_KEY_MARKETPLACE, 'development'))
       expect(gen.next().value).toEqual(
         call(
           redirectToLogout,

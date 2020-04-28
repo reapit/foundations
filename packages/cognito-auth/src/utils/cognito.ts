@@ -21,7 +21,7 @@ export const getLoginSession = (session: CognitoUserSession): Partial<LoginSessi
 
 export const getNewUser = (userName: string, cognitoClientId: string, userPoolId?: string) => {
   const poolData = {
-    UserPoolId: userPoolId || window.reapit?.config?.cognitoUserPoolId,
+    UserPoolId: userPoolId || window?.reapit?.config?.cognitoUserPoolId,
     ClientId: cognitoClientId,
   }
   const userPool = new CognitoUserPool(poolData)
@@ -32,10 +32,15 @@ export const getNewUser = (userName: string, cognitoClientId: string, userPoolId
   return new CognitoUser(userData)
 }
 
-export const setSessionCookie = (session: LoginSession, identifier: string = COOKIE_SESSION_KEY): void => {
+export const setSessionCookie = (
+  session: LoginSession,
+  identifier: string = COOKIE_SESSION_KEY,
+  appEnv?: string,
+): void => {
   const { userName, refreshToken, loginType, mode, cognitoClientId } = session
+  const identifierWithEnv = appEnv ? `${appEnv}-${identifier}` : identifier
   hardtack.set(
-    identifier,
+    identifierWithEnv,
     JSON.stringify({
       refreshToken,
       loginType,
@@ -52,9 +57,10 @@ export const setSessionCookie = (session: LoginSession, identifier: string = COO
   )
 }
 
-export const getSessionCookie = (identifier: string = COOKIE_SESSION_KEY): RefreshParams | null => {
+export const getSessionCookie = (identifier: string = COOKIE_SESSION_KEY, appEnv?: string): RefreshParams | null => {
   try {
-    const session = hardtack.get(identifier)
+    const identifierWithEnv = appEnv ? `${appEnv}-${identifier}` : identifier
+    const session = hardtack.get(identifierWithEnv)
     if (session) {
       const marketplaceGlobalObject = getMarketplaceGlobalsByKey()
       const mode = marketplaceGlobalObject ? 'DESKTOP' : 'WEB'

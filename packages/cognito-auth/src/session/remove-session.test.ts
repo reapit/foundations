@@ -14,4 +14,15 @@ describe('removeSession', () => {
       domain: window.location.hostname,
     })
   })
+  it('should remove a session cookie with appEnv', () => {
+    window.location.hostname = 'something.reapit.com'
+    hardtack.remove = jest.fn()
+
+    removeSession(COOKIE_SESSION_KEY, 'development')
+
+    expect(hardtack.remove).toHaveBeenCalledWith(`development-${COOKIE_SESSION_KEY}`, {
+      path: '/',
+      domain: window.location.hostname,
+    })
+  })
 })

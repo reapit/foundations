@@ -14,6 +14,7 @@ const selectBoxProps: SelectBoxProps = {
   name: 'demo',
   labelText: 'demo',
   id: 'demo',
+  helpText: 'This is helper text',
 }
 
 const createFormikWrapper = () => {
