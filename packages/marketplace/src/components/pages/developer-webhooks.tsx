@@ -17,17 +17,17 @@ import { ReduxState } from '@/types/core'
 import { compose, Dispatch } from 'redux'
 import { connect } from 'react-redux'
 import { Form, Formik } from 'formik'
-import { webhookTopicsRequestData } from '@/actions/webhook-subscriptions'
+import { webhookSubscriptionsRequestData } from '@/actions/webhook-subscriptions'
 import { WebhookModel, TopicModel } from '@/reducers/webhook-subscriptions'
 import {
   selectSubscriptionsData,
   selectSubscriptionsLoading,
   selectTopicsData,
-  selectTopicsLoading,
   selectApplicationId,
 } from '@/selector/wehooks'
 import FormikAutoSave from '@/components/hocs/formik-auto-save'
 import WebhookEditModal from '../ui/webhook-edit-modal'
+import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
 export const columns = [
   {
@@ -69,10 +69,17 @@ export const openEditModal = (setModalOpen, setWebhookId) => (webhookId: string)
   setWebhookId(webhookId)
 }
 
-export const getTableTopicsData = (topics, onOpenEditModal) => {
-  return topics.map((topic: TopicModel) => ({
-    url: topic.url,
-    topics: topic.associatedScope,
+export const renderTopicName = (topics: TopicModel[], subscriptionTopicId) => {
+  console.log({ topics })
+  const webhookTopics = topics?.filter((topic: TopicModel) => topic.id === subscriptionTopicId)
+  const webhookTopicNames = webhookTopics?.map((topic: TopicModel) => topic.name)
+  return webhookTopicNames.join('\n')
+}
+
+export const getTableTopicsData = (subscriptions: WebhookModel[], topics: TopicModel[], onOpenEditModal) => {
+  return subscriptions?.map((subscription: WebhookModel) => ({
+    url: subscription.url,
+    topics: renderTopicName(topics, subscription.topicIds),
     customer: 'All Customers (*)',
     test: 'Ping',
     edit: (
@@ -81,7 +88,7 @@ export const getTableTopicsData = (topics, onOpenEditModal) => {
         variant="primary"
         type="button"
         onClick={() => {
-          onOpenEditModal(topic.id)
+          onOpenEditModal(subscription.id)
         }}
       >
         Edit
@@ -94,8 +101,8 @@ export type StateProps = {
   subscriptions: WebhookModel[]
   subscriptionsLoading: boolean
   topics: TopicModel[]
-  topicsLoading: boolean
   applicationId: string
+  applications: AppSummaryModel[]
 }
 
 export type DeveloperWebhooksProps = StateProps & DispatchProps
@@ -105,13 +112,9 @@ export const DeveloperWebhooks = ({
   subscriptions,
   subscriptionsLoading,
   topics,
-  topicsLoading,
   applicationId,
+  applications,
 }: DeveloperWebhooksProps) => {
-  if (subscriptionsLoading) {
-    return <Loader />
-  }
-  console.log(subscriptions, subscriptionsLoading, topics, topicsLoading)
   const [modalOpen, setModalOpen] = React.useState<string | undefined>()
   const [webhookId, setWebhookId] = React.useState<string | undefined>()
 
@@ -124,9 +127,9 @@ export const DeveloperWebhooks = ({
     setWebhookId(undefined)
   }
 
-  const selectBoxOptions: SelectBoxOptions[] = subscriptions.map((subscription: WebhookModel) => ({
-    label: subscription.applicationId,
-    value: subscription.applicationId,
+  const selectBoxOptions: SelectBoxOptions[] = applications?.map((application: AppSummaryModel) => ({
+    label: application.name || '',
+    value: application.id || '',
   }))
 
   return (
@@ -160,10 +163,15 @@ export const DeveloperWebhooks = ({
               </Button>
             </LevelRight>
           </Section>
-          {topicsLoading ? (
+          {subscriptionsLoading ? (
             <Loader />
           ) : (
-            <Table scrollable columns={columns} data={getTableTopicsData(topics, onOpenEditModal)} loading={false} />
+            <Table
+              scrollable
+              columns={columns}
+              data={getTableTopicsData(subscriptions, topics, onOpenEditModal)}
+              loading={false}
+            />
           )}
         </FormSection>
       </FlexContainerResponsive>
@@ -187,13 +195,13 @@ export const mapStateToProps = (state: ReduxState): StateProps => ({
   subscriptions: selectSubscriptionsData(state),
   subscriptionsLoading: selectSubscriptionsLoading(state),
   topics: selectTopicsData(state),
-  topicsLoading: selectTopicsLoading(state),
   applicationId: selectApplicationId(state),
+  applications: state?.developer?.developerData?.data?.data || ([] as AppSummaryModel[]),
 })
 
 export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
-    fetchTopics: (applicationId: string) => dispatch(webhookTopicsRequestData(applicationId)),
+    fetchTopics: (applicationId: string) => dispatch(webhookSubscriptionsRequestData(applicationId)),
   }
 }
 

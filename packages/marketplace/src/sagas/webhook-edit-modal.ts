@@ -21,6 +21,9 @@ import { errorThrownServer } from '../actions/error'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS, generateHeader } from '../constants/api'
+import { fetchSubscriptions } from './webhook-subscriptions'
+import { webhookSubscriptionsReceiveData } from '@/actions/webhook-subscriptions'
+import { PagedResultWebhookModel_ } from '@/reducers/webhook-subscriptions'
 
 export const fetchWebhookSubscriptionTopics = async (params: SubscriptionTopicsRequestParams) => {
   try {
@@ -73,7 +76,7 @@ export const postCreateWebhook = async (params: CreateWebhookParams) => {
   try {
     const headers = await initAuthorizedRequestHeaders()
     const response = await fetcher({
-      url: `${URLS.webhook}/subscriptions`,
+      url: `${URLS.webhookSubscriptions}`,
       api: window.reapit.config.platformApiUrl,
       method: 'POST',
       headers: headers,
@@ -134,7 +137,14 @@ export const requestSupcriptionData = function*({ data: ApplicationId }) {
 
 export const createNewWebhook = function*({ data }) {
   try {
-    yield call(postCreateWebhook, data)
+    const createResponse = yield call(postCreateWebhook, data)
+    let newListResponse = false
+    if (createResponse) {
+      newListResponse = yield call(fetchSubscriptions)
+    }
+    if (newListResponse) {
+      yield put(webhookSubscriptionsReceiveData(newListResponse as PagedResultWebhookModel_))
+    }
   } catch (err) {
     logger(err)
     yield put(

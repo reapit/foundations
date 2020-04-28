@@ -22,10 +22,10 @@ export const fetchSubscriptions = async () => {
   return response
 }
 
-export const fetchWebhookTopic = async (applicationId: string) => {
+export const fetchWebhookTopic = async () => {
   const headers = await initAuthorizedRequestHeaders()
   const response = await fetcher({
-    url: `${URLS.webhookTopics}?applicationId=${applicationId}`,
+    url: `${URLS.webhookTopics}`,
     api: window.reapit.config.platformApiUrl,
     method: 'GET',
     headers: headers,
@@ -52,7 +52,7 @@ export const webhookSubscriptionsFetch = function*() {
 export const webhookTopicsFetch = function*({ data: applicationId }: Action<string>) {
   try {
     yield put(setApplicationId(applicationId))
-    const response = yield call(fetchWebhookTopic, applicationId)
+    const response = yield call(fetchWebhookTopic)
     if (response) {
       yield put(webhookTopicsReceiveData(response))
     }

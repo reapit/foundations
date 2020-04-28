@@ -16,13 +16,15 @@ import { requestDeveloperData } from '@/actions/settings'
 import { getParamsFromPath } from '@/utils/client-url-params'
 import { adminAppsRequestData } from '@/actions/admin-apps'
 import { selectClientId } from '@/selector/client'
-import { webhookSubscriptionsRequestData } from '@/actions/webhook-subscriptions'
+import { webhookTopicsRequestData } from '@/actions/webhook-subscriptions'
+import { DeveloperRequestParams } from '@/reducers/developer'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
   await getAccessToken()
   const id = params && params.appid ? params.appid : ''
   const queryParams = new URLSearchParams(search)
   const appId = queryParams.get('appId')
+  const ALL_APPS_NUMBER = 999
 
   switch (route) {
     case Routes.CLIENT:
@@ -91,7 +93,8 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       // Need the fetcher to have retrieved the login session only.
       break
     case Routes.DEVELOPER_WEBHOOKS:
-      store.dispatch(webhookSubscriptionsRequestData())
+      store.dispatch(developerRequestData({ page: 1, appsPerPage: ALL_APPS_NUMBER } as DeveloperRequestParams))
+      store.dispatch(webhookTopicsRequestData())
       break
     default:
       console.error('Route not found, nothing to fetch')
