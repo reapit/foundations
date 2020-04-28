@@ -6,7 +6,7 @@ exports[`AppointmentBookings should match snapshot 1`] = `
     <button
       class="appointment-bookings-select-button svelte-1xoiet3"
     >
-      Select Appointment
+      Book a Valuation
     </button>
      
     
