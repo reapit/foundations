@@ -25,6 +25,7 @@ Search_widget {
         "mapAccentColor": "green",
         "primaryAccentColor": "#fff",
         "primaryHeadingFontSize": "24px",
+        "searchPlaceholder": "e.g. London or EC1N",
         "secondaryAccentColor": "#fff",
         "secondaryHeadingFontSize": "22px",
         "secondaryfontColor": "#fff",
@@ -50,6 +51,7 @@ Search_widget {
             "mapAccentColor": "green",
             "primaryAccentColor": "#fff",
             "primaryHeadingFontSize": "24px",
+            "searchPlaceholder": "e.g. London or EC1N",
             "secondaryAccentColor": "#fff",
             "secondaryHeadingFontSize": "22px",
             "secondaryfontColor": "#fff",
@@ -67,6 +69,7 @@ Search_widget {
         "themeClasses": Object {
           "bodyText": "css-11v9sqy",
           "button": "css-1tgg1a8",
+          "formError": "css-76s5ja",
           "globalStyles": "css-ya093n",
           "input": "css-u6oic2",
           "offerBanner": "css-gl5ek3",

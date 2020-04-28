@@ -39,6 +39,7 @@ const searchWidgetStore: Writable<SearchWidgetStore> = writable({
     offerBanner: '',
     pagination: '',
     paginationActive: '',
+    formError: '',
   },
   properties: [],
   propertyImagesByPropertyId: {},

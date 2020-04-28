@@ -37,6 +37,7 @@ describe('ReapitAppointmentBookingComponent', () => {
             laptop: '',
             desktop: '',
           },
+          searchPlaceholder: 'e.g. London or EC1N',
         },
       }),
     ).toMatchSnapshot()
