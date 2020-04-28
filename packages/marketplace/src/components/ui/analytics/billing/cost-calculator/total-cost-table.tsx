@@ -1,8 +1,10 @@
 import * as React from 'react'
+import { FaCaretDown, FaCaretUp } from 'react-icons/fa'
 import { CostCalculatorFormValues } from './cost-calculator-form'
 import { EndpointsUsedRange, TierPrice } from './cost-calculator'
 import { formatCurrency, formatNumber } from '@/utils/number-formatter'
-import { Table, Grid, GridItem, H6, H4 } from '@reapit/elements'
+import { Table, Grid, GridItem, H6, H4, Button } from '@reapit/elements'
+import styles from '@/styles/pages/analytics.scss?mod'
 
 export type TotalCostTableProps = {
   formValues: CostCalculatorFormValues
@@ -63,7 +65,6 @@ export const prepareData = (endpointsUsed: string, apiCalls: string, foundationP
         totalCost: costPerBand[index],
       }
     })
-
     return {
       tableData,
       totalMonthlyCost,
@@ -71,7 +72,7 @@ export const prepareData = (endpointsUsed: string, apiCalls: string, foundationP
   }
 }
 
-const prepareTableColumns = totalMonthlyCost => {
+export const prepareTableColumns = totalMonthlyCost => {
   return () => {
     return [
       {
@@ -100,6 +101,12 @@ const prepareTableColumns = totalMonthlyCost => {
   }
 }
 
+export const toggleShowTable = (isTableExpanded, setIsTableExpanded) => {
+  return () => {
+    setIsTableExpanded(!isTableExpanded)
+  }
+}
+
 const TotalCostTable: React.FC<TotalCostTableProps> = ({
   formValues: { endpointsUsed, apiCalls },
   endpointsUsedRange,
@@ -109,6 +116,7 @@ const TotalCostTable: React.FC<TotalCostTableProps> = ({
     return null
   }
 
+  const [isTableExpanded, setIsTableExpanded] = React.useState(false)
   const { tableData, totalMonthlyCost } = React.useMemo(prepareData(endpointsUsed, apiCalls, foundationPricing), [
     endpointsUsed,
     apiCalls,
@@ -117,19 +125,31 @@ const TotalCostTable: React.FC<TotalCostTableProps> = ({
   const tableColumns = React.useMemo(prepareTableColumns(totalMonthlyCost), [totalMonthlyCost])
 
   return (
-    <div className="table-container mt-5">
+    <div className="mt-5">
       <Grid>
-        <GridItem className="is-half has-text-right">
+        <GridItem className="is-half-desktop has-text-right">
           <H6>{endpointsUsedRange[endpointsUsed]} Endoints Used</H6>
           <H6>{formatNumber(parseFloat(apiCalls))} Monthly API Calls</H6>
           <H4 className="mt-mt-5">Estimated total monthly cost: {formatCurrency(totalMonthlyCost)}</H4>
+          <Button type="button" variant="secondary" onClick={toggleShowTable(isTableExpanded, setIsTableExpanded)}>
+            <span>See calculation</span>
+            {isTableExpanded ? (
+              <FaCaretUp className={styles.seeCalcullationButtonIcon} />
+            ) : (
+              <FaCaretDown className={styles.seeCalcullationButtonIcon} />
+            )}
+          </Button>
         </GridItem>
       </Grid>
-      <Grid>
-        <GridItem>
-          <Table bordered scrollable columns={tableColumns} data={tableData} maxHeight={450} />
-        </GridItem>
-      </Grid>
+      {isTableExpanded && (
+        <Grid>
+          <GridItem>
+            <div className="table-container">
+              <Table bordered scrollable columns={tableColumns} data={tableData} maxHeight={450} />
+            </div>
+          </GridItem>
+        </Grid>
+      )}
     </div>
   )
 }
