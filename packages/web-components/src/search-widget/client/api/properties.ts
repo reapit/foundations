@@ -30,15 +30,18 @@ export const getUrlQuery = (params: Omit<GetPropertiesType, 'apiKey'> = { pageNu
   } = params
 
   const url = new URL(`${process.env.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET}/properties`)
-  url.searchParams.append('SellingStatuses', ['forSale', 'underOffer'].join(','))
+  url.searchParams.append('sellingStatus', 'forSale')
+  url.searchParams.append('sellingStatus', 'underOffer')
   url.searchParams.append('InternetAdvertising', 'true')
   url.searchParams.append('PageSize', '8')
   url.searchParams.append('pageNumber', String(pageNumber))
   url.searchParams.append('Address', keywords)
   if (isRental) {
-    url.searchParams.append('marketingMode', ['letting', 'sellingAndLetting'].join(','))
+    url.searchParams.append('marketingMode', 'letting')
+    url.searchParams.append('marketingMode', 'sellingAndLetting')
   } else {
-    url.searchParams.append('marketingMode', ['selling', 'sellingAndLetting'].join(','))
+    url.searchParams.append('marketingMode', 'selling')
+    url.searchParams.append('marketingMode', 'sellingAndLetting')
   }
   // bedrooms
   if (bedroomsFrom > 0) {
