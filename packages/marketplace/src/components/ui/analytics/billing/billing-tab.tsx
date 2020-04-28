@@ -4,6 +4,7 @@ import TransactionHistory from './transaction-history'
 import { FlexContainerResponsive, FlexContainerBasic, Grid, GridItem } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import styles from '@/styles/pages/analytics.scss?mod'
+import ServiceChart from './service-chart'
 
 export type BillingTabProps = {}
 
@@ -14,7 +15,7 @@ export const BillingTab: React.FC<BillingTabProps> = () => {
         <FlexContainerResponsive flexColumn hasBackground hasPadding className={styles.wrapAnalytics}>
           <Grid isMultiLine className="mt-5">
             <GridItem className="is-half">
-              <h1>Render Chart here</h1>
+              <ServiceChart />
             </GridItem>
             <GridItem className="is-half">
               <TransactionHistory />

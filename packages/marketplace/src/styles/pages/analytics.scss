@@ -33,3 +33,18 @@
 .transactionSection {
   margin-bottom: 15px;
 }
+
+.serviceChart {
+  margin: 0rem 0rem 4rem 0rem;
+  .barChartContainer {
+    height: 20rem;
+    width: 50%;
+  }
+  .transactionHistoryContainer{
+    padding: 1rem;
+    .downloadSection {
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+  }
+}
