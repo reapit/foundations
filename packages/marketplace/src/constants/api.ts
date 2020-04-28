@@ -30,7 +30,7 @@ export const URLS = {
 
 export const SANDBOX_CLIENT_ID = 'SBOX'
 
-export const API_VERSION = '2020-02-06'
+export const API_VERSION = '31-01-2020'
 
 export const initAuthorizedRequestHeaders = async () => ({
   Authorization: `Bearer ${await getAccessToken()}`,
