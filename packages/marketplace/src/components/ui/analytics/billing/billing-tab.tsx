@@ -5,6 +5,7 @@ import { FlexContainerResponsive, FlexContainerBasic, Grid, GridItem } from '@re
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import styles from '@/styles/pages/analytics.scss?mod'
 import ServiceChart from './service-chart'
+import CostExplorer from './cost-explorer'
 
 export type BillingTabProps = {}
 
@@ -19,6 +20,11 @@ export const BillingTab: React.FC<BillingTabProps> = () => {
             </GridItem>
             <GridItem className="is-half">
               <TransactionHistory />
+            </GridItem>
+          </Grid>
+          <Grid>
+            <GridItem className="is-half">
+              <CostExplorer />
             </GridItem>
           </Grid>
           <CostCalculator />
