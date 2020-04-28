@@ -72,7 +72,7 @@ export const prepareData = (endpointsUsed: string, apiCalls: string, foundationP
   }
 }
 
-export const prepareTableColumns = totalMonthlyCost => {
+export const prepareTableColumns = (totalMonthlyCost: number) => {
   return () => {
     return [
       {
@@ -101,7 +101,7 @@ export const prepareTableColumns = totalMonthlyCost => {
   }
 }
 
-export const toggleShowTable = (isTableExpanded, setIsTableExpanded) => {
+export const toggleShowTable = (isTableExpanded: boolean, setIsTableExpanded: (isTableExpanded: boolean) => void) => {
   return () => {
     setIsTableExpanded(!isTableExpanded)
   }
