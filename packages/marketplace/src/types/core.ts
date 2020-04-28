@@ -24,6 +24,7 @@ import { AdminStatsState } from '@/reducers/admin-stats'
 import { AppHttpTrafficEventState } from '@/reducers/app-http-traffic-event'
 import { IntegrationTypeState } from '@/reducers/app-integration-types'
 import { WebhookEditState } from '@/reducers/webhook-edit-modal'
+import { WebhookState } from '@/reducers/webhook-subscriptions'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -87,4 +88,5 @@ export interface ReduxState {
   appHttpTraffic: AppHttpTrafficEventState
   desktopIntegrationTypes: IntegrationTypeState
   webhookEdit: WebhookEditState
+  webhooks: WebhookState
 }
