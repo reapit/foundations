@@ -87,12 +87,12 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
     case Routes.SETTINGS:
       store.dispatch(requestDeveloperData())
       break
-    case Routes.DEVELOPER_HELP:
-      // Need the fetcher to have retrieved the login session only.
-      break
     case Routes.DEVELOPER_WEBHOOKS:
       store.dispatch(webhookSubscriptionsRequestData())
       store.dispatch(developerRequestData({ page: 1 }))
+      break
+    case Routes.DEVELOPER_HELP:
+      // Need the fetcher to have retrieved the login session only.
       break
     default:
       console.error('Route not found, nothing to fetch')
