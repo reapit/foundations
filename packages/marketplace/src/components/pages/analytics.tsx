@@ -30,7 +30,8 @@ export const tabConfigs = ({ currentTab, history }: TabConfigsProps): TabConfig[
       active: currentTab === AnalyticsTab.DETAILED,
     },
   ]
-  if (process.env.NODE_ENV === 'development') {
+  console.log('process.env.NODE_ENV', process.env.NODE_ENV)
+  if (process.env.NODE_ENV !== 'production') {
     configs.push({
       tabIdentifier: AnalyticsTab.BILLING,
       displayText: 'BILLING',
