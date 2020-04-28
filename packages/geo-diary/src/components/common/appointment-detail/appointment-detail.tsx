@@ -138,7 +138,7 @@ export const renderDateTime = (appointment: ExtendedAppointmentModel) => {
   )
 }
 
-export const renderNegotiators = (negotiators: NegotiatorModel[], loginMode: LoginMode) => {
+export const renderNegotiators = (negotiators: NegotiatorModel[]) => {
   if (negotiators.length === 0) {
     return null
   }
@@ -152,15 +152,7 @@ export const renderNegotiators = (negotiators: NegotiatorModel[], loginMode: Log
       <div>
         {negotiators.map((negotiator: NegotiatorModel, index: number) => (
           <div key={index}>
-            <AcLink
-              dynamicLinkParams={{
-                appMode: loginMode,
-                entityType: EntityType.CONTACT,
-                entityCode: negotiator.id,
-              }}
-            >
-              <p>{negotiator.name}</p>
-            </AcLink>
+            <p>{negotiator.name}</p>
           </div>
         ))}
       </div>
@@ -328,7 +320,7 @@ export const renderModalContent = ({
   return (
     <React.Fragment>
       {renderDateTime(appointment)}
-      {renderNegotiators(negotiators, loginMode)}
+      {renderNegotiators(negotiators)}
       {renderOffices(offices, loginMode)}
       {renderAttendee(attendee, loginMode)}
       {renderAddress(loginMode, address, propertyId)}
