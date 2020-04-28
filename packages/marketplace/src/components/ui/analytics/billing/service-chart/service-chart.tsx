@@ -1,6 +1,6 @@
 import React from 'react'
 import { Bar } from 'react-chartjs-2'
-import { H4, H5, FlexContainerResponsive } from '@reapit/elements'
+import { H4, FlexContainerResponsive } from '@reapit/elements'
 import styles from '@/styles/pages/analytics.scss?mod'
 
 export const ServiceChart: React.FC = () => {
