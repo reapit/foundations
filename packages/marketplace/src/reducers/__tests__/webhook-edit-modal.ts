@@ -1,7 +1,7 @@
 import DeveloperWebhookReducer, { defaultState } from '../webhook-edit-modal'
 import { ActionType } from '../../types/core'
 import ActionTypes from '../../constants/action-types'
-import { webhookDataStub } from '@/sagas/__stubs__/developer-webhook'
+import { webhookDataStub, webhookItemDataStub } from '@/sagas/__stubs__/webhook-edit'
 
 describe('developer webhook reducer', () => {
   it('should return default state', () => {
@@ -17,6 +17,40 @@ describe('developer webhook reducer', () => {
     const expected = {
       ...defaultState,
       ...webhookDataStub,
+    }
+    expect(newState).toEqual(expected)
+  })
+
+  it('should set loading to test when WEBHOOK_EDIT_LOADING action is called with true', () => {
+    const newState = DeveloperWebhookReducer(undefined, {
+      type: ActionTypes.WEBHOOK_EDIT_LOADING as ActionType,
+      data: true,
+    })
+    const expected = {
+      ...defaultState,
+      loading: true,
+    }
+    expect(newState).toEqual(expected)
+  })
+  it('should set loading to test when WEBHOOK_EDIT_SUBCRIPTION_REQUEST_DATA_FAILURE action is called with true', () => {
+    const newState = DeveloperWebhookReducer(undefined, {
+      type: ActionTypes.WEBHOOK_EDIT_SUBCRIPTION_REQUEST_DATA_FAILURE as ActionType,
+      data: true,
+    })
+    const expected = {
+      ...defaultState,
+      loading: false,
+    }
+    expect(newState).toEqual(expected)
+  })
+  it('should return new state when reveice webhook item data', () => {
+    const newState = DeveloperWebhookReducer(undefined, {
+      type: ActionTypes.WEBHOOK_RECEIVE_DATA as ActionType,
+      data: webhookItemDataStub,
+    })
+    const expected = {
+      ...defaultState,
+      webhookData: webhookItemDataStub,
     }
     expect(newState).toEqual(expected)
   })

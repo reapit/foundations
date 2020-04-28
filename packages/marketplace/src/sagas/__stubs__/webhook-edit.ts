@@ -1,6 +1,6 @@
-import { DeveloperWebhookState } from '@/reducers/webhook-edit-modal'
+import { WebhookEditState, WebhookModal } from '@/reducers/webhook-edit-modal'
 
-export const webhookDataStub: DeveloperWebhookState = {
+export const webhookDataStub: WebhookEditState = {
   subcriptionCustomers: {
     data: [{ id: '0a795809-8a41-449f-9865-ae0a536db6b7', appId: '1161242a-f650-4d1d-aed7-909853fe7ee1' }],
     pageCount: 1,
@@ -15,4 +15,14 @@ export const webhookDataStub: DeveloperWebhookState = {
     totalCount: 0,
     _embedded: [],
   },
+}
+
+export const webhookItemDataStub: WebhookModal = {
+  id: '',
+  applicationId: '',
+  url: '',
+  description: '',
+  topicIds: [],
+  customerIds: [],
+  active: false,
 }

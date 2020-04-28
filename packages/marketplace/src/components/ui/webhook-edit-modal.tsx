@@ -36,13 +36,6 @@ const EDIT_MODAL = {
   submit: 'Update',
 }
 
-export type WebhookModalInnerProps = {
-  isUpdate?: boolean
-  webhookId?: string
-  appId: string
-  closeModal?: () => void
-}
-
 export type WebhookEditProps = {
   isUpdate?: boolean
   appId: string
@@ -71,9 +64,60 @@ export const WebhookCreateModal: React.FunctionComponent<WebhookEditProps> = ({
   )
 }
 
-export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps &
-  WebhookModalInnerMappedAction &
-  StateProps> = ({ isUpdate = false, closeModal, webhookEdit, webhookId, ...props }) => {
+export const generateTopicOptions = topics => {
+  return topics.map(topic => ({
+    value: topic.id,
+    label: topic.name,
+    description: topic.description,
+  }))
+}
+
+export const generateCustomerOptions = customers => {
+  return customers.map(customer => ({
+    value: customer.client,
+    label: customer.client,
+  }))
+}
+
+export const onCreate = (createWebhook, appId) => values => {
+  const params: CreateWebhookParams = {
+    ApplicationId: appId,
+    url: values.WebhookURL,
+    description: '',
+    topicIds: values.SubscriptionTopics,
+    customerIds: values.SubscriptionCustomers,
+    active: values.active,
+  }
+  createWebhook(params)
+}
+
+export const onEdit = (editWebhook, webhookId) => values => {
+  const params: EditWebhookParams = {
+    webhookId,
+    url: values.WebhookURL,
+    description: '',
+    topicIds: values.SubscriptionTopics,
+    customerIds: values.SubscriptionCustomers,
+    active: values.active,
+  }
+  editWebhook(params)
+}
+
+export type WebhookModalInnerProps = WebhookModalInnerMappedAction &
+  StateProps & {
+    isUpdate?: boolean
+    webhookId?: string
+    appId: string
+    closeModal?: () => void
+  }
+
+export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps> = ({
+  isUpdate = false,
+  closeModal,
+  webhookEdit,
+  webhookId,
+  ...props
+}) => {
   const modalConfig = isUpdate ? EDIT_MODAL : CREATE_MODAL
 
   const topics = webhookEdit?.subcriptionTopics?._embedded || []
@@ -88,44 +132,15 @@ export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps &
     active: webhookData?.active,
   }
 
-  const topicOptions: SelectOption[] = topics.map(topic => ({
-    value: topic.id,
-    label: topic.name,
-    description: topic.description,
-  }))
-  const customerOptions: SelectOption[] = customers.map(customer => ({
-    value: customer.client,
-    label: customer.client,
-  }))
+  const topicOptions: SelectOption[] = generateTopicOptions(topics)
+  const customerOptions: SelectOption[] = generateCustomerOptions(customers)
 
   useEffect(() => {
     props.requestWebhookSubcriptionData(props.appId)
     webhookId && props.requestWebhookData(webhookId)
   }, [])
 
-  const onCreate = values => {
-    const params: CreateWebhookParams = {
-      ApplicationId: props.appId,
-      url: values.WebhookURL,
-      description: '',
-      topicIds: values.SubscriptionTopics,
-      customerIds: values.SubscriptionCustomers,
-      active: values.active,
-    }
-    props.createWebhook(params)
-  }
-  const onEdit = values => {
-    const params: EditWebhookParams = {
-      webhookId: webhookId,
-      url: values.WebhookURL,
-      description: '',
-      topicIds: values.SubscriptionTopics,
-      customerIds: values.SubscriptionCustomers,
-      active: values.active,
-    }
-    props.editWebhook(params)
-  }
-  const onSubmit = isUpdate ? onEdit : onCreate
+  const onSubmit = isUpdate ? onEdit(props.editWebhook, webhookId) : onCreate(props.createWebhook, props.appId)
 
   if (loading) return <Loader />
   return (
@@ -164,7 +179,7 @@ export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps &
                 labelText="Subscription Topics"
                 options={topicOptions}
                 rcSelectProps={{ dropdownStyle: { zIndex: 41 } }}
-                required
+                // required
               />
               <DropdownSelect
                 id="SubscriptionCustomers"
@@ -173,7 +188,7 @@ export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps &
                 labelText="Subscription Customers"
                 options={customerOptions}
                 rcSelectProps={{ dropdownStyle: { zIndex: 41 } }}
-                required
+                // required
               />
               <Checkbox id="active" name="active" labelText="Active" />
             </>

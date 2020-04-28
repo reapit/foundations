@@ -54,9 +54,8 @@ export const fetchWebhookSubscriptionCustomers = async (params: SubscriptionCust
   }
 }
 
-export const fetchWebhookData = async webhookId => {
+export const fetchWebhookData = async ({ webhookId, headers }) => {
   try {
-    const headers = await initAuthorizedRequestHeaders()
     const response = await fetcher({
       url: `${URLS.webhook}/subscriptions/${webhookId}`,
       api: window.reapit.config.platformApiUrl,
@@ -163,7 +162,8 @@ export const editWebhook = function*({ data }: Action<EditWebhookParams>) {
 
 export const requestWebhookData = function*({ data: webhookId }: Action<WebhookDataRequestParams>) {
   try {
-    const data = yield call(fetchWebhookData, webhookId)
+    const headers = yield call(initAuthorizedRequestHeaders)
+    const data = yield call(fetchWebhookData, { webhookId, headers })
     if (data) {
       yield put(requestWebhookReceiveData(data))
     } else {

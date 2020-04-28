@@ -4,9 +4,10 @@ import {
   webhookEditLoading,
   createWebhook,
   CreateWebhookParams,
+  requestWebhookData,
 } from '../webhook-edit-modal'
 import ActionTypes from '../../constants/action-types'
-import { webhookDataStub } from '@/sagas/__stubs__/developer-webhook'
+import { webhookDataStub } from '@/sagas/__stubs__/webhook-edit'
 
 describe('developer webhook actions', () => {
   it('should create a developerWebhookLoading action', () => {
@@ -34,5 +35,9 @@ describe('developer webhook actions', () => {
     }
     expect(createWebhook.type).toEqual(ActionTypes.WEBHOOK_CREATE)
     expect(createWebhook(newWebhook).data).toEqual(newWebhook)
+  })
+
+  it('should create a requestWebhookData action', () => {
+    expect(requestWebhookData.type).toEqual(ActionTypes.WEBHOOK_REQUEST_DATA)
   })
 })
