@@ -41,6 +41,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(myAppsRequestData(params && params.page ? Number(params.page) : 1))
       break
     case Routes.DEVELOPER_MY_APPS:
+    case Routes.DEVELOPER_WEBHOOKS:
       store.dispatch(developerRequestData({ page: 1 }))
       break
     case Routes.DEVELOPER_ANALYTICS_TAB: {
