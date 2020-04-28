@@ -21,7 +21,7 @@ describe('properties client API', () => {
       propertyType: 'house',
     }
     const expected =
-      'http://localhost:3000/properties?SellingStatuses=forSale%2CunderOffer&InternetAdvertising=true&PageSize=8&pageNumber=1&Address=london&marketingMode=letting%2CsellingAndLetting&bedroomsFrom=1&bedroomsTo=4&sortBy=price&rentFrom=10000&rentTo=200000&propertyType=house'
+      'http://localhost:3000/properties?sellingStatus=forSale&sellingStatus=underOffer&InternetAdvertising=true&PageSize=8&pageNumber=1&Address=london&marketingMode=letting&marketingMode=sellingAndLetting&bedroomsFrom=1&bedroomsTo=4&sortBy=price&rentFrom=10000&rentTo=200000&propertyType=house'
     expect(getUrlQuery(params)).toEqual(expected)
   })
 
@@ -34,7 +34,7 @@ describe('properties client API', () => {
       isRental: true,
     }
     const expected =
-      'http://localhost:3000/properties?SellingStatuses=forSale%2CunderOffer&InternetAdvertising=true&PageSize=8&pageNumber=1&Address=london&marketingMode=letting%2CsellingAndLetting&sortBy=&propertyType='
+      'http://localhost:3000/properties?sellingStatus=forSale&sellingStatus=underOffer&InternetAdvertising=true&PageSize=8&pageNumber=1&Address=london&marketingMode=letting&marketingMode=sellingAndLetting&sortBy=&propertyType='
     expect(getUrlQuery(params)).toEqual(expected)
   })
 
@@ -53,7 +53,7 @@ describe('properties client API', () => {
       propertyType: 'house',
     }
     const expected =
-      'http://localhost:3000/properties?SellingStatuses=forSale%2CunderOffer&InternetAdvertising=true&PageSize=8&pageNumber=1&Address=london&marketingMode=selling%2CsellingAndLetting&bedroomsFrom=1&bedroomsTo=4&sortBy=price&priceFrom=10000&priceTo=200000&propertyType=house'
+      'http://localhost:3000/properties?sellingStatus=forSale&sellingStatus=underOffer&InternetAdvertising=true&PageSize=8&pageNumber=1&Address=london&marketingMode=selling&marketingMode=sellingAndLetting&bedroomsFrom=1&bedroomsTo=4&sortBy=price&priceFrom=10000&priceTo=200000&propertyType=house'
     expect(getUrlQuery(params)).toEqual(expected)
   })
 
@@ -66,7 +66,7 @@ describe('properties client API', () => {
       isRental: false,
     }
     const expected =
-      'http://localhost:3000/properties?SellingStatuses=forSale%2CunderOffer&InternetAdvertising=true&PageSize=8&pageNumber=1&Address=london&marketingMode=selling%2CsellingAndLetting&sortBy=&propertyType='
+      'http://localhost:3000/properties?sellingStatus=forSale&sellingStatus=underOffer&InternetAdvertising=true&PageSize=8&pageNumber=1&Address=london&marketingMode=selling&marketingMode=sellingAndLetting&sortBy=&propertyType='
     expect(getUrlQuery(params)).toEqual(expected)
   })
 

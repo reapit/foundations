@@ -32,6 +32,7 @@ const viewBookingStore: Writable<ViewingBookingStore> = writable({
     offerBanner: '',
     pagination: '',
     paginationActive: '',
+    formError: '',
   },
   email: '',
   isLoading: false,

@@ -17,6 +17,7 @@ const variantA = {
     laptop: '',
     desktop: '',
   },
+  searchPlaceholder: 'e.g. London or EC1N',
 }
 
 const variantB = {
@@ -38,6 +39,7 @@ const variantB = {
     laptop: '',
     desktop: '',
   },
+  searchPlaceholder: 'e.g. London or EC1N',
 }
 
 const variantC = {
@@ -59,6 +61,7 @@ const variantC = {
     laptop: '',
     desktop: '',
   },
+  searchPlaceholder: 'e.g. London or EC1N',
 }
 
 const params = new URLSearchParams(window.location.search)
