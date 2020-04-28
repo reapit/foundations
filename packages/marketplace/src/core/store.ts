@@ -27,7 +27,7 @@ import adminStatsReducer from '../reducers/admin-stats'
 import revisionsReducer from '../reducers/revisions'
 import appHttpTrafficEventReducer from '../reducers/app-http-traffic-event'
 import integrationTypes from '../reducers/app-integration-types'
-import developerWebhookReducer from '../reducers/webhook-edit-modal'
+import webhookEditReducer from '../reducers/webhook-edit-modal'
 
 import authSagas from '../sagas/auth'
 import clientSagas from '../sagas/client'
@@ -51,7 +51,7 @@ import appInstallationsSagas from '../sagas/app-installations'
 import noticationMessage from '../reducers/notification-message'
 import adminStatsSaga from '../sagas/admin-stats'
 import { injectSwitchModeToWindow } from '@reapit/elements'
-import developerWebhookSagas from '../sagas/webhook-edit-modal'
+import webhookEditSagas from '../sagas/webhook-edit-modal'
 
 export class Store {
   static _instance: Store
@@ -94,7 +94,7 @@ export class Store {
     adminStats: adminStatsReducer,
     appHttpTraffic: appHttpTrafficEventReducer,
     desktopIntegrationTypes: integrationTypes,
-    developerWebhook: developerWebhookReducer,
+    webhookEdit: webhookEditReducer,
   })
 
   static sagas = function*() {
@@ -119,7 +119,7 @@ export class Store {
       fork(appInstallationsSagas),
       fork(adminStatsSaga),
       fork(appHttpTrafficEventSagas),
-      fork(developerWebhookSagas),
+      fork(webhookEditSagas),
     ])
   }
 

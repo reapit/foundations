@@ -23,7 +23,7 @@ import { NotificationMessageState } from '@/reducers/notification-message'
 import { AdminStatsState } from '@/reducers/admin-stats'
 import { AppHttpTrafficEventState } from '@/reducers/app-http-traffic-event'
 import { IntegrationTypeState } from '@/reducers/app-integration-types'
-import { DeveloperWebhookState } from '@/reducers/webhook-edit-modal'
+import { WebhookEditState } from '@/reducers/webhook-edit-modal'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -86,5 +86,5 @@ export interface ReduxState {
   adminStats: AdminStatsState
   appHttpTraffic: AppHttpTrafficEventState
   desktopIntegrationTypes: IntegrationTypeState
-  developerWebhook: DeveloperWebhookState
+  webhookEdit: WebhookEditState
 }

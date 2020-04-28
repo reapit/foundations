@@ -4,6 +4,7 @@ import {
   requestWebhookSubcriptionReceiveData,
   requestWebhookSubcriptionReceiveFailure,
   webhookEditLoading,
+  requestWebhookReceiveData,
 } from '../actions/webhook-edit-modal'
 
 export interface WebhookModal {
@@ -16,14 +17,14 @@ export interface WebhookModal {
   active: boolean
 }
 
-export interface DeveloperWebhookState {
+export interface WebhookEditState {
   loading?: boolean
   subcriptionCustomers: any
   subcriptionTopics: any
   webhookData?: WebhookModal
 }
 
-export const defaultState: DeveloperWebhookState = {
+export const defaultState: WebhookEditState = {
   loading: false,
   subcriptionCustomers: {},
   subcriptionTopics: {},
@@ -38,10 +39,7 @@ export const defaultState: DeveloperWebhookState = {
   },
 }
 
-const DeveloperWebhookReducer = (
-  state: DeveloperWebhookState = defaultState,
-  action: Action<any>,
-): DeveloperWebhookState => {
+const WebhookEditReducer = (state: WebhookEditState = defaultState, action: Action<any>): WebhookEditState => {
   if (isType(action, requestWebhookSubcriptionReceiveData)) {
     return {
       ...state,
@@ -61,7 +59,13 @@ const DeveloperWebhookReducer = (
       loading: action.data,
     }
   }
+  if (isType(action, requestWebhookReceiveData)) {
+    return {
+      ...state,
+      webhookData: action.data,
+    }
+  }
   return state
 }
 
-export default DeveloperWebhookReducer
+export default WebhookEditReducer

@@ -16,8 +16,15 @@ import {
   Loader,
 } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
-import { requestWebhookSubcriptionData, CreateWebhookParams, createWebhook } from '@/actions/webhook-edit-modal'
-import { DeveloperWebhookState } from '@/reducers/webhook-edit-modal'
+import {
+  requestWebhookSubcriptionData,
+  CreateWebhookParams,
+  EditWebhookParams,
+  createWebhook,
+  editWebhook,
+  requestWebhookData,
+} from '@/actions/webhook-edit-modal'
+import { WebhookEditState } from '@/reducers/webhook-edit-modal'
 
 const CREATE_MODAL = {
   title: 'Add New Webhook',
@@ -31,43 +38,55 @@ const EDIT_MODAL = {
 
 export type WebhookModalInnerProps = {
   isUpdate?: boolean
+  webhookId?: string
   appId: string
   closeModal?: () => void
 }
 
-export type WebhookCreateProps = {
+export type WebhookEditProps = {
   isUpdate?: boolean
   appId: string
-  webhookId: string
+  webhookId?: string
   visible: boolean
   closeModal?: () => void
 }
 export interface WebhookModalInnerMappedAction {
   requestWebhookSubcriptionData: (appId: string) => void
+  requestWebhookData: (webhookId: string) => void
   createWebhook: (data: CreateWebhookParams) => void
+  editWebhook: (data: EditWebhookParams) => void
 }
 
-export const WebhookCreateModal: React.FunctionComponent<WebhookCreateProps> = ({
+export const WebhookCreateModal: React.FunctionComponent<WebhookEditProps> = ({
   isUpdate = false,
   appId,
   visible,
+  webhookId,
   closeModal,
 }) => {
   return (
     <Modal visible={visible} renderChildren>
-      <WebhookModalInnerWithConnect isUpdate={isUpdate} closeModal={closeModal} appId={appId} />
+      <WebhookModalInnerWithConnect isUpdate={isUpdate} closeModal={closeModal} appId={appId} webhookId={webhookId} />
     </Modal>
   )
 }
 
 export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps &
   WebhookModalInnerMappedAction &
-  StateProps> = ({ isUpdate = false, closeModal, developerWebhook, ...props }) => {
+  StateProps> = ({ isUpdate = false, closeModal, webhookEdit, webhookId, ...props }) => {
   const modalConfig = isUpdate ? EDIT_MODAL : CREATE_MODAL
 
-  const topics = developerWebhook?.subcriptionTopics?._embedded || []
-  const customers = developerWebhook?.subcriptionCustomers?.data || []
-  const loading = developerWebhook?.loading
+  const topics = webhookEdit?.subcriptionTopics?._embedded || []
+  const customers = webhookEdit?.subcriptionCustomers?.data || []
+  const loading = webhookEdit?.loading
+  const webhookData = webhookEdit?.webhookData
+
+  const initFormValues = {
+    WebhookURL: webhookData?.url,
+    SubscriptionTopics: webhookData?.topicIds,
+    SubscriptionCustomers: webhookData?.customerIds,
+    active: webhookData?.active,
+  }
 
   const topicOptions: SelectOption[] = topics.map(topic => ({
     value: topic.id,
@@ -81,9 +100,10 @@ export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps &
 
   useEffect(() => {
     props.requestWebhookSubcriptionData(props.appId)
+    webhookId && props.requestWebhookData(webhookId)
   }, [])
 
-  const onSubmit = values => {
+  const onCreate = values => {
     const params: CreateWebhookParams = {
       ApplicationId: props.appId,
       url: values.WebhookURL,
@@ -94,13 +114,22 @@ export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps &
     }
     props.createWebhook(params)
   }
+  const onEdit = values => {
+    const params: EditWebhookParams = {
+      webhookId: webhookId,
+      url: values.WebhookURL,
+      description: '',
+      topicIds: values.SubscriptionTopics,
+      customerIds: values.SubscriptionCustomers,
+      active: values.active,
+    }
+    props.editWebhook(params)
+  }
+  const onSubmit = isUpdate ? onEdit : onCreate
 
   if (loading) return <Loader />
   return (
-    <Formik
-      initialValues={{ WebhookURL: '', SubscriptionTopics: [], SubscriptionCustomers: [], active: false }}
-      onSubmit={onSubmit}
-    >
+    <Formik initialValues={initFormValues} onSubmit={onSubmit}>
       <Form>
         <ModalHeader title={modalConfig.title} />
         <ModalBody
@@ -153,16 +182,10 @@ export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps &
         <ModalFooter
           footerItems={
             <>
-              <Button
-                className="mr-2"
-                variant="secondary"
-                type="button"
-                onClick={closeModal}
-                dataTest="revision-approve-button"
-              >
+              <Button className="mr-2" variant="secondary" type="button" onClick={closeModal}>
                 Cancel
               </Button>
-              <Button variant="primary" type="submit" data-test="revision-decline-button">
+              <Button variant="primary" type="submit">
                 {modalConfig.submit}
               </Button>
             </>
@@ -174,17 +197,19 @@ export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps &
 }
 
 export type StateProps = {
-  developerWebhook: DeveloperWebhookState
+  webhookEdit: WebhookEditState
 }
 
 export const mapStateToProps = (state: ReduxState): StateProps => ({
-  developerWebhook: state.developerWebhook,
+  webhookEdit: state.webhookEdit,
 })
 
 export const mapDispatchToProps = (dispatch: any): WebhookModalInnerMappedAction => {
   return {
     requestWebhookSubcriptionData: (appId: string) => dispatch(requestWebhookSubcriptionData(appId)),
     createWebhook: (data: CreateWebhookParams) => dispatch(createWebhook(data)),
+    editWebhook: (data: EditWebhookParams) => dispatch(editWebhook(data)),
+    requestWebhookData: (webhookId: string) => dispatch(requestWebhookData(webhookId)),
   }
 }
 
