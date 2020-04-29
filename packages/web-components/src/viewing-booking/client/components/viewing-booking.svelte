@@ -12,7 +12,7 @@
   export let parentSelector
   export let submitAction
 
-  let isModalOpen = true
+  let isModalOpen = false
   let isLoading
 
   let email
@@ -145,7 +145,7 @@
 </style>
 
 <button on:click={handleToggleModal} class="viewing_booking-btn">Book a viewing</button>
-<Modal {isModalOpen} closeModal={handleToggleModal} {isLoading} title="Book a Viewing">
+<Modal {isModalOpen} toggleModal={handleToggleModal} {isLoading} title="Book a Viewing">
 
   <form on:submit|preventDefault={submitForm} class="{themeClasses.globalStyles} {resetCSS}">
     <div class="property-image {backgroundImage}">

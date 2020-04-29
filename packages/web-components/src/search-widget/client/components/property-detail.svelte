@@ -43,8 +43,8 @@
   onMount(() => {
     document.body.scrollTop = 0
     document.documentElement.scrollTop = 0
-    window.ReapitAppointmentBookingComponent &&
-    new window.ReapitAppointmentBookingComponent({
+    window.ReapitViewingBookingComponent &&
+    new window.ReapitViewingBookingComponent({
       theme: window.theme,
       apiKey: '',
       parentSelector: '#appointment-bookings-viewing',
