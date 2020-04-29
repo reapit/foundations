@@ -26,8 +26,10 @@ describe('submit-revision post data', () => {
     generateDumpPromise(),
     generateDumpPromise(),
     generateDumpPromise(),
+    generateDumpPromise(),
   ]
   const imageUploaderResults = [
+    { Url: 'base64 string...' },
     { Url: 'base64 string...' },
     { Url: 'base64 string...' },
     { Url: 'base64 string...' },
@@ -41,6 +43,7 @@ describe('submit-revision post data', () => {
     screen2ImageUrl: 'base64 string...',
     screen3ImageUrl: 'base64 string...',
     screen4ImageUrl: 'base64 string...',
+    screen5ImageUrl: 'base64 string...',
   }
 
   const gen = cloneableGenerator(submitRevisionSaga)(params)
