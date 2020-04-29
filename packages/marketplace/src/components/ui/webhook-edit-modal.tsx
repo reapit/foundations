@@ -14,6 +14,10 @@ import {
   ModalBody,
   ModalHeader,
   Loader,
+  Level,
+  LevelLeft,
+  LevelRight,
+  LevelItem,
 } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import {
@@ -24,6 +28,7 @@ import {
   editWebhook,
   requestWebhookData,
   webhookDataClear,
+  deleteWebhook,
 } from '@/actions/webhook-edit-modal'
 import { WebhookModal, CustomerItem, TopicItem } from '@/reducers/webhook-edit-modal'
 import { selectTopics, selectWebhookData, selectLoading, selectCustomers } from '@/selector/webhook-edit'
@@ -52,6 +57,7 @@ export interface WebhookModalInnerMappedAction {
   createWebhook: (data: CreateWebhookParams) => void
   editWebhook: (data: EditWebhookParams) => void
   webhookDataClear: () => void
+  deleteWebhook: (webhookId: string) => void
 }
 
 export const WebhookCreateModal: React.FunctionComponent<WebhookEditProps> = ({
@@ -158,7 +164,7 @@ export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps> 
   }, [])
 
   const onSubmit = isUpdate ? onEdit(props.editWebhook, webhookId, appId) : onCreate(props.createWebhook, appId)
-
+  const onDelete = () => props.deleteWebhook(webhookId)
   if (loading) return <Loader />
   return (
     <Formik initialValues={initFormValues} onSubmit={onSubmit}>
@@ -213,14 +219,29 @@ export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps> 
         />
         <ModalFooter
           footerItems={
-            <>
-              <Button className="mr-2" variant="secondary" type="button" onClick={closeModal}>
-                Cancel
-              </Button>
-              <Button variant="primary" type="submit">
-                {modalConfig.submit}
-              </Button>
-            </>
+            <Level className="container-flex">
+              <LevelLeft>
+                <LevelItem>
+                  {isUpdate && (
+                    <Button className="mr-2" variant="secondary" type="button" onClick={onDelete}>
+                      Delete
+                    </Button>
+                  )}
+                </LevelItem>
+              </LevelLeft>
+              <LevelRight>
+                <LevelItem>
+                  <Button className="mr-2" variant="secondary" type="button" onClick={closeModal}>
+                    Cancel
+                  </Button>
+                </LevelItem>
+                <LevelItem>
+                  <Button variant="primary" type="submit">
+                    {modalConfig.submit}
+                  </Button>
+                </LevelItem>
+              </LevelRight>
+            </Level>
           }
         />
       </Form>
@@ -247,6 +268,7 @@ export const mapDispatchToProps = (dispatch: any): WebhookModalInnerMappedAction
     requestWebhookSubcriptionData: (appId: string) => dispatch(requestWebhookSubcriptionData(appId)),
     createWebhook: (data: CreateWebhookParams) => dispatch(createWebhook(data)),
     editWebhook: (data: EditWebhookParams) => dispatch(editWebhook(data)),
+    deleteWebhook: (webhookId: string) => dispatch(deleteWebhook(webhookId)),
     requestWebhookData: (webhookId: string) => dispatch(requestWebhookData(webhookId)),
     webhookDataClear: () => dispatch(webhookDataClear()),
   }

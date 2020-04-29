@@ -8,6 +8,7 @@ import developerWebhookSagas, {
   editWebhookListen,
   requestWebhookSupcriptionDataListen,
   requestWebhookDataListen,
+  deleteWebhookListen,
 } from '../webhook-edit-modal'
 import { call, put, all, fork } from '@redux-saga/core/effects'
 import {
@@ -116,6 +117,7 @@ describe('developerWebhookSagas', () => {
         fork(createWebhookListen),
         fork(editWebhookListen),
         fork(requestWebhookDataListen),
+        fork(deleteWebhookListen),
       ]),
     )
     expect(gen.next().done).toBe(true)

@@ -5,6 +5,7 @@ import {
   createWebhook,
   CreateWebhookParams,
   requestWebhookData,
+  deleteWebhook,
 } from '../webhook-edit-modal'
 import ActionTypes from '../../constants/action-types'
 import { webhookDataStub } from '@/sagas/__stubs__/webhook-edit'
@@ -39,5 +40,8 @@ describe('developer webhook actions', () => {
 
   it('should create a requestWebhookData action', () => {
     expect(requestWebhookData.type).toEqual(ActionTypes.WEBHOOK_REQUEST_DATA)
+  })
+  it('should create a requestWebhookData action', () => {
+    expect(deleteWebhook.type).toEqual(ActionTypes.WEBHOOK_DELETE)
   })
 })

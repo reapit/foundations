@@ -108,22 +108,42 @@ exports[`WebhookEditModal should match a snapshot 5`] = `
     />
     <Component
       footerItems={
-        <React.Fragment>
-          <Unknown
-            className="mr-2"
-            onClick={[MockFunction]}
-            type="button"
-            variant="secondary"
-          >
-            Cancel
+        <Unknown
+          className="container-flex"
+        >
+          <Unknown>
+            <Unknown>
+              <Unknown
+                className="mr-2"
+                onClick={[Function]}
+                type="button"
+                variant="secondary"
+              >
+                Delete
+              </Unknown>
+            </Unknown>
           </Unknown>
-          <Unknown
-            type="submit"
-            variant="primary"
-          >
-            Update
+          <Unknown>
+            <Unknown>
+              <Unknown
+                className="mr-2"
+                onClick={[MockFunction]}
+                type="button"
+                variant="secondary"
+              >
+                Cancel
+              </Unknown>
+            </Unknown>
+            <Unknown>
+              <Unknown
+                type="submit"
+                variant="primary"
+              >
+                Update
+              </Unknown>
+            </Unknown>
           </Unknown>
-        </React.Fragment>
+        </Unknown>
       }
     />
   </Form>

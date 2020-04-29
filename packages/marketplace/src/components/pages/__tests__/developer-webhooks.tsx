@@ -58,10 +58,9 @@ describe('DeveloperWebHooks', () => {
       const output = {
         applicationId: '',
         subscriptions: [],
-        applications: [],
+        applications: input.developer.developerData?.data.data,
         subscriptionsLoading: false,
         topics: [],
-        topicsLoading: false,
         developerState: input.developer,
       }
       const result = mapStateToProps(input)

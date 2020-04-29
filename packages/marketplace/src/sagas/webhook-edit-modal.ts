@@ -108,6 +108,23 @@ export const putEditWebhook = async (params: EditWebhookParams) => {
   }
 }
 
+export const deleteEditWebhook = async (params: FetchWebhookDataParams) => {
+  try {
+    const headers = await initAuthorizedRequestHeaders()
+    const { webhookId } = params
+    const response = await fetcher({
+      url: `${URLS.webhook}/subscriptions/${webhookId}`,
+      api: window.reapit.config.platformApiUrl,
+      method: 'DELETE',
+      headers: headers,
+    })
+    return response
+  } catch (error) {
+    logger(error)
+    throw new Error(error)
+  }
+}
+
 export const requestSupcriptionData = function*({ data: ApplicationId }: Action<string>) {
   yield put(webhookEditLoading(true))
   yield put(setApplicationId(ApplicationId))
@@ -180,6 +197,28 @@ export const editWebhook = function*({ data }: Action<EditWebhookParams>) {
   }
 }
 
+export const deleteWebhook = function*({ data: webhookId }: Action<string>) {
+  try {
+    const headers = yield call(initAuthorizedRequestHeaders)
+    const editResponse = yield call(deleteEditWebhook, { webhookId, headers })
+    let newListResponse = false
+    if (editResponse) {
+      newListResponse = yield call(fetchSubscriptions)
+    }
+    if (newListResponse) {
+      yield put(webhookSubscriptionsReceiveData(newListResponse as PagedResultWebhookModel_))
+    }
+  } catch (err) {
+    logger(err)
+    yield put(
+      errorThrownServer({
+        type: 'SERVER',
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
+    )
+  }
+}
+
 export const requestWebhookData = function*({ data: webhookId }: Action<string>) {
   try {
     yield put(webhookEditLoading(true))
@@ -219,12 +258,17 @@ export const requestWebhookDataListen = function*() {
   yield takeLatest<Action<string>>(ActionTypes.WEBHOOK_REQUEST_DATA, requestWebhookData)
 }
 
+export const deleteWebhookListen = function*() {
+  yield takeLatest<Action<string>>(ActionTypes.WEBHOOK_DELETE, deleteWebhook)
+}
+
 const developerWebhookSagas = function*() {
   yield all([
     fork(requestWebhookSupcriptionDataListen),
     fork(createWebhookListen),
     fork(editWebhookListen),
     fork(requestWebhookDataListen),
+    fork(deleteWebhookListen),
   ])
 }
 

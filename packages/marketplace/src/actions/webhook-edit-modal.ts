@@ -52,6 +52,7 @@ export const requestWebhookSubcriptionReceiveFailure = actionCreator<void>(
 )
 export const createWebhook = actionCreator<CreateWebhookParams>(ActionTypes.WEBHOOK_CREATE)
 export const editWebhook = actionCreator<EditWebhookParams>(ActionTypes.WEBHOOK_EDIT)
+export const deleteWebhook = actionCreator<string>(ActionTypes.WEBHOOK_DELETE)
 export const requestWebhookData = actionCreator<string>(ActionTypes.WEBHOOK_REQUEST_DATA)
 export const requestWebhookReceiveData = actionCreator<WebhookModal>(ActionTypes.WEBHOOK_RECEIVE_DATA)
 export const requestWebhookReceiveDataFailure = actionCreator<void>(ActionTypes.WEBHOOK_RECEIVE_DATA_FAILURE)
