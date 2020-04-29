@@ -69,33 +69,29 @@ exports[`WebhookEditModal should match a snapshot 5`] = `
             type="text"
           />
           <Unknown
+            dropdownStyle={
+              Object {
+                "zIndex": 41,
+              }
+            }
             id="SubscriptionTopics"
             labelText="Subscription Topics"
             name="SubscriptionTopics"
             options={Array []}
             placeholder="Please select"
-            rcSelectProps={
-              Object {
-                "dropdownStyle": Object {
-                  "zIndex": 41,
-                },
-              }
-            }
             required={true}
           />
           <Unknown
+            dropdownStyle={
+              Object {
+                "zIndex": 41,
+              }
+            }
             id="SubscriptionCustomers"
             labelText="Subscription Customers"
             name="SubscriptionCustomers"
             options={Array []}
             placeholder="All Customers who have installed your application (default)"
-            rcSelectProps={
-              Object {
-                "dropdownStyle": Object {
-                  "zIndex": 41,
-                },
-              }
-            }
             required={true}
           />
           <Unknown

@@ -6,14 +6,13 @@ import CustomTag from './custom-tag'
 import { dropdownSelectFieldValidateRequire } from '../../utils/validators'
 import { checkError } from '../../utils/form'
 
-export interface DropdownSelectProps {
+export interface DropdownSelectProps extends SelectProps {
   id: string
   labelText: string
   name: string
   placeholder?: string
   options: SelectOption[]
   required?: boolean
-  rcSelectProps?: SelectProps
 }
 
 export interface SelectOption {
@@ -23,14 +22,14 @@ export interface SelectOption {
   link: string
 }
 
-export const DropdownSelect: React.FC<SelectProps & DropdownSelectProps> = ({
+export const DropdownSelect: React.FC<DropdownSelectProps> = ({
   id,
   labelText,
   name,
   placeholder,
   options,
-  rcSelectProps,
   required = false,
+  ...restProps
 }) => {
   const handleRenderTags = (props: CustomTagProps) => {
     const { value, onClose } = props
@@ -64,7 +63,7 @@ export const DropdownSelect: React.FC<SelectProps & DropdownSelectProps> = ({
                   tagRender={handleRenderTags}
                   onChange={handleChangeOption(field)}
                   onBlur={handleFieldTouched(form, field)}
-                  {...rcSelectProps}
+                  {...restProps}
                 >
                   {options?.map((option: SelectOption) => (
                     <Option key={option.value} value={option.value}>
