@@ -15,7 +15,7 @@ const compileTemplate = async () => {
     let CDN_URL = config.CDN_URL
     const env = process.env.NODE_ENV
 
-    if (env !== 'DEV') {
+    if (env === 'DEV') {
       CDN_URL = 'http://localhost:5000'
     }
 

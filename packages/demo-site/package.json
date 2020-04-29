@@ -11,7 +11,7 @@
     "start:prod": "serve -d public/dist -l 8080",
     "serve:web-components": "yarn workspace @reapit/web-components build:prod && yarn workspace @reapit/web-components start:prod",
     "serve:web-components-server": "yarn workspace @reapit/web-components start:server",
-    "serve:demo-site": "cross-env NODE_ENV=dev yarn build:prod && yarn start:prod",
+    "serve:demo-site": "cross-env NODE_ENV=DEV yarn build:prod && yarn start:prod",
     "start:dev": "concurrently \"yarn serve:web-components\" \"yarn serve:web-components-server\" \"yarn serve:demo-site\""
   },
   "devDependencies": {
