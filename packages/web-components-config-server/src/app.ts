@@ -1,4 +1,3 @@
-import path from 'path'
 import express from 'express'
 import bodyParser from 'body-parser'
 import uuid from 'uuid/v4'
@@ -6,13 +5,6 @@ import morgan from 'morgan'
 import health from './routes/health'
 import webComponentsConfig from './routes/web-components-config'
 import logger from './logger'
-
-if (process.env.NODE_ENV === 'development') {
-  const configs = require(path.resolve(__dirname, '..', 'config.json'))
-  for (const k in configs) {
-    process.env[k] = configs[k]
-  }
-}
 
 const app = express()
 const cors = require('cors')
@@ -60,6 +52,4 @@ app.use(cors({ origin: true }))
 app.use('/v1/health', health)
 app.use('/v1/web-components-config', webComponentsConfig)
 
-app.listen({ port: process.env.PORT || 3000 }, () => {
-  console.log(`🚀 Server ready at http://localhost:${process.env.PORT || 3000}`)
-})
+export default app

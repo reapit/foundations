@@ -1,8 +1,10 @@
-import awsServerlessExpress from 'aws-serverless-express'
+import serverless from 'serverless-http'
 
-const app = require('./app')
-const server = awsServerlessExpress.createServer(app)
+import app from './app'
 
-exports.webComponentsConfigServer = (event, context) => {
-  awsServerlessExpress.proxy(server, event, context)
+const handler = serverless(app)
+
+export const webComponentsConfigServer = async (event, context) => {
+  const result = await handler(event, context)
+  return result
 }
