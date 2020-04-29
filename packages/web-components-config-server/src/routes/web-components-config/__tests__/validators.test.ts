@@ -1,4 +1,4 @@
-import { validateGetById, validateCreate, validateUpdate, validateDelete } from '../validators'
+import { validateGetById, validateCreate, validateUpdate, validateDelete, validateFollowSchema } from '../validators'
 
 describe('validateGetById', () => {
   it('should return correctly', () => {
@@ -23,6 +23,15 @@ describe('validateGetById', () => {
       validateGetById({ customerId: 'id1', invalidParam: 'param' })
     }).toThrowError(error)
   })
+
+  it('should throw error with invalid schema', () => {
+    const error: NodeJS.ErrnoException = new Error()
+    error.message = 'Invalid daysOfWeek.'
+    error.code = '400'
+    expect(() => {
+      validateGetById({ customerId: 'id1', daysOfWeek: [9] })
+    }).toThrowError(error)
+  })
 })
 
 describe('validateCreate', () => {
@@ -33,6 +42,7 @@ describe('validateCreate', () => {
       appointmentTimeGap: 15,
       appointmentTypes: ['type1', 'type2'],
       negotiatorIds: ['ne1'],
+      daysOfWeek: [0, 1, 2, 3, 4],
     })
     expect(result).toBe(true)
   })
@@ -65,6 +75,22 @@ describe('validateCreate', () => {
       })
     }).toThrowError(error)
   })
+
+  it('should throw error with invalid schema', () => {
+    const error: NodeJS.ErrnoException = new Error()
+    error.message = 'Invalid daysOfWeek.'
+    error.code = '400'
+    expect(() => {
+      validateCreate({
+        customerId: 'id1',
+        appointmentLength: 10,
+        appointmentTimeGap: 15,
+        appointmentTypes: ['type1', 'type2'],
+        negotiatorIds: ['ne1'],
+        daysOfWeek: [9],
+      })
+    }).toThrowError(error)
+  })
 })
 
 describe('validateUpdate', () => {
@@ -88,6 +114,15 @@ describe('validateUpdate', () => {
     error.code = '400'
     expect(() => {
       validateUpdate({ customerId: 'id1', invalidParam: 'param' })
+    }).toThrowError(error)
+  })
+
+  it('should throw error with invalid schema', () => {
+    const error: NodeJS.ErrnoException = new Error()
+    error.message = 'Invalid daysOfWeek.'
+    error.code = '400'
+    expect(() => {
+      validateUpdate({ customerId: 'id1', appointmentLength: 20, daysOfWeek: [9] })
     }).toThrowError(error)
   })
 })
@@ -114,5 +149,64 @@ describe('validateDelete', () => {
     expect(() => {
       validateDelete({ customerId: 'id1', invalidParam: 'param' })
     }).toThrowError(error)
+  })
+  it('should throw error with invalid schema', () => {
+    const error: NodeJS.ErrnoException = new Error()
+    error.message = 'Invalid daysOfWeek.'
+    error.code = '400'
+    expect(() => {
+      validateDelete({ customerId: 'id1', daysOfWeek: [9] })
+    }).toThrowError(error)
+  })
+})
+
+describe('validateFollowSchema', () => {
+  it('should return false if valid ', () => {
+    const result = validateFollowSchema({
+      appointmentLength: 2000,
+      appointmentTimeGap: 3000,
+      appointmentTypes: [
+        {
+          id: 'id1',
+          value: 'value1',
+        },
+      ],
+      customerId: 'DXX',
+      negotiatorIds: ['1', '2'],
+      daysOfWeek: [0, 1, 2, 3, 4],
+    })
+    expect(result).toBe(false)
+  })
+  it('should return errorMessage if daysOfWeek invalid ', () => {
+    const result = validateFollowSchema({
+      appointmentLength: 2000,
+      appointmentTimeGap: 3000,
+      appointmentTypes: [
+        {
+          id: 'id1',
+          value: 'value1',
+        },
+      ],
+      customerId: 'DXX',
+      negotiatorIds: ['1', '2'],
+      daysOfWeek: [0, 1, 2, 3, 4, 99],
+    })
+    expect(result).toBe('Invalid daysOfWeek.')
+  })
+  it('should return errorMessage if daysOfWeek is not an array ', () => {
+    const result = validateFollowSchema({
+      appointmentLength: 2000,
+      appointmentTimeGap: 3000,
+      appointmentTypes: [
+        {
+          id: 'id1',
+          value: 'value1',
+        },
+      ],
+      customerId: 'DXX',
+      negotiatorIds: ['1', '2'],
+      daysOfWeek: 9,
+    })
+    expect(result).toBe('Invalid daysOfWeek.')
   })
 })

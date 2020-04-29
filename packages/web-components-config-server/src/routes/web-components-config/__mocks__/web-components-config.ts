@@ -9,4 +9,5 @@ export const webComponentConfig = {
   ],
   customerId: 'DXX',
   negotiatorIds: ['1', '2'],
+  daysOfWeek: [0, 1, 2, 3, 4],
 }
