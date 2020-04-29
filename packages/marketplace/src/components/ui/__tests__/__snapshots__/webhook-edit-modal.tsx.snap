@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`WebhookEditProps should match a snapshot 1`] = `
+exports[`WebhookEditModal should match a snapshot 1`] = `
 <Component
   renderChildren={true}
   visible={true}
@@ -12,7 +12,7 @@ exports[`WebhookEditProps should match a snapshot 1`] = `
 </Component>
 `;
 
-exports[`WebhookEditProps should match a snapshot 2`] = `
+exports[`WebhookEditModal should match a snapshot 2`] = `
 <Component
   renderChildren={true}
   visible={true}
@@ -24,14 +24,18 @@ exports[`WebhookEditProps should match a snapshot 2`] = `
 </Component>
 `;
 
-exports[`WebhookEditProps should match a snapshot 3`] = `
+exports[`WebhookEditModal should match a snapshot 3`] = `""`;
+
+exports[`WebhookEditModal should match a snapshot 4`] = `""`;
+
+exports[`WebhookEditModal should match a snapshot 5`] = `
 <Formik
   initialValues={
     Object {
-      "SubscriptionCustomers": undefined,
-      "SubscriptionTopics": undefined,
-      "WebhookURL": undefined,
-      "active": undefined,
+      "SubscriptionCustomers": Array [],
+      "SubscriptionTopics": Array [],
+      "WebhookURL": "",
+      "active": false,
     }
   }
   onSubmit={[Function]}
@@ -77,19 +81,13 @@ exports[`WebhookEditProps should match a snapshot 3`] = `
                 },
               }
             }
+            required={true}
           />
           <Unknown
             id="SubscriptionCustomers"
             labelText="Subscription Customers"
             name="SubscriptionCustomers"
-            options={
-              Array [
-                Object {
-                  "label": undefined,
-                  "value": undefined,
-                },
-              ]
-            }
+            options={Array []}
             placeholder="All Customers who have installed your application (default)"
             rcSelectProps={
               Object {
@@ -98,6 +96,7 @@ exports[`WebhookEditProps should match a snapshot 3`] = `
                 },
               }
             }
+            required={true}
           />
           <Unknown
             id="active"

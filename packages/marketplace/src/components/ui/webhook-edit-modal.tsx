@@ -23,8 +23,10 @@ import {
   createWebhook,
   editWebhook,
   requestWebhookData,
+  webhookDataClear,
 } from '@/actions/webhook-edit-modal'
-import { WebhookEditState } from '@/reducers/webhook-edit-modal'
+import { WebhookModal, CustomerItem, TopicItem } from '@/reducers/webhook-edit-modal'
+import { selectTopics, selectWebhookData, selectLoading, selectCustomers } from '@/selector/webhook-edit'
 
 const CREATE_MODAL = {
   title: 'Add New Webhook',
@@ -49,6 +51,7 @@ export interface WebhookModalInnerMappedAction {
   requestWebhookData: (webhookId: string) => void
   createWebhook: (data: CreateWebhookParams) => void
   editWebhook: (data: EditWebhookParams) => void
+  webhookDataClear: () => void
 }
 
 export const WebhookCreateModal: React.FunctionComponent<WebhookEditProps> = ({
@@ -59,6 +62,7 @@ export const WebhookCreateModal: React.FunctionComponent<WebhookEditProps> = ({
   closeModal,
   afterClose,
 }) => {
+  if (!visible) return null
   return (
     <Modal visible={visible} renderChildren afterClose={afterClose}>
       <WebhookModalInnerWithConnect isUpdate={isUpdate} closeModal={closeModal} appId={appId} webhookId={webhookId} />
@@ -66,22 +70,29 @@ export const WebhookCreateModal: React.FunctionComponent<WebhookEditProps> = ({
   )
 }
 
-export const generateTopicOptions = topics => {
-  return topics.map(topic => ({
-    value: topic.id,
-    label: topic.name,
-    description: topic.description,
-  }))
+export const generateTopicOptions = (topics: TopicItem[]) => {
+  return topics.map(
+    topic =>
+      ({
+        value: topic.id,
+        label: topic.name,
+        description: topic.description,
+      } as SelectOption),
+  )
 }
 
-export const generateCustomerOptions = customers => {
-  return customers.map(customer => ({
-    value: customer.client,
-    label: customer.client,
-  }))
+export const generateCustomerOptions = (customers: CustomerItem[]) => {
+  return customers.map(
+    customer =>
+      ({
+        value: customer.client,
+        label: customer.client,
+        description: customer.client,
+      } as SelectOption),
+  )
 }
 
-export const onCreate = (createWebhook, appId) => values => {
+export const onCreate = (createWebhook: (data: CreateWebhookParams) => void, appId: string) => values => {
   const params: CreateWebhookParams = {
     ApplicationId: appId,
     url: values.WebhookURL,
@@ -93,8 +104,9 @@ export const onCreate = (createWebhook, appId) => values => {
   createWebhook(params)
 }
 
-export const onEdit = (editWebhook, webhookId) => values => {
+export const onEdit = (editWebhook: (data: EditWebhookParams) => void, webhookId: string, appId: string) => values => {
   const params: EditWebhookParams = {
+    ApplicationId: appId,
     webhookId,
     url: values.WebhookURL,
     description: '',
@@ -116,20 +128,19 @@ export type WebhookModalInnerProps = WebhookModalInnerMappedAction &
 export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps> = ({
   isUpdate = false,
   closeModal,
-  webhookEdit,
-  webhookId,
+  topics,
+  customers,
+  loading,
+  webhookData,
+  webhookId = '',
+  appId = '',
   ...props
 }) => {
   const modalConfig = isUpdate ? EDIT_MODAL : CREATE_MODAL
 
-  const topics = webhookEdit?.subcriptionTopics?._embedded || []
-  const customers = webhookEdit?.subcriptionCustomers?.data || []
-  const loading = webhookEdit?.loading
-  const webhookData = webhookEdit?.webhookData
-
   const initFormValues = {
     WebhookURL: webhookData?.url,
-    SubscriptionTopics: webhookData?.id,
+    SubscriptionTopics: webhookData?.topicIds,
     SubscriptionCustomers: webhookData?.customerIds,
     active: webhookData?.active,
   }
@@ -138,11 +149,15 @@ export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps> 
   const customerOptions: SelectOption[] = generateCustomerOptions(customers)
 
   useEffect(() => {
-    props.requestWebhookSubcriptionData(props.appId)
-    webhookId && props.requestWebhookData(webhookId)
+    if (isUpdate) {
+      props.requestWebhookData(webhookId)
+    } else {
+      props.requestWebhookSubcriptionData(appId)
+    }
+    return props.webhookDataClear
   }, [])
 
-  const onSubmit = isUpdate ? onEdit(props.editWebhook, webhookId) : onCreate(props.createWebhook, props.appId)
+  const onSubmit = isUpdate ? onEdit(props.editWebhook, webhookId, appId) : onCreate(props.createWebhook, appId)
 
   if (loading) return <Loader />
   return (
@@ -181,7 +196,7 @@ export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps> 
                 labelText="Subscription Topics"
                 options={topicOptions}
                 rcSelectProps={{ dropdownStyle: { zIndex: 41 } }}
-                // required
+                required
               />
               <DropdownSelect
                 id="SubscriptionCustomers"
@@ -190,7 +205,7 @@ export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps> 
                 labelText="Subscription Customers"
                 options={customerOptions}
                 rcSelectProps={{ dropdownStyle: { zIndex: 41 } }}
-                // required
+                required
               />
               <Checkbox id="active" name="active" labelText="Active" />
             </>
@@ -214,11 +229,17 @@ export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps> 
 }
 
 export type StateProps = {
-  webhookEdit: WebhookEditState
+  topics: TopicItem[]
+  customers: CustomerItem[]
+  loading: boolean
+  webhookData: WebhookModal
 }
 
 export const mapStateToProps = (state: ReduxState): StateProps => ({
-  webhookEdit: state.webhookEdit,
+  topics: selectTopics(state),
+  customers: selectCustomers(state),
+  loading: selectLoading(state),
+  webhookData: selectWebhookData(state),
 })
 
 export const mapDispatchToProps = (dispatch: any): WebhookModalInnerMappedAction => {
@@ -227,8 +248,9 @@ export const mapDispatchToProps = (dispatch: any): WebhookModalInnerMappedAction
     createWebhook: (data: CreateWebhookParams) => dispatch(createWebhook(data)),
     editWebhook: (data: EditWebhookParams) => dispatch(editWebhook(data)),
     requestWebhookData: (webhookId: string) => dispatch(requestWebhookData(webhookId)),
+    webhookDataClear: () => dispatch(webhookDataClear()),
   }
 }
 
 export const WebhookModalInnerWithConnect = connect(mapStateToProps, mapDispatchToProps)(WebhookModalInner)
-export default WebhookCreateModal
+export default React.memo(WebhookCreateModal)

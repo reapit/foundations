@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Select, { Option, SelectProps } from 'rc-select'
 import { CustomTagProps } from 'rc-select/lib/interface/generator'
-import { Field, FieldProps } from 'formik'
+import { Field, FieldProps, FormikProps, FieldInputProps } from 'formik'
 import CustomTag from './custom-tag'
 import { dropdownSelectFieldValidateRequire } from '../../utils/validators'
 import { checkError } from '../../utils/form'
@@ -42,7 +42,7 @@ export const DropdownSelect: React.FC<SelectProps & DropdownSelectProps> = ({
     field.onChange({ target: { value: value, name: field.name } })
   }
 
-  const handleFieldTouched = (form, field) => () => {
+  const handleFieldTouched = (form: FormikProps<any>, field: FieldInputProps<String | String[]>) => () => {
     form.setFieldTouched(field.name)
   }
 
@@ -54,9 +54,7 @@ export const DropdownSelect: React.FC<SelectProps & DropdownSelectProps> = ({
             const hasError = checkError(meta)
             return (
               <div className="field field-dropdown-select">
-                <label className="label" htmlFor="">
-                  {labelText}
-                </label>
+                <label className={`label ${required ? 'required-label' : ''}`}>{labelText}</label>
                 <Select
                   id={id}
                   placeholder={placeholder}

@@ -33,8 +33,9 @@ export const fetchWebhookTopic = async () => {
   return response
 }
 
-export const webhookSubscriptionsFetch = function*() {
+export const webhookSubscriptionsFetch = function*({ data: applicationId }: Action<string>) {
   try {
+    yield put(setApplicationId(applicationId))
     const response = yield call(fetchSubscriptions)
     if (response) {
       yield put(webhookSubscriptionsReceiveData(response))
@@ -49,9 +50,8 @@ export const webhookSubscriptionsFetch = function*() {
   }
 }
 
-export const webhookTopicsFetch = function*({ data: applicationId }: Action<string>) {
+export const webhookTopicsFetch = function*() {
   try {
-    yield put(setApplicationId(applicationId))
     const response = yield call(fetchWebhookTopic)
     if (response) {
       yield put(webhookTopicsReceiveData(response))
@@ -67,11 +67,11 @@ export const webhookTopicsFetch = function*({ data: applicationId }: Action<stri
 }
 
 export const webhookSubscriptionsListen = function*() {
-  yield takeLatest<Action<void>>(ActionTypes.WEBHOOK_SUBSCRIPTION_REQUEST_DATA, webhookSubscriptionsFetch)
+  yield takeLatest<Action<string>>(ActionTypes.WEBHOOK_SUBSCRIPTION_REQUEST_DATA, webhookSubscriptionsFetch)
 }
 
 export const webhookTopicsListen = function*() {
-  yield takeLatest<Action<string>>(ActionTypes.WEBHOOK_TOPICS_REQUEST_DATA, webhookTopicsFetch)
+  yield takeLatest<Action<void>>(ActionTypes.WEBHOOK_TOPICS_REQUEST_DATA, webhookTopicsFetch)
 }
 
 const webhookSubscriptionsSagas = function*() {

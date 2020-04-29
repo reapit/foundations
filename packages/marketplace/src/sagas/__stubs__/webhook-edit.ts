@@ -1,8 +1,9 @@
-import { WebhookEditState, WebhookModal } from '@/reducers/webhook-edit-modal'
+import { WebhookSubscription, WebhookModal, WebhookEditState } from '@/reducers/webhook-edit-modal'
+import { CreateWebhookParams } from '@/actions/webhook-edit-modal'
 
-export const webhookDataStub: WebhookEditState = {
+export const webhookDataStub: WebhookSubscription = {
   subcriptionCustomers: {
-    data: [{ id: '0a795809-8a41-449f-9865-ae0a536db6b7', appId: '1161242a-f650-4d1d-aed7-909853fe7ee1' }],
+    data: [],
     pageCount: 1,
     pageNumber: 1,
     pageSize: 15,
@@ -25,4 +26,18 @@ export const webhookItemDataStub: WebhookModal = {
   topicIds: [],
   customerIds: [],
   active: false,
+}
+export const webhookEditDataStub: WebhookEditState = {
+  ...webhookDataStub,
+  webhookData: webhookItemDataStub,
+  loading: false,
+}
+
+export const createWebhookItem: CreateWebhookParams = {
+  ApplicationId: '',
+  url: '',
+  description: '',
+  topicIds: [],
+  customerIds: [],
+  active: true,
 }

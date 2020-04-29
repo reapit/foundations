@@ -1,28 +1,28 @@
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import { Action } from '../types/core'
 import ActionTypes from '../constants/action-types'
-import { WebhookEditState } from '@/reducers/webhook-edit-modal'
+import { WebhookModal } from '@/reducers/webhook-edit-modal'
 import {
   webhookEditLoading,
   requestWebhookSubcriptionReceiveFailure,
   requestWebhookSubcriptionReceiveData,
   SubscriptionCustomersRequestParams,
   SubscriptionTopicsRequestParams,
-  WebhookDataRequestParams,
   CreateWebhookParams,
-  WebhookSubcriptionDataRequest,
   EditWebhookParams,
   requestWebhookReceiveData,
   requestWebhookReceiveDataFailure,
+  requestWebhookSubcriptionData,
+  FetchWebhookDataParams,
 } from '@/actions/webhook-edit-modal'
 import { logger } from 'logger'
 import errorMessages from '../constants/error-messages'
 import { errorThrownServer } from '../actions/error'
-import { initAuthorizedRequestHeaders } from '@/utils/api'
+import { initAuthorizedRequestHeaders } from '@/constants/api'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS, generateHeader } from '../constants/api'
 import { fetchSubscriptions } from './webhook-subscriptions'
-import { webhookSubscriptionsReceiveData } from '@/actions/webhook-subscriptions'
+import { webhookSubscriptionsReceiveData, setApplicationId } from '@/actions/webhook-subscriptions'
 import { PagedResultWebhookModel_ } from '@/reducers/webhook-subscriptions'
 
 export const fetchWebhookSubscriptionTopics = async (params: SubscriptionTopicsRequestParams) => {
@@ -57,8 +57,9 @@ export const fetchWebhookSubscriptionCustomers = async (params: SubscriptionCust
   }
 }
 
-export const fetchWebhookData = async ({ webhookId, headers }) => {
+export const fetchWebhookData = async (params: FetchWebhookDataParams) => {
   try {
+    const { webhookId, headers } = params
     const response = await fetcher({
       url: `${URLS.webhook}/subscriptions/${webhookId}`,
       api: window.reapit.config.platformApiUrl,
@@ -107,20 +108,22 @@ export const putEditWebhook = async (params: EditWebhookParams) => {
   }
 }
 
-export const requestSupcriptionData = function*({ data: ApplicationId }) {
+export const requestSupcriptionData = function*({ data: ApplicationId }: Action<string>) {
   yield put(webhookEditLoading(true))
+  yield put(setApplicationId(ApplicationId))
   const headers = yield call(initAuthorizedRequestHeaders)
   try {
     const [subcriptionTopics, subcriptionCustomers] = yield all([
       call(fetchWebhookSubscriptionTopics, { ApplicationId, headers }),
       call(fetchWebhookSubscriptionCustomers, { AppId: ApplicationId }),
     ])
-    const data: WebhookEditState = {
-      subcriptionCustomers,
-      subcriptionTopics,
-    }
-    if (data) {
-      yield put(requestWebhookSubcriptionReceiveData(data))
+    if (subcriptionCustomers && subcriptionTopics) {
+      yield put(
+        requestWebhookSubcriptionReceiveData({
+          subcriptionCustomers,
+          subcriptionTopics,
+        }),
+      )
     } else {
       yield put(requestWebhookSubcriptionReceiveFailure())
     }
@@ -135,7 +138,7 @@ export const requestSupcriptionData = function*({ data: ApplicationId }) {
   }
 }
 
-export const createNewWebhook = function*({ data }) {
+export const createNewWebhook = function*({ data }: Action<CreateWebhookParams>) {
   try {
     const createResponse = yield call(postCreateWebhook, data)
     let newListResponse = false
@@ -158,7 +161,14 @@ export const createNewWebhook = function*({ data }) {
 
 export const editWebhook = function*({ data }: Action<EditWebhookParams>) {
   try {
-    yield call(putEditWebhook, data)
+    const editResponse = yield call(putEditWebhook, data)
+    let newListResponse = false
+    if (editResponse) {
+      newListResponse = yield call(fetchSubscriptions)
+    }
+    if (newListResponse) {
+      yield put(webhookSubscriptionsReceiveData(newListResponse as PagedResultWebhookModel_))
+    }
   } catch (err) {
     logger(err)
     yield put(
@@ -170,12 +180,15 @@ export const editWebhook = function*({ data }: Action<EditWebhookParams>) {
   }
 }
 
-export const requestWebhookData = function*({ data: webhookId }: Action<WebhookDataRequestParams>) {
+export const requestWebhookData = function*({ data: webhookId }: Action<string>) {
   try {
+    yield put(webhookEditLoading(true))
     const headers = yield call(initAuthorizedRequestHeaders)
-    const data = yield call(fetchWebhookData, { webhookId, headers })
+    const data: WebhookModal = yield call(fetchWebhookData, { webhookId, headers })
     if (data) {
+      const { applicationId } = data
       yield put(requestWebhookReceiveData(data))
+      yield put(requestWebhookSubcriptionData(applicationId))
     } else {
       yield put(requestWebhookReceiveDataFailure())
     }
@@ -191,10 +204,7 @@ export const requestWebhookData = function*({ data: webhookId }: Action<WebhookD
 }
 
 export const requestWebhookSupcriptionDataListen = function*() {
-  yield takeLatest<Action<WebhookSubcriptionDataRequest>>(
-    ActionTypes.WEBHOOK_EDIT_SUBCRIPTION_REQUEST_DATA,
-    requestSupcriptionData,
-  )
+  yield takeLatest<Action<string>>(ActionTypes.WEBHOOK_EDIT_SUBCRIPTION_REQUEST_DATA, requestSupcriptionData)
 }
 
 export const createWebhookListen = function*() {
@@ -206,7 +216,7 @@ export const editWebhookListen = function*() {
 }
 
 export const requestWebhookDataListen = function*() {
-  yield takeLatest<Action<WebhookDataRequestParams>>(ActionTypes.WEBHOOK_REQUEST_DATA, requestWebhookData)
+  yield takeLatest<Action<string>>(ActionTypes.WEBHOOK_REQUEST_DATA, requestWebhookData)
 }
 
 const developerWebhookSagas = function*() {

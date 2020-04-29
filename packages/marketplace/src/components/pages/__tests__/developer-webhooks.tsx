@@ -15,7 +15,9 @@ const props: DeveloperWebhooksProps = {
   subscriptions: [],
   subscriptionsLoading: false,
   topics: [],
-  topicsLoading: false,
+  applicationId: '',
+  setApplicationId: jest.fn(),
+  applications: [],
   fetchTopics: jest.fn(),
 }
 
@@ -41,6 +43,7 @@ describe('DeveloperWebHooks', () => {
             },
           } as WebhookSubscriptionsState,
           topics: {
+            applicationId: '',
             loading: false,
             error: false,
             topics: {
@@ -51,10 +54,11 @@ describe('DeveloperWebHooks', () => {
       } as ReduxState
 
       const output = {
+        applicationId: '',
         subscriptions: [],
+        applications: [],
         subscriptionsLoading: false,
         topics: [],
-        topicsLoading: false,
       }
       const result = mapStateToProps(input)
       expect(result).toEqual(output)

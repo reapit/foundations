@@ -17,7 +17,7 @@ import { ReduxState } from '@/types/core'
 import { compose, Dispatch } from 'redux'
 import { connect } from 'react-redux'
 import { Form, Formik } from 'formik'
-import { webhookSubscriptionsRequestData } from '@/actions/webhook-subscriptions'
+import { webhookSubscriptionsRequestData, setApplicationId } from '@/actions/webhook-subscriptions'
 import { WebhookModel, TopicModel } from '@/reducers/webhook-subscriptions'
 import {
   selectSubscriptionsData,
@@ -28,6 +28,7 @@ import {
 import FormikAutoSave from '@/components/hocs/formik-auto-save'
 import WebhookEditModal from '../ui/webhook-edit-modal'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
+import { selectDeveloperApps } from '@/selector/developer'
 
 export const columns = [
   {
@@ -70,7 +71,6 @@ export const openEditModal = (setModalOpen, setWebhookId) => (webhookId: string)
 }
 
 export const renderTopicName = (topics: TopicModel[], subscriptionTopicId) => {
-  console.log({ topics })
   const webhookTopics = topics?.filter((topic: TopicModel) => topic.id === subscriptionTopicId)
   const webhookTopicNames = webhookTopics?.map((topic: TopicModel) => topic.name)
   return webhookTopicNames.join('\n')
@@ -115,17 +115,16 @@ export const DeveloperWebhooks = ({
   applicationId,
   applications,
 }: DeveloperWebhooksProps) => {
-  const [modalOpen, setModalOpen] = React.useState<string | undefined>()
+  const [modalType, setModalType] = React.useState<string | undefined>()
   const [webhookId, setWebhookId] = React.useState<string | undefined>()
 
-  const onOpenCreateModal = openCreateModal(setModalOpen)
-  const onOpenEditModal = openEditModal(setModalOpen, setWebhookId)
-  const onCloseModal = () => setModalOpen(undefined)
-
-  const afterClose = (): void => {
-    setModalOpen(undefined)
+  const onOpenCreateModal = openCreateModal(setModalType)
+  const onOpenEditModal = openEditModal(setModalType, setWebhookId)
+  const onCloseModal = React.useCallback(() => setModalType(undefined), [])
+  const afterClose = React.useCallback((): void => {
+    setModalType(undefined)
     setWebhookId(undefined)
-  }
+  }, [])
 
   const selectBoxOptions: SelectBoxOptions[] = applications?.map((application: AppSummaryModel) => ({
     label: application.name || '',
@@ -146,7 +145,7 @@ export const DeveloperWebhooks = ({
             {() => (
               <Form>
                 <SelectBox
-                  // helpText="Please select an App from the list below to view the associated Webhooks:"
+                  helpText="Please select an App from the list below to view the associated Webhooks:"
                   name="subscriptions"
                   options={selectBoxOptions}
                   labelText="App"
@@ -176,8 +175,8 @@ export const DeveloperWebhooks = ({
         </FormSection>
       </FlexContainerResponsive>
       <WebhookEditModal
-        visible={!!modalOpen}
-        isUpdate={modalOpen === MODAL_TYPE.EDIT}
+        visible={!!modalType}
+        isUpdate={modalType === MODAL_TYPE.EDIT}
         appId={applicationId}
         webhookId={webhookId}
         afterClose={afterClose}
@@ -189,6 +188,7 @@ export const DeveloperWebhooks = ({
 
 export type DispatchProps = {
   fetchTopics: (applicationId: string) => void
+  setApplicationId: (applicationId: string) => void
 }
 
 export const mapStateToProps = (state: ReduxState): StateProps => ({
@@ -196,12 +196,13 @@ export const mapStateToProps = (state: ReduxState): StateProps => ({
   subscriptionsLoading: selectSubscriptionsLoading(state),
   topics: selectTopicsData(state),
   applicationId: selectApplicationId(state),
-  applications: state?.developer?.developerData?.data?.data || ([] as AppSummaryModel[]),
+  applications: selectDeveloperApps(state),
 })
 
 export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     fetchTopics: (applicationId: string) => dispatch(webhookSubscriptionsRequestData(applicationId)),
+    setApplicationId: (applicationId: string) => dispatch(setApplicationId(applicationId)),
   }
 }
 

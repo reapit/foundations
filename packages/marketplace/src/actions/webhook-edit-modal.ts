@@ -1,6 +1,6 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
-import { WebhookEditState, WebhookModal } from '@/reducers/webhook-edit-modal'
+import { WebhookModal, WebhookSubscription } from '@/reducers/webhook-edit-modal'
 import { StringMap } from '../../../elements/src/types/core'
 
 export interface SubscriptionCustomersRequestParams {
@@ -9,6 +9,11 @@ export interface SubscriptionCustomersRequestParams {
 export interface SubscriptionTopicsRequestParams {
   ApplicationId: string
   headers: StringMap
+}
+
+export interface FetchWebhookDataParams {
+  headers: StringMap
+  webhookId: string
 }
 
 export interface CreateWebhookParams {
@@ -21,6 +26,7 @@ export interface CreateWebhookParams {
 }
 
 export interface EditWebhookParams {
+  ApplicationId: string
   webhookId: string | undefined
   url: string
   description?: string
@@ -33,12 +39,12 @@ export interface WebhookDataRequestParams {
 }
 
 export interface WebhookSubcriptionDataRequest {
-  appId: number
+  appId: string
 }
 
 export const webhookEditLoading = actionCreator<boolean>(ActionTypes.WEBHOOK_EDIT_LOADING)
 export const requestWebhookSubcriptionData = actionCreator<string>(ActionTypes.WEBHOOK_EDIT_SUBCRIPTION_REQUEST_DATA)
-export const requestWebhookSubcriptionReceiveData = actionCreator<WebhookEditState>(
+export const requestWebhookSubcriptionReceiveData = actionCreator<WebhookSubscription>(
   ActionTypes.WEBHOOK_EDIT_SUBCRIPTION_RECEIVE_DATA,
 )
 export const requestWebhookSubcriptionReceiveFailure = actionCreator<void>(
@@ -49,3 +55,4 @@ export const editWebhook = actionCreator<EditWebhookParams>(ActionTypes.WEBHOOK_
 export const requestWebhookData = actionCreator<string>(ActionTypes.WEBHOOK_REQUEST_DATA)
 export const requestWebhookReceiveData = actionCreator<WebhookModal>(ActionTypes.WEBHOOK_RECEIVE_DATA)
 export const requestWebhookReceiveDataFailure = actionCreator<void>(ActionTypes.WEBHOOK_RECEIVE_DATA_FAILURE)
+export const webhookDataClear = actionCreator<void>(ActionTypes.WEBHOOK_DATA_CLEAR)
