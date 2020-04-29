@@ -19,7 +19,7 @@ export class WebComponentConfig {
   @attribute()
   negotiatorIds: string[]
 
-  // Days of week, accepts numbers from 0 (Sunday) to 6 (Saturday)
+  // Days of week, accepts array of numbers from 0 (Sunday) to 6 (Saturday)
   @attribute()
   daysOfWeek: number[]
 }
