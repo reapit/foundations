@@ -160,6 +160,11 @@ exports[`AdminApps should match a snapshot when LOADING false 1`] = `
               },
               Object {
                 "Cell": [Function],
+                "Header": "Created",
+                "accessor": "created",
+              },
+              Object {
+                "Cell": [Function],
                 "Header": "Featured",
                 "accessor": "isFeatured",
               },
@@ -313,6 +318,11 @@ exports[`AdminApps should match a snapshot when LOADING true 1`] = `
               Object {
                 "Header": "Direct API",
                 "accessor": "isDirectApi",
+              },
+              Object {
+                "Cell": [Function],
+                "Header": "Created",
+                "accessor": "created",
               },
               Object {
                 "Cell": [Function],
