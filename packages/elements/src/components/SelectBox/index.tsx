@@ -35,7 +35,7 @@ export const SelectBox = ({
         const hasError = checkError(meta)
         const calculatedClassName = (hasError ? 'input is-danger' : 'input is-primary') + ' ' + className
         return (
-          <div className={`field pb-2 ${calculatedClassName}`}>
+          <div className="field pb-2">
             <div className="control">
               {labelText && (
                 <label className={`label ${required ? 'required-label' : ''}`} htmlFor={id}>
