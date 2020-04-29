@@ -22,7 +22,7 @@ export const fieldValidateRequire = (value: string) => {
   }
   return errorMessages.FIELD_REQUIRED
 }
-export function isEmpty(value) {
+export function isEmpty(value: string | string[]) {
   return (
     value === undefined ||
     value === null ||

@@ -72,9 +72,7 @@ describe('fieldValidateRequire', () => {
 describe('validate empty', () => {
   it('work correctly', () => {
     expect(isEmpty('')).toBe(true)
-    expect(isEmpty({})).toBe(true)
     expect(isEmpty([])).toBe(true)
-
     expect(isEmpty('a')).toBe(false)
   })
 
