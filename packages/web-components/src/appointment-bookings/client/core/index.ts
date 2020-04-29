@@ -11,6 +11,7 @@ export interface AppointmentBookingInitializers {
 export const ReapitAppointmentBookingComponent = ({
   parentSelector,
   theme,
+  variant,
 }: // apiKey,
 // variant,
 AppointmentBookingInitializers) => {
@@ -20,7 +21,7 @@ AppointmentBookingInitializers) => {
       theme,
       // TODO - will need to reference later
       // apiKey,
-      // variant,
+      variant,
       parentSelector,
     },
   })

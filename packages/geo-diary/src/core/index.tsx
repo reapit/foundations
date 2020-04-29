@@ -1,5 +1,3 @@
-import * as OfflinePluginRuntime from 'offline-plugin/runtime'
-OfflinePluginRuntime.install()
 import React from 'react'
 import * as Sentry from '@sentry/browser'
 import { render } from 'react-dom'

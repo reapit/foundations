@@ -26,6 +26,7 @@ describe('store', () => {
         offerBanner: '',
         pagination: '',
         paginationActive: '',
+        formError: '',
       },
     }
     const unsubscribe = viewingBookingStore.subscribe(store => {

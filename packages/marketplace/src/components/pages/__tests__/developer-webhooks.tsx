@@ -1,15 +1,19 @@
 import * as React from 'react'
-
 import {
-  DeveloperWebhooks,
   DeveloperWebhooksProps,
   handleSubscriptionChange,
-  mapStateToProps,
   mapDispatchToProps,
+  mapStateToProps,
+  mapDeveloperAppsToAppSelectBoxOptions,
+  DeveloperWebhooks,
 } from '../developer-webhooks'
 import { shallow } from 'enzyme'
 import { ReduxState } from '@/types/core'
 import { WebhookSubscriptionsState, WebhookTopicsState } from '@/reducers/webhook-subscriptions'
+
+import { developerState } from '@/sagas/__stubs__/developer'
+import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
+import { SelectBoxOptions } from '@reapit/elements'
 
 const props: DeveloperWebhooksProps = {
   subscriptions: [],
@@ -19,13 +23,10 @@ const props: DeveloperWebhooksProps = {
   setApplicationId: jest.fn(),
   applications: [],
   fetchTopics: jest.fn(),
+  developerState,
 }
 
 describe('DeveloperWebHooks', () => {
-  it('should match a snapshot', () => {
-    expect(shallow(<DeveloperWebhooks {...props} />)).toMatchSnapshot()
-  })
-
   it('should match a snapshot', () => {
     window.reapit.config.appEnv = 'development'
     expect(shallow(<DeveloperWebhooks {...props} />)).toMatchSnapshot()
@@ -51,6 +52,7 @@ describe('DeveloperWebHooks', () => {
             },
           } as WebhookTopicsState,
         },
+        developer: developerState,
       } as ReduxState
 
       const output = {
@@ -59,9 +61,26 @@ describe('DeveloperWebHooks', () => {
         applications: [],
         subscriptionsLoading: false,
         topics: [],
+        topicsLoading: false,
+        developerState: input.developer,
       }
       const result = mapStateToProps(input)
       expect(result).toEqual(output)
+    })
+  })
+  describe('mapDeveloperAppsToAppSelectBoxOptions', () => {
+    it('should return correctly', () => {
+      const inputs: AppSummaryModel[] = [
+        { name: '1', id: 'id1' },
+        { name: '2', id: 'id2' },
+      ]
+
+      const outputs: SelectBoxOptions[] = [
+        { label: '1', value: 'id1' },
+        { label: '2', value: 'id2' },
+      ]
+
+      expect(mapDeveloperAppsToAppSelectBoxOptions(inputs)).toEqual(outputs)
     })
   })
 

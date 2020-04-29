@@ -81,6 +81,9 @@ export const generateAppointmentBookingThemeClasses = (
     formBlock: css`
       ${parentSelector || 'body'} & {
         padding: 0.5rem 0;
+        & * {
+          box-sizing: border-box;
+        }
       }
     `,
     formInput: css`

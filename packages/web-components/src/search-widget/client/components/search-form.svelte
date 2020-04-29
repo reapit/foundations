@@ -13,12 +13,12 @@
     orderByPrices,
     propertyTypes,
     addedInTimes,
-    getMinPriceRange,
-    getMaxPriceRange,
+    getPriceRange,
     getResultMessage,
   } from '../utils/search-helper'
 
   let searchKeyword = ''
+  let searchError = false
   let currentPage = 1
   let showAdvancedSearch = false
   let searchType = 'Sale'
@@ -39,6 +39,12 @@
   }
 
   const handleFetchProperties = async () => {
+    if (!searchKeyword) {
+      searchError = true
+      return
+    }
+    searchError = false
+
     const isRental = searchType === 'Rent'
 
     searchWidgetStore.update(values => ({
@@ -122,11 +128,15 @@
     padding: 0.5em;
     transition: all 0.2s ease-in-out;
     border-left: 1px;
+    margin-top: 1em;
   }
 
   .search-form-input {
     padding: 0.5em;
-    margin-bottom: 1em;
+  }
+
+  .search-form-error-message {
+    margin-top: 0.5em;
   }
 
   .search-form-button:focus,
@@ -212,23 +222,27 @@
       type="text"
       data-testid="search-form-input"
       id="search"
-      placeholder="Town or Postcode" />
-
+      placeholder={$searchWidgetStore.initializers.theme.searchPlaceholder} />
+    {#if searchError && !searchKeyword}
+      <span class="{$searchWidgetStore.themeClasses.formError} search-form-error-message">
+        Please enter a town or postcode
+      </span>
+    {/if}
     <button
       class="{$searchWidgetStore.themeClasses.button} search-form-button"
       on:click|preventDefault={() => handleFetchProperties()}
       data-testid="btnSearch"
-      type="button">
+      type="submit">
       Search Properties
     </button>
     <div class="search-form-control">
       <label class="{$searchWidgetStore.themeClasses.bodyText} search-form-control-radio">
         <input data-testid="sales" type="radio" name="searchType" bind:group={searchType} value="Sale" />
-        For sell
+        For Sale
       </label>
       <label class="{$searchWidgetStore.themeClasses.bodyText} search-form-control-radio">
         <input data-testid="lettings" type="radio" name="searchType" bind:group={searchType} value="Rent" />
-        To rent
+        To Rent
       </label>
       <button
         type="button"
@@ -252,7 +266,7 @@
             <select bind:value={minBedroom} class={$searchWidgetStore.themeClasses.input}>
               {#each minNumOfBedrooms as numOfBedroom}
                 <option
-                  disabled={numOfBedroom.value != 0 && numOfBedroom.value >= maxBedroom && maxBedroom != 0}
+                  disabled={numOfBedroom.value != 0 && numOfBedroom.value > maxBedroom && maxBedroom != 0}
                   value={numOfBedroom.value}>
                   {numOfBedroom.label}
                 </option>
@@ -261,7 +275,7 @@
             <select bind:value={maxBedroom} class={$searchWidgetStore.themeClasses.input}>
               {#each maxNumOfBedrooms as numOfBedroom}
                 <option
-                  disabled={numOfBedroom.value != 0 && numOfBedroom.value <= minBedroom && minBedroom != 0}
+                  disabled={numOfBedroom.value != 0 && numOfBedroom.value < minBedroom && minBedroom != 0}
                   value={numOfBedroom.value}>
                   {numOfBedroom.label}
                 </option>
@@ -309,7 +323,7 @@
           <legend>Price</legend>
           <div class="filter-form-input-container-body filter-form-input-container-body-horizontal">
             <select bind:value={minPrice} class={$searchWidgetStore.themeClasses.input}>
-              {#each getMinPriceRange() as minPrice}
+              {#each getPriceRange() as minPrice}
                 <option
                   disabled={minPrice.value != 0 && minPrice.value >= maxPrice && maxPrice != 0}
                   value={minPrice.value}>
@@ -318,7 +332,7 @@
               {/each}
             </select>
             <select bind:value={maxPrice} class={$searchWidgetStore.themeClasses.input}>
-              {#each getMaxPriceRange() as maxPrice}
+              {#each getPriceRange() as maxPrice}
                 <option
                   disabled={maxPrice.value != 0 && maxPrice.value <= minPrice && minPrice != 0}
                   value={maxPrice.value}>

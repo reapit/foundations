@@ -12,9 +12,8 @@
   export let parentSelector
   // TODO - will need to import later
   // export let apiKey
-  // export let variant
+  export let variant
   // export let propertyId
-
 
   let isModalOpen = false
   let currentStep = 1
@@ -71,7 +70,7 @@
   }
 </style>
 
-<button on:click={toggleModal} class="appointment-bookings-select-button">Select Appointment</button>
+<button on:click={toggleModal} class="appointment-bookings-select-button">Book a Valuation</button>
 {#if isModalOpen}
   <div data-testid="appointment-bookings-modal-wrapper" class="appointment-bookings-modal-wrapper">
     <ClickOutSide on:click-out-side={toggleModal}>

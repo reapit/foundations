@@ -20,6 +20,7 @@ export interface InitializerTheme {
     laptop: string
     desktop: string
   }
+  searchPlaceholder: string
 }
 
 export interface ThemeClasses {
@@ -37,6 +38,7 @@ export interface ThemeClasses {
   offerBanner: string
   pagination: string
   paginationActive: string
+  formError: string
 }
 
 export const generateThemeClasses = (
@@ -193,6 +195,12 @@ export const generateThemeClasses = (
       ${parentSelector || 'body'} & {
         color: ${primaryAccentColor || basefontColor || '#fff'};
         background-color: ${baseBackgroundColor || 'grey'};
+      }
+    `,
+    formError: css`
+      ${parentSelector || 'body'} & {
+        font-size: calc(${basefontSize || '16px'} * 80 / 100);
+        color: #dd0000;
       }
     `,
   }

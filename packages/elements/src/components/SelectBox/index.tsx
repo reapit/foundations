@@ -16,6 +16,7 @@ export interface SelectBoxProps {
   id: string
   required?: boolean
   helpText?: string
+  className?: string
 }
 
 export const SelectBox = ({
@@ -26,12 +27,13 @@ export const SelectBox = ({
   name,
   required = false,
   helpText,
+  className = '',
 }: SelectBoxProps) => {
   return (
     <Field name={name} validate={required ? fieldValidateRequire : null}>
       {({ field, meta }: FieldProps<string>) => {
         const hasError = checkError(meta)
-        const className = hasError ? 'input is-danger' : 'input is-primary'
+        const calculatedClassName = (hasError ? 'input is-danger' : 'input is-primary') + ' ' + className
         return (
           <div className="field pb-2">
             <div className="control">
@@ -41,7 +43,7 @@ export const SelectBox = ({
                 </label>
               )}
               {helpText && <i>{helpText}</i>}
-              <select data-test={dataTest} className={className} {...field} value={field.value || ''}>
+              <select data-test={dataTest} className={calculatedClassName} {...field} value={field.value || ''}>
                 {options.map(({ label, value }) => (
                   <option key={value} value={value}>
                     {label}

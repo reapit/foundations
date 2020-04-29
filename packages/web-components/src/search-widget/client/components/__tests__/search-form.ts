@@ -34,6 +34,10 @@ describe('search-form', () => {
 
     await fireEvent.click(getLettings)
 
+    const searchInput = getByTestId('search-form-input')
+
+    await fireEvent.input(searchInput, { target: { value: 'London' } })
+
     const btnSearch = getByTestId('btnSearch')
 
     await fireEvent.click(btnSearch)
@@ -43,10 +47,7 @@ describe('search-form', () => {
     expect(store.properties).toEqual(propertiesMinimalStub._embedded)
     expect(store.propertyImagesByPropertyId).toEqual(propertyImagesMinimalStub)
     expect(store.isLoading).toBe(false)
-    expect(store.resultsMessage).toBe(
-      '3096 results To Rent, No min - No max bed, Price range £0 – £0, Property type: All, ' +
-        'Order results by: Price descending, Added In: Any time.',
-    )
+    expect(store.resultsMessage).toBe('3096 Properties To Rent in London')
   })
 
   it('it triggers a data fetch for sales', async () => {
@@ -68,10 +69,7 @@ describe('search-form', () => {
     expect(store.properties).toEqual(propertiesMinimalStub._embedded)
     expect(store.propertyImagesByPropertyId).toEqual(propertyImagesMinimalStub)
     expect(store.isLoading).toBe(false)
-    expect(store.resultsMessage).toBe(
-      '3096 results For Sell, No min - No max bed, Price range £0 – £0, ' +
-        'Property type: All, Order results by: Price descending, Added In: Any time.',
-    )
+    expect(store.resultsMessage).toBe('3096 Properties To Rent in London')
   })
 
   it('show/hide advanced search container', async () => {

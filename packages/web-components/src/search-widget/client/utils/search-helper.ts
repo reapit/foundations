@@ -46,34 +46,28 @@ export const addedInTimes: { value: string; label: string }[] = [
   { value: '14d', label: '14 days' },
 ]
 
-export const MIN_PRICE_START = 50000 // £50,000
-export const MIN_PRICE_INCREMENT = 10000 // £10,000
-export const MIN_PRICE_END = 300000 // £300,000
-
-export const MAX_PRICE_START = 300000 // £300,000
-export const MAX_PRICE_INCREMENT = 25000 // £25,000
-export const MAX_PRICE_END = 2000000 // £2,000,000
+export const PRICE_RANGE_START = 50000 // £50,000
+export const PRICE_RANGE_INCREMENT_LEVEL1 = 10000 // £10,000
+export const PRICE_RANGE_INCREMENT_LEVEL2 = 25000 // £25,000
+export const PRICE_RANGE_END_LEVEL1 = 300000 // £300,000
+export const PRICE_RANGE_END_LEVEL2 = 2000000 // £2,000,000
 
 export type PriceRange = { value: number; label: string }
-
-export const getMinPriceRange = (): PriceRange[] => {
-  const minPriceRange: PriceRange[] = [{ value: 0, label: 'No min' }]
-  let minPriceStart = MIN_PRICE_START
-  while (minPriceStart <= MIN_PRICE_END) {
-    minPriceRange.push({ value: minPriceStart, label: currencyFormatter.format(minPriceStart) })
-    minPriceStart += MIN_PRICE_INCREMENT
+/**
+ * Price From and To: Start at £50,000 and increment by £10,000
+ * So £50,000, £60,000, £70,000 etc
+ * Go up to £300,000 and from there increment by £25,000
+ * So £300,000, £325,000, £350,000
+ * Stop at £2,000,000
+ */
+export const getPriceRange = (): PriceRange[] => {
+  const priceRange: PriceRange[] = [{ value: 0, label: 'No max' }]
+  let priceStart = PRICE_RANGE_START
+  while (priceStart <= PRICE_RANGE_END_LEVEL2) {
+    priceRange.push({ value: priceStart, label: currencyFormatter.format(priceStart) })
+    priceStart += priceStart < PRICE_RANGE_END_LEVEL1 ? PRICE_RANGE_INCREMENT_LEVEL1 : PRICE_RANGE_INCREMENT_LEVEL2
   }
-  return minPriceRange
-}
-
-export const getMaxPriceRange = (): PriceRange[] => {
-  const maxPriceRange: PriceRange[] = [{ value: 0, label: 'No max' }]
-  let maxPriceStart = MAX_PRICE_START
-  while (maxPriceStart <= MAX_PRICE_END) {
-    maxPriceRange.push({ value: maxPriceStart, label: currencyFormatter.format(maxPriceStart) })
-    maxPriceStart += MAX_PRICE_INCREMENT
-  }
-  return maxPriceRange
+  return priceRange
 }
 
 export const showSearchType = (type: 'Rent' | 'Sale'): string => {
@@ -85,22 +79,14 @@ export const showBedRange = (minBed: number, maxBed: number): string => {
 }
 
 export const showPriceRange = (minPrice: number, maxPrice: number): string => {
-  return `Price range ${currencyFormatter.format(minPrice)} – ${currencyFormatter.format(maxPrice)}`
+  return `${minPrice === 0 ? 'No min' : currencyFormatter.format(minPrice)} – ${
+    maxPrice === 0 ? 'No max' : currencyFormatter.format(maxPrice)
+  }`
 }
 
 export const showSearchPropertyType = (propertyType: string): string => {
   const property = propertyTypes.find((type: { value: string; label: string }) => type.value === propertyType)
   return `Property type: ${property?.label}`
-}
-
-export const showOrderResultsBy = (orderBy: string = 'price'): string => {
-  const orderByObject = orderByPrices.find((type: { value: string; label: string }) => type.value === orderBy)
-  return `Order results by: ${orderByObject?.label}`
-}
-
-export const showAddedIn = (addedIn: string): string => {
-  const addedInObject = addedInTimes.find((type: { value: string; label: string }) => type.value === addedIn)
-  return `Added In: ${addedInObject?.label}`
 }
 
 export type GetResultMessageParams = {
@@ -109,11 +95,9 @@ export type GetResultMessageParams = {
   searchType: 'Rent' | 'Sale'
   minBeds?: number
   maxBeds?: number
-  orderBy?: string
   propertyType?: string
   minPrice?: number
   maxPrice?: number
-  addedIn?: string // ignore for now
 }
 
 export const getResultMessage = ({
@@ -125,17 +109,18 @@ export const getResultMessage = ({
   minPrice = 0,
   maxPrice = 0,
   propertyType = '',
-  orderBy,
-  addedIn = '',
 }: GetResultMessageParams) => {
-  if (properties && properties._embedded && properties._embedded.length) {
+  const isHideFilterMessage = minBeds === 0 && maxBeds === 0 && minPrice === 0 && maxPrice === 0 && !propertyType
+  if (properties && properties._embedded && properties._embedded.length > 0) {
     const numberResults = properties.totalCount
-    const resultsMessage = `${numberResults} result${numberResults === 1 ? '' : 's'}${
-      searchKeyword.length ? ` for ${searchKeyword},` : ''
-    } ${showSearchType(searchType)}, ${showBedRange(minBeds, maxBeds)}, ${showPriceRange(
-      minPrice,
-      maxPrice,
-    )}, ${showSearchPropertyType(propertyType)}, ${showOrderResultsBy(orderBy)}, ${showAddedIn(addedIn)}.`
+    let resultsMessage = `${numberResults} ${numberResults === 1 ? 'Property' : 'Properties'} ${showSearchType(
+      searchType,
+    )} in ${searchKeyword}`
+    if (!isHideFilterMessage) {
+      resultsMessage = resultsMessage.concat(
+        `: ${showBedRange(minBeds, maxBeds)}, ${showPriceRange(minPrice, maxPrice)}`,
+      )
+    }
     return resultsMessage
   }
   return ''

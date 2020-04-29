@@ -11,7 +11,7 @@ export type Form1DataStore = Record<Form1DataStoreKey, FormDataStoreValue>
 export const form1Store = writable<Form1DataStore>({
   lookingFor: { value: 'sell', valid: true },
   email: { value: '', valid: true },
-  postCode: { value: 'NN1 1DF', valid: true },
+  postCode: { value: '', valid: true },
 })
 
 //Form 2 store

@@ -23,6 +23,7 @@ describe('store', () => {
         offerBanner: '',
         pagination: '',
         paginationActive: '',
+        formError: '',
       },
       properties: [],
       propertyImagesByPropertyId: {},

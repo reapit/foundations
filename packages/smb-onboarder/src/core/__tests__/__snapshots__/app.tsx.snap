@@ -1985,6 +1985,12 @@ input OfficeModelAddressInput {
       <UploadProvider>
         <Component />
       </UploadProvider>
+      <Component
+        message="A new version is available. Please refresh your browser or click on this notification to receive the latest update."
+        preventClose={true}
+        variant="primary"
+        visible={false}
+      />
     </Component>
     <GlobalStyleComponent />
   </ApolloProvider>
