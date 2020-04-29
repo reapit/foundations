@@ -8,6 +8,8 @@ export const DATE_TIME_FORMAT = {
   DATE_FORMAT: 'DD MMM YYYY',
   DATE_TIME_FORMAT: 'DD MMM YYYY HH:mm',
   YYYY_MM_DD: 'YYYY-MM-DD',
+  YYYY_MM: 'YYYY-MM',
+  MMMM_YYYY: 'MMMM YYYY',
 }
 
 export function getTime(date: dayjs.ConfigType, is24HourTime: boolean = false) {
