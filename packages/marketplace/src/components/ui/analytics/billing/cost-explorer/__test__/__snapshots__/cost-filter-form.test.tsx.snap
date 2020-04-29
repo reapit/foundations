@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CostFilterForm should match a snapshot 1`] = `
+<Formik
+  initialValues={
+    Object {
+      "createdMonth": "2020-04",
+    }
+  }
+  onSubmit={[Function]}
+>
+  <Form>
+    <Component
+      id="createdMonth"
+      name="createdMonth"
+      reactDatePickerProps={
+        Object {
+          "dateFormat": "MMMM YYYY",
+          "showMonthDropdown": true,
+          "showMonthYearPicker": true,
+        }
+      }
+      useCustomInput={false}
+    />
+    <FormikConnect(Function)
+      onSave={[Function]}
+    />
+  </Form>
+</Formik>
+`;

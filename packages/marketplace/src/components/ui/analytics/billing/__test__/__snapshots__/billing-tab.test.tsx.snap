@@ -26,6 +26,13 @@ exports[`BillingTab should match a snapshot 1`] = `
           <TransactionHistory />
         </Component>
       </Component>
+      <Component>
+        <Component
+          className="is-half"
+        >
+          <CostExplorer />
+        </Component>
+      </Component>
       <CostCalculator />
     </Component>
   </Component>

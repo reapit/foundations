@@ -9,7 +9,7 @@ export type CostFilterFormProps = {
 }
 
 export const handleAutoSave = (onSave: (values: CostFilterFormValues) => void) => {
-  return values => {
+  return (values: CostFilterFormValues) => {
     onSave(values)
   }
 }
@@ -21,6 +21,7 @@ const CostFilterForm: React.FC<CostFilterFormProps> = ({ initialValues, onSave }
         <DatePicker
           id="createdMonth"
           name="createdMonth"
+          useCustomInput={false}
           reactDatePickerProps={{
             showMonthYearPicker: true,
             dateFormat: 'MMMM YYYY',
