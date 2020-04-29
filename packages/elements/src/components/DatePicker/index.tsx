@@ -149,15 +149,24 @@ export const CustomInput = ({
 export interface DatePickerProps {
   name: string
   id: string
-  labelText: string
+  labelText?: string
   required?: boolean
   reactDatePickerProps?: any
+  useCustomInput?: boolean
 }
 
-export const DatePicker = ({ name, id, labelText, required = false, reactDatePickerProps }: DatePickerProps) => {
+export const DatePicker = ({
+  name,
+  id,
+  labelText,
+  required = false,
+  reactDatePickerProps = {},
+  useCustomInput = true,
+}: DatePickerProps) => {
   return (
     <Field name={name} validate={required ? fieldValidateRequire : null}>
       {({ field, meta }: FieldProps<string>) => {
+        const { dateFormat } = reactDatePickerProps
         const parsedDayJsValue = dayjs(field.value)
         let fieldValue: string = ''
         let parseDate: Date | undefined = undefined
@@ -165,7 +174,7 @@ export const DatePicker = ({ name, id, labelText, required = false, reactDatePic
         if (!parsedDayJsValue.isValid()) {
           fieldValue = ''
         } else {
-          fieldValue = parsedDayJsValue.format('DD/MM/YYYY')
+          fieldValue = parsedDayJsValue.format(dateFormat || 'DD/MM/YYYY')
           parseDate = parsedDayJsValue.toDate()
         }
 
@@ -175,9 +184,11 @@ export const DatePicker = ({ name, id, labelText, required = false, reactDatePic
         return (
           <div className="field pb-2">
             <div className="control">
-              <label className={`label ${required ? 'required-label' : ''}`} htmlFor={id}>
-                {labelText}
-              </label>
+              {labelText && (
+                <label className={`label ${required ? 'required-label' : ''}`} htmlFor={id}>
+                  {labelText}
+                </label>
+              )}
               <ReactDatePicker
                 className={className}
                 id={id}
@@ -197,7 +208,7 @@ export const DatePicker = ({ name, id, labelText, required = false, reactDatePic
                   }
                   field.onChange({ target: { value: dayjs(value).format('YYYY-MM-DDTHH:mm:ss'), name: field.name } })
                 }}
-                customInput={<CustomInput className={className} />}
+                customInput={useCustomInput && <CustomInput className={className} />}
               />
               {hasError && (
                 <div className="has-text-danger" data-test="input-error">

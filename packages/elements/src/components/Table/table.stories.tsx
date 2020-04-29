@@ -6,6 +6,7 @@ interface Person {
   firstName: string
   middleName: string
   lastName: string
+  subRows?: Person[]
 }
 
 export const randomChar = () => {
@@ -15,7 +16,7 @@ export const randomChar = () => {
   return r
 }
 
-export const newPerson = () => {
+export const newPerson = (): Person => {
   return {
     firstName: randomChar(),
     middleName: randomChar(),
@@ -27,6 +28,21 @@ export const makeData = (length: number) => {
   const data: Person[] = []
   for (let i = 0; i < length; i++) {
     const person = newPerson()
+    data.push(person)
+  }
+  return data
+}
+
+export const makeDataWithSubRows = (length: number) => {
+  const data: Person[] = []
+  for (let i = 0; i < length; i++) {
+    const person = newPerson()
+    const familyMembers: Person[] = []
+    for (let j = 0; j < length / 2; j++) {
+      const member = newPerson()
+      familyMembers.push(member)
+    }
+    person.subRows = familyMembers
     data.push(person)
   }
 
@@ -91,4 +107,24 @@ storiesOf('Table', module).add('IsLoading', () => {
   ]
 
   return <Table columns={columns} data={data} loading />
+})
+
+storiesOf('Table', module).add('Expandable Rows', () => {
+  const data = makeDataWithSubRows(10)
+  const columns = [
+    {
+      Header: 'First Name',
+      accessor: 'firstName',
+    },
+    {
+      Header: 'Middle Name',
+      accessor: 'middleName',
+    },
+    {
+      Header: 'Last Name',
+      accessor: 'lastName',
+    },
+  ]
+
+  return <Table expandable columns={columns} data={data} />
 })

@@ -4,11 +4,16 @@
     left: 50%;
     transform: translateX(-50%);
   }
-
   & td {
     word-break: break-word;
-    min-width: 100px;
     max-width: 300px;
+  }
+  tr {
+    &.is-expanded {
+      td {
+        background-color: #e8e8e8
+      }
+    }
   }
 }
 
