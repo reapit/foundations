@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { createGlobalStyle } from 'styled-components'
-import { PortalProvider } from '@reapit/elements'
+import { PortalProvider, useOfflinePLugin, ToastMessage } from '@reapit/elements'
 import { ApolloProvider } from '@apollo/react-hooks'
 import { useAuth } from '@/hooks/use-auth'
 import { AuthContext } from '@/context'
@@ -18,6 +18,8 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const App = () => {
+  const { isNewVersionAvailable } = useOfflinePLugin()
+
   const { loginSession, refreshParams, getLoginSession, ...rest } = useAuth()
   if (!loginSession && refreshParams) {
     getLoginSession(refreshParams)
@@ -32,6 +34,14 @@ const App = () => {
           <UploadProvider>
             <Router />
           </UploadProvider>
+          <ToastMessage
+            preventClose={true}
+            visible={isNewVersionAvailable}
+            variant="primary"
+            onCloseToast={location.reload}
+            /* eslint-disable-next-line max-len */
+            message="A new version is available. Please refresh your browser or click on this notification to receive the latest update."
+          />
         </PortalProvider>
         <GlobalStyle />
       </ApolloProvider>

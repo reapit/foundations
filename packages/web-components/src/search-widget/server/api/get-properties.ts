@@ -12,7 +12,6 @@ export const getProperties = async (req: Request, res: Response) => {
   try {
     const headers = await getServerHeaders(req, PACKAGE_SUFFIXES.SEARCH_WIDGET)
     const url = new URL(`${process.env.PLATFORM_API_BASE_URL}${req.url}`)
-    console.log('getProperties', { headers, url })
     const fullPagedResult = await fetcher<PagedResultPropertyModel_, undefined>({
       url: String(url),
       headers,

@@ -9,16 +9,18 @@ export interface ToastMessageProps {
   message: string
   variant: ToastVariant
   onCloseToast: () => void
+  preventClose?: boolean
 }
 
 export const ToastMessage: React.FC<ToastMessageProps> = ({
   visible = false,
   displayDuration = 3000,
+  preventClose = false,
   message,
   onCloseToast,
   variant,
 }) => {
-  if (visible) {
+  if (visible && !preventClose) {
     setTimeout(onCloseToast, displayDuration)
   }
 

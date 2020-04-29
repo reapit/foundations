@@ -21,6 +21,7 @@ Viewing_booking {
       Object {
         "bodyText": "css-n0w2qa",
         "button": "css-l8x1wu",
+        "formError": "css-1yx8977",
         "globalStyles": "css-11c02ub",
         "input": "css-1sj9ihm",
         "offerBanner": "css-s4b31o",

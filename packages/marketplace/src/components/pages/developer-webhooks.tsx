@@ -1,7 +1,10 @@
 import React from 'react'
+import { Loader, SelectBoxOptions } from '@reapit/elements'
+import { ReduxState } from '@/types/core'
+import { DeveloperState } from '@/reducers/developer'
+import { connect } from 'react-redux'
 import {
   SelectBox,
-  SelectBoxOptions,
   H3,
   FlexContainerBasic,
   FormSection,
@@ -10,12 +13,10 @@ import {
   LevelRight,
   Button,
   Table,
-  Loader,
   Section,
 } from '@reapit/elements'
-import { ReduxState } from '@/types/core'
+import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { compose, Dispatch } from 'redux'
-import { connect } from 'react-redux'
 import { Form, Formik } from 'formik'
 import { webhookTopicsRequestData } from '@/actions/webhook-subscriptions'
 import { WebhookModel, TopicModel } from '@/reducers/webhook-subscriptions'
@@ -73,25 +74,33 @@ export type StateProps = {
   subscriptionsLoading: boolean
   topics: TopicModel[]
   topicsLoading: boolean
+  developerState: DeveloperState
 }
 
 export type DeveloperWebhooksProps = StateProps & DispatchProps
 
+export const mapDeveloperAppsToAppSelectBoxOptions: (
+  developerApps: AppSummaryModel[],
+) => SelectBoxOptions[] = developerApps =>
+  developerApps.map(({ name, id }) => ({
+    label: name || '',
+    value: id || '',
+  }))
+
 export const DeveloperWebhooks = ({
   fetchTopics,
-  subscriptions,
   subscriptionsLoading,
   topics,
   topicsLoading,
+  developerState,
 }: DeveloperWebhooksProps) => {
-  if (subscriptionsLoading) {
+  const apps = developerState?.developerData?.data?.data || []
+  const unfetched = !developerState.developerData
+  const loading = developerState.loading
+
+  if (unfetched || loading || subscriptionsLoading) {
     return <Loader />
   }
-
-  const selectBoxOptions: SelectBoxOptions[] = subscriptions.map((subscription: WebhookModel) => ({
-    label: subscription.applicationId,
-    value: subscription.applicationId,
-  }))
 
   return (
     <FlexContainerBasic hasPadding>
@@ -107,9 +116,10 @@ export const DeveloperWebhooks = ({
             {() => (
               <Form>
                 <SelectBox
+                  className="pt-2 pb-2"
                   helpText="Please select an App from the list below to view the associated Webhooks:"
-                  name="subscriptions"
-                  options={selectBoxOptions}
+                  name="demo"
+                  options={mapDeveloperAppsToAppSelectBoxOptions(apps)}
                   labelText="App"
                   id="subscription"
                 />
@@ -144,6 +154,7 @@ export const mapStateToProps = (state: ReduxState): StateProps => ({
   subscriptionsLoading: selectSubscriptionsLoading(state),
   topics: selectTopicsData(state),
   topicsLoading: selectTopicsLoading(state),
+  developerState: state.developer,
 })
 
 export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
