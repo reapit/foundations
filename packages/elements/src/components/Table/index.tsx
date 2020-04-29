@@ -87,7 +87,7 @@ export const Table: React.FC<TableProps> = ({
           rows.map(
             row =>
               prepareRow(row) || (
-                <tr {...row.getRowProps()} className={`${row.isExpanded && 'is-expanded'}`}>
+                <tr {...row.getRowProps()} className={`${row.isExpanded ? 'is-expanded' : ''}`}>
                   {row.cells.map((cell, index) => {
                     const {
                       column: { columnProps },
