@@ -9,7 +9,7 @@ Viewing_booking {
     "callbacks": Object {},
     "context": Map {},
     "ctx": Array [
-      true,
+      false,
       true,
       Object {
         "address": "",
