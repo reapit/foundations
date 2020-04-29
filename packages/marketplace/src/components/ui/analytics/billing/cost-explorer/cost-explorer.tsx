@@ -2,6 +2,7 @@ import * as React from 'react'
 import { H4, Grid, H6, GridItem, DATE_TIME_FORMAT } from '@reapit/elements'
 import CostFilterForm from './cost-filter-form'
 import dayjs from 'dayjs'
+import CostExplorerTable from './cost-explorer-table'
 
 export type CostExplorerProps = {}
 
@@ -40,7 +41,9 @@ const CostExplorer: React.FC<CostExplorerProps> = () => {
         </GridItem>
       </Grid>
       <Grid>
-        <GridItem>{createdMonth}</GridItem>
+        <GridItem>
+          <CostExplorerTable />
+        </GridItem>
       </Grid>
     </>
   )
