@@ -34,6 +34,7 @@ const innerModalProps: WebhookModalInnerProps = {
   requestWebhookData: jest.fn(),
   createWebhook: jest.fn(),
   editWebhook: jest.fn(),
+  deleteWebhook: jest.fn(),
   webhookDataClear: jest.fn(),
   webhookData: webhookItemDataStub,
 }
