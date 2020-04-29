@@ -77,12 +77,7 @@
     // hide advanced search
     showAdvancedSearch = false
 
-    searchWidgetStore.update(values => ({
-      ...values,
-      isLoading: false,
-    }))
-
-    if (properties && properties._embedded) {
+    if (properties && properties._embedded.length) {
       const resultsMessage = getResultMessage({
         properties,
         searchKeyword,
@@ -98,6 +93,7 @@
       const totalPage = calculateTotalPage(properties.totalCount)
       searchWidgetStore.update(values => ({
         ...values,
+        isLoading: false,
         resultsMessage,
         properties: properties._embedded,
         totalPage,
