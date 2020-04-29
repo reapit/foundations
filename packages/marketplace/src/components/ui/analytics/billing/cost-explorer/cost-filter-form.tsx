@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Formik, Form, DatePicker } from '@reapit/elements'
+import { Formik, Form, DatePicker, DATE_TIME_FORMAT } from '@reapit/elements'
 import FormikAutoSave from '@/components/hocs/formik-auto-save'
 import { CostFilterFormValues } from './cost-explorer'
 
@@ -24,7 +24,7 @@ const CostFilterForm: React.FC<CostFilterFormProps> = ({ initialValues, onSave }
           useCustomInput={false}
           reactDatePickerProps={{
             showMonthYearPicker: true,
-            dateFormat: 'MMMM YYYY',
+            dateFormat: DATE_TIME_FORMAT.MMMM_YYYY,
             showMonthDropdown: true,
           }}
         />
