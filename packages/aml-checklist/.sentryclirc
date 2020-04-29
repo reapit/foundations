@@ -1,0 +1,6 @@
+[defaults]
+project=marketplace
+org=aml-app
+
+[http]
+keepalive=false

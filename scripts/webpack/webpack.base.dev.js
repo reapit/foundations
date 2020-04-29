@@ -14,8 +14,10 @@ const tagName = getVersionTag()
 
 module.exports = {
   mode: 'development',
+  bail: true,
   context: process.cwd(),
   entry: ['@babel/polyfill', 'core-js', 'isomorphic-fetch', 'regenerator-runtime/runtime', PATHS.entryWeb],
+  devtool: 'inline-source-map',
   output: {
     path: PATHS.output,
     filename: '[name].[hash].js',
@@ -131,7 +133,6 @@ module.exports = {
       'react-router-dom': require.resolve('react-router-dom'),
     },
   },
-  devtool: 'inline-source-map',
   devServer: {
     contentBase: [path.join(process.cwd(), 'public'), path.join(process.cwd())],
     compress: true,

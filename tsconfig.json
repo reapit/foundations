@@ -17,6 +17,7 @@
     "types": ["jest", "node", "react"],
     "sourceMap": true,
     "inlineSources": true,
+    "sourceRoot": "/",
     "resolveJsonModule": true
   },
   "exclude": ["public", "dist", "scripts", "node_modules", "coverage"]
