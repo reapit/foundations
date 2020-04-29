@@ -824,6 +824,8 @@ type PropertyRoomModel {
   name: String
   dimensions: String
   description: String
+}
+
 type ListItemModel {
   id: String
   value: String
