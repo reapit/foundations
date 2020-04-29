@@ -16,7 +16,6 @@
     formHeader,
     formSeparator,
     formButtonPrimary,
-    formButtonSecondary,
     formError,
   } = themeClasses
 </script>
@@ -76,7 +75,9 @@
     <h3 class="form-step1-header-title {formHeader}">Book a Valuation</h3>
   </div>
 
-  <p class="form-step1-sub-title">To book a valuation, please enter your e-mail address below</p>
+  <p class="form-step1-sub-title">
+    To book a valuation, please select the type of valuation you require and enter your email address and postcode
+  </p>
 
   <hr class={formSeparator} />
 
@@ -129,7 +130,7 @@
         placeholder="Postcode of the property" />
 
       {#if !$formStore.postCode.valid}
-        <p class={formError}>Please enter a valid postcode</p>
+        <p class={formError}>Please enter your postcode</p>
       {/if}
     </div>
   </div>
@@ -145,7 +146,6 @@
         class="form-step1-button-get-appointments {formButtonPrimary}">
         Get Appointments
       </button>
-      <button on:click={toggleModal} class="form-step1-button-cancel {formButtonSecondary}">Cancel</button>
     </div>
   </div>
 

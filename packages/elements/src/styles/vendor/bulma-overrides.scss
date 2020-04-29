@@ -1,6 +1,10 @@
 @import '../base/colors.scss';
 @import '../base/fonts.scss';
 
+html {
+  overflow-y: visible;
+}
+
 .media-content {
   & > .text-ellipisis {
     overflow: hidden;
@@ -267,23 +271,22 @@
 .form-section {
   .level-right {
     .column {
-      @media all and (-ms-high-contrast:none) {
+      @media all and (-ms-high-contrast: none) {
         flex-basis: auto;
       }
     }
   }
 }
 
-
 .level-right {
-  @media all and (-ms-high-contrast:none) {
+  @media all and (-ms-high-contrast: none) {
     justify-content: flex-start;
   }
 }
 
 .container-footer {
-  .level-right  {
-    @media all and (-ms-high-contrast:none) {
+  .level-right {
+    @media all and (-ms-high-contrast: none) {
       justify-content: flex-start;
     }
   }
@@ -295,8 +298,6 @@
     display: flex;
   }
 }
-
-
 
 .content {
   & ul {

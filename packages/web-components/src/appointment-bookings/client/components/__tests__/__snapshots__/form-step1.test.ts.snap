@@ -49,7 +49,7 @@ exports[`FormStep1 should match snapshot 1`] = `
       <p
         class="form-step1-sub-title svelte-16qy3kq"
       >
-        To book a valuation, please enter your e-mail address below
+        To book a valuation, please select the type of valuation you require and enter your email address and postcode
       </p>
        
       <hr
@@ -175,12 +175,6 @@ exports[`FormStep1 should match snapshot 1`] = `
             type="submit"
           >
             Get Appointments
-          </button>
-           
-          <button
-            class="form-step1-button-cancel formButtonSecondary svelte-16qy3kq"
-          >
-            Cancel
           </button>
         </div>
       </div>
