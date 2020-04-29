@@ -152,13 +152,21 @@ export interface DatePickerProps {
   labelText?: string
   required?: boolean
   reactDatePickerProps?: any
+  useCustomInput?: boolean
 }
 
-export const DatePicker = ({ name, id, labelText, required = false, reactDatePickerProps }: DatePickerProps) => {
+export const DatePicker = ({
+  name,
+  id,
+  labelText,
+  required = false,
+  reactDatePickerProps = {},
+  useCustomInput = true,
+}: DatePickerProps) => {
   return (
     <Field name={name} validate={required ? fieldValidateRequire : null}>
       {({ field, meta }: FieldProps<string>) => {
-        const { dateFormat, showMonthYearPicker } = reactDatePickerProps
+        const { dateFormat } = reactDatePickerProps
         const parsedDayJsValue = dayjs(field.value)
         let fieldValue: string = ''
         let parseDate: Date | undefined = undefined
@@ -200,7 +208,7 @@ export const DatePicker = ({ name, id, labelText, required = false, reactDatePic
                   }
                   field.onChange({ target: { value: dayjs(value).format('YYYY-MM-DDTHH:mm:ss'), name: field.name } })
                 }}
-                customInput={!showMonthYearPicker && <CustomInput className={className} />}
+                customInput={useCustomInput && <CustomInput className={className} />}
               />
               {hasError && (
                 <div className="has-text-danger" data-test="input-error">
