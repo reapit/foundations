@@ -35,7 +35,7 @@ exports[`Table should match a snapshot when LOADING false 1`] = `
   </thead>
   <tbody>
     <tr
-      className="undefined"
+      className=""
       key="row_0"
       role="row"
     >
@@ -6879,7 +6879,7 @@ exports[`Table should match a snapshot when table is scrollable 1`] = `
       </thead>
       <tbody>
         <tr
-          className="undefined"
+          className=""
           key="row_0"
           role="row"
         >
