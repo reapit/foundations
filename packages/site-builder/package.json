@@ -1,0 +1,28 @@
+{
+  "name": "site-builder",
+  "version": "0.0.1",
+  "private": true,
+  "description": "A site building tool to leverage reapit web components",
+  "repository": {
+    "type": "git",
+    "url": "git+git@github.com:reapit/app-name.git"
+  },
+  "license": "MIT",
+  "author": "Reapit Ltd",
+  "main": "./src/index.ts",
+  "scripts": {
+    "build:prod": "node '../../scripts/webpack/webpack-sass-prod/index.js'",
+    "fetch-config": "yarn config-manager fetchConfig site-builder",
+    "release:dev": "node ../../scripts/release/release-dev.js site-builder reapit-site-builder-dev",
+    "release:prod": "node ../../scripts/release/release-prod.js site-builder reapit-site-builder-dev",
+    "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ../../scripts/webpack/webpack.sass.dev.js",
+    "start:prod": "serve public/dist -s -l 8080",
+    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
+    "test:dev": "cross-env TZ=UTC jest --watch --verbose",
+    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@reapit/foundations-ts-definitions": "2020-02-13"
+  }
+}
