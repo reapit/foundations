@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Button, Tabs, TabConfig, Level, FlexContainerBasic } from '@reapit/elements'
+import { Button, TabConfig, Level, FlexContainerBasic } from '@reapit/elements'
 import { LoginType, redirectToLogin } from '@reapit/cognito-auth'
 import { Redirect } from 'react-router-dom'
 import { ReduxState } from '../../types/core'
@@ -53,10 +53,9 @@ export const tabConfigs = ({ loginType, history }: LoginProps): TabConfig[] => [
 ]
 
 export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {
-  const isProduction = window.reapit.config.appEnv === 'production'
   const isPasswordChanged = localStorage.getItem('isPasswordChanged') === 'true'
   const { hasSession, loginType, location, authChangeLoginType, showNotiAfterPasswordChanged } = props
-  const { wrapper, container, image, tabsContainer, register, registerLevel, loginButton } = loginStyles
+  const { wrapper, container, image, register, registerLevel, loginButton } = loginStyles
 
   const currentLoginType = getLoginTypeByPath(location.pathname)
   authChangeLoginType(currentLoginType)
@@ -95,11 +94,11 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
         </Level>
         <p className="pb-8">Welcome to Reapit {`${loginType === 'CLIENT' ? 'Marketplace' : 'Foundations'}`}</p>
 
-        {loginType !== 'ADMIN' && !isProduction && (
+        {/* {loginType !== 'ADMIN' && !isProduction && (
           <div className={tabsContainer}>
             <Tabs tabConfigs={tabConfigs(props)} />
           </div>
-        )}
+        )} */}
 
         <Level className={registerLevel}>
           <Button
