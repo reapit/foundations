@@ -19,7 +19,7 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = () => {
           </GridItem>
         </Grid>
       </div>
-      <div className={styles.transactionSection}>
+      <div>
         <H6>Previous Transactions</H6>
         <Grid>
           <GridItem className="is-one-third">March 2020</GridItem>

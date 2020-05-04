@@ -33,7 +33,7 @@ const CostExplorer: React.FC<CostExplorerProps> = () => {
     <>
       <H4>Cost Explorer: Cost & Usage</H4>
       <Grid>
-        <GridItem className="is-half">
+        <GridItem className="is-half-desktop">
           <Grid>
             <GridItem className="is-one-quarter">
               <H6>Month</H6>
