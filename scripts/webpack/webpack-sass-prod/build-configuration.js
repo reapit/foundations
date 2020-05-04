@@ -1,6 +1,8 @@
 const webpackBase = require('../webpack.base.prod')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { buildCssFilePath } = require('../build-element-scss')
+const { headCommitHash } = require('../../utils/get-head-commit-hash')
+const outputCSSFileName = `css/[name].${headCommitHash}.css`
 
 module.exports = {
   ...{
@@ -10,7 +12,7 @@ module.exports = {
   plugins: [
     ...webpackBase.plugins,
     new MiniCssExtractPlugin({
-      filename: 'css/[name].[hash].css',
+      filename: outputCSSFileName,
     }),
   ],
   module: {

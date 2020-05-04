@@ -4,7 +4,6 @@ import { render } from 'react-dom'
 import ReactGA from 'react-ga'
 import { Config } from '@/types/global'
 import App from './app'
-import { register } from './service-worker'
 import '../styles/index.scss'
 import { getSessionCookie } from '@reapit/cognito-auth'
 import { COOKIE_SESSION_KEY_GEO_DIARY } from '../constants/api'
@@ -65,10 +64,6 @@ if (module['hot']) {
     const NextApp = require('./app').default
     renderApp(NextApp)
   })
-}
-
-if (process.env.NODE_ENV === 'production') {
-  register()
 }
 
 run()

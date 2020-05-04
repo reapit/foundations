@@ -2,7 +2,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const CopyPlugin = require('copy-webpack-plugin')
-const { GenerateSW } = require('workbox-webpack-plugin')
+const HashedModuleIdsPlugin = require('webpack').HashedModuleIdsPlugin
+const { EnvironmentPlugin } = require('webpack')
+// const SentryWebpackPlugin = require('@sentry/webpack-plugin')
+const { PATHS } = require('./constants')
+const { getVersionTag } = require('../release/utils')
+const hashFiles = require('../utils/hash-files')
 const path = require('path')
 const SentryWebpackPlugin = require('@sentry/webpack-plugin')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
@@ -17,6 +22,11 @@ const hashOfCommit = getRef()
 const APP_VERSION = `${tagName.packageName}_${tagName.version}`
 const outputFileName = `[name].${hashOfCommit}.js`
 
+const { headCommitHash } = require('../utils/get-head-commit-hash')
+
+const tagName = getVersionTag()
+const outputJsFileName = `[name].${headCommitHash}.js`
+
 const webpackConfig = {
   mode: 'production',
   bail: true,
@@ -24,7 +34,7 @@ const webpackConfig = {
   entry: ['@babel/polyfill', 'core-js', 'isomorphic-fetch', 'regenerator-runtime/runtime', PATHS.entryWeb],
   output: {
     path: PATHS.output,
-    filename: outputFileName,
+    filename: outputJsFileName,
   },
   plugins: [
     new ResolveTSPathsToWebpackAlias({
@@ -75,13 +85,14 @@ const webpackConfig = {
       APP_VERSION: APP_VERSION,
     }),
     new HashedModuleIdsPlugin(),
-    new GenerateSW({
-      clientsClaim: true,
-      skipWaiting: true,
-      navigateFallback: '/index.html',
-      cacheId: process.cwd(),
-      cleanupOutdatedCaches: true,
-    }),
+    // TODO: Reconfigure Sentry to support source map
+    // new SentryWebpackPlugin({
+    //   include: '.',
+    //   ignoreFile: '.sentrycliignore',
+    //   ignore: ['node_modules', 'webpack.config.js'],
+    //   configFile: 'sentry.properties',
+    //   debug: true,
+    // }),
     new HardSourceWebpackPlugin({
       // each package has its own .webpack-cache
       cacheDirectory: `${PATHS.cacheWebpackDir}/hard-source/[confighash]`,
@@ -93,7 +104,8 @@ const webpackConfig = {
       },
     }),
     new OfflinePlugin({
-      autoUpdate: 1000 * 10,
+      // 2 minutes
+      autoUpdate: 1000 * 60 * 2,
       ServiceWorker: {
         events: true,
       },
