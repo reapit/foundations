@@ -11,7 +11,7 @@ export const prepareColumnsData = (trafficEvents: TrafficEventsModel | null) => 
   return () => {
     return [
       {
-        Header: 'Endpoint',
+        Header: 'Resource',
         accessor: 'endpoint',
         columnProps: {
           className: 'capitalize',
@@ -36,7 +36,10 @@ export const TrafficEventTable: React.FC<TrafficEventTableProps> = ({ trafficEve
 
   return (
     <>
-      <H4>Hits By Endpoint</H4>
+      <H4>Hits By Resource</H4>
+      <p className="is-italic mb-4">
+        A breakdown of the endpoints that your application(s) have sent requests to (grouped by resource)
+      </p>
       <Table
         bordered
         scrollable
