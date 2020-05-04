@@ -21,7 +21,10 @@
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
   },
-  "dependencies": {},
+  "dependencies": {
+    "grapesjs": "^0.16.12",
+    "grapesjs-preset-webpage": "^0.1.11"
+  },
   "devDependencies": {
     "@reapit/foundations-ts-definitions": "2020-02-13"
   }
