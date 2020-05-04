@@ -10,6 +10,7 @@ export const COOKIE_DEVELOPER_TERMS_ACCEPTED = 'reapit-developer-term-accepted'
 
 export const COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE = 'reapit-client-first-login-complete'
 export const COOKIE_CLIENT_TERMS_ACCEPTED = 'reapit-client-term-accepted'
+export const COOKIE_CLIENT_IS_LOAD_INSTALLED_APP_FROM_LOGIN = 'reapit-client-from-login-page'
 
 export const COOKIE_DOMAIN_WHITELIST = ['.reapit.cloud', 'localhost']
 

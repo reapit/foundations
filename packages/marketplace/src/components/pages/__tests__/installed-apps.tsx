@@ -10,11 +10,17 @@ import {
   handleOnChange,
   mapStateToProps,
   handleOnCardClick,
+  isFromLoginPage,
 } from '../installed-apps'
 import { ReduxState } from '@/types/core'
 import { handleLaunchApp } from '../../../utils/launch-app'
+import { setCookieString, COOKIE_CLIENT_IS_LOAD_INSTALLED_APP_FROM_LOGIN, getCookieString } from '@/utils/cookie'
 
 jest.mock('../../../utils/launch-app')
+jest.mock('@/utils/cookie', () => ({
+  getCookieString: jest.fn(),
+  setCookieString: jest.fn(),
+}))
 
 const mockProps = (loading: boolean, installedAppsData: InstalledAppsItem | null): InstalledAppsProps => ({
   installedAppsState: {
@@ -62,5 +68,13 @@ describe('InstalledApps', () => {
     handleOnCardClick(appDetailDataStub.data)
     expect(handleLaunchApp).toHaveBeenCalledTimes(1)
     expect(handleLaunchApp).toHaveBeenCalledWith(appDetailDataStub.data)
+  })
+})
+
+describe('should call setCookieString', () => {
+  it('should be call', () => {
+    isFromLoginPage()
+    expect(getCookieString).toHaveBeenCalledWith(COOKIE_CLIENT_IS_LOAD_INSTALLED_APP_FROM_LOGIN)
+    expect(setCookieString).toHaveBeenCalledWith(COOKIE_CLIENT_IS_LOAD_INSTALLED_APP_FROM_LOGIN, '')
   })
 })

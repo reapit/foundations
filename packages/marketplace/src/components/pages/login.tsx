@@ -16,6 +16,9 @@ import {
   getCookieString,
   COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE,
   COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE,
+  COOKIE_MAX_AGE_INFINITY,
+  COOKIE_CLIENT_IS_LOAD_INSTALLED_APP_FROM_LOGIN,
+  setCookieString,
 } from '@/utils/cookie'
 import connectImage from '@/assets/images/reapit-connect.png'
 import { showNotificationMessage } from '@/actions/notification-message'
@@ -83,7 +86,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
       isDeveloperFirstTimeLoginComplete,
       isClientFirstTimeLoginComplete,
     })
-
+    setCookieString(COOKIE_CLIENT_IS_LOAD_INSTALLED_APP_FROM_LOGIN, new Date(), COOKIE_MAX_AGE_INFINITY)
     redirectToLogin(window.reapit.config.cognitoClientId, redirectRoute, loginType)
   }
 
