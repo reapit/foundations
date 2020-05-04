@@ -70,5 +70,12 @@ exports[`DeveloperWebHooks should match a snapshot 1`] = `
       />
     </Component>
   </Component>
+  <Memo()
+    afterClose={[Function]}
+    appId=""
+    closeModal={[Function]}
+    isUpdate={false}
+    visible={false}
+  />
 </Component>
 `;

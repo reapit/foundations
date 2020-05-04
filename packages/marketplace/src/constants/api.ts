@@ -24,6 +24,7 @@ export const URLS = {
   statistics: '/statistics',
   trafficEvents: '/trafficevents',
   desktopIntegrationTypes: '/DesktopIntegrationTypes',
+  webhook: '/webhooks',
   webhookSubscriptions: '/webhooks/subscriptions',
   webhookTopics: '/webhooks/topics',
 }

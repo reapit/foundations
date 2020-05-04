@@ -19,7 +19,9 @@ const props: DeveloperWebhooksProps = {
   subscriptions: [],
   subscriptionsLoading: false,
   topics: [],
-  topicsLoading: false,
+  applicationId: '',
+  setApplicationId: jest.fn(),
+  applications: [],
   fetchTopics: jest.fn(),
   developerState,
 }
@@ -42,6 +44,7 @@ describe('DeveloperWebHooks', () => {
             },
           } as WebhookSubscriptionsState,
           topics: {
+            applicationId: '',
             loading: false,
             error: false,
             topics: {
@@ -53,10 +56,11 @@ describe('DeveloperWebHooks', () => {
       } as ReduxState
 
       const output = {
+        applicationId: '',
         subscriptions: [],
+        applications: input.developer.developerData?.data.data,
         subscriptionsLoading: false,
         topics: [],
-        topicsLoading: false,
         developerState: input.developer,
       }
       const result = mapStateToProps(input)

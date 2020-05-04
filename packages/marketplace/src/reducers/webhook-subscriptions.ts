@@ -6,6 +6,7 @@ import {
   webhookSubscriptionsReceiveData,
   webhookTopicsRequestData,
   webhookTopicsReceiveData,
+  setApplicationId,
 } from '@/actions/webhook-subscriptions'
 
 export interface WebhookModel {
@@ -67,6 +68,7 @@ export interface WebhookSubscriptionsState {
 }
 
 export interface WebhookTopicsState {
+  applicationId: string
   loading: boolean
   error: boolean
   topics: PagedResultTopicModel_
@@ -86,6 +88,7 @@ export const defaultState: WebhookState = {
     },
   },
   topics: {
+    applicationId: '',
     loading: false,
     error: false,
     topics: {
@@ -136,6 +139,12 @@ export const webhookTopicsReducer = (
       loading: false,
       error: false,
       topics: action.data,
+    }
+  }
+  if (isType(action, setApplicationId)) {
+    return {
+      ...state,
+      applicationId: action.data,
     }
   }
 

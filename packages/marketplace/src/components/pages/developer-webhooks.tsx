@@ -18,15 +18,17 @@ import {
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { compose, Dispatch } from 'redux'
 import { Form, Formik } from 'formik'
-import { webhookTopicsRequestData } from '@/actions/webhook-subscriptions'
+import { webhookSubscriptionsRequestData, setApplicationId } from '@/actions/webhook-subscriptions'
 import { WebhookModel, TopicModel } from '@/reducers/webhook-subscriptions'
 import {
   selectSubscriptionsData,
   selectSubscriptionsLoading,
   selectTopicsData,
-  selectTopicsLoading,
+  selectApplicationId,
 } from '@/selector/wehooks'
 import FormikAutoSave from '@/components/hocs/formik-auto-save'
+import WebhookEditModal from '../ui/webhook-edit-modal'
+import { selectDeveloperApps } from '@/selector/developer'
 
 export const columns = [
   {
@@ -51,18 +53,44 @@ export const columns = [
   },
 ]
 
+const MODAL_TYPE = {
+  EDIT: 'EDIT',
+  CREATE: 'CREATE',
+}
+
 export const handleSubscriptionChange = fetchTopics => values => {
   fetchTopics(values.subscriptions)
 }
 
-export const getTableTopicsData = topics => {
-  return topics.map((topic: TopicModel) => ({
-    url: topic.url,
-    topics: topic.associatedScope,
+export const openCreateModal = setModalOpen => () => {
+  setModalOpen(MODAL_TYPE.CREATE)
+}
+export const openEditModal = (setModalOpen, setWebhookId) => (webhookId: string) => {
+  setModalOpen(MODAL_TYPE.EDIT)
+  setWebhookId(webhookId)
+}
+
+export const renderTopicName = (topics: TopicModel[], subscriptionTopicId) => {
+  const webhookTopics = topics?.filter((topic: TopicModel) => topic.id === subscriptionTopicId)
+  const webhookTopicNames = webhookTopics?.map((topic: TopicModel) => topic.name)
+  return webhookTopicNames.join('\n')
+}
+
+export const getTableTopicsData = (subscriptions: WebhookModel[], topics: TopicModel[], onOpenEditModal) => {
+  return subscriptions?.map((subscription: WebhookModel) => ({
+    url: subscription.url,
+    topics: renderTopicName(topics, subscription.topicIds),
     customer: 'All Customers (*)',
     test: 'Ping',
     edit: (
-      <Button dataTest="edit-btn" variant="primary" type="button" onClick={() => {}}>
+      <Button
+        dataTest="edit-btn"
+        variant="primary"
+        type="button"
+        onClick={() => {
+          onOpenEditModal(subscription.id)
+        }}
+      >
         Edit
       </Button>
     ),
@@ -73,7 +101,8 @@ export type StateProps = {
   subscriptions: WebhookModel[]
   subscriptionsLoading: boolean
   topics: TopicModel[]
-  topicsLoading: boolean
+  applicationId: string
+  applications: AppSummaryModel[]
   developerState: DeveloperState
 }
 
@@ -89,18 +118,32 @@ export const mapDeveloperAppsToAppSelectBoxOptions: (
 
 export const DeveloperWebhooks = ({
   fetchTopics,
+  subscriptions,
   subscriptionsLoading,
   topics,
-  topicsLoading,
+  applicationId,
+  // applications,
   developerState,
 }: DeveloperWebhooksProps) => {
+  const [modalType, setModalType] = React.useState<string | undefined>()
+  const [webhookId, setWebhookId] = React.useState<string | undefined>()
+
+  const onOpenCreateModal = openCreateModal(setModalType)
+  const onOpenEditModal = openEditModal(setModalType, setWebhookId)
+  const onCloseModal = React.useCallback(() => setModalType(undefined), [])
+  const afterClose = React.useCallback((): void => {
+    setModalType(undefined)
+    setWebhookId(undefined)
+  }, [])
+
+  // const selectBoxOptions: SelectBoxOptions[] = applications?.map((application: AppSummaryModel) => ({
+  //   label: application.name || '',
+  //   value: application.id || '',
+  // }))
+
   const apps = developerState?.developerData?.data?.data || []
   const unfetched = !developerState.developerData
   const loading = developerState.loading
-
-  if (unfetched || loading || subscriptionsLoading) {
-    return <Loader />
-  }
 
   return (
     <FlexContainerBasic hasPadding>
@@ -129,37 +172,53 @@ export const DeveloperWebhooks = ({
           </Formik>
           <Section>
             <LevelRight>
-              <Button dataTest="logout-btn" variant="primary" type="button" onClick={() => {}}>
+              <Button dataTest="logout-btn" variant="primary" type="button" onClick={onOpenCreateModal}>
                 Add New Webhook
               </Button>
             </LevelRight>
           </Section>
-          {topicsLoading ? (
+          {unfetched || loading || subscriptionsLoading ? (
             <Loader />
           ) : (
-            <Table scrollable columns={columns} data={getTableTopicsData(topics)} loading={false} />
+            <Table
+              scrollable
+              columns={columns}
+              data={getTableTopicsData(subscriptions, topics, onOpenEditModal)}
+              loading={false}
+            />
           )}
         </FormSection>
       </FlexContainerResponsive>
+      <WebhookEditModal
+        visible={!!modalType}
+        isUpdate={modalType === MODAL_TYPE.EDIT}
+        appId={applicationId}
+        webhookId={webhookId}
+        afterClose={afterClose}
+        closeModal={onCloseModal}
+      />
     </FlexContainerBasic>
   )
 }
 
 export type DispatchProps = {
   fetchTopics: (applicationId: string) => void
+  setApplicationId: (applicationId: string) => void
 }
 
 export const mapStateToProps = (state: ReduxState): StateProps => ({
   subscriptions: selectSubscriptionsData(state),
   subscriptionsLoading: selectSubscriptionsLoading(state),
   topics: selectTopicsData(state),
-  topicsLoading: selectTopicsLoading(state),
+  applicationId: selectApplicationId(state),
+  applications: selectDeveloperApps(state),
   developerState: state.developer,
 })
 
 export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
-    fetchTopics: (applicationId: string) => dispatch(webhookTopicsRequestData(applicationId)),
+    fetchTopics: (applicationId: string) => dispatch(webhookSubscriptionsRequestData(applicationId)),
+    setApplicationId: (applicationId: string) => dispatch(setApplicationId(applicationId)),
   }
 }
 
