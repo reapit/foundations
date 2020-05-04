@@ -33,11 +33,15 @@ const CostExplorer: React.FC<CostExplorerProps> = () => {
     <>
       <H4>Cost Explorer: Cost & Usage</H4>
       <Grid>
-        <GridItem className="is-one-quarter">
-          <H6>Month</H6>
-        </GridItem>
-        <GridItem>
-          <CostFilterForm initialValues={initialValues} onSave={onSave} />
+        <GridItem className="is-half-desktop">
+          <Grid>
+            <GridItem className="is-one-quarter">
+              <H6>Month</H6>
+            </GridItem>
+            <GridItem>
+              <CostFilterForm initialValues={initialValues} onSave={onSave} />
+            </GridItem>
+          </Grid>
         </GridItem>
       </Grid>
       <Grid>

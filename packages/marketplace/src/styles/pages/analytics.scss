@@ -26,12 +26,12 @@
 .costCalculatorFormContainer {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  @media screen and (min-width: 1025px) {
-    max-width: 50%;
-  }
+}
+.transactionTitle {
+  margin-bottom: 50px;
 }
 .transactionSection {
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 .serviceChart {
   margin: 0rem 0rem 4rem 0rem;
