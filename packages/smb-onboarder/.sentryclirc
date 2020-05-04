@@ -1,0 +1,6 @@
+[defaults]
+project=smb-onboarder
+org=reapit-ltd
+
+[http]
+keepalive=false

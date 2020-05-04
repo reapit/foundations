@@ -1,0 +1,6 @@
+[defaults]
+project=aml-app
+org=reapit-ltd
+
+[http]
+keepalive=false

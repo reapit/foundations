@@ -12,8 +12,10 @@ const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 
 const tagName = getVersionTag()
 
-module.exports = {
+const webpackConfig = {
   mode: 'development',
+  bail: true,
+  devtool: 'inline-source-map',
   context: process.cwd(),
   entry: ['@babel/polyfill', 'core-js', 'isomorphic-fetch', 'regenerator-runtime/runtime', PATHS.entryWeb],
   output: {
@@ -131,7 +133,6 @@ module.exports = {
       'react-router-dom': require.resolve('react-router-dom'),
     },
   },
-  devtool: 'inline-source-map',
   devServer: {
     contentBase: [path.join(process.cwd(), 'public'), path.join(process.cwd())],
     compress: true,
@@ -153,3 +154,5 @@ module.exports = {
     },
   },
 }
+
+module.exports = webpackConfig
