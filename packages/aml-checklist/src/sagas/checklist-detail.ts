@@ -67,6 +67,24 @@ export const fetchIdentityCheck = async ({ contactId, headers }) => {
   }
 }
 
+export const fetchDocument = async ({ documentId, headers }) => {
+  try {
+    if (!documentId) {
+      return {}
+    }
+    const response = await fetcher({
+      url: `${URLS.documents}/${documentId}`,
+      api: window.reapit.config.platformApiUrl,
+      method: 'GET',
+      headers: headers,
+    })
+    return response
+  } catch (err) {
+    logger(err)
+    return err
+  }
+}
+
 export const updateChecklist = async ({ contact, headers }) => {
   try {
     const formattedContact = formatDateForContact(contact)
@@ -158,6 +176,13 @@ export const fetchInitialData = function*({ data: id }) {
       call(fetchChecklist, { id, headers }),
       call(fetchIdentityCheck, { contactId: id, headers }),
     ])
+    const identityDocument1Id = identityChecks?.identityDocument1?.documentId
+    const identityDocument2Id = identityChecks?.identityDocument1?.documentId
+    const [document1Url, document2Url] = yield all([
+      call(fetchDocument, { documentId: identityDocument1Id, headers }),
+      call(fetchDocument, { documentId: identityDocument2Id, headers }),
+    ])
+    console.log({ document1Url, document2Url })
     yield put(checklistDetailReceiveContact(contact))
     yield put(checklistDetailReceiveIdentityCheck(identityChecks))
   } catch (err) {
@@ -435,6 +460,9 @@ export const updatePrimaryId = function*({ data: { nextSection, identityChecks }
     }
     const responseIdentityCheck = yield call(fetchIdentityCheck, { contactId: contact.id, headers })
     if (responseIdentityCheck) {
+      const identityDocument1Id = responseIdentityCheck?.identityDocument1?.documentId
+      const document1Url = yield call(fetchDocument, { documentId: identityDocument1Id, headers })
+      console.log({ document1Url })
       yield put(checklistDetailReceiveIdentityCheck(responseIdentityCheck))
     }
     if (nextSection) {
@@ -500,6 +528,9 @@ export const updateSecondaryId = function*({
     }
     const responseIdentityCheck = yield call(fetchIdentityCheck, { contactId: contact.id, headers })
     if (responseIdentityCheck) {
+      const identityDocument2Id = responseIdentityCheck?.identityDocument2?.documentId
+      const document2Url = yield call(fetchDocument, { documentId: identityDocument2Id, headers })
+      console.log({ document2Url })
       yield put(checklistDetailReceiveIdentityCheck(responseIdentityCheck))
     }
     if (nextSection) {
