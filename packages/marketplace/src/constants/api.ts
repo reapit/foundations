@@ -36,4 +36,5 @@ export const API_VERSION = '31-01-2020'
 export const initAuthorizedRequestHeaders = async () => ({
   Authorization: `Bearer ${await getAccessToken()}`,
   'api-version': API_VERSION,
+  'Content-Type': 'application/json',
 })
