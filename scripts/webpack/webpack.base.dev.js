@@ -12,7 +12,7 @@ const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 
 const tagName = getVersionTag()
 
-module.exports = {
+const webpackConfig = {
   mode: 'development',
   bail: true,
   devtool: 'inline-source-map',
@@ -154,3 +154,5 @@ module.exports = {
     },
   },
 }
+
+module.exports = webpackConfig

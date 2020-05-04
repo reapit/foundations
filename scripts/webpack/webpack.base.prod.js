@@ -17,7 +17,7 @@ const hashOfCommit = getRef()
 const APP_VERSION = `${tagName.packageName}_${tagName.version}`
 const outputFileName = `[name].${hashOfCommit}.js`
 
-module.exports = {
+const webpackConfig = {
   mode: 'production',
   bail: true,
   context: process.cwd(),
@@ -81,17 +81,6 @@ module.exports = {
       navigateFallback: '/index.html',
       cacheId: process.cwd(),
       cleanupOutdatedCaches: true,
-    }),
-    new SentryWebpackPlugin({
-      release: APP_VERSION,
-      include: './public/dist/',
-      ignore: ['node_modules', 'webpack.config.js'],
-      configFile: '.sentryclirc',
-      debug: true,
-      setCommits: {
-        repo: 'reapit/foundations',
-        auto: true,
-      },
     }),
     new HardSourceWebpackPlugin({
       // each package has its own .webpack-cache
@@ -187,3 +176,20 @@ module.exports = {
     modules: false,
   },
 }
+
+if (process.env.IS_RELEASE) {
+  webpackConfig.plugins.push(
+    new SentryWebpackPlugin({
+      release: APP_VERSION,
+      include: './public/dist/',
+      ignore: ['node_modules', 'webpack.config.js'],
+      configFile: '.sentryclirc',
+      setCommits: {
+        repo: 'reapit/foundations',
+        auto: true,
+      },
+    }),
+  )
+}
+
+module.exports = webpackConfig
