@@ -5,40 +5,52 @@ exports[`CostCalculator should match a snapshot 1`] = `
   <Component>
     Cost Calculator
   </Component>
-  <p
-    className="is-italic"
-  >
-    You can calculate the estimated monthly cost below using our Cost Calculator. Just select the number of endpoints and enter the amount of API calls below. To see the full Foundations Pricing, please click
-     
-    <a
-      href="http://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/foundations-pricing.pdf"
-      rel="noopener noreferrer"
-      target="_blank"
+  <Component>
+    <Component
+      className="is-half-desktop"
     >
-      here
-    </a>
-  </p>
-  <CostCalculatorForm
-    endpointsUsedRange={
-      Object {
-        "tier1": "1-5",
-        "tier2": "6-10",
-        "tier3": "11-20",
-        "tier4": "21-30",
-        "tier5": "31-40",
-        "tier6": "41-50",
-        "tier7": "50+",
-      }
-    }
-    initialValues={
-      Object {
-        "apiCalls": "",
-        "endpointsUsed": "",
-      }
-    }
-    onClear={[Function]}
-    onSubmit={[Function]}
-  />
+      <p
+        className="is-italic"
+      >
+        You can calculate the estimated monthly cost below using our Cost Calculator. Just select the number of endpoints and enter the amount of API calls below. To see the full Foundations Pricing, please click
+         
+        <a
+          href="http://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/foundations-pricing.pdf"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          here
+        </a>
+      </p>
+    </Component>
+  </Component>
+  <Component>
+    <Component
+      className="is-half-desktop"
+    >
+      <CostCalculatorForm
+        endpointsUsedRange={
+          Object {
+            "tier1": "1-5",
+            "tier2": "6-10",
+            "tier3": "11-20",
+            "tier4": "21-30",
+            "tier5": "31-40",
+            "tier6": "41-50",
+            "tier7": "50+",
+          }
+        }
+        initialValues={
+          Object {
+            "apiCalls": "",
+            "endpointsUsed": "",
+          }
+        }
+        onClear={[Function]}
+        onSubmit={[Function]}
+      />
+    </Component>
+  </Component>
   <TotalCostTable
     endpointsUsedRange={
       Object {
