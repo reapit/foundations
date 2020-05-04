@@ -16,6 +16,7 @@
     "typeRoots": ["./node_modules/@types"],
     "types": ["jest", "node", "react"],
     "sourceMap": true,
+    "sourceRoot": "/",
     "inlineSources": true,
     "resolveJsonModule": true
   },
