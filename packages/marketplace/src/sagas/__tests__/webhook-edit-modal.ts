@@ -26,23 +26,23 @@ import errorMessages from '../../../../elements/src/utils/validators/error-messa
 import { setApplicationId } from '@/actions/webhook-subscriptions'
 
 jest.mock('@reapit/elements')
-const ApplicationId = '1161242a-f650-4d1d-aed7-909853fe7ee1'
-const params = { data: ApplicationId }
+const applicationId = '1161242a-f650-4d1d-aed7-909853fe7ee1'
+const params = { data: applicationId }
 const mockHeaders = {
   Authorization: '123',
 }
 describe('developer fetch subscription data', () => {
   const gen = cloneableGenerator(requestSupcriptionData as any)(params)
   expect(gen.next().value).toEqual(put(webhookEditLoading(true)))
-  expect(gen.next().value).toEqual(put(setApplicationId(ApplicationId)))
+  expect(gen.next().value).toEqual(put(setApplicationId(applicationId)))
 
   const header = gen.next().value
   expect(header).toEqual(call(initAuthorizedRequestHeaders))
 
   expect(gen.next(mockHeaders as any).value).toEqual(
     all([
-      call(fetchWebhookSubscriptionTopics, { ApplicationId, headers: mockHeaders }),
-      call(fetchWebhookSubscriptionCustomers, { AppId: ApplicationId }),
+      call(fetchWebhookSubscriptionTopics, { applicationId, headers: mockHeaders }),
+      call(fetchWebhookSubscriptionCustomers, { AppId: applicationId }),
     ]),
   )
 

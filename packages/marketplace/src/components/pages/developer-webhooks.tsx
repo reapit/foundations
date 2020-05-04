@@ -59,7 +59,7 @@ const MODAL_TYPE = {
 }
 
 export const handleSubscriptionChange = fetchTopics => values => {
-  fetchTopics(values.subscriptions)
+  fetchTopics(values.applicationId)
 }
 
 export const openCreateModal = setModalOpen => () => {
@@ -155,13 +155,13 @@ export const DeveloperWebhooks = ({
             molestias illum quod quasi nihil. Modi consectetur praesentium sint quod qui quos soluta repellat porro
             minus.
           </FormSubHeading>
-          <Formik initialValues={{ subscriptions: '' }} enableReinitialize={true} onSubmit={() => {}}>
+          <Formik initialValues={{ applicationId: '' }} enableReinitialize={true} onSubmit={() => {}}>
             {() => (
               <Form>
                 <SelectBox
                   className="pt-2 pb-2"
                   helpText="Please select an App from the list below to view the associated Webhooks:"
-                  name="demo"
+                  name="applicationId"
                   options={mapDeveloperAppsToAppSelectBoxOptions(apps)}
                   labelText="App"
                   id="subscription"

@@ -100,7 +100,7 @@ export const generateCustomerOptions = (customers: CustomerItem[]) => {
 
 export const onCreate = (createWebhook: (data: CreateWebhookParams) => void, appId: string) => values => {
   const params: CreateWebhookParams = {
-    ApplicationId: appId,
+    applicationId: appId,
     url: values.WebhookURL,
     description: '',
     topicIds: values.SubscriptionTopics,
@@ -112,7 +112,7 @@ export const onCreate = (createWebhook: (data: CreateWebhookParams) => void, app
 
 export const onEdit = (editWebhook: (data: EditWebhookParams) => void, webhookId: string, appId: string) => values => {
   const params: EditWebhookParams = {
-    ApplicationId: appId,
+    applicationId: appId,
     webhookId,
     url: values.WebhookURL,
     description: '',

@@ -26,7 +26,7 @@ describe('webhook sagas', () => {
     }
     const gen = cloneableGenerator(webhookSubscriptionsFetch)(applicationIdParam)
     expect(gen.next().value).toEqual(put(setApplicationId(applicationIdParam.data)))
-    expect(gen.next().value).toEqual(call(fetchSubscriptions))
+    expect(gen.next().value).toEqual(call(fetchSubscriptions, applicationIdParam.data))
 
     test('api call success', () => {
       const clone = gen.clone()

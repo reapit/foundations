@@ -7,17 +7,34 @@ export interface SubscriptionCustomersRequestParams {
   AppId: string
 }
 export interface SubscriptionTopicsRequestParams {
-  ApplicationId: string
+  applicationId: string
   headers: StringMap
 }
 
-export interface FetchWebhookDataParams {
+export interface FetchWebhookRequestParams {
   headers: StringMap
   webhookId: string
 }
 
+export interface DeleteWebhookRequestParams {
+  headers: StringMap
+  webhookId: string
+}
+
+export interface WebhookDataRequestParams {
+  webhookId: string
+}
+
+export interface WebhookSubcriptionDataRequest {
+  appId: string
+}
+
+export interface DeleteWebhookParams {
+  applicationId: string
+  webhookId: string
+}
 export interface CreateWebhookParams {
-  ApplicationId: string
+  applicationId: string
   url: string
   description?: string
   topicIds: string[]
@@ -26,20 +43,13 @@ export interface CreateWebhookParams {
 }
 
 export interface EditWebhookParams {
-  ApplicationId: string
-  webhookId: string | undefined
+  applicationId: string
+  webhookId: string
   url: string
   description?: string
   topicIds: string[]
   customerIds: string[]
   active: boolean
-}
-export interface WebhookDataRequestParams {
-  webhookId: string
-}
-
-export interface WebhookSubcriptionDataRequest {
-  appId: string
 }
 
 export const webhookEditLoading = actionCreator<boolean>(ActionTypes.WEBHOOK_EDIT_LOADING)

@@ -20,7 +20,7 @@ exports[`DeveloperWebHooks should match a snapshot 1`] = `
         enableReinitialize={true}
         initialValues={
           Object {
-            "subscriptions": "",
+            "applicationId": "",
           }
         }
         onSubmit={[Function]}

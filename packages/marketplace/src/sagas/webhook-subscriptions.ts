@@ -1,6 +1,6 @@
 import { all, fork, takeLatest, call, put } from 'redux-saga/effects'
 import { URLS, initAuthorizedRequestHeaders } from '@/constants/api'
-import { fetcher } from '@reapit/elements'
+import { fetcher, setQueryParams } from '@reapit/elements'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
 import errorMessages from '@/constants/error-messages'
@@ -11,10 +11,10 @@ import {
   setApplicationId,
 } from '@/actions/webhook-subscriptions'
 
-export const fetchSubscriptions = async () => {
+export const fetchSubscriptions = async (applicationId: string) => {
   const headers = await initAuthorizedRequestHeaders()
   const response = await fetcher({
-    url: `${URLS.webhookSubscriptions}`,
+    url: `${URLS.webhookSubscriptions}?${setQueryParams({ applicationId })}`,
     api: window.reapit.config.platformApiUrl,
     method: 'GET',
     headers: headers,
@@ -36,7 +36,7 @@ export const fetchWebhookTopic = async () => {
 export const webhookSubscriptionsFetch = function*({ data: applicationId }: Action<string>) {
   try {
     yield put(setApplicationId(applicationId))
-    const response = yield call(fetchSubscriptions)
+    const response = yield call(fetchSubscriptions, applicationId)
     if (response) {
       yield put(webhookSubscriptionsReceiveData(response))
     }

@@ -27,7 +27,7 @@ describe('developer webhook actions', () => {
 
   it('should create a developerCreate action', () => {
     const newWebhook: CreateWebhookParams = {
-      ApplicationId: '1161242a-f650-4d1d-aed7-909853fe7ee1',
+      applicationId: '1161242a-f650-4d1d-aed7-909853fe7ee1',
       url: 'https://github.com/',
       description: '',
       topicIds: ['0a795809-8a41-449f-9865-ae0a536db6b7'],

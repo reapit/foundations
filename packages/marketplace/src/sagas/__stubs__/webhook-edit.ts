@@ -34,7 +34,7 @@ export const webhookEditDataStub: WebhookEditState = {
 }
 
 export const createWebhookItem: CreateWebhookParams = {
-  ApplicationId: '',
+  applicationId: '',
   url: '',
   description: '',
   topicIds: [],

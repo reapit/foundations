@@ -86,7 +86,7 @@ describe('WebhookEditModal', () => {
       requestWebhookSubcriptionData('1')
       requestWebhookData('1')
       const values = {
-        ApplicationId: '',
+        applicationId: '',
         url: '',
         description: '',
         topicIds: [],

@@ -95,18 +95,18 @@ describe('DeveloperWebHooks', () => {
   describe('handleSubscriptionChange', () => {
     it('should run correctly', () => {
       const fetchTopics = jest.fn()
-      const values = { subscriptions: '123' }
+      const values = { applicationId: '123' }
       handleSubscriptionChange(fetchTopics)(values)
-      expect(fetchTopics).toHaveBeenCalledWith(values.subscriptions)
+      expect(fetchTopics).toHaveBeenCalledWith(values.applicationId)
     })
   })
 
   describe('getTableTopicsData', () => {
     it('should run correctly', () => {
       const fetchTopics = jest.fn()
-      const values = { subscriptions: '123' }
+      const values = { applicationId: '123' }
       handleSubscriptionChange(fetchTopics)(values)
-      expect(fetchTopics).toHaveBeenCalledWith(values.subscriptions)
+      expect(fetchTopics).toHaveBeenCalledWith(values.applicationId)
     })
   })
 })
