@@ -7,7 +7,9 @@ export type TransactionHistoryProps = {}
 const TransactionHistory: React.FC<TransactionHistoryProps> = () => {
   return (
     <div>
-      <H4>Transaction History</H4>
+      <div className={styles.transactionTitle}>
+        <H4>Transaction History</H4>
+      </div>
       <div className={styles.transactionSection}>
         <H6>This Months Transactions</H6>
         <Grid>
