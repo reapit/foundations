@@ -22,7 +22,7 @@ describe('TrafficEventTable', () => {
     it('should return valid Header, accessor and Footer for each column', () => {
       trafficEventsTableColumns.forEach(({ Header, accessor, columnProps, Footer }, index) => {
         if (index === 0) {
-          expect(Header).toEqual('Endpoint')
+          expect(Header).toEqual('Resource')
           expect(accessor).toEqual('endpoint')
           expect(columnProps?.className).toEqual('capitalize')
           expect(Footer).toEqual('Total')
