@@ -47,6 +47,11 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
             },
             Object {
               "Cell": [Function],
+              "Header": "Created",
+              "accessor": "created",
+            },
+            Object {
+              "Cell": [Function],
               "Header": "",
               "id": "buttonColumn",
             },

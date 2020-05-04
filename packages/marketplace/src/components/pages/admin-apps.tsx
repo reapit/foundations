@@ -20,6 +20,7 @@ import {
   Content,
   FlexContainerBasic,
   DatePicker,
+  toLocalTime,
 } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { AdminAppsState } from '@/reducers/admin-apps'
@@ -59,6 +60,9 @@ export const generateColumns = ({ onChangeFeatured, setDeleteModal, deleteModal 
       Delete
     </Button>
   )
+  const CreatedCell = ({ cell: { value } }) => {
+    return <p>{toLocalTime(value)}</p>
+  }
   return [
     {
       Header: 'AppID',
@@ -87,6 +91,11 @@ export const generateColumns = ({ onChangeFeatured, setDeleteModal, deleteModal 
     {
       Header: 'Direct API',
       accessor: 'isDirectApi',
+    },
+    {
+      Header: 'Created',
+      accessor: 'created',
+      Cell: CreatedCell,
     },
     {
       Header: 'Featured',
