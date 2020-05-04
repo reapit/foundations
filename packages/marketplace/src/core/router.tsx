@@ -16,6 +16,7 @@ const ClientSetting = React.lazy(() => import('../components/pages/settings/clie
 const MyApps = React.lazy(() => import('../components/pages/my-apps'))
 const Register = React.lazy(() => import('../components/pages/register'))
 const DeveloperHome = React.lazy(() => import('../components/pages/developer-home'))
+const DeveloperAppDetail = React.lazy(() => import('../components/pages/developer-app-detail'))
 const DeveloperSubmitApp = React.lazy(() => import('../components/pages/developer-submit-app'))
 const AdminApprovalsPage = React.lazy(() => import('../components/pages/admin-approvals'))
 const AdminDevManagementPage = React.lazy(() => import('../components/pages/admin-dev-management'))
@@ -58,13 +59,7 @@ const Router = () => {
               <PrivateRoute allow="CLIENT" path={Routes.CLIENT_SETTINGS} exact fetcher component={ClientSetting} />
 
               <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_MY_APPS} component={DeveloperHome} exact fetcher />
-              <PrivateRoute
-                allow="DEVELOPER"
-                path={Routes.DEVELOPER_MY_APPS_PAGINATE}
-                component={DeveloperHome}
-                exact
-                fetcher
-              />
+              <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_APP_DETAIL} component={DeveloperAppDetail} exact />
               <PrivateRoute
                 allow="DEVELOPER"
                 path={Routes.DEVELOPER_MY_APPS_EDIT}

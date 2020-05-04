@@ -56,9 +56,6 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(submitAppRequestData())
       store.dispatch(appDetailRequestData({ id }))
       break
-    case Routes.DEVELOPER_MY_APPS_PAGINATE:
-      store.dispatch(developerRequestData({ page: params && params.page ? Number(params.page) : 1 }))
-      break
     case Routes.ADMIN_APPROVALS:
       store.dispatch(adminApprovalsRequestData(1))
       break

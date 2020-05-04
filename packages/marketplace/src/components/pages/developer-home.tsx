@@ -12,11 +12,14 @@ import { appDetailRequestData, removeAuthenticationCode } from '@/actions/app-de
 import DeveloperAppModal from '../ui/developer-app-modal'
 import { setDeveloperAppModalStateViewDetail, developerAppShowModal } from '@/actions/developer-app-modal'
 import { appDeleteSetInitFormState } from '@/actions/app-delete'
+import { developerRequestData } from '@/actions/developer'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { SandboxPopUp } from '../ui/sandbox-pop-up'
+import { getParamValueFromPath } from '@/utils/client-url-params'
 
 export interface DeveloperMappedActions {
   fetchAppDetail: (id: string) => void
+  fetchDeveloperApps: (page: number) => void
   setDeveloperAppModalStateViewDetail: () => void
   appDeleteSetInitFormState: () => void
   setVisible: (isVisible: boolean) => void
@@ -49,14 +52,14 @@ export const handleAfterClose = ({ setVisible, removeAuthenticationCode }) => ()
   setVisible(false)
 }
 
-export const handleOnChange = history => (page: number) => history.push(`${routes.DEVELOPER_MY_APPS}/${page}`)
+export const handleOnChange = history => (page: number) => history.push(`${routes.DEVELOPER_MY_APPS}?page=${page}`)
 
 export type DeveloperProps = DeveloperMappedActions & DeveloperMappedProps & RouteComponentProps<{ page?: any }>
 
 export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
   developerState,
-  match,
   fetchAppDetail,
+  fetchDeveloperApps,
   setDeveloperAppModalStateViewDetail,
   appDeleteSetInitFormState,
   appDetail,
@@ -64,12 +67,25 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
   isVisible,
   setVisible,
   removeAuthenticationCode,
+  location,
 }) => {
-  const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 1
+  const pageNumber =
+    !isNaN(Number(getParamValueFromPath(location.search, 'page'))) &&
+    Number(getParamValueFromPath(location.search, 'page')) > 0
+      ? Number(getParamValueFromPath(location.search, 'page'))
+      : 1
   const unfetched = !developerState.developerData
   const loading = developerState.loading
   const list = developerState?.developerData?.data?.data || []
   const { totalCount, pageSize } = developerState?.developerData?.data || {}
+
+  console.log('pageNumber', pageNumber)
+  React.useEffect(() => {
+    if (unfetched) {
+      return
+    }
+    fetchDeveloperApps(pageNumber)
+  }, [pageNumber, unfetched])
 
   if (unfetched || loading) {
     return <Loader />
@@ -115,6 +131,7 @@ export const mapStateToProps = (state: ReduxState): DeveloperMappedProps => ({
 
 export const mapDispatchToProps = (dispatch: any): DeveloperMappedActions => ({
   fetchAppDetail: (id: string) => dispatch(appDetailRequestData({ id })),
+  fetchDeveloperApps: (page: number) => dispatch(developerRequestData({ page })),
   setDeveloperAppModalStateViewDetail: () => dispatch(setDeveloperAppModalStateViewDetail()),
   appDeleteSetInitFormState: () => dispatch(appDeleteSetInitFormState()),
   setVisible: (isVisible: boolean) => dispatch(developerAppShowModal(isVisible)),

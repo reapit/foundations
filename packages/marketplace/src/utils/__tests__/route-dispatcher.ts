@@ -54,11 +54,6 @@ describe('routeDispatcher', () => {
     expect(store.dispatch).toHaveBeenCalledWith(developerRequestData({ page: 1 }))
   })
 
-  it('should dispatch to developerRequestData for the developer paginate route', async () => {
-    await routeDispatcher(Routes.DEVELOPER_MY_APPS_PAGINATE as RouteValue, { page: '2' })
-    expect(store.dispatch).toHaveBeenCalledWith(developerRequestData({ page: 2 }))
-  })
-
   it('should dispatch to adminApprovalsRequestData for the admin approvals data route', async () => {
     await routeDispatcher(Routes.ADMIN_APPROVALS as RouteValue)
     expect(store.dispatch).toHaveBeenCalledWith(adminApprovalsRequestData(1))
