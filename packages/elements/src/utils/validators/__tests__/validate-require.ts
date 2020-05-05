@@ -79,7 +79,7 @@ describe('validate empty', () => {
   it('work correctly', () => {
     expect(dropdownSelectFieldValidateRequire('')).toEqual(errorMessages.FIELD_REQUIRED)
     expect(dropdownSelectFieldValidateRequire([])).toEqual(errorMessages.FIELD_REQUIRED)
-    expect(dropdownSelectFieldValidateRequire(['asd'])).toEqual(null)
-    expect(dropdownSelectFieldValidateRequire('asd')).toEqual(null)
+    expect(dropdownSelectFieldValidateRequire(['asd'])).toEqual('')
+    expect(dropdownSelectFieldValidateRequire('asd')).toEqual('')
   })
 })

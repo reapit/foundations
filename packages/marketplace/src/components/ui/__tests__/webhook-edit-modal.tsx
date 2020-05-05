@@ -9,6 +9,7 @@ import WebhookCreateModal, {
   mapDispatchToProps,
   generateCustomerOptions,
   generateTopicOptions,
+  FormValuesType,
 } from '../webhook-edit-modal'
 import { webhookItemDataStub } from '@/sagas/__stubs__/webhook-edit'
 import { TopicItem, CustomerItem } from '@/reducers/webhook-edit-modal'
@@ -53,11 +54,10 @@ describe('WebhookEditModal', () => {
     const webhookId = ''
     const appId = ''
     const fn = onEdit(editWebhook, webhookId, appId)
-    const values = {
-      url: '',
-      description: '',
-      topicIds: [],
-      customerIds: [],
+    const values: FormValuesType = {
+      WebhookURL: '',
+      SubscriptionTopics: [],
+      SubscriptionCustomers: [],
       active: false,
     }
     fn(values)
@@ -68,10 +68,9 @@ describe('WebhookEditModal', () => {
     const webhookId = ''
     const fn = onCreate(createWebhook, webhookId)
     const values = {
-      url: '',
-      description: '',
-      topicIds: [],
-      customerIds: [],
+      WebhookURL: '',
+      SubscriptionTopics: [],
+      SubscriptionCustomers: [],
       active: false,
     }
     fn(values)

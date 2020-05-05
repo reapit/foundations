@@ -22,7 +22,7 @@ export const fieldValidateRequire = (value: string) => {
   }
   return errorMessages.FIELD_REQUIRED
 }
-export function isEmpty(value: string | string[]) {
+export function isEmpty(value: string | string[]): boolean {
   return (
     value === undefined ||
     value === null ||
@@ -30,9 +30,9 @@ export function isEmpty(value: string | string[]) {
     (typeof value === 'string' && value.trim().length === 0)
   )
 }
-export const dropdownSelectFieldValidateRequire = (value: string | string[]) => {
+export const dropdownSelectFieldValidateRequire = (value: string | string[]): string => {
   if (!isEmpty(value)) {
-    return null
+    return ''
   }
   return errorMessages.FIELD_REQUIRED
 }

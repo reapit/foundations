@@ -58,28 +58,38 @@ const MODAL_TYPE = {
   CREATE: 'CREATE',
 }
 
-export const handleSubscriptionChange = fetchTopics => values => {
+export const handleSubscriptionChange = fetchTopics => (values): void => {
   fetchTopics(values.applicationId)
 }
 
-export const openCreateModal = setModalOpen => () => {
-  setModalOpen(MODAL_TYPE.CREATE)
+export const openCreateModal = (setModalType: React.Dispatch<string>) => (): void => {
+  setModalType(MODAL_TYPE.CREATE)
 }
-export const openEditModal = (setModalOpen, setWebhookId) => (webhookId: string) => {
-  setModalOpen(MODAL_TYPE.EDIT)
+
+type Callback = (webhookId: string) => void
+
+export type OpenEditModalParams = {
+  setModalType: React.Dispatch<string | undefined>
+  setWebhookId: React.Dispatch<string | undefined>
+}
+export const openEditModal = ({ setModalType, setWebhookId }: OpenEditModalParams) => (webhookId: string): void => {
+  setModalType(MODAL_TYPE.EDIT)
   setWebhookId(webhookId)
 }
 
-export const renderTopicName = (topics: TopicModel[], subscriptionTopicId) => {
-  const webhookTopics = topics?.filter((topic: TopicModel) => topic.id === subscriptionTopicId)
-  const webhookTopicNames = webhookTopics?.map((topic: TopicModel) => topic.name)
-  return webhookTopicNames.join('\n')
+export const renderTopicName = (subscriptionTopicIds: string[]) => {
+  return subscriptionTopicIds.join('\n')
 }
 
-export const getTableTopicsData = (subscriptions: WebhookModel[], topics: TopicModel[], onOpenEditModal) => {
+type GetTableTopicsDataParams = {
+  subscriptions: WebhookModel[]
+  onOpenEditModal: (webhookId: string) => void
+}
+
+export const getTableTopicsData = ({ subscriptions, onOpenEditModal }: GetTableTopicsDataParams) => {
   return subscriptions?.map((subscription: WebhookModel) => ({
     url: subscription.url,
-    topics: renderTopicName(topics, subscription.topicIds),
+    topics: renderTopicName(subscription.topicIds),
     customer: 'All Customers (*)',
     test: 'Ping',
     edit: (
@@ -120,26 +130,19 @@ export const DeveloperWebhooks = ({
   fetchTopics,
   subscriptions,
   subscriptionsLoading,
-  topics,
   applicationId,
-  // applications,
   developerState,
 }: DeveloperWebhooksProps) => {
   const [modalType, setModalType] = React.useState<string | undefined>()
   const [webhookId, setWebhookId] = React.useState<string | undefined>()
 
   const onOpenCreateModal = openCreateModal(setModalType)
-  const onOpenEditModal = openEditModal(setModalType, setWebhookId)
+  const onOpenEditModal = openEditModal({ setModalType, setWebhookId })
   const onCloseModal = React.useCallback(() => setModalType(undefined), [])
   const afterClose = React.useCallback((): void => {
     setModalType(undefined)
     setWebhookId(undefined)
   }, [])
-
-  // const selectBoxOptions: SelectBoxOptions[] = applications?.map((application: AppSummaryModel) => ({
-  //   label: application.name || '',
-  //   value: application.id || '',
-  // }))
 
   const apps = developerState?.developerData?.data?.data || []
   const unfetched = !developerState.developerData
@@ -183,7 +186,7 @@ export const DeveloperWebhooks = ({
             <Table
               scrollable
               columns={columns}
-              data={getTableTopicsData(subscriptions, topics, onOpenEditModal)}
+              data={getTableTopicsData({ subscriptions, onOpenEditModal })}
               loading={false}
             />
           )}

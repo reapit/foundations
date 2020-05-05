@@ -24,7 +24,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
   const id = params && params.appid ? params.appid : ''
   const queryParams = new URLSearchParams(search)
   const appId = queryParams.get('appId')
-  const ALL_APPS_NUMBER = 999
+  const PAGE_SIZE_FOR_ALL_APPS = 999
 
   switch (route) {
     case Routes.CLIENT:
@@ -90,7 +90,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(requestDeveloperData())
       break
     case Routes.DEVELOPER_WEBHOOKS:
-      store.dispatch(developerRequestData({ page: 1, appsPerPage: ALL_APPS_NUMBER } as DeveloperRequestParams))
+      store.dispatch(developerRequestData({ page: 1, appsPerPage: PAGE_SIZE_FOR_ALL_APPS } as DeveloperRequestParams))
       store.dispatch(webhookTopicsRequestData())
       break
     case Routes.DEVELOPER_HELP:

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
+import { Dispatch } from 'redux'
 import {
   Modal,
   Button,
@@ -98,7 +99,9 @@ export const generateCustomerOptions = (customers: CustomerItem[]) => {
   )
 }
 
-export const onCreate = (createWebhook: (data: CreateWebhookParams) => void, appId: string) => values => {
+export const onCreate = (createWebhook: (data: CreateWebhookParams) => void, appId: string) => (
+  values: FormValuesType,
+) => {
   const params: CreateWebhookParams = {
     applicationId: appId,
     url: values.WebhookURL,
@@ -110,7 +113,9 @@ export const onCreate = (createWebhook: (data: CreateWebhookParams) => void, app
   createWebhook(params)
 }
 
-export const onEdit = (editWebhook: (data: EditWebhookParams) => void, webhookId: string, appId: string) => values => {
+export const onEdit = (editWebhook: (data: EditWebhookParams) => void, webhookId: string, appId: string) => (
+  values: FormValuesType,
+) => {
   const params: EditWebhookParams = {
     applicationId: appId,
     webhookId,
@@ -131,6 +136,13 @@ export type WebhookModalInnerProps = WebhookModalInnerMappedAction &
     closeModal?: () => void
   }
 
+export type FormValuesType = {
+  WebhookURL: string
+  SubscriptionTopics: string[]
+  SubscriptionCustomers: string[]
+  active: boolean
+}
+
 export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps> = ({
   isUpdate = false,
   closeModal,
@@ -144,7 +156,7 @@ export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps> 
 }) => {
   const modalConfig = isUpdate ? EDIT_MODAL : CREATE_MODAL
 
-  const initFormValues = {
+  const initFormValues: FormValuesType = {
     WebhookURL: webhookData?.url,
     SubscriptionTopics: webhookData?.topicIds,
     SubscriptionCustomers: webhookData?.customerIds,
@@ -263,7 +275,7 @@ export const mapStateToProps = (state: ReduxState): StateProps => ({
   webhookData: selectWebhookData(state),
 })
 
-export const mapDispatchToProps = (dispatch: any): WebhookModalInnerMappedAction => {
+export const mapDispatchToProps = (dispatch: Dispatch): WebhookModalInnerMappedAction => {
   return {
     requestWebhookSubcriptionData: (appId: string) => dispatch(requestWebhookSubcriptionData(appId)),
     createWebhook: (data: CreateWebhookParams) => dispatch(createWebhook(data)),
