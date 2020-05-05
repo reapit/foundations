@@ -5,6 +5,7 @@ import store from './store'
 import * as React from 'react'
 
 const App = () => {
+  const bindedWindowLocation = React.useMemo(() => window.location.reload.bind(window.location), [])
   const { isNewVersionAvailable } = useOfflinePLugin()
 
   return (
@@ -15,7 +16,7 @@ const App = () => {
           preventClose={true}
           visible={isNewVersionAvailable}
           variant="primary"
-          onCloseToast={location.reload}
+          onCloseToast={bindedWindowLocation}
           /* eslint-disable-next-line max-len */
           message="A new version is available. Please refresh your browser or click on this notification to receive the latest update."
         />

@@ -19,9 +19,6 @@ const releaseDev = () => {
     }
 
     const distPath = path.resolve(__dirname, '../../', 'packages', packageName, 'public', 'dist')
-    // This command remove the old version file in bucket
-    runCommand('aws', ['s3', 'rm', '--recursive', `s3://${bucketName}`])
-    // Remove source map files
     runCommand('rimraf', [`${distPath}/**/*.map`])
     // Copy new version to the bucket
     runCommand('aws', [

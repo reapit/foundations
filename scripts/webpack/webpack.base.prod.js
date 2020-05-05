@@ -2,7 +2,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const CopyPlugin = require('copy-webpack-plugin')
-const { GenerateSW } = require('workbox-webpack-plugin')
 const path = require('path')
 const SentryWebpackPlugin = require('@sentry/webpack-plugin')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
@@ -75,13 +74,6 @@ const webpackConfig = {
       APP_VERSION: APP_VERSION,
     }),
     new HashedModuleIdsPlugin(),
-    new GenerateSW({
-      clientsClaim: true,
-      skipWaiting: true,
-      navigateFallback: '/index.html',
-      cacheId: process.cwd(),
-      cleanupOutdatedCaches: true,
-    }),
     new HardSourceWebpackPlugin({
       // each package has its own .webpack-cache
       cacheDirectory: `${PATHS.cacheWebpackDir}/hard-source/[confighash]`,
@@ -93,7 +85,7 @@ const webpackConfig = {
       },
     }),
     new OfflinePlugin({
-      autoUpdate: 1000 * 10,
+      autoUpdate: 1000 * 60 * 2,
       ServiceWorker: {
         events: true,
       },
