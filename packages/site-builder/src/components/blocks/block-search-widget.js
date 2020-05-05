@@ -1,20 +1,21 @@
-// import { blockImage } from './block-image'
-
 export const blockSearchWidget = {
   // id: 'search-widget',
   label: 'Search Widget',
   // draggable: true,
   attributes: { 'data-gjs-type': 'search-widget' },
   content: {
-    script: function() {
-      // alert('{[blockImage]} ')
+    script: `
       const styles = document.createElement('link')
+      const id = this.id
       styles.href = 'https://web-components.reapit.cloud/search-widget.css'
       styles.rel = 'stylesheet'
       document.head.appendChild(styles)
 
-      const initializeWidget = () => {
-        // alert(this.id)
+      const script = document.createElement('script')
+      script.src = 'https://web-components.reapit.cloud/search-widget.js'
+      script.async = true
+      script.defer = true
+      script.onload = () => {
         new window.ReapitSearchWidgetComponent({
           theme: {
             baseBackgroundColor: '#fff',
@@ -37,17 +38,11 @@ export const blockSearchWidget = {
             },
           },
           apiKey: '',
-          parentSelector: `#${this.id}`,
+          parentSelector: '#' + id,
         })
       }
-
-      const script = document.createElement('script')
-      script.src = 'https://web-components.reapit.cloud/search-widget.js'
-      script.async = true
-      script.defer = true
-      script.onload = initializeWidget
       document.body.appendChild(script)
-    },
+    `,
     style: {
       display: 'flex',
     },
