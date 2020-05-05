@@ -1,7 +1,7 @@
 const webpackBase = require('../webpack.base.prod')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { buildCssFilePath } = require('../build-element-scss')
-const { getRef } = require('../release/utils')
+const { getRef } = require('../../release/utils')
 const hashOfCommit = getRef()
 const outputCSSFileName = `css/[name].${hashOfCommit}.css`
 

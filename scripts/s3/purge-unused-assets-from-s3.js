@@ -1,5 +1,5 @@
 const s3 = require('aws-sdk/clients/s3')
-const { execSync } = require('child_process')
+const { runCommand } = require('../../scripts/release/utils')
 
 const { AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY } = process.env
 
@@ -11,13 +11,10 @@ const client = new s3({
 })
 
 const getTwoPreviousCommitsHash = () => {
-  const stdOutExecSync = execSync('git rev-list --reverse --branches=mater HEAD | tail -2')
-  const parsedStdOutExecSync = stdOutExecSync
-    .toString()
-    .trim()
-    .split('\n')
+  const commitHeadHash = runCommand('git', ['rev-parse', '--short', 'HEAD'])
+  const commitHeadMinus1Hash = runCommand('git', ['rev-parse', '--short', 'HEAD^1'])
 
-  return parsedStdOutExecSync
+  return [commitHeadHash, commitHeadMinus1Hash]
 }
 
 const filterS3ObjectKeysNotBelongToHashesOrIgnoreFiles = (s3Objects, hashes) =>
