@@ -1,5 +1,15 @@
+const { compilerOptions } = require('./tsconfig')
+
 module.exports = {
   preset: 'ts-jest',
+  globals: {
+    'ts-jest': {
+      tsConfig: {
+        ...compilerOptions,
+        allowJs: true,
+      },
+    },
+  },
   setupFiles: ['<rootDir>/src/scripts/jest-setup.js'],
   testPathIgnorePatterns: ['<rootDir>/src/scripts'],
   collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/src/**/*.svelte'],

@@ -9,7 +9,6 @@
     "types": ["svelte", "jest", "node", "googlemaps"],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "allowJs": true
+    "resolveJsonModule": true
   }
 }
