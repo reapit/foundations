@@ -77,9 +77,9 @@ export const renderShowApiKeyForWebComponent = ({
 const AppContent: React.FC<AppContentProps> = ({ appDetailData, loginType }) => {
   const {
     externalId,
-    developer,
     isListed,
     id,
+    developer,
     authFlow,
     isWebComponent,
     apiKey,
@@ -113,13 +113,13 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailData, loginType }) => 
 
   return (
     <Grid>
-      <GridItem className="is-3">
-        <div className={styles.listed}>
-          <H6>{developer}</H6>
-        </div>
+      <GridItem className="is-4">
         {isCurrentLoggedUserDeveloper && (
           <>
-            <p className={styles.appInfo}>App Information</p>
+            <div key="app-developer" className={styles.appInfoRow}>
+              <p className={styles.appInfoProperty}>Developer:</p>
+              <p>{developer}</p>
+            </div>
             <div key="app-id" className={styles.appInfoRow}>
               <p className={styles.appInfoProperty}>Client ID:</p>
               <p>{externalId}</p>
@@ -140,7 +140,9 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailData, loginType }) => 
           isCurrentLoggedUserDeveloper,
         })}
       </GridItem>
-      <GridItem className="is-9">
+      <GridItem className="is-8">
+        <p>{description}</p>
+        <br />
         {carouselImages.length > 0 && (
           <div className={carouselStyles.container}>
             <Slider {...settings}>
@@ -153,9 +155,6 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailData, loginType }) => 
           </div>
         )}
         <br />
-        <p>{description}</p>
-        <br />
-
         <H6>
           {isCurrentLoggedUserDeveloper && 'Permissions requested'}
           {isCurrentLoggedUserClient && (installedOn ? 'Permissions granted' : 'Permissions required')}
