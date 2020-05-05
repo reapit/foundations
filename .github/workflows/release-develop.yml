@@ -14,7 +14,7 @@ env:
   SENTRY_AUTH_TOKEN: ${{secrets.SENTRY_AUTH_TOKEN}}
   REAPIT_ENV: DEV
   CI: true
-  SLS_DEBUG: '*'
+  IS_RELEASE: true
 
 jobs:
   release_develop:

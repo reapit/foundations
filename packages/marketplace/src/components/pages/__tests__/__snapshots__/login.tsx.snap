@@ -15,26 +15,6 @@ exports[`Login should match a snapshot 1`] = `
       Welcome to Reapit 
       Marketplace
     </p>
-    <div>
-      <Component
-        tabConfigs={
-          Array [
-            Object {
-              "active": true,
-              "displayText": "Client",
-              "onTabClick": [Function],
-              "tabIdentifier": "CLIENT",
-            },
-            Object {
-              "active": false,
-              "displayText": "Developer",
-              "onTabClick": [Function],
-              "tabIdentifier": "DEVELOPER",
-            },
-          ]
-        }
-      />
-    </div>
     <Component>
       <Component
         dataTest="login-button"

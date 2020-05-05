@@ -11,7 +11,16 @@ const compileTemplate = async () => {
     const ejsTemplate = await fs.readFileSync(ejsFileDir, { encoding: 'utf8' })
 
     const template = ejs.compile(ejsTemplate)
-    const html = template({ API_KEY: config.API_KEY, CDN_URL: config.CDN_URL })
+
+    let CDN_URL = config.CDN_URL
+    const env = process.env.NODE_ENV
+
+    if (env === 'DEV') {
+      CDN_URL = 'http://localhost:5000'
+    }
+
+    const html = template({ API_KEY: config.API_KEY, CDN_URL })
+
     fs.mkdirSync(distDir, { recursive: true })
     fs.writeFileSync(indexHtmlDir, html)
   } catch (err) {
