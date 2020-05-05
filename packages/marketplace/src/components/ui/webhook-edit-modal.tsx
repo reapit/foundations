@@ -30,6 +30,7 @@ import {
   requestWebhookData,
   webhookDataClear,
   deleteWebhook,
+  DeleteWebhookParams,
 } from '@/actions/webhook-edit-modal'
 import { WebhookModal, CustomerItem, TopicItem } from '@/reducers/webhook-edit-modal'
 import { selectTopics, selectWebhookData, selectLoading, selectCustomers } from '@/selector/webhook-edit'
@@ -58,7 +59,7 @@ export interface WebhookModalInnerMappedAction {
   createWebhook: (data: CreateWebhookParams) => void
   editWebhook: (data: EditWebhookParams) => void
   webhookDataClear: () => void
-  deleteWebhook: (webhookId: string) => void
+  deleteWebhook: (data: DeleteWebhookParams) => void
 }
 
 export const WebhookEditModal: React.FunctionComponent<WebhookEditProps> = ({
@@ -176,7 +177,7 @@ export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps> 
   }, [])
 
   const onSubmit = isUpdate ? onEdit(props.editWebhook, webhookId, appId) : onCreate(props.createWebhook, appId)
-  const onDelete = () => props.deleteWebhook(webhookId)
+  const onDelete = () => props.deleteWebhook({ webhookId, applicationId: appId })
   if (loading) return <Loader />
   return (
     <Formik initialValues={initFormValues} onSubmit={onSubmit}>
@@ -280,7 +281,7 @@ export const mapDispatchToProps = (dispatch: Dispatch): WebhookModalInnerMappedA
     requestWebhookSubcriptionData: (appId: string) => dispatch(requestWebhookSubcriptionData(appId)),
     createWebhook: (data: CreateWebhookParams) => dispatch(createWebhook(data)),
     editWebhook: (data: EditWebhookParams) => dispatch(editWebhook(data)),
-    deleteWebhook: (webhookId: string) => dispatch(deleteWebhook(webhookId)),
+    deleteWebhook: (data: DeleteWebhookParams) => dispatch(deleteWebhook(data)),
     requestWebhookData: (webhookId: string) => dispatch(requestWebhookData(webhookId)),
     webhookDataClear: () => dispatch(webhookDataClear()),
   }

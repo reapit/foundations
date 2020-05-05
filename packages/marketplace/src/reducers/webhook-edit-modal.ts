@@ -6,6 +6,7 @@ import {
   webhookEditLoading,
   requestWebhookReceiveData,
   webhookDataClear,
+  webhookSetOpenModal,
 } from '../actions/webhook-edit-modal'
 
 export interface WebhookModal {
@@ -63,11 +64,13 @@ export interface WebhookSubscription {
 
 export type WebhookEditState = WebhookSubscription & {
   loading: boolean
+  modalType: string
   webhookData: WebhookModal
 }
 
 export const defaultState: WebhookEditState = {
   loading: false,
+  modalType: '',
   subcriptionCustomers: {
     data: [],
     pageNumber: 0,
@@ -121,6 +124,12 @@ const WebhookEditReducer = (state: WebhookEditState = defaultState, action: Acti
   }
   if (isType(action, webhookDataClear)) {
     return defaultState
+  }
+  if (isType(action, webhookSetOpenModal)) {
+    return {
+      ...state,
+      modalType: action.data,
+    }
   }
   return state
 }

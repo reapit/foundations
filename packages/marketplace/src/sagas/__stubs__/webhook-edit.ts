@@ -31,6 +31,7 @@ export const webhookEditDataStub: WebhookEditState = {
   ...webhookDataStub,
   webhookData: webhookItemDataStub,
   loading: false,
+  modalType: '',
 }
 
 export const createWebhookItem: CreateWebhookParams = {

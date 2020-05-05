@@ -24,6 +24,8 @@ const props: DeveloperWebhooksProps = {
   applications: [],
   fetchTopics: jest.fn(),
   developerState,
+  modalType: '',
+  webhookSetOpenModal: jest.fn(),
 }
 
 describe('DeveloperWebHooks', () => {
@@ -53,6 +55,9 @@ describe('DeveloperWebHooks', () => {
           } as WebhookTopicsState,
         },
         developer: developerState,
+        webhookEdit: {
+          modalType: '',
+        },
       } as ReduxState
 
       const output = {
@@ -62,6 +67,7 @@ describe('DeveloperWebHooks', () => {
         subscriptionsLoading: false,
         topics: [],
         developerState: input.developer,
+        modalType: '',
       }
       const result = mapStateToProps(input)
       expect(result).toEqual(output)

@@ -16,6 +16,7 @@ import {
   FetchWebhookRequestParams,
   DeleteWebhookParams,
   DeleteWebhookRequestParams,
+  webhookSetOpenModal,
 } from '@/actions/webhook-edit-modal'
 import { logger } from 'logger'
 import errorMessages from '../constants/error-messages'
@@ -162,6 +163,7 @@ export const createNewWebhook = function*({ data }: Action<CreateWebhookParams>)
     const createResponse = yield call(postCreateWebhook, data)
     let newListResponse = false
     if (createResponse) {
+      yield put(webhookSetOpenModal(''))
       const { applicationId } = data
       newListResponse = yield call(fetchSubscriptions, applicationId)
     }
@@ -184,6 +186,7 @@ export const editWebhook = function*({ data }: Action<EditWebhookParams>) {
     const editResponse = yield call(putEditWebhook, data)
     let newListResponse = false
     if (editResponse) {
+      yield put(webhookSetOpenModal(''))
       const { applicationId } = data
       newListResponse = yield call(fetchSubscriptions, applicationId)
     }
@@ -205,9 +208,10 @@ export const deleteWebhook = function*({ data }: Action<DeleteWebhookParams>) {
   try {
     const { webhookId, applicationId } = data
     const headers = yield call(initAuthorizedRequestHeaders)
-    const editResponse = yield call(deleteEditWebhook, { webhookId, headers })
+    const deleteResponse = yield call(deleteEditWebhook, { webhookId, headers })
     let newListResponse = false
-    if (editResponse) {
+    if (deleteResponse) {
+      yield put(webhookSetOpenModal(''))
       newListResponse = yield call(fetchSubscriptions, applicationId)
     }
     if (newListResponse) {
