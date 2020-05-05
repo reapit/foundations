@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HTMLRender should render match to snapshot 1`] = `
-<Component>
+<Component
+  className=""
+>
   
         
   <div
