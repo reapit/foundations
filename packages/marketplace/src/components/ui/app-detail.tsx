@@ -3,7 +3,17 @@ import Slider, { Settings } from 'react-slick'
 import { FaCheck, FaTimes, FaCopy } from 'react-icons/fa'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { connect } from 'react-redux'
-import { Tile, ModalHeader, ModalBody, ModalFooter, H6, GridThreeColItem, Grid, SubTitleH6 } from '@reapit/elements'
+import {
+  Tile,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  H6,
+  GridThreeColItem,
+  Grid,
+  SubTitleH6,
+  HTMLRender,
+} from '@reapit/elements'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { ReduxState } from '@/types/core'
 import ChevronLeftIcon from '@/components/svg/chevron-left'
@@ -200,7 +210,7 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
               </div>
             )}
             <br />
-            <p>{description}</p>
+            <HTMLRender html={description || ''} />
             <br />
 
             <H6>

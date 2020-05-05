@@ -48,7 +48,9 @@ exports[`AppDetailModalInner should match a snapshot 1`] = `
           </div>
         </React.Fragment>
         <br />
-        <p />
+        <Unknown
+          html=""
+        />
         <br />
         <Unknown>
           Permissions requested
