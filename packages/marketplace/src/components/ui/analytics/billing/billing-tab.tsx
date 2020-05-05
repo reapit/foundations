@@ -23,7 +23,7 @@ export const BillingTab: React.FC<BillingTabProps> = () => {
             </GridItem>
           </Grid>
           <Grid>
-            <GridItem className="is-half">
+            <GridItem>
               <CostExplorer />
             </GridItem>
           </Grid>

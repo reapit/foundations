@@ -17,6 +17,7 @@ import {
   FlexContainerBasic,
   H3,
   Content,
+  toLocalTime,
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import AdminDevManagementFilterForm, {
@@ -82,6 +83,7 @@ export const AdminDevManagement: React.FC<AdminDevManagementProps> = ({
       </Button>
     )
   }
+  const CreatedCell = ({ cell: { value } }) => <p>{toLocalTime(value)}</p>
 
   const columns = [
     {
@@ -94,6 +96,11 @@ export const AdminDevManagement: React.FC<AdminDevManagementProps> = ({
     { Header: 'Job Title', accessor: 'jobTitle' },
     { Header: 'Email', accessor: 'email' },
     { Header: 'Phone', accessor: 'telephone' },
+    {
+      Header: 'Created',
+      accessor: 'created',
+      Cell: CreatedCell,
+    },
     {
       Header: '',
       id: 'buttonColumn',

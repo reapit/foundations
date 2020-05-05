@@ -7,7 +7,9 @@ export type TransactionHistoryProps = {}
 const TransactionHistory: React.FC<TransactionHistoryProps> = () => {
   return (
     <div>
-      <H4>Transaction History</H4>
+      <div className={styles.transactionTitle}>
+        <H4>Transaction History</H4>
+      </div>
       <div className={styles.transactionSection}>
         <H6>This Months Transactions</H6>
         <Grid>
@@ -17,7 +19,7 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = () => {
           </GridItem>
         </Grid>
       </div>
-      <div className={styles.transactionSection}>
+      <div>
         <H6>Previous Transactions</H6>
         <Grid>
           <GridItem className="is-one-third">March 2020</GridItem>

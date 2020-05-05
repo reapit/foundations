@@ -2,9 +2,11 @@
 
 exports[`TransactionHistory should match a snapshot 1`] = `
 <div>
-  <Component>
-    Transaction History
-  </Component>
+  <div>
+    <Component>
+      Transaction History
+    </Component>
+  </div>
   <div>
     <Component>
       This Months Transactions

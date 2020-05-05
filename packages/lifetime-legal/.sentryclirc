@@ -1,0 +1,6 @@
+[defaults]
+project=ltl-app
+org=reapit-ltd
+
+[http]
+keepalive=false

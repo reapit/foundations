@@ -8,7 +8,11 @@
     "fetch-config": "yarn config-manager fetchConfig demo-site",
     "release:dev": "node ../../scripts/release/release-dev.js demo-site reapit-demo-site",
     "release:prod": "echo 'node ../../scripts/release/release-prod.js demo-site reapit-demo-site'",
-    "start:prod": "serve -d public -l 8080"
+    "start:prod": "serve -d public/dist -l 8080",
+    "serve:web-components": "yarn workspace @reapit/web-components build:prod && yarn workspace @reapit/web-components serve:static",
+    "serve:web-components-server": "yarn workspace @reapit/web-components start:server",
+    "serve:demo-site": "cross-env NODE_ENV=DEV yarn build:prod && yarn start:prod",
+    "start:dev": "concurrently \"yarn serve:web-components\" \"yarn serve:web-components-server\" \"yarn serve:demo-site\""
   },
   "devDependencies": {
     "ejs": "^3.0.2"

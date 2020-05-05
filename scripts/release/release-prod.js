@@ -20,6 +20,8 @@ const releaseProd = async () => {
 
     if (packageName === packageNameOnTag) {
       const distPath = path.resolve(__dirname, '../../', 'packages', packageName, 'public', 'dist')
+      // Remove source map files
+      runCommand('rimraf', [`${distPath}/**/*.map`])
       runCommand('aws', [
         's3',
         'cp',

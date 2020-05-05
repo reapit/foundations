@@ -7,21 +7,27 @@ exports[`CostCalculator should match a snapshot 1`] = `
   </Component>
   <Component>
     <Component
-      className="is-one-quarter"
+      className="is-half-desktop"
     >
       <Component>
-        Month
+        <Component
+          className="is-one-quarter"
+        >
+          <Component>
+            Month
+          </Component>
+        </Component>
+        <Component>
+          <CostFilterForm
+            initialValues={
+              Object {
+                "createdMonth": "2019-10",
+              }
+            }
+            onSave={[Function]}
+          />
+        </Component>
       </Component>
-    </Component>
-    <Component>
-      <CostFilterForm
-        initialValues={
-          Object {
-            "createdMonth": "2019-10",
-          }
-        }
-        onSave={[Function]}
-      />
     </Component>
   </Component>
   <Component>

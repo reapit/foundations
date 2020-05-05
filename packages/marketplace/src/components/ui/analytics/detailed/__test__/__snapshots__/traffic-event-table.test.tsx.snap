@@ -3,15 +3,20 @@
 exports[`TrafficEventTable should match snapshot 1`] = `
 <Fragment>
   <Component>
-    Hits By Endpoint
+    Hits By Resource
   </Component>
+  <p
+    className="is-italic mb-4"
+  >
+    A breakdown of the endpoints that your application(s) have sent requests to (grouped by resource)
+  </p>
   <Component
     bordered={true}
     columns={
       Array [
         Object {
           "Footer": "Total",
-          "Header": "Endpoint",
+          "Header": "Resource",
           "accessor": "endpoint",
           "columnProps": Object {
             "className": "capitalize",
@@ -45,15 +50,20 @@ exports[`TrafficEventTable should match snapshot 1`] = `
 exports[`TrafficEventTable should match snapshot if data is empty 1`] = `
 <Fragment>
   <Component>
-    Hits By Endpoint
+    Hits By Resource
   </Component>
+  <p
+    className="is-italic mb-4"
+  >
+    A breakdown of the endpoints that your application(s) have sent requests to (grouped by resource)
+  </p>
   <Component
     bordered={true}
     columns={
       Array [
         Object {
           "Footer": "Total",
-          "Header": "Endpoint",
+          "Header": "Resource",
           "accessor": "endpoint",
           "columnProps": Object {
             "className": "capitalize",
@@ -76,15 +86,20 @@ exports[`TrafficEventTable should match snapshot if data is empty 1`] = `
 exports[`TrafficEventTable should match snapshot when loading 1`] = `
 <Fragment>
   <Component>
-    Hits By Endpoint
+    Hits By Resource
   </Component>
+  <p
+    className="is-italic mb-4"
+  >
+    A breakdown of the endpoints that your application(s) have sent requests to (grouped by resource)
+  </p>
   <Component
     bordered={true}
     columns={
       Array [
         Object {
           "Footer": "Total",
-          "Header": "Endpoint",
+          "Header": "Resource",
           "accessor": "endpoint",
           "columnProps": Object {
             "className": "capitalize",
