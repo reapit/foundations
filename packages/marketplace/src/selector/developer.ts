@@ -8,6 +8,6 @@ export const selectDeveloperEmail = (state: ReduxState) => {
   return state?.settings?.developerInfomation?.email
 }
 
-export const getDevelopers = (state: ReduxState) => {
+export const selectDeveloper = (state: ReduxState) => {
   return state.developer
 }

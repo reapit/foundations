@@ -38,7 +38,7 @@ export const PrivateRoute = ({
         }
         const Component = component
 
-        return <Component />
+        return <Component {...props} />
       }}
     />
   )

@@ -1,0 +1,18 @@
+@import '../base/colors.scss';
+
+.appDetailContainer {
+  width: 100%;
+  max-width: 1012px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.appIconContainer {
+  width: 128px;
+  height: 128px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 50%;
+  margin: 0 auto;
+}

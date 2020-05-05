@@ -9,7 +9,7 @@ import { httpTrafficPerDayRequestData } from '@/actions/app-http-traffic-event'
 import { appInstallationsRequestData, appInstallationsFilterRequestData } from '@/actions/app-installations'
 import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { getAppUsageStats, getAppHttpTraffic } from '@/selector/analytics'
-import { getDevelopers } from '@/selector/developer'
+import { selectDeveloper } from '@/selector/developer'
 import { getInstallations } from '@/selector/installations'
 
 import { FlexContainerBasic, Grid, GridItem, FlexContainerResponsive, DATE_TIME_FORMAT } from '@reapit/elements'
@@ -120,7 +120,7 @@ export type MapState = {
 export const mapState = (state: ReduxState): MapState => {
   return {
     installations: getInstallations(state),
-    developer: getDevelopers(state),
+    developer: selectDeveloper(state),
     appUsageStats: getAppUsageStats(state),
     appHttpTraffic: getAppHttpTraffic(state),
   }
