@@ -5,10 +5,9 @@ import store from './store'
 import * as React from 'react'
 import { ToastMessage, useOfflinePLugin } from '@reapit/elements'
 
-const bindedWindowLocation = location.reload.bind(window.location)
-
 const App = () => {
   const { isNewVersionAvailable } = useOfflinePLugin()
+  const bindedWindowLocation = React.useMemo(() => window.location.reload.bind(window.location), [])
 
   return (
     <Provider store={store.reduxStore}>

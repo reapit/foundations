@@ -6,9 +6,8 @@ import Toast from '../components/ui/toast'
 import ToastMessage from '../components/ui/toast-message'
 import { PortalProvider, useOfflinePLugin, ToastMessage as ReapitElementsToastMessage } from '@reapit/elements'
 
-const bindedWindowLocation = location.reload.bind(window.location)
-
 const App = () => {
+  const bindedWindowLocation = location.reload.bind(window.location)
   const { isNewVersionAvailable } = useOfflinePLugin()
 
   return (

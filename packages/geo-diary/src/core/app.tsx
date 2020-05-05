@@ -6,9 +6,8 @@ import { PortalProvider, useOfflinePLugin } from '@reapit/elements'
 import store from './store'
 import { ToastMessage as ReapitElementsToastMessage } from '@reapit/elements'
 
-const bindedWindowLocation = location.reload.bind(window.location)
-
 const App = () => {
+  const bindedWindowLocation = React.useMemo(() => window.location.reload.bind(window.location), [])
   const { isNewVersionAvailable } = useOfflinePLugin()
 
   return (

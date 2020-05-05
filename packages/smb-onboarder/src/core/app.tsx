@@ -17,10 +17,9 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const bindedWindowLocation = location.reload.bind(window.location)
-
 const App = () => {
   const { isNewVersionAvailable } = useOfflinePLugin()
+  const bindedWindowLocation = React.useMemo(() => window.location.reload.bind(window.location), [])
 
   const { loginSession, refreshParams, getLoginSession, ...rest } = useAuth()
   if (!loginSession && refreshParams) {

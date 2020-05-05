@@ -4,9 +4,8 @@ import { Provider } from 'react-redux'
 import store from './store'
 import * as React from 'react'
 
-const bindedWindowLocation = location.reload.bind(window.location)
-
 const App = () => {
+  const bindedWindowLocation = React.useMemo(() => window.location.reload.bind(window.location), [])
   const { isNewVersionAvailable } = useOfflinePLugin()
 
   return (
