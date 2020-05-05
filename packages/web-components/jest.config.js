@@ -9,7 +9,7 @@ module.exports = {
     '__stubs__',
     '.d.ts',
   ],
-  transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'],
+  transformIgnorePatterns: ['node_modules/(?!(svelte-routing|svelte-fa)/)'],
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|poc-archive)[/\\\\]'],
   moduleNameMapper: {
     '^.+.(?=.*scss|sass|css|png|jpg).*': '<rootDir>/../../scripts/jest/css-stub.js',
@@ -25,8 +25,9 @@ module.exports = {
   },
   transform: {
     '^.+\\.svg$': '<rootDir>/../../scripts/jest/svg-transform.js',
-    '^.+\\.svelte$': "svelte-jester",
+    '^.+\\.svelte$': 'svelte-jester',
+    '^.+\\.js$': 'ts-jest',
   },
   coverageReporters: ['json-summary', 'text', 'lcov'],
-  snapshotSerializers: ['jest-emotion']
+  snapshotSerializers: ['jest-emotion'],
 }

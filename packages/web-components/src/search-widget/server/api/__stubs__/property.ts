@@ -20,10 +20,11 @@ export const propertyStub: PropertyModel = {
   },
   areaId: 'BRM',
   strapline: '',
-  description: `We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY 
-    situated in a much sought after residential location of Greasby, having the benefits of two 
-    separate entertaining rooms, morning room, extended kitchen. To the first floor there are three 
-    bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.`,
+  description:
+    'We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated \
+    in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, \
+    morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, \
+    gas central heating gardens front and rear and off road parking.',
   summary: '',
   departmentId: 'G',
   negotiatorId: 'JAS',
@@ -98,10 +99,11 @@ export const propertyMinimalStub: PickedPropertyModel = {
     countryId: 'GB',
     geolocation: { latitude: 52.415859, longitude: 1.777338 },
   },
-  description: `We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY 
-  situated in a much sought after residential location of Greasby, having the benefits of two 
-  separate entertaining rooms, morning room, extended kitchen. To the first floor there are three 
-  bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.`,
+  description:
+    'We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated \
+    in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, \
+    morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, \
+    gas central heating gardens front and rear and off road parking.',
   bedrooms: 4,
   bathrooms: 2,
   selling: {

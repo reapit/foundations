@@ -31,7 +31,6 @@
 
   const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
     searchType = store.searchType
-
     propertyImagesByPropertyId = store.propertyImagesByPropertyId
   })
 

@@ -30,7 +30,6 @@ describe('app', () => {
       parentSelector: '#search-widget',
     })
     const { container } = wrapper
-
     expect(container).toMatchSnapshot()
   })
 })
