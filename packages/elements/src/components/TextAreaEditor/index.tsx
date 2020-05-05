@@ -1,25 +1,28 @@
 import * as React from 'react'
 import { Field, FieldInputProps, FieldProps } from 'formik'
 import { checkError } from '../../utils/form'
-import { Editor } from '../Editor'
+import { Editor, EditorProps } from '../Editor'
 
-export interface TextAreaEditorProps {
+export interface TextAreaEditorProps extends EditorProps {
   placeholder?: string
   id: string
   labelText: string
   name: string
+  dataTest?: string
 }
 
 export type HandleTextAreaOnChangeParams = {
   field: FieldInputProps<string>
-  name: string
 }
 
-export const handleTextAreaOnChange = ({ field, name }: HandleTextAreaOnChangeParams) => (html: string) => {
-  field.onChange({ target: { value: html, name } })
+export const handleTextAreaOnChange = ({ field }: HandleTextAreaOnChangeParams) => (html: string) => {
+  field.onChange({ target: { value: html, name: field.name } })
 }
 
-export const renderTextAreaEditor = ({ labelText, id, placeholder }) => ({ field, meta }: FieldProps<string>) => {
+export const renderTextAreaEditor = ({ labelText, id, placeholder, ...restProps }) => ({
+  field,
+  meta,
+}: FieldProps<string>) => {
   const hasError = checkError(meta)
   return (
     <div className="field pb-2">
@@ -31,7 +34,8 @@ export const renderTextAreaEditor = ({ labelText, id, placeholder }) => ({ field
           hasError={hasError}
           placeholder={placeholder}
           defaultContent={field.value}
-          onChange={handleTextAreaOnChange({ field, name })}
+          onChange={handleTextAreaOnChange({ field })}
+          {...restProps}
         />
       </div>
       {hasError && (
@@ -43,6 +47,6 @@ export const renderTextAreaEditor = ({ labelText, id, placeholder }) => ({ field
   )
 }
 
-export const TextAreaEditor = ({ name, labelText, placeholder, id }: TextAreaEditorProps) => (
-  <Field name={name}>{renderTextAreaEditor({ labelText, id, placeholder })}</Field>
+export const TextAreaEditor = ({ name, labelText, placeholder, id, ...restProps }: TextAreaEditorProps) => (
+  <Field name={name}>{renderTextAreaEditor({ labelText, id, placeholder, ...restProps })}</Field>
 )
