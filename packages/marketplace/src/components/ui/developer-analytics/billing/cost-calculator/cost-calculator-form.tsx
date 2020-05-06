@@ -11,7 +11,7 @@ import {
   FormikErrors,
   isNumberOnly,
 } from '@reapit/elements'
-import styles from '@/styles/pages/analytics.scss?mod'
+import styles from '@/styles/pages/developer-analytics.scss?mod'
 
 export type CostCalculatorFormProps = {
   initialValues: CostCalculatorFormValues

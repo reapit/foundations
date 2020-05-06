@@ -3,7 +3,7 @@ import CostCalculator from './cost-calculator'
 import TransactionHistory from './transaction-history'
 import { FlexContainerResponsive, FlexContainerBasic, Grid, GridItem } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import styles from '@/styles/pages/analytics.scss?mod'
+import styles from '@/styles/pages/developer-analytics.scss?mod'
 import ServiceChart from './service-chart'
 import CostExplorer from './cost-explorer'
 
