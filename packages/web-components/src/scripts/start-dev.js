@@ -11,7 +11,7 @@ return (() => {
       const moveTheme = `mkdir ./public/themes && cp ./src/common/styles/__themes__/${packageName}.js ./public/themes`
       const clientScript = `rollup -w -c './src/scripts/rollup.config.${packageName}.js' --environment APP_ENV:local`
       const serverScript = 'serverless offline --out public/dist --stage local'
-      const startClientServer = 'sirv public --dev --port 8080'
+      const startClientServer = 'sirv public --dev -s --port 8080'
       const startDev = `
         ${clearPublic} &&
         ${moveHtml} &&

@@ -1,4 +1,4 @@
-import SearchWidget from '../components/search-widget.svelte'
+import App from './app.svelte'
 import { InitializerTheme } from '../../../common/styles/index'
 
 export interface SearchWidgeInitializers {
@@ -8,7 +8,7 @@ export interface SearchWidgeInitializers {
 }
 
 export const ReapitSearchWidgetComponent = ({ parentSelector, apiKey, theme }: SearchWidgeInitializers) =>
-  new SearchWidget({
+  new App({
     target: document.querySelector(parentSelector) || document.body,
     props: {
       theme,
