@@ -1,6 +1,6 @@
 <script>
   import { onDestroy } from 'svelte'
-  import { createEventDispatcher } from 'svelte'
+  import { link } from 'svelte-routing'
   import Fa from 'svelte-fa'
   import { faBed, faToilet } from '@fortawesome/free-solid-svg-icons'
   import searchWidgetStore from '../core/store'
@@ -45,14 +45,6 @@
       ...store,
       selectedProperty: property,
     }))
-  }
-
-  const dispatch = createEventDispatcher()
-
-  const handleViewDetail = () => {
-    dispatch('propertyClick', {
-      property: property,
-    })
   }
 
   onDestroy(() => {
@@ -179,11 +171,6 @@
       </span>
       {property.bathrooms || 0}
     </div>
-    <a
-      class="{secondaryHeading} search-result-item-address-primary"
-      on:click|preventDefault={handleViewDetail}
-      href="/">
-      View Detail
-    </a>
+    <a use:link class="{secondaryHeading} search-result-item-address-primary" href="/{property.id}">View Detail</a>
   </div>
 </div>

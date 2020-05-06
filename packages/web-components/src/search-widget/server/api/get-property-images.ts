@@ -11,7 +11,6 @@ import { INCLUDED_PROPS } from '../constants/api'
 export const getPropertyImages = async (req: Request, res: Response) => {
   try {
     const headers = await getServerHeaders(req, PACKAGE_SUFFIXES.SEARCH_WIDGET)
-    console.log('getProperties', { headers })
     const fullPagedResult = await fetcher<PagedResultPropertyImageModel_, undefined>({
       url: `${process.env.PLATFORM_API_BASE_URL}${req.url}`,
       headers,

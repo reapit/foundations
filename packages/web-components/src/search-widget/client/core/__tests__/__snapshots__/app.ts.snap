@@ -1,0 +1,317 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`app it matches a snapshot 1`] = `
+.emotion-7 html,
+.emotion-7 body,
+.emotion-7 div,
+.emotion-7 span,
+.emotion-7 applet,
+.emotion-7 object,
+.emotion-7 iframe,
+.emotion-7 h1,
+.emotion-7 h2,
+.emotion-7 h3,
+.emotion-7 h4,
+.emotion-7 h5,
+.emotion-7 h6,
+.emotion-7 p,
+.emotion-7 blockquote,
+.emotion-7 pre,
+.emotion-7 a,
+.emotion-7 abbr,
+.emotion-7 acronym,
+.emotion-7 address,
+.emotion-7 big,
+.emotion-7 cite,
+.emotion-7 code,
+.emotion-7 del,
+.emotion-7 dfn,
+.emotion-7 em,
+.emotion-7 img,
+.emotion-7 ins,
+.emotion-7 kbd,
+.emotion-7 q,
+.emotion-7 s,
+.emotion-7 samp,
+.emotion-7 small,
+.emotion-7 strike,
+.emotion-7 strong,
+.emotion-7 sub,
+.emotion-7 sup,
+.emotion-7 tt,
+.emotion-7 var,
+.emotion-7 b,
+.emotion-7 u,
+.emotion-7 i,
+.emotion-7 center,
+.emotion-7 dl,
+.emotion-7 dt,
+.emotion-7 dd,
+.emotion-7 menu,
+.emotion-7 ol,
+.emotion-7 ul,
+.emotion-7 li,
+.emotion-7 fieldset,
+.emotion-7 form,
+.emotion-7 label,
+.emotion-7 legend,
+.emotion-7 table,
+.emotion-7 caption,
+.emotion-7 tbody,
+.emotion-7 tfoot,
+.emotion-7 thead,
+.emotion-7 tr,
+.emotion-7 th,
+.emotion-7 td,
+.emotion-7 article,
+.emotion-7 aside,
+.emotion-7 canvas,
+.emotion-7 details,
+.emotion-7 embed,
+.emotion-7 figure,
+.emotion-7 figcaption,
+.emotion-7 footer,
+.emotion-7 header,
+.emotion-7 hgroup,
+.emotion-7 main,
+.emotion-7 menu,
+.emotion-7 nav,
+.emotion-7 output,
+.emotion-7 ruby,
+.emotion-7 section,
+.emotion-7 summary,
+.emotion-7 time,
+.emotion-7 mark,
+.emotion-7 audio,
+.emotion-7 video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+.emotion-7 article,
+.emotion-7 aside,
+.emotion-7 details,
+.emotion-7 figcaption,
+.emotion-7 figure,
+.emotion-7 footer,
+.emotion-7 header,
+.emotion-7 hgroup,
+.emotion-7 main,
+.emotion-7 menu,
+.emotion-7 nav,
+.emotion-7 section {
+  display: block;
+}
+
+.emotion-7 *[hidden] {
+  display: none;
+}
+
+.emotion-7 body {
+  line-height: 1;
+}
+
+.emotion-7 menu,
+.emotion-7 ol,
+.emotion-7 ul {
+  list-style: none;
+}
+
+.emotion-7 blockquote,
+.emotion-7 q {
+  quotes: none;
+}
+
+.emotion-7 blockquote:before,
+.emotion-7 blockquote:after,
+.emotion-7 q:before,
+.emotion-7 q:after {
+  content: '';
+  content: none;
+}
+
+.emotion-7 table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.emotion-6 {
+  font-size: 16px;
+  font-family: Helvetica,Arial,sans-serif;
+  background: #fff;
+  color: red;
+}
+
+#search-widget .emotion-2 {
+  font-size: 16px;
+  font-family: Helvetica,Arial,sans-serif;
+  margin-bottom: 1em;
+}
+
+#search-widget .emotion-1 {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 18px;
+  color: #000;
+  border: 1px solid grey;
+  background: #fff;
+}
+
+#search-widget .emotion-1:hover {
+  background: grey;
+  color: #fff;
+}
+
+#search-widget .emotion-0 {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 18px;
+  border: 1px solid grey;
+}
+
+#search-widget .emotion-5 {
+  width: 100%;
+}
+
+@media screen and (min-width:960px) {
+  #search-widget .emotion-5 {
+    width: 33.333333%;
+  }
+}
+
+@media screen and (min-width:560px) and (max-width:960px) {
+  #search-widget .emotion-5 {
+    width: 50%;
+  }
+}
+
+<body>
+  <div>
+    <div>
+      <div
+        class="emotion-7 emotion-6 search-widget svelte-1chupiu"
+      >
+        <form>
+          <div
+            class="search-form emotion-5 svelte-mf1zut"
+          >
+            <input
+              class="emotion-0 search-form-input svelte-mf1zut"
+              data-testid="search-form-input"
+              id="search"
+              type="text"
+            />
+             
+             
+            <button
+              class="emotion-1 search-form-button svelte-mf1zut"
+              data-testid="btnSearch"
+              type="submit"
+            >
+              Search Properties
+            </button>
+             
+            <div
+              class="search-form-control svelte-mf1zut"
+            >
+              <label
+                class="emotion-2 search-form-control-radio svelte-mf1zut"
+              >
+                <input
+                  data-testid="sales"
+                  name="searchType"
+                  type="radio"
+                  value="Sale"
+                />
+                
+        For Sale
+              </label>
+               
+              <label
+                class="emotion-2 search-form-control-radio svelte-mf1zut"
+              >
+                <input
+                  data-testid="lettings"
+                  name="searchType"
+                  type="radio"
+                  value="Rent"
+                />
+                
+        To Rent
+              </label>
+               
+              <button
+                class="emotion-2 search-form-advanced-search svelte-mf1zut"
+                data-testid="btnAdvancedSearch"
+                type="button"
+              >
+                Advanced Search
+        
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  id=""
+                  role="img"
+                  style="height:1em;vertical-align:-.125em;overflow:visible;"
+                  viewBox="0 0 512 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    transform="translate(256 256)"
+                  >
+                    <g
+                      transform=""
+                    >
+                      <path
+                        d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+                        fill="currentColor"
+                        transform="translate(-256 -256)"
+                      />
+                    </g>
+                  </g>
+                </svg>
+                
+              </button>
+            </div>
+          </div>
+           
+        </form>
+         
+        <div
+          class="search-widget-items-container svelte-1chupiu"
+        >
+          <div
+            class="search-widget-items svelte-1chupiu"
+          >
+             
+             
+             
+          </div>
+           
+          <div
+            class="google-map-outer-container 
+  emotion-6 svelte-1t98is9"
+          >
+             
+            <div
+              class="google-map-container  svelte-1t98is9"
+            >
+               
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+       
+      
+    </div>
+  </div>
+  <script
+    defer=""
+    src="//maps.googleapis.com/maps/api/js?key=undefined&libraries=places&callback=onMapReady"
+  />
+</body>
+`;

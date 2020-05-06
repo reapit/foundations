@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { H4, Grid, GridItem, H6 } from '@reapit/elements'
-import styles from '@/styles/pages/analytics.scss?mod'
+import styles from '@/styles/pages/developer-analytics.scss?mod'
 
 export type TransactionHistoryProps = {}
 

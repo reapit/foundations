@@ -1,7 +1,5 @@
-import PropertyDetail from '../property-detail.svelte'
+import App from '../app.svelte'
 import { render } from '@testing-library/svelte'
-import { propertyStub } from '../../utils/__stubs__/property'
-import searchWidgetStore from '../../core/store'
 
 const theme = {
   baseBackgroundColor: '',
@@ -24,22 +22,14 @@ const theme = {
   },
 }
 
-describe('PropertyDetail', () => {
+describe('app', () => {
   it('it matches a snapshot', () => {
-    const props = {
-      propertyId: propertyStub.id,
+    const wrapper = render(App, {
       theme,
       apiKey: '',
       parentSelector: '#search-widget',
-    }
-
-    searchWidgetStore.update(store => ({
-      ...store,
-      selectedProperty: propertyStub,
-    }))
-    const wrapper = render(PropertyDetail, props)
+    })
     const { container } = wrapper
-
     expect(container).toMatchSnapshot()
   })
 })

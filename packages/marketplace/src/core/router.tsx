@@ -26,7 +26,7 @@ const DeveloperSettings = React.lazy(() => import('../components/pages/settings/
 const DeveloperWelcomePage = React.lazy(() => import('../components/pages/developer-welcome'))
 const DeveloperHelpPage = React.lazy(() => import('../components/pages/developer-help'))
 const ClientHelpPage = React.lazy(() => import('../components/pages/client-help'))
-const AnalyticsPage = React.lazy(() => import('../components/pages/analytics'))
+const AnalyticsPage = React.lazy(() => import('@/components/pages/developer-analytics'))
 const AdminAppsPage = React.lazy(() => import('../components/pages/admin-apps'))
 const RegisterConfirm = React.lazy(() => import('../components/pages/register-confirm'))
 const AdminStats = React.lazy(() => import('../components/pages/admin-stats'))
