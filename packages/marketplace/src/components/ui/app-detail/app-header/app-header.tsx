@@ -2,16 +2,17 @@ import * as React from 'react'
 import { Grid, GridItem, H3 } from '@reapit/elements'
 
 import styles from '@/styles/pages/developer-app-detail.scss?mod'
-import { AppDetailState } from '@/reducers/app-detail'
-import DeveloperAppActionButtons from '@/components/ui/app-detail/app-header/developer-app-action-buttons'
+import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 
 export type AppHeaderProps = {
-  appDetailState: AppDetailState
+  appDetailData: AppDetailModel & {
+    apiKey?: string | undefined
+  }
+  buttonGroup?: React.ReactNode
 }
 
-const AppHeader: React.FC<AppHeaderProps> = ({ appDetailState }) => {
-  const { appDetailData } = appDetailState
-  const { media, name } = appDetailData?.data || {}
+const AppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup }) => {
+  const { media, name } = appDetailData
   const appIcon = media?.filter(({ type }) => type === 'icon')[0]
 
   return (
@@ -28,7 +29,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({ appDetailState }) => {
         </GridItem>
         <GridItem className="is-8">
           <H3 className={styles.appName}>{name}</H3>
-          <DeveloperAppActionButtons appDetailState={appDetailState} />
+          {buttonGroup}
         </GridItem>
       </Grid>
     </>

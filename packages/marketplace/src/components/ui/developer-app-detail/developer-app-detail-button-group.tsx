@@ -11,7 +11,7 @@ import { Grid, GridItem, Button } from '@reapit/elements'
 import routes from '@/constants/routes'
 import { AppDetailState } from '@/reducers/app-detail'
 
-export type DeveloperAppActionButtonsProps = {
+export type DeveloperAppDetailButtonGroupProps = {
   appDetailState: AppDetailState
 }
 
@@ -44,7 +44,7 @@ export const handleInstallationButtonClick = (setIsInstallationsModalOpen: (isMo
   }
 }
 
-const DeveloperAppActionButtons: React.FC<DeveloperAppActionButtonsProps> = ({ appDetailState }) => {
+const DeveloperAppDetailButtonGroup: React.FC<DeveloperAppDetailButtonGroupProps> = ({ appDetailState }) => {
   const { appDetailData } = appDetailState
   const appId = appDetailData?.data.id || ''
   const appName = appDetailData?.data.name || ''
@@ -129,4 +129,4 @@ const DeveloperAppActionButtons: React.FC<DeveloperAppActionButtonsProps> = ({ a
   )
 }
 
-export default DeveloperAppActionButtons
+export default DeveloperAppDetailButtonGroup

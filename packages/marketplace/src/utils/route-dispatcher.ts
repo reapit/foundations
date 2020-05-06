@@ -28,6 +28,13 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
     case Routes.CLIENT:
       store.dispatch(clientRequestData(getParamsFromPath(search || '')))
       break
+    case Routes.CLIENT_APP_DETAIL: {
+      if (id) {
+        const clientId = selectClientId(store.state)
+        store.dispatch(appDetailRequestData({ id, clientId }))
+      }
+      break
+    }
     case Routes.INSTALLED_APPS:
       store.dispatch(installedAppsRequestData(1))
       break
@@ -49,6 +56,13 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       if (appId) {
         const clientId = selectClientId(store.state)
         store.dispatch(appDetailRequestData({ id: appId, clientId }))
+      }
+      break
+    }
+    case Routes.DEVELOPER_APP_DETAIL: {
+      if (id) {
+        const clientId = selectClientId(store.state)
+        store.dispatch(appDetailRequestData({ id, clientId }))
       }
       break
     }

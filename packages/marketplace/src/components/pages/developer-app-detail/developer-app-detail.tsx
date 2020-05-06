@@ -1,20 +1,18 @@
 import * as React from 'react'
-import { Dispatch } from 'redux'
-import { useDispatch, useSelector } from 'react-redux'
-import { RouteComponentProps } from 'react-router'
-import { appDetailRequestData } from '@/actions/app-detail'
+import { useSelector } from 'react-redux'
 import { selectAppDetailState, selectAppDetailData, selectAppDetailLoading } from '@/selector/developer-app-detail'
 import { selectLoginType } from '@/selector/auth'
 import { LoginType } from '@reapit/cognito-auth'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import AppHeader from '@/components/ui/app-detail/app-header'
 import AppContent from '@/components/ui/app-detail/app-content'
+import DeveloperAppDetailButtonGroup from '@/components/ui/developer-app-detail/developer-app-detail-button-group'
 
 import { Loader } from '@reapit/elements'
 import { AppDetailState } from '@/reducers/app-detail'
 import styles from '@/styles/pages/developer-app-detail.scss?mod'
 
-export type DeveloperAppDetailProps = {} & RouteComponentProps<{ id: string }>
+export type DeveloperAppDetailProps = {}
 export type MapState = {
   appDetailState: AppDetailState
   appDetailData: AppDetailModel & {
@@ -33,34 +31,19 @@ export const mapState = (useSelector): MapState => {
   }
 }
 
-export const fetchDeveloperAppDetail = (dispatch: Dispatch<any>, appId: string) => {
-  return () => {
-    dispatch(
-      appDetailRequestData({
-        id: appId,
-      }),
-    )
-  }
-}
-
-const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = props => {
-  const dispatch = useDispatch()
-
-  const {
-    match: { params },
-  } = props
-  const { id: appId } = params
+const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
   const { appDetailState, appDetailData, isLoadingAppDetail, loginType } = mapState(useSelector)
 
-  React.useEffect(fetchDeveloperAppDetail(dispatch, appId), [dispatch, appId])
-
-  if (isLoadingAppDetail) {
+  if (!appDetailData.id || isLoadingAppDetail) {
     return <Loader />
   }
 
   return (
     <div className={styles.appDetailContainer}>
-      <AppHeader appDetailState={appDetailState} />
+      <AppHeader
+        appDetailData={appDetailData}
+        buttonGroup={<DeveloperAppDetailButtonGroup appDetailState={appDetailState} />}
+      />
       <AppContent appDetailData={appDetailData} loginType={loginType} />
     </div>
   )

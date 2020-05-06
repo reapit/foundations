@@ -9,6 +9,7 @@ import AuthFlow from '@/constants/app-auth-flow'
 import AppAuthenticationDetail from '../../app-authentication-detail'
 import styles from '@/styles/blocks/app-detail.scss?mod'
 import carouselStyles from '@/styles/elements/carousel.scss?mod'
+import '@/styles/vendor/slick.scss'
 
 type AppContentProps = {
   appDetailData: AppDetailModel & {

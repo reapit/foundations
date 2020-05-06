@@ -12,7 +12,7 @@ export interface PrivateRouteConnectProps {
 
 export interface PrivateRouteProps extends PrivateRouteConnectProps {
   allow: LoginType | LoginType[]
-  component: React.FunctionComponent
+  component: React.FunctionComponent | React.LazyExoticComponent<any>
   exact?: boolean
   fetcher?: boolean
 }
@@ -38,7 +38,7 @@ export const PrivateRoute = ({
         }
         const Component = component
 
-        return <Component {...props} />
+        return <Component />
       }}
     />
   )
