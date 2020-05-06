@@ -8,7 +8,7 @@ export interface SearchWidgeInitializers {
   parentSelector: string
 }
 
-export const ReapitSearchWidgetComponent = ({ parentSelector, apiKey, theme }: SearchWidgeInitializers) =>
+export const ReapitSearchWidgetComponent = ({ parentSelector, apiKey, customerId, theme }: SearchWidgeInitializers) =>
   new App({
     target: document.querySelector(parentSelector) || document.body,
     props: {

@@ -51,7 +51,8 @@ App {
     "on_mount": Array [],
     "props": Object {
       "apiKey": 1,
-      "parentSelector": 2,
+      "customerId": 2,
+      "parentSelector": 3,
       "theme": 0,
     },
     "update": [Function],

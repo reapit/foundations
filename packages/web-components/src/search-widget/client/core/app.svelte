@@ -5,16 +5,17 @@
 
   export let theme
   export let apiKey
+  export let customerId
   export let parentSelector
 </script>
 
 <div>
   <Router url="">
     <Route path="/">
-      <SearchWidget {theme} {apiKey} {parentSelector} />
+      <SearchWidget {theme} {apiKey} {customerId} {parentSelector} />
     </Route>
     <Route path=":id" let:params let:location>
-      <PropertyDetail x={location} propertyId={params.id} {theme} {apiKey} {parentSelector} />
+      <PropertyDetail x={location} propertyId={params.id} {theme} {apiKey} {customerId} {parentSelector} />
     </Route>
   </Router>
 </div>
