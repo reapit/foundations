@@ -60,6 +60,7 @@
       new window.ReapitViewingBookingComponent({
         theme: window.theme,
         apiKey: '',
+        curtomerId: '',
         parentSelector: '#appointment-bookings-viewing',
         variant: 'VIEWING',
         propertyId,

@@ -59,6 +59,7 @@
     }))
     const properties = await getProperties({
       apiKey: $searchWidgetStore.initializers.apiKey,
+      customerId: $searchWidgetStore.initializers.customerId,
       pageNumber: $searchWidgetStore.pageNumber,
       keywords: searchKeyword,
       isRental,
@@ -73,6 +74,7 @@
     const propertyImagesByPropertyId = await getPropertyImages(
       properties._embedded,
       $searchWidgetStore.initializers.apiKey,
+      $searchWidgetStore.initializers.customerId,
     )
     // hide advanced search
     showAdvancedSearch = false

@@ -5,6 +5,7 @@ describe('ReactViewingWidgetComponent', () => {
     expect(
       ReapitViewingBookingComponent({
         apiKey: '',
+        customerId: '',
         parentSelector: '#appointment-bookings-viewing',
         theme: {
           baseBackgroundColor: '#f9fbfd',

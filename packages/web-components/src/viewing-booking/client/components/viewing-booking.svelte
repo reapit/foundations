@@ -9,6 +9,7 @@
 
   export let theme
   export let apiKey
+  export let customerId
   export let parentSelector
   export let submitAction
 
@@ -63,6 +64,7 @@
       initializers: {
         theme,
         apiKey,
+        customerId,
         parentSelector,
       },
       themeClasses,

@@ -31,6 +31,7 @@ App {
         "secondaryfontColor": "#fff",
       },
       "SOME_KEY",
+      "DEMO",
       "#search-widget",
     ],
     "dirty": Array [

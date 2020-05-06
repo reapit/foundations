@@ -4,6 +4,7 @@ import { AppointmentBookingInitializerTheme } from './theme'
 export interface AppointmentBookingInitializers {
   theme: AppointmentBookingInitializerTheme
   apiKey: string
+  // customerId: string
   parentSelector: string
   variant: 'VIEWING' | 'VALUATION'
 }
@@ -21,6 +22,7 @@ AppointmentBookingInitializers) => {
       theme,
       // TODO - will need to reference later
       // apiKey,
+      // customerId,
       variant,
       parentSelector,
     },

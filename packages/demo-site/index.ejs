@@ -4,7 +4,7 @@
     <meta charset="utf8" />
     <meta name="viewport" content="width=device-width" />
 
-    <title>Web Components</title>
+    <title>DEMO</title>
     <style>
       #appointment-bookings-valuation {
         float: right;
@@ -148,6 +148,7 @@
         new ReapitSearchWidgetComponent({
           theme: window.theme,
           apiKey: '<%= API_KEY %>',
+          customerId: '<%= CUSTOMER_ID %>',
           parentSelector: '#search-widget',
         })
 
@@ -155,6 +156,7 @@
         new ReapitAppointmentBookingComponent({
           theme: window.theme,
           apiKey: '<%= API_KEY %>',
+          customerId: '<%= CUSTOMER_ID %>',
           parentSelector: '#appointment-bookings-valuation',
           variant: 'VALUATION',
         })

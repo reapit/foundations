@@ -19,12 +19,12 @@ describe('properties client API', () => {
     ;(fetcher as jest.Mock).mockImplementation(() => propertyImagesStub)
     const properties = propertiesMinimalStub._embedded as PickedPropertyModel[]
 
-    const response = await getPropertyImages(properties, 'API_KEY')
+    const response = await getPropertyImages(properties, 'API_KEY', 'DEMO')
     const propertyImagesByPropertyId = propertyImagesStub._embedded as PickedPropertyImageModel[]
 
     expect(fetcher).toHaveBeenCalledWith({
       url: `http://localhost:3000/propertyImages/${getPropertyQuery(properties)}`,
-      headers: getClientHeaders('API_KEY'),
+      headers: getClientHeaders({ apiKey: 'API_KEY', customerId: 'DEMO' }),
     })
     expect(response).toEqual({
       [propertyImagesByPropertyId[0].propertyId as string]: [propertyImagesByPropertyId[0]],

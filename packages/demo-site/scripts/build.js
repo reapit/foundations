@@ -19,7 +19,7 @@ const compileTemplate = async () => {
       CDN_URL = 'http://localhost:5000'
     }
 
-    const html = template({ API_KEY: config.API_KEY, CDN_URL })
+    const html = template({ API_KEY: config.API_KEY, CUSTOMER_ID: config.CUSTOMER_ID, CDN_URL })
 
     fs.mkdirSync(distDir, { recursive: true })
     fs.writeFileSync(indexHtmlDir, html)

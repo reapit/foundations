@@ -21,6 +21,7 @@ export interface SearchWidgetStore {
 const searchWidgetStore: Writable<SearchWidgetStore> = writable({
   initializers: {
     apiKey: '',
+    customerId: '',
     theme: {},
     parentSelector: '',
   },

@@ -4,6 +4,7 @@ import { InitializerTheme } from '../../../common/styles/index'
 export interface SearchWidgeInitializers {
   theme: Partial<InitializerTheme>
   apiKey: string
+  customerId: string
   parentSelector: string
 }
 
@@ -13,6 +14,7 @@ export const ReapitSearchWidgetComponent = ({ parentSelector, apiKey, theme }: S
     props: {
       theme,
       apiKey,
+      customerId,
       parentSelector,
     },
   })

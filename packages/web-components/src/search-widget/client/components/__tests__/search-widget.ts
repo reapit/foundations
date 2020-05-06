@@ -33,6 +33,7 @@ describe('search-widget', () => {
     const wrapper = render(SearchWidget, {
       theme,
       apiKey: '',
+      customerId: '',
       parentSelector: '#search-widget',
     })
     const { container } = wrapper
@@ -44,6 +45,7 @@ describe('search-widget', () => {
     const props = {
       theme,
       apiKey: 'SOME_KEY',
+      customerId: 'DEMO',
       parentSelector: '#search-widget',
     }
     render(SearchWidget, props)
