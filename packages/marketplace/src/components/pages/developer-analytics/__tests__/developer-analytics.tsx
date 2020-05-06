@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 
-import { AnalyticsTab, handleUseEffectToSetCurrentTab, renenderTabContent, tabConfigs } from '../analytics'
-import AnalyticsPage from '../analytics'
+import { AnalyticsTab, handleUseEffectToSetCurrentTab, renderTabContent, tabConfigs } from '../developer-analytics'
+import AnalyticsPage from '../developer-analytics'
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'), // use actual for all non-hook parts
@@ -59,14 +59,14 @@ describe('AnalyticsPage', () => {
       expect(mockSetCurrentTab).toBeCalledWith(AnalyticsTab.DETAILED)
     })
   })
-  describe('renenderTabContent', () => {
+  describe('renderTabContent', () => {
     it('should render Detailed Tab', () => {
-      const result = renenderTabContent(AnalyticsTab.DETAILED)
+      const result = renderTabContent(AnalyticsTab.DETAILED)
       const wrapper = shallow(<div>{result}</div>)
       expect(wrapper).toMatchSnapshot()
     })
     it('should render Billing Tab', () => {
-      const result = renenderTabContent(AnalyticsTab.BILLING)
+      const result = renderTabContent(AnalyticsTab.BILLING)
       const wrapper = shallow(<div>{result}</div>)
       expect(wrapper).toMatchSnapshot()
     })
