@@ -327,7 +327,7 @@
           <legend>Price</legend>
           <div class="filter-form-input-container-body filter-form-input-container-body-horizontal">
             <select bind:value={minPrice} class={$searchWidgetStore.themeClasses.input}>
-              {#each getPriceRange() as minPrice}
+              {#each getPriceRange(true) as minPrice}
                 <option
                   disabled={minPrice.value != 0 && minPrice.value >= maxPrice && maxPrice != 0}
                   value={minPrice.value}>
@@ -336,7 +336,7 @@
               {/each}
             </select>
             <select bind:value={maxPrice} class={$searchWidgetStore.themeClasses.input}>
-              {#each getPriceRange() as maxPrice}
+              {#each getPriceRange(false) as maxPrice}
                 <option
                   disabled={maxPrice.value != 0 && maxPrice.value <= minPrice && minPrice != 0}
                   value={maxPrice.value}>
