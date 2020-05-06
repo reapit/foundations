@@ -79,7 +79,6 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
   const list = developerState?.developerData?.data?.data || []
   const { totalCount, pageSize } = developerState?.developerData?.data || {}
 
-  console.log('pageNumber', pageNumber)
   React.useEffect(() => {
     if (unfetched) {
       return
