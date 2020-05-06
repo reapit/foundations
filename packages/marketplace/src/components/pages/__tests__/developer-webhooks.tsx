@@ -19,9 +19,13 @@ const props: DeveloperWebhooksProps = {
   subscriptions: [],
   subscriptionsLoading: false,
   topics: [],
-  topicsLoading: false,
+  applicationId: '',
+  setApplicationId: jest.fn(),
+  applications: [],
   fetchTopics: jest.fn(),
   developerState,
+  modalType: '',
+  webhookSetOpenModal: jest.fn(),
 }
 
 describe('DeveloperWebHooks', () => {
@@ -42,6 +46,7 @@ describe('DeveloperWebHooks', () => {
             },
           } as WebhookSubscriptionsState,
           topics: {
+            applicationId: '',
             loading: false,
             error: false,
             topics: {
@@ -50,14 +55,19 @@ describe('DeveloperWebHooks', () => {
           } as WebhookTopicsState,
         },
         developer: developerState,
+        webhookEdit: {
+          modalType: '',
+        },
       } as ReduxState
 
       const output = {
+        applicationId: '',
         subscriptions: [],
+        applications: input.developer.developerData?.data.data,
         subscriptionsLoading: false,
         topics: [],
-        topicsLoading: false,
         developerState: input.developer,
+        modalType: '',
       }
       const result = mapStateToProps(input)
       expect(result).toEqual(output)
@@ -91,18 +101,18 @@ describe('DeveloperWebHooks', () => {
   describe('handleSubscriptionChange', () => {
     it('should run correctly', () => {
       const fetchTopics = jest.fn()
-      const values = { subscriptions: '123' }
+      const values = { applicationId: '123' }
       handleSubscriptionChange(fetchTopics)(values)
-      expect(fetchTopics).toHaveBeenCalledWith(values.subscriptions)
+      expect(fetchTopics).toHaveBeenCalledWith(values.applicationId)
     })
   })
 
   describe('getTableTopicsData', () => {
     it('should run correctly', () => {
       const fetchTopics = jest.fn()
-      const values = { subscriptions: '123' }
+      const values = { applicationId: '123' }
       handleSubscriptionChange(fetchTopics)(values)
-      expect(fetchTopics).toHaveBeenCalledWith(values.subscriptions)
+      expect(fetchTopics).toHaveBeenCalledWith(values.applicationId)
     })
   })
 })

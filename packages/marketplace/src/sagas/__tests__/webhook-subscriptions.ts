@@ -10,14 +10,23 @@ import { put, call } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { subscriptions, topics } from '../__stubs__/webhooks'
-import { webhookSubscriptionsReceiveData, webhookTopicsReceiveData } from '@/actions/webhook-subscriptions'
+import {
+  webhookSubscriptionsReceiveData,
+  webhookTopicsReceiveData,
+  setApplicationId,
+} from '@/actions/webhook-subscriptions'
 
 jest.mock('@reapit/elements')
 
 describe('webhook sagas', () => {
   describe('webhookSubscriptions fetch data', () => {
-    const gen = cloneableGenerator(webhookSubscriptionsFetch)()
-    expect(gen.next().value).toEqual(call(fetchSubscriptions))
+    const applicationIdParam: Action<string> = {
+      data: 'applicationId',
+      type: 'WEBHOOK_SUBSCRIPTION_REQUEST_DATA',
+    }
+    const gen = cloneableGenerator(webhookSubscriptionsFetch)(applicationIdParam)
+    expect(gen.next().value).toEqual(put(setApplicationId(applicationIdParam.data)))
+    expect(gen.next().value).toEqual(call(fetchSubscriptions, applicationIdParam.data))
 
     test('api call success', () => {
       const clone = gen.clone()
@@ -40,12 +49,8 @@ describe('webhook sagas', () => {
   })
 
   describe('webhookTopics fetch data', () => {
-    const applicationIdParam: Action<string> = {
-      data: 'applicationId',
-      type: 'WEBHOOK_TOPICS_REQUEST_DATA',
-    }
-    const gen = cloneableGenerator(webhookTopicsFetch)(applicationIdParam)
-    expect(gen.next().value).toEqual(call(fetchWebhookTopic, 'applicationId'))
+    const gen = cloneableGenerator(webhookTopicsFetch)()
+    expect(gen.next().value).toEqual(call(fetchWebhookTopic))
 
     test('api call success', () => {
       const clone = gen.clone()
