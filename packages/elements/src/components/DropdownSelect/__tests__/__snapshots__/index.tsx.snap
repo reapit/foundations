@@ -9,6 +9,7 @@ exports[`Dropdown-select should match a snapshot 1`] = `
   >
     <Field
       name="demo"
+      validate={null}
     >
       <Component />
     </Field>
