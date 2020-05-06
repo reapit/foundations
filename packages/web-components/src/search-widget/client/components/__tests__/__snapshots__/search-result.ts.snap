@@ -126,7 +126,7 @@ exports[`SearchResult it matches a snapshot 1`] = `
          
         <a
           class=" search-result-item-address-primary svelte-1l1qfnz"
-          href="/"
+          href="/RPT200112"
         >
           View Detail
         </a>

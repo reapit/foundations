@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AnalyticsPage renenderTabContent should render Billing Tab 1`] = `
+exports[`AnalyticsPage renderTabContent should render Billing Tab 1`] = `
 <div>
   <Component />
 </div>
 `;
 
-exports[`AnalyticsPage renenderTabContent should render Detailed Tab 1`] = `
+exports[`AnalyticsPage renderTabContent should render Detailed Tab 1`] = `
 <div>
   <Component />
 </div>

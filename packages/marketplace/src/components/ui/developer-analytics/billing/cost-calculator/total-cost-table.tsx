@@ -4,7 +4,7 @@ import { CostCalculatorFormValues } from './cost-calculator-form'
 import { EndpointsUsedRange, TierPrice } from './cost-calculator'
 import { formatCurrency, formatNumber } from '@/utils/number-formatter'
 import { Table, Grid, GridItem, H6, H4, Button } from '@reapit/elements'
-import styles from '@/styles/pages/analytics.scss?mod'
+import styles from '@/styles/pages/developer-analytics.scss?mod'
 
 export type TotalCostTableProps = {
   formValues: CostCalculatorFormValues

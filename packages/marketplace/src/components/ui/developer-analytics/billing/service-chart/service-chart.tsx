@@ -1,7 +1,7 @@
 import React from 'react'
 import { Bar } from 'react-chartjs-2'
 import { H4, FlexContainerResponsive } from '@reapit/elements'
-import styles from '@/styles/pages/analytics.scss?mod'
+import styles from '@/styles/pages/developer-analytics.scss?mod'
 
 // TODO will replace mock data when have API
 const data = {

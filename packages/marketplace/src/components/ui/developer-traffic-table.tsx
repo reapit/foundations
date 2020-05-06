@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { UsageStatsModel, PagedResultAppSummaryModel_, AppUsageStatsModel } from '@reapit/foundations-ts-definitions'
 import { H4, Table, toLocalTime, Loader } from '@reapit/elements'
-import styles from '@/styles/pages/analytics.scss?mod'
+import styles from '@/styles/pages/developer-analytics.scss?mod'
 
 export interface DeveloperAppTrafficProps {
   stats: UsageStatsModel

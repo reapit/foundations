@@ -35,7 +35,7 @@ jobs:
         run: yarn install
 
       - name: purge unused assets not belonged to two recent commits
-        run: yarn handle-purge-unsed-assets-cronjob
+        run: yarn handle-purge-unsed-s3-assets-cronjob
 
 env:
   NPM_TOKEN: ${{secrets.NPM_TOKEN}}

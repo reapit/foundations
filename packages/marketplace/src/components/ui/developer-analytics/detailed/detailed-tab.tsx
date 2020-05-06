@@ -19,7 +19,7 @@ import InstallationTable, { InstallationModelWithAppName } from './installation-
 import FilterBar from './filter-bar'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
-import styles from '@/styles/pages/analytics.scss?mod'
+import styles from '@/styles/pages/developer-analytics.scss?mod'
 import { AppInstallationsState } from '@/reducers/app-installations'
 import { DeveloperState } from '@/reducers/developer'
 import { AppUsageStatsState } from '@/reducers/app-usage-stats'

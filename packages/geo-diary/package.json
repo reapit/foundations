@@ -18,7 +18,7 @@
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
     "release:dev": "node ../../scripts/release/release-dev.js geo-diary reapit-geo-diary-dev",
     "release:prod": "node ../../scripts/release/release-prod.js geo-diary reapit-geo-diary-prod",
-    "handle-purge-unsed-assets-cronjob": "node ../../scripts/s3/purge-unused-assets-from-s3.js reapit-geo-diary-dev reapit-geo-diary-prod",
+    "handle-purge-unsed-s3-assets-cronjob": "node ../../scripts/s3/purge-unused-assets-from-s3.js reapit-geo-diary-dev reapit-geo-diary-prod",
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
     "lint:fix": "eslint --cache --ext=ts,tsx,js src --fix",

@@ -2,12 +2,12 @@ import * as React from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import { Tabs, FlexContainerBasic, FlexContainerResponsive, H3, TabConfig } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import DetailedTab from '../ui/analytics/detailed/detailed-tab'
-import BillingTab from '../ui/analytics/billing/billing-tab'
+import DetailedTab from '@/components/ui/developer-analytics/detailed'
+import BillingTab from '@/components/ui/developer-analytics/billing'
 import Routes from '@/constants/routes'
-import styles from '@/styles/pages/analytics.scss?mod'
+import styles from '@/styles/pages/developer-analytics.scss?mod'
 
-export type AnalyticsPageProps = {}
+export type DeveloperAnalyticsPageProps = {}
 
 export type TabConfigsProps = {
   currentTab: string
@@ -59,7 +59,7 @@ export const handleUseEffectToSetCurrentTab = (activeTab, setCurrentTab) => {
   }
 }
 
-export const renenderTabContent = currentTab => {
+export const renderTabContent = currentTab => {
   switch (currentTab) {
     case AnalyticsTab.DETAILED:
       return <DetailedTab />
@@ -70,7 +70,7 @@ export const renenderTabContent = currentTab => {
   }
 }
 
-export const AnalyticsPage: React.FC<AnalyticsPageProps> = () => {
+export const DeveloperAnalyticsPage: React.FC<DeveloperAnalyticsPageProps> = () => {
   const [currentTab, setCurrentTab] = React.useState<AnalyticsTab>(AnalyticsTab.DETAILED)
   const history = useHistory()
   const { activeTab } = useParams()
@@ -85,11 +85,11 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = () => {
           <div className={styles.tabContainer}>
             <Tabs tabConfigs={tabConfigs({ currentTab, history })} />
           </div>
-          <div>{renenderTabContent(currentTab)}</div>
+          <div>{renderTabContent(currentTab)}</div>
         </FlexContainerResponsive>
       </FlexContainerBasic>
     </ErrorBoundary>
   )
 }
 
-export default AnalyticsPage
+export default DeveloperAnalyticsPage

@@ -4,7 +4,7 @@ import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-defin
 import { AppInstallationsState } from '@/reducers/app-installations'
 import { DeveloperState } from '@/reducers/developer'
 import { INSTALLATIONS_PER_PAGE } from '@/constants/paginator'
-import styles from '@/styles/pages/analytics.scss?mod'
+import styles from '@/styles/pages/developer-analytics.scss?mod'
 
 export interface InstallationModelWithAppName extends InstallationModel {
   appName?: string
