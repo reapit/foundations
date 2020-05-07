@@ -3,7 +3,7 @@ import { FaCheck } from 'react-icons/fa'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import styles from '@/styles/pages/developer-app-detail.scss?mod'
 import { Button } from '@reapit/elements'
-import ClientAppInstallationConfirmation from './client-app-installation-confirmation'
+import ClientAppInstallConfirmation from './client-app-install-confirmation'
 
 export type ClientAppDetailButtonGroupProps = {
   appDetailData: AppDetailModel & {
@@ -43,7 +43,7 @@ const ClientAppDetailButtonGroup: React.FC<ClientAppDetailButtonGroupProps> = ({
           Install App
         </Button>
       )}
-      <ClientAppInstallationConfirmation
+      <ClientAppInstallConfirmation
         visible={isVisibleInstallConfirmation}
         appDetailData={appDetailData}
         closeInstallConfirmationModal={closeInstallConfirmationModal}

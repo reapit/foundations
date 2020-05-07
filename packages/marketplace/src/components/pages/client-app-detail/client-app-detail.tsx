@@ -34,33 +34,10 @@ export const mapState = (useSelector): MapState => {
   }
 }
 
-export const onInstallAppButtonClick = () => {
-  return () => {}
-}
-
-export const renderAppHeaderButtonGroup = (path: string, installedOn?: string) => {
-  switch (path) {
-    case Routes.CLIENT_APP_DETAIL:
-      return installedOn ? (
-        <div data-test="detail-modal-installed" className={styles.installed}>
-          <FaCheck />
-          <span>Installed</span>
-        </div>
-      ) : (
-        <Button dataTest="detail-modal-install-button" type="button" variant="primary" onClick={() => {}}>
-          Install App
-        </Button>
-      )
-    default:
-      break
-  }
-}
-
 const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   const match = useRouteMatch()
   const { path } = match
   const { appDetailData, isLoadingAppDetail, loginType } = mapState(useSelector)
-  const { installedOn } = appDetailData
 
   if (!appDetailData.id || isLoadingAppDetail) {
     return <Loader />

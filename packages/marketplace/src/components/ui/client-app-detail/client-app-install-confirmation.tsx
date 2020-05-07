@@ -6,7 +6,7 @@ import { Button, Modal } from '@reapit/elements'
 import { appInstallationsRequestInstall } from '@/actions/app-installations'
 import { Dispatch } from 'redux'
 
-export type ClientAppInstallationConfirmationProps = {
+export type ClientAppInstallConfirmationProps = {
   appDetailData?: AppDetailModel
   visible: boolean
   closeInstallConfirmationModal: () => void
@@ -22,7 +22,7 @@ export const onInstallButtonClick = (appId: string, dispatch: Dispatch<any>) => 
   }
 }
 
-const ClientAppInstallationConfirmation: React.FC<ClientAppInstallationConfirmationProps> = ({
+const ClientAppInstallConfirmation: React.FC<ClientAppInstallConfirmationProps> = ({
   appDetailData,
   visible,
   closeInstallConfirmationModal,
@@ -84,4 +84,4 @@ const ClientAppInstallationConfirmation: React.FC<ClientAppInstallationConfirmat
   )
 }
 
-export default ClientAppInstallationConfirmation
+export default ClientAppInstallConfirmation
