@@ -9,7 +9,10 @@ import {
 
 describe('Search-Helper', () => {
   it('getMinPriceRange', () => {
-    const result = getPriceRange()
+    let result = getPriceRange(false)
+    expect(result[0].label).toEqual('No max')
+    result = getPriceRange(true)
+    expect(result[0].label).toEqual('No min')
     expect(result.length).toBe(95)
   })
   it('getMaxPriceRange', () => {
@@ -18,7 +21,7 @@ describe('Search-Helper', () => {
   })
   it('showSearchTypeFilter', () => {
     expect(showSearchType('Rent')).toEqual('To Rent')
-    expect(showSearchType('Sale')).toEqual('For Sell')
+    expect(showSearchType('Sale')).toEqual('For Sale')
   })
 
   it('showBedRange', () => {
@@ -78,7 +81,7 @@ describe('Search-Helper', () => {
         searchType: 'Sale' as 'Rent' | 'Sale',
       }
       const result = getResultMessage(input)
-      expect(result).toEqual('1 Property For Sell in mockSearchKeyword')
+      expect(result).toEqual('1 Property For Sale in mockSearchKeyword')
     })
   })
 })

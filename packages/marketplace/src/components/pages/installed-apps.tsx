@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
-import { withRouter, RouteComponentProps } from 'react-router'
+import { withRouter, RouteComponentProps, Redirect } from 'react-router'
 import { ReduxState } from '@/types/core'
 import { InstalledAppsState } from '@/reducers/installed-apps'
 import { Loader } from '@reapit/elements'
@@ -10,6 +10,8 @@ import routes from '@/constants/routes'
 import InstalledAppList from '@/components/ui/installed-app-list'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { handleLaunchApp } from '../../utils/launch-app'
+import { getParamsFromPath } from '@/utils/client-url-params'
+import Routes from '@/constants/routes'
 
 export interface InstalledAppsMappedProps {
   installedAppsState: InstalledAppsState
@@ -27,9 +29,15 @@ export const InstalledApps: React.FC<InstalledAppsProps> = ({ installedAppsState
   const loading = installedAppsState.loading
   const list = installedAppsState?.installedAppsData?.data?.data || []
   const { totalCount, pageSize } = installedAppsState?.installedAppsData?.data || {}
+  const { code, state } = getParamsFromPath(history.location.search)
 
   if (unfetched || loading) {
     return <Loader />
+  }
+
+  // redirect to browser app page if no app installed and come from login page
+  if (code && state && !list.length) {
+    return <Redirect to={Routes.CLIENT} />
   }
 
   return (

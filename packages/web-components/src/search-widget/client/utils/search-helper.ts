@@ -60,8 +60,8 @@ export type PriceRange = { value: number; label: string }
  * So £300,000, £325,000, £350,000
  * Stop at £2,000,000
  */
-export const getPriceRange = (): PriceRange[] => {
-  const priceRange: PriceRange[] = [{ value: 0, label: 'No max' }]
+export const getPriceRange = (isMinimum: boolean = true): PriceRange[] => {
+  const priceRange: PriceRange[] = [{ value: 0, label: isMinimum ? 'No min' : 'No max' }]
   let priceStart = PRICE_RANGE_START
   while (priceStart <= PRICE_RANGE_END_LEVEL2) {
     priceRange.push({ value: priceStart, label: currencyFormatter.format(priceStart) })
@@ -71,7 +71,7 @@ export const getPriceRange = (): PriceRange[] => {
 }
 
 export const showSearchType = (type: 'Rent' | 'Sale'): string => {
-  return type === 'Rent' ? 'To Rent' : 'For Sell'
+  return type === 'Rent' ? 'To Rent' : 'For Sale'
 }
 
 export const showBedRange = (minBed: number, maxBed: number): string => {
@@ -110,18 +110,22 @@ export const getResultMessage = ({
   maxPrice = 0,
   propertyType = '',
 }: GetResultMessageParams) => {
-  const isHideFilterMessage = minBeds === 0 && maxBeds === 0 && minPrice === 0 && maxPrice === 0 && !propertyType
   if (properties && properties._embedded && properties._embedded.length > 0) {
     const numberResults = properties.totalCount
     let resultsMessage = `${numberResults} ${numberResults === 1 ? 'Property' : 'Properties'} ${showSearchType(
       searchType,
     )} in ${searchKeyword}`
-    if (!isHideFilterMessage) {
-      resultsMessage = resultsMessage.concat(
-        `: ${showBedRange(minBeds, maxBeds)}, ${showPriceRange(minPrice, maxPrice)}`,
-      )
+    const filterMessages = []
+    if (minBeds !== 0 || maxBeds !== 0) {
+      filterMessages.push(showBedRange(minBeds, maxBeds))
     }
-    return resultsMessage
+    if (minPrice !== 0 || maxPrice !== 0) {
+      filterMessages.push(showPriceRange(minPrice, maxPrice))
+    }
+    if (propertyType) {
+      filterMessages.push(showSearchPropertyType(propertyType))
+    }
+    return `${resultsMessage}${filterMessages.length > 0 ? `: ${filterMessages.join(', ')}` : ''}`
   }
   return ''
 }
