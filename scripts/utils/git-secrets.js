@@ -10,6 +10,8 @@ const AWS_CRED_FILE = resolve(homedir, './.aws/credentials')
 
 /**
  * Used to build AWS credentials file using environment variable
+ * https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/loading-node-credentials-environment.html
+ * and credential file
  * https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/loading-node-credentials-shared.html
  */
 const buildTempCredFile = () => {
