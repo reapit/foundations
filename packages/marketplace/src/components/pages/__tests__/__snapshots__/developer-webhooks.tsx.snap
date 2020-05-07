@@ -28,16 +28,7 @@ exports[`DeveloperWebHooks should match a snapshot 1`] = `
         <Component />
       </Formik>
       <Component>
-        <Component>
-          <Component
-            dataTest="logout-btn"
-            onClick={[Function]}
-            type="button"
-            variant="primary"
-          >
-            Add New Webhook
-          </Component>
-        </Component>
+        <Component />
       </Component>
       <Component
         columns={

@@ -22,10 +22,10 @@ export const fetchSubscriptions = async (applicationId: string) => {
   return response
 }
 
-export const fetchWebhookTopic = async () => {
+export const fetchWebhookTopic = async (applicationId: string) => {
   const headers = await initAuthorizedRequestHeaders()
   const response = await fetcher({
-    url: `${URLS.webhookTopics}`,
+    url: `${URLS.webhookTopics}?${setQueryParams({ applicationId })}`,
     api: window.reapit.config.platformApiUrl,
     method: 'GET',
     headers: headers,
@@ -50,9 +50,9 @@ export const webhookSubscriptionsFetch = function*({ data: applicationId }: Acti
   }
 }
 
-export const webhookTopicsFetch = function*() {
+export const webhookTopicsFetch = function*({ data: applicationId }: Action<string>) {
   try {
-    const response = yield call(fetchWebhookTopic)
+    const response = yield call(fetchWebhookTopic, applicationId)
     if (response) {
       yield put(webhookTopicsReceiveData(response))
     }
@@ -71,7 +71,7 @@ export const webhookSubscriptionsListen = function*() {
 }
 
 export const webhookTopicsListen = function*() {
-  yield takeLatest<Action<void>>(ActionTypes.WEBHOOK_TOPICS_REQUEST_DATA, webhookTopicsFetch)
+  yield takeLatest<Action<string>>(ActionTypes.WEBHOOK_TOPICS_REQUEST_DATA, webhookTopicsFetch)
 }
 
 const webhookSubscriptionsSagas = function*() {

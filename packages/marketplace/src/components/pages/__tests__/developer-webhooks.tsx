@@ -6,10 +6,15 @@ import {
   mapStateToProps,
   mapDeveloperAppsToAppSelectBoxOptions,
   DeveloperWebhooks,
+  renderCustomerName,
+  renderTopicName,
+  openEditModal,
+  MODAL_TYPE,
+  openCreateModal,
 } from '../developer-webhooks'
 import { shallow } from 'enzyme'
 import { ReduxState } from '@/types/core'
-import { WebhookSubscriptionsState, WebhookTopicsState } from '@/reducers/webhook-subscriptions'
+import { WebhookSubscriptionsState, WebhookTopicsState, TopicModel } from '@/reducers/webhook-subscriptions'
 
 import { developerState } from '@/sagas/__stubs__/developer'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
@@ -23,6 +28,7 @@ const props: DeveloperWebhooksProps = {
   setApplicationId: jest.fn(),
   applications: [],
   fetchTopics: jest.fn(),
+  fetchSubscriptions: jest.fn(),
   developerState,
   modalType: '',
   webhookSetOpenModal: jest.fn(),
@@ -92,8 +98,13 @@ describe('DeveloperWebHooks', () => {
   describe('mapDispatchToProps', () => {
     it('should call dispatch correctly', () => {
       const mockDispatch = jest.fn()
-      const { fetchTopics } = mapDispatchToProps(mockDispatch)
+      const { fetchTopics, fetchSubscriptions, setApplicationId, webhookSetOpenModal } = mapDispatchToProps(
+        mockDispatch,
+      )
+      fetchSubscriptions('applicationId')
       fetchTopics('applicationId')
+      setApplicationId('applicationId')
+      webhookSetOpenModal('applicationId')
       expect(mockDispatch).toBeCalled()
     })
   })
@@ -101,18 +112,74 @@ describe('DeveloperWebHooks', () => {
   describe('handleSubscriptionChange', () => {
     it('should run correctly', () => {
       const fetchTopics = jest.fn()
+      const fetchSubscriptions = jest.fn()
       const values = { applicationId: '123' }
-      handleSubscriptionChange(fetchTopics)(values)
+      handleSubscriptionChange({ fetchTopics, fetchSubscriptions })(values)
       expect(fetchTopics).toHaveBeenCalledWith(values.applicationId)
+      expect(fetchSubscriptions).toHaveBeenCalledWith(values.applicationId)
     })
   })
-
-  describe('getTableTopicsData', () => {
+  describe('renderTopicName', () => {
     it('should run correctly', () => {
-      const fetchTopics = jest.fn()
-      const values = { applicationId: '123' }
-      handleSubscriptionChange(fetchTopics)(values)
-      expect(fetchTopics).toHaveBeenCalledWith(values.applicationId)
+      const topics: TopicModel[] = [
+        {
+          id: 'XXX',
+          created: '',
+          modified: '',
+          name: 'xxx',
+          description: '',
+          url: '',
+          active: false,
+          associatedScope: '',
+          example: '',
+        },
+        {
+          id: 'YYY',
+          created: '',
+          modified: '',
+          name: 'yyy',
+          description: '',
+          url: '',
+          active: false,
+          associatedScope: '',
+          example: '',
+        },
+      ]
+      const subscriptionTopicIds: string[] = ['XXX', 'YYY']
+      const result = renderTopicName(topics, subscriptionTopicIds)
+      const expected = 'xxx\nyyy'
+      expect(result).toEqual(expected)
+    })
+  })
+  describe('renderCustomerName', () => {
+    it('should run correctly', () => {
+      const subscriptionCustomerIds = ['XXX', 'yyy']
+      const subscriptionCustomerIdsEmpty = []
+      const result = renderCustomerName(subscriptionCustomerIds)
+      const expected = 'XXX\nyyy'
+      expect(result).toEqual(expected)
+
+      const emptyResult = renderCustomerName(subscriptionCustomerIdsEmpty)
+      expect(emptyResult).toEqual('All Customers (*)')
+    })
+  })
+  describe('openEditModal', () => {
+    it('should run correctly', () => {
+      const webhookSetOpenModal = jest.fn()
+      const setWebhookId = jest.fn()
+      const webhookId = 'webhookId'
+
+      openEditModal({ webhookSetOpenModal, setWebhookId })(webhookId)
+      expect(webhookSetOpenModal).toBeCalledWith(MODAL_TYPE.EDIT)
+      expect(setWebhookId).toBeCalledWith(webhookId)
+    })
+  })
+  describe('openCreateModal', () => {
+    it('should run correctly', () => {
+      const webhookSetOpenModal = jest.fn()
+
+      openCreateModal(webhookSetOpenModal)()
+      expect(webhookSetOpenModal).toBeCalledWith(MODAL_TYPE.CREATE)
     })
   })
 })

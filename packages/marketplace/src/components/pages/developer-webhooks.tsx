@@ -18,7 +18,11 @@ import {
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { compose, Dispatch } from 'redux'
 import { Form, Formik } from 'formik'
-import { webhookSubscriptionsRequestData, setApplicationId } from '@/actions/webhook-subscriptions'
+import {
+  webhookSubscriptionsRequestData,
+  setApplicationId,
+  webhookTopicsRequestData,
+} from '@/actions/webhook-subscriptions'
 import { webhookSetOpenModal } from '@/actions/webhook-edit-modal'
 import { WebhookModel, TopicModel } from '@/reducers/webhook-subscriptions'
 import {
@@ -54,12 +58,13 @@ export const columns = [
   },
 ]
 
-const MODAL_TYPE = {
+export const MODAL_TYPE = {
   EDIT: 'EDIT',
   CREATE: 'CREATE',
 }
 
-export const handleSubscriptionChange = fetchTopics => (values): void => {
+export const handleSubscriptionChange = ({ fetchTopics, fetchSubscriptions }) => (values): void => {
+  fetchSubscriptions(values.applicationId)
   fetchTopics(values.applicationId)
 }
 
@@ -78,20 +83,30 @@ export const openEditModal = ({ webhookSetOpenModal, setWebhookId }: OpenEditMod
   setWebhookId(webhookId)
 }
 
-export const renderTopicName = (subscriptionTopicIds: string[]) => {
-  return subscriptionTopicIds.join('\n')
+export const renderTopicName = (topics: TopicModel[], subscriptionTopicIds: string[]) => {
+  const subscriptionTopics = topics.filter(topic => subscriptionTopicIds.includes(topic.id))
+  const subscriptionTopicsName = subscriptionTopics.map(topic => topic.name)
+  return subscriptionTopicsName.join('\n')
+}
+
+export const renderCustomerName = (subscriptionCustomerIds: string[]) => {
+  if (subscriptionCustomerIds.length) {
+    return subscriptionCustomerIds.join('\n')
+  }
+  return 'All Customers (*)'
 }
 
 type GetTableTopicsDataParams = {
   subscriptions: WebhookModel[]
+  topics: TopicModel[]
   handleOpenEditModal: (webhookId: string) => void
 }
 
-export const getTableTopicsData = ({ subscriptions, handleOpenEditModal }: GetTableTopicsDataParams) => {
+export const getTableTopicsData = ({ subscriptions, topics, handleOpenEditModal }: GetTableTopicsDataParams) => {
   return subscriptions?.map((subscription: WebhookModel) => ({
     url: subscription.url,
-    topics: renderTopicName(subscription.topicIds),
-    customer: 'All Customers (*)',
+    topics: renderTopicName(topics, subscription.topicIds),
+    customer: renderCustomerName(subscription.customerIds),
     test: 'Ping',
     edit: (
       <Button
@@ -130,8 +145,10 @@ export const mapDeveloperAppsToAppSelectBoxOptions: (
 
 export const DeveloperWebhooks = ({
   fetchTopics,
+  fetchSubscriptions,
   subscriptions,
   subscriptionsLoading,
+  topics,
   applicationId,
   developerState,
   webhookSetOpenModal,
@@ -172,15 +189,17 @@ export const DeveloperWebhooks = ({
                   labelText="App"
                   id="subscription"
                 />
-                <FormikAutoSave onSave={handleSubscriptionChange(fetchTopics)} />
+                <FormikAutoSave onSave={handleSubscriptionChange({ fetchTopics, fetchSubscriptions })} />
               </Form>
             )}
           </Formik>
           <Section>
             <LevelRight>
-              <Button dataTest="logout-btn" variant="primary" type="button" onClick={handleOpenCreateModal}>
-                Add New Webhook
-              </Button>
+              {applicationId && (
+                <Button dataTest="logout-btn" variant="primary" type="button" onClick={handleOpenCreateModal}>
+                  Add New Webhook
+                </Button>
+              )}
             </LevelRight>
           </Section>
           {unfetched || loading || subscriptionsLoading ? (
@@ -189,7 +208,7 @@ export const DeveloperWebhooks = ({
             <Table
               scrollable
               columns={columns}
-              data={getTableTopicsData({ subscriptions, handleOpenEditModal })}
+              data={getTableTopicsData({ subscriptions, handleOpenEditModal, topics })}
               loading={false}
             />
           )}
@@ -208,6 +227,7 @@ export const DeveloperWebhooks = ({
 }
 
 export type DispatchProps = {
+  fetchSubscriptions: (applicationId: string) => void
   fetchTopics: (applicationId: string) => void
   setApplicationId: (applicationId: string) => void
   webhookSetOpenModal: (type: string) => void
@@ -225,7 +245,8 @@ export const mapStateToProps = (state: ReduxState): StateProps => ({
 
 export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
-    fetchTopics: (applicationId: string) => dispatch(webhookSubscriptionsRequestData(applicationId)),
+    fetchSubscriptions: (applicationId: string) => dispatch(webhookSubscriptionsRequestData(applicationId)),
+    fetchTopics: (applicationId: string) => dispatch(webhookTopicsRequestData(applicationId)),
     setApplicationId: (applicationId: string) => dispatch(setApplicationId(applicationId)),
     webhookSetOpenModal: (type: string) => dispatch(webhookSetOpenModal(type)),
   }

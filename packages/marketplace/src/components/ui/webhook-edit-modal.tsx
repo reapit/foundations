@@ -224,7 +224,6 @@ export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps> 
                 labelText="Subscription Customers"
                 options={customerOptions}
                 dropdownStyle={{ zIndex: 41 }}
-                required
               />
               <Checkbox id="active" name="active" labelText="Active" />
             </>

@@ -1,23 +1,19 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
 import { WebhookModal, WebhookSubscription } from '@/reducers/webhook-edit-modal'
-import { StringMap } from '../../../elements/src/types/core'
 
 export interface SubscriptionCustomersRequestParams {
   AppId: string
 }
 export interface SubscriptionTopicsRequestParams {
   applicationId: string
-  headers: StringMap
 }
 
 export interface FetchWebhookRequestParams {
-  headers: StringMap
   webhookId: string
 }
 
 export interface DeleteWebhookRequestParams {
-  headers: StringMap
   webhookId: string
 }
 
