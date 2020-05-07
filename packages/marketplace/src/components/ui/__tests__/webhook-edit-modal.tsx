@@ -55,9 +55,9 @@ describe('WebhookEditModal', () => {
     const appId = ''
     const fn = onEdit(editWebhook, webhookId, appId)
     const values: FormValuesType = {
-      WebhookURL: '',
-      SubscriptionTopics: [],
-      SubscriptionCustomers: [],
+      url: '',
+      topicIds: [],
+      customerIds: [],
       active: false,
     }
     fn(values)
@@ -68,9 +68,9 @@ describe('WebhookEditModal', () => {
     const webhookId = ''
     const fn = onCreate(createWebhook, webhookId)
     const values = {
-      WebhookURL: '',
-      SubscriptionTopics: [],
-      SubscriptionCustomers: [],
+      url: '',
+      topicIds: [],
+      customerIds: [],
       active: false,
     }
     fn(values)
@@ -147,7 +147,7 @@ describe('WebhookEditModal', () => {
         created: 'string',
         appId: 'string',
         client: 'client',
-        status: '',
+        status: 'Terminated',
         authFlow: '',
       },
       {
@@ -155,16 +155,16 @@ describe('WebhookEditModal', () => {
         created: 'string',
         appId: 'appId',
         client: 'client',
-        status: '',
+        status: 'Active',
         authFlow: '',
       },
     ]
 
     const expected = [
       {
-        value: 'client',
-        label: 'client',
-        description: 'client',
+        value: 'SBOX',
+        label: 'SBOX',
+        description: 'SBOX',
       },
       {
         value: 'client',
