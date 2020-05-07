@@ -7,6 +7,7 @@ describe('ReapitSearchWidgetComponent', () => {
       ReapitSearchWidgetComponent({
         parentSelector: '#search-widget',
         apiKey: 'SOME_KEY',
+        customerId: 'DEMO',
         theme: stubTheme,
       }),
     ).toMatchSnapshot()

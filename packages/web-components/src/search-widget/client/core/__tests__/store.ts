@@ -5,6 +5,7 @@ describe('store', () => {
     const expected: SearchWidgetStore = {
       initializers: {
         apiKey: '',
+        customerId: '',
         theme: {},
         parentSelector: '',
       },

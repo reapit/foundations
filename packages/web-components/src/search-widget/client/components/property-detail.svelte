@@ -15,6 +15,7 @@
   export let propertyId
   export let theme
   export let apiKey
+  export let customerId
   export let parentSelector
 
   let property = {}
@@ -37,7 +38,7 @@
   const loadProperty = async propertyId => {
     try {
       loading = true
-      property = await getProperty({ apiKey, propertyId })
+      property = await getProperty({ apiKey, customerId, propertyId })
       loading = false
       if (property) {
         const propertyImages = (propertyImagesByPropertyId && propertyImagesByPropertyId[propertyId]) || []
@@ -60,6 +61,7 @@
       new window.ReapitViewingBookingComponent({
         theme: window.theme,
         apiKey: '',
+        customerId: '',
         parentSelector: '#appointment-bookings-viewing',
         variant: 'VIEWING',
         propertyId,

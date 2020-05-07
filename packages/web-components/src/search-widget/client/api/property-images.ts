@@ -14,11 +14,12 @@ export const getPropertyQuery = (properties: PickedPropertyModel[]) =>
 export const getPropertyImages = async (
   properties: PickedPropertyModel[],
   apiKey: string,
+  customerId: string,
 ): Promise<Record<string, PickedPropertyImageModel[]>> => {
   const propertyQuery = getPropertyQuery(properties)
   const response = await fetcher<PickedPagedResultPropertyImageModel_, null>({
     url: `${process.env.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET}/propertyImages/${propertyQuery}`,
-    headers: getClientHeaders(apiKey),
+    headers: getClientHeaders({ apiKey, customerId }),
   })
 
   if (response && response._embedded) {

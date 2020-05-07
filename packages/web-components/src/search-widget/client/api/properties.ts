@@ -6,6 +6,7 @@ export type GetPropertiesType = {
   keywords?: string
   isRental?: boolean
   apiKey: string
+  customerId: string
   pageNumber?: number
   bedroomsFrom?: number
   bedroomsTo?: number
@@ -16,7 +17,7 @@ export type GetPropertiesType = {
   addedIn?: string
 }
 
-export const getUrlQuery = (params: Omit<GetPropertiesType, 'apiKey'> = { pageNumber: 1 }) => {
+export const getUrlQuery = (params: Omit<GetPropertiesType, 'apiKey' | 'customerId'> = { pageNumber: 1 }) => {
   const {
     keywords = '',
     isRental,
@@ -67,11 +68,11 @@ export const getUrlQuery = (params: Omit<GetPropertiesType, 'apiKey'> = { pageNu
 }
 
 export const getProperties = async (
-  params: GetPropertiesType = { pageNumber: 1, apiKey: '' },
+  params: GetPropertiesType = { pageNumber: 1, apiKey: '', customerId: '' },
 ): Promise<PickedPagedResultPropertyModel_ | undefined> => {
-  const { apiKey, ...otherParams } = params
+  const { apiKey, customerId, ...otherParams } = params
   return fetcher<PickedPagedResultPropertyModel_, null>({
     url: getUrlQuery(otherParams),
-    headers: getClientHeaders(apiKey),
+    headers: getClientHeaders({ apiKey, customerId }),
   })
 }

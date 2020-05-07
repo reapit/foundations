@@ -4,13 +4,14 @@ import { PickedPropertyModel } from '../../types'
 
 export type GetPropertyType = {
   apiKey: string
+  customerId: string
   propertyId: string
 }
 
 export const getProperty = async (params: GetPropertyType): Promise<PickedPropertyModel | undefined> => {
-  const { apiKey, propertyId } = params
+  const { apiKey, customerId, propertyId } = params
   return fetcher<PickedPropertyModel, null>({
     url: `${process.env.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET}/properties/${propertyId}`,
-    headers: getClientHeaders(apiKey),
+    headers: getClientHeaders({ apiKey, customerId }),
   })
 }

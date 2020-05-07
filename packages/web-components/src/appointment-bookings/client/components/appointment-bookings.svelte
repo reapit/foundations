@@ -13,6 +13,7 @@
   // TODO - will need to import later
   // export let apiKey
   // export let variant
+  // export let customerId
   // export let propertyId
 
   let isModalOpen = false
