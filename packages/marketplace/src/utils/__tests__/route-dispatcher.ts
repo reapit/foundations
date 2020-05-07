@@ -3,17 +3,17 @@ import store from '../../core/store'
 import Routes from '../../constants/routes'
 import { GET_ALL_PAGE_SIZE } from '../../constants/paginator'
 import { RouteValue } from '../../types/core'
-import { clientRequestData } from '../../actions/client'
-import { developerRequestData } from '../../actions/developer'
-import { myAppsRequestData } from '../../actions/my-apps'
-import { installedAppsRequestData } from '../../actions/installed-apps'
-import { adminApprovalsRequestData } from '../../actions/admin-approvals'
-import { getAccessToken } from '../../utils/session'
+import { clientRequestData } from '@/actions/client'
+import { developerRequestData, fetchMyIdentity } from '@/actions/developer'
+import { myAppsRequestData } from '@/actions/my-apps'
+import { installedAppsRequestData } from '@/actions/installed-apps'
+import { adminApprovalsRequestData } from '@/actions/admin-approvals'
+import { getAccessToken } from '@/utils/session'
 import { requestDeveloperData } from '@/actions/settings'
 import { getParamsFromPath } from '@/utils/client-url-params'
 
 jest.mock('@reapit/elements')
-jest.mock('../../utils/session')
+jest.mock('@/utils/session')
 jest.mock('../../core/store')
 jest.mock('../../sagas/client')
 jest.mock('../../sagas/developer')
@@ -77,5 +77,6 @@ describe('routeDispatcher', () => {
   it('should dispatch to appInstallationsRequestData & developerRequestData for the analytics route', async () => {
     await routeDispatcher(Routes.DEVELOPER_ANALYTICS_TAB as RouteValue)
     expect(store.dispatch).toHaveBeenCalledWith(developerRequestData({ appsPerPage: GET_ALL_PAGE_SIZE, page: 1 }))
+    expect(store.dispatch).toHaveBeenCalledWith(fetchMyIdentity())
   })
 })

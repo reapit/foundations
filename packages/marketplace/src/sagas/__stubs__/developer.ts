@@ -1,4 +1,6 @@
 import { DeveloperState } from '@/reducers/developer'
+import { developerIdentity } from './developer-identity'
+import { billing } from './billing'
 
 export const developerStub = {
   id: '7a96e6b2-3778-4118-9c9b-6450851e5608',
@@ -14,6 +16,7 @@ export const developerStub = {
 
 export const developerState: DeveloperState = {
   loading: false,
+  error: null,
   developerData: {
     data: {
       data: [
@@ -90,6 +93,9 @@ export const developerState: DeveloperState = {
       },
     ],
   },
+  myIdentity: developerIdentity,
   formState: 'PENDING',
   isVisible: false,
+  billing: billing,
+  isServiceChartLoading: false,
 }

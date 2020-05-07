@@ -18,6 +18,14 @@ describe('DeveloperHome', () => {
   it('should match a snapshot', () => {
     const mockProps: DeveloperProps = {
       developerState: {
+        myIdentity: {},
+        error: null,
+        billing: {
+          from: '',
+          to: '',
+          requestsByPeriod: [],
+        },
+        isServiceChartLoading: false,
         loading: false,
         isVisible: false,
         developerData: {
@@ -52,6 +60,14 @@ describe('DeveloperHome', () => {
   it('should match a snapshot', () => {
     const mockProps: DeveloperProps = {
       developerState: {
+        isServiceChartLoading: false,
+        myIdentity: {},
+        error: null,
+        billing: {
+          from: '',
+          to: '',
+          requestsByPeriod: [],
+        },
         loading: false,
         isVisible: true,
         developerData: {

@@ -2,6 +2,7 @@ import developerReducer, { defaultState } from '../developer'
 import { ActionType } from '../../types/core'
 import ActionTypes from '../../constants/action-types'
 import { appsDataStub } from '../../sagas/__stubs__/apps'
+import { billing } from '@/sagas/__stubs__/billing'
 
 describe('developer reducer', () => {
   it('should return default state if action not matched', () => {
@@ -59,6 +60,44 @@ describe('developer reducer', () => {
     const expected = {
       ...defaultState,
       isVisible: true,
+    }
+    expect(newState).toEqual(expected)
+  })
+
+  it('should set isServiceChartLoading when call DEVELOPER_FETCH_BILLING is called', () => {
+    const newState = developerReducer(undefined, {
+      type: ActionTypes.DEVELOPER_FETCH_BILLING as ActionType,
+      data: null,
+    })
+    const expected = {
+      ...defaultState,
+      isServiceChartLoading: true,
+    }
+    expect(newState).toEqual(expected)
+  })
+
+  it('should set billing and isServiceChartLoading when call DEVELOPER_FETCH_BILLING_SUCCESS is called', () => {
+    const newState = developerReducer(undefined, {
+      type: ActionTypes.DEVELOPER_FETCH_BILLING_SUCCESS as ActionType,
+      data: billing,
+    })
+    const expected = {
+      ...defaultState,
+      isServiceChartLoading: false,
+      billing: billing,
+    }
+    expect(newState).toEqual(expected)
+  })
+
+  it('should set fetchBillingFailure when call DEVELOPER_FETCH_BILLING_FAILURE is called', () => {
+    const newState = developerReducer(undefined, {
+      type: ActionTypes.DEVELOPER_FETCH_BILLING_FAILURE as ActionType,
+      data: 'error',
+    })
+    const expected = {
+      ...defaultState,
+      isServiceChartLoading: false,
+      error: 'error',
     }
     expect(newState).toEqual(expected)
   })
