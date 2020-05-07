@@ -3,7 +3,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import Slider, { Settings } from 'react-slick'
 import ChevronLeftIcon from '@/components/svg/chevron-left'
 import { FaCheck, FaTimes, FaCopy } from 'react-icons/fa'
-import { Grid, GridItem, SubTitleH6, H6, GridThreeColItem } from '@reapit/elements'
+import { Grid, GridItem, SubTitleH6, GridThreeColItem } from '@reapit/elements'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import AuthFlow from '@/constants/app-auth-flow'
 import AppAuthenticationDetail from '../../app-authentication-detail'
@@ -87,11 +87,9 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailData, loginType }) => 
     media = [],
     scopes = [],
     description,
-    installedOn,
   } = appDetailData
   const [isShowApiKey, setIsShowApikey] = React.useState<boolean>(false)
 
-  const isCurrentLoggedUserClient = loginType === 'CLIENT'
   const isCurrentLoggedUserDeveloper = loginType === 'DEVELOPER'
   const carouselImages = media.filter(({ type }) => type === 'image')
   const settings: Settings = {
@@ -156,10 +154,6 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailData, loginType }) => 
           </div>
         )}
         <br />
-        <H6>
-          {isCurrentLoggedUserDeveloper && 'Permissions requested'}
-          {isCurrentLoggedUserClient && (installedOn ? 'Permissions granted' : 'Permissions required')}
-        </H6>
         <Grid isMultiLine>
           {scopes.map(item => (
             <GridThreeColItem key={item.name}>

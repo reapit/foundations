@@ -37,6 +37,13 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       }
       break
     }
+    case Routes.CLIENT_APP_DETAIL_MANAGE: {
+      if (id) {
+        const clientId = selectClientId(store.state)
+        store.dispatch(appDetailRequestData({ id, clientId }))
+      }
+      break
+    }
     case Routes.INSTALLED_APPS:
       store.dispatch(installedAppsRequestData(1))
       break

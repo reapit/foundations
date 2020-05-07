@@ -10,7 +10,7 @@ import styles from '@/styles/pages/developer-app-detail.scss?mod'
 import ClientAppDetailButtonGroup from '@/components/ui/client-app-detail/client-app-detail-button-group'
 import ClientAppInstallConfirmation from '@/components/ui/client-app-detail/client-app-install-confirmation'
 
-export type ClientAppDetailProps = {}
+export type ClientAppDetailManageProps = {}
 
 export const handleCloseInstallConfirmationModal = (
   setIsVisibleInstallConfirmation: (isModalOpen: boolean) => void,
@@ -26,7 +26,7 @@ export const handleInstallAppButtonClick = (setIsVisibleInstallConfirmation: (is
   }
 }
 
-const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
+const ClientAppDetailManage: React.FC<ClientAppDetailManageProps> = () => {
   const [isVisibleInstallConfirmation, setIsVisibleInstallConfirmation] = React.useState(false)
   const closeInstallConfirmationModal = React.useCallback(
     handleCloseInstallConfirmationModal(setIsVisibleInstallConfirmation),
@@ -62,4 +62,4 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   )
 }
 
-export default ClientAppDetail
+export default ClientAppDetailManage

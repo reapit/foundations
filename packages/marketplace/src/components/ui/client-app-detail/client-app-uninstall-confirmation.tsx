@@ -9,14 +9,16 @@ import { Dispatch } from 'redux'
 export type ClientAppUninstallConfirmationProps = {
   appDetailData?: AppDetailModel
   visible: boolean
-  closeInstallConfirmationModal: () => void
+  closeUninstallConfirmationModal: () => void
 }
 
-export const onInstallButtonClick = (appId: string, dispatch: Dispatch<any>) => {
+export const onUninstallButtonClick = (appId: string, installationId: string, dispatch: Dispatch<any>) => {
   return () => {
     dispatch(
       appInstallationsRequestUninstall({
         appId,
+        installationId,
+        terminatedReason: 'User uninstall',
       }),
     )
   }
@@ -25,16 +27,16 @@ export const onInstallButtonClick = (appId: string, dispatch: Dispatch<any>) => 
 const ClientAppUninstallConfirmation: React.FC<ClientAppUninstallConfirmationProps> = ({
   appDetailData,
   visible,
-  closeInstallConfirmationModal,
+  closeUninstallConfirmationModal,
 }) => {
-  const { name, id = '', scopes = [] } = appDetailData || {}
+  const { name, id = '', installationId = '' } = appDetailData || {}
   const dispatch = useDispatch()
 
   return (
     <Modal
       visible={visible}
       title={`Confirm ${name} installation`}
-      afterClose={closeInstallConfirmationModal}
+      afterClose={closeUninstallConfirmationModal}
       footerItems={
         <>
           <Button
@@ -43,7 +45,7 @@ const ClientAppUninstallConfirmation: React.FC<ClientAppUninstallConfirmationPro
             className={appPermissionContentStyles.installButton}
             type="button"
             variant="primary"
-            onClick={onInstallButtonClick(id, dispatch)}
+            onClick={onUninstallButtonClick(id, installationId, dispatch)}
           >
             Confirm
           </Button>
@@ -53,7 +55,7 @@ const ClientAppUninstallConfirmation: React.FC<ClientAppUninstallConfirmationPro
             className={appPermissionContentStyles.installButton}
             type="button"
             variant="danger"
-            onClick={closeInstallConfirmationModal}
+            onClick={closeUninstallConfirmationModal}
           >
             Cancel
           </Button>

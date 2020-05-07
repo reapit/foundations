@@ -1,6 +1,7 @@
 const Routes = {
   CLIENT: '/client/apps',
   CLIENT_APP_DETAIL: '/client/apps/:appid',
+  CLIENT_APP_DETAIL_MANAGE: '/client/apps/:appid/manage',
   CLIENT_WELCOME: '/client/welcome',
   INSTALLED_APPS: '/client/installed',
   INSTALLED_APPS_PAGINATE: '/client/installed/:page',

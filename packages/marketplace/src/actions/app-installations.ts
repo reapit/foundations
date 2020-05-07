@@ -20,7 +20,7 @@ export interface InstallationParams {
   pageNumber?: number
 }
 
-export type InstallParams = CreateInstallationModel
+export type InstallParams = CreateInstallationModel & { callback?: () => void }
 
 export type UninstallParams = {
   installationId: string

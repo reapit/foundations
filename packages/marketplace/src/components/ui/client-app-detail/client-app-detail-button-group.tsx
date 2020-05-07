@@ -3,29 +3,20 @@ import { FaCheck } from 'react-icons/fa'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import styles from '@/styles/pages/developer-app-detail.scss?mod'
 import { Button } from '@reapit/elements'
-import ClientAppInstallConfirmation from './client-app-install-confirmation'
 
 export type ClientAppDetailButtonGroupProps = {
   appDetailData: AppDetailModel & {
     apiKey?: string | undefined
   }
+  handleInstallAppButtonClick: () => void
 }
 
-export const handleCloseInstallConfirmationModal = (
-  setIsVisibleInstallConfirmation: (isModalOpen: boolean) => void,
-) => {
-  return () => {
-    setIsVisibleInstallConfirmation(false)
-  }
-}
-
-const ClientAppDetailButtonGroup: React.FC<ClientAppDetailButtonGroupProps> = ({ appDetailData }) => {
+const ClientAppDetailButtonGroup: React.FC<ClientAppDetailButtonGroupProps> = ({
+  appDetailData,
+  handleInstallAppButtonClick,
+}) => {
   const { installedOn } = appDetailData
-  const [isVisibleInstallConfirmation, setIsVisibleInstallConfirmation] = React.useState(false)
-  const closeInstallConfirmationModal = React.useCallback(
-    handleCloseInstallConfirmationModal(setIsVisibleInstallConfirmation),
-    [],
-  )
+
   return (
     <div>
       {installedOn ? (
@@ -38,16 +29,11 @@ const ClientAppDetailButtonGroup: React.FC<ClientAppDetailButtonGroupProps> = ({
           dataTest="detail-modal-install-button"
           type="button"
           variant="primary"
-          onClick={() => setIsVisibleInstallConfirmation(true)}
+          onClick={handleInstallAppButtonClick}
         >
           Install App
         </Button>
       )}
-      <ClientAppInstallConfirmation
-        visible={isVisibleInstallConfirmation}
-        appDetailData={appDetailData}
-        closeInstallConfirmationModal={closeInstallConfirmationModal}
-      />
     </div>
   )
 }
