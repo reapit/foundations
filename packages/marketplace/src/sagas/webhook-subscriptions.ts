@@ -10,22 +10,12 @@ import {
   webhookTopicsReceiveData,
   setApplicationId,
 } from '@/actions/webhook-subscriptions'
+import { fetchWebhookTopic } from '@/services/topics'
 
 export const fetchSubscriptions = async (applicationId: string) => {
   const headers = await initAuthorizedRequestHeaders()
   const response = await fetcher({
     url: `${URLS.webhookSubscriptions}?${setQueryParams({ applicationId })}`,
-    api: window.reapit.config.platformApiUrl,
-    method: 'GET',
-    headers: headers,
-  })
-  return response
-}
-
-export const fetchWebhookTopic = async (applicationId: string) => {
-  const headers = await initAuthorizedRequestHeaders()
-  const response = await fetcher({
-    url: `${URLS.webhookTopics}?${setQueryParams({ applicationId })}`,
     api: window.reapit.config.platformApiUrl,
     method: 'GET',
     headers: headers,
@@ -52,7 +42,7 @@ export const webhookSubscriptionsFetch = function*({ data: applicationId }: Acti
 
 export const webhookTopicsFetch = function*({ data: applicationId }: Action<string>) {
   try {
-    const response = yield call(fetchWebhookTopic, applicationId)
+    const response = yield call(fetchWebhookTopic, { applicationId })
     if (response) {
       yield put(webhookTopicsReceiveData(response))
     }

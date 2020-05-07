@@ -19,7 +19,6 @@ import developerWebhookSagas, {
 import { call, put, all, fork, takeLatest } from '@redux-saga/core/effects'
 import {
   requestWebhookSubcriptionReceiveData,
-  webhookEditLoading,
   requestWebhookReceiveData,
   requestWebhookSubcriptionReceiveFailure,
   DeleteWebhookParams,
@@ -47,7 +46,6 @@ const params = { data: applicationId }
 
 describe('developer fetch subscription data', () => {
   const gen = cloneableGenerator(requestSupcriptionData as any)(params)
-  expect(gen.next().value).toEqual(put(webhookEditLoading(true)))
   expect(gen.next().value).toEqual(put(setApplicationId(applicationId)))
 
   expect(gen.next().value).toEqual(
@@ -89,25 +87,19 @@ describe('developer fetch webhook data', () => {
   const webhookId = ''
   const applicationId = ''
   const gen = cloneableGenerator(requestWebhookData as any)({ data: webhookId })
-  expect(gen.next().value).toEqual(put(webhookEditLoading(true)))
+  expect(gen.next().value).toEqual(call(fetchWebhookData, { webhookId }))
 
   it('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next().value).toEqual(call(fetchWebhookData, { webhookId }))
     expect(clone.next(webhookItemDataStub as any).value).toEqual(put(requestWebhookReceiveData(webhookItemDataStub)))
     expect(clone.next(applicationId).value).toEqual(put(requestWebhookSubcriptionData(applicationId)))
-  })
-  test('api call fail', () => {
-    const clone = gen.clone()
-    expect(clone.next(false).value).toEqual(call(fetchWebhookData, { webhookId }))
-    expect(clone.next().value).toEqual(put(requestWebhookReceiveDataFailure()))
-    expect(clone.next().done).toBe(true)
   })
 
   test('api call fail', () => {
     const clone = gen.clone()
     // @ts-ignore
-    expect(clone.throw(new Error('Call API Failed')).value).toEqual(
+    expect(clone.throw(new Error('Call API Failed')).value).toEqual(put(requestWebhookReceiveDataFailure()))
+    expect(clone.next().value).toEqual(
       put(
         errorThrownServer({
           type: 'SERVER',
@@ -118,7 +110,6 @@ describe('developer fetch webhook data', () => {
     expect(clone.next().done).toBe(true)
   })
 })
-
 describe('developerWebhookSagas', () => {
   it('should listen request data', () => {
     const gen = developerWebhookSagas()

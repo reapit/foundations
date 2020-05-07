@@ -3,7 +3,6 @@ import { Action } from '../types/core'
 import ActionTypes from '../constants/action-types'
 import { WebhookModal } from '@/reducers/webhook-edit-modal'
 import {
-  webhookEditLoading,
   requestWebhookSubcriptionReceiveFailure,
   requestWebhookSubcriptionReceiveData,
   SubscriptionCustomersRequestParams,
@@ -131,7 +130,6 @@ export const deleteEditWebhook = async (params: DeleteWebhookRequestParams) => {
 }
 
 export const requestSupcriptionData = function*({ data: applicationId }: Action<string>) {
-  yield put(webhookEditLoading(true))
   yield put(setApplicationId(applicationId))
   try {
     const [subcriptionTopics, subcriptionCustomers] = yield all([
@@ -230,17 +228,13 @@ export const deleteWebhook = function*({ data }: Action<DeleteWebhookParams>) {
 
 export const requestWebhookData = function*({ data: webhookId }: Action<string>) {
   try {
-    yield put(webhookEditLoading(true))
     const data: WebhookModal = yield call(fetchWebhookData, { webhookId })
-    if (data) {
-      const { applicationId } = data
-      yield put(requestWebhookReceiveData(data))
-      yield put(requestWebhookSubcriptionData(applicationId))
-    } else {
-      yield put(requestWebhookReceiveDataFailure())
-    }
+    const { applicationId } = data
+    yield put(requestWebhookReceiveData(data))
+    yield put(requestWebhookSubcriptionData(applicationId))
   } catch (err) {
     logger(err)
+    yield put(requestWebhookReceiveDataFailure())
     yield put(
       errorThrownServer({
         type: 'SERVER',

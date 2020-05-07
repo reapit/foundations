@@ -48,7 +48,6 @@ export interface EditWebhookParams {
   active: boolean
 }
 
-export const webhookEditLoading = actionCreator<boolean>(ActionTypes.WEBHOOK_EDIT_LOADING)
 export const requestWebhookSubcriptionData = actionCreator<string>(ActionTypes.WEBHOOK_EDIT_SUBCRIPTION_REQUEST_DATA)
 export const requestWebhookSubcriptionReceiveData = actionCreator<WebhookSubscription>(
   ActionTypes.WEBHOOK_EDIT_SUBCRIPTION_RECEIVE_DATA,

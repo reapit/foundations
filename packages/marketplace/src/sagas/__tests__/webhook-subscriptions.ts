@@ -1,6 +1,5 @@
 import webhookSubscriptionsSagas, {
   fetchSubscriptions,
-  fetchWebhookTopic,
   webhookSubscriptionsFetch,
   webhookTopicsFetch,
   webhookSubscriptionsListen,
@@ -18,6 +17,7 @@ import {
   setApplicationId,
 } from '@/actions/webhook-subscriptions'
 import ActionTypes from '@/constants/action-types'
+import { fetchWebhookTopic } from '@/services/topics'
 
 jest.mock('@reapit/elements')
 
@@ -57,7 +57,7 @@ describe('webhook sagas', () => {
       type: 'WEBHOOK_SUBSCRIPTION_REQUEST_DATA',
     }
     const gen = cloneableGenerator(webhookTopicsFetch)(applicationIdParam)
-    expect(gen.next().value).toEqual(call(fetchWebhookTopic, applicationIdParam.data))
+    expect(gen.next().value).toEqual(call(fetchWebhookTopic, { applicationId: applicationIdParam.data }))
 
     test('api call success', () => {
       const clone = gen.clone()
