@@ -1,0 +1,98 @@
+import { ComponentTypes } from '../../constants/component-types'
+
+export const initializeSearchWidgetComponent = editor => {
+  const defaultType = editor.DomComponents.getType('default')
+  const defaultModel = defaultType.model
+
+  editor.DomComponents.addType(ComponentTypes.SEARCH_WIDGET, {
+    model: defaultModel.extend(
+      {
+        defaults: {
+          ...defaultModel.prototype.defaults,
+          apiKey: '',
+          reapitCustomerId: '',
+          droppable: true,
+          traits: [
+            {
+              label: 'API Key',
+              name: 'apiKey',
+              changeProp: 1,
+            },
+            {
+              label: 'Reapit Customer Id',
+              name: 'reapitCustomerId',
+              changeProp: 1,
+            },
+          ],
+
+          script: function() {
+            const apiKey = '{[ apiKey ]}'
+            // const reapitCustomerId = '{[ reapitCustomerId ]}';
+            const container = this
+
+            const initWidget = () => {
+              container.innerHTML = ''
+              new window.ReapitSearchWidgetComponent({
+                theme: {
+                  baseBackgroundColor: '#fff',
+                  basefontSize: '16px',
+                  basefontColor: '#556986',
+                  inverseFontColor: '#fff',
+                  secondaryfontColor: '#95aac9',
+                  primaryHeadingFontSize: '22px',
+                  secondaryHeadingFontSize: '18px',
+                  baseFontFamily: '"Open Sans", sans-serif',
+                  headingFontFamily: '"Montserrat", sans-serif',
+                  primaryAccentColor: '#887e96',
+                  secondaryAccentColor: '#7d9d88',
+                  mapAccentColor: '',
+                  breakPoints: {
+                    mobile: '',
+                    tablet: '',
+                    laptop: '',
+                    desktop: '',
+                  },
+                },
+                apiKey,
+                parentSelector: `#${container.id}`,
+              })
+            }
+
+            if (!window.ReapitSearchWidgetComponent) {
+              const styles = document.createElement('link')
+              styles.href = 'https://web-components.reapit.cloud/search-widget.css'
+              styles.rel = 'stylesheet'
+              document.head.appendChild(styles)
+
+              const script = document.createElement('script')
+              script.src = 'https://web-components.reapit.cloud/search-widget.js'
+              script.async = true
+              script.defer = true
+              script.onload = initWidget
+              document.body.appendChild(script)
+            } else {
+              initWidget()
+            }
+          },
+        },
+      },
+      {
+        isComponent(el) {
+          if (el.getAttribute && el.getAttribute('data-gjs-type') === ComponentTypes.SEARCH_WIDGET) {
+            return {
+              type: ComponentTypes.SEARCH_WIDGET,
+            }
+          }
+        },
+      },
+    ),
+    view: defaultType.view.extend({
+      init() {
+        this.listenTo(this.model, 'change:apiKey change:reapitCustomerId', this.updateScript)
+        if (!this.model.attributes.apiKey.length) {
+          alert('You need to add an API key and a Reapit Customer Id to see this component in action')
+        }
+      },
+    }),
+  })
+}

@@ -8,7 +8,7 @@ import PrivateRouteWrapper from './private-route-wrapper'
 export const history = createBrowserHistory()
 
 const LoginPage = React.lazy(() => import('../components/pages/login'))
-const AuthenticatedPage = React.lazy(() => import('../components/pages/authenticated'))
+const EditorPage = React.lazy(() => import('../components/pages/editor-page'))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -17,7 +17,7 @@ const Router = () => (
         <Route path={Routes.LOGIN} component={LoginPage} />
         <PrivateRouteWrapper path="/">
           <Switch>
-            <PrivateRoute allow="CLIENT" path={Routes.HOME} fetcher component={AuthenticatedPage} />
+            <PrivateRoute allow="CLIENT" path={Routes.HOME} fetcher component={EditorPage} />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />

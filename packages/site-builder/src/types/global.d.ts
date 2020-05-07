@@ -12,5 +12,6 @@ declare global {
     reapit: {
       config: Config
     }
+    ReapitSearchWidgetComponent: any
   }
 }

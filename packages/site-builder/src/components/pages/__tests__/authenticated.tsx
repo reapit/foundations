@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import Authenticated from '../authenticated'
+import EditorPage from '../editor-page'
 import { AuthContext } from '@/context'
 import { mockContext } from '@/context/__mocks__/mock-context'
 
@@ -11,7 +11,7 @@ describe('Authenticated', () => {
       toJson(
         shallow(
           <AuthContext.Provider value={mockContext}>
-            <Authenticated />
+            <EditorPage />
           </AuthContext.Provider>,
         ),
       ),
