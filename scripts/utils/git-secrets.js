@@ -62,7 +62,7 @@ const run = () => {
     })
     if (errorScan) throw errorScan
     if (stderrScan) throw stderrScan
-    console.log('No secrets found in staged files!\n', stdoutScan)
+    console.log('No secret found in staged files!\n', stdoutScan)
     removeTempCredFile()
   } catch (err) {
     console.error(err)
