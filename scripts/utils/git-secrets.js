@@ -36,7 +36,7 @@ const removeTempCredFile = () => {
 
 /**
  * FLOW:
- * 1. GET AWS secrets from PATH and ~/.aws/credentials
+ * 1. GET AWS secrets from environment variables and ~/.aws/credentials
  * 2. Merge those secrets into one file (temporary file)
  * 3. Register AWS provider for git-secrets using the file in step 2
  * 4. Scan for secrets in staged files using git secrets --scan
@@ -57,13 +57,9 @@ const run = () => {
     console.log('Added AWS provider\n', stdoutAddProvider)
 
     // scan for secrets
-    const { error: errorScan, stdout: stdoutScan, stderr: stderrScan } = shell.exec(
-      'git secrets --scan --cached',
-
-      {
-        stdio: 'inherit',
-      },
-    )
+    const { error: errorScan, stdout: stdoutScan, stderr: stderrScan } = shell.exec('git secrets --scan --cached', {
+      stdio: 'inherit',
+    })
     if (errorScan) throw errorScan
     if (stderrScan) throw stderrScan
     console.log('No secrets found in staged files!\n', stdoutScan)
