@@ -38,10 +38,12 @@ exports[`DeveloperWebHooks should match a snapshot 1`] = `
               "accessor": "url",
             },
             Object {
+              "Cell": [Function],
               "Header": "Topics",
               "accessor": "topics",
             },
             Object {
+              "Cell": [Function],
               "Header": "Customer",
               "accessor": "customer",
             },

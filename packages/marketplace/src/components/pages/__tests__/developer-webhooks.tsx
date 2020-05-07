@@ -147,7 +147,7 @@ describe('DeveloperWebHooks', () => {
       ]
       const subscriptionTopicIds: string[] = ['XXX', 'YYY']
       const result = renderTopicName(topics, subscriptionTopicIds)
-      const expected = 'xxx\nyyy'
+      const expected = ['xxx', 'yyy']
       expect(result).toEqual(expected)
     })
   })
@@ -156,11 +156,11 @@ describe('DeveloperWebHooks', () => {
       const subscriptionCustomerIds = ['XXX', 'yyy']
       const subscriptionCustomerIdsEmpty = []
       const result = renderCustomerName(subscriptionCustomerIds)
-      const expected = 'XXX\nyyy'
+      const expected = ['XXX', 'yyy']
       expect(result).toEqual(expected)
 
       const emptyResult = renderCustomerName(subscriptionCustomerIdsEmpty)
-      expect(emptyResult).toEqual('All Customers (*)')
+      expect(emptyResult).toEqual(['All Customers (*)'])
     })
   })
   describe('openEditModal', () => {

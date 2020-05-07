@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Loader, SelectBoxOptions } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import { DeveloperState } from '@/reducers/developer'
@@ -35,6 +35,10 @@ import FormikAutoSave from '@/components/hocs/formik-auto-save'
 import WebhookEditModal from '../ui/webhook-edit-modal'
 import { selectDeveloperApps } from '@/selector/developer'
 
+export const CreatedCell = ({ cell: { value } }): ReactElement[] => {
+  return value.map((line, index) => <p key={index}>{line}</p>)
+}
+
 export const columns = [
   {
     Header: 'URL',
@@ -43,10 +47,12 @@ export const columns = [
   {
     Header: 'Topics',
     accessor: 'topics',
+    Cell: CreatedCell,
   },
   {
     Header: 'Customer',
     accessor: 'customer',
+    Cell: CreatedCell,
   },
   {
     Header: 'Test Webhook',
@@ -86,14 +92,14 @@ export const openEditModal = ({ webhookSetOpenModal, setWebhookId }: OpenEditMod
 export const renderTopicName = (topics: TopicModel[], subscriptionTopicIds: string[]) => {
   const subscriptionTopics = topics.filter(topic => subscriptionTopicIds.includes(topic.id))
   const subscriptionTopicsName = subscriptionTopics.map(topic => topic.name)
-  return subscriptionTopicsName.join('\n')
+  return subscriptionTopicsName
 }
 
 export const renderCustomerName = (subscriptionCustomerIds: string[]) => {
   if (subscriptionCustomerIds.length) {
-    return subscriptionCustomerIds.join('\n')
+    return subscriptionCustomerIds
   }
-  return 'All Customers (*)'
+  return ['All Customers (*)']
 }
 
 type GetTableTopicsDataParams = {
