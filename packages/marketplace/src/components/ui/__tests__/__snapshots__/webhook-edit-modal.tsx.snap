@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WebhookEditModal should match a snapshot 1`] = `
+<Component
+  renderChildren={true}
+  visible={true}
+>
+  <Connect(Component)
+    appId=""
+    isUpdate={false}
+  />
+</Component>
+`;
+
+exports[`WebhookEditModal should match a snapshot 2`] = `
+<Component
+  renderChildren={true}
+  visible={true}
+>
+  <Connect(Component)
+    appId=""
+    isUpdate={true}
+  />
+</Component>
+`;
+
+exports[`WebhookEditModal should match a snapshot 3`] = `""`;
+
+exports[`WebhookEditModal should match a snapshot 4`] = `""`;
+
+exports[`WebhookEditModal should match a snapshot 5`] = `
+<Formik
+  initialValues={
+    Object {
+      "SubscriptionCustomers": Array [],
+      "SubscriptionTopics": Array [],
+      "WebhookURL": "",
+      "active": false,
+    }
+  }
+  onSubmit={[Function]}
+>
+  <Form>
+    <Component
+      title="Edit"
+    />
+    <Component
+      body={
+        <React.Fragment>
+          <Unknown>
+            <p>
+              You can create a Webhook to receive notifications from the topics that you choose to subscribe it to. You can receive notifications for any customer that has installed your application. For more information about Webhooks, please see our
+               
+              <a
+                href="https://foundations-documentation.reapit.cloud/api/api-documentation#webhooks"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                webhooks documentation
+              </a>
+            </p>
+          </Unknown>
+          <Unknown
+            id="WebhookURL"
+            labelText="Webhook URL"
+            name="WebhookURL"
+            placeholder="Enter URL here"
+            required={true}
+            type="text"
+          />
+          <Unknown
+            dropdownStyle={
+              Object {
+                "zIndex": 41,
+              }
+            }
+            id="SubscriptionTopics"
+            labelText="Subscription Topics"
+            name="SubscriptionTopics"
+            options={Array []}
+            placeholder="Please select"
+            required={true}
+          />
+          <Unknown
+            dropdownStyle={
+              Object {
+                "zIndex": 41,
+              }
+            }
+            id="SubscriptionCustomers"
+            labelText="Subscription Customers"
+            name="SubscriptionCustomers"
+            options={Array []}
+            placeholder="All Customers who have installed your application (default)"
+            required={true}
+          />
+          <Unknown
+            id="active"
+            labelText="Active"
+            name="active"
+          />
+        </React.Fragment>
+      }
+    />
+    <Component
+      footerItems={
+        <Unknown
+          className="container-flex"
+        >
+          <Unknown>
+            <Unknown>
+              <Unknown
+                className="mr-2"
+                onClick={[Function]}
+                type="button"
+                variant="secondary"
+              >
+                Delete
+              </Unknown>
+            </Unknown>
+          </Unknown>
+          <Unknown>
+            <Unknown>
+              <Unknown
+                className="mr-2"
+                onClick={[MockFunction]}
+                type="button"
+                variant="secondary"
+              >
+                Cancel
+              </Unknown>
+            </Unknown>
+            <Unknown>
+              <Unknown
+                type="submit"
+                variant="primary"
+              >
+                Update
+              </Unknown>
+            </Unknown>
+          </Unknown>
+        </Unknown>
+      }
+    />
+  </Form>
+</Formik>
+`;

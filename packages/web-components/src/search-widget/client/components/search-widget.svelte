@@ -5,7 +5,6 @@
   import SearchForm from './search-form.svelte'
   import GoogleMap from './google-map.svelte'
   import SearchResult from './search-result.svelte'
-  import PropertyDetail from './property-detail.svelte'
   import Loader from '../../../common/components/loader.svelte'
   import Pagination from './pagination.svelte'
 
@@ -15,15 +14,6 @@
 
   const themeClasses = generateThemeClasses(theme, parentSelector)
   const { globalStyles, primaryHeading } = themeClasses
-  let selectedProperty = null
-
-  const handleItemClick = event => {
-    selectedProperty = event.detail.property
-  }
-
-  const handleBackToResults = () => {
-    selectedProperty = null
-  }
 
   onMount(() => {
     searchWidgetStore.update(values => ({
@@ -71,26 +61,22 @@
 <div class="{resetCSS} {globalStyles} search-widget">
   <SearchForm />
   <div class="search-widget-items-container">
-    {#if selectedProperty}
-      <PropertyDetail property={selectedProperty} on:back={handleBackToResults} />
-    {:else}
-      <div class="search-widget-items">
-        {#if $searchWidgetStore.properties.length && !$searchWidgetStore.isLoading}
-          <div class="search-widget-heading">
-            <h2 class={primaryHeading}>{$searchWidgetStore.resultsMessage}</h2>
-          </div>
-        {/if}
-        {#if $searchWidgetStore.isLoading}
-          <Loader />
-        {/if}
-        {#each $searchWidgetStore.properties as property (property.id)}
-          <SearchResult {property} on:propertyClick={handleItemClick} />
-        {/each}
-        {#if $searchWidgetStore.properties.length > 0 && !$searchWidgetStore.isLoading}
-          <Pagination />
-        {/if}
-      </div>
-    {/if}
+    <div class="search-widget-items">
+      {#if $searchWidgetStore.properties.length && !$searchWidgetStore.isLoading}
+        <div class="search-widget-heading">
+          <h2 class={primaryHeading}>{$searchWidgetStore.resultsMessage}</h2>
+        </div>
+      {/if}
+      {#if $searchWidgetStore.isLoading}
+        <Loader />
+      {/if}
+      {#each $searchWidgetStore.properties as property (property.id)}
+        <SearchResult {property} />
+      {/each}
+      {#if $searchWidgetStore.properties.length > 0 && !$searchWidgetStore.isLoading}
+        <Pagination />
+      {/if}
+    </div>
     <GoogleMap {theme} />
   </div>
 </div>

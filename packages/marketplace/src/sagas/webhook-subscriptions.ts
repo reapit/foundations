@@ -1,16 +1,20 @@
 import { all, fork, takeLatest, call, put } from 'redux-saga/effects'
 import { URLS, initAuthorizedRequestHeaders } from '@/constants/api'
-import { fetcher } from '@reapit/elements'
+import { fetcher, setQueryParams } from '@reapit/elements'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
 import errorMessages from '@/constants/error-messages'
 import { errorThrownServer } from '@/actions/error'
-import { webhookSubscriptionsReceiveData, webhookTopicsReceiveData } from '@/actions/webhook-subscriptions'
+import {
+  webhookSubscriptionsReceiveData,
+  webhookTopicsReceiveData,
+  setApplicationId,
+} from '@/actions/webhook-subscriptions'
 
-export const fetchSubscriptions = async () => {
+export const fetchSubscriptions = async (applicationId: string) => {
   const headers = await initAuthorizedRequestHeaders()
   const response = await fetcher({
-    url: `${URLS.webhookSubscriptions}`,
+    url: `${URLS.webhookSubscriptions}?${setQueryParams({ applicationId })}`,
     api: window.reapit.config.platformApiUrl,
     method: 'GET',
     headers: headers,
@@ -18,10 +22,10 @@ export const fetchSubscriptions = async () => {
   return response
 }
 
-export const fetchWebhookTopic = async (applicationId: string) => {
+export const fetchWebhookTopic = async () => {
   const headers = await initAuthorizedRequestHeaders()
   const response = await fetcher({
-    url: `${URLS.webhookTopics}?applicationId=${applicationId}`,
+    url: `${URLS.webhookTopics}`,
     api: window.reapit.config.platformApiUrl,
     method: 'GET',
     headers: headers,
@@ -29,9 +33,10 @@ export const fetchWebhookTopic = async (applicationId: string) => {
   return response
 }
 
-export const webhookSubscriptionsFetch = function*() {
+export const webhookSubscriptionsFetch = function*({ data: applicationId }: Action<string>) {
   try {
-    const response = yield call(fetchSubscriptions)
+    yield put(setApplicationId(applicationId))
+    const response = yield call(fetchSubscriptions, applicationId)
     if (response) {
       yield put(webhookSubscriptionsReceiveData(response))
     }
@@ -45,9 +50,9 @@ export const webhookSubscriptionsFetch = function*() {
   }
 }
 
-export const webhookTopicsFetch = function*({ data: applicationId }: Action<string>) {
+export const webhookTopicsFetch = function*() {
   try {
-    const response = yield call(fetchWebhookTopic, applicationId)
+    const response = yield call(fetchWebhookTopic)
     if (response) {
       yield put(webhookTopicsReceiveData(response))
     }
@@ -62,11 +67,11 @@ export const webhookTopicsFetch = function*({ data: applicationId }: Action<stri
 }
 
 export const webhookSubscriptionsListen = function*() {
-  yield takeLatest<Action<void>>(ActionTypes.WEBHOOK_SUBSCRIPTION_REQUEST_DATA, webhookSubscriptionsFetch)
+  yield takeLatest<Action<string>>(ActionTypes.WEBHOOK_SUBSCRIPTION_REQUEST_DATA, webhookSubscriptionsFetch)
 }
 
 export const webhookTopicsListen = function*() {
-  yield takeLatest<Action<string>>(ActionTypes.WEBHOOK_TOPICS_REQUEST_DATA, webhookTopicsFetch)
+  yield takeLatest<Action<void>>(ActionTypes.WEBHOOK_TOPICS_REQUEST_DATA, webhookTopicsFetch)
 }
 
 const webhookSubscriptionsSagas = function*() {

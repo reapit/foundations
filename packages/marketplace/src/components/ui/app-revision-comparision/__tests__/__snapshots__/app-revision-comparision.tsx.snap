@@ -117,7 +117,7 @@ exports[`AdminRevisionModalInner should match a snapshot 1`] = `
     >
       Description
     </h4>
-    <DiffViewer
+    <DiffRenderHTML
       changedString="Download the app now and start shopping our selection of fashion, books, toys, home
       appliances, sport accessories and much more.
 
@@ -138,7 +138,6 @@ Get
     elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla 
     at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet 
     proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum co"
-      type="words"
     />
   </div>
   <div

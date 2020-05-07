@@ -1,0 +1,29 @@
+@import '../base/colors';
+
+.container {
+  background-color: $grey-lightest;
+  border: 1px solid $grey-lighter;
+  border-radius: 3px;
+  padding: 10px;
+  color: $black;
+  display: flex;
+  align-items: center;
+}
+
+.green {
+  background-color: $green-lighter;
+}
+
+.red {
+  background-color: $red-lighter;
+}
+
+.arrow {
+  font-size: 18px;
+  color: $grey;
+}
+
+.block {
+  border-radius: 4px;
+  width: 50%;
+}

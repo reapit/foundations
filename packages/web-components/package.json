@@ -41,11 +41,13 @@
     "lodash.pickby": "^4.6.0",
     "serverless-http": "^2.3.2",
     "svelte-fa": "^2.1.1",
+    "svelte-routing": "^1.4.2",
     "typescript": "~3.7.2"
   },
   "scripts": {
     "build:prod": "node ./src/scripts/build-prod.js",
-    "start:prod": "sirv public",
+    "serve:static": "serve public/dist -p 5000",
+    "start:server": "serverless offline --out public/dist --stage local",
     "start:dev": "node ./src/scripts/start-dev.js",
     "test:dev": "cross-env TZ=UTC jest --watch --color",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",

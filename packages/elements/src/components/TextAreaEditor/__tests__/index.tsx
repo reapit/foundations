@@ -21,9 +21,9 @@ describe('TextAreaEditor', () => {
       name: '123',
       value: '1',
     } as FieldInputProps<string>
-    const fn = handleTextAreaOnChange({ field: mockField, name: '' })
+    const fn = handleTextAreaOnChange({ field: mockField })
     fn('<div></div>')
-    expect(mockField.onChange).toBeCalledWith({ target: { value: '<div></div>', name: '' } })
+    expect(mockField.onChange).toBeCalledWith({ target: { value: '<div></div>', name: '123' } })
   })
   describe('renderTextAreaEditor', () => {
     it('should match snapshot', () => {

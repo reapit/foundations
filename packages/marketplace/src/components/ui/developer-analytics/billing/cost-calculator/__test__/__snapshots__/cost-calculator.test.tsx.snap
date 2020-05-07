@@ -1,0 +1,281 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CostCalculator should match a snapshot 1`] = `
+<Fragment>
+  <Component>
+    Cost Calculator
+  </Component>
+  <Component>
+    <Component
+      className="is-half-desktop"
+    >
+      <p
+        className="is-italic"
+      >
+        You can calculate the estimated monthly cost below using our Cost Calculator. Just select the number of endpoints and enter the amount of API calls below. To see the full Foundations Pricing, please click
+         
+        <a
+          href="http://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/foundations-pricing.pdf"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          here
+        </a>
+      </p>
+    </Component>
+  </Component>
+  <Component>
+    <Component
+      className="is-half-desktop"
+    >
+      <CostCalculatorForm
+        endpointsUsedRange={
+          Object {
+            "tier1": "1-5",
+            "tier2": "6-10",
+            "tier3": "11-20",
+            "tier4": "21-30",
+            "tier5": "31-40",
+            "tier6": "41-50",
+            "tier7": "50+",
+          }
+        }
+        initialValues={
+          Object {
+            "apiCalls": "",
+            "endpointsUsed": "",
+          }
+        }
+        onClear={[Function]}
+        onSubmit={[Function]}
+      />
+    </Component>
+  </Component>
+  <TotalCostTable
+    endpointsUsedRange={
+      Object {
+        "tier1": "1-5",
+        "tier2": "6-10",
+        "tier3": "11-20",
+        "tier4": "21-30",
+        "tier5": "31-40",
+        "tier6": "41-50",
+        "tier7": "50+",
+      }
+    }
+    formValues={
+      Object {
+        "apiCalls": "",
+        "endpointsUsed": "",
+      }
+    }
+    foundationPricing={
+      Object {
+        "tier1": Object {
+          "maxPrice": 0.001,
+          "priceRange": Array [
+            Object {
+              "limit": 1000,
+              "price": 0.01,
+            },
+            Object {
+              "limit": 1500,
+              "price": 0.008,
+            },
+            Object {
+              "limit": 2500,
+              "price": 0.006,
+            },
+            Object {
+              "limit": 5000,
+              "price": 0.005,
+            },
+            Object {
+              "limit": 15000,
+              "price": 0.004,
+            },
+            Object {
+              "limit": 25000,
+              "price": 0.0025,
+            },
+          ],
+        },
+        "tier2": Object {
+          "maxPrice": 0.0011,
+          "priceRange": Array [
+            Object {
+              "limit": 1000,
+              "price": 0.011,
+            },
+            Object {
+              "limit": 1500,
+              "price": 0.0088,
+            },
+            Object {
+              "limit": 2500,
+              "price": 0.0066,
+            },
+            Object {
+              "limit": 5000,
+              "price": 0.0055,
+            },
+            Object {
+              "limit": 15000,
+              "price": 0.0044,
+            },
+            Object {
+              "limit": 25000,
+              "price": 0.00275,
+            },
+          ],
+        },
+        "tier3": Object {
+          "maxPrice": 0.00125,
+          "priceRange": Array [
+            Object {
+              "limit": 1000,
+              "price": 0.0125,
+            },
+            Object {
+              "limit": 1500,
+              "price": 0.01,
+            },
+            Object {
+              "limit": 2500,
+              "price": 0.0075,
+            },
+            Object {
+              "limit": 5000,
+              "price": 0.00625,
+            },
+            Object {
+              "limit": 15000,
+              "price": 0.005,
+            },
+            Object {
+              "limit": 25000,
+              "price": 0.003125,
+            },
+          ],
+        },
+        "tier4": Object {
+          "maxPrice": 0.00145,
+          "priceRange": Array [
+            Object {
+              "limit": 1000,
+              "price": 0.0145,
+            },
+            Object {
+              "limit": 1500,
+              "price": 0.0116,
+            },
+            Object {
+              "limit": 2500,
+              "price": 0.0087,
+            },
+            Object {
+              "limit": 5000,
+              "price": 0.00725,
+            },
+            Object {
+              "limit": 15000,
+              "price": 0.0058,
+            },
+            Object {
+              "limit": 25000,
+              "price": 0.003625,
+            },
+          ],
+        },
+        "tier5": Object {
+          "maxPrice": 0.0017,
+          "priceRange": Array [
+            Object {
+              "limit": 1000,
+              "price": 0.017,
+            },
+            Object {
+              "limit": 1500,
+              "price": 0.0136,
+            },
+            Object {
+              "limit": 2500,
+              "price": 0.0102,
+            },
+            Object {
+              "limit": 5000,
+              "price": 0.0085,
+            },
+            Object {
+              "limit": 15000,
+              "price": 0.0068,
+            },
+            Object {
+              "limit": 25000,
+              "price": 0.00425,
+            },
+          ],
+        },
+        "tier6": Object {
+          "maxPrice": 0.002,
+          "priceRange": Array [
+            Object {
+              "limit": 1000,
+              "price": 0.02,
+            },
+            Object {
+              "limit": 1500,
+              "price": 0.016,
+            },
+            Object {
+              "limit": 2500,
+              "price": 0.012,
+            },
+            Object {
+              "limit": 5000,
+              "price": 0.01,
+            },
+            Object {
+              "limit": 15000,
+              "price": 0.008,
+            },
+            Object {
+              "limit": 25000,
+              "price": 0.005,
+            },
+          ],
+        },
+        "tier7": Object {
+          "maxPrice": 0.00235,
+          "priceRange": Array [
+            Object {
+              "limit": 1000,
+              "price": 0.0235,
+            },
+            Object {
+              "limit": 1500,
+              "price": 0.0188,
+            },
+            Object {
+              "limit": 2500,
+              "price": 0.0141,
+            },
+            Object {
+              "limit": 5000,
+              "price": 0.01175,
+            },
+            Object {
+              "limit": 15000,
+              "price": 0.0094,
+            },
+            Object {
+              "limit": 25000,
+              "price": 0.005875,
+            },
+          ],
+        },
+      }
+    }
+  />
+</Fragment>
+`;

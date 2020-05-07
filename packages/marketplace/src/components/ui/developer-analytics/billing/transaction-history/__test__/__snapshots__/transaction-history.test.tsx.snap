@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TransactionHistory should match a snapshot 1`] = `
+<div>
+  <div>
+    <Component>
+      Transaction History
+    </Component>
+  </div>
+  <div>
+    <Component>
+      This Months Transactions
+    </Component>
+    <Component>
+      <Component
+        className="is-one-third"
+      >
+        April 2020
+      </Component>
+      <Component>
+        <a
+          href="#"
+        >
+          Download
+        </a>
+      </Component>
+    </Component>
+  </div>
+  <div>
+    <Component>
+      Previous Transactions
+    </Component>
+    <Component>
+      <Component
+        className="is-one-third"
+      >
+        March 2020
+      </Component>
+      <Component>
+        <a
+          href="#"
+        >
+          Download
+        </a>
+      </Component>
+    </Component>
+    <Component>
+      <Component
+        className="is-one-third"
+      >
+        February 2020
+      </Component>
+      <Component>
+        <a
+          href="#"
+        >
+          Download
+        </a>
+      </Component>
+    </Component>
+    <Component>
+      <Component
+        className="is-one-third"
+      >
+        January 2020
+      </Component>
+      <Component>
+        <a
+          href="#"
+        >
+          Download
+        </a>
+      </Component>
+    </Component>
+  </div>
+</div>
+`;

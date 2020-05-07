@@ -27,6 +27,19 @@ const mockProps = (loading: boolean, installedAppsData: InstalledAppsItem | null
       page: '2',
     },
   },
+  history: {
+    action: 'POP',
+    block: jest.fn(),
+    createHref: jest.fn(),
+    go: jest.fn(),
+    goBack: jest.fn(),
+    goForward: jest.fn(),
+    length: 1,
+    listen: jest.fn(),
+    location: { pathname: '/client/installed', search: '', hash: '', state: undefined, key: '' },
+    push: jest.fn(),
+    replace: jest.fn(),
+  },
 })
 
 describe('InstalledApps', () => {

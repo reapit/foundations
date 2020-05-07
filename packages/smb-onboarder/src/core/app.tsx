@@ -19,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
 
 const App = () => {
   const { isNewVersionAvailable } = useOfflinePLugin()
+  const bindedWindowLocation = React.useMemo(() => window.location.reload.bind(window.location), [])
 
   const { loginSession, refreshParams, getLoginSession, ...rest } = useAuth()
   if (!loginSession && refreshParams) {
@@ -38,7 +39,7 @@ const App = () => {
             preventClose={true}
             visible={isNewVersionAvailable}
             variant="primary"
-            onCloseToast={location.reload}
+            onCloseToast={bindedWindowLocation}
             /* eslint-disable-next-line max-len */
             message="A new version is available. Please refresh your browser or click on this notification to receive the latest update."
           />

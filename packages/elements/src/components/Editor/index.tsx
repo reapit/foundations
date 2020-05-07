@@ -1,6 +1,6 @@
 import * as React from 'react'
 // @ts-ignore: no available type definition
-import pell from 'pell'
+import { init } from 'pell'
 
 export interface EditorProps {
   onChange?: (html: string) => void
@@ -11,7 +11,8 @@ export interface EditorProps {
   actionbarClass?: string
   buttonClass?: string
   contentClass?: string
-  actions?: Array<string>
+  actions?: Array<string | object>
+  dataTest?: string
 }
 
 const defaultActions = [
@@ -40,15 +41,17 @@ export const Editor = ({
   actionbarClass = 'pell-actionbar',
   buttonClass = 'pell-button',
   contentClass = 'pell-content',
+  dataTest = '',
 }: EditorProps) => {
   const containerEl = React.useRef<HTMLDivElement>(null)
 
   React.useEffect(() => {
-    pell.init({
+    init({
       element: containerEl.current,
       onChange: (html: string) => onChange && onChange(html),
       styleWithCSS: false,
-      actions,
+      defaultParagraphSeparator: 'div',
+      actions: actions,
       classes: {
         actionbar: actionbarClass,
         button: buttonClass,
@@ -72,5 +75,7 @@ export const Editor = ({
     }
   }, [defaultContent])
 
-  return <div ref={containerEl} className={`pell ${hasError && 'pell--is-danger'} ${containerClass}`} />
+  return (
+    <div ref={containerEl} data-test={dataTest} className={`pell ${hasError && 'pell--is-danger'} ${containerClass}`} />
+  )
 }

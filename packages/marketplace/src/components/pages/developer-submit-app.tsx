@@ -1,9 +1,11 @@
 import * as React from 'react'
+import { exec } from 'pell'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { ReduxState, FormState } from '@/types/core'
 import {
   Input,
   ImageInput,
+  TextAreaEditor,
   TextArea,
   Button,
   Checkbox,
@@ -268,7 +270,6 @@ export const handleSubmitApp = ({
       signoutUris: signoutUris ? signoutUris.split(',') : [],
     }
   }
-
   if (appModel.isPrivateApp === 'yes') {
     appToSubmit.limitToClientIds = limitToClientIds ? limitToClientIds.replace(/ /g, '').split(',') : []
   }
@@ -546,8 +547,22 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                         />
                       </GridItem>
                       <GridItem>
-                        <TextArea
+                        <TextAreaEditor
                           id="description"
+                          actions={[
+                            'bold',
+                            'italic',
+                            'paragraph',
+                            'olist',
+                            'ulist',
+                            'link',
+                            {
+                              name: 'test',
+                              icon: '<b>H<sub>6</sub></b>',
+                              title: 'Add heading 6',
+                              result: () => exec('formatBlock', '<h6>'),
+                            },
+                          ]}
                           dataTest="submit-app-description"
                           labelText="Description"
                           name="description"

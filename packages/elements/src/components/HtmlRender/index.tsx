@@ -6,9 +6,10 @@ import { Content } from '../Layout'
 export interface HTMLRenderProps {
   html: string
   diffing?: boolean
+  className?: string
 }
 
-export const HTMLRender: React.SFC<HTMLRenderProps> = ({ html, diffing = false }: HTMLRenderProps) => {
+export const HTMLRender: React.SFC<HTMLRenderProps> = ({ html, diffing = false, className = '' }: HTMLRenderProps) => {
   const jsonElements = parse(html)
-  return <Content>{renderer(jsonElements, diffing)}</Content>
+  return <Content className={className}>{renderer(jsonElements, diffing)}</Content>
 }

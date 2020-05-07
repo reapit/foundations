@@ -17,7 +17,7 @@
     ]
   },
   "scripts": {
-    "handle-purge-unsed-assets-cronjob": "lerna run node --stream --parallel handle-purge-unsed-assets-cronjob --",
+    "handle-purge-unsed-s3-assets-cronjob": "lerna run --parallel --stream handle-purge-unsed-s3-assets-cronjob --",
     "build": "lerna run build:prod --stream",
     "fetch-config": "lerna run --parallel --stream fetch-config --",
     "lint": "lerna run --parallel --stream lint",

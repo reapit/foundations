@@ -31,6 +31,7 @@ Object.defineProperty(document, 'execCommand', {
 Object.defineProperty(window, 'location', {
   value: {
     href: '',
+    pathname: '/',
   },
 })
 

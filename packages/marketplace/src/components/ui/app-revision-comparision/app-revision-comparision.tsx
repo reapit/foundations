@@ -3,9 +3,11 @@ import { AppDetailState } from '@/reducers/app-detail'
 import { RevisionDetailState } from '@/reducers/revision-detail'
 import { AppRevisionModel, MediaModel, ScopeModel } from '@reapit/foundations-ts-definitions'
 import DiffMedia from '@/components/ui/diff-media'
+import { AppDetailModel } from '@/types/marketplace-api-schema'
+import { DesktopIntegrationTypeModel, PagedResultDesktopIntegrationTypeModel_ } from '@/actions/app-integration-types'
 import DiffCheckbox from '../diff-checkbox'
 import DiffViewer from '../diff-viewer'
-import { DesktopIntegrationTypeModel } from '@/actions/app-integration-types'
+import DiffRenderHTML from '../diff-render-html'
 
 export type AppRevisionComparisionProps = {
   revisionDetailState: RevisionDetailState
@@ -112,6 +114,49 @@ export const mapIntegrationIdArrayToNameArray = (
   return filteredResult
 }
 
+export type RenderDiffContentParams = {
+  key: string
+  revision: AppRevisionModel
+  app: AppDetailModel & { desktopIntegrationTypeIds?: string[] }
+  desktopIntegrationTypes: PagedResultDesktopIntegrationTypeModel_
+}
+
+export const renderDiffContent = ({ key, revision, app, desktopIntegrationTypes }: RenderDiffContentParams) => {
+  if (key === 'category') {
+    return (
+      <DiffViewer currentString={app.category?.name || ''} changedString={revision.category?.name || ''} type="words" />
+    )
+  }
+  if (key === 'description') {
+    return <DiffRenderHTML currentString={app.description || ''} changedString={revision.description || ''} />
+  }
+  if (key === 'desktopIntegrationTypeIds') {
+    const oldIntegrationTypeArray = mapIntegrationIdArrayToNameArray(
+      app.desktopIntegrationTypeIds,
+      desktopIntegrationTypes.data,
+    )
+    const newIntegrationTypeArray = mapIntegrationIdArrayToNameArray(
+      revision.desktopIntegrationTypeIds,
+      desktopIntegrationTypes.data,
+    )
+    const sortedOldArray = [...oldIntegrationTypeArray].sort()
+    const sortedNewArray = [...newIntegrationTypeArray].sort()
+    return (
+      <DiffViewer
+        currentString={sortedOldArray.join(', ')}
+        changedString={sortedNewArray.join(', ')}
+        type="wordsWithSpace"
+      />
+    )
+  }
+  if (['redirectUris', 'signoutUris', 'limitToClientIds', 'desktopIntegrationTypeIds'].includes(key)) {
+    const currentString = Array.isArray(app[key]) ? app[key].join(' ') : ''
+    const changedString = Array.isArray(revision[key]) ? revision[key].join(' ') : ''
+    return <DiffViewer currentString={currentString} changedString={changedString} type="words" />
+  }
+  return <DiffViewer currentString={app[key] || ''} changedString={revision[key] || ''} type="words" />
+}
+
 export const AppRevisionComparision: React.FC<AppRevisionComparisionProps> = ({
   revisionDetailState,
   appDetailState,
@@ -125,54 +170,10 @@ export const AppRevisionComparision: React.FC<AppRevisionComparisionProps> = ({
   return (
     <div>
       {Object.keys(diffStringList).map(key => {
-        if (key === 'category') {
-          return (
-            <div className="mb-3" key={key}>
-              <h4 className="mb-2">{diffStringList[key]}</h4>
-              <DiffViewer
-                currentString={app.category?.name || ''}
-                changedString={revision.category?.name || ''}
-                type="words"
-              />
-            </div>
-          )
-        }
-        if (key === 'desktopIntegrationTypeIds') {
-          const oldIntegrationTypeArray = mapIntegrationIdArrayToNameArray(
-            app.desktopIntegrationTypeIds,
-            desktopIntegrationTypes.data,
-          )
-          const newIntegrationTypeArray = mapIntegrationIdArrayToNameArray(
-            revision.desktopIntegrationTypeIds,
-            desktopIntegrationTypes.data,
-          )
-          const sortedOldArray = [...oldIntegrationTypeArray].sort()
-          const sortedNewArray = [...newIntegrationTypeArray].sort()
-          return (
-            <div className="mb-3" key={key}>
-              <h4 className="mb-2">{diffStringList[key]}</h4>
-              <DiffViewer
-                currentString={sortedOldArray.join(', ')}
-                changedString={sortedNewArray.join(', ')}
-                type="wordsWithSpace"
-              />
-            </div>
-          )
-        }
-        if (['redirectUris', 'signoutUris', 'limitToClientIds', 'desktopIntegrationTypeIds'].includes(key)) {
-          const currentString = Array.isArray(app[key]) ? app[key].join(' ') : ''
-          const changedString = Array.isArray(revision[key]) ? revision[key].join(' ') : ''
-          return (
-            <div className="mb-3" key={key}>
-              <h4 className="mb-2">{diffStringList[key]}</h4>
-              <DiffViewer currentString={currentString} changedString={changedString} type="words" />
-            </div>
-          )
-        }
         return (
           <div className="mb-3" key={key}>
             <h4 className="mb-2">{diffStringList[key]}</h4>
-            <DiffViewer currentString={app[key] || ''} changedString={revision[key] || ''} type="words" />
+            {renderDiffContent({ key, app, desktopIntegrationTypes, revision })}
           </div>
         )
       })}

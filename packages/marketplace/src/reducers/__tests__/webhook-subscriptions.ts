@@ -41,7 +41,7 @@ describe('webhookReducer', () => {
         type: ActionTypes.WEBHOOK_TOPICS_REQUEST_DATA as ActionType,
         data: '1',
       })
-      const expected = { error: false, loading: true, topics: { _embedded: [] } }
+      const expected = { error: false, loading: true, topics: { _embedded: [] }, applicationId: '' }
       expect(newState).toEqual(expected)
     })
 
@@ -50,7 +50,7 @@ describe('webhookReducer', () => {
         type: ActionTypes.WEBHOOK_TOPICS_RECEIVE_DATA as ActionType,
         data: topics,
       })
-      const expected = { error: false, loading: false, topics }
+      const expected = { error: false, loading: false, topics, applicationId: '' }
       expect(newState).toEqual(expected)
     })
   })
