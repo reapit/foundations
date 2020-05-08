@@ -16,7 +16,6 @@ import { requestDeveloperData } from '@/actions/settings'
 import { getParamsFromPath } from '@/utils/client-url-params'
 import { adminAppsRequestData } from '@/actions/admin-apps'
 import { selectClientId } from '@/selector/client'
-import { webhookTopicsRequestData } from '@/actions/webhook-subscriptions'
 import { DeveloperRequestParams } from '@/reducers/developer'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
@@ -91,7 +90,6 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       break
     case Routes.DEVELOPER_WEBHOOKS:
       store.dispatch(developerRequestData({ page: 1, appsPerPage: GET_ALL_PAGE_SIZE } as DeveloperRequestParams))
-      store.dispatch(webhookTopicsRequestData())
       break
     case Routes.DEVELOPER_HELP:
       // Need the fetcher to have retrieved the login session only.

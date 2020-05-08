@@ -79,9 +79,14 @@ describe('WebhookEditModal', () => {
   describe('mapDispatchToProps', () => {
     it('should run correctly', () => {
       const mockDispatch = jest.fn()
-      const { requestWebhookSubcriptionData, createWebhook, editWebhook, requestWebhookData } = mapDispatchToProps(
-        mockDispatch,
-      )
+      const {
+        requestWebhookSubcriptionData,
+        createWebhook,
+        editWebhook,
+        requestWebhookData,
+        webhookDataClear,
+        deleteWebhook,
+      } = mapDispatchToProps(mockDispatch)
       requestWebhookSubcriptionData('1')
       requestWebhookData('1')
       const values = {
@@ -95,6 +100,8 @@ describe('WebhookEditModal', () => {
       }
       createWebhook(values)
       editWebhook(values)
+      webhookDataClear()
+      deleteWebhook(values)
       expect(mockDispatch).toBeCalled()
     })
   })

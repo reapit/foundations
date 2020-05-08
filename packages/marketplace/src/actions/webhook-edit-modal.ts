@@ -1,23 +1,19 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
 import { WebhookModal, WebhookSubscription } from '@/reducers/webhook-edit-modal'
-import { StringMap } from '../../../elements/src/types/core'
 
 export interface SubscriptionCustomersRequestParams {
   AppId: string
 }
 export interface SubscriptionTopicsRequestParams {
   applicationId: string
-  headers: StringMap
 }
 
 export interface FetchWebhookRequestParams {
-  headers: StringMap
   webhookId: string
 }
 
 export interface DeleteWebhookRequestParams {
-  headers: StringMap
   webhookId: string
 }
 
@@ -52,7 +48,6 @@ export interface EditWebhookParams {
   active: boolean
 }
 
-export const webhookEditLoading = actionCreator<boolean>(ActionTypes.WEBHOOK_EDIT_LOADING)
 export const requestWebhookSubcriptionData = actionCreator<string>(ActionTypes.WEBHOOK_EDIT_SUBCRIPTION_REQUEST_DATA)
 export const requestWebhookSubcriptionReceiveData = actionCreator<WebhookSubscription>(
   ActionTypes.WEBHOOK_EDIT_SUBCRIPTION_RECEIVE_DATA,

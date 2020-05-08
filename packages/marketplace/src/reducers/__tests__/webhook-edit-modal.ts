@@ -21,17 +21,6 @@ describe('developer webhook reducer', () => {
     expect(newState).toEqual(expected)
   })
 
-  it('should set loading to test when WEBHOOK_EDIT_LOADING action is called with true', () => {
-    const newState = DeveloperWebhookReducer(undefined, {
-      type: ActionTypes.WEBHOOK_EDIT_LOADING as ActionType,
-      data: true,
-    })
-    const expected = {
-      ...defaultState,
-      loading: true,
-    }
-    expect(newState).toEqual(expected)
-  })
   it('should set loading to test when WEBHOOK_EDIT_SUBCRIPTION_REQUEST_DATA_FAILURE action is called with true', () => {
     const newState = DeveloperWebhookReducer(undefined, {
       type: ActionTypes.WEBHOOK_EDIT_SUBCRIPTION_REQUEST_DATA_FAILURE as ActionType,
@@ -51,6 +40,7 @@ describe('developer webhook reducer', () => {
     const expected = {
       ...defaultState,
       webhookData: webhookItemDataStub,
+      loading: false,
     }
     expect(newState).toEqual(expected)
   })

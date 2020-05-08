@@ -100,7 +100,6 @@ exports[`WebhookEditModal should match a snapshot 5`] = `
               ]
             }
             placeholder="All Customers who have installed your application (default)"
-            required={true}
           />
           <Unknown
             id="active"

@@ -1,7 +1,6 @@
 import {
   requestWebhookSubcriptionData,
   requestWebhookSubcriptionReceiveData,
-  webhookEditLoading,
   createWebhook,
   CreateWebhookParams,
   requestWebhookData,
@@ -11,11 +10,6 @@ import ActionTypes from '../../constants/action-types'
 import { webhookDataStub } from '@/sagas/__stubs__/webhook-edit'
 
 describe('developer webhook actions', () => {
-  it('should create a developerWebhookLoading action', () => {
-    expect(webhookEditLoading.type).toEqual(ActionTypes.WEBHOOK_EDIT_LOADING)
-    expect(webhookEditLoading(true).data).toEqual(true)
-  })
-
   it('should create a requestDeveloperWebhookData action', () => {
     expect(requestWebhookSubcriptionData.type).toEqual(ActionTypes.WEBHOOK_EDIT_SUBCRIPTION_REQUEST_DATA)
   })
