@@ -12,13 +12,14 @@ describe('property client API', () => {
 
     const params: GetPropertyType = {
       apiKey: 'API_KEY',
+      customerId: 'DEMO',
       propertyId: 'RPT200112',
     }
 
     const response = await getProperty(params)
     expect(fetcher).toHaveBeenCalledWith({
       url: `${process.env.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET}/properties/RPT200112`,
-      headers: getClientHeaders('API_KEY'),
+      headers: getClientHeaders({ apiKey: params.apiKey, customerId: params.customerId }),
     })
     expect(response).toEqual(propertyStub)
   })

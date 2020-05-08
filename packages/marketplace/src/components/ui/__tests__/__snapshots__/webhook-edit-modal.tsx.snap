@@ -32,10 +32,10 @@ exports[`WebhookEditModal should match a snapshot 5`] = `
 <Formik
   initialValues={
     Object {
-      "SubscriptionCustomers": Array [],
-      "SubscriptionTopics": Array [],
-      "WebhookURL": "",
       "active": false,
+      "customerIds": Array [],
+      "topicIds": Array [],
+      "url": "",
     }
   }
   onSubmit={[Function]}
@@ -61,9 +61,9 @@ exports[`WebhookEditModal should match a snapshot 5`] = `
             </p>
           </Unknown>
           <Unknown
-            id="WebhookURL"
+            id="url"
             labelText="Webhook URL"
-            name="WebhookURL"
+            name="url"
             placeholder="Enter URL here"
             required={true}
             type="text"
@@ -74,9 +74,9 @@ exports[`WebhookEditModal should match a snapshot 5`] = `
                 "zIndex": 41,
               }
             }
-            id="SubscriptionTopics"
+            id="topicIds"
             labelText="Subscription Topics"
-            name="SubscriptionTopics"
+            name="topicIds"
             options={Array []}
             placeholder="Please select"
             required={true}
@@ -87,10 +87,18 @@ exports[`WebhookEditModal should match a snapshot 5`] = `
                 "zIndex": 41,
               }
             }
-            id="SubscriptionCustomers"
+            id="customerIds"
             labelText="Subscription Customers"
-            name="SubscriptionCustomers"
-            options={Array []}
+            name="customerIds"
+            options={
+              Array [
+                Object {
+                  "description": "SBOX",
+                  "label": "SBOX",
+                  "value": "SBOX",
+                },
+              ]
+            }
             placeholder="All Customers who have installed your application (default)"
           />
           <Unknown

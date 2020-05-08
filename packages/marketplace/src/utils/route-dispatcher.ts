@@ -7,7 +7,7 @@ import store from '../core/store'
 import { clientRequestData } from '../actions/client'
 import { myAppsRequestData } from '../actions/my-apps'
 import { installedAppsRequestData } from '../actions/installed-apps'
-import { developerRequestData } from '../actions/developer'
+import { developerRequestData, fetchMyIdentity } from '@/actions/developer'
 import { adminApprovalsRequestData } from '../actions/admin-approvals'
 import { adminDevManagementRequestData } from '../actions/admin-dev-management'
 import { submitAppRequestData } from '../actions/submit-app'
@@ -23,7 +23,6 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
   const id = params && params.appid ? params.appid : ''
   const queryParams = new URLSearchParams(search)
   const appId = queryParams.get('appId')
-  const PAGE_SIZE_FOR_ALL_APPS = 999
 
   switch (route) {
     case Routes.CLIENT:
@@ -46,6 +45,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       break
     case Routes.DEVELOPER_ANALYTICS_TAB: {
       // Fetch all apps to map app name to installations
+      store.dispatch(fetchMyIdentity())
       store.dispatch(developerRequestData({ page: 1, appsPerPage: GET_ALL_PAGE_SIZE }))
       if (appId) {
         const clientId = selectClientId(store.state)

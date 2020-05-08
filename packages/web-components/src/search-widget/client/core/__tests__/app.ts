@@ -27,6 +27,7 @@ describe('app', () => {
     const wrapper = render(App, {
       theme,
       apiKey: '',
+      customerId: '',
       parentSelector: '#search-widget',
     })
     const { container } = wrapper
