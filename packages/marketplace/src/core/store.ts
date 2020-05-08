@@ -31,6 +31,7 @@ import webhookEditReducer from '../reducers/webhook-edit-modal'
 import webhookSubscriptions from '../reducers/webhook-subscriptions'
 
 import authSagas from '../sagas/auth'
+import appsSaga from '../sagas/apps/apps'
 import clientSagas from '../sagas/client'
 import appDetailSagas from '../sagas/app-detail'
 import installedAppsSagas from '../sagas/installed-apps'
@@ -103,6 +104,7 @@ export class Store {
   static sagas = function*() {
     yield all([
       fork(authSagas),
+      fork(appsSaga),
       fork(clientSagas),
       fork(installedAppsSagas),
       fork(appUsageStatsSagas),

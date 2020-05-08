@@ -1,7 +1,6 @@
 import { AdminDevManamgenetState } from './../reducers/admin-dev-management'
 import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
-import { ClientState } from '../reducers/client'
 import { InstalledAppsState } from '../reducers/installed-apps'
 import { MyAppsState } from '../reducers/my-apps'
 import { DeveloperState } from '../reducers/developer'
@@ -25,6 +24,7 @@ import { AppHttpTrafficEventState } from '@/reducers/app-http-traffic-event'
 import { IntegrationTypeState } from '@/reducers/app-integration-types'
 import { WebhookEditState } from '@/reducers/webhook-edit-modal'
 import { WebhookState } from '@/reducers/webhook-subscriptions'
+import { ClientRootState } from '@/reducers/client'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -62,7 +62,7 @@ export interface FetcherParams<T> {
 }
 
 export interface ReduxState {
-  client: ClientState
+  client: ClientRootState
   installedApps: InstalledAppsState
   myApps: MyAppsState
   appDetail: AppDetailState

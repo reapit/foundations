@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import { shallow, mount } from 'enzyme'
 import { appsDataStub, featuredAppsDataStub } from '@/sagas/__stubs__/apps'
 import { ReduxState } from '@/types/core'
-import { ClientItem } from '@/reducers/client'
+import { ClientAppSummary } from '@/reducers/client/app-summary'
 import {
   Client,
   ClientProps,
@@ -34,12 +34,12 @@ const routerProps = {
 } as RouteComponentProps<any, StaticContext, any>
 
 const props = (loading: boolean): ClientProps => ({
-  clientState: {
-    loading: loading,
-    clientData: {
+  appSummaryState: {
+    isAppSummaryLoading: loading,
+    data: {
       featuredApps: featuredAppsDataStub.data,
       apps: appsDataStub,
-    } as ClientItem,
+    } as ClientAppSummary,
   },
   appDetail: {
     appDetailData: appDetailDataStub,
@@ -81,12 +81,12 @@ describe('Client', () => {
     } as RouteComponentProps<any, StaticContext, any>
 
     const props: ClientProps = {
-      clientState: {
-        loading: false,
-        clientData: {
+      appSummaryState: {
+        isAppSummaryLoading: false,
+        data: {
           featuredApps: [] as AppSummaryModel[],
           apps: appsDataStub,
-        } as ClientItem,
+        } as ClientAppSummary,
       },
       appDetail: {
         appDetailData: appDetailDataStub,
@@ -111,12 +111,12 @@ describe('Client', () => {
 
   it('should match a snapshot when featured apps is undefined', () => {
     const props: ClientProps = {
-      clientState: {
-        loading: false,
-        clientData: {
+      appSummaryState: {
+        isAppSummaryLoading: false,
+        data: {
           featuredApps: undefined,
           apps: appsDataStub,
-        } as ClientItem,
+        } as ClientAppSummary,
       },
       appDetail: {
         appDetailData: appDetailDataStub,
@@ -143,9 +143,20 @@ describe('Client', () => {
     it('should return correctly', () => {
       const mockState = {
         client: {
-          clientData: {
-            featuredApps: featuredAppsDataStub.data,
-            apps: appsDataStub,
+          appSummary: {
+            data: {
+              apps: appsDataStub.data,
+              featuredApps: featuredAppsDataStub.data,
+            },
+            isAppSummaryLoading: false,
+            error: 'error',
+          },
+          appDetail: {
+            data: appDetailDataStub.data,
+            appDetailAuthCode: '',
+            isAppDetailAuthCodeLoading: false,
+            isAppDetailLoading: false,
+            error: '',
           },
         },
         appDetail: {

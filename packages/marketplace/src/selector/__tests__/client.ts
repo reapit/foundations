@@ -52,8 +52,10 @@ describe('selectFeaturedApps', () => {
   it('should run correctly', () => {
     const input = {
       client: {
-        clientData: {
-          featuredApps: featuredAppsDataStub.data,
+        appSummary: {
+          data: {
+            featuredApps: featuredAppsDataStub.data,
+          },
         },
       },
     } as ReduxState

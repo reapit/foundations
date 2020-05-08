@@ -1,9 +1,25 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
-import { ClientItem, ClientParams } from '../reducers/client'
+import { ClientAppSummary, ClientAppSummaryParams } from '../reducers/client/app-summary'
+import { AppDetailData } from '@/reducers/client/app-detail'
 
-export const clientRequestData = actionCreator<ClientParams>(ActionTypes.CLIENT_REQUEST_DATA)
-export const clientRequestDataFailure = actionCreator<void>(ActionTypes.CLIENT_REQUEST_FAILURE)
-export const clientLoading = actionCreator<boolean>(ActionTypes.CLIENT_LOADING)
-export const clientReceiveData = actionCreator<ClientItem | undefined>(ActionTypes.CLIENT_RECEIVE_DATA)
-export const clientClearData = actionCreator<null>(ActionTypes.CLIENT_CLEAR_DATA)
+export interface ClientAppDetailParams {
+  id: string
+  clientId?: string
+}
+
+export const clientAppSummaryRequestData = actionCreator<ClientAppSummaryParams>(
+  ActionTypes.CLIENT_APP_SUMMARY_REQUEST_DATA,
+)
+export const clientAppSummaryReceiveData = actionCreator<ClientAppSummary | undefined>(
+  ActionTypes.CLIENT_APP_SUMMARY_RECEIVE_DATA,
+)
+export const clientAppSummaryRequestDataFailure = actionCreator<string>(ActionTypes.CLIENT_APP_SUMMARY_REQUEST_FAILURE)
+export const clientAppSummaryClearData = actionCreator<null>(ActionTypes.CLIENT_APP_SUMMARY_CLEAR_DATA)
+
+// Client App Detail
+export const clientAppDetailRequestData = actionCreator<ClientAppDetailParams>(
+  ActionTypes.CLIENT_APP_DETAIL_REQUEST_DATA,
+)
+export const clientAppDetailReceiveData = actionCreator<AppDetailData>(ActionTypes.CLIENT_APP_DETAIL_RECEIVE_DATA)
+export const clientAppDetailRequestFailure = actionCreator<string>(ActionTypes.CLIENT_APP_DETAIL_REQUEST_FAILURE)

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { ReduxState, FormState } from '@/types/core'
-import { ClientState } from '@/reducers/client'
+import { ClientAppSummaryState } from '@/reducers/client/app-summary'
 import { Loader } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { withRouter, RouteComponentProps } from 'react-router'
@@ -10,7 +10,7 @@ import AppSidebar from '@/components/ui/app-sidebar'
 import { appDetailRequestData } from '@/actions/app-detail'
 import { AppDetailState } from '@/reducers/app-detail'
 import AppDetailModal from '@/components/ui/app-detail-modal'
-import { selectClientId } from '@/selector/client'
+import { selectClientId, selectAppSummary } from '@/selector/client'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import styles from '@/styles/pages/client.scss?mod'
 import { appInstallationsSetFormState } from '@/actions/app-installations'
@@ -24,7 +24,7 @@ export interface ClientMappedActions {
 }
 
 export interface ClientMappedProps {
-  clientState: ClientState
+  appSummaryState: ClientAppSummaryState
   appDetail: AppDetailState
   clientId: string
   installationsFormState: FormState
@@ -77,7 +77,7 @@ export const handleInstallationDone = ({
 export type ClientProps = ClientMappedActions & ClientMappedProps & RouteComponentProps<{ page?: any }>
 
 export const Client: React.FunctionComponent<ClientProps> = ({
-  clientState,
+  appSummaryState,
   history,
   location,
   fetchAppDetail,
@@ -93,11 +93,11 @@ export const Client: React.FunctionComponent<ClientProps> = ({
       ? Number(getParamValueFromPath(location.search, 'page'))
       : 1
   const hasParams = hasFilterParams(location.search)
-  const unfetched = !clientState.clientData
-  const loading = clientState.loading
-  const apps = clientState?.clientData?.apps?.data || []
-  const featuredApps = clientState?.clientData?.featuredApps || []
-  const { totalCount, pageSize } = clientState?.clientData?.apps || {}
+  const unfetched = !appSummaryState.data
+  const loading = appSummaryState.isAppSummaryLoading
+  const apps = appSummaryState?.data?.apps?.data || []
+  const featuredApps = appSummaryState?.data?.featuredApps || []
+  const { totalCount, pageSize } = appSummaryState?.data?.apps || {}
   const [visible, setVisible] = React.useState(false)
 
   const isDone = installationsFormState === 'DONE'
@@ -155,7 +155,7 @@ export const Client: React.FunctionComponent<ClientProps> = ({
 }
 
 export const mapStateToProps = (state: ReduxState): ClientMappedProps => ({
-  clientState: state.client,
+  appSummaryState: selectAppSummary(state),
   appDetail: state.appDetail,
   clientId: selectClientId(state),
   installationsFormState: state.installations.formState,

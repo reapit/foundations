@@ -1,4 +1,4 @@
-import { clientLoading, clientReceiveData, clientRequestDataFailure } from '../actions/client'
+import { clientAppSummaryReceiveData, clientAppSummaryRequestDataFailure } from '../actions/client'
 import { categoriesReceiveData } from '@/actions/app-categories'
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
@@ -10,12 +10,10 @@ import { fetcher, setQueryParams } from '@reapit/elements'
 import { Action } from '@/types/core'
 import { selectClientId, selectFeaturedApps } from '@/selector/client'
 import { selectCategories } from '@/selector/app-categories'
-import { ClientItem, ClientParams } from '@/reducers/client'
+import { ClientAppSummary, ClientAppSummaryParams } from '@/reducers/client/app-summary'
 import { logger } from 'logger'
 
 export const clientDataFetch = function*({ data }) {
-  yield put(clientLoading(true))
-
   try {
     const { page, search, category, searchBy } = data
     const clientId = yield select(selectClientId)
@@ -62,15 +60,12 @@ export const clientDataFetch = function*({ data }) {
             headers: generateHeader(window.reapit.config.marketplaceApiKey),
           }),
     ])
-    if (apps && categories && featuredApps) {
-      const clientItem: ClientItem = { apps: apps, featuredApps: featuredApps?.data }
-      yield put(clientReceiveData(clientItem))
-      yield put(categoriesReceiveData(categories))
-    } else {
-      yield put(clientRequestDataFailure())
-    }
+    const clientItem: ClientAppSummary = { apps: apps, featuredApps: featuredApps?.data }
+    yield put(clientAppSummaryReceiveData(clientItem))
+    yield put(categoriesReceiveData(categories))
   } catch (err) {
     logger(err)
+    yield put(clientAppSummaryRequestDataFailure(errorMessages.DEFAULT_SERVER_ERROR))
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -81,7 +76,7 @@ export const clientDataFetch = function*({ data }) {
 }
 
 export const clientDataListen = function*() {
-  yield takeLatest<Action<ClientParams>>(ActionTypes.CLIENT_REQUEST_DATA, clientDataFetch)
+  yield takeLatest<Action<ClientAppSummaryParams>>(ActionTypes.CLIENT_APP_SUMMARY_REQUEST_DATA, clientDataFetch)
 }
 
 const clientSagas = function*() {

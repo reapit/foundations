@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
-import { selectAppDetailData, selectAppDetailLoading } from '@/selector/developer-app-detail'
+import { selectAppDetailData, selectAppDetailLoading } from '@/selector/client-app-detail'
 import { selectLoginType } from '@/selector/auth'
 import AppHeader from '@/components/ui/app-detail/app-header'
 import AppContent from '@/components/ui/app-detail/app-content'

@@ -4,7 +4,7 @@ import { RouteValue, StringMap } from '../types/core'
 import Routes from '../constants/routes'
 import { GET_ALL_PAGE_SIZE } from '../constants/paginator'
 import store from '../core/store'
-import { clientRequestData } from '../actions/client'
+import { clientAppSummaryRequestData, clientAppDetailRequestData } from '../actions/client'
 import { myAppsRequestData } from '../actions/my-apps'
 import { installedAppsRequestData } from '../actions/installed-apps'
 import { developerRequestData } from '../actions/developer'
@@ -28,19 +28,19 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
 
   switch (route) {
     case Routes.CLIENT:
-      store.dispatch(clientRequestData(getParamsFromPath(search || '')))
+      store.dispatch(clientAppSummaryRequestData(getParamsFromPath(search || '')))
       break
     case Routes.CLIENT_APP_DETAIL: {
       if (id) {
         const clientId = selectClientId(store.state)
-        store.dispatch(appDetailRequestData({ id, clientId }))
+        store.dispatch(clientAppDetailRequestData({ id, clientId }))
       }
       break
     }
     case Routes.CLIENT_APP_DETAIL_MANAGE: {
       if (id) {
         const clientId = selectClientId(store.state)
-        store.dispatch(appDetailRequestData({ id, clientId }))
+        store.dispatch(clientAppDetailRequestData({ id, clientId }))
       }
       break
     }
