@@ -5,11 +5,11 @@ import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
 import { Button, Modal } from '@reapit/elements'
 import { appInstallationsRequestInstall } from '@/actions/app-installations'
-import { appDetailRequestData } from '@/actions/app-detail'
+import { clientAppDetailRequestData } from '@/actions/client'
 import { Dispatch } from 'redux'
 import CallToAction from '../call-to-action'
 import { selectClientId } from '@/selector/client'
-import { selectInstallAppLoading } from '@/selector/installations'
+import { selectInstallationFormState } from '@/selector/installations'
 
 export type ClientAppInstallConfirmationProps = {
   appDetailData?: AppDetailModel
@@ -30,7 +30,7 @@ export const handleInstallButtonClick = (
         appId,
         callback: () => {
           dispatch(
-            appDetailRequestData({
+            clientAppDetailRequestData({
               id: appId,
               clientId,
             }),
@@ -63,8 +63,10 @@ const ClientAppInstallConfirmation: React.FC<ClientAppInstallConfirmationProps> 
   const history = useHistory()
   const [isSuccessAlertVisible, setIsSuccessAlertVisible] = React.useState(false)
   const clientId = useSelector(selectClientId)
-  const isInstallAppLoading = useSelector(selectInstallAppLoading)
-  const { name, installationId, id = '', scopes = [] } = appDetailData || {}
+  const installationFormState = useSelector(selectInstallationFormState)
+  const isSubmitting = installationFormState === 'SUBMITTING'
+
+  const { name, id = '', scopes = [] } = appDetailData || {}
 
   const dispatch = useDispatch()
   const onSuccessAlertButtonClick = React.useCallback(handleSuccessAlertButtonClick(history), [history])
@@ -79,7 +81,7 @@ const ClientAppInstallConfirmation: React.FC<ClientAppInstallConfirmationProps> 
           <>
             <Button
               dataTest="agree-btn"
-              loading={isInstallAppLoading}
+              loading={isSubmitting}
               className={appPermissionContentStyles.installButton}
               type="button"
               variant="primary"
@@ -137,7 +139,7 @@ const ClientAppInstallConfirmation: React.FC<ClientAppInstallConfirmationProps> 
             onButtonClick={onSuccessAlertButtonClick}
             isCenter
           >
-            {name} has been successfully {installationId ? 'uninstalled' : 'installed'}
+            {name} has been successfully installed
           </CallToAction>
         </>
       </Modal>

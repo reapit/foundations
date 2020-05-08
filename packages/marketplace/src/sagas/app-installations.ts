@@ -116,12 +116,16 @@ export const appInstallSaga = function*(options) {
   }
 }
 
-export const appUninstallSaga = function*({ data }) {
+export const appUninstallSaga = function*(options) {
+  const data: UninstallParams = options.data
   try {
     yield put(appInstallationsSetFormState('SUBMITTING'))
     const email = yield select(selectLoggedUserEmail)
 
     yield call(fetchUninstallApp, { data, email })
+    if (data.callback) {
+      data.callback()
+    }
     yield put(appInstallationsSetFormState('SUCCESS'))
   } catch (err) {
     logger(err)
