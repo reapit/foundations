@@ -2,7 +2,9 @@
   exportName,
   webpackPackageName
 }){ %>
-  const {<%= exportName %>} = require('./<%= webpackPackageName %>.js')
+  <% if (exportName) { %>
+    const {<%= exportName %>} = require('./<%= webpackPackageName %>.js')
+  <% } %>
 <% }); %>
 
 module.exports = {
@@ -10,7 +12,9 @@ module.exports = {
   exportName,
   webpackPackageName
 }){ %>
-  <%= exportName %>,
+  <% if (exportName) { %>
+    <%= exportName %>,
+  <% } %>
 <% }); %>
 }
 

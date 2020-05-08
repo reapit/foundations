@@ -1,0 +1,8 @@
+<% packages.forEach(function({
+  exportName,
+  webpackPackageName
+}){ %>
+  <% if (exportName) { %>
+    export * from './<%= webpackPackageName %>'
+  <% } %>
+<% }); %>

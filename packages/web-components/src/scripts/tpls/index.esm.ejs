@@ -2,7 +2,9 @@
   exportName,
   webpackPackageName
 }){ %>
-  import {<%= exportName %>} from './<%= webpackPackageName %>.js'
+  <% if (exportName) { %>
+    import {<%= exportName %>} from './<%= webpackPackageName %>.js'
+  <% } %>
 <% }); %>
 
 export {
@@ -10,7 +12,9 @@ export {
   exportName,
   webpackPackageName
 }){ %>
-  <%= exportName %>,
+  <% if (exportName) { %>
+    <%= exportName %>,
+  <% } %>
 <% }); %>
 }
 

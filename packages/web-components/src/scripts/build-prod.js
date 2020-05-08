@@ -6,7 +6,7 @@ const { execSync, spawn } = require('child_process')
 const { setEnv } = require('./get-env')
 const formatCode = require('./format-code')
 
-// since the build process executed in a parallel manner, folder of generated index file may not have been created
+// since the build process is executed in a parallel manner, folder of generated index files may not have been created
 // have to create it first using mkdirp (mkdir with cursive)
 const mkdirp = require('mkdirp')
 
@@ -18,23 +18,20 @@ const esmIndexFolderPath = path.resolve(__dirname, '../../public/dist-npm/esm')
 const esmIndexFilePath = path.resolve(esmIndexFolderPath, './index.js')
 const esmIndexTemplateFilePath = path.resolve(__dirname, './tpls/index.esm.ejs')
 
-const generateIndexFileForCjsPackages = async packages => {
-  const compileResult = await ejs.renderFile(cjsIndexTemplateFilePath, {
-    packages,
-  })
-  const formatResult = formatCode(compileResult)
-  await mkdirp(cjsIndexFolderPath)
-  await writeFileSync(cjsIndexFilePath, formatResult, { flag: 'w' })
-}
+const tsDeclarationIndexFolderPath = path.resolve(__dirname, '../../public/dist-npm/types')
+const tsDeclarationIndexFilePath = path.resolve(tsDeclarationIndexFolderPath, './index.d.ts')
+const tsDeclarationIndexTemplateFilePath = path.resolve(__dirname, './tpls/index.d.ts.ejs')
 
-const generateIndexFileForEsmPackages = async packages => {
-  console.log('building index.js file for cjs packages')
-  const compileResult = await ejs.renderFile(esmIndexTemplateFilePath, {
+const generateFileForPackages = async ({ packages, tplPath, destinationFilePath, destinationFolderPath }) => {
+  const compileResult = await ejs.renderFile(tplPath, {
     packages,
   })
+
   const formatResult = formatCode(compileResult)
-  await mkdirp(esmIndexFolderPath)
-  await writeFileSync(esmIndexFilePath, formatResult, { flag: 'w' })
+
+  await mkdirp(destinationFolderPath)
+  console.log(`created ${destinationFilePath}`)
+  await writeFileSync(destinationFilePath, formatResult, { flag: 'w' })
 }
 
 return (async () => {
@@ -53,7 +50,6 @@ return (async () => {
     },
     {
       webpackPackageName: 'themes',
-      exportName: 'ReapitViewingBookingComponent',
     },
     {
       webpackPackageName: 'property-detail',
@@ -84,7 +80,26 @@ return (async () => {
     return buildPackageFn()
   })
 
-  promises.push([generateIndexFileForEsmPackages(packages), [generateIndexFileForCjsPackages(packages)]])
+  promises.push(
+    generateFileForPackages({
+      packages,
+      tplPath: cjsIndexTemplateFilePath,
+      destinationFilePath: cjsIndexFilePath,
+      destinationFolderPath: cjsIndexFolderPath,
+    }),
+    generateFileForPackages({
+      packages,
+      tplPath: esmIndexTemplateFilePath,
+      destinationFilePath: esmIndexFilePath,
+      destinationFolderPath: esmIndexFolderPath,
+    }),
+    generateFileForPackages({
+      packages,
+      tplPath: tsDeclarationIndexTemplateFilePath,
+      destinationFilePath: tsDeclarationIndexFilePath,
+      destinationFolderPath: tsDeclarationIndexFolderPath,
+    }),
+  )
 
   await Promise.all(promises).catch(err => {
     console.error('There is an error while building: ')

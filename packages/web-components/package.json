@@ -1,13 +1,14 @@
 {
-  "name": "@reapit/web-components-test",
+  "name": "@reapit/web-components",
   "version": "0.0.6",
   "homepage": "https://github.com/reapit/foundations",
   "main": "./public/dist-npm/cjs/index.js",
   "module": "./public/dist-npm/esm/index.js",
   "license": "MIT",
   "files": [
-    "dist-npm"
+    "./public/dist-npm"
   ],
+  "typings": "./public/dist-npm/types/index.d.ts",
   "bugs": {
     "url": "https://github.com/reapit/foundations/issues"
   },
@@ -66,7 +67,8 @@
     "release:npm:prod": "node ../../scripts/release/release-npm.js elements --skip-edit-release-note",
     "release:client:dev": "node ../../scripts/release/release-dev.js web-components reapit-web-components",
     "release:client:prod": "node ../../scripts/release/release-prod.js web-components reapit-web-components",
-    "release:dev": "yarn release:server:dev && yarn release:client:dev",
+    "release:themes:dev": "node ./src/scripts/release-themes-dev.js",
+    "release:dev": "yarn release:server:dev && yarn release:client:dev && release:themes:dev",
     "release:prod": "yarn release:client:prod && yarn release:server:prod --skip-edit-release-note && yarn release:npm:prod --skip-edit-release-note"
   }
 }
