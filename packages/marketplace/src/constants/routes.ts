@@ -15,6 +15,7 @@ const Routes = {
   DEVELOPER_MY_APPS_EDIT: '/developer/apps/:appid/edit',
   DEVELOPER_API_DOCS: '/developer/api-docs',
   DEVELOPER_ANALYTICS: '/developer/analytics',
+  DEVELOPER_ANALYTICS_BILLING: '/developer/analytics/billing',
   DEVELOPER_ANALYTICS_TAB: '/developer/analytics/:activeTab?',
   DEVELOPER_RESET_PASSWORD: '/developer/reset-password',
   DEVELOPER_WEBHOOKS: '/developer/webhooks',

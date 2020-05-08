@@ -9,15 +9,22 @@ export interface PropertyData {
 export interface ViewingBookingInitializers {
   theme: Partial<InitializerTheme>
   apiKey: string
+  customerId: string
   parentSelector: string
 }
 
-export const ReapitViewingBookingComponent = ({ parentSelector, apiKey, theme }: ViewingBookingInitializers) =>
+export const ReapitViewingBookingComponent = ({
+  parentSelector,
+  apiKey,
+  customerId,
+  theme,
+}: ViewingBookingInitializers) =>
   new ViewingBooking({
     target: document.querySelector(parentSelector) || document.body,
     props: {
       theme,
       apiKey,
+      customerId,
       parentSelector,
     },
   })

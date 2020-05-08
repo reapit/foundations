@@ -10,6 +10,7 @@ describe('properties client API', () => {
     process.env.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET = 'http://localhost:3000'
     const params: GetPropertiesType = {
       apiKey: 'apiKey',
+      customerId: 'DEMO',
       keywords: 'london',
       pageNumber: 1,
       isRental: true,
@@ -29,6 +30,7 @@ describe('properties client API', () => {
     process.env.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET = 'http://localhost:3000'
     const params: GetPropertiesType = {
       apiKey: 'apiKey',
+      customerId: 'DEMO',
       keywords: 'london',
       pageNumber: 1,
       isRental: true,
@@ -42,6 +44,7 @@ describe('properties client API', () => {
     process.env.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET = 'http://localhost:3000'
     const params: GetPropertiesType = {
       apiKey: 'apiKey',
+      customerId: 'DEMO',
       keywords: 'london',
       pageNumber: 1,
       isRental: false,
@@ -61,6 +64,7 @@ describe('properties client API', () => {
     process.env.WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET = 'http://localhost:3000'
     const params: GetPropertiesType = {
       apiKey: 'apiKey',
+      customerId: 'DEMO',
       keywords: 'london',
       pageNumber: 1,
       isRental: false,
@@ -76,6 +80,7 @@ describe('properties client API', () => {
 
     const params: GetPropertiesType = {
       apiKey: 'API_KEY',
+      customerId: 'DEMO',
       keywords: 'london',
       pageNumber: 1,
       isRental: true,
@@ -90,7 +95,7 @@ describe('properties client API', () => {
     const response = await getProperties(params)
     expect(fetcher).toHaveBeenCalledWith({
       url: getUrlQuery(params),
-      headers: getClientHeaders('API_KEY'),
+      headers: getClientHeaders({ apiKey: 'API_KEY', customerId: 'DEMO' }),
     })
     expect(response).toEqual(propertiesStub)
   })

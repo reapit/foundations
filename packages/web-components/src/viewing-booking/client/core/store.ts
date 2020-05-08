@@ -14,6 +14,7 @@ export interface ViewingBookingStore {
 const viewBookingStore: Writable<ViewingBookingStore> = writable({
   initializers: {
     apiKey: '',
+    customerId: '',
     parentSelector: '',
     theme: {},
   },

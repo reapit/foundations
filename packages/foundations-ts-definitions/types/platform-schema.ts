@@ -1418,7 +1418,7 @@ export interface ContactRoleModel {
    */
   contactId?: string
   /**
-   * The type of related entity (applicant/vendor/landlord/tenancy)
+   * The type of related entity (applicant/landlord/offer/tenancy/vendor)
    */
   associatedType?: string
   /**
@@ -6202,7 +6202,7 @@ export interface PagedResultContactRoleModel_ {
      */
     contactId?: string
     /**
-     * The type of related entity (applicant/vendor/landlord/tenancy)
+     * The type of related entity (applicant/landlord/offer/tenancy/vendor)
      */
     associatedType?: string
     /**

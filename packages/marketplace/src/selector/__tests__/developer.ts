@@ -1,5 +1,14 @@
 import { ReduxState } from '@/types/core'
-import { selectDeveloperId, selectDeveloperEmail } from '../developer'
+import {
+  selectDeveloperId,
+  selectDeveloperEmail,
+  selectDeveloper,
+  selectDeveloperApps,
+  selectMyIdentity,
+  selectBilling,
+  selectDeveloperLoading,
+  selectIsServiceChartLoading,
+} from '../developer'
 
 describe('selectDeveloperId', () => {
   it('should run correctly', () => {
@@ -41,6 +50,122 @@ describe('selectDeveloperEmail', () => {
   it('should run correctly and return undefined', () => {
     const input = {} as ReduxState
     const result = selectDeveloperEmail(input)
+    expect(result).toEqual(undefined)
+  })
+})
+
+describe('selectDeveloper', () => {
+  it('should run correctly', () => {
+    const input = {
+      developer: {
+        isServiceChartLoading: false,
+        developerData: {},
+      },
+    } as ReduxState
+    const result = selectDeveloper(input)
+    expect(result).toEqual(input.developer)
+  })
+
+  it('should run correctly and return undefined', () => {
+    const input = {} as ReduxState
+    const result = selectDeveloper(input)
+    expect(result).toEqual(undefined)
+  })
+})
+
+describe('selectDeveloperApps', () => {
+  it('should run correctly', () => {
+    const input = {
+      developer: {
+        isServiceChartLoading: false,
+        developerData: {
+          data: {
+            data: [{}],
+          },
+        },
+      },
+    } as ReduxState
+    const result = selectDeveloperApps(input)
+    expect(result).toEqual(input.developer.developerData?.data.data)
+  })
+
+  it('should run correctly and return []', () => {
+    const input = {} as ReduxState
+    const result = selectDeveloperApps(input)
+    expect(result).toEqual([])
+  })
+})
+
+describe('selectMyIdentity', () => {
+  it('should run correctly', () => {
+    const input = {
+      developer: {
+        isServiceChartLoading: false,
+        myIdentity: {},
+      },
+    } as ReduxState
+    const result = selectMyIdentity(input)
+    expect(result).toEqual(input.developer.myIdentity)
+  })
+
+  it('should run correctly and return {}', () => {
+    const input = {} as ReduxState
+    const result = selectMyIdentity(input)
+    expect(result).toEqual({})
+  })
+})
+
+describe('selectBilling', () => {
+  it('should run correctly', () => {
+    const input = {
+      developer: {
+        isServiceChartLoading: false,
+        billing: {},
+      },
+    } as ReduxState
+    const result = selectBilling(input)
+    expect(result).toEqual(input.developer.billing)
+  })
+
+  it('should run correctly and return null', () => {
+    const input = {} as ReduxState
+    const result = selectBilling(input)
+    expect(result).toEqual(null)
+  })
+})
+
+describe('selectDeveloperLoading', () => {
+  it('should run correctly', () => {
+    const input = {
+      developer: {
+        loading: true,
+      },
+    } as ReduxState
+    const result = selectDeveloperLoading(input)
+    expect(result).toEqual(true)
+  })
+
+  it('should run correctly and return null', () => {
+    const input = {} as ReduxState
+    const result = selectDeveloperLoading(input)
+    expect(result).toEqual(undefined)
+  })
+})
+
+describe('selectIsServiceChartLoading', () => {
+  it('should run correctly', () => {
+    const input = {
+      developer: {
+        isServiceChartLoading: true,
+      },
+    } as ReduxState
+    const result = selectIsServiceChartLoading(input)
+    expect(result).toEqual(true)
+  })
+
+  it('should run correctly and return null', () => {
+    const input = {} as ReduxState
+    const result = selectIsServiceChartLoading(input)
     expect(result).toEqual(undefined)
   })
 })

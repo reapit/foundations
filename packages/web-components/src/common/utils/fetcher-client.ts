@@ -11,7 +11,7 @@ export const fetcher = async <T, B>({
   url,
   body,
   method = 'GET',
-  headers = getClientHeaders(),
+  headers = getClientHeaders({}),
 }: FetcherParams<B>): Promise<T | undefined> => {
   try {
     const res = await fetch(url, {
