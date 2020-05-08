@@ -1,0 +1,16 @@
+<% packages.forEach(function({
+  exportName,
+  webpackPackageName
+}){ %>
+  import {<%= exportName %>} from './<%= webpackPackageName %>.js'
+<% }); %>
+
+export {
+<% packages.forEach(function({
+  exportName,
+  webpackPackageName
+}){ %>
+  <%= exportName %>,
+<% }); %>
+}
+

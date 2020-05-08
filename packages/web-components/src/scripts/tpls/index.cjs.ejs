@@ -1,0 +1,16 @@
+<% packages.forEach(function({
+  exportName,
+  webpackPackageName
+}){ %>
+  const {<%= exportName %>} = require('./<%= webpackPackageName %>.js')
+<% }); %>
+
+module.exports = {
+<% packages.forEach(function({
+  exportName,
+  webpackPackageName
+}){ %>
+  <%= exportName %>,
+<% }); %>
+}
+
