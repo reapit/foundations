@@ -14,6 +14,7 @@ $pell-content-padding: 10px !default;
   border-radius: 0;
   overflow: hidden;
   color: $black;
+  height: 180px;
 
   &--is-danger {
     border: 1px solid $reapit-red;
@@ -24,6 +25,8 @@ $pell-content-padding: 10px !default;
   outline: none;
   padding: $pell-content-padding;
   min-height: $pell-content-height;
+  height: 75%;
+  overflow-y: scroll;
   box-sizing: border-box;
   background-color: $white;
 
@@ -66,6 +69,8 @@ $pell-content-padding: 10px !default;
   background-color: $white;
   border-bottom: 1px solid $grey;
   padding-left: 8px;
+  min-height: $pell-button-height;
+  height: 25%;
 }
 
 .pell-button {

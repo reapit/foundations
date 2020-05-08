@@ -10,7 +10,10 @@ export interface Element {
 }
 
 const sortContentType = (domItem: Element, index: number, diffing: boolean) => {
-  return domItem.type === 'text' ? domItem.content || null : rendererModule.sortTags(domItem, index, diffing)
+  // using DOMParse to parse HTML entities like &nbsp;
+  return domItem.type === 'text'
+    ? new DOMParser().parseFromString(domItem.content || '', 'text/html').documentElement.textContent || null
+    : rendererModule.sortTags(domItem, index, diffing)
 }
 
 const getChildren = (domTag: Element, diffing: boolean) => {
@@ -20,8 +23,16 @@ const getChildren = (domTag: Element, diffing: boolean) => {
 }
 
 const getAttributes = (domTag: Element, index: number) => {
-  const attributes = domTag.attributes || {}
-  return { ...attributes, style: {}, key: index }
+  const attributes = domTag.attributes || []
+  // convert to react-compatible props
+  const reactPropsAttributes = attributes.reduce(
+    (acc, { key, value }) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {},
+  )
+  return { ...reactPropsAttributes, key: index, style: {} }
 }
 
 const sortTags = (domTag: Element, index: number, diffing: boolean) => {
@@ -34,7 +45,14 @@ const sortTags = (domTag: Element, index: number, diffing: boolean) => {
     case 'p':
       return <p {...attributes}>{children}</p>
     case 'a':
-      return <a {...attributes}>{children}</a>
+      return (
+        <div className="a-wrapper">
+          <div className="tool-tip-href">{attributes.href}</div>
+          <a target="_blank" rel="noopener" {...attributes}>
+            {children}
+          </a>
+        </div>
+      )
     case 'b':
       return <b {...attributes}>{children}</b>
     case 'u':

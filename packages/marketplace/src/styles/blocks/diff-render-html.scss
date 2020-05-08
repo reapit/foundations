@@ -8,6 +8,16 @@
   color: $black;
   display: flex;
   align-items: center;
+
+  & ul,
+  & ol {
+    margin-top: 0;
+    margin-left: 0;
+    list-style-position: inside;
+    & li div {
+      display: inline-block;
+    }
+  }
 }
 
 .green {

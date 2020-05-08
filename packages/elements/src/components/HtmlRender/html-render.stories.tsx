@@ -5,6 +5,7 @@ import { HTMLRender } from '.'
 const html = `
     <h1>heading h1</h1>
     <h2>heading h2</h2>
+    <b>Bold with entities&nbsp;</b>
     <div>
         <b>bold</b>
     </div>
@@ -12,6 +13,7 @@ const html = `
     <div><u>underline</u></div>
     <pre>pre tag</pre>
     <strike>strike</strike>
+    <a href="http://google.com">Link</a>
     <div>
         <ul>
             <li>bullet points</li>
