@@ -23,7 +23,6 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
   const id = params && params.appid ? params.appid : ''
   const queryParams = new URLSearchParams(search)
   const appId = queryParams.get('appId')
-  const PAGE_SIZE_FOR_ALL_APPS = 999
 
   switch (route) {
     case Routes.CLIENT:
@@ -89,7 +88,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(requestDeveloperData())
       break
     case Routes.DEVELOPER_WEBHOOKS:
-      store.dispatch(developerRequestData({ page: 1, appsPerPage: PAGE_SIZE_FOR_ALL_APPS } as DeveloperRequestParams))
+      store.dispatch(developerRequestData({ page: 1, appsPerPage: GET_ALL_PAGE_SIZE } as DeveloperRequestParams))
       break
     case Routes.DEVELOPER_HELP:
       // Need the fetcher to have retrieved the login session only.
