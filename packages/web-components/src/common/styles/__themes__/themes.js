@@ -1,3 +1,16 @@
+const commonVariables = {
+  // appointment-bookings's specific styles
+  dateCellHeaderBackgroundColor: '#ececec',
+  timeCellBackgroundColor: '#dfdfdf',
+  timeCellBackgroundColorHover: '#d3d3d3',
+  timeCellsContainerBackgroundColor: '#f9f9f9',
+  formLabelColor: '#737373',
+  formHrSeparatorFontColor: '#e6e6e6',
+  formButtonFontSize: '1.2rem',
+  //search widget
+  searchPlaceholder: 'e.g. London or EC1N',
+}
+
 const variantA = {
   baseBackgroundColor: '#fff',
   basefontSize: '16px',
@@ -17,7 +30,7 @@ const variantA = {
     laptop: '',
     desktop: '',
   },
-  searchPlaceholder: 'e.g. London or EC1N',
+  ...commonVariables,
 }
 
 const variantB = {
@@ -39,7 +52,7 @@ const variantB = {
     laptop: '',
     desktop: '',
   },
-  searchPlaceholder: 'e.g. London or EC1N',
+  ...commonVariables,
 }
 
 const variantC = {
@@ -61,7 +74,7 @@ const variantC = {
     laptop: '',
     desktop: '',
   },
-  searchPlaceholder: 'e.g. London or EC1N',
+  ...commonVariables,
 }
 
 const params = new URLSearchParams(window.location.search)
@@ -79,5 +92,5 @@ switch (variant) {
     window.theme = variantC
     break
   default:
-    window.theme = {}
+    window.theme = variantA
 }

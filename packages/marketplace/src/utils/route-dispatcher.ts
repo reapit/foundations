@@ -7,7 +7,7 @@ import store from '../core/store'
 import { clientAppSummaryRequestData, clientAppDetailRequestData } from '../actions/client'
 import { myAppsRequestData } from '../actions/my-apps'
 import { installedAppsRequestData } from '../actions/installed-apps'
-import { developerRequestData } from '../actions/developer'
+import { developerRequestData, fetchMyIdentity } from '@/actions/developer'
 import { adminApprovalsRequestData } from '../actions/admin-approvals'
 import { adminDevManagementRequestData } from '../actions/admin-dev-management'
 import { submitAppRequestData } from '../actions/submit-app'
@@ -16,7 +16,6 @@ import { requestDeveloperData } from '@/actions/settings'
 import { getParamsFromPath } from '@/utils/client-url-params'
 import { adminAppsRequestData } from '@/actions/admin-apps'
 import { selectClientId } from '@/selector/client'
-import { webhookTopicsRequestData } from '@/actions/webhook-subscriptions'
 import { DeveloperRequestParams } from '@/reducers/developer'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
@@ -24,7 +23,6 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
   const id = params && params.appid ? params.appid : ''
   const queryParams = new URLSearchParams(search)
   const appId = queryParams.get('appId')
-  const PAGE_SIZE_FOR_ALL_APPS = 999
 
   switch (route) {
     case Routes.CLIENT:
@@ -61,6 +59,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       break
     case Routes.DEVELOPER_ANALYTICS_TAB: {
       // Fetch all apps to map app name to installations
+      store.dispatch(fetchMyIdentity())
       store.dispatch(developerRequestData({ page: 1, appsPerPage: GET_ALL_PAGE_SIZE }))
       if (appId) {
         const clientId = selectClientId(store.state)
@@ -108,8 +107,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(requestDeveloperData())
       break
     case Routes.DEVELOPER_WEBHOOKS:
-      store.dispatch(developerRequestData({ page: 1, appsPerPage: PAGE_SIZE_FOR_ALL_APPS } as DeveloperRequestParams))
-      store.dispatch(webhookTopicsRequestData())
+      store.dispatch(developerRequestData({ page: 1, appsPerPage: GET_ALL_PAGE_SIZE } as DeveloperRequestParams))
       break
     case Routes.DEVELOPER_HELP:
       // Need the fetcher to have retrieved the login session only.

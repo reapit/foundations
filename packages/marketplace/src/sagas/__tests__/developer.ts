@@ -1,19 +1,27 @@
-import developerSagas, {
-  developerDataFetch,
-  developerRequestDataListen,
-  developerCreate,
-  developerCreateListen,
-} from '../developer'
-import ActionTypes from '@/constants/action-types'
+import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { call, put, takeLatest, all, fork, select } from '@redux-saga/core/effects'
+import { cloneableGenerator } from '@redux-saga/testing-utils'
 import {
   developerLoading,
   developerReceiveData,
   developerRequestDataFailure,
   developerSetFormState,
+  setMyIdentity,
+  fetchBillingFailure,
+  fetchBillingSuccess,
 } from '@/actions/developer'
+import developerSagas, {
+  developerDataFetch,
+  developerRequestDataListen,
+  developerCreate,
+  developerCreateListen,
+  fetchMyIdentitySagasListen,
+  fetchBillingSagasListen,
+  fetchMyIdentitySagas,
+  fetchBillingSagas,
+} from '../developer'
+import ActionTypes from '@/constants/action-types'
 import { generateHeader, URLS } from '@/constants/api'
-import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { fetcher } from '@reapit/elements'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { appsDataStub } from '../__stubs__/apps'
@@ -22,7 +30,9 @@ import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { selectDeveloperId } from '@/selector/developer'
-import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
+import api, { FetchBillingParams } from '../api'
+import { developerIdentity } from '../__stubs__/developer-identity'
+import { billing } from '../__stubs__/billing'
 
 jest.mock('@reapit/elements')
 
@@ -124,6 +134,64 @@ describe('developer create', () => {
   })
 })
 
+describe('fetchMyIdentitySagas', () => {
+  const developerId = '1'
+  const gen = cloneableGenerator(fetchMyIdentitySagas as any)({ data: params })
+  expect(gen.next().value).toEqual(put(developerLoading(true)))
+  expect(gen.next().value).toEqual(select(selectDeveloperId))
+  expect(gen.next(developerId).value).toEqual(call(api.fetchMyIdentity, developerId))
+  it('api call success', () => {
+    const clone = gen.clone()
+    expect(clone.next(developerIdentity).value).toEqual(put(setMyIdentity(developerIdentity)))
+    expect(clone.next().value).toEqual(put(developerLoading(false)))
+    expect(clone.next().done).toEqual(true)
+  })
+
+  it('api call error', () => {
+    const clone = gen.clone()
+    // @ts-ignore
+    expect(clone.throw('error').value).toEqual(put(developerLoading(false)))
+    expect(clone.next().value).toEqual(
+      put(
+        errorThrownServer({
+          type: 'SERVER',
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
+    )
+    expect(clone.next().done).toEqual(true)
+  })
+})
+
+describe('fetchBillingSagas', () => {
+  const params = {
+    dateFrom: '2020-01',
+    dateTo: '2020-05',
+    applicationId: ['1', '2'],
+  } as FetchBillingParams
+  const gen = cloneableGenerator(fetchBillingSagas as any)({ data: params })
+  expect(gen.next().value).toEqual(call(api.fetchBilling, params))
+  it('api call success', () => {
+    const clone = gen.clone()
+    expect(clone.next(billing).value).toEqual(put(fetchBillingSuccess(billing)))
+    expect(clone.next().done).toEqual(true)
+  })
+  it('api call error', () => {
+    const clone = gen.clone()
+    // @ts-ignore
+    expect(clone.throw('error').value).toEqual(put(fetchBillingFailure('error')))
+    expect(clone.next().value).toEqual(
+      put(
+        errorThrownServer({
+          type: 'SERVER',
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
+    )
+    expect(clone.next().done).toEqual(true)
+  })
+})
+
 describe('developer thunks', () => {
   describe('developerRequestDataListen', () => {
     it('should request data listen', () => {
@@ -132,6 +200,22 @@ describe('developer thunks', () => {
       expect(gen.next().value).toEqual(
         takeLatest<Action<number>>(ActionTypes.DEVELOPER_REQUEST_DATA, developerDataFetch),
       )
+      expect(gen.next().done).toBe(true)
+    })
+  })
+
+  describe('developerCreateListen', () => {
+    it('should trigger developerCreact action', () => {
+      const gen = fetchMyIdentitySagasListen()
+      expect(gen.next().value).toEqual(takeLatest(ActionTypes.DEVELOPER_FETCH_MY_IDENTITY, fetchMyIdentitySagas))
+      expect(gen.next().done).toBe(true)
+    })
+  })
+
+  describe('developerCreateListen', () => {
+    it('should trigger developerCreact action', () => {
+      const gen = fetchBillingSagasListen()
+      expect(gen.next().value).toEqual(takeLatest(ActionTypes.DEVELOPER_FETCH_BILLING, fetchBillingSagas))
       expect(gen.next().done).toBe(true)
     })
   })
@@ -148,7 +232,14 @@ describe('developer thunks', () => {
     it('should listen developer request data & create app action', () => {
       const gen = developerSagas()
 
-      expect(gen.next().value).toEqual(all([fork(developerRequestDataListen), fork(developerCreateListen)]))
+      expect(gen.next().value).toEqual(
+        all([
+          fork(developerRequestDataListen),
+          fork(developerCreateListen),
+          fork(fetchMyIdentitySagasListen),
+          fork(fetchBillingSagasListen),
+        ]),
+      )
       expect(gen.next().done).toBe(true)
     })
   })

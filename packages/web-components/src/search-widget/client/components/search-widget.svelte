@@ -10,6 +10,7 @@
 
   export let theme
   export let apiKey
+  export let customerId
   export let parentSelector
 
   const themeClasses = generateThemeClasses(theme, parentSelector)
@@ -21,6 +22,7 @@
       initializers: {
         theme,
         apiKey,
+        customerId,
         parentSelector,
       },
       themeClasses,

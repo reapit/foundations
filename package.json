@@ -26,11 +26,12 @@
     "release:prod": "lerna run --parallel release:prod",
     "test": "lerna run --parallel test:ci -- --detectOpenHandles --runInBand",
     "test-e2e:ci": "lerna run test-e2e:ci --stream",
-    "update-doc": "node --unhandled-rejections=strict ./scripts/document-update/get-release-and-create-pr.js"
+    "update-doc": "node --unhandled-rejections=strict ./scripts/document-update/get-release-and-create-pr.js",
+    "scan-secrets": "node --unhandled-rejections=strict ./scripts/utils/git-secrets.js"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && lerna run test:update-badges --stream --parallel --since HEAD && git add .",
+      "pre-commit": "yarn scan-secrets && lint-staged && lerna run test:update-badges --stream --parallel --since HEAD && git add .",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
@@ -170,6 +171,7 @@
     "serve": "^11.2.0",
     "serverless-plugin-ifelse": "^1.0.5",
     "serverless-single-page-app-plugin": "^1.0.2",
+    "shelljs": "^0.8.4",
     "start-server-and-test": "^1.11.0",
     "style-loader": "^0.23.1",
     "svelte": "^3.20.1",

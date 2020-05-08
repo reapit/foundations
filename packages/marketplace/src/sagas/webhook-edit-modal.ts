@@ -3,7 +3,6 @@ import { Action } from '../types/core'
 import ActionTypes from '../constants/action-types'
 import { WebhookModal } from '@/reducers/webhook-edit-modal'
 import {
-  webhookEditLoading,
   requestWebhookSubcriptionReceiveFailure,
   requestWebhookSubcriptionReceiveData,
   SubscriptionCustomersRequestParams,
@@ -30,7 +29,8 @@ import { PagedResultWebhookModel_ } from '@/reducers/webhook-subscriptions'
 
 export const fetchWebhookSubscriptionTopics = async (params: SubscriptionTopicsRequestParams) => {
   try {
-    const { applicationId, headers } = params
+    const { applicationId } = params
+    const headers = await initAuthorizedRequestHeaders()
     const response = await fetcher({
       url: `${URLS.webhook}/topics?${setQueryParams({ applicationId })}`,
       api: window.reapit.config.platformApiUrl,
@@ -62,7 +62,8 @@ export const fetchWebhookSubscriptionCustomers = async (params: SubscriptionCust
 
 export const fetchWebhookData = async (params: FetchWebhookRequestParams) => {
   try {
-    const { webhookId, headers } = params
+    const { webhookId } = params
+    const headers = await initAuthorizedRequestHeaders()
     const response = await fetcher({
       url: `${URLS.webhook}/subscriptions/${webhookId}`,
       api: window.reapit.config.platformApiUrl,
@@ -129,12 +130,10 @@ export const deleteEditWebhook = async (params: DeleteWebhookRequestParams) => {
 }
 
 export const requestSupcriptionData = function*({ data: applicationId }: Action<string>) {
-  yield put(webhookEditLoading(true))
   yield put(setApplicationId(applicationId))
-  const headers = yield call(initAuthorizedRequestHeaders)
   try {
     const [subcriptionTopics, subcriptionCustomers] = yield all([
-      call(fetchWebhookSubscriptionTopics, { applicationId, headers }),
+      call(fetchWebhookSubscriptionTopics, { applicationId }),
       call(fetchWebhookSubscriptionCustomers, { AppId: applicationId }),
     ])
     if (subcriptionCustomers && subcriptionTopics) {
@@ -207,8 +206,7 @@ export const editWebhook = function*({ data }: Action<EditWebhookParams>) {
 export const deleteWebhook = function*({ data }: Action<DeleteWebhookParams>) {
   try {
     const { webhookId, applicationId } = data
-    const headers = yield call(initAuthorizedRequestHeaders)
-    const deleteResponse = yield call(deleteEditWebhook, { webhookId, headers })
+    const deleteResponse = yield call(deleteEditWebhook, { webhookId })
     let newListResponse = false
     if (deleteResponse) {
       yield put(webhookSetOpenModal(''))
@@ -230,18 +228,13 @@ export const deleteWebhook = function*({ data }: Action<DeleteWebhookParams>) {
 
 export const requestWebhookData = function*({ data: webhookId }: Action<string>) {
   try {
-    yield put(webhookEditLoading(true))
-    const headers = yield call(initAuthorizedRequestHeaders)
-    const data: WebhookModal = yield call(fetchWebhookData, { webhookId, headers })
-    if (data) {
-      const { applicationId } = data
-      yield put(requestWebhookReceiveData(data))
-      yield put(requestWebhookSubcriptionData(applicationId))
-    } else {
-      yield put(requestWebhookReceiveDataFailure())
-    }
+    const data: WebhookModal = yield call(fetchWebhookData, { webhookId })
+    const { applicationId } = data
+    yield put(requestWebhookReceiveData(data))
+    yield put(requestWebhookSubcriptionData(applicationId))
   } catch (err) {
     logger(err)
+    yield put(requestWebhookReceiveDataFailure())
     yield put(
       errorThrownServer({
         type: 'SERVER',

@@ -5,11 +5,15 @@ import {
   developerClearData,
   developerCreate,
   developerSetFormState,
+  fetchBilling,
+  fetchBillingSuccess,
+  fetchBillingFailure,
 } from '../developer'
 import ActionTypes from '../../constants/action-types'
 import { appsDataStub } from '../../sagas/__stubs__/apps'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
+import { billing } from '@/sagas/__stubs__/billing'
 
 describe('developer actions', () => {
   it('should create a developerLoading action', () => {
@@ -49,5 +53,24 @@ describe('developer actions', () => {
   it('should create a developerSetFormState action', () => {
     expect(developerSetFormState.type).toEqual(ActionTypes.DEVELOPER_SET_FORM_STATE)
     expect(developerSetFormState('DONE').data).toEqual('DONE')
+  })
+
+  it('should create a fetchBilling action', () => {
+    expect(fetchBilling.type).toEqual(ActionTypes.DEVELOPER_FETCH_BILLING)
+    expect(fetchBilling({ dateFrom: '2020-01', dateTo: '2020-05', applicationId: ['123'] }).data).toEqual({
+      dateFrom: '2020-01',
+      dateTo: '2020-05',
+      applicationId: ['123'],
+    })
+  })
+
+  it('should create a fetchBillingFailure action', () => {
+    expect(fetchBillingSuccess.type).toEqual(ActionTypes.DEVELOPER_FETCH_BILLING_SUCCESS)
+    expect(fetchBillingSuccess(billing).data).toEqual(billing)
+  })
+
+  it('should create a fetchBillingFailure action', () => {
+    expect(fetchBillingFailure.type).toEqual(ActionTypes.DEVELOPER_FETCH_BILLING_FAILURE)
+    expect(fetchBillingFailure('error').data).toEqual('error')
   })
 })

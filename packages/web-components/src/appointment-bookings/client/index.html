@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<title>Web Components</title>
+<title>DEMO</title>
 <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto|Roboto+Slab&display=swap"
   rel="stylesheet">
 <link rel="stylesheet" href="./dist/appointment-bookings.css" />
@@ -24,12 +24,13 @@
 
 
   <script src="./dist/appointment-bookings.js"></script>
-  <script src="./themes/appointment-bookings.js"></script>
+  <script src="./themes/themes.js"></script>
   <script>
     if (window.ReapitAppointmentBookingComponent) {
       new ReapitAppointmentBookingComponent({
         theme: window.theme,
         apiKey: '',
+        customerId: '',
         parentSelector: '#appointment-bookings-viewing',
         variant: 'VIEWING',
       })
@@ -37,6 +38,7 @@
       new ReapitAppointmentBookingComponent({
         theme: window.theme,
         apiKey: '',
+        customerId: '',
         parentSelector: '#appointment-bookings-valuation',
         variant: 'VALUATION',
       })

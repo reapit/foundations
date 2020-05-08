@@ -5,6 +5,7 @@ describe('store', () => {
     const expected = {
       initializers: {
         apiKey: '',
+        customerId: '',
         parentSelector: '',
         theme: {},
       },

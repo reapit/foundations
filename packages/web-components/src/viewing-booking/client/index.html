@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Web Components</title>
+    <title>DEMO</title>
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto|Roboto+Slab&display=swap"
       rel="stylesheet"
@@ -20,12 +20,13 @@
     <div id="appointment-bookings-viewing"></div>
 
     <script src="./dist/viewing-booking.js"></script>
-    <script src="./themes/viewing-booking.js"></script>
+    <script src="./themes/themes.js"></script>
     <script>
       if (window.ReapitViewingBookingComponent) {
         new ReapitViewingBookingComponent({
           theme: window.theme,
           apiKey: '',
+          customerId: '',
           parentSelector: '#appointment-bookings-viewing',
         })
       }
