@@ -3,7 +3,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import Slider, { Settings } from 'react-slick'
 import ChevronLeftIcon from '@/components/svg/chevron-left'
 import { FaCheck, FaTimes, FaCopy } from 'react-icons/fa'
-import { Grid, GridItem, SubTitleH6, GridThreeColItem } from '@reapit/elements'
+import { Grid, GridItem, SubTitleH6, GridThreeColItem, HTMLRender } from '@reapit/elements'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import AuthFlow from '@/constants/app-auth-flow'
 import AppAuthenticationDetail from '../../app-authentication-detail'
@@ -86,7 +86,7 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailData, loginType }) => 
     apiKey,
     media = [],
     scopes = [],
-    description,
+    description = '',
   } = appDetailData
   const [isShowApiKey, setIsShowApikey] = React.useState<boolean>(false)
 
@@ -140,7 +140,7 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailData, loginType }) => 
         })}
       </GridItem>
       <GridItem className="is-8">
-        <p>{description}</p>
+        <HTMLRender className={styles.description} html={description} />
         <br />
         {carouselImages.length > 0 && (
           <div className={carouselStyles.container}>

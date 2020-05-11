@@ -3,9 +3,6 @@ import { Dispatch } from 'redux'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router'
 import { removeAuthenticationCode } from '@/actions/app-detail'
-import AppDelete from '@/components/ui/app-delete'
-import AppInstallations from '@/components/ui/app-installations/app-installations-modal'
-import DeveloperAppRevisionModal from '@/components/ui/developer-app-revision-modal'
 
 import { Grid, GridItem, Button } from '@reapit/elements'
 import routes from '@/constants/routes'
@@ -13,6 +10,9 @@ import { DeveloperAppDetailState } from '@/reducers/developer'
 
 export type DeveloperAppDetailButtonGroupProps = {
   appDetailState: DeveloperAppDetailState
+  setIsInstallationsModalOpen: (isVisible: boolean) => void
+  setIsAppRevisionComparisionModalOpen: (isVisible: boolean) => void
+  setIsDeleteModalOpen: (isVisible: boolean) => void
 }
 
 export const handleEditDetailButtonClick = (history, dispatch: Dispatch<any>, id?: string) => {
@@ -44,17 +44,18 @@ export const handleInstallationButtonClick = (setIsInstallationsModalOpen: (isMo
   }
 }
 
-const DeveloperAppDetailButtonGroup: React.FC<DeveloperAppDetailButtonGroupProps> = ({ appDetailState }) => {
+const DeveloperAppDetailButtonGroup: React.FC<DeveloperAppDetailButtonGroupProps> = ({
+  appDetailState,
+  setIsAppRevisionComparisionModalOpen,
+  setIsDeleteModalOpen,
+  setIsInstallationsModalOpen,
+}) => {
   const { data } = appDetailState
   const appId = data?.id || ''
-  const appName = data?.name || ''
   const pendingRevisions = data?.pendingRevisions
 
   const history = useHistory()
   const dispatch = useDispatch()
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false)
-  const [isInstallationsModalOpen, setIsInstallationsModalOpen] = React.useState(false)
-  const [isAppRevisionComparisionModalOpen, setIsAppRevisionComparisionModalOpen] = React.useState(false)
 
   const onInstallationButtonClick = React.useCallback(handleInstallationButtonClick(setIsInstallationsModalOpen), [])
   const onPendingRevisionButtonClick = React.useCallback(
@@ -69,63 +70,34 @@ const DeveloperAppDetailButtonGroup: React.FC<DeveloperAppDetailButtonGroupProps
   const onDeleteAppButtonClick = React.useCallback(handlenDeleteAppButtonClick(setIsDeleteModalOpen), [])
 
   return (
-    <>
-      <Grid>
-        <GridItem className="is-narrow">
-          <Button variant="primary" type="button" onClick={onInstallationButtonClick}>
-            Installation
+    <Grid>
+      <GridItem className="is-narrow">
+        <Button variant="primary" type="button" onClick={onInstallationButtonClick}>
+          Installation
+        </Button>
+      </GridItem>
+      <GridItem>
+        {pendingRevisions ? (
+          <Button
+            className="is-pulled-right ml-2"
+            type="button"
+            variant="primary"
+            dataTest="detail-modal-edit-button"
+            onClick={onPendingRevisionButtonClick}
+          >
+            Pending Revision
           </Button>
-        </GridItem>
-        <GridItem>
-          {pendingRevisions ? (
-            <Button
-              className="is-pulled-right ml-2"
-              type="button"
-              variant="primary"
-              dataTest="detail-modal-edit-button"
-              onClick={onPendingRevisionButtonClick}
-            >
-              Pending Revision
-            </Button>
-          ) : (
-            <Button className="is-pulled-right ml-2" variant="primary" type="button" onClick={onEditDetailButtonClick}>
-              Edit Detail
-            </Button>
-          )}
-
-          <Button className="is-pulled-right" variant="danger" type="button" onClick={onDeleteAppButtonClick}>
-            Delete App
+        ) : (
+          <Button className="is-pulled-right ml-2" variant="primary" type="button" onClick={onEditDetailButtonClick}>
+            Edit Detail
           </Button>
-        </GridItem>
-      </Grid>
+        )}
 
-      <AppDelete
-        appId={appId || ''}
-        appName={appName || ''}
-        afterClose={() => setIsDeleteModalOpen(false)}
-        visible={isDeleteModalOpen}
-        onDeleteSuccess={() => {
-          setIsDeleteModalOpen(false)
-        }}
-      />
-
-      <AppInstallations
-        appId={appId || ''}
-        appName={appName || ''}
-        visible={isInstallationsModalOpen}
-        afterClose={() => setIsInstallationsModalOpen(false)}
-        onUninstallSuccess={() => {
-          setIsInstallationsModalOpen(false)
-        }}
-      />
-
-      {/* <DeveloperAppRevisionModal
-        visible={isAppRevisionComparisionModalOpen}
-        appId={appId || ''}
-        appDetailState={appDetailState}
-        afterClose={() => setIsAppRevisionComparisionModalOpen(false)}
-      /> */}
-    </>
+        <Button className="is-pulled-right" variant="danger" type="button" onClick={onDeleteAppButtonClick}>
+          Delete App
+        </Button>
+      </GridItem>
+    </Grid>
   )
 }
 

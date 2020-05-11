@@ -7,6 +7,7 @@ import { FormState } from '@/types/core'
 export interface RevisionDetailRequestParams {
   appId: string
   appRevisionId: string
+  callback?: () => void
 }
 
 export interface RevisionReceiveDataParams extends RevisionDetailItem {

@@ -108,7 +108,7 @@ export const approveRevisionListen = function*() {
 export const declineRevision = function*({ data: params }: Action<RevisionDeclineRequestParams>) {
   const { pageNumber } = yield select(getApprovalPageNumber)
   yield put(declineRevisionSetFormState('SUBMITTING'))
-  const { appId, appRevisionId, ...body } = params
+  const { appId, appRevisionId, callback, ...body } = params
   try {
     const response = yield call(fetcher, {
       url: `${URLS.apps}/${appId}/revisions/${appRevisionId}/reject`,
@@ -121,6 +121,9 @@ export const declineRevision = function*({ data: params }: Action<RevisionDeclin
     const status = response ? 'SUCCESS' : 'ERROR'
     if (status === 'SUCCESS') {
       yield call(adminApprovalsDataFetch, { data: pageNumber })
+      if (callback) {
+        callback()
+      }
     }
     yield put(declineRevisionSetFormState(status))
   } catch (err) {
