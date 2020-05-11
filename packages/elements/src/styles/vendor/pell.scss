@@ -110,6 +110,6 @@ $pell-content-padding: 10px !default;
 
 div[contenteditable='true']:empty:before {
   content: attr(placeholder);
-  color: $grey-lighter;
+  color: #D3D3D3;
   display: block; /* For Firefox */
 }
