@@ -28,7 +28,6 @@ import appHttpTrafficEventReducer from '@/reducers/app-http-traffic-event'
 import integrationTypes from '@/reducers/app-integration-types'
 import webhookEditReducer from '../reducers/webhook-edit-modal'
 import webhookSubscriptions from '@/reducers/webhook-subscriptions'
-
 import authSagas from '@/sagas/auth'
 import clientSagas from '@/sagas/client'
 import appDetailSagas from '@/sagas/app-detail'

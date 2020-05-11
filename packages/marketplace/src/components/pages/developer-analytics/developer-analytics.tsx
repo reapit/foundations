@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useHistory, useParams } from 'react-router-dom'
+import { useHistory, useRouteMatch } from 'react-router-dom'
 import { Tabs, FlexContainerBasic, FlexContainerResponsive, H3, TabConfig } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import DetailedTab from '@/components/ui/developer-analytics/detailed'
@@ -10,7 +10,7 @@ import styles from '@/styles/pages/developer-analytics.scss?mod'
 export type DeveloperAnalyticsPageProps = {}
 
 export type TabConfigsProps = {
-  currentTab: string
+  currentUrl: string
   history: any
 }
 
@@ -19,7 +19,7 @@ export enum AnalyticsTab {
   BILLING = 'billing',
 }
 
-export const tabConfigs = ({ currentTab, history }: TabConfigsProps): TabConfig[] => {
+export const tabConfigs = ({ currentUrl, history }: TabConfigsProps): TabConfig[] => {
   const configs = [
     {
       tabIdentifier: AnalyticsTab.DETAILED,
@@ -27,7 +27,7 @@ export const tabConfigs = ({ currentTab, history }: TabConfigsProps): TabConfig[
       onTabClick: () => {
         history.push(Routes.DEVELOPER_ANALYTICS)
       },
-      active: currentTab === AnalyticsTab.DETAILED,
+      active: currentUrl === Routes.DEVELOPER_ANALYTICS,
     },
   ]
   if (window.reapit.config.appEnv !== 'production') {
@@ -35,35 +35,22 @@ export const tabConfigs = ({ currentTab, history }: TabConfigsProps): TabConfig[
       tabIdentifier: AnalyticsTab.BILLING,
       displayText: 'BILLING',
       onTabClick: () => {
-        history.push(`${Routes.DEVELOPER_ANALYTICS}/${AnalyticsTab.BILLING}`)
+        history.push(Routes.DEVELOPER_ANALYTICS_BILLING_TAB)
       },
-      active: currentTab === AnalyticsTab.BILLING,
+      active: currentUrl === Routes.DEVELOPER_ANALYTICS_BILLING_TAB,
     })
   }
   return configs
 }
 
-export const handleUseEffectToSetCurrentTab = (activeTab, setCurrentTab) => {
-  return () => {
-    switch (activeTab) {
-      case AnalyticsTab.DETAILED:
-        setCurrentTab(AnalyticsTab.DETAILED)
-        break
-      case AnalyticsTab.BILLING:
-        setCurrentTab(AnalyticsTab.BILLING)
-        break
-      default:
-        setCurrentTab(AnalyticsTab.DETAILED)
-        break
-    }
-  }
-}
-
-export const renderTabContent = currentTab => {
-  switch (currentTab) {
-    case AnalyticsTab.DETAILED:
+/**
+ * using route instead switch case
+ */
+export const renderTabContent = currentUrl => {
+  switch (currentUrl) {
+    case Routes.DEVELOPER_ANALYTICS:
       return <DetailedTab />
-    case AnalyticsTab.BILLING:
+    case Routes.DEVELOPER_ANALYTICS_BILLING_TAB:
       return <BillingTab />
     default:
       return <DetailedTab />
@@ -71,11 +58,8 @@ export const renderTabContent = currentTab => {
 }
 
 export const DeveloperAnalyticsPage: React.FC<DeveloperAnalyticsPageProps> = () => {
-  const [currentTab, setCurrentTab] = React.useState<AnalyticsTab>(AnalyticsTab.DETAILED)
   const history = useHistory()
-  const { activeTab } = useParams()
-
-  React.useEffect(handleUseEffectToSetCurrentTab(activeTab, setCurrentTab), [activeTab])
+  const { url: currentUrl } = useRouteMatch()
 
   return (
     <ErrorBoundary>
@@ -83,9 +67,9 @@ export const DeveloperAnalyticsPage: React.FC<DeveloperAnalyticsPageProps> = () 
         <FlexContainerResponsive flexColumn hasBackground hasPadding className={styles.wrapAnalytics}>
           <H3>Dashboard</H3>
           <div className={styles.tabContainer}>
-            <Tabs tabConfigs={tabConfigs({ currentTab, history })} />
+            <Tabs tabConfigs={tabConfigs({ currentUrl, history })} />
           </div>
-          <div>{renderTabContent(currentTab)}</div>
+          <div>{renderTabContent(currentUrl)}</div>
         </FlexContainerResponsive>
       </FlexContainerBasic>
     </ErrorBoundary>

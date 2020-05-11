@@ -17,6 +17,42 @@ export class FetchError extends Error {
   }
 }
 
+export const fetcherWithBlob = async <T, B>({
+  api,
+  url,
+  method,
+  body,
+  headers,
+}: FetcherParams<B>): Promise<Blob | FetchError> => {
+  const path = `${api}${url}`
+
+  const res = await fetch(path, {
+    headers,
+    method,
+    body: JSON.stringify(body),
+  } as RequestInit)
+
+  if (res.status < 400) {
+    try {
+      const blob = await res.blob()
+      return blob
+    } catch (err) {
+      const error = new FetchError("Can't convert response to blob. Error:", err.message)
+      console.error(error.message)
+      Promise.reject(error)
+    }
+  }
+
+  const error = new FetchError(`ERROR FETCHING ${method} ${path} ${JSON.stringify(res)}`, res)
+  console.error(error.message)
+  try {
+    error.response = await res.json()
+  } catch (err) {
+    error.response = res
+  }
+  return Promise.reject(error)
+}
+
 export const fetcher = async <T, B>({
   api,
   url,

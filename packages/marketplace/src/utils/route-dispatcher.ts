@@ -43,6 +43,9 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
     case Routes.DEVELOPER_MY_APPS:
       store.dispatch(developerRequestData({ page: 1 }))
       break
+    /* fall through switch case is required here */
+    case Routes.DEVELOPER_ANALYTICS_BILLING_TAB:
+    /* eslint-disable-next-line no-fallthrough*/
     case Routes.DEVELOPER_ANALYTICS_TAB: {
       // Fetch all apps to map app name to installations
       store.dispatch(fetchMyIdentity())
