@@ -12,7 +12,7 @@ export interface HTMLRenderProps {
 export const HTMLRender: React.SFC<HTMLRenderProps> = ({
   html,
   diffing = false,
-  className = 'html-editor',
+  className = 'html-render',
 }: HTMLRenderProps) => {
   const jsonElements = parse(html)
   return <Content className={className}>{renderer(jsonElements, diffing)}</Content>

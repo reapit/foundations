@@ -309,7 +309,6 @@ export const handleDeclineTerms = (setIsAgreedTerms, setTermModalIsOpen) => () =
  * and validate all fields
  */
 export const handleBeforeSubmit = (validateFunction, setIsSubmitModalOpen) => (values: CustomCreateAppModel) => {
-  console.log(values)
   const firstSubmitCookie = getCookieString(COOKIE_FIRST_SUBMIT)
   if (!firstSubmitCookie) {
     setIsSubmitModalOpen(true)

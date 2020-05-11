@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { H4, H5 } from '../Typography'
+import { H4, H5, H6 } from '../Typography'
 
 export interface Element {
   type: string
@@ -25,7 +25,7 @@ const getChildren = (domTag: Element, diffing: boolean) => {
 const getAttributes = (domTag: Element, index: number) => {
   const attributes = domTag.attributes || []
   // convert to react-compatible props
-  const reactPropsAttributes = attributes.reduce(
+  const reactPropsAttributes = Array.from(attributes as { [key: string]: any }[]).reduce(
     (acc, { key, value }) => ({
       ...acc,
       [key]: value,
@@ -46,12 +46,9 @@ const sortTags = (domTag: Element, index: number, diffing: boolean) => {
       return <p {...attributes}>{children}</p>
     case 'a':
       return (
-        <div className="a-wrapper">
-          <div className="tool-tip-href">{attributes.href}</div>
-          <a target="_blank" rel="noopener" {...attributes}>
-            {children}
-          </a>
-        </div>
+        <a target="_blank" rel="noopener" {...attributes}>
+          {children}
+        </a>
       )
     case 'b':
       return <b {...attributes}>{children}</b>
@@ -67,6 +64,8 @@ const sortTags = (domTag: Element, index: number, diffing: boolean) => {
       return <H4 {...attributes}>{children}</H4>
     case 'h2':
       return <H5 {...attributes}>{children}</H5>
+    case 'h6':
+      return <H6 {...attributes}>{children}</H6>
     case 'i':
       return <i {...attributes}>{children}</i>
     case 'strike':

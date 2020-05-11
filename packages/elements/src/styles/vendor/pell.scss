@@ -34,6 +34,15 @@ $pell-content-padding: 10px !default;
     box-shadow: 0 0 0 0.125em rgba(35, 164, 222, 0.25);
   }
 
+  p {
+    margin: 1rem 0;
+  }
+
+  a {
+    color: $reapit-mid-blue;
+    font-weight: bold;
+  }
+
   h1 {
     display: block;
     font-size: 2em;
@@ -47,6 +56,16 @@ $pell-content-padding: 10px !default;
   h2 {
     display: block;
     font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+  }
+
+  h6 {
+    display: block;
+    font-size: 1em;
     margin-block-start: 0.83em;
     margin-block-end: 0.83em;
     margin-inline-start: 0px;
