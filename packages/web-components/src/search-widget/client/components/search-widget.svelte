@@ -12,6 +12,7 @@
   export let apiKey
   export let customerId
   export let parentSelector
+  export let detailPageUrl
 
   const themeClasses = generateThemeClasses(theme, parentSelector)
   const { globalStyles, primaryHeading } = themeClasses
@@ -24,6 +25,7 @@
         apiKey,
         customerId,
         parentSelector,
+        detailPageUrl,
       },
       themeClasses,
     }))

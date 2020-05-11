@@ -1,6 +1,6 @@
 <script>
   import { generateThemeClasses } from '../../../common/styles'
-  import { onDestroy, onMount } from 'svelte'
+  import { onMount } from 'svelte'
   import Fa from 'svelte-fa'
   import { faBed, faToilet } from '@fortawesome/free-solid-svg-icons'
   import { getProperty } from '../../../search-widget/client/api/property'
@@ -13,16 +13,18 @@
     combineNumberBedTypeStyle,
   } from '../../../search-widget/client/utils/results-helpers'
   import LightBox from '../../../search-widget/client/components/light-box/light-box.svelte'
+  import { parseQueryString } from '../../../common/utils/parse-query-string'
 
   export let theme
   export let apiKey
   export let customerId
   export let parentSelector
 
-  let propertyId = 'RPT190098'
-  let searchType = ''
+  const params = parseQueryString(window.location.search)
+  let propertyId = params['id']
+  let searchType = params['searchType']
   let property = {}
-  let propertyImagesByPropertyId
+  let propertyImageUrls = params['propertyImageUrls'] || ''
   let transformedPropertyImages = []
   let sellingStatus = ''
   let lettingStatus = ''
@@ -38,8 +40,7 @@
       property = await getProperty({ apiKey, customerId, propertyId })
       loading = false
       if (property) {
-        const propertyImages = (propertyImagesByPropertyId && propertyImagesByPropertyId[propertyId]) || []
-        transformedPropertyImages = propertyImages.map(propertyImage => propertyImage.url)
+        transformedPropertyImages = propertyImageUrls.split(',')
         sellingStatus = (property.selling && property.selling.status) || ''
         lettingStatus = (property.letting && property.letting.status) || ''
       } else {

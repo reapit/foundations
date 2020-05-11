@@ -15,7 +15,7 @@ Property_detail {
       "",
       true,
       false,
-      "searchType",
+      undefined,
       "css-1k9kz5j",
       "css-4swp76",
       "css-1lir6kw",

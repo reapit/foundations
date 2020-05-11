@@ -48,6 +48,7 @@
     "serve:static": "serve public/dist -p 5000",
     "start:server": "serverless offline --out public/dist --stage local",
     "start:dev": "node ./src/scripts/start-dev.js",
+    "start:search-widget": "node ./src/scripts/start-search-widget.js",
     "test:dev": "cross-env TZ=UTC jest --watch --color",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js,svelte src\"",

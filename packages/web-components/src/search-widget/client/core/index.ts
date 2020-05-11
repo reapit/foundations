@@ -6,9 +6,16 @@ export interface SearchWidgeInitializers {
   apiKey: string
   customerId: string
   parentSelector: string
+  detailPageUrl: string
 }
 
-export const ReapitSearchWidgetComponent = ({ parentSelector, apiKey, customerId, theme }: SearchWidgeInitializers) =>
+export const ReapitSearchWidgetComponent = ({
+  parentSelector,
+  apiKey,
+  customerId,
+  theme,
+  detailPageUrl,
+}: SearchWidgeInitializers) =>
   new SearchWidget({
     target: document.querySelector(parentSelector) || document.body,
     props: {
@@ -16,6 +23,7 @@ export const ReapitSearchWidgetComponent = ({ parentSelector, apiKey, customerId
       apiKey,
       customerId,
       parentSelector,
+      detailPageUrl,
     },
   })
 

@@ -13,12 +13,16 @@
   let searchType
   let propertyImages
   let themeClasses = {}
+  let detailPageUrl = ''
+  let propertyImagesByPropertyId
 
   const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
     selectedProperty = store.selectedProperty
     searchType = store.searchType
     propertyImages = store.propertyImages
     themeClasses = store.themeClasses
+    detailPageUrl = store.initializers.detailPageUrl
+    propertyImagesByPropertyId = store.propertyImagesByPropertyId
   })
 
   const {
@@ -47,7 +51,9 @@
   }
 
   const handleViewDetail = propertyId => {
-    location.href = `/${propertyId}`
+    const propertyImages = (propertyImagesByPropertyId && propertyImagesByPropertyId[propertyId]) || []
+    const propertyImageUrls = propertyImages.map(propertyImage => propertyImage.url).join(',')
+    location.href = `${detailPageUrl}?id=${propertyId}&searchType=${searchType}&propertyImageUrls=${propertyImageUrls}`
   }
 
   onDestroy(() => {

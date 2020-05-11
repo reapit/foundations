@@ -34,6 +34,7 @@ Search_widget {
         "initializers": Object {
           "apiKey": "SOME_KEY",
           "customerId": "DEMO",
+          "detailPageUrl": "/detail.html",
           "parentSelector": "#search-widget",
           "theme": Object {
             "baseBackgroundColor": "#fff",
@@ -90,6 +91,7 @@ Search_widget {
       "SOME_KEY",
       "DEMO",
       "#search-widget",
+      "/detail.html",
     ],
     "dirty": Array [
       -1,
@@ -111,6 +113,7 @@ Search_widget {
     "props": Object {
       "apiKey": 4,
       "customerId": 5,
+      "detailPageUrl": 7,
       "parentSelector": 6,
       "theme": 0,
     },
