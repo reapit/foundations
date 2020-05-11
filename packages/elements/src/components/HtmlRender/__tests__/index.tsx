@@ -122,11 +122,11 @@ describe('getChildren', () => {
 
 describe('getAttributes', () => {
   it('should get the tag attributes if there are any, kill any styles add an index as key', () => {
-    const attributes = {
-      style: 'width: 100px',
-      id: 'my-id',
-      src: 'some-src',
-    }
+    const attributes = [
+      { key: 'id', value: 'my-id' },
+      { key: 'src', value: 'some-src' },
+      { key: 'style', value: 'width: "10px"' },
+    ]
     const index = 0
     const expected = {
       id: 'my-id',

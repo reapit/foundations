@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { H4, H5 } from '../Typography'
+import { H4, H5, H6 } from '../Typography'
 
 export interface Element {
   type: string
@@ -10,7 +10,10 @@ export interface Element {
 }
 
 const sortContentType = (domItem: Element, index: number, diffing: boolean) => {
-  return domItem.type === 'text' ? domItem.content || null : rendererModule.sortTags(domItem, index, diffing)
+  // using DOMParse to parse HTML entities like &nbsp;
+  return domItem.type === 'text'
+    ? new DOMParser().parseFromString(domItem.content || '', 'text/html').documentElement.textContent || null
+    : rendererModule.sortTags(domItem, index, diffing)
 }
 
 const getChildren = (domTag: Element, diffing: boolean) => {
@@ -20,8 +23,16 @@ const getChildren = (domTag: Element, diffing: boolean) => {
 }
 
 const getAttributes = (domTag: Element, index: number) => {
-  const attributes = domTag.attributes || {}
-  return { ...attributes, style: {}, key: index }
+  const attributes = domTag.attributes || []
+  // convert to react-compatible props
+  const reactPropsAttributes = Array.from(attributes as { [key: string]: any }[]).reduce(
+    (acc, { key, value }) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {},
+  )
+  return { ...reactPropsAttributes, key: index, style: {} }
 }
 
 const sortTags = (domTag: Element, index: number, diffing: boolean) => {
@@ -34,7 +45,11 @@ const sortTags = (domTag: Element, index: number, diffing: boolean) => {
     case 'p':
       return <p {...attributes}>{children}</p>
     case 'a':
-      return <a {...attributes}>{children}</a>
+      return (
+        <a target="_blank" rel="noopener" {...attributes}>
+          {children}
+        </a>
+      )
     case 'b':
       return <b {...attributes}>{children}</b>
     case 'u':
@@ -49,6 +64,8 @@ const sortTags = (domTag: Element, index: number, diffing: boolean) => {
       return <H4 {...attributes}>{children}</H4>
     case 'h2':
       return <H5 {...attributes}>{children}</H5>
+    case 'h6':
+      return <H6 {...attributes}>{children}</H6>
     case 'i':
       return <i {...attributes}>{children}</i>
     case 'strike':
