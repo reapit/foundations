@@ -1,0 +1,6 @@
+[defaults]
+project=geo-diary-v2
+org=reapit-ltd
+
+[http]
+keepalive=false
