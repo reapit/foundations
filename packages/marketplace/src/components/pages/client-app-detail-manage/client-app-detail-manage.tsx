@@ -12,14 +12,14 @@ import ClientAppUninstallConfirmation from '@/components/ui/client-app-detail/cl
 export type ClientAppDetailManageProps = {}
 
 export const handleCloseUninstallConfirmationModal = (
-  setIsVisibleUninstallConfirmation: (isModalOpen: boolean) => void,
+  setIsVisibleUninstallConfirmation: (isVisible: boolean) => void,
 ) => {
   return () => {
     setIsVisibleUninstallConfirmation(false)
   }
 }
 
-export const handleUninstallAppButtonClick = (setIsVisibleUninstallConfirmation: (isModalOpen: boolean) => void) => {
+export const handleUninstallAppButtonClick = (setIsVisibleUninstallConfirmation: (isVisible: boolean) => void) => {
   return () => {
     setIsVisibleUninstallConfirmation(true)
   }

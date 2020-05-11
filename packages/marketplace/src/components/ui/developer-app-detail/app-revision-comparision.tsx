@@ -165,7 +165,6 @@ export const AppRevisionComparision: React.FC<AppRevisionComparisionProps> = ({
     return null
   }
   const { data: revision, scopes, desktopIntegrationTypes } = revisionDetailState.revisionDetailData
-  // const app = appDetailData
 
   return (
     <div>

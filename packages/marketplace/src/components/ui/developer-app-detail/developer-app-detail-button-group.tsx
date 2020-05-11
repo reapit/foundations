@@ -24,21 +24,21 @@ export const handleEditDetailButtonClick = (history, dispatch: Dispatch<any>, id
   }
 }
 
-export const handlenDeleteAppButtonClick = (setIsDeleteModalOpen: (isModalOpen: boolean) => void) => {
+export const handlenDeleteAppButtonClick = (setIsDeleteModalOpen: (isVisible: boolean) => void) => {
   return () => {
     setIsDeleteModalOpen(true)
   }
 }
 
 export const handlePendingRevisionButtonClick = (
-  setIsAppRevisionComparisionModalOpen: (isModalOpen: boolean) => void,
+  setIsAppRevisionComparisionModalOpen: (isVisible: boolean) => void,
 ) => {
   return () => {
     setIsAppRevisionComparisionModalOpen(true)
   }
 }
 
-export const handleInstallationButtonClick = (setIsInstallationsModalOpen: (isModalOpen: boolean) => void) => {
+export const handleInstallationButtonClick = (setIsInstallationsModalOpen: (isVisible: boolean) => void) => {
   return () => {
     setIsInstallationsModalOpen(true)
   }

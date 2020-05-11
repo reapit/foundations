@@ -12,15 +12,13 @@ import ClientAppInstallConfirmation from '@/components/ui/client-app-detail/clie
 
 export type ClientAppDetailProps = {}
 
-export const handleCloseInstallConfirmationModal = (
-  setIsVisibleInstallConfirmation: (isModalOpen: boolean) => void,
-) => {
+export const handleCloseInstallConfirmationModal = (setIsVisibleInstallConfirmation: (isVisible: boolean) => void) => {
   return () => {
     setIsVisibleInstallConfirmation(false)
   }
 }
 
-export const handleInstallAppButtonClick = (setIsVisibleInstallConfirmation: (isModalOpen: boolean) => void) => {
+export const handleInstallAppButtonClick = (setIsVisibleInstallConfirmation: (isVisible: boolean) => void) => {
   return () => {
     setIsVisibleInstallConfirmation(true)
   }
