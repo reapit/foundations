@@ -3,6 +3,7 @@ import { ActionType } from '../../types/core'
 import ActionTypes from '../../constants/action-types'
 import { appsDataStub } from '../../sagas/__stubs__/apps'
 import { billing } from '@/sagas/__stubs__/billing'
+import { monthlyBillingData } from '@/sagas/__stubs__/monthly-billing'
 
 describe('developer reducer', () => {
   it('should return default state if action not matched', () => {
@@ -98,6 +99,42 @@ describe('developer reducer', () => {
       ...defaultState,
       isServiceChartLoading: false,
       error: 'error',
+    }
+    expect(newState).toEqual(expected)
+  })
+
+  it('should set fetchMonthlyBillingFailure when call DEVELOPER_FETCH_MONTHLY_BILLING_FAILURE is called', () => {
+    const newState = developerReducer(undefined, {
+      type: ActionTypes.DEVELOPER_FETCH_MONTHLY_BILLING_FAILURE as ActionType,
+      data: null,
+    })
+    const expected = {
+      ...defaultState,
+      isMonthlyBillingLoading: false,
+    }
+    expect(newState).toEqual(expected)
+  })
+
+  it('should set fetchMonthlyBilling when call DEVELOPER_FETCH_MONTHLY_BILLING is called', () => {
+    const newState = developerReducer(undefined, {
+      type: ActionTypes.DEVELOPER_FETCH_MONTHLY_BILLING as ActionType,
+      data: null,
+    })
+    const expected = {
+      ...defaultState,
+      isMonthlyBillingLoading: true,
+    }
+    expect(newState).toEqual(expected)
+  })
+  it('should set fetchMonthlyBillingSuccess when call DEVELOPER_FETCH_MONTHLY_BILLING_SUCCESS is called', () => {
+    const newState = developerReducer(undefined, {
+      type: ActionTypes.DEVELOPER_FETCH_MONTHLY_BILLING_SUCCESS as ActionType,
+      data: monthlyBillingData,
+    })
+    const expected = {
+      ...defaultState,
+      monthlyBilling: monthlyBillingData,
+      isMonthlyBillingLoading: false,
     }
     expect(newState).toEqual(expected)
   })

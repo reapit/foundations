@@ -9,6 +9,8 @@ import {
   setMyIdentity,
   fetchBillingFailure,
   fetchBillingSuccess,
+  fetchMonthlyBillingSuccess,
+  fetchMonthlyBillingFailure,
 } from '@/actions/developer'
 import developerSagas, {
   developerDataFetch,
@@ -19,6 +21,8 @@ import developerSagas, {
   fetchBillingSagasListen,
   fetchMyIdentitySagas,
   fetchBillingSagas,
+  fetchMonthlyBillingSagasListen,
+  fetchMonthlyBillingSagas,
 } from '../developer'
 import ActionTypes from '@/constants/action-types'
 import { generateHeader, URLS } from '@/constants/api'
@@ -33,6 +37,8 @@ import { selectDeveloperId } from '@/selector/developer'
 import api, { FetchBillingParams } from '../api'
 import { developerIdentity } from '../__stubs__/developer-identity'
 import { billing } from '../__stubs__/billing'
+import { FetchMonthlyBillingParams, fetchMonthlyBilling } from '@/services/billings'
+import { monthlyBillingData } from '../__stubs__/monthly-billing'
 
 jest.mock('@reapit/elements')
 
@@ -192,6 +198,34 @@ describe('fetchBillingSagas', () => {
   })
 })
 
+describe('fetchMonthlyBillingSagas', () => {
+  const params = {
+    month: '2020-01',
+    applicationId: ['1', '2'],
+  } as FetchMonthlyBillingParams
+  const gen = cloneableGenerator(fetchMonthlyBillingSagas as any)({ data: params })
+  expect(gen.next().value).toEqual(call(fetchMonthlyBilling, params))
+  it('api call success', () => {
+    const clone = gen.clone()
+    expect(clone.next(monthlyBillingData).value).toEqual(put(fetchMonthlyBillingSuccess(monthlyBillingData)))
+    expect(clone.next().done).toEqual(true)
+  })
+  it('api call error', () => {
+    const clone = gen.clone()
+    // @ts-ignore
+    expect(clone.throw('error').value).toEqual(put(fetchMonthlyBillingFailure('error')))
+    expect(clone.next().value).toEqual(
+      put(
+        errorThrownServer({
+          type: 'SERVER',
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
+    )
+    expect(clone.next().done).toEqual(true)
+  })
+})
+
 describe('developer thunks', () => {
   describe('developerRequestDataListen', () => {
     it('should request data listen', () => {
@@ -228,6 +262,16 @@ describe('developer thunks', () => {
     })
   })
 
+  describe('fetchMonthlyBillingSagasListen', () => {
+    it('should trigger developerCreact action', () => {
+      const gen = fetchMonthlyBillingSagasListen()
+      expect(gen.next().value).toEqual(
+        takeLatest(ActionTypes.DEVELOPER_FETCH_MONTHLY_BILLING, fetchMonthlyBillingSagas),
+      )
+      expect(gen.next().done).toBe(true)
+    })
+  })
+
   describe('developerSagas', () => {
     it('should listen developer request data & create app action', () => {
       const gen = developerSagas()
@@ -238,6 +282,7 @@ describe('developer thunks', () => {
           fork(developerCreateListen),
           fork(fetchMyIdentitySagasListen),
           fork(fetchBillingSagasListen),
+          fork(fetchMonthlyBillingSagasListen),
         ]),
       )
       expect(gen.next().done).toBe(true)

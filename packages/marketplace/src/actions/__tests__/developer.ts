@@ -8,12 +8,16 @@ import {
   fetchBilling,
   fetchBillingSuccess,
   fetchBillingFailure,
+  fetchMonthlyBilling,
+  fetchMonthlyBillingSuccess,
+  fetchMonthlyBillingFailure,
 } from '../developer'
 import ActionTypes from '../../constants/action-types'
 import { appsDataStub } from '../../sagas/__stubs__/apps'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
 import { billing } from '@/sagas/__stubs__/billing'
+import { monthlyBillingData } from '@/sagas/__stubs__/monthly-billing'
 
 describe('developer actions', () => {
   it('should create a developerLoading action', () => {
@@ -72,5 +76,24 @@ describe('developer actions', () => {
   it('should create a fetchBillingFailure action', () => {
     expect(fetchBillingFailure.type).toEqual(ActionTypes.DEVELOPER_FETCH_BILLING_FAILURE)
     expect(fetchBillingFailure('error').data).toEqual('error')
+  })
+
+  it('should create a fetchMonthlyBilling action', () => {
+    const params = {
+      applicationId: ['applicationId'],
+      month: 'month',
+    }
+    expect(fetchMonthlyBilling.type).toEqual(ActionTypes.DEVELOPER_FETCH_MONTHLY_BILLING)
+    expect(fetchMonthlyBilling(params).data).toEqual(params)
+  })
+
+  it('should create a fetchMonthlyBillingSuccess action', () => {
+    expect(fetchMonthlyBillingSuccess.type).toEqual(ActionTypes.DEVELOPER_FETCH_MONTHLY_BILLING_SUCCESS)
+    expect(fetchMonthlyBillingSuccess(monthlyBillingData).data).toEqual(monthlyBillingData)
+  })
+
+  it('should create a fetchMonthlyBillingFailure action', () => {
+    expect(fetchMonthlyBillingFailure.type).toEqual(ActionTypes.DEVELOPER_FETCH_MONTHLY_BILLING_FAILURE)
+    expect(fetchMonthlyBillingFailure('error').data).toEqual('error')
   })
 })

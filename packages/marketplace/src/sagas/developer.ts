@@ -10,6 +10,8 @@ import {
   setMyIdentity,
   fetchBillingSuccess,
   fetchBillingFailure,
+  fetchMonthlyBillingSuccess,
+  fetchMonthlyBillingFailure,
 } from '@/actions/developer'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { DeveloperItem, DeveloperRequestParams } from '@/reducers/developer'
@@ -20,6 +22,7 @@ import { URLS, generateHeader } from '@/constants/api'
 import { Action } from '@/types/core'
 import { selectDeveloperId } from '@/selector'
 import api, { FetchBillingParams } from './api'
+import { FetchMonthlyBillingParams, fetchMonthlyBilling } from '@/services/billings'
 
 export const developerDataFetch = function*({ data }) {
   yield put(developerLoading(true))
@@ -129,6 +132,22 @@ export const fetchBillingSagas = function*({ data }: Action<FetchBillingParams>)
   }
 }
 
+export const fetchMonthlyBillingSagas = function*({ data }: Action<FetchMonthlyBillingParams>) {
+  try {
+    const billingResponse = yield call(fetchMonthlyBilling, data)
+    yield put(fetchMonthlyBillingSuccess(billingResponse))
+  } catch (err) {
+    logger(err)
+    yield put(fetchMonthlyBillingFailure(err))
+    yield put(
+      errorThrownServer({
+        type: 'SERVER',
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
+    )
+  }
+}
+
 export const developerRequestDataListen = function*() {
   yield takeLatest<Action<DeveloperRequestParams>>(ActionTypes.DEVELOPER_REQUEST_DATA, developerDataFetch)
 }
@@ -145,12 +164,17 @@ export const fetchBillingSagasListen = function*() {
   yield takeLatest(ActionTypes.DEVELOPER_FETCH_BILLING, fetchBillingSagas)
 }
 
+export const fetchMonthlyBillingSagasListen = function*() {
+  yield takeLatest(ActionTypes.DEVELOPER_FETCH_MONTHLY_BILLING, fetchMonthlyBillingSagas)
+}
+
 const developerSagas = function*() {
   yield all([
     fork(developerRequestDataListen),
     fork(developerCreateListen),
     fork(fetchMyIdentitySagasListen),
     fork(fetchBillingSagasListen),
+    fork(fetchMonthlyBillingSagasListen),
   ])
 }
 
