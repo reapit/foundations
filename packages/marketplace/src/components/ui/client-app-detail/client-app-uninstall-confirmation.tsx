@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
 import { Button, Modal } from '@reapit/elements'
-import { clientAppDetailRequestData } from '@/actions/client'
+import { clientFetchAppDetail } from '@/actions/client'
 import { appInstallationsRequestUninstall } from '@/actions/app-installations'
 import CallToAction from '../call-to-action'
 import { selectClientId } from '@/selector/client'
@@ -33,7 +33,7 @@ export const onUninstallButtonClick = (
         terminatedReason: 'User uninstall',
         callback: () => {
           dispatch(
-            clientAppDetailRequestData({
+            clientFetchAppDetail({
               id: appId,
               clientId,
             }),

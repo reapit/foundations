@@ -1,4 +1,4 @@
-import { ClientAppDetailParams, clientAppDetailReceiveData, clientAppDetailRequestFailure } from '@/actions/client'
+import { ClientAppDetailParams, clientFetchAppDetailSuccess, clientFetchAppDetailFailed } from '@/actions/client'
 import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 import { errorThrownServer } from '@/actions/error'
@@ -15,10 +15,10 @@ export const fetchAppDetailSaga = function*({ data }: Action<ClientAppDetailPara
       const apiKeyResponse = yield call(fetchAppApiKey, { installationId: appDetailResponse.installationId })
       appDetailResponse.apiKey = apiKeyResponse?.apiKey || ''
     }
-    yield put(clientAppDetailReceiveData(appDetailResponse))
+    yield put(clientFetchAppDetailSuccess(appDetailResponse))
   } catch (err) {
     logger(err)
-    yield put(clientAppDetailRequestFailure(err.message))
+    yield put(clientFetchAppDetailFailed(err.message))
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -29,7 +29,7 @@ export const fetchAppDetailSaga = function*({ data }: Action<ClientAppDetailPara
 }
 
 export const clientAppDetailDataListen = function*() {
-  yield takeLatest<Action<ClientAppDetailParams>>(ActionTypes.CLIENT_APP_DETAIL_REQUEST_DATA, fetchAppDetailSaga)
+  yield takeLatest<Action<ClientAppDetailParams>>(ActionTypes.CLIENT_FETCH_APP_DETAIL, fetchAppDetailSaga)
 }
 
 const appDetailSagas = function*() {

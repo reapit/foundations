@@ -18,8 +18,6 @@ export const clientAppSummaryRequestDataFailure = actionCreator<string>(ActionTy
 export const clientAppSummaryClearData = actionCreator<null>(ActionTypes.CLIENT_APP_SUMMARY_CLEAR_DATA)
 
 // Client App Detail
-export const clientAppDetailRequestData = actionCreator<ClientAppDetailParams>(
-  ActionTypes.CLIENT_APP_DETAIL_REQUEST_DATA,
-)
-export const clientAppDetailReceiveData = actionCreator<AppDetailData>(ActionTypes.CLIENT_APP_DETAIL_RECEIVE_DATA)
-export const clientAppDetailRequestFailure = actionCreator<string>(ActionTypes.CLIENT_APP_DETAIL_REQUEST_FAILURE)
+export const clientFetchAppDetail = actionCreator<ClientAppDetailParams>(ActionTypes.CLIENT_FETCH_APP_DETAIL)
+export const clientFetchAppDetailSuccess = actionCreator<AppDetailData>(ActionTypes.CLIENT_FETCH_APP_DETAIL_SUCCESS)
+export const clientFetchAppDetailFailed = actionCreator<string>(ActionTypes.CLIENT_FETCH_APP_DETAIL_FAILED)

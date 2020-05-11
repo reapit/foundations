@@ -5,7 +5,7 @@ import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
 import { Button, Modal } from '@reapit/elements'
 import { appInstallationsRequestInstall } from '@/actions/app-installations'
-import { clientAppDetailRequestData } from '@/actions/client'
+import { clientFetchAppDetail } from '@/actions/client'
 import { Dispatch } from 'redux'
 import CallToAction from '../call-to-action'
 import { selectClientId } from '@/selector/client'
@@ -30,7 +30,7 @@ export const handleInstallButtonClick = (
         appId,
         callback: () => {
           dispatch(
-            clientAppDetailRequestData({
+            clientFetchAppDetail({
               id: appId,
               clientId,
             }),
