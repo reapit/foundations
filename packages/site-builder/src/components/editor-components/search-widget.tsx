@@ -90,7 +90,7 @@ export const initializeSearchWidgetComponent = editor => {
       init() {
         this.listenTo(this.model, 'change:apiKey change:reapitCustomerId', this.updateScript)
         if (!this.model.attributes.apiKey.length) {
-          alert('You need to add an API key and a Reapit Customer Id to see this component in action')
+          console.log('TODO: should inform user about adding API key and customer id here')
         }
       },
     }),
