@@ -1,7 +1,6 @@
 import { fetchMonthlyBilling } from '../billings'
 import { generateHeader, URLS } from '@/constants/api'
 import { fetcher, setQueryParams } from '@reapit/elements'
-import { logger } from 'logger'
 
 describe('should fetchMonthlyBilling run correctly', () => {
   it('fetcher should be called', () => {

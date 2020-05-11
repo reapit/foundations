@@ -74,7 +74,7 @@ describe('developer actions', () => {
   })
 
   it('should create a fetchBillingFailure action', () => {
-    expect(fetchBillingFailure.type).toEqual(ActionTypes.DEVELOPER_FETCH_BILLING_FAILURE)
+    expect(fetchBillingFailure.type).toEqual(ActionTypes.DEVELOPER_FETCH_BILLING_FAILED)
     expect(fetchBillingFailure('error').data).toEqual('error')
   })
 
@@ -93,7 +93,7 @@ describe('developer actions', () => {
   })
 
   it('should create a fetchMonthlyBillingFailure action', () => {
-    expect(fetchMonthlyBillingFailure.type).toEqual(ActionTypes.DEVELOPER_FETCH_MONTHLY_BILLING_FAILURE)
+    expect(fetchMonthlyBillingFailure.type).toEqual(ActionTypes.DEVELOPER_FETCH_MONTHLY_BILLING_FAILED)
     expect(fetchMonthlyBillingFailure('error').data).toEqual('error')
   })
 })

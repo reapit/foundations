@@ -90,9 +90,9 @@ describe('developer reducer', () => {
     expect(newState).toEqual(expected)
   })
 
-  it('should set fetchBillingFailure when call DEVELOPER_FETCH_BILLING_FAILURE is called', () => {
+  it('should set fetchBillingFailure when call DEVELOPER_FETCH_BILLING_FAILED is called', () => {
     const newState = developerReducer(undefined, {
-      type: ActionTypes.DEVELOPER_FETCH_BILLING_FAILURE as ActionType,
+      type: ActionTypes.DEVELOPER_FETCH_BILLING_FAILED as ActionType,
       data: 'error',
     })
     const expected = {
@@ -103,9 +103,9 @@ describe('developer reducer', () => {
     expect(newState).toEqual(expected)
   })
 
-  it('should set fetchMonthlyBillingFailure when call DEVELOPER_FETCH_MONTHLY_BILLING_FAILURE is called', () => {
+  it('should set fetchMonthlyBillingFailure when call DEVELOPER_FETCH_MONTHLY_BILLING_FAILED is called', () => {
     const newState = developerReducer(undefined, {
-      type: ActionTypes.DEVELOPER_FETCH_MONTHLY_BILLING_FAILURE as ActionType,
+      type: ActionTypes.DEVELOPER_FETCH_MONTHLY_BILLING_FAILED as ActionType,
       data: null,
     })
     const expected = {
