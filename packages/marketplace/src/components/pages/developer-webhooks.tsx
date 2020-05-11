@@ -210,14 +210,14 @@ export const DeveloperWebhooks = ({
           </Section>
           {unfetched || loading || subscriptionsLoading ? (
             <Loader />
-          ) : (
+          ) : subscriptions.length ? (
             <Table
               scrollable
               columns={columns}
               data={getTableTopicsData({ subscriptions, handleOpenEditModal, topics })}
               loading={false}
             />
-          )}
+          ) : null}
         </FormSection>
       </FlexContainerResponsive>
       <WebhookEditModal

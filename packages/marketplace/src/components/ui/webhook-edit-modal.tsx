@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
+import styles from '@/styles/blocks/developer-app-modal.scss?mod'
 import {
   Modal,
   Button,
@@ -18,7 +19,6 @@ import {
   Level,
   LevelLeft,
   LevelRight,
-  LevelItem,
 } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import {
@@ -190,75 +190,80 @@ export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps> 
   if (loading) return <Loader />
   return (
     <Formik initialValues={initFormValues} onSubmit={onSubmit}>
-      <Form>
-        <ModalHeader title={modalConfig.title} />
-        <ModalBody
-          body={
-            <>
-              <Content>
-                <p>
-                  You can create a Webhook to receive notifications from the topics that you choose to subscribe it to.
-                  You can receive notifications for any customer that has installed your application. For more
-                  information about Webhooks, please see our{' '}
-                  <a
-                    href="https://foundations-documentation.reapit.cloud/api/api-documentation#webhooks"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    webhooks documentation
-                  </a>
-                </p>
-              </Content>
-              <Input id="url" type="text" placeholder="Enter URL here" name="url" labelText="Webhook URL" required />
-              <DropdownSelect
-                id="topicIds"
-                placeholder="Please select"
-                name="topicIds"
-                labelText="Subscription Topics"
-                options={topicOptions}
-                dropdownStyle={{ zIndex: 41 }}
-                required
-              />
-              <DropdownSelect
-                id="customerIds"
-                placeholder="All Customers who have installed your application (default)"
-                name="customerIds"
-                labelText="Subscription Customers"
-                options={customerOptions}
-                dropdownStyle={{ zIndex: 41 }}
-              />
-              <Checkbox id="active" name="active" labelText="Active" />
-            </>
-          }
-        />
-        <ModalFooter
-          footerItems={
-            <Level className="container-flex">
-              <LevelLeft>
-                <LevelItem>
-                  {isUpdate && (
-                    <Button className="mr-2" variant="secondary" type="button" onClick={onDelete}>
-                      Delete
+      {({ handleSubmit }) => {
+        return (
+          <>
+            <ModalHeader title={modalConfig.title} />
+            <ModalBody
+              body={
+                <Form>
+                  <Content>
+                    <p>
+                      You can create a Webhook to receive notifications from the topics that you choose to subscribe it
+                      to. You can receive notifications for any customer that has installed your application. For more
+                      information about Webhooks, please see our{' '}
+                      <a
+                        href="https://foundations-documentation.reapit.cloud/api/api-documentation#webhooks"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        webhooks documentation
+                      </a>
+                    </p>
+                  </Content>
+                  <Input
+                    id="url"
+                    type="text"
+                    placeholder="Enter URL here"
+                    name="url"
+                    labelText="Webhook URL"
+                    required
+                  />
+                  <DropdownSelect
+                    id="topicIds"
+                    placeholder="Please select"
+                    name="topicIds"
+                    labelText="Subscription Topics"
+                    options={topicOptions}
+                    dropdownStyle={{ zIndex: 41 }}
+                    required
+                  />
+                  <DropdownSelect
+                    id="customerIds"
+                    placeholder="All Customers who have installed your application (default)"
+                    name="customerIds"
+                    labelText="Subscription Customers"
+                    options={customerOptions}
+                    dropdownStyle={{ zIndex: 41 }}
+                  />
+                  <Checkbox id="active" name="active" labelText="Active" />
+                </Form>
+              }
+            />
+            <ModalFooter
+              footerItems={
+                <Level className={styles.footer}>
+                  <LevelLeft>
+                    {isUpdate && (
+                      <Button className="mr-2" variant="secondary" type="button" onClick={onDelete}>
+                        Delete
+                      </Button>
+                    )}
+                  </LevelLeft>
+                  <LevelRight className="mt-0">
+                    <Button className="mr-2" variant="secondary" type="button" onClick={closeModal}>
+                      Cancel
                     </Button>
-                  )}
-                </LevelItem>
-              </LevelLeft>
-              <LevelRight>
-                <LevelItem>
-                  <Button className="mr-2" variant="secondary" type="button" onClick={closeModal}>
-                    Cancel
-                  </Button>
-                </LevelItem>
-                <LevelItem>
-                  <Button variant="primary" type="submit">
-                    {modalConfig.submit}
-                  </Button>
-                </LevelItem>
-              </LevelRight>
-            </Level>
-          }
-        />
-      </Form>
+                    <Button variant="primary" type="submit" onClick={handleSubmit}>
+                      {modalConfig.submit}
+                    </Button>
+                  </LevelRight>
+                </Level>
+              }
+            />
+          </>
+        )
+      }}
     </Formik>
   )
 }
