@@ -8,7 +8,6 @@ export interface DiffRenderHTMLProps {
 }
 
 const DiffRenderHTML = ({ currentString, changedString }: DiffRenderHTMLProps) => {
-  console.log(currentString, changedString)
   const isDiff = currentString !== changedString
   return (
     <div className={styles.container}>

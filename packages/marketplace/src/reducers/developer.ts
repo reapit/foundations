@@ -12,6 +12,9 @@ import {
   developerFetchAppDetail,
   developerFetchAppDetailSuccess,
   developerFetchAppDetailFailed,
+  fetchMonthlyBilling,
+  fetchMonthlyBillingSuccess,
+  fetchMonthlyBillingFailure,
 } from '@/actions/developer'
 import {
   PagedResultAppSummaryModel_,
@@ -49,6 +52,28 @@ export type Billing = {
   requestsByPeriod: RequestByPeriod[]
 }
 
+export type EndpointBilling = {
+  cost: number
+  endpoint: number
+  requestCount: number
+}
+
+export type RequestBilling = {
+  cost: number
+  endpointCount: number
+  requestCount: number
+  serviceName: string
+  requestsByEndpoint: EndpointBilling[]
+}
+
+export type MonthlyBilling = {
+  period: string
+  totalCost: number
+  totalEndpoints: number
+  totalRequests: number
+  requestsByService: RequestBilling[]
+}
+
 export interface DeveloperState {
   loading: boolean
   developerAppDetail: DeveloperAppDetailState
@@ -59,6 +84,8 @@ export interface DeveloperState {
   billing: Billing | null
   isServiceChartLoading: boolean
   error: unknown
+  isMonthlyBillingLoading: boolean
+  monthlyBilling: MonthlyBilling | null
 }
 
 export type AppDetailData = (AppDetailModel & { apiKey?: string }) | null
@@ -83,6 +110,8 @@ export const defaultState: DeveloperState = {
   billing: null,
   isServiceChartLoading: true,
   error: null,
+  isMonthlyBillingLoading: true,
+  monthlyBilling: null,
 }
 
 const developerReducer = (state: DeveloperState = defaultState, action: Action<any>): DeveloperState => {
@@ -172,8 +201,23 @@ const developerReducer = (state: DeveloperState = defaultState, action: Action<a
   if (isType(action, fetchBillingSuccess)) {
     return {
       ...state,
-      billing: action.data || null,
+      billing: action.data,
       isServiceChartLoading: false,
+    }
+  }
+
+  if (isType(action, fetchMonthlyBilling)) {
+    return {
+      ...state,
+      isMonthlyBillingLoading: true,
+    }
+  }
+
+  if (isType(action, fetchMonthlyBillingSuccess)) {
+    return {
+      ...state,
+      isMonthlyBillingLoading: false,
+      monthlyBilling: action.data || null,
     }
   }
 
@@ -182,6 +226,13 @@ const developerReducer = (state: DeveloperState = defaultState, action: Action<a
       ...state,
       isServiceChartLoading: false,
       error: action.data,
+    }
+  }
+
+  if (isType(action, fetchMonthlyBillingFailure)) {
+    return {
+      ...state,
+      isMonthlyBillingLoading: false,
     }
   }
 

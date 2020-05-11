@@ -1,0 +1,20 @@
+@import '../base/colors.scss';
+
+.html-render {
+  & a {
+    color: $reapit-mid-blue;
+    font-weight: bold;
+  }
+  & ul,
+  & ol {
+    margin-top: 0;
+    margin-left: 0;
+    list-style-position: inside;
+    & li div {
+      display: inline-block;
+    }
+  }
+  & p {
+    margin: 1rem 0;
+  }
+}

@@ -103,4 +103,6 @@ export const developerState: DeveloperState = {
   isVisible: false,
   billing: billing,
   isServiceChartLoading: false,
+  isMonthlyBillingLoading: false,
+  monthlyBilling: null,
 }

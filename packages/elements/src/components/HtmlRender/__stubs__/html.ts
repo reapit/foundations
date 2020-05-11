@@ -24,7 +24,7 @@ export const htmlElements: Element[] = [
       },
       {
         type: 'text',
-        content: ' ...and I liked it. ',
+        content: '...and I liked it. ',
       },
     ],
   },

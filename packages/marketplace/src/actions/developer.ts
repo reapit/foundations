@@ -1,11 +1,12 @@
 // TODO: WILL MOVE ALL DEVELOPER ACTIONS TO HERE
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
-import { DeveloperItem, DeveloperRequestParams, Billing, AppDetailData } from '../reducers/developer'
+import { DeveloperItem, DeveloperRequestParams, Billing, AppDetailData, MonthlyBilling } from '../reducers/developer'
 import { CreateDeveloperModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { FormState } from '@/types/core'
 import { FetchBillingParams } from '@/sagas/api'
 import { FetchAppDetailParams } from '@/services/apps'
+import { FetchMonthlyBillingParams } from '@/services/billings'
 
 // Developer App Detail
 export const developerFetchAppDetail = actionCreator<FetchAppDetailParams>(ActionTypes.DEVELOPER_FETCH_APP_DETAIL)
@@ -25,4 +26,9 @@ export const fetchMyIdentity = actionCreator<void>(ActionTypes.DEVELOPER_FETCH_M
 export const setMyIdentity = actionCreator<DeveloperModel>(ActionTypes.DEVELOPER_SET_MY_IDENTITY)
 export const fetchBilling = actionCreator<FetchBillingParams>(ActionTypes.DEVELOPER_FETCH_BILLING)
 export const fetchBillingSuccess = actionCreator<Billing>(ActionTypes.DEVELOPER_FETCH_BILLING_SUCCESS)
-export const fetchBillingFailure = actionCreator<unknown>(ActionTypes.DEVELOPER_FETCH_BILLING_FAILURE)
+export const fetchBillingFailure = actionCreator<unknown>(ActionTypes.DEVELOPER_FETCH_BILLING_FAILED)
+export const fetchMonthlyBilling = actionCreator<FetchMonthlyBillingParams>(ActionTypes.DEVELOPER_FETCH_MONTHLY_BILLING)
+export const fetchMonthlyBillingSuccess = actionCreator<MonthlyBilling>(
+  ActionTypes.DEVELOPER_FETCH_MONTHLY_BILLING_SUCCESS,
+)
+export const fetchMonthlyBillingFailure = actionCreator<unknown>(ActionTypes.DEVELOPER_FETCH_MONTHLY_BILLING_FAILED)

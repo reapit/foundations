@@ -1,39 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CostCalculator should match a snapshot 1`] = `
-<Fragment>
-  <Component>
-    Cost Explorer: Cost & Usage
-  </Component>
-  <Component>
-    <Component
-      className="is-half-desktop"
-    >
-      <Component>
-        <Component
-          className="is-one-quarter"
-        >
-          <Component>
-            Month
-          </Component>
-        </Component>
-        <Component>
-          <CostFilterForm
-            initialValues={
-              Object {
-                "createdMonth": "2019-10",
-              }
-            }
-            onSave={[Function]}
-          />
-        </Component>
-      </Component>
-    </Component>
-  </Component>
-  <Component>
-    <Component>
-      <CostExplorerTable />
-    </Component>
-  </Component>
-</Fragment>
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Subscription {
+        "handleChangeWrapper": [Function],
+        "listeners": Object {
+          "notify": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+        "unsubscribe": null,
+      },
+    }
+  }
+>
+  <CostExplorer />
+</ContextProvider>
 `;

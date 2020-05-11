@@ -83,5 +83,19 @@ describe('Search-Helper', () => {
       const result = getResultMessage(input)
       expect(result).toEqual('1 Property For Sale in mockSearchKeyword')
     })
+    it('should return correctly when totalCount = 0 and isRental false', () => {
+      const input = {
+        properties: {
+          _embedded: [],
+          totalCount: 0,
+        },
+        searchKeyword: 'mockSearchKeyword',
+        searchType: 'Sale' as 'Rent' | 'Sale',
+      }
+      const result = getResultMessage(input)
+      expect(result).toEqual(
+        "We couldn't find any properties that match your search criteria, please refine your search",
+      )
+    })
   })
 })

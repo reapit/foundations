@@ -26,6 +26,8 @@ describe('DeveloperHome', () => {
           requestsByPeriod: [],
         },
         isServiceChartLoading: false,
+        isMonthlyBillingLoading: false,
+        monthlyBilling: null,
         loading: false,
         isVisible: false,
         developerAppDetail: {
@@ -65,6 +67,8 @@ describe('DeveloperHome', () => {
     const mockProps: DeveloperProps = {
       developerState: {
         isServiceChartLoading: false,
+        isMonthlyBillingLoading: false,
+        monthlyBilling: null,
         myIdentity: {},
         error: null,
         billing: {

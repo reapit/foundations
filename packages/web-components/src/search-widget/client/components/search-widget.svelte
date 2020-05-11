@@ -64,7 +64,7 @@
   <SearchForm />
   <div class="search-widget-items-container">
     <div class="search-widget-items">
-      {#if $searchWidgetStore.properties.length && !$searchWidgetStore.isLoading}
+      {#if $searchWidgetStore.resultsMessage && !$searchWidgetStore.isLoading}
         <div class="search-widget-heading">
           <h2 class={primaryHeading}>{$searchWidgetStore.resultsMessage}</h2>
         </div>

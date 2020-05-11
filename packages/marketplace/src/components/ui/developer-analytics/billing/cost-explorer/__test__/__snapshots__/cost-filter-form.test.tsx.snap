@@ -1,30 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CostFilterForm should match a snapshot 1`] = `
-<Formik
-  initialValues={
+<ContextProvider
+  value={
     Object {
-      "createdMonth": "2020-04",
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Subscription {
+        "handleChangeWrapper": [Function],
+        "listeners": Object {
+          "notify": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+        "unsubscribe": null,
+      },
     }
   }
-  onSubmit={[Function]}
 >
-  <Form>
-    <Component
-      id="createdMonth"
-      name="createdMonth"
-      reactDatePickerProps={
-        Object {
-          "dateFormat": "MMMM YYYY",
-          "showMonthDropdown": true,
-          "showMonthYearPicker": true,
-        }
+  <CostFilterForm
+    initialValues={
+      Object {
+        "createdMonth": "2020-04",
       }
-      useCustomInput={false}
-    />
-    <FormikConnect(Function)
-      onSave={[Function]}
-    />
-  </Form>
-</Formik>
+    }
+    onSave={[MockFunction]}
+  />
+</ContextProvider>
 `;
