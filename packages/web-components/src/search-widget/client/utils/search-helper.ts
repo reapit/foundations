@@ -127,5 +127,5 @@ export const getResultMessage = ({
     }
     return `${resultsMessage}${filterMessages.length > 0 ? `: ${filterMessages.join(', ')}` : ''}`
   }
-  return ''
+  return "We couldn't find any properties that match your search criteria, please refine your search"
 }
