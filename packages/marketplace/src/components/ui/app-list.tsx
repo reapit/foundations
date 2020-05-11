@@ -50,7 +50,10 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
             : 'We are unable to find any Apps that match your search criteria. Please try again.'}
         </Helper>
       ) : (
-        <GridFourCol className={` ${loading ? styles.contentIsLoading : ''}`} data-test="app-list-container">
+        <GridFourCol
+          className={`${styles.flexGrow} ${loading ? styles.contentIsLoading : ''}`}
+          data-test="app-list-container"
+        >
           {list.map(app => (
             <WrapperContainer key={app.id}>
               <AppCard

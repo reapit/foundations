@@ -9,7 +9,7 @@ exports[`AppList should match a snapshot 1`] = `
     Title
   </Component>
   <Component
-    className=" "
+    className="undefined "
     data-test="app-list-container"
   >
     <Component
@@ -97,7 +97,7 @@ exports[`AppList should match a snapshot when use empty infoType 1`] = `
     Title
   </Component>
   <Component
-    className=" "
+    className="undefined "
     data-test="app-list-container"
   >
     <Component
