@@ -1,6 +1,11 @@
 import { fetcher } from '@reapit/elements'
 import { URLS, generateHeader } from '../constants/api'
 
+export interface FetchAppDetailParams {
+  id: string
+  clientId?: string
+}
+
 export const fetchAppDetail = async ({ clientId, id }) => {
   const response = await fetcher({
     url: clientId ? `${URLS.apps}/${id}?clientId=${clientId}` : `${URLS.apps}/${id}`,

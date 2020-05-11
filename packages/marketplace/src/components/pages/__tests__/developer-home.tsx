@@ -28,6 +28,10 @@ describe('DeveloperHome', () => {
         isServiceChartLoading: false,
         loading: false,
         isVisible: false,
+        developerAppDetail: {
+          data: null,
+          isAppDetailLoading: false,
+        },
         developerData: {
           ...appsDataStub,
           scopes: appPermissionStub,
@@ -70,6 +74,10 @@ describe('DeveloperHome', () => {
         },
         loading: false,
         isVisible: true,
+        developerAppDetail: {
+          data: null,
+          isAppDetailLoading: false,
+        },
         developerData: {
           ...appsDataStub,
           scopes: appPermissionStub,

@@ -1,10 +1,18 @@
 // TODO: WILL MOVE ALL DEVELOPER ACTIONS TO HERE
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
-import { DeveloperItem, DeveloperRequestParams, Billing } from '../reducers/developer'
+import { DeveloperItem, DeveloperRequestParams, Billing, AppDetailData } from '../reducers/developer'
 import { CreateDeveloperModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { FormState } from '@/types/core'
 import { FetchBillingParams } from '@/sagas/api'
+import { FetchAppDetailParams } from '@/services/apps'
+
+// Developer App Detail
+export const developerFetchAppDetail = actionCreator<FetchAppDetailParams>(ActionTypes.DEVELOPER_FETCH_APP_DETAIL)
+export const developerFetchAppDetailSuccess = actionCreator<AppDetailData>(
+  ActionTypes.DEVELOPER_FETCH_APP_DETAIL_SUCCESS,
+)
+export const developerFetchAppDetailFailed = actionCreator<string>(ActionTypes.DEVELOPER_FETCH_APP_DETAIL_FAILED)
 
 export const developerRequestData = actionCreator<DeveloperRequestParams>(ActionTypes.DEVELOPER_REQUEST_DATA)
 export const developerRequestDataFailure = actionCreator<void>(ActionTypes.DEVELOPER_REQUEST_DATA_FAILURE)

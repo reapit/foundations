@@ -9,10 +9,10 @@ import DeveloperAppRevisionModal from '@/components/ui/developer-app-revision-mo
 
 import { Grid, GridItem, Button } from '@reapit/elements'
 import routes from '@/constants/routes'
-import { AppDetailState } from '@/reducers/app-detail'
+import { DeveloperAppDetailState } from '@/reducers/developer'
 
 export type DeveloperAppDetailButtonGroupProps = {
-  appDetailState: AppDetailState
+  appDetailState: DeveloperAppDetailState
 }
 
 export const handleEditDetailButtonClick = (history, dispatch: Dispatch<any>, id?: string) => {
@@ -45,10 +45,10 @@ export const handleInstallationButtonClick = (setIsInstallationsModalOpen: (isMo
 }
 
 const DeveloperAppDetailButtonGroup: React.FC<DeveloperAppDetailButtonGroupProps> = ({ appDetailState }) => {
-  const { appDetailData } = appDetailState
-  const appId = appDetailData?.data.id || ''
-  const appName = appDetailData?.data.name || ''
-  const pendingRevisions = appDetailData?.data.pendingRevisions
+  const { data } = appDetailState
+  const appId = data?.id || ''
+  const appName = data?.name || ''
+  const pendingRevisions = data?.pendingRevisions
 
   const history = useHistory()
   const dispatch = useDispatch()
@@ -119,12 +119,12 @@ const DeveloperAppDetailButtonGroup: React.FC<DeveloperAppDetailButtonGroupProps
         }}
       />
 
-      <DeveloperAppRevisionModal
+      {/* <DeveloperAppRevisionModal
         visible={isAppRevisionComparisionModalOpen}
         appId={appId || ''}
         appDetailState={appDetailState}
         afterClose={() => setIsAppRevisionComparisionModalOpen(false)}
-      />
+      /> */}
     </>
   )
 }

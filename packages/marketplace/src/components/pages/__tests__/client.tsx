@@ -153,8 +153,6 @@ describe('Client', () => {
           },
           appDetail: {
             data: appDetailDataStub.data,
-            appDetailAuthCode: '',
-            isAppDetailAuthCodeLoading: false,
             isAppDetailLoading: false,
             error: '',
           },

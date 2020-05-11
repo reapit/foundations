@@ -1,11 +1,11 @@
 import { ReduxState } from '@/types/core'
 
 export const selectAppDetailState = (state: ReduxState) => {
-  return state.appDetail || {}
+  return state.developer.developerAppDetail || {}
 }
 
 export const selectAppDetailData = (state: ReduxState) => {
-  return state.appDetail.appDetailData?.data || {}
+  return state.developer.developerAppDetail.data || {}
 }
 
 export const selectAppDetailAuthentication = (state: ReduxState) => {
@@ -13,5 +13,5 @@ export const selectAppDetailAuthentication = (state: ReduxState) => {
 }
 
 export const selectAppDetailLoading = (state: ReduxState) => {
-  return state.appDetail.loading
+  return state.developer.developerAppDetail.isAppDetailLoading
 }

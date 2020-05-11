@@ -9,8 +9,16 @@ import {
   fetchBilling,
   fetchBillingSuccess,
   fetchBillingFailure,
+  developerFetchAppDetail,
+  developerFetchAppDetailSuccess,
+  developerFetchAppDetailFailed,
 } from '@/actions/developer'
-import { PagedResultAppSummaryModel_, ScopeModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
+import {
+  PagedResultAppSummaryModel_,
+  ScopeModel,
+  DeveloperModel,
+  AppDetailModel,
+} from '@reapit/foundations-ts-definitions'
 import { developerAppShowModal } from '@/actions/developer-app-modal'
 
 export interface DeveloperRequestParams {
@@ -43,6 +51,7 @@ export type Billing = {
 
 export interface DeveloperState {
   loading: boolean
+  developerAppDetail: DeveloperAppDetailState
   developerData: DeveloperItem | null
   formState: FormState
   isVisible: boolean
@@ -52,8 +61,21 @@ export interface DeveloperState {
   error: unknown
 }
 
+export type AppDetailData = (AppDetailModel & { apiKey?: string }) | null
+
+export interface DeveloperAppDetailState {
+  data: AppDetailData
+  isAppDetailLoading: boolean
+  error?: string | null
+}
+
 export const defaultState: DeveloperState = {
   loading: false,
+  developerAppDetail: {
+    error: null,
+    data: null,
+    isAppDetailLoading: false,
+  },
   developerData: null,
   formState: 'PENDING',
   isVisible: false,
@@ -64,6 +86,38 @@ export const defaultState: DeveloperState = {
 }
 
 const developerReducer = (state: DeveloperState = defaultState, action: Action<any>): DeveloperState => {
+  if (isType(action, developerFetchAppDetail)) {
+    return {
+      ...state,
+      developerAppDetail: {
+        ...state.developerAppDetail,
+        isAppDetailLoading: true,
+      },
+    }
+  }
+
+  if (isType(action, developerFetchAppDetailSuccess)) {
+    return {
+      ...state,
+      developerAppDetail: {
+        ...state.developerAppDetail,
+        data: action.data,
+        isAppDetailLoading: false,
+      },
+    }
+  }
+
+  if (isType(action, developerFetchAppDetailFailed)) {
+    return {
+      ...state,
+      developerAppDetail: {
+        ...state.developerAppDetail,
+        isAppDetailLoading: false,
+        error: action.data,
+      },
+    }
+  }
+
   if (isType(action, developerLoading)) {
     return {
       ...state,

@@ -7,18 +7,14 @@ export type AppDetailData = (AppDetailModel & { apiKey?: string }) | null
 
 export interface ClientAppDetailState {
   data: AppDetailData
-  appDetailAuthCode: string | null
   isAppDetailLoading: boolean
-  isAppDetailAuthCodeLoading: boolean
   error?: string | null
 }
 
 export const defaultState: ClientAppDetailState = {
   error: null,
   data: null,
-  appDetailAuthCode: null,
   isAppDetailLoading: false,
-  isAppDetailAuthCodeLoading: false,
 }
 
 const appDetailReducer = (state: ClientAppDetailState = defaultState, action: Action<any>): ClientAppDetailState => {

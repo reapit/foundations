@@ -7,7 +7,7 @@ import store from '../core/store'
 import { clientAppSummaryRequestData, clientFetchAppDetail } from '../actions/client'
 import { myAppsRequestData } from '../actions/my-apps'
 import { installedAppsRequestData } from '../actions/installed-apps'
-import { developerRequestData, fetchMyIdentity } from '@/actions/developer'
+import { developerRequestData, fetchMyIdentity, developerFetchAppDetail } from '@/actions/developer'
 import { adminApprovalsRequestData } from '../actions/admin-approvals'
 import { adminDevManagementRequestData } from '../actions/admin-dev-management'
 import { submitAppRequestData } from '../actions/submit-app'
@@ -70,7 +70,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
     case Routes.DEVELOPER_APP_DETAIL: {
       if (id) {
         const clientId = selectClientId(store.state)
-        store.dispatch(appDetailRequestData({ id, clientId }))
+        store.dispatch(developerFetchAppDetail({ id, clientId }))
       }
       break
     }
