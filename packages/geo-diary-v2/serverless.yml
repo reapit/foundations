@@ -6,7 +6,7 @@ plugins:
   - serverless-plugin-ifelse
 
 custom:
-  s3Bucket: geo-diary-v2-${self:provider.stage}
+  s3Bucket: reapit-geo-diary-v2-${self:provider.stage}
 
 provider:
   name: aws

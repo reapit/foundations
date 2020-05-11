@@ -6,7 +6,7 @@ plugins:
   - serverless-plugin-ifelse
 
 custom:
-  s3Bucket: <%= appName %>-${self:provider.stage}
+  s3Bucket: reapit-<%= appName %>-${self:provider.stage}
 
 provider:
   name: aws
