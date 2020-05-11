@@ -2,111 +2,78 @@
 
 exports[`HTMLRender should render match to snapshot 1`] = `
 <Component
-  className=""
+  className="html-render"
 >
-  
-        
   <div
     key="1"
     style={Object {}}
   >
-    
-          
     <b
       key="1"
       style={Object {}}
     >
       bold
     </b>
-    
-        
   </div>
-  
-        
   <div
     key="3"
     style={Object {}}
   >
-    
-          
     <i
       key="1"
       style={Object {}}
     >
       italic
     </i>
-    
-        
   </div>
-  
-        
   <div
     key="5"
     style={Object {}}
   >
-    
-          
     <u
       key="1"
       style={Object {}}
     >
       underline
     </u>
-    
-        
   </div>
-  
-        
   <Component
     key="7"
     style={Object {}}
   >
     heading
   </Component>
-  
-        
   <div
     key="9"
     style={Object {}}
   >
-    
-          
     <ul
       key="1"
       style={Object {}}
     >
-      
-            
       <li
         key="1"
         style={Object {}}
       >
         bullet points
       </li>
-      
-            
       <li
         key="3"
         style={Object {}}
       >
         bullet points
       </li>
-      
-          
     </ul>
-    
-        
   </div>
-  
-
 </Component>
 `;
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag a 1`] = `
 <a
-  id="some-id"
   key="0"
+  rel="noopener"
   style={Object {}}
+  target="_blank"
 >
   Test Text
 </a>
@@ -114,7 +81,6 @@ exports[`sortTags should match a snapshot and be of correct type for the returne
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag b 1`] = `
 <b
-  id="some-id"
   key="0"
   style={Object {}}
 >
@@ -124,7 +90,6 @@ exports[`sortTags should match a snapshot and be of correct type for the returne
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag blockquote 1`] = `
 <blockquote
-  id="some-id"
   key="0"
   style={Object {}}
 >
@@ -135,7 +100,7 @@ exports[`sortTags should match a snapshot and be of correct type for the returne
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag h1 1`] = `
 <h4
   className="title is-4  "
-  id="some-id"
+  id=""
 >
   Test Text
 </h4>
@@ -144,7 +109,7 @@ exports[`sortTags should match a snapshot and be of correct type for the returne
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag h2 1`] = `
 <h5
   className="title is-5  "
-  id="some-id"
+  id=""
 >
   Test Text
 </h5>
@@ -152,7 +117,6 @@ exports[`sortTags should match a snapshot and be of correct type for the returne
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag hr 1`] = `
 <hr
-  id="some-id"
   key="0"
   style={Object {}}
 />
@@ -160,7 +124,6 @@ exports[`sortTags should match a snapshot and be of correct type for the returne
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag i 1`] = `
 <i
-  id="some-id"
   key="0"
   style={Object {}}
 >
@@ -170,7 +133,6 @@ exports[`sortTags should match a snapshot and be of correct type for the returne
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag li 1`] = `
 <li
-  id="some-id"
   key="0"
   style={Object {}}
 >
@@ -180,7 +142,6 @@ exports[`sortTags should match a snapshot and be of correct type for the returne
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag ol 1`] = `
 <ol
-  id="some-id"
   key="0"
   style={Object {}}
 >
@@ -190,7 +151,6 @@ exports[`sortTags should match a snapshot and be of correct type for the returne
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag p 1`] = `
 <p
-  id="some-id"
   key="0"
   style={Object {}}
 >
@@ -200,7 +160,6 @@ exports[`sortTags should match a snapshot and be of correct type for the returne
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag pre 1`] = `
 <pre
-  id="some-id"
   key="0"
   style={Object {}}
 >
@@ -210,7 +169,6 @@ exports[`sortTags should match a snapshot and be of correct type for the returne
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag u 1`] = `
 <u
-  id="some-id"
   key="0"
   style={Object {}}
 >
@@ -220,7 +178,6 @@ exports[`sortTags should match a snapshot and be of correct type for the returne
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag ul 1`] = `
 <ul
-  id="some-id"
   key="0"
   style={Object {}}
 >
