@@ -10,11 +10,31 @@ import { appInstallationsRequestUninstall } from '@/actions/app-installations'
 import CallToAction from '../call-to-action'
 import { selectClientId } from '@/selector/client'
 import { selectInstallationFormState } from '@/selector/installations'
+import routes from '@/constants/routes'
 
 export type ClientAppUninstallConfirmationProps = {
   appDetailData?: AppDetailModel
   visible: boolean
   closeUninstallConfirmationModal: () => void
+}
+
+export const handleUninstallAppSuccessCallback = (
+  appId: string,
+  clientId: string,
+  dispatch: Dispatch<any>,
+  setIsSuccessAlertVisible: (isVisible: boolean) => void,
+  closeUninstallConfirmationModal: () => void,
+) => {
+  return () => {
+    dispatch(
+      clientFetchAppDetail({
+        id: appId,
+        clientId,
+      }),
+    )
+    closeUninstallConfirmationModal()
+    setIsSuccessAlertVisible(true)
+  }
 }
 
 export const onUninstallButtonClick = (
@@ -31,16 +51,13 @@ export const onUninstallButtonClick = (
         appId,
         installationId,
         terminatedReason: 'User uninstall',
-        callback: () => {
-          dispatch(
-            clientFetchAppDetail({
-              id: appId,
-              clientId,
-            }),
-          )
-          closeUninstallConfirmationModal()
-          setIsSuccessAlertVisible(true)
-        },
+        callback: handleUninstallAppSuccessCallback(
+          appId,
+          clientId,
+          dispatch,
+          setIsSuccessAlertVisible,
+          closeUninstallConfirmationModal,
+        ),
       }),
     )
   }
@@ -48,7 +65,7 @@ export const onUninstallButtonClick = (
 
 export const handleSuccessAlertButtonClick = history => {
   return () => {
-    history.replace('/client/apps')
+    history.replace(routes.CLIENT)
   }
 }
 

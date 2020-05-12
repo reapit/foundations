@@ -69,11 +69,12 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
   removeAuthenticationCode,
   location,
 }) => {
-  const pageNumber =
-    !isNaN(Number(getParamValueFromPath(location.search, 'page'))) &&
-    Number(getParamValueFromPath(location.search, 'page')) > 0
-      ? Number(getParamValueFromPath(location.search, 'page'))
-      : 1
+  let pageNumber = 1
+
+  if (location && location.search) {
+    const pageQueryString = getParamValueFromPath(location.search, 'page')
+    pageNumber = Number(pageQueryString) > 0 ? Number(pageQueryString) : 1
+  }
   const unfetched = !developerState.developerData
   const loading = developerState.loading
   const list = developerState?.developerData?.data?.data || []

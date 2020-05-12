@@ -134,7 +134,7 @@ describe('DeveloperHome', () => {
       }
       const fn = handleOnChange(mockHistory)
       fn(1)
-      expect(mockHistory.push).toBeCalledWith(`${routes.DEVELOPER_MY_APPS}/${1}`)
+      expect(mockHistory.push).toBeCalledWith(`${routes.DEVELOPER_MY_APPS}?page=1`)
     })
   })
 

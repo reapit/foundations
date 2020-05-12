@@ -9,12 +9,32 @@ import { clientFetchAppDetail } from '@/actions/client'
 import { Dispatch } from 'redux'
 import CallToAction from '../call-to-action'
 import { selectClientId } from '@/selector/client'
+import routes from '@/constants/routes'
 import { selectInstallationFormState } from '@/selector/installations'
 
 export type ClientAppInstallConfirmationProps = {
   appDetailData?: AppDetailModel
   visible: boolean
   closeInstallConfirmationModal: () => void
+}
+
+export const handleInstallAppSuccessCallback = (
+  appId: string,
+  clientId: string,
+  dispatch: Dispatch<any>,
+  setIsSuccessAlertVisible: (isVisible: boolean) => void,
+  closeInstallConfirmationModal: () => void,
+) => {
+  return () => {
+    dispatch(
+      clientFetchAppDetail({
+        id: appId,
+        clientId,
+      }),
+    )
+    closeInstallConfirmationModal()
+    setIsSuccessAlertVisible(true)
+  }
 }
 
 export const handleInstallButtonClick = (
@@ -28,16 +48,13 @@ export const handleInstallButtonClick = (
     dispatch(
       appInstallationsRequestInstall({
         appId,
-        callback: () => {
-          dispatch(
-            clientFetchAppDetail({
-              id: appId,
-              clientId,
-            }),
-          )
-          closeInstallConfirmationModal()
-          setIsSuccessAlertVisible(true)
-        },
+        callback: handleInstallAppSuccessCallback(
+          appId,
+          clientId,
+          dispatch,
+          setIsSuccessAlertVisible,
+          closeInstallConfirmationModal,
+        ),
       }),
     )
   }
@@ -45,7 +62,7 @@ export const handleInstallButtonClick = (
 
 export const handleSuccessAlertButtonClick = history => {
   return () => {
-    history.replace('/client/apps')
+    history.replace(routes.CLIENT)
   }
 }
 

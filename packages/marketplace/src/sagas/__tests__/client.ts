@@ -1,7 +1,7 @@
 import clientSagas, { clientDataFetch, clientDataListen } from '../client'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
-import { clientAppSummaryReceiveData, clientAppSummaryRequestDataFailure } from '@/actions/client'
+import { clientAppSummaryReceiveData } from '@/actions/client'
 import { categoriesReceiveData } from '@/actions/app-categories'
 import { featuredAppsDataStub, appsDataStub } from '../__stubs__/apps'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
@@ -72,12 +72,6 @@ describe('client fetch data', () => {
       ),
     )
     expect(clone.next().value).toEqual(put(categoriesReceiveData(response[2] as PagedResultCategoryModel_)))
-    expect(clone.next().done).toBe(true)
-  })
-
-  test('api call fail', () => {
-    const clone = gen.clone()
-    expect(clone.next([]).value).toEqual(put(clientAppSummaryRequestDataFailure('api call fail')))
     expect(clone.next().done).toBe(true)
   })
 

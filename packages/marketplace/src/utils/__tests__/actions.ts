@@ -11,7 +11,11 @@ describe('actions utils', () => {
         page: 1,
       }
       const action = { data: actionData, type: 'CLIENT_APP_SUMMARY_REQUEST_DATA' }
-      expect(actionCreator<boolean>(ActionTypes.CLIENT_APP_SUMMARY_REQUEST_DATA)(true)).toEqual(action)
+      expect(
+        actionCreator<ClientAppSummaryParams>(ActionTypes.CLIENT_APP_SUMMARY_REQUEST_DATA)({
+          page: 1,
+        }),
+      ).toEqual(action)
     })
   })
 
@@ -21,12 +25,11 @@ describe('actions utils', () => {
         page: 1,
       }
       const action: Action<any> = { data: actionData, type: 'CLIENT_APP_SUMMARY_REQUEST_DATA' }
-
-      expect(isType(action, clientAppSummaryRequestData)).toBe(actionData)
+      expect(isType(action, clientAppSummaryRequestData)).toBe(true)
     })
 
     it('should return false if actions are not equal', () => {
-      const anotherAction: Action<any> = { data: true, type: 'CLIENT_APP_SUMMARY_RECEIVE_DATA' }
+      const anotherAction: Action<any> = { data: true, type: 'CLIENT_APP_SUMMARY_REQUEST_DATA' }
       expect(isType(anotherAction, clientAppSummaryReceiveData)).toBe(false)
     })
   })

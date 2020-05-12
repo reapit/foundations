@@ -11,7 +11,7 @@ import styles from '@/styles/blocks/app-detail.scss?mod'
 import carouselStyles from '@/styles/elements/carousel.scss?mod'
 import '@/styles/vendor/slick.scss'
 
-type AppContentProps = {
+export type AppContentProps = {
   appDetailData: AppDetailModel & {
     apiKey?: string | undefined
   }

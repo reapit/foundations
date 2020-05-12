@@ -1,4 +1,4 @@
-import { clientAppSummaryReceiveData, clientAppSummaryRequestDataFailure } from '../actions/client'
+import { clientAppSummaryReceiveData } from '../actions/client'
 import { categoriesReceiveData } from '@/actions/app-categories'
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
@@ -65,7 +65,6 @@ export const clientDataFetch = function*({ data }) {
     yield put(categoriesReceiveData(categories))
   } catch (err) {
     logger(err)
-    yield put(clientAppSummaryRequestDataFailure(errorMessages.DEFAULT_SERVER_ERROR))
     yield put(
       errorThrownServer({
         type: 'SERVER',

@@ -50,6 +50,23 @@ export const handleUseEffectToFetchAppRevisionDetail = (
   }
 }
 
+export const handleCancelPendingRevisionsSuccessCallback = (
+  appId: string,
+  clientId: string,
+  dispatch: Dispatch<any>,
+  setIsConfirmationModalVisible: (isVisible: boolean) => void,
+) => {
+  return () => {
+    dispatch(
+      developerFetchAppDetail({
+        id: appId,
+        clientId,
+      }),
+    )
+    setIsConfirmationModalVisible(false)
+  }
+}
+
 export const handleCancelPendingRevisionsButtonClick = (
   appId: string,
   clientId: string,
@@ -70,15 +87,7 @@ export const handleCancelPendingRevisionsButtonClick = (
         name,
         email,
         rejectionReason: 'Developer Cancelled',
-        callback: () => {
-          dispatch(
-            developerFetchAppDetail({
-              id: appId,
-              clientId,
-            }),
-          )
-          setIsConfirmationModalVisible(false)
-        },
+        callback: handleCancelPendingRevisionsSuccessCallback(appId, clientId, dispatch, setIsConfirmationModalVisible),
       }),
     )
   }

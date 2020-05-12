@@ -174,7 +174,7 @@ describe('Client', () => {
         },
       } as ReduxState
       const output = {
-        clientState: mockState.client,
+        appSummaryState: mockState.client.appSummary,
         appDetail: mockState.appDetail,
         clientId: 'ABC',
         installationsFormState: 'PENDING',

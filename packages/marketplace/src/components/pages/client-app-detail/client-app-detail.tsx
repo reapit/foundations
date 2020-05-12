@@ -24,6 +24,32 @@ export const handleInstallAppButtonClick = (setIsVisibleInstallConfirmation: (is
   }
 }
 
+export const renderAppHeaderButtonGroup = (id, installedOn, onInstallConfirmationModal) => {
+  return (
+    <>
+      {id && (
+        <div>
+          {installedOn ? (
+            <div id="test" className={styles.installed}>
+              <FaCheck />
+              <span>Installed</span>
+            </div>
+          ) : (
+            <Button
+              dataTest="detail-modal-install-button"
+              type="button"
+              variant="primary"
+              onClick={onInstallConfirmationModal}
+            >
+              Install App
+            </Button>
+          )}
+        </div>
+      )}
+    </>
+  )
+}
+
 const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   const [isVisibleInstallConfirmation, setIsVisibleInstallConfirmation] = React.useState(false)
   const closeInstallConfirmationModal = React.useCallback(
@@ -42,27 +68,7 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
     <div className={styles.appDetailContainer}>
       <AppHeader
         appDetailData={appDetailData}
-        buttonGroup={
-          id && (
-            <div>
-              {installedOn ? (
-                <div data-test="detail-modal-installed" className={styles.installed}>
-                  <FaCheck />
-                  <span>Installed</span>
-                </div>
-              ) : (
-                <Button
-                  dataTest="detail-modal-install-button"
-                  type="button"
-                  variant="primary"
-                  onClick={onInstallConfirmationModal}
-                >
-                  Install App
-                </Button>
-              )}
-            </div>
-          )
-        }
+        buttonGroup={renderAppHeaderButtonGroup(id, installedOn, onInstallConfirmationModal)}
       />
       <AppContent appDetailData={appDetailData} loginType={loginType} />
       <ClientAppInstallConfirmation
