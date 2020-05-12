@@ -20,7 +20,7 @@ const mockState = ({
 } as unknown) as ReduxState
 
 describe('TransactionHistory', () => {
-  let speFetcher
+  let spyFetcher
   const mockedBlob = new Blob()
   const mockedCreateObjectURL = jest.fn(() => 'mocked url')
 
@@ -29,7 +29,7 @@ describe('TransactionHistory', () => {
       createObjectURL: mockedCreateObjectURL,
     }
     jest.spyOn(ReactRedux, 'useSelector').mockImplementation(() => mockState)
-    speFetcher = jest.spyOn(ReapitElements, 'fetcherWithBlob').mockImplementation(
+    spyFetcher = jest.spyOn(ReapitElements, 'fetcherWithBlob').mockImplementation(
       () =>
         new Promise(resolve => {
           resolve(mockedBlob)
@@ -59,7 +59,7 @@ describe('TransactionHistory', () => {
       const fn = createHandleDownLoadButtonOnClickFn(params)
       await fn(mockEvent)
 
-      expect(speFetcher).toHaveBeenCalledWith({
+      expect(spyFetcher).toHaveBeenCalledWith({
         url: `${URLS.trafficEventBilling}/2020-01/download?applicationId=1%2C2`,
         api: window.reapit.config.marketplaceApiUrl,
         method: 'GET',

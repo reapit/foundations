@@ -39,7 +39,7 @@ export const fetcherWithBlob = async <T, B>({
     } catch (err) {
       const error = new FetchError("Can't convert response to blob. Error:", err.message)
       console.error(error.message)
-      Promise.reject(error)
+      throw error
     }
   }
 
@@ -50,7 +50,7 @@ export const fetcherWithBlob = async <T, B>({
   } catch (err) {
     error.response = res
   }
-  return Promise.reject(error)
+  throw error
 }
 
 export const fetcher = async <T, B>({
