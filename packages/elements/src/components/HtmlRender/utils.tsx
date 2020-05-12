@@ -64,6 +64,8 @@ const sortTags = (domTag: Element, index: number, diffing: boolean) => {
       return <H4 {...attributes}>{children}</H4>
     case 'h2':
       return <H5 {...attributes}>{children}</H5>
+    case 'h5':
+      return <H5 {...attributes}>{children}</H5>
     case 'h6':
       return <H6 {...attributes}>{children}</H6>
     case 'i':

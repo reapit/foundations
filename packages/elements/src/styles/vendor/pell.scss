@@ -63,6 +63,16 @@ $pell-content-padding: 10px !default;
     font-weight: bold;
   }
 
+  h5 {
+    display: block;
+    font-size: 1.25rem;
+    margin-block-start: 0.83rem;
+    margin-block-end: 0.83rem;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+  }
+
   h6 {
     display: block;
     font-size: 1rem;
@@ -110,6 +120,6 @@ $pell-content-padding: 10px !default;
 
 div[contenteditable='true']:empty:before {
   content: attr(placeholder);
-  color: #D3D3D3;
+  color: #d3d3d3;
   display: block; /* For Firefox */
 }
