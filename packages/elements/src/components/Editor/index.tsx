@@ -13,6 +13,7 @@ export interface EditorProps {
   contentClass?: string
   actions?: Array<string | object>
   dataTest?: string
+  onBlur?: () => void
 }
 
 const defaultActions = [
@@ -42,6 +43,7 @@ export const Editor = ({
   buttonClass = 'pell-button',
   contentClass = 'pell-content',
   dataTest = '',
+  onBlur,
 }: EditorProps) => {
   const containerEl = React.useRef<HTMLDivElement>(null)
 
@@ -76,6 +78,11 @@ export const Editor = ({
   }, [defaultContent])
 
   return (
-    <div ref={containerEl} data-test={dataTest} className={`pell ${hasError && 'pell--is-danger'} ${containerClass}`} />
+    <div
+      onBlur={onBlur}
+      ref={containerEl}
+      data-test={dataTest}
+      className={`pell ${hasError && 'pell--is-danger'} ${containerClass}`}
+    />
   )
 }
