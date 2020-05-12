@@ -83,7 +83,7 @@ export const renderChart = (isLoading: boolean, datasets: ChartData<any>) => {
             {
               scaleLabel: {
                 display: true,
-                labelString: 'Total cost',
+                labelString: 'Total Cost ( £ )',
               },
             },
           ],
