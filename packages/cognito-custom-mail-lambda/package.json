@@ -33,7 +33,6 @@
   "dependencies": {
     "aws-lambda": "^1.0.5",
     "ejs": "^3.0.1",
-    "serverless": "^1.64.1",
     "snyk": "^1.305.1"
   },
   "devDependencies": {
