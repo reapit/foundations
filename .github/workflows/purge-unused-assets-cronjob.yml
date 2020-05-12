@@ -1,45 +1,45 @@
-name: Purge unused assets from s3
+# name: Purge unused assets from s3
 
-on:
-  schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron: '0 0 * * 0'
+# on:
+#   schedule:
+#     # * is a special character in YAML so you have to quote this string
+#     - cron: '0 0 * * 0'
 
-jobs:
-  check:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checks out repository to $GITHUB_WORKSPACE
-        uses: actions/checkout@v1
+# jobs:
+#   check:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: checks out repository to $GITHUB_WORKSPACE
+#         uses: actions/checkout@v1
 
-      - name: Setup Node Environement
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
+#       - name: Setup Node Environement
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: 12
 
-      - name: Cache node modules
-        id: cache
-        uses: actions/cache@v1
-        with:
-          path: node_modules
-          key: build-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            build-${{ hashFiles('**/yarn.lock') }}
+#       - name: Cache node modules
+#         id: cache
+#         uses: actions/cache@v1
+#         with:
+#           path: node_modules
+#           key: build-${{ hashFiles('**/yarn.lock') }}
+#           restore-keys: |
+#             build-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Integrate Git credential
-        uses: webfactory/ssh-agent@v0.1.1
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+#       - name: Integrate Git credential
+#         uses: webfactory/ssh-agent@v0.1.1
+#         with:
+#           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Install dependencies
-        run: yarn install
+#       - name: Install dependencies
+#         run: yarn install
 
-      - name: purge unused assets not belonged to two recent commits
-        run: yarn handle-purge-unsed-s3-assets-cronjob
+#       - name: purge unused assets not belonged to two recent commits
+#         run: yarn handle-purge-unsed-s3-assets-cronjob
 
-env:
-  NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-  AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
-  AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-  AWS_REGION: ${{secrets.AWS_REGION}}
+# env:
+#   NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+#   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+#   AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+#   AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+#   AWS_REGION: ${{secrets.AWS_REGION}}
