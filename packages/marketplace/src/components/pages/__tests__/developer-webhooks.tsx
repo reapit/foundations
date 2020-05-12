@@ -38,6 +38,21 @@ describe('DeveloperWebHooks', () => {
   it('should match a snapshot', () => {
     window.reapit.config.appEnv = 'development'
     expect(shallow(<DeveloperWebhooks {...props} />)).toMatchSnapshot()
+
+    props.subscriptions = [
+      {
+        id: 'string',
+        applicationId: 'string',
+        url: 'string',
+        topicIds: ['string'],
+        customerIds: ['string'],
+        active: true,
+        deleted: true,
+        created: 'string',
+        modified: 'string',
+      },
+    ]
+    expect(shallow(<DeveloperWebhooks {...props} />)).toMatchSnapshot()
   })
 
   describe('mapStateToProps', () => {
