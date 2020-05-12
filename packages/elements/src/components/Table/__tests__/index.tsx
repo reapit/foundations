@@ -1,9 +1,27 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { Table } from '../index'
+import { Table, expanderColumn, addExpandableColumnToColumnsIfExpandableIsTrue } from '../index'
 import toJson from 'enzyme-to-json'
 
 describe('Table', () => {
+  describe('addExpandableColumnToColumnsIfExpandableIsTrue', () => {
+    it('should return new columns with expanderColumn if expandable is true', () => {
+      expect(
+        addExpandableColumnToColumnsIfExpandableIsTrue({
+          columns: [],
+          expandable: true,
+        }),
+      ).toEqual([expanderColumn])
+    })
+    it('should return original columns if expandable is false', () => {
+      expect(
+        addExpandableColumnToColumnsIfExpandableIsTrue({
+          columns: [],
+          expandable: false,
+        }),
+      ).toEqual([])
+    })
+  })
   it('should match a snapshot when LOADING false', () => {
     const data = [{ firstName: 'a', middleName: 'b', lastName: 'c' }]
     const columns = [
