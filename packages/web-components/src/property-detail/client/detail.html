@@ -3,9 +3,9 @@
 
     <title>DEMO</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto|Roboto+Slab&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./dist/search-widget.css" />
+    <link rel="stylesheet" href="./dist/property-detail.css" />
     <style>
-      #search-widget {
+      #property-detail {
         max-width: 1200px;
         margin: 0 auto;
       }
@@ -13,17 +13,16 @@
   </head>
 
   <body>
-    <div id="search-widget"></div>
-    <script src="./dist/search-widget.js"></script>
+    <div id="property-detail"></div>
+    <script src="./dist/property-detail.js"></script>
     <script src="./themes/themes.js"></script>
     <script>
-      ReapitSearchWidgetComponent &&
-        new ReapitSearchWidgetComponent({
+      ReapitPropertyDetailComponent &&
+        new ReapitPropertyDetailComponent({
           theme: window.theme,
           apiKey: '',
           customerId: '',
-          parentSelector: '#search-widget',
-          detailPageUrl: '/detail.html',
+          parentSelector: '#property-detail',
         })
     </script>
   </body>

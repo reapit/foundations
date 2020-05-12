@@ -1,26 +1,30 @@
 <script>
-  import LightBox from './light-box/light-box.svelte'
-  import { onDestroy, onMount } from 'svelte'
-  import { link } from 'svelte-routing'
+  import { generateThemeClasses } from '../../../common/styles'
+  import { onMount } from 'svelte'
   import Fa from 'svelte-fa'
   import { faBed, faToilet } from '@fortawesome/free-solid-svg-icons'
+  import { getProperty } from '../../../search-widget/client/api/property'
   import Loader from '../../../common/components/loader.svelte'
-  import searchWidgetStore from '../core/store'
-  import { generateThemeClasses } from '../../../common/styles'
-  import { combineAddress, getPrice, combineNumberBedTypeStyle } from '../utils/results-helpers'
-  import { handleImageError } from '../utils/image-helpers'
   import { INVALID_BACKGROUND_AS_BASE64 } from '../../../common/utils/constants'
-  import { getProperty } from '../api/property'
+  import { handleImageError } from '../../../search-widget/client/utils/image-helpers'
+  import {
+    combineAddress,
+    getPrice,
+    combineNumberBedTypeStyle,
+  } from '../../../search-widget/client/utils/results-helpers'
+  import LightBox from '../../../search-widget/client/components/light-box/light-box.svelte'
+  import { parseQueryString } from '../../../common/utils/parse-query-string'
 
-  export let propertyId
   export let theme
   export let apiKey
   export let customerId
   export let parentSelector
 
+  const params = parseQueryString(window.location.search)
+  let propertyId = params['id']
+  let searchType = params['searchType']
   let property = {}
-  let searchType
-  let propertyImagesByPropertyId
+  let propertyImageUrls = params['propertyImageUrls'] || ''
   let transformedPropertyImages = []
   let sellingStatus = ''
   let lettingStatus = ''
@@ -30,19 +34,13 @@
   const themeClasses = generateThemeClasses(theme, parentSelector)
   const { primaryHeading, secondaryHeading, secondaryStrapline, bodyText, offerBanner } = themeClasses
 
-  const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
-    searchType = store.searchType
-    propertyImagesByPropertyId = store.propertyImagesByPropertyId
-  })
-
   const loadProperty = async propertyId => {
     try {
       loading = true
       property = await getProperty({ apiKey, customerId, propertyId })
       loading = false
       if (property) {
-        const propertyImages = (propertyImagesByPropertyId && propertyImagesByPropertyId[propertyId]) || []
-        transformedPropertyImages = propertyImages.map(propertyImage => propertyImage.url)
+        transformedPropertyImages = propertyImageUrls.split(',')
         sellingStatus = (property.selling && property.selling.status) || ''
         lettingStatus = (property.letting && property.letting.status) || ''
       } else {
@@ -68,10 +66,6 @@
       })
 
     loadProperty(propertyId)
-  })
-
-  onDestroy(() => {
-    unsubscribeSearchWidgetStore()
   })
 </script>
 
@@ -170,11 +164,11 @@
 {#if loading}
   <Loader />
 {:else if !loading && error}
-  <a use:link data-testid="btn-back" class="back-link {secondaryHeading}" href="/">Back to results</a>
+  <a data-testid="btn-back" class="back-link {secondaryHeading}" href="/">Back to results</a>
   <div class={primaryHeading}>No Property Found</div>
 {:else}
   <div class="property-detail-item" data-testid="select-property-detail">
-    <a use:link data-testid="btn-back" class="back-link {secondaryHeading}" href="/">Back to results</a>
+    <a data-testid="btn-back" class="back-link {secondaryHeading}" href="/">Back to results</a>
     <div class="property-detail-image-container">
       {#if sellingStatus === 'underOffer'}
         <div class="property-detail-offer-banner {offerBanner}">Under Offer</div>
