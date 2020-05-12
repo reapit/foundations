@@ -3,7 +3,7 @@ name: Release production
 on:
   push:
     tags:
-    - '*'
+      - '*'
 
 env:
   NPM_TOKEN: ${{secrets.NPM_TOKEN}}
@@ -14,13 +14,24 @@ env:
   SENTRY_AUTH_TOKEN: ${{secrets.SENTRY_AUTH_TOKEN}}
   REAPIT_ENV: PROD
   CI: true
+  GH_PAT: ${{secrets.GH_PAT}}
+  IS_RELEASE: true
 
 jobs:
   release_production:
     runs-on: ubuntu-latest
     steps:
-      - name: checks out repository to $GITHUB_WORKSPACE
+      - name: Set RELEASE_VERSION to process.env
+        run: echo ::set-env name=RELEASE_VERSION::${GITHUB_REF:10}
+
+      - name: Release version
+        run: echo $RELEASE_VERSION
+
+      - name: Checks out repository to $GITHUB_WORKSPACE
         uses: actions/checkout@v1
+
+      - name: Checkout to RELEASE_VERSION
+        run: git checkout $RELEASE_VERSION
 
       - name: Setup Node Environement
         uses: actions/setup-node@v1
@@ -50,13 +61,13 @@ jobs:
         run: |
           yarn
 
+      - name: Fetch config
+        run: |
+          yarn fetch-config production
+
       - name: Lint
         run: |
           yarn lint
-
-      - name: Fetch config
-        run: |
-          yarn fetch-config
 
       - name: Build
         run: |
@@ -65,6 +76,11 @@ jobs:
       - name: Test
         run: |
           yarn test
+
+      # Temporary disable https://github.com/reapit/foundations/issues/1056
+      # - name: Test E2E
+      #   run: |
+      #     yarn test-e2e:ci
 
       - name: Release Production
         run: |
