@@ -14,3 +14,7 @@ export const selectLoading = (state: ReduxState) => {
 export const selectWebhookData = (state: ReduxState) => {
   return state.webhookEdit?.webhookData
 }
+
+export const selectWebhookTopicsSubcription = (state: ReduxState) => {
+  return state.webhookEdit?.webhookData?.topicIds
+}

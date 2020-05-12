@@ -34,6 +34,7 @@ import {
 import FormikAutoSave from '@/components/hocs/formik-auto-save'
 import WebhookEditModal from '../ui/webhook-edit-modal'
 import { selectDeveloperApps } from '@/selector/developer'
+import WebhookTestModal from '../ui/webhook-test-modal'
 
 export const CreatedCell = ({ cell: { value } }): ReactElement[] => {
   return value.map((line, index) => <p key={index}>{line}</p>)
@@ -67,6 +68,7 @@ export const columns = [
 export const MODAL_TYPE = {
   EDIT: 'EDIT',
   CREATE: 'CREATE',
+  TEST: 'TEST',
 }
 
 export const handleSubscriptionChange = ({ fetchTopics, fetchSubscriptions }) => (values): void => {
@@ -89,6 +91,13 @@ export const openEditModal = ({ webhookSetOpenModal, setWebhookId }: OpenEditMod
   setWebhookId(webhookId)
 }
 
+export const openTestModal = ({ webhookSetOpenModal, setWebhookId }: OpenEditModalParams) => (
+  webhookId: string,
+): void => {
+  setWebhookId(webhookId)
+  webhookSetOpenModal(MODAL_TYPE.TEST)
+}
+
 export const renderTopicName = (topics: TopicModel[], subscriptionTopicIds: string[]) => {
   const subscriptionTopics = topics.filter(topic => subscriptionTopicIds.includes(topic.id))
   const subscriptionTopicsName = subscriptionTopics.map(topic => topic.name)
@@ -106,14 +115,20 @@ type GetTableTopicsDataParams = {
   subscriptions: WebhookModel[]
   topics: TopicModel[]
   handleOpenEditModal: (webhookId: string) => void
+  handleOpenTestModal: (webhookId: string) => void
 }
 
-export const getTableTopicsData = ({ subscriptions, topics, handleOpenEditModal }: GetTableTopicsDataParams) => {
+export const getTableTopicsData = ({
+  subscriptions,
+  topics,
+  handleOpenEditModal,
+  handleOpenTestModal,
+}: GetTableTopicsDataParams) => {
   return subscriptions?.map((subscription: WebhookModel) => ({
     url: subscription.url,
     topics: renderTopicName(topics, subscription.topicIds),
     customer: renderCustomerName(subscription.customerIds),
-    test: 'Ping',
+    test: <a onClick={() => handleOpenTestModal(subscription.id)}>Ping</a>,
     edit: (
       <Button
         dataTest="edit-btn"
@@ -164,6 +179,7 @@ export const DeveloperWebhooks = ({
 
   const handleOpenCreateModal = openCreateModal(webhookSetOpenModal)
   const handleOpenEditModal = openEditModal({ webhookSetOpenModal, setWebhookId })
+  const handleOpenTestModal = openTestModal({ webhookSetOpenModal, setWebhookId })
   const handleCloseModal = React.useCallback(() => webhookSetOpenModal(''), [])
   const afterClose = React.useCallback((): void => {
     webhookSetOpenModal('')
@@ -214,16 +230,22 @@ export const DeveloperWebhooks = ({
             <Table
               scrollable
               columns={columns}
-              data={getTableTopicsData({ subscriptions, handleOpenEditModal, topics })}
+              data={getTableTopicsData({ subscriptions, handleOpenEditModal, topics, handleOpenTestModal })}
               loading={false}
             />
           ) : null}
         </FormSection>
       </FlexContainerResponsive>
       <WebhookEditModal
-        visible={!!modalType}
+        visible={modalType === MODAL_TYPE.EDIT || modalType === MODAL_TYPE.CREATE}
         isUpdate={modalType === MODAL_TYPE.EDIT}
         appId={applicationId}
+        webhookId={webhookId}
+        afterClose={afterClose}
+        closeModal={handleCloseModal}
+      />
+      <WebhookTestModal
+        visible={modalType === MODAL_TYPE.TEST}
         webhookId={webhookId}
         afterClose={afterClose}
         closeModal={handleCloseModal}

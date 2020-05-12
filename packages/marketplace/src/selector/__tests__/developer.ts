@@ -10,6 +10,7 @@ import {
   selectIsServiceChartLoading,
   selectMonthlyBilling,
   selectMonthlyBillingLoading,
+  selectWebhookTestStatus,
 } from '../developer'
 
 describe('selectDeveloperId', () => {
@@ -206,5 +207,17 @@ describe('selectMonthlyBilling', () => {
     const input = {} as ReduxState
     const result = selectMonthlyBilling(input)
     expect(result).toEqual(undefined)
+  })
+})
+
+describe('selectWebhookTestStatus', () => {
+  it('should run correctly and return status', () => {
+    const input = {
+      developer: {
+        webhookPingTestStatus: 'SUCCESS',
+      },
+    } as ReduxState
+    const result = selectWebhookTestStatus(input)
+    expect(result).toEqual('SUCCESS')
   })
 })

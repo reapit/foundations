@@ -11,6 +11,7 @@ import {
   openEditModal,
   MODAL_TYPE,
   openCreateModal,
+  openTestModal,
 } from '../developer-webhooks'
 import { shallow } from 'enzyme'
 import { ReduxState } from '@/types/core'
@@ -195,6 +196,17 @@ describe('DeveloperWebHooks', () => {
 
       openCreateModal(webhookSetOpenModal)()
       expect(webhookSetOpenModal).toBeCalledWith(MODAL_TYPE.CREATE)
+    })
+  })
+
+  describe('openTestModal', () => {
+    it('should run correctly', () => {
+      const webhookSetOpenModal = jest.fn()
+      const webhookId = 'webhookId'
+      const setWebhookId = jest.fn()
+
+      openTestModal({ webhookSetOpenModal, setWebhookId })(webhookId)
+      expect(webhookSetOpenModal).toBeCalledWith(MODAL_TYPE.TEST)
     })
   })
 })

@@ -12,6 +12,7 @@ import {
   fetchMonthlyBilling,
   fetchMonthlyBillingSuccess,
   fetchMonthlyBillingFailure,
+  developerSetWebhookPingStatus,
 } from '@/actions/developer'
 import { PagedResultAppSummaryModel_, ScopeModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { developerAppShowModal } from '@/actions/developer-app-modal'
@@ -66,6 +67,8 @@ export type MonthlyBilling = {
   requestsByService: RequestBilling[]
 }
 
+export type WebhookPingTestStatus = 'SUCCESS' | 'FAILED' | 'LOADING' | null
+
 export interface DeveloperState {
   loading: boolean
   developerData: DeveloperItem | null
@@ -77,6 +80,7 @@ export interface DeveloperState {
   error: unknown
   isMonthlyBillingLoading: boolean
   monthlyBilling: MonthlyBilling | null
+  webhookPingTestStatus: WebhookPingTestStatus
 }
 
 export const defaultState: DeveloperState = {
@@ -90,6 +94,7 @@ export const defaultState: DeveloperState = {
   error: null,
   isMonthlyBillingLoading: true,
   monthlyBilling: null,
+  webhookPingTestStatus: null,
 }
 
 const developerReducer = (state: DeveloperState = defaultState, action: Action<any>): DeveloperState => {
@@ -156,6 +161,13 @@ const developerReducer = (state: DeveloperState = defaultState, action: Action<a
     return {
       ...state,
       isMonthlyBillingLoading: true,
+    }
+  }
+
+  if (isType(action, developerSetWebhookPingStatus)) {
+    return {
+      ...state,
+      webhookPingTestStatus: action.data,
     }
   }
 

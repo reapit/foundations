@@ -12,6 +12,7 @@ import {
   fetchBillingFailure,
   fetchMonthlyBillingSuccess,
   fetchMonthlyBillingFailure,
+  developerSetWebhookPingStatus,
 } from '@/actions/developer'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { DeveloperItem, DeveloperRequestParams } from '@/reducers/developer'
@@ -23,6 +24,7 @@ import { Action } from '@/types/core'
 import { selectDeveloperId } from '@/selector'
 import api, { FetchBillingParams } from './api'
 import { FetchMonthlyBillingParams, fetchMonthlyBilling } from '@/services/billings'
+import { WebhookPingTestParams, webhookPingTestSubcription } from '@/services/subscriptions'
 
 export const developerDataFetch = function*({ data }) {
   yield put(developerLoading(true))
@@ -148,6 +150,17 @@ export const fetchMonthlyBillingSagas = function*({ data }: Action<FetchMonthlyB
   }
 }
 
+export const developerWebhookPing = function*({ data }: Action<WebhookPingTestParams>) {
+  try {
+    yield put(developerSetWebhookPingStatus('LOADING'))
+    yield call(webhookPingTestSubcription, data)
+    yield put(developerSetWebhookPingStatus('SUCCESS'))
+  } catch (err) {
+    logger(err)
+    yield put(developerSetWebhookPingStatus('FAILED'))
+  }
+}
+
 export const developerRequestDataListen = function*() {
   yield takeLatest<Action<DeveloperRequestParams>>(ActionTypes.DEVELOPER_REQUEST_DATA, developerDataFetch)
 }
@@ -168,6 +181,10 @@ export const fetchMonthlyBillingSagasListen = function*() {
   yield takeLatest(ActionTypes.DEVELOPER_FETCH_MONTHLY_BILLING, fetchMonthlyBillingSagas)
 }
 
+export const developerWebhookPingListen = function*() {
+  yield takeLatest(ActionTypes.DEVELOPER_PING_WEBHOOK, developerWebhookPing)
+}
+
 const developerSagas = function*() {
   yield all([
     fork(developerRequestDataListen),
@@ -175,6 +192,7 @@ const developerSagas = function*() {
     fork(fetchMyIdentitySagasListen),
     fork(fetchBillingSagasListen),
     fork(fetchMonthlyBillingSagasListen),
+    fork(developerWebhookPingListen),
   ])
 }
 
