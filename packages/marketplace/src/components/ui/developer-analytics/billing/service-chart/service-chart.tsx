@@ -37,7 +37,7 @@ export const mapServiceChartDataSet = (billing: Billing | null) => {
   }
   billing.requestsByPeriod.forEach((item: RequestByPeriod) => {
     labels.push(item.periodName)
-    datasets[0].data.push(item.grossAmount)
+    datasets[0].data.push(item.netAmount)
   })
   return {
     labels,
