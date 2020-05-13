@@ -1,4 +1,5 @@
 import svelte from 'rollup-plugin-svelte'
+import propertyDetailConfig from './rollup.config.property-detail'
 import baseConfig from './rollup.config.base'
 import replace from '@rollup/plugin-replace'
 import path from 'path'
@@ -8,7 +9,8 @@ import generateCssOutput from './generate-css-output'
 const config = require(path.resolve(__dirname, '../..', 'config.json'))
 const production = !process.env.ROLLUP_WATCH
 
-export default {
+// search-widget is depend on property detail
+let searchWidgetBaseConfiguration = {
   ...baseConfig,
   input: 'src/search-widget/client/core/index.ts',
   output: generateRollupOutput({ production, fileName: 'search-widget', name: 'searchWidget' }),
@@ -28,3 +30,10 @@ export default {
     ...baseConfig.plugins,
   ],
 }
+
+let buildConfiguration = [searchWidgetBaseConfiguration]
+if (!production) {
+  buildConfiguration.push(propertyDetailConfig)
+}
+
+export default buildConfiguration

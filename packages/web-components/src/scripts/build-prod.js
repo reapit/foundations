@@ -4,7 +4,7 @@ const path = require('path')
 const { writeFileSync } = require('fs')
 const { execSync, spawn } = require('child_process')
 const { setEnv } = require('./get-env')
-const formatCode = require('./format-code')
+const minifyCode = require('./minify-code')
 
 // since the build process is executed in a parallel manner, folder of generated index files may not have been created
 // have to create it first using mkdirp (mkdir with cursive)
@@ -22,12 +22,12 @@ const tsDeclarationIndexFolderPath = path.resolve(__dirname, '../../public/dist-
 const tsDeclarationIndexFilePath = path.resolve(tsDeclarationIndexFolderPath, './index.d.ts')
 const tsDeclarationIndexTemplateFilePath = path.resolve(__dirname, './tpls/index.d.ts.ejs')
 
-const generateFileForPackages = async ({ packages, tplPath, destinationFilePath, destinationFolderPath }) => {
+const generateFileForPackages = async ({ packages, tplPath, destinationFilePath, destinationFolderPath, formatFn }) => {
   const compileResult = await ejs.renderFile(tplPath, {
     packages,
   })
 
-  const formatResult = formatCode(compileResult)
+  const formatResult = formatFn ? await formatFn(compileResult) : compileResult
 
   await mkdirp(destinationFolderPath)
   console.log(`created ${destinationFilePath}`)
@@ -86,26 +86,31 @@ return (async () => {
       tplPath: cjsIndexTemplateFilePath,
       destinationFilePath: cjsIndexFilePath,
       destinationFolderPath: cjsIndexFolderPath,
+      formatFn: minifyCode,
     }),
     generateFileForPackages({
       packages,
       tplPath: esmIndexTemplateFilePath,
       destinationFilePath: esmIndexFilePath,
       destinationFolderPath: esmIndexFolderPath,
+      formatFn: minifyCode,
     }),
     generateFileForPackages({
       packages,
       tplPath: tsDeclarationIndexTemplateFilePath,
       destinationFilePath: tsDeclarationIndexFilePath,
       destinationFolderPath: tsDeclarationIndexFolderPath,
+      formatFn: minifyCode,
     }),
   )
 
-  await Promise.all(promises).catch(err => {
+  try {
+    await Promise.all(promises)
+  } catch (err) {
     console.error('There is an error while building: ')
     console.error(err)
     process.exit(1)
-  })
+  }
 
   process.exit(0)
 })()
