@@ -80,7 +80,7 @@ exports[`DeveloperAppDetail should match a snapshot 1`] = `
         "entries": Array [
           Object {
             "hash": "",
-            "key": "d7ihwa",
+            "key": "1dzv0n",
             "pathname": "/",
             "search": "",
             "state": undefined,
@@ -94,7 +94,7 @@ exports[`DeveloperAppDetail should match a snapshot 1`] = `
         "listen": [Function],
         "location": Object {
           "hash": "",
-          "key": "d7ihwa",
+          "key": "1dzv0n",
           "pathname": "/",
           "search": "",
           "state": undefined,

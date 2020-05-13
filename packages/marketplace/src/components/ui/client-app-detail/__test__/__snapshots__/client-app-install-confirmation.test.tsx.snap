@@ -23,7 +23,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
         "entries": Array [
           Object {
             "hash": "",
-            "key": "10enkq",
+            "key": "49wyie",
             "pathname": "/",
             "search": "",
             "state": undefined,
@@ -37,7 +37,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
         "listen": [Function],
         "location": Object {
           "hash": "",
-          "key": "10enkq",
+          "key": "49wyie",
           "pathname": "/",
           "search": "",
           "state": undefined,

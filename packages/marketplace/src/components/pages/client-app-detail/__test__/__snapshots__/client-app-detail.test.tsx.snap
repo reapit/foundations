@@ -38,7 +38,7 @@ exports[`ClientAppDetail should match a snapshot 1`] = `
         "entries": Array [
           Object {
             "hash": "",
-            "key": "hj0yrq",
+            "key": "to3pvn",
             "pathname": "/",
             "search": "",
             "state": undefined,
@@ -52,7 +52,7 @@ exports[`ClientAppDetail should match a snapshot 1`] = `
         "listen": [Function],
         "location": Object {
           "hash": "",
-          "key": "hj0yrq",
+          "key": "to3pvn",
           "pathname": "/",
           "search": "",
           "state": undefined,

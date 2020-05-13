@@ -23,7 +23,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
         "entries": Array [
           Object {
             "hash": "",
-            "key": "or1lgb",
+            "key": "vclqtp",
             "pathname": "/",
             "search": "",
             "state": undefined,
@@ -37,7 +37,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
         "listen": [Function],
         "location": Object {
           "hash": "",
-          "key": "or1lgb",
+          "key": "vclqtp",
           "pathname": "/",
           "search": "",
           "state": undefined,
