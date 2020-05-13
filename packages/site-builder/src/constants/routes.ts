@@ -1,5 +1,6 @@
 const Routes = {
   HOME: '/',
+  GALLERY: '/gallery',
   LOGIN: '/login',
 }
 

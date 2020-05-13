@@ -24,7 +24,9 @@ export const initializeSearchWidgetComponent = editor => {
               changeProp: 1,
             },
           ],
-
+          style: {
+            width: '100%',
+          },
           script: function() {
             const apiKey = '{[ apiKey ]}'
             // const reapitCustomerId = '{[ reapitCustomerId ]}';

@@ -15,74 +15,78 @@ import ErrorBoundary from '@/components/hocs/error-boundary'
 import { initializeBlocks } from '../../core/initialize-components'
 import { H3 } from '../../../../elements/src/components/Typography/index'
 import { Level, LevelLeft } from '../../../../elements/src/components/Layout/index'
+import { initializeEditor } from '../../core/editor'
 
-export type TabConfigParams = Pick<TabConfig, 'tabIdentifier' | 'displayText'> & {
+export const DEFAULT_IDENTIFIER = 'HOME'
+export const LOCAL_STORAGE_KEY = 'REAPIT_SITE_BUILDER_PAGES'
+
+export interface TabConfigParams {
   activeTab: string
+  tabs: string[]
   handleChangeTab: React.Dispatch<React.SetStateAction<string>>
+  setEditor: React.Dispatch<React.SetStateAction<any>>
+  editor: any
 }
 
-const DEFAULT_IDENTIFIER = 'index'
+export interface AddNewTabParams {
+  tabIdentifier: string
+  tabs: string[]
+  setTabs: React.Dispatch<React.SetStateAction<string[]>>
+}
 
-export const loadEditor = async (
-  setHasLoadedEditor: React.Dispatch<React.SetStateAction<boolean>>,
-  identifier = DEFAULT_IDENTIFIER,
-) => {
-  const { initializeEditor } = await import('../../core/editor')
-  const editor = initializeEditor({ identifier })
+export const loadEditor = async (setEditor: React.Dispatch<React.SetStateAction<any>>, identifier: string) => {
+  const editor = await initializeEditor({ identifier })
   initializeBlocks(editor)
-  setHasLoadedEditor(true)
+  setEditor(editor)
 }
 
-export const genTabConfig = ({
-  activeTab,
-  tabIdentifier,
-  handleChangeTab,
-  displayText,
-}: TabConfigParams): TabConfig => ({
-  tabIdentifier,
-  displayText,
-  onTabClick: handleChangeTab,
-  active: activeTab === tabIdentifier,
-})
-
-export const addNewPage = (
-  pageName: string,
-  tabConfigs: TabConfig[],
-  setTabConfigs: React.Dispatch<React.SetStateAction<TabConfig[]>>,
-  handleChangeTab: React.Dispatch<React.SetStateAction<string>>,
-) => {
-  const newConfig = genTabConfig({
-    activeTab: pageName.toUpperCase(),
-    handleChangeTab,
-    displayText: pageName,
-    tabIdentifier: pageName.toUpperCase(),
-  })
-  const deactivatedTabs = tabConfigs.map(tab => {
+export const genTabConfig = ({ activeTab, tabs, handleChangeTab, setEditor, editor }: TabConfigParams): TabConfig[] =>
+  tabs.map(tab => {
+    const tabIdentifier = tab.toUpperCase()
     return {
-      active: false,
-      ...tab,
+      tabIdentifier,
+      displayText: tab,
+      onTabClick: () => {
+        handleChangeTab(tabIdentifier)
+        editor.destroy()
+        setEditor(null)
+      },
+      active: activeTab === tabIdentifier,
     }
   })
 
-  setTabConfigs([...deactivatedTabs, newConfig])
+export const setTabsLocalStorage = (tabs: string[]) => {
+  window.localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(tabs))
+}
+
+export const getTabsLocalStorage = (): string[] => {
+  try {
+    const tabs = window.localStorage.getItem(LOCAL_STORAGE_KEY)
+    if (tabs) {
+      return JSON.parse(tabs)
+    }
+    return [DEFAULT_IDENTIFIER]
+  } catch {
+    console.error('Failed to get tabs from local storage')
+    return [DEFAULT_IDENTIFIER]
+  }
+}
+
+export const addNewPage = ({ tabIdentifier, tabs, setTabs }: AddNewTabParams) => {
+  const newTabs = [...tabs, tabIdentifier.toUpperCase()]
+  setTabs(newTabs)
+  setTabsLocalStorage(newTabs)
 }
 
 export const EditorPage: React.FunctionComponent = () => {
-  const [hasLoadedEditor, setHasLoadedEditor] = React.useState(false)
-  const [activeTab, handleChangeTab] = React.useState('HOME')
-  const [tabConfigs, setTabConfigs] = React.useState([] as TabConfig[])
+  const restoredTabs = getTabsLocalStorage()
+  const [editor, setEditor] = React.useState(null)
+  const [activeTab, handleChangeTab] = React.useState(DEFAULT_IDENTIFIER)
+  const [tabs, setTabs] = React.useState(restoredTabs)
   const [modalVisible, setModalVisible] = React.useState(false)
 
-  if (!hasLoadedEditor) {
-    tabConfigs.push(
-      genTabConfig({
-        activeTab,
-        handleChangeTab,
-        displayText: 'Home',
-        tabIdentifier: activeTab,
-      }),
-    )
-    loadEditor(setHasLoadedEditor)
+  if (!editor) {
+    loadEditor(setEditor, activeTab)
   }
 
   return (
@@ -107,18 +111,19 @@ export const EditorPage: React.FunctionComponent = () => {
               title="Modal Title"
             >
               <Formik
-                initialValues={{ pageName: '' }}
-                onSubmit={({ pageName }) => {
-                  addNewPage(pageName, tabConfigs, setTabConfigs, handleChangeTab)
+                initialValues={{ tabIdentifier: '' }}
+                onSubmit={({ tabIdentifier }) => {
+                  addNewPage({ setTabs, tabIdentifier, tabs })
+                  setModalVisible(false)
                 }}
               >
                 {() => (
                   <Form>
                     <Input
-                      id="pageName"
+                      id="tabIdentifier"
                       type="text"
                       placeholder="Page name here"
-                      name="pageName"
+                      name="tabIdentifier"
                       labelText="Page Name"
                       required
                     />
@@ -127,9 +132,9 @@ export const EditorPage: React.FunctionComponent = () => {
               </Formik>
             </Modal>
           </PortalProvider>
-          <Tabs tabConfigs={tabConfigs} />
+          <Tabs tabConfigs={genTabConfig({ activeTab, tabs, handleChangeTab, setEditor, editor })} />
         </FlexContainerBasic>
-        <div id={DEFAULT_IDENTIFIER}></div>
+        <div id={activeTab.toLowerCase()} />
       </FlexContainerBasic>
     </ErrorBoundary>
   )

@@ -7,33 +7,40 @@ export interface EditorInitParams {
 }
 
 export const initializeEditor = ({ identifier }: EditorInitParams) =>
-  grapesjs.init({
-    container: `#${identifier}`,
-    fromElement: true,
-    width: '100%',
-    height: '100%',
-    canvas: {},
-    plugins: [initializeComponents, 'gjs-preset-webpage'],
-    pluginsOpts: {
-      'gjs-preset-webpage': {
-        navbarOpts: false,
-        countdownOpts: false,
-        formsOpts: false,
-        aviaryOpts: false,
-        filestackOpts: false,
-        blocksBasicOpts: false,
-        blocks: [],
-      },
-    },
-    storageManager: {
-      id: `reapit-site-builder-${identifier}`,
-      type: 'local',
-      autosave: true,
-      autoload: true,
-      stepsBeforeSave: 1,
-      storeComponents: true,
-      storeStyles: true,
-      storeHtml: true,
-      storeCss: true,
-    },
+  // Set timeout so init function gets called at the next tick when the container has loaded
+  new Promise(resolve => {
+    setTimeout(() => {
+      resolve(
+        grapesjs.init({
+          container: `#${identifier.toLowerCase()}`,
+          fromElement: true,
+          width: '100%',
+          height: '100%',
+          canvas: {},
+          plugins: [initializeComponents, 'gjs-preset-webpage'],
+          pluginsOpts: {
+            'gjs-preset-webpage': {
+              navbarOpts: false,
+              countdownOpts: false,
+              formsOpts: false,
+              aviaryOpts: false,
+              filestackOpts: false,
+              blocksBasicOpts: false,
+              blocks: [],
+            },
+          },
+          storageManager: {
+            id: `REAPIT-SITE-BUILDER-${identifier}`,
+            type: 'local',
+            autosave: true,
+            autoload: true,
+            stepsBeforeSave: 1,
+            storeComponents: true,
+            storeStyles: true,
+            storeHtml: true,
+            storeCss: true,
+          },
+        }),
+      )
+    }, 10)
   })
