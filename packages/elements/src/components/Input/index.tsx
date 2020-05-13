@@ -13,6 +13,7 @@ export interface InputProps {
   rightIcon?: React.ReactNode
   required?: boolean
   disabled?: boolean
+  validate?: (value: string) => string | null
 }
 
 export const Input = ({
@@ -25,8 +26,9 @@ export const Input = ({
   rightIcon,
   required = false,
   disabled = false,
+  validate = fieldValidateRequire,
 }: InputProps) => (
-  <Field name={name} validate={required ? fieldValidateRequire : null}>
+  <Field name={name} validate={required ? validate : null}>
     {({ field, meta }: FieldProps<string | number>) => {
       const hasError = checkError(meta)
       const className = hasError ? 'input is-danger' : 'input is-primary'
