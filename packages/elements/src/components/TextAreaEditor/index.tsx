@@ -9,6 +9,7 @@ export interface TextAreaEditorProps extends EditorProps {
   labelText: string
   name: string
   dataTest?: string
+  allowPasteRichText?: boolean
 }
 
 export type HandleTextAreaOnChangeParams = {
@@ -27,7 +28,30 @@ export const handleTextAreaOnBlur = ({ helpers }: HandleTextAreaOnBlurParams) =>
   helpers.setTouched(true)
 }
 
-export const TextAreaEditor = ({ name, labelText, placeholder, id, ...restProps }: TextAreaEditorProps) => {
+export const handleTextAreaOnPaste = () => e => {
+  // Stop data actually being pasted into div
+  e.stopPropagation()
+  e.preventDefault()
+  // Get pasted data via clipboard API
+  const clipboardData = e.clipboardData || (window as any).clipboardData
+  const pastedData = clipboardData ? clipboardData.getData('Text') : ''
+
+  // need to check for browser compatible
+  if (document.queryCommandSupported('insertText')) {
+    document.execCommand('insertText', false, pastedData)
+  } else {
+    document.execCommand('paste', false, pastedData)
+  }
+}
+
+export const TextAreaEditor = ({
+  name,
+  labelText,
+  placeholder,
+  id,
+  allowPasteRichText = false,
+  ...restProps
+}: TextAreaEditorProps) => {
   const [field, meta, helpers] = useField(name)
 
   const hasError = checkError(meta)
@@ -44,6 +68,7 @@ export const TextAreaEditor = ({ name, labelText, placeholder, id, ...restProps 
             placeholder={placeholder}
             defaultContent={field.value}
             onChange={handleTextAreaOnChange({ field })}
+            onPaste={allowPasteRichText ? undefined : handleTextAreaOnPaste()}
             onBlur={handleTextAreaOnBlur({ helpers })}
             {...restProps}
           />

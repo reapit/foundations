@@ -419,6 +419,12 @@ Object.defineProperty(document, 'execCommand', {
   value: jest.fn(),
 })
 
+Object.defineProperty(document, 'queryCommandSupported', {
+  value: jest.fn(() => true),
+  writable: true,
+})
+window.queryCommandSupported = jest.fn()
+
 Object.defineProperty(window, 'location', {
   value: {
     href: '',
