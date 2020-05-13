@@ -1,4 +1,4 @@
-import { clientFetchAppDetailSuccess, clientFetchAppDetailFailed } from '@/actions/client'
+import { clientFetchAppDetailSuccess } from '@/actions/client'
 import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 import { errorThrownServer } from '@/actions/error'
@@ -6,7 +6,7 @@ import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { logger } from 'logger'
 import { fetchAppApiKey, fetchAppDetail, FetchAppDetailParams } from '@/services/apps'
-import { developerFetchAppDetailSuccess, developerFetchAppDetailFailed } from '@/actions/developer'
+import { developerFetchAppDetailSuccess } from '@/actions/developer'
 
 export const fetchClientAppDetailSaga = function*({ data }: Action<FetchAppDetailParams>) {
   try {
@@ -18,7 +18,6 @@ export const fetchClientAppDetailSaga = function*({ data }: Action<FetchAppDetai
     yield put(clientFetchAppDetailSuccess(appDetailResponse))
   } catch (err) {
     logger(err)
-    yield put(clientFetchAppDetailFailed(err.message))
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -38,7 +37,6 @@ export const fetchDeveloperAppDetailSaga = function*({ data }: Action<FetchAppDe
     yield put(developerFetchAppDetailSuccess(appDetailResponse))
   } catch (err) {
     logger(err)
-    yield put(developerFetchAppDetailFailed(err.message))
     yield put(
       errorThrownServer({
         type: 'SERVER',

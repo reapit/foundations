@@ -1,7 +1,7 @@
 import clientSagas, { clientDataFetch, clientDataListen } from '../client'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
-import { clientAppSummaryReceiveData } from '@/actions/client'
+import { clientFetchAppSummarySuccess } from '@/actions/client'
 import { categoriesReceiveData } from '@/actions/app-categories'
 import { featuredAppsDataStub, appsDataStub } from '../__stubs__/apps'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
@@ -65,7 +65,7 @@ describe('client fetch data', () => {
     const response = [appsDataStub.data, featuredAppsDataStub.data, appCategorieStub]
     expect(clone.next(response).value).toEqual(
       put(
-        clientAppSummaryReceiveData({
+        clientFetchAppSummarySuccess({
           apps: response[0] as PagedResultAppSummaryModel_,
           featuredApps: response[1].data as AppSummaryModel[],
         }),
@@ -111,7 +111,7 @@ describe('client thunks', () => {
       const gen = clientDataListen()
 
       expect(gen.next().value).toEqual(
-        takeLatest<Action<number>>(ActionTypes.CLIENT_APP_SUMMARY_REQUEST_DATA, clientDataFetch),
+        takeLatest<Action<number>>(ActionTypes.CLIENT_FETCH_APP_SUMMARY, clientDataFetch),
       )
       expect(gen.next().done).toBe(true)
     })

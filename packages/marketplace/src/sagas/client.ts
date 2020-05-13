@@ -1,4 +1,4 @@
-import { clientAppSummaryReceiveData } from '../actions/client'
+import { clientFetchAppSummarySuccess } from '../actions/client'
 import { categoriesReceiveData } from '@/actions/app-categories'
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
@@ -61,7 +61,7 @@ export const clientDataFetch = function*({ data }) {
           }),
     ])
     const clientItem: ClientAppSummary = { apps: apps, featuredApps: featuredApps?.data }
-    yield put(clientAppSummaryReceiveData(clientItem))
+    yield put(clientFetchAppSummarySuccess(clientItem))
     yield put(categoriesReceiveData(categories))
   } catch (err) {
     logger(err)
@@ -75,7 +75,7 @@ export const clientDataFetch = function*({ data }) {
 }
 
 export const clientDataListen = function*() {
-  yield takeLatest<Action<ClientAppSummaryParams>>(ActionTypes.CLIENT_APP_SUMMARY_REQUEST_DATA, clientDataFetch)
+  yield takeLatest<Action<ClientAppSummaryParams>>(ActionTypes.CLIENT_FETCH_APP_SUMMARY, clientDataFetch)
 }
 
 const clientSagas = function*() {

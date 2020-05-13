@@ -1,9 +1,11 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
 import { ReduxState } from '@/types/core'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
+import { Router } from 'react-router'
+import { createMemoryHistory } from 'history'
 import ClientAppInstallConfirmation, {
   ClientAppInstallConfirmationProps,
   handleInstallButtonClick,
@@ -33,6 +35,7 @@ const mockState = {
       },
     },
   },
+  installations: {},
 } as ReduxState
 
 const mockProps: ClientAppInstallConfirmationProps = {
@@ -54,10 +57,13 @@ describe('ClientAppInstallConfirmation', () => {
     spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
   })
   it('should match a snapshot', () => {
+    const history = createMemoryHistory()
     expect(
-      shallow(
+      mount(
         <ReactRedux.Provider store={store}>
-          <ClientAppInstallConfirmation {...mockProps} />
+          <Router history={history}>
+            <ClientAppInstallConfirmation {...mockProps} />
+          </Router>
         </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()
@@ -73,19 +79,12 @@ describe('ClientAppInstallConfirmation', () => {
         mockProps.closeInstallConfirmationModal,
       )
       fn()
-      expect(spyDispatch).toBeCalled()
-      // expect(spyDispatch).toBeCalledWith(
-      //   appInstallationsRequestInstall({
-      //     appId,
-      //     callback: handleInstallAppSuccessCallback(
-      //       appId,
-      //       clientId,
-      //       spyDispatch,
-      //       mockFunction,
-      //       mockProps.closeInstallConfirmationModal,
-      //     ),
-      //   }),
-      // )
+      expect(spyDispatch).toBeCalledWith(
+        appInstallationsRequestInstall({
+          appId,
+          callback: expect.any(Function),
+        }),
+      )
     })
   })
   describe('handleInstallAppSuccessCallback', () => {

@@ -1,8 +1,10 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
 import { ReduxState } from '@/types/core'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
+import { Router } from 'react-router'
+import { createMemoryHistory } from 'history'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { appInstallationsRequestUninstall } from '@/actions/app-installations'
 import { clientFetchAppDetail } from '@/actions/client'
@@ -33,6 +35,7 @@ const mockState = {
       },
     },
   },
+  installations: {},
 } as ReduxState
 
 const mockProps: ClientAppUninstallConfirmationProps = {
@@ -55,10 +58,13 @@ describe('ClientAppUninstallConfirmation', () => {
     spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
   })
   it('should match a snapshot', () => {
+    const history = createMemoryHistory()
     expect(
-      shallow(
+      mount(
         <ReactRedux.Provider store={store}>
-          <ClientAppUninstallConfirmation {...mockProps} />
+          <Router history={history}>
+            <ClientAppUninstallConfirmation {...mockProps} />
+          </Router>
         </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()
@@ -75,21 +81,14 @@ describe('ClientAppUninstallConfirmation', () => {
         mockProps.closeUninstallConfirmationModal,
       )
       fn()
-      expect(spyDispatch).toBeCalled()
-      // expect(spyDispatch).toBeCalledWith(
-      //   appInstallationsRequestUninstall({
-      //     appId,
-      //     installationId,
-      //     terminatedReason: 'User uninstall',
-      //     callback: handleUninstallAppSuccessCallback(
-      //       appId,
-      //       clientId,
-      //       spyDispatch,
-      //       mockFunction,
-      //       mockProps.closeUninstallConfirmationModal,
-      //     ),
-      //   }),
-      // )
+      expect(spyDispatch).toBeCalledWith(
+        appInstallationsRequestUninstall({
+          appId,
+          installationId,
+          terminatedReason: 'User uninstall',
+          callback: expect.any(Function),
+        }),
+      )
     })
   })
   describe('handleUninstallAppSuccessCallback', () => {

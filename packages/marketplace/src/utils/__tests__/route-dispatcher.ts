@@ -3,7 +3,7 @@ import store from '../../core/store'
 import Routes from '../../constants/routes'
 import { GET_ALL_PAGE_SIZE } from '../../constants/paginator'
 import { RouteValue } from '../../types/core'
-import { clientAppSummaryRequestData } from '@/actions/client'
+import { clientFetchAppSummary } from '@/actions/client'
 import { developerRequestData, fetchMyIdentity } from '@/actions/developer'
 import { myAppsRequestData } from '@/actions/my-apps'
 import { installedAppsRequestData } from '@/actions/installed-apps'
@@ -24,9 +24,9 @@ describe('routeDispatcher', () => {
     expect(getAccessToken).toHaveBeenCalledTimes(1)
   })
 
-  it('should dispatch to clientAppSummaryRequestDataclientAppSummaryRequestData for the client route', async () => {
+  it('should dispatch to clientFetchAppSummaryclientFetchAppSummary for the client route', async () => {
     await routeDispatcher(Routes.CLIENT as RouteValue)
-    expect(store.dispatch).toHaveBeenCalledWith(clientAppSummaryRequestData(getParamsFromPath('')))
+    expect(store.dispatch).toHaveBeenCalledWith(clientFetchAppSummary(getParamsFromPath('')))
   })
 
   it('should dispatch to installedAppsRequestData for the installed-apps route', async () => {

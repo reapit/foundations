@@ -22,6 +22,47 @@ export const handleOnDeleteAppSuccess = history => {
   }
 }
 
+export const renderAppHeaderButtonGroup = (
+  id,
+  appDetailState,
+  setIsAppRevisionComparisionModalOpen,
+  setIsDeleteModalOpen,
+  setIsInstallationsModalOpen,
+) => {
+  return (
+    <>
+      {id && (
+        <DeveloperAppDetailButtonGroup
+          appDetailState={appDetailState}
+          setIsAppRevisionComparisionModalOpen={setIsAppRevisionComparisionModalOpen}
+          setIsDeleteModalOpen={setIsDeleteModalOpen}
+          setIsInstallationsModalOpen={setIsInstallationsModalOpen}
+        />
+      )}
+    </>
+  )
+}
+
+export const closeInstallationsModal = (setIsInstallationsModalOpen: (isVisible: boolean) => void) => {
+  return () => {
+    setIsInstallationsModalOpen(false)
+  }
+}
+
+export const closeAppRevisionComparisionModal = (
+  setIsAppRevisionComparisionModalOpen: (isVisible: boolean) => void,
+) => {
+  return () => {
+    setIsAppRevisionComparisionModalOpen(false)
+  }
+}
+
+export const closeDeleteAppModal = (setIsDeleteModalOpen: (isVisible: boolean) => void) => {
+  return () => {
+    setIsDeleteModalOpen(false)
+  }
+}
+
 const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false)
   const [isInstallationsModalOpen, setIsInstallationsModalOpen] = React.useState(false)
@@ -32,47 +73,42 @@ const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
   const appDetailData = useSelector(selectAppDetailData)
   const isLoadingAppDetail = useSelector(selectAppDetailLoading)
   const loginType = useSelector(selectLoginType)
-  const { id, name } = appDetailData
+  const { id = '', name = '' } = appDetailData
 
   return (
     <div className={styles.appDetailContainer}>
       <AppHeader
         appDetailData={appDetailData}
-        buttonGroup={
-          id && (
-            <DeveloperAppDetailButtonGroup
-              appDetailState={appDetailState}
-              setIsAppRevisionComparisionModalOpen={setIsAppRevisionComparisionModalOpen}
-              setIsDeleteModalOpen={setIsDeleteModalOpen}
-              setIsInstallationsModalOpen={setIsInstallationsModalOpen}
-            />
-          )
-        }
+        buttonGroup={renderAppHeaderButtonGroup(
+          id,
+          appDetailState,
+          setIsAppRevisionComparisionModalOpen,
+          setIsDeleteModalOpen,
+          setIsInstallationsModalOpen,
+        )}
       />
       <AppContent appDetailData={appDetailData} loginType={loginType} />
       <AppDelete
-        appId={id || ''}
-        appName={name || ''}
-        afterClose={() => setIsDeleteModalOpen(false)}
+        appId={id}
+        appName={name}
+        afterClose={closeDeleteAppModal(setIsDeleteModalOpen)}
         visible={isDeleteModalOpen}
         onDeleteSuccess={handleOnDeleteAppSuccess(history)}
       />
 
       <AppInstallations
-        appId={id || ''}
-        appName={name || ''}
+        appId={id}
+        appName={name}
         visible={isInstallationsModalOpen}
-        afterClose={() => setIsInstallationsModalOpen(false)}
-        onUninstallSuccess={() => {
-          setIsInstallationsModalOpen(false)
-        }}
+        afterClose={closeInstallationsModal(setIsInstallationsModalOpen)}
+        onUninstallSuccess={closeInstallationsModal(setIsInstallationsModalOpen)}
       />
 
       <AppRevisionModal
         visible={isAppRevisionComparisionModalOpen}
-        appId={id || ''}
+        appId={id}
         appDetailState={appDetailState}
-        afterClose={() => setIsAppRevisionComparisionModalOpen(false)}
+        afterClose={closeAppRevisionComparisionModal(setIsAppRevisionComparisionModalOpen)}
       />
       {isLoadingAppDetail && <Loader />}
     </div>

@@ -30,7 +30,7 @@ export const renderAppHeaderButtonGroup = (id, installedOn, onInstallConfirmatio
       {id && (
         <div>
           {installedOn ? (
-            <div id="test" className={styles.installed}>
+            <div id="installed-label-container" className={styles.installed}>
               <FaCheck />
               <span>Installed</span>
             </div>
@@ -62,13 +62,15 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   const isLoadingAppDetail = useSelector(selectAppDetailLoading)
   const loginType = useSelector(selectLoginType)
 
-  const { id, installedOn } = appDetailData
-
   return (
     <div className={styles.appDetailContainer}>
       <AppHeader
         appDetailData={appDetailData}
-        buttonGroup={renderAppHeaderButtonGroup(id, installedOn, onInstallConfirmationModal)}
+        buttonGroup={renderAppHeaderButtonGroup(
+          appDetailData.id,
+          appDetailData.installedOn,
+          onInstallConfirmationModal,
+        )}
       />
       <AppContent appDetailData={appDetailData} loginType={loginType} />
       <ClientAppInstallConfirmation

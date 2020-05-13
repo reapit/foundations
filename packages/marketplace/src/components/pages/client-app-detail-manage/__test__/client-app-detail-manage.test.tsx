@@ -1,13 +1,18 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
 import { ReduxState } from '@/types/core'
-import { shallow } from 'enzyme'
+import TestRenderer from 'react-test-renderer'
+import { shallow, mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
+import { Router } from 'react-router'
+import { createMemoryHistory } from 'history'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import ClientAppDetailManage, {
   handleCloseUninstallConfirmationModal,
   handleUninstallAppButtonClick,
+  renderAppHeaderButtonGroup,
 } from '../client-app-detail-manage'
+import { Button } from '@reapit/elements'
 
 const mockState = {
   client: {
@@ -20,6 +25,10 @@ const mockState = {
       isAppSummaryLoading: false,
     },
   },
+  auth: {
+    loginType: 'CLIENT',
+  },
+  installations: {},
 } as ReduxState
 
 describe('ClientAppDetailManage', () => {
@@ -30,13 +39,33 @@ describe('ClientAppDetailManage', () => {
     store = mockStore(mockState)
   })
   it('should match a snapshot', () => {
+    const history = createMemoryHistory()
     expect(
-      shallow(
+      mount(
         <ReactRedux.Provider store={store}>
-          <ClientAppDetailManage />
+          <Router history={history}>
+            <ClientAppDetailManage />
+          </Router>
         </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()
+  })
+
+  describe('renderAppHeaderButtonGroup', () => {
+    const mockInstalledOn = '2020-2-20'
+    it('should match snapshot', () => {
+      const wrapper = shallow(<div>{renderAppHeaderButtonGroup(mockInstalledOn, jest.fn())}</div>)
+      expect(wrapper).toMatchSnapshot()
+    })
+    it('should render install app button if installedOn is existed', () => {
+      const testRenderer = TestRenderer.create(renderAppHeaderButtonGroup(mockInstalledOn, jest.fn()))
+      const testInstance = testRenderer.root
+      expect(testInstance.findByType(Button).props.children).toBe('Uninstall App')
+    })
+    it('should render install app button if installedOn is empty', () => {
+      const testRenderer = TestRenderer.create(renderAppHeaderButtonGroup(null, jest.fn()))
+      expect(testRenderer.getInstance()).toBeNull()
+    })
   })
   describe('handleCloseUninstallConfirmationModal', () => {
     const mockFunction = jest.fn()

@@ -55,37 +55,153 @@ exports[`ServiceChart handleUseEffect should render Loader 1`] = `
 `;
 
 exports[`ServiceChart should match a snapshot 1`] = `
-<ContextProvider
-  value={
+<Provider
+  store={
     Object {
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "subscription": Subscription {
-        "handleChangeWrapper": [Function],
-        "listeners": Object {
-          "notify": [Function],
-        },
-        "onStateChange": [Function],
-        "parentSub": undefined,
-        "store": Object {
-          "clearActions": [Function],
-          "dispatch": [Function],
-          "getActions": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-        },
-        "unsubscribe": null,
-      },
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
     }
   }
 >
-  <Component />
-</ContextProvider>
+  <Component>
+    <Component>
+      <div
+        className="container      "
+      >
+        <div>
+          <Component>
+            <h4
+              className="title is-4  "
+              id=""
+            >
+              Services
+            </h4>
+          </Component>
+          <Bar
+            data={
+              Object {
+                "datasets": Array [
+                  Object {
+                    "backgroundColor": "rgba(255,99,132,0.2)",
+                    "borderColor": "rgba(255,99,132,1)",
+                    "borderWidth": 1,
+                    "data": Array [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      6.75,
+                      0,
+                    ],
+                    "hoverBackgroundColor": "rgba(255,99,132,0.4)",
+                    "hoverBorderColor": "rgba(255,99,132,1)",
+                    "label": "Resource",
+                  },
+                ],
+                "labels": Array [
+                  "November 2019",
+                  "December 2019",
+                  "January 2020",
+                  "February 2020",
+                  "March 2020",
+                  "April 2020",
+                  "May 2020",
+                ],
+              }
+            }
+            height={50}
+            options={
+              Object {
+                "maintainAspectRatio": false,
+                "scales": Object {
+                  "yAxes": Array [
+                    Object {
+                      "scaleLabel": Object {
+                        "display": true,
+                        "labelString": "Total cost",
+                      },
+                    },
+                  ],
+                },
+              }
+            }
+            width={50}
+          >
+            <ChartComponent
+              data={
+                Object {
+                  "datasets": Array [
+                    Object {
+                      "backgroundColor": "rgba(255,99,132,0.2)",
+                      "borderColor": "rgba(255,99,132,1)",
+                      "borderWidth": 1,
+                      "data": Array [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        6.75,
+                        0,
+                      ],
+                      "hoverBackgroundColor": "rgba(255,99,132,0.4)",
+                      "hoverBorderColor": "rgba(255,99,132,1)",
+                      "label": "Resource",
+                    },
+                  ],
+                  "labels": Array [
+                    "November 2019",
+                    "December 2019",
+                    "January 2020",
+                    "February 2020",
+                    "March 2020",
+                    "April 2020",
+                    "May 2020",
+                  ],
+                }
+              }
+              datasetKeyProvider={[Function]}
+              height={50}
+              legend={
+                Object {
+                  "display": true,
+                  "position": "bottom",
+                }
+              }
+              options={
+                Object {
+                  "maintainAspectRatio": false,
+                  "scales": Object {
+                    "yAxes": Array [
+                      Object {
+                        "scaleLabel": Object {
+                          "display": true,
+                          "labelString": "Total cost",
+                        },
+                      },
+                    ],
+                  },
+                }
+              }
+              redraw={false}
+              type="bar"
+              width={50}
+            >
+              <canvas
+                height={50}
+                onClick={[Function]}
+                width={50}
+              />
+            </ChartComponent>
+          </Bar>
+        </div>
+      </div>
+    </Component>
+  </Component>
+</Provider>
 `;

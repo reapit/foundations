@@ -1,37 +1,827 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ClientAppDetailManage renderAppHeaderButtonGroup should match snapshot 1`] = `
+<div>
+  <Component
+    dataTest="detail-modal-uninstall-button"
+    onClick={[MockFunction]}
+    type="button"
+    variant="primary"
+  >
+    Uninstall App
+  </Component>
+</div>
+`;
+
 exports[`ClientAppDetailManage should match a snapshot 1`] = `
-<ContextProvider
-  value={
+<Provider
+  store={
     Object {
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "subscription": Subscription {
-        "handleChangeWrapper": [Function],
-        "listeners": Object {
-          "notify": [Function],
-        },
-        "onStateChange": [Function],
-        "parentSub": undefined,
-        "store": Object {
-          "clearActions": [Function],
-          "dispatch": [Function],
-          "getActions": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-        },
-        "unsubscribe": null,
-      },
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
     }
   }
 >
-  <ClientAppDetailManage />
-</ContextProvider>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "bawais",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "bawais",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <ClientAppDetailManage>
+      <div>
+        <AppHeader
+          appDetailData={
+            Object {
+              "description": "enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam 
+    pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras 
+    sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar 
+    elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla 
+    at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet 
+    proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum co",
+              "developer": "Pete's Proptech World Ltd",
+              "homePage": "http://myawesomeproptechproduct.io",
+              "id": "9b6fd5f7-2c15-483d-b925-01b650538e52",
+              "media": Array [
+                Object {
+                  "description": "Application Icon",
+                  "type": "icon",
+                  "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg",
+                },
+                Object {
+                  "description": "Application Image",
+                  "type": "image",
+                  "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png",
+                },
+                Object {
+                  "description": "Application Image",
+                  "type": "image",
+                  "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png",
+                },
+              ],
+              "name": "Peter's Properties",
+              "scopes": Array [
+                Object {
+                  "description": "Read data about developers",
+                  "name": "Marketplace/developers.read",
+                },
+                Object {
+                  "description": "Write data about developers",
+                  "name": "Marketplace/developers.write",
+                },
+              ],
+              "summary": "vitae elementum curabitur vitae nunc sed velit eget gravida cum sociis natoque!!",
+              "supportEmail": "support@reapit.com",
+              "telephone": "0113 288 2900",
+            }
+          }
+          buttonGroup={<React.Fragment />}
+        >
+          <Component
+            className="is-vcentered "
+          >
+            <div
+              className="columns  is-vcentered "
+            >
+              <Component
+                className="is-4"
+              >
+                <div
+                  className="column  is-4"
+                >
+                  <div>
+                    <img
+                      alt="Peter's Properties"
+                      className="image"
+                      src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg"
+                    />
+                  </div>
+                </div>
+              </Component>
+              <Component
+                className="is-8"
+              >
+                <div
+                  className="column  is-8"
+                >
+                  <Component>
+                    <h3
+                      className="title is-3  "
+                      id=""
+                    >
+                      Peter's Properties
+                    </h3>
+                  </Component>
+                </div>
+              </Component>
+            </div>
+          </Component>
+        </AppHeader>
+        <AppContent
+          appDetailData={
+            Object {
+              "description": "enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam 
+    pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras 
+    sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar 
+    elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla 
+    at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet 
+    proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum co",
+              "developer": "Pete's Proptech World Ltd",
+              "homePage": "http://myawesomeproptechproduct.io",
+              "id": "9b6fd5f7-2c15-483d-b925-01b650538e52",
+              "media": Array [
+                Object {
+                  "description": "Application Icon",
+                  "type": "icon",
+                  "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg",
+                },
+                Object {
+                  "description": "Application Image",
+                  "type": "image",
+                  "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png",
+                },
+                Object {
+                  "description": "Application Image",
+                  "type": "image",
+                  "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png",
+                },
+              ],
+              "name": "Peter's Properties",
+              "scopes": Array [
+                Object {
+                  "description": "Read data about developers",
+                  "name": "Marketplace/developers.read",
+                },
+                Object {
+                  "description": "Write data about developers",
+                  "name": "Marketplace/developers.write",
+                },
+              ],
+              "summary": "vitae elementum curabitur vitae nunc sed velit eget gravida cum sociis natoque!!",
+              "supportEmail": "support@reapit.com",
+              "telephone": "0113 288 2900",
+            }
+          }
+          loginType="CLIENT"
+        >
+          <Component>
+            <div
+              className="columns  "
+            >
+              <Component
+                className="is-4"
+              >
+                <div
+                  className="column  is-4"
+                />
+              </Component>
+              <Component
+                className="is-8"
+              >
+                <div
+                  className="column  is-8"
+                >
+                  <Component
+                    html="enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam 
+    pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras 
+    sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar 
+    elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla 
+    at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet 
+    proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum co"
+                  >
+                    <Component
+                      className="html-render"
+                    >
+                      <div
+                        className="content html-render"
+                      >
+                        enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam 
+    pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras 
+    sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar 
+    elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla 
+    at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet 
+    proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum co
+                      </div>
+                    </Component>
+                  </Component>
+                  <br />
+                  <div>
+                    <Slider
+                      dots={false}
+                      nextArrow={
+                        <Unknown>
+                          <ChevronLeft />
+                        </Unknown>
+                      }
+                      prevArrow={
+                        <Unknown>
+                          <ChevronLeft />
+                        </Unknown>
+                      }
+                      speed={500}
+                      variableWidth={true}
+                    >
+                      <InnerSlider
+                        accessibility={true}
+                        adaptiveHeight={false}
+                        afterChange={null}
+                        appendDots={[Function]}
+                        arrows={true}
+                        autoplay={false}
+                        autoplaySpeed={3000}
+                        beforeChange={null}
+                        centerMode={false}
+                        centerPadding="50px"
+                        className=""
+                        cssEase="ease"
+                        customPaging={[Function]}
+                        dots={false}
+                        dotsClass="slick-dots"
+                        draggable={true}
+                        easing="linear"
+                        edgeFriction={0.35}
+                        fade={false}
+                        focusOnSelect={false}
+                        infinite={true}
+                        initialSlide={0}
+                        lazyLoad={null}
+                        nextArrow={
+                          <Unknown>
+                            <ChevronLeft />
+                          </Unknown>
+                        }
+                        onEdge={null}
+                        onInit={null}
+                        onLazyLoadError={null}
+                        onReInit={null}
+                        pauseOnDotsHover={false}
+                        pauseOnFocus={false}
+                        pauseOnHover={true}
+                        prevArrow={
+                          <Unknown>
+                            <ChevronLeft />
+                          </Unknown>
+                        }
+                        responsive={null}
+                        rows={1}
+                        rtl={false}
+                        slide="div"
+                        slidesPerRow={1}
+                        slidesToScroll={1}
+                        slidesToShow={1}
+                        speed={500}
+                        swipe={true}
+                        swipeEvent={null}
+                        swipeToSlide={false}
+                        touchMove={true}
+                        touchThreshold={5}
+                        useCSS={true}
+                        useTransform={true}
+                        variableWidth={true}
+                        vertical={false}
+                        waitForAnimate={true}
+                      >
+                        <div
+                          className="slick-slider slick-initialized"
+                          dir="ltr"
+                        >
+                          <PrevArrow
+                            centerMode={false}
+                            clickHandler={[Function]}
+                            currentSlide={0}
+                            infinite={true}
+                            nextArrow={
+                              <Unknown>
+                                <ChevronLeft />
+                              </Unknown>
+                            }
+                            prevArrow={
+                              <Unknown>
+                                <ChevronLeft />
+                              </Unknown>
+                            }
+                            slideCount={2}
+                            slidesToShow={1}
+                          >
+                            <Component
+                              className="slick-arrow slick-prev"
+                              currentSlide={0}
+                              data-role="none"
+                              key="0"
+                              onClick={[Function]}
+                              slideCount={2}
+                              style={
+                                Object {
+                                  "display": "block",
+                                }
+                              }
+                            >
+                              <button
+                                className="slick-arrow slick-prev"
+                                currentSlide={0}
+                                data-role="none"
+                                onClick={[Function]}
+                                slideCount={2}
+                                style={
+                                  Object {
+                                    "display": "block",
+                                  }
+                                }
+                              >
+                                <ChevronLeft>
+                                  <svg
+                                    fill="currentColor"
+                                    height="1em"
+                                    stroke="currentColor"
+                                    strokeWidth="0"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                                    />
+                                  </svg>
+                                </ChevronLeft>
+                              </button>
+                            </Component>
+                          </PrevArrow>
+                          <div
+                            className="slick-list"
+                            onClick={[Function]}
+                            onKeyDown={[Function]}
+                            onMouseDown={[Function]}
+                            onMouseLeave={null}
+                            onMouseMove={null}
+                            onMouseUp={[Function]}
+                            onTouchCancel={null}
+                            onTouchEnd={[Function]}
+                            onTouchMove={null}
+                            onTouchStart={[Function]}
+                            style={Object {}}
+                          >
+                            <Track
+                              centerMode={false}
+                              centerPadding="50px"
+                              cssEase="ease"
+                              currentSlide={0}
+                              fade={false}
+                              focusOnSelect={null}
+                              infinite={true}
+                              lazyLoad={null}
+                              lazyLoadedList={Array []}
+                              listHeight={0}
+                              onMouseEnter={[Function]}
+                              onMouseLeave={[Function]}
+                              onMouseOver={[Function]}
+                              rtl={false}
+                              slideCount={2}
+                              slideHeight={0}
+                              slideWidth={0}
+                              slidesToScroll={1}
+                              slidesToShow={1}
+                              speed={500}
+                              trackStyle={
+                                Object {
+                                  "WebkitTransform": "translate3d(0px, 0px, 0px)",
+                                  "WebkitTransition": "",
+                                  "msTransform": "translateX(0px)",
+                                  "opacity": 1,
+                                  "transform": "translate3d(0px, 0px, 0px)",
+                                  "transition": "",
+                                }
+                              }
+                              variableWidth={true}
+                              vertical={false}
+                            >
+                              <div
+                                className="slick-track"
+                                onMouseEnter={[Function]}
+                                onMouseLeave={[Function]}
+                                onMouseOver={[Function]}
+                                style={
+                                  Object {
+                                    "WebkitTransform": "translate3d(0px, 0px, 0px)",
+                                    "WebkitTransition": "",
+                                    "msTransform": "translateX(0px)",
+                                    "opacity": 1,
+                                    "transform": "translate3d(0px, 0px, 0px)",
+                                    "transition": "",
+                                  }
+                                }
+                              >
+                                <div
+                                  aria-hidden={true}
+                                  className="slick-slide slick-cloned"
+                                  data-index={-2}
+                                  key="precloned0"
+                                  onClick={[Function]}
+                                  style={
+                                    Object {
+                                      "width": null,
+                                    }
+                                  }
+                                  tabIndex="-1"
+                                >
+                                  <div
+                                    key="0"
+                                  >
+                                    <div
+                                      key="0"
+                                      style={
+                                        Object {
+                                          "display": "inline-block",
+                                          "width": "100%",
+                                        }
+                                      }
+                                      tabIndex={-1}
+                                    >
+                                      <img
+                                        src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                                <div
+                                  aria-hidden={true}
+                                  className="slick-slide slick-cloned"
+                                  data-index={-1}
+                                  key="precloned1"
+                                  onClick={[Function]}
+                                  style={
+                                    Object {
+                                      "width": null,
+                                    }
+                                  }
+                                  tabIndex="-1"
+                                >
+                                  <div
+                                    key="11"
+                                  >
+                                    <div
+                                      key="111"
+                                      style={
+                                        Object {
+                                          "display": "inline-block",
+                                          "width": "100%",
+                                        }
+                                      }
+                                      tabIndex={-1}
+                                    >
+                                      <img
+                                        src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                                <div
+                                  aria-hidden={false}
+                                  className="slick-slide slick-active slick-current"
+                                  data-index={0}
+                                  key="original0"
+                                  onClick={[Function]}
+                                  style={
+                                    Object {
+                                      "outline": "none",
+                                      "width": null,
+                                    }
+                                  }
+                                  tabIndex="-1"
+                                >
+                                  <div
+                                    key="0"
+                                  >
+                                    <div
+                                      key="0"
+                                      style={
+                                        Object {
+                                          "display": "inline-block",
+                                          "width": "100%",
+                                        }
+                                      }
+                                      tabIndex={-1}
+                                    >
+                                      <img
+                                        src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                                <div
+                                  aria-hidden={true}
+                                  className="slick-slide"
+                                  data-index={1}
+                                  key="original1"
+                                  onClick={[Function]}
+                                  style={
+                                    Object {
+                                      "outline": "none",
+                                      "width": null,
+                                    }
+                                  }
+                                  tabIndex="-1"
+                                >
+                                  <div
+                                    key="11"
+                                  >
+                                    <div
+                                      key="111"
+                                      style={
+                                        Object {
+                                          "display": "inline-block",
+                                          "width": "100%",
+                                        }
+                                      }
+                                      tabIndex={-1}
+                                    >
+                                      <img
+                                        src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                                <div
+                                  aria-hidden={true}
+                                  className="slick-slide slick-cloned"
+                                  data-index={2}
+                                  key="postcloned0"
+                                  onClick={[Function]}
+                                  style={
+                                    Object {
+                                      "width": null,
+                                    }
+                                  }
+                                  tabIndex="-1"
+                                >
+                                  <div
+                                    key="0"
+                                  >
+                                    <div
+                                      key="0"
+                                      style={
+                                        Object {
+                                          "display": "inline-block",
+                                          "width": "100%",
+                                        }
+                                      }
+                                      tabIndex={-1}
+                                    >
+                                      <img
+                                        src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                                <div
+                                  aria-hidden={true}
+                                  className="slick-slide slick-cloned"
+                                  data-index={3}
+                                  key="postcloned1"
+                                  onClick={[Function]}
+                                  style={
+                                    Object {
+                                      "width": null,
+                                    }
+                                  }
+                                  tabIndex="-1"
+                                >
+                                  <div
+                                    key="11"
+                                  >
+                                    <div
+                                      key="111"
+                                      style={
+                                        Object {
+                                          "display": "inline-block",
+                                          "width": "100%",
+                                        }
+                                      }
+                                      tabIndex={-1}
+                                    >
+                                      <img
+                                        src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </Track>
+                          </div>
+                          <NextArrow
+                            centerMode={false}
+                            clickHandler={[Function]}
+                            currentSlide={0}
+                            infinite={true}
+                            nextArrow={
+                              <Unknown>
+                                <ChevronLeft />
+                              </Unknown>
+                            }
+                            prevArrow={
+                              <Unknown>
+                                <ChevronLeft />
+                              </Unknown>
+                            }
+                            slideCount={2}
+                            slidesToShow={1}
+                          >
+                            <Component
+                              className="slick-arrow slick-next"
+                              currentSlide={0}
+                              data-role="none"
+                              key="1"
+                              onClick={[Function]}
+                              slideCount={2}
+                              style={
+                                Object {
+                                  "display": "block",
+                                }
+                              }
+                            >
+                              <button
+                                className="slick-arrow slick-next"
+                                currentSlide={0}
+                                data-role="none"
+                                onClick={[Function]}
+                                slideCount={2}
+                                style={
+                                  Object {
+                                    "display": "block",
+                                  }
+                                }
+                              >
+                                <ChevronLeft>
+                                  <svg
+                                    fill="currentColor"
+                                    height="1em"
+                                    stroke="currentColor"
+                                    strokeWidth="0"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                                    />
+                                  </svg>
+                                </ChevronLeft>
+                              </button>
+                            </Component>
+                          </NextArrow>
+                        </div>
+                      </InnerSlider>
+                    </Slider>
+                  </div>
+                  <br />
+                  <Component
+                    isMultiLine={true}
+                  >
+                    <div
+                      className="columns is-multiline "
+                    >
+                      <Component
+                        key="Marketplace/developers.read"
+                      >
+                        <div
+                          className="column is-multiline is-half-tablet is-one-third-widescreen "
+                        >
+                          <li>
+                            Read data about developers
+                          </li>
+                        </div>
+                      </Component>
+                      <Component
+                        key="Marketplace/developers.write"
+                      >
+                        <div
+                          className="column is-multiline is-half-tablet is-one-third-widescreen "
+                        >
+                          <li>
+                            Write data about developers
+                          </li>
+                        </div>
+                      </Component>
+                    </div>
+                  </Component>
+                </div>
+              </Component>
+            </div>
+          </Component>
+        </AppContent>
+        <ClientAppUninstallConfirmation
+          appDetailData={
+            Object {
+              "description": "enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam 
+    pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras 
+    sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar 
+    elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla 
+    at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet 
+    proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum co",
+              "developer": "Pete's Proptech World Ltd",
+              "homePage": "http://myawesomeproptechproduct.io",
+              "id": "9b6fd5f7-2c15-483d-b925-01b650538e52",
+              "media": Array [
+                Object {
+                  "description": "Application Icon",
+                  "type": "icon",
+                  "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg",
+                },
+                Object {
+                  "description": "Application Image",
+                  "type": "image",
+                  "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png",
+                },
+                Object {
+                  "description": "Application Image",
+                  "type": "image",
+                  "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png",
+                },
+              ],
+              "name": "Peter's Properties",
+              "scopes": Array [
+                Object {
+                  "description": "Read data about developers",
+                  "name": "Marketplace/developers.read",
+                },
+                Object {
+                  "description": "Write data about developers",
+                  "name": "Marketplace/developers.write",
+                },
+              ],
+              "summary": "vitae elementum curabitur vitae nunc sed velit eget gravida cum sociis natoque!!",
+              "supportEmail": "support@reapit.com",
+              "telephone": "0113 288 2900",
+            }
+          }
+          closeUninstallConfirmationModal={[Function]}
+          visible={false}
+        >
+          <Component
+            afterClose={[Function]}
+            footerItems={
+              <React.Fragment>
+                <Unknown
+                  dataTest="agree-btn"
+                  loading={false}
+                  onClick={[Function]}
+                  type="button"
+                  variant="primary"
+                >
+                  Confirm
+                </Unknown>
+                <Unknown
+                  dataTest="disagree-btn"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                  variant="danger"
+                >
+                  Cancel
+                </Unknown>
+              </React.Fragment>
+            }
+            title="Confirm Peter's Properties installation"
+            visible={false}
+          />
+          <Component
+            afterClose={[Function]}
+            visible={false}
+          />
+        </ClientAppUninstallConfirmation>
+      </div>
+    </ClientAppDetailManage>
+  </Router>
+</Provider>
 `;

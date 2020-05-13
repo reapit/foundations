@@ -25,6 +25,23 @@ export const handleUninstallAppButtonClick = (setIsVisibleUninstallConfirmation:
   }
 }
 
+export const renderAppHeaderButtonGroup = (installedOn, onUninstallConfirmationModal) => {
+  return (
+    <>
+      {installedOn && (
+        <Button
+          dataTest="detail-modal-uninstall-button"
+          type="button"
+          variant="primary"
+          onClick={onUninstallConfirmationModal}
+        >
+          Uninstall App
+        </Button>
+      )}
+    </>
+  )
+}
+
 const ClientAppDetailManage: React.FC<ClientAppDetailManageProps> = () => {
   const [isVisibleUninstallConfirmation, setIsVisibleUninstallConfirmation] = React.useState(false)
   const closeUninstallConfirmationModal = React.useCallback(
@@ -40,24 +57,11 @@ const ClientAppDetailManage: React.FC<ClientAppDetailManageProps> = () => {
   const isLoadingAppDetail = useSelector(selectAppDetailLoading)
   const loginType = useSelector(selectLoginType)
 
-  const { installedOn } = appDetailData
-
   return (
     <div className={styles.appDetailContainer}>
       <AppHeader
         appDetailData={appDetailData}
-        buttonGroup={
-          installedOn && (
-            <Button
-              dataTest="detail-modal-uninstall-button"
-              type="button"
-              variant="primary"
-              onClick={onUninstallConfirmationModal}
-            >
-              Uninstall App
-            </Button>
-          )
-        }
+        buttonGroup={renderAppHeaderButtonGroup(appDetailData.installedOn, onUninstallConfirmationModal)}
       />
       <AppContent appDetailData={appDetailData} loginType={loginType} />
       <ClientAppUninstallConfirmation

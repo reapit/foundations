@@ -1,8 +1,10 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
 import TestRenderer from 'react-test-renderer'
+import { Router } from 'react-router'
+import { createMemoryHistory } from 'history'
 import { ReduxState } from '@/types/core'
-import { shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import ClientAppDetail, {
@@ -26,6 +28,7 @@ const mockState = {
   auth: {
     loginType: 'CLIENT',
   },
+  installations: {},
 } as ReduxState
 
 describe('ClientAppDetail', () => {
@@ -36,10 +39,13 @@ describe('ClientAppDetail', () => {
     store = mockStore(mockState)
   })
   it('should match a snapshot', () => {
+    const history = createMemoryHistory()
     expect(
-      shallow(
+      mount(
         <ReactRedux.Provider store={store}>
-          <ClientAppDetail />
+          <Router history={history}>
+            <ClientAppDetail />
+          </Router>
         </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()
@@ -48,6 +54,10 @@ describe('ClientAppDetail', () => {
   describe('renderAppHeaderButtonGroup', () => {
     const mockAppId = 'test'
     const mockInstalledOn = '2020-2-20'
+    it('should match snapshot', () => {
+      const wrapper = shallow(<div>{renderAppHeaderButtonGroup(mockAppId, mockInstalledOn, jest.fn())}</div>)
+      expect(wrapper).toMatchSnapshot()
+    })
     it('should render header button group when appId is existed', () => {
       const testRenderer = TestRenderer.create(renderAppHeaderButtonGroup(mockAppId, mockInstalledOn, jest.fn()))
       const testInstance = testRenderer.root
@@ -58,14 +68,14 @@ describe('ClientAppDetail', () => {
       const testInstance = testRenderer.root
       expect(testInstance.findByType(Button).props.children).toBe('Install App')
     })
-    it('should render installed label if installedOn is empty', () => {
+    it('should render installed label if installedOn is existed', () => {
       const testRenderer = TestRenderer.create(renderAppHeaderButtonGroup(mockAppId, mockInstalledOn, jest.fn()))
       const testInstance = testRenderer.root
       expect(
         testInstance.findByProps({
-          id: 'test',
+          id: 'installed-label-container',
         }).children.length,
-      ).toBe(2)
+      ).toBeGreaterThan(0)
     })
     it('should not render header button group when appId is empty', () => {
       const testRenderer = TestRenderer.create(renderAppHeaderButtonGroup(null, mockInstalledOn, jest.fn()))

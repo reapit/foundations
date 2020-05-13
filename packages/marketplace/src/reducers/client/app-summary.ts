@@ -1,10 +1,10 @@
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
 import {
-  clientAppSummaryRequestData,
-  clientAppSummaryReceiveData,
-  clientAppSummaryClearData,
-  clientAppSummaryRequestDataFailure,
+  clientFetchAppSummary,
+  clientFetchAppSummarySuccess,
+  clientClearAppSummary,
+  clientFetchAppSummaryFailed,
 } from '@/actions/client'
 import { PagedResultAppSummaryModel_, AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
@@ -32,15 +32,15 @@ export const defaultState: ClientAppSummaryState = {
   error: null,
 }
 
-const clientReducer = (state: ClientAppSummaryState = defaultState, action: Action<any>): ClientAppSummaryState => {
-  if (isType(action, clientAppSummaryRequestData)) {
+const appSumarryReducer = (state: ClientAppSummaryState = defaultState, action: Action<any>): ClientAppSummaryState => {
+  if (isType(action, clientFetchAppSummary)) {
     return {
       ...state,
       isAppSummaryLoading: true,
     }
   }
 
-  if (isType(action, clientAppSummaryReceiveData)) {
+  if (isType(action, clientFetchAppSummarySuccess)) {
     return {
       ...state,
       isAppSummaryLoading: false,
@@ -48,7 +48,7 @@ const clientReducer = (state: ClientAppSummaryState = defaultState, action: Acti
     }
   }
 
-  if (isType(action, clientAppSummaryClearData)) {
+  if (isType(action, clientClearAppSummary)) {
     return {
       ...state,
       isAppSummaryLoading: false,
@@ -56,7 +56,7 @@ const clientReducer = (state: ClientAppSummaryState = defaultState, action: Acti
     }
   }
 
-  if (isType(action, clientAppSummaryRequestDataFailure)) {
+  if (isType(action, clientFetchAppSummaryFailed)) {
     return {
       ...state,
       isAppSummaryLoading: false,
@@ -67,4 +67,4 @@ const clientReducer = (state: ClientAppSummaryState = defaultState, action: Acti
   return state
 }
 
-export default clientReducer
+export default appSumarryReducer

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
 import { ReduxState } from '@/types/core'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import {
   ServiceChart,
@@ -31,7 +31,7 @@ describe('ServiceChart', () => {
   })
   it('should match a snapshot', () => {
     expect(
-      shallow(
+      mount(
         <ReactRedux.Provider store={store}>
           <ServiceChart />
         </ReactRedux.Provider>,
