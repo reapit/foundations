@@ -14,6 +14,7 @@ export interface EditorProps {
   actions?: Array<string | object>
   dataTest?: string
   onBlur?: () => void
+  onPaste?: (e: any) => void
 }
 
 const defaultActions = [
@@ -44,6 +45,7 @@ export const Editor = ({
   contentClass = 'pell-content',
   dataTest = '',
   onBlur,
+  onPaste,
 }: EditorProps) => {
   const containerEl = React.useRef<HTMLDivElement>(null)
 
@@ -79,6 +81,7 @@ export const Editor = ({
 
   return (
     <div
+      onPaste={onPaste}
       onBlur={onBlur}
       ref={containerEl}
       data-test={dataTest}

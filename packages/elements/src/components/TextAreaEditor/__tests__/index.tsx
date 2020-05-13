@@ -1,7 +1,13 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import { FieldInputProps, Formik } from 'formik'
-import { TextAreaEditor, TextAreaEditorProps, handleTextAreaOnChange, handleTextAreaOnBlur } from '../index'
+import {
+  TextAreaEditor,
+  TextAreaEditorProps,
+  handleTextAreaOnChange,
+  handleTextAreaOnBlur,
+  handleTextAreaOnPaste,
+} from '../index'
 
 const props: TextAreaEditorProps = {
   id: 'username',
@@ -39,6 +45,52 @@ describe('TextAreaEditor', () => {
       const fn = handleTextAreaOnBlur({ helpers: mockHelpers })
       fn()
       expect(spy).toHaveBeenCalledWith(true)
+    })
+  })
+
+  describe('handleTextAreaOnPaste', () => {
+    afterAll(() => {
+      Object.defineProperty(document, 'queryCommandSupported', {
+        value: jest.fn(() => true),
+        writable: true,
+      })
+    })
+    const eventMock = {
+      stopPropagation: jest.fn(),
+      preventDefault: jest.fn(),
+      clipboardData: { getData: jest.fn(() => 'copiedText') },
+    } as any
+
+    it('should call execCommand insertText with correct plaintext if supported', () => {
+      const fn = handleTextAreaOnPaste()
+      fn(eventMock)
+      const spy = jest.spyOn(document, 'execCommand')
+      expect(spy).toHaveBeenCalledWith('insertText', false, 'copiedText')
+    })
+
+    it('should call execCommand paste with correct plaintext if not supported', () => {
+      Object.defineProperty(document, 'queryCommandSupported', {
+        value: jest.fn(() => false),
+        writable: true,
+      })
+      const fn = handleTextAreaOnPaste()
+      fn(eventMock)
+      const spy = jest.spyOn(document, 'execCommand')
+      expect(spy).toHaveBeenCalledWith('paste', false, 'copiedText')
+    })
+    it('should fallback to window.clipboardData if not supported', () => {
+      Object.defineProperty(window, 'clipboardData', {
+        value: { getData: jest.fn(() => 'copiedText') },
+        writable: true,
+      })
+      const eventMock = {
+        stopPropagation: jest.fn(),
+        preventDefault: jest.fn(),
+      } as any
+      const spy = jest.spyOn((window as any).clipboardData, 'getData')
+      const fn = handleTextAreaOnPaste()
+      fn(eventMock)
+      expect(spy).toHaveBeenCalledWith('Text')
     })
   })
 })
