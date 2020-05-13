@@ -130,7 +130,7 @@ describe('ServiceChart', () => {
             borderWidth: 1,
             hoverBackgroundColor: 'rgba(255,99,132,0.4)',
             hoverBorderColor: 'rgba(255,99,132,1)',
-            data: [0, 0, 0, 0, 0, 6.75, 0] as number[],
+            data: [0, 0, 0, 0, 0, 8.1, 0] as number[],
           },
         ],
       }

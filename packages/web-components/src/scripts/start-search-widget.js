@@ -4,8 +4,9 @@ return (() => {
 
   try {
     const clearPublic = 'rimraf ./public/dist && rimraf ./public/themes'
-    // eslint-disable-next-line max-len
-    const moveHtml = 'mkdir -p ./public && cp ./src/search-widget/client/index.html ./public/ && cp ./src/property-detail/client/detail.html ./public/'
+    const moveHtml =
+      // eslint-disable-next-line max-len
+      'mkdir -p ./public && cp ./src/search-widget/client/index.html ./public/ && cp ./src/property-detail/client/detail.html ./public/'
     // eslint-disable-next-line max-len
     const moveTheme = 'mkdir -p ./public/themes && cp ./src/common/styles/__themes__/themes.js ./public/themes'
     const clientScript =
