@@ -88,28 +88,36 @@ const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
         )}
       />
       <AppContent appDetailData={appDetailData} loginType={loginType} />
-      <AppDelete
-        appId={id}
-        appName={name}
-        afterClose={closeDeleteAppModal(setIsDeleteModalOpen)}
-        visible={isDeleteModalOpen}
-        onDeleteSuccess={handleOnDeleteAppSuccess(history)}
-      />
 
-      <AppInstallations
-        appId={id}
-        appName={name}
-        visible={isInstallationsModalOpen}
-        afterClose={closeInstallationsModal(setIsInstallationsModalOpen)}
-        onUninstallSuccess={closeInstallationsModal(setIsInstallationsModalOpen)}
-      />
+      {isDeleteModalOpen && (
+        <AppDelete
+          appId={id}
+          appName={name}
+          afterClose={closeDeleteAppModal(setIsDeleteModalOpen)}
+          visible={isDeleteModalOpen}
+          onDeleteSuccess={handleOnDeleteAppSuccess(history)}
+        />
+      )}
 
-      <AppRevisionModal
-        visible={isAppRevisionComparisionModalOpen}
-        appId={id}
-        appDetailState={appDetailState}
-        afterClose={closeAppRevisionComparisionModal(setIsAppRevisionComparisionModalOpen)}
-      />
+      {isInstallationsModalOpen && (
+        <AppInstallations
+          appId={id}
+          appName={name}
+          visible={isInstallationsModalOpen}
+          afterClose={closeInstallationsModal(setIsInstallationsModalOpen)}
+          onUninstallSuccess={closeInstallationsModal(setIsInstallationsModalOpen)}
+        />
+      )}
+
+      {isAppRevisionComparisionModalOpen && (
+        <AppRevisionModal
+          visible={isAppRevisionComparisionModalOpen}
+          appId={id}
+          appDetailState={appDetailState}
+          afterClose={closeAppRevisionComparisionModal(setIsAppRevisionComparisionModalOpen)}
+        />
+      )}
+
       {isLoadingAppDetail && <Loader />}
     </div>
   )

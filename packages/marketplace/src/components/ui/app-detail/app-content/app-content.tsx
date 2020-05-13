@@ -97,13 +97,11 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailData, loginType }) => 
     speed: 500,
     variableWidth: true,
     prevArrow: (
-      // @ts-ignore
       <SlickButtonNav>
         <ChevronLeftIcon />
       </SlickButtonNav>
     ),
     nextArrow: (
-      // @ts-ignore
       <SlickButtonNav>
         <ChevronLeftIcon />
       </SlickButtonNav>

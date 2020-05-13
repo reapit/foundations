@@ -38,7 +38,7 @@ exports[`ClientAppDetail should match a snapshot 1`] = `
         "entries": Array [
           Object {
             "hash": "",
-            "key": "to3pvn",
+            "key": "x8a4cq",
             "pathname": "/",
             "search": "",
             "state": undefined,
@@ -52,7 +52,7 @@ exports[`ClientAppDetail should match a snapshot 1`] = `
         "listen": [Function],
         "location": Object {
           "hash": "",
-          "key": "to3pvn",
+          "key": "x8a4cq",
           "pathname": "/",
           "search": "",
           "state": undefined,
@@ -846,10 +846,6 @@ exports[`ClientAppDetail should match a snapshot 1`] = `
               </React.Fragment>
             }
             title="Confirm Peter's Properties installation"
-            visible={false}
-          />
-          <Component
-            afterClose={[Function]}
             visible={false}
           />
         </ClientAppInstallConfirmation>

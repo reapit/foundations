@@ -1,5 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ClientAppUninstallConfirmation renderUninstallConfirmationModalFooter should match snapshot 1`] = `
+<div>
+  <Component
+    dataTest="agree-btn"
+    loading={false}
+    onClick={[Function]}
+    type="button"
+    variant="primary"
+  >
+    Confirm
+  </Component>
+  <Component
+    dataTest="disagree-btn"
+    disabled={false}
+    onClick={[MockFunction]}
+    type="button"
+    variant="danger"
+  >
+    Cancel
+  </Component>
+</div>
+`;
+
 exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
 <Provider
   store={
@@ -23,7 +46,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
         "entries": Array [
           Object {
             "hash": "",
-            "key": "vclqtp",
+            "key": "ua2k3p",
             "pathname": "/",
             "search": "",
             "state": undefined,
@@ -37,7 +60,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
         "listen": [Function],
         "location": Object {
           "hash": "",
-          "key": "vclqtp",
+          "key": "ua2k3p",
           "pathname": "/",
           "search": "",
           "state": undefined,

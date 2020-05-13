@@ -23,7 +23,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
         "entries": Array [
           Object {
             "hash": "",
-            "key": "49wyie",
+            "key": "9ujcw5",
             "pathname": "/",
             "search": "",
             "state": undefined,
@@ -37,7 +37,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
         "listen": [Function],
         "location": Object {
           "hash": "",
-          "key": "49wyie",
+          "key": "9ujcw5",
           "pathname": "/",
           "search": "",
           "state": undefined,
@@ -121,10 +121,6 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
         }
         title="Confirm Peter's Properties installation"
         visible={true}
-      />
-      <Component
-        afterClose={[Function]}
-        visible={false}
       />
     </ClientAppInstallConfirmation>
   </Router>

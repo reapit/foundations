@@ -73,8 +73,11 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
 
   if (location && location.search) {
     const pageQueryString = getParamValueFromPath(location.search, 'page')
-    pageNumber = Number(pageQueryString) > 0 ? Number(pageQueryString) : 1
+    if (pageQueryString) {
+      pageNumber = Number(pageQueryString)
+    }
   }
+
   const unfetched = !developerState.developerData
   const loading = developerState.loading
   const list = developerState?.developerData?.data?.data || []

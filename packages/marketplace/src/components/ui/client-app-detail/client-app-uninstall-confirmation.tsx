@@ -75,6 +75,48 @@ export const handleSuccessAlertMessageAfterClose = (setIsSuccessAlertVisible: (i
   }
 }
 
+export const renderUninstallConfirmationModalFooter = (
+  isSubmitting: boolean,
+  id: string,
+  clientId: string,
+  installationId: string,
+  dispatch: Dispatch<any>,
+  setIsSuccessAlertVisible: (isVisible: boolean) => void,
+  closeUninstallConfirmationModal: () => void,
+) => {
+  return (
+    <>
+      <Button
+        dataTest="agree-btn"
+        loading={isSubmitting}
+        className={appPermissionContentStyles.installButton}
+        type="button"
+        variant="primary"
+        onClick={onUninstallButtonClick(
+          id,
+          clientId,
+          installationId,
+          dispatch,
+          setIsSuccessAlertVisible,
+          closeUninstallConfirmationModal,
+        )}
+      >
+        Confirm
+      </Button>
+      <Button
+        dataTest="disagree-btn"
+        disabled={false}
+        className={appPermissionContentStyles.installButton}
+        type="button"
+        variant="danger"
+        onClick={closeUninstallConfirmationModal}
+      >
+        Cancel
+      </Button>
+    </>
+  )
+}
+
 const ClientAppUninstallConfirmation: React.FC<ClientAppUninstallConfirmationProps> = ({
   appDetailData,
   visible,
@@ -95,37 +137,15 @@ const ClientAppUninstallConfirmation: React.FC<ClientAppUninstallConfirmationPro
         visible={visible}
         title={`Confirm ${name} installation`}
         afterClose={closeUninstallConfirmationModal}
-        footerItems={
-          <>
-            <Button
-              dataTest="agree-btn"
-              loading={isSubmitting}
-              className={appPermissionContentStyles.installButton}
-              type="button"
-              variant="primary"
-              onClick={onUninstallButtonClick(
-                id,
-                clientId,
-                installationId,
-                dispatch,
-                setIsSuccessAlertVisible,
-                closeUninstallConfirmationModal,
-              )}
-            >
-              Confirm
-            </Button>
-            <Button
-              dataTest="disagree-btn"
-              disabled={false}
-              className={appPermissionContentStyles.installButton}
-              type="button"
-              variant="danger"
-              onClick={closeUninstallConfirmationModal}
-            >
-              Cancel
-            </Button>
-          </>
-        }
+        footerItems={renderUninstallConfirmationModalFooter(
+          isSubmitting,
+          id,
+          clientId,
+          installationId,
+          dispatch,
+          setIsSuccessAlertVisible,
+          closeUninstallConfirmationModal,
+        )}
       >
         <>Are you sure you wish to uninstall {name}? This action will uninstall the app for ALL platform users</>
       </Modal>

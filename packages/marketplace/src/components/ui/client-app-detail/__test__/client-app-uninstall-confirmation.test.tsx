@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
 import { ReduxState } from '@/types/core'
-import { mount } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import { Router } from 'react-router'
 import { createMemoryHistory } from 'history'
@@ -15,6 +15,7 @@ import ClientAppUninstallConfirmation, {
   handleUninstallAppSuccessCallback,
   handleSuccessAlertButtonClick,
   handleSuccessAlertMessageAfterClose,
+  renderUninstallConfirmationModalFooter,
 } from '../client-app-uninstall-confirmation'
 
 const mockState = {
@@ -125,5 +126,23 @@ describe('ClientAppUninstallConfirmation', () => {
     const fn = handleSuccessAlertMessageAfterClose(mockFunction)
     fn()
     expect(mockFunction).toBeCalledWith(false)
+  })
+  describe('renderUninstallConfirmationModalFooter', () => {
+    it('should match snapshot', () => {
+      const wrapper = shallow(
+        <div>
+          {renderUninstallConfirmationModalFooter(
+            false,
+            appId,
+            clientId,
+            installationId,
+            spyDispatch,
+            jest.fn(),
+            jest.fn(),
+          )}
+        </div>,
+      )
+      expect(wrapper).toMatchSnapshot()
+    })
   })
 })

@@ -146,20 +146,25 @@ const ClientAppInstallConfirmation: React.FC<ClientAppInstallConfirmationProps> 
           )}
         </>
       </Modal>
-      <Modal visible={isSuccessAlertVisible} afterClose={handleSuccessAlertMessageAfterClose(setIsSuccessAlertVisible)}>
-        <>
-          <CallToAction
-            title="Success"
-            buttonText="Back to List"
-            dataTest="installations-success-message"
-            buttonDataTest="installations-success-button"
-            onButtonClick={onSuccessAlertButtonClick}
-            isCenter
-          >
-            {name} has been successfully installed
-          </CallToAction>
-        </>
-      </Modal>
+      {isSuccessAlertVisible && (
+        <Modal
+          visible={isSuccessAlertVisible}
+          afterClose={handleSuccessAlertMessageAfterClose(setIsSuccessAlertVisible)}
+        >
+          <>
+            <CallToAction
+              title="Success"
+              buttonText="Back to List"
+              dataTest="installations-success-message"
+              buttonDataTest="installations-success-button"
+              onButtonClick={onSuccessAlertButtonClick}
+              isCenter
+            >
+              {name} has been successfully installed
+            </CallToAction>
+          </>
+        </Modal>
+      )}
     </>
   )
 }
