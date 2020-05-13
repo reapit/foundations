@@ -52,19 +52,19 @@ describe('CostCalculator', () => {
       const fn = handleOnSave({ setCreatedMonth, dispatch, myAppIds })
       fn(mockFormValues)
       expect(setCreatedMonth).toBeCalledWith(mockCreatedMonth)
-      expect(dispatch).toBeCalledWith(fetchMonthlyBilling({ month: mockCreatedMonth, applicationId: myAppIds }))
+      expect(dispatch).toBeCalledWith(fetchMonthlyBilling({ month: mockCreatedMonth, applicationIds: myAppIds }))
     })
   })
 
   describe('handleFetchMonthlyBilling', () => {
     it('should run correctly', () => {
       const month = '2020-05'
-      const applicationId = ['applicationId']
+      const applicationIds = ['applicationId']
       const dispatch = jest.fn()
 
-      const fn = handleFetchMonthlyBilling({ dispatch, month, applicationId })
+      const fn = handleFetchMonthlyBilling({ dispatch, month, applicationIds })
       fn()
-      expect(dispatch).toBeCalledWith(fetchMonthlyBilling({ month, applicationId }))
+      expect(dispatch).toBeCalledWith(fetchMonthlyBilling({ month, applicationIds }))
     })
   })
 })

@@ -24,6 +24,7 @@ exports[`FilterBar should match a snapshot 1`] = `
         <Component
           className="false"
           fullWidth={false}
+          key="Yesterday"
           onClick={[Function]}
           type="button"
           variant="secondary"
@@ -33,6 +34,7 @@ exports[`FilterBar should match a snapshot 1`] = `
         <Component
           className="is-info"
           fullWidth={false}
+          key="Last Week"
           onClick={[Function]}
           type="button"
           variant="secondary"
@@ -42,6 +44,7 @@ exports[`FilterBar should match a snapshot 1`] = `
         <Component
           className="false"
           fullWidth={false}
+          key="Last Month"
           onClick={[Function]}
           type="button"
           variant="secondary"

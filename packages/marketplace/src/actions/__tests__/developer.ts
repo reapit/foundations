@@ -80,7 +80,7 @@ describe('developer actions', () => {
 
   it('should create a fetchMonthlyBilling action', () => {
     const params = {
-      applicationId: ['applicationId'],
+      applicationIds: ['applicationId'],
       month: 'month',
     }
     expect(fetchMonthlyBilling.type).toEqual(ActionTypes.DEVELOPER_FETCH_MONTHLY_BILLING)
