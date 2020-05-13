@@ -124,7 +124,7 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = () => {
         <H4>Transaction History</H4>
       </div>
       <div className={styles.transactionSection}>
-        <H6>This Months Transactions</H6>
+        <H6>This Months Transactions To Date</H6>
         {renderTransactionHistoryItem({ date: today, developerAppIds })}
       </div>
       <div>
