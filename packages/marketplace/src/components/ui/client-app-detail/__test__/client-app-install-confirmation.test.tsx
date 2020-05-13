@@ -4,8 +4,7 @@ import { ReduxState } from '@/types/core'
 import { mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
-import { Router } from 'react-router'
-import { createMemoryHistory } from 'history'
+import { MemoryRouter } from 'react-router'
 import ClientAppInstallConfirmation, {
   ClientAppInstallConfirmationProps,
   handleInstallButtonClick,
@@ -16,6 +15,7 @@ import ClientAppInstallConfirmation, {
 import { appInstallationsRequestInstall } from '@/actions/app-installations'
 import { clientFetchAppDetail } from '@/actions/client'
 import routes from '@/constants/routes'
+import Routes from '@/constants/routes'
 
 const mockState = {
   client: {
@@ -57,13 +57,12 @@ describe('ClientAppInstallConfirmation', () => {
     spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
   })
   it('should match a snapshot', () => {
-    const history = createMemoryHistory()
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <Router history={history}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.CLIENT_APP_DETAIL, key: 'clientAppDetailRoute' }]}>
             <ClientAppInstallConfirmation {...mockProps} />
-          </Router>
+          </MemoryRouter>
         </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()

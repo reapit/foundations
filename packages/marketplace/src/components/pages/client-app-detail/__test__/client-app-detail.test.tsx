@@ -1,8 +1,7 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
 import TestRenderer from 'react-test-renderer'
-import { Router } from 'react-router'
-import { createMemoryHistory } from 'history'
+import { MemoryRouter } from 'react-router'
 import { ReduxState } from '@/types/core'
 import { mount, shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
@@ -13,6 +12,7 @@ import ClientAppDetail, {
   renderAppHeaderButtonGroup,
 } from '../client-app-detail'
 import { Button } from '@reapit/elements'
+import Routes from '@/constants/routes'
 
 const mockState = {
   client: {
@@ -39,13 +39,12 @@ describe('ClientAppDetail', () => {
     store = mockStore(mockState)
   })
   it('should match a snapshot', () => {
-    const history = createMemoryHistory()
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <Router history={history}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.CLIENT_APP_DETAIL, key: 'clientAppDetailRoute' }]}>
             <ClientAppDetail />
-          </Router>
+          </MemoryRouter>
         </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()

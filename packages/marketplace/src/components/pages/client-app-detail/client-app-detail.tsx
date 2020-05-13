@@ -73,11 +73,13 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
         )}
       />
       <AppContent appDetailData={appDetailData} loginType={loginType} />
-      <ClientAppInstallConfirmation
-        visible={isVisibleInstallConfirmation}
-        appDetailData={appDetailData}
-        closeInstallConfirmationModal={closeInstallConfirmationModal}
-      />
+      {isVisibleInstallConfirmation && (
+        <ClientAppInstallConfirmation
+          visible={isVisibleInstallConfirmation}
+          appDetailData={appDetailData}
+          closeInstallConfirmationModal={closeInstallConfirmationModal}
+        />
+      )}
       {isLoadingAppDetail && <Loader />}
     </div>
   )

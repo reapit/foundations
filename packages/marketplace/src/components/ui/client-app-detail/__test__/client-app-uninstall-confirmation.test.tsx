@@ -3,8 +3,7 @@ import * as ReactRedux from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { mount, shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
-import { Router } from 'react-router'
-import { createMemoryHistory } from 'history'
+import { MemoryRouter } from 'react-router'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { appInstallationsRequestUninstall } from '@/actions/app-installations'
 import { clientFetchAppDetail } from '@/actions/client'
@@ -17,6 +16,7 @@ import ClientAppUninstallConfirmation, {
   handleSuccessAlertMessageAfterClose,
   renderUninstallConfirmationModalFooter,
 } from '../client-app-uninstall-confirmation'
+import Routes from '@/constants/routes'
 
 const mockState = {
   client: {
@@ -59,13 +59,12 @@ describe('ClientAppUninstallConfirmation', () => {
     spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
   })
   it('should match a snapshot', () => {
-    const history = createMemoryHistory()
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <Router history={history}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.CLIENT_APP_DETAIL, key: 'clientAppDetailRoute' }]}>
             <ClientAppUninstallConfirmation {...mockProps} />
-          </Router>
+          </MemoryRouter>
         </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()

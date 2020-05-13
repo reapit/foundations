@@ -4,8 +4,7 @@ import { ReduxState } from '@/types/core'
 import TestRenderer from 'react-test-renderer'
 import { shallow, mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
-import { Router } from 'react-router'
-import { createMemoryHistory } from 'history'
+import { MemoryRouter } from 'react-router'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import ClientAppDetailManage, {
   handleCloseUninstallConfirmationModal,
@@ -13,6 +12,7 @@ import ClientAppDetailManage, {
   renderAppHeaderButtonGroup,
 } from '../client-app-detail-manage'
 import { Button } from '@reapit/elements'
+import Routes from '@/constants/routes'
 
 const mockState = {
   client: {
@@ -39,13 +39,14 @@ describe('ClientAppDetailManage', () => {
     store = mockStore(mockState)
   })
   it('should match a snapshot', () => {
-    const history = createMemoryHistory()
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <Router history={history}>
+          <MemoryRouter
+            initialEntries={[{ pathname: Routes.CLIENT_APP_DETAIL_MANAGE, key: 'clientAppDetailManageRoute' }]}
+          >
             <ClientAppDetailManage />
-          </Router>
+          </MemoryRouter>
         </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()

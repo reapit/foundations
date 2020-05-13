@@ -13,116 +13,125 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
     }
   }
 >
-  <Router
-    history={
-      Object {
-        "action": "POP",
-        "block": [Function],
-        "canGo": [Function],
-        "createHref": [Function],
-        "entries": Array [
-          Object {
-            "hash": "",
-            "key": "9ujcw5",
-            "pathname": "/",
-            "search": "",
-            "state": undefined,
-          },
-        ],
-        "go": [Function],
-        "goBack": [Function],
-        "goForward": [Function],
-        "index": 0,
-        "length": 1,
-        "listen": [Function],
-        "location": Object {
-          "hash": "",
-          "key": "9ujcw5",
-          "pathname": "/",
-          "search": "",
-          "state": undefined,
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "clientAppDetailRoute",
+          "pathname": "/client/apps/:appid",
         },
-        "push": [Function],
-        "replace": [Function],
-      }
+      ]
     }
   >
-    <ClientAppInstallConfirmation
-      appDetailData={
+    <Router
+      history={
         Object {
-          "description": "enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam 
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "clientAppDetailRoute",
+              "pathname": "/client/apps/:appid",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "clientAppDetailRoute",
+            "pathname": "/client/apps/:appid",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <ClientAppInstallConfirmation
+        appDetailData={
+          Object {
+            "description": "enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam 
     pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras 
     sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar 
     elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla 
     at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet 
     proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum co",
-          "developer": "Pete's Proptech World Ltd",
-          "homePage": "http://myawesomeproptechproduct.io",
-          "id": "9b6fd5f7-2c15-483d-b925-01b650538e52",
-          "media": Array [
-            Object {
-              "description": "Application Icon",
-              "type": "icon",
-              "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg",
-            },
-            Object {
-              "description": "Application Image",
-              "type": "image",
-              "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png",
-            },
-            Object {
-              "description": "Application Image",
-              "type": "image",
-              "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png",
-            },
-          ],
-          "name": "Peter's Properties",
-          "scopes": Array [
-            Object {
-              "description": "Read data about developers",
-              "name": "Marketplace/developers.read",
-            },
-            Object {
-              "description": "Write data about developers",
-              "name": "Marketplace/developers.write",
-            },
-          ],
-          "summary": "vitae elementum curabitur vitae nunc sed velit eget gravida cum sociis natoque!!",
-          "supportEmail": "support@reapit.com",
-          "telephone": "0113 288 2900",
+            "developer": "Pete's Proptech World Ltd",
+            "homePage": "http://myawesomeproptechproduct.io",
+            "id": "9b6fd5f7-2c15-483d-b925-01b650538e52",
+            "media": Array [
+              Object {
+                "description": "Application Icon",
+                "type": "icon",
+                "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg",
+              },
+              Object {
+                "description": "Application Image",
+                "type": "image",
+                "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png",
+              },
+              Object {
+                "description": "Application Image",
+                "type": "image",
+                "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png",
+              },
+            ],
+            "name": "Peter's Properties",
+            "scopes": Array [
+              Object {
+                "description": "Read data about developers",
+                "name": "Marketplace/developers.read",
+              },
+              Object {
+                "description": "Write data about developers",
+                "name": "Marketplace/developers.write",
+              },
+            ],
+            "summary": "vitae elementum curabitur vitae nunc sed velit eget gravida cum sociis natoque!!",
+            "supportEmail": "support@reapit.com",
+            "telephone": "0113 288 2900",
+          }
         }
-      }
-      closeInstallConfirmationModal={[MockFunction]}
-      visible={true}
-    >
-      <Component
-        afterClose={[MockFunction]}
-        footerItems={
-          <React.Fragment>
-            <Unknown
-              dataTest="agree-btn"
-              loading={false}
-              onClick={[Function]}
-              type="button"
-              variant="primary"
-            >
-              Confirm
-            </Unknown>
-            <Unknown
-              dataTest="disagree-btn"
-              disabled={false}
-              onClick={[MockFunction]}
-              type="button"
-              variant="danger"
-            >
-              Cancel
-            </Unknown>
-          </React.Fragment>
-        }
-        title="Confirm Peter's Properties installation"
+        closeInstallConfirmationModal={[MockFunction]}
         visible={true}
-      />
-    </ClientAppInstallConfirmation>
-  </Router>
+      >
+        <Component
+          afterClose={[MockFunction]}
+          footerItems={
+            <React.Fragment>
+              <Unknown
+                dataTest="agree-btn"
+                loading={false}
+                onClick={[Function]}
+                type="button"
+                variant="primary"
+              >
+                Confirm
+              </Unknown>
+              <Unknown
+                dataTest="disagree-btn"
+                disabled={false}
+                onClick={[MockFunction]}
+                type="button"
+                variant="danger"
+              >
+                Cancel
+              </Unknown>
+            </React.Fragment>
+          }
+          title="Confirm Peter's Properties installation"
+          visible={true}
+        />
+      </ClientAppInstallConfirmation>
+    </Router>
+  </MemoryRouter>
 </Provider>
 `;

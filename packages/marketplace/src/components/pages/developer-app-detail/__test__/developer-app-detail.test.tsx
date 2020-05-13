@@ -3,8 +3,7 @@ import * as ReactRedux from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { mount, shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
-import { Router } from 'react-router'
-import { createMemoryHistory } from 'history'
+import { MemoryRouter } from 'react-router'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import DeveloperAppDetail, {
   handleOnDeleteAppSuccess,
@@ -17,6 +16,7 @@ import routes from '@/constants/routes'
 import { revisionsDataStub } from '@/sagas/__stubs__/revisions'
 import { installationStub } from '@/sagas/__stubs__/installation'
 import { revisionDetailDataStub } from '@/sagas/__stubs__/revision-detail'
+import Routes from '@/constants/routes'
 
 const mockState = {
   developer: {
@@ -56,13 +56,12 @@ describe('DeveloperAppDetail', () => {
     store = mockStore(mockState)
   })
   it('should match a snapshot', () => {
-    const history = createMemoryHistory()
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <Router history={history}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.DEVELOPER_APP_DETAIL, key: 'developerAppDetailRoute' }]}>
             <DeveloperAppDetail />
-          </Router>
+          </MemoryRouter>
         </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()
