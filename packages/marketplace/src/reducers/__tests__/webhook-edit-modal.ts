@@ -9,6 +9,14 @@ describe('developer webhook reducer', () => {
     expect(newState).toEqual(defaultState)
   })
 
+  it('should return default state', () => {
+    const newState = DeveloperWebhookReducer(undefined, {
+      type: ActionTypes.WEBHOOK_DATA_CLEAR as ActionType,
+      data: undefined,
+    })
+    expect(newState).toEqual(defaultState)
+  })
+
   it('should return new state when reveice data', () => {
     const newState = DeveloperWebhookReducer(undefined, {
       type: ActionTypes.WEBHOOK_EDIT_SUBCRIPTION_RECEIVE_DATA as ActionType,
@@ -41,6 +49,30 @@ describe('developer webhook reducer', () => {
       ...defaultState,
       webhookData: webhookItemDataStub,
       loading: false,
+    }
+    expect(newState).toEqual(expected)
+  })
+
+  it('should return loading requestWebhookSubcriptionData, requestWebhookData', () => {
+    const newState = DeveloperWebhookReducer(undefined, {
+      type: ActionTypes.WEBHOOK_EDIT_SUBCRIPTION_REQUEST_DATA as ActionType,
+      data: true,
+    })
+    const expected = {
+      ...defaultState,
+      loading: true,
+    }
+    expect(newState).toEqual(expected)
+  })
+
+  it('should return new state webhookSetOpenModal', () => {
+    const newState = DeveloperWebhookReducer(undefined, {
+      type: ActionTypes.WEBHOOK_SET_OPEN_MODAL as ActionType,
+      data: 'TEST',
+    })
+    const expected = {
+      ...defaultState,
+      modalType: 'TEST',
     }
     expect(newState).toEqual(expected)
   })
