@@ -10,6 +10,7 @@ import WebhookCreateModal, {
   generateCustomerOptions,
   generateTopicOptions,
   FormValuesType,
+  validateURL,
 } from '../webhook-edit-modal'
 import { webhookItemDataStub } from '@/sagas/__stubs__/webhook-edit'
 import { TopicItem, CustomerItem } from '@/reducers/webhook-edit-modal'
@@ -181,5 +182,9 @@ describe('WebhookEditModal', () => {
     ]
 
     expect(generateCustomerOptions(data)).toEqual(expected)
+  })
+  it('should return validateURL correctly', () => {
+    expect(validateURL('asdsadsd')).toBe('The value must be a valid and secure URI')
+    expect(validateURL('https://google.com')).toBe(null)
   })
 })

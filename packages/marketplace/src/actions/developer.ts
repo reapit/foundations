@@ -1,12 +1,20 @@
 // TODO: WILL MOVE ALL DEVELOPER ACTIONS TO HERE
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
-import { DeveloperItem, DeveloperRequestParams, Billing, AppDetailData, MonthlyBilling } from '../reducers/developer'
+import {
+  AppDetailData,
+  DeveloperItem,
+  DeveloperRequestParams,
+  Billing,
+  MonthlyBilling,
+  WebhookPingTestStatus,
+} from '@/reducers/developer'
 import { CreateDeveloperModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { FormState } from '@/types/core'
 import { FetchBillingParams } from '@/sagas/api'
 import { FetchAppDetailParams } from '@/services/apps'
 import { FetchMonthlyBillingParams } from '@/services/billings'
+import { WebhookPingTestParams } from '@/services/subscriptions'
 
 // Developer App Detail
 export const developerFetchAppDetail = actionCreator<FetchAppDetailParams>(ActionTypes.DEVELOPER_FETCH_APP_DETAIL)
@@ -32,3 +40,7 @@ export const fetchMonthlyBillingSuccess = actionCreator<MonthlyBilling>(
   ActionTypes.DEVELOPER_FETCH_MONTHLY_BILLING_SUCCESS,
 )
 export const fetchMonthlyBillingFailure = actionCreator<unknown>(ActionTypes.DEVELOPER_FETCH_MONTHLY_BILLING_FAILED)
+export const developerWebhookPing = actionCreator<WebhookPingTestParams>(ActionTypes.DEVELOPER_PING_WEBHOOK)
+export const developerSetWebhookPingStatus = actionCreator<WebhookPingTestStatus>(
+  ActionTypes.DEVELOPER_SET_PING_WEBHOOK_STATUS,
+)

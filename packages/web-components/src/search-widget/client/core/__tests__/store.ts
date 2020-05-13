@@ -8,6 +8,7 @@ describe('store', () => {
         customerId: '',
         theme: {},
         parentSelector: '',
+        detailPageUrl: '',
       },
       themeClasses: {
         globalStyles: '',

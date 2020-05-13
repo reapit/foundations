@@ -15,6 +15,7 @@ export const COGNITO_HEADERS = {
 
 export const URLS = {
   developers: '/developers',
+  developer: '/developer',
   apps: '/apps',
   approvals: '/approvals',
   installations: '/installations',
@@ -27,6 +28,7 @@ export const URLS = {
   webhook: '/webhooks',
   webhookSubscriptions: '/webhooks/subscriptions',
   webhookTopics: '/webhooks/topics',
+  trafficEventBilling: '/trafficevents/billing',
 }
 
 export const SANDBOX_CLIENT_ID = 'SBOX'

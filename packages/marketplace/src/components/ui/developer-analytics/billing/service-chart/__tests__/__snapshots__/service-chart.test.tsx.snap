@@ -36,7 +36,7 @@ exports[`ServiceChart handleUseEffect should render Chart 1`] = `
             Object {
               "scaleLabel": Object {
                 "display": true,
-                "labelString": "Total cost",
+                "labelString": "Total Cost ( £ )",
               },
             },
           ],

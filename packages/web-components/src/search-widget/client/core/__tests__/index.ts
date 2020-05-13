@@ -9,6 +9,7 @@ describe('ReapitSearchWidgetComponent', () => {
         apiKey: 'SOME_KEY',
         customerId: 'DEMO',
         theme: stubTheme,
+        detailPageUrl: '/detail.html',
       }),
     ).toMatchSnapshot()
   })

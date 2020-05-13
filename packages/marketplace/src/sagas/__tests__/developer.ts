@@ -11,6 +11,7 @@ import {
   fetchBillingSuccess,
   fetchMonthlyBillingSuccess,
   fetchMonthlyBillingFailure,
+  developerSetWebhookPingStatus,
 } from '@/actions/developer'
 import developerSagas, {
   developerDataFetch,
@@ -23,6 +24,8 @@ import developerSagas, {
   fetchBillingSagas,
   fetchMonthlyBillingSagasListen,
   fetchMonthlyBillingSagas,
+  developerWebhookPingListen,
+  developerWebhookPing,
 } from '../developer'
 import ActionTypes from '@/constants/action-types'
 import { generateHeader, URLS } from '@/constants/api'
@@ -39,6 +42,7 @@ import { developerIdentity } from '../__stubs__/developer-identity'
 import { billing } from '../__stubs__/billing'
 import { FetchMonthlyBillingParams, fetchMonthlyBilling } from '@/services/billings'
 import { monthlyBillingData } from '../__stubs__/monthly-billing'
+import { WebhookPingTestParams, webhookPingTestSubcription } from '@/services/subscriptions'
 
 jest.mock('@reapit/elements')
 
@@ -201,7 +205,7 @@ describe('fetchBillingSagas', () => {
 describe('fetchMonthlyBillingSagas', () => {
   const params = {
     month: '2020-01',
-    applicationId: ['1', '2'],
+    applicationIds: ['1', '2'],
   } as FetchMonthlyBillingParams
   const gen = cloneableGenerator(fetchMonthlyBillingSagas as any)({ data: params })
   expect(gen.next().value).toEqual(call(fetchMonthlyBilling, params))
@@ -222,6 +226,27 @@ describe('fetchMonthlyBillingSagas', () => {
         }),
       ),
     )
+    expect(clone.next().done).toEqual(true)
+  })
+})
+
+describe('developerWebhookPing', () => {
+  const params = {
+    id: '2020-01',
+    topicId: 'topicid',
+  } as WebhookPingTestParams
+  const gen = cloneableGenerator(developerWebhookPing as any)({ data: params })
+  expect(gen.next().value).toEqual(put(developerSetWebhookPingStatus('LOADING')))
+  it('api call success', () => {
+    const clone = gen.clone()
+    expect(clone.next().value).toEqual(call(webhookPingTestSubcription, params))
+    expect(clone.next().value).toEqual(put(developerSetWebhookPingStatus('SUCCESS')))
+    expect(clone.next().done).toEqual(true)
+  })
+  it('api call error', () => {
+    const clone = gen.clone()
+    // @ts-ignore
+    expect(clone.throw('error').value).toEqual(put(developerSetWebhookPingStatus('FAILED')))
     expect(clone.next().done).toEqual(true)
   })
 })
@@ -272,6 +297,14 @@ describe('developer thunks', () => {
     })
   })
 
+  describe('developerWebhookPingListen', () => {
+    it('should trigger developerWebhookPing action', () => {
+      const gen = developerWebhookPingListen()
+      expect(gen.next().value).toEqual(takeLatest(ActionTypes.DEVELOPER_PING_WEBHOOK, developerWebhookPing))
+      expect(gen.next().done).toBe(true)
+    })
+  })
+
   describe('developerSagas', () => {
     it('should listen developer request data & create app action', () => {
       const gen = developerSagas()
@@ -283,6 +316,7 @@ describe('developer thunks', () => {
           fork(fetchMyIdentitySagasListen),
           fork(fetchBillingSagasListen),
           fork(fetchMonthlyBillingSagasListen),
+          fork(developerWebhookPingListen),
         ]),
       )
       expect(gen.next().done).toBe(true)

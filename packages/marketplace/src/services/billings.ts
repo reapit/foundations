@@ -3,15 +3,15 @@ import { generateHeader, URLS } from '@/constants/api'
 import { logger } from 'logger'
 
 export interface FetchMonthlyBillingParams {
-  applicationId: string[]
+  applicationIds: string[]
   month: string
 }
 
 export const fetchMonthlyBilling = async (params: FetchMonthlyBillingParams) => {
   try {
-    const { month, applicationId } = params
+    const { month, applicationIds } = params
     const response = await fetcher({
-      url: `${URLS.trafficEvents}/billing/${month}?${setQueryParams({ applicationId })}`,
+      url: `${URLS.trafficEvents}/billing/${month}?${setQueryParams({ applicationId: applicationIds })}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),

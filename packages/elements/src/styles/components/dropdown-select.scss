@@ -8,10 +8,6 @@
   background-color: #fff;
   font-size: 1rem;
   line-height: 1.5;
-  padding-bottom: calc(0.375em - 1px);
-  padding-left: calc(0.625em - 1px);
-  padding-right: calc(0.625em - 1px);
-  padding-top: calc(0.375em - 1px);
   position: relative;
   vertical-align: top;
   box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
@@ -47,6 +43,7 @@
 
 .rc-select .rc-select-selection-placeholder {
   opacity: 0.4;
+  position: absolute;
 }
 
 .rc-select-selector > span:not(:last-child) {
@@ -114,6 +111,7 @@
 
   .rc-select-selection-search {
     position: relative;
+    margin-right: 0;
   }
 
   .rc-select-selection-search-input {
@@ -205,7 +203,7 @@
 
 .rc-select-item-option {
   position: relative;
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 .rc-select-item-option-grouped {

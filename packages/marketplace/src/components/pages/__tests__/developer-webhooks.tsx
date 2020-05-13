@@ -11,6 +11,7 @@ import {
   openEditModal,
   MODAL_TYPE,
   openCreateModal,
+  openTestModal,
 } from '../developer-webhooks'
 import { shallow } from 'enzyme'
 import { ReduxState } from '@/types/core'
@@ -37,6 +38,21 @@ const props: DeveloperWebhooksProps = {
 describe('DeveloperWebHooks', () => {
   it('should match a snapshot', () => {
     window.reapit.config.appEnv = 'development'
+    expect(shallow(<DeveloperWebhooks {...props} />)).toMatchSnapshot()
+
+    props.subscriptions = [
+      {
+        id: 'string',
+        applicationId: 'string',
+        url: 'string',
+        topicIds: ['string'],
+        customerIds: ['string'],
+        active: true,
+        deleted: true,
+        created: 'string',
+        modified: 'string',
+      },
+    ]
     expect(shallow(<DeveloperWebhooks {...props} />)).toMatchSnapshot()
   })
 
@@ -180,6 +196,17 @@ describe('DeveloperWebHooks', () => {
 
       openCreateModal(webhookSetOpenModal)()
       expect(webhookSetOpenModal).toBeCalledWith(MODAL_TYPE.CREATE)
+    })
+  })
+
+  describe('openTestModal', () => {
+    it('should run correctly', () => {
+      const webhookSetOpenModal = jest.fn()
+      const webhookId = 'webhookId'
+      const setWebhookId = jest.fn()
+
+      openTestModal({ webhookSetOpenModal, setWebhookId })(webhookId)
+      expect(webhookSetOpenModal).toBeCalledWith(MODAL_TYPE.TEST)
     })
   })
 })

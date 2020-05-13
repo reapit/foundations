@@ -24,6 +24,7 @@ const searchWidgetStore: Writable<SearchWidgetStore> = writable({
     customerId: '',
     theme: {},
     parentSelector: '',
+    detailPageUrl: '',
   },
   themeClasses: {
     globalStyles: '',

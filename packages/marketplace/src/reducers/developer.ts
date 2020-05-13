@@ -15,6 +15,7 @@ import {
   fetchMonthlyBilling,
   fetchMonthlyBillingSuccess,
   fetchMonthlyBillingFailure,
+  developerSetWebhookPingStatus,
 } from '@/actions/developer'
 import {
   PagedResultAppSummaryModel_,
@@ -74,6 +75,8 @@ export type MonthlyBilling = {
   requestsByService: RequestBilling[]
 }
 
+export type WebhookPingTestStatus = 'SUCCESS' | 'FAILED' | 'LOADING' | null
+
 export interface DeveloperState {
   loading: boolean
   developerAppDetail: DeveloperAppDetailState
@@ -86,6 +89,7 @@ export interface DeveloperState {
   error: unknown
   isMonthlyBillingLoading: boolean
   monthlyBilling: MonthlyBilling | null
+  webhookPingTestStatus: WebhookPingTestStatus
 }
 
 export type AppDetailData = (AppDetailModel & { apiKey?: string }) | null
@@ -112,6 +116,7 @@ export const defaultState: DeveloperState = {
   error: null,
   isMonthlyBillingLoading: true,
   monthlyBilling: null,
+  webhookPingTestStatus: null,
 }
 
 const developerReducer = (state: DeveloperState = defaultState, action: Action<any>): DeveloperState => {
@@ -210,6 +215,13 @@ const developerReducer = (state: DeveloperState = defaultState, action: Action<a
     return {
       ...state,
       isMonthlyBillingLoading: true,
+    }
+  }
+
+  if (isType(action, developerSetWebhookPingStatus)) {
+    return {
+      ...state,
+      webhookPingTestStatus: action.data,
     }
   }
 

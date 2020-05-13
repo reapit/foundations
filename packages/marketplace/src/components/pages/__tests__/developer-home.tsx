@@ -28,6 +28,7 @@ describe('DeveloperHome', () => {
         isServiceChartLoading: false,
         isMonthlyBillingLoading: false,
         monthlyBilling: null,
+        webhookPingTestStatus: null,
         loading: false,
         isVisible: false,
         developerAppDetail: {
@@ -69,6 +70,7 @@ describe('DeveloperHome', () => {
         isServiceChartLoading: false,
         isMonthlyBillingLoading: false,
         monthlyBilling: null,
+        webhookPingTestStatus: null,
         myIdentity: {},
         error: null,
         billing: {

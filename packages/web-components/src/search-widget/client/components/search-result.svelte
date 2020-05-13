@@ -1,6 +1,5 @@
 <script>
   import { onDestroy } from 'svelte'
-  import { link } from 'svelte-routing'
   import Fa from 'svelte-fa'
   import { faBed, faToilet } from '@fortawesome/free-solid-svg-icons'
   import searchWidgetStore from '../core/store'
@@ -14,12 +13,16 @@
   let searchType
   let propertyImages
   let themeClasses = {}
+  let detailPageUrl = ''
+  let propertyImagesByPropertyId
 
   const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
     selectedProperty = store.selectedProperty
     searchType = store.searchType
     propertyImages = store.propertyImages
     themeClasses = store.themeClasses
+    detailPageUrl = store.initializers.detailPageUrl
+    propertyImagesByPropertyId = store.propertyImagesByPropertyId
   })
 
   const {
@@ -45,6 +48,12 @@
       ...store,
       selectedProperty: property,
     }))
+  }
+
+  const handleViewDetail = propertyId => {
+    const propertyImages = (propertyImagesByPropertyId && propertyImagesByPropertyId[propertyId]) || []
+    const propertyImageUrls = propertyImages.map(propertyImage => propertyImage.url).join(',')
+    location.href = `${detailPageUrl}?id=${propertyId}&searchType=${searchType}&propertyImageUrls=${propertyImageUrls}`
   }
 
   onDestroy(() => {
@@ -171,6 +180,11 @@
       </span>
       {property.bathrooms || 0}
     </div>
-    <a use:link class="{secondaryHeading} search-result-item-address-primary" href="/{property.id}">View Detail</a>
+    <a
+      on:click|preventDefault={() => handleViewDetail(property.id)}
+      class="{secondaryHeading} search-result-item-address-primary"
+      href="/">
+      View Detail
+    </a>
   </div>
 </div>

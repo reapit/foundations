@@ -25,7 +25,7 @@ const releaseDevThemes = () => {
 return (() => {
   const { execSync } = require('child_process')
   const { setEnv } = require('./get-env')
-  const packages = ['search-widget', 'appointment-bookings', 'viewing-booking', 'themes']
+  const packages = ['search-widget', 'property-detail', 'appointment-bookings', 'viewing-booking', 'themes']
   const opts = {
     stdio: 'inherit',
   }
