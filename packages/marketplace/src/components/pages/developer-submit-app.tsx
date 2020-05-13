@@ -558,9 +558,9 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                             'link',
                             {
                               name: 'test',
-                              icon: '<b>H<sub>6</sub></b>',
-                              title: 'Add heading 6',
-                              result: () => exec('formatBlock', '<h6>'),
+                              icon: '<b>H<sub>5</sub></b>',
+                              title: 'Add heading 5',
+                              result: () => exec('formatBlock', '<h5>'),
                             },
                           ]}
                           dataTest="submit-app-description"

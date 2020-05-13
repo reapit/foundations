@@ -169,6 +169,7 @@
     "sass-loader": "^7.1.0",
     "semver": "^7.1.1",
     "serve": "^11.2.0",
+    "serverless": "^1.70.1",
     "serverless-plugin-ifelse": "^1.0.5",
     "serverless-single-page-app-plugin": "^1.0.2",
     "shelljs": "^0.8.4",

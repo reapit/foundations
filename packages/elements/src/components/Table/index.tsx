@@ -25,7 +25,7 @@ const renderExpanderCell = row => {
   ) : null
 }
 
-const expanderColumn = {
+export const expanderColumn = {
   id: 'expander', // id is required for expander column
   columnProps: {
     width: 20,
@@ -33,6 +33,20 @@ const expanderColumn = {
   Cell: ({ row }) => {
     return renderExpanderCell(row)
   },
+}
+
+export const addExpandableColumnToColumnsIfExpandableIsTrue = ({
+  expandable,
+  columns,
+}: {
+  expandable: boolean
+  columns: any[]
+}) => {
+  if (!expandable) {
+    return columns
+  }
+
+  return [expanderColumn, ...columns]
 }
 
 export const Table: React.FC<TableProps> = ({
@@ -44,20 +58,26 @@ export const Table: React.FC<TableProps> = ({
   scrollable = false,
   bordered = false,
   maxHeight,
-  expandable,
+  expandable = false,
 }) => {
-  if (expandable) {
-    columns.unshift(expanderColumn)
-  }
+  const formatColumns = React.useMemo(
+    () =>
+      addExpandableColumnToColumnsIfExpandableIsTrue({
+        expandable,
+        columns,
+      }),
+    [columns, expandable],
+  )
+
   // Use the state and functions returned from useTable to build your UI
   const { getTableProps, headerGroups, footerGroups, rows, prepareRow } = useTable(
     {
-      columns,
+      columns: formatColumns,
       data,
     },
     useExpanded,
   )
-  const hasFooter = columns.some(item => item.Footer)
+  const hasFooter = formatColumns.some(item => item.Footer)
 
   // Render the UI for your table
   const renderTable = () => (

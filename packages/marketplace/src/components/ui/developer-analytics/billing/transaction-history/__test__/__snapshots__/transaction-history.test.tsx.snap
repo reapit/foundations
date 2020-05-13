@@ -15,11 +15,12 @@ exports[`TransactionHistory should match a snapshot 1`] = `
       <Component
         className="is-one-third"
       >
-        April 2020
+        October 2019
       </Component>
       <Component>
         <a
           href="#"
+          onClick={[Function]}
         >
           Download
         </a>
@@ -30,48 +31,9 @@ exports[`TransactionHistory should match a snapshot 1`] = `
     <Component>
       Previous Transactions
     </Component>
-    <Component>
-      <Component
-        className="is-one-third"
-      >
-        March 2020
-      </Component>
-      <Component>
-        <a
-          href="#"
-        >
-          Download
-        </a>
-      </Component>
-    </Component>
-    <Component>
-      <Component
-        className="is-one-third"
-      >
-        February 2020
-      </Component>
-      <Component>
-        <a
-          href="#"
-        >
-          Download
-        </a>
-      </Component>
-    </Component>
-    <Component>
-      <Component
-        className="is-one-third"
-      >
-        January 2020
-      </Component>
-      <Component>
-        <a
-          href="#"
-        >
-          Download
-        </a>
-      </Component>
-    </Component>
+    <p>
+      No previous transactions in the past
+    </p>
   </div>
 </div>
 `;
