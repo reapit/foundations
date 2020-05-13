@@ -1,16 +1,19 @@
-import { PagedResultApprovalModel_ } from '@reapit/foundations-ts-definitions'
+import { UsageStatsModel } from '@reapit/foundations-ts-definitions'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
 import { generateHeader } from './utils'
 import { logger } from 'logger'
-import { FetchListCommonParams } from './types'
 
-export type FetchApprovalsListParams = FetchListCommonParams
+export interface FetchStatisticsListParams {
+  appId?: string[]
+  dateFrom?: string
+  dateTo?: string
+}
 
-export const fetchApprovalsList = async (params: FetchApprovalsListParams): Promise<PagedResultApprovalModel_> => {
+export const fetchStatisticsList = async (params: FetchStatisticsListParams): Promise<UsageStatsModel> => {
   try {
     const response = await fetcher({
-      url: `${URLS.approvals}?${setQueryParams(params)}`,
+      url: `${URLS.statistics}?${setQueryParams(params)}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),

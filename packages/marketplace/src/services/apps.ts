@@ -1,32 +1,41 @@
+import {
+  CreateAppModel,
+  PagedResultAppSummaryModel_,
+  AppDetailModel,
+  PagedResultAppRevisionModel_,
+  CreateAppRevisionModel,
+  AppRevisionModel,
+  ApproveModel,
+  RejectRevisionModel,
+  AppClientSecretModel,
+} from '@reapit/foundations-ts-definitions'
 import { fetcher, setQueryParams } from '@reapit/elements'
-import { generateHeader, URLS } from '@/constants/api'
+import { URLS } from './constants'
+import { generateHeader } from './utils'
 import { logger } from 'logger'
 import { FetchByIdCommonParams, FetchListCommonParams } from './types'
 
-export interface FetchAppsListParams {
+export interface FetchAppsListParams extends FetchListCommonParams {
   developerId?: string[]
   clientId?: string
   externalAppId?: string[]
-  category?: string
+  category?: string[]
   desktopIntegrationTypeId?: string
   appName?: string
   developerName?: string
   companyName?: string
-  isFeatured?: string
-  isDirectApi?: string
-  isFeatured?: string
-  onlyInstalled?: string
+  isFeatured?: boolean
+  isDirectApi?: boolean
+  onlyInstalled?: boolean
   registeredFrom?: string
   registeredTo?: string
-  pageNumber?: number
-  pageSize?: number
 }
 
 export interface FetchAppByIdParams extends FetchByIdCommonParams {
   clientId?: string
 }
 
-export type CreateAppParams = FetchByIdCommonParams
+export type CreateAppParams = CreateAppModel
 
 export type DeleteAppByIdParams = FetchByIdCommonParams
 
@@ -34,13 +43,23 @@ export type FeatureAppByIdParams = FetchByIdCommonParams
 
 export type UnfeatureAppByIdParams = FetchByIdCommonParams
 
-export interface FetchAppRevisionsList extends Fetch {
+export interface FetchAppRevisionsListParams extends FetchListCommonParams {
   id: string
-  pageNumber?: number
-  pageSize?: number
 }
 
-export const fetchAppsList = async (params: FetchAppsListParams) => {
+export type CreateAppRevisionParams = FetchByIdCommonParams & CreateAppRevisionModel
+
+export interface FetchAppRevisionsByIdParams extends FetchByIdCommonParams {
+  revisionId: string
+}
+
+export type ApproveAppRevisionByIdParams = FetchByIdCommonParams & { revisionId: string } & ApproveModel
+
+export type RejectAppRevisionByIdParams = FetchByIdCommonParams & { revisionId: string } & RejectRevisionModel
+
+export type FetchAppSecretByIdParams = FetchByIdCommonParams
+
+export const fetchAppsList = async (params: FetchAppsListParams): Promise<PagedResultAppSummaryModel_> => {
   try {
     const response = await fetcher({
       url: `${URLS.apps}?${setQueryParams(params)}`,
@@ -55,10 +74,11 @@ export const fetchAppsList = async (params: FetchAppsListParams) => {
   }
 }
 
-export const fetchAppById = async (params: FetchAppByIdParams) => {
+export const fetchAppById = async (params: FetchAppByIdParams): Promise<AppDetailModel> => {
   try {
+    const { id, clientId } = params
     const response = await fetcher({
-      url: `${URLS.apps}?${setQueryParams(params)}`,
+      url: `${URLS.apps}/${id}?${setQueryParams({ clientId })}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
@@ -88,8 +108,9 @@ export const createApp = async (params: CreateAppParams) => {
 
 export const deleteAppById = async (params: DeleteAppByIdParams) => {
   try {
+    const { id } = params
     const response = await fetcher({
-      url: `${URLS.apps}?${setQueryParams(params)}`,
+      url: `${URLS.apps}/${id}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'DELETE',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
@@ -133,13 +154,98 @@ export const unfeatureAppById = async (params: UnfeatureAppByIdParams) => {
   }
 }
 
-export const unfeatureAppById = async (params: UnfeatureAppByIdParams) => {
+export const fetchAppRevisionsList = async (
+  params: FetchAppRevisionsListParams,
+): Promise<PagedResultAppRevisionModel_> => {
+  try {
+    const { id, ...rest } = params
+    const response = await fetcher({
+      url: `${URLS.apps}/${id}/revisions?${setQueryParams(rest)}`,
+      api: window.reapit.config.marketplaceApiUrl,
+      method: 'GET',
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+    })
+    return response
+  } catch (error) {
+    logger(error)
+    throw new Error(error)
+  }
+}
+
+export const createAppRevision = async (params: CreateAppRevisionParams) => {
+  try {
+    const { id, ...rest } = params
+    const response = await fetcher({
+      url: `${URLS.apps}/${id}/revisions`,
+      api: window.reapit.config.marketplaceApiUrl,
+      method: 'POST',
+      body: rest,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+    })
+    return response
+  } catch (error) {
+    logger(error)
+    throw new Error(error)
+  }
+}
+
+export const fetchAppRevisionsById = async (params: FetchAppRevisionsByIdParams): Promise<AppRevisionModel> => {
+  try {
+    const { id, revisionId } = params
+    const response = await fetcher({
+      url: `${URLS.apps}/${id}/revisions/${revisionId}}`,
+      api: window.reapit.config.marketplaceApiUrl,
+      method: 'GET',
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+    })
+    return response
+  } catch (error) {
+    logger(error)
+    throw new Error(error)
+  }
+}
+
+export const approveAppRevisionById = async (params: ApproveAppRevisionByIdParams) => {
+  try {
+    const { id, revisionId, ...rest } = params
+    const response = await fetcher({
+      url: `${URLS.apps}/${id}/revisions/${revisionId}/approve`,
+      api: window.reapit.config.marketplaceApiUrl,
+      method: 'POST',
+      body: rest,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+    })
+    return response
+  } catch (error) {
+    logger(error)
+    throw new Error(error)
+  }
+}
+
+export const rejectAppRevisionById = async (params: RejectAppRevisionByIdParams) => {
+  try {
+    const { id, revisionId, ...rest } = params
+    const response = await fetcher({
+      url: `${URLS.apps}/${id}/revisions/${revisionId}/reject`,
+      api: window.reapit.config.marketplaceApiUrl,
+      method: 'POST',
+      body: rest,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+    })
+    return response
+  } catch (error) {
+    logger(error)
+    throw new Error(error)
+  }
+}
+
+export const fetchAppSecretById = async (params: FetchAppRevisionsByIdParams): Promise<AppClientSecretModel> => {
   try {
     const { id } = params
     const response = await fetcher({
-      url: `${URLS.apps}/${id}/feature`,
+      url: `${URLS.apps}/${id}/secret`,
       api: window.reapit.config.marketplaceApiUrl,
-      method: 'DELETE',
+      method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response

@@ -1,5 +1,6 @@
-import { URLS, initAuthorizedRequestHeaders } from '@/constants/api'
 import { fetcher, setQueryParams } from '@reapit/elements'
+import { URLS } from './constants'
+import { initAuthorizedRequestHeaders } from './utils'
 
 export interface FetchWebhookTopicParams {
   applicationId: string

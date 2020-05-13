@@ -2,8 +2,8 @@ import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effec
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
-import { URLS, generateHeader } from '@/constants/api'
-import { fetcher } from '@reapit/elements'
+// import { URLS, generateHeader } from '@/constants/api'
+// import { fetcher } from '@reapit/elements'
 import { Action } from '@/types/core'
 import {
   adminAppsReceiveData,
@@ -15,6 +15,7 @@ import { selectAdminAppsData } from '@/selector/admin'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import api from './api'
 import { logger } from 'logger'
+import { featureAppById, unfeatureAppById } from '@/services/apps'
 
 export const adminAppsFetch = function*({ data }) {
   try {
@@ -51,13 +52,19 @@ export const adminAppsFeatured = function*({ data: { id, isFeatured } }) {
     const newData = data.map(d => ({ ...d, isFeatured: d.id === id ? isFeatured : d.isFeatured }))
     yield put(adminAppsReceiveData({ ...rest, data: newData }))
 
-    yield call(fetcher, {
-      url: `${URLS.apps}/${id}/feature`,
-      api: window.reapit.config.marketplaceApiUrl,
-      body: isFeatured ? { isFeatured } : undefined,
-      method: isFeatured ? 'PUT' : 'DELETE',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    })
+    // yield call(fetcher, {
+    //   url: `${URLS.apps}/${id}/feature`,
+    //   api: window.reapit.config.marketplaceApiUrl,
+    //   body: isFeatured ? { isFeatured } : undefined,
+    //   method: isFeatured ? 'PUT' : 'DELETE',
+    //   headers: generateHeader(window.reapit.config.marketplaceApiKey),
+    // })
+
+    if (isFeatured) {
+      yield call(featureAppById, { id })
+    } else {
+      yield call(unfeatureAppById, { id })
+    }
 
     yield put(adminAppsSetFormState('SUCCESS'))
   } catch (err) {

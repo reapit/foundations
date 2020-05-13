@@ -1,18 +1,13 @@
-import { fetcher, setQueryParams } from '@reapit/elements'
+import { ScopeModel } from '@reapit/foundations-ts-definitions'
+import { fetcher } from '@reapit/elements'
 import { URLS } from './constants'
 import { generateHeader } from './utils'
 import { logger } from 'logger'
 
-export interface FetchMonthlyBillingParams {
-  applicationIds: string[]
-  month: string
-}
-
-export const fetchMonthlyBilling = async (params: FetchMonthlyBillingParams) => {
+export const fetchScopesList = async (): Promise<ScopeModel[]> => {
   try {
-    const { month, applicationIds } = params
     const response = await fetcher({
-      url: `${URLS.trafficEvents}/billing/${month}?${setQueryParams({ applicationId: applicationIds })}`,
+      url: `${URLS.scopes}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
