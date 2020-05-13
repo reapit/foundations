@@ -22,20 +22,13 @@ import { WebhookPingTestParams } from '@/services/subscriptions'
 import { developerWebhookPing, developerSetWebhookPingStatus } from '@/actions/developer'
 import { selectWebhookTestStatus } from '@/selector'
 
-export interface WebhookTestModalProps {
-  visible: boolean
-  afterClose: () => void
-  webhookId: string | undefined
-  closeModal?: () => void
-}
-
 export interface GenerateTopicOptions {
   topics: TopicItem[]
   subcriptionTopicIds: string[]
 }
 export const generateTopicOptions = ({ topics, subcriptionTopicIds }: GenerateTopicOptions): SelectOption[] => {
   return subcriptionTopicIds.map(topicId => {
-    const topicData: TopicItem | undefined = topics.find(topic => topic.id === topicId)
+    const topicData: TopicItem | undefined = topics.find((topic: TopicItem) => topic.id === topicId)
     return {
       value: topicData?.id,
       label: topicData?.name,
@@ -62,7 +55,52 @@ export const handleSubmitForm = ({ dispatch, webhookId }: HandleSubmitForm) => v
   }
   dispatch(developerWebhookPing(params))
 }
+export interface WebhookTestModalFooterProps {
+  closeModal: (() => void) | undefined
+}
 
+export const WebhookTestModalFooter: React.FunctionComponent<WebhookTestModalFooterProps> = ({ closeModal }) => {
+  return (
+    <ModalFooter
+      footerItems={
+        <>
+          <Button className="mr-2" type="button" onClick={closeModal} variant="danger" fullWidth={true}>
+            CANCEL
+          </Button>
+          <Button variant="primary" type="submit" fullWidth={true}>
+            TEST
+          </Button>
+        </>
+      }
+    />
+  )
+}
+
+export interface WebhookTestModalBodyProps {
+  topicOptions: SelectOption[]
+}
+
+export const WebhookTestModalBody: React.FunctionComponent<WebhookTestModalBodyProps> = ({ topicOptions }) => {
+  return (
+    <ModalBody
+      body={
+        <>
+          <Content>
+            <p>To test your Webhook subscription, please select a ‘Subscription Topic’ below:</p>
+          </Content>
+          <SelectBox id="topicId" name="topicId" labelText="Subscription Topics" options={topicOptions} required />
+        </>
+      }
+    />
+  )
+}
+
+export interface WebhookTestModalProps {
+  visible: boolean
+  afterClose: () => void
+  webhookId: string | undefined
+  closeModal?: () => void
+}
 export const WebhookTestModal: React.FunctionComponent<WebhookTestModalProps> = ({
   visible,
   afterClose,
@@ -90,34 +128,8 @@ export const WebhookTestModal: React.FunctionComponent<WebhookTestModalProps> = 
         <Formik initialValues={initFormValues} onSubmit={onSubmit}>
           <Form>
             <ModalHeader title="Test Webhook Subscription" />
-            <ModalBody
-              body={
-                <>
-                  <Content>
-                    <p>To test your Webhook subscription, please select a ‘Subscription Topic’ below:</p>
-                  </Content>
-                  <SelectBox
-                    id="topicId"
-                    name="topicId"
-                    labelText="Subscription Topics"
-                    options={topicOptions}
-                    required
-                  />
-                </>
-              }
-            />
-            <ModalFooter
-              footerItems={
-                <>
-                  <Button className="mr-2" type="button" onClick={closeModal} variant="danger" fullWidth={true}>
-                    CANCEL
-                  </Button>
-                  <Button variant="primary" type="submit" fullWidth={true}>
-                    TEST
-                  </Button>
-                </>
-              }
-            />
+            <WebhookTestModalBody topicOptions={topicOptions} />
+            <WebhookTestModalFooter closeModal={closeModal} />
             <WebhookTestResultModal />
           </Form>
         </Formik>

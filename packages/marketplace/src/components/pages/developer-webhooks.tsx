@@ -189,6 +189,8 @@ export const DeveloperWebhooks = ({
   const apps = developerState?.developerData?.data?.data || []
   const unfetched = !developerState.developerData
   const loading = developerState.loading
+  const isShowDetailModal = modalType === MODAL_TYPE.EDIT || modalType === MODAL_TYPE.CREATE
+  const isShowTestModal = modalType === MODAL_TYPE.TEST
 
   return (
     <FlexContainerBasic hasPadding>
@@ -236,20 +238,24 @@ export const DeveloperWebhooks = ({
           ) : null}
         </FormSection>
       </FlexContainerResponsive>
-      <WebhookEditModal
-        visible={modalType === MODAL_TYPE.EDIT || modalType === MODAL_TYPE.CREATE}
-        isUpdate={modalType === MODAL_TYPE.EDIT}
-        appId={applicationId}
-        webhookId={webhookId}
-        afterClose={afterClose}
-        closeModal={handleCloseModal}
-      />
-      <WebhookTestModal
-        visible={modalType === MODAL_TYPE.TEST}
-        webhookId={webhookId}
-        afterClose={afterClose}
-        closeModal={handleCloseModal}
-      />
+      {isShowDetailModal && (
+        <WebhookEditModal
+          visible={isShowDetailModal}
+          isUpdate={modalType === MODAL_TYPE.EDIT}
+          appId={applicationId}
+          webhookId={webhookId}
+          afterClose={afterClose}
+          closeModal={handleCloseModal}
+        />
+      )}
+      {isShowTestModal && (
+        <WebhookTestModal
+          visible={isShowTestModal}
+          webhookId={webhookId}
+          afterClose={afterClose}
+          closeModal={handleCloseModal}
+        />
+      )}
     </FlexContainerBasic>
   )
 }

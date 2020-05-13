@@ -7,7 +7,7 @@ import {
   Billing,
   MonthlyBilling,
   WebhookPingTestStatus,
-} from '../reducers/developer'
+} from '@/reducers/developer'
 import { CreateDeveloperModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { FormState } from '@/types/core'
 import { FetchBillingParams } from '@/sagas/api'

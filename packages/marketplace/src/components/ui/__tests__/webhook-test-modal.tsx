@@ -1,5 +1,5 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import {
   generateTopicOptions,
   fetchWebhookData,
@@ -9,6 +9,8 @@ import {
   WebhookTestModalProps,
   WebhookTestModal,
   GenerateTopicOptions,
+  WebhookTestModalFooter,
+  WebhookTestModalBody,
 } from '../webhook-test-modal'
 import * as TestModal from '../webhook-test-modal'
 import { ReduxState } from '@/types/core'
@@ -29,6 +31,18 @@ const props: WebhookTestModalProps = {
   webhookId: 'webhookId',
   closeModal: jest.fn(),
 }
+
+describe('WebhookTestModalFooter', () => {
+  it('WebhookTestModalFooter should match snapshot', () => {
+    expect(shallow(<WebhookTestModalFooter closeModal={jest.fn} />)).toMatchSnapshot()
+  })
+})
+
+describe('WebhookTestModalBody', () => {
+  it('WebhookTestModalBody should match snapshot', () => {
+    expect(shallow(<WebhookTestModalBody topicOptions={[]} />)).toMatchSnapshot()
+  })
+})
 
 describe('WebhookTestModal', () => {
   let store
