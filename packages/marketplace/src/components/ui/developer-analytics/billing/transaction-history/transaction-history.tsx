@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
-import { H4, Grid, GridItem, H6, fetcherWithBlob, Loader } from '@reapit/elements'
+import { H4, Grid, GridItem, H6, fetcherWithBlob, Loader, setQueryParams } from '@reapit/elements'
 import styles from '@/styles/pages/developer-analytics.scss?mod'
 import { selectDeveloperApps } from '@/selector/developer'
 import { ReduxState } from '@/types/core'
@@ -40,11 +40,9 @@ export const createHandleDownLoadButtonOnClickFn = ({
 }) => async e => {
   e.preventDefault()
 
-  const param = new URLSearchParams()
-
-  param.append('applicationId', developerAppIds.join(','))
+  const params = setQueryParams({ applicationId: developerAppIds })
   const blob = await fetcherWithBlob({
-    url: `${URLS.trafficEventBilling}/${month}/download?${param.toString()}`,
+    url: `${URLS.trafficEventBilling}/${month}/download?${params.toString()}`,
     api: window.reapit.config.marketplaceApiUrl,
     method: 'GET',
     headers: generateHeader(window.reapit.config.marketplaceApiKey),
@@ -126,7 +124,7 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = () => {
         <H4>Transaction History</H4>
       </div>
       <div className={styles.transactionSection}>
-        <H6>This Months Transactions</H6>
+        <H6>This Months Transactions To Date</H6>
         {renderTransactionHistoryItem({ date: today, developerAppIds })}
       </div>
       <div>

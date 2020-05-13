@@ -60,7 +60,7 @@ describe('TransactionHistory', () => {
       await fn(mockEvent)
 
       expect(spyFetcher).toHaveBeenCalledWith({
-        url: `${URLS.trafficEventBilling}/2020-01/download?applicationId=1%2C2`,
+        url: `${URLS.trafficEventBilling}/2020-01/download?applicationId=1&applicationId=2`,
         api: window.reapit.config.marketplaceApiUrl,
         method: 'GET',
         headers: generateHeader(window.reapit.config.marketplaceApiKey),

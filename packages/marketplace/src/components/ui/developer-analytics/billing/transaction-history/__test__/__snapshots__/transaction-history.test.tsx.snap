@@ -9,7 +9,7 @@ exports[`TransactionHistory should match a snapshot 1`] = `
   </div>
   <div>
     <Component>
-      This Months Transactions
+      This Months Transactions To Date
     </Component>
     <Component>
       <Component
