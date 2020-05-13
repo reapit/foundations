@@ -4,12 +4,12 @@ import { fetcher, setQueryParams } from '@reapit/elements'
 
 describe('should fetchMonthlyBilling run correctly', () => {
   it('fetcher should be called', () => {
-    const applicationId = ['applicationId']
+    const applicationIds = ['applicationId']
     const month = '2020-05'
     const headers = generateHeader(window.reapit.config.marketplaceApiKey)
-    const url = `${URLS.trafficEvents}/billing/${month}?${setQueryParams({ applicationId })}`
+    const url = `${URLS.trafficEvents}/billing/${month}?${setQueryParams({ applicationIds })}`
 
-    fetchMonthlyBilling({ applicationId, month }).then(() => {
+    fetchMonthlyBilling({ applicationIds, month }).then(() => {
       expect(fetcher).toBeCalledWith({
         headers,
         url,

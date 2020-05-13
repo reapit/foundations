@@ -201,7 +201,7 @@ describe('fetchBillingSagas', () => {
 describe('fetchMonthlyBillingSagas', () => {
   const params = {
     month: '2020-01',
-    applicationId: ['1', '2'],
+    applicationIds: ['1', '2'],
   } as FetchMonthlyBillingParams
   const gen = cloneableGenerator(fetchMonthlyBillingSagas as any)({ data: params })
   expect(gen.next().value).toEqual(call(fetchMonthlyBilling, params))

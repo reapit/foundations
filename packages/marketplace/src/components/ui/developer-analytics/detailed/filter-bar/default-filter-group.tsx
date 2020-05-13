@@ -119,6 +119,7 @@ export const renderFiterButtons = (
       variant="secondary"
       onClick={onFilterButtonClick(buttonFilterType, setDateFrom, setDateTo, setIsActive)}
       fullWidth={false}
+      key={buttonText}
     >
       {buttonText}
     </Button>
