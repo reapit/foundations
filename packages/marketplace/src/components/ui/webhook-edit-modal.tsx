@@ -34,6 +34,7 @@ import {
 } from '@/actions/webhook-edit-modal'
 import { WebhookModal, CustomerItem, TopicItem } from '@/reducers/webhook-edit-modal'
 import { selectTopics, selectWebhookData, selectLoading, selectCustomers } from '@/selector/webhook-edit'
+import { isValidHttpsUrl } from '@/utils/validate'
 
 const CREATE_MODAL = {
   title: 'Add New Webhook',
@@ -138,6 +139,10 @@ export const onEdit = (editWebhook: (data: EditWebhookParams) => void, webhookId
   editWebhook(params)
 }
 
+export const validateURL = (value: string): string | null => {
+  return isValidHttpsUrl(value) ? null : 'The value must be a valid and secure URI'
+}
+
 export type WebhookModalInnerProps = WebhookModalInnerMappedAction &
   StateProps & {
     isUpdate?: boolean
@@ -214,10 +219,11 @@ export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps> 
                   <Input
                     id="url"
                     type="text"
-                    placeholder="Enter URL here"
+                    placeholder="Enter a secure URL (https://)"
                     name="url"
                     labelText="Webhook URL"
                     required
+                    validate={validateURL}
                   />
                   <DropdownSelect
                     id="topicIds"
