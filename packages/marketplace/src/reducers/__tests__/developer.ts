@@ -138,4 +138,15 @@ describe('developer reducer', () => {
     }
     expect(newState).toEqual(expected)
   })
+  it('should set developerSetWebhookPingStatus when call DEVELOPER_SET_PING_WEBHOOK_STATUS is called', () => {
+    const newState = developerReducer(undefined, {
+      type: ActionTypes.DEVELOPER_SET_PING_WEBHOOK_STATUS as ActionType,
+      data: 'SUCCESS',
+    })
+    const expected = {
+      ...defaultState,
+      webhookPingTestStatus: 'SUCCESS',
+    }
+    expect(newState).toEqual(expected)
+  })
 })

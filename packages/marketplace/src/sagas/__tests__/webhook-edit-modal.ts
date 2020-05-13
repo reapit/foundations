@@ -37,9 +37,8 @@ import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
 import { fetchSubscriptions } from '../webhook-subscriptions'
 import { subscriptions } from '../__stubs__/webhooks'
-import { initAuthorizedRequestHeaders } from '@/constants/api'
+import * as API from '@/constants/api'
 import { fetcher } from '@reapit/elements'
-
 jest.mock('@reapit/elements')
 const applicationId = '1161242a-f650-4d1d-aed7-909853fe7ee1'
 const params = { data: applicationId }
@@ -268,6 +267,9 @@ describe('createNewWebhook', () => {
 
 describe('deleteEditWebhook request', () => {
   it('should deleteEditWebhook run correctly', () => {
+    const initAuthorizedRequestHeaders = spyOn(API, 'initAuthorizedRequestHeaders').and.returnValue(
+      Promise.resolve('headers'),
+    )
     deleteEditWebhook({ webhookId: '' })
       .then(() => {
         expect(initAuthorizedRequestHeaders).toHaveBeenCalled()
@@ -280,6 +282,9 @@ describe('deleteEditWebhook request', () => {
 
 describe('putEditWebhook request', () => {
   it('should putEditWebhook run correctly', () => {
+    const initAuthorizedRequestHeaders = spyOn(API, 'initAuthorizedRequestHeaders').and.returnValue(
+      Promise.resolve('headers'),
+    )
     const data = {
       applicationId: 'applicationId',
       webhookId: 'webhookId',
@@ -300,6 +305,9 @@ describe('putEditWebhook request', () => {
 
 describe('postCreateWebhook request', () => {
   it('should postCreateWebhook run correctly', () => {
+    const initAuthorizedRequestHeaders = spyOn(API, 'initAuthorizedRequestHeaders').and.returnValue(
+      Promise.resolve('headers'),
+    )
     const data = {
       applicationId: 'applicationId',
       webhookId: 'webhookId',
@@ -320,6 +328,9 @@ describe('postCreateWebhook request', () => {
 
 describe('fetchWebhookData request', () => {
   it('should fetchWebhookData run correctly', () => {
+    const initAuthorizedRequestHeaders = spyOn(API, 'initAuthorizedRequestHeaders').and.returnValue(
+      Promise.resolve('headers'),
+    )
     const data = {
       webhookId: 'webhookId',
     }
@@ -338,18 +349,17 @@ describe('fetchWebhookSubscriptionCustomers request', () => {
     const data = {
       AppId: 'AppId',
     }
-    fetchWebhookSubscriptionCustomers(data)
-      .then(() => {
-        expect(initAuthorizedRequestHeaders).toHaveBeenCalled()
-      })
-      .then(() => {
-        expect(fetcher).toHaveBeenCalled()
-      })
+    fetchWebhookSubscriptionCustomers(data).then(() => {
+      expect(fetcher).toHaveBeenCalled()
+    })
   })
 })
 
 describe('fetchWebhookSubscriptionTopics request', () => {
   it('should fetchWebhookSubscriptionTopics run correctly', () => {
+    const initAuthorizedRequestHeaders = spyOn(API, 'initAuthorizedRequestHeaders').and.returnValue(
+      Promise.resolve('headers'),
+    )
     const data = {
       applicationId: 'webhookId',
     }

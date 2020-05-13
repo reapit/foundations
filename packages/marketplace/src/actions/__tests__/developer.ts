@@ -11,6 +11,8 @@ import {
   fetchMonthlyBilling,
   fetchMonthlyBillingSuccess,
   fetchMonthlyBillingFailure,
+  developerWebhookPing,
+  developerSetWebhookPingStatus,
 } from '../developer'
 import ActionTypes from '../../constants/action-types'
 import { appsDataStub } from '../../sagas/__stubs__/apps'
@@ -18,6 +20,7 @@ import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
 import { billing } from '@/sagas/__stubs__/billing'
 import { monthlyBillingData } from '@/sagas/__stubs__/monthly-billing'
+import { WebhookPingTestParams } from '@/services/subscriptions'
 
 describe('developer actions', () => {
   it('should create a developerLoading action', () => {
@@ -95,5 +98,18 @@ describe('developer actions', () => {
   it('should create a fetchMonthlyBillingFailure action', () => {
     expect(fetchMonthlyBillingFailure.type).toEqual(ActionTypes.DEVELOPER_FETCH_MONTHLY_BILLING_FAILED)
     expect(fetchMonthlyBillingFailure('error').data).toEqual('error')
+  })
+
+  it('should create a developerWebhookPing action', () => {
+    const params: WebhookPingTestParams = {
+      id: 'id',
+      topicId: 'topicId',
+    }
+    expect(developerWebhookPing.type).toEqual(ActionTypes.DEVELOPER_PING_WEBHOOK)
+    expect(developerWebhookPing(params).data).toEqual(params)
+  })
+  it('should create a developerSetWebhookPingStatus action', () => {
+    expect(developerSetWebhookPingStatus.type).toEqual(ActionTypes.DEVELOPER_SET_PING_WEBHOOK_STATUS)
+    expect(developerSetWebhookPingStatus('SUCCESS').data).toEqual('SUCCESS')
   })
 })

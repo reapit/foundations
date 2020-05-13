@@ -32,13 +32,6 @@ exports[`DeveloperWebHooks should match a snapshot 1`] = `
       </Component>
     </Component>
   </Component>
-  <Memo()
-    afterClose={[Function]}
-    appId=""
-    closeModal={[Function]}
-    isUpdate={false}
-    visible={false}
-  />
 </Component>
 `;
 
@@ -113,7 +106,11 @@ exports[`DeveloperWebHooks should match a snapshot 2`] = `
               >
                 Edit
               </Unknown>,
-              "test": "Ping",
+              "test": <a
+                onClick={[Function]}
+              >
+                Ping
+              </a>,
               "topics": Array [],
               "url": "string",
             },
@@ -124,12 +121,5 @@ exports[`DeveloperWebHooks should match a snapshot 2`] = `
       />
     </Component>
   </Component>
-  <Memo()
-    afterClose={[Function]}
-    appId=""
-    closeModal={[Function]}
-    isUpdate={false}
-    visible={false}
-  />
 </Component>
 `;

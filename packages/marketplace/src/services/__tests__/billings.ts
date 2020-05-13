@@ -1,6 +1,7 @@
 import { fetchMonthlyBilling } from '../billings'
 import { generateHeader, URLS } from '@/constants/api'
 import { fetcher, setQueryParams } from '@reapit/elements'
+jest.mock('@reapit/elements')
 
 describe('should fetchMonthlyBilling run correctly', () => {
   it('fetcher should be called', () => {

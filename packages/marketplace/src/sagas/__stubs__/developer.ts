@@ -100,4 +100,5 @@ export const developerState: DeveloperState = {
   isServiceChartLoading: false,
   isMonthlyBillingLoading: false,
   monthlyBilling: null,
+  webhookPingTestStatus: null,
 }
