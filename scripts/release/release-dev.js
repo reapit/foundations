@@ -20,17 +20,17 @@ const releaseDev = () => {
 
     const distPath = path.resolve(__dirname, '../../', 'packages', packageName, 'public', 'dist')
     runCommand('rimraf', [`${distPath}/**/*.map`])
-    // This command remove the old version file in bucket
-    runCommand('aws', ['s3', 'rm', '--recursive', `s3://${bucketName}`])
-    // Copy new version to the bucket
+    // Sync new version to the bucket
     runCommand('aws', [
       's3',
-      'cp',
+      'sync',
       distPath,
       `s3://${bucketName}`,
       '--grants',
       'read=uri=http://acs.amazonaws.com/groups/global/AllUsers',
       '--recursive',
+      '--cache-control',
+      'max-age=31536000',
     ])
   } catch (err) {
     console.error(err)
