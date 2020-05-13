@@ -53,7 +53,6 @@
   },
   "scripts": {
     "build:prod": "node ./src/scripts/build-prod.js",
-    "serve:static": "serve public/dist -p 5000",
     "start:server": "serverless offline --out public/dist --stage local",
     "start:dev": "node ./src/scripts/start-dev.js",
     "test:dev": "cross-env TZ=UTC jest --watch --color",
@@ -67,7 +66,6 @@
     "release:npm:prod": "node ../../scripts/release/release-npm.js elements --skip-edit-release-note",
     "release:client:dev": "node ../../scripts/release/release-dev.js web-components reapit-web-components",
     "release:client:prod": "node ../../scripts/release/release-prod.js web-components reapit-web-components",
-    "release:themes:dev": "node ./src/scripts/release-themes-dev.js",
     "release:dev": "yarn release:server:dev && yarn release:client:dev && release:themes:dev",
     "release:prod": "yarn release:client:prod && yarn release:server:prod --skip-edit-release-note && yarn release:npm:prod --skip-edit-release-note"
   }

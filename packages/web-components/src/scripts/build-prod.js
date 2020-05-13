@@ -61,7 +61,7 @@ return (async () => {
   }
   setEnv()
 
-  const clearPublic = 'rimraf ./public/dist-npm && rimraf ./public/dist && rimraf ./public/themes'
+  const clearPublic = 'rimraf ./public/dist-npm && rimraf ./public/dist'
   execSync(clearPublic, opts)
 
   const promises = packages.map(({ webpackPackageName }) => {

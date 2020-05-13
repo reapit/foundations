@@ -1,5 +1,5 @@
 import svelte from 'rollup-plugin-svelte'
-import propertyDetailConfig from './rollup.config.property-detail'
+import propertyDetailConfigurations from './rollup.config.property-detail'
 import baseConfig from './rollup.config.base'
 import replace from '@rollup/plugin-replace'
 import path from 'path'
@@ -25,7 +25,7 @@ let searchWidgetBaseConfiguration = {
     }),
     svelte({
       dev: !production,
-      css: css => generateCssOutput({ css, fileName: 'search-widget.css' }),
+      css: css => generateCssOutput({ css, fileName: 'search-widget.css', production }),
     }),
     ...baseConfig.plugins,
   ],
@@ -33,7 +33,8 @@ let searchWidgetBaseConfiguration = {
 
 let buildConfiguration = [searchWidgetBaseConfiguration]
 if (!production) {
-  buildConfiguration.push(propertyDetailConfig)
+  // property detail configurations in dev mode contain theme already
+  buildConfiguration.push(...propertyDetailConfigurations)
 }
 
 export default buildConfiguration

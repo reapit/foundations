@@ -12,7 +12,7 @@ export default {
     sourcemap: !production,
     format: 'iife',
     name: 'theme',
-    file: './public/themes/themes.js',
+    file: './public/dist/themes.js',
   },
   plugins,
 }
