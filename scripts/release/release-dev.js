@@ -28,7 +28,6 @@ const releaseDev = () => {
       `s3://${bucketName}`,
       '--grants',
       'read=uri=http://acs.amazonaws.com/groups/global/AllUsers',
-      '--recursive',
       '--cache-control',
       'max-age=31536000',
     ])
