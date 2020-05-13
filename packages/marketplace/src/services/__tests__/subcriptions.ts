@@ -1,6 +1,8 @@
 import { webhookPingTestSubcription } from '../subscriptions'
-import * as Element from '@reapit/elements'
 import * as API from '@/constants/api'
+import { fetcher } from '@reapit/elements'
+
+jest.mock('@reapit/elements')
 
 describe('should fetchMonthlyBilling run correctly', () => {
   it('fetcher should be called', () => {
@@ -8,7 +10,6 @@ describe('should fetchMonthlyBilling run correctly', () => {
     const topicId = 'topicId'
 
     const url = `${API.URLS.webhook}/subscriptions/${id}/ping`
-    const fetcher = spyOn(Element, 'fetcher')
     const spyInitAuthorizedRequestHeaders = spyOn(API, 'initAuthorizedRequestHeaders').and.returnValue(
       Promise.resolve('headers'),
     )

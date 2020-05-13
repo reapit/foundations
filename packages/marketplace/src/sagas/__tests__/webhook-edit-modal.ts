@@ -38,7 +38,7 @@ import { Action } from '@/types/core'
 import { fetchSubscriptions } from '../webhook-subscriptions'
 import { subscriptions } from '../__stubs__/webhooks'
 import * as API from '@/constants/api'
-import * as Element from '@reapit/elements'
+import { fetcher } from '@reapit/elements'
 jest.mock('@reapit/elements')
 const applicationId = '1161242a-f650-4d1d-aed7-909853fe7ee1'
 const params = { data: applicationId }
@@ -267,7 +267,6 @@ describe('createNewWebhook', () => {
 
 describe('deleteEditWebhook request', () => {
   it('should deleteEditWebhook run correctly', () => {
-    const fetcher = spyOn(Element, 'fetcher')
     const initAuthorizedRequestHeaders = spyOn(API, 'initAuthorizedRequestHeaders').and.returnValue(
       Promise.resolve('headers'),
     )
@@ -283,7 +282,6 @@ describe('deleteEditWebhook request', () => {
 
 describe('putEditWebhook request', () => {
   it('should putEditWebhook run correctly', () => {
-    const fetcher = spyOn(Element, 'fetcher')
     const initAuthorizedRequestHeaders = spyOn(API, 'initAuthorizedRequestHeaders').and.returnValue(
       Promise.resolve('headers'),
     )
@@ -307,7 +305,6 @@ describe('putEditWebhook request', () => {
 
 describe('postCreateWebhook request', () => {
   it('should postCreateWebhook run correctly', () => {
-    const fetcher = spyOn(Element, 'fetcher')
     const initAuthorizedRequestHeaders = spyOn(API, 'initAuthorizedRequestHeaders').and.returnValue(
       Promise.resolve('headers'),
     )
@@ -331,7 +328,6 @@ describe('postCreateWebhook request', () => {
 
 describe('fetchWebhookData request', () => {
   it('should fetchWebhookData run correctly', () => {
-    const fetcher = spyOn(Element, 'fetcher')
     const initAuthorizedRequestHeaders = spyOn(API, 'initAuthorizedRequestHeaders').and.returnValue(
       Promise.resolve('headers'),
     )
@@ -350,7 +346,6 @@ describe('fetchWebhookData request', () => {
 
 describe('fetchWebhookSubscriptionCustomers request', () => {
   it('should fetchWebhookSubscriptionCustomers run correctly', () => {
-    const fetcher = spyOn(Element, 'fetcher')
     const data = {
       AppId: 'AppId',
     }
@@ -362,7 +357,6 @@ describe('fetchWebhookSubscriptionCustomers request', () => {
 
 describe('fetchWebhookSubscriptionTopics request', () => {
   it('should fetchWebhookSubscriptionTopics run correctly', () => {
-    const fetcher = spyOn(Element, 'fetcher')
     const initAuthorizedRequestHeaders = spyOn(API, 'initAuthorizedRequestHeaders').and.returnValue(
       Promise.resolve('headers'),
     )
