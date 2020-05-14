@@ -5,7 +5,13 @@ import styles from '@/styles/pages/developer-analytics.scss?mod'
 import { selectDeveloperApps } from '@/selector/developer'
 import { ReduxState } from '@/types/core'
 import lodashIsEqual from 'lodash.isequal'
-import { formatRenderDate, formatRequestDate, generatePreviousTransactionDate } from './utils'
+import {
+  formatRenderDate,
+  formatRequestDate,
+  generatePreviousTransactionDate,
+  MAX_NUMBER_TRANSACTION_FIRST_PAGE,
+  MAX_NUMBER_TRANSACTION_PER_PAGE,
+} from './utils'
 import dayjs, { Dayjs } from 'dayjs'
 import { URLS, generateHeader } from '@/constants/api'
 
@@ -83,20 +89,60 @@ export const renderTransactionHistoryItem = ({ date, developerAppIds }: { date: 
 export const renderPreviousTransactionHistoryList = ({
   dates,
   developerAppIds,
+  startIndex,
+  endIndex,
 }: {
   dates: Dayjs[]
   developerAppIds: string[]
+  startIndex: number
+  endIndex: number
 }) => {
   if (dates.length === 0) {
     return <p>No previous transactions in the past</p>
   }
-
-  return dates.map(date =>
+  const subDates = dates.slice(startIndex, endIndex)
+  return subDates.map(date =>
     renderTransactionHistoryItem({
       date,
       developerAppIds,
     }),
   )
+}
+
+export const renderFirstPage = ({
+  developerAppIds,
+  previousTransactionDates,
+}: {
+  developerAppIds: string[]
+  previousTransactionDates: Dayjs[]
+}) => {
+  const today = dayjs()
+
+  return (
+    <>
+      <div className={styles.transactionSection}>
+        <H6>This Months Transactions To Date</H6>
+        {renderTransactionHistoryItem({ date: today, developerAppIds })}
+      </div>
+      <div>
+        <H6>Previous Transactions</H6>
+        {renderPreviousTransactionHistoryList({
+          dates: previousTransactionDates,
+          developerAppIds,
+          startIndex: 0,
+          endIndex: MAX_NUMBER_TRANSACTION_FIRST_PAGE,
+        })}
+      </div>
+    </>
+  )
+}
+
+export const handleLaterClick = (setCurrentPage: React.Dispatch<React.SetStateAction<number>>) => {
+  setCurrentPage(currentPage => currentPage + 1)
+}
+
+export const handleEarlierClick = (setCurrentPage: React.Dispatch<React.SetStateAction<number>>) => {
+  setCurrentPage(currentPage => currentPage - 1)
 }
 
 const currentDate = dayjs()
@@ -106,13 +152,19 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = () => {
     selectTransactionHistoryState,
     lodashIsEqual,
   )
-
-  const today = dayjs()
+  const [currentPage, setCurrentPage] = React.useState<number>(1)
 
   const previousTransactionDates = generatePreviousTransactionDate({
     currentDate,
     developerCreateDate: dayjs(developerCreatedDate),
   })
+
+  const startIndex =
+    currentPage === 1 ? 0 : (currentPage - 2) * MAX_NUMBER_TRANSACTION_PER_PAGE + MAX_NUMBER_TRANSACTION_FIRST_PAGE
+  const endIndex =
+    startIndex + (currentPage === 1 ? MAX_NUMBER_TRANSACTION_FIRST_PAGE : MAX_NUMBER_TRANSACTION_PER_PAGE)
+  const isShowLaterButton = previousTransactionDates.length > 0 && endIndex < previousTransactionDates.length
+  const isShowEarlierButton = previousTransactionDates.length > 0 && currentPage > 1
 
   if (isLoadingDeveloperDetail) {
     return <Loader />
@@ -123,17 +175,42 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = () => {
       <div className={styles.transactionTitle}>
         <H4>Transaction History</H4>
       </div>
-      <div className={styles.transactionSection}>
-        <H6>This Months Transactions To Date</H6>
-        {renderTransactionHistoryItem({ date: today, developerAppIds })}
-      </div>
-      <div>
-        <H6>Previous Transactions</H6>
-        {renderPreviousTransactionHistoryList({
-          dates: previousTransactionDates,
-          developerAppIds,
-        })}
-      </div>
+      {currentPage === 1
+        ? renderFirstPage({ developerAppIds, previousTransactionDates })
+        : renderPreviousTransactionHistoryList({
+            dates: previousTransactionDates,
+            developerAppIds,
+            startIndex: startIndex,
+            endIndex: endIndex,
+          })}
+      <Grid>
+        <GridItem>
+          {isShowLaterButton && (
+            <a
+              onClick={event => {
+                event?.preventDefault()
+                handleLaterClick(setCurrentPage)
+              }}
+              className={styles.paginationButton}
+              href="/"
+            >
+              {'Later >>'}
+            </a>
+          )}
+          {isShowEarlierButton && (
+            <a
+              onClick={event => {
+                event?.preventDefault()
+                handleEarlierClick(setCurrentPage)
+              }}
+              className={styles.paginationButton}
+              href="/"
+            >
+              {'<< Earlier'}
+            </a>
+          )}
+        </GridItem>
+      </Grid>
     </div>
   )
 }

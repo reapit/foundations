@@ -6,6 +6,8 @@ import { shallow } from 'enzyme'
 import TransactionHistory, {
   selectTransactionHistoryState,
   createHandleDownLoadButtonOnClickFn,
+  handleLaterClick,
+  handleEarlierClick,
 } from '../transaction-history'
 import { developerIdentity } from '@/sagas/__stubs__/developer-identity'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
@@ -88,5 +90,19 @@ describe('TransactionHistory', () => {
 
   it('should match a snapshot', () => {
     expect(shallow(<TransactionHistory />)).toMatchSnapshot()
+  })
+
+  describe('handleLaterClick and handleEarlierClick', () => {
+    it('handleLaterClick', () => {
+      const setCurrentPage = jest.fn()
+      handleLaterClick(setCurrentPage)
+      expect(setCurrentPage).toBeCalled()
+    })
+
+    it('handleEarlierClick', () => {
+      const setCurrentPage = jest.fn()
+      handleEarlierClick(setCurrentPage)
+      expect(setCurrentPage).toBeCalled()
+    })
   })
 })
