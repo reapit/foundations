@@ -25,8 +25,6 @@ const consumptionCostsByMonth = [
   ['51+', '£0.023500', '£0.018800', '£0.014000', '£0.011750', '£0.009400', '£0.005875', '£0.002350'],
 ]
 
-console.log(consumptionCostsByMonth.length)
-
 export const ConsumptionCostMethodologyTable = () => (
   <div className="mt-10">
     <div className="mb-3">
@@ -41,7 +39,7 @@ export const ConsumptionCostMethodologyTable = () => (
         <tr>
           <td style={{ border: 'none' }}></td>
           {tableSubHeadings.map((subHeading, index) => (
-            <td className={styles['title-cell']} key={index}>
+            <td className={styles['title-cell']} style={index === 0 ? { fontWeight: 'normal' } : {}} key={index}>
               {subHeading}
             </td>
           ))}
@@ -51,7 +49,8 @@ export const ConsumptionCostMethodologyTable = () => (
           className={styles['title-cell']}
           rowSpan={consumptionCostsByMonth.length + 1}
         >
-          (on last day <br /> of monthly billing period)
+          (on last day of monthly billing
+          <br /> period)
         </td>
         {consumptionCostsByMonth.map((consumptionCosts, index) => (
           <tr key={index}>

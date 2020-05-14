@@ -702,7 +702,7 @@ export const TermAndConditions = () => (
     </li>
 
     <li className={styles['child']}>
-      <H6 data-header1>DEVELOPER FEEDBACK</H6>
+      <H6 data-header1>DEVELOPER</H6>
       <ol className={styles['parent']}>
         <li className={styles['child']}>
           <span>
@@ -777,14 +777,7 @@ export const TermAndConditions = () => (
               <span>
                 that it has secured a lawful data processing ground, in accordance with and in compliance with
                 applicable Data Protection Laws, to process such Personal Data and to share such Personal Data with
-                Reapit; and
-              </span>
-            </li>
-
-            <li className={styles['child']}>
-              <span>
-                that it shall not transfer any Personal Data to Reapit unless the Developer is a Data Controller or a
-                joint Data Controller in respect of the applicable Personal Data.
+                Reapit.
               </span>
             </li>
           </ol>
@@ -1361,9 +1354,10 @@ export const TermAndConditions = () => (
 
             <li className={styles['child']}>
               <span>
-                The terms of this Agreement will evolve with the development of the Foundations Platform as developers
-                continue to innovate and find new, creative ways to use the Foundations Platform, and Reapit will notify
-                the Developer of modifications
+                Reapit reserves the right to amend this Agreement at any time by notice to the Developer. Upon receipt
+                of a notice of variation, the Developer shall have the right to terminate his Agreement for a period of
+                10 Business Days, after which the applicable variations will be deemed to have been accepted by the
+                Developer.
               </span>
             </li>
           </ol>

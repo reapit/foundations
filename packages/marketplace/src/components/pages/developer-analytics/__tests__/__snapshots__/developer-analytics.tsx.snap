@@ -38,9 +38,9 @@ exports[`AnalyticsPage should match a snapshot 1`] = `
               },
               Object {
                 "active": false,
-                "displayText": "BILLING",
+                "displayText": "Cost Explorer",
                 "onTabClick": [Function],
-                "tabIdentifier": "billing",
+                "tabIdentifier": "costexplorer",
               },
             ]
           }

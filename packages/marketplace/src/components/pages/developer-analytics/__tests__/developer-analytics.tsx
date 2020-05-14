@@ -46,9 +46,9 @@ describe('AnalyticsPage', () => {
       fn1()
       expect(mockSetCurrentTab).toBeCalledWith(AnalyticsTab.DETAILED)
 
-      const fn2 = handleUseEffectToSetCurrentTab(AnalyticsTab.BILLING, mockSetCurrentTab)
+      const fn2 = handleUseEffectToSetCurrentTab(AnalyticsTab.COST_EXPLORER, mockSetCurrentTab)
       fn2()
-      expect(mockSetCurrentTab).toBeCalledWith(AnalyticsTab.BILLING)
+      expect(mockSetCurrentTab).toBeCalledWith(AnalyticsTab.COST_EXPLORER)
 
       const fn3 = handleUseEffectToSetCurrentTab(null, mockSetCurrentTab)
       fn3()
@@ -66,7 +66,7 @@ describe('AnalyticsPage', () => {
       expect(wrapper).toMatchSnapshot()
     })
     it('should render Billing Tab', () => {
-      const result = renderTabContent(AnalyticsTab.BILLING)
+      const result = renderTabContent(AnalyticsTab.COST_EXPLORER)
       const wrapper = shallow(<div>{result}</div>)
       expect(wrapper).toMatchSnapshot()
     })

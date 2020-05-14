@@ -5,11 +5,11 @@ import { FlexContainerResponsive, FlexContainerBasic, Grid, GridItem } from '@re
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import styles from '@/styles/pages/developer-analytics.scss?mod'
 import ServiceChart from './service-chart'
-import CostExplorer from './cost-explorer'
+import CostExplorer from './cost-explorer-component'
 
-export type BillingTabProps = {}
+export type CostExplorerTabProps = {}
 
-export const BillingTab: React.FC<BillingTabProps> = () => {
+export const CostExplorerTab: React.FC<CostExplorerTabProps> = () => {
   return (
     <ErrorBoundary>
       <FlexContainerBasic hasPadding flexColumn>
@@ -34,4 +34,4 @@ export const BillingTab: React.FC<BillingTabProps> = () => {
   )
 }
 
-export default BillingTab
+export default CostExplorerTab

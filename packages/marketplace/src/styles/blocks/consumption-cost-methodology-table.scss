@@ -1,11 +1,14 @@
 .title-cell {
-  text-align: center !important;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .table {
+  font-size: 12px;
   tr > th {
     min-width: 160px;
-    text-align: right;
+  }
+  tr > th, tr > td, td {
+    text-align: center !important;
+    vertical-align: middle;
   }
 }
