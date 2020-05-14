@@ -15,7 +15,10 @@ import {
   GridFourColItem,
   Helper,
   infoText,
+  Button,
 } from '@reapit/elements'
+import { history } from '@/core/router'
+import Routes from '@/constants/routes'
 
 export type AppListProps = {
   list: AppSummaryModel[]
@@ -26,6 +29,26 @@ export type AppListProps = {
   infoType: InfoType
   pagination?: PaginationProps
   numOfColumn?: number
+  hasSubmitButton?: boolean
+}
+
+export const renderHeader = ({ hasSubmitButton, title }: { hasSubmitButton: boolean; title: string | undefined }) => {
+  const goToNewAppPage = () => {
+    history.push(Routes.SUBMIT_APP)
+  }
+  if (!title) return null
+  if (!hasSubmitButton) {
+    return <H3>{title}</H3>
+  } else {
+    return (
+      <div className={styles.headerHasButton}>
+        <H3>{title}</H3>
+        <Button onClick={goToNewAppPage} type="button" variant="primary">
+          Create new app
+        </Button>
+      </div>
+    )
+  }
 }
 
 export const AppList: React.FunctionComponent<AppListProps> = ({
@@ -37,12 +60,13 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
   infoType,
   pagination,
   numOfColumn = 4,
+  hasSubmitButton = false,
 }) => {
   const WrapperContainer = numOfColumn === 4 ? GridFourColItem : GridThreeColItem
 
   return (
     <FlexContainerBasic hasPadding flexColumn>
-      {title && <H3>{title}</H3>}
+      {renderHeader({ hasSubmitButton, title })}
       {!list.length && !loading ? (
         <Helper variant="info">
           {infoType

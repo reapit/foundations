@@ -1,7 +1,7 @@
 import clientSagas, { clientDataFetch, clientDataListen } from '../client'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
-import { clientLoading, clientReceiveData, clientRequestDataFailure } from '@/actions/client'
+import { clientFetchAppSummarySuccess } from '@/actions/client'
 import { categoriesReceiveData } from '@/actions/app-categories'
 import { featuredAppsDataStub, appsDataStub } from '../__stubs__/apps'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
@@ -26,7 +26,6 @@ const params = { data: { page: 1, search: '', category: '' } }
 describe('client fetch data', () => {
   const gen = cloneableGenerator(clientDataFetch as any)(params)
 
-  expect(gen.next().value).toEqual(put(clientLoading(true)))
   expect(gen.next().value).toEqual(select(selectClientId))
   expect(gen.next('1').value).toEqual(select(selectCategories))
   expect(gen.next([]).value).toEqual(select(selectFeaturedApps))
@@ -66,19 +65,13 @@ describe('client fetch data', () => {
     const response = [appsDataStub.data, featuredAppsDataStub.data, appCategorieStub]
     expect(clone.next(response).value).toEqual(
       put(
-        clientReceiveData({
+        clientFetchAppSummarySuccess({
           apps: response[0] as PagedResultAppSummaryModel_,
           featuredApps: response[1].data as AppSummaryModel[],
         }),
       ),
     )
     expect(clone.next().value).toEqual(put(categoriesReceiveData(response[2] as PagedResultCategoryModel_)))
-    expect(clone.next().done).toBe(true)
-  })
-
-  test('api call fail', () => {
-    const clone = gen.clone()
-    expect(clone.next([]).value).toEqual(put(clientRequestDataFailure()))
     expect(clone.next().done).toBe(true)
   })
 
@@ -99,7 +92,6 @@ describe('client fetch data', () => {
 describe('client fetch data error', () => {
   const gen = cloneableGenerator(clientDataFetch as any)(params)
 
-  expect(gen.next().value).toEqual(put(clientLoading(true)))
   expect(gen.next('').value).toEqual(select(selectClientId))
 
   // @ts-ignore
@@ -118,7 +110,9 @@ describe('client thunks', () => {
     it('should request data when called', () => {
       const gen = clientDataListen()
 
-      expect(gen.next().value).toEqual(takeLatest<Action<number>>(ActionTypes.CLIENT_REQUEST_DATA, clientDataFetch))
+      expect(gen.next().value).toEqual(
+        takeLatest<Action<number>>(ActionTypes.CLIENT_FETCH_APP_SUMMARY, clientDataFetch),
+      )
       expect(gen.next().done).toBe(true)
     })
   })

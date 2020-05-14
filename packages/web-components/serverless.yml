@@ -15,6 +15,14 @@ custom:
       noFrozenLockFile: false
     excludeFiles: src/**/*.test.ts
     keepOutputDirectory: true
+    allowedHeaders:
+      - Content-Type
+      - X-Amz-Date
+      - Authorization
+      - X-Api-Key
+      - X-Amz-Security-Token
+      - X-Amz-User-Agent
+      - reapit-customer
 
 provider:
   name: aws
@@ -57,7 +65,10 @@ functions:
       - http:
           path: properties
           method: get
-          cors: true
+          cors:
+            origin: '*'
+            headers: ${self:custom.allowedHeaders}
+            allowCredentials: false
           private: true
           request:
             parameters:
@@ -68,7 +79,10 @@ functions:
       - http:
           path: properties/{id}
           method: get
-          cors: true
+          cors:
+            origin: '*'
+            headers: ${self:custom.allowedHeaders}
+            allowCredentials: false
           private: true
           request:
             parameters:
@@ -79,7 +93,10 @@ functions:
       - http:
           path: propertyImages
           method: get
-          cors: true
+          cors:
+            origin: '*'
+            headers: ${self:custom.allowedHeaders}
+            allowCredentials: false
           private: true
           request:
             parameters:

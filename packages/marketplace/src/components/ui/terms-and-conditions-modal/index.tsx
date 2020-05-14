@@ -41,11 +41,7 @@ export const TermsAndConditionsModal: React.FunctionComponent<TermsAndConditions
       <React.Fragment>
         <p className={styles['heading-paragraph']}>
           These Reapit Foundations User Terms and Conditions govern access to Reapit’s Foundations Platform and
-          incorporate the Registration Details.
-        </p>
-        <p className={styles['heading-paragraph']}>
-          Reapit reserves the right to amend these Application User Terms and Conditions at any time by notice to the
-          Developer.
+          incorporate the Registration Details, to the exclusion of all other terms.
         </p>
         <TermAndConditions />
         <Schedule1 />

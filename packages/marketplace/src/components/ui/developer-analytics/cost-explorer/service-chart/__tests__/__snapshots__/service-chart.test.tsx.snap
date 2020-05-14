@@ -1,0 +1,207 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ServiceChart handleUseEffect should render Chart 1`] = `
+<div>
+  <Bar
+    data={
+      Object {
+        "datasets": Array [
+          Object {
+            "backgroundColor": "rgba(255,99,132,0.2)",
+            "borderColor": "rgba(255,99,132,1)",
+            "borderWidth": 1,
+            "data": Array [
+              1,
+              2,
+              3,
+            ],
+            "hoverBackgroundColor": "rgba(255,99,132,0.4)",
+            "hoverBorderColor": "rgba(255,99,132,1)",
+            "label": "Resource",
+          },
+        ],
+        "label": Array [
+          "A",
+          "B",
+          "C",
+        ],
+      }
+    }
+    height={50}
+    options={
+      Object {
+        "maintainAspectRatio": false,
+        "scales": Object {
+          "yAxes": Array [
+            Object {
+              "scaleLabel": Object {
+                "display": true,
+                "labelString": "Total Cost ( £ )",
+              },
+            },
+          ],
+        },
+      }
+    }
+    width={50}
+  />
+</div>
+`;
+
+exports[`ServiceChart handleUseEffect should render Loader 1`] = `
+<div>
+  <Component />
+</div>
+`;
+
+exports[`ServiceChart should match a snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Component>
+    <Component>
+      <div
+        className="container      "
+      >
+        <div>
+          <Component>
+            <h4
+              className="title is-4  "
+              id=""
+            >
+              Services
+            </h4>
+          </Component>
+          <Bar
+            data={
+              Object {
+                "datasets": Array [
+                  Object {
+                    "backgroundColor": "rgba(255,99,132,0.2)",
+                    "borderColor": "rgba(255,99,132,1)",
+                    "borderWidth": 1,
+                    "data": Array [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      8.1,
+                      0,
+                    ],
+                    "hoverBackgroundColor": "rgba(255,99,132,0.4)",
+                    "hoverBorderColor": "rgba(255,99,132,1)",
+                    "label": "Resource",
+                  },
+                ],
+                "labels": Array [
+                  "November 2019",
+                  "December 2019",
+                  "January 2020",
+                  "February 2020",
+                  "March 2020",
+                  "April 2020",
+                  "May 2020",
+                ],
+              }
+            }
+            height={50}
+            options={
+              Object {
+                "maintainAspectRatio": false,
+                "scales": Object {
+                  "yAxes": Array [
+                    Object {
+                      "scaleLabel": Object {
+                        "display": true,
+                        "labelString": "Total Cost ( £ )",
+                      },
+                    },
+                  ],
+                },
+              }
+            }
+            width={50}
+          >
+            <ChartComponent
+              data={
+                Object {
+                  "datasets": Array [
+                    Object {
+                      "backgroundColor": "rgba(255,99,132,0.2)",
+                      "borderColor": "rgba(255,99,132,1)",
+                      "borderWidth": 1,
+                      "data": Array [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        8.1,
+                        0,
+                      ],
+                      "hoverBackgroundColor": "rgba(255,99,132,0.4)",
+                      "hoverBorderColor": "rgba(255,99,132,1)",
+                      "label": "Resource",
+                    },
+                  ],
+                  "labels": Array [
+                    "November 2019",
+                    "December 2019",
+                    "January 2020",
+                    "February 2020",
+                    "March 2020",
+                    "April 2020",
+                    "May 2020",
+                  ],
+                }
+              }
+              datasetKeyProvider={[Function]}
+              height={50}
+              legend={
+                Object {
+                  "display": true,
+                  "position": "bottom",
+                }
+              }
+              options={
+                Object {
+                  "maintainAspectRatio": false,
+                  "scales": Object {
+                    "yAxes": Array [
+                      Object {
+                        "scaleLabel": Object {
+                          "display": true,
+                          "labelString": "Total Cost ( £ )",
+                        },
+                      },
+                    ],
+                  },
+                }
+              }
+              redraw={false}
+              type="bar"
+              width={50}
+            >
+              <canvas
+                height={50}
+                onClick={[Function]}
+                width={50}
+              />
+            </ChartComponent>
+          </Bar>
+        </div>
+      </div>
+    </Component>
+  </Component>
+</Provider>
+`;

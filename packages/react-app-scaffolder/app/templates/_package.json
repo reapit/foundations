@@ -40,6 +40,7 @@
   }
   <% } else { %>
   "dependencies": {
+    "offline-plugin": "^5.0.7",
     "@reapit/cognito-auth": "latest",
     "@reapit/elements": "latest",
     "@reapit/foundations-ts-definitions": "2020-02-13",

@@ -7,3 +7,7 @@ export const selectLoginType = (state: ReduxState) => {
 export const selectIsAdmin = (state: ReduxState) => {
   return state.auth?.loginSession?.loginIdentity?.isAdmin || false
 }
+
+export const selectLoginIdentity = (state: ReduxState) => {
+  return state.auth.loginSession?.loginIdentity
+}

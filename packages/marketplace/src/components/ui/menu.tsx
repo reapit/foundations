@@ -12,7 +12,6 @@ import {
   FaSignOutAlt,
   FaCloud,
   FaReadme,
-  FaCloudUploadAlt,
   FaCloudDownloadAlt,
   FaCog,
   FaClipboardList,
@@ -95,13 +94,6 @@ export const generateMenuConfig = (
           url: Routes.DEVELOPER_MY_APPS,
           type: 'PRIMARY',
           icon: <FaCloud className="nav-item-icon" />,
-        },
-        {
-          title: 'Submit',
-          key: 'SUBMIT_APP',
-          url: Routes.SUBMIT_APP,
-          type: 'PRIMARY',
-          icon: <FaCloudUploadAlt className="nav-item-icon" />,
         },
         {
           title: 'Analytics',
