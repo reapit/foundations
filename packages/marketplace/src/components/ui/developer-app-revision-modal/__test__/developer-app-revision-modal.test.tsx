@@ -58,6 +58,7 @@ const props: DeveloperAppRevisionModalProps = {
     email: 'mock@test.com',
     name: 'mock user',
     userCode: 'mockUserCode',
+    isAdmin: false,
   },
 }
 

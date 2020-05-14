@@ -16,6 +16,7 @@ export interface MenuItem {
   icon: React.ReactNode
   url?: string
   callback?: () => void
+  disabled?: boolean
 }
 
 export const getActiveItemKey = (menu: MenuItem[], location?: Location<any>): string | null => {
@@ -89,17 +90,19 @@ const MenuComponent: React.FC<MenuConfig> = ({ menu, location, mode, defaultActi
   return (
     <nav className={`nav-bar ${mode === 'DESKTOP' ? 'is-desktop' : ''}`}>
       <ul>
-        {menu.map((item: MenuItem) => (
-          <LinkItem activeItemRef={activeKey === item.key ? activeItemRef : undefined} key={item.key} item={item}>
-            <li
-              className={`nav-item ${activeKey === item.key ? 'is-active' : ''}`}
-              onClick={() => item.type !== 'LOGO' && setIsActive(item.key)}
-            >
-              <div>{item.icon}</div>
-              {item.title && <div className="nav-item-title">{item.title}</div>}
-            </li>
-          </LinkItem>
-        ))}
+        {menu.map((item: MenuItem) => {
+          return item.disabled ? null : (
+            <LinkItem activeItemRef={activeKey === item.key ? activeItemRef : undefined} key={item.key} item={item}>
+              <li
+                className={`nav-item ${activeKey === item.key ? 'is-active' : ''}`}
+                onClick={() => item.type !== 'LOGO' && setIsActive(item.key)}
+              >
+                <div>{item.icon}</div>
+                {item.title && <div className="nav-item-title">{item.title}</div>}
+              </li>
+            </LinkItem>
+          )
+        })}
       </ul>
     </nav>
   )

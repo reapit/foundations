@@ -7,7 +7,7 @@ import routes from '@/constants/routes'
 import { MyApps, MyAppsProps, handleOnChange, handleUseEffect, mapStateToProps, mapDispatchToProps } from '../my-apps'
 import { ReduxState } from '@/types/core'
 
-const mockProps = (loading: boolean, appData: MyAppsItem | null): MyAppsProps => ({
+const mockProps = (loading: boolean, appData: MyAppsItem | null, isAdmin: boolean): MyAppsProps => ({
   myAppsState: {
     loading: loading,
     myAppsData: appData,
@@ -18,15 +18,20 @@ const mockProps = (loading: boolean, appData: MyAppsItem | null): MyAppsProps =>
       page: '2',
     },
   },
+  isAdmin,
 })
 
 describe('MyApps', () => {
   it('should match a snapshot when LOADING false', () => {
-    expect(shallow(<MyApps {...mockProps(false, appsDataStub)} />)).toMatchSnapshot()
+    expect(shallow(<MyApps {...mockProps(false, appsDataStub, true)} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when LOADING true', () => {
-    expect(shallow(<MyApps {...mockProps(true, null)} />)).toMatchSnapshot()
+    expect(shallow(<MyApps {...mockProps(true, null, true)} />)).toMatchSnapshot()
+  })
+
+  it('should match a snapshot when isAdmin false', () => {
+    expect(shallow(<MyApps {...mockProps(false, null, false)} />)).toMatchSnapshot()
   })
 
   it('handleOnChange', () => {
@@ -59,6 +64,7 @@ describe('MyApps', () => {
         loginSession: {
           loginIdentity: {
             clientId: '',
+            isAdmin: true,
           },
         },
       },
@@ -72,6 +78,7 @@ describe('MyApps', () => {
       appDetail: {},
       clientId: '',
       installationsFormState: 'PENDING',
+      isAdmin: true,
     }
     expect(result).toEqual(output)
   })
