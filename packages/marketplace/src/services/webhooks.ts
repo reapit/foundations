@@ -1,4 +1,3 @@
-import { PagedResultCategoryModel_, CreateCategoryModel, CategoryModel } from '@reapit/foundations-ts-definitions'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
 import { generateHeader } from './utils'
@@ -91,24 +90,43 @@ export interface UpdateTopicModel {
 
 // end manual defined Model
 
+// Subscriptions
 export interface FetchWebhooksSubscriptionsListParams extends FetchListCommonParams {
   sortBy?: string
   applicationId?: string[]
   active?: boolean
 }
 
-export type CreateWebhooksSubscriptionParams = CreateCategoryModel
+export type CreateWebhooksSubscriptionParams = CreateWebhookModel
 
-export type FetchCategoryById = FetchByIdCommonParams
+export type FetchWebhooksSubscriptionByIdParams = FetchByIdCommonParams
 
-export type DeleteCategoryByIdParams = FetchByIdCommonParams
+export type UpdateWebhooksSubscriptionByIdParams = FetchByIdCommonParams & UpdateWebhookModel
 
+export type DeleteWebhooksSubscriptionByIdParams = FetchByIdCommonParams
+
+export type PingWebhooksByIdParams = FetchByIdCommonParams & PingEndpointModel
+
+// Topics
+
+export interface FetchWebhooksTopicsListParams extends FetchListCommonParams {
+  sortBy?: string
+  applicationId?: string
+}
+
+export type CreateWebhooksTopicParams = CreateTopicModel
+
+export type FetchWebhooksTopicByIdParams = FetchByIdCommonParams
+
+export type UpdateWebhooksTopicByIdParams = FetchByIdCommonParams & UpdateTopicModel
+
+// Subscription
 export const fetchWebhooksSubscriptionsList = async (
-  params: FetchCategoriesListParams,
-): Promise<PagedResultCategoryModel_> => {
+  params: FetchWebhooksSubscriptionsListParams,
+): Promise<PagedResultWebhookModel_> => {
   try {
     const response = await fetcher({
-      url: `${URLS.categories}?${setQueryParams(params)}`,
+      url: `${URLS.webhookSubscriptions}?${setQueryParams(params)}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
@@ -120,10 +138,10 @@ export const fetchWebhooksSubscriptionsList = async (
   }
 }
 
-export const createCategory = async (params: CreateCategoryParams) => {
+export const createWebhooksSubscription = async (params: CreateWebhooksSubscriptionParams) => {
   try {
     const response = await fetcher({
-      url: `${URLS.categories}`,
+      url: `${URLS.webhookSubscriptions}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
       body: params,
@@ -136,11 +154,13 @@ export const createCategory = async (params: CreateCategoryParams) => {
   }
 }
 
-export const fetchCategoryById = async (params: FetchCategoryById): Promise<CategoryModel> => {
+export const fetchWebhooksSubscriptionById = async (
+  params: FetchWebhooksSubscriptionByIdParams,
+): Promise<WebhookModel> => {
   try {
     const { id } = params
     const response = await fetcher({
-      url: `${URLS.categories}/${id}`,
+      url: `${URLS.webhookSubscriptions}/${id}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
@@ -152,13 +172,14 @@ export const fetchCategoryById = async (params: FetchCategoryById): Promise<Cate
   }
 }
 
-export const deleteCategoryById = async (params: DeleteCategoryByIdParams) => {
+export const updateWebhooksSubscriptionById = async (params: UpdateWebhooksSubscriptionByIdParams) => {
   try {
-    const { id } = params
+    const { id, ...rest } = params
     const response = await fetcher({
-      url: `${URLS.categories}/${id}`,
+      url: `${URLS.webhookSubscriptions}/${id}`,
       api: window.reapit.config.marketplaceApiUrl,
-      method: 'DELETE',
+      method: 'PUT',
+      body: rest,
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response

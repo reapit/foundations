@@ -3,7 +3,6 @@ import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
 import { generateHeader } from './utils'
 import { logger } from 'logger'
-import { FetchListCommonParams, FetchByIdCommonParams } from './types'
 
 // Manual defined Model
 export interface BillingSummaryModel {
