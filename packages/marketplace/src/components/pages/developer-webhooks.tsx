@@ -35,6 +35,7 @@ import FormikAutoSave from '@/components/hocs/formik-auto-save'
 import WebhookEditModal from '../ui/webhook-edit-modal'
 import { selectDeveloperApps } from '@/selector/developer'
 import WebhookTestModal from '../ui/webhook-test-modal'
+import styles from '@/styles/elements/link.scss?mod'
 
 export const CreatedCell = ({ cell: { value } }): ReactElement[] => {
   return value.map((line, index) => <p key={index}>{line}</p>)
@@ -128,7 +129,11 @@ export const getTableTopicsData = ({
     url: subscription.url,
     topics: renderTopicName(topics, subscription.topicIds),
     customer: renderCustomerName(subscription.customerIds),
-    test: <a onClick={() => handleOpenTestModal(subscription.id)}>Ping</a>,
+    test: (
+      <a className={styles.hyperlinked} onClick={() => handleOpenTestModal(subscription.id)}>
+        Ping
+      </a>
+    ),
     edit: (
       <Button
         dataTest="edit-btn"
