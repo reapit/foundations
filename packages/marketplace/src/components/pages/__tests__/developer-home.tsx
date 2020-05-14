@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { History } from 'history'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
 import routes from '@/constants/routes'
