@@ -142,6 +142,34 @@ exports[`Router should match a snapshot 1`] = `
               }
             }
             exact={true}
+            fetcher={true}
+            path="/client/apps/:appid"
+          />
+          <Connect(Component)
+            allow="CLIENT"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            exact={true}
+            fetcher={true}
+            path="/client/apps/:appid/manage"
+          />
+          <Connect(Component)
+            allow="CLIENT"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            exact={true}
             path="/client/welcome"
           />
           <Connect(Component)
@@ -198,7 +226,7 @@ exports[`Router should match a snapshot 1`] = `
             }
             exact={true}
             fetcher={true}
-            path="/developer/apps/:page"
+            path="/developer/apps/:appid"
           />
           <Connect(Component)
             allow="DEVELOPER"

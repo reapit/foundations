@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppContent should match a snapshot 1`] = `
+<Fragment>
+  <Component
+    className="is-vcentered "
+  >
+    <Component
+      className="is-4"
+    >
+      <div>
+        <img
+          alt="Peter's Properties"
+          className="image"
+          src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg"
+        />
+      </div>
+    </Component>
+    <Component
+      className="is-8"
+    >
+      <Component>
+        Peter's Properties
+      </Component>
+    </Component>
+  </Component>
+</Fragment>
+`;

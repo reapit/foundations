@@ -60,7 +60,7 @@ exports[`DeveloperHome should match a snapshot 1`] = `
       pagination={
         Object {
           "onChange": [Function],
-          "pageNumber": 2,
+          "pageNumber": 1,
           "pageSize": 2,
           "totalCount": 6,
         }
@@ -139,7 +139,7 @@ exports[`DeveloperHome should match a snapshot 3`] = `
       pagination={
         Object {
           "onChange": [Function],
-          "pageNumber": 2,
+          "pageNumber": 1,
           "pageSize": 2,
           "totalCount": 6,
         }

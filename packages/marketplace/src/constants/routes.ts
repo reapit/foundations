@@ -1,5 +1,7 @@
 const Routes = {
   CLIENT: '/client/apps',
+  CLIENT_APP_DETAIL: '/client/apps/:appid',
+  CLIENT_APP_DETAIL_MANAGE: '/client/apps/:appid/manage',
   CLIENT_WELCOME: '/client/welcome',
   INSTALLED_APPS: '/client/installed',
   INSTALLED_APPS_PAGINATE: '/client/installed/:page',
@@ -9,9 +11,9 @@ const Routes = {
   DEVELOPER: '/developer',
   DEVELOPER_WELCOME: '/developer/welcome',
   DEVELOPER_MY_APPS: '/developer/apps',
+  DEVELOPER_APP_DETAIL: '/developer/apps/:appid',
   DEVELOPER_SWAGGER: '/developer/swagger',
   DEVELOPER_ELEMENTS: '/developer/elements',
-  DEVELOPER_MY_APPS_PAGINATE: '/developer/apps/:page',
   DEVELOPER_MY_APPS_EDIT: '/developer/apps/:appid/edit',
   DEVELOPER_API_DOCS: '/developer/api-docs',
   DEVELOPER_ANALYTICS: '/developer/analytics',

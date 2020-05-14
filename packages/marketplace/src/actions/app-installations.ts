@@ -20,10 +20,11 @@ export interface InstallationParams {
   pageNumber?: number
 }
 
-export type InstallParams = CreateInstallationModel
+export type InstallParams = CreateInstallationModel & { callback?: () => void }
 
 export type UninstallParams = {
   installationId: string
+  callback?: () => void
 } & TerminateInstallationModel
 
 export const appInstallationsRequestData = actionCreator<InstallationParams>(ActionTypes.APP_INSTALLATIONS_REQUEST_DATA)

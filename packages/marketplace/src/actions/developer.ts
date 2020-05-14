@@ -2,6 +2,7 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
 import {
+  AppDetailData,
   DeveloperItem,
   DeveloperRequestParams,
   Billing,
@@ -11,8 +12,16 @@ import {
 import { CreateDeveloperModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { FormState } from '@/types/core'
 import { FetchBillingParams } from '@/sagas/api'
+import { FetchAppDetailParams } from '@/services/apps'
 import { FetchMonthlyBillingParams } from '@/services/billings'
 import { WebhookPingTestParams } from '@/services/subscriptions'
+
+// Developer App Detail
+export const developerFetchAppDetail = actionCreator<FetchAppDetailParams>(ActionTypes.DEVELOPER_FETCH_APP_DETAIL)
+export const developerFetchAppDetailSuccess = actionCreator<AppDetailData>(
+  ActionTypes.DEVELOPER_FETCH_APP_DETAIL_SUCCESS,
+)
+export const developerFetchAppDetailFailed = actionCreator<string>(ActionTypes.DEVELOPER_FETCH_APP_DETAIL_FAILED)
 
 export const developerRequestData = actionCreator<DeveloperRequestParams>(ActionTypes.DEVELOPER_REQUEST_DATA)
 export const developerRequestDataFailure = actionCreator<void>(ActionTypes.DEVELOPER_REQUEST_DATA_FAILURE)

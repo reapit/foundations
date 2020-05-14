@@ -10,12 +10,15 @@ export const history = createBrowserHistory()
 
 const Login = React.lazy(() => import('../components/pages/login'))
 const Client = React.lazy(() => import('../components/pages/client'))
+const ClientAppDetail = React.lazy(() => import('../components/pages/client-app-detail'))
+const ClientAppDetailManage = React.lazy(() => import('../components/pages/client-app-detail-manage'))
 const ClientWelcomePage = React.lazy(() => import('../components/pages/client-welcome'))
 const InstalledApps = React.lazy(() => import('../components/pages/installed-apps'))
 const ClientSetting = React.lazy(() => import('../components/pages/settings/client-setting'))
 const MyApps = React.lazy(() => import('../components/pages/my-apps'))
 const Register = React.lazy(() => import('../components/pages/register'))
 const DeveloperHome = React.lazy(() => import('../components/pages/developer-home'))
+const DeveloperAppDetail = React.lazy(() => import('../components/pages/developer-app-detail'))
 const DeveloperSubmitApp = React.lazy(() => import('../components/pages/developer-submit-app'))
 const AdminApprovalsPage = React.lazy(() => import('../components/pages/admin-approvals'))
 const AdminDevManagementPage = React.lazy(() => import('../components/pages/admin-dev-management'))
@@ -53,6 +56,14 @@ const Router = () => {
               <PrivateRoute allow="CLIENT" path={Routes.MY_APPS_PAGINATE} component={MyApps} fetcher />
               <PrivateRoute allow="CLIENT" path={Routes.MY_APPS} component={MyApps} fetcher exact />
               <PrivateRoute allow="CLIENT" path={Routes.CLIENT} component={Client} exact fetcher />
+              <PrivateRoute allow="CLIENT" path={Routes.CLIENT_APP_DETAIL} component={ClientAppDetail} exact fetcher />
+              <PrivateRoute
+                allow="CLIENT"
+                path={Routes.CLIENT_APP_DETAIL_MANAGE}
+                component={ClientAppDetailManage}
+                exact
+                fetcher
+              />
               <PrivateRoute allow="CLIENT" path={Routes.CLIENT_WELCOME} component={ClientWelcomePage} exact />
               <PrivateRoute allow="CLIENT" path={Routes.CLIENT_HELP} exact fetcher component={ClientHelpPage} />
               <PrivateRoute allow="CLIENT" path={Routes.CLIENT_SETTINGS} exact fetcher component={ClientSetting} />
@@ -60,8 +71,8 @@ const Router = () => {
               <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_MY_APPS} component={DeveloperHome} exact fetcher />
               <PrivateRoute
                 allow="DEVELOPER"
-                path={Routes.DEVELOPER_MY_APPS_PAGINATE}
-                component={DeveloperHome}
+                path={Routes.DEVELOPER_APP_DETAIL}
+                component={DeveloperAppDetail}
                 exact
                 fetcher
               />
