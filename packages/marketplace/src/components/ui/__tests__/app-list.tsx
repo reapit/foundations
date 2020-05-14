@@ -28,7 +28,11 @@ describe('AppList', () => {
   })
 
   it('should match a snapshot when use empty infoType', () => {
-    expect(shallow(<AppList infoType={''} {...props} />)).toMatchSnapshot()
+    expect(shallow(<AppList {...props} infoType={''} />)).toMatchSnapshot()
+  })
+
+  it('should match a snapshot when use has header button', () => {
+    expect(shallow(<AppList {...props} hasSubmitButton />)).toMatchSnapshot()
   })
 
   it('should show loading', () => {

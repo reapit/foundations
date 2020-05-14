@@ -80,6 +80,7 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
       <div id="page-developer-home-container">
         <AppList
           list={list}
+          hasSubmitButton
           title="My Apps"
           loading={loading}
           onCardClick={handleOnCardClick({

@@ -23,3 +23,12 @@
   flex: 1 0;
   align-content: flex-start;
 }
+
+.headerHasButton {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  h3 {
+    margin-bottom: 0 !important;
+  }
+}
