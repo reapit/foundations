@@ -4,13 +4,15 @@ import dayjs from 'dayjs'
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
-import { URLS, generateHeader } from '@/constants/api'
+import { URLS } from '@/services/constants'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
-import { fetcher, setQueryParams } from '@reapit/elements'
 import { Action } from '@/types/core'
 import { Area } from '@/components/pages/admin-stats'
 import { getDateRange } from '@/utils/admin-stats'
 import { logger } from 'logger'
+import { fetchAppsList } from '@/services/apps'
+import { fetchDevelopersList } from '@/services/developers'
+import { fetchInstallationsList } from '@/services/installations'
 
 export const MARKETPLACE_GOLIVE_DATE = '2020-02-14'
 
@@ -28,15 +30,19 @@ export const adminStatsDataFetch = function*({ data }) {
         .toDate()
         .toISOString()
     }
-    const response = yield call(fetcher, {
-      url: `${url}?${setQueryParams({
-        pageSize: GET_ALL_PAGE_SIZE,
-        ...queryParams,
-      })}`,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    })
+    const serviceToCall =
+      url === 'APPS'
+        ? fetchAppsList
+        : url === 'DEVELOPERS'
+        ? fetchDevelopersList
+        : url === 'INSTALLATIONS'
+        ? fetchInstallationsList
+        : undefined
+
+    if (!serviceToCall) {
+      throw new Error('URL doesnt match any service')
+    }
+    const response = yield call(serviceToCall, { pageSize: GET_ALL_PAGE_SIZE, ...queryParams })
     if (response) {
       yield put(adminStatsReceiveData({ data: response.data, totalCount: response.totalCount }))
     } else {

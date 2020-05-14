@@ -1,5 +1,3 @@
-// TODO: TO MOVE ALL API CALL TO HERE
-
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS, generateHeader } from '../constants/api'
 import { RevisionsRequestParams } from '@/actions/revisions'
