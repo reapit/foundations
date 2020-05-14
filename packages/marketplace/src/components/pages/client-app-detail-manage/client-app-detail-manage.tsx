@@ -64,11 +64,13 @@ const ClientAppDetailManage: React.FC<ClientAppDetailManageProps> = () => {
         buttonGroup={renderAppHeaderButtonGroup(appDetailData.installedOn || '', onUninstallConfirmationModal)}
       />
       <AppContent appDetailData={appDetailData} loginType={loginType} />
-      <ClientAppUninstallConfirmation
-        visible={isVisibleUninstallConfirmation}
-        appDetailData={appDetailData}
-        closeUninstallConfirmationModal={closeUninstallConfirmationModal}
-      />
+      {isVisibleUninstallConfirmation && (
+        <ClientAppUninstallConfirmation
+          visible={isVisibleUninstallConfirmation}
+          appDetailData={appDetailData}
+          closeUninstallConfirmationModal={closeUninstallConfirmationModal}
+        />
+      )}
       {isLoadingAppDetail && <Loader />}
     </div>
   )
