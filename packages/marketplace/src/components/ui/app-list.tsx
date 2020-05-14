@@ -36,13 +36,13 @@ export const renderHeader = ({ hasSubmitButton, title }: { hasSubmitButton: bool
   const goToNewAppPage = () => {
     history.push(Routes.SUBMIT_APP)
   }
-
+  if (!title) return null
   if (!hasSubmitButton) {
-    return title ? <H3>{title}</H3> : null
+    return <H3>{title}</H3>
   } else {
     return (
       <div className={styles.headerHasButton}>
-        {title && <H3>{title}</H3>}
+        <H3>{title}</H3>
         <Button onClick={goToNewAppPage} type="button" variant="primary">
           Create new app
         </Button>
