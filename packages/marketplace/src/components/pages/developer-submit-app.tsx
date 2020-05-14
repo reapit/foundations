@@ -567,7 +567,8 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                           labelText="Description"
                           name="description"
                           placeholder={
-                            'A detailed description for your app listing. Must be between 150 and 1000 characters'
+                            // eslint-disable-next-line max-len
+                            'A detailed description for your app listing. Must be between 150 and 1000 characters. Please note: As this field supports HTML, special characters will be included in the character count'
                           }
                         />
                       </GridItem>
