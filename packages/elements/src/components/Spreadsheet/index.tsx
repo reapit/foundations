@@ -72,6 +72,15 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
   afterCellsChanged,
   afterUploadDataValidated,
   maxUploadRow = 30,
+  CustomDownButton,
+  /**
+   * this props will change readOnly field
+   * currently, it's only used by component spread-sheet on offices tab
+   *
+   * TODO: !waiting to be reviewd
+   *
+   */
+  allowOnlyOneValidationErrorPerRow = false,
   ...rest
 }) => {
   const [selected, setSelected] = React.useState<SelectedMatrix | null>(null)
@@ -91,11 +100,20 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
 
   const cellRenderer = React.useCallback(customCellRenderer(data, setData, setSelected, afterCellsChanged), [data])
 
-  const onCellsChanged = handleCellsChanged(data, setData, validate, afterCellsChanged)
+  const onCellsChanged = handleCellsChanged(
+    data,
+    setData,
+    allowOnlyOneValidationErrorPerRow,
+    validate,
+    afterCellsChanged,
+  )
 
   React.useEffect(handleSetContextMenu(setContextMenuProp.bind(null, hideContextMenu)), [])
 
-  React.useEffect(handleInitialDataChanged(initialData, data, setData, validate), [initialData, validate])
+  React.useEffect(handleInitialDataChanged(initialData, setData, allowOnlyOneValidationErrorPerRow, validate), [
+    initialData,
+    validate,
+  ])
 
   React.useEffect(handleAfterDataChanged(data, prevData, afterDataChanged), [data])
 
@@ -109,7 +127,14 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
   return (
     <div className="spreadsheet">
       <div className="wrap-top">
-        <div className="description">{description}</div>
+        <div className="description">
+          {description}
+          {allowOnlyOneValidationErrorPerRow && (
+            <small>
+              Cell of a row won&apos;t be editable if the row contains any invalidated cell (cell with background red)*
+            </small>
+          )}
+        </div>
         <div className="button-group">
           {hasUploadButton && (
             <UploadButton
@@ -120,7 +145,8 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
               })}
             />
           )}
-          {hasDownloadButton && <DownloadButton data={data} />}
+          {hasDownloadButton && CustomDownButton}
+          {hasDownloadButton && !CustomDownButton && <DownloadButton data={data} />}
         </div>
       </div>
       <MyReactDataSheet
@@ -135,7 +161,9 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
         {...rest}
       />
       <div className="wrap-bottom">
-        {hasAddButton && <AddRowButton addNewRow={handleAddNewRow(data, setData, validate)} />}
+        {hasAddButton && (
+          <AddRowButton addNewRow={handleAddNewRow(data, setData, allowOnlyOneValidationErrorPerRow, validate)} />
+        )}
       </div>
       <ContextMenu
         selected={selected}
@@ -151,3 +179,4 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
 
 export * from './types'
 export * from './utils'
+export { handleDownload as handleDownloadCsv }

@@ -23,6 +23,9 @@ export type SetSelected = React.Dispatch<React.SetStateAction<SelectedMatrix | n
 export interface Cell extends ReactDataSheet.Cell<Cell, string | null> {
   value: string | null
   isValidated?: boolean
+  // to be used together with allowOnlyOneValidationErrorPerRow
+  // won't allow readOnly property of the cell to be modified
+  fixedReadOnly?: boolean
   /** Additional className for styling cell */
   className?: string
   style?: React.CSSProperties
@@ -66,6 +69,8 @@ export interface SpreadsheetProps {
   afterCellsChanged?: AfterCellsChanged
   afterDataChanged?: AfterDataChanged
   afterUploadDataValidated?: AfterUploadDataValidated
+  CustomDownButton?: JSX.Element
+  allowOnlyOneValidationErrorPerRow?: boolean
   maxUploadRow?: number
 }
 

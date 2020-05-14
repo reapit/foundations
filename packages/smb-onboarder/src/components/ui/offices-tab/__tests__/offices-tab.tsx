@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { mount, shallow } from 'enzyme'
+import { MAX_ENTITIES_FETCHABLE_AT_ONE_TIME } from '@/constants/paginators'
 import { MockedProvider } from '@apollo/react-testing'
 import { BrowserRouter as Router } from 'react-router-dom'
 import {
@@ -14,6 +15,9 @@ import {
   validate,
   handleAfterCellChange,
   convertUploadedCellToTableCell,
+  createDownLoadButtonOnClickFn,
+  CreateDownLoadButtonOnClickFnParams,
+  CustomDownButton,
 } from '../offices-tab'
 import GET_OFFICES from '../gql/get-offices.graphql'
 import CREATE_OFFICE from '../gql/create-office.graphql'
@@ -56,6 +60,19 @@ const mockUpdateMutation = {
 }
 
 describe('OfficesTab', () => {
+  describe('CustomDownButton', () => {
+    it('should match a snapshot', () => {
+      const wrapper = mount(
+        <Router>
+          <MockedProvider mocks={[mockQueries, mockCreateMutation, mockUpdateMutation]} addTypename={false}>
+            <CustomDownButton setErrorServer={jest.fn} totalCount={0} />
+          </MockedProvider>
+        </Router>,
+      )
+      expect(wrapper).toMatchSnapshot()
+    })
+  })
+
   describe('OfficesTab', () => {
     it('should match a snapshot', () => {
       const wrapper = mount(
@@ -69,6 +86,103 @@ describe('OfficesTab', () => {
     })
   })
 
+  describe('createDownLoadButtonOnClickFn', () => {
+    it('should call getDataTable and handleDownloadCsv if fetch successfully', done => {
+      const mockedParams = ({
+        client: {
+          query: jest.fn(
+            () =>
+              new Promise((_, reject) => {
+                reject('error')
+              }),
+          ),
+        },
+        setErrorServer: jest.fn(),
+        totalCount: 200,
+        setIsDownloading: jest.fn(),
+      } as unknown) as CreateDownLoadButtonOnClickFnParams
+      const fn = createDownLoadButtonOnClickFn(mockedParams)
+      fn()
+      setTimeout(() => {
+        done()
+      }, 1)
+    })
+    it('should call setErrorServer when error is received during fetching', done => {
+      const mockedParams = ({
+        client: {
+          query: jest.fn(
+            () =>
+              new Promise((_, reject) => {
+                reject(new Error('error'))
+              }),
+          ),
+        },
+        setErrorServer: jest.fn(),
+        totalCount: 200,
+        setIsDownloading: jest.fn(),
+      } as unknown) as CreateDownLoadButtonOnClickFnParams
+      const fn = createDownLoadButtonOnClickFn(mockedParams)
+      fn()
+      setTimeout(() => {
+        expect(mockedParams.setErrorServer).toHaveBeenCalledWith({ type: 'SERVER', message: 'error' })
+        done()
+      }, 1)
+    })
+    it('should setIsDownloading correctly', done => {
+      const mockedParams = ({
+        client: {
+          query: jest.fn(
+            () =>
+              new Promise(resolve => {
+                resolve(offices)
+              }),
+          ),
+        },
+        setErrorServer: jest.fn(),
+        totalCount: 200,
+        setIsDownloading: jest.fn(),
+      } as unknown) as CreateDownLoadButtonOnClickFnParams
+      const fn = createDownLoadButtonOnClickFn(mockedParams)
+      fn()
+      expect(mockedParams.setIsDownloading).toHaveBeenNthCalledWith(1, true)
+      setTimeout(() => {
+        expect(mockedParams.setIsDownloading).toHaveBeenNthCalledWith(2, false)
+        done()
+      }, 1)
+    })
+    it('should call runQuery correctly', () => {
+      const mockedParams = ({
+        client: {
+          query: jest.fn(
+            () =>
+              new Promise(resolve => {
+                resolve(offices)
+              }),
+          ),
+        },
+        setErrorServer: jest.fn(),
+        totalCount: 200,
+        setIsDownloading: jest.fn(),
+      } as unknown) as CreateDownLoadButtonOnClickFnParams
+      const fn = createDownLoadButtonOnClickFn(mockedParams)
+      fn()
+      expect(mockedParams.client.query).toHaveBeenNthCalledWith(1, {
+        query: GET_OFFICES,
+        variables: {
+          pageSize: MAX_ENTITIES_FETCHABLE_AT_ONE_TIME,
+          pageNumber: 1,
+        },
+      })
+      expect(mockedParams.client.query).toHaveBeenNthCalledWith(2, {
+        query: GET_OFFICES,
+        variables: {
+          pageSize: MAX_ENTITIES_FETCHABLE_AT_ONE_TIME,
+          pageNumber: 2,
+        },
+      })
+    })
+  })
+
   describe('renderContent', () => {
     it('should match snapshot', () => {
       const mockParams: RenderContentParams = {
@@ -78,6 +192,7 @@ describe('OfficesTab', () => {
         afterCellsChanged: jest.fn(),
         handleAfterUpload: jest.fn(),
         dataTable: [],
+        setErrorServer: jest.fn(),
       }
       const wrapper = shallow(<div>{renderContent(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
@@ -91,6 +206,7 @@ describe('OfficesTab', () => {
         afterCellsChanged: jest.fn(),
         handleAfterUpload: jest.fn(),
         dataTable: [],
+        setErrorServer: jest.fn(),
       }
       const wrapper = shallow(<div>{renderContent(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
@@ -104,6 +220,7 @@ describe('OfficesTab', () => {
         afterCellsChanged: jest.fn(),
         handleAfterUpload: jest.fn(),
         dataTable: getDataTable(offices),
+        setErrorServer: jest.fn(),
       }
       const wrapper = shallow(<div>{renderContent(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()

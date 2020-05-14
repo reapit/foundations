@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { useLocation, useHistory } from 'react-router-dom'
+import { ApolloClient } from 'apollo-boost'
 import queryString from 'query-string'
-import { ApolloError } from 'apollo-boost'
-import { useQuery, useMutation } from '@apollo/react-hooks'
+import { ApolloError, ApolloQueryResult } from 'apollo-boost'
+import { useQuery, useApolloClient, useMutation } from '@apollo/react-hooks'
 import { QueryResult } from '@apollo/react-common'
 import {
   Loader,
@@ -20,6 +21,8 @@ import {
   fieldValidateRequire,
   Toast,
   ErrorData,
+  Button,
+  handleDownloadCsv,
 } from '@reapit/elements'
 import {
   PagedResultOfficeModel_,
@@ -36,6 +39,7 @@ import { useUploadDispatch } from '@/hooks/use-upload'
 import { startUpload, completeUpload, setUploadProgress } from '@/actions/update-provider'
 import { Dispatch } from '@/reducers/update-provider'
 import { UploadCsvMessage, UploadCsvResponseMessage } from '@/utils/worker-upload-helper'
+import { MAX_ENTITIES_FETCHABLE_AT_ONE_TIME } from '@/constants/paginators'
 
 import Worker from 'worker-loader!../../../worker/csv-upload.worker.ts'
 
@@ -51,7 +55,7 @@ export const tableHeaders: Cell[] = [
   { readOnly: true, value: 'Address 4' },
   { readOnly: true, value: 'Post Code' },
   { readOnly: true, value: 'Telephone' },
-  { readOnly: true, value: 'Email' },
+  { readOnly: true, value: 'Office Email' },
 ]
 
 export type OfficesTabProps = {}
@@ -91,6 +95,81 @@ export type RenderContentParams = {
   handleChangePage: (page: number) => void
   afterCellsChanged: AfterCellsChanged
   handleAfterUpload: AfterUploadDataValidated
+  setErrorServer: React.Dispatch<React.SetStateAction<ErrorData | null>>
+}
+
+export interface CreateDownLoadButtonOnClickFnParams {
+  totalCount: number
+  client: ApolloClient<any>
+  setIsDownloading: React.Dispatch<React.SetStateAction<boolean>>
+  setErrorServer: React.Dispatch<React.SetStateAction<ErrorData | null>>
+}
+
+export const createDownLoadButtonOnClickFn = ({
+  totalCount = 0,
+  client,
+  setIsDownloading,
+  setErrorServer,
+}: CreateDownLoadButtonOnClickFnParams) => () => {
+  const fetchPages = Math.ceil(totalCount / MAX_ENTITIES_FETCHABLE_AT_ONE_TIME)
+
+  setIsDownloading(true)
+  /**
+   * API currenlty only allow to fetch 100 items each time using pageSize
+   * This func fetch Nth times based on totalCount parameter
+   */
+  const promises: Promise<ApolloQueryResult<OfficesQueryResponse>>[] = []
+  for (let i = 1; i <= fetchPages; i++) {
+    promises.push(
+      client.query<OfficesQueryResponse, OfficesQueryParams>({
+        query: GET_OFFICES,
+        variables: {
+          pageSize: MAX_ENTITIES_FETCHABLE_AT_ONE_TIME,
+          pageNumber: i,
+        },
+      }),
+    )
+  }
+
+  Promise.all(promises)
+    .then(results => {
+      const mergedResult = results.reduce<any[]>((mergedArr, result) => {
+        const getOfficesEmbedded = (result.data?.GetOffices?._embedded || []) as any[]
+        mergedArr.push(...getOfficesEmbedded)
+        return mergedArr
+      }, [])
+      const dataTable = getDataTable({ GetOffices: { _embedded: mergedResult } })
+      handleDownloadCsv(dataTable, window, document)()
+    })
+    .catch(err => {
+      setErrorServer({
+        type: 'SERVER',
+        message: err.message,
+      })
+    })
+    .finally(() => {
+      setIsDownloading(false)
+    })
+}
+
+export const CustomDownButton = ({
+  totalCount,
+  setErrorServer,
+}: {
+  totalCount: number
+  setErrorServer: React.Dispatch<React.SetStateAction<ErrorData | null>>
+}) => {
+  const [isDownloading, setIsDownloading] = React.useState<boolean>(false)
+  const client = useApolloClient()
+  const downloadButtonOnClick = createDownLoadButtonOnClickFn({ totalCount, setIsDownloading, client, setErrorServer })
+
+  return (
+    <div className="download-button">
+      <Button loading={isDownloading} type="submit" variant="info" onClick={downloadButtonOnClick}>
+        Download file
+      </Button>
+    </div>
+  )
 }
 
 export const renderContent = ({
@@ -103,6 +182,7 @@ export const renderContent = ({
   handleChangePage,
   afterCellsChanged,
   handleAfterUpload,
+  setErrorServer,
 }: RenderContentParams) => {
   if (loading) {
     return <Loader />
@@ -113,12 +193,14 @@ export const renderContent = ({
   return (
     <React.Fragment>
       <Spreadsheet
+        allowOnlyOneValidationErrorPerRow={true}
         data={dataTable as Cell[][]}
         validate={validate}
         afterCellsChanged={afterCellsChanged}
         hasUploadButton
         hasDownloadButton
         afterUploadDataValidated={handleAfterUpload}
+        CustomDownButton={<CustomDownButton setErrorServer={setErrorServer} totalCount={totalCount} />}
       />
       <Section>
         <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />
@@ -330,6 +412,7 @@ export const OfficesTab: React.FC<OfficesTabProps> = () => {
   return (
     <div>
       {renderContent({
+        setErrorServer,
         loading,
         error,
         dataTable,
@@ -371,13 +454,15 @@ export function getDataTable(data: OfficesQueryResponse): Cell[][] {
   return dataTable
 }
 
-export const validate = (data: Cell[][]) =>
-  data.map((row, rowIndex) =>
+export const validate = (data: Cell[][]) => {
+  const a = data.map((row, rowIndex) =>
     row.map((cell, cellIndex) => {
       if (rowIndex === 0) return true // dont need to validate header row
       // cell name is required
+
       if (cellIndex === 2) {
-        return !fieldValidateRequire(cell.value as string)
+        const a1 = !fieldValidateRequire(cell.value as string)
+        return a1
       }
       // cell addess1 is required
       if (cellIndex === 5) {
@@ -398,6 +483,8 @@ export const validate = (data: Cell[][]) =>
       return true
     }),
   )
+  return a
+}
 
 export const convertUploadedCellToTableCell = (cell: Cell[]): Cell[] => {
   cell[0] = { ...cell[0], key: 'id', readOnly: true, className: 'hidden-cell' }

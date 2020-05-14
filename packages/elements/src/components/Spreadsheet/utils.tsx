@@ -91,10 +91,96 @@ export const changedCellsGenerate = (newData?: Cell[][], oldData?: Cell[][]): Ch
   return changedCells
 }
 
+export const generateDataWithReadOnlyAndIsValidated = ({
+  data,
+  allowOnlyOneValidationErrorPerRow,
+  validateFunction,
+}: {
+  data: Cell[][]
+  allowOnlyOneValidationErrorPerRow: boolean
+  validateFunction?: ValidateFunction
+}) => {
+  /**
+   * data with isValidated setted
+   * and readOnly set to true if
+   *   - allowOnlyOneValidationErrorPerRow = true and belonge to invalidated row and is validated cell
+   */
+
+  let dataWithIsGeneratedAndReadOnly = validatedDataGenerate(data, validateFunction)
+
+  if (allowOnlyOneValidationErrorPerRow) {
+    const invalidatedRowIndexSet = generateInvalidatedRowIndexSet(dataWithIsGeneratedAndReadOnly)
+
+    dataWithIsGeneratedAndReadOnly = generatedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrue({
+      data: dataWithIsGeneratedAndReadOnly,
+      invalidatedRowIndexSet: invalidatedRowIndexSet,
+    })
+  }
+
+  return dataWithIsGeneratedAndReadOnly
+}
+
+/**
+ * to be used together with allowOnlyOneValidationErrorPerRow option
+ * ^ (alterDataWithReadOnly) will set readOnly to every validated cell on that row except the invalidaed row
+ */
+export interface GeneratedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrueParams {
+  data: Cell[][]
+  invalidatedRowIndexSet: Set<number>
+}
+
+export const generatedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrue = ({
+  data,
+  invalidatedRowIndexSet,
+}: GeneratedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrueParams) =>
+  data.map((row, rowIndex) => {
+    const isInvalidatedRow = invalidatedRowIndexSet.has(rowIndex)
+    return row.map(cell => {
+      // ignore header row
+      const isHeaderRow = rowIndex === 0
+      if (isHeaderRow || cell.fixedReadOnly) {
+        return cell
+      }
+
+      if (!isInvalidatedRow) {
+        // set readOnly to false incase of it has been setted to false if it belonged invalidated row in the past
+        // and readOnly was setted to true
+        return { ...cell, readOnly: false }
+      }
+
+      // isInvalidatedRow = false and is invalidatedCell
+      // ignore invalidated cell
+      const isInvalidatedCell = cell?.isValidated === false
+      if (isInvalidatedCell) {
+        // set readOnly to false incase of it has been setted to false if it belonged invalidated row in the past
+        return { ...cell, readOnly: false }
+      }
+
+      // isInvalidatedRow = false and is validated cell
+      return { ...cell, readOnly: true }
+    })
+  })
+
+/**
+ * to be used together with allowOnlyOneValidationErrorPerRow option
+ * This set will contain invalidated row
+ * ^ (formatDataWithReadOnly) will set readOnly to every validated cell on that row except the invalidaed row
+ */
+export const generateInvalidatedRowIndexSet: (data: Cell[][]) => Set<number> = data =>
+  data.reduce((isInvalidatedRowSet, row, rowIndex) => {
+    row.forEach(cell => {
+      if (cell?.isValidated === false) {
+        isInvalidatedRowSet.add(rowIndex)
+      }
+    })
+    return isInvalidatedRowSet
+  }, new Set<number>())
+
 export const validatedDataGenerate = (data: Cell[][], validateFunction?: ValidateFunction): Cell[][] => {
   // if valdateFunction is not set, then by default isValidated = true
   if (typeof validateFunction === 'function') {
     const validateMatrix = validateFunction(data)
+
     return data.map((row, rowIndex) =>
       row.map((cell, colIndex) => ({ ...cell, isValidated: validateMatrix[rowIndex][colIndex] })),
     )
