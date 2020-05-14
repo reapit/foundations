@@ -91,6 +91,11 @@ export const changedCellsGenerate = (newData?: Cell[][], oldData?: Cell[][]): Ch
   return changedCells
 }
 
+/**
+ * data with isValidated setted
+ * and readOnly set to true if
+ *   - allowOnlyOneValidationErrorPerRow = true and belonge to invalidated row and is validated cell
+ */
 export const generateDataWithReadOnlyAndIsValidated = ({
   data,
   allowOnlyOneValidationErrorPerRow,
@@ -100,12 +105,6 @@ export const generateDataWithReadOnlyAndIsValidated = ({
   allowOnlyOneValidationErrorPerRow: boolean
   validateFunction?: ValidateFunction
 }) => {
-  /**
-   * data with isValidated setted
-   * and readOnly set to true if
-   *   - allowOnlyOneValidationErrorPerRow = true and belonge to invalidated row and is validated cell
-   */
-
   let dataWithIsGeneratedAndReadOnly = validatedDataGenerate(data, validateFunction)
 
   if (allowOnlyOneValidationErrorPerRow) {
