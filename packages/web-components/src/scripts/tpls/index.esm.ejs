@@ -1,16 +1,16 @@
 <% packages.forEach(function({
   exportName,
-  webpackPackageName
+  rollUpPackageName
 }){ %>
   <% if (exportName) { %>
-    import {<%= exportName %>} from './<%= webpackPackageName %>.js'
+    import {<%= exportName %>} from './<%= rollUpPackageName %>.js'
   <% } %>
 <% }); %>
 
 export {
 <% packages.forEach(function({
   exportName,
-  webpackPackageName
+  rollUpPackageName
 }){ %>
   <% if (exportName) { %>
     <%= exportName %>,

@@ -37,22 +37,22 @@ const generateFileForPackages = async ({ packages, tplPath, destinationFilePath,
 return (async () => {
   const packages = [
     {
-      webpackPackageName: 'search-widget',
+      rollUpPackageName: 'search-widget',
       exportName: 'ReapitSearchWidgetComponent',
     },
     {
-      webpackPackageName: 'appointment-bookings',
+      rollUpPackageName: 'appointment-bookings',
       exportName: 'ReapitAppointmentBookingComponent',
     },
     {
-      webpackPackageName: 'viewing-booking',
+      rollUpPackageName: 'viewing-booking',
       exportName: 'ReapitViewingBookingComponent',
     },
     {
-      webpackPackageName: 'themes',
+      rollUpPackageName: 'themes',
     },
     {
-      webpackPackageName: 'property-detail',
+      rollUpPackageName: 'property-detail',
       exportName: 'ReapitPropertyDetailComponent',
     },
   ]
@@ -64,11 +64,11 @@ return (async () => {
   const clearPublic = 'rimraf ./public/dist-npm && rimraf ./public/dist'
   execSync(clearPublic, opts)
 
-  const promises = packages.map(({ webpackPackageName }) => {
+  const promises = packages.map(({ rollUpPackageName }) => {
     const buildPackageFn = () =>
       new Promise((resolve, reject) => {
         {
-          const clientBuildScriptPath = `./src/scripts/rollup.config.${webpackPackageName}.js`
+          const clientBuildScriptPath = `./src/scripts/rollup.config.${rollUpPackageName}.js`
           const spawnObject = spawn('rollup', ['-c', clientBuildScriptPath], {
             stdio: 'inherit',
           })
