@@ -1,6 +1,5 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
-import { ReduxState } from '@/types/core'
 import { shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
 
@@ -12,40 +11,9 @@ import AppRevisionModal, {
   handleCancelPendingRevisionsSuccessCallback,
 } from '../app-revision-modal'
 import { revisionsRequestData } from '@/actions/revisions'
-import { revisionsDataStub } from '@/sagas/__stubs__/revisions'
-import { revisionDetailDataStub } from '@/sagas/__stubs__/revision-detail'
 import { revisionDetailRequestData } from '@/actions/revision-detail'
 import { developerFetchAppDetail } from '@/actions/developer'
-
-const mockState = {
-  client: {
-    appDetail: {
-      data: appDetailDataStub.data,
-      isAppDetailLoading: false,
-    },
-    appSummary: {
-      data: null,
-      isAppSummaryLoading: false,
-    },
-  },
-  revisions: {
-    revisions: revisionsDataStub,
-    loading: false,
-  },
-  revisionDetail: {
-    revisionDetailData: revisionDetailDataStub,
-    loading: false,
-  },
-  auth: {
-    loginSession: {
-      loginIdentity: {
-        name: 'mockLoginName',
-        email: 'mockLoginEmail',
-        clientId: 'mockClientId',
-      },
-    },
-  },
-} as ReduxState
+import appState from '@/reducers/__stubs__/app-state'
 
 const mockProps: AppRevisionModalProps = {
   appDetailState: {
@@ -64,7 +32,7 @@ describe('ClientAppInstallConfirmation', () => {
   beforeEach(() => {
     /* mocking store */
     const mockStore = configureStore()
-    store = mockStore(mockState)
+    store = mockStore(appState)
     /* mocking useDispatch on our mock store  */
     spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
   })
@@ -92,7 +60,7 @@ describe('ClientAppInstallConfirmation', () => {
   })
   describe('handleUseEffectToFetchAppRevisionDetail', () => {
     it('should run correctly when the modal is visible', () => {
-      const revisions = mockState.revisions.revisions?.data
+      const revisions = appState.revisions.revisions?.data
       const appRevisionId = revisions && revisions[0].id
       const fn = handleUseEffectToFetchAppRevisionDetail(appId, true, spyDispatch, appRevisionId)
       fn()
@@ -109,7 +77,7 @@ describe('ClientAppInstallConfirmation', () => {
   describe('handleCancelPendingRevisionsSuccessCallback', () => {
     it('should run correctly when the modal is visible', () => {
       const setIsConfirmationModalVisible = jest.fn()
-      const clientId = mockState.auth.loginSession?.loginIdentity.clientId || ''
+      const clientId = appState.auth.loginSession?.loginIdentity.clientId || ''
       const fn = handleCancelPendingRevisionsSuccessCallback(
         appId,
         clientId,

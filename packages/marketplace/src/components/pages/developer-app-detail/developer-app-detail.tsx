@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
+import { History } from 'history'
 import { selectAppDetailState, selectAppDetailData, selectAppDetailLoading } from '@/selector/developer-app-detail'
 import { selectLoginType } from '@/selector/auth'
 import { Loader } from '@reapit/elements'
@@ -13,21 +14,22 @@ import routes from '@/constants/routes'
 import styles from '@/styles/pages/developer-app-detail.scss?mod'
 import AppRevisionModal from '@/components/ui/developer-app-detail/app-revision-modal'
 import { useHistory } from 'react-router'
+import { DeveloperAppDetailState } from '@/reducers/developer'
 
 export type DeveloperAppDetailProps = {}
 
-export const handleOnDeleteAppSuccess = history => {
+export const handleOnDeleteAppSuccess = (history: History) => {
   return () => {
     history.replace(routes.DEVELOPER_MY_APPS)
   }
 }
 
 export const renderAppHeaderButtonGroup = (
-  id,
-  appDetailState,
-  setIsAppRevisionComparisionModalOpen,
-  setIsDeleteModalOpen,
-  setIsInstallationsModalOpen,
+  id: string,
+  appDetailState: DeveloperAppDetailState,
+  setIsAppRevisionComparisionModalOpen: (isVisible: boolean) => void,
+  setIsDeleteModalOpen: (isVisible: boolean) => void,
+  setIsInstallationsModalOpen: (isVisible: boolean) => void,
 ) => {
   return (
     <>

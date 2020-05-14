@@ -1,6 +1,6 @@
-import { actionCreator } from '../utils/actions'
-import ActionTypes from '../constants/action-types'
-import { ClientAppSummary, ClientAppSummaryParams } from '../reducers/client/app-summary'
+import { actionCreator } from '@/utils/actions'
+import ActionTypes from '@/constants/action-types'
+import { ClientAppSummary, ClientAppSummaryParams } from '@/reducers/client/app-summary'
 import { AppDetailData } from '@/reducers/client/app-detail'
 import { FetchAppDetailParams } from '@/services/apps'
 

@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { useHistory } from 'react-router'
+import { History } from 'history'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
@@ -60,7 +61,7 @@ export const handleInstallButtonClick = (
   }
 }
 
-export const handleSuccessAlertButtonClick = history => {
+export const handleSuccessAlertButtonClick = (history: History) => {
   return () => {
     history.replace(routes.CLIENT)
   }

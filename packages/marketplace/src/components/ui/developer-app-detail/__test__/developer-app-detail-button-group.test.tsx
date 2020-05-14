@@ -1,6 +1,5 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
-import { ReduxState } from '@/types/core'
 import { shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import DeveloperAppDetailButtonGroup, {
@@ -13,24 +12,7 @@ import DeveloperAppDetailButtonGroup, {
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { removeAuthenticationCode } from '@/actions/app-detail'
 import routes from '@/constants/routes'
-
-const mockState = {
-  client: {
-    appDetail: {
-      data: appDetailDataStub.data,
-      isAppDetailLoading: false,
-    },
-    appSummary: {
-      data: null,
-      isAppSummaryLoading: false,
-    },
-  },
-  appDetail: {
-    authentication: {
-      code: 'mockAuthenticationCode',
-    },
-  },
-} as ReduxState
+import appState from '@/reducers/__stubs__/app-state'
 
 const mockProps: DeveloperAppDetailButtonGroupProps = {
   appDetailState: {
@@ -49,7 +31,7 @@ describe('ClientAppInstallConfirmation', () => {
   beforeEach(() => {
     /* mocking store */
     const mockStore = configureStore()
-    store = mockStore(mockState)
+    store = mockStore(appState)
     /* mocking useDispatch on our mock store  */
     spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
   })

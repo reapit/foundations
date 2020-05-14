@@ -2,10 +2,8 @@ import * as React from 'react'
 import * as ReactRedux from 'react-redux'
 import TestRenderer from 'react-test-renderer'
 import { MemoryRouter } from 'react-router'
-import { ReduxState } from '@/types/core'
 import { mount, shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
-import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import ClientAppDetail, {
   handleCloseInstallConfirmationModal,
   handleInstallAppButtonClick,
@@ -13,30 +11,14 @@ import ClientAppDetail, {
 } from '../client-app-detail'
 import { Button } from '@reapit/elements'
 import Routes from '@/constants/routes'
-
-const mockState = {
-  client: {
-    appDetail: {
-      data: appDetailDataStub.data,
-      isAppDetailLoading: false,
-    },
-    appSummary: {
-      data: null,
-      isAppSummaryLoading: false,
-    },
-  },
-  auth: {
-    loginType: 'CLIENT',
-  },
-  installations: {},
-} as ReduxState
+import appState from '@/reducers/__stubs__/app-state'
 
 describe('ClientAppDetail', () => {
   let store
   beforeEach(() => {
     /* mocking store */
     const mockStore = configureStore()
-    store = mockStore(mockState)
+    store = mockStore(appState)
   })
   it('should match a snapshot', () => {
     expect(
@@ -63,7 +45,7 @@ describe('ClientAppDetail', () => {
       expect(testInstance.children.length).toBe(1)
     })
     it('should render install app button if installedOn is empty', () => {
-      const testRenderer = TestRenderer.create(renderAppHeaderButtonGroup(mockAppId, null, jest.fn()))
+      const testRenderer = TestRenderer.create(renderAppHeaderButtonGroup(mockAppId, '', jest.fn()))
       const testInstance = testRenderer.root
       expect(testInstance.findByType(Button).props.children).toBe('Install App')
     })
@@ -77,7 +59,7 @@ describe('ClientAppDetail', () => {
       ).toBeGreaterThan(0)
     })
     it('should not render header button group when appId is empty', () => {
-      const testRenderer = TestRenderer.create(renderAppHeaderButtonGroup(null, mockInstalledOn, jest.fn()))
+      const testRenderer = TestRenderer.create(renderAppHeaderButtonGroup('', mockInstalledOn, jest.fn()))
       const testInstance = testRenderer.getInstance
       expect(testInstance).toHaveLength(0)
     })

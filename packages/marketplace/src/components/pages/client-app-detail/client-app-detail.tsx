@@ -24,7 +24,7 @@ export const handleInstallAppButtonClick = (setIsVisibleInstallConfirmation: (is
   }
 }
 
-export const renderAppHeaderButtonGroup = (id, installedOn, onInstallConfirmationModal) => {
+export const renderAppHeaderButtonGroup = (id: string, installedOn: string, onInstallConfirmationModal: () => void) => {
   return (
     <>
       {id && (
@@ -62,15 +62,13 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   const isLoadingAppDetail = useSelector(selectAppDetailLoading)
   const loginType = useSelector(selectLoginType)
 
+  const { id = '', installedOn = '' } = appDetailData
+
   return (
     <div className={styles.appDetailContainer}>
       <AppHeader
         appDetailData={appDetailData}
-        buttonGroup={renderAppHeaderButtonGroup(
-          appDetailData.id,
-          appDetailData.installedOn,
-          onInstallConfirmationModal,
-        )}
+        buttonGroup={renderAppHeaderButtonGroup(id, installedOn, onInstallConfirmationModal)}
       />
       <AppContent appDetailData={appDetailData} loginType={loginType} />
       {isVisibleInstallConfirmation && (

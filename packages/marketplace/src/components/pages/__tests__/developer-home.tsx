@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
+import { History } from 'history'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
 import routes from '@/constants/routes'
@@ -133,7 +134,7 @@ describe('DeveloperHome', () => {
     it('should call push correctly', () => {
       const mockHistory = {
         push: jest.fn(),
-      }
+      } as any
       const fn = handleOnChange(mockHistory)
       fn(1)
       expect(mockHistory.push).toBeCalledWith(`${routes.DEVELOPER_MY_APPS}?page=1`)

@@ -32,7 +32,7 @@ export const defaultState: ClientAppSummaryState = {
   error: null,
 }
 
-const appSumarryReducer = (state: ClientAppSummaryState = defaultState, action: Action<any>): ClientAppSummaryState => {
+const appSummaryReducer = (state: ClientAppSummaryState = defaultState, action: Action<any>): ClientAppSummaryState => {
   if (isType(action, clientFetchAppSummary)) {
     return {
       ...state,
@@ -67,4 +67,4 @@ const appSumarryReducer = (state: ClientAppSummaryState = defaultState, action: 
   return state
 }
 
-export default appSumarryReducer
+export default appSummaryReducer

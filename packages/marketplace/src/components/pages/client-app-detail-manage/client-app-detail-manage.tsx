@@ -25,7 +25,7 @@ export const handleUninstallAppButtonClick = (setIsVisibleUninstallConfirmation:
   }
 }
 
-export const renderAppHeaderButtonGroup = (installedOn, onUninstallConfirmationModal) => {
+export const renderAppHeaderButtonGroup = (installedOn: string, onUninstallConfirmationModal: () => void) => {
   return (
     <>
       {installedOn && (
@@ -61,7 +61,7 @@ const ClientAppDetailManage: React.FC<ClientAppDetailManageProps> = () => {
     <div className={styles.appDetailContainer}>
       <AppHeader
         appDetailData={appDetailData}
-        buttonGroup={renderAppHeaderButtonGroup(appDetailData.installedOn, onUninstallConfirmationModal)}
+        buttonGroup={renderAppHeaderButtonGroup(appDetailData.installedOn || '', onUninstallConfirmationModal)}
       />
       <AppContent appDetailData={appDetailData} loginType={loginType} />
       <ClientAppUninstallConfirmation

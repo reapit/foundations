@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
+import { History } from 'history'
 import { ReduxState } from '@/types/core'
 import { Loader } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
@@ -52,7 +53,8 @@ export const handleAfterClose = ({ setVisible, removeAuthenticationCode }) => ()
   setVisible(false)
 }
 
-export const handleOnChange = history => (page: number) => history.push(`${routes.DEVELOPER_MY_APPS}?page=${page}`)
+export const handleOnChange = (history: History) => (page: number) =>
+  history.push(`${routes.DEVELOPER_MY_APPS}?page=${page}`)
 
 export type DeveloperProps = DeveloperMappedActions & DeveloperMappedProps & RouteComponentProps<{ page?: any }>
 

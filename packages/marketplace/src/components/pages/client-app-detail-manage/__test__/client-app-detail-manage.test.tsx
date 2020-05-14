@@ -1,11 +1,9 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
-import { ReduxState } from '@/types/core'
 import TestRenderer from 'react-test-renderer'
 import { shallow, mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import { MemoryRouter } from 'react-router'
-import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import ClientAppDetailManage, {
   handleCloseUninstallConfirmationModal,
   handleUninstallAppButtonClick,
@@ -13,30 +11,14 @@ import ClientAppDetailManage, {
 } from '../client-app-detail-manage'
 import { Button } from '@reapit/elements'
 import Routes from '@/constants/routes'
-
-const mockState = {
-  client: {
-    appDetail: {
-      data: appDetailDataStub.data,
-      isAppDetailLoading: false,
-    },
-    appSummary: {
-      data: null,
-      isAppSummaryLoading: false,
-    },
-  },
-  auth: {
-    loginType: 'CLIENT',
-  },
-  installations: {},
-} as ReduxState
+import appState from '@/reducers/__stubs__/app-state'
 
 describe('ClientAppDetailManage', () => {
   let store
   beforeEach(() => {
     /* mocking store */
     const mockStore = configureStore()
-    store = mockStore(mockState)
+    store = mockStore(appState)
   })
   it('should match a snapshot', () => {
     expect(
@@ -62,10 +44,6 @@ describe('ClientAppDetailManage', () => {
       const testRenderer = TestRenderer.create(renderAppHeaderButtonGroup(mockInstalledOn, jest.fn()))
       const testInstance = testRenderer.root
       expect(testInstance.findByType(Button).props.children).toBe('Uninstall App')
-    })
-    it('should render install app button if installedOn is empty', () => {
-      const testRenderer = TestRenderer.create(renderAppHeaderButtonGroup(null, jest.fn()))
-      expect(testRenderer.getInstance()).toBeNull()
     })
   })
   describe('handleCloseUninstallConfirmationModal', () => {

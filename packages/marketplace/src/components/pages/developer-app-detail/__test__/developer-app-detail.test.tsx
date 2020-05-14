@@ -4,7 +4,6 @@ import { ReduxState } from '@/types/core'
 import { mount, shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import { MemoryRouter } from 'react-router'
-import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import DeveloperAppDetail, {
   handleOnDeleteAppSuccess,
   renderAppHeaderButtonGroup,
@@ -13,39 +12,14 @@ import DeveloperAppDetail, {
   closeDeleteAppModal,
 } from '../developer-app-detail'
 import routes from '@/constants/routes'
-import { revisionsDataStub } from '@/sagas/__stubs__/revisions'
-import { installationStub } from '@/sagas/__stubs__/installation'
-import { revisionDetailDataStub } from '@/sagas/__stubs__/revision-detail'
 import Routes from '@/constants/routes'
+import appState from '@/reducers/__stubs__/app-state'
 
 const mockState = {
-  developer: {
-    developerAppDetail: {
-      data: appDetailDataStub.data,
-      isAppDetailLoading: false,
-    },
-  },
+  ...appState,
   auth: {
-    loginType: 'CLIENT',
+    loginType: 'DEVELOPER',
   },
-  revisions: {
-    revisions: revisionsDataStub,
-    loading: false,
-  },
-  revisionDetail: {
-    revisionDetailData: revisionDetailDataStub,
-    approveFormState: 'PENDING',
-    declineFormState: 'PENDING',
-    loading: false,
-  },
-  installations: {
-    installationsAppData: installationStub,
-    formState: 'PENDING',
-    installationsFilteredAppData: installationStub,
-    loading: false,
-    loadingFilter: false,
-  },
-  appDelete: {},
 } as ReduxState
 
 describe('DeveloperAppDetail', () => {
@@ -86,7 +60,7 @@ describe('DeveloperAppDetail', () => {
   describe('handleOnDeleteAppSuccess', () => {
     const history = {
       replace: jest.fn(),
-    }
+    } as any
     const fn = handleOnDeleteAppSuccess(history)
     fn()
     expect(history.replace).toBeCalledWith(routes.DEVELOPER_MY_APPS)

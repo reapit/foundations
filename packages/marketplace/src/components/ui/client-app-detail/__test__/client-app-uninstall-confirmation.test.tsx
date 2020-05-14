@@ -1,6 +1,5 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
-import { ReduxState } from '@/types/core'
 import { mount, shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import { MemoryRouter } from 'react-router'
@@ -17,27 +16,7 @@ import ClientAppUninstallConfirmation, {
   renderUninstallConfirmationModalFooter,
 } from '../client-app-uninstall-confirmation'
 import Routes from '@/constants/routes'
-
-const mockState = {
-  client: {
-    appDetail: {
-      data: appDetailDataStub.data,
-      isAppDetailLoading: false,
-    },
-    appSummary: {
-      data: null,
-      isAppSummaryLoading: false,
-    },
-  },
-  auth: {
-    loginSession: {
-      loginIdentity: {
-        clientId: 'mockClientId',
-      },
-    },
-  },
-  installations: {},
-} as ReduxState
+import appState from '@/reducers/__stubs__/app-state'
 
 const mockProps: ClientAppUninstallConfirmationProps = {
   appDetailData: appDetailDataStub.data,
@@ -50,11 +29,11 @@ describe('ClientAppUninstallConfirmation', () => {
   let spyDispatch
   const appId = mockProps.appDetailData?.id || ''
   const installationId = mockProps.appDetailData?.installationId || ''
-  const clientId = mockState.auth.loginSession?.loginIdentity.clientId || ''
+  const clientId = appState.auth.loginSession?.loginIdentity.clientId || ''
   beforeEach(() => {
     /* mocking store */
     const mockStore = configureStore()
-    store = mockStore(mockState)
+    store = mockStore(appState)
     /* mocking useDispatch on our mock store  */
     spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
   })
@@ -115,7 +94,7 @@ describe('ClientAppUninstallConfirmation', () => {
   describe('handleSuccessAlertButtonClick', () => {
     const history = {
       replace: jest.fn(),
-    }
+    } as any
     const fn = handleSuccessAlertButtonClick(history)
     fn()
     expect(history.replace).toBeCalledWith(routes.CLIENT)
