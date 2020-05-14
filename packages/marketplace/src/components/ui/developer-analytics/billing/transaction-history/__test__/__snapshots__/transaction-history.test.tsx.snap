@@ -35,5 +35,8 @@ exports[`TransactionHistory should match a snapshot 1`] = `
       No previous transactions in the past
     </p>
   </div>
+  <Component>
+    <Component />
+  </Component>
 </div>
 `;
