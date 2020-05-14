@@ -74,10 +74,8 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
   maxUploadRow = 30,
   CustomDownButton,
   /**
-   * this props will change readOnly field
-   * currently, it's only used by component spread-sheet on offices tab
-   *
-   * TODO: !waiting to be reviewd
+   * Required to set fixedReadOnly = true
+   * To prevent it change readOnly property of Cell
    *
    */
   allowOnlyOneValidationErrorPerRow = false,

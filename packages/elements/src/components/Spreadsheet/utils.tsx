@@ -164,7 +164,6 @@ export const generatedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSet
 /**
  * to be used together with allowOnlyOneValidationErrorPerRow option
  * This set will contain invalidated row
- * ^ (formatDataWithReadOnly) will set readOnly to every validated cell on that row except the invalidaed row
  */
 export const generateInvalidatedRowIndexSet: (data: Cell[][]) => Set<number> = data =>
   data.reduce((isInvalidatedRowSet, row, rowIndex) => {

@@ -28,17 +28,14 @@ import {
 
 export const valueRenderer = (cell: Cell): string | null => cell.value
 
-export const getInvalidatedCellIndexOfRow = (data: Cell[][], rowIndex: number) => {
-  const a = data[rowIndex].findIndex(cell => {
+export const getInvalidatedCellIndexOfRow = (data: Cell[][], rowIndex: number) =>
+  data[rowIndex].findIndex(cell => {
     if (typeof cell?.isValidated === 'undefined') {
       return false
     }
 
     return cell.isValidated === false
   })
-
-  return a
-}
 
 /** Double click on first read-only cell */
 /** Double click on first read-only cell */
