@@ -10,7 +10,7 @@ const config = require(path.resolve(__dirname, '../..', 'config.json'))
 const production = !process.env.ROLLUP_WATCH
 
 // search-widget is depend on property detail
-let searchWidgetBaseConfiguration = {
+export const baseConfigurationWithoutTheme = {
   ...baseConfig,
   input: 'src/search-widget/client/core/index.ts',
   output: generateRollupOutput({ production, fileName: 'search-widget', name: 'searchWidget' }),
@@ -31,7 +31,7 @@ let searchWidgetBaseConfiguration = {
   ],
 }
 
-let buildConfiguration = [searchWidgetBaseConfiguration]
+let buildConfiguration = [baseConfigurationWithoutTheme]
 if (!production) {
   // property detail configurations in dev mode contain theme already
   buildConfiguration.push(...propertyDetailConfigurations)

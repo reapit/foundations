@@ -1,16 +1,19 @@
-import viewBookingBuidConfigurations from './rollup.config.viewing-booking'
-import appointmentBookingConfigurations from './rollup.config.appointment-bookings'
-import searchWidgetConfigurations from './rollup.config.search-widget'
-import themesConfiguration from './rollup.config.themes.js'
+import { baseConfigurationWithoutTheme as viewBookingBuidConfiguration } from './rollup.config.viewing-booking'
+import { baseConfigurationWithoutTheme as appointmentBookingConfiguration } from './rollup.config.appointment-bookings'
+import { baseConfigurationWithoutTheme as searchWidgetConfiguration } from './rollup.config.search-widget'
+import { baseConfigurationWithoutTheme as propertyDetailConfiguration } from './rollup.config.property-detail'
+import themeConfiguration from './rollup.config.themes'
 
 /**
  *  all required modules for demo-site packages
  */
+
 const buildConfigurations = [
-  ...searchWidgetConfigurations,
-  ...viewBookingBuidConfigurations,
-  ...appointmentBookingConfigurations,
-  themesConfiguration,
+  propertyDetailConfiguration,
+  searchWidgetConfiguration,
+  viewBookingBuidConfiguration,
+  appointmentBookingConfiguration,
+  themeConfiguration,
 ]
 
 export default buildConfigurations

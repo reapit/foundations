@@ -9,23 +9,22 @@ import themesConfigurations from './rollup.config.themes.js'
 const config = require(path.resolve(__dirname, '../..', 'config.json'))
 const production = !process.env.ROLLUP_WATCH
 
-const configurations = [
-  {
-    ...baseConfig,
-    input: 'src/viewing-booking/client/core/index.ts',
-    output: generateRollupOutput({ production, fileName: 'viewing-booking', name: 'viewingBooking' }),
-    plugins: [
-      svelte({
-        dev: !production,
-        css: css => generateCssOutput({ css, fileName: 'viewing-booking.css', production }),
-      }),
-      replace({
-        'process.env.NODE_ENV': JSON.stringify(config.NODE_ENV),
-      }),
-      ...baseConfig.plugins,
-    ],
-  },
-]
+export const baseConfigurationWithoutTheme = {
+  ...baseConfig,
+  input: 'src/viewing-booking/client/core/index.ts',
+  output: generateRollupOutput({ production, fileName: 'viewing-booking', name: 'viewingBooking' }),
+  plugins: [
+    svelte({
+      dev: !production,
+      css: css => generateCssOutput({ css, fileName: 'viewing-booking.css', production }),
+    }),
+    replace({
+      'process.env.NODE_ENV': JSON.stringify(config.NODE_ENV),
+    }),
+    ...baseConfig.plugins,
+  ],
+}
+const configurations = [baseConfigurationWithoutTheme]
 
 if (!production) {
   configurations.push(themesConfigurations)
