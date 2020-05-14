@@ -68,7 +68,7 @@ functions:
           cors:
             origin: '*'
             headers: ${self:custom.allowedHeaders}
-            allowCredentials: true
+            allowCredentials: false
           private: true
           request:
             parameters:
@@ -82,7 +82,7 @@ functions:
           cors:
             origin: '*'
             headers: ${self:custom.allowedHeaders}
-            allowCredentials: true
+            allowCredentials: false
           private: true
           request:
             parameters:
@@ -96,7 +96,7 @@ functions:
           cors:
             origin: '*'
             headers: ${self:custom.allowedHeaders}
-            allowCredentials: true
+            allowCredentials: false
           private: true
           request:
             parameters:
