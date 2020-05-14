@@ -3,12 +3,11 @@ import { put, fork, takeLatest, call, all, select } from '@redux-saga/core/effec
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
-import { URLS, generateHeader } from '@/constants/api'
-import { fetcher } from '@reapit/elements'
 import { Action } from '@/types/core'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { selectClientId } from '@/selector/client'
 import { logger } from 'logger'
+import { fetchAppsList } from '@/services/apps'
 
 export const myAppsDataFetch = function*({ data: page }) {
   yield put(myAppsLoading(true))
@@ -19,12 +18,9 @@ export const myAppsDataFetch = function*({ data: page }) {
       throw new Error('Client id does not exist in state')
     }
 
-    const response = yield call(fetcher, {
-      url: `${URLS.apps}?clientId=${clientId}&OnlyInstalled=true&PageNumber=${page}&PageSize=${APPS_PER_PAGE}`,
-      method: 'GET',
-      api: window.reapit.config.marketplaceApiUrl,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    })
+    const response = yield call(
+      fetchAppsList({ clientId, onlyInstalled: true, pageNumber: page, pageSize: APPS_PER_PAGE }),
+    )
     if (response) {
       yield put(myAppsReceiveData({ data: response }))
     } else {

@@ -25,6 +25,10 @@ import { selectDeveloperId } from '@/selector'
 import api, { FetchBillingParams } from './api'
 import { FetchMonthlyBillingParams, fetchMonthlyBilling } from '@/services/billings'
 import { WebhookPingTestParams, webhookPingTestSubcription } from '@/services/subscriptions'
+import { fetchAppsList } from '@/services/apps'
+import { fetchScopesList } from '@/services/scopes'
+import { createDeveloper, fetchDeveloperById } from '@/services/developers'
+import { fetchBillings } from '@/services/traffic-events'
 
 export const developerDataFetch = function*({ data }) {
   yield put(developerLoading(true))
@@ -38,18 +42,8 @@ export const developerDataFetch = function*({ data }) {
 
     const { page, appsPerPage = APPS_PER_PAGE } = data
     const [appsData, scopes] = yield all([
-      call(fetcher, {
-        url: `${URLS.apps}?developerId=${developerId}&PageNumber=${page}&PageSize=${appsPerPage}`,
-        method: 'GET',
-        api: window.reapit.config.marketplaceApiUrl,
-        headers: generateHeader(window.reapit.config.marketplaceApiKey),
-      }),
-      call(fetcher, {
-        url: `${URLS.scopes}`,
-        method: 'GET',
-        api: window.reapit.config.marketplaceApiUrl,
-        headers: generateHeader(window.reapit.config.marketplaceApiKey),
-      }),
+      call(fetchAppsList, { developerId, pageNumber: page, pageSize: appsPerPage }),
+      call(fetchScopesList),
     ])
 
     const developerData: DeveloperItem = {
@@ -76,13 +70,7 @@ export const developerCreate = function*({ data }: Action<CreateDeveloperModel>)
   yield put(developerSetFormState('SUBMITTING'))
 
   try {
-    const regResponse: true | undefined = yield call(fetcher, {
-      url: URLS.developers,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'POST',
-      body: data,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    })
+    const regResponse = yield call(createDeveloper, data)
     const status = regResponse ? 'SUCCESS' : 'ERROR'
     yield put(developerSetFormState(status))
   } catch (err) {
@@ -101,7 +89,7 @@ export const fetchMyIdentitySagas = function*() {
   try {
     yield put(developerLoading(true))
     const developerId = yield select(selectDeveloperId)
-    const developerIdentity = yield call(api.fetchMyIdentity, developerId)
+    const developerIdentity = yield call(fetchDeveloperById, { id: developerId })
     if (developerIdentity) {
       yield put(setMyIdentity(developerIdentity))
     }
@@ -120,7 +108,7 @@ export const fetchMyIdentitySagas = function*() {
 
 export const fetchBillingSagas = function*({ data }: Action<FetchBillingParams>) {
   try {
-    const billingResponse = yield call(api.fetchBilling, data)
+    const billingResponse = yield call(fetchBillings, data)
     yield put(fetchBillingSuccess(billingResponse))
   } catch (err) {
     logger(err)

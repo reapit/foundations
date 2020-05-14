@@ -8,10 +8,9 @@ import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
-import { fetcher } from '@reapit/elements'
-import { URLS, generateHeader } from '@/constants/api'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { logger } from 'logger'
+import { updateDeveloperById } from '@/services/developers'
 
 export const developerSetStatusRequestSaga = function*({ data: dev }) {
   try {
@@ -21,13 +20,7 @@ export const developerSetStatusRequestSaga = function*({ data: dev }) {
 
     yield put(developerSetStatusRequestLoading())
 
-    yield call(fetcher, {
-      url: `${URLS.developers}/${dev.id}`,
-      api: window.reapit.config.marketplaceApiUrl,
-      body: { ...dev, companyName: dev.company },
-      method: 'PUT',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    })
+    yield call(updateDeveloperById, dev)
 
     yield put(developerSetStatusRequestSuccess())
   } catch (err) {

@@ -11,22 +11,13 @@ import {
   appUsageStatsRequestDataFailure,
 } from '@/actions/app-usage-stats'
 import { logger } from 'logger'
+import { fetchStatisticsList, FetchStatisticsListParams } from '@/services/statistics'
 
 const { APP_USAGE_STATS_REQUEST_DATA } = ActionTypes
 
-export const fetchAppUsageStats = async (data: AppUsageStatsParams) => {
-  const response = await fetcher({
-    url: `${URLS.statistics}?${setQueryParams({ ...data })}`,
-    api: window.reapit.config.marketplaceApiUrl,
-    method: 'GET',
-    headers: generateHeader(window.reapit.config.marketplaceApiKey),
-  })
-  return response
-}
-
-export const appUsageStatsSaga = function*({ data }: Action<AppUsageStatsParams>) {
+export const appUsageStatsSaga = function*({ data }: Action<FetchStatisticsListParams>) {
   try {
-    const response = yield call(fetchAppUsageStats, { ...data })
+    const response = yield call(fetchStatisticsList, data)
     yield put(appUsageStatsReceiveData(response))
   } catch (err) {
     logger(err)

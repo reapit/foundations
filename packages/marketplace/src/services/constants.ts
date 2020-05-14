@@ -12,8 +12,9 @@ export const URLS = {
   statistics: '/statistics',
   trafficEvents: '/trafficevents',
   desktopIntegrationTypes: '/DesktopIntegrationTypes',
-  webhook: '/webhooks',
+  webhooks: '/webhooks',
   webhookSubscriptions: '/webhooks/subscriptions',
-  webhookTopics: '/webhooks/topics',
+  webhooksTopics: '/webhooks/topics',
   trafficEventBilling: '/trafficevents/billing',
+  trafficEventStatistics: '/trafficevents/trafficStatistics',
 }

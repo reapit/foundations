@@ -18,6 +18,7 @@ import {
 import { selectLoggedUserEmail, selectClientId } from '@/selector/client'
 import { selectDeveloperId } from '@/selector/developer'
 import { logger } from 'logger'
+import { fetchInstallationsList, createInstallation, removeAccessToAppById } from '@/services/installations'
 
 export const fetchInstallations = async (data: InstallationParams) => {
   const response = await fetcher({
@@ -56,7 +57,7 @@ export const fetchUninstallApp = async ({ data, email }) => {
 export const installationsSaga = function*({ data }) {
   try {
     const developerId = yield select(selectDeveloperId)
-    const response = yield call(fetchInstallations, { ...data, developerId })
+    const response = yield call(fetchInstallationsList, { ...data, developerId })
     yield put(appInstallationsReceiveData(response))
   } catch (err) {
     logger(err)
@@ -72,8 +73,6 @@ export const installationsSaga = function*({ data }) {
 
 export const installationsFilterSaga = function*({ data }) {
   try {
-    const developerId = yield select(selectDeveloperId)
-    const response = yield call(fetchInstallations, { ...data, developerId })
     yield put(appInstallationsFilterReceiveData(response))
   } catch (err) {
     logger(err)
@@ -85,7 +84,6 @@ export const installationsFilterSaga = function*({ data }) {
       }),
     )
   }
-}
 
 export const appInstallSaga = function*(options) {
   const data: InstallParams = options.data
@@ -99,7 +97,7 @@ export const appInstallSaga = function*(options) {
       throw new Error('ClientId not exist')
     }
 
-    yield call(fetchInstallApp, { data, clientId, email })
+    yield call(createInstallation, { ...data, clientId, approvedBy: email })
     if (data.callback) {
       data.callback()
     }
@@ -122,7 +120,7 @@ export const appUninstallSaga = function*(options) {
     yield put(appInstallationsSetFormState('SUBMITTING'))
     const email = yield select(selectLoggedUserEmail)
 
-    yield call(fetchUninstallApp, { data, email })
+    yield call(removeAccessToAppById, { ...data, terminatedBy: email })
     if (data.callback) {
       data.callback()
     }
