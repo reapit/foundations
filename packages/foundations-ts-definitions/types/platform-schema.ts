@@ -8709,6 +8709,8 @@ export interface Properties {
   rentTo?: number
   rentFrequency?: ('weekly' | 'monthly' | 'annually')[]
   internetAdvertising?: boolean
+  modifiedFrom?: string
+  modifiedTo?: string
 }
 /**
  * Representation of the physical address of a building or premise
