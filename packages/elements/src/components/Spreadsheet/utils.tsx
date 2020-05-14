@@ -111,7 +111,7 @@ export const generateDataWithReadOnlyAndIsValidated = ({
   if (allowOnlyOneValidationErrorPerRow) {
     const invalidatedRowIndexSet = generateInvalidatedRowIndexSet(dataWithIsGeneratedAndReadOnly)
 
-    dataWithIsGeneratedAndReadOnly = generatedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrue({
+    dataWithIsGeneratedAndReadOnly = generateDataWithReadOnly({
       data: dataWithIsGeneratedAndReadOnly,
       invalidatedRowIndexSet: invalidatedRowIndexSet,
     })
@@ -124,15 +124,17 @@ export const generateDataWithReadOnlyAndIsValidated = ({
  * to be used together with allowOnlyOneValidationErrorPerRow option
  * ^ (alterDataWithReadOnly) will set readOnly to every validated cell on that row except the invalidaed row
  */
-export interface GeneratedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrueParams {
+export interface generateDataWithReadOnlyParams {
   data: Cell[][]
   invalidatedRowIndexSet: Set<number>
 }
 
-export const generatedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrue = ({
-  data,
-  invalidatedRowIndexSet,
-}: GeneratedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrueParams) =>
+/**
+ * if cell is header row or cell's fixedReadOnly property = true, ignore cell
+ * If cell belong to invalidated row, set readOnly to false if cell is validated, else set readOnly to true
+ * If cell belong to validated row, set readOnly to true
+ */
+export const generateDataWithReadOnly = ({ data, invalidatedRowIndexSet }: generateDataWithReadOnlyParams) =>
   data.map((row, rowIndex) => {
     const isInvalidatedRow = invalidatedRowIndexSet.has(rowIndex)
     return row.map(cell => {

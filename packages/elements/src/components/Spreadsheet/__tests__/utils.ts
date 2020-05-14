@@ -11,9 +11,9 @@ import {
   validatedDataGenerate,
   calculateNumberOfInvalidRows,
   createDataWithInvalidRowsRemoved,
-  generatedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrue,
+  generateDataWithReadOnly,
   generateInvalidatedRowIndexSet,
-  GeneratedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrueParams,
+  generateDataWithReadOnlyParams,
 } from '../utils'
 import fs from 'fs'
 import path from 'path'
@@ -62,38 +62,38 @@ describe('generateInvalidatedRowIndexSet', () => {
   })
 })
 
-describe('generatedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrue', () => {
+describe('generateDataWithReadOnly', () => {
   it('ignore headRow', () => {
     const input = ({
       data: [[{ value: 'header' }]],
       invalidatedRowIndexSet: new Set([0]),
-    } as unknown) as GeneratedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrueParams
+    } as unknown) as generateDataWithReadOnlyParams
     const output = input.data
-    expect(generatedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrue(input)).toEqual(output)
+    expect(generateDataWithReadOnly(input)).toEqual(output)
   })
   it('set readOnly to false for all cell of validated row', () => {
     const input = ({
       data: [[{ value: 'header' }], [{ value: 'header' }]],
       invalidatedRowIndexSet: new Set([0]),
-    } as unknown) as GeneratedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrueParams
+    } as unknown) as generateDataWithReadOnlyParams
     const output = [input.data[0], [{ ...input.data[1][0], readOnly: false }]]
-    expect(generatedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrue(input)).toEqual(output)
+    expect(generateDataWithReadOnly(input)).toEqual(output)
   })
   it('set readOnly to true for the invalidated cell of invalidated row', () => {
     const input = ({
       data: [[{ value: 'header' }], [{ value: 'content' }]],
       invalidatedRowIndexSet: new Set([1]),
-    } as unknown) as GeneratedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrueParams
+    } as unknown) as generateDataWithReadOnlyParams
     const output = [input.data[0], [{ ...input.data[1][0], readOnly: true }]]
-    expect(generatedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrue(input)).toEqual(output)
+    expect(generateDataWithReadOnly(input)).toEqual(output)
   })
   it('set readOnly to false for all validated cell of invalidated row', () => {
     const input = ({
       data: [[{ value: 'header' }], [{ value: 'header', isValidatated: false, readOnly: false }]],
       invalidatedRowIndexSet: new Set([1]),
-    } as unknown) as GeneratedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrueParams
+    } as unknown) as generateDataWithReadOnlyParams
     const output = [input.data[0], [{ ...input.data[1][0], readOnly: true }]]
-    expect(generatedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrue(input)).toEqual(output)
+    expect(generateDataWithReadOnly(input)).toEqual(output)
   })
 })
 

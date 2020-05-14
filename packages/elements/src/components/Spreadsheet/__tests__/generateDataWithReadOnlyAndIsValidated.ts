@@ -1,25 +1,22 @@
-import * as Utils from '../utils'
+import * as utils from '../utils'
 import { Cell } from '../types'
 
 const mockValidatedDataGenerateReturn = 'mockValidatedDataGenerateReturn'
 const spyValidatedDataGenerate = jest
-  .spyOn(Utils, 'validatedDataGenerate')
+  .spyOn(utils, 'validatedDataGenerate')
   .mockReturnValue((mockValidatedDataGenerateReturn as unknown) as Cell[][])
 
 const mockGenerateInvalidatedRowIndexSetReturn = 'mockGenerateInvalidatedRowIndexSetReturn'
 const spyGenerateInvalidatedRowIndexSet = jest
-  .spyOn(Utils, 'generateInvalidatedRowIndexSet')
+  .spyOn(utils, 'generateInvalidatedRowIndexSet')
   .mockReturnValue((mockGenerateInvalidatedRowIndexSetReturn as unknown) as Set<number>)
 
-const mockSpyGeneratedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrueReturn =
-  'spyGeneratedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrue'
-const spyGeneratedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrue = jest
-  .spyOn(Utils, 'generatedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrue')
-  .mockReturnValue(
-    (mockSpyGeneratedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrueReturn as unknown) as Cell[][],
-  )
+const mockSpyGenerateDataWithReadOnlyReturn = 'spygenerateDataWithReadOnly'
+const spygenerateDataWithReadOnly = jest
+  .spyOn(utils, 'generateDataWithReadOnly')
+  .mockReturnValue((mockSpyGenerateDataWithReadOnlyReturn as unknown) as Cell[][])
 
-const { generateDataWithReadOnlyAndIsValidated } = Utils
+const { generateDataWithReadOnlyAndIsValidated } = utils
 
 describe('generateDataWithReadOnlyAndIsValidated', () => {
   it('should run correctly when allowOnlyOneValidationErrorPerRow = false', () => {
@@ -44,10 +41,10 @@ describe('generateDataWithReadOnlyAndIsValidated', () => {
 
     expect(spyValidatedDataGenerate).toHaveBeenCalledWith(mockParams.data, mockParams.validateFunction)
     expect(spyGenerateInvalidatedRowIndexSet).toHaveBeenCalledWith(mockValidatedDataGenerateReturn)
-    expect(spyGeneratedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrue).toHaveBeenCalledWith({
+    expect(spygenerateDataWithReadOnly).toHaveBeenCalledWith({
       data: mockValidatedDataGenerateReturn,
       invalidatedRowIndexSet: mockGenerateInvalidatedRowIndexSetReturn,
     })
-    expect(result).toBe(mockSpyGeneratedDataWithReadOnlyOfValidatedCellBelongedToInvalidatedRowSetToTrueReturn)
+    expect(result).toBe(mockSpyGenerateDataWithReadOnlyReturn)
   })
 })

@@ -454,8 +454,8 @@ export function getDataTable(data: OfficesQueryResponse): Cell[][] {
   return dataTable
 }
 
-export const validate = (data: Cell[][]) => {
-  const a = data.map((row, rowIndex) =>
+export const validate = (data: Cell[][]) =>
+  data.map((row, rowIndex) =>
     row.map((cell, cellIndex) => {
       if (rowIndex === 0) return true // dont need to validate header row
       // cell name is required
@@ -483,8 +483,6 @@ export const validate = (data: Cell[][]) => {
       return true
     }),
   )
-  return a
-}
 
 export const convertUploadedCellToTableCell = (cell: Cell[]): Cell[] => {
   cell[0] = { ...cell[0], key: 'id', readOnly: true, className: 'hidden-cell' }
