@@ -2,7 +2,7 @@ import adminStatsSagas, { adminStatsDataListen, adminStatsDataFetch, getUrlByAre
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { APPS_PER_PAGE } from '@/constants/paginator'
+import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
@@ -24,7 +24,7 @@ describe('adminStatsFetch', () => {
     queryParams.RegisteredTo = dateRange.to.toISOString()
   }
 
-  expect(gen.next().value).toEqual(call(fetchAppsList, { pageSize: APPS_PER_PAGE, ...queryParams }))
+  expect(gen.next().value).toEqual(call(fetchAppsList, { pageSize: GET_ALL_PAGE_SIZE, ...queryParams }))
 
   test('api call success', () => {
     const clone = gen.clone()

@@ -30,19 +30,24 @@ export const adminStatsDataFetch = function*({ data }) {
         .toDate()
         .toISOString()
     }
-    const serviceToCall =
-      url === 'APPS'
-        ? fetchAppsList
-        : url === 'DEVELOPERS'
-        ? fetchDevelopersList
-        : url === 'INSTALLATIONS'
-        ? fetchInstallationsList
-        : undefined
-
-    if (!serviceToCall) {
-      throw new Error('URL doesnt match any service')
+    let response
+    switch (url) {
+      case 'APPS': {
+        response = yield call(fetchAppsList, { pageSize: GET_ALL_PAGE_SIZE, ...queryParams })
+        break
+      }
+      case 'DEVELOPERS': {
+        response = yield call(fetchDevelopersList, { pageSize: GET_ALL_PAGE_SIZE, ...queryParams })
+        break
+      }
+      case 'INSTALLATIONS': {
+        response = yield call(fetchInstallationsList, { pageSize: GET_ALL_PAGE_SIZE, ...queryParams })
+        break
+      }
+      default:
+        break
     }
-    const response = yield call(serviceToCall, { pageSize: GET_ALL_PAGE_SIZE, ...queryParams })
+
     if (response) {
       yield put(adminStatsReceiveData({ data: response.data, totalCount: response.totalCount }))
     } else {

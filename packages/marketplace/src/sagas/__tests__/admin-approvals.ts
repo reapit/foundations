@@ -21,7 +21,7 @@ describe('adminApprovals fetch data', () => {
   const gen = cloneableGenerator(adminApprovalsDataFetch)(params)
 
   expect(gen.next().value).toEqual(put(adminApprovalsLoading(true)))
-  expect(gen.next().value).toEqual(call(fetchApprovalsList, { pageNumber: paras.data }))
+  expect(gen.next().value).toEqual(call(fetchApprovalsList, { pageNumber: params.data }))
 
   test('api call success', () => {
     const clone = gen.clone()
