@@ -1,8 +1,4 @@
-import appHttpTrafficEventSagas, {
-  appHttpTrafficEventListen,
-  fetchHttpTraficPerDay,
-  apphttpTrafficEventSaga,
-} from '../app-http-trafic-event'
+import appHttpTrafficEventSagas, { appHttpTrafficEventListen, apphttpTrafficEventSaga } from '../app-http-trafic-event'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import ActionTypes from '@/constants/action-types'
@@ -15,7 +11,9 @@ import {
   httpTrafficPerDayRequestDataFailure,
 } from '@/actions/app-http-traffic-event'
 import { httpTrafficPerDayStub } from '../__stubs__/app-http-traffic-event'
+import { fetchTrafficStatistics } from '@/services/traffic-events'
 
+jest.mcok('@/services/traffic-events')
 jest.mock('@reapit/elements')
 
 const params = {
@@ -29,7 +27,7 @@ const params = {
 describe('app-http-traffic-per-day sagas', () => {
   describe('appHttpTrafficSaga', () => {
     const gen = cloneableGenerator(apphttpTrafficEventSaga)(params)
-    expect(gen.next().value).toEqual(call(fetchHttpTraficPerDay, params.data))
+    expect(gen.next().value).toEqual(call(fetchTrafficStatistics, params.data))
 
     test('api call success', () => {
       const clone = gen.clone()

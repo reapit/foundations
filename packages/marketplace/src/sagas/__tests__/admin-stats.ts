@@ -2,21 +2,21 @@ import adminStatsSagas, { adminStatsDataListen, adminStatsDataFetch, getUrlByAre
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { fetcher, setQueryParams } from '@reapit/elements'
-import { URLS, generateHeader } from '@/constants/api'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { adminStatsReceiveData, adminStatsRequestFailure, AdminStatsRequestParams } from '@/actions/admin-stats'
 import { getDateRange } from '@/utils/admin-stats'
+import { fetchAppsList } from '@/services/apps'
+import { URLS } from '@/services/constants'
 
 jest.mock('@reapit/elements')
+jest.mock('@/services/apps')
 
 describe('adminStatsFetch', () => {
   const params: AdminStatsRequestParams = { area: 'APPS', range: 'WEEK' }
   const gen = cloneableGenerator(adminStatsDataFetch)({ data: params })
-  const url = getUrlByArea(params.area)
   let queryParams = {} as any
   if (params.range !== 'ALL') {
     const dateRange = getDateRange(params.range)
@@ -24,17 +24,7 @@ describe('adminStatsFetch', () => {
     queryParams.RegisteredTo = dateRange.to.toISOString()
   }
 
-  expect(gen.next().value).toEqual(
-    call(fetcher, {
-      url: `${url}?${setQueryParams({
-        pageSize: APPS_PER_PAGE,
-        ...queryParams,
-      })}`,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    }),
-  )
+  expect(gen.next().value).toEqual(call(fetchAppsList, { pageSize: APPS_PER_PAGE, ...queryParams }))
 
   test('api call success', () => {
     const clone = gen.clone()

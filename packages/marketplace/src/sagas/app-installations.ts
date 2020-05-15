@@ -14,7 +14,7 @@ import {
   appInstallationsFilterRequestDataFailure,
 } from '@/actions/app-installations'
 import { selectDeveloperId } from '@/selector/developer'
-import { selectClientId } from '@/selector/client'
+import { selectLoggedUserEmail, selectClientId } from '@/selector/client'
 import { logger } from 'logger'
 import { fetchInstallationsList, createInstallation, removeAccessToAppById } from '@/services/installations'
 

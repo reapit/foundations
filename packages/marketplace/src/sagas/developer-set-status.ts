@@ -20,7 +20,7 @@ export const developerSetStatusRequestSaga = function*({ data: dev }) {
 
     yield put(developerSetStatusRequestLoading())
 
-    yield call(updateDeveloperById, dev)
+    yield call(updateDeveloperById, { ...dev, companyName: dev.company })
 
     yield put(developerSetStatusRequestSuccess())
   } catch (err) {

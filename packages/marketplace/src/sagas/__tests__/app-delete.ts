@@ -6,9 +6,10 @@ import { put, takeLatest, call } from '@redux-saga/core/effects'
 import { appDeleteRequestSuccess, appDeleteRequestLoading, appDeleteRequestFailure } from '@/actions/app-delete'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import api from '../api'
 import { adminAppsReceiveData } from '@/actions/admin-apps'
+import { deleteAppById, fetchAppsList } from '@/services/apps'
 
+jest.mock('@/services/apps')
 jest.mock('@reapit/elements')
 
 const params: Action<string> = {
@@ -21,11 +22,11 @@ describe('app-delete sagas', () => {
     const gen = cloneableGenerator(appDeleteRequestSaga)(params)
 
     expect(gen.next().value).toEqual(put(appDeleteRequestLoading()))
-    expect(gen.next().value).toEqual(call(api.deleteApp, { appId: '1' }))
+    expect(gen.next().value).toEqual(call(deleteAppById, { id: '1' }))
 
     test('api call success', () => {
       const clone = gen.clone()
-      expect(clone.next(true).value).toEqual(call(api.fetchAdminApps, { params: {} }))
+      expect(clone.next(true).value).toEqual(call(fetchAppsList, {}))
       expect(clone.next({}).value).toEqual(put(adminAppsReceiveData({})))
       expect(clone.next().value).toEqual(put(appDeleteRequestSuccess()))
       expect(clone.next().done).toEqual(true)

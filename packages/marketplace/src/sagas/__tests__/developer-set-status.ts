@@ -9,22 +9,15 @@ import {
 } from '@/actions/developer-set-status'
 import errorMessages from '@/constants/error-messages'
 import { developerStub } from '../__stubs__/developer'
-import { fetcher } from '@reapit/elements'
-import { URLS, generateHeader } from '@/constants/api'
+import { updateDeveloperById } from '@/services/developers'
+
+jest.mock('@/services/developers')
 
 describe('developerSetStatusRequestSaga', () => {
   const gen = cloneableGenerator(developerSetStatusRequestSaga)({ data: developerStub })
 
   expect(gen.next().value).toEqual(put(developerSetStatusRequestLoading()))
-  expect(gen.next().value).toEqual(
-    call(fetcher, {
-      url: `${URLS.developers}/${developerStub.id}`,
-      api: window.reapit.config.marketplaceApiUrl,
-      body: { ...developerStub, companyName: developerStub.company },
-      method: 'PUT',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    }),
-  )
+  expect(gen.next().value).toEqual(call(updateDeveloperById({ ...developerStub, companyName: developerStub.company })))
 
   test('api call success', () => {
     const clone = gen.clone()

@@ -4,12 +4,12 @@ import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import { submitRevisionSetFormState } from '@/actions/submit-revision'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { fetcher } from '@reapit/elements'
-import { URLS, generateHeader } from '@/constants/api'
 import { CreateAppRevisionModel } from '@reapit/foundations-ts-definitions'
 import { revisionSubmitStub } from '../__stubs__/revision-submit'
 import { appDetailRequestData } from '@/actions/app-detail'
+import { createAppRevision } from '@/services/apps'
 
+jest.mock('@/services/apps')
 jest.mock('@reapit/elements')
 
 const params: Action<CreateAppRevisionModel & { id: string }> = {
@@ -52,13 +52,7 @@ describe('submit-revision post data', () => {
   expect(gen.next().value).toEqual(put(submitRevisionSetFormState('SUBMITTING')))
   expect(gen.next().value).toEqual(all(imageUploaderRequests))
   expect(gen.next(imageUploaderResults).value).toEqual(
-    call(fetcher, {
-      url: `${URLS.apps}/${id}/revisions`,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'POST',
-      body: { ...updatedData, categoryId: undefined },
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    }),
+    call(createAppRevision({ id, ...updatedData, categoryId: undefined })),
   )
 
   test('api call success', () => {

@@ -62,7 +62,7 @@ export const approveRevision = function*({ data: params }: Action<RevisionApprov
   yield put(approveRevisionSetFormState('SUBMITTING'))
   const { appId, appRevisionId, ...body } = params
   try {
-    const response = yield call(approveAppRevisionById, { id: appId, revisionId: appRevisionId })
+    const response = yield call(approveAppRevisionById, { id: appId, revisionId: appRevisionId, ...body })
 
     const status = response ? 'SUCCESS' : 'ERROR'
     if (status === 'SUCCESS') {
@@ -90,7 +90,7 @@ export const declineRevision = function*({ data: params }: Action<RevisionDeclin
   yield put(declineRevisionSetFormState('SUBMITTING'))
   const { appId, appRevisionId, callback, ...body } = params
   try {
-    const response = yield call(rejectAppRevisionById, { id: appId, revisionId: appRevisionId })
+    const response = yield call(rejectAppRevisionById, { id: appId, revisionId: appRevisionId, ...body })
 
     const status = response ? 'SUCCESS' : 'ERROR'
     if (status === 'SUCCESS') {

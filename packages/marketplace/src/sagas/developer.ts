@@ -1,4 +1,3 @@
-import { fetcher } from '@reapit/elements'
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { logger } from 'logger'
@@ -19,16 +18,18 @@ import { DeveloperItem, DeveloperRequestParams } from '@/reducers/developer'
 import { errorThrownServer } from '@/actions/error'
 import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'
-import { URLS, generateHeader } from '@/constants/api'
 import { Action } from '@/types/core'
 import { selectDeveloperId } from '@/selector'
-import api, { FetchBillingParams } from './api'
-import { FetchMonthlyBillingParams, fetchMonthlyBilling } from '@/services/billings'
-import { WebhookPingTestParams, webhookPingTestSubcription } from '@/services/subscriptions'
+import { PingWebhooksByIdParams, pingWebhooksById } from '@/services/webhooks'
 import { fetchAppsList } from '@/services/apps'
 import { fetchScopesList } from '@/services/scopes'
 import { createDeveloper, fetchDeveloperById } from '@/services/developers'
-import { fetchBillings } from '@/services/traffic-events'
+import {
+  fetchBillings,
+  fetchBillingsByMonth,
+  FetchBillingsParams,
+  FetchBillingsByMonthParams,
+} from '@/services/traffic-events'
 
 export const developerDataFetch = function*({ data }) {
   yield put(developerLoading(true))
@@ -106,7 +107,7 @@ export const fetchMyIdentitySagas = function*() {
   }
 }
 
-export const fetchBillingSagas = function*({ data }: Action<FetchBillingParams>) {
+export const fetchBillingSagas = function*({ data }: Action<FetchBillingsParams>) {
   try {
     const billingResponse = yield call(fetchBillings, data)
     yield put(fetchBillingSuccess(billingResponse))
@@ -122,9 +123,9 @@ export const fetchBillingSagas = function*({ data }: Action<FetchBillingParams>)
   }
 }
 
-export const fetchMonthlyBillingSagas = function*({ data }: Action<FetchMonthlyBillingParams>) {
+export const fetchMonthlyBillingSagas = function*({ data }: Action<FetchBillingsByMonthParams>) {
   try {
-    const billingResponse = yield call(fetchMonthlyBilling, data)
+    const billingResponse = yield call(fetchBillingsByMonth, { ...data, applicationId: data.applicationId })
     yield put(fetchMonthlyBillingSuccess(billingResponse))
   } catch (err) {
     logger(err)
@@ -138,10 +139,10 @@ export const fetchMonthlyBillingSagas = function*({ data }: Action<FetchMonthlyB
   }
 }
 
-export const developerWebhookPing = function*({ data }: Action<WebhookPingTestParams>) {
+export const developerWebhookPing = function*({ data }: Action<PingWebhooksByIdParams>) {
   try {
     yield put(developerSetWebhookPingStatus('LOADING'))
-    yield call(webhookPingTestSubcription, data)
+    yield call(pingWebhooksById, data)
     yield put(developerSetWebhookPingStatus('SUCCESS'))
   } catch (err) {
     logger(err)

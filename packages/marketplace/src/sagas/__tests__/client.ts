@@ -5,8 +5,6 @@ import { clientFetchAppSummarySuccess } from '@/actions/client'
 import { categoriesReceiveData } from '@/actions/app-categories'
 import { featuredAppsDataStub, appsDataStub } from '../__stubs__/apps'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { fetcher, setQueryParams } from '@reapit/elements'
-import { URLS, generateHeader } from '@/constants/api'
 import { APPS_PER_PAGE, FEATURED_APPS } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
@@ -19,7 +17,11 @@ import {
   AppSummaryModel,
 } from '@reapit/foundations-ts-definitions'
 import { appCategorieStub } from '../__stubs__/app-categories'
+import { fetchAppsList } from '@/services/apps'
+import { fetchCategoriesList } from '@/services/categories'
 
+jest.mock('@/services/apps')
+jest.mock('@/services/categories')
 jest.mock('@reapit/elements')
 const params = { data: { page: 1, search: '', category: '' } }
 
@@ -32,31 +34,16 @@ describe('client fetch data', () => {
 
   expect(gen.next([]).value).toEqual(
     all([
-      call(fetcher, {
-        url: `${URLS.apps}?${setQueryParams({
-          clientId: '1',
-          category: params.data.category,
-          appName: params.data.search,
-          pageNumber: params.data.page,
-          pageSize: APPS_PER_PAGE,
-          IsFeatured: false,
-        })}`,
-        api: window.reapit.config.marketplaceApiUrl,
-        method: 'GET',
-        headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      call(fetchAppsList, {
+        clientId: '1',
+        category: params.data.category,
+        appName: params.data.search,
+        pageNumber: params.data.page,
+        pageSize: APPS_PER_PAGE,
+        isFeatured: false,
       }),
-      call(fetcher, {
-        url: `${URLS.apps}?clientId=1&PageNumber=${params.data.page}&PageSize=${FEATURED_APPS}&IsFeatured=true`,
-        api: window.reapit.config.marketplaceApiUrl,
-        method: 'GET',
-        headers: generateHeader(window.reapit.config.marketplaceApiKey),
-      }),
-      call(fetcher, {
-        url: `${URLS.categories}`,
-        method: 'GET',
-        api: window.reapit.config.marketplaceApiUrl,
-        headers: generateHeader(window.reapit.config.marketplaceApiKey),
-      }),
+      call(fetchAppsList, { clientId: '1', pageNumber: params.data.page, pageSize: FEATURED_APPS, isFeatured: true }),
+      call(fetchCategoriesList, {}),
     ]),
   )
 

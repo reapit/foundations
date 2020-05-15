@@ -1,5 +1,3 @@
-import { fetcher, setQueryParams } from '@reapit/elements'
-import { URLS, generateHeader } from '../constants/api'
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { Action } from '../types/core'

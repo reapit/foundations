@@ -1,5 +1,3 @@
-import { fetcher } from '@reapit/elements'
-import { URLS, generateHeader } from '../constants/api'
 import {
   appDetailLoading,
   appDetailReceiveData,
@@ -48,14 +46,6 @@ export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
     )
   }
 }
-
-export const fetchAuthCode = id =>
-  fetcher({
-    url: `${URLS.apps}/${id}/secret`,
-    api: window.reapit.config.marketplaceApiUrl,
-    method: 'GET',
-    headers: generateHeader(window.reapit.config.marketplaceApiKey),
-  })
 
 export const requestAuthCode = function*({ data: id }: Action<string>) {
   try {

@@ -128,7 +128,7 @@ export const fetchWebhooksSubscriptionsList = async (
     const headers = await initAuthorizedRequestHeaders()
     const response = await fetcher({
       url: `${URLS.webhookSubscriptions}?${setQueryParams(params)}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
       headers,
     })
@@ -144,7 +144,7 @@ export const createWebhooksSubscription = async (params: CreateWebhooksSubscript
     const headers = await initAuthorizedRequestHeaders()
     const response = await fetcher({
       url: `${URLS.webhookSubscriptions}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'POST',
       body: params,
       headers,
@@ -164,7 +164,7 @@ export const fetchWebhooksSubscriptionById = async (
     const { id } = params
     const response = await fetcher({
       url: `${URLS.webhookSubscriptions}/${id}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
       headers,
     })
@@ -181,7 +181,7 @@ export const updateWebhooksSubscriptionById = async (params: UpdateWebhooksSubsc
     const { id, ...rest } = params
     const response = await fetcher({
       url: `${URLS.webhookSubscriptions}/${id}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'PUT',
       body: rest,
       headers,
@@ -199,7 +199,7 @@ export const deleteWebhooksSubscriptionById = async (params: DeleteWebhooksSubsc
     const { id } = params
     const response = await fetcher({
       url: `${URLS.webhookSubscriptions}/${id}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'DELETE',
       headers,
     })
@@ -216,7 +216,7 @@ export const pingWebhooksById = async (params: PingWebhooksByIdParams) => {
     const { id, ...rest } = params
     const response = await fetcher({
       url: `${URLS.webhookSubscriptions}/${id}/ping`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'POST',
       body: rest,
       headers,
@@ -236,7 +236,7 @@ export const fetchWebhooksTopicsList = async (
     const headers = await initAuthorizedRequestHeaders()
     const response = await fetcher({
       url: `${URLS.webhooksTopics}?${setQueryParams(params)}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
       headers,
     })
@@ -252,7 +252,7 @@ export const createWebhooksTopic = async (params: CreateWebhooksTopicParams) => 
     const headers = await initAuthorizedRequestHeaders()
     const response = await fetcher({
       url: `${URLS.webhooksTopics}?${setQueryParams(params)}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'POST',
       body: params,
       headers,
@@ -270,7 +270,7 @@ export const fetchWebhooksTopicById = async (params: FetchWebhooksTopicByIdParam
     const { id } = params
     const response = await fetcher({
       url: `${URLS.webhooksTopics}/${id}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'GET',
       headers,
     })
@@ -286,7 +286,7 @@ export const updateWebhooksTopicById = async (params: UpdateWebhooksTopicByIdPar
     const { id, ...rest } = params
     const response = await fetcher({
       url: `${URLS.webhooksTopics}/${id}`,
-      api: window.reapit.config.marketplaceApiUrl,
+      api: window.reapit.config.platformApiUrl,
       method: 'PUT',
       body: rest,
       headers,

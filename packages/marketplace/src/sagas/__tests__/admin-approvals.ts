@@ -8,13 +8,12 @@ import {
 } from '@/actions/admin-approvals'
 import { appsDataStub } from '../__stubs__/apps'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { fetcher } from '@reapit/elements'
-import { URLS, generateHeader } from '@/constants/api'
-import { APPS_PER_PAGE } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
+import { fetchApprovalsList } from '@/services/approvals'
 
+jest.mock('@/services/approvals')
 jest.mock('@reapit/elements')
 const params = { data: 1 }
 
@@ -22,14 +21,7 @@ describe('adminApprovals fetch data', () => {
   const gen = cloneableGenerator(adminApprovalsDataFetch)(params)
 
   expect(gen.next().value).toEqual(put(adminApprovalsLoading(true)))
-  expect(gen.next().value).toEqual(
-    call(fetcher, {
-      url: `${URLS.approvals}?PageNumber=${params.data}&PageSize=${APPS_PER_PAGE}`,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    }),
-  )
+  expect(gen.next().value).toEqual(call(fetchApprovalsList, { pageNumber: paras.data }))
 
   test('api call success', () => {
     const clone = gen.clone()

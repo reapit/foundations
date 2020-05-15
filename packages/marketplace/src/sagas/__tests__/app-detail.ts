@@ -3,8 +3,6 @@ import appDetailSagas, {
   appDetailDataListen,
   requestAuthenticationCodeListen,
   requestAuthCode,
-  fetchAuthCode,
-  fetchAppApiKey,
 } from '../app-detail'
 import { appDetailDataStub } from '../__stubs__/app-detail'
 import ActionTypes from '@/constants/action-types'
@@ -119,7 +117,7 @@ describe('app-detail fetch data and fetch apiKey', () => {
         isWebComponent,
         installationId,
       }).value,
-    ).toEqual(call(fetchAppApiKey, { installationId }))
+    ).toEqual(call(fetchApiKeyInstallationById, { installationId }))
     expect(clone.next({ apiKey }).value).toEqual(
       put(
         appDetailReceiveData({
@@ -148,7 +146,7 @@ describe('app-detail request auth code', () => {
   }
   const gen = cloneableGenerator(requestAuthCode)(params)
 
-  expect(gen.next().value).toEqual(call(fetchAuthCode, params.data))
+  expect(gen.next().value).toEqual(call(fetchAppSecretById, { id: params.data }))
 
   test('api call success', () => {
     const clone = gen.clone()
