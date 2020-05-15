@@ -1,22 +1,27 @@
+import agentAndSon from '../images/agent-and-son.png'
+import ourApproach from '../images/approach.jpg'
+import heroImage from '../images/header.jpg'
+
 export const reapitAndSons = `
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+    <style>
     /* Base */
     body {
       margin: 0;
       font-size: 16px;
     }
-
+  
     /* Font */
     body {
       font-family: 'Open Sans', sans-serif;
     }
-
+  
     /* Navbar */
     #path-bar {
       fill: #8a8a8a;
     }
-
+  
     #navbar {
       padding: 0rem 1.75rem;
       color: #8a8a8a;
@@ -24,103 +29,90 @@ export const reapitAndSons = `
       align-items: center;
       justify-content: space-between;
     }
-
+  
     @media (max-width: 565px) {
       #navbar {
         padding: 0rem 0.5rem;
       }
     }
-
+  
     #navbar img {
       margin: 1.75rem 0rem;
     }
-
+  
     #navbar > svg {
       font-family: 'Open Sans', sans-serif;
     }
-
+  
     /* Widget */
-    #search-result-container {
-      padding: 2rem;
-    }
-
-    @media (max-width: 565px) {
-      #search-result-container {
-        padding: 1rem;
-      }
-    }
-
-    #reapit-search-map {
-      overflow: auto;
-    }
-
-    /* Responsive map */
-    #reapit-search-map > div {
-      padding: 25vw;
-    }
-
-    @media (max-width: 1600px) {
-      #reapit-search-map > div {
-        padding: 35vw;
-      }
-    }
-
-    #reapit-search-result {
-      padding: 2rem;
-      height: 100%;
-      width: 100%;
-    }
-
+  
     #reapit-search-widget-container {
       width: 100vw;
-      height: 100%;
-      top: 0;
+      min-height: 550px;
       display: flex;
       justify-content: center;
       align-items: center;
-      position: absolute;
-    }
-
-    #reapit-search-widget {
-      width: 80%;
-      min-height: 100%;
-    }
-
-    #widget {
       position: relative;
+      flex-direction: column;
+      margin-bottom: 2rem;
     }
-
+  
+    #reapit-search-widget {
+      z-index: 1;
+      width: 80%;
+    }
+  
+    @media (max-width: 768px) {
+      #reapit-search-widget {
+        width: 90%;
+      }
+    }
+  
+    #reapit-search-widget > div {
+      background: rgba(255, 255, 255, 0.9);
+    }
+  
+    #main-image {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 550px;
+      object-fit: cover;
+    }
+  
     #widget > img {
       width: 100vw;
     }
-
+  
     /* Place holder */
     #place-holder {
       padding: 1.75rem 0rem;
     }
-
+  
     /* Our approach */
     #approach {
       display: flex;
       color: white;
+      z-index: 1;
+      position: relative;
     }
-
+  
     #approach div {
       flex: 1;
     }
-
+  
     #approach > #our-approach {
       color: #8a8a8a;
-      padding: 2rem 2rem 4rem 2rem;
+      padding: 0 2rem 4rem 2rem;
       display: flex;
       flex-direction: column;
       font-size: 20px;
     }
-
+  
     #approach > #img-approach {
       padding: 0px 2rem 4rem 2rem;
     }
-
+  
     #approach button {
       margin-top: 1rem;
       background: #887d97;
@@ -131,40 +123,41 @@ export const reapitAndSons = `
       font-weight: bold;
       font-size: 1em;
     }
-
+  
     #approach img {
       width: 100%;
       object-fit: cover;
     }
-
+  
     @media (max-width: 565px) {
       #approach > #our-approach {
         padding: 1rem;
         font-size: 1rem;
       }
-
+  
       #approach > #img-approach {
         padding: 1rem;
       }
     }
-
+  
     /* Our approuch - handle responsive */
     @media (max-width: 768px) {
       #approach {
         display: block;
       }
     }
-
+  
     @media (min-width: 1024px) {
       #approach > #our-approach > h1 {
         font-size: 48px;
       }
     }
-
+  
     #approach > #our-approach > h1 {
       margin-top: 0;
     }
   </style>
+  <!-- Navbar -->
   <div id="navbar">
     <!-- Menu Icon -->
     <svg
@@ -177,27 +170,23 @@ export const reapitAndSons = `
       <path d="M0 0h24v24H0z" fill="none" />
       <path id="path-bar" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
     </svg>
-
+    <img src="${agentAndSon}" />
     <!-- Header -->
     <!-- <h1>AGENT & SONS</h1> -->
-    <img src="https://web-components.reapit.cloud/agent-and-son.png" />
-
+  
     <!-- Empty div for align purpose -->
     <div></div>
   </div>
-
+  
   <!-- Widget -->
   <div id="widget">
-    <img src="https://web-components.reapit.cloud/header.jpg" />
     <div id="reapit-search-widget-container">
+      <img id="main-image" src="${heroImage}" />
+  
       <div id="reapit-search-widget"></div>
     </div>
   </div>
-  <div id="root"></div>
-
-  <!-- Search results -->
-  <div id="reapit-search-widget-result"></div>
-
+  
   <!-- Our approach -->
   <div id="approach">
     <div id="our-approach">
@@ -217,7 +206,8 @@ export const reapitAndSons = `
       <button>MORE</button>
     </div>
     <div id="img-approach">
-      <img src="https://web-components.reapit.cloud/approach.jpg" />
+      <img src="${ourApproach}"" />
     </div>
   </div>
+  
 `
