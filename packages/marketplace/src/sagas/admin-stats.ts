@@ -19,7 +19,6 @@ export const MARKETPLACE_GOLIVE_DATE = '2020-02-14'
 export const adminStatsDataFetch = function*({ data }) {
   try {
     const { area, range } = data
-    const url = getUrlByArea(area)
     let queryParams = {} as any
     if (range !== 'ALL') {
       const dateRange = getDateRange(range)
@@ -30,23 +29,20 @@ export const adminStatsDataFetch = function*({ data }) {
         .toDate()
         .toISOString()
     }
-    let response
-    switch (url) {
-      case 'APPS': {
-        response = yield call(fetchAppsList, { pageSize: GET_ALL_PAGE_SIZE, ...queryParams })
-        break
-      }
-      case 'DEVELOPERS': {
-        response = yield call(fetchDevelopersList, { pageSize: GET_ALL_PAGE_SIZE, ...queryParams })
-        break
-      }
-      case 'INSTALLATIONS': {
-        response = yield call(fetchInstallationsList, { pageSize: GET_ALL_PAGE_SIZE, ...queryParams })
-        break
-      }
-      default:
-        break
+    const serviceToCall =
+      area === 'APPS'
+        ? fetchAppsList
+        : area === 'DEVELOPERS'
+        ? fetchDevelopersList
+        : area === 'INSTALLATIONS'
+        ? fetchInstallationsList
+        : undefined
+
+    if (!serviceToCall) {
+      throw new Error('No service matched')
     }
+
+    const response = yield call(serviceToCall, { pageSize: GET_ALL_PAGE_SIZE, ...queryParams })
 
     if (response) {
       yield put(adminStatsReceiveData({ data: response.data, totalCount: response.totalCount }))
@@ -62,17 +58,6 @@ export const adminStatsDataFetch = function*({ data }) {
         message: errorMessages.DEFAULT_SERVER_ERROR,
       }),
     )
-  }
-}
-
-export const getUrlByArea = (area: Area) => {
-  switch (area) {
-    case 'APPS':
-      return URLS.apps
-    case 'DEVELOPERS':
-      return URLS.developers
-    case 'INSTALLATIONS':
-      return URLS.installations
   }
 }
 

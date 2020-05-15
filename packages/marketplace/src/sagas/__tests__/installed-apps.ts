@@ -29,7 +29,7 @@ describe('installed-apps fetch data', () => {
   expect(gen.next(clientId).value).toEqual(
     call(fetchAppsList, {
       clientId,
-      page: params.data,
+      pageNumber: params.data,
       pageSize: INSTALLED_APPS_PERPAGE,
       onlyInstalled: true,
       isDirectApi: false,

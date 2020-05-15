@@ -45,8 +45,8 @@ describe('revision-detail fetch data', () => {
   expect(gen.next().value).toEqual(put(revisionDetailLoading(true)))
   expect(gen.next().value).toEqual(
     all([
-      call(fetchAppRevisionsById({ id: appId, revisionId: appRevisionId })),
-      call(fetchScopesList()),
+      call(fetchAppRevisionsById, { id: appId, revisionId: appRevisionId }),
+      call(fetchScopesList),
       call(fetchDesktopIntegrationTypesList, {}),
     ]),
   )

@@ -52,7 +52,7 @@ describe('submit-revision post data', () => {
   expect(gen.next().value).toEqual(put(submitRevisionSetFormState('SUBMITTING')))
   expect(gen.next().value).toEqual(all(imageUploaderRequests))
   expect(gen.next(imageUploaderResults).value).toEqual(
-    call(createAppRevision({ id, ...updatedData, categoryId: undefined })),
+    call(createAppRevision, { id, ...updatedData, categoryId: undefined }),
   )
 
   test('api call success', () => {

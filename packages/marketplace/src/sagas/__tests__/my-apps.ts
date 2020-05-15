@@ -22,7 +22,7 @@ describe('my-apps fetch data', () => {
   expect(gen.next().value).toEqual(put(myAppsLoading(true)))
   expect(gen.next().value).toEqual(select(selectClientId))
   expect(gen.next(clientId).value).toEqual(
-    call(fetchAppsList({ clientId, onlyInstalled: true, pageNumber: params.data, pageSize: APPS_PER_PAGE })),
+    call(fetchAppsList, { clientId, onlyInstalled: true, pageNumber: params.data, pageSize: APPS_PER_PAGE }),
   )
 
   test('api call success', () => {

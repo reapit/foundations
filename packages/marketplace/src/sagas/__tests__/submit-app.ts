@@ -65,7 +65,7 @@ describe('submit-app post data', () => {
   expect(gen.next().value).toEqual(put(submitAppSetFormState('SUBMITTING')))
   expect(gen.next().value).toEqual(all(imageUploaderRequests))
 
-  expect(gen.next(imageUploaderResults).value).toEqual(call(createApp({ ...updatedData, categoryId: undefined })))
+  expect(gen.next(imageUploaderResults).value).toEqual(call(createApp, { ...updatedData, categoryId: undefined }))
 
   test('api call success', () => {
     const clone = gen.clone()
