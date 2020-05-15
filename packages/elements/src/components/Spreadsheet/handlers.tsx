@@ -109,7 +109,8 @@ export const customCellRenderer = (
     'updated',
     'style',
   ]
-  // filter ouf all ignore props
+
+  // filter out all ignore props
   const domProps = Object.keys(restProps)
     .filter(key => !ignorePropKeys.includes(key))
     .reduce(
