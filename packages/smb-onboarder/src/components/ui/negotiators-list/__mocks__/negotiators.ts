@@ -1,5 +1,5 @@
 import { NegotiatorsQueryResponse, NegotiatorUpdateParams, NegotiatorCreateParams } from '../negotiators-list'
-import { NegotiatorModel } from '@reapit/elements/node_modules/@reapit/foundations-ts-definitions/types'
+import { NegotiatorModel } from '@reapit/foundations-ts-definitions/types'
 
 import { ChangedCells, Cell } from '@reapit/elements/src/components/Spreadsheet/types'
 
