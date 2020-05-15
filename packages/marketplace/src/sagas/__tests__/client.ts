@@ -5,7 +5,7 @@ import { clientFetchAppSummarySuccess } from '@/actions/client'
 import { categoriesReceiveData } from '@/actions/app-categories'
 import { featuredAppsDataStub, appsDataStub } from '../__stubs__/apps'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { APPS_PER_PAGE, FEATURED_APPS } from '@/constants/paginator'
+import { APPS_PER_PAGE } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
@@ -18,8 +18,6 @@ import {
 } from '@reapit/foundations-ts-definitions'
 import { appCategorieStub } from '../__stubs__/app-categories'
 import { fetchAppsList } from '@/services/apps'
-import { fetchCategoriesList } from '@/services/categories'
-import { ClientItem } from '@/reducers/client'
 
 jest.mock('@/services/apps')
 jest.mock('@/services/categories')
@@ -62,6 +60,31 @@ describe('clientDataFetch', () => {
       ),
     )
     expect(clone.next().value).toEqual(put(categoriesReceiveData(response[2] as PagedResultCategoryModel_)))
+    expect(clone.next().done).toBe(true)
+  })
+  it('should dispatch action when fail', () => {
+    const clone = gen.clone()
+    expect(clone.next().value).toEqual(select(selectClientId))
+    expect(clone.next(clientId).value).toEqual(select(selectCategories))
+    expect(clone.next(appCategorieStub.data).value).toEqual(select(selectFeaturedApps))
+    const response = [undefined, undefined, undefined]
+    expect(clone.next(featuredAppsDataStub.data).value).toEqual(
+      all([
+        call(fetchAppsList, {
+          clientId,
+          category: [params.data.category],
+          appName: params.data.search,
+          pageNumber: params.data.page,
+          pageSize: APPS_PER_PAGE,
+          isFeatured: false,
+          isDirectApi: undefined,
+        }),
+        featuredAppsDataStub.data,
+        appCategorieStub.data,
+      ]),
+    )
+    expect(clone.next(response).value).toEqual(put(clientRequestDataFailure()))
+    expect(clone.next().done).toBe(true)
   })
 })
 

@@ -13,7 +13,8 @@ import {
   MAX_NUMBER_TRANSACTION_PER_PAGE,
 } from './utils'
 import dayjs, { Dayjs } from 'dayjs'
-import { URLS, generateHeader } from '@/constants/api'
+import { URLS } from '@/services/constants'
+import { generateHeader } from '@/services/utils'
 
 export type TransactionHistoryProps = {}
 

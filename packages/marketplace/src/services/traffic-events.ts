@@ -158,4 +158,3 @@ export const fetchTrafficStatistics = async (
     throw new Error(error)
   }
 }
-

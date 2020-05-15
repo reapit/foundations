@@ -30,8 +30,6 @@ import { setApplicationId, webhookSubscriptionsReceiveData } from '@/actions/web
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
 import { subscriptions } from '../__stubs__/webhooks'
-import * as API from '@/constants/api'
-import { fetcher } from '@reapit/elements'
 import {
   fetchWebhooksTopicsList,
   createWebhooksSubscription,
