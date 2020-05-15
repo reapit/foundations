@@ -1,4 +1,5 @@
 const Routes = {
+  Authentication: '/authentication',
   CLIENT: '/client/apps',
   CLIENT_WELCOME: '/client/welcome',
   INSTALLED_APPS: '/client/installed',

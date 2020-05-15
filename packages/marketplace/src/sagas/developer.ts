@@ -33,7 +33,7 @@ export const developerDataFetch = function*({ data }) {
     const developerId = yield select(selectDeveloperId)
 
     if (!developerId) {
-      throw new Error('Developer id does not exist in state')
+      return
     }
 
     const { page, appsPerPage = APPS_PER_PAGE } = data

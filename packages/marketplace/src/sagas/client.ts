@@ -20,7 +20,7 @@ export const clientDataFetch = function*({ data }) {
     const { page, search, category, searchBy } = data
     const clientId = yield select(selectClientId)
     if (!clientId) {
-      throw new Error('Client id does not exist in state')
+      return
     }
     const currentCategories = yield select(selectCategories)
     const currentFeaturedApps = yield select(selectFeaturedApps)

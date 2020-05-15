@@ -4,8 +4,8 @@ import { RouteComponentProps } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { ReduxState } from 'src/types/core'
 import Menu from '@/components/ui/menu'
-import { Loader, Section, FlexContainerBasic, AppNavContainer } from '@reapit/elements'
-import { LoginType, RefreshParams, getTokenFromQueryString, redirectToOAuth } from '@reapit/cognito-auth'
+import { Loader, Section, FlexContainerBasic, AppNavContainer, Modal, Button } from '@reapit/elements'
+import { LoginType, RefreshParams, getTokenFromQueryString, redirectToOAuth, LoginIdentity } from '@reapit/cognito-auth'
 import { Dispatch } from 'redux'
 import { withRouter, Redirect } from 'react-router'
 import { getDefaultRouteByLoginType, getAuthRouteByLoginType } from '@/utils/auth-route'
@@ -21,6 +21,8 @@ import {
   COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE,
   COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE,
 } from '@/utils/cookie'
+import { selectLoginIdentity } from '@/selector/auth'
+import Routes from '@/constants/routes'
 
 const { Suspense } = React
 
@@ -36,6 +38,7 @@ export interface PrivateRouteWrapperConnectState {
   isDesktopMode: boolean
   loginType: LoginType
   isTermAccepted: boolean
+  loginIdentity?: LoginIdentity
 }
 
 export type PrivateRouteWrapperProps = PrivateRouteWrapperConnectState &
@@ -50,8 +53,10 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   hasSession,
   loginType,
   location,
+  loginIdentity,
   setInitDeveloperTermsAcceptedStateFromCookie,
   setInitClientTermsAcceptedStateFromCookie,
+  history,
   // isTermAccepted,
   // setClientTermAcceptedCookieAndState,
 }) => {
@@ -59,6 +64,15 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     setInitClientTermsAcceptedStateFromCookie()
     setInitDeveloperTermsAcceptedStateFromCookie()
   }, [])
+
+  // React.useEffect(() => {
+  //   if (loginIdentity) {
+  //     const { clientId, developerId } = loginIdentity
+  //     if ((loginType === 'CLIENT' && !clientId) || (loginType === 'DEVELOPER' && !developerId)) {
+  //       // history.replace(Routes.Authentication)
+  //     }
+  //   }
+  // }, [loginType, loginIdentity])
 
   const params = new URLSearchParams(location.search)
   const state = params.get('state')
@@ -125,6 +139,7 @@ export const mapStateToProps = (state: ReduxState): PrivateRouteWrapperConnectSt
   loginType: state?.auth?.loginType,
   isDesktopMode: state?.auth?.refreshSession?.mode === 'DESKTOP',
   isTermAccepted: state?.auth?.isTermAccepted,
+  loginIdentity: selectLoginIdentity(state),
 })
 
 export const mapDispatchToProps = (dispatch: Dispatch): PrivateRouteWrapperConnectActions => ({

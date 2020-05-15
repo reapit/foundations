@@ -1,8 +1,8 @@
 import * as React from 'react'
 
 export interface ButtonProps {
-  type: 'submit' | 'reset' | 'button'
-  variant: 'primary' | 'secondary' | 'danger' | 'info'
+  type?: 'submit' | 'reset' | 'button'
+  variant?: 'primary' | 'secondary' | 'danger' | 'info'
   onClick?: () => void
   disabled?: boolean
   loading?: boolean
@@ -12,8 +12,8 @@ export interface ButtonProps {
 }
 
 export const Button: React.SFC<ButtonProps> = ({
-  type,
-  variant,
+  type = 'button',
+  variant = 'primary',
   className = '',
   disabled = false,
   loading = false,

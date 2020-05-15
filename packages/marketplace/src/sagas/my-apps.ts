@@ -16,7 +16,7 @@ export const myAppsDataFetch = function*({ data: page }) {
   try {
     const clientId = yield select(selectClientId)
     if (!clientId) {
-      throw new Error('Client id does not exist in state')
+      return
     }
 
     const response = yield call(fetcher, {
