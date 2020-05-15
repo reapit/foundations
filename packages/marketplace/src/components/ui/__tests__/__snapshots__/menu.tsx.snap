@@ -36,6 +36,7 @@ exports[`Menu should match a snapshot 1`] = `
         "url": "/client/installed",
       },
       Object {
+        "disabled": true,
         "icon": <FaClipboardList
           className="nav-item-icon"
         />,

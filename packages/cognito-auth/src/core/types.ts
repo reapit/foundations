@@ -40,6 +40,7 @@ export interface CoginitoIdentity {
   exp: number
   iat: number
   email: string
+  'cognito:groups'?: string[]
 }
 
 export interface LoginIdentity {
@@ -49,6 +50,8 @@ export interface LoginIdentity {
   clientId: string | null
   adminId: string | null
   userCode: string | null
+  isAdmin?: boolean
+  userTel: string
 }
 
 export interface LoginSession {

@@ -22,11 +22,13 @@ import {
 } from 'react-icons/fa'
 import { MdHelp } from 'react-icons/md'
 import { GoDatabase, GoCode } from 'react-icons/go'
+import { selectIsAdmin } from '@/selector/auth'
 
 export const generateMenuConfig = (
   logoutCallback: () => void,
   location: Location<any>,
   mode: LoginMode,
+  isAdmin: boolean,
 ): { [key: string]: MenuConfig } => {
   return {
     ADMIN: {
@@ -174,6 +176,7 @@ export const generateMenuConfig = (
           url: Routes.MY_APPS,
           type: 'PRIMARY',
           icon: <FaClipboardList className="nav-item-icon" />,
+          disabled: !isAdmin,
         },
         {
           title: 'Help',
@@ -197,6 +200,7 @@ export const generateMenuConfig = (
 export interface MenuMappedProps {
   loginType: LoginType
   mode: LoginMode
+  isAdmin: boolean
 }
 
 export interface MenuMappedActions {
@@ -205,15 +209,16 @@ export interface MenuMappedActions {
 
 export type MenuProps = MenuMappedProps & MenuMappedActions & RouteComponentProps & {}
 
-export const Menu: React.FunctionComponent<MenuProps> = ({ logout, loginType, location, mode }) => {
+export const Menu: React.FunctionComponent<MenuProps> = ({ logout, loginType, location, mode, isAdmin }) => {
   const logoutCallback = () => logout()
-  const menuConfigs = generateMenuConfig(logoutCallback, location, mode)
+  const menuConfigs = generateMenuConfig(logoutCallback, location, mode, isAdmin)
   return <Sidebar {...menuConfigs[loginType]} location={location} />
 }
 
 export const mapStateToProps = (state: ReduxState): MenuMappedProps => ({
   loginType: state.auth.loginType,
   mode: state?.auth?.refreshSession?.mode || 'WEB',
+  isAdmin: selectIsAdmin(state),
 })
 
 export const mapDispatchToProps = (dispatch: any): MenuMappedActions => ({

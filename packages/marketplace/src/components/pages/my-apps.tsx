@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { ReduxState, FormState } from '@/types/core'
 import { MyAppsState } from '@/reducers/my-apps'
-import { Loader } from '@reapit/elements'
+import { Loader, Info } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import routes from '@/constants/routes'
 import AppList from '@/components/ui/app-list'
@@ -16,6 +16,7 @@ import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { handleLaunchApp } from '../../utils/launch-app'
 import { appInstallationsSetFormState } from '@/actions/app-installations'
 import { setAppDetailModalStateManage } from '@/actions/app-detail-modal'
+import { selectIsAdmin } from '@/selector/auth'
 
 export interface MyAppsMappedActions {
   setStateViewManage: () => void
@@ -29,6 +30,7 @@ export interface MyAppsMappedProps {
   appDetail: AppDetailState
   installationsFormState: FormState
   clientId: string
+  isAdmin: boolean
 }
 
 export type MyAppsProps = MyAppsMappedActions & MyAppsMappedProps & RouteComponentProps<{ page?: any }>
@@ -53,6 +55,7 @@ export const MyApps: React.FunctionComponent<MyAppsProps> = ({
   installationsFormState,
   installationsSetFormState,
   history,
+  isAdmin,
 }) => {
   const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 1
   const unfetched = !myAppsState.myAppsData
@@ -67,6 +70,7 @@ export const MyApps: React.FunctionComponent<MyAppsProps> = ({
   if (unfetched || loading) {
     return <Loader />
   }
+  if (!isAdmin) return <Info infoType="404" />
 
   return (
     <ErrorBoundary>
@@ -100,6 +104,7 @@ export const mapStateToProps = (state: ReduxState): MyAppsMappedProps => ({
   appDetail: state.appDetail,
   clientId: selectClientId(state),
   installationsFormState: state.installations.formState,
+  isAdmin: selectIsAdmin(state),
 })
 
 export const mapDispatchToProps = (dispatch: any): MyAppsMappedActions => ({

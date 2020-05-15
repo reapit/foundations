@@ -113,6 +113,8 @@ export const deserializeIdToken = (loginSession: Partial<LoginSession> | undefin
     clientId: decoded['custom:reapit:clientCode'] || null,
     adminId: decoded['custom:reapit:marketAdmin'] || null,
     userCode: decoded['custom:reapit:userCode'] || null,
+    isAdmin: Boolean(decoded['cognito:groups']?.includes('CustomerAdministrators')),
+    userTel: decoded['phone_number'],
   }
 }
 
