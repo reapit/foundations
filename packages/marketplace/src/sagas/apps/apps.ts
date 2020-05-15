@@ -5,14 +5,17 @@ import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { logger } from 'logger'
-import { fetchAppApiKey, fetchAppDetail, FetchAppDetailParams } from '@/services/apps'
+import { fetchAppById, FetchAppByIdParams } from '@/services/apps'
+import { fetchApiKeyInstallationById } from '@/services/installations'
 import { developerFetchAppDetailSuccess } from '@/actions/developer'
 
-export const fetchClientAppDetailSaga = function*({ data }: Action<FetchAppDetailParams>) {
+export const fetchClientAppDetailSaga = function*({ data }: Action<FetchAppByIdParams>) {
   try {
-    const appDetailResponse = yield call(fetchAppDetail, { clientId: data.clientId, id: data.id })
+    const appDetailResponse = yield call(fetchAppById, { clientId: data.clientId, id: data.id })
     if (appDetailResponse?.isWebComponent && appDetailResponse?.installationId) {
-      const apiKeyResponse = yield call(fetchAppApiKey, { installationId: appDetailResponse.installationId })
+      const apiKeyResponse = yield call(fetchApiKeyInstallationById, {
+        installationId: appDetailResponse.installationId,
+      })
       appDetailResponse.apiKey = apiKeyResponse?.apiKey || ''
     }
     yield put(clientFetchAppDetailSuccess(appDetailResponse))
@@ -27,11 +30,13 @@ export const fetchClientAppDetailSaga = function*({ data }: Action<FetchAppDetai
   }
 }
 
-export const fetchDeveloperAppDetailSaga = function*({ data }: Action<FetchAppDetailParams>) {
+export const fetchDeveloperAppDetailSaga = function*({ data }: Action<FetchAppByIdParams>) {
   try {
-    const appDetailResponse = yield call(fetchAppDetail, { clientId: data.clientId, id: data.id })
+    const appDetailResponse = yield call(fetchAppById, { clientId: data.clientId, id: data.id })
     if (appDetailResponse?.isWebComponent && appDetailResponse?.installationId) {
-      const apiKeyResponse = yield call(fetchAppApiKey, { installationId: appDetailResponse.installationId })
+      const apiKeyResponse = yield call(fetchApiKeyInstallationById, {
+        installationId: appDetailResponse.installationId,
+      })
       appDetailResponse.apiKey = apiKeyResponse?.apiKey || ''
     }
     yield put(developerFetchAppDetailSuccess(appDetailResponse))
@@ -47,11 +52,11 @@ export const fetchDeveloperAppDetailSaga = function*({ data }: Action<FetchAppDe
 }
 
 export const clientAppDetailDataListen = function*() {
-  yield takeLatest<Action<FetchAppDetailParams>>(ActionTypes.CLIENT_FETCH_APP_DETAIL, fetchClientAppDetailSaga)
+  yield takeLatest<Action<FetchAppByIdParams>>(ActionTypes.CLIENT_FETCH_APP_DETAIL, fetchClientAppDetailSaga)
 }
 
 export const developerAppDetailDataListen = function*() {
-  yield takeLatest<Action<FetchAppDetailParams>>(ActionTypes.DEVELOPER_FETCH_APP_DETAIL, fetchDeveloperAppDetailSaga)
+  yield takeLatest<Action<FetchAppByIdParams>>(ActionTypes.DEVELOPER_FETCH_APP_DETAIL, fetchDeveloperAppDetailSaga)
 }
 
 const appDetailSagas = function*() {

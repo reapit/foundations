@@ -10,19 +10,20 @@ import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
-import { FetchAppDetailParams, fetchAppDetail, fetchAppApiKey } from '@/services/apps'
+import { FetchAppByIdParams, fetchAppById } from '@/services/apps'
+import { fetchApiKeyInstallationById } from '@/services/installations'
 import { clientFetchAppDetailSuccess } from '@/actions/client'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { developerFetchAppDetailSuccess } from '@/actions/developer'
 
 jest.mock('@reapit/elements')
 
-const paramsClientId: Action<FetchAppDetailParams> = {
+const paramsClientId: Action<FetchAppByIdParams> = {
   data: { id: '9b6fd5f7-2c15-483d-b925-01b650538e52', clientId: 'DAC' },
   type: 'CLIENT_FETCH_APP_DETAIL',
 }
 
-const params: Action<FetchAppDetailParams> = {
+const params: Action<FetchAppByIdParams> = {
   data: { id: '9b6fd5f7-2c15-483d-b925-01b650538e52' },
   type: 'CLIENT_FETCH_APP_DETAIL',
 }
@@ -30,7 +31,7 @@ const params: Action<FetchAppDetailParams> = {
 describe('fetch client app detail with clientId', () => {
   const gen = cloneableGenerator(fetchClientAppDetailSaga)(paramsClientId)
   expect(gen.next().value).toEqual(
-    call(fetchAppDetail, { id: paramsClientId.data.id, clientId: paramsClientId.data.clientId }),
+    call(fetchAppById, { id: paramsClientId.data.id, clientId: paramsClientId.data.clientId }),
   )
 
   test('api call success', () => {
@@ -54,7 +55,7 @@ describe('fetch client app detail with clientId', () => {
 
 describe('fetch client app detail without clientId', () => {
   const gen = cloneableGenerator(fetchClientAppDetailSaga)(params)
-  expect(gen.next().value).toEqual(call(fetchAppDetail, { id: paramsClientId.data.id, clientId: undefined }))
+  expect(gen.next().value).toEqual(call(fetchAppById, { id: paramsClientId.data.id, clientId: undefined }))
 
   test('api call success', () => {
     const clone = gen.clone()
@@ -77,7 +78,7 @@ describe('fetch client app detail without clientId', () => {
 
 describe('client app detail fetch data and fetch apiKey', () => {
   const gen = cloneableGenerator(fetchClientAppDetailSaga)(params)
-  expect(gen.next().value).toEqual(call(fetchAppDetail, { id: params.data.id, clientId: undefined }))
+  expect(gen.next().value).toEqual(call(fetchAppById, { id: params.data.id, clientId: undefined }))
 
   test('api call success', () => {
     const clone = gen.clone()
@@ -90,7 +91,7 @@ describe('client app detail fetch data and fetch apiKey', () => {
         isWebComponent,
         installationId,
       }).value,
-    ).toEqual(call(fetchAppApiKey, { installationId }))
+    ).toEqual(call(fetchApiKeyInstallationById, { installationId }))
     expect(clone.next({ apiKey }).value).toEqual(
       put(clientFetchAppDetailSuccess({ ...appDetailDataStub.data, isWebComponent, installationId, apiKey })),
     )
@@ -113,7 +114,7 @@ describe('client app detail fetch data and fetch apiKey', () => {
 describe('fetch developer app detail with clientId', () => {
   const gen = cloneableGenerator(fetchDeveloperAppDetailSaga)(paramsClientId)
   expect(gen.next().value).toEqual(
-    call(fetchAppDetail, { id: paramsClientId.data.id, clientId: paramsClientId.data.clientId }),
+    call(fetchAppById, { id: paramsClientId.data.id, clientId: paramsClientId.data.clientId }),
   )
 
   test('api call success', () => {
@@ -139,7 +140,7 @@ describe('fetch developer app detail with clientId', () => {
 
 describe('fetch developer app detail without clientId', () => {
   const gen = cloneableGenerator(fetchDeveloperAppDetailSaga)(params)
-  expect(gen.next().value).toEqual(call(fetchAppDetail, { id: paramsClientId.data.id, clientId: undefined }))
+  expect(gen.next().value).toEqual(call(fetchAppById, { id: paramsClientId.data.id, clientId: undefined }))
 
   test('api call success', () => {
     const clone = gen.clone()
@@ -164,7 +165,7 @@ describe('fetch developer app detail without clientId', () => {
 
 describe('client app detail fetch data and fetch apiKey', () => {
   const gen = cloneableGenerator(fetchDeveloperAppDetailSaga)(params)
-  expect(gen.next().value).toEqual(call(fetchAppDetail, { id: params.data.id, clientId: undefined }))
+  expect(gen.next().value).toEqual(call(fetchAppById, { id: params.data.id, clientId: undefined }))
 
   test('api call success', () => {
     const clone = gen.clone()
@@ -177,7 +178,7 @@ describe('client app detail fetch data and fetch apiKey', () => {
         isWebComponent,
         installationId,
       }).value,
-    ).toEqual(call(fetchAppApiKey, { installationId }))
+    ).toEqual(call(fetchApiKeyInstallationById, { installationId }))
     expect(clone.next({ apiKey }).value).toEqual(
       put(developerFetchAppDetailSuccess({ ...appDetailDataStub.data, isWebComponent, installationId, apiKey })),
     )
@@ -202,7 +203,7 @@ describe('client app detail thunks', () => {
     it('should trigger request data when called', () => {
       const gen = clientAppDetailDataListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<FetchAppDetailParams>>(ActionTypes.CLIENT_FETCH_APP_DETAIL, fetchClientAppDetailSaga),
+        takeLatest<Action<FetchAppByIdParams>>(ActionTypes.CLIENT_FETCH_APP_DETAIL, fetchClientAppDetailSaga),
       )
       expect(gen.next().done).toBe(true)
     })
@@ -212,7 +213,7 @@ describe('client app detail thunks', () => {
     it('should trigger request data when called', () => {
       const gen = developerAppDetailDataListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<FetchAppDetailParams>>(ActionTypes.DEVELOPER_FETCH_APP_DETAIL, fetchDeveloperAppDetailSaga),
+        takeLatest<Action<FetchAppByIdParams>>(ActionTypes.DEVELOPER_FETCH_APP_DETAIL, fetchDeveloperAppDetailSaga),
       )
       expect(gen.next().done).toBe(true)
     })

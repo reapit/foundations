@@ -29,7 +29,6 @@ const clientId = 'DXX'
 describe('clientDataFetch', () => {
   const gen = cloneableGenerator(clientDataFetch as any)(params)
 
-  expect(gen.next().value).toEqual(put(clientLoading(true)))
   it('should work in success case', () => {
     const clone = gen.clone()
     expect(clone.next().value).toEqual(select(selectClientId))
@@ -60,30 +59,6 @@ describe('clientDataFetch', () => {
       ),
     )
     expect(clone.next().value).toEqual(put(categoriesReceiveData(response[2] as PagedResultCategoryModel_)))
-    expect(clone.next().done).toBe(true)
-  })
-  it('should dispatch action when fail', () => {
-    const clone = gen.clone()
-    expect(clone.next().value).toEqual(select(selectClientId))
-    expect(clone.next(clientId).value).toEqual(select(selectCategories))
-    expect(clone.next(appCategorieStub.data).value).toEqual(select(selectFeaturedApps))
-    const response = [undefined, undefined, undefined]
-    expect(clone.next(featuredAppsDataStub.data).value).toEqual(
-      all([
-        call(fetchAppsList, {
-          clientId,
-          category: [params.data.category],
-          appName: params.data.search,
-          pageNumber: params.data.page,
-          pageSize: APPS_PER_PAGE,
-          isFeatured: false,
-          isDirectApi: undefined,
-        }),
-        featuredAppsDataStub.data,
-        appCategorieStub.data,
-      ]),
-    )
-    expect(clone.next(response).value).toEqual(put(clientRequestDataFailure()))
     expect(clone.next().done).toBe(true)
   })
 })
