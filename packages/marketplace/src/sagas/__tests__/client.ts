@@ -19,37 +19,40 @@ import {
 import { appCategorieStub } from '../__stubs__/app-categories'
 import { fetchAppsList } from '@/services/apps'
 import { fetchCategoriesList } from '@/services/categories'
+import { ClientItem } from '@/reducers/client'
 
 jest.mock('@/services/apps')
 jest.mock('@/services/categories')
 jest.mock('@reapit/elements')
-const params = { data: { page: 1, search: '', category: [''] } }
 
-describe('client fetch data', () => {
+const params = { data: { page: 1, search: 'app1', category: 'category1', searchBy: 'appName' } }
+const clientId = 'DXX'
+
+describe('clientDataFetch', () => {
   const gen = cloneableGenerator(clientDataFetch as any)(params)
 
-  expect(gen.next().value).toEqual(select(selectClientId))
-  expect(gen.next('1').value).toEqual(select(selectCategories))
-  expect(gen.next([]).value).toEqual(select(selectFeaturedApps))
-
-  expect(gen.next([]).value).toEqual(
-    all([
-      call(fetchAppsList, {
-        clientId: '1',
-        category: params.data.category,
-        appName: params.data.search,
-        pageNumber: params.data.page,
-        pageSize: APPS_PER_PAGE,
-        isFeatured: false,
-      }),
-      call(fetchAppsList, { clientId: '1', pageNumber: params.data.page, pageSize: FEATURED_APPS, isFeatured: true }),
-      call(fetchCategoriesList, {}),
-    ]),
-  )
-
-  test('api call success', () => {
+  expect(gen.next().value).toEqual(put(clientLoading(true)))
+  it('should work in success case', () => {
     const clone = gen.clone()
+    expect(clone.next().value).toEqual(select(selectClientId))
+    expect(clone.next(clientId).value).toEqual(select(selectCategories))
+    expect(clone.next(appCategorieStub.data).value).toEqual(select(selectFeaturedApps))
     const response = [appsDataStub.data, featuredAppsDataStub.data, appCategorieStub]
+    expect(clone.next(featuredAppsDataStub.data).value).toEqual(
+      all([
+        call(fetchAppsList, {
+          clientId,
+          category: [params.data.category],
+          appName: params.data.search,
+          pageNumber: params.data.page,
+          pageSize: APPS_PER_PAGE,
+          isFeatured: false,
+          isDirectApi: undefined,
+        }),
+        featuredAppsDataStub.data,
+        appCategorieStub.data,
+      ]),
+    )
     expect(clone.next(response).value).toEqual(
       put(
         clientFetchAppSummarySuccess({
@@ -59,20 +62,6 @@ describe('client fetch data', () => {
       ),
     )
     expect(clone.next().value).toEqual(put(categoriesReceiveData(response[2] as PagedResultCategoryModel_)))
-    expect(clone.next().done).toBe(true)
-  })
-
-  test('api call error', () => {
-    const clone = gen.clone()
-    // @ts-ignore
-    expect(clone.throw('error').value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR,
-        }),
-      ),
-    )
   })
 })
 

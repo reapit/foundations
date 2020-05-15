@@ -49,7 +49,8 @@ export const developerInfomationChange = function*({ data }: Action<DeveloperMod
     if (!developerId) {
       return
     }
-    const response = yield call(updateDeveloperById, { id: developerId, ...data })
+    const { company: companyName, ...rest } = data
+    const response = yield call(updateDeveloperById, { id: developerId, companyName, ...rest })
     if (response) {
       yield put(
         showNotificationMessage({

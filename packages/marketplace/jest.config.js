@@ -4,7 +4,7 @@ const { compilerOptions } = require('./tsconfig')
 
 module.exports = {
   ...baseConfig,
-  testPathIgnorePatterns: ['<rootDir>/src/tests/', '<rootDir>/src/services/'],
+  testPathIgnorePatterns: ['<rootDir>/src/tests/', 'src/services'],
   moduleNameMapper: {
     ...baseConfig.moduleNameMapper,
     ...pathsToModuleNameMapper(compilerOptions.paths, {
@@ -20,4 +20,3 @@ module.exports = {
     },
   },
 }
-

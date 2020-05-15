@@ -31,33 +31,17 @@ jest.mock('@/services/desktop-integration-types')
 jest.mock('@reapit/elements')
 
 export const params: Action<SubmitAppArgs> = { data: appSubmitStubWithActions.data, type: 'DEVELOPER_SUBMIT_APP' }
-const generateDumpPromise = () => new Promise(() => null)
 
 describe('submit-app post data', () => {
-  const imageUploaderRequests = [
-    generateDumpPromise(),
-    generateDumpPromise(),
-    generateDumpPromise(),
-    generateDumpPromise(),
-    generateDumpPromise(),
-    generateDumpPromise(),
-  ]
-  const imageUploaderResults = [
-    { Url: 'base64 string...' },
-    { Url: 'base64 string...' },
-    { Url: 'base64 string...' },
-    { Url: 'base64 string...' },
-    { Url: 'base64 string...' },
-    { Url: 'base64 string...' },
-  ]
+  const imageUploaderRequests = Array(6).fill(undefined)
   const updatedData = {
     ...appSubmitStub.data,
-    iconImageUrl: 'base64 string...',
-    screen1ImageUrl: 'base64 string...',
-    screen2ImageUrl: 'base64 string...',
-    screen3ImageUrl: 'base64 string...',
-    screen4ImageUrl: 'base64 string...',
-    screen5ImageUrl: 'base64 string...',
+    iconImageUrl: '',
+    screen1ImageUrl: '',
+    screen2ImageUrl: '',
+    screen3ImageUrl: '',
+    screen4ImageUrl: '',
+    screen5ImageUrl: '',
   }
 
   const gen = cloneableGenerator(submitAppSaga)(params)
@@ -65,7 +49,7 @@ describe('submit-app post data', () => {
   expect(gen.next().value).toEqual(put(submitAppSetFormState('SUBMITTING')))
   expect(gen.next().value).toEqual(all(imageUploaderRequests))
 
-  expect(gen.next(imageUploaderResults).value).toEqual(call(createApp, { ...updatedData, categoryId: undefined }))
+  expect(gen.next(imageUploaderRequests).value).toEqual(call(createApp, { ...updatedData, categoryId: undefined }))
 
   test('api call success', () => {
     const clone = gen.clone()

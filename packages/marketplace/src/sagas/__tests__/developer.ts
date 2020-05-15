@@ -60,13 +60,13 @@ const params = { data: { page: 1 } }
 
 describe('developer fetch data', () => {
   const gen = cloneableGenerator(developerDataFetch as any)(params)
-  const developerId = ['72ad4ed6-0df0-4a28-903c-55899cffee85']
+  const developerId = '72ad4ed6-0df0-4a28-903c-55899cffee85'
 
   expect(gen.next().value).toEqual(put(developerLoading(true)))
   expect(gen.next().value).toEqual(select(selectDeveloperId))
   expect(gen.next(developerId).value).toEqual(
     all([
-      call(fetchAppsList, { developerId, pageNumber: params.data.page, pageSize: APPS_PER_PAGE }),
+      call(fetchAppsList, { developerId: [developerId], pageNumber: params.data.page, pageSize: APPS_PER_PAGE }),
       call(fetchScopesList),
     ]),
   )
