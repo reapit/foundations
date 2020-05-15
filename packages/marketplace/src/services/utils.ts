@@ -1,3 +1,4 @@
+import { StringMap } from '@/types/core'
 import { API_VERSION } from './constants'
 import { getAccessToken } from '@/utils/session'
 

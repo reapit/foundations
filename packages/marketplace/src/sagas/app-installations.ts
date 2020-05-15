@@ -1,5 +1,3 @@
-import { fetcher, setQueryParams } from '@reapit/elements'
-import { URLS, generateHeader } from '../constants/api'
 import { put, fork, all, call, takeLatest, select } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { Action } from '../types/core'
@@ -15,44 +13,10 @@ import {
   appInstallationsFilterReceiveData,
   appInstallationsFilterRequestDataFailure,
 } from '@/actions/app-installations'
-import { selectLoggedUserEmail, selectClientId } from '@/selector/client'
 import { selectDeveloperId } from '@/selector/developer'
+import { selectClientId } from '@/selector/client'
 import { logger } from 'logger'
 import { fetchInstallationsList, createInstallation, removeAccessToAppById } from '@/services/installations'
-
-export const fetchInstallations = async (data: InstallationParams) => {
-  const response = await fetcher({
-    url: `${URLS.installations}?${setQueryParams({ ...data })}`,
-    api: window.reapit.config.marketplaceApiUrl,
-    method: 'GET',
-    headers: generateHeader(window.reapit.config.marketplaceApiKey),
-  })
-  return response
-}
-
-export const fetchInstallApp = async ({ data, clientId, email }) => {
-  const { appId } = data
-  const response = await fetcher({
-    url: `${URLS.installations}`,
-    api: window.reapit.config.marketplaceApiUrl,
-    method: 'POST',
-    headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    body: { appId, clientId, approvedBy: email },
-  })
-  return response
-}
-
-export const fetchUninstallApp = async ({ data, email }) => {
-  const { installationId, ...body } = data
-  const response = await fetcher({
-    url: `${URLS.installations}/${installationId}/terminate`,
-    api: window.reapit.config.marketplaceApiUrl,
-    method: 'POST',
-    headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    body: { ...body, terminatedBy: email },
-  })
-  return response
-}
 
 export const installationsSaga = function*({ data }) {
   try {
@@ -73,6 +37,8 @@ export const installationsSaga = function*({ data }) {
 
 export const installationsFilterSaga = function*({ data }) {
   try {
+    const developerId = yield select(selectDeveloperId)
+    const response = yield call(fetchInstallationsList, { ...data, developerId })
     yield put(appInstallationsFilterReceiveData(response))
   } catch (err) {
     logger(err)
@@ -84,6 +50,7 @@ export const installationsFilterSaga = function*({ data }) {
       }),
     )
   }
+}
 
 export const appInstallSaga = function*(options) {
   const data: InstallParams = options.data

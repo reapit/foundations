@@ -18,9 +18,12 @@ export const myAppsDataFetch = function*({ data: page }) {
       throw new Error('Client id does not exist in state')
     }
 
-    const response = yield call(
-      fetchAppsList({ clientId, onlyInstalled: true, pageNumber: page, pageSize: APPS_PER_PAGE }),
-    )
+    const response = yield call(fetchAppsList, {
+      clientId,
+      onlyInstalled: true,
+      pageNumber: page,
+      pageSize: APPS_PER_PAGE,
+    })
     if (response) {
       yield put(myAppsReceiveData({ data: response }))
     } else {

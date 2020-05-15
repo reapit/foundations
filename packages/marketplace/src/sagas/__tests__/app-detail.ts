@@ -4,7 +4,6 @@ import appDetailSagas, {
   requestAuthenticationCodeListen,
   requestAuthCode,
   fetchAuthCode,
-  fetchAppDetail,
   fetchAppApiKey,
 } from '../app-detail'
 import { appDetailDataStub } from '../__stubs__/app-detail'
@@ -23,8 +22,12 @@ import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
+import { fetchAppById, fetchAppSecretById } from '@/services/apps'
+import { fetchApiKeyInstallationById } from '@/services/installations'
 
 jest.mock('@reapit/elements')
+jest.mock('@/services/apps')
+jest.mock('@/services/installations')
 
 const paramsClientId: Action<AppDetailParams> = {
   data: { id: '9b6fd5f7-2c15-483d-b925-01b650538e52', clientId: 'DAC' },
@@ -40,9 +43,7 @@ describe('app-detail fetch data with clientId', () => {
   const gen = cloneableGenerator(appDetailDataFetch)(paramsClientId)
   expect(gen.next().value).toEqual(put(appDetailLoading(true)))
 
-  expect(gen.next().value).toEqual(
-    call(fetchAppDetail, { id: paramsClientId.data.id, clientId: paramsClientId.data.clientId }),
-  )
+  expect(gen.next().value).toEqual(call(fetchAppById, { cli }))
 
   test('api call success', () => {
     const clone = gen.clone()
@@ -80,7 +81,7 @@ describe('app-detail fetch data with clientId', () => {
 describe('app-detail fetch data without clientId', () => {
   const gen = cloneableGenerator(appDetailDataFetch)(params)
   expect(gen.next().value).toEqual(put(appDetailLoading(true)))
-  expect(gen.next().value).toEqual(call(fetchAppDetail, { id: params.data.id, clientId: undefined }))
+  expect(gen.next().value).toEqual(call(fetchAppById, { id: params.data.id, clientId: undefined }))
 
   test('api call success', () => {
     const clone = gen.clone()
@@ -105,7 +106,7 @@ describe('app-detail fetch data without clientId', () => {
 describe('app-detail fetch data and fetch apiKey', () => {
   const gen = cloneableGenerator(appDetailDataFetch)(params)
   expect(gen.next().value).toEqual(put(appDetailLoading(true)))
-  expect(gen.next().value).toEqual(call(fetchAppDetail, { id: params.data.id, clientId: undefined }))
+  expect(gen.next().value).toEqual(call(fetchAppById, { id: params.data.id, clientId: undefined }))
 
   test('api call success', () => {
     const clone = gen.clone()

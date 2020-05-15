@@ -25,7 +25,7 @@ export const revisionDetailDataFetch = function*({
   yield put(revisionDetailLoading(true))
   try {
     const [response, scopes, desktopIntegrationTypes] = yield all([
-      call(fetchAppRevisionsById({ id: appId, revisionId: appRevisionId })),
+      call(fetchAppRevisionsById, { id: appId, revisionId: appRevisionId }),
       call(fetchScopesList),
       call(fetchDesktopIntegrationTypesList, {}),
     ])

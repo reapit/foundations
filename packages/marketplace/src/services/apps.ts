@@ -239,7 +239,7 @@ export const rejectAppRevisionById = async (params: RejectAppRevisionByIdParams)
   }
 }
 
-export const fetchAppSecretById = async (params: FetchAppRevisionsByIdParams): Promise<AppClientSecretModel> => {
+export const fetchAppSecretById = async (params: FetchAppSecretByIdParams): Promise<AppClientSecretModel> => {
   try {
     const { id } = params
     const response = await fetcher({

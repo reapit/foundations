@@ -28,6 +28,10 @@ export interface FetchInstallationByIdParams {
   installationId: string
 }
 
+export interface FetchApiKeyInstallationByIdParams {
+  installationId: string
+}
+
 export interface DeleteApiKeyInstallationById {
   installationId: string
 }
