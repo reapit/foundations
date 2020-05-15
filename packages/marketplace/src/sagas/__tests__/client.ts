@@ -39,7 +39,7 @@ describe('clientDataFetch', () => {
       all([
         call(fetchAppsList, {
           clientId,
-          category: [params.data.category],
+          category: params.data.category as any,
           appName: params.data.search,
           pageNumber: params.data.page,
           pageSize: APPS_PER_PAGE,

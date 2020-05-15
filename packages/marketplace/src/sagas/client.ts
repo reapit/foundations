@@ -31,7 +31,7 @@ export const clientDataFetch = function*({ data }) {
     const [apps, featuredApps, categories] = yield all([
       call(fetchAppsList, {
         clientId,
-        category: isFilteringForDirectApiApps ? undefined : [category],
+        category: isFilteringForDirectApiApps ? undefined : category,
         [searchBy]: search,
         pageNumber: page,
         pageSize: APPS_PER_PAGE,
