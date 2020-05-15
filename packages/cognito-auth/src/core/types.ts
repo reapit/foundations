@@ -51,6 +51,7 @@ export interface LoginIdentity {
   adminId: string | null
   userCode: string | null
   isAdmin?: boolean
+  userTel: string
 }
 
 export interface LoginSession {

@@ -58,6 +58,7 @@ const appState: ReduxState = {
         clientId: 'testClientId',
         adminId: null,
         userCode: 'testUserCode',
+        userTel: '123',
       },
     },
     isTermAccepted: false,

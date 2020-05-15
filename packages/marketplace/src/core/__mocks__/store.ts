@@ -18,6 +18,7 @@ export const mockLoginSession: LoginSession = {
     name: 'SOME_NAME',
     userCode: 'SOME_USER_CODE',
     isAdmin: false,
+    userTel: '123',
   },
 }
 

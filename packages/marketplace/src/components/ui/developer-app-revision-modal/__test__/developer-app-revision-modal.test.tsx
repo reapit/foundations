@@ -59,6 +59,7 @@ const props: DeveloperAppRevisionModalProps = {
     name: 'mock user',
     userCode: 'mockUserCode',
     isAdmin: false,
+    userTel: '123',
   },
 }
 
