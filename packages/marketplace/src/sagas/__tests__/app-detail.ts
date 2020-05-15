@@ -41,7 +41,7 @@ describe('app-detail fetch data with clientId', () => {
   const gen = cloneableGenerator(appDetailDataFetch)(paramsClientId)
   expect(gen.next().value).toEqual(put(appDetailLoading(true)))
 
-  expect(gen.next().value).toEqual(call(fetchAppById, { cli }))
+  expect(gen.next().value).toEqual(call(fetchAppById, { id: paramsClientId.data.id }))
 
   test('api call success', () => {
     const clone = gen.clone()

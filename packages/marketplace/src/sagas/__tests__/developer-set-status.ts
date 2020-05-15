@@ -17,7 +17,7 @@ describe('developerSetStatusRequestSaga', () => {
   const gen = cloneableGenerator(developerSetStatusRequestSaga)({ data: developerStub })
 
   expect(gen.next().value).toEqual(put(developerSetStatusRequestLoading()))
-  expect(gen.next().value).toEqual(call(updateDeveloperById({ ...developerStub, companyName: developerStub.company })))
+  expect(gen.next().value).toEqual(call(updateDeveloperById, { ...developerStub, companyName: developerStub.company }))
 
   test('api call success', () => {
     const clone = gen.clone()

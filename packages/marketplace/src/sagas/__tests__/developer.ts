@@ -35,15 +35,19 @@ import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { selectDeveloperId } from '@/selector/developer'
-import { FetchBillingParams } from '../api'
 import { developerIdentity } from '../__stubs__/developer-identity'
 import { billing } from '../__stubs__/billing'
 import { monthlyBillingData } from '../__stubs__/monthly-billing'
-import { pingWebhooksById } from '@/services/webhooks'
+import { pingWebhooksById, PingWebhooksByIdParams } from '@/services/webhooks'
 import { fetchAppsList } from '@/services/apps'
 import { fetchScopesList } from '@/services/scopes'
 import { createDeveloper, fetchDeveloperById } from '@/services/developers'
-import { fetchBillings } from '@/services/traffic-events'
+import {
+  fetchBillings,
+  FetchBillingsParams,
+  FetchBillingsByMonthParams,
+  fetchBillingsByMonth,
+} from '@/services/traffic-events'
 
 jest.mock('@/services/apps')
 jest.mock('@/services/scopes')
@@ -56,7 +60,7 @@ const params = { data: { page: 1 } }
 
 describe('developer fetch data', () => {
   const gen = cloneableGenerator(developerDataFetch as any)(params)
-  const developerId = '72ad4ed6-0df0-4a28-903c-55899cffee85'
+  const developerId = ['72ad4ed6-0df0-4a28-903c-55899cffee85']
 
   expect(gen.next().value).toEqual(put(developerLoading(true)))
   expect(gen.next().value).toEqual(select(selectDeveloperId))
@@ -110,7 +114,7 @@ describe('developer create', () => {
   const params: CreateDeveloperModel = { name: '123' }
   const gen = cloneableGenerator(developerCreate as any)({ data: params })
   expect(gen.next().value).toEqual(put(developerSetFormState('SUBMITTING')))
-  expect(gen.next().value).toEqual(call(createDeveloper, data))
+  expect(gen.next().value).toEqual(call(createDeveloper, params))
   it('api call success', () => {
     const clone = gen.clone()
     expect(clone.next('SUCCESS').value).toEqual(put(developerSetFormState('SUCCESS')))
@@ -166,7 +170,7 @@ describe('fetchBillingSagas', () => {
     dateFrom: '2020-01',
     dateTo: '2020-05',
     applicationId: ['1', '2'],
-  } as FetchBillingParams
+  } as FetchBillingsParams
   const gen = cloneableGenerator(fetchBillingSagas as any)({ data: params })
   expect(gen.next().value).toEqual(call(fetchBillings, params))
   it('api call success', () => {
@@ -194,7 +198,7 @@ describe('fetchMonthlyBillingSagas', () => {
   const params = {
     month: '2020-01',
     applicationId: ['1', '2'],
-  } as FetchMonthlyBillingParams
+  } as FetchBillingsByMonthParams
   const gen = cloneableGenerator(fetchMonthlyBillingSagas as any)({ data: params })
   expect(gen.next().value).toEqual(call(fetchBillingsByMonth, params))
   it('api call success', () => {
@@ -222,7 +226,7 @@ describe('developerWebhookPing', () => {
   const params = {
     id: '2020-01',
     topicId: 'topicid',
-  } as WebhookPingTestParams
+  } as PingWebhooksByIdParams
   const gen = cloneableGenerator(developerWebhookPing as any)({ data: params })
   expect(gen.next().value).toEqual(put(developerSetWebhookPingStatus('LOADING')))
   it('api call success', () => {

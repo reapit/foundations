@@ -22,7 +22,7 @@ jest.mock('@reapit/elements')
 const data = { pageNumber: 1 }
 
 describe('adminAppsFetch', () => {
-  const gen = cloneableGenerator(adminAppsFetch)(data)
+  const gen = cloneableGenerator(adminAppsFetch)({ data })
   expect(gen.next().value).toEqual(
     call(fetchAppsList, {
       ...data,
@@ -72,7 +72,7 @@ describe('adminAppsFeatured', () => {
   // expect equal store
   expect(gen.next({ ...data, data: newData }).value).toEqual(put(adminAppsReceiveData({ ...data, data: newData })))
 
-  expect(gen.next(appsDataStub.data).value).toEqual(call(featureAppById, { id: 1 }))
+  expect(gen.next(appsDataStub.data).value).toEqual(call(featureAppById, { id: '1' }))
 
   test('api call success', () => {
     const clone = gen.clone()

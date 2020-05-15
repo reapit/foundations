@@ -23,7 +23,7 @@ import { fetchCategoriesList } from '@/services/categories'
 jest.mock('@/services/apps')
 jest.mock('@/services/categories')
 jest.mock('@reapit/elements')
-const params = { data: { page: 1, search: '', category: '' } }
+const params = { data: { page: 1, search: '', category: [''] } }
 
 describe('client fetch data', () => {
   const gen = cloneableGenerator(clientDataFetch as any)(params)
@@ -36,7 +36,7 @@ describe('client fetch data', () => {
     all([
       call(fetchAppsList, {
         clientId: '1',
-        category: [params.data.category],
+        category: params.data.category,
         appName: params.data.search,
         pageNumber: params.data.page,
         pageSize: APPS_PER_PAGE,

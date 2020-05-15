@@ -43,7 +43,7 @@ export const developerDataFetch = function*({ data }) {
 
     const { page, appsPerPage = APPS_PER_PAGE } = data
     const [appsData, scopes] = yield all([
-      call(fetchAppsList, { developerId, pageNumber: page, pageSize: appsPerPage }),
+      call(fetchAppsList, { developerId: [developerId], pageNumber: page, pageSize: appsPerPage }),
       call(fetchScopesList),
     ])
 

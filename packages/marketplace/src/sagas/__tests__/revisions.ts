@@ -20,7 +20,7 @@ const revisionsRequestParams = {
 describe('app-installations sagas', () => {
   describe('installationsFetchData', () => {
     const gen = cloneableGenerator(appRevisionsSaga)(revisionsRequestParams)
-    expect(gen.next().value).toEqual(call(fetchAppRevisionsList, revisionsRequestParams.data))
+    expect(gen.next().value).toEqual(call(fetchAppRevisionsList, { id: revisionsRequestParams.data.appId }))
 
     test('api call success', () => {
       const clone = gen.clone()

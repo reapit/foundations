@@ -13,7 +13,7 @@ import {
 import { httpTrafficPerDayStub } from '../__stubs__/app-http-traffic-event'
 import { fetchTrafficStatistics } from '@/services/traffic-events'
 
-jest.mcok('@/services/traffic-events')
+jest.mock('@/services/traffic-events')
 jest.mock('@reapit/elements')
 
 const params = {

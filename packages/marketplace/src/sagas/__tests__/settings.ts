@@ -72,7 +72,7 @@ describe('settings', () => {
     expect(gen.next().value).toEqual(select(selectDeveloperId))
     it('should call api success', () => {
       const clone = gen.clone()
-      expect(clone.next('123').value).toEqual(call(updateDeveloperById, { id: '123', company: '123' }))
+      expect(clone.next('123').value).toEqual(call(updateDeveloperById, { id: '123', companyName: '123' }))
       expect(clone.next({ message: 'SUCCESS' }).value).toEqual(
         put(
           showNotificationMessage({
