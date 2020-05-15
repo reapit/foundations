@@ -73,7 +73,11 @@ export const getTabsLocalStorage = (): string[] => {
 }
 
 export const addNewPage = ({ tabIdentifier, tabs, setTabs }: AddNewTabParams) => {
-  const newTabs = [...tabs, tabIdentifier.toUpperCase()]
+  const upcasedIdentifier = tabIdentifier
+    .split(' ')
+    .join('-')
+    .toUpperCase()
+  const newTabs = [...tabs, upcasedIdentifier]
   setTabs(newTabs)
   setTabsLocalStorage(newTabs)
 }

@@ -17,7 +17,7 @@ export const initializeEditor = ({ identifier }: EditorInitParams) =>
           width: '100%',
           height: '100%',
           canvas: {},
-          plugins: [initializeComponents, 'gjs-preset-webpage'],
+          plugins: [initializeComponents, 'gjs-preset-webpage', 'grapesjs-custom-code'],
           pluginsOpts: {
             'gjs-preset-webpage': {
               navbarOpts: false,
