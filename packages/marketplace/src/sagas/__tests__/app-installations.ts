@@ -3,9 +3,6 @@ import appInstallationsSagas, {
   appInstallSaga,
   appUninstallSaga,
   installationsSaga,
-  fetchInstallations,
-  fetchInstallApp,
-  fetchUninstallApp,
   installationsFilterSaga,
 } from '../app-installations'
 import { errorThrownServer } from '@/actions/error'
@@ -27,7 +24,9 @@ import {
 import { installationsStub } from '../__stubs__/installations'
 import { selectClientId, selectLoggedUserEmail } from '@/selector/client'
 import { selectDeveloperId } from '@/selector/developer'
+import { fetchInstallationsList, createInstallation, removeAccessToAppById } from '@/services/installations'
 
+jest.mock('@/services/installations')
 jest.mock('@reapit/elements')
 
 const installationsParams = {
@@ -53,7 +52,7 @@ describe('app-installations sagas', () => {
   describe('installationsFetchData', () => {
     const gen = cloneableGenerator(installationsSaga)(installationsParams)
     expect(gen.next().value).toEqual(select(selectDeveloperId))
-    expect(gen.next().value).toEqual(call(fetchInstallations, installationsParams.data))
+    expect(gen.next().value).toEqual(call(fetchInstallationsList, { ...installationsParams.data }))
 
     test('api call success', () => {
       const clone = gen.clone()
@@ -80,7 +79,7 @@ describe('app-installations sagas', () => {
   describe('installationsFilterFetchData', () => {
     const gen = cloneableGenerator(installationsFilterSaga)(installationsParams)
     expect(gen.next().value).toEqual(select(selectDeveloperId))
-    expect(gen.next().value).toEqual(call(fetchInstallations, installationsParams.data))
+    expect(gen.next().value).toEqual(call(fetchInstallationsList, installationsParams.data))
 
     test('api call success', () => {
       const clone = gen.clone()
@@ -126,7 +125,7 @@ describe('app-installations sagas', () => {
     test('api call success', () => {
       const clone = gen.clone()
       expect(clone.next('1').value).toEqual(
-        call(fetchInstallApp, { data: installParams.data, clientId: '1', email: '1' }),
+        call(createInstallation, { ...installParams.data, clientId: '1', approvedBy: '1' }),
       )
       expect(clone.next().value).toEqual(put(appInstallationsSetFormState('SUCCESS')))
     })
@@ -137,7 +136,7 @@ describe('app-installations sagas', () => {
     expect(gen.next().value).toEqual(put(appInstallationsSetFormState('SUBMITTING')))
     expect(gen.next().value).toEqual(select(selectLoggedUserEmail))
 
-    expect(gen.next('1').value).toEqual(call(fetchUninstallApp, { data: uninstallParams.data, email: '1' }))
+    expect(gen.next('1').value).toEqual(call(removeAccessToAppById, { ...uninstallParams.data, terminatedBy: '1' }))
 
     test('api call success', () => {
       const clone = gen.clone()

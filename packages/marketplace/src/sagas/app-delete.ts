@@ -4,19 +4,18 @@ import ActionTypes from '../constants/action-types'
 import { Action } from '../types/core'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
-import api from './api'
 import { adminAppsReceiveData } from '@/actions/admin-apps'
 import { getParamsFromPath } from '@/utils/client-url-params'
 import { logger } from 'logger'
+import { deleteAppById, fetchAppsList } from '@/services/apps'
 
 export const appDeleteRequestSaga = function*({ data: appId }: Action<string>) {
   try {
     yield put(appDeleteRequestLoading())
-    const response = yield call(api.deleteApp, { appId })
+    const response = yield call(deleteAppById, { id: appId })
     if (response) {
       const params = getParamsFromPath(window.location.search)
-      console.log('TCL: params', params)
-      const adminAppsResponse = yield call(api.fetchAdminApps, { params })
+      const adminAppsResponse = yield call(fetchAppsList, { ...params })
       yield put(adminAppsReceiveData(adminAppsResponse))
     }
     yield put(appDeleteRequestSuccess())

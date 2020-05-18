@@ -1,5 +1,3 @@
-import { fetcher } from '@reapit/elements'
-import { URLS, generateHeader } from '../constants/api'
 import {
   revisionDetailLoading,
   revisionDetailReceiveData,
@@ -17,6 +15,9 @@ import errorMessages from '../constants/error-messages'
 import { Action, ReduxState } from '@/types/core'
 import { adminApprovalsDataFetch } from './admin-approvals'
 import { logger } from 'logger'
+import { fetchAppRevisionsById, approveAppRevisionById, rejectAppRevisionById } from '@/services/apps'
+import { fetchScopesList } from '@/services/scopes'
+import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
 
 export const revisionDetailDataFetch = function*({
   data: { appId, appRevisionId },
@@ -24,24 +25,9 @@ export const revisionDetailDataFetch = function*({
   yield put(revisionDetailLoading(true))
   try {
     const [response, scopes, desktopIntegrationTypes] = yield all([
-      call(fetcher, {
-        url: `${URLS.apps}/${appId}/revisions/${appRevisionId}`,
-        api: window.reapit.config.marketplaceApiUrl,
-        method: 'GET',
-        headers: generateHeader(window.reapit.config.marketplaceApiKey),
-      }),
-      call(fetcher, {
-        url: `${URLS.scopes}`,
-        method: 'GET',
-        api: window.reapit.config.marketplaceApiUrl,
-        headers: generateHeader(window.reapit.config.marketplaceApiKey),
-      }),
-      call(fetcher, {
-        url: URLS.desktopIntegrationTypes,
-        method: 'GET',
-        api: window.reapit.config.marketplaceApiUrl,
-        headers: generateHeader(window.reapit.config.marketplaceApiKey),
-      }),
+      call(fetchAppRevisionsById, { id: appId, revisionId: appRevisionId }),
+      call(fetchScopesList),
+      call(fetchDesktopIntegrationTypesList, {}),
     ])
 
     if (response && scopes && desktopIntegrationTypes) {
@@ -76,13 +62,7 @@ export const approveRevision = function*({ data: params }: Action<RevisionApprov
   yield put(approveRevisionSetFormState('SUBMITTING'))
   const { appId, appRevisionId, ...body } = params
   try {
-    const response = yield call(fetcher, {
-      url: `${URLS.apps}/${appId}/revisions/${appRevisionId}/approve`,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'POST',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-      body,
-    })
+    const response = yield call(approveAppRevisionById, { id: appId, revisionId: appRevisionId, ...body })
 
     const status = response ? 'SUCCESS' : 'ERROR'
     if (status === 'SUCCESS') {
@@ -110,13 +90,7 @@ export const declineRevision = function*({ data: params }: Action<RevisionDeclin
   yield put(declineRevisionSetFormState('SUBMITTING'))
   const { appId, appRevisionId, callback, ...body } = params
   try {
-    const response = yield call(fetcher, {
-      url: `${URLS.apps}/${appId}/revisions/${appRevisionId}/reject`,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'POST',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-      body,
-    })
+    const response = yield call(rejectAppRevisionById, { id: appId, revisionId: appRevisionId, ...body })
 
     const status = response ? 'SUCCESS' : 'ERROR'
     if (status === 'SUCCESS') {

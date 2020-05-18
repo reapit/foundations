@@ -1,22 +1,21 @@
-import adminStatsSagas, { adminStatsDataListen, adminStatsDataFetch, getUrlByArea } from '../admin-stats'
+import adminStatsSagas, { adminStatsDataListen, adminStatsDataFetch } from '../admin-stats'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { fetcher, setQueryParams } from '@reapit/elements'
-import { URLS, generateHeader } from '@/constants/api'
-import { APPS_PER_PAGE } from '@/constants/paginator'
+import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { adminStatsReceiveData, adminStatsRequestFailure, AdminStatsRequestParams } from '@/actions/admin-stats'
 import { getDateRange } from '@/utils/admin-stats'
+import { fetchAppsList } from '@/services/apps'
 
 jest.mock('@reapit/elements')
+jest.mock('@/services/apps')
 
 describe('adminStatsFetch', () => {
   const params: AdminStatsRequestParams = { area: 'APPS', range: 'WEEK' }
   const gen = cloneableGenerator(adminStatsDataFetch)({ data: params })
-  const url = getUrlByArea(params.area)
   let queryParams = {} as any
   if (params.range !== 'ALL') {
     const dateRange = getDateRange(params.range)
@@ -24,17 +23,7 @@ describe('adminStatsFetch', () => {
     queryParams.RegisteredTo = dateRange.to.toISOString()
   }
 
-  expect(gen.next().value).toEqual(
-    call(fetcher, {
-      url: `${url}?${setQueryParams({
-        pageSize: APPS_PER_PAGE,
-        ...queryParams,
-      })}`,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    }),
-  )
+  expect(gen.next().value).toEqual(call(fetchAppsList, { pageSize: GET_ALL_PAGE_SIZE, ...queryParams }))
 
   test('api call success', () => {
     const clone = gen.clone()
@@ -77,14 +66,6 @@ describe('adminStatsSagas thunks', () => {
 
       expect(gen.next().value).toEqual(all([fork(adminStatsDataListen)]))
       expect(gen.next().done).toBe(true)
-    })
-  })
-
-  describe('getUrlByArea', () => {
-    it('should run correctly', () => {
-      expect(getUrlByArea('APPS')).toEqual(URLS.apps)
-      expect(getUrlByArea('DEVELOPERS')).toEqual(URLS.developers)
-      expect(getUrlByArea('INSTALLATIONS')).toEqual(URLS.installations)
     })
   })
 })

@@ -1,4 +1,4 @@
-import appUsageStatsSagas, { appUsageStatsListen, fetchAppUsageStats, appUsageStatsSaga } from '../app-usage-stats'
+import appUsageStatsSagas, { appUsageStatsListen, appUsageStatsSaga } from '../app-usage-stats'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import ActionTypes from '@/constants/action-types'
@@ -11,7 +11,9 @@ import {
   appUsageStatsRequestDataFailure,
 } from '@/actions/app-usage-stats'
 import { usageStatsDataStub } from '../__stubs__/app-usage-stats'
+import { fetchStatisticsList } from '@/services/statistics'
 
+jest.mock('@/services/statistics')
 jest.mock('@reapit/elements')
 
 const params = {
@@ -24,7 +26,7 @@ const params = {
 describe('app-usage-stats sagas', () => {
   describe('appUsageStatsSaga', () => {
     const gen = cloneableGenerator(appUsageStatsSaga)(params)
-    expect(gen.next().value).toEqual(call(fetchAppUsageStats, params.data))
+    expect(gen.next().value).toEqual(call(fetchStatisticsList, params.data))
 
     test('api call success', () => {
       const clone = gen.clone()

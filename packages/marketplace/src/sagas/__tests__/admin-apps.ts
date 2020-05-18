@@ -3,8 +3,6 @@ import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
 import { appsDataStub, featuredAppsDataStub } from '../__stubs__/apps'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { fetcher } from '@reapit/elements'
-import { URLS, generateHeader } from '@/constants/api'
 import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
@@ -15,21 +13,20 @@ import {
   adminAppsSetFormState,
 } from '@/actions/admin-apps'
 import { selectAdminAppsData } from '@/selector/admin'
-import api from '../api'
+import { featureAppById, fetchAppsList } from '@/services/apps'
+import { APPS_PER_PAGE } from '@/constants/paginator'
 
+jest.mock('@/services/apps')
 jest.mock('@reapit/elements')
 
-const params = {
-  data: {
-    pageNumber: 1,
-  },
-}
+const data = { pageNumber: 1 }
 
 describe('adminAppsFetch', () => {
-  const gen = cloneableGenerator(adminAppsFetch)(params)
+  const gen = cloneableGenerator(adminAppsFetch)({ data })
   expect(gen.next().value).toEqual(
-    call(api.fetchAdminApps, {
-      params: params.data,
+    call(fetchAppsList, {
+      ...data,
+      pageSize: APPS_PER_PAGE,
     }),
   )
 
@@ -75,15 +72,7 @@ describe('adminAppsFeatured', () => {
   // expect equal store
   expect(gen.next({ ...data, data: newData }).value).toEqual(put(adminAppsReceiveData({ ...data, data: newData })))
 
-  expect(gen.next(appsDataStub.data).value).toEqual(
-    call(fetcher, {
-      url: `${URLS.apps}/1/feature`,
-      api: window.reapit.config.marketplaceApiUrl,
-      body: featuredParams.data.isFeatured ? { isFeatured: featuredParams.data.isFeatured } : undefined,
-      method: featuredParams.data.isFeatured ? 'PUT' : 'DELETE',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    }),
-  )
+  expect(gen.next(appsDataStub.data).value).toEqual(call(featureAppById, { id: '1' }))
 
   test('api call success', () => {
     const clone = gen.clone()

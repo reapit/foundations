@@ -6,8 +6,6 @@ import settingsSagas, {
   developerInfomationChange,
   developerPasswordChange,
   developerPasswordChangeListen,
-  fetchDeveloperInfo,
-  updateDeveloperInfo,
 } from '../settings'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
@@ -22,7 +20,9 @@ import { developerStub } from '../__stubs__/developer'
 import { removeSession, changePassword } from '@reapit/cognito-auth'
 import { authLogout } from '@/actions/auth'
 import { showNotificationMessage } from '@/actions/notification-message'
+import { fetchDeveloperById, updateDeveloperById } from '@/services/developers'
 
+jest.mock('@/services/developers')
 jest.mock('@reapit/elements')
 jest.mock('../../core/router', () => ({
   history: {
@@ -41,7 +41,7 @@ describe('settings', () => {
       expect(clone.next().value).toEqual(put(settingShowLoading(false)))
       expect(clone.next().done).toEqual(true)
     })
-    expect(gen.next('123').value).toEqual(call(fetchDeveloperInfo, '123'))
+    expect(gen.next('123').value).toEqual(call(fetchDeveloperById, { id: '123' }))
     it('should call api success', () => {
       const clone = gen.clone()
       expect(clone.next({}).value).toEqual(put(requestDeveloperDataSuccess({})))
@@ -72,9 +72,7 @@ describe('settings', () => {
     expect(gen.next().value).toEqual(select(selectDeveloperId))
     it('should call api success', () => {
       const clone = gen.clone()
-      expect(clone.next('123').value).toEqual(
-        call(updateDeveloperInfo, { developerId: '123', values: { company: '123' } }),
-      )
+      expect(clone.next('123').value).toEqual(call(updateDeveloperById, { id: '123', companyName: '123' }))
       expect(clone.next({ message: 'SUCCESS' }).value).toEqual(
         put(
           showNotificationMessage({
@@ -83,7 +81,7 @@ describe('settings', () => {
           }),
         ),
       )
-      expect(clone.next({ message: 'SUCCESS' }).value).toEqual(call(fetchDeveloperInfo, '123'))
+      expect(clone.next({ message: 'SUCCESS' }).value).toEqual(call(fetchDeveloperById, { id: '123' }))
       expect(clone.next(developerStub).value).toEqual(put(requestDeveloperDataSuccess(developerStub)))
     })
 

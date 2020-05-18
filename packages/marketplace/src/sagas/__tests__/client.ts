@@ -5,9 +5,7 @@ import { clientFetchAppSummarySuccess } from '@/actions/client'
 import { categoriesReceiveData } from '@/actions/app-categories'
 import { featuredAppsDataStub, appsDataStub } from '../__stubs__/apps'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { fetcher, setQueryParams } from '@reapit/elements'
-import { URLS, generateHeader } from '@/constants/api'
-import { APPS_PER_PAGE, FEATURED_APPS } from '@/constants/paginator'
+import { APPS_PER_PAGE } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
@@ -19,50 +17,39 @@ import {
   AppSummaryModel,
 } from '@reapit/foundations-ts-definitions'
 import { appCategorieStub } from '../__stubs__/app-categories'
+import { fetchAppsList } from '@/services/apps'
 
+jest.mock('@/services/apps')
+jest.mock('@/services/categories')
 jest.mock('@reapit/elements')
-const params = { data: { page: 1, search: '', category: '' } }
 
-describe('client fetch data', () => {
+const params = { data: { page: 1, search: 'app1', category: 'category1', searchBy: 'appName' } }
+const clientId = 'DXX'
+
+describe('clientDataFetch', () => {
   const gen = cloneableGenerator(clientDataFetch as any)(params)
 
-  expect(gen.next().value).toEqual(select(selectClientId))
-  expect(gen.next('1').value).toEqual(select(selectCategories))
-  expect(gen.next([]).value).toEqual(select(selectFeaturedApps))
-
-  expect(gen.next([]).value).toEqual(
-    all([
-      call(fetcher, {
-        url: `${URLS.apps}?${setQueryParams({
-          clientId: '1',
-          category: params.data.category,
+  it('should work in success case', () => {
+    const clone = gen.clone()
+    expect(clone.next().value).toEqual(select(selectClientId))
+    expect(clone.next(clientId).value).toEqual(select(selectCategories))
+    expect(clone.next(appCategorieStub.data).value).toEqual(select(selectFeaturedApps))
+    const response = [appsDataStub.data, featuredAppsDataStub.data, appCategorieStub]
+    expect(clone.next(featuredAppsDataStub.data).value).toEqual(
+      all([
+        call(fetchAppsList, {
+          clientId,
+          category: params.data.category as any,
           appName: params.data.search,
           pageNumber: params.data.page,
           pageSize: APPS_PER_PAGE,
-          IsFeatured: false,
-        })}`,
-        api: window.reapit.config.marketplaceApiUrl,
-        method: 'GET',
-        headers: generateHeader(window.reapit.config.marketplaceApiKey),
-      }),
-      call(fetcher, {
-        url: `${URLS.apps}?clientId=1&PageNumber=${params.data.page}&PageSize=${FEATURED_APPS}&IsFeatured=true`,
-        api: window.reapit.config.marketplaceApiUrl,
-        method: 'GET',
-        headers: generateHeader(window.reapit.config.marketplaceApiKey),
-      }),
-      call(fetcher, {
-        url: `${URLS.categories}`,
-        method: 'GET',
-        api: window.reapit.config.marketplaceApiUrl,
-        headers: generateHeader(window.reapit.config.marketplaceApiKey),
-      }),
-    ]),
-  )
-
-  test('api call success', () => {
-    const clone = gen.clone()
-    const response = [appsDataStub.data, featuredAppsDataStub.data, appCategorieStub]
+          isFeatured: false,
+          isDirectApi: undefined,
+        }),
+        featuredAppsDataStub.data,
+        appCategorieStub.data,
+      ]),
+    )
     expect(clone.next(response).value).toEqual(
       put(
         clientFetchAppSummarySuccess({
@@ -73,19 +60,6 @@ describe('client fetch data', () => {
     )
     expect(clone.next().value).toEqual(put(categoriesReceiveData(response[2] as PagedResultCategoryModel_)))
     expect(clone.next().done).toBe(true)
-  })
-
-  test('api call error', () => {
-    const clone = gen.clone()
-    // @ts-ignore
-    expect(clone.throw('error').value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR,
-        }),
-      ),
-    )
   })
 })
 

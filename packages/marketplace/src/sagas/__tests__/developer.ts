@@ -28,8 +28,6 @@ import developerSagas, {
   developerWebhookPing,
 } from '../developer'
 import ActionTypes from '@/constants/action-types'
-import { generateHeader, URLS } from '@/constants/api'
-import { fetcher } from '@reapit/elements'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { appsDataStub } from '../__stubs__/apps'
 import { appPermissionStub } from '../__stubs__/app-permission'
@@ -37,12 +35,24 @@ import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { selectDeveloperId } from '@/selector/developer'
-import api, { FetchBillingParams } from '../api'
 import { developerIdentity } from '../__stubs__/developer-identity'
 import { billing } from '../__stubs__/billing'
-import { FetchMonthlyBillingParams, fetchMonthlyBilling } from '@/services/billings'
 import { monthlyBillingData } from '../__stubs__/monthly-billing'
-import { WebhookPingTestParams, webhookPingTestSubcription } from '@/services/subscriptions'
+import { pingWebhooksById, PingWebhooksByIdParams } from '@/services/webhooks'
+import { fetchAppsList } from '@/services/apps'
+import { fetchScopesList } from '@/services/scopes'
+import { createDeveloper, fetchDeveloperById } from '@/services/developers'
+import {
+  fetchBillings,
+  FetchBillingsParams,
+  FetchBillingsByMonthParams,
+  fetchBillingsByMonth,
+} from '@/services/traffic-events'
+
+jest.mock('@/services/apps')
+jest.mock('@/services/scopes')
+jest.mock('@/services/developers')
+jest.mock('@/services/traffic-events')
 
 jest.mock('@reapit/elements')
 
@@ -56,18 +66,8 @@ describe('developer fetch data', () => {
   expect(gen.next().value).toEqual(select(selectDeveloperId))
   expect(gen.next(developerId).value).toEqual(
     all([
-      call(fetcher, {
-        url: `${URLS.apps}?developerId=${developerId}&PageNumber=${params.data.page}&PageSize=${APPS_PER_PAGE}`,
-        method: 'GET',
-        api: window.reapit.config.marketplaceApiUrl,
-        headers: generateHeader(window.reapit.config.marketplaceApiKey),
-      }),
-      call(fetcher, {
-        url: `${URLS.scopes}`,
-        method: 'GET',
-        api: window.reapit.config.marketplaceApiUrl,
-        headers: generateHeader(window.reapit.config.marketplaceApiKey),
-      }),
+      call(fetchAppsList, { developerId: [developerId], pageNumber: params.data.page, pageSize: APPS_PER_PAGE }),
+      call(fetchScopesList),
     ]),
   )
 
@@ -114,15 +114,7 @@ describe('developer create', () => {
   const params: CreateDeveloperModel = { name: '123' }
   const gen = cloneableGenerator(developerCreate as any)({ data: params })
   expect(gen.next().value).toEqual(put(developerSetFormState('SUBMITTING')))
-  expect(gen.next().value).toEqual(
-    call(fetcher, {
-      url: URLS.developers,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'POST',
-      body: params,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    }),
-  )
+  expect(gen.next().value).toEqual(call(createDeveloper, params))
   it('api call success', () => {
     const clone = gen.clone()
     expect(clone.next('SUCCESS').value).toEqual(put(developerSetFormState('SUCCESS')))
@@ -149,7 +141,7 @@ describe('fetchMyIdentitySagas', () => {
   const gen = cloneableGenerator(fetchMyIdentitySagas as any)({ data: params })
   expect(gen.next().value).toEqual(put(developerLoading(true)))
   expect(gen.next().value).toEqual(select(selectDeveloperId))
-  expect(gen.next(developerId).value).toEqual(call(api.fetchMyIdentity, developerId))
+  expect(gen.next(developerId).value).toEqual(call(fetchDeveloperById, { id: developerId }))
   it('api call success', () => {
     const clone = gen.clone()
     expect(clone.next(developerIdentity).value).toEqual(put(setMyIdentity(developerIdentity)))
@@ -178,9 +170,9 @@ describe('fetchBillingSagas', () => {
     dateFrom: '2020-01',
     dateTo: '2020-05',
     applicationId: ['1', '2'],
-  } as FetchBillingParams
+  } as FetchBillingsParams
   const gen = cloneableGenerator(fetchBillingSagas as any)({ data: params })
-  expect(gen.next().value).toEqual(call(api.fetchBilling, params))
+  expect(gen.next().value).toEqual(call(fetchBillings, params))
   it('api call success', () => {
     const clone = gen.clone()
     expect(clone.next(billing).value).toEqual(put(fetchBillingSuccess(billing)))
@@ -205,10 +197,10 @@ describe('fetchBillingSagas', () => {
 describe('fetchMonthlyBillingSagas', () => {
   const params = {
     month: '2020-01',
-    applicationIds: ['1', '2'],
-  } as FetchMonthlyBillingParams
+    applicationId: ['1', '2'],
+  } as FetchBillingsByMonthParams
   const gen = cloneableGenerator(fetchMonthlyBillingSagas as any)({ data: params })
-  expect(gen.next().value).toEqual(call(fetchMonthlyBilling, params))
+  expect(gen.next().value).toEqual(call(fetchBillingsByMonth, params))
   it('api call success', () => {
     const clone = gen.clone()
     expect(clone.next(monthlyBillingData).value).toEqual(put(fetchMonthlyBillingSuccess(monthlyBillingData)))
@@ -234,12 +226,12 @@ describe('developerWebhookPing', () => {
   const params = {
     id: '2020-01',
     topicId: 'topicid',
-  } as WebhookPingTestParams
+  } as PingWebhooksByIdParams
   const gen = cloneableGenerator(developerWebhookPing as any)({ data: params })
   expect(gen.next().value).toEqual(put(developerSetWebhookPingStatus('LOADING')))
   it('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next().value).toEqual(call(webhookPingTestSubcription, params))
+    expect(clone.next().value).toEqual(call(pingWebhooksById, params))
     expect(clone.next().value).toEqual(put(developerSetWebhookPingStatus('SUCCESS')))
     expect(clone.next().done).toEqual(true)
   })

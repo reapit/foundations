@@ -1,8 +1,4 @@
-import installedAppsSagas, {
-  installedAppsDataFetch,
-  installedAppsDataListen,
-  fetchInstalledApps,
-} from '../installed-apps'
+import installedAppsSagas, { installedAppsDataFetch, installedAppsDataListen } from '../installed-apps'
 import { appsDataStub } from '../__stubs__/apps'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
@@ -16,7 +12,10 @@ import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { selectClientId } from '@/selector/client'
+import { fetchAppsList } from '@/services/apps'
+import { INSTALLED_APPS_PERPAGE } from '@/constants/paginator'
 
+jest.mock('@/services/apps')
 jest.mock('@reapit/elements')
 
 const params = { data: 1 }
@@ -28,9 +27,12 @@ describe('installed-apps fetch data', () => {
   expect(gen.next().value).toEqual(put(installedAppsLoading(true)))
   expect(gen.next().value).toEqual(select(selectClientId))
   expect(gen.next(clientId).value).toEqual(
-    call(fetchInstalledApps, {
+    call(fetchAppsList, {
       clientId,
-      page: params.data,
+      pageNumber: params.data,
+      pageSize: INSTALLED_APPS_PERPAGE,
+      onlyInstalled: true,
+      isDirectApi: false,
     }),
   )
 

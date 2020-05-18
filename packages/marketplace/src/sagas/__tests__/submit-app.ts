@@ -15,42 +15,33 @@ import { integrationTypesReceiveData, PagedResultDesktopIntegrationTypeModel_ } 
 import { errorThrownServer } from '@/actions/error'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { fetcher } from '@reapit/elements'
-import { URLS, generateHeader } from '@/constants/api'
 import { appSubmitStubWithActions, appSubmitStub } from '../__stubs__/apps-submit'
 import { appCategorieStub } from '../__stubs__/app-categories'
 import { ScopeModel, PagedResultCategoryModel_ } from '@reapit/foundations-ts-definitions'
+import { fetchScopesList } from '@/services/scopes'
+import { createApp } from '@/services/apps'
+import { fetchCategoriesList } from '@/services/categories'
+import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
 
+jest.mock('@/services/upload')
+jest.mock('@/services/scopes')
+jest.mock('@/services/apps')
+jest.mock('@/services/categories')
+jest.mock('@/services/desktop-integration-types')
 jest.mock('@reapit/elements')
 
 export const params: Action<SubmitAppArgs> = { data: appSubmitStubWithActions.data, type: 'DEVELOPER_SUBMIT_APP' }
-const generateDumpPromise = () => new Promise(() => null)
 
 describe('submit-app post data', () => {
-  const imageUploaderRequests = [
-    generateDumpPromise(),
-    generateDumpPromise(),
-    generateDumpPromise(),
-    generateDumpPromise(),
-    generateDumpPromise(),
-    generateDumpPromise(),
-  ]
-  const imageUploaderResults = [
-    { Url: 'base64 string...' },
-    { Url: 'base64 string...' },
-    { Url: 'base64 string...' },
-    { Url: 'base64 string...' },
-    { Url: 'base64 string...' },
-    { Url: 'base64 string...' },
-  ]
+  const imageUploaderRequests = Array(6).fill(undefined)
   const updatedData = {
     ...appSubmitStub.data,
-    iconImageUrl: 'base64 string...',
-    screen1ImageUrl: 'base64 string...',
-    screen2ImageUrl: 'base64 string...',
-    screen3ImageUrl: 'base64 string...',
-    screen4ImageUrl: 'base64 string...',
-    screen5ImageUrl: 'base64 string...',
+    iconImageUrl: '',
+    screen1ImageUrl: '',
+    screen2ImageUrl: '',
+    screen3ImageUrl: '',
+    screen4ImageUrl: '',
+    screen5ImageUrl: '',
   }
 
   const gen = cloneableGenerator(submitAppSaga)(params)
@@ -58,15 +49,7 @@ describe('submit-app post data', () => {
   expect(gen.next().value).toEqual(put(submitAppSetFormState('SUBMITTING')))
   expect(gen.next().value).toEqual(all(imageUploaderRequests))
 
-  expect(gen.next(imageUploaderResults).value).toEqual(
-    call(fetcher, {
-      url: URLS.apps,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'POST',
-      body: { ...updatedData, categoryId: undefined },
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    }),
-  )
+  expect(gen.next(imageUploaderRequests).value).toEqual(call(createApp, { ...updatedData, categoryId: undefined }))
 
   test('api call success', () => {
     const clone = gen.clone()
@@ -116,26 +99,7 @@ describe('submit-app fetch data', () => {
 
   expect(gen.next().value).toEqual(put(submitAppLoading(true)))
   expect(gen.next().value).toEqual(
-    all([
-      call(fetcher, {
-        url: `${URLS.scopes}`,
-        method: 'GET',
-        api: window.reapit.config.marketplaceApiUrl,
-        headers: generateHeader(window.reapit.config.marketplaceApiKey),
-      }),
-      call(fetcher, {
-        url: `${URLS.categories}`,
-        method: 'GET',
-        api: window.reapit.config.marketplaceApiUrl,
-        headers: generateHeader(window.reapit.config.marketplaceApiKey),
-      }),
-      call(fetcher, {
-        url: `${URLS.desktopIntegrationTypes}`,
-        method: 'GET',
-        api: window.reapit.config.marketplaceApiUrl,
-        headers: generateHeader(window.reapit.config.marketplaceApiKey),
-      }),
-    ]),
+    all([call(fetchScopesList), call(fetchCategoriesList, {}), call(fetchDesktopIntegrationTypesList, {})]),
   )
 
   test('api fetch success', () => {
