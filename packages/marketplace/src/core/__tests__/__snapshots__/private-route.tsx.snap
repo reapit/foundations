@@ -1,7 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PrivateRouter should match a snapshot 1`] = `
-<Route
-  render={[Function]}
-/>
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        "/client",
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "eocj89",
+              "pathname": "/client",
+              "search": "",
+              "state": undefined,
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "eocj89",
+            "pathname": "/client",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Component
+        allow="CLIENT"
+        component={[Function]}
+      >
+        <Route
+          render={[Function]}
+        >
+          <component />
+        </Route>
+      </Component>
+    </Router>
+  </MemoryRouter>
+</Provider>
 `;

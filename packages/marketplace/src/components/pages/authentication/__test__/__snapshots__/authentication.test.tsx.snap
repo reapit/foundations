@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Authentication renderClientModal should match snapshot 1`] = `
+<div>
+  <Component
+    footerItems={
+      <React.Fragment>
+        <Unknown
+          onClick={[Function]}
+        >
+          Developers
+        </Unknown>
+        <Unknown
+          onClick={[Function]}
+        >
+          Logout
+        </Unknown>
+      </React.Fragment>
+    }
+    tapOutsideToDissmiss={false}
+    visible={true}
+  >
+    <p>
+      <span>
+        You do not currently have an Agency Cloud User License so you can't visit the Reapit Marketplace,
+           if you would like more information on Agency Cloud please visit 
+      </span>
+      <span>
+        <a
+          href="https://www.reapit.com/agency-cloud/"
+        >
+          our public site. 
+        </a>
+      </span>
+      <span>
+        Alternatively, if you are a developer on the Reapit Platfom, one of your clients may be willing to sponsor with a paid user license.
+      </span>
+    </p>
+  </Component>
+</div>
+`;
+
+exports[`Authentication renderDeveloperModal should match snapshot 1`] = `
+<div>
+  <Component
+    footerItems={
+      <React.Fragment>
+        <Unknown
+          onClick={[Function]}
+        >
+          Register
+        </Unknown>
+        <Unknown
+          onClick={[Function]}
+        >
+          Marketplace
+        </Unknown>
+        <Unknown
+          onClick={[Function]}
+        >
+          Logout
+        </Unknown>
+      </React.Fragment>
+    }
+    tapOutsideToDissmiss={false}
+    visible={true}
+  >
+    <p>
+      You are not currently registered as a Reapit Developer, if you would like to register please visit 
+       
+      <span>
+        <a
+          onClick={[Function]}
+        >
+          our registration page
+        </a>
+      </span>
+    </p>
+  </Component>
+</div>
+`;
+
+exports[`Authentication should match a snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "authenticationRoute",
+          "pathname": "/authentication",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "authenticationRoute",
+              "pathname": "/authentication",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "authenticationRoute",
+            "pathname": "/authentication",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Authentication />
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;
