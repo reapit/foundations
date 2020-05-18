@@ -11,6 +11,8 @@ const mockProps: AppDetailInnerProps = {
   setStateViewInstall: jest.fn(),
   setStateViewUninstall: jest.fn(),
   installationsSetFormState: jest.fn(),
+  isAdmin: false,
+  isCurrentLoggedUserClient: false,
 }
 
 describe('AppDetailInner', () => {

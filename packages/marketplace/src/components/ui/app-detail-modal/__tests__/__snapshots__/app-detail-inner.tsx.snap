@@ -51,6 +51,7 @@ exports[`AppDetailInner should match a snapshot when appDetailModalState = VIEW_
   footerItems={
     <Unknown
       dataTest="detail-modal-install-button"
+      disabled={false}
       onClick={[MockFunction]}
       type="button"
       variant="primary"
