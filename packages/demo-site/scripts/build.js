@@ -2,27 +2,41 @@ const ejs = require('ejs')
 const fs = require('fs')
 const path = require('path')
 
+const inputs = [
+  {
+    ejsFilePath: path.resolve(__dirname, '..', './tpls/index.ejs'),
+    outputFilePath: path.resolve(__dirname, '../public/dist/index.html'),
+  },
+  {
+    ejsFilePath: path.resolve(__dirname, '..', './tpls/detail.ejs'),
+    outputFilePath: path.resolve(__dirname, '../public/dist/detail.html'),
+  },
+]
+
 const compileTemplate = async () => {
   try {
     const config = require('../config.json')
-    const ejsFileDir = path.resolve(__dirname, '..', 'index.ejs')
     const distDir = path.resolve(__dirname, '..', 'public', 'dist')
-    const indexHtmlDir = path.resolve(__dirname, '..', 'public', 'dist', 'index.html')
-    const ejsTemplate = await fs.readFileSync(ejsFileDir, { encoding: 'utf8' })
-
-    const template = ejs.compile(ejsTemplate)
 
     let CDN_URL = config.CDN_URL
     const env = process.env.NODE_ENV
+    const development = env === 'DEV'
 
-    if (env === 'DEV') {
+    if (development) {
       CDN_URL = 'http://localhost:5000'
     }
 
-    const html = template({ API_KEY: config.API_KEY, CUSTOMER_ID: config.CUSTOMER_ID, CDN_URL })
-
     fs.mkdirSync(distDir, { recursive: true })
-    fs.writeFileSync(indexHtmlDir, html)
+    inputs.forEach(({ ejsFilePath, outputFilePath }) => {
+      const ejsTemplate = fs.readFileSync(ejsFilePath, { encoding: 'utf8' })
+      const html = ejs.render(ejsTemplate, {
+        CDN_URL,
+        API_KEY: config.API_KEY,
+        CUSTOMER_ID: config.CUSTOMER_ID,
+        development,
+      })
+      fs.writeFileSync(outputFilePath, html)
+    })
   } catch (err) {
     console.error(err)
     process.exit(1)

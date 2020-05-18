@@ -1,6 +1,6 @@
 <script>
   import { generateThemeClasses } from '../../../common/styles'
-  import { onMount } from 'svelte'
+  import { onMount, afterUpdate } from 'svelte'
   import Fa from 'svelte-fa'
   import { faBed, faToilet } from '@fortawesome/free-solid-svg-icons'
   import { getProperty } from '../../../search-widget/client/api/property'
@@ -55,17 +55,27 @@
   onMount(() => {
     document.body.scrollTop = 0
     document.documentElement.scrollTop = 0
-    window.ReapitViewingBookingComponent &&
+    loadProperty(propertyId)
+  })
+
+  let bookViewingComponentSelector = '#appointment-bookings-viewing'
+
+  /*Render the view-booking component*/
+  afterUpdate(() => {
+    /*
+      If something strange happen and document.querySelector(bookViewingComponentSelector) is undefined
+      The view booking componen will render in the body element, and stay there forever!?
+    */
+    if (!loading && !error && document.querySelector(bookViewingComponentSelector)) {
       new window.ReapitViewingBookingComponent({
-        theme: window.theme,
-        apiKey: '',
-        customerId: '',
-        parentSelector: '#appointment-bookings-viewing',
+        theme,
+        apiKey,
+        customerId,
+        parentSelector: bookViewingComponentSelector,
         variant: 'VIEWING',
         propertyId,
       })
-
-    loadProperty(propertyId)
+    }
   })
 </script>
 
@@ -161,6 +171,7 @@
   }
 </style>
 
+<div />
 {#if loading}
   <Loader />
 {:else if !loading && error}

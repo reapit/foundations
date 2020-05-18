@@ -17,7 +17,6 @@
     </style>
     <link rel="stylesheet" href="<%= CDN_URL %>/search-widget.css" />
     <link rel="stylesheet" href="<%= CDN_URL %>/appointment-bookings.css" />
-    <link rel="stylesheet" href="<%= CDN_URL %>/viewing-booking.css" />
   </head>
 
   <body>
@@ -27,7 +26,6 @@
     </div>
     <script src="<%= CDN_URL %>/search-widget.js"></script>
     <script src="<%= CDN_URL %>/appointment-bookings.js"></script>
-    <script src="<%= CDN_URL %>/viewing-booking.js"></script>
     <script src="<%= CDN_URL %>/themes.js"></script>
     <script>
       ReapitSearchWidgetComponent &&
@@ -48,5 +46,11 @@
           variant: 'VALUATION',
         })
     </script>
+    <% if (development) { %>
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+        ':35729/livereload.js?snipver=1"></' + 'script>')
+    </script>
+    <% } %>
   </body>
 </html>
