@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { History } from 'history'
-import { Route, RouteProps, RouteComponentProps, StaticContext } from 'react-router'
+import { Route, RouteProps } from 'react-router'
 import { Redirect } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import RouteFetcher from '../components/hocs/route-fetcher'
@@ -8,8 +7,6 @@ import { LoginType, LoginIdentity } from '@reapit/cognito-auth'
 import { selectLoginIdentity, selectLoginType } from '@/selector/auth'
 import { authChangeLoginType } from '@/actions/auth'
 import Routes from '@/constants/routes'
-
-export type RouterComponentProps = {} & RouteComponentProps<any, StaticContext, History.PoorMansUnknown>
 
 export interface PrivateRouteProps {
   allow: LoginType | LoginType[]
