@@ -38,7 +38,9 @@ import {
   parseCsvFile,
   convertToCompatibleData,
   createDataWithInvalidRowsRemoved,
+  generateDataWithReadOnlyAndIsValidated,
 } from '../utils'
+import { ValidateFunction } from '../types'
 
 const onDoubleClickDefault = jest.fn()
 
@@ -141,6 +143,7 @@ jest.mock('../utils', () => {
     validatedDataGenerate: jest.fn().mockReturnValue('validated data'),
     changedCellsGenerate: jest.fn().mockReturnValue('changes'),
     createDataWithInvalidRowsRemoved: jest.fn().mockReturnValue([...data[0], ...data[1]]),
+    generateDataWithReadOnlyAndIsValidated: jest.fn().mockReturnValue('generateDataWithReadOnlyAndIsValidated'),
   }
 })
 
@@ -254,7 +257,8 @@ describe('customCellRenderer', () => {
 
 describe('handleAddNewRow', () => {
   it('should call setData with correct arg when columns in row have same length', () => {
-    const fn = handleAddNewRow(data, setData, validate)
+    const mockAllowOnlyOneValidationErrorPerRow = true
+    const fn = handleAddNewRow(data, setData, mockAllowOnlyOneValidationErrorPerRow, validate)
     fn()
     const expectedData = [...data]
     expectedData.push([
@@ -270,8 +274,12 @@ describe('handleAddNewRow', () => {
       { value: '' },
       { value: '' },
     ])
-    expect(validatedDataGenerate).toHaveBeenCalledWith(expectedData, validate)
-    expect(setData).toHaveBeenCalledWith('validated data')
+    expect(generateDataWithReadOnlyAndIsValidated).toHaveBeenCalledWith({
+      data: expectedData,
+      allowOnlyOneValidationErrorPerRow: mockAllowOnlyOneValidationErrorPerRow,
+      validateFunction: validate,
+    })
+    expect(setData).toHaveBeenCalledWith('generateDataWithReadOnlyAndIsValidated')
   })
 
   it('should call setData with correct arg when a random row have fewer column', () => {
@@ -303,7 +311,8 @@ describe('handleAddNewRow', () => {
       maxCol: dataNotEqualColLength[0].length,
     }))
 
-    const fn = handleAddNewRow(dataNotEqualColLength, setData, validate)
+    const mockAllowOnlyOneValidationErrorPerRow = true
+    const fn = handleAddNewRow(dataNotEqualColLength, setData, mockAllowOnlyOneValidationErrorPerRow, validate)
     fn()
     const expectedData = [
       ...dataNotEqualColLength,
@@ -321,8 +330,12 @@ describe('handleAddNewRow', () => {
         { value: '' },
       ],
     ]
-    expect(validatedDataGenerate).toHaveBeenCalledWith(expectedData, validate)
-    expect(setData).toHaveBeenCalledWith('validated data')
+    expect(generateDataWithReadOnlyAndIsValidated).toHaveBeenCalledWith({
+      data: expectedData,
+      allowOnlyOneValidationErrorPerRow: mockAllowOnlyOneValidationErrorPerRow,
+      validateFunction: validate,
+    })
+    expect(setData).toHaveBeenCalledWith('generateDataWithReadOnlyAndIsValidated')
   })
 })
 
@@ -336,7 +349,7 @@ describe('handleCellsChanged', () => {
     ;(validatedDataGenerate as jest.Mock).mockImplementation(() => 'validated data')
   })
   it('should return with underfined if changes length = 0', () => {
-    const fn = handleCellsChanged(data, setData, validate, afterCellsChanged)
+    const fn = handleCellsChanged(data, setData, true, validate, afterCellsChanged)
     const result = fn([])
     expect(result).toBeUndefined()
   })
@@ -351,7 +364,9 @@ describe('handleCellsChanged', () => {
         value: null,
       },
     ]
-    const fn = handleCellsChanged(data, setData, validate, afterCellsChanged)
+    const mockAllowOnlyOneValidationErrorPerRow = true
+    const validateFn = jest.fn()
+    const fn = handleCellsChanged(data, setData, mockAllowOnlyOneValidationErrorPerRow, validateFn, afterCellsChanged)
     fn(changes)
     const expectedNewData = [
       [{ value: 'Office name' }, { value: 'Building Name' }],
@@ -366,9 +381,18 @@ describe('handleCellsChanged', () => {
         newCell: { value: null },
       },
     ]
-    expect(validatedDataGenerate).toHaveBeenCalledWith(expectedNewData, validate)
-    expect(afterCellsChanged).toHaveBeenCalledWith(expectedChangedCells, 'validated data', setData)
-    expect(setData).toHaveBeenCalledWith('validated data')
+    expect(generateDataWithReadOnlyAndIsValidated).toHaveBeenCalledWith(
+      expect.objectContaining({
+        data: expectedNewData,
+        allowOnlyOneValidationErrorPerRow: mockAllowOnlyOneValidationErrorPerRow,
+      }),
+    )
+    expect(afterCellsChanged).toHaveBeenCalledWith(
+      expectedChangedCells,
+      'generateDataWithReadOnlyAndIsValidated',
+      setData,
+    )
+    expect(setData).toHaveBeenCalledWith('generateDataWithReadOnlyAndIsValidated')
   })
 
   it('remove col case should work', () => {
@@ -387,7 +411,15 @@ describe('handleCellsChanged', () => {
         value: null,
       },
     ]
-    const fn = handleCellsChanged(data, setData, validate, afterCellsChanged)
+    const mockAllowOnlyOneValidationErrorPerRow = true
+    const validateFn = () => {}
+    const fn = handleCellsChanged(
+      data,
+      setData,
+      mockAllowOnlyOneValidationErrorPerRow,
+      (validateFn as unknown) as ValidateFunction,
+      afterCellsChanged,
+    )
     fn(changes)
     const expectedNewData = [[{ value: 'Office name' }], [{ value: 'London2' }], [{ value: 'New York' }]]
     const expectedChangedCells = [
@@ -405,12 +437,21 @@ describe('handleCellsChanged', () => {
         newCell: { value: null },
       },
     ]
-    expect(validatedDataGenerate).toHaveBeenCalledWith(expectedNewData, validate)
-    expect(afterCellsChanged).toHaveBeenCalledWith(expectedChangedCells, 'validated data', setData)
-    expect(setData).toHaveBeenCalledWith('validated data')
+    expect(generateDataWithReadOnlyAndIsValidated).toHaveBeenCalledWith(
+      expect.objectContaining({
+        data: expectedNewData,
+        allowOnlyOneValidationErrorPerRow: mockAllowOnlyOneValidationErrorPerRow,
+      }),
+    )
+    expect(afterCellsChanged).toHaveBeenCalledWith(
+      expectedChangedCells,
+      'generateDataWithReadOnlyAndIsValidated',
+      setData,
+    )
+    expect(setData).toHaveBeenCalledWith('generateDataWithReadOnlyAndIsValidated')
   })
 
-  it('other cases should work', () => {
+  test('other cases should work', () => {
     const changes = [
       { cell: { value: 'Office name' }, row: 0, col: 0, value: '' },
       {
@@ -420,7 +461,8 @@ describe('handleCellsChanged', () => {
         value: '',
       },
     ]
-    const fn = handleCellsChanged(data, setData, validate, afterCellsChanged)
+    const mockAllowOnlyOneValidationErrorPerRow = true
+    const fn = handleCellsChanged(data, setData, mockAllowOnlyOneValidationErrorPerRow, validate, afterCellsChanged)
     const newDataWithValidate = [
       [
         { value: '', isValidated: true },
@@ -435,7 +477,7 @@ describe('handleCellsChanged', () => {
         { value: 'Building A', isValidated: true },
       ],
     ]
-    ;(validatedDataGenerate as jest.Mock).mockImplementation(() => newDataWithValidate)
+    ;(generateDataWithReadOnlyAndIsValidated as jest.Mock).mockImplementation(() => newDataWithValidate)
     fn(changes)
     const expectedNewData = [
       [{ value: '' }, { value: 'Building Name' }],
@@ -451,7 +493,12 @@ describe('handleCellsChanged', () => {
         newCell: { value: '', isValidated: true },
       },
     ]
-    expect(validatedDataGenerate).toHaveBeenCalledWith(expectedNewData, validate)
+    expect(generateDataWithReadOnlyAndIsValidated).toHaveBeenCalledWith(
+      expect.objectContaining({
+        data: expectedNewData,
+        allowOnlyOneValidationErrorPerRow: mockAllowOnlyOneValidationErrorPerRow,
+      }),
+    )
     expect(afterCellsChanged).toHaveBeenCalledWith(expectedChangedCells, newDataWithValidate, setData)
     expect(setData).toHaveBeenCalledWith(newDataWithValidate)
   })
@@ -465,7 +512,8 @@ describe('handleCellsChanged', () => {
         value: '',
       },
     ]
-    const fn = handleCellsChanged(data, setData, validate, undefined)
+    const mockAllowOnlyOneValidationErrorPerRow = true
+    const fn = handleCellsChanged(data, setData, mockAllowOnlyOneValidationErrorPerRow, validate, undefined)
     const newDataWithValidate = [
       [
         { value: '', isValidated: true },
@@ -480,7 +528,7 @@ describe('handleCellsChanged', () => {
         { value: 'Building A', isValidated: true },
       ],
     ]
-    ;(validatedDataGenerate as jest.Mock).mockImplementation(() => newDataWithValidate)
+    ;(generateDataWithReadOnlyAndIsValidated as jest.Mock).mockImplementation(() => newDataWithValidate)
     fn(changes)
     const expectedNewData = [
       [{ value: '' }, { value: 'Building Name' }],
@@ -488,7 +536,11 @@ describe('handleCellsChanged', () => {
       [{ value: 'New York' }, { value: 'Building A' }],
     ]
 
-    expect(validatedDataGenerate).toHaveBeenCalledWith(expectedNewData, validate)
+    expect(generateDataWithReadOnlyAndIsValidated).toHaveBeenCalledWith({
+      data: expectedNewData,
+      validateFunction: validate,
+      allowOnlyOneValidationErrorPerRow: mockAllowOnlyOneValidationErrorPerRow,
+    })
     expect(setData).toHaveBeenCalledWith(newDataWithValidate)
   })
 })
@@ -677,15 +729,19 @@ describe('handleSetContextMenu', () => {
 })
 
 describe('handleInitialDataChanged', () => {
-  it('should call validatedDataGenerate and setData with correct arguments', () => {
+  /* eslint-disable-next-line max-len */
+  it('should call generateDataWithReadOnlyAndIsValidated with correct arguments when allowOnlyOneValidationErrorPerRow', () => {
     const initialData = [[{ value: 'init' }]]
-    const data = [[{ value: 'data' }]]
     const setDataMock = jest.fn()
     const validate = jest.fn()
-    const fn = handleInitialDataChanged(initialData, data, setDataMock, validate)
+    const mockAllowOnlyOneValidationErrorPerRow = true
+    const fn = handleInitialDataChanged(initialData, setDataMock, mockAllowOnlyOneValidationErrorPerRow, validate)
     fn()
-    expect(validatedDataGenerate).toHaveBeenCalledWith(initialData, validate)
-    expect(setDataMock).toHaveBeenCalledWith('validated data')
+    expect(generateDataWithReadOnlyAndIsValidated).toHaveBeenCalledWith({
+      data: initialData,
+      validateFunction: validate,
+      allowOnlyOneValidationErrorPerRow: mockAllowOnlyOneValidationErrorPerRow,
+    })
   })
 })
 

@@ -22,12 +22,22 @@ import {
   convertToCompatibleData,
   convertDataToCsv,
   changedCellsGenerate,
-  validatedDataGenerate,
   createDataWithInvalidRowsRemoved,
+  generateDataWithReadOnlyAndIsValidated,
 } from './utils'
 
 export const valueRenderer = (cell: Cell): string | null => cell.value
 
+export const getInvalidatedCellIndexOfRow = (data: Cell[][], rowIndex: number) =>
+  data[rowIndex].findIndex(cell => {
+    if (typeof cell?.isValidated === 'undefined') {
+      return false
+    }
+
+    return cell.isValidated === false
+  })
+
+/** Double click on first read-only cell */
 /** Double click on first read-only cell */
 export const onDoubleClickCell = (payload: DoubleClickPayLoad, setSelected: SetSelected, onDoubleClickDefault) => (
   ...args
@@ -65,6 +75,7 @@ export const customCellRenderer = (
   afterCellsChanged?: AfterCellsChanged,
 ) => (props: ReactDataSheet.CellRendererProps<Cell, string | null>) => {
   const { style: defaultStyle, cell, onDoubleClick, ...restProps } = props
+
   const {
     CustomComponent = false,
     isValidated = true,
@@ -98,6 +109,7 @@ export const customCellRenderer = (
     'updated',
     'style',
   ]
+
   // filter out all ignore props
   const domProps = Object.keys(restProps)
     .filter(key => !ignorePropKeys.includes(key))
@@ -132,7 +144,12 @@ export const customCellRenderer = (
   )
 }
 
-export const handleAddNewRow = (data: Cell[][], setData: SetData, validate?: ValidateFunction) => () => {
+export const handleAddNewRow = (
+  data: Cell[][],
+  setData: SetData,
+  allowOnlyOneValidationErrorPerRow: boolean,
+  validate?: ValidateFunction,
+) => () => {
   const { maxRow, maxCol } = getMaxRowAndCol(data)
   const lastRow = data[maxRow - 1]
   /* [
@@ -158,19 +175,31 @@ export const handleAddNewRow = (data: Cell[][], setData: SetData, validate?: Val
     })
 
   const newData = [...data, newEmptyRow]
-  const dataWithIsValidated = validatedDataGenerate(newData, validate)
-  setData(dataWithIsValidated)
+  /**
+   * data with isValidated setted
+   * and readOnly set to true if
+   *   - allowOnlyOneValidationErrorPerRow = true and belonge to invalidated row and is validated cell
+   */
+  setData(
+    generateDataWithReadOnlyAndIsValidated({
+      data: newData,
+      validateFunction: validate,
+      allowOnlyOneValidationErrorPerRow,
+    }),
+  )
 }
 
 export const handleCellsChanged = (
   data: Cell[][],
   setData: SetData,
+  allowOnlyOneValidationErrorPerRow: boolean,
   validate?: ValidateFunction,
   afterCellsChanged?: AfterCellsChanged,
 ) => (changes: ChangesArray): any => {
   if (changes.length === 0) {
     return
   }
+
   const newData = data.map(row => [...row])
   // remove row case
   let newCell: Cell = { value: 'newValue' }
@@ -193,8 +222,18 @@ export const handleCellsChanged = (
       newData[row][col] = { ...newData[row][col], value }
     })
   }
-  // validate data after changed
-  const dataWithIsValidated = validatedDataGenerate(newData, validate)
+
+  /**
+   * data with isValidated setted
+   * and readOnly set to true if
+   *   - allowOnlyOneValidationErrorPerRow = true and belonge to invalidated row and is validated cell
+   */
+  const dataWithIsGeneratedAndReadOnly = generateDataWithReadOnlyAndIsValidated({
+    data: newData,
+    validateFunction: validate,
+    allowOnlyOneValidationErrorPerRow,
+  })
+
   if (typeof afterCellsChanged === 'function') {
     const changedCells = changes.map(({ row, col }) => ({
       oldCell: data[row][col],
@@ -202,12 +241,12 @@ export const handleCellsChanged = (
       col,
       /* Replace newCell with validated data, if cannot find, then it was deleted,
          replace with value = null */
-      newCell: newCell.value === null ? { value: null } : dataWithIsValidated[row][col],
+      newCell: newCell.value === null ? { value: null } : dataWithIsGeneratedAndReadOnly[row][col],
     }))
-    afterCellsChanged(changedCells, dataWithIsValidated, setData)
+    afterCellsChanged(changedCells, dataWithIsGeneratedAndReadOnly, setData)
   }
   // and set to spreadsheet
-  setData(dataWithIsValidated)
+  setData(dataWithIsGeneratedAndReadOnly)
 }
 
 export const handleClickUpload = (ref: React.RefObject<HTMLInputElement>) => () => {
@@ -283,9 +322,11 @@ export const handleOnChangeInput = ({
 export const handleDownload = (data: Cell[][], window, document: Document | undefined) => (): boolean => {
   /* convert from Cell[][] to string[][] */
   const parseResult = convertDataToCsv(data)
+
   /* convert from string[][] to string */
   const csvData = unparseDataToCsvString(parseResult)
   const dataBlob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' })
+
   if (window && document) {
     const file = window.URL.createObjectURL(dataBlob)
     const link = document.createElement('a')
@@ -322,12 +363,22 @@ export const handleAfterDataChanged = (
 
 export const handleInitialDataChanged = (
   initialData: Cell[][],
-  data: Cell[][],
   setData: SetData,
+  allowOnlyOneValidationErrorPerRow: boolean,
   validateFunction?: ValidateFunction,
 ) => () => {
-  const newData = validatedDataGenerate(initialData, validateFunction)
-  setData(newData)
+  /**
+   * data with isValidated setted
+   * and readOnly set to true if
+   *   - allowOnlyOneValidationErrorPerRow = true and belonge to invalidated row and is validated cell
+   */
+  setData(
+    generateDataWithReadOnlyAndIsValidated({
+      data: initialData,
+      validateFunction: validateFunction,
+      allowOnlyOneValidationErrorPerRow,
+    }),
+  )
 }
 
 export const handleCloseUploadModal = (setUploadData: SetUploadData) => () =>

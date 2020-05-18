@@ -1,6 +1,7 @@
 import * as React from 'react'
+import { ApolloQueryResult, ApolloClient } from 'apollo-boost'
 import { useLocation, useHistory } from 'react-router-dom'
-import { useQuery, useMutation } from '@apollo/react-hooks'
+import { useQuery, useMutation, useApolloClient } from '@apollo/react-hooks'
 import { QueryResult } from '@apollo/react-common'
 import { ApolloError } from 'apollo-boost'
 import {
@@ -17,6 +18,8 @@ import {
   isNumberOnly,
   ErrorData,
   minLengthValidator,
+  Button,
+  handleDownloadCsv,
 } from '@reapit/elements'
 import { getParamsFromPath, stringifyObjectIntoQueryString } from '@/utils/client-url-params'
 import GET_NEGOTIATORS from './gql/get-negotiators.graphql'
@@ -26,7 +29,7 @@ import NegotiatorStatusCheckbox from './negotiator-status-checkbox'
 import NegotiatorOfficeSelectbox from './negotiator-office-selectbox'
 
 import { NegotiatorModel, PagedResultNegotiatorModel_, OfficeModel } from '@reapit/foundations-ts-definitions'
-import { NEGOTIATORS_PER_PAGE, NEGOTIATOR_OFFICE_PER_PAGE } from '@/constants/paginators'
+import { NEGOTIATORS_PER_PAGE, MAX_ENTITIES_FETCHABLE_AT_ONE_TIME } from '@/constants/paginators'
 
 import GET_OFFICES from '../offices-tab/gql/get-offices.graphql'
 import { OfficesQueryResponse, OfficesQueryParams } from '../offices-tab/offices-tab'
@@ -85,6 +88,8 @@ export type CreateNegotiatorMutationResponse = {
 }
 
 export type RenderNegotiatorListParams = {
+  updateNegotiatorLoading: boolean
+  setErrorServer: React.Dispatch<React.SetStateAction<ErrorData | null>>
   loading: boolean
   error?: ApolloError
   pageNumber?: number
@@ -94,6 +99,7 @@ export type RenderNegotiatorListParams = {
   handleChangePage: (page: number) => void
   updateNegotiator: () => void
   createNegotiator: () => void
+  officeData?: OfficesQueryResponse
 }
 
 export const getDataTable = (
@@ -139,8 +145,8 @@ export const getDataTable = (
       { value: jobTitle },
       { value: email },
       { value: mobilePhone },
-      { readOnly: true, value: office?.name, CustomComponent: OfficeSelectbox },
-      { readOnly: true, value: active, CustomComponent: StatusCheckbox },
+      { fixedReadOnly: true, readOnly: true, value: office?.name, CustomComponent: OfficeSelectbox },
+      { fixedReadOnly: true, readOnly: true, value: active, CustomComponent: StatusCheckbox },
       { value: id, className: 'hidden' },
       { value: _eTag, className: 'hidden' },
     ]
@@ -158,8 +164,8 @@ export const handleChangePage = ({ history }) => (pageNumber: number) => {
   })
 }
 
-export const validate = (data: Cell[][]) => {
-  return data.map((row, rowIndex) =>
+export const validate = (data: Cell[][]) =>
+  data.map((row, rowIndex) =>
     row.map((cell, cellIndex) => {
       if (rowIndex === 0) return true // dont need to validate header row
       // cell name is required
@@ -181,7 +187,6 @@ export const validate = (data: Cell[][]) => {
       return true
     }),
   )
-}
 
 export const prepareUpdateNegeotiatorParams = (data: Cell[][], rowIndex) => {
   const selectedRow = data[rowIndex]
@@ -283,6 +288,109 @@ export const handleAfterCellsChanged = (updateNegotiator, createNegotiator) => {
   }
 }
 
+export interface CreateDownLoadButtonOnClickFnParams {
+  totalCount: number
+  client: ApolloClient<any>
+  setIsDownloading: React.Dispatch<React.SetStateAction<boolean>>
+  setErrorServer: React.Dispatch<React.SetStateAction<ErrorData | null>>
+  updateNegotiator: (params) => void
+  updateNegotiatorLoading: boolean
+  createNegotiator: (params) => void
+  officeData?: OfficesQueryResponse
+}
+
+export const createDownLoadButtonOnClickFn = ({
+  totalCount = 0,
+  client,
+  setIsDownloading,
+  setErrorServer,
+  updateNegotiator,
+  updateNegotiatorLoading,
+  createNegotiator,
+  officeData,
+}: CreateDownLoadButtonOnClickFnParams) => () => {
+  const fetchPages = Math.ceil(totalCount / MAX_ENTITIES_FETCHABLE_AT_ONE_TIME)
+
+  setIsDownloading(true)
+  /**
+   * API currenlty only allow to fetch 100 items each time using pageSize
+   * This func fetch Nth times based on totalCount parameter
+   */
+  const promises: Promise<ApolloQueryResult<NegotiatorsQueryResponse>>[] = []
+  for (let i = 1; i <= fetchPages; i++) {
+    promises.push(
+      client.query<NegotiatorsQueryResponse, NegotiatorsQueryParams>({
+        query: GET_NEGOTIATORS,
+        variables: { pageSize: MAX_ENTITIES_FETCHABLE_AT_ONE_TIME, pageNumber: i, embed: ['office'] },
+      }),
+    )
+  }
+
+  Promise.all(promises)
+    .then(results => {
+      const mergedEmbed = results.reduce<any[]>((mergedArr, result) => {
+        const getOfficesEmbedded = (result.data?.GetNegotiators?._embedded || []) as any[]
+        mergedArr.push(...getOfficesEmbedded)
+        return mergedArr
+      }, [])
+
+      const dataTable = getDataTable(
+        { GetNegotiators: { _embedded: mergedEmbed || [] } },
+        updateNegotiator,
+        updateNegotiatorLoading,
+        createNegotiator,
+        officeData,
+      )
+      handleDownloadCsv(dataTable as Cell[][], window, document)()
+    })
+    .catch(err => {
+      setErrorServer({
+        type: 'SERVER',
+        message: err.message,
+      })
+    })
+    .finally(() => {
+      setIsDownloading(false)
+    })
+}
+
+export const CustomDownButton = ({
+  totalCount,
+  setErrorServer,
+  officeData,
+  updateNegotiatorLoading,
+  updateNegotiator,
+  createNegotiator,
+}: {
+  totalCount: number
+  setErrorServer: React.Dispatch<React.SetStateAction<ErrorData | null>>
+  updateNegotiator: (params) => void
+  updateNegotiatorLoading: boolean
+  createNegotiator: (params) => void
+  officeData?: OfficesQueryResponse
+}) => {
+  const [isDownloading, setIsDownloading] = React.useState<boolean>(false)
+  const client = useApolloClient()
+  const downloadButtonOnClick = createDownLoadButtonOnClickFn({
+    totalCount,
+    setIsDownloading,
+    client,
+    setErrorServer,
+    officeData,
+    updateNegotiatorLoading,
+    updateNegotiator,
+    createNegotiator,
+  })
+
+  return (
+    <div className="download-button">
+      <Button loading={isDownloading} type="submit" variant="info" onClick={downloadButtonOnClick}>
+        Download file
+      </Button>
+    </div>
+  )
+}
+
 export const renderNegotiatorList = ({
   loading,
   error,
@@ -293,6 +401,9 @@ export const renderNegotiatorList = ({
   handleChangePage,
   updateNegotiator,
   createNegotiator,
+  setErrorServer,
+  officeData,
+  updateNegotiatorLoading,
 }: RenderNegotiatorListParams) => {
   if (loading) {
     return <Loader />
@@ -304,6 +415,17 @@ export const renderNegotiatorList = ({
   return (
     <React.Fragment>
       <Spreadsheet
+        CustomDownButton={
+          <CustomDownButton
+            updateNegotiatorLoading={updateNegotiatorLoading}
+            updateNegotiator={updateNegotiator}
+            createNegotiator={createNegotiator}
+            officeData={officeData}
+            setErrorServer={setErrorServer}
+            totalCount={totalCount}
+          />
+        }
+        allowOnlyOneValidationErrorPerRow={true}
         data={dataTable as Cell[][]}
         afterCellsChanged={handleAfterCellsChanged(updateNegotiator, createNegotiator)}
         validate={validate}
@@ -400,7 +522,7 @@ export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
   })
 
   const { data: officeData } = useQuery<OfficesQueryResponse, OfficesQueryParams>(GET_OFFICES, {
-    variables: { pageSize: NEGOTIATOR_OFFICE_PER_PAGE, pageNumber: 1 },
+    variables: { pageSize: NEGOTIATORS_PER_PAGE, pageNumber: 1 },
   }) as QueryResult<OfficesQueryResponse, OfficesQueryParams>
 
   React.useEffect(handleErrorMessageUseEffect(createNegotiatorError, updateNegotiatorError, setErrorServer), [
@@ -427,6 +549,8 @@ export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
   return (
     <div>
       {renderNegotiatorList({
+        updateNegotiatorLoading,
+        setErrorServer,
         loading,
         error: getNegotiatorsError,
         dataTable,
@@ -436,6 +560,7 @@ export const NegotiatorList: React.FC<NegotiatorListProps> = () => {
         handleChangePage: handleChangePage({ history }),
         updateNegotiator: updateNegotiator,
         createNegotiator: createNegotiator,
+        officeData,
       })}
       <Toast
         componentError={componentError}
