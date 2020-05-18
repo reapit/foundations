@@ -16,7 +16,10 @@ exports[`PrivateRouter should match a snapshot 1`] = `
   <MemoryRouter
     initialEntries={
       Array [
-        "/client",
+        Object {
+          "key": "clientAppsRoute",
+          "pathname": "/client/apps",
+        },
       ]
     }
   >
@@ -30,10 +33,9 @@ exports[`PrivateRouter should match a snapshot 1`] = `
           "entries": Array [
             Object {
               "hash": "",
-              "key": "eocj89",
-              "pathname": "/client",
+              "key": "clientAppsRoute",
+              "pathname": "/client/apps",
               "search": "",
-              "state": undefined,
             },
           ],
           "go": [Function],
@@ -44,10 +46,9 @@ exports[`PrivateRouter should match a snapshot 1`] = `
           "listen": [Function],
           "location": Object {
             "hash": "",
-            "key": "eocj89",
-            "pathname": "/client",
+            "key": "clientAppsRoute",
+            "pathname": "/client/apps",
             "search": "",
-            "state": undefined,
           },
           "push": [Function],
           "replace": [Function],
