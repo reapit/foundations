@@ -3,7 +3,7 @@ import { useHistory, useParams } from 'react-router-dom'
 import { Tabs, FlexContainerBasic, FlexContainerResponsive, H3, TabConfig } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import DetailedTab from '@/components/ui/developer-analytics/detailed'
-import BillingTab from '@/components/ui/developer-analytics/billing'
+import CostExplorerTab from '@/components/ui/developer-analytics/cost-explorer'
 import Routes from '@/constants/routes'
 import styles from '@/styles/pages/developer-analytics.scss?mod'
 
@@ -16,7 +16,7 @@ export type TabConfigsProps = {
 
 export enum AnalyticsTab {
   DETAILED = 'detailed',
-  BILLING = 'billing',
+  COST_EXPLORER = 'costexplorer',
 }
 
 export const tabConfigs = ({ currentTab, history }: TabConfigsProps): TabConfig[] => {
@@ -32,12 +32,12 @@ export const tabConfigs = ({ currentTab, history }: TabConfigsProps): TabConfig[
   ]
   if (window.reapit.config.appEnv !== 'production') {
     configs.push({
-      tabIdentifier: AnalyticsTab.BILLING,
-      displayText: 'BILLING',
+      tabIdentifier: AnalyticsTab.COST_EXPLORER,
+      displayText: 'Cost Explorer',
       onTabClick: () => {
-        history.push(`${Routes.DEVELOPER_ANALYTICS}/${AnalyticsTab.BILLING}`)
+        history.push(`${Routes.DEVELOPER_ANALYTICS}/${AnalyticsTab.COST_EXPLORER}`)
       },
-      active: currentTab === AnalyticsTab.BILLING,
+      active: currentTab === AnalyticsTab.COST_EXPLORER,
     })
   }
   return configs
@@ -49,8 +49,8 @@ export const handleUseEffectToSetCurrentTab = (activeTab, setCurrentTab) => {
       case AnalyticsTab.DETAILED:
         setCurrentTab(AnalyticsTab.DETAILED)
         break
-      case AnalyticsTab.BILLING:
-        setCurrentTab(AnalyticsTab.BILLING)
+      case AnalyticsTab.COST_EXPLORER:
+        setCurrentTab(AnalyticsTab.COST_EXPLORER)
         break
       default:
         setCurrentTab(AnalyticsTab.DETAILED)
@@ -63,8 +63,8 @@ export const renderTabContent = currentTab => {
   switch (currentTab) {
     case AnalyticsTab.DETAILED:
       return <DetailedTab />
-    case AnalyticsTab.BILLING:
-      return <BillingTab />
+    case AnalyticsTab.COST_EXPLORER:
+      return <CostExplorerTab />
     default:
       return <DetailedTab />
   }

@@ -12,6 +12,10 @@ export const selectClientId = (state: ReduxState) => {
   return state.auth.loginSession?.loginIdentity.clientId
 }
 
+export const selectIsAdmin = (state: ReduxState) => {
+  return state.auth?.loginSession?.loginIdentity?.isAdmin || false
+}
+
 export const selectDeveloperId = (state: ReduxState) => {
   return state.auth.loginSession?.loginIdentity.developerId
 }

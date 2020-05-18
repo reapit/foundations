@@ -27,7 +27,7 @@ describe('Menu', () => {
           },
         },
       } as ReduxState
-      const output = { loginType: 'ADMIN', mode: 'WEB' }
+      const output = { loginType: 'ADMIN', mode: 'WEB', isAdmin: false }
       const result = mapStateToProps(input)
       expect(output).toEqual(result)
     })
@@ -45,7 +45,7 @@ describe('Menu', () => {
   describe('generateMenuConfig', () => {
     it('should return config', () => {
       const logoutCallback = jest.fn()
-      const result = generateMenuConfig(logoutCallback, props.location, 'WEB')
+      const result = generateMenuConfig(logoutCallback, props.location, 'WEB', false)
       expect(result).toBeDefined()
     })
   })

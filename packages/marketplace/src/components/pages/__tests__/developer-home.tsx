@@ -31,6 +31,10 @@ describe('DeveloperHome', () => {
         webhookPingTestStatus: null,
         loading: false,
         isVisible: false,
+        developerAppDetail: {
+          data: null,
+          isAppDetailLoading: false,
+        },
         developerData: {
           ...appsDataStub,
           scopes: appPermissionStub,
@@ -76,6 +80,10 @@ describe('DeveloperHome', () => {
         },
         loading: false,
         isVisible: true,
+        developerAppDetail: {
+          data: null,
+          isAppDetailLoading: false,
+        },
         developerData: {
           ...appsDataStub,
           scopes: appPermissionStub,
@@ -125,10 +133,10 @@ describe('DeveloperHome', () => {
     it('should call push correctly', () => {
       const mockHistory = {
         push: jest.fn(),
-      }
+      } as any
       const fn = handleOnChange(mockHistory)
       fn(1)
-      expect(mockHistory.push).toBeCalledWith(`${routes.DEVELOPER_MY_APPS}/${1}`)
+      expect(mockHistory.push).toBeCalledWith(`${routes.DEVELOPER_MY_APPS}?page=1`)
     })
   })
 

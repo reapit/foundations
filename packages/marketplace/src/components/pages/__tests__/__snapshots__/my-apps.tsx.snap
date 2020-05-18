@@ -73,3 +73,5 @@ exports[`MyApps should match a snapshot when LOADING false 1`] = `
 `;
 
 exports[`MyApps should match a snapshot when LOADING true 1`] = `<Component />`;
+
+exports[`MyApps should match a snapshot when isAdmin false 1`] = `<Component />`;

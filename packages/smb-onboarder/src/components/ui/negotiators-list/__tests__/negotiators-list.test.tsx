@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { MAX_ENTITIES_FETCHABLE_AT_ONE_TIME } from '@/constants/paginators'
 import { mount, shallow } from 'enzyme'
 import { MockedProvider } from '@apollo/react-testing'
 import { Cell } from '@reapit/elements'
@@ -17,6 +18,9 @@ import {
   prepareCreateNegeotiatorParams,
   handleAfterCellsChanged,
   handleErrorMessageUseEffect,
+  CreateDownLoadButtonOnClickFnParams,
+  createDownLoadButtonOnClickFn,
+  CustomDownButton,
 } from '../negotiators-list'
 import GET_NEGOTIATORS from '../gql/get-negotiators.graphql'
 import UPDATE_NEGOTIATOR from '../gql/update-negotiator.graphql'
@@ -61,6 +65,123 @@ const mockCreateMutation = {
 }
 
 describe('NegotiatorList', () => {
+  describe('CustomDownButton', () => {
+    it('should match a snapshot', () => {
+      const wrapper = mount(
+        <Router>
+          <MockedProvider mocks={[mockQueries, mockCreateMutation, mockUpdateMutation]} addTypename={false}>
+            <CustomDownButton
+              updateNegotiatorLoading={false}
+              updateNegotiator={jest.fn}
+              createNegotiator={jest.fn}
+              setErrorServer={jest.fn}
+              totalCount={0}
+            />
+          </MockedProvider>
+        </Router>,
+      )
+      expect(wrapper).toMatchSnapshot()
+    })
+  })
+  describe('createDownLoadButtonOnClickFn', () => {
+    it('should call getDataTable and handleDownloadCsv if fetch successfully', done => {
+      const mockedParams = ({
+        client: {
+          query: jest.fn(
+            () =>
+              new Promise((_, reject) => {
+                reject('error')
+              }),
+          ),
+        },
+        setErrorServer: jest.fn(),
+        totalCount: 200,
+        setIsDownloading: jest.fn(),
+      } as unknown) as CreateDownLoadButtonOnClickFnParams
+      const fn = createDownLoadButtonOnClickFn(mockedParams)
+      fn()
+      setTimeout(() => {
+        done()
+      }, 1)
+    })
+    it('should call setErrorServer when error is received during fetching', done => {
+      const mockedParams = ({
+        client: {
+          query: jest.fn(
+            () =>
+              new Promise((_, reject) => {
+                reject(new Error('error'))
+              }),
+          ),
+        },
+        setErrorServer: jest.fn(),
+        totalCount: 200,
+        setIsDownloading: jest.fn(),
+      } as unknown) as CreateDownLoadButtonOnClickFnParams
+      const fn = createDownLoadButtonOnClickFn(mockedParams)
+      fn()
+      setTimeout(() => {
+        expect(mockedParams.setErrorServer).toHaveBeenCalledWith({ type: 'SERVER', message: 'error' })
+        done()
+      }, 1)
+    })
+    it('should setIsDownloading correctly', done => {
+      const mockedParams = ({
+        client: {
+          query: jest.fn(
+            () =>
+              new Promise(resolve => {
+                resolve(negotiators)
+              }),
+          ),
+        },
+        setErrorServer: jest.fn(),
+        totalCount: 200,
+        setIsDownloading: jest.fn(),
+      } as unknown) as CreateDownLoadButtonOnClickFnParams
+      const fn = createDownLoadButtonOnClickFn(mockedParams)
+      fn()
+      expect(mockedParams.setIsDownloading).toHaveBeenNthCalledWith(1, true)
+      setTimeout(() => {
+        expect(mockedParams.setIsDownloading).toHaveBeenNthCalledWith(2, false)
+        done()
+      }, 1)
+    })
+    it('should call runQuery correctly', () => {
+      const mockedParams = ({
+        client: {
+          query: jest.fn(
+            () =>
+              new Promise(resolve => {
+                resolve(negotiators)
+              }),
+          ),
+        },
+        setErrorServer: jest.fn(),
+        totalCount: 200,
+        setIsDownloading: jest.fn(),
+      } as unknown) as CreateDownLoadButtonOnClickFnParams
+      const fn = createDownLoadButtonOnClickFn(mockedParams)
+      fn()
+      expect(mockedParams.client.query).toHaveBeenNthCalledWith(1, {
+        query: GET_NEGOTIATORS,
+        variables: {
+          pageSize: MAX_ENTITIES_FETCHABLE_AT_ONE_TIME,
+          pageNumber: 1,
+          embed: ['office'],
+        },
+      })
+      expect(mockedParams.client.query).toHaveBeenNthCalledWith(2, {
+        query: GET_NEGOTIATORS,
+        variables: {
+          pageSize: MAX_ENTITIES_FETCHABLE_AT_ONE_TIME,
+          pageNumber: 2,
+          embed: ['office'],
+        },
+      })
+    })
+  })
+
   describe('NegotiatorList', () => {
     it('should match a snapshot', () => {
       const mockProps: NegotiatorListProps = getMockRouterProps({ params: {}, search: '?page=1' })
@@ -103,6 +224,8 @@ describe('NegotiatorList', () => {
   describe('renderNegotiatorList', () => {
     it('should match snapshot', () => {
       const mockParams: RenderNegotiatorListParams = {
+        setErrorServer: jest.fn(),
+        updateNegotiatorLoading: false,
         loading: true,
         error: undefined,
         handleChangePage: jest.fn(),
@@ -116,6 +239,8 @@ describe('NegotiatorList', () => {
 
     it('should match snapshot', () => {
       const mockParams: RenderNegotiatorListParams = {
+        updateNegotiatorLoading: false,
+        setErrorServer: jest.fn(),
         loading: false,
         error,
         handleChangePage: jest.fn(),
@@ -132,6 +257,8 @@ describe('NegotiatorList', () => {
       const mockCreateNegotiator = jest.fn()
       const mockUpdateNegotiatorLoading = false
       const mockParams: RenderNegotiatorListParams = {
+        updateNegotiatorLoading: false,
+        setErrorServer: jest.fn(),
         loading: false,
         error: undefined,
         handleChangePage: jest.fn(),

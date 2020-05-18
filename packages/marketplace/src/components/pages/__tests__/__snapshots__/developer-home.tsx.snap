@@ -6,6 +6,7 @@ exports[`DeveloperHome should match a snapshot 1`] = `
     id="page-developer-home-container"
   >
     <Component
+      hasSubmitButton={true}
       infoType="DEVELOPER_APPS_EMPTY"
       list={
         Array [
@@ -60,7 +61,7 @@ exports[`DeveloperHome should match a snapshot 1`] = `
       pagination={
         Object {
           "onChange": [Function],
-          "pageNumber": 2,
+          "pageNumber": 1,
           "pageSize": 2,
           "totalCount": 6,
         }
@@ -85,6 +86,7 @@ exports[`DeveloperHome should match a snapshot 3`] = `
     id="page-developer-home-container"
   >
     <Component
+      hasSubmitButton={true}
       infoType="DEVELOPER_APPS_EMPTY"
       list={
         Array [
@@ -139,7 +141,7 @@ exports[`DeveloperHome should match a snapshot 3`] = `
       pagination={
         Object {
           "onChange": [Function],
-          "pageNumber": 2,
+          "pageNumber": 1,
           "pageSize": 2,
           "totalCount": 6,
         }

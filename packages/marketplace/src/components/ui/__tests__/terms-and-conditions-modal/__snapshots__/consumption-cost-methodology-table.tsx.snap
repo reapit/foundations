@@ -48,7 +48,9 @@ Object {
             </tr>
             <tr>
               <td />
-              <td>
+              <td
+                style="font-weight: normal;"
+              >
                 Number of Endpoints used
               </td>
               <td>
@@ -65,9 +67,9 @@ Object {
               rowspan="8"
               style="vertical-align: middle; transform: rotate(-90deg); white-space: nowrap;"
             >
-              (on last day 
+              (on last day of monthly billing
               <br />
-               of monthly billing period)
+               period)
             </td>
             <tr>
               <td>
@@ -300,7 +302,9 @@ Object {
           </tr>
           <tr>
             <td />
-            <td>
+            <td
+              style="font-weight: normal;"
+            >
               Number of Endpoints used
             </td>
             <td>
@@ -317,9 +321,9 @@ Object {
             rowspan="8"
             style="vertical-align: middle; transform: rotate(-90deg); white-space: nowrap;"
           >
-            (on last day 
+            (on last day of monthly billing
             <br />
-             of monthly billing period)
+             period)
           </td>
           <tr>
             <td>

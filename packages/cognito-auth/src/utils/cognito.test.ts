@@ -30,6 +30,7 @@ jest.mock('jsonwebtoken', () => ({
       'custom:reapit:userCode': 'SOME_USER_CODE',
       name: 'SOME_NAME',
       email: 'SOME_EMAIL',
+      'cognito:groups': ['CustomerAdministrators'],
     }),
   },
 }))
@@ -186,6 +187,7 @@ describe('Session utils', () => {
         email: 'SOME_EMAIL',
         name: 'SOME_NAME',
         userCode: 'SOME_USER_CODE',
+        isAdmin: true,
       })
     })
 
@@ -197,6 +199,7 @@ describe('Session utils', () => {
         email: undefined,
         name: undefined,
         userCode: null,
+        isAdmin: false,
       })
     })
   })

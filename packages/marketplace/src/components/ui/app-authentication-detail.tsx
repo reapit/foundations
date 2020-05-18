@@ -72,7 +72,7 @@ export const AppAuthenticationDetail: React.FunctionComponent<AppAuthenticationD
       {loading && <Loader body={false} />}
       {!loading && code && (
         <div className={styles.authenticationCodeWrap}>
-          <p>{code}</p>
+          <p className={styles.authenticationCode}>{code}</p>
           <div onMouseLeave={handleMouseLeave} role="button" onClick={handleCopy} className={styles.btnCopy}>
             <FaCopy size={24} />
             <span className={styles.tooltiptext}>{tooltipMessage}</span>

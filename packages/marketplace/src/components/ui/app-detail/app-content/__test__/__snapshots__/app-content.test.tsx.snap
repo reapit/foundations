@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppContent SlickButtonNav should match snapshot 1`] = `
+<button
+  currentSlide=""
+  setAppDetailModalStateInstall={[MockFunction]}
+  slideCount={[MockFunction]}
+>
+  <div>
+    mockComponent
+  </div>
+</button>
+`;
+
+exports[`AppContent renderShowApiKeyForWebComponent should match snapshot and return null 1`] = `<div />`;
+
+exports[`AppContent renderShowApiKeyForWebComponent should match snapshot and return null 2`] = `<div />`;
+
+exports[`AppContent renderShowApiKeyForWebComponent should match snapshot and return null 3`] = `<div />`;
+
+exports[`AppContent renderShowApiKeyForWebComponent should match snapshot not show api key 1`] = `
+<div>
+  <Component
+    className="mb-0"
+  >
+    API key
+  </Component>
+  <p>
+    To obtain your unique API key, click on 'Show API Key' below. For installation instructions, please click here
+  </p>
+  <span>
+    Authentication:
+  </span>
+   
+  <span>
+    <a
+      onClick={[Function]}
+    >
+      <u>
+        Show
+         API key
+      </u>
+    </a>
+  </span>
+</div>
+`;
+
+exports[`AppContent renderShowApiKeyForWebComponent should match snapshot return null 1`] = `<div />`;
+
+exports[`AppContent renderShowApiKeyForWebComponent should match snapshot when isWebComponent 1`] = `
+<div>
+  <Component
+    className="mb-0"
+  >
+    API key
+  </Component>
+  <p>
+    To obtain your unique API key, click on 'Show API Key' below. For installation instructions, please click here
+  </p>
+  <span>
+    Authentication:
+  </span>
+   
+  <span>
+    <a
+      onClick={[Function]}
+    >
+      <u>
+        Hide
+         API key
+      </u>
+    </a>
+  </span>
+  <CopyToClipboard
+    onCopy={[Function]}
+    text="mockApiKey"
+  >
+    <div
+      className="control has-icons-right"
+    >
+      <input
+        className="input is-primary"
+        id="apiKey"
+        name="apiKey"
+        readOnly={true}
+        type="text"
+        value="mockApiKey"
+      />
+      <span
+        className="icon is-right"
+      >
+        <FaCopy />
+      </span>
+    </div>
+  </CopyToClipboard>
+</div>
+`;
+
+exports[`AppContent should match a snapshot 1`] = `
+<Component>
+  <Component
+    className="is-4"
+  />
+  <Component
+    className="is-8"
+  >
+    <Component
+      html="enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam 
+    pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras 
+    sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar 
+    elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla 
+    at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet 
+    proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum co"
+    />
+    <br />
+    <div>
+      <Slider
+        dots={false}
+        nextArrow={
+          <Unknown>
+            <ChevronLeft />
+          </Unknown>
+        }
+        prevArrow={
+          <Unknown>
+            <ChevronLeft />
+          </Unknown>
+        }
+        speed={500}
+        variableWidth={true}
+      >
+        <div
+          key="0"
+        >
+          <img
+            src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png"
+          />
+        </div>
+        <div
+          key="1"
+        >
+          <img
+            src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png"
+          />
+        </div>
+      </Slider>
+    </div>
+    <br />
+    <Component
+      isMultiLine={true}
+    >
+      <Component
+        key="Marketplace/developers.read"
+      >
+        <li>
+          Read data about developers
+        </li>
+      </Component>
+      <Component
+        key="Marketplace/developers.write"
+      >
+        <li>
+          Write data about developers
+        </li>
+      </Component>
+    </Component>
+  </Component>
+</Component>
+`;

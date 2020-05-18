@@ -52,8 +52,10 @@ describe('selectFeaturedApps', () => {
   it('should run correctly', () => {
     const input = {
       client: {
-        clientData: {
-          featuredApps: featuredAppsDataStub.data,
+        appSummary: {
+          data: {
+            featuredApps: featuredAppsDataStub.data,
+          },
         },
       },
     } as ReduxState
@@ -62,7 +64,13 @@ describe('selectFeaturedApps', () => {
   })
 
   it('should run correctly and return [', () => {
-    const input = {} as ReduxState
+    const input = {
+      client: {
+        appSummary: {
+          data: null,
+        },
+      },
+    } as ReduxState
     const result = selectFeaturedApps(input)
     expect(result).toEqual([])
   })

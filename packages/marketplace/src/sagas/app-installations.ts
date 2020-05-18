@@ -87,7 +87,8 @@ export const installationsFilterSaga = function*({ data }) {
   }
 }
 
-export const appInstallSaga = function*({ data }) {
+export const appInstallSaga = function*(options) {
+  const data: InstallParams = options.data
   try {
     yield put(appInstallationsSetFormState('SUBMITTING'))
 
@@ -99,6 +100,9 @@ export const appInstallSaga = function*({ data }) {
     }
 
     yield call(fetchInstallApp, { data, clientId, email })
+    if (data.callback) {
+      data.callback()
+    }
     yield put(appInstallationsSetFormState('SUCCESS'))
   } catch (err) {
     logger(err)
@@ -112,12 +116,16 @@ export const appInstallSaga = function*({ data }) {
   }
 }
 
-export const appUninstallSaga = function*({ data }) {
+export const appUninstallSaga = function*(options) {
+  const data: UninstallParams = options.data
   try {
     yield put(appInstallationsSetFormState('SUBMITTING'))
     const email = yield select(selectLoggedUserEmail)
 
     yield call(fetchUninstallApp, { data, email })
+    if (data.callback) {
+      data.callback()
+    }
     yield put(appInstallationsSetFormState('SUCCESS'))
   } catch (err) {
     logger(err)

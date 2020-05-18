@@ -10,7 +10,7 @@ import Routes from '@/constants/routes'
 
 export interface PrivateRouteProps {
   allow: LoginType | LoginType[]
-  component: React.FunctionComponent
+  component: React.FunctionComponent | React.LazyExoticComponent<any>
   exact?: boolean
   fetcher?: boolean
 }
