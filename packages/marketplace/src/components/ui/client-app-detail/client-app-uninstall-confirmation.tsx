@@ -136,7 +136,7 @@ const ClientAppUninstallConfirmation: React.FC<ClientAppUninstallConfirmationPro
     <>
       <Modal
         visible={visible}
-        title={`Confirm ${name} installation`}
+        title={`Confirm ${name} uninstallation`}
         afterClose={closeUninstallConfirmationModal}
         footerItems={renderUninstallConfirmationModalFooter(
           isSubmitting,
@@ -155,8 +155,8 @@ const ClientAppUninstallConfirmation: React.FC<ClientAppUninstallConfirmationPro
           <CallToAction
             title="Success"
             buttonText="Back to List"
-            dataTest="installations-success-message"
-            buttonDataTest="installations-success-button"
+            dataTest="uinstallations-success-message"
+            buttonDataTest="uinstallations-success-button"
             onButtonClick={onSuccessAlertButtonClick}
             isCenter
           >

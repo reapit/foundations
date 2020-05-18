@@ -3,7 +3,11 @@ import { Action } from '@/types/core'
 import { clientFetchAppDetail, clientFetchAppDetailSuccess, clientFetchAppDetailFailed } from '@/actions/client'
 import { isType } from '@/utils/actions'
 
-export type AppDetailData = (AppDetailModel & { apiKey?: string }) | null
+export type AppDetailDataNotNull = AppDetailModel & {
+  apiKey?: string
+}
+
+export type AppDetailData = AppDetailDataNotNull | null
 
 export interface ClientAppDetailState {
   data: AppDetailData
