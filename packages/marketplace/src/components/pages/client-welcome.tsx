@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FlexContainerResponsive, useHelpGuideContext, HelpGuide, Button } from '@reapit/elements'
+import { FlexContainerResponsive, useHelpGuideContext, HelpGuide, Button, Loader } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { history } from '@/core/router'
 import styles from '@/styles/pages/developer-welcome.scss?mod'
@@ -9,6 +9,9 @@ import Step3 from '@/assets/images/step-3.png'
 import Step4 from '@/assets/images/step-4.png'
 import Step5 from '@/assets/images/step-5.png'
 import { setCookieString, COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE, COOKIE_MAX_AGE_INFINITY } from '@/utils/cookie'
+import { useSelector } from 'react-redux'
+import { selectIsAdmin, selectLoginSession } from '@/selector/auth'
+
 export interface ClientWelcomeMappedActions {}
 
 export type ClientWelcomeMessageProps = ClientWelcomeMappedActions
@@ -54,6 +57,82 @@ export const Support = () => {
   )
 }
 
+const WELCOME_GUIDE_USER = [
+  {
+    id: 'step-1',
+    heading: 'Welcome User',
+    subHeading: 'What is Lorem Ipsum?',
+    image: Step1,
+    component: Welcome,
+  },
+  {
+    id: 'step-2',
+    heading: 'As a User',
+    subHeading: 'What is Lorem Ipsum?',
+    image: Step2,
+    component: Welcome,
+  },
+  {
+    id: 'step-3',
+    heading: 'Installing Apps',
+    subHeading: 'What is Lorem Ipsum?',
+    image: Step3,
+    component: Welcome,
+  },
+  {
+    id: 'step-4',
+    heading: 'Uninstalling Apps',
+    subHeading: 'What is Lorem Ipsum?',
+    image: Step4,
+    component: Welcome,
+  },
+  {
+    id: 'step-5',
+    heading: 'Support',
+    subHeading: 'What is Lorem Ipsum?',
+    image: Step5,
+    component: Support,
+  },
+]
+
+const WELCOME_GUIDE_ADMIN = [
+  {
+    id: 'step-1',
+    heading: 'Welcome Admin',
+    subHeading: 'What is Lorem Ipsum?',
+    image: Step1,
+    component: Welcome,
+  },
+  {
+    id: 'step-2',
+    heading: 'As a Admin',
+    subHeading: 'What is Lorem Ipsum?',
+    image: Step2,
+    component: Welcome,
+  },
+  {
+    id: 'step-3',
+    heading: 'Installing Apps',
+    subHeading: 'What is Lorem Ipsum?',
+    image: Step3,
+    component: Welcome,
+  },
+  {
+    id: 'step-4',
+    heading: 'Uninstalling Apps',
+    subHeading: 'What is Lorem Ipsum?',
+    image: Step4,
+    component: Welcome,
+  },
+  {
+    id: 'step-5',
+    heading: 'Support',
+    subHeading: 'What is Lorem Ipsum?',
+    image: Step5,
+    component: Support,
+  },
+]
+
 export const handleUserAccept = history => () => {
   setCookieString(COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE, new Date(), COOKIE_MAX_AGE_INFINITY)
   history.push(Routes.INSTALLED_APPS)
@@ -65,46 +144,28 @@ export const handleChangeSteps = (goTo: () => void) => () => {
 }
 
 export const ClientWelcomeMessage: React.FC<ClientWelcomeMessageProps> = () => {
+  const isAdmin = useSelector(selectIsAdmin)
+  const loginSession = useSelector(selectLoginSession)
+  const WELCOME_GIUDE = isAdmin ? WELCOME_GUIDE_ADMIN : WELCOME_GUIDE_USER
+
+  const giudeList = WELCOME_GIUDE.map(step => {
+    return (
+      <HelpGuide.Step
+        key={step.id}
+        id={step.id}
+        component={step.component}
+        heading={step.heading}
+        subHeading={step.subHeading}
+        graphic={<img className={styles.graphic} alt={step.id} src={step.image} />}
+      />
+    )
+  })
+
+  if (!loginSession) return <Loader />
   return (
     <div id="developer-welcome" className={styles.container}>
       <FlexContainerResponsive className="welcome-container" flexColumn hasBackground hasPadding>
-        <HelpGuide>
-          <HelpGuide.Step
-            id="step-1"
-            component={Welcome}
-            heading="Lorem Ipsum"
-            subHeading="What is Lorem Ipsum?"
-            graphic={<img className={styles.graphic} alt="step-1" src={Step1} />}
-          />
-          <HelpGuide.Step
-            id="step-2"
-            component={Welcome}
-            heading="Lorem Ipsum"
-            subHeading="What is Lorem Ipsum?"
-            graphic={<img className={styles.graphic} alt="step-2" src={Step2} />}
-          />
-          <HelpGuide.Step
-            id="step-3"
-            component={Welcome}
-            heading="Lorem Ipsum"
-            subHeading="What is Lorem Ipsum?"
-            graphic={<img className={styles.graphic} alt="step-3" src={Step3} />}
-          />
-          <HelpGuide.Step
-            id="step-4"
-            component={Welcome}
-            heading="Lorem Ipsum"
-            subHeading="What is Lorem Ipsum?"
-            graphic={<img className={styles.graphic} alt="step-4" src={Step4} />}
-          />
-          <HelpGuide.Step
-            id="step-5"
-            render={<Support />}
-            heading="Lorem Ipsum"
-            subHeading="What is Lorem Ipsum?"
-            graphic={<img className={styles.graphic} alt="step-5" src={Step5} />}
-          />
-        </HelpGuide>
+        <HelpGuide>{giudeList}</HelpGuide>
       </FlexContainerResponsive>
     </div>
   )

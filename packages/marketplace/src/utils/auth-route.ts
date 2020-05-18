@@ -15,6 +15,7 @@ export function getAuthRouteByLoginType(loginType: LoginType) {
 export function getDefaultRouteByLoginType({
   loginType,
   isDeveloperFirstTimeLoginComplete,
+  isClientFirstTimeLoginComplete,
 }: {
   loginType: LoginType
   isDeveloperFirstTimeLoginComplete?: boolean
@@ -28,10 +29,9 @@ export function getDefaultRouteByLoginType({
         ? `${window.location.origin}${Routes.DEVELOPER_WELCOME}`
         : `${window.location.origin}${Routes.DEVELOPER_MY_APPS}`
     default:
-      // return !isClientFirstTimeLoginComplete
-      //   ? `${window.location.origin}${Routes.CLIENT_WELCOME}`
-      //   : `${window.location.origin}${Routes.INSTALLED_APPS}`
-      return `${window.location.origin}${Routes.INSTALLED_APPS}`
+      return !isClientFirstTimeLoginComplete
+        ? `${window.location.origin}${Routes.CLIENT_WELCOME}`
+        : `${window.location.origin}${Routes.INSTALLED_APPS}`
   }
 }
 
@@ -49,6 +49,7 @@ export function getLoginTypeByPath(path: string) {
 export function getDefaultPathByLoginType({
   loginType,
   isDeveloperFirstTimeLoginComplete,
+  isClientFirstTimeLoginComplete,
 }: {
   loginType: LoginType
   isDeveloperFirstTimeLoginComplete?: boolean
@@ -60,7 +61,6 @@ export function getDefaultPathByLoginType({
     case 'DEVELOPER':
       return !isDeveloperFirstTimeLoginComplete ? Routes.DEVELOPER_WELCOME : Routes.DEVELOPER_MY_APPS
     default:
-      // return !isClientFirstTimeLoginComplete ? Routes.CLIENT_WELCOME : Routes.INSTALLED_APPS
-      return Routes.INSTALLED_APPS
+      return !isClientFirstTimeLoginComplete ? Routes.CLIENT_WELCOME : Routes.INSTALLED_APPS
   }
 }

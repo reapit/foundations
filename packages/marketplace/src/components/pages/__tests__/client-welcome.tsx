@@ -3,18 +3,41 @@ jest.mock('@/utils/cookie')
 import * as React from 'react'
 import { setCookieString, COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE, COOKIE_MAX_AGE_INFINITY } from '@/utils/cookie'
 import MockDate from 'mockdate'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import { ClientWelcomeMessage, ClientWelcomeMessageProps, handleUserAccept, Support, Welcome } from '../client-welcome'
 import routes from '@/constants/routes'
 import { HelpGuide } from '@reapit/elements'
+import { ReduxState } from '@/types/core'
+import configureStore from 'redux-mock-store'
+import { Provider } from 'react-redux'
 
 const mockProps: ClientWelcomeMessageProps = {
   userAcceptTermAndCondition: jest.fn(),
 }
 
+const mockState = {
+  auth: {
+    loginSession: {
+      loginIdentity: {
+        isAdmin: true,
+      },
+    },
+  },
+} as ReduxState
+
 describe('ClientWelcomeMessage', () => {
+  let store
   it('should match a snapshot', () => {
-    expect(shallow(<ClientWelcomeMessage {...mockProps} />)).toMatchSnapshot()
+    const mockStore = configureStore()
+    store = mockStore(mockState)
+
+    expect(
+      mount(
+        <Provider store={store}>
+          <ClientWelcomeMessage {...mockProps} />
+        </Provider>,
+      ),
+    ).toMatchSnapshot()
   })
 
   it('Documentation step should match a snapshot', () => {
