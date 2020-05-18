@@ -15,7 +15,7 @@ import { generateHeader } from './utils'
 import { logger } from 'logger'
 import { FetchByIdCommonParams, FetchListCommonParams } from './types'
 
-export interface FetchAppsListParams extends FetchListCommonParams {
+export type FetchAppsListParams = FetchListCommonParams & {
   developerId?: string[]
   clientId?: string
   externalAppId?: string[]
@@ -31,7 +31,7 @@ export interface FetchAppsListParams extends FetchListCommonParams {
   registeredTo?: string
 }
 
-export interface FetchAppByIdParams extends FetchByIdCommonParams {
+export type FetchAppByIdParams = FetchByIdCommonParams & {
   clientId?: string
 }
 
@@ -43,13 +43,13 @@ export type FeatureAppByIdParams = FetchByIdCommonParams
 
 export type UnfeatureAppByIdParams = FetchByIdCommonParams
 
-export interface FetchAppRevisionsListParams extends FetchListCommonParams {
+export type FetchAppRevisionsListParams = FetchListCommonParams & {
   id: string
 }
 
 export type CreateAppRevisionParams = FetchByIdCommonParams & CreateAppRevisionModel
 
-export interface FetchAppRevisionsByIdParams extends FetchByIdCommonParams {
+export type FetchAppRevisionsByIdParams = FetchByIdCommonParams & {
   revisionId: string
 }
 
@@ -192,8 +192,9 @@ export const createAppRevision = async (params: CreateAppRevisionParams) => {
 export const fetchAppRevisionsById = async (params: FetchAppRevisionsByIdParams): Promise<AppRevisionModel> => {
   try {
     const { id, revisionId } = params
+    console.log(revisionId)
     const response = await fetcher({
-      url: `${URLS.apps}/${id}/revisions/${revisionId}}`,
+      url: `${URLS.apps}/${id}/revisions/${revisionId}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),

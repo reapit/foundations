@@ -13,6 +13,8 @@ import { logger } from 'logger'
 import { fetchAppsList } from '@/services/apps'
 import { fetchCategoriesList } from '@/services/categories'
 
+const DEFAULT_CATEGORY_LENGTH = 1
+
 export const clientDataFetch = function*({ data }) {
   try {
     const { page, search, category, searchBy } = data
@@ -41,7 +43,7 @@ export const clientDataFetch = function*({ data }) {
       !!search || !!category
         ? currentFeaturedApps
         : call(fetchAppsList, { clientId, pageNumber: 1, pageSize: FEATURED_APPS, isFeatured: true }),
-      currentCategories.length > 1 ? currentCategories : call(fetchCategoriesList, {}),
+      currentCategories.length > DEFAULT_CATEGORY_LENGTH ? currentCategories : call(fetchCategoriesList, {}),
     ])
     const clientItem: ClientAppSummary = { apps: apps, featuredApps: featuredApps?.data }
     yield put(clientFetchAppSummarySuccess(clientItem))

@@ -5,14 +5,14 @@ import { generateHeader } from './utils'
 import { logger } from 'logger'
 
 // Manual defined Model
-export interface BillingSummaryModel {
+export type BillingSummaryModel = {
   description?: string
   from?: string
   to?: string
   requestsByPeriod?: MonthlyBillingDetailsModel
 }
 
-export interface MonthlyBillingDetailsModel {
+export type MonthlyBillingDetailsModel = {
   period?: string
   periodStart?: string
   periodEnd?: string
@@ -24,7 +24,7 @@ export interface MonthlyBillingDetailsModel {
   vatAmount?: number
 }
 
-export interface BillingDetailsModel {
+export type BillingDetailsModel = {
   period?: string
   totalEndpoints?: number
   totalRequests?: number
@@ -32,7 +32,7 @@ export interface BillingDetailsModel {
   requestsByService?: ServiceBillingDetailsModel[]
 }
 
-export interface ServiceBillingDetailsModel {
+export type ServiceBillingDetailsModel = {
   serviceName?: string
   endpointCount?: number
   requestCount?: number
@@ -40,13 +40,13 @@ export interface ServiceBillingDetailsModel {
   requestsByEndpoint?: EndpointBillingDetailsModel[]
 }
 
-export interface EndpointBillingDetailsModel {
+export type EndpointBillingDetailsModel = {
   endpoint?: string
   requestCount?: number
   cost?: number
 }
 
-export interface TrafficEventsStatisticsSummaryModel {
+export type TrafficEventsStatisticsSummaryModel = {
   from?: string
   to?: string
   totalRequestCount?: number
@@ -56,39 +56,39 @@ export interface TrafficEventsStatisticsSummaryModel {
   requestsByCustomer?: CustomerStatisticsModel[]
 }
 
-export interface EndpointStatisticsModel {
+export type EndpointStatisticsModel = {
   endpoint?: string
   requestCount?: number
 }
 
-export interface DateStatisticsModel {
+export type DateStatisticsModel = {
   date?: string
   requestCount?: number
 }
 
-export interface CustomerStatisticsModel {
+export type CustomerStatisticsModel = {
   customerId?: string
   requestCount?: number
 }
 // end manual defined Model
 
-export interface FetchBillingsParams {
+export type FetchBillingsParams = {
   applicationId?: string[]
   dateFrom?: string
   dateTo?: string
 }
 
-export interface FetchBillingsByMonthParams {
+export type FetchBillingsByMonthParams = {
   applicationId?: string[]
   month: string
 }
 
-export interface DownloadTrafficEventsByMonthParams {
+export type DownloadTrafficEventsByMonthParams = {
   applicationId?: string[]
   month: string
 }
 
-export interface FetchTrafficStatisticsParams {
+export type FetchTrafficStatisticsParams = {
   applicationId?: string[]
   customerId?: string[]
   dateFrom?: string

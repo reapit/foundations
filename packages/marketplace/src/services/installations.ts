@@ -10,7 +10,7 @@ import { generateHeader } from './utils'
 import { logger } from 'logger'
 import { FetchListCommonParams } from './types'
 
-export interface FetchInstallationsListParams extends FetchListCommonParams {
+export type FetchInstallationsListParams = FetchListCommonParams & {
   appId?: string[]
   developerId?: string[]
   clientId?: string[]
@@ -24,19 +24,19 @@ export interface FetchInstallationsListParams extends FetchListCommonParams {
 
 export type CreateInstallationParams = CreateInstallationModel
 
-export interface FetchInstallationByIdParams {
+export type FetchInstallationByIdParams = {
   installationId: string
 }
 
-export interface FetchApiKeyInstallationByIdParams {
+export type FetchApiKeyInstallationByIdParams = {
   installationId: string
 }
 
-export interface DeleteApiKeyInstallationById {
+export type DeleteApiKeyInstallationById = {
   installationId: string
 }
 
-export interface RemoveAccessToAppByIdParams extends TerminateInstallationModel {
+export type RemoveAccessToAppByIdParams = TerminateInstallationModel & {
   installationId: string
 }
 

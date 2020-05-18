@@ -10,7 +10,7 @@ import { generateHeader } from './utils'
 import { logger } from 'logger'
 import { FetchListCommonParams, FetchByIdCommonParams } from './types'
 
-export interface FetchDevelopersListParams extends FetchListCommonParams {
+export type FetchDevelopersListParams = FetchListCommonParams & {
   name?: string
   company?: string
   isInactive?: boolean

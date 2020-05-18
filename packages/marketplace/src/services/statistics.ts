@@ -4,7 +4,7 @@ import { URLS } from './constants'
 import { generateHeader } from './utils'
 import { logger } from 'logger'
 
-export interface FetchStatisticsListParams {
+export type FetchStatisticsListParams = {
   appId?: string[]
   dateFrom?: string
   dateTo?: string

@@ -6,7 +6,7 @@ import { FetchListCommonParams, FetchByIdCommonParams } from './types'
 
 // Manual defined Model
 
-export interface PagedResultWebhookModel_ {
+export type PagedResultWebhookModel_ = {
   _embedded?: WebhookModel[]
   pageNumber?: number
   pageSize?: number
@@ -15,7 +15,7 @@ export interface PagedResultWebhookModel_ {
   _links?: { [key: string]: PagingLinkModel }
 }
 
-export interface WebhookModel {
+export type WebhookModel = {
   id?: string
   created?: string
   modified?: string
@@ -27,11 +27,11 @@ export interface WebhookModel {
   active?: boolean
 }
 
-export interface PagingLinkModel {
+export type PagingLinkModel = {
   href?: string
 }
 
-export interface CreateWebhookModel {
+export type CreateWebhookModel = {
   applicationId?: string
   url?: string
   description?: string
@@ -40,7 +40,7 @@ export interface CreateWebhookModel {
   active?: boolean
 }
 
-export interface UpdateWebhookModel {
+export type UpdateWebhookModel = {
   url?: string
   description?: string
   topicIds?: string[]
@@ -48,11 +48,11 @@ export interface UpdateWebhookModel {
   active?: boolean
 }
 
-export interface PingEndpointModel {
+export type PingEndpointModel = {
   topicId?: string
 }
 
-export interface PagedResultTopicModel_ {
+export type PagedResultTopicModel_ = {
   _embedded?: TopicModel[]
   pageNumber?: number
   pageSize?: number
@@ -61,7 +61,7 @@ export interface PagedResultTopicModel_ {
   _links?: { [key: string]: PagingLinkModel }
 }
 
-export interface TopicModel {
+export type TopicModel = {
   id?: string
   created?: string
   modified?: string
@@ -73,7 +73,7 @@ export interface TopicModel {
   example?: string
 }
 
-export interface CreateTopicModel {
+export type CreateTopicModel = {
   id?: string
   name?: string
   description?: string
@@ -81,7 +81,7 @@ export interface CreateTopicModel {
   associatedScope?: string
   example?: string
 }
-export interface UpdateTopicModel {
+export type UpdateTopicModel = {
   name?: string
   description?: string
   url?: string
@@ -91,7 +91,7 @@ export interface UpdateTopicModel {
 // end manual defined Model
 
 // Subscriptions
-export interface FetchWebhooksSubscriptionsListParams extends FetchListCommonParams {
+export type FetchWebhooksSubscriptionsListParams = FetchListCommonParams & {
   sortBy?: string
   applicationId?: string[]
   active?: boolean
@@ -109,7 +109,7 @@ export type PingWebhooksByIdParams = FetchByIdCommonParams & PingEndpointModel
 
 // Topics
 
-export interface FetchWebhooksTopicsListParams extends FetchListCommonParams {
+export type FetchWebhooksTopicsListParams = FetchListCommonParams & {
   sortBy?: string
   applicationId?: string
 }

@@ -27,20 +27,17 @@ export const adminStatsDataFetch = function*({ data }) {
         .toDate()
         .toISOString()
     }
-    const serviceToCall =
-      area === 'APPS'
-        ? fetchAppsList
-        : area === 'DEVELOPERS'
-        ? fetchDevelopersList
-        : area === 'INSTALLATIONS'
-        ? fetchInstallationsList
-        : undefined
+    const servicesToCall = {
+      DEVELOPERS: fetchDevelopersList,
+      INSTALLATIONS: fetchInstallationsList,
+      APPS: fetchAppsList,
+    }
 
-    if (!serviceToCall) {
+    if (!servicesToCall) {
       throw new Error('No service matched')
     }
 
-    const response = yield call(serviceToCall, { pageSize: GET_ALL_PAGE_SIZE, ...queryParams })
+    const response = yield call(servicesToCall[area], { pageSize: GET_ALL_PAGE_SIZE, ...queryParams })
 
     if (response) {
       yield put(adminStatsReceiveData({ data: response.data, totalCount: response.totalCount }))

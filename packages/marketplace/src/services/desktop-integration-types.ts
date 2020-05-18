@@ -4,27 +4,27 @@ import { generateHeader } from './utils'
 import { logger } from 'logger'
 import { FetchListCommonParams, FetchByIdCommonParams } from './types'
 
-export interface CreateDesktopIntegrationTypeModel {
+export type CreateDesktopIntegrationTypeModel = {
   id?: string
   name?: string
   description?: string
   url?: string
 }
 
-export interface UpdateDesktopIntegrationTypeModel {
+export type UpdateDesktopIntegrationTypeModel = {
   name?: string
   description?: string
   url?: string
 }
 
-export interface DesktopIntegrationTypeModel {
+export type DesktopIntegrationTypeModel = {
   id?: string
   name?: string
   description?: string
   url?: string
 }
 
-export interface PagedResultDesktopIntegrationTypeModel_ {
+export type PagedResultDesktopIntegrationTypeModel_ = {
   data?: DesktopIntegrationTypeModel[]
   pageNumber?: number
   pageSize?: number
