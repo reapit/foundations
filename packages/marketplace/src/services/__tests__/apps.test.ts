@@ -1,6 +1,7 @@
 import { generateHeader, URLS } from '@/constants/api'
 import { fetcher } from '@reapit/elements'
 import { fetchAppDetail, fetchAppApiKey } from '../apps'
+jest.mock('@reapit/elements')
 
 describe('fetchAppDetail', () => {
   it('fetcher should run correctly in case clientId is existed', () => {
