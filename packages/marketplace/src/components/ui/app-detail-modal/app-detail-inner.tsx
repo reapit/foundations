@@ -18,11 +18,14 @@ import styles from '@/styles/blocks/app-detail.scss?mod'
 import { FaCheck } from 'react-icons/fa'
 import { LoginMode } from '@reapit/cognito-auth'
 import { DESKTOP_REFRESH_URL } from '@/constants/desktop-urls'
+import { selectIsAdmin } from '@/selector/auth'
 
 export interface AppDetailInnerMappedProps {
   appDetailModalState: AppDetailModalState
   appDetailData: AppDetailModel
   loginMode: LoginMode
+  isAdmin: boolean
+  isCurrentLoggedUserClient: boolean
 }
 
 export interface AppDetailInnerMappedActions {
@@ -36,6 +39,8 @@ export const mapStateToProps = (state: ReduxState): AppDetailInnerMappedProps =>
   appDetailModalState: state.appDetailModal,
   appDetailData: state.appDetail.appDetailData?.data!,
   loginMode: state.auth.refreshSession?.mode || 'WEB',
+  isCurrentLoggedUserClient: state.auth.loginType === 'CLIENT',
+  isAdmin: selectIsAdmin(state),
 })
 
 export const mapDispatchToProps = (dispatch: any): AppDetailInnerMappedActions => ({
@@ -65,14 +70,20 @@ export const handleCloseModal = (
   setAppDetailModalStateBrowse()
 }
 
-export const renderFooterAppDetailBrowse = ({ appDetailData, setStateViewInstall }) => {
+export const renderFooterAppDetailBrowse = ({ appDetailData, setStateViewInstall, isInstallBtnDisabled }) => {
   return appDetailData.installedOn ? (
     <div data-test="detail-modal-installed" className={styles.installed}>
       <FaCheck />
       <span>Installed</span>
     </div>
   ) : (
-    <Button dataTest="detail-modal-install-button" type="button" variant="primary" onClick={setStateViewInstall}>
+    <Button
+      dataTest="detail-modal-install-button"
+      type="button"
+      variant="primary"
+      onClick={setStateViewInstall}
+      disabled={isInstallBtnDisabled}
+    >
       Install App
     </Button>
   )
@@ -95,13 +106,16 @@ export const AppDetailInner: React.FunctionComponent<AppDetailInnerProps> = ({
   setStateViewUninstall,
   installationsSetFormState,
   loginMode,
+  isAdmin,
+  isCurrentLoggedUserClient,
 }) => {
   if (appDetailModalState === 'VIEW_DETAIL_BROWSE') {
+    const isInstallBtnDisabled = isCurrentLoggedUserClient && !isAdmin
     return (
       <AppDetail
         data={appDetailData}
         afterClose={afterClose}
-        footerItems={renderFooterAppDetailBrowse({ appDetailData, setStateViewInstall })}
+        footerItems={renderFooterAppDetailBrowse({ appDetailData, setStateViewInstall, isInstallBtnDisabled })}
       />
     )
   }
