@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { Route, RouteProps, useHistory } from 'react-router'
+import { History } from 'history'
+import { Route, RouteProps, RouteComponentProps, StaticContext } from 'react-router'
 import { Redirect } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import RouteFetcher from '../components/hocs/route-fetcher'
@@ -8,6 +9,8 @@ import { selectLoginIdentity, selectLoginType } from '@/selector/auth'
 import { authChangeLoginType } from '@/actions/auth'
 import Routes from '@/constants/routes'
 
+export type RouterComponentProps = {} & RouteComponentProps<any, StaticContext, History.PoorMansUnknown>
+
 export interface PrivateRouteProps {
   allow: LoginType | LoginType[]
   component: React.FunctionComponent
@@ -15,7 +18,7 @@ export interface PrivateRouteProps {
   fetcher?: boolean
 }
 
-export const isNotAllowedAccess = (loginIdentity?: LoginIdentity) => {
+export const isNotAllowedToAccess = (loginIdentity?: LoginIdentity) => {
   if (!loginIdentity) {
     return false
   }
@@ -26,40 +29,51 @@ export const isNotAllowedAccess = (loginIdentity?: LoginIdentity) => {
   return false
 }
 
-export const PrivateRoute = ({ component, allow, fetcher = false, ...rest }: PrivateRouteProps & RouteProps) => {
-  const dispatch = useDispatch()
-  const history = useHistory()
-  const loginIdentity = useSelector(selectLoginIdentity)
-  const loginType = useSelector(selectLoginType)
-
-  React.useEffect(() => {
+export const handleChangeLoginType = (loginIdentity, loginType, allow, dispatch) => {
+  return () => {
     if (!loginIdentity) {
       return
     }
     if (loginType === 'CLIENT' && allow === 'DEVELOPER' && loginIdentity.developerId) {
-      console.log('PrivateRoute -> allow 1', allow)
       dispatch(authChangeLoginType('DEVELOPER'))
     }
     if (loginType === 'DEVELOPER' && allow === 'CLIENT' && loginIdentity.clientId) {
-      console.log('PrivateRoute -> allow 2', allow)
       dispatch(authChangeLoginType('CLIENT'))
     }
-  }, [allow, dispatch, loginIdentity, loginType])
+  }
+}
 
-  React.useEffect(() => {
-    if (loginIdentity) {
-      const { clientId, developerId } = loginIdentity
-      if ((allow === 'CLIENT' && !clientId) || (allow === 'DEVELOPER' && !developerId)) {
-        history.replace(Routes.Authentication)
-      }
+export const handleRedirectToAuthenticationPage = (loginIdentity, allow) => {
+  return () => {
+    if (!loginIdentity) {
+      return
     }
-  }, [loginType, loginIdentity])
+    const { clientId, developerId } = loginIdentity
+    if ((allow === 'CLIENT' && !clientId) || (allow === 'DEVELOPER' && !developerId)) {
+      window.location.href = `${Routes.Authentication}/${allow}`
+    }
+  }
+}
+
+export const PrivateRoute = ({ component, allow, fetcher = false, ...rest }: PrivateRouteProps & RouteProps) => {
+  const dispatch = useDispatch()
+  const loginIdentity = useSelector(selectLoginIdentity)
+  const loginType = useSelector(selectLoginType)
+
+  React.useEffect(handleChangeLoginType(loginIdentity, loginType, allow, dispatch), [
+    allow,
+    dispatch,
+    loginIdentity,
+    loginType,
+  ])
+
+  React.useEffect(handleRedirectToAuthenticationPage(loginIdentity, allow), [loginIdentity, allow])
 
   return (
     <Route
       {...rest}
       render={props => {
-        if (isNotAllowedAccess(loginIdentity)) {
+        if (isNotAllowedToAccess(loginIdentity)) {
           return <Redirect to="/404" />
         }
         if (fetcher) {

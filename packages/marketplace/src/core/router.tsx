@@ -49,7 +49,11 @@ const Router = () => {
           <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
           <PrivateRouteWrapper path="/">
             <Switch>
-              <PrivateRoute allow={['CLIENT', 'DEVELOPER']} path={Routes.Authentication} component={Authentication} />
+              <PrivateRoute
+                allow={['CLIENT', 'DEVELOPER']}
+                path={Routes.AuthenticationLoginType}
+                component={Authentication}
+              />
               <PrivateRoute allow="CLIENT" path={Routes.INSTALLED_APPS_PAGINATE} component={InstalledApps} fetcher />
               <PrivateRoute allow="CLIENT" path={Routes.INSTALLED_APPS} component={InstalledApps} fetcher exact />
               <PrivateRoute allow="CLIENT" path={Routes.MY_APPS_PAGINATE} component={MyApps} fetcher />
