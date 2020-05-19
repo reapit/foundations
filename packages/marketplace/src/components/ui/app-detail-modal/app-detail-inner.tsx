@@ -71,19 +71,15 @@ export const handleCloseModal = (
 }
 
 export const renderFooterAppDetailBrowse = ({ appDetailData, setStateViewInstall, isInstallBtnDisabled }) => {
-  return appDetailData.installedOn ? (
-    <div data-test="detail-modal-installed" className={styles.installed}>
-      <FaCheck />
-      <span>Installed</span>
-    </div>
-  ) : (
-    <Button
-      dataTest="detail-modal-install-button"
-      type="button"
-      variant="primary"
-      onClick={setStateViewInstall}
-      disabled={isInstallBtnDisabled}
-    >
+  if (appDetailData.installedOn)
+    return (
+      <div data-test="detail-modal-installed" className={styles.installed}>
+        <FaCheck />
+        <span>Installed</span>
+      </div>
+    )
+  return isInstallBtnDisabled ? null : (
+    <Button dataTest="detail-modal-install-button" type="button" variant="primary" onClick={setStateViewInstall}>
       Install App
     </Button>
   )
