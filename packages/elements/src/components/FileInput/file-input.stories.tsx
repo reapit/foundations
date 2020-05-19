@@ -69,7 +69,7 @@ storiesOf('FileInput', module)
   .add('Click on filename', () => (
     <section className="section">
       <Formik
-        initialValues={{ fileInput: '' }}
+        initialValues={{ fileInput: 'file-234' }}
         onSubmit={values => {
           action('Form Values' + values)
         }}
@@ -82,7 +82,8 @@ storiesOf('FileInput', module)
                 allowClear
                 name="fileInput"
                 labelText="File Input"
-                onFilenameClick={() => {
+                onFilenameClick={e => {
+                  e.preventDefault()
                   alert('filename clicked')
                 }}
               />
