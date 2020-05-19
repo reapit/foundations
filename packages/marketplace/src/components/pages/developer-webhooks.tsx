@@ -36,6 +36,7 @@ import WebhookEditModal from '../ui/webhook-edit-modal'
 import { selectDeveloperApps } from '@/selector/developer'
 import WebhookTestModal from '../ui/webhook-test-modal'
 import styles from '@/styles/elements/link.scss?mod'
+import linkStyles from '@/styles/elements/link.scss?mod'
 
 export const CreatedCell = ({ cell: { value } }): ReactElement[] => {
   return value.map((line, index) => <p key={index}>{line}</p>)
@@ -203,9 +204,25 @@ export const DeveloperWebhooks = ({
         <H3>Manage Webhook Subscriptions</H3>
         <FormSection>
           <FormSubHeading>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore excepturi aliquam dolor, dolore placeat
-            molestias illum quod quasi nihil. Modi consectetur praesentium sint quod qui quos soluta repellat porro
-            minus.
+            Our webhooks system allows your application to directly subscribe to events happening in our customers data.
+            Rather than needing to make API calls to poll for new information, a webhook subscription can be created to
+            allow Reapit Foundations to send a HTTP request directly to your endpoints that you configure here.
+          </FormSubHeading>
+          <FormSubHeading>
+            This system is designed to flexibly work with how your application is built and deployed. If you wish, you
+            can set up a single endpoint to catch all topics for all customers. Alternatively, you may wish to set up a
+            different webhook subscription per topic or per customer.
+          </FormSubHeading>
+          <FormSubHeading>
+            For more information about Webhooks, please see our{' '}
+            <a
+              className={linkStyles.link}
+              href="https://foundations-documentation.reapit.cloud/api/api-documentation#webhooks"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              webhooks documentation
+            </a>
           </FormSubHeading>
           <Formik initialValues={{ applicationId: '' }} enableReinitialize={true} onSubmit={() => {}}>
             {() => (

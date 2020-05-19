@@ -35,6 +35,7 @@ import {
 import { WebhookModal, CustomerItem, TopicItem } from '@/reducers/webhook-edit-modal'
 import { selectTopics, selectWebhookData, selectLoading, selectCustomers } from '@/selector/webhook-edit'
 import { isValidHttpsUrl } from '@/utils/validate'
+import linkStyles from '@/styles/elements/link.scss?mod'
 
 const CREATE_MODAL = {
   title: 'Add New Webhook',
@@ -204,10 +205,18 @@ export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps> 
                 <Form>
                   <Content>
                     <p>
-                      You can create a Webhook to receive notifications from the topics that you choose to subscribe it
-                      to. You can receive notifications for any customer that has installed your application. For more
-                      information about Webhooks, please see our{' '}
+                      Webhooks are configured here to allow your application to receive real-time notifications about
+                      the topics you choose to subscribe it to. A single webhook subscription can receive notifications
+                      for multiple topics so long as your application has been granted the required permissions.
+                    </p>
+                    <p>
+                      Webhooks subscriptions can be set up for any customer who has installed your application.
+                      Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+                    </p>
+                    <p>
+                      For more information about Webhooks, please see our{' '}
                       <a
+                        className={linkStyles.link}
                         href="https://foundations-documentation.reapit.cloud/api/api-documentation#webhooks"
                         target="_blank"
                         rel="noopener noreferrer"
