@@ -11,10 +11,18 @@ import { LoginType } from '@reapit/cognito-auth'
 import * as cognito from '@reapit/cognito-auth'
 import messages from '@/constants/messages'
 import Routes from '@/constants/routes'
+import { ReduxState } from '@/types/core'
 
 jest.mock('@reapit/cognito-auth', () => ({
   redirectToLogin: jest.fn(),
 }))
+
+const mockState = {
+  ...appState,
+  auth: {
+    loginSession: null,
+  },
+} as ReduxState
 
 describe('Login', () => {
   let store
@@ -22,7 +30,7 @@ describe('Login', () => {
   beforeEach(() => {
     /* mocking store */
     const mockStore = configureStore()
-    store = mockStore(appState)
+    store = mockStore(mockState)
     spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
   })
   it('should match a snapshot', () => {

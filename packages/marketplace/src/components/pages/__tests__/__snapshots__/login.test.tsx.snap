@@ -26,17 +26,16 @@ exports[`Login should match a snapshot 1`] = `
     <Router
       history={
         Object {
-          "action": "REPLACE",
+          "action": "POP",
           "block": [Function],
           "canGo": [Function],
           "createHref": [Function],
           "entries": Array [
             Object {
               "hash": "",
-              "key": "kzn0iq",
-              "pathname": "/client/welcome",
+              "key": "clientLoginRoute",
+              "pathname": "/client/login",
               "search": "",
-              "state": undefined,
             },
           ],
           "go": [Function],
@@ -47,10 +46,9 @@ exports[`Login should match a snapshot 1`] = `
           "listen": [Function],
           "location": Object {
             "hash": "",
-            "key": "kzn0iq",
-            "pathname": "/client/welcome",
+            "key": "clientLoginRoute",
+            "pathname": "/client/login",
             "search": "",
-            "state": undefined,
           },
           "push": [Function],
           "replace": [Function],
@@ -58,15 +56,65 @@ exports[`Login should match a snapshot 1`] = `
       }
     >
       <Component>
-        <Redirect
-          to="/client/welcome"
-        >
-          <Lifecycle
-            onMount={[Function]}
-            onUpdate={[Function]}
-            to="/client/welcome"
-          />
-        </Redirect>
+        <div>
+          <div>
+            <Component>
+              <div
+                className="level "
+              >
+                <img
+                  alt="Reapit Connect Graphic"
+                  src=""
+                />
+              </div>
+            </Component>
+            <p
+              className="pb-8"
+            >
+              Welcome to Reapit 
+              Foundations
+            </p>
+            <Component>
+              <div
+                className="level "
+              >
+                <Component
+                  dataTest="login-button"
+                  disabled={false}
+                  fullWidth={true}
+                  loading={false}
+                  onClick={[Function]}
+                  type="button"
+                  variant="primary"
+                >
+                  <button
+                    className="button  is-primary is-fullwidth "
+                    data-test="login-button"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Login
+                  </button>
+                </Component>
+              </div>
+            </Component>
+            <Component
+              centerContent={true}
+              className="pt-8"
+            >
+              <div
+                className="container-flex  is-centered    pt-8"
+              />
+            </Component>
+          </div>
+          <div>
+            <img
+              alt="Reapit Graphic"
+              src=""
+            />
+          </div>
+        </div>
       </Component>
     </Router>
   </MemoryRouter>
