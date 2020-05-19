@@ -23,3 +23,7 @@ export const selectDeveloperId = (state: ReduxState) => {
 export const selectLoginSession = (state: ReduxState) => {
   return state.auth?.loginSession
 }
+
+export const selectRefreshSession = (state: ReduxState) => {
+  return state.auth?.refreshSession
+}

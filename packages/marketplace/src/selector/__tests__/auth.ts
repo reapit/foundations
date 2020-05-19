@@ -1,5 +1,5 @@
 import { ReduxState } from '@/types/core'
-import { selectLoginType, selectIsAdmin, selectLoginIdentity, selectLoginSession } from '../auth'
+import { selectLoginType, selectIsAdmin, selectLoginIdentity, selectLoginSession, selectRefreshSession } from '../auth'
 
 const mockState = {
   auth: {
@@ -37,5 +37,12 @@ describe('selectLoginSession', () => {
   it('should run correctly', () => {
     const result = selectLoginSession(mockState)
     expect(result).toEqual(mockState.auth.loginSession)
+  })
+})
+
+describe('selectRefreshSession', () => {
+  it('should run correctly', () => {
+    const result = selectRefreshSession(mockState)
+    expect(result).toEqual(mockState.auth.refreshSession)
   })
 })
