@@ -51,7 +51,6 @@ exports[`AppDetailInner should match a snapshot when appDetailModalState = VIEW_
   footerItems={
     <Unknown
       dataTest="detail-modal-install-button"
-      disabled={false}
       onClick={[MockFunction]}
       type="button"
       variant="primary"
@@ -119,4 +118,30 @@ exports[`AppDetailInner should match a snapshot when appDetailModalState = VIEW_
     </Unknown>
   }
 />
+`;
+
+exports[`renderFooterAppDetailBrowse should match snapshot when installedOn is true 1`] = `
+<div>
+  <div
+    data-test="detail-modal-installed"
+  >
+    <FaCheck />
+    <span>
+      Installed
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renderFooterAppDetailBrowse should match snapshot when isInstallBtnDisabled is fasle 1`] = `
+<div>
+  <Component
+    dataTest="detail-modal-install-button"
+    onClick={[MockFunction]}
+    type="button"
+    variant="primary"
+  >
+    Install App
+  </Component>
+</div>
 `;
