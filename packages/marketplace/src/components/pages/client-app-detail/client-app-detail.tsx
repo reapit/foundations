@@ -28,7 +28,7 @@ export const renderAppHeaderButtonGroup = (
   id: string,
   installedOn: string,
   onInstallConfirmationModal: () => void,
-  isInstallBtnDisabled: boolean,
+  isInstallBtnHidden: boolean,
 ) => {
   return (
     <>
@@ -40,7 +40,7 @@ export const renderAppHeaderButtonGroup = (
               <span>Installed</span>
             </div>
           ) : (
-            isInstallBtnDisabled || (
+            isInstallBtnHidden || (
               <Button
                 dataTest="detail-modal-install-button"
                 type="button"
@@ -70,14 +70,14 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   const loginType = useSelector(selectLoginType)
   const isAdmin = useSelector(selectIsAdmin)
 
-  const isInstallBtnDisabled = loginType === 'CLIENT' && !isAdmin
+  const isInstallBtnHidden = loginType === 'CLIENT' && !isAdmin
   const { id = '', installedOn = '' } = appDetailData
 
   return (
     <div className={styles.appDetailContainer}>
       <AppHeader
         appDetailData={appDetailData}
-        buttonGroup={renderAppHeaderButtonGroup(id, installedOn, onInstallConfirmationModal, isInstallBtnDisabled)}
+        buttonGroup={renderAppHeaderButtonGroup(id, installedOn, onInstallConfirmationModal, isInstallBtnHidden)}
       />
       <AppContent appDetailData={appDetailData} loginType={loginType} />
       {isVisibleInstallConfirmation && (

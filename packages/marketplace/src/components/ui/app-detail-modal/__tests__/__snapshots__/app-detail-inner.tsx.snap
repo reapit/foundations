@@ -133,7 +133,7 @@ exports[`renderFooterAppDetailBrowse should match snapshot when installedOn is t
 </div>
 `;
 
-exports[`renderFooterAppDetailBrowse should match snapshot when isInstallBtnDisabled is fasle 1`] = `
+exports[`renderFooterAppDetailBrowse should match snapshot when isInstallBtnHidden is fasle 1`] = `
 <div>
   <Component
     dataTest="detail-modal-install-button"

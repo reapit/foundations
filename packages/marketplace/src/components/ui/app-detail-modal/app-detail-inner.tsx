@@ -70,7 +70,7 @@ export const handleCloseModal = (
   setAppDetailModalStateBrowse()
 }
 
-export const renderFooterAppDetailBrowse = ({ appDetailData, setStateViewInstall, isInstallBtnDisabled }) => {
+export const renderFooterAppDetailBrowse = ({ appDetailData, setStateViewInstall, isInstallBtnHidden }) => {
   if (appDetailData.installedOn)
     return (
       <div data-test="detail-modal-installed" className={styles.installed}>
@@ -78,7 +78,7 @@ export const renderFooterAppDetailBrowse = ({ appDetailData, setStateViewInstall
         <span>Installed</span>
       </div>
     )
-  if (!isInstallBtnDisabled)
+  if (!isInstallBtnHidden)
     return (
       <Button dataTest="detail-modal-install-button" type="button" variant="primary" onClick={setStateViewInstall}>
         Install App
@@ -108,12 +108,12 @@ export const AppDetailInner: React.FunctionComponent<AppDetailInnerProps> = ({
   isCurrentLoggedUserClient,
 }) => {
   if (appDetailModalState === 'VIEW_DETAIL_BROWSE') {
-    const isInstallBtnDisabled = isCurrentLoggedUserClient && !isAdmin
+    const isInstallBtnHidden = isCurrentLoggedUserClient && !isAdmin
     return (
       <AppDetail
         data={appDetailData}
         afterClose={afterClose}
-        footerItems={renderFooterAppDetailBrowse({ appDetailData, setStateViewInstall, isInstallBtnDisabled })}
+        footerItems={renderFooterAppDetailBrowse({ appDetailData, setStateViewInstall, isInstallBtnHidden })}
       />
     )
   }

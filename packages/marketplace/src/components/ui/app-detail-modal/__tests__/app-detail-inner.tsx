@@ -74,17 +74,17 @@ describe('renderFooterAppDetailBrowse', () => {
     }
     const setStateViewInstall = jest.fn()
 
-    let footer = renderFooterAppDetailBrowse({ appDetailData, setStateViewInstall, isInstallBtnDisabled: true })
+    let footer = renderFooterAppDetailBrowse({ appDetailData, setStateViewInstall, isInstallBtnHidden: true })
     expect(shallow(<div>{footer}</div>)).toMatchSnapshot()
   })
 
-  it('should match snapshot when isInstallBtnDisabled is fasle', () => {
+  it('should match snapshot when isInstallBtnHidden is fasle', () => {
     const appDetailData = {
       installedOn: false,
     }
     const setStateViewInstall = jest.fn()
 
-    const footer = renderFooterAppDetailBrowse({ appDetailData, setStateViewInstall, isInstallBtnDisabled: false })
+    const footer = renderFooterAppDetailBrowse({ appDetailData, setStateViewInstall, isInstallBtnHidden: false })
     expect(shallow(<div>{footer}</div>)).toMatchSnapshot()
   })
 })
