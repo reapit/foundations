@@ -20,6 +20,7 @@ export interface FileInputProps {
   testProps?: FileInputTestProps
   inputProps?: Record<string, any>
   required?: boolean
+  onFilenameClick?: () => void
 }
 
 export const FileInput = ({
@@ -32,6 +33,7 @@ export const FileInput = ({
   testProps,
   inputProps,
   required = false,
+  onFilenameClick = undefined,
 }: FileInputProps) => {
   const [fileUrl, setFileName] = useState<string>()
   const inputFile = React.useRef<HTMLInputElement>(null)
@@ -82,6 +84,15 @@ export const FileInput = ({
                     <span data-test="fileUploadFileName" className="file-name">
                       {!isBase64(field.value) ? (
                         <a href={field.value} target="_blank" rel="noopener noreferrer">
+                          {fileUrl || field.value}
+                        </a>
+                      ) : onFilenameClick ? (
+                        <a
+                          onClick={e => {
+                            e.preventDefault()
+                            onFilenameClick()
+                          }}
+                        >
                           {fileUrl || field.value}
                         </a>
                       ) : (

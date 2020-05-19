@@ -42,28 +42,53 @@ storiesOf('FileInput', module)
       </Formik>
     </section>
   ))
-
-storiesOf('FileInput', module).add('Disabled', () => (
-  <section className="section">
-    <Formik
-      initialValues={{ fileInput: '' }}
-      onSubmit={values => {
-        action('Form Values' + values)
-      }}
-    >
-      {() => (
-        <Form>
-          <div className="column is-half-desktop">
-            <FileInput
-              id="fileInput"
-              allowClear
-              name="fileInput"
-              labelText="File Input"
-              inputProps={{ disabled: true }}
-            />
-          </div>
-        </Form>
-      )}
-    </Formik>
-  </section>
-))
+  .add('Disabled', () => (
+    <section className="section">
+      <Formik
+        initialValues={{ fileInput: '' }}
+        onSubmit={values => {
+          action('Form Values' + values)
+        }}
+      >
+        {() => (
+          <Form>
+            <div className="column is-half-desktop">
+              <FileInput
+                id="fileInput"
+                allowClear
+                name="fileInput"
+                labelText="File Input"
+                inputProps={{ disabled: true }}
+              />
+            </div>
+          </Form>
+        )}
+      </Formik>
+    </section>
+  ))
+  .add('Click on filename', () => (
+    <section className="section">
+      <Formik
+        initialValues={{ fileInput: '' }}
+        onSubmit={values => {
+          action('Form Values' + values)
+        }}
+      >
+        {() => (
+          <Form>
+            <div className="column is-half-desktop">
+              <FileInput
+                id="fileInput"
+                allowClear
+                name="fileInput"
+                labelText="File Input"
+                onFilenameClick={() => {
+                  alert('filename clicked')
+                }}
+              />
+            </div>
+          </Form>
+        )}
+      </Formik>
+    </section>
+  ))
