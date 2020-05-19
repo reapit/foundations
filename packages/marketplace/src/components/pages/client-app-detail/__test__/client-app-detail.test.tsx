@@ -36,21 +36,21 @@ describe('ClientAppDetail', () => {
     const mockAppId = 'test'
     const mockInstalledOn = '2020-2-20'
     it('should match snapshot', () => {
-      const wrapper = shallow(<div>{renderAppHeaderButtonGroup(mockAppId, mockInstalledOn, jest.fn())}</div>)
+      const wrapper = shallow(<div>{renderAppHeaderButtonGroup(mockAppId, mockInstalledOn, jest.fn(), false)}</div>)
       expect(wrapper).toMatchSnapshot()
     })
     it('should render header button group when appId is existed', () => {
-      const testRenderer = TestRenderer.create(renderAppHeaderButtonGroup(mockAppId, mockInstalledOn, jest.fn()))
+      const testRenderer = TestRenderer.create(renderAppHeaderButtonGroup(mockAppId, mockInstalledOn, jest.fn(), false))
       const testInstance = testRenderer.root
       expect(testInstance.children.length).toBe(1)
     })
     it('should render install app button if installedOn is empty', () => {
-      const testRenderer = TestRenderer.create(renderAppHeaderButtonGroup(mockAppId, '', jest.fn()))
+      const testRenderer = TestRenderer.create(renderAppHeaderButtonGroup(mockAppId, '', jest.fn(), false))
       const testInstance = testRenderer.root
       expect(testInstance.findByType(Button).props.children).toBe('Install App')
     })
     it('should render installed label if installedOn is existed', () => {
-      const testRenderer = TestRenderer.create(renderAppHeaderButtonGroup(mockAppId, mockInstalledOn, jest.fn()))
+      const testRenderer = TestRenderer.create(renderAppHeaderButtonGroup(mockAppId, mockInstalledOn, jest.fn(), false))
       const testInstance = testRenderer.root
       expect(
         testInstance.findByProps({
@@ -59,7 +59,7 @@ describe('ClientAppDetail', () => {
       ).toBeGreaterThan(0)
     })
     it('should not render header button group when appId is empty', () => {
-      const testRenderer = TestRenderer.create(renderAppHeaderButtonGroup('', mockInstalledOn, jest.fn()))
+      const testRenderer = TestRenderer.create(renderAppHeaderButtonGroup('', mockInstalledOn, jest.fn(), false))
       const testInstance = testRenderer.getInstance
       expect(testInstance).toHaveLength(0)
     })

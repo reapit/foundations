@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow, mount } from 'enzyme'
-import { AppDetailInner, AppDetailInnerProps } from '../app-detail-inner'
+import { AppDetailInner, AppDetailInnerProps, renderFooterAppDetailBrowse } from '../app-detail-inner'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 
 const mockProps: AppDetailInnerProps = {
@@ -64,5 +64,27 @@ describe('AppDetailInner', () => {
     expect(wrapper.find('AppInstallConfirm')).toHaveLength(0)
     expect(wrapper.find('AppPermission')).toHaveLength(0)
     expect(wrapper.find('AppDetail')).toHaveLength(0)
+  })
+})
+
+describe('renderFooterAppDetailBrowse', () => {
+  it('should match snapshot when installedOn is true', () => {
+    let appDetailData = {
+      installedOn: true,
+    }
+    const setStateViewInstall = jest.fn()
+
+    let footer = renderFooterAppDetailBrowse({ appDetailData, setStateViewInstall, isInstallBtnHidden: true })
+    expect(shallow(<div>{footer}</div>)).toMatchSnapshot()
+  })
+
+  it('should match snapshot when isInstallBtnHidden is fasle', () => {
+    const appDetailData = {
+      installedOn: false,
+    }
+    const setStateViewInstall = jest.fn()
+
+    const footer = renderFooterAppDetailBrowse({ appDetailData, setStateViewInstall, isInstallBtnHidden: false })
+    expect(shallow(<div>{footer}</div>)).toMatchSnapshot()
   })
 })
