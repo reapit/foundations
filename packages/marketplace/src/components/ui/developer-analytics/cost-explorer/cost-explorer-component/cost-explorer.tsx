@@ -6,7 +6,7 @@ import CostExplorerTable from './cost-explorer-table'
 import { useDispatch, useSelector } from 'react-redux'
 import { Dispatch } from 'redux'
 import { fetchMonthlyBilling } from '@/actions/developer'
-import { selectDeveloperApps } from '@/selector'
+import { selectDeveloperApps } from '@/selector/developer'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
 export type CostExplorerProps = {}

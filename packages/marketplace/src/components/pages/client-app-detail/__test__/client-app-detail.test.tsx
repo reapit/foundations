@@ -127,7 +127,7 @@ describe('ClientAppDetail', () => {
     })
     it('should render header button group when appId is existed', () => {
       const testRenderer = TestRenderer.create(
-        renderAppHeaderButtonGroup(mockAppId, mockInstalledOn, jest.fn(), jest.fn()),
+        renderAppHeaderButtonGroup(mockAppId, mockInstalledOn, jest.fn(), jest.fn(), false),
       )
       const testInstance = testRenderer.root
       expect(testInstance.children.length).toBe(1)
