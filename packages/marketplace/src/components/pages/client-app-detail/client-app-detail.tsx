@@ -40,7 +40,7 @@ export const renderAppHeaderButtonGroup = (
               <span>Installed</span>
             </div>
           ) : (
-            !isInstallBtnDisabled && (
+            isInstallBtnDisabled || (
               <Button
                 dataTest="detail-modal-install-button"
                 type="button"

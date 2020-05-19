@@ -78,11 +78,13 @@ export const renderFooterAppDetailBrowse = ({ appDetailData, setStateViewInstall
         <span>Installed</span>
       </div>
     )
-  return isInstallBtnDisabled ? null : (
-    <Button dataTest="detail-modal-install-button" type="button" variant="primary" onClick={setStateViewInstall}>
-      Install App
-    </Button>
-  )
+  if (!isInstallBtnDisabled)
+    return (
+      <Button dataTest="detail-modal-install-button" type="button" variant="primary" onClick={setStateViewInstall}>
+        Install App
+      </Button>
+    )
+  return null
 }
 
 export const renderFooterAppDetailManage = ({ setStateViewUninstall }) => {
