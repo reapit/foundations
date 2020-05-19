@@ -14,11 +14,10 @@ import Authentication, {
   onDevelopersButtonClick,
 } from '../authentication'
 import { authLogout } from '@/actions/auth'
+import { getMockRouterProps } from '@/utils/mock-helper'
 
 describe('Authentication', () => {
-  const history = {
-    replace: jest.fn(),
-  } as any
+  const { history } = getMockRouterProps({})
   let store
   let spyDispatch
   beforeEach(() => {

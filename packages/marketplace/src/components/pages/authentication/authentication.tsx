@@ -81,9 +81,9 @@ export const renderDeveloperModal = (history, dispatch) => {
       }
     >
       <p>
-        {'You are not currently registered as a Reapit Developer, if you would like to register please visit '}{' '}
+        You are not currently registered as a Reapit Developer, if you would like to register please visit
         <span>
-          <a onClick={onRegisterButtonClick(history)}>our registration page</a>
+          <a onClick={onRegisterButtonClick(history)}> our registration page</a>
         </span>
       </p>
     </Modal>
