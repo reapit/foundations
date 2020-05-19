@@ -69,7 +69,7 @@ describe('PrivateRouter', () => {
         clientId: '',
         developerId: 'testDeveloperId',
       } as LoginIdentity
-      const fn = handleChangeLoginType(mockLoginIdentity, 'CLIENT', 'DEVELOPER', spyDispatch)
+      const fn = handleChangeLoginType('CLIENT', 'DEVELOPER', spyDispatch, mockLoginIdentity)
       fn()
       expect(spyDispatch).toBeCalledWith(authChangeLoginType('DEVELOPER'))
     })
@@ -78,7 +78,7 @@ describe('PrivateRouter', () => {
         clientId: 'testClient',
         developerId: '',
       } as LoginIdentity
-      const fn = handleChangeLoginType(mockLoginIdentity, 'DEVELOPER', 'CLIENT', spyDispatch)
+      const fn = handleChangeLoginType('DEVELOPER', 'CLIENT', spyDispatch, mockLoginIdentity)
       fn()
       expect(spyDispatch).toBeCalledWith(authChangeLoginType('CLIENT'))
     })

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Route, RouteProps } from 'react-router'
 import { Redirect } from 'react-router-dom'
+import { Dispatch } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
 import RouteFetcher from '../components/hocs/route-fetcher'
 import { LoginType, LoginIdentity } from '@reapit/cognito-auth'
@@ -26,7 +27,12 @@ export const isNotAllowedToAccess = (loginIdentity?: LoginIdentity) => {
   return false
 }
 
-export const handleChangeLoginType = (loginIdentity, loginType, allow, dispatch) => {
+export const handleChangeLoginType = (
+  loginType: LoginType,
+  allow: LoginType | LoginType[],
+  dispatch: Dispatch,
+  loginIdentity?: LoginIdentity,
+) => {
   return () => {
     if (!loginIdentity) {
       return
@@ -57,7 +63,7 @@ export const PrivateRoute = ({ component, allow, fetcher = false, ...rest }: Pri
   const loginIdentity = useSelector(selectLoginIdentity)
   const loginType = useSelector(selectLoginType)
 
-  React.useEffect(handleChangeLoginType(loginIdentity, loginType, allow, dispatch), [
+  React.useEffect(handleChangeLoginType(loginType, allow, dispatch, loginIdentity), [
     allow,
     dispatch,
     loginIdentity,
