@@ -1,6 +1,4 @@
-import { imageUploaderHelper } from './submit-app'
-import { fetcher } from '@reapit/elements'
-import { URLS, generateHeader } from '../constants/api'
+import { imageUploaderHelper } from '@/services/upload'
 import { submitRevisionSetFormState } from '../actions/submit-revision'
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
@@ -10,6 +8,7 @@ import errorMessages from '../constants/error-messages'
 import { CreateAppRevisionModel } from '@reapit/foundations-ts-definitions'
 import { appDetailRequestData } from '@/actions/app-detail'
 import { logger } from 'logger'
+import { createAppRevision } from '@/services/apps'
 
 export const submitRevision = function*({ data }: Action<CreateAppRevisionModel & { id: string }>) {
   yield put(submitRevisionSetFormState('SUBMITTING'))
@@ -57,12 +56,9 @@ export const submitRevision = function*({ data }: Action<CreateAppRevisionModel 
       categoryId: categoryId === '' ? undefined : categoryId,
     }
 
-    const regResponse: true | undefined = yield call(fetcher, {
-      url: `${URLS.apps}/${id}/revisions`,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'POST',
-      body: updatedValuesAfterValidatingCategoryId,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+    const regResponse: true | undefined = yield call(createAppRevision, {
+      id,
+      ...updatedValuesAfterValidatingCategoryId,
     })
 
     const status = regResponse ? 'SUCCESS' : 'ERROR'

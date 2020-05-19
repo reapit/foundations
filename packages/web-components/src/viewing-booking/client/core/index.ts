@@ -18,8 +18,8 @@ export const ReapitViewingBookingComponent = ({
   apiKey,
   customerId,
   theme,
-}: ViewingBookingInitializers) =>
-  new ViewingBooking({
+}: ViewingBookingInitializers) => {
+  return new ViewingBooking({
     target: document.querySelector(parentSelector) || document.body,
     props: {
       theme,
@@ -28,6 +28,7 @@ export const ReapitViewingBookingComponent = ({
       parentSelector,
     },
   })
+}
 
 Object.defineProperty(window, 'ReapitViewingBookingComponent', {
   value: ReapitViewingBookingComponent,

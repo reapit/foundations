@@ -21,11 +21,15 @@ import {
   declineRevisionSetFormState,
 } from '@/actions/revision-detail'
 import { Action } from '@/types/core'
-import { fetcher } from '@reapit/elements'
-import { URLS, generateHeader } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { adminApprovalsDataFetch } from '../admin-approvals'
+import { fetchAppRevisionsById, approveAppRevisionById, rejectAppRevisionById } from '@/services/apps'
+import { fetchScopesList } from '@/services/scopes'
+import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
 
+jest.mock('@/services/apps')
+jest.mock('@/services/scopes')
+jest.mock('@/services/desktop-integration-types')
 jest.mock('@reapit/elements')
 
 const params: Action<RevisionDetailRequestParams> = {
@@ -41,24 +45,9 @@ describe('revision-detail fetch data', () => {
   expect(gen.next().value).toEqual(put(revisionDetailLoading(true)))
   expect(gen.next().value).toEqual(
     all([
-      call(fetcher, {
-        url: `${URLS.apps}/${appId}/revisions/${appRevisionId}`,
-        api: window.reapit.config.marketplaceApiUrl,
-        method: 'GET',
-        headers: generateHeader(window.reapit.config.marketplaceApiKey),
-      }),
-      call(fetcher, {
-        url: `${URLS.scopes}`,
-        method: 'GET',
-        api: window.reapit.config.marketplaceApiUrl,
-        headers: generateHeader(window.reapit.config.marketplaceApiKey),
-      }),
-      call(fetcher, {
-        url: URLS.desktopIntegrationTypes,
-        method: 'GET',
-        api: window.reapit.config.marketplaceApiUrl,
-        headers: generateHeader(window.reapit.config.marketplaceApiKey),
-      }),
+      call(fetchAppRevisionsById, { id: appId, revisionId: appRevisionId }),
+      call(fetchScopesList),
+      call(fetchDesktopIntegrationTypesList, {}),
     ]),
   )
 
@@ -95,15 +84,7 @@ describe('revision approve submmit', () => {
   const { appId, appRevisionId, ...body } = approveSubmitParams.data
   expect(gen.next().value).toEqual(select(getApprovalPageNumber))
   expect(gen.next({ pageNumber }).value).toEqual(put(approveRevisionSetFormState('SUBMITTING')))
-  expect(gen.next().value).toEqual(
-    call(fetcher, {
-      url: `${URLS.apps}/${appId}/revisions/${appRevisionId}/approve`,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'POST',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-      body,
-    }),
-  )
+  expect(gen.next().value).toEqual(call(approveAppRevisionById, { id: appId, revisionId: appRevisionId, ...body }))
 
   test('api call success', () => {
     const clone = gen.clone()
@@ -135,15 +116,7 @@ describe('revision decline submmit', () => {
   const { appId, appRevisionId, ...body } = declineSubmitParams.data
   expect(gen.next().value).toEqual(select(getApprovalPageNumber))
   expect(gen.next({ pageNumber }).value).toEqual(put(declineRevisionSetFormState('SUBMITTING')))
-  expect(gen.next().value).toEqual(
-    call(fetcher, {
-      url: `${URLS.apps}/${appId}/revisions/${appRevisionId}/reject`,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'POST',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-      body,
-    }),
-  )
+  expect(gen.next().value).toEqual(call(rejectAppRevisionById, { id: appId, revisionId: appRevisionId, ...body }))
 
   test('api call success', () => {
     const clone = gen.clone()

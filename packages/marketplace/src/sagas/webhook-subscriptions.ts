@@ -1,6 +1,4 @@
 import { all, fork, takeLatest, call, put } from 'redux-saga/effects'
-import { URLS, initAuthorizedRequestHeaders } from '@/constants/api'
-import { fetcher, setQueryParams } from '@reapit/elements'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
 import errorMessages from '@/constants/error-messages'
@@ -10,23 +8,12 @@ import {
   webhookTopicsReceiveData,
   setApplicationId,
 } from '@/actions/webhook-subscriptions'
-import { fetchWebhookTopic } from '@/services/topics'
-
-export const fetchSubscriptions = async (applicationId: string) => {
-  const headers = await initAuthorizedRequestHeaders()
-  const response = await fetcher({
-    url: `${URLS.webhookSubscriptions}?${setQueryParams({ applicationId })}`,
-    api: window.reapit.config.platformApiUrl,
-    method: 'GET',
-    headers: headers,
-  })
-  return response
-}
+import { fetchWebhooksSubscriptionsList, fetchWebhooksTopicsList } from '@/services/webhooks'
 
 export const webhookSubscriptionsFetch = function*({ data: applicationId }: Action<string>) {
   try {
     yield put(setApplicationId(applicationId))
-    const response = yield call(fetchSubscriptions, applicationId)
+    const response = yield call(fetchWebhooksSubscriptionsList, { applicationId: [applicationId] })
     if (response) {
       yield put(webhookSubscriptionsReceiveData(response))
     }
@@ -42,7 +29,7 @@ export const webhookSubscriptionsFetch = function*({ data: applicationId }: Acti
 
 export const webhookTopicsFetch = function*({ data: applicationId }: Action<string>) {
   try {
-    const response = yield call(fetchWebhookTopic, { applicationId })
+    const response = yield call(fetchWebhooksTopicsList, { applicationId })
     if (response) {
       yield put(webhookTopicsReceiveData(response))
     }

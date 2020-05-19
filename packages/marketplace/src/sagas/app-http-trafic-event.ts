@@ -1,5 +1,3 @@
-import { fetcher, setQueryParams } from '@reapit/elements'
-import { URLS, generateHeader } from '../constants/api'
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { Action } from '../types/core'
@@ -11,22 +9,13 @@ import {
   httpTrafficPerDayRequestDataFailure,
 } from '@/actions/app-http-traffic-event'
 import { logger } from 'logger'
+import { fetchTrafficStatistics, FetchTrafficStatisticsParams } from '@/services/traffic-events'
 
 const { HTTP_TRAFFIC_PER_DAY_REQUEST_DATA } = ActionTypes
 
-export const fetchHttpTraficPerDay = async (data: HttpTrafficPerDayParams) => {
-  const response = await fetcher({
-    url: `${URLS.trafficEvents}/trafficStatistics?${setQueryParams({ ...data })}`,
-    api: window.reapit.config.marketplaceApiUrl,
-    method: 'GET',
-    headers: { ...generateHeader(window.reapit.config.marketplaceApiKey) },
-  })
-  return response
-}
-
-export const apphttpTrafficEventSaga = function*({ data }: Action<HttpTrafficPerDayParams>) {
+export const apphttpTrafficEventSaga = function*({ data }: Action<FetchTrafficStatisticsParams>) {
   try {
-    const response = yield call(fetchHttpTraficPerDay, { ...data })
+    const response = yield call(fetchTrafficStatistics, data)
     yield put(httpTrafficPerDayReceiveData(response))
   } catch (err) {
     logger(err)

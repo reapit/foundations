@@ -3,7 +3,9 @@
 exports[`ReapitPropertyDetailComponent should match a snapshot 1`] = `
 Property_detail {
   "$$": Object {
-    "after_update": Array [],
+    "after_update": Array [
+      [Function],
+    ],
     "before_update": Array [],
     "bound": Object {},
     "callbacks": Object {},

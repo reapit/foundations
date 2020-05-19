@@ -18,7 +18,7 @@ import { Dispatch } from 'redux'
 import { requestWebhookData } from '@/actions/webhook-edit-modal'
 import { selectWebhookTopicsSubcription, selectTopics, selectLoading } from '@/selector/webhook-edit'
 import { TopicItem } from '@/reducers/webhook-edit-modal'
-import { WebhookPingTestParams } from '@/services/subscriptions'
+import { PingWebhooksByIdParams } from '@/services/webhooks'
 import { developerWebhookPing, developerSetWebhookPingStatus } from '@/actions/developer'
 import { selectWebhookTestStatus } from '@/selector'
 
@@ -49,7 +49,7 @@ export interface HandleSubmitForm {
 export const handleSubmitForm = ({ dispatch, webhookId }: HandleSubmitForm) => values => {
   const { topicId } = values
   if (!webhookId || !topicId) return
-  const params: WebhookPingTestParams = {
+  const params: PingWebhooksByIdParams = {
     id: webhookId,
     topicId: topicId,
   }

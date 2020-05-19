@@ -1,6 +1,7 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
-import { URLS, generateHeader } from '@/constants/api'
+import { URLS } from '@/services/constants'
+import { generateHeader } from '@/services/utils'
 import * as ReapitElements from '@reapit/elements'
 import { shallow } from 'enzyme'
 import TransactionHistory, {

@@ -20,7 +20,7 @@ import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
 import { billing } from '@/sagas/__stubs__/billing'
 import { monthlyBillingData } from '@/sagas/__stubs__/monthly-billing'
-import { WebhookPingTestParams } from '@/services/subscriptions'
+import { PingWebhooksByIdParams } from '@/services/webhooks'
 
 describe('developer actions', () => {
   it('should create a developerLoading action', () => {
@@ -83,7 +83,7 @@ describe('developer actions', () => {
 
   it('should create a fetchMonthlyBilling action', () => {
     const params = {
-      applicationIds: ['applicationId'],
+      applicationId: ['applicationId'],
       month: 'month',
     }
     expect(fetchMonthlyBilling.type).toEqual(ActionTypes.DEVELOPER_FETCH_MONTHLY_BILLING)
@@ -101,7 +101,7 @@ describe('developer actions', () => {
   })
 
   it('should create a developerWebhookPing action', () => {
-    const params: WebhookPingTestParams = {
+    const params: PingWebhooksByIdParams = {
       id: 'id',
       topicId: 'topicId',
     }

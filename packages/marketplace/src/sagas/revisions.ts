@@ -5,11 +5,12 @@ import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { revisionsReceiveData, revisionsRequestDataFailure, RevisionsRequestParams } from '@/actions/revisions'
 import { logger } from 'logger'
-import { fetchAppRevisions } from './api'
+import { fetchAppRevisionsList } from '@/services/apps'
 
 export const appRevisionsSaga = function*({ data }) {
   try {
-    const response = yield call(fetchAppRevisions, { ...data })
+    const { appId: id, ...rest } = data
+    const response = yield call(fetchAppRevisionsList, { ...rest, id })
     yield put(revisionsReceiveData(response))
   } catch (err) {
     logger(err)

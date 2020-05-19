@@ -7,12 +7,11 @@ import { put, fork, takeLatest, call, all, select } from '@redux-saga/core/effec
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
-import { URLS, generateHeader } from '@/constants/api'
-import { fetcher } from '@reapit/elements'
 import { Action } from '@/types/core'
 import { INSTALLED_APPS_PERPAGE } from '@/constants/paginator'
 import { selectClientId } from '@/selector/client'
 import { logger } from 'logger'
+import { fetchAppsList } from '@/services/apps'
 
 export const installedAppsDataFetch = function*({ data: page }) {
   yield put(installedAppsLoading(true))
@@ -23,7 +22,13 @@ export const installedAppsDataFetch = function*({ data: page }) {
       return
     }
 
-    const response = yield call(fetchInstalledApps, { clientId, page })
+    const response = yield call(fetchAppsList, {
+      clientId,
+      pageNumber: page,
+      pageSize: INSTALLED_APPS_PERPAGE,
+      onlyInstalled: true,
+      isDirectApi: false,
+    })
     if (response) {
       yield put(installedAppsReceiveData({ data: response }))
     } else {
@@ -38,17 +43,6 @@ export const installedAppsDataFetch = function*({ data: page }) {
       }),
     )
   }
-}
-
-export const fetchInstalledApps = async ({ clientId, page }) => {
-  return fetcher({
-    url:
-      `${URLS.apps}?clientId=${clientId}&OnlyInstalled=true&PageNumber=` +
-      `${page}&PageSize=${INSTALLED_APPS_PERPAGE}&IsDirectApi=false`,
-    method: 'GET',
-    api: window.reapit.config.marketplaceApiUrl,
-    headers: generateHeader(window.reapit.config.marketplaceApiKey),
-  })
 }
 
 export const installedAppsDataListen = function*() {

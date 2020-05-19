@@ -19,3 +19,7 @@ export const selectIsAdmin = (state: ReduxState) => {
 export const selectDeveloperId = (state: ReduxState) => {
   return state.auth.loginSession?.loginIdentity.developerId
 }
+
+export const selectLoginSession = (state: ReduxState) => {
+  return state.auth?.loginSession
+}

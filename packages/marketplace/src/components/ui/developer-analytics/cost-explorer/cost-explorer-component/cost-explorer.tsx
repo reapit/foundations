@@ -34,7 +34,7 @@ export const handleOnSave = ({ setCreatedMonth, dispatch, myAppIds }: HandleOnSa
     const { createdMonth } = values
     setCreatedMonth(createdMonth)
     const month = dayjs(createdMonth).format(DATE_TIME_FORMAT.YYYY_MM)
-    dispatch(fetchMonthlyBilling({ month, applicationIds: myAppIds }))
+    dispatch(fetchMonthlyBilling({ month, applicationId: myAppIds }))
   }
 }
 
@@ -47,7 +47,7 @@ interface HandleFetchMonthlyBilling {
 export const handleFetchMonthlyBilling = ({ dispatch, month, applicationIds }: HandleFetchMonthlyBilling) => () => {
   const isHaveDeveloperApps = applicationIds.length > 0
   if (isHaveDeveloperApps) {
-    dispatch(fetchMonthlyBilling({ month, applicationIds }))
+    dispatch(fetchMonthlyBilling({ month, applicationId: applicationIds }))
   }
 }
 

@@ -4,20 +4,19 @@ import dayjs from 'dayjs'
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
-import { URLS, generateHeader } from '@/constants/api'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
-import { fetcher, setQueryParams } from '@reapit/elements'
 import { Action } from '@/types/core'
-import { Area } from '@/components/pages/admin-stats'
 import { getDateRange } from '@/utils/admin-stats'
 import { logger } from 'logger'
+import { fetchAppsList } from '@/services/apps'
+import { fetchDevelopersList } from '@/services/developers'
+import { fetchInstallationsList } from '@/services/installations'
 
 export const MARKETPLACE_GOLIVE_DATE = '2020-02-14'
 
 export const adminStatsDataFetch = function*({ data }) {
   try {
     const { area, range } = data
-    const url = getUrlByArea(area)
     let queryParams = {} as any
     if (range !== 'ALL') {
       const dateRange = getDateRange(range)
@@ -28,15 +27,18 @@ export const adminStatsDataFetch = function*({ data }) {
         .toDate()
         .toISOString()
     }
-    const response = yield call(fetcher, {
-      url: `${url}?${setQueryParams({
-        pageSize: GET_ALL_PAGE_SIZE,
-        ...queryParams,
-      })}`,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    })
+    const servicesToCall = {
+      DEVELOPERS: fetchDevelopersList,
+      INSTALLATIONS: fetchInstallationsList,
+      APPS: fetchAppsList,
+    }
+
+    if (!servicesToCall) {
+      throw new Error('No service matched')
+    }
+
+    const response = yield call(servicesToCall[area], { pageSize: GET_ALL_PAGE_SIZE, ...queryParams })
+
     if (response) {
       yield put(adminStatsReceiveData({ data: response.data, totalCount: response.totalCount }))
     } else {
@@ -51,17 +53,6 @@ export const adminStatsDataFetch = function*({ data }) {
         message: errorMessages.DEFAULT_SERVER_ERROR,
       }),
     )
-  }
-}
-
-export const getUrlByArea = (area: Area) => {
-  switch (area) {
-    case 'APPS':
-      return URLS.apps
-    case 'DEVELOPERS':
-      return URLS.developers
-    case 'INSTALLATIONS':
-      return URLS.installations
   }
 }
 

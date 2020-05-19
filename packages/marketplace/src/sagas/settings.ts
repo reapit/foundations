@@ -1,11 +1,9 @@
 import { put, fork, all, call, takeLatest, select } from '@redux-saga/core/effects'
-import { fetcher } from '@reapit/elements'
 import { removeSession, changePassword } from '@reapit/cognito-auth'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'
 import messages from '@/constants/messages'
-import { generateHeader, URLS } from '@/constants/api'
 import { settingShowLoading, requestDeveloperDataSuccess, ChangePasswordParams } from '@/actions/settings'
 import { errorThrownServer } from '@/actions/error'
 import { showNotificationMessage } from '@/actions/notification-message'
@@ -13,16 +11,7 @@ import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { selectDeveloperId, selectDeveloperEmail } from '@/selector/developer'
 import { authLogout } from '@/actions/auth'
 import { logger } from 'logger'
-
-export const fetchDeveloperInfo = async (developerId: string | null | undefined) => {
-  const response = await fetcher({
-    url: `${URLS.developers}/${developerId}`,
-    api: window.reapit.config.marketplaceApiUrl,
-    method: 'GET',
-    headers: generateHeader(window.reapit.config.marketplaceApiKey),
-  })
-  return response
-}
+import { fetchDeveloperById, updateDeveloperById } from '@/services/developers'
 
 export const developerInformationFetch = function*() {
   yield put(settingShowLoading(true))
@@ -31,7 +20,7 @@ export const developerInformationFetch = function*() {
     if (!developerId) {
       return
     }
-    const response = yield call(fetchDeveloperInfo, developerId)
+    const response = yield call(fetchDeveloperById, { id: developerId })
     if (response) {
       yield put(requestDeveloperDataSuccess(response))
     }
@@ -53,17 +42,6 @@ export type UpdateDeveloperInfoParams = {
   values: DeveloperModel
 }
 
-export const updateDeveloperInfo = async ({ developerId, values }: UpdateDeveloperInfoParams) => {
-  const response = await fetcher({
-    url: `${URLS.developers}/${developerId}`,
-    api: window.reapit.config.marketplaceApiUrl,
-    method: 'PUT',
-    headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    body: values,
-  })
-  return response
-}
-
 export const developerInfomationChange = function*({ data }: Action<DeveloperModel>) {
   yield put(settingShowLoading(true))
   try {
@@ -71,7 +49,8 @@ export const developerInfomationChange = function*({ data }: Action<DeveloperMod
     if (!developerId) {
       return
     }
-    const response = yield call(updateDeveloperInfo, { developerId, values: data })
+    const { company: companyName, ...rest } = data
+    const response = yield call(updateDeveloperById, { id: developerId, companyName, ...rest })
     if (response) {
       yield put(
         showNotificationMessage({
@@ -79,7 +58,7 @@ export const developerInfomationChange = function*({ data }: Action<DeveloperMod
           message: messages.CHANGE_SAVE_SUCCESSFULLY,
         }),
       )
-      const newResponse = yield call(fetchDeveloperInfo, developerId)
+      const newResponse = yield call(fetchDeveloperById, { id: developerId })
       yield put(requestDeveloperDataSuccess(newResponse))
     }
   } catch (error) {

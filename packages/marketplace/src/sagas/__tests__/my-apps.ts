@@ -5,13 +5,13 @@ import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effec
 import { myAppsLoading, myAppsReceiveData, myAppsRequestDataFailure } from '@/actions/my-apps'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { fetcher } from '@reapit/elements'
-import { URLS, generateHeader } from '@/constants/api'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import errorMessages from '@/constants/error-messages'
 import { selectClientId } from '@/selector/client'
 import { errorThrownServer } from '@/actions/error'
+import { fetchAppsList } from '@/services/apps'
 
+jest.mock('@/services/apps')
 jest.mock('@reapit/elements')
 const params = { data: 1 }
 
@@ -22,12 +22,7 @@ describe('my-apps fetch data', () => {
   expect(gen.next().value).toEqual(put(myAppsLoading(true)))
   expect(gen.next().value).toEqual(select(selectClientId))
   expect(gen.next(clientId).value).toEqual(
-    call(fetcher, {
-      url: `${URLS.apps}?clientId=${clientId}&OnlyInstalled=true&PageNumber=${params.data}&PageSize=${APPS_PER_PAGE}`,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    }),
+    call(fetchAppsList, { clientId, onlyInstalled: true, pageNumber: params.data, pageSize: APPS_PER_PAGE }),
   )
 
   test('api call success', () => {

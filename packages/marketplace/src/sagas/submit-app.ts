@@ -1,6 +1,5 @@
-import { fetcher, FetchError, isBase64 } from '@reapit/elements'
+import { FetchError } from '@reapit/elements'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
-import { URLS, generateHeader } from '../constants/api'
 import { submitAppSetFormState, submitAppLoading, submitAppReceiveData } from '../actions/submit-app'
 import { categoriesReceiveData } from '../actions/app-categories'
 import { integrationTypesReceiveData } from '@/actions/app-integration-types'
@@ -12,31 +11,11 @@ import { SubmitAppArgs } from '@/actions/submit-app'
 import errorMessages from '../constants/error-messages'
 import { getApiErrorsFromResponse, ApiFormErrorsResponse } from '@/utils/form/errors'
 import { logger } from 'logger'
-
-export type ImageUploaderReq = {
-  name?: string
-  imageData?: string
-}
-
-export type ImageUploaderRes = {
-  Url?: string
-}
-
-export const imageUploaderHelper = async (object: ImageUploaderReq) => {
-  const { imageData, name } = object
-
-  if (!imageData || !name || !isBase64(imageData)) {
-    return null
-  }
-
-  return fetcher({
-    url: '/',
-    api: window.reapit.config.uploadApiUrl,
-    method: 'POST',
-    headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    body: object,
-  })
-}
+import { imageUploaderHelper } from '@/services/upload'
+import { fetchScopesList } from '@/services/scopes'
+import { createApp } from '@/services/apps'
+import { fetchCategoriesList } from '@/services/categories'
+import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
 
 export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
   const { actions, ...values } = data
@@ -81,13 +60,7 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
       categoryId: categoryId === '' ? undefined : categoryId,
     }
 
-    yield call(fetcher, {
-      url: URLS.apps,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'POST',
-      body: updatedValuesAfterValidatingCategoryId,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    })
+    yield call(createApp, updatedValuesAfterValidatingCategoryId)
 
     yield put(submitAppSetFormState('SUCCESS'))
   } catch (err) {
@@ -124,24 +97,9 @@ export const submitAppsDataFetch = function*() {
 
   try {
     const [scopes, categories, integrationTypes] = yield all([
-      call(fetcher, {
-        url: `${URLS.scopes}`,
-        method: 'GET',
-        api: window.reapit.config.marketplaceApiUrl,
-        headers: generateHeader(window.reapit.config.marketplaceApiKey),
-      }),
-      call(fetcher, {
-        url: `${URLS.categories}`,
-        method: 'GET',
-        api: window.reapit.config.marketplaceApiUrl,
-        headers: generateHeader(window.reapit.config.marketplaceApiKey),
-      }),
-      call(fetcher, {
-        url: URLS.desktopIntegrationTypes,
-        method: 'GET',
-        api: window.reapit.config.marketplaceApiUrl,
-        headers: generateHeader(window.reapit.config.marketplaceApiKey),
-      }),
+      call(fetchScopesList),
+      call(fetchCategoriesList, {}),
+      call(fetchDesktopIntegrationTypesList, {}),
     ])
     yield put(submitAppLoading(false))
     yield put(submitAppReceiveData(scopes))

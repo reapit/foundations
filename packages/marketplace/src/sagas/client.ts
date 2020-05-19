@@ -4,14 +4,16 @@ import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effec
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
-import { URLS, generateHeader } from '@/constants/api'
 import { APPS_PER_PAGE, FEATURED_APPS } from '@/constants/paginator'
-import { fetcher, setQueryParams } from '@reapit/elements'
 import { Action } from '@/types/core'
 import { selectClientId, selectFeaturedApps } from '@/selector/client'
 import { selectCategories } from '@/selector/app-categories'
 import { ClientAppSummary, ClientAppSummaryParams } from '@/reducers/client/app-summary'
 import { logger } from 'logger'
+import { fetchAppsList } from '@/services/apps'
+import { fetchCategoriesList } from '@/services/categories'
+
+const DEFAULT_CATEGORY_LENGTH = 1
 
 export const clientDataFetch = function*({ data }) {
   try {
@@ -29,36 +31,19 @@ export const clientDataFetch = function*({ data }) {
     const isFilteringForDirectApiApps = category === 'DIRECT_API_APPS_FILTER'
 
     const [apps, featuredApps, categories] = yield all([
-      call(fetcher, {
-        url: `${URLS.apps}?${setQueryParams({
-          clientId,
-          category: isFilteringForDirectApiApps ? undefined : category,
-          [searchBy]: search,
-          pageNumber: page,
-          pageSize: APPS_PER_PAGE,
-          IsFeatured: isFilteringForDirectApiApps ? undefined : false,
-          IsDirectApi: isFilteringForDirectApiApps ? true : undefined,
-        })}`,
-        api: window.reapit.config.marketplaceApiUrl,
-        method: 'GET',
-        headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      call(fetchAppsList, {
+        clientId,
+        category: isFilteringForDirectApiApps ? undefined : category,
+        [searchBy]: search,
+        pageNumber: page,
+        pageSize: APPS_PER_PAGE,
+        isFeatured: isFilteringForDirectApiApps ? undefined : false,
+        isDirectApi: isFilteringForDirectApiApps ? true : undefined,
       }),
       !!search || !!category
         ? currentFeaturedApps
-        : call(fetcher, {
-            url: `${URLS.apps}?clientId=${clientId}&PageNumber=1&PageSize=${FEATURED_APPS}&IsFeatured=true`,
-            api: window.reapit.config.marketplaceApiUrl,
-            method: 'GET',
-            headers: generateHeader(window.reapit.config.marketplaceApiKey),
-          }),
-      currentCategories.length > 1
-        ? currentCategories
-        : call(fetcher, {
-            url: `${URLS.categories}`,
-            method: 'GET',
-            api: window.reapit.config.marketplaceApiUrl,
-            headers: generateHeader(window.reapit.config.marketplaceApiKey),
-          }),
+        : call(fetchAppsList, { clientId, pageNumber: 1, pageSize: FEATURED_APPS, isFeatured: true }),
+      currentCategories.length > DEFAULT_CATEGORY_LENGTH ? currentCategories : call(fetchCategoriesList, {}),
     ])
     const clientItem: ClientAppSummary = { apps: apps, featuredApps: featuredApps?.data }
     yield put(clientFetchAppSummarySuccess(clientItem))

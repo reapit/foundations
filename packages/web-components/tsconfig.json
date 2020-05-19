@@ -9,6 +9,8 @@
     "types": ["svelte", "jest", "node", "googlemaps"],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationDir": "./public/dist-npm/types"
   }
 }

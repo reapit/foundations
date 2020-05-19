@@ -1,7 +1,14 @@
 {
   "name": "@reapit/web-components",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "homepage": "https://github.com/reapit/foundations",
+  "main": "./public/dist-npm/cjs/index.js",
+  "module": "./public/dist-npm/esm/index.js",
+  "license": "MIT",
+  "files": [
+    "./public/dist-npm"
+  ],
+  "typings": "./public/dist-npm/types/index.d.ts",
   "bugs": {
     "url": "https://github.com/reapit/foundations/issues"
   },
@@ -9,7 +16,6 @@
     "type": "git",
     "url": "git+https://github.com/reapit/foundations.git"
   },
-  "private": true,
   "devDependencies": {
     "@reapit/foundations-ts-definitions": "2020-03-04",
     "@rollup/plugin-commonjs": "^11.0.2",
@@ -20,7 +26,9 @@
     "@types/googlemaps": "^3.39.3",
     "@types/lodash.pickby": "^4.6.6",
     "@wessberg/rollup-plugin-ts": "^1.2.17",
+    "chokidar": "^3.4.0",
     "jest-emotion": "^10.0.32",
+    "mkdirp": "^1.0.4",
     "rollup": "^1.32.0",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-livereload": "^1.0.4",
@@ -29,7 +37,8 @@
     "serverless-offline": "^5.12.1",
     "serverless-webpack": "^5.3.1",
     "sirv-cli": "^0.4.5",
-    "svelte-jester": "^1.0.4"
+    "svelte-jester": "^1.0.4",
+    "terser": "^4.6.13"
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
@@ -45,10 +54,8 @@
   },
   "scripts": {
     "build:prod": "node ./src/scripts/build-prod.js",
-    "serve:static": "serve public/dist -p 5000",
     "start:server": "serverless offline --out public/dist --stage local",
     "start:dev": "node ./src/scripts/start-dev.js",
-    "start:search-widget": "node ./src/scripts/start-search-widget.js",
     "test:dev": "cross-env TZ=UTC jest --watch --color",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js,svelte src\"",
@@ -57,8 +64,10 @@
     "build:serverless": "serverless webpack --out dist --stage dev",
     "release:server:dev": "serverless deploy --stage dev",
     "release:server:prod": "node ../../scripts/release/release-serverless.js web-components",
+    "release:npm:prod": "node ../../scripts/release/release-npm.js elements --skip-edit-release-note",
     "release:client:dev": "node ../../scripts/release/release-dev.js web-components reapit-web-components",
     "release:client:prod": "node ../../scripts/release/release-prod.js web-components reapit-web-components",
-    "release:dev": "yarn release:server:dev && yarn release:client:dev"
+    "release:dev": "yarn release:server:dev && yarn release:client:dev",
+    "release:prod": "yarn release:client:prod && yarn release:server:prod --skip-edit-release-note && yarn release:npm:prod --skip-edit-release-note"
   }
 }

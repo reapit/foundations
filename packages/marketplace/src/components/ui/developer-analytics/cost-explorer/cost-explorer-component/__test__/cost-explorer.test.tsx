@@ -52,7 +52,7 @@ describe('CostCalculator', () => {
       const fn = handleOnSave({ setCreatedMonth, dispatch, myAppIds })
       fn(mockFormValues)
       expect(setCreatedMonth).toBeCalledWith(mockCreatedMonth)
-      expect(dispatch).toBeCalledWith(fetchMonthlyBilling({ month: mockCreatedMonth, applicationIds: myAppIds }))
+      expect(dispatch).toBeCalledWith(fetchMonthlyBilling({ month: mockCreatedMonth, applicationId: myAppIds }))
     })
   })
 
@@ -64,7 +64,7 @@ describe('CostCalculator', () => {
 
       const fn = handleFetchMonthlyBilling({ dispatch, month, applicationIds })
       fn()
-      expect(dispatch).toBeCalledWith(fetchMonthlyBilling({ month, applicationIds }))
+      expect(dispatch).toBeCalledWith(fetchMonthlyBilling({ month, applicationId: applicationIds }))
     })
   })
 })

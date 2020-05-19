@@ -1,0 +1,20 @@
+<% packages.forEach(function({
+  exportName,
+  rollUpPackageName
+}){ %>
+  <% if (exportName) { %>
+    const {<%= exportName %>} = require('./<%= rollUpPackageName %>.js')
+  <% } %>
+<% }); %>
+
+module.exports = {
+<% packages.forEach(function({
+  exportName,
+  rollUpPackageName
+}){ %>
+  <% if (exportName) { %>
+    <%= exportName %>,
+  <% } %>
+<% }); %>
+}
+

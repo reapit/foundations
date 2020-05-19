@@ -1,0 +1,20 @@
+<% packages.forEach(function({
+  exportName,
+  rollUpPackageName
+}){ %>
+  <% if (exportName) { %>
+    import {<%= exportName %>} from './<%= rollUpPackageName %>.js'
+  <% } %>
+<% }); %>
+
+export {
+<% packages.forEach(function({
+  exportName,
+  rollUpPackageName
+}){ %>
+  <% if (exportName) { %>
+    <%= exportName %>,
+  <% } %>
+<% }); %>
+}
+

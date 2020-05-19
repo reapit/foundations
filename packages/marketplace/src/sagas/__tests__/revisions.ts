@@ -1,4 +1,3 @@
-import { fetchAppRevisions } from '../api'
 import revisionsSagas, { appRevisionsSaga, appRevisionsListen } from '../revisions'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
@@ -8,6 +7,9 @@ import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { revisionsReceiveData, revisionsRequestDataFailure, RevisionsRequestParams } from '@/actions/revisions'
 import { revisionsDataStub } from '../__stubs__/revisions'
 import { Action } from '@/types/core'
+import { fetchAppRevisionsList } from '@/services/apps'
+
+jest.mock('@/services/apps')
 
 const revisionsRequestParams = {
   data: {
@@ -18,7 +20,7 @@ const revisionsRequestParams = {
 describe('app-installations sagas', () => {
   describe('installationsFetchData', () => {
     const gen = cloneableGenerator(appRevisionsSaga)(revisionsRequestParams)
-    expect(gen.next().value).toEqual(call(fetchAppRevisions, revisionsRequestParams.data))
+    expect(gen.next().value).toEqual(call(fetchAppRevisionsList, { id: revisionsRequestParams.data.appId }))
 
     test('api call success', () => {
       const clone = gen.clone()

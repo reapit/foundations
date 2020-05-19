@@ -1,5 +1,3 @@
-import { fetcher } from '@reapit/elements'
-import { URLS, generateHeader } from '../constants/api'
 import {
   appDetailLoading,
   appDetailReceiveData,
@@ -15,33 +13,21 @@ import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { Action } from '@/types/core'
 import { logger } from 'logger'
-
-export const fetchAppDetail = async ({ clientId, id }) => {
-  const response = await fetcher({
-    url: clientId ? `${URLS.apps}/${id}?clientId=${clientId}` : `${URLS.apps}/${id}`,
-    api: window.reapit.config.marketplaceApiUrl,
-    method: 'GET',
-    headers: generateHeader(window.reapit.config.marketplaceApiKey),
-  })
-  return response
-}
-
-export const fetchAppApiKey = async ({ installationId }) => {
-  const response = await fetcher({
-    url: `${URLS.installations}/${installationId}/apiKey`,
-    api: window.reapit.config.marketplaceApiUrl,
-    method: 'GET',
-    headers: generateHeader(window.reapit.config.marketplaceApiKey),
-  })
-  return response
-}
+import { fetchAppById, fetchAppSecretById } from '@/services/apps'
+import { fetchApiKeyInstallationById } from '@/services/installations'
 
 export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
   yield put(appDetailLoading(true))
   try {
-    const appDetailResponse = yield call(fetchAppDetail, { clientId: data.clientId, id: data.id })
+    const { id, clientId } = data
+    const appDetailResponse = yield call(fetchAppById, {
+      clientId,
+      id,
+    })
     if (appDetailResponse?.isWebComponent && appDetailResponse?.installationId) {
-      const apiKeyResponse = yield call(fetchAppApiKey, { installationId: appDetailResponse.installationId })
+      const apiKeyResponse = yield call(fetchApiKeyInstallationById, {
+        installationId: appDetailResponse.installationId,
+      })
       appDetailResponse.apiKey = apiKeyResponse?.apiKey || ''
     }
     if (appDetailResponse) {
@@ -61,17 +47,9 @@ export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
   }
 }
 
-export const fetchAuthCode = id =>
-  fetcher({
-    url: `${URLS.apps}/${id}/secret`,
-    api: window.reapit.config.marketplaceApiUrl,
-    method: 'GET',
-    headers: generateHeader(window.reapit.config.marketplaceApiKey),
-  })
-
 export const requestAuthCode = function*({ data: id }: Action<string>) {
   try {
-    const response = yield call(fetchAuthCode, id)
+    const response = yield call(fetchAppSecretById, { id })
     if (response && response.clientSecret) {
       yield put(requestAuthenticationSuccess(response))
     } else {
