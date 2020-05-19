@@ -137,13 +137,6 @@ describe('ClientAppDetail', () => {
       const testInstance = testRenderer.root
       expect(testInstance.findByType(Button).props.children).toBe('Install App')
     })
-    it('should render installed label if installedOn is existed', () => {
-      const testRenderer = TestRenderer.create(
-        renderAppHeaderButtonGroup(mockAppId, mockInstalledOn, jest.fn(), jest.fn(), false),
-      )
-      const testInstance = testRenderer.root
-      expect(testInstance.findByType(Button).props.children).toBe('Install App')
-    })
     it('should render uninstall app button if installedOn is existed', () => {
       const testRenderer = TestRenderer.create(
         renderAppHeaderButtonGroup(mockAppId, 'exist', jest.fn(), jest.fn(), false),

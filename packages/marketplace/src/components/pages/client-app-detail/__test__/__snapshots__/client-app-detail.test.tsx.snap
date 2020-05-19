@@ -17,6 +17,23 @@ exports[`ClientAppDetail renderAppHeaderButtonGroup should match snapshot 1`] = 
 </div>
 `;
 
+exports[`ClientAppDetail renderAppHeaderButtonGroup should match snapshot 2`] = `
+<div>
+  <div
+    className="flex ml-auto"
+  >
+    <Component
+      dataTest="detail-modal-uninstall-button"
+      onClick={[MockFunction]}
+      type="button"
+      variant="primary"
+    >
+      Uninstall App
+    </Component>
+  </div>
+</div>
+`;
+
 exports[`ClientAppDetail should match a snapshot 1`] = `
 <Provider
   store={
