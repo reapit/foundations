@@ -30,7 +30,7 @@ describe('Authentication', () => {
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.Authentication, key: 'authenticationRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.AUTHENTICATION, key: 'authenticationRoute' }]}>
             <Authentication />
           </MemoryRouter>
         </ReactRedux.Provider>,

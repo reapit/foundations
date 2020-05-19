@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { Route, RouteProps } from 'react-router'
+import { History } from 'history'
+import { Route, RouteProps, useHistory } from 'react-router'
 import { Redirect } from 'react-router-dom'
 import { Dispatch } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
@@ -46,20 +47,25 @@ export const handleChangeLoginType = (
   }
 }
 
-export const handleRedirectToAuthenticationPage = (loginIdentity, allow) => {
+export const handleRedirectToAuthenticationPage = (
+  allow: LoginType | LoginType[],
+  history: History,
+  loginIdentity?: LoginIdentity,
+) => {
   return () => {
     if (!loginIdentity) {
       return
     }
     const { clientId, developerId } = loginIdentity
     if ((allow === 'CLIENT' && !clientId) || (allow === 'DEVELOPER' && !developerId)) {
-      window.location.href = `${Routes.Authentication}/${allow}`
+      history.replace(`${Routes.AUTHENTICATION}/${allow}`)
     }
   }
 }
 
 export const PrivateRoute = ({ component, allow, fetcher = false, ...rest }: PrivateRouteProps & RouteProps) => {
   const dispatch = useDispatch()
+  const history = useHistory()
   const loginIdentity = useSelector(selectLoginIdentity)
   const loginType = useSelector(selectLoginType)
 
@@ -70,7 +76,7 @@ export const PrivateRoute = ({ component, allow, fetcher = false, ...rest }: Pri
     loginType,
   ])
 
-  React.useEffect(handleRedirectToAuthenticationPage(loginIdentity, allow), [loginIdentity, allow])
+  React.useEffect(handleRedirectToAuthenticationPage(allow, history, loginIdentity), [loginIdentity, allow, history])
 
   return (
     <Route

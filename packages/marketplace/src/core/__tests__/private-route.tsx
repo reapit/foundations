@@ -13,8 +13,10 @@ import { LoginIdentity } from '@reapit/cognito-auth'
 import { authChangeLoginType } from '@/actions/auth'
 import Routes from '@/constants/routes'
 import { MemoryRouter } from 'react-router'
+import { getMockRouterProps } from '@/utils/mock-helper'
 
 describe('PrivateRouter', () => {
+  const { history } = getMockRouterProps({})
   let store
   let spyDispatch
   beforeEach(() => {
@@ -85,29 +87,15 @@ describe('PrivateRouter', () => {
   })
 
   describe('handleRedirectToAuthenticationPage', () => {
-    const { location } = window
-
-    beforeAll((): void => {
-      delete window.location
-      // @ts-ignore
-      window.location = {
-        href: '',
-      }
-    })
-
-    afterAll((): void => {
-      window.location = location
-    })
-
     it('should redirect to authentication page for CLIENT', () => {
       const mockLoginIdentity = {
         clientId: '',
         developerId: 'testDeveloperId',
       } as LoginIdentity
       const mockAllow = 'CLIENT'
-      const fn = handleRedirectToAuthenticationPage(mockLoginIdentity, mockAllow)
+      const fn = handleRedirectToAuthenticationPage(mockAllow, history, mockLoginIdentity)
       fn()
-      expect(window.location.href).toBe(`${Routes.Authentication}/${mockAllow}`)
+      expect(history.replace).toBeCalledWith(`${Routes.AUTHENTICATION}/${mockAllow}`)
     })
 
     it('should redirect to authentication page for DEVELOPER', () => {
@@ -116,9 +104,9 @@ describe('PrivateRouter', () => {
         developerId: '',
       } as LoginIdentity
       const mockAllow = 'DEVELOPER'
-      const fn = handleRedirectToAuthenticationPage(mockLoginIdentity, mockAllow)
+      const fn = handleRedirectToAuthenticationPage(mockAllow, history, mockLoginIdentity)
       fn()
-      expect(window.location.href).toBe(`${Routes.Authentication}/${mockAllow}`)
+      expect(history.replace).toBeCalledWith(`${Routes.AUTHENTICATION}/${mockAllow}`)
     })
   })
 })

@@ -54,7 +54,7 @@ const Router = () => {
             <Switch>
               <PrivateRoute
                 allow={['CLIENT', 'DEVELOPER']}
-                path={Routes.AuthenticationLoginType}
+                path={Routes.AUTHENTICATION_LOGIN_TYPE}
                 component={Authentication}
               />
               <PrivateRoute allow="CLIENT" path={Routes.INSTALLED_APPS_PAGINATE} component={InstalledApps} fetcher />
