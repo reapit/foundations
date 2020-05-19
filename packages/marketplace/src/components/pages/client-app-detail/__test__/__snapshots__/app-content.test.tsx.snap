@@ -1,0 +1,211 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppContent AppContent - should match snapshot 1`] = `
+<div>
+  <div />
+  <div>
+    <Component>
+      Description
+    </Component>
+    <Component
+      html=""
+    />
+  </div>
+  <div>
+    <Component>
+      Permission Required
+    </Component>
+    <ul />
+  </div>
+  <div>
+    <Component>
+      Destop Integration
+    </Component>
+    <Component
+      key="Identity Check"
+    >
+      Identity Check
+    </Component>
+    <Component
+      key="Property Marketing Information"
+    >
+      Property Marketing Information
+    </Component>
+    <Component
+      key="Vendor Marketing Report"
+    >
+      Vendor Marketing Report
+    </Component>
+    <Component
+      key="Property Details Generation"
+    >
+      Property Details Generation
+    </Component>
+    <Component
+      key="Applicant Export"
+    >
+      Applicant Export
+    </Component>
+    <Component
+      key="Property"
+    >
+      Property
+    </Component>
+    <Component
+      key="Applicant"
+    >
+      Applicant
+    </Component>
+  </div>
+  <Component
+    header="Developer"
+  >
+    TBC
+  </Component>
+  <Component
+    header="About Developer"
+  >
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam aliquid culpa saepe asperiores debitis illo dolorum dolore incidunt officiis praesentium, nemo similique veritatis exercitationem perferendis non mollitia animi laboriosam perspiciatis.
+    </p>
+  </Component>
+  <Component
+    header="Contact Developer"
+  >
+    <Component
+      type="button"
+      variant="primary"
+    >
+      NEED HELP?
+    </Component>
+  </Component>
+</div>
+`;
+
+exports[`AppContent RenderWithHeader - should match snapshot 1`] = `
+<div>
+  <Component>
+    test
+  </Component>
+  some text
+</div>
+`;
+
+exports[`AppContent Tag - should match snapshot 1`] = `
+<div>
+  Test
+</div>
+`;
+
+exports[`AppContent renderCategory - should match snapshot 1`] = `<div />`;
+
+exports[`AppContent renderDescripion - should match snapshot 1`] = `
+<div>
+  <div>
+    <Component>
+      Description
+    </Component>
+    <Component
+      html="enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam 
+    pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras 
+    sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar 
+    elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla 
+    at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet 
+    proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum co"
+    />
+  </div>
+</div>
+`;
+
+exports[`AppContent renderDesktopIntegrationTypes - should match snapshot 1`] = `
+<div>
+  <div>
+    <Component>
+      Destop Integration
+    </Component>
+    <Component
+      key="Identity Check"
+    >
+      Identity Check
+    </Component>
+    <Component
+      key="Property Marketing Information"
+    >
+      Property Marketing Information
+    </Component>
+    <Component
+      key="Vendor Marketing Report"
+    >
+      Vendor Marketing Report
+    </Component>
+    <Component
+      key="Property Details Generation"
+    >
+      Property Details Generation
+    </Component>
+    <Component
+      key="Applicant Export"
+    >
+      Applicant Export
+    </Component>
+    <Component
+      key="Property"
+    >
+      Property
+    </Component>
+    <Component
+      key="Applicant"
+    >
+      Applicant
+    </Component>
+  </div>
+</div>
+`;
+
+exports[`AppContent renderExtraMedia - should match snapshot 1`] = `
+<div>
+  <div
+    key="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg"
+  >
+    <img
+      src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg"
+    />
+  </div>
+  <div
+    key="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png"
+  >
+    <img
+      src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png"
+    />
+  </div>
+  <div
+    key="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png"
+  >
+    <img
+      src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png"
+    />
+  </div>
+</div>
+`;
+
+exports[`AppContent renderPermissions - should match snapshot 1`] = `
+<div>
+  <div>
+    <Component>
+      Permission Required
+    </Component>
+    <ul>
+      <li
+        key="Read data about developers"
+      >
+        Read data about developers
+      </li>
+      <li
+        key="Write data about developers"
+      >
+        Write data about developers
+      </li>
+    </ul>
+  </div>
+</div>
+`;

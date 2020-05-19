@@ -150,7 +150,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
               </Unknown>
             </React.Fragment>
           }
-          title="Confirm Peter's Properties installation"
+          title="Confirm Peter's Properties uninstallation"
           visible={true}
         />
         <Component

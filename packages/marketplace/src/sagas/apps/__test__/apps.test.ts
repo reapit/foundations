@@ -1,9 +1,11 @@
+import { integrationTypesReceiveData } from '@/actions/app-integration-types'
 import appDetailSagas, {
   fetchClientAppDetailSaga,
   clientAppDetailDataListen,
   fetchDeveloperAppDetailSaga,
   developerAppDetailDataListen,
 } from '../apps'
+import { fetchDesktopIntegrationTypes } from '@/services/apps'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
@@ -14,6 +16,7 @@ import { FetchAppByIdParams, fetchAppById } from '@/services/apps'
 import { fetchApiKeyInstallationById } from '@/services/installations'
 import { clientFetchAppDetailSuccess } from '@/actions/client'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
+import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
 import { developerFetchAppDetailSuccess } from '@/actions/developer'
 
 jest.mock('@reapit/elements')
@@ -36,7 +39,9 @@ describe('fetch client app detail with clientId', () => {
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(appDetailDataStub.data).value).toEqual(put(clientFetchAppDetailSuccess(appDetailDataStub.data)))
+    expect(clone.next(appDetailDataStub.data).value).toEqual(call(fetchDesktopIntegrationTypes))
+    expect(clone.next(integrationTypesStub).value).toEqual(put(integrationTypesReceiveData(integrationTypesStub)))
+    expect(clone.next().value).toEqual(put(clientFetchAppDetailSuccess(appDetailDataStub.data)))
   })
 
   test('api call error', () => {
@@ -59,7 +64,9 @@ describe('fetch client app detail without clientId', () => {
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(appDetailDataStub.data).value).toEqual(put(clientFetchAppDetailSuccess(appDetailDataStub.data)))
+    expect(clone.next(appDetailDataStub.data).value).toEqual(call(fetchDesktopIntegrationTypes))
+    expect(clone.next(integrationTypesStub).value).toEqual(put(integrationTypesReceiveData(integrationTypesStub)))
+    expect(clone.next().value).toEqual(put(clientFetchAppDetailSuccess(appDetailDataStub.data)))
   })
 
   test('api call error', () => {
@@ -91,9 +98,18 @@ describe('client app detail fetch data and fetch apiKey', () => {
         isWebComponent,
         installationId,
       }).value,
-    ).toEqual(call(fetchApiKeyInstallationById, { installationId }))
-    expect(clone.next({ apiKey }).value).toEqual(
-      put(clientFetchAppDetailSuccess({ ...appDetailDataStub.data, isWebComponent, installationId, apiKey })),
+    ).toMatchObject(call(fetchApiKeyInstallationById, { installationId }))
+    expect(clone.next({ apiKey }).value).toEqual(call(fetchDesktopIntegrationTypes))
+    expect(clone.next(integrationTypesStub).value).toMatchObject(put(integrationTypesReceiveData(integrationTypesStub)))
+    expect(clone.next().value).toEqual(
+      put(
+        clientFetchAppDetailSuccess({
+          ...appDetailDataStub.data,
+          apiKey,
+          isWebComponent,
+          installationId,
+        }),
+      ),
     )
   })
 
@@ -172,13 +188,16 @@ describe('client app detail fetch data and fetch apiKey', () => {
     const installationId = '09682122-0811-4f36-9bfa-05e337de3065'
     const isWebComponent = true
     const apiKey = 'mockApiKey'
+    // keep getting "serialize the same string here - jest bug"
     expect(
-      clone.next({
-        ...appDetailDataStub.data,
-        isWebComponent,
-        installationId,
-      }).value,
-    ).toEqual(call(fetchApiKeyInstallationById, { installationId }))
+      JSON.stringify(
+        clone.next({
+          ...appDetailDataStub.data,
+          isWebComponent,
+          installationId,
+        }).value,
+      ),
+    ).toBe(JSON.stringify(call(fetchApiKeyInstallationById, { installationId })))
     expect(clone.next({ apiKey }).value).toEqual(
       put(developerFetchAppDetailSuccess({ ...appDetailDataStub.data, isWebComponent, installationId, apiKey })),
     )

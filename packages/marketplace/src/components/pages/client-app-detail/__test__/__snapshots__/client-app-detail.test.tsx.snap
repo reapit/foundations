@@ -2,15 +2,34 @@
 
 exports[`ClientAppDetail renderAppHeaderButtonGroup should match snapshot 1`] = `
 <div>
-  <div>
-    <div
-      id="installed-label-container"
+  <div
+    className="flex ml-auto"
+  >
+    <Component
+      dataTest="detail-modal-uninstall-button"
+      onClick={[MockFunction]}
+      type="button"
+      variant="primary"
     >
-      <FaCheck />
-      <span>
-        Installed
-      </span>
-    </div>
+      Uninstall App
+    </Component>
+  </div>
+</div>
+`;
+
+exports[`ClientAppDetail renderAppHeaderButtonGroup should match snapshot 2`] = `
+<div>
+  <div
+    className="flex ml-auto"
+  >
+    <Component
+      dataTest="detail-modal-uninstall-button"
+      onClick={[MockFunction]}
+      type="button"
+      variant="primary"
+    >
+      Uninstall App
+    </Component>
   </div>
 </div>
 `;
@@ -71,99 +90,416 @@ exports[`ClientAppDetail should match a snapshot 1`] = `
       }
     >
       <ClientAppDetail>
-        <div>
+        <Component
+          dataTest="client-app-detail-loader"
+        >
+          <div
+            className="loader-spinner body"
+            data-test="client-app-detail-loader"
+          >
+            <div />
+            <div />
+            <div />
+            <div />
+          </div>
+        </Component>
+      </ClientAppDetail>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;
+
+exports[`ClientAppDetail should not render loader when client.appDetail.data is not empty object and isLoadingAppDetail = true 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "clientAppDetailRoute",
+          "pathname": "/client/apps/:appid",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "clientAppDetailRoute",
+              "pathname": "/client/apps/:appid",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "clientAppDetailRoute",
+            "pathname": "/client/apps/:appid",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <ClientAppDetail>
+        <div
+          className=" "
+          data-test="client-app-detail-container"
+        >
           <AppHeader
-            appDetailData={Object {}}
+            appDetailData={
+              Object {
+                "key": "value",
+              }
+            }
             buttonGroup={
               <React.Fragment>
                 
               </React.Fragment>
             }
           >
-            <Component
-              className="is-vcentered "
-            >
+            <div>
               <div
-                className="columns  is-vcentered "
+                className="flex items-center"
               >
-                <Component
-                  className="is-4"
+                <div
+                  className=" "
                 >
-                  <div
-                    className="column  is-4"
+                  <img
+                    alt=""
+                    className="images "
+                    src="https://bulma.io/images/placeholders/48x48.png"
+                  />
+                </div>
+                <div>
+                  <Component
+                    appName=""
                   >
                     <div>
-                      <img
-                        className="image"
-                        src="https://bulma.io/images/placeholders/48x48.png"
-                      />
-                    </div>
-                  </div>
-                </Component>
-                <Component
-                  className="is-8"
-                >
-                  <div
-                    className="column  is-8"
-                  >
-                    <Component>
-                      <h3
-                        className="title is-3  "
-                        id=""
-                      />
-                    </Component>
-                  </div>
-                </Component>
-              </div>
-            </Component>
-          </AppHeader>
-          <AppContent
-            appDetailData={Object {}}
-            loginType="CLIENT"
-          >
-            <Component>
-              <div
-                className="columns  "
-              >
-                <Component
-                  className="is-4"
-                >
-                  <div
-                    className="column  is-4"
-                  />
-                </Component>
-                <Component
-                  className="is-8"
-                >
-                  <div
-                    className="column  is-8"
-                  >
-                    <Component
-                      html=""
-                    >
-                      <Component
-                        className="html-render"
-                      >
-                        <div
-                          className="content html-render"
+                      <Component>
+                        <h2
+                          className="title is-2  "
+                          id=""
                         />
                       </Component>
-                    </Component>
-                    <br />
-                    <br />
-                    <Component
-                      isMultiLine={true}
-                    >
-                      <div
-                        className="columns is-multiline "
-                      />
-                    </Component>
-                  </div>
+                      <div>
+                        <FaCheck>
+                          <IconBase
+                            attr={
+                              Object {
+                                "viewBox": "0 0 512 512",
+                              }
+                            }
+                          >
+                            <svg
+                              fill="currentColor"
+                              height="1em"
+                              stroke="currentColor"
+                              strokeWidth="0"
+                              style={
+                                Object {
+                                  "color": undefined,
+                                }
+                              }
+                              viewBox="0 0 512 512"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                key="0"
+                              />
+                            </svg>
+                          </IconBase>
+                        </FaCheck>
+                         Verified by Reapit
+                      </div>
+                    </div>
+                  </Component>
+                </div>
+              </div>
+              <img
+                src="https://bulma.io/images/placeholders/48x48.png"
+              />
+            </div>
+          </AppHeader>
+          <AppContent
+            appDetailData={
+              Object {
+                "key": "value",
+              }
+            }
+            desktopIntegrationTypes={Array []}
+          >
+            <div>
+              <div />
+              <div>
+                <Component>
+                  <h5
+                    className="title is-5  "
+                    id=""
+                  >
+                    Description
+                  </h5>
+                </Component>
+                <Component
+                  html=""
+                >
+                  <Component
+                    className="html-render"
+                  >
+                    <div
+                      className="content html-render"
+                    />
+                  </Component>
                 </Component>
               </div>
-            </Component>
+              <div>
+                <Component>
+                  <h5
+                    className="title is-5  "
+                    id=""
+                  >
+                    Permission Required
+                  </h5>
+                </Component>
+                <ul />
+              </div>
+              <Component
+                header="Developer"
+              >
+                <div>
+                  <Component>
+                    <h5
+                      className="title is-5  "
+                      id=""
+                    >
+                      Developer
+                    </h5>
+                  </Component>
+                  TBC
+                </div>
+              </Component>
+              <Component
+                header="About Developer"
+              >
+                <div>
+                  <Component>
+                    <h5
+                      className="title is-5  "
+                      id=""
+                    >
+                      About Developer
+                    </h5>
+                  </Component>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam aliquid culpa saepe asperiores debitis illo dolorum dolore incidunt officiis praesentium, nemo similique veritatis exercitationem perferendis non mollitia animi laboriosam perspiciatis.
+                  </p>
+                </div>
+              </Component>
+              <Component
+                header="Contact Developer"
+              >
+                <div>
+                  <Component>
+                    <h5
+                      className="title is-5  "
+                      id=""
+                    >
+                      Contact Developer
+                    </h5>
+                  </Component>
+                  <Component
+                    type="button"
+                    variant="primary"
+                  >
+                    <button
+                      className="button  is-primary  "
+                      data-test=""
+                      disabled={false}
+                      type="button"
+                    >
+                      NEED HELP?
+                    </button>
+                  </Component>
+                </div>
+              </Component>
+            </div>
           </AppContent>
         </div>
+      </ClientAppDetail>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;
+
+exports[`ClientAppDetail should render loader when client.appDetail.data is an empty object 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "clientAppDetailRoute",
+          "pathname": "/client/apps/:appid",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "clientAppDetailRoute",
+              "pathname": "/client/apps/:appid",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "clientAppDetailRoute",
+            "pathname": "/client/apps/:appid",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <ClientAppDetail>
+        <Component
+          dataTest="client-app-detail-loader"
+        >
+          <div
+            className="loader-spinner body"
+            data-test="client-app-detail-loader"
+          >
+            <div />
+            <div />
+            <div />
+            <div />
+          </div>
+        </Component>
+      </ClientAppDetail>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;
+
+exports[`ClientAppDetail should render loader when isLoadingAppDetail = true 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "clientAppDetailRoute",
+          "pathname": "/client/apps/:appid",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "clientAppDetailRoute",
+              "pathname": "/client/apps/:appid",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "clientAppDetailRoute",
+            "pathname": "/client/apps/:appid",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <ClientAppDetail>
+        <Component
+          dataTest="client-app-detail-loader"
+        >
+          <div
+            className="loader-spinner body"
+            data-test="client-app-detail-loader"
+          >
+            <div />
+            <div />
+            <div />
+            <div />
+          </div>
+        </Component>
       </ClientAppDetail>
     </Router>
   </MemoryRouter>
