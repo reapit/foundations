@@ -7,6 +7,7 @@ import appDetailSagas, {
   fetchDesktopIntegrationTypes,
   fetchAppApiKey,
 } from '../apps'
+import { fetchDesktopIntegrationTypes } from '@/services/apps'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'

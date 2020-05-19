@@ -35,7 +35,7 @@ export const renderPermissions = (scopes: ScopeModel[] = []) => (
 
 export const renderCategory = (category: CategoryModel | undefined) => {
   if (!category) {
-    return undefined
+    return null
   }
 
   return (
@@ -48,7 +48,7 @@ export const renderCategory = (category: CategoryModel | undefined) => {
 
 export const renderDesktopIntegrationTypes = (desktopIntegrationTypes: DesktopIntegrationTypeModel[]) => {
   if (desktopIntegrationTypes.length === 0) {
-    return undefined
+    return null
   }
 
   return (
@@ -83,10 +83,6 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailData, desktopIntegrati
    * 2 -> nth: extra media
    */
   const extraMedia = media.filter((_, index) => index > 1)
-  console.log({
-    extraMedia,
-    media,
-  })
 
   return (
     <div className={clientAppDetailStyles.appContentContainer}>

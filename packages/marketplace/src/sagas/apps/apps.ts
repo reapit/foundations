@@ -1,18 +1,16 @@
 import { clientFetchAppDetailSuccess } from '@/actions/client'
-import { URLS, generateHeader } from '@/constants/api'
 import { integrationTypesReceiveData } from '@/actions/app-integration-types'
-import { fetcher } from '@reapit/elements'
 import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { logger } from 'logger'
-import { fetchAppById, FetchAppByIdParams, fetchDesktopIntegrationTypes } from '@/services/apps'
-import { fetchApiKeyInstallationById } from '@/services/installations'
+import { fetchAppApiKey, fetchAppDetail, FetchAppDetailParams, fetchDesktopIntegrationTypes } from '@/services/apps'
 import { developerFetchAppDetailSuccess } from '@/actions/developer'
+import { fetchApiKeyInstallationById } from '@/services/installations'
 
-export const fetchClientAppDetailSaga = function*({ data }: Action<FetchAppByIdParams>) {
+export const fetchClientAppDetailSaga = function*({ data }: Action<FetchAppDetailParams>) {
   try {
     const appDetailResponse = yield call(fetchAppById, { clientId: data.clientId, id: data.id })
     if (appDetailResponse?.isWebComponent && appDetailResponse?.installationId) {

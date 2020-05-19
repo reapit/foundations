@@ -240,6 +240,7 @@ export const rejectAppRevisionById = async (params: RejectAppRevisionByIdParams)
   }
 }
 
+<<<<<<< HEAD
 export const fetchAppSecretById = async (params: FetchAppSecretByIdParams): Promise<AppClientSecretModel> => {
   try {
     const { id } = params
@@ -254,4 +255,34 @@ export const fetchAppSecretById = async (params: FetchAppSecretByIdParams): Prom
     logger(error)
     throw new Error(error)
   }
+=======
+export const fetchDesktopIntegrationTypes = async () => {
+  const response = await fetcher({
+    url: URLS.desktopIntegrationTypes,
+    method: 'GET',
+    api: window.reapit.config.marketplaceApiUrl,
+    headers: generateHeader(window.reapit.config.marketplaceApiKey),
+  })
+  return response
+}
+
+export const fetchAppDetail = async ({ clientId, id }) => {
+  const response = await fetcher({
+    url: clientId ? `${URLS.apps}/${id}?clientId=${clientId}` : `${URLS.apps}/${id}`,
+    api: window.reapit.config.marketplaceApiUrl,
+    method: 'GET',
+    headers: generateHeader(window.reapit.config.marketplaceApiKey),
+  })
+  return response
+}
+
+export const fetchAppApiKey = async ({ installationId }) => {
+  const response = await fetcher({
+    url: `${URLS.installations}/${installationId}/apiKey`,
+    api: window.reapit.config.marketplaceApiUrl,
+    method: 'GET',
+    headers: generateHeader(window.reapit.config.marketplaceApiKey),
+  })
+  return response
+>>>>>>> move fetchDesktopIntegrationTypes to services, remove console.log
 }
