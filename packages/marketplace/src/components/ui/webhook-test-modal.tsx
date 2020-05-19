@@ -86,7 +86,11 @@ export const WebhookTestModalBody: React.FunctionComponent<WebhookTestModalBodyP
       body={
         <>
           <Content>
-            <p>To test your Webhook subscription, please select a ‘Subscription Topic’ below:</p>
+            {/* webhook link will be provide later. https://github.com/reapit/foundations/issues/1277 */}
+            <p>
+              To test your Webhook subscription, please select a subscription topic and an example payload for that
+              topic will be sent to the configured URL. For more information, see &apos;testing webhook link TBC&apos;
+            </p>
           </Content>
           <SelectBox id="topicId" name="topicId" labelText="Subscription Topics" options={topicOptions} required />
         </>

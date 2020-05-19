@@ -56,7 +56,7 @@ exports[`WebhookTestModalBody WebhookTestModalBody should match snapshot 1`] = `
     <React.Fragment>
       <Unknown>
         <p>
-          To test your Webhook subscription, please select a ‘Subscription Topic’ below:
+          To test your Webhook subscription, please select a subscription topic and an example payload for that topic will be sent to the configured URL. For more information, see 'testing webhook link TBC'
         </p>
       </Unknown>
       <Unknown
