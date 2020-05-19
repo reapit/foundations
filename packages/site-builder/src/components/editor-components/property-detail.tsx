@@ -2,11 +2,11 @@
 /* Not ideal ignoring for coverage but basically impossible to test these config files for grapes */
 import { ComponentTypes } from '../../constants/component-types'
 
-export const initializeSearchWidgetComponent = editor => {
+export const initializePropertyDetailComponent = editor => {
   const defaultType = editor.DomComponents.getType('default')
   const defaultModel = defaultType.model
 
-  editor.DomComponents.addType(ComponentTypes.SEARCH_WIDGET, {
+  editor.DomComponents.addType(ComponentTypes.PROPERTY_DETAIL, {
     model: defaultModel.extend(
       {
         defaults: {
@@ -38,7 +38,7 @@ export const initializeSearchWidgetComponent = editor => {
 
             const initWidget = () => {
               container.innerHTML = ''
-              new window.ReapitSearchWidgetComponent({
+              new window.ReapitPropertyDetailComponent({
                 theme: {
                   baseBackgroundColor: '#fff',
                   basefontSize: '16px',
@@ -64,14 +64,14 @@ export const initializeSearchWidgetComponent = editor => {
               })
             }
 
-            if (!window.ReapitSearchWidgetComponent) {
+            if (!window.ReapitPropertyDetailComponent) {
               const styles = document.createElement('link')
-              styles.href = 'https://web-components.reapit.cloud/search-widget.css'
+              styles.href = 'https://web-components.reapit.cloud/property-detail.css'
               styles.rel = 'stylesheet'
               document.head.appendChild(styles)
 
               const script = document.createElement('script')
-              script.src = 'https://web-components.reapit.cloud/search-widget.js'
+              script.src = 'https://web-components.reapit.cloud/property-detail.js'
               script.async = true
               script.defer = true
               script.onload = initWidget
@@ -84,9 +84,9 @@ export const initializeSearchWidgetComponent = editor => {
       },
       {
         isComponent(el) {
-          if (el.getAttribute && el.getAttribute('data-gjs-type') === ComponentTypes.SEARCH_WIDGET) {
+          if (el.getAttribute && el.getAttribute('data-gjs-type') === ComponentTypes.PROPERTY_DETAIL) {
             return {
-              type: ComponentTypes.SEARCH_WIDGET,
+              type: ComponentTypes.PROPERTY_DETAIL,
             }
           }
         },

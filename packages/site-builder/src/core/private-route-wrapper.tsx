@@ -21,6 +21,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
   if (!loginSession && refreshParams && !isFetchSession) {
     getLoginSession(refreshParams)
+    return null
   }
 
   if (!loginSession) {
@@ -30,7 +31,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   if (isFetchSession) {
     return (
       <Section>
-        <Loader />
+        <Loader body />
       </Section>
     )
   }

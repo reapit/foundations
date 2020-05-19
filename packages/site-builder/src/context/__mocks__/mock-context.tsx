@@ -15,6 +15,7 @@ export const mockContext = {
       developerId: 'mockID',
       adminId: 'mockAdminID',
       userCode: 'mockUserCode',
+      userTel: '0799999999',
     },
     loginType: 'CLIENT',
     cognitoClientId: '123',

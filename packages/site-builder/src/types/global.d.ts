@@ -5,6 +5,7 @@ export type Config = {
   googleAnalyticsKey: string
   cognitoOAuthUrl: string
   cognitoUserPoolId: string
+  searchWidgetApiKey: string
 }
 
 declare global {
@@ -13,5 +14,7 @@ declare global {
       config: Config
     }
     ReapitSearchWidgetComponent: any
+    ReapitPropertyDetailComponent: any
+    ReapitAppointmentBookingComponent: any
   }
 }

@@ -16,6 +16,11 @@ import ErrorBoundary from '@/components/hocs/error-boundary'
 import agentImage from '@/assets/images/agent-and-sons-preview.png'
 import { reapitAndSons } from '@/assets/html/reapit-and-sons'
 
+export const handleClipboardCopy = (setCopiedTheme: (copiedTheme: boolean) => void) => {
+  clipboardCopy(reapitAndSons)
+  setCopiedTheme(true)
+}
+
 export const GalleryPage: React.FunctionComponent = () => {
   const [copiedTheme, setCopiedTheme] = React.useState(false)
   return (
@@ -36,8 +41,7 @@ export const GalleryPage: React.FunctionComponent = () => {
                   type="button"
                   variant="info"
                   onClick={() => {
-                    clipboardCopy(reapitAndSons)
-                    setCopiedTheme(true)
+                    handleClipboardCopy(setCopiedTheme)
                   }}
                   disabled={false}
                   loading={false}

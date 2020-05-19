@@ -56,19 +56,20 @@ export const reapitAndSons = `
       flex-direction: column;
       margin-bottom: 2rem;
     }
-  
-    #reapit-search-widget {
+
+    #reapit-search-widget .search-widget {
       z-index: 1;
       width: 80%;
+      margin: 0 auto;
     }
-  
+
     @media (max-width: 768px) {
-      #reapit-search-widget {
+      #reapit-search-widget .search-widget {
         width: 90%;
       }
     }
-  
-    #reapit-search-widget > div {
+
+    #reapit-search-widget .search-widget {
       background: rgba(255, 255, 255, 0.9);
     }
   
@@ -182,8 +183,6 @@ export const reapitAndSons = `
   <div id="widget">
     <div id="reapit-search-widget-container">
       <img id="main-image" src="${heroImage}" />
-  
-      <div id="reapit-search-widget"></div>
     </div>
   </div>
   
@@ -193,8 +192,8 @@ export const reapitAndSons = `
       <h1>Our Approach</h1>
       <p>
         Agent and Sons are an independent Estate Agent based in London,
-        incorporating a professional team offering services in Sales and Lettings
-        . Our dedicated Property Managers and Negotiators have a vast knowledge in
+        incorporating a professional team offering services in Sales and Lettings.
+        Our dedicated Property Managers and Negotiators have a vast knowledge in
         the local and surrounding areas which allows us to provide a personal
         service.
       </p>
@@ -206,7 +205,7 @@ export const reapitAndSons = `
       <button>MORE</button>
     </div>
     <div id="img-approach">
-      <img src="${ourApproach}"" />
+      <img src="${ourApproach}" />
     </div>
   </div>
   

@@ -22,6 +22,7 @@
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
   },
   "dependencies": {
+    "emotion": "^10.0.27",
     "grapesjs": "^0.16.12",
     "grapesjs-preset-webpage": "^0.1.11"
   },

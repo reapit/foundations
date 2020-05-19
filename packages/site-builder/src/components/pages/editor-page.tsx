@@ -10,12 +10,13 @@ import {
   Formik,
   Form,
   Input,
+  Level,
+  LevelLeft,
+  H3,
 } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { initializeBlocks } from '../../core/initialize-components'
-import { H3 } from '../../../../elements/src/components/Typography/index'
-import { Level, LevelLeft } from '../../../../elements/src/components/Layout/index'
-import { initializeEditor } from '../../core/editor'
+import { initializeBlocks } from '@/core/initialize-components'
+import { initializeEditor } from '@/core/editor'
 
 export const DEFAULT_IDENTIFIER = 'HOME'
 export const LOCAL_STORAGE_KEY = 'REAPIT_SITE_BUILDER_PAGES'

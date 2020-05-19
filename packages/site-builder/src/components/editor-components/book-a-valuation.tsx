@@ -2,15 +2,17 @@
 /* Not ideal ignoring for coverage but basically impossible to test these config files for grapes */
 import { ComponentTypes } from '../../constants/component-types'
 
-export const initializeSearchWidgetComponent = editor => {
+export const initializeBookAValuationComponent = editor => {
   const defaultType = editor.DomComponents.getType('default')
   const defaultModel = defaultType.model
 
-  editor.DomComponents.addType(ComponentTypes.SEARCH_WIDGET, {
+  editor.DomComponents.addType(ComponentTypes.BOOK_A_VALUATION, {
+    /* istanbul ignore next */
     model: defaultModel.extend(
       {
         defaults: {
           ...defaultModel.prototype.defaults,
+          // TODO - will need it's own API key
           apiKey: window.reapit.config.searchWidgetApiKey,
           reapitCustomerId: '',
           droppable: true,
@@ -38,7 +40,7 @@ export const initializeSearchWidgetComponent = editor => {
 
             const initWidget = () => {
               container.innerHTML = ''
-              new window.ReapitSearchWidgetComponent({
+              new window.ReapitAppointmentBookingComponent({
                 theme: {
                   baseBackgroundColor: '#fff',
                   basefontSize: '16px',
@@ -64,14 +66,14 @@ export const initializeSearchWidgetComponent = editor => {
               })
             }
 
-            if (!window.ReapitSearchWidgetComponent) {
+            if (!window.ReapitAppointmentBookingComponent) {
               const styles = document.createElement('link')
-              styles.href = 'https://web-components.reapit.cloud/search-widget.css'
+              styles.href = 'https://web-components.reapit.cloud/appointment-bookings.css'
               styles.rel = 'stylesheet'
               document.head.appendChild(styles)
 
               const script = document.createElement('script')
-              script.src = 'https://web-components.reapit.cloud/search-widget.js'
+              script.src = 'https://web-components.reapit.cloud/appointment-bookings.js'
               script.async = true
               script.defer = true
               script.onload = initWidget
@@ -84,9 +86,9 @@ export const initializeSearchWidgetComponent = editor => {
       },
       {
         isComponent(el) {
-          if (el.getAttribute && el.getAttribute('data-gjs-type') === ComponentTypes.SEARCH_WIDGET) {
+          if (el.getAttribute && el.getAttribute('data-gjs-type') === ComponentTypes.BOOK_A_VALUATION) {
             return {
-              type: ComponentTypes.SEARCH_WIDGET,
+              type: ComponentTypes.BOOK_A_VALUATION,
             }
           }
         },

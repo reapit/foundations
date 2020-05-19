@@ -1,9 +1,6 @@
 import React from 'react'
-import { createBrowserHistory } from 'history'
-import { Route, Router } from 'react-router-dom'
 import { render } from '@testing-library/react'
 import { AuthContext } from '@/context'
-import { mockContext } from '@/context/__mocks__/mock-context'
 import { AuthHook } from '@/hooks/use-auth'
 import { PrivateRouteWrapper, PrivateRouteWrapperProps } from '../private-route-wrapper'
 import { getMockRouterProps } from '../__mocks__/mock-router'
@@ -28,6 +25,8 @@ const session = {
   },
 }
 
+jest.mock('@reapit/elements')
+
 jest.mock('@reapit/cognito-auth', () => ({
   redirectToLogin: jest.fn(),
   getSessionCookie: jest.fn(),
@@ -37,23 +36,6 @@ jest.mock('@reapit/cognito-auth', () => ({
 }))
 
 describe('PrivateRouter', () => {
-  it('should match a snapshot', () => {
-    const props: PrivateRouteWrapperProps = {
-      path: '/client/apps',
-      ...getMockRouterProps({ params: {}, search: '?username=wmcvay@reapit.com&desktopToken=TOKEN' }),
-    }
-    const history = createBrowserHistory()
-    const wrapper = render(
-      <AuthContext.Provider value={mockContext}>
-        <Router history={history}>
-          <Route>
-            <PrivateRouteWrapper {...props} />
-          </Route>
-        </Router>
-      </AuthContext.Provider>,
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
   it('should match a snapshot', () => {
     const props: PrivateRouteWrapperProps = {
       path: '/client/apps',

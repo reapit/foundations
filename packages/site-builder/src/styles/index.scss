@@ -20,10 +20,6 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-// * {
-//   box-sizing: border-box;
-// }
-
 html {
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 }
@@ -32,66 +28,9 @@ html {
   box-sizing: content-box !important;
 }
 
-// #page-container {
-//   height: 100vh;
-// }
-
-// #editor-container {
-//   border: 3px solid #444;
-// }
-
-/* Reset some default styling */
-// .gjs-cv-canvas {
-//   top: 0;
-//   width: 100%;
-//   height: 100%;
-// }
-
-// .gjs-block {
-//   width: auto;
-//   height: auto;
-//   min-height: auto;
-// }
-
-// #panel-top-container {
-//   padding: 0;
-//   width: 100%;
-//   display: flex;
-//   position: initial;
-//   // justify-content: center;
-//   justify-content: space-between;
-// }
-// #basic-actions-container {
-//   position: initial;
-// }
-
-// #editor-row {
-//   display: flex;
-//   justify-content: flex-start;
-//   align-items: stretch;
-//   flex-wrap: nowrap;
-//   height: 300px;
-// }
-
-// #editor-canvas {
-//   flex-grow: 1;
-// }
-
-// #panel-right {
-//   flex-basis: 230px;
-//   position: relative;
-//   overflow-y: auto;
-// }
-
-// #panel-switcher-container, #panel-devices-container {
-//   position: initial;
-// }
-
-
 /* Class names prefixes */
 $prefix: 'gjs-' !default;
 
-/* Colors / Theme */
 $primaryColor: #1e2554;
 $secondaryColor: #d4edf8;
 $tertiaryColor: #0061a8;

@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import grapesjs from 'grapesjs'
 import 'grapesjs-preset-webpage'
 import { initializeComponents } from './initialize-components'
@@ -25,12 +26,15 @@ export const initializeEditor = ({ identifier }: EditorInitParams) =>
               formsOpts: false,
               aviaryOpts: false,
               filestackOpts: false,
-              blocksBasicOpts: false,
+              blocksBasicOpts: {
+                blocks: ['column1', 'column2', 'column3', 'column3-7', 'text', 'link', 'image' /*, 'video', 'map' */],
+                flexGrid: true,
+              },
               blocks: [],
             },
           },
           storageManager: {
-            id: `REAPIT-SITE-BUILDER-${identifier}`,
+            id: `reapit-site-builder-${identifier}`,
             type: 'local',
             autosave: true,
             autoload: true,
@@ -42,5 +46,5 @@ export const initializeEditor = ({ identifier }: EditorInitParams) =>
           },
         }),
       )
-    }, 10)
+    }, 1)
   })
