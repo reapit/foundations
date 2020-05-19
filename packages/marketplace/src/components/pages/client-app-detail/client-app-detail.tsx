@@ -98,14 +98,16 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   const loginType = useSelector(selectLoginType)
   const isAdmin = useSelector(selectIsAdmin)
   const isInstallBtnHidden = loginType === 'CLIENT' && !isAdmin
+  // selector selectAppDetailData return {} if not data
+  const unfetched = Object.keys(appDetailData).length === 0
   const { id = '', installedOn = '' } = appDetailData
 
-  if (isLoadingAppDetail) {
-    return <Loader />
+  if (isLoadingAppDetail || unfetched) {
+    return <Loader dataTest="client-app-detail-loader" />
   }
 
   return (
-    <div className={appDetailContainerClassNames}>
+    <div data-test="client-app-detail-container" className={appDetailContainerClassNames}>
       <AppHeader
         appDetailData={appDetailData}
         buttonGroup={renderAppHeaderButtonGroup(
