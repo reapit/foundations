@@ -1,4 +1,5 @@
-import { generateHeader, URLS } from '@/constants/api'
+import { URLS } from '@/services/constants'
+import { generateHeader } from '@/services/utils'
 import { fetcher } from '@reapit/elements'
 import { fetchAppDetail, fetchAppApiKey, fetchDesktopIntegrationTypes } from '../apps'
 

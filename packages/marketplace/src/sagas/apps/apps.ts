@@ -6,11 +6,11 @@ import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { logger } from 'logger'
-import { fetchAppApiKey, fetchAppDetail, FetchAppDetailParams, fetchDesktopIntegrationTypes } from '@/services/apps'
+import { fetchAppById, fetchDesktopIntegrationTypes, FetchAppByIdParams } from '@/services/apps'
 import { developerFetchAppDetailSuccess } from '@/actions/developer'
 import { fetchApiKeyInstallationById } from '@/services/installations'
 
-export const fetchClientAppDetailSaga = function*({ data }: Action<FetchAppDetailParams>) {
+export const fetchClientAppDetailSaga = function*({ data }: Action<FetchAppByIdParams>) {
   try {
     const appDetailResponse = yield call(fetchAppById, { clientId: data.clientId, id: data.id })
     if (appDetailResponse?.isWebComponent && appDetailResponse?.installationId) {
