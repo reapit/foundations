@@ -4,7 +4,9 @@ export interface ErrorState {
   hasFailed: boolean
 }
 
-export type ErrorProps = {}
+export type ErrorProps = {
+  children?: React.ReactNode
+}
 
 export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
   constructor(props: ErrorProps) {
