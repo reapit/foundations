@@ -1,4 +1,5 @@
 import React from 'react'
+import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { InstallationModel } from '@reapit/foundations-ts-definitions'
 import { installationsStub } from '@/sagas/__stubs__/installations'
 import { shallow, mount } from 'enzyme'
@@ -65,7 +66,7 @@ describe('AppContent', () => {
       appInstallationsRequestData({
         appId: [appId],
         pageNumber: 1,
-        pageSize: 15,
+        pageSize: GET_ALL_PAGE_SIZE,
         isInstalled: true,
         developerId: [developerId],
       }),

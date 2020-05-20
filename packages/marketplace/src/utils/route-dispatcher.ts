@@ -1,9 +1,9 @@
 import { AdminDevManagementRequestDataValues } from './../actions/admin-dev-management'
+import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { selectDeveloperId } from '@/selector'
 import { appDetailRequestData } from './../actions/app-detail'
 import { RouteValue, StringMap } from '../types/core'
 import Routes from '../constants/routes'
-import { GET_ALL_PAGE_SIZE } from '../constants/paginator'
 import store from '../core/store'
 import { clientFetchAppSummary, clientFetchAppDetail } from '../actions/client'
 import { myAppsRequestData } from '../actions/my-apps'
@@ -78,7 +78,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
           appInstallationsRequestData({
             appId: [id],
             pageNumber: 1,
-            pageSize: 15,
+            pageSize: GET_ALL_PAGE_SIZE,
             isInstalled: true,
             developerId: [developerId],
           }),

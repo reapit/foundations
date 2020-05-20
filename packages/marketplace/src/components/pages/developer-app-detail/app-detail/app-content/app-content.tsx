@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { appInstallationsRequestData } from '@/actions/app-installations'
 import { selectDeveloperId } from '@/selector'
 import developerAppDetailStyles from '@/styles/pages/developer-app-detail.scss?mod'
@@ -67,7 +68,7 @@ export const handleUninstallSuccess = ({ handleAfterClose, setUninstallApp, deve
     appInstallationsRequestData({
       appId: [appId],
       pageNumber: 1,
-      pageSize: 15,
+      pageSize: GET_ALL_PAGE_SIZE,
       isInstalled: true,
       developerId: [developerId],
     }),
@@ -83,6 +84,7 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailData }) => {
 
   const [uninstallApp, setUninstallApp] = React.useState<InstallationModel>()
   const columns = generateColumns(handleUninstall(setUninstallApp))()
+  const isVisibleUninstallModal = Boolean(uninstallApp)
 
   /**
    * 0 = icon
@@ -92,7 +94,7 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailData }) => {
 
   return (
     <div className={clientAppDetailStyles.appContentContainer}>
-      <Modal visible={Boolean(uninstallApp)}>
+      <Modal visible={isVisibleUninstallModal}>
         <ConfirmUninstall
           isSetAppDetailStaleAfterUninstallSuccess={false}
           appName={name}

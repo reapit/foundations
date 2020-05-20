@@ -2,7 +2,6 @@ import React from 'react'
 import { DeveloperAppDetailState } from '@/reducers/developer'
 import { Aside, ManageApp, renderListedStatus } from '../aside'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
 import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
@@ -15,13 +14,11 @@ jest.mock('react-router', () => ({
 describe('Aside', () => {
   test('Aside - should match snapshot', () => {
     expect(
-      toJson(
-        shallow(
-          <Aside
-            appDetailState={appDetailDataStub as DeveloperAppDetailState}
-            desktopIntegrationTypes={integrationTypesStub.data as DesktopIntegrationTypeModel[]}
-          />,
-        ),
+      shallow(
+        <Aside
+          appDetailState={appDetailDataStub as DeveloperAppDetailState}
+          desktopIntegrationTypes={integrationTypesStub.data as DesktopIntegrationTypeModel[]}
+        />,
       ),
     ).toMatchSnapshot()
   })
@@ -43,14 +40,8 @@ describe('Aside', () => {
 
   test('ManageApp - should match snapshot', () => {
     expect(
-      toJson(
-        shallow(
-          <ManageApp
-            id="test"
-            pendingRevisions={false}
-            appDetailState={appDetailDataStub as DeveloperAppDetailState}
-          />,
-        ),
+      shallow(
+        <ManageApp id="test" pendingRevisions={false} appDetailState={appDetailDataStub as DeveloperAppDetailState} />,
       ),
     ).toMatchSnapshot()
   })

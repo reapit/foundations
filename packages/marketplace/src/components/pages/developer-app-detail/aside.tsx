@@ -6,7 +6,7 @@ import appDetailStyles from '@/styles/blocks/app-detail.scss?mod'
 import developerAppDetailStyles from '@/styles/pages/developer-app-detail.scss?mod'
 import { RenderWithHeader } from './app-detail/render-with-header'
 import { Button } from '@reapit/elements'
-import { BooleanToYesNo } from '@/utils/boolean-to-yes-no'
+import { convertBooleanToYesNoString } from '@/utils/boolean-to-yes-no-string'
 import { renderCategory, renderDesktopIntegrationTypes } from '../client-app-detail/app-content'
 import { DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
 /* eslint-disable max-len */
@@ -105,8 +105,8 @@ export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetail
       <div className={developerAppDetailStyles.headerWithoutMargin}>
         {renderDesktopIntegrationTypes(desktopIntegrationTypes)}
       </div>
-      <RenderWithHeader header="Private App">{BooleanToYesNo(Boolean(limitToClientIds))}</RenderWithHeader>
-      <RenderWithHeader header="Direct API">{BooleanToYesNo(Boolean(isDirectApi))}</RenderWithHeader>
+      <RenderWithHeader header="Private App">{convertBooleanToYesNoString(Boolean(limitToClientIds))}</RenderWithHeader>
+      <RenderWithHeader header="Direct API">{convertBooleanToYesNoString(Boolean(isDirectApi))}</RenderWithHeader>
       <RenderWithHeader header="Status">{renderListedStatus(Boolean(isListed))}</RenderWithHeader>
       <ManageApp appDetailState={appDetailState} id={id} pendingRevisions={Boolean(pendingRevisions)} />
     </div>
