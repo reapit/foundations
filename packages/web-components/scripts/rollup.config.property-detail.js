@@ -7,7 +7,7 @@ import generateCssOutput from './generate-css-output'
 import themesConfiguration from './rollup.config.themes.js'
 import { baseConfigurationWithoutTheme as viewBookinConfiguration } from './rollup.config.viewing-booking.js'
 
-const config = require(path.resolve(__dirname, '../..', 'config.json'))
+const config = require(path.resolve(__dirname, '..', 'config.json'))
 const production = !process.env.ROLLUP_WATCH
 
 export const baseConfigurationWithoutTheme = {

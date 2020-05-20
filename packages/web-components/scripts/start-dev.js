@@ -37,7 +37,7 @@ return (() => {
         moveHtml += ' &&'
       }
       // eslint-disable-next-line max-len
-      const clientScript = `rollup -w -c './src/scripts/rollup.config.${packageName}.js' --environment APP_ENV:local`
+      const clientScript = `rollup -w -c './scripts/rollup.config.${packageName}.js' --environment APP_ENV:local`
       const serverScript = 'serverless offline --out public/dist --stage local'
       const startClientServer = getStartClientServer(packageName)
 

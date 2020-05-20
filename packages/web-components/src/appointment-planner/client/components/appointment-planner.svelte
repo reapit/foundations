@@ -6,7 +6,7 @@
 
   export let themeClasses
   export let handleNextStep
-  const { svgNavigation } = themeClasses
+  export let handleOnClickCell
 </script>
 
 <style>
@@ -31,12 +31,12 @@
 
 <div data-testid="appointment-bookings-modal-header-container" class="appointment-bookings-modal-header-container">
   <button data-testid="prev-week" on:click={weekStore.decrement}>
-    <Fa class=" {svgNavigation}" icon={faChevronLeft} />
+    <Fa class=" {themeClasses.svgNavigation}" icon={faChevronLeft} />
   </button>
   <h1 class={themeClasses.primaryHeading}>Choose an Appointment</h1>
   <button data-testid="next-week" on:click={weekStore.increment}>
-    <Fa class=" {svgNavigation}" icon={faChevronRight} />
+    <Fa class=" {themeClasses.svgNavigation}" icon={faChevronRight} />
   </button>
   <div />
 </div>
-<DateTimePicker {handleNextStep} />
+<DateTimePicker {handleNextStep} {themeClasses} {handleOnClickCell} />

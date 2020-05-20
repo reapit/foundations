@@ -6,7 +6,7 @@ import path from 'path'
 import generateRollupOutput from './generate-rollup-output'
 import generateCssOutput from './generate-css-output'
 
-const config = require(path.resolve(__dirname, '../..', 'config.json'))
+const config = require(path.resolve(__dirname, '..', 'config.json'))
 const production = !process.env.ROLLUP_WATCH
 
 // search-widget is depend on property detail

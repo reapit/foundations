@@ -1,9 +1,10 @@
 <script>
   import TimeCell from './time-cell.svelte'
-  import { themeStore } from '../core/store/theme-store'
 
   export let date
   export let handleNextStep
+  export let handleOnClickCell
+  export let themeClasses
 
   // generate dummy meeting slots between 00-00 -> 10-00 - duration - on hours
   export const mockedTimes = []
@@ -35,10 +36,10 @@
 </style>
 
 <div class="date-cell-container" title="Click on the cell for more detail">
-  <div class={$themeStore.dateCellHeader}>{formatHeader(date)}</div>
-  <div class={$themeStore.timeCellsContainer}>
+  <div class={themeClasses.dateCellHeader}>{formatHeader(date)}</div>
+  <div class={themeClasses.timeCellsContainer}>
     {#each mockedTimes as startTime}
-      <TimeCell {date} {startTime} {handleNextStep} />
+      <TimeCell {themeClasses} {date} {startTime} {handleNextStep} {handleOnClickCell} />
     {/each}
   </div>
 </div>

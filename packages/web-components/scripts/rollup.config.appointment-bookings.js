@@ -6,7 +6,7 @@ import generateRollupOutput from './generate-rollup-output'
 import generateCssOutput from './generate-css-output'
 import themesConfigurations from './rollup.config.themes.js'
 
-const config = require(path.resolve(__dirname, '../..', 'config.json'))
+const config = require(path.resolve(__dirname, '..', 'config.json'))
 
 const production = !process.env.ROLLUP_WATCH
 
