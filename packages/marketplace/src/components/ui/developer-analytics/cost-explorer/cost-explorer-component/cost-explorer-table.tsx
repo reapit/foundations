@@ -86,8 +86,8 @@ const CostExplorerTable: React.FC<CostExplorerTableProps> = () => {
         be automatically invoiced at the end of each billing period.
       </p>
       <p className="mt-5">
-        ** As our chargers are calculated in fractions of pence per transaction, very occasionally you may see a
-        rounding discrepancy of more than £0.01 in the Cost Explorer.
+        ** As our charges are calculated in fractions of pence per transaction, very occasionally you may see a rounding
+        discrepancy of more than £0.01 in the Cost Explorer.
       </p>
     </>
   )
