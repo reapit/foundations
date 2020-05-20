@@ -1,4 +1,5 @@
 import { AdminDevManagementRequestDataValues } from './../actions/admin-dev-management'
+import { selectDeveloperId } from '@/selector'
 import { appDetailRequestData } from './../actions/app-detail'
 import { RouteValue, StringMap } from '../types/core'
 import Routes from '../constants/routes'
@@ -10,6 +11,7 @@ import { installedAppsRequestData } from '../actions/installed-apps'
 import { developerRequestData, fetchMyIdentity, developerFetchAppDetail } from '@/actions/developer'
 import { adminApprovalsRequestData } from '../actions/admin-approvals'
 import { adminDevManagementRequestData } from '../actions/admin-dev-management'
+import { appInstallationsRequestData } from '../actions/app-installations'
 import { submitAppRequestData } from '../actions/submit-app'
 import { getAccessToken } from './session'
 import { requestDeveloperData } from '@/actions/settings'
@@ -70,7 +72,17 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
     case Routes.DEVELOPER_APP_DETAIL: {
       if (id) {
         const clientId = selectClientId(store.state)
+        const developerId = selectDeveloperId(store.state) || ''
         store.dispatch(developerFetchAppDetail({ id, clientId }))
+        store.dispatch(
+          appInstallationsRequestData({
+            appId: [id],
+            pageNumber: 1,
+            pageSize: 15,
+            isInstalled: true,
+            developerId: [developerId],
+          }),
+        )
       }
       break
     }

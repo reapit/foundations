@@ -43,6 +43,8 @@ export const fetchDeveloperAppDetailSaga = function*({ data }: Action<FetchAppBy
       })
       appDetailResponse.apiKey = apiKeyResponse?.apiKey || ''
     }
+    const desktopIntegrationTypes = yield call(fetchDesktopIntegrationTypes)
+    yield put(integrationTypesReceiveData(desktopIntegrationTypes))
     yield put(developerFetchAppDetailSuccess(appDetailResponse))
   } catch (err) {
     logger(err)

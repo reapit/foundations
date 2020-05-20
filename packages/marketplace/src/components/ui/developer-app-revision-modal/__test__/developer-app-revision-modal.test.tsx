@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { AppDetailState } from '@/reducers/app-detail'
 import { shallow } from 'enzyme'
 
 import {
@@ -69,12 +70,8 @@ describe('DeveloperAppRevisionModal', () => {
   })
   describe('handleUseEffectToFetchAppRevisionDetail', () => {
     it('should run correctly', () => {
-      const {
-        appId,
-        appDetailState: { appDetailData },
-        fetchAppRevisionDetail,
-        visible,
-      } = props
+      const { appId, appDetailState, fetchAppRevisionDetail, visible } = props
+      const { appDetailData } = appDetailState as AppDetailState
       const appRevisionId = appDetailData?.data.id || ''
       const fn = handleUseEffectToFetchAppRevisionDetail(appId, appRevisionId, fetchAppRevisionDetail, visible)
       fn()

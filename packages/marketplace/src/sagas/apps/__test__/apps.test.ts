@@ -135,9 +135,9 @@ describe('fetch developer app detail with clientId', () => {
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(appDetailDataStub.data).value).toEqual(
-      put(developerFetchAppDetailSuccess(appDetailDataStub.data)),
-    )
+    expect(clone.next(appDetailDataStub.data).value).toEqual(call(fetchDesktopIntegrationTypes))
+    expect(clone.next(integrationTypesStub).value).toEqual(put(integrationTypesReceiveData(integrationTypesStub)))
+    expect(clone.next().value).toEqual(put(developerFetchAppDetailSuccess(appDetailDataStub.data)))
   })
 
   test('api call error', () => {
@@ -160,9 +160,9 @@ describe('fetch developer app detail without clientId', () => {
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(appDetailDataStub.data).value).toEqual(
-      put(developerFetchAppDetailSuccess(appDetailDataStub.data)),
-    )
+    expect(clone.next(appDetailDataStub.data).value).toEqual(call(fetchDesktopIntegrationTypes))
+    expect(clone.next(integrationTypesStub).value).toEqual(put(integrationTypesReceiveData(integrationTypesStub)))
+    expect(clone.next().value).toEqual(put(developerFetchAppDetailSuccess(appDetailDataStub.data)))
   })
 
   test('api call error', () => {
@@ -198,7 +198,9 @@ describe('client app detail fetch data and fetch apiKey', () => {
         }).value,
       ),
     ).toBe(JSON.stringify(call(fetchApiKeyInstallationById, { installationId })))
-    expect(clone.next({ apiKey }).value).toEqual(
+    expect(clone.next({ apiKey }).value).toEqual(call(fetchDesktopIntegrationTypes))
+    expect(clone.next(integrationTypesStub).value).toEqual(put(integrationTypesReceiveData(integrationTypesStub)))
+    expect(clone.next().value).toEqual(
       put(developerFetchAppDetailSuccess({ ...appDetailDataStub.data, isWebComponent, installationId, apiKey })),
     )
   })

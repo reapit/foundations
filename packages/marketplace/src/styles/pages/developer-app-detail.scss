@@ -1,13 +1,55 @@
 @import '../base/colors.scss';
 
-.appDetailContainer {
-  width: 100%;
-  height: 100%;
-  max-width: 1012px;
-  margin: 0 auto;
-  padding: 15px;
-  background-color: $white;
+.listPreviewIcon {
+  color: $reapit-blue;
 }
+
+.appDetailContainer {
+  height: auto;
+  display: flex;
+  margin: 0 auto;
+  margin: 1rem;
+}
+
+.asideContainer {
+  margin-right: 1rem;
+  width: 30%;
+
+  h5,
+  h5:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  .headerWithoutMargin {
+
+  h5 {
+    margin-bottom: 0;
+  }
+  }
+}
+
+.mainContainer {
+  flex: 1;
+}
+
+.asideManageAppContainer {
+  display: flex;
+  flex-direction: column;
+
+  button,
+  button:first-child {
+    width: 150px;
+    margin-top: 0;
+    margin-left: 0;
+  }
+}
+
+.asideContainer,
+.mainContainer {
+  background-color: $white;
+  padding: 15px;
+}
+
 .appIconContainer {
   width: 128px;
   height: 128px;
@@ -17,4 +59,16 @@
   background-color: $grey-lighter;
   border-radius: 50%;
   margin: 0 auto;
+}
+
+.renderAsideStatusContainer {
+  display: flex;
+  justify-content: flex-star;
+  align-items: center;
+
+  .check {
+    /*should be px regard their base px (rem) else looks really ugly*/
+    margin-left: 5px;
+    color: #a0c862;
+  }
 }

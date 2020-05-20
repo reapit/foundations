@@ -8,10 +8,11 @@ import { DesktopIntegrationTypeModel, PagedResultDesktopIntegrationTypeModel_ } 
 import DiffCheckbox from '../diff-checkbox'
 import DiffViewer from '../diff-viewer'
 import DiffRenderHTML from '../diff-render-html'
+import { DeveloperAppDetailState } from '@/reducers/developer'
 
 export type AppRevisionComparisionProps = {
   revisionDetailState: RevisionDetailState
-  appDetailState: AppDetailState
+  appDetailState: AppDetailState | DeveloperAppDetailState
 }
 
 export type DiffMediaModel = {
@@ -161,11 +162,12 @@ export const AppRevisionComparision: React.FC<AppRevisionComparisionProps> = ({
   revisionDetailState,
   appDetailState,
 }) => {
-  if (!revisionDetailState.revisionDetailData || !appDetailState.appDetailData) {
+  const app =
+    (appDetailState as AppDetailState)?.appDetailData?.data || (appDetailState as DeveloperAppDetailState)?.data
+  if (!revisionDetailState.revisionDetailData || !app) {
     return null
   }
   const { data: revision, scopes, desktopIntegrationTypes } = revisionDetailState.revisionDetailData
-  const app = appDetailState.appDetailData.data
 
   return (
     <div>

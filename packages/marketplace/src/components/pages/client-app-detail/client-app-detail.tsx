@@ -10,19 +10,13 @@ import { selectIntegrationTypes } from '@/selector/integration-types'
 import { useSelector } from 'react-redux'
 import { selectAppDetailData, selectAppDetailLoading } from '@/selector/client-app-detail'
 import { selectLoginType, selectIsAdmin } from '@/selector/auth'
-import AppHeader from './app-header'
+import AppHeader from '@/components/ui/app-detail/app-header'
 import AppContent from './app-content'
 import { Loader, Button } from '@reapit/elements'
-import developerAppDetailStyles from '@/styles/pages/developer-app-detail.scss?mod'
 import clientAppDetailStyles from '@/styles/pages/client-app-detail.scss?mod'
 import ClientAppInstallConfirmation from '@/components/ui/client-app-detail/client-app-install-confirmation'
 
 export type ClientAppDetailProps = {}
-
-const appDetailContainerClassNames = [
-  clientAppDetailStyles.appDetailContainer,
-  developerAppDetailStyles.appDetailContainer,
-].join(' ')
 
 export const handleCloseInstallConfirmationModal = (setIsVisibleInstallConfirmation: (isVisible: boolean) => void) => {
   return () => {
@@ -107,7 +101,7 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   }
 
   return (
-    <div data-test="client-app-detail-container" className={appDetailContainerClassNames}>
+    <div data-test="client-app-detail-container" className={clientAppDetailStyles.appDetailContainer}>
       <AppHeader
         appDetailData={appDetailData}
         buttonGroup={renderAppHeaderButtonGroup(

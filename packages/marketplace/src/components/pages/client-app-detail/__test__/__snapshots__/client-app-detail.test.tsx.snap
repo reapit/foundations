@@ -166,7 +166,6 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
     >
       <ClientAppDetail>
         <div
-          className=" "
           data-test="client-app-detail-container"
         >
           <AppHeader
@@ -181,70 +180,42 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
               </React.Fragment>
             }
           >
-            <div>
+            <Component
+              className="is-vcentered "
+            >
               <div
-                className="flex items-center"
+                className="columns  is-vcentered "
               >
-                <div
-                  className=" "
+                <Component
+                  className="is-4"
                 >
-                  <img
-                    alt=""
-                    className="images "
-                    src="https://bulma.io/images/placeholders/48x48.png"
-                  />
-                </div>
-                <div>
-                  <Component
-                    appName=""
+                  <div
+                    className="column  is-4"
                   >
                     <div>
-                      <Component>
-                        <h2
-                          className="title is-2  "
-                          id=""
-                        />
-                      </Component>
-                      <div>
-                        <FaCheck>
-                          <IconBase
-                            attr={
-                              Object {
-                                "viewBox": "0 0 512 512",
-                              }
-                            }
-                          >
-                            <svg
-                              fill="currentColor"
-                              height="1em"
-                              stroke="currentColor"
-                              strokeWidth="0"
-                              style={
-                                Object {
-                                  "color": undefined,
-                                }
-                              }
-                              viewBox="0 0 512 512"
-                              width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-                                key="0"
-                              />
-                            </svg>
-                          </IconBase>
-                        </FaCheck>
-                         Verified by Reapit
-                      </div>
+                      <img
+                        className="image"
+                        src="https://bulma.io/images/placeholders/48x48.png"
+                      />
                     </div>
-                  </Component>
-                </div>
+                  </div>
+                </Component>
+                <Component
+                  className="is-8"
+                >
+                  <div
+                    className="column  is-8"
+                  >
+                    <Component>
+                      <h3
+                        className="title is-3  "
+                        id=""
+                      />
+                    </Component>
+                  </div>
+                </Component>
               </div>
-              <img
-                src="https://bulma.io/images/placeholders/48x48.png"
-              />
-            </div>
+            </Component>
           </AppHeader>
           <AppContent
             appDetailData={
@@ -291,7 +262,9 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
               <Component
                 header="Developer"
               >
-                <div>
+                <div
+                  data-test=""
+                >
                   <Component>
                     <h5
                       className="title is-5  "
@@ -306,7 +279,9 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
               <Component
                 header="About Developer"
               >
-                <div>
+                <div
+                  data-test=""
+                >
                   <Component>
                     <h5
                       className="title is-5  "
@@ -323,7 +298,9 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
               <Component
                 header="Contact Developer"
               >
-                <div>
+                <div
+                  data-test=""
+                >
                   <Component>
                     <h5
                       className="title is-5  "

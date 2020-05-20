@@ -35,6 +35,11 @@
 
 .appDetailContainer {
   height:auto;
+  width: 100%;
+  max-width: 1012px;
+  margin: 0 auto;
+  padding: 15px;
+  background-color: $white;
 }
 
 .gutter {
@@ -51,12 +56,6 @@
   }
 }
 
-.tag {
-  display: inline-block;
-  padding: 1rem;
-  background: #e3ebf6;
-  margin: 1rem 1rem 0 0;
-}
 
 .permissionList {
   list-style-type: disc;
@@ -64,6 +63,7 @@
 }
 
 .appHeaderFeaturedImage {
-  width: 50%;
+  max-width: 40%;
+  margin-left: 1rem;
 }
 
