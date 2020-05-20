@@ -12,7 +12,7 @@ afterEach(() => {
 
 describe('data-cell', () => {
   it('it matches a snapshot', () => {
-    const wrapper = render(DataCell, { date: dayjs() })
+    const wrapper = render(DataCell, { date: dayjs(), themeClasses: {} })
     const { container } = wrapper
 
     expect(container).toMatchSnapshot()

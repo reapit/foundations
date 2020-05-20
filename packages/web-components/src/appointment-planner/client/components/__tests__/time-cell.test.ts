@@ -12,7 +12,7 @@ afterEach(() => {
 
 describe('DateTimePicker', () => {
   it('it matches a snapshot', () => {
-    const wrapper = render(TimeCell, { startTime: dayjs() })
+    const wrapper = render(TimeCell, { startTime: dayjs(), themeClasses: {} })
     const { container } = wrapper
 
     expect(container).toMatchSnapshot()

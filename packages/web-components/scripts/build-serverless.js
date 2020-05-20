@@ -6,26 +6,26 @@ const stage = yargs.argv.stage
 // relative to the root of web-components package
 const listServerlessYmlFiles = ['src/search-widget/server/serverless.yml']
 
-const deployServerlessList = () => {
+const buildServerlessList = () => {
   listServerlessYmlFiles.forEach(file => {
-    const deploy = spawn('serverless', ['deploy', '--config', file, '--stage', stage])
-    deploy.stdout.on('data', function(data) {
+    const build = spawn('serverless', ['webpack', '--config', file, '--out', 'dist', '--stage', stage])
+    build.stdout.on('data', function(data) {
       console.info('stdout: ' + data.toString())
     })
 
-    deploy.stderr.on('data', function(data) {
+    build.stderr.on('data', function(data) {
       console.error('stderr: ' + data.toString())
     })
 
-    deploy.on('exit', function(code) {
-      console.info(`Deploying ${file} exited with code ${code.toString()}`)
+    build.on('exit', function(code) {
+      console.info(`Building ${file} exited with code ${code.toString()}`)
     })
 
-    deploy.on('error', function(err) {
+    build.on('error', function(err) {
       console.error(`An error happened \n${err}`)
       process.exit(1)
     })
   })
 }
 
-deployServerlessList()
+buildServerlessList()

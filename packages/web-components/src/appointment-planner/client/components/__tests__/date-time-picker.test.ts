@@ -11,7 +11,7 @@ afterEach(() => {
 
 describe('DateTimePicker', () => {
   it('it matches a snapshot', () => {
-    const wrapper = render(DateTimePicker)
+    const wrapper = render(DateTimePicker, { themeClasses: {} })
     const { container } = wrapper
 
     expect(container).toMatchSnapshot()

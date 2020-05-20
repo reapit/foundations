@@ -38,7 +38,8 @@ return (() => {
       }
       // eslint-disable-next-line max-len
       const clientScript = `rollup -w -c './scripts/rollup.config.${packageName}.js' --environment APP_ENV:local`
-      const serverScript = 'serverless offline --out public/dist --stage local'
+      // eslint-disable-next-line max-len
+      const serverScript = `serverless offline --config src/${packageName}/server/serverless.yml --out public/dist --stage local`
       const startClientServer = getStartClientServer(packageName)
 
       const startDev = `

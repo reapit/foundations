@@ -1,11 +1,12 @@
-service: web-components
+service: web-components.search-widget
 plugins:
   - serverless-webpack
   - serverless-offline
   - serverless-plugin-ifelse
 
 custom:
-  env: ${file(../../../config.json)}
+  # relative to web-components package root
+  env: ${file(./config.json)}
   webpack:
     webpackConfig: 'webpack.config.js'
     includeModules: true
