@@ -1,4 +1,4 @@
-import AppointmentBooking from '../planner-step2.svelte'
+import AppointmentBooking from '../appointment-planner.svelte'
 import '@testing-library/jest-dom/extend-expect'
 import { render } from '@testing-library/svelte'
 import MockDate from 'mockdate'

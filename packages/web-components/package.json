@@ -64,7 +64,7 @@
     "build:serverless": "serverless webpack --out dist --stage dev",
     "release:server:dev": "serverless deploy --stage dev",
     "release:server:prod": "node ../../scripts/release/release-serverless.js web-components",
-    "release:npm:prod": "node ../../scripts/release/release-npm.js elements --skip-edit-release-note",
+    "release:npm:prod": "node ../../scripts/release/release-npm.js web-components --skip-edit-release-note",
     "release:client:dev": "node ../../scripts/release/release-dev.js web-components reapit-web-components",
     "release:client:prod": "node ../../scripts/release/release-prod.js web-components reapit-web-components",
     "release:dev": "yarn release:server:dev && yarn release:client:dev",
