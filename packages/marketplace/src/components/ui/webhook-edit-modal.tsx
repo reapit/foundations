@@ -213,17 +213,6 @@ export const WebhookModalInner: React.FunctionComponent<WebhookModalInnerProps> 
                       Webhooks subscriptions can be set up for any customer who has installed your application.
                       Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
                     </p>
-                    <p>
-                      For more information about Webhooks, please see our{' '}
-                      <a
-                        className={linkStyles.link}
-                        href="https://foundations-documentation.reapit.cloud/api/api-documentation#webhooks"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        webhooks documentation
-                      </a>
-                    </p>
                   </Content>
                   <Input
                     id="url"

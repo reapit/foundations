@@ -211,19 +211,18 @@ export const DeveloperWebhooks = ({
           <FormSubHeading>
             This system is designed to flexibly work with how your application is built and deployed. If you wish, you
             can set up a single endpoint to catch all topics for all customers. Alternatively, you may wish to set up a
-            different webhook subscription per topic or per customer.
-          </FormSubHeading>
-          <FormSubHeading>
-            For more information about Webhooks, please see our{' '}
+            different webhook subscription per topic or per customer. For more information about Webhooks, please see
+            our{' '}
             <a
               className={linkStyles.link}
-              href="https://foundations-documentation.reapit.cloud/api/api-documentation#webhooks"
+              href="https://marketplace.reapit.cloud/developer/api-docs/api/webhooks"
               target="_blank"
               rel="noopener noreferrer"
             >
               webhooks documentation
             </a>
           </FormSubHeading>
+
           <Formik initialValues={{ applicationId: '' }} enableReinitialize={true} onSubmit={() => {}}>
             {() => (
               <Form>
