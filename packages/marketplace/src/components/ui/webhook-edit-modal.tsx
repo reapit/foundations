@@ -35,7 +35,6 @@ import {
 import { WebhookModal, CustomerItem, TopicItem } from '@/reducers/webhook-edit-modal'
 import { selectTopics, selectWebhookData, selectLoading, selectCustomers } from '@/selector/webhook-edit'
 import { isValidHttpsUrl } from '@/utils/validate'
-import linkStyles from '@/styles/elements/link.scss?mod'
 
 const CREATE_MODAL = {
   title: 'Add New Webhook',
