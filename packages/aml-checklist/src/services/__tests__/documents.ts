@@ -1,4 +1,4 @@
-import { downloadDocument } from '../document-downloader'
+import { downloadDocument } from '../documents'
 import * as ReapitElements from '@reapit/elements'
 import { URLS } from '@/constants/api'
 import { initAuthorizedRequestHeaders } from '@/utils/api'

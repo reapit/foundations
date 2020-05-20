@@ -16,7 +16,6 @@ export const downloadDocument = async (documentId: string) => {
     })
 
     let url = window.URL.createObjectURL(response)
-
     let a = document.createElement('a')
     a.href = url
     a.target = '_blank'
@@ -26,8 +25,6 @@ export const downloadDocument = async (documentId: string) => {
 
     a.click()
     a.remove() //afterwards we remove the element again
-
-    // return response
   } catch (error) {
     logger(error)
     return error
