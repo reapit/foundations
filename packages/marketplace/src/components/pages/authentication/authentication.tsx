@@ -41,6 +41,7 @@ export const onLogoutButtonClick = (dispatch: Dispatch) => {
 export const renderClientModal = (history, dispatch) => {
   return (
     <Modal
+      title="Agency Cloud User Licence?"
       visible={true}
       tapOutsideToDissmiss={false}
       footerItems={
@@ -70,6 +71,7 @@ export const renderClientModal = (history, dispatch) => {
 export const renderDeveloperModal = (history, dispatch) => {
   return (
     <Modal
+      title="Register as a Developer?"
       visible={true}
       tapOutsideToDissmiss={false}
       footerItems={
@@ -92,8 +94,10 @@ export const renderDeveloperModal = (history, dispatch) => {
 
 const Authentication: React.FC<AuthenticationProps> = () => {
   const history = useHistory()
-  const { loginType } = useParams<AuthenticationParamTypes>()
+  const params = useParams<AuthenticationParamTypes>()
+  const loginType = params.loginType?.toUpperCase() as LoginType
   const dispatch = useDispatch()
+
   return (
     <>
       {loginType === 'CLIENT' && renderClientModal(history, dispatch)}
