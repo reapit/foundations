@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
 import GalleryPage from '../gallery-page'
 import { AuthContext } from '@/context'
 import { mockContext } from '@/context/__mocks__/mock-context'
@@ -14,12 +13,10 @@ jest.mock('@reapit/elements')
 describe('GalleryPage', () => {
   it('should match a snapshot', () => {
     expect(
-      toJson(
-        shallow(
-          <AuthContext.Provider value={mockContext}>
-            <GalleryPage />
-          </AuthContext.Provider>,
-        ),
+      shallow(
+        <AuthContext.Provider value={mockContext}>
+          <GalleryPage />
+        </AuthContext.Provider>,
       ),
     ).toMatchSnapshot()
   })

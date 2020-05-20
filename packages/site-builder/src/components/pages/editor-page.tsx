@@ -35,6 +35,12 @@ export interface AddNewTabParams {
   setTabs: React.Dispatch<React.SetStateAction<string[]>>
 }
 
+export interface FormComponentProps {
+  tabs: string[]
+  setTabs: React.Dispatch<React.SetStateAction<string[]>>
+  setModalVisible: React.Dispatch<React.SetStateAction<boolean>>
+}
+
 export const loadEditor = async (setEditor: React.Dispatch<React.SetStateAction<any>>, identifier: string) => {
   const editor = await initializeEditor({ identifier })
   initializeBlocks(editor)
@@ -83,6 +89,29 @@ export const addNewPage = ({ tabIdentifier, tabs, setTabs }: AddNewTabParams) =>
   setTabsLocalStorage(newTabs)
 }
 
+export const FormComponent: React.FunctionComponent<FormComponentProps> = ({ setTabs, tabs, setModalVisible }) => {
+  return (
+    <Formik
+      initialValues={{ tabIdentifier: '' }}
+      onSubmit={({ tabIdentifier }) => {
+        addNewPage({ setTabs, tabIdentifier, tabs })
+        setModalVisible(false)
+      }}
+    >
+      <Form>
+        <Input
+          id="tabIdentifier"
+          type="text"
+          placeholder="Page name here"
+          name="tabIdentifier"
+          labelText="Page Name"
+          required
+        />
+      </Form>
+    </Formik>
+  )
+}
+
 export const EditorPage: React.FunctionComponent = () => {
   const restoredTabs = getTabsLocalStorage()
   const [editor, setEditor] = React.useState(null)
@@ -115,26 +144,7 @@ export const EditorPage: React.FunctionComponent = () => {
               afterClose={() => setModalVisible(false)}
               title="Modal Title"
             >
-              <Formik
-                initialValues={{ tabIdentifier: '' }}
-                onSubmit={({ tabIdentifier }) => {
-                  addNewPage({ setTabs, tabIdentifier, tabs })
-                  setModalVisible(false)
-                }}
-              >
-                {() => (
-                  <Form>
-                    <Input
-                      id="tabIdentifier"
-                      type="text"
-                      placeholder="Page name here"
-                      name="tabIdentifier"
-                      labelText="Page Name"
-                      required
-                    />
-                  </Form>
-                )}
-              </Formik>
+              <FormComponent setTabs={setTabs} tabs={tabs} setModalVisible={setModalVisible} />
             </Modal>
           </PortalProvider>
           <Tabs tabConfigs={genTabConfig({ activeTab, tabs, handleChangeTab, setEditor, editor })} />

@@ -25,8 +25,6 @@ const session = {
   },
 }
 
-jest.mock('@reapit/elements')
-
 jest.mock('@reapit/cognito-auth', () => ({
   redirectToLogin: jest.fn(),
   getSessionCookie: jest.fn(),

@@ -1,5 +1,3 @@
-/* istanbul ignore file */
-/* Not ideal ignoring for coverage but basically impossible to test these config files for grapes */
 import { ComponentTypes } from '../../constants/component-types'
 
 export const initializeBookAValuationComponent = editor => {

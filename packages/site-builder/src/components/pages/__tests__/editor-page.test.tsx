@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
 import EditorPage, {
   loadEditor,
   DEFAULT_IDENTIFIER,
   setTabsLocalStorage,
   getTabsLocalStorage,
   addNewPage,
+  FormComponent,
 } from '../editor-page'
 import { AuthContext } from '@/context'
 import { mockContext } from '@/context/__mocks__/mock-context'
@@ -17,16 +17,23 @@ jest.mock('@/core/initialize-components')
 jest.mock('@/core/editor')
 
 describe('EditorPage', () => {
-  it('should match a snapshot', () => {
+  it('should have a main component that matches a snapshot', () => {
     expect(
-      toJson(
-        shallow(
-          <AuthContext.Provider value={mockContext}>
-            <EditorPage />
-          </AuthContext.Provider>,
-        ),
+      shallow(
+        <AuthContext.Provider value={mockContext}>
+          <EditorPage />
+        </AuthContext.Provider>,
       ),
     ).toMatchSnapshot()
+  })
+
+  it('should have a form component that matches a snapshot', () => {
+    const props = {
+      tabs: [DEFAULT_IDENTIFIER],
+      setTabs: jest.fn(),
+      setModalVisible: jest.fn(),
+    }
+    expect(shallow(<FormComponent {...props} />)).toMatchSnapshot()
   })
 
   it('should call setEditor from loadEditor', async () => {

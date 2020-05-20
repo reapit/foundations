@@ -31,6 +31,7 @@ describe('Menu', () => {
 
   describe('callbackAppClick', () => {
     it('should run correcly', () => {
+      window.location.href = 'https://dev.site-builder.reapit.cloud'
       const fn = callbackAppClick()
       expect(fn).toEqual('https://dev.marketplace.reapit.cloud/client/installed')
     })
