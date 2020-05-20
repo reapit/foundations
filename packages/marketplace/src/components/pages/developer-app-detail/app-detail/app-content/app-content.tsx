@@ -1,166 +1,130 @@
 import * as React from 'react'
-import { CopyToClipboard } from 'react-copy-to-clipboard'
-import Slider, { Settings } from 'react-slick'
-import ChevronLeftIcon from '@/components/svg/chevron-left'
-import { FaCheck, FaTimes, FaCopy } from 'react-icons/fa'
-import { Grid, GridItem, SubTitleH6, GridThreeColItem, HTMLRender } from '@reapit/elements'
-import { AppDetailModel } from '@reapit/foundations-ts-definitions'
+import { appInstallationsRequestData } from '@/actions/app-installations'
+import { selectDeveloperId } from '@/selector'
+import developerAppDetailStyles from '@/styles/pages/developer-app-detail.scss?mod'
+import { FaExternalLinkAlt } from 'react-icons/fa'
+import { H5 } from '@reapit/elements'
+import appDetailStyles from '@/styles/blocks/app-detail.scss?mod'
+import ConfirmUninstall from '@/components/ui/app-installations/confirm-uninstall'
+import { PagedResultInstallationModel_, InstallationModel } from '@reapit/foundations-ts-definitions'
+import { handleUninstall, handleAfterClose } from '@/components/ui/app-installations/app-installations-modal'
 import AuthFlow from '@/constants/app-auth-flow'
-import AppAuthenticationDetail from '../../../../ui/app-authentication-detail'
-import styles from '@/styles/blocks/app-detail.scss?mod'
-import carouselStyles from '@/styles/elements/carousel.scss?mod'
 import '@/styles/vendor/slick.scss'
+import { useSelector, useDispatch } from 'react-redux'
+import { selectInstallationAppData } from '@/selector/installations'
+import { Table, Modal } from '@reapit/elements'
+import { generateColumns } from '@/components/ui/app-installations/installations'
+import clientAppDetailStyles from '@/styles/pages/client-app-detail.scss?mod'
+import { RenderWithHeader } from '../render-with-header'
+import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
+import AppAuthenticationDetail from '@/components/ui/app-authentication-detail'
 
 export type AppContentProps = {
-  appDetailData: AppDetailModel & {
-    apiKey?: string | undefined
+  appDetailData: AppDetailDataNotNull
+}
+
+interface RenderAuthenticationParams {
+  authFlow: string
+  id: string
+  externalId: string
+}
+export const renderAuthentication = ({ authFlow, id, externalId }: RenderAuthenticationParams) => {
+  if (authFlow === AuthFlow.CLIENT_SECRET) {
+    return <AppAuthenticationDetail withCustomHeader={true} appId={id} />
   }
-  loginType: string
-}
 
-export const SlickButtonNav = ({ children, ...props }) => <button {...props}>{children}</button>
-
-export type HandleShowApiKey = {
-  setIsShowApikey: React.Dispatch<React.SetStateAction<boolean>>
-  isShowApiKey: boolean
-}
-
-export const handleShowApiKey = ({ setIsShowApikey, isShowApiKey }: HandleShowApiKey) => () => {
-  setIsShowApikey(!isShowApiKey)
-}
-
-export const handleCopyAlert = () => alert('Copied')
-
-export type RenderShowApiKeyForWebComponent = HandleShowApiKey & {
-  isWebComponent?: boolean
-  isCurrentLoggedUserDeveloper: boolean
-  apiKey?: string
-}
-
-export const renderShowApiKeyForWebComponent = ({
-  isWebComponent,
-  setIsShowApikey,
-  isShowApiKey,
-  apiKey,
-  isCurrentLoggedUserDeveloper,
-}: RenderShowApiKeyForWebComponent) => {
-  const isShow = isWebComponent && !isCurrentLoggedUserDeveloper
-  if (!isShow) {
-    return null
-  }
   return (
-    <>
-      <SubTitleH6 className="mb-0">API key</SubTitleH6>
-      <p>
-        To obtain your unique API key, click on &apos;Show API Key&apos; below. For installation instructions, please
-        click here
-      </p>
-      <span>Authentication:</span>&nbsp;
-      <span>
-        <a onClick={handleShowApiKey({ setIsShowApikey, isShowApiKey })}>
-          <u>{!isShowApiKey ? 'Show' : 'Hide'} API key</u>
-        </a>
-      </span>
-      {isShowApiKey && (
-        <CopyToClipboard text={apiKey} onCopy={handleCopyAlert}>
-          <div className="control has-icons-right">
-            <input className="input is-primary" id="apiKey" type="text" name="apiKey" value={apiKey || ''} readOnly />
-            <span className="icon is-right">
-              <FaCopy />
-            </span>
-          </div>
-        </CopyToClipboard>
-      )}
-    </>
+    <div data-test="authentication-client-id">
+      <p>Client ID:</p>
+      <p>{externalId}</p>
+    </div>
   )
 }
 
-export const AppContent: React.FC<AppContentProps> = ({ appDetailData, loginType }) => {
-  const {
-    externalId,
-    isListed,
-    id,
-    developer,
-    authFlow,
-    isWebComponent,
-    apiKey,
-    media = [],
-    scopes = [],
-    description = '',
-  } = appDetailData
-  const [isShowApiKey, setIsShowApikey] = React.useState<boolean>(false)
-
-  const isCurrentLoggedUserDeveloper = loginType === 'DEVELOPER'
-  const carouselImages = media.filter(({ type }) => type === 'image')
-  const settings: Settings = {
-    dots: false,
-    speed: 500,
-    variableWidth: true,
-    prevArrow: (
-      <SlickButtonNav>
-        <ChevronLeftIcon />
-      </SlickButtonNav>
-    ),
-    nextArrow: (
-      <SlickButtonNav>
-        <ChevronLeftIcon />
-      </SlickButtonNav>
-    ),
+interface RenderInstallationsTableParams {
+  data: InstallationModel[]
+  columns: any[]
+}
+export const renderInstallationsTable = ({ data, columns }: RenderInstallationsTableParams) => {
+  if (data.length === 0) {
+    return (
+      <RenderWithHeader dataTest="render-installations-table-empty-text" header="Installations">
+        <p>Currently, there are no installations for your app</p>
+      </RenderWithHeader>
+    )
   }
 
   return (
-    <Grid>
-      <GridItem className="is-4">
-        {isCurrentLoggedUserDeveloper && (
-          <>
-            <div key="app-developer" className={styles.appInfoRow}>
-              <p className={styles.appInfoProperty}>Developer:</p>
-              <p>{developer}</p>
-            </div>
-            <div key="app-id" className={styles.appInfoRow}>
-              <p className={styles.appInfoProperty}>Client ID:</p>
-              <p>{externalId}</p>
-            </div>
-            <div key="app-listed" className={styles.appInfoRow}>
-              <p className={styles.appInfoProperty}>Status:</p>
-              <p className={styles.appInfoSpace}>{isListed ? 'Listed' : 'Not listed'}</p>
-              {isListed ? <FaCheck className={styles.isListed} /> : <FaTimes className={styles.notListed} />}
-            </div>
-            {authFlow === AuthFlow.CLIENT_SECRET && id && <AppAuthenticationDetail appId={id} />}
-          </>
-        )}
-        {renderShowApiKeyForWebComponent({
-          isWebComponent,
-          isShowApiKey,
-          setIsShowApikey,
-          apiKey: apiKey,
-          isCurrentLoggedUserDeveloper,
+    <RenderWithHeader dataTest="render-installations-table" header="Installations">
+      <Table data={data} columns={columns} loading={false} />
+    </RenderWithHeader>
+  )
+}
+
+export const handleUninstallSuccess = ({ handleAfterClose, setUninstallApp, developerId, appId, dispatch }) => () => {
+  handleAfterClose({ setUninstallApp })
+  dispatch(
+    appInstallationsRequestData({
+      appId: [appId],
+      pageNumber: 1,
+      pageSize: 15,
+      isInstalled: true,
+      developerId: [developerId],
+    }),
+  )
+}
+
+const AppContent: React.FC<AppContentProps> = ({ appDetailData }) => {
+  const { summary = '', authFlow = '', externalId = '', id = '', name = '' } = appDetailData
+  const installationsData = useSelector(selectInstallationAppData) as PagedResultInstallationModel_
+  const { data = [] } = installationsData
+  const dispatch = useDispatch()
+  const developerId = useSelector(selectDeveloperId) || ''
+
+  const [uninstallApp, setUninstallApp] = React.useState<InstallationModel>()
+  const columns = generateColumns(handleUninstall(setUninstallApp))()
+
+  /**
+   * 0 = icon
+   * 1 = featured media
+   * 2 -> nth: extra media
+   */
+
+  return (
+    <div className={clientAppDetailStyles.appContentContainer}>
+      <Modal visible={Boolean(uninstallApp)}>
+        <ConfirmUninstall
+          isSetAppDetailStaleAfterUninstallSuccess={false}
+          appName={name}
+          installationDetail={uninstallApp}
+          afterClose={handleAfterClose({ setUninstallApp })}
+          onUninstallSuccess={handleUninstallSuccess({
+            handleAfterClose,
+            setUninstallApp,
+            developerId,
+            appId: id,
+            dispatch,
+          })}
+        />
+      </Modal>
+
+      <div className={clientAppDetailStyles.gutter}>{summary}</div>
+      <div className={appDetailStyles.gutter}>
+        <H5 className="flex items-center">
+          <span className="mr-1">See listing preview</span>{' '}
+          <FaExternalLinkAlt className={developerAppDetailStyles.listPreviewIcon} />
+        </H5>
+        <p>The listing preview will display your app as it would appear in the Marketplace</p>
+      </div>
+
+      <RenderWithHeader header="Authentication">{renderAuthentication({ authFlow, externalId, id })}</RenderWithHeader>
+      <div className={clientAppDetailStyles.gutter}>
+        {renderInstallationsTable({
+          data,
+          columns,
         })}
-      </GridItem>
-      <GridItem className="is-8">
-        <HTMLRender className={styles.description} html={description} />
-        <br />
-        {carouselImages.length > 0 && (
-          <div className={carouselStyles.container}>
-            <Slider {...settings}>
-              {carouselImages.map(({ uri }, index) => (
-                <div key={index} className={carouselStyles.slide}>
-                  <img src={uri} />
-                </div>
-              ))}
-            </Slider>
-          </div>
-        )}
-        <br />
-        <Grid isMultiLine>
-          {scopes.map(item => (
-            <GridThreeColItem key={item.name}>
-              <li>{item.description}</li>
-            </GridThreeColItem>
-          ))}
-        </Grid>
-      </GridItem>
-    </Grid>
+      </div>
+    </div>
   )
 }
 

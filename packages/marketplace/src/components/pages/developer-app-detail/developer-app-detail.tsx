@@ -10,7 +10,7 @@ import { selectAppDetailState, selectAppDetailData, selectAppDetailLoading } fro
 import { selectInstallAppLoading } from '@/selector/installations'
 import { Loader } from '@reapit/elements'
 import AppHeader from './app-detail/app-header'
-import AppContent from './app-content'
+import AppContent from './app-detail/app-content/app-content'
 import DeveloperAppDetailButtonGroup from '@/components/ui/developer-app-detail/developer-app-detail-button-group'
 
 import AppDelete from '@/components/ui/app-delete'

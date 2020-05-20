@@ -5,7 +5,11 @@ import { shallow, mount } from 'enzyme'
 import AuthFlow from '@/constants/app-auth-flow'
 import { appInstallationsRequestData } from '@/actions/app-installations'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
-import AppContent, { handleUninstallSuccess, renderAuthentication, renderInstallationsTable } from '../app-content'
+import AppContent, {
+  handleUninstallSuccess,
+  renderAuthentication,
+  renderInstallationsTable,
+} from '../app-content/app-content'
 import { Provider } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import configureStore from 'redux-mock-store'
