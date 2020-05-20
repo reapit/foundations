@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditorPage should have a form component that matches a snapshot 1`] = `
+<Formik
+  initialValues={
+    Object {
+      "tabIdentifier": "",
+    }
+  }
+  onSubmit={[Function]}
+>
+  <Form>
+    <Component
+      id="tabIdentifier"
+      labelText="Page Name"
+      name="tabIdentifier"
+      placeholder="Page name here"
+      required={true}
+      type="text"
+    />
+  </Form>
+</Formik>
+`;
+
+exports[`EditorPage should have a main component that matches a snapshot 1`] = `<Component />`;
