@@ -62,9 +62,6 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
     }
   >
     <div>
-      <Component
-        visible={false}
-      />
       <div />
       <div>
         <Component

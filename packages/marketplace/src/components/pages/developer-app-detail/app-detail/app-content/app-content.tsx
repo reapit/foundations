@@ -94,22 +94,23 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailData }) => {
 
   return (
     <div className={clientAppDetailStyles.appContentContainer}>
-      <Modal visible={isVisibleUninstallModal}>
-        <ConfirmUninstall
-          isSetAppDetailStaleAfterUninstallSuccess={false}
-          appName={name}
-          installationDetail={uninstallApp}
-          afterClose={handleAfterClose({ setUninstallApp })}
-          onUninstallSuccess={handleUninstallSuccess({
-            handleAfterClose,
-            setUninstallApp,
-            developerId,
-            appId: id,
-            dispatch,
-          })}
-        />
-      </Modal>
-
+      {isVisibleUninstallModal && (
+        <Modal visible={isVisibleUninstallModal}>
+          <ConfirmUninstall
+            isSetAppDetailStaleAfterUninstallSuccess={false}
+            appName={name}
+            installationDetail={uninstallApp}
+            afterClose={handleAfterClose({ setUninstallApp })}
+            onUninstallSuccess={handleUninstallSuccess({
+              handleAfterClose,
+              setUninstallApp,
+              developerId,
+              appId: id,
+              dispatch,
+            })}
+          />
+        </Modal>
+      )}
       <div className={clientAppDetailStyles.gutter}>{summary}</div>
       <div className={appDetailStyles.gutter}>
         <H5 className="flex items-center">

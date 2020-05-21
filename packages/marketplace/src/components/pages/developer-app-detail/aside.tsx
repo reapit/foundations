@@ -34,22 +34,26 @@ export const ManageApp: React.FC<ManageAppProps> = ({ pendingRevisions, id, appD
 
   return (
     <RenderWithHeader header="Manage App">
-      <AppDelete
-        appId={id || ''}
-        appName={name || ''}
-        afterClose={() => setIsDeleteModalOpen(false)}
-        visible={isDeleteModalOpen}
-        onDeleteSuccess={() => {
-          history.push(routes.DEVELOPER_MY_APPS)
-        }}
-      />
+      {isDeleteModalOpen && (
+        <AppDelete
+          appId={id || ''}
+          appName={name || ''}
+          afterClose={() => setIsDeleteModalOpen(false)}
+          visible={isDeleteModalOpen}
+          onDeleteSuccess={() => {
+            history.push(routes.DEVELOPER_MY_APPS)
+          }}
+        />
+      )}
 
-      <DeveloperAppRevisionModal
-        appDetailState={appDetailState}
-        visible={isAppRevisionComparisionModalOpen}
-        appId={id || ''}
-        afterClose={() => setIsAppRevisionComparisionModalOpen(false)}
-      />
+      {isAppRevisionComparisionModalOpen && (
+        <DeveloperAppRevisionModal
+          appDetailState={appDetailState}
+          visible={isAppRevisionComparisionModalOpen}
+          appId={id || ''}
+          afterClose={() => setIsAppRevisionComparisionModalOpen(false)}
+        />
+      )}
 
       <div className={developerAppDetailStyles.asideManageAppContainer}>
         {pendingRevisions ? (
