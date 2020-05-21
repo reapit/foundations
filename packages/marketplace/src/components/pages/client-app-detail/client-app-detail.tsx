@@ -10,7 +10,7 @@ import { selectIntegrationTypes } from '@/selector/integration-types'
 import { useSelector } from 'react-redux'
 import { selectAppDetailData, selectAppDetailLoading } from '@/selector/client-app-detail'
 import { selectLoginType, selectIsAdmin } from '@/selector/auth'
-import AppHeader from '@/components/ui/app-detail/app-header'
+import AppHeader from '@/components/ui/standalone-app-detail/app-header'
 import AppContent from './app-content'
 import { Loader, Button } from '@reapit/elements'
 import clientAppDetailStyles from '@/styles/pages/client-app-detail.scss?mod'
@@ -102,31 +102,33 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
 
   return (
     <div data-test="client-app-detail-container" className={clientAppDetailStyles.appDetailContainer}>
-      <AppHeader
-        appDetailData={appDetailData}
-        buttonGroup={renderAppHeaderButtonGroup(
-          id,
-          installedOn,
-          onUninstsallConfirmationModal,
-          onInstallConfirmationModal,
-          isInstallBtnHidden,
+      <div className={clientAppDetailStyles.mainContainer}>
+        <AppHeader
+          appDetailData={appDetailData}
+          buttonGroup={renderAppHeaderButtonGroup(
+            id,
+            installedOn,
+            onUninstsallConfirmationModal,
+            onInstallConfirmationModal,
+            isInstallBtnHidden,
+          )}
+        />
+        <AppContent desktopIntegrationTypes={desktopIntegrationTypes} appDetailData={appDetailData} />
+        {isVisibleUninstallConfirmation && (
+          <ClientAppUninstallConfirmation
+            visible={isVisibleUninstallConfirmation}
+            appDetailData={appDetailData}
+            closeUninstallConfirmationModal={closeUninstallConfirmationModal}
+          />
         )}
-      />
-      <AppContent desktopIntegrationTypes={desktopIntegrationTypes} appDetailData={appDetailData} />
-      {isVisibleUninstallConfirmation && (
-        <ClientAppUninstallConfirmation
-          visible={isVisibleUninstallConfirmation}
-          appDetailData={appDetailData}
-          closeUninstallConfirmationModal={closeUninstallConfirmationModal}
-        />
-      )}
-      {isVisibleInstallConfirmation && (
-        <ClientAppInstallConfirmation
-          visible={isVisibleInstallConfirmation}
-          appDetailData={appDetailData}
-          closeInstallConfirmationModal={closeInstallConfirmationModal}
-        />
-      )}
+        {isVisibleInstallConfirmation && (
+          <ClientAppInstallConfirmation
+            visible={isVisibleInstallConfirmation}
+            appDetailData={appDetailData}
+            closeInstallConfirmationModal={closeInstallConfirmationModal}
+          />
+        )}
+      </div>
     </div>
   )
 }

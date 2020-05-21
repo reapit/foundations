@@ -9,7 +9,7 @@ import { History } from 'history'
 import { selectAppDetailState, selectAppDetailData, selectAppDetailLoading } from '@/selector/developer-app-detail'
 import { selectInstallAppLoading } from '@/selector/installations'
 import { Loader } from '@reapit/elements'
-import AppHeader from './app-detail/app-header'
+import AppHeader from '@/components/ui/standalone-app-detail/app-header'
 import AppContent from './app-detail/app-content/app-content'
 import DeveloperAppDetailButtonGroup from '@/components/ui/developer-app-detail/developer-app-detail-button-group'
 
