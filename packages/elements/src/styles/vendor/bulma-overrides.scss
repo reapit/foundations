@@ -232,6 +232,11 @@ html {
   height: 180px;
 }
 
+a {
+  font-weight: bold;
+  color: $reapit-mid-blue;
+}
+
 .container {
   display: flex;
   max-width: 100%;
