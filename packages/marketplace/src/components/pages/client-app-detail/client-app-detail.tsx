@@ -15,6 +15,7 @@ import AppContent from './app-content'
 import { Loader, Button } from '@reapit/elements'
 import clientAppDetailStyles from '@/styles/pages/client-app-detail.scss?mod'
 import ClientAppInstallConfirmation from '@/components/ui/client-app-detail/client-app-install-confirmation'
+import { Aside } from './aside'
 
 export type ClientAppDetailProps = {}
 
@@ -102,6 +103,7 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
 
   return (
     <div data-test="client-app-detail-container" className={clientAppDetailStyles.appDetailContainer}>
+      <Aside appDetailData={appDetailData} desktopIntegrationTypes={desktopIntegrationTypes} />
       <div className={clientAppDetailStyles.mainContainer}>
         <AppHeader
           appDetailData={appDetailData}

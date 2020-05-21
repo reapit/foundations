@@ -5,12 +5,28 @@
 }
 
 .appDetailContainer {
+  /* mobile screen size */
+  @media screen and (max-width: 768px) {
+    background-color: $white;
+  }
+
+  /* desktop screen size */
+  @media screen and (min-width: 769px) {
+    display: flex;
+
+    .mainContainer {
+      background-color: $white;
+      padding: 1rem;
+
+    }
+  }
+
+
   height:auto;
   width: 100%;
   max-width: 1012px;
   margin: 0 auto;
   padding: 15px;
-  background-color: $white;
 }
 
 .gutter {
@@ -32,5 +48,6 @@
   list-style-type: disc;
   list-style-position: inside;
 }
+
 
 
