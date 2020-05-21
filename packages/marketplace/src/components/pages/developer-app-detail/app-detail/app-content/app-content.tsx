@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Dispatch } from 'redux'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { appInstallationsRequestData } from '@/actions/app-installations'
 import { selectDeveloperId } from '@/selector'
@@ -62,7 +63,21 @@ export const renderInstallationsTable = ({ data, columns }: RenderInstallationsT
   )
 }
 
-export const handleUninstallSuccess = ({ handleAfterClose, setUninstallApp, developerId, appId, dispatch }) => () => {
+interface HandleUninstallSuccessParams {
+  handleAfterClose: any
+  setUninstallApp: React.Dispatch<React.SetStateAction<InstallationModel | undefined>>
+  developerId: string
+  appId: string
+  dispatch: Dispatch
+}
+
+export const handleUninstallSuccess = ({
+  handleAfterClose,
+  setUninstallApp,
+  developerId,
+  appId,
+  dispatch,
+}: HandleUninstallSuccessParams) => () => {
   handleAfterClose({ setUninstallApp })
   dispatch(
     appInstallationsRequestData({
