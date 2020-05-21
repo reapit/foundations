@@ -9,4 +9,10 @@
     transform: translateX(66px); // 66px being the width of the sidebar
     width: calc(100vw - 66px);
   }
+
+  &-desktop {
+    @media screen and (min-width: 768px) {
+      transform: none;
+    }
+  }
 }
