@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+const fs = require('fs')
+
 const getMoveHtmlScript = packageName => {
   switch (packageName) {
     case 'property-detail':
@@ -38,8 +40,12 @@ return (() => {
       }
       // eslint-disable-next-line max-len
       const clientScript = `rollup -w -c './scripts/rollup.config.${packageName}.js' --environment APP_ENV:local`
+      const serverConfigFile = `src/${packageName}/server/serverless.yml`
+      const hasServer = fs.existsSync(serverConfigFile)
       // eslint-disable-next-line max-len
-      const serverScript = `serverless offline --config src/${packageName}/server/serverless.yml --out public/dist --stage local`
+      const serverScript = hasServer
+        ? `serverless offline --config ${serverConfigFile} --out public/dist --stage local`
+        : null
       const startClientServer = getStartClientServer(packageName)
 
       const startDev = `
