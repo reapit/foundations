@@ -25,6 +25,9 @@ provider:
   environment:
     APP_ENV: ${self:custom.env.APP_ENV}
     NODE_ENV: 'production'
+    # env from github secrets
+    AWS_ACCESS_KEY_ID: ${env:AWS_ACCESS_KEY_ID}
+    AWS_SECRET_ACCESS_KEY: ${env:AWS_SECRET_ACCESS_KEY}
 
 package:
   individually: true
