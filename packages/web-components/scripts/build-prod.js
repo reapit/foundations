@@ -55,6 +55,10 @@ return (async () => {
       rollUpPackageName: 'property-detail',
       exportName: 'ReapitPropertyDetailComponent',
     },
+    {
+      rollUpPackageName: 'login',
+      exportName: 'LoginWithReapitComponent',
+    },
   ]
   const opts = {
     stdio: 'inherit',
