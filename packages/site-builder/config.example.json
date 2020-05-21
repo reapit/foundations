@@ -1,0 +1,10 @@
+{
+  "appEnv": "local",
+  "sentryDns": "",
+  "cognitoClientId": "",
+  "googleAnalyticsKey": "",
+  "cognitoOAuthUrl": "https://dev.connect.reapit.cloud",
+  "cognitoUserPoolId": "",
+  "platformApiUrl": "https://dev.platform.reapit.cloud",
+  "searchWidgetApiKey": ""
+}

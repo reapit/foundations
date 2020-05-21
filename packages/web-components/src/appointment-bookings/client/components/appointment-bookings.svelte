@@ -5,8 +5,9 @@
   import { resetCSS, generateThemeClasses } from '../../../common/styles'
   import { generateAppointmentBookingThemeClasses } from '../core/theme'
   import FormStep1 from './form-step1.svelte'
-  import PlannerStep2 from './planner-step2.svelte'
+  import PlannerStep2 from '../../../appointment-planner/client/components/appointment-planner.svelte'
   import BookingConfirmationStep3 from './booking-confirmation-step3.svelte'
+  import { handleSubmitFormStep2 } from '../handlers/submit-form-step2.ts'
 
   export let theme
   export let parentSelector
@@ -32,6 +33,10 @@
 
     // click event of component 'ClickOutSide' is added before this event buble up -> break toggle behavior
     e.stopPropagation()
+  }
+
+  const onDateCellClick = ({ appointmentDate, appointmentTime }) => {
+    handleSubmitFormStep2(appointmentDate.format('dddd, DD MMMM'), appointmentTime, handleNextStep)
   }
 
   const themeClasses = {
@@ -81,7 +86,7 @@
         {/if}
 
         {#if currentStep === 2}
-          <PlannerStep2 {themeClasses} {handleNextStep} />
+          <PlannerStep2 {themeClasses} {handleNextStep} handleOnClickCell={onDateCellClick} />
         {/if}
 
         {#if currentStep === 3}
