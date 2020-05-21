@@ -37,6 +37,7 @@ import { selectDeveloperApps } from '@/selector/developer'
 import WebhookTestModal from '../ui/webhook-test-modal'
 import styles from '@/styles/elements/link.scss?mod'
 import linkStyles from '@/styles/elements/link.scss?mod'
+import Routes from '@/constants/routes'
 
 export const CreatedCell = ({ cell: { value } }): ReactElement[] => {
   return value.map((line, index) => <p key={index}>{line}</p>)
@@ -215,7 +216,7 @@ export const DeveloperWebhooks = ({
             our{' '}
             <a
               className={linkStyles.link}
-              href="https://marketplace.reapit.cloud/developer/api-docs/api/webhooks"
+              href={`${Routes.DEVELOPER_API_DOCS}/api/webhooks`}
               target="_blank"
               rel="noopener noreferrer"
             >
