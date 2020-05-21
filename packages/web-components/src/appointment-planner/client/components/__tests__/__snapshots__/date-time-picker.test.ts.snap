@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateTimePicker it matches a snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="date-time-picker-container svelte-vy6ksi"
+    >
+      <div>
+        <div
+          class="date-cell-container svelte-hlfy7d"
+          title="Click on the cell for more detail"
+        >
+          <div
+            class=" svelte-hlfy7d"
+          >
+            Mon Oct 07
+          </div>
+           
+          <div
+            class=" svelte-hlfy7d"
+          />
+        </div>
+         
+      </div>
+      <div>
+        <div
+          class="date-cell-container svelte-hlfy7d"
+          title="Click on the cell for more detail"
+        >
+          <div
+            class=" svelte-hlfy7d"
+          >
+            Tue Oct 08
+          </div>
+           
+          <div
+            class=" svelte-hlfy7d"
+          />
+        </div>
+         
+      </div>
+      <div>
+        <div
+          class="date-cell-container svelte-hlfy7d"
+          title="Click on the cell for more detail"
+        >
+          <div
+            class=" svelte-hlfy7d"
+          >
+            Wed Oct 09
+          </div>
+           
+          <div
+            class=" svelte-hlfy7d"
+          />
+        </div>
+         
+      </div>
+      <div>
+        <div
+          class="date-cell-container svelte-hlfy7d"
+          title="Click on the cell for more detail"
+        >
+          <div
+            class=" svelte-hlfy7d"
+          >
+            Thu Oct 10
+          </div>
+           
+          <div
+            class=" svelte-hlfy7d"
+          />
+        </div>
+         
+      </div>
+      <div>
+        <div
+          class="date-cell-container svelte-hlfy7d"
+          title="Click on the cell for more detail"
+        >
+          <div
+            class=" svelte-hlfy7d"
+          >
+            Fri Oct 11
+          </div>
+           
+          <div
+            class=" svelte-hlfy7d"
+          />
+        </div>
+         
+      </div>
+      <div>
+        <div
+          class="date-cell-container svelte-hlfy7d"
+          title="Click on the cell for more detail"
+        >
+          <div
+            class=" svelte-hlfy7d"
+          >
+            Sat Oct 12
+          </div>
+           
+          <div
+            class=" svelte-hlfy7d"
+          />
+        </div>
+         
+      </div>
+      <div>
+        <div
+          class="date-cell-container svelte-hlfy7d"
+          title="Click on the cell for more detail"
+        >
+          <div
+            class=" svelte-hlfy7d"
+          >
+            Sun Oct 13
+          </div>
+           
+          <div
+            class=" svelte-hlfy7d"
+          />
+        </div>
+         
+      </div>
+    </div>
+  </div>
+</body>
+`;

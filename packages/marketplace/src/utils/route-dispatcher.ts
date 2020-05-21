@@ -11,7 +11,6 @@ import { developerRequestData, fetchMyIdentity, developerFetchAppDetail } from '
 import { adminApprovalsRequestData } from '../actions/admin-approvals'
 import { adminDevManagementRequestData } from '../actions/admin-dev-management'
 import { submitAppRequestData } from '../actions/submit-app'
-import { getAccessToken } from './session'
 import { requestDeveloperData } from '@/actions/settings'
 import { getParamsFromPath } from '@/utils/client-url-params'
 import { adminAppsRequestData } from '@/actions/admin-apps'
@@ -19,7 +18,6 @@ import { selectClientId } from '@/selector/client'
 import { DeveloperRequestParams } from '@/reducers/developer'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
-  await getAccessToken()
   const id = params && params.appid ? params.appid : ''
   const queryParams = new URLSearchParams(search)
   const appId = queryParams.get('appId')

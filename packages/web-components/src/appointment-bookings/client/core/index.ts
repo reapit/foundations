@@ -15,7 +15,7 @@ export const ReapitAppointmentBookingComponent = ({
   variant,
 }: // apiKey,
 // variant,
-AppointmentBookingInitializers) => {
+AppointmentBookingInitializers) =>
   new AppointmentBooking({
     target: document.querySelector(parentSelector) || document.body,
     props: {
@@ -27,7 +27,7 @@ AppointmentBookingInitializers) => {
       parentSelector,
     },
   })
-}
+
 Object.defineProperty(window, 'ReapitAppointmentBookingComponent', {
   value: ReapitAppointmentBookingComponent,
 })

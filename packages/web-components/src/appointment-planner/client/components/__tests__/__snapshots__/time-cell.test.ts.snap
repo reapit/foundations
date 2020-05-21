@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateTimePicker it matches a snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="time-cell-container time-cell-container-visible
+  undefined svelte-1jl2x7t"
+    >
+      <div>
+        1570747191389
+      </div>
+    </div>
+  </div>
+</body>
+`;
