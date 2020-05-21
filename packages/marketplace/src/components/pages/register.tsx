@@ -35,6 +35,7 @@ export interface RegisterMappedActions {
 
 export interface RegisterMappedProps {
   formState: FormState
+  clientId?: string
 }
 
 export interface RegisterFormValues {
@@ -99,6 +100,7 @@ export const Register: React.FunctionComponent<RegisterProps & FormikProps<Regis
   setFieldValue,
   handleSubmit,
   validateForm,
+  clientId,
 }) => {
   const [visible, setVisible] = React.useState<boolean>(false)
   const [agreedTerms, setAgreedTerms] = React.useState<boolean>(false)
@@ -201,9 +203,15 @@ export const Register: React.FunctionComponent<RegisterProps & FormikProps<Regis
                     Register
                   </Button>
                 </Level>
-                <Level>
-                  Already have an account?<Link to={Routes.DEVELOPER_LOGIN}>Login</Link>
-                </Level>
+                {clientId ? (
+                  <Link className="is-pulled-right" to={Routes.CLIENT}>
+                    Back to home
+                  </Link>
+                ) : (
+                  <Level>
+                    Already have an account?<Link to={Routes.DEVELOPER_LOGIN}>Login</Link>
+                  </Level>
+                )}
                 {formState === 'ERROR' && (
                   <Alert message="Failed to register" type="danger" dataTest="register-error-message" />
                 )}
@@ -227,6 +235,7 @@ export const Register: React.FunctionComponent<RegisterProps & FormikProps<Regis
 
 export const mapStateToProps = (state: ReduxState): RegisterMappedProps => ({
   formState: state.developer.formState,
+  clientId: state.auth.loginSession?.loginIdentity.clientId || '',
 })
 
 export const mapDispatchToProps = (dispatch: Dispatch): RegisterMappedActions => ({

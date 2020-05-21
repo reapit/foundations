@@ -107,12 +107,14 @@ describe('Register', () => {
 
   it('mapStateToProps', () => {
     const mockState = {
+      auth: {},
       developer: {
         formState: 'PENDING',
       },
     } as ReduxState
     const result = mapStateToProps(mockState)
     const output = {
+      clientId: '',
       formState: 'PENDING',
     }
     expect(result).toEqual(output)
