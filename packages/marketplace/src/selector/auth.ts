@@ -15,3 +15,7 @@ export const selectLoginIdentity = (state: ReduxState) => {
 export const selectLoginSession = (state: ReduxState) => {
   return state.auth?.loginSession
 }
+
+export const selectClientId = (state: ReduxState) => {
+  return state.auth?.loginSession?.loginIdentity?.clientId
+}

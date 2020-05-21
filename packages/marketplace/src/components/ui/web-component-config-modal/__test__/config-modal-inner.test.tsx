@@ -1,0 +1,98 @@
+import React from 'react'
+import {
+  updateWebComponentConfig,
+  handleFetchWebComponentConfig,
+  WebComponentConfigModalBody,
+  WebComponentConfigModalFooter,
+  WebComponentConfigModalInner,
+} from '../config-modal-inner'
+import { shallow, mount } from 'enzyme'
+import configureStore from 'redux-mock-store'
+import { ReduxState } from '@/types/core'
+import { Provider } from 'react-redux'
+import { BOOK_VIEWING_CONSTANT } from '../config-modal'
+import { PutWebComponentConfigParams } from '@/services/web-component'
+import { clientPutWebComponentConfig, clientFetchWebComponentConfig } from '@/actions/client'
+
+const params = {
+  appointmentLength: 1,
+  appointmentTimeGap: 1,
+  customerId: 'string',
+  daysOfWeek: [1, 2],
+  negotiatorIds: ['1', '2'],
+} as PutWebComponentConfigParams
+
+describe('Config-modal-inner', () => {
+  const mockState = {
+    client: {
+      webComponent: {
+        loading: false,
+        updating: false,
+        data: null,
+        isShowModal: true,
+      },
+    },
+  } as ReduxState
+  const mockStore = configureStore()
+  const store = mockStore(mockState)
+
+  it('should WebComponentConfigModalBody match a snapshot', () => {
+    const mockProps = {
+      subtext: 'abc',
+      formikProps: { values: params },
+    }
+    expect(shallow(<WebComponentConfigModalBody {...mockProps} />)).toMatchSnapshot()
+  })
+
+  it('should WebComponentConfigModalFooter match a snapshot', () => {
+    const mockProps = {
+      closeModal: jest.fn(),
+    }
+    expect(
+      mount(
+        <Provider store={store}>
+          <WebComponentConfigModalFooter {...mockProps} />
+        </Provider>,
+      ),
+    ).toMatchSnapshot()
+  })
+
+  it('should WebComponentConfigModalInner match a snapshot', () => {
+    const mockState = {
+      client: {
+        webComponent: {
+          loading: false,
+          updating: false,
+          data: null,
+          isShowModal: true,
+        },
+      },
+    } as ReduxState
+    const mockStore = configureStore()
+    const store = mockStore(mockState)
+    expect(
+      mount(
+        <Provider store={store}>
+          <WebComponentConfigModalInner config={BOOK_VIEWING_CONSTANT} closeModal={jest.fn()} />
+        </Provider>,
+      ),
+    ).toMatchSnapshot()
+  })
+
+  it('should updateWebComponentConfig run correctly', () => {
+    const dispatch = jest.fn()
+
+    const fn = updateWebComponentConfig(dispatch)
+    fn(params)
+    expect(dispatch).toBeCalledWith(clientPutWebComponentConfig(params))
+  })
+
+  it('should handleFetchWebComponentConfig run correctly', () => {
+    const dispatch = jest.fn()
+    const customerId = 'string'
+
+    const fn = handleFetchWebComponentConfig(dispatch, customerId)
+    fn()
+    expect(dispatch).toBeCalledWith(clientFetchWebComponentConfig({ customerId }))
+  })
+})

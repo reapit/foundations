@@ -44,5 +44,8 @@
   &.has-background {
     background-color: $white;
   }
-}
 
+  &.flex-wrap {
+    flex-wrap: wrap;
+  }
+}

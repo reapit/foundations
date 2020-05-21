@@ -10,38 +10,43 @@ export type RadioSelectOption = {
 export type RadioSelectProps = {
   name: string
   labelText?: string
+  subText?: string
   id: string
   dataTest?: string
   options: RadioSelectOption[]
   setFieldValue: (field: string, value: any, shouldValidate?: boolean) => void
   state: any
   disabled?: boolean
+  className?: string
 }
 
 export const RadioSelect: React.FC<RadioSelectProps> = ({
   name,
   labelText,
+  subText,
   id,
   dataTest,
   options,
   setFieldValue,
   state,
   disabled = false,
+  className,
 }) => {
   return (
     <Field type="radio" name={name}>
       {({ meta }: FieldProps<string>) => {
         const hasError = checkError(meta)
         return (
-          <div className="field pb-2">
+          <div className={`field pb-2 ${className}`}>
             <div className="control">
               <label className="label" htmlFor={id}>
                 {labelText}
               </label>
+              <label className="subtext mb-2">{subText}</label>
               {options.map(({ label, value }: RadioSelectOption, index: number) => (
                 <div key={index} data-test={dataTest} className="radio-wrap">
                   <input
-                    id={label as string}
+                    id={(name + label) as string}
                     className={`checkbox ${hasError ? 'checkbox-error' : ''}`}
                     type="radio"
                     key={value}
@@ -51,7 +56,7 @@ export const RadioSelect: React.FC<RadioSelectProps> = ({
                     disabled={disabled}
                     onChange={() => setFieldValue(name, value)}
                   />
-                  <label htmlFor={label as string}>{label}</label>
+                  <label htmlFor={(name + label) as string}>{label}</label>
                 </div>
               ))}
             </div>

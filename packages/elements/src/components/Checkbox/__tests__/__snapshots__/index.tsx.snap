@@ -2,7 +2,7 @@
 
 exports[`Checkbox should match a snapshot 1`] = `
 <div
-  className="field pb-4"
+  className="field pb-4 "
 >
   <div
     className="control"
