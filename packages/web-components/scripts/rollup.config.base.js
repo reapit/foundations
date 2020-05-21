@@ -20,12 +20,7 @@ export default {
     babel({
       extensions: ['.js', '.ts', '.mjs', '.html', '.svelte'],
       runtimeHelpers: true,
-      exclude: [
-        'node_modules/@babel/**',
-        '../../node_modules/@babel/**',
-        'node_modules/core-js/**',
-        '../../node_modules/core-js/**',
-      ],
+      include: ['src/**', 'node_modules/svelte/**'],
       presets: [
         [
           '@babel/preset-env',

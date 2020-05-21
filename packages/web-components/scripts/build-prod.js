@@ -10,15 +10,15 @@ const minifyCode = require('./minify-code')
 // have to create it first using mkdirp (mkdir with cursive)
 const mkdirp = require('mkdirp')
 
-const cjsIndexFolderPath = path.resolve(__dirname, '../../public/dist-npm/cjs')
+const cjsIndexFolderPath = path.resolve(__dirname, '../public/dist-npm/cjs')
 const cjsIndexFilePath = path.resolve(cjsIndexFolderPath, './index.js')
 const cjsIndexTemplateFilePath = path.resolve(__dirname, './tpls/index.cjs.ejs')
 
-const esmIndexFolderPath = path.resolve(__dirname, '../../public/dist-npm/esm')
+const esmIndexFolderPath = path.resolve(__dirname, '../public/dist-npm/esm')
 const esmIndexFilePath = path.resolve(esmIndexFolderPath, './index.js')
 const esmIndexTemplateFilePath = path.resolve(__dirname, './tpls/index.esm.ejs')
 
-const tsDeclarationIndexFolderPath = path.resolve(__dirname, '../../public/dist-npm/types')
+const tsDeclarationIndexFolderPath = path.resolve(__dirname, '../public/dist-npm/types')
 const tsDeclarationIndexFilePath = path.resolve(tsDeclarationIndexFolderPath, './index.d.ts')
 const tsDeclarationIndexTemplateFilePath = path.resolve(__dirname, './tpls/index.d.ts.ejs')
 
@@ -68,7 +68,7 @@ return (async () => {
     const buildPackageFn = () =>
       new Promise((resolve, reject) => {
         {
-          const clientBuildScriptPath = `./src/scripts/rollup.config.${rollUpPackageName}.js`
+          const clientBuildScriptPath = `./scripts/rollup.config.${rollUpPackageName}.js`
           const spawnObject = spawn('rollup', ['-c', clientBuildScriptPath], {
             stdio: 'inherit',
           })
