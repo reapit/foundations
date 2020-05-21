@@ -267,7 +267,7 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
             >
               <div>
                 <div
-                  className="flex items-center"
+                  className="flex items-center mb-3"
                 >
                   <div>
                     <img
@@ -276,7 +276,9 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
                       src="https://bulma.io/images/placeholders/48x48.png"
                     />
                   </div>
-                  <div>
+                  <div
+                    className="pl-4"
+                  >
                     <Component
                       appName=""
                     >

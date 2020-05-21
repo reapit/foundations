@@ -81,8 +81,6 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailData, desktopIntegrati
     <div className={clientAppDetailStyles.appContentContainer}>
       <div className={clientAppDetailStyles.gutter}>{summary}</div>
       {renderDescripion(description)}
-      {summary && <p>{summary}</p>}
-      {media[0] && <img src={media[0].uri} />}
       {renderPermissions(scopes)}
       {renderExtraMedia(extraMedia)}
       {renderCategory(category)}

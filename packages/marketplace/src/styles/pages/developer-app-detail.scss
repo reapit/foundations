@@ -11,23 +11,6 @@
   margin: 1rem;
 }
 
-.asideContainer {
-  margin-right: 1rem;
-  width: 30%;
-
-  h5,
-  h5:not(:last-child) {
-    margin-bottom: 1rem;
-  }
-
-  .headerWithoutMargin {
-
-  h5 {
-    margin-bottom: 0;
-  }
-  }
-}
-
 .mainContainer {
   flex: 1;
 }
@@ -44,12 +27,10 @@
   }
 }
 
-.asideContainer,
 .mainContainer {
   background-color: $white;
   padding: 15px;
 }
-
 
 .renderAsideStatusContainer {
   display: flex;

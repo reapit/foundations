@@ -1,6 +1,6 @@
 import React from 'react'
 import { AboutDeveloperSection, ContactDeveloperSection, DeveloperImageSection } from './reuse'
-import developerAppDetailStyles from '@/styles/pages/developer-app-detail.scss?mod'
+import standAloneAppDetailStyles from '@/styles/blocks/standalone-app-detail.scss?mod'
 import { renderCategory, renderDesktopIntegrationTypes } from '../client-app-detail/app-content'
 import { DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
 import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
@@ -14,12 +14,12 @@ export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetail
   const { category } = appDetailData
 
   return (
-    <div className={developerAppDetailStyles.asideContainer}>
+    <div className={standAloneAppDetailStyles.asideContainer}>
       <DeveloperImageSection />
       <AboutDeveloperSection />
       <ContactDeveloperSection />
-      <div className={developerAppDetailStyles.headerWithoutMargin}>{renderCategory(category)}</div>
-      <div className={developerAppDetailStyles.headerWithoutMargin}>
+      <div className={standAloneAppDetailStyles.headerWithoutMargin}>{renderCategory(category)}</div>
+      <div className={standAloneAppDetailStyles.headerWithoutMargin}>
         {renderDesktopIntegrationTypes(desktopIntegrationTypes)}
       </div>
     </div>

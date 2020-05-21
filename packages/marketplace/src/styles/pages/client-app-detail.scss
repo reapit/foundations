@@ -8,6 +8,9 @@
   /* mobile screen size */
   @media screen and (max-width: 768px) {
     background-color: $white;
+    .asideContainer {
+      display: none;
+    }
   }
 
   /* desktop screen size */

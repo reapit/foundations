@@ -1,4 +1,5 @@
 import React from 'react'
+import standAloneAppDetailStyles from '@/styles/blocks/standalone-app-detail.scss?mod'
 import { FaCheck } from 'react-icons/fa'
 import routes from '@/constants/routes'
 import { useHistory } from 'react-router'
@@ -104,7 +105,7 @@ export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetail
   const { isDirectApi, category, isListed, pendingRevisions, id = '', limitToClientIds } = data as AppDetailModel
 
   return (
-    <div className={developerAppDetailStyles.asideContainer}>
+    <div className={standAloneAppDetailStyles.asideContainer}>
       <div className={developerAppDetailStyles.headerWithoutMargin}>{renderCategory(category)}</div>
       <div className={developerAppDetailStyles.headerWithoutMargin}>
         {renderDesktopIntegrationTypes(desktopIntegrationTypes)}

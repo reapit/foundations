@@ -30,11 +30,11 @@ const DesktopAppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup
 
   return (
     <div className={styles.appHeader}>
-      <div className="flex items-center">
+      <div className="flex items-center mb-3">
         <div className={styles.appIconContainer}>
           <img className={appIconClassName} src={(appIcon && appIcon.uri) || placeHolderUrl} alt={name} />
         </div>
-        <div>
+        <div className="pl-4">
           <VerifiedByReapit appName={name} />
           {buttonGroup}
         </div>

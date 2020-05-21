@@ -1,40 +1,75 @@
 @import '../base/colors.scss';
 
-.appIconContainer {
-  margin-left: 0;
-  margin-right: 2rem;
-  width: 128px;
-  height: 128px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: $grey-lighter;
-  border-radius: 50%;
-  margin: 0 auto;
-}
+.asideContainer {
+  margin-right: 1rem;
+  width: 30%;
 
-.verifyByReapitContainer {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
 
-  .check {
-    /*should be px regard their base px (rem) else looks really ugly*/
-    margin-right: 5px;
+  /* mobile screen size*/
+  @media screen and (max-width: 768px) {
+    display: none;
   }
-}
 
-.appHeaderFeaturedImage {
-  max-width: 40%;
-  margin-left: 1rem;
+  h5,
+  h5:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  .headerWithoutMargin {
+    h5 {
+      margin-bottom: 0;
+    }
+  }
+  background-color: $white;
+  padding: 15px;
 }
 
 .appHeader {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+
+  .appHeaderFeaturedImage {
+    max-width: 495px;
+    max-height: 222px;
+
+    /* mobile screen size*/
+    @media screen and (max-width: 768px) {
+      flex: 1;
+      margin-top: 2rem;
+    }
+
+  }
+
+  .appIconContainer {
+    margin-left: 0;
+    width: 128px;
+    height: 128px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $grey-lighter;
+    border-radius: 50%;
+    margin: 0 auto;
+
+    img {
+      background: $white;
+    }
+  }
+
+  .verifyByReapitContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+
+    .check {
+      /*should be px regard their base px (rem) else looks really ugly*/
+      margin-right: 5px;
+    }
+  }
 
   h2.appName {
     font-family: 'Museo Sans W03_300', 'Roboto', Helvetica, Arial, sans-serif;
