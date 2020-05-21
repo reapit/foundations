@@ -60,7 +60,7 @@ exports[`WebhookTestModalBody WebhookTestModalBody should match snapshot 1`] = `
            
           <a
             className={[Function]}
-            href="https://marketplace.reapit.cloud/developer/api-docs/api/webhooks#testing"
+            href="/developer/api-docs/api/webhooks#testing"
             rel="noopener noreferrer"
             target="_blank"
           >

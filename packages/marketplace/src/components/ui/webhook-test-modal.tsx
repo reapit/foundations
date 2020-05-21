@@ -22,6 +22,7 @@ import { PingWebhooksByIdParams } from '@/services/webhooks'
 import { developerWebhookPing, developerSetWebhookPingStatus } from '@/actions/developer'
 import { selectWebhookTestStatus } from '@/selector'
 import linkStyles from '@/styles/elements/link.scss?mod'
+import Routes from '@/constants/routes'
 
 export interface GenerateTopicOptions {
   topics: TopicItem[]
@@ -93,7 +94,7 @@ export const WebhookTestModalBody: React.FunctionComponent<WebhookTestModalBodyP
               topic will be sent to the configured URL. For more information, please{' '}
               <a
                 className={linkStyles.link}
-                href="https://marketplace.reapit.cloud/developer/api-docs/api/webhooks#testing"
+                href={`${Routes.DEVELOPER_API_DOCS}/api/webhooks#testing`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
