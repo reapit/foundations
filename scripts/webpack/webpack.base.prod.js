@@ -122,7 +122,14 @@ const webpackConfig = {
                     },
                   },
                 ],
+                'linaria/babel',
               ],
+            },
+          },
+          {
+            loader: 'linaria/loader',
+            options: {
+              sourceMap: process.env.NODE_ENV !== 'production',
             },
           },
           { loader: 'ts-loader', options: { happyPackMode: true, transpileOnly: true } },
