@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const fs = require('fs')
+const path = require('path')
 
 const getMoveHtmlScript = packageName => {
   switch (packageName) {
@@ -42,9 +43,14 @@ return (() => {
       const clientScript = `rollup -w -c './scripts/rollup.config.${packageName}.js' --environment APP_ENV:local`
       const serverConfigFile = `src/${packageName}/server/serverless.yml`
       const hasServer = fs.existsSync(serverConfigFile)
-      // eslint-disable-next-line max-len
+      // need to pass the apiKey into serverless offline for it to work locally
+      const { WEB_COMPONENT_API_KEY_SEARCH_WIDGET } = require(path.resolve(__dirname, '../config.json'))
+      const apiKeys = {
+        'search-widget': WEB_COMPONENT_API_KEY_SEARCH_WIDGET,
+      }
       const serverScript = hasServer
-        ? `serverless offline --config ${serverConfigFile} --out public/dist --stage local`
+        ? // eslint-disable-next-line max-len
+          `serverless offline --config ${serverConfigFile} --out public/dist --stage local --apiKey ${apiKeys[packageName]}`
         : null
       const startClientServer = getStartClientServer(packageName)
 
