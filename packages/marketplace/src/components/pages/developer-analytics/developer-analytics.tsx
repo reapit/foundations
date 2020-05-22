@@ -20,7 +20,7 @@ export enum AnalyticsTab {
 }
 
 export const tabConfigs = ({ currentTab, history }: TabConfigsProps): TabConfig[] => {
-  const configs = [
+  return [
     {
       tabIdentifier: AnalyticsTab.DETAILED,
       displayText: 'DETAILED',
@@ -29,18 +29,15 @@ export const tabConfigs = ({ currentTab, history }: TabConfigsProps): TabConfig[
       },
       active: currentTab === AnalyticsTab.DETAILED,
     },
-  ]
-  if (window.reapit.config.appEnv !== 'production') {
-    configs.push({
+    {
       tabIdentifier: AnalyticsTab.COST_EXPLORER,
       displayText: 'Cost Explorer',
       onTabClick: () => {
         history.push(`${Routes.DEVELOPER_ANALYTICS}/${AnalyticsTab.COST_EXPLORER}`)
       },
       active: currentTab === AnalyticsTab.COST_EXPLORER,
-    })
-  }
-  return configs
+    },
+  ]
 }
 
 export const handleUseEffectToSetCurrentTab = (activeTab, setCurrentTab) => {
