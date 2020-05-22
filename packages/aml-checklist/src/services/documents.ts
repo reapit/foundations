@@ -1,4 +1,4 @@
-import { fetcherWithBlob } from '@reapit/elements'
+import { fetcherWithBlob, fetcher } from '@reapit/elements'
 import { URLS } from '@/constants/api'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { logger } from 'logger'
@@ -6,22 +6,32 @@ import { logger } from 'logger'
 export const downloadDocument = async (documentId: string) => {
   try {
     const headers = await initAuthorizedRequestHeaders()
-    headers['accept'] = 'application/octet-stream'
 
-    const response = await fetcherWithBlob({
-      url: `${URLS.documents}/${documentId}/download`,
-      api: window.reapit.config.platformApiUrl,
-      method: 'GET',
-      headers: headers,
-    })
+    const [document, documentBlob] = await Promise.all([
+      fetcher({
+        url: `${URLS.documents}/${documentId}`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers: headers,
+      }),
+      fetcherWithBlob({
+        url: `${URLS.documents}/${documentId}/download`,
+        api: window.reapit.config.platformApiUrl,
+        method: 'GET',
+        headers: {
+          ...headers,
+          accept: 'application/octet-stream',
+        },
+      }),
+    ])
 
-    let url = window.URL.createObjectURL(response)
-    let a = document.createElement('a')
+    let url = window.URL.createObjectURL(documentBlob)
+    let a = window.document.createElement('a')
     a.href = url
     a.target = '_blank'
-    a.download = `${documentId}`
-
-    document.body.appendChild(a) // we need to append the element to the dom -> otherwise it will not work in firefox
+    a.download = `${document.name}`
+    // we need to append the element to the dom -> otherwise it will not work in firefox
+    window.document.body.appendChild(a)
 
     a.click()
     a.remove() //afterwards we remove the element again
