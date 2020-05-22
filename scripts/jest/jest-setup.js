@@ -6,6 +6,13 @@ const MockDate = require('mockdate')
 Enzyme.configure({ adapter: new Adapter() })
 global.fetch = fetchMock
 
+jest.mock('linaria', () => {
+  return {
+    css: jest.fn(() => ''),
+    cx: jest.fn(() => ''),
+  }
+})
+
 /* tslint:disable */
 const createMockFuncsFromArray = (instance, names = []) => {
   names.forEach(name => {
