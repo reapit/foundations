@@ -9,6 +9,7 @@ export type TermsAndConditionsModalProps = {
   onAccept: () => void
   onDecline?: () => void
   tapOutsideToDissmiss?: boolean
+  isSubmitting?: boolean
 } & Pick<ModalProps, 'visible' | 'afterClose'>
 
 export const TermsAndConditionsModal: React.FunctionComponent<TermsAndConditionsModalProps> = ({
@@ -17,6 +18,7 @@ export const TermsAndConditionsModal: React.FunctionComponent<TermsAndConditions
   onAccept,
   onDecline,
   tapOutsideToDissmiss = true,
+  isSubmitting,
 }) => {
   return (
     <Modal
@@ -32,7 +34,7 @@ export const TermsAndConditionsModal: React.FunctionComponent<TermsAndConditions
               Decline
             </Button>
           )}
-          <Button dataTest="buttonAcceptTermsAndConditions" variant="primary" type="button" onClick={onAccept}>
+          <Button dataTest="buttonAcceptTermsAndConditions" loading={isSubmitting} onClick={onAccept}>
             Accept
           </Button>
         </>

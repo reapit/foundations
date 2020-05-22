@@ -1,7 +1,7 @@
 import { registerValidate, RegisterFormError } from '../register'
-import { RegisterFormValues } from '@/components/pages/register'
+import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 
-type InputOutput = [RegisterFormValues, RegisterFormError]
+type InputOutput = [CreateDeveloperModel, RegisterFormError]
 
 const invalidValues: InputOutput[] = [
   [
@@ -64,7 +64,7 @@ const invalidValues: InputOutput[] = [
   ],
 ]
 
-const validValues: RegisterFormValues[] = [
+const validValues: CreateDeveloperModel[] = [
   {
     name: 'Alice',
     companyName: 'Doe',
