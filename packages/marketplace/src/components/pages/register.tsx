@@ -28,6 +28,7 @@ import TermsAndConditionsModal from '@/components/ui/terms-and-conditions-modal'
 import Routes from '@/constants/routes'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
+import { selectClientId } from '@/selector/auth'
 const { container, wrapper, image } = loginStyles
 
 export type RegisterProps = {}
@@ -88,6 +89,7 @@ export const Register: React.FunctionComponent<RegisterProps> = () => {
   const dispatch = useDispatch()
   const [visible, setVisible] = React.useState<boolean>(false)
   const formState = useSelector(selectDeveloperFormState)
+  const clientId = useSelector(selectClientId)
   const isSubmitting = formState === 'SUBMITTING'
 
   return (
@@ -169,9 +171,15 @@ export const Register: React.FunctionComponent<RegisterProps> = () => {
                           Register
                         </Button>
                       </Level>
-                      <Level>
-                        Already have an account?<Link to={Routes.DEVELOPER_LOGIN}>Login</Link>
-                      </Level>
+                      {clientId ? (
+                        <Link className="is-pulled-right" to={Routes.CLIENT}>
+                          Back to home
+                        </Link>
+                      ) : (
+                        <Level>
+                          Already have an account?<Link to={Routes.DEVELOPER_LOGIN}>Login</Link>
+                        </Level>
+                      )}
                       {formState === 'ERROR' && (
                         <Alert message="Failed to register" type="danger" dataTest="register-error-message" />
                       )}

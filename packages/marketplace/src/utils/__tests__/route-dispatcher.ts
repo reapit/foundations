@@ -8,7 +8,6 @@ import { developerRequestData, fetchMyIdentity } from '@/actions/developer'
 import { myAppsRequestData } from '@/actions/my-apps'
 import { installedAppsRequestData } from '@/actions/installed-apps'
 import { adminApprovalsRequestData } from '@/actions/admin-approvals'
-import { getAccessToken } from '@/utils/session'
 import { requestDeveloperData } from '@/actions/settings'
 import { getParamsFromPath } from '@/utils/client-url-params'
 
@@ -19,11 +18,6 @@ jest.mock('../../sagas/client')
 jest.mock('../../sagas/developer')
 
 describe('routeDispatcher', () => {
-  it('should await for an access token before fetching a route', async () => {
-    await routeDispatcher(Routes.CLIENT as RouteValue)
-    expect(getAccessToken).toHaveBeenCalledTimes(1)
-  })
-
   it('should dispatch to clientFetchAppSummaryclientFetchAppSummary for the client route', async () => {
     await routeDispatcher(Routes.CLIENT as RouteValue)
     expect(store.dispatch).toHaveBeenCalledWith(clientFetchAppSummary(getParamsFromPath('')))

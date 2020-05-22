@@ -26,6 +26,7 @@ export interface ConfirmUninstallInnerProps {
   installationDetail: InstallationModel | undefined
   onUninstallSuccess: () => void
   afterClose?: () => void
+  isSetAppDetailStaleAfterUninstallSuccess?: boolean
 }
 export interface ConfirmUninstallMappedProps {
   formState: FormState
@@ -42,10 +43,17 @@ export type ConfirmUninstallProps = ConfirmUninstallInnerProps &
   ConfirmUninstallMappedActions &
   FormikProps<TerminatedValues>
 
-export const handleSuccessUninstall = ({ onUninstallSuccess, setFormState, setAppDetailStale }) => () => {
+export const handleSuccessUninstall = ({
+  onUninstallSuccess,
+  setFormState,
+  setAppDetailStale,
+  isSetAppDetailStaleAfterUninstallSuccess,
+}) => () => {
   onUninstallSuccess()
   setFormState('PENDING')
-  setAppDetailStale(true)
+  if (isSetAppDetailStaleAfterUninstallSuccess) {
+    setAppDetailStale(true)
+  }
 }
 
 export const ConfirmUninstall: React.FC<ConfirmUninstallProps> = ({
@@ -57,6 +65,7 @@ export const ConfirmUninstall: React.FC<ConfirmUninstallProps> = ({
   onUninstallSuccess,
   handleSubmit,
   setAppDetailStale,
+  isSetAppDetailStaleAfterUninstallSuccess = true,
 }) => {
   const isSuccessed = formState === 'SUCCESS'
   const isSubmitting = formState === 'SUBMITTING'
@@ -67,10 +76,17 @@ export const ConfirmUninstall: React.FC<ConfirmUninstallProps> = ({
         title="Success"
         buttonText="Back to List"
         dataTest="alertUninstallSuccess"
-        onButtonClick={handleSuccessUninstall({ onUninstallSuccess, setFormState, setAppDetailStale })}
+        onButtonClick={handleSuccessUninstall({
+          onUninstallSuccess,
+          setFormState,
+          setAppDetailStale,
+          isSetAppDetailStaleAfterUninstallSuccess,
+        })}
         isCenter
       >
-        &lsquo;{appName}&rsquo; has been successfully uninstalled from &lsquo;{installationDetail?.client}&rsquo;
+        <div className="mb-3">
+          &lsquo;{appName}&rsquo; has been successfully uninstalled from &lsquo;{installationDetail?.client}&rsquo;
+        </div>
       </CallToAction>
     )
   }
@@ -159,7 +175,7 @@ export const validate = (values: TerminatedValues) => {
   return errors
 }
 
-const withFormik = formik({
+export const withFormik = formik({
   displayName: 'Terminated',
   mapPropsToValues: mapPropsToValues,
   validate: validate,

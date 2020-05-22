@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useLocation } from 'react-router'
+import { useLocation, useRouteMatch } from 'react-router'
 import { Link, Redirect } from 'react-router-dom'
 import { Dispatch } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
@@ -61,6 +61,8 @@ export const onLoginButtonClick = (
 
 export const Login: React.FunctionComponent<LoginProps> = () => {
   const location = useLocation()
+  let developerLoginRouteMatch = useRouteMatch(Routes.DEVELOPER_LOGIN)
+  let clientLoginRouteMatch = useRouteMatch(Routes.CLIENT_LOGIN)
   const dispatch = useDispatch()
   const loginType = useSelector(selectLoginType)
   const loginSession = useSelector(selectLoginSession)
@@ -83,6 +85,8 @@ export const Login: React.FunctionComponent<LoginProps> = () => {
   if (hasSession) {
     const redirectRoute = getDefaultPathByLoginType({
       loginType,
+      developerLoginRouteMatch,
+      clientLoginRouteMatch,
       isDeveloperFirstTimeLoginComplete,
       isClientFirstTimeLoginComplete,
     })

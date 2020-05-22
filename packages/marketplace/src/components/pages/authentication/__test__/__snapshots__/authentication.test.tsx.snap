@@ -18,6 +18,7 @@ exports[`Authentication renderClientModal should match snapshot 1`] = `
       </React.Fragment>
     }
     tapOutsideToDissmiss={false}
+    title="Agency Cloud User Licence?"
     visible={true}
   >
     <p>
@@ -63,6 +64,7 @@ exports[`Authentication renderDeveloperModal should match snapshot 1`] = `
       </React.Fragment>
     }
     tapOutsideToDissmiss={false}
+    title="Register as a Developer?"
     visible={true}
   >
     <p>

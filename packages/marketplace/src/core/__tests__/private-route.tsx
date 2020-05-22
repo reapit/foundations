@@ -7,6 +7,7 @@ import {
   isNotAllowedToAccess,
   handleChangeLoginType,
   handleRedirectToAuthenticationPage,
+  fetchAccessToken,
 } from '../private-route'
 import appState from '@/reducers/__stubs__/app-state'
 import { LoginIdentity } from '@reapit/cognito-auth'
@@ -14,6 +15,9 @@ import { authChangeLoginType } from '@/actions/auth'
 import Routes from '@/constants/routes'
 import { MemoryRouter } from 'react-router'
 import { getMockRouterProps } from '@/utils/mock-helper'
+import { getAccessToken } from '@/utils/session'
+
+jest.mock('@/utils/session')
 
 describe('PrivateRouter', () => {
   const { history } = getMockRouterProps({})
@@ -24,6 +28,13 @@ describe('PrivateRouter', () => {
     const mockStore = configureStore()
     store = mockStore(appState)
     spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
+  })
+
+  describe('fetchAccessToken', () => {
+    it('should run correctly', async () => {
+      fetchAccessToken()
+      expect(getAccessToken).toHaveBeenCalledTimes(1)
+    })
   })
 
   it('should match a snapshot', () => {
@@ -95,7 +106,7 @@ describe('PrivateRouter', () => {
       const mockAllow = 'CLIENT'
       const fn = handleRedirectToAuthenticationPage(mockAllow, history, mockLoginIdentity)
       fn()
-      expect(history.replace).toBeCalledWith(`${Routes.AUTHENTICATION}/${mockAllow}`)
+      expect(history.replace).toBeCalledWith(`${Routes.AUTHENTICATION}/${mockAllow.toLowerCase()}`)
     })
 
     it('should redirect to authentication page for DEVELOPER', () => {
@@ -106,7 +117,7 @@ describe('PrivateRouter', () => {
       const mockAllow = 'DEVELOPER'
       const fn = handleRedirectToAuthenticationPage(mockAllow, history, mockLoginIdentity)
       fn()
-      expect(history.replace).toBeCalledWith(`${Routes.AUTHENTICATION}/${mockAllow}`)
+      expect(history.replace).toBeCalledWith(`${Routes.AUTHENTICATION}/${mockAllow.toLowerCase()}`)
     })
   })
 })

@@ -11,3 +11,7 @@ export const selectInstallAppLoading = (state: ReduxState) => {
 export const selectInstallationFormState = (state: ReduxState) => {
   return state.installations.formState
 }
+
+export const selectInstallationAppData = (state: ReduxState) => {
+  return state.installations.installationsAppData
+}

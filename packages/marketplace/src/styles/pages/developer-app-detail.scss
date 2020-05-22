@@ -1,20 +1,45 @@
 @import '../base/colors.scss';
 
-.appDetailContainer {
-  width: 100%;
-  height: 100%;
-  max-width: 1012px;
-  margin: 0 auto;
-  padding: 15px;
-  background-color: $white;
+.listPreviewIcon {
+  color: $reapit-blue;
 }
-.appIconContainer {
-  width: 128px;
-  height: 128px;
+
+.appDetailContainer {
+  height: auto;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: $grey-lighter;
-  border-radius: 50%;
   margin: 0 auto;
+  margin: 1rem;
+}
+
+.mainContainer {
+  flex: 1;
+}
+
+.asideManageAppContainer {
+  display: flex;
+  flex-direction: column;
+
+  button,
+  button:first-child {
+    width: 150px;
+    margin-top: 0;
+    margin-left: 0;
+  }
+}
+
+.mainContainer {
+  background-color: $white;
+  padding: 15px;
+}
+
+.renderAsideStatusContainer {
+  display: flex;
+  justify-content: flex-star;
+  align-items: center;
+
+  .check {
+    /*should be px regard their base px (rem) else looks really ugly*/
+    margin-left: 5px;
+    color: #a0c862;
+  }
 }

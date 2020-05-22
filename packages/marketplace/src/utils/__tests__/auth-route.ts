@@ -5,6 +5,14 @@ import {
   getDefaultPathByLoginType,
 } from '../auth-route'
 import Routes from '../../constants/routes'
+import { match } from 'react-router'
+
+const mockRouteMatch: match<{}> = {
+  isExact: true,
+  params: '',
+  path: '',
+  url: '',
+}
 
 describe('getAuthRouteByLoginType', () => {
   it('should return correct route', () => {
@@ -64,11 +72,6 @@ describe('getDefaultRouteByLoginType', () => {
         loginType: 'CLIENT',
       }),
     ).toEqual(`${window.location.origin}${Routes.CLIENT_WELCOME}`)
-    // expect(
-    //   getDefaultRouteByLoginType({
-    //     loginType: 'CLIENT',
-    //   }),
-    // ).toEqual(`${window.location.origin}${Routes.INSTALLED_APPS}`)
   })
   /* eslint-enable*/
 })
@@ -78,6 +81,8 @@ describe('getDefaultPathByLoginType', () => {
     expect(
       getDefaultPathByLoginType({
         loginType: 'ADMIN',
+        developerLoginRouteMatch: null,
+        clientLoginRouteMatch: null,
       }),
     ).toEqual(Routes.ADMIN_APPROVALS)
   })
@@ -87,6 +92,8 @@ describe('getDefaultPathByLoginType', () => {
     expect(
       getDefaultPathByLoginType({
         loginType: 'DEVELOPER',
+        developerLoginRouteMatch: null,
+        clientLoginRouteMatch: null,
         isDeveloperFirstTimeLoginComplete: true,
       }),
     ).toEqual(Routes.DEVELOPER_MY_APPS)
@@ -96,6 +103,8 @@ describe('getDefaultPathByLoginType', () => {
     expect(
       getDefaultPathByLoginType({
         loginType: 'DEVELOPER',
+        developerLoginRouteMatch: null,
+        clientLoginRouteMatch: null,
       }),
     ).toEqual(Routes.DEVELOPER_WELCOME)
   })
@@ -104,6 +113,8 @@ describe('getDefaultPathByLoginType', () => {
     expect(
       getDefaultPathByLoginType({
         loginType: 'CLIENT',
+        developerLoginRouteMatch: null,
+        clientLoginRouteMatch: null,
         isClientFirstTimeLoginComplete: true,
       }),
     ).toEqual(Routes.INSTALLED_APPS)
@@ -113,13 +124,52 @@ describe('getDefaultPathByLoginType', () => {
     expect(
       getDefaultPathByLoginType({
         loginType: 'CLIENT',
+        developerLoginRouteMatch: null,
+        clientLoginRouteMatch: null,
       }),
     ).toEqual(Routes.CLIENT_WELCOME)
-    // expect(
-    //   getDefaultPathByLoginType({
-    //     loginType: 'CLIENT',
-    //   }),
-    // ).toEqual(Routes.INSTALLED_APPS)
+  })
+
+  it('should return Routes.CLIENT_WELCOME if loginType = DEVELOPER and clientLoginRouteMatch is existed and isClientFirstTimeLoginComplete is false', () => {
+    expect(
+      getDefaultPathByLoginType({
+        loginType: 'DEVELOPER',
+        clientLoginRouteMatch: mockRouteMatch,
+        developerLoginRouteMatch: null,
+        isClientFirstTimeLoginComplete: false,
+      }),
+    ).toEqual(Routes.CLIENT_WELCOME)
+  })
+  it('should return Routes.INSTALLED_APPS if loginType = DEVELOPER and clientLoginRouteMatch is existed and isClientFirstTimeLoginComplete is true', () => {
+    expect(
+      getDefaultPathByLoginType({
+        loginType: 'DEVELOPER',
+        clientLoginRouteMatch: mockRouteMatch,
+        developerLoginRouteMatch: null,
+        isClientFirstTimeLoginComplete: true,
+      }),
+    ).toEqual(Routes.INSTALLED_APPS)
+  })
+  //----
+  it('should return Routes.DEVELOPER_WELCOME if loginType = CLIENT and developerLoginRouteMatch is existed and isDeveloperFirstTimeLoginComplete is false', () => {
+    expect(
+      getDefaultPathByLoginType({
+        loginType: 'CLIENT',
+        clientLoginRouteMatch: null,
+        developerLoginRouteMatch: mockRouteMatch,
+        isDeveloperFirstTimeLoginComplete: false,
+      }),
+    ).toEqual(Routes.DEVELOPER_WELCOME)
+  })
+  it('should return Routes.DEVELOPER_MY_APPS if loginType = DEVELOPER and developerLoginRouteMatch is existed and isDeveloperFirstTimeLoginComplete is true', () => {
+    expect(
+      getDefaultPathByLoginType({
+        loginType: 'CLIENT',
+        clientLoginRouteMatch: null,
+        developerLoginRouteMatch: mockRouteMatch,
+        isDeveloperFirstTimeLoginComplete: true,
+      }),
+    ).toEqual(Routes.DEVELOPER_MY_APPS)
   })
   /* eslint-enable*/
 })

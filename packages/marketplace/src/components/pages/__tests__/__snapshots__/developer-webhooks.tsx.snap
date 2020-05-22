@@ -21,7 +21,7 @@ exports[`DeveloperWebHooks should match a snapshot 1`] = `
          
         <a
           className={[Function]}
-          href="https://marketplace.reapit.cloud/developer/api-docs/api/webhooks"
+          href="/developer/api-docs/api/webhooks"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -68,7 +68,7 @@ exports[`DeveloperWebHooks should match a snapshot 2`] = `
          
         <a
           className={[Function]}
-          href="https://marketplace.reapit.cloud/developer/api-docs/api/webhooks"
+          href="/developer/api-docs/api/webhooks"
           rel="noopener noreferrer"
           target="_blank"
         >

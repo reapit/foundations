@@ -9,6 +9,7 @@ import { LoginType, LoginIdentity } from '@reapit/cognito-auth'
 import { selectLoginIdentity, selectLoginType } from '@/selector/auth'
 import { authChangeLoginType } from '@/actions/auth'
 import Routes from '@/constants/routes'
+import { getAccessToken } from '@/utils/session'
 
 export interface PrivateRouteProps {
   allow: LoginType | LoginType[]
@@ -58,9 +59,13 @@ export const handleRedirectToAuthenticationPage = (
     }
     const { clientId, developerId } = loginIdentity
     if ((allow === 'CLIENT' && !clientId) || (allow === 'DEVELOPER' && !developerId)) {
-      history.replace(`${Routes.AUTHENTICATION}/${allow}`)
+      history.replace(`${Routes.AUTHENTICATION}/${allow.toLowerCase()}`)
     }
   }
+}
+
+export const fetchAccessToken = async () => {
+  await getAccessToken()
 }
 
 export const PrivateRoute = ({ component, allow, fetcher = false, ...rest }: PrivateRouteProps & RouteProps) => {
@@ -77,6 +82,8 @@ export const PrivateRoute = ({ component, allow, fetcher = false, ...rest }: Pri
   ])
 
   React.useEffect(handleRedirectToAuthenticationPage(allow, history, loginIdentity), [loginIdentity, allow, history])
+
+  fetchAccessToken()
 
   return (
     <Route
