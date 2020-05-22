@@ -4,9 +4,8 @@ import * as ReactRedux from 'react-redux'
 import configureStore from 'redux-mock-store'
 import { Register, onSubmit, onRegisterButtonClick, onDeclineTermsAndConditions, onLoginButtonClick } from '../register'
 import { developerCreate } from '@/actions/developer'
-import { FormState, ReduxState } from '../../../types/core'
-import { mockWithFormik } from '@/utils/mock-formik'
-import { FormikProps, DATE_TIME_FORMAT } from '@reapit/elements'
+import { authLogout } from '@/actions/auth'
+import { DATE_TIME_FORMAT } from '@reapit/elements'
 import MockDate from 'mockdate'
 import appState from '@/reducers/__stubs__/app-state'
 import { MemoryRouter } from 'react-router'
@@ -91,9 +90,15 @@ describe('Register', () => {
     })
   })
   describe('onLoginButtonClick', () => {
-    it('should run correctly', () => {
-      const fn = onLoginButtonClick(history)
+    it('should redirect to developer login page', () => {
+      const fn = onLoginButtonClick(history, spyDispatch, '')
       fn()
+      expect(history.replace).toBeCalledWith(`${Routes.DEVELOPER_LOGIN}`)
+    })
+    it('should run dispatch logout first and then redirect to developer login page', () => {
+      const fn = onLoginButtonClick(history, spyDispatch, 'testClientId')
+      fn()
+      expect(spyDispatch).toBeCalledWith(authLogout())
       expect(history.replace).toBeCalledWith(`${Routes.DEVELOPER_LOGIN}`)
     })
   })

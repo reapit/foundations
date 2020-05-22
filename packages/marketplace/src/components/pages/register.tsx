@@ -29,6 +29,7 @@ import Routes from '@/constants/routes'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 import { selectClientId } from '@/selector/auth'
+import { authLogout } from '@/actions/auth'
 const { container, wrapper, image } = loginStyles
 
 export type RegisterProps = {}
@@ -78,8 +79,11 @@ export const onDeclineTermsAndConditions = (setTermsAndConditionsModalVisible: (
   }
 }
 
-export const onLoginButtonClick = (history: History) => {
+export const onLoginButtonClick = (history: History, dispatch: Dispatch, clientId: string) => {
   return () => {
+    if (clientId) {
+      dispatch(authLogout())
+    }
     history.replace(Routes.DEVELOPER_LOGIN)
   }
 }
@@ -89,7 +93,7 @@ export const Register: React.FunctionComponent<RegisterProps> = () => {
   const dispatch = useDispatch()
   const [visible, setVisible] = React.useState<boolean>(false)
   const formState = useSelector(selectDeveloperFormState)
-  const clientId = useSelector(selectClientId)
+  const clientId = useSelector(selectClientId) || ''
   const isSubmitting = formState === 'SUBMITTING'
 
   return (
@@ -102,7 +106,7 @@ export const Register: React.FunctionComponent<RegisterProps> = () => {
             title="Success!"
             buttonText="Login"
             dataTest="register-success-message"
-            onButtonClick={onLoginButtonClick(history)}
+            onButtonClick={onLoginButtonClick(history, dispatch, clientId)}
             isCenter
           >
             <div className="mb-3">Check your email to confirm your account</div>
