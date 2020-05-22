@@ -53,7 +53,7 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "build:prod": "node ./scripts/build-prod.js",
+    "build:prod": "node ./scripts/build-prod.js --stage dev",
     "start:server": "serverless offline --out public/dist --stage local",
     "start:dev": "node ./scripts/start-dev.js",
     "test:dev": "cross-env TZ=UTC jest --watch --color",
@@ -62,7 +62,7 @@
     "lint:fix": "eslint --cache --ext=ts,tsx,js,svelte src --fix",
     "fetch-config": "yarn config-manager fetchConfig web-components",
     "build:serverless": "node ./scripts/build-serverless.js",
-    "release:server:dev": "node ./scripts/release-serverless.js",
+    "release:server:dev": "node ./scripts/release-serverless.js --stage dev",
     "release:server:prod": "node ../../scripts/release/release-serverless.js web-components",
     "release:npm:prod": "node ../../scripts/release/release-npm.js web-components --skip-edit-release-note",
     "release:client:dev": "node ../../scripts/release/release-dev.js web-components reapit-web-components",
