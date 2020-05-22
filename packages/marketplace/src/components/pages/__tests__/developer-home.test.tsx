@@ -11,13 +11,13 @@ import DeveloperHome, {
   handleFetchDeveloperApps,
   handleOnChange,
 } from '../developer-home'
-import { DeveloperAppDetailState } from '@/reducers/developer'
 import { AppSummaryModel } from '@/types/marketplace-api-schema'
 import { appDetailRequestData, removeAuthenticationCode } from '@/actions/app-detail'
 import { developerAppShowModal } from '@/actions/developer-app-modal'
 import { developerRequestData } from '@/actions/developer'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import routes from '@/constants/routes'
+import { AppDetailState } from '@/reducers/app-detail'
 
 describe('Login', () => {
   const { history } = getMockRouterProps({})
@@ -42,12 +42,13 @@ describe('Login', () => {
   })
   describe('handleOnCardClick', () => {
     it('should run correctly', () => {
-      const mockAppDetailState: DeveloperAppDetailState = {
-        data: {
-          id: 'testId',
+      const mockAppDetailState = {
+        appDetailData: {
+          data: {
+            id: 'testId',
+          },
         },
-        isAppDetailLoading: false,
-      }
+      } as AppDetailState
       const mockAppSummary: AppSummaryModel = {
         id: 'testId2',
       }

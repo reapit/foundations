@@ -8,22 +8,22 @@ import { appDetailRequestData, removeAuthenticationCode } from '@/actions/app-de
 import { setDeveloperAppModalStateViewDetail, developerAppShowModal } from '@/actions/developer-app-modal'
 import { appDeleteSetInitFormState } from '@/actions/app-delete'
 import { developerRequestData } from '@/actions/developer'
-import { DeveloperAppDetailState } from '@/reducers/developer'
 import { selectDeveloper, selectDeveloperAppModalVisible } from '@/selector'
 import DeveloperAppModal from '@/components/ui/developer-app-modal'
-import { selectAppDetailState } from '@/selector/developer-app-detail'
 import AppList from '@/components/ui/app-list'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { SandboxPopUp } from '@/components/ui/sandbox-pop-up'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { getParamValueFromPath } from '@/utils/client-url-params'
 import routes from '@/constants/routes'
+import { selectAppDetailState } from '@/selector/app-detail'
+import { AppDetailState } from '@/reducers/app-detail'
 
-export const handleOnCardClick = (appDetail: DeveloperAppDetailState, dispatch: Dispatch) => (app: AppSummaryModel) => {
+export const handleOnCardClick = (appDetail: AppDetailState, dispatch: Dispatch) => (app: AppSummaryModel) => {
   dispatch(developerAppShowModal(true))
   dispatch(setDeveloperAppModalStateViewDetail())
   dispatch(appDeleteSetInitFormState())
-  if (app.id && (!appDetail || appDetail.data?.id !== app.id)) {
+  if (app.id && (!appDetail.appDetailData || appDetail.appDetailData.data?.id !== app.id)) {
     dispatch(
       appDetailRequestData({
         id: app.id,
