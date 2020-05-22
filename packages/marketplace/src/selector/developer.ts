@@ -1,5 +1,5 @@
 // TODO: Will move all developerSelector to here for reusable
-import { ReduxState } from '@/types/core'
+import { ReduxState, FormState } from '@/types/core'
 import { AppSummaryModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { Billing, MonthlyBilling, WebhookPingTestStatus } from '@/reducers/developer'
 
@@ -45,4 +45,8 @@ export const selectMonthlyBillingLoading = (state: ReduxState): boolean => {
 
 export const selectWebhookTestStatus = (state: ReduxState): WebhookPingTestStatus => {
   return state.developer?.webhookPingTestStatus
+}
+
+export const selectDeveloperFormState = (state: ReduxState): FormState => {
+  return state.developer?.formState
 }
