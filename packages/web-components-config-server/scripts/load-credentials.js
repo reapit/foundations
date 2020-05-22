@@ -9,4 +9,5 @@ const credentials = {
   region: AWS_REGION,
 }
 
-fs.writeFileSync(path.resolve(__dirname, '../credentials.json'), JSON.stringify(credentials))
+// this will create a credentials.json file in src folder
+fs.writeFileSync(path.resolve(__dirname, '../src/credentials.json'), JSON.stringify(credentials))
