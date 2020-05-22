@@ -10,6 +10,8 @@ import {
   Form,
   Loader,
   FormikValues,
+  DropdownSelect,
+  SelectOption,
 } from '@reapit/elements'
 import styles from '@/styles/elements/radioselect.scss?mod'
 import { useDispatch, useSelector } from 'react-redux'
@@ -25,6 +27,22 @@ export const updateWebComponentConfig = (dispatch: Dispatch) => (params: FormikV
 
 export const handleFetchWebComponentConfig = (dispatch: Dispatch, customerId?: string) => () => {
   customerId && dispatch(clientFetchWebComponentConfig({ customerId }))
+}
+
+export const genarateNegotiatorOptions = (): SelectOption[] => {
+  //MUST CHANGE WHEN API READY
+  return [
+    {
+      label: 'Joe Smith',
+      value: '1',
+      description: 'Joe Smith',
+    },
+    {
+      label: 'Jack',
+      value: '2',
+      description: 'Jack',
+    },
+  ] as SelectOption[]
 }
 
 export const WebComponentConfigModalBody = ({ subtext, formikProps }) => {
@@ -77,6 +95,13 @@ export const WebComponentConfigModalBody = ({ subtext, formikProps }) => {
           </div>
         </div>
       </div>
+      <DropdownSelect
+        id="negotiatorIds"
+        name="negotiatorIds"
+        labelText="Negotiators"
+        subText="Select which negotiators will be avaiable to attend appointments"
+        options={genarateNegotiatorOptions()}
+      />
     </>
   )
 }
@@ -102,13 +127,11 @@ export const WebComponentConfigModalInner = ({ config, closeModal }) => {
   const loading = useSelector(selectIsWebComponentLoading)
   const clientId = useSelector(selectClientId) || ''
 
-  const initialFormValues =
-    webComponentData ||
-    ({
-      appointmentLength: 30,
-      appointmentTimeGap: 30,
-      daysOfWeek: ['1', '2', '3', '4', '5', '6'],
-    } as FormikValues)
+  const initialFormValues = (webComponentData || {
+    appointmentLength: 30,
+    appointmentTimeGap: 30,
+    daysOfWeek: ['1', '2', '3', '4', '5', '6'],
+  }) as FormikValues
 
   useEffect(handleFetchWebComponentConfig(dispatch, clientId), [])
 

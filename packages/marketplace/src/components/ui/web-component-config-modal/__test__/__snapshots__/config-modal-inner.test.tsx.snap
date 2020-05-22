@@ -131,6 +131,26 @@ exports[`Config-modal-inner should WebComponentConfigModalBody match a snapshot 
       </div>
     </div>
   </div>
+  <Component
+    id="negotiatorIds"
+    labelText="Negotiators"
+    name="negotiatorIds"
+    options={
+      Array [
+        Object {
+          "description": "Joe Smith",
+          "label": "Joe Smith",
+          "value": "1",
+        },
+        Object {
+          "description": "Jack",
+          "label": "Jack",
+          "value": "2",
+        },
+      ]
+    }
+    subText="Select which negotiators will be avaiable to attend appointments"
+  />
 </Fragment>
 `;
 
@@ -965,6 +985,456 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                     </div>
                   </div>
                 </div>
+                <Component
+                  id="negotiatorIds"
+                  labelText="Negotiators"
+                  name="negotiatorIds"
+                  options={
+                    Array [
+                      Object {
+                        "description": "Joe Smith",
+                        "label": "Joe Smith",
+                        "value": "1",
+                      },
+                      Object {
+                        "description": "Jack",
+                        "label": "Jack",
+                        "value": "2",
+                      },
+                    ]
+                  }
+                  subText="Select which negotiators will be avaiable to attend appointments"
+                >
+                  <div
+                    className="field pb-4"
+                  >
+                    <div
+                      className="control"
+                    >
+                      <Field
+                        name="negotiatorIds"
+                        validate={null}
+                      >
+                        <div
+                          className="field field-dropdown-select"
+                        >
+                          <label
+                            className="label "
+                          >
+                            Negotiators
+                          </label>
+                          <label
+                            className="subtext mb-2"
+                          >
+                            Select which negotiators will be avaiable to attend appointments
+                          </label>
+                          <Select
+                            className="is-primary input"
+                            id="negotiatorIds"
+                            mode="tags"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            tagRender={[Function]}
+                            value={Array []}
+                          >
+                            <ForwardRef(Select)
+                              className="is-primary input"
+                              id="negotiatorIds"
+                              mode="tags"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              tagRender={[Function]}
+                              value={Array []}
+                            >
+                              <div
+                                className="rc-select is-primary input rc-select-multiple rc-select-show-search"
+                                onBlur={[Function]}
+                                onFocus={[Function]}
+                                onKeyDown={[Function]}
+                                onKeyUp={[Function]}
+                                onMouseDown={[Function]}
+                              >
+                                <SelectTrigger
+                                  containerWidth={null}
+                                  empty={false}
+                                  getTriggerDOMNode={[Function]}
+                                  popupElement={
+                                    <OptionList
+                                      childrenAsData={true}
+                                      defaultActiveFirstOption={true}
+                                      flattenOptions={
+                                        Array [
+                                          Object {
+                                            "data": Object {
+                                              "children": "Joe Smith",
+                                              "key": "1",
+                                              "value": "1",
+                                            },
+                                            "groupOption": false,
+                                            "key": "1",
+                                          },
+                                          Object {
+                                            "data": Object {
+                                              "children": "Jack",
+                                              "key": "2",
+                                              "value": "2",
+                                            },
+                                            "groupOption": false,
+                                            "key": "2",
+                                          },
+                                        ]
+                                      }
+                                      height={200}
+                                      id="negotiatorIds"
+                                      itemHeight={20}
+                                      multiple={true}
+                                      notFoundContent="Not Found"
+                                      onActiveValue={[Function]}
+                                      onSelect={[Function]}
+                                      onToggleOpen={[Function]}
+                                      options={
+                                        Array [
+                                          Object {
+                                            "children": "Joe Smith",
+                                            "key": "1",
+                                            "value": "1",
+                                          },
+                                          Object {
+                                            "children": "Jack",
+                                            "key": "2",
+                                            "value": "2",
+                                          },
+                                        ]
+                                      }
+                                      prefixCls="rc-select"
+                                      searchValue=""
+                                      values={Set {}}
+                                      virtual={true}
+                                    />
+                                  }
+                                  prefixCls="rc-select"
+                                >
+                                  <Trigger
+                                    action={Array []}
+                                    afterPopupVisibleChange={[Function]}
+                                    blurDelay={0.15}
+                                    builtinPlacements={
+                                      Object {
+                                        "bottomLeft": Object {
+                                          "offset": Array [
+                                            0,
+                                            4,
+                                          ],
+                                          "overflow": Object {
+                                            "adjustX": 0,
+                                            "adjustY": 1,
+                                          },
+                                          "points": Array [
+                                            "tl",
+                                            "bl",
+                                          ],
+                                        },
+                                        "topLeft": Object {
+                                          "offset": Array [
+                                            0,
+                                            -4,
+                                          ],
+                                          "overflow": Object {
+                                            "adjustX": 0,
+                                            "adjustY": 1,
+                                          },
+                                          "points": Array [
+                                            "bl",
+                                            "tl",
+                                          ],
+                                        },
+                                      }
+                                    }
+                                    defaultPopupVisible={false}
+                                    destroyPopupOnHide={false}
+                                    focusDelay={0}
+                                    getDocument={[Function]}
+                                    getPopupClassNameFromAlign={[Function]}
+                                    getTriggerDOMNode={[Function]}
+                                    hideAction={Array []}
+                                    mask={false}
+                                    maskClosable={true}
+                                    mouseEnterDelay={0}
+                                    mouseLeaveDelay={0.1}
+                                    onPopupAlign={[Function]}
+                                    onPopupVisibleChange={[Function]}
+                                    popup={
+                                      <div>
+                                        <OptionList
+                                          childrenAsData={true}
+                                          defaultActiveFirstOption={true}
+                                          flattenOptions={
+                                            Array [
+                                              Object {
+                                                "data": Object {
+                                                  "children": "Joe Smith",
+                                                  "key": "1",
+                                                  "value": "1",
+                                                },
+                                                "groupOption": false,
+                                                "key": "1",
+                                              },
+                                              Object {
+                                                "data": Object {
+                                                  "children": "Jack",
+                                                  "key": "2",
+                                                  "value": "2",
+                                                },
+                                                "groupOption": false,
+                                                "key": "2",
+                                              },
+                                            ]
+                                          }
+                                          height={200}
+                                          id="negotiatorIds"
+                                          itemHeight={20}
+                                          multiple={true}
+                                          notFoundContent="Not Found"
+                                          onActiveValue={[Function]}
+                                          onSelect={[Function]}
+                                          onToggleOpen={[Function]}
+                                          options={
+                                            Array [
+                                              Object {
+                                                "children": "Joe Smith",
+                                                "key": "1",
+                                                "value": "1",
+                                              },
+                                              Object {
+                                                "children": "Jack",
+                                                "key": "2",
+                                                "value": "2",
+                                              },
+                                            ]
+                                          }
+                                          prefixCls="rc-select"
+                                          searchValue=""
+                                          values={Set {}}
+                                          virtual={true}
+                                        />
+                                      </div>
+                                    }
+                                    popupAlign={Object {}}
+                                    popupClassName=""
+                                    popupPlacement="bottomLeft"
+                                    popupStyle={
+                                      Object {
+                                        "minWidth": null,
+                                        "width": null,
+                                      }
+                                    }
+                                    prefixCls="rc-select-dropdown"
+                                    showAction={Array []}
+                                  >
+                                    <Selector
+                                      accessibilityIndex={0}
+                                      activeValue={null}
+                                      className="is-primary input"
+                                      domRef={
+                                        Object {
+                                          "current": <div
+                                            class="rc-select-selector"
+                                          >
+                                            <span
+                                              class="rc-select-selection-search"
+                                              style="width: 0px;"
+                                            >
+                                              <input
+                                                aria-activedescendant="negotiatorIds_list_0"
+                                                aria-autocomplete="list"
+                                                aria-controls="negotiatorIds_list"
+                                                aria-haspopup="listbox"
+                                                aria-owns="negotiatorIds_list"
+                                                autocomplete="off"
+                                                class="rc-select-selection-search-input"
+                                                id="negotiatorIds"
+                                                role="combobox"
+                                                value=""
+                                              />
+                                              <span
+                                                aria-hidden="true"
+                                                class="rc-select-selection-search-mirror"
+                                              >
+                                                
+                                                 
+                                              </span>
+                                            </span>
+                                            <span
+                                              class="rc-select-selection-placeholder"
+                                            />
+                                          </div>,
+                                        }
+                                      }
+                                      id="negotiatorIds"
+                                      inputElement={null}
+                                      key="trigger"
+                                      mode="tags"
+                                      multiple={true}
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      onSearch={[Function]}
+                                      onSelect={[Function]}
+                                      onToggleOpen={[Function]}
+                                      prefixCls="rc-select"
+                                      searchValue=""
+                                      showSearch={true}
+                                      tagRender={[Function]}
+                                      value={Array []}
+                                      values={Array []}
+                                    >
+                                      <div
+                                        className="rc-select-selector"
+                                        onClick={[Function]}
+                                        onMouseDown={[Function]}
+                                      >
+                                        <SelectSelector
+                                          accessibilityIndex={0}
+                                          activeValue={null}
+                                          className="is-primary input"
+                                          domRef={
+                                            Object {
+                                              "current": <div
+                                                class="rc-select-selector"
+                                              >
+                                                <span
+                                                  class="rc-select-selection-search"
+                                                  style="width: 0px;"
+                                                >
+                                                  <input
+                                                    aria-activedescendant="negotiatorIds_list_0"
+                                                    aria-autocomplete="list"
+                                                    aria-controls="negotiatorIds_list"
+                                                    aria-haspopup="listbox"
+                                                    aria-owns="negotiatorIds_list"
+                                                    autocomplete="off"
+                                                    class="rc-select-selection-search-input"
+                                                    id="negotiatorIds"
+                                                    role="combobox"
+                                                    value=""
+                                                  />
+                                                  <span
+                                                    aria-hidden="true"
+                                                    class="rc-select-selection-search-mirror"
+                                                  >
+                                                    
+                                                     
+                                                  </span>
+                                                </span>
+                                                <span
+                                                  class="rc-select-selection-placeholder"
+                                                />
+                                              </div>,
+                                            }
+                                          }
+                                          id="negotiatorIds"
+                                          inputElement={null}
+                                          inputRef={
+                                            Object {
+                                              "current": <input
+                                                aria-activedescendant="negotiatorIds_list_0"
+                                                aria-autocomplete="list"
+                                                aria-controls="negotiatorIds_list"
+                                                aria-haspopup="listbox"
+                                                aria-owns="negotiatorIds_list"
+                                                autocomplete="off"
+                                                class="rc-select-selection-search-input"
+                                                id="negotiatorIds"
+                                                role="combobox"
+                                                value=""
+                                              />,
+                                            }
+                                          }
+                                          mode="tags"
+                                          multiple={true}
+                                          onBlur={[Function]}
+                                          onChange={[Function]}
+                                          onInputChange={[Function]}
+                                          onInputKeyDown={[Function]}
+                                          onInputMouseDown={[Function]}
+                                          onSearch={[Function]}
+                                          onSelect={[Function]}
+                                          onToggleOpen={[Function]}
+                                          prefixCls="rc-select"
+                                          searchValue=""
+                                          showSearch={true}
+                                          tagRender={[Function]}
+                                          value={Array []}
+                                          values={Array []}
+                                        >
+                                          <CSSMotionList
+                                            component={false}
+                                            keys={Array []}
+                                            motionAppear={true}
+                                          />
+                                          <span
+                                            className="rc-select-selection-search"
+                                            style={
+                                              Object {
+                                                "width": 0,
+                                              }
+                                            }
+                                          >
+                                            <Input
+                                              accessibilityIndex={0}
+                                              editable={true}
+                                              id="negotiatorIds"
+                                              inputElement={null}
+                                              onChange={[Function]}
+                                              onKeyDown={[Function]}
+                                              onMouseDown={[Function]}
+                                              prefixCls="rc-select"
+                                              value=""
+                                            >
+                                              <input
+                                                aria-activedescendant="negotiatorIds_list_0"
+                                                aria-autocomplete="list"
+                                                aria-controls="negotiatorIds_list"
+                                                aria-haspopup="listbox"
+                                                aria-owns="negotiatorIds_list"
+                                                autoComplete="off"
+                                                className="rc-select-selection-search-input"
+                                                id="negotiatorIds"
+                                                onChange={[Function]}
+                                                onKeyDown={[Function]}
+                                                onMouseDown={[Function]}
+                                                readOnly={false}
+                                                role="combobox"
+                                                style={
+                                                  Object {
+                                                    "opacity": null,
+                                                  }
+                                                }
+                                                value=""
+                                              />
+                                            </Input>
+                                            <span
+                                              aria-hidden={true}
+                                              className="rc-select-selection-search-mirror"
+                                            >
+                                               
+                                            </span>
+                                          </span>
+                                          <span
+                                            className="rc-select-selection-placeholder"
+                                          />
+                                        </SelectSelector>
+                                      </div>
+                                    </Selector>
+                                  </Trigger>
+                                </SelectTrigger>
+                              </div>
+                            </ForwardRef(Select)>
+                          </Select>
+                        </div>
+                      </Field>
+                    </div>
+                  </div>
+                </Component>
               </Component>
             </section>
           </Component>

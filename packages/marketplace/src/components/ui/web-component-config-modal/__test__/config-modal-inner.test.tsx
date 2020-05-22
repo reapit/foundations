@@ -18,7 +18,7 @@ const params = {
   appointmentLength: 1,
   appointmentTimeGap: 1,
   customerId: 'string',
-  daysOfWeek: [1, 2],
+  daysOfWeek: ['1', '2'],
   negotiatorIds: ['1', '2'],
 } as PutWebComponentConfigParams
 

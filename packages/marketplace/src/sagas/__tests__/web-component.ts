@@ -60,7 +60,7 @@ describe('putWebComponentConfigSaga', () => {
     appointmentLength: 12,
     appointmentTimeGap: 21,
     customerId: 'string',
-    daysOfWeek: [1],
+    daysOfWeek: ['1'],
     negotiatorIds: ['1'],
   } as PutWebComponentConfigParams
 
@@ -97,7 +97,7 @@ describe('fetchWebComponentConfigSaga', () => {
     appointmentLength: 12,
     appointmentTimeGap: 21,
     customerId: 'string',
-    daysOfWeek: [1],
+    daysOfWeek: ['1'],
     negotiatorIds: ['1'],
   } as WebComponentConfigResult
 

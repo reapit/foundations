@@ -11,7 +11,7 @@ export interface PutWebComponentConfigParams {
   appointmentTimeGap: number
   appointmentTypes: any
   customerId: string
-  daysOfWeek: number[]
+  daysOfWeek: string[]
   negotiatorIds: string[]
 }
 
@@ -20,7 +20,7 @@ export type WebComponentConfigResult = {
   appointmentTimeGap: number
   appointmentTypes: any
   customerId: string
-  daysOfWeek: number[]
+  daysOfWeek: string[]
   negotiatorIds: string[]
 } | null
 
@@ -29,6 +29,7 @@ const API = '/dev/v1/web-components-config'
 export const fetchWebComponentConfig = async (
   params: FetchWebComponentConfigParams,
 ): Promise<WebComponentConfigResult> => {
+  return sampleRespone() //SHOULD REMOVE WHEN API READY
   try {
     const { customerId } = params
     const response = await fetcher({
@@ -44,7 +45,8 @@ export const fetchWebComponentConfig = async (
   }
 }
 
-export const putWebComponentConfig = async (params: PutWebComponentConfigParams) => {
+export const putWebComponentConfig = async (params: PutWebComponentConfigParams): Promise<WebComponentConfigResult> => {
+  return sampleRespone() //SHOULD REMOVE WHEN API READY
   try {
     const { customerId = 'DXX', ...rest } = params
     const response = await fetcher({
@@ -59,4 +61,21 @@ export const putWebComponentConfig = async (params: PutWebComponentConfigParams)
     logger(error)
     throw new Error(error)
   }
+}
+
+//SHOULD REMOVE WHEN API READY
+function sampleRespone(): Promise<WebComponentConfigResult> {
+  return new Promise(res => {
+    setTimeout(() => {
+      const data = {
+        appointmentLength: 15,
+        appointmentTimeGap: 60,
+        appointmentTypes: [{ value: 'value1', id: 'id1' }],
+        customerId: 'DXX',
+        daysOfWeek: ['1', '2', '3', '5', '6'],
+        negotiatorIds: ['1', '2'],
+      } as WebComponentConfigResult
+      res(data)
+    }, 1000)
+  })
 }
