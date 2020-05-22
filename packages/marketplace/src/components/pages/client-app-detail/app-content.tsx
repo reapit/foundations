@@ -5,6 +5,8 @@ import styles from '@/styles/blocks/app-detail.scss?mod'
 import { ScopeModel, MediaModel } from '@reapit/foundations-ts-definitions'
 import '@/styles/vendor/slick.scss'
 import clientAppDetailStyles from '@/styles/pages/client-app-detail.scss?mod'
+import { Tag } from '@/components/pages/developer-app-detail/app-detail/tag'
+import { RenderWithHeader } from '@/components/pages/developer-app-detail/app-detail/render-with-header'
 
 import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
 
@@ -12,8 +14,6 @@ export type AppContentProps = {
   appDetailData: AppDetailDataNotNull
   desktopIntegrationTypes: DesktopIntegrationTypeModel[]
 }
-
-export const Tag = ({ children }) => <div className={clientAppDetailStyles.tag}>{children}</div>
 
 export const renderDescripion = (description: string) => (
   <div className={clientAppDetailStyles.gutter}>
@@ -61,13 +61,6 @@ export const renderDesktopIntegrationTypes = (desktopIntegrationTypes: DesktopIn
   )
 }
 
-export const RenderWithHeader: React.FC<{ header: string }> = ({ header, children }) => (
-  <div className={clientAppDetailStyles.gutter}>
-    <H5>{header}</H5>
-    {children}
-  </div>
-)
-
 export const renderExtraMedia = (media: MediaModel[] = []) =>
   media.map(({ uri }) => (
     <div key={uri} className={clientAppDetailStyles.gutter}>
@@ -88,8 +81,6 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailData, desktopIntegrati
     <div className={clientAppDetailStyles.appContentContainer}>
       <div className={clientAppDetailStyles.gutter}>{summary}</div>
       {renderDescripion(description)}
-      {summary && <p>{summary}</p>}
-      {media[0] && <img src={media[0].uri} />}
       {renderPermissions(scopes)}
       {renderExtraMedia(extraMedia)}
       {renderCategory(category)}

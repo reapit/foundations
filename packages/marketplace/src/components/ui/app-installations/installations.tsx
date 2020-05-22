@@ -33,7 +33,7 @@ export const mapDispatchToProps = (dispatch: any): InstallationsMappedActions =>
 
 export type InstallationsProps = InstallationsInnerProps & InstallationsMappedProps & InstallationsMappedActions
 
-const generateColumns = (onUninstall: (app: InstallationModel) => () => void) => () => {
+export const generateColumns = (onUninstall: (app: InstallationModel) => () => void) => () => {
   const UninstallCell = ({ row }) => {
     return (
       <Button type="button" variant="primary" onClick={onUninstall(row.original)}>

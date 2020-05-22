@@ -82,21 +82,6 @@ exports[`AppContent AppContent - should match snapshot 1`] = `
 </div>
 `;
 
-exports[`AppContent RenderWithHeader - should match snapshot 1`] = `
-<div>
-  <Component>
-    test
-  </Component>
-  some text
-</div>
-`;
-
-exports[`AppContent Tag - should match snapshot 1`] = `
-<div>
-  Test
-</div>
-`;
-
 exports[`AppContent renderCategory - should match snapshot 1`] = `<div />`;
 
 exports[`AppContent renderDescripion - should match snapshot 1`] = `

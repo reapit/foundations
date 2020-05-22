@@ -108,10 +108,14 @@ exports[`ConfirmUninstall should match a snapshot when FORMSTATE is SUCCESS 1`] 
   onButtonClick={[Function]}
   title="Success"
 >
-  ‘
-  1
-  ’ has been successfully uninstalled from ‘
-  DXX
-  ’
+  <div
+    className="mb-3"
+  >
+    ‘
+    1
+    ’ has been successfully uninstalled from ‘
+    DXX
+    ’
+  </div>
 </CallToAction>
 `;

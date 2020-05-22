@@ -10,19 +10,14 @@ import { selectIntegrationTypes } from '@/selector/integration-types'
 import { useSelector } from 'react-redux'
 import { selectAppDetailData, selectAppDetailLoading } from '@/selector/client-app-detail'
 import { selectLoginType, selectIsAdmin } from '@/selector/auth'
-import AppHeader from './app-header'
+import AppHeader from '@/components/ui/standalone-app-detail/app-header'
 import AppContent from './app-content'
 import { Loader, Button } from '@reapit/elements'
-import developerAppDetailStyles from '@/styles/pages/developer-app-detail.scss?mod'
 import clientAppDetailStyles from '@/styles/pages/client-app-detail.scss?mod'
 import ClientAppInstallConfirmation from '@/components/ui/client-app-detail/client-app-install-confirmation'
+import { Aside } from './aside'
 
 export type ClientAppDetailProps = {}
-
-const appDetailContainerClassNames = [
-  clientAppDetailStyles.appDetailContainer,
-  developerAppDetailStyles.appDetailContainer,
-].join(' ')
 
 export const handleCloseInstallConfirmationModal = (setIsVisibleInstallConfirmation: (isVisible: boolean) => void) => {
   return () => {
@@ -107,32 +102,35 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   }
 
   return (
-    <div data-test="client-app-detail-container" className={appDetailContainerClassNames}>
-      <AppHeader
-        appDetailData={appDetailData}
-        buttonGroup={renderAppHeaderButtonGroup(
-          id,
-          installedOn,
-          onUninstsallConfirmationModal,
-          onInstallConfirmationModal,
-          isInstallBtnHidden,
+    <div data-test="client-app-detail-container" className={clientAppDetailStyles.appDetailContainer}>
+      <Aside appDetailData={appDetailData} desktopIntegrationTypes={desktopIntegrationTypes} />
+      <div className={clientAppDetailStyles.mainContainer}>
+        <AppHeader
+          appDetailData={appDetailData}
+          buttonGroup={renderAppHeaderButtonGroup(
+            id,
+            installedOn,
+            onUninstsallConfirmationModal,
+            onInstallConfirmationModal,
+            isInstallBtnHidden,
+          )}
+        />
+        <AppContent desktopIntegrationTypes={desktopIntegrationTypes} appDetailData={appDetailData} />
+        {isVisibleUninstallConfirmation && (
+          <ClientAppUninstallConfirmation
+            visible={isVisibleUninstallConfirmation}
+            appDetailData={appDetailData}
+            closeUninstallConfirmationModal={closeUninstallConfirmationModal}
+          />
         )}
-      />
-      <AppContent desktopIntegrationTypes={desktopIntegrationTypes} appDetailData={appDetailData} />
-      {isVisibleUninstallConfirmation && (
-        <ClientAppUninstallConfirmation
-          visible={isVisibleUninstallConfirmation}
-          appDetailData={appDetailData}
-          closeUninstallConfirmationModal={closeUninstallConfirmationModal}
-        />
-      )}
-      {isVisibleInstallConfirmation && (
-        <ClientAppInstallConfirmation
-          visible={isVisibleInstallConfirmation}
-          appDetailData={appDetailData}
-          closeInstallConfirmationModal={closeInstallConfirmationModal}
-        />
-      )}
+        {isVisibleInstallConfirmation && (
+          <ClientAppInstallConfirmation
+            visible={isVisibleInstallConfirmation}
+            appDetailData={appDetailData}
+            closeInstallConfirmationModal={closeInstallConfirmationModal}
+          />
+        )}
+      </div>
     </div>
   )
 }

@@ -1,8 +1,9 @@
 import { AdminDevManagementRequestDataValues } from './../actions/admin-dev-management'
+import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
+import { selectDeveloperId } from '@/selector'
 import { appDetailRequestData } from './../actions/app-detail'
 import { RouteValue, StringMap } from '../types/core'
 import Routes from '../constants/routes'
-import { GET_ALL_PAGE_SIZE } from '../constants/paginator'
 import store from '../core/store'
 import { clientFetchAppSummary, clientFetchAppDetail } from '../actions/client'
 import { myAppsRequestData } from '../actions/my-apps'
@@ -10,6 +11,7 @@ import { installedAppsRequestData } from '../actions/installed-apps'
 import { developerRequestData, fetchMyIdentity, developerFetchAppDetail } from '@/actions/developer'
 import { adminApprovalsRequestData } from '../actions/admin-approvals'
 import { adminDevManagementRequestData } from '../actions/admin-dev-management'
+import { appInstallationsRequestData } from '../actions/app-installations'
 import { submitAppRequestData } from '../actions/submit-app'
 import { requestDeveloperData } from '@/actions/settings'
 import { getParamsFromPath } from '@/utils/client-url-params'
@@ -68,7 +70,17 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
     case Routes.DEVELOPER_APP_DETAIL: {
       if (id) {
         const clientId = selectClientId(store.state)
+        const developerId = selectDeveloperId(store.state) || ''
         store.dispatch(developerFetchAppDetail({ id, clientId }))
+        store.dispatch(
+          appInstallationsRequestData({
+            appId: [id],
+            pageNumber: 1,
+            pageSize: GET_ALL_PAGE_SIZE,
+            isInstalled: true,
+            developerId: [developerId],
+          }),
+        )
       }
       break
     }

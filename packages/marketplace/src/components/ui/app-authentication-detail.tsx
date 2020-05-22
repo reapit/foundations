@@ -11,6 +11,7 @@ import { clipboardCopy } from '@/utils/clipboard-copy'
 
 export type AppAuthenticationDetailInnerProps = {
   appId: string
+  withCustomHeader?: boolean
 }
 
 export interface AppAuthenticationDetailMappedProps {
@@ -45,6 +46,7 @@ export const AppAuthenticationDetail: React.FunctionComponent<AppAuthenticationD
   showError,
   loading,
   code,
+  withCustomHeader,
 }) => {
   const [tooltipMessage, setTooltipMessage] = React.useState('Copy')
 
@@ -63,8 +65,8 @@ export const AppAuthenticationDetail: React.FunctionComponent<AppAuthenticationD
 
   return (
     <>
-      <div className={appDetailStyles.appInfoRow}>
-        <p className={appDetailStyles.appInfoProperty}>Authentication:</p>
+      <div data-test="app-authentication-detail" className={appDetailStyles.appInfoRow}>
+        {!withCustomHeader && <p className={appDetailStyles.appInfoProperty}>Authentication:</p>}
         <a href="#" onClick={handleShowAuthCode} className={styles.btnShowAuthentication}>
           Show Secret
         </a>
