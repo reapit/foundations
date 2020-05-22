@@ -10,8 +10,8 @@
   "scripts": {
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,js src\"",
     "lint:fix": "eslint --cache --ext=ts,js src --fix",
-    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
-    "test:dev": "cross-env TZ=UTC jest --watch --verbose",
+    "test:ci": "yarn build:credentials && cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
+    "test:dev": "yarn build:credentials && cross-env TZ=UTC jest --watch --verbose",
     "start:dev": "yarn build:credentials && SLS_DEBUG=* serverless offline --verbose",
     "build:serverless": "yarn build:credentials && serverless webpack --out dist --stage dev",
     "release:dev": "yarn build:credentials && serverless deploy --stage dev",
