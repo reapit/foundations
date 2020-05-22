@@ -5,14 +5,30 @@ import { renderLinks, BreadcrumbItem } from '../breadcrumb-item'
 describe('breadcrumb-item', () => {
   describe('renderLinks', () => {
     it('should run correctly and match snapshot', () => {
-      const mockOnClick = jest.fn()
-      const wrapper = shallow(<div>{renderLinks(null, '#123', mockOnClick, true)}</div>)
+      const mockProps = {
+        children: <span>Test</span>,
+        href: '#123',
+        onClick: jest.fn(),
+        style: { fontSize: '10rem' },
+        isCurrent: true,
+        className: 'mockClassName',
+        isLast: true,
+      }
+      const wrapper = shallow(<div>{renderLinks(mockProps)}</div>)
       expect(wrapper).toMatchSnapshot()
     })
 
     it('should run correctly and match snapshot when no href', () => {
-      const mockOnClick = jest.fn()
-      const wrapper = shallow(<div>{renderLinks(null, undefined, mockOnClick, true)}</div>)
+      const mockProps = {
+        children: <span>Test</span>,
+        href: '#123',
+        onClick: jest.fn(),
+        style: { fontSize: '10rem' },
+        isCurrent: false,
+        className: 'mockClassName',
+        isLast: false,
+      }
+      const wrapper = shallow(<div>{renderLinks(mockProps)}</div>)
       expect(wrapper).toMatchSnapshot()
     })
   })

@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const CopyPlugin = require('copy-webpack-plugin')
 const path = require('path')
@@ -49,6 +50,9 @@ const webpackConfig = {
         minifyCSS: true,
         minifyURLs: true,
       },
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'styles.css',
     }),
     new FaviconsWebpackPlugin({
       logo: PATHS.logo,

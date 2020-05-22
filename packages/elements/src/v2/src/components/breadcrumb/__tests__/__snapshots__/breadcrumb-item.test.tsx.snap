@@ -33,15 +33,34 @@ exports[`breadcrumb-item renderLinks should run correctly and match snapshot 1`]
     className=""
     href="#123"
     onClick={[MockFunction]}
-  />
+    style={
+      Object {
+        "fontSize": "10rem",
+      }
+    }
+  >
+    <span>
+      Test
+    </span>
+  </a>
 </div>
 `;
 
 exports[`breadcrumb-item renderLinks should run correctly and match snapshot when no href 1`] = `
 <div>
-  <span
+  <a
     className=""
+    href="#123"
     onClick={[MockFunction]}
-  />
+    style={
+      Object {
+        "fontSize": "10rem",
+      }
+    }
+  >
+    <span>
+      Test
+    </span>
+  </a>
 </div>
 `;
