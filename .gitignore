@@ -72,6 +72,9 @@ scripts/webpack/webpack-sass-prod/.temp/*
 # jest cache
 scripts/jest/.jest-cache
 
+# .linaria-cache
+.linaria-cache
+
 # credentials temp files, using in yarn scan-secrets
 .temp-credentials
 

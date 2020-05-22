@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`breadcrumb-item BreadcrumbItem should match snapshot 1`] = `""`;
+
+exports[`breadcrumb-item BreadcrumbItem should match snapshot 2`] = `""`;
+
+exports[`breadcrumb-item BreadcrumbItem should match snapshot 3`] = `""`;
+
+exports[`breadcrumb-item BreadcrumbItem should match snapshot 4`] = `
+<span
+  className=""
+>
+  <a
+    className=""
+    href="#"
+    onClick={[Function]}
+  >
+    <div>
+      Application
+    </div>
+  </a>
+  <span>
+    /
+  </span>
+</span>
+`;
+
+exports[`breadcrumb-item BreadcrumbItem should match snapshot when full props 1`] = `""`;
+
+exports[`breadcrumb-item renderLinks should run correctly and match snapshot 1`] = `
+<div>
+  <a
+    className=""
+    href="#123"
+    onClick={[MockFunction]}
+  />
+</div>
+`;
+
+exports[`breadcrumb-item renderLinks should run correctly and match snapshot when no href 1`] = `
+<div>
+  <span
+    className=""
+    onClick={[MockFunction]}
+  />
+</div>
+`;
