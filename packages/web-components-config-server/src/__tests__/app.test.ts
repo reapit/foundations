@@ -4,6 +4,7 @@ jest.mock('../logger')
 jest.mock('uuid/v4', (): (() => string) => {
   return () => 'mockUUID'
 })
+jest.mock('aws-sdk')
 
 describe('app', () => {
   describe('parseLog', () => {

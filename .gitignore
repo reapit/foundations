@@ -74,3 +74,6 @@ scripts/jest/.jest-cache
 
 # credentials temp files, using in yarn scan-secrets
 .temp-credentials
+
+# credentials file to load
+credentials.json
