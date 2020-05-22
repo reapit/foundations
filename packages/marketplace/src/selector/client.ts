@@ -31,3 +31,7 @@ export const selectIsWebComponentLoading = (state: ReduxState) => {
 export const selectIsWebComponentUpdating = (state: ReduxState) => {
   return state?.client.webComponent?.updating
 }
+
+export const selectIsWebComponentNegotiators = (state: ReduxState) => {
+  return state?.client.webComponent?.negotiators?._embedded || []
+}

@@ -2,11 +2,11 @@ import React from 'react'
 import {
   updateWebComponentConfig,
   handleFetchWebComponentConfig,
-  WebComponentConfigModalBody,
   WebComponentConfigModalFooter,
   WebComponentConfigModalInner,
+  genarateNegotiatorOptions,
 } from '../config-modal-inner'
-import { shallow, mount } from 'enzyme'
+import { mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import { ReduxState } from '@/types/core'
 import { Provider } from 'react-redux'
@@ -19,7 +19,7 @@ const params = {
   appointmentTimeGap: 1,
   customerId: 'string',
   daysOfWeek: ['1', '2'],
-  negotiatorIds: ['1', '2'],
+  // negotiatorIds: ,
 } as PutWebComponentConfigParams
 
 describe('Config-modal-inner', () => {
@@ -30,19 +30,13 @@ describe('Config-modal-inner', () => {
         updating: false,
         data: null,
         isShowModal: true,
+        negotiators: {},
       },
     },
   } as ReduxState
+
   const mockStore = configureStore()
   const store = mockStore(mockState)
-
-  it('should WebComponentConfigModalBody match a snapshot', () => {
-    const mockProps = {
-      subtext: 'abc',
-      formikProps: { values: params },
-    }
-    expect(shallow(<WebComponentConfigModalBody {...mockProps} />)).toMatchSnapshot()
-  })
 
   it('should WebComponentConfigModalFooter match a snapshot', () => {
     const mockProps = {
@@ -101,5 +95,29 @@ describe('Config-modal-inner', () => {
     const fn = handleFetchWebComponentConfig(dispatch, customerId)
     fn()
     expect(dispatch).toBeCalledWith(clientFetchWebComponentConfig({ customerId }))
+  })
+})
+
+describe('should return correctly', () => {
+  it('should return correctly', () => {
+    const list = [
+      {
+        active: true,
+        created: 'string',
+        email: 'string',
+        id: 'string',
+        jobTitle: 'string',
+        metadata: 'any',
+        mobilePhone: 'string',
+        modified: 'string',
+        name: 'string',
+        officeId: 'string',
+        workPhone: 'string',
+      },
+    ]
+
+    const result = genarateNegotiatorOptions(list)
+    const expected = [{ value: 'string', label: 'string', description: 'string' }]
+    expect(result).toEqual(expected)
   })
 })

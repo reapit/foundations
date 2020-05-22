@@ -73,7 +73,7 @@ function sampleRespone(): Promise<WebComponentConfigResult> {
         appointmentTypes: [{ value: 'value1', id: 'id1' }],
         customerId: 'DXX',
         daysOfWeek: ['1', '2', '3', '5', '6'],
-        negotiatorIds: ['1', '2'],
+        negotiatorIds: ['AACC', 'AAAN'],
       } as WebComponentConfigResult
       res(data)
     }, 1000)

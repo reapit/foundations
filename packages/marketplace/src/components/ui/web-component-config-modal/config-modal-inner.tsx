@@ -16,10 +16,16 @@ import {
 import styles from '@/styles/elements/radioselect.scss?mod'
 import { useDispatch, useSelector } from 'react-redux'
 import { clientFetchWebComponentConfig, clientPutWebComponentConfig } from '@/actions/client'
-import { selectIsWebComponentData, selectIsWebComponentLoading, selectIsWebComponentUpdating } from '@/selector/client'
+import {
+  selectIsWebComponentData,
+  selectIsWebComponentLoading,
+  selectIsWebComponentUpdating,
+  selectIsWebComponentNegotiators,
+} from '@/selector/client'
 import { PutWebComponentConfigParams } from '@/services/web-component'
 import { selectClientId } from '@/selector/auth'
 import { Dispatch } from 'redux'
+import { NegotiatorItem } from '@/services/negotiators'
 
 export const updateWebComponentConfig = (dispatch: Dispatch) => (params: FormikValues) => {
   dispatch(clientPutWebComponentConfig(params as PutWebComponentConfigParams))
@@ -29,24 +35,22 @@ export const handleFetchWebComponentConfig = (dispatch: Dispatch, customerId?: s
   customerId && dispatch(clientFetchWebComponentConfig({ customerId }))
 }
 
-export const genarateNegotiatorOptions = (): SelectOption[] => {
-  //MUST CHANGE WHEN API READY
-  return [
-    {
-      label: 'Joe Smith',
-      value: '1',
-      description: 'Joe Smith',
-    },
-    {
-      label: 'Jack',
-      value: '2',
-      description: 'Jack',
-    },
-  ] as SelectOption[]
+export const genarateNegotiatorOptions = (negotiators: NegotiatorItem[]): SelectOption[] => {
+  return negotiators.map(
+    negotiator =>
+      ({
+        value: negotiator.id,
+        label: negotiator.name,
+        description: negotiator.name,
+      } as SelectOption),
+  )
 }
 
 export const WebComponentConfigModalBody = ({ subtext, formikProps }) => {
   const { values, setFieldValue } = formikProps
+  const negotiators = useSelector(selectIsWebComponentNegotiators)
+  const negotiatorOptions = genarateNegotiatorOptions(negotiators)
+
   return (
     <>
       <p>{subtext}</p>
@@ -100,7 +104,8 @@ export const WebComponentConfigModalBody = ({ subtext, formikProps }) => {
         name="negotiatorIds"
         labelText="Negotiators"
         subText="Select which negotiators will be avaiable to attend appointments"
-        options={genarateNegotiatorOptions()}
+        options={negotiatorOptions}
+        dropdownStyle={{ zIndex: 41 }}
       />
     </>
   )

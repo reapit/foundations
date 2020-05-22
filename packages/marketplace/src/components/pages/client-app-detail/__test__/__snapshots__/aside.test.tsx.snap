@@ -50,3 +50,62 @@ exports[`Aside Aside - should match snapshot 1`] = `
   </div>
 </div>
 `;
+
+exports[`WebComponentConfig Should match snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Component>
+    <Component>
+      <div
+        className="column  "
+      >
+        <Component>
+          <h6
+            className="title is-6  "
+            id=""
+          >
+            Settings
+          </h6>
+        </Component>
+        <Component
+          fullWidth={true}
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          <button
+            className="button  is-primary is-fullwidth "
+            data-test=""
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            Configuration
+          </button>
+        </Component>
+      </div>
+    </Component>
+    <Component
+      afterClose={[Function]}
+      closeModal={[Function]}
+      type="BOOK_VIEWING"
+    >
+      <Component
+        afterClose={[Function]}
+        renderChildren={true}
+        visible={true}
+      />
+    </Component>
+  </Component>
+</Provider>
+`;

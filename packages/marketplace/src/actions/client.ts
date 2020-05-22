@@ -8,6 +8,7 @@ import {
   FetchWebComponentConfigParams,
   WebComponentConfigResult,
 } from '@/services/web-component'
+import { NegotiatorsResult } from '@/services/negotiators'
 
 export const clientFetchAppSummary = actionCreator<ClientAppSummaryParams>(ActionTypes.CLIENT_FETCH_APP_SUMMARY)
 export const clientFetchAppSummarySuccess = actionCreator<ClientAppSummary | undefined>(
@@ -31,4 +32,8 @@ export const clientFetchWebComponentConfigSuccess = actionCreator<WebComponentCo
 )
 export const clientPutWebComponentConfig = actionCreator<PutWebComponentConfigParams>(
   ActionTypes.CLIENT_PUT_WEB_COMPONENT_CONFIG,
+)
+
+export const clientFetchNegotiatorsSuccess = actionCreator<NegotiatorsResult>(
+  ActionTypes.CLIENT_FETCH_NEGOTIATORS_SUCCESS,
 )

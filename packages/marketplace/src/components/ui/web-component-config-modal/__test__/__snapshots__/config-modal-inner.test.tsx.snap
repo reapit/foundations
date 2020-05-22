@@ -1,159 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Config-modal-inner should WebComponentConfigModalBody match a snapshot 1`] = `
-<Fragment>
-  <p>
-    abc
-  </p>
-  <Component
-    className="checkbox-inline mt-5"
-    id="appointmentTimeGap"
-    labelText="Time between appointments"
-    name="appointmentTimeGap"
-    options={
-      Array [
-        Object {
-          "label": "15 mins",
-          "value": 15,
-        },
-        Object {
-          "label": "30 mins",
-          "value": 30,
-        },
-        Object {
-          "label": "1hr",
-          "value": 60,
-        },
-        Object {
-          "label": "1hr 30mins",
-          "value": 90,
-        },
-      ]
-    }
-    state={1}
-    subText="Select a time between each appointment"
-  />
-  <Component
-    className="checkbox-inline mt-5"
-    id="appointmentLength"
-    labelText="Length of Appointments"
-    name="appointmentLength"
-    options={
-      Array [
-        Object {
-          "label": "15 mins",
-          "value": 15,
-        },
-        Object {
-          "label": "30 mins",
-          "value": 30,
-        },
-        Object {
-          "label": "1hr",
-          "value": 60,
-        },
-        Object {
-          "label": "1hr 30mins",
-          "value": 90,
-        },
-      ]
-    }
-    state={1}
-    subText="Select a length of appointments"
-  />
-  <div
-    className="field mt-5"
-  >
-    <div
-      className="control"
-    >
-      <label
-        className="label"
-      >
-        Days of the week
-      </label>
-      <label
-        className="subtext mb-5"
-      >
-        Select which days of the week you would like to display
-      </label>
-      <div
-        className="container-flex flex-wrap undefined"
-      >
-        <Component
-          className="mr-5"
-          id="Monday"
-          labelText="Monday"
-          name="daysOfWeek"
-          value="1"
-        />
-        <Component
-          className="mr-5"
-          id="Tuesday"
-          labelText="Tuesday"
-          name="daysOfWeek"
-          value="2"
-        />
-        <Component
-          className="mr-5"
-          id="Wednesday"
-          labelText="Wednesday"
-          name="daysOfWeek"
-          value="3"
-        />
-        <Component
-          className="mr-5"
-          id="Thursday"
-          labelText="Thursday"
-          name="daysOfWeek"
-          value="4"
-        />
-        <Component
-          className="mr-5"
-          id="Friday"
-          labelText="Friday"
-          name="daysOfWeek"
-          value="5"
-        />
-        <Component
-          className="mr-5"
-          id="Saturday"
-          labelText="Saturday"
-          name="daysOfWeek"
-          value="6"
-        />
-        <Component
-          id="Sunday"
-          labelText="Sunday"
-          name="daysOfWeek"
-          value="0"
-        />
-      </div>
-    </div>
-  </div>
-  <Component
-    id="negotiatorIds"
-    labelText="Negotiators"
-    name="negotiatorIds"
-    options={
-      Array [
-        Object {
-          "description": "Joe Smith",
-          "label": "Joe Smith",
-          "value": "1",
-        },
-        Object {
-          "description": "Jack",
-          "label": "Jack",
-          "value": "2",
-        },
-      ]
-    }
-    subText="Select which negotiators will be avaiable to attend appointments"
-  />
-</Fragment>
-`;
-
 exports[`Config-modal-inner should WebComponentConfigModalFooter match a snapshot 1`] = `
 <Provider
   store={
@@ -986,23 +832,15 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                   </div>
                 </div>
                 <Component
+                  dropdownStyle={
+                    Object {
+                      "zIndex": 41,
+                    }
+                  }
                   id="negotiatorIds"
                   labelText="Negotiators"
                   name="negotiatorIds"
-                  options={
-                    Array [
-                      Object {
-                        "description": "Joe Smith",
-                        "label": "Joe Smith",
-                        "value": "1",
-                      },
-                      Object {
-                        "description": "Jack",
-                        "label": "Jack",
-                        "value": "2",
-                      },
-                    ]
-                  }
+                  options={Array []}
                   subText="Select which negotiators will be avaiable to attend appointments"
                 >
                   <div
@@ -1030,6 +868,11 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                           </label>
                           <Select
                             className="is-primary input"
+                            dropdownStyle={
+                              Object {
+                                "zIndex": 41,
+                              }
+                            }
                             id="negotiatorIds"
                             mode="tags"
                             onBlur={[Function]}
@@ -1039,6 +882,11 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                           >
                             <ForwardRef(Select)
                               className="is-primary input"
+                              dropdownStyle={
+                                Object {
+                                  "zIndex": 41,
+                                }
+                              }
                               id="negotiatorIds"
                               mode="tags"
                               onBlur={[Function]}
@@ -1056,34 +904,18 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                               >
                                 <SelectTrigger
                                   containerWidth={null}
-                                  empty={false}
+                                  dropdownStyle={
+                                    Object {
+                                      "zIndex": 41,
+                                    }
+                                  }
+                                  empty={true}
                                   getTriggerDOMNode={[Function]}
                                   popupElement={
                                     <OptionList
                                       childrenAsData={true}
                                       defaultActiveFirstOption={true}
-                                      flattenOptions={
-                                        Array [
-                                          Object {
-                                            "data": Object {
-                                              "children": "Joe Smith",
-                                              "key": "1",
-                                              "value": "1",
-                                            },
-                                            "groupOption": false,
-                                            "key": "1",
-                                          },
-                                          Object {
-                                            "data": Object {
-                                              "children": "Jack",
-                                              "key": "2",
-                                              "value": "2",
-                                            },
-                                            "groupOption": false,
-                                            "key": "2",
-                                          },
-                                        ]
-                                      }
+                                      flattenOptions={Array []}
                                       height={200}
                                       id="negotiatorIds"
                                       itemHeight={20}
@@ -1092,20 +924,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                                       onActiveValue={[Function]}
                                       onSelect={[Function]}
                                       onToggleOpen={[Function]}
-                                      options={
-                                        Array [
-                                          Object {
-                                            "children": "Joe Smith",
-                                            "key": "1",
-                                            "value": "1",
-                                          },
-                                          Object {
-                                            "children": "Jack",
-                                            "key": "2",
-                                            "value": "2",
-                                          },
-                                        ]
-                                      }
+                                      options={Array []}
                                       prefixCls="rc-select"
                                       searchValue=""
                                       values={Set {}}
@@ -1168,28 +987,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                                         <OptionList
                                           childrenAsData={true}
                                           defaultActiveFirstOption={true}
-                                          flattenOptions={
-                                            Array [
-                                              Object {
-                                                "data": Object {
-                                                  "children": "Joe Smith",
-                                                  "key": "1",
-                                                  "value": "1",
-                                                },
-                                                "groupOption": false,
-                                                "key": "1",
-                                              },
-                                              Object {
-                                                "data": Object {
-                                                  "children": "Jack",
-                                                  "key": "2",
-                                                  "value": "2",
-                                                },
-                                                "groupOption": false,
-                                                "key": "2",
-                                              },
-                                            ]
-                                          }
+                                          flattenOptions={Array []}
                                           height={200}
                                           id="negotiatorIds"
                                           itemHeight={20}
@@ -1198,20 +996,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                                           onActiveValue={[Function]}
                                           onSelect={[Function]}
                                           onToggleOpen={[Function]}
-                                          options={
-                                            Array [
-                                              Object {
-                                                "children": "Joe Smith",
-                                                "key": "1",
-                                                "value": "1",
-                                              },
-                                              Object {
-                                                "children": "Jack",
-                                                "key": "2",
-                                                "value": "2",
-                                              },
-                                            ]
-                                          }
+                                          options={Array []}
                                           prefixCls="rc-select"
                                           searchValue=""
                                           values={Set {}}
@@ -1220,12 +1005,13 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                                       </div>
                                     }
                                     popupAlign={Object {}}
-                                    popupClassName=""
+                                    popupClassName="rc-select-dropdown-empty"
                                     popupPlacement="bottomLeft"
                                     popupStyle={
                                       Object {
                                         "minWidth": null,
                                         "width": null,
+                                        "zIndex": 41,
                                       }
                                     }
                                     prefixCls="rc-select-dropdown"
@@ -1268,6 +1054,11 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                                               class="rc-select-selection-placeholder"
                                             />
                                           </div>,
+                                        }
+                                      }
+                                      dropdownStyle={
+                                        Object {
+                                          "zIndex": 41,
                                         }
                                       }
                                       id="negotiatorIds"
@@ -1329,6 +1120,11 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                                                   class="rc-select-selection-placeholder"
                                                 />
                                               </div>,
+                                            }
+                                          }
+                                          dropdownStyle={
+                                            Object {
+                                              "zIndex": 41,
                                             }
                                           }
                                           id="negotiatorIds"

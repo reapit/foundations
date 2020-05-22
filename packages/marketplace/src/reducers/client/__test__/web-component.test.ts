@@ -70,4 +70,16 @@ describe('client app detail reducer', () => {
     }
     expect(newState).toEqual(expected)
   })
+
+  it('should set negotiators to {} when CLIENT_FETCH_NEGOTIATORS_SUCCESS action is called', () => {
+    const newState = webComponentReducer(undefined, {
+      type: ActionTypes.CLIENT_FETCH_NEGOTIATORS_SUCCESS as ActionType,
+      data: {},
+    })
+    const expected = {
+      ...defaultState,
+      negotiators: {},
+    }
+    expect(newState).toEqual(expected)
+  })
 })

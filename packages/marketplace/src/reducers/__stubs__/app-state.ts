@@ -17,6 +17,7 @@ const appState: ReduxState = {
       data: null,
       updating: false,
       loading: false,
+      negotiators: null,
     },
   },
   installedApps: {

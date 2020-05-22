@@ -8,6 +8,7 @@ import {
   clientFetchWebComponentConfig,
   clientFetchWebComponentConfigSuccess,
   clientPutWebComponentConfig,
+  clientFetchNegotiatorsSuccess,
 } from '../client'
 import ActionTypes from '../../constants/action-types'
 import { appsDataStub, featuredAppsDataStub } from '../../sagas/__stubs__/apps'
@@ -49,5 +50,8 @@ describe('client actions', () => {
   })
   it('should create a clientPutWebComponentConfig action', () => {
     expect(clientPutWebComponentConfig.type).toEqual(ActionTypes.CLIENT_PUT_WEB_COMPONENT_CONFIG)
+  })
+  it('should create a clientPutWebComponentConfig action', () => {
+    expect(clientFetchNegotiatorsSuccess.type).toEqual(ActionTypes.CLIENT_FETCH_NEGOTIATORS_SUCCESS)
   })
 })
