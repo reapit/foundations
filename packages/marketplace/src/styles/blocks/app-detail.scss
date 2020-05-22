@@ -2,6 +2,17 @@
   font-weight: 600;
 }
 
+.gutter {
+  margin: 1rem 0;
+}
+
+.tag {
+  display: inline-block;
+  padding: 1rem;
+  background: #e3ebf6;
+  margin: 1rem 1rem 0 0;
+}
+
 .permissionList {
   padding-left: 1rem;
   list-style-type: disc;

@@ -1,4 +1,4 @@
-import { STEPS } from '@/components/ui/modal/modal'
+import { STEPS } from '@/components/ui/modal'
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
 import {

@@ -41,6 +41,7 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED fa
       }
       labelText="Upload File"
       name="documentId"
+      onFilenameClick={[Function]}
       required={true}
     />
     <div
@@ -142,6 +143,7 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED tr
       }
       labelText="Upload File"
       name="documentId"
+      onFilenameClick={[Function]}
       required={true}
     />
     <div

@@ -1,0 +1,56 @@
+@import '../base/colors.scss';
+
+.check {
+  color: #a0c862;
+}
+
+.appDetailContainer {
+  /* mobile screen size */
+  @media screen and (max-width: 768px) {
+    background-color: $white;
+    .asideContainer {
+      display: none;
+    }
+  }
+
+  /* desktop screen size */
+  @media screen and (min-width: 769px) {
+    display: flex;
+
+    .mainContainer {
+      background-color: $white;
+      padding: 1rem;
+
+    }
+  }
+
+
+  height:auto;
+  width: 100%;
+  max-width: 1012px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.gutter {
+  margin: 1rem 0;
+}
+
+.appContentContainer {
+  h5,
+  h5:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+  h5.headerWithoutMargin {
+    margin-bottom: 0;
+  }
+}
+
+
+.permissionList {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+
+

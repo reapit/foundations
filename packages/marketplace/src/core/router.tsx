@@ -8,6 +8,7 @@ import { Info } from '@reapit/elements'
 
 export const history = createBrowserHistory()
 
+const Authentication = React.lazy(() => import('../components/pages/authentication'))
 const Login = React.lazy(() => import('../components/pages/login'))
 const Client = React.lazy(() => import('../components/pages/client'))
 const ClientAppDetail = React.lazy(() => import('../components/pages/client-app-detail'))
@@ -51,6 +52,11 @@ const Router = () => {
           <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
           <PrivateRouteWrapper path="/">
             <Switch>
+              <PrivateRoute
+                allow={['CLIENT', 'DEVELOPER']}
+                path={Routes.AUTHENTICATION_LOGIN_TYPE}
+                component={Authentication}
+              />
               <PrivateRoute allow="CLIENT" path={Routes.INSTALLED_APPS_PAGINATE} component={InstalledApps} fetcher />
               <PrivateRoute allow="CLIENT" path={Routes.INSTALLED_APPS} component={InstalledApps} fetcher exact />
               <PrivateRoute allow="CLIENT" path={Routes.MY_APPS_PAGINATE} component={MyApps} fetcher />
@@ -64,7 +70,7 @@ const Router = () => {
                 exact
                 fetcher
               />
-              <PrivateRoute allow="CLIENT" path={Routes.CLIENT_WELCOME} component={ClientWelcomePage} exact fetcher />
+              <PrivateRoute allow="CLIENT" path={Routes.CLIENT_WELCOME} component={ClientWelcomePage} exact />
               <PrivateRoute allow="CLIENT" path={Routes.CLIENT_HELP} exact fetcher component={ClientHelpPage} />
               <PrivateRoute allow="CLIENT" path={Routes.CLIENT_SETTINGS} exact fetcher component={ClientSetting} />
 

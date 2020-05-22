@@ -12,9 +12,15 @@ interface AppInstallationsModalInnerProps {
 
 export type AppInstallationsModalProps = Pick<ModalProps, 'visible' | 'afterClose'> & AppInstallationsModalInnerProps
 
-export const handleAfterClose = ({ setUninstallApp, afterClose }) => () => {
+interface HandleAfterClose {
+  setUninstallApp: any
+  afterClose?: any
+}
+export const handleAfterClose = ({ setUninstallApp, afterClose }: HandleAfterClose) => () => {
   setUninstallApp(undefined)
-  afterClose()
+  if (afterClose) {
+    afterClose()
+  }
 }
 
 export const handleUninstall = (setUninstallApp: (app: InstallationModel) => void) => (

@@ -48,8 +48,14 @@ describe('ConfirmUninstall', () => {
       const onUninstallSuccess = jest.fn()
       const setFormState = jest.fn()
       const setAppDetailStale = jest.fn()
-      handleSuccessUninstall({ onUninstallSuccess, setFormState, setAppDetailStale })()
+      handleSuccessUninstall({
+        onUninstallSuccess,
+        setFormState,
+        setAppDetailStale,
+        isSetAppDetailStaleAfterUninstallSuccess: true,
+      })()
       expect(onUninstallSuccess).toBeCalled()
+      expect(setAppDetailStale).toBeCalled()
     })
   })
 

@@ -73,14 +73,10 @@ exports[`DeveloperAppDetail should match a snapshot 1`] = `
       }
     >
       <DeveloperAppDetail>
-        <div>
-          <AppHeader
-            appDetailData={Object {}}
-            buttonGroup={
-              <React.Fragment>
-                
-              </React.Fragment>
-            }
+        <Component>
+          <div
+            className="loader-spinner body"
+            data-test=""
           >
             <Component
               className="is-vcentered "

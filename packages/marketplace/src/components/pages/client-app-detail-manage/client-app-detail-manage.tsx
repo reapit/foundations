@@ -6,7 +6,7 @@ import AppHeader from '@/components/ui/app-detail/app-header'
 import AppContent from '@/components/ui/app-detail/app-content'
 
 import { Loader, Button } from '@reapit/elements'
-import styles from '@/styles/pages/developer-app-detail.scss?mod'
+import styles from '@/styles/pages/client-app-detail-manage.scss?mod'
 import ClientAppUninstallConfirmation from '@/components/ui/client-app-detail/client-app-uninstall-confirmation'
 
 export type ClientAppDetailManageProps = {}

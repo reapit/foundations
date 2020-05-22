@@ -36,17 +36,14 @@ export const developerDataFetch = function*({ data }) {
 
   try {
     const developerId = yield select(selectDeveloperId)
-
     if (!developerId) {
-      throw new Error('Developer id does not exist in state')
+      return
     }
-
     const { page, appsPerPage = APPS_PER_PAGE } = data
     const [appsData, scopes] = yield all([
       call(fetchAppsList, { developerId: [developerId], pageNumber: page, pageSize: appsPerPage }),
       call(fetchScopesList),
     ])
-
     const developerData: DeveloperItem = {
       data: appsData,
       scopes,
@@ -90,6 +87,9 @@ export const fetchMyIdentitySagas = function*() {
   try {
     yield put(developerLoading(true))
     const developerId = yield select(selectDeveloperId)
+    if (!developerId) {
+      return
+    }
     const developerIdentity = yield call(fetchDeveloperById, { id: developerId })
     if (developerIdentity) {
       yield put(setMyIdentity(developerIdentity))

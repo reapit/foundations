@@ -19,11 +19,12 @@ import { LoginIdentity } from '@reapit/cognito-auth'
 import { Modal, Loader, Button } from '@reapit/elements'
 import AppRevisionComparision from '../app-revision-comparision/app-revision-comparision'
 import CallToAction from '@/components/ui/call-to-action'
+import { DeveloperAppDetailState } from '@/reducers/developer'
 
 export interface OwnProps {
   visible: boolean
   appId: string
-  appDetailState: AppDetailState
+  appDetailState: DeveloperAppDetailState | AppDetailState
   afterClose: () => void
 }
 

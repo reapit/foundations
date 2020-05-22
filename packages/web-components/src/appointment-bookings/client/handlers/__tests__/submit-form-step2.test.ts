@@ -13,7 +13,7 @@ jest.mock('svelte/store', () => ({
 describe('handleSubmitFormStep2', () => {
   it('should run correctly', () => {
     const handleNextStep = jest.fn()
-    handleSubmitFormStep2(handleNextStep, mockFormValues.appointmentDate.value, mockFormValues.appointmentTime.value)
+    handleSubmitFormStep2(mockFormValues.appointmentDate.value, mockFormValues.appointmentTime.value, handleNextStep)
     expect(handleNextStep).toHaveBeenCalled()
   })
 })

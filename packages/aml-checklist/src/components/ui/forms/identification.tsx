@@ -3,6 +3,7 @@ import { ContactModel, IdentityDocumentModel } from '@reapit/foundations-ts-defi
 import { Button, Input, DatePicker, CameraImageInput, Formik, Form } from '@reapit/elements'
 import SelectIdentity from '@/components/ui/inputs/select-identity'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
+import { downloadDocument } from '@/services/documents'
 
 export interface IdentityDocumentForm extends IdentityDocumentModel {
   documentId: string
@@ -33,6 +34,12 @@ export const renderFormHandler = ({
   disabled = false,
 }: IdentificationProps) => ({ values }) => {
   const id = contact?.id || ''
+
+  const handleFilenameClick = event => {
+    event.preventDefault()
+    downloadDocument(values.documentId)
+  }
+
   return (
     <>
       {disabled && (
@@ -49,6 +56,7 @@ export const renderFormHandler = ({
           allowClear={true}
           inputProps={{ disabled: disabled }}
           required
+          onFilenameClick={handleFilenameClick}
         />
 
         <div className="field pb-2">

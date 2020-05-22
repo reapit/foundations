@@ -2,7 +2,9 @@
 
 exports[`AppAuthenticationDetail should match a snapshot 1`] = `
 <Fragment>
-  <div>
+  <div
+    data-test="app-authentication-detail"
+  >
     <p>
       Authentication:
     </p>

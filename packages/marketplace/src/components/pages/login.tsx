@@ -1,82 +1,54 @@
 import * as React from 'react'
-import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { Button, TabConfig, Level, FlexContainerBasic } from '@reapit/elements'
+import { useLocation, useRouteMatch } from 'react-router'
+import { Link, Redirect } from 'react-router-dom'
+import { Dispatch } from 'redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { authChangeLoginType } from '@/actions/auth'
+import { showNotificationMessage } from '@/actions/notification-message'
+import { selectLoginSession, selectRefreshSession, selectLoginType } from '@/selector/auth'
 import { LoginType, redirectToLogin } from '@reapit/cognito-auth'
-import { Redirect } from 'react-router-dom'
-import { ReduxState } from '../../types/core'
-import { authChangeLoginType } from '../../actions/auth'
-import { Dispatch, compose } from 'redux'
-import Routes from '../../constants/routes'
-import loginStyles from '@/styles/pages/login.scss?mod'
-import { withRouter, RouteComponentProps } from 'react-router'
-import logoImage from '@/assets/images/reapit-graphic.jpg'
+import { Button, Level, FlexContainerBasic } from '@reapit/elements'
 import { getLoginTypeByPath, getDefaultPathByLoginType, getDefaultRouteByLoginType } from '@/utils/auth-route'
+import Routes from '@/constants/routes'
+import messages from '@/constants/messages'
 import {
   getCookieString,
   COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE,
   COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE,
 } from '@/utils/cookie'
+import loginStyles from '@/styles/pages/login.scss?mod'
+import logoImage from '@/assets/images/reapit-graphic.jpg'
 import connectImage from '@/assets/images/reapit-connect.png'
-import { showNotificationMessage } from '@/actions/notification-message'
-import messages from '@/constants/messages'
 
-export interface LoginMappedActions {
-  showNotiAfterPasswordChanged: () => void
-  authChangeLoginType: (loginType: string) => void
+const { wrapper, container, image, register, registerLevel, loginButton } = loginStyles
+
+export type LoginProps = {}
+
+export const handleShowNotificationAfterPasswordChanged = (
+  isPasswordChanged: boolean,
+  localStorage: Storage,
+  dispatch: Dispatch,
+) => {
+  return () => {
+    if (isPasswordChanged) {
+      dispatch(showNotificationMessage({ variant: 'info', message: messages.PASSWORD_CHANGED_SUCCESSFULLY }))
+      localStorage.removeItem('isPasswordChanged')
+    }
+  }
 }
 
-export interface LoginMappedProps {
-  hasSession: boolean
-  loginType: LoginType
+export const handleChangeLoginType = (dispatch: Dispatch, loginType: LoginType) => {
+  return () => {
+    dispatch(authChangeLoginType(loginType))
+  }
 }
 
-export type LoginProps = LoginMappedActions & LoginMappedProps & RouteComponentProps
-
-export const tabConfigs = ({ loginType, history }: LoginProps): TabConfig[] => [
-  {
-    tabIdentifier: 'CLIENT',
-    displayText: 'Client',
-    onTabClick: () => {
-      history.push(Routes.CLIENT_LOGIN)
-    },
-    active: loginType === 'CLIENT',
-  },
-  {
-    tabIdentifier: 'DEVELOPER',
-    displayText: 'Developer',
-    onTabClick: () => {
-      history.push(Routes.DEVELOPER_LOGIN)
-    },
-    active: loginType === 'DEVELOPER',
-  },
-]
-
-export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {
-  const isPasswordChanged = localStorage.getItem('isPasswordChanged') === 'true'
-  const { hasSession, loginType, location, authChangeLoginType, showNotiAfterPasswordChanged } = props
-  const { wrapper, container, image, register, registerLevel, loginButton } = loginStyles
-
-  const currentLoginType = getLoginTypeByPath(location.pathname)
-  authChangeLoginType(currentLoginType)
-
-  const isDeveloperFirstTimeLoginComplete = Boolean(getCookieString(COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE))
-  const isClientFirstTimeLoginComplete = Boolean(getCookieString(COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE))
-
-  if (isPasswordChanged) {
-    showNotiAfterPasswordChanged()
-    localStorage.removeItem('isPasswordChanged')
-  }
-
-  if (hasSession) {
-    const redirectRoute = getDefaultPathByLoginType({
-      loginType,
-      isDeveloperFirstTimeLoginComplete,
-      isClientFirstTimeLoginComplete,
-    })
-    return <Redirect to={redirectRoute} />
-  }
-  const loginHandler = () => {
+export const onLoginButtonClick = (
+  loginType: LoginType,
+  isDeveloperFirstTimeLoginComplete: boolean,
+  isClientFirstTimeLoginComplete: boolean,
+) => {
+  return () => {
     const redirectRoute = getDefaultRouteByLoginType({
       loginType,
       isDeveloperFirstTimeLoginComplete,
@@ -84,6 +56,41 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
     })
 
     redirectToLogin(window.reapit.config.cognitoClientId, redirectRoute, loginType)
+  }
+}
+
+export const Login: React.FunctionComponent<LoginProps> = () => {
+  const location = useLocation()
+  let developerLoginRouteMatch = useRouteMatch(Routes.DEVELOPER_LOGIN)
+  let clientLoginRouteMatch = useRouteMatch(Routes.CLIENT_LOGIN)
+  const dispatch = useDispatch()
+  const loginType = useSelector(selectLoginType)
+  const loginSession = useSelector(selectLoginSession)
+  const refreshSession = useSelector(selectRefreshSession)
+
+  const isPasswordChanged = localStorage.getItem('isPasswordChanged') === 'true'
+  const hasSession = !!loginSession || !!refreshSession
+  const currentLoginType = getLoginTypeByPath(location.pathname)
+  const isDeveloperFirstTimeLoginComplete = Boolean(getCookieString(COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE))
+  const isClientFirstTimeLoginComplete = Boolean(getCookieString(COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE))
+
+  React.useEffect(handleChangeLoginType(dispatch, currentLoginType), [dispatch, currentLoginType])
+
+  React.useEffect(handleShowNotificationAfterPasswordChanged(isPasswordChanged, localStorage, dispatch), [
+    isPasswordChanged,
+    localStorage,
+    dispatch,
+  ])
+
+  if (hasSession) {
+    const redirectRoute = getDefaultPathByLoginType({
+      loginType,
+      developerLoginRouteMatch,
+      clientLoginRouteMatch,
+      isDeveloperFirstTimeLoginComplete,
+      isClientFirstTimeLoginComplete,
+    })
+    return <Redirect to={redirectRoute} />
   }
 
   return (
@@ -93,18 +100,11 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
           <img src={connectImage} alt="Reapit Connect Graphic" />
         </Level>
         <p className="pb-8">Welcome to Reapit {`${loginType === 'CLIENT' ? 'Marketplace' : 'Foundations'}`}</p>
-
-        {/* {loginType !== 'ADMIN' && !isProduction && (
-          <div className={tabsContainer}>
-            <Tabs tabConfigs={tabConfigs(props)} />
-          </div>
-        )} */}
-
         <Level className={registerLevel}>
           <Button
             className={loginButton}
             type="button"
-            onClick={loginHandler}
+            onClick={onLoginButtonClick(loginType, isDeveloperFirstTimeLoginComplete, isClientFirstTimeLoginComplete)}
             loading={false}
             variant="primary"
             disabled={false}
@@ -131,17 +131,4 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   )
 }
 
-export const mapStateToProps = (state: ReduxState): LoginMappedProps => ({
-  hasSession: !!state.auth.loginSession || !!state.auth.refreshSession,
-  loginType: state.auth.loginType,
-})
-
-export const mapDispatchToProps = (dispatch: Dispatch): LoginMappedActions => ({
-  showNotiAfterPasswordChanged: () =>
-    dispatch(showNotificationMessage({ variant: 'info', message: messages.PASSWORD_CHANGED_SUCCESSFULLY })),
-  authChangeLoginType: (loginType: string) => dispatch(authChangeLoginType(loginType as LoginType)),
-})
-
-export const withRedux = connect(mapStateToProps, mapDispatchToProps)
-
-export default compose(withRouter, withRedux)(Login) as React.LazyExoticComponent<any>
+export default Login

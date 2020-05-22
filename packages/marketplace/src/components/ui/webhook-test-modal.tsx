@@ -21,6 +21,8 @@ import { TopicItem } from '@/reducers/webhook-edit-modal'
 import { PingWebhooksByIdParams } from '@/services/webhooks'
 import { developerWebhookPing, developerSetWebhookPingStatus } from '@/actions/developer'
 import { selectWebhookTestStatus } from '@/selector'
+import linkStyles from '@/styles/elements/link.scss?mod'
+import Routes from '@/constants/routes'
 
 export interface GenerateTopicOptions {
   topics: TopicItem[]
@@ -89,7 +91,15 @@ export const WebhookTestModalBody: React.FunctionComponent<WebhookTestModalBodyP
             {/* webhook link will be provide later. https://github.com/reapit/foundations/issues/1277 */}
             <p>
               To test your Webhook subscription, please select a subscription topic and an example payload for that
-              topic will be sent to the configured URL. For more information, see &apos;testing webhook link TBC&apos;
+              topic will be sent to the configured URL. For more information, please{' '}
+              <a
+                className={linkStyles.link}
+                href={`${Routes.DEVELOPER_API_DOCS}/api/webhooks#testing`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                click here
+              </a>
             </p>
           </Content>
           <SelectBox id="topicId" name="topicId" labelText="Subscription Topics" options={topicOptions} required />
@@ -102,7 +112,7 @@ export const WebhookTestModalBody: React.FunctionComponent<WebhookTestModalBodyP
 export interface WebhookTestModalProps {
   visible: boolean
   afterClose: () => void
-  webhookId: string | undefined
+  webhookId?: string
   closeModal?: () => void
 }
 export const WebhookTestModal: React.FunctionComponent<WebhookTestModalProps> = ({

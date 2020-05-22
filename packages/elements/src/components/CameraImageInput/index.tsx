@@ -13,5 +13,6 @@ export const CameraImageInput = (props: FileInputProps) => (
     id={props.id}
     allowClear={props.allowClear}
     required={props.required}
+    onFilenameClick={props.onFilenameClick}
   />
 )

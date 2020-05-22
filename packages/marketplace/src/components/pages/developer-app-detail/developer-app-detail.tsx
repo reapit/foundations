@@ -1,12 +1,18 @@
 import * as React from 'react'
+import { selectIntegrationTypes } from '@/selector/integration-types'
+import { DesktopIntegrationTypeModel } from '@/actions/app-integration-types'
+import { selectInstallationAppData } from '@/selector/installations'
+import { PagedResultInstallationModel_ } from '@reapit/foundations-ts-definitions'
+import { Aside } from './aside'
 import { useSelector } from 'react-redux'
 import { History } from 'history'
 import { selectAppDetailState, selectAppDetailData, selectAppDetailLoading } from '@/selector/developer-app-detail'
-import { selectLoginType } from '@/selector/auth'
+import { selectInstallAppLoading } from '@/selector/installations'
 import { Loader } from '@reapit/elements'
-import AppHeader from '@/components/ui/app-detail/app-header'
-import AppContent from '@/components/ui/app-detail/app-content'
+import AppHeader from '@/components/ui/standalone-app-detail/app-header'
+import AppContent from './app-detail/app-content/app-content'
 import DeveloperAppDetailButtonGroup from '@/components/ui/developer-app-detail/developer-app-detail-button-group'
+
 import AppDelete from '@/components/ui/app-delete'
 import AppInstallations from '@/components/ui/app-installations/app-installations-modal'
 
@@ -74,23 +80,23 @@ const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
   const appDetailState = useSelector(selectAppDetailState)
   const appDetailData = useSelector(selectAppDetailData)
   const isLoadingAppDetail = useSelector(selectAppDetailLoading)
-  const loginType = useSelector(selectLoginType)
+  const isLoadingInstallations = useSelector(selectInstallAppLoading)
+  const desktopIntegrationTypes = useSelector(selectIntegrationTypes) as DesktopIntegrationTypeModel[]
+  const installationsData = useSelector(selectInstallationAppData) as PagedResultInstallationModel_
+  const unfetch = !appDetailState?.data || !installationsData?.data
   const { id = '', name = '' } = appDetailData
+
+  if (isLoadingAppDetail || isLoadingInstallations || unfetch) {
+    return <Loader />
+  }
 
   return (
     <div className={styles.appDetailContainer}>
-      <AppHeader
-        appDetailData={appDetailData}
-        buttonGroup={renderAppHeaderButtonGroup(
-          id,
-          appDetailState,
-          setIsAppRevisionComparisionModalOpen,
-          setIsDeleteModalOpen,
-          setIsInstallationsModalOpen,
-        )}
-      />
-      <AppContent appDetailData={appDetailData} loginType={loginType} />
-
+      <Aside desktopIntegrationTypes={desktopIntegrationTypes} appDetailState={appDetailState} />
+      <div className={styles.mainContainer}>
+        <AppHeader appDetailData={appDetailData} />
+        <AppContent appDetailData={appDetailData} />
+      </div>
       {isDeleteModalOpen && (
         <AppDelete
           appId={id}
@@ -119,8 +125,6 @@ const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
           afterClose={closeAppRevisionComparisionModal(setIsAppRevisionComparisionModalOpen)}
         />
       )}
-
-      {isLoadingAppDetail && <Loader />}
     </div>
   )
 }

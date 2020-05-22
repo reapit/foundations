@@ -18,7 +18,10 @@ export interface ErrorState {
   hasFailed: boolean
 }
 
-export type ErrorProps = ErrorMappedActions & ErrorMappedProps
+export type ErrorProps = ErrorMappedActions &
+  ErrorMappedProps & {
+    children?: React.ReactNode
+  }
 
 export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
   static getDerivedStateFromError() {
