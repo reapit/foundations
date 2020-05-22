@@ -42,7 +42,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup }) => 
               alt={name}
             />
           </div>
-          {!isWebComponent && (
+          {isWebComponent && (
             <>
               <GridItem>
                 <H6>Settings</H6>

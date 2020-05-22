@@ -67,6 +67,13 @@ describe('Config-modal-inner', () => {
           isShowModal: true,
         },
       },
+      auth: {
+        loginSession: {
+          loginIdentity: {
+            clientId: 'DXX',
+          },
+        },
+      },
     } as ReduxState
     const mockStore = configureStore()
     const store = mockStore(mockState)
