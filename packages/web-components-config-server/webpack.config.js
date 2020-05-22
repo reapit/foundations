@@ -1,5 +1,6 @@
 const path = require('path')
 const slsw = require('serverless-webpack')
+const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: slsw.lib.entries,
@@ -42,7 +43,16 @@ module.exports = {
       },
     ],
   },
-  plugins: [],
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, './credentials.json'),
+          to: path.resolve(__dirname, 'dist'),
+        },
+      ],
+    }),
+  ],
   resolve: {
     extensions: ['.ts', '.js', '.mjs', '.gql', '.graphql', '.json'],
     alias: {

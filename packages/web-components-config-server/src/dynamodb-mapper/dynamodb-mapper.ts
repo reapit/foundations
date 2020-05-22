@@ -1,5 +1,9 @@
+import path from 'path'
+import AWS from 'aws-sdk'
 import DynamoDB from 'aws-sdk/clients/dynamodb'
 import { DataMapper } from '@aws/dynamodb-data-mapper'
+
+AWS.config.loadFromPath(path.resolve(__dirname, '../../credentials.json'))
 
 const dynamoDBClient = new DynamoDB({
   region: process.env.AWS_REGION,
