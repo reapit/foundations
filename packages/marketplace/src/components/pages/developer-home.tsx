@@ -1,76 +1,67 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
+import { Dispatch } from 'redux'
+import { useHistory } from 'react-router'
+import { useSelector, useDispatch } from 'react-redux'
 import { History } from 'history'
-import { ReduxState } from '@/types/core'
 import { Loader } from '@reapit/elements'
-import ErrorBoundary from '@/components/hocs/error-boundary'
-import { DeveloperState } from '@/reducers/developer'
-import routes from '@/constants/routes'
-import AppList from '@/components/ui/app-list'
-import { withRouter, RouteComponentProps } from 'react-router'
-import { AppDetailState } from '@/reducers/app-detail'
 import { appDetailRequestData, removeAuthenticationCode } from '@/actions/app-detail'
-import DeveloperAppModal from '../ui/developer-app-modal'
 import { setDeveloperAppModalStateViewDetail, developerAppShowModal } from '@/actions/developer-app-modal'
 import { appDeleteSetInitFormState } from '@/actions/app-delete'
 import { developerRequestData } from '@/actions/developer'
+import { DeveloperAppDetailState } from '@/reducers/developer'
+import { selectDeveloper, selectDeveloperAppModalVisible } from '@/selector'
+import DeveloperAppModal from '@/components/ui/developer-app-modal'
+import { selectAppDetailState } from '@/selector/developer-app-detail'
+import AppList from '@/components/ui/app-list'
+import ErrorBoundary from '@/components/hocs/error-boundary'
+import { SandboxPopUp } from '@/components/ui/sandbox-pop-up'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import { SandboxPopUp } from '../ui/sandbox-pop-up'
 import { getParamValueFromPath } from '@/utils/client-url-params'
+import routes from '@/constants/routes'
 
-export interface DeveloperMappedActions {
-  fetchAppDetail: (id: string) => void
-  fetchDeveloperApps: (page: number) => void
-  setDeveloperAppModalStateViewDetail: () => void
-  appDeleteSetInitFormState: () => void
-  setVisible: (isVisible: boolean) => void
-  removeAuthenticationCode: () => void
-}
-
-export interface DeveloperMappedProps {
-  developerState: DeveloperState
-  appDetail: AppDetailState
-  isVisible: boolean
-}
-
-export const handleOnCardClick = ({
-  setVisible,
-  appDetail,
-  fetchAppDetail,
-  setDeveloperAppModalStateViewDetail,
-  appDeleteSetInitFormState,
-}) => (app: AppSummaryModel) => {
-  setVisible(true)
-  setDeveloperAppModalStateViewDetail()
-  appDeleteSetInitFormState()
-  if (app.id && (!appDetail.appDetailData || appDetail.appDetailData.data.id !== app.id)) {
-    fetchAppDetail(app.id)
+export const handleOnCardClick = (appDetail: DeveloperAppDetailState, dispatch: Dispatch) => (app: AppSummaryModel) => {
+  dispatch(developerAppShowModal(true))
+  dispatch(setDeveloperAppModalStateViewDetail())
+  dispatch(appDeleteSetInitFormState())
+  if (app.id && (!appDetail || appDetail.data?.id !== app.id)) {
+    dispatch(
+      appDetailRequestData({
+        id: app.id,
+      }),
+    )
   }
 }
 
-export const handleAfterClose = ({ setVisible, removeAuthenticationCode }) => () => {
-  removeAuthenticationCode()
-  setVisible(false)
+export const handleAfterClose = (dispatch: Dispatch) => () => {
+  dispatch(removeAuthenticationCode())
+  dispatch(developerAppShowModal(false))
+}
+
+export const handleFetchDeveloperApps = (pageNumber: number, unfetched: boolean, dispatch: Dispatch) => {
+  return () => {
+    if (unfetched) {
+      return
+    }
+    dispatch(
+      developerRequestData({
+        page: pageNumber,
+      }),
+    )
+  }
 }
 
 export const handleOnChange = (history: History) => (page: number) =>
   history.push(`${routes.DEVELOPER_MY_APPS}?page=${page}`)
 
-export type DeveloperProps = DeveloperMappedActions & DeveloperMappedProps & RouteComponentProps<{ page?: any }>
+export type DeveloperProps = {}
 
-export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
-  developerState,
-  fetchAppDetail,
-  fetchDeveloperApps,
-  setDeveloperAppModalStateViewDetail,
-  appDeleteSetInitFormState,
-  appDetail,
-  history,
-  isVisible,
-  setVisible,
-  removeAuthenticationCode,
-  location,
-}) => {
+export const DeveloperHome: React.FunctionComponent<DeveloperProps> = () => {
+  const history = useHistory()
+  const dispatch = useDispatch()
+  const developerState = useSelector(selectDeveloper)
+  const isVisible = useSelector(selectDeveloperAppModalVisible)
+  const appDetail = useSelector(selectAppDetailState)
+
   let pageNumber = 1
 
   if (location && location.search) {
@@ -85,12 +76,7 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
   const list = developerState?.developerData?.data?.data || []
   const { totalCount, pageSize } = developerState?.developerData?.data || {}
 
-  React.useEffect(() => {
-    if (unfetched) {
-      return
-    }
-    fetchDeveloperApps(pageNumber)
-  }, [pageNumber, unfetched])
+  React.useEffect(handleFetchDeveloperApps(pageNumber, unfetched, dispatch), [pageNumber, unfetched, dispatch])
 
   if (unfetched || loading) {
     return <Loader />
@@ -104,13 +90,7 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
           hasSubmitButton
           title="My Apps"
           loading={loading}
-          onCardClick={handleOnCardClick({
-            setVisible,
-            appDetail,
-            fetchAppDetail,
-            setDeveloperAppModalStateViewDetail,
-            appDeleteSetInitFormState,
-          })}
+          onCardClick={handleOnCardClick(appDetail, dispatch)}
           infoType="DEVELOPER_APPS_EMPTY"
           pagination={{
             totalCount,
@@ -120,28 +100,10 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
           }}
         />
         <SandboxPopUp loading={loading} />
-        <DeveloperAppModal
-          visible={isVisible}
-          afterClose={handleAfterClose({ setVisible, removeAuthenticationCode })}
-        />
+        <DeveloperAppModal visible={isVisible} afterClose={handleAfterClose(dispatch)} />
       </div>
     </ErrorBoundary>
   )
 }
 
-export const mapStateToProps = (state: ReduxState): DeveloperMappedProps => ({
-  developerState: state.developer,
-  appDetail: state.appDetail,
-  isVisible: state.developer.isVisible,
-})
-
-export const mapDispatchToProps = (dispatch: any): DeveloperMappedActions => ({
-  fetchAppDetail: (id: string) => dispatch(appDetailRequestData({ id })),
-  fetchDeveloperApps: (page: number) => dispatch(developerRequestData({ page })),
-  setDeveloperAppModalStateViewDetail: () => dispatch(setDeveloperAppModalStateViewDetail()),
-  appDeleteSetInitFormState: () => dispatch(appDeleteSetInitFormState()),
-  setVisible: (isVisible: boolean) => dispatch(developerAppShowModal(isVisible)),
-  removeAuthenticationCode: () => dispatch(removeAuthenticationCode()),
-})
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DeveloperHome))
+export default DeveloperHome
