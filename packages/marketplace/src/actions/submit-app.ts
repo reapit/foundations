@@ -6,7 +6,7 @@ import { FormState } from '@/types/core'
 
 export type SubmitAppFormikActions = FormikHelpers<CreateAppModel>
 export type SubmitAppArgs = CreateAppModel & { actions: SubmitAppFormikActions } & {
-  setSubmitError: (error: string) => void
+  setSubmitError?: (error: string) => void
 }
 
 export const submitApp = actionCreator<SubmitAppArgs>(ActionTypes.DEVELOPER_SUBMIT_APP)

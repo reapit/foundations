@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { exec } from 'pell'
-import { withRouter, RouteComponentProps } from 'react-router'
+import { withRouter, RouteComponentProps, useHistory, useParams } from 'react-router'
 import { ReduxState, FormState } from '@/types/core'
 import {
   Input,
@@ -36,7 +36,7 @@ import {
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
 
 import { validate } from '@/utils/form/submit-app'
-import { connect } from 'react-redux'
+import { connect, useDispatch, useSelector } from 'react-redux'
 import { submitApp, submitAppSetFormState, SubmitAppFormikActions } from '@/actions/submit-app'
 import { SubmitAppState } from '@/reducers/submit-app'
 import { AppDetailState } from '@/reducers/app-detail'
@@ -55,6 +55,10 @@ import { SubmitAppReadDocModal } from '@/components/ui/submit-app-read-doc-modal
 import dayjs from 'dayjs'
 import DOCS_LINKS from '@/constants/docs-links'
 import DAY_FORMATS from '@/constants/date-formats'
+import { selectSubmitAppState, selectSubmitAppRevisionState } from '@/selector/submit-app'
+import { selectDeveloperId } from '@/selector/auth'
+import { selectAppDetailState } from '@/selector/app-detail'
+import { Dispatch } from 'redux'
 
 export type CustomCreateAppModel = Omit<CreateAppModel, 'redirectUris' | 'signoutUris' | 'limitToClientIds'> & {
   redirectUris?: string
@@ -100,7 +104,7 @@ export const labelTextOfField = {
   limitToClientIds: 'Private Apps',
 }
 
-export type SubmitAppProps = SubmitAppMappedActions & SubmitAppMappedProps & RouteComponentProps<{ appid?: string }>
+export type SubmitAppProps = {}
 
 export const renderErrors = (errors: Record<string, string | string[]>) => {
   const isErrorsEmpty = typeof errors !== 'object' || Object.keys(errors).length === 0
@@ -164,7 +168,7 @@ export const renderScopesCheckbox = (scopes: ScopeModel[] = [], errorScope?: str
   </>
 )
 
-export const generateInitialValues = (appDetail: AppDetailModel | null, developerId: string | null) => {
+export const generateInitialValues = (appDetail: AppDetailModel | null, developerId?: string | null) => {
   let initialValues
 
   if (appDetail) {
@@ -248,17 +252,10 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
   return initialValues
 }
 
-export const handleSubmitApp = ({
-  appId,
-  submitApp,
-  submitRevision,
-  // isAgreedTerms,
-  // setShouldShowError,
-}) => (appModel: CustomCreateAppModel, actions: FormikHelpers<CustomCreateAppModel>) => {
-  // if (!isAgreedTerms) {
-  //   setShouldShowError(true)
-  //   return
-  // }
+export const handleSubmitApp = (appId: string, dispatch: Dispatch) => (
+  appModel: CustomCreateAppModel,
+  actions: FormikHelpers<CustomCreateAppModel>,
+) => {
   const { redirectUris, signoutUris, limitToClientIds, ...otherData } = appModel
   let appToSubmit: CreateAppModel
   if (appModel.authFlow === 'clientCredentials') {
@@ -275,7 +272,9 @@ export const handleSubmitApp = ({
   }
 
   if (!appId) {
-    submitApp(appToSubmit, actions)
+    // submitApp(appToSubmit, actions)
+
+    dispatch(submitApp({ ...appToSubmit, actions }))
   } else {
     if (appToSubmit.authFlow) {
       delete appToSubmit.authFlow
@@ -283,7 +282,8 @@ export const handleSubmitApp = ({
     if (appModel.isPrivateApp === 'no') {
       appToSubmit.limitToClientIds = []
     }
-    submitRevision(appId, appToSubmit)
+    // submitRevision(appId, appToSubmit)
+    dispatch(submitRevision({ ...appToSubmit, id: appId }))
   }
 }
 
@@ -334,36 +334,32 @@ export const handleSubmitModalViewDocs = () => {
 const getGoBackToAppsFunc = ({ history }: Pick<RouteComponentProps, 'history'>) =>
   React.useCallback(() => history.push(Routes.DEVELOPER_MY_APPS), [history])
 
-export const SubmitApp: React.FC<SubmitAppProps> = ({
-  submitAppSetFormState,
-  submitApp,
-  submitAppState,
-  submitRevisionSetFormState,
-  submitRevision,
-  submitRevisionState,
-  appDetailState,
-  developerId,
-  match,
-  history,
-  categories,
-  integrationTypes,
-}) => {
+const onSubmitAnotherApp = (dispatch: Dispatch) => {
+  return () => {
+    dispatch(submitAppSetFormState('PENDING'))
+  }
+}
+
+export const SubmitApp: React.FC<SubmitAppProps> = () => {
   let initialValues
   let formState
   let appId
-  /* terms state */
-  // const [termModalIsOpen, setTermModalIsOpen] = React.useState<boolean>(false)
-  // const [isAgreedTerms, setIsAgreedTerms] = React.useState<boolean>(false)
-  // const [shouldShowError, setShouldShowError] = React.useState<boolean>(false)
-  /* toggle checked input */
-  // const handleOnChangeAgree = setIsAgreedTerms.bind(null, prev => !prev)
+  const dispatch = useDispatch()
+  const history = useHistory()
+  const { appid } = useParams()
+  const developerId = useSelector(selectDeveloperId)
+  const appDetailState = useSelector(selectAppDetailState)
+  const submitAppState = useSelector(selectSubmitAppState)
+  const submitRevisionState = useSelector(selectSubmitAppRevisionState)
+  const categories = useSelector(selectCategories)
+  const integrationTypes = useSelector(selectIntegrationTypes)
 
-  // submit modal state
   const [isSubmitModalOpen, setIsSubmitModalOpen] = React.useState<boolean>(!getCookieString(COOKIE_FIRST_SUBMIT))
 
   const goBackToApps = getGoBackToAppsFunc({ history })
 
-  const isSubmitRevision = Boolean(match.params && match.params.appid)
+  // const isSubmitRevision = Boolean(match.params && match.params.appid)
+  const isSubmitRevision = appid ? true : false
   const isSubmitApp = !isSubmitRevision
 
   if (isSubmitApp) {
@@ -407,15 +403,12 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
 
   if (submitAppSuccessfully) {
     return (
-      <DeveloperSubmitAppSuccessfully
-        onGoBackToApps={goBackToApps}
-        onSubmitAnotherApp={() => submitAppSetFormState('PENDING')}
-      />
+      <DeveloperSubmitAppSuccessfully onGoBackToApps={goBackToApps} onSubmitAnotherApp={onSubmitAnotherApp(dispatch)} />
     )
   }
 
   if (submitRevisionSuccessfully) {
-    submitRevisionSetFormState('PENDING')
+    dispatch(submitRevisionSetFormState('PENDING'))
     history.push(Routes.DEVELOPER_MY_APPS)
   }
 
@@ -444,13 +437,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
           <Formik
             validate={handleBeforeSubmit(validate, setIsSubmitModalOpen)}
             initialValues={initialValues}
-            onSubmit={handleSubmitApp({
-              appId,
-              submitApp,
-              submitRevision,
-              // isAgreedTerms,
-              // setShouldShowError ,
-            })}
+            onSubmit={handleSubmitApp(appId, dispatch)}
           >
             {({ setFieldValue, values, errors }) => {
               return (
@@ -832,37 +819,6 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                     {renderErrors((errors as unknown) as Record<string, string | string[]>)}
                     <LevelRight>
                       <Grid>
-                        {/* <GridItem>
-                        <FlexContainerBasic
-                          className={`${styles['terms-submit-app']}`}
-                          centerContent={false}
-                          hasPadding={false}
-                        >
-                          <div className="field field-checkbox">
-                            <input
-                              type="checkbox"
-                              checked={isAgreedTerms}
-                              onChange={handleOnChangeAgree}
-                              className="checkbox"
-                              id="terms-submit-app"
-                              name="terms-submit-app"
-                            />
-                            <label htmlFor="terms-submit-app" className={`pb-4 mb-4 ${styles['label-terms']}`}>
-                              I AGREE TO THE{' '}
-                              <span className={styles['terms-link']} onClick={handleClickOpenModal(setTermModalIsOpen)}>
-                                &lsquo;TERMS AND CONDITIONS&rsquo;
-                              </span>
-                            </label>
-                          </div>
-                        </FlexContainerBasic>
-                        <TermsAndConditionsModal
-                          visible={termModalIsOpen}
-                          onAccept={handleAcceptTerms(setIsAgreedTerms, setTermModalIsOpen)}
-                          onDecline={handleDeclineTerms(setIsAgreedTerms, setTermModalIsOpen)}
-                          afterClose={handleCloseModal(setTermModalIsOpen)}
-                        />
-                      </GridItem> */}
-
                         <GridItem>
                           {!isSubmitApp && (
                             <Button onClick={goBackToApps} variant="primary" type="button">
@@ -882,13 +838,6 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                       </Grid>
                     </LevelRight>
                   </FormSection>
-
-                  {/* {shouldShowError && (
-                  <Alert
-                    message="Please indicate that you have read and agree to the terms and conditions"
-                    type="danger"
-                  />
-                )} */}
                   <Input
                     dataTest="submit-app-developer-id"
                     type="hidden"
