@@ -1,22 +1,27 @@
 import React from 'react'
 import { cx } from 'linaria'
-import { breadcrumItem, bold } from './__styles__/styles'
+import { breadcrumbItem, bold, lastItem } from './__styles__/styles'
 
-export const renderLinks = (
-  children: React.ReactNode,
-  href?: string,
-  onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>,
-  isCurrent?: boolean,
-) => {
+export type RenderLinksParams = {
+  children: React.ReactNode
+  href?: string
+  onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>
+  style?: React.CSSProperties
+  isCurrent?: boolean
+  className?: string
+  isLast?: boolean
+}
+
+export const renderLinks = ({ children, href, onClick, style, isCurrent, className, isLast }: RenderLinksParams) => {
   if (href) {
     return (
-      <a href={href} className={cx(breadcrumItem, isCurrent && bold)} onClick={onClick}>
+      <a href={href} style={style} className={cx(className, isCurrent && bold, isLast && lastItem)} onClick={onClick}>
         {children}
       </a>
     )
   }
   return (
-    <span className={cx(breadcrumItem, isCurrent && bold)} onClick={onClick}>
+    <span style={style} className={cx(className, isCurrent && bold, isLast && lastItem)} onClick={onClick}>
       {children}
     </span>
   )
@@ -44,22 +49,18 @@ export const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
   style,
 }: BreadcrumbItemProps) => {
   const links = React.useMemo(() => {
-    return renderLinks(children, href, onClick)
+    return renderLinks({ children, href, onClick, style, isCurrent, isLast, className })
   }, [])
   if (children && !isLast) {
     return (
-      <span style={style} className={cx(breadcrumItem, isCurrent && bold, className)}>
+      <span className={breadcrumbItem}>
         {links}
         {separator && separator !== '' && <span>{separator}</span>}
       </span>
     )
   }
   if (children && isLast) {
-    return (
-      <span style={style} className={cx(breadcrumItem, isCurrent && bold, className)}>
-        {links}
-      </span>
-    )
+    return <span className={breadcrumbItem}>{links}</span>
   }
   return null
 }
