@@ -1,3 +1,4 @@
+import { DocumentModel } from '@reapit/foundations-ts-definitions'
 import { downloadDocument } from '../documents'
 import * as ReapitElements from '@reapit/elements'
 import { URLS } from '@/constants/api'
@@ -7,7 +8,9 @@ describe('checklist-detail', () => {
   const mockedLinkElem = { href: '', download: '', click: jest.fn(), remove: jest.fn() }
   const mockedAppendChildFn = jest.fn()
   const mockedCreateObjectURL = jest.fn(() => 'mocked url')
+  let spyFetcherWithBlob
   let spyFetcher
+  const documentObject = { name: 'document.png' } as DocumentModel
   const mockedBlob = new Blob()
 
   beforeAll(() => {
@@ -17,10 +20,17 @@ describe('checklist-detail', () => {
     jest.spyOn(document, 'createElement').mockImplementation(() => (mockedLinkElem as unknown) as HTMLAnchorElement)
     document.body.appendChild = mockedAppendChildFn
 
-    spyFetcher = jest.spyOn(ReapitElements, 'fetcherWithBlob').mockImplementation(
+    spyFetcherWithBlob = jest.spyOn(ReapitElements, 'fetcherWithBlob').mockImplementation(
       () =>
         new Promise(resolve => {
           resolve(mockedBlob)
+        }),
+    )
+
+    spyFetcher = jest.spyOn(ReapitElements, 'fetcher').mockImplementation(
+      () =>
+        new Promise(resolve => {
+          resolve(documentObject)
         }),
     )
   })
@@ -29,11 +39,20 @@ describe('checklist-detail', () => {
     const documentId = 'mock-id'
 
     const headers = await initAuthorizedRequestHeaders()
-    headers['accept'] = 'application/octet-stream'
 
     await downloadDocument(documentId)
-    expect(spyFetcher).toHaveBeenCalledWith({
+
+    expect(spyFetcherWithBlob).toHaveBeenCalledWith({
       url: `${URLS.documents}/${documentId}/download`,
+      api: window.reapit.config.platformApiUrl,
+      method: 'GET',
+      headers: {
+        ...headers,
+        accept: 'application/octet-stream',
+      },
+    })
+    expect(spyFetcher).toHaveBeenCalledWith({
+      url: `${URLS.documents}/${documentId}`,
       api: window.reapit.config.platformApiUrl,
       method: 'GET',
       headers: headers,
@@ -41,7 +60,7 @@ describe('checklist-detail', () => {
     expect(mockedCreateObjectURL).toHaveBeenCalledWith(mockedBlob)
     expect(mockedAppendChildFn).toHaveBeenCalledWith(mockedLinkElem)
     expect(mockedLinkElem.href).toBe('mocked url')
-    expect(mockedLinkElem.download).toBe(documentId)
+    expect(mockedLinkElem.download).toBe(documentObject.name)
     expect(mockedLinkElem.click).toHaveBeenCalled()
     expect(mockedLinkElem.remove).toHaveBeenCalled()
   })
