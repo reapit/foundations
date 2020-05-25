@@ -1,6 +1,7 @@
 import * as React from 'react'
 import initChatBot from '../../../scripts/chat-bot'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
+import * as ReactRedux from 'react-redux'
 import {
   DeveloperHelpPage,
   handleGotoWelcomeGuide,
@@ -11,9 +12,11 @@ import {
   handleWhatsNew,
 } from '../developer-help'
 import Routes from '@/constants/routes'
+import configureStore from 'redux-mock-store'
 import { history } from '@/core/router'
 import { HelpLinks } from '@/constants/developer-help-links'
 import { mockLoginSession } from '../../../sagas/__tests__/auth'
+import appState from '@/reducers/__stubs__/app-state'
 
 jest.mock('../../../scripts/chat-bot')
 
@@ -28,8 +31,21 @@ afterEach(() => {
 })
 
 describe('DeveloperHelpPage', () => {
+  let store
+  beforeEach(() => {
+    /* mocking store */
+    const mockStore = configureStore()
+    store = mockStore(appState)
+  })
+
   it('should match a snapshot', () => {
-    expect(shallow(<DeveloperHelpPage loginIdentity={mockLoginSession.loginIdentity} />)).toMatchSnapshot()
+    expect(
+      mount(
+        <ReactRedux.Provider store={store}>
+          <DeveloperHelpPage />
+        </ReactRedux.Provider>,
+      ),
+    ).toMatchSnapshot()
   })
 })
 

@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useSelector } from 'react-redux'
 import initChatBot from '../../scripts/chat-bot'
 import { history } from '@/core/router'
 import { H3 } from '@reapit/elements'
@@ -14,8 +15,7 @@ import whatNewImg from '@/assets/images/help/what-new.png'
 import { HelpItem, HelpItemList } from '@/components/ui/help-item-list'
 
 import { LoginIdentity } from '@reapit/cognito-auth'
-import { ReduxState } from '../../types/core'
-import { connect } from 'react-redux'
+import { selectLoginIdentity } from '@/selector/auth'
 
 export const handleGotoWelcomeGuide = () => {
   history.push(Routes.DEVELOPER_WELCOME)
@@ -92,15 +92,10 @@ export const helpItems = (loginIdentity?: LoginIdentity): HelpItem[] => [
   },
 ]
 
-export interface HelpMappedProps {
-  loginIdentity?: LoginIdentity
-}
+export type DeveloperHelpPageProps = {}
 
-export const mapStateToProps = (state: ReduxState): HelpMappedProps => ({
-  loginIdentity: state.auth.loginSession?.loginIdentity,
-})
-
-export const DeveloperHelpPage: React.FC<HelpMappedProps> = ({ loginIdentity }) => {
+export const DeveloperHelpPage: React.FC<DeveloperHelpPageProps> = () => {
+  const loginIdentity = useSelector(selectLoginIdentity)
   return (
     <div className={styles.wrapHelp}>
       <H3>Help</H3>
@@ -109,4 +104,4 @@ export const DeveloperHelpPage: React.FC<HelpMappedProps> = ({ loginIdentity }) 
   )
 }
 
-export default connect(mapStateToProps, {})(DeveloperHelpPage)
+export default DeveloperHelpPage
