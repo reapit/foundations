@@ -21,7 +21,16 @@ module.exports = {
       ...webpackBase.module.rules,
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: [
+          'style-loader',
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: process.env.NODE_ENV !== 'production',
+            },
+          },
+          'css-loader',
+        ],
       },
       {
         test: /\.(sass|scss)$/,
@@ -31,12 +40,6 @@ module.exports = {
             use: [
               {
                 loader: 'style-loader',
-              },
-              {
-                loader: MiniCssExtractPlugin.loader,
-                options: {
-                  hmr: process.env.NODE_ENV !== 'production',
-                },
               },
               {
                 loader: 'css-loader',
@@ -63,12 +66,6 @@ module.exports = {
               },
               {
                 loader: 'css-loader',
-              },
-              {
-                loader: MiniCssExtractPlugin.loader,
-                options: {
-                  hmr: process.env.NODE_ENV !== 'production',
-                },
               },
               {
                 loader: 'sass-loader',
