@@ -46,7 +46,7 @@ export const RadioSelect: React.FC<RadioSelectProps> = ({
               {options.map(({ label, value }: RadioSelectOption, index: number) => (
                 <div key={index} data-test={dataTest} className="radio-wrap">
                   <input
-                    id={(name + label) as string}
+                    id={`${name}${label}`}
                     className={`checkbox ${hasError ? 'checkbox-error' : ''}`}
                     type="radio"
                     key={value}
@@ -56,7 +56,7 @@ export const RadioSelect: React.FC<RadioSelectProps> = ({
                     disabled={disabled}
                     onChange={() => setFieldValue(name, value)}
                   />
-                  <label htmlFor={(name + label) as string}>{label}</label>
+                  <label htmlFor={`${name}${label}`}>{label}</label>
                 </div>
               ))}
             </div>

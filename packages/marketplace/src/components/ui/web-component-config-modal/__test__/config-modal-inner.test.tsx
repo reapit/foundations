@@ -10,7 +10,7 @@ import { mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import { ReduxState } from '@/types/core'
 import { Provider } from 'react-redux'
-import { BOOK_VIEWING_CONSTANT } from '../config-modal'
+import { WEB_COMPONENT_TYPES } from '../config-modal'
 import { PutWebComponentConfigParams } from '@/services/web-component'
 import { clientPutWebComponentConfig, clientFetchWebComponentConfig } from '@/actions/client'
 
@@ -74,7 +74,7 @@ describe('Config-modal-inner', () => {
     expect(
       mount(
         <Provider store={store}>
-          <WebComponentConfigModalInner config={BOOK_VIEWING_CONSTANT} closeModal={jest.fn()} />
+          <WebComponentConfigModalInner config={WEB_COMPONENT_TYPES['BOOK_VIEWING']} closeModal={jest.fn()} />
         </Provider>,
       ),
     ).toMatchSnapshot()

@@ -18,4 +18,5 @@ export const URLS = {
   trafficEventBilling: '/trafficevents/billing',
   trafficEventStatistics: '/trafficevents/trafficStatistics',
   negotiators: '/negotiators',
+  webComponentConfig: '/v1/web-components-config',
 }

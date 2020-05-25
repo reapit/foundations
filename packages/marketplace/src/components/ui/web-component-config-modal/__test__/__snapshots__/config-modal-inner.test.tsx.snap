@@ -69,7 +69,8 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
     closeModal={[MockFunction]}
     config={
       Object {
-        "subtext": "Please use the following form to configure your diary settings for your ‘Book a Viewing’ widget on your website",
+        "subtext": "Please use the following form to configure your diary settings for your
+     ‘Book a Viewing’ widget on your website",
         "title": "Book a Viewing Configuration",
       }
     }
@@ -177,7 +178,8 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                     },
                   }
                 }
-                subtext="Please use the following form to configure your diary settings for your ‘Book a Viewing’ widget on your website"
+                subtext="Please use the following form to configure your diary settings for your
+     ‘Book a Viewing’ widget on your website"
               />
             }
           >
@@ -249,10 +251,12 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                     },
                   }
                 }
-                subtext="Please use the following form to configure your diary settings for your ‘Book a Viewing’ widget on your website"
+                subtext="Please use the following form to configure your diary settings for your
+     ‘Book a Viewing’ widget on your website"
               >
                 <p>
-                  Please use the following form to configure your diary settings for your ‘Book a Viewing’ widget on your website
+                  Please use the following form to configure your diary settings for your
+     ‘Book a Viewing’ widget on your website
                 </p>
                 <Component
                   className="checkbox-inline mt-5"

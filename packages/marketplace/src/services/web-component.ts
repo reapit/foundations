@@ -1,6 +1,7 @@
 import { fetcher } from '@reapit/elements'
 import { generateHeader } from './utils'
 import { logger } from 'logger'
+import { URLS } from './constants'
 
 export interface FetchWebComponentConfigParams {
   customerId: string
@@ -24,17 +25,14 @@ export type WebComponentConfigResult = {
   negotiatorIds: string[]
 } | null
 
-const API = '/dev/v1/web-components-config'
-
 export const fetchWebComponentConfig = async (
   params: FetchWebComponentConfigParams,
 ): Promise<WebComponentConfigResult> => {
-  return sampleRespone() //SHOULD REMOVE WHEN API READY
   try {
     const { customerId } = params
     const response = await fetcher({
-      url: `${API}/${customerId}`,
-      api: 'http://localhost:3000',
+      url: `${URLS.webComponentConfig}/${customerId}`,
+      api: window.reapit.config.webComponentConfigApiUrl,
       method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
     })
@@ -46,12 +44,11 @@ export const fetchWebComponentConfig = async (
 }
 
 export const putWebComponentConfig = async (params: PutWebComponentConfigParams): Promise<WebComponentConfigResult> => {
-  return sampleRespone() //SHOULD REMOVE WHEN API READY
   try {
     const { customerId = 'DXX', ...rest } = params
     const response = await fetcher({
-      url: `${API}/${customerId}`,
-      api: 'http://localhost:3000',
+      url: `${URLS.webComponentConfig}/${customerId}`,
+      api: window.reapit.config.webComponentConfigApiUrl,
       method: 'PATCH',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
       body: rest,
@@ -61,21 +58,4 @@ export const putWebComponentConfig = async (params: PutWebComponentConfigParams)
     logger(error)
     throw new Error(error)
   }
-}
-
-//SHOULD REMOVE WHEN API READY
-function sampleRespone(): Promise<WebComponentConfigResult> {
-  return new Promise(res => {
-    setTimeout(() => {
-      const data = {
-        appointmentLength: 15,
-        appointmentTimeGap: 60,
-        appointmentTypes: [{ value: 'value1', id: 'id1' }],
-        customerId: 'DXX',
-        daysOfWeek: ['1', '2', '3', '5', '6'],
-        negotiatorIds: ['AACC', 'AAAN'],
-      } as WebComponentConfigResult
-      res(data)
-    }, 1000)
-  })
 }
