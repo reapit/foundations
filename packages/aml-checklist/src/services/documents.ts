@@ -7,7 +7,7 @@ export const downloadDocument = async (documentId: string) => {
   try {
     const headers = await initAuthorizedRequestHeaders()
 
-    const [document, documentBlob] = await Promise.all([
+    const [identityDocument, documentBlob] = await Promise.all([
       fetcher({
         url: `${URLS.documents}/${documentId}`,
         api: window.reapit.config.platformApiUrl,
@@ -29,7 +29,7 @@ export const downloadDocument = async (documentId: string) => {
     let a = window.document.createElement('a')
     a.href = url
     a.target = '_blank'
-    a.download = `${document.name}`
+    a.download = `${identityDocument.name}`
     // we need to append the element to the dom -> otherwise it will not work in firefox
     window.document.body.appendChild(a)
 
