@@ -15,6 +15,10 @@ export const selectDeveloper = (state: ReduxState) => {
   return state.developer
 }
 
+export const selectDeveloperAppModalVisible = (state: ReduxState) => {
+  return state.developer.isVisible
+}
+
 export const selectDeveloperApps = (state: ReduxState): AppSummaryModel[] => {
   return state.developer?.developerData?.data.data || ([] as AppSummaryModel[])
 }
