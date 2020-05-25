@@ -74,3 +74,17 @@ functions:
                 api-version: false
                 Authorization: false
                 reapit-customer: false
+      - http:
+          path: ping
+          method: get
+          cors:
+            origin: '*'
+            headers: ${self:custom.allowedHeaders}
+            allowCredentials: false
+          private: true
+          request:
+            parameters:
+              headers:
+                api-version: false
+                Authorization: false
+                reapit-customer: false          
