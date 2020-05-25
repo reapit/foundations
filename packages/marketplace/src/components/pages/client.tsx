@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
-import { ReduxState, FormState } from '@/types/core'
-import { ClientAppSummaryState } from '@/reducers/client/app-summary'
+import { useSelector, useDispatch } from 'react-redux'
+import { FormState } from '@/types/core'
 import { Loader } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { withRouter, RouteComponentProps } from 'react-router'
@@ -16,19 +15,9 @@ import styles from '@/styles/pages/client.scss?mod'
 import { appInstallationsSetFormState } from '@/actions/app-installations'
 import { addQuery, getParamValueFromPath, hasFilterParams } from '@/utils/client-url-params'
 import { setAppDetailModalStateBrowse } from '@/actions/app-detail-modal'
-
-export interface ClientMappedActions {
-  setStateViewBrowse: () => void
-  fetchAppDetail: (id: string, clientId: string) => void
-  installationsSetFormState: (formState: FormState) => void
-}
-
-export interface ClientMappedProps {
-  appSummaryState: ClientAppSummaryState
-  appDetail: AppDetailState
-  clientId: string
-  installationsFormState: FormState
-}
+import { selectAppDetail } from '@/selector/client-app-detail'
+import { selectInstallationFormState } from '@/selector/installations'
+import { Dispatch } from 'redux'
 
 export const handleAfterClose = ({ setVisible }) => () => setVisible(false)
 export const handleOnChange = history => (page: number) => {
@@ -74,19 +63,32 @@ export const handleInstallationDone = ({
   }
 }
 
-export type ClientProps = ClientMappedActions & ClientMappedProps & RouteComponentProps<{ page?: any }>
+export const handleSetStateViewBrowse = (dispatch: Dispatch) => () => {
+  dispatch(setAppDetailModalStateBrowse())
+}
 
-export const Client: React.FunctionComponent<ClientProps> = ({
-  appSummaryState,
-  history,
-  location,
-  fetchAppDetail,
-  appDetail,
-  clientId,
-  setStateViewBrowse,
-  installationsFormState,
-  installationsSetFormState,
-}) => {
+export const handleFetchAppDetail = (dispatch: Dispatch) => (id, clientId) => {
+  dispatch(appDetailRequestData({ id, clientId }))
+}
+
+export const handleInstallationsSetFormState = (dispatch: Dispatch) => (formState: FormState) => {
+  dispatch(appInstallationsSetFormState(formState))
+}
+
+export type ClientProps = RouteComponentProps<{ page?: any }>
+
+export const Client: React.FunctionComponent<ClientProps> = ({ history, location }) => {
+  const dispatch = useDispatch()
+
+  const appSummaryState = useSelector(selectAppSummary)
+  const appDetail = useSelector(selectAppDetail)
+  const clientId = useSelector(selectClientId)
+  const installationsFormState = useSelector(selectInstallationFormState)
+
+  const setStateViewBrowse = handleSetStateViewBrowse(dispatch)
+  const fetchAppDetail = handleFetchAppDetail(dispatch)
+  const installationsSetFormState = handleInstallationsSetFormState(dispatch)
+
   const pageNumber =
     !isNaN(Number(getParamValueFromPath(location.search, 'page'))) &&
     Number(getParamValueFromPath(location.search, 'page')) > 0
@@ -154,17 +156,4 @@ export const Client: React.FunctionComponent<ClientProps> = ({
   )
 }
 
-export const mapStateToProps = (state: ReduxState): ClientMappedProps => ({
-  appSummaryState: selectAppSummary(state),
-  appDetail: state.appDetail,
-  clientId: selectClientId(state),
-  installationsFormState: state.installations.formState,
-})
-
-export const mapDispatchToProps = (dispatch: any): ClientMappedActions => ({
-  setStateViewBrowse: () => dispatch(setAppDetailModalStateBrowse()),
-  fetchAppDetail: (id: string, clientId: string) => dispatch(appDetailRequestData({ id, clientId })),
-  installationsSetFormState: (formState: FormState) => dispatch(appInstallationsSetFormState(formState)),
-})
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Client))
+export default withRouter(Client)
