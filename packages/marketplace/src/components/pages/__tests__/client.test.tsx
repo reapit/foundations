@@ -15,7 +15,6 @@ import {
 } from '../client'
 import { addQuery } from '@/utils/client-url-params'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import { RouteComponentProps, StaticContext } from 'react-router'
 import ClientWelcomeMessageModal from '@/components/ui/client-welcome-message'
 import { BrowserRouter as Router } from 'react-router-dom'
 import configureStore from 'redux-mock-store'
@@ -39,16 +38,6 @@ const createState = appSummaryState => {
 
 describe('Client', () => {
   let store
-  const routerProps = {
-    match: {
-      params: {
-        page: '2',
-      },
-    },
-    location: {
-      search: 'page=1',
-    },
-  } as RouteComponentProps<any, StaticContext, any>
 
   beforeEach(() => {
     /* mocking store */
@@ -64,7 +53,7 @@ describe('Client', () => {
       mount(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.CLIENT, key: 'clientRoute' }]}>
-            <Client {...routerProps} />
+            <Client />
           </MemoryRouter>
         </ReactRedux.Provider>,
       ),
@@ -81,7 +70,7 @@ describe('Client', () => {
       mount(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.CLIENT, key: 'clientRoute' }]}>
-            <Client {...routerProps} />
+            <Client />
           </MemoryRouter>
         </ReactRedux.Provider>,
       ),
@@ -102,7 +91,7 @@ describe('Client', () => {
       mount(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.CLIENT, key: 'clientRoute' }]}>
-            <Client {...routerProps} />
+            <Client />
           </MemoryRouter>
         </ReactRedux.Provider>,
       ),
@@ -123,7 +112,7 @@ describe('Client', () => {
       mount(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.CLIENT, key: 'clientRoute' }]}>
-            <Client {...routerProps} />
+            <Client />
           </MemoryRouter>
         </ReactRedux.Provider>,
       ),
@@ -189,7 +178,7 @@ describe('Client', () => {
       const wrapper = mount(
         <Provider store={store}>
           <Router>
-            <Client {...routerProps} />
+            <Client />
           </Router>
         </Provider>,
       )

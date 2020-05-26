@@ -55,20 +55,7 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
         }
       }
     >
-      <Component
-        location={
-          Object {
-            "search": "page=1",
-          }
-        }
-        match={
-          Object {
-            "params": Object {
-              "page": "2",
-            },
-          }
-        }
-      >
+      <Component>
         <Connect(ErrorBoundary)>
           <ErrorBoundary
             componentError={null}
@@ -585,20 +572,7 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
         }
       }
     >
-      <Component
-        location={
-          Object {
-            "search": "page=1",
-          }
-        }
-        match={
-          Object {
-            "params": Object {
-              "page": "2",
-            },
-          }
-        }
-      >
+      <Component>
         <Connect(ErrorBoundary)>
           <ErrorBoundary
             componentError={null}
@@ -1115,20 +1089,7 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
         }
       }
     >
-      <Component
-        location={
-          Object {
-            "search": "page=1",
-          }
-        }
-        match={
-          Object {
-            "params": Object {
-              "page": "2",
-            },
-          }
-        }
-      >
+      <Component>
         <Connect(ErrorBoundary)>
           <ErrorBoundary
             componentError={null}
@@ -1733,20 +1694,7 @@ exports[`Client should match a snapshot when featured apps is undefined 1`] = `
         }
       }
     >
-      <Component
-        location={
-          Object {
-            "search": "page=1",
-          }
-        }
-        match={
-          Object {
-            "params": Object {
-              "page": "2",
-            },
-          }
-        }
-      >
+      <Component>
         <Connect(ErrorBoundary)>
           <ErrorBoundary
             componentError={null}

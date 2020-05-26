@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { FormState } from '@/types/core'
 import { Loader } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { withRouter, RouteComponentProps } from 'react-router'
+import { useHistory, useLocation } from 'react-router'
 import AppList from '@/components/ui/app-list'
 import AppSidebar from '@/components/ui/app-sidebar'
 import { appDetailRequestData } from '@/actions/app-detail'
@@ -75,10 +75,10 @@ export const handleInstallationsSetFormState = (dispatch: Dispatch) => (formStat
   dispatch(appInstallationsSetFormState(formState))
 }
 
-export type ClientProps = RouteComponentProps<{ page?: any }>
-
-export const Client: React.FunctionComponent<ClientProps> = ({ history, location }) => {
+export const Client: React.FunctionComponent = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
+  const location = useLocation()
 
   const appSummaryState = useSelector(selectAppSummary)
   const appDetail = useSelector(selectAppDetail)
@@ -156,4 +156,4 @@ export const Client: React.FunctionComponent<ClientProps> = ({ history, location
   )
 }
 
-export default withRouter(Client)
+export default Client
