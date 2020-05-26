@@ -1,5 +1,6 @@
 const path = require('path')
 const ForkTsCheckerNotifierWebpackPlugin = require('fork-ts-checker-notifier-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
@@ -39,6 +40,9 @@ const webpackConfig = {
     new HtmlWebpackPlugin({
       inject: true,
       template: PATHS.template,
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'styles.css',
     }),
     new FaviconsWebpackPlugin({
       logo: PATHS.logo,
@@ -101,7 +105,14 @@ const webpackConfig = {
                     },
                   },
                 ],
+                'linaria/babel',
               ],
+            },
+          },
+          {
+            loader: 'linaria/loader',
+            options: {
+              sourceMap: process.env.NODE_ENV !== 'production',
             },
           },
           { loader: 'ts-loader', options: { happyPackMode: true, transpileOnly: true } },

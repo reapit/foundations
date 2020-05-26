@@ -46,5 +46,11 @@ functions:
   webComponentsConfigServer:
     handler: src/index.webComponentsConfigServer
     events:
-      - http: ANY /
-      - http: 'ANY {proxy+}'
+      - http:
+          method: any
+          path: /{proxy+}
+          cors: true
+      - http:
+          method: any
+          path: /
+          cors: true

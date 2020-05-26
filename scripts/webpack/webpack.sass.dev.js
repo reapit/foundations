@@ -10,6 +10,7 @@
 // Add index.css to the entry of sass prod build script
 
 const webpackBase = require('./webpack.base.dev')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { PATHS } = require('./constants')
 
 module.exports = {
@@ -20,7 +21,16 @@ module.exports = {
       ...webpackBase.module.rules,
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: [
+          'style-loader',
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: process.env.NODE_ENV !== 'production',
+            },
+          },
+          'css-loader',
+        ],
       },
       {
         test: /\.(sass|scss)$/,

@@ -33,14 +33,26 @@ export const mapDispatchToProps = (dispatch: any): InstallationsMappedActions =>
 
 export type InstallationsProps = InstallationsInnerProps & InstallationsMappedProps & InstallationsMappedActions
 
-export const generateColumns = (onUninstall: (app: InstallationModel) => () => void) => () => {
+export type CustomUninstallCell = React.FC<{
+  onClick: () => void
+}>
+
+export const generateColumns = (
+  onUninstall: (app: InstallationModel) => () => void,
+  CustomUninstallCell?: CustomUninstallCell,
+) => () => {
   const UninstallCell = ({ row }) => {
+    if (CustomUninstallCell) {
+      return <CustomUninstallCell onClick={onUninstall(row.original)} />
+    }
+
     return (
       <Button type="button" variant="primary" onClick={onUninstall(row.original)}>
         Uninstall
       </Button>
     )
   }
+
   return [
     {
       Header: 'Client',

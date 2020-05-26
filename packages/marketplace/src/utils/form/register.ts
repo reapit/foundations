@@ -1,9 +1,9 @@
 import { isEmail } from '../validate'
-import { RegisterFormValues } from '@/components/pages/register'
+import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 
-export type RegisterFormError = Partial<RegisterFormValues>
+export type RegisterFormError = Partial<CreateDeveloperModel>
 
-export function registerValidate(values: RegisterFormValues) {
+export function registerValidate(values: CreateDeveloperModel) {
   let errors = {} as RegisterFormError
 
   if (!values.name) {

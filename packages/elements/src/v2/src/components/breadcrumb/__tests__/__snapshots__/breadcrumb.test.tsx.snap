@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`breadcrumb Breadcrumb should match snapshot 1`] = `
+<div
+  className="mockClassName"
+  style={
+    Object {
+      "font": "10rem",
+    }
+  }
+>
+  <div
+    isLast={true}
+    key="0"
+    separator="/"
+  >
+    mock Menu
+  </div>
+</div>
+`;
+
+exports[`breadcrumb Breadcrumb should match snapshot 2`] = `
+<div
+  className="mockClassName"
+  style={
+    Object {
+      "font": "10rem",
+    }
+  }
+>
+  <Memo()
+    isLast={false}
+    key="index"
+    separator="/"
+  >
+    <a
+      href="index"
+    >
+      home
+    </a>
+  </Memo()>
+  <Memo()
+    isLast={false}
+    key="first"
+    separator="/"
+  >
+    <a
+      href="index/first"
+    >
+      first
+    </a>
+  </Memo()>
+  <Memo()
+    isLast={true}
+    key="second"
+    separator="/"
+  >
+    <span>
+      second
+    </span>
+  </Memo()>
+</div>
+`;
+
+exports[`breadcrumb cloneElement should run correctly 1`] = `
+<div>
+  <div
+    separator="/"
+  >
+    Mock Element
+  </div>
+</div>
+`;
+
+exports[`breadcrumb defaultItemRenderer should run correctly 1`] = `
+<div>
+  <a
+    href="#/index/first/second"
+  >
+    home
+  </a>
+</div>
+`;
+
+exports[`breadcrumb genForRoutes should run correctly 1`] = `
+<div>
+  <Memo()
+    isLast={false}
+    key="index"
+    separator="/"
+  >
+    <a
+      href="#/index"
+    >
+      home
+    </a>
+  </Memo()>
+  <Memo()
+    isLast={false}
+    key="first"
+    separator="/"
+  >
+    <a
+      href="#/index/first"
+    >
+      first
+    </a>
+  </Memo()>
+  <Memo()
+    isLast={true}
+    key="second"
+    separator="/"
+  >
+    <span
+      className=""
+    >
+      second
+    </span>
+  </Memo()>
+</div>
+`;
+
+exports[`breadcrumb genForRoutes should run correctly 2`] = `
+<div>
+  <Memo()
+    isLast={false}
+    key="index"
+    separator="/"
+  >
+    <a
+      href="index"
+    >
+      home
+    </a>
+  </Memo()>
+  <Memo()
+    isLast={false}
+    key="first"
+    separator="/"
+  >
+    <a
+      href="index/first"
+    >
+      first
+    </a>
+  </Memo()>
+  <Memo()
+    isLast={true}
+    key="second"
+    separator="/"
+  >
+    <span>
+      second
+    </span>
+  </Memo()>
+</div>
+`;

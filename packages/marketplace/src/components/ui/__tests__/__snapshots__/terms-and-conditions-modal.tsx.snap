@@ -14,8 +14,6 @@ exports[`Menu should match a snapshot 1`] = `
       <Unknown
         dataTest="buttonAcceptTermsAndConditions"
         onClick={[MockFunction]}
-        type="button"
-        variant="primary"
       >
         Accept
       </Unknown>

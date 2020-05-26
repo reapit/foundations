@@ -1,4 +1,5 @@
 @import '../base/colors.scss';
+@import '../base/screen-size.scss';
 
 .listPreviewIcon {
   color: $reapit-blue;
@@ -21,7 +22,7 @@
 
   button,
   button:first-child {
-    width: 150px;
+    width: 100%;
     margin-top: 0;
     margin-left: 0;
   }
@@ -29,7 +30,7 @@
 
 .mainContainer {
   background-color: $white;
-  padding: 15px;
+  padding: 0 3rem;
 }
 
 .renderAsideStatusContainer {
@@ -41,5 +42,11 @@
     /*should be px regard their base px (rem) else looks really ugly*/
     margin-left: 5px;
     color: #a0c862;
+  }
+}
+
+.asideContainer {
+  @include for-mobile-only {
+    display: block;
   }
 }

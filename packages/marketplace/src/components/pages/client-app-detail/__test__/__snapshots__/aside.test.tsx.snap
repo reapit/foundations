@@ -2,50 +2,52 @@
 
 exports[`Aside Aside - should match snapshot 1`] = `
 <div>
-  <Component />
-  <Component />
-  <Component />
-  <div />
   <div>
+    <Component />
+    <Component />
+    <Component />
+    <div />
     <div>
-      <Component>
-        Destop Integration
-      </Component>
-      <Component
-        key="Identity Check"
-      >
-        Identity Check
-      </Component>
-      <Component
-        key="Property Marketing Information"
-      >
-        Property Marketing Information
-      </Component>
-      <Component
-        key="Vendor Marketing Report"
-      >
-        Vendor Marketing Report
-      </Component>
-      <Component
-        key="Property Details Generation"
-      >
-        Property Details Generation
-      </Component>
-      <Component
-        key="Applicant Export"
-      >
-        Applicant Export
-      </Component>
-      <Component
-        key="Property"
-      >
-        Property
-      </Component>
-      <Component
-        key="Applicant"
-      >
-        Applicant
-      </Component>
+      <div>
+        <Component>
+          Destop Integration
+        </Component>
+        <Component
+          key="Identity Check"
+        >
+          Identity Check
+        </Component>
+        <Component
+          key="Property Marketing Information"
+        >
+          Property Marketing Information
+        </Component>
+        <Component
+          key="Vendor Marketing Report"
+        >
+          Vendor Marketing Report
+        </Component>
+        <Component
+          key="Property Details Generation"
+        >
+          Property Details Generation
+        </Component>
+        <Component
+          key="Applicant Export"
+        >
+          Applicant Export
+        </Component>
+        <Component
+          key="Property"
+        >
+          Property
+        </Component>
+        <Component
+          key="Applicant"
+        >
+          Applicant
+        </Component>
+      </div>
     </div>
   </div>
 </div>

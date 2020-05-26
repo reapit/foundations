@@ -1,9 +1,9 @@
 import React from 'react'
+import { Dispatch } from 'redux'
 import standAloneAppDetailStyles from '@/styles/blocks/standalone-app-detail.scss?mod'
 import { FaCheck } from 'react-icons/fa'
 import routes from '@/constants/routes'
 import { useHistory } from 'react-router'
-import appDetailStyles from '@/styles/blocks/app-detail.scss?mod'
 import developerAppDetailStyles from '@/styles/pages/developer-app-detail.scss?mod'
 import { RenderWithHeader } from './app-detail/render-with-header'
 import { Button } from '@reapit/elements'
@@ -16,6 +16,13 @@ import AppDelete from '@/components/ui/app-delete'
 import { handlePendingRevisionButtonClick } from '@/components/ui/developer-app-modal'
 import { DeveloperAppDetailState } from '@/reducers/developer'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
+import { useDispatch, useSelector } from 'react-redux'
+import { developerFetchAppDetail } from '@/actions/developer'
+import { selectClientId } from '@/selector/client'
+
+const asideContainerClasses = [standAloneAppDetailStyles.asideContainer, developerAppDetailStyles.asideContainer].join(
+  ' ',
+)
 
 interface AsideProps {
   appDetailState: DeveloperAppDetailState
@@ -28,9 +35,24 @@ interface ManageAppProps {
   id: string
 }
 
+export const onCancelSuccess = ({
+  id,
+  clientId,
+  dispatch,
+}: {
+  clientId: string
+  id: string
+  dispatch: Dispatch
+}) => () => {
+  dispatch(developerFetchAppDetail({ id, clientId }))
+}
+
 export const ManageApp: React.FC<ManageAppProps> = ({ pendingRevisions, id, appDetailState }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false)
   const [isAppRevisionComparisionModalOpen, setIsAppRevisionComparisionModalOpen] = React.useState(false)
+
+  const clientId = useSelector(selectClientId)
+  const dispatch = useDispatch()
   const history = useHistory()
 
   return (
@@ -49,6 +71,11 @@ export const ManageApp: React.FC<ManageAppProps> = ({ pendingRevisions, id, appD
 
       {isAppRevisionComparisionModalOpen && (
         <DeveloperAppRevisionModal
+          onCancelSuccess={onCancelSuccess({
+            dispatch,
+            clientId,
+            id,
+          })}
           appDetailState={appDetailState}
           visible={isAppRevisionComparisionModalOpen}
           appId={id || ''}
@@ -59,7 +86,7 @@ export const ManageApp: React.FC<ManageAppProps> = ({ pendingRevisions, id, appD
       <div className={developerAppDetailStyles.asideManageAppContainer}>
         {pendingRevisions ? (
           <Button
-            className={appDetailStyles.gutter}
+            className="mb-3"
             type="button"
             variant="primary"
             dataTest="detail-modal-edit-button"
@@ -80,7 +107,7 @@ export const ManageApp: React.FC<ManageAppProps> = ({ pendingRevisions, id, appD
             EDIT DETAILS
           </Button>
         )}
-        <Button onClick={() => setIsDeleteModalOpen(true)} variant="danger">
+        <Button className="w-100" onClick={() => setIsDeleteModalOpen(true)} variant="danger">
           DELETE APP
         </Button>
       </div>
@@ -105,15 +132,19 @@ export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetail
   const { isDirectApi, category, isListed, pendingRevisions, id = '', limitToClientIds } = data as AppDetailModel
 
   return (
-    <div className={standAloneAppDetailStyles.asideContainer}>
-      <div className={developerAppDetailStyles.headerWithoutMargin}>{renderCategory(category)}</div>
-      <div className={developerAppDetailStyles.headerWithoutMargin}>
-        {renderDesktopIntegrationTypes(desktopIntegrationTypes)}
+    <div className={asideContainerClasses}>
+      <div>
+        <div className={developerAppDetailStyles.headerWithoutMargin}>{renderCategory(category)}</div>
+        <div className={developerAppDetailStyles.headerWithoutMargin}>
+          {renderDesktopIntegrationTypes(desktopIntegrationTypes)}
+        </div>
+        <RenderWithHeader header="Private App">
+          {convertBooleanToYesNoString(Boolean(limitToClientIds))}
+        </RenderWithHeader>
+        <RenderWithHeader header="Direct API">{convertBooleanToYesNoString(Boolean(isDirectApi))}</RenderWithHeader>
+        <RenderWithHeader header="Status">{renderListedStatus(Boolean(isListed))}</RenderWithHeader>
+        <ManageApp appDetailState={appDetailState} id={id} pendingRevisions={Boolean(pendingRevisions)} />
       </div>
-      <RenderWithHeader header="Private App">{convertBooleanToYesNoString(Boolean(limitToClientIds))}</RenderWithHeader>
-      <RenderWithHeader header="Direct API">{convertBooleanToYesNoString(Boolean(isDirectApi))}</RenderWithHeader>
-      <RenderWithHeader header="Status">{renderListedStatus(Boolean(isListed))}</RenderWithHeader>
-      <ManageApp appDetailState={appDetailState} id={id} pendingRevisions={Boolean(pendingRevisions)} />
     </div>
   )
 }
