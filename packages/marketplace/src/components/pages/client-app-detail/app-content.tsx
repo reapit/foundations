@@ -7,6 +7,7 @@ import '@/styles/vendor/slick.scss'
 import clientAppDetailStyles from '@/styles/pages/client-app-detail.scss?mod'
 import { Tag } from '@/components/pages/developer-app-detail/app-detail/tag'
 import { RenderWithHeader } from '@/components/pages/developer-app-detail/app-detail/render-with-header'
+import standAloneAppDetailStyles from '@/styles/blocks/standalone-app-detail.scss?mod'
 
 import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
 
@@ -40,7 +41,7 @@ export const renderCategory = (category: CategoryModel | undefined) => {
 
   return (
     <div className={clientAppDetailStyles.gutter}>
-      <H5 className={clientAppDetailStyles.headerWithoutMargin}>Category</H5>
+      <H5 className={standAloneAppDetailStyles.headerWithoutMargin}>Category</H5>
       <Tag>{category.name}</Tag>
     </div>
   )
@@ -53,7 +54,7 @@ export const renderDesktopIntegrationTypes = (desktopIntegrationTypes: DesktopIn
 
   return (
     <div className={clientAppDetailStyles.gutter}>
-      <H5 className={clientAppDetailStyles.headerWithoutMargin}>Destop Integration</H5>
+      <H5 className={standAloneAppDetailStyles.headerWithoutMargin}>Destop Integration</H5>
       {desktopIntegrationTypes.map(({ name }) => (
         <Tag key={name}>{name}</Tag>
       ))}
@@ -83,21 +84,23 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailData, desktopIntegrati
       {renderDescripion(description)}
       {renderPermissions(scopes)}
       {renderExtraMedia(extraMedia)}
-      {renderCategory(category)}
-      {renderDesktopIntegrationTypes(desktopIntegrationTypes)}
-      <RenderWithHeader header="Developer">TBC</RenderWithHeader>
-      <RenderWithHeader header="About Developer">
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam aliquid culpa saepe asperiores debitis illo
-          dolorum dolore incidunt officiis praesentium, nemo similique veritatis exercitationem perferendis non mollitia
-          animi laboriosam perspiciatis.
-        </p>
-      </RenderWithHeader>
-      <RenderWithHeader header="Contact Developer">
-        <Button type="button" variant="primary">
-          NEED HELP?
-        </Button>
-      </RenderWithHeader>
+      <div className={clientAppDetailStyles.hiddenInDesktopScreenSize}>
+        {renderCategory(category)}
+        {renderDesktopIntegrationTypes(desktopIntegrationTypes)}
+        <RenderWithHeader header="Developer">TBC</RenderWithHeader>
+        <RenderWithHeader header="About Developer">
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam aliquid culpa saepe asperiores debitis illo
+            dolorum dolore incidunt officiis praesentium, nemo similique veritatis exercitationem perferendis non
+            mollitia animi laboriosam perspiciatis.
+          </p>
+        </RenderWithHeader>
+        <RenderWithHeader header="Contact Developer">
+          <Button type="button" variant="primary">
+            NEED HELP?
+          </Button>
+        </RenderWithHeader>
+      </div>
     </div>
   )
 }
