@@ -6,7 +6,7 @@ const stage = yargs.argv.stage
 // relative to the root of web-components package
 const listServerlessYmlFiles = [
   'src/search-widget/server/serverless.yml',
-  'src/appointment-planner-component/tserver/serverless.yml',
+  'src/appointment-planner-component/server/serverless.yml',
 ]
 
 const deployServerlessList = () => {
