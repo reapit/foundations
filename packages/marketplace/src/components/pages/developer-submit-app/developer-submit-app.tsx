@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { History } from 'history'
-import { RouteComponentProps, useHistory, useParams } from 'react-router'
+import { useHistory, useParams } from 'react-router'
 import {
   Input,
   Button,
@@ -288,7 +288,6 @@ export const DeveloperSubmitApp: React.FC<DeveloperSubmitAppProps> = () => {
 
   const [isSubmitModalOpen, setIsSubmitModalOpen] = React.useState<boolean>(!getCookieString(COOKIE_FIRST_SUBMIT))
 
-  // const goBackToApps = getGoBackToAppsFunc({ history })
   const goBackToApps = React.useCallback(handleGoBackToApps(history), [history])
   const onSubmitAnotherApp = React.useCallback(handleOnSubmitAnotherApp(dispatch), [dispatch])
 

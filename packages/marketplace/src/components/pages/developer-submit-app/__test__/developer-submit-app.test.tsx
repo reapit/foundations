@@ -19,6 +19,7 @@ import DeveloperSubmitApp, {
   handleSubmitModalContinue,
   handleGoBackToApps,
   handleOnSubmitAnotherApp,
+  generateInitialValues,
 } from '../developer-submit-app'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
@@ -27,6 +28,7 @@ import { CreateAppModel } from '@/types/marketplace-api-schema'
 import { submitRevision } from '@/actions/submit-revision'
 import DOCS_LINKS from '@/constants/docs-links'
 import { getCookieString, setCookieString, COOKIE_FIRST_SUBMIT, COOKIE_MAX_AGE_INFINITY } from '@/utils/cookie'
+import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 
 jest.mock('@/utils/cookie', () => ({
   getCookieString: jest.fn(),
@@ -232,6 +234,62 @@ describe('DeveloperSubmitApp', () => {
       const fn = handleOnSubmitAnotherApp(spyDispatch)
       fn()
       expect(spyDispatch).toBeCalledWith(submitAppSetFormState('PENDING'))
+    })
+  })
+  describe('generateInitialValues', () => {
+    it('should run correctly in case appDetail is null', () => {
+      const result = generateInitialValues(null, 'testid')
+      expect(result).toEqual({
+        categoryId: '',
+        authFlow: '',
+        screen5ImageUrl: '',
+        screen4ImageUrl: '',
+        screen3ImageUrl: '',
+        screen2ImageUrl: '',
+        screen1ImageUrl: '',
+        name: '',
+        telephone: '',
+        supportEmail: '',
+        launchUri: '',
+        iconImageUrl: '',
+        homePage: '',
+        description: '',
+        summary: '',
+        developerId: 'testid',
+        scopes: [],
+        redirectUris: '',
+        signoutUris: '',
+        limitToClientIds: '',
+        desktopIntegrationTypeIds: '',
+      })
+    })
+    it('should run correctly in case appDetail is existed', () => {
+      const result = generateInitialValues(appDetailDataStub.data, 'testid')
+      expect(result).toEqual({
+        authFlow: undefined,
+        categoryId: '',
+        description: 'enim facilisis',
+        desktopIntegrationTypeIds: [],
+        developerId: undefined,
+        homePage: 'http://myawesomeproptechproduct.io',
+        iconImageUrl: '',
+        isDirectApi: undefined,
+        isListed: undefined,
+        isPrivateApp: 'no',
+        launchUri: undefined,
+        limitToClientIds: '',
+        name: "Peter's Properties",
+        redirectUris: '',
+        scopes: ['Marketplace/developers.read', 'Marketplace/developers.write'],
+        screen1ImageUrl:
+          'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png',
+        screen2ImageUrl:
+          'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png',
+        signoutUris: '',
+        summary: 'vitae elementum curabitur vitae',
+        supportEmail: 'support@reapit.com',
+        telephone: '0113 288 2900',
+      })
     })
   })
 })
