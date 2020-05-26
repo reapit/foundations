@@ -23,7 +23,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
   const id = params && params.appid ? params.appid : ''
   const queryParams = new URLSearchParams(search)
   const appId = queryParams.get('appId')
-
+  const page = queryParams.get('page') || 1
   switch (route) {
     case Routes.CLIENT:
       store.dispatch(clientFetchAppSummary(getParamsFromPath(search || '')))
@@ -89,10 +89,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(appDetailRequestData({ id }))
       break
     case Routes.ADMIN_APPROVALS:
-      store.dispatch(adminApprovalsRequestData(1))
-      break
-    case Routes.ADMIN_APPROVALS_PAGINATE:
-      store.dispatch(adminApprovalsRequestData(params && params.page ? Number(params.page) : 1))
+      store.dispatch(adminApprovalsRequestData(Number(page)))
       break
     case Routes.ADMIN_DEV_MANAGEMENT:
       store.dispatch(

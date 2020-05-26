@@ -31,7 +31,6 @@ const Routes = {
   ADMIN: '/admin',
   ADMIN_APPS: '/admin/apps',
   ADMIN_APPROVALS: '/admin/approvals',
-  ADMIN_APPROVALS_PAGINATE: '/admin/approvals/:page',
   ADMIN_DEV_MANAGEMENT: '/admin/dev-management',
   ADMIN_DEV_MANAGEMENT_PAGINATE: '/admin/dev-management/:page',
   ADMIN_LOGIN: '/admin/login',
