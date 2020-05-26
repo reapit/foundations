@@ -117,12 +117,6 @@ const Router = () => {
               />
 
               <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS} component={AdminApprovalsPage} exact fetcher />
-              <PrivateRoute
-                allow="ADMIN"
-                path={Routes.ADMIN_APPROVALS_PAGINATE}
-                component={AdminApprovalsPage}
-                fetcher
-              />
               <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPS} component={AdminAppsPage} fetcher exact />
               <PrivateRoute
                 allow="ADMIN"

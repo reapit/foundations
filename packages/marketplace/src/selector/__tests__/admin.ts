@@ -1,22 +1,71 @@
 import { ReduxState } from '@/types/core'
-import { selectAdminAppsState } from '../admin'
-import { appsDataStub } from '../../sagas/__stubs__/apps'
+import {
+  selectAdminAppsState,
+  selectAdminAppsData,
+  selectAdminApprovalsState,
+  selectWaitingApprovalData,
+} from '../admin'
+import { appsDataStub } from '@/sagas/__stubs__/apps'
+import { approvalsStub } from '@/sagas/__stubs__/approvals'
 
-describe('selectAdminAppsState', () => {
-  it('should run correctly', () => {
-    const input = {
-      adminApps: {
-        adminAppsData: appsDataStub.data,
-        loading: false,
-      },
-    } as ReduxState
-    const result = selectAdminAppsState(input)
-    expect(result).toEqual({ adminAppsData: appsDataStub.data, loading: false })
+describe('admin', () => {
+  const mockState = {
+    adminApps: {
+      adminAppsData: appsDataStub.data,
+      loading: false,
+    },
+    adminApprovals: {
+      loading: false,
+      adminApprovalsData: approvalsStub,
+    },
+  } as ReduxState
+
+  describe('selectAdminAppsState', () => {
+    it('should run correctly', () => {
+      const result = selectAdminAppsState(mockState)
+      expect(result).toEqual({ adminAppsData: appsDataStub.data, loading: false })
+    })
+
+    it('should run correctly and return undefined', () => {
+      const input = {} as ReduxState
+      const result = selectAdminAppsState(input)
+      expect(result).toEqual(undefined)
+    })
   })
 
-  it('should run correctly and return undefined', () => {
-    const input = {} as ReduxState
-    const result = selectAdminAppsState(input)
-    expect(result).toEqual(undefined)
+  describe('selectAdminAppsData', () => {
+    it('should run correctly', () => {
+      const result = selectAdminAppsData(mockState)
+      expect(result).toEqual(mockState.adminApps.adminAppsData)
+    })
+    it('should run correctly and return undefined', () => {
+      const input = {} as ReduxState
+      const result = selectAdminAppsState(input)
+      expect(result).toEqual(undefined)
+    })
+  })
+
+  describe('selectAdminApprovalsState', () => {
+    it('should run correctly', () => {
+      const result = selectAdminApprovalsState(mockState)
+      expect(result).toEqual(mockState.adminApprovals)
+    })
+    it('should run correctly and return undefined', () => {
+      const input = {} as ReduxState
+      const result = selectAdminApprovalsState(input)
+      expect(result).toEqual(undefined)
+    })
+  })
+
+  describe('selectWaitingApprovalData', () => {
+    it('should run correctly', () => {
+      const result = selectWaitingApprovalData(mockState)
+      expect(result).toEqual(mockState.adminApprovals.adminApprovalsData?.data)
+    })
+    it('should run correctly and return {}', () => {
+      const input = {} as ReduxState
+      const result = selectWaitingApprovalData(input)
+      expect(result).toEqual({})
+    })
   })
 })
