@@ -7,9 +7,11 @@ import {
 } from '../admin'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { approvalsStub } from '@/sagas/__stubs__/approvals'
+import appState from '@/reducers/__stubs__/app-state'
 
 describe('admin', () => {
   const mockState = {
+    ...appState,
     adminApps: {
       adminAppsData: appsDataStub.data,
       loading: false,

@@ -1,9 +1,11 @@
 import { ReduxState } from '@/types/core'
 import { revisionsDataStub } from '@/sagas/__stubs__/revisions'
 import { selectAppRevision, selectAppRevisions, selectAppRevisionDetail } from '../app-revisions'
+import appState from '@/reducers/__stubs__/app-state'
 
 describe('app-revision', () => {
   const mockState = {
+    ...appState,
     revisionDetail: {
       revisionDetailData: {
         data: revisionsDataStub,

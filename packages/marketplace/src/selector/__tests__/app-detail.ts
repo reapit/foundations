@@ -1,9 +1,11 @@
 import { selectAppDetailId, selectAppDetailInstallationId, selectApp } from '../app-detail'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { ReduxState } from '@/types/core'
+import appState from '@/reducers/__stubs__/app-state'
 
 describe('app-detail', () => {
   const mockState = {
+    ...appState,
     appDetail: {
       appDetailData: appDetailDataStub,
     },

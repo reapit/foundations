@@ -7,9 +7,8 @@ import { approvalsStub } from '@/sagas/__stubs__/approvals'
 import routes from '@/constants/routes'
 import { revisionDetailDataStub } from '@/sagas/__stubs__/revision-detail'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
-import { ReduxState } from '@/types/core'
-import { revisionsDataStub } from '@/sagas/__stubs__/revisions'
-import { appsDataStub } from '@/sagas/__stubs__/apps'
+import Routes from '@/constants/routes'
+import appState from '@/reducers/__stubs__/app-state'
 import {
   AdminApprovals,
   handleCloseModal,
@@ -21,7 +20,6 @@ import {
   handleViewDetailOnClick,
   HandleViewDetailOnClickParams,
 } from '../admin-approvals'
-import Routes from '@/constants/routes'
 
 describe('admin-approvals', () => {
   describe('handleCloseModal', () => {
@@ -117,63 +115,10 @@ describe('admin-approvals', () => {
   })
 
   describe('AdminApprovals', () => {
-    const mockState = {
-      revisionDetail: {
-        revisionDetailData: {
-          data: revisionsDataStub,
-        },
-      },
-      revisions: {
-        revisions: revisionsDataStub,
-      },
-      appDetail: {
-        appDetailData: appDetailDataStub,
-      },
-      adminApps: {
-        adminAppsData: appsDataStub.data,
-        loading: false,
-      },
-      adminApprovals: {
-        loading: false,
-        adminApprovalsData: {
-          data: {
-            data: [
-              {
-                appId: 'ddc8b25e-42a2-468e-aa8f-4091eee6958f',
-                type: 'App Revision',
-                description: 'A developer has submitted a request to modify their application',
-                appRevisionId: '4afb0bb9-c1f8-403a-8fd6-1c92b4244906',
-                links: [
-                  {
-                    rel: 'self',
-                    href:
-                      'http://reapit.cloud.tyk.io/marketplace/apps/ddc8b25e-42a2-468e-aa8f-4091eee6958f/revisions/4afb0bb9-c1f8-403a-8fd6-1c92b4244906',
-                    action: 'GET',
-                  },
-                  {
-                    rel: 'approve',
-                    href:
-                      'http://reapit.cloud.tyk.io/marketplace/apps/ddc8b25e-42a2-468e-aa8f-4091eee6958f/revisions/4afb0bb9-c1f8-403a-8fd6-1c92b4244906/approve',
-                    action: 'GET',
-                  },
-                  {
-                    rel: 'reject',
-                    href:
-                      'http://reapit.cloud.tyk.io/marketplace/apps/ddc8b25e-42a2-468e-aa8f-4091eee6958f/revisions/4afb0bb9-c1f8-403a-8fd6-1c92b4244906/reject',
-                    action: 'GET',
-                  },
-                ],
-              },
-            ],
-          },
-        },
-      },
-    } as ReduxState
     let store
     beforeEach(() => {
-      /* mocking store */
       const mockStore = configureStore()
-      store = mockStore(mockState)
+      store = mockStore(appState)
     })
     it('should match a snapshot', () => {
       expect(
