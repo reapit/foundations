@@ -90,7 +90,7 @@ export const Client: React.FunctionComponent = () => {
   const installationsSetFormState = handleInstallationsSetFormState(dispatch)
 
   const urlParams = new URLSearchParams(location.search)
-  const pageNumber = Number(urlParams.get('page')) || 1
+  const page = Number(urlParams.get('page')) || 1
 
   const hasParams = hasFilterParams(location.search)
   const unfetched = !appSummaryState.data
@@ -137,11 +137,11 @@ export const Client: React.FunctionComponent = () => {
               list={apps}
               loading={loading}
               onCardClick={handleOnCardClick({ setVisible, setStateViewBrowse, appDetail, fetchAppDetail, clientId })}
-              infoType={pageNumber > 1 || hasParams ? '' : 'CLIENT_APPS_EMPTY'}
+              infoType={page > 1 || hasParams ? '' : 'CLIENT_APPS_EMPTY'}
               pagination={{
                 totalCount,
                 pageSize,
-                pageNumber,
+                pageNumber: page,
                 onChange: handleOnChange(history),
               }}
               numOfColumn={3}
