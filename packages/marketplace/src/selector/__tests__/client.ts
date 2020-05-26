@@ -8,7 +8,9 @@ import {
   selectIsWebComponentLoading,
   selectIsWebComponentUpdating,
   selectIsWebComponentNegotiators,
+  selectAppDetail
 } from '../client'
+
 import { featuredAppsDataStub } from '@/sagas/__stubs__/apps'
 
 describe('selectClientId', () => {
@@ -143,5 +145,12 @@ describe('selectFeaturedApps', () => {
     } as ReduxState
     const result = selectIsWebComponentNegotiators(input)
     expect(result).toEqual([])
+  })
+  it('should run correctly and return {}', () => {
+    const input = {
+      appDetail: {},
+    } as ReduxState
+    const result = selectAppDetail(input)
+    expect(result).toEqual(input.appDetail)
   })
 })
