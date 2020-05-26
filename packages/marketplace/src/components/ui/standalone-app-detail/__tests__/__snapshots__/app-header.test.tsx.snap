@@ -3,7 +3,7 @@
 exports[`AppHeader should match a snapshot 1`] = `
 <div>
   <div
-    className="flex items-center mb-3"
+    className="flex mb-3"
   >
     <div>
       <img
@@ -12,12 +12,14 @@ exports[`AppHeader should match a snapshot 1`] = `
         src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg"
       />
     </div>
-    <div
-      className="pl-4"
-    >
-      <Component
-        appName="Peter's Properties"
-      />
+    <div>
+      <Component>
+        Peter's Properties
+      </Component>
+      <div>
+        <FaCheck />
+         Verified by Reapit Ltd
+      </div>
     </div>
   </div>
   <img

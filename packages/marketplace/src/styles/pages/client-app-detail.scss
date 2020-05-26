@@ -1,51 +1,59 @@
 @import '../base/colors.scss';
+@import '../base/screen-size.scss';
 
 .check {
   color: #a0c862;
 }
 
+@include for-desktop-only {
+  .hiddenInDesktopScreenSize {
+    display: none;
+  }
+
+  .needHelpButton {
+    width: 100%;
+  }
+}
+
 .appDetailContainer {
-  /* mobile screen size */
-  @media screen and (max-width: 768px) {
+  @include for-mobile-only {
     background-color: $white;
+
     .asideContainer {
       display: none;
     }
   }
 
-  /* desktop screen size */
-  @media screen and (min-width: 769px) {
+  @include for-desktop-only {
     display: flex;
 
     .mainContainer {
       background-color: $white;
-      padding: 1rem;
-
+      padding: 0 3rem;
+      flex: 1;
     }
   }
 
-
-  height:auto;
+  height: auto;
   width: 100%;
-  max-width: 1012px;
   margin: 0 auto;
   padding: 15px;
 }
 
 .gutter {
-  margin: 1rem 0;
+  margin: 2rem 0;
 }
 
 .appContentContainer {
   h5,
   h5:not(:last-child) {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
+
   h5.headerWithoutMargin {
     margin-bottom: 0;
   }
 }
-
 
 .permissionList {
   list-style-type: disc;

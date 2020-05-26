@@ -1,51 +1,63 @@
 @import '../base/colors.scss';
+@import '../base/screen-size.scss';
+
+.appHeaderTextContainer {
+  padding: 0 3rem;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
 
 .asideContainer {
   margin-right: 1rem;
-  width: 30%;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+
+  & > div {
+    width: 70%;
+  }
 
 
   /* mobile screen size*/
-  @media screen and (max-width: 768px) {
+  @include for-mobile-only {
     display: none;
   }
 
-  h5,
-  h5:not(:last-child) {
-    margin-bottom: 1rem;
+  h5.headerWithoutMargin {
+    margin-bottom: 0;
   }
 
-  .headerWithoutMargin {
-    h5 {
-      margin-bottom: 0;
-    }
+  h5,
+  h5:not(:last-child):not(.headerWithoutMargin) {
+    margin-bottom: 0.5rem;
   }
   background-color: $white;
-  padding: 15px;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .appHeader {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 3rem;
 
   .appHeaderFeaturedImage {
     max-width: 495px;
     max-height: 222px;
 
-    /* mobile screen size*/
-    @media screen and (max-width: 768px) {
+    @include for-mobile-only {
       flex: 1;
       margin-top: 2rem;
     }
-
   }
 
   .appIconContainer {
     margin-left: 0;
-    width: 128px;
-    height: 128px;
+    width: 96px;
+    height: 96px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -68,6 +80,7 @@
     .check {
       /*should be px regard their base px (rem) else looks really ugly*/
       margin-right: 5px;
+      color: #a0c862;
     }
   }
 

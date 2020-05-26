@@ -15,12 +15,14 @@ export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetail
 
   return (
     <div className={standAloneAppDetailStyles.asideContainer}>
-      <DeveloperImageSection />
-      <AboutDeveloperSection />
-      <ContactDeveloperSection />
-      <div className={standAloneAppDetailStyles.headerWithoutMargin}>{renderCategory(category)}</div>
-      <div className={standAloneAppDetailStyles.headerWithoutMargin}>
-        {renderDesktopIntegrationTypes(desktopIntegrationTypes)}
+      <div>
+        <DeveloperImageSection />
+        <AboutDeveloperSection />
+        <ContactDeveloperSection />
+        <div className={standAloneAppDetailStyles.headerWithoutMargin}>{renderCategory(category)}</div>
+        <div className={standAloneAppDetailStyles.headerWithoutMargin}>
+          {renderDesktopIntegrationTypes(desktopIntegrationTypes)}
+        </div>
       </div>
     </div>
   )

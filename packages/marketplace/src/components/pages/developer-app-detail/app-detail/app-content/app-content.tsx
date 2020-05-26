@@ -37,8 +37,8 @@ export const renderAuthentication = ({ authFlow, id, externalId }: RenderAuthent
 
   return (
     <div data-test="authentication-client-id">
-      <p>Client ID:</p>
-      <p>{externalId}</p>
+      <b className="mr-2">Client ID:</b>
+      {externalId}
     </div>
   )
 }
@@ -90,6 +90,10 @@ export const handleUninstallSuccess = ({
   )
 }
 
+export const CustomUninstallCell: React.FC<{ onClick: () => void }> = ({ onClick }) => (
+  <a onClick={onClick}>Uninstall</a>
+)
+
 const AppContent: React.FC<AppContentProps> = ({ appDetailData }) => {
   const { summary = '', authFlow = '', externalId = '', id = '', name = '' } = appDetailData
   const installationsData = useSelector(selectInstallationAppData) as PagedResultInstallationModel_
@@ -98,7 +102,7 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailData }) => {
   const developerId = useSelector(selectDeveloperId) || ''
 
   const [uninstallApp, setUninstallApp] = React.useState<InstallationModel>()
-  const columns = generateColumns(handleUninstall(setUninstallApp))()
+  const columns = generateColumns(handleUninstall(setUninstallApp), CustomUninstallCell)()
   const isVisibleUninstallModal = Boolean(uninstallApp)
 
   /**
