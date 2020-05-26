@@ -1,12 +1,9 @@
 import * as React from 'react'
-import { exec } from 'pell'
-import { withRouter, RouteComponentProps, useHistory, useParams } from 'react-router'
-import { ReduxState, FormState } from '@/types/core'
+import { RouteComponentProps, useHistory, useParams } from 'react-router'
+import { FormState } from '@/types/core'
 import {
   Input,
   ImageInput,
-  TextAreaEditor,
-  TextArea,
   Button,
   Checkbox,
   Loader,
@@ -21,23 +18,18 @@ import {
   GridFourCol,
   GridFourColItem,
   LevelRight,
-  SelectBox,
-  SelectBoxOptions,
   Formik,
   Form,
   FormikHelpers,
   H6,
   RadioSelect,
   FlexContainerResponsive,
-  Helper,
-  DropdownSelect,
-  SelectOption,
 } from '@reapit/elements'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
 
 import { validate } from '@/utils/form/submit-app'
-import { connect, useDispatch, useSelector } from 'react-redux'
-import { submitApp, submitAppSetFormState, SubmitAppFormikActions } from '@/actions/submit-app'
+import { useDispatch, useSelector } from 'react-redux'
+import { submitApp, submitAppSetFormState, SubmitAppFormikActions, CustomCreateAppModel } from '@/actions/submit-app'
 import { SubmitAppState } from '@/reducers/submit-app'
 import { AppDetailState } from '@/reducers/app-detail'
 import { SubmitRevisionState } from '@/reducers/submit-revision'
@@ -45,11 +37,8 @@ import { CreateAppModel, ScopeModel, AppDetailModel, CategoryModel } from '@reap
 import Routes from '@/constants/routes'
 import { submitRevisionSetFormState, submitRevision } from '@/actions/submit-revision'
 import { DesktopIntegrationTypeModel } from '@/actions/app-integration-types'
-import DeveloperSubmitAppSuccessfully from './developer-submit-app-successfully'
-import { selectCategories } from '../../selector/app-categories'
-import { selectIntegrationTypes } from '@/selector/integration-types'
+import DeveloperSubmitAppSuccessfully from '@/components/pages/developer-submit-app-successfully'
 import styles from '@/styles/pages/developer-submit-app.scss?mod'
-import linkStyles from '@/styles/elements/link.scss?mod'
 import { getCookieString, setCookieString, COOKIE_FIRST_SUBMIT, COOKIE_MAX_AGE_INFINITY } from '@/utils/cookie'
 import { SubmitAppReadDocModal } from '@/components/ui/submit-app-read-doc-modal'
 import dayjs from 'dayjs'
@@ -59,13 +48,9 @@ import { selectSubmitAppState, selectSubmitAppRevisionState } from '@/selector/s
 import { selectDeveloperId } from '@/selector/auth'
 import { selectAppDetailState } from '@/selector/app-detail'
 import { Dispatch } from 'redux'
-
-export type CustomCreateAppModel = Omit<CreateAppModel, 'redirectUris' | 'signoutUris' | 'limitToClientIds'> & {
-  redirectUris?: string
-  signoutUris?: string
-  limitToClientIds?: string
-  isPrivateApp?: string
-}
+import GeneralInformationSection from './general-information-section'
+import AgencyCloudIntegrationSection from './agency-cloud-integration-section'
+import AuthenticationFlowSection from './authentication-flow-section'
 
 export interface SubmitAppMappedActions {
   submitApp: (
@@ -272,8 +257,6 @@ export const handleSubmitApp = (appId: string, dispatch: Dispatch) => (
   }
 
   if (!appId) {
-    // submitApp(appToSubmit, actions)
-
     dispatch(submitApp({ ...appToSubmit, actions }))
   } else {
     if (appToSubmit.authFlow) {
@@ -282,7 +265,6 @@ export const handleSubmitApp = (appId: string, dispatch: Dispatch) => (
     if (appModel.isPrivateApp === 'no') {
       appToSubmit.limitToClientIds = []
     }
-    // submitRevision(appId, appToSubmit)
     dispatch(submitRevision({ ...appToSubmit, id: appId }))
   }
 }
@@ -340,7 +322,7 @@ const onSubmitAnotherApp = (dispatch: Dispatch) => {
   }
 }
 
-export const SubmitApp: React.FC<SubmitAppProps> = () => {
+export const DeveloperSubmitApp: React.FC<SubmitAppProps> = () => {
   let initialValues
   let formState
   let appId
@@ -351,14 +333,11 @@ export const SubmitApp: React.FC<SubmitAppProps> = () => {
   const appDetailState = useSelector(selectAppDetailState)
   const submitAppState = useSelector(selectSubmitAppState)
   const submitRevisionState = useSelector(selectSubmitAppRevisionState)
-  const categories = useSelector(selectCategories)
-  const integrationTypes = useSelector(selectIntegrationTypes)
 
   const [isSubmitModalOpen, setIsSubmitModalOpen] = React.useState<boolean>(!getCookieString(COOKIE_FIRST_SUBMIT))
 
   const goBackToApps = getGoBackToAppsFunc({ history })
 
-  // const isSubmitRevision = Boolean(match.params && match.params.appid)
   const isSubmitRevision = appid ? true : false
   const isSubmitApp = !isSubmitRevision
 
@@ -412,18 +391,6 @@ export const SubmitApp: React.FC<SubmitAppProps> = () => {
     history.push(Routes.DEVELOPER_MY_APPS)
   }
 
-  const categoryOptions: SelectBoxOptions[] = categories.map(category => ({
-    value: category.id as string,
-    label: category.name as string,
-  }))
-
-  const integrationTypeOptions: SelectOption[] = integrationTypes.map(integrationType => ({
-    value: integrationType.id || '',
-    label: integrationType.name || '',
-    description: integrationType.description || '',
-    link: integrationType.url || '',
-  }))
-
   return (
     <>
       <FlexContainerBasic
@@ -442,192 +409,14 @@ export const SubmitApp: React.FC<SubmitAppProps> = () => {
             {({ setFieldValue, values, errors }) => {
               return (
                 <Form noValidate={true}>
-                  <FormSection data-test="submit-app-form">
-                    <Helper>
-                      For more information on how to complete this form, please view our &quot;Step-by-step&quot;
-                      guide&nbsp;
-                      <a
-                        className={linkStyles.link}
-                        href="https://foundations-documentation.reapit.cloud/developer-portal"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        here
-                      </a>
-                    </Helper>
-                    <FormHeading>App Listing</FormHeading>
-                    <FormSubHeading>
-                      The section below relates to the fields that comprise the listing of your application as it will
-                      appear to a user in the Marketplace. It also includes details we will use to enable us to contact
-                      you about your submitted application, how best to make your app discoverable to users and to
-                      determine where to launch it from the marketplace.
-                    </FormSubHeading>
-                    <Grid isMultiLine>
-                      <GridItem>
-                        <Input
-                          dataTest="submit-app-name"
-                          type="text"
-                          labelText="Name"
-                          id="name"
-                          name="name"
-                          placeholder="The name of your app as it will appear to users"
-                        />
-                      </GridItem>
-                      <GridItem>
-                        <SelectBox id="categoryId" name="categoryId" options={categoryOptions} labelText="Category" />
-                      </GridItem>
-                    </Grid>
-                    <Grid>
-                      <GridItem>
-                        <Input
-                          dataTest="submit-app-support-email"
-                          type="email"
-                          labelText="Support email"
-                          id="supportEmail"
-                          name="supportEmail"
-                          placeholder="The contact to your support team if your users have a problem"
-                        />
-                      </GridItem>
-                      <GridItem>
-                        <Input
-                          dataTest="submit-app-phone"
-                          type="tel"
-                          labelText="Telephone"
-                          id="phone"
-                          name="telephone"
-                          placeholder="Should one of our developers need to contact you about your app"
-                        />
-                      </GridItem>
-                    </Grid>
-                    <Grid>
-                      <GridItem>
-                        <Input
-                          dataTest="submit-app-home-page"
-                          type="text"
-                          labelText="Home page"
-                          id="homePage"
-                          name="homePage"
-                          placeholder="Your company homepage. HTTP:// or HTTPS://"
-                        />
-                      </GridItem>
-                      <GridItem>
-                        <Input
-                          dataTest="submit-app-launch-uri"
-                          type="text"
-                          labelText="Launch URI"
-                          id="launch Url"
-                          name="launchUri"
-                          placeholder="The launch page for your app. HTTPS only other than for http://localhost"
-                        />
-                      </GridItem>
-                    </Grid>
-                    <Grid>
-                      <GridItem>
-                        <TextArea
-                          id="summary"
-                          dataTest="submit-app-summary"
-                          labelText="Summary"
-                          name="summary"
-                          placeholder={
-                            'A short strapline summary for your app listing. Must be between 50 and 150 characters'
-                          }
-                        />
-                      </GridItem>
-                      <GridItem>
-                        <TextAreaEditor
-                          id="description"
-                          actions={[
-                            'bold',
-                            'italic',
-                            'paragraph',
-                            'olist',
-                            'ulist',
-                            'link',
-                            {
-                              name: 'test',
-                              icon: '<b>H<sub>5</sub></b>',
-                              title: 'Add heading 5',
-                              result: () => exec('formatBlock', '<h5>'),
-                            },
-                          ]}
-                          dataTest="submit-app-description"
-                          labelText="Description"
-                          name="description"
-                          placeholder={
-                            // eslint-disable-next-line max-len
-                            'A detailed description for your app listing. Must be between 150 and 1000 characters. Please note: As this field supports HTML, special characters will be included in the character count'
-                          }
-                        />
-                      </GridItem>
-                    </Grid>
-                  </FormSection>
-
-                  <FormSection>
-                    <FormHeading>Agency Cloud Integration</FormHeading>
-                    <FormSubHeading>
-                      To be able to associate your application with an action in Agency Cloud the application will need
-                      to be given a desktop type. Please select the type of integration your app requires from the list
-                      below. For more information on Desktop Types, please{' '}
-                      <a
-                        className={linkStyles.link}
-                        href="https://foundations-documentation.reapit.cloud/api/desktop-api#desktop-types"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        click here
-                      </a>
-                    </FormSubHeading>
-                    <Grid>
-                      <GridItem>
-                        <DropdownSelect
-                          options={integrationTypeOptions}
-                          labelText="Integration Type"
-                          name="desktopIntegrationTypeIds"
-                          id="desktopIntegrationTypeIds"
-                          placeholder="Please select"
-                        />
-                      </GridItem>
-                    </Grid>
-                  </FormSection>
-
-                  <FormSection>
-                    <FormHeading>AUTHENTICATION FLOW</FormHeading>
-                    <FormSubHeading>
-                      Please select an authentication flow for your application.{' '}
-                      <strong>You can only do this once when you submit your app</strong>. If your application is{' '}
-                      <strong>user facing</strong>, you should select &quot;Authorization Code&quot;. This will allow
-                      you to use our hosted authentication service, Reapit Connect. If you are developing a{' '}
-                      <strong>server-side machine to machine</strong> application such as a feed to another system, you
-                      should select &quot;Client Credentials&quot;.{' '}
-                      <strong>This flow must not be used for applications without a server-side component</strong>. For
-                      more information on authentication, see our platform documentation{' '}
-                      <a
-                        className={linkStyles.link}
-                        href="https://foundations-documentation.reapit.cloud/api/api-documentation#authentication"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        here
-                      </a>{' '}
-                      before progressing.
-                    </FormSubHeading>
-                    <Grid>
-                      <GridItem>
-                        <RadioSelect
-                          setFieldValue={setFieldValue}
-                          state={values['authFlow']}
-                          disabled={!isSubmitApp}
-                          options={[
-                            { label: 'AUTHORIZATION CODE (Reapit Connect)', value: 'authorisationCode' },
-                            { label: 'CLIENT CREDENTIALS', value: 'clientCredentials' },
-                          ]}
-                          name="authFlow"
-                          id="authFlow"
-                        />
-                      </GridItem>
-                    </Grid>
-                  </FormSection>
-                  <FormSection>
+                  <GeneralInformationSection />
+                  <AgencyCloudIntegrationSection />
+                  <AuthenticationFlowSection
+                    authFlow={values['authFlow']}
+                    isSubmitApp={isSubmitApp}
+                    setFieldValue={setFieldValue}
+                  />
+                  {/* <FormSection>
                     <Grid>
                       <GridItem>
                         <FormHeading>Redirect URI(s)</FormHeading>
@@ -698,7 +487,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = () => {
                         />
                       </GridItem>
                     </Grid>
-                  </FormSection>
+                  </FormSection> */}
                   <FormSection>
                     <FormHeading>Images</FormHeading>
                     <FormSubHeading>
@@ -860,24 +649,4 @@ export const SubmitApp: React.FC<SubmitAppProps> = () => {
   )
 }
 
-const mapStateToProps = (state: ReduxState): SubmitAppMappedProps => ({
-  submitAppState: state.submitApp,
-  appDetailState: state.appDetail,
-  submitRevisionState: state.submitRevision,
-  developerId: state.auth.loginSession ? state.auth.loginSession.loginIdentity.developerId : null,
-  categories: selectCategories(state),
-  integrationTypes: selectIntegrationTypes(state),
-})
-
-const mapDispatchToProps = (dispatch: any): SubmitAppMappedActions => ({
-  submitApp: (appModel: CreateAppModel, actions: SubmitAppFormikActions, setSubmitError: (error: string) => void) => {
-    dispatch(submitApp({ ...appModel, actions, setSubmitError }))
-  },
-  submitRevision: (id, revision) => {
-    dispatch(submitRevision({ ...revision, id }))
-  },
-  submitRevisionSetFormState: formState => dispatch(submitRevisionSetFormState(formState)),
-  submitAppSetFormState: formState => dispatch(submitAppSetFormState(formState)),
-})
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SubmitApp))
+export default DeveloperSubmitApp
