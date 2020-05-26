@@ -15,7 +15,7 @@ $nav-dimensions: 66px;
   z-index: 1;
 
   @media screen and (min-width: 768px) {
-    height: 100vh;
+    height: 100%;
     width: $nav-dimensions;
     overflow: hidden;
     position: static;
@@ -35,7 +35,6 @@ $nav-dimensions: 66px;
       flex-direction: column;
       overflow-x: hidden;
       overflow-y: auto;
-      height: 100vh;
     }
   }
 
@@ -70,7 +69,7 @@ $nav-dimensions: 66px;
 
   .nav-item-link {
     cursor: pointer;
-    
+
     &.is-secondary {
       margin-left: auto;
 
@@ -84,14 +83,14 @@ $nav-dimensions: 66px;
   .nav-item-icon {
     width: 50%;
     height: 100%;
-    @media all and (-ms-high-contrast:none) {
+    @media all and (-ms-high-contrast: none) {
       height: 23px;
     }
   }
 
   .is-logo .nav-item-icon {
     width: 75%;
-    @media all and (-ms-high-contrast:none) {
+    @media all and (-ms-high-contrast: none) {
       height: 42px;
     }
   }
