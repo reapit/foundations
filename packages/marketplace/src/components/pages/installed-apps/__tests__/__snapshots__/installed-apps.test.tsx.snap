@@ -58,7 +58,7 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
       <Component>
         <Connect(ErrorBoundary)>
           <ErrorBoundary
-            componentError={Object {}}
+            componentError={null}
             errorThrownComponent={[Function]}
           >
             <Component

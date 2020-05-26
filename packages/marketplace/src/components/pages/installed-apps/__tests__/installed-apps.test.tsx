@@ -5,28 +5,28 @@ import { appsDataStub } from '@/sagas/__stubs__/apps'
 import routes from '@/constants/routes'
 import { InstalledApps, handleOnChange, handleOnCardClick } from '../installed-apps'
 import { handleLaunchApp } from '../../../../utils/launch-app'
-import { ReduxState } from '@/types/core'
 import configureStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
 import { MemoryRouter } from 'react-router'
 import Routes from '@/constants/routes'
+import appState from '@/reducers/__stubs__/app-state'
 
 jest.mock('../../../../utils/launch-app')
 
+const createState = loading => {
+  return {
+    ...appState,
+    installedApps: {
+      loading: loading,
+      installedAppsData: appsDataStub,
+    },
+  }
+}
+
 describe('InstalledApps', () => {
   it('should match a snapshot when LOADING false', () => {
-    const mockState = {
-      installedApps: {
-        loading: false,
-        installedAppsData: appsDataStub,
-      },
-      error: {
-        componentError: {},
-      },
-    } as ReduxState
-
     const mockStore = configureStore()
-    const store = mockStore(mockState)
+    const store = mockStore(createState(false))
 
     expect(
       mount(
@@ -40,15 +40,8 @@ describe('InstalledApps', () => {
   })
 
   it('should match a snapshot when LOADING true', () => {
-    const mockState = {
-      installedApps: {
-        loading: true,
-        installedAppsData: appsDataStub,
-      },
-    } as ReduxState
-
     const mockStore = configureStore()
-    const store = mockStore(mockState)
+    const store = mockStore(createState(true))
     expect(
       mount(
         <Provider store={store}>
