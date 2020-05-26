@@ -13,9 +13,9 @@ import { selectClientId, selectAppSummary } from '@/selector/client'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import styles from '@/styles/pages/client.scss?mod'
 import { appInstallationsSetFormState } from '@/actions/app-installations'
-import { addQuery, getParamValueFromPath, hasFilterParams } from '@/utils/client-url-params'
+import { addQuery, hasFilterParams } from '@/utils/client-url-params'
 import { setAppDetailModalStateBrowse } from '@/actions/app-detail-modal'
-import { selectAppDetail } from '@/selector/client-app-detail'
+import { selectAppDetail } from '@/selector/client'
 import { selectInstallationFormState } from '@/selector/installations'
 import { Dispatch } from 'redux'
 
@@ -89,11 +89,9 @@ export const Client: React.FunctionComponent = () => {
   const fetchAppDetail = handleFetchAppDetail(dispatch)
   const installationsSetFormState = handleInstallationsSetFormState(dispatch)
 
-  const pageNumber =
-    !isNaN(Number(getParamValueFromPath(location.search, 'page'))) &&
-    Number(getParamValueFromPath(location.search, 'page')) > 0
-      ? Number(getParamValueFromPath(location.search, 'page'))
-      : 1
+  const urlParams = new URLSearchParams(location.search)
+  const pageNumber = Number(urlParams.get('page')) || 1
+
   const hasParams = hasFilterParams(location.search)
   const unfetched = !appSummaryState.data
   const loading = appSummaryState.isAppSummaryLoading
