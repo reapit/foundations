@@ -1,0 +1,2245 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Client should match a snapshot when LOADING false 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "clientRoute",
+          "pathname": "/client/apps",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "clientRoute",
+              "pathname": "/client/apps",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "clientRoute",
+            "pathname": "/client/apps",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Component>
+        <Connect(ErrorBoundary)>
+          <ErrorBoundary
+            componentError={null}
+            errorThrownComponent={[Function]}
+          >
+            <div
+              id="page-client-apps-container"
+            >
+              <withRouter(Connect(Component))>
+                <Connect(Component)
+                  history={
+                    Object {
+                      "action": "POP",
+                      "block": [Function],
+                      "canGo": [Function],
+                      "createHref": [Function],
+                      "entries": Array [
+                        Object {
+                          "hash": "",
+                          "key": "clientRoute",
+                          "pathname": "/client/apps",
+                          "search": "",
+                        },
+                      ],
+                      "go": [Function],
+                      "goBack": [Function],
+                      "goForward": [Function],
+                      "index": 0,
+                      "length": 1,
+                      "listen": [Function],
+                      "location": Object {
+                        "hash": "",
+                        "key": "clientRoute",
+                        "pathname": "/client/apps",
+                        "search": "",
+                      },
+                      "push": [Function],
+                      "replace": [Function],
+                    }
+                  }
+                  location={
+                    Object {
+                      "hash": "",
+                      "key": "clientRoute",
+                      "pathname": "/client/apps",
+                      "search": "",
+                    }
+                  }
+                  match={
+                    Object {
+                      "isExact": false,
+                      "params": Object {},
+                      "path": "/",
+                      "url": "/",
+                    }
+                  }
+                >
+                  <Component
+                    categories={Array []}
+                    dispatch={[Function]}
+                    history={
+                      Object {
+                        "action": "POP",
+                        "block": [Function],
+                        "canGo": [Function],
+                        "createHref": [Function],
+                        "entries": Array [
+                          Object {
+                            "hash": "",
+                            "key": "clientRoute",
+                            "pathname": "/client/apps",
+                            "search": "",
+                          },
+                        ],
+                        "go": [Function],
+                        "goBack": [Function],
+                        "goForward": [Function],
+                        "index": 0,
+                        "length": 1,
+                        "listen": [Function],
+                        "location": Object {
+                          "hash": "",
+                          "key": "clientRoute",
+                          "pathname": "/client/apps",
+                          "search": "",
+                        },
+                        "push": [Function],
+                        "replace": [Function],
+                      }
+                    }
+                    location={
+                      Object {
+                        "hash": "",
+                        "key": "clientRoute",
+                        "pathname": "/client/apps",
+                        "search": "",
+                      }
+                    }
+                    match={
+                      Object {
+                        "isExact": false,
+                        "params": Object {},
+                        "path": "/",
+                        "url": "/",
+                      }
+                    }
+                  >
+                    <div>
+                      <Component
+                        flexColumn={true}
+                        hasPadding={true}
+                      >
+                        <div
+                          className="container-flex is-column   has-padding  "
+                        >
+                          <div>
+                            <Component>
+                              <h3
+                                className="title is-3  "
+                                id=""
+                              >
+                                Browse Apps
+                              </h3>
+                            </Component>
+                            <Component>
+                              <h6
+                                className="title is-6  "
+                                id=""
+                              >
+                                Search
+                              </h6>
+                            </Component>
+                            <Formik
+                              component={[Function]}
+                              enableReinitialize={true}
+                              initialValues={
+                                Object {
+                                  "search": "",
+                                  "searchBy": "appName",
+                                }
+                              }
+                              onSubmit={[Function]}
+                            >
+                              <Component
+                                dirty={false}
+                                errors={Object {}}
+                                getFieldHelpers={[Function]}
+                                getFieldMeta={[Function]}
+                                getFieldProps={[Function]}
+                                handleBlur={[Function]}
+                                handleChange={[Function]}
+                                handleReset={[Function]}
+                                handleSubmit={[Function]}
+                                initialErrors={Object {}}
+                                initialTouched={Object {}}
+                                initialValues={
+                                  Object {
+                                    "search": "",
+                                    "searchBy": "appName",
+                                  }
+                                }
+                                isSubmitting={false}
+                                isValid={true}
+                                isValidating={false}
+                                registerField={[Function]}
+                                resetForm={[Function]}
+                                setErrors={[Function]}
+                                setFieldError={[Function]}
+                                setFieldTouched={[Function]}
+                                setFieldValue={[Function]}
+                                setFormikState={[Function]}
+                                setStatus={[Function]}
+                                setSubmitting={[Function]}
+                                setTouched={[Function]}
+                                setValues={[Function]}
+                                submitCount={0}
+                                submitForm={[Function]}
+                                touched={Object {}}
+                                unregisterField={[Function]}
+                                validateField={[Function]}
+                                validateForm={[Function]}
+                                validateOnBlur={true}
+                                validateOnChange={true}
+                                validateOnMount={false}
+                                values={
+                                  Object {
+                                    "search": "",
+                                    "searchBy": "appName",
+                                  }
+                                }
+                              >
+                                <Form>
+                                  <form
+                                    action="#"
+                                    onReset={[Function]}
+                                    onSubmit={[Function]}
+                                  >
+                                    <Component
+                                      id="search"
+                                      name="search"
+                                      placeholder="Search..."
+                                      rightIcon={
+                                        <button
+                                          type="submit"
+                                        >
+                                          <FaSearch />
+                                        </button>
+                                      }
+                                      type="text"
+                                    >
+                                      <Field
+                                        name="search"
+                                        validate={null}
+                                      >
+                                        <div
+                                          className="field pb-4"
+                                        >
+                                          <div
+                                            className="control has-icons-right"
+                                          >
+                                            <input
+                                              className="input is-primary"
+                                              data-test=""
+                                              disabled={false}
+                                              id="search"
+                                              name="search"
+                                              onBlur={[Function]}
+                                              onChange={[Function]}
+                                              placeholder="Search..."
+                                              type="text"
+                                              value=""
+                                            />
+                                            <span
+                                              className="icon is-right"
+                                            >
+                                              <button
+                                                type="submit"
+                                              >
+                                                <FaSearch>
+                                                  <IconBase
+                                                    attr={
+                                                      Object {
+                                                        "viewBox": "0 0 512 512",
+                                                      }
+                                                    }
+                                                  >
+                                                    <svg
+                                                      fill="currentColor"
+                                                      height="1em"
+                                                      stroke="currentColor"
+                                                      strokeWidth="0"
+                                                      style={
+                                                        Object {
+                                                          "color": undefined,
+                                                        }
+                                                      }
+                                                      viewBox="0 0 512 512"
+                                                      width="1em"
+                                                      xmlns="http://www.w3.org/2000/svg"
+                                                    >
+                                                      <path
+                                                        d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+                                                        key="0"
+                                                      />
+                                                    </svg>
+                                                  </IconBase>
+                                                </FaSearch>
+                                              </button>
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </Field>
+                                    </Component>
+                                    <Component
+                                      id="searchBy"
+                                      name="searchBy"
+                                      options={
+                                        Array [
+                                          Object {
+                                            "label": "By App Name",
+                                            "value": "appName",
+                                          },
+                                          Object {
+                                            "label": "By Company",
+                                            "value": "companyName",
+                                          },
+                                        ]
+                                      }
+                                      setFieldValue={[Function]}
+                                      state="appName"
+                                    >
+                                      <Field
+                                        name="searchBy"
+                                        type="radio"
+                                      >
+                                        <div
+                                          className="field pb-2"
+                                        >
+                                          <div
+                                            className="control"
+                                          >
+                                            <label
+                                              className="label"
+                                              htmlFor="searchBy"
+                                            />
+                                            <div
+                                              className="radio-wrap"
+                                              key="0"
+                                            >
+                                              <input
+                                                checked={true}
+                                                className="checkbox "
+                                                disabled={false}
+                                                id="By App Name"
+                                                key="appName"
+                                                name="searchBy"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value="appName"
+                                              />
+                                              <label
+                                                htmlFor="By App Name"
+                                              >
+                                                By App Name
+                                              </label>
+                                            </div>
+                                            <div
+                                              className="radio-wrap"
+                                              key="1"
+                                            >
+                                              <input
+                                                checked={false}
+                                                className="checkbox "
+                                                disabled={false}
+                                                id="By Company"
+                                                key="companyName"
+                                                name="searchBy"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value="companyName"
+                                              />
+                                              <label
+                                                htmlFor="By Company"
+                                              >
+                                                By Company
+                                              </label>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </Field>
+                                    </Component>
+                                  </form>
+                                </Form>
+                              </Component>
+                            </Formik>
+                          </div>
+                          <div>
+                            <Component>
+                              <h6
+                                className="title is-6  "
+                                id=""
+                              >
+                                Filter
+                              </h6>
+                            </Component>
+                            <CategoriesList
+                              categories={
+                                Array [
+                                  Object {
+                                    "id": "DIRECT_API_APPS_FILTER",
+                                    "name": "Direct API",
+                                  },
+                                ]
+                              }
+                              onSelectCategory={[Function]}
+                              selectedCategory=""
+                            >
+                              <ul>
+                                <CategoryItem
+                                  onSelectCategory={[Function]}
+                                  selected={true}
+                                >
+                                  <li
+                                    className="undefined undefined"
+                                  >
+                                    <a
+                                      href="#"
+                                      onClick={[Function]}
+                                    >
+                                      All
+                                    </a>
+                                  </li>
+                                </CategoryItem>
+                                <CategoryItem
+                                  category={
+                                    Object {
+                                      "id": "DIRECT_API_APPS_FILTER",
+                                      "name": "Direct API",
+                                    }
+                                  }
+                                  key="DIRECT_API_APPS_FILTER"
+                                  onSelectCategory={[Function]}
+                                  selected={false}
+                                >
+                                  <li
+                                    className="undefined false"
+                                  >
+                                    <a
+                                      data-test-category-id="DIRECT_API_APPS_FILTER"
+                                      href="#"
+                                      onClick={[Function]}
+                                    >
+                                      Direct API
+                                    </a>
+                                  </li>
+                                </CategoryItem>
+                              </ul>
+                            </CategoriesList>
+                          </div>
+                        </div>
+                      </Component>
+                    </div>
+                  </Component>
+                </Connect(Component)>
+              </withRouter(Connect(Component))>
+              <Component>
+                <div
+                  className="loader-spinner body"
+                  data-test=""
+                >
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                </div>
+              </Component>
+            </div>
+            <Connect(Component)
+              afterClose={[Function]}
+              visible={false}
+            >
+              <Component
+                afterClose={[Function]}
+                setAppDetailModalStateBrowse={[Function]}
+                visible={false}
+              >
+                <Component
+                  afterClose={[Function]}
+                  renderChildren={true}
+                  visible={false}
+                />
+              </Component>
+            </Connect(Component)>
+          </ErrorBoundary>
+        </Connect(ErrorBoundary)>
+      </Component>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;
+
+exports[`Client should match a snapshot when LOADING false 2`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "clientRoute",
+          "pathname": "/client/apps",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "clientRoute",
+              "pathname": "/client/apps",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "clientRoute",
+            "pathname": "/client/apps",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Component>
+        <Connect(ErrorBoundary)>
+          <ErrorBoundary
+            componentError={null}
+            errorThrownComponent={[Function]}
+          >
+            <div
+              id="page-client-apps-container"
+            >
+              <withRouter(Connect(Component))>
+                <Connect(Component)
+                  history={
+                    Object {
+                      "action": "POP",
+                      "block": [Function],
+                      "canGo": [Function],
+                      "createHref": [Function],
+                      "entries": Array [
+                        Object {
+                          "hash": "",
+                          "key": "clientRoute",
+                          "pathname": "/client/apps",
+                          "search": "",
+                        },
+                      ],
+                      "go": [Function],
+                      "goBack": [Function],
+                      "goForward": [Function],
+                      "index": 0,
+                      "length": 1,
+                      "listen": [Function],
+                      "location": Object {
+                        "hash": "",
+                        "key": "clientRoute",
+                        "pathname": "/client/apps",
+                        "search": "",
+                      },
+                      "push": [Function],
+                      "replace": [Function],
+                    }
+                  }
+                  location={
+                    Object {
+                      "hash": "",
+                      "key": "clientRoute",
+                      "pathname": "/client/apps",
+                      "search": "",
+                    }
+                  }
+                  match={
+                    Object {
+                      "isExact": false,
+                      "params": Object {},
+                      "path": "/",
+                      "url": "/",
+                    }
+                  }
+                >
+                  <Component
+                    categories={Array []}
+                    dispatch={[Function]}
+                    history={
+                      Object {
+                        "action": "POP",
+                        "block": [Function],
+                        "canGo": [Function],
+                        "createHref": [Function],
+                        "entries": Array [
+                          Object {
+                            "hash": "",
+                            "key": "clientRoute",
+                            "pathname": "/client/apps",
+                            "search": "",
+                          },
+                        ],
+                        "go": [Function],
+                        "goBack": [Function],
+                        "goForward": [Function],
+                        "index": 0,
+                        "length": 1,
+                        "listen": [Function],
+                        "location": Object {
+                          "hash": "",
+                          "key": "clientRoute",
+                          "pathname": "/client/apps",
+                          "search": "",
+                        },
+                        "push": [Function],
+                        "replace": [Function],
+                      }
+                    }
+                    location={
+                      Object {
+                        "hash": "",
+                        "key": "clientRoute",
+                        "pathname": "/client/apps",
+                        "search": "",
+                      }
+                    }
+                    match={
+                      Object {
+                        "isExact": false,
+                        "params": Object {},
+                        "path": "/",
+                        "url": "/",
+                      }
+                    }
+                  >
+                    <div>
+                      <Component
+                        flexColumn={true}
+                        hasPadding={true}
+                      >
+                        <div
+                          className="container-flex is-column   has-padding  "
+                        >
+                          <div>
+                            <Component>
+                              <h3
+                                className="title is-3  "
+                                id=""
+                              >
+                                Browse Apps
+                              </h3>
+                            </Component>
+                            <Component>
+                              <h6
+                                className="title is-6  "
+                                id=""
+                              >
+                                Search
+                              </h6>
+                            </Component>
+                            <Formik
+                              component={[Function]}
+                              enableReinitialize={true}
+                              initialValues={
+                                Object {
+                                  "search": "",
+                                  "searchBy": "appName",
+                                }
+                              }
+                              onSubmit={[Function]}
+                            >
+                              <Component
+                                dirty={false}
+                                errors={Object {}}
+                                getFieldHelpers={[Function]}
+                                getFieldMeta={[Function]}
+                                getFieldProps={[Function]}
+                                handleBlur={[Function]}
+                                handleChange={[Function]}
+                                handleReset={[Function]}
+                                handleSubmit={[Function]}
+                                initialErrors={Object {}}
+                                initialTouched={Object {}}
+                                initialValues={
+                                  Object {
+                                    "search": "",
+                                    "searchBy": "appName",
+                                  }
+                                }
+                                isSubmitting={false}
+                                isValid={true}
+                                isValidating={false}
+                                registerField={[Function]}
+                                resetForm={[Function]}
+                                setErrors={[Function]}
+                                setFieldError={[Function]}
+                                setFieldTouched={[Function]}
+                                setFieldValue={[Function]}
+                                setFormikState={[Function]}
+                                setStatus={[Function]}
+                                setSubmitting={[Function]}
+                                setTouched={[Function]}
+                                setValues={[Function]}
+                                submitCount={0}
+                                submitForm={[Function]}
+                                touched={Object {}}
+                                unregisterField={[Function]}
+                                validateField={[Function]}
+                                validateForm={[Function]}
+                                validateOnBlur={true}
+                                validateOnChange={true}
+                                validateOnMount={false}
+                                values={
+                                  Object {
+                                    "search": "",
+                                    "searchBy": "appName",
+                                  }
+                                }
+                              >
+                                <Form>
+                                  <form
+                                    action="#"
+                                    onReset={[Function]}
+                                    onSubmit={[Function]}
+                                  >
+                                    <Component
+                                      id="search"
+                                      name="search"
+                                      placeholder="Search..."
+                                      rightIcon={
+                                        <button
+                                          type="submit"
+                                        >
+                                          <FaSearch />
+                                        </button>
+                                      }
+                                      type="text"
+                                    >
+                                      <Field
+                                        name="search"
+                                        validate={null}
+                                      >
+                                        <div
+                                          className="field pb-4"
+                                        >
+                                          <div
+                                            className="control has-icons-right"
+                                          >
+                                            <input
+                                              className="input is-primary"
+                                              data-test=""
+                                              disabled={false}
+                                              id="search"
+                                              name="search"
+                                              onBlur={[Function]}
+                                              onChange={[Function]}
+                                              placeholder="Search..."
+                                              type="text"
+                                              value=""
+                                            />
+                                            <span
+                                              className="icon is-right"
+                                            >
+                                              <button
+                                                type="submit"
+                                              >
+                                                <FaSearch>
+                                                  <IconBase
+                                                    attr={
+                                                      Object {
+                                                        "viewBox": "0 0 512 512",
+                                                      }
+                                                    }
+                                                  >
+                                                    <svg
+                                                      fill="currentColor"
+                                                      height="1em"
+                                                      stroke="currentColor"
+                                                      strokeWidth="0"
+                                                      style={
+                                                        Object {
+                                                          "color": undefined,
+                                                        }
+                                                      }
+                                                      viewBox="0 0 512 512"
+                                                      width="1em"
+                                                      xmlns="http://www.w3.org/2000/svg"
+                                                    >
+                                                      <path
+                                                        d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+                                                        key="0"
+                                                      />
+                                                    </svg>
+                                                  </IconBase>
+                                                </FaSearch>
+                                              </button>
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </Field>
+                                    </Component>
+                                    <Component
+                                      id="searchBy"
+                                      name="searchBy"
+                                      options={
+                                        Array [
+                                          Object {
+                                            "label": "By App Name",
+                                            "value": "appName",
+                                          },
+                                          Object {
+                                            "label": "By Company",
+                                            "value": "companyName",
+                                          },
+                                        ]
+                                      }
+                                      setFieldValue={[Function]}
+                                      state="appName"
+                                    >
+                                      <Field
+                                        name="searchBy"
+                                        type="radio"
+                                      >
+                                        <div
+                                          className="field pb-2"
+                                        >
+                                          <div
+                                            className="control"
+                                          >
+                                            <label
+                                              className="label"
+                                              htmlFor="searchBy"
+                                            />
+                                            <div
+                                              className="radio-wrap"
+                                              key="0"
+                                            >
+                                              <input
+                                                checked={true}
+                                                className="checkbox "
+                                                disabled={false}
+                                                id="By App Name"
+                                                key="appName"
+                                                name="searchBy"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value="appName"
+                                              />
+                                              <label
+                                                htmlFor="By App Name"
+                                              >
+                                                By App Name
+                                              </label>
+                                            </div>
+                                            <div
+                                              className="radio-wrap"
+                                              key="1"
+                                            >
+                                              <input
+                                                checked={false}
+                                                className="checkbox "
+                                                disabled={false}
+                                                id="By Company"
+                                                key="companyName"
+                                                name="searchBy"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value="companyName"
+                                              />
+                                              <label
+                                                htmlFor="By Company"
+                                              >
+                                                By Company
+                                              </label>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </Field>
+                                    </Component>
+                                  </form>
+                                </Form>
+                              </Component>
+                            </Formik>
+                          </div>
+                          <div>
+                            <Component>
+                              <h6
+                                className="title is-6  "
+                                id=""
+                              >
+                                Filter
+                              </h6>
+                            </Component>
+                            <CategoriesList
+                              categories={
+                                Array [
+                                  Object {
+                                    "id": "DIRECT_API_APPS_FILTER",
+                                    "name": "Direct API",
+                                  },
+                                ]
+                              }
+                              onSelectCategory={[Function]}
+                              selectedCategory=""
+                            >
+                              <ul>
+                                <CategoryItem
+                                  onSelectCategory={[Function]}
+                                  selected={true}
+                                >
+                                  <li
+                                    className="undefined undefined"
+                                  >
+                                    <a
+                                      href="#"
+                                      onClick={[Function]}
+                                    >
+                                      All
+                                    </a>
+                                  </li>
+                                </CategoryItem>
+                                <CategoryItem
+                                  category={
+                                    Object {
+                                      "id": "DIRECT_API_APPS_FILTER",
+                                      "name": "Direct API",
+                                    }
+                                  }
+                                  key="DIRECT_API_APPS_FILTER"
+                                  onSelectCategory={[Function]}
+                                  selected={false}
+                                >
+                                  <li
+                                    className="undefined false"
+                                  >
+                                    <a
+                                      data-test-category-id="DIRECT_API_APPS_FILTER"
+                                      href="#"
+                                      onClick={[Function]}
+                                    >
+                                      Direct API
+                                    </a>
+                                  </li>
+                                </CategoryItem>
+                              </ul>
+                            </CategoriesList>
+                          </div>
+                        </div>
+                      </Component>
+                    </div>
+                  </Component>
+                </Connect(Component)>
+              </withRouter(Connect(Component))>
+              <Component>
+                <div
+                  className="loader-spinner body"
+                  data-test=""
+                >
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                </div>
+              </Component>
+            </div>
+            <Connect(Component)
+              afterClose={[Function]}
+              visible={false}
+            >
+              <Component
+                afterClose={[Function]}
+                setAppDetailModalStateBrowse={[Function]}
+                visible={false}
+              >
+                <Component
+                  afterClose={[Function]}
+                  renderChildren={true}
+                  visible={false}
+                />
+              </Component>
+            </Connect(Component)>
+          </ErrorBoundary>
+        </Connect(ErrorBoundary)>
+      </Component>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;
+
+exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "clientRoute",
+          "pathname": "/client/apps",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "clientRoute",
+              "pathname": "/client/apps",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "clientRoute",
+            "pathname": "/client/apps",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Component>
+        <Connect(ErrorBoundary)>
+          <ErrorBoundary
+            componentError={null}
+            errorThrownComponent={[Function]}
+          >
+            <div
+              id="page-client-apps-container"
+            >
+              <withRouter(Connect(Component))>
+                <Connect(Component)
+                  history={
+                    Object {
+                      "action": "POP",
+                      "block": [Function],
+                      "canGo": [Function],
+                      "createHref": [Function],
+                      "entries": Array [
+                        Object {
+                          "hash": "",
+                          "key": "clientRoute",
+                          "pathname": "/client/apps",
+                          "search": "",
+                        },
+                      ],
+                      "go": [Function],
+                      "goBack": [Function],
+                      "goForward": [Function],
+                      "index": 0,
+                      "length": 1,
+                      "listen": [Function],
+                      "location": Object {
+                        "hash": "",
+                        "key": "clientRoute",
+                        "pathname": "/client/apps",
+                        "search": "",
+                      },
+                      "push": [Function],
+                      "replace": [Function],
+                    }
+                  }
+                  location={
+                    Object {
+                      "hash": "",
+                      "key": "clientRoute",
+                      "pathname": "/client/apps",
+                      "search": "",
+                    }
+                  }
+                  match={
+                    Object {
+                      "isExact": false,
+                      "params": Object {},
+                      "path": "/",
+                      "url": "/",
+                    }
+                  }
+                >
+                  <Component
+                    categories={Array []}
+                    dispatch={[Function]}
+                    history={
+                      Object {
+                        "action": "POP",
+                        "block": [Function],
+                        "canGo": [Function],
+                        "createHref": [Function],
+                        "entries": Array [
+                          Object {
+                            "hash": "",
+                            "key": "clientRoute",
+                            "pathname": "/client/apps",
+                            "search": "",
+                          },
+                        ],
+                        "go": [Function],
+                        "goBack": [Function],
+                        "goForward": [Function],
+                        "index": 0,
+                        "length": 1,
+                        "listen": [Function],
+                        "location": Object {
+                          "hash": "",
+                          "key": "clientRoute",
+                          "pathname": "/client/apps",
+                          "search": "",
+                        },
+                        "push": [Function],
+                        "replace": [Function],
+                      }
+                    }
+                    location={
+                      Object {
+                        "hash": "",
+                        "key": "clientRoute",
+                        "pathname": "/client/apps",
+                        "search": "",
+                      }
+                    }
+                    match={
+                      Object {
+                        "isExact": false,
+                        "params": Object {},
+                        "path": "/",
+                        "url": "/",
+                      }
+                    }
+                  >
+                    <div>
+                      <Component
+                        flexColumn={true}
+                        hasPadding={true}
+                      >
+                        <div
+                          className="container-flex is-column   has-padding  "
+                        >
+                          <div>
+                            <Component>
+                              <h3
+                                className="title is-3  "
+                                id=""
+                              >
+                                Browse Apps
+                              </h3>
+                            </Component>
+                            <Component>
+                              <h6
+                                className="title is-6  "
+                                id=""
+                              >
+                                Search
+                              </h6>
+                            </Component>
+                            <Formik
+                              component={[Function]}
+                              enableReinitialize={true}
+                              initialValues={
+                                Object {
+                                  "search": "",
+                                  "searchBy": "appName",
+                                }
+                              }
+                              onSubmit={[Function]}
+                            >
+                              <Component
+                                dirty={false}
+                                errors={Object {}}
+                                getFieldHelpers={[Function]}
+                                getFieldMeta={[Function]}
+                                getFieldProps={[Function]}
+                                handleBlur={[Function]}
+                                handleChange={[Function]}
+                                handleReset={[Function]}
+                                handleSubmit={[Function]}
+                                initialErrors={Object {}}
+                                initialTouched={Object {}}
+                                initialValues={
+                                  Object {
+                                    "search": "",
+                                    "searchBy": "appName",
+                                  }
+                                }
+                                isSubmitting={false}
+                                isValid={true}
+                                isValidating={false}
+                                registerField={[Function]}
+                                resetForm={[Function]}
+                                setErrors={[Function]}
+                                setFieldError={[Function]}
+                                setFieldTouched={[Function]}
+                                setFieldValue={[Function]}
+                                setFormikState={[Function]}
+                                setStatus={[Function]}
+                                setSubmitting={[Function]}
+                                setTouched={[Function]}
+                                setValues={[Function]}
+                                submitCount={0}
+                                submitForm={[Function]}
+                                touched={Object {}}
+                                unregisterField={[Function]}
+                                validateField={[Function]}
+                                validateForm={[Function]}
+                                validateOnBlur={true}
+                                validateOnChange={true}
+                                validateOnMount={false}
+                                values={
+                                  Object {
+                                    "search": "",
+                                    "searchBy": "appName",
+                                  }
+                                }
+                              >
+                                <Form>
+                                  <form
+                                    action="#"
+                                    onReset={[Function]}
+                                    onSubmit={[Function]}
+                                  >
+                                    <Component
+                                      id="search"
+                                      name="search"
+                                      placeholder="Search..."
+                                      rightIcon={
+                                        <button
+                                          type="submit"
+                                        >
+                                          <FaSearch />
+                                        </button>
+                                      }
+                                      type="text"
+                                    >
+                                      <Field
+                                        name="search"
+                                        validate={null}
+                                      >
+                                        <div
+                                          className="field pb-4"
+                                        >
+                                          <div
+                                            className="control has-icons-right"
+                                          >
+                                            <input
+                                              className="input is-primary"
+                                              data-test=""
+                                              disabled={false}
+                                              id="search"
+                                              name="search"
+                                              onBlur={[Function]}
+                                              onChange={[Function]}
+                                              placeholder="Search..."
+                                              type="text"
+                                              value=""
+                                            />
+                                            <span
+                                              className="icon is-right"
+                                            >
+                                              <button
+                                                type="submit"
+                                              >
+                                                <FaSearch>
+                                                  <IconBase
+                                                    attr={
+                                                      Object {
+                                                        "viewBox": "0 0 512 512",
+                                                      }
+                                                    }
+                                                  >
+                                                    <svg
+                                                      fill="currentColor"
+                                                      height="1em"
+                                                      stroke="currentColor"
+                                                      strokeWidth="0"
+                                                      style={
+                                                        Object {
+                                                          "color": undefined,
+                                                        }
+                                                      }
+                                                      viewBox="0 0 512 512"
+                                                      width="1em"
+                                                      xmlns="http://www.w3.org/2000/svg"
+                                                    >
+                                                      <path
+                                                        d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+                                                        key="0"
+                                                      />
+                                                    </svg>
+                                                  </IconBase>
+                                                </FaSearch>
+                                              </button>
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </Field>
+                                    </Component>
+                                    <Component
+                                      id="searchBy"
+                                      name="searchBy"
+                                      options={
+                                        Array [
+                                          Object {
+                                            "label": "By App Name",
+                                            "value": "appName",
+                                          },
+                                          Object {
+                                            "label": "By Company",
+                                            "value": "companyName",
+                                          },
+                                        ]
+                                      }
+                                      setFieldValue={[Function]}
+                                      state="appName"
+                                    >
+                                      <Field
+                                        name="searchBy"
+                                        type="radio"
+                                      >
+                                        <div
+                                          className="field pb-2"
+                                        >
+                                          <div
+                                            className="control"
+                                          >
+                                            <label
+                                              className="label"
+                                              htmlFor="searchBy"
+                                            />
+                                            <div
+                                              className="radio-wrap"
+                                              key="0"
+                                            >
+                                              <input
+                                                checked={true}
+                                                className="checkbox "
+                                                disabled={false}
+                                                id="By App Name"
+                                                key="appName"
+                                                name="searchBy"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value="appName"
+                                              />
+                                              <label
+                                                htmlFor="By App Name"
+                                              >
+                                                By App Name
+                                              </label>
+                                            </div>
+                                            <div
+                                              className="radio-wrap"
+                                              key="1"
+                                            >
+                                              <input
+                                                checked={false}
+                                                className="checkbox "
+                                                disabled={false}
+                                                id="By Company"
+                                                key="companyName"
+                                                name="searchBy"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value="companyName"
+                                              />
+                                              <label
+                                                htmlFor="By Company"
+                                              >
+                                                By Company
+                                              </label>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </Field>
+                                    </Component>
+                                  </form>
+                                </Form>
+                              </Component>
+                            </Formik>
+                          </div>
+                          <div>
+                            <Component>
+                              <h6
+                                className="title is-6  "
+                                id=""
+                              >
+                                Filter
+                              </h6>
+                            </Component>
+                            <CategoriesList
+                              categories={
+                                Array [
+                                  Object {
+                                    "id": "DIRECT_API_APPS_FILTER",
+                                    "name": "Direct API",
+                                  },
+                                ]
+                              }
+                              onSelectCategory={[Function]}
+                              selectedCategory=""
+                            >
+                              <ul>
+                                <CategoryItem
+                                  onSelectCategory={[Function]}
+                                  selected={true}
+                                >
+                                  <li
+                                    className="undefined undefined"
+                                  >
+                                    <a
+                                      href="#"
+                                      onClick={[Function]}
+                                    >
+                                      All
+                                    </a>
+                                  </li>
+                                </CategoryItem>
+                                <CategoryItem
+                                  category={
+                                    Object {
+                                      "id": "DIRECT_API_APPS_FILTER",
+                                      "name": "Direct API",
+                                    }
+                                  }
+                                  key="DIRECT_API_APPS_FILTER"
+                                  onSelectCategory={[Function]}
+                                  selected={false}
+                                >
+                                  <li
+                                    className="undefined false"
+                                  >
+                                    <a
+                                      data-test-category-id="DIRECT_API_APPS_FILTER"
+                                      href="#"
+                                      onClick={[Function]}
+                                    >
+                                      Direct API
+                                    </a>
+                                  </li>
+                                </CategoryItem>
+                              </ul>
+                            </CategoriesList>
+                          </div>
+                        </div>
+                      </Component>
+                    </div>
+                  </Component>
+                </Connect(Component)>
+              </withRouter(Connect(Component))>
+              <div>
+                <Component
+                  infoType="CLIENT_APPS_EMPTY"
+                  list={
+                    Object {
+                      "data": Array [
+                        Object {
+                          "created": "2020-02-02T10:45:57",
+                          "developer": "Pete's Proptech World Ltd",
+                          "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
+                          "homePage": "http://google.com/abc",
+                          "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png",
+                          "id": "09043eb8-9e5e-4650-b7f1-f0cb62699027",
+                          "links": Array [
+                            Object {
+                              "action": "GET",
+                              "href": "http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027",
+                              "rel": "self",
+                            },
+                            Object {
+                              "action": "GET",
+                              "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
+                              "rel": "developer",
+                            },
+                          ],
+                          "name": "test",
+                          "summary": "nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz",
+                        },
+                        Object {
+                          "created": "2020-02-02T10:45:57",
+                          "developer": "Pete's Proptech World Ltd",
+                          "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
+                          "homePage": "http://www.contoso.com/path",
+                          "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/1d38c5ec-e3c0-4138-9fe0-e77bce4034d1.octet-stream",
+                          "id": "261da083-cee2-4f5c-a18f-8f9375f1f5af",
+                          "links": Array [
+                            Object {
+                              "action": "GET",
+                              "href": "http://platformdemo.reapit.net/marketplace/apps/261da083-cee2-4f5c-a18f-8f9375f1f5af",
+                              "rel": "self",
+                            },
+                            Object {
+                              "action": "GET",
+                              "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
+                              "rel": "developer",
+                            },
+                          ],
+                          "name": "asd",
+                          "summary": "asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2",
+                        },
+                      ],
+                      "pageCount": 2,
+                      "pageNumber": 1,
+                      "pageSize": 2,
+                      "totalCount": 6,
+                    }
+                  }
+                  loading={false}
+                  numOfColumn={3}
+                  onCardClick={[Function]}
+                  pagination={
+                    Object {
+                      "onChange": [Function],
+                      "pageNumber": 1,
+                      "pageSize": undefined,
+                      "totalCount": undefined,
+                    }
+                  }
+                >
+                  <Component
+                    flexColumn={true}
+                    hasPadding={true}
+                  >
+                    <div
+                      className="container-flex is-column   has-padding  "
+                    >
+                      <Component
+                        variant="info"
+                      >
+                        <div
+                          className="notification helper-wrap helper-info"
+                        >
+                          We are sorry, there are no apps listed compatible with your account
+                        </div>
+                      </Component>
+                      <Component>
+                        <div
+                          className="section "
+                        >
+                          <Component
+                            onChange={[Function]}
+                            pageNumber={1}
+                          />
+                        </div>
+                      </Component>
+                    </div>
+                  </Component>
+                </Component>
+              </div>
+            </div>
+            <Connect(Component)
+              afterClose={[Function]}
+              visible={false}
+            >
+              <Component
+                afterClose={[Function]}
+                setAppDetailModalStateBrowse={[Function]}
+                visible={false}
+              >
+                <Component
+                  afterClose={[Function]}
+                  renderChildren={true}
+                  visible={false}
+                />
+              </Component>
+            </Connect(Component)>
+          </ErrorBoundary>
+        </Connect(ErrorBoundary)>
+      </Component>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;
+
+exports[`Client should match a snapshot when featured apps is undefined 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "clientRoute",
+          "pathname": "/client/apps",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "clientRoute",
+              "pathname": "/client/apps",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "clientRoute",
+            "pathname": "/client/apps",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Component>
+        <Connect(ErrorBoundary)>
+          <ErrorBoundary
+            componentError={null}
+            errorThrownComponent={[Function]}
+          >
+            <div
+              id="page-client-apps-container"
+            >
+              <withRouter(Connect(Component))>
+                <Connect(Component)
+                  history={
+                    Object {
+                      "action": "POP",
+                      "block": [Function],
+                      "canGo": [Function],
+                      "createHref": [Function],
+                      "entries": Array [
+                        Object {
+                          "hash": "",
+                          "key": "clientRoute",
+                          "pathname": "/client/apps",
+                          "search": "",
+                        },
+                      ],
+                      "go": [Function],
+                      "goBack": [Function],
+                      "goForward": [Function],
+                      "index": 0,
+                      "length": 1,
+                      "listen": [Function],
+                      "location": Object {
+                        "hash": "",
+                        "key": "clientRoute",
+                        "pathname": "/client/apps",
+                        "search": "",
+                      },
+                      "push": [Function],
+                      "replace": [Function],
+                    }
+                  }
+                  location={
+                    Object {
+                      "hash": "",
+                      "key": "clientRoute",
+                      "pathname": "/client/apps",
+                      "search": "",
+                    }
+                  }
+                  match={
+                    Object {
+                      "isExact": false,
+                      "params": Object {},
+                      "path": "/",
+                      "url": "/",
+                    }
+                  }
+                >
+                  <Component
+                    categories={Array []}
+                    dispatch={[Function]}
+                    history={
+                      Object {
+                        "action": "POP",
+                        "block": [Function],
+                        "canGo": [Function],
+                        "createHref": [Function],
+                        "entries": Array [
+                          Object {
+                            "hash": "",
+                            "key": "clientRoute",
+                            "pathname": "/client/apps",
+                            "search": "",
+                          },
+                        ],
+                        "go": [Function],
+                        "goBack": [Function],
+                        "goForward": [Function],
+                        "index": 0,
+                        "length": 1,
+                        "listen": [Function],
+                        "location": Object {
+                          "hash": "",
+                          "key": "clientRoute",
+                          "pathname": "/client/apps",
+                          "search": "",
+                        },
+                        "push": [Function],
+                        "replace": [Function],
+                      }
+                    }
+                    location={
+                      Object {
+                        "hash": "",
+                        "key": "clientRoute",
+                        "pathname": "/client/apps",
+                        "search": "",
+                      }
+                    }
+                    match={
+                      Object {
+                        "isExact": false,
+                        "params": Object {},
+                        "path": "/",
+                        "url": "/",
+                      }
+                    }
+                  >
+                    <div>
+                      <Component
+                        flexColumn={true}
+                        hasPadding={true}
+                      >
+                        <div
+                          className="container-flex is-column   has-padding  "
+                        >
+                          <div>
+                            <Component>
+                              <h3
+                                className="title is-3  "
+                                id=""
+                              >
+                                Browse Apps
+                              </h3>
+                            </Component>
+                            <Component>
+                              <h6
+                                className="title is-6  "
+                                id=""
+                              >
+                                Search
+                              </h6>
+                            </Component>
+                            <Formik
+                              component={[Function]}
+                              enableReinitialize={true}
+                              initialValues={
+                                Object {
+                                  "search": "",
+                                  "searchBy": "appName",
+                                }
+                              }
+                              onSubmit={[Function]}
+                            >
+                              <Component
+                                dirty={false}
+                                errors={Object {}}
+                                getFieldHelpers={[Function]}
+                                getFieldMeta={[Function]}
+                                getFieldProps={[Function]}
+                                handleBlur={[Function]}
+                                handleChange={[Function]}
+                                handleReset={[Function]}
+                                handleSubmit={[Function]}
+                                initialErrors={Object {}}
+                                initialTouched={Object {}}
+                                initialValues={
+                                  Object {
+                                    "search": "",
+                                    "searchBy": "appName",
+                                  }
+                                }
+                                isSubmitting={false}
+                                isValid={true}
+                                isValidating={false}
+                                registerField={[Function]}
+                                resetForm={[Function]}
+                                setErrors={[Function]}
+                                setFieldError={[Function]}
+                                setFieldTouched={[Function]}
+                                setFieldValue={[Function]}
+                                setFormikState={[Function]}
+                                setStatus={[Function]}
+                                setSubmitting={[Function]}
+                                setTouched={[Function]}
+                                setValues={[Function]}
+                                submitCount={0}
+                                submitForm={[Function]}
+                                touched={Object {}}
+                                unregisterField={[Function]}
+                                validateField={[Function]}
+                                validateForm={[Function]}
+                                validateOnBlur={true}
+                                validateOnChange={true}
+                                validateOnMount={false}
+                                values={
+                                  Object {
+                                    "search": "",
+                                    "searchBy": "appName",
+                                  }
+                                }
+                              >
+                                <Form>
+                                  <form
+                                    action="#"
+                                    onReset={[Function]}
+                                    onSubmit={[Function]}
+                                  >
+                                    <Component
+                                      id="search"
+                                      name="search"
+                                      placeholder="Search..."
+                                      rightIcon={
+                                        <button
+                                          type="submit"
+                                        >
+                                          <FaSearch />
+                                        </button>
+                                      }
+                                      type="text"
+                                    >
+                                      <Field
+                                        name="search"
+                                        validate={null}
+                                      >
+                                        <div
+                                          className="field pb-4"
+                                        >
+                                          <div
+                                            className="control has-icons-right"
+                                          >
+                                            <input
+                                              className="input is-primary"
+                                              data-test=""
+                                              disabled={false}
+                                              id="search"
+                                              name="search"
+                                              onBlur={[Function]}
+                                              onChange={[Function]}
+                                              placeholder="Search..."
+                                              type="text"
+                                              value=""
+                                            />
+                                            <span
+                                              className="icon is-right"
+                                            >
+                                              <button
+                                                type="submit"
+                                              >
+                                                <FaSearch>
+                                                  <IconBase
+                                                    attr={
+                                                      Object {
+                                                        "viewBox": "0 0 512 512",
+                                                      }
+                                                    }
+                                                  >
+                                                    <svg
+                                                      fill="currentColor"
+                                                      height="1em"
+                                                      stroke="currentColor"
+                                                      strokeWidth="0"
+                                                      style={
+                                                        Object {
+                                                          "color": undefined,
+                                                        }
+                                                      }
+                                                      viewBox="0 0 512 512"
+                                                      width="1em"
+                                                      xmlns="http://www.w3.org/2000/svg"
+                                                    >
+                                                      <path
+                                                        d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+                                                        key="0"
+                                                      />
+                                                    </svg>
+                                                  </IconBase>
+                                                </FaSearch>
+                                              </button>
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </Field>
+                                    </Component>
+                                    <Component
+                                      id="searchBy"
+                                      name="searchBy"
+                                      options={
+                                        Array [
+                                          Object {
+                                            "label": "By App Name",
+                                            "value": "appName",
+                                          },
+                                          Object {
+                                            "label": "By Company",
+                                            "value": "companyName",
+                                          },
+                                        ]
+                                      }
+                                      setFieldValue={[Function]}
+                                      state="appName"
+                                    >
+                                      <Field
+                                        name="searchBy"
+                                        type="radio"
+                                      >
+                                        <div
+                                          className="field pb-2"
+                                        >
+                                          <div
+                                            className="control"
+                                          >
+                                            <label
+                                              className="label"
+                                              htmlFor="searchBy"
+                                            />
+                                            <div
+                                              className="radio-wrap"
+                                              key="0"
+                                            >
+                                              <input
+                                                checked={true}
+                                                className="checkbox "
+                                                disabled={false}
+                                                id="By App Name"
+                                                key="appName"
+                                                name="searchBy"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value="appName"
+                                              />
+                                              <label
+                                                htmlFor="By App Name"
+                                              >
+                                                By App Name
+                                              </label>
+                                            </div>
+                                            <div
+                                              className="radio-wrap"
+                                              key="1"
+                                            >
+                                              <input
+                                                checked={false}
+                                                className="checkbox "
+                                                disabled={false}
+                                                id="By Company"
+                                                key="companyName"
+                                                name="searchBy"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value="companyName"
+                                              />
+                                              <label
+                                                htmlFor="By Company"
+                                              >
+                                                By Company
+                                              </label>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </Field>
+                                    </Component>
+                                  </form>
+                                </Form>
+                              </Component>
+                            </Formik>
+                          </div>
+                          <div>
+                            <Component>
+                              <h6
+                                className="title is-6  "
+                                id=""
+                              >
+                                Filter
+                              </h6>
+                            </Component>
+                            <CategoriesList
+                              categories={
+                                Array [
+                                  Object {
+                                    "id": "DIRECT_API_APPS_FILTER",
+                                    "name": "Direct API",
+                                  },
+                                ]
+                              }
+                              onSelectCategory={[Function]}
+                              selectedCategory=""
+                            >
+                              <ul>
+                                <CategoryItem
+                                  onSelectCategory={[Function]}
+                                  selected={true}
+                                >
+                                  <li
+                                    className="undefined undefined"
+                                  >
+                                    <a
+                                      href="#"
+                                      onClick={[Function]}
+                                    >
+                                      All
+                                    </a>
+                                  </li>
+                                </CategoryItem>
+                                <CategoryItem
+                                  category={
+                                    Object {
+                                      "id": "DIRECT_API_APPS_FILTER",
+                                      "name": "Direct API",
+                                    }
+                                  }
+                                  key="DIRECT_API_APPS_FILTER"
+                                  onSelectCategory={[Function]}
+                                  selected={false}
+                                >
+                                  <li
+                                    className="undefined false"
+                                  >
+                                    <a
+                                      data-test-category-id="DIRECT_API_APPS_FILTER"
+                                      href="#"
+                                      onClick={[Function]}
+                                    >
+                                      Direct API
+                                    </a>
+                                  </li>
+                                </CategoryItem>
+                              </ul>
+                            </CategoriesList>
+                          </div>
+                        </div>
+                      </Component>
+                    </div>
+                  </Component>
+                </Connect(Component)>
+              </withRouter(Connect(Component))>
+              <div>
+                <Component
+                  infoType="CLIENT_APPS_EMPTY"
+                  list={
+                    Object {
+                      "data": Array [
+                        Object {
+                          "created": "2020-02-02T10:45:57",
+                          "developer": "Pete's Proptech World Ltd",
+                          "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
+                          "homePage": "http://google.com/abc",
+                          "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png",
+                          "id": "09043eb8-9e5e-4650-b7f1-f0cb62699027",
+                          "links": Array [
+                            Object {
+                              "action": "GET",
+                              "href": "http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027",
+                              "rel": "self",
+                            },
+                            Object {
+                              "action": "GET",
+                              "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
+                              "rel": "developer",
+                            },
+                          ],
+                          "name": "test",
+                          "summary": "nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz",
+                        },
+                        Object {
+                          "created": "2020-02-02T10:45:57",
+                          "developer": "Pete's Proptech World Ltd",
+                          "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
+                          "homePage": "http://www.contoso.com/path",
+                          "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/1d38c5ec-e3c0-4138-9fe0-e77bce4034d1.octet-stream",
+                          "id": "261da083-cee2-4f5c-a18f-8f9375f1f5af",
+                          "links": Array [
+                            Object {
+                              "action": "GET",
+                              "href": "http://platformdemo.reapit.net/marketplace/apps/261da083-cee2-4f5c-a18f-8f9375f1f5af",
+                              "rel": "self",
+                            },
+                            Object {
+                              "action": "GET",
+                              "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
+                              "rel": "developer",
+                            },
+                          ],
+                          "name": "asd",
+                          "summary": "asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2",
+                        },
+                      ],
+                      "pageCount": 2,
+                      "pageNumber": 1,
+                      "pageSize": 2,
+                      "totalCount": 6,
+                    }
+                  }
+                  loading={false}
+                  numOfColumn={3}
+                  onCardClick={[Function]}
+                  pagination={
+                    Object {
+                      "onChange": [Function],
+                      "pageNumber": 1,
+                      "pageSize": undefined,
+                      "totalCount": undefined,
+                    }
+                  }
+                >
+                  <Component
+                    flexColumn={true}
+                    hasPadding={true}
+                  >
+                    <div
+                      className="container-flex is-column   has-padding  "
+                    >
+                      <Component
+                        variant="info"
+                      >
+                        <div
+                          className="notification helper-wrap helper-info"
+                        >
+                          We are sorry, there are no apps listed compatible with your account
+                        </div>
+                      </Component>
+                      <Component>
+                        <div
+                          className="section "
+                        >
+                          <Component
+                            onChange={[Function]}
+                            pageNumber={1}
+                          />
+                        </div>
+                      </Component>
+                    </div>
+                  </Component>
+                </Component>
+              </div>
+            </div>
+            <Connect(Component)
+              afterClose={[Function]}
+              visible={false}
+            >
+              <Component
+                afterClose={[Function]}
+                setAppDetailModalStateBrowse={[Function]}
+                visible={false}
+              >
+                <Component
+                  afterClose={[Function]}
+                  renderChildren={true}
+                  visible={false}
+                />
+              </Component>
+            </Connect(Component)>
+          </ErrorBoundary>
+        </Connect(ErrorBoundary)>
+      </Component>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;
