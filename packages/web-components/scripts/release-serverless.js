@@ -4,7 +4,10 @@ const { spawn } = require('child_process')
 const stage = yargs.argv.stage
 
 // relative to the root of web-components package
-const listServerlessYmlFiles = ['src/search-widget/server/serverless.yml']
+const listServerlessYmlFiles = [
+  'src/search-widget/server/serverless.yml',
+  'src/appointment-planner/server/serverless.yml',
+]
 
 const deployServerlessList = () => {
   listServerlessYmlFiles.forEach(file => {
