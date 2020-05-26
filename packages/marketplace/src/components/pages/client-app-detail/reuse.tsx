@@ -1,6 +1,7 @@
 import React from 'react'
 import { RenderWithHeader } from '@/components/pages/developer-app-detail/app-detail/render-with-header'
 import { Button } from '@reapit/elements'
+import clientAppDetailStyles from '@/styles/pages/client-app-detail.scss?mod'
 
 export const DeveloperImageSection = () => <RenderWithHeader header="Developer">TBC</RenderWithHeader>
 
@@ -16,7 +17,7 @@ export const AboutDeveloperSection = () => (
 
 export const ContactDeveloperSection = () => (
   <RenderWithHeader header="Contact Developer">
-    <Button type="button" variant="primary">
+    <Button type="button" variant="primary" className={clientAppDetailStyles.needHelpButton}>
       NEED HELP?
     </Button>
   </RenderWithHeader>
