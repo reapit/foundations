@@ -30,7 +30,7 @@ export const RadioSelect: React.FC<RadioSelectProps> = ({
   setFieldValue,
   state,
   disabled = false,
-  className,
+  className = '',
 }) => {
   return (
     <Field type="radio" name={name}>

@@ -352,7 +352,7 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
                                         type="radio"
                                       >
                                         <div
-                                          className="field pb-2"
+                                          className="field pb-2 "
                                         >
                                           <div
                                             className="control"
@@ -369,7 +369,7 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
                                                 checked={true}
                                                 className="checkbox "
                                                 disabled={false}
-                                                id="By App Name"
+                                                id="searchByBy App Name"
                                                 key="appName"
                                                 name="searchBy"
                                                 onChange={[Function]}
@@ -377,7 +377,7 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
                                                 value="appName"
                                               />
                                               <label
-                                                htmlFor="By App Name"
+                                                htmlFor="searchByBy App Name"
                                               >
                                                 By App Name
                                               </label>
@@ -390,7 +390,7 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
                                                 checked={false}
                                                 className="checkbox "
                                                 disabled={false}
-                                                id="By Company"
+                                                id="searchByBy Company"
                                                 key="companyName"
                                                 name="searchBy"
                                                 onChange={[Function]}
@@ -398,7 +398,7 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
                                                 value="companyName"
                                               />
                                               <label
-                                                htmlFor="By Company"
+                                                htmlFor="searchByBy Company"
                                               >
                                                 By Company
                                               </label>
@@ -869,7 +869,7 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                                         type="radio"
                                       >
                                         <div
-                                          className="field pb-2"
+                                          className="field pb-2 "
                                         >
                                           <div
                                             className="control"
@@ -886,7 +886,7 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                                                 checked={true}
                                                 className="checkbox "
                                                 disabled={false}
-                                                id="By App Name"
+                                                id="searchByBy App Name"
                                                 key="appName"
                                                 name="searchBy"
                                                 onChange={[Function]}
@@ -894,7 +894,7 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                                                 value="appName"
                                               />
                                               <label
-                                                htmlFor="By App Name"
+                                                htmlFor="searchByBy App Name"
                                               >
                                                 By App Name
                                               </label>
@@ -907,7 +907,7 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                                                 checked={false}
                                                 className="checkbox "
                                                 disabled={false}
-                                                id="By Company"
+                                                id="searchByBy Company"
                                                 key="companyName"
                                                 name="searchBy"
                                                 onChange={[Function]}
@@ -915,7 +915,7 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                                                 value="companyName"
                                               />
                                               <label
-                                                htmlFor="By Company"
+                                                htmlFor="searchByBy Company"
                                               >
                                                 By Company
                                               </label>
@@ -1386,7 +1386,7 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
                                         type="radio"
                                       >
                                         <div
-                                          className="field pb-2"
+                                          className="field pb-2 "
                                         >
                                           <div
                                             className="control"
@@ -1403,7 +1403,7 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
                                                 checked={true}
                                                 className="checkbox "
                                                 disabled={false}
-                                                id="By App Name"
+                                                id="searchByBy App Name"
                                                 key="appName"
                                                 name="searchBy"
                                                 onChange={[Function]}
@@ -1411,7 +1411,7 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
                                                 value="appName"
                                               />
                                               <label
-                                                htmlFor="By App Name"
+                                                htmlFor="searchByBy App Name"
                                               >
                                                 By App Name
                                               </label>
@@ -1424,7 +1424,7 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
                                                 checked={false}
                                                 className="checkbox "
                                                 disabled={false}
-                                                id="By Company"
+                                                id="searchByBy Company"
                                                 key="companyName"
                                                 name="searchBy"
                                                 onChange={[Function]}
@@ -1432,7 +1432,7 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
                                                 value="companyName"
                                               />
                                               <label
-                                                htmlFor="By Company"
+                                                htmlFor="searchByBy Company"
                                               >
                                                 By Company
                                               </label>
@@ -1991,7 +1991,7 @@ exports[`Client should match a snapshot when featured apps is undefined 1`] = `
                                         type="radio"
                                       >
                                         <div
-                                          className="field pb-2"
+                                          className="field pb-2 "
                                         >
                                           <div
                                             className="control"
@@ -2008,7 +2008,7 @@ exports[`Client should match a snapshot when featured apps is undefined 1`] = `
                                                 checked={true}
                                                 className="checkbox "
                                                 disabled={false}
-                                                id="By App Name"
+                                                id="searchByBy App Name"
                                                 key="appName"
                                                 name="searchBy"
                                                 onChange={[Function]}
@@ -2016,7 +2016,7 @@ exports[`Client should match a snapshot when featured apps is undefined 1`] = `
                                                 value="appName"
                                               />
                                               <label
-                                                htmlFor="By App Name"
+                                                htmlFor="searchByBy App Name"
                                               >
                                                 By App Name
                                               </label>
@@ -2029,7 +2029,7 @@ exports[`Client should match a snapshot when featured apps is undefined 1`] = `
                                                 checked={false}
                                                 className="checkbox "
                                                 disabled={false}
-                                                id="By Company"
+                                                id="searchByBy Company"
                                                 key="companyName"
                                                 name="searchBy"
                                                 onChange={[Function]}
@@ -2037,7 +2037,7 @@ exports[`Client should match a snapshot when featured apps is undefined 1`] = `
                                                 value="companyName"
                                               />
                                               <label
-                                                htmlFor="By Company"
+                                                htmlFor="searchByBy Company"
                                               >
                                                 By Company
                                               </label>

@@ -8,7 +8,7 @@ import {
   selectIsWebComponentLoading,
   selectIsWebComponentUpdating,
   selectIsWebComponentNegotiators,
-  selectAppDetail
+  selectAppDetail,
 } from '../client'
 
 import { featuredAppsDataStub } from '@/sagas/__stubs__/apps'

@@ -35,7 +35,7 @@ export const selectIsWebComponentUpdating = (state: ReduxState) => {
 export const selectIsWebComponentNegotiators = (state: ReduxState) => {
   return state?.client.webComponent?.negotiators?._embedded || []
 }
-  
+
 export const selectAppDetail = (state: ReduxState) => {
   return state.appDetail
 }
