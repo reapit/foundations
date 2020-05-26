@@ -15,3 +15,7 @@ export const selectAppSummary = (state: ReduxState) => {
 export const selectFeaturedApps = (state: ReduxState) => {
   return state?.client.appSummary.data?.featuredApps || []
 }
+
+export const selectInstalledApps = (state: ReduxState) => {
+  return state?.installedApps
+}
