@@ -1,7 +1,6 @@
 @import '../base/colors.scss';
 
 .field {
-  
   .checkbox {
     position: absolute;
     width: 0;
@@ -79,7 +78,19 @@
     margin-bottom: 4px;
   }
 
-  
+  .control {
+    .subtext {
+      font-style: italic;
+      display: block;
+    }
+  }
+
+  &.checkbox-inline {
+    .radio-wrap {
+      display: inline-block;
+      margin-right: 1rem;
+    }
+  }
 }
 
 .field-checkbox {

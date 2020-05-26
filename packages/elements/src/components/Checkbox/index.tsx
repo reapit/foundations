@@ -7,6 +7,7 @@ export interface CheckboxProps {
   name: string
   dataTest?: string
   value?: string
+  className?: string
 }
 
 export type HandleCheckboxOnChangeParams = {
@@ -30,9 +31,9 @@ export const handleOnCheckboxChange = ({ field, value }: HandleCheckboxOnChangeP
   return
 }
 
-export const Checkbox = ({ name, labelText, id, dataTest = '', value = '' }: CheckboxProps) => {
+export const Checkbox = ({ name, labelText, id, dataTest = '', value = '', className = '' }: CheckboxProps) => {
   return (
-    <div className="field pb-4">
+    <div className={`field pb-4 ${className}`}>
       <div className="control">
         <Field type="checkbox" name={name}>
           {({ field }: FieldProps<string | string[]>) => {

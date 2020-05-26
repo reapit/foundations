@@ -1,5 +1,16 @@
 import { ReduxState } from '@/types/core'
-import { selectClientId, selectLoggedUserEmail, selectFeaturedApps, selectAppDetail } from '../client'
+import {
+  selectClientId,
+  selectLoggedUserEmail,
+  selectFeaturedApps,
+  selectIsWebComponentOpen,
+  selectIsWebComponentData,
+  selectIsWebComponentLoading,
+  selectIsWebComponentUpdating,
+  selectIsWebComponentNegotiators,
+  selectAppDetail,
+} from '../client'
+
 import { featuredAppsDataStub } from '@/sagas/__stubs__/apps'
 
 describe('selectClientId', () => {
@@ -75,6 +86,66 @@ describe('selectFeaturedApps', () => {
     expect(result).toEqual([])
   })
 
+  it('should selectIsWebComponentOpen run correctly and return true', () => {
+    const input = {
+      client: {
+        webComponent: {
+          isShowModal: true,
+        },
+      },
+    } as ReduxState
+    const result = selectIsWebComponentOpen(input)
+    expect(result).toEqual(true)
+  })
+
+  it('should selectIsWebComponentData run correctly and return {}', () => {
+    const input = {
+      client: {
+        webComponent: {
+          data: {},
+        },
+      },
+    } as ReduxState
+    const result = selectIsWebComponentData(input)
+    expect(result).toEqual({})
+  })
+
+  it('should selectIsWebComponentLoading run correctly and return true', () => {
+    const input = {
+      client: {
+        webComponent: {
+          loading: true,
+        },
+      },
+    } as ReduxState
+    const result = selectIsWebComponentLoading(input)
+    expect(result).toEqual(true)
+  })
+
+  it('should selectIsWebComponentUpdating run correctly and return true', () => {
+    const input = {
+      client: {
+        webComponent: {
+          updating: true,
+        },
+      },
+    } as ReduxState
+    const result = selectIsWebComponentUpdating(input)
+    expect(result).toEqual(true)
+  })
+
+  it('should selectIsWebComponentNegotiators run correctly and return true', () => {
+    const input = {
+      client: {
+        webComponent: {
+          updating: true,
+          negotiators: null,
+        },
+      },
+    } as ReduxState
+    const result = selectIsWebComponentNegotiators(input)
+    expect(result).toEqual([])
+  })
   it('should run correctly and return {}', () => {
     const input = {
       appDetail: {},
