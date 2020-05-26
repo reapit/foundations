@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+    <title>DEMO</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto|Roboto+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./dist/book-viewing-widget.css" />
+    <link rel="stylesheet" href="./dist/property-detail-widget.css" />
+    <style>
+      #property-detail-widget {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="property-detail-widget"></div>
+    <script src="./dist/book-viewing-widget.js"></script>
+    <script src="./dist/property-detail-widget.js"></script>
+    <script src="./dist/themes.js"></script>
+    <script>
+      ReapitPropertyDetailWidget &&
+        new ReapitPropertyDetailWidget({
+          theme: window.theme,
+          apiKey: '',
+          customerId: '',
+          parentSelector: '#property-detail-widget',
+        })
+    </script>
+  </body>
+</html>

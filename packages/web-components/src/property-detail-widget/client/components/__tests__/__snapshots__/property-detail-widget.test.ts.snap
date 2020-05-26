@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PropertyDetailWidget it matches a snapshot 1`] = `
+<body>
+  <div>
+    <div />
+     
+    <div
+      class="loader-spinner-container svelte-26x9wx"
+    >
+      <div
+        class="loader-spinner svelte-26x9wx"
+      >
+        <div
+          class="svelte-26x9wx"
+        />
+         
+        <div
+          class="svelte-26x9wx"
+        />
+         
+        <div
+          class="svelte-26x9wx"
+        />
+         
+        <div
+          class="svelte-26x9wx"
+        />
+      </div>
+    </div>
+    
+  </div>
+</body>
+`;

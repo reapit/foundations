@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ReapitSearchWidgetComponent should match a snapshot 1`] = `
+exports[`ReapitSearchWidget should match a snapshot 1`] = `
 Search_widget {
   "$$": Object {
     "after_update": Array [],

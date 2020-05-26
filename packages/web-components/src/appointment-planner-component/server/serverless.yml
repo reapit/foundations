@@ -1,0 +1,90 @@
+service: web-components-appointment-planner
+plugins:
+  - serverless-webpack
+  - serverless-offline
+  - serverless-plugin-ifelse
+
+custom:
+  # relative to web-components package root
+  env: ${file(./config.json)}
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: true
+    packager: 'yarn'
+    packagerOptions:
+      noFrozenLockFile: false
+    excludeFiles: src/**/*.test.ts
+    keepOutputDirectory: true
+  allowedHeaders:
+    - Content-Type
+    - X-Amz-Date
+    - Authorization
+    - X-Api-Key
+    - X-Amz-Security-Token
+    - X-Amz-User-Agent
+    - reapit-customer
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: ${opt:stage, 'dev'}
+  region: eu-west-2
+  apiGateway:
+    restApiId: ${self:custom.env.GATEWAY_REST_API_ID}
+    restApiRootResourceId: ${self:custom.env.GATEWAY_REST_API_ROOT_RESOURCE_ID}
+  deploymentBucket:
+    name: web-components-appointment-planner-${self:provider.stage}
+    blockPublicAccess: false
+  environment:
+    NODE_ENV: ${self:custom.env.NODE_ENV}
+    APP_ENV: ${self:custom.env.APP_ENV}
+    PLATFORM_API_BASE_URL: ${self:custom.env.PLATFORM_API_BASE_URL}
+    COGNITO_OAUTH_URL: ${self:custom.env.COGNITO_OAUTH_URL}
+package:
+  individually: true
+  include:
+    - dist/**
+  exclude:
+    - package.json
+    - node_modules/**
+    - error.log
+    - info.log
+    - jest.config.js
+    - serverless.yml
+    - src/**
+    - tsconfig.json
+    - yml-helpers.js
+    - public/**
+
+functions:
+  searchWidgetHandler:
+    handler: src/appointment-planner-component/server/core/index.appointmentPlannerHandler
+    events:
+      - http:
+          path: appointment-slots
+          method: get
+          cors:
+            origin: '*'
+            headers: ${self:custom.allowedHeaders}
+            allowCredentials: false
+          private: true
+          request:
+            parameters:
+              headers:
+                api-version: false
+                Authorization: false
+                reapit-customer: false
+      - http:
+          path: ping
+          method: get
+          cors:
+            origin: '*'
+            headers: ${self:custom.allowedHeaders}
+            allowCredentials: false
+          private: true
+          request:
+            parameters:
+              headers:
+                api-version: false
+                Authorization: false
+                reapit-customer: false

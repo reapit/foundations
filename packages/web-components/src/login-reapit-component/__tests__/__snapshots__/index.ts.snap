@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginReapitComponent should match a snapshot 1`] = `
+Login_reapit_component {
+  "$$": Object {
+    "after_update": Array [],
+    "before_update": Array [],
+    "bound": Object {},
+    "callbacks": Object {},
+    "context": Map {},
+    "ctx": Array [
+      "clientId",
+      "redirectUri",
+    ],
+    "dirty": Array [
+      -1,
+    ],
+    "fragment": Object {
+      "c": [Function],
+      "d": [Function],
+      "i": [Function],
+      "l": [Function],
+      "m": [Function],
+      "o": [Function],
+      "p": [Function],
+    },
+    "not_equal": [Function],
+    "on_destroy": Array [],
+    "on_mount": Array [],
+    "props": Object {
+      "clientId": 0,
+      "redirectUri": 1,
+    },
+    "update": [Function],
+  },
+  "$capture_state": [Function],
+  "$inject_state": [Function],
+  "$set": [Function],
+}
+`;
