@@ -169,7 +169,7 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
                         hasPadding={true}
                       >
                         <div
-                          className="container-flex is-column   has-padding  "
+                          className=" container-flex is-column   has-padding  "
                         >
                           <div>
                             <Component>
@@ -686,7 +686,7 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                         hasPadding={true}
                       >
                         <div
-                          className="container-flex is-column   has-padding  "
+                          className=" container-flex is-column   has-padding  "
                         >
                           <div>
                             <Component>
@@ -1203,7 +1203,7 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
                         hasPadding={true}
                       >
                         <div
-                          className="container-flex is-column   has-padding  "
+                          className=" container-flex is-column   has-padding  "
                         >
                           <div>
                             <Component>
@@ -1589,7 +1589,7 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
                     hasPadding={true}
                   >
                     <div
-                      className="container-flex is-column   has-padding  "
+                      className=" container-flex is-column   has-padding  "
                     >
                       <Component
                         variant="info"
@@ -1808,7 +1808,7 @@ exports[`Client should match a snapshot when featured apps is undefined 1`] = `
                         hasPadding={true}
                       >
                         <div
-                          className="container-flex is-column   has-padding  "
+                          className=" container-flex is-column   has-padding  "
                         >
                           <div>
                             <Component>
@@ -2194,7 +2194,7 @@ exports[`Client should match a snapshot when featured apps is undefined 1`] = `
                     hasPadding={true}
                   >
                     <div
-                      className="container-flex is-column   has-padding  "
+                      className=" container-flex is-column   has-padding  "
                     >
                       <Component
                         variant="info"

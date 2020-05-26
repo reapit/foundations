@@ -91,7 +91,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                   hasPadding={true}
                 >
                   <div
-                    className="container-flex is-column is-centered  has-padding  "
+                    className=" container-flex is-column is-centered  has-padding  "
                   >
                     <div>
                       <img
@@ -149,7 +149,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                   hasPadding={true}
                 >
                   <div
-                    className="container-flex is-column is-centered  has-padding  "
+                    className=" container-flex is-column is-centered  has-padding  "
                   >
                     <div>
                       <img
@@ -207,7 +207,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                   hasPadding={true}
                 >
                   <div
-                    className="container-flex is-column is-centered  has-padding  "
+                    className=" container-flex is-column is-centered  has-padding  "
                   >
                     <div>
                       <img
@@ -264,7 +264,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                   hasPadding={true}
                 >
                   <div
-                    className="container-flex is-column is-centered  has-padding  "
+                    className=" container-flex is-column is-centered  has-padding  "
                   >
                     <div>
                       <img
@@ -322,7 +322,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                   hasPadding={true}
                 >
                   <div
-                    className="container-flex is-column is-centered  has-padding  "
+                    className=" container-flex is-column is-centered  has-padding  "
                   >
                     <div>
                       <img
@@ -379,7 +379,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                   hasPadding={true}
                 >
                   <div
-                    className="container-flex is-column is-centered  has-padding  "
+                    className=" container-flex is-column is-centered  has-padding  "
                   >
                     <div>
                       <img
