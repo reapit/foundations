@@ -11,18 +11,23 @@ import {
 import linkStyles from '@/styles/elements/link.scss?mod'
 import { useSelector } from 'react-redux'
 import { selectIntegrationTypes } from '@/selector/integration-types'
+import { DesktopIntegrationTypeModel } from '@/actions/app-integration-types'
 
 export type AgencyCloudIntegrationSectionProps = {}
 
-const AgencyCloudIntegrationSection: React.FC<AgencyCloudIntegrationSectionProps> = () => {
-  const integrationTypes = useSelector(selectIntegrationTypes)
-
-  const integrationTypeOptions: SelectOption[] = integrationTypes.map(integrationType => ({
+export const prepareIntegrationTypeOptions = (integrationTypes: DesktopIntegrationTypeModel[]) => {
+  return integrationTypes.map(integrationType => ({
     value: integrationType.id || '',
     label: integrationType.name || '',
     description: integrationType.description || '',
     link: integrationType.url || '',
   }))
+}
+
+const AgencyCloudIntegrationSection: React.FC<AgencyCloudIntegrationSectionProps> = () => {
+  const integrationTypes = useSelector(selectIntegrationTypes)
+
+  const integrationTypeOptions: SelectOption[] = prepareIntegrationTypeOptions(integrationTypes)
 
   return (
     <FormSection>

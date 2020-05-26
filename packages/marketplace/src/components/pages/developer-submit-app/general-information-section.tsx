@@ -16,16 +16,21 @@ import { exec } from 'pell'
 import linkStyles from '@/styles/elements/link.scss?mod'
 import { useSelector } from 'react-redux'
 import { selectCategories } from '@/selector/app-categories'
+import { CategoryModel } from '@reapit/foundations-ts-definitions'
 
 export type GeneralInformationSectionProps = {}
+
+export const prepareCategoryOptions = (categories: CategoryModel[]) => {
+  return categories.map(category => ({
+    value: category.id as string,
+    label: category.name as string,
+  }))
+}
 
 const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = () => {
   const categories = useSelector(selectCategories)
 
-  const categoryOptions: SelectBoxOptions[] = categories.map(category => ({
-    value: category.id as string,
-    label: category.name as string,
-  }))
+  const categoryOptions: SelectBoxOptions[] = prepareCategoryOptions(categories)
 
   return (
     <FormSection data-test="submit-app-form">
