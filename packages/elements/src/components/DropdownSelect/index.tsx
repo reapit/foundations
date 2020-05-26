@@ -56,7 +56,7 @@ export const DropdownSelect: React.FC<DropdownSelectProps> = ({
             return (
               <div className="field field-dropdown-select">
                 <label className={`label ${required ? 'required-label' : ''}`}>{labelText}</label>
-                <label className="subtext mb-2">{subText}</label>
+                {subText && <label className="subtext mb-2">{subText}</label>}
                 <Select
                   id={id}
                   placeholder={placeholder}

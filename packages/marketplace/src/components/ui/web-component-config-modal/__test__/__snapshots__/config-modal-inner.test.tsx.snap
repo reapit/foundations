@@ -35,7 +35,6 @@ exports[`Config-modal-inner should WebComponentConfigModalFooter match a snapsho
     </Component>
     <Component
       fullWidth={true}
-      loading={false}
       type="submit"
       variant="primary"
     >
@@ -1270,7 +1269,6 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                 </Component>
                 <Component
                   fullWidth={true}
-                  loading={false}
                   type="submit"
                   variant="primary"
                 >

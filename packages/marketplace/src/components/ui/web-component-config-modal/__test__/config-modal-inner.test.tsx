@@ -8,35 +8,30 @@ import {
 } from '../config-modal-inner'
 import { mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
-import { ReduxState } from '@/types/core'
 import { Provider } from 'react-redux'
 import { WEB_COMPONENT_TYPES } from '../config-modal'
 import { PutWebComponentConfigParams } from '@/services/web-component'
 import { clientPutWebComponentConfig, clientFetchWebComponentConfig } from '@/actions/client'
+import { webComponentStub } from '../__stubs__/web-component-config'
+import appState from '@/reducers/__stubs__/app-state'
 
 const params = {
   appointmentLength: 1,
   appointmentTimeGap: 1,
   customerId: 'string',
   daysOfWeek: ['1', '2'],
-  // negotiatorIds: ,
 } as PutWebComponentConfigParams
 
-describe('Config-modal-inner', () => {
-  const mockState = {
-    client: {
-      webComponent: {
-        loading: false,
-        updating: false,
-        data: null,
-        isShowModal: true,
-        negotiators: {},
-      },
-    },
-  } as ReduxState
+const extendAppState = webComponent => {
+  return {
+    ...appState,
+    client: { ...appState.client, webComponent },
+  }
+}
 
+describe('Config-modal-inner', () => {
   const mockStore = configureStore()
-  const store = mockStore(mockState)
+  const store = mockStore(extendAppState(webComponentStub))
 
   it('should WebComponentConfigModalFooter match a snapshot', () => {
     const mockProps = {
@@ -52,25 +47,8 @@ describe('Config-modal-inner', () => {
   })
 
   it('should WebComponentConfigModalInner match a snapshot', () => {
-    const mockState = {
-      client: {
-        webComponent: {
-          loading: false,
-          updating: false,
-          data: null,
-          isShowModal: true,
-        },
-      },
-      auth: {
-        loginSession: {
-          loginIdentity: {
-            clientId: 'DXX',
-          },
-        },
-      },
-    } as ReduxState
     const mockStore = configureStore()
-    const store = mockStore(mockState)
+    const store = mockStore(extendAppState(webComponentStub))
     expect(
       mount(
         <Provider store={store}>

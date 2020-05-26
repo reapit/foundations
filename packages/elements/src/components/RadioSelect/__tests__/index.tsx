@@ -39,7 +39,7 @@ describe('RadioSelect', () => {
         )}
       </Formik>,
     )
-    expect(wrapper.find('label')).toHaveLength(4)
+    expect(wrapper.find('label')).toHaveLength(3)
     expect(wrapper.find('input')).toHaveLength(2)
   })
 })

@@ -8,6 +8,11 @@ export type WebComponentModalProps = {
   closeModal: () => void
 }
 
+export type WebComponentType = {
+  title: string
+  subtext: string
+}
+
 export const WEB_COMPONENT_TYPES = {
   BOOK_VALUATION: {
     title: 'Book a Valuation Configuration',

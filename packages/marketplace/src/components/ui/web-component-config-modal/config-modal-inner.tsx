@@ -12,6 +12,7 @@ import {
   FormikValues,
   DropdownSelect,
   SelectOption,
+  FormikProps,
 } from '@reapit/elements'
 import styles from '@/styles/elements/radioselect.scss?mod'
 import { useDispatch, useSelector } from 'react-redux'
@@ -26,6 +27,7 @@ import { PutWebComponentConfigParams } from '@/services/web-component'
 import { selectClientId } from '@/selector/auth'
 import { Dispatch } from 'redux'
 import { NegotiatorItem } from '@/services/negotiators'
+import { WebComponentType } from './config-modal'
 
 export const updateWebComponentConfig = (dispatch: Dispatch) => (params: FormikValues) => {
   dispatch(clientPutWebComponentConfig(params as PutWebComponentConfigParams))
@@ -45,8 +47,11 @@ export const genarateNegotiatorOptions = (negotiators: NegotiatorItem[]): Select
       } as SelectOption),
   )
 }
-
-export const WebComponentConfigModalBody = ({ subtext, formikProps }) => {
+export type WebComponentConfigModalBodyProps = {
+  subtext: string
+  formikProps: FormikProps<any>
+}
+export const WebComponentConfigModalBody = ({ subtext, formikProps }: WebComponentConfigModalBodyProps) => {
   const { values, setFieldValue } = formikProps
   const negotiators = useSelector(selectIsWebComponentNegotiators)
   const negotiatorOptions = genarateNegotiatorOptions(negotiators)
@@ -111,7 +116,11 @@ export const WebComponentConfigModalBody = ({ subtext, formikProps }) => {
   )
 }
 
-export const WebComponentConfigModalFooter = ({ closeModal }) => {
+export type WebComponentConfigModalFooterProps = {
+  closeModal: () => void
+}
+
+export const WebComponentConfigModalFooter = ({ closeModal }: WebComponentConfigModalFooterProps) => {
   const updating = useSelector(selectIsWebComponentUpdating)
   return (
     <>
@@ -125,7 +134,12 @@ export const WebComponentConfigModalFooter = ({ closeModal }) => {
   )
 }
 
-export const WebComponentConfigModalInner = ({ config, closeModal }) => {
+export type WebComponentConfigModalInnerProps = {
+  config: WebComponentType
+  closeModal: () => void
+}
+
+export const WebComponentConfigModalInner = ({ config, closeModal }: WebComponentConfigModalInnerProps) => {
   const dispatch = useDispatch()
   const handleUpdateWebComponentConfig = updateWebComponentConfig(dispatch)
   const webComponentData = useSelector(selectIsWebComponentData)

@@ -6,9 +6,9 @@ import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
 import { DesktopIntegrationTypeModel } from '@/actions/app-integration-types'
 import configureStore from 'redux-mock-store'
-import { ReduxState } from '@/types/core'
 import { Provider } from 'react-redux'
 import { WebComponentConfig } from '../aside'
+import appState from '@/reducers/__stubs__/app-state'
 
 describe('Aside', () => {
   test('Aside - should match snapshot', () => {
@@ -24,18 +24,14 @@ describe('Aside', () => {
 })
 
 describe('WebComponentConfig', () => {
-  const mockState = {
+  const extendStore = {
+    ...appState,
     client: {
-      webComponent: {
-        loading: false,
-        updating: false,
-        data: null,
-        isShowModal: true,
-      },
+      webComponent: { isShowModal: true },
     },
-  } as ReduxState
+  }
   const mockStore = configureStore()
-  const store = mockStore(mockState)
+  const store = mockStore(extendStore)
   it('Should match snapshot', () => {
     expect(
       mount(

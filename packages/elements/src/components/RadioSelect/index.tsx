@@ -42,7 +42,7 @@ export const RadioSelect: React.FC<RadioSelectProps> = ({
               <label className="label" htmlFor={id}>
                 {labelText}
               </label>
-              <label className="subtext mb-2">{subText}</label>
+              {subText && <label className="subtext mb-2">{subText}</label>}
               {options.map(({ label, value }: RadioSelectOption, index: number) => (
                 <div key={index} data-test={dataTest} className="radio-wrap">
                   <input
