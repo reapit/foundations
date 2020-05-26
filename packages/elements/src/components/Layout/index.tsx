@@ -10,6 +10,7 @@ export interface FlexContainerProps extends LayoutProps {
   hasPadding?: boolean
   isScrollable?: boolean
   hasBackground?: boolean
+  isFullHeight?: boolean
 }
 
 export interface GridProps extends LayoutProps {
@@ -42,11 +43,14 @@ export const FlexContainerBasic: React.SFC<FlexContainerProps> = ({
   isScrollable = false,
   hasBackground = false,
   className = '',
+  isFullHeight = false,
 }) => (
   <div
-    className={`container-flex ${flexColumn ? 'is-column' : ''} ${centerContent ? 'is-centered' : ''} ${
-      hasBackground ? 'has-background' : ''
-    } ${hasPadding ? 'has-padding' : ''} ${isScrollable ? 'is-scrollable' : ''} ${className}`}
+    className={`${isFullHeight ? 'is-full-height' : ''} container-flex ${flexColumn ? 'is-column' : ''} ${
+      centerContent ? 'is-centered' : ''
+    } ${hasBackground ? 'has-background' : ''} ${hasPadding ? 'has-padding' : ''} ${
+      isScrollable ? 'is-scrollable' : ''
+    } ${className}`}
   >
     {children}
   </div>
