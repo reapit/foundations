@@ -15,6 +15,8 @@ env:
   REAPIT_ENV: DEV
   CI: true
   IS_RELEASE: true
+  CYPRESS_USERNAME: ${{secrets.CYPRESS_USERNAME}}
+  CYPRESS_PASSWORD: ${{secrets.CYPRESS_PASSWORD}}
 
 jobs:
   release_develop:
