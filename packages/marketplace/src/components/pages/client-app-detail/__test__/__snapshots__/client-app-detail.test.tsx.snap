@@ -435,6 +435,28 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
                 </div>
               </div>
             </AppContent>
+            <Component
+              className="is-clearfix"
+            >
+              <div
+                className="form-section mb-4 is-clearfix"
+              >
+                <Component
+                  className="is-pulled-right"
+                  onClick={[Function]}
+                >
+                  <button
+                    className="button is-pulled-right is-primary  "
+                    data-test=""
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Back To Apps
+                  </button>
+                </Component>
+              </div>
+            </Component>
           </div>
         </div>
       </ClientAppDetail>

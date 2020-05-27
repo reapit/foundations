@@ -131,7 +131,7 @@ describe('Client', () => {
       }
       const fn = handleOnCardClick(history)
       fn(mockAppSummary)
-      expect(history).toBeCalledWith(`${Routes.CLIENT}/${mockAppSummary.id}`)
+      expect(history.push).toBeCalledWith(`${Routes.CLIENT}/${mockAppSummary.id}`)
     })
   })
 
