@@ -1,58 +1,230 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ClientSettingsPage should match snapshot 1`] = `
-<Component
-  flexColumn={true}
-  hasPadding={true}
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
 >
-  <Component>
-    <Component
-      flexColumn={true}
-      hasBackground={true}
-      hasPadding={true}
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "clientSettingsRoute",
+          "pathname": "/client/settings",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "clientSettingsRoute",
+              "pathname": "/client/settings",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "clientSettingsRoute",
+            "pathname": "/client/settings",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
     >
       <Component>
-        Settings
-      </Component>
-      <Component>
-        <Component>
-          <Component>
-            <Form>
-              <Component>
-                Customer ID
-              </Component>
-              <Component>
-                This is your Customer ID which you will need for use with Private Apps and Web Components.
-              </Component>
-              <Component>
-                <Component>
-                  <Component
-                    dataTest="customerId"
-                    id="customerId"
-                    labelText="Customer ID"
-                    name="customerId"
-                    type="text"
-                  />
-                </Component>
-              </Component>
-            </Form>
-          </Component>
-        </Component>
-        <Component />
-      </Component>
-      <Component>
-        <Component>
-          <Component
-            dataTest="logout-btn"
-            onClick={[MockFunction]}
-            type="button"
-            variant="primary"
+        <Component
+          flexColumn={true}
+          hasPadding={true}
+        >
+          <div
+            className=" container-flex is-column   has-padding  "
           >
-            Logout
-          </Component>
+            <Component>
+              <div
+                className="content "
+              >
+                <Component
+                  flexColumn={true}
+                  hasBackground={true}
+                  hasPadding={true}
+                >
+                  <div
+                    className="container is-column  has-background has-padding  "
+                  >
+                    <Component>
+                      <h3
+                        className="title is-3  "
+                        id=""
+                      >
+                        Settings
+                      </h3>
+                    </Component>
+                    <Component>
+                      <div
+                        className="columns  "
+                      >
+                        <Component>
+                          <div
+                            className="column  "
+                          >
+                            <Component>
+                              <div
+                                className="form-section mb-4 "
+                              >
+                                <Formik
+                                  enableReinitialize={true}
+                                  initialValues={
+                                    Object {
+                                      "customerId": "testClientId",
+                                    }
+                                  }
+                                  onSubmit={[Function]}
+                                >
+                                  <Form>
+                                    <form
+                                      action="#"
+                                      onReset={[Function]}
+                                      onSubmit={[Function]}
+                                    >
+                                      <Component>
+                                        <div
+                                          className="form-heading mb-1 "
+                                        >
+                                          Customer ID
+                                        </div>
+                                      </Component>
+                                      <Component>
+                                        <div
+                                          className="form-subheading mb-6 "
+                                        >
+                                          This is your Customer ID which you will need for use with Private Apps and Web Components.
+                                        </div>
+                                      </Component>
+                                      <Component>
+                                        <div
+                                          className="columns  "
+                                        >
+                                          <Component>
+                                            <div
+                                              className="column  "
+                                            >
+                                              <Component
+                                                dataTest="customerId"
+                                                id="customerId"
+                                                labelText="Customer ID"
+                                                name="customerId"
+                                                type="text"
+                                              >
+                                                <Field
+                                                  name="customerId"
+                                                  validate={null}
+                                                >
+                                                  <div
+                                                    className="field pb-4"
+                                                  >
+                                                    <div
+                                                      className="control "
+                                                    >
+                                                      <label
+                                                        className="label "
+                                                        htmlFor="customerId"
+                                                      >
+                                                        Customer ID
+                                                      </label>
+                                                      <input
+                                                        className="input is-primary"
+                                                        data-test="customerId"
+                                                        disabled={false}
+                                                        id="customerId"
+                                                        name="customerId"
+                                                        onBlur={[Function]}
+                                                        onChange={[Function]}
+                                                        placeholder=""
+                                                        type="text"
+                                                        value="testClientId"
+                                                      />
+                                                    </div>
+                                                  </div>
+                                                </Field>
+                                              </Component>
+                                            </div>
+                                          </Component>
+                                        </div>
+                                      </Component>
+                                    </form>
+                                  </Form>
+                                </Formik>
+                              </div>
+                            </Component>
+                          </div>
+                        </Component>
+                        <Component>
+                          <div
+                            className="column  "
+                          />
+                        </Component>
+                      </div>
+                    </Component>
+                    <Component>
+                      <div
+                        className="form-section mb-4 "
+                      >
+                        <Component>
+                          <div
+                            className="level-right "
+                          >
+                            <Component
+                              dataTest="logout-btn"
+                              onClick={[Function]}
+                              type="button"
+                              variant="primary"
+                            >
+                              <button
+                                className="button  is-primary  "
+                                data-test="logout-btn"
+                                disabled={false}
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                Logout
+                              </button>
+                            </Component>
+                          </div>
+                        </Component>
+                      </div>
+                    </Component>
+                  </div>
+                </Component>
+              </div>
+            </Component>
+          </div>
         </Component>
       </Component>
-    </Component>
-  </Component>
-</Component>
+    </Router>
+  </MemoryRouter>
+</Provider>
 `;
