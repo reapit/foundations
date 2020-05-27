@@ -38,7 +38,7 @@ const ClientAppDetailManage = React.lazy(() => catchError(() => import('../compo
 const ClientWelcomePage = React.lazy(() => catchError(() => import('../components/pages/client-welcome')))
 const InstalledApps = React.lazy(() => catchError(() => import('../components/pages/installed-apps')))
 const ClientSetting = React.lazy(() => catchError(() => import('../components/pages/settings/client-setting')))
-const MyApps = React.lazy(() => catchError(() => import('../components/pages/my-apps')))
+const ClientAppsManagement = React.lazy(() => catchError(() => import('../components/pages/client-app-management')))
 const Register = React.lazy(() => catchError(() => import('../components/pages/register')))
 const DeveloperHome = React.lazy(() => catchError(() => import('../components/pages/developer-home')))
 const DeveloperAppDetail = React.lazy(() => catchError(() => import('../components/pages/developer-app-detail')))
@@ -81,8 +81,8 @@ const Router = () => {
               />
               <PrivateRoute allow="CLIENT" path={Routes.INSTALLED_APPS_PAGINATE} component={InstalledApps} fetcher />
               <PrivateRoute allow="CLIENT" path={Routes.INSTALLED_APPS} component={InstalledApps} fetcher exact />
-              <PrivateRoute allow="CLIENT" path={Routes.MY_APPS_PAGINATE} component={MyApps} fetcher />
-              <PrivateRoute allow="CLIENT" path={Routes.MY_APPS} component={MyApps} fetcher exact />
+              <PrivateRoute allow="CLIENT" path={Routes.MY_APPS_PAGINATE} component={ClientAppsManagement} fetcher />
+              <PrivateRoute allow="CLIENT" path={Routes.MY_APPS} component={ClientAppsManagement} fetcher exact />
               <PrivateRoute allow="CLIENT" path={Routes.CLIENT} component={Client} exact fetcher />
               <PrivateRoute allow="CLIENT" path={Routes.CLIENT_APP_DETAIL} component={ClientAppDetail} exact fetcher />
               <PrivateRoute
