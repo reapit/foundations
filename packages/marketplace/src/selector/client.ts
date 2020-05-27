@@ -39,3 +39,7 @@ export const selectIsWebComponentNegotiators = (state: ReduxState) => {
 export const selectAppDetail = (state: ReduxState) => {
   return state.appDetail
 }
+
+export const selectMyApps = (state: ReduxState) => {
+  return state.myApps
+}

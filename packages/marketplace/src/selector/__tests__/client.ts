@@ -9,6 +9,7 @@ import {
   selectIsWebComponentUpdating,
   selectIsWebComponentNegotiators,
   selectAppDetail,
+  selectMyApps,
 } from '../client'
 
 import { featuredAppsDataStub } from '@/sagas/__stubs__/apps'
@@ -152,5 +153,12 @@ describe('selectFeaturedApps', () => {
     } as ReduxState
     const result = selectAppDetail(input)
     expect(result).toEqual(input.appDetail)
+  })
+  it('should run correctly and return {}', () => {
+    const input = {
+      myApps: {},
+    } as ReduxState
+    const result = selectMyApps(input)
+    expect(result).toEqual(input.myApps)
   })
 })
