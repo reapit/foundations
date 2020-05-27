@@ -128,7 +128,7 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
                 hasPadding={true}
               >
                 <div
-                  className="container-flex is-column   has-padding  "
+                  className=" container-flex is-column   has-padding  "
                 >
                   <Component>
                     <h3

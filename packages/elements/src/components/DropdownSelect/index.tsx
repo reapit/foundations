@@ -13,6 +13,7 @@ export interface DropdownSelectProps extends SelectProps {
   placeholder?: string
   options: SelectOption[]
   required?: boolean
+  subText?: string
 }
 
 export interface SelectOption {
@@ -29,6 +30,7 @@ export const DropdownSelect: React.FC<DropdownSelectProps> = ({
   placeholder,
   options,
   required = false,
+  subText,
   ...restProps
 }) => {
   const handleRenderTags = (props: CustomTagProps) => {
@@ -54,6 +56,7 @@ export const DropdownSelect: React.FC<DropdownSelectProps> = ({
             return (
               <div className="field field-dropdown-select">
                 <label className={`label ${required ? 'required-label' : ''}`}>{labelText}</label>
+                {subText && <label className="subtext mb-2">{subText}</label>}
                 <Select
                   id={id}
                   placeholder={placeholder}

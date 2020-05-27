@@ -100,7 +100,7 @@ exports[`admin-approvals AdminApprovals should match a snapshot 1`] = `
                   hasPadding={true}
                 >
                   <div
-                    className="container-flex is-column   has-padding  "
+                    className=" container-flex is-column   has-padding  "
                   >
                     <Component
                       variant="info"

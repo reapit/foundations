@@ -1,4 +1,4 @@
-export const API_VERSION = '31-01-2020'
+export const API_VERSION = '2020-01-31'
 
 export const URLS = {
   developers: '/developers',
@@ -17,4 +17,6 @@ export const URLS = {
   webhooksTopics: '/webhooks/topics',
   trafficEventBilling: '/trafficevents/billing',
   trafficEventStatistics: '/trafficevents/trafficStatistics',
+  negotiators: '/negotiators',
+  webComponentConfig: '/v1/web-components-config',
 }

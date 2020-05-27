@@ -63912,7 +63912,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
             hasPadding={true}
           >
             <div
-              className="container-flex   has-background has-padding  "
+              className=" container-flex   has-background has-padding  "
             >
               <Component
                 flexColumn={true}

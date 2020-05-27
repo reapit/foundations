@@ -13,6 +13,7 @@ export type Config = {
   chatbotAppId: string
   marketplaceUrl: string
   platformApiUrl: string
+  webComponentConfigApiUrl: string
 }
 
 declare global {

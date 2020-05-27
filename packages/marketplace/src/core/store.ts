@@ -53,6 +53,7 @@ import adminStatsSaga from '@/sagas/admin-stats'
 import webhookSubscriptionsSagas from '@/sagas/webhook-subscriptions'
 import { injectSwitchModeToWindow } from '@reapit/elements'
 import webhookEditSagas from '../sagas/webhook-edit-modal'
+import webComponentSagas from '../sagas/web-component'
 
 export class Store {
   static _instance: Store
@@ -124,6 +125,7 @@ export class Store {
       fork(appHttpTrafficEventSagas),
       fork(webhookEditSagas),
       fork(webhookSubscriptionsSagas),
+      fork(webComponentSagas),
     ])
   }
 
