@@ -4,32 +4,19 @@ import { useHistory } from 'react-router'
 import { useSelector, useDispatch } from 'react-redux'
 import { History } from 'history'
 import { Loader } from '@reapit/elements'
-import { appDetailRequestData, removeAuthenticationCode } from '@/actions/app-detail'
-import { setDeveloperAppModalStateViewDetail, developerAppShowModal } from '@/actions/developer-app-modal'
-import { appDeleteSetInitFormState } from '@/actions/app-delete'
+import { removeAuthenticationCode } from '@/actions/app-detail'
+import { developerAppShowModal } from '@/actions/developer-app-modal'
 import { developerRequestData } from '@/actions/developer'
-import { selectDeveloper, selectDeveloperAppModalVisible } from '@/selector'
-import DeveloperAppModal from '@/components/ui/developer-app-modal'
+import { selectDeveloper } from '@/selector'
 import AppList from '@/components/ui/app-list'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { SandboxPopUp } from '@/components/ui/sandbox-pop-up'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { getParamValueFromPath } from '@/utils/client-url-params'
-import routes from '@/constants/routes'
-import { selectAppDetailState } from '@/selector/app-detail'
-import { AppDetailState } from '@/reducers/app-detail'
+import Routes from '@/constants/routes'
 
-export const handleOnCardClick = (appDetail: AppDetailState, dispatch: Dispatch) => (app: AppSummaryModel) => {
-  dispatch(developerAppShowModal(true))
-  dispatch(setDeveloperAppModalStateViewDetail())
-  dispatch(appDeleteSetInitFormState())
-  if (app.id && (!appDetail.appDetailData || appDetail.appDetailData.data?.id !== app.id)) {
-    dispatch(
-      appDetailRequestData({
-        id: app.id,
-      }),
-    )
-  }
+export const handleOnCardClick = (history: History) => (app: AppSummaryModel) => {
+  history.push(`${Routes.DEVELOPER_MY_APPS}/${app.id}`)
 }
 
 export const handleAfterClose = (dispatch: Dispatch) => () => {
@@ -51,7 +38,7 @@ export const handleFetchDeveloperApps = (pageNumber: number, unfetched: boolean,
 }
 
 export const handleOnChange = (history: History) => (page: number) =>
-  history.push(`${routes.DEVELOPER_MY_APPS}?page=${page}`)
+  history.push(`${Routes.DEVELOPER_MY_APPS}?page=${page}`)
 
 export type DeveloperProps = {}
 
@@ -59,8 +46,6 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = () => {
   const history = useHistory()
   const dispatch = useDispatch()
   const developerState = useSelector(selectDeveloper)
-  const isVisible = useSelector(selectDeveloperAppModalVisible)
-  const appDetail = useSelector(selectAppDetailState)
 
   let pageNumber = 1
 
@@ -90,7 +75,7 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = () => {
           hasSubmitButton
           title="My Apps"
           loading={loading}
-          onCardClick={handleOnCardClick(appDetail, dispatch)}
+          onCardClick={handleOnCardClick(history)}
           infoType="DEVELOPER_APPS_EMPTY"
           pagination={{
             totalCount,
@@ -100,7 +85,6 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = () => {
           }}
         />
         <SandboxPopUp loading={loading} />
-        <DeveloperAppModal visible={isVisible} afterClose={handleAfterClose(dispatch)} />
       </div>
     </ErrorBoundary>
   )
