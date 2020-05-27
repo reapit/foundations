@@ -1,4 +1,3 @@
-import { ReduxState } from '@/types/core'
 import {
   selectLoginType,
   selectIsAdmin,
@@ -6,57 +5,55 @@ import {
   selectLoginSession,
   selectClientId,
   selectRefreshSession,
+  selectIsTermAccepted,
 } from '../auth'
-
-const mockState = {
-  auth: {
-    loginType: 'CLIENT',
-    loginSession: {
-      loginIdentity: {
-        isAdmin: true,
-        clientId: 'DCX',
-      },
-    },
-  },
-} as ReduxState
+import appState from '@/reducers/__stubs__/app-state'
 
 describe('selectLoginType', () => {
   it('should run correctly', () => {
-    const result = selectLoginType(mockState)
-    expect(result).toEqual(mockState.auth.loginType)
+    const result = selectLoginType(appState)
+    expect(result).toEqual(appState.auth.loginType)
   })
 })
 
 describe('selectIsAdmin', () => {
   it('should run correctly', () => {
-    const result = selectIsAdmin(mockState)
-    expect(result).toEqual(mockState.auth?.loginSession?.loginIdentity.isAdmin)
+    const result = selectIsAdmin(appState)
+    expect(result).toEqual(appState.auth?.loginSession?.loginIdentity.isAdmin || false)
   })
 })
 
 describe('selectLoginIdentity', () => {
   it('should run correctly', () => {
-    const result = selectLoginIdentity(mockState)
-    expect(result).toEqual(mockState.auth.loginSession?.loginIdentity)
+    const result = selectLoginIdentity(appState)
+    expect(result).toEqual(appState.auth.loginSession?.loginIdentity)
   })
 })
 
 describe('selectLoginSession', () => {
   it('should run correctly', () => {
-    const result = selectLoginSession(mockState)
-    expect(result).toEqual(mockState.auth.loginSession)
+    const result = selectLoginSession(appState)
+    expect(result).toEqual(appState.auth.loginSession)
   })
 })
 
 describe('selectClientId', () => {
   it('should run correctly', () => {
-    const result = selectClientId(mockState)
-    expect(result).toEqual(mockState.auth.loginSession?.loginIdentity?.clientId)
+    const result = selectClientId(appState)
+    expect(result).toEqual(appState.auth.loginSession?.loginIdentity?.clientId)
   })
 })
+
 describe('selectRefreshSession', () => {
   it('should run correctly', () => {
-    const result = selectRefreshSession(mockState)
-    expect(result).toEqual(mockState.auth.refreshSession)
+    const result = selectRefreshSession(appState)
+    expect(result).toEqual(appState.auth.refreshSession)
+  })
+})
+
+describe('selectIsTermAccepted', () => {
+  it('should run correctly', () => {
+    const result = selectIsTermAccepted(appState)
+    expect(result).toEqual(appState.auth.isTermAccepted)
   })
 })
