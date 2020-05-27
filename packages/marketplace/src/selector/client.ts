@@ -16,6 +16,10 @@ export const selectFeaturedApps = (state: ReduxState) => {
   return state?.client.appSummary.data?.featuredApps || []
 }
 
+export const selectInstalledApps = (state: ReduxState) => {
+  return state?.installedApps
+}
+
 export const selectIsWebComponentOpen = (state: ReduxState) => {
   return state?.client.webComponent?.isShowModal
 }
