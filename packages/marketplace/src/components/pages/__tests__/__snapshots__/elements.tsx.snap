@@ -5,9 +5,11 @@ exports[`Elements should match a snapshot 1`] = `
   <Component
     flexColumn={true}
     hasPadding={true}
+    isFullHeight={true}
   >
     <Component
       className="container"
+      isFullHeight={true}
     >
       <iframe
         height="100%"

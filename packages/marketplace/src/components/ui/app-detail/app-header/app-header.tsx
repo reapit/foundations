@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { Grid, GridItem, H3 } from '@reapit/elements'
-
 import styles from '@/styles/pages/developer-app-detail.scss?mod'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 
@@ -14,7 +13,6 @@ export type AppHeaderProps = {
 const AppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup }) => {
   const { media, name } = appDetailData
   const appIcon = media?.filter(({ type }) => type === 'icon')[0]
-
   return (
     <>
       <Grid className="is-vcentered ">

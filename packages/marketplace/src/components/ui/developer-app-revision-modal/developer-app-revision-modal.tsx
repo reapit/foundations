@@ -26,6 +26,7 @@ export interface OwnProps {
   appId: string
   appDetailState: DeveloperAppDetailState | AppDetailState
   afterClose: () => void
+  onCancelSuccess?: () => void
 }
 
 export interface DeveloperAppModalMappedProps {
@@ -50,6 +51,7 @@ export const handleCancelPendingRevisionsButtonClick = (
   appId: string,
   appRevisionId?: string,
   loginIdentity?: LoginIdentity,
+  onCancelSuccess?: () => void,
 ) => {
   return () => {
     if (!appRevisionId || !loginIdentity) {
@@ -62,6 +64,7 @@ export const handleCancelPendingRevisionsButtonClick = (
       name,
       email,
       rejectionReason: 'Developer Cancelled',
+      callback: onCancelSuccess,
     })
   }
 }
@@ -112,6 +115,7 @@ export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps>
   clearAppRevisionDetail,
   clearAppRevisions,
   afterClose,
+  onCancelSuccess,
 }) => {
   const { revisions } = revisionsState
   const revisionsData = revisions?.data
@@ -176,6 +180,7 @@ export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps>
                   appId,
                   latestAppRevisionId,
                   loginIdentity,
+                  onCancelSuccess,
                 )}
               >
                 YES, PROCEED

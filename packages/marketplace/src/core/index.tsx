@@ -27,6 +27,7 @@ window.reapit = {
     chatbotAppId: '',
     marketplaceUrl: '',
     platformApiUrl: '',
+    webComponentConfigApiUrl: '',
   },
 }
 

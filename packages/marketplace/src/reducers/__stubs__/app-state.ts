@@ -12,6 +12,13 @@ const appState: ReduxState = {
       data: null,
       isAppDetailLoading: false,
     },
+    webComponent: {
+      isShowModal: false,
+      data: null,
+      updating: false,
+      loading: false,
+      negotiators: null,
+    },
   },
   installedApps: {
     loading: false,

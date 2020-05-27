@@ -4,8 +4,8 @@ import { FlexContainerBasic } from '@reapit/elements'
 
 const ElementsPage: React.SFC = () => (
   <ErrorBoundary>
-    <FlexContainerBasic flexColumn hasPadding>
-      <FlexContainerBasic className="container">
+    <FlexContainerBasic flexColumn hasPadding isFullHeight>
+      <FlexContainerBasic isFullHeight className="container">
         <iframe
           style={{ border: 'none', height: '100%' }}
           scrolling="no"

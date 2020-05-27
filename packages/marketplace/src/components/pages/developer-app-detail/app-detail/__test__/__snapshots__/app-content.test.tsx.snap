@@ -124,10 +124,11 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
           <div
             data-test="authentication-client-id"
           >
-            <p>
+            <b
+              className="mr-2"
+            >
               Client ID:
-            </p>
-            <p />
+            </b>
           </div>
         </div>
       </Component>
@@ -7314,18 +7315,12 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                       >
                         <Component
                           onClick={[Function]}
-                          type="button"
-                          variant="primary"
                         >
-                          <button
-                            className="button  is-primary  "
-                            data-test=""
-                            disabled={false}
+                          <a
                             onClick={[Function]}
-                            type="button"
                           >
                             Uninstall
-                          </button>
+                          </a>
                         </Component>
                       </UninstallCell>
                     </td>
@@ -7385,12 +7380,12 @@ exports[`AppContent renderAuthentication should render client id when authFlow !
   <div
     data-test="authentication-client-id"
   >
-    <p>
+    <b
+      className="mr-2"
+    >
       Client ID:
-    </p>
-    <p>
-      1
-    </p>
+    </b>
+    1
   </div>
 </div>
 `;

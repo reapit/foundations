@@ -15,27 +15,21 @@ const appIconClassName = ['images', styles.appIcon].join(' ')
 
 const placeHolderUrl = 'https://bulma.io/images/placeholders/48x48.png'
 
-export const VerifiedByReapit: React.FC<{ appName: string }> = ({ appName }) => (
-  <div>
-    <H2 className={styles.appName}>{appName}</H2>
-    <div className={styles.verifyByReapitContainer}>
-      <FaCheck className={styles.check} /> Verified by Reapit
-    </div>
-  </div>
-)
-
 const DesktopAppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup }) => {
   const { media, name = '' } = appDetailData
   const appIcon = media?.filter(({ type }) => type === 'icon')[0]
 
   return (
     <div className={styles.appHeader}>
-      <div className="flex items-center mb-3">
+      <div className="flex mb-3">
         <div className={styles.appIconContainer}>
           <img className={appIconClassName} src={(appIcon && appIcon.uri) || placeHolderUrl} alt={name} />
         </div>
-        <div className="pl-4">
-          <VerifiedByReapit appName={name} />
+        <div className={styles.appHeaderTextContainer}>
+          <H2 className={styles.appName}>{appDetailData.name}</H2>
+          <div className={styles.verifyByReapitContainer}>
+            <FaCheck className={styles.check} /> Verified by Reapit Ltd
+          </div>
           {buttonGroup}
         </div>
       </div>

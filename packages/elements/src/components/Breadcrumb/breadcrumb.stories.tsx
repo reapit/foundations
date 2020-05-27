@@ -43,11 +43,15 @@ storiesOf('Breadcrumb', module)
     <section className="section">
       <Breadcrumb>
         <BreadcrumbItem href="#">
-          <FaHome />
+          <span style={{ verticalAlign: '-0.15rem', marginRight: '0.5rem' }}>
+            <FaHome />
+          </span>
           <span>Home</span>
         </BreadcrumbItem>
         <BreadcrumbItem href="#">
-          <FaHeart />
+          <span style={{ verticalAlign: '-0.15rem', marginRight: '0.5rem' }}>
+            <FaHeart />
+          </span>
           <span>Application List</span>
         </BreadcrumbItem>
         <BreadcrumbItem>Application</BreadcrumbItem>
