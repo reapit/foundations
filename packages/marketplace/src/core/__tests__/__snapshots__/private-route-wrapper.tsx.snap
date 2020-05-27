@@ -1,7 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PrivateRouteWrapper should match snapshot 1`] = `
-<Redirect
-  to="auth-route"
-/>
+<Component>
+  <withRouter(Connect(Component)) />
+  <Component
+    flexColumn={true}
+    isScrollable={true}
+  >
+    <Suspense
+      fallback={
+        <Unknown>
+          <Unknown />
+        </Unknown>
+      }
+    />
+  </Component>
+</Component>
 `;

@@ -4,10 +4,10 @@ import { Provider, useDispatch, useSelector } from 'react-redux'
 import { shallow, mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
-import { PrivateRouteWrapper } from '../private-route-wrapper'
+import { PrivateRouteWrapper, handleSetTermsAcceptFromCookie } from '../private-route-wrapper'
 import { selectLoginSession, selectRefreshSession, selectLoginType } from '@/selector/auth'
 import { getTokenFromQueryString, redirectToOAuth, RefreshParams } from '@reapit/cognito-auth'
-import { getDefaultRouteByLoginType, getAuthRouteByLoginType } from '@/utils/auth-route'
+import { getAuthRouteByLoginType } from '@/utils/auth-route'
 import {
   getCookieString,
   COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE,
@@ -19,7 +19,7 @@ import {
   setInitClientTermsAcceptedStateFromCookie,
 } from '@/actions/auth'
 
-const locationMock = { search: '?state=CLIENT', pathname: '/' }
+const locationMock = { search: '?state=CLIENT', pathname: '/test' }
 const refreshParams = appState.auth.refreshSession as RefreshParams
 const dispatch = jest.fn()
 
@@ -69,6 +69,9 @@ describe('PrivateRouteWrapper', () => {
   })
 
   it('should call hooks and functions with correct params', () => {
+    ;(useSelector as jest.Mocked<any>).mockImplementationOnce(() => appState.auth.loginSession)
+    ;(useSelector as jest.Mocked<any>).mockImplementationOnce(() => appState.auth.refreshSession)
+    ;(useLocation as jest.Mocked<any>).mockImplementationOnce(() => ({ ...locationMock, pathname: '/' }))
     mount(
       <Provider store={store}>
         <MemoryRouter>
@@ -92,9 +95,6 @@ describe('PrivateRouteWrapper', () => {
   })
 
   it('should call correct functions with refreshParams && !hasSession case', () => {
-    const mockStore = configureStore()
-    const customizedAppState = { ...appState, auth: { ...appState.auth, loginSession: null, refreshSession: null } }
-    store = mockStore(customizedAppState)
     // mock useSelector to return loginSession & refreshSession as null
     ;(useSelector as jest.Mocked<any>).mockImplementationOnce(() => null)
     ;(useSelector as jest.Mocked<any>).mockImplementationOnce(() => null)
@@ -110,6 +110,7 @@ describe('PrivateRouteWrapper', () => {
 
   it('should call correct functions with type && location.pathname ===  / case', () => {
     // mock useSelector to return loginSession & refreshSession
+    ;(useLocation as jest.Mocked<any>).mockImplementationOnce(() => ({ ...locationMock, pathname: '/' }))
     ;(useSelector as jest.Mocked<any>).mockImplementationOnce(() => appState.auth.loginSession)
     ;(useSelector as jest.Mocked<any>).mockImplementationOnce(() => appState.auth.refreshSession)
     mount(
@@ -124,9 +125,10 @@ describe('PrivateRouteWrapper', () => {
 
   it('should call correct functions with !hasSession case', () => {
     // mock useSelector to return loginSession & refreshSession as null
+    ;(useLocation as jest.Mocked<any>).mockImplementationOnce(() => ({ ...locationMock, pathname: '/test' }))
     ;(useSelector as jest.Mocked<any>).mockImplementationOnce(() => null)
     ;(useSelector as jest.Mocked<any>).mockImplementationOnce(() => null)
-    ;(getTokenFromQueryString as jest.Mocked<any>).mockImplementationOnce(() => refreshParams),
+    ;(getTokenFromQueryString as jest.Mocked<any>).mockImplementationOnce(() => null),
       mount(
         <Provider store={store}>
           <MemoryRouter>
@@ -135,5 +137,18 @@ describe('PrivateRouteWrapper', () => {
         </Provider>,
       )
     expect(redirectToOAuth).toHaveBeenCalledWith(window.reapit.config.cognitoClientId, 'login-type-route', 'CLIENT')
+  })
+})
+
+describe('handleSetTermsAcceptFromCookie', () => {
+  it('should call 2 dispatch with correct params', () => {
+    const fn = handleSetTermsAcceptFromCookie({
+      dispatch,
+      setInitClientTermsAcceptedStateFromCookie,
+      setInitDeveloperTermsAcceptedStateFromCookie,
+    })
+    fn()
+    expect(dispatch).toHaveBeenCalledWith(setInitClientTermsAcceptedStateFromCookie())
+    expect(dispatch).toHaveBeenCalledWith(setInitDeveloperTermsAcceptedStateFromCookie())
   })
 })
