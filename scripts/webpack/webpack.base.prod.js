@@ -6,7 +6,6 @@ const CopyPlugin = require('copy-webpack-plugin')
 const path = require('path')
 const SentryWebpackPlugin = require('@sentry/webpack-plugin')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
-const OfflinePlugin = require('offline-plugin')
 const { EnvironmentPlugin, SourceMapDevToolPlugin, HashedModuleIdsPlugin } = require('webpack')
 const { PATHS } = require('./constants')
 const hashFiles = require('../utils/hash-files')
@@ -86,12 +85,6 @@ const webpackConfig = {
         directories: [],
         // use yarn.lock at the root of the monorepo as hash, relative to this file
         files: ['yarn.lock'],
-      },
-    }),
-    new OfflinePlugin({
-      autoUpdate: 1000 * 60 * 2,
-      ServiceWorker: {
-        events: true,
       },
     }),
   ],

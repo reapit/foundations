@@ -5,13 +5,8 @@ export const appDetailDataStub: AppDetailItem = {
   data: {
     id: '9b6fd5f7-2c15-483d-b925-01b650538e52',
     name: "Peter's Properties",
-    summary: 'vitae elementum curabitur vitae nunc sed velit eget gravida cum sociis natoque!!',
-    description: `enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam 
-    pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras 
-    sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar 
-    elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla 
-    at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet 
-    proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum co`,
+    summary: 'vitae elementum curabitur vitae',
+    description: 'enim facilisis',
     developer: "Pete's Proptech World Ltd",
     supportEmail: 'support@reapit.com',
     telephone: '0113 288 2900',

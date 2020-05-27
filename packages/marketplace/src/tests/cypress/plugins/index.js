@@ -16,5 +16,18 @@ module.exports = (on, config) => {
   const envVariables = require(configJsonPath)
   const baseUrl = envVariables.cypressBaseUrl
 
-  return { ...config, baseUrl, env: envVariables }
+  // this account can login as three roles
+  const { CYPRESS_USERNAME, CYPRESS_PASSWORD } = process.env
+
+  const env = {
+    ...envVariables,
+    clientUserName: CYPRESS_USERNAME,
+    clientPassword: CYPRESS_PASSWORD,
+    developerUserName: CYPRESS_USERNAME,
+    developerPassword: CYPRESS_PASSWORD,
+    adminUserName: CYPRESS_USERNAME,
+    adminPassword: CYPRESS_PASSWORD,
+  }
+
+  return { ...config, baseUrl, env }
 }

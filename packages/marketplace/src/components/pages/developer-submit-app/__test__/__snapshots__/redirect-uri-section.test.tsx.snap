@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MarketplaceStatusSection should match a snapshot 1`] = `
+<Component>
+  <Component>
+    <Component>
+      <Component>
+        Redirect URI(s)
+      </Component>
+      <Component>
+        Please enter a Redirect URI(s) to define the route Reapit Connect is permitted to redirect to after a successful authentication. The following formats are supported: https://, http:// (for localhost only) or your own custom URI schemes such as myapp://login. For multiple URI’s, separate using a comma.
+      </Component>
+      <Component
+        dataTest="submit-app-redirect-uri"
+        disabled={false}
+        id="redirectUris"
+        name="redirectUris"
+        placeholder="Enter your Redirect URI(s)"
+        type="text"
+      />
+    </Component>
+  </Component>
+  <Component>
+    <Component>
+      <Component>
+        Sign Out URI(s)
+      </Component>
+      <Component>
+        Please enter a Sign Out URI(s) to define the route Reapit Connect is permitted to redirect to after successfully logging out. The following formats are supported: https://, http:// (for localhost only) or your own custom URI schemes such as myapp://login. For multiple URI’s, separate using a comma.
+      </Component>
+      <Component
+        dataTest="submit-app-signout-uris"
+        disabled={false}
+        id="signoutUris"
+        name="signoutUris"
+        placeholder="Enter your Sign Out URI(s)"
+        type="text"
+      />
+    </Component>
+  </Component>
+  <Component>
+    <Component>
+      <Component>
+        Private Apps
+      </Component>
+      <Component>
+        If your App is a Private App and you would like it to only be visible to certain customers, please select ‘Yes’ below. You should then enter the ‘Customer ID’ of the customer(s) you wish to share your app with. If you select ‘No’, your App will be visible to all on the Marketplace. For multiple customers, please separate the Customer IDs using a comma, e.g. ABC, DEF.
+      </Component>
+      <Component
+        id="isPrivateApp"
+        name="isPrivateApp"
+        options={
+          Array [
+            Object {
+              "label": "YES",
+              "value": "yes",
+            },
+            Object {
+              "label": "NO",
+              "value": "no",
+            },
+          ]
+        }
+        setFieldValue={[MockFunction]}
+        state="no"
+      />
+      <Component
+        dataTest="submit-app-limited-to-client-ids"
+        disabled={true}
+        id="limitToClientIds"
+        name="limitToClientIds"
+        placeholder="Please enter the Customer ID. For multiple Customer ID’s, please separate using a comma"
+        type="text"
+      />
+    </Component>
+  </Component>
+</Component>
+`;

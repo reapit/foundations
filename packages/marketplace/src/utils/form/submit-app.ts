@@ -1,11 +1,11 @@
 import { validateRequire, validateEmail } from '@reapit/elements'
-import { CustomCreateAppModel } from '@/components/pages/developer-submit-app'
 import {
   isValidUrlWithCustomScheme,
   whiteListLocalhostAndIsValidUrl,
   isValidHttpUrl,
   isValidLimitToClientIds,
 } from '@/utils/validate'
+import { CustomCreateAppModel } from '@/actions/submit-app'
 
 export type SubmitAppFormErrorKeys =
   | 'name'

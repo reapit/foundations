@@ -4,9 +4,15 @@ import ActionTypes from '../constants/action-types'
 import { CreateAppModel, ScopeModel } from '@reapit/foundations-ts-definitions'
 import { FormState } from '@/types/core'
 
-export type SubmitAppFormikActions = FormikHelpers<CreateAppModel>
+export type SubmitAppFormikActions = FormikHelpers<CustomCreateAppModel>
 export type SubmitAppArgs = CreateAppModel & { actions: SubmitAppFormikActions } & {
-  setSubmitError: (error: string) => void
+  setSubmitError?: (error: string) => void
+}
+export type CustomCreateAppModel = Omit<CreateAppModel, 'redirectUris' | 'signoutUris' | 'limitToClientIds'> & {
+  redirectUris?: string
+  signoutUris?: string
+  limitToClientIds?: string
+  isPrivateApp?: string
 }
 
 export const submitApp = actionCreator<SubmitAppArgs>(ActionTypes.DEVELOPER_SUBMIT_APP)
