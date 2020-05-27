@@ -435,6 +435,7 @@ window.queryCommandSupported = jest.fn()
 Object.defineProperty(window, 'location', {
   value: {
     href: '',
+    reload: jest.fn(),
   },
 })
 
