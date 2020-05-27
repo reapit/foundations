@@ -36,7 +36,12 @@ export const renderPermissions = (scopes: ScopeModel[] = []) => (
 
 export const renderCategory = (category: CategoryModel | undefined) => {
   if (!category) {
-    return null
+    return (
+      <div className={clientAppDetailStyles.gutter}>
+        <H5 className={standAloneAppDetailStyles.headerWithoutMargin}>Category</H5>
+        <p>None</p>
+      </div>
+    )
   }
 
   return (
@@ -49,7 +54,12 @@ export const renderCategory = (category: CategoryModel | undefined) => {
 
 export const renderDesktopIntegrationTypes = (desktopIntegrationTypes: DesktopIntegrationTypeModel[]) => {
   if (desktopIntegrationTypes.length === 0) {
-    return null
+    return (
+      <div className={clientAppDetailStyles.gutter}>
+        <H5 className={standAloneAppDetailStyles.headerWithoutMargin}>Destop Integration</H5>
+        <p>None</p>
+      </div>
+    )
   }
 
   return (

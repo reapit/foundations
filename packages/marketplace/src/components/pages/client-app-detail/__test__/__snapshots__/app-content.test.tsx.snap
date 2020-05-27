@@ -20,6 +20,14 @@ exports[`AppContent AppContent - should match snapshot 1`] = `
   <div>
     <div>
       <Component>
+        Category
+      </Component>
+      <p>
+        None
+      </p>
+    </div>
+    <div>
+      <Component>
         Destop Integration
       </Component>
       <Component
@@ -84,7 +92,18 @@ exports[`AppContent AppContent - should match snapshot 1`] = `
 </div>
 `;
 
-exports[`AppContent renderCategory - should match snapshot 1`] = `<div />`;
+exports[`AppContent renderCategory - should match snapshot 1`] = `
+<div>
+  <div>
+    <Component>
+      Category
+    </Component>
+    <p>
+      None
+    </p>
+  </div>
+</div>
+`;
 
 exports[`AppContent renderDescripion - should match snapshot 1`] = `
 <div>
