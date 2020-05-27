@@ -1,6 +1,6 @@
 import errorMessages from '@/constants/error-messages'
-import { CustomCreateAppModel } from '@/components/pages/developer-submit-app'
 import { validate } from '../submit-app'
+import { CustomCreateAppModel } from '@/actions/submit-app'
 
 describe('submitAppValidation', () => {
   it('validate require all field', () => {
