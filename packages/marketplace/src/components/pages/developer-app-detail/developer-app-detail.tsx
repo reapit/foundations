@@ -1,4 +1,5 @@
 import * as React from 'react'
+import classNames from 'classnames'
 import { selectIntegrationTypes } from '@/selector/integration-types'
 import { DesktopIntegrationTypeModel } from '@/actions/app-integration-types'
 import { selectInstallationAppData } from '@/selector/installations'
@@ -8,7 +9,7 @@ import { useSelector } from 'react-redux'
 import { History } from 'history'
 import { selectAppDetailState, selectAppDetailData, selectAppDetailLoading } from '@/selector/developer-app-detail'
 import { selectInstallAppLoading } from '@/selector/installations'
-import { Loader } from '@reapit/elements'
+import { Loader, FormSection, Button } from '@reapit/elements'
 import AppHeader from '@/components/ui/standalone-app-detail/app-header'
 import AppContent from './app-detail/app-content/app-content'
 import DeveloperAppDetailButtonGroup from '@/components/ui/developer-app-detail/developer-app-detail-button-group'
@@ -71,6 +72,12 @@ export const closeDeleteAppModal = (setIsDeleteModalOpen: (isVisible: boolean) =
   }
 }
 
+export const onBackToAppsButtonClick = (history: History) => {
+  return () => {
+    history.push(routes.DEVELOPER_MY_APPS)
+  }
+}
+
 const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false)
   const [isInstallationsModalOpen, setIsInstallationsModalOpen] = React.useState(false)
@@ -96,6 +103,11 @@ const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
       <div className={styles.mainContainer}>
         <AppHeader appDetailData={appDetailData} />
         <AppContent appDetailData={appDetailData} />
+        <FormSection className={classNames('is-clearfix', styles.footerContainer)}>
+          <Button className="is-pulled-right" onClick={onBackToAppsButtonClick(history)}>
+            Back To Apps
+          </Button>
+        </FormSection>
       </div>
       {isDeleteModalOpen && (
         <AppDelete
