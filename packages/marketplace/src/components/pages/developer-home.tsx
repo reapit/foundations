@@ -4,8 +4,6 @@ import { useHistory } from 'react-router'
 import { useSelector, useDispatch } from 'react-redux'
 import { History } from 'history'
 import { Loader } from '@reapit/elements'
-import { removeAuthenticationCode } from '@/actions/app-detail'
-import { developerAppShowModal } from '@/actions/developer-app-modal'
 import { developerRequestData } from '@/actions/developer'
 import { selectDeveloper } from '@/selector'
 import AppList from '@/components/ui/app-list'
@@ -17,11 +15,6 @@ import Routes from '@/constants/routes'
 
 export const handleOnCardClick = (history: History) => (app: AppSummaryModel) => {
   history.push(`${Routes.DEVELOPER_MY_APPS}/${app.id}`)
-}
-
-export const handleAfterClose = (dispatch: Dispatch) => () => {
-  dispatch(removeAuthenticationCode())
-  dispatch(developerAppShowModal(false))
 }
 
 export const handleFetchDeveloperApps = (pageNumber: number, unfetched: boolean, dispatch: Dispatch) => {

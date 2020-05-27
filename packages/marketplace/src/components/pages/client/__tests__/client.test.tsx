@@ -3,16 +3,7 @@ import { Provider } from 'react-redux'
 import { mount } from 'enzyme'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { ClientAppSummary } from '@/reducers/client/app-summary'
-import {
-  Client,
-  handleSetStateViewBrowse,
-  handleFetchAppDetail,
-  handleInstallationsSetFormState,
-  handleAfterClose,
-  handleOnChange,
-  handleOnCardClick,
-  onCardClickParams,
-} from '../client'
+import { Client, handleAfterClose, handleOnChange, handleOnCardClick } from '../client'
 import { addQuery } from '@/utils/client-url-params'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import ClientWelcomeMessageModal from '@/components/ui/client-welcome-message'
@@ -22,9 +13,7 @@ import * as ReactRedux from 'react-redux'
 import { MemoryRouter } from 'react-router'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
-import { setAppDetailModalStateBrowse } from '@/actions/app-detail-modal'
-import { appDetailRequestData } from '@/actions/app-detail'
-import { appInstallationsSetFormState } from '@/actions/app-installations'
+import { getMockRouterProps } from '@/utils/mock-helper'
 
 const createState = appSummaryState => {
   return {
@@ -37,6 +26,7 @@ const createState = appSummaryState => {
 }
 
 describe('Client', () => {
+  const { history } = getMockRouterProps({})
   let store
 
   beforeEach(() => {
@@ -121,12 +111,9 @@ describe('Client', () => {
 
   describe('handleOnChange', () => {
     it('should call push correctly', () => {
-      const mockHistory = {
-        push: jest.fn(),
-      }
-      const fn = handleOnChange(mockHistory)
+      const fn = handleOnChange(history)
       fn(1)
-      expect(mockHistory.push).toBeCalledWith(addQuery({ page: 1 }))
+      expect(history.push).toBeCalledWith(addQuery({ page: 1 }))
     })
   })
 
@@ -139,28 +126,12 @@ describe('Client', () => {
 
   describe('handleOnCardClick', () => {
     it('should run correctly', () => {
-      const mockProps: onCardClickParams = {
-        setVisible: jest.fn(),
-        appDetail: {
-          authentication: {
-            loading: false,
-            code: '200',
-          },
-          error: false,
-          loading: false,
-          appDetailData: {
-            data: appsDataStub.data.data![0],
-          },
-          isStale: true,
-        },
-        setStateViewBrowse: jest.fn(),
-        fetchAppDetail: jest.fn(),
-        clientId: 'ABC',
+      const mockAppSummary: AppSummaryModel = {
+        id: 'testId',
       }
-      const fn = handleOnCardClick(mockProps)
-      fn({ id: '1' })
-      expect(mockProps.setVisible).toBeCalled()
-      expect(mockProps.fetchAppDetail).toBeCalled()
+      const fn = handleOnCardClick(history)
+      fn(mockAppSummary)
+      expect(history).toBeCalledWith(`${Routes.CLIENT}/${mockAppSummary.id}`)
     })
   })
 
@@ -186,29 +157,5 @@ describe('Client', () => {
         expect(wrapper.find(<ClientWelcomeMessageModal visible={true} onAccept={jest.fn()} />)).toEqual(1)
       }, 200)
     })
-  })
-
-  it('handleSetStateViewBrowse should run correctly', () => {
-    const dispatch = jest.fn()
-    const fn = handleSetStateViewBrowse(dispatch)
-    fn()
-    expect(dispatch).toBeCalledWith(setAppDetailModalStateBrowse())
-  })
-
-  it('handleFetchAppDetail should run correctly', () => {
-    const dispatch = jest.fn()
-    const id = 'id'
-    const clientId = 'clientId'
-    const fn = handleFetchAppDetail(dispatch)
-    fn(id, clientId)
-    expect(dispatch).toBeCalledWith(appDetailRequestData({ id, clientId }))
-  })
-
-  it('handleInstallationsSetFormState should run correctly', () => {
-    const dispatch = jest.fn()
-    const formState = 'DONE'
-    const fn = handleInstallationsSetFormState(dispatch)
-    fn(formState)
-    expect(dispatch).toBeCalledWith(appInstallationsSetFormState(formState))
   })
 })

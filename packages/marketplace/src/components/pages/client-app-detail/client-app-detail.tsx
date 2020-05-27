@@ -1,4 +1,7 @@
 import * as React from 'react'
+import { History } from 'history'
+import { useHistory } from 'react-router'
+import classNames from 'classnames'
 import {
   handleUninstallAppButtonClick,
   handleCloseUninstallConfirmationModal,
@@ -12,11 +15,12 @@ import { selectAppDetailData, selectAppDetailLoading } from '@/selector/client-a
 import { selectLoginType, selectIsAdmin } from '@/selector/auth'
 import AppHeader from '@/components/ui/standalone-app-detail/app-header'
 import AppContent from './app-content'
-import { Loader, Button } from '@reapit/elements'
+import { Loader, Button, FormSection } from '@reapit/elements'
 import clientAppDetailStyles from '@/styles/pages/client-app-detail.scss?mod'
 import ClientAppInstallConfirmation from '@/components/ui/client-app-detail/client-app-install-confirmation'
 import { Aside } from './aside'
 import { getDesktopIntegrationTypes } from '@/utils/get-desktop-integration-types'
+import Routes from '@/constants/routes'
 
 export type ClientAppDetailProps = {}
 
@@ -29,6 +33,12 @@ export const handleCloseInstallConfirmationModal = (setIsVisibleInstallConfirmat
 export const handleInstallAppButtonClick = (setIsVisibleInstallConfirmation: (isVisible: boolean) => void) => {
   return () => {
     setIsVisibleInstallConfirmation(true)
+  }
+}
+
+export const onBackToAppsButtonClick = (history: History) => {
+  return () => {
+    history.push(Routes.CLIENT)
   }
 }
 
@@ -71,6 +81,7 @@ export const renderAppHeaderButtonGroup = (
 }
 
 const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
+  const history = useHistory()
   const [isVisibleInstallConfirmation, setIsVisibleInstallConfirmation] = React.useState(false)
   const [isVisibleUninstallConfirmation, setIsVisibleUninstallConfirmation] = React.useState(false)
   const closeUninstallConfirmationModal = React.useCallback(
@@ -121,6 +132,11 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
           )}
         />
         <AppContent desktopIntegrationTypes={userDesktopIntegrationTypes} appDetailData={appDetailData} />
+        <FormSection className={classNames('is-clearfix', clientAppDetailStyles.footerContainer)}>
+          <Button className="is-pulled-right" onClick={onBackToAppsButtonClick(history)}>
+            Back To Apps
+          </Button>
+        </FormSection>
         {isVisibleUninstallConfirmation && (
           <ClientAppUninstallConfirmation
             visible={isVisibleUninstallConfirmation}
