@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import { Loader, SelectBoxOptions } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import { DeveloperState } from '@/reducers/developer'
-import { connect } from 'react-redux'
+import { connect, useSelector } from 'react-redux'
 import {
   SelectBox,
   H3,
@@ -30,10 +30,11 @@ import {
   selectSubscriptionsLoading,
   selectTopicsData,
   selectApplicationId,
+  selectWebhookEditModalType,
 } from '@/selector/wehooks'
 import FormikAutoSave from '@/components/hocs/formik-auto-save'
 import WebhookEditModal from '../ui/webhook-edit-modal'
-import { selectDeveloperApps } from '@/selector/developer'
+import { selectDeveloperApps, selectDeveloper } from '@/selector/developer'
 import WebhookTestModal from '../ui/webhook-test-modal'
 import styles from '@/styles/elements/link.scss?mod'
 import linkStyles from '@/styles/elements/link.scss?mod'
@@ -151,17 +152,17 @@ export const getTableTopicsData = ({
   }))
 }
 
-export type StateProps = {
-  subscriptions: WebhookModel[]
-  subscriptionsLoading: boolean
-  topics: TopicModel[]
-  applicationId: string
-  applications: AppSummaryModel[]
-  developerState: DeveloperState
-  modalType: string
-}
+// export type StateProps = {
+//   subscriptions: WebhookModel[]
+//   subscriptionsLoading: boolean
+//   topics: TopicModel[]
+//   applicationId: string
+//   applications: AppSummaryModel[]
+//   developerState: DeveloperState
+//   modalType: string
+// }
 
-export type DeveloperWebhooksProps = StateProps & DispatchProps
+export type DeveloperWebhooksProps = {}
 
 export const mapDeveloperAppsToAppSelectBoxOptions: (
   developerApps: AppSummaryModel[],
@@ -171,18 +172,16 @@ export const mapDeveloperAppsToAppSelectBoxOptions: (
     value: id || '',
   }))
 
-export const DeveloperWebhooks = ({
-  fetchTopics,
-  fetchSubscriptions,
-  subscriptions,
-  subscriptionsLoading,
-  topics,
-  applicationId,
-  developerState,
-  webhookSetOpenModal,
-  modalType,
-}: DeveloperWebhooksProps) => {
+export const DeveloperWebhooks = () => {
   const [webhookId, setWebhookId] = React.useState<string | undefined>()
+
+  const subscriptions = useSelector(selectSubscriptionsData)
+  const subscriptionsLoading = useSelector(selectSubscriptionsLoading)
+  const topics = useSelector(selectTopicsData)
+  const applicationId = useSelector(selectApplicationId)
+  const applications = useSelector(selectDeveloperApps)
+  const developerState = useSelector(selectDeveloper)
+  const modalType = useSelector(selectWebhookEditModalType)
 
   const handleOpenCreateModal = openCreateModal(webhookSetOpenModal)
   const handleOpenEditModal = openEditModal({ webhookSetOpenModal, setWebhookId })
@@ -282,35 +281,37 @@ export const DeveloperWebhooks = ({
   )
 }
 
-export type DispatchProps = {
-  fetchSubscriptions: (applicationId: string) => void
-  fetchTopics: (applicationId: string) => void
-  setApplicationId: (applicationId: string) => void
-  webhookSetOpenModal: (type: string) => void
-}
+export default DeveloperWebhooks
 
-export const mapStateToProps = (state: ReduxState): StateProps => ({
-  subscriptions: selectSubscriptionsData(state),
-  subscriptionsLoading: selectSubscriptionsLoading(state),
-  topics: selectTopicsData(state),
-  applicationId: selectApplicationId(state),
-  applications: selectDeveloperApps(state),
-  developerState: state.developer,
-  modalType: state.webhookEdit.modalType,
-})
+// export type DispatchProps = {
+//   fetchSubscriptions: (applicationId: string) => void
+//   fetchTopics: (applicationId: string) => void
+//   setApplicationId: (applicationId: string) => void
+//   webhookSetOpenModal: (type: string) => void
+// }
 
-export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
-  return {
-    fetchSubscriptions: (applicationId: string) => dispatch(webhookSubscriptionsRequestData(applicationId)),
-    fetchTopics: (applicationId: string) => dispatch(webhookTopicsRequestData(applicationId)),
-    setApplicationId: (applicationId: string) => dispatch(setApplicationId(applicationId)),
-    webhookSetOpenModal: (type: string) => dispatch(webhookSetOpenModal(type)),
-  }
-}
+// export const mapStateToProps = (state: ReduxState): StateProps => ({
+//   subscriptions: selectSubscriptionsData(state),
+//   subscriptionsLoading: selectSubscriptionsLoading(state),
+//   topics: selectTopicsData(state),
+//   applicationId: selectApplicationId(state),
+//   applications: selectDeveloperApps(state),
+//   developerState: state.developer,
+//   modalType: state.webhookEdit.modalType,
+// })
 
-export const withRedux = connect(mapStateToProps, mapDispatchToProps)
+// export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
+//   return {
+//     fetchSubscriptions: (applicationId: string) => dispatch(webhookSubscriptionsRequestData(applicationId)),
+//     fetchTopics: (applicationId: string) => dispatch(webhookTopicsRequestData(applicationId)),
+//     setApplicationId: (applicationId: string) => dispatch(setApplicationId(applicationId)),
+//     webhookSetOpenModal: (type: string) => dispatch(webhookSetOpenModal(type)),
+//   }
+// }
 
-export const EnhanceSettingPage = compose<React.FC<DeveloperWebhooksProps>>(withRedux)(DeveloperWebhooks)
-EnhanceSettingPage.displayName = 'EnhanceSettingPage'
+// export const withRedux = connect(mapStateToProps, mapDispatchToProps)
 
-export default EnhanceSettingPage as React.LazyExoticComponent<any>
+// export const EnhanceSettingPage = compose<React.FC<DeveloperWebhooksProps>>(withRedux)(DeveloperWebhooks)
+// EnhanceSettingPage.displayName = 'EnhanceSettingPage'
+
+// export default EnhanceSettingPage as React.LazyExoticComponent<any>

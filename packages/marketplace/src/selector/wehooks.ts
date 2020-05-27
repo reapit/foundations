@@ -19,3 +19,7 @@ export const selectTopicsLoading = (state: ReduxState) => {
 export const selectApplicationId = (state: ReduxState) => {
   return state?.webhooks?.topics?.applicationId
 }
+
+export const selectWebhookEditModalType = (state: ReduxState) => {
+  return state.webhookEdit.modalType
+}
