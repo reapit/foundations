@@ -28,6 +28,6 @@ export const selectRefreshSession = (state: ReduxState) => {
   return state.auth?.refreshSession
 }
 
-export const selectIsTermAccepted = (state: ReduxState) => {
-  return state.auth?.isTermAccepted
+export const selectIsTermAccepted = (state: ReduxState): boolean => {
+  return state.auth.isTermAccepted
 }
