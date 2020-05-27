@@ -16,6 +16,8 @@ env:
   CI: true
   GH_PAT: ${{secrets.GH_PAT}}
   IS_RELEASE: true
+  CYPRESS_USERNAME: ${{secrets.CYPRESS_USERNAME}}
+  CYPRESS_PASSWORD: ${{secrets.CYPRESS_PASSWORD}}
 
 jobs:
   release_production:
