@@ -493,22 +493,6 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
                 </div>
               </Component>
             </div>
-            <Connect(Component)
-              afterClose={[Function]}
-              visible={false}
-            >
-              <Component
-                afterClose={[Function]}
-                setAppDetailModalStateBrowse={[Function]}
-                visible={false}
-              >
-                <Component
-                  afterClose={[Function]}
-                  renderChildren={true}
-                  visible={false}
-                />
-              </Component>
-            </Connect(Component)>
           </ErrorBoundary>
         </Connect(ErrorBoundary)>
       </Component>
@@ -1010,22 +994,6 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                 </div>
               </Component>
             </div>
-            <Connect(Component)
-              afterClose={[Function]}
-              visible={false}
-            >
-              <Component
-                afterClose={[Function]}
-                setAppDetailModalStateBrowse={[Function]}
-                visible={false}
-              >
-                <Component
-                  afterClose={[Function]}
-                  renderChildren={true}
-                  visible={false}
-                />
-              </Component>
-            </Connect(Component)>
           </ErrorBoundary>
         </Connect(ErrorBoundary)>
       </Component>
@@ -1615,22 +1583,6 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
                 </Component>
               </div>
             </div>
-            <Connect(Component)
-              afterClose={[Function]}
-              visible={false}
-            >
-              <Component
-                afterClose={[Function]}
-                setAppDetailModalStateBrowse={[Function]}
-                visible={false}
-              >
-                <Component
-                  afterClose={[Function]}
-                  renderChildren={true}
-                  visible={false}
-                />
-              </Component>
-            </Connect(Component)>
           </ErrorBoundary>
         </Connect(ErrorBoundary)>
       </Component>
@@ -2220,22 +2172,6 @@ exports[`Client should match a snapshot when featured apps is undefined 1`] = `
                 </Component>
               </div>
             </div>
-            <Connect(Component)
-              afterClose={[Function]}
-              visible={false}
-            >
-              <Component
-                afterClose={[Function]}
-                setAppDetailModalStateBrowse={[Function]}
-                visible={false}
-              >
-                <Component
-                  afterClose={[Function]}
-                  renderChildren={true}
-                  visible={false}
-                />
-              </Component>
-            </Connect(Component)>
           </ErrorBoundary>
         </Connect(ErrorBoundary)>
       </Component>
