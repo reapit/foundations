@@ -1,4 +1,3 @@
-import hardtack from 'hardtack'
 import jwt from 'jsonwebtoken'
 import { CognitoUserPool, CognitoUser, CognitoUserSession } from 'amazon-cognito-identity-js'
 import { LoginSession, RefreshParams, LoginType, LoginIdentity, CoginitoIdentity } from '../core/types'
@@ -32,6 +31,13 @@ export const getNewUser = (userName: string, cognitoClientId: string, userPoolId
   return new CognitoUser(userData)
 }
 
+/** TODO - deprecate these methods at the next major release
+ * Have kept the names as get and set cookie however, we are now using localstorage because the length
+ * of the Refresh token is now too big (over 4kb), to store in a cookie. That was a day wasted.
+ * Obviously we are now using localstorage, will update to reflect this later, this to solve prod bug
+ * and not break third party auth
+ */
+
 export const setSessionCookie = (
   session: LoginSession,
   identifier: string = COOKIE_SESSION_KEY,
@@ -39,28 +45,23 @@ export const setSessionCookie = (
 ): void => {
   const { userName, refreshToken, loginType, mode, cognitoClientId } = session
   const identifierWithEnv = appEnv ? `${appEnv}-${identifier}` : identifier
-  hardtack.set(
-    identifierWithEnv,
-    JSON.stringify({
-      refreshToken,
-      loginType,
-      userName,
-      mode,
-      cognitoClientId,
-    }),
-    {
-      path: '/',
-      domain: window.location.hostname,
-      expires: COOKIE_EXPIRY,
-      samesite: 'lax',
-    },
-  )
+
+  const cookie = JSON.stringify({
+    refreshToken,
+    loginType,
+    userName,
+    mode,
+    cognitoClientId,
+  })
+
+  window.localStorage.setItem(identifierWithEnv, cookie)
 }
 
 export const getSessionCookie = (identifier: string = COOKIE_SESSION_KEY, appEnv?: string): RefreshParams | null => {
   try {
     const identifierWithEnv = appEnv ? `${appEnv}-${identifier}` : identifier
-    const session = hardtack.get(identifierWithEnv)
+    const session = window.localStorage.getItem(identifierWithEnv)
+
     if (session) {
       const marketplaceGlobalObject = getMarketplaceGlobalsByKey()
       const mode = marketplaceGlobalObject ? 'DESKTOP' : 'WEB'
