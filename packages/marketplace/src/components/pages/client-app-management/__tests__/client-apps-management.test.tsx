@@ -5,14 +5,14 @@ import { MemoryRouter } from 'react-router'
 import configureStore from 'redux-mock-store'
 import * as ReactRedux from 'react-redux'
 import routes from '@/constants/routes'
-import MyApps, {
+import ClientAppsManagement, {
   handleOnChange,
   handleUseEffect,
   handleFetchMyApp,
   handleSetStateViewManage,
   handleFetchAppDetail,
   handleInstallationsSetFormState,
-} from '../my-apps'
+} from '../client-apps-management'
 import Routes from '@/constants/routes'
 import { ReduxState } from '@/types/core'
 import { myAppsRequestData } from '@/actions/my-apps'
@@ -51,7 +51,7 @@ describe('MyApps', () => {
       mount(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.MY_APPS, key: 'clientManageRoute' }]}>
-            <MyApps />
+            <ClientAppsManagement />
           </MemoryRouter>
         </ReactRedux.Provider>,
       ),
@@ -63,7 +63,7 @@ describe('MyApps', () => {
       mount(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.MY_APPS, key: 'clientManageRoute' }]}>
-            <MyApps />
+            <ClientAppsManagement />
           </MemoryRouter>
         </ReactRedux.Provider>,
       ),
@@ -75,7 +75,7 @@ describe('MyApps', () => {
       mount(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.MY_APPS, key: 'clientManageRoute' }]}>
-            <MyApps />
+            <ClientAppsManagement />
           </MemoryRouter>
         </ReactRedux.Provider>,
       ),

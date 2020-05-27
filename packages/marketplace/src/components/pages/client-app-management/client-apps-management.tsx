@@ -43,7 +43,7 @@ export const handleInstallationsSetFormState = (dispatch: Dispatch) => (formStat
   dispatch(appInstallationsSetFormState(formState))
 }
 
-export const MyApps: React.FunctionComponent = () => {
+export const ClientAppsManagement: React.FunctionComponent = () => {
   const dispatch = useDispatch()
 
   const myAppsState = useSelector(selectMyApps)
@@ -101,4 +101,4 @@ export const MyApps: React.FunctionComponent = () => {
   )
 }
 
-export default MyApps
+export default ClientAppsManagement
