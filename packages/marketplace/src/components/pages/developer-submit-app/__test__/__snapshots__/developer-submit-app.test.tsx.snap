@@ -63,7 +63,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
           hasPadding={true}
         >
           <div
-            className="container-flex is-column   has-padding   undefined"
+            className=" container-flex is-column   has-padding   undefined"
           >
             <Component
               flexColumn={true}
@@ -1083,7 +1083,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                         type="radio"
                                       >
                                         <div
-                                          className="field pb-2"
+                                          className="field pb-2 "
                                         >
                                           <div
                                             className="control"
@@ -1100,7 +1100,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                 checked={false}
                                                 className="checkbox "
                                                 disabled={false}
-                                                id="AUTHORIZATION CODE (Reapit Connect)"
+                                                id="authFlowAUTHORIZATION CODE (Reapit Connect)"
                                                 key="authorisationCode"
                                                 name="authFlow"
                                                 onChange={[Function]}
@@ -1108,7 +1108,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                 value="authorisationCode"
                                               />
                                               <label
-                                                htmlFor="AUTHORIZATION CODE (Reapit Connect)"
+                                                htmlFor="authFlowAUTHORIZATION CODE (Reapit Connect)"
                                               >
                                                 AUTHORIZATION CODE (Reapit Connect)
                                               </label>
@@ -1121,7 +1121,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                 checked={false}
                                                 className="checkbox "
                                                 disabled={false}
-                                                id="CLIENT CREDENTIALS"
+                                                id="authFlowCLIENT CREDENTIALS"
                                                 key="clientCredentials"
                                                 name="authFlow"
                                                 onChange={[Function]}
@@ -1129,7 +1129,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                 value="clientCredentials"
                                               />
                                               <label
-                                                htmlFor="CLIENT CREDENTIALS"
+                                                htmlFor="authFlowCLIENT CREDENTIALS"
                                               >
                                                 CLIENT CREDENTIALS
                                               </label>
@@ -1317,7 +1317,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                         type="radio"
                                       >
                                         <div
-                                          className="field pb-2"
+                                          className="field pb-2 "
                                         >
                                           <div
                                             className="control"
@@ -1334,7 +1334,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                 checked={false}
                                                 className="checkbox "
                                                 disabled={false}
-                                                id="YES"
+                                                id="isPrivateAppYES"
                                                 key="yes"
                                                 name="isPrivateApp"
                                                 onChange={[Function]}
@@ -1342,7 +1342,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                 value="yes"
                                               />
                                               <label
-                                                htmlFor="YES"
+                                                htmlFor="isPrivateAppYES"
                                               >
                                                 YES
                                               </label>
@@ -1355,7 +1355,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                 checked={false}
                                                 className="checkbox "
                                                 disabled={false}
-                                                id="NO"
+                                                id="isPrivateAppNO"
                                                 key="no"
                                                 name="isPrivateApp"
                                                 onChange={[Function]}
@@ -1363,7 +1363,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                 value="no"
                                               />
                                               <label
-                                                htmlFor="NO"
+                                                htmlFor="isPrivateAppNO"
                                               >
                                                 NO
                                               </label>
@@ -1848,7 +1848,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                       name="isDirectApi"
                                     >
                                       <div
-                                        className="field pb-4"
+                                        className="field pb-4 "
                                       >
                                         <div
                                           className="control"
