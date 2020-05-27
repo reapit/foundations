@@ -57,7 +57,7 @@ package:
     - public/**
 
 functions:
-  searchWidgetHandler:
+  appointmentPlannerHandler:
     handler: src/appointment-planner/server/core/index.appointmentPlannerHandler
     events:
       - http:
