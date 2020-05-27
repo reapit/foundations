@@ -1,4 +1,5 @@
 import { ReduxState } from '@/types/core'
+import { MyAppsState } from '@/reducers/my-apps'
 
 export const selectClientId = (state: ReduxState) => {
   return state?.auth?.loginSession?.loginIdentity?.clientId || ''
@@ -42,4 +43,8 @@ export const selectIsWebComponentNegotiators = (state: ReduxState) => {
 
 export const selectAppDetail = (state: ReduxState) => {
   return state.appDetail
+}
+
+export const selectMyApps = (state: ReduxState): MyAppsState => {
+  return state.myApps || {}
 }

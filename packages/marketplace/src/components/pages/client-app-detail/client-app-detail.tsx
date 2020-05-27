@@ -121,8 +121,8 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
           buttonGroup={renderAppHeaderButtonGroup(
             id,
             installedOn,
-            onUninstsallConfirmationModal,
             onInstallConfirmationModal,
+            onUninstsallConfirmationModal,
             isInstallBtnHidden,
           )}
         />

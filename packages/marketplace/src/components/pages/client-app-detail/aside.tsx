@@ -4,12 +4,13 @@ import standAloneAppDetailStyles from '@/styles/blocks/standalone-app-detail.scs
 import { renderCategory, renderDesktopIntegrationTypes } from '../client-app-detail/app-content'
 import { DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
 import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
-import { GridItem, Button, H6 } from '@reapit/elements'
+import { Button, H5 } from '@reapit/elements'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectIsWebComponentOpen } from '@/selector/client'
 import { clientCloseWebComponentConfig, clientOpenWebComponentConfig } from '@/actions/client'
 import { Dispatch } from 'redux'
 import WebComponentModal from '@/components/ui/web-component-config-modal'
+import clientAppDetailStyles from '@/styles/pages/client-app-detail.scss?mod'
 
 interface AsideProps {
   appDetailData: AppDetailDataNotNull
@@ -29,8 +30,12 @@ export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetail
         <div className={standAloneAppDetailStyles.headerWithoutMargin}>
           {renderDesktopIntegrationTypes(desktopIntegrationTypes)}
         </div>
+        {isWebComponent && (
+          <div className={standAloneAppDetailStyles.headerWithoutMargin}>
+            <WebComponentConfig />
+          </div>
+        )}
       </div>
-      {isWebComponent && <WebComponentConfig />}
     </div>
   )
 }
@@ -49,13 +54,11 @@ export const WebComponentConfig = () => {
   const handleToggleWebComponentModal = toggleWebComponentModal(dispatch)
   const handleCloseWebComponentModal = closeWebComponentModal(dispatch)
   return (
-    <>
-      <GridItem>
-        <H6>Settings</H6>
-        <Button type="button" variant="primary" fullWidth onClick={handleToggleWebComponentModal}>
-          Configuration
-        </Button>
-      </GridItem>
+    <div className={clientAppDetailStyles.gutter}>
+      <H5>Settings</H5>
+      <Button type="button" variant="primary" fullWidth onClick={handleToggleWebComponentModal}>
+        Configuration
+      </Button>
       {isWebComponentOpen && (
         <WebComponentModal
           type="BOOK_VIEWING"
@@ -63,6 +66,6 @@ export const WebComponentConfig = () => {
           closeModal={handleCloseWebComponentModal}
         />
       )}
-    </>
+    </div>
   )
 }
