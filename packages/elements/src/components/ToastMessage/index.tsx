@@ -20,9 +20,14 @@ export const ToastMessage: React.FC<ToastMessageProps> = ({
   onCloseToast,
   variant,
 }) => {
-  if (visible && !preventClose) {
-    setTimeout(onCloseToast, displayDuration)
-  }
+  React.useEffect(() => {
+    if (visible && !preventClose) {
+      const timeout = setTimeout(onCloseToast, displayDuration)
+      return () => {
+        clearTimeout(timeout)
+      }
+    }
+  }, [visible, preventClose])
 
   return (
     <div data-test="toast-wrapper" className={`toast ${visible ? 'visible' : ''}`} onClick={onCloseToast}>
