@@ -27,9 +27,9 @@ import {
   selectWebhookEditModalType,
 } from '@/selector/wehooks'
 import FormikAutoSave from '@/components/hocs/formik-auto-save'
-import WebhookEditModal from '@/components/ui/webhook-edit-modal'
+import WebhookEditModal from '@/components/ui/developer-webhooks/webhook-edit-modal'
 import { selectDeveloper } from '@/selector/developer'
-import WebhookTestModal from '@/components/ui/webhook-test-modal'
+import WebhookTestModal from '@/components/ui/developer-webhooks/webhook-test-modal'
 import styles from '@/styles/elements/link.scss?mod'
 import linkStyles from '@/styles/elements/link.scss?mod'
 import Routes from '@/constants/routes'
