@@ -21,6 +21,7 @@ export const getConfigByClientId = async ({ traceId, data }: GetByClientIdParams
 export const createConfig = async ({ traceId, data }: CreateParams): Promise<WebComponentConfig> => {
   try {
     logger.info('Creating config...', { traceId, data })
+
     const itemToCreate = generateSchemaItem(data)
     const result = await dynamoDBMapper.put(itemToCreate)
     logger.info('Create config successfully', { traceId, result })
@@ -49,7 +50,7 @@ export const updateConfig = async ({ traceId, data }: UpdateParams): Promise<Web
 export const deleteConfig = async ({ traceId, data }: DeleteParams): Promise<WebComponentConfig> => {
   try {
     logger.info('Deleting config...', { traceId, data })
-    const itemToDelete = generateSchemaItem(data)
+    const itemToDelete = generateSchemaItem({ appId: data.customerId })
     const result = await dynamoDBMapper.delete(itemToDelete)
     logger.info('Delete config successfully', { traceId, result })
     return result

@@ -27,27 +27,10 @@ export const webComponentsConfigGetByIdHandler = async (req: AppRequest, res: Ap
   }
 }
 
-export const webComponentsConfigPutHandler = async (req: AppRequest, res: AppResponse) => {
-  try {
-    const params = { traceId: req.traceId, data: req.body }
-    const { data } = params
-    validateCreate(data)
-    const result = await createConfig(params)
-    return res.send(result)
-  } catch (err) {
-    await logger.error('webComponentsConfig.put', {
-      headers: JSON.stringify(req.headers),
-      traceId: req.traceId,
-      error: stringifyError(err),
-    })
-    return res.send({ message: err.message, code: err.code, traceId: req.traceId })
-  }
-}
-
 export const webComponentsConfigPatchHandler = async (req: AppRequest, res: AppResponse) => {
   try {
     const params = {
-      data: { customerId: req.params.customerId, ...req.body },
+      data: { customerId: req.params.customerId, appId: req.params.appId, ...req.body },
       traceId: req.traceId,
     }
     const { data } = params
@@ -67,7 +50,7 @@ export const webComponentsConfigPatchHandler = async (req: AppRequest, res: AppR
 export const webComponentsConfigDeleteHandler = async (req: AppRequest, res: AppResponse) => {
   try {
     const params = {
-      data: { customerId: req.params.customerId },
+      data: { customerId: req.params.customerId, appId: req.params.appId },
       traceId: req.traceId,
     }
     const { data } = params
@@ -80,9 +63,26 @@ export const webComponentsConfigDeleteHandler = async (req: AppRequest, res: App
   }
 }
 
-webComponentsConfig.get('/:customerId', webComponentsConfigGetByIdHandler)
-webComponentsConfig.put('/', webComponentsConfigPutHandler)
-webComponentsConfig.patch('/:customerId', webComponentsConfigPatchHandler)
-webComponentsConfig.delete('/:customerId', webComponentsConfigDeleteHandler)
+export const webComponentsConfigPostHandler = async (req: AppRequest, res: AppResponse) => {
+  try {
+    const params = {
+      data: { ...req.body, customerId: req.params.customerId, appId: req.params.appId },
+      traceId: req.traceId,
+    }
+    const { data } = params
+
+    validateCreate(data)
+    const result = await createConfig(params)
+    return res.send(result)
+  } catch (err) {
+    // logger.error('webComponentsConfig.create', { traceId: req.traceId, error: JSON.stringify(err) })
+    return res.send({ message: err.message, code: err.code, traceId: req.traceId })
+  }
+}
+
+webComponentsConfig.post('/:customerId/:appId', webComponentsConfigPostHandler)
+webComponentsConfig.get('/:customerId/:appId', webComponentsConfigGetByIdHandler)
+webComponentsConfig.delete('/:customerId/:appId', webComponentsConfigDeleteHandler)
+webComponentsConfig.put('/:customerId/:appId', webComponentsConfigPatchHandler)
 
 export default webComponentsConfig
