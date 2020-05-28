@@ -6,14 +6,12 @@ import {
   FlexContainerBasic,
   GridItem,
   Grid,
-  Form,
-  FormHeading,
-  FormSubHeading,
-  Input,
   FormSection,
   Button,
   LevelRight,
-  Formik,
+  Form,
+  FormHeading,
+  FormSubHeading,
 } from '@reapit/elements'
 import { Dispatch } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
@@ -27,9 +25,6 @@ export const handleLogout = (dispatch: Dispatch) => () => {
 export const ClientSettingsPage: React.FC = () => {
   const dispatch = useDispatch()
   const customerId = useSelector(selectClientId)
-  const initialValues = {
-    customerId,
-  }
 
   const logout = handleLogout(dispatch)
   return (
@@ -37,32 +32,14 @@ export const ClientSettingsPage: React.FC = () => {
       <Content>
         <FlexContainerResponsive flexColumn hasBackground hasPadding>
           <H3>Settings</H3>
-          <Grid>
-            <GridItem>
-              <FormSection>
-                <Formik enableReinitialize initialValues={initialValues} onSubmit={() => {}}>
-                  <Form>
-                    <FormHeading>Customer ID</FormHeading>
-                    <FormSubHeading>
-                      This is your Customer ID which you will need for use with Private Apps and Web Components.
-                    </FormSubHeading>
-                    <Grid>
-                      <GridItem>
-                        <Input
-                          dataTest="customerId"
-                          type="text"
-                          labelText="Customer ID"
-                          id="customerId"
-                          name="customerId"
-                        />
-                      </GridItem>
-                    </Grid>
-                  </Form>
-                </Formik>
-              </FormSection>
-            </GridItem>
-            <GridItem />
-          </Grid>
+          <div>
+            <FormHeading>
+              Customer ID: <strong>{customerId}</strong>
+            </FormHeading>
+            <FormSubHeading>
+              This is your Customer ID which you will need for use with Private Apps and Web Components.
+            </FormSubHeading>
+          </div>
           <FormSection>
             <LevelRight>
               <Button dataTest="logout-btn" variant="primary" type="button" onClick={logout}>
