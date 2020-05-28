@@ -6,7 +6,7 @@
 
     <title>DEMO</title>
     <style>
-      #appointment-bookings-valuation {
+      #book-valuation-widget {
         float: right;
         margin-bottom: 1em;
       }
@@ -16,20 +16,20 @@
       }
     </style>
     <link rel="stylesheet" href="<%= CDN_URL %>/search-widget.css" />
-    <link rel="stylesheet" href="<%= CDN_URL %>/appointment-bookings.css" />
+    <link rel="stylesheet" href="<%= CDN_URL %>/book-valuation-widget.css" />
   </head>
 
   <body>
     <div class="page-container">
-      <div id="appointment-bookings-valuation"></div>
+      <div id="book-valuation-widget"></div>
       <div id="search-widget"></div>
     </div>
     <script src="<%= CDN_URL %>/search-widget.js"></script>
-    <script src="<%= CDN_URL %>/appointment-bookings.js"></script>
+    <script src="<%= CDN_URL %>/book-valuation-widget.js"></script>
     <script src="<%= CDN_URL %>/themes.js"></script>
     <script>
-      ReapitSearchWidgetComponent &&
-        new ReapitSearchWidgetComponent({
+      ReapitSearchWidget &&
+        new ReapitSearchWidget({
           theme: window.theme,
           apiKey: '<%= API_KEY %>',
           customerId: '<%= CUSTOMER_ID %>',
@@ -37,12 +37,12 @@
           detailPageUrl: '/detail.html',
         })
 
-      ReapitAppointmentBookingComponent &&
-        new ReapitAppointmentBookingComponent({
+      ReapitBookValuationWidget &&
+        new ReapitBookValuationWidget({
           theme: window.theme,
           apiKey: '<%= API_KEY %>',
           customerId: '<%= CUSTOMER_ID %>',
-          parentSelector: '#appointment-bookings-valuation',
+          parentSelector: '#book-valuation-widget',
           variant: 'VALUATION',
         })
     </script>
