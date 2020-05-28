@@ -82,7 +82,7 @@ describe('PrivateRouter', () => {
         clientId: '',
         developerId: 'testDeveloperId',
       } as LoginIdentity
-      const fn = handleChangeLoginType('CLIENT', 'DEVELOPER', spyDispatch, mockLoginIdentity)
+      const fn = handleChangeLoginType('CLIENT', 'DEVELOPER', spyDispatch, mockLoginIdentity, false)
       fn()
       expect(spyDispatch).toBeCalledWith(authChangeLoginType('DEVELOPER'))
     })
@@ -91,9 +91,20 @@ describe('PrivateRouter', () => {
         clientId: 'testClient',
         developerId: '',
       } as LoginIdentity
-      const fn = handleChangeLoginType('DEVELOPER', 'CLIENT', spyDispatch, mockLoginIdentity)
+      const fn = handleChangeLoginType('DEVELOPER', 'CLIENT', spyDispatch, mockLoginIdentity, false)
       fn()
       expect(spyDispatch).toBeCalledWith(authChangeLoginType('CLIENT'))
+    })
+
+    it('should dispatch authChangeLoginType to change loginType to CLIENT', () => {
+      const mockDispatch = jest.fn()
+      const mockLoginIdentity = {
+        clientId: 'testClient',
+        developerId: '',
+      } as LoginIdentity
+      const fn = handleChangeLoginType('DEVELOPER', 'CLIENT', mockDispatch, mockLoginIdentity, true)
+      fn()
+      expect(mockDispatch).not.toBeCalled()
     })
   })
 
