@@ -28,6 +28,10 @@ html {
   box-sizing: content-box !important;
 }
 
+#root {
+  height: 100%;
+}
+
 /* Class names prefixes */
 $prefix: 'gjs-' !default;
 
@@ -38,7 +42,8 @@ $quaternaryColor: #7bc9eb;
 $fontName: 'Open Sans', Arial, Helvetica, sans-serif;
 
 .#{$prefix} {
-  @each $cnum, $ccol in (one, $primaryColor), (two, $secondaryColor), (three, $tertiaryColor), (four, $quaternaryColor) {
+  @each $cnum, $ccol in (one, $primaryColor), (two, $secondaryColor), (three, $tertiaryColor), (four, $quaternaryColor)
+  {
     &#{$cnum} {
       &-bg {
         background-color: $ccol;
@@ -55,5 +60,5 @@ $fontName: 'Open Sans', Arial, Helvetica, sans-serif;
   }
 }
 
+@import './vendor/grapesjs/main.scss';
 
-@import "./vendor/grapesjs/main.scss";

@@ -36,7 +36,7 @@ export const initializePropertyDetailComponent = editor => {
 
             const initWidget = () => {
               container.innerHTML = ''
-              new window.ReapitPropertyDetailComponent({
+              new window.ReapitPropertyDetailWidget({
                 theme: {
                   baseBackgroundColor: '#fff',
                   basefontSize: '16px',
@@ -62,14 +62,14 @@ export const initializePropertyDetailComponent = editor => {
               })
             }
 
-            if (!window.ReapitPropertyDetailComponent) {
+            if (!window.ReapitPropertyDetailWidget) {
               const styles = document.createElement('link')
-              styles.href = 'https://web-components.reapit.cloud/property-detail.css'
+              styles.href = 'https://web-components.reapit.cloud/property-detail-widget.css'
               styles.rel = 'stylesheet'
               document.head.appendChild(styles)
 
               const script = document.createElement('script')
-              script.src = 'https://web-components.reapit.cloud/property-detail.js'
+              script.src = 'https://web-components.reapit.cloud/property-detail-widget.js'
               script.async = true
               script.defer = true
               script.onload = initWidget
