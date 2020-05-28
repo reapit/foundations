@@ -8,7 +8,6 @@ import {
   deserializeIdToken,
   tokenExpired,
   checkHasIdentityId,
-  COOKIE_EXPIRY,
   redirectToOAuth,
   redirectToLogin,
 } from './cognito'
@@ -68,8 +67,7 @@ describe('Session utils', () => {
 
       setSessionCookie(mockLoginSession, COOKIE_SESSION_KEY, 'development')
 
-      expect(hardtack.set).toHaveBeenCalledWith(
-        `development-${COOKIE_SESSION_KEY}`,
+      expect(window.localStorage.getItem(`development-${COOKIE_SESSION_KEY}`)).toEqual(
         JSON.stringify({
           refreshToken: mockLoginSession.refreshToken,
           loginType: mockLoginSession.loginType,
@@ -77,12 +75,6 @@ describe('Session utils', () => {
           mode: 'WEB',
           cognitoClientId: 'SOME_CLIENT_ID',
         }),
-        {
-          path: '/',
-          domain: 'some.host',
-          expires: COOKIE_EXPIRY,
-          samesite: 'lax',
-        },
       )
     })
   })
@@ -96,7 +88,7 @@ describe('Session utils', () => {
         userName: mockLoginSession.userName,
       })
 
-      document.cookie = `development-${COOKIE_SESSION_KEY}=${stringifiedSession}`
+      window.localStorage.setItem(`development-${COOKIE_SESSION_KEY}`, stringifiedSession)
 
       expect(getSessionCookie(COOKIE_SESSION_KEY, 'development')).toEqual(JSON.parse(stringifiedSession))
     })
@@ -109,7 +101,7 @@ describe('Session utils', () => {
         userName: mockLoginSession.userName,
       })
 
-      document.cookie = `development-${COOKIE_SESSION_KEY}=${stringifiedSession}`
+      window.localStorage.setItem(`development-${COOKIE_SESSION_KEY}`, stringifiedSession)
 
       expect(getSessionCookie(COOKIE_SESSION_KEY, 'development')).toEqual(JSON.parse(stringifiedSession))
     })
@@ -123,13 +115,13 @@ describe('Session utils', () => {
         userName: mockLoginSession.userName,
       })
 
-      document.cookie = `${COOKIE_SESSION_KEY}=${stringifiedSession}`
+      window.localStorage.setItem(`${COOKIE_SESSION_KEY}`, stringifiedSession)
 
       expect(getSessionCookie()).toEqual(JSON.parse(stringifiedSession))
     })
 
     it('should return null if no cookie', () => {
-      document.cookie = `development-${COOKIE_SESSION_KEY}=`
+      window.localStorage.clear()
 
       expect(getSessionCookie(COOKIE_SESSION_KEY, 'development')).toBeNull()
     })

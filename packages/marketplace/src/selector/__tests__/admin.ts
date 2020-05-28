@@ -28,10 +28,10 @@ describe('admin', () => {
       expect(result).toEqual({ adminAppsData: appsDataStub.data, loading: false })
     })
 
-    it('should run correctly and return undefined', () => {
+    it('should run correctly and return {}', () => {
       const input = {} as ReduxState
       const result = selectAdminAppsState(input)
-      expect(result).toEqual(undefined)
+      expect(result).toEqual({})
     })
   })
 
@@ -40,10 +40,10 @@ describe('admin', () => {
       const result = selectAdminAppsData(mockState)
       expect(result).toEqual(mockState.adminApps.adminAppsData)
     })
-    it('should run correctly and return undefined', () => {
+    it('should run correctly and return {}', () => {
       const input = {} as ReduxState
       const result = selectAdminAppsState(input)
-      expect(result).toEqual(undefined)
+      expect(result).toEqual({})
     })
   })
 

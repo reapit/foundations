@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>DEMO</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto|Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/dist/book-viewing-widget.css" />
+    <style>
+      #book-viewing-widget {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    Book a viewing
+    <div id="book-viewing-widget"></div>
+
+    <script src="/dist/book-viewing-widget.js"></script>
+    <script src="/dist/themes.js"></script>
+    <script>
+      if (window.ReapitBookViewingWidget) {
+        new ReapitBookViewingWidget({
+          theme: window.theme,
+          apiKey: '',
+          customerId: '',
+          parentSelector: '#book-viewing-widget',
+        })
+      }
+    </script>
+  </body>
+</html>
