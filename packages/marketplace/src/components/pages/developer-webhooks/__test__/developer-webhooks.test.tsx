@@ -128,7 +128,6 @@ describe('DeveloperWebHooks', () => {
 
   describe('openTestModal', () => {
     it('should run correctly', () => {
-      const webhookSetOpenModal = jest.fn()
       const webhookId = 'webhookId'
       const setWebhookId = jest.fn()
 
