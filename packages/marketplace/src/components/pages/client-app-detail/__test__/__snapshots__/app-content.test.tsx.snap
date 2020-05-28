@@ -17,6 +17,9 @@ exports[`AppContent AppContent - should match snapshot 1`] = `
     </Component>
     <ul />
   </div>
+  <div
+    className=" "
+  />
   <div>
     <div>
       <Component>
@@ -166,25 +169,29 @@ exports[`AppContent renderDesktopIntegrationTypes - should match snapshot 1`] = 
 exports[`AppContent renderExtraMedia - should match snapshot 1`] = `
 <div>
   <div
-    key="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg"
+    className=" "
   >
-    <img
-      src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg"
-    />
-  </div>
-  <div
-    key="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png"
-  >
-    <img
-      src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png"
-    />
-  </div>
-  <div
-    key="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png"
-  >
-    <img
-      src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png"
-    />
+    <div
+      key="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg"
+    >
+      <img
+        src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg"
+      />
+    </div>
+    <div
+      key="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png"
+    >
+      <img
+        src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png"
+      />
+    </div>
+    <div
+      key="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png"
+    >
+      <img
+        src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png"
+      />
+    </div>
   </div>
 </div>
 `;

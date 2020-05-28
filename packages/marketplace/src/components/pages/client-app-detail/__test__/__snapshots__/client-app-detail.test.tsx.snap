@@ -394,6 +394,9 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
                   </Component>
                   <ul />
                 </div>
+                <div
+                  className=" "
+                />
                 <div>
                   <div>
                     <Component>

@@ -114,7 +114,7 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailData }) => {
   return (
     <div className={clientAppDetailStyles.appContentContainer}>
       {isVisibleUninstallModal && (
-        <Modal visible={isVisibleUninstallModal}>
+        <Modal renderChildren className="nghia-test-test" visible={isVisibleUninstallModal}>
           <ConfirmUninstall
             isSetAppDetailStaleAfterUninstallSuccess={false}
             appName={name}

@@ -38,7 +38,7 @@ export const renderCategory = (category: CategoryModel | undefined) => {
   if (!category) {
     return (
       <div className={clientAppDetailStyles.gutter}>
-        <H5 className={standAloneAppDetailStyles.headerWithoutMargin}>Category</H5>
+        <H5>Category</H5>
         <p>None</p>
       </div>
     )
@@ -56,7 +56,7 @@ export const renderDesktopIntegrationTypes = (desktopIntegrationTypes: DesktopIn
   if (desktopIntegrationTypes.length === 0) {
     return (
       <div className={clientAppDetailStyles.gutter}>
-        <H5 className={standAloneAppDetailStyles.headerWithoutMargin}>Destop Integration</H5>
+        <H5>Destop Integration</H5>
         <p>None</p>
       </div>
     )
@@ -72,12 +72,16 @@ export const renderDesktopIntegrationTypes = (desktopIntegrationTypes: DesktopIn
   )
 }
 
-export const renderExtraMedia = (media: MediaModel[] = []) =>
-  media.map(({ uri }) => (
-    <div key={uri} className={clientAppDetailStyles.gutter}>
-      <img src={uri} />
-    </div>
-  ))
+const renderExtraMediaClassNames = [clientAppDetailStyles.renderImageContainer, clientAppDetailStyles.gutter]
+export const renderExtraMedia = (media: MediaModel[] = []) => (
+  <div className={renderExtraMediaClassNames.join(' ')}>
+    {media.map(({ uri }) => (
+      <div key={uri}>
+        <img src={uri} />
+      </div>
+    ))}
+  </div>
+)
 
 const AppContent: React.FC<AppContentProps> = ({ appDetailData, desktopIntegrationTypes = [] }) => {
   const { summary = '', description = '', category, scopes = [], media = [] } = appDetailData
