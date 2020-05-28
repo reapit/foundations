@@ -67,47 +67,43 @@ exports[`WebComponentConfig Should match snapshot 1`] = `
   }
 >
   <Component>
-    <Component>
-      <div
-        className="column  "
+    <div>
+      <Component>
+        <h5
+          className="title is-5  "
+          id=""
+        >
+          Settings
+        </h5>
+      </Component>
+      <Component
+        fullWidth={true}
+        onClick={[Function]}
+        type="button"
+        variant="primary"
       >
-        <Component>
-          <h6
-            className="title is-6  "
-            id=""
-          >
-            Settings
-          </h6>
-        </Component>
-        <Component
-          fullWidth={true}
+        <button
+          className="button  is-primary is-fullwidth "
+          data-test=""
+          disabled={false}
           onClick={[Function]}
           type="button"
-          variant="primary"
         >
-          <button
-            className="button  is-primary is-fullwidth "
-            data-test=""
-            disabled={false}
-            onClick={[Function]}
-            type="button"
-          >
-            Configuration
-          </button>
-        </Component>
-      </div>
-    </Component>
-    <Component
-      afterClose={[Function]}
-      closeModal={[Function]}
-      type="BOOK_VIEWING"
-    >
+          Configuration
+        </button>
+      </Component>
       <Component
         afterClose={[Function]}
-        renderChildren={true}
-        visible={true}
-      />
-    </Component>
+        closeModal={[Function]}
+        type="BOOK_VIEWING"
+      >
+        <Component
+          afterClose={[Function]}
+          renderChildren={true}
+          visible={true}
+        />
+      </Component>
+    </div>
   </Component>
 </Provider>
 `;

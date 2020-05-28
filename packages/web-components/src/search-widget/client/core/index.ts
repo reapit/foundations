@@ -9,7 +9,7 @@ export interface SearchWidgeInitializers {
   detailPageUrl: string
 }
 
-export const ReapitSearchWidgetComponent = ({
+export const ReapitSearchWidget = ({
   parentSelector,
   apiKey,
   customerId,
@@ -27,6 +27,6 @@ export const ReapitSearchWidgetComponent = ({
     },
   })
 
-Object.defineProperty(window, 'ReapitSearchWidgetComponent', {
-  value: ReapitSearchWidgetComponent,
+Object.defineProperty(window, 'ReapitSearchWidget', {
+  value: ReapitSearchWidget,
 })

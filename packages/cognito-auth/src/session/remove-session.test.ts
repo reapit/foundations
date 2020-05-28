@@ -1,28 +1,27 @@
 import { removeSession } from './remove-session'
-import hardtack from 'hardtack'
 import { COOKIE_SESSION_KEY } from '../utils/cognito'
+import { mockRefreshParams } from '../__mocks__/cognito-session'
+
+const stringifiedMock = JSON.stringify(mockRefreshParams)
 
 describe('removeSession', () => {
-  it('should remove a session cookie for a valid host', () => {
-    window.location.hostname = 'something.reapit.com'
-    hardtack.remove = jest.fn()
+  it('should remove a session cookie', () => {
+    window.localStorage.setItem(COOKIE_SESSION_KEY, stringifiedMock)
+
+    expect(window.localStorage.getItem(COOKIE_SESSION_KEY)).toEqual(stringifiedMock)
 
     removeSession()
 
-    expect(hardtack.remove).toHaveBeenCalledWith(COOKIE_SESSION_KEY, {
-      path: '/',
-      domain: window.location.hostname,
-    })
+    expect(window.localStorage.getItem(COOKIE_SESSION_KEY)).toBeFalsy()
   })
+
   it('should remove a session cookie with appEnv', () => {
-    window.location.hostname = 'something.reapit.com'
-    hardtack.remove = jest.fn()
+    window.localStorage.setItem(`development-${COOKIE_SESSION_KEY}`, stringifiedMock)
+
+    expect(window.localStorage.getItem(`development-${COOKIE_SESSION_KEY}`)).toEqual(stringifiedMock)
 
     removeSession(COOKIE_SESSION_KEY, 'development')
 
-    expect(hardtack.remove).toHaveBeenCalledWith(`development-${COOKIE_SESSION_KEY}`, {
-      path: '/',
-      domain: window.location.hostname,
-    })
+    expect(window.localStorage.getItem(COOKIE_SESSION_KEY)).toBeFalsy()
   })
 })

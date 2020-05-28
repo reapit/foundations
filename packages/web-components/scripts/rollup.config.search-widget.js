@@ -1,5 +1,5 @@
 import svelte from 'rollup-plugin-svelte'
-import propertyDetailConfigurations from './rollup.config.property-detail'
+import propertyDetailConfigurations from './rollup.config.property-detail-widget'
 import baseConfig from './rollup.config.base'
 import replace from '@rollup/plugin-replace'
 import path from 'path'

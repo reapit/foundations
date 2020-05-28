@@ -1,7 +1,9 @@
-import { baseConfigurationWithoutTheme as viewBookingBuidConfiguration } from './rollup.config.viewing-booking'
-import { baseConfigurationWithoutTheme as appointmentBookingConfiguration } from './rollup.config.appointment-bookings'
+import { baseConfigurationWithoutTheme as bookViewingWidgetConfiguration } from './rollup.config.book-viewing-widget'
+// eslint-disable-next-line max-len
+import { baseConfigurationWithoutTheme as bookValuationWidgetConfiguration } from './rollup.config.book-valuation-widget'
 import { baseConfigurationWithoutTheme as searchWidgetConfiguration } from './rollup.config.search-widget'
-import { baseConfigurationWithoutTheme as propertyDetailConfiguration } from './rollup.config.property-detail'
+// eslint-disable-next-line max-len
+import { baseConfigurationWithoutTheme as propertyDetailWidgetConfiguration } from './rollup.config.property-detail-widget'
 import themeConfiguration from './rollup.config.themes'
 
 /**
@@ -9,10 +11,10 @@ import themeConfiguration from './rollup.config.themes'
  */
 
 const buildConfigurations = [
-  propertyDetailConfiguration,
+  propertyDetailWidgetConfiguration,
   searchWidgetConfiguration,
-  viewBookingBuidConfiguration,
-  appointmentBookingConfiguration,
+  bookViewingWidgetConfiguration,
+  bookValuationWidgetConfiguration,
   themeConfiguration,
 ]
 

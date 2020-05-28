@@ -34,16 +34,19 @@ export const handleChangeLoginType = (
   allow: LoginType | LoginType[],
   dispatch: Dispatch,
   loginIdentity?: LoginIdentity,
+  isFetchingAccessToken?: boolean,
 ) => {
   return () => {
-    if (!loginIdentity) {
+    if (!loginIdentity || isFetchingAccessToken) {
       return
     }
     if (loginType === 'CLIENT' && allow === 'DEVELOPER' && loginIdentity.developerId) {
       dispatch(authChangeLoginType('DEVELOPER'))
+      return
     }
     if (loginType === 'DEVELOPER' && allow === 'CLIENT' && loginIdentity.clientId) {
       dispatch(authChangeLoginType('CLIENT'))
+      return
     }
   }
 }
@@ -52,9 +55,10 @@ export const handleRedirectToAuthenticationPage = (
   allow: LoginType | LoginType[],
   history: History,
   loginIdentity?: LoginIdentity,
+  isFetchingAccessToken?: boolean,
 ) => {
   return () => {
-    if (!loginIdentity) {
+    if (!loginIdentity || isFetchingAccessToken) {
       return
     }
     const { clientId, developerId } = loginIdentity
@@ -69,22 +73,36 @@ export const fetchAccessToken = async () => {
 }
 
 export const PrivateRoute = ({ component, allow, fetcher = false, ...rest }: PrivateRouteProps & RouteProps) => {
+  const [isFetchingAccessToken, setFetchingAccessToken] = React.useState(true)
   const dispatch = useDispatch()
   const history = useHistory()
   const loginIdentity = useSelector(selectLoginIdentity)
   const loginType = useSelector(selectLoginType)
 
-  React.useEffect(handleChangeLoginType(loginType, allow, dispatch, loginIdentity), [
+  React.useEffect(() => {
+    fetchAccessToken().then(() => {
+      setFetchingAccessToken(false)
+    })
+  }, [])
+
+  React.useEffect(handleChangeLoginType(loginType, allow, dispatch, loginIdentity, isFetchingAccessToken), [
     allow,
     dispatch,
     loginIdentity,
     loginType,
+    isFetchingAccessToken,
   ])
 
-  React.useEffect(handleRedirectToAuthenticationPage(allow, history, loginIdentity), [loginIdentity, allow, history])
+  React.useEffect(handleRedirectToAuthenticationPage(allow, history, loginIdentity, isFetchingAccessToken), [
+    loginIdentity,
+    allow,
+    history,
+    isFetchingAccessToken,
+  ])
 
-  fetchAccessToken()
-
+  if (isFetchingAccessToken) {
+    return null
+  }
   return (
     <Route
       {...rest}
