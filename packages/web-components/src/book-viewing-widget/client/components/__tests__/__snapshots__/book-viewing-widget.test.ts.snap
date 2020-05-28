@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookViewingWidget it matches a snapshot 1`] = `
+<body>
+  <div>
+    <button
+      class="book-viewing-widget-button svelte-5jfyqc"
+    >
+      Book a viewing
+    </button>
+     
+    
+  </div>
+</body>
+`;

@@ -38,26 +38,26 @@ return (async () => {
   const packages = [
     {
       rollUpPackageName: 'search-widget',
-      exportName: 'ReapitSearchWidgetComponent',
+      exportName: 'ReapitSearchWidget',
     },
     {
-      rollUpPackageName: 'appointment-bookings',
-      exportName: 'ReapitAppointmentBookingComponent',
+      rollUpPackageName: 'book-valuation-widget',
+      exportName: 'ReapitBookValuationWidget',
     },
     {
-      rollUpPackageName: 'viewing-booking',
-      exportName: 'ReapitViewingBookingComponent',
+      rollUpPackageName: 'book-viewing-widget',
+      exportName: 'ReapitBookViewingWidget',
     },
     {
       rollUpPackageName: 'themes',
     },
     {
-      rollUpPackageName: 'property-detail',
-      exportName: 'ReapitPropertyDetailComponent',
+      rollUpPackageName: 'property-detail-widget',
+      exportName: 'ReapitPropertyDetailWidget',
     },
     {
-      rollUpPackageName: 'login',
-      exportName: 'LoginWithReapitComponent',
+      rollUpPackageName: 'login-reapit-component',
+      exportName: 'LoginReapitComponent',
     },
   ]
   const opts = {

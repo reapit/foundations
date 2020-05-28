@@ -12,25 +12,26 @@
       margin: 0 auto;
     }
   </style>
-  <link rel="stylesheet" href="<%= CDN_URL %>/property-detail.css" />
-  <link rel="stylesheet" href="<%= CDN_URL %>/appointment-bookings.css" />
-  <link rel="stylesheet" href="<%= CDN_URL %>/viewing-booking.css" />
+  <link rel="stylesheet" href="<%= CDN_URL %>/property-detail-widget.css" />
+  <link rel="stylesheet" href="<%= CDN_URL %>/book-valuation-widget.css" />
+  <link rel="stylesheet" href="<%= CDN_URL %>/book-viewing-widget.css" />
 </head>
 
 <body>
   <div class="page-container">
-    <div id="property-detail"></div>
+    <div id="property-detail-widget"></div>
   </div>
-  <script src="<%= CDN_URL %>/viewing-booking.js"></script>
-  <script src="<%= CDN_URL %>/property-detail.js"></script>
+  <script src="<%= CDN_URL %>/book-valuation-widget.js"></script>
+  <script src="<%= CDN_URL %>/book-viewing-widget.js"></script>
+  <script src="<%= CDN_URL %>/property-detail-widget.js"></script>
   <script src="<%= CDN_URL %>/themes.js"></script>
   <script>
-    ReapitPropertyDetailComponent &&
-      new ReapitPropertyDetailComponent({
+    ReapitPropertyDetailWidget &&
+      new ReapitPropertyDetailWidget({
         theme: window.theme,
         apiKey: '<%= API_KEY %>',
         customerId: '<%= CUSTOMER_ID %>',
-        parentSelector: '#property-detail',
+        parentSelector: '#property-detail-widget',
       })
   </script>
   <% if (development) { %>
