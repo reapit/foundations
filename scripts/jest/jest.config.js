@@ -19,7 +19,6 @@ module.exports = {
   moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx', 'graphql', 'gql'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   verbose: false,
-  bail: 1,
   projects: ['<rootDir>/jest.config.js'],
   transform: {
     '^.+\\.svg$': '<rootDir>/../../scripts/jest/svg-transform.js',
