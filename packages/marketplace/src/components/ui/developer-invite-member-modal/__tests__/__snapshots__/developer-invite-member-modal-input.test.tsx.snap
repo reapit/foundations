@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeveloperInviteMemberModalInput should match snapshot 1`] = `
+<Fragment>
+  <Component
+    id="developerInviteName"
+    labelText="Name"
+    name="developerInviteName"
+    placeholder="Name"
+    required={true}
+    type="text"
+  />
+  <Component
+    id="developerInviteEmail"
+    labelText="Email"
+    name="developerInviteEmail"
+    placeholder="Email"
+    required={true}
+    type="email"
+  />
+  <Component
+    id="developerInviteMessage"
+    labelText="Message (optional)"
+    name="developerInviteMessage"
+    placeholder="Message"
+  />
+</Fragment>
+`;
