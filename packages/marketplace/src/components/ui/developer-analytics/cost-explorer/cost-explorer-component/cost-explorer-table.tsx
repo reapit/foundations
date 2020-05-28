@@ -83,7 +83,7 @@ const CostExplorerTable: React.FC<CostExplorerTableProps> = () => {
   if (isLoading) return <Loader />
 
   const columns = prepareTableColumns(monthlyBilling)
-  const tableData = prepareTableData(monthlyBilling)
+  const tableData = prepareTableData(monthlyBilling?.requestsByService)
 
   return (
     <>
