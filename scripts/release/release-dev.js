@@ -20,7 +20,6 @@ const releaseDev = () => {
     }
 
     const distPath = path.resolve(__dirname, '../../', 'packages', packageName, 'public', 'dist')
-    runCommand('rimraf', [`${distPath}/**/*.map`])
     // This command remove the old version file in bucket
     const deleteResult = execSync(`aws s3 rm --recursive s3://${bucketName}`).toString()
     console.info(deleteResult)
