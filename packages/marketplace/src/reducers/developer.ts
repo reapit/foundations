@@ -112,9 +112,9 @@ export const defaultState: DeveloperState = {
   isVisible: false,
   myIdentity: null,
   billing: null,
-  isServiceChartLoading: true,
+  isServiceChartLoading: false,
   error: null,
-  isMonthlyBillingLoading: true,
+  isMonthlyBillingLoading: false,
   monthlyBilling: null,
   webhookPingTestStatus: null,
 }
