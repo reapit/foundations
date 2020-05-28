@@ -1,1 +1,5 @@
-export const ALL_FIELDS =
+export const FIELD_NAMES = {
+  NAME: 'developerInviteName',
+  EMAIL: 'developerInviteEmail',
+  MESSAGE: 'developerInviteMessage',
+}

@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { FlexContainerBasic, Button, LevelRight, ModalProps } from '@reapit/elements'
-import styles from '@/styles/blocks/developer-invite-member.scss?mod'
+import { FlexContainerBasic, LevelRight, Button } from '@reapit/elements'
+import { DeveloperInviteMemberModalProps } from './developer-invite-member-modal'
 
-export type DeveloperInviteMemberModalFooterProps = Pick<ModalProps, 'afterClose'>
+export type DeveloperInviteMemberModalFooterProps = Pick<DeveloperInviteMemberModalProps, 'afterClose'>
 
 export const DeveloperInviteMemberModalFooter: React.FC<DeveloperInviteMemberModalFooterProps> = ({ afterClose }) => {
   return (
@@ -11,7 +11,7 @@ export const DeveloperInviteMemberModalFooter: React.FC<DeveloperInviteMemberMod
         <Button variant="secondary" type="button" onClick={afterClose}>
           Cancel
         </Button>
-        <Button variant="primary" type="submit" onClick={() => console.log('Cancel')}>
+        <Button variant="primary" type="submit">
           Send Invite
         </Button>
       </LevelRight>
