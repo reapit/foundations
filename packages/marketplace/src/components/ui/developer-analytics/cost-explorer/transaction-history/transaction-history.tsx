@@ -70,7 +70,7 @@ export const createHandleDownLoadButtonOnClickFn = ({
 
 export const renderTransactionHistoryItem = ({ date, developerAppIds }: { date: Dayjs; developerAppIds: string[] }) => {
   return (
-    <Grid>
+    <Grid key={date.toString()}>
       <GridItem className="is-one-third">{formatRenderDate(date)}</GridItem>
       <GridItem>
         <a
