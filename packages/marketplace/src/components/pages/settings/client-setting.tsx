@@ -76,4 +76,4 @@ export const ClientSettingsPage: React.FC = () => {
   )
 }
 
-export default ClientSettingsPage as React.LazyExoticComponent<any>
+export default ClientSettingsPage
