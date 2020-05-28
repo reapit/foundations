@@ -1,7 +1,6 @@
 import * as v2 from './v2'
 // Hooks
 export * from './hooks/UsePortal'
-export * from './hooks/use-offline-plugin'
 
 // Dependencies
 export * from 'formik'
