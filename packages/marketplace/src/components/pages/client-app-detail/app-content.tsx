@@ -36,7 +36,12 @@ export const renderPermissions = (scopes: ScopeModel[] = []) => (
 
 export const renderCategory = (category: CategoryModel | undefined) => {
   if (!category) {
-    return null
+    return (
+      <div className={clientAppDetailStyles.gutter}>
+        <H5>Category</H5>
+        <p>None</p>
+      </div>
+    )
   }
 
   return (
@@ -49,7 +54,12 @@ export const renderCategory = (category: CategoryModel | undefined) => {
 
 export const renderDesktopIntegrationTypes = (desktopIntegrationTypes: DesktopIntegrationTypeModel[]) => {
   if (desktopIntegrationTypes.length === 0) {
-    return null
+    return (
+      <div className={clientAppDetailStyles.gutter}>
+        <H5>Destop Integration</H5>
+        <p>None</p>
+      </div>
+    )
   }
 
   return (
@@ -62,25 +72,35 @@ export const renderDesktopIntegrationTypes = (desktopIntegrationTypes: DesktopIn
   )
 }
 
-export const renderExtraMedia = (media: MediaModel[] = []) =>
-  media.map(({ uri }) => (
-    <div key={uri} className={clientAppDetailStyles.gutter}>
-      <img src={uri} />
-    </div>
-  ))
+const renderExtraMediaClassNames = [clientAppDetailStyles.renderImageContainer, clientAppDetailStyles.gutter]
+export const renderExtraMedia = (media: MediaModel[] = []) => (
+  <div className={renderExtraMediaClassNames.join(' ')}>
+    {media.map(({ uri }) => (
+      <div key={uri}>
+        <img src={uri} />
+      </div>
+    ))}
+  </div>
+)
 
 const AppContent: React.FC<AppContentProps> = ({ appDetailData, desktopIntegrationTypes = [] }) => {
   const { summary = '', description = '', category, scopes = [], media = [] } = appDetailData
   /**
    * 0 = icon
    * 1 = featured media
-   * 2 -> nth: extra media
+   * 2 = bellow summary
+   * 3 -> nth: extra media
    */
-  const extraMedia = media.filter((_, index) => index > 1)
+  const extraMedia = media.filter((_, index) => index > 2)
 
   return (
     <div className={clientAppDetailStyles.appContentContainer}>
       <div className={clientAppDetailStyles.gutter}>{summary}</div>
+      {media[2]?.uri && (
+        <div className={clientAppDetailStyles.gutter}>
+          <img src={media[2]?.uri} />
+        </div>
+      )}
       {renderDescripion(description)}
       {renderPermissions(scopes)}
       {renderExtraMedia(extraMedia)}

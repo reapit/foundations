@@ -129,7 +129,7 @@ export const renderListedStatus = (isListed: boolean) => {
 
 export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetailState }) => {
   const { data } = appDetailState
-  const { isDirectApi, category, isListed, pendingRevisions, id = '', limitToClientIds } = data as AppDetailModel
+  const { isDirectApi, category, isListed, pendingRevisions, id = '', limitToClientIds = [] } = data as AppDetailModel
 
   return (
     <div className={asideContainerClasses}>
@@ -139,7 +139,7 @@ export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetail
           {renderDesktopIntegrationTypes(desktopIntegrationTypes)}
         </div>
         <RenderWithHeader header="Private App">
-          {convertBooleanToYesNoString(Boolean(limitToClientIds))}
+          {convertBooleanToYesNoString(Boolean(limitToClientIds.length > 0))}
         </RenderWithHeader>
         <RenderWithHeader header="Direct API">{convertBooleanToYesNoString(Boolean(isDirectApi))}</RenderWithHeader>
         <RenderWithHeader header="Status">{renderListedStatus(Boolean(isListed))}</RenderWithHeader>
