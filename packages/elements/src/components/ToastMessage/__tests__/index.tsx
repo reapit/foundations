@@ -32,13 +32,6 @@ describe('ToastMessage', () => {
     expect(defaultProps.onCloseToast).toHaveBeenCalledTimes(1)
   })
 
-  it('should dismiss toast after 3 seconds', () => {
-    jest.useFakeTimers()
-    shallow(<ToastMessage {...defaultProps} />)
-    jest.runAllTimers()
-    expect(defaultProps.onCloseToast).toHaveBeenCalledTimes(1)
-  })
-
   afterEach(() => {
     jest.resetAllMocks()
   })

@@ -6825,11 +6825,15 @@ exports[`Table should match a snapshot when LOADING true 1`] = `
     </tr>
   </thead>
   <tbody>
-    <div
-      className="table-loading"
-    >
-      <Component />
-    </div>
+    <tr>
+      <td>
+        <div
+          className="table-loading"
+        >
+          <Component />
+        </div>
+      </td>
+    </tr>
   </tbody>
 </table>
 `;
