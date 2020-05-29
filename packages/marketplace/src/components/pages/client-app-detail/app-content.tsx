@@ -88,13 +88,19 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailData, desktopIntegrati
   /**
    * 0 = icon
    * 1 = featured media
-   * 2 -> nth: extra media
+   * 2 = bellow summary
+   * 3 -> nth: extra media
    */
-  const extraMedia = media.filter((_, index) => index > 1)
+  const extraMedia = media.filter((_, index) => index > 2)
 
   return (
     <div className={clientAppDetailStyles.appContentContainer}>
       <div className={clientAppDetailStyles.gutter}>{summary}</div>
+      {media[2]?.uri && (
+        <div className={clientAppDetailStyles.gutter}>
+          <img src={media[2]?.uri} />
+        </div>
+      )}
       {renderDescripion(description)}
       {renderPermissions(scopes)}
       {renderExtraMedia(extraMedia)}

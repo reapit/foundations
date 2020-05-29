@@ -2,15 +2,20 @@
 @import '../base/screen-size.scss';
 
 .renderImageContainer {
-  display: flex;
+  @include for-desktop-only {
+    display: flex;
+  }
 
   div {
-    flex: 1;
     margin-right: 1rem;
-
-    img {
-      width: 100%;
+    max-width: 300px;
+    @include for-desktop-only {
+      flex: 1;
     }
+  }
+
+  img {
+    width: 100%;
   }
 }
 
@@ -46,7 +51,6 @@
       flex: 1;
     }
   }
-
   height: auto;
   width: 100%;
   margin: 0 auto;
