@@ -258,7 +258,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                                 <t
                                                   allowSameDay={false}
                                                   customInput={
-                                                    <Unknown
+                                                    <CustomInput
                                                       className="input is-primary"
                                                     />
                                                   }
@@ -328,7 +328,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                                       <div
                                                         className="react-datepicker__input-container"
                                                       >
-                                                        <Unknown
+                                                        <CustomInput
                                                           className="input is-primary"
                                                           disabled={false}
                                                           id="registeredFrom"
@@ -357,7 +357,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                                             <div
                                                               className="react-datepicker__input-container"
                                                             >
-                                                              <Component
+                                                              <CustomInput
                                                                 className="input is-primary"
                                                                 disabled={false}
                                                                 id="registeredFrom"
@@ -384,7 +384,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                                                   type="input"
                                                                   value=""
                                                                 />
-                                                              </Component>
+                                                              </CustomInput>
                                                             </div>
                                                           </div>
                                                         </InnerReference>
@@ -433,7 +433,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                                 <t
                                                   allowSameDay={false}
                                                   customInput={
-                                                    <Unknown
+                                                    <CustomInput
                                                       className="input is-primary"
                                                     />
                                                   }
@@ -504,7 +504,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                                       <div
                                                         className="react-datepicker__input-container"
                                                       >
-                                                        <Unknown
+                                                        <CustomInput
                                                           className="input is-primary"
                                                           disabled={false}
                                                           id="registeredTo"
@@ -533,7 +533,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                                             <div
                                                               className="react-datepicker__input-container"
                                                             >
-                                                              <Component
+                                                              <CustomInput
                                                                 className="input is-primary"
                                                                 disabled={false}
                                                                 id="registeredTo"
@@ -560,7 +560,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                                                   type="input"
                                                                   value=""
                                                                 />
-                                                              </Component>
+                                                              </CustomInput>
                                                             </div>
                                                           </div>
                                                         </InnerReference>
