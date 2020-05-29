@@ -19,7 +19,6 @@ import { ReduxState } from '@/types/core'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { updateDeveloperData, changePassword } from '@/actions/settings'
 import { authLogout } from '@/actions/auth'
-import DeveloperInviteMemberModal from '@/components/ui/developer-invite-member-modal'
 
 export type SettingsPageProps = StateProps & DispatchProps
 
@@ -31,7 +30,6 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
   changePassword,
   logout,
 }) => {
-  const [isModalOpen, setIsModalOpen] = React.useState(false)
   if (loading) {
     return <Loader />
   }
@@ -56,10 +54,6 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
               <Button dataTest="logout-btn" variant="primary" type="button" onClick={logout}>
                 Logout
               </Button>
-              <Button variant="primary" type="button" onClick={() => setIsModalOpen(true)}>
-                Open Invite Modal
-              </Button>
-              <DeveloperInviteMemberModal visible={isModalOpen} afterClose={() => setIsModalOpen(false)} />
             </LevelRight>
           </FormSection>
         </FlexContainerResponsive>

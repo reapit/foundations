@@ -52,17 +52,6 @@ exports[`SettingsPage should match snapshot 2`] = `
           >
             Logout
           </Component>
-          <Component
-            onClick={[Function]}
-            type="button"
-            variant="primary"
-          >
-            Open Invite Modal
-          </Component>
-          <Component
-            afterClose={[Function]}
-            visible={false}
-          />
         </Component>
       </Component>
     </Component>
