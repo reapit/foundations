@@ -4,6 +4,7 @@ import {
   selectAdminAppsData,
   selectAdminApprovalsState,
   selectWaitingApprovalData,
+  selectAdminStats,
 } from '../admin'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { approvalsStub } from '@/sagas/__stubs__/approvals'
@@ -68,6 +69,12 @@ describe('admin', () => {
       const input = {} as ReduxState
       const result = selectWaitingApprovalData(input)
       expect(result).toEqual({})
+    })
+  })
+  describe('selectAdminStats', () => {
+    it('should run correctly', () => {
+      const result = selectAdminStats(mockState)
+      expect(result).toEqual(mockState.adminStats)
     })
   })
 })
