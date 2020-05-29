@@ -13,8 +13,8 @@ declare global {
     reapit: {
       config: Config
     }
-    ReapitSearchWidgetComponent: any
-    ReapitPropertyDetailComponent: any
-    ReapitAppointmentBookingComponent: any
+    ReapitSearchWidget: any
+    ReapitPropertyDetailWidget: any
+    ReapitBookValuationWidget: any
   }
 }
