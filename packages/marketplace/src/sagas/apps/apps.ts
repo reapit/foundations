@@ -9,6 +9,7 @@ import { logger } from 'logger'
 import { fetchAppById, fetchDesktopIntegrationTypes, FetchAppByIdParams } from '@/services/apps'
 import { developerFetchAppDetailSuccess } from '@/actions/developer'
 import { fetchApiKeyInstallationById } from '@/services/installations'
+import { AppDetailData } from '@/reducers/client/app-detail'
 
 export const fetchClientAppDetailSaga = function*({ data }: Action<FetchAppByIdParams>) {
   try {
@@ -23,6 +24,22 @@ export const fetchClientAppDetailSaga = function*({ data }: Action<FetchAppByIdP
     const desktopIntegrationTypes = yield call(fetchDesktopIntegrationTypes)
     yield put(integrationTypesReceiveData(desktopIntegrationTypes))
     yield put(clientFetchAppDetailSuccess(appDetailResponse))
+  } catch (err) {
+    logger(err)
+    yield put(
+      errorThrownServer({
+        type: 'SERVER',
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
+    )
+  }
+}
+
+export const developerApplyAppDetailsSaga = function*({ data }: Action<AppDetailData>) {
+  try {
+    const desktopIntegrationTypes = yield call(fetchDesktopIntegrationTypes)
+    yield put(integrationTypesReceiveData(desktopIntegrationTypes))
+    yield put(clientFetchAppDetailSuccess(data))
   } catch (err) {
     logger(err)
     yield put(
@@ -65,8 +82,12 @@ export const developerAppDetailDataListen = function*() {
   yield takeLatest<Action<FetchAppByIdParams>>(ActionTypes.DEVELOPER_FETCH_APP_DETAIL, fetchDeveloperAppDetailSaga)
 }
 
+export const developerApplyAppDetailsListen = function*() {
+  yield takeLatest<Action<AppDetailData>>(ActionTypes.DEVELOPER_APPLY_APP_DETAIL, developerApplyAppDetailsSaga)
+}
+
 const appDetailSagas = function*() {
-  yield all([fork(clientAppDetailDataListen), fork(developerAppDetailDataListen)])
+  yield all([fork(clientAppDetailDataListen), fork(developerAppDetailDataListen), fork(developerApplyAppDetailsListen)])
 }
 
 export default appDetailSagas

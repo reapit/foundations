@@ -17,6 +17,7 @@ import {
   FormikHelpers,
   H6,
   FlexContainerResponsive,
+  FormikValues,
 } from '@reapit/elements'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
 
@@ -44,6 +45,7 @@ import UploadImageSection from './upload-image-section'
 import MarketplaceStatusSection from './marketplace-status-section'
 import PermissionSection from './permission-section'
 import styles from '@/styles/pages/developer-submit-app.scss?mod'
+import { ScopeModel } from '@/types/marketplace-api-schema'
 
 export type DeveloperSubmitAppProps = {}
 
@@ -274,6 +276,25 @@ export const handleOnSubmitAnotherApp = (dispatch: Dispatch) => {
   }
 }
 
+export type HandleOpenAppPreview = {
+  scopes: ScopeModel[]
+  values: FormikValues
+  appid?: string
+  appDetails?: AppDetailModel & { apiKey?: string }
+}
+
+export const handleOpenAppPreview = ({ appDetails, values, scopes, appid }: HandleOpenAppPreview) => () => {
+  const appDetailState = {
+    ...appDetails,
+    ...values,
+    scopes: scopes.filter(scope => values.scopes.includes(scope.name)),
+  }
+
+  const url = `developer/apps/${appid}/preview`
+  localStorage.setItem('developer-preview-app', JSON.stringify(appDetailState))
+  window.open(url, '_blank')
+}
+
 export const DeveloperSubmitApp: React.FC<DeveloperSubmitAppProps> = () => {
   let initialValues
   let formState
@@ -377,6 +398,18 @@ export const DeveloperSubmitApp: React.FC<DeveloperSubmitAppProps> = () => {
                     <LevelRight>
                       <Grid>
                         <GridItem>
+                          <Button
+                            onClick={handleOpenAppPreview({
+                              appDetails: appDetailState?.appDetailData?.data,
+                              values,
+                              scopes,
+                              appid,
+                            })}
+                            variant="primary"
+                            type="button"
+                          >
+                            Preview
+                          </Button>
                           {!isSubmitApp && (
                             <Button onClick={goBackToApps} variant="primary" type="button">
                               Back To Apps

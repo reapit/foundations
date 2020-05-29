@@ -7,15 +7,19 @@ import ClientAppUninstallConfirmation from '@/components/ui/client-app-detail/cl
 import { DesktopIntegrationTypeModel } from '@/actions/app-integration-types'
 import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
 import { selectIntegrationTypes } from '@/selector/integration-types'
-import { useSelector } from 'react-redux'
-import { selectAppDetailData, selectAppDetailLoading } from '@/selector/client-app-detail'
+import { useSelector, useDispatch } from 'react-redux'
+import { selectAppDetailData, selectAppDetailLoading, selectAppDetailError } from '@/selector/client-app-detail'
 import { selectLoginType, selectIsAdmin } from '@/selector/auth'
 import AppHeader from '@/components/ui/standalone-app-detail/app-header'
 import AppContent from './app-content'
-import { Loader, Button } from '@reapit/elements'
+import { Loader, Button, Alert } from '@reapit/elements'
 import clientAppDetailStyles from '@/styles/pages/client-app-detail.scss?mod'
 import ClientAppInstallConfirmation from '@/components/ui/client-app-detail/client-app-install-confirmation'
 import { Aside } from './aside'
+import { clientFetchAppDetailFailed } from '@/actions/client'
+import { developerApplyAppDetails } from '@/actions/developer'
+import { useParams } from 'react-router'
+import { Dispatch } from 'redux'
 
 export type ClientAppDetailProps = {}
 
@@ -28,6 +32,24 @@ export const handleCloseInstallConfirmationModal = (setIsVisibleInstallConfirmat
 export const handleInstallAppButtonClick = (setIsVisibleInstallConfirmation: (isVisible: boolean) => void) => {
   return () => {
     setIsVisibleInstallConfirmation(true)
+  }
+}
+
+export const handleApplyAppDetailsFromLocalStorage = (dispatch: Dispatch, appid?: string) => () => {
+  try {
+    const appDataString = localStorage.getItem('developer-preview-app')
+    if (!appDataString) {
+      throw 'No app preview'
+    }
+
+    const appData = JSON.parse(appDataString)
+    if (appData.id !== appid) {
+      throw 'No app preview'
+    }
+
+    dispatch(developerApplyAppDetails(appData))
+  } catch (err) {
+    dispatch(clientFetchAppDetailFailed(err))
   }
 }
 
@@ -70,6 +92,9 @@ export const renderAppHeaderButtonGroup = (
 }
 
 const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
+  const dispatch = useDispatch()
+  const { id: appid } = useParams()
+
   const [isVisibleInstallConfirmation, setIsVisibleInstallConfirmation] = React.useState(false)
   const [isVisibleUninstallConfirmation, setIsVisibleUninstallConfirmation] = React.useState(false)
   const closeUninstallConfirmationModal = React.useCallback(
@@ -92,11 +117,16 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   const isLoadingAppDetail = useSelector(selectAppDetailLoading)
   const loginType = useSelector(selectLoginType)
   const isAdmin = useSelector(selectIsAdmin)
+  const error = useSelector(selectAppDetailError)
+
   const isInstallBtnHidden = loginType === 'CLIENT' && !isAdmin
   // selector selectAppDetailData return {} if not data
   const unfetched = Object.keys(appDetailData).length === 0
   const { id = '', installedOn = '' } = appDetailData
 
+  React.useEffect(handleApplyAppDetailsFromLocalStorage(dispatch, appid), [dispatch])
+
+  if (error) return <Alert message={error} type="danger"></Alert>
   if (isLoadingAppDetail || unfetched) {
     return <Loader dataTest="client-app-detail-loader" />
   }
