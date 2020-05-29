@@ -38,7 +38,7 @@ export const initializeBookAValuationComponent = editor => {
 
             const initWidget = () => {
               container.innerHTML = ''
-              new window.ReapitAppointmentBookingComponent({
+              new window.ReapitBookValuationWidget({
                 theme: {
                   baseBackgroundColor: '#fff',
                   basefontSize: '16px',
@@ -64,14 +64,14 @@ export const initializeBookAValuationComponent = editor => {
               })
             }
 
-            if (!window.ReapitAppointmentBookingComponent) {
+            if (!window.ReapitBookValuationWidget) {
               const styles = document.createElement('link')
-              styles.href = 'https://web-components.reapit.cloud/appointment-bookings.css'
+              styles.href = 'https://web-components.reapit.cloud/book-valuation-widget.css'
               styles.rel = 'stylesheet'
               document.head.appendChild(styles)
 
               const script = document.createElement('script')
-              script.src = 'https://web-components.reapit.cloud/appointment-bookings.js'
+              script.src = 'https://web-components.reapit.cloud/book-valuation-widget.js'
               script.async = true
               script.defer = true
               script.onload = initWidget
