@@ -6,11 +6,20 @@
   "video": false,
   "chromeWebSecurity": false,
   "env": {
-    "MARKETPLACE_URL": "https://marketplace.reapit.cloud/",
-    "AML_URL": "https://aml-app.reapit.cloud/",
-    "GEO_DIARY_URL": "https://geo-diary-app.reapit.cloud/",
-    "SMB_ONBOARDER_URL": "https://smb-app.reapit.cloud/",
-    "LIFE_TIME_LEGAL_URL": "http://lifetime-legal-app.reapit.cloud/"
+    "production": {
+      "MARKETPLACE_URL": "https://marketplace.reapit.cloud/",
+      "AML_CHECKLIST_URL": "https://aml-app.reapit.cloud/",
+      "GEO_DIARY_URL": "https://geo-diary-app.reapit.cloud/",
+      "SMB_ONBOARDER_URL": "https://smb-app.reapit.cloud/",
+      "LIFE_TIME_LEGAL_URL": "http://lifetime-legal-app.reapit.cloud/"
+    },
+    "development": {
+      "MARKETPLACE_URL": "https://dev.marketplace.reapit.cloud/",
+      "AML_CHECKLIST_URL": "https://dev.aml-app.reapit.cloud/",
+      "GEO_DIARY_URL": "https://dev.geo-diary-app.reapit.cloud/",
+      "SMB_ONBOARDER_URL": "https://dev.smb-app.reapit.cloud/",
+      "LIFE_TIME_LEGAL_URL": "http://dev.lifetime-legal-app.reapit.cloud/"
+    }
   },
   "ignoreTestFiles": [
     "**/__snapshots__/*",

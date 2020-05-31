@@ -1,16 +1,16 @@
-name: Release Production
+name: Release
 
 on:
   repository_dispatch:
-    types: [release-prod]
+    types: [release]
 jobs:
-  release-prod:
+  release:
     runs-on: ubuntu-latest
     steps:
       - name: checks out repository to $GITHUB_WORKSPACE
         uses: actions/checkout@v1
 
-      - name: Setup Node Environement
+      - name: Setup Node Environment
         uses: actions/setup-node@v1
         with:
           node-version: '10.x'
@@ -30,7 +30,7 @@ jobs:
 
       - name: Release Production
         if: steps.cache.outputs.cache-hit != 'true'
-        run: yarn release production ${{ github.event.client_payload.package_name }} ${{ github.event.client_payload.current_tag }} ${{ github.event.client_payload.previous_tag }}
+        run: yarn release ${{ github.event.client_payload.environment }} ${{ github.event.client_payload.package_name }} ${{ github.event.client_payload.current_tag }} ${{ github.event.client_payload.previous_tag }}
 
 env:
   AWS_REGION: ${{secrets.AWS_REGION}}

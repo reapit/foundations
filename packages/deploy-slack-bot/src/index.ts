@@ -21,9 +21,9 @@ export const queryParams = (params: Object) => {
     .join('&')
 }
 
-export const sendMessageToSlack = (message: string) => {
+export const sendMessageToSlack = async (message: string) => {
   const slackHook = process.env.SLACK_BOT_HOOK as string
-  fetch(slackHook, {
+  const result = await fetch(slackHook, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -32,14 +32,17 @@ export const sendMessageToSlack = (message: string) => {
       text: message,
     }),
   })
+  console.info('sendMessageToSlack', result.statusText)
+  return result.status
 }
 
 export const isAuthenticated = (req: Request, res: Response, next: NextFunction) => {
   const timestamp = req.headers['x-slack-request-timestamp']
   // convert current time from milliseconds to seconds
   const MILISECOND_BY_ONE_SECOND = 1000
-  const time = Math.floor(new Date().getTime() / MILISECOND_BY_ONE_SECOND)
-  if (Math.abs(time - Number(timestamp)) > 300) {
+  const TIME_OUT = 300
+  const timeBySecond = Math.floor(new Date().getTime() / MILISECOND_BY_ONE_SECOND)
+  if (Math.abs(timeBySecond - Number(timestamp)) > TIME_OUT) {
     console.log({ message: 'Request Time Out' })
     return res.status(400).send('Request Time Out')
   }
@@ -60,14 +63,19 @@ export const isAuthenticated = (req: Request, res: Response, next: NextFunction)
   next()
 }
 
-const generateMessage = (currentTag: string, previousTag: string, packageName: string) => {
+export type GenerateMessageParams = {
+  packageName: string
+  currentTag: string
+  previousTag: string
+  environment: string
+}
+
+const generateMessage = ({ packageName, environment, currentTag, previousTag }: GenerateMessageParams) => {
   return {
     // eslint-disable-next-line max-len
     'release-note': `Generating release note for \`${packageName}\` tag \`${currentTag}\`. Roll back version is \`${previousTag}\``,
     // eslint-disable-next-line max-len
-    'release-dev': `Releasing \`${packageName}\` development environment \`${currentTag}\`. Roll back version is \`${previousTag}\``,
-    // eslint-disable-next-line max-len
-    'release-prod': `Releasing \`${packageName}\` production environment \`${currentTag}\`. Roll back version is \`${previousTag}\``,
+    release: `Releasing ${environment} \`${packageName}\` development environment \`${currentTag}\`. Roll back version is \`${previousTag}\``,
   }
 }
 
@@ -78,21 +86,23 @@ app.post('/release', async (req: Request, res: Response) => {
   const textFromSlack = req?.body?.event?.text || ''
   const textArray = textFromSlack.split(' ')
   const eventType = textArray?.[1]
-  const packageName = textArray?.[2]
+  const environment = textArray?.[2]
+  const packageName = textArray?.[3]
   if (!packageName) {
     sendMessageToSlack('You need to input the package want to release')
   }
 
-  const currentTag = textArray?.[3]
-  const previousTag = textArray?.[4]
+  const currentTag = textArray?.[4]
+  const previousTag = textArray?.[5]
 
-  sendMessageToSlack(generateMessage(currentTag, previousTag, packageName)[eventType])
+  sendMessageToSlack(generateMessage({ currentTag, previousTag, packageName, environment })[eventType])
   const body = {
     event_type: eventType,
     client_payload: {
       package_name: packageName,
       current_tag: currentTag,
       previous_tag: previousTag,
+      environment: environment,
     },
   }
   const headers = {

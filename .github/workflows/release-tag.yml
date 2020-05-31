@@ -31,7 +31,7 @@ jobs:
       - name: Checkout to RELEASE_VERSION
         run: git checkout $RELEASE_VERSION
 
-      - name: Setup Node Environement
+      - name: Setup Node Environment
         uses: actions/setup-node@v1
         with:
           node-version: '10.x'

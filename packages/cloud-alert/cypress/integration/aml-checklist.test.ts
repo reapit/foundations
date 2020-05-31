@@ -17,9 +17,11 @@ Cypress.on('fail', (error, runnable) => {
   throw error
 })
 
+const AML_CHECKLIST_URL = Cypress.env('ENVIRONMENT')[Cypress.env('AML_CHECKLIST_URL')]
+
 describe('AML Checklist App', () => {
   it('user should able to login AML Checklist App', () => {
-    cy.visit(Cypress.env('AML_URL')).then(() => {
+    cy.visit(AML_CHECKLIST_URL).then(() => {
       cy.get(LOGIN_USERNAME_INPUT_SELECTOR).type(Cypress.env('USERNAME'))
       cy.get(LOGIN_PASSWORD_INPUT_SELECTOR).type(Cypress.env('PASSWORD'))
       cy.get(SUBMIT_LOGIN_SELECTOR).click()

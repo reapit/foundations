@@ -2,21 +2,28 @@ const { releaseWebApp, sendMessageToSlack, releaseNpm, releaseServerless } = req
 
 const BUCKET_NAMES = {
   production: {
-    'smb-onboarder': 'reapit-smb-prod',
-    marketplace: 'reapit-app-store-prod',
-    'lifetime-legal': 'reapit-lifetime-legal-prod',
-    'geo-diary': 'reapit-geo-diary-prod',
-    elements: 'reapit-elements-prod',
     'aml-checklist': 'reapit-aml-checklist-prod',
+    'demo-site': 'reapit-demo-site-prod',
+    elements: 'reapit-elements-prod',
+    'geo-diary': 'reapit-geo-diary-prod',
+    'geo-diary-v2': 'reapit-geo-diary-v2-prod',
+    'lifetime-legal': 'reapit-lifetime-legal-prod',
+    marketplace: 'reapit-app-store-prod',
+    'site-builder': 'reapit-site-builder-prod',
+    'smb-onboarder': 'reapit-smb-prod',
+    'web-components': 'reapit-web-components-prod',
   },
   development: {
-    'smb-onboarder': 'reapit-smb-prod',
-    marketplace: 'reapit-app-store',
-    'lifetime-legal': 'reapit-lifetime-legal-dev',
-    'geo-diary': 'reapit-geo-diary-dev',
-    elements: 'reapit-elements-dev',
-    'demo-site': 'reapit-demo-site',
     'aml-checklist': 'reapit-aml-checklist-dev',
+    'demo-site': 'reapit-demo-site',
+    elements: 'reapit-elements-dev',
+    'geo-diary': 'reapit-geo-diary-dev',
+    'geo-diary-v2': 'reapit-geo-diary-v2-dev',
+    'lifetime-legal': 'reapit-lifetime-legal-dev',
+    marketplace: 'reapit-app-store',
+    'site-builder': 'reapit-site-builder-dev',
+    'smb-onboarder': 'reapit-smb-prod',
+    'web-components': 'reapit-web-components',
   },
 }
 
@@ -88,7 +95,7 @@ const release = async () => {
     }
   }
 
-  if (WEB_APPS.includes(packageName)) {
+  if (WEB_APPS.includes(packageName) && env === 'production') {
     try {
       const isValidWebApp = isValidParams && !!previousTag && !!env && !!bucketName
       if (!isValidWebApp) {
@@ -105,3 +112,10 @@ const release = async () => {
 }
 
 release()
+
+module.exports = {
+  BUCKET_NAMES,
+  WEB_APPS,
+  SERVERLESS_APPS,
+  NPM_APPS,
+}

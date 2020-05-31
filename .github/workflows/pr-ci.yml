@@ -18,7 +18,7 @@ jobs:
       - name: checks out repository to $GITHUB_WORKSPACE
         uses: actions/checkout@v1
 
-      - name: Setup Node Environement
+      - name: Setup Node Environment
         uses: actions/setup-node@v1
         with:
           node-version: '10.x'

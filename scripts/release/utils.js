@@ -113,35 +113,69 @@ const syncFromLocalDistToS3Bucket = ({ bucketName }) => {
 }
 
 const releaseWebApp = async ({ tagName, bucketName, packageName, env }) => {
-  const fileName = `${tagName}.tar.gz`
-  await sendMessageToSlack(`Pulling the artifact \`${tagName}\` from S3 bucket \`cloud-release-artifact\``)
-  execSync(`aws s3 cp s3://cloud-release-artifact/${fileName} .`)
-  await sendMessageToSlack(`Extracting the artifact \`${tagName}\` from \`${fileName}\``)
-  execSync(`tar -xzvf ${fileName}`)
-  await sendMessageToSlack(`Fetching the config \`${packageName}-${env}\``)
-  const config = await fetchConfig({ packageName, env })
-  fs.writeFileSync(`${process.cwd()}/${RELEASE_ARTIFACT_FOLDER_NAME}/config.json`, config)
-  await sendMessageToSlack(`Deploying for web app \`${packageName}\` with version \`${tagName}\``)
-  syncFromLocalDistToS3Bucket({ bucketName })
-  await sendMessageToSlack(`Finish the deployment for web app \`${packageName}\` with version \`${tagName}\``)
+  try {
+    const fileName = `${tagName}.tar.gz`
+    await sendMessageToSlack(`Pulling the artifact \`${tagName}\` from S3 bucket \`cloud-release-artifact\``)
+    const copyArtifactResult = execSync(`aws s3 cp s3://cloud-release-artifact/${fileName} .`).toString()
+    console.info(copyArtifactResult)
+    await sendMessageToSlack(`Extracting the artifact \`${tagName}\` from \`${fileName}\``)
+    const tarDistResult = execSync(`tar -xzvf ${fileName}`).toString()
+    console.info(tarDistResult)
+    await sendMessageToSlack(`Fetching the config \`${packageName}-${env}\``)
+    const config = await fetchConfig({ packageName, env })
+    fs.writeFileSync(`${process.cwd()}/${RELEASE_ARTIFACT_FOLDER_NAME}/config.json`, config)
+    await sendMessageToSlack(`Deploying for web app \`${packageName}\` with version \`${tagName}\``)
+    syncFromLocalDistToS3Bucket({ bucketName })
+    await sendMessageToSlack(`Finish the deployment for web app \`${packageName}\` with version \`${tagName}\``)
+    const cypressTest = execSync(`yarn workspace cloud-alert cypress:ci --env ENVIRONMENT=${env}`)
+    console.log(cypressTest)
+  } catch (err) {
+    console.error('releaseWebApp', err)
+    throw new Error(err)
+  }
 }
 
 const releaseServerless = async ({ tagName, packageName, env }) => {
-  await sendMessageToSlack(`Checking out for \`${packageName}\` with version \`${tagName}\``)
-  execSync(`git checkout ${tagName}`)
-  await sendMessageToSlack(`Fetching the config \`${packageName}-${env}\``)
-  execSync(`yarn workspace ${packageName} fetch-config ${env}`)
-  await sendMessageToSlack(`Deploying for serverless \`${packageName}\` with version \`${tagName}\``)
-  execSync(`yarn workspace ${packageName} release:${env}`)
-  await sendMessageToSlack(`Finish the deploy for serverless \`${packageName}\` with version \`${tagName}\``)
+  try {
+    await sendMessageToSlack(`Checking out for \`${packageName}\` with version \`${tagName}\``)
+    const checkoutResult = execSync(`git checkout ${tagName}`).toString()
+    console.info(checkoutResult)
+    await sendMessageToSlack(`Fetching the config \`${packageName}-${env}\``)
+    const fetchConfigResult = execSync(`yarn workspace ${packageName} fetch-config ${env}`).toString()
+    console.info(fetchConfigResult)
+    await sendMessageToSlack(`Deploying for serverless \`${packageName}\` with version \`${tagName}\``)
+    const realeaseResult = execSync(`yarn workspace ${packageName} release:${env}`).toString()
+    console.info(realeaseResult)
+    await sendMessageToSlack(`Finish the deploy for serverless \`${packageName}\` with version \`${tagName}\``)
+  } catch (err) {
+    console.error('releaseServerless', err)
+    throw new Error(err)
+  }
 }
 
 const releaseNpm = async ({ tagName, packageName }) => {
-  await sendMessageToSlack(`Checking out for \`${packageName}\` with version \`${tagName}\``)
-  execSync(`git checkout ${tagName}`)
-  await sendMessageToSlack(`Releasing for npm \`${packageName}\` with version \`${tagName}\``)
-  execSync(`yarn workspace ${packageName} release:npm`)
-  await sendMessageToSlack(`Finish the release for npm \`${packageName}\` with version \`${tagName}\``)
+  try {
+    await sendMessageToSlack(`Checking out for \`${packageName}\` with version \`${tagName}\``)
+    const checkoutResult = execSync(`git checkout ${tagName}`).toString()
+    console.info(checkoutResult)
+    await sendMessageToSlack(`Releasing for npm \`${packageName}\` with version \`${tagName}\``)
+    const setGitHubUseSSHResult = execSync(
+      'git config --global url.ssh://git@github.com/.insteadOf https://github.com/',
+    ).toString()
+    console.info(setGitHubUseSSHResult)
+    const setUserEmailResult = execSync(
+      `git config --global user.email "${process.env.GITHUB_ACTOR}@email.com"`,
+    ).toString()
+    console.info(setUserEmailResult)
+    const setUserNameResult = execSync(`git config --global user.name "${process.env.GITHUB_ACTOR}"`).toString()
+    console.info(setUserNameResult)
+    const publishResult = execSync(`yarn workspace ${packageName} publish`).toString()
+    console.info(publishResult)
+    await sendMessageToSlack(`Finish the release for npm \`${packageName}\` with version \`${tagName}\``)
+  } catch (err) {
+    console.error('releaseNpm', err)
+    throw new Error(err)
+  }
 }
 
 module.exports = {

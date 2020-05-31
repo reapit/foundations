@@ -1,16 +1,27 @@
 name: Release Develop
 
 on:
-  repository_dispatch:
-    types: [release-dev]
+  push:
+    branches:
+      - master
+
+env:
+  NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+  AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+  AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+  AWS_REGION: ${{secrets.AWS_REGION}}
+  CI: true
+  CYPRESS_USERNAME: ${{secrets.CYPRESS_USERNAME}}
+  CYPRESS_PASSWORD: ${{secrets.CYPRESS_PASSWORD}}
+
 jobs:
-  release-dev:
+  release_dev:
     runs-on: ubuntu-latest
     steps:
       - name: checks out repository to $GITHUB_WORKSPACE
         uses: actions/checkout@v1
 
-      - name: Setup Node Environement
+      - name: Setup Node Environment
         uses: actions/setup-node@v1
         with:
           node-version: '10.x'
@@ -19,22 +30,79 @@ jobs:
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
+      - uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install Global Dependencies
+        run: |
+          yarn global add aws-cli serverless@1.59.3
+
       - name: Set up workspace experimental
         run: |
           yarn config set workspaces-experimental true
 
       - name: Install dependencies
         run: |
-          yarn global add aws-cli serverless@1.59.3
           yarn
 
+      - name: Fetch config
+        run: |
+          yarn fetch-config development
+
+      - name: Lint
+        run: |
+          yarn lint
+
+      - name: Build
+        run: |
+          yarn build
+
+      - name: Test
+        run: |
+          yarn test
+
       - name: Release Develop
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: yarn release development ${{ github.event.client_payload.package_name }} ${{ github.event.client_payload.current_tag }} ${{ github.event.client_payload.previous_tag }}
-env:
-  AWS_REGION: ${{secrets.AWS_REGION}}
-  AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
-  AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-  CYPRESS_SLACK_WEB_HOOK_URL: ${{secrets.CYPRESS_SLACK_WEB_HOOK_URL}}
-  CYPRESS_USERNAME: ${{secrets.CYPRESS_USERNAME}}
-  CYPRESS_PASSWORD: ${{secrets.CYPRESS_PASSWORD}}
+        run: |
+          yarn release:dev
+
+      - name: Write jest cache
+        uses: actions/cache@v1
+        with:
+          path: scripts/jest/.jest-cache
+          key: ${{ runner.os }}-jest-cache-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-jest-cache-
+
+      - name: Write marketplace build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/marketplace/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-marketplace
+
+      - name: Write aml-checklist build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/aml-checklist/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-aml-checklist
+
+      - name: Write geo-diary build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/geo-diary/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-geo-diary
+
+      - name: Write lifetime-legal build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/lifetime-legal/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-lifetime-legal
+
+      - name: Write smb build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/smb/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-smb

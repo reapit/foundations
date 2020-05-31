@@ -20,8 +20,7 @@
   ],
   "main": "index.js",
   "scripts": {
-    "scaffold": "yo ./app --force",
-    "release:prod": "node ../../scripts/release/release-npm.js react-app-scaffolder"
+    "scaffold": "yo ./app --force"
   },
   "dependencies": {
     "yeoman-generator": "^4.0.1",

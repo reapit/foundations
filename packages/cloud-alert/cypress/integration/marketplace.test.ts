@@ -18,9 +18,11 @@ Cypress.on('fail', (error, runnable) => {
   throw error
 })
 
+const MARKETPLACE_URL = Cypress.env('ENVIRONMENT')[Cypress.env('MARKETPLACE_URL')]
+
 describe('Marketplace', () => {
   it('user should able to login Marketplace', () => {
-    cy.visit(Cypress.env('MARKETPLACE_URL')).then(() => {
+    cy.visit(MARKETPLACE_URL).then(() => {
       cy.get(LOGIN_BUTTON_SELECTOR)
         .should('contain', 'Login')
         .click()
