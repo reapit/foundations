@@ -35,6 +35,7 @@ const getVersionTag = () => {
   const packageFolderName = path.basename(path.dirname(`${process.cwd()}/package.json`))
   try {
     const tagName = process.env.RELEASE_VERSION
+    console.log({ tagName })
     const tagNameArr = removeUnuseChar(tagName).split('_')
     const PACKAGE_NAME_INDEX = 0
     const VERSION_INDEX = 1
@@ -111,18 +112,36 @@ const syncFromLocalDistToS3Bucket = ({ bucketName }) => {
   }
 }
 
-const releaseS3 = async ({ tagName, bucketName, packageName, env }) => {
+const releaseWebApp = async ({ tagName, bucketName, packageName, env }) => {
   const fileName = `${tagName}.tar.gz`
-  await sendMessageToSlack(`Pulling the artifact \`${tagName}\` from S3 bucket \`${bucketName}\``)
-  execSync(`aws s3 cp s3://${bucketName}/${fileName} .`)
-  await sendMessageToSlack(`Extracting the artifact \`${tagName}\` from S3 bucket \`${bucketName}\``)
+  await sendMessageToSlack(`Pulling the artifact \`${tagName}\` from S3 bucket \`cloud-release-artifact\``)
+  execSync(`aws s3 cp s3://cloud-release-artifact/${fileName} .`)
+  await sendMessageToSlack(`Extracting the artifact \`${tagName}\` from \`${fileName}\``)
   execSync(`tar -xzvf ${fileName}`)
   await sendMessageToSlack(`Fetching the config \`${packageName}-${env}\``)
   const config = await fetchConfig({ packageName, env })
   fs.writeFileSync(`${process.cwd()}/${RELEASE_ARTIFACT_FOLDER_NAME}/config.json`, config)
-  await sendMessageToSlack(`Deploying for \`${packageName}\` with version \`${tagName}\``)
+  await sendMessageToSlack(`Deploying for web app \`${packageName}\` with version \`${tagName}\``)
   syncFromLocalDistToS3Bucket({ bucketName })
-  await sendMessageToSlack(`Finish the deployment for \`${packageName}\` with version \`${tagName}\``)
+  await sendMessageToSlack(`Finish the deployment for web app \`${packageName}\` with version \`${tagName}\``)
+}
+
+const releaseServerless = async ({ tagName, packageName, env }) => {
+  await sendMessageToSlack(`Checking out for \`${packageName}\` with version \`${tagName}\``)
+  execSync(`git checkout ${tagName}`)
+  await sendMessageToSlack(`Fetching the config \`${packageName}-${env}\``)
+  execSync(`yarn workspace ${packageName} fetch-config ${env}`)
+  await sendMessageToSlack(`Deploying for serverless \`${packageName}\` with version \`${tagName}\``)
+  execSync(`yarn workspace ${packageName} release:${env}`)
+  await sendMessageToSlack(`Finish the deploy for serverless \`${packageName}\` with version \`${tagName}\``)
+}
+
+const releaseNpm = async ({ tagName, packageName }) => {
+  await sendMessageToSlack(`Checking out for \`${packageName}\` with version \`${tagName}\``)
+  execSync(`git checkout ${tagName}`)
+  await sendMessageToSlack(`Releasing for npm \`${packageName}\` with version \`${tagName}\``)
+  execSync(`yarn workspace ${packageName} release:npm`)
+  await sendMessageToSlack(`Finish the release for npm \`${packageName}\` with version \`${tagName}\``)
 }
 
 module.exports = {
@@ -130,7 +149,9 @@ module.exports = {
   getVersionTag,
   syncFromLocalDistToS3Bucket,
   fetchConfig,
-  releaseS3,
+  releaseWebApp,
+  releaseServerless,
+  releaseNpm,
   runCommand,
   getRef,
   sendMessageToSlack,
