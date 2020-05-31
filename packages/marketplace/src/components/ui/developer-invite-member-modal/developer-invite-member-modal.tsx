@@ -21,6 +21,9 @@ export const DeveloperInviteMemberModal: React.FC<DeveloperInviteMemberModalProp
   visible = false,
   afterClose,
 }) => {
+  if (!visible) {
+    return null
+  }
   return (
     <Modal visible={visible} afterClose={afterClose} title="Invite New Member">
       <>
