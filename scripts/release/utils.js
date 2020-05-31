@@ -1,8 +1,11 @@
-#!/usr/bin/env node
+require('isomorphic-fetch')
 const spawn = require('child_process').spawnSync
 const execSync = require('child_process').execSync
-const { Octokit } = require('@octokit/rest')
+const AWS = require('aws-sdk')
+const fs = require('fs')
 const path = require('path')
+
+const RELEASE_ARTIFACT_FOLDER_NAME = 'build'
 
 const removeUnuseChar = value => {
   if (!value) {
@@ -19,7 +22,7 @@ const runCommand = (cmd, args) => {
     console.error(stderr.toString().trim())
     throw new Error(stderr.toString().trim())
   }
-  console.log(stdout.toString().trim())
+  console.info(stdout.toString().trim())
   return stdout.toString().trim()
 }
 
@@ -27,23 +30,8 @@ const getRef = () => {
   return runCommand('git', ['rev-parse', '--short', 'HEAD'])
 }
 
-const removeRefsPrefix = tagNameWithRef => {
-  const tagNameArrWithRef = tagNameWithRef.split('\n')
-  // tagNameArrWithRef return with format refs/tags/packageName_v1.0.2
-  const PREVIOUS_TAG_WITH_REF_INDEX = 0
-  if (tagNameArrWithRef[PREVIOUS_TAG_WITH_REF_INDEX]) {
-    const tagNameArr = tagNameArrWithRef[PREVIOUS_TAG_WITH_REF_INDEX].split('/')
-    const PREVIOUS_TAG_INDEX = 2
-    if (tagNameArr[PREVIOUS_TAG_INDEX]) {
-      // tagName return with format packageName_v1.0.2
-      const tagName = tagNameArr[PREVIOUS_TAG_INDEX]
-      return tagName
-    }
-  }
-  return ''
-}
-
 const getVersionTag = () => {
+  // This one use in case release dev we not create the tag
   const packageFolderName = path.basename(path.dirname(`${process.cwd()}/package.json`))
   try {
     const tagName = process.env.RELEASE_VERSION
@@ -59,97 +47,91 @@ const getVersionTag = () => {
   }
 }
 
-const getPreviousTag = ({ packageName }) => {
+const sendMessageToSlack = async message => {
+  console.info(message)
   try {
-    const tagNameWithRef = execSync(
-      `git for-each-ref --sort=creatordate --format '%(refname)' refs/tags | grep ${packageName} | tail -n 2`,
-    ).toString()
-    return removeRefsPrefix(tagNameWithRef)
+    const slackHook = process.env.CYPRESS_SLACK_WEB_HOOK_URL
+    const result = await fetch(slackHook, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        text: message,
+      }),
+    })
+    console.log('sendMessageToSlack', result.statusText)
+    return result
   } catch (err) {
     console.error(err)
+    throw new Error(err)
   }
 }
 
-const appendCommitInfo = ({ releaseNote, commitLogArr }) => {
-  let newReleaseNote = releaseNote
-  const COMMIT_INDEX = 0
-  const COMMIT_AUTHOR_INDEX = 1
-  newReleaseNote = newReleaseNote.concat(`
-- ${commitLogArr[COMMIT_INDEX]} | ${
-    commitLogArr[COMMIT_AUTHOR_INDEX]
-      ? commitLogArr[COMMIT_AUTHOR_INDEX].replace('Author: ', '')
-      : commitLogArr[COMMIT_AUTHOR_INDEX]
-  } | `)
-  return newReleaseNote
-}
-
-const appendCommitMessage = ({ releaseNote, commitLogArr }) => {
-  let newReleaseNote = releaseNote
-  for (let i = 4; i < commitLogArr.length; i++) {
-    newReleaseNote = newReleaseNote.concat(
-      `${commitLogArr[i] ? commitLogArr[i].replace('\n').replace(/\s{2,}/g, '') : ''}`,
-    )
+const fetchConfig = ({ packageName, env }) => {
+  const isValidParams = !!packageName && !!env
+  if (!isValidParams) {
+    console.error('fetchConfig params is not valid for packageName or env')
+    process.exit(1)
   }
-  return newReleaseNote
-}
-
-const formatReleaseNote = ({ previousTag, packageName, version, commitLog }) => {
-  let releaseNote = `
-Release: ${packageName}_${version}
-Rollback: ${previousTag}
-Changes:
-commit | author |description
-  `
-  const footer = `
-
-approver: @willmcvay
-monitor: https://sentry.io/organizations/reapit-ltd/projects/`
-  if (!commitLog) {
-    return releaseNote.concat(footer)
-  }
-  const commitArr = commitLog.split('commit ')
-  commitArr.forEach(item => {
-    const commitLogArr = item.split('\n')
-    if (commitLogArr.length > 1) {
-      releaseNote = appendCommitInfo({ releaseNote, commitLogArr })
-      releaseNote = appendCommitMessage({ releaseNote, commitLogArr })
-    }
-  })
-  releaseNote = releaseNote.concat(footer)
-  return releaseNote
-}
-
-const editReleaseNote = async ({ packageName, version, previousTag }) => {
-  try {
-    const commitLog = runCommand('git', ['log', `${packageName}_${version}...${previousTag}`, '.'])
-    const token = process.env.GH_PAT
-    const octokit = new Octokit({ auth: token })
-    const latestRelease = await octokit.repos.getReleaseByTag({
-      owner: 'reapit',
-      repo: 'foundations',
-      tag: `${packageName}_${version}`,
+  const ssm = new AWS.SSM()
+  return new Promise((resolve, reject) => {
+    ssm.getParameter({ Name: `${packageName}-${env}`, WithDecryption: false }, (err, data) => {
+      if (err) {
+        console.error('Something went wrong when fetch the config.json')
+        console.error(err, err.stack)
+        reject(err)
+      }
+      const config = (data && data.Parameter && data.Parameter.Value) || {}
+      resolve(config)
     })
-    if (latestRelease && latestRelease.data) {
-      const bodyRelease = formatReleaseNote({ previousTag, version, packageName, commitLog })
-      await octokit.repos.updateRelease({
-        owner: 'reapit',
-        repo: 'foundations',
-        body: bodyRelease,
-        name: `${latestRelease.data.name}_released`,
-        release_id: latestRelease.data.id,
-      })
-    }
-  } catch (error) {
-    console.error(error)
+  })
+}
+
+const syncFromLocalDistToS3Bucket = ({ bucketName }) => {
+  try {
+    const distPath = path.resolve(process.cwd(), RELEASE_ARTIFACT_FOLDER_NAME)
+    // TODO: Will uncomment if everythings test OK
+    // const deleteResult = execSync(`aws s3 rm --recursive s3://${bucketName}`).toString()
+    // console.info(deleteResult)
+    // cp all assert with cache-control 365 days exclude sw.js and index.html
+    const copyWithCache = execSync(
+      `aws s3 cp ${distPath} s3://${bucketName} --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers --recursive --exclude "index.html" --exclude "sw.js" --exclude "config.json" --cache-control "max-age=31536000"`,
+    ).toString()
+    console.info(copyWithCache)
+
+    // cp index.html and sw.js with no-cache control
+    const copyWithNoCache = execSync(
+      `aws s3 cp ${distPath} s3://${bucketName} --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers --recursive --exclude "*" --include "sw.js" --include "index.html" --include "config.json"`,
+    ).toString()
+    console.info(copyWithNoCache)
+  } catch (err) {
+    console.error('deployToS3', err)
+    throw new Error(err)
   }
+}
+
+const releaseS3 = async ({ tagName, bucketName, packageName, env }) => {
+  const fileName = `${tagName}.tar.gz`
+  await sendMessageToSlack(`Pulling the artifact \`${tagName}\` from S3 bucket \`${bucketName}\``)
+  execSync(`aws s3 cp s3://${bucketName}/${fileName} .`)
+  await sendMessageToSlack(`Extracting the artifact \`${tagName}\` from S3 bucket \`${bucketName}\``)
+  execSync(`tar -xzvf ${fileName}`)
+  await sendMessageToSlack(`Fetching the config \`${packageName}-${env}\``)
+  const config = await fetchConfig({ packageName, env })
+  fs.writeFileSync(`${process.cwd()}/${RELEASE_ARTIFACT_FOLDER_NAME}/config.json`, config)
+  await sendMessageToSlack(`Deploying for \`${packageName}\` with version \`${tagName}\``)
+  syncFromLocalDistToS3Bucket({ bucketName })
+  await sendMessageToSlack(`Finish the deployment for \`${packageName}\` with version \`${tagName}\``)
 }
 
 module.exports = {
   removeUnuseChar,
   getVersionTag,
-  getPreviousTag,
-  formatReleaseNote,
-  editReleaseNote,
+  syncFromLocalDistToS3Bucket,
+  fetchConfig,
+  releaseS3,
   runCommand,
   getRef,
+  sendMessageToSlack,
 }

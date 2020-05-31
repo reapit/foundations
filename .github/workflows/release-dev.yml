@@ -1,0 +1,40 @@
+name: Release Develop
+
+on:
+  repository_dispatch:
+    types: [release-dev]
+jobs:
+  release-dev:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checks out repository to $GITHUB_WORKSPACE
+        uses: actions/checkout@v1
+
+      - name: Setup Node Environement
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Set up workspace experimental
+        run: |
+          yarn config set workspaces-experimental true
+
+      - name: Install dependencies
+        run: |
+          yarn global add aws-cli serverless@1.59.3
+          yarn
+
+      - name: Release Develop
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: yarn workspace ${{ github.event.client_payload.package_name }} release:dev ${{ github.event.client_payload.package_name }} ${{ github.event.client_payload.current_tag }} ${{ github.event.client_payload.previous_tag }}
+env:
+  AWS_REGION: ${{secrets.AWS_REGION}}
+  AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+  AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+  CYPRESS_SLACK_WEB_HOOK_URL: ${{secrets.CYPRESS_SLACK_WEB_HOOK_URL}}
+  CYPRESS_USERNAME: ${{secrets.CYPRESS_USERNAME}}
+  CYPRESS_PASSWORD: ${{secrets.CYPRESS_PASSWORD}}
