@@ -40,6 +40,8 @@ provider:
     APP_ENV: ${self:custom.env.APP_ENV}
     PLATFORM_API_BASE_URL: ${self:custom.env.PLATFORM_API_BASE_URL}
     COGNITO_OAUTH_URL: ${self:custom.env.COGNITO_OAUTH_URL}
+    COGNITO_CLIENT_SECRET_APPOINTMENT_PLANNER: ${self:custom.env.COGNITO_CLIENT_SECRET_APPOINTMENT_PLANNER}
+    COGNITO_CLIENT_ID_APPOINTMENT_PLANNER: ${self:custom.env.COGNITO_CLIENT_ID_APPOINTMENT_PLANNER}
 package:
   individually: true
   include:
