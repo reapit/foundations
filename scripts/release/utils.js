@@ -35,7 +35,6 @@ const getVersionTag = () => {
   const packageFolderName = path.basename(path.dirname(`${process.cwd()}/package.json`))
   try {
     const tagName = process.env.RELEASE_VERSION
-    console.log({ tagName })
     const tagNameArr = removeUnuseChar(tagName).split('_')
     const PACKAGE_NAME_INDEX = 0
     const VERSION_INDEX = 1

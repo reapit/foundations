@@ -4,6 +4,9 @@
   "main": "index.ts",
   "author": "Duong Pham",
   "license": "MIT",
+  "scripts": {
+    "fetch-config": "yarn config-manager fetchConfig deploy-slack-bot"
+  },
   "dependencies": {
     "aws-lambda": "^1.0.5",
     "body-parser": "^1.19.0",
