@@ -13,7 +13,7 @@ jobs:
       - name: Setup Node Environment
         uses: actions/setup-node@v1
         with:
-          node-version: '10.x'
+          node-version: 12
 
       - name: Get yarn cache location
         id: yarn-cache
@@ -39,4 +39,4 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: yarn release-note ${{ github.event.client_payload.package_name }} ${{ github.event.client_payload.current_tag }} ${{ github.event.client_payload.previous_tag }}
 env:
-  CYPRESS_SLACK_WEB_HOOK_URL: ${{secrets.CYPRESS_SLACK_WEB_HOOK_URL}}
+  RELEASE_SLACK_WEB_HOOK_URL: ${{secrets.RELEASE_SLACK_WEB_HOOK_URL}}

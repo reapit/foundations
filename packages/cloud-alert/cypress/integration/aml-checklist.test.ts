@@ -17,7 +17,7 @@ Cypress.on('fail', (error, runnable) => {
   throw error
 })
 
-const AML_CHECKLIST_URL = Cypress.env('ENVIRONMENT')[Cypress.env('AML_CHECKLIST_URL')]
+const AML_CHECKLIST_URL = Cypress.env(`AML_CHECKLIST_URL_${Cypress.env('ENVIRONMENT')}`)
 
 describe('AML Checklist App', () => {
   it('user should able to login AML Checklist App', () => {

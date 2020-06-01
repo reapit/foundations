@@ -52,14 +52,14 @@ monitor: https://sentry.io/organizations/reapit-ltd/projects/
   return releaseNote
 }
 
-// TODO: need to change to mono repo
 const getCommitLog = ({ currentTag, previousTag, packageName }) => {
   console.log(packageName)
   const commitLog = runCommand('git', ['log', `${currentTag}...${previousTag}`, `./packages/${packageName}/.`])
   return commitLog
 }
 
-const releaseNote = async () => {
+// This function will run to
+const generateReleaseNote = async () => {
   const [, , ...args] = process.argv
   const packageName = args[0]
   const currentTag = args[1]
@@ -95,4 +95,4 @@ const releaseNote = async () => {
   }
 }
 
-releaseNote()
+generateReleaseNote()

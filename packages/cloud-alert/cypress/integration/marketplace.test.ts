@@ -18,7 +18,7 @@ Cypress.on('fail', (error, runnable) => {
   throw error
 })
 
-const MARKETPLACE_URL = Cypress.env('ENVIRONMENT')[Cypress.env('MARKETPLACE_URL')]
+const MARKETPLACE_URL = Cypress.env(`MARKETPLACE_URL_${Cypress.env('ENVIRONMENT')}`)
 
 describe('Marketplace', () => {
   it('user should able to login Marketplace', () => {

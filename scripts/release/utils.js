@@ -5,7 +5,7 @@ const AWS = require('aws-sdk')
 const fs = require('fs')
 const path = require('path')
 
-const RELEASE_ARTIFACT_FOLDER_NAME = 'build'
+const RELEASE_ARTIFACT_FOLDER_NAME = 'dist'
 
 const removeUnuseChar = value => {
   if (!value) {
@@ -50,7 +50,7 @@ const getVersionTag = () => {
 const sendMessageToSlack = async message => {
   console.info(message)
   try {
-    const slackHook = process.env.CYPRESS_SLACK_WEB_HOOK_URL
+    const slackHook = process.env.RELEASE_SLACK_WEB_HOOK_URL
     const result = await fetch(slackHook, {
       method: 'POST',
       headers: {
@@ -91,9 +91,8 @@ const fetchConfig = ({ packageName, env }) => {
 const syncFromLocalDistToS3Bucket = ({ bucketName }) => {
   try {
     const distPath = path.resolve(process.cwd(), RELEASE_ARTIFACT_FOLDER_NAME)
-    // TODO: Will uncomment if everythings test OK
-    // const deleteResult = execSync(`aws s3 rm --recursive s3://${bucketName}`).toString()
-    // console.info(deleteResult)
+    const deleteResult = execSync(`aws s3 rm --recursive s3://${bucketName}`).toString()
+    console.info(deleteResult)
     // cp all assert with cache-control 365 days exclude sw.js and index.html
     const copyWithCache = execSync(
       `aws s3 cp ${distPath} s3://${bucketName} --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers --recursive --exclude "index.html" --exclude "sw.js" --exclude "config.json" --cache-control "max-age=31536000"`,
@@ -126,8 +125,10 @@ const releaseWebApp = async ({ tagName, bucketName, packageName, env }) => {
     await sendMessageToSlack(`Deploying for web app \`${packageName}\` with version \`${tagName}\``)
     syncFromLocalDistToS3Bucket({ bucketName })
     await sendMessageToSlack(`Finish the deployment for web app \`${packageName}\` with version \`${tagName}\``)
-    const cypressTest = execSync(`yarn workspace cloud-alert cypress:ci --env ENVIRONMENT=${env}`)
+    await sendMessageToSlack(`Testing cypress for web app \`${packageName}\` with version \`${tagName}\``)
+    const cypressTest = execSync(`yarn workspace cloud-alert cypress:ci --env ENVIRONMENT=${env}`).toString()
     console.log(cypressTest)
+    await sendMessageToSlack(`Finish testing cypress for web app \`${packageName}\` with version \`${tagName}\``)
   } catch (err) {
     console.error('releaseWebApp', err)
     throw new Error(err)
@@ -177,6 +178,63 @@ const releaseNpm = async ({ tagName, packageName }) => {
   }
 }
 
+const BUCKET_NAMES = {
+  production: {
+    'aml-checklist': 'reapit-aml-checklist-prod',
+    'demo-site': 'reapit-demo-site-prod',
+    elements: 'reapit-elements-prod',
+    'geo-diary': 'reapit-geo-diary-prod',
+    'geo-diary-v2': 'reapit-geo-diary-v2-prod',
+    'lifetime-legal': 'reapit-lifetime-legal-prod',
+    marketplace: 'reapit-app-store-prod',
+    'site-builder': 'reapit-site-builder-prod',
+    'smb-onboarder': 'reapit-smb-prod',
+    'web-components': 'reapit-web-components-prod',
+  },
+  development: {
+    'aml-checklist': 'reapit-aml-checklist-dev',
+    'demo-site': 'reapit-demo-site',
+    elements: 'reapit-elements-dev',
+    'geo-diary': 'reapit-geo-diary-dev',
+    'geo-diary-v2': 'reapit-geo-diary-v2-dev',
+    'lifetime-legal': 'reapit-lifetime-legal-dev',
+    marketplace: 'reapit-app-store',
+    'site-builder': 'reapit-site-builder-dev',
+    'smb-onboarder': 'reapit-smb-prod',
+    'web-components': 'reapit-web-components',
+  },
+}
+
+const WEB_APPS = [
+  'aml-checklist',
+  'demo-site',
+  'elements',
+  'geo-diary',
+  'geo-diary-v2',
+  'lifetime-legal',
+  'marketplace',
+  'site-builder',
+  'smb-onboarder',
+  'web-components',
+]
+
+const SERVERLESS_APPS = [
+  'cognito-custom-mail-lambda',
+  'deploy-slack-bot',
+  'graphql-server',
+  'web-components',
+  'web-components-config-server',
+]
+
+const NPM_APPS = [
+  'cognito-auth',
+  'config-manager',
+  'elements',
+  'foundation-ts-definitions',
+  'react-app-scaffolder',
+  'web-components',
+]
+
 module.exports = {
   removeUnuseChar,
   getVersionTag,
@@ -188,4 +246,8 @@ module.exports = {
   runCommand,
   getRef,
   sendMessageToSlack,
+  BUCKET_NAMES,
+  WEB_APPS,
+  SERVERLESS_APPS,
+  NPM_APPS,
 }

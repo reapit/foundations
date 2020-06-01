@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import 'isomorphic-fetch'
 import crypto from 'crypto'
 import serverless from 'serverless-http'
@@ -36,6 +37,7 @@ export const sendMessageToSlack = async (message: string) => {
   return result.status
 }
 
+// For this function please refer this documentation https://api.slack.com/authentication/verifying-requests-from-slack
 export const isAuthenticated = (req: Request, res: Response, next: NextFunction) => {
   const timestamp = req.headers['x-slack-request-timestamp']
   // convert current time from milliseconds to seconds
@@ -72,9 +74,7 @@ export type GenerateMessageParams = {
 
 const generateMessage = ({ packageName, environment, currentTag, previousTag }: GenerateMessageParams) => {
   return {
-    // eslint-disable-next-line max-len
     'release-note': `Generating release note for \`${packageName}\` tag \`${currentTag}\`. Roll back version is \`${previousTag}\``,
-    // eslint-disable-next-line max-len
     release: `Releasing ${environment} \`${packageName}\` development environment \`${currentTag}\`. Roll back version is \`${previousTag}\``,
   }
 }
@@ -84,18 +84,36 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.post('/release', async (req: Request, res: Response) => {
   const textFromSlack = req?.body?.event?.text || ''
+  console.info(textFromSlack)
   const textArray = textFromSlack.split(' ')
   const eventType = textArray?.[1]
-  const environment = textArray?.[2]
-  const packageName = textArray?.[3]
-  if (!packageName) {
-    sendMessageToSlack('You need to input the package want to release')
+  const packageName = textArray?.[2]
+  const currentTag = textArray?.[3]
+  const previousTag = textArray?.[4]
+  const environment = textArray?.[5] || 'development'
+
+  if (eventType === 'help') {
+    await sendMessageToSlack(`
+\`@Reapit Cloud Releases help\` <= The command will show you the way to use release bot \n
+\`@Reapit Cloud Releases release-note <package_name> <release_tag> <roll_back_tag>\` <= The command will generate the release note\n
+\`@Reapit Cloud Releases release <package_name> <release_tag> <roll_back_tag> <environment>\` <= The command will do the release and environment is development by default\n
+\`@Reapit Cloud Releases update-release-note <package_name> <release_tag> <roll_back_tag> <environment>\` <= The command will do update the release note document\n
+    `)
+    return res.send({ challenge: req.body.challenge, status: 200 })
   }
 
-  const currentTag = textArray?.[4]
-  const previousTag = textArray?.[5]
+  const isValidEnvironment = environment === 'development' || environment === 'production'
+  if (!isValidEnvironment) {
+    await sendMessageToSlack('Environment should be production or development')
+    return res.send({ challenge: req.body.challenge, status: 200 })
+  }
 
-  sendMessageToSlack(generateMessage({ currentTag, previousTag, packageName, environment })[eventType])
+  if (!packageName) {
+    await sendMessageToSlack('You need to input the package want to release')
+    return res.send({ challenge: req.body.challenge, status: 200 })
+  }
+
+  await sendMessageToSlack(generateMessage({ currentTag, previousTag, packageName, environment })[eventType])
   const body = {
     event_type: eventType,
     client_payload: {
@@ -120,7 +138,7 @@ app.post('/release', async (req: Request, res: Response) => {
     res.status(200)
     return res.send({ challenge: req.body.challenge, status: 200 })
   }
-  sendMessageToSlack('Cannot run the command')
+  await sendMessageToSlack('Cannot run the command')
   return res.send({ challenge: req.body.challenge, status: 200 })
 })
 

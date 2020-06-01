@@ -1,61 +1,13 @@
-const { releaseWebApp, sendMessageToSlack, releaseNpm, releaseServerless } = require('./utils')
-
-const BUCKET_NAMES = {
-  production: {
-    'aml-checklist': 'reapit-aml-checklist-prod',
-    'demo-site': 'reapit-demo-site-prod',
-    elements: 'reapit-elements-prod',
-    'geo-diary': 'reapit-geo-diary-prod',
-    'geo-diary-v2': 'reapit-geo-diary-v2-prod',
-    'lifetime-legal': 'reapit-lifetime-legal-prod',
-    marketplace: 'reapit-app-store-prod',
-    'site-builder': 'reapit-site-builder-prod',
-    'smb-onboarder': 'reapit-smb-prod',
-    'web-components': 'reapit-web-components-prod',
-  },
-  development: {
-    'aml-checklist': 'reapit-aml-checklist-dev',
-    'demo-site': 'reapit-demo-site',
-    elements: 'reapit-elements-dev',
-    'geo-diary': 'reapit-geo-diary-dev',
-    'geo-diary-v2': 'reapit-geo-diary-v2-dev',
-    'lifetime-legal': 'reapit-lifetime-legal-dev',
-    marketplace: 'reapit-app-store',
-    'site-builder': 'reapit-site-builder-dev',
-    'smb-onboarder': 'reapit-smb-prod',
-    'web-components': 'reapit-web-components',
-  },
-}
-
-const WEB_APPS = [
-  'aml-checklist',
-  'demo-site',
-  'elements',
-  'geo-diary',
-  'geo-diary-v2',
-  'lifetime-legal',
-  'marketplace',
-  'site-builder',
-  'smb-onboarder',
-  'web-components',
-]
-
-const SERVERLESS_APPS = [
-  'cognito-custom-mail-lambda',
-  'deploy-slack-bot',
-  'graphql-server',
-  'web-components',
-  'web-components-config-server',
-]
-
-const NPM_APPS = [
-  'cognito-auth',
-  'config-manager',
-  'elements',
-  'foundation-ts-definitions',
-  'react-app-scaffolder',
-  'web-components',
-]
+const {
+  releaseWebApp,
+  sendMessageToSlack,
+  releaseNpm,
+  releaseServerless,
+  BUCKET_NAMES,
+  SERVERLESS_APPS,
+  NPM_APPS,
+  WEB_APPS,
+} = require('./utils')
 
 const release = async () => {
   const [, , ...args] = process.argv
@@ -76,7 +28,7 @@ const release = async () => {
     process.exit(1)
   }
 
-  if (NPM_APPS.includes(packageName)) {
+  if (NPM_APPS.includes(packageName) && env === 'production') {
     releaseNpm({ tagName: currentTag, packageName })
   }
 
@@ -95,7 +47,7 @@ const release = async () => {
     }
   }
 
-  if (WEB_APPS.includes(packageName) && env === 'production') {
+  if (WEB_APPS.includes(packageName)) {
     try {
       const isValidWebApp = isValidParams && !!previousTag && !!env && !!bucketName
       if (!isValidWebApp) {
@@ -112,10 +64,3 @@ const release = async () => {
 }
 
 release()
-
-module.exports = {
-  BUCKET_NAMES,
-  WEB_APPS,
-  SERVERLESS_APPS,
-  NPM_APPS,
-}

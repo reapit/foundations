@@ -17,7 +17,7 @@ Cypress.on('fail', (error, runnable) => {
   throw error
 })
 
-const LIFE_TIME_LEGAL_URL = Cypress.env('ENVIRONMENT')[Cypress.env('LIFE_TIME_LEGAL_URL')]
+const LIFE_TIME_LEGAL_URL = Cypress.env(`LIFE_TIME_LEGAL_URL_${Cypress.env('ENVIRONMENT')}`)
 
 describe('Life Time Legal App', () => {
   it('user should able to login Life Time Legal App', () => {

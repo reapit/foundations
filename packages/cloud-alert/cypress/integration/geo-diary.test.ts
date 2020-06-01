@@ -17,7 +17,7 @@ Cypress.on('fail', (error, runnable) => {
   throw error
 })
 
-const GEO_DIARY_URL = Cypress.env('ENVIRONMENT')[Cypress.env('GEO_DIARY_URL')]
+const GEO_DIARY_URL = Cypress.env(`GEO_DIARY_URL_${Cypress.env('ENVIRONMENT')}`)
 
 describe('Geo Diary App', () => {
   it('user should able to login Geo Diary App', () => {
