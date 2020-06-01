@@ -19,6 +19,7 @@ const bookViewingWigetStore: Writable<BookViewingWidgetStore> = writable({
     theme: {},
   },
   themeClasses: {
+    searchWidgetAdvanceSeachLabel: '',
     globalStyles: '',
     primaryHeading: '',
     secondaryHeading: '',
@@ -32,6 +33,7 @@ const bookViewingWigetStore: Writable<BookViewingWidgetStore> = writable({
     searchBox: '',
     offerBanner: '',
     pagination: '',
+    advanceSearchButton: '',
     paginationActive: '',
     formError: '',
   },

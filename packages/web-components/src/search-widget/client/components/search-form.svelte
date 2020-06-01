@@ -132,7 +132,6 @@
 
   .search-form-button {
     padding: 0.5em;
-    transition: all 0.2s ease-in-out;
     border-left: 1px;
     margin-top: 1em;
   }
@@ -163,6 +162,7 @@
   }
 
   .search-form-advanced-search {
+    line-height: 1.45;
     background: none;
     border: none;
     outline: none;
@@ -254,7 +254,7 @@
         type="button"
         data-testid="btnAdvancedSearch"
         on:click={toggleAdvancedSearch}
-        class="{$searchWidgetStore.themeClasses.bodyText} search-form-advanced-search">
+        class="{$searchWidgetStore.themeClasses.bodyText} {$searchWidgetStore.themeClasses.advanceSearchButton} search-form-advanced-search">
         Advanced Search
         <Fa icon={faSearch} />
       </button>
@@ -267,7 +267,7 @@
       class="filter-form-container">
       <div class="filter-form-column">
         <div class="filter-form-input-container">
-          <legend>Bedrooms</legend>
+          <legend class={$searchWidgetStore.themeClasses.searchWidgetAdvanceSeachLabel}>Bedrooms</legend>
           <div class="filter-form-input-container-body filter-form-input-container-body-horizontal">
             <select bind:value={minBedroom} class={$searchWidgetStore.themeClasses.input}>
               {#each minNumOfBedrooms as numOfBedroom}
@@ -291,7 +291,7 @@
         </div>
 
         <div class="filter-form-input-container">
-          <label for="orderResultsBy">Order Results By</label>
+          <label class={$searchWidgetStore.themeClasses.searchWidgetAdvanceSeachLabel} for="orderResultsBy">Order Results By</label>
           <div class="filter-form-input-container-body">
             <select bind:value={orderPrice} class={$searchWidgetStore.themeClasses.input}>
               {#each orderByPrices as orderByPrice}
@@ -303,7 +303,7 @@
       </div>
       <div class="filter-form-column">
         <div class="filter-form-input-container">
-          <label for="propertyType">Property Type</label>
+          <label class={$searchWidgetStore.themeClasses.searchWidgetAdvanceSeachLabel} for="propertyType">Property Type</label>
           <div class="filter-form-input-container-body">
             <select bind:value={propertyType} class={$searchWidgetStore.themeClasses.input}>
               {#each propertyTypes as propertyType}
@@ -314,7 +314,7 @@
         </div>
 
         <div class="filter-form-input-container">
-          <label for="addedIn">Added in</label>
+          <label class={$searchWidgetStore.themeClasses.searchWidgetAdvanceSeachLabel} for="addedIn">Added in</label>
           <div class="filter-form-input-container-body">
             <select bind:value={addedIn} class={$searchWidgetStore.themeClasses.input}>
               {#each addedInTimes as addedInTime}
@@ -326,7 +326,7 @@
       </div>
       <div class="filter-form-column">
         <div class="filter-form-input-container">
-          <legend>Price</legend>
+          <legend class={$searchWidgetStore.themeClasses.searchWidgetAdvanceSeachLabel}>Price</legend>
           <div class="filter-form-input-container-body filter-form-input-container-body-horizontal">
             <select bind:value={minPrice} class={$searchWidgetStore.themeClasses.input}>
               {#each getPriceRange(true) as minPrice}

@@ -24,6 +24,8 @@ export interface InitializerTheme {
 }
 
 export interface ThemeClasses {
+  searchWidgetAdvanceSeachLabel: string
+  advanceSearchButton: string
   globalStyles: string
   primaryHeading: string
   secondaryHeading: string
@@ -120,6 +122,7 @@ export const generateThemeClasses = (
         color: ${primaryAccentColor || '#000'};
         border: 1px solid ${primaryAccentColor || 'grey'};
         background: ${baseBackgroundColor || '#fff'};
+        transition: all 0.2s ease-in-out;
 
         &:hover {
           background: ${primaryAccentColor || 'grey'};
@@ -132,6 +135,12 @@ export const generateThemeClasses = (
         font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'};
         font-size: ${secondaryHeadingFontSize || '18px'};
         border: 1px solid ${primaryAccentColor || 'grey'};
+      }
+    `,
+    searchWidgetAdvanceSeachLabel: css`
+      ${parentSelector || 'body'} & {
+        font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'};
+        font-size: ${secondaryHeadingFontSize || '18px'};
       }
     `,
     resultItem: css`
@@ -157,6 +166,12 @@ export const generateThemeClasses = (
             width: 50%;
           }
         }
+      }
+    `,
+    advanceSearchButton: css`
+      &,
+      svg {
+        color: ${basefontColor || '#000'};
       }
     `,
     searchBox: css`

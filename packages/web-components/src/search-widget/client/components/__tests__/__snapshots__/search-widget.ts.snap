@@ -1,89 +1,89 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`search-widget it matches a snapshot 1`] = `
-.emotion-7 html,
-.emotion-7 body,
-.emotion-7 div,
-.emotion-7 span,
-.emotion-7 applet,
-.emotion-7 object,
-.emotion-7 iframe,
-.emotion-7 h1,
-.emotion-7 h2,
-.emotion-7 h3,
-.emotion-7 h4,
-.emotion-7 h5,
-.emotion-7 h6,
-.emotion-7 p,
-.emotion-7 blockquote,
-.emotion-7 pre,
-.emotion-7 a,
-.emotion-7 abbr,
-.emotion-7 acronym,
-.emotion-7 address,
-.emotion-7 big,
-.emotion-7 cite,
-.emotion-7 code,
-.emotion-7 del,
-.emotion-7 dfn,
-.emotion-7 em,
-.emotion-7 img,
-.emotion-7 ins,
-.emotion-7 kbd,
-.emotion-7 q,
-.emotion-7 s,
-.emotion-7 samp,
-.emotion-7 small,
-.emotion-7 strike,
-.emotion-7 strong,
-.emotion-7 sub,
-.emotion-7 sup,
-.emotion-7 tt,
-.emotion-7 var,
-.emotion-7 b,
-.emotion-7 u,
-.emotion-7 i,
-.emotion-7 center,
-.emotion-7 dl,
-.emotion-7 dt,
-.emotion-7 dd,
-.emotion-7 menu,
-.emotion-7 ol,
-.emotion-7 ul,
-.emotion-7 li,
-.emotion-7 fieldset,
-.emotion-7 form,
-.emotion-7 label,
-.emotion-7 legend,
-.emotion-7 table,
-.emotion-7 caption,
-.emotion-7 tbody,
-.emotion-7 tfoot,
-.emotion-7 thead,
-.emotion-7 tr,
-.emotion-7 th,
-.emotion-7 td,
-.emotion-7 article,
-.emotion-7 aside,
-.emotion-7 canvas,
-.emotion-7 details,
-.emotion-7 embed,
-.emotion-7 figure,
-.emotion-7 figcaption,
-.emotion-7 footer,
-.emotion-7 header,
-.emotion-7 hgroup,
-.emotion-7 main,
-.emotion-7 menu,
-.emotion-7 nav,
-.emotion-7 output,
-.emotion-7 ruby,
-.emotion-7 section,
-.emotion-7 summary,
-.emotion-7 time,
-.emotion-7 mark,
-.emotion-7 audio,
-.emotion-7 video {
+.emotion-8 html,
+.emotion-8 body,
+.emotion-8 div,
+.emotion-8 span,
+.emotion-8 applet,
+.emotion-8 object,
+.emotion-8 iframe,
+.emotion-8 h1,
+.emotion-8 h2,
+.emotion-8 h3,
+.emotion-8 h4,
+.emotion-8 h5,
+.emotion-8 h6,
+.emotion-8 p,
+.emotion-8 blockquote,
+.emotion-8 pre,
+.emotion-8 a,
+.emotion-8 abbr,
+.emotion-8 acronym,
+.emotion-8 address,
+.emotion-8 big,
+.emotion-8 cite,
+.emotion-8 code,
+.emotion-8 del,
+.emotion-8 dfn,
+.emotion-8 em,
+.emotion-8 img,
+.emotion-8 ins,
+.emotion-8 kbd,
+.emotion-8 q,
+.emotion-8 s,
+.emotion-8 samp,
+.emotion-8 small,
+.emotion-8 strike,
+.emotion-8 strong,
+.emotion-8 sub,
+.emotion-8 sup,
+.emotion-8 tt,
+.emotion-8 var,
+.emotion-8 b,
+.emotion-8 u,
+.emotion-8 i,
+.emotion-8 center,
+.emotion-8 dl,
+.emotion-8 dt,
+.emotion-8 dd,
+.emotion-8 menu,
+.emotion-8 ol,
+.emotion-8 ul,
+.emotion-8 li,
+.emotion-8 fieldset,
+.emotion-8 form,
+.emotion-8 label,
+.emotion-8 legend,
+.emotion-8 table,
+.emotion-8 caption,
+.emotion-8 tbody,
+.emotion-8 tfoot,
+.emotion-8 thead,
+.emotion-8 tr,
+.emotion-8 th,
+.emotion-8 td,
+.emotion-8 article,
+.emotion-8 aside,
+.emotion-8 canvas,
+.emotion-8 details,
+.emotion-8 embed,
+.emotion-8 figure,
+.emotion-8 figcaption,
+.emotion-8 footer,
+.emotion-8 header,
+.emotion-8 hgroup,
+.emotion-8 main,
+.emotion-8 menu,
+.emotion-8 nav,
+.emotion-8 output,
+.emotion-8 ruby,
+.emotion-8 section,
+.emotion-8 summary,
+.emotion-8 time,
+.emotion-8 mark,
+.emotion-8 audio,
+.emotion-8 video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -92,54 +92,54 @@ exports[`search-widget it matches a snapshot 1`] = `
   vertical-align: baseline;
 }
 
-.emotion-7 article,
-.emotion-7 aside,
-.emotion-7 details,
-.emotion-7 figcaption,
-.emotion-7 figure,
-.emotion-7 footer,
-.emotion-7 header,
-.emotion-7 hgroup,
-.emotion-7 main,
-.emotion-7 menu,
-.emotion-7 nav,
-.emotion-7 section {
+.emotion-8 article,
+.emotion-8 aside,
+.emotion-8 details,
+.emotion-8 figcaption,
+.emotion-8 figure,
+.emotion-8 footer,
+.emotion-8 header,
+.emotion-8 hgroup,
+.emotion-8 main,
+.emotion-8 menu,
+.emotion-8 nav,
+.emotion-8 section {
   display: block;
 }
 
-.emotion-7 *[hidden] {
+.emotion-8 *[hidden] {
   display: none;
 }
 
-.emotion-7 body {
+.emotion-8 body {
   line-height: 1;
 }
 
-.emotion-7 menu,
-.emotion-7 ol,
-.emotion-7 ul {
+.emotion-8 menu,
+.emotion-8 ol,
+.emotion-8 ul {
   list-style: none;
 }
 
-.emotion-7 blockquote,
-.emotion-7 q {
+.emotion-8 blockquote,
+.emotion-8 q {
   quotes: none;
 }
 
-.emotion-7 blockquote:before,
-.emotion-7 blockquote:after,
-.emotion-7 q:before,
-.emotion-7 q:after {
+.emotion-8 blockquote:before,
+.emotion-8 blockquote:after,
+.emotion-8 q:before,
+.emotion-8 q:after {
   content: '';
   content: none;
 }
 
-.emotion-7 table {
+.emotion-8 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-.emotion-6 {
+.emotion-7 {
   font-size: 16px;
   font-family: Helvetica,Arial,sans-serif;
   background: #fff;
@@ -158,6 +158,8 @@ exports[`search-widget it matches a snapshot 1`] = `
   color: #000;
   border: 1px solid grey;
   background: #fff;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 #search-widget .emotion-1:hover {
@@ -171,18 +173,23 @@ exports[`search-widget it matches a snapshot 1`] = `
   border: 1px solid grey;
 }
 
-#search-widget .emotion-5 {
+.emotion-5,
+.emotion-5 svg {
+  color: red;
+}
+
+#search-widget .emotion-6 {
   width: 100%;
 }
 
 @media screen and (min-width:960px) {
-  #search-widget .emotion-5 {
+  #search-widget .emotion-6 {
     width: 33.333333%;
   }
 }
 
 @media screen and (min-width:560px) and (max-width:960px) {
-  #search-widget .emotion-5 {
+  #search-widget .emotion-6 {
     width: 50%;
   }
 }
@@ -190,14 +197,14 @@ exports[`search-widget it matches a snapshot 1`] = `
 <body>
   <div>
     <div
-      class="emotion-7 emotion-6 search-widget svelte-1chupiu"
+      class="emotion-8 emotion-7 search-widget svelte-1chupiu"
     >
       <form>
         <div
-          class="search-form emotion-5 svelte-mf1zut"
+          class="search-form emotion-6 svelte-1yt5tdx"
         >
           <input
-            class="emotion-0 search-form-input svelte-mf1zut"
+            class="emotion-0 search-form-input svelte-1yt5tdx"
             data-testid="search-form-input"
             id="search"
             type="text"
@@ -205,7 +212,7 @@ exports[`search-widget it matches a snapshot 1`] = `
            
            
           <button
-            class="emotion-1 search-form-button svelte-mf1zut"
+            class="emotion-1 search-form-button svelte-1yt5tdx"
             data-testid="btnSearch"
             type="submit"
           >
@@ -213,10 +220,10 @@ exports[`search-widget it matches a snapshot 1`] = `
           </button>
            
           <div
-            class="search-form-control svelte-mf1zut"
+            class="search-form-control svelte-1yt5tdx"
           >
             <label
-              class="emotion-2 search-form-control-radio svelte-mf1zut"
+              class="emotion-2 search-form-control-radio svelte-1yt5tdx"
             >
               <input
                 data-testid="sales"
@@ -229,7 +236,7 @@ exports[`search-widget it matches a snapshot 1`] = `
             </label>
              
             <label
-              class="emotion-2 search-form-control-radio svelte-mf1zut"
+              class="emotion-2 search-form-control-radio svelte-1yt5tdx"
             >
               <input
                 data-testid="lettings"
@@ -242,7 +249,7 @@ exports[`search-widget it matches a snapshot 1`] = `
             </label>
              
             <button
-              class="emotion-2 search-form-advanced-search svelte-mf1zut"
+              class="emotion-2 emotion-5 search-form-advanced-search svelte-1yt5tdx"
               data-testid="btnAdvancedSearch"
               type="button"
             >
@@ -291,7 +298,7 @@ exports[`search-widget it matches a snapshot 1`] = `
          
         <div
           class="google-map-outer-container 
-  emotion-6 svelte-1t98is9"
+  emotion-7 svelte-1t98is9"
         >
            
           <div

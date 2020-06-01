@@ -11,6 +11,7 @@ describe('store', () => {
         detailPageUrl: '',
       },
       themeClasses: {
+        searchWidgetAdvanceSeachLabel: '',
         globalStyles: '',
         primaryHeading: '',
         secondaryHeading: '',
@@ -20,6 +21,7 @@ describe('store', () => {
         bodyText: '',
         button: '',
         input: '',
+        advanceSearchButton: '',
         resultItem: '',
         searchBox: '',
         offerBanner: '',

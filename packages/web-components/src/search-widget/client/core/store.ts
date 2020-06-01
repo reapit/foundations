@@ -27,6 +27,7 @@ const searchWidgetStore: Writable<SearchWidgetStore> = writable({
     detailPageUrl: '',
   },
   themeClasses: {
+    searchWidgetAdvanceSeachLabel: '',
     globalStyles: '',
     primaryHeading: '',
     secondaryHeading: '',
@@ -34,6 +35,7 @@ const searchWidgetStore: Writable<SearchWidgetStore> = writable({
     secondaryStrapline: '',
     selectedItem: '',
     bodyText: '',
+    advanceSearchButton: '',
     button: '',
     input: '',
     resultItem: '',

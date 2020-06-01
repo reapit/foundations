@@ -19,8 +19,9 @@ Book_viewing_widget {
       "css-cb9zl5",
       true,
       Object {
+        "advanceSearchButton": "css-q9ua3x",
         "bodyText": "css-1s7agtc",
-        "button": "css-530o6s",
+        "button": "css-1tpx7dz",
         "formError": "css-jk7gti",
         "globalStyles": "css-11c02ub",
         "input": "css-1r0d1l7",
@@ -31,6 +32,7 @@ Book_viewing_widget {
         "primaryStrapline": "css-yhrhqb",
         "resultItem": "css-qx9ywv",
         "searchBox": "css-wj8gdl",
+        "searchWidgetAdvanceSeachLabel": "css-1f1uo44",
         "secondaryHeading": "css-1i87i9v",
         "secondaryStrapline": "css-1qajcp3",
         "selectedItem": "css-5vflfd",

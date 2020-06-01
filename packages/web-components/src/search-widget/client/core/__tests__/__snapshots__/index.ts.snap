@@ -68,8 +68,9 @@ Search_widget {
         "selectedMarker": null,
         "selectedProperty": null,
         "themeClasses": Object {
+          "advanceSearchButton": "css-yha5dj",
           "bodyText": "css-11v9sqy",
-          "button": "css-1tgg1a8",
+          "button": "css-13jw1j0",
           "formError": "css-76s5ja",
           "globalStyles": "css-ya093n",
           "input": "css-u6oic2",
@@ -80,6 +81,7 @@ Search_widget {
           "primaryStrapline": "css-i73fze",
           "resultItem": "css-camhmr",
           "searchBox": "css-1q88d2c",
+          "searchWidgetAdvanceSeachLabel": "css-1hmoo69",
           "secondaryHeading": "css-1at1tp4",
           "secondaryStrapline": "css-kyb1t1",
           "selectedItem": "css-6jh9tu",

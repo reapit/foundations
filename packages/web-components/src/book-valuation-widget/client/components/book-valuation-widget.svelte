@@ -44,6 +44,7 @@
     ...generateBookValuationWidgetThemeClasses(theme, parentSelector),
   }
 
+
   onMount(() => {
     themeStore.set(themeClasses)
   })
@@ -76,7 +77,7 @@
   }
 </style>
 
-<button on:click={toggleModal} class="book-valuation-select-button">Book a Valuation</button>
+<button on:click={toggleModal} class="{themeClasses.button} book-valuation-select-button">Book a Valuation</button>
 {#if isModalOpen}
   <div data-testid="book-valuation-modal-wrapper" class="book-valuation-modal-wrapper">
     <ClickOutSide on:click-out-side={toggleModal}>

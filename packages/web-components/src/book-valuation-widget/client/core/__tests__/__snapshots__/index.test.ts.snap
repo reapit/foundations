@@ -16,8 +16,9 @@ Book_valuation_widget {
       [Function],
       [Function],
       Object {
+        "advanceSearchButton": "css-q9ua3x",
         "bodyText": "css-kj8hgc",
-        "button": "css-1dv0ljc",
+        "button": "css-1fyea8g",
         "dateCellHeader": "css-emo7go",
         "formBlock": "css-ebxsuw",
         "formButtonPrimary": "css-1lxnn63",
@@ -36,6 +37,7 @@ Book_valuation_widget {
         "primaryStrapline": "css-1k1azsg",
         "resultItem": "css-hxgn9z",
         "searchBox": "css-1kkxuu3",
+        "searchWidgetAdvanceSeachLabel": "css-3emzn1",
         "secondaryHeading": "css-x83nk",
         "secondaryStrapline": "css-1ts0wow",
         "selectedItem": "css-1uqw7mn",
