@@ -179,17 +179,15 @@ export const AdminDevManagement: React.FC = () => {
 export const onPageChangeHandler = (history: History<any>, queryParams: AdminDevManagementFilterFormValues) => (
   page: number,
 ) => {
-  const query = setQueryParams(queryParams) ? `?${setQueryParams(queryParams)}` : ''
-
-  return history.push(`${Routes.ADMIN_DEV_MANAGEMENT}/${page}${query}`)
+  const query = setQueryParams(queryParams)
+  return history.push(`${Routes.ADMIN_DEV_MANAGEMENT}/${page}?${query}`)
 }
 
 export const onSearchHandler = (history: History<any>, page: number) => (
   queryParams: AdminDevManagementFilterFormValues,
 ) => {
-  const query = setQueryParams(queryParams) ? `?${setQueryParams(queryParams)}` : ''
-
-  return history.push(`${Routes.ADMIN_DEV_MANAGEMENT}/${page}${query}`)
+  const query = setQueryParams(queryParams)
+  return history.push(`${Routes.ADMIN_DEV_MANAGEMENT}/${page}?${query}`)
 }
 
 export default AdminDevManagement
