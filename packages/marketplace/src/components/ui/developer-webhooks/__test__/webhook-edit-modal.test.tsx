@@ -1,60 +1,52 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import * as ReactRedux from 'react-redux'
+import configureStore from 'redux-mock-store'
+import { mount } from 'enzyme'
+import appState from '@/reducers/__stubs__/app-state'
 import WebhookCreateModal, {
-  WebhookModalInner,
   WebhookEditProps,
   onEdit,
   onCreate,
-  WebhookModalInnerProps,
-  mapDispatchToProps,
   generateCustomerOptions,
   generateTopicOptions,
   FormValuesType,
   validateURL,
 } from '../webhook-edit-modal'
-import { webhookItemDataStub } from '@/sagas/__stubs__/webhook-edit'
 import { TopicItem, CustomerItem } from '@/reducers/webhook-edit-modal'
+import { editWebhook, createWebhook } from '@/actions/webhook-edit-modal'
 
-const createProps: WebhookEditProps = {
-  appId: '',
-  visible: true,
-}
-const editProps: WebhookEditProps = {
+const mockProps: WebhookEditProps = {
   appId: '',
   visible: true,
   isUpdate: true,
-}
-
-const innerModalProps: WebhookModalInnerProps = {
-  appId: '',
-  topics: [],
-  customers: [],
-  loading: false,
-  isUpdate: true,
+  afterClose: jest.fn(),
   closeModal: jest.fn(),
-  requestWebhookSubcriptionData: jest.fn(),
-  requestWebhookData: jest.fn(),
-  createWebhook: jest.fn(),
-  editWebhook: jest.fn(),
-  deleteWebhook: jest.fn(),
-  webhookDataClear: jest.fn(),
-  webhookData: webhookItemDataStub,
+  webhookId: 'testWebhookId',
 }
 
 describe('WebhookEditModal', () => {
+  let store
+  let spyDispatch
+  beforeEach(() => {
+    /* mocking store */
+    const mockStore = configureStore()
+    store = mockStore(appState)
+    spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
+  })
   it('should match a snapshot', () => {
-    expect(shallow(<WebhookCreateModal {...createProps} />)).toMatchSnapshot()
-    expect(shallow(<WebhookCreateModal {...editProps} />)).toMatchSnapshot()
-    expect(shallow(<WebhookCreateModal {...createProps} visible={false} />)).toMatchSnapshot()
-    expect(shallow(<WebhookCreateModal {...editProps} visible={false} />)).toMatchSnapshot()
-    expect(shallow(<WebhookModalInner {...innerModalProps} />)).toMatchSnapshot()
+    expect(
+      mount(
+        <ReactRedux.Provider store={store}>
+          <WebhookCreateModal {...mockProps} />
+        </ReactRedux.Provider>,
+      ),
+    ).toMatchSnapshot()
   })
 
   it('should call editWebhook', () => {
-    const editWebhook = jest.fn()
     const webhookId = ''
     const appId = ''
-    const fn = onEdit(editWebhook, webhookId, appId)
+    const fn = onEdit(spyDispatch, webhookId, appId)
     const values: FormValuesType = {
       url: '',
       topicIds: [],
@@ -62,12 +54,21 @@ describe('WebhookEditModal', () => {
       active: false,
     }
     fn(values)
-    expect(editWebhook).toBeCalled()
+    expect(spyDispatch).toBeCalledWith(
+      editWebhook({
+        applicationId: appId,
+        webhookId,
+        url: values.url,
+        description: '',
+        topicIds: values.topicIds,
+        customerIds: values.customerIds,
+        active: values.active,
+      }),
+    )
   })
   it('should call createWebhook', () => {
-    const createWebhook = jest.fn()
-    const webhookId = ''
-    const fn = onCreate(createWebhook, webhookId)
+    const appId = ''
+    const fn = onCreate(spyDispatch, appId)
     const values = {
       url: '',
       topicIds: [],
@@ -75,37 +76,18 @@ describe('WebhookEditModal', () => {
       active: false,
     }
     fn(values)
-    expect(createWebhook).toBeCalled()
-  })
-  describe('mapDispatchToProps', () => {
-    it('should run correctly', () => {
-      const mockDispatch = jest.fn()
-      const {
-        requestWebhookSubcriptionData,
-        createWebhook,
-        editWebhook,
-        requestWebhookData,
-        webhookDataClear,
-        deleteWebhook,
-      } = mapDispatchToProps(mockDispatch)
-      requestWebhookSubcriptionData('1')
-      requestWebhookData('1')
-      const values = {
-        applicationId: '',
-        url: '',
+    expect(spyDispatch).toBeCalledWith(
+      createWebhook({
+        applicationId: appId,
+        url: values.url,
         description: '',
-        topicIds: [],
-        customerIds: [],
-        active: false,
-        webhookId: '',
-      }
-      createWebhook(values)
-      editWebhook(values)
-      webhookDataClear()
-      deleteWebhook(values)
-      expect(mockDispatch).toBeCalled()
-    })
+        topicIds: values.topicIds,
+        customerIds: values.customerIds,
+        active: values.active,
+      }),
+    )
   })
+
   it('should return TopicItem Options', () => {
     const data: TopicItem[] = [
       {
