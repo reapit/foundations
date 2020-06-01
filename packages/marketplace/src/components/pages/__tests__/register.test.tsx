@@ -64,14 +64,10 @@ describe('Register', () => {
   })
   describe('onRegisterButtonClick', () => {
     it('should run correctly', () => {
-      const mockValidateForm = jest.fn()
+      const mockValidateForm = jest.fn().mockImplementation(() => ({ err: 'err' }))
       const mockSetTermsAndConditionsModalVisible = jest.fn()
       const mockSetTouched = jest.fn()
-      const fn = onRegisterButtonClick(
-        mockValidateForm(mockRegisterFormValues),
-        mockSetTermsAndConditionsModalVisible,
-        mockSetTouched,
-      )
+      const fn = onRegisterButtonClick(mockValidateForm, mockSetTermsAndConditionsModalVisible, mockSetTouched)
       fn()
       expect(mockSetTouched).toBeCalledWith({
         companyName: true,
