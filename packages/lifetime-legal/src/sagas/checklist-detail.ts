@@ -25,7 +25,7 @@ import {
   createIdentityCheck,
   uploadImage,
 } from './api'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 
 export const checklistDetailDataFetch = function*({ data: id }) {
   yield put(checklistDetailLoading(true))

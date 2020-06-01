@@ -1,7 +1,7 @@
 import { fetcherWithBlob, fetcher } from '@reapit/elements'
 import { URLS } from '@/constants/api'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 
 export const downloadDocument = async (documentId: string) => {
   try {

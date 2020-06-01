@@ -8,7 +8,7 @@ import {
   httpTrafficPerDayReceiveData,
   httpTrafficPerDayRequestDataFailure,
 } from '@/actions/app-http-traffic-event'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 import { fetchTrafficStatistics, FetchTrafficStatisticsParams } from '@/services/traffic-events'
 
 const { HTTP_TRAFFIC_PER_DAY_REQUEST_DATA } = ActionTypes

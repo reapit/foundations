@@ -7,8 +7,30 @@ import PrivateRouteWrapper from './private-route-wrapper'
 
 export const history = createBrowserHistory()
 
-const LoginPage = React.lazy(() => import('../components/pages/login'))
-const AuthenticatedPage = React.lazy(() => import('../components/pages/authenticated'))
+export const catchChunkError = (
+  fn: Function,
+  retriesLeft = 3,
+  interval = 500,
+): Promise<{ default: React.ComponentType<any> }> => {
+  return new Promise((resolve, reject) => {
+    fn()
+      .then(resolve)
+      .catch((error: Error) => {
+        // Ignore chunk cache error and retry to fetch, if cannot reload browser
+        console.info(error)
+        setTimeout(() => {
+          if (retriesLeft === 1) {
+            window.location.reload()
+            return
+          }
+          catchChunkError(fn, retriesLeft - 1, interval).then(resolve, reject)
+        }, interval)
+      })
+  })
+}
+
+const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
+const AuthenticatedPage = React.lazy(() => catchChunkError(() => import('../components/pages/authenticated')))
 
 const Router = () => (
   <BrowserRouter history={history}>

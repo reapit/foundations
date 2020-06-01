@@ -8,7 +8,7 @@ import {
   appUsageStatsReceiveData,
   appUsageStatsRequestDataFailure,
 } from '@/actions/app-usage-stats'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 import { fetchStatisticsList, FetchStatisticsListParams } from '@/services/statistics'
 
 const { APP_USAGE_STATS_REQUEST_DATA } = ActionTypes

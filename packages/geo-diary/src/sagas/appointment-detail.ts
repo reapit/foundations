@@ -17,7 +17,7 @@ import { AppointmentDetailRequestParams } from '@/actions/appointment-detail'
 import { selectAppointmentDetail } from '@/selectors/appointment-detail'
 import { selectAppointmentsFilterTime, selectAppointmentWithId } from '@/selectors/appointments'
 import { fetchAppointment, updateAppointment } from './api'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 
 export const appointmentDetailDataFetch = function*({ data: { id } }: Action<AppointmentDetailRequestParams>) {
   yield put(appointmentDetailShowModal())
