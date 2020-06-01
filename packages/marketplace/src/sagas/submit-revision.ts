@@ -7,7 +7,7 @@ import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { CreateAppRevisionModel } from '@reapit/foundations-ts-definitions'
 import { appDetailRequestData } from '@/actions/app-detail'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 import { createAppRevision } from '@/services/apps'
 
 export const submitRevision = function*({ data }: Action<CreateAppRevisionModel & { id: string }>) {

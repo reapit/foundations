@@ -1,6 +1,6 @@
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 import {
   developerLoading,
   developerReceiveData,

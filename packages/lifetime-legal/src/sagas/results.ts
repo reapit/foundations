@@ -6,7 +6,7 @@ import { Action } from '@/types/core'
 import { resultReceiveData, resultRequestDataFailure, ContactsParams } from '@/actions/results'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { fetchContacts } from './api'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 
 export const resultFetch = function*(params: Action<ContactsParams>) {
   try {

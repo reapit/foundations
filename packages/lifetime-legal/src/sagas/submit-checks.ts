@@ -6,7 +6,7 @@ import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import routes from '@/constants/routes'
 import { history } from '@/core/router'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 
 export const submitCheck = function*({ data: id }: Action<string>) {
   yield put(submitChecksSetFormState('SUBMITTING'))

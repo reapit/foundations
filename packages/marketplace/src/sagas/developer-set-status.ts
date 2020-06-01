@@ -9,7 +9,7 @@ import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 import { updateDeveloperById } from '@/services/developers'
 
 export const developerSetStatusRequestSaga = function*({ data: dev }) {

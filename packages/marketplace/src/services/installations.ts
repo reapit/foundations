@@ -7,7 +7,7 @@ import {
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
 import { generateHeader } from './utils'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 import { FetchListCommonParams } from './types'
 
 export type FetchInstallationsListParams = FetchListCommonParams & {
