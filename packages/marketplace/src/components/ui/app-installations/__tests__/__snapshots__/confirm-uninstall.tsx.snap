@@ -28,7 +28,9 @@ exports[`ConfirmUninstall should match a snapshot when FORMSTATE is PENDING 1`] 
     footerItems={
       <React.Fragment>
         <Unknown
+          className="mx-4"
           disabled={false}
+          fullWidth={true}
           loading={false}
           onClick={[MockFunction]}
           type="button"
@@ -37,10 +39,12 @@ exports[`ConfirmUninstall should match a snapshot when FORMSTATE is PENDING 1`] 
           Yes, Uninstall
         </Unknown>
         <Unknown
+          className="mx-4"
           disabled={false}
+          fullWidth={true}
           onClick={[MockFunction]}
           type="button"
-          variant="secondary"
+          variant="danger"
         >
           Cancel
         </Unknown>
@@ -78,7 +82,9 @@ exports[`ConfirmUninstall should match a snapshot when FORMSTATE is SUBMITTING 1
     footerItems={
       <React.Fragment>
         <Unknown
+          className="mx-4"
           disabled={true}
+          fullWidth={true}
           loading={true}
           onClick={[MockFunction]}
           type="button"
@@ -87,10 +93,12 @@ exports[`ConfirmUninstall should match a snapshot when FORMSTATE is SUBMITTING 1
           Yes, Uninstall
         </Unknown>
         <Unknown
+          className="mx-4"
           disabled={true}
+          fullWidth={true}
           onClick={[MockFunction]}
           type="button"
-          variant="secondary"
+          variant="danger"
         >
           Cancel
         </Unknown>
