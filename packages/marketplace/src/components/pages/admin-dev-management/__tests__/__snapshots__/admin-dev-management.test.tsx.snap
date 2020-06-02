@@ -255,7 +255,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                                 >
                                                   Registered From
                                                 </label>
-                                                <o
+                                                <t
                                                   allowSameDay={false}
                                                   customInput={
                                                     <CustomInput
@@ -295,14 +295,12 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                                   readOnly={false}
                                                   renderDayContents={[Function]}
                                                   shouldCloseOnSelect={true}
-                                                  showFullMonthYearPicker={false}
                                                   showMonthYearPicker={false}
                                                   showPopperArrow={true}
                                                   showPreviousMonths={false}
                                                   showQuarterYearPicker={false}
                                                   showTimeInput={false}
                                                   showTimeSelect={false}
-                                                  showYearPicker={false}
                                                   strictParsing={false}
                                                   timeCaption="Time"
                                                   timeInputLabel="Time"
@@ -310,7 +308,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                                   value=""
                                                   withPortal={false}
                                                 >
-                                                  <a
+                                                  <t
                                                     enableTabLoop={true}
                                                     hidePopper={true}
                                                     popperComponent={null}
@@ -392,8 +390,8 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                                         </InnerReference>
                                                       </Reference>
                                                     </Manager>
-                                                  </a>
-                                                </o>
+                                                  </t>
+                                                </t>
                                               </div>
                                             </div>
                                           </Field>
@@ -432,7 +430,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                                 >
                                                   Registered To
                                                 </label>
-                                                <o
+                                                <t
                                                   allowSameDay={false}
                                                   customInput={
                                                     <CustomInput
@@ -473,14 +471,12 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                                   readOnly={false}
                                                   renderDayContents={[Function]}
                                                   shouldCloseOnSelect={true}
-                                                  showFullMonthYearPicker={false}
                                                   showMonthYearPicker={false}
                                                   showPopperArrow={true}
                                                   showPreviousMonths={false}
                                                   showQuarterYearPicker={false}
                                                   showTimeInput={false}
                                                   showTimeSelect={false}
-                                                  showYearPicker={false}
                                                   strictParsing={false}
                                                   timeCaption="Time"
                                                   timeInputLabel="Time"
@@ -488,7 +484,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                                   value=""
                                                   withPortal={false}
                                                 >
-                                                  <a
+                                                  <t
                                                     enableTabLoop={true}
                                                     hidePopper={true}
                                                     popperComponent={null}
@@ -570,8 +566,8 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                                         </InnerReference>
                                                       </Reference>
                                                     </Manager>
-                                                  </a>
-                                                </o>
+                                                  </t>
+                                                </t>
                                               </div>
                                             </div>
                                           </Field>
