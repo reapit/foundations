@@ -24,7 +24,7 @@ export interface InitializerTheme {
 }
 
 export interface ThemeClasses {
-  searchWidgetAdvanceSeachLabel: string
+  featureLabel: string
   advanceSearchButton: string
   globalStyles: string
   primaryHeading: string
@@ -137,7 +137,7 @@ export const generateThemeClasses = (
         border: 1px solid ${primaryAccentColor || 'grey'};
       }
     `,
-    searchWidgetAdvanceSeachLabel: css`
+    featureLabel: css`
       ${parentSelector || 'body'} & {
         font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'};
         font-size: ${secondaryHeadingFontSize || '18px'};

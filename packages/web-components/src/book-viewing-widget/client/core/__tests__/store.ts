@@ -13,7 +13,7 @@ describe('store', () => {
       propertyData: { image: '', address: '', price: '' },
       isLoading: false,
       themeClasses: {
-        searchWidgetAdvanceSeachLabel: '',
+        featureLabel: '',
         advanceSearchButton: '',
         globalStyles: '',
         primaryHeading: '',

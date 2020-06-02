@@ -11,7 +11,7 @@ describe('store', () => {
         detailPageUrl: '',
       },
       themeClasses: {
-        searchWidgetAdvanceSeachLabel: '',
+        featureLabel: '',
         globalStyles: '',
         primaryHeading: '',
         secondaryHeading: '',

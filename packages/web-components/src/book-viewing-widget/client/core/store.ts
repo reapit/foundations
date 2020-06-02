@@ -19,7 +19,7 @@ const bookViewingWigetStore: Writable<BookViewingWidgetStore> = writable({
     theme: {},
   },
   themeClasses: {
-    searchWidgetAdvanceSeachLabel: '',
+    featureLabel: '',
     globalStyles: '',
     primaryHeading: '',
     secondaryHeading: '',

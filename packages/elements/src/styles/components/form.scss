@@ -1,8 +1,7 @@
-
 @import '../base/colors.scss';
 @import '../base/fonts.scss';
 
-.form {
+.form2 {
   width: 100%;
 }
 
@@ -10,15 +9,16 @@
   padding: 1rem;
   border-top: 1px solid $grey;
 
-  .form-heading, .form-subheading  {
-    color: $grey-dark;    
+  .form2-heading,
+  .form-subheading {
+    color: $grey-dark;
   }
 
   .form-heading {
     font-weight: bold;
     text-transform: uppercase;
   }
-  
+
   .form-subheading {
     font-style: italic;
   }

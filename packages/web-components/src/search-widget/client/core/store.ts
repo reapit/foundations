@@ -27,7 +27,7 @@ const searchWidgetStore: Writable<SearchWidgetStore> = writable({
     detailPageUrl: '',
   },
   themeClasses: {
-    searchWidgetAdvanceSeachLabel: '',
+    featureLabel: '',
     globalStyles: '',
     primaryHeading: '',
     secondaryHeading: '',
