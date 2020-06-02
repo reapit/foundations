@@ -31,7 +31,7 @@
     "lodash.orderby": "^4.6.0",
     "react-chartjs-2": "^2.8.0",
     "react-copy-to-clipboard": "^5.0.2",
-    "react-slick": "^0.24.0",
+    "react-slick": "^0.26.1",
     "swagger-ui-react": "^3.24.3"
   },
   "devDependencies": {
