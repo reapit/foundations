@@ -7,7 +7,7 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import { Context, APIGatewayProxyEvent } from 'aws-lambda'
 
-const app = express()
+const app = express() as any
 const expressApp = serverless(app)
 
 export const queryParams = (params: Object) => {
@@ -76,6 +76,7 @@ const generateMessage = ({ packageName, environment, currentTag, previousTag }: 
   return {
     'release-note': `Generating release note for \`${packageName}\` tag \`${currentTag}\`. Roll back version is \`${previousTag}\``,
     release: `Releasing ${environment} \`${packageName}\` development environment \`${currentTag}\`. Roll back version is \`${previousTag}\``,
+    'update-release-note': `Updating release note for \`${packageName}\` tag \`${currentTag}\`.`,
   }
 }
 
@@ -97,7 +98,7 @@ app.post('/release', async (req: Request, res: Response) => {
 \`@Reapit Cloud Releases help\` <= The command will show you the way to use release bot \n
 \`@Reapit Cloud Releases release-note <package_name> <release_tag> <roll_back_tag>\` <= The command will generate the release note\n
 \`@Reapit Cloud Releases release <package_name> <release_tag> <roll_back_tag> <environment>\` <= The command will do the release and environment is development by default\n
-\`@Reapit Cloud Releases update-release-note <package_name> <release_tag> <roll_back_tag> <environment>\` <= The command will do update the release note document\n
+\`@Reapit Cloud Releases update-release-note <package_name> <release_tag> <roll_back_tag>\` <= The command will do update the release note in github and document\n
     `)
     return res.send({ challenge: req.body.challenge, status: 200 })
   }
