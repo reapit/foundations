@@ -18,6 +18,7 @@ export default [
         browser: true,
       }),
       commonjs(),
+      // Not using to bundle typescript but I need to parse the TS so I can extract the linaria styles
       typescript({
         noEmit: true,
       }),

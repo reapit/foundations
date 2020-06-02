@@ -36,6 +36,12 @@ module.exports = {
       },
       plugins: [
         ...config.plugins,
+        // I should be able to add lineria here as TSDX is Rollup under the hood but doesn't include
+        // in the bundle. Have added sass with no emit so I can import the sass file into my index.tsx
+        // linaria({
+        //   sourceMap: process.env.NODE_ENV !== 'production',
+        //   evaluate: true,
+        // }),
         scss({
           output: () => {
             console.info('Not emitting CSS here, as there is a separate rollup process')
