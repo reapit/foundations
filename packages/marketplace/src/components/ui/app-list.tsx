@@ -74,34 +74,36 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
             : 'We are unable to find any Apps that match your search criteria. Please try again.'}
         </Helper>
       ) : (
-        <GridFourCol
-          className={`${styles.flexGrow} ${loading ? styles.contentIsLoading : ''}`}
-          data-test="app-list-container"
-        >
-          {list.map(app => (
-            <WrapperContainer key={app.id}>
-              <AppCard
-                app={app}
-                onClick={
-                  onCardClick
-                    ? (event: React.MouseEvent) => {
-                        event.stopPropagation()
-                        onCardClick(app)
-                      }
-                    : undefined
-                }
-                onSettingsClick={
-                  onSettingsClick
-                    ? (event: React.MouseEvent) => {
-                        event.stopPropagation()
-                        onSettingsClick(app)
-                      }
-                    : undefined
-                }
-              />
-            </WrapperContainer>
-          ))}
-        </GridFourCol>
+        <div>
+          <GridFourCol
+            className={`${styles.flexGrow} ${loading ? styles.contentIsLoading : ''}`}
+            data-test="app-list-container"
+          >
+            {list.map(app => (
+              <WrapperContainer key={app.id}>
+                <AppCard
+                  app={app}
+                  onClick={
+                    onCardClick
+                      ? (event: React.MouseEvent) => {
+                          event.stopPropagation()
+                          onCardClick(app)
+                        }
+                      : undefined
+                  }
+                  onSettingsClick={
+                    onSettingsClick
+                      ? (event: React.MouseEvent) => {
+                          event.stopPropagation()
+                          onSettingsClick(app)
+                        }
+                      : undefined
+                  }
+                />
+              </WrapperContainer>
+            ))}
+          </GridFourCol>
+        </div>
       )}
 
       {loading && <Loader body />}
