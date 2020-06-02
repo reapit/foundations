@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@reapit/elements": "^0.5.39",
-    "amazon-cognito-identity-js": "~3.0.13",
+    "amazon-cognito-identity-js": "~3.3.3",
     "cors": "^2.8.5",
     "hardtack": "^4.1.2",
     "jsonwebtoken": "^8.5.1"
