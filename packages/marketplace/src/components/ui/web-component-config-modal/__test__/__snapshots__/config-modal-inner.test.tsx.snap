@@ -939,6 +939,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                                   <Trigger
                                     action={Array []}
                                     afterPopupVisibleChange={[Function]}
+                                    autoDestroy={false}
                                     blurDelay={0.15}
                                     builtinPlacements={
                                       Object {
@@ -956,6 +957,20 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                                             "bl",
                                           ],
                                         },
+                                        "bottomRight": Object {
+                                          "offset": Array [
+                                            0,
+                                            4,
+                                          ],
+                                          "overflow": Object {
+                                            "adjustX": 0,
+                                            "adjustY": 1,
+                                          },
+                                          "points": Array [
+                                            "tr",
+                                            "br",
+                                          ],
+                                        },
                                         "topLeft": Object {
                                           "offset": Array [
                                             0,
@@ -968,6 +983,20 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                                           "points": Array [
                                             "bl",
                                             "tl",
+                                          ],
+                                        },
+                                        "topRight": Object {
+                                          "offset": Array [
+                                            0,
+                                            -4,
+                                          ],
+                                          "overflow": Object {
+                                            "adjustX": 0,
+                                            "adjustY": 1,
+                                          },
+                                          "points": Array [
+                                            "br",
+                                            "tr",
                                           ],
                                         },
                                       }
@@ -1155,6 +1184,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                                           onInputChange={[Function]}
                                           onInputKeyDown={[Function]}
                                           onInputMouseDown={[Function]}
+                                          onInputPaste={[Function]}
                                           onSearch={[Function]}
                                           onSelect={[Function]}
                                           onToggleOpen={[Function]}
@@ -1180,12 +1210,14 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                                           >
                                             <Input
                                               accessibilityIndex={0}
+                                              attrs={Object {}}
                                               editable={true}
                                               id="negotiatorIds"
                                               inputElement={null}
                                               onChange={[Function]}
                                               onKeyDown={[Function]}
                                               onMouseDown={[Function]}
+                                              onPaste={[Function]}
                                               prefixCls="rc-select"
                                               value=""
                                             >
@@ -1201,6 +1233,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                                                 onChange={[Function]}
                                                 onKeyDown={[Function]}
                                                 onMouseDown={[Function]}
+                                                onPaste={[Function]}
                                                 readOnly={false}
                                                 role="combobox"
                                                 style={
@@ -1208,6 +1241,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                                                     "opacity": null,
                                                   }
                                                 }
+                                                unselectable={null}
                                                 value=""
                                               />
                                             </Input>
