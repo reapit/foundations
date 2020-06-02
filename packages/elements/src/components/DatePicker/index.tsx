@@ -173,8 +173,8 @@ export const DatePicker = ({
         if (!parsedDayJsValue.isValid()) {
           fieldValue = ''
         } else {
-          fieldValue = parsedDayJsValue.format(dateFormat || 'DD/MM/YYYY')
-          parseDate = parsedDayJsValue.toDate()
+          fieldValue = parsedDayJsValue.startOf('day').format(dateFormat || 'DD/MM/YYYY')
+          parseDate = parsedDayJsValue.startOf('day').toDate()
         }
 
         const hasError = checkError(meta)

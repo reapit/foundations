@@ -1,0 +1,51 @@
+service: deploy-slack-bot
+plugins:
+  - serverless-webpack
+custom:
+  env: ${file(./config.json)}
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: true
+    packager: 'yarn'
+    packagerOptions:
+      noFrozenLockFile: false
+    excludeFiles: src/**/*.test.ts
+    keepOutputDirectory: true
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: ${opt:stage, 'dev'}
+  region: eu-west-2
+  deploymentBucket:
+    name: deploy-slack-bot-${self:provider.stage}
+    blockPublicAccess: false
+  environment:
+    NODE_ENV: 'production'
+    REPO_DISPATCH_API: ${self:custom.env.REPO_DISPATCH_API}
+    GITHUB_TOKEN: ${self:custom.env.GITHUB_TOKEN}
+    SLACK_BOT_HOOK: ${self:custom.env.SLACK_BOT_HOOK}
+    SLACK_BOT_SIGNING_SECRET: ${self:custom.env.SLACK_BOT_SIGNING_SECRET}
+
+package:
+  individually: true
+  include:
+    - dist/**
+  exclude:
+    - package.json
+    - node_modules/**
+    - error.log
+    - info.log
+    - jest.config.js
+    - nodemon.json
+    - serverless.yml
+    - src/**
+    - tsconfig.json
+    - yml-helpers.js
+
+functions:
+  deploy-slack-bot:
+    handler: src/index.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'

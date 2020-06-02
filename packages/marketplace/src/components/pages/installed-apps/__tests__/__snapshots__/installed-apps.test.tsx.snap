@@ -284,9 +284,11 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
                                               test
                                             </h4>
                                           </Component>
-                                          <Component>
+                                          <Component
+                                            className="text-ellipisis"
+                                          >
                                             <h6
-                                              className="subtitle is-6  "
+                                              className="subtitle is-6 text-ellipisis "
                                               id=""
                                             >
                                               Pete's Proptech World Ltd
@@ -391,9 +393,11 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
                                               asd
                                             </h4>
                                           </Component>
-                                          <Component>
+                                          <Component
+                                            className="text-ellipisis"
+                                          >
                                             <h6
-                                              className="subtitle is-6  "
+                                              className="subtitle is-6 text-ellipisis "
                                               id=""
                                             >
                                               Pete's Proptech World Ltd

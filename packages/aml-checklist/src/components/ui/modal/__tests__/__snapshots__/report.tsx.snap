@@ -80,8 +80,12 @@ exports[`ReportContainer should match snapshot 1`] = `
     </div>
   </div>
   <div>
-    <e
+    <f
       content={[Function]}
+      copyStyles={true}
+      pageStyle="@page { size: auto;  margin: 0mm; } @media print { body { -webkit-print-color-adjust: exact; } }"
+      removeAfterPrint={false}
+      suppressErrors={false}
       trigger={[Function]}
     />
   </div>
