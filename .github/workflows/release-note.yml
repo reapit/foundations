@@ -33,7 +33,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          yarn
+          yarn add isomorphic-fetch -W
 
       - name: Generate Release Note
         if: steps.cache.outputs.cache-hit != 'true'
