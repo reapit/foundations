@@ -117,10 +117,19 @@ export const ConfirmUninstall: React.FC<ConfirmUninstallProps> = ({
               loading={isSubmitting}
               disabled={isSubmitting}
               onClick={handleSubmit}
+              className="mx-4"
+              fullWidth
             >
               Yes, Uninstall
             </Button>
-            <Button type="button" variant="secondary" disabled={isSubmitting} onClick={afterClose}>
+            <Button
+              type="button"
+              variant="danger"
+              disabled={isSubmitting}
+              onClick={afterClose}
+              className="mx-4"
+              fullWidth
+            >
               Cancel
             </Button>
           </>
