@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeveloperInviteMemberModal should match snapshot with default 1`] = `""`;
+
+exports[`DeveloperInviteMemberModal should match snapshot with visible true 1`] = `
+<Component
+  afterClose={[MockFunction]}
+  title="Invite New Member"
+  visible={true}
+>
+  <Component>
+    Please enter a name and email address below to invite a new member to your organisation:
+  </Component>
+  <Formik
+    initialValues={
+      Object {
+        "developerInviteEmail": "",
+        "developerInviteMessage": "",
+        "developerInviteName": "",
+      }
+    }
+    onSubmit={[Function]}
+    validate={[Function]}
+  >
+    <Component />
+  </Formik>
+</Component>
+`;
