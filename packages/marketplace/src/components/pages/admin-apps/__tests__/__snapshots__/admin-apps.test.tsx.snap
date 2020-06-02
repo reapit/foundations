@@ -392,7 +392,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                               >
                                                 Registered From
                                               </label>
-                                              <t
+                                              <o
                                                 allowSameDay={false}
                                                 className="input is-primary"
                                                 customInput={
@@ -434,12 +434,14 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                                 renderDayContents={[Function]}
                                                 selectsStart={true}
                                                 shouldCloseOnSelect={true}
+                                                showFullMonthYearPicker={false}
                                                 showMonthYearPicker={false}
                                                 showPopperArrow={true}
                                                 showPreviousMonths={false}
                                                 showQuarterYearPicker={false}
                                                 showTimeInput={false}
                                                 showTimeSelect={false}
+                                                showYearPicker={false}
                                                 startDate=""
                                                 strictParsing={false}
                                                 timeCaption="Time"
@@ -448,7 +450,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                                 value=""
                                                 withPortal={false}
                                               >
-                                                <t
+                                                <a
                                                   enableTabLoop={true}
                                                   hidePopper={true}
                                                   popperComponent={null}
@@ -530,8 +532,8 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                                       </InnerReference>
                                                     </Reference>
                                                   </Manager>
-                                                </t>
-                                              </t>
+                                                </a>
+                                              </o>
                                             </div>
                                           </div>
                                         </Field>
@@ -571,7 +573,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                               >
                                                 Registered To
                                               </label>
-                                              <t
+                                              <o
                                                 allowSameDay={false}
                                                 className="input is-primary"
                                                 customInput={
@@ -614,12 +616,14 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                                 renderDayContents={[Function]}
                                                 selectsEnd={true}
                                                 shouldCloseOnSelect={true}
+                                                showFullMonthYearPicker={false}
                                                 showMonthYearPicker={false}
                                                 showPopperArrow={true}
                                                 showPreviousMonths={false}
                                                 showQuarterYearPicker={false}
                                                 showTimeInput={false}
                                                 showTimeSelect={false}
+                                                showYearPicker={false}
                                                 startDate=""
                                                 strictParsing={false}
                                                 timeCaption="Time"
@@ -628,7 +632,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                                 value=""
                                                 withPortal={false}
                                               >
-                                                <t
+                                                <a
                                                   enableTabLoop={true}
                                                   hidePopper={true}
                                                   popperComponent={null}
@@ -710,8 +714,8 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                                       </InnerReference>
                                                     </Reference>
                                                   </Manager>
-                                                </t>
-                                              </t>
+                                                </a>
+                                              </o>
                                             </div>
                                           </div>
                                         </Field>
