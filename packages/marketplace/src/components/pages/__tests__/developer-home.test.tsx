@@ -5,19 +5,11 @@ import { mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import Routes from '@/constants/routes'
-import DeveloperHome, {
-  handleOnCardClick,
-  handleAfterClose,
-  handleFetchDeveloperApps,
-  handleOnChange,
-} from '../developer-home'
+import DeveloperHome, { handleOnCardClick, handleFetchDeveloperApps, handleOnChange } from '../developer-home'
 import { AppSummaryModel } from '@/types/marketplace-api-schema'
-import { appDetailRequestData, removeAuthenticationCode } from '@/actions/app-detail'
-import { developerAppShowModal } from '@/actions/developer-app-modal'
 import { developerRequestData } from '@/actions/developer'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import routes from '@/constants/routes'
-import { AppDetailState } from '@/reducers/app-detail'
 
 describe('Login', () => {
   const { history } = getMockRouterProps({})
@@ -42,31 +34,12 @@ describe('Login', () => {
   })
   describe('handleOnCardClick', () => {
     it('should run correctly', () => {
-      const mockAppDetailState = {
-        appDetailData: {
-          data: {
-            id: 'testId',
-          },
-        },
-      } as AppDetailState
       const mockAppSummary: AppSummaryModel = {
-        id: 'testId2',
+        id: 'testId',
       }
-      const fn = handleOnCardClick(mockAppDetailState, spyDispatch)
+      const fn = handleOnCardClick(history)
       fn(mockAppSummary)
-      expect(spyDispatch).toBeCalledWith(
-        appDetailRequestData({
-          id: mockAppSummary.id || '',
-        }),
-      )
-    })
-  })
-  describe('handleAfterClose', () => {
-    it('should run correctly', () => {
-      const fn = handleAfterClose(spyDispatch)
-      fn()
-      expect(spyDispatch).toBeCalledWith(removeAuthenticationCode())
-      expect(spyDispatch).toBeCalledWith(developerAppShowModal(false))
+      expect(history.push).toBeCalledWith(`${Routes.DEVELOPER_MY_APPS}/${mockAppSummary.id}`)
     })
   })
   describe('handleFetchDeveloperApps', () => {
