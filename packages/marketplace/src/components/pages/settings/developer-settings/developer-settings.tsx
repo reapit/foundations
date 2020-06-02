@@ -23,7 +23,7 @@ export const renderPageContent = ({ isProd, isAdmin }: { isProd: Boolean; isAdmi
  * developer version and admin version - profile tab
  * ^ they both sit on "/developer/settings" route which is so confusing atm
  */
-const DevelperSettingsPage: React.FC<{}> = () => {
+const DevelperSettingsPage: React.FC = () => {
   const isAdmin = useSelector(selectIsAdmin)
   const isProd = window.reapit.config.appEnv === 'production'
 

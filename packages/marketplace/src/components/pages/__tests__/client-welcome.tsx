@@ -10,12 +10,14 @@ import { HelpGuide } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import configureStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
+import appState from '@/reducers/__stubs__/app-state'
 
 const mockProps: ClientWelcomeMessageProps = {
   userAcceptTermAndCondition: jest.fn(),
 }
 
 const mockState = {
+  ...appState,
   auth: {
     loginSession: {
       loginIdentity: {

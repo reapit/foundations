@@ -11,11 +11,13 @@ import {
   changePassword as changePasswordAction,
 } from '@/actions/settings'
 import { authLogout } from '@/actions/auth'
+import appState from '@/reducers/__stubs__/app-state'
 
 describe('ProfileTab', () => {
   const mockStore = configureStore()
 
   const mockState = {
+    ...appState,
     settings: {
       loading: true,
       developerInfomation: developerStub,
