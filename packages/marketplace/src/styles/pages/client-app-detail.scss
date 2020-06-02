@@ -1,6 +1,24 @@
 @import '../base/colors.scss';
 @import '../base/screen-size.scss';
 
+.renderImageContainer {
+  @include for-desktop-only {
+    display: flex;
+  }
+
+  div {
+    margin-right: 1rem;
+    max-width: 300px;
+    @include for-desktop-only {
+      flex: 1;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
 .check {
   color: #a0c862;
 }
@@ -33,7 +51,6 @@
       flex: 1;
     }
   }
-
   height: auto;
   width: 100%;
   margin: 0 auto;

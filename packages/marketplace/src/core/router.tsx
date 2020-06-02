@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-dom'
+import { catchChunkError } from '@reapit/utils'
 import Routes from '../constants/routes'
 import PrivateRoute from './private-route'
 import PrivateRouteWrapper from './private-route-wrapper'
@@ -7,56 +8,41 @@ import { createBrowserHistory } from 'history'
 import { Info } from '@reapit/elements'
 
 export const history = createBrowserHistory()
-
-export const catchError = (
-  fn: Function,
-  retriesLeft = 3,
-  interval = 500,
-): Promise<{ default: React.ComponentType<any> }> => {
-  return new Promise((resolve, reject) => {
-    fn()
-      .then(resolve)
-      .catch((error: Error) => {
-        // Ignore chunk cache error and retry to fetch, if cannot reload browser
-        console.info(error)
-        setTimeout(() => {
-          if (retriesLeft === 1) {
-            window.location.reload()
-            return
-          }
-          catchError(fn, retriesLeft - 1, interval).then(resolve, reject)
-        }, interval)
-      })
-  })
-}
-
-const Authentication = React.lazy(() => catchError(() => import('../components/pages/authentication')))
-const Login = React.lazy(() => catchError(() => import('../components/pages/login')))
-const Client = React.lazy(() => catchError(() => import('../components/pages/client')))
-const ClientAppDetail = React.lazy(() => catchError(() => import('../components/pages/client-app-detail')))
-const ClientAppDetailManage = React.lazy(() => catchError(() => import('../components/pages/client-app-detail-manage')))
-const ClientWelcomePage = React.lazy(() => catchError(() => import('../components/pages/client-welcome')))
-const InstalledApps = React.lazy(() => catchError(() => import('../components/pages/installed-apps')))
-const ClientSetting = React.lazy(() => catchError(() => import('../components/pages/settings/client-setting')))
-const ClientAppsManagement = React.lazy(() => catchError(() => import('../components/pages/client-app-management')))
-const Register = React.lazy(() => catchError(() => import('../components/pages/register')))
-const DeveloperHome = React.lazy(() => catchError(() => import('../components/pages/developer-home')))
-const DeveloperAppDetail = React.lazy(() => catchError(() => import('../components/pages/developer-app-detail')))
-const DeveloperSubmitApp = React.lazy(() => catchError(() => import('../components/pages/developer-submit-app')))
-const AdminApprovalsPage = React.lazy(() => catchError(() => import('../components/pages/admin-approvals')))
-const AdminDevManagementPage = React.lazy(() => catchError(() => import('../components/pages/admin-dev-management')))
-const ApiDocsPage = React.lazy(() => catchError(() => import('../components/pages/api-docs')))
-const SwaggerPage = React.lazy(() => catchError(() => import('../components/pages/swagger')))
-const ElementsPage = React.lazy(() => catchError(() => import('../components/pages/elements')))
-const DeveloperSettings = React.lazy(() => catchError(() => import('../components/pages/settings/developer-settings')))
-const DeveloperWelcomePage = React.lazy(() => catchError(() => import('../components/pages/developer-welcome')))
-const DeveloperHelpPage = React.lazy(() => catchError(() => import('../components/pages/developer-help')))
-const ClientHelpPage = React.lazy(() => catchError(() => import('../components/pages/client-help')))
-const AnalyticsPage = React.lazy(() => catchError(() => import('@/components/pages/developer-analytics')))
-const AdminAppsPage = React.lazy(() => catchError(() => import('../components/pages/admin-apps')))
-const RegisterConfirm = React.lazy(() => catchError(() => import('../components/pages/register-confirm')))
-const AdminStats = React.lazy(() => catchError(() => import('../components/pages/admin-stats')))
-const DeveloperWebhooksPage = React.lazy(() => catchError(() => import('../components/pages/developer-webhooks')))
+const Authentication = React.lazy(() => catchChunkError(() => import('../components/pages/authentication')))
+const Login = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
+const Client = React.lazy(() => catchChunkError(() => import('../components/pages/client')))
+const ClientAppDetail = React.lazy(() => catchChunkError(() => import('../components/pages/client-app-detail')))
+const ClientAppDetailManage = React.lazy(() =>
+  catchChunkError(() => import('../components/pages/client-app-detail-manage')),
+)
+const ClientWelcomePage = React.lazy(() => catchChunkError(() => import('../components/pages/client-welcome')))
+const InstalledApps = React.lazy(() => catchChunkError(() => import('../components/pages/installed-apps')))
+const ClientSetting = React.lazy(() => catchChunkError(() => import('../components/pages/settings/client-setting')))
+const ClientAppsManagement = React.lazy(() =>
+  catchChunkError(() => import('../components/pages/client-app-management')),
+)
+const Register = React.lazy(() => catchChunkError(() => import('../components/pages/register')))
+const DeveloperHome = React.lazy(() => catchChunkError(() => import('../components/pages/developer-home')))
+const DeveloperAppDetail = React.lazy(() => catchChunkError(() => import('../components/pages/developer-app-detail')))
+const DeveloperSubmitApp = React.lazy(() => catchChunkError(() => import('../components/pages/developer-submit-app')))
+const AdminApprovalsPage = React.lazy(() => catchChunkError(() => import('../components/pages/admin-approvals')))
+const AdminDevManagementPage = React.lazy(() =>
+  catchChunkError(() => import('../components/pages/admin-dev-management')),
+)
+const ApiDocsPage = React.lazy(() => catchChunkError(() => import('../components/pages/api-docs')))
+const SwaggerPage = React.lazy(() => catchChunkError(() => import('../components/pages/swagger')))
+const ElementsPage = React.lazy(() => catchChunkError(() => import('../components/pages/elements')))
+const DeveloperSettings = React.lazy(() =>
+  catchChunkError(() => import('../components/pages/settings/developer-settings')),
+)
+const DeveloperWelcomePage = React.lazy(() => catchChunkError(() => import('../components/pages/developer-welcome')))
+const DeveloperHelpPage = React.lazy(() => catchChunkError(() => import('../components/pages/developer-help')))
+const ClientHelpPage = React.lazy(() => catchChunkError(() => import('../components/pages/client-help')))
+const AnalyticsPage = React.lazy(() => catchChunkError(() => import('@/components/pages/developer-analytics')))
+const AdminAppsPage = React.lazy(() => catchChunkError(() => import('../components/pages/admin-apps')))
+const RegisterConfirm = React.lazy(() => catchChunkError(() => import('../components/pages/register-confirm')))
+const AdminStats = React.lazy(() => catchChunkError(() => import('../components/pages/admin-stats')))
+const DeveloperWebhooksPage = React.lazy(() => catchChunkError(() => import('../components/pages/developer-webhooks')))
 
 const Router = () => {
   const isProduction = window.reapit.config.appEnv === 'production'

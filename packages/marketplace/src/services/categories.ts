@@ -2,7 +2,7 @@ import { PagedResultCategoryModel_, CreateCategoryModel, CategoryModel } from '@
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
 import { generateHeader } from './utils'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 import { FetchListCommonParams, FetchByIdCommonParams } from './types'
 
 export type FetchCategoriesListParams = FetchListCommonParams

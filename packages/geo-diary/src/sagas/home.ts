@@ -4,7 +4,7 @@ import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { Action } from '@/types/core'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 
 export const homeDataFetch = function*() {
   yield put(homeLoading(true))

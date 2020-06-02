@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import RouteFetcher from '../route-fetcher'
 import Routes from '../../../constants/routes'
 import { RouteComponentProps, StaticContext } from 'react-router'
@@ -22,12 +22,16 @@ const props = {
 }
 
 describe('RouteFetcher', () => {
+  beforeAll(() => {
+    jest.spyOn(React, 'useEffect').mockImplementation(React.useLayoutEffect)
+  })
+
   it('should match a snapshot', () => {
     expect(shallow(<RouteFetcher {...props} />)).toMatchSnapshot()
   })
 
   it('should call the routeDispatcher with the route path', () => {
-    shallow(<RouteFetcher {...props} />)
+    mount(<RouteFetcher {...props} />)
     expect(routeDispatcher).toHaveBeenCalledTimes(1)
     expect(routeDispatcher).toHaveBeenCalledWith(
       props.routerProps.match.path,
@@ -39,4 +43,5 @@ describe('RouteFetcher', () => {
   afterEach(() => {
     jest.resetAllMocks()
   })
+  afterAll(() => (React.useEffect as jest.Mock).mockRestore())
 })

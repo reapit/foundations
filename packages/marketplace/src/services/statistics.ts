@@ -2,7 +2,7 @@ import { UsageStatsModel } from '@reapit/foundations-ts-definitions'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
 import { generateHeader } from './utils'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 
 export type FetchStatisticsListParams = {
   appId?: string[]

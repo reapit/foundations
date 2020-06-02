@@ -16,6 +16,18 @@ const hashOfCommit = getRef()
 const APP_VERSION = `${tagName.packageName}_${tagName.version}`
 const outputFileName = `[name].${hashOfCommit}.js`
 
+/**
+ * https://medium.com/@nekrtemplar/self-destroying-serviceworker-73d62921d717
+ * https://github.com/reapit/foundations/issues/1419
+ * using this method: https://github.com/NekR/self-destroying-sw
+ * To clean up service worker for users who has installed it
+ *
+ * TODO:
+ * remove after users stop experiencing errors which relevant to service worker like this:
+ * https://sentry.io/organizations/reapit-ltd/issues/1692085300/?project=1885603&referrer=slack
+ */
+const serviceWorkerPath = path.resolve(__dirname, './sw.js')
+
 const webpackConfig = {
   mode: 'production',
   bail: true,
@@ -26,6 +38,13 @@ const webpackConfig = {
     filename: outputFileName,
   },
   plugins: [
+    new CopyPlugin([
+      {
+        from: serviceWorkerPath,
+        to: './sw.js',
+        force: true,
+      },
+    ]),
     new ResolveTSPathsToWebpackAlias({
       tsconfig: PATHS.tsConfig,
     }),

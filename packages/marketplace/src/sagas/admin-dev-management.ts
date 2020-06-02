@@ -11,7 +11,7 @@ import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 import dayjs from 'dayjs'
 import { fetchDevelopersList } from '@/services/developers'
 
