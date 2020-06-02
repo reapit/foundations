@@ -16,9 +16,12 @@ exports[`ConfirmUninstall should match a snapshot when FORMSTATE is PENDING 1`] 
           DXX
           ’?
         </Unknown>
+        <Unknown>
+          *Please confirm reason for uninstalling
+        </Unknown>
         <Unknown
           id="terminatedReason"
-          labelText="Please confirm reason for uninstalling"
+          labelText=""
           name="terminatedReason"
         />
       </React.Fragment>
@@ -28,7 +31,9 @@ exports[`ConfirmUninstall should match a snapshot when FORMSTATE is PENDING 1`] 
     footerItems={
       <React.Fragment>
         <Unknown
+          className="mx-4"
           disabled={false}
+          fullWidth={true}
           loading={false}
           onClick={[MockFunction]}
           type="button"
@@ -37,10 +42,12 @@ exports[`ConfirmUninstall should match a snapshot when FORMSTATE is PENDING 1`] 
           Yes, Uninstall
         </Unknown>
         <Unknown
+          className="mx-4"
           disabled={false}
+          fullWidth={true}
           onClick={[MockFunction]}
           type="button"
-          variant="secondary"
+          variant="danger"
         >
           Cancel
         </Unknown>
@@ -66,9 +73,12 @@ exports[`ConfirmUninstall should match a snapshot when FORMSTATE is SUBMITTING 1
           DXX
           ’?
         </Unknown>
+        <Unknown>
+          *Please confirm reason for uninstalling
+        </Unknown>
         <Unknown
           id="terminatedReason"
-          labelText="Please confirm reason for uninstalling"
+          labelText=""
           name="terminatedReason"
         />
       </React.Fragment>
@@ -78,7 +88,9 @@ exports[`ConfirmUninstall should match a snapshot when FORMSTATE is SUBMITTING 1
     footerItems={
       <React.Fragment>
         <Unknown
+          className="mx-4"
           disabled={true}
+          fullWidth={true}
           loading={true}
           onClick={[MockFunction]}
           type="button"
@@ -87,10 +99,12 @@ exports[`ConfirmUninstall should match a snapshot when FORMSTATE is SUBMITTING 1
           Yes, Uninstall
         </Unknown>
         <Unknown
+          className="mx-4"
           disabled={true}
+          fullWidth={true}
           onClick={[MockFunction]}
           type="button"
-          variant="secondary"
+          variant="danger"
         >
           Cancel
         </Unknown>

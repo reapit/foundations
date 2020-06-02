@@ -27,10 +27,10 @@ module.exports = {
   moduleFileExtensions: ['js', 'ts', 'svelte'],
   coverageThreshold: {
     global: {
-      branches: 75,
-      functions: 85,
-      lines: 90,
-      statements: 90,
+      branches: 50,
+      functions: 80,
+      lines: 80,
+      statements: 80,
     },
   },
   transform: {

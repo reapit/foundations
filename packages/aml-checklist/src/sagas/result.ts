@@ -9,7 +9,7 @@ import { resultReceiveData, resultRequestDataFailure, ContactsParams } from '@/a
 import { queryParams } from '@/utils/query-params'
 import { CONTACTS_PER_PAGE } from '@/constants/paginator'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 
 export const resultFetch = function*(params: Action<ContactsParams>) {
   try {

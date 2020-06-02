@@ -84,7 +84,7 @@ export const Login: React.FunctionComponent<LoginProps> = () => {
 
   if (hasSession) {
     const redirectRoute = getDefaultPathByLoginType({
-      loginType,
+      loginType: currentLoginType,
       developerLoginRouteMatch,
       clientLoginRouteMatch,
       isDeveloperFirstTimeLoginComplete,

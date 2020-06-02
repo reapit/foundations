@@ -7,7 +7,12 @@ import { selectRefreshSession } from '@/selector/auth'
 export const HALF_SECOND = 500
 
 export const popUp = (setOpen, loading) => () => {
-  if (!loading) setTimeout(setOpen, HALF_SECOND)
+  if (!loading) {
+    const timeout = setTimeout(setOpen, HALF_SECOND)
+    return () => {
+      clearTimeout(timeout)
+    }
+  }
 }
 
 export const SandboxPopUp = ({

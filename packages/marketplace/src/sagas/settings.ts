@@ -10,7 +10,7 @@ import { showNotificationMessage } from '@/actions/notification-message'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { selectDeveloperId, selectDeveloperEmail } from '@/selector/developer'
 import { authLogout } from '@/actions/auth'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 import { fetchDeveloperById, updateDeveloperById } from '@/services/developers'
 
 export const developerInformationFetch = function*() {

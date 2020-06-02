@@ -1,6 +1,3 @@
-import * as OfflinePluginRuntime from 'offline-plugin/runtime'
-OfflinePluginRuntime.install()
-
 import * as React from 'react'
 import Router from './router'
 

@@ -6,7 +6,7 @@ import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { adminAppsReceiveData } from '@/actions/admin-apps'
 import { getParamsFromPath } from '@/utils/client-url-params'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 import { deleteAppById, fetchAppsList } from '@/services/apps'
 
 export const appDeleteRequestSaga = function*({ data: appId }: Action<string>) {

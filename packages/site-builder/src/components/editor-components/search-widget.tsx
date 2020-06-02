@@ -36,7 +36,7 @@ export const initializeSearchWidgetComponent = editor => {
 
             const initWidget = () => {
               container.innerHTML = ''
-              new window.ReapitSearchWidgetComponent({
+              new window.ReapitSearchWidget({
                 theme: {
                   baseBackgroundColor: '#fff',
                   basefontSize: '16px',
@@ -62,7 +62,7 @@ export const initializeSearchWidgetComponent = editor => {
               })
             }
 
-            if (!window.ReapitSearchWidgetComponent) {
+            if (!window.ReapitSearchWidget) {
               const styles = document.createElement('link')
               styles.href = 'https://web-components.reapit.cloud/search-widget.css'
               styles.rel = 'stylesheet'

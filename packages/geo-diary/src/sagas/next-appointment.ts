@@ -6,7 +6,7 @@ import { nextAppointmentValidateSuccess, nextAppointmentClear } from '@/actions/
 import { selectUserCode } from '@/selectors/auth'
 import { Action } from '@/types/core'
 import { getLoggedInUser } from '../components/common/appointment-detail/appointment-detail'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 
 export type Position = {
   lat: number

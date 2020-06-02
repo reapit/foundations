@@ -6,7 +6,7 @@ import {
   formatDateForContact,
 } from '@/utils/datetime'
 import { CONTACTS_PER_PAGE } from '@/constants/paginator'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 
 export const fetchContact = async ({ contactId, headers }) => {
   try {

@@ -20,6 +20,7 @@ import { clientFetchAppDetailFailed } from '@/actions/client'
 import { developerApplyAppDetails } from '@/actions/developer'
 import { useParams } from 'react-router'
 import { Dispatch } from 'redux'
+import { getDesktopIntegrationTypes } from '@/utils/get-desktop-integration-types'
 
 export type ClientAppDetailProps = {}
 
@@ -114,6 +115,10 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
 
   const desktopIntegrationTypes = useSelector(selectIntegrationTypes) as DesktopIntegrationTypeModel[]
   const appDetailData = useSelector(selectAppDetailData) as AppDetailDataNotNull
+  const userDesktopIntegrationTypes = getDesktopIntegrationTypes(
+    appDetailData.desktopIntegrationTypeIds || [],
+    desktopIntegrationTypes,
+  )
   const isLoadingAppDetail = useSelector(selectAppDetailLoading)
   const loginType = useSelector(selectLoginType)
   const isAdmin = useSelector(selectIsAdmin)
@@ -133,7 +138,7 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
 
   return (
     <div data-test="client-app-detail-container" className={clientAppDetailStyles.appDetailContainer}>
-      <Aside appDetailData={appDetailData} desktopIntegrationTypes={desktopIntegrationTypes} />
+      <Aside appDetailData={appDetailData} desktopIntegrationTypes={userDesktopIntegrationTypes} />
       <div className={clientAppDetailStyles.mainContainer}>
         <AppHeader
           appDetailData={appDetailData}
@@ -145,7 +150,7 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
             isInstallBtnHidden,
           )}
         />
-        <AppContent desktopIntegrationTypes={desktopIntegrationTypes} appDetailData={appDetailData} />
+        <AppContent desktopIntegrationTypes={userDesktopIntegrationTypes} appDetailData={appDetailData} />
         {isVisibleUninstallConfirmation && (
           <ClientAppUninstallConfirmation
             visible={isVisibleUninstallConfirmation}

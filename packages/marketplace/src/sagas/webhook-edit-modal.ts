@@ -13,7 +13,7 @@ import {
   DeleteWebhookParams,
   webhookSetOpenModal,
 } from '@/actions/webhook-edit-modal'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 import errorMessages from '../constants/error-messages'
 import { errorThrownServer } from '../actions/error'
 import { webhookSubscriptionsReceiveData, setApplicationId } from '@/actions/webhook-subscriptions'

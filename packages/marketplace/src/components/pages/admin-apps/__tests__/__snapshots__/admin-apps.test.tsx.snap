@@ -392,11 +392,11 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                               >
                                                 Registered From
                                               </label>
-                                              <t
+                                              <o
                                                 allowSameDay={false}
                                                 className="input is-primary"
                                                 customInput={
-                                                  <Unknown
+                                                  <CustomInput
                                                     className="input is-primary"
                                                   />
                                                 }
@@ -434,12 +434,14 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                                 renderDayContents={[Function]}
                                                 selectsStart={true}
                                                 shouldCloseOnSelect={true}
+                                                showFullMonthYearPicker={false}
                                                 showMonthYearPicker={false}
                                                 showPopperArrow={true}
                                                 showPreviousMonths={false}
                                                 showQuarterYearPicker={false}
                                                 showTimeInput={false}
                                                 showTimeSelect={false}
+                                                showYearPicker={false}
                                                 startDate=""
                                                 strictParsing={false}
                                                 timeCaption="Time"
@@ -448,7 +450,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                                 value=""
                                                 withPortal={false}
                                               >
-                                                <t
+                                                <a
                                                   enableTabLoop={true}
                                                   hidePopper={true}
                                                   popperComponent={null}
@@ -468,7 +470,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                                     <div
                                                       className="react-datepicker__input-container"
                                                     >
-                                                      <Unknown
+                                                      <CustomInput
                                                         className="input is-primary input is-primary"
                                                         disabled={false}
                                                         id="registeredFrom"
@@ -497,7 +499,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                                           <div
                                                             className="react-datepicker__input-container"
                                                           >
-                                                            <Component
+                                                            <CustomInput
                                                               className="input is-primary input is-primary"
                                                               disabled={false}
                                                               id="registeredFrom"
@@ -524,14 +526,14 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                                                 type="input"
                                                                 value=""
                                                               />
-                                                            </Component>
+                                                            </CustomInput>
                                                           </div>
                                                         </div>
                                                       </InnerReference>
                                                     </Reference>
                                                   </Manager>
-                                                </t>
-                                              </t>
+                                                </a>
+                                              </o>
                                             </div>
                                           </div>
                                         </Field>
@@ -571,11 +573,11 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                               >
                                                 Registered To
                                               </label>
-                                              <t
+                                              <o
                                                 allowSameDay={false}
                                                 className="input is-primary"
                                                 customInput={
-                                                  <Unknown
+                                                  <CustomInput
                                                     className="input is-primary"
                                                   />
                                                 }
@@ -614,12 +616,14 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                                 renderDayContents={[Function]}
                                                 selectsEnd={true}
                                                 shouldCloseOnSelect={true}
+                                                showFullMonthYearPicker={false}
                                                 showMonthYearPicker={false}
                                                 showPopperArrow={true}
                                                 showPreviousMonths={false}
                                                 showQuarterYearPicker={false}
                                                 showTimeInput={false}
                                                 showTimeSelect={false}
+                                                showYearPicker={false}
                                                 startDate=""
                                                 strictParsing={false}
                                                 timeCaption="Time"
@@ -628,7 +632,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                                 value=""
                                                 withPortal={false}
                                               >
-                                                <t
+                                                <a
                                                   enableTabLoop={true}
                                                   hidePopper={true}
                                                   popperComponent={null}
@@ -648,7 +652,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                                     <div
                                                       className="react-datepicker__input-container"
                                                     >
-                                                      <Unknown
+                                                      <CustomInput
                                                         className="input is-primary input is-primary"
                                                         disabled={false}
                                                         id="registeredTo"
@@ -677,7 +681,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                                           <div
                                                             className="react-datepicker__input-container"
                                                           >
-                                                            <Component
+                                                            <CustomInput
                                                               className="input is-primary input is-primary"
                                                               disabled={false}
                                                               id="registeredTo"
@@ -704,14 +708,14 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                                                 type="input"
                                                                 value=""
                                                               />
-                                                            </Component>
+                                                            </CustomInput>
                                                           </div>
                                                         </div>
                                                       </InnerReference>
                                                     </Reference>
                                                   </Manager>
-                                                </t>
-                                              </t>
+                                                </a>
+                                              </o>
                                             </div>
                                           </div>
                                         </Field>

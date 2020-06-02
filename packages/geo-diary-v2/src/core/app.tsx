@@ -1,6 +1,3 @@
-import * as OfflinePluginRuntime from 'offline-plugin/runtime'
-OfflinePluginRuntime.install()
-
 import * as React from 'react'
 import { ApolloProvider } from '@apollo/react-hooks'
 import { useAuth } from '@/hooks/use-auth'

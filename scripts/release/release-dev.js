@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 const path = require('path')
-const { runCommand } = require('./utils')
 const execSync = require('child_process').execSync
 
 const releaseDev = () => {
@@ -20,7 +19,6 @@ const releaseDev = () => {
     }
 
     const distPath = path.resolve(__dirname, '../../', 'packages', packageName, 'public', 'dist')
-    runCommand('rimraf', [`${distPath}/**/*.map`])
     // This command remove the old version file in bucket
     const deleteResult = execSync(`aws s3 rm --recursive s3://${bucketName}`).toString()
     console.info(deleteResult)

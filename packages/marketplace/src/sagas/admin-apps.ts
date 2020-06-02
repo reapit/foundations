@@ -11,7 +11,7 @@ import {
 } from '@/actions/admin-apps'
 import { selectAdminAppsData } from '@/selector/admin'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 import { featureAppById, unfeatureAppById, fetchAppsList } from '@/services/apps'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 

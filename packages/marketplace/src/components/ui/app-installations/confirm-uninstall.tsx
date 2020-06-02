@@ -10,7 +10,7 @@ import {
   FormikProps,
   ModalFooter,
   Button,
-  H6,
+  SubTitleH6,
 } from '@reapit/elements'
 import {
   UninstallParams,
@@ -97,14 +97,11 @@ export const ConfirmUninstall: React.FC<ConfirmUninstallProps> = ({
       <ModalBody
         body={
           <>
-            <H6>
+            <SubTitleH6>
               Are you sure you wish to uninstall &lsquo;{appName}&rsquo; from ‘{installationDetail?.client}’?
-            </H6>
-            <TextArea
-              name="terminatedReason"
-              id="terminatedReason"
-              labelText="Please confirm reason for uninstalling"
-            />
+            </SubTitleH6>
+            <SubTitleH6>&#42;Please confirm reason for uninstalling</SubTitleH6>
+            <TextArea name="terminatedReason" id="terminatedReason" labelText="" />
           </>
         }
       />
@@ -117,10 +114,19 @@ export const ConfirmUninstall: React.FC<ConfirmUninstallProps> = ({
               loading={isSubmitting}
               disabled={isSubmitting}
               onClick={handleSubmit}
+              className="mx-4"
+              fullWidth
             >
               Yes, Uninstall
             </Button>
-            <Button type="button" variant="secondary" disabled={isSubmitting} onClick={afterClose}>
+            <Button
+              type="button"
+              variant="danger"
+              disabled={isSubmitting}
+              onClick={afterClose}
+              className="mx-4"
+              fullWidth
+            >
               Cancel
             </Button>
           </>

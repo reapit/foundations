@@ -15,7 +15,7 @@ import {
 } from '@/actions/app-installations'
 import { selectDeveloperId } from '@/selector/developer'
 import { selectLoggedUserEmail, selectClientId } from '@/selector/client'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 import { fetchInstallationsList, createInstallation, removeAccessToAppById } from '@/services/installations'
 
 export const installationsSaga = function*({ data }) {
