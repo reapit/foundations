@@ -27,6 +27,7 @@ export default [
         evaluate: true,
       }),
       scss({
+        // Removed purifiy CSS from this step as removes lineria styles
         output: 'dist/index.css',
       }),
     ],
