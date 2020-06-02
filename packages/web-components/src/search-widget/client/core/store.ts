@@ -35,7 +35,7 @@ const searchWidgetStore: Writable<SearchWidgetStore> = writable({
     secondaryStrapline: '',
     selectedItem: '',
     bodyText: '',
-    advanceSearchButton: '',
+    featureButton: '',
     button: '',
     input: '',
     resultItem: '',

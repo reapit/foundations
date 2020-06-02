@@ -21,7 +21,7 @@ describe('store', () => {
         bodyText: '',
         button: '',
         input: '',
-        advanceSearchButton: '',
+        featureButton: '',
         resultItem: '',
         searchBox: '',
         offerBanner: '',

@@ -25,7 +25,7 @@ export interface InitializerTheme {
 
 export interface ThemeClasses {
   featureLabel: string
-  advanceSearchButton: string
+  featureButton: string
   globalStyles: string
   primaryHeading: string
   secondaryHeading: string
@@ -154,21 +154,21 @@ export const generateThemeClasses = (
         }
 
         @media screen and (min-width: ${breakPoints?.laptop || '960px'}) and (max-width: ${breakPoints?.desktop ||
-            '1200px'}) {
+      '1200px'}) {
           & {
             width: 33.333333%;
           }
         }
 
         @media screen and (min-width: ${breakPoints?.tablet || '768px'}) and (max-width: ${breakPoints?.laptop ||
-            '960px'}) {
+      '960px'}) {
           & {
             width: 50%;
           }
         }
       }
     `,
-    advanceSearchButton: css`
+    featureButton: css`
       &,
       svg {
         color: ${basefontColor || '#000'};
@@ -185,7 +185,7 @@ export const generateThemeClasses = (
         }
 
         @media screen and (min-width: ${breakPoints?.mobile || '560px'}) and (max-width: ${breakPoints?.laptop ||
-            '960px'}) {
+      '960px'}) {
           & {
             width: 50%;
           }

@@ -14,7 +14,7 @@ describe('store', () => {
       isLoading: false,
       themeClasses: {
         featureLabel: '',
-        advanceSearchButton: '',
+        featureButton: '',
         globalStyles: '',
         primaryHeading: '',
         secondaryHeading: '',

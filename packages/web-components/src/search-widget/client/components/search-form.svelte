@@ -254,7 +254,8 @@
         type="button"
         data-testid="btnAdvancedSearch"
         on:click={toggleAdvancedSearch}
-        class="{$searchWidgetStore.themeClasses.bodyText} {$searchWidgetStore.themeClasses.advanceSearchButton} search-form-advanced-search">
+        class="{$searchWidgetStore.themeClasses.bodyText}
+        {$searchWidgetStore.themeClasses.featureButton} search-form-advanced-search">
         Advanced Search
         <Fa icon={faSearch} />
       </button>

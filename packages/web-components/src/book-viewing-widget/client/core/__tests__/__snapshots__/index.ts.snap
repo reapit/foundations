@@ -19,9 +19,9 @@ Book_viewing_widget {
       "css-cb9zl5",
       true,
       Object {
-        "advanceSearchButton": "css-q9ua3x",
         "bodyText": "css-1s7agtc",
         "button": "css-1tpx7dz",
+        "featureButton": "css-q9ua3x",
         "featureLabel": "css-1f1uo44",
         "formError": "css-jk7gti",
         "globalStyles": "css-11c02ub",

@@ -33,7 +33,7 @@ const bookViewingWigetStore: Writable<BookViewingWidgetStore> = writable({
     searchBox: '',
     offerBanner: '',
     pagination: '',
-    advanceSearchButton: '',
+    featureButton: '',
     paginationActive: '',
     formError: '',
   },

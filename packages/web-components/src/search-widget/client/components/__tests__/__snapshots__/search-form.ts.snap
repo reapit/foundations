@@ -53,7 +53,8 @@ exports[`search-form it matches a snapshot 1`] = `
           </label>
            
           <button
-            class="  search-form-advanced-search svelte-1yt5tdx"
+            class="
+         search-form-advanced-search svelte-1yt5tdx"
             data-testid="btnAdvancedSearch"
             type="button"
           >

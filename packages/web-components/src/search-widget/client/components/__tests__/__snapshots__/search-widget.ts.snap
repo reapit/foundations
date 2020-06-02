@@ -249,7 +249,8 @@ exports[`search-widget it matches a snapshot 1`] = `
             </label>
              
             <button
-              class="emotion-2 emotion-5 search-form-advanced-search svelte-1yt5tdx"
+              class="emotion-2
+        emotion-5 search-form-advanced-search svelte-1yt5tdx"
               data-testid="btnAdvancedSearch"
               type="button"
             >
