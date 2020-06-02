@@ -4,8 +4,10 @@ import DeveloperSettingsPage, { renderPageContent } from '../developer-settings'
 import { ReduxState } from '@/types/core'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
+import appState from '@/reducers/__stubs__/app-state'
 
 const mockState = {
+  ...appState,
   auth: {
     loginSession: {
       loginIdentity: {

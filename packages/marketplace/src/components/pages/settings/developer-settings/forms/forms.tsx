@@ -41,7 +41,7 @@ export type SelectorReturn = {
   loading: boolean
 }
 
-export const Forms: React.FC<{}> = () => {
+export const Forms: React.FC = () => {
   const dispatch = useDispatch()
 
   const email = useSelector(selectDeveloperEmail) || ''

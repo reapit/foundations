@@ -699,6 +699,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                       <Trigger
                                                         action={Array []}
                                                         afterPopupVisibleChange={[Function]}
+                                                        autoDestroy={false}
                                                         blurDelay={0.15}
                                                         builtinPlacements={
                                                           Object {
@@ -716,6 +717,20 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                                 "bl",
                                                               ],
                                                             },
+                                                            "bottomRight": Object {
+                                                              "offset": Array [
+                                                                0,
+                                                                4,
+                                                              ],
+                                                              "overflow": Object {
+                                                                "adjustX": 0,
+                                                                "adjustY": 1,
+                                                              },
+                                                              "points": Array [
+                                                                "tr",
+                                                                "br",
+                                                              ],
+                                                            },
                                                             "topLeft": Object {
                                                               "offset": Array [
                                                                 0,
@@ -728,6 +743,20 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                               "points": Array [
                                                                 "bl",
                                                                 "tl",
+                                                              ],
+                                                            },
+                                                            "topRight": Object {
+                                                              "offset": Array [
+                                                                0,
+                                                                -4,
+                                                              ],
+                                                              "overflow": Object {
+                                                                "adjustX": 0,
+                                                                "adjustY": 1,
+                                                              },
+                                                              "points": Array [
+                                                                "br",
+                                                                "tr",
                                                               ],
                                                             },
                                                           }
@@ -909,6 +938,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                               onInputChange={[Function]}
                                                               onInputKeyDown={[Function]}
                                                               onInputMouseDown={[Function]}
+                                                              onInputPaste={[Function]}
                                                               onSearch={[Function]}
                                                               onSelect={[Function]}
                                                               onToggleOpen={[Function]}
@@ -935,12 +965,14 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                               >
                                                                 <Input
                                                                   accessibilityIndex={0}
+                                                                  attrs={Object {}}
                                                                   editable={true}
                                                                   id="desktopIntegrationTypeIds"
                                                                   inputElement={null}
                                                                   onChange={[Function]}
                                                                   onKeyDown={[Function]}
                                                                   onMouseDown={[Function]}
+                                                                  onPaste={[Function]}
                                                                   prefixCls="rc-select"
                                                                   value=""
                                                                 >
@@ -956,6 +988,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                                     onChange={[Function]}
                                                                     onKeyDown={[Function]}
                                                                     onMouseDown={[Function]}
+                                                                    onPaste={[Function]}
                                                                     readOnly={false}
                                                                     role="combobox"
                                                                     style={
@@ -963,6 +996,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                                         "opacity": null,
                                                                       }
                                                                     }
+                                                                    unselectable={null}
                                                                     value=""
                                                                   />
                                                                 </Input>

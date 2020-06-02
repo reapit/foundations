@@ -8,7 +8,16 @@ import { createBrowserHistory } from 'history'
 import { Info } from '@reapit/elements'
 
 export const history = createBrowserHistory()
+const DeveloperSettingsPage = React.lazy(() =>
+  catchChunkError(() => import('../components/pages/settings/developer-settings')),
+)
+const DeveloperSettingsOrganisationTabPage = React.lazy(() =>
+  catchChunkError(() => import('../components/pages/settings/developer-settings-organisation-tab')),
+)
 
+const DeveloperSettingsBillingTabPage = React.lazy(() =>
+  catchChunkError(() => import('../components/pages/settings/developer-settings-billing-tab')),
+)
 const Authentication = React.lazy(() => catchChunkError(() => import('../components/pages/authentication')))
 const Login = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 const Client = React.lazy(() => catchChunkError(() => import('../components/pages/client')))
@@ -41,25 +50,13 @@ const AdminAppsPage = React.lazy(() => catchChunkError(() => import('../componen
 const RegisterConfirm = React.lazy(() => catchChunkError(() => import('../components/pages/register-confirm')))
 const AdminStats = React.lazy(() => catchChunkError(() => import('../components/pages/admin-stats')))
 const DeveloperWebhooksPage = React.lazy(() => catchChunkError(() => import('../components/pages/developer-webhooks')))
-const DeveloperSettingsPage = React.lazy(() =>
-  catchChunkError(() => import('../components/pages/settings/developer-settings')),
-)
-const DeveloperSettingsOrganisationTabPage = React.lazy(() =>
-  catchChunkError(() => import('../components/pages/settings/developer-settings-organisation-tab')),
-)
-
-const DeveloperSettingsBillingTabPage = React.lazy(() =>
-  catchChunkError(() => import('../components/pages/settings/developer-settings-billing-tab')),
-)
 
 const Router = () => {
   const isProduction = window.reapit.config.appEnv === 'production'
-
   const paths = [Routes.DEVELOPER_LOGIN, Routes.ADMIN_LOGIN]
   if (!isProduction) {
     paths.push(Routes.CLIENT_LOGIN)
   }
-
   return (
     <BrowserRouter history={history}>
       <React.Suspense fallback={null}>
