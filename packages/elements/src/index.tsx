@@ -1,3 +1,4 @@
+import './styles/index.scss'
 import * as v2 from './v2'
 // Hooks
 export * from './hooks/UsePortal'

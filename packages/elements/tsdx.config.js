@@ -1,3 +1,5 @@
+const scss = require('rollup-plugin-scss')
+
 module.exports = {
   rollup(config) {
     const newConfig = {
@@ -22,8 +24,24 @@ module.exports = {
           'react-datasheet': 'react-datasheet',
           papaparse: 'papaparse',
           'dayjs/plugin/utc': 'dayjs/plugin/utc',
+          'react-is': 'react-is',
+          linaria: 'linaria',
+          classnames: 'classnames',
+          'react-icons/fa': 'react-icons/fa',
+          'rc-notification': 'rc-notification',
+          'rc-notification/lib/useNotification': 'rc-notification/lib/useNotification',
+          'rc-select': 'rc-select',
+          'rc-tooltip': 'rc-tooltip',
         },
       },
+      plugins: [
+        ...config.plugins,
+        scss({
+          output: () => {
+            console.info('Not emitting CSS here, as there is a separate rollup process')
+          },
+        }),
+      ],
     }
     return newConfig
   },
