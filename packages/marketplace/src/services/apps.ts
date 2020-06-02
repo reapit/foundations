@@ -12,7 +12,7 @@ import {
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
 import { generateHeader } from './utils'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 import { FetchByIdCommonParams, FetchListCommonParams } from './types'
 
 export type FetchAppsListParams = FetchListCommonParams & {

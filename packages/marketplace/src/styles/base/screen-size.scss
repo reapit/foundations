@@ -3,6 +3,6 @@
 }
 
 @mixin for-desktop-only {
-  @media (min-width: 768px) { @content; }
+  @media (min-width: 769px) { @content; }
 }
 

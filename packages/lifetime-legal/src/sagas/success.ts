@@ -5,7 +5,7 @@ import { Action } from '../types/core'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { DynamicLinkParams, navigateDynamicApp } from '@reapit/elements'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 
 export const submitComplete = function*({
   data: { dynamicLinkParams },

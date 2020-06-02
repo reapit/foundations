@@ -14,7 +14,7 @@
     "paths": {
       "@/*": ["src/*"],
       "@reapit/cognito-auth": ["../cognito-auth/src"],
-      "logger": ["../../scripts/logger/sentry-logger.ts"],
+      "@reapit/utils": ["../utils/index.ts"],
       "@reapit/foundations-ts-definitions": ["src/types"]
     }
   },

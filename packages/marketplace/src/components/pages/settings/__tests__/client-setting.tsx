@@ -1,66 +1,33 @@
 import React from 'react'
-import { shallow } from 'enzyme'
-import { ClientSettingsPageProps, ClientSettingsPage, mapStateToProps, mapDispatchToProps } from '../client-setting'
-import { ReduxState } from '@/types/core'
+import { mount } from 'enzyme'
+import { ClientSettingsPage, handleLogout } from '../client-setting'
+import { authLogout } from '@/actions/auth'
+import { Provider } from 'react-redux'
+import { MemoryRouter } from 'react-router'
+import Routes from '@/constants/routes'
+import configureStore from 'redux-mock-store'
+import appState from '@/reducers/__stubs__/app-state'
 
 describe('ClientSettingsPage', () => {
   it('should match snapshot', () => {
-    const mockProps: ClientSettingsPageProps = {
-      customerId: 'DXX',
-      logout: jest.fn(),
-    }
-    const wrapper = shallow(<ClientSettingsPage {...mockProps} />)
-    expect(wrapper).toMatchSnapshot()
+    const mockStore = configureStore()
+    const store = mockStore(appState)
+
+    expect(
+      mount(
+        <Provider store={store}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.CLIENT_SETTINGS, key: 'clientSettingsRoute' }]}>
+            <ClientSettingsPage />
+          </MemoryRouter>
+        </Provider>,
+      ),
+    ).toMatchSnapshot()
   })
 
-  it('should respond to logout request', () => {
-    const mockProps: ClientSettingsPageProps = {
-      customerId: 'DXX',
-      logout: jest.fn(),
-    }
-    const wrapper = shallow(<ClientSettingsPage {...mockProps} />)
-
-    wrapper.find('[dataTest="logout-btn"]').simulate('click')
-
-    expect(mockProps.logout).toHaveBeenCalledTimes(1)
-  })
-
-  describe('mapStateToProps', () => {
-    it('should run correctly', () => {
-      const mockState = {
-        auth: {
-          loginSession: {
-            loginIdentity: {
-              clientId: 'DXX',
-            },
-          },
-        },
-      } as ReduxState
-      const output = {
-        customerId: 'DXX',
-      }
-      const result = mapStateToProps(mockState)
-      expect(result).toEqual(output)
-    })
-
-    it('should return empty', () => {
-      const mockState = {
-        settings: {},
-        auth: {},
-      } as ReduxState
-      const output = {
-        customerId: '',
-      }
-      const result = mapStateToProps(mockState)
-      expect(result).toEqual(output)
-    })
-  })
-  describe('mapDispatchToProps', () => {
-    it('should call dispatch when logout', () => {
-      const mockDispatch = jest.fn()
-      const { logout } = mapDispatchToProps(mockDispatch)
-      logout()
-      expect(mockDispatch).toBeCalled()
-    })
+  it('should handleLogout run correctly', () => {
+    const dispatch = jest.fn()
+    const fn = handleLogout(dispatch)
+    fn()
+    expect(dispatch).toBeCalledWith(authLogout())
   })
 })

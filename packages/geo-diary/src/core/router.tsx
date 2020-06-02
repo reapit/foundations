@@ -1,14 +1,15 @@
 import * as React from 'react'
 import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
+import { catchChunkError } from '@reapit/utils'
 import Routes from '../constants/routes'
 import PrivateRoute from './private-route'
 import PrivateRouteWrapper from './private-route-wrapper'
 
 export const history = createBrowserHistory()
 
-const Login = React.lazy(() => import('../components/pages/login'))
-const HomePage = React.lazy(() => import('../components/pages/home'))
+const Login = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
+const HomePage = React.lazy(() => catchChunkError(() => import('../components/pages/home')))
 
 const Router = () => (
   <BrowserRouter history={history}>

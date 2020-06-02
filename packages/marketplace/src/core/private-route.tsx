@@ -18,12 +18,15 @@ export interface PrivateRouteProps {
   fetcher?: boolean
 }
 
-export const isNotAllowedToAccess = (loginIdentity?: LoginIdentity) => {
+export const isNotAllowedToAccess = (allow: LoginType | LoginType[], loginIdentity?: LoginIdentity) => {
   if (!loginIdentity) {
     return false
   }
-  const { clientId, developerId } = loginIdentity
-  if (!clientId && !developerId) {
+  const { clientId, developerId, adminId } = loginIdentity
+  const isAdminProtected = allow === 'ADMIN' && !adminId
+  const isNotClientOrDeveloper = !clientId && !developerId
+
+  if (isNotClientOrDeveloper || isAdminProtected) {
     return true
   }
   return false
@@ -40,12 +43,16 @@ export const handleChangeLoginType = (
     if (!loginIdentity || isFetchingAccessToken) {
       return
     }
-    if (loginType === 'CLIENT' && allow === 'DEVELOPER' && loginIdentity.developerId) {
-      dispatch(authChangeLoginType('DEVELOPER'))
+    if (loginType !== 'ADMIN' && allow === 'ADMIN' && loginIdentity.adminId) {
+      dispatch(authChangeLoginType('ADMIN'))
       return
     }
-    if (loginType === 'DEVELOPER' && allow === 'CLIENT' && loginIdentity.clientId) {
+    if (loginType !== 'CLIENT' && allow === 'CLIENT' && loginIdentity.clientId) {
       dispatch(authChangeLoginType('CLIENT'))
+      return
+    }
+    if (loginType !== 'DEVELOPER' && allow === 'DEVELOPER' && loginIdentity.developerId) {
+      dispatch(authChangeLoginType('DEVELOPER'))
       return
     }
   }
@@ -107,7 +114,7 @@ export const PrivateRoute = ({ component, allow, fetcher = false, ...rest }: Pri
     <Route
       {...rest}
       render={props => {
-        if (isNotAllowedToAccess(loginIdentity)) {
+        if (isNotAllowedToAccess(allow, loginIdentity)) {
           return <Redirect to="/404" />
         }
         if (fetcher) {
