@@ -1,9 +1,8 @@
 import * as React from 'react'
 import { History } from 'history'
-import { connect } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { withRouter, RouteComponentProps } from 'react-router'
-import { ReduxState } from '@/types/core'
+import { useHistory, useParams, useLocation } from 'react-router'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
 import { AdminDevManamgenetState } from '@/reducers/admin-dev-management'
 import ErrorBoundary from '@/components/hocs/error-boundary'
@@ -28,6 +27,8 @@ import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { adminDevManagementRequestData, AdminDevManagementRequestDataValues } from '@/actions/admin-dev-management'
 import qs from 'querystring'
 import styles from '@/styles/pages/admin-apps.scss?mod'
+import { selectAdminDevManagement } from '@/selector/admin'
+import { Dispatch } from 'redux'
 
 export interface AdminDevManagementMappedActions {
   fetchData: (requestdata: AdminDevManagementRequestDataValues) => void
@@ -42,16 +43,37 @@ export interface AdminDevManagementMappedProps {
 
 export type AdminDevManagementProps = AdminDevManagementMappedActions & AdminDevManagementMappedProps
 
-export const AdminDevManagement: React.FC<AdminDevManagementProps> = ({
-  adminDevManagementState,
-  filterValues,
-  onPageChange,
-  onSearch,
-  fetchData,
-}) => {
+export const buildFilterValues = (queryParams: URLSearchParams): AdminDevManagementFilterFormValues => {
+  const name = queryParams.get('name') || ''
+  const company = queryParams.get('company') || ''
+  const registeredFrom = queryParams.get('registeredFrom') || ''
+  const registeredTo = queryParams.get('registeredTo') || ''
+  return { name, company, registeredFrom, registeredTo } as AdminDevManagementFilterFormValues
+}
+
+export const handleFetchData = (dispatch: Dispatch) => (requestData: AdminDevManagementRequestDataValues) => {
+  dispatch(adminDevManagementRequestData(requestData))
+}
+
+export const AdminDevManagement: React.FC = () => {
+  const dispatch = useDispatch()
+
+  const history = useHistory()
+  const location = useLocation()
+  const { page = 1 } = useParams()
+
+  const fetchData = handleFetchData(dispatch)
+
+  const queryParams = new URLSearchParams(location.search)
+  const filterValues = buildFilterValues(queryParams)
+
+  const onPageChange = onPageChangeHandler(history, filterValues)
+  const onSearch = onSearchHandler(history, Number(page))
+
   const [isSetStatusModalOpen, setIsSetStatusModalOpen] = React.useState(false)
   const [developer, setDeveloper] = React.useState({} as DeveloperModel)
 
+  const adminDevManagementState = useSelector(selectAdminDevManagement)
   const { loading, data } = adminDevManagementState
   const pageNumber = data?.pageNumber || 1
 
@@ -157,39 +179,15 @@ export const AdminDevManagement: React.FC<AdminDevManagementProps> = ({
 export const onPageChangeHandler = (history: History<any>, queryParams: AdminDevManagementFilterFormValues) => (
   page: number,
 ) => {
-  const query = setQueryParams(queryParams) ? `?${setQueryParams(queryParams)}` : ''
-
-  return history.push(`${Routes.ADMIN_DEV_MANAGEMENT}/${page}${query}`)
+  const query = setQueryParams(queryParams)
+  return history.push(`${Routes.ADMIN_DEV_MANAGEMENT}/${page}?${query}`)
 }
 
-export const onSearchHandler = (history: History<any>, match: { params: { page?: number } }) => (
+export const onSearchHandler = (history: History<any>, page: number) => (
   queryParams: AdminDevManagementFilterFormValues,
 ) => {
-  const page = match.params.page || 1
-  const query = setQueryParams(queryParams) ? `?${setQueryParams(queryParams)}` : ''
-
-  return history.push(`${Routes.ADMIN_DEV_MANAGEMENT}/${page}${query}`)
+  const query = setQueryParams(queryParams)
+  return history.push(`${Routes.ADMIN_DEV_MANAGEMENT}/${page}?${query}`)
 }
 
-export const mapStateToProps = (state: ReduxState, ownState: RouteComponentProps<any>) => {
-  const { history, match } = ownState
-  const queryParams = new URLSearchParams(ownState.location.search)
-  const name = queryParams.get('name') || ''
-  const company = queryParams.get('company') || ''
-  const registeredFrom = queryParams.get('registeredFrom') || ''
-  const registeredTo = queryParams.get('registeredTo') || ''
-  const filterValues = { name, company, registeredFrom, registeredTo } as AdminDevManagementFilterFormValues
-
-  return {
-    adminDevManagementState: state.adminDevManagement,
-    filterValues,
-    onPageChange: onPageChangeHandler(history, filterValues),
-    onSearch: onSearchHandler(history, match),
-  }
-}
-
-export const mapDispatchToProps = (dispatch: any) => ({
-  fetchData: (requestData: AdminDevManagementRequestDataValues) => dispatch(adminDevManagementRequestData(requestData)),
-})
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AdminDevManagement))
+export default AdminDevManagement
