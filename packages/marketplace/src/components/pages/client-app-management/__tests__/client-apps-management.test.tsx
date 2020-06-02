@@ -5,20 +5,11 @@ import { MemoryRouter } from 'react-router'
 import configureStore from 'redux-mock-store'
 import * as ReactRedux from 'react-redux'
 import routes from '@/constants/routes'
-import ClientAppsManagement, {
-  handleOnChange,
-  handleUseEffect,
-  handleFetchMyApp,
-  handleSetStateViewManage,
-  handleFetchAppDetail,
-  handleInstallationsSetFormState,
-} from '../client-apps-management'
+import ClientAppsManagement, { handleOnChange, handleOnSettingClick } from '../client-apps-management'
 import Routes from '@/constants/routes'
 import { ReduxState } from '@/types/core'
-import { myAppsRequestData } from '@/actions/my-apps'
-import { setAppDetailModalStateManage } from '@/actions/app-detail-modal'
-import { appDetailRequestData } from '@/actions/app-detail'
-import { appInstallationsSetFormState } from '@/actions/app-installations'
+import { getMockRouterProps } from '@/utils/mock-helper'
+import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
 const createStore = (loading, isAdmin) => {
   return {
@@ -39,6 +30,7 @@ const createStore = (loading, isAdmin) => {
 }
 
 describe('MyApps', () => {
+  const { history } = getMockRouterProps({})
   let mockStore
   let store
   beforeEach(() => {
@@ -83,51 +75,19 @@ describe('MyApps', () => {
   })
 
   it('handleOnChange', () => {
-    const mockHistory = {
-      push: jest.fn(),
-    }
-    const fn = handleOnChange(mockHistory)
+    const fn = handleOnChange(history)
     fn(1)
-    expect(mockHistory.push).toBeCalledWith(`${routes.MY_APPS}/${1}`)
+    expect(history.push).toBeCalledWith(`${routes.MY_APPS}/${1}`)
   })
 
-  it('handleUseEffect', () => {
-    const mockProps = {
-      isDone: true,
-      installationsSetFormState: jest.fn(),
-      fetchMyApp: jest.fn(),
-      pageNumber: 1,
-    }
-    const fn = handleUseEffect(mockProps)
-    fn()
-    expect(mockProps.installationsSetFormState).toBeCalled()
-    expect(mockProps.fetchMyApp).toBeCalledWith(mockProps.pageNumber)
-  })
-
-  it('handleFetchMyApp', () => {
-    const dispatch = jest.fn()
-    const fn = handleFetchMyApp(dispatch, 1)
-    fn()
-    expect(dispatch).toBeCalledWith(myAppsRequestData(1))
-  })
-  it('handleSetStateViewManage', () => {
-    const dispatch = jest.fn()
-    const fn = handleSetStateViewManage(dispatch)
-    fn()
-    expect(dispatch).toBeCalledWith(setAppDetailModalStateManage())
-  })
-  it('handleFetchAppDetail', () => {
-    const dispatch = jest.fn()
-    const id = '1'
-    const clientId = '2'
-    const fn = handleFetchAppDetail(dispatch)
-    fn(id, clientId)
-    expect(dispatch).toBeCalledWith(appDetailRequestData({ id, clientId }))
-  })
-  it('handleInstallationsSetFormState', () => {
-    const dispatch = jest.fn()
-    const fn = handleInstallationsSetFormState(dispatch)
-    fn('DONE')
-    expect(dispatch).toBeCalledWith(appInstallationsSetFormState('DONE'))
+  describe('handleOnSettingClick', () => {
+    it('should run correctly', () => {
+      const mockAppSummary: AppSummaryModel = {
+        id: 'testId',
+      }
+      const fn = handleOnSettingClick(history)
+      fn(mockAppSummary)
+      expect(history.push).toBeCalledWith(`${Routes.CLIENT}/${mockAppSummary.id}`)
+    })
   })
 })

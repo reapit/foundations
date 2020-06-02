@@ -1,6 +1,5 @@
 const { sendMessageToSlack, getCommitLog, formatReleaseNote } = require('./utils')
 
-// This function will run to
 const generateReleaseNote = async () => {
   const [, , ...args] = process.argv
   const packageName = args[0]

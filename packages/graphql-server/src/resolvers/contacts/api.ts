@@ -82,7 +82,7 @@ export const callUpdateContactAPI = async (args: UpdateContactArgs, context: Ser
         },
       },
     )
-    if (updateResponse?.data) {
+    if (updateResponse) {
       return callGetContactByIdAPI({ id: args.id }, context)
     }
     return errors.generateUserInputError(traceId)

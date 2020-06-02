@@ -144,9 +144,17 @@ const releaseServerless = async ({ tagName, packageName, env }) => {
     const fetchConfigResult = execSync(`yarn workspace ${packageName} fetch-config ${env}`).toString()
     console.info(fetchConfigResult)
     await sendMessageToSlack(`Deploying for serverless \`${packageName}\` with version \`${tagName}\``)
+    const isReleaseWebComponentPackage = WEB_COMPONENTS_SERVERLESS_APPS.includes(packageName)
+    if (isReleaseWebComponentPackage) {
+      const realeaseResult = execSync(`yarn workspace web-components release:${env} --name ${packageName}`).toString()
+      console.info(realeaseResult)
+      await sendMessageToSlack(`Finish the deploy for serverless \`${packageName}\` with version \`${tagName}\``)
+      return
+    }
     const realeaseResult = execSync(`yarn workspace ${packageName} release:${env}`).toString()
     console.info(realeaseResult)
     await sendMessageToSlack(`Finish the deploy for serverless \`${packageName}\` with version \`${tagName}\``)
+    return
   } catch (err) {
     console.error('releaseServerless', err)
     throw new Error(err)
@@ -169,6 +177,8 @@ const releaseNpm = async ({ tagName, packageName }) => {
     console.info(setUserEmailResult)
     const setUserNameResult = execSync(`git config --global user.name "${process.env.GITHUB_ACTOR}"`).toString()
     console.info(setUserNameResult)
+    const buildResult = execSync(`yarn workspace ${packageName} build:prod`)
+    console.info(buildResult)
     const publishResult = execSync(`yarn workspace ${packageName} publish`).toString()
     console.info(publishResult)
     await sendMessageToSlack(`Finish the release for npm \`${packageName}\` with version \`${tagName}\``)
@@ -275,12 +285,14 @@ const WEB_APPS = [
   'web-components',
 ]
 
+const WEB_COMPONENTS_SERVERLESS_APPS = ['search-widget', 'appointment-planner-component']
+
 const SERVERLESS_APPS = [
   'cognito-custom-mail-lambda',
   'deploy-slack-bot',
   'graphql-server',
-  'web-components',
   'web-components-config-server',
+  ...WEB_COMPONENTS_SERVERLESS_APPS,
 ]
 
 const NPM_APPS = [

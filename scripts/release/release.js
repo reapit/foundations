@@ -15,13 +15,7 @@ const release = async () => {
   const packageName = args[1]
   const currentTag = args[2]
   const previousTag = args[3]
-  /**
-   * TODO: Replace
-   * bucketName=BUCKET_NAMES && BUCKET_NAMES[env] && BUCKET_NAMES[env][packageName]
-   * after test every thing OK
-   */
-  console.log(BUCKET_NAMES && BUCKET_NAMES[env] && BUCKET_NAMES[env][packageName])
-  const bucketName = 'cloud-release-artifact'
+  const bucketName = BUCKET_NAMES && BUCKET_NAMES[env] && BUCKET_NAMES[env][packageName]
   const isValidParams = !!packageName && !!currentTag
   if (!isValidParams) {
     console.error('release params is not valid for packageName or currentTag or previousTag')

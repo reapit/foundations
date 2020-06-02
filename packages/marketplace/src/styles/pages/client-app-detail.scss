@@ -44,10 +44,13 @@
 
   @include for-desktop-only {
     display: flex;
+  }
 
-    .mainContainer {
+  .mainContainer {
+    position: relative;
+    @include for-desktop-only {
       background-color: $white;
-      padding: 0 3rem;
+      padding: 0 3rem 6rem;
       flex: 1;
     }
   }
@@ -75,6 +78,14 @@
 .permissionList {
   list-style-type: disc;
   list-style-position: inside;
+}
+
+.footerContainer {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  padding-bottom: 0;
 }
 
 

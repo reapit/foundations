@@ -13,7 +13,7 @@ jobs:
       - name: Setup Node Environment
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: '12.x'
 
       - name: Get yarn cache location
         id: yarn-cache
@@ -33,8 +33,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          yarn global add aws-cli serverless@1.59.3
-          yarn
+          yarn global add serverless@1.59.3
+          yarn add isomorphic-fetch -W
 
       - name: Release Production
         if: steps.cache.outputs.cache-hit != 'true'

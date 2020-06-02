@@ -1,4 +1,7 @@
 import * as React from 'react'
+import { History } from 'history'
+import { useHistory } from 'react-router'
+import classNames from 'classnames'
 import {
   handleUninstallAppButtonClick,
   handleCloseUninstallConfirmationModal,
@@ -12,7 +15,7 @@ import { selectAppDetailData, selectAppDetailLoading, selectAppDetailError } fro
 import { selectLoginType, selectIsAdmin } from '@/selector/auth'
 import AppHeader from '@/components/ui/standalone-app-detail/app-header'
 import AppContent from './app-content'
-import { Loader, Button, Alert } from '@reapit/elements'
+import { Loader, Button, Alert, FormSection } from '@reapit/elements'
 import clientAppDetailStyles from '@/styles/pages/client-app-detail.scss?mod'
 import ClientAppInstallConfirmation from '@/components/ui/client-app-detail/client-app-install-confirmation'
 import { Aside } from './aside'
@@ -21,6 +24,7 @@ import { developerApplyAppDetails } from '@/actions/developer'
 import { useParams } from 'react-router'
 import { Dispatch } from 'redux'
 import { getDesktopIntegrationTypes } from '@/utils/get-desktop-integration-types'
+import Routes from '@/constants/routes'
 
 export type ClientAppDetailProps = {}
 
@@ -51,6 +55,12 @@ export const handleApplyAppDetailsFromLocalStorage = (dispatch: Dispatch, appId?
     dispatch(developerApplyAppDetails(appData))
   } catch (err) {
     dispatch(clientFetchAppDetailFailed(err))
+  }
+}
+
+export const onBackToAppsButtonClick = (history: History) => {
+  return () => {
+    history.push(Routes.CLIENT)
   }
 }
 
@@ -94,6 +104,7 @@ export const renderAppHeaderButtonGroup = (
 
 const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
   const { appId } = useParams()
 
   const [isVisibleInstallConfirmation, setIsVisibleInstallConfirmation] = React.useState(false)
@@ -151,6 +162,11 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
           )}
         />
         <AppContent desktopIntegrationTypes={userDesktopIntegrationTypes} appDetailData={appDetailData} />
+        <FormSection className={classNames('is-clearfix', clientAppDetailStyles.footerContainer)}>
+          <Button className="is-pulled-right" onClick={onBackToAppsButtonClick(history)}>
+            Back To Apps
+          </Button>
+        </FormSection>
         {isVisibleUninstallConfirmation && (
           <ClientAppUninstallConfirmation
             visible={isVisibleUninstallConfirmation}
