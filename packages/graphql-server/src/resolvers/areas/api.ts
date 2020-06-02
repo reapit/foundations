@@ -82,7 +82,7 @@ export const callUpdateAreaAPI = async (args: UpdateAreaArgs, context: ServerCon
         },
       },
     )
-    if (updateResponse?.data) {
+    if (updateResponse) {
       return callGetAreaByIdAPI({ id: args.id }, context)
     }
     return errors.generateUserInputError(traceId)
