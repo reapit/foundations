@@ -114,11 +114,12 @@ exports[`Carousel should match snapshot 1`] = `
         </svg>
         
       </button>
-      <iframe
+      <object
         aria-hidden="true"
-        src="about:blank"
-        style="display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; border: 0; opacity: 0; pointer-events: none; z-index: -1;"
+        data="about:blank"
+        style="display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;"
         tabindex="-1"
+        type="text/html"
       />
     </div>
   </div>
