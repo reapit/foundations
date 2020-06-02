@@ -13,6 +13,7 @@ env:
   CI: true
   CYPRESS_USERNAME: ${{secrets.CYPRESS_USERNAME}}
   CYPRESS_PASSWORD: ${{secrets.CYPRESS_PASSWORD}}
+  IS_RELEASE: true
 
 jobs:
   release_dev:
