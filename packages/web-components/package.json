@@ -62,7 +62,7 @@
     "lint:fix": "eslint --cache --ext=ts,tsx,js,svelte src --fix",
     "fetch-config": "yarn config-manager fetchConfig web-components",
     "release:dev": "node ./scripts/release-serverless.js --stage dev && node ../../scripts/release/release-dev.js web-components reapit-web-components",
-    "release:development": "serverless deploy --stage dev",
-    "release:production": "serverless deploy --stage prod"
+    "release:development": "node ./scripts/release-serverless.js --stage dev",
+    "release:production": "node ./scripts/release-serverless.js --stage prod"
   }
 }
