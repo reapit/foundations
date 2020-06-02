@@ -50,7 +50,7 @@
     "lodash.pickby": "^4.6.0",
     "serverless-http": "^2.3.2",
     "svelte-fa": "^2.1.1",
-    "typescript": "~3.7.2"
+    "typescript": "~3.8.3"
   },
   "scripts": {
     "build:prod": "node ./scripts/build-prod.js --stage dev",
