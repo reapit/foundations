@@ -100,9 +100,13 @@ export const Table: React.FC<TableProps> = ({
       </thead>
       <tbody>
         {loading ? (
-          <div className="table-loading">
-            <Loader />
-          </div>
+          <tr>
+            <td>
+              <div className="table-loading">
+                <Loader />
+              </div>
+            </td>
+          </tr>
         ) : (
           rows.map(
             row =>

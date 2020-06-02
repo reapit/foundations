@@ -6,7 +6,16 @@ exports[`Aside Aside - should match snapshot 1`] = `
     <Component />
     <Component />
     <Component />
-    <div />
+    <div>
+      <div>
+        <Component>
+          Category
+        </Component>
+        <p>
+          None
+        </p>
+      </div>
+    </div>
     <div>
       <div>
         <Component>

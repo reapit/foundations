@@ -9,7 +9,7 @@ import { Action } from '@/types/core'
 import { selectClientId, selectFeaturedApps } from '@/selector/client'
 import { selectCategories } from '@/selector/app-categories'
 import { ClientAppSummary, ClientAppSummaryParams } from '@/reducers/client/app-summary'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 import { fetchAppsList } from '@/services/apps'
 import { fetchCategoriesList } from '@/services/categories'
 

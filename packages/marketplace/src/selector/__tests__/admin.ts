@@ -4,6 +4,7 @@ import {
   selectAdminAppsData,
   selectAdminApprovalsState,
   selectWaitingApprovalData,
+  selectAdminDevManagement,
 } from '../admin'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { approvalsStub } from '@/sagas/__stubs__/approvals'
@@ -28,10 +29,10 @@ describe('admin', () => {
       expect(result).toEqual({ adminAppsData: appsDataStub.data, loading: false })
     })
 
-    it('should run correctly and return undefined', () => {
+    it('should run correctly and return {}', () => {
       const input = {} as ReduxState
       const result = selectAdminAppsState(input)
-      expect(result).toEqual(undefined)
+      expect(result).toEqual({})
     })
   })
 
@@ -40,10 +41,10 @@ describe('admin', () => {
       const result = selectAdminAppsData(mockState)
       expect(result).toEqual(mockState.adminApps.adminAppsData)
     })
-    it('should run correctly and return undefined', () => {
+    it('should run correctly and return {}', () => {
       const input = {} as ReduxState
       const result = selectAdminAppsState(input)
-      expect(result).toEqual(undefined)
+      expect(result).toEqual({})
     })
   })
 
@@ -68,6 +69,12 @@ describe('admin', () => {
       const input = {} as ReduxState
       const result = selectWaitingApprovalData(input)
       expect(result).toEqual({})
+    })
+  })
+  describe('selectAdminDevManagement', () => {
+    it('should run correctly', () => {
+      const result = selectAdminDevManagement(mockState)
+      expect(result).toEqual(appState.adminDevManagement)
     })
   })
 })

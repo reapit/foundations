@@ -18,12 +18,15 @@ export interface PrivateRouteProps {
   fetcher?: boolean
 }
 
-export const isNotAllowedToAccess = (loginIdentity?: LoginIdentity) => {
+export const isNotAllowedToAccess = (allow: LoginType | LoginType[], loginIdentity?: LoginIdentity) => {
   if (!loginIdentity) {
     return false
   }
-  const { clientId, developerId } = loginIdentity
-  if (!clientId && !developerId) {
+  const { clientId, developerId, adminId } = loginIdentity
+  const isAdminProtected = allow === 'ADMIN' && !adminId
+  const isNotClientOrDeveloper = !clientId && !developerId
+
+  if (isNotClientOrDeveloper || isAdminProtected) {
     return true
   }
   return false
@@ -34,16 +37,23 @@ export const handleChangeLoginType = (
   allow: LoginType | LoginType[],
   dispatch: Dispatch,
   loginIdentity?: LoginIdentity,
+  isFetchingAccessToken?: boolean,
 ) => {
   return () => {
-    if (!loginIdentity) {
+    if (!loginIdentity || isFetchingAccessToken) {
       return
     }
-    if (loginType === 'CLIENT' && allow === 'DEVELOPER' && loginIdentity.developerId) {
-      dispatch(authChangeLoginType('DEVELOPER'))
+    if (loginType !== 'ADMIN' && allow === 'ADMIN' && loginIdentity.adminId) {
+      dispatch(authChangeLoginType('ADMIN'))
+      return
     }
-    if (loginType === 'DEVELOPER' && allow === 'CLIENT' && loginIdentity.clientId) {
+    if (loginType !== 'CLIENT' && allow === 'CLIENT' && loginIdentity.clientId) {
       dispatch(authChangeLoginType('CLIENT'))
+      return
+    }
+    if (loginType !== 'DEVELOPER' && allow === 'DEVELOPER' && loginIdentity.developerId) {
+      dispatch(authChangeLoginType('DEVELOPER'))
+      return
     }
   }
 }
@@ -52,9 +62,10 @@ export const handleRedirectToAuthenticationPage = (
   allow: LoginType | LoginType[],
   history: History,
   loginIdentity?: LoginIdentity,
+  isFetchingAccessToken?: boolean,
 ) => {
   return () => {
-    if (!loginIdentity) {
+    if (!loginIdentity || isFetchingAccessToken) {
       return
     }
     const { clientId, developerId } = loginIdentity
@@ -69,27 +80,41 @@ export const fetchAccessToken = async () => {
 }
 
 export const PrivateRoute = ({ component, allow, fetcher = false, ...rest }: PrivateRouteProps & RouteProps) => {
+  const [isFetchingAccessToken, setFetchingAccessToken] = React.useState(true)
   const dispatch = useDispatch()
   const history = useHistory()
   const loginIdentity = useSelector(selectLoginIdentity)
   const loginType = useSelector(selectLoginType)
 
-  React.useEffect(handleChangeLoginType(loginType, allow, dispatch, loginIdentity), [
+  React.useEffect(() => {
+    fetchAccessToken().then(() => {
+      setFetchingAccessToken(false)
+    })
+  }, [])
+
+  React.useEffect(handleChangeLoginType(loginType, allow, dispatch, loginIdentity, isFetchingAccessToken), [
     allow,
     dispatch,
     loginIdentity,
     loginType,
+    isFetchingAccessToken,
   ])
 
-  React.useEffect(handleRedirectToAuthenticationPage(allow, history, loginIdentity), [loginIdentity, allow, history])
+  React.useEffect(handleRedirectToAuthenticationPage(allow, history, loginIdentity, isFetchingAccessToken), [
+    loginIdentity,
+    allow,
+    history,
+    isFetchingAccessToken,
+  ])
 
-  fetchAccessToken()
-
+  if (isFetchingAccessToken) {
+    return null
+  }
   return (
     <Route
       {...rest}
       render={props => {
-        if (isNotAllowedToAccess(loginIdentity)) {
+        if (isNotAllowedToAccess(allow, loginIdentity)) {
           return <Redirect to="/404" />
         }
         if (fetcher) {

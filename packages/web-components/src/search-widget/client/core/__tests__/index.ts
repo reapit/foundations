@@ -1,10 +1,10 @@
-import { ReapitSearchWidgetComponent } from '../index'
+import { ReapitSearchWidget } from '../index'
 import { stubTheme } from '../../utils/__stubs__/theme'
 
-describe('ReapitSearchWidgetComponent', () => {
+describe('ReapitSearchWidget', () => {
   it('should match a snapshot', () => {
     expect(
-      ReapitSearchWidgetComponent({
+      ReapitSearchWidget({
         parentSelector: '#search-widget',
         apiKey: 'SOME_KEY',
         customerId: 'DEMO',

@@ -249,8 +249,36 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
                     </div>
                   </Component>
                 </Component>
-                <div />
-                <div />
+                <div>
+                  <div>
+                    <Component>
+                      <h5
+                        className="title is-5  "
+                        id=""
+                      >
+                        Category
+                      </h5>
+                    </Component>
+                    <p>
+                      None
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <Component>
+                      <h5
+                        className="title is-5  "
+                        id=""
+                      >
+                        Destop Integration
+                      </h5>
+                    </Component>
+                    <p>
+                      None
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </Component>
@@ -366,7 +394,36 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
                   </Component>
                   <ul />
                 </div>
+                <div
+                  className=" "
+                />
                 <div>
+                  <div>
+                    <Component>
+                      <h5
+                        className="title is-5  "
+                        id=""
+                      >
+                        Category
+                      </h5>
+                    </Component>
+                    <p>
+                      None
+                    </p>
+                  </div>
+                  <div>
+                    <Component>
+                      <h5
+                        className="title is-5  "
+                        id=""
+                      >
+                        Destop Integration
+                      </h5>
+                    </Component>
+                    <p>
+                      None
+                    </p>
+                  </div>
                   <Component
                     header="Developer"
                   >

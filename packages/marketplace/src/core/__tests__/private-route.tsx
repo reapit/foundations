@@ -51,28 +51,40 @@ describe('PrivateRouter', () => {
 
   describe('isNotAllowedToAccess', () => {
     it('should return false if loginIdentity is empty', () => {
-      expect(isNotAllowedToAccess()).toBeFalsy
+      expect(isNotAllowedToAccess('CLIENT')).toBeFalsy()
     })
-    it('should return true if both clientId and developerId are empty', () => {
+    it('should return true if adminId, clientId and developerId are empty', () => {
       const mockLoginIdentity = {
         clientId: '',
         developerId: '',
+        adminId: '',
       } as LoginIdentity
-      expect(isNotAllowedToAccess(mockLoginIdentity)).toBeTruthy
+      expect(isNotAllowedToAccess('CLIENT', mockLoginIdentity)).toBeTruthy()
     })
-    it('should return false if clientId is existed', () => {
+    it('should return false if clientId exists and loginType is CLIENT', () => {
       const mockLoginIdentity = {
         clientId: 'testClientId',
         developerId: '',
+        adminId: '',
       } as LoginIdentity
-      expect(isNotAllowedToAccess(mockLoginIdentity)).toBeFalsy
+      expect(isNotAllowedToAccess('CLIENT', mockLoginIdentity)).toBeFalsy()
     })
-    it('should return false if developerId is existed', () => {
+    it('should return false if developerId exists and loginType is DEVELOPER', () => {
       const mockLoginIdentity = {
         clientId: '',
         developerId: 'testDeveloperId',
+        adminId: '',
       } as LoginIdentity
-      expect(isNotAllowedToAccess(mockLoginIdentity)).toBeFalsy
+      expect(isNotAllowedToAccess('DEVELOPER', mockLoginIdentity)).toBeFalsy()
+    })
+
+    it('should return false if adminId exists and loginType is ADMIN', () => {
+      const mockLoginIdentity = {
+        clientId: '',
+        developerId: 'testDeveloperId',
+        adminId: 'testAdminId',
+      } as LoginIdentity
+      expect(isNotAllowedToAccess('ADMIN', mockLoginIdentity)).toBeFalsy()
     })
   })
 
@@ -81,8 +93,9 @@ describe('PrivateRouter', () => {
       const mockLoginIdentity = {
         clientId: '',
         developerId: 'testDeveloperId',
+        adminId: '',
       } as LoginIdentity
-      const fn = handleChangeLoginType('CLIENT', 'DEVELOPER', spyDispatch, mockLoginIdentity)
+      const fn = handleChangeLoginType('CLIENT', 'DEVELOPER', spyDispatch, mockLoginIdentity, false)
       fn()
       expect(spyDispatch).toBeCalledWith(authChangeLoginType('DEVELOPER'))
     })
@@ -90,10 +103,35 @@ describe('PrivateRouter', () => {
       const mockLoginIdentity = {
         clientId: 'testClient',
         developerId: '',
+        adminId: '',
       } as LoginIdentity
-      const fn = handleChangeLoginType('DEVELOPER', 'CLIENT', spyDispatch, mockLoginIdentity)
+      const fn = handleChangeLoginType('DEVELOPER', 'CLIENT', spyDispatch, mockLoginIdentity, false)
       fn()
       expect(spyDispatch).toBeCalledWith(authChangeLoginType('CLIENT'))
+    })
+
+    it('should dispatch authChangeLoginType to change loginType to CLIENT', () => {
+      const mockDispatch = jest.fn()
+      const mockLoginIdentity = {
+        clientId: 'testClient',
+        developerId: '',
+        adminId: '',
+      } as LoginIdentity
+      const fn = handleChangeLoginType('DEVELOPER', 'CLIENT', mockDispatch, mockLoginIdentity, true)
+      fn()
+      expect(mockDispatch).not.toBeCalled()
+    })
+
+    it('should dispatch authChangeLoginType to change loginType to ADMIN', () => {
+      const mockDispatch = jest.fn()
+      const mockLoginIdentity = {
+        clientId: '',
+        developerId: '',
+        adminId: 'testAdminId',
+      } as LoginIdentity
+      const fn = handleChangeLoginType('DEVELOPER', 'ADMIN', mockDispatch, mockLoginIdentity, true)
+      fn()
+      expect(mockDispatch).not.toBeCalled()
     })
   })
 

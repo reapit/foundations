@@ -7,7 +7,7 @@ import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { errorThrownServer } from '../actions/error'
 import { identityTypesReceiveData, identityTypesRequestFailure } from '../actions/identity-types'
 import errorMessages from '../constants/error-messages'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 
 export const identityTypesDataFetch = function*() {
   const headers = yield call(initAuthorizedRequestHeaders)

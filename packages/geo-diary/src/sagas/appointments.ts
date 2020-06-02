@@ -26,7 +26,7 @@ import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { sortAppoinmentsByStartTime } from '@/utils/sort-appointments-by-start-time'
 import utc from 'dayjs/plugin/utc'
 import { fetchAppointmentMetadata } from './api'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 
 dayjs.extend(utc)
 

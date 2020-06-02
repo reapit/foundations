@@ -4,14 +4,14 @@ const path = require('path')
 
 const getMoveHtmlScript = packageName => {
   switch (packageName) {
-    case 'property-detail':
-      return 'mkdir -p ./public && cp ./src/property-detail/client/detail.html ./public/index.html'
+    case 'property-detail-widget':
+      return 'mkdir -p ./public && cp ./src/property-detail-widget/client/detail.html ./public/index.html'
     case 'search-widget':
       // eslint-disable-next-line max-len
-      return 'mkdir -p ./public && cp ./src/search-widget/client/index.html ./public/ && cp ./src/property-detail/client/detail.html ./public/'
+      return 'mkdir -p ./public && cp ./src/search-widget/client/index.html ./public/ && cp ./src/property-detail-widget/client/detail.html ./public/'
     case 'demo-site':
       return ''
-    case 'login':
+    case 'login-reapit-component':
       return `mkdir -p ./public && cp ./src/${packageName}/index.html ./public/`
     default:
       return `mkdir -p ./public && cp ./src/${packageName}/client/index.html ./public/`
@@ -25,6 +25,16 @@ const getStartClientServer = packageName => {
 
     default:
       return 'sirv public --dev -s --port 8080'
+  }
+}
+
+const getServerConfigFile = packageName => {
+  switch (packageName) {
+    case 'book-valuation-widget':
+    case 'book-viewing-widget':
+      return 'src/appointment-planner-component/server/serverless.yml'
+    default:
+      return `src/${packageName}/server/serverless.yml`
   }
 }
 
@@ -42,7 +52,7 @@ return (() => {
       }
       // eslint-disable-next-line max-len
       const clientScript = `rollup -w -c './scripts/rollup.config.${packageName}.js' --environment APP_ENV:local`
-      const serverConfigFile = `src/${packageName}/server/serverless.yml`
+      const serverConfigFile = getServerConfigFile(packageName)
       const hasServer = fs.existsSync(serverConfigFile)
       // need to pass the apiKey into serverless offline for it to work locally
       const { WEB_COMPONENT_API_KEY_SEARCH_WIDGET } = require(path.resolve(__dirname, '../config.json'))

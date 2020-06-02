@@ -4,7 +4,7 @@ import { Action } from '../types/core'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { revisionsReceiveData, revisionsRequestDataFailure, RevisionsRequestParams } from '@/actions/revisions'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 import { fetchAppRevisionsList } from '@/services/apps'
 
 export const appRevisionsSaga = function*({ data }) {

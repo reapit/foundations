@@ -3,7 +3,7 @@ import { formatNumber, formatCurrency } from '@/utils/number-formatter'
 import { Table, Loader } from '@reapit/elements'
 import { useSelector } from 'react-redux'
 import { selectMonthlyBilling, selectMonthlyBillingLoading } from '@/selector/developer'
-import { EndpointBilling } from '@/reducers/developer'
+import { EndpointBilling, MonthlyBilling } from '@/reducers/developer'
 
 export type CostExplorerTableProps = {}
 
@@ -16,6 +16,9 @@ export type TableRow = {
 }
 
 export const prepareTableData = data => {
+  if (!data) {
+    return []
+  }
   const preparedData = data.map(({ requestsByEndpoint, ...row }) => {
     const subRows = requestsByEndpoint.map((request: EndpointBilling) => {
       return {
@@ -35,48 +38,52 @@ interface PrepareTableColumns {
   totalRequests: number
 }
 
-export const prepareTableColumns = ({ totalCost, totalEndpoints, totalRequests }: PrepareTableColumns) => [
-  {
-    Header: 'Resource',
-    accessor: 'serviceName',
-    columnProps: {
-      className: 'capitalize',
-      width: 200,
+export const prepareTableColumns = (monthlyBilling?: MonthlyBilling | null) => {
+  const totalEndpoints = monthlyBilling?.totalEndpoints || 0
+  const totalRequests = monthlyBilling?.totalRequests || 0
+  const totalCost = monthlyBilling?.totalCost || 0
+  return [
+    {
+      Header: 'Resource',
+      accessor: 'serviceName',
+      columnProps: {
+        className: 'capitalize',
+        width: 200,
+      },
+      Footer: 'Total',
     },
-    Footer: 'Total',
-  },
-  {
-    Header: 'Endpoints',
-    accessor: row => {
-      return row.endpointCount && formatNumber(row.endpointCount)
+    {
+      Header: 'Endpoints',
+      accessor: row => {
+        return row.endpointCount && formatNumber(row.endpointCount)
+      },
+      Footer: formatNumber(totalEndpoints),
     },
-    Footer: formatNumber(totalEndpoints),
-  },
-  {
-    Header: 'API Calls',
-    accessor: row => {
-      return row.requestCount && formatNumber(row.requestCount)
+    {
+      Header: 'API Calls',
+      accessor: row => {
+        return row.requestCount && formatNumber(row.requestCount)
+      },
+      Footer: formatNumber(totalRequests),
     },
-    Footer: formatNumber(totalRequests),
-  },
-  {
-    Header: 'Cost',
-    accessor: row => {
-      return row.cost && formatCurrency(row.cost)
+    {
+      Header: 'Cost',
+      accessor: row => {
+        return row.cost && formatCurrency(row.cost)
+      },
+      Footer: formatCurrency(totalCost),
     },
-    Footer: formatCurrency(totalCost),
-  },
-]
+  ]
+}
 
 const CostExplorerTable: React.FC<CostExplorerTableProps> = () => {
   const monthlyBilling = useSelector(selectMonthlyBilling)
   const isLoading = useSelector(selectMonthlyBillingLoading)
 
-  if (isLoading || !monthlyBilling) return <Loader />
+  if (isLoading) return <Loader />
 
-  const { totalCost, totalEndpoints, totalRequests } = monthlyBilling
-  const columns = prepareTableColumns({ totalCost, totalEndpoints, totalRequests })
-  const tableData = prepareTableData(monthlyBilling.requestsByService)
+  const columns = prepareTableColumns(monthlyBilling)
+  const tableData = prepareTableData(monthlyBilling?.requestsByService)
 
   return (
     <>

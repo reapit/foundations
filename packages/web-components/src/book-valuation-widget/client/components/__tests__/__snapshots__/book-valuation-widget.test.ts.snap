@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookValuationWidget should match snapshot 1`] = `
+<body>
+  <div>
+    <button
+      class="book-valuation-select-button svelte-aluks"
+    >
+      Book a Valuation
+    </button>
+     
+    
+  </div>
+</body>
+`;

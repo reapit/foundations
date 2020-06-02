@@ -14,7 +14,7 @@ import {
 } from '@/utils/cookie'
 import { COOKIE_SESSION_KEY_MARKETPLACE } from '../constants/api'
 import { selectLoginType } from '@/selector/auth'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 
 export const doLogin = function*({ data }: Action<LoginParams>) {
   try {

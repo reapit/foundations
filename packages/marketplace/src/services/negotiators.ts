@@ -1,6 +1,6 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { initAuthorizedRequestHeaders } from './utils'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 import { URLS } from './constants'
 
 export interface FetchNegotiatorsParams {

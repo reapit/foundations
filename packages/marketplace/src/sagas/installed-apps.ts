@@ -10,7 +10,7 @@ import errorMessages from '../constants/error-messages'
 import { Action } from '@/types/core'
 import { INSTALLED_APPS_PERPAGE } from '@/constants/paginator'
 import { selectClientId } from '@/selector/client'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 import { fetchAppsList } from '@/services/apps'
 
 export const installedAppsDataFetch = function*({ data: page }) {

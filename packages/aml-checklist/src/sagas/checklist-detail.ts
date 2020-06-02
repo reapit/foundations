@@ -29,7 +29,7 @@ import {
   changeTimeZoneUTCForIdentityCheck,
   formatDateForContact,
 } from '@/utils/datetime'
-import { logger } from 'logger'
+import { logger } from '@reapit/utils'
 
 export const fetchChecklist = async ({ id, headers }) => {
   try {

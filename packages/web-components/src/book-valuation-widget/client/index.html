@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<title>DEMO</title>
+<link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto|Roboto+Slab&display=swap"
+  rel="stylesheet">
+<link rel="stylesheet" href="./dist/book-valuation-widget.css" />
+<style>
+  #book-valuation-widget {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+
+<body>
+  Book a valuation
+  <div id="book-valuation-widget"></div>
+
+
+  <script src="./dist/book-valuation-widget.js"></script>
+  <script src="./dist/themes.js"></script>
+  <script>
+    if (window.ReapitBookValuationWidget) {
+      new ReapitBookValuationWidget({
+        theme: window.theme,
+        apiKey: '',
+        customerId: '',
+        parentSelector: '#book-valuation-widget',
+        variant: 'VALUATION',
+      })
+
+    }
+  </script>
+</body>
+
+</html>

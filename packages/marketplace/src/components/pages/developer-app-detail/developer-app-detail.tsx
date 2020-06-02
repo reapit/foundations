@@ -22,6 +22,7 @@ import styles from '@/styles/pages/developer-app-detail.scss?mod'
 import AppRevisionModal from '@/components/ui/developer-app-detail/app-revision-modal'
 import { useHistory } from 'react-router'
 import { DeveloperAppDetailState } from '@/reducers/developer'
+import { getDesktopIntegrationTypes } from '@/utils/get-desktop-integration-types'
 
 export type DeveloperAppDetailProps = {}
 
@@ -92,6 +93,10 @@ const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
   const installationsData = useSelector(selectInstallationAppData) as PagedResultInstallationModel_
   const unfetch = !appDetailState?.data || !installationsData?.data
   const { id = '', name = '' } = appDetailData
+  const userDesktopIntegrationTypes = getDesktopIntegrationTypes(
+    appDetailData.desktopIntegrationTypeIds || [],
+    desktopIntegrationTypes,
+  )
 
   if (isLoadingAppDetail || isLoadingInstallations || unfetch) {
     return <Loader />
@@ -99,7 +104,7 @@ const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
 
   return (
     <div className={styles.appDetailContainer}>
-      <Aside desktopIntegrationTypes={desktopIntegrationTypes} appDetailState={appDetailState} />
+      <Aside desktopIntegrationTypes={userDesktopIntegrationTypes} appDetailState={appDetailState} />
       <div className={styles.mainContainer}>
         <AppHeader appDetailData={appDetailData} />
         <AppContent appDetailData={appDetailData} />
