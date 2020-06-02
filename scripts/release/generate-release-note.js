@@ -20,9 +20,9 @@ const generateReleaseNote = async () => {
     const releaseNote = formatReleaseNote({ previousTag, currentTag, commitLog })
     console.log(releaseNote)
     await sendMessageToSlack(`Release note for \`${currentTag}\` compare with \`${previousTag}\`
-      \`\`\`
-      ${releaseNote}
-      \`\`\`
+\`\`\`
+${releaseNote}
+\`\`\`
     `)
     return releaseNote
   } catch (err) {
