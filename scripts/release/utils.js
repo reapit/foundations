@@ -178,6 +178,63 @@ const releaseNpm = async ({ tagName, packageName }) => {
   }
 }
 
+const appendCommitInfo = ({ releaseNote, commitLogArr }) => {
+  let newReleaseNote = releaseNote
+  const COMMIT_INDEX = 0
+  const COMMIT_AUTHOR_INDEX = 1
+  newReleaseNote = newReleaseNote.concat(`
+- ${commitLogArr[COMMIT_INDEX]} | ${
+    commitLogArr[COMMIT_AUTHOR_INDEX]
+      ? commitLogArr[COMMIT_AUTHOR_INDEX].replace('Author: ', '')
+      : commitLogArr[COMMIT_AUTHOR_INDEX]
+  } | `)
+  return newReleaseNote
+}
+
+const appendCommitMessage = ({ releaseNote, commitLogArr }) => {
+  let newReleaseNote = releaseNote
+  for (let i = 4; i < commitLogArr.length; i++) {
+    newReleaseNote = newReleaseNote.concat(
+      `${commitLogArr[i] ? commitLogArr[i].replace('\n').replace(/\s{2,}/g, '') : ''}`,
+    )
+  }
+  return newReleaseNote
+}
+
+const formatReleaseNote = ({ previousTag, currentTag, commitLog }) => {
+  let releaseNote = `
+-----------------------------------------------------------------------------
+Release: ${currentTag}
+Rollback: ${previousTag}
+Changes:
+commit | author |description
+  `
+  const footer = `
+
+approver: @willmcvay
+monitor: https://sentry.io/organizations/reapit-ltd/projects/
+-----------------------------------------------------------------------------
+`
+  if (!commitLog) {
+    return releaseNote.concat(footer)
+  }
+  const commitArr = commitLog.split('commit ')
+  commitArr.forEach(item => {
+    const commitLogArr = item.split('\n')
+    if (commitLogArr.length > 1) {
+      releaseNote = appendCommitInfo({ releaseNote, commitLogArr })
+      releaseNote = appendCommitMessage({ releaseNote, commitLogArr })
+    }
+  })
+  releaseNote = releaseNote.concat(footer)
+  return releaseNote
+}
+
+const getCommitLog = ({ currentTag, previousTag, packageName }) => {
+  const commitLog = runCommand('git', ['log', `${currentTag}...${previousTag}`, `./packages/${packageName}/.`])
+  return commitLog
+}
+
 const BUCKET_NAMES = {
   production: {
     'aml-checklist': 'reapit-aml-checklist-prod',
@@ -250,4 +307,6 @@ module.exports = {
   WEB_APPS,
   SERVERLESS_APPS,
   NPM_APPS,
+  formatReleaseNote,
+  getCommitLog,
 }

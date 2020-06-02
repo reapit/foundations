@@ -23,6 +23,7 @@
     "lint:fix": "lerna run --parallel --stream lint:fix --",
     "release:dev": "lerna run --parallel release:dev",
     "release-note": "node ./scripts/release/generate-release-note.js",
+    "update-release-note": "node ./scripts/release/update-release-note.js",
     "upload-artifact": "node ./scripts/release/upload-artifact.js",
     "release": "node ./scripts/release/release.js",
     "test": "lerna run --parallel test:ci -- --detectOpenHandles --runInBand",
