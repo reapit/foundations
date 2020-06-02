@@ -7,6 +7,7 @@ import Appointments from './appointments/resolvers'
 import Negotiators from './negotiators/resolvers'
 import Properties from './properties/resolvers'
 import Configurations from './configurations/resolver'
+import IdentityChecks from './identity-checks/resolvers'
 
 export const resolvers = merge(
   {
@@ -19,5 +20,6 @@ export const resolvers = merge(
   Negotiators,
   Properties,
   Configurations,
+  IdentityChecks,
 )
 export default resolvers

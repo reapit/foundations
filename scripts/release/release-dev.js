@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 const path = require('path')
-const { runCommand } = require('./utils')
 const execSync = require('child_process').execSync
 
 const releaseDev = () => {

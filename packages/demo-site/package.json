@@ -7,7 +7,6 @@
     "build:prod": "node ./scripts/build.js",
     "fetch-config": "yarn config-manager fetchConfig demo-site",
     "release:dev": "node ../../scripts/release/release-dev.js demo-site reapit-demo-site",
-    "release:prod": "echo 'node ../../scripts/release/release-prod.js demo-site reapit-demo-site'",
     "start:prod": "sirv public/dist --dev -s --port 8080",
     "serve:web-components": "yarn workspace @reapit/web-components start:dev demo-site",
     "serve:demo-site": "node ./scripts/start-dev.js",

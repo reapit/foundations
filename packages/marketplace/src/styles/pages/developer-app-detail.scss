@@ -30,7 +30,8 @@
 
 .mainContainer {
   background-color: $white;
-  padding: 0 3rem;
+  padding: 0 3rem 6rem;
+  position: relative;
 }
 
 .renderAsideStatusContainer {
@@ -49,4 +50,12 @@
   @include for-mobile-only {
     display: block;
   }
+}
+
+.footerContainer {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  padding-bottom: 0;
 }
