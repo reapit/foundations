@@ -20,6 +20,7 @@ import DeveloperSubmitApp, {
   handleGoBackToApps,
   handleOnSubmitAnotherApp,
   generateInitialValues,
+  handleOpenAppPreview,
 } from '../developer-submit-app'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
@@ -290,6 +291,20 @@ describe('DeveloperSubmitApp', () => {
         supportEmail: 'support@reapit.com',
         telephone: '0113 288 2900',
       })
+    })
+  })
+
+  describe('handleOpenAppPreview', () => {
+    it('should run correctly', () => {
+      const params = { appDetails: {}, values: {}, scopes: [], appId: 'appId' }
+      const spyLocalStorageSetItem = jest.spyOn(window.localStorage, 'setItem')
+      const spyOpenUrl = jest.spyOn(window, 'open')
+      const expected = JSON.stringify({ scopes: [] })
+
+      const fn = handleOpenAppPreview(params)
+      fn()
+      expect(spyLocalStorageSetItem).toBeCalledWith('developer-preview-app', expected)
+      expect(spyOpenUrl).toBeCalledWith('developer/apps/appId/preview', '_blank')
     })
   })
 })

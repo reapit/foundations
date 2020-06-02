@@ -279,18 +279,18 @@ export const handleOnSubmitAnotherApp = (dispatch: Dispatch) => {
 export type HandleOpenAppPreview = {
   scopes: ScopeModel[]
   values: FormikValues
-  appid?: string
+  appId?: string
   appDetails?: AppDetailModel & { apiKey?: string }
 }
 
-export const handleOpenAppPreview = ({ appDetails, values, scopes, appid }: HandleOpenAppPreview) => () => {
+export const handleOpenAppPreview = ({ appDetails, values, scopes, appId }: HandleOpenAppPreview) => () => {
   const appDetailState = {
     ...appDetails,
     ...values,
     scopes: scopes.filter(scope => values.scopes.includes(scope.name)),
   }
 
-  const url = `developer/apps/${appid}/preview`
+  const url = `developer/apps/${appId}/preview`
   localStorage.setItem('developer-preview-app', JSON.stringify(appDetailState))
   window.open(url, '_blank')
 }
@@ -403,7 +403,7 @@ export const DeveloperSubmitApp: React.FC<DeveloperSubmitAppProps> = () => {
                               appDetails: appDetailState?.appDetailData?.data,
                               values,
                               scopes,
-                              appid,
+                              appId: appid,
                             })}
                             variant="primary"
                             type="button"

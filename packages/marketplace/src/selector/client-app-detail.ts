@@ -17,5 +17,5 @@ export const selectAppDetailLoading = (state: ReduxState) => {
 }
 
 export const selectAppDetailError = (state: ReduxState): string | null => {
-  return state.client.appDetail.error || null
+  return state?.client?.appDetail?.error || null
 }

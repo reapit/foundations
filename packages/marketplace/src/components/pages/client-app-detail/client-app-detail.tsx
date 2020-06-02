@@ -36,7 +36,7 @@ export const handleInstallAppButtonClick = (setIsVisibleInstallConfirmation: (is
   }
 }
 
-export const handleApplyAppDetailsFromLocalStorage = (dispatch: Dispatch, appid?: string) => () => {
+export const handleApplyAppDetailsFromLocalStorage = (dispatch: Dispatch, appId?: string) => () => {
   try {
     const appDataString = localStorage.getItem('developer-preview-app')
     if (!appDataString) {
@@ -44,7 +44,7 @@ export const handleApplyAppDetailsFromLocalStorage = (dispatch: Dispatch, appid?
     }
 
     const appData = JSON.parse(appDataString)
-    if (appData.id !== appid) {
+    if (appData.id !== appId) {
       throw 'No app preview'
     }
 
@@ -94,7 +94,7 @@ export const renderAppHeaderButtonGroup = (
 
 const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   const dispatch = useDispatch()
-  const { id: appid } = useParams()
+  const { appId } = useParams()
 
   const [isVisibleInstallConfirmation, setIsVisibleInstallConfirmation] = React.useState(false)
   const [isVisibleUninstallConfirmation, setIsVisibleUninstallConfirmation] = React.useState(false)
@@ -129,7 +129,7 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   const unfetched = Object.keys(appDetailData).length === 0
   const { id = '', installedOn = '' } = appDetailData
 
-  React.useEffect(handleApplyAppDetailsFromLocalStorage(dispatch, appid), [dispatch])
+  React.useEffect(handleApplyAppDetailsFromLocalStorage(dispatch, appId), [dispatch])
 
   if (error) return <Alert message={error} type="danger"></Alert>
   if (isLoadingAppDetail || unfetched) {
