@@ -14,7 +14,6 @@
     "build:prod": "node '../../scripts/webpack/webpack-sass-prod/index.js'",
     "fetch-config": "yarn config-manager fetchConfig site-builder",
     "release:dev": "node ../../scripts/release/release-dev.js site-builder reapit-site-builder-dev",
-    "release:prod": "node ../../scripts/release/release-prod.js site-builder reapit-site-builder-dev",
     "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ../../scripts/webpack/webpack.sass.dev.js",
     "start:prod": "serve public/dist -s -l 8080",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
