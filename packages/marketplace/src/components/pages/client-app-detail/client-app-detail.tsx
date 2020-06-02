@@ -25,6 +25,7 @@ import { useParams } from 'react-router'
 import { Dispatch } from 'redux'
 import { getDesktopIntegrationTypes } from '@/utils/get-desktop-integration-types'
 import Routes from '@/constants/routes'
+import { LoginType } from '@reapit/cognito-auth'
 
 export type ClientAppDetailProps = {}
 
@@ -40,7 +41,12 @@ export const handleInstallAppButtonClick = (setIsVisibleInstallConfirmation: (is
   }
 }
 
-export const handleApplyAppDetailsFromLocalStorage = (dispatch: Dispatch, appId?: string) => () => {
+export const handleApplyAppDetailsFromLocalStorage = (
+  dispatch: Dispatch,
+  loginType: LoginType,
+  appId?: string,
+) => () => {
+  if (loginType !== 'DEVELOPER' || !appId) return
   try {
     const appDataString = localStorage.getItem('developer-preview-app')
     if (!appDataString) {
@@ -58,7 +64,11 @@ export const handleApplyAppDetailsFromLocalStorage = (dispatch: Dispatch, appId?
   }
 }
 
-export const onBackToAppsButtonClick = (history: History) => {
+export const onBackToAppsButtonClick = (history: History, loginType: LoginType) => {
+  if (loginType === 'DEVELOPER')
+    return () => {
+      history.push(Routes.DEVELOPER_MY_APPS)
+    }
   return () => {
     history.push(Routes.CLIENT)
   }
@@ -140,7 +150,7 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   const unfetched = Object.keys(appDetailData).length === 0
   const { id = '', installedOn = '' } = appDetailData
 
-  React.useEffect(handleApplyAppDetailsFromLocalStorage(dispatch, appId), [dispatch])
+  React.useEffect(handleApplyAppDetailsFromLocalStorage(dispatch, loginType, appId), [dispatch])
 
   if (error) return <Alert message={error} type="danger"></Alert>
   if (isLoadingAppDetail || unfetched) {
@@ -163,7 +173,7 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
         />
         <AppContent desktopIntegrationTypes={userDesktopIntegrationTypes} appDetailData={appDetailData} />
         <FormSection className={classNames('is-clearfix', clientAppDetailStyles.footerContainer)}>
-          <Button className="is-pulled-right" onClick={onBackToAppsButtonClick(history)}>
+          <Button className="is-pulled-right" onClick={onBackToAppsButtonClick(history, loginType)}>
             Back To Apps
           </Button>
         </FormSection>

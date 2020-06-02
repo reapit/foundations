@@ -180,7 +180,7 @@ describe('ClientAppDetail', () => {
       const value = { id: 'appId' } as AppDetailData
       const stringValue = JSON.stringify(value)
       const spyLocalStorageGetItem = jest.spyOn(window.localStorage, 'getItem').mockImplementation(() => stringValue)
-      const fn = handleApplyAppDetailsFromLocalStorage(dispatch, appId)
+      const fn = handleApplyAppDetailsFromLocalStorage(dispatch, 'DEVELOPER', appId)
       fn()
       expect(spyLocalStorageGetItem).toBeCalledWith('developer-preview-app')
       expect(dispatch).toBeCalledWith(developerApplyAppDetails(value))
