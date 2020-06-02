@@ -1,7 +1,7 @@
 @import '../base/colors.scss';
 @import '../base/fonts.scss';
 
-.form2 {
+.form {
   width: 100%;
 }
 
@@ -9,7 +9,7 @@
   padding: 1rem;
   border-top: 1px solid $grey;
 
-  .form2-heading,
+  .form-heading,
   .form-subheading {
     color: $grey-dark;
   }
