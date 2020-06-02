@@ -123,7 +123,7 @@ type Query {
     createdTo: String
   ): PagedResultContactModel!
   GetContactById(id: String!): ContactModel!
-  GetIdChecks(
+  GetIdentityChecks(
     id: [String!]
     pageSize: Int
     pageNumber: Int
@@ -136,7 +136,7 @@ type Query {
     createdTo: String
     status: [String!]
   ): PagedResultIdentityCheckModel!
-  GetIdCheckById(id: String!): IdentityCheckModel!
+  GetIdentityCheckById(id: String!): IdentityCheckModel!
   GetNegotiators(
     pageSize: Int
     pageNumber: Int
@@ -186,7 +186,6 @@ type Query {
     internetAdvertising: Boolean
   ): PagedResultPropertyModel!
   GetPropertyById(id: String!, embed: [String!]): PropertyModel!
-  GetPropertyTypes: [ListItemModel]
 }
 
 type Mutation {
@@ -345,12 +344,12 @@ type Mutation {
     metadata: JSON
   ): OfficeModel!
   CreateProperty(
-    marketingMode: String!
-    departmentId: String!
+    marketingMode: String
+    departmentId: String
     strapline: String
     description: String
     summary: String
-    address: AddressInput!
+    address: AddressInput
     bedrooms: Int
     receptions: Int
     bathrooms: Int
@@ -371,8 +370,8 @@ type Mutation {
     age: [String!]
     locality: [String!]
     rooms: [CreatePropertyRoomModelInput!]
-    negotiatorId: String!
-    officeIds: [String!]!
+    negotiatorId: String
+    officeIds: [String!]
     areaId: String
     metadata: JSON
   ): PropertyModel!
@@ -824,11 +823,6 @@ type PropertyRoomModel {
   name: String
   dimensions: String
   description: String
-}
-
-type ListItemModel {
-  id: String
-  value: String
 }
 
 schema {

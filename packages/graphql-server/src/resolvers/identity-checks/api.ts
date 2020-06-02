@@ -100,7 +100,7 @@ export const callUpdateIdentityCheckAPI = async (
         },
       },
     )
-    if (updateResponse?.data) {
+    if (updateResponse) {
       return callGetIdentityCheckByIdAPI({ id: args.id }, context)
     }
     return errors.generateUserInputError(traceId)

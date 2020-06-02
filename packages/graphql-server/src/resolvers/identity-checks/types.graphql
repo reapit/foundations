@@ -41,7 +41,7 @@ type PagedResultIdentityCheckModel {
 }
 
 type Query {
-  GetIdChecks(
+  GetIdentityChecks(
     id: [String!]
     pageSize: Int
     pageNumber: Int
@@ -55,7 +55,7 @@ type Query {
     status: [String!]
   ): PagedResultIdentityCheckModel!
 
-  GetIdCheckById(id: String!): IdentityCheckModel!
+  GetIdentityCheckById(id: String!): IdentityCheckModel!
 }
 
 type Mutation {

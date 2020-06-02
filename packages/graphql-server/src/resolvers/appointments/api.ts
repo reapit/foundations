@@ -97,7 +97,7 @@ export const callUpdateAppointmentAPI = async (
         },
       },
     )
-    if (updateResponse?.data) {
+    if (updateResponse) {
       return callGetAppointmentByIdAPI({ id: args.id }, context)
     }
     return errors.generateUserInputError(traceId)
