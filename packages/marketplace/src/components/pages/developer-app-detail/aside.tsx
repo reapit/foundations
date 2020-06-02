@@ -13,7 +13,6 @@ import { DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
 /* eslint-disable max-len */
 import DeveloperAppRevisionModal from '@/components/ui/developer-app-revision-modal/developer-app-revision-modal'
 import AppDelete from '@/components/ui/app-delete'
-import { handlePendingRevisionButtonClick } from '@/components/ui/developer-app-modal'
 import { DeveloperAppDetailState } from '@/reducers/developer'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { useDispatch, useSelector } from 'react-redux'
@@ -90,7 +89,7 @@ export const ManageApp: React.FC<ManageAppProps> = ({ pendingRevisions, id, appD
             type="button"
             variant="primary"
             dataTest="detail-modal-edit-button"
-            onClick={handlePendingRevisionButtonClick(setIsAppRevisionComparisionModalOpen)}
+            onClick={() => setIsAppRevisionComparisionModalOpen(true)}
           >
             PENDING REVISION
           </Button>
