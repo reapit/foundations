@@ -36,30 +36,8 @@ exports[`ApiDocs should match a snapshot 1`] = `
     }
   }
 >
-  <ContextProvider
-    value={
-      Object {
-        "action": "POP",
-        "block": [Function],
-        "createHref": [Function],
-        "go": [Function],
-        "goBack": [Function],
-        "goForward": [Function],
-        "length": 1,
-        "listen": [Function],
-        "location": Object {
-          "hash": "",
-          "pathname": "/",
-          "search": "",
-        },
-        "push": [Function],
-        "replace": [Function],
-      }
-    }
-  >
-    <Route>
-      <ApiDocsPage />
-    </Route>
-  </ContextProvider>
+  <Route>
+    <ApiDocsPage />
+  </Route>
 </ContextProvider>
 `;
