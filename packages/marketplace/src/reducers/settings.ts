@@ -9,7 +9,7 @@ export interface SettingsState {
 }
 
 export const defaultState: SettingsState = {
-  loading: true,
+  loading: false,
   developerInfomation: null,
 }
 

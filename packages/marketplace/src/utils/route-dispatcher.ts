@@ -103,7 +103,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
     case Routes.ADMIN_APPS:
       store.dispatch(adminAppsRequestData(getParamsFromPath(search || '')))
       break
-    case Routes.SETTINGS:
+    case Routes.DEVELOPER_SETTINGS:
       store.dispatch(requestDeveloperData())
       break
     case Routes.DEVELOPER_WEBHOOKS:
