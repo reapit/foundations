@@ -54,7 +54,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          yarn global add isomorphic-fetch
+          yarn add isomorphic-fetch -W
 
       - name: Upload Artifact
         run: |
