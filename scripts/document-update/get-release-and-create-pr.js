@@ -1,5 +1,6 @@
 const { Octokit } = require('@octokit/rest')
 const dayjs = require('dayjs')
+const { sendMessageToSlack } = require('../release/utils')
 const { execSync } = require('child_process')
 const insertAtLine = require('./insert-at-line')
 const mapPackageNameToPathLine = require('./map-package-path')
@@ -71,6 +72,7 @@ const getReleaseAndCreatePr = async () => {
       base: 'master',
     })
     console.log(`Success! A PR has been created at: ${html_url}`)
+    await sendMessageToSlack(`Release doc for \`${currentTag}\` has been created at ${html_url}`)
     return 'Success'
   } catch (err) {
     console.error('An error happened!')

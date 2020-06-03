@@ -12,6 +12,7 @@ env:
   MAIN_CLONE_PATH: ${{ github.workspace }}/foundations
   DOC_REPO: reapit/foundations-documentation
   DOC_CLONE_PATH: ${{ github.workspace }}/foundations-documentation
+  RELEASE_SLACK_WEB_HOOK_URL: ${{secrets.RELEASE_SLACK_WEB_HOOK_URL}}
 
 jobs:
   create-pr-update-doc:
@@ -24,30 +25,33 @@ jobs:
           repository: ${{ env.MAIN_REPO }}
           path: ${{ env.MAIN_CLONE_PATH }}
 
-      - name: Setup NodeJS
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-
-      - name: Install depedencies
-        run: |
-          cd $MAIN_CLONE_PATH && yarn install --frozen-lockfile
-
       - name: Checking out foundations-documentation repo
         uses: actions/checkout@v2
         with:
           repository: ${{ env.DOC_REPO }}
           path: ${{ env.DOC_CLONE_PATH }}
 
+      - name: Setup NodeJS
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
       - name: Set up SSH Auth
         uses: webfactory/ssh-agent@v0.2.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY_DOC }}
 
+      - name: Install depedencies
+        run: |
+          cd $MAIN_CLONE_PATH
+          yarn install --frozen-lockfile
+
       - name: Run update release on github
         run: |
-          cd $MAIN_CLONE_PATH && yarn update-release-note ${{ github.event.client_payload.package_name }} ${{ github.event.client_payload.current_tag }} ${{ github.event.client_payload.previous_tag }}
+          cd $MAIN_CLONE_PATH
+          yarn update-release-note ${{ github.event.client_payload.package_name }} ${{ github.event.client_payload.current_tag }} ${{ github.event.client_payload.previous_tag }}
 
       - name: Run update doc script
         run: |
-          cd $MAIN_CLONE_PATH && yarn update-doc ${{ github.event.client_payload.package_name }} ${{ github.event.client_payload.current_tag }}
+          cd $MAIN_CLONE_PATH
+          yarn update-doc ${{ github.event.client_payload.package_name }} ${{ github.event.client_payload.current_tag }}
