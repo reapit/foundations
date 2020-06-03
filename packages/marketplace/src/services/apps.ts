@@ -102,7 +102,7 @@ export const createApp = async (params: CreateAppParams) => {
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 
@@ -185,7 +185,7 @@ export const createAppRevision = async (params: CreateAppRevisionParams) => {
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 
