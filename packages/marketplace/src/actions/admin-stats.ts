@@ -1,6 +1,6 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
-import { Area, Range } from '@/components/pages/admin-stats'
+import { Area, Range } from '@/components/pages/admin-stats/admin-stats'
 import { AppSummaryModel, DeveloperModel, InstallationModel } from '@reapit/foundations-ts-definitions'
 
 export type AdminStatsRequestParams = {

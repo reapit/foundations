@@ -12,10 +12,13 @@ import ClientAppDetail, {
   handleCloseUnInstallConfirmationModal,
   handleUnInstallAppButtonClick,
   onBackToAppsButtonClick,
+  handleApplyAppDetailsFromLocalStorage,
 } from '../client-app-detail'
 import { Button } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
+import { developerApplyAppDetails } from '@/actions/developer'
+import { AppDetailData } from '@/reducers/client/app-detail'
 
 describe('ClientAppDetail', () => {
   const { history } = getMockRouterProps({})
@@ -192,9 +195,27 @@ describe('ClientAppDetail', () => {
   })
   describe('onBackToAppsButtonClick', () => {
     it('should run correctly', () => {
-      const fn = onBackToAppsButtonClick(history)
+      const fn = onBackToAppsButtonClick(history, 'DEVELOPER')
+      fn()
+      expect(history.push).toBeCalledWith(Routes.DEVELOPER_MY_APPS)
+    })
+    it('should run correctly', () => {
+      const fn = onBackToAppsButtonClick(history, 'CLIENT')
       fn()
       expect(history.push).toBeCalledWith(Routes.CLIENT)
+    })
+  })
+  describe('handleApplyAppDetailsFromLocalStorage', () => {
+    it('should run correctly', () => {
+      const dispatch = jest.fn()
+      const appId = 'appId'
+      const value = { id: 'appId' } as AppDetailData
+      const stringValue = JSON.stringify(value)
+      const spyLocalStorageGetItem = jest.spyOn(window.localStorage, 'getItem').mockImplementation(() => stringValue)
+      const fn = handleApplyAppDetailsFromLocalStorage(dispatch, 'DEVELOPER', appId)
+      fn()
+      expect(spyLocalStorageGetItem).toBeCalledWith('developer-preview-app')
+      expect(dispatch).toBeCalledWith(developerApplyAppDetails(value))
     })
   })
 })

@@ -113,19 +113,13 @@ const Router = () => {
                 fetcher
                 component={DeveloperHelpPage}
               />
+              <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_APP_PREVIEW} exact component={ClientAppDetail} />
 
               <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS} component={AdminApprovalsPage} exact fetcher />
               <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPS} component={AdminAppsPage} fetcher exact />
               <PrivateRoute
                 allow="ADMIN"
                 path={Routes.ADMIN_DEV_MANAGEMENT}
-                component={AdminDevManagementPage}
-                exact
-                fetcher
-              />
-              <PrivateRoute
-                allow="ADMIN"
-                path={Routes.ADMIN_DEV_MANAGEMENT_PAGINATE}
                 component={AdminDevManagementPage}
                 exact
                 fetcher

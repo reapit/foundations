@@ -2,7 +2,7 @@ import * as React from 'react'
 import { History } from 'history'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { useHistory, useParams, useLocation } from 'react-router'
+import { useHistory, useLocation } from 'react-router'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
 import { AdminDevManamgenetState } from '@/reducers/admin-dev-management'
 import ErrorBoundary from '@/components/hocs/error-boundary'
@@ -55,21 +55,35 @@ export const handleFetchData = (dispatch: Dispatch) => (requestData: AdminDevMan
   dispatch(adminDevManagementRequestData(requestData))
 }
 
+export const onPageChangeHandler = (history: History<any>, queryParams: AdminDevManagementFilterFormValues) => (
+  page: number,
+) => {
+  const query = setQueryParams(queryParams)
+  let queryString = `?page=${page}`
+  if (query && query !== '') {
+    queryString = queryString.concat(`&${query}`)
+  }
+  return history.push(`${Routes.ADMIN_DEV_MANAGEMENT}${queryString}`)
+}
+
+export const onSearchHandler = (history: History<any>) => (queryParams: AdminDevManagementFilterFormValues) => {
+  const query = setQueryParams(queryParams)
+  if (query && query !== '') {
+    const queryString = `?page=1&${query}`
+    history.push(`${Routes.ADMIN_DEV_MANAGEMENT}${queryString}`)
+  }
+  return
+}
+
 export const AdminDevManagement: React.FC = () => {
   const dispatch = useDispatch()
-
   const history = useHistory()
   const location = useLocation()
-  const { page = 1 } = useParams()
-
   const fetchData = handleFetchData(dispatch)
-
   const queryParams = new URLSearchParams(location.search)
   const filterValues = buildFilterValues(queryParams)
-
-  const onPageChange = onPageChangeHandler(history, filterValues)
-  const onSearch = onSearchHandler(history, Number(page))
-
+  const onPageChange = React.useCallback(onPageChangeHandler(history, filterValues), [history, filterValues])
+  const onSearch = React.useCallback(onSearchHandler(history), [history])
   const [isSetStatusModalOpen, setIsSetStatusModalOpen] = React.useState(false)
   const [developer, setDeveloper] = React.useState({} as DeveloperModel)
 
@@ -174,20 +188,6 @@ export const AdminDevManagement: React.FC = () => {
       />
     </ErrorBoundary>
   )
-}
-
-export const onPageChangeHandler = (history: History<any>, queryParams: AdminDevManagementFilterFormValues) => (
-  page: number,
-) => {
-  const query = setQueryParams(queryParams)
-  return history.push(`${Routes.ADMIN_DEV_MANAGEMENT}/${page}?${query}`)
-}
-
-export const onSearchHandler = (history: History<any>, page: number) => (
-  queryParams: AdminDevManagementFilterFormValues,
-) => {
-  const query = setQueryParams(queryParams)
-  return history.push(`${Routes.ADMIN_DEV_MANAGEMENT}/${page}?${query}`)
 }
 
 export default AdminDevManagement

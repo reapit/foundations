@@ -1,4 +1,4 @@
-const { formatReleaseNote, getCommitLog } = require('./utils')
+const { formatReleaseNote, getCommitLog, sendMessageToSlack } = require('./utils')
 const { Octokit } = require('@octokit/rest')
 
 const updateReleaseNote = async () => {
@@ -25,6 +25,7 @@ const updateReleaseNote = async () => {
         release_id: currentReleaseTag.data.id,
       })
     }
+    await sendMessageToSlack(`Release note for \`${currentTag}\` has been updated`)
   } catch (error) {
     console.error(error)
   }

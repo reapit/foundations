@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo } from 'react'
-import { connect } from 'react-redux'
-import { ReduxState } from '@/types/core'
+import { useSelector, useDispatch } from 'react-redux'
 import { Dispatch } from 'redux'
 import {
   FlexContainerResponsive,
@@ -17,20 +16,32 @@ import styles from '@/styles/pages/admin-stats.scss?mod'
 import { AdminStatsRequestParams, adminStatsRequestData } from '@/actions/admin-stats'
 import { Line } from 'react-chartjs-2'
 import { getChartData, getChartConfig, getRangeName } from '@/utils/admin-stats'
+import { selectAdminStats } from '@/selector/admin'
 
 export type Area = 'APPS' | 'DEVELOPERS' | 'INSTALLATIONS'
 export type Range = 'WEEK' | 'MONTH' | 'ALL'
 
-export type AdminStatsProps = DispatchProps & StateProps
+export const handleLoadStats = (dispatch: Dispatch) => (params: AdminStatsRequestParams) => {
+  dispatch(adminStatsRequestData(params))
+}
 
-export const AdminStats: React.FC<AdminStatsProps> = (props: AdminStatsProps) => {
-  const { loading, data, totalCount, loadStats } = props
+export const AdminStats: React.FC = () => {
+  const dispatch = useDispatch()
+  const adminStats = useSelector(selectAdminStats)
+
+  const {
+    loading,
+    result: { data = [], totalCount = 0 },
+  } = adminStats
+
+  const loadStats = handleLoadStats(dispatch)
+
   const [area, setArea] = React.useState<Area>('APPS')
   const [range, setRange] = React.useState<Range>('WEEK')
 
   useEffect(() => {
     loadStats({ area, range })
-  }, [area, range, loadStats])
+  }, [area, range])
 
   const chartConfig = useMemo(() => {
     let chartData = { labels: [] as Array<string>, data: [] as Array<any> }
@@ -125,24 +136,4 @@ export const AdminStats: React.FC<AdminStatsProps> = (props: AdminStatsProps) =>
   )
 }
 
-export type StateProps = {
-  loading: boolean
-  data: Array<any>
-  totalCount: number
-}
-
-export const mapStateToProps = (state: ReduxState): StateProps => ({
-  loading: state.adminStats.loading,
-  data: state.adminStats.result.data || [],
-  totalCount: state.adminStats.result.totalCount || 0,
-})
-
-export type DispatchProps = {
-  loadStats: (params: AdminStatsRequestParams) => void
-}
-
-export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
-  loadStats: (params: AdminStatsRequestParams) => dispatch(adminStatsRequestData(params)),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(AdminStats)
+export default AdminStats

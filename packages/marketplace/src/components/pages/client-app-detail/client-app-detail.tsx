@@ -6,17 +6,22 @@ import ClientAppUninstallConfirmation from '@/components/ui/client-app-detail/cl
 import { DesktopIntegrationTypeModel } from '@/actions/app-integration-types'
 import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
 import { selectIntegrationTypes } from '@/selector/integration-types'
-import { useSelector } from 'react-redux'
-import { selectAppDetailData, selectAppDetailLoading } from '@/selector/client-app-detail'
+import { useSelector, useDispatch } from 'react-redux'
+import { selectAppDetailData, selectAppDetailLoading, selectAppDetailError } from '@/selector/client-app-detail'
 import { selectLoginType, selectIsAdmin } from '@/selector/auth'
 import AppHeader from '@/components/ui/standalone-app-detail/app-header'
 import AppContent from './app-content'
-import { Loader, Button, FormSection } from '@reapit/elements'
+import { Loader, Button, Alert, FormSection } from '@reapit/elements'
 import clientAppDetailStyles from '@/styles/pages/client-app-detail.scss?mod'
 import ClientAppInstallConfirmation from '@/components/ui/client-app-detail/client-app-install-confirmation'
 import { Aside } from './aside'
+import { clientFetchAppDetailFailed } from '@/actions/client'
+import { developerApplyAppDetails } from '@/actions/developer'
+import { useParams } from 'react-router'
+import { Dispatch } from 'redux'
 import { getDesktopIntegrationTypes } from '@/utils/get-desktop-integration-types'
 import Routes from '@/constants/routes'
+import { LoginType } from '@reapit/cognito-auth'
 
 export type ClientAppDetailProps = {}
 
@@ -46,9 +51,35 @@ export const handleUnInstallAppButtonClick = (setIsVisibleUnInstallConfirmation:
   }
 }
 
-export const onBackToAppsButtonClick = (history: History) => {
+export const onBackToAppsButtonClick = (history: History, loginType: LoginType) => {
   return () => {
+    if (loginType === 'DEVELOPER') {
+      history.push(Routes.DEVELOPER_MY_APPS)
+    }
     history.push(Routes.CLIENT)
+  }
+}
+
+export const handleApplyAppDetailsFromLocalStorage = (
+  dispatch: Dispatch,
+  loginType: LoginType,
+  appId?: string,
+) => () => {
+  if (loginType !== 'DEVELOPER' || !appId) return
+  try {
+    const appDataString = localStorage.getItem('developer-preview-app')
+    if (!appDataString) {
+      throw 'No app preview'
+    }
+
+    const appData = JSON.parse(appDataString)
+    if (appData.id !== appId) {
+      throw 'No app preview'
+    }
+
+    dispatch(developerApplyAppDetails(appData))
+  } catch (err) {
+    dispatch(clientFetchAppDetailFailed(err))
   }
 }
 
@@ -91,7 +122,10 @@ export const renderAppHeaderButtonGroup = (
 }
 
 const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
+  const dispatch = useDispatch()
   const history = useHistory()
+  const { appId } = useParams()
+
   const [isVisibleInstallConfirmation, setIsVisibleInstallConfirmation] = React.useState(false)
   const [isVisibleUninstallConfirmation, setIsVisibleUninstallConfirmation] = React.useState(false)
   const closeInstallConfirmationModal = React.useCallback(
@@ -118,11 +152,16 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   const isLoadingAppDetail = useSelector(selectAppDetailLoading)
   const loginType = useSelector(selectLoginType)
   const isAdmin = useSelector(selectIsAdmin)
+  const error = useSelector(selectAppDetailError)
+
   const isInstallBtnHidden = loginType === 'CLIENT' && !isAdmin
   // selector selectAppDetailData return {} if not data
   const unfetched = Object.keys(appDetailData).length === 0
   const { id = '', installedOn = '' } = appDetailData
 
+  React.useEffect(handleApplyAppDetailsFromLocalStorage(dispatch, loginType, appId), [dispatch])
+
+  if (error) return <Alert message={error} type="danger"></Alert>
   if (isLoadingAppDetail || unfetched) {
     return <Loader dataTest="client-app-detail-loader" />
   }
@@ -143,7 +182,7 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
         />
         <AppContent desktopIntegrationTypes={userDesktopIntegrationTypes} appDetailData={appDetailData} />
         <FormSection className={classNames('is-clearfix', clientAppDetailStyles.footerContainer)}>
-          <Button className="is-pulled-right" onClick={onBackToAppsButtonClick(history)}>
+          <Button className="is-pulled-right" onClick={onBackToAppsButtonClick(history, loginType)}>
             Back To Apps
           </Button>
         </FormSection>
