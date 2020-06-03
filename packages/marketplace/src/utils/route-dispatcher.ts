@@ -23,7 +23,8 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
   const id = params && params.appid ? params.appid : ''
   const queryParams = new URLSearchParams(search)
   const appId = queryParams.get('appId')
-  const page = queryParams.get('page') || 1
+  const page = queryParams.get('page') ? Number(queryParams.get('page')) : 1
+
   switch (route) {
     case Routes.CLIENT:
       store.dispatch(clientFetchAppSummary(getParamsFromPath(search || '')))
@@ -93,15 +94,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       break
     case Routes.ADMIN_DEV_MANAGEMENT:
       store.dispatch(
-        adminDevManagementRequestData({ page: 1, queryString: search } as AdminDevManagementRequestDataValues),
-      )
-      break
-    case Routes.ADMIN_DEV_MANAGEMENT_PAGINATE:
-      store.dispatch(
-        adminDevManagementRequestData({
-          page: params && params.page ? Number(params.page) : 1,
-          queryString: search,
-        } as AdminDevManagementRequestDataValues),
+        adminDevManagementRequestData({ page, queryString: search } as AdminDevManagementRequestDataValues),
       )
       break
     case Routes.SUBMIT_APP:

@@ -4,6 +4,8 @@ import appDetailSagas, {
   clientAppDetailDataListen,
   fetchDeveloperAppDetailSaga,
   developerAppDetailDataListen,
+  developerApplyAppDetailsSaga,
+  developerApplyAppDetailsListen,
 } from '../apps'
 import { fetchDesktopIntegrationTypes } from '@/services/apps'
 import ActionTypes from '@/constants/action-types'
@@ -18,6 +20,7 @@ import { clientFetchAppDetailSuccess } from '@/actions/client'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
 import { developerFetchAppDetailSuccess } from '@/actions/developer'
+import { AppDetailData } from '@/reducers/client/app-detail'
 
 jest.mock('@reapit/elements')
 
@@ -219,6 +222,33 @@ describe('client app detail fetch data and fetch apiKey', () => {
   })
 })
 
+describe('client app detail fetch data from local storage', () => {
+  const params: Action<AppDetailData> = {
+    data: appDetailDataStub.data as AppDetailData,
+    type: 'DEVELOPER_APPLY_APP_DETAIL',
+  }
+  const gen = cloneableGenerator(developerApplyAppDetailsSaga)(params)
+  expect(gen.next().value).toEqual(call(fetchDesktopIntegrationTypes))
+
+  test('api call success', () => {
+    const clone = gen.clone()
+    expect(clone.next(integrationTypesStub).value).toEqual(put(integrationTypesReceiveData(integrationTypesStub)))
+    expect(clone.next().value).toEqual(put(clientFetchAppDetailSuccess(appDetailDataStub.data)))
+  })
+  test('api call error', () => {
+    const clone = gen.clone()
+    // @ts-ignore
+    expect(clone.throw('error').value).toEqual(
+      put(
+        errorThrownServer({
+          type: 'SERVER',
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
+    )
+  })
+})
+
 describe('client app detail thunks', () => {
   describe('clientAppDetailDataListen', () => {
     it('should trigger request data when called', () => {
@@ -240,11 +270,27 @@ describe('client app detail thunks', () => {
     })
   })
 
+  describe('developerApplyAppDetailsListen', () => {
+    it('should trigger request data when called', () => {
+      const gen = developerApplyAppDetailsListen()
+      expect(gen.next().value).toEqual(
+        takeLatest<Action<AppDetailData>>(ActionTypes.DEVELOPER_APPLY_APP_DETAIL, developerApplyAppDetailsSaga),
+      )
+      expect(gen.next().done).toBe(true)
+    })
+  })
+
   describe('appDetailSagas', () => {
     it('should listen data request', () => {
       const gen = appDetailSagas()
 
-      expect(gen.next().value).toEqual(all([fork(clientAppDetailDataListen), fork(developerAppDetailDataListen)]))
+      expect(gen.next().value).toEqual(
+        all([
+          fork(clientAppDetailDataListen),
+          fork(developerAppDetailDataListen),
+          fork(developerApplyAppDetailsListen),
+        ]),
+      )
       expect(gen.next().done).toBe(true)
     })
   })

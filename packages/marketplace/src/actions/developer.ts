@@ -45,3 +45,4 @@ export const developerWebhookPing = actionCreator<PingWebhooksByIdParams>(Action
 export const developerSetWebhookPingStatus = actionCreator<WebhookPingTestStatus>(
   ActionTypes.DEVELOPER_SET_PING_WEBHOOK_STATUS,
 )
+export const developerApplyAppDetails = actionCreator<AppDetailData>(ActionTypes.DEVELOPER_APPLY_APP_DETAIL)

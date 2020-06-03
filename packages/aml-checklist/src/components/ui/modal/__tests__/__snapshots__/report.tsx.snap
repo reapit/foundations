@@ -80,7 +80,7 @@ exports[`ReportContainer should match snapshot 1`] = `
     </div>
   </div>
   <div>
-    <f
+    <d
       content={[Function]}
       copyStyles={true}
       pageStyle="@page { size: auto;  margin: 0mm; } @media print { body { -webkit-print-color-adjust: exact; } }"
