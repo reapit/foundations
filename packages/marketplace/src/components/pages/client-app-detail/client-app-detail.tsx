@@ -94,10 +94,6 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   const history = useHistory()
   const [isVisibleInstallConfirmation, setIsVisibleInstallConfirmation] = React.useState(false)
   const [isVisibleUninstallConfirmation, setIsVisibleUninstallConfirmation] = React.useState(false)
-  // const closeUninstallConfirmationModal = React.useCallback(
-  //   handleCloseUninstallConfirmationModal(setIsVisibleUninstallConfirmation),
-  //   [],
-  // )
   const closeInstallConfirmationModal = React.useCallback(
     handleCloseInstallConfirmationModal(setIsVisibleInstallConfirmation),
     [],
