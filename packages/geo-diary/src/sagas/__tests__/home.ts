@@ -21,8 +21,10 @@ describe('home fetch data', () => {
 
   test('api call failure', () => {
     const clone = gen.clone()
-    // @ts-ignore
-    expect(clone.throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value).toEqual(put(homeRequestDataFailure()))
+
+    if (!clone.throw) throw new Error('Generator object cannot throw')
+
+    expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(homeRequestDataFailure()))
     expect(clone.next().value).toEqual(
       put(
         errorThrownServer({
