@@ -18,13 +18,15 @@ Cypress.on('fail', (error, runnable) => {
 })
 
 const GEO_DIARY_URL = Cypress.env(`GEO_DIARY_URL_${Cypress.env('ENVIRONMENT')}`)
-
-describe('Geo Diary App', () => {
-  it('user should able to login Geo Diary App', () => {
-    cy.visit(GEO_DIARY_URL).then(() => {
-      cy.get(LOGIN_USERNAME_INPUT_SELECTOR).type(Cypress.env('USERNAME'))
-      cy.get(LOGIN_PASSWORD_INPUT_SELECTOR).type(Cypress.env('PASSWORD'))
-      cy.get(SUBMIT_LOGIN_SELECTOR).click()
+const PACKAGE_NAME = Cypress.env('PACKAGE_NAME')
+if (PACKAGE_NAME === 'all' || PACKAGE_NAME === 'geo-diary') {
+  describe('Geo Diary App', () => {
+    it('user should able to login Geo Diary App', () => {
+      cy.visit(GEO_DIARY_URL).then(() => {
+        cy.get(LOGIN_USERNAME_INPUT_SELECTOR).type(Cypress.env('USERNAME'))
+        cy.get(LOGIN_PASSWORD_INPUT_SELECTOR).type(Cypress.env('PASSWORD'))
+        cy.get(SUBMIT_LOGIN_SELECTOR).click()
+      })
     })
   })
-})
+}

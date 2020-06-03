@@ -126,7 +126,9 @@ const releaseWebApp = async ({ tagName, bucketName, packageName, env }) => {
     syncFromLocalDistToS3Bucket({ bucketName })
     await sendMessageToSlack(`Finish the deployment for web app \`${packageName}\` with version \`${tagName}\``)
     await sendMessageToSlack(`Testing cypress for web app \`${packageName}\` with version \`${tagName}\``)
-    const cypressTest = execSync(`yarn workspace cloud-alert cypress:ci --env ENVIRONMENT=${env}`).toString()
+    const cypressTest = execSync(
+      `yarn workspace cloud-alert cypress:ci --env ENVIRONMENT=${env},PACKAGE_NAME=${packageName}`,
+    ).toString()
     console.log(cypressTest)
     await sendMessageToSlack(`Finish testing cypress for web app \`${packageName}\` with version \`${tagName}\``)
   } catch (err) {
