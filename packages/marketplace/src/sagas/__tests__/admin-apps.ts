@@ -19,7 +19,7 @@ import { APPS_PER_PAGE } from '@/constants/paginator'
 jest.mock('@/services/apps')
 jest.mock('@reapit/elements')
 
-const data = { pageNumber: 1 }
+const data = { pageNumber: 1, page: 1 }
 
 describe('adminAppsFetch', () => {
   const gen = cloneableGenerator(adminAppsFetch)({ data })
