@@ -44,8 +44,8 @@ describe('my-apps fetch data error', () => {
   expect(gen.next().value).toEqual(put(myAppsLoading(true)))
   expect(gen.next().value).toEqual(select(selectClientId))
 
-  // @ts-ignore
-  expect(gen.throw(new Error('Client id is not exists')).value).toEqual(
+  if (!gen.throw) throw new Error('Generator object cannot throw')
+  expect(gen.throw('Client id is not exists').value).toEqual(
     put(
       errorThrownServer({
         type: 'SERVER',

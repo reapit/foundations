@@ -30,7 +30,7 @@ describe('app-installations sagas', () => {
     test('api fail sagas', () => {
       const clone = gen.clone()
       if (clone.throw) {
-        expect(clone.throw(new Error('')).value).toEqual(put(revisionsRequestDataFailure()))
+        expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(revisionsRequestDataFailure()))
         expect(clone.next().value).toEqual(
           put(
             errorThrownServer({
