@@ -31,6 +31,10 @@
   .needHelpButton {
     width: 100%;
   }
+
+  .developerContactModalRow {
+    flex: 2;
+  }
 }
 
 .appDetailContainer {
@@ -81,12 +85,11 @@
 }
 
 .footerContainer {
-  position: absolute;
-  width: 100%;
-  left: 0;
-  bottom: 0;
   padding-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  @include for-desktop-only {
+    justify-content: flex-end;
+  }
 }
-
-
-
