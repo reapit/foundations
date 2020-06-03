@@ -9,7 +9,7 @@ env:
   GH_PAT: ${{ secrets.GH_PAT }}
   API_GITHUB_ENDPOINT: https://api.github.com
   MAIN_REPO: reapit/foundations
-  MAIN_CLONE_PATH: ${{ github.workspace }}/foundations
+  MAIN_CLONE_PATH: ${{ github.workspace }}
   DOC_REPO: reapit/foundations-documentation
   DOC_CLONE_PATH: ${{ github.workspace }}/foundations-documentation
   RELEASE_SLACK_WEB_HOOK_URL: ${{secrets.RELEASE_SLACK_WEB_HOOK_URL}}
@@ -19,11 +19,42 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checking out foundations repo
-        uses: actions/checkout@v2
+      - name: checks out repository to $GITHUB_WORKSPACE
+        uses: actions/checkout@v1
+
+      - name: Setup NodeJS
+        uses: actions/setup-node@v1
         with:
-          repository: ${{ env.MAIN_REPO }}
-          path: ${{ env.MAIN_CLONE_PATH }}
+          node-version: '12.x'
+
+      - name: Get yarn cache location
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Get yarn cache
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Set up workspace experimental
+        run: |
+          yarn config set workspaces-experimental true
+
+      - name: Install depedencies
+        run: |
+          yarn install
+
+      - name: Run update release on github
+        run: |
+          yarn update-release-note ${{ github.event.client_payload.package_name }} ${{ github.event.client_payload.current_tag }} ${{ github.event.client_payload.previous_tag }}
+
+      - name: Set up SSH Auth
+        uses: webfactory/ssh-agent@v0.2.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY_DOC }}
 
       - name: Checking out foundations-documentation repo
         uses: actions/checkout@v2
@@ -31,27 +62,6 @@ jobs:
           repository: ${{ env.DOC_REPO }}
           path: ${{ env.DOC_CLONE_PATH }}
 
-      - name: Setup NodeJS
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-
-      - name: Set up SSH Auth
-        uses: webfactory/ssh-agent@v0.2.0
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY_DOC }}
-
-      - name: Install depedencies
-        run: |
-          cd $MAIN_CLONE_PATH
-          yarn install --frozen-lockfile
-
-      - name: Run update release on github
-        run: |
-          cd $MAIN_CLONE_PATH
-          yarn update-release-note ${{ github.event.client_payload.package_name }} ${{ github.event.client_payload.current_tag }} ${{ github.event.client_payload.previous_tag }}
-
       - name: Run update doc script
         run: |
-          cd $MAIN_CLONE_PATH
-          yarn update-doc ${{ github.event.client_payload.package_name }} ${{ github.event.client_payload.current_tag }}
+          cd $MAIN_CLONE_PATH && yarn update-doc ${{ github.event.client_payload.package_name }} ${{ github.event.client_payload.current_tag }}

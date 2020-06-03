@@ -3,6 +3,7 @@ name: Release Note
 on:
   repository_dispatch:
     types: [release-note]
+
 jobs:
   release-note:
     runs-on: ubuntu-latest
