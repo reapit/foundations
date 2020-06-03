@@ -49,8 +49,8 @@ const getReleaseAndCreatePr = async () => {
 
     const newFilePath = await insertAtLine({ path, line, content: formattedContent })
     const prTitle = `${currentTag} - Document Update`
-    console.log('Executing git commands...')
-    execSync(
+    console.info('Executing git commands...')
+    const resultGitSetUp = execSync(
       `cd ${docRepoPath} && \
     git remote set-url origin git@github.com:$DOC_REPO
     git config user.name "Will McVay" && \
@@ -60,8 +60,9 @@ const getReleaseAndCreatePr = async () => {
     git commit -m "${prTitle}" && \
     git push -u origin HEAD
       `,
-    )
-    console.log(`Pushed to ${currentTag}, creating PR...`)
+    ).toString()
+    console.info(resultGitSetUp)
+    console.info(`Pushed to ${currentTag}, creating PR...`)
     const {
       data: { html_url },
     } = await octokit.pulls.create({
@@ -71,7 +72,7 @@ const getReleaseAndCreatePr = async () => {
       head: currentTag,
       base: 'master',
     })
-    console.log(`Success! A PR has been created at: ${html_url}`)
+    console.info(`Success! A PR has been created at: ${html_url}`)
     await sendMessageToSlack(`Release doc for \`${currentTag}\` has been created at ${html_url}`)
     return 'Success'
   } catch (err) {
