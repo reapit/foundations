@@ -61,6 +61,8 @@
   },
   "devDependencies": {
     "@reapit/foundations-ts-definitions": "2020-02-13",
+    "@rollup/plugin-commonjs": "^12.0.0",
+    "@rollup/plugin-node-resolve": "^8.0.0",
     "@storybook/addon-actions": "^5.2.6",
     "@storybook/addon-docs": "^5.2.6",
     "@storybook/addon-info": "^5.2.6",
@@ -79,9 +81,8 @@
     "@whitespace/storybook-addon-html": "^1.2.1",
     "react-is": "^16.13.1",
     "rollup": "1.27.13",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-css-only": "^2.0.0",
-    "rollup-plugin-scss": "^1.0.2"
+    "rollup-plugin-scss": "^1.0.2",
+    "rollup-plugin-typescript2": "^0.27.1"
   },
   "peerDependencies": {
     "react": "^16.11.0",
