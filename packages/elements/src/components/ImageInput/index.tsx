@@ -8,5 +8,6 @@ export const ImageInput = (props: FileInputProps) => (
     labelText={props.labelText}
     id={props.id}
     allowClear={props.allowClear}
+    accept="image/*"
   />
 )

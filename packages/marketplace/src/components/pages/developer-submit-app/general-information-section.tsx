@@ -61,6 +61,7 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = () =
             id="name"
             name="name"
             placeholder="The name of your app as it will appear to users"
+            required
           />
         </GridItem>
         <GridItem>
