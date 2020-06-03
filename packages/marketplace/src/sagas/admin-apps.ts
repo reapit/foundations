@@ -17,7 +17,7 @@ import { APPS_PER_PAGE } from '@/constants/paginator'
 
 export const adminAppsFetch = function*({ data }) {
   try {
-    const response = yield call(fetchAppsList, { ...data, pageSize: APPS_PER_PAGE })
+    const response = yield call(fetchAppsList, { ...data, pageSize: APPS_PER_PAGE, pageNumber: data.page })
 
     yield put(adminAppsReceiveData(response))
   } catch (err) {
