@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useHistory } from 'react-router'
 import classNames from 'classnames'
 import { selectIntegrationTypes } from '@/selector/integration-types'
 import { DesktopIntegrationTypeModel } from '@/actions/app-integration-types'
@@ -20,9 +21,9 @@ import AppInstallations from '@/components/ui/app-installations/app-installation
 import routes from '@/constants/routes'
 import styles from '@/styles/pages/developer-app-detail.scss?mod'
 import AppRevisionModal from '@/components/ui/developer-app-detail/app-revision-modal'
-import { useHistory } from 'react-router'
 import { DeveloperAppDetailState } from '@/reducers/developer'
 import { getDesktopIntegrationTypes } from '@/utils/get-desktop-integration-types'
+import useReactResponsive from '@/components/hooks/useReactResponsive'
 
 export type DeveloperAppDetailProps = {}
 
@@ -80,11 +81,12 @@ export const onBackToAppsButtonClick = (history: History) => {
 }
 
 const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
+  const history = useHistory()
   const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false)
   const [isInstallationsModalOpen, setIsInstallationsModalOpen] = React.useState(false)
   const [isAppRevisionComparisionModalOpen, setIsAppRevisionComparisionModalOpen] = React.useState(false)
+  const { isDesktop } = useReactResponsive()
 
-  const history = useHistory()
   const appDetailState = useSelector(selectAppDetailState)
   const appDetailData = useSelector(selectAppDetailData)
   const isLoadingAppDetail = useSelector(selectAppDetailLoading)
@@ -107,12 +109,14 @@ const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
       <Aside desktopIntegrationTypes={userDesktopIntegrationTypes} appDetailState={appDetailState} />
       <div className={styles.mainContainer}>
         <AppHeader appDetailData={appDetailData} />
-        <AppContent appDetailData={appDetailData} />
-        <FormSection className={classNames('is-clearfix', styles.footerContainer)}>
-          <Button className="is-pulled-right" onClick={onBackToAppsButtonClick(history)}>
-            Back To Apps
-          </Button>
-        </FormSection>
+        <AppContent appDetailState={appDetailState} />
+        {isDesktop && (
+          <FormSection className={classNames('is-clearfix', styles.footerContainer)}>
+            <Button className="is-pulled-right" onClick={onBackToAppsButtonClick(history)}>
+              Back To Apps
+            </Button>
+          </FormSection>
+        )}
       </div>
       {isDeleteModalOpen && (
         <AppDelete

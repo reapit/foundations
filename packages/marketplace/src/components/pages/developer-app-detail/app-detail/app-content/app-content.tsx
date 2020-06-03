@@ -17,11 +17,14 @@ import { Table, Modal } from '@reapit/elements'
 import { generateColumns } from '@/components/ui/app-installations/installations'
 import clientAppDetailStyles from '@/styles/pages/client-app-detail.scss?mod'
 import { RenderWithHeader } from '../render-with-header'
-import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
 import AppAuthenticationDetail from '@/components/ui/app-authentication-detail'
+import useReactResponsive from '@/components/hooks/useReactResponsive'
+import { renderListedStatus, ManageApp } from '../../aside'
+import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
+import { DeveloperAppDetailState } from '@/reducers/developer'
 
 export type AppContentProps = {
-  appDetailData: AppDetailDataNotNull
+  appDetailState: DeveloperAppDetailState
 }
 
 interface RenderAuthenticationParams {
@@ -93,8 +96,10 @@ export const CustomUninstallCell: React.FC<{ onClick: () => void }> = ({ onClick
   <a onClick={onClick}>Uninstall</a>
 )
 
-const AppContent: React.FC<AppContentProps> = ({ appDetailData }) => {
-  const { summary = '', authFlow = '', externalId = '', id = '', name = '' } = appDetailData
+const AppContent: React.FC<AppContentProps> = ({ appDetailState }) => {
+  const appDetailData = appDetailState.data as AppDetailDataNotNull
+  const { summary = '', authFlow = '', externalId = '', id = '', name = '', isListed, pendingRevisions } = appDetailData
+  const { isMobile } = useReactResponsive()
   const installationsData = useSelector(selectInstallationAppData) as PagedResultInstallationModel_
   const { data = [] } = installationsData
   const dispatch = useDispatch()
@@ -130,6 +135,11 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailData }) => {
         </Modal>
       )}
       <div className={clientAppDetailStyles.gutter}>{summary}</div>
+
+      {isMobile && <RenderWithHeader header="Status">{renderListedStatus(Boolean(isListed))}</RenderWithHeader>}
+
+      {isMobile && <ManageApp appDetailState={appDetailState} id={id} pendingRevisions={Boolean(pendingRevisions)} />}
+
       <div className={appDetailStyles.gutter}>
         <H5 className="flex items-center">
           <span className="mr-1">See listing preview</span>{' '}

@@ -6,6 +6,9 @@
   display: flex;
   align-items: flex-end;
   flex-direction: column;
+  @include for-mobile-only {
+    padding-right: 0;
+  }
 }
 
 .asideContainer {
@@ -13,15 +16,11 @@
   width: 25%;
   display: flex;
   justify-content: center;
-
+  @include for-mobile-only {
+    width: 100%;
+  }
   & > div {
     width: 70%;
-  }
-
-
-  /* mobile screen size*/
-  @include for-mobile-only {
-    display: none;
   }
 
   h5.headerWithoutMargin {
@@ -47,10 +46,8 @@
   .appHeaderFeaturedImage {
     max-width: 495px;
     max-height: 222px;
-
     @include for-mobile-only {
-      flex: 1;
-      margin-top: 2rem;
+      display: none;
     }
   }
 
