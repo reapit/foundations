@@ -133,13 +133,6 @@ const Router = () => {
                 exact
                 fetcher
               />
-              <PrivateRoute
-                allow="ADMIN"
-                path={Routes.ADMIN_DEV_MANAGEMENT_PAGINATE}
-                component={AdminDevManagementPage}
-                exact
-                fetcher
-              />
               <PrivateRoute allow="ADMIN" path={Routes.ADMIN_STATS} component={AdminStats} exact fetcher />
               <Route render={() => <Info infoType="404" />} />
             </Switch>
