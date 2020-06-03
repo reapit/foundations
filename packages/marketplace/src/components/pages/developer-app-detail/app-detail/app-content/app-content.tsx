@@ -11,7 +11,6 @@ import ConfirmUninstall from '@/components/ui/app-installations/confirm-uninstal
 import { PagedResultInstallationModel_, InstallationModel } from '@reapit/foundations-ts-definitions'
 import { handleUninstall, handleAfterClose } from '@/components/ui/app-installations/app-installations-modal'
 import AuthFlow from '@/constants/app-auth-flow'
-import '@/styles/vendor/slick.scss'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectInstallationAppData } from '@/selector/installations'
 import { Table, Modal } from '@reapit/elements'
