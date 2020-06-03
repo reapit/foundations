@@ -15,3 +15,7 @@ export const selectAppDetailAuthentication = (state: ReduxState) => {
 export const selectAppDetailLoading = (state: ReduxState) => {
   return state.client.appDetail.isAppDetailLoading
 }
+
+export const selectAppDetailError = (state: ReduxState): string | null => {
+  return state?.client?.appDetail?.error || null
+}
