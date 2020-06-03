@@ -29,7 +29,9 @@
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
-    "fetch-config": "yarn config-manager fetchConfig elements"
+    "fetch-config": "yarn config-manager fetchConfig elements",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "browserslist": [
     "> 1%",
@@ -57,7 +59,8 @@
     "react-google-maps-loader": "4.2.5",
     "react-icons": "^3.7.0",
     "react-table": "7.0.4",
-    "styled-components": "^4.4.1"
+    "styled-components": "^4.4.1",
+    "snyk": "^1.335.0"
   },
   "devDependencies": {
     "@reapit/foundations-ts-definitions": "2020-02-13",
@@ -89,5 +92,6 @@
     "react-dom": "^16.11.0",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2"
-  }
+  },
+  "snyk": true
 }
