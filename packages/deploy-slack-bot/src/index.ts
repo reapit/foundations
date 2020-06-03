@@ -75,7 +75,7 @@ export type GenerateMessageParams = {
 const generateMessage = ({ packageName, environment, currentTag, previousTag }: GenerateMessageParams) => {
   return {
     'release-note': `Generating release note for \`${packageName}\` tag \`${currentTag}\`. Roll back version is \`${previousTag}\``,
-    release: `Releasing ${environment} \`${packageName}\` development environment \`${currentTag}\`. Roll back version is \`${previousTag}\``,
+    release: `Releasing ${environment} \`${packageName}\` environment \`${currentTag}\`. Roll back version is \`${previousTag}\``,
     'update-release-note': `Updating release note for \`${packageName}\` tag \`${currentTag}\`.`,
   }
 }
