@@ -156,6 +156,21 @@ exports[`AppContent renderDesktopIntegrationTypes - should match snapshot 1`] = 
 </div>
 `;
 
+exports[`AppContent renderDirectAPI - should match snapshot two cases 1`] = `
+<div>
+  <div>
+    <Component>
+      Direct API
+    </Component>
+    <p>
+      Yes
+    </p>
+  </div>
+</div>
+`;
+
+exports[`AppContent renderDirectAPI - should match snapshot two cases 2`] = `<div />`;
+
 exports[`AppContent renderExtraMedia - should match snapshot 1`] = `
 <div>
   <div

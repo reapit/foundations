@@ -1,3 +1,4 @@
+// TODO: remove this file after we separated dev & client standalone page
 import * as React from 'react'
 import { H2 } from '@reapit/elements'
 import { FaCheck } from 'react-icons/fa'

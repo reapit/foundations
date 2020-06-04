@@ -140,7 +140,7 @@ export const generateMenuConfig = (
         {
           title: 'Settings',
           key: 'SETTINGS',
-          url: Routes.SETTINGS,
+          url: Routes.DEVELOPER_SETTINGS,
           icon: <FaCog className="nav-item-icon" />,
           type: 'SECONDARY',
         },

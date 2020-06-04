@@ -1,0 +1,17 @@
+{
+  "customerId": "ZZA",
+  "appointmentLength": 11,
+  "appointmentTimeGap": 20,
+  "appointmentTypes": [
+    {
+      "value": "test",
+      "id": "testId"
+    }
+  ],
+  "negotiatorIds": [
+    "test"
+  ],
+  "daysOfWeek": [
+    2
+  ]
+}

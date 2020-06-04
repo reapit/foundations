@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeveloperOrganisationTabPage should match snapshot 1`] = `
+<Component
+  flexColumn={true}
+  hasPadding={true}
+>
+  <Component>
+    <Component
+      flexColumn={true}
+      hasBackground={true}
+      hasPadding={true}
+    >
+      <Component />
+    </Component>
+  </Component>
+</Component>
+`;

@@ -77,7 +77,7 @@ describe('MyApps', () => {
   it('handleOnChange', () => {
     const fn = handleOnChange(history)
     fn(1)
-    expect(history.push).toBeCalledWith(`${routes.MY_APPS}/${1}`)
+    expect(history.push).toBeCalledWith(`${routes.MY_APPS}?page=${1}`)
   })
 
   describe('handleOnSettingClick', () => {

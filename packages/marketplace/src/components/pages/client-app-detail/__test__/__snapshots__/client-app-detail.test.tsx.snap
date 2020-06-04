@@ -169,7 +169,7 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
           data-test="client-app-detail-container"
         >
           <div>
-            <DesktopAppHeader
+            <ClientAppHeader
               appDetailData={
                 Object {
                   "key": "value",
@@ -183,15 +183,15 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
             >
               <div>
                 <div
-                  className="flex mb-3"
+                  className="flex mb-3 undefined"
                 >
-                  <div>
-                    <img
-                      alt=""
-                      className="images "
-                      src="https://bulma.io/images/placeholders/48x48.png"
-                    />
-                  </div>
+                  <div
+                    style={
+                      Object {
+                        "backgroundImage": "url('undefined')",
+                      }
+                    }
+                  />
                   <div>
                     <Component>
                       <h2
@@ -233,11 +233,18 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
                     </div>
                   </div>
                 </div>
-                <img
-                  src="https://bulma.io/images/placeholders/48x48.png"
-                />
+                <div />
+                <div>
+                  <img
+                    style={
+                      Object {
+                        "height": "20rem",
+                      }
+                    }
+                  />
+                </div>
               </div>
-            </DesktopAppHeader>
+            </ClientAppHeader>
             <AppContent
               appDetailData={
                 Object {
