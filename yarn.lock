@@ -1204,10 +1204,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@braintree/sanitize-url@^4.0.0":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@braintree/sanitize-url/-/sanitize-url-4.0.1.tgz#16e719eba72693f95989c05f2b3b424f2aabc5b0"
-  integrity sha512-THIQtVN491hY2rTZ/h5boj0CwDKrZQIUnfaj6RbpGwRJKfmEIgNpgcCJC3KZl1Vux9bQmdE2P4Q7cYUoSUQ4MA==
+"@braintree/sanitize-url@^3.0.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@braintree/sanitize-url/-/sanitize-url-3.1.0.tgz#8ff71d51053cd5ee4981e5a501d80a536244f7fd"
+  integrity sha512-GcIY79elgB+azP74j8vqkiXz8xLFfIzbQJdlwOPisgbKT00tviJQuEghOXSMVxJ00HoYJbGswr4kcllUc4xCcg==
 
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
@@ -24626,10 +24626,10 @@ requires-port@^1.0.0:
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
 
-reselect@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/reselect/-/reselect-4.0.0.tgz#f2529830e5d3d0e021408b246a206ef4ea4437f7"
-  integrity sha512-qUgANli03jjAyGlnbYVAV5vvnOmJnODyABz51RdBN7M4WaVu8mecZWgyQNkG8Yqe3KRGRt0l4K4B3XVEULC4CA==
+reselect@^2.5.4:
+  version "2.5.4"
+  resolved "https://registry.yarnpkg.com/reselect/-/reselect-2.5.4.tgz#b7d23fdf00b83fa7ad0279546f8dbbbd765c7047"
+  integrity sha1-t9I/3wC4P6etAnlUb427vXZccEc=
 
 resize-img@^1.1.0:
   version "1.1.2"
@@ -27300,7 +27300,7 @@ sw2dts@^2.6.2:
     dtsgenerator "^1.2.0"
     js-yaml "^3.13.1"
 
-swagger-client@^3.10.5:
+swagger-client@^3.9.6:
   version "3.10.5"
   resolved "https://registry.yarnpkg.com/swagger-client/-/swagger-client-3.10.5.tgz#d1992e116a454dae5c9077e6033d70aaee6c0b06"
   integrity sha512-7DRt7YxIa6hEHlm8GRDj87AfMhBRlrTXKklNjmuxkY6dNrr1TKwWnQUjuxmGXZ8JKuF4FlJTyJaN8BAr2ZvZpA==
@@ -27324,13 +27324,13 @@ swagger-client@^3.10.5:
     utf8-bytes "0.0.1"
     utfstring "^2.0.0"
 
-swagger-ui-react@^3.24.3:
-  version "3.25.5"
-  resolved "https://registry.yarnpkg.com/swagger-ui-react/-/swagger-ui-react-3.25.5.tgz#75a3ce747f3f29be390c18cdb509bde988dcee80"
-  integrity sha512-dgQ1II1h95Dsjnw8q83RbNvYIe8ClzkOSWP2LJJ3c4qoZ64hDKIzF5RZwgw8iAYcVs2z+Yp/zt0fP9ifrUF5wQ==
+swagger-ui-react@3.24.3:
+  version "3.24.3"
+  resolved "https://registry.yarnpkg.com/swagger-ui-react/-/swagger-ui-react-3.24.3.tgz#0cb5ad408450b8d5471893ee74c8b7532d22c113"
+  integrity sha512-vLwl+rMs1MK06TtnL5UJvqqBimnzI9UD5e+Lzpd6fquzWH2uhbA2M+28/rmvuz2tLrWPDTvb7WIx8gmOPcsduQ==
   dependencies:
     "@babel/runtime-corejs2" "^7.5.5"
-    "@braintree/sanitize-url" "^4.0.0"
+    "@braintree/sanitize-url" "^3.0.0"
     "@kyleshockey/object-assign-deep" "^0.4.2"
     "@kyleshockey/xml" "^1.0.2"
     base64-js "^1.2.0"
@@ -27356,10 +27356,10 @@ swagger-ui-react@^3.24.3:
     redux "^3.x.x"
     redux-immutable "3.1.0"
     remarkable "^1.7.4"
-    reselect "^4.0.0"
+    reselect "^2.5.4"
     serialize-error "^2.1.0"
     sha.js "^2.4.11"
-    swagger-client "^3.10.5"
+    swagger-client "^3.9.6"
     url-parse "^1.4.7"
     xml-but-prettier "^1.0.1"
     zenscroll "^4.0.2"
