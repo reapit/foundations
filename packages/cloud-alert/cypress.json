@@ -11,11 +11,13 @@
     "GEO_DIARY_URL_production": "https://geo-diary-app.reapit.cloud/",
     "SMB_ONBOARDER_URL_production": "https://smb-app.reapit.cloud/",
     "LIFE_TIME_LEGAL_URL_production": "http://lifetime-legal-app.reapit.cloud/",
+    "SEARCH_WIDGET_API_URL_production": "https://b2q5q0tc48.execute-api.eu-west-2.amazonaws.com/dev",
     "MARKETPLACE_URL_development": "https://dev.marketplace.reapit.cloud/",
     "AML_CHECKLIST_URL_development": "https://dev.aml-app.reapit.cloud/",
     "GEO_DIARY_URL_development": "https://dev.geo-diary-app.reapit.cloud/",
     "SMB_ONBOARDER_URL_development": "https://dev.smb-app.reapit.cloud/",
-    "LIFE_TIME_LEGAL_URL_development": "http://dev.lifetime-legal-app.reapit.cloud/"
+    "LIFE_TIME_LEGAL_URL_development": "http://dev.lifetime-legal-app.reapit.cloud/",
+    "SEARCH_WIDGET_API_URL_development": "https://b2q5q0tc48.execute-api.eu-west-2.amazonaws.com/dev"
   },
   "ignoreTestFiles": [
     "**/__snapshots__/*",

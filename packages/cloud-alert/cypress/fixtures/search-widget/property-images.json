@@ -1,0 +1,147 @@
+{
+  "pageNumber": 1,
+  "pageSize": 25,
+  "pageCount": 25,
+  "totalCount": 9246,
+  "_links": {
+    "self": {
+      "href": "/propertyImages/?PageNumber=1&PageSize=25"
+    },
+    "first": {
+      "href": "/propertyImages/?PageNumber=1&PageSize=25"
+    },
+    "next": {
+      "href": "/propertyImages/?PageNumber=2&PageSize=25"
+    },
+    "last": {
+      "href": "/propertyImages/?PageNumber=370&PageSize=25"
+    }
+  },
+  "_embedded": [
+    {
+      "id": "BED130271_06.jpg",
+      "propertyId": "BED130271",
+      "url": "https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/BED/13/BED130271_06.jpg"
+    },
+    {
+      "id": "BED130271_01.jpg",
+      "propertyId": "BED130271",
+      "url": "https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/BED/13/BED130271_01.jpg"
+    },
+    {
+      "id": "RPT200079_02.png",
+      "propertyId": "RPT200079",
+      "url": "https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/RPT/20/RPT200079_02.png"
+    },
+    {
+      "id": "RPT200073_02.png",
+      "propertyId": "RPT200073",
+      "url": "https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/RPT/20/RPT200073_02.png"
+    },
+    {
+      "id": "RPT200070_01.png",
+      "propertyId": "RPT200070",
+      "url": "https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/RPT/20/RPT200070_01.png"
+    },
+    {
+      "id": "RPT200061_02.png",
+      "propertyId": "RPT200061",
+      "url": "https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/RPT/20/RPT200061_02.png"
+    },
+    {
+      "id": "RPT200059_02.png",
+      "propertyId": "RPT200059",
+      "url": "https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/RPT/20/RPT200059_02.png"
+    },
+    {
+      "id": "RPT200031_01.png",
+      "propertyId": "RPT200031",
+      "url": "https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/RPT/20/RPT200031_01.png"
+    },
+    {
+      "id": "RPT200013_01.png",
+      "propertyId": "RPT200013",
+      "url": "https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/RPT/20/RPT200013_01.png"
+    },
+    {
+      "id": "OXF100008_01.png",
+      "propertyId": "OXF100008",
+      "url": "https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/OXF/10/OXF100008_01.png"
+    },
+    {
+      "id": "MKC100115_42.jpg",
+      "propertyId": "MKC100115",
+      "url": "https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/MKC/10/MKC100115_42.jpg"
+    },
+    {
+      "id": "MKC100115_41.jpg",
+      "propertyId": "MKC100115",
+      "url": "https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/MKC/10/MKC100115_41.jpg"
+    },
+    {
+      "id": "MKC100115_40.jpg",
+      "propertyId": "MKC100115",
+      "url": "https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/MKC/10/MKC100115_40.jpg"
+    },
+    {
+      "id": "MKC100115_39.jpg",
+      "propertyId": "MKC100115",
+      "url": "https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/MKC/10/MKC100115_39.jpg"
+    },
+    {
+      "id": "BUC120066_01.jpg",
+      "propertyId": "BUC120066",
+      "url": "https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/BUC/12/BUC120066_01.jpg"
+    },
+    {
+      "id": "OHO154760_18.jpg",
+      "propertyId": "OHO154760",
+      "url": "https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/OHO/15/OHO154760_18.jpg"
+    },
+    {
+      "id": "OHO160384_15.jpg",
+      "propertyId": "OHO160384",
+      "url": "https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/OHO/16/OHO160384_15.jpg"
+    },
+    {
+      "id": "OHO160384_14.jpg",
+      "propertyId": "OHO160384",
+      "url": "https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/OHO/16/OHO160384_14.jpg"
+    },
+    {
+      "id": "OHO160384_13.jpg",
+      "propertyId": "OHO160384",
+      "url": "https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/OHO/16/OHO160384_13.jpg"
+    },
+    {
+      "id": "OHO160384_12.jpg",
+      "propertyId": "OHO160384",
+      "url": "https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/OHO/16/OHO160384_12.jpg"
+    },
+    {
+      "id": "MKC190020_01.jpg",
+      "propertyId": "MKC190020",
+      "url": "https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/MKC/19/MKC190020_01.jpg"
+    },
+    {
+      "id": "OHO153057_16.jpg",
+      "propertyId": "OHO153057",
+      "url": "https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/OHO/15/OHO153057_16.jpg"
+    },
+    {
+      "id": "AYL190006_01.jpg",
+      "propertyId": "AYL190006",
+      "url": "https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/AYL/19/AYL190006_01.jpg"
+    },
+    {
+      "id": "AYL190007_01.jpg",
+      "propertyId": "AYL190007",
+      "url": "https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/AYL/19/AYL190007_01.jpg"
+    },
+    {
+      "id": "AYL190004_01.jpg",
+      "propertyId": "AYL190004",
+      "url": "https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/AYL/19/AYL190004_01.jpg"
+    }
+  ]
+}

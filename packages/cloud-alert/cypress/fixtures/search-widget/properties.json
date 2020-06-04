@@ -1,0 +1,984 @@
+{
+  "pageNumber": 1,
+  "pageSize": 25,
+  "pageCount": 25,
+  "totalCount": 35,
+  "_links": {
+    "self": {
+      "href": "/properties/?PageNumber=1&PageSize=25&addedIn=&apiKey=&bedroomsFrom=1&bedroomsTo=2&customerId=DXX&isRental=true&keywords=london&priceFrom=300000&priceTo=500000&propertyType=house&sortBy=price"
+    },
+    "first": {
+      "href": "/properties/?PageNumber=1&PageSize=25&addedIn=&apiKey=&bedroomsFrom=1&bedroomsTo=2&customerId=DXX&isRental=true&keywords=london&priceFrom=300000&priceTo=500000&propertyType=house&sortBy=price"
+    },
+    "next": {
+      "href": "/properties/?PageNumber=2&PageSize=25&addedIn=&apiKey=&bedroomsFrom=1&bedroomsTo=2&customerId=DXX&isRental=true&keywords=london&priceFrom=300000&priceTo=500000&propertyType=house&sortBy=price"
+    },
+    "last": {
+      "href": "/properties/?PageNumber=2&PageSize=25&addedIn=&apiKey=&bedroomsFrom=1&bedroomsTo=2&customerId=DXX&isRental=true&keywords=london&priceFrom=300000&priceTo=500000&propertyType=house&sortBy=price"
+    }
+  },
+  "_embedded": [
+    {
+      "id": "BED150502",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "",
+        "buildingNumber": "44",
+        "line1": "West End",
+        "line2": "Stevington",
+        "line3": "Bedfordshire",
+        "line4": "",
+        "postcode": "MK43 7QU",
+        "countryId": "GB",
+        "geolocation": {
+          "latitude": 52.173075,
+          "longitude": -0.565459
+        }
+      },
+      "description": "The cottage is of stone construction under a pitched slate roof.  It retains period features such as stripped ledge and brace doors and traditional fireplaces.  There are two reception rooms, a conservatory, a fitted kitchen and a shower room on the ground floor, two bedrooms on the first floor and an attic room on the second floor.  The gardens have been landscaped and are fully enclosed.  There is off street parking for up to three cars.",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "selling": {
+        "instructed": "2019-03-09",
+        "price": 300000,
+        "qualifier": "askingPrice",
+        "status": "forSale",
+        "completed": null,
+        "exchanged": null,
+        "tenure": null,
+        "vendorId": "BED150502"
+      },
+      "letting": null,
+      "type": [
+        "house",
+        "cottage"
+      ],
+      "style": [
+        "endTerrace"
+      ]
+    },
+    {
+      "id": "BUC150002",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "The Coach House",
+        "buildingNumber": "73",
+        "line1": "Green End",
+        "line2": "Granborough",
+        "line3": "Buckingham",
+        "line4": "Buckinghamshire",
+        "postcode": "MK18 3NT",
+        "countryId": "GB",
+        "geolocation": {
+          "latitude": 51.919189,
+          "longitude": -0.881481
+        }
+      },
+      "description": "The property has a wealth of character features including exposed beams, wooden floors, an inglenook fireplace and a working well.  The accommodation comprises an entrance hall, a downstairs bathroom, a sitting room, a kitchen/dining room and two first floor double bedrooms.  There is a south facing garden, a garden store with power and light and off street parking for two/three cars.",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "selling": {
+        "instructed": "2018-04-11",
+        "price": 300000,
+        "qualifier": "guidePrice",
+        "status": "completed",
+        "completed": "2015-09-16",
+        "exchanged": "2018-10-17",
+        "tenure": {
+          "type": "freehold",
+          "expiry": null
+        },
+        "vendorId": "BUC150002"
+      },
+      "letting": null,
+      "type": [
+        "house"
+      ],
+      "style": [
+        "detached"
+      ]
+    },
+    {
+      "id": "NEP160031",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "",
+        "buildingNumber": "6",
+        "line1": "Sunny Side Cottages",
+        "line2": "Little Crawley",
+        "line3": "Newport Pagnell",
+        "line4": "Buckinghamshire",
+        "postcode": "MK16 9LT",
+        "countryId": "GB",
+        "geolocation": {
+          "latitude": 52.099001,
+          "longitude": -0.655083
+        }
+      },
+      "description": "",
+      "bedrooms": 2,
+      "bathrooms": 0,
+      "selling": {
+        "instructed": null,
+        "price": 300000,
+        "qualifier": "askingPrice",
+        "status": "valuation",
+        "completed": null,
+        "exchanged": null,
+        "tenure": null,
+        "vendorId": "NEP160031"
+      },
+      "letting": null,
+      "type": [
+        "house",
+        "cottage"
+      ],
+      "style": [
+        "endTerrace"
+      ]
+    },
+    {
+      "id": "RPT190219",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "Homestead",
+        "buildingNumber": "365",
+        "line1": "Annual Lane",
+        "line2": "Severndais",
+        "line3": "Twelmonths",
+        "line4": "",
+        "postcode": "CM11 2DX",
+        "countryId": "GB",
+        "geolocation": {
+          "latitude": 51.627498,
+          "longitude": 0.429754
+        }
+      },
+      "description": "This is a description",
+      "bedrooms": 1,
+      "bathrooms": 3,
+      "selling": {
+        "instructed": null,
+        "price": 300000,
+        "qualifier": "guidePrice",
+        "status": "preAppraisal",
+        "completed": null,
+        "exchanged": null,
+        "tenure": {
+          "type": "freehold",
+          "expiry": null
+        },
+        "vendorId": "RPT190219"
+      },
+      "letting": null,
+      "type": [
+        "house"
+      ],
+      "style": [
+        "detached"
+      ]
+    },
+    {
+      "id": "BED150241",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "",
+        "buildingNumber": "34",
+        "line1": "Station Road",
+        "line2": "Oakley",
+        "line3": "Bedfordshire",
+        "line4": "",
+        "postcode": "MK43 7RB",
+        "countryId": "GB",
+        "geolocation": {
+          "latitude": 52.17399,
+          "longitude": -0.520827
+        }
+      },
+      "description": "The cottage originally dates from the 1860s and is principally of stone construction under a clay tiled roof.  It has been improved and updated to include a contemporary style kitchen but retains traditional fireplaces, exposed floorboards and stripped ledge and brace doors.  The rear garden is subdivided by a driveway with undercover parking for one car and off street parking for two additional cars.",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "selling": {
+        "instructed": "2018-07-21",
+        "price": 315000,
+        "qualifier": "guidePrice",
+        "status": "completed",
+        "completed": "2016-01-27",
+        "exchanged": "2019-04-05",
+        "tenure": null,
+        "vendorId": "BED150241"
+      },
+      "letting": null,
+      "type": [
+        "house"
+      ],
+      "style": [
+        "terraced"
+      ]
+    },
+    {
+      "id": "OHO154092",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "",
+        "buildingNumber": "50",
+        "line1": "Shefford Road",
+        "line2": "Clifton",
+        "line3": "Shefford",
+        "line4": "Bedfordshire",
+        "postcode": "SG17 5RG",
+        "countryId": "GB",
+        "geolocation": {
+          "latitude": 52.036005,
+          "longitude": -0.305488
+        }
+      },
+      "description": "Tenure: Freehold\n\n\t\tA well presented two bedroom bungalow offered with no upward chain in the sought after village of Clifton.  EPC rating E.\n\n          Property ref: 121_796_3905784\n\n    \n\n        Entrance Porch \n\n            Ceramic tiled flooring.  Door to:\n\n            \n\n\n        Dining Room \n\n            11' 6 x 9' (3.51m x 2.74m) Double glazed window to front aspect.  Storage cupboard.  Open plan to kitchen and lounge.  Wood effect flooring.  Radiator.\n\n            \n\n\n        Kitchen \n\n            11' 6 x 7' (3.51m x 2.13m) Re-fitted with a range of eye and base level units with rolled edge worksurfaces over.  Stainless steel sink and drainer unit with mixer taps over.  Built in electric oven and four ring gas hob with extractor hood over. Integrated washer/dryer and dishwasher. Space for fridge/freezer.  Space and plumbing for washing machine and dishwasher.  Double glazed windows to rear and side aspects.  Ceramic tiled flooring.  \n\n            \n\n\n        Rear Lobby \n\n            Door to outside, service door to garage.  Wood effect flooring.\n\n            \n\n\n        Lounge \n\n            17' 7 x 11' 9 (5.36m x 3.58m) Dual aspect with double glazed bow window to front aspect and double glazed window to side aspect.  Coal effect gas fire with surround and back boiler.  Wood effect flooring.  \n\n            \n\n\n        Inner Lobby \n\n            Double storage cupboard.  Hatch to loft space.  Wood effect flooring.\n\n            \n\n\n        Bedroom 1 \n\n            12' 10 x 12' 8 (3.91m x 3.86m) Double glazed window to rear aspect.  Fitted wardrobes.  Wood effect flooring.  Radiator.\n\n            \n\n\n        Bedroom 2 \n\n            10' 6 x 9' 9 (3.20m x 2.97m) Double glazed window to side aspect.  Wood effect flooring.  Radiator.\n\n            \n\n\n        Bathroom \n\n            Fitted with three piece suite comprising panel enclosed bath with power shower over and glass side screen, vanity wash hand basin with cupboard under and low level WC.  Tiled splashbacks.  Heated towel rail.  Obscure double glazed window to side aspect.  \n\n            \n\n\n        Front Garden \n\n            Driveway leading to garage provides off road parking for several cars. \n\n            \n\n\n        Garage \n\n            Double glazed windows to front and rear aspects.  Up and over door.  Power and light.\n\nPRELIMINARY DETAILS, NOT YET APPROVED BY VENDOR AND MAY BE SUBJECT TO CHANGE. \n\n            \n\n\n        \n\n    \nMore information from this agent\n\n        \nTo view this media, please visit the on-line version of this page at www.rightmove.co.uk/property-for-sale/property-36055803.html",
+      "bedrooms": 2,
+      "bathrooms": 0,
+      "selling": {
+        "instructed": null,
+        "price": 315000,
+        "qualifier": "askingPrice",
+        "status": "preAppraisal",
+        "completed": null,
+        "exchanged": null,
+        "tenure": {
+          "type": "freehold",
+          "expiry": null
+        },
+        "vendorId": "OHO154092"
+      },
+      "letting": null,
+      "type": [
+        "bungalow"
+      ],
+      "style": [
+        "detached"
+      ]
+    },
+    {
+      "id": "OHO154782",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "",
+        "buildingNumber": "82",
+        "line1": "Woburn Street",
+        "line2": "Ampthill",
+        "line3": "Bedford",
+        "line4": "Bedfordshire",
+        "postcode": "MK45 2HP",
+        "countryId": "GB",
+        "geolocation": {
+          "latitude": 52.031823,
+          "longitude": -0.494122
+        }
+      },
+      "description": "Tenure: Freehold\n\n\t\tA most impressive and beautifully presented period property in a prestigious and convenient location within the town.\nSympathetically modernised with many character features.\nA practical home of immense charm close to Ampthill Great Park.\nStylish first floor bathroom and two good size bedrooms.\nKitchen-Dining room with garden access.\nDelightful sitting room with feature fire place.\nPaved attractive Victorian style garden.\n\n          Property ref: 121_794_2444356\n\n    \n\n        Entrance \n\n            Accessed via timber front entrance door to:\n\n            \n\n\n        Lounge \n\n            19' 3 x 10' 9 (5.87m x 3.28m)  \nSash window to front elevation with integrated shutter. Turning staircase to first floor landing.  As the main focal point to the room there is a brick fire place with inset gas coal effect log burner.  Victorian style radiator.  Feature leaded glazed internal window.\n\n            \n\n\n        Kitchen/Diner \n\n            16' x 9' 10 (4.88m x 3.00m) \nGlazed multi pane style windows to side and rear. Victorian style radiator.  Range of base and wall mounted units with cream panelled doors and drawer fronts and beech work surface over. Integrated ceramic sink unit with mixer tap over.  Fitted Bosch oven, ceramic hob and stainless steel and glass extractor over.  Part tiled walls.  Integrated fridge and freezer. Integrated washing machine and dishwasher.  Down lighters.  Concealed wall mounted gas boiler.\n\n            \n\n\n        Landing \n\n            Multi pane style window to side aspect. Victorian style radiator.  Stunning exposed timbers.\n\n            \n\n\n        Bedroom One \n\n            16' x 9' 10 (4.88m x 3.00m)  \nMulti pane style window to rear. Victorian style radiator.  Hand built range of wardrobes and drawers.  Down lighting and coving.\n\n            \n\n\n        Bedroom Two \n\n            11' x 9' (3.35m x 2.74m)   \nSash window to front.  Feature fireplace.  Victorian style radiator.\n\n            \n\n\n        Bathroom \n\n            Stylish white suite comprising of panelled bath with shower over, wash hand basin and low level WC. Down lighting. Tiled floor. Part panelled walls. Heated towel rail. Window to side. \n\n            \n\n\n        Rear Courtyard Garden \n\n            Pretty courtyard garden.  Tiled patio seating area.  Timber decked area.  Shrub and flower borders.  Mature tree.  Side access.\n\n            \n\n\n        Directions \n\n            From the centre of Ampthill, take Woburn Street and no.12 is less than 100 metres along on the left. It is convenient to park just over the brow of the hill in the car park opposite the Alameda restaurant. \n\nAMPTHILL – is a small Georgian market town and civil parish in Bedfordshire, between Bedford and Luton, with a population of about 7,000. A regular market has taken place on Thursdays for centuries. The town has several lively pubs, a wide variety of restaurants, a Waitrose supermarket and a selection of small independent specialist shops. A number of small businesses such as solicitors, estate agents, financial services, hairdressers and music schools are located in town. Larger businesses are to be found on the commercial and industrial developments on the outskirts, along the town’s bypass. Ampthill also has a high concentration of public amenities, the local Upper School in Ampthill, Redborne School, is a very successful 13 - 18 school t...\n            \n\n            \n\n\n        \n\n    \nMore information from this agent\n\n        \nTo view this media, please visit the on-line version of this page at www.rightmove.co.uk/property-for-sale/property-51752392.html",
+      "bedrooms": 2,
+      "bathrooms": 0,
+      "selling": {
+        "instructed": null,
+        "price": 319995,
+        "qualifier": "askingPrice",
+        "status": "preAppraisal",
+        "completed": null,
+        "exchanged": null,
+        "tenure": {
+          "type": "freehold",
+          "expiry": null
+        },
+        "vendorId": "OHO154782"
+      },
+      "letting": null,
+      "type": [
+        "house"
+      ],
+      "style": []
+    },
+    {
+      "id": "MKC150192",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "",
+        "buildingNumber": "99",
+        "line1": "The Courtyard",
+        "line2": "Rock Lane Farm",
+        "line3": "Liscombe Park",
+        "line4": "Leighton Buzzard",
+        "postcode": "LU7 0GY",
+        "countryId": "GB",
+        "geolocation": {
+          "latitude": 51.916483,
+          "longitude": -0.710139
+        }
+      },
+      "description": "This property has accommodation set over two floors.  It includes an open plan kitchen/breakfast/sitting room, a ground floor bedroom with en suite shower room, and a double bedroom and family bathroom on the first floor.",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "selling": {
+        "instructed": "2018-10-03",
+        "price": 325000,
+        "qualifier": "offersInRegion",
+        "status": "completed",
+        "completed": "2016-01-15",
+        "exchanged": "2019-03-27",
+        "tenure": null,
+        "vendorId": "MKC150192"
+      },
+      "letting": null,
+      "type": [
+        "house"
+      ],
+      "style": [
+        "terraced"
+      ]
+    },
+    {
+      "id": "NEP150248",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "",
+        "buildingNumber": "28",
+        "line1": "Willen Road",
+        "line2": "Newport Pagnell",
+        "line3": "Buckinghamshire",
+        "line4": "",
+        "postcode": "MK16 0LZ",
+        "countryId": "GB",
+        "geolocation": {
+          "latitude": 52.082333,
+          "longitude": -0.72397
+        }
+      },
+      "description": "",
+      "bedrooms": 2,
+      "bathrooms": 0,
+      "selling": {
+        "instructed": null,
+        "price": 325000,
+        "qualifier": "askingPrice",
+        "status": "forSale",
+        "completed": null,
+        "exchanged": null,
+        "tenure": null,
+        "vendorId": "NEP150248"
+      },
+      "letting": null,
+      "type": [
+        "bungalow"
+      ],
+      "style": [
+        "detached"
+      ]
+    },
+    {
+      "id": "NEP150357",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "The White Cottage",
+        "buildingNumber": "10",
+        "line1": "Silver Street",
+        "line2": "Newport Pagnell",
+        "line3": "Buckinghamshire",
+        "line4": "",
+        "postcode": "MK16 0EJ",
+        "countryId": "GB",
+        "geolocation": {
+          "latitude": 52.085097,
+          "longitude": -0.722651
+        }
+      },
+      "description": "",
+      "bedrooms": 2,
+      "bathrooms": 0,
+      "selling": {
+        "instructed": null,
+        "price": 325000,
+        "qualifier": "askingPrice",
+        "status": "valuation",
+        "completed": null,
+        "exchanged": null,
+        "tenure": null,
+        "vendorId": "NEP150357"
+      },
+      "letting": null,
+      "type": [
+        "house"
+      ],
+      "style": [
+        "detached"
+      ]
+    },
+    {
+      "id": "OHO153577",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "",
+        "buildingNumber": "3",
+        "line1": "Church Row",
+        "line2": "Wootton",
+        "line3": "Bedford",
+        "line4": "Bedfordshire",
+        "postcode": "MK43 9HQ",
+        "countryId": "GB",
+        "geolocation": {
+          "latitude": 52.094877,
+          "longitude": -0.535298
+        }
+      },
+      "description": "Tenure: Freehold\n\n\t\tThis property is full of character and period charm, but has been sympathetically improved and updated to provide a most comfortable home.  It is situated on a quiet no-through road leading to St Mary’s Church and forms part of a row of pretty 17th century terraced cottages.  The driveway to the side provides off-road parking and there is additional parking available, opposite the cottage. 23 Church Row is an ideal individually styled home in a quiet area and yet close to excellent transport links.\n\n    \n\n        \n\n    \nMore information from this agent\n\n        \nTo view this media, please visit the on-line version of this page at www.rightmove.co.uk/property-for-sale/property-35594292.html",
+      "bedrooms": 2,
+      "bathrooms": 0,
+      "selling": {
+        "instructed": null,
+        "price": 325000,
+        "qualifier": "askingPrice",
+        "status": "preAppraisal",
+        "completed": null,
+        "exchanged": null,
+        "tenure": {
+          "type": "freehold",
+          "expiry": null
+        },
+        "vendorId": "OHO153577"
+      },
+      "letting": null,
+      "type": [
+        "house"
+      ],
+      "style": []
+    },
+    {
+      "id": "OHO160103",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "",
+        "buildingNumber": "74",
+        "line1": "West End",
+        "line2": "Launton",
+        "line3": "",
+        "line4": "",
+        "postcode": "OX26 5DG",
+        "countryId": "GB",
+        "geolocation": {
+          "latitude": 51.89568,
+          "longitude": -1.120172
+        }
+      },
+      "description": "A period cottage with character and charm situated towards the end of a no through lane in a highly desirable village.  Old Timbers is believed to date from the 1500’s and is Grade II Listed.  As the name would suggest the features include a wealth of exposed timber work, together with former fireplaces, a wood burning stove to the Inglenook and cottage style windows.  On the ground floor there is a well proportioned kitchen/dining room, separate utility room and a lovely sitting room.  On the first floor there are two bedrooms and the bathroom with stairs leading to a substantial attic.  To the front of the property (south east) there is a pretty cottage style garden.  \n\n\n\n\n\n    \n\n        \n\n    \nMore information from this agent\n\n        \nTo view this media, please visit the on-line version of this page at www.rightmove.co.uk/property-for-sale/property-38793603.html?premiumA=true",
+      "bedrooms": 2,
+      "bathrooms": 0,
+      "selling": {
+        "instructed": null,
+        "price": 325000,
+        "qualifier": "askingPrice",
+        "status": "preAppraisal",
+        "completed": null,
+        "exchanged": null,
+        "tenure": null,
+        "vendorId": "OHO160103"
+      },
+      "letting": null,
+      "type": [],
+      "style": []
+    },
+    {
+      "id": "MKC140264",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "",
+        "buildingNumber": "82",
+        "line1": "Stewkley Road",
+        "line2": "Soulbury",
+        "line3": "Leighton Buzzard",
+        "line4": "Buckinghamshire",
+        "postcode": "LU7 0DH",
+        "countryId": "GB",
+        "geolocation": {
+          "latitude": 51.936571,
+          "longitude": -0.720167
+        }
+      },
+      "description": "Thatched cottage grade \r\nII listed",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "selling": {
+        "instructed": null,
+        "price": 350000,
+        "qualifier": "askingPrice",
+        "status": "valuation",
+        "completed": null,
+        "exchanged": null,
+        "tenure": {
+          "type": "freehold",
+          "expiry": null
+        },
+        "vendorId": "MKC140264"
+      },
+      "letting": null,
+      "type": [
+        "cottage"
+      ],
+      "style": [
+        "semiDetached"
+      ]
+    },
+    {
+      "id": "MKC150156",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "",
+        "buildingNumber": "69",
+        "line1": "Lower Way",
+        "line2": "Great Brickhill",
+        "line3": "Milton Keynes",
+        "line4": "Buckinghamshire",
+        "postcode": "MK17 9AG",
+        "countryId": "GB",
+        "geolocation": {
+          "latitude": 51.965259,
+          "longitude": -0.687138
+        }
+      },
+      "description": "The property dates back to the 17th century and was updated during the 18th and 20th centuries.  It retains original features such as exposed beams and inglenook fireplaces. The cottage, which has recently been redecorated throughout, has two bedrooms, a separate bathroom and WC, a sitting/dining room and a kitchen.  There are gardens to three sides and a double garage.",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "selling": {
+        "instructed": "2018-10-25",
+        "price": 350000,
+        "qualifier": "askingPrice",
+        "status": "withdrawn",
+        "completed": null,
+        "exchanged": null,
+        "tenure": null,
+        "vendorId": "MKC150156"
+      },
+      "letting": null,
+      "type": [
+        "house"
+      ],
+      "style": [
+        "semiDetached"
+      ]
+    },
+    {
+      "id": "NEP110189",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "",
+        "buildingNumber": "78",
+        "line1": "Folly Lane",
+        "line2": "North Crawley",
+        "line3": "Newport Pagnell",
+        "line4": "Buckinghamshire",
+        "postcode": "MK16 9LN",
+        "countryId": "",
+        "geolocation": {
+          "latitude": 52.090618,
+          "longitude": -0.650839
+        }
+      },
+      "description": "",
+      "bedrooms": 2,
+      "bathrooms": 0,
+      "selling": {
+        "instructed": null,
+        "price": 350000,
+        "qualifier": "askingPrice",
+        "status": "valuation",
+        "completed": null,
+        "exchanged": null,
+        "tenure": {
+          "type": "tba",
+          "expiry": null
+        },
+        "vendorId": "NEP110189"
+      },
+      "letting": null,
+      "type": [
+        "cottage"
+      ],
+      "style": [
+        "detached"
+      ]
+    },
+    {
+      "id": "NEP150121",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "",
+        "buildingNumber": "33",
+        "line1": "Common Street",
+        "line2": "Ravenstone",
+        "line3": "Olney",
+        "line4": "Buckinghamshire",
+        "postcode": "MK46 5AS",
+        "countryId": "",
+        "geolocation": {
+          "latitude": 52.14374,
+          "longitude": -0.760051
+        }
+      },
+      "description": "",
+      "bedrooms": 2,
+      "bathrooms": 0,
+      "selling": {
+        "instructed": null,
+        "price": 350000,
+        "qualifier": "askingPrice",
+        "status": "valuation",
+        "completed": null,
+        "exchanged": null,
+        "tenure": null,
+        "vendorId": "NEP150121"
+      },
+      "letting": null,
+      "type": [
+        "house"
+      ],
+      "style": [
+        "semiDetached"
+      ]
+    },
+    {
+      "id": "NEP150350",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "The Elms",
+        "buildingNumber": "70",
+        "line1": "Tickford Street",
+        "line2": "Newport Pagnell",
+        "line3": "Buckinghamshire",
+        "line4": "",
+        "postcode": "MK16 9BA",
+        "countryId": "GB",
+        "geolocation": {
+          "latitude": 52.08338,
+          "longitude": -0.712732
+        }
+      },
+      "description": "",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "selling": {
+        "instructed": null,
+        "price": 350000,
+        "qualifier": "askingPrice",
+        "status": "valuation",
+        "completed": null,
+        "exchanged": null,
+        "tenure": null,
+        "vendorId": "NEP150350"
+      },
+      "letting": null,
+      "type": [
+        "bungalow"
+      ],
+      "style": []
+    },
+    {
+      "id": "BED150438",
+      "marketingMode": "letting",
+      "address": {
+        "buildingName": "The Post Office",
+        "buildingNumber": "71",
+        "line1": "Church Lane",
+        "line2": "Odell",
+        "line3": "Bedfordshire",
+        "line4": "",
+        "postcode": "MK43 7AA",
+        "countryId": "GB",
+        "geolocation": {
+          "latitude": 52.214983,
+          "longitude": -0.586329
+        }
+      },
+      "description": "The property has a sitting/dining room, kitchen, family room/bedroom three, two bedrooms and a family bathroom.  There is a garage, parking and established gardens.   The property offers  further development potential (subject to planning permission).",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "selling": null,
+      "letting": {
+        "instructed": "2019-04-19",
+        "availableFrom": null,
+        "availableTo": null,
+        "rent": 1500,
+        "rentFrequency": "monthly",
+        "furnishing": [],
+        "term": "",
+        "status": "tenancyFinished",
+        "agentRole": "",
+        "landlordId": "RPT160002"
+      },
+      "type": [
+        "cottage"
+      ],
+      "style": [
+        "detached"
+      ]
+    },
+    {
+      "id": "BED150035",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "",
+        "buildingNumber": "17",
+        "line1": "Kimbolton Close",
+        "line2": "Bedford",
+        "line3": "Bedfordshire",
+        "line4": "",
+        "postcode": "MK41 8RP",
+        "countryId": "GB",
+        "geolocation": {
+          "latitude": 52.151049,
+          "longitude": -0.451866
+        }
+      },
+      "description": "The bungalow has the bedrooms at the front and the sitting room and conservatory to the rear overlooking the garden.  The kitchen/breakfast room is also to the rear and there is a family bathroom, an en suite shower room and a cloakroom.",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "selling": {
+        "instructed": "2019-01-17",
+        "price": 375000,
+        "qualifier": "askingPrice",
+        "status": "withdrawn",
+        "completed": null,
+        "exchanged": null,
+        "tenure": null,
+        "vendorId": "BED150035"
+      },
+      "letting": null,
+      "type": [
+        "bungalow"
+      ],
+      "style": [
+        "detached"
+      ]
+    },
+    {
+      "id": "BED160034",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "",
+        "buildingNumber": "84",
+        "line1": "Cause End Road",
+        "line2": "Wootton",
+        "line3": "Bedfordshire",
+        "line4": "",
+        "postcode": "MK43 9DB",
+        "countryId": "GB",
+        "geolocation": {
+          "latitude": 52.098022,
+          "longitude": -0.530845
+        }
+      },
+      "description": "The property dates from 1645 and retains many period features including an inglenook fireplace, exposed beams and timbers, and ledge and brace doors.  The property has a garden of approximately 0.25 acres and there is also a single garage.",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "selling": {
+        "instructed": "2019-04-15",
+        "price": 380000,
+        "qualifier": "askingPrice",
+        "status": "forSaleUnavailable",
+        "completed": null,
+        "exchanged": null,
+        "tenure": null,
+        "vendorId": "BED160034"
+      },
+      "letting": null,
+      "type": [
+        "house"
+      ],
+      "style": []
+    },
+    {
+      "id": "BED150504",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "Orchard Cottage",
+        "buildingNumber": "",
+        "line1": "Church End",
+        "line2": "Ravensden",
+        "line3": "Bedfordshire",
+        "line4": "",
+        "postcode": "MK44 2RN",
+        "countryId": "GB",
+        "geolocation": {
+          "latitude": 52.178642,
+          "longitude": -0.423909
+        }
+      },
+      "description": "The bungalow has been refurbished and provides versatile accommodation.  It has a separate sitting and dining room extending into the family/garden room on a lower level, kitchen, utility room, two bedrooms and a family bathroom.  There is a driveway and a single garage.",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "selling": {
+        "instructed": null,
+        "price": 385000,
+        "qualifier": "askingPrice",
+        "status": "valuation",
+        "completed": null,
+        "exchanged": null,
+        "tenure": null,
+        "vendorId": "BED150504"
+      },
+      "letting": null,
+      "type": [
+        "bungalow"
+      ],
+      "style": [
+        "detached"
+      ]
+    },
+    {
+      "id": "BUC150140",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "Mill House",
+        "buildingNumber": "49",
+        "line1": "Nash Road",
+        "line2": "Great Horwood",
+        "line3": "Milton Keynes",
+        "line4": "Buckinghamshire",
+        "postcode": "MK17 0RA",
+        "countryId": "GB",
+        "geolocation": {
+          "latitude": 51.979442,
+          "longitude": -0.873552
+        }
+      },
+      "description": "Greenfields Cottage's features include exposed ceiling timbers and fireplaces. The property comprises an entrance hall, a family room, a sitting room, a kitchen/breakfast room, a ground floor bathroom and two first floor double bedrooms.  There are mature gardens to front and rear, off street parking for up to five cars and a single garage with power and light connected.",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "selling": {
+        "instructed": "2018-09-06",
+        "price": 400000,
+        "qualifier": "askingPrice",
+        "status": "completed",
+        "completed": "2015-09-15",
+        "exchanged": "2018-11-28",
+        "tenure": {
+          "type": "freehold",
+          "expiry": null
+        },
+        "vendorId": "BUC150140"
+      },
+      "letting": null,
+      "type": [
+        "house"
+      ],
+      "style": [
+        "detached"
+      ]
+    },
+    {
+      "id": "RPT190150",
+      "marketingMode": "Not set",
+      "address": {
+        "buildingName": "",
+        "buildingNumber": "",
+        "line1": "Town Street Leeds",
+        "line2": "West Yorkshire",
+        "line3": "",
+        "line4": "",
+        "postcode": "LS12",
+        "countryId": "GB",
+        "geolocation": {
+          "latitude": 53.797052,
+          "longitude": -1.596989
+        }
+      },
+      "description": "Property Reference: 1288\n\nA lovely 2 bedroom flat available on main road with easy access to major transport links, motorways, and all local amenities. 2 months rent in advance.\n\nAdditional information:\n • No children allowed;\n\n**No admin or tenancy fees payable by tenants!**\n\nContact today and book a viewing!\n    \nPhone bookings available 9am-9pm, 7 days a week.\n\nIf calling please quote reference: 1288\n\nTenansy aims to make all property details as accurate as possible, however if you wish more clarification or more details please contact us.",
+      "bedrooms": 2,
+      "bathrooms": 0,
+      "selling": null,
+      "letting": null,
+      "type": [
+        "flatApartment"
+      ],
+      "style": []
+    },
+    {
+      "id": "OHO154440",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "",
+        "buildingNumber": "",
+        "line1": "Manor Road",
+        "line2": "Barton-Le-Clay",
+        "line3": "Bedfordhsire",
+        "line4": "",
+        "postcode": "MK45 4NP",
+        "countryId": "GB",
+        "geolocation": {
+          "latitude": 51.969276,
+          "longitude": -0.423826
+        }
+      },
+      "description": "Tenure: Freehold\n\n\t\t*** DETACHED BUNGALOW***\nINDIGO RESIDENTIAL are offering this rarely available detached bungalow set in this delightful village of Barton-Le-Clay surrounded by rolling countryside. An internal viewing of this property is highly recommended to truly appreciate the size and condition throughout.\nThe internal living accommodation is made up of firstly a porch area, the entrance hall leading to a lounge at the front of the property with the re fitted kitchen breakfast to the rear along with utility room. The properties living space has been further improved with the addition of a fantastic conservatory, currently used as a dining room and leading to the patio area and onto the beautifully maintained garden. \nThe master bedroom is bright and airy with en-suite shower room. The family bathroom is refitted and also leads onto the second bedroom creating a Jack and Jill en-suite. Externally the home is well set back from the main road with gravel driveway offering ample car parking and detached garage. The rear garden is south facing and mainly laid to lawn with well stocked boarders, it is a respectable size in excess of 120 ft long. \nThe property benefits from being double glazed and has a refitted kitchen as well as newly fitted en-suites, one to the master and one Jack and Gill bathroom to the second bedroom. \nThe approx of square footage of this property is a massive 1,050 sq. ft and this home could also offer further living accommodation via an extension if required subject to planning permission being granted. \nEPC rating E\nCall now to book your appointment to see this rarely available property.\n\n\n    \n\n        Storm Porch \n\n            \n\n\n        Entrance Hall \n\n            \n\n\n        Lounge \n\n            3.45m x 4.32m\n\n            \n\n\n        Kitchen \n\n            2.69m x 3.0m\n\n            \n\n\n        Utilty Area \n\n            1.65m x 2.26m\n\n            \n\n\n        Conservatory \n\n            2.66m x 4.77m\n\n            \n\n\n        Bedroom 1 \n\n            3.51m x 3.92m\n\n            \n\n\n        En-Suite Shower room \n\n            \n\n\n        Bedroom 2 \n\n            2.88m x 3.5m\n\n            \n\n\n        Family Bathroom \n\n            \n\n\n        Front Garden Providing Off Road Parking \n\n            \n\n\n        Garage \n\n            \n\n\n        Rear Garden \n\n            \n\n\n        \n\n\n        \n\n        \nListing History\n\n\n        \n\n            \n\n                    \nAdded on Rightmove:\n                    \n11 September 2015",
+      "bedrooms": 2,
+      "bathrooms": 0,
+      "selling": {
+        "instructed": null,
+        "price": 419995,
+        "qualifier": "askingPrice",
+        "status": "preAppraisal",
+        "completed": null,
+        "exchanged": null,
+        "tenure": {
+          "type": "freehold",
+          "expiry": null
+        },
+        "vendorId": "OHO154440"
+      },
+      "letting": null,
+      "type": [
+        "bungalow"
+      ],
+      "style": [
+        "detached"
+      ]
+    },
+    {
+      "id": "BED100050",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "Lyndhurst",
+        "buildingNumber": "",
+        "line1": "Church End",
+        "line2": "Ravensden",
+        "line3": "Bedfordshire",
+        "line4": "",
+        "postcode": "MK44 2RR",
+        "countryId": "",
+        "geolocation": {
+          "latitude": 52.177232,
+          "longitude": -0.425377
+        }
+      },
+      "description": "The cottage was built circa 1650 as part of the Ravensden Manor estate and was used as a public house from circa 1731 until 1929. It is of timber framed construction with colour washed brick elevations and retains several period features such as inglenook fireplaces and exposed beams.  A ground floor extension provides the study/bedroom three.  The gardens surround the cottage and extend to approximately 0.26 acres in total and there is also a driveway and single garage with a storage room.",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "selling": {
+        "instructed": "2019-08-06",
+        "price": 425000,
+        "qualifier": "guidePrice",
+        "status": "forSale",
+        "completed": null,
+        "exchanged": null,
+        "tenure": {
+          "type": "tba",
+          "expiry": null
+        },
+        "vendorId": "BED100050"
+      },
+      "letting": null,
+      "type": [
+        "house",
+        "cottage"
+      ],
+      "style": [
+        "detached"
+      ]
+    }
+  ]
+}

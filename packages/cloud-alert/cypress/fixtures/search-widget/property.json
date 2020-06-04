@@ -1,0 +1,38 @@
+{
+  "id": "BED150319",
+  "marketingMode": "selling",
+  "address": {
+    "buildingName": "",
+    "buildingNumber": "3",
+    "line1": "Orchard Lane",
+    "line2": "Harrold",
+    "line3": "",
+    "line4": "Bedfordshire",
+    "postcode": "MK43 7BP",
+    "countryId": "GB",
+    "geolocation": {
+      "latitude": 52.20392,
+      "longitude": -0.613329
+    }
+  },
+  "description": "The accommodation includes a sitting room, dining room, kitchen/breakfast room, garden room, cloakroom, a master bedroom with an en suite bathroom, three further bedrooms and a main bathroom.  There are gardens to the front and rear, off street parking and tandem double length garage with a utility area.  The property is being sold with no upper chain.",
+  "bedrooms": 4,
+  "bathrooms": 2,
+  "selling": {
+    "instructed": "2018-09-24",
+    "price": 540000,
+    "qualifier": "offersInRegion",
+    "status": "completed",
+    "completed": "2015-12-11",
+    "exchanged": "2019-02-26",
+    "tenure": null,
+    "vendorId": "BED150319"
+  },
+  "letting": null,
+  "type": [
+    "house"
+  ],
+  "style": [
+    "detached"
+  ]
+}
