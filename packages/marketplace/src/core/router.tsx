@@ -29,9 +29,6 @@ const AdminDevManagementPage = React.lazy(() =>
 const ApiDocsPage = React.lazy(() => catchChunkError(() => import('../components/pages/api-docs')))
 const SwaggerPage = React.lazy(() => catchChunkError(() => import('../components/pages/swagger')))
 const ElementsPage = React.lazy(() => catchChunkError(() => import('../components/pages/elements')))
-const DeveloperSettings = React.lazy(() =>
-  catchChunkError(() => import('../components/pages/settings/developer-settings')),
-)
 const DeveloperWelcomePage = React.lazy(() => catchChunkError(() => import('../components/pages/developer-welcome')))
 const DeveloperHelpPage = React.lazy(() => catchChunkError(() => import('../components/pages/developer-help')))
 const ClientHelpPage = React.lazy(() => catchChunkError(() => import('../components/pages/client-help')))
@@ -40,6 +37,17 @@ const AdminAppsPage = React.lazy(() => catchChunkError(() => import('../componen
 const RegisterConfirm = React.lazy(() => catchChunkError(() => import('../components/pages/register-confirm')))
 const AdminStats = React.lazy(() => catchChunkError(() => import('../components/pages/admin-stats')))
 const DeveloperWebhooksPage = React.lazy(() => catchChunkError(() => import('../components/pages/developer-webhooks')))
+const DeveloperSettingsPage = React.lazy(() =>
+  catchChunkError(() => import('../components/pages/settings/developer-settings')),
+)
+
+const DeveloperSettingsOrganisationTabPage = React.lazy(() =>
+  catchChunkError(() => import('../components/pages/settings/developer-settings-organisation-tab')),
+)
+
+const DeveloperSettingsBillingTabPage = React.lazy(() =>
+  catchChunkError(() => import('../components/pages/settings/developer-settings-billing-tab')),
+)
 
 const Router = () => {
   const isProduction = window.reapit.config.appEnv === 'production'
@@ -102,7 +110,26 @@ const Router = () => {
                 exact
                 component={AnalyticsPage}
               />
-              <PrivateRoute allow="DEVELOPER" path={Routes.SETTINGS} fetcher exact component={DeveloperSettings} />
+
+              <PrivateRoute
+                allow="DEVELOPER"
+                path={Routes.DEVELOPER_SETTINGS}
+                fetcher
+                exact
+                component={DeveloperSettingsPage}
+              />
+              <PrivateRoute
+                allow="ADMIN"
+                path={Routes.DEVELOPER_SETTINGS_BILLING_TAB}
+                fetcher
+                component={DeveloperSettingsBillingTabPage}
+              />
+              <PrivateRoute
+                allow="ADMIN"
+                path={Routes.DEVELOPER_SETTINGS_ORGANISATION_TAB}
+                fetcher
+                component={DeveloperSettingsOrganisationTabPage}
+              />
               <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_WELCOME} exact component={DeveloperWelcomePage} />
               <PrivateRoute
                 allow="DEVELOPER"
