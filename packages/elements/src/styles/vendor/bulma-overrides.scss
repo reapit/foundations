@@ -283,12 +283,6 @@ a {
   }
 }
 
-.level-right {
-  @media all and (-ms-high-contrast: none) {
-    justify-content: flex-start;
-  }
-}
-
 .container-footer {
   .level-right {
     @media all and (-ms-high-contrast: none) {
