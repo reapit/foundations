@@ -16,6 +16,7 @@ const ClientAppHeader: React.FC<ClientAppHeaderProps> = ({ appDetailData, button
   const { media } = appDetailData
   const appIcon = media?.filter(({ type }) => type === 'icon')[MEDIA_INDEX.ICON]
   const featureImageSrc = appDetailData?.media?.[MEDIA_INDEX.FEATURE_IMAGE]?.uri
+  const isHaveFeatureImage = !!featureImageSrc
 
   return (
     <div className={styles.appHeader}>
@@ -32,10 +33,13 @@ const ClientAppHeader: React.FC<ClientAppHeaderProps> = ({ appDetailData, button
 
       <div className={styles.separator} />
 
-      <div
-        className={styles.appHeaderFeaturedImageContainer}
-        style={{ backgroundImage: `url('${featureImageSrc}')` }}
-      ></div>
+      <div className={styles.appHeaderFeaturedImageContainer}>
+        <img
+          className={styles.appHeaderFeaturedImage}
+          src={featureImageSrc}
+          style={{ height: isHaveFeatureImage ? 'auto' : '20rem' }}
+        />
+      </div>
     </div>
   )
 }

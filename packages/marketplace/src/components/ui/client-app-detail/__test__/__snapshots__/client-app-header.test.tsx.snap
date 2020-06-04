@@ -23,12 +23,15 @@ exports[`ClientAppHeader should match a snapshot 1`] = `
     </div>
   </div>
   <div />
-  <div
-    style={
-      Object {
-        "backgroundImage": "url('https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png')",
+  <div>
+    <img
+      src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png"
+      style={
+        Object {
+          "height": "auto",
+        }
       }
-    }
-  />
+    />
+  </div>
 </div>
 `;

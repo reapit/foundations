@@ -378,13 +378,15 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
                   </div>
                 </div>
                 <div />
-                <div
-                  style={
-                    Object {
-                      "backgroundImage": "url('undefined')",
+                <div>
+                  <img
+                    style={
+                      Object {
+                        "height": "20rem",
+                      }
                     }
-                  }
-                />
+                  />
+                </div>
               </div>
             </ClientAppHeader>
             <AppContent

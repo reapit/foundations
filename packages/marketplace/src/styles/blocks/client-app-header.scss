@@ -68,12 +68,12 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background-color: $grey-lighter;
-    background-size: cover;
-    background-position: center;
-    height: 20rem;
     @include for-mobile-only {
       flex-basis: 100%;
+    }
+    .appHeaderFeaturedImage {
+      width: 100%;
+      height: auto;
     }
   }
 
