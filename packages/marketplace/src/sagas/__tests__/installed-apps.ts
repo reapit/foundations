@@ -54,8 +54,8 @@ describe('installed-apps fetch data error', () => {
 
   expect(gen.next().value).toEqual(put(installedAppsLoading(true)))
   expect(gen.next().value).toEqual(select(selectClientId))
-
-  expect((gen as { throw: any }).throw(new Error('Client id is not exists')).value).toEqual(
+  if (!gen.throw) throw new Error('Generator object cannot throw')
+  expect(gen.throw('Client id is not exists').value).toEqual(
     put(
       errorThrownServer({
         type: 'SERVER',

@@ -69,8 +69,8 @@ describe('developer fetch subscription data', () => {
 
   test('api call fail', () => {
     const clone = gen.clone()
-    // @ts-ignore
-    expect(clone.throw(new Error('Call API Failed')).value).toEqual(
+    if (!clone.throw) throw new Error('Generator object cannot throw')
+    expect(clone.throw('Call API Failed').value).toEqual(
       put(
         errorThrownServer({
           type: 'SERVER',
@@ -96,8 +96,8 @@ describe('developer fetch webhook data', () => {
 
   test('api call fail', () => {
     const clone = gen.clone()
-    // @ts-ignore
-    expect(clone.throw(new Error('Call API Failed')).value).toEqual(put(requestWebhookReceiveDataFailure()))
+    if (!clone.throw) throw new Error('Generator object cannot throw')
+    expect(clone.throw('Call API Failed').value).toEqual(put(requestWebhookReceiveDataFailure()))
     expect(clone.next().value).toEqual(
       put(
         errorThrownServer({
@@ -184,8 +184,8 @@ describe('deleteWebhook', () => {
   })
   it('api call error', () => {
     const clone = gen.clone()
-    // @ts-ignore
-    expect(clone.throw(new Error('Call API Failed')).value).toEqual(
+    if (!clone.throw) throw new Error('Generator object cannot throw')
+    expect(clone.throw('Call API Failed').value).toEqual(
       put(
         errorThrownServer({
           type: 'SERVER',
@@ -218,8 +218,8 @@ describe('editWebhook', () => {
   })
   it('api call error', () => {
     const clone = gen.clone()
-    // @ts-ignore
-    expect(clone.throw(new Error('Call API Failed')).value).toEqual(
+    if (!clone.throw) throw new Error('Generator object cannot throw')
+    expect(clone.throw('Call API Failed').value).toEqual(
       put(
         errorThrownServer({
           type: 'SERVER',
@@ -252,8 +252,8 @@ describe('createNewWebhook', () => {
   })
   it('api call error', () => {
     const clone = gen.clone()
-    // @ts-ignore
-    expect(clone.throw(new Error('Call API Failed')).value).toEqual(
+    if (!clone.throw) throw new Error('Generator object cannot throw')
+    expect(clone.throw('Call API Failed').value).toEqual(
       put(
         errorThrownServer({
           type: 'SERVER',

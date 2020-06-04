@@ -167,8 +167,10 @@ describe('appointments should fetch data', () => {
 
   test('api call fail', () => {
     const clone = gen.clone()
-    // @ts-ignore
-    expect(clone.throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value).toEqual(
+
+    if (!clone.throw) throw new Error('Generator object cannot throw')
+
+    expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
       put(
         errorThrownServer({
           type: 'SERVER',
@@ -236,8 +238,10 @@ describe('appointments should fetch data tomowrrow', () => {
 
   test('api call fail', () => {
     const clone = gen.clone()
-    // @ts-ignore
-    expect(clone.throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value).toEqual(
+
+    if (!clone.throw) throw new Error('Generator object cannot throw')
+
+    expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
       put(
         errorThrownServer({
           type: 'SERVER',
@@ -305,8 +309,10 @@ describe('appointments should fetch data week view', () => {
 
   test('api call fail', () => {
     const clone = gen.clone()
-    // @ts-ignore
-    expect(clone.throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value).toEqual(
+
+    if (!clone.throw) throw new Error('Generator object cannot throw')
+
+    expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
       put(
         errorThrownServer({
           type: 'SERVER',

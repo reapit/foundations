@@ -49,7 +49,7 @@ describe('settings', () => {
     })
     test('api call error', () => {
       const clone = gen.clone()
-      // @ts-ignore
+      if (!clone.throw) throw new Error('Generator object cannot throw')
       expect(clone.throw('error').value).toEqual(
         put(
           errorThrownServer({
@@ -93,7 +93,7 @@ describe('settings', () => {
 
     it('should call api not success', () => {
       const clone = gen.clone()
-      // @ts-ignore
+      if (!clone.throw) throw new Error('Generator object cannot throw')
       expect(clone.throw('error').value).toEqual(
         put(
           errorThrownServer({
@@ -142,7 +142,8 @@ describe('settings', () => {
           cognitoClientId: window.reapit.config.cognitoClientId || '',
         }),
       )
-      expect(clone.next('FAIL').value).toEqual(
+      if (!clone.throw) throw new Error('Generator object cannot throw')
+      expect(clone.throw('FAIL').value).toEqual(
         put(
           errorThrownServer({
             type: 'SERVER',
@@ -156,7 +157,7 @@ describe('settings', () => {
 
     it('should call API fail', () => {
       const clone = gen.clone()
-      // @ts-ignore
+      if (!clone.throw) throw new Error('Generator object cannot throw')
       expect(clone.throw('error').value).toEqual(
         put(
           errorThrownServer({

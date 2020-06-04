@@ -81,8 +81,8 @@ describe('putWebComponentConfigSaga', () => {
 
   test('api call fail', () => {
     const clone = gen.clone()
-    // @ts-ignore
-    expect(clone.throw(new Error('Call API Failed')).value).toEqual(
+    if (!clone.throw) throw new Error('Generator object cannot throw')
+    expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
       put(
         errorThrownServer({
           type: 'SERVER',
@@ -143,8 +143,8 @@ describe('fetchWebComponentConfigSaga', () => {
 
   test('api call fail', () => {
     const clone = gen.clone()
-    // @ts-ignore
-    expect(clone.throw(new Error('Call API Failed')).value).toEqual(put(clientCloseWebComponentConfig()))
+    if (!clone.throw) throw new Error('Generator object cannot throw')
+    expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(clientCloseWebComponentConfig()))
     expect(clone.next().value).toEqual(
       put(
         errorThrownServer({

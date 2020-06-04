@@ -59,9 +59,7 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
           }
         }
       >
-        <p>
-          42, Mill Road, Sharnbrook, Bedford, Bedfordshire, MK44 1NX
-        </p>
+        42, Mill Road, Sharnbrook, Bedford, Bedfordshire, MK44 1NX
       </Component>
     </div>
     <div>
@@ -142,9 +140,7 @@ exports[`AppointmentModal renderAddress should matchSnapshot 1`] = `
         }
       }
     >
-      <p>
-        65, Lindsey Close, Great Denham, Bedford, Bedfordshire, MK40 4GT
-      </p>
+      65, Lindsey Close, Great Denham, Bedford, Bedfordshire, MK40 4GT
     </Component>
   </div>
 </div>

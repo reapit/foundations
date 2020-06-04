@@ -37,7 +37,9 @@ describe('app-http-traffic-per-day sagas', () => {
     test('api fail sagas', () => {
       const clone = gen.clone()
       if (clone.throw) {
-        expect(clone.throw(new Error('')).value).toEqual(put(httpTrafficPerDayRequestDataFailure()))
+        expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
+          put(httpTrafficPerDayRequestDataFailure()),
+        )
         expect(clone.next().value).toEqual(
           put(
             errorThrownServer({
