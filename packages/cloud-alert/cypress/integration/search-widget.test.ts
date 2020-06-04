@@ -11,10 +11,8 @@ Cypress.on('fail', (error, runnable) => {
   throw error
 })
 
-const SEARCH_WIDGET_API_URL = Cypress.env(`SEARCH_WIDGET_API_URL_${Cypress.env('ENVIRONMENT')}`)
-const PACKAGE_NAME = Cypress.env('PACKAGE_NAME')
-
-if (PACKAGE_NAME === 'all' || PACKAGE_NAME === 'search-widget') {
+if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'search-widget') {
+  const WEB_COMPONENTS_API_URL = Cypress.env(`WEB_COMPONENTS_API_URL_${Cypress.env('ENVIRONMENT')}`)
   describe('Search widget API', () => {
     let property = {}
     let properties = [] as any
@@ -33,11 +31,11 @@ if (PACKAGE_NAME === 'all' || PACKAGE_NAME === 'search-widget') {
     })
     it('user should able to call /properties/<id>', () => {
       cy.request({
-        url: `${SEARCH_WIDGET_API_URL}/properties/BED150319`,
+        url: `${WEB_COMPONENTS_API_URL}/properties/BED150319`,
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'x-api-key': Cypress.env('SEARCH_WIDGET_X_API_KEY'),
+          'x-api-key': Cypress.env('WEB_COMPONENTS_X_API_KEY'),
         },
       }).as('property')
       cy.get('@property').should((response: any) => {
@@ -52,11 +50,11 @@ if (PACKAGE_NAME === 'all' || PACKAGE_NAME === 'search-widget') {
     it('user should able to call /properties?<query params>', () => {
       cy.request({
         // eslint-disable-next-line max-len
-        url: `${SEARCH_WIDGET_API_URL}/properties?keywords=london&isRental=true&apiKey&customerId=DXX&pageNumber=1&bedroomsFrom=1&bedroomsTo=2&priceFrom=300000&priceTo=500000&sortBy=price&propertyType=house&addedIn`,
+        url: `${WEB_COMPONENTS_API_URL}/properties?keywords=london&isRental=true&apiKey&customerId=DXX&pageNumber=1&bedroomsFrom=1&bedroomsTo=2&priceFrom=300000&priceTo=500000&sortBy=price&propertyType=house&addedIn`,
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'x-api-key': Cypress.env('SEARCH_WIDGET_X_API_KEY'),
+          'x-api-key': Cypress.env('WEB_COMPONENTS_X_API_KEY'),
         },
       }).as('properties')
       cy.get('@properties').should((response: any) => {
@@ -71,12 +69,11 @@ if (PACKAGE_NAME === 'all' || PACKAGE_NAME === 'search-widget') {
 
     it('user should able to call /propertyImages', () => {
       cy.request({
-        // eslint-disable-next-line max-len
-        url: `${SEARCH_WIDGET_API_URL}/propertyImages`,
+        url: `${WEB_COMPONENTS_API_URL}/propertyImages`,
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'x-api-key': Cypress.env('SEARCH_WIDGET_X_API_KEY'),
+          'x-api-key': Cypress.env('WEB_COMPONENTS_X_API_KEY'),
         },
       }).as('propertyImages')
       cy.get('@propertyImages').should((response: any) => {

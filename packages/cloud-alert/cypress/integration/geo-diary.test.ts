@@ -17,9 +17,8 @@ Cypress.on('fail', (error, runnable) => {
   throw error
 })
 
-const GEO_DIARY_URL = Cypress.env(`GEO_DIARY_URL_${Cypress.env('ENVIRONMENT')}`)
-const PACKAGE_NAME = Cypress.env('PACKAGE_NAME')
-if (PACKAGE_NAME === 'all' || PACKAGE_NAME === 'geo-diary') {
+if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'geo-diary') {
+  const GEO_DIARY_URL = Cypress.env(`GEO_DIARY_URL_${Cypress.env('ENVIRONMENT')}`)
   describe('Geo Diary App', () => {
     it('user should able to login Geo Diary App', () => {
       cy.visit(GEO_DIARY_URL).then(() => {
