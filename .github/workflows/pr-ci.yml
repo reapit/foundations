@@ -43,58 +43,54 @@ jobs:
         run: |
           yarn
 
-      # - name: Get jest cache
-      #   uses: actions/cache@v1
-      #   with:
-      #     path: scripts/jest/.jest-cache
-      #     key: ${{ runner.os }}-jest-cache-${{ hashFiles('yarn.lock') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-jest-cache-
-
-
-        - name: Remove jest cache
-          run: |
-            rm -rf /bin/tar -xz -f /home/runner/work/_temp/36b2040e-bb99-42e4-b3fc-44d6725290ab/cache.tgz
       # Currently, actions/caches does not support multiple paths https://github.com/actions/cache/issues/16
       # Looks like they're working on it, let's keep an eye on it
-      # - name: Get marketplace build cache
-      #   uses: actions/cache@v1
-      #   with:
-      #     path: packages/marketplace/.webpack-cache
-      #     key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-marketplace
-      # - name: Get aml-checklist build cache
-      #   uses: actions/cache@v1
-      #   with:
-      #     path: packages/aml-checklist/.webpack-cache
-      #     key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-aml-checklist
-      # - name: Get geo-diary build cache
-      #   uses: actions/cache@v1
-      #   with:
-      #     path: packages/geo-diary/.webpack-cache
-      #     key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-geo-diary
-      # - name: Get lifetime-legal build cache
-      #   uses: actions/cache@v1
-      #   with:
-      #     path: packages/lifetime-legal/.webpack-cache
-      #     key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-lifetime-legal
-      # - name: Get smb build cache
-      #   uses: actions/cache@v1
-      #   with:
-      #     path: packages/smb/.webpack-cache
-      #     key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-smb
-      # # End cache
-      # - name: Fetch config
-      #   run: |
-      #     yarn fetch-config development
-      # - name: Lint
-      #   run: |
-      #     yarn lint
-      # - name: Build
-      #   run: |
-      #     yarn build
-      # - name: Test
-      #   run: |
-      #     yarn test
+      - name: Get marketplace build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/marketplace/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-marketplace
+
+      - name: Get aml-checklist build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/aml-checklist/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-aml-checklist
+
+      - name: Get geo-diary build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/geo-diary/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-geo-diary
+
+      - name: Get lifetime-legal build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/lifetime-legal/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-lifetime-legal
+
+      - name: Get smb build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/smb/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-smb
+      # End cache
+
+      - name: Fetch config
+        run: |
+          yarn fetch-config development
+
+      - name: Lint
+        run: |
+          yarn lint
+
+      - name: Build
+        run: |
+          yarn build
+
+      - name: Test
+        run: |
+          yarn test
 
   add-reviews:
     runs-on: ubuntu-latest
