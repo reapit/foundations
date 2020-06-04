@@ -1,4 +1,5 @@
 import * as React from 'react'
+import useReactResponsive from '@/components/hooks/useReactResponsive'
 import { H2 } from '@reapit/elements'
 import { FaCheck } from 'react-icons/fa'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
@@ -14,8 +15,10 @@ export type AppHeaderProps = {
 const appIconClassName = ['images', styles.appIcon].join(' ')
 
 const DesktopAppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup }) => {
+  const { isMobile } = useReactResponsive()
   const { media, name = '' } = appDetailData
   const appIcon = media?.filter(({ type }) => type === 'icon')[0]
+  const featuredImage = appDetailData?.media?.[1]?.uri
 
   return (
     <div className={styles.appHeader}>
@@ -31,6 +34,8 @@ const DesktopAppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup
           {buttonGroup}
         </div>
       </div>
+
+      {!isMobile && featuredImage && <img className={styles.appHeaderFeaturedImage} src={featuredImage} />}
     </div>
   )
 }
