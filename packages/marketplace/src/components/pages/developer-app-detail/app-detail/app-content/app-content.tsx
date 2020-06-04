@@ -136,9 +136,12 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailState }) => {
       )}
       <div className={clientAppDetailStyles.gutter}>{summary}</div>
 
-      {isMobile && <RenderWithHeader header="Status">{renderListedStatus(Boolean(isListed))}</RenderWithHeader>}
-
-      {isMobile && <ManageApp appDetailState={appDetailState} id={id} pendingRevisions={Boolean(pendingRevisions)} />}
+      {isMobile && (
+        <>
+          <RenderWithHeader header="Status">{renderListedStatus(Boolean(isListed))}</RenderWithHeader>
+          <ManageApp appDetailState={appDetailState} id={id} pendingRevisions={Boolean(pendingRevisions)} />
+        </>
+      )}
 
       <div className={appDetailStyles.gutter}>
         <H5 className="flex items-center">
