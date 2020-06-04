@@ -14,7 +14,6 @@ import AppContent, {
 import { Provider } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import configureStore from 'redux-mock-store'
-import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 
 const mockState = {
   auth: {
