@@ -1,16 +1,12 @@
-// TODO: remove this file after we separated dev & client standalone page
 @import '../base/colors.scss';
 @import '../base/screen-size.scss';
 
 .appHeaderTextContainer {
-  padding: 0 3rem;
   display: flex;
   align-items: flex-end;
   flex-direction: column;
-  @include for-mobile-only {
-    padding-left: 2rem;
-    padding-right: 0;
-  }
+  text-align: right;
+  flex-shrink: 1;
 }
 
 .asideContainer {
@@ -18,26 +14,14 @@
   width: 25%;
   display: flex;
   justify-content: center;
-  background-color: $white;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  @include for-mobile-only {
-    width: 100%;
-    padding-top: 0;
-    padding-bottom: 1rem;
-  }
+
   & > div {
     width: 70%;
-    @include for-mobile-only {
-      width: 100%;
-      padding-left: 3rem;
-      padding-right: 3rem;
-    }
-    div > :first-child {
-      @include for-mobile-only {
-        margin-top: 0;
-      }
-    }
+  }
+
+  /* mobile screen size*/
+  @include for-mobile-only {
+    display: none;
   }
 
   h5.headerWithoutMargin {
@@ -48,6 +32,9 @@
   h5:not(:last-child):not(.headerWithoutMargin) {
     margin-bottom: 0.5rem;
   }
+  background-color: $white;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .appHeader {
@@ -57,25 +44,53 @@
   align-items: flex-start;
   margin-top: 3rem;
 
-  .appHeaderFeaturedImage {
-    max-width: 495px;
-    max-height: 222px;
+  .titleContainer {
+    flex: 1 0;
+    flex-basis: 45%;
+    justify-content: space-between;
+    @include for-mobile-only {
+      flex-basis: 100%;
+    }
+  }
+
+  .separator {
+    flex-basis: 5%;
+    @include for-mobile-only {
+      flex-basis: 100%;
+      margin-top: 2rem;
+    }
+  }
+
+  .appHeaderFeaturedImageContainer {
+    flex: 1 0;
+    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    @include for-mobile-only {
+      flex-basis: 100%;
+    }
+    .appHeaderFeaturedImage {
+      width: 100%;
+      height: auto;
+    }
   }
 
   .appIconContainer {
+    flex: 1 0 96px;
+    max-width: 96px;
     margin-left: 0;
-    width: 96px;
     height: 96px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: $grey-lighter;
-    margin: 0 auto;
-    @include for-mobile-only {
-      width: 86px;
-      height: 86px;
-    }
+    background-position: center;
+    background-size: cover;
+
     img {
+      background: $white;
       width: 100%;
       height: 100%;
     }
@@ -88,7 +103,7 @@
     margin-top: 0.5rem;
     margin-bottom: 1rem;
 
-    .check {
+    check {
       /*should be px regard their base px (rem) else looks really ugly*/
       margin-right: 5px;
       color: #a0c862;

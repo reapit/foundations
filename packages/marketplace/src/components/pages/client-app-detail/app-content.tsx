@@ -70,6 +70,19 @@ export const renderDesktopIntegrationTypes = (desktopIntegrationTypes: DesktopIn
   )
 }
 
+export const renderDirectAPI = (isDirectAPI?: boolean) => {
+  if (!isDirectAPI) {
+    return null
+  }
+
+  return (
+    <div className={clientAppDetailStyles.gutter}>
+      <H5>Direct API</H5>
+      <p>Yes</p>
+    </div>
+  )
+}
+
 const renderExtraMediaClassNames = [clientAppDetailStyles.renderImageContainer, clientAppDetailStyles.gutter]
 export const renderExtraMedia = (media: MediaModel[] = []) => (
   <div className={renderExtraMediaClassNames.join(' ')}>
@@ -82,7 +95,7 @@ export const renderExtraMedia = (media: MediaModel[] = []) => (
 )
 
 const AppContent: React.FC<AppContentProps> = ({ appDetailData, desktopIntegrationTypes = [] }) => {
-  const { summary = '', description = '', category, scopes = [], media = [] } = appDetailData
+  const { summary = '', description = '', category, scopes = [], media = [], isDirectApi } = appDetailData
   /**
    * 0 = icon
    * 1 = featured media
@@ -105,6 +118,7 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailData, desktopIntegrati
       <div className={clientAppDetailStyles.hiddenInDesktopScreenSize}>
         {renderCategory(category)}
         {renderDesktopIntegrationTypes(desktopIntegrationTypes)}
+        {renderDirectAPI(isDirectApi)}
         <RenderWithHeader header="Developer">TBC</RenderWithHeader>
         <RenderWithHeader header="About Developer">
           <p>
