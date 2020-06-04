@@ -21,6 +21,7 @@ import { Dispatch } from 'redux'
 import { getDesktopIntegrationTypes } from '@/utils/get-desktop-integration-types'
 import Routes from '@/constants/routes'
 import { LoginType } from '@reapit/cognito-auth'
+import useReactResponsive from '@/components/hooks/useReactResponsive'
 import { ContactDeveloperSection } from './contact-developer-section'
 
 export type ClientAppDetailProps = {}
@@ -149,6 +150,8 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
     appDetailData.desktopIntegrationTypeIds || [],
     desktopIntegrationTypes,
   )
+  const { isDesktop } = useReactResponsive()
+
   const isLoadingAppDetail = useSelector(selectAppDetailLoading)
   const loginType = useSelector(selectLoginType)
   const isAdmin = useSelector(selectIsAdmin)
@@ -168,7 +171,7 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
 
   return (
     <div data-test="client-app-detail-container" className={clientAppDetailStyles.appDetailContainer}>
-      <Aside appDetailData={appDetailData} desktopIntegrationTypes={userDesktopIntegrationTypes} />
+      {isDesktop && <Aside appDetailData={appDetailData} desktopIntegrationTypes={userDesktopIntegrationTypes} />}
       <div className={clientAppDetailStyles.mainContainer}>
         <AppHeader
           appDetailData={appDetailData}

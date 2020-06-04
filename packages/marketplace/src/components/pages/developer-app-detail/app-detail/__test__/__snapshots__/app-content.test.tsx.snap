@@ -14,7 +14,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
   }
 >
   <AppContent
-    appDetailData={
+    appDetailState={
       Object {
         "data": Object {
           "description": "enim facilisis",
@@ -57,7 +57,9 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
     }
   >
     <div>
-      <div />
+      <div>
+        vitae elementum curabitur vitae
+      </div>
       <div>
         <Component
           className="flex items-center"

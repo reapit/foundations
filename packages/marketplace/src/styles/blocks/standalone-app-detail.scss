@@ -6,6 +6,10 @@
   display: flex;
   align-items: flex-end;
   flex-direction: column;
+  @include for-mobile-only {
+    padding-left: 2rem;
+    padding-right: 0;
+  }
 }
 
 .asideContainer {
@@ -13,15 +17,26 @@
   width: 25%;
   display: flex;
   justify-content: center;
-
+  background-color: $white;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  @include for-mobile-only {
+    width: 100%;
+    padding-top: 0;
+    padding-bottom: 1rem;
+  }
   & > div {
     width: 70%;
-  }
-
-
-  /* mobile screen size*/
-  @include for-mobile-only {
-    display: none;
+    @include for-mobile-only {
+      width: 100%;
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+    div > :first-child {
+      @include for-mobile-only {
+        margin-top: 0;
+      }
+    }
   }
 
   h5.headerWithoutMargin {
@@ -32,9 +47,6 @@
   h5:not(:last-child):not(.headerWithoutMargin) {
     margin-bottom: 0.5rem;
   }
-  background-color: $white;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
 }
 
 .appHeader {
@@ -47,11 +59,6 @@
   .appHeaderFeaturedImage {
     max-width: 495px;
     max-height: 222px;
-
-    @include for-mobile-only {
-      flex: 1;
-      margin-top: 2rem;
-    }
   }
 
   .appIconContainer {
@@ -62,11 +69,12 @@
     align-items: center;
     justify-content: center;
     background-color: $grey-lighter;
-    border-radius: 50%;
     margin: 0 auto;
-
+    @include for-mobile-only {
+      width: 86px;
+      height: 86px;
+    }
     img {
-      background: $white;
       width: 100%;
       height: 100%;
     }

@@ -14,7 +14,6 @@ import AppContent, {
 import { Provider } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import configureStore from 'redux-mock-store'
-import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 
 const mockState = {
   auth: {
@@ -27,11 +26,9 @@ const mockState = {
   installations: {
     installationsAppData: installationsStub,
   },
-  appDetail: {
-    authentication: {
-      loading: false,
-      code: '123',
-    },
+
+  developer: {
+    developerAppDetail: appDetailDataStub,
   },
 } as ReduxState
 
@@ -43,7 +40,7 @@ describe('AppContent', () => {
     expect(
       mount(
         <Provider store={store}>
-          <AppContent appDetailData={appDetailDataStub as AppDetailModel} />
+          <AppContent appDetailState={mockState.developer.developerAppDetail} />
         </Provider>,
       ),
     ).toMatchSnapshot()

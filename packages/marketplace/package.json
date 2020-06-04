@@ -34,6 +34,7 @@
     "react-chartjs-2": "^2.8.0",
     "react-copy-to-clipboard": "^5.0.2",
     "swagger-ui-react": "^3.24.3",
+    "react-responsive": "8.1.0",
     "snyk": "^1.335.0"
   },
   "devDependencies": {
