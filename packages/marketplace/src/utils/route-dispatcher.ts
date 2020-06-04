@@ -44,16 +44,10 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       break
     }
     case Routes.INSTALLED_APPS:
-      store.dispatch(installedAppsRequestData(1))
-      break
-    case Routes.INSTALLED_APPS_PAGINATE:
-      store.dispatch(installedAppsRequestData(params && params.page ? Number(params.page) : 1))
+      store.dispatch(installedAppsRequestData(page))
       break
     case Routes.MY_APPS:
-      store.dispatch(myAppsRequestData(1))
-      break
-    case Routes.MY_APPS_PAGINATE:
-      store.dispatch(myAppsRequestData(params && params.page ? Number(params.page) : 1))
+      store.dispatch(myAppsRequestData(page))
       break
     case Routes.DEVELOPER_MY_APPS:
       store.dispatch(developerRequestData({ page: 1 }))
