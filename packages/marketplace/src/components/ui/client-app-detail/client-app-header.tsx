@@ -11,11 +11,10 @@ export type ClientAppHeaderProps = {
   buttonGroup?: React.ReactNode
 }
 
-const placeHolderUrl = 'https://bulma.io/images/placeholders/48x48.png'
-
 const ClientAppHeader: React.FC<ClientAppHeaderProps> = ({ appDetailData, buttonGroup }) => {
   const { media } = appDetailData
   const appIcon = media?.filter(({ type }) => type === 'icon')[0]
+  const featureImageSrc = appDetailData?.media?.[1]?.uri
 
   return (
     <div className={styles.appHeader}>
@@ -32,9 +31,10 @@ const ClientAppHeader: React.FC<ClientAppHeaderProps> = ({ appDetailData, button
 
       <div className={styles.separator} />
 
-      <div className={styles.appHeaderFeaturedImageContainer}>
-        <img className={styles.appHeaderFeaturedImage} src={appDetailData?.media?.[1]?.uri || placeHolderUrl} />
-      </div>
+      <div
+        className={styles.appHeaderFeaturedImageContainer}
+        style={{ backgroundImage: `url('${featureImageSrc}')` }}
+      ></div>
     </div>
   )
 }
