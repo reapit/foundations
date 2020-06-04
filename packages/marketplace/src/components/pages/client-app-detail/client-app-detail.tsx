@@ -8,7 +8,7 @@ import { selectIntegrationTypes } from '@/selector/integration-types'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectAppDetailData, selectAppDetailLoading, selectAppDetailError } from '@/selector/client-app-detail'
 import { selectLoginType, selectIsAdmin } from '@/selector/auth'
-import AppHeader from '@/components/ui/standalone-app-detail/app-header'
+import ClientAppHeader from '@/components/ui/client-app-detail/client-app-header'
 import AppContent from './app-content'
 import { Loader, Button, Alert, FormSection } from '@reapit/elements'
 import clientAppDetailStyles from '@/styles/pages/client-app-detail.scss?mod'
@@ -173,7 +173,7 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
     <div data-test="client-app-detail-container" className={clientAppDetailStyles.appDetailContainer}>
       {isDesktop && <Aside appDetailData={appDetailData} desktopIntegrationTypes={userDesktopIntegrationTypes} />}
       <div className={clientAppDetailStyles.mainContainer}>
-        <AppHeader
+        <ClientAppHeader
           appDetailData={appDetailData}
           buttonGroup={renderAppHeaderButtonGroup(
             id,
