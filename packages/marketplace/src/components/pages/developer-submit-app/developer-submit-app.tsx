@@ -8,7 +8,6 @@ import {
   Alert,
   H3,
   Grid,
-  GridItem,
   FlexContainerBasic,
   FormSection,
   LevelRight,
@@ -396,37 +395,35 @@ export const DeveloperSubmitApp: React.FC<DeveloperSubmitAppProps> = () => {
                   <FormSection>
                     {renderErrors((errors as unknown) as Record<string, string | string[]>)}
                     <LevelRight>
-                      <Grid>
-                        <GridItem>
-                          {isSubmitRevision && (
-                            <Button
-                              onClick={handleOpenAppPreview({
-                                appDetails: appDetailState?.appDetailData?.data,
-                                values,
-                                scopes,
-                                appId: appid,
-                              })}
-                              variant="primary"
-                              type="button"
-                            >
-                              Preview
-                            </Button>
-                          )}
-                          {!isSubmitApp && (
-                            <Button onClick={goBackToApps} variant="primary" type="button">
-                              Back To Apps
-                            </Button>
-                          )}
+                      <Grid className={styles.footerButtons}>
+                        {isSubmitRevision && (
                           <Button
-                            type="submit"
-                            dataTest="submit-app-button"
+                            onClick={handleOpenAppPreview({
+                              appDetails: appDetailState?.appDetailData?.data,
+                              values,
+                              scopes,
+                              appId: appid,
+                            })}
                             variant="primary"
-                            loading={Boolean(isSubmitting)}
-                            disabled={Boolean(isSubmitting)}
+                            type="button"
                           >
-                            Submit App
+                            Preview
                           </Button>
-                        </GridItem>
+                        )}
+                        {!isSubmitApp && (
+                          <Button onClick={goBackToApps} variant="primary" type="button">
+                            Back To Apps
+                          </Button>
+                        )}
+                        <Button
+                          type="submit"
+                          dataTest="submit-app-button"
+                          variant="primary"
+                          loading={Boolean(isSubmitting)}
+                          disabled={Boolean(isSubmitting)}
+                        >
+                          Submit App
+                        </Button>
                       </Grid>
                     </LevelRight>
                   </FormSection>
