@@ -1975,21 +1975,6 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                       className="column  "
                                     >
                                       <Component
-                                        onClick={[Function]}
-                                        type="button"
-                                        variant="primary"
-                                      >
-                                        <button
-                                          className="button  is-primary  "
-                                          data-test=""
-                                          disabled={false}
-                                          onClick={[Function]}
-                                          type="button"
-                                        >
-                                          Preview
-                                        </button>
-                                      </Component>
-                                      <Component
                                         dataTest="submit-app-button"
                                         disabled={false}
                                         loading={false}
