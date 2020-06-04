@@ -24,6 +24,8 @@ export interface InitializerTheme {
 }
 
 export interface ThemeClasses {
+  featureLabel: string
+  featureButton: string
   globalStyles: string
   primaryHeading: string
   secondaryHeading: string
@@ -120,6 +122,7 @@ export const generateThemeClasses = (
         color: ${primaryAccentColor || '#000'};
         border: 1px solid ${primaryAccentColor || 'grey'};
         background: ${baseBackgroundColor || '#fff'};
+        transition: all 0.2s ease-in-out;
 
         &:hover {
           background: ${primaryAccentColor || 'grey'};
@@ -134,6 +137,12 @@ export const generateThemeClasses = (
         border: 1px solid ${primaryAccentColor || 'grey'};
       }
     `,
+    featureLabel: css`
+      ${parentSelector || 'body'} & {
+        font-family: ${baseFontFamily || 'Helvetica, Arial, sans-serif'};
+        font-size: ${secondaryHeadingFontSize || '18px'};
+      }
+    `,
     resultItem: css`
       ${parentSelector || 'body'} & {
         width: 100%;
@@ -145,18 +154,24 @@ export const generateThemeClasses = (
         }
 
         @media screen and (min-width: ${breakPoints?.laptop || '960px'}) and (max-width: ${breakPoints?.desktop ||
-            '1200px'}) {
+      '1200px'}) {
           & {
             width: 33.333333%;
           }
         }
 
         @media screen and (min-width: ${breakPoints?.tablet || '768px'}) and (max-width: ${breakPoints?.laptop ||
-            '960px'}) {
+      '960px'}) {
           & {
             width: 50%;
           }
         }
+      }
+    `,
+    featureButton: css`
+      &,
+      svg {
+        color: ${basefontColor || '#000'};
       }
     `,
     searchBox: css`
@@ -170,7 +185,7 @@ export const generateThemeClasses = (
         }
 
         @media screen and (min-width: ${breakPoints?.mobile || '560px'}) and (max-width: ${breakPoints?.laptop ||
-            '960px'}) {
+      '960px'}) {
           & {
             width: 50%;
           }

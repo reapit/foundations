@@ -4,16 +4,15 @@ import standAloneAppDetailStyles from '@/styles/blocks/standalone-app-detail.scs
 import { FaCheck } from 'react-icons/fa'
 import routes from '@/constants/routes'
 import { useHistory } from 'react-router'
+import { History } from 'history'
 import developerAppDetailStyles from '@/styles/pages/developer-app-detail.scss?mod'
 import { RenderWithHeader } from './app-detail/render-with-header'
 import { Button } from '@reapit/elements'
 import { convertBooleanToYesNoString } from '@/utils/boolean-to-yes-no-string'
 import { renderCategory, renderDesktopIntegrationTypes } from '../client-app-detail/app-content'
 import { DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
-/* eslint-disable max-len */
 import DeveloperAppRevisionModal from '@/components/ui/developer-app-revision-modal/developer-app-revision-modal'
 import AppDelete from '@/components/ui/app-delete'
-import { handlePendingRevisionButtonClick } from '@/components/ui/developer-app-modal'
 import { DeveloperAppDetailState } from '@/reducers/developer'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { useDispatch, useSelector } from 'react-redux'
@@ -47,6 +46,42 @@ export const onCancelSuccess = ({
   dispatch(developerFetchAppDetail({ id, clientId }))
 }
 
+export const onAppDeleteModalAfterClose = (setVisible: (value: boolean) => void) => {
+  return () => {
+    setVisible(false)
+  }
+}
+
+export const onDeleteSuccess = (history: History) => {
+  return () => {
+    history.push(routes.DEVELOPER_MY_APPS)
+  }
+}
+
+export const onDeveloperAppRevisionModalAfterClose = (setVisible: (value: boolean) => void) => {
+  return () => {
+    setVisible(false)
+  }
+}
+
+export const onPendingRevisionButtonClick = (setVisible: (value: boolean) => void) => {
+  return () => {
+    setVisible(true)
+  }
+}
+
+export const onEditDetailButtonClick = (history: History, id: string) => {
+  return () => {
+    history.push(`${routes.DEVELOPER_MY_APPS}/${id}/edit`)
+  }
+}
+
+export const onDeleteAppButtonClick = (setVisible: (value: boolean) => void) => {
+  return () => {
+    setVisible(true)
+  }
+}
+
 export const ManageApp: React.FC<ManageAppProps> = ({ pendingRevisions, id, appDetailState }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false)
   const [isAppRevisionComparisionModalOpen, setIsAppRevisionComparisionModalOpen] = React.useState(false)
@@ -61,11 +96,9 @@ export const ManageApp: React.FC<ManageAppProps> = ({ pendingRevisions, id, appD
         <AppDelete
           appId={id || ''}
           appName={name || ''}
-          afterClose={() => setIsDeleteModalOpen(false)}
+          afterClose={onAppDeleteModalAfterClose(setIsDeleteModalOpen)}
           visible={isDeleteModalOpen}
-          onDeleteSuccess={() => {
-            history.push(routes.DEVELOPER_MY_APPS)
-          }}
+          onDeleteSuccess={onDeleteSuccess(history)}
         />
       )}
 
@@ -79,7 +112,7 @@ export const ManageApp: React.FC<ManageAppProps> = ({ pendingRevisions, id, appD
           appDetailState={appDetailState}
           visible={isAppRevisionComparisionModalOpen}
           appId={id || ''}
-          afterClose={() => setIsAppRevisionComparisionModalOpen(false)}
+          afterClose={onDeveloperAppRevisionModalAfterClose(setIsAppRevisionComparisionModalOpen)}
         />
       )}
 
@@ -90,7 +123,7 @@ export const ManageApp: React.FC<ManageAppProps> = ({ pendingRevisions, id, appD
             type="button"
             variant="primary"
             dataTest="detail-modal-edit-button"
-            onClick={handlePendingRevisionButtonClick(setIsAppRevisionComparisionModalOpen)}
+            onClick={onPendingRevisionButtonClick(setIsAppRevisionComparisionModalOpen)}
           >
             PENDING REVISION
           </Button>
@@ -100,14 +133,12 @@ export const ManageApp: React.FC<ManageAppProps> = ({ pendingRevisions, id, appD
             type="button"
             variant="primary"
             dataTest="detail-modal-edit-button"
-            onClick={() => {
-              history.push(`${routes.DEVELOPER_MY_APPS}/${id}/edit`)
-            }}
+            onClick={onEditDetailButtonClick(history, id)}
           >
             EDIT DETAILS
           </Button>
         )}
-        <Button className="w-100" onClick={() => setIsDeleteModalOpen(true)} variant="danger">
+        <Button className="w-100" onClick={onDeleteAppButtonClick(setIsDeleteModalOpen)} variant="danger">
           DELETE APP
         </Button>
       </div>

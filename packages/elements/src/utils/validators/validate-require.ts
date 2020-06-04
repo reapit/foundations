@@ -17,10 +17,10 @@ export const validateRequire = <ValuesType, ErrorKeys extends string>({
 }
 
 export const fieldValidateRequire = (value: string) => {
-  if (value) {
-    return null
+  if (isEmpty(value)) {
+    return errorMessages.FIELD_REQUIRED
   }
-  return errorMessages.FIELD_REQUIRED
+  return null
 }
 export function isEmpty(value: string | string[]): boolean {
   return (

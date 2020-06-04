@@ -114,22 +114,6 @@ exports[`MyApps should match a snapshot when LOADING false 1`] = `
                 </div>
               </Component>
             </Component>
-            <Connect(Component)
-              afterClose={[Function]}
-              visible={false}
-            >
-              <Component
-                afterClose={[Function]}
-                setAppDetailModalStateBrowse={[Function]}
-                visible={false}
-              >
-                <Component
-                  afterClose={[Function]}
-                  renderChildren={true}
-                  visible={false}
-                />
-              </Component>
-            </Connect(Component)>
           </ErrorBoundary>
         </Connect(ErrorBoundary)>
       </Component>

@@ -75,11 +75,12 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                         labelText="Name"
                         name="name"
                         placeholder="The name of your app as it will appear to users"
+                        required={true}
                         type="text"
                       >
                         <Field
                           name="name"
-                          validate={null}
+                          validate={[Function]}
                         >
                           <div
                             className="field pb-4"
@@ -88,7 +89,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                               className="control "
                             >
                               <label
-                                className="label "
+                                className="label required-label"
                                 htmlFor="name"
                               >
                                 Name

@@ -4,10 +4,14 @@ import TestRenderer from 'react-test-renderer'
 import { MemoryRouter } from 'react-router'
 import { mount, shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
+import { getMockRouterProps } from '@/utils/mock-helper'
 import ClientAppDetail, {
   handleCloseInstallConfirmationModal,
   handleInstallAppButtonClick,
   renderAppHeaderButtonGroup,
+  handleCloseUnInstallConfirmationModal,
+  handleUnInstallAppButtonClick,
+  onBackToAppsButtonClick,
   handleApplyAppDetailsFromLocalStorage,
 } from '../client-app-detail'
 import { Button } from '@reapit/elements'
@@ -17,6 +21,7 @@ import { developerApplyAppDetails } from '@/actions/developer'
 import { AppDetailData } from '@/reducers/client/app-detail'
 
 describe('ClientAppDetail', () => {
+  const { history } = getMockRouterProps({})
   let store
   beforeEach(() => {
     /* mocking store */
@@ -172,7 +177,34 @@ describe('ClientAppDetail', () => {
       expect(mockFunction).toBeCalledWith(true)
     })
   })
-
+  describe('handleCloseUnInstallConfirmationModal', () => {
+    it('should run correctly', () => {
+      const mockFunction = jest.fn()
+      const fn = handleCloseUnInstallConfirmationModal(mockFunction)
+      fn()
+      expect(mockFunction).toBeCalledWith(false)
+    })
+  })
+  describe('handleUnInstallAppButtonClick', () => {
+    it('should run correctly', () => {
+      const mockFunction = jest.fn()
+      const fn = handleUnInstallAppButtonClick(mockFunction)
+      fn()
+      expect(mockFunction).toBeCalledWith(true)
+    })
+  })
+  describe('onBackToAppsButtonClick', () => {
+    it('should run correctly', () => {
+      const fn = onBackToAppsButtonClick(history, 'DEVELOPER')
+      fn()
+      expect(history.push).toBeCalledWith(Routes.DEVELOPER_MY_APPS)
+    })
+    it('should run correctly', () => {
+      const fn = onBackToAppsButtonClick(history, 'CLIENT')
+      fn()
+      expect(history.push).toBeCalledWith(Routes.CLIENT)
+    })
+  })
   describe('handleApplyAppDetailsFromLocalStorage', () => {
     it('should run correctly', () => {
       const dispatch = jest.fn()
