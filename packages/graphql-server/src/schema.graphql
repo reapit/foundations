@@ -157,6 +157,7 @@ type Query {
     embed: [String!]
   ): PagedResultOfficeModel!
   GetOfficeById(id: String!, embed: [String!]): OfficeModel!
+  Ping: String!
   GetProperties(
     pageSize: Int
     pageNumber: Int
