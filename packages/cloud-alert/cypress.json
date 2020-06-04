@@ -12,12 +12,16 @@
     "SMB_ONBOARDER_URL_production": "https://smb-app.reapit.cloud/",
     "LIFE_TIME_LEGAL_URL_production": "http://lifetime-legal-app.reapit.cloud/",
     "WEB_COMPONENTS_API_URL_production": "https://b2q5q0tc48.execute-api.eu-west-2.amazonaws.com/dev",
+    "WEB_COMPONENTS_CONFIG_API_URL_production": "https://vwvdddbw9k.execute-api.eu-west-2.amazonaws.com/dev",
+    "GRAPHQL_SERVER_URL_production": "https://8g8ibl8iei.execute-api.eu-west-2.amazonaws.com/dev/v1/graphql",
     "MARKETPLACE_URL_development": "https://dev.marketplace.reapit.cloud/",
     "AML_CHECKLIST_URL_development": "https://dev.aml-app.reapit.cloud/",
     "GEO_DIARY_URL_development": "https://dev.geo-diary-app.reapit.cloud/",
     "SMB_ONBOARDER_URL_development": "https://dev.smb-app.reapit.cloud/",
     "LIFE_TIME_LEGAL_URL_development": "http://dev.lifetime-legal-app.reapit.cloud/",
-    "WEB_COMPONENTS_API_URL_development": "https://b2q5q0tc48.execute-api.eu-west-2.amazonaws.com/dev"
+    "WEB_COMPONENTS_API_URL_development": "https://b2q5q0tc48.execute-api.eu-west-2.amazonaws.com/dev",
+    "WEB_COMPONENTS_CONFIG_API_URL_development": "https://vwvdddbw9k.execute-api.eu-west-2.amazonaws.com/dev",
+    "GRAPHQL_SERVER_URL_development": "https://8g8ibl8iei.execute-api.eu-west-2.amazonaws.com/dev/v1/graphql"
   },
   "ignoreTestFiles": [
     "**/__snapshots__/*",

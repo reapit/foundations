@@ -8,6 +8,7 @@ import Negotiators from './negotiators/resolvers'
 import Properties from './properties/resolvers'
 import Configurations from './configurations/resolver'
 import IdentityChecks from './identity-checks/resolvers'
+import Ping from './ping/resolvers'
 
 export const resolvers = merge(
   {
@@ -21,5 +22,6 @@ export const resolvers = merge(
   Properties,
   Configurations,
   IdentityChecks,
+  Ping,
 )
 export default resolvers
