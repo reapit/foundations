@@ -21,6 +21,7 @@ import {
   FlexContainerBasic,
   DatePicker,
   toLocalTime,
+  isEmptyString,
 } from '@reapit/elements'
 import { selectAdminAppsData, selectAdminAppsLoading } from '@/selector/admin'
 import { adminAppsRequestFeatured } from '@/actions/admin-apps'
@@ -132,7 +133,11 @@ export const refreshForm = (onSubmit: Function, resetForm: Function) => () => {
 
 export const renderForm = onSubmit => ({ values, resetForm }) => {
   const isDisabledSubmitButton =
-    !values.appName && !values.companyName && !values.developerName && !values.registeredFrom && !values.registeredTo
+    isEmptyString(values.appName) &&
+    isEmptyString(values.companyName) &&
+    isEmptyString(values.developerName) &&
+    !values.registeredFrom &&
+    !values.registeredTo
 
   const startDate = values.registeredFrom ? new Date(values.registeredFrom) : ''
   const endDate = values.registeredTo ? new Date(values.registeredTo) : ''

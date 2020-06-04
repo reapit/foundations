@@ -1,4 +1,4 @@
-import { validateRequire, fieldValidateRequire, isEmpty, dropdownSelectFieldValidateRequire } from '../validate-require'
+import { validateRequire, fieldValidateRequire, dropdownSelectFieldValidateRequire } from '../validate-require'
 import errorMessages from '../error-messages'
 
 interface ValueTypes {
@@ -66,14 +66,6 @@ describe('fieldValidateRequire', () => {
   it('work correctly', () => {
     const value = '123'
     expect(fieldValidateRequire(value)).toBeNull()
-  })
-})
-
-describe('validate empty', () => {
-  it('work correctly', () => {
-    expect(isEmpty('')).toBe(true)
-    expect(isEmpty([])).toBe(true)
-    expect(isEmpty('a')).toBe(false)
   })
 
   it('work correctly', () => {
