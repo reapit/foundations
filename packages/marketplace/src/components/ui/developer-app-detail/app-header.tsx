@@ -13,8 +13,6 @@ export type AppHeaderProps = {
 
 const appIconClassName = ['images', styles.appIcon].join(' ')
 
-const placeHolderUrl = 'https://bulma.io/images/placeholders/48x48.png'
-
 const DesktopAppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup }) => {
   const { media, name = '' } = appDetailData
   const appIcon = media?.filter(({ type }) => type === 'icon')[0]
@@ -23,7 +21,7 @@ const DesktopAppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup
     <div className={styles.appHeader}>
       <div className="flex mb-3">
         <div className={styles.appIconContainer}>
-          <img className={appIconClassName} src={(appIcon && appIcon.uri) || placeHolderUrl} alt={name} />
+          <img className={appIconClassName} src={appIcon && appIcon.uri} alt={name} />
         </div>
         <div className={styles.appHeaderTextContainer}>
           <H2 className={styles.appName}>{appDetailData.name}</H2>
