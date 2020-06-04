@@ -17,9 +17,8 @@ Cypress.on('fail', (error, runnable) => {
   throw error
 })
 
-const LIFE_TIME_LEGAL_URL = Cypress.env(`LIFE_TIME_LEGAL_URL_${Cypress.env('ENVIRONMENT')}`)
-const PACKAGE_NAME = Cypress.env('PACKAGE_NAME')
-if (PACKAGE_NAME === 'all' || PACKAGE_NAME === 'lifetime-legal') {
+if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'lifetime-legal') {
+  const LIFE_TIME_LEGAL_URL = Cypress.env(`LIFE_TIME_LEGAL_URL_${Cypress.env('ENVIRONMENT')}`)
   describe('Life Time Legal App', () => {
     it('user should able to login Life Time Legal App', () => {
       cy.visit(LIFE_TIME_LEGAL_URL).then(() => {

@@ -18,9 +18,8 @@ Cypress.on('fail', (error, runnable) => {
   throw error
 })
 
-const MARKETPLACE_URL = Cypress.env(`MARKETPLACE_URL_${Cypress.env('ENVIRONMENT')}`)
-const PACKAGE_NAME = Cypress.env('PACKAGE_NAME')
-if (PACKAGE_NAME === 'all' || PACKAGE_NAME === 'marketplace') {
+if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'marketplace') {
+  const MARKETPLACE_URL = Cypress.env(`MARKETPLACE_URL_${Cypress.env('ENVIRONMENT')}`)
   describe('Marketplace', () => {
     it('user should able to login Marketplace', () => {
       cy.visit(MARKETPLACE_URL).then(() => {
