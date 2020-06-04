@@ -17,8 +17,10 @@ Book_valuation_widget {
       [Function],
       Object {
         "bodyText": "css-kj8hgc",
-        "button": "css-1dv0ljc",
+        "button": "css-1fyea8g",
         "dateCellHeader": "css-emo7go",
+        "featureButton": "css-q9ua3x",
+        "featureLabel": "css-3emzn1",
         "formBlock": "css-ebxsuw",
         "formButtonPrimary": "css-1lxnn63",
         "formButtonSecondary": "css-rjv3cy",

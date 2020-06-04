@@ -16,6 +16,9 @@ module.exports = {
     "<rootDir>/src/index.ts",
     ".d.ts"
   ],
+  moduleNameMapper: {
+    '\\.(css|less|scss|sass)$': '<rootDir>/src/scripts/style-mock.js'
+  },
   coverageThreshold: {
     global: {
       branches: 80,

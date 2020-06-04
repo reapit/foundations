@@ -173,20 +173,6 @@ exports[`Router should match a snapshot 1`] = `
               }
             }
             exact={true}
-            fetcher={true}
-            path="/client/apps/:appid/manage"
-          />
-          <Component
-            allow="CLIENT"
-            component={
-              Object {
-                "$$typeof": Symbol(react.lazy),
-                "_ctor": [Function],
-                "_result": null,
-                "_status": -1,
-              }
-            }
-            exact={true}
             path="/client/welcome"
           />
           <Component
@@ -379,6 +365,19 @@ exports[`Router should match a snapshot 1`] = `
             path="/developer/help"
           />
           <Component
+            allow="DEVELOPER"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            exact={true}
+            path="/developer/apps/:appId/preview"
+          />
+          <Component
             allow="ADMIN"
             component={
               Object {
@@ -419,20 +418,6 @@ exports[`Router should match a snapshot 1`] = `
             exact={true}
             fetcher={true}
             path="/admin/dev-management"
-          />
-          <Component
-            allow="ADMIN"
-            component={
-              Object {
-                "$$typeof": Symbol(react.lazy),
-                "_ctor": [Function],
-                "_result": null,
-                "_status": -1,
-              }
-            }
-            exact={true}
-            fetcher={true}
-            path="/admin/dev-management/:page"
           />
           <Component
             allow="ADMIN"

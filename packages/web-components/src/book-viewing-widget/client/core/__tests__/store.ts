@@ -13,6 +13,8 @@ describe('store', () => {
       propertyData: { image: '', address: '', price: '' },
       isLoading: false,
       themeClasses: {
+        featureLabel: '',
+        featureButton: '',
         globalStyles: '',
         primaryHeading: '',
         secondaryHeading: '',

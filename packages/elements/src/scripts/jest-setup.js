@@ -35,17 +35,6 @@ Object.defineProperty(window, 'getComputedStyle', {
   }),
 })
 
-// https://github.com/akiran/react-slick/issues/742
-window.matchMedia =
-  window.matchMedia ||
-  function() {
-    return {
-      matches: false,
-      addListener: function() {},
-      removeListener: function() {},
-    }
-  }
-
 const mockGeolocation = {
   getCurrentPosition: jest.fn(),
   watchPosition: jest.fn(),

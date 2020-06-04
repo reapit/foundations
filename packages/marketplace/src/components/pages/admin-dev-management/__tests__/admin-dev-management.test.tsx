@@ -83,7 +83,7 @@ describe('onPageChangeHandler', () => {
 
 describe('onSearchHandler', () => {
   it('should return a function when executing', () => {
-    const onSearchHandlerFn = onSearchHandler(mockRouterProps.history, mockRouterProps.match.params.page)
+    const onSearchHandlerFn = onSearchHandler(mockRouterProps.history)
     expect(onSearchHandlerFn).toBeDefined()
 
     onSearchHandlerFn({

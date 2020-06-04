@@ -3,6 +3,7 @@ import * as ReactRedux from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { mount, shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
+import { getMockRouterProps } from '@/utils/mock-helper'
 import { MemoryRouter } from 'react-router'
 import DeveloperAppDetail, {
   handleOnDeleteAppSuccess,
@@ -10,6 +11,7 @@ import DeveloperAppDetail, {
   closeInstallationsModal,
   closeAppRevisionComparisionModal,
   closeDeleteAppModal,
+  onBackToAppsButtonClick,
 } from '../developer-app-detail'
 import routes from '@/constants/routes'
 import Routes from '@/constants/routes'
@@ -23,6 +25,7 @@ const mockState = {
 } as ReduxState
 
 describe('DeveloperAppDetail', () => {
+  const { history } = getMockRouterProps({})
   let store
   beforeEach(() => {
     /* mocking store */
@@ -82,5 +85,12 @@ describe('DeveloperAppDetail', () => {
     const fn = closeDeleteAppModal(mockFunction)
     fn()
     expect(mockFunction).toBeCalledWith(false)
+  })
+  describe('onBackToAppsButtonClick', () => {
+    it('should run correctly', () => {
+      const fn = onBackToAppsButtonClick(history)
+      fn()
+      expect(history.push).toBeCalledWith(Routes.DEVELOPER_MY_APPS)
+    })
   })
 })

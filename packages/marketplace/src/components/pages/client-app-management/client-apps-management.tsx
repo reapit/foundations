@@ -6,7 +6,6 @@ import { Loader, Info } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import routes from '@/constants/routes'
 import AppList from '@/components/ui/app-list'
-import AppDetailModal from '@/components/ui/app-detail-modal'
 import { selectMyApps } from '@/selector/client'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { handleLaunchApp } from '@/utils/launch-app'
@@ -30,7 +29,6 @@ export const ClientAppsManagement: React.FunctionComponent = () => {
   const loading = myAppsState.loading
   const list = myAppsState?.myAppsData?.data?.data || []
   const { totalCount, pageSize } = myAppsState?.myAppsData?.data || {}
-  const [visible, setVisible] = React.useState(false)
 
   if (unfetched || loading) {
     return <Loader />
@@ -53,7 +51,6 @@ export const ClientAppsManagement: React.FunctionComponent = () => {
           onChange: handleOnChange(history),
         }}
       />
-      <AppDetailModal visible={visible} afterClose={() => setVisible(false)} />
     </ErrorBoundary>
   )
 }
