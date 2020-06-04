@@ -69,14 +69,12 @@
     align-items: center;
     justify-content: center;
     background-color: $grey-lighter;
-    border-radius: 50%;
     margin: 0 auto;
     @include for-mobile-only {
       width: 86px;
       height: 86px;
     }
     img {
-      background: $white;
       width: 100%;
       height: 100%;
     }
