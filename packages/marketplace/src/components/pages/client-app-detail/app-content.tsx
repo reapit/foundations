@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { H5, HTMLRender, Button } from '@reapit/elements'
+import { H5, HTMLRender } from '@reapit/elements'
 import { CategoryModel, DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
 import styles from '@/styles/blocks/app-detail.scss?mod'
 import { ScopeModel, MediaModel } from '@reapit/foundations-ts-definitions'
@@ -7,7 +7,6 @@ import clientAppDetailStyles from '@/styles/pages/client-app-detail.scss?mod'
 import { Tag } from '@/components/pages/developer-app-detail/app-detail/tag'
 import { RenderWithHeader } from '@/components/pages/developer-app-detail/app-detail/render-with-header'
 import standAloneAppDetailStyles from '@/styles/blocks/standalone-app-detail.scss?mod'
-
 import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
 
 export type AppContentProps = {
@@ -113,11 +112,6 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailData, desktopIntegrati
             dolorum dolore incidunt officiis praesentium, nemo similique veritatis exercitationem perferendis non
             mollitia animi laboriosam perspiciatis.
           </p>
-        </RenderWithHeader>
-        <RenderWithHeader header="Contact Developer">
-          <Button type="button" variant="primary">
-            NEED HELP?
-          </Button>
         </RenderWithHeader>
       </div>
     </div>

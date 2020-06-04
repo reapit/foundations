@@ -1,5 +1,6 @@
 import React from 'react'
-import { AboutDeveloperSection, ContactDeveloperSection, DeveloperImageSection } from './reuse'
+import { AboutDeveloperSection, DeveloperImageSection } from './reuse'
+import { ContactDeveloperSection } from './contact-developer-section'
 import standAloneAppDetailStyles from '@/styles/blocks/standalone-app-detail.scss?mod'
 import { renderCategory, renderDesktopIntegrationTypes } from '../client-app-detail/app-content'
 import { DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
@@ -18,14 +19,21 @@ interface AsideProps {
 }
 
 export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetailData }) => {
-  const { category, isWebComponent } = appDetailData
+  const { category, isWebComponent, developer, telephone, supportEmail, homePage } = appDetailData
 
   return (
     <div className={standAloneAppDetailStyles.asideContainer}>
       <div>
         <DeveloperImageSection />
         <AboutDeveloperSection />
-        <ContactDeveloperSection />
+        <ContactDeveloperSection
+          contact={{
+            developer,
+            telephone,
+            supportEmail,
+            homePage,
+          }}
+        />
         <div className={standAloneAppDetailStyles.headerWithoutMargin}>{renderCategory(category)}</div>
         <div className={standAloneAppDetailStyles.headerWithoutMargin}>
           {renderDesktopIntegrationTypes(desktopIntegrationTypes)}

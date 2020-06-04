@@ -47,9 +47,8 @@ describe('result fetch data', () => {
 
   it('api fail sagas', () => {
     const clone = gen.clone()
-    expect((clone as any).throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value).toEqual(
-      put(resultRequestDataFailure()),
-    )
+    if (!clone.throw) throw new Error('Generator object cannot throw')
+    expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(resultRequestDataFailure()))
     expect(clone.next().value).toEqual(
       put(
         errorThrownServer({

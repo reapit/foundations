@@ -98,7 +98,7 @@ describe('developer fetch data', () => {
 
   test('api call error', () => {
     const clone = gen.clone()
-    // @ts-ignore
+    if (!clone.throw) throw new Error('Generator object cannot throw')
     expect(clone.throw('error').value).toEqual(
       put(
         errorThrownServer({
@@ -122,7 +122,7 @@ describe('developer create', () => {
   })
   it('api call error', () => {
     const clone = gen.clone()
-    // @ts-ignore
+    if (!clone.throw) throw new Error('Generator object cannot throw')
     expect(clone.throw('error').value).toEqual(put(developerSetFormState('ERROR')))
     expect(clone.next().value).toEqual(
       put(
@@ -151,7 +151,7 @@ describe('fetchMyIdentitySagas', () => {
 
   it('api call error', () => {
     const clone = gen.clone()
-    // @ts-ignore
+    if (!clone.throw) throw new Error('Generator object cannot throw')
     expect(clone.throw('error').value).toEqual(put(developerLoading(false)))
     expect(clone.next().value).toEqual(
       put(
@@ -180,7 +180,7 @@ describe('fetchBillingSagas', () => {
   })
   it('api call error', () => {
     const clone = gen.clone()
-    // @ts-ignore
+    if (!clone.throw) throw new Error('Generator object cannot throw')
     expect(clone.throw('error').value).toEqual(put(fetchBillingFailure('error')))
     expect(clone.next().value).toEqual(
       put(
@@ -208,7 +208,7 @@ describe('fetchMonthlyBillingSagas', () => {
   })
   it('api call error', () => {
     const clone = gen.clone()
-    // @ts-ignore
+    if (!clone.throw) throw new Error('Generator object cannot throw')
     expect(clone.throw('error').value).toEqual(put(fetchMonthlyBillingFailure('error')))
     expect(clone.next().value).toEqual(
       put(
@@ -237,7 +237,7 @@ describe('developerWebhookPing', () => {
   })
   it('api call error', () => {
     const clone = gen.clone()
-    // @ts-ignore
+    if (!clone.throw) throw new Error('Generator object cannot throw')
     expect(clone.throw('error').value).toEqual(put(developerSetWebhookPingStatus('FAILED')))
     expect(clone.next().done).toEqual(true)
   })

@@ -218,8 +218,18 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
                     </div>
                   </Component>
                 </Component>
-                <Component>
+                <Component
+                  contact={
+                    Object {
+                      "developer": undefined,
+                      "homePage": undefined,
+                      "supportEmail": undefined,
+                      "telephone": undefined,
+                    }
+                  }
+                >
                   <Component
+                    hasGutter={true}
                     header="Contact Developer"
                   >
                     <div
@@ -234,18 +244,37 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
                         </h5>
                       </Component>
                       <Component
+                        dataTest="btn-help"
+                        onClick={[Function]}
                         type="button"
                         variant="primary"
                       >
                         <button
                           className="button  is-primary  "
-                          data-test=""
+                          data-test="btn-help"
                           disabled={false}
+                          onClick={[Function]}
                           type="button"
                         >
                           NEED HELP?
                         </button>
                       </Component>
+                      <Component
+                        afterClose={[Function]}
+                        footerItems={
+                          <Unknown
+                            dataTest="btn-close-modal"
+                            disabled={false}
+                            onClick={[Function]}
+                            type="button"
+                            variant="primary"
+                          >
+                            Close
+                          </Unknown>
+                        }
+                        title="Contact Details"
+                        visible={false}
+                      />
                     </div>
                   </Component>
                 </Component>
@@ -460,50 +489,82 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
                       </p>
                     </div>
                   </Component>
-                  <Component
-                    header="Contact Developer"
-                  >
-                    <div
-                      data-test=""
-                    >
-                      <Component>
-                        <h5
-                          className="title is-5  "
-                          id=""
-                        >
-                          Contact Developer
-                        </h5>
-                      </Component>
-                      <Component
-                        type="button"
-                        variant="primary"
-                      >
-                        <button
-                          className="button  is-primary  "
-                          data-test=""
-                          disabled={false}
-                          type="button"
-                        >
-                          NEED HELP?
-                        </button>
-                      </Component>
-                    </div>
-                  </Component>
                 </div>
               </div>
             </AppContent>
-            <Component
-              className="is-clearfix"
-            >
+            <Component>
               <div
-                className="form-section mb-4 is-clearfix"
+                className="form-section mb-4 "
               >
+                <div>
+                  <Component
+                    contact={
+                      Object {
+                        "developer": undefined,
+                        "homePage": undefined,
+                        "supportEmail": undefined,
+                        "telephone": undefined,
+                      }
+                    }
+                    hasGutter={false}
+                  >
+                    <Component
+                      hasGutter={false}
+                      header="Contact Developer"
+                    >
+                      <div
+                        className=""
+                        data-test=""
+                      >
+                        <Component>
+                          <h5
+                            className="title is-5  "
+                            id=""
+                          >
+                            Contact Developer
+                          </h5>
+                        </Component>
+                        <Component
+                          dataTest="btn-help"
+                          onClick={[Function]}
+                          type="button"
+                          variant="primary"
+                        >
+                          <button
+                            className="button  is-primary  "
+                            data-test="btn-help"
+                            disabled={false}
+                            onClick={[Function]}
+                            type="button"
+                          >
+                            NEED HELP?
+                          </button>
+                        </Component>
+                        <Component
+                          afterClose={[Function]}
+                          footerItems={
+                            <Unknown
+                              dataTest="btn-close-modal"
+                              disabled={false}
+                              onClick={[Function]}
+                              type="button"
+                              variant="primary"
+                            >
+                              Close
+                            </Unknown>
+                          }
+                          title="Contact Details"
+                          visible={false}
+                        />
+                      </div>
+                    </Component>
+                  </Component>
+                </div>
                 <Component
-                  className="is-pulled-right"
                   onClick={[Function]}
                 >
                   <button
-                    className="button is-pulled-right is-primary  "
+                    className="button  is-primary  "
                     data-test=""
                     disabled={false}
                     onClick={[Function]}

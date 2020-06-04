@@ -40,7 +40,8 @@ describe('auth sagas', () => {
     test('login fail', () => {
       const gen = doLogin(action)
       expect(gen.next().value).toEqual(call(setUserSession, loginParams))
-      expect(gen.throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value).toEqual(put(authLoginFailure()))
+      if (!gen.throw) throw new Error('Generator object cannot throw')
+      expect(gen.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(authLoginFailure()))
       expect(gen.next().done).toBe(true)
     })
   })
@@ -59,7 +60,8 @@ describe('auth sagas', () => {
     it('on logout fail', () => {
       const gen = doLogout()
       expect(gen.next().value).toEqual(call(removeSession, COOKIE_SESSION_KEY_GEO_DIARY, 'development'))
-      gen.next(gen.throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value)
+      if (!gen.throw) throw new Error('Generator object cannot throw')
+      gen.next(gen.throw(errorMessages.DEFAULT_SERVER_ERROR).value)
       expect(gen.next().done).toBe(true)
     })
   })

@@ -17,9 +17,8 @@ Cypress.on('fail', (error, runnable) => {
   throw error
 })
 
-const AML_CHECKLIST_URL = Cypress.env(`AML_CHECKLIST_URL_${Cypress.env('ENVIRONMENT')}`)
-const PACKAGE_NAME = Cypress.env('PACKAGE_NAME')
-if (PACKAGE_NAME === 'all' || PACKAGE_NAME === 'aml-checklist') {
+if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'aml-checklist') {
+  const AML_CHECKLIST_URL = Cypress.env(`AML_CHECKLIST_URL_${Cypress.env('ENVIRONMENT')}`)
   describe('AML Checklist App', () => {
     it('user should able to login AML Checklist App', () => {
       cy.visit(AML_CHECKLIST_URL).then(() => {

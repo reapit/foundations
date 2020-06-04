@@ -148,7 +148,7 @@ describe('revision-detail thunks', () => {
 
   describe('revisionDetailSagas', () => {
     it('should listen data request', () => {
-      const gen = revisionDetailSagas()
+      const gen = cloneableGenerator(revisionDetailSagas)()
 
       expect(gen.next().value).toEqual(
         all([fork(revisionDetailDataListen), fork(approveRevisionListen), fork(declineRevisionListen)]),
