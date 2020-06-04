@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { History } from 'history'
 import { useHistory } from 'react-router'
-import classNames from 'classnames'
 import ClientAppUninstallConfirmation from '@/components/ui/client-app-detail/client-app-uninstall-confirmation'
 import { DesktopIntegrationTypeModel } from '@/actions/app-integration-types'
 import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
@@ -22,6 +21,7 @@ import { Dispatch } from 'redux'
 import { getDesktopIntegrationTypes } from '@/utils/get-desktop-integration-types'
 import Routes from '@/constants/routes'
 import { LoginType } from '@reapit/cognito-auth'
+import { ContactDeveloperSection } from './contact-developer-section'
 
 export type ClientAppDetailProps = {}
 
@@ -157,7 +157,7 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   const isInstallBtnHidden = loginType === 'CLIENT' && !isAdmin
   // selector selectAppDetailData return {} if not data
   const unfetched = Object.keys(appDetailData).length === 0
-  const { id = '', installedOn = '' } = appDetailData
+  const { id = '', installedOn = '', developer, telephone, supportEmail, homePage } = appDetailData
 
   React.useEffect(handleApplyAppDetailsFromLocalStorage(dispatch, loginType, appId), [dispatch])
 
@@ -181,10 +181,19 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
           )}
         />
         <AppContent desktopIntegrationTypes={userDesktopIntegrationTypes} appDetailData={appDetailData} />
-        <FormSection className={classNames('is-clearfix', clientAppDetailStyles.footerContainer)}>
-          <Button className="is-pulled-right" onClick={onBackToAppsButtonClick(history, loginType)}>
-            Back To Apps
-          </Button>
+        <FormSection className={clientAppDetailStyles.footerContainer}>
+          <div className={clientAppDetailStyles.hiddenInDesktopScreenSize}>
+            <ContactDeveloperSection
+              contact={{
+                developer,
+                telephone,
+                supportEmail,
+                homePage,
+              }}
+              hasGutter={false}
+            />
+          </div>
+          <Button onClick={onBackToAppsButtonClick(history, loginType)}>Back To Apps</Button>
         </FormSection>
         {isVisibleUninstallConfirmation && (
           <ClientAppUninstallConfirmation

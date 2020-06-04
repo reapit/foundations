@@ -5,7 +5,16 @@ exports[`Aside Aside - should match snapshot 1`] = `
   <div>
     <Component />
     <Component />
-    <Component />
+    <Component
+      contact={
+        Object {
+          "developer": undefined,
+          "homePage": undefined,
+          "supportEmail": undefined,
+          "telephone": undefined,
+        }
+      }
+    />
     <div>
       <div>
         <Component>
