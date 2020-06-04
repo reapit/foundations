@@ -237,14 +237,13 @@ exports[`Aside ManageApp - should match snapshot 1`] = `
             </Component>
             <div>
               <Component
-                className="mb-3"
                 dataTest="detail-modal-edit-button"
                 onClick={[Function]}
                 type="button"
                 variant="primary"
               >
                 <button
-                  className="button mb-3 is-primary  "
+                  className="button  is-primary  "
                   data-test="detail-modal-edit-button"
                   disabled={false}
                   onClick={[Function]}

@@ -7,7 +7,7 @@ import { useHistory } from 'react-router'
 import { History } from 'history'
 import developerAppDetailStyles from '@/styles/pages/developer-app-detail.scss?mod'
 import { RenderWithHeader } from './app-detail/render-with-header'
-import { Button } from '@reapit/elements'
+import { Button, FormSection } from '@reapit/elements'
 import { convertBooleanToYesNoString } from '@/utils/boolean-to-yes-no-string'
 import { renderCategory, renderDesktopIntegrationTypes } from '../client-app-detail/app-content'
 import { DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
@@ -18,6 +18,7 @@ import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { useDispatch, useSelector } from 'react-redux'
 import { developerFetchAppDetail } from '@/actions/developer'
 import { selectClientId } from '@/selector/client'
+import useReactResponsive from '@/components/hooks/useReactResponsive'
 
 const asideContainerClasses = [standAloneAppDetailStyles.asideContainer, developerAppDetailStyles.asideContainer].join(
   ' ',
@@ -82,6 +83,12 @@ export const onDeleteAppButtonClick = (setVisible: (value: boolean) => void) => 
   }
 }
 
+export const onBackToAppsButtonClick = (history: History) => {
+  return () => {
+    history.push(routes.DEVELOPER_MY_APPS)
+  }
+}
+
 export const ManageApp: React.FC<ManageAppProps> = ({ pendingRevisions, id, appDetailState }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false)
   const [isAppRevisionComparisionModalOpen, setIsAppRevisionComparisionModalOpen] = React.useState(false)
@@ -119,7 +126,6 @@ export const ManageApp: React.FC<ManageAppProps> = ({ pendingRevisions, id, appD
       <div className={developerAppDetailStyles.asideManageAppContainer}>
         {pendingRevisions ? (
           <Button
-            className="mb-3"
             type="button"
             variant="primary"
             dataTest="detail-modal-edit-button"
@@ -129,7 +135,6 @@ export const ManageApp: React.FC<ManageAppProps> = ({ pendingRevisions, id, appD
           </Button>
         ) : (
           <Button
-            className="mb-3"
             type="button"
             variant="primary"
             dataTest="detail-modal-edit-button"
@@ -159,6 +164,8 @@ export const renderListedStatus = (isListed: boolean) => {
 }
 
 export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetailState }) => {
+  const history = useHistory()
+  const { isMobile } = useReactResponsive()
   const { data } = appDetailState
   const { isDirectApi, category, isListed, pendingRevisions, id = '', limitToClientIds = [] } = data as AppDetailModel
 
@@ -173,8 +180,19 @@ export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetail
           {convertBooleanToYesNoString(Boolean(limitToClientIds.length > 0))}
         </RenderWithHeader>
         <RenderWithHeader header="Direct API">{convertBooleanToYesNoString(Boolean(isDirectApi))}</RenderWithHeader>
-        <RenderWithHeader header="Status">{renderListedStatus(Boolean(isListed))}</RenderWithHeader>
-        <ManageApp appDetailState={appDetailState} id={id} pendingRevisions={Boolean(pendingRevisions)} />
+        {isMobile && (
+          <FormSection>
+            <Button className="is-pulled-right" onClick={onBackToAppsButtonClick(history)}>
+              Back To Apps
+            </Button>
+          </FormSection>
+        )}
+        {!isMobile && (
+          <>
+            <RenderWithHeader header="Status">{renderListedStatus(Boolean(isListed))}</RenderWithHeader>
+            <ManageApp appDetailState={appDetailState} id={id} pendingRevisions={Boolean(pendingRevisions)} />
+          </>
+        )}
       </div>
     </div>
   )

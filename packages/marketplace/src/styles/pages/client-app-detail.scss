@@ -2,14 +2,14 @@
 @import '../base/screen-size.scss';
 
 .renderImageContainer {
-  @include for-desktop-only {
+  @include for-tablet-and-desktop {
     display: flex;
   }
 
   div {
     margin-right: 1rem;
     max-width: 300px;
-    @include for-desktop-only {
+    @include for-tablet-and-desktop {
       flex: 1;
     }
   }
@@ -23,7 +23,7 @@
   color: #a0c862;
 }
 
-@include for-desktop-only {
+@include for-tablet-and-desktop {
   .hiddenInDesktopScreenSize {
     display: none;
   }
@@ -42,13 +42,13 @@
     }
   }
 
-  @include for-desktop-only {
+  @include for-tablet-and-desktop {
     display: flex;
   }
 
   .mainContainer {
     position: relative;
-    @include for-desktop-only {
+    @include for-tablet-and-desktop {
       background-color: $white;
       padding: 0 3rem 6rem;
       flex: 1;

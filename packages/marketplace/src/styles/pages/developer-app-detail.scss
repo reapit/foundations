@@ -21,13 +21,25 @@
 
 .asideManageAppContainer {
   display: flex;
-  flex-direction: column;
-
-  button,
-  button:first-child {
+  @include for-tablet-and-desktop {
+    flex-direction: column;
+  }
+  @include for-small-mobile-only {
+    flex-direction: column;
+  }
+  button {
     width: 100%;
-    margin-top: 0;
-    margin-left: 0;
+    &:first-child {
+      margin-top: 0;
+      margin-left: 0;
+      margin-bottom: 0.75rem;
+      @include for-mobile-only {
+        margin-bottom: 0;
+      }
+      @include for-small-mobile-only {
+        margin-bottom: 0.75rem;
+      }
+    }
   }
 }
 

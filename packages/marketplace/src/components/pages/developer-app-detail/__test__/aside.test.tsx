@@ -13,6 +13,7 @@ import {
   onPendingRevisionButtonClick,
   onEditDetailButtonClick,
   onDeleteAppButtonClick,
+  onBackToAppsButtonClick,
 } from '../aside'
 import { shallow, mount } from 'enzyme'
 import { MemoryRouter } from 'react-router'
@@ -135,6 +136,14 @@ describe('Aside', () => {
       const fn = onDeleteAppButtonClick(mockFunction)
       fn()
       expect(mockFunction).toBeCalledWith(true)
+    })
+  })
+
+  describe('onBackToAppsButtonClick', () => {
+    it('should run correctly', () => {
+      const fn = onBackToAppsButtonClick(history)
+      fn()
+      expect(history.push).toBeCalledWith(Routes.DEVELOPER_MY_APPS)
     })
   })
 })

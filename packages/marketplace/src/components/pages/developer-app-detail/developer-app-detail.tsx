@@ -11,7 +11,7 @@ import { History } from 'history'
 import { selectAppDetailState, selectAppDetailData, selectAppDetailLoading } from '@/selector/developer-app-detail'
 import { selectInstallAppLoading } from '@/selector/installations'
 import { Loader, FormSection, Button } from '@reapit/elements'
-import AppHeader from '@/components/ui/standalone-app-detail/app-header'
+import AppHeader from '@/components/ui/developer-app-detail/app-header'
 import AppContent from './app-detail/app-content/app-content'
 import DeveloperAppDetailButtonGroup from '@/components/ui/developer-app-detail/developer-app-detail-button-group'
 
@@ -85,7 +85,7 @@ const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false)
   const [isInstallationsModalOpen, setIsInstallationsModalOpen] = React.useState(false)
   const [isAppRevisionComparisionModalOpen, setIsAppRevisionComparisionModalOpen] = React.useState(false)
-  const { isDesktop } = useReactResponsive()
+  const { isMobile } = useReactResponsive()
 
   const appDetailState = useSelector(selectAppDetailState)
   const appDetailData = useSelector(selectAppDetailData)
@@ -107,10 +107,11 @@ const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
   return (
     <div className={styles.appDetailContainer}>
       <Aside desktopIntegrationTypes={userDesktopIntegrationTypes} appDetailState={appDetailState} />
+
       <div className={styles.mainContainer}>
         <AppHeader appDetailData={appDetailData} />
         <AppContent appDetailState={appDetailState} />
-        {isDesktop && (
+        {!isMobile && (
           <FormSection className={classNames('is-clearfix', styles.footerContainer)}>
             <Button className="is-pulled-right" onClick={onBackToAppsButtonClick(history)}>
               Back To Apps

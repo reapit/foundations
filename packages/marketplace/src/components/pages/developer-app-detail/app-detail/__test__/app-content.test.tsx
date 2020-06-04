@@ -27,11 +27,9 @@ const mockState = {
   installations: {
     installationsAppData: installationsStub,
   },
-  appDetail: {
-    authentication: {
-      loading: false,
-      code: '123',
-    },
+
+  developer: {
+    developerAppDetail: appDetailDataStub,
   },
 } as ReduxState
 
@@ -43,7 +41,7 @@ describe('AppContent', () => {
     expect(
       mount(
         <Provider store={store}>
-          <AppContent appDetailData={appDetailDataStub as AppDetailModel} />
+          <AppContent appDetailState={mockState.developer.developerAppDetail} />
         </Provider>,
       ),
     ).toMatchSnapshot()
