@@ -1,8 +1,8 @@
-import routes from '@/constants/routes'
+import Routes from '@/constants/routes'
 import api from '../fixtures/routes'
 
 const developerSettingsMetaData = {
-  url: routes.SETTINGS,
+  url: Routes.DEVELOPER_SETTINGS,
   selectors: {
     companyName: 'input[data-test="company-name"]',
     fullName: 'input[data-test="name"]',
