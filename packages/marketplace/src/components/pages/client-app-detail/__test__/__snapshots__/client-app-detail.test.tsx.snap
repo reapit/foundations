@@ -262,17 +262,15 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
                       <Component
                         afterClose={[Function]}
                         footerItems={
-                          <React.Fragment>
-                            <Unknown
-                              dataTest="btn-close-modal"
-                              disabled={false}
-                              onClick={[Function]}
-                              type="button"
-                              variant="primary"
-                            >
-                              Close
-                            </Unknown>
-                          </React.Fragment>
+                          <Unknown
+                            dataTest="btn-close-modal"
+                            disabled={false}
+                            onClick={[Function]}
+                            type="button"
+                            variant="primary"
+                          >
+                            Close
+                          </Unknown>
                         }
                         title="Contact Details"
                         visible={false}
@@ -545,17 +543,15 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
                         <Component
                           afterClose={[Function]}
                           footerItems={
-                            <React.Fragment>
-                              <Unknown
-                                dataTest="btn-close-modal"
-                                disabled={false}
-                                onClick={[Function]}
-                                type="button"
-                                variant="primary"
-                              >
-                                Close
-                              </Unknown>
-                            </React.Fragment>
+                            <Unknown
+                              dataTest="btn-close-modal"
+                              disabled={false}
+                              onClick={[Function]}
+                              type="button"
+                              variant="primary"
+                            >
+                              Close
+                            </Unknown>
                           }
                           title="Contact Details"
                           visible={false}

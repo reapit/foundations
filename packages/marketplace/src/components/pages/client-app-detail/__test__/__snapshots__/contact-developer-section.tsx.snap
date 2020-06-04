@@ -16,17 +16,15 @@ exports[`ContactDeveloperSection should match snapshot with gutter 1`] = `
   <Component
     afterClose={[Function]}
     footerItems={
-      <React.Fragment>
-        <Unknown
-          dataTest="btn-close-modal"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-          variant="primary"
-        >
-          Close
-        </Unknown>
-      </React.Fragment>
+      <Unknown
+        dataTest="btn-close-modal"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+        variant="primary"
+      >
+        Close
+      </Unknown>
     }
     title="Contact Details"
     visible={false}
@@ -113,17 +111,15 @@ exports[`ContactDeveloperSection should match snapshot without gutter 1`] = `
   <Component
     afterClose={[Function]}
     footerItems={
-      <React.Fragment>
-        <Unknown
-          dataTest="btn-close-modal"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-          variant="primary"
-        >
-          Close
-        </Unknown>
-      </React.Fragment>
+      <Unknown
+        dataTest="btn-close-modal"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+        variant="primary"
+      >
+        Close
+      </Unknown>
     }
     title="Contact Details"
     visible={false}

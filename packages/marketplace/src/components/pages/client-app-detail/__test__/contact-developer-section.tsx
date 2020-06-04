@@ -1,5 +1,10 @@
 import React from 'react'
-import { ContactDeveloperSection, ContactDeveloperSectionType } from '../contact-developer-section'
+import {
+  ContactDeveloperSection,
+  ContactDeveloperSectionType,
+  openContactModal,
+  closeContactModal,
+} from '../contact-developer-section'
 import { shallow } from 'enzyme'
 
 const props: ContactDeveloperSectionType = {
@@ -20,11 +25,17 @@ describe('ContactDeveloperSection', () => {
     expect(shallow(<ContactDeveloperSection {...props} hasGutter />)).toMatchSnapshot()
   })
 
-  test('handle open modal', () => {
-    const wrapper = shallow(<ContactDeveloperSection {...props} />)
-    const btnHelp = wrapper.find('[dataTest="btn-help"]')
-    btnHelp.simulate('click')
-    const modal = wrapper.find('[title="Contact Details"]')
-    expect(modal.prop('visible')).toBeTruthy()
+  test('handle openContactModal', () => {
+    const setVisible = jest.fn()
+    openContactModal(setVisible)()
+    expect(setVisible).toBeCalled()
+    expect(setVisible).toBeCalledWith(true)
+  })
+
+  test('handle closeContactModal', () => {
+    const setVisible = jest.fn()
+    closeContactModal(setVisible)()
+    expect(setVisible).toBeCalled()
+    expect(setVisible).toBeCalledWith(false)
   })
 })

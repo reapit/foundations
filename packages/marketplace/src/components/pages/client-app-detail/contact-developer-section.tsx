@@ -14,25 +14,25 @@ export type ContactDeveloperSectionType = {
   hasGutter?: boolean
 }
 
+export const openContactModal = (setVisible: React.Dispatch<React.SetStateAction<boolean>>) => () => {
+  setVisible(true)
+}
+
+export const closeContactModal = (setVisible: React.Dispatch<React.SetStateAction<boolean>>) => () => {
+  setVisible(false)
+}
+
 export const ContactDeveloperSection = ({
   contact: { developer, telephone, supportEmail, homePage },
   hasGutter = true,
 }: ContactDeveloperSectionType) => {
-  const [visible, setVisible] = React.useState(false)
-
-  const openContactModal = () => {
-    setVisible(true)
-  }
-
-  const closeContactModal = () => {
-    setVisible(false)
-  }
+  const [visible, setVisible] = React.useState<boolean>(false)
 
   return (
     <RenderWithHeader hasGutter={hasGutter} header="Contact Developer">
       <Button
         dataTest="btn-help"
-        onClick={openContactModal}
+        onClick={openContactModal(setVisible)}
         type="button"
         variant="primary"
         className={clientAppDetailStyles.needHelpButton}
@@ -43,19 +43,17 @@ export const ContactDeveloperSection = ({
       <Modal
         visible={visible}
         title={'Contact Details'}
-        afterClose={closeContactModal}
+        afterClose={closeContactModal(setVisible)}
         footerItems={
-          <>
-            <Button
-              dataTest="btn-close-modal"
-              disabled={false}
-              type="button"
-              variant="primary"
-              onClick={closeContactModal}
-            >
-              Close
-            </Button>
-          </>
+          <Button
+            dataTest="btn-close-modal"
+            disabled={false}
+            type="button"
+            variant="primary"
+            onClick={closeContactModal(setVisible)}
+          >
+            Close
+          </Button>
         }
       >
         <>

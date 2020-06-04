@@ -157,7 +157,7 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   const isInstallBtnHidden = loginType === 'CLIENT' && !isAdmin
   // selector selectAppDetailData return {} if not data
   const unfetched = Object.keys(appDetailData).length === 0
-  const { id = '', installedOn = '' } = appDetailData
+  const { id = '', installedOn = '', developer, telephone, supportEmail, homePage } = appDetailData
 
   React.useEffect(handleApplyAppDetailsFromLocalStorage(dispatch, loginType, appId), [dispatch])
 
@@ -185,10 +185,10 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
           <div className={clientAppDetailStyles.hiddenInDesktopScreenSize}>
             <ContactDeveloperSection
               contact={{
-                developer: appDetailData.developer,
-                telephone: appDetailData.telephone,
-                supportEmail: appDetailData.supportEmail,
-                homePage: appDetailData.homePage,
+                developer,
+                telephone,
+                supportEmail,
+                homePage,
               }}
               hasGutter={false}
             />
