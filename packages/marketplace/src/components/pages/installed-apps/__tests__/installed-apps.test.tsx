@@ -59,7 +59,7 @@ describe('InstalledApps', () => {
     }
     const fn = handleOnChange(mockHistory)
     fn(1)
-    expect(mockHistory.push).toBeCalledWith(`${routes.INSTALLED_APPS}/${1}`)
+    expect(mockHistory.push).toBeCalledWith(`${routes.INSTALLED_APPS}?page=${1}`)
   })
 
   it('handleOnCardClick should call handleLaunchApp', () => {

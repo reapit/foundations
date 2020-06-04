@@ -62,9 +62,7 @@ const Router = () => {
                 path={Routes.AUTHENTICATION_LOGIN_TYPE}
                 component={Authentication}
               />
-              <PrivateRoute allow="CLIENT" path={Routes.INSTALLED_APPS_PAGINATE} component={InstalledApps} fetcher />
               <PrivateRoute allow="CLIENT" path={Routes.INSTALLED_APPS} component={InstalledApps} fetcher exact />
-              <PrivateRoute allow="CLIENT" path={Routes.MY_APPS_PAGINATE} component={ClientAppsManagement} fetcher />
               <PrivateRoute allow="CLIENT" path={Routes.MY_APPS} component={ClientAppsManagement} fetcher exact />
               <PrivateRoute allow="CLIENT" path={Routes.CLIENT} component={Client} exact fetcher />
               <PrivateRoute allow="CLIENT" path={Routes.CLIENT_APP_DETAIL} component={ClientAppDetail} exact fetcher />
