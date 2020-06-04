@@ -16,7 +16,7 @@ module.exports = {
     '^.+\\.svg$': '<rootDir>/src/scripts/svg-transform.js'
   },
   moduleNameMapper: {
-    '\\.(css|less)$': '<rootDir>/src/scripts/style-mock.js'
+    '\\.(css|less|scss|sass)$': '<rootDir>/src/scripts/style-mock.js'
   },
   coverageThreshold: {
     global: {

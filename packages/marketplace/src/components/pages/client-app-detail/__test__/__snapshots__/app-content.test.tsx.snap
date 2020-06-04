@@ -81,16 +81,6 @@ exports[`AppContent AppContent - should match snapshot 1`] = `
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam aliquid culpa saepe asperiores debitis illo dolorum dolore incidunt officiis praesentium, nemo similique veritatis exercitationem perferendis non mollitia animi laboriosam perspiciatis.
       </p>
     </Component>
-    <Component
-      header="Contact Developer"
-    >
-      <Component
-        type="button"
-        variant="primary"
-      >
-        NEED HELP?
-      </Component>
-    </Component>
   </div>
 </div>
 `;

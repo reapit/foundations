@@ -62,7 +62,7 @@ describe('app-installations sagas', () => {
     test('api fail sagas', () => {
       const clone = gen.clone()
       if (clone.throw) {
-        expect(clone.throw(new Error('')).value).toEqual(put(appInstallationsRequestDataFailure()))
+        expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(appInstallationsRequestDataFailure()))
         expect(clone.next().value).toEqual(
           put(
             errorThrownServer({
@@ -89,7 +89,9 @@ describe('app-installations sagas', () => {
     test('api fail sagas', () => {
       const clone = gen.clone()
       if (clone.throw) {
-        expect(clone.throw(new Error('')).value).toEqual(put(appInstallationsFilterRequestDataFailure()))
+        expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
+          put(appInstallationsFilterRequestDataFailure()),
+        )
         expect(clone.next().value).toEqual(
           put(
             errorThrownServer({
@@ -147,7 +149,9 @@ describe('app-installations sagas', () => {
     test('api fail sagas', () => {
       const clone = gen.clone()
       if (clone.throw) {
-        expect(clone.throw(new Error('')).value).toEqual(put(appInstallationsSetFormState('ERROR')))
+        expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
+          put(appInstallationsSetFormState('ERROR')),
+        )
         expect(clone.next().value).toEqual(
           put(
             errorThrownServer({

@@ -20,13 +20,17 @@
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
     "lint:fix": "eslint --cache --ext=ts,tsx,js src --fix",
-    "fetch-config": "yarn config-manager fetchConfig lifetime-legal"
+    "fetch-config": "yarn config-manager fetchConfig lifetime-legal",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@reapit/elements": "^0.5.39",
-    "@reapit/cognito-auth": "^2.0.19"
+    "@reapit/cognito-auth": "^2.0.19",
+    "snyk": "^1.335.0"
   },
   "devDependencies": {
     "@reapit/foundations-ts-definitions": "2020-02-13"
-  }
+  },
+  "snyk": true
 }

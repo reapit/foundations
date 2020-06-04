@@ -20,7 +20,9 @@ Book_viewing_widget {
       true,
       Object {
         "bodyText": "css-1s7agtc",
-        "button": "css-530o6s",
+        "button": "css-1tpx7dz",
+        "featureButton": "css-q9ua3x",
+        "featureLabel": "css-1f1uo44",
         "formError": "css-jk7gti",
         "globalStyles": "css-11c02ub",
         "input": "css-1r0d1l7",

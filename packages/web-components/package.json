@@ -50,7 +50,8 @@
     "lodash.pickby": "^4.6.0",
     "serverless-http": "^2.3.2",
     "svelte-fa": "^2.1.1",
-    "typescript": "~3.7.2"
+    "typescript": "~3.7.2",
+    "snyk": "^1.335.0"
   },
   "scripts": {
     "build:prod": "node ./scripts/build-prod.js --stage dev",
@@ -63,6 +64,9 @@
     "fetch-config": "yarn config-manager fetchConfig web-components",
     "release:dev": "node ./scripts/release-serverless.js --stage dev && node ../../scripts/release/release-dev.js web-components reapit-web-components",
     "release:development": "node ./scripts/release-serverless.js --stage dev",
-    "release:production": "node ./scripts/release-serverless.js --stage prod"
-  }
+    "release:production": "node ./scripts/release-serverless.js --stage prod",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }

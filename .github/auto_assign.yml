@@ -1,15 +1,16 @@
 addReviewers: true
 addAssignees: author
-numberOfReviewers: 0
+numberOfReviewers: 1
 numberOfAssignees: 1
 useReviewGroups: true
 reviewGroups:
-  reapitCloud:
-    - willmcvay
-    - tanphamhaiduong
+  primaryReviewer:
     - vuhuucuong
     - phmngocnghia
     - trankhacvy
     - nphivu414
     - ant066
+  secondaryReviewer:
+    - willmcvay
+    - tanphamhaiduong
 useAssigneeGroups: false

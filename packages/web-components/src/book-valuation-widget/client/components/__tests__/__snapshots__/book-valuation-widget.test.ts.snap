@@ -1,10 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BookValuationWidget should match snapshot 1`] = `
+#book-valuation-widget .emotion-0 {
+  font-family: "Roboto",sans-serif;
+  font-size: 20px;
+  color: #0061a8;
+  border: 1px solid #0061a8;
+  background: #f9fbfd;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+#book-valuation-widget .emotion-0:hover {
+  background: #0061a8;
+  color: #f9fbfd;
+}
+
 <body>
   <div>
     <button
-      class="book-valuation-select-button svelte-aluks"
+      class="emotion-0 book-valuation-select-button svelte-aluks"
     >
       Book a Valuation
     </button>

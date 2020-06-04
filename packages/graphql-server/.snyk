@@ -9,3 +9,42 @@ patch:
   'npm:ms:20170412':
     - serverless > @serverless/components > @serverless/platform-client-china > @serverless/utils-china > socket.io-stream > debug > ms:
         patched: '2020-04-09T13:19:04.301Z'
+  SNYK-JS-LODASH-567746:
+    - graphql-import > lodash:
+        patched: '2020-06-03T14:07:06.621Z'
+    - winston > async > lodash:
+        patched: '2020-06-03T14:07:06.621Z'
+    - '@reapit/cognito-auth > @reapit/elements > formik > lodash':
+        patched: '2020-06-03T14:07:06.621Z'
+    - merge-graphql-schemas > @graphql-toolkit/schema-merging > @graphql-toolkit/common > lodash:
+        patched: '2020-06-03T14:07:06.621Z'
+    - '@reapit/cognito-auth > @reapit/elements > gh-pages > async > lodash':
+        patched: '2020-06-03T14:07:06.621Z'
+    - '@reapit/cognito-auth > @reapit/elements > styled-components > @babel/traverse > lodash':
+        patched: '2020-06-03T14:07:06.621Z'
+    - '@reapit/cognito-auth > @reapit/elements > styled-components > babel-plugin-styled-components > lodash':
+        patched: '2020-06-03T14:07:06.621Z'
+    - '@reapit/cognito-auth > @reapit/elements > styled-components > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-03T14:07:06.621Z'
+    - '@reapit/cognito-auth > @reapit/elements > styled-components > @babel/traverse > @babel/types > lodash':
+        patched: '2020-06-03T14:07:06.621Z'
+    - '@reapit/cognito-auth > @reapit/elements > styled-components > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-03T14:07:06.621Z'
+    - '@reapit/cognito-auth > @reapit/elements > styled-components > babel-plugin-styled-components > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-03T14:07:06.621Z'
+    - '@reapit/cognito-auth > @reapit/elements > styled-components > @babel/traverse > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-03T14:07:06.621Z'
+    - '@reapit/cognito-auth > @reapit/elements > styled-components > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-03T14:07:06.621Z'
+    - '@reapit/cognito-auth > @reapit/elements > styled-components > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-03T14:07:06.621Z'
+    - '@reapit/cognito-auth > @reapit/elements > styled-components > babel-plugin-styled-components > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        patched: '2020-06-03T14:07:06.621Z'
+    - '@reapit/cognito-auth > @reapit/elements > @storybook/theming > @emotion/styled > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-03T14:07:06.621Z'
+    - '@reapit/cognito-auth > @reapit/elements > styled-components > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-03T14:07:06.621Z'
+    - '@reapit/cognito-auth > @reapit/elements > styled-components > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-03T14:07:06.621Z'
+    - '@reapit/cognito-auth > @reapit/elements > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-03T14:07:06.621Z'

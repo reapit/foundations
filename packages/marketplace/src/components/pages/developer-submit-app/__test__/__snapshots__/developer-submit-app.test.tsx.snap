@@ -171,11 +171,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                       labelText="Name"
                                       name="name"
                                       placeholder="The name of your app as it will appear to users"
+                                      required={true}
                                       type="text"
                                     >
                                       <Field
                                         name="name"
-                                        validate={null}
+                                        validate={[Function]}
                                       >
                                         <div
                                           className="field pb-4"
@@ -184,7 +185,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                             className="control "
                                           >
                                             <label
-                                              className="label "
+                                              className="label required-label"
                                               htmlFor="name"
                                             >
                                               Name
@@ -1490,6 +1491,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                         name="iconImageUrl"
                                       >
                                         <Component
+                                          accept="image/*"
                                           allowClear={true}
                                           dataTest="submit-app-icon"
                                           id="iconImage"
@@ -1511,7 +1513,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                   htmlFor="iconImage"
                                                 >
                                                   <input
-                                                    accept=""
+                                                    accept="image/*"
                                                     className="file-input"
                                                     data-test="submit-app-icon"
                                                     id="iconImage"
@@ -1552,6 +1554,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                         name="screen1ImageUrl"
                                       >
                                         <Component
+                                          accept="image/*"
                                           allowClear={true}
                                           dataTest="submit-app-screenshot1"
                                           id="screenshot1"
@@ -1573,7 +1576,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                   htmlFor="screenshot1"
                                                 >
                                                   <input
-                                                    accept=""
+                                                    accept="image/*"
                                                     className="file-input"
                                                     data-test="submit-app-screenshot1"
                                                     id="screenshot1"
@@ -1614,6 +1617,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                         name="screen2ImageUrl"
                                       >
                                         <Component
+                                          accept="image/*"
                                           allowClear={true}
                                           dataTest="submit-app-screenshot2"
                                           id="screenshot2"
@@ -1635,7 +1639,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                   htmlFor="screenshot2"
                                                 >
                                                   <input
-                                                    accept=""
+                                                    accept="image/*"
                                                     className="file-input"
                                                     data-test="submit-app-screenshot2"
                                                     id="screenshot2"
@@ -1676,6 +1680,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                         name="screen3ImageUrl"
                                       >
                                         <Component
+                                          accept="image/*"
                                           allowClear={true}
                                           dataTest="submit-app-screenshot3"
                                           id="screenshot3"
@@ -1697,7 +1702,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                   htmlFor="screenshot3"
                                                 >
                                                   <input
-                                                    accept=""
+                                                    accept="image/*"
                                                     className="file-input"
                                                     data-test="submit-app-screenshot3"
                                                     id="screenshot3"
@@ -1738,6 +1743,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                         name="screen4ImageUrl"
                                       >
                                         <Component
+                                          accept="image/*"
                                           allowClear={true}
                                           dataTest="submit-app-screenshot4"
                                           id="screenshot4"
@@ -1759,7 +1765,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                   htmlFor="screenshot4"
                                                 >
                                                   <input
-                                                    accept=""
+                                                    accept="image/*"
                                                     className="file-input"
                                                     data-test="submit-app-screenshot4"
                                                     id="screenshot4"
@@ -1800,6 +1806,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                         name="screen5ImageUrl"
                                       >
                                         <Component
+                                          accept="image/*"
                                           allowClear={true}
                                           dataTest="submit-app-screenshot5"
                                           id="screenshot5"
@@ -1821,7 +1828,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                   htmlFor="screenshot5"
                                                 >
                                                   <input
-                                                    accept=""
+                                                    accept="image/*"
                                                     className="file-input"
                                                     data-test="submit-app-screenshot5"
                                                     id="screenshot5"
@@ -1967,21 +1974,6 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                     <div
                                       className="column  "
                                     >
-                                      <Component
-                                        onClick={[Function]}
-                                        type="button"
-                                        variant="primary"
-                                      >
-                                        <button
-                                          className="button  is-primary  "
-                                          data-test=""
-                                          disabled={false}
-                                          onClick={[Function]}
-                                          type="button"
-                                        >
-                                          Preview
-                                        </button>
-                                      </Component>
                                       <Component
                                         dataTest="submit-app-button"
                                         disabled={false}

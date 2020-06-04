@@ -35,7 +35,7 @@ describe('app-delete sagas', () => {
     test('api call fail', () => {
       const clone = gen.clone()
       if (clone.throw) {
-        expect(clone.throw(new Error('')).value).toEqual(put(appDeleteRequestFailure()))
+        expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(appDeleteRequestFailure()))
         expect(clone.next().value).toEqual(
           put(
             errorThrownServer({

@@ -1,7 +1,7 @@
 const execSync = require('child_process').execSync
-const { getVersionTag, WEB_APPS } = require('./utils')
+const { getVersionTag, WEB_APPS, sendMessageToSlack } = require('./utils')
 
-const uploadArtifact = () => {
+const uploadArtifact = async () => {
   const fileName = `${process.env.RELEASE_VERSION}.tar.gz`
   const { packageName } = getVersionTag()
   if (WEB_APPS.includes(packageName)) {
@@ -22,8 +22,10 @@ const uploadArtifact = () => {
         `aws s3 cp ${fileName} s3://cloud-release-artifact --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers`,
       ).toString()
       console.info(copyS3Result)
+      await sendMessageToSlack(`Finish build \`${packageName}\` with file \`${fileName}\``)
     } catch (err) {
       console.error(err)
+      await sendMessageToSlack(`Build failed for \`${packageName}\` with file \`${fileName}\``)
       throw new Error(err)
     }
   }

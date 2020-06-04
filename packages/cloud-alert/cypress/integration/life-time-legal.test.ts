@@ -17,14 +17,15 @@ Cypress.on('fail', (error, runnable) => {
   throw error
 })
 
-const LIFE_TIME_LEGAL_URL = Cypress.env(`LIFE_TIME_LEGAL_URL_${Cypress.env('ENVIRONMENT')}`)
-
-describe('Life Time Legal App', () => {
-  it('user should able to login Life Time Legal App', () => {
-    cy.visit(LIFE_TIME_LEGAL_URL).then(() => {
-      cy.get(LOGIN_USERNAME_INPUT_SELECTOR).type(Cypress.env('USERNAME'))
-      cy.get(LOGIN_PASSWORD_INPUT_SELECTOR).type(Cypress.env('PASSWORD'))
-      cy.get(SUBMIT_LOGIN_SELECTOR).click()
+if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'lifetime-legal') {
+  const LIFE_TIME_LEGAL_URL = Cypress.env(`LIFE_TIME_LEGAL_URL_${Cypress.env('ENVIRONMENT')}`)
+  describe('Life Time Legal App', () => {
+    it('user should able to login Life Time Legal App', () => {
+      cy.visit(LIFE_TIME_LEGAL_URL).then(() => {
+        cy.get(LOGIN_USERNAME_INPUT_SELECTOR).type(Cypress.env('USERNAME'))
+        cy.get(LOGIN_PASSWORD_INPUT_SELECTOR).type(Cypress.env('PASSWORD'))
+        cy.get(SUBMIT_LOGIN_SELECTOR).click()
+      })
     })
   })
-})
+}

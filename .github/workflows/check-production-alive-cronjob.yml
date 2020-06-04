@@ -32,7 +32,7 @@ jobs:
         run: yarn install
 
       - name: Make Request To Prod
-        run: yarn workspace cloud-alert cypress:ci --env ENVIRONMENT=production
+        run: yarn workspace cloud-alert cypress:ci --env ENVIRONMENT=production,PACKAGE_NAME=all
 
 env:
   NPM_TOKEN: ${{secrets.NPM_TOKEN}}
@@ -42,3 +42,4 @@ env:
   CYPRESS_SLACK_WEB_HOOK_URL: ${{secrets.CYPRESS_SLACK_WEB_HOOK_URL}}
   CYPRESS_USERNAME:  ${{secrets.CYPRESS_USERNAME}}
   CYPRESS_PASSWORD: ${{secrets.CYPRESS_PASSWORD}}
+  CYPRESS_WEB_COMPONENTS_X_API_KEY: ${{secrets.CYPRESS_WEB_COMPONENTS_X_API_KEY}}

@@ -27,19 +27,24 @@
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
-    "lint:fix": "eslint --cache --ext=ts,tsx,js src --fix"
+    "lint:fix": "eslint --cache --ext=ts,tsx,js src --fix",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@reapit/elements": "^0.5.39",
     "amazon-cognito-identity-js": "~3.0.13",
     "cors": "^2.8.5",
     "hardtack": "^4.1.2",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^8.5.1",
+    "snyk": "^1.335.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
     "@types/jsonwebtoken": "^8.3.5",
-    "compare-versions": "^3.5.1"
-  }
+    "compare-versions": "^3.5.1",
+    "rollup-plugin-scss": "^1.0.2"
+  },
+  "snyk": true
 }
