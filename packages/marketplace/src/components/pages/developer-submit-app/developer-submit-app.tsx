@@ -398,18 +398,20 @@ export const DeveloperSubmitApp: React.FC<DeveloperSubmitAppProps> = () => {
                     <LevelRight>
                       <Grid>
                         <GridItem>
-                          <Button
-                            onClick={handleOpenAppPreview({
-                              appDetails: appDetailState?.appDetailData?.data,
-                              values,
-                              scopes,
-                              appId: appid,
-                            })}
-                            variant="primary"
-                            type="button"
-                          >
-                            Preview
-                          </Button>
+                          {isSubmitRevision && (
+                            <Button
+                              onClick={handleOpenAppPreview({
+                                appDetails: appDetailState?.appDetailData?.data,
+                                values,
+                                scopes,
+                                appId: appid,
+                              })}
+                              variant="primary"
+                              type="button"
+                            >
+                              Preview
+                            </Button>
+                          )}
                           {!isSubmitApp && (
                             <Button onClick={goBackToApps} variant="primary" type="button">
                               Back To Apps
