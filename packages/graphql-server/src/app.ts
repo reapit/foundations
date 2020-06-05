@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === 'development') {
 
 if (process.env.NODE_ENV !== 'development') {
   Sentry.init({
-    dsn: configs.SENTRY_DSN,
+    dsn: process.env.SENTRY_DSN,
     release: process.env.APP_VERSION,
     environment: process.env.APP_ENV,
   })

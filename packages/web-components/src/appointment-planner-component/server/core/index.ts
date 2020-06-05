@@ -6,10 +6,14 @@ import routers from './routers'
 import { Context, APIGatewayProxyEvent } from 'aws-lambda'
 import serverless from 'serverless-http'
 import { errorHandler } from '../../../common/utils/error-handler'
-import { traceIdMiddleware, AppResponse, AppRequest } from '@reapit/node-utils'
+import { traceIdMiddleware, createParseLog, AppResponse, AppRequest } from '@reapit/node-utils'
+import morgan from 'morgan'
 
 import * as Sentry from '@sentry/node'
 import { logger } from './logger'
+
+const parseLog = createParseLog(logger)
+const morganLogging = morgan(parseLog)
 
 if (process.env.NODE_ENV !== 'development') {
   Sentry.init({
@@ -23,6 +27,7 @@ const app = express()
 
 app.use(Sentry.Handlers.requestHandler())
 app.use(traceIdMiddleware)
+app.use(morganLogging)
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
