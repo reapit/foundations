@@ -33,6 +33,7 @@ export const handleInstallAppSuccessCallback = (
         clientId,
       }),
     )
+    window.location.href = 'agencycloud://apps/refresh'
     closeInstallConfirmationModal()
     setIsSuccessAlertVisible(true)
   }
