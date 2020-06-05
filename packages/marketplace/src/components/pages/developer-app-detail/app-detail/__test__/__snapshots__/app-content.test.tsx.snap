@@ -74,17 +74,21 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
               See listing preview
             </span>
              
-            <FaExternalLinkAlt>
+            <FaExternalLinkAlt
+              onClick={[Function]}
+            >
               <IconBase
                 attr={
                   Object {
                     "viewBox": "0 0 512 512",
                   }
                 }
+                onClick={[Function]}
               >
                 <svg
                   fill="currentColor"
                   height="1em"
+                  onClick={[Function]}
                   stroke="currentColor"
                   strokeWidth="0"
                   style={

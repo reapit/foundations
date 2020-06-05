@@ -92,6 +92,11 @@ export const handleUninstallSuccess = ({
   )
 }
 
+export const handleOpenAppPreview = (appId: string) => () => {
+  const url = `developer/apps/${appId}/preview`
+  window.open(url, '_blank')
+}
+
 export const CustomUninstallCell: React.FC<{ onClick: () => void }> = ({ onClick }) => (
   <a onClick={onClick}>Uninstall</a>
 )
@@ -146,7 +151,7 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailState }) => {
       <div className={appDetailStyles.gutter}>
         <H5 className="flex items-center">
           <span className="mr-1">See listing preview</span>{' '}
-          <FaExternalLinkAlt className={developerAppDetailStyles.listPreviewIcon} />
+          <FaExternalLinkAlt className={developerAppDetailStyles.listPreviewIcon} onClick={handleOpenAppPreview(id)} />
         </H5>
         <p>The listing preview will display your app as it would appear in the Marketplace</p>
       </div>
