@@ -10,6 +10,7 @@ import AppContent, {
   handleUninstallSuccess,
   renderAuthentication,
   renderInstallationsTable,
+  handleOpenAppPreview,
 } from '../app-content/app-content'
 import { Provider } from 'react-redux'
 import { ReduxState } from '@/types/core'
@@ -98,6 +99,16 @@ describe('AppContent', () => {
       console.log(wrapper.debug())
       expect(wrapper.find('[data-test="render-installations-table-empty-text"]').length).toBe(1)
       expect(wrapper).toMatchSnapshot()
+    })
+  })
+
+  describe('handleOpenAppPreview', () => {
+    it('should run correctly', () => {
+      const appId = 'appId'
+      const spyOpenUrl = jest.spyOn(window, 'open')
+      const fn = handleOpenAppPreview(appId)
+      fn()
+      expect(spyOpenUrl).toBeCalledWith('developer/apps/appId/preview', '_blank')
     })
   })
 })

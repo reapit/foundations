@@ -195,12 +195,7 @@ describe('ClientAppDetail', () => {
   })
   describe('onBackToAppsButtonClick', () => {
     it('should run correctly', () => {
-      const fn = onBackToAppsButtonClick(history, 'DEVELOPER')
-      fn()
-      expect(history.push).toBeCalledWith(Routes.DEVELOPER_MY_APPS)
-    })
-    it('should run correctly', () => {
-      const fn = onBackToAppsButtonClick(history, 'CLIENT')
+      const fn = onBackToAppsButtonClick(history)
       fn()
       expect(history.push).toBeCalledWith(Routes.CLIENT)
     })
