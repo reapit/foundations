@@ -31,8 +31,8 @@ export const AdminDevManagementFilterForm: React.FC<AdminDevManagementFilterForm
   filterValues,
   onSearch,
 }) => (
-  <Formik initialValues={filterValues} onSubmit={formValues => onSearch(formValues)}>
-    {({ values: { registeredFrom } }) => {
+  <Formik initialValues={filterValues} onSubmit={onSearch}>
+    {({ values: { registeredFrom }, status }) => {
       return (
         <Form noValidate={true}>
           <FormSection>
@@ -81,6 +81,7 @@ export const AdminDevManagementFilterForm: React.FC<AdminDevManagementFilterForm
                   </Button>
                 </GridItem>
               </Grid>
+              {status && <p className="has-text-danger">{status}</p>}
             </Content>
           </FormSection>
         </Form>

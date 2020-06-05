@@ -188,6 +188,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                       "registeredTo": "",
                     }
                   }
+                  onReset={[Function]}
                   onSubmit={[Function]}
                 >
                   <Form>
@@ -727,30 +728,27 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                       className="column  "
                                     >
                                       <Component
-                                        disabled={true}
                                         type="submit"
                                         variant="primary"
                                       >
                                         <button
                                           className="button  is-primary  "
                                           data-test=""
-                                          disabled={true}
+                                          disabled={false}
                                           type="submit"
                                         >
                                           Search
                                         </button>
                                       </Component>
                                       <Component
-                                        onClick={[Function]}
-                                        type="button"
+                                        type="reset"
                                         variant="primary"
                                       >
                                         <button
                                           className="button  is-primary  "
                                           data-test=""
                                           disabled={false}
-                                          onClick={[Function]}
-                                          type="button"
+                                          type="reset"
                                         >
                                           Refresh
                                         </button>
@@ -3146,15 +3144,13 @@ exports[`admin-apps renderForm should return correctly 1`] = `
         </Unknown>
         <Unknown>
           <Unknown
-            disabled={true}
             type="submit"
             variant="primary"
           >
             Search
           </Unknown>
           <Unknown
-            onClick={[Function]}
-            type="button"
+            type="reset"
             variant="primary"
           >
             Refresh

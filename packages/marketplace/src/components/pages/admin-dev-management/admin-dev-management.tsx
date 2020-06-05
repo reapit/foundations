@@ -17,6 +17,7 @@ import {
   H3,
   Content,
   toLocalTime,
+  isEmptyObject,
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import AdminDevManagementFilterForm, {
@@ -29,6 +30,7 @@ import qs from 'querystring'
 import styles from '@/styles/pages/admin-apps.scss?mod'
 import { selectAdminDevManagement } from '@/selector/admin'
 import { Dispatch } from 'redux'
+import { cleanObject } from '@/utils/object'
 
 export interface AdminDevManagementMappedActions {
   fetchData: (requestdata: AdminDevManagementRequestDataValues) => void
@@ -66,13 +68,20 @@ export const onPageChangeHandler = (history: History<any>, queryParams: AdminDev
   return history.push(`${Routes.ADMIN_DEV_MANAGEMENT}${queryString}`)
 }
 
-export const onSearchHandler = (history: History<any>) => (queryParams: AdminDevManagementFilterFormValues) => {
+export const onSearchHandler = (history: History<any>) => (
+  queryParams: AdminDevManagementFilterFormValues,
+  { setStatus },
+) => {
+  const cleanedValues = cleanObject(queryParams)
+  if (isEmptyObject(cleanedValues)) {
+    setStatus('Please enter at least one search criterion')
+    return
+  }
   const query = setQueryParams(queryParams)
   if (query && query !== '') {
     const queryString = `?page=1&${query}`
     history.push(`${Routes.ADMIN_DEV_MANAGEMENT}${queryString}`)
   }
-  return
 }
 
 export const AdminDevManagement: React.FC = () => {
