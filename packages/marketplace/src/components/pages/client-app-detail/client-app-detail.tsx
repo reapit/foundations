@@ -94,13 +94,14 @@ export const renderAppHeaderButtonGroup = (
   return (
     <>
       {id && (
-        <div className="flex ml-auto">
+        <div className={clientAppDetailStyles.headerButtonGroup}>
           {installedOn ? (
             <Button
               onClick={onUninstallConfirmationModal}
               dataTest="detail-modal-uninstall-button"
               type="button"
               variant="primary"
+              className="ml-0"
             >
               Uninstall App
             </Button>
@@ -110,6 +111,7 @@ export const renderAppHeaderButtonGroup = (
                 dataTest="detail-modal-install-button"
                 type="button"
                 variant="primary"
+                className="ml-0"
                 onClick={onInstallConfirmationModal}
               >
                 Install App
@@ -150,7 +152,7 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
     appDetailData.desktopIntegrationTypeIds || [],
     desktopIntegrationTypes,
   )
-  const { isDesktop } = useReactResponsive()
+  const { isMobile } = useReactResponsive()
 
   const isLoadingAppDetail = useSelector(selectAppDetailLoading)
   const loginType = useSelector(selectLoginType)
@@ -171,7 +173,7 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
 
   return (
     <div data-test="client-app-detail-container" className={clientAppDetailStyles.appDetailContainer}>
-      {isDesktop && <Aside appDetailData={appDetailData} desktopIntegrationTypes={userDesktopIntegrationTypes} />}
+      {!isMobile && <Aside appDetailData={appDetailData} desktopIntegrationTypes={userDesktopIntegrationTypes} />}
       <div className={clientAppDetailStyles.mainContainer}>
         <ClientAppHeader
           appDetailData={appDetailData}
