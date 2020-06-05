@@ -2,11 +2,13 @@
 @import '../base/screen-size.scss';
 
 .appHeaderTextContainer {
+  padding: 0 3rem;
   display: flex;
-  align-items: flex-end;
   flex-direction: column;
-  text-align: right;
-  flex-shrink: 1;
+  justify-content: center;
+  @include for-mobile-only {
+    margin-top: 1rem;
+  }
 }
 
 .asideContainer {
@@ -43,32 +45,30 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-top: 3rem;
-
+  @include for-mobile-only {
+    margin-top: 0;
+  }
   .titleContainer {
     flex: 1 0;
-    flex-basis: 45%;
-    justify-content: space-between;
+    flex-basis: 60%;
     @include for-mobile-only {
       flex-basis: 100%;
-    }
-  }
-
-  .separator {
-    flex-basis: 5%;
-    @include for-mobile-only {
-      flex-basis: 100%;
-      margin-top: 2rem;
+      flex-direction: column;
+      align-items: center;
     }
   }
 
   .appHeaderFeaturedImageContainer {
     flex: 1 0;
-    flex-basis: 50%;
+    flex-basis: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     @include for-mobile-only {
+      margin-top: 1rem;
+    }
+    @include for-tablet-only {
       flex-basis: 100%;
     }
     .appHeaderFeaturedImage {
@@ -80,20 +80,15 @@
   .appIconContainer {
     flex: 1 0 96px;
     max-width: 96px;
-    margin-left: 0;
+    width: 96px;
     height: 96px;
+    margin-left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: $grey-lighter;
     background-position: center;
     background-size: cover;
-
-    img {
-      background: $white;
-      width: 100%;
-      height: 100%;
-    }
   }
 
   .verifyByReapitContainer {
@@ -101,8 +96,15 @@
     justify-content: flex-end;
     align-items: center;
     margin-top: 0.5rem;
-    margin-bottom: 1rem;
-
+    margin-bottom: 0.5rem;
+    @include for-mobile-only {
+      justify-content: center;
+    }
+    button {
+      @include for-mobile-only {
+        margin-left: 0;
+      }
+    }
     .check {
       /*should be px regard their base px (rem) else looks really ugly*/
       margin-right: 5px;
@@ -110,8 +112,10 @@
     }
   }
 
-  h2.appName {
-    font-family: 'Museo Sans W03_300', 'Roboto', Helvetica, Arial, sans-serif;
-    margin-bottom: 0;
+  h3, h2 {
+    &.appName {
+      font-family: 'Museo Sans W03_300', 'Roboto', Helvetica, Arial, sans-serif;
+      margin-bottom: 0;
+    }
   }
 }

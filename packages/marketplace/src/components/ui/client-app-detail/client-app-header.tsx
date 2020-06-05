@@ -1,9 +1,10 @@
 import * as React from 'react'
-import { H2 } from '@reapit/elements'
+import { H2, H3 } from '@reapit/elements'
 import { FaCheck } from 'react-icons/fa'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import styles from '@/styles/blocks/client-app-header.scss?mod'
 import { MEDIA_INDEX } from '@/constants/media'
+import useReactResponsive from '@/components/hooks/useReactResponsive'
 
 export type ClientAppHeaderProps = {
   appDetailData: AppDetailModel & {
@@ -13,6 +14,7 @@ export type ClientAppHeaderProps = {
 }
 
 const ClientAppHeader: React.FC<ClientAppHeaderProps> = ({ appDetailData, buttonGroup }) => {
+  const { isMobile } = useReactResponsive()
   const { media } = appDetailData
   const appIcon = media?.filter(({ type }) => type === 'icon')[MEDIA_INDEX.ICON]
   const featureImageSrc = appDetailData?.media?.[MEDIA_INDEX.FEATURE_IMAGE]?.uri
@@ -23,15 +25,17 @@ const ClientAppHeader: React.FC<ClientAppHeaderProps> = ({ appDetailData, button
       <div className={`flex mb-3 ${styles.titleContainer}`}>
         <div className={styles.appIconContainer} style={{ backgroundImage: `url('${appIcon?.uri}')` }}></div>
         <div className={styles.appHeaderTextContainer}>
-          <H2 className={styles.appName}>{appDetailData.name}</H2>
+          {!isMobile ? (
+            <H2 className={styles.appName}>{appDetailData.name}</H2>
+          ) : (
+            <H3 className={styles.appName}>{appDetailData.name}</H3>
+          )}
           <div className={styles.verifyByReapitContainer}>
             <FaCheck className={styles.check} /> Verified by Reapit Ltd
           </div>
           {buttonGroup}
         </div>
       </div>
-
-      <div className={styles.separator} />
 
       <div className={styles.appHeaderFeaturedImageContainer}>
         <img

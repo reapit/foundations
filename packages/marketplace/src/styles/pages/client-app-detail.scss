@@ -38,6 +38,9 @@
 }
 
 .appDetailContainer {
+  height: auto;
+  margin: 1rem;
+  padding: 1rem;
   @include for-mobile-only {
     background-color: $white;
 
@@ -58,10 +61,6 @@
       flex: 1;
     }
   }
-  height: auto;
-  width: 100%;
-  margin: 0 auto;
-  padding: 15px;
 }
 
 .gutter {
@@ -91,5 +90,13 @@
   align-items: flex-start;
   @include for-desktop-only {
     justify-content: flex-end;
+  }
+}
+
+.headerButtonGroup {
+  display: flex;
+  justify-content: flex-end;
+  @include for-mobile-only {
+    justify-content: center;
   }
 }

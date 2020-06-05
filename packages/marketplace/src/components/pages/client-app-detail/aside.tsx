@@ -19,7 +19,7 @@ interface AsideProps {
 }
 
 export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetailData }) => {
-  const { category, isWebComponent, developer, telephone, supportEmail, homePage, isDirectApi } = appDetailData
+  const { category, developer, telephone, supportEmail, homePage, isDirectApi } = appDetailData
 
   return (
     <div className={standAloneAppDetailStyles.asideContainer}>
@@ -39,11 +39,11 @@ export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetail
           {renderDesktopIntegrationTypes(desktopIntegrationTypes)}
         </div>
         <div className={standAloneAppDetailStyles.headerWithoutMargin}>{renderDirectAPI(isDirectApi)}</div>
-        {isWebComponent && (
+        {/* {isWebComponent && (
           <div className={standAloneAppDetailStyles.headerWithoutMargin}>
             <WebComponentConfig />
           </div>
-        )}
+        )} */}
       </div>
     </div>
   )
