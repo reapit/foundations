@@ -14,7 +14,7 @@ import { Loader, Button, Alert, FormSection } from '@reapit/elements'
 import clientAppDetailStyles from '@/styles/pages/client-app-detail.scss?mod'
 import ClientAppInstallConfirmation from '@/components/ui/client-app-detail/client-app-install-confirmation'
 import { Aside } from './aside'
-import { clientFetchAppDetailFailed } from '@/actions/client'
+import { clientFetchAppDetail } from '@/actions/client'
 import { developerApplyAppDetails } from '@/actions/developer'
 import { useParams } from 'react-router'
 import { Dispatch } from 'redux'
@@ -52,11 +52,8 @@ export const handleUnInstallAppButtonClick = (setIsVisibleUnInstallConfirmation:
   }
 }
 
-export const onBackToAppsButtonClick = (history: History, loginType: LoginType) => {
+export const onBackToAppsButtonClick = (history: History) => {
   return () => {
-    if (loginType === 'DEVELOPER') {
-      history.push(Routes.DEVELOPER_MY_APPS)
-    }
     history.push(Routes.CLIENT)
   }
 }
@@ -69,18 +66,14 @@ export const handleApplyAppDetailsFromLocalStorage = (
   if (loginType !== 'DEVELOPER' || !appId) return
   try {
     const appDataString = localStorage.getItem('developer-preview-app')
-    if (!appDataString) {
-      throw 'No app preview'
-    }
+    if (!appDataString) throw 'No preview data'
 
     const appData = JSON.parse(appDataString)
-    if (appData.id !== appId) {
-      throw 'No app preview'
-    }
+    if (appData.id !== appId) throw 'Preview data not match appId'
 
     dispatch(developerApplyAppDetails(appData))
   } catch (err) {
-    dispatch(clientFetchAppDetailFailed(err))
+    dispatch(clientFetchAppDetail({ id: appId }))
   }
 }
 
@@ -184,20 +177,22 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
           )}
         />
         <AppContent desktopIntegrationTypes={userDesktopIntegrationTypes} appDetailData={appDetailData} />
-        <FormSection className={clientAppDetailStyles.footerContainer}>
-          <div className={clientAppDetailStyles.hiddenInDesktopScreenSize}>
-            <ContactDeveloperSection
-              contact={{
-                developer,
-                telephone,
-                supportEmail,
-                homePage,
-              }}
-              hasGutter={false}
-            />
-          </div>
-          <Button onClick={onBackToAppsButtonClick(history, loginType)}>Back To Apps</Button>
-        </FormSection>
+        {loginType !== 'DEVELOPER' && (
+          <FormSection className={clientAppDetailStyles.footerContainer}>
+            <div className={clientAppDetailStyles.hiddenInDesktopScreenSize}>
+              <ContactDeveloperSection
+                contact={{
+                  developer,
+                  telephone,
+                  supportEmail,
+                  homePage,
+                }}
+                hasGutter={false}
+              />
+            </div>
+            <Button onClick={onBackToAppsButtonClick(history)}>Back To Apps</Button>
+          </FormSection>
+        )}
         {isVisibleUninstallConfirmation && (
           <ClientAppUninstallConfirmation
             visible={isVisibleUninstallConfirmation}
