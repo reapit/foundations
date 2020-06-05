@@ -1,4 +1,3 @@
-import { Request, Response } from 'express'
 import { fetcher } from '../../../common/utils/fetcher-server'
 import { PagedResultPropertyModel_ } from '@reapit/foundations-ts-definitions'
 import { errorHandler } from '../../../common/utils/error-handler'
@@ -7,8 +6,10 @@ import { PACKAGE_SUFFIXES } from '../../../common/utils/constants'
 import { mapMinimalProperties } from '../utils/map-minimal-properties'
 import { PickedPagedResultPropertyModel_ } from '../../types'
 import { INCLUDED_PROPS } from '../constants/api'
+import { logger } from '../core/logger'
+import { AppRequest, AppResponse } from '@reapit/node-utils'
 
-export const getProperties = async (req: Request, res: Response) => {
+export const getProperties = async (req: AppRequest, res: AppResponse) => {
   try {
     const headers = await getServerHeaders(req, PACKAGE_SUFFIXES.SEARCH_WIDGET)
     const url = new URL(`${process.env.PLATFORM_API_BASE_URL}${req.url}`)
@@ -27,7 +28,7 @@ export const getProperties = async (req: Request, res: Response) => {
       res.end()
     }
   } catch (err) {
-    errorHandler(err, res)
+    errorHandler(err, res, req, 'getProperties', logger)
   }
 }
 

@@ -1,16 +1,32 @@
 {
-  "include": ["src/**/*"],
-  "exclude": ["node_modules/*"],
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules/*"
+  ],
   "compilerOptions": {
     "target": "ES2019",
     "module": "ESNEXT",
     "strict": true,
     "moduleResolution": "node",
-    "types": ["svelte", "jest", "node", "googlemaps"],
+    "types": [
+      "svelte",
+      "jest",
+      "node",
+      "googlemaps"
+    ],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "declaration": true,
-    "declarationDir": "./public/dist-npm/types"
+    "noImplicitAny": false,
+    "declarationDir": "./public/dist-npm/types",
+    "baseUrl": ".",
+    "paths": {
+      "@reapit/node-utils": [
+        "../utils/src/node/index.ts"
+      ]
+    }
   }
 }

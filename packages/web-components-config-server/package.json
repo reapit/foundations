@@ -12,7 +12,7 @@
     "lint:fix": "eslint --cache --ext=ts,js src --fix",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
-    "start:dev": "yarn build:credentials && SLS_DEBUG=* serverless offline --verbose",
+    "start:dev": "yarn build:credentials && NODE_ENV=development SLS_DEBUG=* serverless offline --verbose",
     "build:serverless": "yarn build:credentials && serverless webpack --out dist --stage dev",
     "release:dev": "yarn build:credentials && serverless deploy --stage dev",
     "release:development": "yarn build:credentials &&  serverless deploy --stage dev",

@@ -1,23 +1,34 @@
 const path = require('path')
 const slsw = require('serverless-webpack')
 const { ContextReplacementPlugin } = require('webpack')
+const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
+const { PATHS } = require('../../scripts/webpack/constants')
+const getServerlessEnvPlugins = require('../../scripts/utils/get-serverless-env-plugins')
+
+const isLocal = slsw.lib.webpack.isLocal
 
 module.exports = {
   entry: slsw.lib.entries,
   target: 'node',
   stats: 'minimal',
-  mode: slsw.lib.webpack.isLocal ? 'development' : 'production',
+  mode: isLocal ? 'development' : 'production',
   node: false,
   optimization: {
     minimize: true,
   },
-  devtool: 'inline-cheap-module-source-map',
+  devtool: isLocal ? 'inline-cheap-module-source-map' : 'sourcemap',
   output: {
     libraryTarget: 'commonjs',
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
   },
-  plugins: [new ContextReplacementPlugin(/express|encoding/)],
+  plugins: [
+    new ContextReplacementPlugin(/express|encoding/),
+    new ResolveTSPathsToWebpackAlias({
+      tsconfig: PATHS.tsConfig,
+    }),
+    ...getServerlessEnvPlugins(),
+  ],
   module: {
     rules: [
       {
