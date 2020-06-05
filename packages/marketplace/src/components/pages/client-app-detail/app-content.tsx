@@ -8,6 +8,7 @@ import { Tag } from '@/components/pages/developer-app-detail/app-detail/tag'
 import { RenderWithHeader } from '@/components/pages/developer-app-detail/app-detail/render-with-header'
 import standAloneAppDetailStyles from '@/styles/blocks/standalone-app-detail.scss?mod'
 import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
+import { ContactDeveloperSection } from './contact-developer-section'
 
 export type AppContentProps = {
   appDetailData: AppDetailDataNotNull
@@ -95,7 +96,18 @@ export const renderExtraMedia = (media: MediaModel[] = []) => (
 )
 
 const AppContent: React.FC<AppContentProps> = ({ appDetailData, desktopIntegrationTypes = [] }) => {
-  const { summary = '', description = '', category, scopes = [], media = [], isDirectApi } = appDetailData
+  const {
+    summary = '',
+    description = '',
+    category,
+    scopes = [],
+    media = [],
+    isDirectApi,
+    developer,
+    supportEmail,
+    telephone,
+    homePage,
+  } = appDetailData
   /**
    * 0 = icon
    * 1 = featured media
@@ -127,6 +139,14 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailData, desktopIntegrati
             mollitia animi laboriosam perspiciatis.
           </p>
         </RenderWithHeader>
+        <ContactDeveloperSection
+          contact={{
+            developer,
+            telephone,
+            supportEmail,
+            homePage,
+          }}
+        />
       </div>
     </div>
   )

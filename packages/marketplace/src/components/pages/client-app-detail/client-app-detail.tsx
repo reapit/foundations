@@ -22,7 +22,6 @@ import { getDesktopIntegrationTypes } from '@/utils/get-desktop-integration-type
 import Routes from '@/constants/routes'
 import { LoginType } from '@reapit/cognito-auth'
 import useReactResponsive from '@/components/hooks/useReactResponsive'
-import { ContactDeveloperSection } from './contact-developer-section'
 
 export type ClientAppDetailProps = {}
 
@@ -155,7 +154,7 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   const isInstallBtnHidden = loginType === 'CLIENT' && !isAdmin
   // selector selectAppDetailData return {} if not data
   const unfetched = Object.keys(appDetailData).length === 0
-  const { id = '', installedOn = '', developer, telephone, supportEmail, homePage } = appDetailData
+  const { id = '', installedOn = '' } = appDetailData
 
   React.useEffect(handleApplyAppDetailsFromLocalStorage(dispatch, loginType, appId), [dispatch])
 
@@ -181,17 +180,6 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
         <AppContent desktopIntegrationTypes={userDesktopIntegrationTypes} appDetailData={appDetailData} />
         {loginType !== 'DEVELOPER' && (
           <FormSection className={clientAppDetailStyles.footerContainer}>
-            <div className={clientAppDetailStyles.hiddenInDesktopScreenSize}>
-              <ContactDeveloperSection
-                contact={{
-                  developer,
-                  telephone,
-                  supportEmail,
-                  homePage,
-                }}
-                hasGutter={false}
-              />
-            </div>
             <Button onClick={onBackToAppsButtonClick(history)}>Back To Apps</Button>
           </FormSection>
         )}
