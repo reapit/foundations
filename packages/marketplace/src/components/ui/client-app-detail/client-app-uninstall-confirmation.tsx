@@ -12,6 +12,8 @@ import CallToAction from '../call-to-action'
 import { selectClientId } from '@/selector/client'
 import { selectInstallationFormState } from '@/selector/installations'
 import routes from '@/constants/routes'
+import { selectIsDesktopMode } from '@/selector/auth'
+import { DESKTOP_REFRESH_URL } from '@/constants/desktop-urls'
 
 export type ClientAppUninstallConfirmationProps = {
   appDetailData?: AppDetailModel
@@ -25,6 +27,7 @@ export const handleUninstallAppSuccessCallback = (
   dispatch: Dispatch<any>,
   setIsSuccessAlertVisible: (isVisible: boolean) => void,
   closeUninstallConfirmationModal: () => void,
+  isDesktopMode: boolean,
 ) => {
   return () => {
     dispatch(
@@ -35,6 +38,9 @@ export const handleUninstallAppSuccessCallback = (
     )
     closeUninstallConfirmationModal()
     setIsSuccessAlertVisible(true)
+    if (isDesktopMode) {
+      window.location.href = DESKTOP_REFRESH_URL
+    }
   }
 }
 
@@ -45,6 +51,7 @@ export const onUninstallButtonClick = (
   dispatch: Dispatch<any>,
   setIsSuccessAlertVisible: (isVisible: boolean) => void,
   closeUninstallConfirmationModal: () => void,
+  isDesktopMode: boolean,
 ) => {
   return () => {
     dispatch(
@@ -58,6 +65,7 @@ export const onUninstallButtonClick = (
           dispatch,
           setIsSuccessAlertVisible,
           closeUninstallConfirmationModal,
+          isDesktopMode,
         ),
       }),
     )
@@ -84,6 +92,7 @@ export const renderUninstallConfirmationModalFooter = (
   dispatch: Dispatch<any>,
   setIsSuccessAlertVisible: (isVisible: boolean) => void,
   closeUninstallConfirmationModal: () => void,
+  isDesktopMode: boolean,
 ) => {
   return (
     <>
@@ -100,6 +109,7 @@ export const renderUninstallConfirmationModalFooter = (
           dispatch,
           setIsSuccessAlertVisible,
           closeUninstallConfirmationModal,
+          isDesktopMode,
         )}
       >
         Confirm
@@ -127,6 +137,7 @@ const ClientAppUninstallConfirmation: React.FC<ClientAppUninstallConfirmationPro
   const history = useHistory()
   const clientId = useSelector(selectClientId)
   const installationFormState = useSelector(selectInstallationFormState)
+  const isDesktopMode = useSelector(selectIsDesktopMode)
   const isSubmitting = installationFormState === 'SUBMITTING'
   const { name, id = '', installationId = '' } = appDetailData || {}
   const dispatch = useDispatch()
@@ -146,6 +157,7 @@ const ClientAppUninstallConfirmation: React.FC<ClientAppUninstallConfirmationPro
           dispatch,
           setIsSuccessAlertVisible,
           closeUninstallConfirmationModal,
+          isDesktopMode,
         )}
       >
         <>Are you sure you wish to uninstall {name}? This action will uninstall the app for ALL platform users</>

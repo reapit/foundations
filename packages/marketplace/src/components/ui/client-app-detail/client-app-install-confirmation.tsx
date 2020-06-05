@@ -12,6 +12,8 @@ import CallToAction from '../call-to-action'
 import { selectClientId } from '@/selector/client'
 import routes from '@/constants/routes'
 import { selectInstallationFormState } from '@/selector/installations'
+import { selectIsDesktopMode } from '@/selector/auth'
+import { DESKTOP_REFRESH_URL } from '@/constants/desktop-urls'
 
 export type ClientAppInstallConfirmationProps = {
   appDetailData?: AppDetailModel
@@ -25,6 +27,7 @@ export const handleInstallAppSuccessCallback = (
   dispatch: Dispatch<any>,
   setIsSuccessAlertVisible: (isVisible: boolean) => void,
   closeInstallConfirmationModal: () => void,
+  isDesktopMode: boolean,
 ) => {
   return () => {
     dispatch(
@@ -33,9 +36,11 @@ export const handleInstallAppSuccessCallback = (
         clientId,
       }),
     )
-    window.location.href = 'agencycloud://apps/refresh'
     closeInstallConfirmationModal()
     setIsSuccessAlertVisible(true)
+    if (isDesktopMode) {
+      window.location.href = DESKTOP_REFRESH_URL
+    }
   }
 }
 
@@ -45,6 +50,7 @@ export const handleInstallButtonClick = (
   dispatch: Dispatch<any>,
   setIsSuccessAlertVisible: (isVisible: boolean) => void,
   closeInstallConfirmationModal: () => void,
+  isDesktopMode: boolean,
 ) => {
   return () => {
     dispatch(
@@ -56,6 +62,7 @@ export const handleInstallButtonClick = (
           dispatch,
           setIsSuccessAlertVisible,
           closeInstallConfirmationModal,
+          isDesktopMode,
         ),
       }),
     )
@@ -81,8 +88,10 @@ const ClientAppInstallConfirmation: React.FC<ClientAppInstallConfirmationProps> 
 }) => {
   const history = useHistory()
   const [isSuccessAlertVisible, setIsSuccessAlertVisible] = React.useState(false)
+  console.log('isSuccessAlertVisible', isSuccessAlertVisible)
   const clientId = useSelector(selectClientId)
   const installationFormState = useSelector(selectInstallationFormState)
+  const isDesktopMode = useSelector(selectIsDesktopMode)
   const isSubmitting = installationFormState === 'SUBMITTING'
 
   const { name, id = '', scopes = [] } = appDetailData || {}
@@ -110,6 +119,7 @@ const ClientAppInstallConfirmation: React.FC<ClientAppInstallConfirmationProps> 
                 dispatch,
                 setIsSuccessAlertVisible,
                 closeInstallConfirmationModal,
+                isDesktopMode,
               )}
             >
               Confirm

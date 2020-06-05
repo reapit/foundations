@@ -159,9 +159,9 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   React.useEffect(handleApplyAppDetailsFromLocalStorage(dispatch, loginType, appId), [dispatch])
 
   if (error) return <Alert message={error} type="danger"></Alert>
-  if (isLoadingAppDetail || unfetched) {
-    return <Loader dataTest="client-app-detail-loader" />
-  }
+  // if (isLoadingAppDetail || unfetched) {
+  //   return <Loader dataTest="client-app-detail-loader" />
+  // }
 
   return (
     <div data-test="client-app-detail-container" className={clientAppDetailStyles.appDetailContainer}>
@@ -183,20 +183,16 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
             <Button onClick={onBackToAppsButtonClick(history)}>Back To Apps</Button>
           </FormSection>
         )}
-        {isVisibleUninstallConfirmation && (
-          <ClientAppUninstallConfirmation
-            visible={isVisibleUninstallConfirmation}
-            appDetailData={appDetailData}
-            closeUninstallConfirmationModal={closeUninstallConfirmationModal}
-          />
-        )}
-        {isVisibleInstallConfirmation && (
-          <ClientAppInstallConfirmation
-            visible={isVisibleInstallConfirmation}
-            appDetailData={appDetailData}
-            closeInstallConfirmationModal={closeInstallConfirmationModal}
-          />
-        )}
+        <ClientAppUninstallConfirmation
+          visible={isVisibleUninstallConfirmation}
+          appDetailData={appDetailData}
+          closeUninstallConfirmationModal={closeUninstallConfirmationModal}
+        />
+        <ClientAppInstallConfirmation
+          visible={isVisibleInstallConfirmation}
+          appDetailData={appDetailData}
+          closeInstallConfirmationModal={closeInstallConfirmationModal}
+        />
       </div>
     </div>
   )
