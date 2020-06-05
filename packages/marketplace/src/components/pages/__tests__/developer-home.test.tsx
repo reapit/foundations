@@ -5,21 +5,18 @@ import { mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import Routes from '@/constants/routes'
-import DeveloperHome, { handleOnCardClick, handleFetchDeveloperApps, handleOnChange } from '../developer-home'
+import DeveloperHome, { handleOnCardClick, handleOnChange } from '../developer-home'
 import { AppSummaryModel } from '@/types/marketplace-api-schema'
-import { developerRequestData } from '@/actions/developer'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import routes from '@/constants/routes'
 
 describe('Login', () => {
   const { history } = getMockRouterProps({})
   let store
-  let spyDispatch
   beforeEach(() => {
     /* mocking store */
     const mockStore = configureStore()
     store = mockStore(appState)
-    spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
   })
   it('should match a snapshot', () => {
     expect(
@@ -40,22 +37,6 @@ describe('Login', () => {
       const fn = handleOnCardClick(history)
       fn(mockAppSummary)
       expect(history.push).toBeCalledWith(`${Routes.DEVELOPER_MY_APPS}/${mockAppSummary.id}`)
-    })
-  })
-  describe('handleFetchDeveloperApps', () => {
-    it('should run correctly', () => {
-      const fn = handleFetchDeveloperApps(1, true, spyDispatch)
-      fn()
-      expect(fn).toHaveReturned
-    })
-    it('should dispatch developerRequestData', () => {
-      const fn = handleFetchDeveloperApps(1, false, spyDispatch)
-      fn()
-      expect(spyDispatch).toBeCalledWith(
-        developerRequestData({
-          page: 1,
-        }),
-      )
     })
   })
 
