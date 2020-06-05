@@ -116,6 +116,9 @@
     &.appName {
       font-family: 'Museo Sans W03_300', 'Roboto', Helvetica, Arial, sans-serif;
       margin-bottom: 0;
+      @include for-mobile-only {
+        text-align: center;
+      }
     }
   }
 }
