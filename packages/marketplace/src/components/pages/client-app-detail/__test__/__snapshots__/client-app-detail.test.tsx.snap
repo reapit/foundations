@@ -494,14 +494,6 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
                       </p>
                     </div>
                   </Component>
-                </div>
-              </div>
-            </AppContent>
-            <Component>
-              <div
-                className="form-section mb-4 "
-              >
-                <div>
                   <Component
                     contact={
                       Object {
@@ -511,14 +503,12 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
                         "telephone": undefined,
                       }
                     }
-                    hasGutter={false}
                   >
                     <Component
-                      hasGutter={false}
+                      hasGutter={true}
                       header="Contact Developer"
                     >
                       <div
-                        className=""
                         data-test=""
                       >
                         <Component>
@@ -565,6 +555,12 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
                     </Component>
                   </Component>
                 </div>
+              </div>
+            </AppContent>
+            <Component>
+              <div
+                className="form-section mb-4 "
+              >
                 <Component
                   onClick={[Function]}
                 >

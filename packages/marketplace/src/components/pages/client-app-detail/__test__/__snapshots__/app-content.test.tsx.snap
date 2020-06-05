@@ -81,6 +81,16 @@ exports[`AppContent AppContent - should match snapshot 1`] = `
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam aliquid culpa saepe asperiores debitis illo dolorum dolore incidunt officiis praesentium, nemo similique veritatis exercitationem perferendis non mollitia animi laboriosam perspiciatis.
       </p>
     </Component>
+    <Component
+      contact={
+        Object {
+          "developer": undefined,
+          "homePage": undefined,
+          "supportEmail": undefined,
+          "telephone": undefined,
+        }
+      }
+    />
   </div>
 </div>
 `;
