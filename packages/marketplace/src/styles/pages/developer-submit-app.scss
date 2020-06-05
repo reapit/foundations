@@ -1,3 +1,15 @@
+@import '../base/screen-size.scss';
+
+.description-column {
+  @include for-mobile-only {
+    width: 100%;
+  }
+
+  @include for-tablet-and-desktop {
+    width: 50%;
+  }
+}
+
 .terms-submit-app {
   height: 100%;
   width: 100%;
@@ -8,9 +20,11 @@
     white-space: nowrap;
   }
 }
+
 .label-terms {
   cursor: pointer;
 }
+
 .terms-link {
   text-decoration: underline;
 }
