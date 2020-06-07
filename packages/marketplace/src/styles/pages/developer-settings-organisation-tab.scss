@@ -1,0 +1,46 @@
+.nameColumn {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.addressColumn {
+  display: flex;
+  align-items: flex-end;
+}
+
+/*
+stack inputs in one direction: left or right
+without creating a new Grid, GridItem
+*/
+.inputContainerVerticalSpacing {
+  & > div {
+    padding: 0.75rem 0px;
+  }
+
+  & > div:first-child {
+    padding-top: 0;
+  }
+}
+
+.buttonSave {
+  margin-top: 2rem;
+}
+
+.aboutField {
+  &,
+  & > div {
+    height: 100%;
+  }
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+
+    & > textarea {
+      flex: 1;
+      margin-bottom: 0.75rem;
+      box-sizing: content-box;
+    }
+  }
+}

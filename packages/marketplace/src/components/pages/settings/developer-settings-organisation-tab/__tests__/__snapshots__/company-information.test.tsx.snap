@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComapnyInformation should match a snapshot when no error 1`] = `
+<Component
+  flexColumn={true}
+  hasPadding={true}
+>
+  <Component>
+    <Component
+      flexColumn={true}
+      hasBackground={true}
+      hasPadding={true}
+    >
+      <Component>
+        Company Information
+      </Component>
+      <Formik
+        initialValues={Object {}}
+        onSubmit={[Function]}
+        validate={[Function]}
+      >
+        <Component />
+      </Formik>
+    </Component>
+  </Component>
+</Component>
+`;

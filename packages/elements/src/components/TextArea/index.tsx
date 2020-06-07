@@ -11,6 +11,7 @@ export interface TextAreaProps {
   dataTest?: string
   validate?: (value: string) => string | null
   required?: boolean
+  containerClassName?: string
 }
 
 export const textareaPrimary = 'textarea is-primary'
@@ -24,6 +25,7 @@ export const TextArea = ({
   placeholder = '',
   required = false,
   validate,
+  containerClassName = '',
 }: TextAreaProps) => (
   <Field name={name} validate={required ? validate : null}>
     {({ field, meta }: FieldProps<string>) => {
@@ -31,7 +33,7 @@ export const TextArea = ({
       const className = cx(hasError ? textareaError : textareaPrimary)
       const labelClassname = cx('label', required && 'required-label')
       return (
-        <div className="field">
+        <div className={`field ${containerClassName}`}>
           <div className="control">
             {labelText && (
               <label className={labelClassname} htmlFor={id}>

@@ -5,6 +5,8 @@ import DeveloperInviteModal from '@/components/ui/developer-invite-member-modal'
 import { selectIsAdmin } from '@/selector/auth'
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
+import { CompanyInformation } from './company-information'
+import { Members } from './members'
 
 export const handleToggleVisibleModal = (setIsInviteModalOpen: React.Dispatch<boolean>, isVisible: boolean) => () =>
   setIsInviteModalOpen(isVisible)
@@ -33,6 +35,8 @@ const DevelperSettingsOrganisationTabPage: React.FC = () => {
         <Content>
           <FlexContainerResponsive flexColumn hasBackground hasPadding>
             <Tabs />
+            <CompanyInformation />
+            <Members />
             <LevelRight>
               <Button type="button" variant="primary" onClick={handleToggleVisibleModal(setIsInviteModalOpen, true)}>
                 Invite New Member
