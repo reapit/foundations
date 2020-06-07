@@ -1,75 +1,49 @@
-@import '../base/colors.scss';
-@import '../base/screen-size.scss';
+// @import '../base/colors.scss';
+// @import '../base/screen-size.scss';
 
-.listPreviewIcon {
-  color: $reapit-blue;
-}
+// .listPreviewIcon {
+//   color: $reapit-blue;
+// }
 
-.appDetailContainer {
-  height: auto;
-  display: flex;
-  margin: 0 auto;
-  margin: 1rem;
-  @include for-mobile-only {
-    flex-direction: column-reverse;
-  }
-}
+// .asideManageAppContainer {
+//   display: flex;
+//   @include for-tablet-and-desktop {
+//     flex-direction: column;
+//   }
+//   @include for-small-mobile-only {
+//     flex-direction: column;
+//   }
+//   button {
+//     width: 100%;
+//     &:first-child {
+//       margin-top: 0;
+//       margin-left: 0;
+//       margin-bottom: 0.75rem;
+//       @include for-mobile-only {
+//         margin-bottom: 0;
+//       }
+//       @include for-small-mobile-only {
+//         margin-bottom: 0.75rem;
+//       }
+//     }
+//   }
+// }
 
-.mainContainer {
-  flex: 1;
-}
+// .mainContainer {
+//   background-color: $white;
+//   padding: 0 3rem 6rem;
+//   position: relative;
+//   @include for-mobile-only {
+//     padding-bottom: 0;
+//     padding-left: 1rem;
+//     padding-right: 1rem;
+//   }
+// }
 
-.asideManageAppContainer {
-  display: flex;
-  @include for-tablet-and-desktop {
-    flex-direction: column;
-  }
-  @include for-small-mobile-only {
-    flex-direction: column;
-  }
-  button {
-    width: 100%;
-    &:first-child {
-      margin-top: 0;
-      margin-left: 0;
-      margin-bottom: 0.75rem;
-      @include for-mobile-only {
-        margin-bottom: 0;
-      }
-      @include for-small-mobile-only {
-        margin-bottom: 0.75rem;
-      }
-    }
-  }
-}
+// .renderAsideStatusContainer {
+//   display: flex;
+//   justify-content: flex-star;
+//   align-items: center;
 
-.mainContainer {
-  background-color: $white;
-  padding: 0 3rem 6rem;
-  position: relative;
-  @include for-mobile-only {
-    padding-bottom: 0;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}
+// }
 
-.renderAsideStatusContainer {
-  display: flex;
-  justify-content: flex-star;
-  align-items: center;
-
-  .check {
-    /*should be px regard their base px (rem) else looks really ugly*/
-    margin-left: 5px;
-    color: #a0c862;
-  }
-}
-
-.footerContainer {
-  position: absolute;
-  width: 100%;
-  left: 0;
-  bottom: 0;
-  padding-bottom: 0;
-}

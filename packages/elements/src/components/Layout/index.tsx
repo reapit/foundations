@@ -2,6 +2,7 @@ import * as React from 'react'
 
 export interface LayoutProps {
   className?: string
+  dataTest?: string
 }
 
 export interface FlexContainerProps extends LayoutProps {
@@ -56,52 +57,77 @@ export const FlexContainerBasic: React.SFC<FlexContainerProps> = ({
   </div>
 )
 
-export const AppNavContainer: React.SFC<LayoutProps> = ({ children, className = '' }) => (
-  <div className={`app-nav-container ${className}`}>{children}</div>
-)
-
-export const GridFourCol: React.SFC<LayoutProps> = ({ children, className = '' }) => (
-  <div className={`columns is-multiline ${className}`}>{children}</div>
-)
-
-export const GridFourColItem: React.SFC<LayoutProps> = ({ children, className = '' }) => (
-  <div className={`column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd ${className}`}>
+export const AppNavContainer: React.SFC<LayoutProps> = ({ children, className = '', dataTest = '' }) => (
+  <div className={`app-nav-container ${className}`} data-test={dataTest}>
     {children}
   </div>
 )
 
-export const GridThreeColItem: React.SFC<LayoutProps> = ({ children, className = '' }) => (
-  <div className={`column is-multiline is-half-tablet is-one-third-widescreen ${className}`}>{children}</div>
+export const GridFourCol: React.SFC<LayoutProps> = ({ children, className = '', dataTest = '' }) => (
+  <div className={`columns is-multiline ${className}`} data-test={dataTest}>
+    {children}
+  </div>
 )
 
-export const Grid: React.SFC<GridProps> = ({ children, isMultiLine = false, className = '' }) => (
-  <div className={`columns ${isMultiLine ? 'is-multiline' : ''} ${className}`}>{children}</div>
+export const GridFourColItem: React.SFC<LayoutProps> = ({ children, className = '', dataTest = '' }) => (
+  <div
+    className={`column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd ${className}`}
+    data-test={dataTest}
+  >
+    {children}
+  </div>
 )
 
-export const GridItem: React.SFC<GridProps> = ({ children, isMultiLine = false, className = '' }) => (
-  <div className={`column ${isMultiLine ? 'is-multiline' : ''} ${className}`}>{children}</div>
+export const GridThreeColItem: React.SFC<LayoutProps> = ({ children, className = '', dataTest = '' }) => (
+  <div className={`column is-multiline is-half-tablet is-one-third-widescreen ${className}`} data-test={dataTest}>
+    {children}
+  </div>
 )
 
-export const Level: React.SFC<LayoutProps> = ({ children, className = '' }) => (
-  <div className={`level ${className}`}>{children}</div>
+export const Grid: React.SFC<GridProps> = ({ children, isMultiLine = false, className = '', dataTest = '' }) => (
+  <div className={`columns ${isMultiLine ? 'is-multiline' : ''} ${className}`} data-test={dataTest}>
+    {children}
+  </div>
 )
 
-export const LevelLeft: React.SFC<LayoutProps> = ({ children, className = '' }) => (
-  <div className={`level-left ${className}`}>{children}</div>
+export const GridItem: React.SFC<GridProps> = ({ children, isMultiLine = false, className = '', dataTest = '' }) => (
+  <div className={`column ${isMultiLine ? 'is-multiline' : ''} ${className}`} data-test={dataTest}>
+    {children}
+  </div>
 )
 
-export const LevelRight: React.SFC<LayoutProps> = ({ children, className = '' }) => (
-  <div className={`level-right ${className}`}>{children}</div>
+export const Level: React.SFC<LayoutProps> = ({ children, className = '', dataTest = '' }) => (
+  <div className={`level ${className}`} data-test={dataTest}>
+    {children}
+  </div>
 )
 
-export const LevelItem: React.SFC<LayoutProps> = ({ children, className = '' }) => (
-  <div className={`level-item ${className}`}>{children}</div>
+export const LevelLeft: React.SFC<LayoutProps> = ({ children, className = '', dataTest = '' }) => (
+  <div className={`level-left ${className}`} data-test={dataTest}>
+    {children}
+  </div>
 )
 
-export const Section: React.SFC<LayoutProps> = ({ children, className = '' }) => (
-  <div className={`section ${className}`}>{children}</div>
+export const LevelRight: React.SFC<LayoutProps> = ({ children, className = '', dataTest = '' }) => (
+  <div className={`level-right ${className}`} data-test={dataTest}>
+    {children}
+  </div>
 )
 
-export const Content: React.SFC<LayoutProps> = ({ children, className = '' }) => (
-  <div className={`content ${className}`}>{children}</div>
+export const LevelItem: React.SFC<LayoutProps> = ({ children, className = '', dataTest = '' }) => (
+  <div className={`level-item ${className}`} data-test={dataTest}>
+    {children}
+  </div>
+)
+
+export const Section: React.SFC<LayoutProps> = ({ children, className = '', dataTest = '' }) => (
+  <div className={`section ${className}`} data-test={dataTest}>
+    {children}
+  </div>
+)
+
+export const Content: React.SFC<LayoutProps> = ({ children, className = '', dataTest = '' }) => (
+  <div className={`content ${className}`} data-test={dataTest}>
+    {children}
+  </div>
 )

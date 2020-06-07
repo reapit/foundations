@@ -17,9 +17,10 @@ import { RevisionDetailState } from '@/reducers/revision-detail'
 import { LoginIdentity } from '@reapit/cognito-auth'
 
 import { Modal, Loader, Button } from '@reapit/elements'
-import AppRevisionComparision from '../app-revision-comparision/app-revision-comparision'
+import AppRevisionComparison from '../app-revision-comparison/app-revision-comparison'
 import CallToAction from '@/components/ui/call-to-action'
 import { DeveloperAppDetailState } from '@/reducers/developer'
+import { AppDetailData } from '../../../reducers/client/app-detail'
 
 export interface OwnProps {
   visible: boolean
@@ -163,7 +164,10 @@ export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps>
         {!hasRevisionDetailData ? (
           <Loader />
         ) : (
-          <AppRevisionComparision appDetailState={appDetailState} revisionDetailState={revisionDetailState} />
+          <AppRevisionComparison
+            appDetailData={(appDetailState as AppDetailState).appDetailData?.data as AppDetailData}
+            revisionDetailState={revisionDetailState}
+          />
         )}
         <Modal
           visible={isConfirmationModalVisible}

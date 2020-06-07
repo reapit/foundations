@@ -1,127 +1,389 @@
-// TODO: remove this file after we separated dev & client standalone page
+// // TODO: remove this file after we separated dev & client standalone page
 @import '../base/colors.scss';
 @import '../base/screen-size.scss';
 
-.appHeaderTextContainer {
-  padding: 0 3rem;
-  display: flex;
-  // align-items: flex-end;
-  flex-direction: column;
-  justify-content: center;
+
+// .appHeaderTextContainer {
+//   padding: 0 3rem;
+//   display: flex;
+//   // align-items: flex-end;
+//   flex-direction: column;
+//   justify-content: center;
+//   @include for-mobile-only {
+//     padding-left: 0;
+//     padding-right: 0;
+//     margin-top: 1rem;
+//     text-align: center;
+//     justify-content: center;
+//     align-items: center;
+//   }
+// }
+
+// .asideContainer {
+//   margin-right: 1rem;
+//   width: 25%;
+//   display: flex;
+//   justify-content: center;
+//   background-color: $white;
+//   padding-top: 3rem;
+//   padding-bottom: 3rem;
+//   @include for-mobile-only {
+//     width: 100%;
+//     padding-top: 0;
+//     padding-bottom: 1rem;
+//   }
+//   & > div {
+//     width: 70%;
+//     @include for-mobile-only {
+//       width: 100%;
+//       padding-left: 1rem;
+//       padding-right: 1rem;
+//     }
+//     div > :first-child {
+//       @include for-mobile-only {
+//         margin-top: 0;
+//       }
+//     }
+//   }
+
+//   h5.headerWithoutMargin {
+//     margin-bottom: 0;
+//   }
+
+//   h5,
+//   h5:not(:last-child):not(.headerWithoutMargin) {
+//     margin-bottom: 0.5rem;
+//   }
+// }
+
+// .appHeader {
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: space-between;
+//   align-items: flex-start;
+//   margin-top: 3rem;
+//   @include for-mobile-only {
+//     margin-top: 1rem;
+//   }
+
+//   .appInformation {
+//     display: flex;
+//     width: 60%;
+//     margin-bottom: 0.75rem;
+//     @include for-mobile-only {
+//       width: 100%;
+//       margin-bottom: 0;
+//       align-items: center;
+//       flex-direction: column;
+//     }
+//     @include for-tablet-only {
+//       width: 100%;
+//     }
+//   }
+
+//   .appScreenshot {
+//     display: flex;
+//     justify-content: center;
+//     width: 40%;
+//     @include for-tablet-only {
+//       width: 100%;
+//     }
+//   }
+
+//   .appIconContainer {
+//     flex: 1 0 96px;
+//     max-width: 96px;
+//     width: 96px;
+//     height: 96px;
+//     margin-left: 0;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     background-color: $grey-lighter;
+//     background-position: center;
+//     background-size: cover;
+//   }
+
+//   .verifyByReapitContainer {
+//     display: flex;
+//     justify-content: flex-end;
+//     align-items: center;
+//     margin-top: 0.5rem;
+//     @include for-tablet-only {
+//       margin-top: 0;
+//     }
+//     .check {
+//       /*should be px regard their base px (rem) else looks really ugly*/
+//       margin-right: 5px;
+//       color: #a0c862;
+//     }
+//   }
+
+//   h2, h3 {
+//     &.appName {
+//       font-family: 'Museo Sans W03_300', 'Roboto', Helvetica, Arial, sans-serif;
+//       margin-bottom: 0;
+//     }
+//   }
+// }
+
+// .permission {
+//   font-weight: 600;
+// }
+
+// .gutter {
+//   margin: 2rem 0;
+// }
+
+// .tag {
+//   display: inline-block;
+//   padding: 0.5rem 1rem;
+//   background: #f5f5f5;
+//   margin: 1rem 1rem 0 0;
+// }
+
+// .permissionList {
+//   padding-left: 1rem;
+//   list-style-type: disc;
+//   display: flex;
+//   flex-flow: wrap column;
+//   max-height: 170px;
+
+//   @media screen and (max-width: 768px) {
+//     max-height: unset;
+//   }
+// }
+
+// .installed {
+//   width: 100%;
+//   display: flex;
+//   justify-content: flex-end;
+//   align-items: center;
+//   span {
+//     font-size: 1.25rem;
+//     font-weight: 600;
+//     margin-left: 0.75rem;
+//   }
+//   svg {
+//     color: #a0c862;
+//   }
+// }
+
+// .listed {
+//   display: flex;
+//   align-items: center;
+// }
+
+// .isListed {
+//   color: #a0c862;
+// }
+
+// .notListed {
+//   color: #d3033d;
+// }
+
+// %appInfoTextBold {
+//   font-size: 1rem;
+//   color: #363636;
+//   font-weight: 600;
+//   line-height: 1.125;
+// }
+
+// .appInfo {
+//   @extend %appInfoTextBold;
+//   margin-bottom: 8px;
+// }
+
+// .appInfoRow {
+//   display: flex;
+//   align-items: center;
+//   margin-bottom: 4px;
+// }
+
+// .appInfoProperty {
+//   @extend %appInfoTextBold;
+//   margin-right: 6px;
+// }
+
+// .appInfoSpace {
+//   margin-right: 8px;
+// }
+
+// .description {
+//   word-break: break-word;
+// }
+
+// @import '../base/colors.scss';
+// @import '../base/screen-size.scss';
+
+// .renderImageContainer {
+//   @include for-tablet-and-desktop {
+//     display: flex;
+//   }
+
+//   div {
+//     margin-right: 1rem;
+//     max-width: 300px;
+//     @include for-tablet-and-desktop {
+//       flex: 1;
+//     }
+//   }
+
+//   img {
+//     width: 100%;
+//   }
+// }
+
+// .check {
+//   color: #a0c862;
+// }
+
+// @include for-tablet-and-desktop {
+//   .hiddenInDesktopScreenSize {
+//     display: none;
+//   }
+
+//   .needHelpButton {
+//     width: 100%;
+//   }
+
+//   .developerContactModalRow {
+//     flex: 2;
+//   }
+// }
+
+// .appDetailContainer {
+//   height: auto;
+//   margin: 1rem;
+//   padding: 1rem;
+//   @include for-mobile-only {
+//     background-color: $white;
+
+//     .asideContainer {
+//       display: none;
+//     }
+//   }
+
+//   @include for-tablet-and-desktop {
+//     display: flex;
+//   }
+
+//   .mainContainer {
+//     position: relative;
+//     @include for-tablet-and-desktop {
+//       background-color: $white;
+//       padding: 0 3rem 6rem;
+//       flex: 1;
+//     }
+//   }
+// }
+
+// .gutter {
+//   margin: 2rem 0;
+// }
+
+// .appContentContainer {
+//   h5,
+//   h5:not(:last-child) {
+//     margin-bottom: 0.5rem;
+//   }
+
+//   h5.headerWithoutMargin {
+//     margin-bottom: 0;
+//   }
+// }
+
+// .permissionList {
+//   list-style-type: disc;
+//   list-style-position: inside;
+// }
+
+// .footerContainer {
+//   padding-bottom: 0;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: flex-start;
+//   @include for-desktop-only {
+//     justify-content: flex-end;
+//   }
+// }
+
+// .headerButtonGroup {
+//   display: flex;
+//   justify-content: flex-end;
+//   @include for-mobile-only {
+//     justify-content: center;
+//   }
+// }
+
+
+.check {
+  position: relative;
+  top: 2px;
+  left: 2px;
+  color: $reapit-green;
+}
+
+.truncate {
+
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.elipsis {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: $grey-lighter;
+  margin: 1rem 1rem 0 0;
+}
+
+.container {
+  // height: auto;
+  // margin: 1rem;
+  // padding: 1rem;
+  // @include for-mobile-only {
+  //   background-color: $white;
+
+  //   .asideContainer {
+  //     display: none;
+  //   }
+  // }
+
   @include for-mobile-only {
-    padding-left: 0;
-    padding-right: 0;
-    margin-top: 1rem;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+    display: flex;
+    flex-direction: column-reverse;
   }
 }
 
-.asideContainer {
-  margin-right: 1rem;
-  width: 25%;
-  display: flex;
-  justify-content: center;
-  background-color: $white;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+.containerHeader {
   @include for-mobile-only {
-    width: 100%;
-    padding-top: 0;
-    padding-bottom: 1rem;
-  }
-  & > div {
-    width: 70%;
-    @include for-mobile-only {
-      width: 100%;
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-    div > :first-child {
-      @include for-mobile-only {
-        margin-top: 0;
-      }
-    }
-  }
-
-  h5.headerWithoutMargin {
-    margin-bottom: 0;
-  }
-
-  h5,
-  h5:not(:last-child):not(.headerWithoutMargin) {
-    margin-bottom: 0.5rem;
+    flex-direction: column;
   }
 }
 
-.appHeader {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-top: 3rem;
-  @include for-mobile-only {
-    margin-top: 1rem;
+.containerOuterHeader {
+  @include for-tablet-and-below {
+    flex-direction: column;
   }
+}
 
-  .appInformation {
+.centerContent {
+  @include for-tablet-and-below {
     display: flex;
-    width: 60%;
-    margin-bottom: 0.75rem;
-    @include for-mobile-only {
-      width: 100%;
-      margin-bottom: 0;
-      align-items: center;
-      flex-direction: column;
-    }
-    @include for-tablet-only {
-      width: 100%;
-    }
-  }
-
-  .appScreenshot {
-    display: flex;
-    justify-content: center;
-    width: 40%;
-    @include for-tablet-only {
-      width: 100%;
-    }
-  }
-
-  .appIconContainer {
-    flex: 1 0 96px;
-    max-width: 96px;
-    width: 96px;
-    height: 96px;
-    margin-left: 0;
-    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    background-color: $grey-lighter;
-    background-position: center;
-    background-size: cover;
   }
 
-  .verifyByReapitContainer {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-top: 0.5rem;
-    @include for-tablet-only {
-      margin-top: 0;
-    }
-    .check {
-      /*should be px regard their base px (rem) else looks really ugly*/
-      margin-right: 5px;
-      color: #a0c862;
-    }
-  }
-
-  h2, h3 {
-    &.appName {
-      font-family: 'Museo Sans W03_300', 'Roboto', Helvetica, Arial, sans-serif;
-      margin-bottom: 0;
-    }
-  }
+  // @include for-mobile-only {
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: center;
+  // }
 }

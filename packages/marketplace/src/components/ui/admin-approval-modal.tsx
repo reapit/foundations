@@ -7,7 +7,7 @@ import { RevisionDetailState } from '@/reducers/revision-detail'
 import ApproveRevisionModal from './approve-revision-modal'
 import DeclineRevisionModal from './decline-revision-modal'
 import { compose } from 'redux'
-import AppRevisionComparision from './app-revision-comparision/app-revision-comparision'
+import AppRevisionComparison from './app-revision-comparison/app-revision-comparison'
 
 export type AdminApprovalModalInnerProps = StateProps
 export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalModalInnerProps> = ({
@@ -39,7 +39,12 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalModal
         data-test="revision-detail-modal"
       />
       <ModalBody
-        body={<AppRevisionComparision appDetailState={appDetailState} revisionDetailState={revisionDetailState} />}
+        body={
+          <AppRevisionComparison
+            appDetailData={appDetailState.appDetailData.data}
+            revisionDetailState={revisionDetailState}
+          />
+        }
       />
 
       <ModalFooter
