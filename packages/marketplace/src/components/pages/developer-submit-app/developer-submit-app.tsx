@@ -44,7 +44,8 @@ import UploadImageSection from './upload-image-section'
 import MarketplaceStatusSection from './marketplace-status-section'
 import PermissionSection from './permission-section'
 import styles from '@/styles/pages/developer-submit-app.scss?mod'
-import { ScopeModel } from '@/types/marketplace-api-schema'
+import { ScopeModel, CategoryModel } from '@/types/marketplace-api-schema'
+import { selectCategories } from '@/selector/app-categories'
 
 export type DeveloperSubmitAppProps = {}
 
@@ -277,16 +278,18 @@ export const handleOnSubmitAnotherApp = (dispatch: Dispatch) => {
 
 export type HandleOpenAppPreview = {
   scopes: ScopeModel[]
+  categories: CategoryModel[]
   values: FormikValues
   appId?: string
   appDetails?: AppDetailModel & { apiKey?: string }
 }
 
-export const handleOpenAppPreview = ({ appDetails, values, scopes, appId }: HandleOpenAppPreview) => () => {
+export const handleOpenAppPreview = ({ appDetails, values, scopes, categories, appId }: HandleOpenAppPreview) => () => {
   const appDetailState = {
     ...appDetails,
     ...values,
     scopes: scopes.filter(scope => values.scopes.includes(scope.name)),
+    category: categories.find(category => values.categoryId === category.id),
   }
 
   const url = `developer/apps/${appId}/preview`
@@ -305,6 +308,7 @@ export const DeveloperSubmitApp: React.FC<DeveloperSubmitAppProps> = () => {
   const appDetailState = useSelector(selectAppDetailState)
   const submitAppState = useSelector(selectSubmitAppState)
   const submitRevisionState = useSelector(selectSubmitAppRevisionState)
+  const appCategories = useSelector(selectCategories)
 
   const [isSubmitModalOpen, setIsSubmitModalOpen] = React.useState<boolean>(!getCookieString(COOKIE_FIRST_SUBMIT))
 
@@ -402,6 +406,7 @@ export const DeveloperSubmitApp: React.FC<DeveloperSubmitAppProps> = () => {
                               appDetails: appDetailState?.appDetailData?.data,
                               values,
                               scopes,
+                              categories: appCategories,
                               appId: appid,
                             })}
                             variant="primary"
