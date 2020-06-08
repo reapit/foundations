@@ -144,7 +144,7 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailState }) => {
       {isMobile && (
         <>
           <RenderWithHeader header="Status">{renderListedStatus(Boolean(isListed))}</RenderWithHeader>
-          <ManageApp appDetailState={appDetailState} id={id} pendingRevisions={Boolean(pendingRevisions)} />
+          <ManageApp appDetailState={appDetailState} pendingRevisions={Boolean(pendingRevisions)} />
         </>
       )}
 

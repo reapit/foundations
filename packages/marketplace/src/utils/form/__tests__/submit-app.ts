@@ -55,7 +55,7 @@ describe('submitAppValidation', () => {
       screen2ImageUrl: 'test',
       screen1ImageUrl: 'test',
       name: 'test',
-      telephone: 'test',
+      telephone: '(555)-555-5555',
       supportEmail: 'invalid email',
       launchUri: 'http://localhost:8000',
       iconImageUrl: 'test',
@@ -82,7 +82,7 @@ describe('submitAppValidation', () => {
       screen2ImageUrl: 'test',
       screen1ImageUrl: 'test',
       name: 'test',
-      telephone: 'test',
+      telephone: '(555)-555-5555',
       supportEmail: 'tester@gmail.com',
       launchUri: 'http://localhost:8000',
       iconImageUrl: 'test',
@@ -109,7 +109,7 @@ describe('submitAppValidation', () => {
       screen2ImageUrl: 'test',
       screen1ImageUrl: 'test',
       name: 'test',
-      telephone: 'test',
+      telephone: '(555)-555-5555',
       supportEmail: 'tester@gmail.com',
       launchUri: 'http://localhost:8000',
       iconImageUrl: 'test',
@@ -136,7 +136,7 @@ describe('submitAppValidation', () => {
       screen2ImageUrl: 'test',
       screen1ImageUrl: 'test',
       name: 'test',
-      telephone: 'test',
+      telephone: '(555)-555-5555',
       supportEmail: 'tester@gmail.com',
       launchUri: 'http://localhost:8000',
       iconImageUrl: 'test',
@@ -163,7 +163,7 @@ describe('submitAppValidation', () => {
       screen2ImageUrl: 'test',
       screen1ImageUrl: 'test',
       name: 'test',
-      telephone: 'test',
+      telephone: '(555)-555-5555',
       supportEmail: 'tester@gmail.com',
       launchUri: 'test',
       iconImageUrl: 'test',
@@ -183,7 +183,7 @@ describe('submitAppValidation', () => {
     })
   })
 
-  it('return empty object it everything is valid', () => {
+  it('validate telephone field', () => {
     const input: CustomCreateAppModel = {
       screen4ImageUrl: 'test',
       screen3ImageUrl: 'test',
@@ -191,6 +191,33 @@ describe('submitAppValidation', () => {
       screen1ImageUrl: 'test',
       name: 'test',
       telephone: 'test',
+      supportEmail: 'test@test.com',
+      launchUri: 'http://localhost:8000',
+      iconImageUrl: 'test',
+      homePage: 'http://localhost:8000',
+      description:
+        // eslint-disable-next-line
+        'Amazon.com, Inc., is an American multinational technology company based in Seattle that focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. It is considered one of the Big Four tech companies, along with Google, Apple, and Facebook.',
+      summary: 'Amazon.com, Inc., is an American multinational technology company based in Seattle',
+      scopes: ['scope1'],
+      redirectUris: 'https://google.com,https://twitter.com,http://localhost:8080',
+      signoutUris: 'http://localhost:8080',
+      authFlow: 'authorisationCode',
+    }
+
+    expect(validate(input)).toEqual({
+      telephone: 'Invalid Telephone number',
+    })
+  })
+
+  it('return empty object it everything is valid', () => {
+    const input: CustomCreateAppModel = {
+      screen4ImageUrl: 'test',
+      screen3ImageUrl: 'test',
+      screen2ImageUrl: 'test',
+      screen1ImageUrl: 'test',
+      name: 'test',
+      telephone: '(555)-555-5555',
       supportEmail: 'test@test.com',
       launchUri: 'http://localhost:8000',
       iconImageUrl: 'test',
@@ -215,7 +242,7 @@ describe('submitAppValidation', () => {
       screen2ImageUrl: 'test',
       screen1ImageUrl: 'test',
       name: 'test',
-      telephone: 'test',
+      telephone: '(555)-555-5555',
       supportEmail: 'test@test.com',
       launchUri: 'http://localhost:8000',
       iconImageUrl: 'test',
@@ -242,7 +269,7 @@ describe('submitAppValidation', () => {
       screen2ImageUrl: 'test',
       screen1ImageUrl: 'test',
       name: 'test',
-      telephone: 'test',
+      telephone: '(555)-555-5555',
       supportEmail: 'test@test.com',
       launchUri: 'test',
       iconImageUrl: 'test',
@@ -271,7 +298,7 @@ describe('submitAppValidation', () => {
       screen2ImageUrl: 'test',
       screen1ImageUrl: 'test',
       name: 'test',
-      telephone: 'test',
+      telephone: '(555)-555-5555',
       supportEmail: 'test@test.com',
       launchUri: 'test',
       iconImageUrl: 'test',
@@ -302,7 +329,7 @@ describe('submitAppValidation', () => {
       screen2ImageUrl: 'test',
       screen1ImageUrl: 'test',
       name: 'test',
-      telephone: 'test',
+      telephone: '(555)-555-5555',
       supportEmail: 'test@test.com',
       launchUri: 'test',
       iconImageUrl: 'test',
@@ -332,7 +359,7 @@ describe('submitAppValidation', () => {
       screen2ImageUrl: 'test',
       screen1ImageUrl: 'test',
       name: 'test',
-      telephone: 'test',
+      telephone: '(555)-555-5555',
       supportEmail: 'test@test.com',
       launchUri: 'test',
       iconImageUrl: 'test',

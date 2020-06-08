@@ -44,7 +44,6 @@
     ...generateBookValuationWidgetThemeClasses(theme, parentSelector),
   }
 
-
   onMount(() => {
     themeStore.set(themeClasses)
   })

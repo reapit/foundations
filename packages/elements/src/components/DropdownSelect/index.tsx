@@ -31,6 +31,7 @@ export const DropdownSelect: React.FC<DropdownSelectProps> = ({
   options,
   required = false,
   subText,
+  mode = 'tags',
   ...restProps
 }) => {
   const handleRenderTags = (props: CustomTagProps) => {
@@ -62,7 +63,7 @@ export const DropdownSelect: React.FC<DropdownSelectProps> = ({
                   placeholder={placeholder}
                   value={field.value || []}
                   className="is-primary input"
-                  mode="tags"
+                  mode={mode}
                   tagRender={handleRenderTags}
                   onChange={handleChangeOption(field)}
                   onBlur={handleFieldTouched(form, field)}

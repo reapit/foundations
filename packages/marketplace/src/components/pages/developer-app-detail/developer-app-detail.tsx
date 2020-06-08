@@ -14,8 +14,6 @@ import { Loader, FormSection, Button } from '@reapit/elements'
 import AppHeader from '@/components/ui/developer-app-detail/app-header'
 import AppContent from './app-detail/app-content/app-content'
 import DeveloperAppDetailButtonGroup from '@/components/ui/developer-app-detail/developer-app-detail-button-group'
-
-import AppDelete from '@/components/ui/app-delete'
 import AppInstallations from '@/components/ui/app-installations/app-installations-modal'
 
 import routes from '@/constants/routes'
@@ -82,7 +80,6 @@ export const onBackToAppsButtonClick = (history: History) => {
 
 const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
   const history = useHistory()
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false)
   const [isInstallationsModalOpen, setIsInstallationsModalOpen] = React.useState(false)
   const [isAppRevisionComparisionModalOpen, setIsAppRevisionComparisionModalOpen] = React.useState(false)
   const { isMobile } = useReactResponsive()
@@ -119,15 +116,6 @@ const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
           </FormSection>
         )}
       </div>
-      {isDeleteModalOpen && (
-        <AppDelete
-          appId={id}
-          appName={name}
-          afterClose={closeDeleteAppModal(setIsDeleteModalOpen)}
-          visible={isDeleteModalOpen}
-          onDeleteSuccess={handleOnDeleteAppSuccess(history)}
-        />
-      )}
 
       {isInstallationsModalOpen && (
         <AppInstallations

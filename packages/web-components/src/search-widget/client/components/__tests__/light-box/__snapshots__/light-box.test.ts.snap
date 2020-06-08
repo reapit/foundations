@@ -10,7 +10,7 @@ exports[`LightBox should match snapshot 1`] = `
         class="light-box-current-display-image-container svelte-1774wwa"
       >
         <img
-          alt="Light box current display image"
+          alt="Light box current"
           class="light-box-current-display-image svelte-1774wwa"
         />
       </div>
