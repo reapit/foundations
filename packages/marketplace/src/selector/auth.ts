@@ -31,3 +31,7 @@ export const selectRefreshSession = (state: ReduxState) => {
 export const selectIsTermAccepted = (state: ReduxState): boolean => {
   return state.auth.isTermAccepted
 }
+
+export const selectIsDesktopMode = (state: ReduxState): boolean => {
+  return state.auth.refreshSession?.mode === 'DESKTOP'
+}
