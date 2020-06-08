@@ -280,11 +280,17 @@ export type HandleOpenAppPreview = {
   scopes: ScopeModel[]
   categories: CategoryModel[]
   values: FormikValues
-  appId?: string
+  appId: string
   appDetails?: AppDetailModel & { apiKey?: string }
 }
 
-export const handleOpenAppPreview = ({ appDetails, values, scopes, categories, appId }: HandleOpenAppPreview) => () => {
+export const handleOpenAppPreview = ({
+  appDetails,
+  values,
+  scopes,
+  categories,
+  appId = 'submit-app',
+}: HandleOpenAppPreview) => () => {
   const appDetailState = {
     ...appDetails,
     ...values,
@@ -400,21 +406,19 @@ export const DeveloperSubmitApp: React.FC<DeveloperSubmitAppProps> = () => {
                     {renderErrors((errors as unknown) as Record<string, string | string[]>)}
                     <LevelRight>
                       <Grid className={styles.footerButtons}>
-                        {isSubmitRevision && (
-                          <Button
-                            onClick={handleOpenAppPreview({
-                              appDetails: appDetailState?.appDetailData?.data,
-                              values,
-                              scopes,
-                              categories: appCategories,
-                              appId: appid,
-                            })}
-                            variant="primary"
-                            type="button"
-                          >
-                            Preview
-                          </Button>
-                        )}
+                        <Button
+                          onClick={handleOpenAppPreview({
+                            appDetails: appDetailState?.appDetailData?.data,
+                            values,
+                            scopes,
+                            categories: appCategories,
+                            appId: appid,
+                          })}
+                          variant="primary"
+                          type="button"
+                        >
+                          Preview
+                        </Button>
                         {!isSubmitApp && (
                           <Button onClick={goBackToApps} variant="primary" type="button">
                             Back To Apps
