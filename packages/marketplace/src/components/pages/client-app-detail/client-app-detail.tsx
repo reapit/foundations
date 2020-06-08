@@ -8,6 +8,7 @@ import { selectIntegrationTypes } from '@/selector/integration-types'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectAppDetailData, selectAppDetailLoading, selectAppDetailError } from '@/selector/client-app-detail'
 import { selectLoginType, selectIsAdmin } from '@/selector/auth'
+import { canGoBack } from '@/utils/router-helper'
 import ClientAppHeader from '@/components/ui/client-app-detail/client-app-header'
 import AppContent from './app-content'
 import { Loader, Button, Alert, FormSection } from '@reapit/elements'
@@ -53,7 +54,7 @@ export const handleUnInstallAppButtonClick = (setIsVisibleUnInstallConfirmation:
 
 export const onBackToAppsButtonClick = (history: History) => {
   return () => {
-    if (history.length > 2) {
+    if (canGoBack(history)) {
       history.goBack()
     }
     history.push(Routes.CLIENT)

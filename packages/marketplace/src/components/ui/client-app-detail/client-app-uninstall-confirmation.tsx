@@ -14,6 +14,7 @@ import { selectInstallationFormState } from '@/selector/installations'
 import routes from '@/constants/routes'
 import { selectIsDesktopMode } from '@/selector/auth'
 import { DESKTOP_REFRESH_URL } from '@/constants/desktop-urls'
+import { canGoBack } from '@/utils/router-helper'
 
 export type ClientAppUninstallConfirmationProps = {
   appDetailData?: AppDetailModel
@@ -74,6 +75,9 @@ export const onUninstallButtonClick = (
 
 export const handleSuccessAlertButtonClick = (history: History) => {
   return () => {
+    if (canGoBack(history)) {
+      history.goBack()
+    }
     history.replace(routes.CLIENT)
   }
 }

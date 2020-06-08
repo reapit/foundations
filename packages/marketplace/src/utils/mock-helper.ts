@@ -1,6 +1,6 @@
 import { RouteComponentProps } from 'react-router'
 
-export function getMockRouterProps<P>(data: P) {
+export function getMockRouterProps<P>(data: P, historyLength: number = 2) {
   const location = {
     hash: '',
     key: '',
@@ -18,7 +18,7 @@ export function getMockRouterProps<P>(data: P) {
     },
     location: location,
     history: {
-      length: 2,
+      length: historyLength,
       action: 'POP',
       location: location,
       push: jest.fn(),
