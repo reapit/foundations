@@ -32,7 +32,6 @@ interface AsideProps {
 interface ManageAppProps {
   pendingRevisions: boolean
   appDetailState: DeveloperAppDetailState
-  id: string
 }
 
 export const onCancelSuccess = ({
@@ -89,7 +88,8 @@ export const onBackToAppsButtonClick = (history: History) => {
   }
 }
 
-export const ManageApp: React.FC<ManageAppProps> = ({ pendingRevisions, id, appDetailState }) => {
+export const ManageApp: React.FC<ManageAppProps> = ({ pendingRevisions, appDetailState }) => {
+  const id = appDetailState?.data?.id || ''
   const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false)
   const [isAppRevisionComparisionModalOpen, setIsAppRevisionComparisionModalOpen] = React.useState(false)
 
@@ -101,8 +101,8 @@ export const ManageApp: React.FC<ManageAppProps> = ({ pendingRevisions, id, appD
     <RenderWithHeader header="Manage App">
       {isDeleteModalOpen && (
         <AppDelete
-          appId={id || ''}
-          appName={name || ''}
+          appId={appDetailState?.data?.id || ''}
+          appName={appDetailState?.data?.name || ''}
           afterClose={onAppDeleteModalAfterClose(setIsDeleteModalOpen)}
           visible={isDeleteModalOpen}
           onDeleteSuccess={onDeleteSuccess(history)}
@@ -167,7 +167,7 @@ export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetail
   const history = useHistory()
   const { isMobile } = useReactResponsive()
   const { data } = appDetailState
-  const { isDirectApi, category, isListed, pendingRevisions, id = '', limitToClientIds = [] } = data as AppDetailModel
+  const { isDirectApi, category, isListed, pendingRevisions, limitToClientIds = [] } = data as AppDetailModel
 
   return (
     <div className={asideContainerClasses}>
@@ -190,7 +190,7 @@ export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetail
         {!isMobile && (
           <>
             <RenderWithHeader header="Status">{renderListedStatus(Boolean(isListed))}</RenderWithHeader>
-            <ManageApp appDetailState={appDetailState} id={id} pendingRevisions={Boolean(pendingRevisions)} />
+            <ManageApp appDetailState={appDetailState} pendingRevisions={Boolean(pendingRevisions)} />
           </>
         )}
       </div>
