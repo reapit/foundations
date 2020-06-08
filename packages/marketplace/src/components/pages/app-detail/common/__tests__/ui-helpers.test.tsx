@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tag, AppDetailSection } from '../ui-helpers'
+import { Tag, AppDetailSection, ImageSection } from '../ui-helpers'
 import { shallow } from 'enzyme'
 
 describe('Ui Sections', () => {
@@ -14,6 +14,20 @@ describe('Ui Sections', () => {
 
   test('<Tag /> should match snapshot', () => {
     const wrapper = shallow(<Tag>Test</Tag>)
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  test('<ImageSection /> should match snapshot for no images', () => {
+    const wrapper = shallow(<ImageSection>Test</ImageSection>)
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  test('<ImageSection /> should match snapshot for has image', () => {
+    const wrapper = shallow(
+      <ImageSection uri="https://image.com" alt="some image">
+        Test
+      </ImageSection>,
+    )
     expect(wrapper).toMatchSnapshot()
   })
 })

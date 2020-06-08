@@ -22,7 +22,7 @@ import { getDesktopIntegrationTypes } from '@/utils/get-desktop-integration-type
 import Routes from '@/constants/routes'
 import { LoginType } from '@reapit/cognito-auth'
 import useReactResponsive from '@/components/hooks/use-react-responsive'
-import AppHeader from '../common/app-header'
+import AppHeader from '../common/ui-app-header'
 import { BackToAppsSection } from '../common/ui-sections'
 import { ClientAppDetailButtonGroup } from './client-app-detail-button-group'
 
@@ -95,18 +95,16 @@ export const renderAppHeaderButtonGroup = (
   onInstallConfirmationModal: () => void,
   onUninstallConfirmationModal: () => void,
   isInstallBtnHidden: boolean,
+  loginType: LoginType,
 ) => {
-  return (
-    (id && (
-      <ClientAppDetailButtonGroup
-        installedOn={installedOn}
-        onInstallConfirmationModal={onInstallConfirmationModal}
-        onUninstallConfirmationModal={onUninstallConfirmationModal}
-        isInstallBtnHidden={isInstallBtnHidden}
-      />
-    )) ||
-    null
-  )
+  return id && loginType !== 'DEVELOPER' ? (
+    <ClientAppDetailButtonGroup
+      installedOn={installedOn}
+      onInstallConfirmationModal={onInstallConfirmationModal}
+      onUninstallConfirmationModal={onUninstallConfirmationModal}
+      isInstallBtnHidden={isInstallBtnHidden}
+    />
+  ) : null
 }
 
 const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
@@ -146,7 +144,7 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
 
   const isInstallBtnHidden = loginType === 'CLIENT' && !isAdmin
   // selector selectAppDetailData return {} if not data
-  const unfetched = !Object.keys(appDetailData).length
+  const unfetched = Object.keys(appDetailData).length === 0
   const { id = '', installedOn = '' } = appDetailData
 
   React.useEffect(handleApplyAppDetailsFromLocalStorage(dispatch, loginType, appId), [dispatch])
@@ -154,10 +152,9 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   if (isLoadingAppDetail || unfetched) {
     return <Loader dataTest="client-app-detail-loader" />
   }
-  // "client-app-detail-container"
 
   return (
-    <FlexContainerResponsive hasPadding>
+    <FlexContainerResponsive hasPadding dataTest="client-app-detail-container">
       <Grid className={styles.container}>
         <GridItem className="is-one-quarter">
           <ClientAside appDetailData={appDetailData} desktopIntegrationTypes={userDesktopIntegrationTypes} />
@@ -172,6 +169,7 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
                 onInstallConfirmationModal,
                 onUninstsallConfirmationModal,
                 isInstallBtnHidden,
+                loginType,
               )}
             />
             <AppContent appDetailData={appDetailData} />

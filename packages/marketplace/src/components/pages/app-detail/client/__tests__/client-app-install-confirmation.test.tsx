@@ -28,6 +28,7 @@ describe('ClientAppInstallConfirmation', () => {
   let spyDispatch
   const appId = mockProps.appDetailData?.id || ''
   const clientId = appState.auth.loginSession?.loginIdentity.clientId || ''
+
   beforeEach(() => {
     /* mocking store */
     const mockStore = configureStore()
@@ -35,6 +36,7 @@ describe('ClientAppInstallConfirmation', () => {
     /* mocking useDispatch on our mock store  */
     spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
   })
+
   it('should match a snapshot', () => {
     expect(
       mount(
@@ -46,6 +48,7 @@ describe('ClientAppInstallConfirmation', () => {
       ),
     ).toMatchSnapshot()
   })
+
   describe('handleInstallButtonClick', () => {
     it('should run correctly', () => {
       const mockFunction = jest.fn()
@@ -66,6 +69,7 @@ describe('ClientAppInstallConfirmation', () => {
       )
     })
   })
+
   describe('handleInstallAppSuccessCallback', () => {
     it('should run correctly', () => {
       const mockFunction = jest.fn()
@@ -88,6 +92,7 @@ describe('ClientAppInstallConfirmation', () => {
       expect(mockFunction).toBeCalledWith(true)
     })
   })
+
   describe('handleSuccessAlertButtonClick', () => {
     const history = {
       replace: jest.fn(),
@@ -96,6 +101,7 @@ describe('ClientAppInstallConfirmation', () => {
     fn()
     expect(history.replace).toBeCalledWith(routes.CLIENT)
   })
+
   describe('handleSuccessAlertMessageAfterClose', () => {
     const mockFunction = jest.fn()
     const fn = handleSuccessAlertMessageAfterClose(mockFunction)

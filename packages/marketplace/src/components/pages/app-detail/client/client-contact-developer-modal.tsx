@@ -1,6 +1,5 @@
 import React from 'react'
 import { Button, Grid, GridItem, SubTitleH6, Modal } from '@reapit/elements'
-import clientAppDetailStyles from '@/styles/pages/client-app-detail.scss?mod'
 import linkStyles from '@/styles/elements/link.scss?mod'
 
 export type ContactDeveloperSectionType = {
@@ -28,13 +27,7 @@ export const ContactDeveloperSection = ({
 
   return (
     <>
-      <Button
-        dataTest="btn-help"
-        onClick={openContactModal(setVisible)}
-        type="button"
-        variant="primary"
-        className={clientAppDetailStyles.needHelpButton}
-      >
+      <Button dataTest="btn-help" onClick={openContactModal(setVisible)} type="button" variant="primary" fullWidth>
         NEED HELP?
       </Button>
 
@@ -59,7 +52,7 @@ export const ContactDeveloperSection = ({
             <GridItem>
               <SubTitleH6>Company name</SubTitleH6>
             </GridItem>
-            <GridItem className={clientAppDetailStyles.developerContactModalRow}>
+            <GridItem>
               <p>{developer}</p>
             </GridItem>
           </Grid>
@@ -67,7 +60,7 @@ export const ContactDeveloperSection = ({
             <GridItem>
               <SubTitleH6>Telephone Number</SubTitleH6>
             </GridItem>
-            <GridItem className={clientAppDetailStyles.developerContactModalRow}>
+            <GridItem>
               <p>{telephone}</p>
             </GridItem>
           </Grid>
@@ -75,7 +68,7 @@ export const ContactDeveloperSection = ({
             <GridItem>
               <SubTitleH6>Support Email</SubTitleH6>
             </GridItem>
-            <GridItem className={clientAppDetailStyles.developerContactModalRow}>
+            <GridItem>
               <p>
                 <a
                   className={linkStyles.link}
@@ -92,7 +85,7 @@ export const ContactDeveloperSection = ({
             <GridItem>
               <SubTitleH6>Home Page</SubTitleH6>
             </GridItem>
-            <GridItem className={clientAppDetailStyles.developerContactModalRow}>
+            <GridItem>
               <p>
                 <a className={linkStyles.link} href={homePage} target="_blank" rel="noopener noreferrer">
                   {homePage}

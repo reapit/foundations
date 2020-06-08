@@ -9,6 +9,11 @@ interface AppDetailSectionProps {
   isSidebar?: boolean
 }
 
+interface ImageSectionProps {
+  uri?: string
+  alt?: string
+}
+
 export const AppDetailSection: React.FC<AppDetailSectionProps> = ({
   headerText,
   children,
@@ -23,7 +28,7 @@ export const AppDetailSection: React.FC<AppDetailSectionProps> = ({
 
 export const Tag: React.FC = ({ children }) => <div className={styles.tag}>{children}</div>
 
-export const ImageSection: React.FC<{ uri?: string; alt?: string }> = ({ uri, alt = '' }) => {
+export const ImageSection: React.FC<ImageSectionProps> = ({ uri, alt = '' }) => {
   return uri ? (
     <Content>
       <img src={uri} alt={alt} />

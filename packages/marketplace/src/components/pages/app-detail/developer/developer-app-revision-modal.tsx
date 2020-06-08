@@ -20,15 +20,13 @@ export type AppRevisionModalProps = {
   afterClose: () => void
 }
 
-export const handleUseEffectToFetchAppRevisions = (appId: string, visible: boolean, dispatch: Dispatch<any>) => {
-  return () => {
-    if (appId && visible) {
-      dispatch(
-        revisionsRequestData({
-          appId,
-        }),
-      )
-    }
+export const handleUseEffectToFetchAppRevisions = (appId: string, visible: boolean, dispatch: Dispatch<any>) => () => {
+  if (appId && visible) {
+    dispatch(
+      revisionsRequestData({
+        appId,
+      }),
+    )
   }
 }
 
@@ -37,16 +35,14 @@ export const handleUseEffectToFetchAppRevisionDetail = (
   visible: boolean,
   dispatch: Dispatch<any>,
   appRevisionId?: string,
-) => {
-  return () => {
-    if (appId && appRevisionId && visible) {
-      dispatch(
-        revisionDetailRequestData({
-          appId,
-          appRevisionId,
-        }),
-      )
-    }
+) => () => {
+  if (appId && appRevisionId && visible) {
+    dispatch(
+      revisionDetailRequestData({
+        appId,
+        appRevisionId,
+      }),
+    )
   }
 }
 
@@ -55,16 +51,14 @@ export const handleCancelPendingRevisionsSuccessCallback = (
   clientId: string,
   dispatch: Dispatch<any>,
   setIsConfirmationModalVisible: (isVisible: boolean) => void,
-) => {
-  return () => {
-    dispatch(
-      developerFetchAppDetail({
-        id: appId,
-        clientId,
-      }),
-    )
-    setIsConfirmationModalVisible(false)
-  }
+) => () => {
+  dispatch(
+    developerFetchAppDetail({
+      id: appId,
+      clientId,
+    }),
+  )
+  setIsConfirmationModalVisible(false)
 }
 
 export const handleCancelPendingRevisionsButtonClick = (
@@ -74,23 +68,21 @@ export const handleCancelPendingRevisionsButtonClick = (
   setIsConfirmationModalVisible: (isVisible: boolean) => void,
   appRevisionId?: string,
   loginIdentity?: LoginIdentity,
-) => {
-  return () => {
-    if (!appRevisionId || !loginIdentity) {
-      return
-    }
-    const { name, email } = loginIdentity
-    dispatch(
-      declineRevision({
-        appId,
-        appRevisionId,
-        name,
-        email,
-        rejectionReason: 'Developer Cancelled',
-        callback: handleCancelPendingRevisionsSuccessCallback(appId, clientId, dispatch, setIsConfirmationModalVisible),
-      }),
-    )
+) => () => {
+  if (!appRevisionId || !loginIdentity) {
+    return
   }
+  const { name, email } = loginIdentity
+  dispatch(
+    declineRevision({
+      appId,
+      appRevisionId,
+      name,
+      email,
+      rejectionReason: 'Developer Cancelled',
+      callback: handleCancelPendingRevisionsSuccessCallback(appId, clientId, dispatch, setIsConfirmationModalVisible),
+    }),
+  )
 }
 
 const AppRevisionModal: React.FC<AppRevisionModalProps> = ({ appId, visible, appDetailState, afterClose }) => {
@@ -141,7 +133,7 @@ const AppRevisionModal: React.FC<AppRevisionModalProps> = ({ appId, visible, app
         {!hasRevisionDetailData ? (
           <Loader />
         ) : (
-          <AppRevisionComparison appDetailData={appDetailState.data} revisionDetailState={appRevisionDetail} />
+          <AppRevisionComparison appDetailState={appDetailState} revisionDetailState={appRevisionDetail} />
         )}
         <Modal
           visible={isConfirmationModalVisible}

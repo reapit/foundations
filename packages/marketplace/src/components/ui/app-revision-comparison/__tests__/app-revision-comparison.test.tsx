@@ -15,7 +15,16 @@ import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
 import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
 
 const props = (loading: boolean, error: boolean): AppRevisionComparisonProps => ({
-  appDetailData: appDetailDataStub.data,
+  appDetailState: {
+    loading,
+    error,
+    appDetailData: { data: appDetailDataStub.data },
+    authentication: {
+      loading: false,
+      code: '',
+    },
+    isStale: false,
+  },
   revisionDetailState: {
     loading,
     error,

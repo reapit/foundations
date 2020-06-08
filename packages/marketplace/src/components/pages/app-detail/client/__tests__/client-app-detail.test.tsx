@@ -36,6 +36,7 @@ describe('ClientAppDetail', () => {
       },
     })
   })
+
   it('should render loader when isLoadingAppDetail = true', () => {
     const mockStore = configureStore()
     const customStore = mockStore({
@@ -60,6 +61,7 @@ describe('ClientAppDetail', () => {
     const loader = wrapper.find('[data-test="client-app-detail-loader"]')
     expect(loader.length).toBe(1)
   })
+
   it('should render loader when client.appDetail.data is an empty object', () => {
     const mockStore = configureStore()
     const customStore = mockStore({
@@ -84,30 +86,7 @@ describe('ClientAppDetail', () => {
     const loader = wrapper.find('[data-test="client-app-detail-loader"]')
     expect(loader.length).toBe(1)
   })
-  it('should not render loader when client.appDetail.data is not empty object and isLoadingAppDetail = true', () => {
-    const mockStore = configureStore()
-    const customStore = mockStore({
-      ...appState,
-      client: {
-        appDetail: {
-          data: { key: 'value' },
-          loading: false,
-        },
-      },
-    })
 
-    const wrapper = mount(
-      <ReactRedux.Provider store={customStore}>
-        <MemoryRouter initialEntries={[{ pathname: Routes.CLIENT_APP_DETAIL, key: 'clientAppDetailRoute' }]}>
-          <ClientAppDetail />
-        </MemoryRouter>
-      </ReactRedux.Provider>,
-    )
-
-    expect(wrapper).toMatchSnapshot()
-    const container = wrapper.find('[data-test="client-app-detail-container"]')
-    expect(container.length).toBe(1)
-  })
   it('should match a snapshot', () => {
     expect(
       mount(
@@ -123,38 +102,45 @@ describe('ClientAppDetail', () => {
   describe('renderAppHeaderButtonGroup', () => {
     const mockAppId = 'test'
     const mockInstalledOn = '2020-2-20'
+
     it('should match snapshot', () => {
       const wrapperWithIsInstallBtnHiddenTrue = shallow(
-        <div>{renderAppHeaderButtonGroup(mockAppId, mockInstalledOn, jest.fn(), jest.fn(), true)}</div>,
+        <div>{renderAppHeaderButtonGroup(mockAppId, mockInstalledOn, jest.fn(), jest.fn(), true, 'CLIENT')}</div>,
       )
       expect(wrapperWithIsInstallBtnHiddenTrue).toMatchSnapshot()
       const wrapperWithIsInstallBtnHiddenFalse = shallow(
-        <div>{renderAppHeaderButtonGroup(mockAppId, mockInstalledOn, jest.fn(), jest.fn(), false)}</div>,
+        <div>{renderAppHeaderButtonGroup(mockAppId, mockInstalledOn, jest.fn(), jest.fn(), false, 'CLIENT')}</div>,
       )
       expect(wrapperWithIsInstallBtnHiddenFalse).toMatchSnapshot()
     })
+
     it('should render header button group when appId is existed', () => {
       const testRenderer = TestRenderer.create(
-        renderAppHeaderButtonGroup(mockAppId, mockInstalledOn, jest.fn(), jest.fn(), false),
+        <div>{renderAppHeaderButtonGroup(mockAppId, mockInstalledOn, jest.fn(), jest.fn(), false, 'CLIENT')}</div>,
       )
       const testInstance = testRenderer.root
       expect(testInstance.children.length).toBe(1)
     })
+
     it('should render install app button if installedOn is empty', () => {
-      const testRenderer = TestRenderer.create(renderAppHeaderButtonGroup(mockAppId, '', jest.fn(), jest.fn(), false))
+      const testRenderer = TestRenderer.create(
+        <div>{renderAppHeaderButtonGroup(mockAppId, '', jest.fn(), jest.fn(), false, 'CLIENT')}</div>,
+      )
       const testInstance = testRenderer.root
       expect(testInstance.findByType(Button).props.children).toBe('Install App')
     })
+
     it('should render uninstall app button if installedOn is existed', () => {
       const testRenderer = TestRenderer.create(
-        renderAppHeaderButtonGroup(mockAppId, 'exist', jest.fn(), jest.fn(), false),
+        <div>{renderAppHeaderButtonGroup(mockAppId, 'exist', jest.fn(), jest.fn(), false, 'CLIENT')}</div>,
       )
       const testInstance = testRenderer.root
       expect(testInstance.findByType(Button).props.children).toBe('Uninstall App')
     })
+
     it('should not render header button group when appId is empty', () => {
       const testRenderer = TestRenderer.create(
-        renderAppHeaderButtonGroup('', mockInstalledOn, jest.fn(), jest.fn(), false),
+        <div>{renderAppHeaderButtonGroup('', mockInstalledOn, jest.fn(), jest.fn(), false, 'CLIENT')}</div>,
       )
       const testInstance = testRenderer.getInstance
       expect(testInstance).toHaveLength(0)
@@ -169,6 +155,7 @@ describe('ClientAppDetail', () => {
       expect(mockFunction).toBeCalledWith(false)
     })
   })
+
   describe('handleInstallAppButtonClick', () => {
     it('should run correctly', () => {
       const mockFunction = jest.fn()
@@ -177,6 +164,7 @@ describe('ClientAppDetail', () => {
       expect(mockFunction).toBeCalledWith(true)
     })
   })
+
   describe('handleCloseUnInstallConfirmationModal', () => {
     it('should run correctly', () => {
       const mockFunction = jest.fn()
@@ -185,6 +173,7 @@ describe('ClientAppDetail', () => {
       expect(mockFunction).toBeCalledWith(false)
     })
   })
+
   describe('handleUnInstallAppButtonClick', () => {
     it('should run correctly', () => {
       const mockFunction = jest.fn()
@@ -193,6 +182,7 @@ describe('ClientAppDetail', () => {
       expect(mockFunction).toBeCalledWith(true)
     })
   })
+
   describe('onBackToAppsButtonClick', () => {
     it('should run correctly', () => {
       const fn = onBackToAppsButtonClick(history)
@@ -200,6 +190,7 @@ describe('ClientAppDetail', () => {
       expect(history.push).toBeCalledWith(Routes.CLIENT)
     })
   })
+
   describe('handleApplyAppDetailsFromLocalStorage', () => {
     it('should run correctly', () => {
       const dispatch = jest.fn()

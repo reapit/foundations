@@ -14,22 +14,81 @@ import { LevelRight, Button, Table, Grid, GridItem, GridFourCol, GridFourColItem
 import AuthFlow from '@/constants/app-auth-flow'
 import AppAuthenticationDetail from '@/components/ui/app-authentication-detail'
 
-type IsSidebar = {
+interface IsSidebar {
   isSidebar?: boolean
 }
 
-export const CategorySection: React.FC<{ category: CategoryModel | undefined } & IsSidebar> = ({
-  category,
-  isSidebar = false,
-}) => (
+interface CategorySectionProps extends IsSidebar {
+  category: CategoryModel | undefined
+}
+
+interface DesktopIntegrationSectionProps extends IsSidebar {
+  desktopIntegrationTypes: DesktopIntegrationTypeModel[]
+}
+
+interface PrivateAppSectionProps extends IsSidebar {
+  limitToClientIds: string[]
+}
+
+interface DirectApiSectionProps extends IsSidebar {
+  isDirectApi: boolean | undefined
+}
+
+interface StatusSectionProps extends IsSidebar {
+  isListed: boolean | undefined
+}
+
+interface BackToAppsSectionProps {
+  onClick: () => void
+}
+
+interface ListingPreviewSectionProps extends IsSidebar {
+  onClick: () => void
+}
+
+interface AuthenticationSectionProps extends IsSidebar {
+  authFlow: string
+  id: string
+  externalId: string
+}
+
+interface SummarySectionProps extends IsSidebar {
+  summary: string
+}
+
+interface InstallationsTableSectionProps extends IsSidebar {
+  data: InstallationModel[]
+  columns: any[]
+}
+
+interface DeveloperSectionProps extends IsSidebar {
+  developer: string
+}
+
+interface AdditionalImagesSectionProps {
+  images: MediaModel[]
+  splitIndex: number
+  numberImages: number
+}
+
+interface PermissionSectionProps {
+  permissions: ScopeModel[]
+}
+
+interface DescriptionSectionProps extends IsSidebar {
+  description: string
+}
+
+export const CategorySection: React.FC<CategorySectionProps> = ({ category, isSidebar = false }) => (
   <AppDetailSection headerText="Category" isSidebar={isSidebar}>
     {category ? <Tag>{category.name}</Tag> : <p>None</p>}
   </AppDetailSection>
 )
 
-export const DesktopIntegrationSection: React.FC<{
-  desktopIntegrationTypes: DesktopIntegrationTypeModel[]
-} & IsSidebar> = ({ desktopIntegrationTypes, isSidebar = false }) => (
+export const DesktopIntegrationSection: React.FC<DesktopIntegrationSectionProps> = ({
+  desktopIntegrationTypes,
+  isSidebar = false,
+}) => (
   <AppDetailSection headerText="Desktop Integration" isSidebar={isSidebar}>
     {desktopIntegrationTypes.length ? (
       desktopIntegrationTypes.map(({ name }) => <Tag key={name}>{name}</Tag>)
@@ -39,28 +98,19 @@ export const DesktopIntegrationSection: React.FC<{
   </AppDetailSection>
 )
 
-export const PrivateAppSection: React.FC<{ limitToClientIds: string[] } & IsSidebar> = ({
-  limitToClientIds,
-  isSidebar = false,
-}) => (
+export const PrivateAppSection: React.FC<PrivateAppSectionProps> = ({ limitToClientIds, isSidebar = false }) => (
   <AppDetailSection headerText="Private App" isSidebar={isSidebar}>
     {convertBooleanToYesNoString(Boolean(limitToClientIds.length > 0))}
   </AppDetailSection>
 )
 
-export const DirectApiSection: React.FC<{ isDirectApi: boolean | undefined } & IsSidebar> = ({
-  isDirectApi,
-  isSidebar = false,
-}) => (
+export const DirectApiSection: React.FC<DirectApiSectionProps> = ({ isDirectApi, isSidebar = false }) => (
   <AppDetailSection headerText="Direct API" isSidebar={isSidebar}>
     {convertBooleanToYesNoString(Boolean(isDirectApi))}
   </AppDetailSection>
 )
 
-export const StatusSection: React.FC<{ isListed: boolean | undefined } & IsSidebar> = ({
-  isListed,
-  isSidebar = false,
-}) => (
+export const StatusSection: React.FC<StatusSectionProps> = ({ isListed, isSidebar = false }) => (
   <AppDetailSection headerText="Status" isSidebar={isSidebar}>
     <div>
       {isListed ? (
@@ -74,33 +124,40 @@ export const StatusSection: React.FC<{ isListed: boolean | undefined } & IsSideb
   </AppDetailSection>
 )
 
-export const BackToAppsSection: React.FC<{ onClick: () => void }> = ({ onClick }) => (
+export const BackToAppsSection: React.FC<BackToAppsSectionProps> = ({ onClick }) => (
   <LevelRight className="pt-4 bt mt-4 flex">
     <Button onClick={onClick}>Back To Apps</Button>
   </LevelRight>
 )
 
-export const ListingPreviewSection: React.FC<{ onClick: () => void } & IsSidebar> = ({
-  onClick,
+export const ListingPreviewSection: React.FC<ListingPreviewSectionProps> = ({ onClick, isSidebar = false }) => {
+  const onListingPreviewClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    onClick()
+  }
+  return (
+    <AppDetailSection
+      headerText={
+        <>
+          <span className="mr-2">See listing preview</span>{' '}
+          <a className={styles.preview} href="#" onClick={onListingPreviewClick}>
+            <FaExternalLinkAlt />
+          </a>
+        </>
+      }
+      isSidebar={isSidebar}
+    >
+      <p>The listing preview will display your app as it would appear in the Marketplace</p>
+    </AppDetailSection>
+  )
+}
+
+export const AuthenticationSection: React.FC<AuthenticationSectionProps> = ({
+  authFlow,
+  id,
+  externalId,
   isSidebar = false,
 }) => (
-  <AppDetailSection
-    headerText={
-      <>
-        <span className="mr-2">See listing preview</span> <FaExternalLinkAlt onClick={onClick} />
-      </>
-    }
-    isSidebar={isSidebar}
-  >
-    <p>The listing preview will display your app as it would appear in the Marketplace</p>
-  </AppDetailSection>
-)
-
-export const AuthenticationSection: React.FC<{
-  authFlow: string
-  id: string
-  externalId: string
-} & IsSidebar> = ({ authFlow, id, externalId, isSidebar = false }) => (
   <AppDetailSection headerText="Authentication" isSidebar={isSidebar}>
     {authFlow === AuthFlow.CLIENT_SECRET ? (
       <AppAuthenticationDetail withCustomHeader={true} appId={id} />
@@ -113,14 +170,15 @@ export const AuthenticationSection: React.FC<{
   </AppDetailSection>
 )
 
-export const SummarySection: React.FC<{ summary: string } & IsSidebar> = ({ summary, isSidebar = false }) => (
+export const SummarySection: React.FC<SummarySectionProps> = ({ summary, isSidebar = false }) => (
   <AppDetailSection headerText={summary} isSidebar={isSidebar} />
 )
 
-export const InstallationsTableSection: React.FC<{
-  data: InstallationModel[]
-  columns: any[]
-} & IsSidebar> = ({ data, columns, isSidebar = false }) => {
+export const InstallationsTableSection: React.FC<InstallationsTableSectionProps> = ({
+  data,
+  columns,
+  isSidebar = false,
+}) => {
   const testId = !data.length ? 'render-installations-table-empty-text' : 'render-installations-table'
   return (
     <AppDetailSection dataTest={testId} headerText="Installations" isSidebar={isSidebar}>
@@ -133,10 +191,7 @@ export const InstallationsTableSection: React.FC<{
   )
 }
 
-export const DeveloperSection: React.FC<{ developer: string | undefined } & IsSidebar> = ({
-  isSidebar = false,
-  developer,
-}) => (
+export const DeveloperSection: React.FC<DeveloperSectionProps> = ({ isSidebar = false, developer }) => (
   <AppDetailSection headerText="Developer" isSidebar={isSidebar}>
     {developer}
   </AppDetailSection>
@@ -146,27 +201,31 @@ export const DeveloperAboutSection: React.FC<IsSidebar> = ({ isSidebar = false }
   <AppDetailSection headerText="About Developer" isSidebar={isSidebar} />
 )
 
-export const SecondaryImageSection: React.FC<{ images: MediaModel[] }> = ({ images }) => {
-  return (images[2]?.uri && <ImageSection uri={images[2]?.uri} />) || null
-}
-
-export const AdditionalImagesSection: React.FC<{ images: MediaModel[] }> = ({ images }) => {
-  const extraImages = images.filter((_, index) => index > 1)
+export const AdditionalImagesSection: React.FC<AdditionalImagesSectionProps> = ({
+  images,
+  splitIndex,
+  numberImages,
+}) => {
+  const extraImages = images.filter((_, index) => index > splitIndex)
   return (
     (extraImages.length && (
       <Grid className="is-desktop" isMultiLine>
-        {extraImages.map(({ uri }) => (
-          <GridItem className="is-half-desktop is-one-third-widescreen" key={uri}>
-            <ImageSection uri={uri} />
-          </GridItem>
-        ))}
+        {extraImages.map(({ uri }, index) => {
+          if (index < numberImages) {
+            return (
+              <GridItem className="is-half-desktop" key={uri}>
+                <ImageSection uri={uri} />
+              </GridItem>
+            )
+          }
+        })}
       </Grid>
     )) ||
     null
   )
 }
 
-export const PermissionsSection: React.FC<{ permissions: ScopeModel[] }> = ({ permissions }) => (
+export const PermissionsSection: React.FC<PermissionSectionProps> = ({ permissions }) => (
   <AppDetailSection headerText="Permissions required">
     <GridFourCol>
       {permissions.map(permission => (
@@ -176,11 +235,8 @@ export const PermissionsSection: React.FC<{ permissions: ScopeModel[] }> = ({ pe
   </AppDetailSection>
 )
 
-export const DescriptionSection: React.FC<{ description: string } & IsSidebar> = ({
-  description,
-  isSidebar = false,
-}) => (
-  <AppDetailSection headerText="Descripton" isSidebar={isSidebar}>
+export const DescriptionSection: React.FC<DescriptionSectionProps> = ({ description, isSidebar = false }) => (
+  <AppDetailSection headerText="Description" isSidebar={isSidebar}>
     <HTMLRender html={description} />
   </AppDetailSection>
 )

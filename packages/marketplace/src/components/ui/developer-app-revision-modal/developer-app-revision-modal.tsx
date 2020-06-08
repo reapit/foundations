@@ -20,7 +20,6 @@ import { Modal, Loader, Button } from '@reapit/elements'
 import AppRevisionComparison from '../app-revision-comparison/app-revision-comparison'
 import CallToAction from '@/components/ui/call-to-action'
 import { DeveloperAppDetailState } from '@/reducers/developer'
-import { AppDetailData } from '../../../reducers/client/app-detail'
 
 export interface OwnProps {
   visible: boolean
@@ -164,10 +163,7 @@ export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps>
         {!hasRevisionDetailData ? (
           <Loader />
         ) : (
-          <AppRevisionComparison
-            appDetailData={(appDetailState as AppDetailState).appDetailData?.data as AppDetailData}
-            revisionDetailState={revisionDetailState}
-          />
+          <AppRevisionComparison appDetailState={appDetailState} revisionDetailState={revisionDetailState} />
         )}
         <Modal
           visible={isConfirmationModalVisible}

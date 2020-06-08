@@ -18,18 +18,18 @@ const AppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup }) => 
   const { media } = appDetailData
   const appIcon = media?.filter(({ type }) => type === 'icon')[MEDIA_INDEX.ICON]
   const featureImageSrc = appDetailData?.media?.[MEDIA_INDEX.FEATURE_IMAGE]?.uri
-  const { containerOuterHeader, centerContent, containerHeader, truncate, check, elipsis } = styles
+  const { containerOuterHeader, headerContent, containerHeader, check, appIconContainer, elipsis } = styles
 
   return (
     <Grid className={`flex items-center mb-4 ${containerOuterHeader}`}>
       <GridItem>
         <Grid className={`flex items-center ${containerHeader}`}>
-          <GridItem>
+          <GridItem className={`is-one-third-desktop ${appIconContainer}`}>
             <img src={appIcon?.uri} alt="App Icon" />
           </GridItem>
-          <GridItem className={centerContent}>
+          <GridItem className={`is-two-thirds-desktop  ${headerContent}`}>
             <H3 className={elipsis}>{appDetailData.name}</H3>
-            <Content className={`${isMobile ? 'flex justify-center ' : ''}${truncate}`}>
+            <Content className={`${isMobile ? 'flex justify-center ' : ''}`}>
               Verified by Reapit <FaCheck className={check} />
             </Content>
             {buttonGroup}
@@ -37,7 +37,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup }) => 
         </Grid>
       </GridItem>
       {featureImageSrc && (
-        <GridItem>
+        <GridItem className="flex items-center">
           <img src={featureImageSrc} alt="Featured Image" />
         </GridItem>
       )}

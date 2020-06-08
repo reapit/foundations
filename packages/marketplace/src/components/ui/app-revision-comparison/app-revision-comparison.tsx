@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { AppDetailState } from '@/reducers/app-detail'
 import { RevisionDetailState } from '@/reducers/revision-detail'
 import { AppRevisionModel, MediaModel, ScopeModel } from '@reapit/foundations-ts-definitions'
 import DiffMedia from '@/components/ui/diff-media'
@@ -7,11 +8,11 @@ import { DesktopIntegrationTypeModel, PagedResultDesktopIntegrationTypeModel_ } 
 import DiffCheckbox from '../diff-checkbox'
 import DiffViewer from '../diff-viewer'
 import DiffRenderHTML from '../diff-render-html'
-import { AppDetailData } from '@/reducers/developer'
+import { DeveloperAppDetailState } from '@/reducers/developer'
 
 export type AppRevisionComparisonProps = {
   revisionDetailState: RevisionDetailState
-  appDetailData: AppDetailData | null
+  appDetailState: AppDetailState | DeveloperAppDetailState
 }
 
 export type DiffMediaModel = {
@@ -157,8 +158,13 @@ export const renderDiffContent = ({ key, revision, app, desktopIntegrationTypes 
   return <DiffViewer currentString={app[key] || ''} changedString={revision[key] || ''} type="words" />
 }
 
-export const AppRevisionComparison: React.FC<AppRevisionComparisonProps> = ({ revisionDetailState, appDetailData }) => {
-  if (!revisionDetailState.revisionDetailData || !appDetailData) {
+export const AppRevisionComparison: React.FC<AppRevisionComparisonProps> = ({
+  revisionDetailState,
+  appDetailState,
+}) => {
+  const app =
+    (appDetailState as AppDetailState)?.appDetailData?.data || (appDetailState as DeveloperAppDetailState)?.data
+  if (!revisionDetailState.revisionDetailData || !app) {
     return null
   }
   const { data: revision, scopes, desktopIntegrationTypes } = revisionDetailState.revisionDetailData
@@ -169,17 +175,17 @@ export const AppRevisionComparison: React.FC<AppRevisionComparisonProps> = ({ re
         return (
           <div className="mb-3" key={key}>
             <h4 className="mb-2">{diffStringList[key]}</h4>
-            {renderDiffContent({ key, app: appDetailData, desktopIntegrationTypes, revision })}
+            {renderDiffContent({ key, app, desktopIntegrationTypes, revision })}
           </div>
         )
       })}
-      {renderCheckboxesDiff({ scopes, appScopes: appDetailData.scopes, revisionScopes: revision.scopes })}
+      {renderCheckboxesDiff({ scopes, appScopes: app.scopes, revisionScopes: revision.scopes })}
       <div className="mb-3">
         <h4 data-test="chkIsListed" className="mb-2">
           Is listed
         </h4>
         <DiffCheckbox
-          currentChecked={Boolean(appDetailData.isListed)}
+          currentChecked={Boolean(app.isListed)}
           changedChecked={Boolean(revision.isListed)}
           dataTest="revision-diff-isListed"
         />
@@ -189,12 +195,12 @@ export const AppRevisionComparison: React.FC<AppRevisionComparisonProps> = ({ re
           Is Direct API
         </h4>
         <DiffCheckbox
-          currentChecked={Boolean(appDetailData.isDirectApi)}
+          currentChecked={Boolean(app.isDirectApi)}
           changedChecked={Boolean(revision.isDirectApi)}
           dataTest="revision-diff-isDirectApi"
         />
       </div>
-      {getChangedMediaList({ app: appDetailData, revision }).map(media => (
+      {getChangedMediaList({ app, revision }).map(media => (
         <div className="mb-3" key={media.order}>
           <h4 className="mb-2 capitalize">
             {media.type} {media.order > 0 && <span>{media.order}</span>}

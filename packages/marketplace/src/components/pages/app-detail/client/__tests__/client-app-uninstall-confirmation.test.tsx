@@ -30,6 +30,7 @@ describe('ClientAppUninstallConfirmation', () => {
   const appId = mockProps.appDetailData?.id || ''
   const installationId = mockProps.appDetailData?.installationId || ''
   const clientId = appState.auth.loginSession?.loginIdentity.clientId || ''
+
   beforeEach(() => {
     /* mocking store */
     const mockStore = configureStore()
@@ -37,6 +38,7 @@ describe('ClientAppUninstallConfirmation', () => {
     /* mocking useDispatch on our mock store  */
     spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
   })
+
   it('should match a snapshot', () => {
     expect(
       mount(
@@ -48,6 +50,7 @@ describe('ClientAppUninstallConfirmation', () => {
       ),
     ).toMatchSnapshot()
   })
+
   describe('onUninstallButtonClick', () => {
     it('should run correctly', () => {
       const mockFunction = jest.fn()
@@ -71,6 +74,7 @@ describe('ClientAppUninstallConfirmation', () => {
       )
     })
   })
+
   describe('handleUninstallAppSuccessCallback', () => {
     it('should run correctly', () => {
       const mockFunction = jest.fn()
@@ -93,6 +97,7 @@ describe('ClientAppUninstallConfirmation', () => {
       expect(mockFunction).toBeCalledWith(true)
     })
   })
+
   describe('handleSuccessAlertButtonClick', () => {
     const history = {
       replace: jest.fn(),
@@ -101,12 +106,14 @@ describe('ClientAppUninstallConfirmation', () => {
     fn()
     expect(history.replace).toBeCalledWith(routes.CLIENT)
   })
+
   describe('handleSuccessAlertMessageAfterClose', () => {
     const mockFunction = jest.fn()
     const fn = handleSuccessAlertMessageAfterClose(mockFunction)
     fn()
     expect(mockFunction).toBeCalledWith(false)
   })
+
   describe('renderUninstallConfirmationModalFooter', () => {
     it('should match snapshot', () => {
       const wrapper = shallow(

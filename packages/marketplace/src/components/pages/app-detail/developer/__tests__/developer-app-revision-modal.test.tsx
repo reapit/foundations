@@ -9,7 +9,7 @@ import AppRevisionModal, {
   handleUseEffectToFetchAppRevisions,
   handleUseEffectToFetchAppRevisionDetail,
   handleCancelPendingRevisionsSuccessCallback,
-} from '../app-revision-modal'
+} from '../developer-app-revision-modal'
 import { revisionsRequestData } from '@/actions/revisions'
 import { revisionDetailRequestData } from '@/actions/revision-detail'
 import { developerFetchAppDetail } from '@/actions/developer'
@@ -36,6 +36,7 @@ describe('ClientAppInstallConfirmation', () => {
     /* mocking useDispatch on our mock store  */
     spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
   })
+
   it('should match a snapshot', () => {
     expect(
       shallow(
@@ -45,35 +46,34 @@ describe('ClientAppInstallConfirmation', () => {
       ),
     ).toMatchSnapshot()
   })
+
   describe('handleUseEffectToFetchAppRevisions', () => {
     it('should run correctly when the modal is visible', () => {
       const fn = handleUseEffectToFetchAppRevisions(appId, true, spyDispatch)
       fn()
-      if (appId) {
-        expect(spyDispatch).toBeCalledWith(
-          revisionsRequestData({
-            appId,
-          }),
-        )
-      }
+      expect(spyDispatch).toBeCalledWith(
+        revisionsRequestData({
+          appId,
+        }),
+      )
     })
   })
+
   describe('handleUseEffectToFetchAppRevisionDetail', () => {
     it('should run correctly when the modal is visible', () => {
       const revisions = appState.revisions.revisions?.data
-      const appRevisionId = revisions && revisions[0].id
+      const appRevisionId = (revisions && (revisions[0].id as string)) || 'SOME_ID'
       const fn = handleUseEffectToFetchAppRevisionDetail(appId, true, spyDispatch, appRevisionId)
       fn()
-      if (appId && appRevisionId) {
-        expect(spyDispatch).toBeCalledWith(
-          revisionDetailRequestData({
-            appId,
-            appRevisionId,
-          }),
-        )
-      }
+      expect(spyDispatch).toBeCalledWith(
+        revisionDetailRequestData({
+          appId,
+          appRevisionId,
+        }),
+      )
     })
   })
+
   describe('handleCancelPendingRevisionsSuccessCallback', () => {
     it('should run correctly when the modal is visible', () => {
       const setIsConfirmationModalVisible = jest.fn()

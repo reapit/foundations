@@ -42,34 +42,46 @@ describe('DeveloperAppDetail', () => {
       ),
     ).toMatchSnapshot()
   })
+
   describe('handleOnDeleteAppSuccess', () => {
-    const history = {
-      replace: jest.fn(),
-    } as any
-    const fn = handleOnDeleteAppSuccess(history)
-    fn()
-    expect(history.replace).toBeCalledWith(routes.DEVELOPER_MY_APPS)
+    it('should be called correctly', () => {
+      const history = {
+        replace: jest.fn(),
+      } as any
+      const fn = handleOnDeleteAppSuccess(history)
+      fn()
+      expect(history.replace).toBeCalledWith(routes.DEVELOPER_MY_APPS)
+    })
   })
-  describe('handleOnDeleteAppSuccess', () => {
+
+  describe('closeInstallationsModal', () => {
+    it('should be called correctly', () => {})
     const mockFunction = jest.fn()
     const fn = closeInstallationsModal(mockFunction)
     fn()
     expect(mockFunction).toBeCalledWith(false)
   })
+
   describe('closeAppRevisionComparisonModal', () => {
-    const mockFunction = jest.fn()
-    const fn = closeAppRevisionComparisonModal(mockFunction)
-    fn()
-    expect(mockFunction).toBeCalledWith(false)
+    it('should be called correctly', () => {
+      const mockFunction = jest.fn()
+      const fn = closeAppRevisionComparisonModal(mockFunction)
+      fn()
+      expect(mockFunction).toBeCalledWith(false)
+    })
   })
+
   describe('closeDeleteAppModal', () => {
-    const mockFunction = jest.fn()
-    const fn = closeDeleteAppModal(mockFunction)
-    fn()
-    expect(mockFunction).toBeCalledWith(false)
+    it('should be called correctly', () => {
+      const mockFunction = jest.fn()
+      const fn = closeDeleteAppModal(mockFunction)
+      fn()
+      expect(mockFunction).toBeCalledWith(false)
+    })
   })
+
   describe('onBackToAppsButtonClick', () => {
-    it('should run correctly', () => {
+    it('should be called correctly', () => {
       const fn = onBackToAppsButtonClick(history)
       fn()
       expect(history.push).toBeCalledWith(Routes.DEVELOPER_MY_APPS)

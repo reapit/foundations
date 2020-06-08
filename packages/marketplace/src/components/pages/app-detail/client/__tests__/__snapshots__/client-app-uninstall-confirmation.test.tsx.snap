@@ -1,0 +1,159 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ClientAppUninstallConfirmation renderUninstallConfirmationModalFooter should match snapshot 1`] = `
+<div>
+  <Component
+    dataTest="agree-btn"
+    loading={false}
+    onClick={[Function]}
+    type="button"
+    variant="primary"
+  >
+    Confirm
+  </Component>
+  <Component
+    dataTest="disagree-btn"
+    disabled={false}
+    onClick={[MockFunction]}
+    type="button"
+    variant="danger"
+  >
+    Cancel
+  </Component>
+</div>
+`;
+
+exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "clientAppDetailRoute",
+          "pathname": "/client/apps/:appid",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "clientAppDetailRoute",
+              "pathname": "/client/apps/:appid",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "clientAppDetailRoute",
+            "pathname": "/client/apps/:appid",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <ClientAppUninstallConfirmation
+        appDetailData={
+          Object {
+            "description": "enim facilisis",
+            "developer": "Pete's Proptech World Ltd",
+            "homePage": "http://myawesomeproptechproduct.io",
+            "id": "9b6fd5f7-2c15-483d-b925-01b650538e52",
+            "media": Array [
+              Object {
+                "description": "Application Icon",
+                "type": "icon",
+                "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg",
+              },
+              Object {
+                "description": "Application Image",
+                "type": "image",
+                "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png",
+              },
+              Object {
+                "description": "Application Image",
+                "type": "image",
+                "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png",
+              },
+            ],
+            "name": "Peter's Properties",
+            "scopes": Array [
+              Object {
+                "description": "Read data about developers",
+                "name": "Marketplace/developers.read",
+              },
+              Object {
+                "description": "Write data about developers",
+                "name": "Marketplace/developers.write",
+              },
+            ],
+            "summary": "vitae elementum curabitur vitae",
+            "supportEmail": "support@reapit.com",
+            "telephone": "0113 288 2900",
+          }
+        }
+        closeUninstallConfirmationModal={[MockFunction]}
+        visible={true}
+      >
+        <Component
+          afterClose={[MockFunction]}
+          footerItems={
+            <React.Fragment>
+              <Unknown
+                dataTest="agree-btn"
+                loading={false}
+                onClick={[Function]}
+                type="button"
+                variant="primary"
+              >
+                Confirm
+              </Unknown>
+              <Unknown
+                dataTest="disagree-btn"
+                disabled={false}
+                onClick={[MockFunction]}
+                type="button"
+                variant="danger"
+              >
+                Cancel
+              </Unknown>
+            </React.Fragment>
+          }
+          title="Confirm Peter's Properties uninstallation"
+          visible={true}
+        />
+        <Component
+          afterClose={[Function]}
+          visible={false}
+        />
+      </ClientAppUninstallConfirmation>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;

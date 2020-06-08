@@ -3,9 +3,8 @@ import { ReduxState } from '@/types/core'
 import { connect } from 'react-redux'
 import { requestAuthenticationCode } from '@/actions/app-detail'
 import { errorThrownComponent } from '@/actions/error'
-import appDetailStyles from '@/styles/blocks/app-detail.scss?mod'
 import styles from '@/styles/blocks/app-authentication-detail.scss?mod'
-import { Loader } from '@reapit/elements'
+import { Loader, Content, H5 } from '@reapit/elements'
 import { FaCopy } from 'react-icons/fa'
 import { clipboardCopy } from '@/utils/clipboard-copy'
 
@@ -65,12 +64,12 @@ export const AppAuthenticationDetail: React.FunctionComponent<AppAuthenticationD
 
   return (
     <>
-      <div data-test="app-authentication-detail" className={appDetailStyles.appInfoRow}>
-        {!withCustomHeader && <p className={appDetailStyles.appInfoProperty}>Authentication:</p>}
+      <Content data-test="app-authentication-detail">
+        {!withCustomHeader && <H5>Authentication:</H5>}
         <a href="#" onClick={handleShowAuthCode} className={styles.btnShowAuthentication}>
           Show Secret
         </a>
-      </div>
+      </Content>
       {loading && <Loader body={false} />}
       {!loading && code && (
         <div className={styles.authenticationCodeWrap}>

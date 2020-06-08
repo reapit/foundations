@@ -52,37 +52,31 @@ export const handleInstallButtonClick = (
   setIsSuccessAlertVisible: (isVisible: boolean) => void,
   closeInstallConfirmationModal: () => void,
   isDesktopMode: boolean,
-) => {
-  return () => {
-    dispatch(
-      appInstallationsRequestInstall({
+) => () => {
+  dispatch(
+    appInstallationsRequestInstall({
+      appId,
+      callback: handleInstallAppSuccessCallback(
         appId,
-        callback: handleInstallAppSuccessCallback(
-          appId,
-          clientId,
-          dispatch,
-          setIsSuccessAlertVisible,
-          closeInstallConfirmationModal,
-          isDesktopMode,
-        ),
-      }),
-    )
-  }
+        clientId,
+        dispatch,
+        setIsSuccessAlertVisible,
+        closeInstallConfirmationModal,
+        isDesktopMode,
+      ),
+    }),
+  )
 }
 
-export const handleSuccessAlertButtonClick = (history: History) => {
-  return () => {
-    if (canGoBack(history)) {
-      history.goBack()
-    }
-    history.replace(routes.CLIENT)
+export const handleSuccessAlertButtonClick = (history: History) => () => {
+  if (canGoBack(history)) {
+    history.goBack()
   }
+  history.replace(routes.CLIENT)
 }
 
-export const handleSuccessAlertMessageAfterClose = (setIsSuccessAlertVisible: (isVisible: boolean) => void) => {
-  return () => {
-    setIsSuccessAlertVisible(false)
-  }
+export const handleSuccessAlertMessageAfterClose = (setIsSuccessAlertVisible: (isVisible: boolean) => void) => () => {
+  setIsSuccessAlertVisible(false)
 }
 
 const ClientAppInstallConfirmation: React.FC<ClientAppInstallConfirmationProps> = ({

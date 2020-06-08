@@ -54,10 +54,12 @@ exports[`AgencyCloudIntegrationSection should match a snapshot 1`] = `
               <Component>
                 <div
                   className="columns  "
+                  data-test=""
                 >
                   <Component>
                     <div
                       className="column  "
+                      data-test=""
                     >
                       <Component
                         id="desktopIntegrationTypeIds"

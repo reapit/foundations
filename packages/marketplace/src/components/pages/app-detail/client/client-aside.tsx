@@ -2,7 +2,7 @@ import React from 'react'
 import { DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
 import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
 import { FlexContainerBasic } from '@reapit/elements'
-import { ContactDeveloperSection } from './contact-developer-modal'
+import { ContactDeveloperSection } from './client-contact-developer-modal'
 import useReactResponsive from '@/components/hooks/use-react-responsive'
 import { History } from 'history'
 import routes from '@/constants/routes'
@@ -35,7 +35,7 @@ export const ClientAside: React.FC<AsideProps> = ({ desktopIntegrationTypes, app
 
   return (
     <FlexContainerBasic flexColumn hasPadding hasBackground isFullHeight={!isMobile}>
-      <DeveloperSection developer={developer} isSidebar />
+      {developer && <DeveloperSection developer={developer} isSidebar />}
       {/** Placeholder for now until we have the API
         <DeveloperAboutSection isSidebar />
        */}

@@ -39,12 +39,7 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalModal
         data-test="revision-detail-modal"
       />
       <ModalBody
-        body={
-          <AppRevisionComparison
-            appDetailData={appDetailState.appDetailData.data}
-            revisionDetailState={revisionDetailState}
-          />
-        }
+        body={<AppRevisionComparison appDetailState={appDetailState} revisionDetailState={revisionDetailState} />}
       />
 
       <ModalFooter
