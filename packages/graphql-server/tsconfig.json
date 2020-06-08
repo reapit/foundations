@@ -20,6 +20,9 @@
       "@reapit/cognito-auth": [
         "../cognito-auth/src"
       ],
+      "@reapit/utils": [
+        "../utils/index.ts"
+      ],
       "@reapit/node-utils": [
         "../utils/src/node/index.ts"
       ],

@@ -1,5 +1,5 @@
 import * as Sentry from '@sentry/node'
-import { createWistonLoggerErrorFn, stringtifyError } from '../sentry-logger'
+import { createWistonLoggerErrorFn, stringifyError } from '../sentry-logger'
 
 jest.mock('serialize-error', () => ({
   serializeError: jest.fn(() => ({
@@ -7,10 +7,10 @@ jest.mock('serialize-error', () => ({
   })),
 }))
 
-describe('stringtifyError', () => {
+describe('stringifyError', () => {
   it('should serialize correct error', () => {
     const err = new Error('err')
-    expect(stringtifyError(err)).toEqual(JSON.stringify({ stack: 'test' }))
+    expect(stringifyError(err)).toEqual(JSON.stringify({ stack: 'test' }))
   })
 })
 describe('createWistonLoggerErrorFn', () => {

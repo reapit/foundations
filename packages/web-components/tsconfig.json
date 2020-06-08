@@ -26,6 +26,9 @@
     "paths": {
       "@reapit/node-utils": [
         "../utils/src/node/index.ts"
+      ],
+      "@reapit/foundations-ts-definitions": [
+        "src/types"
       ]
     }
   }

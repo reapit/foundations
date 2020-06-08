@@ -25,7 +25,6 @@
   "dependencies": {
     "@aws/dynamodb-data-mapper": "^0.7.3",
     "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
-    "@reapit/cognito-auth": "^2.0.19",
     "async": "^3.2.0",
     "aws-sdk": "^2.682.0",
     "axios": "^0.19.2",
@@ -44,12 +43,14 @@
     "snyk": "^1.335.0",
     "stack-trace": "^0.0.10",
     "uuid": "^3.3.3",
-    "winston": "^3.2.1"
+    "winston": "^3.2.1",
+    "@reapit/foundations-ts-definitions": "2020-03-04",
+    "@reapit/cognito-auth": "^2.0.19",
+    "@reapit/utils": "^0.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
-    "@reapit/foundations-ts-definitions": "2020-03-08",
     "@types/jest": "^25.1.2",
     "@types/morgan": "^1.9.0",
     "@types/node": "^13.13.2",
