@@ -31,10 +31,7 @@
 
 <div class="light-box-container">
   <div class="light-box-current-display-image-container">
-    <img
-      class="light-box-current-display-image"
-      alt="Light box current display image"
-      src={images[currentDisplayImageIndex]} />
+    <img class="light-box-current-display-image" alt="Light box current" src={images[currentDisplayImageIndex]} />
   </div>
   <Carousel
     let:currentCarouselPage

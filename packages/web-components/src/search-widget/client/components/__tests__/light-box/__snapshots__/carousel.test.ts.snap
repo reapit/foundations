@@ -16,7 +16,7 @@ exports[`Carousel should match snapshot 1`] = `
           style="width: 0px; height: 0px;"
         >
           <img
-            alt="image of property 0"
+            alt="property 0"
             class="light-box-carousel-image light-box-carousel-current-display-image svelte-11fmifw"
             src="image-url1"
           />
@@ -27,7 +27,7 @@ exports[`Carousel should match snapshot 1`] = `
           style="width: 0px; height: 0px;"
         >
           <img
-            alt="image of property 1"
+            alt="property 1"
             class="light-box-carousel-image false svelte-11fmifw"
             src="image-url2"
           />
@@ -38,7 +38,7 @@ exports[`Carousel should match snapshot 1`] = `
           style="width: 0px; height: 0px;"
         >
           <img
-            alt="image of property 2"
+            alt="property 2"
             class="light-box-carousel-image false svelte-11fmifw"
             src="image-url3"
           />
@@ -49,7 +49,7 @@ exports[`Carousel should match snapshot 1`] = `
           style="width: 0px; height: 0px;"
         >
           <img
-            alt="image of property 3"
+            alt="property 3"
             class="light-box-carousel-image false svelte-11fmifw"
             src="image-url4"
           />

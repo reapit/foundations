@@ -156,7 +156,7 @@
     {#if lettingStatus === 'underOffer'}
       <div class="search-result-offer-banner {offerBanner}">Let Agreed</div>
     {/if}
-    <img alt="property image" src={imageUrl} on:error={handleImageError} />
+    <img alt="property" src={imageUrl} on:error={handleImageError} />
   </div>
   <div>
     <div class="{secondaryStrapline} search-result-item-address-secondary">
