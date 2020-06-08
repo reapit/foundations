@@ -53,6 +53,9 @@ export const handleUnInstallAppButtonClick = (setIsVisibleUnInstallConfirmation:
 
 export const onBackToAppsButtonClick = (history: History) => {
   return () => {
+    if (history.length > 2) {
+      history.goBack()
+    }
     history.push(Routes.CLIENT)
   }
 }
@@ -157,43 +160,46 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   const { id = '', installedOn = '' } = appDetailData
 
   React.useEffect(handleApplyAppDetailsFromLocalStorage(dispatch, loginType, appId), [dispatch])
-
   if (error) return <Alert message={error} type="danger"></Alert>
-  // if (isLoadingAppDetail || unfetched) {
-  //   return <Loader dataTest="client-app-detail-loader" />
-  // }
 
   return (
     <div data-test="client-app-detail-container" className={clientAppDetailStyles.appDetailContainer}>
-      {!isMobile && <Aside appDetailData={appDetailData} desktopIntegrationTypes={userDesktopIntegrationTypes} />}
-      <div className={clientAppDetailStyles.mainContainer}>
-        <ClientAppHeader
-          appDetailData={appDetailData}
-          buttonGroup={renderAppHeaderButtonGroup(
-            id,
-            installedOn,
-            onInstallConfirmationModal,
-            onUninstsallConfirmationModal,
-            isInstallBtnHidden,
-          )}
-        />
-        <AppContent desktopIntegrationTypes={userDesktopIntegrationTypes} appDetailData={appDetailData} />
-        {loginType !== 'DEVELOPER' && (
-          <FormSection className={clientAppDetailStyles.footerContainer}>
-            <Button onClick={onBackToAppsButtonClick(history)}>Back To Apps</Button>
-          </FormSection>
-        )}
-        <ClientAppUninstallConfirmation
-          visible={isVisibleUninstallConfirmation}
-          appDetailData={appDetailData}
-          closeUninstallConfirmationModal={closeUninstallConfirmationModal}
-        />
-        <ClientAppInstallConfirmation
-          visible={isVisibleInstallConfirmation}
-          appDetailData={appDetailData}
-          closeInstallConfirmationModal={closeInstallConfirmationModal}
-        />
-      </div>
+      {isLoadingAppDetail || unfetched ? (
+        <Loader dataTest="client-app-detail-loader" />
+      ) : (
+        <>
+          {!isMobile && <Aside appDetailData={appDetailData} desktopIntegrationTypes={userDesktopIntegrationTypes} />}
+          <div className={clientAppDetailStyles.mainContainer}>
+            <ClientAppHeader
+              appDetailData={appDetailData}
+              buttonGroup={renderAppHeaderButtonGroup(
+                id,
+                installedOn,
+                onInstallConfirmationModal,
+                onUninstsallConfirmationModal,
+                isInstallBtnHidden,
+              )}
+            />
+            <AppContent desktopIntegrationTypes={userDesktopIntegrationTypes} appDetailData={appDetailData} />
+            {loginType !== 'DEVELOPER' && (
+              <FormSection className={clientAppDetailStyles.footerContainer}>
+                <Button onClick={onBackToAppsButtonClick(history)}>Back To Apps</Button>
+              </FormSection>
+            )}
+          </div>
+        </>
+      )}
+
+      <ClientAppUninstallConfirmation
+        visible={isVisibleUninstallConfirmation}
+        appDetailData={appDetailData}
+        closeUninstallConfirmationModal={closeUninstallConfirmationModal}
+      />
+      <ClientAppInstallConfirmation
+        visible={isVisibleInstallConfirmation}
+        appDetailData={appDetailData}
+        closeInstallConfirmationModal={closeInstallConfirmationModal}
+      />
     </div>
   )
 }

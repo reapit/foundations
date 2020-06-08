@@ -36,11 +36,11 @@ export const handleInstallAppSuccessCallback = (
         clientId,
       }),
     )
-    closeInstallConfirmationModal()
-    setIsSuccessAlertVisible(true)
     if (isDesktopMode) {
       window.location.href = DESKTOP_REFRESH_URL
     }
+    closeInstallConfirmationModal()
+    setIsSuccessAlertVisible(true)
   }
 }
 
@@ -88,7 +88,6 @@ const ClientAppInstallConfirmation: React.FC<ClientAppInstallConfirmationProps> 
 }) => {
   const history = useHistory()
   const [isSuccessAlertVisible, setIsSuccessAlertVisible] = React.useState(false)
-  console.log('isSuccessAlertVisible', isSuccessAlertVisible)
   const clientId = useSelector(selectClientId)
   const installationFormState = useSelector(selectInstallationFormState)
   const isDesktopMode = useSelector(selectIsDesktopMode)

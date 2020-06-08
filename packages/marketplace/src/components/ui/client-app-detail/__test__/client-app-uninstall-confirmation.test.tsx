@@ -58,6 +58,7 @@ describe('ClientAppUninstallConfirmation', () => {
         spyDispatch,
         mockFunction,
         mockProps.closeUninstallConfirmationModal,
+        false,
       )
       fn()
       expect(spyDispatch).toBeCalledWith(
@@ -79,6 +80,7 @@ describe('ClientAppUninstallConfirmation', () => {
         spyDispatch,
         mockFunction,
         mockProps.closeUninstallConfirmationModal,
+        false,
       )
       fn()
       expect(spyDispatch).toBeCalledWith(
@@ -117,6 +119,7 @@ describe('ClientAppUninstallConfirmation', () => {
             spyDispatch,
             jest.fn(),
             jest.fn(),
+            false,
           )}
         </div>,
       )

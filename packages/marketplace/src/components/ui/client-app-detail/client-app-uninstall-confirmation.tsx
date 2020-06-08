@@ -36,11 +36,11 @@ export const handleUninstallAppSuccessCallback = (
         clientId,
       }),
     )
-    closeUninstallConfirmationModal()
-    setIsSuccessAlertVisible(true)
     if (isDesktopMode) {
       window.location.href = DESKTOP_REFRESH_URL
     }
+    setIsSuccessAlertVisible(true)
+    closeUninstallConfirmationModal()
   }
 }
 
