@@ -47,6 +47,46 @@ export function getLoginTypeByPath(path: string) {
   }
 }
 
+function getDefaultPathForDeveloper(
+  clientLoginRouteMatch: match<{}> | null,
+  isDesktopMode?: boolean,
+  isClientFirstTimeLoginComplete?: boolean,
+  isDeveloperFirstTimeLoginComplete?: boolean,
+) {
+  if (clientLoginRouteMatch) {
+    if (isDesktopMode) {
+      return Routes.INSTALLED_APPS
+    }
+    // when we logged in to developer portal and then tried to navigate to client login page
+    // we should be redirected back to either Routes.CLIENT_WELCOME or Routes.INSTALLED_APPS
+    return !isClientFirstTimeLoginComplete ? Routes.CLIENT_WELCOME : Routes.INSTALLED_APPS
+  }
+  if (isDesktopMode) {
+    return Routes.DEVELOPER_MY_APPS
+  }
+  return !isDeveloperFirstTimeLoginComplete ? Routes.DEVELOPER_WELCOME : Routes.DEVELOPER_MY_APPS
+}
+
+function getDefaultPathForClient(
+  developerLoginRouteMatch: match<{}> | null,
+  isDesktopMode?: boolean,
+  isDeveloperFirstTimeLoginComplete?: boolean,
+  isClientFirstTimeLoginComplete?: boolean,
+) {
+  if (developerLoginRouteMatch) {
+    if (isDesktopMode) {
+      return Routes.DEVELOPER_MY_APPS
+    }
+    // when we logged in to client portal and then tried to navigate to developer login page
+    // we should be redirected back to either Routes.DEVELOPER_WELCOME or Routes.DEVELOPER_MY_APPS
+    return !isDeveloperFirstTimeLoginComplete ? Routes.DEVELOPER_WELCOME : Routes.DEVELOPER_MY_APPS
+  }
+  if (isDesktopMode) {
+    return Routes.INSTALLED_APPS
+  }
+  return !isClientFirstTimeLoginComplete ? Routes.CLIENT_WELCOME : Routes.INSTALLED_APPS
+}
+
 export function getDefaultPathByLoginType({
   loginType,
   developerLoginRouteMatch,
@@ -66,30 +106,18 @@ export function getDefaultPathByLoginType({
     case 'ADMIN':
       return Routes.ADMIN_APPROVALS
     case 'DEVELOPER':
-      if (clientLoginRouteMatch) {
-        if (isDesktopMode) {
-          return Routes.INSTALLED_APPS
-        }
-        // when we logged in to developer portal and then tried to navigate to client login page
-        // we should be redirected back to either Routes.CLIENT_WELCOME or Routes.INSTALLED_APPS
-        return !isClientFirstTimeLoginComplete ? Routes.CLIENT_WELCOME : Routes.INSTALLED_APPS
-      }
-      if (isDesktopMode) {
-        return Routes.DEVELOPER_MY_APPS
-      }
-      return !isDeveloperFirstTimeLoginComplete ? Routes.DEVELOPER_WELCOME : Routes.DEVELOPER_MY_APPS
+      return getDefaultPathForDeveloper(
+        clientLoginRouteMatch,
+        isDesktopMode,
+        isClientFirstTimeLoginComplete,
+        isDeveloperFirstTimeLoginComplete,
+      )
     default:
-      if (developerLoginRouteMatch) {
-        if (isDesktopMode) {
-          return Routes.DEVELOPER_MY_APPS
-        }
-        // when we logged in to client portal and then tried to navigate to developer login page
-        // we should be redirected back to either Routes.DEVELOPER_WELCOME or Routes.DEVELOPER_MY_APPS
-        return !isDeveloperFirstTimeLoginComplete ? Routes.DEVELOPER_WELCOME : Routes.DEVELOPER_MY_APPS
-      }
-      if (isDesktopMode) {
-        return Routes.INSTALLED_APPS
-      }
-      return !isClientFirstTimeLoginComplete ? Routes.CLIENT_WELCOME : Routes.INSTALLED_APPS
+      return getDefaultPathForClient(
+        developerLoginRouteMatch,
+        isDesktopMode,
+        isDeveloperFirstTimeLoginComplete,
+        isClientFirstTimeLoginComplete,
+      )
   }
 }
