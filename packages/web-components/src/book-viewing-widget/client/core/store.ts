@@ -3,7 +3,7 @@ import { BookViewingWidgetInitializers, PropertyData } from './index'
 import { ThemeClasses } from '../../../common/styles'
 
 export interface BookViewingWidgetStore {
-  initializers: BookViewingWidgetInitializers
+  initializers: Omit<BookViewingWidgetInitializers, 'submitAction'>
   themeClasses: ThemeClasses
 
   email: string
