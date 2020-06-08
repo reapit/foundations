@@ -6,7 +6,7 @@ export type RegisterFormError = Partial<CreateDeveloperModel>
 export function registerValidate(values: CreateDeveloperModel) {
   let errors = {} as RegisterFormError
 
-  if (!values.name) {
+  if (!values.name || !values.name.trim()) {
     errors.name = 'Required'
   }
 
