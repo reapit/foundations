@@ -4,6 +4,7 @@ import {
   whiteListLocalhostAndIsValidUrl,
   isValidHttpUrl,
   isValidLimitToClientIds,
+  isValidTelephone,
 } from '@/utils/validate'
 import { CustomCreateAppModel } from '@/actions/submit-app'
 
@@ -86,6 +87,10 @@ export const validate = (values: CustomCreateAppModel) => {
 
   if (values.launchUri && !whiteListLocalhostAndIsValidUrl(values.launchUri)) {
     errors.launchUri = 'Invalid Launch URI'
+  }
+
+  if (values.telephone && !isValidTelephone(values.telephone)) {
+    errors.telephone = 'Invalid Telephone number'
   }
 
   const isValidDescription =
