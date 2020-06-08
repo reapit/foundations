@@ -109,7 +109,7 @@ export const AdminDevManagement: React.FC = () => {
   }
   const pageNo = pageNumber - 1
   const pageNoTimesRevsions = pageNo * REVISIONS_PER_PAGE
-  const HeaderCell = ({ row: { index } }) => <>{pageNoTimesRevsions + index + 1}</>
+  const HeaderCell = ({ row: { index } }) => <div style={{ width: 'auto' }}>{pageNoTimesRevsions + index + 1}</div>
   const ButtonCell = ({ row: { original } }) => {
     const { id, isInactive } = original as DeveloperModel
 

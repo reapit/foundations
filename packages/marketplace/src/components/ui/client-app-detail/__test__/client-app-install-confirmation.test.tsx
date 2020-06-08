@@ -55,6 +55,7 @@ describe('ClientAppInstallConfirmation', () => {
         spyDispatch,
         mockFunction,
         mockProps.closeInstallConfirmationModal,
+        false,
       )
       fn()
       expect(spyDispatch).toBeCalledWith(
@@ -74,6 +75,7 @@ describe('ClientAppInstallConfirmation', () => {
         spyDispatch,
         mockFunction,
         mockProps.closeInstallConfirmationModal,
+        false,
       )
       fn()
       expect(spyDispatch).toBeCalledWith(
