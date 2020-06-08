@@ -75,11 +75,7 @@ describe('Aside', () => {
       mount(
         <Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.DEVELOPER_APP_DETAIL, key: 'developerAppDetailRoute' }]}>
-            <ManageApp
-              id="test"
-              pendingRevisions={false}
-              appDetailState={appDetailDataStub as DeveloperAppDetailState}
-            />
+            <ManageApp pendingRevisions={false} appDetailState={appDetailDataStub as DeveloperAppDetailState} />
           </MemoryRouter>
         </Provider>,
       ),
