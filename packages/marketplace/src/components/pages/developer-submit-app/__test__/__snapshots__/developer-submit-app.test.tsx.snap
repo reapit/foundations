@@ -620,6 +620,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                     <Component
                                       id="desktopIntegrationTypeIds"
                                       labelText="Integration Type"
+                                      mode="multiple"
                                       name="desktopIntegrationTypeIds"
                                       options={Array []}
                                       placeholder="Please select"
@@ -645,7 +646,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                               <Select
                                                 className="is-primary input"
                                                 id="desktopIntegrationTypeIds"
-                                                mode="tags"
+                                                mode="multiple"
                                                 onBlur={[Function]}
                                                 onChange={[Function]}
                                                 placeholder="Please select"
@@ -655,7 +656,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                 <ForwardRef(Select)
                                                   className="is-primary input"
                                                   id="desktopIntegrationTypeIds"
-                                                  mode="tags"
+                                                  mode="multiple"
                                                   onBlur={[Function]}
                                                   onChange={[Function]}
                                                   placeholder="Please select"
@@ -830,7 +831,10 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                                     autocomplete="off"
                                                                     class="rc-select-selection-search-input"
                                                                     id="desktopIntegrationTypeIds"
+                                                                    readonly=""
                                                                     role="combobox"
+                                                                    style="opacity: 0;"
+                                                                    unselectable="on"
                                                                     value=""
                                                                   />
                                                                   <span
@@ -852,7 +856,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                           id="desktopIntegrationTypeIds"
                                                           inputElement={null}
                                                           key="trigger"
-                                                          mode="tags"
+                                                          mode="multiple"
                                                           multiple={true}
                                                           onBlur={[Function]}
                                                           onChange={[Function]}
@@ -894,7 +898,10 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                                         autocomplete="off"
                                                                         class="rc-select-selection-search-input"
                                                                         id="desktopIntegrationTypeIds"
+                                                                        readonly=""
                                                                         role="combobox"
+                                                                        style="opacity: 0;"
+                                                                        unselectable="on"
                                                                         value=""
                                                                       />
                                                                       <span
@@ -926,12 +933,15 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                                     autocomplete="off"
                                                                     class="rc-select-selection-search-input"
                                                                     id="desktopIntegrationTypeIds"
+                                                                    readonly=""
                                                                     role="combobox"
+                                                                    style="opacity: 0;"
+                                                                    unselectable="on"
                                                                     value=""
                                                                   />,
                                                                 }
                                                               }
-                                                              mode="tags"
+                                                              mode="multiple"
                                                               multiple={true}
                                                               onBlur={[Function]}
                                                               onChange={[Function]}
@@ -966,7 +976,6 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                                 <Input
                                                                   accessibilityIndex={0}
                                                                   attrs={Object {}}
-                                                                  editable={true}
                                                                   id="desktopIntegrationTypeIds"
                                                                   inputElement={null}
                                                                   onChange={[Function]}
@@ -989,14 +998,14 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                                     onKeyDown={[Function]}
                                                                     onMouseDown={[Function]}
                                                                     onPaste={[Function]}
-                                                                    readOnly={false}
+                                                                    readOnly={true}
                                                                     role="combobox"
                                                                     style={
                                                                       Object {
-                                                                        "opacity": null,
+                                                                        "opacity": 0,
                                                                       }
                                                                     }
-                                                                    unselectable={null}
+                                                                    unselectable="on"
                                                                     value=""
                                                                   />
                                                                 </Input>

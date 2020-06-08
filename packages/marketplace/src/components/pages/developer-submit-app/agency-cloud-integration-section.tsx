@@ -48,6 +48,7 @@ const AgencyCloudIntegrationSection: React.FC<AgencyCloudIntegrationSectionProps
       <Grid>
         <GridItem>
           <DropdownSelect
+            mode="multiple"
             options={integrationTypeOptions}
             labelText="Integration Type"
             name="desktopIntegrationTypeIds"
