@@ -291,6 +291,7 @@ export const handleOpenAppPreview = ({
   categories,
   appId = 'submit-app',
 }: HandleOpenAppPreview) => () => {
+  const isSubmitApp = appId === 'submit-app'
   const { iconImageUrl, screen1ImageUrl, screen2ImageUrl, screen3ImageUrl, screen4ImageUrl, screen5ImageUrl } = values
 
   const media = [iconImageUrl, screen1ImageUrl, screen2ImageUrl, screen3ImageUrl, screen4ImageUrl, screen5ImageUrl]
@@ -298,7 +299,7 @@ export const handleOpenAppPreview = ({
     .map(image => ({ uri: image, type: image === iconImageUrl ? 'icon' : 'image' }))
 
   const appDetailState = {
-    ...appDetails,
+    ...(isSubmitApp ? {} : appDetails),
     ...values,
     scopes: scopes.filter(scope => values.scopes.includes(scope.name)),
     category: categories.find(category => values.categoryId === category.id),
