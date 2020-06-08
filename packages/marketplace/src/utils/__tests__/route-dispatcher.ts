@@ -28,19 +28,9 @@ describe('routeDispatcher', () => {
     expect(store.dispatch).toHaveBeenCalledWith(installedAppsRequestData(1))
   })
 
-  it('should dispatch to installedAppsRequestData for the installed-apps paginate route', async () => {
-    await routeDispatcher(Routes.INSTALLED_APPS_PAGINATE as RouteValue, { page: '2' })
-    expect(store.dispatch).toHaveBeenCalledWith(installedAppsRequestData(2))
-  })
-
   it('should dispatch to myAppsRequestData for the my-apps route', async () => {
     await routeDispatcher(Routes.MY_APPS as RouteValue)
     expect(store.dispatch).toHaveBeenCalledWith(myAppsRequestData(1))
-  })
-
-  it('should dispatch to myAppsRequestData for the my-apps paginate route', async () => {
-    await routeDispatcher(Routes.MY_APPS_PAGINATE as RouteValue, { page: '2' })
-    expect(store.dispatch).toHaveBeenCalledWith(myAppsRequestData(2))
   })
 
   it('should dispatch to developerRequestData for the developer route', async () => {
@@ -54,7 +44,7 @@ describe('routeDispatcher', () => {
   })
 
   it('should dispatch to requestDeveloperData for the admin approvals paginate route', async () => {
-    await routeDispatcher(Routes.SETTINGS as RouteValue, { page: '2' })
+    await routeDispatcher(Routes.DEVELOPER_SETTINGS as RouteValue, { page: '2' })
     expect(store.dispatch).toHaveBeenCalledWith(requestDeveloperData())
   })
 

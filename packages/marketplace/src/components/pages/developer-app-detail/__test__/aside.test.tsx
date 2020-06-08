@@ -13,6 +13,7 @@ import {
   onPendingRevisionButtonClick,
   onEditDetailButtonClick,
   onDeleteAppButtonClick,
+  onBackToAppsButtonClick,
 } from '../aside'
 import { shallow, mount } from 'enzyme'
 import { MemoryRouter } from 'react-router'
@@ -74,11 +75,7 @@ describe('Aside', () => {
       mount(
         <Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.DEVELOPER_APP_DETAIL, key: 'developerAppDetailRoute' }]}>
-            <ManageApp
-              id="test"
-              pendingRevisions={false}
-              appDetailState={appDetailDataStub as DeveloperAppDetailState}
-            />
+            <ManageApp pendingRevisions={false} appDetailState={appDetailDataStub as DeveloperAppDetailState} />
           </MemoryRouter>
         </Provider>,
       ),
@@ -135,6 +132,14 @@ describe('Aside', () => {
       const fn = onDeleteAppButtonClick(mockFunction)
       fn()
       expect(mockFunction).toBeCalledWith(true)
+    })
+  })
+
+  describe('onBackToAppsButtonClick', () => {
+    it('should run correctly', () => {
+      const fn = onBackToAppsButtonClick(history)
+      fn()
+      expect(history.push).toBeCalledWith(Routes.DEVELOPER_MY_APPS)
     })
   })
 })

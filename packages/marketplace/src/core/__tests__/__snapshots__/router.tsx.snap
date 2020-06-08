@@ -90,35 +90,9 @@ exports[`Router should match a snapshot 1`] = `
                 "_status": -1,
               }
             }
-            fetcher={true}
-            path="/client/installed/:page"
-          />
-          <Component
-            allow="CLIENT"
-            component={
-              Object {
-                "$$typeof": Symbol(react.lazy),
-                "_ctor": [Function],
-                "_result": null,
-                "_status": -1,
-              }
-            }
             exact={true}
             fetcher={true}
             path="/client/installed"
-          />
-          <Component
-            allow="CLIENT"
-            component={
-              Object {
-                "$$typeof": Symbol(react.lazy),
-                "_ctor": [Function],
-                "_result": null,
-                "_status": -1,
-              }
-            }
-            fetcher={true}
-            path="/client/manage/:page"
           />
           <Component
             allow="CLIENT"
@@ -335,7 +309,33 @@ exports[`Router should match a snapshot 1`] = `
             }
             exact={true}
             fetcher={true}
-            path="/developer/settings"
+            path="/developer/settings/"
+          />
+          <Component
+            allow="ADMIN"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            fetcher={true}
+            path="/developer/settings/billing"
+          />
+          <Component
+            allow="ADMIN"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            fetcher={true}
+            path="/developer/settings/organisation"
           />
           <Component
             allow="DEVELOPER"

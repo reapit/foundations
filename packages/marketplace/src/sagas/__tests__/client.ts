@@ -68,7 +68,7 @@ describe('client fetch data error', () => {
 
   expect(gen.next('').value).toEqual(select(selectClientId))
 
-  // @ts-ignore
+  if (!gen.throw) throw new Error('Generator object cannot throw')
   expect(gen.throw('error').value).toEqual(
     put(
       errorThrownServer({

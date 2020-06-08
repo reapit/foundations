@@ -106,8 +106,10 @@ describe('FileInput', () => {
     })
 
     // assert filename test
-    waitUntilDataReaderLoad.then(() => {
-      submitForm()
+    waitUntilDataReaderLoad.then(async () => {
+      await act(async () => {
+        submitForm()
+      })
       waitUntilFormSubmitted.then(formValues => {
         expect(formValues).toEqual({
           test: 'data:image/png;base64,YQ==',

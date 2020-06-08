@@ -1,11 +1,21 @@
+// TODO: remove this file after we separated dev & client standalone page
 @import '../base/colors.scss';
 @import '../base/screen-size.scss';
 
 .appHeaderTextContainer {
   padding: 0 3rem;
   display: flex;
-  align-items: flex-end;
+  // align-items: flex-end;
   flex-direction: column;
+  justify-content: center;
+  @include for-mobile-only {
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 1rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .asideContainer {
@@ -13,15 +23,26 @@
   width: 25%;
   display: flex;
   justify-content: center;
-
+  background-color: $white;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  @include for-mobile-only {
+    width: 100%;
+    padding-top: 0;
+    padding-bottom: 1rem;
+  }
   & > div {
     width: 70%;
-  }
-
-
-  /* mobile screen size*/
-  @include for-mobile-only {
-    display: none;
+    @include for-mobile-only {
+      width: 100%;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    div > :first-child {
+      @include for-mobile-only {
+        margin-top: 0;
+      }
+    }
   }
 
   h5.headerWithoutMargin {
@@ -32,9 +53,6 @@
   h5:not(:last-child):not(.headerWithoutMargin) {
     margin-bottom: 0.5rem;
   }
-  background-color: $white;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
 }
 
 .appHeader {
@@ -43,33 +61,46 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-top: 3rem;
+  @include for-mobile-only {
+    margin-top: 1rem;
+  }
 
-  .appHeaderFeaturedImage {
-    max-width: 495px;
-    max-height: 222px;
-
+  .appInformation {
+    display: flex;
+    width: 60%;
+    margin-bottom: 0.75rem;
     @include for-mobile-only {
-      flex: 1;
-      margin-top: 2rem;
+      width: 100%;
+      margin-bottom: 0;
+      align-items: center;
+      flex-direction: column;
+    }
+    @include for-tablet-only {
+      width: 100%;
+    }
+  }
+
+  .appScreenshot {
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    @include for-tablet-only {
+      width: 100%;
     }
   }
 
   .appIconContainer {
-    margin-left: 0;
+    flex: 1 0 96px;
+    max-width: 96px;
     width: 96px;
     height: 96px;
+    margin-left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: $grey-lighter;
-    border-radius: 50%;
-    margin: 0 auto;
-
-    img {
-      background: $white;
-      width: 100%;
-      height: 100%;
-    }
+    background-position: center;
+    background-size: cover;
   }
 
   .verifyByReapitContainer {
@@ -77,8 +108,9 @@
     justify-content: flex-end;
     align-items: center;
     margin-top: 0.5rem;
-    margin-bottom: 1rem;
-
+    @include for-tablet-only {
+      margin-top: 0;
+    }
     .check {
       /*should be px regard their base px (rem) else looks really ugly*/
       margin-right: 5px;
@@ -86,8 +118,10 @@
     }
   }
 
-  h2.appName {
-    font-family: 'Museo Sans W03_300', 'Roboto', Helvetica, Arial, sans-serif;
-    margin-bottom: 0;
+  h2, h3 {
+    &.appName {
+      font-family: 'Museo Sans W03_300', 'Roboto', Helvetica, Arial, sans-serif;
+      margin-bottom: 0;
+    }
   }
 }

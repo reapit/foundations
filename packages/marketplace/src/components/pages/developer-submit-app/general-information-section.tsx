@@ -17,6 +17,7 @@ import linkStyles from '@/styles/elements/link.scss?mod'
 import { useSelector } from 'react-redux'
 import { selectCategories } from '@/selector/app-categories'
 import { CategoryModel } from '@reapit/foundations-ts-definitions'
+import styles from '@/styles/pages/developer-submit-app.scss?mod'
 
 export type GeneralInformationSectionProps = {}
 
@@ -113,7 +114,7 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = () =
         </GridItem>
       </Grid>
       <Grid>
-        <GridItem>
+        <GridItem className={styles.gridMaxHalfWidth}>
           <TextArea
             id="summary"
             dataTest="submit-app-summary"
@@ -122,8 +123,9 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = () =
             placeholder={'A short strapline summary for your app listing. Must be between 50 and 150 characters'}
           />
         </GridItem>
-        <GridItem>
+        <GridItem className={styles.gridMaxHalfWidth}>
           <TextAreaEditor
+            containerClass={styles.contentOverflowXScroll}
             id="description"
             actions={[
               'bold',

@@ -2,7 +2,7 @@ import React from 'react'
 import { AboutDeveloperSection, DeveloperImageSection } from './reuse'
 import { ContactDeveloperSection } from './contact-developer-section'
 import standAloneAppDetailStyles from '@/styles/blocks/standalone-app-detail.scss?mod'
-import { renderCategory, renderDesktopIntegrationTypes } from '../client-app-detail/app-content'
+import { renderCategory, renderDesktopIntegrationTypes, renderDirectAPI } from '../client-app-detail/app-content'
 import { DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
 import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
 import { Button, H5 } from '@reapit/elements'
@@ -19,7 +19,7 @@ interface AsideProps {
 }
 
 export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetailData }) => {
-  const { category, isWebComponent, developer, telephone, supportEmail, homePage } = appDetailData
+  const { category, developer, telephone, supportEmail, homePage, isDirectApi } = appDetailData
 
   return (
     <div className={standAloneAppDetailStyles.asideContainer}>
@@ -38,11 +38,12 @@ export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetail
         <div className={standAloneAppDetailStyles.headerWithoutMargin}>
           {renderDesktopIntegrationTypes(desktopIntegrationTypes)}
         </div>
-        {isWebComponent && (
+        <div className={standAloneAppDetailStyles.headerWithoutMargin}>{renderDirectAPI(isDirectApi)}</div>
+        {/* {isWebComponent && (
           <div className={standAloneAppDetailStyles.headerWithoutMargin}>
             <WebComponentConfig />
           </div>
-        )}
+        )} */}
       </div>
     </div>
   )

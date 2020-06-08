@@ -39,7 +39,7 @@ describe('adminAppsFetch', () => {
   test('api call fail', () => {
     const clone = gen.clone()
     if (clone.throw) {
-      expect(clone.throw(new Error('')).value).toEqual(put(adminAppsRequestFailure()))
+      expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(adminAppsRequestFailure()))
       expect(clone.next().value).toEqual(
         put(
           errorThrownServer({
@@ -83,7 +83,7 @@ describe('adminAppsFeatured', () => {
   test('api call fail', () => {
     const clone = gen.clone()
     if (clone.throw) {
-      expect(clone.throw(new Error('')).value).toEqual(put(adminAppsSetFormState('ERROR')))
+      expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(adminAppsSetFormState('ERROR')))
       expect(clone.next().value).toEqual(
         put(
           errorThrownServer({

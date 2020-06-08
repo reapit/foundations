@@ -44,19 +44,13 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       break
     }
     case Routes.INSTALLED_APPS:
-      store.dispatch(installedAppsRequestData(1))
-      break
-    case Routes.INSTALLED_APPS_PAGINATE:
-      store.dispatch(installedAppsRequestData(params && params.page ? Number(params.page) : 1))
+      store.dispatch(installedAppsRequestData(page))
       break
     case Routes.MY_APPS:
-      store.dispatch(myAppsRequestData(1))
-      break
-    case Routes.MY_APPS_PAGINATE:
-      store.dispatch(myAppsRequestData(params && params.page ? Number(params.page) : 1))
+      store.dispatch(myAppsRequestData(page))
       break
     case Routes.DEVELOPER_MY_APPS:
-      store.dispatch(developerRequestData({ page: 1 }))
+      store.dispatch(developerRequestData({ page }))
       break
     case Routes.DEVELOPER_ANALYTICS_TAB: {
       // Fetch all apps to map app name to installations
@@ -103,7 +97,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
     case Routes.ADMIN_APPS:
       store.dispatch(adminAppsRequestData(getParamsFromPath(search || '')))
       break
-    case Routes.SETTINGS:
+    case Routes.DEVELOPER_SETTINGS:
       store.dispatch(requestDeveloperData())
       break
     case Routes.DEVELOPER_WEBHOOKS:

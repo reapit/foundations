@@ -4,7 +4,7 @@ import { Table } from '@reapit/elements'
 const consumptionCostTypes = [
   { type: 'Annual Registration Fee', amount: '£995', payable: 'Per Contract year, payable in advance' },
   {
-    type: 'Monthly App Marketplace Fee',
+    type: 'Annual App Marketplace Fee',
     amount: '£595 ',
     payable:
       /* eslint-disable-next-line max-len */

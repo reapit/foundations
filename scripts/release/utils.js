@@ -91,8 +91,6 @@ const fetchConfig = ({ packageName, env }) => {
 const syncFromLocalDistToS3Bucket = ({ bucketName }) => {
   try {
     const distPath = path.resolve(process.cwd(), RELEASE_ARTIFACT_FOLDER_NAME)
-    const deleteResult = execSync(`aws s3 rm --recursive s3://${bucketName}`).toString()
-    console.info(deleteResult)
     // cp all assert with cache-control 365 days exclude sw.js and index.html
     const copyWithCache = execSync(
       `aws s3 cp ${distPath} s3://${bucketName} --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers --recursive --exclude "index.html" --exclude "sw.js" --exclude "config.json" --cache-control "max-age=31536000"`,

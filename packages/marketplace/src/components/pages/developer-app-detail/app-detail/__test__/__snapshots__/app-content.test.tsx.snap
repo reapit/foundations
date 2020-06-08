@@ -14,7 +14,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
   }
 >
   <AppContent
-    appDetailData={
+    appDetailState={
       Object {
         "data": Object {
           "description": "enim facilisis",
@@ -57,7 +57,9 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
     }
   >
     <div>
-      <div />
+      <div>
+        vitae elementum curabitur vitae
+      </div>
       <div>
         <Component
           className="flex items-center"
@@ -72,17 +74,21 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
               See listing preview
             </span>
              
-            <FaExternalLinkAlt>
+            <FaExternalLinkAlt
+              onClick={[Function]}
+            >
               <IconBase
                 attr={
                   Object {
                     "viewBox": "0 0 512 512",
                   }
                 }
+                onClick={[Function]}
               >
                 <svg
                   fill="currentColor"
                   height="1em"
+                  onClick={[Function]}
                   stroke="currentColor"
                   strokeWidth="0"
                   style={

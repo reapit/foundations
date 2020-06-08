@@ -2,10 +2,9 @@
 
 exports[`ClientAppDetail renderAppHeaderButtonGroup should match snapshot 1`] = `
 <div>
-  <div
-    className="flex ml-auto"
-  >
+  <div>
     <Component
+      className="ml-0"
       dataTest="detail-modal-uninstall-button"
       onClick={[MockFunction]}
       type="button"
@@ -19,10 +18,9 @@ exports[`ClientAppDetail renderAppHeaderButtonGroup should match snapshot 1`] = 
 
 exports[`ClientAppDetail renderAppHeaderButtonGroup should match snapshot 2`] = `
 <div>
-  <div
-    className="flex ml-auto"
-  >
+  <div>
     <Component
+      className="ml-0"
       dataTest="detail-modal-uninstall-button"
       onClick={[MockFunction]}
       type="button"
@@ -308,11 +306,12 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
                     </p>
                   </div>
                 </div>
+                <div />
               </div>
             </div>
           </Component>
           <div>
-            <DesktopAppHeader
+            <ClientAppHeader
               appDetailData={
                 Object {
                   "key": "value",
@@ -326,15 +325,15 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
             >
               <div>
                 <div
-                  className="flex mb-3"
+                  className="flex mb-3 undefined"
                 >
-                  <div>
-                    <img
-                      alt=""
-                      className="images "
-                      src="https://bulma.io/images/placeholders/48x48.png"
-                    />
-                  </div>
+                  <div
+                    style={
+                      Object {
+                        "backgroundImage": "url('undefined')",
+                      }
+                    }
+                  />
                   <div>
                     <Component>
                       <h2
@@ -376,11 +375,17 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
                     </div>
                   </div>
                 </div>
-                <img
-                  src="https://bulma.io/images/placeholders/48x48.png"
-                />
+                <div>
+                  <img
+                    style={
+                      Object {
+                        "height": "20rem",
+                      }
+                    }
+                  />
+                </div>
               </div>
-            </DesktopAppHeader>
+            </ClientAppHeader>
             <AppContent
               appDetailData={
                 Object {
@@ -489,14 +494,6 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
                       </p>
                     </div>
                   </Component>
-                </div>
-              </div>
-            </AppContent>
-            <Component>
-              <div
-                className="form-section mb-4 "
-              >
-                <div>
                   <Component
                     contact={
                       Object {
@@ -506,14 +503,12 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
                         "telephone": undefined,
                       }
                     }
-                    hasGutter={false}
                   >
                     <Component
-                      hasGutter={false}
+                      hasGutter={true}
                       header="Contact Developer"
                     >
                       <div
-                        className=""
                         data-test=""
                       >
                         <Component>
@@ -560,6 +555,12 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
                     </Component>
                   </Component>
                 </div>
+              </div>
+            </AppContent>
+            <Component>
+              <div
+                className="form-section mb-4 "
+              >
                 <Component
                   onClick={[Function]}
                 >

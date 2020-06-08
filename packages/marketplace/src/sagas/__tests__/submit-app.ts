@@ -59,8 +59,8 @@ describe('submit-app post data', () => {
 
   test('api call fail', () => {
     const clone = gen.clone()
-    // @ts-ignore
-    expect(clone.throw(new Error('Call API Failed')).value).toEqual(put(submitAppSetFormState('ERROR')))
+    if (!clone.throw) throw new Error('Generator object cannot throw')
+    expect(clone.throw('Call API Failed').value).toEqual(put(submitAppSetFormState('ERROR')))
     expect(clone.next().value).toEqual(
       put(
         errorThrownServer({
@@ -74,12 +74,13 @@ describe('submit-app post data', () => {
 
   test('api call fail when error response contains description field', () => {
     const clone = gen.clone()
-    const err = new Error('Call API Failed')
-    // @ts-ignore
-    err.response = {
-      description: 'test',
+
+    const err = {
+      response: {
+        description: 'test',
+      },
     }
-    // @ts-ignore
+    if (!clone.throw) throw new Error('Generator object cannot throw')
     expect(clone.throw(err).value).toEqual(call(params.data.actions.setErrors, { [FIELD_ERROR_DESCRIPTION]: 'test' }))
     expect(clone.next().value).toEqual(put(submitAppSetFormState('ERROR')))
     expect(clone.next().value).toEqual(
@@ -116,8 +117,8 @@ describe('submit-app fetch data', () => {
 
   test('api call fail', () => {
     const clone = gen.clone()
-    // @ts-ignore
-    expect(clone.throw(new Error('Call API Failed')).value).toEqual(put(submitAppLoading(false)))
+    if (!clone.throw) throw new Error('Generator object cannot throw')
+    expect(clone.throw('Call API Failed').value).toEqual(put(submitAppLoading(false)))
     expect(clone.next().value).toEqual(
       put(
         errorThrownServer({

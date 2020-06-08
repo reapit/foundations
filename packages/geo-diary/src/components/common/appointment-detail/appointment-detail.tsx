@@ -117,7 +117,7 @@ export const renderAddress = (
           entityCode: propertyId,
         }}
       >
-        <p>{addressParts.filter(p => p).join(', ')}</p>
+        {addressParts.filter(p => p).join(', ')}
       </AcLink>
     </div>
   )
@@ -181,7 +181,7 @@ export const renderOffices = (offices: OfficeModel[], loginMode: LoginMode) => {
                 entityCode: office.id,
               }}
             >
-              <p>{office.name}</p>
+              {office.name}
             </AcLink>
           </div>
         ))}
@@ -204,7 +204,7 @@ export const renderAttendee = (attendee: AppointmentAttendeeModel, loginMode: Lo
               <FaMale />
               <H6>{capitalizeFirstLetter(attendee?.type || '')}:</H6>
             </div>
-            <p>
+            <div>
               <div className="mb-2">
                 <AcLink
                   dynamicLinkParams={{
@@ -213,11 +213,11 @@ export const renderAttendee = (attendee: AppointmentAttendeeModel, loginMode: Lo
                     entityCode: attendee.id,
                   }}
                 >
-                  <p>{contact?.name}</p>
+                  {contact?.name}
                 </AcLink>
               </div>
               {renderCommunicationDetail(contact)}
-            </p>
+            </div>
           </div>
         )
       })}

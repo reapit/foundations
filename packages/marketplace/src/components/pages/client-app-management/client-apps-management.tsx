@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
-import { useParams, useHistory } from 'react-router'
+import { useLocation, useHistory } from 'react-router'
 import { History } from 'history'
 import { Loader, Info } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
@@ -11,8 +11,9 @@ import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { handleLaunchApp } from '@/utils/launch-app'
 import { selectIsAdmin } from '@/selector/auth'
 import Routes from '@/constants/routes'
+import { getParamsFromPath } from '@/utils/client-url-params'
 
-export const handleOnChange = history => (page: number) => history.push(`${routes.MY_APPS}/${page}`)
+export const handleOnChange = history => (page: number) => history.push(`${routes.MY_APPS}?page=${page}`)
 
 export const handleOnSettingClick = (history: History) => (app: AppSummaryModel) => {
   history.push(`${Routes.CLIENT}/${app.id}`)
@@ -20,10 +21,12 @@ export const handleOnSettingClick = (history: History) => (app: AppSummaryModel)
 
 export const ClientAppsManagement: React.FunctionComponent = () => {
   const history = useHistory()
+  const location = useLocation()
+
   const myAppsState = useSelector(selectMyApps)
   const isAdmin = useSelector(selectIsAdmin)
-  const { page = 1 } = useParams()
-  const pageNumber = Number(page)
+  const queryParams = getParamsFromPath(location.search)
+  const { page: pageNumber = 1 } = queryParams
 
   const unfetched = !myAppsState.myAppsData
   const loading = myAppsState.loading

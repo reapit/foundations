@@ -145,6 +145,7 @@ const webpackConfig = {
     },
   },
   devServer: {
+    host: '0.0.0.0',
     contentBase: [path.join(process.cwd(), 'public'), path.join(process.cwd())],
     compress: true,
     clientLogLevel: 'warning',

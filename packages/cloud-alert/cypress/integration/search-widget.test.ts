@@ -13,7 +13,7 @@ Cypress.on('fail', (error, runnable) => {
 
 if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'search-widget') {
   const WEB_COMPONENTS_API_URL = Cypress.env(`WEB_COMPONENTS_API_URL_${Cypress.env('ENVIRONMENT')}`)
-  describe('Search widget API', () => {
+  describe('search-widget API', () => {
     let property = {}
     let properties = [] as any
     let propertyImages = [] as any

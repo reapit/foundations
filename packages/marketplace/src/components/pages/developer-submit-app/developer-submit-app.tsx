@@ -8,7 +8,6 @@ import {
   Alert,
   H3,
   Grid,
-  GridItem,
   FlexContainerBasic,
   FormSection,
   LevelRight,
@@ -45,7 +44,8 @@ import UploadImageSection from './upload-image-section'
 import MarketplaceStatusSection from './marketplace-status-section'
 import PermissionSection from './permission-section'
 import styles from '@/styles/pages/developer-submit-app.scss?mod'
-import { ScopeModel } from '@/types/marketplace-api-schema'
+import { ScopeModel, CategoryModel } from '@/types/marketplace-api-schema'
+import { selectCategories } from '@/selector/app-categories'
 
 export type DeveloperSubmitAppProps = {}
 
@@ -278,16 +278,18 @@ export const handleOnSubmitAnotherApp = (dispatch: Dispatch) => {
 
 export type HandleOpenAppPreview = {
   scopes: ScopeModel[]
+  categories: CategoryModel[]
   values: FormikValues
   appId?: string
   appDetails?: AppDetailModel & { apiKey?: string }
 }
 
-export const handleOpenAppPreview = ({ appDetails, values, scopes, appId }: HandleOpenAppPreview) => () => {
+export const handleOpenAppPreview = ({ appDetails, values, scopes, categories, appId }: HandleOpenAppPreview) => () => {
   const appDetailState = {
     ...appDetails,
     ...values,
     scopes: scopes.filter(scope => values.scopes.includes(scope.name)),
+    category: categories.find(category => values.categoryId === category.id),
   }
 
   const url = `developer/apps/${appId}/preview`
@@ -306,6 +308,7 @@ export const DeveloperSubmitApp: React.FC<DeveloperSubmitAppProps> = () => {
   const appDetailState = useSelector(selectAppDetailState)
   const submitAppState = useSelector(selectSubmitAppState)
   const submitRevisionState = useSelector(selectSubmitAppRevisionState)
+  const appCategories = useSelector(selectCategories)
 
   const [isSubmitModalOpen, setIsSubmitModalOpen] = React.useState<boolean>(!getCookieString(COOKIE_FIRST_SUBMIT))
 
@@ -396,37 +399,36 @@ export const DeveloperSubmitApp: React.FC<DeveloperSubmitAppProps> = () => {
                   <FormSection>
                     {renderErrors((errors as unknown) as Record<string, string | string[]>)}
                     <LevelRight>
-                      <Grid>
-                        <GridItem>
-                          {isSubmitRevision && (
-                            <Button
-                              onClick={handleOpenAppPreview({
-                                appDetails: appDetailState?.appDetailData?.data,
-                                values,
-                                scopes,
-                                appId: appid,
-                              })}
-                              variant="primary"
-                              type="button"
-                            >
-                              Preview
-                            </Button>
-                          )}
-                          {!isSubmitApp && (
-                            <Button onClick={goBackToApps} variant="primary" type="button">
-                              Back To Apps
-                            </Button>
-                          )}
+                      <Grid className={styles.footerButtons}>
+                        {isSubmitRevision && (
                           <Button
-                            type="submit"
-                            dataTest="submit-app-button"
+                            onClick={handleOpenAppPreview({
+                              appDetails: appDetailState?.appDetailData?.data,
+                              values,
+                              scopes,
+                              categories: appCategories,
+                              appId: appid,
+                            })}
                             variant="primary"
-                            loading={Boolean(isSubmitting)}
-                            disabled={Boolean(isSubmitting)}
+                            type="button"
                           >
-                            Submit App
+                            Preview
                           </Button>
-                        </GridItem>
+                        )}
+                        {!isSubmitApp && (
+                          <Button onClick={goBackToApps} variant="primary" type="button">
+                            Back To Apps
+                          </Button>
+                        )}
+                        <Button
+                          type="submit"
+                          dataTest="submit-app-button"
+                          variant="primary"
+                          loading={Boolean(isSubmitting)}
+                          disabled={Boolean(isSubmitting)}
+                        >
+                          Submit App
+                        </Button>
                       </Grid>
                     </LevelRight>
                   </FormSection>

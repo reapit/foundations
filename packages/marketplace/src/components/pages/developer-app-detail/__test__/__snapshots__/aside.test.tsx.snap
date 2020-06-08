@@ -114,7 +114,6 @@ exports[`Aside Aside - should match snapshot 1`] = `
           },
         }
       }
-      id="9b6fd5f7-2c15-483d-b925-01b650538e52"
       pendingRevisions={false}
     />
   </div>
@@ -218,7 +217,6 @@ exports[`Aside ManageApp - should match snapshot 1`] = `
             },
           }
         }
-        id="test"
         pendingRevisions={false}
       >
         <Component
@@ -237,14 +235,13 @@ exports[`Aside ManageApp - should match snapshot 1`] = `
             </Component>
             <div>
               <Component
-                className="mb-3"
                 dataTest="detail-modal-edit-button"
                 onClick={[Function]}
                 type="button"
                 variant="primary"
               >
                 <button
-                  className="button mb-3 is-primary  "
+                  className="button  is-primary  "
                   data-test="detail-modal-edit-button"
                   disabled={false}
                   onClick={[Function]}

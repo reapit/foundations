@@ -10,11 +10,11 @@ import AppContent, {
   handleUninstallSuccess,
   renderAuthentication,
   renderInstallationsTable,
+  handleOpenAppPreview,
 } from '../app-content/app-content'
 import { Provider } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import configureStore from 'redux-mock-store'
-import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 
 const mockState = {
   auth: {
@@ -27,11 +27,9 @@ const mockState = {
   installations: {
     installationsAppData: installationsStub,
   },
-  appDetail: {
-    authentication: {
-      loading: false,
-      code: '123',
-    },
+
+  developer: {
+    developerAppDetail: appDetailDataStub,
   },
 } as ReduxState
 
@@ -43,7 +41,7 @@ describe('AppContent', () => {
     expect(
       mount(
         <Provider store={store}>
-          <AppContent appDetailData={appDetailDataStub as AppDetailModel} />
+          <AppContent appDetailState={mockState.developer.developerAppDetail} />
         </Provider>,
       ),
     ).toMatchSnapshot()
@@ -101,6 +99,16 @@ describe('AppContent', () => {
       console.log(wrapper.debug())
       expect(wrapper.find('[data-test="render-installations-table-empty-text"]').length).toBe(1)
       expect(wrapper).toMatchSnapshot()
+    })
+  })
+
+  describe('handleOpenAppPreview', () => {
+    it('should run correctly', () => {
+      const appId = 'appId'
+      const spyOpenUrl = jest.spyOn(window, 'open')
+      const fn = handleOpenAppPreview(appId)
+      fn()
+      expect(spyOpenUrl).toBeCalledWith('developer/apps/appId/preview', '_blank')
     })
   })
 })

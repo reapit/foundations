@@ -37,7 +37,7 @@ describe('adminApprovals fetch data', () => {
 
   test('api call error', () => {
     const clone = gen.clone()
-    // @ts-ignore
+    if (!clone.throw) throw new Error('Generator object cannot throw')
     expect(clone.throw('error').value).toEqual(
       put(
         errorThrownServer({

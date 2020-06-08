@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UnsupportBrower should match a snapshot 1`] = `
+<Component
+  className="section"
+>
+  <Component
+    isCentered={true}
+  >
+    Unsupported Brower
+  </Component>
+  <Component
+    isCentered={true}
+  >
+    marketplace probably won't work great in Internet Explorer 11. we generally only support the recent versions of
+        major browers like Chrome, Firefox, Safari and Edge
+  </Component>
+</Component>
+`;

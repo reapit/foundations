@@ -20,6 +20,16 @@
   display: flex;
   margin-top: 1rem;
   text-align: right;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    & > button.idCheckSucessBtn {
+      margin: 0 0 1rem 0;
+    }
+    & > button.returnBtn {
+      margin: 0;
+    }
+  }
 }
 
 .footerBetween {

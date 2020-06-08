@@ -13,7 +13,24 @@ Cypress.on('fail', (error, runnable) => {
 
 if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'appointment-planner-component') {
   const WEB_COMPONENTS_API_URL = Cypress.env(`WEB_COMPONENTS_API_URL_${Cypress.env('ENVIRONMENT')}`)
-  describe('Search widget API', () => {
+  describe('appointment-planner-component API', () => {
+    it('user should able to call /ping', () => {
+      cy.request({
+        url: `${WEB_COMPONENTS_API_URL}/ping`,
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': Cypress.env('WEB_COMPONENTS_X_API_KEY'),
+        },
+      }).as('appointmentSlots')
+      cy.get('@appointmentSlots').should((response: any) => {
+        expect(response).to.have.property('headers')
+        expect(response).to.have.property('body')
+        expect(response).to.have.property('status')
+        expect(response.status).to.equal(200)
+        expect(response.body).not.to.be.undefined
+      })
+    })
     it('user should able to call /appointment-slots', () => {
       cy.request({
         url: `${WEB_COMPONENTS_API_URL}/appointment-slots`,

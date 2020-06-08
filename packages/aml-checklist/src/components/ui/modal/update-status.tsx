@@ -42,6 +42,7 @@ export const UpdateStatus: React.FC<UpdateStatusProps> = ({
             appMode: loginMode,
           }}
           buttonProps={{
+            className: styles.idCheckSucessBtn,
             type: 'button',
             variant: 'primary',
             loading: isSubmitting,
@@ -62,6 +63,7 @@ export const UpdateStatus: React.FC<UpdateStatusProps> = ({
         <Button
           type="button"
           variant="primary"
+          className={styles.returnBtn}
           onClick={() => {
             window.location.href =
               window.location.href.includes('dev') || window.location.href.includes('localhost')

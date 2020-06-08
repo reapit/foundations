@@ -1,5 +1,5 @@
 import { validate } from '../change-password'
-import { ChangePasswordValues } from '../../../components/pages/settings/change-password-form'
+import { ChangePasswordValues } from '@/components/pages/settings/developer-settings/forms/change-password-form'
 import errorMessages from '@/constants/error-messages'
 
 describe('changePasswordValidation', () => {
