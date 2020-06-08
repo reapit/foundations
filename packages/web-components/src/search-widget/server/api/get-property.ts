@@ -1,5 +1,5 @@
 import { fetcher } from '../../../common/utils/fetcher-server'
-import { stringtifyError } from '@reapit/node-utils'
+import { stringifyError } from '@reapit/node-utils'
 import { PropertyModel } from '@reapit/foundations-ts-definitions'
 import { errorHandler } from '../../../common/utils/error-handler'
 import { getServerHeaders } from '../../../common/utils/get-server-headers'
@@ -31,7 +31,7 @@ export const getProperty = async (req: AppRequest, res: AppResponse) => {
   } catch (err) {
     logger.error('getProperty', {
       traceId: req.traceId,
-      error: stringtifyError(err),
+      error: stringifyError(err),
       headers: JSON.stringify(req.headers),
     })
     errorHandler(err, res, req, 'getProperty', logger)

@@ -6,7 +6,7 @@ import { serializeError } from 'serialize-error'
  * convert any know error properties to object
  * stringtify using JSON.stringtify
  */
-export const stringtifyError = (err: any) => JSON.stringify(serializeError(err))
+export const stringifyError = (err: any) => JSON.stringify(serializeError(err))
 
 /**
  * patch logger.error to send error to sentry

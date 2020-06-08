@@ -1,6 +1,5 @@
 import path from 'path'
 import express from 'express'
-import * as Sentry from '@sentry/node'
 import uuidv4 from 'uuid/v4'
 import { ApolloServer, ServerInfo } from 'apollo-server'
 import { ContextFunction, Context, GraphQLResponse, GraphQLRequestContext } from 'apollo-server-core'
@@ -19,14 +18,6 @@ if (process.env.NODE_ENV === 'development') {
   for (const k in configs) {
     process.env[k] = configs[k]
   }
-}
-
-if (process.env.NODE_ENV !== 'development') {
-  Sentry.init({
-    dsn: process.env.SENTRY_DSN,
-    release: process.env.APP_VERSION,
-    environment: process.env.APP_ENV,
-  })
 }
 
 export type ExpressContext = {

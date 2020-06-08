@@ -3,7 +3,7 @@ import { getConfigByClientId, createConfig, deleteConfig, updateConfig } from '.
 import { AppRequest, AppResponse } from '@/app'
 import logger from '@/logger'
 import { validateGetById, validateCreate, validateUpdate, validateDelete } from './validators'
-import { stringtifyError } from '@reapit/node-utils'
+import { stringifyError } from '@reapit/node-utils'
 
 const webComponentsConfig = express.Router()
 
@@ -20,7 +20,7 @@ export const webComponentsConfigGetByIdHandler = async (req: AppRequest, res: Ap
   } catch (err) {
     logger.error('webComponentsConfig.getById', {
       traceId: req.traceId,
-      error: stringtifyError(err),
+      error: stringifyError(err),
       headers: JSON.stringify(req.headers),
     })
     return res.send({ message: err.message, code: err.code, traceId: req.traceId })
@@ -38,7 +38,7 @@ export const webComponentsConfigPutHandler = async (req: AppRequest, res: AppRes
     logger.error('webComponentsConfig.put', {
       headers: JSON.stringify(req.headers),
       traceId: req.traceId,
-      error: stringtifyError(err),
+      error: stringifyError(err),
     })
     return res.send({ message: err.message, code: err.code, traceId: req.traceId })
   }
@@ -57,7 +57,7 @@ export const webComponentsConfigPatchHandler = async (req: AppRequest, res: AppR
   } catch (err) {
     logger.error('webComponentsConfig.patch', {
       traceId: req.traceId,
-      error: stringtifyError(err),
+      error: stringifyError(err),
       headers: JSON.stringify(req.headers),
     })
     return res.send({ message: err.message, code: err.code, traceId: req.traceId })
