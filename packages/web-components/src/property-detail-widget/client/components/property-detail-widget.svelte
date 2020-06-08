@@ -189,7 +189,7 @@
       {/if}
 
       {#if !transformedPropertyImages || transformedPropertyImages.length === 0}
-        <img alt="property-detail-widget image" src={INVALID_BACKGROUND_AS_BASE64} on:error={handleImageError} />
+        <img alt="property-detail-widget" src={INVALID_BACKGROUND_AS_BASE64} on:error={handleImageError} />
       {:else}
         <div class="property-detail-widget-light-box-container">
           <LightBox images={transformedPropertyImages} />

@@ -4,6 +4,7 @@
   import { generateThemeClasses, resetCSS } from '../../../common/styles'
   import { onMount, onDestroy } from 'svelte'
   import Modal from './modal.svelte'
+  import Loader from '../../../common/components/loader.svelte'
   import viewBookingStore from '../core/store'
   import { validateEmail } from '../../../common/utils/validate'
 
@@ -147,31 +148,35 @@
 </style>
 
 <button on:click={handleToggleModal} class="book-viewing-widget-button">Book a viewing</button>
-<Modal {isModalOpen} toggleModal={handleToggleModal} {isLoading} title="Book a Viewing">
+<Modal {isModalOpen} toggleModal={handleToggleModal} title="Book a Viewing">
 
-  <form on:submit|preventDefault={submitForm} class="{themeClasses.globalStyles} {resetCSS}">
-    <div class="property-image {backgroundImage}">
-      <h4>
-        {propertyData && propertyData.address}
-        <strong>{propertyData && propertyData.price}</strong>
-      </h4>
-    </div>
-    <div class="book-viewing-widget-email-form">
-      <p class={themeClasses.bodyText}>To book a viewing, please enter your e-mail below.</p>
-      <label class={themeClasses.secondaryStrapline} for="book-viewing-widget-email">E-mail*</label>
-      <input
-        class={themeClasses.input}
-        type="email"
-        id="book-viewing-widget-email"
-        on:input={handleInput}
-        placeholder="Your e-mail address" />
-      {#if !correctEmail}
-        <span class="invalid-email {themeClasses.errorText}">Please enter a valid e-mail address</span>
-      {/if}
-    </div>
-    <div class="book-viewing-widget-form-submit">
-      <button class={themeClasses.button} type="submit">Get Appointments</button>
-    </div>
-  </form>
+  {#if isLoading}
+    <Loader />
+  {:else}
+    <form on:submit|preventDefault={submitForm} class="{themeClasses.globalStyles} {resetCSS}">
+      <div class="property-image {backgroundImage}">
+        <h4>
+          {propertyData && propertyData.address}
+          <strong>{propertyData && propertyData.price}</strong>
+        </h4>
+      </div>
+      <div class="book-viewing-widget-email-form">
+        <p class={themeClasses.bodyText}>To book a viewing, please enter your e-mail below.</p>
+        <label class={themeClasses.secondaryStrapline} for="book-viewing-widget-email">E-mail*</label>
+        <input
+          class={themeClasses.input}
+          type="email"
+          id="book-viewing-widget-email"
+          on:input={handleInput}
+          placeholder="Your e-mail address" />
+        {#if !correctEmail}
+          <span class="invalid-email {themeClasses.errorText}">Please enter a valid e-mail address</span>
+        {/if}
+      </div>
+      <div class="book-viewing-widget-form-submit">
+        <button class={themeClasses.button} type="submit">Get Appointments</button>
+      </div>
+    </form>
+  {/if}
 
 </Modal>
