@@ -23,20 +23,11 @@ export type ClientAppUninstallConfirmationProps = {
 }
 
 export const handleUninstallAppSuccessCallback = (
-  appId: string,
-  clientId: string,
-  dispatch: Dispatch<any>,
   setIsSuccessAlertVisible: (isVisible: boolean) => void,
   closeUninstallConfirmationModal: () => void,
   isDesktopMode: boolean,
 ) => {
   return () => {
-    dispatch(
-      clientFetchAppDetail({
-        id: appId,
-        clientId,
-      }),
-    )
     if (isDesktopMode) {
       window.location.href = DESKTOP_REFRESH_URL
     }
@@ -61,9 +52,6 @@ export const onUninstallButtonClick = (
         installationId,
         terminatedReason: 'User uninstall',
         callback: handleUninstallAppSuccessCallback(
-          appId,
-          clientId,
-          dispatch,
           setIsSuccessAlertVisible,
           closeUninstallConfirmationModal,
           isDesktopMode,
@@ -82,8 +70,20 @@ export const handleSuccessAlertButtonClick = (history: History) => {
   }
 }
 
-export const handleSuccessAlertMessageAfterClose = (setIsSuccessAlertVisible: (isVisible: boolean) => void) => {
+export const handleSuccessAlertMessageAfterClose = (
+  appId: string,
+  clientId: string,
+  setIsSuccessAlertVisible: (isVisible: boolean) => void,
+  dispatch: Dispatch,
+) => {
   return () => {
+    dispatch(
+      clientFetchAppDetail({
+        id: appId,
+        clientId,
+      }),
+    )
+
     setIsSuccessAlertVisible(false)
   }
 }
@@ -166,7 +166,10 @@ const ClientAppUninstallConfirmation: React.FC<ClientAppUninstallConfirmationPro
       >
         <>Are you sure you wish to uninstall {name}? This action will uninstall the app for ALL platform users</>
       </Modal>
-      <Modal visible={isSuccessAlertVisible} afterClose={handleSuccessAlertMessageAfterClose(setIsSuccessAlertVisible)}>
+      <Modal
+        visible={isSuccessAlertVisible}
+        afterClose={handleSuccessAlertMessageAfterClose(id, clientId, setIsSuccessAlertVisible, dispatch)}
+      >
         <>
           <CallToAction
             title="Success"

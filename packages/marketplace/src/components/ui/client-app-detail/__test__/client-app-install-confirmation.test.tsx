@@ -66,24 +66,28 @@ describe('ClientAppInstallConfirmation', () => {
       )
     })
   })
-  describe('handleInstallAppSuccessCallback', () => {
+
+  describe('handleSuccessAlertMessageAfterClose', () => {
     it('should run correctly', () => {
       const mockFunction = jest.fn()
-      const fn = handleInstallAppSuccessCallback(
-        appId,
-        clientId,
-        spyDispatch,
-        mockFunction,
-        mockProps.closeInstallConfirmationModal,
-        false,
-      )
+      const fn = handleSuccessAlertMessageAfterClose(appId, clientId, mockFunction, spyDispatch)
       fn()
+      expect(mockFunction).toBeCalledWith(false)
       expect(spyDispatch).toBeCalledWith(
         clientFetchAppDetail({
           id: appId,
           clientId,
         }),
       )
+    })
+  })
+
+  describe('handleInstallAppSuccessCallback', () => {
+    it('should run correctly', () => {
+      const mockFunction = jest.fn()
+      const fn = handleInstallAppSuccessCallback(mockFunction, mockProps.closeInstallConfirmationModal, false)
+      fn()
+
       expect(mockProps.closeInstallConfirmationModal).toBeCalled()
       expect(mockFunction).toBeCalledWith(true)
     })
@@ -95,11 +99,5 @@ describe('ClientAppInstallConfirmation', () => {
     const fn = handleSuccessAlertButtonClick(history)
     fn()
     expect(history.replace).toBeCalledWith(routes.CLIENT)
-  })
-  describe('handleSuccessAlertMessageAfterClose', () => {
-    const mockFunction = jest.fn()
-    const fn = handleSuccessAlertMessageAfterClose(mockFunction)
-    fn()
-    expect(mockFunction).toBeCalledWith(false)
   })
 })
