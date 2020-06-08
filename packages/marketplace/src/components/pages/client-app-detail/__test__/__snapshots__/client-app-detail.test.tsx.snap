@@ -88,19 +88,93 @@ exports[`ClientAppDetail should match a snapshot 1`] = `
       }
     >
       <ClientAppDetail>
-        <Component
-          dataTest="client-app-detail-loader"
+        <div
+          data-test="client-app-detail-container"
         >
-          <div
-            className="loader-spinner body"
-            data-test="client-app-detail-loader"
+          <Component
+            dataTest="client-app-detail-loader"
           >
-            <div />
-            <div />
-            <div />
-            <div />
-          </div>
-        </Component>
+            <div
+              className="loader-spinner body"
+              data-test="client-app-detail-loader"
+            >
+              <div />
+              <div />
+              <div />
+              <div />
+            </div>
+          </Component>
+          <ClientAppUninstallConfirmation
+            appDetailData={Object {}}
+            closeUninstallConfirmationModal={[Function]}
+            visible={false}
+          >
+            <Component
+              afterClose={[Function]}
+              footerItems={
+                <React.Fragment>
+                  <Unknown
+                    dataTest="agree-btn"
+                    loading={false}
+                    onClick={[Function]}
+                    type="button"
+                    variant="primary"
+                  >
+                    Confirm
+                  </Unknown>
+                  <Unknown
+                    dataTest="disagree-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                    variant="danger"
+                  >
+                    Cancel
+                  </Unknown>
+                </React.Fragment>
+              }
+              title="Confirm undefined uninstallation"
+              visible={false}
+            />
+            <Component
+              afterClose={[Function]}
+              visible={false}
+            />
+          </ClientAppUninstallConfirmation>
+          <ClientAppInstallConfirmation
+            appDetailData={Object {}}
+            closeInstallConfirmationModal={[Function]}
+            visible={false}
+          >
+            <Component
+              afterClose={[Function]}
+              footerItems={
+                <React.Fragment>
+                  <Unknown
+                    dataTest="agree-btn"
+                    loading={false}
+                    onClick={[Function]}
+                    type="button"
+                    variant="primary"
+                  >
+                    Confirm
+                  </Unknown>
+                  <Unknown
+                    dataTest="disagree-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                    variant="danger"
+                  >
+                    Cancel
+                  </Unknown>
+                </React.Fragment>
+              }
+              title="Confirm undefined installation"
+              visible={false}
+            />
+          </ClientAppInstallConfirmation>
+        </div>
       </ClientAppDetail>
     </Router>
   </MemoryRouter>
@@ -577,6 +651,84 @@ exports[`ClientAppDetail should not render loader when client.appDetail.data is 
               </div>
             </Component>
           </div>
+          <ClientAppUninstallConfirmation
+            appDetailData={
+              Object {
+                "key": "value",
+              }
+            }
+            closeUninstallConfirmationModal={[Function]}
+            visible={false}
+          >
+            <Component
+              afterClose={[Function]}
+              footerItems={
+                <React.Fragment>
+                  <Unknown
+                    dataTest="agree-btn"
+                    loading={false}
+                    onClick={[Function]}
+                    type="button"
+                    variant="primary"
+                  >
+                    Confirm
+                  </Unknown>
+                  <Unknown
+                    dataTest="disagree-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                    variant="danger"
+                  >
+                    Cancel
+                  </Unknown>
+                </React.Fragment>
+              }
+              title="Confirm undefined uninstallation"
+              visible={false}
+            />
+            <Component
+              afterClose={[Function]}
+              visible={false}
+            />
+          </ClientAppUninstallConfirmation>
+          <ClientAppInstallConfirmation
+            appDetailData={
+              Object {
+                "key": "value",
+              }
+            }
+            closeInstallConfirmationModal={[Function]}
+            visible={false}
+          >
+            <Component
+              afterClose={[Function]}
+              footerItems={
+                <React.Fragment>
+                  <Unknown
+                    dataTest="agree-btn"
+                    loading={false}
+                    onClick={[Function]}
+                    type="button"
+                    variant="primary"
+                  >
+                    Confirm
+                  </Unknown>
+                  <Unknown
+                    dataTest="disagree-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                    variant="danger"
+                  >
+                    Cancel
+                  </Unknown>
+                </React.Fragment>
+              }
+              title="Confirm undefined installation"
+              visible={false}
+            />
+          </ClientAppInstallConfirmation>
         </div>
       </ClientAppDetail>
     </Router>
@@ -640,19 +792,93 @@ exports[`ClientAppDetail should render loader when client.appDetail.data is an e
       }
     >
       <ClientAppDetail>
-        <Component
-          dataTest="client-app-detail-loader"
+        <div
+          data-test="client-app-detail-container"
         >
-          <div
-            className="loader-spinner body"
-            data-test="client-app-detail-loader"
+          <Component
+            dataTest="client-app-detail-loader"
           >
-            <div />
-            <div />
-            <div />
-            <div />
-          </div>
-        </Component>
+            <div
+              className="loader-spinner body"
+              data-test="client-app-detail-loader"
+            >
+              <div />
+              <div />
+              <div />
+              <div />
+            </div>
+          </Component>
+          <ClientAppUninstallConfirmation
+            appDetailData={Object {}}
+            closeUninstallConfirmationModal={[Function]}
+            visible={false}
+          >
+            <Component
+              afterClose={[Function]}
+              footerItems={
+                <React.Fragment>
+                  <Unknown
+                    dataTest="agree-btn"
+                    loading={false}
+                    onClick={[Function]}
+                    type="button"
+                    variant="primary"
+                  >
+                    Confirm
+                  </Unknown>
+                  <Unknown
+                    dataTest="disagree-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                    variant="danger"
+                  >
+                    Cancel
+                  </Unknown>
+                </React.Fragment>
+              }
+              title="Confirm undefined uninstallation"
+              visible={false}
+            />
+            <Component
+              afterClose={[Function]}
+              visible={false}
+            />
+          </ClientAppUninstallConfirmation>
+          <ClientAppInstallConfirmation
+            appDetailData={Object {}}
+            closeInstallConfirmationModal={[Function]}
+            visible={false}
+          >
+            <Component
+              afterClose={[Function]}
+              footerItems={
+                <React.Fragment>
+                  <Unknown
+                    dataTest="agree-btn"
+                    loading={false}
+                    onClick={[Function]}
+                    type="button"
+                    variant="primary"
+                  >
+                    Confirm
+                  </Unknown>
+                  <Unknown
+                    dataTest="disagree-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                    variant="danger"
+                  >
+                    Cancel
+                  </Unknown>
+                </React.Fragment>
+              }
+              title="Confirm undefined installation"
+              visible={false}
+            />
+          </ClientAppInstallConfirmation>
+        </div>
       </ClientAppDetail>
     </Router>
   </MemoryRouter>
@@ -715,19 +941,93 @@ exports[`ClientAppDetail should render loader when isLoadingAppDetail = true 1`]
       }
     >
       <ClientAppDetail>
-        <Component
-          dataTest="client-app-detail-loader"
+        <div
+          data-test="client-app-detail-container"
         >
-          <div
-            className="loader-spinner body"
-            data-test="client-app-detail-loader"
+          <Component
+            dataTest="client-app-detail-loader"
           >
-            <div />
-            <div />
-            <div />
-            <div />
-          </div>
-        </Component>
+            <div
+              className="loader-spinner body"
+              data-test="client-app-detail-loader"
+            >
+              <div />
+              <div />
+              <div />
+              <div />
+            </div>
+          </Component>
+          <ClientAppUninstallConfirmation
+            appDetailData={Object {}}
+            closeUninstallConfirmationModal={[Function]}
+            visible={false}
+          >
+            <Component
+              afterClose={[Function]}
+              footerItems={
+                <React.Fragment>
+                  <Unknown
+                    dataTest="agree-btn"
+                    loading={false}
+                    onClick={[Function]}
+                    type="button"
+                    variant="primary"
+                  >
+                    Confirm
+                  </Unknown>
+                  <Unknown
+                    dataTest="disagree-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                    variant="danger"
+                  >
+                    Cancel
+                  </Unknown>
+                </React.Fragment>
+              }
+              title="Confirm undefined uninstallation"
+              visible={false}
+            />
+            <Component
+              afterClose={[Function]}
+              visible={false}
+            />
+          </ClientAppUninstallConfirmation>
+          <ClientAppInstallConfirmation
+            appDetailData={Object {}}
+            closeInstallConfirmationModal={[Function]}
+            visible={false}
+          >
+            <Component
+              afterClose={[Function]}
+              footerItems={
+                <React.Fragment>
+                  <Unknown
+                    dataTest="agree-btn"
+                    loading={false}
+                    onClick={[Function]}
+                    type="button"
+                    variant="primary"
+                  >
+                    Confirm
+                  </Unknown>
+                  <Unknown
+                    dataTest="disagree-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                    variant="danger"
+                  >
+                    Cancel
+                  </Unknown>
+                </React.Fragment>
+              }
+              title="Confirm undefined installation"
+              visible={false}
+            />
+          </ClientAppInstallConfirmation>
+        </div>
       </ClientAppDetail>
     </Router>
   </MemoryRouter>
