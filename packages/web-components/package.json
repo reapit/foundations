@@ -17,7 +17,6 @@
     "url": "git+https://github.com/reapit/foundations.git"
   },
   "devDependencies": {
-    "@reapit/foundations-ts-definitions": "2020-03-04",
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-json": "^4.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
@@ -38,7 +37,9 @@
     "serverless-webpack": "^5.3.1",
     "sirv-cli": "^0.4.5",
     "svelte-jester": "^1.0.4",
-    "terser": "^4.6.13"
+    "terser": "^4.6.13",
+    "@reapit/foundations-ts-definitions": "2020-03-04",
+    "@reapit/utils": "^0.0.1"
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^5.13.0",

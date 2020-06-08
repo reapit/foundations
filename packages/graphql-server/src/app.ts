@@ -12,8 +12,9 @@ import resolvers from './resolvers'
 
 const typeDefs = importSchema('./src/schema.graphql')
 
+const configs = require(path.resolve(__dirname, '..', 'config.json'))
+
 if (process.env.NODE_ENV === 'development') {
-  const configs = require(path.resolve(__dirname, '..', 'config.json'))
   for (const k in configs) {
     process.env[k] = configs[k]
   }

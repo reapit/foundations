@@ -1,4 +1,5 @@
 const { compilerOptions } = require('./tsconfig')
+const { pathsToModuleNameMapper } = require('ts-jest/utils')
 
 module.exports = {
   preset: 'ts-jest',
@@ -23,6 +24,9 @@ module.exports = {
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|poc-archive)[/\\\\]'],
   moduleNameMapper: {
     '^.+.(?=.*scss|sass|css|png|jpg).*': '<rootDir>/../../scripts/jest/css-stub.js',
+    ...pathsToModuleNameMapper(compilerOptions.paths, {
+      prefix: '<rootDir>/',
+    }),
   },
   moduleFileExtensions: ['js', 'ts', 'svelte'],
   coverageThreshold: {
