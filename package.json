@@ -13,7 +13,9 @@
       "**/react-app-scaffolder",
       "**/react-app-scaffolder/**",
       "**/svelte",
-      "**/svelte/**"
+      "**/svelte/**",
+      "**/graphql-server",
+      "**/graphql-server/**"
     ]
   },
   "scripts": {

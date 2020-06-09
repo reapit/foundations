@@ -1,6 +1,6 @@
 import logger from '../logger'
 import errors from '../errors'
-import { ApolloError } from 'apollo-server'
+import { ApolloError } from 'apollo-server-lambda'
 import { AxiosError } from 'axios'
 import { stringifyError } from '@reapit/node-utils'
 

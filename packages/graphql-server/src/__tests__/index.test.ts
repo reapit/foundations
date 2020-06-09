@@ -1,7 +1,6 @@
 import { GraphQLResponse, GraphQLRequestContext } from 'apollo-server-core'
-import { formatResponse, handleContext, ExpressContext, formatError, listenCallback } from '../app'
+import { formatResponse, formatError, handleContext } from '../index'
 import { GraphQLError } from 'graphql'
-import { ServerInfo } from 'apollo-server'
 
 jest.mock('../logger')
 jest.mock('uuid/v4', (): (() => string) => {
@@ -69,18 +68,23 @@ describe('app.js', () => {
 
   describe('handleContext', () => {
     it('should run correctly', () => {
-      const mockPrams = {
-        req: {
+      const mockParams = {
+        event: {
           headers: {
-            authorization: 'mock Authorization',
+            Authorization: 'Mock Authorization',
           },
         },
-        res: {},
-      } as ExpressContext
-      const result = handleContext(mockPrams)
+        context: {
+          functionName: 'Mock Function Name',
+        },
+      } as any
+      const result = handleContext(mockParams)
       expect(result).toEqual({
         traceId: 'mockUUID',
-        authorization: 'mock Authorization',
+        authorization: 'Mock Authorization',
+        functionName: 'Mock Function Name',
+        event: mockParams.event,
+        context: mockParams.context,
       })
     })
   })
@@ -131,16 +135,6 @@ describe('app.js', () => {
           code: { mockCode: 'mockCode' },
         },
       })
-    })
-  })
-
-  describe('listenCallback', () => {
-    it('should run correctly', () => {
-      const mockServerInfo = {
-        url: 'http://localhost:4000',
-      } as ServerInfo
-      const result = listenCallback(mockServerInfo)
-      expect(result).not.toBeDefined()
     })
   })
 })

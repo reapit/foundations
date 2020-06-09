@@ -1,6 +1,6 @@
 import qs from 'query-string'
 import logger from '../../logger'
-import { ServerContext } from '../../app'
+import { ServerContext } from '../../index'
 import {
   GetOfficeByIdArgs,
   CreateOfficeArgs,

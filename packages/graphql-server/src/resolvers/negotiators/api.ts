@@ -1,7 +1,7 @@
 import qs from 'query-string'
 import { createPlatformAxiosInstance } from '../../utils/axios-instances'
 import logger from '../../logger'
-import { ServerContext } from '../../app'
+import { ServerContext } from '../../index'
 import {
   GetNegotiatorByIdArgs,
   CreateNegotiatorArgs,

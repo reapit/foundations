@@ -1,7 +1,8 @@
 import { ApolloServer } from 'apollo-server-lambda'
 import { importSchema } from 'graphql-import'
+import { Context, GraphQLResponse, GraphQLRequestContext } from 'apollo-server-core'
+import { GraphQLError, GraphQLFormattedError } from 'graphql'
 import uuidv4 from 'uuid/v4'
-import { formatError, formatResponse } from './app'
 import resolvers from './resolvers'
 import depthLimit from 'graphql-depth-limit'
 import logger from './logger'
@@ -15,8 +16,10 @@ if (process.env.NODE_ENV !== 'development') {
   })
 }
 
+export type ServerContext = Context<{ traceId: string; authorization: string }>
+
 const typeDefs = importSchema('./src/schema.graphql')
-const handleContext = ({ event, context }) => {
+export const handleContext = ({ event, context }) => {
   const traceId = uuidv4()
   const isProductionEnv = process.env.NODE_ENV === 'production'
   if (isProductionEnv) {
@@ -24,6 +27,7 @@ const handleContext = ({ event, context }) => {
   }
   return {
     traceId: traceId,
+    headers: event.headers,
     authorization: event?.headers?.Authorization || '',
     functionName: context.functionName,
     event,
@@ -31,8 +35,27 @@ const handleContext = ({ event, context }) => {
   }
 }
 
+export const formatResponse = (
+  response: GraphQLResponse | null,
+  requestContext: GraphQLRequestContext<{ traceId?: string }>,
+): GraphQLResponse => {
+  const traceId = requestContext.context?.traceId
+  const isProductionEnv = process.env.NODE_ENV === 'production'
+  if (isProductionEnv) {
+    logger.info('formatResponse', { traceId, requestContext, response })
+  }
+  return response || {}
+}
+
+export const formatError = (error: GraphQLError): GraphQLFormattedError => {
+  if (process.env.NODE_ENV === 'production') {
+    return { message: error.message, extensions: { code: error.extensions?.code } }
+  }
+  return error
+}
+
 const server = new ApolloServer({
-  typeDefs: typeDefs,
+  typeDefs,
   resolvers,
   playground: true,
   introspection: true,

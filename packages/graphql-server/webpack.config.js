@@ -4,6 +4,7 @@ const { PATHS } = require('../../scripts/webpack/constants')
 const slsw = require('serverless-webpack')
 const CopyPlugin = require('copy-webpack-plugin')
 const getServerlessEnvPlugins = require('../../scripts/utils/get-serverless-env-plugins')
+const nodeExternals = require('webpack-node-externals')
 
 const isLocal = slsw.lib.webpack.isLocal
 module.exports = {
@@ -16,10 +17,12 @@ module.exports = {
     minimize: true,
   },
   devtool: isLocal ? 'inline-cheap-module-source-map' : 'sourcemap',
+  externals: [nodeExternals()],
   output: {
     libraryTarget: 'commonjs',
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js',
+    filename: '[name].js',
+    sourceMapFilename: '[file].map',
   },
   module: {
     rules: [
