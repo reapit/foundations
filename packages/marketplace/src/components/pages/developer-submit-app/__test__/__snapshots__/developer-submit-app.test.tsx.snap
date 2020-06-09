@@ -632,6 +632,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                     data-test=""
                                   >
                                     <Component
+                                      fixedPosition={true}
                                       id="desktopIntegrationTypeIds"
                                       labelText="Integration Type"
                                       mode="multiple"
@@ -659,6 +660,11 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                               </label>
                                               <Select
                                                 className="is-primary input"
+                                                dropdownStyle={
+                                                  Object {
+                                                    "zIndex": 999,
+                                                  }
+                                                }
                                                 id="desktopIntegrationTypeIds"
                                                 mode="multiple"
                                                 onBlur={[Function]}
@@ -669,6 +675,11 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                               >
                                                 <ForwardRef(Select)
                                                   className="is-primary input"
+                                                  dropdownStyle={
+                                                    Object {
+                                                      "zIndex": 999,
+                                                    }
+                                                  }
                                                   id="desktopIntegrationTypeIds"
                                                   mode="multiple"
                                                   onBlur={[Function]}
@@ -687,6 +698,11 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                   >
                                                     <SelectTrigger
                                                       containerWidth={null}
+                                                      dropdownStyle={
+                                                        Object {
+                                                          "zIndex": 999,
+                                                        }
+                                                      }
                                                       empty={true}
                                                       getTriggerDOMNode={[Function]}
                                                       popupElement={
@@ -818,6 +834,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                           Object {
                                                             "minWidth": null,
                                                             "width": null,
+                                                            "zIndex": 999,
                                                           }
                                                         }
                                                         prefixCls="rc-select-dropdown"
@@ -865,6 +882,11 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                                   Please select
                                                                 </span>
                                                               </div>,
+                                                            }
+                                                          }
+                                                          dropdownStyle={
+                                                            Object {
+                                                              "zIndex": 999,
                                                             }
                                                           }
                                                           id="desktopIntegrationTypeIds"
@@ -932,6 +954,11 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                                       Please select
                                                                     </span>
                                                                   </div>,
+                                                                }
+                                                              }
+                                                              dropdownStyle={
+                                                                Object {
+                                                                  "zIndex": 999,
                                                                 }
                                                               }
                                                               id="desktopIntegrationTypeIds"
@@ -1047,6 +1074,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                           </Field>
                                         </div>
                                       </div>
+                                      <div />
                                     </Component>
                                   </div>
                                 </Component>

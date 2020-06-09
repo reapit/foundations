@@ -1,18 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Dropdown-select should match a snapshot 1`] = `
-<div
-  className="field pb-4"
->
+<Fragment>
   <div
-    className="control"
+    className="field pb-4"
   >
-    <Field
-      name="demo"
-      validate={null}
+    <div
+      className="control"
     >
-      <Component />
-    </Field>
+      <Field
+        name="demo"
+        validate={null}
+      >
+        <Component />
+      </Field>
+    </div>
   </div>
-</div>
+  <div />
+</Fragment>
 `;
