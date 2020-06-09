@@ -144,13 +144,13 @@ export const renderForm = ({ values, status }) => {
           <FormSubHeading>Filter the result by App, Developer and Company</FormSubHeading>
           <Grid>
             <GridItem>
-              <Input type="text" name="appName" id="appName" labelText="App Name" />
+              <Input type="text" name="appName" id="appName" labelText="App Name" maxLength={256} />
             </GridItem>
             <GridItem>
-              <Input type="text" name="developerName" id="developerName" labelText="Developer Name" />
+              <Input type="text" name="developerName" id="developerName" labelText="Developer Name" maxLength={256} />
             </GridItem>
             <GridItem>
-              <Input type="text" name="companyName" id="companyName" labelText="Company Name" />
+              <Input type="text" name="companyName" id="companyName" labelText="Company Name" maxLength={256} />
             </GridItem>
           </Grid>
           <Grid>

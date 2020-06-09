@@ -146,6 +146,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                         <Component
                                           id="name"
                                           labelText="Name"
+                                          maxLength={256}
                                           name="name"
                                           type="text"
                                         >
@@ -170,6 +171,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                                   data-test=""
                                                   disabled={false}
                                                   id="name"
+                                                  maxLength={256}
                                                   name="name"
                                                   onBlur={[Function]}
                                                   onChange={[Function]}
@@ -191,6 +193,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                         <Component
                                           id="company"
                                           labelText="Company"
+                                          maxLength={256}
                                           name="company"
                                           type="text"
                                         >
@@ -215,6 +218,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                                   data-test=""
                                                   disabled={false}
                                                   id="company"
+                                                  maxLength={256}
                                                   name="company"
                                                   onBlur={[Function]}
                                                   onChange={[Function]}

@@ -233,6 +233,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                       <Component
                                         id="appName"
                                         labelText="App Name"
+                                        maxLength={256}
                                         name="appName"
                                         type="text"
                                       >
@@ -257,6 +258,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                                 data-test=""
                                                 disabled={false}
                                                 id="appName"
+                                                maxLength={256}
                                                 name="appName"
                                                 onBlur={[Function]}
                                                 onChange={[Function]}
@@ -278,6 +280,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                       <Component
                                         id="developerName"
                                         labelText="Developer Name"
+                                        maxLength={256}
                                         name="developerName"
                                         type="text"
                                       >
@@ -302,6 +305,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                                 data-test=""
                                                 disabled={false}
                                                 id="developerName"
+                                                maxLength={256}
                                                 name="developerName"
                                                 onBlur={[Function]}
                                                 onChange={[Function]}
@@ -323,6 +327,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                       <Component
                                         id="companyName"
                                         labelText="Company Name"
+                                        maxLength={256}
                                         name="companyName"
                                         type="text"
                                       >
@@ -347,6 +352,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                                 data-test=""
                                                 disabled={false}
                                                 id="companyName"
+                                                maxLength={256}
                                                 name="companyName"
                                                 onBlur={[Function]}
                                                 onChange={[Function]}
@@ -3100,6 +3106,7 @@ exports[`admin-apps renderForm should return correctly 1`] = `
           <Unknown
             id="appName"
             labelText="App Name"
+            maxLength={256}
             name="appName"
             type="text"
           />
@@ -3108,6 +3115,7 @@ exports[`admin-apps renderForm should return correctly 1`] = `
           <Unknown
             id="developerName"
             labelText="Developer Name"
+            maxLength={256}
             name="developerName"
             type="text"
           />
@@ -3116,6 +3124,7 @@ exports[`admin-apps renderForm should return correctly 1`] = `
           <Unknown
             id="companyName"
             labelText="Company Name"
+            maxLength={256}
             name="companyName"
             type="text"
           />

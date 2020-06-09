@@ -41,10 +41,10 @@ export const AdminDevManagementFilterForm: React.FC<AdminDevManagementFilterForm
               <FormSubHeading>Filter the result by Name and Company</FormSubHeading>
               <Grid className="items-center">
                 <GridItem>
-                  <Input type="text" labelText="Name" id="name" name="name" />
+                  <Input type="text" labelText="Name" id="name" name="name" maxLength={256} />
                 </GridItem>
                 <GridItem>
-                  <Input type="text" labelText="Company" id="company" name="company" />
+                  <Input type="text" labelText="Company" id="company" name="company" maxLength={256} />
                 </GridItem>
                 <GridItem>
                   <DatePicker
