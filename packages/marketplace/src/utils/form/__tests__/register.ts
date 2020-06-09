@@ -1,4 +1,4 @@
-import { registerValidate, RegisterFormError } from '../register'
+import { registerValidate, RegisterFormError, trimValues } from '../register'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 
 type InputOutput = [CreateDeveloperModel, RegisterFormError]
@@ -100,6 +100,30 @@ describe('registerValidation', () => {
   it('valid values', () => {
     validValues.forEach(input => {
       expect(registerValidate(input)).toEqual({})
+    })
+  })
+})
+
+describe('trimValues', () => {
+  it('should run correctly', () => {
+    const testValue = ' test '
+    const expectedValue = 'test'
+    expect(
+      trimValues({
+        agreedTerms: testValue,
+        telephone: testValue,
+        name: testValue,
+        jobTitle: testValue,
+        email: testValue,
+        companyName: testValue,
+      }),
+    ).toEqual({
+      agreedTerms: expectedValue,
+      telephone: expectedValue,
+      name: expectedValue,
+      jobTitle: expectedValue,
+      email: expectedValue,
+      companyName: expectedValue,
     })
   })
 })
