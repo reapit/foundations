@@ -16,7 +16,7 @@ import { getParamsFromPath } from '@/utils/client-url-params'
 export const handleOnChange = history => (page: number) => history.push(`${routes.MY_APPS}?page=${page}`)
 
 export const handleOnSettingClick = (history: History) => (app: AppSummaryModel) => {
-  history.push(`${Routes.CLIENT}/${app.id}`)
+  history.push(`${Routes.CLIENT}/${app.id}/manage`)
 }
 
 export const ClientAppsManagement: React.FunctionComponent = () => {
