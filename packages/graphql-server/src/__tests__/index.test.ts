@@ -1,4 +1,3 @@
-import { GraphQLResponse, GraphQLRequestContext } from 'apollo-server-core'
 import { formatError, handleContext } from '../index'
 import { GraphQLError } from 'graphql'
 
@@ -6,11 +5,11 @@ jest.mock('../logger')
 jest.mock('uuid/v4', (): (() => string) => {
   return () => 'mockUUID'
 })
-jest.mock('apollo-server', () => {
+jest.mock('apollo-server-lambda', () => {
   return {
     ApolloServer: function() {
       return {
-        listen: jest.fn().mockResolvedValue({ url: 'serverUrl' }),
+        createHandler: jest.fn(),
       }
     },
   }
@@ -27,28 +26,7 @@ afterAll(() => {
   process.env.NODE_ENV = OLD_NODE_ENV
 })
 
-describe('app.js', () => {
-    it('should return {}', () => {
-      const mockResponse = null
-      const mockRequestContext = {
-        context: {
-          traceId: 'mockTraceId',
-        },
-        cache: {},
-        request: {},
-      } as GraphQLRequestContext<{ traceId?: string }>
-      const result = formatResponse(mockResponse, mockRequestContext)
-      expect(result).toEqual({})
-    })
-
-    it('should return {}', () => {
-      const mockResponse = null
-      const mockRequestContext = {} as GraphQLRequestContext<{ traceId?: string }>
-      const result = formatResponse(mockResponse, mockRequestContext)
-      expect(result).toEqual({})
-    })
-  })
-
+describe('index.js', () => {
   describe('handleContext', () => {
     it('should run correctly', () => {
       const mockParams = {
@@ -66,6 +44,9 @@ describe('app.js', () => {
         traceId: 'mockUUID',
         authorization: 'Mock Authorization',
         functionName: 'Mock Function Name',
+        headers: {
+          Authorization: 'Mock Authorization',
+        },
         event: mockParams.event,
         context: mockParams.context,
       })
