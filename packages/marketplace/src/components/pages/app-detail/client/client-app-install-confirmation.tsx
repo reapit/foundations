@@ -23,20 +23,11 @@ export type ClientAppInstallConfirmationProps = {
 }
 
 export const handleInstallAppSuccessCallback = (
-  appId: string,
-  clientId: string,
-  dispatch: Dispatch<any>,
   setIsSuccessAlertVisible: (isVisible: boolean) => void,
   closeInstallConfirmationModal: () => void,
   isDesktopMode: boolean,
 ) => {
   return () => {
-    dispatch(
-      clientFetchAppDetail({
-        id: appId,
-        clientId,
-      }),
-    )
     if (isDesktopMode) {
       window.location.href = DESKTOP_REFRESH_URL
     }
@@ -56,14 +47,7 @@ export const handleInstallButtonClick = (
   dispatch(
     appInstallationsRequestInstall({
       appId,
-      callback: handleInstallAppSuccessCallback(
-        appId,
-        clientId,
-        dispatch,
-        setIsSuccessAlertVisible,
-        closeInstallConfirmationModal,
-        isDesktopMode,
-      ),
+      callback: handleInstallAppSuccessCallback(setIsSuccessAlertVisible, closeInstallConfirmationModal, isDesktopMode),
     }),
   )
 }
@@ -75,8 +59,21 @@ export const handleSuccessAlertButtonClick = (history: History) => () => {
   history.replace(routes.CLIENT)
 }
 
-export const handleSuccessAlertMessageAfterClose = (setIsSuccessAlertVisible: (isVisible: boolean) => void) => () => {
-  setIsSuccessAlertVisible(false)
+export const handleSuccessAlertMessageAfterClose = (
+  appId: string,
+  clientId: string,
+  setIsSuccessAlertVisible: (isVisible: boolean) => void,
+  dispatch: Dispatch,
+) => {
+  return () => {
+    dispatch(
+      clientFetchAppDetail({
+        id: appId,
+        clientId,
+      }),
+    )
+    setIsSuccessAlertVisible(false)
+  }
 }
 
 const ClientAppInstallConfirmation: React.FC<ClientAppInstallConfirmationProps> = ({
@@ -158,7 +155,7 @@ const ClientAppInstallConfirmation: React.FC<ClientAppInstallConfirmationProps> 
       {isSuccessAlertVisible && (
         <Modal
           visible={isSuccessAlertVisible}
-          afterClose={handleSuccessAlertMessageAfterClose(setIsSuccessAlertVisible)}
+          afterClose={handleSuccessAlertMessageAfterClose(id, clientId, setIsSuccessAlertVisible, dispatch)}
         >
           <>
             <CallToAction

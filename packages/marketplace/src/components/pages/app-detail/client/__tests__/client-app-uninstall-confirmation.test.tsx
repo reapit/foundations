@@ -78,21 +78,8 @@ describe('ClientAppUninstallConfirmation', () => {
   describe('handleUninstallAppSuccessCallback', () => {
     it('should run correctly', () => {
       const mockFunction = jest.fn()
-      const fn = handleUninstallAppSuccessCallback(
-        appId,
-        clientId,
-        spyDispatch,
-        mockFunction,
-        mockProps.closeUninstallConfirmationModal,
-        false,
-      )
+      const fn = handleUninstallAppSuccessCallback(mockFunction, mockProps.closeUninstallConfirmationModal, false)
       fn()
-      expect(spyDispatch).toBeCalledWith(
-        clientFetchAppDetail({
-          id: appId,
-          clientId,
-        }),
-      )
       expect(mockProps.closeUninstallConfirmationModal).toBeCalled()
       expect(mockFunction).toBeCalledWith(true)
     })
@@ -108,10 +95,18 @@ describe('ClientAppUninstallConfirmation', () => {
   })
 
   describe('handleSuccessAlertMessageAfterClose', () => {
-    const mockFunction = jest.fn()
-    const fn = handleSuccessAlertMessageAfterClose(mockFunction)
-    fn()
-    expect(mockFunction).toBeCalledWith(false)
+    it('should match snapshot', () => {
+      const mockFunction = jest.fn()
+      const fn = handleSuccessAlertMessageAfterClose(appId, clientId, mockFunction, spyDispatch)
+      fn()
+      expect(spyDispatch).toBeCalledWith(
+        clientFetchAppDetail({
+          id: appId,
+          clientId,
+        }),
+      )
+      expect(mockFunction).toBeCalledWith(false)
+    })
   })
 
   describe('renderUninstallConfirmationModalFooter', () => {
