@@ -7,6 +7,7 @@ describe('ReapitBookViewingWidget', () => {
         apiKey: '',
         customerId: '',
         parentSelector: '#book-viewing-widget',
+        submitAction: jest.fn(),
         theme: {
           baseBackgroundColor: '#f9fbfd',
           basefontSize: '14px',

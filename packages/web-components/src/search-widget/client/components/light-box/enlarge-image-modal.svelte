@@ -40,7 +40,7 @@
 <Modal {toggleModal} {isModalOpen}>
   <div style="width: {screenWidth * 0.8}px; height: {screenHeight * 0.8}px" class="light-box-enlarge-image-modal">
 
-    <img class="light-box-enlarge-image" alt="Current carousel display image" src={currentDisplayImage} />
+    <img class="light-box-enlarge-image" alt="Current carousel" src={currentDisplayImage} />
     <div class="light-box-widget-container">
       <div>
         <button class="light-box-widget-prev-button" on:click={widgetPrevButton}>

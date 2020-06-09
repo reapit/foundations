@@ -15,7 +15,7 @@ import { Loader, Button, Alert, FormSection } from '@reapit/elements'
 import clientAppDetailStyles from '@/styles/pages/client-app-detail.scss?mod'
 import ClientAppInstallConfirmation from '@/components/ui/client-app-detail/client-app-install-confirmation'
 import { Aside } from './aside'
-import { clientFetchAppDetail } from '@/actions/client'
+import { clientFetchAppDetail, clientFetchAppDetailFailed } from '@/actions/client'
 import { developerApplyAppDetails } from '@/actions/developer'
 import { useParams } from 'react-router'
 import { Dispatch } from 'redux'
@@ -67,10 +67,23 @@ export const handleApplyAppDetailsFromLocalStorage = (
   appId?: string,
 ) => () => {
   if (loginType !== 'DEVELOPER' || !appId) return
+
+  if (appId === 'submit-app') {
+    try {
+      const appDataString = localStorage.getItem('developer-preview-app')
+      if (!appDataString) throw 'No preview data'
+      const appData = JSON.parse(appDataString)
+      if (appData.id) throw 'No preview data'
+      dispatch(developerApplyAppDetails(appData))
+    } catch (err) {
+      dispatch(clientFetchAppDetailFailed(err))
+    }
+    return
+  }
+
   try {
     const appDataString = localStorage.getItem('developer-preview-app')
     if (!appDataString) throw 'No preview data'
-
     const appData = JSON.parse(appDataString)
     if (appData.id !== appId) throw 'Preview data not match appId'
 

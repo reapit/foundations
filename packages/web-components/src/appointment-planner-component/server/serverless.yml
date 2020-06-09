@@ -42,6 +42,8 @@ provider:
     COGNITO_OAUTH_URL: ${self:custom.env.COGNITO_OAUTH_URL}
     COGNITO_CLIENT_SECRET_APPOINTMENT_PLANNER: ${self:custom.env.COGNITO_CLIENT_SECRET_APPOINTMENT_PLANNER}
     COGNITO_CLIENT_ID_APPOINTMENT_PLANNER: ${self:custom.env.COGNITO_CLIENT_ID_APPOINTMENT_PLANNER}
+    SENTRY_DSN: ${self:custom.env.APPOINTMENT_PLANNER_API_SENTRY_DNS}
+    SENTRY_PROJECT: appointment-planner-component-
 package:
   individually: true
   include:

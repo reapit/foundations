@@ -63,7 +63,7 @@ Book_viewing_widget {
       "",
       "",
       "#book-viewing-widget",
-      undefined,
+      [MockFunction],
     ],
     "dirty": Array [
       -1,
