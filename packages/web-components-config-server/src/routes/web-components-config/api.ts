@@ -3,6 +3,7 @@ import logger from '@/logger'
 import { CreateParams, DeleteParams, UpdateParams, GetByClientIdParams } from '@/schemas/api-types'
 import { WebComponentConfig } from '@/schemas/schema'
 import { generateSchemaItem } from '@/schemas/utils'
+import { stringifyError } from '@reapit/node-utils'
 
 export const getConfigByClientId = async ({ traceId, data }: GetByClientIdParams): Promise<WebComponentConfig> => {
   try {
@@ -12,7 +13,7 @@ export const getConfigByClientId = async ({ traceId, data }: GetByClientIdParams
     logger.info('Get config by customerId successfully', { traceId, result })
     return result
   } catch (error) {
-    logger.error('Get config by customerId failed', { traceId, error: JSON.stringify(error) })
+    logger.error('Get config by customerId failed', { traceId, error: stringifyError(error) })
     throw error
   }
 }
@@ -25,7 +26,7 @@ export const createConfig = async ({ traceId, data }: CreateParams): Promise<Web
     logger.info('Create config successfully', { traceId, result })
     return result
   } catch (error) {
-    logger.error('Create config failed', { traceId, error: JSON.stringify(error) })
+    logger.error('Create config failed', { traceId, error: stringifyError(error) })
     throw error
   }
 }
@@ -40,7 +41,7 @@ export const updateConfig = async ({ traceId, data }: UpdateParams): Promise<Web
     logger.info('Update config successfully', { traceId, result })
     return result
   } catch (error) {
-    logger.error('Update config failed', { traceId, error: JSON.stringify(error) })
+    logger.error('Update config failed', { traceId, error: stringifyError(error) })
     throw error
   }
 }
@@ -53,7 +54,7 @@ export const deleteConfig = async ({ traceId, data }: DeleteParams): Promise<Web
     logger.info('Delete config successfully', { traceId, result })
     return result
   } catch (error) {
-    logger.error('Delete config failed', { traceId, error: JSON.stringify(error) })
+    logger.error('Delete config failed', { traceId, error: stringifyError(error) })
     throw error
   }
 }

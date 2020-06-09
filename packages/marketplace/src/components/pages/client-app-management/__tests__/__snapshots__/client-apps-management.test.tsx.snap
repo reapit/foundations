@@ -104,6 +104,7 @@ exports[`MyApps should match a snapshot when LOADING false 1`] = `
                   <Component>
                     <div
                       className="section "
+                      data-test=""
                     >
                       <Component
                         onChange={[Function]}

@@ -22,6 +22,8 @@ $pell-content-padding: 10px !default;
 }
 
 .pell-content {
+  overflow-x: scroll;
+  overflow-wrap: normal;
   outline: none;
   padding: $pell-content-padding;
   min-height: $pell-content-height;

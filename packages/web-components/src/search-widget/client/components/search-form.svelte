@@ -158,11 +158,14 @@
   .search-form-control-radio {
     cursor: pointer;
     display: inline-block;
-    line-height: 1.25;
+  }
+  .search-form-control-radio input {
+    margin-top: 0;
   }
 
   .search-form-advanced-search {
-    line-height: 1.45;
+    margin-top: 0;
+    padding-top: 0;
     background: none;
     border: none;
     outline: none;

@@ -115,6 +115,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                             <Component>
                               <div
                                 className="content "
+                                data-test=""
                               >
                                 <Component>
                                   <div
@@ -135,10 +136,12 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                 >
                                   <div
                                     className="columns  items-center"
+                                    data-test=""
                                   >
                                     <Component>
                                       <div
                                         className="column  "
+                                        data-test=""
                                       >
                                         <Component
                                           id="name"
@@ -185,6 +188,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                     <Component>
                                       <div
                                         className="column  "
+                                        data-test=""
                                       >
                                         <Component
                                           id="company"
@@ -231,6 +235,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                     <Component>
                                       <div
                                         className="column  "
+                                        data-test=""
                                       >
                                         <Component
                                           id="registeredFrom"
@@ -407,6 +412,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                     <Component>
                                       <div
                                         className="column  "
+                                        data-test=""
                                       >
                                         <Component
                                           id="registeredTo"
@@ -587,6 +593,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                     >
                                       <div
                                         className="column  mt-4"
+                                        data-test=""
                                       >
                                         <Component
                                           type="submit"
@@ -616,6 +623,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                 <Component>
                   <div
                     className="content "
+                    data-test=""
                   >
                     <Component
                       columns={

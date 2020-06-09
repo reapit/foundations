@@ -19,7 +19,7 @@ exports[`SearchResult it matches a snapshot 1`] = `
          
          
         <img
-          alt="property image"
+          alt="property"
           class="svelte-1l1qfnz"
           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88xYAAssB20Ea4T8AAAAASUVORK5CYII="
         />

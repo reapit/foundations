@@ -1,0 +1,6 @@
+[defaults]
+project=graphql-server
+org=reapit-ltd
+
+[http]
+keepalive=false

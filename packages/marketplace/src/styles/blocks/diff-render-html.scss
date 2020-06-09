@@ -19,10 +19,12 @@
     margin-top: 0;
     margin-left: 0;
     list-style-position: inside;
+
     & li div {
       display: inline-block;
     }
   }
+
   & p {
     margin: 1rem 0;
   }
@@ -41,7 +43,8 @@
   color: $grey;
 }
 
-.block {
+.diff-render-block {
+  overflow-wrap: break-word;
   border-radius: 4px;
   width: 50%;
 }

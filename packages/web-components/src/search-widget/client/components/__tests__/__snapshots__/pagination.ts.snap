@@ -4,44 +4,44 @@ exports[`pagination it matches a snapshot 1`] = `
 <body>
   <div>
     <div
-      class="search-form-pagination svelte-109aysm"
+      class="search-form-pagination svelte-1hi9sva"
     >
       <a
-        class=" svelte-109aysm"
+        class=" svelte-1hi9sva"
         data-testid="first-page"
-        href="javascript:void()"
+        href="/"
       >
         &lt;&lt;
       </a>
        
       <a
-        class=" svelte-109aysm"
+        class=" svelte-1hi9sva"
         data-testid="prev-page"
-        href="javascript:void()"
+        href="/"
       >
         1
       </a>
        
       <a
-        class=" svelte-109aysm"
+        class=" svelte-1hi9sva"
         data-testid="current-page"
-        href="javascript:void()"
+        href="/"
       >
         2
       </a>
        
       <a
-        class=" svelte-109aysm"
+        class=" svelte-1hi9sva"
         data-testid="next-page"
-        href="javascript:void()"
+        href="/"
       >
         3
       </a>
        
       <a
-        class=" svelte-109aysm"
+        class=" svelte-1hi9sva"
         data-testid="last-page"
-        href="javascript:void()"
+        href="/"
       >
         &gt;&gt;
       </a>

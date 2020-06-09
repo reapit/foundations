@@ -11,9 +11,9 @@ const DiffRenderHTML = ({ currentString, changedString }: DiffRenderHTMLProps) =
   const isDiff = currentString !== changedString
   return (
     <div className={styles.container}>
-      <HTMLRender className={`${styles.block} ${isDiff ? styles.red : ''}`} html={currentString || ''} />
+      <HTMLRender className={`${styles.diffRenderBlock} ${isDiff ? styles.red : ''}`} html={currentString || ''} />
       <span className={styles.arrow}>&#8594;</span>
-      <HTMLRender className={`${styles.block} ${isDiff ? styles.green : ''}`} html={changedString || ''} />
+      <HTMLRender className={`${styles.diffRenderBlock} ${isDiff ? styles.green : ''}`} html={changedString || ''} />
     </div>
   )
 }

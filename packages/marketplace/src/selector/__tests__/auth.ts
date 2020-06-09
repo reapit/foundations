@@ -6,8 +6,10 @@ import {
   selectClientId,
   selectRefreshSession,
   selectIsTermAccepted,
+  selectIsDesktopMode,
 } from '../auth'
 import appState from '@/reducers/__stubs__/app-state'
+import { ReduxState } from '@/types/core'
 
 describe('selectLoginType', () => {
   it('should run correctly', () => {
@@ -55,5 +57,25 @@ describe('selectIsTermAccepted', () => {
   it('should run correctly', () => {
     const result = selectIsTermAccepted(appState)
     expect(result).toEqual(appState.auth.isTermAccepted)
+  })
+})
+
+describe('selectIsDesktopMode', () => {
+  it('should run return false', () => {
+    const result = selectIsDesktopMode(appState)
+    expect(result).toBeFalsy
+  })
+  it('should run return true', () => {
+    const mockDesktopModeAppState = {
+      ...appState,
+      auth: {
+        refreshSession: {
+          ...appState.auth.refreshSession,
+          mode: 'DESKTOP',
+        },
+      },
+    } as ReduxState
+    const result = selectIsDesktopMode(mockDesktopModeAppState)
+    expect(result).toBeFalsy
   })
 })
