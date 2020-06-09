@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useHistory } from 'react-router'
 import { FlexContainerBasic } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import UnsupportBrower from '@/components/ui/unsupport-brower'
+import { UnsupportBrowerPopUp } from '@/components/ui/unsupport-brower-pop-up'
 import { IFRAME_URLS } from '../../constants/iframe-urls'
 import Routes from '../../constants/routes'
 import { isIE } from '@/utils/brower'
@@ -19,9 +19,7 @@ const ApiDocsPage: React.FC = () => {
     <ErrorBoundary>
       <FlexContainerBasic flexColumn hasPadding className="is-full-height">
         <FlexContainerBasic className="container is-full-height">
-          {isIE() ? (
-            <UnsupportBrower />
-          ) : (
+          {!isIE() && (
             <iframe
               style={{ border: 'none' }}
               src={`${IFRAME_URLS.documentation}${parseIframeUrl(location.pathname, location.hash)}`}
@@ -31,6 +29,7 @@ const ApiDocsPage: React.FC = () => {
           )}
         </FlexContainerBasic>
       </FlexContainerBasic>
+      <UnsupportBrowerPopUp unsupported={isIE()} />
     </ErrorBoundary>
   )
 }
