@@ -1,1 +1,1 @@
-export { Breadcrumb, BreadcrumbItem, BreadcrumbSeparator } from '@/v2'
+export { Breadcrumb, BreadcrumbItem, BreadcrumbSeparator } from '../../v2/src/components/breadcrumb'
