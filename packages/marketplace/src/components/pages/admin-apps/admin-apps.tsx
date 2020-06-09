@@ -216,7 +216,7 @@ export const handleOnSubmit = history => (formValues: FormValues, { setStatus })
   }
 
   const queryString = stringifyObjectIntoQueryString({ ...cleanedValues, page: 1 })
-  history.push(`apps?${queryString}`)
+  history.push(`${Routes.ADMIN_APPS}?${queryString}`)
 }
 
 export const handleChangePage = history => (page: number) => {
