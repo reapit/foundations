@@ -103,7 +103,7 @@
     {#each images as image, imageIndex}
       <div class="light-box-carousel-image-container" style="width: {imageSize}px; height: {imageSize}px">
         <img
-          alt="image of property {imageIndex}"
+          alt="property {imageIndex}"
           src={image}
           on:click={() => onImageClick(imageIndex)}
           class="light-box-carousel-image {imageIndex === currentDisplayImageIndex && 'light-box-carousel-current-display-image'}" />

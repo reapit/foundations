@@ -22,7 +22,7 @@ describe('createDerivedDayOfWeek', () => {
 describe('getDayOfWeek', () => {
   it('should return correctly', () => {
     const dayJsInstance = dayjs('2020-03-24T00:00:00.000Z')
-    const result = []
+    const result: any[] = []
 
     for (let i = 23; i <= 29; i++) {
       result.push(dayjs(`2020-03-${i}T00:00:00.000Z`))

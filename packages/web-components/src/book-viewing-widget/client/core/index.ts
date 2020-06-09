@@ -11,6 +11,7 @@ export interface BookViewingWidgetInitializers {
   apiKey: string
   customerId: string
   parentSelector: string
+  submitAction: (email: string) => any
 }
 
 export const ReapitBookViewingWidget = ({
@@ -18,6 +19,7 @@ export const ReapitBookViewingWidget = ({
   apiKey,
   customerId,
   theme,
+  submitAction,
 }: BookViewingWidgetInitializers) => {
   return new BookViewingWidget({
     target: document.querySelector(parentSelector) || document.body,
@@ -26,6 +28,7 @@ export const ReapitBookViewingWidget = ({
       apiKey,
       customerId,
       parentSelector,
+      submitAction,
     },
   })
 }

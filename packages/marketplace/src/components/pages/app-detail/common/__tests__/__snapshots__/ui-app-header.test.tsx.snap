@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppHeader should match a snapshot 1`] = `
+<Component
+  className="flex items-center mb-4 undefined"
+>
+  <Component>
+    <Component
+      className="flex items-center undefined"
+    >
+      <Component
+        className="is-one-third-desktop undefined"
+      >
+        <img
+          alt="App Icon"
+          src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg"
+        />
+      </Component>
+      <Component
+        className="is-two-thirds-desktop  undefined"
+      >
+        <Component>
+          Peter's Properties
+        </Component>
+        <Component
+          className=""
+        >
+          Verified by Reapit 
+          <FaCheck />
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+  <Component
+    className="flex items-center"
+  >
+    <img
+      alt="Featured Image"
+      src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png"
+    />
+  </Component>
+</Component>
+`;

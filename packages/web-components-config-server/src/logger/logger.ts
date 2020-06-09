@@ -1,4 +1,5 @@
-import winston from 'winston'
+import winston, { LeveledLogMethod } from 'winston'
+import { createWistonLoggerErrorFn } from '@reapit/node-utils'
 
 export const levels = {
   error: 0,
@@ -20,5 +21,7 @@ export const logger = winston.createLogger({
     }),
   ],
 })
+
+logger.error = createWistonLoggerErrorFn(logger.error) as LeveledLogMethod
 
 export default logger

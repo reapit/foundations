@@ -25,6 +25,7 @@ provider:
     COGNITO_USERPOOL_ID: ${self:custom.env.COGNITO_USERPOOL_ID}
     MARKETPLACE_API_BASE_URL: ${self:custom.env.MARKETPLACE_API_BASE_URL}
     PLATFORM_API_BASE_URL: ${self:custom.env.PLATFORM_API_BASE_URL}
+    SENTRY_DSN: ${self:custom.env.SENTRY_DSN}
 
 package:
   individually: true

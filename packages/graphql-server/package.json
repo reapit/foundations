@@ -23,7 +23,6 @@
     "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
-    "@reapit/cognito-auth": "^2.0.19",
     "apollo-server": "^2.9.16",
     "apollo-server-lambda": "^2.10.1",
     "async": "^3.2.0",
@@ -45,7 +44,10 @@
     "stack-trace": "^0.0.10",
     "uuid": "^3.3.3",
     "winston": "^3.2.1",
-    "snyk": "^1.335.0"
+    "snyk": "^1.335.0",
+    "@reapit/foundations-ts-definitions": "2020-03-04",
+    "@reapit/cognito-auth": "^2.0.19",
+    "@reapit/utils": "^0.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

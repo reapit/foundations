@@ -14,6 +14,7 @@ export interface InputProps {
   required?: boolean
   disabled?: boolean
   validate?: (value: string) => string | null
+  maxLength?: number
 }
 
 export const Input = ({
@@ -26,6 +27,7 @@ export const Input = ({
   rightIcon,
   required = false,
   disabled = false,
+  maxLength,
   validate = fieldValidateRequire,
 }: InputProps) => (
   <Field name={name} validate={required ? validate : null}>
@@ -50,6 +52,7 @@ export const Input = ({
               className={className}
               {...field}
               value={field.value || defaultValue}
+              maxLength={maxLength}
             />
             {rightIcon && <span className="icon is-right">{rightIcon}</span>}
           </div>

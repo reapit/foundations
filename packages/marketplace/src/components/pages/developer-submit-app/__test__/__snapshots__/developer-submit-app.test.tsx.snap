@@ -160,10 +160,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                             >
                               <div
                                 className="columns is-multiline "
+                                data-test=""
                               >
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component
                                       dataTest="submit-app-name"
@@ -211,6 +213,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component
                                       id="categoryId"
@@ -261,10 +264,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                             <Component>
                               <div
                                 className="columns  "
+                                data-test=""
                               >
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component
                                       dataTest="submit-app-support-email"
@@ -311,6 +316,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component
                                       dataTest="submit-app-phone"
@@ -359,10 +365,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                             <Component>
                               <div
                                 className="columns  "
+                                data-test=""
                               >
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component
                                       dataTest="submit-app-home-page"
@@ -409,6 +417,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component
                                       dataTest="submit-app-launch-uri"
@@ -457,10 +466,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                             <Component>
                               <div
                                 className="columns  "
+                                data-test=""
                               >
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component
                                       dataTest="submit-app-summary"
@@ -503,6 +514,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component
                                       actions={
@@ -612,14 +624,17 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                             <Component>
                               <div
                                 className="columns  "
+                                data-test=""
                               >
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component
                                       id="desktopIntegrationTypeIds"
                                       labelText="Integration Type"
+                                      mode="multiple"
                                       name="desktopIntegrationTypeIds"
                                       options={Array []}
                                       placeholder="Please select"
@@ -645,7 +660,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                               <Select
                                                 className="is-primary input"
                                                 id="desktopIntegrationTypeIds"
-                                                mode="tags"
+                                                mode="multiple"
                                                 onBlur={[Function]}
                                                 onChange={[Function]}
                                                 placeholder="Please select"
@@ -655,7 +670,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                 <ForwardRef(Select)
                                                   className="is-primary input"
                                                   id="desktopIntegrationTypeIds"
-                                                  mode="tags"
+                                                  mode="multiple"
                                                   onBlur={[Function]}
                                                   onChange={[Function]}
                                                   placeholder="Please select"
@@ -830,7 +845,10 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                                     autocomplete="off"
                                                                     class="rc-select-selection-search-input"
                                                                     id="desktopIntegrationTypeIds"
+                                                                    readonly=""
                                                                     role="combobox"
+                                                                    style="opacity: 0;"
+                                                                    unselectable="on"
                                                                     value=""
                                                                   />
                                                                   <span
@@ -852,7 +870,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                           id="desktopIntegrationTypeIds"
                                                           inputElement={null}
                                                           key="trigger"
-                                                          mode="tags"
+                                                          mode="multiple"
                                                           multiple={true}
                                                           onBlur={[Function]}
                                                           onChange={[Function]}
@@ -894,7 +912,10 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                                         autocomplete="off"
                                                                         class="rc-select-selection-search-input"
                                                                         id="desktopIntegrationTypeIds"
+                                                                        readonly=""
                                                                         role="combobox"
+                                                                        style="opacity: 0;"
+                                                                        unselectable="on"
                                                                         value=""
                                                                       />
                                                                       <span
@@ -926,12 +947,15 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                                     autocomplete="off"
                                                                     class="rc-select-selection-search-input"
                                                                     id="desktopIntegrationTypeIds"
+                                                                    readonly=""
                                                                     role="combobox"
+                                                                    style="opacity: 0;"
+                                                                    unselectable="on"
                                                                     value=""
                                                                   />,
                                                                 }
                                                               }
-                                                              mode="tags"
+                                                              mode="multiple"
                                                               multiple={true}
                                                               onBlur={[Function]}
                                                               onChange={[Function]}
@@ -966,7 +990,6 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                                 <Input
                                                                   accessibilityIndex={0}
                                                                   attrs={Object {}}
-                                                                  editable={true}
                                                                   id="desktopIntegrationTypeIds"
                                                                   inputElement={null}
                                                                   onChange={[Function]}
@@ -989,14 +1012,14 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                                                     onKeyDown={[Function]}
                                                                     onMouseDown={[Function]}
                                                                     onPaste={[Function]}
-                                                                    readOnly={false}
+                                                                    readOnly={true}
                                                                     role="combobox"
                                                                     style={
                                                                       Object {
-                                                                        "opacity": null,
+                                                                        "opacity": 0,
                                                                       }
                                                                     }
-                                                                    unselectable={null}
+                                                                    unselectable="on"
                                                                     value=""
                                                                   />
                                                                 </Input>
@@ -1089,10 +1112,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                             <Component>
                               <div
                                 className="columns  "
+                                data-test=""
                               >
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component
                                       disabled={false}
@@ -1191,10 +1216,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                             <Component>
                               <div
                                 className="columns  "
+                                data-test=""
                               >
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component>
                                       <div
@@ -1251,10 +1278,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                             <Component>
                               <div
                                 className="columns  "
+                                data-test=""
                               >
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component>
                                       <div
@@ -1311,10 +1340,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                             <Component>
                               <div
                                 className="columns  "
+                                data-test=""
                               >
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component>
                                       <div
@@ -1470,10 +1501,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                             <Component>
                               <div
                                 className="columns is-multiline "
+                                data-test=""
                               >
                                 <Component>
                                   <div
                                     className="column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                                    data-test=""
                                   >
                                     <div
                                       className="control"
@@ -1537,6 +1570,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                 <Component>
                                   <div
                                     className="column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                                    data-test=""
                                   >
                                     <div
                                       className="control mb-4"
@@ -1600,6 +1634,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                 <Component>
                                   <div
                                     className="column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                                    data-test=""
                                   >
                                     <div
                                       className="control mb-4"
@@ -1663,6 +1698,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                 <Component>
                                   <div
                                     className="column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                                    data-test=""
                                   >
                                     <div
                                       className="control mb-4"
@@ -1726,6 +1762,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                 <Component>
                                   <div
                                     className="column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                                    data-test=""
                                   >
                                     <div
                                       className="control mb-4"
@@ -1789,6 +1826,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                 <Component>
                                   <div
                                     className="column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                                    data-test=""
                                   >
                                     <div
                                       className="control mb-4"
@@ -1878,10 +1916,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                             <Component>
                               <div
                                 className="columns  "
+                                data-test=""
                               >
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component
                                       id="isDirectApi"
@@ -1953,6 +1993,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                             <Component>
                               <div
                                 className="columns is-multiline "
+                                data-test=""
                               />
                             </Component>
                           </div>
@@ -1965,11 +2006,28 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                           <Component>
                             <div
                               className="level-right "
+                              data-test=""
                             >
                               <Component>
                                 <div
                                   className="columns  "
+                                  data-test=""
                                 >
+                                  <Component
+                                    onClick={[Function]}
+                                    type="button"
+                                    variant="primary"
+                                  >
+                                    <button
+                                      className="button  is-primary  "
+                                      data-test=""
+                                      disabled={false}
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      Preview
+                                    </button>
+                                  </Component>
                                   <Component
                                     dataTest="submit-app-button"
                                     disabled={false}
