@@ -33,10 +33,7 @@ export const DropdownSelect: React.FC<DropdownSelectProps> = ({
   options,
   required = false,
   subText,
-<<<<<<< Updated upstream
   mode = 'tags',
-=======
->>>>>>> Stashed changes
   fixedPosition = false,
   ...restProps
 }) => {
@@ -60,46 +57,6 @@ export const DropdownSelect: React.FC<DropdownSelectProps> = ({
     fixedPosition && containerRef.current ? () => containerRef.current as HTMLDivElement : undefined
 
   return (
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    <div className="field pb-4">
-      <div className="control">
-        <Field name={name} validate={required ? dropdownSelectFieldValidateRequire : null}>
-          {({ field, meta, form }: FieldProps<string | string[]>) => {
-            const hasError = checkError(meta)
-            return (
-              <div className="field field-dropdown-select">
-                <label className={`label ${required ? 'required-label' : ''}`}>{labelText}</label>
-                {subText && <label className="subtext mb-2">{subText}</label>}
-                <Select
-                  id={id}
-                  placeholder={placeholder}
-                  value={field.value || []}
-                  className="is-primary input"
-                  mode={mode}
-                  tagRender={handleRenderTags}
-                  onChange={handleChangeOption(field)}
-                  onBlur={handleFieldTouched(form, field)}
-                  {...restProps}
-                >
-                  {options?.map((option: SelectOption) => (
-                    <Option key={option.value} value={option.value}>
-                      {option.label}
-                    </Option>
-                  ))}
-                </Select>
-                {hasError && (
-                  <div className="has-text-danger" data-test="input-error">
-                    {meta.error}
-                  </div>
-                )}
-              </div>
-            )
-          }}
-        </Field>
-=======
-=======
->>>>>>> Stashed changes
     <>
       <div className="field pb-4">
         <div className="control">
@@ -115,7 +72,7 @@ export const DropdownSelect: React.FC<DropdownSelectProps> = ({
                     placeholder={placeholder}
                     value={field.value || []}
                     className="is-primary input"
-                    mode="tags"
+                    mode={mode}
                     tagRender={handleRenderTags}
                     onChange={handleChangeOption(field)}
                     onBlur={handleFieldTouched(form, field)}
@@ -139,11 +96,8 @@ export const DropdownSelect: React.FC<DropdownSelectProps> = ({
             }}
           </Field>
         </div>
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
       </div>
+
       <div ref={containerRef} />
     </>
   )
