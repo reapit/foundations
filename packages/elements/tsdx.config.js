@@ -3,10 +3,13 @@ const babel = require('@rollup/plugin-babel').default
 const linaria = require('linaria/rollup')
 const typescript = require('rollup-plugin-typescript2')
 
+// Overrides and changes the order of TSDX's rollup config to accomodate linaria
 const replaceAndReorderPlugins = plugins => {
   const babelPlugin = babel({
     presets: [
+      // first get the linaria styles
       'linaria/babel',
+      // then extract TS and JSX
       '@babel/preset-typescript',
       '@babel/preset-react',
       [
@@ -25,20 +28,26 @@ const replaceAndReorderPlugins = plugins => {
     plugins: ['@babel/plugin-transform-runtime'],
   })
 
+  // I need TS plugin so linaria can read TS files but I don't want it to transpile as will remove
+  // linaria template literals
   const typescriptPlugin = typescript({
     noEmit: true,
   })
 
+  // export linaria css and main sass project
   const sassPlugin = scss({
     output: 'dist/index.css',
   })
 
+  // Linaria config
   const linariaPlugin = linaria({
     sourceMap: process.env.NODE_ENV !== 'production',
   })
 
   const tsPlugin = plugins.find(plugin => plugin.name === 'rpt2')
 
+  // Remove the original TsPlugin that stripped out my styles, plus Bablel. I add new Babel config back in
+  // at the end after extracting styles
   plugins.splice(plugins.indexOf(tsPlugin), 2, typescriptPlugin, linariaPlugin, sassPlugin, babelPlugin)
 
   return plugins
