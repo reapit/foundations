@@ -42,6 +42,8 @@ provider:
     COGNITO_CLIENT_SECRET_SEARCH_WIDGET: ${self:custom.env.COGNITO_CLIENT_SECRET_SEARCH_WIDGET}
     COGNITO_CLIENT_ID_SEARCH_WIDGET: ${self:custom.env.COGNITO_CLIENT_ID_SEARCH_WIDGET}
     COGNITO_OAUTH_URL: ${self:custom.env.COGNITO_OAUTH_URL}
+    SENTRY_DSN: ${self:custom.env.SEARCH_WIDGET_API_SENTRY_DNS}
+    SENTRY_PROJECT: search-widget-server
 package:
   individually: true
   include:

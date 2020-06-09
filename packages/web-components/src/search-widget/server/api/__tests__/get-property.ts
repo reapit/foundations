@@ -5,6 +5,7 @@ import { getServerHeaders } from '../../../../common/utils/get-server-headers'
 import { Request, Response } from 'express'
 import { PACKAGE_SUFFIXES } from '../../../../common/utils/constants'
 import { errorHandler } from '../../../../common/utils/error-handler'
+import { logger } from '../../core/logger'
 
 jest.mock('../../../../common/utils/fetcher-server')
 jest.mock('../../../../common/utils/error-handler')
@@ -56,7 +57,7 @@ describe('property server API', () => {
 
     await getProperty(req, res)
 
-    expect(errorHandler).toHaveBeenCalledWith(error, res)
+    expect(errorHandler).toHaveBeenCalledWith(error, res, req, 'getProperty', logger)
   })
 
   afterEach(() => {

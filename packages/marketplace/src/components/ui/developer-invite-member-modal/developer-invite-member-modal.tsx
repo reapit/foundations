@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Modal, ModalProps, SubTitleH5, FlexContainerBasic, Form } from '@reapit/elements'
+import { Modal, ModalProps, SubTitleH6, FlexContainerBasic, Form } from '@reapit/elements'
 import { Formik } from 'formik'
 import styles from '@/styles/blocks/developer-invite-member.scss?mod'
 import { FIELD_NAMES } from './constants'
@@ -27,9 +27,9 @@ export const DeveloperInviteMemberModal: React.FC<DeveloperInviteMemberModalProp
   return (
     <Modal visible={visible} afterClose={afterClose} title="Invite New Member">
       <>
-        <SubTitleH5 className={styles.subTitle}>
+        <SubTitleH6 className={styles.subTitle}>
           Please enter a name and email address below to invite a new member to your organisation:
-        </SubTitleH5>
+        </SubTitleH6>
         <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validate}>
           {({ handleSubmit: handleSubmitForm }) => (
             <Form className="form" onSubmit={handleSubmitForm}>

@@ -27,6 +27,7 @@ module.exports = {
     'mw-100',
     '.data-grid-container .data-grid .cell .value-viewer',
     '.data-grid-container .data-grid .cell .data-editor',
+    '.diff-render-block',
   ],
   // Uncomment this line if you want to see the CSS purified from the package
   // rejected: true

@@ -1,0 +1,7 @@
+[defaults]
+org=reapit-ltd
+project=config-server
+
+
+[http]
+keepalive=false

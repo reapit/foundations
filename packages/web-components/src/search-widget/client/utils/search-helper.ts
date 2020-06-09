@@ -115,7 +115,7 @@ export const getResultMessage = ({
     let resultsMessage = `${numberResults} ${numberResults === 1 ? 'Property' : 'Properties'} ${showSearchType(
       searchType,
     )} in ${searchKeyword}`
-    const filterMessages = []
+    const filterMessages: string[] = []
     if (minBeds !== 0 || maxBeds !== 0) {
       filterMessages.push(showBedRange(minBeds, maxBeds))
     }
