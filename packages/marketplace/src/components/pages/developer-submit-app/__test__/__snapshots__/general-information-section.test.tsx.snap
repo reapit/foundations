@@ -64,10 +64,12 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
               >
                 <div
                   className="columns is-multiline "
+                  data-test=""
                 >
                   <Component>
                     <div
                       className="column  "
+                      data-test=""
                     >
                       <Component
                         dataTest="submit-app-name"
@@ -115,6 +117,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                   <Component>
                     <div
                       className="column  "
+                      data-test=""
                     >
                       <Component
                         id="categoryId"
@@ -165,10 +168,12 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
               <Component>
                 <div
                   className="columns  "
+                  data-test=""
                 >
                   <Component>
                     <div
                       className="column  "
+                      data-test=""
                     >
                       <Component
                         dataTest="submit-app-support-email"
@@ -215,6 +220,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                   <Component>
                     <div
                       className="column  "
+                      data-test=""
                     >
                       <Component
                         dataTest="submit-app-phone"
@@ -263,10 +269,12 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
               <Component>
                 <div
                   className="columns  "
+                  data-test=""
                 >
                   <Component>
                     <div
                       className="column  "
+                      data-test=""
                     >
                       <Component
                         dataTest="submit-app-home-page"
@@ -313,6 +321,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                   <Component>
                     <div
                       className="column  "
+                      data-test=""
                     >
                       <Component
                         dataTest="submit-app-launch-uri"
@@ -361,10 +370,12 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
               <Component>
                 <div
                   className="columns  "
+                  data-test=""
                 >
                   <Component>
                     <div
                       className="column  "
+                      data-test=""
                     >
                       <Component
                         dataTest="submit-app-summary"
@@ -406,6 +417,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                   <Component>
                     <div
                       className="column  "
+                      data-test=""
                     >
                       <Component
                         actions={

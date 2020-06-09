@@ -61,6 +61,7 @@ exports[`Login should match a snapshot 1`] = `
             <Component>
               <div
                 className="level "
+                data-test=""
               >
                 <img
                   alt="Reapit Connect Graphic"
@@ -77,6 +78,7 @@ exports[`Login should match a snapshot 1`] = `
             <Component>
               <div
                 className="level "
+                data-test=""
               >
                 <Component
                   dataTest="login-button"
