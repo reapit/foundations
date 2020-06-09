@@ -197,7 +197,7 @@ const appendCommitInfo = ({ releaseNote, commitLogArr }) => {
     commitLogArr[COMMIT_AUTHOR_INDEX]
       ? commitLogArr[COMMIT_AUTHOR_INDEX].replace('Author: ', '')
       : commitLogArr[COMMIT_AUTHOR_INDEX]
-  } | `)
+    } | `)
   return newReleaseNote
 }
 

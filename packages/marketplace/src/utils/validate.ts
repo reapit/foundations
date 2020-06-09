@@ -53,3 +53,14 @@ export function isValidLimitToClientIds(clientIds: string): boolean {
     .split(',')
     .every(clientId => /^.{3}$/.test(clientId))
 }
+
+export function isValidTelephone(phone: string) {
+  // eslint-disable-next-line
+  const pattern = /((?:\+|00)[17](?: |\-)?|(?:\+|00)[1-9]\d{0,2}(?: |\-)?|(?:\+|00)1\-\d{3}(?: |\-)?)?(0\d|\([0-9]{3}\)|[1-9]{0,3})(?:((?: |\-)[0-9]{2}){4}|((?:[0-9]{2}){4})|((?: |\-)[0-9]{3}(?: |\-)[0-9]{4})|([0-9]{7}))/g
+  return pattern.test(phone)
+}
+
+export function isValidPersonName(name: string) {
+  const pattern = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/g
+  return pattern.test(name)
+}

@@ -12,7 +12,7 @@ exports[`Carousel should match snapshot 1`] = `
           style="width: 819.2px; height: 614.4000000000001px;"
         >
           <img
-            alt="Current carousel display image"
+            alt="Current carousel"
             class="light-box-enlarge-image svelte-19txmtp"
             src="current-display-image-url"
           />

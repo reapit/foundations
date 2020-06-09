@@ -5,6 +5,15 @@ import { formatError, formatResponse } from './app'
 import resolvers from './resolvers'
 import depthLimit from 'graphql-depth-limit'
 import logger from './logger'
+import * as Sentry from '@sentry/node'
+
+if (process.env.NODE_ENV !== 'development') {
+  Sentry.init({
+    dsn: process.env.SENTRY_DSN,
+    release: process.env.APP_VERSION,
+    environment: process.env.APP_ENV,
+  })
+}
 
 const typeDefs = importSchema('./src/schema.graphql')
 const handleContext = ({ event, context }) => {

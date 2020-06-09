@@ -74,6 +74,7 @@ Object {
         >
           <div
             class="level "
+            data-test=""
           >
             <img
               alt="Reapit Connect Graphic"
@@ -87,6 +88,7 @@ Object {
           </p>
           <div
             class="level "
+            data-test=""
           >
             <button
               class="button  is-primary is-fullwidth "
@@ -120,6 +122,7 @@ Object {
       >
         <div
           class="level "
+          data-test=""
         >
           <img
             alt="Reapit Connect Graphic"
@@ -133,6 +136,7 @@ Object {
         </p>
         <div
           class="level "
+          data-test=""
         >
           <button
             class="button  is-primary is-fullwidth "

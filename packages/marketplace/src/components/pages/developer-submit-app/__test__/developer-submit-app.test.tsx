@@ -296,10 +296,10 @@ describe('DeveloperSubmitApp', () => {
 
   describe('handleOpenAppPreview', () => {
     it('should run correctly', () => {
-      const params = { appDetails: {}, values: {}, scopes: [], appId: 'appId' }
+      const params = { appDetails: {}, values: {}, scopes: [], categories: [], appId: 'appId' }
       const spyLocalStorageSetItem = jest.spyOn(window.localStorage, 'setItem')
       const spyOpenUrl = jest.spyOn(window, 'open')
-      const expected = JSON.stringify({ scopes: [] })
+      const expected = JSON.stringify({ scopes: [], media: [] })
 
       const fn = handleOpenAppPreview(params)
       fn()

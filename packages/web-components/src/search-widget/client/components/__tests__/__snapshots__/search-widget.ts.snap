@@ -201,10 +201,10 @@ exports[`search-widget it matches a snapshot 1`] = `
     >
       <form>
         <div
-          class="search-form emotion-6 svelte-1yt5tdx"
+          class="search-form emotion-6 svelte-fvqnzk"
         >
           <input
-            class="emotion-0 search-form-input svelte-1yt5tdx"
+            class="emotion-0 search-form-input svelte-fvqnzk"
             data-testid="search-form-input"
             id="search"
             type="text"
@@ -212,7 +212,7 @@ exports[`search-widget it matches a snapshot 1`] = `
            
            
           <button
-            class="emotion-1 search-form-button svelte-1yt5tdx"
+            class="emotion-1 search-form-button svelte-fvqnzk"
             data-testid="btnSearch"
             type="submit"
           >
@@ -220,12 +220,13 @@ exports[`search-widget it matches a snapshot 1`] = `
           </button>
            
           <div
-            class="search-form-control svelte-1yt5tdx"
+            class="search-form-control svelte-fvqnzk"
           >
             <label
-              class="emotion-2 search-form-control-radio svelte-1yt5tdx"
+              class="emotion-2 search-form-control-radio svelte-fvqnzk"
             >
               <input
+                class="svelte-fvqnzk"
                 data-testid="sales"
                 name="searchType"
                 type="radio"
@@ -236,9 +237,10 @@ exports[`search-widget it matches a snapshot 1`] = `
             </label>
              
             <label
-              class="emotion-2 search-form-control-radio svelte-1yt5tdx"
+              class="emotion-2 search-form-control-radio svelte-fvqnzk"
             >
               <input
+                class="svelte-fvqnzk"
                 data-testid="lettings"
                 name="searchType"
                 type="radio"
@@ -250,7 +252,7 @@ exports[`search-widget it matches a snapshot 1`] = `
              
             <button
               class="emotion-2
-        emotion-5 search-form-advanced-search svelte-1yt5tdx"
+        emotion-5 search-form-advanced-search svelte-fvqnzk"
               data-testid="btnAdvancedSearch"
               type="button"
             >
