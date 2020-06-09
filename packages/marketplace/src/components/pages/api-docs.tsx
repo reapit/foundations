@@ -5,7 +5,7 @@ import ErrorBoundary from '@/components/hocs/error-boundary'
 import { UnsupportBrowserPopUp } from '@/components/ui/unsupport-browser-pop-up'
 import { IFRAME_URLS } from '../../constants/iframe-urls'
 import Routes from '../../constants/routes'
-import { isIE } from '@/utils/brower'
+import { isIE } from '@/utils/browser'
 
 export const parseIframeUrl = (pathname: string, hash: string): string => {
   const path = pathname.split(Routes.DEVELOPER_API_DOCS)[1]

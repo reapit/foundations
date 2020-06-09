@@ -1,6 +1,6 @@
-import { isIE } from '../brower'
+import { isIE } from '../browser'
 
-describe('Brower unity', () => {
+describe('Browser unity', () => {
   test('is IE', () => {
     // @ts-ignore
     window.navigator.__defineGetter__('userAgent', function() {
