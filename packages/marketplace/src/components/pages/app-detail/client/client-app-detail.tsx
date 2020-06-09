@@ -149,47 +149,49 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
 
   React.useEffect(handleApplyAppDetailsFromLocalStorage(dispatch, loginType, appId), [dispatch])
   if (error) return <Alert message={error} type="danger"></Alert>
-  if (isLoadingAppDetail || unfetched) {
-    return <Loader dataTest="client-app-detail-loader" />
-  }
 
   return (
     <FlexContainerResponsive hasPadding dataTest="client-app-detail-container">
       <Grid className={styles.container}>
-        <GridItem className="is-one-quarter">
-          <ClientAside appDetailData={appDetailData} desktopIntegrationTypes={userDesktopIntegrationTypes} />
-        </GridItem>
-        <GridItem className="is-three-quarters">
-          <FlexContainerBasic flexColumn hasPadding hasBackground isFullHeight>
-            <AppHeader
-              appDetailData={appDetailData}
-              buttonGroup={renderAppHeaderButtonGroup(
-                id,
-                installedOn,
-                onInstallConfirmationModal,
-                onUninstsallConfirmationModal,
-                isInstallBtnHidden,
-                loginType,
-              )}
-            />
-            <AppContent appDetailData={appDetailData} />
-            {!isMobile && loginType !== 'DEVELOPER' && <BackToAppsSection onClick={onBackToAppsButtonClick(history)} />}
-          </FlexContainerBasic>
-        </GridItem>
-        {isVisibleUninstallConfirmation && (
-          <ClientAppUninstallConfirmation
-            visible={isVisibleUninstallConfirmation}
-            appDetailData={appDetailData}
-            closeUninstallConfirmationModal={closeUninstallConfirmationModal}
-          />
+        {isLoadingAppDetail || unfetched ? (
+          <Loader dataTest="client-app-detail-loader" />
+        ) : (
+          <>
+            <GridItem className="is-one-quarter">
+              <ClientAside appDetailData={appDetailData} desktopIntegrationTypes={userDesktopIntegrationTypes} />
+            </GridItem>
+            <GridItem className="is-three-quarters">
+              <FlexContainerBasic flexColumn hasPadding hasBackground isFullHeight>
+                <AppHeader
+                  appDetailData={appDetailData}
+                  buttonGroup={renderAppHeaderButtonGroup(
+                    id,
+                    installedOn,
+                    onInstallConfirmationModal,
+                    onUninstsallConfirmationModal,
+                    isInstallBtnHidden,
+                    loginType,
+                  )}
+                />
+                <AppContent appDetailData={appDetailData} />
+                {!isMobile && loginType !== 'DEVELOPER' && (
+                  <BackToAppsSection onClick={onBackToAppsButtonClick(history)} />
+                )}
+              </FlexContainerBasic>
+            </GridItem>
+          </>
         )}
-        {isVisibleInstallConfirmation && (
-          <ClientAppInstallConfirmation
-            visible={isVisibleInstallConfirmation}
-            appDetailData={appDetailData}
-            closeInstallConfirmationModal={closeInstallConfirmationModal}
-          />
-        )}
+        <ClientAppUninstallConfirmation
+          visible={isVisibleUninstallConfirmation}
+          appDetailData={appDetailData}
+          closeUninstallConfirmationModal={closeUninstallConfirmationModal}
+        />
+
+        <ClientAppInstallConfirmation
+          visible={isVisibleInstallConfirmation}
+          appDetailData={appDetailData}
+          closeInstallConfirmationModal={closeInstallConfirmationModal}
+        />
       </Grid>
     </FlexContainerResponsive>
   )
