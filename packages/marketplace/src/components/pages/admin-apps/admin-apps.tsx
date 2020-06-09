@@ -29,6 +29,7 @@ import AppDeleteModal from '@/components/ui/app-delete'
 import { addQuery, stringifyObjectIntoQueryString, getParamsFromPath } from '@/utils/client-url-params'
 import styles from '@/styles/pages/admin-apps.scss?mod'
 import { cleanObject } from '@/utils/object'
+import Routes from '@/constants/routes'
 
 export type DeleteModalData = {
   visible: boolean
@@ -128,7 +129,7 @@ export const generateColumns = ({ dispatch, setDataDeleteModal, deleteModalData 
 }
 
 export const refreshForm = history => () => {
-  history.push('apps')
+  history.push(Routes.ADMIN_APPS)
 }
 
 export const renderForm = ({ values, status }) => {
