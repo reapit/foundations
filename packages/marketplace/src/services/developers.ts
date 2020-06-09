@@ -51,7 +51,7 @@ export const createDeveloper = async (params: CreateDeveloperParams) => {
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 
