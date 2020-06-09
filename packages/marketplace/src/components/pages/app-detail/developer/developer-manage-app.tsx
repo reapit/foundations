@@ -66,7 +66,7 @@ export const DeveloperManageApp: React.FC<ManageAppProps> = ({ pendingRevisions,
       {isDeleteModalOpen && (
         <AppDelete
           appId={id || ''}
-          appName={name || ''}
+          appName={appDetailState?.data?.name || ''}
           afterClose={onAppDeleteModalAfterClose(setIsDeleteModalOpen)}
           visible={isDeleteModalOpen}
           onDeleteSuccess={onDeleteSuccess(history)}
