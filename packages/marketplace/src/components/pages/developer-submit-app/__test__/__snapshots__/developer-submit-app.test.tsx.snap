@@ -160,10 +160,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                             >
                               <div
                                 className="columns is-multiline "
+                                data-test=""
                               >
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component
                                       dataTest="submit-app-name"
@@ -211,6 +213,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component
                                       id="categoryId"
@@ -261,10 +264,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                             <Component>
                               <div
                                 className="columns  "
+                                data-test=""
                               >
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component
                                       dataTest="submit-app-support-email"
@@ -311,6 +316,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component
                                       dataTest="submit-app-phone"
@@ -359,10 +365,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                             <Component>
                               <div
                                 className="columns  "
+                                data-test=""
                               >
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component
                                       dataTest="submit-app-home-page"
@@ -409,6 +417,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component
                                       dataTest="submit-app-launch-uri"
@@ -457,10 +466,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                             <Component>
                               <div
                                 className="columns  "
+                                data-test=""
                               >
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component
                                       dataTest="submit-app-summary"
@@ -503,6 +514,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component
                                       actions={
@@ -612,10 +624,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                             <Component>
                               <div
                                 className="columns  "
+                                data-test=""
                               >
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component
                                       id="desktopIntegrationTypeIds"
@@ -1098,10 +1112,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                             <Component>
                               <div
                                 className="columns  "
+                                data-test=""
                               >
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component
                                       disabled={false}
@@ -1200,10 +1216,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                             <Component>
                               <div
                                 className="columns  "
+                                data-test=""
                               >
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component>
                                       <div
@@ -1260,10 +1278,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                             <Component>
                               <div
                                 className="columns  "
+                                data-test=""
                               >
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component>
                                       <div
@@ -1320,10 +1340,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                             <Component>
                               <div
                                 className="columns  "
+                                data-test=""
                               >
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component>
                                       <div
@@ -1479,10 +1501,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                             <Component>
                               <div
                                 className="columns is-multiline "
+                                data-test=""
                               >
                                 <Component>
                                   <div
                                     className="column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                                    data-test=""
                                   >
                                     <div
                                       className="control"
@@ -1546,6 +1570,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                 <Component>
                                   <div
                                     className="column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                                    data-test=""
                                   >
                                     <div
                                       className="control mb-4"
@@ -1609,6 +1634,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                 <Component>
                                   <div
                                     className="column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                                    data-test=""
                                   >
                                     <div
                                       className="control mb-4"
@@ -1672,6 +1698,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                 <Component>
                                   <div
                                     className="column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                                    data-test=""
                                   >
                                     <div
                                       className="control mb-4"
@@ -1735,6 +1762,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                 <Component>
                                   <div
                                     className="column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                                    data-test=""
                                   >
                                     <div
                                       className="control mb-4"
@@ -1798,6 +1826,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                 <Component>
                                   <div
                                     className="column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                                    data-test=""
                                   >
                                     <div
                                       className="control mb-4"
@@ -1887,10 +1916,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                             <Component>
                               <div
                                 className="columns  "
+                                data-test=""
                               >
                                 <Component>
                                   <div
                                     className="column  "
+                                    data-test=""
                                   >
                                     <Component
                                       id="isDirectApi"
@@ -1962,6 +1993,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                             <Component>
                               <div
                                 className="columns is-multiline "
+                                data-test=""
                               />
                             </Component>
                           </div>
@@ -1974,10 +2006,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                           <Component>
                             <div
                               className="level-right "
+                              data-test=""
                             >
                               <Component>
                                 <div
                                   className="columns  "
+                                  data-test=""
                                 >
                                   <Component
                                     onClick={[Function]}

@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WebComponentConfig Should match snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Component>
+    <Component
+      headerText="Settings"
+      isSidebar={true}
+    >
+      <Component
+        dataTest=""
+      >
+        <div
+          className="content "
+          data-test=""
+        >
+          <Component
+            className="mb-2"
+          >
+            <h5
+              className="title is-5 mb-2 "
+              id=""
+            >
+              Settings
+            </h5>
+          </Component>
+          <Component
+            fullWidth={true}
+            onClick={[Function]}
+            type="button"
+            variant="primary"
+          >
+            <button
+              className="button  is-primary is-fullwidth "
+              data-test=""
+              disabled={false}
+              onClick={[Function]}
+              type="button"
+            >
+              Configuration
+            </button>
+          </Component>
+          <Component
+            afterClose={[Function]}
+            closeModal={[Function]}
+            type="BOOK_VIEWING"
+          >
+            <Component
+              afterClose={[Function]}
+              renderChildren={true}
+              visible={true}
+            />
+          </Component>
+        </div>
+      </Component>
+    </Component>
+  </Component>
+</Provider>
+`;

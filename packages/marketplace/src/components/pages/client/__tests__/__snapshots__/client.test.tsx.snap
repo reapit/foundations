@@ -1571,6 +1571,7 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
                       <Component>
                         <div
                           className="section "
+                          data-test=""
                         >
                           <Component
                             onChange={[Function]}
@@ -2160,6 +2161,7 @@ exports[`Client should match a snapshot when featured apps is undefined 1`] = `
                       <Component>
                         <div
                           className="section "
+                          data-test=""
                         >
                           <Component
                             onChange={[Function]}

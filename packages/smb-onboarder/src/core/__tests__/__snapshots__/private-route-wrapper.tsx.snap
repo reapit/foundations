@@ -7,6 +7,7 @@ Object {
     <div>
       <div
         class="app-nav-container "
+        data-test=""
       >
         <nav
           class="nav-bar "
@@ -365,6 +366,7 @@ Object {
   "container": <div>
     <div
       class="app-nav-container "
+      data-test=""
     >
       <nav
         class="nav-bar "

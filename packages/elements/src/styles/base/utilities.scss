@@ -44,6 +44,27 @@ $units: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
   }
 }
 
+.bt {
+  border-top: 1px solid $grey !important;
+}
+.bb {
+  border-bottom: 1px solid $grey !important;
+}
+.bl {
+  border-left: 1px solid $grey !important;
+}
+.br {
+  border-right: 1px solid $grey !important;
+}
+.bx {
+  border-left: 1px solid $grey !important;
+  border-right: 1px solid $grey !important;
+}
+.by {
+  border-top: 1px solid $grey !important;
+  border-bottom: 1px solid $grey !important;
+}  
+
 .mw-100 {
   max-width: 100%;
 }

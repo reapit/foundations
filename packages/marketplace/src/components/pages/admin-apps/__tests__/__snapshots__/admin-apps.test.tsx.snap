@@ -203,6 +203,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                           <Component>
                             <div
                               className="content "
+                              data-test=""
                             >
                               <Component>
                                 <div
@@ -221,10 +222,12 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                               <Component>
                                 <div
                                   className="columns  "
+                                  data-test=""
                                 >
                                   <Component>
                                     <div
                                       className="column  "
+                                      data-test=""
                                     >
                                       <Component
                                         id="appName"
@@ -269,6 +272,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                   <Component>
                                     <div
                                       className="column  "
+                                      data-test=""
                                     >
                                       <Component
                                         id="developerName"
@@ -313,6 +317,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                   <Component>
                                     <div
                                       className="column  "
+                                      data-test=""
                                     >
                                       <Component
                                         id="companyName"
@@ -359,10 +364,12 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                               <Component>
                                 <div
                                   className="columns  "
+                                  data-test=""
                                 >
                                   <Component>
                                     <div
                                       className="column  "
+                                      data-test=""
                                     >
                                       <Component
                                         id="registeredFrom"
@@ -543,6 +550,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                   <Component>
                                     <div
                                       className="column  "
+                                      data-test=""
                                     >
                                       <Component
                                         id="registeredTo"
@@ -725,6 +733,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                   <Component>
                                     <div
                                       className="column  "
+                                      data-test=""
                                     >
                                       <Component
                                         disabled={true}
