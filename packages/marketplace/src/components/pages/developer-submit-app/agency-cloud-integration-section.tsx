@@ -54,6 +54,7 @@ const AgencyCloudIntegrationSection: React.FC<AgencyCloudIntegrationSectionProps
             name="desktopIntegrationTypeIds"
             id="desktopIntegrationTypeIds"
             placeholder="Please select"
+            fixedPosition
           />
         </GridItem>
       </Grid>

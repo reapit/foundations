@@ -1267,6 +1267,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                       </Field>
                     </div>
                   </div>
+                  <div />
                 </Component>
               </Component>
             </section>
