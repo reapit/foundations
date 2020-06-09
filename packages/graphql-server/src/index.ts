@@ -1,6 +1,6 @@
 import { ApolloServer } from 'apollo-server-lambda'
 import { importSchema } from 'graphql-import'
-import { Context, GraphQLResponse, GraphQLRequestContext } from 'apollo-server-core'
+import { Context } from 'apollo-server-core'
 import { GraphQLError, GraphQLFormattedError } from 'graphql'
 import uuidv4 from 'uuid/v4'
 import resolvers from './resolvers'
@@ -35,18 +35,6 @@ export const handleContext = ({ event, context }) => {
   }
 }
 
-export const formatResponse = (
-  response: GraphQLResponse | null,
-  requestContext: GraphQLRequestContext<{ traceId?: string }>,
-): GraphQLResponse => {
-  const traceId = requestContext.context?.traceId
-  const isProductionEnv = process.env.NODE_ENV === 'production'
-  if (isProductionEnv) {
-    logger.info('formatResponse', { traceId, requestContext, response })
-  }
-  return response || {}
-}
-
 export const formatError = (error: GraphQLError): GraphQLFormattedError => {
   if (process.env.NODE_ENV === 'production') {
     return { message: error.message, extensions: { code: error.extensions?.code } }
@@ -63,8 +51,6 @@ const server = new ApolloServer({
   uploads: false,
   context: handleContext,
   validationRules: [depthLimit(10)],
-  formatResponse,
-  debug: process.env.NODE_ENV === 'development',
 })
 
 export const graphqlHandler = server.createHandler({

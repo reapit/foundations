@@ -21,7 +21,7 @@ if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'we
         config = data
       })
     })
-    it('user should able to call /v1/health', () => {
+    it('user should able to call web-components-config-server /v1/health', () => {
       cy.request({
         url: `${WEB_COMPONENTS_CONFIG_API_URL}/v1/health`,
         method: 'GET',
@@ -41,7 +41,7 @@ if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'we
         })
       })
     })
-    it('user should able to call /v1/web-components-config/<customer_id>', () => {
+    it('user should able to call web-components-config-server /v1/web-components-config/<customer_id>', () => {
       cy.request({
         url: `${WEB_COMPONENTS_CONFIG_API_URL}/v1/web-components-config/ZZA`,
         method: 'GET',

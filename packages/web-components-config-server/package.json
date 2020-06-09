@@ -58,7 +58,6 @@
     "babel-loader": "^8.0.6",
     "babel-runtime": "^6.26.0",
     "bufferutil": "^4.0.1",
-    "copy-webpack-plugin": "^6.0.1",
     "jest": "^25.1.0",
     "json-loader": "^0.5.7",
     "serverless-http": "^2.3.2",

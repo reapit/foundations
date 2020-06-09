@@ -126,6 +126,7 @@
     "concurrently": "^5.1.0",
     "core-js": "^3.6.4",
     "cross-env": "^6.0.3",
+    "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.0.0",
     "cypress": "4.4.0",
     "cypress-file-upload": "^3.5.1",

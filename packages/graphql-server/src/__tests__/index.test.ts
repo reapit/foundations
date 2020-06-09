@@ -1,5 +1,5 @@
 import { GraphQLResponse, GraphQLRequestContext } from 'apollo-server-core'
-import { formatResponse, formatError, handleContext } from '../index'
+import { formatError, handleContext } from '../index'
 import { GraphQLError } from 'graphql'
 
 jest.mock('../logger')
@@ -28,23 +28,6 @@ afterAll(() => {
 })
 
 describe('app.js', () => {
-  describe('formatResponse', () => {
-    it('should run correctly', () => {
-      const mockResponse = {
-        data: { contact: {} },
-        errors: undefined,
-      } as GraphQLResponse
-      const mockRequestContext = {
-        context: {
-          traceId: 'mockTraceId',
-        },
-        cache: {},
-        request: {},
-      } as GraphQLRequestContext<{ traceId?: string }>
-      const result = formatResponse(mockResponse, mockRequestContext)
-      expect(result).toEqual(mockResponse)
-    })
-
     it('should return {}', () => {
       const mockResponse = null
       const mockRequestContext = {
