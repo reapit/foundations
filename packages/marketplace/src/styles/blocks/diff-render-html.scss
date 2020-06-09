@@ -46,5 +46,7 @@
 .diff-render-block {
   overflow-wrap: break-word;
   border-radius: 4px;
-  width: 50%;
+  // 4% space for arrow
+  width: 48%;
 }
+
