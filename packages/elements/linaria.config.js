@@ -1,5 +1,7 @@
+const dashify = require('dashify')
+
 module.exports = {
   evaluate: true,
   displayName: false,
-  classNameSlug: '[title]',
+  classNameSlug: (_hash, title) => dashify(title),
 }

@@ -10,9 +10,12 @@ html {
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
 }
 
-// TODO - revert to $grey-lightest after demo, just for projector
 body {
   background: $grey-lighter;
+}
+
+#root {
+  height: 100%;
 }
 
 ins {

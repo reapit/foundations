@@ -1,8 +1,54 @@
 const scss = require('rollup-plugin-scss')
+const babel = require('@rollup/plugin-babel').default
+const linaria = require('linaria/rollup')
+const typescript = require('rollup-plugin-typescript2')
+
+const replaceAndReorderPlugins = plugins => {
+  const babelPlugin = babel({
+    presets: [
+      'linaria/babel',
+      '@babel/preset-typescript',
+      '@babel/preset-react',
+      [
+        '@babel/preset-env',
+        {
+          targets: {
+            ie: '11',
+          },
+          useBuiltIns: 'usage',
+          corejs: 3,
+        },
+      ],
+    ],
+    extensions: ['.ts', '.tsx'],
+    babelHelpers: 'runtime',
+    plugins: ['@babel/plugin-transform-runtime'],
+  })
+
+  const typescriptPlugin = typescript({
+    noEmit: true,
+  })
+
+  const sassPlugin = scss({
+    output: 'dist/index.css',
+  })
+
+  const linariaPlugin = linaria({
+    sourceMap: process.env.NODE_ENV !== 'production',
+  })
+
+  const tsPlugin = plugins.find(plugin => plugin.name === 'rpt2')
+
+  plugins.splice(plugins.indexOf(tsPlugin), 2, typescriptPlugin, linariaPlugin, sassPlugin, babelPlugin)
+
+  return plugins
+}
 
 module.exports = {
   rollup(config) {
-    const newConfig = {
+    const plugins = replaceAndReorderPlugins(config.plugins)
+
+    return {
       ...config,
       output: {
         ...config.output,
@@ -32,23 +78,22 @@ module.exports = {
           'rc-notification/lib/useNotification': 'rc-notification/lib/useNotification',
           'rc-select': 'rc-select',
           'rc-tooltip': 'rc-tooltip',
+          '@babel/runtime/helpers/taggedTemplateLiteral': '_taggedTemplateLiteral',
+          '@babel/runtime/helpers/defineProperty': '_defineProperty',
+          '@babel/runtime/helpers/slicedToArray': '_slicedToArray',
+          '@babel/runtime/helpers/toConsumableArray': '_toConsumableArray',
+          tslib: 'tslib',
+          '@babel/runtime/helpers/typeof': '_typeof',
+          '@babel/runtime/regenerator': '_regeneratorRuntime',
+          '@babel/runtime/helpers/classCallCheck': '_classCallCheck',
+          '@babel/runtime/helpers/inherits': '_inherits',
+          '@babel/runtime/helpers/possibleConstructorReturn': '_possibleConstructorReturn',
+          '@babel/runtime/helpers/getPrototypeOf': '_getPrototypeOf',
+          '@babel/runtime/helpers/assertThisInitialized': '_assertThisInitialized',
+          '@babel/runtime/helpers/wrapNativeSuper': '_wrapNativeSuper',
         },
       },
-      plugins: [
-        ...config.plugins,
-        // I should be able to add lineria here as TSDX is Rollup under the hood but doesn't include
-        // in the bundle. Have added sass with no emit so I can import the sass file into my index.tsx
-        // linaria({
-        //   sourceMap: process.env.NODE_ENV !== 'production',
-        //   evaluate: true,
-        // }),
-        scss({
-          output: () => {
-            console.info('Not emitting CSS here, as there is a separate rollup process')
-          },
-        }),
-      ],
+      plugins: [...plugins],
     }
-    return newConfig
   },
 }

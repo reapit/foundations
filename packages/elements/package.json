@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "0.5.58",
+  "version": "0.5.59-beta.1",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "homepage": "https://github.com/reapit/foundations#readme",
   "bugs": {
@@ -20,7 +20,7 @@
   "module": "dist/elements.esm.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "build:prod": "concurrently \"cross-env NODE_ENV=production && rimraf dist && tsdx build --format=cjs,esm,umd && rollup -c\" \"cross-env NODE_ENV=production && rimraf public/dist && build-storybook -o public/dist\"",
+    "build:prod": "concurrently \"cross-env NODE_ENV=production && rimraf dist && tsdx build --format=cjs,esm,umd\" \"cross-env NODE_ENV=production && rimraf public/dist && build-storybook -o public/dist\"",
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
     "release:dev": "node ../../scripts/release/release-dev.js elements reapit-elements-dev",
     "lint:fix": "eslint --cache --ext=ts,tsx,js src --fix",
@@ -47,6 +47,7 @@
     "hardtack": "^4.1.0",
     "himalaya": "^1.1.0",
     "jsonwebtoken": "^8.5.1",
+    "linaria": "^1.4.0-beta.10",
     "papaparse": "^5.1.1",
     "pell": "^1.0.6",
     "prop-types": "^15.7.2",
@@ -63,9 +64,10 @@
     "snyk": "^1.335.0"
   },
   "devDependencies": {
+    "@babel/runtime": "7.10.2",
+    "@babel/plugin-transform-runtime":"7.10.1",
     "@reapit/foundations-ts-definitions": "2020-02-13",
-    "@rollup/plugin-commonjs": "^12.0.0",
-    "@rollup/plugin-node-resolve": "^8.0.0",
+    "@rollup/plugin-babel": "^5.0.3",
     "@storybook/addon-actions": "^5.2.6",
     "@storybook/addon-docs": "^5.2.6",
     "@storybook/addon-info": "^5.2.6",
@@ -82,6 +84,7 @@
     "@types/jsonwebtoken": "^8.3.5",
     "@types/papaparse": "^5.0.3",
     "@whitespace/storybook-addon-html": "^1.2.1",
+    "dashify": "2.0.0",
     "react-is": "^16.13.1",
     "rollup": "1.27.13",
     "rollup-plugin-scss": "^1.0.2",
