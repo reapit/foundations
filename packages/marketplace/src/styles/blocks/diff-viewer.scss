@@ -6,6 +6,10 @@
   border-radius: 3px;
   padding: 10px;
   color: $black;
+
+  span {
+    overflow-wrap: break-word;
+  }
 }
 
 .green {
