@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as ReactRedux from 'react-redux'
 import configureStore from 'redux-mock-store'
 import { shallow } from 'enzyme'
-import { UnsupportBrowerPopUp, popUp, TIMEOUT_DURATION } from '../unsupport-brower-pop-up'
+import { UnsupportBrowserPopUp, popUp, handleCloseToast, TIMEOUT_DURATION } from '../unsupport-browser-pop-up'
 import appState from '@/reducers/__stubs__/app-state'
 
 const setOpen = jest.fn()
@@ -25,12 +25,21 @@ describe('UnsupportBrowerPopUp popup', () => {
   })
 })
 
+describe('handleCloseToast', () => {
+  it('should run correctly', () => {
+    const setIsOpen = jest.fn()
+    handleCloseToast(setIsOpen)()
+    expect(setIsOpen).toBeCalled()
+    expect(setIsOpen).toBeCalledWith(false)
+  })
+})
+
 describe('UnsupportBrowerPopUp', () => {
   const mockStore = configureStore()
   const store = mockStore(appState)
   const createComponent = ({ unsupported, message }) => (
     <ReactRedux.Provider store={store}>
-      <UnsupportBrowerPopUp unsupported={unsupported} message={message} />
+      <UnsupportBrowserPopUp unsupported={unsupported} message={message} />
     </ReactRedux.Provider>
   )
 
