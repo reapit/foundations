@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Redirect } from 'react-router-dom'
 import { History } from 'history'
 import { useHistory, useParams } from 'react-router'
 import {
@@ -331,6 +332,11 @@ export const DeveloperSubmitApp: React.FC<DeveloperSubmitAppProps> = () => {
 
   const isSubmitRevision = appid ? true : false
   const isSubmitApp = !isSubmitRevision
+
+  const isPendingRevisionsExist = appDetailState.appDetailData?.data?.pendingRevisions
+  if (isPendingRevisionsExist) {
+    return <Redirect to={`${Routes.DEVELOPER_MY_APPS}/${appid}`} />
+  }
 
   if (isSubmitApp) {
     const { loading } = submitAppState
