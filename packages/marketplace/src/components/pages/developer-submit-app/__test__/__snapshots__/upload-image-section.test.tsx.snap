@@ -16,7 +16,7 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
         <label
           className="label"
         >
-          Icon
+          Icon *
         </label>
         <Component
           allowClear={true}
@@ -24,6 +24,7 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
           id="iconImage"
           labelText="Upload Image"
           name="iconImageUrl"
+          required={true}
         />
       </div>
     </Component>
@@ -34,7 +35,7 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
         <label
           className="label"
         >
-          Screenshot 1
+          Screenshot 1 *
         </label>
         <Component
           allowClear={true}
@@ -42,6 +43,7 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
           id="screenshot1"
           labelText="Upload Image"
           name="screen1ImageUrl"
+          required={true}
         />
       </div>
     </Component>

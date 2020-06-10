@@ -15,25 +15,27 @@ const UploadImageSection: React.FC<UploadImageSectionProps> = () => {
       <GridFourCol>
         <GridFourColItem>
           <div className="control">
-            <label className="label">Icon</label>
+            <label className="label">Icon *</label>
             <ImageInput
               id="iconImage"
               dataTest="submit-app-icon"
               labelText="Upload Image"
               name="iconImageUrl"
               allowClear
+              required
             />
           </div>
         </GridFourColItem>
         <GridFourColItem>
           <div className="control mb-4">
-            <label className="label">Screenshot 1</label>
+            <label className="label">Screenshot 1 *</label>
             <ImageInput
               id="screenshot1"
               dataTest="submit-app-screenshot1"
               labelText="Upload Image"
               name="screen1ImageUrl"
               allowClear
+              required
             />
           </div>
         </GridFourColItem>
