@@ -16,6 +16,10 @@ describe('Input', () => {
     expect(toJson(shallow(<TextArea {...props} />))).toMatchSnapshot()
   })
 
+  it('should match a snapshot when required', () => {
+    expect(toJson(shallow(<TextArea {...props} required />))).toMatchSnapshot()
+  })
+
   it('should work when integrating with Formik', async () => {
     const wrapper = mount(
       <Formik initialValues={{ username: '' }} onSubmit={jest.fn()}>
