@@ -73,10 +73,6 @@ export const validate = (values: CustomCreateAppModel) => {
     errors.signoutUris = 'Invalid sign out uri(s)'
   }
 
-  if (values.isPrivateApp === 'yes' && values.limitToClientIds?.length === 0) {
-    errors.limitToClientIds = 'At least one Customer ID is required'
-  }
-
   if (values.limitToClientIds && !isValidLimitToClientIds(values.limitToClientIds)) {
     errors.limitToClientIds = 'Invalid Customer ID(s). Each Customer ID should consist of 3 characters.'
   }
