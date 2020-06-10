@@ -1,14 +1,25 @@
 import { RejectRevisionModel } from '@reapit/foundations-ts-definitions'
 import { validateRequire } from '@reapit/elements'
+import { cleanObject } from '@/utils/object'
 
 export type SubmitRevisionFormErrorKeys = keyof RejectRevisionModel
 
+export const REJECT_EMPTY_MESSAGE = 'Rejection reason is invalid'
+
 export const validate = (values: RejectRevisionModel) => {
-  let errors = validateRequire<RejectRevisionModel, SubmitRevisionFormErrorKeys>({
+  const errors = validateRequire<RejectRevisionModel, SubmitRevisionFormErrorKeys>({
     values,
     currentErrors: {},
     keys: ['rejectionReason'],
   })
+
+  const formattedValues: RejectRevisionModel = cleanObject(values)
+  const { rejectionReason } = formattedValues
+
+  // Custom validate messages
+  if (!rejectionReason) {
+    errors.rejectionReason = REJECT_EMPTY_MESSAGE
+  }
 
   return errors
 }
