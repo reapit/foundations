@@ -386,6 +386,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                       >
                         <Field
                           name="summary"
+                          validate={null}
                         >
                           <div
                             className="field"
@@ -394,7 +395,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                               className="control"
                             >
                               <label
-                                className="label"
+                                className="label "
                                 htmlFor="summary"
                               >
                                 Summary
@@ -449,7 +450,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                             className="control"
                           >
                             <label
-                              className="label"
+                              className="label "
                               htmlFor="description"
                             >
                               Description
