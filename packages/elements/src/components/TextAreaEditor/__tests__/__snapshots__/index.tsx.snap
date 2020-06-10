@@ -53,3 +53,58 @@ exports[`TextAreaEditor should match a snapshot 1`] = `
   />
 </ContextProvider>
 `;
+
+exports[`TextAreaEditor should match a snapshot when required 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "dirty": false,
+      "errors": Object {},
+      "getFieldHelpers": [Function],
+      "getFieldMeta": [Function],
+      "getFieldProps": [Function],
+      "handleBlur": [Function],
+      "handleChange": [Function],
+      "handleReset": [Function],
+      "handleSubmit": [Function],
+      "initialErrors": Object {},
+      "initialStatus": undefined,
+      "initialTouched": Object {},
+      "initialValues": Object {},
+      "isSubmitting": false,
+      "isValid": true,
+      "isValidating": false,
+      "registerField": [Function],
+      "resetForm": [Function],
+      "setErrors": [Function],
+      "setFieldError": [Function],
+      "setFieldTouched": [Function],
+      "setFieldValue": [Function],
+      "setFormikState": [Function],
+      "setStatus": [Function],
+      "setSubmitting": [Function],
+      "setTouched": [Function],
+      "setValues": [Function],
+      "status": undefined,
+      "submitCount": 0,
+      "submitForm": [Function],
+      "touched": Object {},
+      "unregisterField": [Function],
+      "validateField": [Function],
+      "validateForm": [Function],
+      "validateOnBlur": true,
+      "validateOnChange": true,
+      "validateOnMount": false,
+      "values": Object {},
+    }
+  }
+>
+  <Component
+    id="username"
+    labelText="User name"
+    name="username"
+    placeholder="enter your name here"
+    required={true}
+  />
+</ContextProvider>
+`;
