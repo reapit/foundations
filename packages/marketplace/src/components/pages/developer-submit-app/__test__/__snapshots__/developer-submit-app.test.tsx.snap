@@ -2183,11 +2183,12 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = true
     initialEntries={
       Array [
         Object {
-          "key": "registerRoute",
+          "key": "what",
           "pathname": "/register",
         },
       ]
     }
+    keyLength={0}
   >
     <Router
       history={
@@ -2199,7 +2200,6 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = true
           "entries": Array [
             Object {
               "hash": "",
-              "key": "c2w718",
               "pathname": "/developer/apps/undefined",
               "search": "",
               "state": undefined,
@@ -2213,7 +2213,6 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = true
           "listen": [Function],
           "location": Object {
             "hash": "",
-            "key": "c2w718",
             "pathname": "/developer/apps/undefined",
             "search": "",
             "state": undefined,

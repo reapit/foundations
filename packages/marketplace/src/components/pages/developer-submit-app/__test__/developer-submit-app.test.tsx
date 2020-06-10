@@ -56,7 +56,8 @@ describe('DeveloperSubmitApp', () => {
     expect(
       mount(
         <ReactRedux.Provider store={customStore}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.REGISTER, key: 'registerRoute' }]}>
+          {/* weird snapshots bug: https://github.com/ReactTraining/react-router/issues/5579 */}
+          <MemoryRouter keyLength={0} initialEntries={[{ pathname: Routes.REGISTER, key: 'what' }]}>
             <DeveloperSubmitApp />
           </MemoryRouter>
         </ReactRedux.Provider>,
