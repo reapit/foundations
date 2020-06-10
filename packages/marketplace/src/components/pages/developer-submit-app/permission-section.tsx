@@ -44,7 +44,7 @@ export const renderScopesCheckbox = (scopes: ScopeModel[] = [], errorScope?: str
 const PermissionSection: React.FC<PermissionSectionProps> = ({ scopes, errors }) => {
   return (
     <FormSection>
-      <FormHeading>Permissions</FormHeading>
+      <FormHeading>Permissions *</FormHeading>
       <FormSubHeading>
         To access a client&apos;s data, you will need to specify the entities you need access to on a read or write
         basis. You should be familiar with these entities from the sandbox. When the user installs your application,

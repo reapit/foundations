@@ -5,7 +5,8 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
   <Component>
     <Component>
       <Component>
-        Redirect URI(s)
+        Redirect URI(s) 
+        *
       </Component>
       <Component>
         Please enter a Redirect URI(s) to define the route Reapit Connect is permitted to redirect to after a successful authentication. The following formats are supported: https://, http:// (for localhost only) or your own custom URI schemes such as myapp://login. For multiple URI’s, separate using a comma.
@@ -16,6 +17,7 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
         id="redirectUris"
         name="redirectUris"
         placeholder="Enter your Redirect URI(s)"
+        required={true}
         type="text"
       />
     </Component>
@@ -23,7 +25,8 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
   <Component>
     <Component>
       <Component>
-        Sign Out URI(s)
+        Sign Out URI(s) 
+        *
       </Component>
       <Component>
         Please enter a Sign Out URI(s) to define the route Reapit Connect is permitted to redirect to after successfully logging out. The following formats are supported: https://, http:// (for localhost only) or your own custom URI schemes such as myapp://login. For multiple URI’s, separate using a comma.
@@ -34,6 +37,7 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
         id="signoutUris"
         name="signoutUris"
         placeholder="Enter your Sign Out URI(s)"
+        required={true}
         type="text"
       />
     </Component>
