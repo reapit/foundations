@@ -28,7 +28,8 @@ export const callGetOfficeByIdAPI = async (args: GetOfficeByIdArgs, context: Ser
     })
     return response?.data
   } catch (error) {
-    return await handleError({ error, traceId, caller: 'callGetOfficeByIdAPI' })
+    const handleErrorResult = await handleError({ error, traceId, caller: 'callGetOfficeByIdAPI' })
+    return handleErrorResult
   }
 }
 
@@ -44,7 +45,8 @@ export const callGetOfficesAPI = async (args: GetOfficesArgs, context: ServerCon
     })
     return response?.data
   } catch (error) {
-    return await handleError({ error, traceId, caller: 'callGetOfficesAPI' })
+    const handleErrorResult = await handleError({ error, traceId, caller: 'callGetOfficesAPI' })
+    return handleErrorResult
   }
 }
 
@@ -63,7 +65,8 @@ export const callCreateOfficeAPI = async (args: CreateOfficeArgs, context: Serve
     }
     return null
   } catch (error) {
-    return await handleError({ error, traceId, caller: 'callCreateOfficeAPI' })
+    const handleErrorResult = await handleError({ error, traceId, caller: 'callCreateOfficeAPI' })
+    return handleErrorResult
   }
 }
 
@@ -87,6 +90,7 @@ export const callUpdateOfficeAPI = async (args: UpdateOfficeArgs, context: Serve
     }
     return errors.generateUserInputError(traceId)
   } catch (error) {
-    return await handleError({ error, traceId, caller: 'callUpdateOfficeAPI' })
+    const handleErrorResult = await handleError({ error, traceId, caller: 'callUpdateOfficeAPI' })
+    return handleErrorResult
   }
 }
