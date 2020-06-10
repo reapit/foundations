@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server'
+import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
 import { NegotiatorModel, PagedResultNegotiatorModel_, CreateNegotiatorModel, UpdateNegotiatorModel } from '../../types'
 
 export type CreateNegotiatorArgs = CreateNegotiatorModel

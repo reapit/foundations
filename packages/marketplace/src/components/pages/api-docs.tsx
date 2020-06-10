@@ -2,10 +2,10 @@ import * as React from 'react'
 import { useHistory } from 'react-router'
 import { FlexContainerBasic } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { UnsupportBrowerPopUp } from '@/components/ui/unsupport-brower-pop-up'
+import { UnsupportBrowserPopUp } from '@/components/ui/unsupport-browser-pop-up'
 import { IFRAME_URLS } from '../../constants/iframe-urls'
 import Routes from '../../constants/routes'
-import { isIE } from '@/utils/brower'
+import { isIE } from '@/utils/browser'
 
 export const parseIframeUrl = (pathname: string, hash: string): string => {
   const path = pathname.split(Routes.DEVELOPER_API_DOCS)[1]
@@ -29,7 +29,11 @@ const ApiDocsPage: React.FC = () => {
           )}
         </FlexContainerBasic>
       </FlexContainerBasic>
-      <UnsupportBrowerPopUp unsupported={isIE()} />
+      <UnsupportBrowserPopUp
+        unsupported={isIE()}
+        // eslint-disable-next-line
+        message="Unsupported Browser - Unfortunately as Internet Explorer 11 is no longer supported, we are unable to display the documentation, please login to the Developer Portal using either Chrome, Firefox, Safari or Edge"
+      />
     </ErrorBoundary>
   )
 }

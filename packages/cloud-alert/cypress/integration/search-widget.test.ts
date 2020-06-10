@@ -29,7 +29,7 @@ if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'se
         propertyImages = data
       })
     })
-    it('user should able to call /properties/<id>', () => {
+    it('user should able to call search-widget /properties/<id>', () => {
       cy.request({
         url: `${WEB_COMPONENTS_API_URL}/properties/BED150319`,
         method: 'GET',
@@ -47,7 +47,7 @@ if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'se
         expect(response.body).to.deep.equal(property)
       })
     })
-    it('user should able to call /properties?<query params>', () => {
+    it('user should able to call search-widget /properties?<query params>', () => {
       cy.request({
         // eslint-disable-next-line max-len
         url: `${WEB_COMPONENTS_API_URL}/properties?keywords=london&isRental=true&apiKey&customerId=DXX&pageNumber=1&bedroomsFrom=1&bedroomsTo=2&priceFrom=300000&priceTo=500000&sortBy=price&propertyType=house&addedIn`,
