@@ -63,6 +63,20 @@ const invalidValues: InputOutput[] = [
   ],
   [
     {
+      name: 'Jame$$',
+      companyName: 'Doe John',
+      email: 'invalid.com@.com',
+      telephone: 'abc',
+      agreedTerms: '123',
+    },
+    {
+      name: 'Invalid full name',
+      email: 'Invalid email address',
+      telephone: 'Invalid telephone number',
+    },
+  ],
+  [
+    {
       name: 'Jame',
       companyName: 'Doe',
       email: 'valid@company.com',
