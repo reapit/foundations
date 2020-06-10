@@ -74,7 +74,7 @@ export const onSearchHandler = (history: History<any>) => (
 ) => {
   const cleanedValues = cleanObject(queryParams)
   if (isEmptyObject(cleanedValues)) {
-    setStatus('Please enter at least one search criterion')
+    setStatus('Please enter at least one search criteria')
     return
   }
   const query = setQueryParams(queryParams)
