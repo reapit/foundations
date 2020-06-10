@@ -1,6 +1,8 @@
 import React from 'react'
+import classnames from 'classnames'
 import { Field, FieldProps } from 'formik'
 import { checkError } from '../../utils/form'
+import { Grid, GridItem } from '../Layout'
 
 export type RadioSelectOption = {
   label: string | number
@@ -18,6 +20,7 @@ export type RadioSelectProps = {
   state: any
   disabled?: boolean
   className?: string
+  isHorizontal?: boolean
 }
 
 export const RadioSelect: React.FC<RadioSelectProps> = ({
@@ -30,8 +33,17 @@ export const RadioSelect: React.FC<RadioSelectProps> = ({
   setFieldValue,
   state,
   disabled = false,
+  isHorizontal = false,
   className = '',
 }) => {
+  const radioGridClassName = classnames({
+    'is-gapless': !isHorizontal,
+  })
+  const radioGridItemClassName = classnames({
+    'is-full': !isHorizontal,
+    'is-narrow': isHorizontal,
+  })
+
   return (
     <Field type="radio" name={name}>
       {({ meta }: FieldProps<string>) => {
@@ -43,22 +55,28 @@ export const RadioSelect: React.FC<RadioSelectProps> = ({
                 {labelText}
               </label>
               {subText && <label className="subtext mb-2">{subText}</label>}
-              {options.map(({ label, value }: RadioSelectOption, index: number) => (
-                <div key={index} data-test={dataTest} className="radio-wrap">
-                  <input
-                    id={`${name}${label}`}
-                    className={`checkbox ${hasError ? 'checkbox-error' : ''}`}
-                    type="radio"
-                    key={value}
-                    checked={state === value}
-                    name={name}
-                    value={value}
-                    disabled={disabled}
-                    onChange={() => setFieldValue(name, value)}
-                  />
-                  <label htmlFor={`${name}${label}`}>{label}</label>
-                </div>
-              ))}
+              <Grid className={radioGridClassName} isMultiLine>
+                {options.map(({ label, value }: RadioSelectOption, index: number) => {
+                  return (
+                    <GridItem key={index} className={radioGridItemClassName}>
+                      <div data-test={dataTest} className="radio-wrap">
+                        <input
+                          id={`${name}${label}`}
+                          className={`checkbox ${hasError ? 'checkbox-error' : ''}`}
+                          type="radio"
+                          key={value}
+                          checked={state === value}
+                          name={name}
+                          value={value}
+                          disabled={disabled}
+                          onChange={() => setFieldValue(name, value)}
+                        />
+                        <label htmlFor={`${name}${label}`}>{label}</label>
+                      </div>
+                    </GridItem>
+                  )
+                })}
+              </Grid>
             </div>
             {hasError && (
               <div className="has-text-danger" data-test="input-error">
