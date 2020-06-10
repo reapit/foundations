@@ -16,8 +16,10 @@ export const validate = (values: RejectRevisionModel) => {
   const formattedValues: RejectRevisionModel = cleanObject(values)
   const { rejectionReason } = formattedValues
 
+  const isEmptyRejectionReason = !rejectionReason
+
   // Custom validate messages
-  if (!rejectionReason) {
+  if (isEmptyRejectionReason) {
     errors.rejectionReason = REJECT_EMPTY_MESSAGE
   }
 
