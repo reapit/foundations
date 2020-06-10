@@ -333,7 +333,8 @@ export const DeveloperSubmitApp: React.FC<DeveloperSubmitAppProps> = () => {
   const isSubmitRevision = appid ? true : false
   const isSubmitApp = !isSubmitRevision
 
-  if (appDetailState.appDetailData?.data?.pendingRevisions) {
+  const isPendingRevisionsExist = appDetailState.appDetailData?.data?.pendingRevisions
+  if (isPendingRevisionsExist) {
     return <Redirect to={`${Routes.DEVELOPER_MY_APPS}/${appid}`} />
   }
 
