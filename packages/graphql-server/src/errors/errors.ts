@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError, ForbiddenError, ValidationError, ApolloError } from 'apollo-server'
+import { AuthenticationError, UserInputError, ForbiddenError, ValidationError, ApolloError } from 'apollo-server-lambda'
 import logger from '../logger'
 
 export const errorMessages = {

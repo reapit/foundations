@@ -2,7 +2,7 @@ import propertyServices from './services'
 import { checkPermission } from '../../utils/check-permission'
 import logger from '../../logger'
 import errors from '../../errors'
-import { ServerContext } from '../../app'
+import { ServerContext } from '../../index'
 import {
   GetPropertyByIdArgs,
   CreatePropertyArgs,

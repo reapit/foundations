@@ -1,4 +1,4 @@
-import { ServerContext } from '../app'
+import { ServerContext } from '../index'
 
 export const mockContext = {
   traceId: 'mockTraceId',
