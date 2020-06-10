@@ -34,7 +34,7 @@ export const callGetAppointmentByIdAPI = async (
     )
     return response?.data
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callGetAppointmentByIdAPI' })
+    return await handleError({ error, traceId, caller: 'callGetAppointmentByIdAPI' })
   }
 }
 
@@ -53,7 +53,7 @@ export const callGetAppointmentsAPI = async (
     })
     return response?.data
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callGetAppointmentsAPI' })
+    return await handleError({ error, traceId, caller: 'callGetAppointmentsAPI' })
   }
 }
 
@@ -75,7 +75,7 @@ export const callCreateAppointmentAPI = async (
     }
     return null
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callCreateAppointmentAPI' })
+    return await handleError({ error, traceId, caller: 'callCreateAppointmentAPI' })
   }
 }
 
@@ -102,6 +102,6 @@ export const callUpdateAppointmentAPI = async (
     }
     return errors.generateUserInputError(traceId)
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callUpdateAppointmentAPI' })
+    return await handleError({ error, traceId, caller: 'callUpdateAppointmentAPI' })
   }
 }

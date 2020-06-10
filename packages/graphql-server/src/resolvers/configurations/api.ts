@@ -27,7 +27,7 @@ export const callGetConfigurationsByTypeAndIdApi = async (
     )
     return response?.data
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callGetConfigurationsByTypeAndIdApi' })
+    return await handleError({ error, traceId, caller: 'callGetConfigurationsByTypeAndIdApi' })
   }
 }
 
@@ -48,6 +48,6 @@ export const callGetConfigurationsByTypeApi = async (
     )
     return response?.data
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callGetConfigurationsByTypeApi' })
+    return await handleError({ error, traceId, caller: 'callGetConfigurationsByTypeApi' })
   }
 }

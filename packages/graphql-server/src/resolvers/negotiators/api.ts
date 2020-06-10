@@ -36,7 +36,7 @@ export const callGetNegotiatorByIdAPI = async (
     )
     return response?.data
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callGetNegotiatorByIdAPI' })
+    return await handleError({ error, traceId, caller: 'callGetNegotiatorByIdAPI' })
   }
 }
 
@@ -53,7 +53,7 @@ export const callGetNegotiatorsAPI = async (args: GetNegotiatorsArgs, context: S
     return response?.data
   } catch (error) {
     console.log(error)
-    return handleError({ error, traceId, caller: 'callGetNegotiatorsAPI' })
+    return await handleError({ error, traceId, caller: 'callGetNegotiatorsAPI' })
   }
 }
 
@@ -75,7 +75,7 @@ export const callCreateNegotiatorAPI = async (
     }
     return null
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callCreateNegotiatorAPI' })
+    return await handleError({ error, traceId, caller: 'callCreateNegotiatorAPI' })
   }
 }
 
@@ -102,6 +102,6 @@ export const callUpdateNegotiatorAPI = async (
     }
     return errors.generateUserInputError(traceId)
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callUpdateNegotiatorAPI' })
+    return await handleError({ error, traceId, caller: 'callUpdateNegotiatorAPI' })
   }
 }

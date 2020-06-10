@@ -1,5 +1,5 @@
 import * as Sentry from '@sentry/node'
-import { createWistonLoggerErrorFn, stringifyError } from '../sentry-logger'
+import { createWistonLoggerErrorFn, stringifyError, cleanObject } from '../sentry-logger'
 
 jest.mock('serialize-error', () => ({
   serializeError: jest.fn(() => ({
@@ -13,6 +13,16 @@ describe('stringifyError', () => {
     expect(stringifyError(err)).toEqual(JSON.stringify({ stack: 'test' }))
   })
 })
+
+describe('cleanObject', () => {
+  it('should run correctly', () => {
+    expect(cleanObject({})).toEqual({})
+    expect(cleanObject({ a: undefined })).toEqual({})
+    expect(cleanObject({ a: undefined, b: 'a' })).toEqual({ b: 'a' })
+    expect(cleanObject({ a: null, b: 'a' })).toEqual({ b: 'a' })
+  })
+})
+
 describe('createWistonLoggerErrorFn', () => {
   const mockScope = { setExtra: jest.fn() }
   const spyWithScope = jest.spyOn(Sentry, 'withScope')

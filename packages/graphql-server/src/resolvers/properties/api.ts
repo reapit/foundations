@@ -31,7 +31,7 @@ export const callGetPropertyByIdAPI = async (
     })
     return response?.data
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callGetPropertyByIdAPI' })
+    return await handleError({ error, traceId, caller: 'callGetPropertyByIdAPI' })
   }
 }
 
@@ -47,7 +47,7 @@ export const callGetPropertiesAPI = async (args: GetPropertiesArgs, context: Ser
     })
     return response?.data
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callGetPropertiesAPI' })
+    return await handleError({ error, traceId, caller: 'callGetPropertiesAPI' })
   }
 }
 
@@ -66,7 +66,7 @@ export const callCreatePropertyAPI = async (args: CreatePropertyArgs, context: S
     }
     return null
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callCreatePropertyAPI' })
+    return await handleError({ error, traceId, caller: 'callCreatePropertyAPI' })
   }
 }
 
@@ -90,6 +90,6 @@ export const callUpdatePropertyAPI = async (args: UpdatePropertyArgs, context: S
     }
     return errors.generateUserInputError(traceId)
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callUpdatePropertyAPI' })
+    return await handleError({ error, traceId, caller: 'callUpdatePropertyAPI' })
   }
 }

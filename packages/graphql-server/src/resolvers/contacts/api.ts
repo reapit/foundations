@@ -28,7 +28,7 @@ export const callGetContactByIdAPI = async (args: GetContactByIdArgs, context: S
     })
     return response?.data
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callGetContactByIdAPI' })
+    return await handleError({ error, traceId, caller: 'callGetContactByIdAPI' })
   }
 }
 
@@ -44,7 +44,7 @@ export const callGetContactsAPI = async (args: GetContactsArgs, context: ServerC
     })
     return response?.data
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callGetContactsAPI' })
+    return await handleError({ error, traceId, caller: 'callGetContactsAPI' })
   }
 }
 
@@ -63,7 +63,7 @@ export const callCreateContactAPI = async (args: CreateContactArgs, context: Ser
     }
     return null
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callCreateContactAPI' })
+    return await handleError({ error, traceId, caller: 'callCreateContactAPI' })
   }
 }
 
@@ -87,6 +87,6 @@ export const callUpdateContactAPI = async (args: UpdateContactArgs, context: Ser
     }
     return errors.generateUserInputError(traceId)
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callUpdateContactAPI' })
+    return await handleError({ error, traceId, caller: 'callUpdateContactAPI' })
   }
 }

@@ -28,7 +28,7 @@ export const callGetAreaByIdAPI = async (args: GetAreaByIdArgs, context: ServerC
     })
     return response?.data
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callGetAreaByIdAPI' })
+    return await handleError({ error, traceId, caller: 'callGetAreaByIdAPI' })
   }
 }
 
@@ -44,7 +44,7 @@ export const callGetAreasAPI = async (args: GetAreasArgs, context: ServerContext
     })
     return response?.data
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callGetAreasAPI' })
+    return await handleError({ error, traceId, caller: 'callGetAreasAPI' })
   }
 }
 
@@ -63,7 +63,7 @@ export const callCreateAreaAPI = async (args: CreateAreaArgs, context: ServerCon
     }
     return null
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callCreateAreaAPI' })
+    return await handleError({ error, traceId, caller: 'callCreateAreaAPI' })
   }
 }
 
@@ -87,6 +87,6 @@ export const callUpdateAreaAPI = async (args: UpdateAreaArgs, context: ServerCon
     }
     return errors.generateUserInputError(traceId)
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callUpdateAreaAPI' })
+    return await handleError({ error, traceId, caller: 'callUpdateAreaAPI' })
   }
 }

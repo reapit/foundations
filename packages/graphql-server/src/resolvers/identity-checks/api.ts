@@ -34,7 +34,7 @@ export const callGetIdentityCheckByIdAPI = async (
     )
     return response?.data
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callGetIdentityCheckByIdAPI' })
+    return await handleError({ error, traceId, caller: 'callGetIdentityCheckByIdAPI' })
   }
 }
 
@@ -56,7 +56,7 @@ export const callGetIdentityChecksAPI = async (
     )
     return response?.data
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callGetIdentityChecksAPI' })
+    return await handleError({ error, traceId, caller: 'callGetIdentityChecksAPI' })
   }
 }
 
@@ -78,7 +78,7 @@ export const callCreateIdentityCheckAPI = async (
     }
     return null
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callCreateIdentityCheckAPI' })
+    return await handleError({ error, traceId, caller: 'callCreateIdentityCheckAPI' })
   }
 }
 
@@ -105,6 +105,6 @@ export const callUpdateIdentityCheckAPI = async (
     }
     return errors.generateUserInputError(traceId)
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callUpdateIdentityCheckAPI' })
+    return await handleError({ error, traceId, caller: 'callUpdateIdentityCheckAPI' })
   }
 }
