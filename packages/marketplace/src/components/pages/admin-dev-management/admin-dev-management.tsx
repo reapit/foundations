@@ -30,7 +30,7 @@ import qs from 'querystring'
 import styles from '@/styles/pages/admin-apps.scss?mod'
 import { selectAdminDevManagement } from '@/selector/admin'
 import { Dispatch } from 'redux'
-import { cleanObject } from '@/utils/object'
+import { cleanObject } from '@reapit/utils'
 
 export interface AdminDevManagementMappedActions {
   fetchData: (requestdata: AdminDevManagementRequestDataValues) => void

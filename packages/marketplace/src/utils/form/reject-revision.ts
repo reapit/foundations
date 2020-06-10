@@ -1,6 +1,6 @@
 import { RejectRevisionModel } from '@reapit/foundations-ts-definitions'
 import { validateRequire } from '@reapit/elements'
-import { cleanObject } from '@/utils/object'
+import { cleanObject } from '@reapit/utils'
 
 export type SubmitRevisionFormErrorKeys = keyof RejectRevisionModel
 
