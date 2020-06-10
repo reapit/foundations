@@ -1,4 +1,4 @@
-import { isEmail, isValidPersonName } from '../validate'
+import { isEmail, isValidPersonName, isValidTelephone } from '../validate'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 
 export type RegisterFormError = Partial<CreateDeveloperModel>
@@ -35,6 +35,8 @@ export function registerValidate(values: CreateDeveloperModel) {
 
   if (!trimmedValues.telephone) {
     errors.telephone = 'Required'
+  } else if (!isValidTelephone(trimmedValues.telephone)) {
+    errors.telephone = 'Invalid telephone number'
   }
 
   return errors
