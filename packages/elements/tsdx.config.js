@@ -7,11 +7,6 @@ const typescript = require('rollup-plugin-typescript2')
 const replaceAndReorderPlugins = plugins => {
   const babelPlugin = babel({
     presets: [
-      // first get the linaria styles
-      'linaria/babel',
-      // then extract TS and JSX
-      '@babel/preset-typescript',
-      '@babel/preset-react',
       [
         '@babel/preset-env',
         {
@@ -30,9 +25,7 @@ const replaceAndReorderPlugins = plugins => {
 
   // I need TS plugin so linaria can read TS files but I don't want it to transpile as will remove
   // linaria template literals
-  const typescriptPlugin = typescript({
-    noEmit: true,
-  })
+  const typescriptPlugin = typescript()
 
   // export linaria css and main sass project
   const sassPlugin = scss({
@@ -46,7 +39,7 @@ const replaceAndReorderPlugins = plugins => {
 
   const tsPlugin = plugins.find(plugin => plugin.name === 'rpt2')
 
-  // Remove the original TsPlugin that stripped out my styles, plus Bablel. I add new Babel config back in
+  // Remove the original TsPlugin that stripped out my styles, plus Babel. I add new Babel config back in
   // at the end after extracting styles
   plugins.splice(plugins.indexOf(tsPlugin), 2, typescriptPlugin, linariaPlugin, sassPlugin, babelPlugin)
 
@@ -100,6 +93,8 @@ module.exports = {
           '@babel/runtime/helpers/getPrototypeOf': '_getPrototypeOf',
           '@babel/runtime/helpers/assertThisInitialized': '_assertThisInitialized',
           '@babel/runtime/helpers/wrapNativeSuper': '_wrapNativeSuper',
+          '@babel/runtime/helpers/objectWithoutProperties': '_objectWithoutProperties',
+          '@babel/runtime/helpers/asyncToGenerator': '_asyncToGenerator',
         },
       },
       plugins: [...plugins],

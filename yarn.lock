@@ -4056,6 +4056,29 @@
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
 
+"@reapit/elements@0.5.39":
+  version "0.5.39"
+  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.5.39.tgz#578a51eca0d937cfb9376730c9b4124b47eb9c9b"
+  integrity sha512-NNoUa8rEExSsGa+Y9sE5R/1U7LYzYZ45GGsPoBSuHBssT6BYT25MhoX08HXN5AcWR7VTloeZw9o5+g1eR1V/vQ==
+  dependencies:
+    "@storybook/theming" "^5.2.8"
+    bulma "^0.7.5"
+    formik "^2.0.4"
+    gh-pages "^2.2.0"
+    hardtack "^4.1.0"
+    himalaya "^1.1.0"
+    jsonwebtoken "^8.5.1"
+    papaparse "^5.1.1"
+    pell "^1.0.6"
+    prop-types "^15.7.2"
+    react-datasheet "^1.4.0"
+    react-datepicker "^2.9.6"
+    react-google-map "^3.1.1"
+    react-google-maps-loader "^4.2.5"
+    react-icons "^3.7.0"
+    react-table "7.0.0-alpha.35"
+    styled-components "^4.4.1"
+
 "@reapit/elements@^0.5.39", "@reapit/elements@^0.5.50":
   version "0.5.57"
   resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.5.57.tgz#b138aa1f1f00c488de78733447151289088d54b4"
@@ -23823,6 +23846,11 @@ react-syntax-highlighter@^12.2.1:
     lowlight "1.12.1"
     prismjs "^1.8.4"
     refractor "^2.4.1"
+
+react-table@7.0.0-alpha.35:
+  version "7.0.0-alpha.35"
+  resolved "https://registry.yarnpkg.com/react-table/-/react-table-7.0.0-alpha.35.tgz#6339afabe89cbf607a7ce37acf682d42985a3920"
+  integrity sha512-sQbHvNMf/FZsyCF3i2t5GdljSf58lOaTShC0rtibjWkD0ZOQTAiZpbjPNWpQ2sFmoOkneWMzEIBwzcZrRsEV7w==
 
 react-table@7.0.4:
   version "7.0.4"

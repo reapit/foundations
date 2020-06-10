@@ -1,8 +1,9 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "target": "es6",
+    "target": "ESNEXT",
     "module": "es6",
+    "declaration": true,
     "moduleResolution": "node",
     "types": ["jest", "node", "react"],
     "baseUrl": "./",
