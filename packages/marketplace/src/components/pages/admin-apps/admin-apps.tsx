@@ -30,6 +30,7 @@ import { addQuery, stringifyObjectIntoQueryString, getParamsFromPath } from '@/u
 import styles from '@/styles/pages/admin-apps.scss?mod'
 import { cleanObject } from '@/utils/object'
 import Routes from '@/constants/routes'
+import { FaCheck } from 'react-icons/fa'
 
 export type DeleteModalData = {
   visible: boolean
@@ -54,6 +55,10 @@ export const renderIsFeature = (dispatch: Dispatch<any>) => ({ row, cell }) => {
       <label className="label" htmlFor={id}></label>
     </div>
   )
+}
+
+export const renderChecked = ({ cell: { value } }) => {
+  return value ? <FaCheck /> : null
 }
 
 export const renderCreatedAt = ({ cell: { value } }) => {
@@ -102,14 +107,17 @@ export const generateColumns = ({ dispatch, setDataDeleteModal, deleteModalData 
     {
       Header: 'Is Listed',
       accessor: 'isListed',
+      Cell: renderChecked,
     },
     {
       Header: 'Pending Revisions',
       accessor: 'pendingRevisions',
+      Cell: renderChecked,
     },
     {
       Header: 'Direct API',
       accessor: 'isDirectApi',
+      Cell: renderChecked,
     },
     {
       Header: 'Created',
