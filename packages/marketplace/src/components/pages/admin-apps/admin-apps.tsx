@@ -28,7 +28,7 @@ import { adminAppsRequestFeatured } from '@/actions/admin-apps'
 import AppDeleteModal from '@/components/ui/app-delete'
 import { addQuery, stringifyObjectIntoQueryString, getParamsFromPath } from '@/utils/client-url-params'
 import styles from '@/styles/pages/admin-apps.scss?mod'
-import { cleanObject } from '@/utils/object'
+import { cleanObject } from '@reapit/utils'
 import Routes from '@/constants/routes'
 import { FaCheck } from 'react-icons/fa'
 
