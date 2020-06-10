@@ -5,6 +5,7 @@ const typescript = require('rollup-plugin-typescript2')
 
 // Overrides and changes the order of TSDX's rollup config to accomodate linaria
 const replaceAndReorderPlugins = plugins => {
+  // Babel just to take my ESNEXT code and make legacy browser friendly
   const babelPlugin = babel({
     presets: [
       [
@@ -23,9 +24,10 @@ const replaceAndReorderPlugins = plugins => {
     plugins: ['@babel/plugin-transform-runtime'],
   })
 
-  // I need TS plugin so linaria can read TS files but I don't want it to transpile as will remove
-  // linaria template literals
-  const typescriptPlugin = typescript()
+  // I need TS plugin to reference a tsconfig that has EANEXT as target so doesn't remove my liaria strings
+  const typescriptPlugin = typescript({
+    tsconfig: './tsconfig.prod.json',
+  })
 
   // export linaria css and main sass project
   const sassPlugin = scss({
