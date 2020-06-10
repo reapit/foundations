@@ -248,7 +248,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                               className="control "
                                             >
                                               <label
-                                                className="label "
+                                                className="label inline-block "
                                                 htmlFor="appName"
                                               >
                                                 App Name
@@ -295,7 +295,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                               className="control "
                                             >
                                               <label
-                                                className="label "
+                                                className="label inline-block "
                                                 htmlFor="developerName"
                                               >
                                                 Developer Name
@@ -342,7 +342,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                               className="control "
                                             >
                                               <label
-                                                className="label "
+                                                className="label inline-block "
                                                 htmlFor="companyName"
                                               >
                                                 Company Name

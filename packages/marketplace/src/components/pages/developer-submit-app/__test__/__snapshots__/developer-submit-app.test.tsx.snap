@@ -187,7 +187,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                             className="control "
                                           >
                                             <label
-                                              className="label required-label"
+                                              className="label inline-block required-label"
                                               htmlFor="name"
                                             >
                                               Name
@@ -290,7 +290,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                             className="control "
                                           >
                                             <label
-                                              className="label "
+                                              className="label inline-block "
                                               htmlFor="supportEmail"
                                             >
                                               Support email
@@ -337,7 +337,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                             className="control "
                                           >
                                             <label
-                                              className="label "
+                                              className="label inline-block "
                                               htmlFor="phone"
                                             >
                                               Telephone
@@ -391,7 +391,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                             className="control "
                                           >
                                             <label
-                                              className="label "
+                                              className="label inline-block "
                                               htmlFor="homePage"
                                             >
                                               Home page
@@ -438,7 +438,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                             className="control "
                                           >
                                             <label
-                                              className="label "
+                                              className="label inline-block "
                                               htmlFor="launch Url"
                                             >
                                               Launch URI
