@@ -46,7 +46,24 @@ describe('DeveloperSubmitApp', () => {
     store = mockStore(appState)
     spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
   })
-  it('should match a snapshot', () => {
+  it('should match a snapshot when pendingRevisions = true', () => {
+    const mockStore = configureStore()
+    const clonedAppState = JSON.parse(JSON.stringify(appState))
+    clonedAppState.appDetail.appDetailData = { data: { pendingRevisions: true } }
+    const customStore = mockStore(clonedAppState)
+
+    window.reapit.config.appEnv = 'development'
+    expect(
+      mount(
+        <ReactRedux.Provider store={customStore}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.REGISTER, key: 'registerRoute' }]}>
+            <DeveloperSubmitApp />
+          </MemoryRouter>
+        </ReactRedux.Provider>,
+      ),
+    ).toMatchSnapshot()
+  })
+  it('should match a snapshot when pendingRevisions = false', () => {
     window.reapit.config.appEnv = 'development'
     expect(
       mount(
