@@ -5,7 +5,7 @@
   overflow: hidden;
   position: absolute;
   left: calc(#{$left-panel-width} + 66px);
-  width: calc(100vw - 376px);
+  width: calc(100vw - 415px);
   top: 0;
   height: 100%;
 
@@ -55,11 +55,14 @@
   display: flex;
   background-color: #fff;
   padding: 1.5rem;
+
   & > * {
     margin-right: 10px;
   }
+
   @media screen and (max-width: 768px) {
     justify-content: space-between;
+
     & > * {
       margin-right: 0;
     }
@@ -71,6 +74,7 @@
 .mapPanel.isDesktop {
   left: 350px;
   width: calc(100vw - 350px);
+
   @media screen and (max-width: 768px) {
     left: 0;
   }
