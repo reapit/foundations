@@ -190,6 +190,7 @@ exports[`ClientSearch should match a snapshot 1`] = `
         }
       }
       onSubmit={[Function]}
+      validate={[Function]}
     >
       <Component />
     </Formik>

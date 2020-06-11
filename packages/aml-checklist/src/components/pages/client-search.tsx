@@ -19,6 +19,7 @@ import ErrorBoundary from '@/components/hocs/error-boundary'
 import Routes from '@/constants/routes'
 import { SearchParams, resultSetSearchParams } from '@/actions/result'
 import { ReduxState } from '../../types/core'
+import { validate } from '@/utils/validate-search-form'
 
 export interface ClientSearchMappedActions {
   setSearchParams: (params: SearchParams) => void
@@ -102,6 +103,7 @@ export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ setSe
         <Formik
           initialValues={{ name: '', address: '', identityCheck: '' }}
           onSubmit={searchContacts({ setSearchParams, history })}
+          validate={validate}
         >
           {renderForm({ loginMode })}
         </Formik>
