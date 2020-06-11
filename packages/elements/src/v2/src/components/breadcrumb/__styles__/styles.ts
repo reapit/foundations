@@ -26,14 +26,14 @@ export const breadcrumbItem = css`
   }
 `
 
-export const bold = css`
+export const breadcrumbBold = css`
   font-weight: bold;
   & > * {
     font-weight: bold;
   }
 `
 
-export const lastItem = css`
+export const breadcrumbLastItem = css`
   color: #7c8ca2;
   cursor: default;
   &:hover {
@@ -48,4 +48,9 @@ export const lastItem = css`
       cursor: default;
     }
   }
+`
+
+export const breadcrumbSeparator = css`
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
 `

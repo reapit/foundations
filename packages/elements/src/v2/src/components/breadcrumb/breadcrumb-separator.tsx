@@ -1,6 +1,6 @@
 import React from 'react'
-import { css } from 'linaria'
-import classNames from 'classnames'
+import { cx } from 'linaria'
+import { breadcrumbSeparator } from './__styles__/styles'
 
 export interface BreadcrumbSeparatorProps {
   children?: React.ReactNode
@@ -8,18 +8,13 @@ export interface BreadcrumbSeparatorProps {
   className?: string
 }
 
-export const breadcrumbSeparator = css`
-  margin-right: 0.5rem;
-  margin-left: 0.5rem;
-`
-
 export const BreadcrumbSeparator: React.FC<BreadcrumbSeparatorProps> = ({
   children,
   className,
   style,
 }: BreadcrumbSeparatorProps) => {
   return (
-    <span style={style} className={classNames([breadcrumbSeparator], className)}>
+    <span style={style} className={cx(breadcrumbSeparator, className)}>
       {children || '/'}
     </span>
   )

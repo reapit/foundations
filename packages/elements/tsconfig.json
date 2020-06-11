@@ -3,6 +3,7 @@
   "compilerOptions": {
     "target": "es6",
     "module": "es6",
+    "declaration": true,
     "moduleResolution": "node",
     "types": ["jest", "node", "react"],
     "baseUrl": "./",

@@ -1,7 +1,5 @@
-import { validate } from '../reject-revision'
+import { validate, REJECT_EMPTY_MESSAGE } from '../reject-revision'
 import { RejectRevisionModel } from '@reapit/foundations-ts-definitions'
-
-import errorMessages from '@/constants/error-messages'
 
 describe('rejectRevisionValidation', () => {
   it('validate required fields', () => {
@@ -9,12 +7,22 @@ describe('rejectRevisionValidation', () => {
       rejectionReason: '',
     }
 
-    const validateRequiredKeys = ['rejectionReason']
-
-    const output = {}
-    for (let key of validateRequiredKeys) {
-      output[key] = errorMessages.FIELD_REQUIRED
+    const output = {
+      rejectionReason: REJECT_EMPTY_MESSAGE,
     }
+
+    expect(validate(input)).toEqual(output)
+  })
+
+  it('validate required fields with spaces', () => {
+    const input: RejectRevisionModel = {
+      rejectionReason: ' ',
+    }
+
+    const output = {
+      rejectionReason: REJECT_EMPTY_MESSAGE,
+    }
+
     expect(validate(input)).toEqual(output)
   })
 })
