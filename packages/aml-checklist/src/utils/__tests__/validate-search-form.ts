@@ -22,9 +22,21 @@ describe('validate', () => {
   })
 
   it('should return correctly with no field filled in', () => {
-    const value1: SearchFormValues = {}
-    const result1 = validate(value1)
-    expect(result1).toEqual({
+    const values: SearchFormValues = {}
+    const result = validate(values)
+    expect(result).toEqual({
+      name: 'Please enter a valid name',
+      address: 'Please enter a valid address',
+    })
+  })
+
+  it('should return correctly with value different than text and number', () => {
+    const values: SearchFormValues = {
+      name: '///',
+      address: '///',
+    }
+    const result = validate(values)
+    expect(result).toEqual({
       name: 'Please enter a valid name',
       address: 'Please enter a valid address',
     })

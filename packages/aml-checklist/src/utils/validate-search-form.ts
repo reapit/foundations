@@ -1,4 +1,5 @@
 import { cleanObject } from '@reapit/utils'
+import { isTextAndNumberOnly } from '@reapit/elements'
 
 export type SearchFormValues = {
   name?: string
@@ -12,20 +13,23 @@ export type SearchFormErrorReturn = Partial<Record<SearchFormErrorKeys, string>>
 export const validate = (values: SearchFormValues): SearchFormErrorReturn => {
   const errors: SearchFormErrorReturn = {}
   const formattedValues: SearchFormValues = cleanObject(values)
-  const { name, address } = formattedValues
 
-  const isHaveAtLeastOneField = ['name', 'address', 'identityCheck'].some(key => formattedValues[key])
+  const hasAtLeastOneField = ['name', 'address', 'identityCheck'].some(key => formattedValues[key])
+  // after strip out all falsy values, check if all values are valid
+  const areAllFieldsValid = Object.keys(formattedValues).every(key => isTextAndNumberOnly(formattedValues[key]))
 
-  // allow search & clear errors if have at least one field filled in
-  if (isHaveAtLeastOneField) {
+  // allow search & clear errors if have at least one field filled in & all valid
+  if (hasAtLeastOneField && areAllFieldsValid) {
     return errors
   }
 
-  if (!name) {
+  const { name, address } = formattedValues
+
+  if (!isTextAndNumberOnly(name)) {
     errors.name = 'Please enter a valid name'
   }
 
-  if (!address) {
+  if (!isTextAndNumberOnly(address)) {
     errors.address = 'Please enter a valid address'
   }
 
