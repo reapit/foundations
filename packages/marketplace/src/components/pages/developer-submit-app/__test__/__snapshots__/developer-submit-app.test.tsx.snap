@@ -1577,7 +1577,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                               className="file is-primary  field pb-2"
                                             >
                                               <div
-                                                className="file-input-container control"
+                                                className="control file-input-container is-full-width"
                                               >
                                                 <label
                                                   className="file-label"
@@ -1642,7 +1642,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                               className="file is-primary  field pb-2"
                                             >
                                               <div
-                                                className="file-input-container control"
+                                                className="control file-input-container is-full-width"
                                               >
                                                 <label
                                                   className="file-label"
@@ -1706,7 +1706,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                               className="file is-primary  field pb-2"
                                             >
                                               <div
-                                                className="file-input-container control"
+                                                className="control file-input-container is-full-width"
                                               >
                                                 <label
                                                   className="file-label"
@@ -1770,7 +1770,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                               className="file is-primary  field pb-2"
                                             >
                                               <div
-                                                className="file-input-container control"
+                                                className="control file-input-container is-full-width"
                                               >
                                                 <label
                                                   className="file-label"
@@ -1834,7 +1834,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                               className="file is-primary  field pb-2"
                                             >
                                               <div
-                                                className="file-input-container control"
+                                                className="control file-input-container is-full-width"
                                               >
                                                 <label
                                                   className="file-label"
@@ -1898,7 +1898,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                               className="file is-primary  field pb-2"
                                             >
                                               <div
-                                                className="file-input-container control"
+                                                className="control file-input-container is-full-width"
                                               >
                                                 <label
                                                   className="file-label"
