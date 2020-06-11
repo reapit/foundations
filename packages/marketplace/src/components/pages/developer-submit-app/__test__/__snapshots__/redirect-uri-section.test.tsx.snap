@@ -76,6 +76,9 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
         placeholder="Please enter the Customer ID. For multiple Customer ID’s, please separate using a comma"
         type="text"
       />
+      <Component>
+        This field is disabled during the beta period. Your app will be private by default as the Marketplace is not yet live. You will have the opportunity to make your app private via an edit before setting it to be "Listed" in the marketplace when we move from beta to production.
+      </Component>
     </Component>
   </Component>
 </Component>
