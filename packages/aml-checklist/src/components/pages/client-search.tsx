@@ -13,9 +13,6 @@ import {
   AppParams,
   Form,
   Formik,
-  FormikValues,
-  FormikErrors,
-  isTextAndNumberOnly,
 } from '@reapit/elements'
 import { LoginMode } from '@reapit/cognito-auth'
 import ErrorBoundary from '@/components/hocs/error-boundary'
@@ -98,23 +95,11 @@ export const searchContacts = ({ setSearchParams, history }) => (values: any) =>
   history.push(Routes.RESULTS)
 }
 
-export const validate = (values: FormikValues): FormikErrors<FormikValues> => {
-  const errors = {} as FormikErrors<FormikValues>
-  if (!isTextAndNumberOnly(values?.name?.trim())) {
-    errors.name = 'Invalid name'
-  }
-  if (!isTextAndNumberOnly(values?.address.trim())) {
-    errors.address = 'Invalid address'
-  }
-  return errors
-}
-
 export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ setSearchParams, history, loginMode }) => {
   return (
     <ErrorBoundary>
       <FlexContainerBasic hasPadding flexColumn>
         <Formik
-          validate={validate}
           initialValues={{ name: '', address: '', identityCheck: '' }}
           onSubmit={searchContacts({ setSearchParams, history })}
         >
