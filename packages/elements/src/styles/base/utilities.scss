@@ -63,7 +63,7 @@ $units: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
 .by {
   border-top: 1px solid $grey !important;
   border-bottom: 1px solid $grey !important;
-}  
+}
 
 .mw-100 {
   max-width: 100%;
@@ -75,6 +75,10 @@ $units: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
 
 .inline-flex {
   display: inline-flex;
+}
+
+.inline-block {
+  display: inline-block !important;
 }
 
 .justify-between {

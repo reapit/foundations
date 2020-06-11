@@ -91,7 +91,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                               className="control "
                             >
                               <label
-                                className="label required-label"
+                                className="label inline-block required-label"
                                 htmlFor="name"
                               >
                                 Name
@@ -196,7 +196,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                               className="control "
                             >
                               <label
-                                className="label required-label"
+                                className="label inline-block required-label"
                                 htmlFor="supportEmail"
                               >
                                 Support email
@@ -244,7 +244,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                               className="control "
                             >
                               <label
-                                className="label required-label"
+                                className="label inline-block required-label"
                                 htmlFor="phone"
                               >
                                 Telephone
@@ -299,7 +299,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                               className="control "
                             >
                               <label
-                                className="label required-label"
+                                className="label inline-block required-label"
                                 htmlFor="homePage"
                               >
                                 Home page
@@ -347,7 +347,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                               className="control "
                             >
                               <label
-                                className="label required-label"
+                                className="label inline-block required-label"
                                 htmlFor="launch Url"
                               >
                                 Launch URI

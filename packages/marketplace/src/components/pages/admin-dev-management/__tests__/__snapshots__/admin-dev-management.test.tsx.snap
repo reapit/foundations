@@ -161,7 +161,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                                 className="control "
                                               >
                                                 <label
-                                                  className="label "
+                                                  className="label inline-block "
                                                   htmlFor="name"
                                                 >
                                                   Name
@@ -208,7 +208,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                                 className="control "
                                               >
                                                 <label
-                                                  className="label "
+                                                  className="label inline-block "
                                                   htmlFor="company"
                                                 >
                                                   Company

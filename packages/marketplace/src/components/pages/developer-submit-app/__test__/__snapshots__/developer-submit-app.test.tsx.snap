@@ -187,7 +187,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             className="control "
                                           >
                                             <label
-                                              className="label required-label"
+                                              className="label inline-block required-label"
                                               htmlFor="name"
                                             >
                                               Name
@@ -292,7 +292,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             className="control "
                                           >
                                             <label
-                                              className="label required-label"
+                                              className="label inline-block required-label"
                                               htmlFor="supportEmail"
                                             >
                                               Support email
@@ -340,7 +340,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             className="control "
                                           >
                                             <label
-                                              className="label required-label"
+                                              className="label inline-block required-label"
                                               htmlFor="phone"
                                             >
                                               Telephone
@@ -395,7 +395,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             className="control "
                                           >
                                             <label
-                                              className="label required-label"
+                                              className="label inline-block required-label"
                                               htmlFor="homePage"
                                             >
                                               Home page
@@ -443,7 +443,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             className="control "
                                           >
                                             <label
-                                              className="label required-label"
+                                              className="label inline-block required-label"
                                               htmlFor="launch Url"
                                             >
                                               Launch URI
