@@ -1,8 +1,8 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2020-06-02T06:41:41.360Z",
-  "__export_source": "insomnia.desktop.app:v7.1.1",
+  "__export_date": "2020-06-11T08:25:16.022Z",
+  "__export_source": "insomnia.desktop.app:v2020.2.2",
   "resources": [
     {
       "_id": "req_d451e139e9454c789160103fefbd7ec1",
@@ -29,7 +29,7 @@
       "isPrivate": false,
       "metaSortKey": -1591006316434.75,
       "method": "POST",
-      "modified": 1591069774143,
+      "modified": 1591863626421,
       "name": "GetAppointments",
       "parameters": [
         {
@@ -68,6 +68,7 @@
       "modified": 1590743470730,
       "name": "Reapit APIs Documentation",
       "parentId": null,
+      "scope": null,
       "_type": "workspace"
     },
     {
@@ -95,7 +96,7 @@
       "isPrivate": false,
       "metaSortKey": -1590994713110.9375,
       "method": "POST",
-      "modified": 1591031091333,
+      "modified": 1591863824652,
       "name": "GetAppointmentById",
       "parameters": [
         {
@@ -596,7 +597,7 @@
       "isPrivate": false,
       "metaSortKey": -1590993715638.7188,
       "method": "POST",
-      "modified": 1591069782056,
+      "modified": 1591155860253,
       "name": "GetContacts",
       "parameters": [
         {
@@ -756,7 +757,7 @@
       "authentication": {},
       "body": {
         "mimeType": "application/graphql",
-        "text": "{\"query\":\"mutation CreateAppointment (\\n$start: String\\n$end: String\\n$followUpOn: String\\n$typeId: String\\n$description: String\\n$organiserId: String\\n$negotiatorIds: [String!]\\n$officeIds: [String!]\\n$propertyId: String\\n$accompanied: Boolean\\n$negotiatorConfirmed: Boolean\\n) {\\n  CreateAppointment(negotiatorIds: $negotiatorIds, start: $start, end: $end, followUpOn: $followUpOn, typeId: $typeId, description: $description, organiserId: $organiserId, officeIds: $officeIds, propertyId: $propertyId, accompanied: $accompanied, negotiatorConfirmed: $negotiatorConfirmed)\\n}\",\"variables\":{\"start\":\"2018-08-14T12:30:02.0000000Z\",\"end\":\"2018-08-14T13:30:02.0000000Z\",\"followUpOn\":\"2018-10-05\",\"typeId\":\"VW\",\"description\":\"Meet landlord at the property to get the key.\",\"organiserId\":\"JAS\",\"negotiatorIds\":[\"JAS\"],\"officeIds\":[\"OXF\",\"SOL\"]},\"operationName\":\"CreateAppointment\"}"
+        "text": "{\"query\":\"mutation CreateAppointment (\\n$start: String\\n$end: String\\n$followUpOn: String\\n$typeId: String\\n$description: String\\n$organiserId: String\\n$negotiatorIds: [String!]\\n$officeIds: [String!]\\n$propertyId: String\\n$accompanied: Boolean\\n$negotiatorConfirmed: Boolean\\n) {\\n  CreateAppointment(negotiatorIds: $negotiatorIds, start: $start, end: $end, followUpOn: $followUpOn, typeId: $typeId, description: $description, organiserId: $organiserId, officeIds: $officeIds, propertyId: $propertyId, accompanied: $accompanied, negotiatorConfirmed: $negotiatorConfirmed)\\n}\",\"variables\":{\"start\":\"2020-06-09T12:30:02.0000000Z\",\"end\":\"2020-06-09T13:30:02.0000000Z\",\"followUpOn\":\"2020-06-10\",\"typeId\":\"VW\",\"description\":\"Create testing appointment today\",\"organiserId\":\"JAS\",\"negotiatorIds\":[\"JAS\"],\"officeIds\":[\"OXF\",\"SOL\"]},\"operationName\":\"CreateAppointment\"}"
       },
       "created": 1591008374845,
       "description": "",
@@ -776,7 +777,7 @@
       "isPrivate": false,
       "metaSortKey": -1591008374845,
       "method": "POST",
-      "modified": 1591010967447,
+      "modified": 1591863877110,
       "name": "CreateAppointment",
       "parameters": [],
       "parentId": "fld_409546e4ec164297bafe59f22746cdb9",
@@ -1732,7 +1733,7 @@
       },
       "isPrivate": false,
       "metaSortKey": 1590743470787,
-      "modified": 1591079961063,
+      "modified": 1591863876660,
       "name": "Base Environment",
       "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
       "_type": "environment"
@@ -1745,6 +1746,16 @@
       "name": "Default Jar",
       "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
       "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_2cfedfd6a86348cbaaecc95eba079a6c",
+      "contentType": "yaml",
+      "contents": "",
+      "created": 1591155837420,
+      "fileName": "Reapit APIs Documentation",
+      "modified": 1591155837420,
+      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
+      "_type": "api_spec"
     },
     {
       "_id": "env_91c1ac7e91254caaa5fd4d89f33a6bef",
@@ -1766,7 +1777,7 @@
       },
       "isPrivate": false,
       "metaSortKey": 1,
-      "modified": 1591079896583,
+      "modified": 1591863500633,
       "name": "development",
       "parentId": "env_b30c61d7d0a73c30613e4f83449d1df1cb77c75a",
       "_type": "environment"
@@ -1801,7 +1812,7 @@
       "color": "#d00000",
       "created": 1590748587252,
       "data": {
-        "graphQLServerDomain": "rszshvrapg.execute-api.eu-west-2.amazonaws.com/dev/graphql",
+        "graphQLServerDomain": "8g8ibl8iei.execute-api.eu-west-2.amazonaws.com/dev/v1/graphql",
         "protocol": "https",
         "webComponentConfigServerDomain": "vwvdddbw9k.execute-api.eu-west-2.amazonaws.com",
         "webComponentServerDomain": "b2q5q0tc48.execute-api.eu-west-2.amazonaws.com/dev"
