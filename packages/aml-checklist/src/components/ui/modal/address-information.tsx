@@ -8,6 +8,7 @@ import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { ReduxState } from '@/types/core'
 import { updateAddressHistory, checklistDetailShowModal } from '@/actions/checklist-detail'
 import { STEPS } from '@/components/ui/modal/modal'
+import { validate } from '@/utils/form/address-information'
 
 const optionsMonth = [
   { label: '1', value: '1' },
@@ -113,6 +114,7 @@ export const AddressInput = ({ addressType }) => {
         name={`metadata.${addressType}[documentImage]`}
         allowClear={true}
         required
+        accept="image/*"
       />
     </div>
   )
@@ -209,6 +211,7 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
           metadata: contact.metadata,
         }}
         onSubmit={onHandleSubmit}
+        validate={validate}
       >
         {renderForm({
           secondaryAddress,

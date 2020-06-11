@@ -4,6 +4,7 @@ exports[`Identification Identification should match snapshot 1`] = `
 <Formik
   initialValues={Object {}}
   onSubmit={[Function]}
+  validate={[Function]}
 >
   <Component />
 </Formik>
@@ -32,6 +33,7 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED fa
       required={true}
     />
     <Component
+      accept="image/*"
       allowClear={true}
       id="documentId"
       inputProps={
@@ -135,6 +137,7 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED tr
       required={true}
     />
     <Component
+      accept="image/*"
       allowClear={true}
       id="documentId"
       inputProps={

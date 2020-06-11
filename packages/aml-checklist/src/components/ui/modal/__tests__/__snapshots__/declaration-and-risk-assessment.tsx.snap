@@ -9,6 +9,7 @@ exports[`DeclarationAndRiskAssessment should match snapshot 1`] = `
       }
     }
     onSubmit={[MockFunction]}
+    validate={[Function]}
   >
     <Component />
   </Formik>

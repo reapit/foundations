@@ -594,6 +594,7 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
     required={true}
   />
   <Component
+    accept="image/*"
     allowClear={true}
     id="metadata.primaryAddress[documentImage]"
     labelText="Upload file"
@@ -634,6 +635,7 @@ exports[`AddressInformation should match snapshot 1`] = `
       }
     }
     onSubmit={[MockFunction]}
+    validate={[Function]}
   >
     <Component />
   </Formik>

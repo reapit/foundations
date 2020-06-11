@@ -8,6 +8,7 @@ import { ReduxState } from '@/types/core'
 import { checklistDetailShowModal, updateDeclarationAndRisk } from '@/actions/checklist-detail'
 import { STEPS } from './modal'
 import { Dispatch } from 'redux'
+import { validate } from '@/utils/form/declaration-and-risk-assessment'
 
 const optionsRiskAssessmentType = [
   { label: 'Please select...', value: '' },
@@ -51,6 +52,7 @@ export const renderForm = ({ onNextHandler, onPrevHandler, isSubmitting }) => ({
             name="metadata.declarationRisk.riskAssessmentForm"
             allowClear={true}
             required
+            accept="image/*"
           />
         </div>
       </div>
@@ -92,7 +94,7 @@ export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessment
   )
   return (
     <div>
-      <Formik initialValues={initialValues} onSubmit={onHandleSubmit}>
+      <Formik initialValues={initialValues} onSubmit={onHandleSubmit} validate={validate}>
         {renderForm({
           onNextHandler,
           onPrevHandler,

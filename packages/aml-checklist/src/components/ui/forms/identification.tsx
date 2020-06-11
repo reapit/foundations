@@ -4,6 +4,7 @@ import { Button, Input, DatePicker, CameraImageInput, Formik, Form } from '@reap
 import SelectIdentity from '@/components/ui/inputs/select-identity'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { downloadDocument } from '@/services/documents'
+import { validate } from '@/utils/form/identification'
 
 export interface IdentityDocumentForm extends IdentityDocumentModel {
   documentId: string
@@ -58,6 +59,7 @@ export const renderFormHandler = ({
           required
           onFilenameClick={handleFilenameClick}
           isNarrowWidth
+          accept="image/*"
         />
         <div className="field pb-2">
           <div className={`columns ${styles.reverseColumns}`}>
@@ -91,7 +93,7 @@ export const onSubmitHandler = (onSaveHandler: (formValues: IdentityDocumentForm
 ) => onSaveHandler(formValues)
 
 export const Identification: React.FC<IdentificationProps> = props => (
-  <Formik initialValues={props.initFormValues} onSubmit={onSubmitHandler(props.onSaveHandler)}>
+  <Formik initialValues={props.initFormValues} onSubmit={onSubmitHandler(props.onSaveHandler)} validate={validate}>
     {renderFormHandler(props)}
   </Formik>
 )
