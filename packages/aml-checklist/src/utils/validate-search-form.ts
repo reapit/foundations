@@ -10,28 +10,48 @@ export type SearchFormErrorKeys = keyof SearchFormValues
 
 export type SearchFormErrorReturn = Partial<Record<SearchFormErrorKeys, string>>
 
+export const MAX_LENGTH = {
+  name: 256,
+  address: 256,
+}
+
 export const validate = (values: SearchFormValues): SearchFormErrorReturn => {
   const errors: SearchFormErrorReturn = {}
   const formattedValues: SearchFormValues = cleanObject(values)
+  const keyToValidate = ['name', 'address']
 
-  const hasAtLeastOneField = ['name', 'address', 'identityCheck'].some(key => formattedValues[key])
+  // When users enter only minimal values
+  const hasAtLeastOneField = keyToValidate.some(key => formattedValues[key])
   // after strip out all falsy values, check if all values are valid
-  const areAllFieldsValid = Object.keys(formattedValues).every(key => isTextAndNumberOnly(formattedValues[key]))
+  const areAllRemainingFieldsValid = Object.keys(formattedValues).every(key => {
+    if (!keyToValidate.includes(key)) {
+      return true
+    }
+    const currentValue = formattedValues[key]
+    const currentMaxLength = MAX_LENGTH[key]
+    return isTextAndNumberOnly(currentValue) && currentValue.length <= currentMaxLength
+  })
 
-  // allow search & clear errors if have at least one field filled in & all valid
-  if (hasAtLeastOneField && areAllFieldsValid) {
+  // allow search if have at least one field filled in & all valid
+  if (hasAtLeastOneField && areAllRemainingFieldsValid) {
     return errors
   }
 
-  const { name, address } = formattedValues
+  // When users enter values in other fields
+  keyToValidate.forEach(key => {
+    const currentValue = formattedValues[key]
 
-  if (!isTextAndNumberOnly(name)) {
-    errors.name = 'Please enter a valid name'
-  }
+    if (!isTextAndNumberOnly(currentValue)) {
+      errors[key] = `Please enter a valid ${key}`
+      return
+    }
 
-  if (!isTextAndNumberOnly(address)) {
-    errors.address = 'Please enter a valid address'
-  }
+    const isTooLong = currentValue.length > MAX_LENGTH[key]
+
+    if (isTooLong) {
+      errors[key] = `${key} must be less than ${MAX_LENGTH[key]} characters`
+    }
+  })
 
   return errors
 }

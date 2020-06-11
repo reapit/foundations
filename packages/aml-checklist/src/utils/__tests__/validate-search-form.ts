@@ -1,4 +1,4 @@
-import { validate, SearchFormValues } from '../validate-search-form'
+import { validate, SearchFormValues, MAX_LENGTH } from '../validate-search-form'
 
 describe('validate', () => {
   it('should return correctly with 1 field filled in', () => {
@@ -39,6 +39,19 @@ describe('validate', () => {
     expect(result).toEqual({
       name: 'Please enter a valid name',
       address: 'Please enter a valid address',
+    })
+  })
+
+  it('should return correctly with long values', () => {
+    const values: SearchFormValues = {
+      name:
+        // eslint-disable-next-line max-len
+        'jskmgjduhpacixvurqlkxcmfngrmhouxzpnnezvbtasddguyzydwmlgkhocqrkgwyhzterowmceehsiqtgjnfgyluvskudogfxspumymirorgfrpnkdooodwbefrqqqnxyyjdwoqvtnibkaujmflfsezsjxvkdemroippmkpwnayqlmldkfiodilttyfmiuhxpbztkdthnpknbonbrwzpathqzbxmfeqjkzglrezqrqeixbfvaepppfczarqukdpy',
+      address: 'addresss1',
+    }
+    const result = validate(values)
+    expect(result).toEqual({
+      name: `name must be less than ${MAX_LENGTH.name} characters`,
     })
   })
 })
