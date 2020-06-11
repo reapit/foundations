@@ -64,3 +64,16 @@
     align-items: center;
   }
 }
+
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+
+  @include for-mobile-only {
+    > button {
+      width: 50%;
+    }
+
+    flex-direction: row;
+  }
+}
