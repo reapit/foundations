@@ -19,6 +19,7 @@ import {
   FaTable,
   FaChartBar,
   FaBolt,
+  FaFileInvoice,
 } from 'react-icons/fa'
 import { MdHelp } from 'react-icons/md'
 import { GoDatabase, GoCode } from 'react-icons/go'
@@ -67,6 +68,13 @@ export const generateMenuConfig = (
           key: 'STATS',
           url: Routes.ADMIN_STATS,
           icon: <FaTable className="nav-item-icon" />,
+          type: 'PRIMARY',
+        },
+        {
+          title: 'Billing',
+          key: 'BILLINGS',
+          url: Routes.ADMIN_BILLING,
+          icon: <FaFileInvoice className="nav-item-icon" />,
           type: 'PRIMARY',
         },
         {
