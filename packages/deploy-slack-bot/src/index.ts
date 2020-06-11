@@ -3,24 +3,13 @@ import 'isomorphic-fetch'
 import crypto from 'crypto'
 import serverless from 'serverless-http'
 import express, { Request, Response, NextFunction } from 'express'
+import qs from 'query-string'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import { Context, APIGatewayProxyEvent } from 'aws-lambda'
 
 const app = express() as any
 const expressApp = serverless(app)
-
-export const queryParams = (params: Object) => {
-  return Object.keys(params)
-    .filter(key => params[key] !== undefined && params[key] !== null && params[key] !== '')
-    .map(key => {
-      if (Array.isArray(params[key])) {
-        return params[key].map((value: any) => `${key}=${value}`).join('&')
-      }
-      return `${key}=${params[key]}`
-    })
-    .join('&')
-}
 
 export const sendMessageToSlack = async (message: string) => {
   const slackHook = process.env.SLACK_BOT_HOOK as string
@@ -49,7 +38,7 @@ export const isAuthenticated = (req: Request, res: Response, next: NextFunction)
     return res.status(400).send('Request Time Out')
   }
   const slackSignature = req.headers['x-slack-signature'] as string
-  const signBaseString = `v0:${timestamp}:${queryParams(req.body)}`
+  const signBaseString = `v0:${timestamp}:${qs.stringify(req.body)}`
   const slackSigningSecret = process.env.SLACK_BOT_SIGNING_SECRET as string
 
   let mySignature = `v0=${crypto
