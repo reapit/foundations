@@ -104,5 +104,44 @@ describe('profile', () => {
       }
       expect(validate(input)).toEqual(output)
     })
+
+    it('should return correct error message for homePhone', () => {
+      const input = {
+        homePhone: 'mqwerty',
+        mobilePhone: '098765098765',
+        workPhone: '098765098765',
+        email: 'client@asd.com',
+      }
+      const output = {
+        homePhone: 'Invalid home phone format',
+      }
+      expect(validate(input)).toEqual(output)
+    })
+
+    it('should return correct error message for mobilePhone', () => {
+      const input = {
+        homePhone: '098765098765',
+        mobilePhone: 'zzzz',
+        workPhone: '098765098765',
+        email: 'client@asd.com',
+      }
+      const output = {
+        mobilePhone: 'Invalid mobile phone format',
+      }
+      expect(validate(input)).toEqual(output)
+    })
+
+    it('should return correct error message for workPhone', () => {
+      const input = {
+        homePhone: '098765098765',
+        mobilePhone: '098765098765',
+        workPhone: 'vbcvcvb',
+        email: 'client@asd.com',
+      }
+      const output = {
+        workPhone: 'Invalid work phone format',
+      }
+      expect(validate(input)).toEqual(output)
+    })
   })
 })

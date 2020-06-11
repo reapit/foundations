@@ -1,5 +1,15 @@
 import React from 'react'
-import { Button, Input, DatePicker, Formik, Form, FormikValues, FormikErrors, isEmail } from '@reapit/elements'
+import {
+  Button,
+  Input,
+  DatePicker,
+  Formik,
+  Form,
+  FormikValues,
+  FormikErrors,
+  isEmail,
+  isValidTelephone,
+} from '@reapit/elements'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { ReduxState } from '@/types/core'
@@ -17,6 +27,19 @@ export const validate = (values: FormikValues): FormikErrors<FormikValues> => {
   if (values.email && !isEmail(values.email)) {
     errors.email = 'Invalid email format'
   }
+
+  if (values.homePhone && !isValidTelephone(values.homePhone)) {
+    errors.homePhone = 'Invalid home phone format'
+  }
+
+  if (values.mobilePhone && !isValidTelephone(values.mobilePhone)) {
+    errors.mobilePhone = 'Invalid mobile phone format'
+  }
+
+  if (values.workPhone && !isValidTelephone(values.workPhone)) {
+    errors.workPhone = 'Invalid work phone format'
+  }
+
   return errors
 }
 
