@@ -8,6 +8,7 @@ import {
   mapStateToProps,
   mapDispatchToProps,
   searchContacts,
+  validate,
 } from '../client-search'
 import { LoginMode } from '@reapit/cognito-auth'
 import { ReduxState } from '@/types/core'
@@ -82,6 +83,40 @@ describe('ClientSearch', () => {
       const { setSearchParams } = mapDispatchToProps(mockDispatch)
       setSearchParams({ name: 'a' })
       expect(mockDispatch).toBeCalled()
+    })
+  })
+
+  describe('validate', () => {
+    it('should return {}', () => {
+      const input = {
+        name: 'mockName',
+        address: 'mockAddress',
+      }
+      const output = {}
+      const result = validate(input)
+      expect(result).toEqual(output)
+    })
+    it('should return { name: "Invalid name" }', () => {
+      const input = {
+        name: '///////',
+        address: 'mockAddress',
+      }
+      const output = {
+        name: 'Invalid name',
+      }
+      const result = validate(input)
+      expect(result).toEqual(output)
+    })
+    it('should return { address: "Invalid address" }', () => {
+      const input = {
+        name: 'mockName',
+        address: '/////////////',
+      }
+      const output = {
+        address: 'Invalid address',
+      }
+      const result = validate(input)
+      expect(result).toEqual(output)
     })
   })
 })
