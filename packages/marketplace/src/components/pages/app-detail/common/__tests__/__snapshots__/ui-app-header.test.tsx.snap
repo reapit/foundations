@@ -2,7 +2,7 @@
 
 exports[`AppHeader should match a snapshot 1`] = `
 <Component
-  className="flex items-center mb-4 undefined"
+  className="flex items-center mb-4 undefined flex-col-min-height"
 >
   <Component>
     <Component

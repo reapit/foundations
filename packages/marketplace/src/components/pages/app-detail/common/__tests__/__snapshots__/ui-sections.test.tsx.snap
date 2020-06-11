@@ -2,7 +2,7 @@
 
 exports[`AdditionalImagesSection should match a snapshot where has images 1`] = `
 <Component
-  className="is-desktop"
+  className="is-desktop flex-col-min-height"
   isMultiLine={true}
 >
   <Component
