@@ -20,7 +20,7 @@ export const validate = (values: SearchFormValues): SearchFormErrorReturn => {
   const formattedValues: SearchFormValues = cleanObject(values)
   const keyToValidate = ['name', 'address']
 
-  // When users enter only minimal values
+  // When users enter at least one field, and all entered values are valid
   const hasAtLeastOneField = keyToValidate.some(key => formattedValues[key])
   // after strip out all falsy values, check if all values are valid
   const areAllRemainingFieldsValid = Object.keys(formattedValues).every(key => {
@@ -37,7 +37,8 @@ export const validate = (values: SearchFormValues): SearchFormErrorReturn => {
     return errors
   }
 
-  // When users enter values in other fields
+  // When users enter invalid values, or not enter anything
+  // Loop through to check which fields are invalid
   keyToValidate.forEach(key => {
     const currentValue = formattedValues[key]
 
