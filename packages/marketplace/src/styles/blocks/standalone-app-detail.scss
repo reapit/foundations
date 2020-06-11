@@ -1,5 +1,6 @@
 @import '../base/colors.scss';
 @import '../base/screen-size.scss';
+@import '../base/browser.scss';
 
 .preview {
   position: relative;
@@ -18,7 +19,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  text-align: end;
+  text-align: right;
 }
 
 .tag {
@@ -49,6 +50,9 @@
 }
 
 .containerOuterHeader {
+  @include for-ie11-only {
+    min-height: 1px;
+  }
   @include for-tablet-and-below {
     flex-direction: column;
   }
