@@ -5,6 +5,8 @@ import { FaCheck } from 'react-icons/fa'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import styles from '@/styles/blocks/standalone-app-detail.scss?mod'
 import { MEDIA_INDEX } from '@/constants/media'
+import ImagePlaceHolder from '@/assets/images/default-app-icon.jpg'
+import FeatureImagePlaceHolder from '@/assets/images/default-feature-image.jpg'
 
 export type AppHeaderProps = {
   appDetailData: AppDetailModel & {
@@ -25,7 +27,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup }) => 
       <GridItem>
         <Grid className={`flex items-center ${containerHeader}`}>
           <GridItem className={`is-one-third-desktop ${appIconContainer}`}>
-            <img src={appIcon?.uri} alt="App Icon" />
+            <img src={appIcon?.uri || ImagePlaceHolder} alt="App Icon" />
           </GridItem>
           <GridItem className={`is-two-thirds-desktop  ${headerContent}`}>
             <H3 className={elipsis}>{appDetailData.name}</H3>
@@ -36,11 +38,9 @@ const AppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup }) => 
           </GridItem>
         </Grid>
       </GridItem>
-      {featureImageSrc && (
-        <GridItem className="flex items-center">
-          <img src={featureImageSrc} alt="Featured Image" />
-        </GridItem>
-      )}
+      <GridItem className="flex items-center">
+        <img src={featureImageSrc || FeatureImagePlaceHolder} alt="Featured Image" />
+      </GridItem>
     </Grid>
   )
 }

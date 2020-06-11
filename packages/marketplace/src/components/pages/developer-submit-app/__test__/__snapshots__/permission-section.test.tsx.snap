@@ -24,7 +24,7 @@ exports[`MarketplaceStatusSection MarketplaceStatusSection should match a snapsh
 exports[`MarketplaceStatusSection should match a snapshot 1`] = `
 <Component>
   <Component>
-    Permissions
+    Permissions *
   </Component>
   <Component>
     To access a client's data, you will need to specify the entities you need access to on a read or write basis. You should be familiar with these entities from the sandbox. When the user installs your application, they will have to consent to your usage based on these permissions. If you do not have the correct permissions on an entity basis, your app will receive a 403 error.

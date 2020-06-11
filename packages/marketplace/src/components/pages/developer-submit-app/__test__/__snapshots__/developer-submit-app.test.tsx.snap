@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DeveloperSubmitApp should match a snapshot 1`] = `
+exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = false 1`] = `
 <Provider
   store={
     Object {
@@ -187,7 +187,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                             className="control "
                                           >
                                             <label
-                                              className="label required-label"
+                                              className="label inline-block required-label"
                                               htmlFor="name"
                                             >
                                               Name
@@ -220,10 +220,11 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                       labelText="Category"
                                       name="categoryId"
                                       options={Array []}
+                                      required={true}
                                     >
                                       <Field
                                         name="categoryId"
-                                        validate={null}
+                                        validate={[Function]}
                                       >
                                         <div
                                           className="field pb-2"
@@ -232,7 +233,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                             className="control"
                                           >
                                             <label
-                                              className="label "
+                                              className="label required-label"
                                               htmlFor="categoryId"
                                             >
                                               Category
@@ -277,11 +278,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                       labelText="Support email"
                                       name="supportEmail"
                                       placeholder="The contact to your support team if your users have a problem"
+                                      required={true}
                                       type="email"
                                     >
                                       <Field
                                         name="supportEmail"
-                                        validate={null}
+                                        validate={[Function]}
                                       >
                                         <div
                                           className="field pb-4"
@@ -290,7 +292,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                             className="control "
                                           >
                                             <label
-                                              className="label "
+                                              className="label inline-block required-label"
                                               htmlFor="supportEmail"
                                             >
                                               Support email
@@ -324,11 +326,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                       labelText="Telephone"
                                       name="telephone"
                                       placeholder="Should one of our developers need to contact you about your app"
+                                      required={true}
                                       type="tel"
                                     >
                                       <Field
                                         name="telephone"
-                                        validate={null}
+                                        validate={[Function]}
                                       >
                                         <div
                                           className="field pb-4"
@@ -337,7 +340,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                             className="control "
                                           >
                                             <label
-                                              className="label "
+                                              className="label inline-block required-label"
                                               htmlFor="phone"
                                             >
                                               Telephone
@@ -378,11 +381,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                       labelText="Home page"
                                       name="homePage"
                                       placeholder="Your company homepage. HTTP:// or HTTPS://"
+                                      required={true}
                                       type="text"
                                     >
                                       <Field
                                         name="homePage"
-                                        validate={null}
+                                        validate={[Function]}
                                       >
                                         <div
                                           className="field pb-4"
@@ -391,7 +395,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                             className="control "
                                           >
                                             <label
-                                              className="label "
+                                              className="label inline-block required-label"
                                               htmlFor="homePage"
                                             >
                                               Home page
@@ -425,11 +429,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                       labelText="Launch URI"
                                       name="launchUri"
                                       placeholder="The launch page for your app. HTTPS only other than for http://localhost"
+                                      required={true}
                                       type="text"
                                     >
                                       <Field
                                         name="launchUri"
-                                        validate={null}
+                                        validate={[Function]}
                                       >
                                         <div
                                           className="field pb-4"
@@ -438,7 +443,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                             className="control "
                                           >
                                             <label
-                                              className="label "
+                                              className="label inline-block required-label"
                                               htmlFor="launch Url"
                                             >
                                               Launch URI
@@ -479,6 +484,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                       labelText="Summary"
                                       name="summary"
                                       placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
+                                      required={true}
                                     >
                                       <Field
                                         name="summary"
@@ -490,7 +496,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                             className="control"
                                           >
                                             <label
-                                              className="label"
+                                              className="label required-label"
                                               htmlFor="summary"
                                             >
                                               Summary
@@ -538,6 +544,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                       labelText="Description"
                                       name="description"
                                       placeholder="A detailed description for your app listing. Must be between 150 and 1000 characters. Please note: As this field supports HTML, special characters will be included in the character count"
+                                      required={true}
                                     >
                                       <div
                                         className="field pb-2"
@@ -546,7 +553,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                           className="control"
                                         >
                                           <label
-                                            className="label"
+                                            className="label required-label"
                                             htmlFor="description"
                                           >
                                             Description
@@ -1096,7 +1103,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                               <div
                                 className="form-heading mb-1 "
                               >
-                                AUTHENTICATION FLOW
+                                AUTHENTICATION FLOW *
                               </div>
                             </Component>
                             <Component>
@@ -1255,7 +1262,8 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                       <div
                                         className="form-heading mb-1 "
                                       >
-                                        Redirect URI(s)
+                                        Redirect URI(s) 
+                                        *
                                       </div>
                                     </Component>
                                     <Component>
@@ -1271,11 +1279,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                       id="redirectUris"
                                       name="redirectUris"
                                       placeholder="Enter your Redirect URI(s)"
+                                      required={true}
                                       type="text"
                                     >
                                       <Field
                                         name="redirectUris"
-                                        validate={null}
+                                        validate={[Function]}
                                       >
                                         <div
                                           className="field pb-4"
@@ -1317,7 +1326,8 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                       <div
                                         className="form-heading mb-1 "
                                       >
-                                        Sign Out URI(s)
+                                        Sign Out URI(s) 
+                                        *
                                       </div>
                                     </Component>
                                     <Component>
@@ -1333,11 +1343,12 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                       id="signoutUris"
                                       name="signoutUris"
                                       placeholder="Enter your Sign Out URI(s)"
+                                      required={true}
                                       type="text"
                                     >
                                       <Field
                                         name="signoutUris"
-                                        validate={null}
+                                        validate={[Function]}
                                       >
                                         <div
                                           className="field pb-4"
@@ -1542,7 +1553,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                       <label
                                         className="label"
                                       >
-                                        Icon
+                                        Icon *
                                       </label>
                                       <Component
                                         allowClear={true}
@@ -1550,6 +1561,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                         id="iconImage"
                                         labelText="Upload Image"
                                         name="iconImageUrl"
+                                        required={true}
                                       >
                                         <Component
                                           accept="image/*"
@@ -1606,7 +1618,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                       <label
                                         className="label"
                                       >
-                                        Screenshot 1
+                                        Screenshot 1 *
                                       </label>
                                       <Component
                                         allowClear={true}
@@ -1614,6 +1626,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                                         id="screenshot1"
                                         labelText="Upload Image"
                                         name="screen1ImageUrl"
+                                        required={true}
                                       >
                                         <Component
                                           accept="image/*"
@@ -2008,7 +2021,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
                               <div
                                 className="form-heading mb-1 "
                               >
-                                Permissions
+                                Permissions *
                               </div>
                             </Component>
                             <Component>
@@ -2147,6 +2160,78 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
             visible={true}
           />
         </Component>
+      </Component>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;
+
+exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = true 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "what",
+          "pathname": "/register",
+        },
+      ]
+    }
+    keyLength={0}
+  >
+    <Router
+      history={
+        Object {
+          "action": "REPLACE",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "pathname": "/developer/apps/undefined",
+              "search": "",
+              "state": undefined,
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/developer/apps/undefined",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Component>
+        <Redirect
+          to="/developer/apps/undefined"
+        >
+          <Lifecycle
+            onMount={[Function]}
+            onUpdate={[Function]}
+            to="/developer/apps/undefined"
+          />
+        </Redirect>
       </Component>
     </Router>
   </MemoryRouter>

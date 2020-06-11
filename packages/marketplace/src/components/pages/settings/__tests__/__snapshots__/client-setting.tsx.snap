@@ -112,22 +112,24 @@ exports[`ClientSettingsPage should match snapshot 1`] = `
                             className="level-right "
                             data-test=""
                           >
-                            <Component
-                              dataTest="logout-btn"
-                              onClick={[Function]}
-                              type="button"
-                              variant="primary"
-                            >
-                              <button
-                                className="button  is-primary  "
-                                data-test="logout-btn"
-                                disabled={false}
+                            <div>
+                              <Component
+                                dataTest="logout-btn"
                                 onClick={[Function]}
                                 type="button"
+                                variant="primary"
                               >
-                                Logout
-                              </button>
-                            </Component>
+                                <button
+                                  className="button  is-primary  "
+                                  data-test="logout-btn"
+                                  disabled={false}
+                                  onClick={[Function]}
+                                  type="button"
+                                >
+                                  Logout
+                                </button>
+                              </Component>
+                            </div>
                           </div>
                         </Component>
                       </div>
