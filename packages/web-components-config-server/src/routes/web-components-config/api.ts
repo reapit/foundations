@@ -13,7 +13,7 @@ export const getConfigByClientId = async ({ traceId, data }: GetByClientIdParams
     logger.info('Get config by customerId successfully', { traceId, result })
     return result
   } catch (error) {
-    logger.error('Get config by customerId failed', { traceId, error: stringifyError(error) })
+    await logger.error('Get config by customerId failed', { traceId, error: stringifyError(error) })
     throw error
   }
 }
@@ -26,7 +26,7 @@ export const createConfig = async ({ traceId, data }: CreateParams): Promise<Web
     logger.info('Create config successfully', { traceId, result })
     return result
   } catch (error) {
-    logger.error('Create config failed', { traceId, error: stringifyError(error) })
+    await logger.error('Create config failed', { traceId, error: stringifyError(error) })
     throw error
   }
 }
@@ -41,7 +41,7 @@ export const updateConfig = async ({ traceId, data }: UpdateParams): Promise<Web
     logger.info('Update config successfully', { traceId, result })
     return result
   } catch (error) {
-    logger.error('Update config failed', { traceId, error: stringifyError(error) })
+    await logger.error('Update config failed', { traceId, error: stringifyError(error) })
     throw error
   }
 }
@@ -54,7 +54,7 @@ export const deleteConfig = async ({ traceId, data }: DeleteParams): Promise<Web
     logger.info('Delete config successfully', { traceId, result })
     return result
   } catch (error) {
-    logger.error('Delete config failed', { traceId, error: stringifyError(error) })
+    await logger.error('Delete config failed', { traceId, error: stringifyError(error) })
     throw error
   }
 }
