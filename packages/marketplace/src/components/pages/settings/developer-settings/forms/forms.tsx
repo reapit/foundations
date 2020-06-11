@@ -72,9 +72,12 @@ export const Forms: React.FC = () => {
           </Grid>
           <FormSection>
             <LevelRight>
-              <Button dataTest="logout-btn" variant="primary" type="button" onClick={logout}>
-                Logout
-              </Button>
+              {/* Wrap logout button with a div to fix bug in IE */}
+              <div>
+                <Button dataTest="logout-btn" variant="primary" type="button" onClick={logout}>
+                  Logout
+                </Button>
+              </div>
             </LevelRight>
           </FormSection>
         </FlexContainerResponsive>
