@@ -39,6 +39,7 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED fa
           "disabled": false,
         }
       }
+      isNarrowWidth={true}
       labelText="Upload File"
       name="documentId"
       onFilenameClick={[Function]}
@@ -141,6 +142,7 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED tr
           "disabled": true,
         }
       }
+      isNarrowWidth={true}
       labelText="Upload File"
       name="documentId"
       onFilenameClick={[Function]}
