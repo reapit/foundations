@@ -1,6 +1,5 @@
 @import '../base/colors.scss';
 @import '../base/screen-size.scss';
-@import '../base/browser.scss';
 
 .preview {
   position: relative;
@@ -50,9 +49,6 @@
 }
 
 .containerOuterHeader {
-  @include for-ie11-only {
-    min-height: 1px;
-  }
   @include for-tablet-and-below {
     flex-direction: column;
   }

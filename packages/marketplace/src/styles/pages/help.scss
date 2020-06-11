@@ -7,7 +7,7 @@
 }
 .wrapListItems {
   padding: 1rem;
-  @include for-ie11-only {
+  @include for-ie-only {
     background-color: $white;
   }
 }
@@ -21,7 +21,7 @@
 .wrapImage {
   width: 100%;
   margin-bottom: 2rem;
-  @include for-ie11-only {
+  @include for-ie-only {
     min-height: 218px;
   }
 }
@@ -32,7 +32,7 @@
 .text {
   flex-grow: 1;
   margin-bottom: 1.5rem;
-  @include for-ie11-only {
+  @include for-ie-only {
     width: 100%;
   }
 }

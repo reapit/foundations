@@ -23,7 +23,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup }) => 
   const { containerOuterHeader, headerContent, containerHeader, check, appIconContainer, elipsis } = styles
 
   return (
-    <Grid className={`flex items-center mb-4 ${containerOuterHeader}`}>
+    <Grid className={`flex items-center mb-4 ${containerOuterHeader} flex-col-min-height`}>
       <GridItem>
         <Grid className={`flex items-center ${containerHeader}`}>
           <GridItem className={`is-one-third-desktop ${appIconContainer}`}>

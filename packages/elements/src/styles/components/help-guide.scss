@@ -103,7 +103,7 @@
     top: 50%;
     transform: translateX(-50%);
     z-index: -3;
-    @include for-ie11-only {
+    @include for-ie-only {
       left: 50%;
     }
   }
@@ -123,7 +123,7 @@
     background: white;
     transition: all 0.3s;
     text-align: center;
-    @include for-ie11-only {
+    @include for-ie-only {
       transform: translate(-20px, 25px);
     }
   }
@@ -136,7 +136,7 @@
     background-color: $reapit-mid-blue;
     transition: all 0.3s;
     z-index: -2;
-    @include for-ie11-only {
+    @include for-ie-only {
       transform: translateX(-2px);
     }
   }

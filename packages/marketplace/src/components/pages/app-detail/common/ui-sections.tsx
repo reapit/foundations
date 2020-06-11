@@ -209,7 +209,7 @@ export const AdditionalImagesSection: React.FC<AdditionalImagesSectionProps> = (
   const extraImages = images.filter((_, index) => index > splitIndex)
   return (
     (extraImages.length && (
-      <Grid className="is-desktop" isMultiLine>
+      <Grid className="is-desktop flex-col-min-height" isMultiLine>
         {extraImages.map(({ uri }, index) => {
           if (index < numberImages) {
             return (
