@@ -1,6 +1,6 @@
 import React from 'react'
 import { ContactModel, IdentityDocumentModel } from '@reapit/foundations-ts-definitions'
-import { Button, Input, DatePicker, CameraImageInput, Formik, Form } from '@reapit/elements'
+import { Button, Input, DatePicker, CameraImageInput, Formik, Form, Grid, GridItem } from '@reapit/elements'
 import SelectIdentity from '@/components/ui/inputs/select-identity'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { downloadDocument } from '@/services/documents'
@@ -57,8 +57,8 @@ export const renderFormHandler = ({
           inputProps={{ disabled: disabled }}
           required
           onFilenameClick={handleFilenameClick}
+          isNarrowWidth
         />
-
         <div className="field pb-2">
           <div className={`columns ${styles.reverseColumns}`}>
             <div className="column">
