@@ -6,9 +6,12 @@ import { ContactModel } from '@reapit/foundations-ts-definitions'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { ReduxState } from '@/types/core'
 import { checklistDetailShowModal, updateDeclarationAndRisk } from '@/actions/checklist-detail'
-import { STEPS } from './modal'
+import { STEPS } from '../modal'
 import { Dispatch } from 'redux'
-import { validate } from '@/utils/form/declaration-and-risk-assessment'
+import FormFields from './form-schema/form-fields'
+import validationSchema from './form-schema/validation-schema'
+
+const { declarationForm, type, reason, riskAssessmentForm } = FormFields
 
 const optionsRiskAssessmentType = [
   { label: 'Please select...', value: '' },
@@ -24,32 +27,26 @@ export const renderForm = ({ onNextHandler, onPrevHandler, isSubmitting }) => ({
         <div>
           <label className="label">Declaration Form</label>
           <CameraImageInput
-            labelText="Upload file"
-            id="metadata.declarationRisk.declarationForm"
-            name="metadata.declarationRisk.declarationForm"
+            labelText={declarationForm.label || ''}
+            id={declarationForm.name}
+            name={declarationForm.name}
             allowClear={true}
           />
         </div>
         <SelectBox
-          labelText="Risk Assessment Type"
-          id="metadata.declarationRisk.type"
-          name="metadata.declarationRisk.type"
+          labelText={type.label}
+          id={type.name}
+          name={type.name}
           options={optionsRiskAssessmentType}
           required
         />
-        <Input
-          type="text"
-          labelText="Reason for Type"
-          id="metadata.declarationRisk.reason"
-          name="metadata.declarationRisk.reason"
-          required
-        />
+        <Input type="text" labelText={reason.label} id={reason.name} name={reason.name} required />
         <div>
           <label className="label">Risk Assessment Form</label>
           <CameraImageInput
-            labelText="Upload file"
-            id="metadata.declarationRisk.riskAssessmentForm"
-            name="metadata.declarationRisk.riskAssessmentForm"
+            labelText={riskAssessmentForm.label || ''}
+            id={riskAssessmentForm.name}
+            name={riskAssessmentForm.name}
             allowClear={true}
             required
             accept="image/*"
@@ -80,21 +77,27 @@ export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessment
   onHandleSubmit,
   isSubmitting,
 }) => {
-  const metadata = contact?.metadata || {
-    declarationRisk: {
-      type: '',
-      reason: '',
-    },
-  }
+  const metadata =
+    contact?.metadata == {}
+      ? contact?.metadata
+      : {
+          declarationRisk: {
+            type: '',
+            reason: '',
+            declarationForm: '',
+            riskAssessmentForm: '',
+          },
+        }
   const initialValues = React.useMemo(
     () => ({
       metadata,
     }),
     [contact],
   )
+
   return (
     <div>
-      <Formik initialValues={initialValues} onSubmit={onHandleSubmit} validate={validate}>
+      <Formik initialValues={initialValues} onSubmit={onHandleSubmit} validationSchema={validationSchema}>
         {renderForm({
           onNextHandler,
           onPrevHandler,

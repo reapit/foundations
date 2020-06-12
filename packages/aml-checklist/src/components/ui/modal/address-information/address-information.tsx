@@ -8,7 +8,7 @@ import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { ReduxState } from '@/types/core'
 import { updateAddressHistory, checklistDetailShowModal } from '@/actions/checklist-detail'
 import { STEPS } from '@/components/ui/modal/modal'
-import { validate } from '@/utils/form/address-information'
+import validationSchema from './form-schema/validation-schema'
 
 const optionsMonth = [
   { label: '1', value: '1' },
@@ -200,7 +200,17 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
   isSubmitting,
 }) => {
   const [isShowMoreThreeYearInput, setShowMoreThreeYearInput] = React.useState(false)
-  const { primaryAddress, secondaryAddress } = contact
+  const { primaryAddress, secondaryAddress, metadata } = contact
+
+  const formatedMetadata = {
+    primaryAddress: {
+      documentImage: metadata?.primaryAddress?.documentImage || '',
+    },
+    secondaryAddress: {
+      documentImage: metadata?.primaryAddress?.documentImage || '',
+    },
+    ...metadata,
+  }
 
   return (
     <div>
@@ -208,10 +218,10 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
         initialValues={{
           primaryAddress,
           secondaryAddress,
-          metadata: contact.metadata,
+          metadata: formatedMetadata,
         }}
         onSubmit={onHandleSubmit}
-        validate={validate}
+        validationSchema={validationSchema}
       >
         {renderForm({
           secondaryAddress,
