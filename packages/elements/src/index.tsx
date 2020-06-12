@@ -60,6 +60,8 @@ export * from './utils/combine-address/combine-address'
 export * from './utils/is-base64'
 export * from './utils/device-detection/device-detection'
 
+export * from './types/core'
+
 const elements = {
   v2: v2,
 }

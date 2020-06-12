@@ -6,9 +6,10 @@ exports[` 1`] = `
     initialValues={
       Object {
         "dateOfBirth": 2019-12-12T00:00:00.000Z,
+        "email": "sad@gmail.com",
         "forename": "H",
         "homePhone": "asd",
-        "mobilePhone": "sad@gmail.com",
+        "mobilePhone": "asd",
         "surname": "Phillips",
         "title": "Mrs",
         "workPhone": "asd",
@@ -149,6 +150,7 @@ exports[` 1`] = `
               "required": true,
             },
             "_mutate": undefined,
+            "_nullable": true,
             "_options": Object {
               "abortEarly": true,
               "recursive": true,
@@ -180,6 +182,7 @@ exports[` 1`] = `
               "required": true,
             },
             "_mutate": undefined,
+            "_nullable": true,
             "_options": Object {
               "abortEarly": true,
               "recursive": true,
@@ -269,6 +272,7 @@ exports[` 1`] = `
               "required": true,
             },
             "_mutate": undefined,
+            "_nullable": true,
             "_options": Object {
               "abortEarly": true,
               "recursive": true,

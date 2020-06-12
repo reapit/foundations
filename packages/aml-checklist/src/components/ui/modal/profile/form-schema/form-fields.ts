@@ -1,4 +1,4 @@
-import { FieldInfo } from '@/constants/form-model'
+import { FormFieldInfo } from '@reapit/elements'
 
 type Field =
   | 'titleField'
@@ -10,7 +10,7 @@ type Field =
   | 'workPhoneField'
   | 'emailField'
 
-const formFields: Record<Field, FieldInfo> = {
+const formFields: Record<Field, FormFieldInfo> = {
   titleField: {
     name: 'title',
     label: 'Title',
