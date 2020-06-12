@@ -143,7 +143,7 @@ describe('Map', () => {
   })
 
   describe('setZoomAndCenter', () => {
-    it('should run correctly', () => {
+    it('should call fitBounds and setCenter', () => {
       setZoomAndCenter({
         bounds: mockBounds,
         center: undefined,
@@ -156,20 +156,21 @@ describe('Map', () => {
       expect(mockMap.setCenter).toBeCalledWith(mockBounds.getCenter())
     })
 
-    it('should not call setCenter and fitBounds', () => {
+    it('should call setCenter and setZoom and not call fitBounds', () => {
       setZoomAndCenter({
         bounds: mockBounds,
-        center: {},
+        center: { lat: 51.507351, lng: -0.127758 },
         zoom: 10,
         map: mockMap,
         markers: mockMarkers,
         googleMaps: mockGoogleMaps,
       })
-      expect(mockMap.fitBounds).not.toBeCalledWith(mockBounds)
-      expect(mockMap.setCenter).not.toBeCalledWith(mockBounds.getCenter())
+      expect(mockMap.setCenter).toBeCalled()
+      expect(mockMap.setZoom).toBeCalled()
+      expect(mockMap.fitBounds).not.toBeCalled()
     })
 
-    it('should not call fitBounds', () => {
+    it('should call setZoom', () => {
       setZoomAndCenter({
         bounds: mockBounds,
         center: undefined,
@@ -178,33 +179,35 @@ describe('Map', () => {
         markers: mockMarkers,
         googleMaps: mockGoogleMaps,
       })
+      expect(mockMap.setZoom).toBeCalledWith(10)
+      expect(mockMap.setCenter).not.toBeCalledWith(mockBounds.getCenter())
       expect(mockMap.fitBounds).not.toBeCalledWith(mockBounds)
-      expect(mockMap.setCenter).toBeCalledWith(mockBounds.getCenter())
     })
 
-    it('should not call setCenter', () => {
+    it('should call setCenter', () => {
       setZoomAndCenter({
         bounds: mockBounds,
-        center: {},
+        center: { lat: 51.507351, lng: -0.127758 },
         zoom: undefined,
         map: mockMap,
         markers: mockMarkers,
         googleMaps: mockGoogleMaps,
       })
-      expect(mockMap.fitBounds).toBeCalledWith(mockBounds)
-      expect(mockMap.setCenter).not.toBeCalledWith(mockBounds.getCenter())
+      expect(mockMap.setCenter).toBeCalled()
+      expect(mockMap.setZoom).not.toBeCalled()
+      expect(mockMap.fitBounds).not.toBeCalledWith(mockBounds)
     })
 
-    it('should not call setCenter', () => {
+    it('should not setCenter and setZoom for default', () => {
       setZoomAndCenter({
         bounds: mockBounds,
-        center: {},
+        center: undefined,
         zoom: undefined,
         map: mockMap,
         markers: [],
         googleMaps: mockGoogleMaps,
       })
-      expect(mockMap.setZoom).toBeCalledWith(10)
+      expect(mockMap.setZoom).toBeCalledWith(8)
       expect(mockMap.setCenter).toBeCalled()
     })
   })
