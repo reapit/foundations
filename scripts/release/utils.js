@@ -140,17 +140,24 @@ const releaseServerless = async ({ tagName, packageName, env }) => {
     await sendMessageToSlack(`Checking out for \`${packageName}\` with version \`${tagName}\``)
     const checkoutResult = execSync(`git checkout ${tagName}`).toString()
     console.info(checkoutResult)
-    await sendMessageToSlack(`Fetching the config \`${packageName}-${env}\``)
-    const fetchConfigResult = execSync(`yarn workspace ${packageName} fetch-config ${env}`).toString()
-    console.info(fetchConfigResult)
     await sendMessageToSlack(`Deploying for serverless \`${packageName}\` with version \`${tagName}\``)
     const isReleaseWebComponentPackage = WEB_COMPONENTS_SERVERLESS_APPS.includes(packageName)
     if (isReleaseWebComponentPackage) {
-      const realeaseResult = execSync(`yarn workspace web-components release:${env} --name ${packageName}`).toString()
+      await sendMessageToSlack(`Fetching the config \`${packageName}-${env}\``)
+      const fetchConfigResult = execSync(`yarn workspace @reapit/web-components fetch-config ${env}`).toString()
+      console.info(fetchConfigResult)
+      const realeaseResult = execSync(
+        `yarn workspace @reapit/web-components release:${env} --name ${packageName}`,
+      ).toString()
       console.info(realeaseResult)
       await sendMessageToSlack(`Finish the deploy for serverless \`${packageName}\` with version \`${tagName}\``)
       return
     }
+
+    await sendMessageToSlack(`Fetching the config \`${packageName}-${env}\``)
+    const fetchConfigResult = execSync(`yarn workspace ${packageName} fetch-config ${env}`).toString()
+    console.info(fetchConfigResult)
+
     const realeaseResult = execSync(`yarn workspace ${packageName} release:${env}`).toString()
     console.info(realeaseResult)
     await sendMessageToSlack(`Finish the deploy for serverless \`${packageName}\` with version \`${tagName}\``)
