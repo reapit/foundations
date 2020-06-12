@@ -140,20 +140,29 @@ export const renderDirection = ({
 }
 
 export const setZoomAndCenter = ({ googleMaps, bounds, center, zoom, map, markers }) => {
-  if (!markers || markers.length === 0) {
+  if (zoom && center) {
+    map.setZoom(zoom)
+    map.setCenter(new googleMaps.LatLng(center.lat, center.lng))
+    return
+  }
+  if (zoom) {
+    map.setZoom(zoom)
+    return
+  }
+  if (center?.lat && center?.lng) {
+    map.setCenter(new googleMaps.LatLng(center.lat, center.lng))
+    return
+  }
+  if (markers?.length < 1) {
     const LONDON_LAT_LNG = { lat: 51.507351, lng: -0.127758 }
-    const DEFAULT_ZOOM = 10
+    const DEFAULT_ZOOM = 8
     map.setCenter(new googleMaps.LatLng(LONDON_LAT_LNG.lat, LONDON_LAT_LNG.lng))
     map.setZoom(DEFAULT_ZOOM)
     return
   }
   markers.forEach(marker => bounds.extend(marker.getPosition()))
-  if (!zoom) {
-    map.fitBounds(bounds)
-  }
-  if (!center) {
-    map.setCenter(bounds.getCenter())
-  }
+  map.fitBounds(bounds)
+  map.setCenter(bounds.getCenter())
   return
 }
 
