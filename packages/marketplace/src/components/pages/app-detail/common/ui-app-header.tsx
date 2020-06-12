@@ -30,7 +30,9 @@ const AppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup }) => 
             <img src={appIcon?.uri || ImagePlaceHolder} alt="App Icon" />
           </GridItem>
           <GridItem className={`is-two-thirds-desktop  ${headerContent}`}>
-            <H3 className={elipsis}>{appDetailData.name}</H3>
+            <H3 className={elipsis} isCentered>
+              {appDetailData.name}
+            </H3>
             <Content className={`${isMobile ? 'flex justify-center ' : ''}`}>
               Verified by Reapit <FaCheck className={check} />
             </Content>

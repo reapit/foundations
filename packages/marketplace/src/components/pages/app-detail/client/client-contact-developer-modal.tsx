@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Grid, GridItem, SubTitleH6, Modal } from '@reapit/elements'
+import { Button, Grid, GridItem, SubTitleH6, Modal, Content } from '@reapit/elements'
 import linkStyles from '@/styles/elements/link.scss?mod'
 
 export type ContactDeveloperSectionType = {
@@ -47,7 +47,7 @@ export const ContactDeveloperSection = ({
           </Button>
         }
       >
-        <>
+        <Content>
           <Grid>
             <GridItem>
               <SubTitleH6>Company name</SubTitleH6>
@@ -93,7 +93,7 @@ export const ContactDeveloperSection = ({
               </p>
             </GridItem>
           </Grid>
-        </>
+        </Content>
       </Modal>
     </>
   )

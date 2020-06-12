@@ -65,29 +65,13 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
         <Component
           summary="vitae elementum curabitur vitae"
         >
-          <Component
-            headerText="vitae elementum curabitur vitae"
-            isSidebar={false}
-          >
-            <Component
-              dataTest=""
+          <Component>
+            <h5
+              className="title is-5  "
+              id=""
             >
-              <div
-                className="content "
-                data-test=""
-              >
-                <Component
-                  className=""
-                >
-                  <h5
-                    className="title is-5  "
-                    id=""
-                  >
-                    vitae elementum curabitur vitae
-                  </h5>
-                </Component>
-              </div>
-            </Component>
+              vitae elementum curabitur vitae
+            </h5>
           </Component>
         </Component>
         <Component
@@ -260,7 +244,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                         className="column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
                         data-test=""
                       >
-                        Marketplace/developers.read
+                        Read data about developers
                       </div>
                     </Component>
                     <Component
@@ -270,7 +254,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                         className="column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
                         data-test=""
                       >
-                        Marketplace/developers.write
+                        Write data about developers
                       </div>
                     </Component>
                   </div>

@@ -136,6 +136,7 @@ exports[`ClientAppDetail should match a snapshot 1`] = `
                     visible={false}
                   />
                   <Component
+                    HeaderComponent={[Function]}
                     afterClose={[Function]}
                     visible={false}
                   />
@@ -297,6 +298,7 @@ exports[`ClientAppDetail should render loader when client.appDetail.data is an e
                     visible={false}
                   />
                   <Component
+                    HeaderComponent={[Function]}
                     afterClose={[Function]}
                     visible={false}
                   />
@@ -458,6 +460,7 @@ exports[`ClientAppDetail should render loader when isLoadingAppDetail = true 1`]
                     visible={false}
                   />
                   <Component
+                    HeaderComponent={[Function]}
                     afterClose={[Function]}
                     visible={false}
                   />
