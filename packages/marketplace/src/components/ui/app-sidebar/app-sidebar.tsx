@@ -10,7 +10,9 @@ import { selectCategories } from '@/selector/app-categories'
 import { addQuery, removeQuery, getParamValueFromPath } from '@/utils/client-url-params'
 import { cleanObject } from '@reapit/utils'
 import { validationSchema } from './validation-schema'
-import { FormFields } from './form-fields'
+import { FormFields, formFields } from './form-fields'
+
+const { search, searchBy } = formFields
 
 export const filterOptions = [
   { label: 'By App Name', value: 'appName' },
@@ -25,29 +27,30 @@ export const handleSelectCategory = (history: History) => (categoryId?: string) 
   if (categoryId) {
     history.push(addQuery({ category: categoryId, page: '1' }))
   } else {
-    history.push(removeQuery(['category', 'search', 'searchBy']))
+    history.push(removeQuery(['category', search.name, searchBy.name]))
   }
 }
 
 export const handleSearchApp = (history: History) => (values: FormFields) => {
   const cleanValues = cleanObject(values)
 
-  const { search, searchBy } = cleanValues
-  if (search) {
-    history.push(addQuery({ search, searchBy, page: '1' }))
+  const { search: searchValue, searchBy: searchByValue } = cleanValues
+  if (searchValue) {
+    history.push(addQuery({ [search.name]: searchValue, [searchBy.name]: searchByValue, page: '1' }))
   } else {
-    history.push(removeQuery(['search', 'searchBy']))
+    history.push(removeQuery([search.name, searchBy.name]))
   }
 }
 
 export const FilterForm: React.FC<FormikProps<FormFields>> = ({ values, setFieldValue }) => {
+  const { search, searchBy } = formFields
   return (
     <Form>
       <Input
-        id="search"
+        id={search.name}
         type="text"
         placeholder="Search..."
-        name="search"
+        name={search.name}
         rightIcon={
           <button className={styles.btnSearch} type="submit">
             <FaSearch />
@@ -55,8 +58,8 @@ export const FilterForm: React.FC<FormikProps<FormFields>> = ({ values, setField
         }
       />
       <RadioSelect
-        id="searchBy"
-        name="searchBy"
+        id={searchBy.name}
+        name={searchBy.name}
         state={values.searchBy}
         options={filterOptions}
         setFieldValue={setFieldValue}
@@ -82,8 +85,8 @@ export const AppSidebar: React.FC = () => {
           <Formik
             enableReinitialize={true}
             initialValues={{
-              search: getParamValueFromPath(location.search, 'search'),
-              searchBy: getParamValueFromPath(location.search, 'searchBy') || 'appName',
+              [search.name]: getParamValueFromPath(location.search, search.name),
+              [searchBy.name]: getParamValueFromPath(location.search, searchBy.name) || 'appName',
             }}
             validationSchema={validationSchema}
             onSubmit={handleSearchApp(history)}

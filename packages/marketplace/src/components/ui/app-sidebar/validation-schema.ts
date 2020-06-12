@@ -1,10 +1,14 @@
 import * as Yup from 'yup'
 import { letterNumberSpaceRegex } from '@reapit/elements'
+import { formFields } from './form-fields'
+import errorMessages from '@/constants/error-messages'
+
+const { search, searchBy } = formFields
 
 export const validationSchema = Yup.object().shape({
-  search: Yup.string()
+  [search.name]: Yup.string()
     .trim()
-    .max(256, 'Input is too long')
+    .max(256, errorMessages.MAXIMUM_CHARACTER_LENGTH(256))
     .matches(letterNumberSpaceRegex, 'Input is not valid'),
-  searchBy: Yup.string().required(),
+  [searchBy.name]: Yup.string().required(),
 })
