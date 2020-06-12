@@ -4,11 +4,14 @@ import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from '@reapit/elem
 export interface SetAsAdminModalProps {
   visible: boolean
   username: string
+  afterClose?: () => void
 }
 
-export const SetAsAdminModal: React.FunctionComponent<SetAsAdminModalProps> = ({ visible, username }) => {
+export const SetAsAdminModal: React.FunctionComponent<SetAsAdminModalProps> = ({ visible, username, afterClose }) => {
+  if (!visible) return null
+
   return (
-    <Modal visible={visible} renderChildren>
+    <Modal visible={visible} renderChildren afterClose={afterClose}>
       <>
         <ModalHeader title="Set as Admin"></ModalHeader>
         <ModalBody
@@ -26,7 +29,7 @@ export const SetAsAdminModal: React.FunctionComponent<SetAsAdminModalProps> = ({
         <ModalFooter
           footerItems={
             <>
-              <Button variant="secondary" fullWidth>
+              <Button variant="secondary" fullWidth onClick={afterClose}>
                 Cancel
               </Button>
               <Button variant="primary" fullWidth>
