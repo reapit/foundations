@@ -19,7 +19,7 @@ import { Dispatch } from 'redux'
 export const mapServiceChartDataSet = (billing: Billing | null) => {
   let datasets = [
     {
-      label: 'Resource',
+      label: 'API Calls',
       backgroundColor: 'rgba(255,99,132,0.2)',
       borderColor: 'rgba(255,99,132,1)',
       borderWidth: 1,
