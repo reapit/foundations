@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { Profile, renderForm, mapStateToProps, mapDispatchToProps, validate } from '../profile'
+import { Profile, renderForm, mapStateToProps, mapDispatchToProps } from '../profile'
 import { contact } from '@/sagas/__stubs__/contact'
 import { ReduxState } from '@/types/core'
 
@@ -75,73 +75,6 @@ describe('profile', () => {
       const { onSubmitHandler } = mapDispatchToProps(mockDispatch)
       onSubmitHandler({})
       expect(mockDispatch).toBeCalled()
-    })
-  })
-
-  describe('validate', () => {
-    it('should return correct error message for phone number', () => {
-      const input = {
-        homePhone: '',
-        mobilePhone: '',
-        workPhone: '',
-        email: 'client@gmail.com',
-      }
-      const output = {
-        home: 'At least one telephone number is required',
-      }
-      expect(validate(input)).toEqual(output)
-    })
-
-    it('should return correct error message for email', () => {
-      const input = {
-        homePhone: '0987654321',
-        mobilePhone: '',
-        workPhone: '',
-        email: 'client@',
-      }
-      const output = {
-        email: 'Invalid email format',
-      }
-      expect(validate(input)).toEqual(output)
-    })
-
-    it('should return correct error message for homePhone', () => {
-      const input = {
-        homePhone: 'mqwerty',
-        mobilePhone: '098765098765',
-        workPhone: '098765098765',
-        email: 'client@asd.com',
-      }
-      const output = {
-        homePhone: 'Invalid home phone format',
-      }
-      expect(validate(input)).toEqual(output)
-    })
-
-    it('should return correct error message for mobilePhone', () => {
-      const input = {
-        homePhone: '098765098765',
-        mobilePhone: 'zzzz',
-        workPhone: '098765098765',
-        email: 'client@asd.com',
-      }
-      const output = {
-        mobilePhone: 'Invalid mobile phone format',
-      }
-      expect(validate(input)).toEqual(output)
-    })
-
-    it('should return correct error message for workPhone', () => {
-      const input = {
-        homePhone: '098765098765',
-        mobilePhone: '098765098765',
-        workPhone: 'vbcvcvb',
-        email: 'client@asd.com',
-      }
-      const output = {
-        workPhone: 'Invalid work phone format',
-      }
-      expect(validate(input)).toEqual(output)
     })
   })
 })

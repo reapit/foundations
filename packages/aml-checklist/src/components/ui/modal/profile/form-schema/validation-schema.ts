@@ -1,9 +1,9 @@
 import * as Yup from 'yup'
 import formFields from './form-fields'
 import errorMessages from '@/constants/error-messages'
+import { telephoneRegex } from '@reapit/elements'
 
 // eslint-disable-next-line
-const validatePhoneRegex = /((?:\+|00)[17](?: |\-)?|(?:\+|00)[1-9]\d{0,2}(?: |\-)?|(?:\+|00)1\-\d{3}(?: |\-)?)?(0\d|\([0-9]{3}\)|[1-9]{0,3})(?:((?: |\-)[0-9]{2}){4}|((?:[0-9]{2}){4})|((?: |\-)[0-9]{3}(?: |\-)[0-9]{4})|([0-9]{7}))/g
 const {
   titleField,
   forenameField,
@@ -15,23 +15,26 @@ const {
   emailField,
 } = formFields
 
-const validationSchema = Yup.object().shape({
+const profileValidationSchema = Yup.object().shape({
   [titleField.name]: Yup.string().required(errorMessages.FIELD_REQUIRED),
   [forenameField.name]: Yup.string().required(errorMessages.FIELD_REQUIRED),
   [surnameField.name]: Yup.string().required(errorMessages.FIELD_REQUIRED),
   [dateOfBirthField.name]: Yup.string().required(errorMessages.FIELD_REQUIRED),
   [emailField.name]: Yup.string()
     .required(errorMessages.FIELD_REQUIRED)
-    .email(),
+    .email(emailField.errorMessage),
   [homePhoneField.name]: Yup.string()
+    .nullable()
     .required(errorMessages.FIELD_REQUIRED)
-    .matches(validatePhoneRegex, homePhoneField.errorMessage),
+    .matches(telephoneRegex, homePhoneField.errorMessage),
   [mobilePhoneField.name]: Yup.string()
+    .nullable()
     .required(errorMessages.FIELD_REQUIRED)
-    .matches(validatePhoneRegex, mobilePhoneField.errorMessage),
+    .matches(telephoneRegex, mobilePhoneField.errorMessage),
   [workPhoneField.name]: Yup.string()
+    .nullable()
     .required(errorMessages.FIELD_REQUIRED)
-    .matches(validatePhoneRegex, workPhoneField.errorMessage),
+    .matches(telephoneRegex, workPhoneField.errorMessage),
 })
 
-export default validationSchema
+export default profileValidationSchema

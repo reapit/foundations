@@ -78,7 +78,7 @@ export const Profile: React.FC<ProfileProps> = ({ contact, onNextHandler, onSubm
           [homePhoneField.name]: homePhone,
           [workPhoneField.name]: workPhone,
           [mobilePhoneField.name]: mobilePhone,
-          [mobilePhoneField.name]: email,
+          [emailField.name]: email,
         }}
         onSubmit={onSubmitHandler}
         validationSchema={validationSchema}
