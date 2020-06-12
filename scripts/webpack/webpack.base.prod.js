@@ -10,6 +10,7 @@ const { EnvironmentPlugin, SourceMapDevToolPlugin, HashedModuleIdsPlugin } = req
 const { PATHS } = require('./constants')
 const hashFiles = require('../utils/hash-files')
 const { getVersionTag, getRef } = require('../release/utils')
+const exludePackages = require('./exclude-packages')()
 
 const tagName = getVersionTag()
 const hashOfCommit = getRef()
@@ -27,6 +28,23 @@ const outputFileName = `[name].${hashOfCommit}.js`
  * https://sentry.io/organizations/reapit-ltd/issues/1692085300/?project=1885603&referrer=slack
  */
 const serviceWorkerPath = path.resolve(__dirname, './sw.js')
+
+const babelLoaderOptions = {
+  presets: [
+    [
+      '@babel/preset-env',
+      {
+        useBuiltIns: 'entry',
+        corejs: '3',
+        targets: {
+          chrome: '58',
+          ie: '11',
+        },
+      },
+    ],
+    'linaria/babel',
+  ],
+}
 
 const webpackConfig = {
   mode: 'production',
@@ -110,7 +128,16 @@ const webpackConfig = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        exclude: exludePackages,
+        use: {
+          loader: 'babel-loader',
+          options: babelLoaderOptions,
+        },
+      },
+      {
         test: /.tsx?$/,
+        exclude: exludePackages,
         use: [
           {
             loader: 'cache-loader',
@@ -124,23 +151,7 @@ const webpackConfig = {
           'thread-loader',
           {
             loader: 'babel-loader',
-            options: {
-              presets: [
-                [
-                  '@babel/preset-env',
-                  {
-                    useBuiltIns: 'entry',
-                    corejs: '3',
-                    targets: {
-                      esmodules: true,
-                      chrome: '58',
-                      ie: '11',
-                    },
-                  },
-                ],
-                'linaria/babel',
-              ],
-            },
+            options: babelLoaderOptions,
           },
           {
             loader: 'linaria/loader',
