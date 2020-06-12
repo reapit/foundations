@@ -149,6 +149,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
           visible={true}
         />
         <Component
+          HeaderComponent={[Function]}
           afterClose={[Function]}
           visible={false}
         />

@@ -14,7 +14,9 @@ exports[`Ui Sections <AppDetailSection /> should match snapshot 1`] = `
 `;
 
 exports[`Ui Sections <ImageSection /> should match snapshot for has image 1`] = `
-<Component>
+<Component
+  className="flex justify-center items-center"
+>
   <img
     alt="some image"
     src="https://image.com"
