@@ -151,6 +151,12 @@ const releaseServerless = async ({ tagName, packageName, env }) => {
       ).toString()
       console.info(realeaseResult)
       await sendMessageToSlack(`Finish the deploy for serverless \`${packageName}\` with version \`${tagName}\``)
+      await sendMessageToSlack(`Testing cypress for serverless \`${packageName}\` with version \`${tagName}\``)
+      const cypressTest = execSync(
+        `yarn workspace cloud-alert cypress:ci --env ENVIRONMENT=${env},PACKAGE_NAME=${packageName}`,
+      ).toString()
+      console.log(cypressTest)
+      await sendMessageToSlack(`Finish testing cypress for serverless \`${packageName}\` with version \`${tagName}\``)
       return
     }
 
