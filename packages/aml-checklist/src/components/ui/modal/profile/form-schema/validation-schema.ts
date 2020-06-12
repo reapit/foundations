@@ -3,7 +3,6 @@ import formFields from './form-fields'
 import errorMessages from '@/constants/error-messages'
 import { telephoneRegex } from '@reapit/elements'
 
-// eslint-disable-next-line
 const {
   titleField,
   forenameField,
