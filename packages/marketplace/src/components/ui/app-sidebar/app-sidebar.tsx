@@ -65,7 +65,7 @@ export const FilterForm: React.FC<FormikProps<FormFields>> = ({ values, setField
   )
 }
 
-export const AppSidebar: React.FC<> = () => {
+export const AppSidebar: React.FC = () => {
   const history = useHistory()
   const location = useLocation()
   const categories: CategoryModel[] = useSelector(selectCategories)
