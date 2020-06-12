@@ -5,6 +5,10 @@
   width: 100vw;
   transform: unset;
 
+  button {
+    white-space: normal;
+  }
+
   @media screen and (min-width: 768px) {
     transform: translateX(66px); // 66px being the width of the sidebar
     width: calc(100vw - 66px);

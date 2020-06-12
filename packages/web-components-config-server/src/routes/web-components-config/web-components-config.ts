@@ -3,6 +3,7 @@ import { getConfigByClientId, createConfig, deleteConfig, updateConfig } from '.
 import { AppRequest, AppResponse } from '@/app'
 import logger from '@/logger'
 import { validateGetById, validateCreate, validateUpdate, validateDelete } from './validators'
+import { stringifyError } from '@reapit/node-utils'
 
 const webComponentsConfig = express.Router()
 
@@ -17,7 +18,11 @@ export const webComponentsConfigGetByIdHandler = async (req: AppRequest, res: Ap
     const result = await getConfigByClientId(params)
     return res.send(result)
   } catch (err) {
-    logger.error('webComponentsConfig.getById', { traceId: req.traceId, error: JSON.stringify(err) })
+    await logger.error('webComponentsConfig.getById', {
+      traceId: req.traceId,
+      error: stringifyError(err),
+      headers: JSON.stringify(req.headers),
+    })
     return res.send({ message: err.message, code: err.code, traceId: req.traceId })
   }
 }
@@ -30,7 +35,11 @@ export const webComponentsConfigPutHandler = async (req: AppRequest, res: AppRes
     const result = await createConfig(params)
     return res.send(result)
   } catch (err) {
-    logger.error('webComponentsConfig.put', { traceId: req.traceId, error: JSON.stringify(err) })
+    await logger.error('webComponentsConfig.put', {
+      headers: JSON.stringify(req.headers),
+      traceId: req.traceId,
+      error: stringifyError(err),
+    })
     return res.send({ message: err.message, code: err.code, traceId: req.traceId })
   }
 }
@@ -46,7 +55,11 @@ export const webComponentsConfigPatchHandler = async (req: AppRequest, res: AppR
     const result = await updateConfig(params)
     return res.send(result)
   } catch (err) {
-    logger.error('webComponentsConfig.patch', { traceId: req.traceId, error: JSON.stringify(err) })
+    await logger.error('webComponentsConfig.patch', {
+      traceId: req.traceId,
+      error: stringifyError(err),
+      headers: JSON.stringify(req.headers),
+    })
     return res.send({ message: err.message, code: err.code, traceId: req.traceId })
   }
 }
@@ -62,7 +75,7 @@ export const webComponentsConfigDeleteHandler = async (req: AppRequest, res: App
     const result = await deleteConfig(params)
     return res.send(result)
   } catch (err) {
-    logger.error('webComponentsConfig.delete', { traceId: req.traceId, error: JSON.stringify(err) })
+    await logger.error('webComponentsConfig.delete', { traceId: req.traceId, error: JSON.stringify(err) })
     return res.send({ message: err.message, code: err.code, traceId: req.traceId })
   }
 }

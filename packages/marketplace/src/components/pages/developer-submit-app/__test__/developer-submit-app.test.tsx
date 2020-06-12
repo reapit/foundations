@@ -46,7 +46,25 @@ describe('DeveloperSubmitApp', () => {
     store = mockStore(appState)
     spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
   })
-  it('should match a snapshot', () => {
+  it('should match a snapshot when pendingRevisions = true', () => {
+    const mockStore = configureStore()
+    const clonedAppState = JSON.parse(JSON.stringify(appState))
+    clonedAppState.appDetail.appDetailData = { data: { pendingRevisions: true } }
+    const customStore = mockStore(clonedAppState)
+
+    window.reapit.config.appEnv = 'development'
+    expect(
+      mount(
+        <ReactRedux.Provider store={customStore}>
+          {/* weird snapshots bug: https://github.com/ReactTraining/react-router/issues/5579 */}
+          <MemoryRouter keyLength={0} initialEntries={[{ pathname: Routes.REGISTER, key: 'what' }]}>
+            <DeveloperSubmitApp />
+          </MemoryRouter>
+        </ReactRedux.Provider>,
+      ),
+    ).toMatchSnapshot()
+  })
+  it('should match a snapshot when pendingRevisions = false', () => {
     window.reapit.config.appEnv = 'development'
     expect(
       mount(
@@ -296,10 +314,10 @@ describe('DeveloperSubmitApp', () => {
 
   describe('handleOpenAppPreview', () => {
     it('should run correctly', () => {
-      const params = { appDetails: {}, values: {}, scopes: [], appId: 'appId' }
+      const params = { appDetails: {}, values: {}, scopes: [], categories: [], appId: 'appId' }
       const spyLocalStorageSetItem = jest.spyOn(window.localStorage, 'setItem')
       const spyOpenUrl = jest.spyOn(window, 'open')
-      const expected = JSON.stringify({ scopes: [] })
+      const expected = JSON.stringify({ scopes: [], media: [] })
 
       const fn = handleOpenAppPreview(params)
       fn()

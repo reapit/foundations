@@ -115,6 +115,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                             <Component>
                               <div
                                 className="content "
+                                data-test=""
                               >
                                 <Component>
                                   <div
@@ -135,14 +136,17 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                 >
                                   <div
                                     className="columns  items-center"
+                                    data-test=""
                                   >
                                     <Component>
                                       <div
                                         className="column  "
+                                        data-test=""
                                       >
                                         <Component
                                           id="name"
                                           labelText="Name"
+                                          maxLength={256}
                                           name="name"
                                           type="text"
                                         >
@@ -157,7 +161,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                                 className="control "
                                               >
                                                 <label
-                                                  className="label "
+                                                  className="label inline-block "
                                                   htmlFor="name"
                                                 >
                                                   Name
@@ -167,6 +171,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                                   data-test=""
                                                   disabled={false}
                                                   id="name"
+                                                  maxLength={256}
                                                   name="name"
                                                   onBlur={[Function]}
                                                   onChange={[Function]}
@@ -183,10 +188,12 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                     <Component>
                                       <div
                                         className="column  "
+                                        data-test=""
                                       >
                                         <Component
                                           id="company"
                                           labelText="Company"
+                                          maxLength={256}
                                           name="company"
                                           type="text"
                                         >
@@ -201,7 +208,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                                 className="control "
                                               >
                                                 <label
-                                                  className="label "
+                                                  className="label inline-block "
                                                   htmlFor="company"
                                                 >
                                                   Company
@@ -211,6 +218,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                                   data-test=""
                                                   disabled={false}
                                                   id="company"
+                                                  maxLength={256}
                                                   name="company"
                                                   onBlur={[Function]}
                                                   onChange={[Function]}
@@ -227,6 +235,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                     <Component>
                                       <div
                                         className="column  "
+                                        data-test=""
                                       >
                                         <Component
                                           id="registeredFrom"
@@ -403,6 +412,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                     <Component>
                                       <div
                                         className="column  "
+                                        data-test=""
                                       >
                                         <Component
                                           id="registeredTo"
@@ -583,6 +593,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                     >
                                       <div
                                         className="column  mt-4"
+                                        data-test=""
                                       >
                                         <Component
                                           type="submit"
@@ -612,6 +623,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                 <Component>
                   <div
                     className="content "
+                    data-test=""
                   >
                     <Component
                       columns={

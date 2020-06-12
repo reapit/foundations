@@ -4,6 +4,7 @@ import {
   whiteListLocalhostAndIsValidUrl,
   isValidHttpUrl,
   isValidLimitToClientIds,
+  isValidTelephone,
 } from '@/utils/validate'
 import { CustomCreateAppModel } from '@/actions/submit-app'
 
@@ -72,10 +73,6 @@ export const validate = (values: CustomCreateAppModel) => {
     errors.signoutUris = 'Invalid sign out uri(s)'
   }
 
-  if (values.isPrivateApp === 'yes' && values.limitToClientIds?.length === 0) {
-    errors.limitToClientIds = 'At least one Customer ID is required'
-  }
-
   if (values.limitToClientIds && !isValidLimitToClientIds(values.limitToClientIds)) {
     errors.limitToClientIds = 'Invalid Customer ID(s). Each Customer ID should consist of 3 characters.'
   }
@@ -86,6 +83,10 @@ export const validate = (values: CustomCreateAppModel) => {
 
   if (values.launchUri && !whiteListLocalhostAndIsValidUrl(values.launchUri)) {
     errors.launchUri = 'Invalid Launch URI'
+  }
+
+  if (values.telephone && !isValidTelephone(values.telephone)) {
+    errors.telephone = 'Invalid Telephone number'
   }
 
   const isValidDescription =

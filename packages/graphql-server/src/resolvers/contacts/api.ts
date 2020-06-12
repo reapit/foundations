@@ -1,6 +1,6 @@
 import qs from 'query-string'
 import logger from '../../logger'
-import { ServerContext } from '../../app'
+import { ServerContext } from '../../index'
 import {
   GetContactByIdArgs,
   CreateContactArgs,
@@ -28,7 +28,8 @@ export const callGetContactByIdAPI = async (args: GetContactByIdArgs, context: S
     })
     return response?.data
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callGetContactByIdAPI' })
+    const handleErrorResult = await handleError({ error, traceId, caller: 'callGetContactByIdAPI' })
+    return handleErrorResult
   }
 }
 
@@ -44,7 +45,8 @@ export const callGetContactsAPI = async (args: GetContactsArgs, context: ServerC
     })
     return response?.data
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callGetContactsAPI' })
+    const handleErrorResult = await handleError({ error, traceId, caller: 'callGetContactsAPI' })
+    return handleErrorResult
   }
 }
 
@@ -63,7 +65,8 @@ export const callCreateContactAPI = async (args: CreateContactArgs, context: Ser
     }
     return null
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callCreateContactAPI' })
+    const handleErrorResult = await handleError({ error, traceId, caller: 'callCreateContactAPI' })
+    return handleErrorResult
   }
 }
 
@@ -87,6 +90,7 @@ export const callUpdateContactAPI = async (args: UpdateContactArgs, context: Ser
     }
     return errors.generateUserInputError(traceId)
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callUpdateContactAPI' })
+    const handleErrorResult = await handleError({ error, traceId, caller: 'callUpdateContactAPI' })
+    return handleErrorResult
   }
 }

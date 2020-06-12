@@ -64,10 +64,12 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
               >
                 <div
                   className="columns is-multiline "
+                  data-test=""
                 >
                   <Component>
                     <div
                       className="column  "
+                      data-test=""
                     >
                       <Component
                         dataTest="submit-app-name"
@@ -89,7 +91,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                               className="control "
                             >
                               <label
-                                className="label required-label"
+                                className="label inline-block required-label"
                                 htmlFor="name"
                               >
                                 Name
@@ -115,6 +117,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                   <Component>
                     <div
                       className="column  "
+                      data-test=""
                     >
                       <Component
                         id="categoryId"
@@ -165,10 +168,12 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
               <Component>
                 <div
                   className="columns  "
+                  data-test=""
                 >
                   <Component>
                     <div
                       className="column  "
+                      data-test=""
                     >
                       <Component
                         dataTest="submit-app-support-email"
@@ -176,11 +181,12 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                         labelText="Support email"
                         name="supportEmail"
                         placeholder="The contact to your support team if your users have a problem"
+                        required={true}
                         type="email"
                       >
                         <Field
                           name="supportEmail"
-                          validate={null}
+                          validate={[Function]}
                         >
                           <div
                             className="field pb-4"
@@ -189,7 +195,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                               className="control "
                             >
                               <label
-                                className="label "
+                                className="label inline-block required-label"
                                 htmlFor="supportEmail"
                               >
                                 Support email
@@ -215,6 +221,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                   <Component>
                     <div
                       className="column  "
+                      data-test=""
                     >
                       <Component
                         dataTest="submit-app-phone"
@@ -222,11 +229,12 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                         labelText="Telephone"
                         name="telephone"
                         placeholder="Should one of our developers need to contact you about your app"
+                        required={true}
                         type="tel"
                       >
                         <Field
                           name="telephone"
-                          validate={null}
+                          validate={[Function]}
                         >
                           <div
                             className="field pb-4"
@@ -235,7 +243,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                               className="control "
                             >
                               <label
-                                className="label "
+                                className="label inline-block required-label"
                                 htmlFor="phone"
                               >
                                 Telephone
@@ -263,10 +271,12 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
               <Component>
                 <div
                   className="columns  "
+                  data-test=""
                 >
                   <Component>
                     <div
                       className="column  "
+                      data-test=""
                     >
                       <Component
                         dataTest="submit-app-home-page"
@@ -274,11 +284,12 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                         labelText="Home page"
                         name="homePage"
                         placeholder="Your company homepage. HTTP:// or HTTPS://"
+                        required={true}
                         type="text"
                       >
                         <Field
                           name="homePage"
-                          validate={null}
+                          validate={[Function]}
                         >
                           <div
                             className="field pb-4"
@@ -287,7 +298,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                               className="control "
                             >
                               <label
-                                className="label "
+                                className="label inline-block required-label"
                                 htmlFor="homePage"
                               >
                                 Home page
@@ -313,6 +324,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                   <Component>
                     <div
                       className="column  "
+                      data-test=""
                     >
                       <Component
                         dataTest="submit-app-launch-uri"
@@ -320,11 +332,12 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                         labelText="Launch URI"
                         name="launchUri"
                         placeholder="The launch page for your app. HTTPS only other than for http://localhost"
+                        required={true}
                         type="text"
                       >
                         <Field
                           name="launchUri"
-                          validate={null}
+                          validate={[Function]}
                         >
                           <div
                             className="field pb-4"
@@ -333,7 +346,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                               className="control "
                             >
                               <label
-                                className="label "
+                                className="label inline-block required-label"
                                 htmlFor="launch Url"
                               >
                                 Launch URI
@@ -361,10 +374,12 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
               <Component>
                 <div
                   className="columns  "
+                  data-test=""
                 >
                   <Component>
                     <div
                       className="column  "
+                      data-test=""
                     >
                       <Component
                         dataTest="submit-app-summary"
@@ -372,6 +387,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                         labelText="Summary"
                         name="summary"
                         placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
+                        required={true}
                       >
                         <Field
                           name="summary"
@@ -383,7 +399,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                               className="control"
                             >
                               <label
-                                className="label"
+                                className="label required-label"
                                 htmlFor="summary"
                               >
                                 Summary
@@ -406,6 +422,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                   <Component>
                     <div
                       className="column  "
+                      data-test=""
                     >
                       <Component
                         actions={
@@ -429,6 +446,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                         labelText="Description"
                         name="description"
                         placeholder="A detailed description for your app listing. Must be between 150 and 1000 characters. Please note: As this field supports HTML, special characters will be included in the character count"
+                        required={true}
                       >
                         <div
                           className="field pb-2"
@@ -437,7 +455,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                             className="control"
                           >
                             <label
-                              className="label"
+                              className="label required-label"
                               htmlFor="description"
                             >
                               Description

@@ -14,6 +14,7 @@ export interface InputProps {
   required?: boolean
   disabled?: boolean
   validate?: (value: string) => string | null
+  maxLength?: number
 }
 
 export const Input = ({
@@ -26,6 +27,7 @@ export const Input = ({
   rightIcon,
   required = false,
   disabled = false,
+  maxLength,
   validate = fieldValidateRequire,
 }: InputProps) => (
   <Field name={name} validate={required ? validate : null}>
@@ -37,7 +39,7 @@ export const Input = ({
         <div className="field pb-4">
           <div className={`control ${rightIcon ? 'has-icons-right' : ''}`}>
             {type !== 'hidden' && !rightIcon && labelText && (
-              <label className={`label ${required ? 'required-label' : ''}`} htmlFor={id}>
+              <label className={`label inline-block ${required ? 'required-label' : ''}`} htmlFor={id}>
                 {labelText}
               </label>
             )}
@@ -50,6 +52,7 @@ export const Input = ({
               className={className}
               {...field}
               value={field.value || defaultValue}
+              maxLength={maxLength}
             />
             {rightIcon && <span className="icon is-right">{rightIcon}</span>}
           </div>

@@ -21,7 +21,7 @@ const releaseDev = () => {
     const distPath = path.resolve(__dirname, '../../', 'packages', packageName, 'public', 'dist')
     // cp all assert with cache-control 365 days exclude sw.js and index.html
     const copyWithCache = execSync(
-      `aws s3 cp ${distPath} s3://${bucketName} --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers --recursive --exclude "index.html" --exclude "sw.js" --exclude "config.json" --cache-control "max-age=31536000"`,
+      `aws s3 cp ${distPath} s3://${bucketName} --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers --recursive --exclude "index.html" --exclude "sw.js" --exclude "config.json" --cache-control "no-store"`,
     ).toString()
     console.info(copyWithCache)
     // cp index.html and sw.js with no-cache control

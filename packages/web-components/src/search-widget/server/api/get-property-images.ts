@@ -1,4 +1,3 @@
-import { Request, Response } from 'express'
 import { fetcher } from '../../../common/utils/fetcher-server'
 import { PagedResultPropertyImageModel_ } from '@reapit/foundations-ts-definitions'
 import { PACKAGE_SUFFIXES } from '../../../common/utils/constants'
@@ -7,8 +6,10 @@ import { errorHandler } from '../../../common/utils/error-handler'
 import { mapMinimalProperties } from '../utils/map-minimal-properties'
 import { PickedPagedResultPropertyImageModel_ } from '../../types'
 import { INCLUDED_PROPS } from '../constants/api'
+import { AppRequest, AppResponse } from '@reapit/node-utils'
+import { logger } from '../core/logger'
 
-export const getPropertyImages = async (req: Request, res: Response) => {
+export const getPropertyImages = async (req: AppRequest, res: AppResponse) => {
   try {
     const headers = await getServerHeaders(req, PACKAGE_SUFFIXES.SEARCH_WIDGET)
     const fullPagedResult = await fetcher<PagedResultPropertyImageModel_, undefined>({
@@ -26,7 +27,7 @@ export const getPropertyImages = async (req: Request, res: Response) => {
       res.end()
     }
   } catch (err) {
-    errorHandler(err, res)
+    await errorHandler(err, res, req, 'getPropertyImages', logger)
   }
 }
 

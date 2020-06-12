@@ -11,7 +11,7 @@ export const history = createBrowserHistory()
 const Authentication = React.lazy(() => catchChunkError(() => import('../components/pages/authentication')))
 const Login = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 const Client = React.lazy(() => catchChunkError(() => import('../components/pages/client')))
-const ClientAppDetail = React.lazy(() => catchChunkError(() => import('../components/pages/client-app-detail')))
+const ClientAppDetail = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail/client')))
 const ClientWelcomePage = React.lazy(() => catchChunkError(() => import('../components/pages/client-welcome')))
 const InstalledApps = React.lazy(() => catchChunkError(() => import('../components/pages/installed-apps')))
 const ClientSetting = React.lazy(() => catchChunkError(() => import('../components/pages/settings/client-setting')))
@@ -20,7 +20,7 @@ const ClientAppsManagement = React.lazy(() =>
 )
 const Register = React.lazy(() => catchChunkError(() => import('../components/pages/register')))
 const DeveloperHome = React.lazy(() => catchChunkError(() => import('../components/pages/developer-home')))
-const DeveloperAppDetail = React.lazy(() => catchChunkError(() => import('../components/pages/developer-app-detail')))
+const DeveloperAppDetail = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail/developer')))
 const DeveloperSubmitApp = React.lazy(() => catchChunkError(() => import('../components/pages/developer-submit-app')))
 const AdminApprovalsPage = React.lazy(() => catchChunkError(() => import('../components/pages/admin-approvals')))
 const AdminDevManagementPage = React.lazy(() =>
@@ -49,6 +49,8 @@ const DeveloperSettingsBillingTabPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/settings/developer-settings-billing-tab')),
 )
 
+const DeveloperAdminBillingPage = React.lazy(() => catchChunkError(() => import('../components/pages/admin-billing')))
+
 const Router = () => {
   const isProduction = window.reapit.config.appEnv === 'production'
   const paths = [Routes.DEVELOPER_LOGIN, Routes.ADMIN_LOGIN]
@@ -70,10 +72,24 @@ const Router = () => {
                 path={Routes.AUTHENTICATION_LOGIN_TYPE}
                 component={Authentication}
               />
+              <PrivateRoute
+                allow="ADMIN"
+                path={Routes.ADMIN_BILLING}
+                component={DeveloperAdminBillingPage}
+                fetcher
+                exact
+              />
               <PrivateRoute allow="CLIENT" path={Routes.INSTALLED_APPS} component={InstalledApps} fetcher exact />
               <PrivateRoute allow="CLIENT" path={Routes.MY_APPS} component={ClientAppsManagement} fetcher exact />
               <PrivateRoute allow="CLIENT" path={Routes.CLIENT} component={Client} exact fetcher />
               <PrivateRoute allow="CLIENT" path={Routes.CLIENT_APP_DETAIL} component={ClientAppDetail} exact fetcher />
+              <PrivateRoute
+                allow="CLIENT"
+                path={Routes.CLIENT_APP_DETAIL_MANAGE}
+                component={ClientAppDetail}
+                exact
+                fetcher
+              />
               <PrivateRoute allow="CLIENT" path={Routes.CLIENT_WELCOME} component={ClientWelcomePage} exact />
               <PrivateRoute allow="CLIENT" path={Routes.CLIENT_HELP} exact fetcher component={ClientHelpPage} />
               <PrivateRoute allow="CLIENT" path={Routes.CLIENT_SETTINGS} exact fetcher component={ClientSetting} />

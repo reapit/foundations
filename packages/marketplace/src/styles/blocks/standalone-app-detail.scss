@@ -1,127 +1,66 @@
-// TODO: remove this file after we separated dev & client standalone page
 @import '../base/colors.scss';
 @import '../base/screen-size.scss';
 
-.appHeaderTextContainer {
-  padding: 0 3rem;
+.preview {
+  position: relative;
+  top: 2px;
+}
+
+.check {
+  position: relative;
+  top: 2px;
+  left: 2px;
+  color: $reapit-green;
+}
+
+.elipsis {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: $grey-lighter;
+  margin: 1rem 1rem 0 0;
+}
+
+
+.appIconContainer {
+  max-width: 96px;
+  margin: 0 auto;
+}
+
+.container {
+  @include for-mobile-only {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+.containerHeader {
+  align-items: center;
+  @include for-mobile-only {
+    flex-direction: column;
+  }
+}
+
+.containerOuterHeader {
+  @include for-tablet-and-below {
+    flex-direction: column;
+  }
+}
+
+.headerContent {
   display: flex;
-  // align-items: flex-end;
+  align-items: flex-end;
   flex-direction: column;
-  justify-content: center;
-  @include for-mobile-only {
-    padding-left: 0;
-    padding-right: 0;
-    margin-top: 1rem;
-    text-align: center;
-    justify-content: center;
+  
+  @include for-tablet-and-below {
+    flex-direction: column;
     align-items: center;
-  }
-}
-
-.asideContainer {
-  margin-right: 1rem;
-  width: 25%;
-  display: flex;
-  justify-content: center;
-  background-color: $white;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  @include for-mobile-only {
-    width: 100%;
-    padding-top: 0;
-    padding-bottom: 1rem;
-  }
-  & > div {
-    width: 70%;
-    @include for-mobile-only {
-      width: 100%;
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-    div > :first-child {
-      @include for-mobile-only {
-        margin-top: 0;
-      }
-    }
-  }
-
-  h5.headerWithoutMargin {
-    margin-bottom: 0;
-  }
-
-  h5,
-  h5:not(:last-child):not(.headerWithoutMargin) {
-    margin-bottom: 0.5rem;
-  }
-}
-
-.appHeader {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-top: 3rem;
-  @include for-mobile-only {
-    margin-top: 1rem;
-  }
-
-  .appInformation {
-    display: flex;
-    width: 60%;
-    margin-bottom: 0.75rem;
-    @include for-mobile-only {
-      width: 100%;
-      margin-bottom: 0;
-      align-items: center;
-      flex-direction: column;
-    }
-    @include for-tablet-only {
-      width: 100%;
-    }
-  }
-
-  .appScreenshot {
-    display: flex;
-    justify-content: center;
-    width: 40%;
-    @include for-tablet-only {
-      width: 100%;
-    }
-  }
-
-  .appIconContainer {
-    flex: 1 0 96px;
-    max-width: 96px;
-    width: 96px;
-    height: 96px;
-    margin-left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: $grey-lighter;
-    background-position: center;
-    background-size: cover;
-  }
-
-  .verifyByReapitContainer {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-top: 0.5rem;
-    @include for-tablet-only {
-      margin-top: 0;
-    }
-    .check {
-      /*should be px regard their base px (rem) else looks really ugly*/
-      margin-right: 5px;
-      color: #a0c862;
-    }
-  }
-
-  h2, h3 {
-    &.appName {
-      font-family: 'Museo Sans W03_300', 'Roboto', Helvetica, Arial, sans-serif;
-      margin-bottom: 0;
-    }
   }
 }

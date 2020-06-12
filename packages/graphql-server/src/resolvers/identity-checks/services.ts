@@ -1,5 +1,5 @@
 import logger from '../../logger'
-import { ServerContext } from '../../app'
+import { ServerContext } from '../../index'
 import {
   GetIdentityCheckByIdArgs,
   CreateIdentityCheckArgs,

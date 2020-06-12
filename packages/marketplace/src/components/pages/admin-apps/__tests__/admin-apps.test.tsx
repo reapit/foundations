@@ -17,6 +17,7 @@ import {
   handleChangePage,
   renderContent,
   AdminApps,
+  renderChecked,
 } from '../admin-apps'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
@@ -102,19 +103,18 @@ describe('admin-apps', () => {
 
   describe('refreshForm', () => {
     it('should return correctly', () => {
-      const onSubmit = jest.fn()
-      const resetForm = jest.fn()
-      const fn = refreshForm(onSubmit, resetForm)
+      const history = {
+        push: jest.fn(),
+      }
+      const fn = refreshForm(history)
       fn()
-      expect(resetForm).toBeCalled()
-      expect(onSubmit).toBeCalled()
+      expect(history.push).toBeCalledWith(Routes.ADMIN_APPS)
     })
   })
 
   describe('renderForm', () => {
     it('should return correctly', () => {
-      const setFilter = jest.fn()
-      const fn = renderForm(setFilter)({ values: {}, resetForm: jest.fn() })
+      const fn = renderForm({ values: {}, status: null })
       expect(fn).toMatchSnapshot()
     })
   })
@@ -132,14 +132,17 @@ describe('admin-apps', () => {
   describe('handleOnSubmit', () => {
     it('should run correctly', () => {
       const mockRouter = getMockRouterProps({})
-      const fn = handleOnSubmit(mockRouter.history, 1)
-      fn({
-        appName: 'mockAppName',
-        companyName: 'mockCompanyName',
-        developerName: 'mockDeveloperName',
-        registeredFrom: '2020-10-01T00:00:00Z',
-        registeredTo: '2020-10-01T10:00:00Z',
-      })
+      const fn = handleOnSubmit(mockRouter.history)
+      fn(
+        {
+          appName: 'mockAppName',
+          companyName: 'mockCompanyName',
+          developerName: 'mockDeveloperName',
+          registeredFrom: '2020-10-01T00:00:00Z',
+          registeredTo: '2020-10-01T10:00:00Z',
+        },
+        { setStatus: jest.fn() },
+      )
       expect(mockRouter.history.push).toBeCalled()
     })
   })
@@ -210,6 +213,16 @@ describe('admin-apps', () => {
           </ReactRedux.Provider>,
         ),
       ).toMatchSnapshot()
+    })
+  })
+
+  describe('renderChecked', () => {
+    it('should return checked icon', () => {
+      expect(shallow(<div>{renderChecked({ cell: { value: true } })}</div>)).toMatchSnapshot()
+    })
+
+    it('should return null', () => {
+      expect(shallow(<div>{renderChecked({ cell: { value: false } })}</div>)).toMatchSnapshot()
     })
   })
 })

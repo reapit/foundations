@@ -1,4 +1,5 @@
-import winston from 'winston'
+import winston, { LeveledLogMethod } from 'winston'
+import { createWistonLoggerErrorFn } from '@reapit/node-utils'
 
 export const levels = {
   error: 0,
@@ -12,7 +13,7 @@ export const levels = {
 
 export const logger = winston.createLogger({
   format: winston.format.combine(winston.format.json()),
-  defaultMeta: { service: 'apollo-server' },
+  defaultMeta: { service: 'graphql-server' },
   exitOnError: false,
   transports: [
     new winston.transports.Console({
@@ -20,5 +21,7 @@ export const logger = winston.createLogger({
     }),
   ],
 })
+
+logger.error = createWistonLoggerErrorFn(logger.error) as LeveledLogMethod
 
 export default logger

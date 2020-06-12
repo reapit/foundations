@@ -17,6 +17,7 @@ import linkStyles from '@/styles/elements/link.scss?mod'
 import { useSelector } from 'react-redux'
 import { selectCategories } from '@/selector/app-categories'
 import { CategoryModel } from '@reapit/foundations-ts-definitions'
+import styles from '@/styles/pages/developer-submit-app.scss?mod'
 
 export type GeneralInformationSectionProps = {}
 
@@ -77,6 +78,7 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = () =
             id="supportEmail"
             name="supportEmail"
             placeholder="The contact to your support team if your users have a problem"
+            required
           />
         </GridItem>
         <GridItem>
@@ -87,6 +89,7 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = () =
             id="phone"
             name="telephone"
             placeholder="Should one of our developers need to contact you about your app"
+            required
           />
         </GridItem>
       </Grid>
@@ -99,6 +102,7 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = () =
             id="homePage"
             name="homePage"
             placeholder="Your company homepage. HTTP:// or HTTPS://"
+            required
           />
         </GridItem>
         <GridItem>
@@ -109,21 +113,24 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = () =
             id="launch Url"
             name="launchUri"
             placeholder="The launch page for your app. HTTPS only other than for http://localhost"
+            required
           />
         </GridItem>
       </Grid>
       <Grid>
-        <GridItem>
+        <GridItem className={styles.gridMaxHalfWidth}>
           <TextArea
             id="summary"
             dataTest="submit-app-summary"
             labelText="Summary"
             name="summary"
             placeholder={'A short strapline summary for your app listing. Must be between 50 and 150 characters'}
+            required
           />
         </GridItem>
-        <GridItem>
+        <GridItem className={styles.gridMaxHalfWidth}>
           <TextAreaEditor
+            containerClass={styles.contentOverflowXScroll}
             id="description"
             actions={[
               'bold',
@@ -146,6 +153,7 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = () =
               // eslint-disable-next-line max-len
               'A detailed description for your app listing. Must be between 150 and 1000 characters. Please note: As this field supports HTML, special characters will be included in the character count'
             }
+            required
           />
         </GridItem>
       </Grid>

@@ -1,7 +1,6 @@
 import React from 'react'
 import { isFragment } from 'react-is'
 import BreadcrumbItem from './breadcrumb-item'
-import { cx } from 'linaria'
 import { breadcrumbItem } from './__styles__/styles'
 
 export const toArray = (children: React.ReactNode): React.ReactElement[] => {
@@ -62,7 +61,7 @@ export const defaultItemRenderer = (
 ): React.ReactNode => {
   const isLastItem = routes.indexOf(route) === routes.length - 1
   const name = getBreadcrumbName(route, params)
-  return isLastItem ? <span className={cx(breadcrumbItem)}>{name}</span> : <a href={`#/${paths.join('/')}`}>{name}</a>
+  return isLastItem ? <span className={breadcrumbItem}>{name}</span> : <a href={`#/${paths.join('/')}`}>{name}</a>
 }
 
 export const getPath = (path: string, params: any) => {

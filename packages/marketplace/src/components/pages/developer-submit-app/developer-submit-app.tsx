@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Redirect } from 'react-router-dom'
 import { History } from 'history'
 import { useHistory, useParams } from 'react-router'
 import {
@@ -44,7 +45,8 @@ import UploadImageSection from './upload-image-section'
 import MarketplaceStatusSection from './marketplace-status-section'
 import PermissionSection from './permission-section'
 import styles from '@/styles/pages/developer-submit-app.scss?mod'
-import { ScopeModel } from '@/types/marketplace-api-schema'
+import { ScopeModel, CategoryModel } from '@/types/marketplace-api-schema'
+import { selectCategories } from '@/selector/app-categories'
 
 export type DeveloperSubmitAppProps = {}
 
@@ -277,16 +279,32 @@ export const handleOnSubmitAnotherApp = (dispatch: Dispatch) => {
 
 export type HandleOpenAppPreview = {
   scopes: ScopeModel[]
+  categories: CategoryModel[]
   values: FormikValues
-  appId?: string
+  appId: string
   appDetails?: AppDetailModel & { apiKey?: string }
 }
 
-export const handleOpenAppPreview = ({ appDetails, values, scopes, appId }: HandleOpenAppPreview) => () => {
+export const handleOpenAppPreview = ({
+  appDetails,
+  values,
+  scopes,
+  categories,
+  appId = 'submit-app',
+}: HandleOpenAppPreview) => () => {
+  const isSubmitApp = appId === 'submit-app'
+  const { iconImageUrl, screen1ImageUrl, screen2ImageUrl, screen3ImageUrl, screen4ImageUrl, screen5ImageUrl } = values
+
+  const media = [iconImageUrl, screen1ImageUrl, screen2ImageUrl, screen3ImageUrl, screen4ImageUrl, screen5ImageUrl]
+    .filter(image => image)
+    .map(image => ({ uri: image, type: image === iconImageUrl ? 'icon' : 'image' }))
+
   const appDetailState = {
-    ...appDetails,
+    ...(isSubmitApp ? {} : appDetails),
     ...values,
     scopes: scopes.filter(scope => values.scopes.includes(scope.name)),
+    category: categories.find(category => values.categoryId === category.id),
+    media,
   }
 
   const url = `developer/apps/${appId}/preview`
@@ -305,6 +323,7 @@ export const DeveloperSubmitApp: React.FC<DeveloperSubmitAppProps> = () => {
   const appDetailState = useSelector(selectAppDetailState)
   const submitAppState = useSelector(selectSubmitAppState)
   const submitRevisionState = useSelector(selectSubmitAppRevisionState)
+  const appCategories = useSelector(selectCategories)
 
   const [isSubmitModalOpen, setIsSubmitModalOpen] = React.useState<boolean>(!getCookieString(COOKIE_FIRST_SUBMIT))
 
@@ -313,6 +332,11 @@ export const DeveloperSubmitApp: React.FC<DeveloperSubmitAppProps> = () => {
 
   const isSubmitRevision = appid ? true : false
   const isSubmitApp = !isSubmitRevision
+
+  const isPendingRevisionsExist = appDetailState.appDetailData?.data?.pendingRevisions
+  if (isPendingRevisionsExist) {
+    return <Redirect to={`${Routes.DEVELOPER_MY_APPS}/${appid}`} />
+  }
 
   if (isSubmitApp) {
     const { loading } = submitAppState
@@ -396,20 +420,19 @@ export const DeveloperSubmitApp: React.FC<DeveloperSubmitAppProps> = () => {
                     {renderErrors((errors as unknown) as Record<string, string | string[]>)}
                     <LevelRight>
                       <Grid className={styles.footerButtons}>
-                        {isSubmitRevision && (
-                          <Button
-                            onClick={handleOpenAppPreview({
-                              appDetails: appDetailState?.appDetailData?.data,
-                              values,
-                              scopes,
-                              appId: appid,
-                            })}
-                            variant="primary"
-                            type="button"
-                          >
-                            Preview
-                          </Button>
-                        )}
+                        <Button
+                          onClick={handleOpenAppPreview({
+                            appDetails: appDetailState?.appDetailData?.data,
+                            values,
+                            scopes,
+                            categories: appCategories,
+                            appId: appid,
+                          })}
+                          variant="primary"
+                          type="button"
+                        >
+                          Preview
+                        </Button>
                         {!isSubmitApp && (
                           <Button onClick={goBackToApps} variant="primary" type="button">
                             Back To Apps

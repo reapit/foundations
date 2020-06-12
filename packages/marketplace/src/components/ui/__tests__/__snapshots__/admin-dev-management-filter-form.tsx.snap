@@ -10,7 +10,7 @@ exports[`AdminDevManagementFilterForm should match a snapshot 1`] = `
       "registeredTo": "2020/04/04",
     }
   }
-  onSubmit={[Function]}
+  onSubmit={[MockFunction]}
 >
   <Component />
 </Formik>

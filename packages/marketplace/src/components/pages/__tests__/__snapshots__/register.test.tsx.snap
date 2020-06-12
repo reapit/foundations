@@ -134,7 +134,7 @@ exports[`Register should match a snapshot 1`] = `
                               className="control "
                             >
                               <label
-                                className="label "
+                                className="label inline-block "
                                 htmlFor="name"
                               >
                                 Full name
@@ -174,7 +174,7 @@ exports[`Register should match a snapshot 1`] = `
                               className="control "
                             >
                               <label
-                                className="label "
+                                className="label inline-block "
                                 htmlFor="companyName"
                               >
                                 Company name
@@ -214,7 +214,7 @@ exports[`Register should match a snapshot 1`] = `
                               className="control "
                             >
                               <label
-                                className="label "
+                                className="label inline-block "
                                 htmlFor="email"
                               >
                                 Email
@@ -254,7 +254,7 @@ exports[`Register should match a snapshot 1`] = `
                               className="control "
                             >
                               <label
-                                className="label "
+                                className="label inline-block "
                                 htmlFor="telephone"
                               >
                                 Telephone
@@ -284,6 +284,7 @@ exports[`Register should match a snapshot 1`] = `
                       <Component>
                         <div
                           className="level "
+                          data-test=""
                         >
                           <Component
                             afterClose={[Function]}

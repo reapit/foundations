@@ -86,10 +86,15 @@ describe('onSearchHandler', () => {
     const onSearchHandlerFn = onSearchHandler(mockRouterProps.history)
     expect(onSearchHandlerFn).toBeDefined()
 
-    onSearchHandlerFn({
-      name: '',
-      company: '',
-    } as AdminDevManagementFilterFormValues)
+    onSearchHandlerFn(
+      {
+        name: '',
+        company: '',
+      } as AdminDevManagementFilterFormValues,
+      {
+        setStatus: jest.fn(),
+      },
+    )
     expect(mockRouterProps.history.push).toBeCalled()
   })
 })

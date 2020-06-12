@@ -61,7 +61,7 @@ return (() => {
       }
       const serverScript = hasServer
         ? // eslint-disable-next-line max-len
-          `serverless offline --config ${serverConfigFile} --out public/dist --stage local --apiKey ${apiKeys[packageName]}`
+          `NODE_ENV=development serverless offline --config ${serverConfigFile} --out public/dist --stage local --apiKey ${apiKeys[packageName]}`
         : null
       const startClientServer = getStartClientServer(packageName)
 

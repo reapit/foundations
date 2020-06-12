@@ -21,12 +21,16 @@ import {
   FlexContainerBasic,
   DatePicker,
   toLocalTime,
+  isEmptyObject,
 } from '@reapit/elements'
 import { selectAdminAppsData, selectAdminAppsLoading } from '@/selector/admin'
 import { adminAppsRequestFeatured } from '@/actions/admin-apps'
 import AppDeleteModal from '@/components/ui/app-delete'
 import { addQuery, stringifyObjectIntoQueryString, getParamsFromPath } from '@/utils/client-url-params'
 import styles from '@/styles/pages/admin-apps.scss?mod'
+import { cleanObject } from '@reapit/utils'
+import Routes from '@/constants/routes'
+import { FaCheck } from 'react-icons/fa'
 
 export type DeleteModalData = {
   visible: boolean
@@ -51,6 +55,10 @@ export const renderIsFeature = (dispatch: Dispatch<any>) => ({ row, cell }) => {
       <label className="label" htmlFor={id}></label>
     </div>
   )
+}
+
+export const renderChecked = ({ cell: { value } }) => {
+  return value ? <FaCheck /> : null
 }
 
 export const renderCreatedAt = ({ cell: { value } }) => {
@@ -99,14 +107,17 @@ export const generateColumns = ({ dispatch, setDataDeleteModal, deleteModalData 
     {
       Header: 'Is Listed',
       accessor: 'isListed',
+      Cell: renderChecked,
     },
     {
       Header: 'Pending Revisions',
       accessor: 'pendingRevisions',
+      Cell: renderChecked,
     },
     {
       Header: 'Direct API',
       accessor: 'isDirectApi',
+      Cell: renderChecked,
     },
     {
       Header: 'Created',
@@ -125,15 +136,11 @@ export const generateColumns = ({ dispatch, setDataDeleteModal, deleteModalData 
   ]
 }
 
-export const refreshForm = (onSubmit: Function, resetForm: Function) => () => {
-  resetForm()
-  onSubmit({ appName: '', companyName: '', developerName: '' })
+export const refreshForm = history => () => {
+  history.push(Routes.ADMIN_APPS)
 }
 
-export const renderForm = onSubmit => ({ values, resetForm }) => {
-  const isDisabledSubmitButton =
-    !values.appName && !values.companyName && !values.developerName && !values.registeredFrom && !values.registeredTo
-
+export const renderForm = ({ values, status }) => {
   const startDate = values.registeredFrom ? new Date(values.registeredFrom) : ''
   const endDate = values.registeredTo ? new Date(values.registeredTo) : ''
 
@@ -145,13 +152,13 @@ export const renderForm = onSubmit => ({ values, resetForm }) => {
           <FormSubHeading>Filter the result by App, Developer and Company</FormSubHeading>
           <Grid>
             <GridItem>
-              <Input type="text" name="appName" id="appName" labelText="App Name" />
+              <Input type="text" name="appName" id="appName" labelText="App Name" maxLength={256} />
             </GridItem>
             <GridItem>
-              <Input type="text" name="developerName" id="developerName" labelText="Developer Name" />
+              <Input type="text" name="developerName" id="developerName" labelText="Developer Name" maxLength={256} />
             </GridItem>
             <GridItem>
-              <Input type="text" name="companyName" id="companyName" labelText="Company Name" />
+              <Input type="text" name="companyName" id="companyName" labelText="Company Name" maxLength={256} />
             </GridItem>
           </Grid>
           <Grid>
@@ -181,14 +188,15 @@ export const renderForm = onSubmit => ({ values, resetForm }) => {
               />
             </GridItem>
             <GridItem className={styles.filterButton}>
-              <Button type="submit" variant="primary" disabled={isDisabledSubmitButton}>
+              <Button type="submit" variant="primary">
                 Search
               </Button>
-              <Button type="button" variant="primary" onClick={refreshForm(onSubmit, resetForm)}>
+              <Button type="reset" variant="primary">
                 Refresh
               </Button>
             </GridItem>
           </Grid>
+          {status && <p className="has-text-danger">{status}</p>}
         </Content>
       </FormSection>
     </Form>
@@ -207,16 +215,16 @@ export type FormValues = {
   registeredTo: string
 }
 
-export const handleOnSubmit = (history, page: number) => (formValues: FormValues) => {
-  const submitValues = Object.keys(formValues).reduce((newObj, key) => {
-    const value = formValues[key]
-    if (value) {
-      newObj[key] = value
-    }
-    return newObj
-  }, {})
-  const queryString = stringifyObjectIntoQueryString({ ...submitValues, page })
-  history.push(`apps?${queryString}`)
+export const handleOnSubmit = history => (formValues: FormValues, { setStatus }) => {
+  const cleanedValues = cleanObject(formValues)
+
+  if (isEmptyObject(cleanedValues)) {
+    setStatus('Please enter at least one search criteria')
+    return
+  }
+
+  const queryString = stringifyObjectIntoQueryString({ ...cleanedValues, page: 1 })
+  history.push(`${Routes.ADMIN_APPS}?${queryString}`)
 }
 
 export const handleChangePage = history => (page: number) => {
@@ -225,7 +233,7 @@ export const handleChangePage = history => (page: number) => {
 
 export const renderContent = ({ adminAppsData, columns }) => {
   if (adminAppsData?.data && adminAppsData?.data?.length < 1) {
-    return <Alert message="You currently have no apps listed " type="info" />
+    return <Alert message="No Results " type="info" />
   }
   return (
     <div className="mb-5">
@@ -246,11 +254,12 @@ export const AdminApps: React.FC = () => {
   const dispatch = useDispatch()
   const loading = useSelector(selectAdminAppsLoading)
   const adminAppsData = useSelector(selectAdminAppsData)
-  const queryParams = getParamsFromPath(location.search) as any
-  const page = parseInt(queryParams.page, 10) || 1
+  const { page = 1, ...queryParams } = getParamsFromPath(location.search) as any
+
   const columns = React.useMemo(generateColumns({ dispatch, setDataDeleteModal, deleteModalData }), [
     adminAppsData?.data,
   ])
+
   const formInitValues = {
     ...queryParams,
     registeredFrom: queryParams.registeredFrom || '',
@@ -266,8 +275,8 @@ export const AdminApps: React.FC = () => {
       <FlexContainerBasic hasPadding flexColumn hasBackground data-test="revision-list-container">
         <div className="mb-5">
           <H3>App Management</H3>
-          <Formik initialValues={formInitValues} onSubmit={handleOnSubmit(history, page)}>
-            {renderForm(handleOnSubmit(history, page))}
+          <Formik initialValues={formInitValues} onSubmit={handleOnSubmit(history)} onReset={refreshForm(history)}>
+            {renderForm}
           </Formik>
         </div>
         <div className={styles.contentBlock}>

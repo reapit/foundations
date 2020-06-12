@@ -31,8 +31,8 @@ export const AdminDevManagementFilterForm: React.FC<AdminDevManagementFilterForm
   filterValues,
   onSearch,
 }) => (
-  <Formik initialValues={filterValues} onSubmit={formValues => onSearch(formValues)}>
-    {({ values: { registeredFrom } }) => {
+  <Formik initialValues={filterValues} onSubmit={onSearch}>
+    {({ values: { registeredFrom }, status }) => {
       return (
         <Form noValidate={true}>
           <FormSection>
@@ -41,10 +41,10 @@ export const AdminDevManagementFilterForm: React.FC<AdminDevManagementFilterForm
               <FormSubHeading>Filter the result by Name and Company</FormSubHeading>
               <Grid className="items-center">
                 <GridItem>
-                  <Input type="text" labelText="Name" id="name" name="name" />
+                  <Input type="text" labelText="Name" id="name" name="name" maxLength={256} />
                 </GridItem>
                 <GridItem>
-                  <Input type="text" labelText="Company" id="company" name="company" />
+                  <Input type="text" labelText="Company" id="company" name="company" maxLength={256} />
                 </GridItem>
                 <GridItem>
                   <DatePicker
@@ -81,6 +81,7 @@ export const AdminDevManagementFilterForm: React.FC<AdminDevManagementFilterForm
                   </Button>
                 </GridItem>
               </Grid>
+              {status && <p className="has-text-danger">{status}</p>}
             </Content>
           </FormSection>
         </Form>

@@ -6,7 +6,7 @@ import { Action } from '@/types/core'
 import { fetcher } from '@reapit/elements'
 import { URLS } from '@/constants/api'
 import { resultReceiveData, resultRequestDataFailure, ContactsParams } from '@/actions/result'
-import { queryParams } from '@/utils/query-params'
+import qs from 'query-string'
 import { CONTACTS_PER_PAGE } from '@/constants/paginator'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { logger } from '@reapit/utils'
@@ -15,7 +15,7 @@ export const resultFetch = function*(params: Action<ContactsParams>) {
   try {
     const headers = yield call(initAuthorizedRequestHeaders)
     const responseContacts = yield call(fetcher, {
-      url: `${URLS.contacts}/?${queryParams({ ...params.data, pageSize: CONTACTS_PER_PAGE })}`,
+      url: `${URLS.contacts}/?${qs.stringify({ ...params.data, pageSize: CONTACTS_PER_PAGE })}`,
       api: window.reapit.config.platformApiUrl,
       method: 'GET',
       headers,

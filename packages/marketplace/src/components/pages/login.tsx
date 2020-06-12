@@ -5,7 +5,7 @@ import { Dispatch } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
 import { authChangeLoginType } from '@/actions/auth'
 import { showNotificationMessage } from '@/actions/notification-message'
-import { selectLoginSession, selectRefreshSession, selectLoginType } from '@/selector/auth'
+import { selectLoginSession, selectRefreshSession, selectLoginType, selectIsDesktopMode } from '@/selector/auth'
 import { LoginType, redirectToLogin } from '@reapit/cognito-auth'
 import { Button, Level, FlexContainerBasic } from '@reapit/elements'
 import { getLoginTypeByPath, getDefaultPathByLoginType, getDefaultRouteByLoginType } from '@/utils/auth-route'
@@ -67,6 +67,7 @@ export const Login: React.FunctionComponent<LoginProps> = () => {
   const loginType = useSelector(selectLoginType)
   const loginSession = useSelector(selectLoginSession)
   const refreshSession = useSelector(selectRefreshSession)
+  const isDesktopMode = useSelector(selectIsDesktopMode)
 
   const isPasswordChanged = localStorage.getItem('isPasswordChanged') === 'true'
   const hasSession = !!loginSession || !!refreshSession
@@ -89,6 +90,7 @@ export const Login: React.FunctionComponent<LoginProps> = () => {
       clientLoginRouteMatch,
       isDeveloperFirstTimeLoginComplete,
       isClientFirstTimeLoginComplete,
+      isDesktopMode,
     })
     return <Redirect to={redirectRoute} />
   }

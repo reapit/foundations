@@ -14,6 +14,8 @@ export interface DropdownSelectProps extends SelectProps {
   options: SelectOption[]
   required?: boolean
   subText?: string
+  // fixed to current node
+  fixedPosition?: boolean
 }
 
 export interface SelectOption {
@@ -31,6 +33,8 @@ export const DropdownSelect: React.FC<DropdownSelectProps> = ({
   options,
   required = false,
   subText,
+  mode = 'tags',
+  fixedPosition = false,
   ...restProps
 }) => {
   const handleRenderTags = (props: CustomTagProps) => {
@@ -47,44 +51,55 @@ export const DropdownSelect: React.FC<DropdownSelectProps> = ({
     form.setFieldTouched(field.name)
   }
 
+  const containerRef = React.useRef<HTMLDivElement>(null)
+
+  const getPopupContainer =
+    fixedPosition && containerRef.current ? () => containerRef.current as HTMLDivElement : undefined
+
   return (
-    <div className="field pb-4">
-      <div className="control">
-        <Field name={name} validate={required ? dropdownSelectFieldValidateRequire : null}>
-          {({ field, meta, form }: FieldProps<string | string[]>) => {
-            const hasError = checkError(meta)
-            return (
-              <div className="field field-dropdown-select">
-                <label className={`label ${required ? 'required-label' : ''}`}>{labelText}</label>
-                {subText && <label className="subtext mb-2">{subText}</label>}
-                <Select
-                  id={id}
-                  placeholder={placeholder}
-                  value={field.value || []}
-                  className="is-primary input"
-                  mode="tags"
-                  tagRender={handleRenderTags}
-                  onChange={handleChangeOption(field)}
-                  onBlur={handleFieldTouched(form, field)}
-                  {...restProps}
-                >
-                  {options?.map((option: SelectOption) => (
-                    <Option key={option.value} value={option.value}>
-                      {option.label}
-                    </Option>
-                  ))}
-                </Select>
-                {hasError && (
-                  <div className="has-text-danger" data-test="input-error">
-                    {meta.error}
-                  </div>
-                )}
-              </div>
-            )
-          }}
-        </Field>
+    <>
+      <div className="field pb-4">
+        <div className="control">
+          <Field name={name} validate={required ? dropdownSelectFieldValidateRequire : null}>
+            {({ field, meta, form }: FieldProps<string | string[]>) => {
+              const hasError = checkError(meta)
+              return (
+                <div className="field field-dropdown-select">
+                  <label className={`label ${required ? 'required-label' : ''}`}>{labelText}</label>
+                  {subText && <label className="subtext mb-2">{subText}</label>}
+                  <Select
+                    id={id}
+                    placeholder={placeholder}
+                    value={field.value || []}
+                    className="is-primary input"
+                    mode={mode}
+                    tagRender={handleRenderTags}
+                    onChange={handleChangeOption(field)}
+                    onBlur={handleFieldTouched(form, field)}
+                    getPopupContainer={getPopupContainer}
+                    dropdownStyle={{ zIndex: 999 }}
+                    {...restProps}
+                  >
+                    {options?.map((option: SelectOption) => (
+                      <Option key={option.value} value={option.value}>
+                        {option.label}
+                      </Option>
+                    ))}
+                  </Select>
+                  {hasError && (
+                    <div className="has-text-danger" data-test="input-error">
+                      {meta.error}
+                    </div>
+                  )}
+                </div>
+              )
+            }}
+          </Field>
+        </div>
       </div>
-    </div>
+
+      <div ref={containerRef} />
+    </>
   )
 }
 

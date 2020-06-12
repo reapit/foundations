@@ -188,6 +188,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                       "registeredTo": "",
                     }
                   }
+                  onReset={[Function]}
                   onSubmit={[Function]}
                 >
                   <Form>
@@ -203,6 +204,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                           <Component>
                             <div
                               className="content "
+                              data-test=""
                             >
                               <Component>
                                 <div
@@ -221,14 +223,17 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                               <Component>
                                 <div
                                   className="columns  "
+                                  data-test=""
                                 >
                                   <Component>
                                     <div
                                       className="column  "
+                                      data-test=""
                                     >
                                       <Component
                                         id="appName"
                                         labelText="App Name"
+                                        maxLength={256}
                                         name="appName"
                                         type="text"
                                       >
@@ -243,7 +248,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                               className="control "
                                             >
                                               <label
-                                                className="label "
+                                                className="label inline-block "
                                                 htmlFor="appName"
                                               >
                                                 App Name
@@ -253,6 +258,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                                 data-test=""
                                                 disabled={false}
                                                 id="appName"
+                                                maxLength={256}
                                                 name="appName"
                                                 onBlur={[Function]}
                                                 onChange={[Function]}
@@ -269,10 +275,12 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                   <Component>
                                     <div
                                       className="column  "
+                                      data-test=""
                                     >
                                       <Component
                                         id="developerName"
                                         labelText="Developer Name"
+                                        maxLength={256}
                                         name="developerName"
                                         type="text"
                                       >
@@ -287,7 +295,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                               className="control "
                                             >
                                               <label
-                                                className="label "
+                                                className="label inline-block "
                                                 htmlFor="developerName"
                                               >
                                                 Developer Name
@@ -297,6 +305,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                                 data-test=""
                                                 disabled={false}
                                                 id="developerName"
+                                                maxLength={256}
                                                 name="developerName"
                                                 onBlur={[Function]}
                                                 onChange={[Function]}
@@ -313,10 +322,12 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                   <Component>
                                     <div
                                       className="column  "
+                                      data-test=""
                                     >
                                       <Component
                                         id="companyName"
                                         labelText="Company Name"
+                                        maxLength={256}
                                         name="companyName"
                                         type="text"
                                       >
@@ -331,7 +342,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                               className="control "
                                             >
                                               <label
-                                                className="label "
+                                                className="label inline-block "
                                                 htmlFor="companyName"
                                               >
                                                 Company Name
@@ -341,6 +352,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                                 data-test=""
                                                 disabled={false}
                                                 id="companyName"
+                                                maxLength={256}
                                                 name="companyName"
                                                 onBlur={[Function]}
                                                 onChange={[Function]}
@@ -359,10 +371,12 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                               <Component>
                                 <div
                                   className="columns  "
+                                  data-test=""
                                 >
                                   <Component>
                                     <div
                                       className="column  "
+                                      data-test=""
                                     >
                                       <Component
                                         id="registeredFrom"
@@ -543,6 +557,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                   <Component>
                                     <div
                                       className="column  "
+                                      data-test=""
                                     >
                                       <Component
                                         id="registeredTo"
@@ -725,32 +740,30 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                   <Component>
                                     <div
                                       className="column  "
+                                      data-test=""
                                     >
                                       <Component
-                                        disabled={true}
                                         type="submit"
                                         variant="primary"
                                       >
                                         <button
                                           className="button  is-primary  "
                                           data-test=""
-                                          disabled={true}
+                                          disabled={false}
                                           type="submit"
                                         >
                                           Search
                                         </button>
                                       </Component>
                                       <Component
-                                        onClick={[Function]}
-                                        type="button"
+                                        type="reset"
                                         variant="primary"
                                       >
                                         <button
                                           className="button  is-primary  "
                                           data-test=""
                                           disabled={false}
-                                          onClick={[Function]}
-                                          type="button"
+                                          type="reset"
                                         >
                                           Refresh
                                         </button>
@@ -803,14 +816,17 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                           "accessor": "developer",
                         },
                         Object {
+                          "Cell": [Function],
                           "Header": "Is Listed",
                           "accessor": "isListed",
                         },
                         Object {
+                          "Cell": [Function],
                           "Header": "Pending Revisions",
                           "accessor": "pendingRevisions",
                         },
                         Object {
+                          "Cell": [Function],
                           "Header": "Direct API",
                           "accessor": "isDirectApi",
                         },
@@ -3038,6 +3054,14 @@ exports[`admin-apps generateColumns should match snapshot 1`] = `
 </div>
 `;
 
+exports[`admin-apps renderChecked should return checked icon 1`] = `
+<div>
+  <FaCheck />
+</div>
+`;
+
+exports[`admin-apps renderChecked should return null 1`] = `<div />`;
+
 exports[`admin-apps renderCreatedAt should match snapshot 1`] = `
 <div>
   <p>
@@ -3093,6 +3117,7 @@ exports[`admin-apps renderForm should return correctly 1`] = `
           <Unknown
             id="appName"
             labelText="App Name"
+            maxLength={256}
             name="appName"
             type="text"
           />
@@ -3101,6 +3126,7 @@ exports[`admin-apps renderForm should return correctly 1`] = `
           <Unknown
             id="developerName"
             labelText="Developer Name"
+            maxLength={256}
             name="developerName"
             type="text"
           />
@@ -3109,6 +3135,7 @@ exports[`admin-apps renderForm should return correctly 1`] = `
           <Unknown
             id="companyName"
             labelText="Company Name"
+            maxLength={256}
             name="companyName"
             type="text"
           />
@@ -3146,15 +3173,13 @@ exports[`admin-apps renderForm should return correctly 1`] = `
         </Unknown>
         <Unknown>
           <Unknown
-            disabled={true}
             type="submit"
             variant="primary"
           >
             Search
           </Unknown>
           <Unknown
-            onClick={[Function]}
-            type="button"
+            type="reset"
             variant="primary"
           >
             Refresh

@@ -17,6 +17,7 @@ import {
   H3,
   Content,
   toLocalTime,
+  isEmptyObject,
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import AdminDevManagementFilterForm, {
@@ -29,6 +30,7 @@ import qs from 'querystring'
 import styles from '@/styles/pages/admin-apps.scss?mod'
 import { selectAdminDevManagement } from '@/selector/admin'
 import { Dispatch } from 'redux'
+import { cleanObject } from '@reapit/utils'
 
 export interface AdminDevManagementMappedActions {
   fetchData: (requestdata: AdminDevManagementRequestDataValues) => void
@@ -66,13 +68,21 @@ export const onPageChangeHandler = (history: History<any>, queryParams: AdminDev
   return history.push(`${Routes.ADMIN_DEV_MANAGEMENT}${queryString}`)
 }
 
-export const onSearchHandler = (history: History<any>) => (queryParams: AdminDevManagementFilterFormValues) => {
-  const query = setQueryParams(queryParams)
+export const onSearchHandler = (history: History<any>) => (
+  queryParams: AdminDevManagementFilterFormValues,
+  { setStatus },
+) => {
+  const cleanedValues = cleanObject(queryParams)
+
+  if (isEmptyObject(cleanedValues)) {
+    setStatus('Please enter at least one search criteria')
+    return
+  }
+  const query = setQueryParams(cleanedValues)
   if (query && query !== '') {
     const queryString = `?page=1&${query}`
     history.push(`${Routes.ADMIN_DEV_MANAGEMENT}${queryString}`)
   }
-  return
 }
 
 export const AdminDevManagement: React.FC = () => {
@@ -100,7 +110,7 @@ export const AdminDevManagement: React.FC = () => {
   }
   const pageNo = pageNumber - 1
   const pageNoTimesRevsions = pageNo * REVISIONS_PER_PAGE
-  const HeaderCell = ({ row: { index } }) => <>{pageNoTimesRevsions + index + 1}</>
+  const HeaderCell = ({ row: { index } }) => <div style={{ width: 'auto' }}>{pageNoTimesRevsions + index + 1}</div>
   const ButtonCell = ({ row: { original } }) => {
     const { id, isInactive } = original as DeveloperModel
 

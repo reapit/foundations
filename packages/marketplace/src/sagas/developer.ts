@@ -77,7 +77,7 @@ export const developerCreate = function*({ data }: Action<CreateDeveloperModel>)
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
+        message: err?.response?.description || errorMessages.DEFAULT_SERVER_ERROR,
       }),
     )
   }

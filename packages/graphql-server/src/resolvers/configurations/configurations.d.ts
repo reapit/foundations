@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server'
+import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
 import { ListItemModel } from '../../types'
 
 export type ConfigurationType =

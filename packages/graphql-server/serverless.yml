@@ -1,6 +1,7 @@
 service: graphql-server
 plugins:
   - serverless-webpack
+  - serverless-offline
 custom:
   env: ${file(./config.json)}
   webpack:
@@ -14,7 +15,7 @@ custom:
 
 provider:
   name: aws
-  runtime: nodejs10.x
+  runtime: nodejs12.x
   stage: ${opt:stage, 'dev'}
   region: eu-west-2
   deploymentBucket:
@@ -25,6 +26,7 @@ provider:
     COGNITO_USERPOOL_ID: ${self:custom.env.COGNITO_USERPOOL_ID}
     MARKETPLACE_API_BASE_URL: ${self:custom.env.MARKETPLACE_API_BASE_URL}
     PLATFORM_API_BASE_URL: ${self:custom.env.PLATFORM_API_BASE_URL}
+    SENTRY_DSN: ${self:custom.env.SENTRY_DSN}
 
 package:
   individually: true
@@ -45,12 +47,14 @@ package:
 functions:
   graphqlHandler:
     handler: src/index.graphqlHandler
+    environment:
+      SLS_DEBUG: true
     events:
       - http:
-          path: v1/graphql
+          path: graphql
           method: post
           cors: true
       - http:
-          path: v1/graphql
+          path: graphql
           method: get
           cors: true

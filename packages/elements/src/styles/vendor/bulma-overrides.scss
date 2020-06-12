@@ -93,8 +93,10 @@ html {
 }
 
 .file-input-container {
-  max-width: 100%;
-  width: 100%;
+  &.is-full-width {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 .file-label {
@@ -239,7 +241,6 @@ a {
 
 .container {
   display: flex;
-  max-width: 100%;
 
   &.is-column {
     flex-direction: column;
@@ -270,6 +271,12 @@ a {
     @media screen and (max-width: 768px) {
       max-height: calc(100vh - 160px);
     }
+  }
+}
+
+.level-right {
+  .button {
+    margin-left: 0;
   }
 }
 

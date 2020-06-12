@@ -2,18 +2,18 @@
 
 exports[`AppAuthenticationDetail should match a snapshot 1`] = `
 <Fragment>
-  <div
+  <Component
     data-test="app-authentication-detail"
   >
-    <p>
+    <Component>
       Authentication:
-    </p>
+    </Component>
     <a
       href="#"
       onClick={[Function]}
     >
       Show Secret
     </a>
-  </div>
+  </Component>
 </Fragment>
 `;

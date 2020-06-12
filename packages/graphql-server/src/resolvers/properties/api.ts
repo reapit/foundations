@@ -1,6 +1,6 @@
 import qs from 'query-string'
 import logger from '../../logger'
-import { ServerContext } from '../../app'
+import { ServerContext } from '../../index'
 import {
   GetPropertyByIdArgs,
   CreatePropertyArgs,
@@ -31,7 +31,8 @@ export const callGetPropertyByIdAPI = async (
     })
     return response?.data
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callGetPropertyByIdAPI' })
+    const handleErrorResult = await handleError({ error, traceId, caller: 'callGetPropertyByIdAPI' })
+    return handleErrorResult
   }
 }
 
@@ -47,7 +48,8 @@ export const callGetPropertiesAPI = async (args: GetPropertiesArgs, context: Ser
     })
     return response?.data
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callGetPropertiesAPI' })
+    const handleErrorResult = await handleError({ error, traceId, caller: 'callGetPropertiesAPI' })
+    return handleErrorResult
   }
 }
 
@@ -66,7 +68,8 @@ export const callCreatePropertyAPI = async (args: CreatePropertyArgs, context: S
     }
     return null
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callCreatePropertyAPI' })
+    const handleErrorResult = await handleError({ error, traceId, caller: 'callCreatePropertyAPI' })
+    return handleErrorResult
   }
 }
 
@@ -90,6 +93,7 @@ export const callUpdatePropertyAPI = async (args: UpdatePropertyArgs, context: S
     }
     return errors.generateUserInputError(traceId)
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callUpdatePropertyAPI' })
+    const handleErrorResult = await handleError({ error, traceId, caller: 'callUpdatePropertyAPI' })
+    return handleErrorResult
   }
 }

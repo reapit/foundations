@@ -41,7 +41,6 @@ const identityCheckList = [
 ]
 
 export const renderForm = ({ loginMode }) => ({ values }) => {
-  const disabled = !values.name && !values.address && !values.identityCheck
   return (
     <div>
       <FlexContainerResponsive hasBackground flexColumn hasPadding>
@@ -61,7 +60,7 @@ export const renderForm = ({ loginMode }) => ({ values }) => {
             labelText="Search by ID Status"
             options={identityCheckList}
           />
-          <Button className="is-right" type="submit" variant="primary" disabled={disabled}>
+          <Button className="is-right" type="submit" variant="primary">
             Search
           </Button>
           {loginMode === 'DESKTOP' && (

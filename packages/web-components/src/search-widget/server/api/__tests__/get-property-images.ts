@@ -7,6 +7,7 @@ import { PACKAGE_SUFFIXES } from '../../../../common/utils/constants'
 import { errorHandler } from '../../../../common/utils/error-handler'
 import { mapMinimalProperties } from '../../utils/map-minimal-properties'
 import { INCLUDED_PROPS } from '../../constants/api'
+import { logger } from '../../core/logger'
 
 jest.mock('../../../../common/utils/fetcher-server')
 jest.mock('../../../../common/utils/error-handler')
@@ -62,7 +63,7 @@ describe('property images server API', () => {
 
     await getPropertyImages(req, res)
 
-    expect(errorHandler).toHaveBeenCalledWith(error, res)
+    expect(errorHandler).toHaveBeenCalledWith(error, res, req, 'getPropertyImages', logger)
   })
 
   afterEach(() => {

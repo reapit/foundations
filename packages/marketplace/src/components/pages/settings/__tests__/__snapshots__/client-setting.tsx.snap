@@ -66,6 +66,7 @@ exports[`ClientSettingsPage should match snapshot 1`] = `
             <Component>
               <div
                 className="content "
+                data-test=""
               >
                 <Component
                   flexColumn={true}
@@ -109,6 +110,7 @@ exports[`ClientSettingsPage should match snapshot 1`] = `
                         <Component>
                           <div
                             className="level-right "
+                            data-test=""
                           >
                             <Component
                               dataTest="logout-btn"

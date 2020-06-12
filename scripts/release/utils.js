@@ -93,7 +93,7 @@ const syncFromLocalDistToS3Bucket = ({ bucketName }) => {
     const distPath = path.resolve(process.cwd(), RELEASE_ARTIFACT_FOLDER_NAME)
     // cp all assert with cache-control 365 days exclude sw.js and index.html
     const copyWithCache = execSync(
-      `aws s3 cp ${distPath} s3://${bucketName} --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers --recursive --exclude "index.html" --exclude "sw.js" --exclude "config.json" --cache-control "max-age=31536000"`,
+      `aws s3 cp ${distPath} s3://${bucketName} --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers --recursive --exclude "index.html" --exclude "sw.js" --exclude "config.json" --cache-control "no-store"`,
     ).toString()
     console.info(copyWithCache)
 

@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server'
+import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
 import { AreaModel, PagedResultAreaModel_, CreateAreaModel, UpdateAreaModel } from '../../types'
 
 export type CreateAreaArgs = CreateAreaModel

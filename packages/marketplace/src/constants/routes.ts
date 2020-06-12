@@ -37,6 +37,7 @@ const Routes = {
   ADMIN_DEV_MANAGEMENT: '/admin/dev-management',
   ADMIN_LOGIN: '/admin/login',
   ADMIN_STATS: '/admin/stats',
+  ADMIN_BILLING: '/admin/billing',
   CLIENT_LOGIN: '/client/login',
   DEVELOPER_LOGIN: '/developer/login',
   FOUR_O_FOUR: '/404',

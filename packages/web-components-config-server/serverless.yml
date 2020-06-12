@@ -25,6 +25,7 @@ provider:
   environment:
     APP_ENV: ${self:custom.env.APP_ENV}
     NODE_ENV: 'production'
+    SENTRY_DSN: ${self:custom.env.SENTRY_DSN}
 
 package:
   individually: true

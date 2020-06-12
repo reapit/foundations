@@ -1,4 +1,4 @@
-import { registerValidate, RegisterFormError } from '../register'
+import { registerValidate, RegisterFormError, trimValues } from '../register'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 
 type InputOutput = [CreateDeveloperModel, RegisterFormError]
@@ -6,6 +6,15 @@ type InputOutput = [CreateDeveloperModel, RegisterFormError]
 const invalidValues: InputOutput[] = [
   [
     { name: '', companyName: '', email: '', telephone: '', agreedTerms: '' },
+    {
+      name: 'Required',
+      companyName: 'Required',
+      email: 'Required',
+      telephone: 'Required',
+    },
+  ],
+  [
+    { name: '   ', companyName: '', email: '', telephone: '', agreedTerms: '' },
     {
       name: 'Required',
       companyName: 'Required',
@@ -41,15 +50,29 @@ const invalidValues: InputOutput[] = [
   ],
   [
     {
-      name: '',
+      name: 'Jame$$',
       companyName: 'Doe John',
       email: 'invalid.com@.com',
       telephone: '12345678',
       agreedTerms: '123',
     },
     {
-      name: 'Required',
+      name: 'Invalid full name',
       email: 'Invalid email address',
+    },
+  ],
+  [
+    {
+      name: 'Jame$$',
+      companyName: 'Doe John',
+      email: 'invalid.com@.com',
+      telephone: 'abc',
+      agreedTerms: '123',
+    },
+    {
+      name: 'Invalid full name',
+      email: 'Invalid email address',
+      telephone: 'Invalid telephone number',
     },
   ],
   [
@@ -91,6 +114,30 @@ describe('registerValidation', () => {
   it('valid values', () => {
     validValues.forEach(input => {
       expect(registerValidate(input)).toEqual({})
+    })
+  })
+})
+
+describe('trimValues', () => {
+  it('should run correctly', () => {
+    const testValue = ' test '
+    const expectedValue = 'test'
+    expect(
+      trimValues({
+        agreedTerms: testValue,
+        telephone: testValue,
+        name: testValue,
+        jobTitle: testValue,
+        email: testValue,
+        companyName: testValue,
+      }),
+    ).toEqual({
+      agreedTerms: expectedValue,
+      telephone: expectedValue,
+      name: expectedValue,
+      jobTitle: expectedValue,
+      email: expectedValue,
+      companyName: expectedValue,
     })
   })
 })

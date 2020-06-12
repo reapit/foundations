@@ -5,6 +5,7 @@ import morgan from 'morgan'
 import health from './routes/health'
 import webComponentsConfig from './routes/web-components-config'
 import logger from './logger'
+import * as Sentry from '@sentry/node'
 
 const app = express()
 const cors = require('cors')
@@ -12,6 +13,14 @@ const cors = require('cors')
 export type AppResponse = express.Response
 export type AppRequest = express.Request & {
   traceId: string
+}
+
+if (process.env.NODE_ENV !== 'development') {
+  Sentry.init({
+    dsn: process.env.SENTRY_DSN,
+    release: process.env.APP_VERSION,
+    environment: process.env.APP_ENV,
+  })
 }
 
 export const parseLog = (tokens, req: AppRequest, res: AppResponse): string => {
@@ -25,7 +34,9 @@ export const parseLog = (tokens, req: AppRequest, res: AppResponse): string => {
     reqHeader: JSON.stringify(req.headers),
     reqBody: JSON.stringify(req.body),
   }
+
   logger.info(log)
+
   return [
     tokens.method(req, res),
     tokens.url(req, res),

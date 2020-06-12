@@ -3,7 +3,7 @@
 exports[`AuthenticationFlowSection should match a snapshot 1`] = `
 <Component>
   <Component>
-    AUTHENTICATION FLOW
+    AUTHENTICATION FLOW *
   </Component>
   <Component>
     Please select an authentication flow for your application.

@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Field, FieldProps } from 'formik'
 import { isBase64 } from '../../utils/is-base64'
 import { checkError } from '../../utils/form'
+import classnames from 'classnames'
 
 const { useState } = React
 
@@ -16,6 +17,7 @@ export interface FileInputProps {
   dataTest?: string
   accept?: string
   allowClear?: boolean
+  isNarrowWidth?: boolean
   // props specialized for unit test
   testProps?: FileInputTestProps
   inputProps?: Record<string, any>
@@ -33,10 +35,16 @@ export const FileInput = ({
   testProps,
   inputProps,
   required = false,
+  isNarrowWidth = false,
   onFilenameClick,
 }: FileInputProps) => {
   const [fileUrl, setFileName] = useState<string>()
   const inputFile = React.useRef<HTMLInputElement>(null)
+  const fileInputContainerClassName = classnames({
+    control: true,
+    'file-input-container': true,
+    'is-full-width': !isNarrowWidth,
+  })
 
   return (
     <Field name={name}>
@@ -67,7 +75,7 @@ export const FileInput = ({
         return (
           <React.Fragment>
             <div className={`${containerClassName} field pb-2`}>
-              <div className="file-input-container control">
+              <div className={fileInputContainerClassName}>
                 <label data-test="file-input-label" className="file-label" htmlFor={id}>
                   <input
                     {...inputProps}
