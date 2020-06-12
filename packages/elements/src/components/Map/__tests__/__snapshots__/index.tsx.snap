@@ -676,6 +676,39 @@ exports[`Map renderMap should run correctly 1`] = `
               ],
               Array [
                 Object {
+                  "label": "mock marker",
+                  "map": mockConstructor {
+                    "addListener": [MockFunction addListener],
+                    "bindTo": [MockFunction bindTo],
+                    "fitBounds": [MockFunction fitBounds],
+                    "get": [MockFunction get],
+                    "getBounds": [MockFunction getBounds],
+                    "listeners": Object {},
+                    "mapDiv": undefined,
+                    "notify": [MockFunction notify],
+                    "opts": undefined,
+                    "panToBounds": [MockFunction panToBounds],
+                    "set": [MockFunction set],
+                    "setCenter": [MockFunction setCenter],
+                    "setClickableIcons": [MockFunction setClickableIcons],
+                    "setHeading": [MockFunction setHeading],
+                    "setMapTypeId": [MockFunction setMapTypeId],
+                    "setOptions": [MockFunction setOptions],
+                    "setStreetView": [MockFunction setStreetView],
+                    "setTilt": [MockFunction setTilt],
+                    "setValues": [MockFunction setValues],
+                    "setZoom": [MockFunction setZoom],
+                    "unbind": [MockFunction unbind],
+                    "unbindAll": [MockFunction unbindAll],
+                  },
+                  "position": Object {
+                    "lat": 1,
+                    "lng": 1,
+                  },
+                },
+              ],
+              Array [
+                Object {
                   "label": Object {
                     "fontSize": "1.5rem",
                     "fontWeight": "500",
@@ -783,6 +816,39 @@ exports[`Map renderMap should run correctly 1`] = `
               ],
               Array [
                 Object {
+                  "label": "mock marker",
+                  "map": mockConstructor {
+                    "addListener": [MockFunction addListener],
+                    "bindTo": [MockFunction bindTo],
+                    "fitBounds": [MockFunction fitBounds],
+                    "get": [MockFunction get],
+                    "getBounds": [MockFunction getBounds],
+                    "listeners": Object {},
+                    "mapDiv": undefined,
+                    "notify": [MockFunction notify],
+                    "opts": undefined,
+                    "panToBounds": [MockFunction panToBounds],
+                    "set": [MockFunction set],
+                    "setCenter": [MockFunction setCenter],
+                    "setClickableIcons": [MockFunction setClickableIcons],
+                    "setHeading": [MockFunction setHeading],
+                    "setMapTypeId": [MockFunction setMapTypeId],
+                    "setOptions": [MockFunction setOptions],
+                    "setStreetView": [MockFunction setStreetView],
+                    "setTilt": [MockFunction setTilt],
+                    "setValues": [MockFunction setValues],
+                    "setZoom": [MockFunction setZoom],
+                    "unbind": [MockFunction unbind],
+                    "unbindAll": [MockFunction unbindAll],
+                  },
+                  "position": Object {
+                    "lat": 1,
+                    "lng": 1,
+                  },
+                },
+              ],
+              Array [
+                Object {
                   "content": "Your location",
                   "map": mockConstructor {
                     "addListener": [MockFunction addListener],
@@ -875,8 +941,8 @@ exports[`Map renderMap should run correctly 1`] = `
                     "unbindAll": [MockFunction unbindAll],
                   },
                   "position": Object {
-                    "lat": 0,
-                    "lng": 0,
+                    "lat": 1,
+                    "lng": 1,
                   },
                 },
               ],
@@ -919,6 +985,105 @@ exports[`Map renderMap should run correctly 1`] = `
                   "map": mockConstructor {
                     "addListener": [MockFunction addListener],
                     "bindTo": [MockFunction bindTo],
+                    "fitBounds": [MockFunction fitBounds],
+                    "get": [MockFunction get],
+                    "getBounds": [MockFunction getBounds],
+                    "listeners": Object {},
+                    "mapDiv": undefined,
+                    "notify": [MockFunction notify],
+                    "opts": undefined,
+                    "panToBounds": [MockFunction panToBounds],
+                    "set": [MockFunction set],
+                    "setCenter": [MockFunction setCenter],
+                    "setClickableIcons": [MockFunction setClickableIcons],
+                    "setHeading": [MockFunction setHeading],
+                    "setMapTypeId": [MockFunction setMapTypeId],
+                    "setOptions": [MockFunction setOptions],
+                    "setStreetView": [MockFunction setStreetView],
+                    "setTilt": [MockFunction setTilt],
+                    "setValues": [MockFunction setValues],
+                    "setZoom": [MockFunction setZoom],
+                    "unbind": [MockFunction unbind],
+                    "unbindAll": [MockFunction unbindAll],
+                  },
+                  "position": Object {
+                    "lat": 1,
+                    "lng": 1,
+                  },
+                },
+              ],
+              Array [
+                Object {
+                  "label": "mock marker",
+                  "map": mockConstructor {
+                    "addListener": [MockFunction addListener],
+                    "bindTo": [MockFunction bindTo],
+                    "fitBounds": [MockFunction fitBounds],
+                    "get": [MockFunction get],
+                    "getBounds": [MockFunction getBounds],
+                    "listeners": Object {},
+                    "mapDiv": undefined,
+                    "notify": [MockFunction notify],
+                    "opts": undefined,
+                    "panToBounds": [MockFunction panToBounds],
+                    "set": [MockFunction set],
+                    "setCenter": [MockFunction setCenter],
+                    "setClickableIcons": [MockFunction setClickableIcons],
+                    "setHeading": [MockFunction setHeading],
+                    "setMapTypeId": [MockFunction setMapTypeId],
+                    "setOptions": [MockFunction setOptions],
+                    "setStreetView": [MockFunction setStreetView],
+                    "setTilt": [MockFunction setTilt],
+                    "setValues": [MockFunction setValues],
+                    "setZoom": [MockFunction setZoom],
+                    "unbind": [MockFunction unbind],
+                    "unbindAll": [MockFunction unbindAll],
+                  },
+                  "position": Object {
+                    "lat": 0,
+                    "lng": 0,
+                  },
+                },
+              ],
+              Array [
+                Object {
+                  "label": "mock marker",
+                  "map": mockConstructor {
+                    "addListener": [MockFunction addListener],
+                    "bindTo": [MockFunction bindTo],
+                    "fitBounds": [MockFunction fitBounds],
+                    "get": [MockFunction get],
+                    "getBounds": [MockFunction getBounds],
+                    "listeners": Object {},
+                    "mapDiv": undefined,
+                    "notify": [MockFunction notify],
+                    "opts": undefined,
+                    "panToBounds": [MockFunction panToBounds],
+                    "set": [MockFunction set],
+                    "setCenter": [MockFunction setCenter],
+                    "setClickableIcons": [MockFunction setClickableIcons],
+                    "setHeading": [MockFunction setHeading],
+                    "setMapTypeId": [MockFunction setMapTypeId],
+                    "setOptions": [MockFunction setOptions],
+                    "setStreetView": [MockFunction setStreetView],
+                    "setTilt": [MockFunction setTilt],
+                    "setValues": [MockFunction setValues],
+                    "setZoom": [MockFunction setZoom],
+                    "unbind": [MockFunction unbind],
+                    "unbindAll": [MockFunction unbindAll],
+                  },
+                  "position": Object {
+                    "lat": 1,
+                    "lng": 1,
+                  },
+                },
+              ],
+              Array [
+                Object {
+                  "label": "mock marker",
+                  "map": mockConstructor {
+                    "addListener": [MockFunction addListener],
+                    "bindTo": [MockFunction bindTo],
                     "fitBounds": [MockFunction fitBounds] {
                       "calls": Array [
                         Array [
@@ -930,8 +1095,15 @@ exports[`Map renderMap should run correctly 1`] = `
                                 Array [
                                   undefined,
                                 ],
+                                Array [
+                                  undefined,
+                                ],
                               ],
                               "results": Array [
+                                Object {
+                                  "type": "return",
+                                  "value": undefined,
+                                },
                                 Object {
                                   "type": "return",
                                   "value": undefined,
@@ -1016,6 +1188,110 @@ exports[`Map renderMap should run correctly 1`] = `
                   "map": mockConstructor {
                     "addListener": [MockFunction addListener],
                     "bindTo": [MockFunction bindTo],
+                    "fitBounds": [MockFunction fitBounds] {
+                      "calls": Array [
+                        Array [
+                          mockConstructor {
+                            "addListener": [MockFunction addListener],
+                            "bindTo": [MockFunction bindTo],
+                            "extend": [MockFunction extend] {
+                              "calls": Array [
+                                Array [
+                                  undefined,
+                                ],
+                                Array [
+                                  undefined,
+                                ],
+                              ],
+                              "results": Array [
+                                Object {
+                                  "type": "return",
+                                  "value": undefined,
+                                },
+                                Object {
+                                  "type": "return",
+                                  "value": undefined,
+                                },
+                              ],
+                            },
+                            "get": [MockFunction get],
+                            "getCenter": [MockFunction getCenter] {
+                              "calls": Array [
+                                Array [],
+                                Array [],
+                              ],
+                              "results": Array [
+                                Object {
+                                  "type": "return",
+                                  "value": undefined,
+                                },
+                                Object {
+                                  "type": "return",
+                                  "value": undefined,
+                                },
+                              ],
+                            },
+                            "getPosition": [MockFunction getPosition],
+                            "listeners": Object {},
+                            "notify": [MockFunction notify],
+                            "set": [MockFunction set],
+                            "setValues": [MockFunction setValues],
+                            "unbind": [MockFunction unbind],
+                            "unbindAll": [MockFunction unbindAll],
+                          },
+                        ],
+                      ],
+                      "results": Array [
+                        Object {
+                          "type": "return",
+                          "value": undefined,
+                        },
+                      ],
+                    },
+                    "get": [MockFunction get],
+                    "getBounds": [MockFunction getBounds],
+                    "listeners": Object {},
+                    "mapDiv": undefined,
+                    "notify": [MockFunction notify],
+                    "opts": undefined,
+                    "panToBounds": [MockFunction panToBounds],
+                    "set": [MockFunction set],
+                    "setCenter": [MockFunction setCenter] {
+                      "calls": Array [
+                        Array [
+                          undefined,
+                        ],
+                      ],
+                      "results": Array [
+                        Object {
+                          "type": "return",
+                          "value": undefined,
+                        },
+                      ],
+                    },
+                    "setClickableIcons": [MockFunction setClickableIcons],
+                    "setHeading": [MockFunction setHeading],
+                    "setMapTypeId": [MockFunction setMapTypeId],
+                    "setOptions": [MockFunction setOptions],
+                    "setStreetView": [MockFunction setStreetView],
+                    "setTilt": [MockFunction setTilt],
+                    "setValues": [MockFunction setValues],
+                    "setZoom": [MockFunction setZoom],
+                    "unbind": [MockFunction unbind],
+                    "unbindAll": [MockFunction unbindAll],
+                  },
+                  "position": Object {
+                    "lat": 1,
+                    "lng": 1,
+                  },
+                },
+              ],
+              Array [
+                Object {
+                  "label": "mock marker",
+                  "map": mockConstructor {
+                    "addListener": [MockFunction addListener],
+                    "bindTo": [MockFunction bindTo],
                     "fitBounds": [MockFunction fitBounds],
                     "get": [MockFunction get],
                     "getBounds": [MockFunction getBounds],
@@ -1051,6 +1327,121 @@ exports[`Map renderMap should run correctly 1`] = `
                         },
                       ],
                     },
+                    "setClickableIcons": [MockFunction setClickableIcons],
+                    "setHeading": [MockFunction setHeading],
+                    "setMapTypeId": [MockFunction setMapTypeId],
+                    "setOptions": [MockFunction setOptions],
+                    "setStreetView": [MockFunction setStreetView],
+                    "setTilt": [MockFunction setTilt],
+                    "setValues": [MockFunction setValues],
+                    "setZoom": [MockFunction setZoom] {
+                      "calls": Array [
+                        Array [
+                          10,
+                        ],
+                      ],
+                      "results": Array [
+                        Object {
+                          "type": "return",
+                          "value": undefined,
+                        },
+                      ],
+                    },
+                    "unbind": [MockFunction unbind],
+                    "unbindAll": [MockFunction unbindAll],
+                  },
+                  "position": Object {
+                    "lat": 0,
+                    "lng": 0,
+                  },
+                },
+              ],
+              Array [
+                Object {
+                  "label": "mock marker",
+                  "map": mockConstructor {
+                    "addListener": [MockFunction addListener],
+                    "bindTo": [MockFunction bindTo],
+                    "fitBounds": [MockFunction fitBounds],
+                    "get": [MockFunction get],
+                    "getBounds": [MockFunction getBounds],
+                    "listeners": Object {},
+                    "mapDiv": undefined,
+                    "notify": [MockFunction notify],
+                    "opts": undefined,
+                    "panToBounds": [MockFunction panToBounds],
+                    "set": [MockFunction set],
+                    "setCenter": [MockFunction setCenter] {
+                      "calls": Array [
+                        Array [
+                          mockConstructor {
+                            "addListener": [MockFunction addListener],
+                            "bindTo": [MockFunction bindTo],
+                            "get": [MockFunction get],
+                            "lat": [MockFunction lat],
+                            "listeners": Object {},
+                            "lng": [MockFunction lng],
+                            "notify": [MockFunction notify],
+                            "set": [MockFunction set],
+                            "setMap": [MockFunction setMap],
+                            "setValues": [MockFunction setValues],
+                            "unbind": [MockFunction unbind],
+                            "unbindAll": [MockFunction unbindAll],
+                          },
+                        ],
+                      ],
+                      "results": Array [
+                        Object {
+                          "type": "return",
+                          "value": undefined,
+                        },
+                      ],
+                    },
+                    "setClickableIcons": [MockFunction setClickableIcons],
+                    "setHeading": [MockFunction setHeading],
+                    "setMapTypeId": [MockFunction setMapTypeId],
+                    "setOptions": [MockFunction setOptions],
+                    "setStreetView": [MockFunction setStreetView],
+                    "setTilt": [MockFunction setTilt],
+                    "setValues": [MockFunction setValues],
+                    "setZoom": [MockFunction setZoom] {
+                      "calls": Array [
+                        Array [
+                          10,
+                        ],
+                      ],
+                      "results": Array [
+                        Object {
+                          "type": "return",
+                          "value": undefined,
+                        },
+                      ],
+                    },
+                    "unbind": [MockFunction unbind],
+                    "unbindAll": [MockFunction unbindAll],
+                  },
+                  "position": Object {
+                    "lat": 1,
+                    "lng": 1,
+                  },
+                },
+              ],
+              Array [
+                Object {
+                  "label": "mock marker",
+                  "map": mockConstructor {
+                    "addListener": [MockFunction addListener],
+                    "bindTo": [MockFunction bindTo],
+                    "fitBounds": [MockFunction fitBounds],
+                    "get": [MockFunction get],
+                    "getBounds": [MockFunction getBounds],
+                    "listeners": Object {},
+                    "mapDiv": undefined,
+                    "notify": [MockFunction notify],
+                    "opts": undefined,
+                    "panToBounds": [MockFunction panToBounds],
+                    "set": [MockFunction set],
+                    "setCenter": [MockFunction setCenter],
                     "setClickableIcons": [MockFunction setClickableIcons],
                     "setHeading": [MockFunction setHeading],
                     "setMapTypeId": [MockFunction setMapTypeId],
@@ -1120,8 +1511,8 @@ exports[`Map renderMap should run correctly 1`] = `
                     "unbindAll": [MockFunction unbindAll],
                   },
                   "position": Object {
-                    "lat": 0,
-                    "lng": 0,
+                    "lat": 1,
+                    "lng": 1,
                   },
                 },
               ],
@@ -1180,6 +1571,64 @@ exports[`Map renderMap should run correctly 1`] = `
                   "position": Object {
                     "lat": 0,
                     "lng": 0,
+                  },
+                },
+              ],
+              Array [
+                Object {
+                  "label": "mock marker",
+                  "map": mockConstructor {
+                    "addListener": [MockFunction addListener],
+                    "bindTo": [MockFunction bindTo],
+                    "fitBounds": [MockFunction fitBounds],
+                    "get": [MockFunction get],
+                    "getBounds": [MockFunction getBounds],
+                    "listeners": Object {},
+                    "mapDiv": undefined,
+                    "notify": [MockFunction notify],
+                    "opts": undefined,
+                    "panToBounds": [MockFunction panToBounds],
+                    "set": [MockFunction set],
+                    "setCenter": [MockFunction setCenter] {
+                      "calls": Array [
+                        Array [
+                          mockConstructor {
+                            "addListener": [MockFunction addListener],
+                            "bindTo": [MockFunction bindTo],
+                            "get": [MockFunction get],
+                            "lat": [MockFunction lat],
+                            "listeners": Object {},
+                            "lng": [MockFunction lng],
+                            "notify": [MockFunction notify],
+                            "set": [MockFunction set],
+                            "setMap": [MockFunction setMap],
+                            "setValues": [MockFunction setValues],
+                            "unbind": [MockFunction unbind],
+                            "unbindAll": [MockFunction unbindAll],
+                          },
+                        ],
+                      ],
+                      "results": Array [
+                        Object {
+                          "type": "return",
+                          "value": undefined,
+                        },
+                      ],
+                    },
+                    "setClickableIcons": [MockFunction setClickableIcons],
+                    "setHeading": [MockFunction setHeading],
+                    "setMapTypeId": [MockFunction setMapTypeId],
+                    "setOptions": [MockFunction setOptions],
+                    "setStreetView": [MockFunction setStreetView],
+                    "setTilt": [MockFunction setTilt],
+                    "setValues": [MockFunction setValues],
+                    "setZoom": [MockFunction setZoom],
+                    "unbind": [MockFunction unbind],
+                    "unbindAll": [MockFunction unbindAll],
+                  },
+                  "position": Object {
+                    "lat": 1,
+                    "lng": 1,
                   },
                 },
               ],
@@ -1268,7 +1717,32 @@ exports[`Map renderMap should run correctly 1`] = `
                     "opts": undefined,
                     "panToBounds": [MockFunction panToBounds],
                     "set": [MockFunction set],
-                    "setCenter": [MockFunction setCenter],
+                    "setCenter": [MockFunction setCenter] {
+                      "calls": Array [
+                        Array [
+                          mockConstructor {
+                            "addListener": [MockFunction addListener],
+                            "bindTo": [MockFunction bindTo],
+                            "get": [MockFunction get],
+                            "lat": [MockFunction lat],
+                            "listeners": Object {},
+                            "lng": [MockFunction lng],
+                            "notify": [MockFunction notify],
+                            "set": [MockFunction set],
+                            "setMap": [MockFunction setMap],
+                            "setValues": [MockFunction setValues],
+                            "unbind": [MockFunction unbind],
+                            "unbindAll": [MockFunction unbindAll],
+                          },
+                        ],
+                      ],
+                      "results": Array [
+                        Object {
+                          "type": "return",
+                          "value": undefined,
+                        },
+                      ],
+                    },
                     "setClickableIcons": [MockFunction setClickableIcons],
                     "setHeading": [MockFunction setHeading],
                     "setMapTypeId": [MockFunction setMapTypeId],
@@ -1276,13 +1750,25 @@ exports[`Map renderMap should run correctly 1`] = `
                     "setStreetView": [MockFunction setStreetView],
                     "setTilt": [MockFunction setTilt],
                     "setValues": [MockFunction setValues],
-                    "setZoom": [MockFunction setZoom],
+                    "setZoom": [MockFunction setZoom] {
+                      "calls": Array [
+                        Array [
+                          8,
+                        ],
+                      ],
+                      "results": Array [
+                        Object {
+                          "type": "return",
+                          "value": undefined,
+                        },
+                      ],
+                    },
                     "unbind": [MockFunction unbind],
                     "unbindAll": [MockFunction unbindAll],
                   },
                   "position": Object {
-                    "lat": 0,
-                    "lng": 0,
+                    "lat": 1,
+                    "lng": 1,
                   },
                 },
               ],
@@ -1347,13 +1833,197 @@ exports[`Map renderMap should run correctly 1`] = `
                     "unbindAll": [MockFunction unbindAll],
                   },
                   "position": Object {
+                    "lat": 1,
+                    "lng": 1,
+                  },
+                },
+              ],
+              Array [
+                Object {
+                  "label": "mock marker",
+                  "map": mockConstructor {
+                    "addListener": [MockFunction addListener],
+                    "bindTo": [MockFunction bindTo],
+                    "fitBounds": [MockFunction fitBounds],
+                    "get": [MockFunction get],
+                    "getBounds": [MockFunction getBounds],
+                    "listeners": Object {},
+                    "mapDiv": undefined,
+                    "notify": [MockFunction notify],
+                    "opts": undefined,
+                    "panToBounds": [MockFunction panToBounds],
+                    "set": [MockFunction set],
+                    "setCenter": [MockFunction setCenter],
+                    "setClickableIcons": [MockFunction setClickableIcons],
+                    "setHeading": [MockFunction setHeading],
+                    "setMapTypeId": [MockFunction setMapTypeId],
+                    "setOptions": [MockFunction setOptions],
+                    "setStreetView": [MockFunction setStreetView],
+                    "setTilt": [MockFunction setTilt],
+                    "setValues": [MockFunction setValues],
+                    "setZoom": [MockFunction setZoom],
+                    "unbind": [MockFunction unbind],
+                    "unbindAll": [MockFunction unbindAll],
+                  },
+                  "position": Object {
                     "lat": 0,
                     "lng": 0,
+                  },
+                },
+              ],
+              Array [
+                Object {
+                  "label": "mock marker",
+                  "map": mockConstructor {
+                    "addListener": [MockFunction addListener],
+                    "bindTo": [MockFunction bindTo],
+                    "fitBounds": [MockFunction fitBounds],
+                    "get": [MockFunction get],
+                    "getBounds": [MockFunction getBounds],
+                    "listeners": Object {},
+                    "mapDiv": undefined,
+                    "notify": [MockFunction notify],
+                    "opts": undefined,
+                    "panToBounds": [MockFunction panToBounds],
+                    "set": [MockFunction set],
+                    "setCenter": [MockFunction setCenter],
+                    "setClickableIcons": [MockFunction setClickableIcons],
+                    "setHeading": [MockFunction setHeading],
+                    "setMapTypeId": [MockFunction setMapTypeId],
+                    "setOptions": [MockFunction setOptions],
+                    "setStreetView": [MockFunction setStreetView],
+                    "setTilt": [MockFunction setTilt],
+                    "setValues": [MockFunction setValues],
+                    "setZoom": [MockFunction setZoom],
+                    "unbind": [MockFunction unbind],
+                    "unbindAll": [MockFunction unbindAll],
+                  },
+                  "position": Object {
+                    "lat": 1,
+                    "lng": 1,
+                  },
+                },
+              ],
+              Array [
+                Object {
+                  "label": "mock marker",
+                  "map": mockConstructor {
+                    "addListener": [MockFunction addListener],
+                    "bindTo": [MockFunction bindTo],
+                    "fitBounds": [MockFunction fitBounds],
+                    "get": [MockFunction get],
+                    "getBounds": [MockFunction getBounds],
+                    "listeners": Object {},
+                    "mapDiv": undefined,
+                    "notify": [MockFunction notify],
+                    "opts": undefined,
+                    "panToBounds": [MockFunction panToBounds],
+                    "set": [MockFunction set],
+                    "setCenter": [MockFunction setCenter],
+                    "setClickableIcons": [MockFunction setClickableIcons],
+                    "setHeading": [MockFunction setHeading],
+                    "setMapTypeId": [MockFunction setMapTypeId],
+                    "setOptions": [MockFunction setOptions],
+                    "setStreetView": [MockFunction setStreetView],
+                    "setTilt": [MockFunction setTilt],
+                    "setValues": [MockFunction setValues],
+                    "setZoom": [MockFunction setZoom],
+                    "unbind": [MockFunction unbind],
+                    "unbindAll": [MockFunction unbindAll],
+                  },
+                  "position": Object {
+                    "lat": 0,
+                    "lng": 0,
+                  },
+                },
+              ],
+              Array [
+                Object {
+                  "label": "mock marker",
+                  "map": mockConstructor {
+                    "addListener": [MockFunction addListener],
+                    "bindTo": [MockFunction bindTo],
+                    "fitBounds": [MockFunction fitBounds],
+                    "get": [MockFunction get],
+                    "getBounds": [MockFunction getBounds],
+                    "listeners": Object {},
+                    "mapDiv": undefined,
+                    "notify": [MockFunction notify],
+                    "opts": undefined,
+                    "panToBounds": [MockFunction panToBounds],
+                    "set": [MockFunction set],
+                    "setCenter": [MockFunction setCenter],
+                    "setClickableIcons": [MockFunction setClickableIcons],
+                    "setHeading": [MockFunction setHeading],
+                    "setMapTypeId": [MockFunction setMapTypeId],
+                    "setOptions": [MockFunction setOptions],
+                    "setStreetView": [MockFunction setStreetView],
+                    "setTilt": [MockFunction setTilt],
+                    "setValues": [MockFunction setValues],
+                    "setZoom": [MockFunction setZoom],
+                    "unbind": [MockFunction unbind],
+                    "unbindAll": [MockFunction unbindAll],
+                  },
+                  "position": Object {
+                    "lat": 1,
+                    "lng": 1,
                   },
                 },
               ],
             ],
             "results": Array [
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
               Object {
                 "type": "return",
                 "value": undefined,

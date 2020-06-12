@@ -29,6 +29,7 @@ describe('Map', () => {
   let mockCurrentLocation: any = null
   let mockBounds: any = null
   let mockMarker: any = null
+  let mockMarker1: any = null
   let mockMarkers: any[] = []
   const mockDrawingManager: any = null
   const mockDrawingOptions: any = null
@@ -72,7 +73,15 @@ describe('Map', () => {
       label: 'mock marker',
       map: mockMap,
     })
-    mockMarkers = [mockMarker]
+    mockMarker1 = new mockGoogleMaps.Marker({
+      position: {
+        lat: 1,
+        lng: 1,
+      },
+      label: 'mock marker',
+      map: mockMap,
+    })
+    mockMarkers = [mockMarker, mockMarker1]
   })
   describe('renderMarkers', () => {
     it('should run correctly', () => {
