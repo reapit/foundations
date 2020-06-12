@@ -88,6 +88,7 @@ exports[` 1`] = `
             "_exclusive": Object {
               "email": false,
               "required": true,
+              "trim": false,
             },
             "_mutate": undefined,
             "_options": Object {
@@ -103,8 +104,10 @@ exports[` 1`] = `
             "tests": Array [
               [Function],
               [Function],
+              [Function],
             ],
             "transforms": Array [
+              [Function],
               [Function],
             ],
             "type": "string",
@@ -118,6 +121,7 @@ exports[` 1`] = `
             "_deps": Array [],
             "_exclusive": Object {
               "required": true,
+              "trim": false,
             },
             "_mutate": undefined,
             "_options": Object {
@@ -132,8 +136,10 @@ exports[` 1`] = `
             },
             "tests": Array [
               [Function],
+              [Function],
             ],
             "transforms": Array [
+              [Function],
               [Function],
             ],
             "type": "string",
@@ -148,6 +154,7 @@ exports[` 1`] = `
             "_exclusive": Object {
               "matches": false,
               "required": true,
+              "trim": false,
             },
             "_mutate": undefined,
             "_nullable": true,
@@ -164,8 +171,10 @@ exports[` 1`] = `
             "tests": Array [
               [Function],
               [Function],
+              [Function],
             ],
             "transforms": Array [
+              [Function],
               [Function],
             ],
             "type": "string",
@@ -180,6 +189,7 @@ exports[` 1`] = `
             "_exclusive": Object {
               "matches": false,
               "required": true,
+              "trim": false,
             },
             "_mutate": undefined,
             "_nullable": true,
@@ -196,8 +206,10 @@ exports[` 1`] = `
             "tests": Array [
               [Function],
               [Function],
+              [Function],
             ],
             "transforms": Array [
+              [Function],
               [Function],
             ],
             "type": "string",
@@ -211,6 +223,7 @@ exports[` 1`] = `
             "_deps": Array [],
             "_exclusive": Object {
               "required": true,
+              "trim": false,
             },
             "_mutate": undefined,
             "_options": Object {
@@ -225,8 +238,10 @@ exports[` 1`] = `
             },
             "tests": Array [
               [Function],
+              [Function],
             ],
             "transforms": Array [
+              [Function],
               [Function],
             ],
             "type": "string",
@@ -240,6 +255,7 @@ exports[` 1`] = `
             "_deps": Array [],
             "_exclusive": Object {
               "required": true,
+              "trim": false,
             },
             "_mutate": undefined,
             "_options": Object {
@@ -254,8 +270,10 @@ exports[` 1`] = `
             },
             "tests": Array [
               [Function],
+              [Function],
             ],
             "transforms": Array [
+              [Function],
               [Function],
             ],
             "type": "string",
@@ -270,6 +288,7 @@ exports[` 1`] = `
             "_exclusive": Object {
               "matches": false,
               "required": true,
+              "trim": false,
             },
             "_mutate": undefined,
             "_nullable": true,
@@ -286,8 +305,10 @@ exports[` 1`] = `
             "tests": Array [
               [Function],
               [Function],
+              [Function],
             ],
             "transforms": Array [
+              [Function],
               [Function],
             ],
             "type": "string",
