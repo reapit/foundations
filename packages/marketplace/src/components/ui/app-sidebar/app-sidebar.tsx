@@ -1,8 +1,7 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { FlexContainerBasic, H3, Input, Formik, Form, RadioSelect, FormikProps, H6 } from '@reapit/elements'
-import { ReduxState } from '@/types/core'
-import { withRouter, RouteComponentProps } from 'react-router'
+import { useHistory, useLocation } from 'react-router'
 import styles from '@/styles/blocks/app-sidebar.scss?mod'
 import CategoriesList from '@/components/ui/categories-list'
 import { FaSearch } from 'react-icons/fa'
@@ -18,12 +17,6 @@ export const filterOptions = [
   { label: 'By Company', value: 'companyName' },
 ]
 
-export interface AppSidebarMappedProps {
-  categories: CategoryModel[]
-}
-
-export type AppSidebarProps = AppSidebarMappedProps & RouteComponentProps
-
 export interface History {
   push: (path: string) => void
 }
@@ -36,10 +29,10 @@ export const handleSelectCategory = (history: History) => (categoryId?: string) 
   }
 }
 
-export const handleSearchApp = (history: History) => (values: FilterFormValues) => {
+export const handleSearchApp = (history: History) => (values: FormFields) => {
   const cleanValues = cleanObject(values)
 
-  const { search, searchBy } = values
+  const { search, searchBy } = cleanValues
   if (search) {
     history.push(addQuery({ search, searchBy, page: '1' }))
   } else {
@@ -72,7 +65,11 @@ export const FilterForm: React.FC<FormikProps<FormFields>> = ({ values, setField
   )
 }
 
-export const AppSidebar: React.FC<AppSidebarProps> = ({ categories, location, history }: AppSidebarProps) => {
+export const AppSidebar: React.FC<> = () => {
+  const history = useHistory()
+  const location = useLocation()
+  const categories: CategoryModel[] = useSelector(selectCategories)
+
   // currently, this will make the "Direct Api" option behave like a category,
   // not a checkbox filter, so future ticket may refer back to this.
   const categoriesWithDirectApiOption = [...categories, { id: 'DIRECT_API_APPS_FILTER', name: 'Direct API' }]
@@ -106,8 +103,4 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({ categories, location, hi
   )
 }
 
-export const mapStateToProps = (state: ReduxState): AppSidebarMappedProps => ({
-  categories: selectCategories(state),
-})
-
-export default withRouter(connect(mapStateToProps)(AppSidebar))
+export default AppSidebar
