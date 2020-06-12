@@ -1,15 +1,5 @@
 import React from 'react'
-import {
-  Button,
-  Input,
-  DatePicker,
-  Formik,
-  Form,
-  FormikValues,
-  FormikErrors,
-  isEmail,
-  isValidTelephone,
-} from '@reapit/elements'
+import { Button, Input, DatePicker, Formik, Form } from '@reapit/elements'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { ReduxState } from '@/types/core'
@@ -17,45 +7,33 @@ import { ContactModel } from '@reapit/foundations-ts-definitions'
 import { updateContact } from '@/actions/checklist-detail'
 import { STEPS } from '@/components/ui/modal/modal'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
+import validationSchema from './form-schema/validation-schema'
+import formFields from './form-schema/form-fields'
 
-export const validate = (values: FormikValues): FormikErrors<FormikValues> => {
-  const errors = {} as FormikErrors<FormikValues>
-  if (!values.homePhone && !values.mobilePhone && !values.workPhone) {
-    errors.home = 'At least one telephone number is required'
-  }
-
-  if (values.email && !isEmail(values.email)) {
-    errors.email = 'Invalid email format'
-  }
-
-  if (values.homePhone && !isValidTelephone(values.homePhone)) {
-    errors.homePhone = 'Invalid home phone format'
-  }
-
-  if (values.mobilePhone && !isValidTelephone(values.mobilePhone)) {
-    errors.mobilePhone = 'Invalid mobile phone format'
-  }
-
-  if (values.workPhone && !isValidTelephone(values.workPhone)) {
-    errors.workPhone = 'Invalid work phone format'
-  }
-
-  return errors
-}
+const {
+  titleField,
+  forenameField,
+  surnameField,
+  dateOfBirthField,
+  homePhoneField,
+  mobilePhoneField,
+  workPhoneField,
+  emailField,
+} = formFields
 
 export const renderForm = ({ contact, onNextHandler, isSubmitting }) => ({ values }) => {
   const { id } = contact
   return (
     <Form>
-      <Input type="text" labelText="Title" id="title" name="title" required />
-      <Input type="text" labelText="Forename" id="forename" name="forename" required />
-      <Input type="text" labelText="Surname" id="surname" name="surname" required />
-      <DatePicker labelText="Date Of Birth" id="dateOfBirth" name="dateOfBirth" required />
+      <Input type="text" labelText={titleField.label} id={titleField.name} name={titleField.name} />
+      <Input type="text" labelText={forenameField.label} id={forenameField.name} name={forenameField.name} />
+      <Input type="text" labelText={surnameField.label} id={surnameField.name} name={surnameField.name} />
+      <DatePicker labelText={dateOfBirthField.label} id={dateOfBirthField.name} name={dateOfBirthField.name} />
       <p className="is-size-6">* At least one telephone number is required</p>
-      <Input type="text" labelText="Home" id="homePhone" name="homePhone" />
-      <Input type="text" labelText="Mobile" id="mobilePhone" name="mobilePhone" />
-      <Input type="text" labelText="Work" id="workPhone" name="workPhone" />
-      <Input type="email" labelText="Email" id="email" name="email" />
+      <Input type="text" labelText={homePhoneField.label} id={homePhoneField.name} name={homePhoneField.name} />
+      <Input type="text" labelText={mobilePhoneField.label} id={mobilePhoneField.name} name={mobilePhoneField.name} />
+      <Input type="text" labelText={workPhoneField.label} id={workPhoneField.name} name={workPhoneField.name} />
+      <Input type="email" labelText={emailField.label} id={emailField.name} name={emailField.name} />
       <div className="field pb-2">
         <div className={`columns ${styles.reverseColumns}`}>
           <div className="column">
@@ -93,17 +71,17 @@ export const Profile: React.FC<ProfileProps> = ({ contact, onNextHandler, onSubm
     <div>
       <Formik
         initialValues={{
-          title: title,
-          forename: forename,
-          surname: surname,
-          dateOfBirth: dateOfBirth ? new Date(dateOfBirth) : null,
-          homePhone,
-          workPhone,
-          mobilePhone,
-          email,
+          [titleField.name]: title,
+          [forenameField.name]: forename,
+          [surnameField.name]: surname,
+          [dateOfBirthField.name]: dateOfBirth ? new Date(dateOfBirth) : null,
+          [homePhoneField.name]: homePhone,
+          [workPhoneField.name]: workPhone,
+          [mobilePhoneField.name]: mobilePhone,
+          [mobilePhoneField.name]: email,
         }}
         onSubmit={onSubmitHandler}
-        validate={validate}
+        validationSchema={validationSchema}
       >
         {renderForm({ contact, onNextHandler, isSubmitting })}
       </Formik>
