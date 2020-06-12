@@ -1,4 +1,3 @@
-const path = require('path')
 const scss = require('rollup-plugin-scss')
 const babel = require('@rollup/plugin-babel').default
 const linaria = require('linaria/rollup')
@@ -25,7 +24,6 @@ const replaceAndReorderPlugins = plugins => {
     extensions: ['.ts', '.tsx'],
     babelHelpers: 'runtime',
     plugins: ['@babel/plugin-transform-runtime'],
-    include: ['src/**', path.join(__dirname, '../..', 'node_modules', 'linaria')],
   })
 
   // I need TS plugin to reference a tsconfig that has EANEXT as target so doesn't remove my liaria strings
