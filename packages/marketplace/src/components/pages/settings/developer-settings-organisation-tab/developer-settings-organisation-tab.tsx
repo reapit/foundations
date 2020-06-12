@@ -2,12 +2,30 @@ import * as React from 'react'
 import { FlexContainerResponsive, Content, FlexContainerBasic, Button, LevelRight } from '@reapit/elements'
 import { Tabs } from '../tabs'
 import DeveloperInviteModal from '@/components/ui/developer-invite-member-modal'
+import { selectIsAdmin } from '@/selector/auth'
+import { useSelector } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
 export const handleToggleVisibleModal = (setIsInviteModalOpen: React.Dispatch<boolean>, isVisible: boolean) => () =>
   setIsInviteModalOpen(isVisible)
 
 const DevelperSettingsOrganisationTabPage: React.FC = () => {
   const [isInviteModalOpen, setIsInviteModalOpen] = React.useState<boolean>(false)
+  const isAdmin = useSelector(selectIsAdmin)
+
+  if (!isAdmin) {
+    /**
+     * This page is only for admin (which is also a developer)
+     *
+     * Can't set allow in PrivateRoute component to "ADMIN" because
+     * It would change to loginType = 'ADMIN' which set the navbar to admin navbar
+     *
+     * https://github.com/reapit/foundations/issues/1340
+     * Requirement is this page should be used on developer portal and developer navbar.
+     * TODO: refactor the the private router or this after the release?
+     */
+    return <Redirect to="/404" />
+  }
 
   return (
     <>

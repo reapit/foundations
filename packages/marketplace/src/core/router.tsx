@@ -135,13 +135,13 @@ const Router = () => {
                 component={DeveloperSettingsPage}
               />
               <PrivateRoute
-                allow="ADMIN"
+                allow="DEVELOPER"
                 path={Routes.DEVELOPER_SETTINGS_BILLING_TAB}
                 fetcher
                 component={DeveloperSettingsBillingTabPage}
               />
               <PrivateRoute
-                allow="ADMIN"
+                allow="DEVELOPER"
                 path={Routes.DEVELOPER_SETTINGS_ORGANISATION_TAB}
                 fetcher
                 component={DeveloperSettingsOrganisationTabPage}
