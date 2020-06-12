@@ -10,6 +10,7 @@ import { CategoryModel } from '@reapit/foundations-ts-definitions'
 import { selectCategories } from '@/selector/app-categories'
 
 import { addQuery, removeQuery, getParamValueFromPath } from '@/utils/client-url-params'
+import { cleanObject } from '@reapit/utils'
 
 export const filterOptions = [
   { label: 'By App Name', value: 'appName' },
@@ -40,7 +41,9 @@ export const handleSelectCategory = (history: History) => (categoryId?: string) 
 }
 
 export const handleSearchApp = (history: History) => (values: FilterFormValues) => {
-  const { search, searchBy } = values
+  const cleanValues = cleanObject(values)
+
+  const { search, searchBy } = cleanValues
   if (search) {
     history.push(addQuery({ search, searchBy, page: '1' }))
   } else {
