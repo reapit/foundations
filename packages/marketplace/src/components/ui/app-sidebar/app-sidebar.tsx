@@ -8,9 +8,10 @@ import CategoriesList from '@/components/ui/categories-list'
 import { FaSearch } from 'react-icons/fa'
 import { CategoryModel } from '@reapit/foundations-ts-definitions'
 import { selectCategories } from '@/selector/app-categories'
-
 import { addQuery, removeQuery, getParamValueFromPath } from '@/utils/client-url-params'
 import { cleanObject } from '@reapit/utils'
+import { validationSchema } from './validation-schema'
+import { FormFields } from './form-fields'
 
 export const filterOptions = [
   { label: 'By App Name', value: 'appName' },
@@ -27,11 +28,6 @@ export interface History {
   push: (path: string) => void
 }
 
-export interface FilterFormValues {
-  search?: string
-  searchBy?: string
-}
-
 export const handleSelectCategory = (history: History) => (categoryId?: string) => {
   if (categoryId) {
     history.push(addQuery({ category: categoryId, page: '1' }))
@@ -43,7 +39,7 @@ export const handleSelectCategory = (history: History) => (categoryId?: string) 
 export const handleSearchApp = (history: History) => (values: FilterFormValues) => {
   const cleanValues = cleanObject(values)
 
-  const { search, searchBy } = cleanValues
+  const { search, searchBy } = values
   if (search) {
     history.push(addQuery({ search, searchBy, page: '1' }))
   } else {
@@ -51,7 +47,7 @@ export const handleSearchApp = (history: History) => (values: FilterFormValues) 
   }
 }
 
-export const FilterForm: React.FC<FormikProps<FilterFormValues>> = ({ values, setFieldValue }) => {
+export const FilterForm: React.FC<FormikProps<FormFields>> = ({ values, setFieldValue }) => {
   return (
     <Form>
       <Input
@@ -88,12 +84,11 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({ categories, location, hi
           <H6 className={styles.subHeading}>Search</H6>
           <Formik
             enableReinitialize={true}
-            initialValues={
-              {
-                search: getParamValueFromPath(location.search, 'search'),
-                searchBy: getParamValueFromPath(location.search, 'searchBy') || 'appName',
-              } as FilterFormValues
-            }
+            initialValues={{
+              search: getParamValueFromPath(location.search, 'search'),
+              searchBy: getParamValueFromPath(location.search, 'searchBy') || 'appName',
+            }}
+            validationSchema={validationSchema}
             onSubmit={handleSearchApp(history)}
             component={FilterForm}
           />

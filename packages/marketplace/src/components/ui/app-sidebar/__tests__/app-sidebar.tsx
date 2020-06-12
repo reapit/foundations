@@ -7,11 +7,11 @@ import {
   handleSelectCategory,
   handleSearchApp,
   mapStateToProps,
-  FilterFormValues,
 } from '../app-sidebar'
+import { FormFields } from '../form-fields'
 import CategoriesList from '@/components/ui/categories-list'
 import { addQuery, removeQuery } from '@/utils/client-url-params'
-import { appCategorieStub } from '../../../sagas/__stubs__/app-categories'
+import { appCategorieStub } from '@/sagas/__stubs__/app-categories'
 import { selectCategories } from '@/selector/app-categories'
 import { ReduxState } from '@/types/core'
 import { FormikProps } from '@reapit/elements'
@@ -52,7 +52,7 @@ describe('AppSidebar', () => {
         search: '1',
         searchBy: '1',
       },
-    } as FormikProps<FilterFormValues>
+    } as FormikProps<FormFields>
     it('should match a snapshot', () => {
       expect(shallow(<FilterForm {...props} />)).toMatchSnapshot()
     })
