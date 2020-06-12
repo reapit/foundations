@@ -14,6 +14,7 @@ export const parseIframeUrl = (pathname: string, hash: string): string => {
 
 const ApiDocsPage: React.FC = () => {
   const { location } = useHistory()
+  const isXIFrame = window.reapit.config.appEnv !== 'local' ? 'x-frame-bypass' : ''
 
   return (
     <ErrorBoundary>
@@ -21,6 +22,7 @@ const ApiDocsPage: React.FC = () => {
         <FlexContainerBasic className="container is-full-height">
           {!isIE() && (
             <iframe
+              is={isXIFrame}
               style={{ border: 'none' }}
               src={`${IFRAME_URLS.documentation}${parseIframeUrl(location.pathname, location.hash)}`}
               width="100%"
