@@ -9,6 +9,6 @@ export const validationSchema = Yup.object().shape({
   [search.name]: Yup.string()
     .trim()
     .max(256, errorMessages.MAXIMUM_CHARACTER_LENGTH(256))
-    .matches(letterNumberSpaceRegex, 'Input is not valid'),
+    .matches(letterNumberSpaceRegex, search.errorMessage),
   [searchBy.name]: Yup.string().required(),
 })
