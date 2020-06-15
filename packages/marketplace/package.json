@@ -36,7 +36,7 @@
     "react-copy-to-clipboard": "^5.0.2",
     "swagger-ui-react": "3.24.3",
     "react-responsive": "8.1.0",
-    "snyk": "^1.335.0"
+    "snyk": "^1.341.1"
   },
   "devDependencies": {
     "@reapit/foundations-ts-definitions": "0.0.76",
