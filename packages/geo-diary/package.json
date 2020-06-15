@@ -28,7 +28,7 @@
     "@reapit/cognito-auth": "^2.0.19",
     "@reapit/elements": "^0.5.39",
     "localforage": "^1.7.3",
-    "snyk": "^1.335.0"
+    "snyk": "^1.341.1"
   },
   "devDependencies": {
     "@reapit/foundations-ts-definitions": "2020-02-13"
