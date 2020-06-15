@@ -8,6 +8,7 @@ import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { ReduxState } from '@/types/core'
 import { updateAddressHistory, checklistDetailShowModal } from '@/actions/checklist-detail'
 import { STEPS } from '@/components/ui/modal/modal'
+import { formFields } from './form-schema/form-fields'
 import validationSchema from './form-schema/validation-schema'
 
 const optionsMonth = [
@@ -61,57 +62,67 @@ export const handleMoreThreeYear = ({ setShowMoreThreeYearInput, isShowMoreThree
 }
 
 export const AddressInput = ({ addressType }) => {
+  const fields = formFields(addressType)
+  const {
+    typeField,
+    buildingNameField,
+    buildingNumberField,
+    line1Field,
+    line2Field,
+    line3Field,
+    line4Field,
+    postcodeField,
+    yearField,
+    monthField,
+    documentTypeField,
+    documentImageField,
+  } = fields
+
   return (
     <div key={addressType}>
-      <Input type="hidden" labelText="Type" id={`${addressType}[type]`} name={`${addressType}[type]`} />
+      <Input type="hidden" labelText={typeField.label} id={typeField.name} name={typeField.name} />
       <Input
         type="text"
-        labelText="Building Name"
-        id={`${addressType}[buildingName]`}
-        name={`${addressType}[buildingName]`}
+        labelText={buildingNameField.label}
+        id={buildingNameField.name}
+        name={buildingNameField.name}
       />
       <Input
         type="text"
-        labelText="Building Number"
-        id={`${addressType}[buildingNumber]`}
-        name={`${addressType}[buildingNumber]`}
+        labelText={buildingNumberField.label}
+        id={buildingNumberField.name}
+        name={buildingNumberField.name}
       />
-      <Input type="text" labelText="Line 1" required id={`${addressType}[line1]`} name={`${addressType}[line1]`} />
-      <Input type="text" labelText="Line 2" id={`${addressType}[line2]`} name={`${addressType}[line2]`} />
-      <Input type="text" labelText="Line 3" required id={`${addressType}[line3]`} name={`${addressType}[line3]`} />
-      <Input type="text" labelText="Line 4" id={`${addressType}[line4]`} name={`${addressType}[line4]`} />
-      <Input
-        type="text"
-        labelText="Post Code"
-        id={`${addressType}[postcode]`}
-        name={`${addressType}[postcode]`}
-        required
-      />
+      <Input type="text" labelText={line1Field.label} required id={line1Field.name} name={line1Field.name} />
+      <Input type="text" labelText={line2Field.label} id={line2Field.name} name={line2Field.name} />
+      <Input type="text" labelText={line3Field.label} required id={line3Field.name} name={line3Field.name} />
+      <Input type="text" labelText={line4Field.label} id={line4Field.name} name={line4Field.name} />
+      <Input type="text" labelText={postcodeField.label} id={postcodeField.name} name={postcodeField.name} required />
       <SelectBox
-        labelText="Number of Years at Address"
+        labelText={yearField.label}
         options={renderYearOptions()}
-        id={`metadata.${addressType}[year]`}
-        name={`metadata.${addressType}[year]`}
+        id={yearField.name}
+        name={yearField.name}
         required
       />
       <SelectBox
-        labelText="Number of Months at Address"
-        id={`metadata.${addressType}[month]`}
-        name={`metadata.${addressType}[month]`}
+        labelText={monthField.label}
+        id={monthField.name}
+        name={monthField.name}
         options={optionsMonth}
         required
       />
       <SelectBox
-        labelText="Document Type"
-        id={`metadata.${addressType}[documentType]`}
-        name={`metadata.${addressType}[documentType]`}
+        labelText={documentTypeField.label}
+        id={documentTypeField.name}
+        name={documentTypeField.name}
         options={optionsDocumentType}
         required
       />
       <CameraImageInput
-        labelText="Upload file"
-        id={`metadata.${addressType}[documentImage]`}
-        name={`metadata.${addressType}[documentImage]`}
+        labelText={documentImageField.label || ''}
+        id={documentImageField.name}
+        name={documentImageField.name}
         allowClear={true}
         required
         accept="image/*"

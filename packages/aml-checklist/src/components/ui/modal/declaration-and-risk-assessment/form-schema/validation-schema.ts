@@ -6,10 +6,12 @@ import { isValidUploadForm } from '@/utils/validates'
 const validationSchema = Yup.object().shape({
   metadata: Yup.object().shape({
     declarationRisk: Yup.object().shape({
-      declarationForm: Yup.string().test('isValidBase64', 'Wrong file type', value => isValidUploadForm(value)),
+      declarationForm: Yup.string().test('isValidBase64', errorMessages.WRONG_FILE_TYPE, value =>
+        isValidUploadForm(value),
+      ),
       riskAssessmentForm: Yup.string()
         .required(errorMessages.FIELD_REQUIRED)
-        .test('isValidBase64', 'Wrong file type', value => isValidUploadForm(value)),
+        .test('isValidBase64', errorMessages.WRONG_FILE_TYPE, value => isValidUploadForm(value)),
     }),
   }),
 })

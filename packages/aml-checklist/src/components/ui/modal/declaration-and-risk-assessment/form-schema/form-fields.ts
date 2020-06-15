@@ -1,21 +1,21 @@
 import { FormFieldInfo } from '@reapit/elements'
 
-type Field = 'declarationForm' | 'type' | 'reason' | 'riskAssessmentForm'
+type Field = 'declarationFormField' | 'typeField' | 'reasonField' | 'riskAssessmentFormField'
 
 const formFields: Record<Field, FormFieldInfo> = {
-  declarationForm: {
+  declarationFormField: {
     name: 'metadata.declarationRisk.declarationForm',
     label: 'Upload file',
   },
-  type: {
+  typeField: {
     name: 'metadata.declarationRisk.type',
     label: 'Risk Assessment Type',
   },
-  reason: {
+  reasonField: {
     name: 'metadata.declarationRisk.reason',
     label: 'Reason for Type',
   },
-  riskAssessmentForm: {
+  riskAssessmentFormField: {
     name: 'metadata.declarationRisk.riskAssessmentForm',
     label: 'Upload File',
   },

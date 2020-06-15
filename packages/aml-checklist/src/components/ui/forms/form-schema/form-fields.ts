@@ -1,22 +1,22 @@
 import { FormFieldInfo } from '@reapit/elements'
 
-type Field = 'typeId' | 'details' | 'expiry' | 'documentId'
+type Field = 'typeIdField' | 'detailsField' | 'expiryField' | 'documentIdField'
 
 const formFields: Record<Field, FormFieldInfo> = {
-  typeId: {
+  typeIdField: {
     name: 'typeId',
     label: 'ID Type',
   },
-  details: {
+  detailsField: {
     name: 'details',
     label: 'ID Reference',
     placeHolder: 'ID Reference',
   },
-  expiry: {
+  expiryField: {
     name: 'expiry',
     label: 'Expiry Date',
   },
-  documentId: {
+  documentIdField: {
     name: 'documentId',
     label: 'Upload File',
   },

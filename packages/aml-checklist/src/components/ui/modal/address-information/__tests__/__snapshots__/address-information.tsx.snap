@@ -597,7 +597,7 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
     accept="image/*"
     allowClear={true}
     id="metadata.primaryAddress[documentImage]"
-    labelText="Upload file"
+    labelText="Upload File"
     name="metadata.primaryAddress[documentImage]"
     required={true}
   />

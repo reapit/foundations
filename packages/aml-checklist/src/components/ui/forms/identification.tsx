@@ -7,7 +7,7 @@ import { downloadDocument } from '@/services/documents'
 import validationSchema from './form-schema/validation-schema'
 import FormFields from './form-schema/form-fields'
 
-const { typeId, details, expiry, documentId } = FormFields
+const { typeIdField, detailsField, expiryField, documentIdField } = FormFields
 
 export interface IdentityDocumentForm extends IdentityDocumentModel {
   documentId: string
@@ -50,20 +50,20 @@ export const renderFormHandler = ({
         <p className="mb-4">*Please ensure the Primary ID has been completed before adding a Secondary ID</p>
       )}
       <Form>
-        <SelectIdentity id={typeId.name} name={typeId.name} labelText={typeId.label || ''} />
+        <SelectIdentity id={typeIdField.name} name={typeIdField.name} labelText={typeIdField.label || ''} />
         <Input
-          id={details.name}
-          name={details.name}
+          id={detailsField.name}
+          name={detailsField.name}
           type="text"
-          placeholder={details.placeHolder}
+          placeholder={detailsField.placeHolder}
           required
-          labelText={details.label}
+          labelText={detailsField.label}
         />
-        <DatePicker id={expiry.name} name={expiry.name} labelText={expiry.label} required />
+        <DatePicker id={expiryField.name} name={expiryField.name} labelText={expiryField.label} required />
         <CameraImageInput
-          id={documentId.name}
-          name={documentId.name}
-          labelText={documentId.label || ''}
+          id={documentIdField.name}
+          name={documentIdField.name}
+          labelText={documentIdField.label || ''}
           allowClear={true}
           inputProps={{ disabled: disabled }}
           required
