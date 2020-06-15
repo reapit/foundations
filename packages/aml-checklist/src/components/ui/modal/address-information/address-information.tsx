@@ -125,6 +125,7 @@ export const AddressInput = ({ addressType }) => {
         name={documentImageField.name}
         allowClear={true}
         required
+        isNarrowWidth
         accept="image/*"
       />
     </div>
