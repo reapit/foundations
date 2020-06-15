@@ -43,14 +43,13 @@
     flex-direction: column-reverse;
   }
   @include for-ie-only {
-    width: 100%;
+    min-width: 1024px;
   } 
 }
 
 .flexContainer {
   @include for-ie-only {
     align-self: center;
-    min-width: 1024px;
   }
 }
 
