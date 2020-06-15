@@ -27,7 +27,7 @@ export const getPropertyImages = async (req: AppRequest, res: AppResponse) => {
       res.end()
     }
   } catch (err) {
-    errorHandler(err, res, req, 'getPropertyImages', logger)
+    await errorHandler(err, res, req, 'getPropertyImages', logger)
   }
 }
 

@@ -66,7 +66,7 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = () =
           />
         </GridItem>
         <GridItem>
-          <SelectBox id="categoryId" name="categoryId" options={categoryOptions} required labelText="Category" />
+          <SelectBox id="categoryId" name="categoryId" options={categoryOptions} labelText="Category" />
         </GridItem>
       </Grid>
       <Grid>

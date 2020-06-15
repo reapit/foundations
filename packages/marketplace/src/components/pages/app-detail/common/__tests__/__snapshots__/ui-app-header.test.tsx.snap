@@ -2,7 +2,7 @@
 
 exports[`AppHeader should match a snapshot 1`] = `
 <Component
-  className="flex items-center mb-4 undefined"
+  className="flex items-center mb-4 undefined flex-col-min-height"
 >
   <Component>
     <Component
@@ -19,7 +19,9 @@ exports[`AppHeader should match a snapshot 1`] = `
       <Component
         className="is-two-thirds-desktop  undefined"
       >
-        <Component>
+        <Component
+          isCentered={true}
+        >
           Peter's Properties
         </Component>
         <Component

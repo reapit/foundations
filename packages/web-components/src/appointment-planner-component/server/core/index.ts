@@ -5,8 +5,7 @@ import cors from 'cors'
 import routers from './routers'
 import { Context, APIGatewayProxyEvent } from 'aws-lambda'
 import serverless from 'serverless-http'
-import { errorHandler } from '../../../common/utils/error-handler'
-import { traceIdMiddleware, createParseLog, AppResponse, AppRequest } from '@reapit/node-utils'
+import { traceIdMiddleware, createParseLog } from '@reapit/node-utils'
 import morgan from 'morgan'
 
 import * as Sentry from '@sentry/node'
@@ -25,17 +24,12 @@ if (process.env.NODE_ENV !== 'development') {
 
 const app = express()
 
-app.use(Sentry.Handlers.requestHandler())
 app.use(traceIdMiddleware)
 app.use(morganLogging)
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use('/', routers)
-app.use((err: Error, _req: AppRequest, res: AppResponse) => {
-  errorHandler(err, res, _req, 'appointment-planner-error-middle-ware', logger)
-})
-app.use(Sentry.Handlers.errorHandler())
 
 const expressApp = serverless(app)
 

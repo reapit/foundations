@@ -39,12 +39,9 @@ export const ClientSettingsPage: React.FC = () => {
           </div>
           <FormSection>
             <LevelRight>
-              {/* Wrap logout button with a div to fix bug in IE */}
-              <div>
-                <Button dataTest="logout-btn" variant="primary" type="button" onClick={logout}>
-                  Logout
-                </Button>
-              </div>
+              <Button dataTest="logout-btn" variant="primary" type="button" onClick={logout}>
+                Logout
+              </Button>
             </LevelRight>
           </FormSection>
         </FlexContainerResponsive>

@@ -169,8 +169,7 @@ const ClientAppUninstallConfirmation: React.FC<ClientAppUninstallConfirmationPro
       <Modal
         visible={isSuccessAlertVisible}
         afterClose={handleSuccessAlertMessageAfterClose(id, clientId, setIsSuccessAlertVisible, dispatch)}
-      >
-        <>
+        HeaderComponent={() => (
           <CallToAction
             title="Success"
             buttonText="Back to List"
@@ -181,8 +180,8 @@ const ClientAppUninstallConfirmation: React.FC<ClientAppUninstallConfirmationPro
           >
             {name} has been successfully uninstalled
           </CallToAction>
-        </>
-      </Modal>
+        )}
+      />
     </>
   )
 }

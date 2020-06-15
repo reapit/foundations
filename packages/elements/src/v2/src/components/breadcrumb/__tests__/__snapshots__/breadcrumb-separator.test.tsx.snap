@@ -2,7 +2,7 @@
 
 exports[`breadcrumb-separator BreadcrumbSeparator should match snapshot 1`] = `
 <span
-  className=""
+  className="mockClassname"
   style={
     Object {
       "font": "1rem",
@@ -15,7 +15,7 @@ exports[`breadcrumb-separator BreadcrumbSeparator should match snapshot 1`] = `
 
 exports[`breadcrumb-separator BreadcrumbSeparator should match snapshot 2`] = `
 <span
-  className=""
+  className="mockClassname"
   style={
     Object {
       "font": "1rem",

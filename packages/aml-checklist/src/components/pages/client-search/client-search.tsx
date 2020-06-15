@@ -18,7 +18,9 @@ import { LoginMode } from '@reapit/cognito-auth'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import Routes from '@/constants/routes'
 import { SearchParams, resultSetSearchParams } from '@/actions/result'
-import { ReduxState } from '../../types/core'
+import { ReduxState } from '@/types/core'
+import clientSearchValidationSchema from './form-schema/validation-schema'
+import formFields from './form-schema/form-fields'
 
 export interface ClientSearchMappedActions {
   setSearchParams: (params: SearchParams) => void
@@ -29,6 +31,8 @@ export interface ClientSearchMappedState {
 }
 
 export type ClientSearchProps = ClientSearchMappedActions & ClientSearchMappedState & RouteComponentProps
+
+const { nameField, addressField, identityCheckField } = formFields
 
 const identityCheckList = [
   { label: 'Please select…', value: '' },
@@ -41,27 +45,32 @@ const identityCheckList = [
 ]
 
 export const renderForm = ({ loginMode }) => ({ values }) => {
-  const disabled = !values.name && !values.address && !values.identityCheck
   return (
     <div>
       <FlexContainerResponsive hasBackground flexColumn hasPadding>
         <H3>Client Search</H3>
         <Form className="mb-8">
-          <Input id="name" type="text" placeholder="Firstname or Surname" name="name" labelText="Search by name" />
           <Input
-            id="address"
+            id={nameField.name}
             type="text"
-            placeholder="Streetname, Village, Town or Postcode"
-            name="address"
-            labelText="Search by address"
+            placeholder={nameField.placeHolder}
+            name={nameField.name}
+            labelText={nameField.label}
+          />
+          <Input
+            id={addressField.name}
+            type="text"
+            placeholder={addressField.placeHolder}
+            name={addressField.name}
+            labelText={addressField.label}
           />
           <SelectBox
-            id="identityCheck"
-            name="identityCheck"
-            labelText="Search by ID Status"
+            id={identityCheckField.name}
+            name={identityCheckField.name}
+            labelText={identityCheckField.label}
             options={identityCheckList}
           />
-          <Button className="is-right" type="submit" variant="primary" disabled={disabled}>
+          <Button className="is-right" type="submit" variant="primary">
             Search
           </Button>
           {loginMode === 'DESKTOP' && (
@@ -101,8 +110,9 @@ export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ setSe
     <ErrorBoundary>
       <FlexContainerBasic hasPadding flexColumn>
         <Formik
-          initialValues={{ name: '', address: '', identityCheck: '' }}
+          initialValues={{ [nameField.name]: '', [addressField.name]: '', [identityCheckField.name]: '' }}
           onSubmit={searchContacts({ setSearchParams, history })}
+          validationSchema={clientSearchValidationSchema}
         >
           {renderForm({ loginMode })}
         </Formik>

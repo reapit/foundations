@@ -6,7 +6,7 @@ import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
 import { fetcher } from '@reapit/elements'
 import { URLS } from '@/constants/api'
-import { queryParams } from '@/utils/query-params'
+import qs from 'query-string'
 import { CONTACTS_PER_PAGE } from '@/constants/paginator'
 import { contacts } from '../__stubs__/contacts'
 import { errorThrownServer } from '@/actions/error'
@@ -32,7 +32,7 @@ describe('result fetch data', () => {
   expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
   expect(gen.next(mockHeaders as any).value).toEqual(
     call(fetcher, {
-      url: `${URLS.contacts}/?${queryParams({ ...params.data, pageSize: CONTACTS_PER_PAGE })}`,
+      url: `${URLS.contacts}/?${qs.stringify({ ...params.data, pageSize: CONTACTS_PER_PAGE })}`,
       api: window.reapit.config.platformApiUrl,
       method: 'GET',
       headers: mockHeaders,

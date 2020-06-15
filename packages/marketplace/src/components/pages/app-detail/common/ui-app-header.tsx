@@ -23,14 +23,16 @@ const AppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup }) => 
   const { containerOuterHeader, headerContent, containerHeader, check, appIconContainer, elipsis } = styles
 
   return (
-    <Grid className={`flex items-center mb-4 ${containerOuterHeader}`}>
+    <Grid className={`flex items-center mb-4 ${containerOuterHeader} flex-col-min-height`}>
       <GridItem>
         <Grid className={`flex items-center ${containerHeader}`}>
           <GridItem className={`is-one-third-desktop ${appIconContainer}`}>
             <img src={appIcon?.uri || ImagePlaceHolder} alt="App Icon" />
           </GridItem>
           <GridItem className={`is-two-thirds-desktop  ${headerContent}`}>
-            <H3 className={elipsis}>{appDetailData.name}</H3>
+            <H3 className={elipsis} isCentered>
+              {appDetailData.name}
+            </H3>
             <Content className={`${isMobile ? 'flex justify-center ' : ''}`}>
               Verified by Reapit <FaCheck className={check} />
             </Content>

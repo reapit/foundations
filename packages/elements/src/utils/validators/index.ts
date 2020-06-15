@@ -13,3 +13,5 @@ export { validateRequire, fieldValidateRequire, dropdownSelectFieldValidateRequi
 export { validateURI } from './validate-uri'
 export { validatePassword, isValidPassword } from './validate-password'
 export { isEmptyObject } from './validate-object'
+export { isTextAndNumberOnly } from './validate-text-and-number'
+export * from './regex'
