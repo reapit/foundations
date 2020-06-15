@@ -57,8 +57,8 @@ export const renderFormHandler = ({
           inputProps={{ disabled: disabled }}
           required
           onFilenameClick={handleFilenameClick}
+          isNarrowWidth
         />
-
         <div className="field pb-2">
           <div className={`columns ${styles.reverseColumns}`}>
             <div className="column">

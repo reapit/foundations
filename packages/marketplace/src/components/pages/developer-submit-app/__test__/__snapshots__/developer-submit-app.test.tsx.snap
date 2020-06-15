@@ -220,11 +220,10 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                       labelText="Category"
                                       name="categoryId"
                                       options={Array []}
-                                      required={true}
                                     >
                                       <Field
                                         name="categoryId"
-                                        validate={[Function]}
+                                        validate={null}
                                       >
                                         <div
                                           className="field pb-2"
@@ -233,7 +232,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             className="control"
                                           >
                                             <label
-                                              className="label required-label"
+                                              className="label "
                                               htmlFor="categoryId"
                                             >
                                               Category
@@ -1511,6 +1510,13 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                         </div>
                                       </Field>
                                     </Component>
+                                    <Component>
+                                      <div
+                                        className="form-subheading mb-6 "
+                                      >
+                                        This field is disabled during the beta period. Your app will be private by default as the Marketplace is not yet live. You will have the opportunity to make your app private via an edit before setting it to be "Listed" in the marketplace when we move from beta to production.
+                                      </div>
+                                    </Component>
                                   </div>
                                 </Component>
                               </div>
@@ -1578,7 +1584,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                               className="file is-primary  field pb-2"
                                             >
                                               <div
-                                                className="file-input-container control"
+                                                className="control file-input-container is-full-width"
                                               >
                                                 <label
                                                   className="file-label"
@@ -1643,7 +1649,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                               className="file is-primary  field pb-2"
                                             >
                                               <div
-                                                className="file-input-container control"
+                                                className="control file-input-container is-full-width"
                                               >
                                                 <label
                                                   className="file-label"
@@ -1707,7 +1713,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                               className="file is-primary  field pb-2"
                                             >
                                               <div
-                                                className="file-input-container control"
+                                                className="control file-input-container is-full-width"
                                               >
                                                 <label
                                                   className="file-label"
@@ -1771,7 +1777,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                               className="file is-primary  field pb-2"
                                             >
                                               <div
-                                                className="file-input-container control"
+                                                className="control file-input-container is-full-width"
                                               >
                                                 <label
                                                   className="file-label"
@@ -1835,7 +1841,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                               className="file is-primary  field pb-2"
                                             >
                                               <div
-                                                className="file-input-container control"
+                                                className="control file-input-container is-full-width"
                                               >
                                                 <label
                                                   className="file-label"
@@ -1899,7 +1905,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                               className="file is-primary  field pb-2"
                                             >
                                               <div
-                                                className="file-input-container control"
+                                                className="control file-input-container is-full-width"
                                               >
                                                 <label
                                                   className="file-label"

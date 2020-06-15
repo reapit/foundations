@@ -4,7 +4,7 @@ import { History } from 'history'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
-import { Button, Modal } from '@reapit/elements'
+import { Button, Modal, GridFourCol, GridFourColItem, Content } from '@reapit/elements'
 import { appInstallationsRequestInstall } from '@/actions/app-installations'
 import { clientFetchAppDetail } from '@/actions/client'
 import { Dispatch } from 'redux'
@@ -133,20 +133,15 @@ const ClientAppInstallConfirmation: React.FC<ClientAppInstallConfirmationProps> 
       >
         <>
           {scopes.length ? (
-            <div>
-              <p>
-                This action will install the app for ALL platform users.
-                <br />
-                {name} requires the permissions below. By installing you are granting permission to your data.
-              </p>
-              <ul className={appPermissionContentStyles.permissionList}>
-                {scopes.map(({ description, name }) => (
-                  <li key={name} className={appPermissionContentStyles.permissionListItem}>
-                    {description}
-                  </li>
+            <Content>
+              <p>This action will install the app for ALL platform users.</p>
+              <p>{name} requires the permissions below. By installing you are granting permission to your data.</p>
+              <GridFourCol>
+                {scopes.map(scope => (
+                  <GridFourColItem key={scope.name}>{scope?.description ?? ''}</GridFourColItem>
                 ))}
-              </ul>
-            </div>
+              </GridFourCol>
+            </Content>
           ) : (
             <p>This action will install the app for ALL platform users.</p>
           )}
@@ -156,8 +151,7 @@ const ClientAppInstallConfirmation: React.FC<ClientAppInstallConfirmationProps> 
         <Modal
           visible={isSuccessAlertVisible}
           afterClose={handleSuccessAlertMessageAfterClose(id, clientId, setIsSuccessAlertVisible, dispatch)}
-        >
-          <>
+          HeaderComponent={() => (
             <CallToAction
               title="Success"
               buttonText="Back to List"
@@ -168,8 +162,8 @@ const ClientAppInstallConfirmation: React.FC<ClientAppInstallConfirmationProps> 
             >
               {name} has been successfully installed
             </CallToAction>
-          </>
-        </Modal>
+          )}
+        />
       )}
     </>
   )

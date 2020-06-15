@@ -13,6 +13,6 @@ export interface FetcherParams<T> {
 export type FormFieldInfo = {
   name: string
   label?: string
-  placceHolder?: string
+  placeHolder?: string
   errorMessage?: string
 }

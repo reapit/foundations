@@ -1,5 +1,5 @@
 import React from 'react'
-import { cx } from 'linaria'
+import classNames from 'classnames'
 import { breadcrumbItem, breadcrumbBold, breadcrumbLastItem } from './__styles__/styles'
 
 export type RenderLinksParams = {
@@ -18,7 +18,7 @@ export const renderLinks = ({ children, href, onClick, style, isCurrent, classNa
       <a
         href={href}
         style={style}
-        className={cx(className, isCurrent && breadcrumbBold, isLast && breadcrumbLastItem)}
+        className={classNames(className, isCurrent && breadcrumbBold, isLast && breadcrumbLastItem)}
         onClick={onClick}
       >
         {children}
@@ -28,7 +28,7 @@ export const renderLinks = ({ children, href, onClick, style, isCurrent, classNa
   return (
     <span
       style={style}
-      className={cx(className, isCurrent && breadcrumbBold, isLast && breadcrumbLastItem)}
+      className={classNames(className, isCurrent && breadcrumbBold, isLast && breadcrumbLastItem)}
       onClick={onClick}
     >
       {children}
