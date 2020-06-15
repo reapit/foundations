@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeveloperDesktopPage should match snapshot 1`] = `
+<Connect(ErrorBoundary)>
+  <Component
+    flexColumn={true}
+    hasPadding={true}
+  >
+    <Component
+      flexColumn={true}
+      hasBackground={true}
+      hasPadding={true}
+    >
+      <Component>
+        Desktop
+      </Component>
+    </Component>
+  </Component>
+</Connect(ErrorBoundary)>
+`;
