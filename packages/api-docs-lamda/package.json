@@ -25,13 +25,8 @@
     "snyk": "^1.335.0"
   },
   "scripts": {
-    "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,js src\"",
-    "lint:fix": "eslint --cache --ext=ts,js src --fix",
-    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
     "start:dev": "NODE_ENV=development SLS_DEBUG=* serverless offline --verbose",
-    "build:serverless": "serverless webpack --out dist",
-    "release:dev": "serverless deploy",
-    "release:development": " serverless deploy"
+    "release": " serverless deploy"
   }
 }
