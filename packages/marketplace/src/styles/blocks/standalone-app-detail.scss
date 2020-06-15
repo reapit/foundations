@@ -1,5 +1,6 @@
 @import '../base/colors.scss';
 @import '../base/screen-size.scss';
+@import '../base/browser.scss';
 
 .preview {
   position: relative;
@@ -37,10 +38,15 @@
 .container {
   height: 100%;
   margin-bottom: auto;
-
   @include for-mobile-only {
     display: flex;
     flex-direction: column-reverse;
+  }
+}
+
+.flexContainer {
+  @include for-ie-only {
+    align-self: center;
   }
 }
 
