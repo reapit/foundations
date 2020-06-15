@@ -3,6 +3,8 @@ import formFields from './form-fields'
 import errorMessages from '@/constants/error-messages'
 import { telephoneRegex } from '@reapit/elements'
 
+const { FIELD_REQUIRED } = errorMessages
+
 const {
   titleField,
   forenameField,
@@ -17,32 +19,30 @@ const {
 const profileValidationSchema = Yup.object().shape({
   [titleField.name]: Yup.string()
     .trim()
-    .required(errorMessages.FIELD_REQUIRED),
+    .required(FIELD_REQUIRED),
   [forenameField.name]: Yup.string()
     .trim()
-    .required(errorMessages.FIELD_REQUIRED),
+    .required(FIELD_REQUIRED),
   [surnameField.name]: Yup.string()
     .trim()
-    .required(errorMessages.FIELD_REQUIRED),
-  [dateOfBirthField.name]: Yup.string().required(errorMessages.FIELD_REQUIRED),
+    .required(FIELD_REQUIRED),
+  [dateOfBirthField.name]: Yup.string().required(FIELD_REQUIRED),
   [emailField.name]: Yup.string()
     .trim()
-    .required(errorMessages.FIELD_REQUIRED)
+    .required(FIELD_REQUIRED)
     .email(emailField.errorMessage),
   [homePhoneField.name]: Yup.string()
     .nullable()
-    .trim()
-    .required(errorMessages.FIELD_REQUIRED)
-    .matches(telephoneRegex, homePhoneField.errorMessage),
+    .matches(telephoneRegex, homePhoneField.errorMessage)
+    .when([mobilePhoneField.name, workPhoneField.name], {
+      is: (mobilePhone, workPhone) => !mobilePhone && !workPhone,
+      then: Yup.string().required(FIELD_REQUIRED),
+    }),
   [mobilePhoneField.name]: Yup.string()
     .nullable()
-    .trim()
-    .required(errorMessages.FIELD_REQUIRED)
     .matches(telephoneRegex, mobilePhoneField.errorMessage),
   [workPhoneField.name]: Yup.string()
     .nullable()
-    .trim()
-    .required(errorMessages.FIELD_REQUIRED)
     .matches(telephoneRegex, workPhoneField.errorMessage),
 })
 
