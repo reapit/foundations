@@ -76,6 +76,11 @@ const RedirectUriSection: React.FC<RedirectUriSectionProps> = ({ authFlow, isPri
             name="limitToClientIds"
             placeholder={'Please enter the Customer ID. For multiple Customer ID’s, please separate using a comma'}
           />
+          <FormSubHeading>
+            This field is disabled during the beta period. Your app will be private by default as the Marketplace is not
+            yet live. You will have the opportunity to make your app private via an edit before setting it to be
+            &#34;Listed&#34; in the marketplace when we move from beta to production.
+          </FormSubHeading>
         </GridItem>
       </Grid>
     </FormSection>

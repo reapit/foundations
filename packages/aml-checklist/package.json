@@ -27,6 +27,7 @@
   "dependencies": {
     "@reapit/elements": "^0.5.39",
     "@reapit/cognito-auth": "^2.0.19",
+    "@reapit/utils": "^0.0.1",
     "react-to-print": "^2.4.0",
     "snyk": "^1.335.0"
   },

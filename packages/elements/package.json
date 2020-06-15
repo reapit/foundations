@@ -61,11 +61,11 @@
     "react-icons": "^3.7.0",
     "react-table": "7.0.4",
     "styled-components": "^4.4.1",
-    "snyk": "^1.335.0"
+    "snyk": "^1.338.0"
   },
   "devDependencies": {
     "@babel/runtime": "7.10.2",
-    "@babel/plugin-transform-runtime":"7.10.1",
+    "@babel/plugin-transform-runtime": "7.10.1",
     "@reapit/foundations-ts-definitions": "2020-02-13",
     "@rollup/plugin-babel": "^5.0.3",
     "@storybook/addon-actions": "^5.2.6",

@@ -18,7 +18,7 @@ export const webComponentsConfigGetByIdHandler = async (req: AppRequest, res: Ap
     const result = await getConfigByClientId(params)
     return res.send(result)
   } catch (err) {
-    logger.error('webComponentsConfig.getById', {
+    await logger.error('webComponentsConfig.getById', {
       traceId: req.traceId,
       error: stringifyError(err),
       headers: JSON.stringify(req.headers),
@@ -35,7 +35,7 @@ export const webComponentsConfigPutHandler = async (req: AppRequest, res: AppRes
     const result = await createConfig(params)
     return res.send(result)
   } catch (err) {
-    logger.error('webComponentsConfig.put', {
+    await logger.error('webComponentsConfig.put', {
       headers: JSON.stringify(req.headers),
       traceId: req.traceId,
       error: stringifyError(err),
@@ -55,7 +55,7 @@ export const webComponentsConfigPatchHandler = async (req: AppRequest, res: AppR
     const result = await updateConfig(params)
     return res.send(result)
   } catch (err) {
-    logger.error('webComponentsConfig.patch', {
+    await logger.error('webComponentsConfig.patch', {
       traceId: req.traceId,
       error: stringifyError(err),
       headers: JSON.stringify(req.headers),
@@ -75,7 +75,7 @@ export const webComponentsConfigDeleteHandler = async (req: AppRequest, res: App
     const result = await deleteConfig(params)
     return res.send(result)
   } catch (err) {
-    logger.error('webComponentsConfig.delete', { traceId: req.traceId, error: JSON.stringify(err) })
+    await logger.error('webComponentsConfig.delete', { traceId: req.traceId, error: JSON.stringify(err) })
     return res.send({ message: err.message, code: err.code, traceId: req.traceId })
   }
 }

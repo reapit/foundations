@@ -93,8 +93,10 @@ html {
 }
 
 .file-input-container {
-  max-width: 100%;
-  width: 100%;
+  &.is-full-width {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 .file-label {

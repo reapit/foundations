@@ -219,7 +219,7 @@ export const handleOnSubmit = history => (formValues: FormValues, { setStatus })
   const cleanedValues = cleanObject(formValues)
 
   if (isEmptyObject(cleanedValues)) {
-    setStatus('Please enter at least one search criterion')
+    setStatus('Please enter at least one search criteria')
     return
   }
 
@@ -233,7 +233,7 @@ export const handleChangePage = history => (page: number) => {
 
 export const renderContent = ({ adminAppsData, columns }) => {
   if (adminAppsData?.data && adminAppsData?.data?.length < 1) {
-    return <Alert message="You currently have no apps listed " type="info" />
+    return <Alert message="No Results " type="info" />
   }
   return (
     <div className="mb-5">

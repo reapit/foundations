@@ -9,6 +9,9 @@ To start development, executing `yarn start-dev {package-name}`, it will run scr
 - Command `startClientServer` runs `sirv`, and development files buit using `clientScript`
 - Command `serverScript`  runs serverless with development mode
 
+After executing start develop command, you have to put the token printed in the terminal to the public html files which are `public/index.html` and `public/detail.html` in order to make the local APIs work correctly
+![](https://user-images.githubusercontent.com/36730355/84357524-00ac1600-abf0-11ea-8c00-296b3b9e62fc.png)
+
 # build:prod
 To build production bundle. Run `yarn build:prod`. It will run script `build-prod.js` locationd in `/script` folder. This script will:
 - Clear `public` folder

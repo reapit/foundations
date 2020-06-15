@@ -41,10 +41,10 @@ export const setCurrentCellValue = (
   setData(newData)
 }
 
-export const parseCsvFile = (file: File): Promise<Papa.ParseResult> =>
+export const parseCsvFile = (file: File): Promise<Papa.ParseResult<any>> =>
   new Promise(resolve => {
     Papa.parse(file, {
-      complete: (results: Papa.ParseResult) => {
+      complete: (results: Papa.ParseResult<any>) => {
         resolve(results)
       },
     })

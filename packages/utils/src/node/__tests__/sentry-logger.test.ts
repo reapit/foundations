@@ -13,6 +13,7 @@ describe('stringifyError', () => {
     expect(stringifyError(err)).toEqual(JSON.stringify({ stack: 'test' }))
   })
 })
+
 describe('createWistonLoggerErrorFn', () => {
   const mockScope = { setExtra: jest.fn() }
   const spyWithScope = jest.spyOn(Sentry, 'withScope')

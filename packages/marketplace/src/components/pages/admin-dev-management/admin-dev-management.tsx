@@ -73,11 +73,12 @@ export const onSearchHandler = (history: History<any>) => (
   { setStatus },
 ) => {
   const cleanedValues = cleanObject(queryParams)
+
   if (isEmptyObject(cleanedValues)) {
-    setStatus('Please enter at least one search criterion')
+    setStatus('Please enter at least one search criteria')
     return
   }
-  const query = setQueryParams(queryParams)
+  const query = setQueryParams(cleanedValues)
   if (query && query !== '') {
     const queryString = `?page=1&${query}`
     history.push(`${Routes.ADMIN_DEV_MANAGEMENT}${queryString}`)

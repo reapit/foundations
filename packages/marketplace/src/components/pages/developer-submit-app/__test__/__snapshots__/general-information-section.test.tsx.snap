@@ -124,11 +124,10 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                         labelText="Category"
                         name="categoryId"
                         options={Array []}
-                        required={true}
                       >
                         <Field
                           name="categoryId"
-                          validate={[Function]}
+                          validate={null}
                         >
                           <div
                             className="field pb-2"
@@ -137,7 +136,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                               className="control"
                             >
                               <label
-                                className="label required-label"
+                                className="label "
                                 htmlFor="categoryId"
                               >
                                 Category

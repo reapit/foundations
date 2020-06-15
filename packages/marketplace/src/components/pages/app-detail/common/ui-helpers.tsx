@@ -30,7 +30,7 @@ export const Tag: React.FC = ({ children }) => <div className={styles.tag}>{chil
 
 export const ImageSection: React.FC<ImageSectionProps> = ({ uri, alt = '' }) => {
   return uri ? (
-    <Content>
+    <Content className="flex justify-center items-center">
       <img src={uri} alt={alt} />
     </Content>
   ) : null

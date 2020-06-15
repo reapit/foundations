@@ -4,7 +4,7 @@ import { usePortal } from '../../hooks/UsePortal'
 const { useMemo, useEffect } = React
 
 export interface ModalProps {
-  children: React.ReactChild
+  children?: React.ReactChild
   title?: string
   visible: boolean
   size?: 'medium' | 'small'

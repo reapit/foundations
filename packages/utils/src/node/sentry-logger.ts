@@ -1,6 +1,7 @@
 import * as Sentry from '@sentry/node'
 import { LeveledLogMethod } from 'winston'
 import { serializeError } from 'serialize-error'
+import { cleanObject } from '../object'
 
 /**
  * convert any know error properties to object
@@ -16,18 +17,29 @@ export type WistonLoggerErrorFn = (caller: string, { error: AxiosError, traceId:
 export const createWistonLoggerErrorFn: (loggerError: LeveledLogMethod) => WistonLoggerErrorFn = loggerError => (
   caller,
   { error, traceId, headers },
-) => {
-  loggerError(caller, { traceId, error: error?.response?.data, headers: error?.response?.headers })
+) =>
+  new Promise(resolve => {
+    loggerError(caller, { traceId, error: error?.response?.data, headers: error?.response?.headers })
 
-  if (process.env.NODE_ENV !== 'development') {
+    if (process.env.NODE_ENV === 'development') {
+      resolve()
+    }
+
     Sentry.withScope(scope => {
-      scope.setExtra('Error', {
-        caller,
-        traceId,
-        headers,
-        error,
-      })
+      scope.setExtra(
+        'Error',
+        cleanObject({
+          caller,
+          traceId,
+          headers,
+          error,
+        }),
+      )
       Sentry.captureException(error)
+      Sentry.flush(2000)
+        .then(resolve)
+        .catch(err => {
+          loggerError('logger.error', { error: err, traceId })
+        })
     })
-  }
-}
+  })
