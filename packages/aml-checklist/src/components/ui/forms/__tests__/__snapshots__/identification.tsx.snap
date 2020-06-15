@@ -4,6 +4,71 @@ exports[`Identification Identification should match snapshot 1`] = `
 <Formik
   initialValues={Object {}}
   onSubmit={[Function]}
+  validationSchema={
+    ObjectSchema {
+      "_blacklist": RefSet {
+        "list": Set {},
+        "refs": Map {},
+      },
+      "_conditions": Array [],
+      "_defaultDefault": [Function],
+      "_deps": Array [],
+      "_excludedEdges": Array [],
+      "_exclusive": Object {},
+      "_mutate": undefined,
+      "_nodes": Array [
+        "documentId",
+      ],
+      "_options": Object {
+        "abortEarly": true,
+        "recursive": true,
+      },
+      "_type": "object",
+      "_typeError": [Function],
+      "_whitelist": RefSet {
+        "list": Set {},
+        "refs": Map {},
+      },
+      "fields": Object {
+        "documentId": StringSchema {
+          "_blacklist": RefSet {
+            "list": Set {},
+            "refs": Map {},
+          },
+          "_conditions": Array [],
+          "_deps": Array [],
+          "_exclusive": Object {
+            "isValidBase64": false,
+            "required": true,
+          },
+          "_mutate": undefined,
+          "_options": Object {
+            "abortEarly": true,
+            "recursive": true,
+          },
+          "_type": "string",
+          "_typeError": [Function],
+          "_whitelist": RefSet {
+            "list": Set {},
+            "refs": Map {},
+          },
+          "tests": Array [
+            [Function],
+            [Function],
+          ],
+          "transforms": Array [
+            [Function],
+          ],
+          "type": "string",
+        },
+      },
+      "tests": Array [],
+      "transforms": Array [
+        [Function],
+      ],
+      "type": "object",
+    }
+  }
 >
   <Component />
 </Formik>
@@ -32,6 +97,7 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED fa
       required={true}
     />
     <Component
+      accept="image/*"
       allowClear={true}
       id="documentId"
       inputProps={
@@ -39,6 +105,7 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED fa
           "disabled": false,
         }
       }
+      isNarrowWidth={true}
       labelText="Upload File"
       name="documentId"
       onFilenameClick={[Function]}
@@ -134,6 +201,7 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED tr
       required={true}
     />
     <Component
+      accept="image/*"
       allowClear={true}
       id="documentId"
       inputProps={
@@ -141,6 +209,7 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED tr
           "disabled": true,
         }
       }
+      isNarrowWidth={true}
       labelText="Upload File"
       name="documentId"
       onFilenameClick={[Function]}

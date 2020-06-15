@@ -56,13 +56,11 @@ export const traceIdMiddleware = (req, res, next) => {
   next()
 }
 
-app.use(Sentry.Handlers.requestHandler())
 app.use(bodyParser.json())
 app.use(traceIdMiddleware)
 app.use(morganLogging)
 app.use(cors({ origin: true }))
 app.use('/v1/health', health)
 app.use('/v1/web-components-config', webComponentsConfig)
-app.use(Sentry.Handlers.errorHandler())
 
 export default app

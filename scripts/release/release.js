@@ -23,7 +23,7 @@ const release = async () => {
   }
 
   if (NPM_APPS.includes(packageName) && env === 'production') {
-    releaseNpm({ tagName: currentTag, packageName })
+    releaseNpm({ tagName: currentTag, packageName: `@reapit/${packageName}` })
   }
 
   if (SERVERLESS_APPS.includes(packageName)) {

@@ -8,18 +8,20 @@ export type RedirectUriSectionProps = {
 }
 
 const RedirectUriSection: React.FC<RedirectUriSectionProps> = ({ authFlow, isPrivateApp, setFieldValue }) => {
+  const isRequired = authFlow !== 'clientCredentials'
   return (
     <FormSection>
       <Grid>
         <GridItem>
-          <FormHeading>Redirect URI(s)</FormHeading>
+          <FormHeading>Redirect URI(s) {isRequired ? '*' : ''}</FormHeading>
           <FormSubHeading>
             Please enter a Redirect URI(s) to define the route Reapit Connect is permitted to redirect to after a
             successful authentication. The following formats are supported: https://, http:// (for localhost only) or
             your own custom URI schemes such as myapp://login. For multiple URI’s, separate using a comma.
           </FormSubHeading>
           <Input
-            disabled={authFlow === 'clientCredentials'}
+            required={isRequired}
+            disabled={!isRequired}
             dataTest="submit-app-redirect-uri"
             type="text"
             id="redirectUris"
@@ -30,14 +32,15 @@ const RedirectUriSection: React.FC<RedirectUriSectionProps> = ({ authFlow, isPri
       </Grid>
       <Grid>
         <GridItem>
-          <FormHeading>Sign Out URI(s)</FormHeading>
+          <FormHeading>Sign Out URI(s) {isRequired ? '*' : ''}</FormHeading>
           <FormSubHeading>
             Please enter a Sign Out URI(s) to define the route Reapit Connect is permitted to redirect to after
             successfully logging out. The following formats are supported: https://, http:// (for localhost only) or
             your own custom URI schemes such as myapp://login. For multiple URI’s, separate using a comma.
           </FormSubHeading>
           <Input
-            disabled={authFlow === 'clientCredentials'}
+            required={isRequired}
+            disabled={!isRequired}
             dataTest="submit-app-signout-uris"
             type="text"
             id="signoutUris"
@@ -73,6 +76,11 @@ const RedirectUriSection: React.FC<RedirectUriSectionProps> = ({ authFlow, isPri
             name="limitToClientIds"
             placeholder={'Please enter the Customer ID. For multiple Customer ID’s, please separate using a comma'}
           />
+          <FormSubHeading>
+            This field is disabled during the beta period. Your app will be private by default as the Marketplace is not
+            yet live. You will have the opportunity to make your app private via an edit before setting it to be
+            &#34;Listed&#34; in the marketplace when we move from beta to production.
+          </FormSubHeading>
         </GridItem>
       </Grid>
     </FormSection>

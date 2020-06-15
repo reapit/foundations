@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server'
+import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
 import { ContactModel, PagedResultContactModel_, CreateContactModel, UpdateContactModel } from '../../types'
 
 export type CreateContactArgs = CreateContactModel

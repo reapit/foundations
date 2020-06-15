@@ -16,7 +16,7 @@ const AuthenticationFlowSection: React.FC<AuthenticationFlowSectionProps> = ({
 }) => {
   return (
     <FormSection>
-      <FormHeading>AUTHENTICATION FLOW</FormHeading>
+      <FormHeading>AUTHENTICATION FLOW *</FormHeading>
       <FormSubHeading>
         Please select an authentication flow for your application.{' '}
         <strong>You can only do this once when you submit your app</strong>. If your application is{' '}

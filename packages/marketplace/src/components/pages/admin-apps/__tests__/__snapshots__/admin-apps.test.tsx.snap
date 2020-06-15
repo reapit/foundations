@@ -248,7 +248,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                               className="control "
                                             >
                                               <label
-                                                className="label "
+                                                className="label inline-block "
                                                 htmlFor="appName"
                                               >
                                                 App Name
@@ -295,7 +295,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                               className="control "
                                             >
                                               <label
-                                                className="label "
+                                                className="label inline-block "
                                                 htmlFor="developerName"
                                               >
                                                 Developer Name
@@ -342,7 +342,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                               className="control "
                                             >
                                               <label
-                                                className="label "
+                                                className="label inline-block "
                                                 htmlFor="companyName"
                                               >
                                                 Company Name
@@ -816,14 +816,17 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                           "accessor": "developer",
                         },
                         Object {
+                          "Cell": [Function],
                           "Header": "Is Listed",
                           "accessor": "isListed",
                         },
                         Object {
+                          "Cell": [Function],
                           "Header": "Pending Revisions",
                           "accessor": "pendingRevisions",
                         },
                         Object {
+                          "Cell": [Function],
                           "Header": "Direct API",
                           "accessor": "isDirectApi",
                         },
@@ -3050,6 +3053,14 @@ exports[`admin-apps generateColumns should match snapshot 1`] = `
   <Component />
 </div>
 `;
+
+exports[`admin-apps renderChecked should return checked icon 1`] = `
+<div>
+  <FaCheck />
+</div>
+`;
+
+exports[`admin-apps renderChecked should return null 1`] = `<div />`;
 
 exports[`admin-apps renderCreatedAt should match snapshot 1`] = `
 <div>

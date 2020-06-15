@@ -28,8 +28,9 @@ import { adminAppsRequestFeatured } from '@/actions/admin-apps'
 import AppDeleteModal from '@/components/ui/app-delete'
 import { addQuery, stringifyObjectIntoQueryString, getParamsFromPath } from '@/utils/client-url-params'
 import styles from '@/styles/pages/admin-apps.scss?mod'
-import { cleanObject } from '@/utils/object'
+import { cleanObject } from '@reapit/utils'
 import Routes from '@/constants/routes'
+import { FaCheck } from 'react-icons/fa'
 
 export type DeleteModalData = {
   visible: boolean
@@ -54,6 +55,10 @@ export const renderIsFeature = (dispatch: Dispatch<any>) => ({ row, cell }) => {
       <label className="label" htmlFor={id}></label>
     </div>
   )
+}
+
+export const renderChecked = ({ cell: { value } }) => {
+  return value ? <FaCheck /> : null
 }
 
 export const renderCreatedAt = ({ cell: { value } }) => {
@@ -102,14 +107,17 @@ export const generateColumns = ({ dispatch, setDataDeleteModal, deleteModalData 
     {
       Header: 'Is Listed',
       accessor: 'isListed',
+      Cell: renderChecked,
     },
     {
       Header: 'Pending Revisions',
       accessor: 'pendingRevisions',
+      Cell: renderChecked,
     },
     {
       Header: 'Direct API',
       accessor: 'isDirectApi',
+      Cell: renderChecked,
     },
     {
       Header: 'Created',
@@ -211,7 +219,7 @@ export const handleOnSubmit = history => (formValues: FormValues, { setStatus })
   const cleanedValues = cleanObject(formValues)
 
   if (isEmptyObject(cleanedValues)) {
-    setStatus('Please enter at least one search criterion')
+    setStatus('Please enter at least one search criteria')
     return
   }
 
@@ -225,7 +233,7 @@ export const handleChangePage = history => (page: number) => {
 
 export const renderContent = ({ adminAppsData, columns }) => {
   if (adminAppsData?.data && adminAppsData?.data?.length < 1) {
-    return <Alert message="You currently have no apps listed " type="info" />
+    return <Alert message="No Results " type="info" />
   }
   return (
     <div className="mb-5">

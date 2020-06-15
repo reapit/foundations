@@ -10,6 +10,7 @@ export interface TextAreaEditorProps extends EditorProps {
   name: string
   dataTest?: string
   allowPasteRichText?: boolean
+  required?: boolean
 }
 
 export type HandleTextAreaOnChangeParams = {
@@ -50,6 +51,7 @@ export const TextAreaEditor = ({
   placeholder,
   id,
   allowPasteRichText = false,
+  required = false,
   ...restProps
 }: TextAreaEditorProps) => {
   const [field, meta, helpers] = useField(name)
@@ -60,7 +62,7 @@ export const TextAreaEditor = ({
     <>
       <div className="field pb-2">
         <div className="control">
-          <label className="label" htmlFor={id}>
+          <label className={`label ${required ? 'required-label' : ''}`} htmlFor={id}>
             {labelText}
           </label>
           <Editor

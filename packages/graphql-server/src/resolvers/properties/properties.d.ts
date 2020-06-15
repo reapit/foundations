@@ -1,4 +1,4 @@
-import { AuthenticationError, UserInputError } from 'apollo-server'
+import { AuthenticationError, UserInputError } from 'apollo-server-lambda'
 import { PropertyModel, PagedResultPropertyModel_, CreatePropertyModel, UpdatePropertyModel } from '../../types'
 
 export type CreatePropertyArgs = CreatePropertyModel

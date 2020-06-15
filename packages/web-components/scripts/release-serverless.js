@@ -24,15 +24,15 @@ const deployServerlessList = () => {
   if (name) {
     const deploy = spawn('serverless', ['deploy', '--config', `src/${name}/server/serverless.yml`, '--stage', stage])
 
-    deploy.stderr.on('data', function (data) {
+    deploy.stderr.on('data', function(data) {
       console.error('stderr: ' + data.toString())
     })
 
-    deploy.on('exit', function (code) {
+    deploy.on('exit', function(code) {
       console.info(`Deploying ${name} exited with code ${code.toString()}`)
     })
 
-    deploy.on('error', function (err) {
+    deploy.on('error', function(err) {
       console.error(`An error happened \n${err}`)
       process.exit(1)
     })
@@ -49,19 +49,19 @@ const deployServerlessList = () => {
       { env },
     )
 
-    deploy.stderr.on('data', function (data) {
+    deploy.stderr.on('data', function(data) {
       console.error('stderr: ' + data.toString())
     })
 
-    deploy.on('exit', function (code) {
+    deploy.on('exit', function(code) {
       console.info(`Deploying ${name} exited with code ${code.toString()}`)
     })
 
-    deploy.on('exit', function (code) {
+    deploy.on('exit', function(code) {
       console.info(`Deploying ${configName} exited with code ${code.toString()}`)
     })
 
-    deploy.on('error', function (err) {
+    deploy.on('error', function(err) {
       console.error(`An error happened \n${err}`)
       process.exit(1)
     })

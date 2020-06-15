@@ -5,14 +5,18 @@ const uploadArtifact = async () => {
   const fileName = `${process.env.RELEASE_VERSION}.tar.gz`
   const { packageName } = getVersionTag()
   if (WEB_APPS.includes(packageName)) {
+    let workspaceName = packageName
+    if (packageName === 'elements') {
+      workspaceName = '@reapit/elements'
+    }
     try {
-      const fetchConfigResult = execSync(`yarn workspace ${packageName} fetch-config development`).toString()
+      const fetchConfigResult = execSync(`yarn workspace ${workspaceName} fetch-config development`).toString()
       console.info(fetchConfigResult)
-      const lintResult = execSync(`yarn workspace ${packageName} lint`).toString()
+      const lintResult = execSync(`yarn workspace ${workspaceName} lint`).toString()
       console.info(lintResult)
-      const testResult = execSync(`yarn workspace ${packageName} test:ci`).toString()
+      const testResult = execSync(`yarn workspace ${workspaceName} test:ci`).toString()
       console.info(testResult)
-      const buildResult = execSync(`yarn workspace ${packageName} build:prod`).toString()
+      const buildResult = execSync(`yarn workspace ${workspaceName} build:prod`).toString()
       console.info(buildResult)
       const resultTarFile = execSync(
         `tar -C ./packages/${packageName}/public  -czvf ${fileName} --exclude='config.json' dist`,

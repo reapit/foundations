@@ -17,6 +17,7 @@ import {
   handleChangePage,
   renderContent,
   AdminApps,
+  renderChecked,
 } from '../admin-apps'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
@@ -212,6 +213,16 @@ describe('admin-apps', () => {
           </ReactRedux.Provider>,
         ),
       ).toMatchSnapshot()
+    })
+  })
+
+  describe('renderChecked', () => {
+    it('should return checked icon', () => {
+      expect(shallow(<div>{renderChecked({ cell: { value: true } })}</div>)).toMatchSnapshot()
+    })
+
+    it('should return null', () => {
+      expect(shallow(<div>{renderChecked({ cell: { value: false } })}</div>)).toMatchSnapshot()
     })
   })
 })

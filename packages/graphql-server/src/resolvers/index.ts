@@ -14,14 +14,14 @@ export const resolvers = merge(
   {
     JSON: GraphQLJSON,
   },
-  Contact,
-  Areas,
-  Offices,
   Appointments,
-  Negotiators,
-  Properties,
+  Areas,
   Configurations,
+  Contact,
   IdentityChecks,
+  Negotiators,
+  Offices,
   Ping,
+  Properties,
 )
 export default resolvers

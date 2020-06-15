@@ -7,7 +7,7 @@ import {
   generateInternalServerError,
   generateNotFoundError,
 } from '../errors'
-import { AuthenticationError, UserInputError, ApolloError, ForbiddenError, ValidationError } from 'apollo-server'
+import { AuthenticationError, UserInputError, ApolloError, ForbiddenError, ValidationError } from 'apollo-server-lambda'
 
 describe('generateAuthenticationError', () => {
   it('should return AuthenticationError', () => {

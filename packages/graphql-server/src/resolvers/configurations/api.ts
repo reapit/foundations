@@ -1,5 +1,5 @@
 import logger from '../../logger'
-import { ServerContext } from '../../app'
+import { ServerContext } from '../../index'
 import {
   GetConfigurationByTypeAndIdReturn,
   GetConfigurationsByTypeReturn,
@@ -27,7 +27,8 @@ export const callGetConfigurationsByTypeAndIdApi = async (
     )
     return response?.data
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callGetConfigurationsByTypeAndIdApi' })
+    const handleErrorResult = await handleError({ error, traceId, caller: 'callGetConfigurationsByTypeAndIdApi' })
+    return handleErrorResult
   }
 }
 
@@ -48,6 +49,7 @@ export const callGetConfigurationsByTypeApi = async (
     )
     return response?.data
   } catch (error) {
-    return handleError({ error, traceId, caller: 'callGetConfigurationsByTypeApi' })
+    const handleErrorResult = await handleError({ error, traceId, caller: 'callGetConfigurationsByTypeApi' })
+    return handleErrorResult
   }
 }

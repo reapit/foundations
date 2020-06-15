@@ -49,6 +49,8 @@ const DeveloperSettingsBillingTabPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/settings/developer-settings-billing-tab')),
 )
 
+const DeveloperAdminBillingPage = React.lazy(() => catchChunkError(() => import('../components/pages/admin-billing')))
+
 const Router = () => {
   const isProduction = window.reapit.config.appEnv === 'production'
   const paths = [Routes.DEVELOPER_LOGIN, Routes.ADMIN_LOGIN]
@@ -69,6 +71,13 @@ const Router = () => {
                 allow={['CLIENT', 'DEVELOPER']}
                 path={Routes.AUTHENTICATION_LOGIN_TYPE}
                 component={Authentication}
+              />
+              <PrivateRoute
+                allow="ADMIN"
+                path={Routes.ADMIN_BILLING}
+                component={DeveloperAdminBillingPage}
+                fetcher
+                exact
               />
               <PrivateRoute allow="CLIENT" path={Routes.INSTALLED_APPS} component={InstalledApps} fetcher exact />
               <PrivateRoute allow="CLIENT" path={Routes.MY_APPS} component={ClientAppsManagement} fetcher exact />
@@ -126,13 +135,13 @@ const Router = () => {
                 component={DeveloperSettingsPage}
               />
               <PrivateRoute
-                allow="ADMIN"
+                allow="DEVELOPER"
                 path={Routes.DEVELOPER_SETTINGS_BILLING_TAB}
                 fetcher
                 component={DeveloperSettingsBillingTabPage}
               />
               <PrivateRoute
-                allow="ADMIN"
+                allow="DEVELOPER"
                 path={Routes.DEVELOPER_SETTINGS_ORGANISATION_TAB}
                 fetcher
                 component={DeveloperSettingsOrganisationTabPage}

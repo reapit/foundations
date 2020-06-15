@@ -30,7 +30,7 @@ import qs from 'querystring'
 import styles from '@/styles/pages/admin-apps.scss?mod'
 import { selectAdminDevManagement } from '@/selector/admin'
 import { Dispatch } from 'redux'
-import { cleanObject } from '@/utils/object'
+import { cleanObject } from '@reapit/utils'
 
 export interface AdminDevManagementMappedActions {
   fetchData: (requestdata: AdminDevManagementRequestDataValues) => void
@@ -73,11 +73,12 @@ export const onSearchHandler = (history: History<any>) => (
   { setStatus },
 ) => {
   const cleanedValues = cleanObject(queryParams)
+
   if (isEmptyObject(cleanedValues)) {
-    setStatus('Please enter at least one search criterion')
+    setStatus('Please enter at least one search criteria')
     return
   }
-  const query = setQueryParams(queryParams)
+  const query = setQueryParams(cleanedValues)
   if (query && query !== '') {
     const queryString = `?page=1&${query}`
     history.push(`${Routes.ADMIN_DEV_MANAGEMENT}${queryString}`)

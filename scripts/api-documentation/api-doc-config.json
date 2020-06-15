@@ -1751,7 +1751,7 @@
       "color": "#ecec00",
       "created": 1590743508931,
       "data": {
-        "graphQLServerDomain": "8g8ibl8iei.execute-api.eu-west-2.amazonaws.com/dev/v1/graphql",
+        "graphQLServerDomain": "rszshvrapg.execute-api.eu-west-2.amazonaws.com/dev/graphql",
         "protocol": "https",
         "webComponentConfigServerDomain": "vwvdddbw9k.execute-api.eu-west-2.amazonaws.com",
         "webComponentServerDomain": "b2q5q0tc48.execute-api.eu-west-2.amazonaws.com/dev"
@@ -1801,7 +1801,7 @@
       "color": "#d00000",
       "created": 1590748587252,
       "data": {
-        "graphQLServerDomain": "8g8ibl8iei.execute-api.eu-west-2.amazonaws.com/dev/v1/graphql",
+        "graphQLServerDomain": "rszshvrapg.execute-api.eu-west-2.amazonaws.com/dev/graphql",
         "protocol": "https",
         "webComponentConfigServerDomain": "vwvdddbw9k.execute-api.eu-west-2.amazonaws.com",
         "webComponentServerDomain": "b2q5q0tc48.execute-api.eu-west-2.amazonaws.com/dev"

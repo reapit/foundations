@@ -1,6 +1,6 @@
 import React from 'react'
-import { cx } from 'linaria'
-import { breadcrumbItem, bold, lastItem } from './__styles__/styles'
+import classNames from 'classnames'
+import { breadcrumbItem, breadcrumbBold, breadcrumbLastItem } from './__styles__/styles'
 
 export type RenderLinksParams = {
   children: React.ReactNode
@@ -15,13 +15,22 @@ export type RenderLinksParams = {
 export const renderLinks = ({ children, href, onClick, style, isCurrent, className, isLast }: RenderLinksParams) => {
   if (href) {
     return (
-      <a href={href} style={style} className={cx(className, isCurrent && bold, isLast && lastItem)} onClick={onClick}>
+      <a
+        href={href}
+        style={style}
+        className={classNames(className, isCurrent && breadcrumbBold, isLast && breadcrumbLastItem)}
+        onClick={onClick}
+      >
         {children}
       </a>
     )
   }
   return (
-    <span style={style} className={cx(className, isCurrent && bold, isLast && lastItem)} onClick={onClick}>
+    <span
+      style={style}
+      className={classNames(className, isCurrent && breadcrumbBold, isLast && breadcrumbLastItem)}
+      onClick={onClick}
+    >
       {children}
     </span>
   )

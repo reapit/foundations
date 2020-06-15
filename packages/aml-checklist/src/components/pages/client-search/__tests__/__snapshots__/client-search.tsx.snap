@@ -1,0 +1,318 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ClientSearch renderForm should match a snapshot when loginMode is DESKTOP 1`] = `
+<div>
+  <Unknown
+    flexColumn={true}
+    hasBackground={true}
+    hasPadding={true}
+  >
+    <Unknown>
+      Client Search
+    </Unknown>
+    <Form
+      className="mb-8"
+    >
+      <Unknown
+        id="name"
+        labelText="Search by name"
+        name="name"
+        placeholder="Firstname or Surname"
+        type="text"
+      />
+      <Unknown
+        id="address"
+        labelText="Search by address"
+        name="address"
+        placeholder="Streetname, Village, Town or Postcode"
+        type="text"
+      />
+      <Unknown
+        id="identityCheck"
+        labelText="Search by ID Status"
+        name="identityCheck"
+        options={
+          Array [
+            Object {
+              "label": "Please select…",
+              "value": "",
+            },
+            Object {
+              "label": "Pass",
+              "value": "Pass",
+            },
+            Object {
+              "label": "Fail",
+              "value": "Fail",
+            },
+            Object {
+              "label": "Pending",
+              "value": "Pending",
+            },
+            Object {
+              "label": "Cancelled",
+              "value": "Cancelled",
+            },
+            Object {
+              "label": "Warnings",
+              "value": "Warnings",
+            },
+            Object {
+              "label": "Unchecked",
+              "value": "Unchecked",
+            },
+          ]
+        }
+      />
+      <Unknown
+        className="is-right"
+        type="submit"
+        variant="primary"
+      >
+        Search
+      </Unknown>
+      <Unknown
+        buttonProps={
+          Object {
+            "disabled": true,
+            "type": "button",
+            "variant": "primary",
+          }
+        }
+        dynamicLinkParams={
+          Object {
+            "appMode": "DESKTOP",
+            "entityType": "contacts",
+            "queryParams": Object {
+              "address": undefined,
+              "appId": undefined,
+              "appParam": "cntCode",
+              "name": undefined,
+            },
+          }
+        }
+      >
+        Advanced Search
+      </Unknown>
+    </Form>
+  </Unknown>
+</div>
+`;
+
+exports[`ClientSearch renderForm should match a snapshot when loginMode is WEB 1`] = `
+<div>
+  <Unknown
+    flexColumn={true}
+    hasBackground={true}
+    hasPadding={true}
+  >
+    <Unknown>
+      Client Search
+    </Unknown>
+    <Form
+      className="mb-8"
+    >
+      <Unknown
+        id="name"
+        labelText="Search by name"
+        name="name"
+        placeholder="Firstname or Surname"
+        type="text"
+      />
+      <Unknown
+        id="address"
+        labelText="Search by address"
+        name="address"
+        placeholder="Streetname, Village, Town or Postcode"
+        type="text"
+      />
+      <Unknown
+        id="identityCheck"
+        labelText="Search by ID Status"
+        name="identityCheck"
+        options={
+          Array [
+            Object {
+              "label": "Please select…",
+              "value": "",
+            },
+            Object {
+              "label": "Pass",
+              "value": "Pass",
+            },
+            Object {
+              "label": "Fail",
+              "value": "Fail",
+            },
+            Object {
+              "label": "Pending",
+              "value": "Pending",
+            },
+            Object {
+              "label": "Cancelled",
+              "value": "Cancelled",
+            },
+            Object {
+              "label": "Warnings",
+              "value": "Warnings",
+            },
+            Object {
+              "label": "Unchecked",
+              "value": "Unchecked",
+            },
+          ]
+        }
+      />
+      <Unknown
+        className="is-right"
+        type="submit"
+        variant="primary"
+      >
+        Search
+      </Unknown>
+    </Form>
+  </Unknown>
+</div>
+`;
+
+exports[`ClientSearch should match a snapshot 1`] = `
+<Connect(ErrorBoundary)>
+  <Component
+    flexColumn={true}
+    hasPadding={true}
+  >
+    <Formik
+      initialValues={
+        Object {
+          "address": "",
+          "identityCheck": "",
+          "name": "",
+        }
+      }
+      onSubmit={[Function]}
+      validationSchema={
+        ObjectSchema {
+          "_blacklist": RefSet {
+            "list": Set {},
+            "refs": Map {},
+          },
+          "_conditions": Array [],
+          "_defaultDefault": [Function],
+          "_deps": Array [],
+          "_excludedEdges": Array [],
+          "_exclusive": Object {},
+          "_mutate": undefined,
+          "_nodes": Array [
+            "address",
+            "name",
+          ],
+          "_options": Object {
+            "abortEarly": true,
+            "recursive": true,
+          },
+          "_type": "object",
+          "_typeError": [Function],
+          "_whitelist": RefSet {
+            "list": Set {},
+            "refs": Map {},
+          },
+          "fields": Object {
+            "address": StringSchema {
+              "_blacklist": RefSet {
+                "list": Set {},
+                "refs": Map {},
+              },
+              "_conditions": Array [],
+              "_deps": Array [],
+              "_exclusive": Object {
+                "matches": false,
+                "max": true,
+                "trim": false,
+              },
+              "_mutate": undefined,
+              "_options": Object {
+                "abortEarly": true,
+                "recursive": true,
+              },
+              "_type": "string",
+              "_typeError": [Function],
+              "_whitelist": RefSet {
+                "list": Set {},
+                "refs": Map {},
+              },
+              "tests": Array [
+                [Function],
+                [Function],
+                [Function],
+              ],
+              "transforms": Array [
+                [Function],
+                [Function],
+              ],
+              "type": "string",
+            },
+            "name": StringSchema {
+              "_blacklist": RefSet {
+                "list": Set {},
+                "refs": Map {},
+              },
+              "_conditions": Array [
+                Condition {
+                  "fn": [Function],
+                  "refs": Array [
+                    Reference {
+                      "getter": [Function],
+                      "isContext": false,
+                      "isSibling": true,
+                      "isValue": false,
+                      "key": "address",
+                      "map": undefined,
+                      "path": "address",
+                    },
+                  ],
+                },
+              ],
+              "_deps": Array [
+                "address",
+              ],
+              "_exclusive": Object {
+                "matches": false,
+                "max": true,
+                "trim": false,
+              },
+              "_mutate": undefined,
+              "_options": Object {
+                "abortEarly": true,
+                "recursive": true,
+              },
+              "_type": "string",
+              "_typeError": [Function],
+              "_whitelist": RefSet {
+                "list": Set {},
+                "refs": Map {},
+              },
+              "tests": Array [
+                [Function],
+                [Function],
+                [Function],
+              ],
+              "transforms": Array [
+                [Function],
+                [Function],
+              ],
+              "type": "string",
+            },
+          },
+          "tests": Array [],
+          "transforms": Array [
+            [Function],
+          ],
+          "type": "object",
+        }
+      }
+    >
+      <Component />
+    </Formik>
+  </Component>
+</Connect(ErrorBoundary)>
+`;

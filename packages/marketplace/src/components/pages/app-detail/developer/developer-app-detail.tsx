@@ -68,7 +68,7 @@ const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
   }
 
   return (
-    <FlexContainerResponsive hasPadding>
+    <FlexContainerResponsive hasPadding className={styles.flexContainer}>
       <Grid className={styles.container}>
         <GridItem className="is-one-quarter">
           <DeveloperAside desktopIntegrationTypes={userDesktopIntegrationTypes} appDetailState={appDetailState} />

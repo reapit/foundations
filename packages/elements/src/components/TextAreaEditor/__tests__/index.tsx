@@ -26,6 +26,17 @@ describe('TextAreaEditor', () => {
       ),
     ).toMatchSnapshot()
   })
+
+  it('should match a snapshot when required', () => {
+    expect(
+      shallow(
+        <Formik onSubmit={jest.fn()} initialValues={{}}>
+          {() => <TextAreaEditor {...props} required />}
+        </Formik>,
+      ),
+    ).toMatchSnapshot()
+  })
+
   describe('onChange', () => {
     const mockField = {
       onChange: jest.fn(),

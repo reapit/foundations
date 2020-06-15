@@ -1,6 +1,6 @@
 {
   "name": "@reapit/web-components",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "homepage": "https://github.com/reapit/foundations",
   "main": "./public/dist-npm/cjs/index.js",
   "module": "./public/dist-npm/esm/index.js",
@@ -51,7 +51,7 @@
     "lodash.pickby": "^4.6.0",
     "serverless-http": "^2.3.2",
     "svelte-fa": "^2.1.1",
-    "typescript": "~3.7.2",
+    "typescript": "~3.9.3",
     "snyk": "^1.335.0"
   },
   "scripts": {

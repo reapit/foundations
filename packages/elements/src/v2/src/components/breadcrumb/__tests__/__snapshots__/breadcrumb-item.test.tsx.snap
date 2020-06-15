@@ -11,7 +11,7 @@ exports[`breadcrumb-item BreadcrumbItem should match snapshot 4`] = `
   className=""
 >
   <a
-    className=""
+    className="mockClassName"
     href="#"
     onClick={[Function]}
   >
@@ -30,7 +30,7 @@ exports[`breadcrumb-item BreadcrumbItem should match snapshot when full props 1`
 exports[`breadcrumb-item renderLinks should run correctly and match snapshot 1`] = `
 <div>
   <a
-    className=""
+    className="mockClassName"
     href="#123"
     onClick={[MockFunction]}
     style={
@@ -49,7 +49,7 @@ exports[`breadcrumb-item renderLinks should run correctly and match snapshot 1`]
 exports[`breadcrumb-item renderLinks should run correctly and match snapshot when no href 1`] = `
 <div>
   <a
-    className=""
+    className="mockClassName"
     href="#123"
     onClick={[MockFunction]}
     style={

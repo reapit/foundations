@@ -1,5 +1,6 @@
 @charset "utf-8";
 @import './colors.scss';
+@import './browser.scss';
 
 * {
   box-sizing: border-box !important;
@@ -10,9 +11,12 @@ html {
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
 }
 
-// TODO - revert to $grey-lightest after demo, just for projector
 body {
   background: $grey-lighter;
+}
+
+#root {
+  height: 100%;
 }
 
 ins {
@@ -24,4 +28,12 @@ del.del-diff {
   text-decoration: line-through;
   background-color: #fbb6c2;
   color: #555;
+}
+
+.flex-col-min-height {
+  //Fix flex column height bug in IE
+  //https://stackoverflow.com/a/43027202
+  @include for-ie-only {
+    min-height: 1px;
+  }
 }
