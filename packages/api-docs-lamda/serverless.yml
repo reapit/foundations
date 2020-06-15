@@ -1,0 +1,48 @@
+service: api-docs-lambda
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+custom:
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: true
+    packager: 'yarn'
+    packagerOptions:
+      noFrozenLockFile: false
+    excludeFiles: src/**/*.test.ts
+    keepOutputDirectory: true
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: 'eu-west-2'
+  deploymentBucket:
+    name: api-docs-lambda
+    blockPublicAccess: false
+  environment:
+    NODE_ENV: 'production'
+
+package:
+  individually: true
+  include:
+    - dist/**
+  exclude:
+    - package.json
+    - node_modules/**
+    - error.log
+    - info.log
+    - jest.config.js
+    - serverless.yml
+    - src/**
+    - tsconfig.json
+    - yml-helpers.js
+
+functions:
+  apiDocsHandler:
+    handler: src/index.apiDocsHandler
+    events:
+      - http:
+          method: get
+          path: /
+          cors: false
