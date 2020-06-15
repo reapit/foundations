@@ -67,12 +67,32 @@ Object {
               <td
                 role="cell"
               >
-                £595 
+                £595
               </td>
               <td
                 role="cell"
               >
                 Payable for each Application approved in accordance with clauses 2.5 and 2.6, and payable per contract year, in advance
+              </td>
+            </tr>
+            <tr
+              class=""
+              role="row"
+            >
+              <td
+                role="cell"
+              >
+                Monthly Developer Edition Fee
+              </td>
+              <td
+                role="cell"
+              >
+                £300 
+              </td>
+              <td
+                role="cell"
+              >
+                Payable monthly on an ongoing basis until cancelled.
               </td>
             </tr>
             <tr
@@ -183,12 +203,32 @@ Object {
             <td
               role="cell"
             >
-              £595 
+              £595
             </td>
             <td
               role="cell"
             >
               Payable for each Application approved in accordance with clauses 2.5 and 2.6, and payable per contract year, in advance
+            </td>
+          </tr>
+          <tr
+            class=""
+            role="row"
+          >
+            <td
+              role="cell"
+            >
+              Monthly Developer Edition Fee
+            </td>
+            <td
+              role="cell"
+            >
+              £300 
+            </td>
+            <td
+              role="cell"
+            >
+              Payable monthly on an ongoing basis until cancelled.
             </td>
           </tr>
           <tr

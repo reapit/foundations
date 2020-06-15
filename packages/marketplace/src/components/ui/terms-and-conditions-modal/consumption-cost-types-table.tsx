@@ -5,10 +5,15 @@ const consumptionCostTypes = [
   { type: 'Annual Registration Fee', amount: '£995', payable: 'Per Contract year, payable in advance' },
   {
     type: 'Annual App Marketplace Fee',
-    amount: '£595 ',
+    amount: '£595',
     payable:
       /* eslint-disable-next-line max-len */
       'Payable for each Application approved in accordance with clauses 2.5 and 2.6, and payable per contract year, in advance',
+  },
+  {
+    type: 'Monthly Developer Edition Fee',
+    amount: '£300 ',
+    payable: 'Payable monthly on an ongoing basis until cancelled.',
   },
   { type: 'Monthly Data Storage Fee - Per 1GB', amount: '£0.50', payable: 'Payable monthly in arrears' },
   {
