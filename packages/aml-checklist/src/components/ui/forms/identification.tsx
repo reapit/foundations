@@ -4,6 +4,10 @@ import { Button, Input, DatePicker, CameraImageInput, Formik, Form } from '@reap
 import SelectIdentity from '@/components/ui/inputs/select-identity'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { downloadDocument } from '@/services/documents'
+import validationSchema from './form-schema/validation-schema'
+import FormFields from './form-schema/form-fields'
+
+const { typeIdField, detailsField, expiryField, documentIdField } = FormFields
 
 export interface IdentityDocumentForm extends IdentityDocumentModel {
   documentId: string
@@ -46,18 +50,26 @@ export const renderFormHandler = ({
         <p className="mb-4">*Please ensure the Primary ID has been completed before adding a Secondary ID</p>
       )}
       <Form>
-        <SelectIdentity id="typeId" name="typeId" labelText="ID Type" />
-        <Input id="details" name="details" type="text" placeholder="ID Reference" required labelText="ID Reference" />
-        <DatePicker id="expiry" name="expiry" labelText="Expiry Date" required />
+        <SelectIdentity id={typeIdField.name} name={typeIdField.name} labelText={typeIdField.label || ''} />
+        <Input
+          id={detailsField.name}
+          name={detailsField.name}
+          type="text"
+          placeholder={detailsField.placeHolder}
+          required
+          labelText={detailsField.label}
+        />
+        <DatePicker id={expiryField.name} name={expiryField.name} labelText={expiryField.label} required />
         <CameraImageInput
-          id="documentId"
-          name="documentId"
-          labelText="Upload File"
+          id={documentIdField.name}
+          name={documentIdField.name}
+          labelText={documentIdField.label || ''}
           allowClear={true}
           inputProps={{ disabled: disabled }}
           required
           onFilenameClick={handleFilenameClick}
           isNarrowWidth
+          accept="image/*"
         />
         <div className="field pb-2">
           <div className={`columns ${styles.reverseColumns}`}>
@@ -91,7 +103,11 @@ export const onSubmitHandler = (onSaveHandler: (formValues: IdentityDocumentForm
 ) => onSaveHandler(formValues)
 
 export const Identification: React.FC<IdentificationProps> = props => (
-  <Formik initialValues={props.initFormValues} onSubmit={onSubmitHandler(props.onSaveHandler)}>
+  <Formik
+    initialValues={props.initFormValues}
+    onSubmit={onSubmitHandler(props.onSaveHandler)}
+    validationSchema={validationSchema}
+  >
     {renderFormHandler(props)}
   </Formik>
 )
