@@ -2,6 +2,7 @@
 import { ReduxState, FormState } from '@/types/core'
 import { AppSummaryModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { Billing, MonthlyBilling, WebhookPingTestStatus } from '@/reducers/developer'
+import { SubscriptionsListResult } from '@/services/subscriptions'
 
 export const selectDeveloperId = (state: ReduxState) => {
   return state.auth.loginSession?.loginIdentity.developerId
@@ -53,4 +54,12 @@ export const selectWebhookTestStatus = (state: ReduxState): WebhookPingTestStatu
 
 export const selectDeveloperFormState = (state: ReduxState): FormState => {
   return state.developer?.formState
+}
+
+export const selectSubscriptions = (state: ReduxState): SubscriptionsListResult => {
+  return state.developer?.subscriptions?.data || ({} as SubscriptionsListResult)
+}
+
+export const selectSubscriptionsLoading = (state: ReduxState): boolean => {
+  return state.developer?.subscriptions?.loading
 }

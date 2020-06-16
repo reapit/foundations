@@ -18,6 +18,7 @@ exports[`DeveloperBillingTabPage should match snapshot when isAdmin = false 2`] 
       hasPadding={true}
     >
       <Component />
+      <Component />
     </Component>
   </Component>
 </Component>
