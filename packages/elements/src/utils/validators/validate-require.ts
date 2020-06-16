@@ -17,7 +17,7 @@ export const validateRequire = <ValuesType, ErrorKeys extends string>({
 }
 
 export const fieldValidateRequire = (value: string) => {
-  if (isEmpty(value)) {
+  if (!value) {
     return errorMessages.FIELD_REQUIRED
   }
   return null
