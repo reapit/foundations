@@ -9,7 +9,6 @@ const {
   titleField,
   forenameField,
   surnameField,
-  dateOfBirthField,
   homePhoneField,
   mobilePhoneField,
   workPhoneField,
@@ -26,7 +25,6 @@ const profileValidationSchema = Yup.object().shape({
   [surnameField.name]: Yup.string()
     .trim()
     .required(FIELD_REQUIRED),
-  [dateOfBirthField.name]: Yup.string().required(FIELD_REQUIRED),
   [emailField.name]: Yup.string()
     .trim()
     .required(FIELD_REQUIRED)
