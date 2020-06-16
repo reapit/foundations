@@ -60,6 +60,7 @@
     "react-google-maps-loader": "4.2.5",
     "react-icons": "^3.7.0",
     "react-table": "7.0.6",
+    "react-image-crop": "8.6.4",
     "styled-components": "^4.4.1",
     "snyk": "^1.338.0"
   },
