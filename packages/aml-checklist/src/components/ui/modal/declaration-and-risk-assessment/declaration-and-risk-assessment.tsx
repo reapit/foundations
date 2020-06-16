@@ -31,6 +31,7 @@ export const renderForm = ({ onNextHandler, onPrevHandler, isSubmitting }) => ({
             id={declarationFormField.name}
             name={declarationFormField.name}
             allowClear={true}
+            isNarrowWidth
           />
         </div>
         <SelectBox
