@@ -88,6 +88,14 @@ export const TermAndConditions = () => (
 
             <li className={styles['child']}>
               <span>
+                <b>Developer Edition</b> means a single user downloadable version of the Reapit RPS software for the
+                purpose of testing integrations and Applications in the Developer environment by the Developer, for
+                which a monthly fee is payable.
+              </span>
+            </li>
+
+            <li className={styles['child']}>
+              <span>
                 <b>Developer Feedback</b> means any data, information, text, drawings, records, documents and other
                 materials provided pursuant to clause 2.2.4.
               </span>
