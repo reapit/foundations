@@ -23,6 +23,7 @@ export interface FileInputProps {
   inputProps?: Record<string, any>
   required?: boolean
   onFilenameClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
+  afterUpload?: () => any
 }
 
 export const FileInput = ({
