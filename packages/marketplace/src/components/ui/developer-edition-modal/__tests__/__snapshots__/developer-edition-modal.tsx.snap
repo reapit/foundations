@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeveloperEditionModal should match snapshot when not visible 1`] = `""`;
+
+exports[`DeveloperEditionModal should match snapshot when visible 1`] = `
+<Component
+  afterClose={[MockFunction]}
+  visible={true}
+>
+  <Component
+    afterClose={[MockFunction]}
+    title="Agency Cloud Developer Edition"
+    visible={true}
+  />
+</Component>
+`;

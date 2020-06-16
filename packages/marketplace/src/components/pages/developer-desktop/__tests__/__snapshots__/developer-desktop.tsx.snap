@@ -14,7 +14,20 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
       <Component>
         Desktop
       </Component>
+      <Component>
+        <Component
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Developer Edition
+        </Component>
+      </Component>
     </Component>
   </Component>
+  <Component
+    afterClose={[Function]}
+    visible={false}
+  />
 </Connect(ErrorBoundary)>
 `;
