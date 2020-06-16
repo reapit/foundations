@@ -39,12 +39,10 @@ interface PrepareTableColumns {
 }
 
 export const prepareTableColumns = (monthlyBilling?: MonthlyBilling | null) => {
-  const totalEndpoints = monthlyBilling?.totalEndpoints || 0
-  const totalRequests = monthlyBilling?.totalRequests || 0
   const totalCost = monthlyBilling?.totalCost || 0
   return [
     {
-      Header: 'Resource',
+      Header: 'Services',
       accessor: 'serviceName',
       columnProps: {
         className: 'capitalize',
@@ -57,14 +55,12 @@ export const prepareTableColumns = (monthlyBilling?: MonthlyBilling | null) => {
       accessor: row => {
         return row.endpointCount && formatNumber(row.endpointCount)
       },
-      Footer: formatNumber(totalEndpoints),
     },
     {
-      Header: 'API Calls',
+      Header: 'Amount',
       accessor: row => {
         return row.requestCount && formatNumber(row.requestCount)
       },
-      Footer: formatNumber(totalRequests),
     },
     {
       Header: 'Cost',
