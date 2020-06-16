@@ -1,11 +1,14 @@
 import * as React from 'react'
 import { GridItem, FormHeading, FormSubHeading, RadioSelect, Input } from '@reapit/elements'
 import { AccountsInformationFormValues } from './accounts-information-form'
+import formFields from './form-schema/form-fields'
 
 export type ReapitReferenceSectionProps = {
   setFieldValue: (field: string, value: any, shouldValidate?: boolean | undefined) => void
   values: AccountsInformationFormValues
 }
+
+const { hasReapitAccountsRefField, reapitAccountsRefField } = formFields
 
 const hasReapitAccountsRefRadioOptions = [
   { label: 'Yes', value: 'yes' },
@@ -17,26 +20,23 @@ const ReapitReferenceSection: React.FC<ReapitReferenceSectionProps> = ({ setFiel
   const hasReapitAccountsRefFieldDisabled = hasReapitAccountsRef === 'no'
   return (
     <GridItem>
-      <FormHeading>Reapit Reference</FormHeading>
-      <FormSubHeading>
-        If you have an existing account with Reapit you will be able to find your Reapit reference on previous
-        correspondence
-      </FormSubHeading>
+      <FormHeading>{hasReapitAccountsRefField.heading}</FormHeading>
+      <FormSubHeading>{hasReapitAccountsRefField.subHeading}</FormSubHeading>
       <RadioSelect
         isHorizontal
-        labelText="Do you have a Reapit Accounts Ref?"
+        labelText={hasReapitAccountsRefField.label}
         setFieldValue={setFieldValue}
         state={hasReapitAccountsRef}
         options={hasReapitAccountsRefRadioOptions}
-        name="hasReapitAccountsRef"
-        id="hasReapitAccountsRef"
+        name={hasReapitAccountsRefField.name}
+        id={hasReapitAccountsRefField.name}
       />
       <Input
         dataTest="reapitAccountsRef"
         type="text"
-        id="reapitAccountsRef"
-        name="reapitAccountsRef"
-        placeholder="Please enter reference"
+        id={reapitAccountsRefField.name}
+        name={reapitAccountsRefField.name}
+        placeholder={reapitAccountsRefField.placeHolder}
         disabled={hasReapitAccountsRefFieldDisabled}
       />
     </GridItem>

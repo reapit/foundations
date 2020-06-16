@@ -1,35 +1,46 @@
 import * as React from 'react'
 import { GridItem, FormHeading, FormSubHeading, Input } from '@reapit/elements'
+import formFields from './form-schema/form-fields'
 
 export type ContactInformationSectionProps = {}
+
+const { emailField, phoneNumberField, contactField } = formFields
 
 const ContactInformationSection: React.FC<ContactInformationSectionProps> = () => {
   return (
     <>
       <GridItem>
-        <FormHeading>Accounts Email</FormHeading>
-        <FormSubHeading>
-          This email will be used by our Accounts Department to send any account related correspondence
-        </FormSubHeading>
-        <Input dataTest="email" type="email" id="email" name="email" placeholder="Please enter email address" />
-      </GridItem>
-      <GridItem>
-        <FormHeading>Accounts Telephone</FormHeading>
-        <FormSubHeading>
-          If you have a specific telephone number for your accounts department, please enter here
-        </FormSubHeading>
+        <FormHeading>{emailField.heading}</FormHeading>
+        <FormSubHeading>{emailField.subHeading}</FormSubHeading>
         <Input
-          dataTest="phoneNumber"
-          type="text"
-          id="phoneNumber"
-          name="phoneNumber"
-          placeholder="Please enter telephone number"
+          dataTest="email"
+          type="email"
+          id={emailField.name}
+          name={emailField.name}
+          placeholder={emailField.placeHolder}
         />
       </GridItem>
       <GridItem>
-        <FormHeading>Accounts Contact</FormHeading>
-        <FormSubHeading>If you have a key contact in your Accounts Department, please enter here</FormSubHeading>
-        <Input dataTest="contact" type="text" id="contact" name="contact" placeholder="Please enter contact" />
+        <FormHeading>{phoneNumberField.heading}</FormHeading>
+        <FormSubHeading>{phoneNumberField.subHeading}</FormSubHeading>
+        <Input
+          dataTest="phoneNumber"
+          type="text"
+          id={phoneNumberField.name}
+          name={phoneNumberField.name}
+          placeholder={phoneNumberField.placeHolder}
+        />
+      </GridItem>
+      <GridItem>
+        <FormHeading>{contactField.heading}</FormHeading>
+        <FormSubHeading>{contactField.subHeading}</FormSubHeading>
+        <Input
+          dataTest="contact"
+          type="text"
+          id={contactField.name}
+          name={contactField.name}
+          placeholder={contactField.placeHolder}
+        />
       </GridItem>
     </>
   )

@@ -1186,48 +1186,76 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                               className="label"
                                               htmlFor="authFlow"
                                             />
-                                            <div
-                                              className="radio-wrap"
-                                              key="0"
+                                            <Component
+                                              className="is-gapless"
+                                              isMultiLine={true}
                                             >
-                                              <input
-                                                checked={false}
-                                                className="checkbox "
-                                                disabled={false}
-                                                id="authFlowAUTHORIZATION CODE (Reapit Connect)"
-                                                key="authorisationCode"
-                                                name="authFlow"
-                                                onChange={[Function]}
-                                                type="radio"
-                                                value="authorisationCode"
-                                              />
-                                              <label
-                                                htmlFor="authFlowAUTHORIZATION CODE (Reapit Connect)"
+                                              <div
+                                                className="columns is-multiline is-gapless"
+                                                data-test=""
                                               >
-                                                AUTHORIZATION CODE (Reapit Connect)
-                                              </label>
-                                            </div>
-                                            <div
-                                              className="radio-wrap"
-                                              key="1"
-                                            >
-                                              <input
-                                                checked={false}
-                                                className="checkbox "
-                                                disabled={false}
-                                                id="authFlowCLIENT CREDENTIALS"
-                                                key="clientCredentials"
-                                                name="authFlow"
-                                                onChange={[Function]}
-                                                type="radio"
-                                                value="clientCredentials"
-                                              />
-                                              <label
-                                                htmlFor="authFlowCLIENT CREDENTIALS"
-                                              >
-                                                CLIENT CREDENTIALS
-                                              </label>
-                                            </div>
+                                                <Component
+                                                  className="is-full"
+                                                  key="0"
+                                                >
+                                                  <div
+                                                    className="column  is-full"
+                                                    data-test=""
+                                                  >
+                                                    <div
+                                                      className="radio-wrap"
+                                                    >
+                                                      <input
+                                                        checked={false}
+                                                        className="checkbox "
+                                                        disabled={false}
+                                                        id="authFlowAUTHORIZATION CODE (Reapit Connect)"
+                                                        key="authorisationCode"
+                                                        name="authFlow"
+                                                        onChange={[Function]}
+                                                        type="radio"
+                                                        value="authorisationCode"
+                                                      />
+                                                      <label
+                                                        htmlFor="authFlowAUTHORIZATION CODE (Reapit Connect)"
+                                                      >
+                                                        AUTHORIZATION CODE (Reapit Connect)
+                                                      </label>
+                                                    </div>
+                                                  </div>
+                                                </Component>
+                                                <Component
+                                                  className="is-full"
+                                                  key="1"
+                                                >
+                                                  <div
+                                                    className="column  is-full"
+                                                    data-test=""
+                                                  >
+                                                    <div
+                                                      className="radio-wrap"
+                                                    >
+                                                      <input
+                                                        checked={false}
+                                                        className="checkbox "
+                                                        disabled={false}
+                                                        id="authFlowCLIENT CREDENTIALS"
+                                                        key="clientCredentials"
+                                                        name="authFlow"
+                                                        onChange={[Function]}
+                                                        type="radio"
+                                                        value="clientCredentials"
+                                                      />
+                                                      <label
+                                                        htmlFor="authFlowCLIENT CREDENTIALS"
+                                                      >
+                                                        CLIENT CREDENTIALS
+                                                      </label>
+                                                    </div>
+                                                  </div>
+                                                </Component>
+                                              </div>
+                                            </Component>
                                           </div>
                                         </div>
                                       </Field>
@@ -1430,48 +1458,76 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                               className="label"
                                               htmlFor="isPrivateApp"
                                             />
-                                            <div
-                                              className="radio-wrap"
-                                              key="0"
+                                            <Component
+                                              className="is-gapless"
+                                              isMultiLine={true}
                                             >
-                                              <input
-                                                checked={false}
-                                                className="checkbox "
-                                                disabled={false}
-                                                id="isPrivateAppYES"
-                                                key="yes"
-                                                name="isPrivateApp"
-                                                onChange={[Function]}
-                                                type="radio"
-                                                value="yes"
-                                              />
-                                              <label
-                                                htmlFor="isPrivateAppYES"
+                                              <div
+                                                className="columns is-multiline is-gapless"
+                                                data-test=""
                                               >
-                                                YES
-                                              </label>
-                                            </div>
-                                            <div
-                                              className="radio-wrap"
-                                              key="1"
-                                            >
-                                              <input
-                                                checked={false}
-                                                className="checkbox "
-                                                disabled={false}
-                                                id="isPrivateAppNO"
-                                                key="no"
-                                                name="isPrivateApp"
-                                                onChange={[Function]}
-                                                type="radio"
-                                                value="no"
-                                              />
-                                              <label
-                                                htmlFor="isPrivateAppNO"
-                                              >
-                                                NO
-                                              </label>
-                                            </div>
+                                                <Component
+                                                  className="is-full"
+                                                  key="0"
+                                                >
+                                                  <div
+                                                    className="column  is-full"
+                                                    data-test=""
+                                                  >
+                                                    <div
+                                                      className="radio-wrap"
+                                                    >
+                                                      <input
+                                                        checked={false}
+                                                        className="checkbox "
+                                                        disabled={false}
+                                                        id="isPrivateAppYES"
+                                                        key="yes"
+                                                        name="isPrivateApp"
+                                                        onChange={[Function]}
+                                                        type="radio"
+                                                        value="yes"
+                                                      />
+                                                      <label
+                                                        htmlFor="isPrivateAppYES"
+                                                      >
+                                                        YES
+                                                      </label>
+                                                    </div>
+                                                  </div>
+                                                </Component>
+                                                <Component
+                                                  className="is-full"
+                                                  key="1"
+                                                >
+                                                  <div
+                                                    className="column  is-full"
+                                                    data-test=""
+                                                  >
+                                                    <div
+                                                      className="radio-wrap"
+                                                    >
+                                                      <input
+                                                        checked={false}
+                                                        className="checkbox "
+                                                        disabled={false}
+                                                        id="isPrivateAppNO"
+                                                        key="no"
+                                                        name="isPrivateApp"
+                                                        onChange={[Function]}
+                                                        type="radio"
+                                                        value="no"
+                                                      />
+                                                      <label
+                                                        htmlFor="isPrivateAppNO"
+                                                      >
+                                                        NO
+                                                      </label>
+                                                    </div>
+                                                  </div>
+                                                </Component>
+                                              </div>
+                                            </Component>
                                           </div>
                                         </div>
                                       </Field>

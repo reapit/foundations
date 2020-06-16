@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { GridItem, FormHeading, FormSubHeading, RadioSelect, Button } from '@reapit/elements'
 import { AccountsInformationFormValues } from './accounts-information-form'
+import formFields from './form-schema/form-fields'
 
 export type DirectDebitSectionProps = {
   setFieldValue: (field: string, value: any, shouldValidate?: boolean | undefined) => void
@@ -13,6 +14,8 @@ const hasDirectDebitRadioOptions = [
   { label: 'Other (Pay by cheque/bacs/credit)', value: 'other' },
 ]
 
+const { hasDirectDebitField } = formFields
+
 const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({ setFieldValue, values }) => {
   const { hasDirectDebit } = values
   const isDirectDebitSectionVisible = hasDirectDebit === 'no'
@@ -20,18 +23,15 @@ const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({ setFieldValue, 
   return (
     <>
       <GridItem>
-        <FormHeading>Do you have a Direct Debit setup already?</FormHeading>
-        <FormSubHeading>
-          If you have an existing Direct Debit setup, please select Yes below. If not, please select No and complete a
-          Direct Debit form below:
-        </FormSubHeading>
+        <FormHeading>{hasDirectDebitField.heading}</FormHeading>
+        <FormSubHeading>{hasDirectDebitField.subHeading}</FormSubHeading>
         <RadioSelect
           isHorizontal
           setFieldValue={setFieldValue}
           state={hasDirectDebit}
           options={hasDirectDebitRadioOptions}
-          name="hasDirectDebit"
-          id="hasDirectDebit"
+          name={hasDirectDebitField.name}
+          id={hasDirectDebitField.name}
         />
       </GridItem>
       {isDirectDebitSectionVisible && (
