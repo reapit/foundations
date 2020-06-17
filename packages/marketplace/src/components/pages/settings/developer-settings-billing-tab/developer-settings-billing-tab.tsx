@@ -34,7 +34,9 @@ const DevelperSettingsBillingTabPage: React.FC<{}> = () => {
               <H3>Accounts Information</H3>
               <AccountsInformationForm />
             </FlexContainerResponsive>
-            <Subcriptions />
+            <FlexContainerResponsive flexColumn hasBackground hasPadding>
+              <Subcriptions />
+            </FlexContainerResponsive>
           </Content>
         </FlexContainerResponsive>
       </Content>
