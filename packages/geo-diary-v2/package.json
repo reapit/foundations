@@ -11,10 +11,10 @@
   "author": "Reapit",
   "main": "./src/index.ts",
   "scripts": {
-    "build:prod": "node '../../scripts/webpack/webpack-sass-prod/index.js'",
+    "build:prod": "node '../../scripts/webpack/webpack.config.prod.js'",
     "fetch-config": "yarn config-manager fetchConfig geo-diary-v2",
     "release:dev": "node ../../scripts/release/release-dev.js geo-diary-v2 reapit-geo-diary-v2-dev",
-    "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ../../scripts/webpack/webpack.sass.dev.js",
+    "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ../../scripts/webpack/webpack.config.dev.js",
     "start:prod": "serve public/dist -s -l 8080",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",

@@ -119,6 +119,70 @@ const webpackConfig = {
         ],
       },
       {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: process.env.NODE_ENV !== 'production',
+            },
+          },
+          'css-loader',
+        ],
+      },
+      {
+        test: /\.(sass|scss)$/,
+        oneOf: [
+          {
+            resourceQuery: /\?mod$/,
+            use: [
+              {
+                loader: 'style-loader',
+              },
+              {
+                loader: 'css-loader',
+                options: {
+                  modules: {
+                    localIdentName: '[name]-[local]-[hash:base64:5]',
+                  },
+                  localsConvention: 'camelCase',
+                },
+              },
+              {
+                loader: 'sass-loader',
+                options: {
+                  sourceMap: true,
+                  includePaths: ['node_modules'],
+                },
+              },
+            ],
+          },
+          {
+            use: [
+              {
+                loader: 'style-loader',
+              },
+              {
+                loader: 'css-loader',
+              },
+              {
+                loader: 'sass-loader',
+                options: {
+                  sourceMap: true,
+                  includePaths: ['node_modules'],
+                },
+              },
+            ],
+          },
+        ],
+      },
+      {
+        test: /\.(graphql|gql)$/,
+        exclude: /node_modules/,
+        use: 'graphql-tag/loader',
+      },
+      {
         test: /\.(woff(2)?|ttf|eot|svg|png|jpg|jpeg|gif)$/,
         use: {
           loader: 'file-loader',
@@ -127,15 +191,10 @@ const webpackConfig = {
           },
         },
       },
-      {
-        test: /\.(graphql|gql)$/,
-        exclude: /node_modules/,
-        use: 'graphql-tag/loader',
-      },
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.js', '.css', '.scss', '.sass'],
     alias: {
       '@': path.resolve(__dirname, 'src/'),
       react: require.resolve('react'),
