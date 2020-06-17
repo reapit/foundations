@@ -1,9 +1,21 @@
 import * as React from 'react'
 import ReactCrop from 'react-image-crop'
-import 'react-image-crop/dist/ReactCrop.css'
+import {
+  reactImageCropGlobalStyles,
+  imageCropperOuter,
+  imageCropperInner,
+  imageCropperContent,
+  imageCropperCropPanelWrapper,
+  imageCropperCropPanel,
+  imageCropperPreviewWrapper,
+  imageCropperPreview,
+  imageCropperActionWrapper,
+} from './__styles__/styles'
+import { cx } from 'linaria'
+import { Button, H5 } from '../../../../index'
 
 // We resize the canvas down when saving on retina devices otherwise the image
-// will be double or triple the preview size.
+// will be double or triple the imageCropperPreview size.
 export const getResizedCanvas = (canvas, newWidth, newHeight) => {
   const tmpCanvas = document.createElement('canvas')
   tmpCanvas.width = newWidth
@@ -39,24 +51,11 @@ export const generateDownload = (previewCanvas, crop) => {
   )
 }
 
-export const ImageCropper = () => {
-  const [isVisible, setIsVisible] = React.useState<boolean>(false)
-  const [upImg, setUpImg] = React.useState<any>()
+export const ImageCropper = ({ upImg, visible }) => {
   const imgRef = React.useRef<HTMLElement>(null)
   const previewCanvasRef = React.useRef(null)
   const [crop, setCrop] = React.useState({ unit: '%', width: 30, aspect: 16 / 9 })
   const [completedCrop, setCompletedCrop] = React.useState(null)
-
-  const onSelectFile = e => {
-    if (e.target.files && e.target.files.length > 0) {
-      const reader = new FileReader()
-      reader.addEventListener('load', () => {
-        setUpImg(reader.result)
-        setIsVisible(true)
-      })
-      reader.readAsDataURL(e.target.files[0])
-    }
-  }
 
   const onLoad = React.useCallback(img => {
     imgRef.current = img
@@ -93,50 +92,41 @@ export const ImageCropper = () => {
   }, [completedCrop])
 
   return (
-    <div>
-      <div>
-        <input type="file" accept="image/*" onChange={onSelectFile} />
-      </div>
-      {isVisible && (
-        <div
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            height: '100%',
-            width: '100%',
-            display: 'flex',
-            flexFlow: 'column nowrap',
-            justifyContent: 'center',
-            alignItems: 'center',
-            zIndex: 999,
-            background: 'gray',
-          }}
-        >
-          <div style={{ maxWidth: 640 }}>
-            <ReactCrop
-              src={upImg}
-              onImageLoaded={onLoad}
-              crop={crop}
-              onChange={c => setCrop(c)}
-              onComplete={c => setCompletedCrop(c)}
-            />
-            <canvas ref={previewCanvasRef} />
-            <button
+    visible && (
+      <div className={cx(reactImageCropGlobalStyles, imageCropperOuter)} style={{ display: visible ? 'flex' : 'none' }}>
+        <div className={imageCropperInner}>
+          <div className={imageCropperContent}>
+            <div className={imageCropperCropPanelWrapper}>
+              <H5 isCentered>Crop Image</H5>
+              <ReactCrop
+                className={imageCropperCropPanel}
+                src={upImg}
+                onImageLoaded={onLoad}
+                crop={crop}
+                onChange={c => setCrop(c)}
+                onComplete={c => setCompletedCrop(c)}
+              />
+            </div>
+            <div className={imageCropperPreviewWrapper}>
+              <H5 isCentered>Preview</H5>
+              <canvas ref={previewCanvasRef} className={imageCropperPreview} />
+            </div>
+          </div>
+          <div className={imageCropperActionWrapper}>
+            <Button type="button" variant="secondary" onClick={() => setIsVisible(false)}>
+              Cancel
+            </Button>
+            <Button
               type="button"
+              variant="primary"
               disabled={!completedCrop?.width || !completedCrop?.height}
               onClick={() => generateDownload(previewCanvasRef.current, completedCrop)}
             >
               Download cropped image
-            </button>
-            <button type="button" onClick={() => setIsVisible(false)}>
-              Cancel
-            </button>
+            </Button>
           </div>
         </div>
-      )}
-    </div>
+      </div>
+    )
   )
 }
-
-export default ImageCropper

@@ -1,27 +1,24 @@
-import React from 'react'
+import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
-import Cropper from './image-cropper'
-import { Form, Formik } from 'formik'
-import { PortalProvider } from '../../hooks/UsePortal'
+import { ImageCropper } from './index'
 
-storiesOf('ImageCropper', module).add('Default', () => (
-  <PortalProvider>
+storiesOf('ImageCropper', module).add('Default', () => {
+  const [upImg, setUpImg] = React.useState<any>()
+  const [isVisible, setIsVisible] = React.useState<boolean>(false)
+  const onSelectFile = e => {
+    if (e.target.files && e.target.files.length > 0) {
+      const reader = new FileReader()
+      reader.addEventListener('load', () => {
+        setUpImg(reader.result)
+        setIsVisible(true)
+      })
+      reader.readAsDataURL(e.target.files[0])
+    }
+  }
+  return (
     <section className="section">
-      <Formik
-        initialValues={{ imageInput: '' }}
-        onSubmit={values => {
-          action('Form Values' + values)
-        }}
-      >
-        {() => (
-          <Form>
-            <div className="column is-half-desktop">
-              <Cropper />
-            </div>
-          </Form>
-        )}
-      </Formik>
+      <input type="file" accept="image/*" onChange={onSelectFile} />
+      <ImageCropper upImg={upImg} visible={isVisible} />
     </section>
-  </PortalProvider>
-))
+  )
+})
