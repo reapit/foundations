@@ -109,4 +109,4 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          args: --prune-repeated-subdependencies
+          args: --skip-unresolved
