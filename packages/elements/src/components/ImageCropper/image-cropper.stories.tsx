@@ -18,7 +18,7 @@ storiesOf('ImageCropper', module).add('Default', () => {
   return (
     <section className="section">
       <input type="file" accept="image/*" onChange={onSelectFile} />
-      <ImageCropper upImg={upImg} visible={isVisible} />
+      <ImageCropper upImg={upImg} visible={isVisible} onClose={() => setIsVisible(false)} />
     </section>
   )
 })

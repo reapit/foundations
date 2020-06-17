@@ -51,7 +51,7 @@ export const generateDownload = (previewCanvas, crop) => {
   )
 }
 
-export const ImageCropper = ({ upImg, visible }) => {
+export const ImageCropper = ({ upImg, visible, onClose }) => {
   const imgRef = React.useRef<HTMLElement>(null)
   const previewCanvasRef = React.useRef(null)
   const [crop, setCrop] = React.useState({ unit: '%', width: 30, aspect: 16 / 9 })
@@ -113,7 +113,7 @@ export const ImageCropper = ({ upImg, visible }) => {
             </div>
           </div>
           <div className={imageCropperActionWrapper}>
-            <Button type="button" variant="secondary" onClick={() => setIsVisible(false)}>
+            <Button type="button" variant="secondary" onClick={onClose}>
               Cancel
             </Button>
             <Button
