@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { SubTitleH6 } from '@reapit/elements'
 import styles from '@/styles/blocks/developer-edition-modal.scss?mod'
+import pdfLink from '@/assets/files/reapit-foundations-developer-agreement.pdf'
 
 export const DeveloperEditionModalSubTitle: React.FC = () => {
   return (
@@ -12,7 +13,7 @@ export const DeveloperEditionModalSubTitle: React.FC = () => {
       <br />
       There will be no charge for the licence during the Beta phase. For more information regarding the Developer
       Edition please refer to your Developer Registration{' '}
-      <a href="#" rel="noopener" target="_blank">
+      <a href={pdfLink} rel="noreferrer" target="_blank">
         Terms and Conditions
       </a>
     </SubTitleH6>

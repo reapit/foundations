@@ -200,7 +200,7 @@ const webpackConfig = {
         use: 'graphql-tag/loader',
       },
       {
-        test: /\.(woff(2)?|ttf|eot|svg|png|jpg|jpeg|gif)$/,
+        test: /\.(woff(2)?|ttf|eot|svg|png|jpg|jpeg|gif|pdf)$/,
         use: {
           loader: 'file-loader',
           options: {
