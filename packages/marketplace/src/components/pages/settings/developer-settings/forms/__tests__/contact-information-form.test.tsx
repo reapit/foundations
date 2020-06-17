@@ -7,7 +7,6 @@ import {
   EnhanceContactInformationProps,
   ContactInformationValues,
   handleSubmitContactInformation,
-  validate,
 } from '../contact-information-form'
 import { mockFormikAction } from '@/utils/mock-formik'
 import { developerStub } from '@/sagas/__stubs__/developer'
@@ -80,24 +79,6 @@ describe('ContactInformationForm', () => {
       handleSubmitContactInformation(mockValues, { ...mockForm, props: mockProps })
       expect(mockForm.setSubmitting).toBeCalledWith(true)
       expect(mockProps.updateDeveloperInformation).toBeCalled()
-    })
-  })
-  describe('validate', () => {
-    it('should return error Invalid telephoneNumber', () => {
-      const input = {
-        telephone: '123',
-      }
-      const output = { telephone: 'Invalid telephone format' }
-      const result = validate(input)
-      expect(result).toEqual(output)
-    })
-    it('should not return error', () => {
-      const input = {
-        telephone: '0978100422',
-      }
-      const output = {}
-      const result = validate(input)
-      expect(result).toEqual(output)
     })
   })
 })
