@@ -86,15 +86,17 @@ export const handleOpenConfirmModal = (
   setSubscriptionIdToCancel(id)
 }
 
+export const handleCloseConfirmModal = setIsConfirmModalOpen => () => {
+  setIsConfirmModalOpen(false)
+}
+
 export const Subcriptions: React.FC = () => {
   const dispatch = useDispatch()
 
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false)
   const [subscriptionIdToCancel, setSubscriptionIdToCancel] = useState('')
 
-  const handleCloseModal = () => {
-    setIsConfirmModalOpen(false)
-  }
+  const handleCloseModal = handleCloseConfirmModal(setIsConfirmModalOpen)
 
   const subscriptions = useSelector(selectSubscriptions)
   const loading = useSelector(selectSubscriptionsLoading)

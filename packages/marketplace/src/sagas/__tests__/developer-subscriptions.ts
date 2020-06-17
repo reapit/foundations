@@ -14,11 +14,11 @@ import {
   deleteSubscription,
 } from '@/services/subscriptions'
 import ActionTypes from '@/constants/action-types'
-import errorMessages from '../../../../elements/src/utils/validators/error-messages'
 import { errorThrownServer } from '@/actions/error'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { developerFetchSubscriptionsSuccess, developerFetchSubscriptions } from '@/actions/developer'
 import { selectDeveloperId } from '@/selector/auth'
+import errorMessages from '@/constants/error-messages'
 
 jest.mock('@reapit/elements')
 

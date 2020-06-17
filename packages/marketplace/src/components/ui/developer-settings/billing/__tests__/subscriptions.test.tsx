@@ -4,6 +4,7 @@ import {
   handleFetchSubscriptions,
   handleDeleteSubscription,
   Subcriptions,
+  handleCloseConfirmModal,
 } from '../subscriptions'
 import { SubscriptionModel } from '@/services/subscriptions'
 import { developerFetchSubscriptions, developerDeleteSubscription } from '@/actions/developer'
@@ -79,5 +80,14 @@ describe('Subcriptions', () => {
         </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()
+  })
+})
+
+describe('handleCloseConfirmModal', () => {
+  it('should run correctly', () => {
+    const setIsConfirmModalOpen = jest.fn()
+    const fn = handleCloseConfirmModal(setIsConfirmModalOpen)
+    fn()
+    expect(setIsConfirmModalOpen).toBeCalledWith(false)
   })
 })

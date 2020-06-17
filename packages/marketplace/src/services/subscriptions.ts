@@ -1,9 +1,9 @@
-import { fetcher, setQueryParams } from '@reapit/elements'
+import { fetcher } from '@reapit/elements'
 import { URLS } from './constants'
 import { generateHeader } from './utils'
 import { logger } from '@reapit/utils'
 import { FetchListCommonParams } from './types'
-
+import { stringify } from 'query-string'
 export type FetchSubscriptionsListParams = FetchListCommonParams & {
   developerId: string
   subscriptionType?: 'applicationListing' | 'developerRegistration' | 'developerEdition'
@@ -48,7 +48,7 @@ export const fetchSubscriptionsList = async (
 ): Promise<SubscriptionsListResult> => {
   try {
     const response = await fetcher({
-      url: `${URLS.subscriptions}?${setQueryParams(params)}`,
+      url: `${URLS.subscriptions}?${stringify(params)}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),

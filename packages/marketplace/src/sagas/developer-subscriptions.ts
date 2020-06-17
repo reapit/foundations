@@ -1,13 +1,13 @@
 import { logger } from '@reapit/utils'
 import { put, takeLatest, all, fork, call } from 'redux-saga/effects'
 import { errorThrownServer } from '@/actions/error'
-import errorMessages from '../../../elements/src/utils/validators/error-messages'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
 import { fetchSubscriptionsList, FetchSubscriptionsListParams, deleteSubscription } from '@/services/subscriptions'
 import { developerFetchSubscriptionsSuccess, developerFetchSubscriptions } from '@/actions/developer'
 import { select } from 'redux-saga/effects' //    <- here it is
 import { selectDeveloperId } from '@/selector/auth'
+import errorMessages from '@/constants/error-messages'
 
 export const developerFetchSubcriptionsList = function*({ data }: Action<FetchSubscriptionsListParams>) {
   try {
