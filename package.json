@@ -31,9 +31,7 @@
     "test": "lerna run --parallel test:ci -- --detectOpenHandles --runInBand",
     "test-e2e:ci": "lerna run test-e2e:ci --stream",
     "update-doc": "node --unhandled-rejections=strict ./scripts/document-update/get-release-and-create-pr.js",
-    "scan-secrets": "node --unhandled-rejections=strict ./scripts/utils/git-secrets.js",
-    "snyk-protect": "snyk protect",
-    "prepare": "yarn run snyk-protect"
+    "scan-secrets": "node --unhandled-rejections=strict ./scripts/utils/git-secrets.js"
   },
   "husky": {
     "hooks": {
@@ -199,5 +197,5 @@
     "webpack-dev-server": "^3.4.1",
     "workbox-webpack-plugin": "^4.3.1"
   },
-  "snyk": true
+  "snyk": false
 }

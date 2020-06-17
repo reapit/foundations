@@ -1,11 +1,886 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.15.0
-ignore: {}
+version: v1.14.1
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  SNYK-JS-AUTOLINKER-564438:
+    - autolinker:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.627Z'
+    - marketplace > swagger-ui-react > remarkable > autolinker:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.629Z'
+  SNYK-JS-AUTOLINKER-73494:
+    - autolinker:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.627Z'
+    - marketplace > swagger-ui-react > remarkable > autolinker:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.629Z'
+  SNYK-JS-DECOMPRESSTAR-559095:
+    - '@reapit/web-components > decompress > decompress-tar':
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.629Z'
+    - graphql-server > decompress > decompress-tar:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.629Z'
+    - '@reapit/web-components > decompress > decompress-tarbz2 > decompress-tar':
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.629Z'
+    - graphql-server > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.629Z'
+    - '@reapit/web-components > decompress > decompress-targz > decompress-tar':
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.629Z'
+    - graphql-server > decompress > decompress-targz > decompress-tar:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.629Z'
+  SNYK-JS-DOTPROP-543489:
+    - '@iarna/cli > update-notifier > configstore > dot-prop':
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.629Z'
+    - '@reapit/generator-react-app-scaffolder > yo > configstore > dot-prop':
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.629Z'
+    - serverless-offline > update-notifier > configstore > dot-prop:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.629Z'
+    - '@reapit/generator-react-app-scaffolder > yo > sort-on > dot-prop':
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.629Z'
+    - '@storybook/cli > update-notifier > configstore > dot-prop':
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.629Z'
+    - graphql-server > @iarna/cli > update-notifier > configstore > dot-prop:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.629Z'
+    - '@reapit/web-components > @serverless/enterprise-plugin > update-notifier > configstore > dot-prop':
+        reason: None given
+        expires: '2020-07-17T10:31:51.629Z'
+    - '@reapit/generator-react-app-scaffolder > yo > insight > conf > dot-prop':
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.629Z'
+    - '@reapit/web-components > serverless-offline > update-notifier > configstore > dot-prop':
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.629Z'
+    - graphql-server > @storybook/cli > update-notifier > configstore > dot-prop:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.629Z'
+    - '@storybook/cli > pkg-add-deps > libnpm > lock-verify > @iarna/cli > update-notifier > configstore > dot-prop':
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+  SNYK-JS-HTTPAUTH-471683:
+    - http-auth:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - live-server > http-auth:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+  SNYK-JS-JPEGJS-570039:
+    - '@jimp/jpeg > jpeg-js':
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - '@jimp/types > @jimp/jpeg > jpeg-js':
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - cypress-plugin-snapshots > jimp > @jimp/types > @jimp/jpeg > jpeg-js:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+  SNYK-JS-MARKED-174116:
+    - '@storybook/addon-info > marksy > marked':
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - graphql-server > @storybook/addon-info > marksy > marked:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+  SNYK-JS-MARKED-451540:
+    - '@storybook/addon-info > marksy > marked':
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - graphql-server > @storybook/addon-info > marksy > marked:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+  SNYK-JS-NODESASS-535497:
+    - graphql-server > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - rollup-plugin-scss > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - graphql-server > rollup-plugin-scss > node-sass:
+        reason: None given
+        expires: '2020-07-17T10:31:51.630Z'
+  SNYK-JS-NODESASS-535498:
+    - graphql-server > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - rollup-plugin-scss > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - graphql-server > rollup-plugin-scss > node-sass:
+        reason: None given
+        expires: '2020-07-17T10:31:51.630Z'
+  SNYK-JS-NODESASS-535502:
+    - graphql-server > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - rollup-plugin-scss > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - graphql-server > rollup-plugin-scss > node-sass:
+        reason: None given
+        expires: '2020-07-17T10:31:51.630Z'
+  SNYK-JS-NODESASS-540956:
+    - graphql-server > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - rollup-plugin-scss > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - graphql-server > rollup-plugin-scss > node-sass:
+        reason: None given
+        expires: '2020-07-17T10:31:51.630Z'
+  SNYK-JS-NODESASS-540958:
+    - graphql-server > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - rollup-plugin-scss > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - graphql-server > rollup-plugin-scss > node-sass:
+        reason: None given
+        expires: '2020-07-17T10:31:51.630Z'
+  SNYK-JS-NODESASS-540964:
+    - graphql-server > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - rollup-plugin-scss > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - graphql-server > rollup-plugin-scss > node-sass:
+        reason: None given
+        expires: '2020-07-17T10:31:51.630Z'
+  SNYK-JS-NODESASS-540974:
+    - graphql-server > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - rollup-plugin-scss > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - graphql-server > rollup-plugin-scss > node-sass:
+        reason: None given
+        expires: '2020-07-17T10:31:51.630Z'
+  SNYK-JS-NODESASS-540978:
+    - graphql-server > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - rollup-plugin-scss > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - graphql-server > rollup-plugin-scss > node-sass:
+        reason: None given
+        expires: '2020-07-17T10:31:51.630Z'
+  SNYK-JS-NODESASS-540980:
+    - graphql-server > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - rollup-plugin-scss > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - graphql-server > rollup-plugin-scss > node-sass:
+        reason: None given
+        expires: '2020-07-17T10:31:51.630Z'
+  SNYK-JS-NODESASS-540990:
+    - graphql-server > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - rollup-plugin-scss > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - graphql-server > rollup-plugin-scss > node-sass:
+        reason: None given
+        expires: '2020-07-17T10:31:51.630Z'
+  SNYK-JS-NODESASS-540992:
+    - graphql-server > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - rollup-plugin-scss > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - graphql-server > rollup-plugin-scss > node-sass:
+        reason: None given
+        expires: '2020-07-17T10:31:51.630Z'
+  SNYK-JS-NODESASS-540994:
+    - graphql-server > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - rollup-plugin-scss > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - graphql-server > rollup-plugin-scss > node-sass:
+        reason: None given
+        expires: '2020-07-17T10:31:51.630Z'
+  SNYK-JS-NODESASS-540996:
+    - graphql-server > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - rollup-plugin-scss > node-sass:
+        reason: None given
+        expires: '2020-07-17T10:31:51.630Z'
+    - graphql-server > rollup-plugin-scss > node-sass:
+        reason: None given
+        expires: '2020-07-17T10:31:51.630Z'
+  SNYK-JS-NODESASS-540998:
+    - graphql-server > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - rollup-plugin-scss > node-sass:
+        reason: None given
+        expires: '2020-07-17T10:31:51.630Z'
+    - graphql-server > rollup-plugin-scss > node-sass:
+        reason: None given
+        expires: '2020-07-17T10:31:51.630Z'
+  SNYK-JS-NODESASS-541000:
+    - graphql-server > node-sass:
+        reason: No available remedy
+        expires: '2020-07-17T10:31:51.630Z'
+    - rollup-plugin-scss > node-sass:
+        reason: None given
+        expires: '2020-07-17T10:31:51.630Z'
+    - graphql-server > rollup-plugin-scss > node-sass:
+        reason: None given
+        expires: '2020-07-17T10:31:51.630Z'
+  SNYK-JS-NODESASS-541002:
+    - graphql-server > node-sass:
+        reason: None given
+        expires: '2020-07-17T10:31:51.630Z'
+    - rollup-plugin-scss > node-sass:
+        reason: None given
+        expires: '2020-07-17T10:31:51.630Z'
+    - graphql-server > rollup-plugin-scss > node-sass:
+        reason: None given
+        expires: '2020-07-17T10:31:51.630Z'
+  SNYK-JS-SERIALIZEJAVASCRIPT-570062:
+    - '@reapit/web-components > rollup-plugin-terser > serialize-javascript':
+        reason: None given
+        expires: '2020-07-17T10:31:51.630Z'
+    - graphql-server > copy-webpack-plugin > serialize-javascript:
+        reason: None given
+        expires: '2020-07-17T10:31:51.631Z'
+  SNYK-JS-YARGSPARSER-560381:
+    - '@iarna/cli > yargs > yargs-parser':
+        reason: None given
+        expires: '2020-07-17T10:31:51.631Z'
+    - graphql-server > @iarna/cli > yargs > yargs-parser:
+        reason: None given
+        expires: '2020-07-17T10:31:51.631Z'
+    - '@storybook/cli > pkg-add-deps > libnpm > lock-verify > @iarna/cli > yargs > yargs-parser':
+        reason: None given
+        expires: '2020-07-17T10:31:51.631Z'
+  'npm:utile:20180614':
+    - '@reapit/config-manager > prompt > utile':
+        reason: None given
+        expires: '2020-07-17T10:31:51.631Z'
+  SNYK-JS-ELLIPTIC-571484:
+    - '@reapit/web-components > browserify-sign > elliptic':
+        reason: None given
+        expires: '2020-07-17T10:39:20.693Z'
+    - '@reapit/cognito-auth > @reapit/elements > linaria > webpack > node-libs-browser > crypto-browserify > browserify-sign > elliptic':
+        reason: None given
+        expires: '2020-07-17T10:39:20.693Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   SNYK-JS-LODASH-567746:
     - yup > lodash:
         patched: '2020-06-16T12:29:14.849Z'
+    - cypress-plugin-snapshots > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - sequelize > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - sequelize-cli > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - yup > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-docs > @babel/generator > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@whitespace/storybook-addon-html > @babel/generator > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/web-components > @babel/core > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/cli > @babel/core > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/cli > inquirer > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/core > inquirer > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/generator-react-app-scaffolder > yeoman-generator > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/generator-react-app-scaffolder > yo > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/web-components > @babel/helper-define-map > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @babel/helper-define-map > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/web-components > @babel/plugin-transform-block-scoping > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @babel/plugin-transform-block-scoping > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/web-components > @serverless/enterprise-plugin > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @serverless/enterprise-plugin > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/web-components > json-refs > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > json-refs > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/web-components > serverless > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > serverless > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/web-components > serverless-webpack > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > serverless-webpack > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - api-docs-lambda > serverless-webpack > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-actions > @storybook/client-api > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/core > @storybook/client-api > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-actions > @storybook/components > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-info > @storybook/components > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-storysource > @storybook/components > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-viewport > @storybook/components > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@whitespace/storybook-addon-html > @storybook/components > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-docs > @storybook/components > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @storybook/addon-docs > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/cli > @storybook/codemod > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/core > @storybook/ui > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/core > babel-preset-minify > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/core > html-webpack-plugin > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/react > babel-plugin-react-docgen > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @storybook/react > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - cloud-alert > @cypress/webpack-preprocessor > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - cloud-alert > eslint > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > graphql-import > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > node-sass > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - rollup-plugin-scss > node-sass > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - marketplace > react-chartjs-2 > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - marketplace > swagger-ui-react > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - web-components-config-server > sequelize > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - web-components-config-server > sequelize-cli > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@rollup/plugin-babel > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-docs > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@whitespace/storybook-addon-html > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/web-components > @babel/core > @babel/generator > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/cli > @babel/core > @babel/generator > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/web-components > @babel/core > @babel/helper-module-transforms > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/cli > @babel/core > @babel/helper-module-transforms > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@mdx-js/loader > @mdx-js/mdx > @babel/core > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/cognito-auth > @reapit/elements > formik > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/generator-react-app-scaffolder > yeoman-generator > async > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-docs > @jest/transform > @babel/core > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/react > @svgr/webpack > @babel/core > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/generator-react-app-scaffolder > yeoman-generator > grouped-queue > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/react > @storybook/core > inquirer > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @storybook/cli > inquirer > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/generator-react-app-scaffolder > yeoman-generator > yeoman-environment > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/generator-react-app-scaffolder > yo > yeoman-environment > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/generator-react-app-scaffolder > yo > global-tunnel-ng > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/generator-react-app-scaffolder > yo > inquirer > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/web-components > @babel/helper-create-regexp-features-plugin > @babel/helper-regex > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @babel/helper-create-regexp-features-plugin > @babel/helper-regex > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/cli > @babel/preset-env > @babel/plugin-transform-block-scoping > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/core > @babel/preset-env > @babel/plugin-transform-block-scoping > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/web-components > @serverless/cli > prettyoutput > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @serverless/cli > prettyoutput > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/web-components > @serverless/enterprise-plugin > @serverless/event-mocks > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @serverless/enterprise-plugin > @serverless/event-mocks > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/cli > @storybook/codemod > @storybook/csf > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-actions > @storybook/addons > @storybook/api > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-info > @storybook/addons > @storybook/api > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-links > @storybook/addons > @storybook/api > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-storysource > @storybook/addons > @storybook/api > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-viewport > @storybook/addons > @storybook/api > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-docs > @storybook/addons > @storybook/api > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/core > @storybook/addons > @storybook/api > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/react > @storybook/addons > @storybook/api > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@whitespace/storybook-addon-html > @storybook/addons > @storybook/api > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @storybook/addon-actions > @storybook/client-api > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/react > @storybook/core > @storybook/client-api > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/core > @storybook/ui > @storybook/components > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @storybook/addon-actions > @storybook/components > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @storybook/cli > @storybook/codemod > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/react > @storybook/core > @storybook/ui > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @storybook/core > @storybook/ui > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/core > babel-preset-minify > babel-plugin-minify-dead-code-elimination > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/react > @storybook/core > babel-preset-minify > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @storybook/core > babel-preset-minify > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/react > @storybook/core > html-webpack-plugin > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @storybook/core > html-webpack-plugin > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/core > react-dev-utils > inquirer > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @storybook/react > babel-plugin-react-docgen > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/source-loader > @storybook/addons > @storybook/api > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - cloud-alert > @typescript-eslint/eslint-plugin > eslint > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > gaze > globule > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > node-sass > sass-graph > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - rollup-plugin-scss > node-sass > sass-graph > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - marketplace > swagger-ui-react > react-redux > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - marketplace > swagger-ui-react > redux > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - marketplace > swagger-ui-react > swagger-client > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@emotion/styled > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/web-components > @babel/core > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/cli > @babel/core > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@mdx-js/loader > @mdx-js/mdx > @babel/core > @babel/generator > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@mdx-js/loader > @mdx-js/mdx > @babel/core > @babel/helper-module-transforms > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-docs > @jest/transform > @babel/core > @babel/helper-module-transforms > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/core > @babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-docs > @mdx-js/loader > @mdx-js/mdx > @babel/core > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @mdx-js/loader > @mdx-js/mdx > @babel/core > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/cli > @storybook/codemod > @mdx-js/mdx > @babel/core > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - aml-checklist > @reapit/cognito-auth > @reapit/elements > formik > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - geo-diary > @reapit/cognito-auth > @reapit/elements > formik > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - lifetime-legal > @reapit/cognito-auth > @reapit/elements > formik > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - marketplace > @reapit/cognito-auth > @reapit/elements > formik > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - smb-onboarder > @reapit/cognito-auth > @reapit/elements > formik > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - web-components-config-server > @reapit/cognito-auth > @reapit/elements > formik > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @reapit/cognito-auth > @reapit/elements > formik > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/cognito-auth > @reapit/elements > gh-pages > async > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - api-docs-lambda > serverless-webpack > archiver > async > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/cognito-auth > @reapit/elements > linaria > @babel/core > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/cognito-auth > @reapit/elements > linaria > @babel/register > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/cli > @storybook/codemod > jscodeshift > @babel/register > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-docs > vue-docgen-loader > jscodeshift > @babel/register > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/cognito-auth > @reapit/elements > styled-components > babel-plugin-styled-components > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/generator-react-app-scaffolder > yeoman-generator > yeoman-environment > inquirer > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - cloud-alert > @typescript-eslint/eslint-plugin > eslint > inquirer > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/generator-react-app-scaffolder > yo > yeoman-environment > yeoman-generator > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/web-components > @serverless/components > @serverless/inquirer > inquirer > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @serverless/components > @serverless/inquirer > inquirer > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/generator-react-app-scaffolder > yo > tabtab > inquirer > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/cli > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/core > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-block-scoping > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/web-components > @serverless/cli > @serverless/template > graphlib > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @serverless/cli > @serverless/template > graphlib > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - cloud-alert > @typescript-eslint/eslint-plugin > @typescript-eslint/experimental-utils > @typescript-eslint/typescript-estree > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-actions > @storybook/addons > @storybook/api > @storybook/csf > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-info > @storybook/addons > @storybook/api > @storybook/csf > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-links > @storybook/addons > @storybook/api > @storybook/csf > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-storysource > @storybook/addons > @storybook/api > @storybook/csf > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-viewport > @storybook/addons > @storybook/api > @storybook/csf > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-docs > @storybook/addons > @storybook/api > @storybook/csf > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/core > @storybook/addons > @storybook/api > @storybook/csf > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/react > @storybook/addons > @storybook/api > @storybook/csf > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@whitespace/storybook-addon-html > @storybook/addons > @storybook/api > @storybook/csf > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/source-loader > @storybook/addons > @storybook/api > @storybook/csf > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-actions > @storybook/addons > @storybook/api > @storybook/router > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-info > @storybook/addons > @storybook/api > @storybook/router > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-links > @storybook/addons > @storybook/api > @storybook/router > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-storysource > @storybook/addons > @storybook/api > @storybook/router > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-viewport > @storybook/addons > @storybook/api > @storybook/router > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-docs > @storybook/addons > @storybook/api > @storybook/router > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/core > @storybook/addons > @storybook/api > @storybook/router > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/react > @storybook/addons > @storybook/api > @storybook/router > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@whitespace/storybook-addon-html > @storybook/addons > @storybook/api > @storybook/router > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-actions > @storybook/addons > @storybook/api > telejson > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-info > @storybook/addons > @storybook/api > telejson > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-links > @storybook/addons > @storybook/api > telejson > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-storysource > @storybook/addons > @storybook/api > telejson > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-viewport > @storybook/addons > @storybook/api > telejson > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/core > @storybook/addons > @storybook/api > telejson > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/react > @storybook/addons > @storybook/api > telejson > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@whitespace/storybook-addon-html > @storybook/addons > @storybook/api > telejson > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/source-loader > @storybook/addons > @storybook/api > telejson > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-docs > @storybook/addons > @storybook/api > telejson > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @storybook/addon-actions > @storybook/addons > @storybook/api > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/react > @storybook/core > @storybook/ui > @storybook/components > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/react > @storybook/core > babel-preset-minify > babel-plugin-minify-dead-code-elimination > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @storybook/core > babel-preset-minify > babel-plugin-minify-dead-code-elimination > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/react > @storybook/core > react-dev-utils > inquirer > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @storybook/core > react-dev-utils > inquirer > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/source-loader > @storybook/addons > @storybook/api > @storybook/router > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @storybook/source-loader > @storybook/addons > @storybook/api > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - cloud-alert > @typescript-eslint/eslint-plugin > eslint > table > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - rollup-plugin-scss > node-sass > gaze > globule > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > merge-graphql-schemas > @graphql-toolkit/schema-merging > @graphql-toolkit/common > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@mdx-js/loader > @mdx-js/mdx > @babel/core > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/generator > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/cognito-auth > @reapit/elements > linaria > @babel/core > @babel/generator > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/web-components > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/cli > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/core > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/cognito-auth > @reapit/elements > linaria > @babel/core > @babel/helper-module-transforms > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - aml-checklist > @reapit/cognito-auth > @reapit/elements > gh-pages > async > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - geo-diary > @reapit/cognito-auth > @reapit/elements > gh-pages > async > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - lifetime-legal > @reapit/cognito-auth > @reapit/elements > gh-pages > async > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - marketplace > @reapit/cognito-auth > @reapit/elements > gh-pages > async > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - smb-onboarder > @reapit/cognito-auth > @reapit/elements > gh-pages > async > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - web-components-config-server > @reapit/cognito-auth > @reapit/elements > gh-pages > async > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @reapit/cognito-auth > @reapit/elements > gh-pages > async > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - aml-checklist > @reapit/cognito-auth > @reapit/elements > linaria > @babel/core > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - geo-diary > @reapit/cognito-auth > @reapit/elements > linaria > @babel/core > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - lifetime-legal > @reapit/cognito-auth > @reapit/elements > linaria > @babel/core > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - marketplace > @reapit/cognito-auth > @reapit/elements > linaria > @babel/core > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - smb-onboarder > @reapit/cognito-auth > @reapit/elements > linaria > @babel/core > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - web-components-config-server > @reapit/cognito-auth > @reapit/elements > linaria > @babel/core > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - cloud-alert > @jest/core > @jest/reporters > @jest/transform > @babel/core > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @jest/core > @jest/reporters > @jest/transform > @babel/core > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - aml-checklist > @reapit/cognito-auth > @reapit/elements > linaria > @babel/register > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - geo-diary > @reapit/cognito-auth > @reapit/elements > linaria > @babel/register > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - lifetime-legal > @reapit/cognito-auth > @reapit/elements > linaria > @babel/register > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - marketplace > @reapit/cognito-auth > @reapit/elements > linaria > @babel/register > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - smb-onboarder > @reapit/cognito-auth > @reapit/elements > linaria > @babel/register > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - web-components-config-server > @reapit/cognito-auth > @reapit/elements > linaria > @babel/register > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @reapit/cognito-auth > @reapit/elements > linaria > @babel/register > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - aml-checklist > @reapit/cognito-auth > @reapit/elements > styled-components > babel-plugin-styled-components > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - geo-diary > @reapit/cognito-auth > @reapit/elements > styled-components > babel-plugin-styled-components > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - lifetime-legal > @reapit/cognito-auth > @reapit/elements > styled-components > babel-plugin-styled-components > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - marketplace > @reapit/cognito-auth > @reapit/elements > styled-components > babel-plugin-styled-components > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - smb-onboarder > @reapit/cognito-auth > @reapit/elements > styled-components > babel-plugin-styled-components > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - web-components-config-server > @reapit/cognito-auth > @reapit/elements > styled-components > babel-plugin-styled-components > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @reapit/cognito-auth > @reapit/elements > styled-components > babel-plugin-styled-components > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/cli > @babel/preset-env > @babel/plugin-proposal-unicode-property-regex > @babel/helper-create-regexp-features-plugin > @babel/helper-regex > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/core > @babel/preset-env > @babel/plugin-proposal-unicode-property-regex > @babel/helper-create-regexp-features-plugin > @babel/helper-regex > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-docs > vue-docgen-loader > jscodeshift > @babel/preset-env > @babel/plugin-transform-block-scoping > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @storybook/addon-actions > @storybook/addons > @storybook/api > @storybook/csf > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @storybook/addon-actions > @storybook/addons > @storybook/api > @storybook/router > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @storybook/addon-actions > @storybook/addons > @storybook/api > telejson > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @storybook/source-loader > @storybook/addons > @storybook/api > @storybook/router > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/generator > @babel/types > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/core > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/react > @babel/preset-react > @babel/plugin-transform-react-jsx > @babel/helper-builder-react-jsx > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - cloud-alert > @jest/core > @jest/reporters > @jest/transform > @babel/core > @babel/generator > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/core > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - aml-checklist > @reapit/cognito-auth > @reapit/elements > linaria > @babel/core > @babel/generator > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - geo-diary > @reapit/cognito-auth > @reapit/elements > linaria > @babel/core > @babel/generator > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - lifetime-legal > @reapit/cognito-auth > @reapit/elements > linaria > @babel/core > @babel/generator > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - marketplace > @reapit/cognito-auth > @reapit/elements > linaria > @babel/core > @babel/generator > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - smb-onboarder > @reapit/cognito-auth > @reapit/elements > linaria > @babel/core > @babel/generator > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - web-components-config-server > @reapit/cognito-auth > @reapit/elements > linaria > @babel/core > @babel/generator > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@mdx-js/loader > @mdx-js/mdx > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-docs > @jest/transform > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/react > @storybook/core > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - aml-checklist > @reapit/cognito-auth > @reapit/elements > linaria > @babel/core > @babel/helper-module-transforms > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - geo-diary > @reapit/cognito-auth > @reapit/elements > linaria > @babel/core > @babel/helper-module-transforms > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - lifetime-legal > @reapit/cognito-auth > @reapit/elements > linaria > @babel/core > @babel/helper-module-transforms > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - marketplace > @reapit/cognito-auth > @reapit/elements > linaria > @babel/core > @babel/helper-module-transforms > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - smb-onboarder > @reapit/cognito-auth > @reapit/elements > linaria > @babel/core > @babel/helper-module-transforms > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - web-components-config-server > @reapit/cognito-auth > @reapit/elements > linaria > @babel/core > @babel/helper-module-transforms > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - cloud-alert > @jest/core > @jest/reporters > @jest/transform > @babel/core > @babel/helper-module-transforms > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/web-components > @serverless/components > @serverless/platform-client-china > @serverless/utils-china > winston > async > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-proposal-unicode-property-regex > @babel/helper-create-regexp-features-plugin > @babel/helper-regex > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-docs > vue-docgen-loader > jscodeshift > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/web-components > @serverless/enterprise-plugin > dependency-tree > precinct > detective-typescript > @typescript-eslint/typescript-estree > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @serverless/enterprise-plugin > dependency-tree > precinct > detective-typescript > @typescript-eslint/typescript-estree > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-docs > vue-docgen-api > pug > pug-code-gen > constantinople > babel-types > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - cloud-alert > @jest/core > @jest/reporters > @jest/transform > @babel/core > @babel/generator > @babel/types > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/react > @storybook/core > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/cognito-auth > @reapit/elements > linaria > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-docs > vue-docgen-loader > jscodeshift > @babel/preset-env > @babel/plugin-proposal-unicode-property-regex > @babel/helper-create-regexp-features-plugin > @babel/helper-regex > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/web-components > @serverless/components > @serverless/platform-client-china > @serverless/utils-china > @tencent-sdk/capi > request-promise-native > request-promise-core > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - cloud-alert > @jest/core > jest-config > jest-environment-jsdom > jsdom > request-promise-native > request-promise-core > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @jest/core > jest-config > jest-environment-jsdom > jsdom > request-promise-native > request-promise-core > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - graphql-server > @storybook/addon-docs > vue-docgen-api > pug > pug-code-gen > constantinople > babel-types > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/cognito-auth > @reapit/elements > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - aml-checklist > @reapit/cognito-auth > @reapit/elements > linaria > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - geo-diary > @reapit/cognito-auth > @reapit/elements > linaria > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - lifetime-legal > @reapit/cognito-auth > @reapit/elements > linaria > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - marketplace > @reapit/cognito-auth > @reapit/elements > linaria > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - smb-onboarder > @reapit/cognito-auth > @reapit/elements > linaria > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - web-components-config-server > @reapit/cognito-auth > @reapit/elements > linaria > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - cloud-alert > @jest/core > @jest/reporters > @jest/transform > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - aml-checklist > @reapit/cognito-auth > @reapit/elements > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - geo-diary > @reapit/cognito-auth > @reapit/elements > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - lifetime-legal > @reapit/cognito-auth > @reapit/elements > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - marketplace > @reapit/cognito-auth > @reapit/elements > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - smb-onboarder > @reapit/cognito-auth > @reapit/elements > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - web-components-config-server > @reapit/cognito-auth > @reapit/elements > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-actions > @storybook/addons > @storybook/api > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-info > @storybook/addons > @storybook/api > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-links > @storybook/addons > @storybook/api > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-storysource > @storybook/addons > @storybook/api > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-viewport > @storybook/addons > @storybook/api > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/source-loader > @storybook/addons > @storybook/api > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/addon-docs > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@storybook/react > lodash':
+        patched: '2020-06-17T10:19:07.483Z'
   'npm:mime:20170907':
     - s3 > mime:
-        patched: '2020-06-16T12:29:14.849Z'
+        patched: '2020-06-17T10:19:07.483Z'
+  'npm:debug:20170905':
+    - graphql-server > @serverless/components > @serverless/platform-client-china > @serverless/utils-china > socket.io-stream > debug:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/web-components > @serverless/components > @serverless/platform-client-china > @serverless/utils-china > socket.io-stream > debug':
+        patched: '2020-06-17T10:19:07.483Z'
+  'npm:ms:20170412':
+    - graphql-server > @serverless/components > @serverless/platform-client-china > @serverless/utils-china > socket.io-stream > debug > ms:
+        patched: '2020-06-17T10:19:07.483Z'
+    - '@reapit/web-components > @serverless/components > @serverless/platform-client-china > @serverless/utils-china > socket.io-stream > debug > ms':
+        patched: '2020-06-17T10:19:07.483Z'
