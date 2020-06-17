@@ -20,9 +20,10 @@ import {
   FaChartBar,
   FaBolt,
   FaFileInvoice,
+  FaDesktop,
 } from 'react-icons/fa'
 import { MdHelp } from 'react-icons/md'
-import { GoDatabase, GoCode } from 'react-icons/go'
+import { GoDatabase } from 'react-icons/go'
 import { selectIsAdmin } from '@/selector/auth'
 
 export const generateMenuConfig = (
@@ -132,11 +133,11 @@ export const generateMenuConfig = (
           icon: <FaReadme className="nav-item-icon" />,
         },
         {
-          title: 'Elements',
-          key: 'ELEMENTS',
-          url: Routes.DEVELOPER_ELEMENTS,
+          title: 'Desktop',
+          key: 'DESKTOP',
+          url: Routes.DEVELOPER_DESKTOP,
           type: 'PRIMARY',
-          icon: <GoCode className="nav-item-icon" />,
+          icon: <FaDesktop className="nav-item-icon" />,
         },
         {
           title: 'Help',
