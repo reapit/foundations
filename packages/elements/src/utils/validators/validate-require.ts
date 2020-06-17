@@ -10,7 +10,9 @@ export const validateRequire = <ValuesType, ErrorKeys extends string>({
   return validateBase<ValuesType, ErrorKeys>({
     values,
     keys,
-    validator: str => str !== '',
+    validator: str => {
+      return typeof str === 'string' ? str.trim() !== '' : str !== ''
+    },
     errMessage: errorMessages.FIELD_REQUIRED,
     currentErrors,
   })
