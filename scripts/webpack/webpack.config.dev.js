@@ -11,7 +11,31 @@ const { getVersionTag } = require('../release/utils')
 const hashFiles = require('../utils/hash-files')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 
+const EXCLUDE_PACKAGES = ['linaria']
+
+const generateRegexExcludePackages = () => {
+  const listPackagesString = EXCLUDE_PACKAGES.join('|')
+  return new RegExp(`node_modules/(?!(${listPackagesString})/).*`)
+}
+
 const tagName = getVersionTag()
+
+const babelLoaderOptions = {
+  presets: [
+    [
+      '@babel/preset-env',
+      {
+        useBuiltIns: 'entry',
+        corejs: '3',
+        targets: {
+          chrome: '58',
+          ie: '11',
+        },
+      },
+    ],
+    'linaria/babel',
+  ],
+}
 
 const webpackConfig = {
   mode: 'development',
@@ -78,7 +102,16 @@ const webpackConfig = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        exclude: generateRegexExcludePackages(),
+        use: {
+          loader: 'babel-loader',
+          options: babelLoaderOptions,
+        },
+      },
+      {
         test: /.tsx?$/,
+        exclude: generateRegexExcludePackages(),
         use: [
           {
             loader: 'cache-loader',
@@ -91,23 +124,7 @@ const webpackConfig = {
           },
           {
             loader: 'babel-loader',
-            options: {
-              presets: [
-                [
-                  '@babel/preset-env',
-                  {
-                    useBuiltIns: 'entry',
-                    corejs: '3',
-                    targets: {
-                      esmodules: true,
-                      chrome: '58',
-                      ie: '11',
-                    },
-                  },
-                ],
-                'linaria/babel',
-              ],
-            },
+            options: babelLoaderOptions,
           },
           {
             loader: 'linaria/loader',
