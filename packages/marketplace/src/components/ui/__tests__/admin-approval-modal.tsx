@@ -1,7 +1,6 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
 import { mount } from 'enzyme'
-import { ReduxState } from '@/types/core'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import {
@@ -13,13 +12,6 @@ import {
   handleSetIsApproveModal,
 } from '../admin-approval-modal'
 
-const mockState = {
-  ...appState,
-  auth: {
-    loginType: 'DEVELOPER',
-  },
-} as ReduxState
-
 const props: AdminApprovalModalInnerProps = {
   onApprovalClick: jest.fn(),
   onDeclineClick: jest.fn(),
@@ -30,7 +22,7 @@ describe('AdminRevisionModalInner', () => {
   beforeEach(() => {
     /* mocking store */
     const mockStore = configureStore()
-    store = mockStore(mockState)
+    store = mockStore(appState)
   })
   it('should match a snapshot when ERROR true', () => {
     expect(
