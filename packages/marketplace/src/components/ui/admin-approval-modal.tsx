@@ -1,22 +1,24 @@
 import * as React from 'react'
+import { useSelector } from 'react-redux'
 import { Modal, ModalProps, Loader, Button, ModalHeader, ModalFooter, ModalBody, Alert } from '@reapit/elements'
-import { connect } from 'react-redux'
-import { ReduxState } from '@/types/core'
-import { AppDetailState } from '@/reducers/app-detail'
-import { RevisionDetailState } from '@/reducers/revision-detail'
 import ApproveRevisionModal from './approve-revision-modal'
 import DeclineRevisionModal from './decline-revision-modal'
-import { compose } from 'redux'
 import AppRevisionComparison from './app-revision-comparison/app-revision-comparison'
+import { selectAppRevisionDetail } from '@/selector/app-revisions'
+import { selectAppDetailState } from '@/selector/app-detail'
 
-export type AdminApprovalModalInnerProps = StateProps
+export type AdminApprovalModalInnerProps = {
+  closeParentModal?: () => void
+  onApprovalClick: () => void
+  onDeclineClick: () => void
+}
 export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalModalInnerProps> = ({
-  revisionDetailState,
-  appDetailState,
   closeParentModal,
   onApprovalClick,
   onDeclineClick,
 }) => {
+  const revisionDetailState = useSelector(selectAppRevisionDetail)
+  const appDetailState = useSelector(selectAppDetailState)
   if (revisionDetailState.loading || appDetailState.loading) {
     return <ModalBody body={<Loader />} />
   }
@@ -63,34 +65,6 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalModal
     </React.Fragment>
   )
 }
-
-export type StateProps = {
-  revisionDetailState: RevisionDetailState
-  appDetailState: AppDetailState
-  closeParentModal?: () => void
-  onApprovalClick: () => void
-  onDeclineClick: () => void
-}
-
-export const mapStateToProps = (state: ReduxState, ownProps: AdminApprovalInnerWithConnectProps): StateProps => ({
-  revisionDetailState: state.revisionDetail,
-  appDetailState: state.appDetail,
-  closeParentModal: ownProps.closeParentModal,
-  onApprovalClick: ownProps.onApprovalClick,
-  onDeclineClick: ownProps.onDeclineClick,
-})
-
-export const withRedux = connect(mapStateToProps, null)
-
-export type AdminApprovalInnerWithConnectProps = {
-  onApprovalClick: () => void
-  onDeclineClick: () => void
-  closeParentModal?: () => void
-}
-
-const AdminApprovalInnerWithConnect = compose<React.FC<AdminApprovalInnerWithConnectProps>>(withRedux)(
-  AdminApprovalModalInner,
-)
 
 export const handleOnApproveSuccess = (setIsApproveModalOpen: React.Dispatch<React.SetStateAction<boolean>>) => () => {
   setIsApproveModalOpen(false)
@@ -141,7 +115,7 @@ export const AdminApprovalModal: React.FunctionComponent<AdminApprovalModalProps
   return (
     <React.Fragment>
       <Modal visible={visible} afterClose={afterClose} deps={[]}>
-        <AdminApprovalInnerWithConnect
+        <AdminApprovalModalInner
           onApprovalClick={handleSetIsApproveModal({ setIsApproveModalOpen, isApproveModalOpen: true, afterClose })}
           onDeclineClick={handleSetIsDeclineModal({ setIsDeclineModalOpen, isDeclineModalOpen: true, afterClose })}
           closeParentModal={afterClose}

@@ -1,6 +1,9 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
-
+import * as ReactRedux from 'react-redux'
+import { mount } from 'enzyme'
+import { ReduxState } from '@/types/core'
+import configureStore from 'redux-mock-store'
+import appState from '@/reducers/__stubs__/app-state'
 import {
   AdminApprovalModalInner,
   AdminApprovalModalInnerProps,
@@ -9,48 +12,34 @@ import {
   handleSetIsDeclineModal,
   handleSetIsApproveModal,
 } from '../admin-approval-modal'
-import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
-import { revisionDetailDataStub } from '@/sagas/__stubs__/revision-detail'
-import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
-import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
 
-const props = (loading: boolean, error: boolean): AdminApprovalModalInnerProps => ({
-  appDetailState: {
-    loading,
-    error,
-    appDetailData: { data: appDetailDataStub.data },
-    authentication: {
-      loading: false,
-      code: '',
-    },
-    isStale: false,
+const mockState = {
+  ...appState,
+  auth: {
+    loginType: 'DEVELOPER',
   },
-  revisionDetailState: {
-    loading,
-    error,
-    revisionDetailData: {
-      data: revisionDetailDataStub.data,
-      scopes: appPermissionStub,
-      desktopIntegrationTypes: integrationTypesStub,
-    },
-    approveFormState: 'PENDING',
-    declineFormState: 'PENDING',
-  },
+} as ReduxState
+
+const props: AdminApprovalModalInnerProps = {
   onApprovalClick: jest.fn(),
   onDeclineClick: jest.fn(),
-})
+}
 
 describe('AdminRevisionModalInner', () => {
-  it('should match a snapshot when LOADING true', () => {
-    expect(shallow(<AdminApprovalModalInner {...props(true, false)} />)).toMatchSnapshot()
+  let store
+  beforeEach(() => {
+    /* mocking store */
+    const mockStore = configureStore()
+    store = mockStore(mockState)
   })
-
-  it('should match a snapshot when LOADING false', () => {
-    expect(shallow(<AdminApprovalModalInner {...props(false, false)} />)).toMatchSnapshot()
-  })
-
   it('should match a snapshot when ERROR true', () => {
-    expect(shallow(<AdminApprovalModalInner {...props(false, true)} />)).toMatchSnapshot()
+    expect(
+      mount(
+        <ReactRedux.Provider store={store}>
+          <AdminApprovalModalInner {...props} />
+        </ReactRedux.Provider>,
+      ),
+    ).toMatchSnapshot()
   })
 })
 
