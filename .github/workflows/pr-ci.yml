@@ -99,14 +99,3 @@ jobs:
       - uses: kentaro-m/auto-assign-action@v1.0.1
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
-
-  security:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          args: --skip-unresolved
