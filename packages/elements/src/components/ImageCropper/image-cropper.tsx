@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef, useEffect } from 'react'
+import * as React from 'react'
 import ReactCrop from 'react-image-crop'
 import 'react-image-crop/dist/ReactCrop.css'
 
@@ -40,25 +40,29 @@ export const generateDownload = (previewCanvas, crop) => {
 }
 
 export const ImageCropper = () => {
-  const [upImg, setUpImg] = useState()
-  const imgRef = useRef(null)
-  const previewCanvasRef = useRef(null)
-  const [crop, setCrop] = useState({ unit: '%', width: 30, aspect: 16 / 9 })
-  const [completedCrop, setCompletedCrop] = useState(null)
+  const [isVisible, setIsVisible] = React.useState<boolean>(false)
+  const [upImg, setUpImg] = React.useState<any>()
+  const imgRef = React.useRef<HTMLElement>(null)
+  const previewCanvasRef = React.useRef(null)
+  const [crop, setCrop] = React.useState({ unit: '%', width: 30, aspect: 16 / 9 })
+  const [completedCrop, setCompletedCrop] = React.useState(null)
 
   const onSelectFile = e => {
     if (e.target.files && e.target.files.length > 0) {
       const reader = new FileReader()
-      reader.addEventListener('load', () => setUpImg(reader.result))
+      reader.addEventListener('load', () => {
+        setUpImg(reader.result)
+        setIsVisible(true)
+      })
       reader.readAsDataURL(e.target.files[0])
     }
   }
 
-  const onLoad = useCallback(img => {
+  const onLoad = React.useCallback(img => {
     imgRef.current = img
   }, [])
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!completedCrop || !previewCanvasRef.current || !imgRef.current) {
       return
     }
@@ -89,44 +93,48 @@ export const ImageCropper = () => {
   }, [completedCrop])
 
   return (
-    <div className="App">
+    <div>
       <div>
         <input type="file" accept="image/*" onChange={onSelectFile} />
       </div>
-      <ReactCrop
-        src={upImg}
-        onImageLoaded={onLoad}
-        crop={crop}
-        onChange={c => setCrop(c)}
-        onComplete={c => setCompletedCrop(c)}
-      />
-      <div>
-        <canvas
-          ref={previewCanvasRef}
+      {isVisible && (
+        <div
           style={{
-            width: completedCrop?.width ?? 0,
-            height: completedCrop?.height ?? 0,
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            height: '100%',
+            width: '100%',
+            display: 'flex',
+            flexFlow: 'column nowrap',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 999,
+            background: 'gray',
           }}
-        />
-      </div>
-      <p>
-        For some browsers e.g. Chrome access from{' '}
-        <a href="https://y831o.csb.app/" target="_blank" rel="noopener noreferrer">
-          outside the preview iframe
-        </a>{' '}
-        to download due to programmatically triggering a click (security).
-      </p>
-      <p>
-        The alternative would be to generate a blob each time the crop is complete and render out an anchor tag if you
-        want to download from inside an iframe.
-      </p>
-      <button
-        type="button"
-        disabled={!completedCrop?.width || !completedCrop?.height}
-        onClick={() => generateDownload(previewCanvasRef.current, completedCrop)}
-      >
-        Download cropped image
-      </button>
+        >
+          <div style={{ maxWidth: 640 }}>
+            <ReactCrop
+              src={upImg}
+              onImageLoaded={onLoad}
+              crop={crop}
+              onChange={c => setCrop(c)}
+              onComplete={c => setCompletedCrop(c)}
+            />
+            <canvas ref={previewCanvasRef} />
+            <button
+              type="button"
+              disabled={!completedCrop?.width || !completedCrop?.height}
+              onClick={() => generateDownload(previewCanvasRef.current, completedCrop)}
+            >
+              Download cropped image
+            </button>
+            <button type="button" onClick={() => setIsVisible(false)}>
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
