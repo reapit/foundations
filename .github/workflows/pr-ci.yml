@@ -41,7 +41,7 @@ jobs:
           yarn config set workspaces-experimental true
       
       - name: Setup Snyk
-        run: yarn global add snyk && snyk auth $SNYK_TOKEN
+        run: npm install -g snyk && snyk auth $SNYK_TOKEN
 
       - name: Install dependencies
         run: |
