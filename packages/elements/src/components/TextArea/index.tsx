@@ -2,8 +2,9 @@ import * as React from 'react'
 import { Field, FieldProps } from 'formik'
 import { cx } from 'linaria'
 import { checkError } from '../../utils/form'
+import { LayoutProps } from '../Layout'
 
-export interface TextAreaProps {
+export type TextAreaProps = {
   placeholder?: string
   id: string
   labelText?: string
@@ -11,8 +12,7 @@ export interface TextAreaProps {
   dataTest?: string
   validate?: (value: string) => string | null
   required?: boolean
-  containerClassName?: string
-}
+} & LayoutProps
 
 export const textareaPrimary = 'textarea is-primary'
 export const textareaError = 'textarea is-danger'
@@ -25,7 +25,6 @@ export const TextArea = ({
   placeholder = '',
   required = false,
   validate,
-  containerClassName = '',
 }: TextAreaProps) => (
   <Field name={name} validate={required ? validate : null}>
     {({ field, meta }: FieldProps<string>) => {
@@ -33,7 +32,7 @@ export const TextArea = ({
       const className = cx(hasError ? textareaError : textareaPrimary)
       const labelClassname = cx('label', required && 'required-label')
       return (
-        <div className={`field ${containerClassName}`}>
+        <div className={`field ${className}`}>
           <div className="control">
             {labelText && (
               <label className={labelClassname} htmlFor={id}>

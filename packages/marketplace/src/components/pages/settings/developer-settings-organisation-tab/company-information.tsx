@@ -94,13 +94,19 @@ export const CompanyInformation = () => {
                 </Grid>
 
                 <Grid>
-                  <GridItem className={styles.inputContainerVerticalSpacing}>
-                    <Input type="text" labelText="Line 3" id="line3" name="line3" />
-                    <Input type="text" labelText="Line 4" id="line4" name="line4" />
-                    <Input type="text" labelText="Postcode" id="postCode" name="postCode" />
+                  <GridItem>
+                    <GridItem>
+                      <Input type="text" labelText="Line 3" id="line3" name="line3" />
+                    </GridItem>
+                    <GridItem>
+                      <Input type="text" labelText="Line 4" id="line4" name="line4" />
+                    </GridItem>
+                    <GridItem>
+                      <Input type="text" labelText="Postcode" id="postCode" name="postCode" />
+                    </GridItem>
                   </GridItem>
                   <GridItem>
-                    <TextArea containerClassName={styles.aboutField} id="about" labelText="About" name="about" />
+                    <TextArea className={styles.aboutField} id="about" labelText="About" name="about" />
                   </GridItem>
                 </Grid>
 

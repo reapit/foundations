@@ -2,64 +2,79 @@ $units: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
 
 @each $unit in $units {
   .mt-#{$unit} {
-    margin-top: ($unit * 1rem/4) !important;
+    margin-top: ($unit * 1rem / 4) !important;
   }
+
   .mb-#{$unit} {
-    margin-bottom: ($unit * 1rem/4) !important;
+    margin-bottom: ($unit * 1rem / 4) !important;
   }
+
   .ml-#{$unit} {
-    margin-left: ($unit * 1rem/4) !important;
+    margin-left: ($unit * 1rem / 4) !important;
   }
+
   .mr-#{$unit} {
-    margin-right: ($unit * 1rem/4) !important;
+    margin-right: ($unit * 1rem / 4) !important;
   }
+
   .mx-#{$unit} {
-    margin-left: ($unit * 1rem/4) !important;
-    margin-right: ($unit * 1rem/4) !important;
+    margin-left: ($unit * 1rem / 4) !important;
+    margin-right: ($unit * 1rem / 4) !important;
   }
+
   .my-#{$unit} {
-    margin-top: ($unit * 1rem/4) !important;
-    margin-bottom: ($unit * 1rem/4) !important;
+    margin-top: ($unit * 1rem / 4) !important;
+    margin-bottom: ($unit * 1rem / 4) !important;
   }
 
   .pt-#{$unit} {
-    padding-top: ($unit * 1rem/4) !important;
+    padding-top: ($unit * 1rem / 4) !important;
   }
+
   .pb-#{$unit} {
-    padding-bottom: ($unit * 1rem/4) !important;
+    padding-bottom: ($unit * 1rem / 4) !important;
   }
+
   .pl-#{$unit} {
-    padding-left: ($unit * 1rem/4) !important;
+    padding-left: ($unit * 1rem / 4) !important;
   }
+
   .pr-#{$unit} {
-    padding-right: ($unit * 1rem/4) !important;
+    padding-right: ($unit * 1rem / 4) !important;
   }
+
   .px-#{$unit} {
-    padding-left: ($unit * 1rem/4) !important;
-    padding-right: ($unit * 1rem/4) !important;
+    padding-left: ($unit * 1rem / 4) !important;
+    padding-right: ($unit * 1rem / 4) !important;
   }
+
   .py-#{$unit} {
-    padding-top: ($unit * 1rem/4) !important;
-    padding-bottom: ($unit * 1rem/4) !important;
+    padding-top: ($unit * 1rem / 4) !important;
+    padding-bottom: ($unit * 1rem / 4) !important;
   }
 }
 
 .bt {
   border-top: 1px solid $grey !important;
 }
+
 .bb {
   border-bottom: 1px solid $grey !important;
 }
+
 .bl {
   border-left: 1px solid $grey !important;
 }
+
 .br {
   border-right: 1px solid $grey !important;
 }
+
 .bx {
   border-left: 1px solid $grey !important;
   border-right: 1px solid $grey !important;
 }
+
 .by {
   border-top: 1px solid $grey !important;
   border-bottom: 1px solid $grey !important;
@@ -122,4 +137,8 @@ $units: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
 
 .capitalize {
   text-transform: capitalize;
+}
+
+.justify-end {
+  justify-content: flex-end;
 }

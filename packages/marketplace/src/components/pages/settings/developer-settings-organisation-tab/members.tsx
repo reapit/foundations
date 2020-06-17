@@ -1,14 +1,22 @@
 import * as React from 'react'
-import styles from '@/styles/pages/developer-settings-organisation-tab.scss?mod'
 import { H3, FlexContainerResponsive, Content, FlexContainerBasic, Table } from '@reapit/elements'
 
-export const CellName = ({
+interface CellNameProps {
+  row: {
+    original: {
+      email: string
+      title: string
+    }
+  }
+}
+
+export const CellName: React.FC<CellNameProps> = ({
   row: {
     original: { email, title },
   },
 }) => {
   return (
-    <div className={styles.nameColumn}>
+    <div className="inline-flex items-center inline-flex">
       <div>{email}</div>
       <div>{title}</div>
     </div>

@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Members CellName should match snapshots 1`] = `
-<div>
+<div
+  className="inline-flex items-center inline-flex"
+>
   <div />
   <div />
 </div>
