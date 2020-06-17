@@ -17,7 +17,102 @@ exports[`ComapnyInformation should match a snapshot when no error 1`] = `
       <Formik
         initialValues={Object {}}
         onSubmit={[Function]}
-        validate={[Function]}
+        validationSchema={
+          ObjectSchema {
+            "_blacklist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_conditions": Array [],
+            "_defaultDefault": [Function],
+            "_deps": Array [],
+            "_excludedEdges": Array [],
+            "_exclusive": Object {},
+            "_mutate": undefined,
+            "_nodes": Array [
+              "officeEmail",
+              "name",
+            ],
+            "_options": Object {
+              "abortEarly": true,
+              "recursive": true,
+            },
+            "_type": "object",
+            "_typeError": [Function],
+            "_whitelist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "fields": Object {
+              "name": StringSchema {
+                "_blacklist": RefSet {
+                  "list": Set {},
+                  "refs": Map {},
+                },
+                "_conditions": Array [],
+                "_deps": Array [],
+                "_exclusive": Object {
+                  "required": true,
+                  "trim": false,
+                },
+                "_mutate": undefined,
+                "_options": Object {
+                  "abortEarly": true,
+                  "recursive": true,
+                },
+                "_type": "string",
+                "_typeError": [Function],
+                "_whitelist": RefSet {
+                  "list": Set {},
+                  "refs": Map {},
+                },
+                "tests": Array [
+                  [Function],
+                  [Function],
+                ],
+                "transforms": Array [
+                  [Function],
+                  [Function],
+                ],
+                "type": "string",
+              },
+              "officeEmail": StringSchema {
+                "_blacklist": RefSet {
+                  "list": Set {},
+                  "refs": Map {},
+                },
+                "_conditions": Array [],
+                "_deps": Array [],
+                "_exclusive": Object {
+                  "email": false,
+                },
+                "_mutate": undefined,
+                "_options": Object {
+                  "abortEarly": true,
+                  "recursive": true,
+                },
+                "_type": "string",
+                "_typeError": [Function],
+                "_whitelist": RefSet {
+                  "list": Set {},
+                  "refs": Map {},
+                },
+                "tests": Array [
+                  [Function],
+                ],
+                "transforms": Array [
+                  [Function],
+                ],
+                "type": "string",
+              },
+            },
+            "tests": Array [],
+            "transforms": Array [
+              [Function],
+            ],
+            "type": "object",
+          }
+        }
       >
         <Component />
       </Formik>
