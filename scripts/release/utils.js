@@ -318,7 +318,7 @@ const NPM_APPS = [
   'cognito-auth',
   'config-manager',
   'elements',
-  'foundation-ts-definitions',
+  'foundations-ts-definitions',
   'react-app-scaffolder',
   'web-components',
 ]
