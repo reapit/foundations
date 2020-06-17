@@ -2,7 +2,13 @@ const scss = require('rollup-plugin-scss')
 const babel = require('@rollup/plugin-babel').default
 const linaria = require('linaria/rollup')
 const typescript = require('rollup-plugin-typescript2')
-const excludePackages = require('../../scripts/webpack/exclude-packages')()
+
+const EXCLUDE_PACKAGES = ['linaria']
+
+const generateRegexExcludePackages = () => {
+  const listPackagesString = EXCLUDE_PACKAGES.join('|')
+  return new RegExp(`node_modules/(?!(${listPackagesString})/).*`)
+}
 
 // Overrides and changes the order of TSDX's rollup config to accomodate linaria
 const replaceAndReorderPlugins = plugins => {
@@ -20,7 +26,7 @@ const replaceAndReorderPlugins = plugins => {
         },
       ],
     ],
-    exclude: excludePackages,
+    exclude: generateRegexExcludePackages(),
     extensions: ['.ts', '.tsx'],
     babelHelpers: 'runtime',
     plugins: ['@babel/plugin-transform-runtime'],

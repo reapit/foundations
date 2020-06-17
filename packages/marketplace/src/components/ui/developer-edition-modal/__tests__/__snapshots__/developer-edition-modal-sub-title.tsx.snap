@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeveloperEditionModalSubTitle should match snapshot 1`] = `
+<Component>
+  The Agency Cloud Developer Edition is used for testing your application and is a licenced product. The cost per licence is £300.00 (plus VAT) per month. It will be automatically added to your monthly billing and will auto renew until you cancel.
+  <br />
+  <br />
+  There will be no charge for the licence during the Beta phase. For more information regarding the Developer Edition please refer to your Developer Registration
+   
+  <a
+    href="#"
+    rel="noopener"
+    target="_blank"
+  >
+    Terms and Conditions
+  </a>
+</Component>
+`;

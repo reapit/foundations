@@ -33,7 +33,6 @@ exports[` 1`] = `
           "mobilePhone",
           "homePhone",
           "email",
-          "dateOfBirth",
           "surname",
           "forename",
           "title",
@@ -49,35 +48,6 @@ exports[` 1`] = `
           "refs": Map {},
         },
         "fields": Object {
-          "dateOfBirth": StringSchema {
-            "_blacklist": RefSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_conditions": Array [],
-            "_deps": Array [],
-            "_exclusive": Object {
-              "required": true,
-            },
-            "_mutate": undefined,
-            "_options": Object {
-              "abortEarly": true,
-              "recursive": true,
-            },
-            "_type": "string",
-            "_typeError": [Function],
-            "_whitelist": RefSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "tests": Array [
-              [Function],
-            ],
-            "transforms": Array [
-              [Function],
-            ],
-            "type": "string",
-          },
           "email": StringSchema {
             "_blacklist": RefSet {
               "list": Set {},
@@ -149,12 +119,37 @@ exports[` 1`] = `
               "list": Set {},
               "refs": Map {},
             },
-            "_conditions": Array [],
-            "_deps": Array [],
+            "_conditions": Array [
+              Condition {
+                "fn": [Function],
+                "refs": Array [
+                  Reference {
+                    "getter": [Function],
+                    "isContext": false,
+                    "isSibling": true,
+                    "isValue": false,
+                    "key": "mobilePhone",
+                    "map": undefined,
+                    "path": "mobilePhone",
+                  },
+                  Reference {
+                    "getter": [Function],
+                    "isContext": false,
+                    "isSibling": true,
+                    "isValue": false,
+                    "key": "workPhone",
+                    "map": undefined,
+                    "path": "workPhone",
+                  },
+                ],
+              },
+            ],
+            "_deps": Array [
+              "mobilePhone",
+              "workPhone",
+            ],
             "_exclusive": Object {
               "matches": false,
-              "required": true,
-              "trim": false,
             },
             "_mutate": undefined,
             "_nullable": true,
@@ -170,11 +165,8 @@ exports[` 1`] = `
             },
             "tests": Array [
               [Function],
-              [Function],
-              [Function],
             ],
             "transforms": Array [
-              [Function],
               [Function],
             ],
             "type": "string",
@@ -188,8 +180,6 @@ exports[` 1`] = `
             "_deps": Array [],
             "_exclusive": Object {
               "matches": false,
-              "required": true,
-              "trim": false,
             },
             "_mutate": undefined,
             "_nullable": true,
@@ -205,11 +195,8 @@ exports[` 1`] = `
             },
             "tests": Array [
               [Function],
-              [Function],
-              [Function],
             ],
             "transforms": Array [
-              [Function],
               [Function],
             ],
             "type": "string",
@@ -287,8 +274,6 @@ exports[` 1`] = `
             "_deps": Array [],
             "_exclusive": Object {
               "matches": false,
-              "required": true,
-              "trim": false,
             },
             "_mutate": undefined,
             "_nullable": true,
@@ -304,11 +289,8 @@ exports[` 1`] = `
             },
             "tests": Array [
               [Function],
-              [Function],
-              [Function],
             ],
             "transforms": Array [
-              [Function],
               [Function],
             ],
             "type": "string",

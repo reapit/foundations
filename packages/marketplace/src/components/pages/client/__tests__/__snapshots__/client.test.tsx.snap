@@ -361,48 +361,76 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
                                           className="label"
                                           htmlFor="searchBy"
                                         />
-                                        <div
-                                          className="radio-wrap"
-                                          key="0"
+                                        <Component
+                                          className="is-gapless"
+                                          isMultiLine={true}
                                         >
-                                          <input
-                                            checked={true}
-                                            className="checkbox "
-                                            disabled={false}
-                                            id="searchByBy App Name"
-                                            key="appName"
-                                            name="searchBy"
-                                            onChange={[Function]}
-                                            type="radio"
-                                            value="appName"
-                                          />
-                                          <label
-                                            htmlFor="searchByBy App Name"
+                                          <div
+                                            className="columns is-multiline is-gapless"
+                                            data-test=""
                                           >
-                                            By App Name
-                                          </label>
-                                        </div>
-                                        <div
-                                          className="radio-wrap"
-                                          key="1"
-                                        >
-                                          <input
-                                            checked={false}
-                                            className="checkbox "
-                                            disabled={false}
-                                            id="searchByBy Company"
-                                            key="companyName"
-                                            name="searchBy"
-                                            onChange={[Function]}
-                                            type="radio"
-                                            value="companyName"
-                                          />
-                                          <label
-                                            htmlFor="searchByBy Company"
-                                          >
-                                            By Company
-                                          </label>
-                                        </div>
+                                            <Component
+                                              className="is-full"
+                                              key="0"
+                                            >
+                                              <div
+                                                className="column  is-full"
+                                                data-test=""
+                                              >
+                                                <div
+                                                  className="radio-wrap"
+                                                >
+                                                  <input
+                                                    checked={true}
+                                                    className="checkbox "
+                                                    disabled={false}
+                                                    id="searchByBy App Name"
+                                                    key="appName"
+                                                    name="searchBy"
+                                                    onChange={[Function]}
+                                                    type="radio"
+                                                    value="appName"
+                                                  />
+                                                  <label
+                                                    htmlFor="searchByBy App Name"
+                                                  >
+                                                    By App Name
+                                                  </label>
+                                                </div>
+                                              </div>
+                                            </Component>
+                                            <Component
+                                              className="is-full"
+                                              key="1"
+                                            >
+                                              <div
+                                                className="column  is-full"
+                                                data-test=""
+                                              >
+                                                <div
+                                                  className="radio-wrap"
+                                                >
+                                                  <input
+                                                    checked={false}
+                                                    className="checkbox "
+                                                    disabled={false}
+                                                    id="searchByBy Company"
+                                                    key="companyName"
+                                                    name="searchBy"
+                                                    onChange={[Function]}
+                                                    type="radio"
+                                                    value="companyName"
+                                                  />
+                                                  <label
+                                                    htmlFor="searchByBy Company"
+                                                  >
+                                                    By Company
+                                                  </label>
+                                                </div>
+                                              </div>
+                                            </Component>
+                                          </div>
+                                        </Component>
                                       </div>
                                     </div>
                                   </Field>
@@ -860,48 +888,76 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                                           className="label"
                                           htmlFor="searchBy"
                                         />
-                                        <div
-                                          className="radio-wrap"
-                                          key="0"
+                                        <Component
+                                          className="is-gapless"
+                                          isMultiLine={true}
                                         >
-                                          <input
-                                            checked={true}
-                                            className="checkbox "
-                                            disabled={false}
-                                            id="searchByBy App Name"
-                                            key="appName"
-                                            name="searchBy"
-                                            onChange={[Function]}
-                                            type="radio"
-                                            value="appName"
-                                          />
-                                          <label
-                                            htmlFor="searchByBy App Name"
+                                          <div
+                                            className="columns is-multiline is-gapless"
+                                            data-test=""
                                           >
-                                            By App Name
-                                          </label>
-                                        </div>
-                                        <div
-                                          className="radio-wrap"
-                                          key="1"
-                                        >
-                                          <input
-                                            checked={false}
-                                            className="checkbox "
-                                            disabled={false}
-                                            id="searchByBy Company"
-                                            key="companyName"
-                                            name="searchBy"
-                                            onChange={[Function]}
-                                            type="radio"
-                                            value="companyName"
-                                          />
-                                          <label
-                                            htmlFor="searchByBy Company"
-                                          >
-                                            By Company
-                                          </label>
-                                        </div>
+                                            <Component
+                                              className="is-full"
+                                              key="0"
+                                            >
+                                              <div
+                                                className="column  is-full"
+                                                data-test=""
+                                              >
+                                                <div
+                                                  className="radio-wrap"
+                                                >
+                                                  <input
+                                                    checked={true}
+                                                    className="checkbox "
+                                                    disabled={false}
+                                                    id="searchByBy App Name"
+                                                    key="appName"
+                                                    name="searchBy"
+                                                    onChange={[Function]}
+                                                    type="radio"
+                                                    value="appName"
+                                                  />
+                                                  <label
+                                                    htmlFor="searchByBy App Name"
+                                                  >
+                                                    By App Name
+                                                  </label>
+                                                </div>
+                                              </div>
+                                            </Component>
+                                            <Component
+                                              className="is-full"
+                                              key="1"
+                                            >
+                                              <div
+                                                className="column  is-full"
+                                                data-test=""
+                                              >
+                                                <div
+                                                  className="radio-wrap"
+                                                >
+                                                  <input
+                                                    checked={false}
+                                                    className="checkbox "
+                                                    disabled={false}
+                                                    id="searchByBy Company"
+                                                    key="companyName"
+                                                    name="searchBy"
+                                                    onChange={[Function]}
+                                                    type="radio"
+                                                    value="companyName"
+                                                  />
+                                                  <label
+                                                    htmlFor="searchByBy Company"
+                                                  >
+                                                    By Company
+                                                  </label>
+                                                </div>
+                                              </div>
+                                            </Component>
+                                          </div>
+                                        </Component>
                                       </div>
                                     </div>
                                   </Field>
@@ -1359,48 +1415,76 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
                                           className="label"
                                           htmlFor="searchBy"
                                         />
-                                        <div
-                                          className="radio-wrap"
-                                          key="0"
+                                        <Component
+                                          className="is-gapless"
+                                          isMultiLine={true}
                                         >
-                                          <input
-                                            checked={true}
-                                            className="checkbox "
-                                            disabled={false}
-                                            id="searchByBy App Name"
-                                            key="appName"
-                                            name="searchBy"
-                                            onChange={[Function]}
-                                            type="radio"
-                                            value="appName"
-                                          />
-                                          <label
-                                            htmlFor="searchByBy App Name"
+                                          <div
+                                            className="columns is-multiline is-gapless"
+                                            data-test=""
                                           >
-                                            By App Name
-                                          </label>
-                                        </div>
-                                        <div
-                                          className="radio-wrap"
-                                          key="1"
-                                        >
-                                          <input
-                                            checked={false}
-                                            className="checkbox "
-                                            disabled={false}
-                                            id="searchByBy Company"
-                                            key="companyName"
-                                            name="searchBy"
-                                            onChange={[Function]}
-                                            type="radio"
-                                            value="companyName"
-                                          />
-                                          <label
-                                            htmlFor="searchByBy Company"
-                                          >
-                                            By Company
-                                          </label>
-                                        </div>
+                                            <Component
+                                              className="is-full"
+                                              key="0"
+                                            >
+                                              <div
+                                                className="column  is-full"
+                                                data-test=""
+                                              >
+                                                <div
+                                                  className="radio-wrap"
+                                                >
+                                                  <input
+                                                    checked={true}
+                                                    className="checkbox "
+                                                    disabled={false}
+                                                    id="searchByBy App Name"
+                                                    key="appName"
+                                                    name="searchBy"
+                                                    onChange={[Function]}
+                                                    type="radio"
+                                                    value="appName"
+                                                  />
+                                                  <label
+                                                    htmlFor="searchByBy App Name"
+                                                  >
+                                                    By App Name
+                                                  </label>
+                                                </div>
+                                              </div>
+                                            </Component>
+                                            <Component
+                                              className="is-full"
+                                              key="1"
+                                            >
+                                              <div
+                                                className="column  is-full"
+                                                data-test=""
+                                              >
+                                                <div
+                                                  className="radio-wrap"
+                                                >
+                                                  <input
+                                                    checked={false}
+                                                    className="checkbox "
+                                                    disabled={false}
+                                                    id="searchByBy Company"
+                                                    key="companyName"
+                                                    name="searchBy"
+                                                    onChange={[Function]}
+                                                    type="radio"
+                                                    value="companyName"
+                                                  />
+                                                  <label
+                                                    htmlFor="searchByBy Company"
+                                                  >
+                                                    By Company
+                                                  </label>
+                                                </div>
+                                              </div>
+                                            </Component>
+                                          </div>
+                                        </Component>
                                       </div>
                                     </div>
                                   </Field>
@@ -1947,48 +2031,76 @@ exports[`Client should match a snapshot when featured apps is undefined 1`] = `
                                           className="label"
                                           htmlFor="searchBy"
                                         />
-                                        <div
-                                          className="radio-wrap"
-                                          key="0"
+                                        <Component
+                                          className="is-gapless"
+                                          isMultiLine={true}
                                         >
-                                          <input
-                                            checked={true}
-                                            className="checkbox "
-                                            disabled={false}
-                                            id="searchByBy App Name"
-                                            key="appName"
-                                            name="searchBy"
-                                            onChange={[Function]}
-                                            type="radio"
-                                            value="appName"
-                                          />
-                                          <label
-                                            htmlFor="searchByBy App Name"
+                                          <div
+                                            className="columns is-multiline is-gapless"
+                                            data-test=""
                                           >
-                                            By App Name
-                                          </label>
-                                        </div>
-                                        <div
-                                          className="radio-wrap"
-                                          key="1"
-                                        >
-                                          <input
-                                            checked={false}
-                                            className="checkbox "
-                                            disabled={false}
-                                            id="searchByBy Company"
-                                            key="companyName"
-                                            name="searchBy"
-                                            onChange={[Function]}
-                                            type="radio"
-                                            value="companyName"
-                                          />
-                                          <label
-                                            htmlFor="searchByBy Company"
-                                          >
-                                            By Company
-                                          </label>
-                                        </div>
+                                            <Component
+                                              className="is-full"
+                                              key="0"
+                                            >
+                                              <div
+                                                className="column  is-full"
+                                                data-test=""
+                                              >
+                                                <div
+                                                  className="radio-wrap"
+                                                >
+                                                  <input
+                                                    checked={true}
+                                                    className="checkbox "
+                                                    disabled={false}
+                                                    id="searchByBy App Name"
+                                                    key="appName"
+                                                    name="searchBy"
+                                                    onChange={[Function]}
+                                                    type="radio"
+                                                    value="appName"
+                                                  />
+                                                  <label
+                                                    htmlFor="searchByBy App Name"
+                                                  >
+                                                    By App Name
+                                                  </label>
+                                                </div>
+                                              </div>
+                                            </Component>
+                                            <Component
+                                              className="is-full"
+                                              key="1"
+                                            >
+                                              <div
+                                                className="column  is-full"
+                                                data-test=""
+                                              >
+                                                <div
+                                                  className="radio-wrap"
+                                                >
+                                                  <input
+                                                    checked={false}
+                                                    className="checkbox "
+                                                    disabled={false}
+                                                    id="searchByBy Company"
+                                                    key="companyName"
+                                                    name="searchBy"
+                                                    onChange={[Function]}
+                                                    type="radio"
+                                                    value="companyName"
+                                                  />
+                                                  <label
+                                                    htmlFor="searchByBy Company"
+                                                  >
+                                                    By Company
+                                                  </label>
+                                                </div>
+                                              </div>
+                                            </Component>
+                                          </div>
+                                        </Component>
                                       </div>
                                     </div>
                                   </Field>

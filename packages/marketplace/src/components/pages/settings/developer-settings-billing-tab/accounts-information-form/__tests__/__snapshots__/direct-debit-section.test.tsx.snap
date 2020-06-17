@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DirectDebitSection should match snapshot 1`] = `
+<Fragment>
+  <Component>
+    <Component>
+      Do you have a Direct Debit setup already?
+    </Component>
+    <Component>
+      If you have an existing Direct Debit setup, please select Yes below. 
+    If not, please select No and complete a Direct Debit form below:
+    </Component>
+    <Component
+      id="hasDirectDebit"
+      isHorizontal={true}
+      name="hasDirectDebit"
+      options={
+        Array [
+          Object {
+            "label": "Yes",
+            "value": "yes",
+          },
+          Object {
+            "label": "No",
+            "value": "no",
+          },
+          Object {
+            "label": "Other (Pay by cheque/bacs/credit)",
+            "value": "other",
+          },
+        ]
+      }
+      setFieldValue={[MockFunction]}
+      state="yes"
+    />
+  </Component>
+</Fragment>
+`;

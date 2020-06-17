@@ -32,6 +32,7 @@ exports[`AuthenticationSection should match a snapshot where authFlow is CLIENT_
   isSidebar={false}
 >
   <div
+    className=""
     data-test="authentication-client-id"
   >
     <b
@@ -50,6 +51,7 @@ exports[`AuthenticationSection should match a snapshot where authFlow is USER_SE
   isSidebar={true}
 >
   <div
+    className=""
     data-test="authentication-client-id"
   >
     <b

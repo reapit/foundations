@@ -1,3 +1,3 @@
 export const IFRAME_URLS = {
-  documentation: 'https://foundations-documentation.reapit.cloud',
+  documentation: 'https://d3n4a9i5oscc99.cloudfront.net',
 }

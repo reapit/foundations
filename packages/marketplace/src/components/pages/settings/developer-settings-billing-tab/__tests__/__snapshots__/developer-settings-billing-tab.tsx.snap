@@ -18,7 +18,19 @@ exports[`DeveloperBillingTabPage should match snapshot when isAdmin = false 2`] 
       hasPadding={true}
     >
       <Component />
-      <Component />
+      <Component>
+        <Component
+          flexColumn={true}
+          hasBackground={true}
+          hasPadding={true}
+        >
+          <Component>
+            Accounts Information
+          </Component>
+          <AccountsInformationForm />
+        </Component>
+        <Component />
+      </Component>
     </Component>
   </Component>
 </Component>

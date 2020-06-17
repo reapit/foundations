@@ -186,6 +186,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                   </h5>
                 </Component>
                 <div
+                  className=""
                   data-test="authentication-client-id"
                 >
                   <b

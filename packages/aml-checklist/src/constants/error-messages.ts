@@ -7,6 +7,7 @@ const errorMessages = {
   FIELD_GENERAL_ERROR: (name?: string) => `Please enter a valid ${name || 'value'}`,
   MINIMUM_CHARACTER_LENGTH: (min: number) => `The minimum length is ${min} characters`,
   MAXIMUM_CHARACTER_LENGTH: (max: number) => `The maximum length is ${max} characters`,
+  WRONG_FILE_TYPE: 'Wrong file type',
 }
 
 export default errorMessages

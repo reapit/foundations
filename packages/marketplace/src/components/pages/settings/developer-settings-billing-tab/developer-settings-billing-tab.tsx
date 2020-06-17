@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { FlexContainerResponsive, Content, FlexContainerBasic } from '@reapit/elements'
+import { FlexContainerResponsive, Content, FlexContainerBasic, H3 } from '@reapit/elements'
 import { Tabs } from '../tabs'
+import AccountsInformationForm from './accounts-information-form'
 import { Redirect } from 'react-router-dom'
 import { selectIsAdmin } from '@/selector/auth'
 import { useSelector } from 'react-redux'
@@ -28,7 +29,13 @@ const DevelperSettingsBillingTabPage: React.FC<{}> = () => {
       <Content>
         <FlexContainerResponsive flexColumn hasBackground hasPadding>
           <Tabs />
-          <Subcriptions />
+          <Content>
+            <FlexContainerResponsive flexColumn hasBackground hasPadding>
+              <H3>Accounts Information</H3>
+              <AccountsInformationForm />
+            </FlexContainerResponsive>
+            <Subcriptions />
+          </Content>
         </FlexContainerResponsive>
       </Content>
     </FlexContainerBasic>

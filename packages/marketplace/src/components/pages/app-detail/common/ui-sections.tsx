@@ -169,14 +169,11 @@ export const AuthenticationSection: React.FC<AuthenticationSectionProps> = ({
   isSidebar = false,
 }) => (
   <AppDetailSection headerText="Authentication" isSidebar={isSidebar}>
-    {authFlow === AuthFlow.CLIENT_SECRET ? (
-      <AppAuthenticationDetail withCustomHeader={true} appId={id} />
-    ) : (
-      <div data-test="authentication-client-id">
-        <b className="mr-2">Client ID:</b>
-        {externalId}
-      </div>
-    )}
+    <div className={authFlow === AuthFlow.CLIENT_SECRET ? 'mb-4' : ''} data-test="authentication-client-id">
+      <b className="mr-2">Client ID:</b>
+      {externalId}
+    </div>
+    {authFlow === AuthFlow.CLIENT_SECRET && <AppAuthenticationDetail withCustomHeader={true} appId={id} />}
   </AppDetailSection>
 )
 

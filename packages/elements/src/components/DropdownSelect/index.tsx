@@ -8,7 +8,7 @@ import { checkError } from '../../utils/form'
 
 export interface DropdownSelectProps extends SelectProps {
   id: string
-  labelText: string
+  labelText?: string
   name: string
   placeholder?: string
   options: SelectOption[]
@@ -16,13 +16,14 @@ export interface DropdownSelectProps extends SelectProps {
   subText?: string
   // fixed to current node
   fixedPosition?: boolean
+  hasLabel?: boolean
 }
 
 export interface SelectOption {
   label: string
   value: string
-  description: string
-  link: string
+  description?: string
+  link?: string
 }
 
 export const DropdownSelect: React.FC<DropdownSelectProps> = ({
@@ -35,12 +36,20 @@ export const DropdownSelect: React.FC<DropdownSelectProps> = ({
   subText,
   mode = 'tags',
   fixedPosition = false,
+  hasLabel = true,
   ...restProps
 }) => {
   const handleRenderTags = (props: CustomTagProps) => {
     const { value, onClose } = props
     const option = options.find(option => option.value === value) as SelectOption
-    return <CustomTag label={option?.value} description={option?.description} link={option?.link} onClose={onClose} />
+    return (
+      <CustomTag
+        label={option?.value}
+        description={option?.description || ''}
+        link={option?.link || ''}
+        onClose={onClose}
+      />
+    )
   }
 
   const handleChangeOption = field => value => {
@@ -65,7 +74,7 @@ export const DropdownSelect: React.FC<DropdownSelectProps> = ({
               const hasError = checkError(meta)
               return (
                 <div className="field field-dropdown-select">
-                  <label className={`label ${required ? 'required-label' : ''}`}>{labelText}</label>
+                  {hasLabel && <label className={`label ${required ? 'required-label' : ''}`}>{labelText}</label>}
                   {subText && <label className="subtext mb-2">{subText}</label>}
                   <Select
                     id={id}
