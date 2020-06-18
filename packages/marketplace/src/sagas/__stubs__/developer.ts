@@ -22,6 +22,10 @@ export const developerState: DeveloperState = {
     data: appDetailDataStub.data,
     isAppDetailLoading: false,
   },
+  subscriptions: {
+    data: null,
+    loading: false,
+  },
   developerData: {
     data: {
       data: [
