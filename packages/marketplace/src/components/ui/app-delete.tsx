@@ -1,41 +1,18 @@
 import * as React from 'react'
-import { FormState } from '../../types/core'
+import { useDispatch, useSelector } from 'react-redux'
 import { appDeleteRequest } from '@/actions/app-delete'
-import { ReduxState } from '@/types/core'
 import { Button, ModalProps, Modal, ModalBody, ModalHeader, ModalFooter } from '@reapit/elements'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
 import CallToAction from './call-to-action'
-import { connect } from 'react-redux'
+import { selectAppDeleteFormState } from '@/selector/app-delete'
+import { Dispatch } from 'redux'
 
-interface AppDeleteModalWithConnectOwnProps {
+export type AppDeleteProps = Pick<ModalProps, 'visible' | 'afterClose'> & {
   appId: string
   appName: string
   closeModal?: () => void
   onDeleteSuccess: () => void
 }
-
-export interface AppDeleteMappedProps extends AppDeleteModalWithConnectOwnProps {
-  formState: FormState
-}
-export interface AppDeleteMappedActions {
-  appDeleteRequest: (appId: string) => void
-}
-
-export type AppDeleteProps = Pick<ModalProps, 'visible' | 'afterClose'> & AppDeleteMappedActions & AppDeleteMappedProps
-
-export const mapStateToProps = (
-  state: ReduxState,
-  ownProps: AppDeleteModalWithConnectOwnProps,
-): AppDeleteMappedProps => ({
-  formState: state.appDelete.formState,
-  appId: ownProps.appId,
-  appName: ownProps.appName,
-  onDeleteSuccess: ownProps.onDeleteSuccess,
-})
-
-export const mapDispatchToProps = (dispatch: any): AppDeleteMappedActions => ({
-  appDeleteRequest: (appId: string) => dispatch(appDeleteRequest(appId)),
-})
 
 export const handleAfterClose = ({ isSuccedded, onDeleteSuccess, isLoading, afterClose }) => () => {
   if (isSuccedded) {
@@ -45,15 +22,16 @@ export const handleAfterClose = ({ isSuccedded, onDeleteSuccess, isLoading, afte
   }
 }
 
-export const DeleteAppModal = ({
-  appId,
-  appName,
-  formState,
-  afterClose,
-  visible,
-  appDeleteRequest,
-  onDeleteSuccess,
-}: AppDeleteProps) => {
+export const onDeleteButtonClick = (appId: string, dispatch: Dispatch) => {
+  return () => {
+    dispatch(appDeleteRequest(appId))
+  }
+}
+
+export const DeleteAppModal: React.FC<AppDeleteProps> = ({ appId, appName, afterClose, visible, onDeleteSuccess }) => {
+  const dispatch = useDispatch()
+  const formState = useSelector(selectAppDeleteFormState)
+
   const isLoading = formState === 'SUBMITTING'
   const isSuccedded = formState === 'SUCCESS'
 
@@ -100,7 +78,7 @@ export const DeleteAppModal = ({
                     className={appPermissionContentStyles.installButton}
                     type="button"
                     variant="danger"
-                    onClick={() => appDeleteRequest(appId)}
+                    onClick={onDeleteButtonClick(appId, dispatch)}
                   >
                     Delete
                   </Button>
@@ -124,8 +102,4 @@ export const DeleteAppModal = ({
   )
 }
 
-const AppDeleteModalWithRedux = connect(mapStateToProps, mapDispatchToProps)(DeleteAppModal)
-
-AppDeleteModalWithRedux.displayName = 'AppDeleteModalWithRedux'
-
-export default AppDeleteModalWithRedux
+export default DeleteAppModal
