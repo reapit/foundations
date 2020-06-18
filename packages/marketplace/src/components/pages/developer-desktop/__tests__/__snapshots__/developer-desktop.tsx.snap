@@ -27,6 +27,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
   </Component>
   <Component
     afterClose={[Function]}
+    handleSubmit={[Function]}
     visible={false}
   />
 </Connect(ErrorBoundary)>

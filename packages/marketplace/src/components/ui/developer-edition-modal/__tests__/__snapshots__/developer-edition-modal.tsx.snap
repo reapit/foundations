@@ -5,6 +5,7 @@ exports[`DeveloperEditionModal should match snapshot when not visible 1`] = `""`
 exports[`DeveloperEditionModal should match snapshot when visible 1`] = `
 <Component
   afterClose={[MockFunction]}
+  handleSubmit={[MockFunction]}
   visible={true}
 >
   <Component
