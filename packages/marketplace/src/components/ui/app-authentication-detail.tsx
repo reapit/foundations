@@ -14,7 +14,11 @@ export type AppAuthenticationDetailProps = {
   withCustomHeader?: boolean
 }
 
-export const handleCopyCode = (code, setTooltipMessage, dispatch) => {
+export const handleCopyCode = (
+  code: string,
+  setTooltipMessage: React.Dispatch<React.SetStateAction<string>>,
+  dispatch: Dispatch,
+) => {
   return async () => {
     if (!code) {
       return
