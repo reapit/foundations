@@ -21,14 +21,14 @@
   "scripts": {
     "build": "lerna run build:prod --stream",
     "fetch-config": "lerna run --parallel --stream fetch-config --",
-    "lint": "lerna run --parallel --stream lint",
-    "lint:fix": "lerna run --parallel --stream lint:fix --",
-    "release:dev": "lerna run --parallel release:dev",
+    "lint": "lerna run lint --parallel --stream",
+    "lint:fix": "lerna run lint:fix --parallel --stream --since master --include-dependencies",
+    "release:dev": "lerna run release:dev --parallel",
     "release-note": "node ./scripts/release/generate-release-note.js",
     "update-release-note": "node ./scripts/release/update-release-note.js",
     "upload-artifact": "node ./scripts/release/upload-artifact.js",
     "release": "node ./scripts/release/release.js",
-    "test": "lerna run --parallel test:ci -- --detectOpenHandles --runInBand",
+    "test": "lerna run test:ci --parallel",
     "test-e2e:ci": "lerna run test-e2e:ci --stream",
     "update-doc": "node --unhandled-rejections=strict ./scripts/document-update/get-release-and-create-pr.js",
     "scan-secrets": "node --unhandled-rejections=strict ./scripts/utils/git-secrets.js"

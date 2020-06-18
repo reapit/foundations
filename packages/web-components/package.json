@@ -59,7 +59,7 @@
     "start:server": "serverless offline --out public/dist --stage local",
     "start:dev": "node ./scripts/start-dev.js",
     "test:dev": "cross-env TZ=UTC jest --watch --color",
-    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
+    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js,svelte src\"",
     "lint:fix": "eslint --cache --ext=ts,tsx,js,svelte src --fix",
     "fetch-config": "yarn config-manager fetchConfig web-components",
