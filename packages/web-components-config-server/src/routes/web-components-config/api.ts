@@ -1,4 +1,5 @@
 import dynamoDBMapper from '@/dynamodb-mapper'
+import { FunctionExpression, AttributePath } from '@aws/dynamodb-expressions'
 import logger from '@/logger'
 import { CreateParams, DeleteParams, UpdateParams, GetByClientIdParams } from '@/schemas/api-types'
 import { WebComponentConfig } from '@/schemas/schema'
@@ -20,10 +21,16 @@ export const getConfigByClientId = async ({ traceId, data }: GetByClientIdParams
 
 export const createConfig = async ({ traceId, data }: CreateParams): Promise<WebComponentConfig> => {
   try {
-    logger.info('Creating config...', { traceId, data })
-
     const itemToCreate = generateSchemaItem(data)
-    const result = await dynamoDBMapper.put(itemToCreate)
+    const result = await dynamoDBMapper.put(itemToCreate, {
+      condition: {
+        type: 'And',
+        conditions: [
+          new FunctionExpression('attribute_not_exists', new AttributePath('customerId')),
+          new FunctionExpression('attribute_not_exists', new AttributePath('appId')),
+        ],
+      },
+    })
     logger.info('Create config successfully', { traceId, result })
     return result
   } catch (error) {
@@ -32,13 +39,26 @@ export const createConfig = async ({ traceId, data }: CreateParams): Promise<Web
   }
 }
 
-export const updateConfig = async ({ traceId, data }: UpdateParams): Promise<WebComponentConfig> => {
+export const patchConfig = async ({ traceId, data }: UpdateParams): Promise<WebComponentConfig> => {
   try {
-    logger.info('Updating config...', { traceId, data })
-    const { customerId, ...rest } = data
-    const oldItem = await getConfigByClientId({ traceId, data: { customerId } })
+    logger.info('Patching config...', { traceId, data })
+    const { customerId, appId, ...rest } = data
+    const oldItem = await getConfigByClientId({ traceId, data: { customerId, appId } })
     const itemToUpdate = generateSchemaItem({ ...oldItem, ...rest })
     const result = await dynamoDBMapper.update(itemToUpdate)
+    logger.info('Patch config successfully', { traceId, result })
+    return result
+  } catch (error) {
+    await logger.error('Patch config failed', { traceId, error: stringifyError(error) })
+    throw error
+  }
+}
+
+export const putConfig = async ({ traceId, data }): Promise<WebComponentConfig> => {
+  try {
+    logger.info('Updating config...', { traceId, data })
+    const itemToUpdate = generateSchemaItem(data)
+    const result = await dynamoDBMapper.put(itemToUpdate)
     logger.info('Update config successfully', { traceId, result })
     return result
   } catch (error) {
@@ -50,7 +70,7 @@ export const updateConfig = async ({ traceId, data }: UpdateParams): Promise<Web
 export const deleteConfig = async ({ traceId, data }: DeleteParams): Promise<WebComponentConfig> => {
   try {
     logger.info('Deleting config...', { traceId, data })
-    const itemToDelete = generateSchemaItem({ appId: data.customerId })
+    const itemToDelete = generateSchemaItem(data)
     const result = await dynamoDBMapper.delete(itemToDelete)
     logger.info('Delete config successfully', { traceId, result })
     return result

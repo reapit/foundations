@@ -1,4 +1,4 @@
-import { validateGetById, validateCreate, validateUpdate, validateDelete, validateFollowSchema } from '../validators'
+import { validateGetById, validateCreate, validatePatch, validateDelete, validateFollowSchema } from '../validators'
 
 describe('validateGetById', () => {
   it('should return correctly', () => {
@@ -95,9 +95,9 @@ describe('validateCreate', () => {
   })
 })
 
-describe('validateUpdate', () => {
+describe('validatePatch', () => {
   it('should return correctly', () => {
-    const result = validateUpdate({ customerId: 'id1', appId: 'id1', appointmentLength: 20 })
+    const result = validatePatch({ customerId: 'id1', appId: 'id1', appointmentLength: 20 })
     expect(result).toBe(true)
   })
 
@@ -106,7 +106,7 @@ describe('validateUpdate', () => {
     error.message = 'Invalid params'
     error.code = '400'
     expect(() => {
-      validateUpdate({ customerIdFake: 'id1', appointmentLength: 20 })
+      validatePatch({ customerIdFake: 'id1', appointmentLength: 20 })
     }).toThrowError(error)
   })
 
@@ -115,7 +115,7 @@ describe('validateUpdate', () => {
     error.message = 'Invalid params'
     error.code = '400'
     expect(() => {
-      validateUpdate({ customerId: 'id1', invalidParam: 'param' })
+      validatePatch({ customerId: 'id1', invalidParam: 'param' })
     }).toThrowError(error)
   })
 
@@ -124,7 +124,7 @@ describe('validateUpdate', () => {
     error.message = 'Invalid daysOfWeek.'
     error.code = '400'
     expect(() => {
-      validateUpdate({ customerId: 'id1', appId: 'id1', appointmentLength: 20, daysOfWeek: [9] })
+      validatePatch({ customerId: 'id1', appId: 'id1', appointmentLength: 20, daysOfWeek: [9] })
     }).toThrowError(error)
   })
 })

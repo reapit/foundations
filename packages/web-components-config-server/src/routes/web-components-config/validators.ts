@@ -17,7 +17,7 @@ export const CREATE_REQUIRED_PARAMS = [
   'negotiatorIds',
   'daysOfWeek',
 ]
-export const UPDATE_REQUIRED_PARAMS = ['customerId', 'appId']
+export const PATCH_REQUIRED_PARAMS = ['customerId', 'appId']
 export const DELETE_REQUIRED_PARAMS = ['customerId', 'appId']
 
 /**
@@ -72,6 +72,7 @@ export const validateGetById = (data: { [key: string]: any }) => {
 
 export const validateCreate = (data: { [key: string]: any }) => {
   const dataKeys = Object.keys(data)
+  console.log(dataKeys)
 
   // check if param keys are valid
   const isParamsValid =
@@ -95,12 +96,12 @@ export const validateCreate = (data: { [key: string]: any }) => {
   return true
 }
 
-export const validateUpdate = (data: { [key: string]: any }) => {
+export const validatePatch = (data: { [key: string]: any }) => {
   const dataKeys = Object.keys(data)
 
   // check if param keys are valid
   const isParamsValid =
-    dataKeys.some(key => UPDATE_REQUIRED_PARAMS.includes(key)) && dataKeys.every(key => ALL_PARAMS.includes(key))
+    dataKeys.some(key => CREATE_REQUIRED_PARAMS.includes(key)) && dataKeys.every(key => ALL_PARAMS.includes(key))
   // check if param is a valid schema item
   const errorMessage = validateFollowSchema(data)
 
