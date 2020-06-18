@@ -1,24 +1,3 @@
-export const generateDownload = (previewCanvas, crop) => {
-  if (!crop || !previewCanvas) {
-    return
-  }
-
-  previewCanvas.toBlob(
-    blob => {
-      const previewUrl = window.URL.createObjectURL(blob)
-
-      const anchor = document.createElement('a')
-      anchor.download = 'cropPreview.png'
-      anchor.href = URL.createObjectURL(blob)
-      anchor.click()
-
-      window.URL.revokeObjectURL(previewUrl)
-    },
-    'image/png',
-    1,
-  )
-}
-
 export const drawCanvasAfterCrop = ({ completedCrop, previewCanvasRef, imgRef }) => () => {
   if (!completedCrop || !previewCanvasRef.current || !imgRef.current) {
     return
@@ -70,4 +49,12 @@ export const drawCanvasAfterCrop = ({ completedCrop, previewCanvasRef, imgRef })
 
 export const onLoadHandle = imgRef => img => {
   imgRef.current = img
+}
+
+export const onChangeHandle = setCrop => crop => setCrop(crop)
+
+export const onCompleteHandle = setCompletedCrop => crop => setCompletedCrop(crop)
+
+export const onCropClickHandle = ({ previewCanvasRef, completedCrop, onCropClick }) => () => {
+  onCropClick({ previewCanvasRef, completedCrop })
 }

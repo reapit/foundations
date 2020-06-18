@@ -13,9 +13,9 @@ import {
 } from './__styles__/styles'
 import { cx } from 'linaria'
 import { Button, H5 } from '../../../../index'
-import { generateDownload, drawCanvasAfterCrop, onLoadHandle } from './handlers'
+import { drawCanvasAfterCrop, onLoadHandle, onCropClickHandle, onChangeHandle, onCompleteHandle } from './handlers'
 
-export const ImageCropper = ({ upImg, visible, onClose }) => {
+export const ImageCropper = ({ upImg, visible, onClose, onCropClick }) => {
   const imgRef = React.useRef<HTMLElement>(null)
   const previewCanvasRef = React.useRef<HTMLCanvasElement>(null)
   const [crop, setCrop] = React.useState<{ unit: string; width: number; aspect: number }>({
@@ -30,6 +30,8 @@ export const ImageCropper = ({ upImg, visible, onClose }) => {
   if (!visible) {
     return null
   }
+  // if user cancel crop by clicking outside, this will be set to false
+  const isImageCropped = completedCrop?.width && completedCrop.height
 
   return (
     <div className={cx(reactImageCropGlobalStyles, imageCropperOuter)}>
@@ -42,13 +44,13 @@ export const ImageCropper = ({ upImg, visible, onClose }) => {
               src={upImg}
               onImageLoaded={onLoadHandle(imgRef)}
               crop={crop}
-              onChange={c => setCrop(c)}
-              onComplete={c => setCompletedCrop(c)}
+              onChange={onChangeHandle(setCrop)}
+              onComplete={onCompleteHandle(setCompletedCrop)}
             />
           </div>
           <div className={imageCropperPreviewWrapper}>
             <H5 isCentered>Preview</H5>
-            <canvas ref={previewCanvasRef} className={imageCropperPreview} />
+            {isImageCropped && <canvas ref={previewCanvasRef} className={imageCropperPreview} />}
           </div>
         </div>
         <div className={imageCropperActionWrapper}>
@@ -58,13 +60,15 @@ export const ImageCropper = ({ upImg, visible, onClose }) => {
           <Button
             type="button"
             variant="primary"
-            disabled={!completedCrop?.width || !completedCrop?.height}
-            onClick={() => generateDownload(previewCanvasRef.current, completedCrop)}
+            disabled={!isImageCropped}
+            onClick={onCropClickHandle({ previewCanvasRef, completedCrop, onCropClick })}
           >
-            Download cropped image
+            Crop
           </Button>
         </div>
       </div>
     </div>
   )
 }
+
+export * from './utils'

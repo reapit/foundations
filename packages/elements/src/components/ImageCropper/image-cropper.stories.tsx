@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { ImageCropper } from './index'
+import { ImageCropper, generateBase64FromCanvas } from './index'
+import { action } from '@storybook/addon-actions'
+import { generateDownload } from '@/v2/src'
 
 storiesOf('ImageCropper', module).add('Default', () => {
   const [upImg, setUpImg] = React.useState<any>()
@@ -18,7 +20,16 @@ storiesOf('ImageCropper', module).add('Default', () => {
   return (
     <section className="section">
       <input type="file" accept="image/*" onChange={onSelectFile} />
-      <ImageCropper upImg={upImg} visible={isVisible} onClose={() => setIsVisible(false)} />
+      <ImageCropper
+        upImg={upImg}
+        visible={isVisible}
+        onClose={() => setIsVisible(false)}
+        onCropClick={({ previewCanvasRef, completedCrop }) => {
+          // to download when click, import generateDownload instead
+          const base64Data = generateBase64FromCanvas(previewCanvasRef.current, completedCrop)
+          action('base64DataAfterCrop')(base64Data)
+        }}
+      />
     </section>
   )
 })
