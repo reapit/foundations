@@ -4204,10 +4204,10 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@scarf/scarf@^0.1.5":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@scarf/scarf/-/scarf-0.1.7.tgz#e6ffb3660bda77f96037f8c4e21174177fed2d97"
-  integrity sha512-XUBa8nl9J1XGyyA+wul1ko5v5ioNU1s/pUPODnPzJ4+uUOwwYZm197KQoxxzOAsypldlFGnAlQ8nkjTjoQV9GQ==
+"@scarf/scarf@^1.0.4":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@scarf/scarf/-/scarf-1.0.6.tgz#52011dfb19187b53b75b7b6eac20da0810ddd88f"
+  integrity sha512-y4+DuXrAd1W5UIY3zTcsosi/1GyYT8k5jGnZ/wG7UUHVrU+MHlH4Mp87KK2/lvMW4+H7HVcdB+aJhqywgXksjA==
 
 "@sentry/apm@5.17.0":
   version "5.17.0"
@@ -23738,12 +23738,12 @@ react-syntax-highlighter@^12.2.1:
     prismjs "^1.8.4"
     refractor "^2.4.1"
 
-react-table@7.0.4:
-  version "7.0.4"
-  resolved "https://registry.yarnpkg.com/react-table/-/react-table-7.0.4.tgz#456838661982c83c3682f156c59a41b4339a2120"
-  integrity sha512-Uqpj+VnUIvsNWNtNFD1z2i7OCHdlhoJtQt0DWx3XOkZnvDyI/eCghK8YBfA9mY4TW7vEgCDLaRCcREC/fmcx6Q==
+react-table@7.0.6:
+  version "7.0.6"
+  resolved "https://registry.yarnpkg.com/react-table/-/react-table-7.0.6.tgz#ab7c9bb527339c49af39a4380884e55bbf67d8bc"
+  integrity sha512-XP+mXWCDd6VNZ/fCq69yc/vCWRGTfhQHc0fsLrnMVwT9m3MmmErMLywMbYQkkDjg1OBbhoDXpuo/R7VKGpFbQg==
   dependencies:
-    "@scarf/scarf" "^0.1.5"
+    "@scarf/scarf" "^1.0.4"
 
 react-test-renderer@16.12.0, react-test-renderer@^16.0.0-0:
   version "16.12.0"
