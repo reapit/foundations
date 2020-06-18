@@ -1,4 +1,5 @@
 import * as React from 'react'
+import cx from 'classnames'
 import { Field, FieldProps } from 'formik'
 import { cx } from 'linaria'
 import { checkError } from '../../utils/form'
@@ -32,7 +33,7 @@ export const TextArea = ({
       const className = cx(hasError ? textareaError : textareaPrimary)
       const labelClassname = cx('label', required && 'required-label')
       return (
-        <div className={`field ${className}`}>
+        <div className={cx('field', className)}>
           <div className="control">
             {labelText && (
               <label className={labelClassname} htmlFor={id}>

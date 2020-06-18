@@ -596,7 +596,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                         name="summary"
                                       >
                                         <div
-                                          className="field "
+                                          className="field"
                                         >
                                           <div
                                             className="control"

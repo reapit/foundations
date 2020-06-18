@@ -17,8 +17,10 @@ export const CellName: React.FC<CellNameProps> = ({
 }) => {
   return (
     <div className="inline-flex items-center inline-flex">
-      <div>{email}</div>
-      <div>{title}</div>
+      <FlexContainerBasic flexColumn centerContent>
+        <div>{email}</div>
+        <div>{title}</div>
+      </FlexContainerBasic>
     </div>
   )
 }

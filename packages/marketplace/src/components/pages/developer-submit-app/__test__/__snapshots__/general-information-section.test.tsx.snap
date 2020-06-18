@@ -393,7 +393,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                           name="summary"
                         >
                           <div
-                            className="field "
+                            className="field"
                           >
                             <div
                               className="control"
