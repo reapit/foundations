@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useSelector } from 'react-redux'
 import initChatBot from '../../scripts/chat-bot'
 import { history } from '@/core/router'
-import { H3 } from '@reapit/elements'
+import { H3, FlexContainerBasic, FlexContainerResponsive } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { HelpLinks } from '@/constants/developer-help-links'
 import styles from '@/styles/pages/help.scss?mod'
@@ -97,10 +97,14 @@ export type DeveloperHelpPageProps = {}
 export const DeveloperHelpPage: React.FC<DeveloperHelpPageProps> = () => {
   const loginIdentity = useSelector(selectLoginIdentity)
   return (
-    <div className={styles.wrapHelp}>
-      <H3>Help</H3>
-      <HelpItemList items={helpItems(loginIdentity)} />
-    </div>
+    <FlexContainerBasic hasPadding>
+      <FlexContainerResponsive flexColumn hasBackground hasPadding>
+        <div className={styles.wrapHelp}>
+          <H3>Help</H3>
+          <HelpItemList items={helpItems(loginIdentity)} />
+        </div>
+      </FlexContainerResponsive>
+    </FlexContainerBasic>
   )
 }
 

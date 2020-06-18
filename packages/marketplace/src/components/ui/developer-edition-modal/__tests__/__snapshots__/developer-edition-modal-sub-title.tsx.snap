@@ -8,8 +8,8 @@ exports[`DeveloperEditionModalSubTitle should match snapshot 1`] = `
   There will be no charge for the licence during the Beta phase. For more information regarding the Developer Edition please refer to your Developer Registration
    
   <a
-    href="#"
-    rel="noopener"
+    href=""
+    rel="noreferrer"
     target="_blank"
   >
     Terms and Conditions

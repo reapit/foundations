@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.14.1
+version: v1.15.0
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -68,3 +68,31 @@ patch:
         patched: '2020-06-03T15:02:52.498Z'
     - '@reapit/cognito-auth > @reapit/elements > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
         patched: '2020-06-03T15:02:52.498Z'
+    - '@reapit/elements > linaria > @babel/register > lodash':
+        patched: '2020-06-15T12:09:32.279Z'
+    - '@reapit/elements > linaria > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > lodash':
+        patched: '2020-06-15T12:09:32.279Z'
+    - '@reapit/cognito-auth > @reapit/elements > linaria > @babel/register > lodash':
+        patched: '2020-06-15T12:09:32.279Z'
+    - '@reapit/elements > linaria > @babel/core > @babel/helpers > @babel/traverse > lodash':
+        patched: '2020-06-15T12:09:32.279Z'
+    - '@reapit/cognito-auth > @reapit/elements > linaria > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > lodash':
+        patched: '2020-06-15T12:09:32.279Z'
+    - '@reapit/elements > linaria > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash':
+        patched: '2020-06-15T12:09:32.279Z'
+    - '@reapit/cognito-auth > @reapit/elements > linaria > @babel/core > @babel/helpers > @babel/traverse > lodash':
+        patched: '2020-06-15T12:09:32.279Z'
+    - '@reapit/cognito-auth > @reapit/elements > linaria > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash':
+        patched: '2020-06-15T12:09:32.279Z'
+    - '@reapit/elements > linaria > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-15T12:09:32.279Z'
+    - '@reapit/elements > linaria > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-15T12:09:32.279Z'
+    - '@reapit/cognito-auth > @reapit/elements > linaria > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-15T12:09:32.279Z'
+    - '@reapit/cognito-auth > @reapit/elements > linaria > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-15T12:09:32.279Z'
+    - '@reapit/elements > linaria > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-15T12:09:32.279Z'
+    - '@reapit/cognito-auth > @reapit/elements > linaria > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-15T12:09:32.279Z'

@@ -32,7 +32,7 @@
     "@reapit/elements": "^0.5.39",
     "apollo-boost": "^0.4.7",
     "async": "^3.2.0",
-    "snyk": "^1.335.0"
+    "snyk": "^1.341.1"
   },
   "devDependencies": {
     "@apollo/react-testing": "^3.1.3",
