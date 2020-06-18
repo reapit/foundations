@@ -10,7 +10,6 @@
     "fetch-config": "yarn config-manager fetchConfig foundations-ts-definitions",
     "fetch-definition": "yarn fetch-config && node './scripts/fetch-definition.js'",
     "handle-cron-job": "node './scripts/handle-cronjob.js'",
-    "test:update-badges": "echo 'not implmented'",
     "build:prod": "echo 'not implmented'"
   },
   "lint-staged": {
