@@ -1,35 +1,26 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { ImageCropper, generateBase64FromCanvas } from './index'
+import { ImageCropper, generateBase64FromCanvas, ImageCropperWithInput } from './index'
 import { action } from '@storybook/addon-actions'
-import { generateDownload } from '@/v2/src'
+import { ImageInput } from '../ImageInput'
+import { Button } from '../Button'
+import { Form, Formik } from 'formik'
 
-storiesOf('ImageCropper', module).add('Default', () => {
-  const [upImg, setUpImg] = React.useState<any>()
-  const [isVisible, setIsVisible] = React.useState<boolean>(false)
-  const onSelectFile = e => {
-    if (e.target.files && e.target.files.length > 0) {
-      const reader = new FileReader()
-      reader.addEventListener('load', () => {
-        setUpImg(reader.result)
-        setIsVisible(true)
-      })
-      reader.readAsDataURL(e.target.files[0])
-    }
-  }
+storiesOf('ImageCropper', module).add('Integrate with ImageInput', () => {
   return (
     <section className="section">
-      <input type="file" accept="image/*" onChange={onSelectFile} />
-      <ImageCropper
-        upImg={upImg}
-        visible={isVisible}
-        onClose={() => setIsVisible(false)}
-        onCropClick={({ previewCanvasRef, completedCrop }) => {
-          // to download when click, import generateDownload instead
-          const base64Data = generateBase64FromCanvas(previewCanvasRef.current, completedCrop)
-          action('base64DataAfterCrop')(base64Data)
+      <Formik
+        initialValues={{ imageInput: '' }}
+        onSubmit={values => {
+          console.log(values.imageInput)
         }}
-      />
+      >
+        {() => (
+          <Form>
+            <ImageCropperWithInput />
+          </Form>
+        )}
+      </Formik>
     </section>
   )
 })

@@ -9,5 +9,7 @@ export const ImageInput = (props: FileInputProps) => (
     id={props.id}
     allowClear={props.allowClear}
     accept="image/*"
+    afterLoadedImage={props.afterLoadedImage}
+    croppedImage={props.croppedImage}
   />
 )

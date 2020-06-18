@@ -23,7 +23,9 @@ export interface FileInputProps {
   inputProps?: Record<string, any>
   required?: boolean
   onFilenameClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
-  afterUpload?: () => any
+  //
+  afterLoadedImage?: (base64: string) => any
+  croppedImage?: string
 }
 
 export const FileInput = ({
@@ -38,6 +40,8 @@ export const FileInput = ({
   required = false,
   isNarrowWidth = false,
   onFilenameClick,
+  croppedImage,
+  afterLoadedImage,
 }: FileInputProps) => {
   const [fileUrl, setFileName] = useState<string>()
   const inputFile = React.useRef<HTMLInputElement>(null)
@@ -63,6 +67,9 @@ export const FileInput = ({
             reader.readAsDataURL(file)
             reader.onload = function() {
               const base64 = reader.result
+              if (typeof afterLoadedImage === 'function' && typeof base64 === 'string') {
+                afterLoadedImage(base64)
+              }
               field.onChange({ target: { value: base64, name: field.name } })
               if (testProps) {
                 testProps.waitUntilDataReaderLoadResolver()
@@ -73,6 +80,13 @@ export const FileInput = ({
             }
           }
         }
+
+        React.useEffect(() => {
+          if (croppedImage) {
+            field.onChange({ target: { value: croppedImage, name: field.name } })
+          }
+        }, [croppedImage])
+
         return (
           <React.Fragment>
             <div className={`${containerClassName} field pb-2`}>
