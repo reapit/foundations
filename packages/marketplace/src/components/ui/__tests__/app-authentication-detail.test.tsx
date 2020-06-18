@@ -17,8 +17,6 @@ const props: AppAuthenticationDetailProps = {
   appId: appDetailDataStub.data.id || '',
 }
 
-jest.mock('@/utils/clipboard-copy')
-
 describe('AppAuthenticationDetail', () => {
   let store
   let spyDispatch
