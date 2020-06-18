@@ -98,7 +98,7 @@ export const webComponentsConfigPostHandler = async (req: AppRequest, res: AppRe
     const result = await createConfig(params)
     return res.send(result)
   } catch (err) {
-    // logger.error('webComponentsConfig.create', { traceId: req.traceId, error: JSON.stringify(err) })
+    logger.error('webComponentsConfig.create', { traceId: req.traceId, error: JSON.stringify(err) })
     return res.send({ message: err.message, code: err.code, traceId: req.traceId })
   }
 }
