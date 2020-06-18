@@ -116,8 +116,8 @@ export const Subcriptions: React.FC = () => {
       {loading ? <Loader /> : <Table scrollable columns={columns} data={subscriptionsData} loading={false} bordered />}
       <ConfirmModal
         visible={isConfirmModalOpen}
-        title="Cancel Confirm"
-        subtitle="Are you sure to cancel this subscription?"
+        title="Confirm Cancellation"
+        subtitle="Are you sure you want to cancel this subscription?"
         onCancel={handleCloseModal}
         onConfirm={handleDeleteSubscription(dispatch, subscriptionIdToCancel, handleCloseModal)}
       />
