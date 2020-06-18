@@ -1,25 +1,9 @@
-// We resize the canvas down when saving on retina devices otherwise the image
-// will be double or triple the imageCropperPreview size.
-export const getResizedCanvas = (canvas, newWidth, newHeight) => {
-  const tmpCanvas = document.createElement('canvas')
-  tmpCanvas.width = newWidth
-  tmpCanvas.height = newHeight
-
-  const ctx = tmpCanvas.getContext('2d')
-  ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, newWidth, newHeight)
-
-  return tmpCanvas
-}
-
 export const generateDownload = (previewCanvas, crop) => {
   if (!crop || !previewCanvas) {
     return
   }
 
-  const dpr = window.devicePixelRatio || 1
-  const canvas = dpr !== 1 ? getResizedCanvas(previewCanvas, crop.width, crop.height) : previewCanvas
-
-  canvas.toBlob(
+  previewCanvas.toBlob(
     blob => {
       const previewUrl = window.URL.createObjectURL(blob)
 
@@ -43,7 +27,6 @@ export const drawCanvasAfterCrop = ({ completedCrop, previewCanvasRef, imgRef })
   const image = imgRef.current
   const canvas = previewCanvasRef.current
   const crop = completedCrop
-  const dpr = window.devicePixelRatio || 1
 
   const originWidth = image.naturalWidth
   const originHeight = image.naturalHeight
@@ -68,6 +51,7 @@ export const drawCanvasAfterCrop = ({ completedCrop, previewCanvasRef, imgRef })
   const ctx = canvas.getContext('2d')
 
   // set real dimension when download, different from display dimension
+  // to retain high-quality image
   canvas.width = outputWidth
   canvas.height = outputHeight
 
@@ -79,8 +63,8 @@ export const drawCanvasAfterCrop = ({ completedCrop, previewCanvasRef, imgRef })
     crop.height * scaleY,
     0,
     0,
-    outputWidth * dpr,
-    outputHeight * dpr,
+    outputWidth,
+    outputHeight,
   )
 }
 
