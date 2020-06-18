@@ -1,53 +1,52 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
-import { FormState, ReduxState } from '@/types/core'
-import { AppDetailModel } from '@reapit/foundations-ts-definitions'
+import { Dispatch } from 'redux'
+import { useSelector, useDispatch } from 'react-redux'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
 import { Button, ModalHeader, ModalBody, ModalFooter } from '@reapit/elements'
 import { setAppDetailModalStateBrowse, setAppDetailModalStateSuccess } from '@/actions/app-detail-modal'
-import { InstallParams, appInstallationsRequestInstall } from '@/actions/app-installations'
+import { appInstallationsRequestInstall } from '@/actions/app-installations'
+import { selectInstallationFormState } from '@/selector/installations'
+import { selectAppDetail } from '@/selector/client'
 
-export type AppConfirmInstallContentMappedProps = {
-  installationsFormState: FormState
-  appDetailData?: AppDetailModel
+export type AppConfirmInstallContentProps = {
+  afterClose?: () => void
 }
 
-export interface AppConfirmInstallContentMappedActions {
-  setAppDetailModalStateBrowse: () => void
-  setAppDetailModalStateSuccess: () => void
-  installApp: (params: InstallParams) => () => void
-}
-
-export type AppConfirmInstallContentInnerProps = AppConfirmInstallContentMappedProps &
-  AppConfirmInstallContentMappedActions & {
-    afterClose?: () => void
-  }
-
-export const handleCloseModal = (setAppDetailModalStateBrowse: () => void, afterClose?: () => void) => () => {
+export const handleCloseModal = (dispatch: Dispatch, afterClose?: () => void) => () => {
   if (afterClose) afterClose()
-  setAppDetailModalStateBrowse()
+  dispatch(setAppDetailModalStateBrowse())
 }
 
-export const handleInstallSuccess = ({ isSuccessed, setAppDetailModalStateSuccess }) => () => {
+export const handleInstallSuccess = (isSuccessed: boolean, dispatch: Dispatch) => () => {
   if (isSuccessed) {
-    setAppDetailModalStateSuccess()
+    dispatch(setAppDetailModalStateSuccess())
   }
 }
 
-export const AppConfirmInstallContent = ({
-  installApp,
-  installationsFormState,
-  appDetailData,
-  afterClose,
-  setAppDetailModalStateBrowse,
-  setAppDetailModalStateSuccess,
-}: AppConfirmInstallContentInnerProps) => {
+export const onConfirmButtonClick = (dispatch: Dispatch, appId?: string) => {
+  return () => {
+    if (!appId) {
+      return
+    }
+    dispatch(
+      appInstallationsRequestInstall({
+        appId,
+      }),
+    )
+  }
+}
+
+export const AppConfirmInstallContent: React.FC<AppConfirmInstallContentProps> = ({ afterClose }) => {
+  const dispatch = useDispatch()
+  const installationsFormState = useSelector(selectInstallationFormState)
+  const { appDetailData } = useSelector(selectAppDetail)
+
   const isLoading = installationsFormState === 'SUBMITTING'
   const isSuccessed = installationsFormState === 'SUCCESS'
 
-  const { name, id, scopes = [] } = appDetailData || {}
+  const { name, id, scopes = [] } = appDetailData?.data || {}
 
-  React.useEffect(handleInstallSuccess({ isSuccessed, setAppDetailModalStateSuccess }), [isSuccessed])
+  React.useEffect(handleInstallSuccess(isSuccessed, dispatch), [isSuccessed])
 
   return (
     <>
@@ -87,7 +86,7 @@ export const AppConfirmInstallContent = ({
               className={appPermissionContentStyles.installButton}
               type="button"
               variant="primary"
-              onClick={installApp({ appId: id })}
+              onClick={onConfirmButtonClick(dispatch, id)}
             >
               Confirm
             </Button>
@@ -97,7 +96,7 @@ export const AppConfirmInstallContent = ({
               className={appPermissionContentStyles.installButton}
               type="button"
               variant="danger"
-              onClick={handleCloseModal(setAppDetailModalStateBrowse, afterClose)}
+              onClick={handleCloseModal(dispatch, afterClose)}
             >
               Cancel
             </Button>
@@ -108,19 +107,4 @@ export const AppConfirmInstallContent = ({
   )
 }
 
-export const mapStateToProps = (state: ReduxState): AppConfirmInstallContentMappedProps => ({
-  appDetailData: state?.appDetail?.appDetailData?.data,
-  installationsFormState: state.installations.formState,
-})
-
-export const mapDispatchToProps = (dispatch: any): AppConfirmInstallContentMappedActions => ({
-  setAppDetailModalStateBrowse: () => dispatch(setAppDetailModalStateBrowse()),
-  setAppDetailModalStateSuccess: () => dispatch(setAppDetailModalStateSuccess()),
-  installApp: (params: InstallParams) => () => dispatch(appInstallationsRequestInstall(params)),
-})
-
-const AppConfirmInstallContentInnerWithConnect = connect(mapStateToProps, mapDispatchToProps)(AppConfirmInstallContent)
-
-AppConfirmInstallContentInnerWithConnect.displayName = 'AppConfirmInstallContentInnerWithConnect'
-
-export default AppConfirmInstallContentInnerWithConnect
+export default AppConfirmInstallContent
