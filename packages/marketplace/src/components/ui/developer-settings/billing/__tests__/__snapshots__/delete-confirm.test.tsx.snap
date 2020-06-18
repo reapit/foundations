@@ -24,14 +24,14 @@ exports[`ConfirmModal should match snapshot 1`] = `
           type="button"
           variant="danger"
         >
-          CANCEL
+          Cancel
         </Unknown>
         <Unknown
           fullWidth={true}
           type="submit"
           variant="primary"
         >
-          OK
+          Confirm
         </Unknown>
       </React.Fragment>
     }

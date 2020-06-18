@@ -1853,8 +1853,8 @@ exports[`Subcriptions should match snapshot 1`] = `
       <Component
         onCancel={[Function]}
         onConfirm={[Function]}
-        subtitle="Are you sure to cancel this subscription?"
-        title="Cancel Confirm"
+        subtitle="Are you sure you want to cancel this subscription?"
+        title="Confirm Cancellation"
         visible={false}
       />
     </div>
