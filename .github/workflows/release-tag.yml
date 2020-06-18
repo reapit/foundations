@@ -27,7 +27,7 @@ jobs:
         run: echo $RELEASE_VERSION
 
       - name: Checks out repository to $GITHUB_WORKSPACE
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: Checkout to RELEASE_VERSION
         run: git checkout $RELEASE_VERSION
@@ -42,7 +42,7 @@ jobs:
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: Get yarn cache
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ${{ steps.yarn-cache.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
@@ -55,7 +55,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          yarn add isomorphic-fetch -W
+          yarn install
 
       - name: Upload Artifact
         run: |
