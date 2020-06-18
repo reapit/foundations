@@ -18,8 +18,8 @@ export const selectApp = (state: ReduxState): AppDetailModel => {
 }
 
 export const selectAppAuthenticationLoading = (state: ReduxState): boolean => {
-  return state.appDetail.authentication.loading
+  return state.appDetail?.authentication.loading
 }
 export const selectAppAuthenticationCode = (state: ReduxState): string => {
-  return state.appDetail.authentication.code
+  return state.appDetail?.authentication.code
 }
