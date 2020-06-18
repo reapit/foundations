@@ -1,5 +1,5 @@
-import { ReduxState } from '@/types/core'
+import { ReduxState, FormState } from '@/types/core'
 
-export const selectAppDeleteFormState = (state: ReduxState) => {
-  return state.appDelete.formState
+export const selectAppDeleteFormState = (state: ReduxState): FormState => {
+  return state.appDelete?.formState
 }

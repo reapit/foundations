@@ -3009,7 +3009,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
               </Component>
             </div>
           </Component>
-          <AppDeleteModalWithRedux
+          <Component
             afterClose={[Function]}
             appId=""
             appName=""
@@ -3018,20 +3018,10 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
           >
             <Component
               afterClose={[Function]}
-              appDeleteRequest={[Function]}
-              appId=""
-              appName=""
-              formState="PENDING"
-              onDeleteSuccess={[Function]}
+              renderChildren={true}
               visible={false}
-            >
-              <Component
-                afterClose={[Function]}
-                renderChildren={true}
-                visible={false}
-              />
-            </Component>
-          </AppDeleteModalWithRedux>
+            />
+          </Component>
         </div>
       </Component>
     </Router>
