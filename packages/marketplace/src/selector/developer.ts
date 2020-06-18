@@ -1,7 +1,12 @@
 // TODO: Will move all developerSelector to here for reusable
 import { ReduxState, FormState } from '@/types/core'
-import { AppSummaryModel, DeveloperModel, BillingBreakdownForMonthV2Model } from '@reapit/foundations-ts-definitions'
-import { Billing, WebhookPingTestStatus } from '@/reducers/developer'
+import {
+  BillingBreakdownForMonthV2Model,
+  BillingOverviewForPeriodV2Model,
+  AppSummaryModel,
+  DeveloperModel,
+} from '@reapit/foundations-ts-definitions'
+import { WebhookPingTestStatus } from '@/reducers/developer'
 
 export const selectDeveloperId = (state: ReduxState) => {
   return state.auth.loginSession?.loginIdentity.developerId
@@ -27,7 +32,7 @@ export const selectMyIdentity = (state: ReduxState): DeveloperModel => {
   return state.developer?.myIdentity || {}
 }
 
-export const selectBilling = (state: ReduxState): Billing | null => {
+export const selectBilling = (state: ReduxState): BillingOverviewForPeriodV2Model | null => {
   return state.developer?.billing || null
 }
 

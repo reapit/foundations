@@ -13,35 +13,71 @@ import {
 } from '@/selector'
 import { fetchBilling } from '@/actions/developer'
 import dayjs from 'dayjs'
-import { Billing, RequestByPeriod } from '@/reducers/developer'
+import { Billing } from '@/reducers/developer'
 import { Dispatch } from 'redux'
+import { BillingOverviewForPeriodV2Model } from '@reapit/foundations-ts-definitions'
 
-export const mapServiceChartDataSet = (billing: Billing | null) => {
-  let datasets = [
-    {
-      label: 'API Calls',
-      backgroundColor: 'rgba(255,99,132,0.2)',
-      borderColor: 'rgba(255,99,132,1)',
-      borderWidth: 1,
-      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-      hoverBorderColor: 'rgba(255,99,132,1)',
-      data: [] as number[],
-    },
-  ]
+export const datasets = [
+  {
+    label: 'API Calls',
+    backgroundColor: 'rgba(255,99,132,0.2)',
+    borderColor: 'rgba(255,99,132,1)',
+    borderWidth: 1,
+    hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+    hoverBorderColor: 'rgba(255,99,132,1)',
+    data: [] as number[],
+  },
+  {
+    label: 'App Listing',
+    backgroundColor: 'rgba(81, 74, 177,0.2)',
+    borderColor: 'rgba(81, 74, 177,1)',
+    borderWidth: 1,
+    hoverBackgroundColor: 'rgba(81, 74, 177,0.4)',
+    hoverBorderColor: 'rgba(81, 74, 177,1)',
+    data: [] as number[],
+  },
+  {
+    label: 'Developer Edition',
+    backgroundColor: 'rgba(103, 195, 6,0.2)',
+    borderColor: 'rgba(103, 195, 6,1)',
+    borderWidth: 1,
+    hoverBackgroundColor: 'rgba(103, 195, 6,0.4)',
+    hoverBorderColor: 'rgba(103, 195, 6,1)',
+    data: [] as number[],
+  },
+]
+
+export const mapServiceChartDataSet = (billing: BillingOverviewForPeriodV2Model | null) => {
+  const clonedDataSet = JSON.parse(JSON.stringify(datasets))
+
   let labels: string[] = []
-  if (!billing) {
+  if (!billing?.periods) {
     return {
       labels,
-      datasets,
+      datasets: clonedDataSet,
     }
   }
-  billing.requestsByPeriod.forEach((item: RequestByPeriod) => {
-    labels.push(item.periodName)
-    datasets[0].data.push(item.netAmount)
+
+  billing.periods.map(period => {
+    labels.push(period?.periodName || '')
+    const services = period?.services || []
+    const apiCallsData = services.find(service => service.name === 'API Requests')?.cost || 0
+    const developerEditionData = services.find(service => service.name === 'Developer Edition')?.cost || 0
+    const appListingData = services.find(service => service.name === 'Application Listing')?.cost || 0
+
+    // api calls
+    clonedDataSet[0].data.push(apiCallsData)
+    // app listing
+    clonedDataSet[1].data.push(appListingData)
+    // developer edition
+    clonedDataSet[2].data.push(developerEditionData)
   })
+
+  console.log(clonedDataSet)
+
   return {
     labels,
-    datasets,
+    datasets: clonedDataSet,
   }
 }
 

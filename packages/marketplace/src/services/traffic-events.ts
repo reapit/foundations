@@ -1,7 +1,8 @@
 // import { BillingS } from '@reapit/foundations-ts-definitions'
 import { fetcher, setQueryParams } from '@reapit/elements'
-import { URLS } from './constants'
-import { generateHeader, generateHeaderWithApiV2 } from './utils'
+import { generateHeaderWithApiV2 } from './utils'
+import { URLS, MARKETPLACE_API_VERSION } from './constants'
+import { generateHeader } from './utils'
 import { logger } from '@reapit/utils'
 import { BillingBreakdownForMonthV2Model } from '@reapit/foundations-ts-definitions'
 
@@ -102,7 +103,7 @@ export const fetchBillings = async (params: FetchBillingsParams): Promise<Billin
       url: `${URLS.trafficEventBilling}?${setQueryParams(params)}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+      headers: { ...generateHeader(window.reapit.config.marketplaceApiKey), 'api-version': MARKETPLACE_API_VERSION },
     })
     return response
   } catch (error) {
