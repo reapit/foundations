@@ -1,5 +1,6 @@
 import { registerValidate, RegisterFormError, trimValues } from '../register'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
+import ErrorMessages from '@/constants/error-messages'
 
 type InputOutput = [CreateDeveloperModel, RegisterFormError]
 
@@ -7,19 +8,19 @@ const invalidValues: InputOutput[] = [
   [
     { name: '', companyName: '', email: '', telephone: '', agreedTerms: '' },
     {
-      name: 'Required',
-      companyName: 'Required',
-      email: 'Required',
-      telephone: 'Required',
+      name: ErrorMessages.FIELD_REQUIRED,
+      companyName: ErrorMessages.FIELD_REQUIRED,
+      email: ErrorMessages.FIELD_REQUIRED,
+      telephone: ErrorMessages.FIELD_REQUIRED,
     },
   ],
   [
     { name: '   ', companyName: '', email: '', telephone: '', agreedTerms: '' },
     {
-      name: 'Required',
-      companyName: 'Required',
-      email: 'Required',
-      telephone: 'Required',
+      name: ErrorMessages.FIELD_REQUIRED,
+      companyName: ErrorMessages.FIELD_REQUIRED,
+      email: ErrorMessages.FIELD_REQUIRED,
+      telephone: ErrorMessages.FIELD_REQUIRED,
     },
   ],
   [
@@ -31,8 +32,8 @@ const invalidValues: InputOutput[] = [
       agreedTerms: '',
     },
     {
-      email: 'Required',
-      telephone: 'Required',
+      email: ErrorMessages.FIELD_REQUIRED,
+      telephone: ErrorMessages.FIELD_REQUIRED,
     },
   ],
   [
@@ -44,8 +45,8 @@ const invalidValues: InputOutput[] = [
       agreedTerms: '',
     },
     {
-      name: 'Required',
-      email: 'Invalid email address',
+      name: ErrorMessages.FIELD_REQUIRED,
+      email: ErrorMessages.FIELD_WRONG_EMAIL_FORMAT,
     },
   ],
   [
@@ -57,8 +58,8 @@ const invalidValues: InputOutput[] = [
       agreedTerms: '123',
     },
     {
-      name: 'Invalid full name',
-      email: 'Invalid email address',
+      name: ErrorMessages.FIELD_INVALID_NAME,
+      email: ErrorMessages.FIELD_WRONG_EMAIL_FORMAT,
     },
   ],
   [
@@ -70,9 +71,9 @@ const invalidValues: InputOutput[] = [
       agreedTerms: '123',
     },
     {
-      name: 'Invalid full name',
-      email: 'Invalid email address',
-      telephone: 'Invalid telephone number',
+      name: ErrorMessages.FIELD_INVALID_NAME,
+      email: ErrorMessages.FIELD_WRONG_EMAIL_FORMAT,
+      telephone: ErrorMessages.FIELD_PHONE_NUMER,
     },
   ],
   [

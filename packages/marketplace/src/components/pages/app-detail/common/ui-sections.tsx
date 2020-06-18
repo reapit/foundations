@@ -10,7 +10,17 @@ import { AppDetailSection, Tag, ImageSection } from './ui-helpers'
 import { convertBooleanToYesNoString } from '@/utils/boolean-to-yes-no-string'
 import { FaCheck, FaExternalLinkAlt } from 'react-icons/fa'
 import styles from '@/styles/blocks/standalone-app-detail.scss?mod'
-import { LevelRight, Button, Table, Grid, GridItem, GridFourCol, GridFourColItem, HTMLRender } from '@reapit/elements'
+import {
+  LevelRight,
+  Button,
+  Table,
+  Grid,
+  GridItem,
+  GridFourCol,
+  GridFourColItem,
+  HTMLRender,
+  H5,
+} from '@reapit/elements'
 import AuthFlow from '@/constants/app-auth-flow'
 import AppAuthenticationDetail from '@/components/ui/app-authentication-detail'
 
@@ -52,7 +62,7 @@ interface AuthenticationSectionProps extends IsSidebar {
   externalId: string
 }
 
-interface SummarySectionProps extends IsSidebar {
+interface SummarySectionProps {
   summary: string
 }
 
@@ -159,20 +169,15 @@ export const AuthenticationSection: React.FC<AuthenticationSectionProps> = ({
   isSidebar = false,
 }) => (
   <AppDetailSection headerText="Authentication" isSidebar={isSidebar}>
-    {authFlow === AuthFlow.CLIENT_SECRET ? (
-      <AppAuthenticationDetail withCustomHeader={true} appId={id} />
-    ) : (
-      <div data-test="authentication-client-id">
-        <b className="mr-2">Client ID:</b>
-        {externalId}
-      </div>
-    )}
+    <div className={authFlow === AuthFlow.CLIENT_SECRET ? 'mb-4' : ''} data-test="authentication-client-id">
+      <b className="mr-2">Client ID:</b>
+      {externalId}
+    </div>
+    {authFlow === AuthFlow.CLIENT_SECRET && <AppAuthenticationDetail withCustomHeader={true} appId={id} />}
   </AppDetailSection>
 )
 
-export const SummarySection: React.FC<SummarySectionProps> = ({ summary, isSidebar = false }) => (
-  <AppDetailSection headerText={summary} isSidebar={isSidebar} />
-)
+export const SummarySection: React.FC<SummarySectionProps> = ({ summary }) => <H5>{summary}</H5>
 
 export const InstallationsTableSection: React.FC<InstallationsTableSectionProps> = ({
   data,
@@ -229,7 +234,7 @@ export const PermissionsSection: React.FC<PermissionSectionProps> = ({ permissio
   <AppDetailSection headerText="Permissions required">
     <GridFourCol>
       {permissions.map(permission => (
-        <GridFourColItem key={permission.name}>{permission?.name ?? ''}</GridFourColItem>
+        <GridFourColItem key={permission.name}>{permission?.description ?? ''}</GridFourColItem>
       ))}
     </GridFourCol>
   </AppDetailSection>

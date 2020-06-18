@@ -21,14 +21,14 @@
   "scripts": {
     "build": "lerna run build:prod --stream",
     "fetch-config": "lerna run --parallel --stream fetch-config --",
-    "lint": "lerna run --parallel --stream lint",
-    "lint:fix": "lerna run --parallel --stream lint:fix --",
-    "release:dev": "lerna run --parallel release:dev",
+    "lint": "lerna run lint --parallel --stream",
+    "lint:fix": "lerna run lint:fix --parallel --stream --since master --include-dependencies",
+    "release:dev": "lerna run release:dev --parallel",
     "release-note": "node ./scripts/release/generate-release-note.js",
     "update-release-note": "node ./scripts/release/update-release-note.js",
     "upload-artifact": "node ./scripts/release/upload-artifact.js",
     "release": "node ./scripts/release/release.js",
-    "test": "lerna run --parallel test:ci -- --detectOpenHandles --runInBand",
+    "test": "lerna run test:ci --parallel",
     "test-e2e:ci": "lerna run test-e2e:ci --stream",
     "update-doc": "node --unhandled-rejections=strict ./scripts/document-update/get-release-and-create-pr.js",
     "scan-secrets": "node --unhandled-rejections=strict ./scripts/utils/git-secrets.js"
@@ -84,7 +84,8 @@
     "redux": "^4.0.4",
     "redux-saga": "^1.1.3",
     "s3": "^4.4.0",
-    "yargs": "^15.3.1"
+    "yargs": "^15.3.1",
+    "yup": "^0.29.1"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
@@ -114,6 +115,7 @@
     "@types/react-router-dom": "^5.1.3",
     "@types/storybook__react": "^4.0.2",
     "@types/styled-components": "^4.1.19",
+    "@types/yup": "^0.29.2",
     "@typescript-eslint/eslint-plugin": "~2.23.0",
     "@typescript-eslint/parser": "~2.23.0",
     "awesome-typescript-loader": "^5.2.1",
@@ -165,9 +167,6 @@
     "node-sass": "^4.12.0",
     "prettier": "^1.19.1",
     "prettier-plugin-packagejson": "^2.0.1",
-    "purgecss": "^1.3.0",
-    "purgecss-whitelister": "^2.4.0",
-    "purify-css": "^1.2.6",
     "query-string": "5.0.0",
     "react-docgen-typescript-loader": "^3.3.0",
     "regenerator-runtime": "^0.13.5",

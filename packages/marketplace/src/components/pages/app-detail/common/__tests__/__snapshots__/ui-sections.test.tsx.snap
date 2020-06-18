@@ -32,6 +32,7 @@ exports[`AuthenticationSection should match a snapshot where authFlow is CLIENT_
   isSidebar={false}
 >
   <div
+    className=""
     data-test="authentication-client-id"
   >
     <b
@@ -50,6 +51,7 @@ exports[`AuthenticationSection should match a snapshot where authFlow is USER_SE
   isSidebar={true}
 >
   <div
+    className=""
     data-test="authentication-client-id"
   >
     <b
@@ -363,12 +365,12 @@ exports[`PermissionsSection should match a snapshot where has permissions 1`] = 
     <Component
       key="Marketplace/developers.read"
     >
-      Marketplace/developers.read
+      Read data about developers
     </Component>
     <Component
       key="Marketplace/developers.write"
     >
-      Marketplace/developers.write
+      Write data about developers
     </Component>
   </Component>
 </Component>
@@ -416,8 +418,7 @@ exports[`StatusSection should match a snapshot where isListed true and is sideba
 `;
 
 exports[`SummarySection should match a snapshot 1`] = `
-<Component
-  headerText="Lorem ipsum"
-  isSidebar={false}
-/>
+<Component>
+  Lorem ipsum
+</Component>
 `;

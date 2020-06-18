@@ -1,0 +1,526 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<div>
+  <Formik
+    initialValues={
+      Object {
+        "dateOfBirth": 2019-12-12T00:00:00.000Z,
+        "email": "sad@gmail.com",
+        "forename": "H",
+        "homePhone": "asd",
+        "mobilePhone": "asd",
+        "surname": "Phillips",
+        "title": "Mrs",
+        "workPhone": "asd",
+      }
+    }
+    onSubmit={[MockFunction]}
+    validationSchema={
+      ObjectSchema {
+        "_blacklist": RefSet {
+          "list": Set {},
+          "refs": Map {},
+        },
+        "_conditions": Array [],
+        "_defaultDefault": [Function],
+        "_deps": Array [],
+        "_excludedEdges": Array [],
+        "_exclusive": Object {},
+        "_mutate": undefined,
+        "_nodes": Array [
+          "workPhone",
+          "mobilePhone",
+          "homePhone",
+          "email",
+          "surname",
+          "forename",
+          "title",
+        ],
+        "_options": Object {
+          "abortEarly": true,
+          "recursive": true,
+        },
+        "_type": "object",
+        "_typeError": [Function],
+        "_whitelist": RefSet {
+          "list": Set {},
+          "refs": Map {},
+        },
+        "fields": Object {
+          "email": StringSchema {
+            "_blacklist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_conditions": Array [],
+            "_deps": Array [],
+            "_exclusive": Object {
+              "email": false,
+              "required": true,
+              "trim": false,
+            },
+            "_mutate": undefined,
+            "_options": Object {
+              "abortEarly": true,
+              "recursive": true,
+            },
+            "_type": "string",
+            "_typeError": [Function],
+            "_whitelist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "tests": Array [
+              [Function],
+              [Function],
+              [Function],
+            ],
+            "transforms": Array [
+              [Function],
+              [Function],
+            ],
+            "type": "string",
+          },
+          "forename": StringSchema {
+            "_blacklist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_conditions": Array [],
+            "_deps": Array [],
+            "_exclusive": Object {
+              "required": true,
+              "trim": false,
+            },
+            "_mutate": undefined,
+            "_options": Object {
+              "abortEarly": true,
+              "recursive": true,
+            },
+            "_type": "string",
+            "_typeError": [Function],
+            "_whitelist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "tests": Array [
+              [Function],
+              [Function],
+            ],
+            "transforms": Array [
+              [Function],
+              [Function],
+            ],
+            "type": "string",
+          },
+          "homePhone": StringSchema {
+            "_blacklist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_conditions": Array [
+              Condition {
+                "fn": [Function],
+                "refs": Array [
+                  Reference {
+                    "getter": [Function],
+                    "isContext": false,
+                    "isSibling": true,
+                    "isValue": false,
+                    "key": "mobilePhone",
+                    "map": undefined,
+                    "path": "mobilePhone",
+                  },
+                  Reference {
+                    "getter": [Function],
+                    "isContext": false,
+                    "isSibling": true,
+                    "isValue": false,
+                    "key": "workPhone",
+                    "map": undefined,
+                    "path": "workPhone",
+                  },
+                ],
+              },
+            ],
+            "_deps": Array [
+              "mobilePhone",
+              "workPhone",
+            ],
+            "_exclusive": Object {
+              "matches": false,
+            },
+            "_mutate": undefined,
+            "_nullable": true,
+            "_options": Object {
+              "abortEarly": true,
+              "recursive": true,
+            },
+            "_type": "string",
+            "_typeError": [Function],
+            "_whitelist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "tests": Array [
+              [Function],
+            ],
+            "transforms": Array [
+              [Function],
+            ],
+            "type": "string",
+          },
+          "mobilePhone": StringSchema {
+            "_blacklist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_conditions": Array [],
+            "_deps": Array [],
+            "_exclusive": Object {
+              "matches": false,
+            },
+            "_mutate": undefined,
+            "_nullable": true,
+            "_options": Object {
+              "abortEarly": true,
+              "recursive": true,
+            },
+            "_type": "string",
+            "_typeError": [Function],
+            "_whitelist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "tests": Array [
+              [Function],
+            ],
+            "transforms": Array [
+              [Function],
+            ],
+            "type": "string",
+          },
+          "surname": StringSchema {
+            "_blacklist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_conditions": Array [],
+            "_deps": Array [],
+            "_exclusive": Object {
+              "required": true,
+              "trim": false,
+            },
+            "_mutate": undefined,
+            "_options": Object {
+              "abortEarly": true,
+              "recursive": true,
+            },
+            "_type": "string",
+            "_typeError": [Function],
+            "_whitelist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "tests": Array [
+              [Function],
+              [Function],
+            ],
+            "transforms": Array [
+              [Function],
+              [Function],
+            ],
+            "type": "string",
+          },
+          "title": StringSchema {
+            "_blacklist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_conditions": Array [],
+            "_deps": Array [],
+            "_exclusive": Object {
+              "required": true,
+              "trim": false,
+            },
+            "_mutate": undefined,
+            "_options": Object {
+              "abortEarly": true,
+              "recursive": true,
+            },
+            "_type": "string",
+            "_typeError": [Function],
+            "_whitelist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "tests": Array [
+              [Function],
+              [Function],
+            ],
+            "transforms": Array [
+              [Function],
+              [Function],
+            ],
+            "type": "string",
+          },
+          "workPhone": StringSchema {
+            "_blacklist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_conditions": Array [],
+            "_deps": Array [],
+            "_exclusive": Object {
+              "matches": false,
+            },
+            "_mutate": undefined,
+            "_nullable": true,
+            "_options": Object {
+              "abortEarly": true,
+              "recursive": true,
+            },
+            "_type": "string",
+            "_typeError": [Function],
+            "_whitelist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "tests": Array [
+              [Function],
+            ],
+            "transforms": Array [
+              [Function],
+            ],
+            "type": "string",
+          },
+        },
+        "tests": Array [],
+        "transforms": Array [
+          [Function],
+        ],
+        "type": "object",
+      }
+    }
+  >
+    <Component />
+  </Formik>
+</div>
+`;
+
+exports[`profile renderForm should match snapshot 1`] = `
+<div>
+  <Form>
+    <Component
+      id="title"
+      labelText="Title"
+      name="title"
+      type="text"
+    />
+    <Component
+      id="forename"
+      labelText="Forename"
+      name="forename"
+      type="text"
+    />
+    <Component
+      id="surname"
+      labelText="Surname"
+      name="surname"
+      type="text"
+    />
+    <Component
+      id="dateOfBirth"
+      labelText="Date Of Birth"
+      name="dateOfBirth"
+    />
+    <p
+      className="is-size-6"
+    >
+      * At least one telephone number is required
+    </p>
+    <Component
+      id="homePhone"
+      labelText="Home"
+      name="homePhone"
+      type="text"
+    />
+    <Component
+      id="mobilePhone"
+      labelText="Mobile"
+      name="mobilePhone"
+      type="text"
+    />
+    <Component
+      id="workPhone"
+      labelText="Work"
+      name="workPhone"
+      type="text"
+    />
+    <Component
+      id="email"
+      labelText="Email"
+      name="email"
+      type="email"
+    />
+    <div
+      className="field pb-2"
+    >
+      <div
+        className="columns undefined"
+      >
+        <div
+          className="column"
+        >
+          <div
+            className="undefined flex items-center"
+          >
+            <span>
+              RPS Ref:
+            </span>
+            <span
+              className="ml-1"
+            >
+              AYL19000001
+            </span>
+          </div>
+        </div>
+        <div
+          className="column undefined"
+        >
+          <Component
+            className="mr-2"
+            loading={false}
+            type="submit"
+            variant="primary"
+          >
+            Save
+          </Component>
+          <Component
+            dataTest="submit-revision-modal-edit-button"
+            disabled={false}
+            type="button"
+            variant="primary"
+          >
+            Next
+          </Component>
+        </div>
+      </div>
+    </div>
+    <p
+      className="is-size-6"
+    >
+      * Indicates fields that are required in order to ‘Complete’ this section.
+    </p>
+  </Form>
+</div>
+`;
+
+exports[`profile renderForm should match snapshot 2`] = `
+<div>
+  <Form>
+    <Component
+      id="title"
+      labelText="Title"
+      name="title"
+      type="text"
+    />
+    <Component
+      id="forename"
+      labelText="Forename"
+      name="forename"
+      type="text"
+    />
+    <Component
+      id="surname"
+      labelText="Surname"
+      name="surname"
+      type="text"
+    />
+    <Component
+      id="dateOfBirth"
+      labelText="Date Of Birth"
+      name="dateOfBirth"
+    />
+    <p
+      className="is-size-6"
+    >
+      * At least one telephone number is required
+    </p>
+    <Component
+      id="homePhone"
+      labelText="Home"
+      name="homePhone"
+      type="text"
+    />
+    <Component
+      id="mobilePhone"
+      labelText="Mobile"
+      name="mobilePhone"
+      type="text"
+    />
+    <Component
+      id="workPhone"
+      labelText="Work"
+      name="workPhone"
+      type="text"
+    />
+    <Component
+      id="email"
+      labelText="Email"
+      name="email"
+      type="email"
+    />
+    <div
+      className="field pb-2"
+    >
+      <div
+        className="columns undefined"
+      >
+        <div
+          className="column"
+        >
+          <div
+            className="undefined flex items-center"
+          >
+            <span>
+              RPS Ref:
+            </span>
+            <span
+              className="ml-1"
+            >
+              AYL19000001
+            </span>
+          </div>
+        </div>
+        <div
+          className="column undefined"
+        >
+          <Component
+            className="mr-2"
+            loading={false}
+            type="submit"
+            variant="primary"
+          >
+            Save
+          </Component>
+          <Component
+            dataTest="submit-revision-modal-edit-button"
+            disabled={false}
+            type="button"
+            variant="primary"
+          >
+            Next
+          </Component>
+        </div>
+      </div>
+    </div>
+    <p
+      className="is-size-6"
+    >
+      * Indicates fields that are required in order to ‘Complete’ this section.
+    </p>
+  </Form>
+</div>
+`;

@@ -15,7 +15,7 @@ const Routes = {
   DEVELOPER_MY_APPS: '/developer/apps',
   DEVELOPER_APP_DETAIL: '/developer/apps/:appid',
   DEVELOPER_SWAGGER: '/developer/swagger',
-  DEVELOPER_ELEMENTS: '/developer/elements',
+  DEVELOPER_DESKTOP: '/developer/desktop',
   DEVELOPER_MY_APPS_EDIT: '/developer/apps/:appid/edit',
   DEVELOPER_API_DOCS: '/developer/api-docs',
   DEVELOPER_ANALYTICS: '/developer/analytics',

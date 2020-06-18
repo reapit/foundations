@@ -309,7 +309,7 @@ exports[`Router should match a snapshot 1`] = `
               }
             }
             exact={true}
-            path="/developer/elements"
+            path="/developer/desktop"
           />
           <Component
             allow="DEVELOPER"
@@ -340,7 +340,7 @@ exports[`Router should match a snapshot 1`] = `
             path="/developer/settings/"
           />
           <Component
-            allow="ADMIN"
+            allow="DEVELOPER"
             component={
               Object {
                 "$$typeof": Symbol(react.lazy),
@@ -353,7 +353,7 @@ exports[`Router should match a snapshot 1`] = `
             path="/developer/settings/billing"
           />
           <Component
-            allow="ADMIN"
+            allow="DEVELOPER"
             component={
               Object {
                 "$$typeof": Symbol(react.lazy),

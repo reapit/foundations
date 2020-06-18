@@ -53,6 +53,14 @@ module.exports = async apiVersion => {
         'api-version': apiVersion,
       },
     },
+    {
+      definitionFile: path.resolve(FOUNDATION_TYPES_FOLDER, './marketplace-traffic-event-schema.ts'),
+      endpoint: `${MARKETPLACE_API_BASE_URL}/trafficevents/swagger/v2/swagger.json`,
+      headers: {
+        'X-Api-Key': MARKETPLACE_API_KEY,
+        'api-version': apiVersion,
+      },
+    },
   ]
   return Promise.all(apiSchema.map(fetchDefinitionsForSchema))
 }

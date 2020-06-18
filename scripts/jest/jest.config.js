@@ -14,7 +14,7 @@ module.exports = {
   ],
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules)[/\\\\]'],
   moduleNameMapper: {
-    '^.+.(?=.*scss|sass|css|png|jpg).*': '<rootDir>/../../scripts/jest/css-stub.js',
+    '^.+.(?=.*scss|sass|css|png|jpg|pdf).*': '<rootDir>/../../scripts/jest/css-stub.js',
   },
   moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx', 'graphql', 'gql'],
   snapshotSerializers: ['enzyme-to-json/serializer'],

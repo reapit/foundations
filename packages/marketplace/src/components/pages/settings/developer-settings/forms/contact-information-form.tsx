@@ -13,11 +13,9 @@ import {
   withFormik,
   FormikProps,
   FormikBag,
-  FormikValues,
-  FormikErrors,
 } from '@reapit/elements'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
-import { isValidTelephone } from '@/utils/validate'
+import { validate } from '@/utils/form/developer-settings-contact-information'
 
 export type ContactInformationFormProps = FormikProps<ContactInformationValues>
 
@@ -97,14 +95,6 @@ export const handleSubmitContactInformation = async (
 ) => {
   setSubmitting(true)
   props.updateDeveloperInformation(values)
-}
-
-export const validate = (values: FormikValues): FormikErrors<FormikValues> => {
-  const errors = {} as FormikErrors<FormikValues>
-  if (values.telephone && !isValidTelephone(values.telephone)) {
-    errors.telephone = 'Invalid telephone format'
-  }
-  return errors
 }
 
 export const withContactInformationForm = withFormik({

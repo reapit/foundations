@@ -151,7 +151,7 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   if (error) return <Alert message={error} type="danger"></Alert>
 
   return (
-    <FlexContainerResponsive hasPadding dataTest="client-app-detail-container">
+    <FlexContainerResponsive hasPadding dataTest="client-app-detail-container" className={styles.flexContainer}>
       <Grid className={styles.container}>
         {isLoadingAppDetail || unfetched ? (
           <Loader dataTest="client-app-detail-loader" />

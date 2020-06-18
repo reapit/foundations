@@ -28,7 +28,7 @@ const AdminDevManagementPage = React.lazy(() =>
 )
 const ApiDocsPage = React.lazy(() => catchChunkError(() => import('../components/pages/api-docs')))
 const SwaggerPage = React.lazy(() => catchChunkError(() => import('../components/pages/swagger')))
-const ElementsPage = React.lazy(() => catchChunkError(() => import('../components/pages/elements')))
+const DeveloperDesktopPage = React.lazy(() => catchChunkError(() => import('../components/pages/developer-desktop')))
 const DeveloperWelcomePage = React.lazy(() => catchChunkError(() => import('../components/pages/developer-welcome')))
 const DeveloperHelpPage = React.lazy(() => catchChunkError(() => import('../components/pages/developer-help')))
 const ClientHelpPage = React.lazy(() => catchChunkError(() => import('../components/pages/client-help')))
@@ -118,7 +118,7 @@ const Router = () => {
                 component={DeveloperWebhooksPage}
               />
               <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_SWAGGER} exact component={SwaggerPage} />
-              <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_ELEMENTS} exact component={ElementsPage} />
+              <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_DESKTOP} exact component={DeveloperDesktopPage} />
               <PrivateRoute
                 allow="DEVELOPER"
                 path={Routes.DEVELOPER_ANALYTICS_TAB}
@@ -135,13 +135,13 @@ const Router = () => {
                 component={DeveloperSettingsPage}
               />
               <PrivateRoute
-                allow="ADMIN"
+                allow="DEVELOPER"
                 path={Routes.DEVELOPER_SETTINGS_BILLING_TAB}
                 fetcher
                 component={DeveloperSettingsBillingTabPage}
               />
               <PrivateRoute
-                allow="ADMIN"
+                allow="DEVELOPER"
                 path={Routes.DEVELOPER_SETTINGS_ORGANISATION_TAB}
                 fetcher
                 component={DeveloperSettingsOrganisationTabPage}

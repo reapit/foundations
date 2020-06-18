@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { history } from '@/core/router'
-import { H3 } from '@reapit/elements'
+import { H3, FlexContainerResponsive, FlexContainerBasic } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import styles from '@/styles/pages/help.scss?mod'
 import welcomeImg from '@/assets/images/help/welcome-guide.jpg'
@@ -32,10 +32,14 @@ export const helpItems: HelpItem[] = [
 
 export const ClientHelpPage: React.FC = () => {
   return (
-    <div className={styles.wrapHelp}>
-      <H3>Help</H3>
-      <HelpItemList items={helpItems} />
-    </div>
+    <FlexContainerBasic hasPadding>
+      <FlexContainerResponsive flexColumn hasBackground hasPadding>
+        <div className={styles.wrapHelp}>
+          <H3>Help</H3>
+          <HelpItemList items={helpItems} />
+        </div>
+      </FlexContainerResponsive>
+    </FlexContainerBasic>
   )
 }
 

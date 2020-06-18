@@ -1,6 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DeveloperBillingTabPage should match snapshot 1`] = `
+exports[`DeveloperBillingTabPage should match snapshot when isAdmin = false 1`] = `
+<Redirect
+  to="/404"
+/>
+`;
+
+exports[`DeveloperBillingTabPage should match snapshot when isAdmin = false 2`] = `
 <Component
   flexColumn={true}
   hasPadding={true}
@@ -12,6 +18,25 @@ exports[`DeveloperBillingTabPage should match snapshot 1`] = `
       hasPadding={true}
     >
       <Component />
+      <Component>
+        <Component
+          flexColumn={true}
+          hasBackground={true}
+          hasPadding={true}
+        >
+          <Component>
+            Accounts Information
+          </Component>
+          <AccountsInformationForm />
+        </Component>
+        <Component
+          flexColumn={true}
+          hasBackground={true}
+          hasPadding={true}
+        >
+          <Component />
+        </Component>
+      </Component>
     </Component>
   </Component>
 </Component>

@@ -30,63 +30,65 @@ exports[`ContactDeveloperSection should match snapshot with gutter 1`] = `
     <Component>
       <Component>
         <Component>
-          Company name
+          <Component>
+            Company name
+          </Component>
+        </Component>
+        <Component>
+          <p>
+            Reapit Ltd
+          </p>
         </Component>
       </Component>
-      <Component>
-        <p>
-          Reapit Ltd
-        </p>
-      </Component>
-    </Component>
-    <Component>
       <Component>
         <Component>
-          Telephone Number
+          <Component>
+            Telephone Number
+          </Component>
+        </Component>
+        <Component>
+          <p>
+            0777 777 777
+          </p>
         </Component>
       </Component>
-      <Component>
-        <p>
-          0777 777 777
-        </p>
-      </Component>
-    </Component>
-    <Component>
       <Component>
         <Component>
-          Support Email
+          <Component>
+            Support Email
+          </Component>
+        </Component>
+        <Component>
+          <p>
+            <a
+              className={[Function]}
+              href="mailto:reapit@reapit.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              reapit@reapit.com
+            </a>
+          </p>
         </Component>
       </Component>
-      <Component>
-        <p>
-          <a
-            className={[Function]}
-            href="mailto:reapit@reapit.com"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            reapit@reapit.com
-          </a>
-        </p>
-      </Component>
-    </Component>
-    <Component>
       <Component>
         <Component>
-          Home Page
+          <Component>
+            Home Page
+          </Component>
         </Component>
-      </Component>
-      <Component>
-        <p>
-          <a
-            className={[Function]}
-            href="https://reapit.com"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            https://reapit.com
-          </a>
-        </p>
+        <Component>
+          <p>
+            <a
+              className={[Function]}
+              href="https://reapit.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              https://reapit.com
+            </a>
+          </p>
+        </Component>
       </Component>
     </Component>
   </Component>
@@ -123,63 +125,65 @@ exports[`ContactDeveloperSection should match snapshot without gutter 1`] = `
     <Component>
       <Component>
         <Component>
-          Company name
+          <Component>
+            Company name
+          </Component>
+        </Component>
+        <Component>
+          <p>
+            Reapit Ltd
+          </p>
         </Component>
       </Component>
-      <Component>
-        <p>
-          Reapit Ltd
-        </p>
-      </Component>
-    </Component>
-    <Component>
       <Component>
         <Component>
-          Telephone Number
+          <Component>
+            Telephone Number
+          </Component>
+        </Component>
+        <Component>
+          <p>
+            0777 777 777
+          </p>
         </Component>
       </Component>
-      <Component>
-        <p>
-          0777 777 777
-        </p>
-      </Component>
-    </Component>
-    <Component>
       <Component>
         <Component>
-          Support Email
+          <Component>
+            Support Email
+          </Component>
+        </Component>
+        <Component>
+          <p>
+            <a
+              className={[Function]}
+              href="mailto:reapit@reapit.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              reapit@reapit.com
+            </a>
+          </p>
         </Component>
       </Component>
-      <Component>
-        <p>
-          <a
-            className={[Function]}
-            href="mailto:reapit@reapit.com"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            reapit@reapit.com
-          </a>
-        </p>
-      </Component>
-    </Component>
-    <Component>
       <Component>
         <Component>
-          Home Page
+          <Component>
+            Home Page
+          </Component>
         </Component>
-      </Component>
-      <Component>
-        <p>
-          <a
-            className={[Function]}
-            href="https://reapit.com"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            https://reapit.com
-          </a>
-        </p>
+        <Component>
+          <p>
+            <a
+              className={[Function]}
+              href="https://reapit.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              https://reapit.com
+            </a>
+          </p>
+        </Component>
       </Component>
     </Component>
   </Component>

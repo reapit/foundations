@@ -1,5 +1,6 @@
 @import '../base/colors.scss';
 @import '../base/screen-size.scss';
+@import '../base/browser.scss';
 
 .preview {
   position: relative;
@@ -35,9 +36,20 @@
 }
 
 .container {
+  height: 100%;
+  margin-bottom: auto;
   @include for-mobile-only {
     display: flex;
     flex-direction: column-reverse;
+  }
+  @include for-ie-only {
+    min-width: 1024px;
+  } 
+}
+
+.flexContainer {
+  @include for-ie-only {
+    align-self: center;
   }
 }
 
@@ -56,11 +68,20 @@
 
 .headerContent {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  text-align: center;
   flex-direction: column;
-  
-  @include for-tablet-and-below {
-    flex-direction: column;
-    align-items: center;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+
+  @include for-mobile-only {
+    > button {
+      width: 50%;
+    }
+
+    flex-direction: row;
   }
 }

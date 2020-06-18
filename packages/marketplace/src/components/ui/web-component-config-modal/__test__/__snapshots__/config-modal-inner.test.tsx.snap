@@ -307,90 +307,136 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                         >
                           Select a time between each appointment
                         </label>
-                        <div
-                          className="radio-wrap"
-                          key="0"
+                        <Component
+                          className="is-gapless"
+                          isMultiLine={true}
                         >
-                          <input
-                            checked={false}
-                            className="checkbox "
-                            disabled={false}
-                            id="appointmentTimeGap15 mins"
-                            key="15"
-                            name="appointmentTimeGap"
-                            onChange={[Function]}
-                            type="radio"
-                            value={15}
-                          />
-                          <label
-                            htmlFor="appointmentTimeGap15 mins"
+                          <div
+                            className="columns is-multiline is-gapless"
+                            data-test=""
                           >
-                            15 mins
-                          </label>
-                        </div>
-                        <div
-                          className="radio-wrap"
-                          key="1"
-                        >
-                          <input
-                            checked={true}
-                            className="checkbox "
-                            disabled={false}
-                            id="appointmentTimeGap30 mins"
-                            key="30"
-                            name="appointmentTimeGap"
-                            onChange={[Function]}
-                            type="radio"
-                            value={30}
-                          />
-                          <label
-                            htmlFor="appointmentTimeGap30 mins"
-                          >
-                            30 mins
-                          </label>
-                        </div>
-                        <div
-                          className="radio-wrap"
-                          key="2"
-                        >
-                          <input
-                            checked={false}
-                            className="checkbox "
-                            disabled={false}
-                            id="appointmentTimeGap1hr"
-                            key="60"
-                            name="appointmentTimeGap"
-                            onChange={[Function]}
-                            type="radio"
-                            value={60}
-                          />
-                          <label
-                            htmlFor="appointmentTimeGap1hr"
-                          >
-                            1hr
-                          </label>
-                        </div>
-                        <div
-                          className="radio-wrap"
-                          key="3"
-                        >
-                          <input
-                            checked={false}
-                            className="checkbox "
-                            disabled={false}
-                            id="appointmentTimeGap1hr 30mins"
-                            key="90"
-                            name="appointmentTimeGap"
-                            onChange={[Function]}
-                            type="radio"
-                            value={90}
-                          />
-                          <label
-                            htmlFor="appointmentTimeGap1hr 30mins"
-                          >
-                            1hr 30mins
-                          </label>
-                        </div>
+                            <Component
+                              className="is-full"
+                              key="0"
+                            >
+                              <div
+                                className="column  is-full"
+                                data-test=""
+                              >
+                                <div
+                                  className="radio-wrap"
+                                >
+                                  <input
+                                    checked={false}
+                                    className="checkbox "
+                                    disabled={false}
+                                    id="appointmentTimeGap15 mins"
+                                    key="15"
+                                    name="appointmentTimeGap"
+                                    onChange={[Function]}
+                                    type="radio"
+                                    value={15}
+                                  />
+                                  <label
+                                    htmlFor="appointmentTimeGap15 mins"
+                                  >
+                                    15 mins
+                                  </label>
+                                </div>
+                              </div>
+                            </Component>
+                            <Component
+                              className="is-full"
+                              key="1"
+                            >
+                              <div
+                                className="column  is-full"
+                                data-test=""
+                              >
+                                <div
+                                  className="radio-wrap"
+                                >
+                                  <input
+                                    checked={true}
+                                    className="checkbox "
+                                    disabled={false}
+                                    id="appointmentTimeGap30 mins"
+                                    key="30"
+                                    name="appointmentTimeGap"
+                                    onChange={[Function]}
+                                    type="radio"
+                                    value={30}
+                                  />
+                                  <label
+                                    htmlFor="appointmentTimeGap30 mins"
+                                  >
+                                    30 mins
+                                  </label>
+                                </div>
+                              </div>
+                            </Component>
+                            <Component
+                              className="is-full"
+                              key="2"
+                            >
+                              <div
+                                className="column  is-full"
+                                data-test=""
+                              >
+                                <div
+                                  className="radio-wrap"
+                                >
+                                  <input
+                                    checked={false}
+                                    className="checkbox "
+                                    disabled={false}
+                                    id="appointmentTimeGap1hr"
+                                    key="60"
+                                    name="appointmentTimeGap"
+                                    onChange={[Function]}
+                                    type="radio"
+                                    value={60}
+                                  />
+                                  <label
+                                    htmlFor="appointmentTimeGap1hr"
+                                  >
+                                    1hr
+                                  </label>
+                                </div>
+                              </div>
+                            </Component>
+                            <Component
+                              className="is-full"
+                              key="3"
+                            >
+                              <div
+                                className="column  is-full"
+                                data-test=""
+                              >
+                                <div
+                                  className="radio-wrap"
+                                >
+                                  <input
+                                    checked={false}
+                                    className="checkbox "
+                                    disabled={false}
+                                    id="appointmentTimeGap1hr 30mins"
+                                    key="90"
+                                    name="appointmentTimeGap"
+                                    onChange={[Function]}
+                                    type="radio"
+                                    value={90}
+                                  />
+                                  <label
+                                    htmlFor="appointmentTimeGap1hr 30mins"
+                                  >
+                                    1hr 30mins
+                                  </label>
+                                </div>
+                              </div>
+                            </Component>
+                          </div>
+                        </Component>
                       </div>
                     </div>
                   </Field>
@@ -445,90 +491,136 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                         >
                           Select a length of appointments
                         </label>
-                        <div
-                          className="radio-wrap"
-                          key="0"
+                        <Component
+                          className="is-gapless"
+                          isMultiLine={true}
                         >
-                          <input
-                            checked={false}
-                            className="checkbox "
-                            disabled={false}
-                            id="appointmentLength15 mins"
-                            key="15"
-                            name="appointmentLength"
-                            onChange={[Function]}
-                            type="radio"
-                            value={15}
-                          />
-                          <label
-                            htmlFor="appointmentLength15 mins"
+                          <div
+                            className="columns is-multiline is-gapless"
+                            data-test=""
                           >
-                            15 mins
-                          </label>
-                        </div>
-                        <div
-                          className="radio-wrap"
-                          key="1"
-                        >
-                          <input
-                            checked={true}
-                            className="checkbox "
-                            disabled={false}
-                            id="appointmentLength30 mins"
-                            key="30"
-                            name="appointmentLength"
-                            onChange={[Function]}
-                            type="radio"
-                            value={30}
-                          />
-                          <label
-                            htmlFor="appointmentLength30 mins"
-                          >
-                            30 mins
-                          </label>
-                        </div>
-                        <div
-                          className="radio-wrap"
-                          key="2"
-                        >
-                          <input
-                            checked={false}
-                            className="checkbox "
-                            disabled={false}
-                            id="appointmentLength1hr"
-                            key="60"
-                            name="appointmentLength"
-                            onChange={[Function]}
-                            type="radio"
-                            value={60}
-                          />
-                          <label
-                            htmlFor="appointmentLength1hr"
-                          >
-                            1hr
-                          </label>
-                        </div>
-                        <div
-                          className="radio-wrap"
-                          key="3"
-                        >
-                          <input
-                            checked={false}
-                            className="checkbox "
-                            disabled={false}
-                            id="appointmentLength1hr 30mins"
-                            key="90"
-                            name="appointmentLength"
-                            onChange={[Function]}
-                            type="radio"
-                            value={90}
-                          />
-                          <label
-                            htmlFor="appointmentLength1hr 30mins"
-                          >
-                            1hr 30mins
-                          </label>
-                        </div>
+                            <Component
+                              className="is-full"
+                              key="0"
+                            >
+                              <div
+                                className="column  is-full"
+                                data-test=""
+                              >
+                                <div
+                                  className="radio-wrap"
+                                >
+                                  <input
+                                    checked={false}
+                                    className="checkbox "
+                                    disabled={false}
+                                    id="appointmentLength15 mins"
+                                    key="15"
+                                    name="appointmentLength"
+                                    onChange={[Function]}
+                                    type="radio"
+                                    value={15}
+                                  />
+                                  <label
+                                    htmlFor="appointmentLength15 mins"
+                                  >
+                                    15 mins
+                                  </label>
+                                </div>
+                              </div>
+                            </Component>
+                            <Component
+                              className="is-full"
+                              key="1"
+                            >
+                              <div
+                                className="column  is-full"
+                                data-test=""
+                              >
+                                <div
+                                  className="radio-wrap"
+                                >
+                                  <input
+                                    checked={true}
+                                    className="checkbox "
+                                    disabled={false}
+                                    id="appointmentLength30 mins"
+                                    key="30"
+                                    name="appointmentLength"
+                                    onChange={[Function]}
+                                    type="radio"
+                                    value={30}
+                                  />
+                                  <label
+                                    htmlFor="appointmentLength30 mins"
+                                  >
+                                    30 mins
+                                  </label>
+                                </div>
+                              </div>
+                            </Component>
+                            <Component
+                              className="is-full"
+                              key="2"
+                            >
+                              <div
+                                className="column  is-full"
+                                data-test=""
+                              >
+                                <div
+                                  className="radio-wrap"
+                                >
+                                  <input
+                                    checked={false}
+                                    className="checkbox "
+                                    disabled={false}
+                                    id="appointmentLength1hr"
+                                    key="60"
+                                    name="appointmentLength"
+                                    onChange={[Function]}
+                                    type="radio"
+                                    value={60}
+                                  />
+                                  <label
+                                    htmlFor="appointmentLength1hr"
+                                  >
+                                    1hr
+                                  </label>
+                                </div>
+                              </div>
+                            </Component>
+                            <Component
+                              className="is-full"
+                              key="3"
+                            >
+                              <div
+                                className="column  is-full"
+                                data-test=""
+                              >
+                                <div
+                                  className="radio-wrap"
+                                >
+                                  <input
+                                    checked={false}
+                                    className="checkbox "
+                                    disabled={false}
+                                    id="appointmentLength1hr 30mins"
+                                    key="90"
+                                    name="appointmentLength"
+                                    onChange={[Function]}
+                                    type="radio"
+                                    value={90}
+                                  />
+                                  <label
+                                    htmlFor="appointmentLength1hr 30mins"
+                                  >
+                                    1hr 30mins
+                                  </label>
+                                </div>
+                              </div>
+                            </Component>
+                          </div>
+                        </Component>
                       </div>
                     </div>
                   </Field>

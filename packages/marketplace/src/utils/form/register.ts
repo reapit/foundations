@@ -1,5 +1,6 @@
 import { isEmail, isValidPersonName, isValidTelephone } from '../validate'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
+import ErrorMessages from '@/constants/error-messages'
 
 export type RegisterFormError = Partial<CreateDeveloperModel>
 
@@ -18,25 +19,25 @@ export function registerValidate(values: CreateDeveloperModel) {
   const trimmedValues = trimValues(values)
 
   if (!trimmedValues.name) {
-    errors.name = 'Required'
+    errors.name = ErrorMessages.FIELD_REQUIRED
   } else if (!isValidPersonName(trimmedValues.name)) {
-    errors.name = 'Invalid full name'
+    errors.name = ErrorMessages.FIELD_INVALID_NAME
   }
 
   if (!trimmedValues.companyName) {
-    errors.companyName = 'Required'
+    errors.companyName = ErrorMessages.FIELD_REQUIRED
   }
 
   if (!trimmedValues.email) {
-    errors.email = 'Required'
+    errors.email = ErrorMessages.FIELD_REQUIRED
   } else if (!isEmail(trimmedValues.email)) {
-    errors.email = 'Invalid email address'
+    errors.email = ErrorMessages.FIELD_WRONG_EMAIL_FORMAT
   }
 
   if (!trimmedValues.telephone) {
-    errors.telephone = 'Required'
+    errors.telephone = ErrorMessages.FIELD_REQUIRED
   } else if (!isValidTelephone(trimmedValues.telephone)) {
-    errors.telephone = 'Invalid telephone number'
+    errors.telephone = ErrorMessages.FIELD_PHONE_NUMER
   }
 
   return errors

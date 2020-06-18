@@ -10,6 +10,7 @@ import routes from '@/constants/routes'
 import { History } from 'history'
 import { Dispatch } from 'redux'
 import { developerFetchAppDetail } from '@/actions/developer'
+import styles from '@/styles/blocks/standalone-app-detail.scss?mod'
 
 interface ManageAppProps {
   pendingRevisions: boolean
@@ -56,13 +57,14 @@ export const onDeleteAppButtonClick = (setVisible: (value: boolean) => void) => 
 export const DeveloperManageApp: React.FC<ManageAppProps> = ({ pendingRevisions, id, appDetailState }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false)
   const [isAppRevisionComparisonModalOpen, setIsAppRevisionComparisonModalOpen] = React.useState(false)
+  const { buttonGroup } = styles
 
   const clientId = useSelector(selectClientId)
   const dispatch = useDispatch()
   const history = useHistory()
 
   return (
-    <Content>
+    <Content className={buttonGroup}>
       {isDeleteModalOpen && (
         <AppDelete
           appId={id || ''}
