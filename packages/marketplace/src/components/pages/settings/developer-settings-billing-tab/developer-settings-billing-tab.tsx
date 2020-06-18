@@ -5,6 +5,7 @@ import AccountsInformationForm from './accounts-information-form'
 import { Redirect } from 'react-router-dom'
 import { selectIsAdmin } from '@/selector/auth'
 import { useSelector } from 'react-redux'
+import Subcriptions from '@/components/ui/developer-settings/billing/subscriptions'
 
 const DevelperSettingsBillingTabPage: React.FC<{}> = () => {
   const isAdmin = useSelector(selectIsAdmin)
@@ -32,6 +33,9 @@ const DevelperSettingsBillingTabPage: React.FC<{}> = () => {
             <FlexContainerResponsive flexColumn hasBackground hasPadding>
               <H3>Accounts Information</H3>
               <AccountsInformationForm />
+            </FlexContainerResponsive>
+            <FlexContainerResponsive flexColumn hasBackground hasPadding>
+              <Subcriptions />
             </FlexContainerResponsive>
           </Content>
         </FlexContainerResponsive>

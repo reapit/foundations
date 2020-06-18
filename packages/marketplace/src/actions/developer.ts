@@ -14,6 +14,7 @@ import { FormState } from '@/types/core'
 import { FetchBillingsParams, FetchBillingsByMonthParams } from '@/services/traffic-events'
 import { PingWebhooksByIdParams } from '@/services/webhooks'
 import { FetchAppByIdParams } from '@/services/apps'
+import { FetchSubscriptionsListParams, SubscriptionsListResult } from '@/services/subscriptions'
 
 // Developer App Detail
 export const developerFetchAppDetail = actionCreator<FetchAppByIdParams>(ActionTypes.DEVELOPER_FETCH_APP_DETAIL)
@@ -46,3 +47,11 @@ export const developerSetWebhookPingStatus = actionCreator<WebhookPingTestStatus
   ActionTypes.DEVELOPER_SET_PING_WEBHOOK_STATUS,
 )
 export const developerApplyAppDetails = actionCreator<AppDetailData>(ActionTypes.DEVELOPER_APPLY_APP_DETAIL)
+
+export const developerFetchSubscriptions = actionCreator<FetchSubscriptionsListParams>(
+  ActionTypes.DEVELOPER_FETCH_SUBSCRIPTIONS,
+)
+export const developerFetchSubscriptionsSuccess = actionCreator<SubscriptionsListResult>(
+  ActionTypes.DEVELOPER_FETCH_SUBSCRIPTIONS_SUCCESS,
+)
+export const developerDeleteSubscription = actionCreator<string>(ActionTypes.DEVELOPER_DELETE_SUBSCRIPTION)

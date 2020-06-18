@@ -1,93 +1,87 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
-import { FormState, ReduxState } from '@/types/core'
-import { AppConfirmInstallContent, handleCloseModal, mapDispatchToProps, mapStateToProps } from '../app-confirm-install'
-import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
+import * as ReactRedux from 'react-redux'
+import { mount } from 'enzyme'
+import configureStore from 'redux-mock-store'
+import AppConfirmInstallContent, {
+  handleCloseModal,
+  AppConfirmInstallContentProps,
+  handleInstallSuccess,
+  onConfirmButtonClick,
+} from '../app-confirm-install'
+import appState from '@/reducers/__stubs__/app-state'
+import { setAppDetailModalStateBrowse, setAppDetailModalStateSuccess } from '@/actions/app-detail-modal'
+import { appInstallationsRequestInstall } from '@/actions/app-installations'
 
-const mockProps = {
-  appDetailData: appDetailDataStub.data,
-  installationsFormState: 'PENDING' as FormState,
+const mockProps: AppConfirmInstallContentProps = {
   afterClose: jest.fn(),
-  installApp: jest.fn(),
-  setAppDetailModalStateBrowse: jest.fn(),
-  setAppDetailModalStateSuccess: jest.fn(),
 }
 
 describe('AppConfirmInstallContent', () => {
-  it('render correctly', () => {
-    const wrapper = shallow(<AppConfirmInstallContent {...mockProps} />)
-    expect(wrapper).toMatchSnapshot()
-    const wrapper1 = shallow(<AppConfirmInstallContent {...mockProps} installationsFormState="DONE" />)
-    expect(wrapper1).toMatchSnapshot()
-    const wrapper2 = shallow(<AppConfirmInstallContent {...mockProps} installationsFormState="SUBMITTING" />)
-    expect(wrapper2).toMatchSnapshot()
-    const wrapper3 = shallow(<AppConfirmInstallContent {...mockProps} installationsFormState="ERROR" />)
-    expect(wrapper3).toMatchSnapshot()
-    const wrapper4 = shallow(<AppConfirmInstallContent {...mockProps} installationsFormState="SUCCESS" />)
-    expect(wrapper4).toMatchSnapshot()
+  let store
+  let spyDispatch
+  beforeEach(() => {
+    /* mocking store */
+    const mockStore = configureStore()
+    store = mockStore(appState)
+    spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
   })
 
-  it('should return null when formState SUCCESS', () => {
-    const wrapper = shallow(<AppConfirmInstallContent {...mockProps} installationsFormState="SUCCESS" />)
-    expect(wrapper).toEqual({})
+  it('should match snapshot', () => {
+    expect(
+      mount(
+        <ReactRedux.Provider store={store}>
+          <AppConfirmInstallContent {...mockProps} />
+        </ReactRedux.Provider>,
+      ),
+    ).toMatchSnapshot()
   })
-
-  it('show confirm content', () => {
-    const wrapper = shallow(<AppConfirmInstallContent {...mockProps} />)
-    expect(wrapper.find('[data-test="confirm-content"]')).toHaveLength(1)
-  })
-
-  it('button agree show loading when agree install', () => {
-    const wrapper = mount(<AppConfirmInstallContent {...mockProps} installationsFormState="SUBMITTING" />)
-    expect(wrapper.find('[dataTest="agree-btn"]').prop('loading')).toEqual(true)
-  })
-
-  it('button disagree show loading when agree install', () => {
-    const wrapper = mount(<AppConfirmInstallContent {...mockProps} installationsFormState="SUBMITTING" />)
-    expect(wrapper.find('[dataTest="agree-btn"]').prop('loading')).toEqual(true)
-  })
-  it('handleCloseModal', () => {
-    const afterClose = jest.fn()
-    const setAppDetailModalStateBrowse = jest.fn()
-    const fn = handleCloseModal(afterClose, setAppDetailModalStateBrowse)
-    fn()
-    expect(afterClose).toBeCalled()
-    expect(setAppDetailModalStateBrowse).toBeCalled()
-  })
-
-  describe('mapDispatchToProps', () => {
-    const dispatch = jest.fn()
-    const fn = mapDispatchToProps(dispatch)
-    it('should call dispatch when involke request install', () => {
-      fn.installApp({ appId: '1' })()
-      expect(dispatch).toBeCalled()
-    })
-    it('should call dispatch when involke setAppDetailModalStateBrowse', () => {
-      fn.setAppDetailModalStateBrowse()
-      expect(dispatch).toBeCalled()
-    })
-    it('should call dispatch when involke setAppDetailModalStateSuccess', () => {
-      fn.setAppDetailModalStateSuccess()
-      expect(dispatch).toBeCalled()
+  describe('handleCloseModal', () => {
+    it('should call afterClose and dispatch setAppDetailModalStateBrowse', () => {
+      const afterClose = jest.fn()
+      const fn = handleCloseModal(spyDispatch, afterClose)
+      fn()
+      expect(afterClose).toBeCalled()
+      expect(spyDispatch).toBeCalledWith(setAppDetailModalStateBrowse())
+      spyDispatch.mockClear()
     })
   })
 
-  describe('mapStateToProps', () => {
-    it('should return correct Props', () => {
-      const mockState = {
-        appDetail: {
-          appDetailData: appDetailDataStub,
-        },
-        installations: {
-          formState: 'PENDING',
-        },
-      } as ReduxState
-      const expected = {
-        appDetailData: appDetailDataStub.data,
-        installationsFormState: 'PENDING',
-      }
-      const result = mapStateToProps(mockState)
-      expect(result).toEqual(expected)
+  describe('handleInstallSuccess', () => {
+    it('should dispatch setAppDetailModalStateSuccess', () => {
+      const fn = handleInstallSuccess(true, spyDispatch)
+      fn()
+      expect(spyDispatch).toBeCalledWith(setAppDetailModalStateSuccess())
+      spyDispatch.mockClear()
+    })
+  })
+
+  describe('handleInstallSuccess', () => {
+    it('should not dispatch setAppDetailModalStateSuccess', () => {
+      const fn = handleInstallSuccess(false, spyDispatch)
+      fn()
+      expect(spyDispatch).not.toBeCalledWith(setAppDetailModalStateSuccess())
+      spyDispatch.mockClear()
+    })
+  })
+
+  describe('onConfirmButtonClick', () => {
+    it('should dispatch appInstallationsRequestInstall', () => {
+      const fn = onConfirmButtonClick(spyDispatch, 'test')
+      fn()
+      expect(spyDispatch).toBeCalledWith(
+        appInstallationsRequestInstall({
+          appId: 'test',
+        }),
+      )
+      spyDispatch.mockClear()
+    })
+  })
+
+  describe('onConfirmButtonClick', () => {
+    it('should not dispatch appInstallationsRequestInstall', () => {
+      const fn = onConfirmButtonClick(spyDispatch, '')
+      fn()
+      expect(spyDispatch).not.toBeCalled()
     })
   })
 })
