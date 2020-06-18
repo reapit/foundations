@@ -1,65 +1,126 @@
 import React from 'react'
-import styles from '@/styles/blocks/consumption-cost-methodology-table.scss?mod'
+import { Table, FlexContainerBasic } from '@reapit/elements'
 
-const tableHeadings = [
-  'Monthly API Calls',
-  'first 1,000',
-  '1,001-2,500',
-  '2,501-5,000',
-  '5,001-10,000',
-  '10,001-25,000',
-  '25,001-50,000',
-  'above 50,000',
+const consumptionCostsMethodology = [
+  {
+    monthApiCall: '1-5',
+    first1000: '£0.010000',
+    '1001To2500': '£0.008000',
+    '2501To5000': '£0.006000',
+    '5001To10000': '£0.005000',
+    '10001To25000': '£0.004000',
+    '25001To50000': '£0.002500',
+    above50000: '£0.001000',
+  },
+  {
+    monthApiCall: '6-10',
+    first1000: '£0.011000',
+    '1001To2500': '£0.008800',
+    '2501To5000': '£0.006600',
+    '5001To10000': '£0.005500',
+    '10001To25000': '£0.004400',
+    '25001To50000': '£0.00270',
+    above50000: '£0.001100',
+  },
+  {
+    monthApiCall: '11-20',
+    first1000: '£0.012500',
+    '1001To2500': '£0.010000',
+    '2501To5000': '£0.007500',
+    '5001To10000': '£0.006250',
+    '10001To25000': '£0.005000',
+    '25001To50000': '£0.003125',
+    above50000: '£0.001250',
+  },
+  {
+    monthApiCall: '21-30',
+    first1000: '£0.014500',
+    '1001To2500': '£0.011600',
+    '2501To5000': '£0.008700',
+    '5001To10000': '£0.007250',
+    '10001To25000': '£0.005800',
+    '25001To50000': '£0.003625',
+    above50000: '£0.001450',
+  },
+  {
+    monthApiCall: '31-40',
+    first1000: '£0.017000',
+    '1001To2500': '£0.013600',
+    '2501To5000': '£0.010200',
+    '5001To10000': '£0.008500',
+    '10001To25000': '£0.006800',
+    '25001To50000': '£0.004250',
+    above50000: '£0.001700',
+  },
+  {
+    monthApiCall: '41-50',
+    first1000: '£0.020000',
+    '1001To2500': '£0.016000',
+    '2501To5000': '£0.012000',
+    '5001To10000': '£0.010000',
+    '10001To25000': '£0.008000',
+    '25001To50000': '£0.005000',
+    above50000: '£0.002000',
+  },
+  {
+    monthApiCall: '51+',
+    first1000: '£0.023500',
+    '1001To2500': '£0.018800',
+    '2501To5000': '£0.014000',
+    '5001To10000': '£0.011750',
+    '10001To25000': '£0.009400',
+    '25001To50000': '£0.005875',
+    above50000: '£0.002350',
+  },
 ]
 
-const tableSubHeadings = ['Number of Endpoints used', 'Cost per API Call', '', '', '', '', '', '']
-
-// ^ data matched columns above
-const consumptionCostsByMonth = [
-  ['1-5', '£0.010000', '£0.008000', '£0.006000', '£0.005000', '£0.004000', '£0.002500', '£0.001000'],
-  ['6-10', '£0.011000', '£0.008800', '£0.006600', '£0.005500', '£0.004400', '£0.00270', '£0.001100'],
-  ['11-20', '£0.012500', '£0.010000', '£0.007500', '£0.006250', '£0.005000', '£0.003125', '£0.001250'],
-  ['21-30', '£0.014500', '£0.011600', '£0.008700', '£0.007250', '£0.005800', '£0.003625', '£0.001450'],
-  ['31-40', '£0.017000', '£0.013600', '£0.010200', '£0.008500', '£0.006800', '£0.004250', '£0.001700'],
-  ['41-50', '£0.020000', '£0.016000', '£0.012000', '£0.010000', '£0.008000', '£0.005000', '£0.002000'],
-  ['51+', '£0.023500', '£0.018800', '£0.014000', '£0.011750', '£0.009400', '£0.005875', '£0.002350'],
+const consumptionCostMethodologyColumns = [
+  {
+    Header: ' ',
+    accessor: ' ',
+  },
+  {
+    Header: 'Month API Call',
+    accessor: 'monthApiCall',
+  },
+  {
+    Header: 'First 1,000',
+    accessor: 'first1000',
+  },
+  {
+    Header: '1,001 - 2,500',
+    accessor: '1001To2500',
+  },
+  {
+    Header: '2,501 - 5,000',
+    accessor: '2501To5000',
+  },
+  {
+    Header: '5,001 - 10,000',
+    accessor: '5001To10000',
+  },
+  {
+    Header: '10,001 - 25,000',
+    accessor: '10001To25000',
+  },
+  {
+    Header: '25,001 - 50,000',
+    accessor: '25001To50000',
+  },
+  {
+    Header: 'above 50,000',
+    accessor: 'above50000',
+  },
 ]
 
 export const ConsumptionCostMethodologyTable = () => (
   <div className="mt-10">
     <div className="mb-3">
       <u>Calculation of Total Consumption Cost - Methodology:</u>
-      <table cellPadding="0" cellSpacing="0" className={`table is-bordered ${styles['table']}`}>
-        <tr>
-          <td style={{ border: 'none' }}></td>
-          {tableHeadings.map((heading, index) => (
-            <th key={index}>{heading}</th>
-          ))}
-        </tr>
-        <tr>
-          <td style={{ border: 'none' }}></td>
-          {tableSubHeadings.map((subHeading, index) => (
-            <td className={styles['title-cell']} style={index === 0 ? { fontWeight: 'normal' } : {}} key={index}>
-              {subHeading}
-            </td>
-          ))}
-        </tr>
-        <td
-          style={{ verticalAlign: 'middle', transform: 'rotate(-90deg)', whiteSpace: 'nowrap' }}
-          className={styles['title-cell']}
-          rowSpan={consumptionCostsByMonth.length + 1}
-        >
-          (on last day of monthly billing
-          <br /> period)
-        </td>
-        {consumptionCostsByMonth.map((consumptionCosts, index) => (
-          <tr key={index}>
-            {consumptionCosts.map(consumptionCost => (
-              <td key={consumptionCost}>{consumptionCost}</td>
-            ))}
-          </tr>
-        ))}
-      </table>
+      <FlexContainerBasic>
+        <FlexContainerBasic centerContent>(On last day of monthly billing period)</FlexContainerBasic>
+        <Table columns={consumptionCostMethodologyColumns} data={consumptionCostsMethodology} />
+      </FlexContainerBasic>
     </div>
   </div>
 )
