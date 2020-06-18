@@ -22,6 +22,9 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@reapit/elements": "^0.5.60",
+    "@reapit/utils": "^0.0.1",
+    "@reapit/cognito-auth": "^2.1.7",
     "@reapit/foundations-ts-definitions": "2020-02-13"
   }
 }

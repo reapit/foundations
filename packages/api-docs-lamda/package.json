@@ -14,8 +14,7 @@
   },
   "devDependencies": {
     "serverless-offline": "^5.12.1",
-    "serverless-webpack": "^5.3.1",
-    "@reapit/utils": "^0.0.1"
+    "serverless-webpack": "^5.3.1"
   },
   "dependencies": {
     "axios": "^0.19.2",

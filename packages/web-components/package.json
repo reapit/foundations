@@ -38,8 +38,7 @@
     "sirv-cli": "^0.4.5",
     "svelte-jester": "^1.0.4",
     "terser": "^4.6.13",
-    "@reapit/foundations-ts-definitions": "2020-03-04",
-    "@reapit/utils": "^0.0.1"
+    "@reapit/foundations-ts-definitions": "2020-03-04"
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^5.13.0",

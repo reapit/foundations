@@ -25,8 +25,8 @@
     "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
-    "@reapit/cognito-auth": "^2.0.19",
-    "@reapit/elements": "^0.5.59",
+    "@reapit/cognito-auth": "^2.1.7",
+    "@reapit/elements": "0.5.60",
     "@reapit/utils": "^0.0.1",
     "chart.js": "^2.9.3",
     "diff": "^4.0.1",
