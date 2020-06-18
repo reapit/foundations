@@ -1,19 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppAuthenticationDetail should match a snapshot 1`] = `
-<Fragment>
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
   <Component
-    data-test="app-authentication-detail"
+    appId="9b6fd5f7-2c15-483d-b925-01b650538e52"
   >
-    <Component>
-      Authentication:
-    </Component>
-    <a
-      href="#"
-      onClick={[Function]}
+    <Component
+      data-test="app-authentication-detail"
     >
-      Show Secret
-    </a>
+      <div
+        className="content "
+        data-test=""
+      >
+        <Component>
+          <h5
+            className="title is-5  "
+            id=""
+          >
+            Authentication:
+          </h5>
+        </Component>
+        <a
+          href="#"
+          onClick={[Function]}
+        >
+          Show Secret
+        </a>
+      </div>
+    </Component>
   </Component>
-</Fragment>
+</Provider>
 `;

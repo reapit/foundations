@@ -1,72 +1,65 @@
 import * as React from 'react'
-import { ReduxState } from '@/types/core'
-import { connect } from 'react-redux'
+import { Dispatch } from 'redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { requestAuthenticationCode } from '@/actions/app-detail'
 import { errorThrownComponent } from '@/actions/error'
 import styles from '@/styles/blocks/app-authentication-detail.scss?mod'
 import { Loader, Content, H5 } from '@reapit/elements'
 import { FaCopy } from 'react-icons/fa'
 import { clipboardCopy } from '@/utils/clipboard-copy'
+import { selectAppAuthenticationCode, selectAppAuthenticationLoading } from '@/selector/app-detail'
 
-export type AppAuthenticationDetailInnerProps = {
+export type AppAuthenticationDetailProps = {
   appId: string
   withCustomHeader?: boolean
 }
 
-export interface AppAuthenticationDetailMappedProps {
-  loading: boolean
-  code: string
+export const handleCopyCode = (code, setTooltipMessage, dispatch) => {
+  return async () => {
+    if (!code) {
+      return
+    }
+    try {
+      await clipboardCopy(code)
+      setTooltipMessage('Copied')
+    } catch (error) {
+      dispatch(
+        errorThrownComponent({
+          type: 'COMPONENT',
+          message: 'Cannot copy text',
+        }),
+      )
+    }
+  }
 }
 
-export interface AppAuthenticationDetailMappedActions {
-  requestAuthenticationCode: (appId: string) => void
-  showError: (message: string) => void
+export const handleShowAuthCode = (appId: string, dispatch: Dispatch) => {
+  return e => {
+    e.preventDefault()
+    dispatch(requestAuthenticationCode(appId))
+  }
 }
 
-export type AppAuthenticationDetailProps = AppAuthenticationDetailInnerProps &
-  AppAuthenticationDetailMappedProps &
-  AppAuthenticationDetailMappedActions
-
-export const handleCopyCode = (code, setTooltipMessage, showError) => {
-  if (code) {
-    clipboardCopy(code)
-      .then(() => {
-        setTooltipMessage('Copied')
-      })
-      .catch(() => {
-        showError('Cannot copy text')
-      })
+export const handleMouseLeave = (setTooltipMessage: React.Dispatch<React.SetStateAction<string>>) => {
+  return () => {
+    setTooltipMessage('Copy')
   }
 }
 
 export const AppAuthenticationDetail: React.FunctionComponent<AppAuthenticationDetailProps> = ({
   appId,
-  requestAuthenticationCode,
-  showError,
-  loading,
-  code,
   withCustomHeader,
 }) => {
+  const dispatch = useDispatch()
   const [tooltipMessage, setTooltipMessage] = React.useState('Copy')
-
-  const handleShowAuthCode = event => {
-    event.preventDefault()
-    requestAuthenticationCode(appId)
-  }
-
-  const handleCopy = () => {
-    handleCopyCode(code, setTooltipMessage, showError)
-  }
-
-  const handleMouseLeave = () => {
-    setTooltipMessage('Copy')
-  }
+  const loading = useSelector(selectAppAuthenticationLoading)
+  const code = useSelector(selectAppAuthenticationCode)
 
   return (
     <>
       <Content data-test="app-authentication-detail">
         {!withCustomHeader && <H5>Authentication:</H5>}
-        <a href="#" onClick={handleShowAuthCode} className={styles.btnShowAuthentication}>
+        <a href="#" onClick={handleShowAuthCode(appId, dispatch)} className={styles.btnShowAuthentication}>
           Show Secret
         </a>
       </Content>
@@ -74,7 +67,12 @@ export const AppAuthenticationDetail: React.FunctionComponent<AppAuthenticationD
       {!loading && code && (
         <div className={styles.authenticationCodeWrap}>
           <p className={styles.authenticationCode}>{code}</p>
-          <div onMouseLeave={handleMouseLeave} role="button" onClick={handleCopy} className={styles.btnCopy}>
+          <div
+            onMouseLeave={handleMouseLeave(setTooltipMessage)}
+            role="button"
+            onClick={handleCopyCode(code, setTooltipMessage, dispatch)}
+            className={styles.btnCopy}
+          >
             <FaCopy size={24} />
             <span className={styles.tooltiptext}>{tooltipMessage}</span>
           </div>
@@ -84,26 +82,4 @@ export const AppAuthenticationDetail: React.FunctionComponent<AppAuthenticationD
   )
 }
 
-export const mapStateToProps = (state: ReduxState): AppAuthenticationDetailMappedProps => {
-  return {
-    loading: state.appDetail.authentication.loading,
-    code: state.appDetail.authentication.code,
-  }
-}
-
-export const mapDispatchToProps = (dispatch: any): AppAuthenticationDetailMappedActions => ({
-  requestAuthenticationCode: appId => dispatch(requestAuthenticationCode(appId)),
-  showError: message =>
-    dispatch(
-      errorThrownComponent({
-        type: 'COMPONENT',
-        message,
-      }),
-    ),
-})
-
-const AppAuthenticationDetailConnect = connect(mapStateToProps, mapDispatchToProps)(AppAuthenticationDetail)
-
-AppAuthenticationDetailConnect.displayName = 'AppAuthenticationDetailConnect'
-
-export default AppAuthenticationDetailConnect
+export default AppAuthenticationDetail

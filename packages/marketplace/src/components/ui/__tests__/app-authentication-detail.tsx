@@ -1,28 +1,78 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
-
-import { AppAuthenticationDetail, AppAuthenticationDetailProps, mapDispatchToProps } from '../app-authentication-detail'
-import { requestAuthenticationCode } from '../../../actions/app-detail'
+import { mount } from 'enzyme'
+import * as ReactRedux from 'react-redux'
+import configureStore from 'redux-mock-store'
+import appState from '@/reducers/__stubs__/app-state'
+import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
+import { clipboardCopy } from '@/utils/clipboard-copy'
+import {
+  AppAuthenticationDetail,
+  AppAuthenticationDetailProps,
+  handleCopyCode,
+  handleShowAuthCode,
+  handleMouseLeave,
+} from '../app-authentication-detail'
+import { requestAuthenticationCode } from '@/actions/app-detail'
 
 const props: AppAuthenticationDetailProps = {
-  appId: '45001c67-fd1d-467b-865f-360d5a189e6f',
-  loading: false,
-  code: '',
-  requestAuthenticationCode: jest.fn(),
-  showError: jest.fn(),
+  appId: appDetailDataStub.data.id || '',
 }
 
-describe('AppAuthenticationDetail', () => {
-  it('should match a snapshot', () => {
-    expect(shallow(<AppAuthenticationDetail {...props} />)).toMatchSnapshot()
-  })
+jest.mock('@/utils/clipboard-copy')
 
-  describe('mapDispatchToProps', () => {
-    it('should dispatch correctly if mapped requestAuthenticationCode is called', () => {
-      const mockedDispatch = jest.fn()
-      const { requestAuthenticationCode: requestAuthenticationCodeFunc } = mapDispatchToProps(mockedDispatch)
-      requestAuthenticationCodeFunc(props.appId)
-      expect(mockedDispatch).toHaveBeenNthCalledWith(1, requestAuthenticationCode(props.appId))
+describe('AppAuthenticationDetail', () => {
+  let store
+  let spyDispatch
+  const mockSetTooltipMessage = jest.fn()
+
+  beforeEach(() => {
+    /* mocking store */
+    const mockStore = configureStore()
+    store = mockStore(appState)
+    spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
+  })
+  it('should match a snapshot', () => {
+    expect(
+      mount(
+        <ReactRedux.Provider store={store}>
+          <AppAuthenticationDetail {...props} />
+        </ReactRedux.Provider>,
+      ),
+    ).toMatchSnapshot()
+  })
+  describe('handleCopyCode', () => {
+    afterEach(() => {
+      jest.resetAllMocks()
+    })
+    it('should copy the code to clipboard', () => {
+      const mockCode = 'test'
+      const fn = handleCopyCode(mockCode, mockSetTooltipMessage, spyDispatch)
+      fn()
+      expect(clipboardCopy).toHaveBeenCalledWith(mockCode)
+    })
+  })
+  describe('handleCopyCode', () => {
+    it('should not copy the code to clipboard', () => {
+      const mockCode = ''
+      const fn = handleCopyCode(mockCode, mockSetTooltipMessage, spyDispatch)
+      fn()
+      expect(clipboardCopy).not.toHaveBeenCalled()
+    })
+  })
+  describe('handleShowAuthCode', () => {
+    it('should run correctly', () => {
+      const mockedEvent = { preventDefault: jest.fn() }
+      const fn = handleShowAuthCode(props.appId, spyDispatch)
+      fn(mockedEvent)
+      expect(mockedEvent.preventDefault).toBeCalled()
+      expect(spyDispatch).toBeCalledWith(requestAuthenticationCode(props.appId))
+    })
+  })
+  describe('handleMouseLeave', () => {
+    it('should run correctly', () => {
+      const fn = handleMouseLeave(mockSetTooltipMessage)
+      fn()
+      expect(mockSetTooltipMessage).toBeCalledWith('Copy')
     })
   })
 })
