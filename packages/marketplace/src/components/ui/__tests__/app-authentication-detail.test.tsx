@@ -4,7 +4,6 @@ import * as ReactRedux from 'react-redux'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
-import { clipboardCopy } from '@/utils/clipboard-copy'
 import {
   AppAuthenticationDetail,
   AppAuthenticationDetailProps,
@@ -41,22 +40,10 @@ describe('AppAuthenticationDetail', () => {
     ).toMatchSnapshot()
   })
   describe('handleCopyCode', () => {
-    afterEach(() => {
-      jest.resetAllMocks()
-    })
     it('should copy the code to clipboard', () => {
-      const mockCode = 'test'
-      const fn = handleCopyCode(mockCode, mockSetTooltipMessage, spyDispatch)
+      const fn = handleCopyCode(mockSetTooltipMessage)
       fn()
-      expect(clipboardCopy).toHaveBeenCalledWith(mockCode)
-    })
-  })
-  describe('handleCopyCode', () => {
-    it('should not copy the code to clipboard', () => {
-      const mockCode = ''
-      const fn = handleCopyCode(mockCode, mockSetTooltipMessage, spyDispatch)
-      fn()
-      expect(clipboardCopy).not.toHaveBeenCalled()
+      expect(mockSetTooltipMessage).toHaveBeenCalledWith('Copied')
     })
   })
   describe('handleShowAuthCode', () => {

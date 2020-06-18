@@ -2,11 +2,10 @@ import * as React from 'react'
 import { Dispatch } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
 import { requestAuthenticationCode } from '@/actions/app-detail'
-import { errorThrownComponent } from '@/actions/error'
 import styles from '@/styles/blocks/app-authentication-detail.scss?mod'
 import { Loader, Content, H5 } from '@reapit/elements'
 import { FaCopy } from 'react-icons/fa'
-import { clipboardCopy } from '@/utils/clipboard-copy'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { selectAppAuthenticationCode, selectAppAuthenticationLoading } from '@/selector/app-detail'
 
 export type AppAuthenticationDetailProps = {
@@ -14,26 +13,9 @@ export type AppAuthenticationDetailProps = {
   withCustomHeader?: boolean
 }
 
-export const handleCopyCode = (
-  code: string,
-  setTooltipMessage: React.Dispatch<React.SetStateAction<string>>,
-  dispatch: Dispatch,
-) => {
-  return async () => {
-    if (!code) {
-      return
-    }
-    try {
-      await clipboardCopy(code)
-      setTooltipMessage('Copied')
-    } catch (error) {
-      dispatch(
-        errorThrownComponent({
-          type: 'COMPONENT',
-          message: 'Cannot copy text',
-        }),
-      )
-    }
+export const handleCopyCode = (setTooltipMessage: React.Dispatch<React.SetStateAction<string>>) => {
+  return () => {
+    setTooltipMessage('Copied')
   }
 }
 
@@ -71,15 +53,12 @@ export const AppAuthenticationDetail: React.FunctionComponent<AppAuthenticationD
       {!loading && code && (
         <div className={styles.authenticationCodeWrap}>
           <p className={styles.authenticationCode}>{code}</p>
-          <div
-            onMouseLeave={handleMouseLeave(setTooltipMessage)}
-            role="button"
-            onClick={handleCopyCode(code, setTooltipMessage, dispatch)}
-            className={styles.btnCopy}
-          >
-            <FaCopy size={24} />
-            <span className={styles.tooltiptext}>{tooltipMessage}</span>
-          </div>
+          <CopyToClipboard text={code} onCopy={handleCopyCode(setTooltipMessage)}>
+            <div onMouseLeave={handleMouseLeave(setTooltipMessage)} role="button" className={styles.btnCopy}>
+              <FaCopy size={24} />
+              <span className={styles.tooltiptext}>{tooltipMessage}</span>
+            </div>
+          </CopyToClipboard>
         </div>
       )}
     </>
