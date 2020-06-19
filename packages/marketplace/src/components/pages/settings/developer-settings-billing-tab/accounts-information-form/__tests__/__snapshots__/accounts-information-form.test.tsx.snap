@@ -7,7 +7,7 @@ exports[`AccountsInformationForm should match snapshot 1`] = `
       "contact": "",
       "email": "",
       "hasDirectDebit": "yes",
-      "hasReapitAccountsRef": "yes",
+      "hasReapitAccountsRef": "",
       "phoneNumber": "",
       "reapitAccountsRef": "",
     }

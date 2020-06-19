@@ -1,51 +1,41 @@
 import * as React from 'react'
-import { GridItem, FormHeading, FormSubHeading, RadioSelect, Button } from '@reapit/elements'
+import { GridItem, FormHeading, FormSubHeading, Button } from '@reapit/elements'
 import { AccountsInformationFormValues } from './accounts-information-form'
-import formFields from './form-schema/form-fields'
 
 export type DirectDebitSectionProps = {
   setFieldValue: (field: string, value: any, shouldValidate?: boolean | undefined) => void
   values: AccountsInformationFormValues
 }
 
-const hasDirectDebitRadioOptions = [
-  { label: 'Yes', value: 'yes' },
-  { label: 'No', value: 'no' },
-  { label: 'Other (Pay by cheque/bacs/credit)', value: 'other' },
-]
+const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({ values }) => {
+  const { hasReapitAccountsRef, reapitAccountsRef } = values
 
-const { hasDirectDebitField } = formFields
-
-const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({ setFieldValue, values }) => {
-  const { hasDirectDebit } = values
-  const isDirectDebitSectionVisible = hasDirectDebit === 'no'
-
-  return (
-    <>
+  if (hasReapitAccountsRef === 'yes' && reapitAccountsRef.length >= 6)
+    return (
       <GridItem>
-        <FormHeading>{hasDirectDebitField.heading}</FormHeading>
-        <FormSubHeading>{hasDirectDebitField.subHeading}</FormSubHeading>
-        <RadioSelect
-          isHorizontal
-          setFieldValue={setFieldValue}
-          state={hasDirectDebit}
-          options={hasDirectDebitRadioOptions}
-          name={hasDirectDebitField.name}
-          id={hasDirectDebitField.name}
-        />
+        <FormHeading>Direct Debit</FormHeading>
+        <FormSubHeading>
+          As you are providing a Reapit Reference, we will need to validate your account with our Accounts Department.
+          Once confirmed, any subscriptions will be added to your existing monthly Direct Debit. Please now click ‘Save’
+          to submit your account information
+        </FormSubHeading>
       </GridItem>
-      {isDirectDebitSectionVisible && (
-        <GridItem>
-          <FormHeading>Direct Debit</FormHeading>
-          <FormSubHeading>
-            Before you can make any of your applications available in the Marketplace, you will first need to complete
-            and sign a Direct Debit.
-          </FormSubHeading>
-          <Button>Setup Direct Debit</Button>
-        </GridItem>
-      )}
-    </>
-  )
+    )
+
+  if (hasReapitAccountsRef === 'no')
+    return (
+      <GridItem>
+        <FormHeading>Direct Debit</FormHeading>
+        <FormSubHeading>
+          You will need to setup a Direct Debit before you can make any subscriptions within the Developers Portal, this
+          includes submitting an app for approval and listing an app within the Marketplace. Once completed your account
+          will be verified by our Account Department.
+        </FormSubHeading>
+        <Button>Setup Direct Debit</Button>
+      </GridItem>
+    )
+
+  return null
 }
 
 export default DirectDebitSection

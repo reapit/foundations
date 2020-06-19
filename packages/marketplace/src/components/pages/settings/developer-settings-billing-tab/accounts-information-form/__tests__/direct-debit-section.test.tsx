@@ -11,11 +11,22 @@ describe('DirectDebitSection', () => {
       hasDirectDebit: 'yes',
       hasReapitAccountsRef: 'yes',
       phoneNumber: '',
-      reapitAccountsRef: '',
+      reapitAccountsRef: '123456',
     },
   }
   it('should match snapshot', () => {
     const wrapper = shallow(<DirectDebitSection {...mockProps} />)
+    expect(wrapper).toMatchSnapshot()
+  })
+  it('should match snapshot', () => {
+    const props = {
+      ...mockProps,
+      values: {
+        ...mockProps.values,
+        hasReapitAccountsRef: 'no',
+      },
+    }
+    const wrapper = shallow(<DirectDebitSection {...props} />)
     expect(wrapper).toMatchSnapshot()
   })
 })
