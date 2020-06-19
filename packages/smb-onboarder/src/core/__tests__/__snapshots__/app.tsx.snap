@@ -1976,7 +1976,7 @@ input OfficeModelAddressInput {
             "start": 0,
           },
         },
-        "version": "2.6.8",
+        "version": "2.6.10",
         "watchQuery": [Function],
       }
     }
@@ -1986,7 +1986,7 @@ input OfficeModelAddressInput {
         <Component />
       </UploadProvider>
     </Component>
-    <GlobalStyleComponent />
+    <Memo(GlobalStyleComponent) />
   </ApolloProvider>
 </ContextProvider>
 `;

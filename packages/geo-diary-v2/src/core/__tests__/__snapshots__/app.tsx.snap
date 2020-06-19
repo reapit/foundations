@@ -620,7 +620,7 @@ exports[`App should match a snapshot 1`] = `
             "start": 0,
           },
         },
-        "version": "2.6.8",
+        "version": "2.6.10",
         "watchQuery": [Function],
       }
     }

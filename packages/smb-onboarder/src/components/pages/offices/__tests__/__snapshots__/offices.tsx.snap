@@ -240,7 +240,7 @@ exports[`Page Offices Component Offices should match a snapshot 1`] = `
               },
             },
             "typeDefs": undefined,
-            "version": "2.6.8",
+            "version": "2.6.10",
             "watchQuery": [Function],
           }
         }
