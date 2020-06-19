@@ -82,12 +82,14 @@ exports[`ImageCropper should match snapshots with multiple conditions 1`] = `
 
 exports[`ImageCropper should match snapshots with multiple conditions 2`] = `
 <Fragment>
-  <div
-    afterLoadedImage={[Function]}
-    croppedImage=""
-    key=".0"
-  >
-    value
+  <div>
+    <div
+      afterLoadedImage={[Function]}
+      croppedImage=""
+      key=".0"
+    >
+      value
+    </div>
   </div>
 </Fragment>
 `;
@@ -131,17 +133,19 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 2
 
 exports[`renderChildrenWithProps should match snapshots with multiple conditions 1`] = `
 <div>
-  <div
-    key=".$1"
-    value="value"
-  >
-    1
-  </div>
-  <div
-    key=".$2"
-    value="value"
-  >
-    2
+  <div>
+    <div
+      key=".$1"
+      value="value"
+    >
+      1
+    </div>
+    <div
+      key=".$2"
+      value="value"
+    >
+      2
+    </div>
   </div>
 </div>
 `;

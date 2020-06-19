@@ -42,9 +42,9 @@ export const handleChangeCroppedImage = ({
   field.onChange({ target: { value: croppedImage ?? '', name: field.name } })
   if (croppedImage === '') {
     setFileName('')
-    if (inputFile.current) {
-      inputFile.current.value = ''
-    }
+  }
+  if (inputFile.current && croppedImage === '') {
+    inputFile.current.value = ''
   }
 }
 

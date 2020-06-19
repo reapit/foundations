@@ -3,6 +3,8 @@ import { CompletedCrop, Crop } from './types'
 export const generateDefaultCrop = (aspect?: number): Crop => ({
   unit: '%',
   width: 50,
+  // if aspect is set, dont need height, because we can calculate height from width + aspect
+  // otherwise set initial height
   height: aspect ? undefined : 50,
   aspect,
 })

@@ -2,6 +2,8 @@ import * as React from 'react'
 import { generateBase64FromCanvas } from './utils'
 import { CompletedCrop, OnCropClick, Crop } from './types'
 
+const DEFAULT_CANVAS_AXIS_COORDINATE = 0
+
 // ImageCropper's handlers
 export const drawCanvasAfterCrop = ({
   completedCrop: crop,
@@ -56,8 +58,8 @@ export const drawCanvasAfterCrop = ({
     crop.y * scaleY,
     crop.width * scaleX,
     crop.height * scaleY,
-    0,
-    0,
+    DEFAULT_CANVAS_AXIS_COORDINATE,
+    DEFAULT_CANVAS_AXIS_COORDINATE,
     outputWidth,
     outputHeight,
   )

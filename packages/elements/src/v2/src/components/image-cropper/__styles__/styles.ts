@@ -252,7 +252,6 @@ export const imageCropperOuter = css`
   align-items: center;
   z-index: 999;
   background-color: rgba(18, 38, 63, 0.3);
-  overflow: scroll;
 `
 
 export const imageCropperInner = css`
@@ -262,6 +261,7 @@ export const imageCropperInner = css`
   }
   background-color: #fff;
   padding: 1rem;
+  overflow: scroll;
 `
 
 export const imageCropperContent = css`

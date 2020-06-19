@@ -37,7 +37,7 @@ export const renderChildrenWithProps = (children: React.ReactNode | undefined, p
     }
     return child
   })
-  return <>{childrenWithProps}</>
+  return <div>{childrenWithProps}</div>
 }
 
 export const ImageCropper: React.FC<ImageCropperProps> = ({
@@ -68,12 +68,10 @@ export const ImageCropper: React.FC<ImageCropperProps> = ({
 
   return (
     <>
-      <>
-        {renderChildrenWithProps(children, {
-          afterLoadedImage: passedFunctions.afterLoadedImage({ setUpImg, setVisible, setCroppedImage }),
-          croppedImage,
-        })}
-      </>
+      {renderChildrenWithProps(children, {
+        afterLoadedImage: passedFunctions.afterLoadedImage({ setUpImg, setVisible, setCroppedImage }),
+        croppedImage,
+      })}
       {visible && (
         <div className={cx(reactImageCropGlobalStyles, imageCropperOuter)}>
           <div className={imageCropperInner}>
