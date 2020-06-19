@@ -1,23 +1,39 @@
 import React from 'react'
-import { shallow } from 'enzyme'
-import { DeleteAppModal, AppDeleteProps, handleAfterClose, mapDispatchToProps, mapStateToProps } from '../app-delete'
-import { ReduxState } from '@/types/core'
-import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
+import * as ReactRedux from 'react-redux'
+import { mount } from 'enzyme'
+import configureStore from 'redux-mock-store'
+import appState from '@/reducers/__stubs__/app-state'
+import { DeleteAppModal, AppDeleteProps, handleAfterClose, onDeleteButtonClick } from '../app-delete'
+import { appDeleteRequest } from '@/actions/app-delete'
+
+const mockProps: AppDeleteProps = {
+  appId: 'test',
+  appName: 'test',
+  onDeleteSuccess: jest.fn(),
+  visible: true,
+  afterClose: jest.fn(),
+  closeModal: jest.fn(),
+}
 
 describe('app-delete', () => {
+  let store
+  let spyDispatch
+  beforeEach(() => {
+    /* mocking store */
+    const mockStore = configureStore()
+    store = mockStore(appState)
+    spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
+  })
+
   it('should match snapshot', () => {
-    const mockProps = {
-      appId: '1',
-      appName: 'test',
-      formState: 'PENDING',
-      afterClose: jest.fn(),
-      visible: true,
-      appDeleteRequest: jest.fn(),
-      onDeleteSuccess: jest.fn(),
-    } as AppDeleteProps
-    const wrapper = shallow(<DeleteAppModal {...mockProps} />)
+    const wrapper = mount(
+      <ReactRedux.Provider store={store}>
+        <DeleteAppModal {...mockProps} />
+      </ReactRedux.Provider>,
+    )
     expect(wrapper).toMatchSnapshot()
   })
+
   describe('handleAfterClose', () => {
     it('should call onDeleteSuccess', () => {
       const mockProps = {
@@ -44,38 +60,11 @@ describe('app-delete', () => {
     })
   })
 
-  describe('mapDispatchToProps', () => {
+  describe('onDeleteButtonClick', () => {
     it('should run correctly', () => {
-      const mockDispatch = jest.fn()
-      const { appDeleteRequest } = mapDispatchToProps(mockDispatch)
-      appDeleteRequest('1')
-      expect(mockDispatch).toBeCalled()
-    })
-  })
-
-  describe('mapStateToProps', () => {
-    it('should run correctly', () => {
-      const mockState = {
-        appDelete: {
-          formState: 'PENDING',
-        },
-        appDetail: {
-          appDetailData: appDetailDataStub,
-        },
-      } as ReduxState
-      const mockOwnProps = {
-        appId: '1',
-        appName: 'test',
-        onDeleteSuccess: jest.fn(),
-      }
-      const result = mapStateToProps(mockState, mockOwnProps)
-      const output = {
-        formState: 'PENDING',
-        appId: '1',
-        appName: 'test',
-        onDeleteSuccess: mockOwnProps.onDeleteSuccess,
-      }
-      expect(result).toEqual(output)
+      const fn = onDeleteButtonClick(mockProps.appId, spyDispatch)
+      fn()
+      expect(spyDispatch).toBeCalledWith(appDeleteRequest(mockProps.appId))
     })
   })
 })

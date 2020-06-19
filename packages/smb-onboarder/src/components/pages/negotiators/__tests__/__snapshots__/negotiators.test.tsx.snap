@@ -63901,7 +63901,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
               },
             },
             "typeDefs": undefined,
-            "version": "2.6.8",
+            "version": "2.6.10",
             "watchQuery": [Function],
           }
         }

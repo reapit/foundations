@@ -2,7 +2,7 @@ name: Check Production Alive Cronjob
 
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: '*/30 * * * *'
 
 jobs:
   check:
@@ -29,7 +29,7 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --frozen-lockfile
 
       - name: Make Request To Prod
         run: yarn workspace cloud-alert cypress:ci --env ENVIRONMENT=production,PACKAGE_NAME=all
@@ -40,6 +40,6 @@ env:
   AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
   AWS_REGION: ${{secrets.AWS_REGION}}
   CYPRESS_SLACK_WEB_HOOK_URL: ${{secrets.CYPRESS_SLACK_WEB_HOOK_URL}}
-  CYPRESS_USERNAME:  ${{secrets.CYPRESS_USERNAME}}
+  CYPRESS_USERNAME: ${{secrets.CYPRESS_USERNAME}}
   CYPRESS_PASSWORD: ${{secrets.CYPRESS_PASSWORD}}
   CYPRESS_WEB_COMPONENTS_X_API_KEY: ${{secrets.CYPRESS_WEB_COMPONENTS_X_API_KEY}}
