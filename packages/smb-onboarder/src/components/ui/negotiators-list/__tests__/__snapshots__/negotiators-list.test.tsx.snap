@@ -7538,7 +7538,7 @@ exports[`NegotiatorList CustomDownButton should match a snapshot 1`] = `
               },
             },
             "typeDefs": undefined,
-            "version": "2.6.8",
+            "version": "2.6.10",
             "watchQuery": [Function],
           }
         }
@@ -34704,7 +34704,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
               },
             },
             "typeDefs": undefined,
-            "version": "2.6.8",
+            "version": "2.6.10",
             "watchQuery": [Function],
           }
         }
