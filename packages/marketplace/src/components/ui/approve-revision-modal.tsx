@@ -1,45 +1,16 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
-import { ReduxState } from '@/types/core'
+import { useSelector, useDispatch } from 'react-redux'
 import { ApproveModel } from '@reapit/foundations-ts-definitions'
 import { Button, Modal, ModalProps, ModalBody, SubTitleH6, ModalFooter, Form, Formik } from '@reapit/elements'
-import { approveRevision, RevisionApproveRequestParams } from '@/actions/revision-detail'
-import { RevisionDetailState } from '@/reducers/revision-detail'
+import { approveRevision } from '@/actions/revision-detail'
 import CallToAction from './call-to-action'
+import { selectAppRevisionDetail } from '@/selector/app-revisions'
+import { selectLoginIdentity } from '@/selector/auth'
+import { Dispatch } from 'redux'
 
-interface ApproveRevisionModalWithConnectOwnProps {
-  closeModal?: () => void
+export type ApproveRevisionModalProps = Pick<ModalProps, 'visible' | 'afterClose'> & {
   onApproveSuccess: () => void
 }
-
-export interface ApproveRevisionModalMappedProps extends ApproveRevisionModalWithConnectOwnProps {
-  revisionDetail: RevisionDetailState
-  name: string
-  email: string
-}
-
-export interface ApproveRevisionModalMappedActions {
-  submitApproveRevision: (params: RevisionApproveRequestParams) => void
-}
-
-const mapStateToProps = (
-  state: ReduxState,
-  ownProps: ApproveRevisionModalWithConnectOwnProps,
-): ApproveRevisionModalMappedProps => ({
-  revisionDetail: state.revisionDetail,
-  email: state?.auth?.loginSession?.loginIdentity?.email || '',
-  name: state?.auth?.loginSession?.loginIdentity?.name || '',
-  closeModal: ownProps.closeModal,
-  onApproveSuccess: ownProps.onApproveSuccess,
-})
-
-const mapDispatchToProps = (dispatch: any): ApproveRevisionModalMappedActions => ({
-  submitApproveRevision: params => dispatch(approveRevision(params)),
-})
-
-export type ApproveRevisionModalProps = Pick<ModalProps, 'visible' | 'afterClose'> &
-  ApproveRevisionModalMappedProps &
-  ApproveRevisionModalMappedActions
 
 export const handleAfterClose = ({ isSuccessed, onApproveSuccess, isLoading, afterClose }) => () => {
   if (isSuccessed) {
@@ -49,21 +20,27 @@ export const handleAfterClose = ({ isSuccessed, onApproveSuccess, isLoading, aft
   }
 }
 
-export const handleOnSubmit = ({ appId, appRevisionId, submitApproveRevision }) => formValues => {
+export const handleOnSubmit = (dispatch: Dispatch, appId?: string, appRevisionId?: string) => formValues => {
   if (appId && appRevisionId) {
-    submitApproveRevision({ appId, appRevisionId, ...formValues })
+    dispatch(approveRevision({ appId, appRevisionId, ...formValues }))
+  }
+}
+
+export const onCancelButtonClick = (afterClose?: () => void) => {
+  return () => {
+    afterClose && afterClose()
   }
 }
 
 export const ApproveRevisionModal: React.FunctionComponent<ApproveRevisionModalProps> = ({
   visible = true,
   afterClose,
-  revisionDetail,
-  submitApproveRevision,
   onApproveSuccess,
-  name,
-  email,
 }) => {
+  const dispatch = useDispatch()
+  const revisionDetail = useSelector(selectAppRevisionDetail)
+  const { email, name } = useSelector(selectLoginIdentity) || {}
+
   const { approveFormState } = revisionDetail
 
   const { appId, id: appRevisionId } = revisionDetail?.revisionDetailData?.data || {}
@@ -79,56 +56,53 @@ export const ApproveRevisionModal: React.FunctionComponent<ApproveRevisionModalP
     >
       <Formik
         initialValues={{ email, name } as ApproveModel}
-        onSubmit={handleOnSubmit({ appRevisionId, submitApproveRevision, appId })}
+        onSubmit={handleOnSubmit(dispatch, appId, appRevisionId)}
         data-test="revision-approve-form"
-        render={() => {
-          return isSuccessed ? (
-            <CallToAction
-              title="Success"
-              buttonText="Back to List"
-              dataTest="approve-revision-success-message"
-              buttonDataTest="approve-revision-success-button"
-              onButtonClick={() => {
-                onApproveSuccess()
-              }}
-              isCenter
-            >
-              Revision has been approved successfully.
-            </CallToAction>
-          ) : (
-            <Form>
-              <ModalBody body={<SubTitleH6 isCentered>Do you want to approve this revision?</SubTitleH6>} />
-              <ModalFooter
-                footerItems={
-                  <>
-                    <Button
-                      type="button"
-                      variant="secondary"
-                      className="mr-2"
-                      disabled={Boolean(isLoading)}
-                      onClick={() => afterClose && afterClose()}
-                      dataTest="revision-approve-cancel"
-                    >
-                      Cancel
-                    </Button>
-                    <Button
-                      type="submit"
-                      variant="primary"
-                      loading={Boolean(isLoading)}
-                      disabled={Boolean(isLoading)}
-                      dataTest="revision-approve-submit"
-                    >
-                      Approve
-                    </Button>
-                  </>
-                }
-              />
-            </Form>
-          )
-        }}
-      />
+      >
+        {isSuccessed ? (
+          <CallToAction
+            title="Success"
+            buttonText="Back to List"
+            dataTest="approve-revision-success-message"
+            buttonDataTest="approve-revision-success-button"
+            onButtonClick={onApproveSuccess}
+            isCenter
+          >
+            Revision has been approved successfully.
+          </CallToAction>
+        ) : (
+          <Form>
+            <ModalBody body={<SubTitleH6 isCentered>Do you want to approve this revision?</SubTitleH6>} />
+            <ModalFooter
+              footerItems={
+                <>
+                  <Button
+                    type="button"
+                    variant="secondary"
+                    className="mr-2"
+                    disabled={isLoading}
+                    onClick={onCancelButtonClick(afterClose)}
+                    dataTest="revision-approve-cancel"
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    loading={isLoading}
+                    disabled={isLoading}
+                    dataTest="revision-approve-submit"
+                  >
+                    Approve
+                  </Button>
+                </>
+              }
+            />
+          </Form>
+        )}
+      </Formik>
     </Modal>
   )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ApproveRevisionModal)
+export default ApproveRevisionModal
