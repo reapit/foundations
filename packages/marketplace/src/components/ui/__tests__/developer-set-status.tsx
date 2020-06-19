@@ -1,55 +1,73 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import * as ReactRedux from 'react-redux'
+import { mount } from 'enzyme'
+import configureStore from 'redux-mock-store'
+import appState from '@/reducers/__stubs__/app-state'
 import {
   SetDeveloperStatusModal,
   SetDeveloperStatusProps,
   onAfterCloseHandler,
   onSuccessHandler,
+  onConfirmButtonClick,
 } from '../developer-set-status'
+import { developerSetStatusSetInitFormState, developerSetStatusRequest } from '@/actions/developer-set-status'
+import { developerStub } from '@/sagas/__stubs__/developer'
+
+const props: SetDeveloperStatusProps = {
+  developer: { id: '', isInactive: false },
+  onSuccess: () => jest.fn(),
+  visible: true,
+}
 
 describe('SetDeveloperStatusModal', () => {
-  it('should match snapshot', () => {
-    const props = {
-      developer: { id: '', isInactive: false },
-      developerName: '',
-      onSuccess: () => jest.fn(),
-      formState: 'PENDING',
-      visible: true,
-      afterClose: () => jest.fn(),
-      developerSetStatusRequest: () => jest.fn(),
-      resetDeveloperSetStatusReducer: () => jest.fn(),
-    } as SetDeveloperStatusProps
+  let store
+  let spyDispatch
+  beforeEach(() => {
+    /* mocking store */
+    const mockStore = configureStore()
+    store = mockStore(appState)
+    spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
+  })
 
-    const wrapper = shallow(<SetDeveloperStatusModal {...props} />)
+  it('should match snapshot', () => {
+    const wrapper = mount(
+      <ReactRedux.Provider store={store}>
+        <SetDeveloperStatusModal {...props} />
+      </ReactRedux.Provider>,
+    )
     expect(wrapper).toMatchSnapshot()
   })
-})
 
-describe('onAfterCloseHandler', () => {
-  it('should return a function when executing', () => {
-    const mockAfterClose = jest.fn()
+  describe('onAfterCloseHandler', () => {
+    it('should return a function when executing', () => {
+      const mockAfterClose = jest.fn()
 
-    const onAfterCloseHandlerFn = onAfterCloseHandler({ afterClose: mockAfterClose, isLoading: false })
-    expect(onAfterCloseHandlerFn).toBeDefined()
+      const onAfterCloseHandlerFn = onAfterCloseHandler(false, mockAfterClose)
+      expect(onAfterCloseHandlerFn).toBeDefined()
 
-    onAfterCloseHandlerFn()
-    expect(mockAfterClose).toBeCalled()
-  })
-})
-
-describe('onSuccessHandler', () => {
-  it('should return a function when executing', () => {
-    const mockOnSuccess = jest.fn()
-    const mockResetDeveloperSetStatusReducer = jest.fn()
-
-    const onSuccessHandlerFn = onSuccessHandler({
-      onSuccess: mockOnSuccess,
-      resetDeveloperSetStatusReducer: mockResetDeveloperSetStatusReducer,
+      onAfterCloseHandlerFn()
+      expect(mockAfterClose).toBeCalled()
     })
-    expect(onSuccessHandlerFn).toBeDefined()
+  })
 
-    onSuccessHandlerFn()
-    expect(mockOnSuccess).toBeCalled()
-    expect(mockResetDeveloperSetStatusReducer).toBeCalled()
+  describe('onSuccessHandler', () => {
+    it('should return a function when executing', () => {
+      const mockOnSuccess = jest.fn()
+      const onSuccessHandlerFn = onSuccessHandler(mockOnSuccess, spyDispatch)
+      expect(onSuccessHandlerFn).toBeDefined()
+
+      onSuccessHandlerFn()
+      expect(mockOnSuccess).toBeCalled()
+      expect(spyDispatch).toBeCalledWith(developerSetStatusSetInitFormState())
+    })
+  })
+
+  describe('onConfirmButtonClick', () => {
+    it('should run correctly', () => {
+      const mockIsInactive = false
+      const fn = onConfirmButtonClick(developerStub, spyDispatch, mockIsInactive)
+      fn()
+      expect(spyDispatch).toBeCalledWith(developerSetStatusRequest({ ...developerStub, isInactive: !mockIsInactive }))
+    })
   })
 })
