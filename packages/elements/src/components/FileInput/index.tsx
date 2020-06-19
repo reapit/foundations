@@ -23,7 +23,7 @@ export interface FileInputProps {
   inputProps?: Record<string, any>
   required?: boolean
   onFilenameClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
-  //
+  // to integrate with other components
   afterLoadedImage?: (base64: string) => any
   croppedImage?: string
 }
