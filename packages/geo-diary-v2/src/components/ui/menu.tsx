@@ -3,17 +3,11 @@ import { withRouter, RouteComponentProps } from 'react-router'
 import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
 import { Location } from 'history'
 import { FaSignOutAlt, FaCloud } from 'react-icons/fa'
-import { LoginMode } from '@reapit/cognito-auth'
 import { AuthContext } from '@/context'
 
-export const generateMenuConfig = (
-  logoutCallback: () => void,
-  location: Location<any>,
-  mode: LoginMode,
-): MenuConfig => {
+export const generateMenuConfig = (logoutCallback: () => void, location: Location<any>): MenuConfig => {
   return {
     defaultActiveKey: 'LOGO',
-    mode,
     location,
     menu: [
       {
@@ -48,10 +42,9 @@ export const callbackAppClick = () =>
 export type MenuProps = RouteComponentProps
 
 export const Menu: React.FunctionComponent<MenuProps> = ({ location }) => {
-  const { logout, loginSession } = React.useContext(AuthContext)
-  const mode = loginSession?.mode || 'WEB'
+  const { logout } = React.useContext(AuthContext)
 
-  const menuConfigs = generateMenuConfig(logout, location, mode)
+  const menuConfigs = generateMenuConfig(logout, location)
 
   return <Sidebar {...menuConfigs} location={location} />
 }

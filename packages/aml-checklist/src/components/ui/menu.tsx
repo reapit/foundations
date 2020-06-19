@@ -3,21 +3,14 @@ import { withRouter, RouteComponentProps } from 'react-router'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
-import { LoginMode } from '@reapit/cognito-auth'
 import Routes from '@/constants/routes'
 import { authLogout } from '@/actions/auth'
 import { Location } from 'history'
-import { ReduxState } from '@/types/core'
 import { FaCloud, FaSignOutAlt, FaSearch, FaList } from 'react-icons/fa'
 
-export const generateMenuConfig = (
-  logoutCallback: () => void,
-  location: Location<any>,
-  mode: LoginMode,
-): MenuConfig => {
+export const generateMenuConfig = (logoutCallback: () => void, location: Location<any>): MenuConfig => {
   return {
     defaultActiveKey: 'CLIENT_SEARCH',
-    mode,
     location,
     menu: [
       {
@@ -63,11 +56,10 @@ export const generateMenuConfig = (
 
 export type MenuProps = RouteComponentProps & {
   logout: () => void
-  mode: LoginMode
 }
 
-export const Menu: React.FunctionComponent<MenuProps> = ({ location, logout, mode }) => {
-  const menuConfigs = generateMenuConfig(logout, location, mode)
+export const Menu: React.FunctionComponent<MenuProps> = ({ location, logout }) => {
+  const menuConfigs = generateMenuConfig(logout, location)
   return <Sidebar {...menuConfigs} location={location} />
 }
 
@@ -77,11 +69,7 @@ export const mapDispatchToProps = (dispatch: Dispatch) => {
   }
 }
 
-export const mapStateToProps = (state: ReduxState) => ({
-  mode: state?.auth?.refreshSession?.mode || 'WEB',
-})
-
-export const MenuWithRedux = connect(mapStateToProps, mapDispatchToProps)(Menu)
+export const MenuWithRedux = connect(null, mapDispatchToProps)(Menu)
 MenuWithRedux.displayName = 'MenuWithRedux'
 
 export const MenuWithRouter = withRouter(MenuWithRedux)

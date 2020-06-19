@@ -6,9 +6,19 @@ import { Menu, getActiveItemKey, LinkItem } from '../index'
 import { Location } from 'history'
 import { mockMenuProps } from '../__mocks__/menu-props'
 
+jest.mock('../../DynamicLinks', () => ({
+  ...jest.requireActual('../../DynamicLinks'),
+  getMarketplaceGlobalsByKey: jest.fn(() => ({})),
+}))
+
 describe('Menu', () => {
   it('should render menu correctly', () => {
     const wrapper = shallow(<Menu {...mockMenuProps} />)
+    expect(toJson(wrapper)).toMatchSnapshot()
+  })
+
+  it('should render menu correctly when mode prop is undefined', () => {
+    const wrapper = shallow(<Menu {...mockMenuProps} mode={undefined} />)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 

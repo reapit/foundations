@@ -59,6 +59,5 @@ exports[`Menu should match snapshot 1`] = `
       },
     ]
   }
-  mode="WEB"
 />
 `;

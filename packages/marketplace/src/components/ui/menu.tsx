@@ -2,7 +2,7 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
-import { LoginType, LoginMode } from '@reapit/cognito-auth'
+import { LoginType } from '@reapit/cognito-auth'
 import { ReduxState } from '@/types/core'
 import { authLogout } from '@/actions/auth'
 import Routes from '../../constants/routes'
@@ -29,13 +29,11 @@ import { selectIsAdmin } from '@/selector/auth'
 export const generateMenuConfig = (
   logoutCallback: () => void,
   location: Location<any>,
-  mode: LoginMode,
   isAdmin: boolean,
 ): { [key: string]: MenuConfig } => {
   return {
     ADMIN: {
       defaultActiveKey: 'APPROVALS',
-      mode,
       location,
       menu: [
         {
@@ -89,7 +87,6 @@ export const generateMenuConfig = (
     },
     DEVELOPER: {
       defaultActiveKey: 'MANAGE_APPS',
-      mode,
       location,
       menu: [
         {
@@ -157,7 +154,6 @@ export const generateMenuConfig = (
     },
     CLIENT: {
       defaultActiveKey: 'BROWSE_APPS',
-      mode,
       location,
       menu: [
         {
@@ -208,7 +204,6 @@ export const generateMenuConfig = (
 
 export interface MenuMappedProps {
   loginType: LoginType
-  mode: LoginMode
   isAdmin: boolean
 }
 
@@ -218,15 +213,14 @@ export interface MenuMappedActions {
 
 export type MenuProps = MenuMappedProps & MenuMappedActions & RouteComponentProps & {}
 
-export const Menu: React.FunctionComponent<MenuProps> = ({ logout, loginType, location, mode, isAdmin }) => {
+export const Menu: React.FunctionComponent<MenuProps> = ({ logout, loginType, location, isAdmin }) => {
   const logoutCallback = () => logout()
-  const menuConfigs = generateMenuConfig(logoutCallback, location, mode, isAdmin)
+  const menuConfigs = generateMenuConfig(logoutCallback, location, isAdmin)
   return <Sidebar {...menuConfigs[loginType]} location={location} />
 }
 
 export const mapStateToProps = (state: ReduxState): MenuMappedProps => ({
   loginType: state.auth.loginType,
-  mode: state?.auth?.refreshSession?.mode || 'WEB',
   isAdmin: selectIsAdmin(state),
 })
 

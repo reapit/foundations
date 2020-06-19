@@ -24,7 +24,7 @@ describe('Menu', () => {
         ...getMockRouterProps({ params: {}, search: '' }),
       } as MenuProps
       const logoutCallback = jest.fn()
-      const result = generateMenuConfig(logoutCallback, props.location, 'WEB')
+      const result = generateMenuConfig(logoutCallback, props.location)
       expect(result).toBeDefined()
     })
   })

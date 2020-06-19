@@ -2,10 +2,11 @@ import * as React from 'react'
 import { RouteProps } from 'react-router'
 import { Link } from 'react-router-dom'
 import { Location } from 'history'
+import { getMarketplaceGlobalsByKey } from '../DynamicLinks'
 
 export interface MenuConfig extends RouteProps {
   defaultActiveKey: string
-  mode: 'DESKTOP' | 'WEB'
+  mode?: 'DESKTOP' | 'WEB'
   menu: MenuItem[]
 }
 
@@ -70,7 +71,11 @@ export const LinkItem: React.SFC<{
   )
 }
 
-const MenuComponent: React.FC<MenuConfig> = ({ menu, location, mode, defaultActiveKey }) => {
+const MenuComponent: React.FC<MenuConfig> = ({ menu, location, mode: modeProp, defaultActiveKey }) => {
+  const ownMode = getMarketplaceGlobalsByKey() ? 'DESKTOP' : 'WEB'
+  // if pass mode, take that value
+  // otherwise auto-detect
+  const mode = modeProp ?? ownMode
   const activeItem = getActiveItemKey(menu, location)
   const [activeKey, setIsActive] = React.useState(activeItem || defaultActiveKey)
   const activeItemRef = React.createRef<HTMLAnchorElement & Link>()

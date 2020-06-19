@@ -2,20 +2,13 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
-import { LoginMode } from '@reapit/cognito-auth'
 import { authLogout } from '@/actions/auth'
 import { Location } from 'history'
 import { FaSignOutAlt, FaCloud, FaMapMarkerAlt } from 'react-icons/fa'
-import { ReduxState } from '../../types/core'
 
-export const generateMenuConfig = (
-  logoutCallback: () => void,
-  location: Location<any>,
-  mode: LoginMode,
-): MenuConfig => {
+export const generateMenuConfig = (logoutCallback: () => void, location: Location<any>): MenuConfig => {
   return {
     defaultActiveKey: 'GEO_DIARY',
-    mode,
     location,
     menu: [
       {
@@ -56,15 +49,13 @@ export interface MenuMappedActions {
   logout: () => void
 }
 
-export interface MenuMappedState {
-  mode: LoginMode
-}
+export interface MenuMappedState {}
 
 export type MenuProps = MenuMappedActions & MenuMappedState & RouteComponentProps & {}
 
-export const Menu: React.FunctionComponent<MenuProps> = ({ logout, location, mode }) => {
+export const Menu: React.FunctionComponent<MenuProps> = ({ logout, location }) => {
   const logoutCallback = () => logout()
-  const menuConfigs = generateMenuConfig(logoutCallback, location, mode)
+  const menuConfigs = generateMenuConfig(logoutCallback, location)
   return <Sidebar {...menuConfigs} location={location} />
 }
 
@@ -72,8 +63,4 @@ export const mapDispatchToProps = (dispatch: any): MenuMappedActions => ({
   logout: () => dispatch(authLogout()),
 })
 
-export const mapStateToProps = (state: ReduxState): MenuMappedState => ({
-  mode: state?.auth?.refreshSession?.mode || 'WEB',
-})
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Menu))
+export default withRouter(connect(null, mapDispatchToProps)(Menu))

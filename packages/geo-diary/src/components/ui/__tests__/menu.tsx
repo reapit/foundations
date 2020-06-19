@@ -27,7 +27,7 @@ describe('Menu', () => {
   describe('generateMenuConfig', () => {
     it('should return config', () => {
       const logoutCallback = jest.fn()
-      const result = generateMenuConfig(logoutCallback, props.location, 'WEB')
+      const result = generateMenuConfig(logoutCallback, props.location)
       expect(result).toBeDefined()
     })
   })
