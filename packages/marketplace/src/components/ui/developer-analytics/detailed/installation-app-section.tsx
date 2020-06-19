@@ -1,59 +1,51 @@
 import * as React from 'react'
-import { Table, H4, Loader, toLocalTime, Pagination } from '@reapit/elements'
+import { Table, H4, Loader, toLocalTime, Pagination, Grid, GridItem } from '@reapit/elements'
 import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { AppInstallationsState } from '@/reducers/app-installations'
 import { DeveloperState } from '@/reducers/developer'
 import { INSTALLATIONS_PER_PAGE } from '@/constants/paginator'
-import styles from '@/styles/pages/developer-analytics.scss?mod'
+import DeveloperInstallationsChart from '@/components/ui/developer-installations-chart'
+import { handleMapAppNameToInstallation } from '@/components/ui/developer-analytics/detailed/detailed-tab'
 
 export interface InstallationModelWithAppName extends InstallationModel {
   appName?: string
 }
 
+export type InstallationAppsRowType = {
+  appName: string | undefined
+  installation: number
+}
+
 export const handleCountCurrentInstallationForEachApp = (
   installationAppDataArrayWithName: InstallationModelWithAppName[],
   developerDataArray: AppSummaryModel[],
-) => (): { [appName: string]: number } => {
-  const appHasInstallation = countAppHasInstallation(installationAppDataArrayWithName)
-  const appNoInstallation = countAppNoInstallation(developerDataArray)
-  return {
-    ...appNoInstallation,
-    ...appHasInstallation,
-  }
+) => (): InstallationAppsRowType[] => {
+  const appsHasInstallation = countAppsHasInstallation(installationAppDataArrayWithName)
+  const appNamesHasInstallation = appsHasInstallation.map(app => app.appName)
+  const appsHasNoInstallation = developerDataArray
+    .filter(app => app.name && !appNamesHasInstallation.includes(app.name))
+    .map(app => ({ appName: app.name, installation: 0 }))
+
+  return [...appsHasNoInstallation, ...appsHasInstallation]
 }
 
-/**
- * All app in here will show 0 because it's not installed
- */
-export const countAppNoInstallation = (developerDataArray: AppSummaryModel[]): { [appName: string]: number } =>
-  developerDataArray.reduce((prevValue, { name }) => {
-    if (!name) {
-      return prevValue
-    }
-    const newValue = { ...prevValue }
-    newValue[name] = 0
-    return newValue
-  }, {}) as { [appName: string]: number }
-
-/**
- * Count installations for each app has installation
- * E.g. return {appName1: 1, appName2: 0, appName3: 15}
- */
-export const countAppHasInstallation = (
+export const countAppsHasInstallation = (
   installationsAppDataArrayWithName: InstallationModelWithAppName[],
-): { [appName: string]: number } =>
-  installationsAppDataArrayWithName.reduce((prevValue, { appName, terminatesOn }) => {
+): InstallationAppsRowType[] => {
+  let temp = {}
+  return installationsAppDataArrayWithName.reduce((prevValue, { appName, terminatesOn }) => {
     if (!appName || terminatesOn) {
       return prevValue
     }
-    const newValue = { ...prevValue }
-    if (prevValue[appName]) {
-      newValue[appName]++
-      return newValue
+    if (!temp[appName]) {
+      temp[appName] = { appName, installation: 1 }
+      prevValue.push(temp[appName])
+    } else {
+      temp[appName].installation++
     }
-    newValue[appName] = 1
-    return newValue
-  }, {}) as { [appName: string]: number }
+    return prevValue
+  }, [] as InstallationAppsRowType[])
+}
 
 export const handleUseMemoData = (
   installationsAppDataArrayWithName: InstallationModelWithAppName[],
@@ -103,7 +95,15 @@ export const installationTableColumn = [
   },
 ]
 
-export const InstallationTable: React.FC<{
+export const currentInstallationTableColumn = [
+  { Header: 'App Name', accessor: 'appName' },
+  {
+    Header: 'Installations',
+    accessor: 'installation',
+  },
+]
+
+export const InstallationAppSection: React.FC<{
   installedApps: InstallationModelWithAppName[]
   filteredInstalledApps: InstallationModelWithAppName[]
   installations?: AppInstallationsState
@@ -113,15 +113,22 @@ export const InstallationTable: React.FC<{
   const [pageNumber, setPageNumber] = React.useState<number>(1)
 
   const developerDataArray = developer?.developerData?.data?.data ?? []
+  const installationFilterAppDataArray = installations?.installationsFilteredAppData?.data
 
-  const appCountEntries = React.useMemo(handleCountCurrentInstallationForEachApp(installedApps, developerDataArray), [
-    installedApps,
-    developerDataArray,
-  ])
   const memoizedData = React.useMemo(handleUseMemoData(filteredInstalledApps, pageNumber), [
     filteredInstalledApps,
     pageNumber,
   ])
+
+  const currentInstallationApps = React.useMemo(
+    handleCountCurrentInstallationForEachApp(installedApps, developerDataArray),
+    [installedApps, developerDataArray],
+  )
+
+  const installationFilterAppDataArrayWithName = React.useMemo(
+    handleMapAppNameToInstallation(installationFilterAppDataArray, developerDataArray),
+    [installationFilterAppDataArray, developerDataArray],
+  )
 
   return (
     <div>
@@ -129,18 +136,26 @@ export const InstallationTable: React.FC<{
         <Loader />
       ) : (
         <>
-          <H4>Installations</H4>
-          <p className="is-italic">
-            The installations table below shows the individual installations per client with a total number of
-            installations per app
-          </p>
-          <div className={styles.totalCount}>
-            {Object.entries(appCountEntries).map(([appName, count]) => (
-              <p key={appName}>
-                Total current installations for <strong>{appName}</strong>: {count}
+          <Grid isMultiLine className="mt-5">
+            <GridItem className="is-half">
+              <DeveloperInstallationsChart data={installationFilterAppDataArrayWithName} />
+            </GridItem>
+            <GridItem className="is-half">
+              <H4>Current Installations</H4>
+              <p className="is-italic">
+                The installations table below shows the individual installations per client with a total number of
+                installations per app
               </p>
-            ))}
-          </div>
+              <br />
+              <Table
+                bordered
+                scrollable
+                columns={currentInstallationTableColumn}
+                data={currentInstallationApps}
+                loading={false}
+              />
+            </GridItem>
+          </Grid>
           <Table bordered scrollable columns={installationTableColumn} data={memoizedData} loading={false} />
           <br />
           <Pagination
@@ -155,4 +170,4 @@ export const InstallationTable: React.FC<{
   )
 }
 
-export default InstallationTable
+export default InstallationAppSection

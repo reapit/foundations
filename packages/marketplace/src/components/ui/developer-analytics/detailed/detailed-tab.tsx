@@ -13,9 +13,8 @@ import { selectDeveloper } from '@/selector/developer'
 import { getInstallations } from '@/selector/installations'
 
 import { FlexContainerBasic, Grid, GridItem, FlexContainerResponsive, DATE_TIME_FORMAT } from '@reapit/elements'
-import DeveloperInstallationsChart from '@/components/ui/developer-installations-chart'
 import DeveloperHitsPerDayChart from '@/components/ui/developer-hits-per-day-chart'
-import InstallationTable, { InstallationModelWithAppName } from './installation-table'
+import InstallationAppSection, { InstallationModelWithAppName } from './installation-app-section'
 import FilterBar from './filter-bar'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
@@ -176,21 +175,13 @@ export const DetailedTab: React.FC<DetailedTabProps> = () => {
               <TrafficEventTable trafficEvents={trafficEvents} loading={appHttpTrafficPerDayLoading} />
             </GridItem>
           </Grid>
-          <InstallationTable
+          <InstallationAppSection
             installedApps={installationAppDataArrayWithName}
             filteredInstalledApps={installationFilterAppDataArrayWithName}
             installations={installations}
             developer={developer}
             loading={installationsAppLoading}
           />
-          <Grid>
-            <GridItem className="is-half">
-              <DeveloperInstallationsChart
-                data={installationFilterAppDataArrayWithName}
-                loading={installationsAppLoading}
-              />
-            </GridItem>
-          </Grid>
         </FlexContainerResponsive>
       </FlexContainerBasic>
     </ErrorBoundary>

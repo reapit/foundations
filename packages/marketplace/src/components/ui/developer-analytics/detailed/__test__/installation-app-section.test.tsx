@@ -1,15 +1,14 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import {
-  InstallationTable,
+  InstallationAppSection,
   handleSetPageNumber,
   installationTableColumn,
   handleUseMemoData,
   handleCountCurrentInstallationForEachApp,
   sortAppByDateInstalled,
-  countAppHasInstallation,
-  countAppNoInstallation,
-} from '../installation-table'
+  countAppsHasInstallation,
+} from '../installation-app-section'
 import { installationsStub } from '@/sagas/__stubs__/installations'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { DeveloperState } from '@/reducers/developer'
@@ -43,7 +42,7 @@ describe('InstallationTable', () => {
   it('should match snapshot', () => {
     expect(
       shallow(
-        <InstallationTable
+        <InstallationAppSection
           installedApps={installedApps}
           filteredInstalledApps={installedApps}
           installations={installations}
@@ -57,7 +56,7 @@ describe('InstallationTable', () => {
     const installationsWithoutData = { ...installations, installationsAppData: null }
     expect(
       shallow(
-        <InstallationTable
+        <InstallationAppSection
           installedApps={installedApps}
           filteredInstalledApps={installedApps}
           installations={installationsWithoutData}
@@ -71,7 +70,7 @@ describe('InstallationTable', () => {
     const developerWithoutData = { ...developer, developerData: null }
     expect(
       shallow(
-        <InstallationTable
+        <InstallationAppSection
           installedApps={installedApps}
           filteredInstalledApps={installedApps}
           installations={installations}
@@ -288,7 +287,10 @@ describe('handleCountCurrentInstallationForEachApp', () => {
   it('should return correctly', () => {
     const fn = handleCountCurrentInstallationForEachApp(installationAppDataArrayWithName, developerDataArray)
     const result = fn()
-    expect(result).toEqual({ app1: 2, app2: 0 })
+    expect(result).toEqual([
+      { appName: 'app2', installation: 0 },
+      { appName: 'app1', installation: 2 },
+    ])
   })
 })
 
@@ -358,7 +360,7 @@ describe('sortAppByDateInstalled', () => {
   })
 })
 
-describe('countAppHasInstallation', () => {
+describe('countAppsHasInstallation', () => {
   const installationAppDataArrayWithName = [
     {
       terminatesOn: '2019-12-05T05:33:20',
@@ -423,61 +425,7 @@ describe('countAppHasInstallation', () => {
     },
   ]
   it('should return correctly', () => {
-    const result = countAppHasInstallation(installationAppDataArrayWithName)
-    expect(result).toEqual({ app1: 2 })
-  })
-})
-
-describe('countAppNoInstallation', () => {
-  const developerDataArray = [
-    {
-      id: 'id1',
-      developerId: '28c9ea52-7f73-4814-9e00-4e3714b8adeb',
-      name: 'app2',
-      summary:
-        'nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsic' +
-        'r8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz',
-      developer: "Pete's Proptech World Ltd",
-      homePage: 'http://google.com/abc',
-      iconUri: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png',
-      links: [
-        {
-          rel: 'self',
-          href: 'http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027',
-          action: 'GET',
-        },
-        {
-          rel: 'developer',
-          href: 'http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb',
-          action: 'GET',
-        },
-      ],
-    },
-    {
-      id: 'id1',
-      developerId: '28c9ea52-7f73-4814-9e00-4e3714b8adeb',
-      summary:
-        'nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsic' +
-        'r8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz',
-      developer: "Pete's Proptech World Ltd",
-      homePage: 'http://google.com/abc',
-      iconUri: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png',
-      links: [
-        {
-          rel: 'self',
-          href: 'http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027',
-          action: 'GET',
-        },
-        {
-          rel: 'developer',
-          href: 'http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb',
-          action: 'GET',
-        },
-      ],
-    },
-  ]
-  it('should return correctly', () => {
-    const result = countAppNoInstallation(developerDataArray)
-    expect(result).toEqual({ app2: 0 })
+    const result = countAppsHasInstallation(installationAppDataArrayWithName)
+    expect(result).toEqual([{ appName: 'app1', installation: 2 }])
   })
 })
