@@ -1,23 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DeclineRevisionModal should match a snapshot 1`] = `
-<Component
-  afterClose={[Function]}
-  renderChildren={true}
-  visible={true}
->
-  <Formik
-    data-test="revision-decline-form"
-    initialValues={
-      Object {
-        "email": "email",
-        "name": "name",
-        "rejectionReason": "",
-      }
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Subscription {
+        "handleChangeWrapper": [Function],
+        "listeners": Object {
+          "notify": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+        "unsubscribe": null,
+      },
     }
-    onSubmit={[Function]}
-    render={[Function]}
-    validate={[Function]}
+  }
+>
+  <Component
+    onDeclineSuccess={[MockFunction]}
+    visible={true}
   />
-</Component>
+</ContextProvider>
 `;

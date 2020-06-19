@@ -1,48 +1,17 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
-import { ReduxState } from '@/types/core'
+import { Dispatch } from 'redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { RejectRevisionModel } from '@reapit/foundations-ts-definitions'
 import { Button, TextArea, Modal, ModalProps, ModalFooter, ModalBody, Form, Formik } from '@reapit/elements'
 import { validate } from '@/utils/form/reject-revision'
-import { declineRevision, RevisionDeclineRequestParams } from '@/actions/revision-detail'
-import { RevisionDetailState } from '@/reducers/revision-detail'
+import { declineRevision } from '@/actions/revision-detail'
 import CallToAction from './call-to-action'
+import { selectAppRevisionDetail } from '@/selector/app-revisions'
+import { selectLoginIdentity } from '@/selector/auth'
 
-interface DeclineRevisionInnerWithConnectOwnProps {
-  closeModal?: () => void
+export type DeclineRevisionModalProps = Pick<ModalProps, 'visible' | 'afterClose'> & {
   onDeclineSuccess: () => void
-  visible: boolean
 }
-
-export interface DeclineRevisionModalMappedProps extends DeclineRevisionInnerWithConnectOwnProps {
-  revisionDetail: RevisionDetailState
-  name: string
-  email: string
-}
-
-export interface DeclineRevisionModalMappedActions {
-  submitDeclineRevision: (params: RevisionDeclineRequestParams) => void
-}
-
-const mapStateToProps = (
-  state: ReduxState,
-  ownProps: DeclineRevisionInnerWithConnectOwnProps,
-): DeclineRevisionModalMappedProps => ({
-  revisionDetail: state.revisionDetail,
-  email: state?.auth?.loginSession?.loginIdentity?.email || '',
-  name: state?.auth?.loginSession?.loginIdentity?.name || '',
-  closeModal: ownProps.closeModal,
-  onDeclineSuccess: ownProps.onDeclineSuccess,
-  visible: ownProps.visible,
-})
-
-const mapDispatchToProps = (dispatch: any): DeclineRevisionModalMappedActions => ({
-  submitDeclineRevision: params => dispatch(declineRevision(params)),
-})
-
-export type DeclineRevisionModalProps = Pick<ModalProps, 'visible' | 'afterClose'> &
-  DeclineRevisionModalMappedProps &
-  DeclineRevisionModalMappedActions
 
 export const handleAfterClose = ({ isSuccessed, onDeclineSuccess, isLoading, afterClose }) => () => {
   if (isSuccessed) {
@@ -52,25 +21,35 @@ export const handleAfterClose = ({ isSuccessed, onDeclineSuccess, isLoading, aft
   }
 }
 
-export const handleOnSubmit = ({ appId, appRevisionId, setRejectionReason, submitDeclineRevision }) => (
-  formValues: RejectRevisionModel,
-) => {
+export const handleOnSubmit = (
+  setRejectionReason: React.Dispatch<React.SetStateAction<string>>,
+  dispatch: Dispatch,
+  appId?: string,
+  appRevisionId?: string,
+) => (formValues: RejectRevisionModel) => {
   if (appId && appRevisionId) {
     setRejectionReason(formValues.rejectionReason || '')
-    submitDeclineRevision({ appId, appRevisionId, ...formValues })
+    dispatch(declineRevision({ appId, appRevisionId, ...formValues }))
+  }
+}
+
+export const onCancelButtonClick = (afterClose?: () => void) => {
+  return () => {
+    afterClose && afterClose()
   }
 }
 
 export const DeclineRevisionModal: React.FunctionComponent<DeclineRevisionModalProps> = ({
   visible,
-  submitDeclineRevision,
   afterClose,
-  revisionDetail,
   onDeclineSuccess,
-  name,
-  email,
 }) => {
+  const dispatch = useDispatch()
+  const revisionDetail = useSelector(selectAppRevisionDetail)
+  const { email, name } = useSelector(selectLoginIdentity) || {}
+
   const { declineFormState } = revisionDetail
+
   const { appId, id: appRevisionId } = revisionDetail?.revisionDetailData?.data || {}
   const [rejectionReason, setRejectionReason] = React.useState('')
 
@@ -87,64 +66,61 @@ export const DeclineRevisionModal: React.FunctionComponent<DeclineRevisionModalP
         initialValues={{ email, name, rejectionReason } as RejectRevisionModel}
         data-test="revision-decline-form"
         validate={validate}
-        onSubmit={handleOnSubmit({ appId, appRevisionId, setRejectionReason, submitDeclineRevision })}
-        render={() => {
-          return isSuccessed ? (
-            <CallToAction
-              title="Rejected!"
-              type="danger"
-              buttonText="Back to List"
-              dataTest="decline-revision-success-message"
-              onButtonClick={() => {
-                onDeclineSuccess()
-              }}
-              isCenter
-            >
-              Revision has been declined successfully.
-            </CallToAction>
-          ) : (
-            <Form>
-              <ModalBody
-                body={
-                  <TextArea
-                    name="rejectionReason"
-                    id="rejectionReason"
-                    labelText="Rejection reason"
-                    dataTest="revision-rejection-reason"
-                  />
-                }
-              />
-              <ModalFooter
-                footerItems={
-                  <>
-                    <Button
-                      type="button"
-                      variant="secondary"
-                      className="mr-2"
-                      disabled={Boolean(isLoading)}
-                      onClick={() => afterClose && afterClose()}
-                      dataTest="revision-decline-cancel"
-                    >
-                      Cancel
-                    </Button>
-                    <Button
-                      type="submit"
-                      variant="danger"
-                      loading={Boolean(isLoading)}
-                      disabled={Boolean(isLoading)}
-                      dataTest="revision-decline-submit"
-                    >
-                      Decline
-                    </Button>
-                  </>
-                }
-              />
-            </Form>
-          )
-        }}
-      />
+        onSubmit={handleOnSubmit(setRejectionReason, dispatch, appId, appRevisionId)}
+      >
+        {isSuccessed ? (
+          <CallToAction
+            title="Rejected!"
+            type="danger"
+            buttonText="Back to List"
+            dataTest="decline-revision-success-message"
+            onButtonClick={onDeclineSuccess}
+            isCenter
+          >
+            Revision has been declined successfully.
+          </CallToAction>
+        ) : (
+          <Form>
+            <ModalBody
+              body={
+                <TextArea
+                  name="rejectionReason"
+                  id="rejectionReason"
+                  labelText="Rejection reason"
+                  dataTest="revision-rejection-reason"
+                />
+              }
+            />
+            <ModalFooter
+              footerItems={
+                <>
+                  <Button
+                    type="button"
+                    variant="secondary"
+                    className="mr-2"
+                    disabled={isLoading}
+                    onClick={onCancelButtonClick(afterClose)}
+                    dataTest="revision-decline-cancel"
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    type="submit"
+                    variant="danger"
+                    loading={isLoading}
+                    disabled={isLoading}
+                    dataTest="revision-decline-submit"
+                  >
+                    Decline
+                  </Button>
+                </>
+              }
+            />
+          </Form>
+        )}
+      </Formik>
     </Modal>
   )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DeclineRevisionModal)
+export default DeclineRevisionModal
