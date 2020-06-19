@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow, mount } from 'enzyme'
-import { FileInput, FileInputProps } from '../index'
+import { FileInput, FileInputProps, handleChangeCroppedImage } from '../index'
 import { Formik, Form } from 'formik'
 import toJson from 'enzyme-to-json'
 import { act } from 'react-dom/test-utils'
@@ -187,5 +187,60 @@ describe('FileInput', () => {
 
   afterEach(() => {
     jest.resetAllMocks()
+  })
+})
+
+describe('handleChangeCroppedImage', () => {
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+
+  const field = {
+    onChange: jest.fn(),
+    name: 'inputFile',
+    value: 'value',
+    onBlur: jest.fn(),
+  }
+
+  const inputFile = {
+    current: {
+      value: 'value',
+    },
+  } as any
+
+  const setFileName = jest.fn()
+
+  it('should call correct functions when truthy croppedImage', () => {
+    const fn = handleChangeCroppedImage({
+      field,
+      inputFile,
+      setFileName,
+      croppedImage: 'cropped',
+    })
+    fn()
+    const spy = jest.spyOn(field, 'onChange')
+    expect(spy).toHaveBeenCalledWith({
+      target: {
+        value: 'cropped',
+        name: 'inputFile',
+      },
+    })
+  })
+  it('should call correct functions when croppedImage is empty string', () => {
+    const fn = handleChangeCroppedImage({
+      field,
+      inputFile,
+      setFileName,
+      croppedImage: '',
+    })
+    fn()
+    const spy = jest.spyOn(field, 'onChange')
+    expect(spy).toHaveBeenCalledWith({
+      target: {
+        value: '',
+        name: 'inputFile',
+      },
+    })
+    expect(setFileName).toHaveBeenCalledWith('')
   })
 })

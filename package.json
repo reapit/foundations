@@ -22,7 +22,7 @@
     "build": "lerna run build:prod --stream",
     "fetch-config": "lerna run --parallel --stream fetch-config --",
     "lint": "lerna run lint --parallel --stream",
-    "lint:fix": "lerna run lint:fix --parallel --stream --since master --include-dependencies",
+    "lint:fix": "lerna run lint:fix --parallel --stream --since master --include-dependencies --",
     "release:dev": "lerna run release:dev --parallel",
     "release-note": "node ./scripts/release/generate-release-note.js",
     "update-release-note": "node ./scripts/release/update-release-note.js",

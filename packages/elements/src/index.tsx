@@ -49,6 +49,7 @@ export * from './components/Notification'
 export * from './components/UploadProgress'
 export * from './components/DropdownSelect'
 export * from './components/Breadcrumb'
+export * from './components/ImageCropper'
 
 // Utils
 export * from './utils/validators'

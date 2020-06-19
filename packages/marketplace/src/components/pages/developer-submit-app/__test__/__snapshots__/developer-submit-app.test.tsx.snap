@@ -671,6 +671,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                     "zIndex": 999,
                                                   }
                                                 }
+                                                getPopupContainer={[Function]}
                                                 id="desktopIntegrationTypeIds"
                                                 mode="multiple"
                                                 onBlur={[Function]}
@@ -686,6 +687,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                       "zIndex": 999,
                                                     }
                                                   }
+                                                  getPopupContainer={[Function]}
                                                   id="desktopIntegrationTypeIds"
                                                   mode="multiple"
                                                   onBlur={[Function]}
@@ -710,6 +712,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                         }
                                                       }
                                                       empty={true}
+                                                      getPopupContainer={[Function]}
                                                       getTriggerDOMNode={[Function]}
                                                       popupElement={
                                                         <OptionList
@@ -803,6 +806,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                         focusDelay={0}
                                                         getDocument={[Function]}
                                                         getPopupClassNameFromAlign={[Function]}
+                                                        getPopupContainer={[Function]}
                                                         getTriggerDOMNode={[Function]}
                                                         hideAction={Array []}
                                                         mask={false}
@@ -895,6 +899,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                               "zIndex": 999,
                                                             }
                                                           }
+                                                          getPopupContainer={[Function]}
                                                           id="desktopIntegrationTypeIds"
                                                           inputElement={null}
                                                           key="trigger"
@@ -967,6 +972,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                                   "zIndex": 999,
                                                                 }
                                                               }
+                                                              getPopupContainer={[Function]}
                                                               id="desktopIntegrationTypeIds"
                                                               inputElement={null}
                                                               inputRef={
