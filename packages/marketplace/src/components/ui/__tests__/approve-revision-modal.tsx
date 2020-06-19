@@ -1,38 +1,39 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
-
+import * as ReactRedux from 'react-redux'
+import { mount } from 'enzyme'
+import configureStore from 'redux-mock-store'
 import {
   ApproveRevisionModal,
   ApproveRevisionModalProps,
   handleAfterClose,
   handleOnSubmit,
 } from '../approve-revision-modal'
-import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
-import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
+import appState from '@/reducers/__stubs__/app-state'
+import { approveRevision } from '@/actions/revision-detail'
 
 const props: ApproveRevisionModalProps = {
   onApproveSuccess: jest.fn(),
-  email: 'email',
-  name: 'name',
-  submitApproveRevision: jest.fn(),
   visible: true,
-  // @ts-ignore: only pick necessary props to test
-  revisionDetail: {
-    revisionDetailData: {
-      data: {
-        appId: 'appIDd',
-        id: 'revisionID',
-      },
-      scopes: appPermissionStub,
-      desktopIntegrationTypes: integrationTypesStub,
-    },
-    approveFormState: 'PENDING',
-  },
 }
 
 describe('ApproveRevisionModal', () => {
+  let store
+  let spyDispatch
+  beforeEach(() => {
+    /* mocking store */
+    const mockStore = configureStore()
+    store = mockStore(appState)
+    spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
+  })
+
   it('should match a snapshot', () => {
-    expect(shallow(<ApproveRevisionModal {...props} />)).toMatchSnapshot()
+    expect(
+      mount(
+        <ReactRedux.Provider store={store}>
+          <ApproveRevisionModal {...props} />
+        </ReactRedux.Provider>,
+      ),
+    ).toMatchSnapshot()
   })
 
   describe('handleAfterClose', () => {
@@ -62,14 +63,17 @@ describe('ApproveRevisionModal', () => {
 
   describe('handleOnSubmit', () => {
     it('should call submitApproveRevision', () => {
-      const mockProps = {
-        appId: '123',
-        appRevisionId: '123',
-        submitApproveRevision: jest.fn(),
+      const mockAppId = 'test'
+      const mockAppRevisionId = 'test'
+      const mockFormValues = {
+        email: 'test@test.com',
+        name: 'test',
       }
-      const fn = handleOnSubmit(mockProps)
-      fn({})
-      expect(mockProps.submitApproveRevision).toBeCalled()
+      const fn = handleOnSubmit(spyDispatch, mockAppId, mockAppRevisionId)
+      fn(mockFormValues)
+      expect(spyDispatch).toBeCalledWith(
+        approveRevision({ appId: mockAppId, appRevisionId: mockAppRevisionId, ...mockFormValues }),
+      )
     })
   })
 

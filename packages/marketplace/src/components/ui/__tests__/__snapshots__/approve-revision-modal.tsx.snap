@@ -1,21 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ApproveRevisionModal should match a snapshot 1`] = `
-<Component
-  afterClose={[Function]}
-  renderChildren={true}
-  visible={true}
->
-  <Formik
-    data-test="revision-approve-form"
-    initialValues={
-      Object {
-        "email": "email",
-        "name": "name",
-      }
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
     }
-    onSubmit={[Function]}
-    render={[Function]}
-  />
-</Component>
+  }
+>
+  <Component
+    onApproveSuccess={[MockFunction]}
+    visible={true}
+  >
+    <Component
+      afterClose={[Function]}
+      renderChildren={true}
+      visible={true}
+    />
+  </Component>
+</Provider>
 `;
