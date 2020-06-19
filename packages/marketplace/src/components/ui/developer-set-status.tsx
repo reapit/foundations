@@ -7,33 +7,20 @@ import { ReduxState, FormState } from '@/types/core'
 import { developerSetStatusRequest, developerSetStatusSetInitFormState } from '@/actions/developer-set-status'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 
-export interface SetDeveloperStatusModal {
+// export interface SetDeveloperStatusMappedProps {
+//   formState: FormState
+// }
+// export interface SetDeveloperStatusMappedActions {
+//   developerSetStatusRequest: (developer: DeveloperModel) => void
+//   resetDeveloperSetStatusReducer: () => void
+// }
+
+export type SetDeveloperStatusProps = Pick<ModalProps, 'visible' | 'afterClose'> & {
   onSuccess: () => void
   developer: DeveloperModel
 }
 
-export interface SetDeveloperStatusMappedProps {
-  formState: FormState
-}
-export interface SetDeveloperStatusMappedActions {
-  developerSetStatusRequest: (developer: DeveloperModel) => void
-  resetDeveloperSetStatusReducer: () => void
-}
-
-export type SetDeveloperStatusProps = Pick<ModalProps, 'visible' | 'afterClose'> &
-  SetDeveloperStatusMappedProps &
-  SetDeveloperStatusMappedActions &
-  SetDeveloperStatusModal
-
-export const SetDeveloperStatusModal = ({
-  afterClose,
-  visible,
-  onSuccess,
-  formState,
-  developer,
-  developerSetStatusRequest,
-  resetDeveloperSetStatusReducer,
-}: SetDeveloperStatusProps) => {
+export const SetDeveloperStatusModal = ({ afterClose, visible, onSuccess, developer }: SetDeveloperStatusProps) => {
   const isLoading = Boolean(formState === 'SUBMITTING')
   const isSucceeded = Boolean(formState === 'SUCCESS')
   const { isInactive, name } = developer
@@ -98,13 +85,13 @@ export const onSuccessHandler = ({ onSuccess, resetDeveloperSetStatusReducer }) 
   onSuccess()
 }
 
-export const mapStateToProps = (state: ReduxState): SetDeveloperStatusMappedProps => ({
-  formState: state.developerSetStatus.formState,
-})
+// export const mapStateToProps = (state: ReduxState): SetDeveloperStatusMappedProps => ({
+//   formState: state.developerSetStatus.formState,
+// })
 
-export const mapDispatchToProps = (dispatch: Dispatch): SetDeveloperStatusMappedActions => ({
-  developerSetStatusRequest: (developer: DeveloperModel) => dispatch(developerSetStatusRequest(developer)),
-  resetDeveloperSetStatusReducer: () => dispatch(developerSetStatusSetInitFormState()),
-})
+// export const mapDispatchToProps = (dispatch: Dispatch): SetDeveloperStatusMappedActions => ({
+//   developerSetStatusRequest: (developer: DeveloperModel) => dispatch(developerSetStatusRequest(developer)),
+//   resetDeveloperSetStatusReducer: () => dispatch(developerSetStatusSetInitFormState()),
+// })
 
-export default connect(mapStateToProps, mapDispatchToProps)(SetDeveloperStatusModal)
+export default SetDeveloperStatusModal
