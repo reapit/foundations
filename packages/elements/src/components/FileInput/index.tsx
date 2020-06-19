@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Field, FieldProps } from 'formik'
+import { Field, FieldProps, FieldInputProps } from 'formik'
 import { isBase64 } from '../../utils/is-base64'
 import { checkError } from '../../utils/form'
 import classnames from 'classnames'
@@ -26,6 +26,26 @@ export interface FileInputProps {
   //
   afterLoadedImage?: (base64: string) => any
   croppedImage?: string
+}
+
+export const handleChangeCroppedImage = ({
+  field,
+  croppedImage,
+  setFileName,
+  inputFile,
+}: {
+  field: FieldInputProps<string>
+  croppedImage?: string
+  setFileName: React.Dispatch<string>
+  inputFile: React.RefObject<HTMLInputElement>
+}) => () => {
+  field.onChange({ target: { value: croppedImage ?? '', name: field.name } })
+  if (croppedImage === '') {
+    setFileName('')
+    if (inputFile.current) {
+      inputFile.current.value = ''
+    }
+  }
 }
 
 export const FileInput = ({
@@ -81,11 +101,7 @@ export const FileInput = ({
           }
         }
 
-        React.useEffect(() => {
-          if (croppedImage) {
-            field.onChange({ target: { value: croppedImage, name: field.name } })
-          }
-        }, [croppedImage])
+        React.useEffect(handleChangeCroppedImage({ inputFile, setFileName, croppedImage, field }), [croppedImage])
 
         return (
           <React.Fragment>
