@@ -57,9 +57,21 @@ export interface ApplicantContactModel {
    */
   id?: string
   /**
-   * The name of the contact or company
+   * The complete name of the contact or company
    */
   name?: string
+  /**
+   * The title of the contact (Available when 'type' is 'contact')
+   */
+  title?: string
+  /**
+   * The forename of the contact (Available when 'type' is 'contact')
+   */
+  forename?: string
+  /**
+   * The surname of the the contact (Available when 'type' is 'contact')
+   */
+  surname?: string
   /**
    * The type of the contact (company/contact)
    */
@@ -409,9 +421,21 @@ export interface ApplicantModel {
      */
     id?: string
     /**
-     * The name of the contact or company
+     * The complete name of the contact or company
      */
     name?: string
+    /**
+     * The title of the contact (Available when 'type' is 'contact')
+     */
+    title?: string
+    /**
+     * The forename of the contact (Available when 'type' is 'contact')
+     */
+    forename?: string
+    /**
+     * The surname of the the contact (Available when 'type' is 'contact')
+     */
+    surname?: string
     /**
      * The type of the contact (company/contact)
      */
@@ -5818,9 +5842,21 @@ export interface PagedResultApplicantModel_ {
        */
       id?: string
       /**
-       * The name of the contact or company
+       * The complete name of the contact or company
        */
       name?: string
+      /**
+       * The title of the contact (Available when 'type' is 'contact')
+       */
+      title?: string
+      /**
+       * The forename of the contact (Available when 'type' is 'contact')
+       */
+      forename?: string
+      /**
+       * The surname of the the contact (Available when 'type' is 'contact')
+       */
+      surname?: string
       /**
        * The type of the contact (company/contact)
        */
