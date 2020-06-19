@@ -1,50 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Menu should match a snapshot 1`] = `
-<Memo(MenuComponent)
-  defaultActiveKey="GEO_DIARY"
-  location={
+exports[`Menu should match snapshot 1`] = `
+<ContextProvider
+  value={
     Object {
-      "pathname": "/client",
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Subscription {
+        "handleChangeWrapper": [Function],
+        "listeners": Object {
+          "notify": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+        "unsubscribe": null,
+      },
     }
   }
-  menu={
-    Array [
-      Object {
-        "icon": <Unknown
-          className="nav-item-icon"
-        />,
-        "key": "LOGO",
-        "type": "LOGO",
-      },
-      Object {
-        "icon": <FaMapMarkerAlt
-          className="nav-item-icon"
-        />,
-        "key": "GEO_DIARY",
-        "title": "Geo Diary",
-        "type": "PRIMARY",
-        "url": "/",
-      },
-      Object {
-        "callback": [Function],
-        "icon": <FaCloud
-          className="nav-item-icon"
-        />,
-        "key": "APPS",
-        "title": "Apps",
-        "type": "PRIMARY",
-      },
-      Object {
-        "callback": [Function],
-        "icon": <FaSignOutAlt
-          className="nav-item-icon"
-        />,
-        "key": "LOGOUT",
-        "title": "Logout",
-        "type": "SECONDARY",
-      },
-    ]
-  }
-/>
+>
+  <Component />
+</ContextProvider>
 `;

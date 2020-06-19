@@ -1,34 +1,58 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { Menu, MenuProps, mapDispatchToProps, generateMenuConfig } from '../menu'
+import { Menu, generateMenuConfig, logout } from '../menu'
+import configureStore from 'redux-mock-store'
+import { Provider } from 'react-redux'
 
-const props: MenuProps = {
-  logout: jest.fn(),
-  // @ts-ignore: ignore to fullfil the definition of RouteComponentProps
-  location: {
-    pathname: '/client',
-  },
-}
+jest.mock('react-router', () => ({
+  ...jest.requireActual('react-router'),
+  useLocation: jest.fn(() => ({
+    location: 'location',
+  })),
+}))
 
 describe('Menu', () => {
-  it('should match a snapshot', () => {
-    expect(shallow(<Menu {...props} />)).toMatchSnapshot()
+  let store
+  beforeEach(() => {
+    const mockStore = configureStore()
+    store = mockStore({})
   })
 
-  describe('mapDispatchToProps', () => {
-    it('should return loginType', () => {
-      const dispatch = jest.fn()
-      const fn = mapDispatchToProps(dispatch)
-      fn.logout()
-      expect(dispatch).toBeCalled()
-    })
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+
+  it('should match snapshot', () => {
+    const wrapper = shallow(
+      <Provider store={store}>
+        <Menu />
+      </Provider>,
+    )
+    expect(wrapper).toMatchSnapshot()
   })
 
   describe('generateMenuConfig', () => {
     it('should return config', () => {
-      const logoutCallback = jest.fn()
-      const result = generateMenuConfig(logoutCallback, props.location)
+      const location = {
+        hash: 'mockHash',
+        key: 'mockKey',
+        pathname: 'mockPathname',
+        search: '',
+        state: {},
+      }
+      const logout = jest.fn()
+      const result = generateMenuConfig(logout, location)
       expect(result).toBeDefined()
+    })
+  })
+
+  describe('logout', () => {
+    it('should render correctly', () => {
+      const mockDispatch = jest.fn()
+      const mockAuthLogout = jest.fn(() => 'logout') as any
+      const fn = logout({ dispatch: mockDispatch, authLogout: mockAuthLogout })
+      fn()
+      expect(mockDispatch).toHaveBeenCalledWith('logout')
     })
   })
 })

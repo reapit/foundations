@@ -1,26 +1,42 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { getMockRouterProps } from '@/helper/mock-router'
-import { Menu, mapDispatchToProps } from '../menu'
-import { LoginMode } from '@reapit/cognito-auth'
+import { Menu, logout } from '../menu'
+import configureStore from 'redux-mock-store'
+import { Provider } from 'react-redux'
+
+jest.mock('react-router', () => ({
+  ...jest.requireActual('react-router'),
+  useLocation: jest.fn(() => ({
+    location: 'location',
+  })),
+}))
 
 describe('Menu', () => {
+  let store
+  beforeEach(() => {
+    const mockStore = configureStore()
+    store = mockStore({})
+  })
+
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
   it('should match snapshot', () => {
-    const mockProps = {
-      ...getMockRouterProps({} as any),
-      logout: jest.fn(),
-      mode: 'WEB' as LoginMode,
-    }
-    const wrapper = shallow(<Menu {...mockProps} />)
+    const wrapper = shallow(
+      <Provider store={store}>
+        <Menu />
+      </Provider>,
+    )
     expect(wrapper).toMatchSnapshot()
   })
 
-  describe('mapDispatchToProps', () => {
+  describe('logout', () => {
     it('should render correctly', () => {
       const mockDispatch = jest.fn()
-      const { logout } = mapDispatchToProps(mockDispatch)
-      logout()
-      expect(mockDispatch).toBeCalled()
+      const mockAuthLogout = jest.fn(() => 'logout') as any
+      const fn = logout({ dispatch: mockDispatch, authLogout: mockAuthLogout })
+      fn()
+      expect(mockDispatch).toHaveBeenCalledWith('logout')
     })
   })
 })

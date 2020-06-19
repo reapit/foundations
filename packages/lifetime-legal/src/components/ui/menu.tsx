@@ -1,12 +1,13 @@
 import * as React from 'react'
-import { withRouter, RouteComponentProps } from 'react-router'
-import { connect } from 'react-redux'
+import { useLocation } from 'react-router'
+import { useDispatch } from 'react-redux'
 import { Dispatch } from 'redux'
 import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { authLogout } from '@/actions/auth'
 import { Location } from 'history'
 import { FaCloud, FaSignOutAlt, FaSearch, FaList } from 'react-icons/fa'
+import { ActionCreator } from '@/types/core'
 
 export const generateMenuConfig = (logoutCallback: () => void, location: Location<any>): MenuConfig => {
   return {
@@ -54,25 +55,17 @@ export const generateMenuConfig = (logoutCallback: () => void, location: Locatio
   }
 }
 
-export type MenuProps = RouteComponentProps & {
-  logout: () => void
-}
+export type MenuProps = {}
 
-export const Menu: React.FunctionComponent<MenuProps> = ({ location, logout }: MenuProps) => {
-  const menuConfigs = generateMenuConfig(logout, location)
+export const logout = ({ dispatch, authLogout }: { dispatch: Dispatch; authLogout: ActionCreator<void> }) => () =>
+  dispatch(authLogout())
+
+export const Menu: React.FunctionComponent<MenuProps> = () => {
+  const location = useLocation()
+  const dispatch = useDispatch()
+
+  const menuConfigs = generateMenuConfig(logout({ dispatch, authLogout }), location)
   return <Sidebar {...menuConfigs} location={location} />
 }
 
-export const mapDispatchToProps = (dispatch: Dispatch) => {
-  return {
-    logout: () => dispatch(authLogout()),
-  }
-}
-
-export const MenuWithRedux = connect(null, mapDispatchToProps)(Menu)
-MenuWithRedux.displayName = 'MenuWithRedux'
-
-export const MenuWithRouter = withRouter(MenuWithRedux)
-MenuWithRouter.displayName = 'MenuWithRouter'
-
-export default MenuWithRouter
+export default Menu
