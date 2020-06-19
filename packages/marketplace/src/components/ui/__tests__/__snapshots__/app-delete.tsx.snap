@@ -1,48 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`app-delete should match snapshot 1`] = `
-<Component
-  afterClose={[Function]}
-  renderChildren={true}
-  visible={true}
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
 >
   <Component
     afterClose={[MockFunction]}
-    data-test="confirm-content"
-    title="Confirm test deletion"
-  />
-  <Component
-    body={
-      <React.Fragment>
-        Are you sure you want to remove this App ‘
-        test
-        ’. By clicking ‘Delete’ it will remove the App and all its data, including all revisions and listings. Please click ‘Delete’ to continue with deletion.
-      </React.Fragment>
-    }
-  />
-  <Component
-    footerItems={
-      <React.Fragment>
-        <Unknown
-          dataTest="agree-btn"
-          loading={false}
-          onClick={[Function]}
-          type="button"
-          variant="danger"
-        >
-          Delete
-        </Unknown>
-        <Unknown
-          dataTest="disagree-btn"
-          disabled={false}
-          onClick={[MockFunction]}
-          type="button"
-          variant="secondary"
-        >
-          Cancel
-        </Unknown>
-      </React.Fragment>
-    }
-  />
-</Component>
+    appId="test"
+    appName="test"
+    closeModal={[MockFunction]}
+    onDeleteSuccess={[MockFunction]}
+    visible={true}
+  >
+    <Component
+      afterClose={[Function]}
+      renderChildren={true}
+      visible={true}
+    />
+  </Component>
+</Provider>
 `;
