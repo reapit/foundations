@@ -4,10 +4,7 @@ import appState from '@/reducers/__stubs__/app-state'
 import DeveloperConfirmSubscription from '../developer-confirm-subscription'
 import { Provider, useSelector } from 'react-redux'
 import configureStore from 'redux-mock-store'
-import {
-  selectCreateDeveloperSubscriptionLoading,
-  selectCreatedDeveloperSubscription,
-} from '@/selector/developer-subscriptions'
+import { selectCreateDeveloperSubscriptionLoading } from '@/selector/developer-subscriptions'
 import { developerStub } from '@/sagas/__stubs__/developer'
 
 jest.mock('react-redux', () => ({
@@ -29,7 +26,7 @@ describe('DeveloperConfirmSubscription', () => {
   it('should match snapshot when visible', () => {
     const wrapper = mount(
       <Provider store={store}>
-        <DeveloperConfirmSubscription developer={developerStub} visible={true} afterClose={jest.fn()} />
+        <DeveloperConfirmSubscription developer={developerStub} visible={true} handleCreateSubscription={jest.fn()} />
       </Provider>,
     )
     expect(wrapper).toMatchSnapshot()
@@ -38,7 +35,7 @@ describe('DeveloperConfirmSubscription', () => {
   it('should match snapshot when not visible', () => {
     const wrapper = shallow(
       <Provider store={store}>
-        <DeveloperConfirmSubscription developer={developerStub} visible={false} afterClose={jest.fn()} />
+        <DeveloperConfirmSubscription developer={developerStub} visible={false} handleCreateSubscription={jest.fn()} />
       </Provider>,
     )
     expect(wrapper).toMatchSnapshot()
@@ -49,11 +46,10 @@ describe('DeveloperConfirmSubscription', () => {
 
     mount(
       <Provider store={store}>
-        <DeveloperConfirmSubscription developer={developerStub} visible={true} afterClose={jest.fn()} />
+        <DeveloperConfirmSubscription developer={developerStub} visible={true} handleCreateSubscription={jest.fn()} />
       </Provider>,
     )
 
     expect(useSelector).toHaveBeenCalledWith(selectCreateDeveloperSubscriptionLoading)
-    expect(useSelector).toHaveBeenCalledWith(selectCreatedDeveloperSubscription)
   })
 })

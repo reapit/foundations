@@ -33,7 +33,6 @@ exports[`DeveloperConfirmSubscription should match snapshot when not visible 1`]
   }
 >
   <DeveloperConfirmSubscription
-    afterClose={[MockFunction]}
     developer={
       Object {
         "company": "Dwarves Foundation",
@@ -47,6 +46,7 @@ exports[`DeveloperConfirmSubscription should match snapshot when not visible 1`]
         "telephone": "0978100461",
       }
     }
+    handleCreateSubscription={[MockFunction]}
     visible={false}
   />
 </ContextProvider>
@@ -66,7 +66,6 @@ exports[`DeveloperConfirmSubscription should match snapshot when visible 1`] = `
   }
 >
   <DeveloperConfirmSubscription
-    afterClose={[MockFunction]}
     developer={
       Object {
         "company": "Dwarves Foundation",
@@ -80,22 +79,20 @@ exports[`DeveloperConfirmSubscription should match snapshot when visible 1`] = `
         "telephone": "0978100461",
       }
     }
+    handleCreateSubscription={[MockFunction]}
     visible={true}
   >
     <Component
       footerItems={
-        <React.Fragment>
-          <Unknown
-            loading={[MockFunction]}
-            onClick={[Function]}
-            type="button"
-            variant="primary"
-          >
-            CLOSE
-          </Unknown>
-        </React.Fragment>
+        <Unknown
+          loading={[MockFunction]}
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          CLOSE
+        </Unknown>
       }
-      tapOutsideToDissmiss={false}
       title="Success"
       visible={true}
     />

@@ -1,60 +1,33 @@
 import * as React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import {
-  selectCreateDeveloperSubscriptionLoading,
-  selectCreatedDeveloperSubscription,
-} from '@/selector/developer-subscriptions'
+import { useSelector } from 'react-redux'
+import { selectCreateDeveloperSubscriptionLoading } from '@/selector/developer-subscriptions'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { Button, Modal, ModalProps, SubTitleH6 } from '@reapit/elements'
-import { developerCreateSubscription } from '@/actions/developer-subscriptions'
 import linkStyles from '@/styles/elements/link.scss?mod'
 
-export interface DeveloperConfirmSubscriptionProps extends ModalProps {
-  developer: DeveloperModel
-}
-
-export const handleSubmit = (dispatch, developer: DeveloperModel) => () => {
-  dispatch(
-    developerCreateSubscription({
-      developerId: developer.id || '',
-      user: developer.email || '',
-      applicationId: '', // TBC
-      type: 'developerEdition',
-    }),
-  )
+export interface DeveloperConfirmSubscriptionProps extends Pick<ModalProps, 'visible'> {
+  developer?: DeveloperModel
+  handleCreateSubscription: (developer: DeveloperModel) => void
 }
 
 const DeveloperConfirmSubscription: React.FC<DeveloperConfirmSubscriptionProps> = ({
   visible,
-  title = 'Success',
-  tapOutsideToDissmiss = false,
   developer,
-  afterClose,
-  ...rest
+  handleCreateSubscription,
 }) => {
-  const dispatch = useDispatch()
-  const loading = useSelector(selectCreateDeveloperSubscriptionLoading)
-  const subscription = useSelector(selectCreatedDeveloperSubscription)
+  if (!developer) return null
 
-  React.useEffect(() => {
-    if (!loading && subscription && afterClose) {
-      afterClose()
-    }
-  }, [loading, subscription, afterClose])
+  const loading = useSelector(selectCreateDeveloperSubscriptionLoading)
 
   return (
     <Modal
       visible={visible}
-      title={title}
-      tapOutsideToDissmiss={tapOutsideToDissmiss}
+      title="Success"
       footerItems={
-        <>
-          <Button variant="primary" loading={loading} type="button" onClick={handleSubmit(dispatch, developer)}>
-            CLOSE
-          </Button>
-        </>
+        <Button variant="primary" loading={loading} type="button" onClick={() => handleCreateSubscription(developer)}>
+          CLOSE
+        </Button>
       }
-      {...rest}
     >
       <>
         <SubTitleH6>

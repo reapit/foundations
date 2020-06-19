@@ -23,12 +23,16 @@ describe('DeveloperEditionModal', () => {
   })
 
   it('should match snapshot when visible', () => {
-    const wrapper = mount(<DeveloperEditionModal visible={true} handleSubmit={jest.fn()} afterClose={jest.fn()} />)
+    const wrapper = mount(
+      <DeveloperEditionModal visible={true} confirmSubscription={jest.fn()} afterClose={jest.fn()} />,
+    )
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should match snapshot when not visible', () => {
-    const wrapper = shallow(<DeveloperEditionModal visible={false} handleSubmit={jest.fn()} afterClose={jest.fn()} />)
+    const wrapper = shallow(
+      <DeveloperEditionModal visible={false} confirmSubscription={jest.fn()} afterClose={jest.fn()} />,
+    )
     expect(wrapper).toMatchSnapshot()
   })
 
@@ -37,7 +41,7 @@ describe('DeveloperEditionModal', () => {
 
     mount(
       <Provider store={store}>
-        <DeveloperEditionModal visible={true} handleSubmit={jest.fn()} afterClose={jest.fn()} />
+        <DeveloperEditionModal visible={true} confirmSubscription={jest.fn()} afterClose={jest.fn()} />
       </Provider>,
     )
 

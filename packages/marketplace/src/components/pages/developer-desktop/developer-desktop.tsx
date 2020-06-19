@@ -1,10 +1,16 @@
 import * as React from 'react'
+import { Dispatch } from 'redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { FlexContainerBasic, FlexContainerResponsive, H3, LevelRight, Button } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import styles from '@/styles/pages/developer-desktop.scss?mod'
 import DeveloperEditonModal from '@/components/ui/developer-edition-modal'
 import DeveloperConfirmSubscription from '@/components/ui/developer-confirm-subscription'
+import { developerCreateSubscription } from '@/actions/developer-subscriptions'
+import { selectCreatedDeveloperSubscription } from '@/selector/developer-subscriptions'
+
+const DISPLAY_MODAL_TIMEOUT = 300
 
 export type DeveloperDesktopPageProps = {}
 
@@ -13,7 +19,7 @@ export const handleToggleVisibleModal = (
   isVisible: boolean,
 ) => () => setIsDeveloperEditionModalOpen(isVisible)
 
-export const submitSubscription = (
+export const confirmSubscription = (
   setIsDeveloperEditionModalOpen,
   setConfirmSubscriptionModalOpen,
   setSelectedDevelopers,
@@ -22,24 +28,44 @@ export const submitSubscription = (
   setSelectedDevelopers(values)
   setTimeout(() => {
     setConfirmSubscriptionModalOpen(true)
-  }, 300)
+  }, DISPLAY_MODAL_TIMEOUT)
 }
 
-export const handleCloseDeveloperConfirmSubscriptionModal = (
+export const handleCreateSubscription = (dispatch: Dispatch) => (developer: DeveloperModel) => {
+  dispatch(
+    developerCreateSubscription({
+      developerId: developer.id || '',
+      user: developer.email || '',
+      applicationId: '', // TBC
+      type: 'developerEdition',
+    }),
+  )
+}
+
+export const handleAfterCreateSubscription = (
+  subscription,
   setConfirmSubscriptionModalOpen: React.Dispatch<boolean>,
   setSelectedDevelopers: React.Dispatch<DeveloperModel[]>,
 ) => () => {
-  setConfirmSubscriptionModalOpen(false)
-  setSelectedDevelopers([])
+  if (subscription) {
+    setConfirmSubscriptionModalOpen(false)
+    setSelectedDevelopers([])
+  }
 }
 
 export const DeveloperDesktopPage: React.FC<DeveloperDesktopPageProps> = () => {
   const [isDeveloperEditionModalOpen, setIsDeveloperEditionModalOpen] = React.useState<boolean>(false)
   const [isConfirmSubscriptionModalOpen, setConfirmSubscriptionModalOpen] = React.useState<boolean>(false)
   const [selectedDevelopers, setSelectedDevelopers] = React.useState<DeveloperModel[]>([])
+  const dispatch = useDispatch()
+  const subscription = useSelector(selectCreatedDeveloperSubscription)
   // For now just support 1 developer
   // We will support multiple developers after finish "organisations" feature
-  const developer = selectedDevelopers.length > 0 ? selectedDevelopers[0] : null
+  const developer = selectedDevelopers.length > 0 ? selectedDevelopers[0] : undefined
+
+  React.useEffect(handleAfterCreateSubscription(subscription, setConfirmSubscriptionModalOpen, setSelectedDevelopers), [
+    subscription,
+  ])
 
   return (
     <ErrorBoundary>
@@ -61,22 +87,17 @@ export const DeveloperDesktopPage: React.FC<DeveloperDesktopPageProps> = () => {
       <DeveloperEditonModal
         visible={isDeveloperEditionModalOpen}
         afterClose={handleToggleVisibleModal(setIsDeveloperEditionModalOpen, false)}
-        handleSubmit={submitSubscription(
+        confirmSubscription={confirmSubscription(
           setIsDeveloperEditionModalOpen,
           setConfirmSubscriptionModalOpen,
           setSelectedDevelopers,
         )}
       />
-      {developer && (
-        <DeveloperConfirmSubscription
-          visible={isConfirmSubscriptionModalOpen}
-          developer={developer}
-          afterClose={handleCloseDeveloperConfirmSubscriptionModal(
-            setConfirmSubscriptionModalOpen,
-            setSelectedDevelopers,
-          )}
-        />
-      )}
+      <DeveloperConfirmSubscription
+        visible={isConfirmSubscriptionModalOpen}
+        developer={developer}
+        handleCreateSubscription={handleCreateSubscription(dispatch)}
+      />
     </ErrorBoundary>
   )
 }

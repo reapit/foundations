@@ -12,20 +12,20 @@ export type HandleSubmitFunctionType = (values: Partial<DeveloperModel>[]) => vo
 
 export type DeveloperEditionModalProps = Pick<ModalProps, 'afterClose'> & {
   visible?: boolean
-  handleSubmit: HandleSubmitFunctionType
+  confirmSubscription: HandleSubmitFunctionType
 }
 
-const handleFormSubmit = (developerLists: Partial<DeveloperModel>[], handleSubmit: HandleSubmitFunctionType) => (
+const handleFormSubmit = (developerLists: Partial<DeveloperModel>[], confirmSubscription: HandleSubmitFunctionType) => (
   values: FormValues,
 ) => {
   const selectedDeveloperIds = values.developerList
   const selectedDevelopers = developerLists.filter(developer => selectedDeveloperIds.includes(developer.id || ''))
-  handleSubmit(selectedDevelopers)
+  confirmSubscription(selectedDevelopers)
 }
 
 export const DeveloperEditionModal: React.FC<DeveloperEditionModalProps> = ({
   visible = false,
-  handleSubmit,
+  confirmSubscription,
   afterClose,
 }) => {
   const loginIdentity = useSelector(selectLoginIdentity)
@@ -54,7 +54,7 @@ export const DeveloperEditionModal: React.FC<DeveloperEditionModalProps> = ({
     <Modal visible={visible} afterClose={afterClose} title="Agency Cloud Developer Edition">
       <>
         <DeveloperEditionModalSubTitle />
-        <Formik initialValues={initialValues} onSubmit={handleFormSubmit(developerLists, handleSubmit)}>
+        <Formik initialValues={initialValues} onSubmit={handleFormSubmit(developerLists, confirmSubscription)}>
           <Form className="form">
             <DeveloperEditionModalFormContent dropdownOptions={dropdownOptions} afterClose={afterClose} />
           </Form>

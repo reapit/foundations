@@ -1,15 +1,36 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
+import { Provider } from 'react-redux'
+import configureStore from 'redux-mock-store'
+import appState from '@/reducers/__stubs__/app-state'
 import {
   DeveloperDesktopPage,
-  submitSubscription,
+  confirmSubscription,
   handleToggleVisibleModal,
-  handleCloseDeveloperConfirmSubscriptionModal,
+  handleAfterCreateSubscription,
+  handleCreateSubscription,
 } from '../developer-desktop'
+import { subscriptionModelStub } from '@/sagas/__stubs__/developer-subscriptions'
+import { developerStub } from '@/sagas/__stubs__/developer'
+import { developerCreateSubscription } from '@/actions/developer-subscriptions'
 
 describe('DeveloperDesktopPage', () => {
+  let store
+  beforeEach(() => {
+    const mockStore = configureStore()
+    store = mockStore(appState)
+  })
+
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+
   it('should match snapshot', () => {
-    const wrapper = shallow(<DeveloperDesktopPage />)
+    const wrapper = shallow(
+      <Provider store={store}>
+        <DeveloperDesktopPage />
+      </Provider>,
+    )
     expect(wrapper).toMatchSnapshot()
   })
 })
@@ -23,7 +44,7 @@ describe('handleToggleVisibleModal', () => {
   })
 })
 
-describe('submitSubscription', () => {
+describe('confirmSubscription', () => {
   jest.useFakeTimers()
 
   it('should run correctly', () => {
@@ -31,7 +52,7 @@ describe('submitSubscription', () => {
     const setConfirmSubscriptionModalOpen = jest.fn()
     const setSelectedDevelopers = jest.fn()
     const values = []
-    submitSubscription(setIsDeveloperEditionModalOpen, setConfirmSubscriptionModalOpen, setSelectedDevelopers)(values)
+    confirmSubscription(setIsDeveloperEditionModalOpen, setConfirmSubscriptionModalOpen, setSelectedDevelopers)(values)
     jest.runAllTimers()
 
     expect(setIsDeveloperEditionModalOpen).toBeCalled()
@@ -41,13 +62,31 @@ describe('submitSubscription', () => {
   })
 })
 
-describe('handleCloseDeveloperConfirmSubscriptionModal', () => {
+describe('handleAfterCreateSubscription', () => {
   it('should run correctly', () => {
     const setConfirmSubscriptionModalOpen = jest.fn()
     const setSelectedDevelopers = jest.fn()
-    handleCloseDeveloperConfirmSubscriptionModal(setConfirmSubscriptionModalOpen, setSelectedDevelopers)()
+    const subscription = subscriptionModelStub
+    handleAfterCreateSubscription(subscription, setConfirmSubscriptionModalOpen, setSelectedDevelopers)()
     expect(setConfirmSubscriptionModalOpen).toBeCalled()
     expect(setSelectedDevelopers).toBeCalled()
     expect(setSelectedDevelopers).toBeCalledWith([])
+  })
+})
+
+describe('handleCreateSubscription', () => {
+  it('should run correctly', () => {
+    const dispatch = jest.fn()
+    const developer = developerStub
+    handleCreateSubscription(dispatch)(developer)
+    expect(dispatch).toBeCalled()
+    expect(dispatch).toBeCalledWith(
+      developerCreateSubscription({
+        developerId: developer.id || '',
+        user: developer.email || '',
+        applicationId: '', // TBC
+        type: 'developerEdition',
+      }),
+    )
   })
 })
