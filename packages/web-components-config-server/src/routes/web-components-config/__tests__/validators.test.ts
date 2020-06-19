@@ -1,8 +1,8 @@
-import { validateGetById, validateCreate, validateUpdate, validateDelete, validateFollowSchema } from '../validators'
+import { validateGetById, validateCreate, validatePatch, validateDelete, validateFollowSchema } from '../validators'
 
 describe('validateGetById', () => {
   it('should return correctly', () => {
-    const result = validateGetById({ customerId: 'id1' })
+    const result = validateGetById({ customerId: 'id1', appId: 'id1' })
     expect(result).toBe(true)
   })
 
@@ -38,6 +38,7 @@ describe('validateCreate', () => {
   it('should return correctly', () => {
     const result = validateCreate({
       customerId: 'id1',
+      appId: 'id1',
       appointmentLength: 10,
       appointmentTimeGap: 15,
       appointmentTypes: ['type1', 'type2'],
@@ -83,6 +84,7 @@ describe('validateCreate', () => {
     expect(() => {
       validateCreate({
         customerId: 'id1',
+        appId: 'id1',
         appointmentLength: 10,
         appointmentTimeGap: 15,
         appointmentTypes: ['type1', 'type2'],
@@ -93,9 +95,9 @@ describe('validateCreate', () => {
   })
 })
 
-describe('validateUpdate', () => {
+describe('validatePatch', () => {
   it('should return correctly', () => {
-    const result = validateUpdate({ customerId: 'id1', appointmentLength: 20 })
+    const result = validatePatch({ customerId: 'id1', appId: 'id1', appointmentLength: 20 })
     expect(result).toBe(true)
   })
 
@@ -104,7 +106,7 @@ describe('validateUpdate', () => {
     error.message = 'Invalid params'
     error.code = '400'
     expect(() => {
-      validateUpdate({ customerIdFake: 'id1', appointmentLength: 20 })
+      validatePatch({ customerIdFake: 'id1', appointmentLength: 20 })
     }).toThrowError(error)
   })
 
@@ -113,7 +115,7 @@ describe('validateUpdate', () => {
     error.message = 'Invalid params'
     error.code = '400'
     expect(() => {
-      validateUpdate({ customerId: 'id1', invalidParam: 'param' })
+      validatePatch({ customerId: 'id1', invalidParam: 'param' })
     }).toThrowError(error)
   })
 
@@ -122,14 +124,14 @@ describe('validateUpdate', () => {
     error.message = 'Invalid daysOfWeek.'
     error.code = '400'
     expect(() => {
-      validateUpdate({ customerId: 'id1', appointmentLength: 20, daysOfWeek: [9] })
+      validatePatch({ customerId: 'id1', appId: 'id1', appointmentLength: 20, daysOfWeek: [9] })
     }).toThrowError(error)
   })
 })
 
 describe('validateDelete', () => {
   it('should return correctly', () => {
-    const result = validateDelete({ customerId: 'id1' })
+    const result = validateDelete({ customerId: 'id1', appId: 'id1' })
     expect(result).toBe(true)
   })
 
@@ -148,14 +150,6 @@ describe('validateDelete', () => {
     error.code = '400'
     expect(() => {
       validateDelete({ customerId: 'id1', invalidParam: 'param' })
-    }).toThrowError(error)
-  })
-  it('should throw error with invalid schema', () => {
-    const error: NodeJS.ErrnoException = new Error()
-    error.message = 'Invalid daysOfWeek.'
-    error.code = '400'
-    expect(() => {
-      validateDelete({ customerId: 'id1', daysOfWeek: [9] })
     }).toThrowError(error)
   })
 })

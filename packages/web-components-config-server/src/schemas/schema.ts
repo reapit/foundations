@@ -7,6 +7,9 @@ export class WebComponentConfig {
   @hashKey()
   customerId: string
 
+  @hashKey()
+  appId: string
+
   @attribute()
   appointmentLength: number
 

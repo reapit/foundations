@@ -1,8 +1,8 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2020-06-02T06:41:41.360Z",
-  "__export_source": "insomnia.desktop.app:v7.1.1",
+  "__export_date": "2020-06-18T05:08:07.219Z",
+  "__export_source": "insomnia.desktop.app:v2020.2.2",
   "resources": [
     {
       "_id": "req_d451e139e9454c789160103fefbd7ec1",
@@ -68,6 +68,7 @@
       "modified": 1590743470730,
       "name": "Reapit APIs Documentation",
       "parentId": null,
+      "scope": null,
       "_type": "workspace"
     },
     {
@@ -1543,6 +1544,50 @@
       "_type": "request"
     },
     {
+      "_id": "req_406fe912766d462a904859c35581de00",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n    \"customerId\": \"DXX\",\n    \"appId\": \"1\",\n    \"appointmentLength\": 1,\n    \"daysOfWeek\": [1],\n    \"appointmentTimeGap\": 5,\n    \"appointmentTypes\": [\n        {\n            \"M\": {\n                \"value\": {\n                    \"S\": \"value1\"\n                },\n                \"id\": {\n                    \"S\": \"id1\"\n                }\n            }\n        }\n    ],\n    \"negotiatorIds\": [\n        {\n            \"S\": \"AAAN\"\n        },\n        {\n            \"S\": \"AANW\"\n        },\n        {\n            \"S\": \"AAAW\"\n        },\n        {\n            \"S\": \"AAPW\"\n        },\n        {\n            \"S\": \"LXJ\"\n        },\n        {\n            \"S\": \"GXR\"\n        },\n        {\n            \"S\": \"FRED\"\n        },\n        {\n            \"S\": \"IEOQ\"\n        },\n        {\n            \"S\": \"MBW\"\n        }\n    ]\n}"
+      },
+      "created": 1592456300840,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_cf5e5a26af2f41d590246bf4299e667e",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1592456300840,
+      "method": "POST",
+      "modified": 1592456554248,
+      "name": "CreateConfig",
+      "parameters": [],
+      "parentId": "fld_59e5158f7d614a7a95029986b1442fe6",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ webComponent.configServerPath  }}/TEST/1",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_59e5158f7d614a7a95029986b1442fe6",
+      "created": 1590744305320,
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1590744305320,
+      "modified": 1590744305320,
+      "name": "Web Component Config Server",
+      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
+      "_type": "request_group"
+    },
+    {
       "_id": "req_1b062d6eb2484d72b6b57deb707f6b56",
       "authentication": {},
       "body": {
@@ -1561,7 +1606,7 @@
       "isPrivate": false,
       "metaSortKey": -1590748042223,
       "method": "DELETE",
-      "modified": 1590983703717,
+      "modified": 1592456569497,
       "name": "DeleteConfig",
       "parameters": [],
       "parentId": "fld_59e5158f7d614a7a95029986b1442fe6",
@@ -1571,20 +1616,8 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ webComponent.configServerPath  }}/ZZA",
+      "url": "{{ webComponent.configServerPath  }}/TEST/1",
       "_type": "request"
-    },
-    {
-      "_id": "fld_59e5158f7d614a7a95029986b1442fe6",
-      "created": 1590744305320,
-      "description": "",
-      "environment": {},
-      "environmentPropertyOrder": null,
-      "metaSortKey": -1590744305320,
-      "modified": 1590744305320,
-      "name": "Web Component Config Server",
-      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
-      "_type": "request_group"
     },
     {
       "_id": "req_40bb38fadb214e128e8b932cb4fc0b6a",
@@ -1605,8 +1638,8 @@
       "isPrivate": false,
       "metaSortKey": -1590747806399,
       "method": "PATCH",
-      "modified": 1590993672730,
-      "name": "UpdateConfig",
+      "modified": 1592456580072,
+      "name": "PatchConfig",
       "parameters": [],
       "parentId": "fld_59e5158f7d614a7a95029986b1442fe6",
       "settingDisableRenderRequestBody": false,
@@ -1615,7 +1648,7 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ webComponent.configServerPath  }}/ZZA",
+      "url": "{{ webComponent.configServerPath  }}/TEST/1",
       "_type": "request"
     },
     {
@@ -1623,7 +1656,7 @@
       "authentication": {},
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"customerId\": \"ZZA\",\n\t\"appointmentLength\": 20,\n\t\"appointmentTimeGap\": 20,\n\t\"appointmentTypes\": [\n\t\t{\n\t\t\t\"id\": \"testId\",\n\t\t\t\"value\": \"test\"\n\t\t}\n\t],\n\t\"negotiatorIds\": [\"test\"],\n\t\"daysOfWeek\": [2]\n}"
+        "text": "{\n    \"customerId\": \"DXX\",\n    \"appId\": \"1\",\n    \"appointmentLength\": 12,\n    \"daysOfWeek\": [1],\n    \"appointmentTimeGap\": 5,\n    \"appointmentTypes\": [\n        {\n            \"M\": {\n                \"value\": {\n                    \"S\": \"value1\"\n                },\n                \"id\": {\n                    \"S\": \"id123\"\n                }\n            }\n        }\n    ],\n    \"negotiatorIds\": [\n        {\n            \"S\": \"AAAN\"\n        },\n        {\n            \"S\": \"AANW\"\n        },\n        {\n            \"S\": \"AAAW\"\n        },\n        {\n            \"S\": \"AAPW\"\n        },\n        {\n            \"S\": \"LXJ\"\n        },\n        {\n            \"S\": \"GXR\"\n        },\n        {\n            \"S\": \"FRED\"\n        },\n        {\n            \"S\": \"IEOQ\"\n        },\n        {\n            \"S\": \"MBW\"\n        }\n    ]\n}"
       },
       "created": 1590746626195,
       "description": "",
@@ -1637,7 +1670,7 @@
       "isPrivate": false,
       "metaSortKey": -1590746626195,
       "method": "PUT",
-      "modified": 1590983721894,
+      "modified": 1592456782289,
       "name": "CreateConfig",
       "parameters": [],
       "parentId": "fld_59e5158f7d614a7a95029986b1442fe6",
@@ -1647,7 +1680,7 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ webComponent.configServerPath  }}",
+      "url": "{{ webComponent.configServerPath  }}/TEST/1",
       "_type": "request"
     },
     {
@@ -1683,8 +1716,8 @@
       "isPrivate": false,
       "metaSortKey": -1590745147616,
       "method": "GET",
-      "modified": 1590983729631,
-      "name": "GetConfigByClientId",
+      "modified": 1592456712704,
+      "name": "GetConfigByCustomerAppId",
       "parameters": [],
       "parentId": "fld_59e5158f7d614a7a95029986b1442fe6",
       "settingDisableRenderRequestBody": false,
@@ -1693,7 +1726,7 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "{{ webComponent.configServerPath  }}/ZZA",
+      "url": "{{ webComponent.configServerPath  }}/TEST/1",
       "_type": "request"
     },
     {
@@ -1745,6 +1778,16 @@
       "name": "Default Jar",
       "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
       "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_aab19c533bf44649bb9a673c466635db",
+      "contentType": "yaml",
+      "contents": "",
+      "created": 1592456076991,
+      "fileName": "Reapit APIs Documentation",
+      "modified": 1592456076991,
+      "parentId": "wrk_88e31d48b55f412b995f74e737d9ee75",
+      "_type": "api_spec"
     },
     {
       "_id": "env_91c1ac7e91254caaa5fd4d89f33a6bef",
