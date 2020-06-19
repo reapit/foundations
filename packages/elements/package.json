@@ -61,6 +61,7 @@
     "react-icons": "^3.7.0",
     "react-image-crop": "8.6.4",
     "react-table": "7.1.0",
+    "react-transition-group": "^4.4.0",
     "styled-components": "^4.4.1",
     "snyk": "^1.338.0"
   },
@@ -83,6 +84,7 @@
     "@storybook/theming": "^5.2.8",
     "@types/googlemaps": "^3.37.5",
     "@types/jsonwebtoken": "^8.3.5",
+    "@types/react-transition-group": "^4.4.0",
     "@types/papaparse": "^5.0.3",
     "@whitespace/storybook-addon-html": "^1.2.1",
     "dashify": "2.0.0",

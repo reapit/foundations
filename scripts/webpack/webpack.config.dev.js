@@ -100,10 +100,18 @@ const webpackConfig = {
       {
         test: /\.js$/,
         exclude: generateRegexExcludePackages(),
-        use: {
-          loader: 'babel-loader',
-          options: babelLoaderOptions,
-        },
+        use: [
+          {
+            loader: 'babel-loader',
+            options: babelLoaderOptions,
+          },
+          {
+            loader: 'linaria/loader',
+            options: {
+              sourceMap: process.env.NODE_ENV !== 'production',
+            },
+          },
+        ],
       },
       {
         test: /.tsx?$/,

@@ -65,10 +65,16 @@ exports[`HelpGuide should match a snapshot 1`] = `
         <div
           className="helpguide-steps"
         >
-          <HelpGuideStep
-            component={[Function]}
-            id="step-1"
-          />
+          <Component
+            in={true}
+            timeout={300}
+            unmountOnExit={true}
+          >
+            <HelpGuideStep
+              component={[Function]}
+              id="step-1"
+            />
+          </Component>
         </div>
       </div>
     </div>
