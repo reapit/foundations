@@ -4,7 +4,7 @@ import { CompletedCrop, OnCropClick, Crop } from './types'
 
 // ImageCropper's handlers
 export const drawCanvasAfterCrop = ({
-  completedCrop,
+  completedCrop: crop,
   previewCanvasRef,
   imgRef,
 }: {
@@ -12,13 +12,12 @@ export const drawCanvasAfterCrop = ({
   previewCanvasRef: React.RefObject<HTMLCanvasElement>
   imgRef: React.RefObject<HTMLImageElement>
 }) => () => {
-  if (!completedCrop || !previewCanvasRef.current || !imgRef.current) {
+  if (!crop || !previewCanvasRef.current || !imgRef.current) {
     return
   }
 
   const image = imgRef.current
   const canvas = previewCanvasRef.current
-  const crop = completedCrop
 
   const originWidth = image.naturalWidth
   const originHeight = image.naturalHeight
