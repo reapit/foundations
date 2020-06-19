@@ -250,7 +250,7 @@ export const imageCropperOuter = css`
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  zindex: 999;
+  z-index: 999;
   background-color: rgba(18, 38, 63, 0.3);
   overflow: scroll;
 `
