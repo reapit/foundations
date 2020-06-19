@@ -1,37 +1,58 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Button, Modal, ModalBody, ModalHeader, ModalFooter, SubTitleH6, ModalProps } from '@reapit/elements'
 import CallToAction from '@/components/ui/call-to-action'
-import { ReduxState, FormState } from '@/types/core'
 import { developerSetStatusRequest, developerSetStatusSetInitFormState } from '@/actions/developer-set-status'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
-
-// export interface SetDeveloperStatusMappedProps {
-//   formState: FormState
-// }
-// export interface SetDeveloperStatusMappedActions {
-//   developerSetStatusRequest: (developer: DeveloperModel) => void
-//   resetDeveloperSetStatusReducer: () => void
-// }
+import { selectDeveloperSetStatusFormState } from '@/selector/developer-set-status'
 
 export type SetDeveloperStatusProps = Pick<ModalProps, 'visible' | 'afterClose'> & {
   onSuccess: () => void
   developer: DeveloperModel
 }
 
-export const SetDeveloperStatusModal = ({ afterClose, visible, onSuccess, developer }: SetDeveloperStatusProps) => {
+export const onAfterCloseHandler = (isLoading: boolean, afterClose?: () => void) => {
+  return () => {
+    if (!isLoading && afterClose) {
+      afterClose()
+    }
+  }
+}
+
+export const onSuccessHandler = (onSuccess: () => void, dispatch: Dispatch) => {
+  return () => {
+    dispatch(developerSetStatusSetInitFormState())
+    onSuccess()
+  }
+}
+
+export const onConfirmButtonClick = (developer: DeveloperModel, dispatch: Dispatch, isInactive?: boolean) => {
+  return () => {
+    dispatch(developerSetStatusRequest({ ...developer, isInactive: !isInactive }))
+  }
+}
+
+export const SetDeveloperStatusModal: React.FC<SetDeveloperStatusProps> = ({
+  afterClose,
+  visible,
+  onSuccess,
+  developer,
+}) => {
+  const dispatch = useDispatch()
+  const formState = useSelector(selectDeveloperSetStatusFormState)
   const isLoading = Boolean(formState === 'SUBMITTING')
   const isSucceeded = Boolean(formState === 'SUCCESS')
   const { isInactive, name } = developer
+
   return (
-    <Modal visible={visible} afterClose={onAfterCloseHandler({ afterClose, isLoading })} renderChildren>
+    <Modal visible={visible} afterClose={onAfterCloseHandler(isLoading, afterClose)} renderChildren>
       <>
         {isSucceeded ? (
           <CallToAction
             title="Success"
             buttonText="Back to List"
-            onButtonClick={onSuccessHandler({ onSuccess, resetDeveloperSetStatusReducer })}
+            onButtonClick={onSuccessHandler(onSuccess, dispatch)}
             isCenter
           >
             Developer &lsquo;{name}&rsquo; has been {isInactive ? 'activated' : 'deactivated'} successfully.
@@ -40,7 +61,7 @@ export const SetDeveloperStatusModal = ({ afterClose, visible, onSuccess, develo
           <>
             <ModalHeader
               title={`Confirm ${name} ${isInactive ? 'Activation' : 'Deactivation'}`}
-              afterClose={onAfterCloseHandler({ afterClose, isLoading })}
+              afterClose={onAfterCloseHandler(isLoading, afterClose)}
             />
             <ModalBody
               body={
@@ -56,7 +77,7 @@ export const SetDeveloperStatusModal = ({ afterClose, visible, onSuccess, develo
                     loading={isLoading}
                     type="button"
                     variant="danger"
-                    onClick={() => developerSetStatusRequest({ ...developer, isInactive: !isInactive })}
+                    onClick={onConfirmButtonClick(developer, dispatch, isInactive)}
                   >
                     Confirm
                   </Button>
@@ -72,26 +93,5 @@ export const SetDeveloperStatusModal = ({ afterClose, visible, onSuccess, develo
     </Modal>
   )
 }
-
-export const onAfterCloseHandler = ({ afterClose, isLoading }) => () => {
-  if (!isLoading && afterClose) {
-    afterClose()
-    return
-  }
-}
-
-export const onSuccessHandler = ({ onSuccess, resetDeveloperSetStatusReducer }) => () => {
-  resetDeveloperSetStatusReducer()
-  onSuccess()
-}
-
-// export const mapStateToProps = (state: ReduxState): SetDeveloperStatusMappedProps => ({
-//   formState: state.developerSetStatus.formState,
-// })
-
-// export const mapDispatchToProps = (dispatch: Dispatch): SetDeveloperStatusMappedActions => ({
-//   developerSetStatusRequest: (developer: DeveloperModel) => dispatch(developerSetStatusRequest(developer)),
-//   resetDeveloperSetStatusReducer: () => dispatch(developerSetStatusSetInitFormState()),
-// })
 
 export default SetDeveloperStatusModal
