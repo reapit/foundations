@@ -1,4 +1,4 @@
-import { InstallationModelWithAppName } from '@/components/ui/developer-analytics/detailed/installation-table'
+import { InstallationModelWithAppName } from '@/components/ui/developer-analytics/detailed/installation-app-section'
 
 export const installedAppsStub: Array<InstallationModelWithAppName> = [
   {

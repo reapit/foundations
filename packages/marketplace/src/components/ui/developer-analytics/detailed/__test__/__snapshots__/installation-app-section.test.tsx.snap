@@ -2,36 +2,60 @@
 
 exports[`InstallationTable should match snapshot 1`] = `
 <div>
-  <Component>
-    Installations
-  </Component>
-  <p
-    className="is-italic"
+  <Component
+    className="mt-5"
+    isMultiLine={true}
   >
-    The installations table below shows the individual installations per client with a total number of installations per app
-  </p>
-  <div>
-    <p
-      key="test"
+    <Component
+      className="is-half"
     >
-      Total current installations for 
-      <strong>
-        test
-      </strong>
-      : 
-      0
-    </p>
-    <p
-      key="asd"
+      <DeveloperInstallationsChart
+        data={Array []}
+      />
+    </Component>
+    <Component
+      className="is-half"
     >
-      Total current installations for 
-      <strong>
-        asd
-      </strong>
-      : 
-      0
-    </p>
-  </div>
+      <Component>
+        Current Installations
+      </Component>
+      <p
+        className="is-italic"
+      >
+        The installations table below shows the individual installations per client with a total number of installations per app
+      </p>
+      <br />
+      <Component
+        bordered={true}
+        columns={
+          Array [
+            Object {
+              "Header": "App Name",
+              "accessor": "appName",
+            },
+            Object {
+              "Header": "Installations",
+              "accessor": "installation",
+            },
+          ]
+        }
+        data={
+          Array [
+            Object {
+              "appName": "test",
+              "installation": 0,
+            },
+            Object {
+              "appName": "asd",
+              "installation": 0,
+            },
+          ]
+        }
+        loading={false}
+        scrollable={true}
+      />
+    </Component>
+  </Component>
   <Component
     bordered={true}
     columns={
@@ -93,15 +117,49 @@ exports[`InstallationTable should match snapshot 1`] = `
 
 exports[`InstallationTable should match with null developerData 1`] = `
 <div>
-  <Component>
-    Installations
-  </Component>
-  <p
-    className="is-italic"
+  <Component
+    className="mt-5"
+    isMultiLine={true}
   >
-    The installations table below shows the individual installations per client with a total number of installations per app
-  </p>
-  <div />
+    <Component
+      className="is-half"
+    >
+      <DeveloperInstallationsChart
+        data={Array []}
+      />
+    </Component>
+    <Component
+      className="is-half"
+    >
+      <Component>
+        Current Installations
+      </Component>
+      <p
+        className="is-italic"
+      >
+        The installations table below shows the individual installations per client with a total number of installations per app
+      </p>
+      <br />
+      <Component
+        bordered={true}
+        columns={
+          Array [
+            Object {
+              "Header": "App Name",
+              "accessor": "appName",
+            },
+            Object {
+              "Header": "Installations",
+              "accessor": "installation",
+            },
+          ]
+        }
+        data={Array []}
+        loading={false}
+        scrollable={true}
+      />
+    </Component>
+  </Component>
   <Component
     bordered={true}
     columns={
@@ -163,36 +221,60 @@ exports[`InstallationTable should match with null developerData 1`] = `
 
 exports[`InstallationTable should match with null installationsAppData 1`] = `
 <div>
-  <Component>
-    Installations
-  </Component>
-  <p
-    className="is-italic"
+  <Component
+    className="mt-5"
+    isMultiLine={true}
   >
-    The installations table below shows the individual installations per client with a total number of installations per app
-  </p>
-  <div>
-    <p
-      key="test"
+    <Component
+      className="is-half"
     >
-      Total current installations for 
-      <strong>
-        test
-      </strong>
-      : 
-      0
-    </p>
-    <p
-      key="asd"
+      <DeveloperInstallationsChart
+        data={Array []}
+      />
+    </Component>
+    <Component
+      className="is-half"
     >
-      Total current installations for 
-      <strong>
-        asd
-      </strong>
-      : 
-      0
-    </p>
-  </div>
+      <Component>
+        Current Installations
+      </Component>
+      <p
+        className="is-italic"
+      >
+        The installations table below shows the individual installations per client with a total number of installations per app
+      </p>
+      <br />
+      <Component
+        bordered={true}
+        columns={
+          Array [
+            Object {
+              "Header": "App Name",
+              "accessor": "appName",
+            },
+            Object {
+              "Header": "Installations",
+              "accessor": "installation",
+            },
+          ]
+        }
+        data={
+          Array [
+            Object {
+              "appName": "test",
+              "installation": 0,
+            },
+            Object {
+              "appName": "asd",
+              "installation": 0,
+            },
+          ]
+        }
+        loading={false}
+        scrollable={true}
+      />
+    </Component>
+  </Component>
   <Component
     bordered={true}
     columns={
