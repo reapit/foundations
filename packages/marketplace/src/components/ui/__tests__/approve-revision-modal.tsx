@@ -7,6 +7,7 @@ import {
   ApproveRevisionModalProps,
   handleAfterClose,
   handleOnSubmit,
+  onCancelButtonClick,
 } from '../approve-revision-modal'
 import appState from '@/reducers/__stubs__/app-state'
 import { approveRevision } from '@/actions/revision-detail'
@@ -74,6 +75,15 @@ describe('ApproveRevisionModal', () => {
       expect(spyDispatch).toBeCalledWith(
         approveRevision({ appId: mockAppId, appRevisionId: mockAppRevisionId, ...mockFormValues }),
       )
+    })
+  })
+
+  describe('onCancelButtonClick', () => {
+    it('should run directly', () => {
+      const mockAfterClose = jest.fn()
+      const fn = onCancelButtonClick(mockAfterClose)
+      fn()
+      expect(mockAfterClose).toBeCalled()
     })
   })
 

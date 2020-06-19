@@ -9,7 +9,6 @@ import { selectLoginIdentity } from '@/selector/auth'
 import { Dispatch } from 'redux'
 
 export type ApproveRevisionModalProps = Pick<ModalProps, 'visible' | 'afterClose'> & {
-  closeModal?: () => void
   onApproveSuccess: () => void
 }
 
@@ -24,6 +23,12 @@ export const handleAfterClose = ({ isSuccessed, onApproveSuccess, isLoading, aft
 export const handleOnSubmit = (dispatch: Dispatch, appId?: string, appRevisionId?: string) => formValues => {
   if (appId && appRevisionId) {
     dispatch(approveRevision({ appId, appRevisionId, ...formValues }))
+  }
+}
+
+export const onCancelButtonClick = (afterClose?: () => void) => {
+  return () => {
+    afterClose && afterClose()
   }
 }
 
@@ -53,52 +58,49 @@ export const ApproveRevisionModal: React.FunctionComponent<ApproveRevisionModalP
         initialValues={{ email, name } as ApproveModel}
         onSubmit={handleOnSubmit(dispatch, appId, appRevisionId)}
         data-test="revision-approve-form"
-        render={() => {
-          return isSuccessed ? (
-            <CallToAction
-              title="Success"
-              buttonText="Back to List"
-              dataTest="approve-revision-success-message"
-              buttonDataTest="approve-revision-success-button"
-              onButtonClick={() => {
-                onApproveSuccess()
-              }}
-              isCenter
-            >
-              Revision has been approved successfully.
-            </CallToAction>
-          ) : (
-            <Form>
-              <ModalBody body={<SubTitleH6 isCentered>Do you want to approve this revision?</SubTitleH6>} />
-              <ModalFooter
-                footerItems={
-                  <>
-                    <Button
-                      type="button"
-                      variant="secondary"
-                      className="mr-2"
-                      disabled={Boolean(isLoading)}
-                      onClick={() => afterClose && afterClose()}
-                      dataTest="revision-approve-cancel"
-                    >
-                      Cancel
-                    </Button>
-                    <Button
-                      type="submit"
-                      variant="primary"
-                      loading={Boolean(isLoading)}
-                      disabled={Boolean(isLoading)}
-                      dataTest="revision-approve-submit"
-                    >
-                      Approve
-                    </Button>
-                  </>
-                }
-              />
-            </Form>
-          )
-        }}
-      />
+      >
+        {isSuccessed ? (
+          <CallToAction
+            title="Success"
+            buttonText="Back to List"
+            dataTest="approve-revision-success-message"
+            buttonDataTest="approve-revision-success-button"
+            onButtonClick={onApproveSuccess}
+            isCenter
+          >
+            Revision has been approved successfully.
+          </CallToAction>
+        ) : (
+          <Form>
+            <ModalBody body={<SubTitleH6 isCentered>Do you want to approve this revision?</SubTitleH6>} />
+            <ModalFooter
+              footerItems={
+                <>
+                  <Button
+                    type="button"
+                    variant="secondary"
+                    className="mr-2"
+                    disabled={isLoading}
+                    onClick={onCancelButtonClick(afterClose)}
+                    dataTest="revision-approve-cancel"
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    loading={isLoading}
+                    disabled={isLoading}
+                    dataTest="revision-approve-submit"
+                  >
+                    Approve
+                  </Button>
+                </>
+              }
+            />
+          </Form>
+        )}
+      </Formik>
     </Modal>
   )
 }
