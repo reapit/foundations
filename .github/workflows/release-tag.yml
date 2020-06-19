@@ -54,8 +54,7 @@ jobs:
           yarn config set workspaces-experimental true
 
       - name: Install dependencies
-        run: |
-          yarn install
+        run: yarn install --frozen-lockfile
 
       - name: Upload Artifact
         run: |
