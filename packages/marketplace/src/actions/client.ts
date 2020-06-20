@@ -4,7 +4,7 @@ import { ClientAppSummary, ClientAppSummaryParams } from '@/reducers/client/app-
 import { AppDetailData } from '@/reducers/client/app-detail'
 import { FetchAppByIdParams } from '@/services/apps'
 import {
-  PutWebComponentConfigParams,
+  UpdateWebComponentConfigParams,
   FetchWebComponentConfigParams,
   WebComponentConfigResult,
 } from '@/services/web-component'
@@ -22,16 +22,20 @@ export const clientFetchAppDetail = actionCreator<FetchAppByIdParams>(ActionType
 export const clientFetchAppDetailSuccess = actionCreator<AppDetailData>(ActionTypes.CLIENT_FETCH_APP_DETAIL_SUCCESS)
 export const clientFetchAppDetailFailed = actionCreator<string>(ActionTypes.CLIENT_FETCH_APP_DETAIL_FAILED)
 
-export const clientOpenWebComponentConfig = actionCreator<void>(ActionTypes.CLIENT_WEB_COMPONENT_CONFIG_OPEN)
-export const clientCloseWebComponentConfig = actionCreator<void>(ActionTypes.CLIENT_WEB_COMPONENT_CONFIG_CLOSE)
 export const clientFetchWebComponentConfig = actionCreator<FetchWebComponentConfigParams>(
   ActionTypes.CLIENT_FETCH_WEB_COMPONENT_CONFIG,
 )
 export const clientFetchWebComponentConfigSuccess = actionCreator<WebComponentConfigResult>(
   ActionTypes.CLIENT_FETCH_WEB_COMPONENT_CONFIG_SUCCESS,
 )
-export const clientPutWebComponentConfig = actionCreator<PutWebComponentConfigParams>(
-  ActionTypes.CLIENT_PUT_WEB_COMPONENT_CONFIG,
+export const clientFetchWebComponentConfigFailed = actionCreator<void>(
+  ActionTypes.CLIENT_FETCH_WEB_COMPONENT_CONFIG_FAILED,
+)
+export const clientUpdateWebComponentConfig = actionCreator<UpdateWebComponentConfigParams>(
+  ActionTypes.CLIENT_UPDATE_WEB_COMPONENT_CONFIG,
+)
+export const clientUpdateWebComponentConfigFailed = actionCreator<void>(
+  ActionTypes.CLIENT_UPDATE_WEB_COMPONENT_CONFIG_FAILED,
 )
 
 export const clientFetchNegotiatorsSuccess = actionCreator<NegotiatorsResult>(

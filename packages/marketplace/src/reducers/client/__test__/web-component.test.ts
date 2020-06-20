@@ -8,31 +8,6 @@ describe('client app detail reducer', () => {
     expect(newState).toEqual(defaultState)
   })
 
-  it('should set isModalOpen to true when CLIENT_WEB_COMPONENT_CONFIG_OPEN action is called', () => {
-    const newState = webComponentReducer(undefined, {
-      type: ActionTypes.CLIENT_WEB_COMPONENT_CONFIG_OPEN as ActionType,
-      data: true,
-    })
-    const expected = {
-      ...defaultState,
-      isShowModal: true,
-      loading: true,
-    }
-    expect(newState).toEqual(expected)
-  })
-
-  it('should set isModalOpen to false when CLIENT_WEB_COMPONENT_CONFIG_CLOSE action is called', () => {
-    const newState = webComponentReducer(undefined, {
-      type: ActionTypes.CLIENT_WEB_COMPONENT_CONFIG_CLOSE as ActionType,
-      data: true,
-    })
-    const expected = {
-      ...defaultState,
-      isShowModal: false,
-    }
-    expect(newState).toEqual(expected)
-  })
-
   it('should set loading to true when CLIENT_FETCH_WEB_COMPONENT_CONFIG action is called', () => {
     const newState = webComponentReducer(undefined, {
       type: ActionTypes.CLIENT_FETCH_WEB_COMPONENT_CONFIG as ActionType,
@@ -47,7 +22,7 @@ describe('client app detail reducer', () => {
 
   it('should set updating to true when CLIENT_PUT_WEB_COMPONENT_CONFIG action is called', () => {
     const newState = webComponentReducer(undefined, {
-      type: ActionTypes.CLIENT_PUT_WEB_COMPONENT_CONFIG as ActionType,
+      type: ActionTypes.CLIENT_UPDATE_WEB_COMPONENT_CONFIG as ActionType,
       data: true,
     })
     const expected = {

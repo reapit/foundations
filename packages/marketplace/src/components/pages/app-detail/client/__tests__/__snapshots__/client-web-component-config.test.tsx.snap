@@ -13,58 +13,50 @@ exports[`WebComponentConfig Should match snapshot 1`] = `
     }
   }
 >
-  <Component>
-    <Component
-      headerText="Settings"
-      isSidebar={true}
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "registerRoute",
+          "pathname": "/client/apps/:appid",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "registerRoute",
+              "pathname": "/client/apps/:appid",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "registerRoute",
+            "pathname": "/client/apps/:appid",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
     >
-      <Component
-        dataTest=""
-      >
-        <div
-          className="content "
-          data-test=""
-        >
-          <Component
-            className="mb-2"
-          >
-            <h5
-              className="title is-5 mb-2 "
-              id=""
-            >
-              Settings
-            </h5>
-          </Component>
-          <Component
-            fullWidth={true}
-            onClick={[Function]}
-            type="button"
-            variant="primary"
-          >
-            <button
-              className="button  is-primary is-fullwidth "
-              data-test=""
-              disabled={false}
-              onClick={[Function]}
-              type="button"
-            >
-              Configuration
-            </button>
-          </Component>
-          <Component
-            afterClose={[Function]}
-            closeModal={[Function]}
-            type="BOOK_VIEWING"
-          >
-            <Component
-              afterClose={[Function]}
-              renderChildren={true}
-              visible={true}
-            />
-          </Component>
-        </div>
-      </Component>
-    </Component>
-  </Component>
+      <Component />
+    </Router>
+  </MemoryRouter>
 </Provider>
 `;
