@@ -26,6 +26,8 @@ import { WebhookEditState } from '@/reducers/webhook-edit-modal'
 import { WebhookState } from '@/reducers/webhook-subscriptions'
 import { ClientRootState } from '@/reducers/client'
 
+export type ModalProps = { visible: boolean; afterClose: () => void }
+
 export interface Action<T> {
   readonly type: ActionType
   readonly data: T
