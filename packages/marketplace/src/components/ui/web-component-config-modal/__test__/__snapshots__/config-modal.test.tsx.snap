@@ -8,13 +8,6 @@ exports[`Config-modal should match snapshot 1`] = `
 >
   <Component
     closeModal={[MockFunction]}
-    config={
-      Object {
-        "subtext": "Please use the following form to configure your diary settings for your
-     ‘Book a Viewing’ widget on your website",
-        "title": "Book a Viewing Configuration",
-      }
-    }
   />
 </Component>
 `;

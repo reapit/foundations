@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   updateWebComponentConfig,
-  handleFetchWebComponentConfig,
   WebComponentConfigModalFooter,
   WebComponentConfigModalInner,
   genarateNegotiatorOptions,
@@ -9,18 +8,19 @@ import {
 import { mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
-import { WEB_COMPONENT_TYPES } from '../config-modal'
-import { PutWebComponentConfigParams } from '@/services/web-component'
-import { clientPutWebComponentConfig, clientFetchWebComponentConfig } from '@/actions/client'
+import { UpdateWebComponentConfigParams } from '@/services/web-component'
+import { clientUpdateWebComponentConfig } from '@/actions/client'
 import { webComponentStub } from '../__stubs__/web-component-config'
 import appState from '@/reducers/__stubs__/app-state'
+import { FormikProps } from '@reapit/elements'
 
 const params = {
+  appId: 'appid',
   appointmentLength: 1,
   appointmentTimeGap: 1,
   customerId: 'string',
   daysOfWeek: ['1', '2'],
-} as PutWebComponentConfigParams
+} as UpdateWebComponentConfigParams
 
 const extendAppState = webComponent => {
   return {
@@ -36,6 +36,7 @@ describe('Config-modal-inner', () => {
   it('should WebComponentConfigModalFooter match a snapshot', () => {
     const mockProps = {
       closeModal: jest.fn(),
+      formikProps: {} as FormikProps<any>,
     }
     expect(
       mount(
@@ -52,7 +53,7 @@ describe('Config-modal-inner', () => {
     expect(
       mount(
         <Provider store={store}>
-          <WebComponentConfigModalInner config={WEB_COMPONENT_TYPES['BOOK_VIEWING']} closeModal={jest.fn()} />
+          <WebComponentConfigModalInner closeModal={jest.fn()} />
         </Provider>,
       ),
     ).toMatchSnapshot()
@@ -60,19 +61,11 @@ describe('Config-modal-inner', () => {
 
   it('should updateWebComponentConfig run correctly', () => {
     const dispatch = jest.fn()
+    const closeModal = jest.fn()
 
-    const fn = updateWebComponentConfig(dispatch)
+    const fn = updateWebComponentConfig(dispatch, 'appid', closeModal)
     fn(params)
-    expect(dispatch).toBeCalledWith(clientPutWebComponentConfig(params))
-  })
-
-  it('should handleFetchWebComponentConfig run correctly', () => {
-    const dispatch = jest.fn()
-    const customerId = 'string'
-
-    const fn = handleFetchWebComponentConfig(dispatch, customerId)
-    fn()
-    expect(dispatch).toBeCalledWith(clientFetchWebComponentConfig({ customerId }))
+    expect(dispatch).toBeCalledWith(clientUpdateWebComponentConfig({ ...params, callback: closeModal }))
   })
 })
 

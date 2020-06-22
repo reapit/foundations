@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {
   ModalHeader,
   ModalBody,
@@ -7,7 +7,6 @@ import {
   Formik,
   RadioSelect,
   Checkbox,
-  Form,
   Loader,
   FormikValues,
   DropdownSelect,
@@ -16,25 +15,20 @@ import {
 } from '@reapit/elements'
 import styles from '@/styles/elements/radioselect.scss?mod'
 import { useDispatch, useSelector } from 'react-redux'
-import { clientFetchWebComponentConfig, clientPutWebComponentConfig } from '@/actions/client'
+import { clientUpdateWebComponentConfig } from '@/actions/client'
 import {
-  selectIsWebComponentData,
-  selectIsWebComponentLoading,
-  selectIsWebComponentUpdating,
-  selectIsWebComponentNegotiators,
+  selectWebComponentData,
+  selectWebComponentLoading,
+  selectWebComponentUpdating,
+  selectWebComponentNegotiators,
 } from '@/selector/client'
-import { PutWebComponentConfigParams } from '@/services/web-component'
-import { selectClientId } from '@/selector/auth'
+import { UpdateWebComponentConfigParams } from '@/services/web-component'
 import { Dispatch } from 'redux'
 import { NegotiatorItem } from '@/services/negotiators'
-import { WebComponentType } from './config-modal'
+import { selectAppDetailData } from '@/selector/client-app-detail'
 
-export const updateWebComponentConfig = (dispatch: Dispatch) => (params: FormikValues) => {
-  dispatch(clientPutWebComponentConfig(params as PutWebComponentConfigParams))
-}
-
-export const handleFetchWebComponentConfig = (dispatch: Dispatch, customerId?: string) => () => {
-  customerId && dispatch(clientFetchWebComponentConfig({ customerId }))
+export const updateWebComponentConfig = (dispatch: Dispatch, appId: string, callback) => (params: FormikValues) => {
+  dispatch(clientUpdateWebComponentConfig({ ...params, appId, callback } as UpdateWebComponentConfigParams))
 }
 
 export const genarateNegotiatorOptions = (negotiators: NegotiatorItem[]): SelectOption[] => {
@@ -53,7 +47,7 @@ export type WebComponentConfigModalBodyProps = {
 }
 export const WebComponentConfigModalBody = ({ subtext, formikProps }: WebComponentConfigModalBodyProps) => {
   const { values, setFieldValue } = formikProps
-  const negotiators = useSelector(selectIsWebComponentNegotiators)
+  const negotiators = useSelector(selectWebComponentNegotiators)
   const negotiatorOptions = genarateNegotiatorOptions(negotiators)
 
   return (
@@ -64,6 +58,7 @@ export const WebComponentConfigModalBody = ({ subtext, formikProps }: WebCompone
         subText="Select a time between each appointment"
         id="appointmentTimeGap"
         name="appointmentTimeGap"
+        isHorizontal
         options={[
           { label: '15 mins', value: 15 },
           { label: '30 mins', value: 30 },
@@ -79,6 +74,7 @@ export const WebComponentConfigModalBody = ({ subtext, formikProps }: WebCompone
         subText="Select a length of appointments"
         id="appointmentLength"
         name="appointmentLength"
+        isHorizontal
         options={[
           { label: '15 mins', value: 15 },
           { label: '30 mins', value: 30 },
@@ -118,16 +114,18 @@ export const WebComponentConfigModalBody = ({ subtext, formikProps }: WebCompone
 
 export type WebComponentConfigModalFooterProps = {
   closeModal: () => void
+  formikProps: FormikProps<any>
 }
 
-export const WebComponentConfigModalFooter = ({ closeModal }: WebComponentConfigModalFooterProps) => {
-  const updating = useSelector(selectIsWebComponentUpdating)
+export const WebComponentConfigModalFooter = ({ closeModal, formikProps }: WebComponentConfigModalFooterProps) => {
+  const updating = useSelector(selectWebComponentUpdating)
+  const { handleSubmit } = formikProps
   return (
     <>
       <Button className="mr-2" type="button" onClick={closeModal} variant="danger" fullWidth={true}>
         CANCEL
       </Button>
-      <Button variant="primary" type="submit" fullWidth={true} loading={updating}>
+      <Button variant="primary" type="submit" fullWidth={true} loading={updating} onClick={handleSubmit}>
         SAVE CHANGES
       </Button>
     </>
@@ -135,16 +133,22 @@ export const WebComponentConfigModalFooter = ({ closeModal }: WebComponentConfig
 }
 
 export type WebComponentConfigModalInnerProps = {
-  config: WebComponentType
   closeModal: () => void
 }
 
-export const WebComponentConfigModalInner = ({ config, closeModal }: WebComponentConfigModalInnerProps) => {
+export const WebComponentConfigModalInner = ({ closeModal }: WebComponentConfigModalInnerProps) => {
   const dispatch = useDispatch()
-  const handleUpdateWebComponentConfig = updateWebComponentConfig(dispatch)
-  const webComponentData = useSelector(selectIsWebComponentData)
-  const loading = useSelector(selectIsWebComponentLoading)
-  const clientId = useSelector(selectClientId) || ''
+
+  const webComponentData = useSelector(selectWebComponentData)
+  const loading = useSelector(selectWebComponentLoading)
+  const appDetails = useSelector(selectAppDetailData)
+  const { name, id = '' } = appDetails
+
+  const handleUpdateWebComponentConfig = updateWebComponentConfig(dispatch, id, closeModal)
+
+  const title = `${name} Configuration`
+  const subtext = `Please use the following form to configure your diary settings for your 
+                    ‘${name}’ widget on your website`
 
   const initialFormValues = (webComponentData || {
     appointmentLength: 30,
@@ -152,17 +156,17 @@ export const WebComponentConfigModalInner = ({ config, closeModal }: WebComponen
     daysOfWeek: ['1', '2', '3', '4', '5', '6'],
   }) as FormikValues
 
-  useEffect(handleFetchWebComponentConfig(dispatch, clientId), [])
-
   if (loading) return <Loader />
   return (
     <Formik initialValues={initialFormValues} onSubmit={handleUpdateWebComponentConfig}>
       {formikProps => (
-        <Form>
-          <ModalHeader title={config.title} />
-          <ModalBody body={<WebComponentConfigModalBody subtext={config.subtext} formikProps={formikProps} />} />
-          <ModalFooter footerItems={<WebComponentConfigModalFooter closeModal={closeModal} />} />
-        </Form>
+        <>
+          <ModalHeader title={title} />
+          <ModalBody body={<WebComponentConfigModalBody subtext={subtext} formikProps={formikProps} />} />
+          <ModalFooter
+            footerItems={<WebComponentConfigModalFooter closeModal={closeModal} formikProps={formikProps} />}
+          />
+        </>
       )}
     </Formik>
   )

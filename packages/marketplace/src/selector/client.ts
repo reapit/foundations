@@ -1,47 +1,53 @@
 import { ReduxState } from '@/types/core'
 import { MyAppsState } from '@/reducers/my-apps'
+import { AppDetailState } from '@/reducers/app-detail'
+import { NegotiatorItem } from '@/services/negotiators'
+import { WebComponentConfigResult } from '@/services/web-component'
+import { InstalledAppsState } from '@/reducers/installed-apps'
+import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
+import { ClientAppSummaryState } from '@/reducers/client/app-summary'
 
 export const selectClientId = (state: ReduxState) => {
   return state?.auth?.loginSession?.loginIdentity?.clientId || ''
 }
 
-export const selectLoggedUserEmail = (state: ReduxState) => {
-  return state?.auth?.loginSession?.loginIdentity?.email
+export const selectLoggedUserEmail = (state: ReduxState): string => {
+  return state?.auth?.loginSession?.loginIdentity?.email || ''
 }
 
-export const selectAppSummary = (state: ReduxState) => {
+export const selectAppSummary = (state: ReduxState): ClientAppSummaryState => {
   return state?.client.appSummary
 }
 
-export const selectFeaturedApps = (state: ReduxState) => {
+export const selectFeaturedApps = (state: ReduxState): AppSummaryModel[] => {
   return state?.client.appSummary.data?.featuredApps || []
 }
 
-export const selectInstalledApps = (state: ReduxState) => {
+export const selectInstalledApps = (state: ReduxState): InstalledAppsState => {
   return state?.installedApps
 }
 
-export const selectIsWebComponentOpen = (state: ReduxState) => {
+export const selectWebComponentOpen = (state: ReduxState): boolean => {
   return state?.client.webComponent?.isShowModal
 }
 
-export const selectIsWebComponentData = (state: ReduxState) => {
+export const selectWebComponentData = (state: ReduxState): WebComponentConfigResult => {
   return state?.client.webComponent?.data
 }
 
-export const selectIsWebComponentLoading = (state: ReduxState) => {
+export const selectWebComponentLoading = (state: ReduxState): boolean => {
   return state?.client.webComponent?.loading
 }
 
-export const selectIsWebComponentUpdating = (state: ReduxState) => {
+export const selectWebComponentUpdating = (state: ReduxState): boolean => {
   return state?.client.webComponent?.updating
 }
 
-export const selectIsWebComponentNegotiators = (state: ReduxState) => {
+export const selectWebComponentNegotiators = (state: ReduxState): NegotiatorItem[] => {
   return state?.client.webComponent?.negotiators?._embedded || []
 }
 
-export const selectAppDetail = (state: ReduxState) => {
+export const selectAppDetail = (state: ReduxState): AppDetailState => {
   return state.appDetail
 }
 
