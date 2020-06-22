@@ -73,8 +73,6 @@ export const mapServiceChartDataSet = (billing: BillingOverviewForPeriodV2Model 
     clonedDataSet[2].data.push(developerEditionData)
   })
 
-  console.log(clonedDataSet)
-
   return {
     labels,
     datasets: clonedDataSet,
