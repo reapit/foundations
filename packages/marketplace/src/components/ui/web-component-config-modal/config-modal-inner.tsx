@@ -17,10 +17,10 @@ import styles from '@/styles/elements/radioselect.scss?mod'
 import { useDispatch, useSelector } from 'react-redux'
 import { clientUpdateWebComponentConfig } from '@/actions/client'
 import {
-  selectIsWebComponentData,
-  selectIsWebComponentLoading,
-  selectIsWebComponentUpdating,
-  selectIsWebComponentNegotiators,
+  selectWebComponentData,
+  selectWebComponentLoading,
+  selectWebComponentUpdating,
+  selectWebComponentNegotiators,
 } from '@/selector/client'
 import { UpdateWebComponentConfigParams } from '@/services/web-component'
 import { Dispatch } from 'redux'
@@ -47,7 +47,7 @@ export type WebComponentConfigModalBodyProps = {
 }
 export const WebComponentConfigModalBody = ({ subtext, formikProps }: WebComponentConfigModalBodyProps) => {
   const { values, setFieldValue } = formikProps
-  const negotiators = useSelector(selectIsWebComponentNegotiators)
+  const negotiators = useSelector(selectWebComponentNegotiators)
   const negotiatorOptions = genarateNegotiatorOptions(negotiators)
 
   return (
@@ -118,7 +118,7 @@ export type WebComponentConfigModalFooterProps = {
 }
 
 export const WebComponentConfigModalFooter = ({ closeModal, formikProps }: WebComponentConfigModalFooterProps) => {
-  const updating = useSelector(selectIsWebComponentUpdating)
+  const updating = useSelector(selectWebComponentUpdating)
   const { handleSubmit } = formikProps
   return (
     <>
@@ -139,8 +139,8 @@ export type WebComponentConfigModalInnerProps = {
 export const WebComponentConfigModalInner = ({ closeModal }: WebComponentConfigModalInnerProps) => {
   const dispatch = useDispatch()
 
-  const webComponentData = useSelector(selectIsWebComponentData)
-  const loading = useSelector(selectIsWebComponentLoading)
+  const webComponentData = useSelector(selectWebComponentData)
+  const loading = useSelector(selectWebComponentLoading)
   const appDetails = useSelector(selectAppDetailData)
   const { name, id = '' } = appDetails
 

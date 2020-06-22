@@ -17,7 +17,7 @@ exports[`WebComponentConfig Should match snapshot 1`] = `
     initialEntries={
       Array [
         Object {
-          "key": "registerRoute",
+          "key": "appDetailsRoute",
           "pathname": "/client/apps/:appid",
         },
       ]
@@ -33,7 +33,7 @@ exports[`WebComponentConfig Should match snapshot 1`] = `
           "entries": Array [
             Object {
               "hash": "",
-              "key": "registerRoute",
+              "key": "appDetailsRoute",
               "pathname": "/client/apps/:appid",
               "search": "",
             },
@@ -46,7 +46,7 @@ exports[`WebComponentConfig Should match snapshot 1`] = `
           "listen": [Function],
           "location": Object {
             "hash": "",
-            "key": "registerRoute",
+            "key": "appDetailsRoute",
             "pathname": "/client/apps/:appid",
             "search": "",
           },

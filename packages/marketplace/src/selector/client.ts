@@ -21,23 +21,23 @@ export const selectInstalledApps = (state: ReduxState) => {
   return state?.installedApps
 }
 
-export const selectIsWebComponentOpen = (state: ReduxState) => {
+export const selectWebComponentOpen = (state: ReduxState) => {
   return state?.client.webComponent?.isShowModal
 }
 
-export const selectIsWebComponentData = (state: ReduxState) => {
+export const selectWebComponentData = (state: ReduxState) => {
   return state?.client.webComponent?.data
 }
 
-export const selectIsWebComponentLoading = (state: ReduxState) => {
+export const selectWebComponentLoading = (state: ReduxState) => {
   return state?.client.webComponent?.loading
 }
 
-export const selectIsWebComponentUpdating = (state: ReduxState) => {
+export const selectWebComponentUpdating = (state: ReduxState) => {
   return state?.client.webComponent?.updating
 }
 
-export const selectIsWebComponentNegotiators = (state: ReduxState) => {
+export const selectWebComponentNegotiators = (state: ReduxState) => {
   return state?.client.webComponent?.negotiators?._embedded || []
 }
 

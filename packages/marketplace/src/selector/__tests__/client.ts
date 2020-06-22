@@ -3,11 +3,11 @@ import {
   selectClientId,
   selectLoggedUserEmail,
   selectFeaturedApps,
-  selectIsWebComponentOpen,
-  selectIsWebComponentData,
-  selectIsWebComponentLoading,
-  selectIsWebComponentUpdating,
-  selectIsWebComponentNegotiators,
+  selectWebComponentOpen,
+  selectWebComponentData,
+  selectWebComponentLoading,
+  selectWebComponentUpdating,
+  selectWebComponentNegotiators,
   selectAppDetail,
   selectMyApps,
   selectInstalledApps,
@@ -103,7 +103,7 @@ describe('selectFeaturedApps', () => {
         },
       },
     } as ReduxState
-    const result = selectIsWebComponentOpen(input)
+    const result = selectWebComponentOpen(input)
     expect(result).toEqual(true)
   })
 
@@ -115,7 +115,7 @@ describe('selectFeaturedApps', () => {
         },
       },
     } as ReduxState
-    const result = selectIsWebComponentData(input)
+    const result = selectWebComponentData(input)
     expect(result).toEqual({})
   })
 
@@ -127,7 +127,7 @@ describe('selectFeaturedApps', () => {
         },
       },
     } as ReduxState
-    const result = selectIsWebComponentLoading(input)
+    const result = selectWebComponentLoading(input)
     expect(result).toEqual(true)
   })
 
@@ -139,7 +139,7 @@ describe('selectFeaturedApps', () => {
         },
       },
     } as ReduxState
-    const result = selectIsWebComponentUpdating(input)
+    const result = selectWebComponentUpdating(input)
     expect(result).toEqual(true)
   })
 
@@ -152,7 +152,7 @@ describe('selectFeaturedApps', () => {
         },
       },
     } as ReduxState
-    const result = selectIsWebComponentNegotiators(input)
+    const result = selectWebComponentNegotiators(input)
     expect(result).toEqual([])
   })
   it('should run correctly and return {}', () => {

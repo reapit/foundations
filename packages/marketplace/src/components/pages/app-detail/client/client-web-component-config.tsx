@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from '@reapit/elements'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectIsWebComponentData } from '@/selector/client'
+import { selectWebComponentData } from '@/selector/client'
 import { clientFetchWebComponentConfig } from '@/actions/client'
 import { Dispatch } from 'redux'
 import WebComponentModal from '@/components/ui/web-component-config-modal'
@@ -26,7 +26,7 @@ export const WebComponentConfig: React.FC = () => {
   const [isOpenConfigModal, setIsOpenConfigModal] = useState(false)
 
   const clientId = useSelector(selectClientId) || ''
-  const webComponentData = useSelector(selectIsWebComponentData)
+  const webComponentData = useSelector(selectWebComponentData)
   const { appid: applicationId } = useParams()
 
   const handleToggleWebComponentModal = toggleWebComponentModal(setIsOpenConfigModal, true)
