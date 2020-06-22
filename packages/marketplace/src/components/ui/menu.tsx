@@ -1,9 +1,7 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
-import { withRouter, RouteComponentProps } from 'react-router'
+import { useDispatch, useSelector } from 'react-redux'
+import { useLocation } from 'react-router'
 import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
-import { LoginType } from '@reapit/cognito-auth'
-import { ReduxState } from '@/types/core'
 import { authLogout } from '@/actions/auth'
 import Routes from '../../constants/routes'
 import { Location } from 'history'
@@ -24,7 +22,10 @@ import {
 } from 'react-icons/fa'
 import { MdHelp } from 'react-icons/md'
 import { GoDatabase } from 'react-icons/go'
-import { selectIsAdmin } from '@/selector/auth'
+import { selectIsAdmin, selectLoginType } from '@/selector/auth'
+import { ActionCreator } from '@/types/core'
+import { LoginType } from '@reapit/cognito-auth'
+import { Dispatch } from 'redux'
 
 export const generateMenuConfig = (
   logoutCallback: () => void,
@@ -211,21 +212,19 @@ export interface MenuMappedActions {
   logout: () => void
 }
 
-export type MenuProps = MenuMappedProps & MenuMappedActions & RouteComponentProps & {}
+export type MenuProps = {}
 
-export const Menu: React.FunctionComponent<MenuProps> = ({ logout, loginType, location, isAdmin }) => {
-  const logoutCallback = () => logout()
-  const menuConfigs = generateMenuConfig(logoutCallback, location, isAdmin)
+export const logout = ({ dispatch, authLogout }: { dispatch: Dispatch; authLogout: ActionCreator<void> }) => () =>
+  dispatch(authLogout())
+
+export const Menu: React.FunctionComponent<MenuProps> = () => {
+  const location = useLocation()
+  const dispatch = useDispatch()
+  const isAdmin = useSelector(selectIsAdmin)
+  const loginType = useSelector(selectLoginType)
+
+  const menuConfigs = generateMenuConfig(logout({ dispatch, authLogout }), location, isAdmin)
   return <Sidebar {...menuConfigs[loginType]} location={location} />
 }
 
-export const mapStateToProps = (state: ReduxState): MenuMappedProps => ({
-  loginType: state.auth.loginType,
-  isAdmin: selectIsAdmin(state),
-})
-
-export const mapDispatchToProps = (dispatch: any): MenuMappedActions => ({
-  logout: () => dispatch(authLogout()),
-})
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Menu))
+export default Menu

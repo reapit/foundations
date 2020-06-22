@@ -2,7 +2,7 @@
 
 exports[`PrivateRouteWrapper should match snapshot 1`] = `
 <Component>
-  <withRouter(Connect(Component)) />
+  <Component />
   <Component
     flexColumn={true}
     isScrollable={true}

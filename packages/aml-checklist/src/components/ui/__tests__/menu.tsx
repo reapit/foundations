@@ -31,7 +31,7 @@ describe('Menu', () => {
   })
 
   describe('logout', () => {
-    it('should render correctly', () => {
+    it('should call functions', () => {
       const mockDispatch = jest.fn()
       const mockAuthLogout = jest.fn(() => 'logout') as any
       const fn = logout({ dispatch: mockDispatch, authLogout: mockAuthLogout })

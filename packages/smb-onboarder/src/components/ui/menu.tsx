@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Routes from '@/constants/routes'
-import { withRouter, RouteComponentProps } from 'react-router'
+import { useLocation } from 'react-router'
 import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
 import { Location } from 'history'
 import { IoIosPeople } from 'react-icons/io'
@@ -98,13 +98,14 @@ export const callbackAppClick = () =>
       ? 'https://dev.marketplace.reapit.cloud/client/installed'
       : 'https://marketplace.reapit.cloud/client/installed')
 
-export type MenuProps = RouteComponentProps
+export type MenuProps = {}
 
-export const Menu: React.FC<MenuProps> = ({ location }: MenuProps) => {
+export const Menu: React.FC<MenuProps> = () => {
   const { logout } = React.useContext(AuthContext)
+  const location = useLocation()
 
   const menuConfigs = generateMenuConfig(logout, location)
   return <Sidebar {...menuConfigs} location={location} />
 }
 
-export default withRouter(Menu) as any
+export default Menu
