@@ -49,7 +49,14 @@ export const CompanyInformation = () => {
       <Content>
         <FlexContainerResponsive flexColumn hasBackground hasPadding>
           <H3>Company Information</H3>
-          <Formik initialValues={{}} validationSchema={companyInformationFormSchema} onSubmit={() => {}}>
+          <Formik
+            initialValues={{}}
+            validationSchema={companyInformationFormSchema}
+            onSubmit={values => {
+              // TBC
+              console.log(values)
+            }}
+          >
             {() => (
               <Form>
                 <Grid>
