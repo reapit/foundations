@@ -53,10 +53,10 @@ describe('selectLoggedUserEmail', () => {
     expect(result).toEqual('abc@gmail.com')
   })
 
-  it('should run correctly and return undefined', () => {
+  it('should run correctly and return ""', () => {
     const input = {} as ReduxState
     const result = selectLoggedUserEmail(input)
-    expect(result).toEqual(undefined)
+    expect(result).toEqual('')
   })
 })
 
