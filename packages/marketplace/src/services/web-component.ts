@@ -64,28 +64,3 @@ export const updateWebComponentConfig = async (
     throw new Error(error)
   }
 }
-
-// export const createWebComponentConfig = async (): Promise<WebComponentConfigResult> => {
-//   try {
-//     const body = {
-//       appointmentLength: '30',
-//       appointmentTimeGap: '30',
-//       appointmentTypes: '',
-//       customerId: 'DXX',
-//       daysOfWeek: ['1', '2', '3'],
-//       negotiatorIds: ['AAAW'],
-//     }
-
-//     const response = await fetcher({
-//       url: `${URLS.webComponentConfig}/DXX/4fbbb1e8-bad0-43a2-98f9-bfb9bba366e7`,
-//       api: window.reapit.config.webComponentConfigApiUrl,
-//       method: 'POST',
-//       headers: generateHeader(window.reapit.config.marketplaceApiKey),
-//       body: body,
-//     })
-//     return response
-//   } catch (error) {
-//     logger(error)
-//     throw new Error(error)
-//   }
-// }
