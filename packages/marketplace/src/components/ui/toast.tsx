@@ -1,27 +1,37 @@
-import { connect } from 'react-redux'
+import * as React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Dispatch } from 'redux'
-import { Toast, ErrorData } from '@reapit/elements'
-import { ReduxState } from '../../types/core'
-import { errorClearedServer, errorClearedComponent } from '../../actions/error'
+import { Toast as ToastElement } from '@reapit/elements'
+import { errorClearedServer, errorClearedComponent } from '@/actions/error'
+import { selectErrorState } from '@/selector/error'
 
-interface ToastMappedActions {
-  errorClearedServer: () => void
-  errorClearedComponent: () => void
+export type ToastProps = {}
+
+export const handleErrorClearedServerCallback = (dispatch: Dispatch) => {
+  return () => {
+    dispatch(errorClearedServer(null))
+  }
+}
+export const handleErrorClearedComponentCallback = (dispatch: Dispatch) => {
+  return () => {
+    dispatch(errorClearedComponent(null))
+  }
 }
 
-interface ToastMappedProps {
-  serverError: ErrorData | null
-  componentError: ErrorData | null
+const Toast: React.FC<ToastProps> = () => {
+  const dispatch = useDispatch()
+  const { componentError, serverError } = useSelector(selectErrorState)
+  const errorClearedServerCallback = React.useCallback(handleErrorClearedServerCallback(dispatch), [dispatch])
+  const errorClearedComponentCallback = React.useCallback(handleErrorClearedComponentCallback(dispatch), [dispatch])
+
+  return (
+    <ToastElement
+      componentError={componentError}
+      serverError={serverError}
+      errorClearedComponent={errorClearedComponentCallback}
+      errorClearedServer={errorClearedServerCallback}
+    />
+  )
 }
 
-const mapStateToProps = (state: ReduxState): ToastMappedProps => ({
-  serverError: state.error.serverError,
-  componentError: state.error.componentError,
-})
-
-const mapDispatchToProps = (dispatch: Dispatch): ToastMappedActions => ({
-  errorClearedServer: () => dispatch(errorClearedServer(null)),
-  errorClearedComponent: () => dispatch(errorClearedComponent(null)),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Toast)
+export default Toast
