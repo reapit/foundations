@@ -24,6 +24,8 @@ export const initialValues: AccountsInformationFormValues = {
   phoneNumber: '',
 }
 
+export const ACCOUNT_REF_MIN_LENGTH = 6
+
 export const onSubmit = (values: AccountsInformationFormValues) => {
   console.log(values)
 }
@@ -33,7 +35,7 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
     <Formik initialValues={initialValues} onSubmit={onSubmit}>
       {({ setFieldValue, values }) => {
         const { reapitAccountsRef, hasReapitAccountsRef } = values
-        const isEnableSaveBtn = hasReapitAccountsRef === 'yes' && reapitAccountsRef.length >= 6
+        const isEnableSaveBtn = hasReapitAccountsRef === 'yes' && reapitAccountsRef.length >= ACCOUNT_REF_MIN_LENGTH
 
         return (
           <Form>

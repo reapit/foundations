@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { GridItem, FormHeading, FormSubHeading, Button } from '@reapit/elements'
-import { AccountsInformationFormValues } from './accounts-information-form'
+import { AccountsInformationFormValues, ACCOUNT_REF_MIN_LENGTH } from './accounts-information-form'
 
 export type DirectDebitSectionProps = {
   setFieldValue: (field: string, value: any, shouldValidate?: boolean | undefined) => void
@@ -10,7 +10,10 @@ export type DirectDebitSectionProps = {
 const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({ values }) => {
   const { hasReapitAccountsRef, reapitAccountsRef } = values
 
-  if (hasReapitAccountsRef === 'yes' && reapitAccountsRef.length >= 6)
+  const isShowDirectDebitWithRef = hasReapitAccountsRef === 'yes' && reapitAccountsRef.length >= ACCOUNT_REF_MIN_LENGTH
+  const isShowDirectDebitWithoutRef = hasReapitAccountsRef === 'no'
+
+  if (isShowDirectDebitWithRef)
     return (
       <GridItem>
         <FormHeading>Direct Debit</FormHeading>
@@ -22,7 +25,7 @@ const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({ values }) => {
       </GridItem>
     )
 
-  if (hasReapitAccountsRef === 'no')
+  if (isShowDirectDebitWithoutRef)
     return (
       <GridItem>
         <FormHeading>Direct Debit</FormHeading>
