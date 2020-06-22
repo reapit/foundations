@@ -4,12 +4,14 @@ import { useDispatch } from 'react-redux'
 import dayjs from 'dayjs'
 import { appInstallationsFilterRequestData } from '@/actions/app-installations'
 import { httpTrafficPerDayRequestData } from '@/actions/app-http-traffic-event'
-import { Grid, GridItem, DatePicker, SelectBox, DATE_TIME_FORMAT } from '@reapit/elements'
+import { GridFourCol, GridFourColItem, DatePicker, SelectBox, DATE_TIME_FORMAT, H6 } from '@reapit/elements'
 import { Form, Formik } from 'formik'
 import { FilterFormInitialValues } from './filter-bar'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import FormikAutoSave from '@/components/hocs/formik-auto-save'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
+import styles from '@/styles/pages/developer-analytics.scss?mod'
+import { cx } from 'linaria'
 
 export type FilterFormProps = {
   initialValues: FilterFormInitialValues
@@ -88,83 +90,45 @@ export const FilterForm: React.FC<FilterFormProps> = ({ initialValues, developer
         const { dateFrom } = values
         return (
           <Form>
-            <Grid>
-              <GridItem className="is-two-thirds-fullhd is-four-fifths-desktop">
-                <Grid>
-                  <GridItem>
-                    <Grid className="is-vcentered">
-                      <GridItem className="is-narrow">
-                        <h6 className="title is-6">Date from</h6>
-                      </GridItem>
-                      <GridItem>
-                        <DatePicker
-                          name="dateFrom"
-                          labelText=""
-                          id="dateFrom"
-                          reactDatePickerProps={{
-                            maxDate: dayjs()
-                              .subtract(1, 'day')
-                              .toDate(),
-                          }}
-                        />
-                      </GridItem>
-                    </Grid>
-                  </GridItem>
-                  <GridItem>
-                    <Grid className="is-vcentered">
-                      <GridItem className="is-narrow">
-                        <h6 className="title is-6">To</h6>
-                      </GridItem>
-                      <GridItem>
-                        <DatePicker
-                          name="dateTo"
-                          labelText=""
-                          id="dateTo"
-                          reactDatePickerProps={{
-                            minDate: dayjs(dateFrom)
-                              .add(1, 'day')
-                              .toDate(),
-                            maxDate: dayjs()
-                              .subtract(1, 'day')
-                              .toDate(),
-                          }}
-                        />
-                      </GridItem>
-                    </Grid>
-                  </GridItem>
-                  <GridItem>
-                    <Grid className="is-vcentered">
-                      <GridItem className="is-narrow">
-                        <h6 className="title is-6">Client</h6>
-                      </GridItem>
-                      <GridItem>
-                        <SelectBox
-                          name="clientId"
-                          options={renderClientSelectOptions(clientIds)}
-                          labelText=""
-                          id="clientId"
-                        />
-                      </GridItem>
-                    </Grid>
-                  </GridItem>
-                  <GridItem>
-                    <Grid className="is-vcentered">
-                      <GridItem className="is-narrow">
-                        <h6 className="title is-6">App</h6>
-                      </GridItem>
-                      <GridItem>
-                        <SelectBox
-                          name="appId"
-                          options={renderAppSelectOptions(developerApps)}
-                          labelText=""
-                          id="appId"
-                        />
-                      </GridItem>
-                    </Grid>
-                  </GridItem>
-                </Grid>
-              </GridItem>
-            </Grid>
+            <GridFourCol className={cx(styles.isRow, 'mb-4')}>
+              <GridFourColItem>
+                <H6 className="mb-2">Date from</H6>
+                <DatePicker
+                  name="dateFrom"
+                  labelText=""
+                  id="dateFrom"
+                  reactDatePickerProps={{
+                    maxDate: dayjs()
+                      .subtract(1, 'day')
+                      .toDate(),
+                  }}
+                />
+              </GridFourColItem>
+              <GridFourColItem>
+                <H6 className="mb-2">To</H6>
+                <DatePicker
+                  name="dateTo"
+                  labelText=""
+                  id="dateTo"
+                  reactDatePickerProps={{
+                    minDate: dayjs(dateFrom)
+                      .add(1, 'day')
+                      .toDate(),
+                    maxDate: dayjs()
+                      .subtract(1, 'day')
+                      .toDate(),
+                  }}
+                />
+              </GridFourColItem>
+              <GridFourColItem>
+                <H6 className="mb-2">Client</H6>
+                <SelectBox name="clientId" options={renderClientSelectOptions(clientIds)} labelText="" id="clientId" />
+              </GridFourColItem>
+              <GridFourColItem>
+                <H6 className="mb-2">App</H6>
+                <SelectBox name="appId" options={renderAppSelectOptions(developerApps)} labelText="" id="appId" />
+              </GridFourColItem>
+            </GridFourCol>
             <FormikAutoSave onSave={handleAutoSave(developerApps, clientIds, dispatch)} />
           </Form>
         )

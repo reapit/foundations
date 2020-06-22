@@ -71,7 +71,10 @@ export const GridFourCol: React.SFC<LayoutProps> = ({ children, className = '', 
 
 export const GridFourColItem: React.SFC<LayoutProps> = ({ children, className = '', dataTest = '' }) => (
   <div
-    className={`column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd ${className}`}
+    className={
+      'column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd' +
+      ` ${className}`
+    }
     data-test={dataTest}
   >
     {children}
@@ -79,7 +82,10 @@ export const GridFourColItem: React.SFC<LayoutProps> = ({ children, className = 
 )
 
 export const GridThreeColItem: React.SFC<LayoutProps> = ({ children, className = '', dataTest = '' }) => (
-  <div className={`column is-multiline is-half-tablet is-one-third-widescreen ${className}`} data-test={dataTest}>
+  <div
+    className={`column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen ${className}`}
+    data-test={dataTest}
+  >
     {children}
   </div>
 )

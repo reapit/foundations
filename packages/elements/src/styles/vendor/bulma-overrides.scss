@@ -133,6 +133,12 @@ html {
     margin-left: auto;
     margin-right: 0;
   }
+
+  @media screen and (max-width: 425px) {
+    .button {
+      width: 100%;
+    }
+  }
 }
 
 .subtitle,
@@ -146,7 +152,7 @@ html {
 
 .control {
   .label {
-    color: $grey-dark;
+    color: $grey;
   }
   &.has-icons-right,
   &.has-icons-left {

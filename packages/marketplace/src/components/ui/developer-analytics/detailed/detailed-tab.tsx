@@ -164,8 +164,8 @@ export const DetailedTab: React.FC<DetailedTabProps> = () => {
 
   return (
     <ErrorBoundary>
-      <FlexContainerBasic hasPadding flexColumn>
-        <FlexContainerResponsive flexColumn hasBackground hasPadding className={styles.wrapAnalytics}>
+      <FlexContainerBasic flexColumn>
+        <FlexContainerResponsive flexColumn hasBackground className={styles.wrapAnalytics}>
           <FilterBar developerAppsData={developerAppsData} installationAppDataArray={installationAppDataArray || []} />
           <Grid isMultiLine className="mt-5">
             <GridItem className="is-half">

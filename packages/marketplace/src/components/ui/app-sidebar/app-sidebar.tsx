@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
-import { FlexContainerBasic, H3, Input, Formik, Form, RadioSelect, FormikProps, H6 } from '@reapit/elements'
+import { FlexContainerBasic, H5, Input, Formik, Form, RadioSelect, FormikProps, H6 } from '@reapit/elements'
 import { useHistory, useLocation } from 'react-router'
 import styles from '@/styles/blocks/app-sidebar.scss?mod'
 import CategoriesList from '@/components/ui/categories-list'
@@ -80,7 +80,7 @@ export const AppSidebar: React.FC = () => {
     <div className={styles.sidebar}>
       <FlexContainerBasic flexColumn hasPadding>
         <div className={styles.sidebarWrap}>
-          <H3>Browse Apps</H3>
+          <H5>Browse Apps</H5>
           <H6 className={styles.subHeading}>Search</H6>
           <Formik
             enableReinitialize={true}
