@@ -11,15 +11,16 @@
 // Fonts
 $family-primary: 'Roboto', Helvetica, sans-serif;
 
-$title-family: 'Museo Sans W03_700', 'Roboto', Helvetica, Arial, sans-serif;
+$title-family: 'Roboto', Helvetica, sans-serif;;
 $title-weight: 700;
-$subtitle-family: 'Museo Sans W03_700', 'Roboto', Helvetica, Arial, sans-serif;
+$subtitle-family: 'Roboto', Helvetica, sans-serif;;
 $subtitle-weight: 700;
+$weight-bold: 700;
 
 // Colors
-$grey-dark: $grey-dark;
+$grey-dark: $grey;
 $grey-light: $grey;
-$dark: $grey-dark;
+$dark: $grey;
 
 $orange: $reapit-orange;
 $yellow: $reapit-gold;
@@ -32,7 +33,7 @@ $red: $reapit-red;
 
 $title-color: $black;
 
-$text: $dark;
+$text: $black;
 
 $title-weight: $weight-bold;
 $subtitle-weight: $weight-bold;
@@ -47,11 +48,13 @@ $notification-padding: 1rem;
 // Card
 $card-shadow: none;
 $card-footer-padding: 0.5rem;
+$card-content-padding: 0.75rem;
 
 // Modal
 $modal-background-background-color: rgba($black, 0.3);
 $modal-card-head-radius: 0;
 $modal-card-foot-radius: 0;
+
 
 // Form elements
 $checkbox-radius: 0;

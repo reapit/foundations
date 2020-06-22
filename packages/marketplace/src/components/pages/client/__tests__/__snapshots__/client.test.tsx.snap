@@ -75,12 +75,12 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
                     >
                       <div>
                         <Component>
-                          <h3
-                            className="title is-3  "
+                          <h5
+                            className="title is-5  "
                             id=""
                           >
                             Browse Apps
-                          </h3>
+                          </h5>
                         </Component>
                         <Component>
                           <h6
@@ -602,12 +602,12 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                     >
                       <div>
                         <Component>
-                          <h3
-                            className="title is-3  "
+                          <h5
+                            className="title is-5  "
                             id=""
                           >
                             Browse Apps
-                          </h3>
+                          </h5>
                         </Component>
                         <Component>
                           <h6
@@ -1129,12 +1129,12 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
                     >
                       <div>
                         <Component>
-                          <h3
-                            className="title is-3  "
+                          <h5
+                            className="title is-5  "
                             id=""
                           >
                             Browse Apps
-                          </h3>
+                          </h5>
                         </Component>
                         <Component>
                           <h6
@@ -1745,12 +1745,12 @@ exports[`Client should match a snapshot when featured apps is undefined 1`] = `
                     >
                       <div>
                         <Component>
-                          <h3
-                            className="title is-3  "
+                          <h5
+                            className="title is-5  "
                             id=""
                           >
                             Browse Apps
-                          </h3>
+                          </h5>
                         </Component>
                         <Component>
                           <h6

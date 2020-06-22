@@ -242,7 +242,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                       key="Marketplace/developers.read"
                     >
                       <div
-                        className="column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                        className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
                         data-test=""
                       >
                         Read data about developers
@@ -252,7 +252,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                       key="Marketplace/developers.write"
                     >
                       <div
-                        className="column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                        className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
                         data-test=""
                       >
                         Write data about developers

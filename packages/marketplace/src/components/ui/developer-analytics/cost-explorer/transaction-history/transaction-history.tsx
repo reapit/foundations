@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
-import { H4, Grid, GridItem, H6, fetcherWithBlob, Loader, setQueryParams } from '@reapit/elements'
+import { H5, Grid, GridItem, H6, fetcherWithBlob, Loader, setQueryParams } from '@reapit/elements'
 import styles from '@/styles/pages/developer-analytics.scss?mod'
 import { selectDeveloperApps } from '@/selector/developer'
 import { ReduxState } from '@/types/core'
@@ -174,7 +174,7 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = () => {
   return (
     <div>
       <div className={styles.transactionTitle}>
-        <H4>Transaction History</H4>
+        <H5>Transaction History</H5>
       </div>
       {currentPage === 1
         ? renderFirstPage({ developerAppIds, previousTransactionDates })

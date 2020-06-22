@@ -44,7 +44,7 @@ export const Tile: React.FC<TileProps> = ({
           ) : null}
           <div className="media-content">
             <H4 className="text-ellipisis">{heading}</H4>
-            <SubTitleH6 className="text-ellipisis">{subHeading}</SubTitleH6>
+            <SubTitleH6 className="text-ellipisis mb-3">{subHeading}</SubTitleH6>
             {children}
           </div>
           {menu && <div className="media-right">{menu}</div>}
