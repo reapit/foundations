@@ -76,7 +76,7 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailState }) => {
   return (
     <FlexContainerBasic flexColumn>
       {isVisibleUninstallModal && (
-        <Modal renderChildren visible={isVisibleUninstallModal}>
+        <Modal renderChildren visible={isVisibleUninstallModal} afterClose={handleAfterClose({ setUninstallApp })}>
           <ConfirmUninstall
             isSetAppDetailStaleAfterUninstallSuccess={false}
             appName={name}
