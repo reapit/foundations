@@ -47,11 +47,19 @@ afterEach(() => {
 })
 
 describe('drawCanvasAfterCrop', () => {
-  it('should call functions with correct params', () => {
+  it('should call functions with correct params when !resizeDimensions', () => {
     const fn = drawCanvasAfterCrop({ completedCrop, previewCanvasRef, imgRef })
     fn()
     expect(getContextMock).toHaveBeenCalledWith('2d')
     expect(drawImageMock).toHaveBeenCalledWith(imgRef.current, 0, 0, 50, 50, 0, 0, 100, 100)
+  })
+
+  it('should call functions with correct params when resizeDimensions is set', () => {
+    const resizeDimensions = { width: 200, height: 200 }
+    const fn = drawCanvasAfterCrop({ completedCrop, previewCanvasRef, imgRef, resizeDimensions })
+    fn()
+    expect(getContextMock).toHaveBeenCalledWith('2d')
+    expect(drawImageMock).toHaveBeenCalledWith(imgRef.current, 0, 0, 50, 50, 0, 0, 200, 200)
   })
 
   it('should return if falsy params', () => {
