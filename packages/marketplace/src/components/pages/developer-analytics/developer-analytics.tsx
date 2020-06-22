@@ -79,9 +79,7 @@ export const DeveloperAnalyticsPage: React.FC<DeveloperAnalyticsPageProps> = () 
       <FlexContainerBasic hasPadding flexColumn>
         <FlexContainerResponsive flexColumn hasBackground hasPadding className={styles.wrapAnalytics}>
           <H3>Dashboard</H3>
-          <div className={styles.tabContainer}>
-            <Tabs tabConfigs={tabConfigs({ currentTab, history })} />
-          </div>
+          <Tabs tabConfigs={tabConfigs({ currentTab, history })} />
           <div>{renderTabContent(currentTab)}</div>
         </FlexContainerResponsive>
       </FlexContainerBasic>

@@ -202,7 +202,7 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
                           key="09043eb8-9e5e-4650-b7f1-f0cb62699027"
                         >
                           <div
-                            className="column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                            className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
                             data-test=""
                           >
                             <InstalledAppCard
@@ -287,10 +287,10 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
                                             </h4>
                                           </Component>
                                           <Component
-                                            className="text-ellipisis"
+                                            className="text-ellipisis mb-3"
                                           >
                                             <h6
-                                              className="subtitle is-6 text-ellipisis "
+                                              className="subtitle is-6 text-ellipisis mb-3 "
                                               id=""
                                             >
                                               Pete's Proptech World Ltd
@@ -312,7 +312,7 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
                           key="261da083-cee2-4f5c-a18f-8f9375f1f5af"
                         >
                           <div
-                            className="column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                            className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
                             data-test=""
                           >
                             <InstalledAppCard
@@ -397,10 +397,10 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
                                             </h4>
                                           </Component>
                                           <Component
-                                            className="text-ellipisis"
+                                            className="text-ellipisis mb-3"
                                           >
                                             <h6
-                                              className="subtitle is-6 text-ellipisis "
+                                              className="subtitle is-6 text-ellipisis mb-3 "
                                               id=""
                                             >
                                               Pete's Proptech World Ltd

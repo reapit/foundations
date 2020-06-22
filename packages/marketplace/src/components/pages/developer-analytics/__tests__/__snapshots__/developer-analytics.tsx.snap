@@ -26,26 +26,24 @@ exports[`AnalyticsPage should match a snapshot 1`] = `
       <Component>
         Dashboard
       </Component>
-      <div>
-        <Component
-          tabConfigs={
-            Array [
-              Object {
-                "active": true,
-                "displayText": "DETAILED",
-                "onTabClick": [Function],
-                "tabIdentifier": "detailed",
-              },
-              Object {
-                "active": false,
-                "displayText": "Cost Explorer",
-                "onTabClick": [Function],
-                "tabIdentifier": "costexplorer",
-              },
-            ]
-          }
-        />
-      </div>
+      <Component
+        tabConfigs={
+          Array [
+            Object {
+              "active": true,
+              "displayText": "DETAILED",
+              "onTabClick": [Function],
+              "tabIdentifier": "detailed",
+            },
+            Object {
+              "active": false,
+              "displayText": "Cost Explorer",
+              "onTabClick": [Function],
+              "tabIdentifier": "costexplorer",
+            },
+          ]
+        }
+      />
       <div>
         <Component />
       </div>

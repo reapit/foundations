@@ -20,7 +20,7 @@ exports[`Tile should match snapshot when HIGHTLIGHT false 1`] = `
           mockHeading
         </Component>
         <Component
-          className="text-ellipisis"
+          className="text-ellipisis mb-3"
         />
         <div>
           City
@@ -60,7 +60,7 @@ exports[`Tile should match snapshot when HIGHTLIGHT true 1`] = `
           mockHeading
         </Component>
         <Component
-          className="text-ellipisis"
+          className="text-ellipisis mb-3"
         />
         <div>
           City

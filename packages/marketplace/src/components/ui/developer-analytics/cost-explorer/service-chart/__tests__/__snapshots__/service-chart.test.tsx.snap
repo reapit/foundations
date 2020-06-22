@@ -74,12 +74,12 @@ exports[`ServiceChart should match a snapshot 1`] = `
       >
         <div>
           <Component>
-            <h4
-              className="title is-4  "
+            <h5
+              className="title is-5  "
               id=""
             >
               Services
-            </h4>
+            </h5>
           </Component>
           <Bar
             data={

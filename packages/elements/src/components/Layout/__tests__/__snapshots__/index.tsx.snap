@@ -66,7 +66,7 @@ exports[`LayoutComponents should match a snapshot for GridFourCol 1`] = `
 
 exports[`LayoutComponents should match a snapshot for GridFourColItem 1`] = `
 <div
-  className="column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+  className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
   data-test=""
 >
   <Component
@@ -88,7 +88,7 @@ exports[`LayoutComponents should match a snapshot for GridItem 1`] = `
 
 exports[`LayoutComponents should match a snapshot for GridThreeColItem 1`] = `
 <div
-  className="column is-multiline is-half-tablet is-one-third-widescreen "
+  className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen "
   data-test=""
 >
   <Component

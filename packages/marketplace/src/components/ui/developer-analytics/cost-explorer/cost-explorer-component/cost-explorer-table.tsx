@@ -32,12 +32,6 @@ export const prepareTableData = data => {
   return preparedData
 }
 
-interface PrepareTableColumns {
-  totalCost: number
-  totalEndpoints: number
-  totalRequests: number
-}
-
 export const prepareTableColumns = (monthlyBilling?: MonthlyBilling | null) => {
   const totalCost = monthlyBilling?.totalCost || 0
   return [

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Table, H4, Loader, toLocalTime, Pagination, Grid, GridItem } from '@reapit/elements'
+import { Table, H5, Loader, toLocalTime, Pagination, Grid, GridItem } from '@reapit/elements'
 import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { AppInstallationsState } from '@/reducers/app-installations'
 import { DeveloperState } from '@/reducers/developer'
@@ -141,7 +141,7 @@ export const InstallationAppSection: React.FC<{
               <DeveloperInstallationsChart data={installationFilterAppDataArrayWithName} />
             </GridItem>
             <GridItem className="is-half">
-              <H4>Current Installations</H4>
+              <H5>Current Installations</H5>
               <p className="is-italic">
                 The installations table below shows the individual installations per client with a total number of
                 installations per app
