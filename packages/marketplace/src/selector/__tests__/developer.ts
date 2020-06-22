@@ -208,7 +208,7 @@ describe('selectMonthlyBilling', () => {
   it('should run correctly and return undefined', () => {
     const input = {} as ReduxState
     const result = selectMonthlyBilling(input)
-    expect(result).toEqual(undefined)
+    expect(result).toEqual({})
   })
 })
 

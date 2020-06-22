@@ -7,6 +7,11 @@ export const generateHeader = (marketplaceApiKey): StringMap => ({
   'X-Api-Key': marketplaceApiKey,
 })
 
+export const generateHeaderV2 = (marketplaceApiKey): StringMap => ({
+  ...generateHeader(marketplaceApiKey),
+  'api-version': '2',
+})
+
 export const initAuthorizedRequestHeaders = async () => ({
   Authorization: `Bearer ${await getAccessToken()}`,
   'api-version': API_VERSION,

@@ -24,6 +24,7 @@ import {
   ScopeModel,
   DeveloperModel,
   AppDetailModel,
+  BillingBreakdownForMonthV2Model,
 } from '@reapit/foundations-ts-definitions'
 import { developerAppShowModal } from '@/actions/developer-app-modal'
 import { SubscriptionsListResult } from '@/services/subscriptions'
@@ -96,7 +97,7 @@ export interface DeveloperState {
   isServiceChartLoading: boolean
   error: unknown
   isMonthlyBillingLoading: boolean
-  monthlyBilling: MonthlyBilling | null
+  monthlyBilling: BillingBreakdownForMonthV2Model | null
   webhookPingTestStatus: WebhookPingTestStatus
   subscriptions: Subscriptions
 }
