@@ -15,7 +15,6 @@ import {
   Form,
   LevelRight,
 } from '@reapit/elements'
-import styles from '@/styles/pages/developer-settings-organisation-tab.scss?mod'
 import { companyInformationFormSchema } from './validation-schema'
 
 export const CompanyInformation = () => {
@@ -102,7 +101,7 @@ export const CompanyInformation = () => {
               </Grid>
 
               <LevelRight>
-                <Button className={styles.buttonSave} type="submit" variant="primary">
+                <Button className="mt-8" type="submit" variant="primary">
                   Save
                 </Button>
               </LevelRight>

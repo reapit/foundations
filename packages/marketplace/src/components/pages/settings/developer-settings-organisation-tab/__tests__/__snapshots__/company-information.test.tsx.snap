@@ -256,6 +256,7 @@ exports[`ComapnyInformation should match a snapshot when no error 1`] = `
           </Component>
           <Component>
             <Component
+              className="mt-8"
               type="submit"
               variant="primary"
             >
