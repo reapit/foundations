@@ -1,10 +1,9 @@
 import * as React from 'react'
 import dayjs from 'dayjs'
 import { useDispatch, useSelector } from 'react-redux'
-import { InstallationModel, PagedResultInstallationModel_ } from '@reapit/foundations-ts-definitions'
-import { Button, Table, ModalHeader, ModalBody, Pagination, Alert, Loader } from '@reapit/elements'
+import { InstallationModel } from '@reapit/foundations-ts-definitions'
+import { Button, Table, ModalHeader, ModalBody, Pagination, Alert, Loader, DATE_TIME_FORMAT } from '@reapit/elements'
 import { InstallationParams, appInstallationsRequestData } from '@/actions/app-installations'
-import { ReduxState } from '@/types/core'
 import { selectInstallationAppData, selectInstallAppLoading } from '@/selector/installations'
 import { Dispatch } from 'redux'
 
@@ -66,7 +65,7 @@ export const generateColumns = (
     },
     {
       Header: 'Date Installed',
-      accessor: d => dayjs(d.created).format('DD/MM/YYYY'),
+      accessor: d => dayjs(d.created).format(DATE_TIME_FORMAT.DATE_FORMAT),
     },
     {
       Header: 'Uninstall',
@@ -109,7 +108,7 @@ export const Installations: React.FC<InstallationsProps> = ({ appId, onUninstall
 
   return (
     <>
-      <ModalHeader title="Installations" afterClose={afterClose as () => void} />
+      <ModalHeader title="Installations" afterClose={afterClose} />
       <ModalBody
         body={
           <>
