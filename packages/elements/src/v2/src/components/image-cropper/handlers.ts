@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { generateBase64FromCanvas } from './utils'
+import { generateBase64FromCanvas, calculateOutputDimensions } from './utils'
 import { CompletedCrop, OnCropClick, Crop, ResizeDimensions } from './types'
 
 const DEFAULT_CANVAS_AXIS_COORDINATE = 0
@@ -31,23 +31,12 @@ export const drawCanvasAfterCrop = ({
 
   const cropRatio = crop.width / crop.height
 
-  let outputWidth
-  let outputHeight
-  // if not set resizeDimensions, calculate from original width & height
-  if (!resizeDimensions) {
-    // get width or height, based on ratio
-    if (cropRatio > 1) {
-      outputWidth = originWidth
-      outputHeight = outputWidth / cropRatio
-    } else {
-      outputHeight = originHeight
-      outputWidth = outputHeight * cropRatio
-    }
-  } else {
-    // if set, take that
-    outputWidth = resizeDimensions.width
-    outputHeight = resizeDimensions.height
-  }
+  const { outputWidth, outputHeight } = calculateOutputDimensions({
+    cropRatio,
+    resizeDimensions,
+    originHeight,
+    originWidth,
+  })
 
   const ctx = canvas.getContext('2d')
 
