@@ -1,17 +1,18 @@
 import * as React from 'react'
 import { mount, shallow } from 'enzyme'
 import appState from '@/reducers/__stubs__/app-state'
-import { DeveloperEditionModal } from '../developer-edition-modal'
+import DeveloperConfirmSubscription from '../developer-confirm-subscription'
 import { Provider, useSelector } from 'react-redux'
 import configureStore from 'redux-mock-store'
-import { selectLoginIdentity } from '@/selector/auth'
+import { selectCreateDeveloperSubscriptionLoading } from '@/selector/developer-subscriptions'
+import { developerStub } from '@/sagas/__stubs__/developer'
 
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
   useSelector: jest.fn(() => jest.fn()),
 }))
 
-describe('DeveloperEditionModal', () => {
+describe('DeveloperConfirmSubscription', () => {
   let store
   beforeEach(() => {
     const mockStore = configureStore()
@@ -24,14 +25,18 @@ describe('DeveloperEditionModal', () => {
 
   it('should match snapshot when visible', () => {
     const wrapper = mount(
-      <DeveloperEditionModal visible={true} confirmSubscription={jest.fn()} afterClose={jest.fn()} />,
+      <Provider store={store}>
+        <DeveloperConfirmSubscription developer={developerStub} visible={true} handleCreateSubscription={jest.fn()} />
+      </Provider>,
     )
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should match snapshot when not visible', () => {
     const wrapper = shallow(
-      <DeveloperEditionModal visible={false} confirmSubscription={jest.fn()} afterClose={jest.fn()} />,
+      <Provider store={store}>
+        <DeveloperConfirmSubscription developer={developerStub} visible={false} handleCreateSubscription={jest.fn()} />
+      </Provider>,
     )
     expect(wrapper).toMatchSnapshot()
   })
@@ -41,10 +46,10 @@ describe('DeveloperEditionModal', () => {
 
     mount(
       <Provider store={store}>
-        <DeveloperEditionModal visible={true} confirmSubscription={jest.fn()} afterClose={jest.fn()} />
+        <DeveloperConfirmSubscription developer={developerStub} visible={true} handleCreateSubscription={jest.fn()} />
       </Provider>,
     )
 
-    expect(useSelector).toHaveBeenCalledWith(selectLoginIdentity)
+    expect(useSelector).toHaveBeenCalledWith(selectCreateDeveloperSubscriptionLoading)
   })
 })

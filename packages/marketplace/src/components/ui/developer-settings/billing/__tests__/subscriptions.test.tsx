@@ -6,11 +6,12 @@ import {
   Subcriptions,
   handleCloseConfirmModal,
 } from '../subscriptions'
-import { SubscriptionModel } from '@/services/subscriptions'
-import { developerFetchSubscriptions, developerDeleteSubscription } from '@/actions/developer'
+import { SubscriptionModel } from '@reapit/foundations-ts-definitions'
+import { developerFetchSubscriptions, developerDeleteSubscription } from '@/actions/developer-subscriptions'
 import * as ReactRedux from 'react-redux'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
+import { subscriptionModelStub } from '@/sagas/__stubs__/developer-subscriptions'
 import { mount } from 'enzyme'
 import React from 'react'
 
@@ -22,20 +23,7 @@ describe('TimeCell', () => {
 
 describe('genarateTableData', () => {
   it('should match snapshot', () => {
-    const data = [
-      {
-        id: '201fa563-0b11-4576-8a11-9c9ea5cb93a8',
-        created: '2020-06-15T03:48:40',
-        renews: '2020-07-15',
-        developerId: '909dcdc1-6657-4a37-a5cc-05acd79d6a47',
-        applicationId: 'fefeee6e-0661-440e-80c3-4e3d4c2198c4',
-        user: 'test@reapit.com',
-        type: 'applicationListing',
-        summary: 'Application listing for Messenger',
-        cost: 100,
-        frequency: 'monthly',
-      },
-    ] as SubscriptionModel[]
+    const data = [subscriptionModelStub] as SubscriptionModel[]
     const fn = jest.fn()
 
     const result = genarateTableData(data, fn)

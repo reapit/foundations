@@ -16,8 +16,6 @@ import {
   fetchMonthlyBillingSuccess,
   fetchMonthlyBillingFailure,
   developerSetWebhookPingStatus,
-  developerFetchSubscriptions,
-  developerFetchSubscriptionsSuccess,
 } from '@/actions/developer'
 import {
   PagedResultAppSummaryModel_,
@@ -27,7 +25,6 @@ import {
   BillingBreakdownForMonthV2Model,
 } from '@reapit/foundations-ts-definitions'
 import { developerAppShowModal } from '@/actions/developer-app-modal'
-import { SubscriptionsListResult } from '@/services/subscriptions'
 
 export interface DeveloperRequestParams {
   page: number
@@ -59,11 +56,6 @@ export type Billing = {
 
 export type WebhookPingTestStatus = 'SUCCESS' | 'FAILED' | 'LOADING' | null
 
-export type Subscriptions = {
-  data: SubscriptionsListResult | null
-  loading: boolean
-}
-
 export interface DeveloperState {
   loading: boolean
   developerAppDetail: DeveloperAppDetailState
@@ -77,7 +69,6 @@ export interface DeveloperState {
   isMonthlyBillingLoading: boolean
   monthlyBilling: BillingBreakdownForMonthV2Model | null
   webhookPingTestStatus: WebhookPingTestStatus
-  subscriptions: Subscriptions
 }
 
 export type AppDetailData = (AppDetailModel & { apiKey?: string }) | null
@@ -105,10 +96,6 @@ export const defaultState: DeveloperState = {
   isMonthlyBillingLoading: false,
   monthlyBilling: null,
   webhookPingTestStatus: null,
-  subscriptions: {
-    loading: false,
-    data: null,
-  },
 }
 
 const developerReducer = (state: DeveloperState = defaultState, action: Action<any>): DeveloperState => {
@@ -237,27 +224,6 @@ const developerReducer = (state: DeveloperState = defaultState, action: Action<a
     return {
       ...state,
       isMonthlyBillingLoading: false,
-    }
-  }
-
-  if (isType(action, developerFetchSubscriptions)) {
-    return {
-      ...state,
-      subscriptions: {
-        ...state.subscriptions,
-        loading: true,
-      },
-    }
-  }
-
-  if (isType(action, developerFetchSubscriptionsSuccess)) {
-    const { data = null } = action
-    return {
-      ...state,
-      subscriptions: {
-        data,
-        loading: false,
-      },
     }
   }
 

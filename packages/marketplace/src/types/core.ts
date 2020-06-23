@@ -25,6 +25,7 @@ import { IntegrationTypeState } from '@/reducers/app-integration-types'
 import { WebhookEditState } from '@/reducers/webhook-edit-modal'
 import { WebhookState } from '@/reducers/webhook-subscriptions'
 import { ClientRootState } from '@/reducers/client'
+import { DeveloperSubscriptionsState } from '@/reducers/developer-subscriptions'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -89,4 +90,5 @@ export interface ReduxState {
   desktopIntegrationTypes: IntegrationTypeState
   webhookEdit: WebhookEditState
   webhooks: WebhookState
+  developerSubscriptions: DeveloperSubscriptionsState
 }
