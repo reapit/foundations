@@ -4,7 +4,6 @@ import ActionTypes from '../../constants/action-types'
 import { appsDataStub } from '../../sagas/__stubs__/apps'
 import { billing } from '@/sagas/__stubs__/billing'
 import { monthlyBillingData } from '@/sagas/__stubs__/monthly-billing'
-import { developerState } from '@/sagas/__stubs__/developer'
 
 describe('developer reducer', () => {
   it('should return default state if action not matched', () => {
@@ -147,32 +146,6 @@ describe('developer reducer', () => {
     const expected = {
       ...defaultState,
       webhookPingTestStatus: 'SUCCESS',
-    }
-    expect(newState).toEqual(expected)
-  })
-
-  it('should set loading to true when call DEVELOPER_FETCH_SUBSCRIPTIONS is called', () => {
-    const newState = developerReducer(undefined, {
-      type: ActionTypes.DEVELOPER_FETCH_SUBSCRIPTIONS as ActionType,
-      data: developerState.subscriptions.data,
-    })
-    const expected = {
-      ...defaultState,
-      subscriptions: {
-        ...defaultState.subscriptions,
-        loading: true,
-      },
-    }
-    expect(newState).toEqual(expected)
-  })
-
-  it('should set loading to false when call DEVELOPER_FETCH_SUBSCRIPTIONS_SUCCESS is called', () => {
-    const newState = developerReducer(undefined, {
-      type: ActionTypes.DEVELOPER_FETCH_SUBSCRIPTIONS_SUCCESS as ActionType,
-      data: developerState.subscriptions.data,
-    })
-    const expected = {
-      ...defaultState,
     }
     expect(newState).toEqual(expected)
   })

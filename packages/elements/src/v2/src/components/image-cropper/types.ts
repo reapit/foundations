@@ -25,21 +25,29 @@ export type OnCropClick = ({
   completedCrop: CompletedCrop
 }) => any
 
+export type ResizeDimensions = {
+  width: number
+  height: number
+}
+
 export type ImageCropperProps = {
   upImg: string
   setUpImg: React.Dispatch<string>
   visible: boolean
   setVisible: React.Dispatch<boolean>
-  croppedImage: string
-  setCroppedImage: React.Dispatch<string>
+  // null is first init
+  croppedImage: string | null
+  setCroppedImage: React.Dispatch<string | null>
   onClose: () => any
   onCropClick: OnCropClick
-  aspect?: number
   children?: React.ReactNode
+  aspect?: number
+  resizeDimensions?: ResizeDimensions
 }
 
 export type ImageCropperWithInputProps = FileInputProps & {
   aspect?: number
+  resizeDimensions?: ResizeDimensions
 }
 
 export type DrawCanvasAfterCropParams = {}

@@ -28,6 +28,7 @@ import appHttpTrafficEventReducer from '@/reducers/app-http-traffic-event'
 import integrationTypes from '@/reducers/app-integration-types'
 import webhookEditReducer from '../reducers/webhook-edit-modal'
 import webhookSubscriptions from '@/reducers/webhook-subscriptions'
+import developerSubscriptions from '@/reducers/developer-subscriptions'
 
 import authSagas from '@/sagas/auth'
 import appsSaga from '@/sagas/apps/apps'
@@ -56,6 +57,7 @@ import { injectSwitchModeToWindow } from '@reapit/elements'
 import webhookEditSagas from '../sagas/webhook-edit-modal'
 import webComponentSagas from '../sagas/web-component'
 import subscriptionsSagas from '../sagas/developer-subscriptions'
+import developerSubscriptionsSagas from '../sagas/developer-subscriptions'
 
 export class Store {
   static _instance: Store
@@ -100,6 +102,7 @@ export class Store {
     desktopIntegrationTypes: integrationTypes,
     webhookEdit: webhookEditReducer,
     webhooks: webhookSubscriptions,
+    developerSubscriptions,
   })
 
   static sagas = function*() {
@@ -129,6 +132,7 @@ export class Store {
       fork(webhookSubscriptionsSagas),
       fork(webComponentSagas),
       fork(subscriptionsSagas),
+      fork(developerSubscriptionsSagas),
     ])
   }
 

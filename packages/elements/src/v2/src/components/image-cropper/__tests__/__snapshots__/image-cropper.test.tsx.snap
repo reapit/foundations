@@ -97,7 +97,7 @@ exports[`ImageCropper should match snapshots with multiple conditions 2`] = `
 exports[`ImageCropperWithInput should match snapshots with multiple conditions 1`] = `
 <Component
   aspect={1.7777777777777777}
-  croppedImage=""
+  croppedImage={null}
   onClose={[Function]}
   onCropClick={[Function]}
   setCroppedImage={[Function]}
@@ -115,7 +115,7 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 1
 
 exports[`ImageCropperWithInput should match snapshots with multiple conditions 2`] = `
 <Component
-  croppedImage=""
+  croppedImage={null}
   onClose={[Function]}
   onCropClick={[Function]}
   setCroppedImage={[Function]}

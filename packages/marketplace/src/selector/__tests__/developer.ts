@@ -11,8 +11,6 @@ import {
   selectMonthlyBilling,
   selectMonthlyBillingLoading,
   selectWebhookTestStatus,
-  selectSubscriptions,
-  selectSubscriptionsLoading,
 } from '../developer'
 
 describe('selectDeveloperId', () => {
@@ -208,7 +206,7 @@ describe('selectMonthlyBilling', () => {
   it('should run correctly and return undefined', () => {
     const input = {} as ReduxState
     const result = selectMonthlyBilling(input)
-    expect(result).toEqual(undefined)
+    expect(result).toEqual({})
   })
 })
 
@@ -221,35 +219,5 @@ describe('selectWebhookTestStatus', () => {
     } as ReduxState
     const result = selectWebhookTestStatus(input)
     expect(result).toEqual('SUCCESS')
-  })
-})
-
-describe('selectSubscriptions', () => {
-  it('should run correctly', () => {
-    const input = {
-      developer: {
-        subscriptions: {
-          data: {},
-          loading: false,
-        },
-      },
-    } as ReduxState
-    const result = selectSubscriptions(input)
-    expect(result).toEqual(input.developer.subscriptions.data)
-  })
-})
-
-describe('selectSubscriptionsLoading', () => {
-  it('should run correctly', () => {
-    const input = {
-      developer: {
-        subscriptions: {
-          data: {},
-          loading: false,
-        },
-      },
-    } as ReduxState
-    const result = selectSubscriptionsLoading(input)
-    expect(result).toEqual(false)
   })
 })

@@ -9,6 +9,7 @@ import {
   HandleUseEffectParams,
   renderChart,
   mapServiceChartDataSet,
+  datasets,
 } from '../service-chart'
 import { developerState } from '@/sagas/__stubs__/developer'
 import { fetchBilling } from '@/actions/developer'
@@ -123,17 +124,15 @@ describe('ServiceChart', () => {
           'May 2020',
         ],
         datasets: [
-          {
-            label: 'Resource',
-            backgroundColor: 'rgba(255,99,132,0.2)',
-            borderColor: 'rgba(255,99,132,1)',
-            borderWidth: 1,
-            hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-            hoverBorderColor: 'rgba(255,99,132,1)',
-            data: [0, 0, 0, 0, 0, 8.1, 0] as number[],
-          },
+          // API calls
+          { ...datasets[0], data: [1, 0, 0, 0, 0, 0.3, 0.594] },
+          // App Listing
+          { ...datasets[1], data: [1, 0, 0, 0, 0, 0, 0] },
+          // Developer Edition
+          { ...datasets[2], data: [1, 0, 0, 0, 0, 0, 0] },
         ],
       }
+
       expect(result).toEqual(expected)
     })
   })

@@ -11,7 +11,10 @@ import {
 import { CompletedCrop } from '../types'
 import { generateBase64FromCanvas } from '../utils'
 
-jest.mock('../utils')
+jest.mock('../utils', () => ({
+  calculateOutputDimensions: jest.fn(() => ({ outputWidth: 100, outputHeight: 100 })),
+  generateBase64FromCanvas: jest.fn(),
+}))
 
 const setStateMock = jest.fn()
 
@@ -47,7 +50,7 @@ afterEach(() => {
 })
 
 describe('drawCanvasAfterCrop', () => {
-  it('should call functions with correct params', () => {
+  it('should call functions with correct params when !resizeDimensions', () => {
     const fn = drawCanvasAfterCrop({ completedCrop, previewCanvasRef, imgRef })
     fn()
     expect(getContextMock).toHaveBeenCalledWith('2d')

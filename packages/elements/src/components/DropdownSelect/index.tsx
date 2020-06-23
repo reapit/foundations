@@ -44,7 +44,7 @@ export const DropdownSelect: React.FC<DropdownSelectProps> = ({
     const option = options.find(option => option.value === value) as SelectOption
     return (
       <CustomTag
-        label={option?.value}
+        label={option?.label}
         description={option?.description || ''}
         link={option?.link || ''}
         onClose={onClose}

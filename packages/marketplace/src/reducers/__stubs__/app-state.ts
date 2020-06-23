@@ -45,10 +45,6 @@ const appState: ReduxState = {
     isMonthlyBillingLoading: true,
     monthlyBilling: null,
     webhookPingTestStatus: null,
-    subscriptions: {
-      data: null,
-      loading: false,
-    },
   },
   auth: {
     error: false,
@@ -223,6 +219,17 @@ const appState: ReduxState = {
       error: false,
       topics: {
         _embedded: [],
+      },
+    },
+  },
+  developerSubscriptions: {
+    create: {
+      loading: false,
+    },
+    list: {
+      loading: false,
+      data: {
+        data: [],
       },
     },
   },

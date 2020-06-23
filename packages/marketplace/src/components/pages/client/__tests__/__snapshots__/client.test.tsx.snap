@@ -362,19 +362,19 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
                                           htmlFor="searchBy"
                                         />
                                         <Component
-                                          className="is-gapless"
+                                          className=""
                                           isMultiLine={true}
                                         >
                                           <div
-                                            className="columns is-multiline is-gapless"
+                                            className="columns is-multiline "
                                             data-test=""
                                           >
                                             <Component
-                                              className="is-full"
+                                              className=""
                                               key="0"
                                             >
                                               <div
-                                                className="column  is-full"
+                                                className="column  "
                                                 data-test=""
                                               >
                                                 <div
@@ -400,11 +400,11 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
                                               </div>
                                             </Component>
                                             <Component
-                                              className="is-full"
+                                              className=""
                                               key="1"
                                             >
                                               <div
-                                                className="column  is-full"
+                                                className="column  "
                                                 data-test=""
                                               >
                                                 <div
@@ -889,19 +889,19 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                                           htmlFor="searchBy"
                                         />
                                         <Component
-                                          className="is-gapless"
+                                          className=""
                                           isMultiLine={true}
                                         >
                                           <div
-                                            className="columns is-multiline is-gapless"
+                                            className="columns is-multiline "
                                             data-test=""
                                           >
                                             <Component
-                                              className="is-full"
+                                              className=""
                                               key="0"
                                             >
                                               <div
-                                                className="column  is-full"
+                                                className="column  "
                                                 data-test=""
                                               >
                                                 <div
@@ -927,11 +927,11 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                                               </div>
                                             </Component>
                                             <Component
-                                              className="is-full"
+                                              className=""
                                               key="1"
                                             >
                                               <div
-                                                className="column  is-full"
+                                                className="column  "
                                                 data-test=""
                                               >
                                                 <div
@@ -1416,19 +1416,19 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
                                           htmlFor="searchBy"
                                         />
                                         <Component
-                                          className="is-gapless"
+                                          className=""
                                           isMultiLine={true}
                                         >
                                           <div
-                                            className="columns is-multiline is-gapless"
+                                            className="columns is-multiline "
                                             data-test=""
                                           >
                                             <Component
-                                              className="is-full"
+                                              className=""
                                               key="0"
                                             >
                                               <div
-                                                className="column  is-full"
+                                                className="column  "
                                                 data-test=""
                                               >
                                                 <div
@@ -1454,11 +1454,11 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
                                               </div>
                                             </Component>
                                             <Component
-                                              className="is-full"
+                                              className=""
                                               key="1"
                                             >
                                               <div
-                                                className="column  is-full"
+                                                className="column  "
                                                 data-test=""
                                               >
                                                 <div
@@ -2032,19 +2032,19 @@ exports[`Client should match a snapshot when featured apps is undefined 1`] = `
                                           htmlFor="searchBy"
                                         />
                                         <Component
-                                          className="is-gapless"
+                                          className=""
                                           isMultiLine={true}
                                         >
                                           <div
-                                            className="columns is-multiline is-gapless"
+                                            className="columns is-multiline "
                                             data-test=""
                                           >
                                             <Component
-                                              className="is-full"
+                                              className=""
                                               key="0"
                                             >
                                               <div
-                                                className="column  is-full"
+                                                className="column  "
                                                 data-test=""
                                               >
                                                 <div
@@ -2070,11 +2070,11 @@ exports[`Client should match a snapshot when featured apps is undefined 1`] = `
                                               </div>
                                             </Component>
                                             <Component
-                                              className="is-full"
+                                              className=""
                                               key="1"
                                             >
                                               <div
-                                                className="column  is-full"
+                                                className="column  "
                                                 data-test=""
                                               >
                                                 <div

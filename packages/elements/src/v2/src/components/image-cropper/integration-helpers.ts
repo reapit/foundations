@@ -12,7 +12,7 @@ export const passedFunctions = {
   }: {
     setUpImg: React.Dispatch<string>
     setVisible: React.Dispatch<boolean>
-    setCroppedImage: React.Dispatch<string>
+    setCroppedImage: React.Dispatch<string | null>
   }) => (base64: string) => {
     setUpImg(base64)
     setCroppedImage(base64)

@@ -1,13 +1,24 @@
-import { logger } from '@reapit/utils'
 import { put, takeLatest, all, fork, call } from 'redux-saga/effects'
 import { errorThrownServer } from '@/actions/error'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
-import { fetchSubscriptionsList, FetchSubscriptionsListParams, deleteSubscription } from '@/services/subscriptions'
-import { developerFetchSubscriptionsSuccess, developerFetchSubscriptions } from '@/actions/developer'
-import { select } from 'redux-saga/effects' //    <- here it is
+import { select } from 'redux-saga/effects'
 import { selectDeveloperId } from '@/selector/auth'
 import errorMessages from '@/constants/error-messages'
+import { logger } from '@reapit/utils'
+import {
+  developerFetchSubscriptions,
+  developerFetchSubscriptionsSuccess,
+  developerCreateSubscriptionSuccess,
+  developerCreateSubscriptionFalure,
+  CreateSubscriptionParams,
+} from '@/actions/developer-subscriptions'
+import {
+  createDeveloperSubscription,
+  fetchSubscriptionsList,
+  FetchSubscriptionsListParams,
+  deleteSubscription,
+} from '@/services/developer-subscriptions'
 
 export const developerFetchSubcriptionsList = function*({ data }: Action<FetchSubscriptionsListParams>) {
   try {
@@ -18,6 +29,27 @@ export const developerFetchSubcriptionsList = function*({ data }: Action<FetchSu
     const response = yield call(fetchSubscriptionsList, { developerId })
     yield put(developerFetchSubscriptionsSuccess(response))
   } catch (err) {
+    logger(err)
+    yield put(
+      errorThrownServer({
+        type: 'SERVER',
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
+    )
+  }
+}
+
+export const developerCreateSubscription = function*({ data }: Action<CreateSubscriptionParams>) {
+  try {
+    const response = yield call(createDeveloperSubscription, data.params)
+    if (response) {
+      yield put(developerCreateSubscriptionSuccess(response))
+    } else {
+      yield put(developerCreateSubscriptionFalure())
+    }
+    data.onCreated()
+  } catch (err) {
+    data.onCreated()
     logger(err)
     yield put(
       errorThrownServer({
@@ -50,12 +82,24 @@ export const developerFetchSubcriptionsListListen = function*() {
     developerFetchSubcriptionsList,
   )
 }
+
+export const developerCreateSubcriptionListen = function*() {
+  yield takeLatest<Action<CreateSubscriptionParams>>(
+    ActionTypes.DEVELOPER_SUBSCRIPTION_CREATE,
+    developerCreateSubscription,
+  )
+}
+
 export const developerDeleteSubcriptionListen = function*() {
   yield takeLatest<Action<string>>(ActionTypes.DEVELOPER_DELETE_SUBSCRIPTION, developerDeleteSubcription)
 }
 
 export const developerSubcriptionsListSagas = function*() {
-  yield all([fork(developerFetchSubcriptionsListListen), fork(developerDeleteSubcriptionListen)])
+  yield all([
+    fork(developerFetchSubcriptionsListListen),
+    fork(developerCreateSubcriptionListen),
+    fork(developerDeleteSubcriptionListen),
+  ])
 }
 
 export default developerSubcriptionsListSagas

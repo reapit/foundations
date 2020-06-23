@@ -1,4 +1,4 @@
-import { generateDefaultCrop, generateDownload, generateBase64FromCanvas } from '../utils'
+import { generateDefaultCrop, generateDownload, generateBase64FromCanvas, calculateOutputDimensions } from '../utils'
 import { CompletedCrop } from '../types'
 
 const completedCrop: CompletedCrop = {
@@ -59,5 +59,33 @@ describe('generateBase64FromCanvas', () => {
   it('should return correctly with undefined', () => {
     const result = generateBase64FromCanvas(previewCanvasRef.current, undefined as any)
     expect(result).toBe('')
+  })
+})
+
+describe('calculateOutputDimensions', () => {
+  it('should return correctly with defined resizeDimensions', () => {
+    const result = calculateOutputDimensions({
+      cropRatio: 2,
+      resizeDimensions: { width: 100, height: 50 },
+      originWidth: 200,
+      originHeight: 100,
+    })
+    expect(result).toEqual({ outputWidth: 100, outputHeight: 50 })
+  })
+
+  it('should return correctly with undefined resizeDimensions', () => {
+    const result1 = calculateOutputDimensions({
+      cropRatio: 2,
+      originWidth: 200,
+      originHeight: 100,
+    })
+    expect(result1).toEqual({ outputWidth: 200, outputHeight: 100 })
+
+    const result2 = calculateOutputDimensions({
+      cropRatio: 0.5,
+      originWidth: 100,
+      originHeight: 200,
+    })
+    expect(result2).toEqual({ outputWidth: 100, outputHeight: 200 })
   })
 })
