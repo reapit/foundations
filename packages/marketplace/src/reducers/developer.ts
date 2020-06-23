@@ -24,6 +24,7 @@ import {
   ScopeModel,
   DeveloperModel,
   AppDetailModel,
+  BillingBreakdownForMonthV2Model,
 } from '@reapit/foundations-ts-definitions'
 import { developerAppShowModal } from '@/actions/developer-app-modal'
 import { SubscriptionsListResult } from '@/services/subscriptions'
@@ -56,28 +57,6 @@ export type Billing = {
   requestsByPeriod: RequestByPeriod[]
 }
 
-export type EndpointBilling = {
-  cost: number
-  endpoint: number
-  requestCount: number
-}
-
-export type RequestBilling = {
-  cost: number
-  endpointCount: number
-  requestCount: number
-  serviceName: string
-  requestsByEndpoint: EndpointBilling[]
-}
-
-export type MonthlyBilling = {
-  period: string
-  totalCost: number
-  totalEndpoints: number
-  totalRequests: number
-  requestsByService: RequestBilling[]
-}
-
 export type WebhookPingTestStatus = 'SUCCESS' | 'FAILED' | 'LOADING' | null
 
 export type Subscriptions = {
@@ -96,7 +75,7 @@ export interface DeveloperState {
   isServiceChartLoading: boolean
   error: unknown
   isMonthlyBillingLoading: boolean
-  monthlyBilling: MonthlyBilling | null
+  monthlyBilling: BillingBreakdownForMonthV2Model | null
   webhookPingTestStatus: WebhookPingTestStatus
   subscriptions: Subscriptions
 }
