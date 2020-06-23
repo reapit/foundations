@@ -10,6 +10,8 @@ import { selectLoginIdentity } from '@/selector/auth'
 import { validationSchemaDeclineModal as validationSchema } from './validation-schema'
 import { formFieldsDeclineModal as formFields } from './form-fields'
 
+const { rejectionReasonField } = formFields
+
 export type DeclineRevisionModalProps = Pick<ModalProps, 'visible' | 'afterClose'> & {
   onDeclineSuccess: () => void
 }
@@ -85,9 +87,9 @@ export const DeclineRevisionModal: React.FunctionComponent<DeclineRevisionModalP
             <ModalBody
               body={
                 <TextArea
-                  name={formFields.rejectionReasonField.name}
-                  id={formFields.rejectionReasonField.name}
-                  labelText={formFields.rejectionReasonField.label as string}
+                  name={rejectionReasonField.name}
+                  id={rejectionReasonField.name}
+                  labelText={rejectionReasonField.label as string}
                   dataTest="revision-rejection-reason"
                 />
               }

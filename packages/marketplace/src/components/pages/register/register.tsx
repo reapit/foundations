@@ -22,7 +22,6 @@ import {
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { selectDeveloperFormState } from '@/selector'
 import { developerCreate } from '@/actions/developer'
-import { registerValidate } from '@/utils/form/register'
 import CallToAction from '@/components/ui/call-to-action'
 import TermsAndConditionsModal from '@/components/ui/terms-and-conditions-modal'
 import Routes from '@/constants/routes'
@@ -30,6 +29,11 @@ import loginStyles from '@/styles/pages/login.scss?mod'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 import { selectClientId } from '@/selector/auth'
 import { authLogout } from '@/actions/auth'
+import { formFields } from './form-fields'
+import { validationSchema } from './validation-schema'
+
+const { nameField, emailField, companyNameField, telephoneField } = formFields
+
 const { container, wrapper, image } = loginStyles
 
 export type RegisterProps = {}
@@ -113,7 +117,11 @@ export const Register: React.FunctionComponent<RegisterProps> = () => {
           </CallToAction>
         ) : (
           <>
-            <Formik initialValues={registerFormInitialValues} validate={registerValidate} onSubmit={onSubmit(dispatch)}>
+            <Formik
+              initialValues={registerFormInitialValues}
+              validationSchema={validationSchema}
+              onSubmit={onSubmit(dispatch)}
+            >
               {formikProps => {
                 const { handleSubmit, validateForm, setTouched } = formikProps
                 return (
@@ -128,34 +136,34 @@ export const Register: React.FunctionComponent<RegisterProps> = () => {
                       <Input
                         dataTest="register-name"
                         type="text"
-                        labelText="Full name"
-                        id="name"
-                        name="name"
-                        placeholder="Joe Developer"
+                        labelText={nameField.label as string}
+                        id={nameField.name}
+                        name={nameField.name}
+                        placeholder={nameField.placeHolder}
                       />
                       <Input
                         dataTest="register-company-name"
                         type="text"
-                        labelText="Company name"
-                        id="companyName"
-                        name="companyName"
-                        placeholder="Acme Industries Ltd"
+                        labelText={companyNameField.label as string}
+                        id={companyNameField.name}
+                        name={companyNameField.name}
+                        placeholder={companyNameField.placeHolder}
                       />
                       <Input
                         dataTest="register-email"
                         type="email"
-                        labelText="Email"
-                        id="email"
-                        name="email"
-                        placeholder="name@address.com"
+                        labelText={emailField.label as string}
+                        id={emailField.name}
+                        name={emailField.name}
+                        placeholder={emailField.placeHolder}
                       />
                       <Input
                         dataTest="register-telephone"
                         type="tel"
-                        labelText="Telephone"
-                        id="telephone"
-                        name="telephone"
-                        placeholder="0800 800 800"
+                        labelText={telephoneField.label as string}
+                        id={telephoneField.name}
+                        name={telephoneField.name}
+                        placeholder={telephoneField.placeHolder}
                       />
                     </FormSection>
                     <FormSection>
