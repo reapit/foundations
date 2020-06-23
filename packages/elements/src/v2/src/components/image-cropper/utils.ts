@@ -1,4 +1,4 @@
-import { CompletedCrop, Crop } from './types'
+import { CompletedCrop, Crop, ResizeDimensions } from './types'
 
 export const generateDefaultCrop = (aspect?: number): Crop => ({
   unit: '%',
@@ -34,4 +34,40 @@ export const generateBase64FromCanvas = (canvas: HTMLCanvasElement, completedCro
   }
   const base64Data = canvas.toDataURL('image/png')
   return base64Data
+}
+
+export const calculateOutputDimensions = ({
+  cropRatio,
+  resizeDimensions,
+  originWidth,
+  originHeight,
+}: {
+  cropRatio: number
+  resizeDimensions?: ResizeDimensions
+  originWidth: number
+  originHeight: number
+}): { outputWidth: number; outputHeight: number } => {
+  const isWidthGreaterThanHeight = !resizeDimensions && cropRatio > 1
+  const isHeightGreaterThanOrEqualWidth = !resizeDimensions && cropRatio <= 1
+
+  // if not set resizeDimensions, calculate from original width & height
+  if (isWidthGreaterThanHeight) {
+    return {
+      outputWidth: originWidth,
+      outputHeight: originWidth / cropRatio,
+    }
+  }
+
+  if (isHeightGreaterThanOrEqualWidth) {
+    return {
+      outputHeight: originHeight,
+      outputWidth: originHeight * cropRatio,
+    }
+  }
+
+  // if set, take that
+  return {
+    outputWidth: resizeDimensions?.width as number,
+    outputHeight: resizeDimensions?.height as number,
+  }
 }

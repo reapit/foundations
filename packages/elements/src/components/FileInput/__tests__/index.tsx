@@ -243,4 +243,13 @@ describe('handleChangeCroppedImage', () => {
     })
     expect(setFileName).toHaveBeenCalledWith('')
   })
+  it('should return when croppedImage === undefined', () => {
+    const fn = handleChangeCroppedImage({
+      field,
+      inputFile,
+      setFileName,
+    })
+    const result = fn()
+    expect(result).toBeUndefined()
+  })
 })
