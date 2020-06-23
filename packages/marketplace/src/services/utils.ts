@@ -7,7 +7,7 @@ export const generateHeader = (marketplaceApiKey): StringMap => ({
   'X-Api-Key': marketplaceApiKey,
 })
 
-export const generateHeaderV2 = (marketplaceApiKey): StringMap => ({
+export const generateHeaderWithApiV2 = (marketplaceApiKey): StringMap => ({
   ...generateHeader(marketplaceApiKey),
   'api-version': '2',
 })

@@ -57,28 +57,6 @@ export type Billing = {
   requestsByPeriod: RequestByPeriod[]
 }
 
-export type EndpointBilling = {
-  cost: number
-  endpoint: number
-  requestCount: number
-}
-
-export type RequestBilling = {
-  cost: number
-  endpointCount: number
-  requestCount: number
-  serviceName: string
-  requestsByEndpoint: EndpointBilling[]
-}
-
-export type MonthlyBilling = {
-  period: string
-  totalCost: number
-  totalEndpoints: number
-  totalRequests: number
-  requestsByService: RequestBilling[]
-}
-
 export type WebhookPingTestStatus = 'SUCCESS' | 'FAILED' | 'LOADING' | null
 
 export type Subscriptions = {
