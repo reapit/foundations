@@ -16,32 +16,7 @@ import {
   LevelRight,
 } from '@reapit/elements'
 import styles from '@/styles/pages/developer-settings-organisation-tab.scss?mod'
-import * as Yup from 'yup'
-import errorMessages from '@/constants/error-messages'
-const { FIELD_REQUIRED } = errorMessages
-
-import { FormFieldInfo } from '@reapit/elements'
-
-export type FieldKeys = 'name' | 'officeEmail'
-export type FormFields = Partial<Record<FieldKeys, string>>
-
-export const formFields: Record<FieldKeys, FormFieldInfo> = {
-  name: {
-    name: 'name',
-  },
-  officeEmail: {
-    name: 'officeEmail',
-  },
-}
-
-const { name, officeEmail } = formFields
-
-const companyInformationFormSchema = Yup.object().shape({
-  [name.name]: Yup.string()
-    .trim()
-    .required(FIELD_REQUIRED),
-  [officeEmail.name]: Yup.string().email(),
-})
+import { companyInformationFormSchema } from './validation-schema'
 
 export const CompanyInformation = () => {
   return (
@@ -127,7 +102,7 @@ export const CompanyInformation = () => {
               </Grid>
 
               <LevelRight>
-                <Button className={styles.buttonSave} type="submit" variant="primary" onClick={() => {}}>
+                <Button className={styles.buttonSave} type="submit" variant="primary">
                   Save
                 </Button>
               </LevelRight>
