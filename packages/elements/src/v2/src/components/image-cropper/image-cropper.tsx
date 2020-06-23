@@ -50,6 +50,7 @@ export const ImageCropper: React.FC<ImageCropperProps> = ({
   onClose,
   onCropClick,
   aspect,
+  resizeDimensions,
   children,
 }) => {
   const defaultCrop: Crop = generateDefaultCrop(aspect)
@@ -58,7 +59,7 @@ export const ImageCropper: React.FC<ImageCropperProps> = ({
   const [crop, setCrop] = React.useState<Crop>(defaultCrop)
   const [completedCrop, setCompletedCrop] = React.useState<CompletedCrop>(null)
 
-  React.useEffect(drawCanvasAfterCrop({ completedCrop, previewCanvasRef, imgRef }), [completedCrop])
+  React.useEffect(drawCanvasAfterCrop({ completedCrop, previewCanvasRef, imgRef, resizeDimensions }), [completedCrop])
 
   // update crop when image change
   React.useEffect(onChangeUpImage({ crop: defaultCrop, setCrop }), [upImg])
@@ -116,10 +117,14 @@ export const ImageCropper: React.FC<ImageCropperProps> = ({
 /**
  * Pre-integrated with <ImageInput />
  */
-export const ImageCropperWithInput: React.FC<ImageCropperWithInputProps> = ({ aspect, ...inputProps }) => {
+export const ImageCropperWithInput: React.FC<ImageCropperWithInputProps> = ({
+  aspect,
+  resizeDimensions,
+  ...inputProps
+}) => {
   const [upImg, setUpImg] = React.useState<string>('')
   const [visible, setVisible] = React.useState<boolean>(false)
-  const [croppedImage, setCroppedImage] = React.useState<string>('')
+  const [croppedImage, setCroppedImage] = React.useState<string | null>(null)
 
   return (
     <ImageCropper
@@ -132,10 +137,9 @@ export const ImageCropperWithInput: React.FC<ImageCropperWithInputProps> = ({ as
       onCropClick={onCropClick({ setCroppedImage, setVisible })}
       croppedImage={croppedImage}
       setCroppedImage={setCroppedImage}
+      resizeDimensions={resizeDimensions}
     >
       <ImageInput {...inputProps} />
     </ImageCropper>
   )
 }
-
-export * from './utils'

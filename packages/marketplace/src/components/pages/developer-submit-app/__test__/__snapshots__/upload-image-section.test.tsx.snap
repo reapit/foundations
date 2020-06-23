@@ -20,11 +20,18 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
         </label>
         <Component
           allowClear={true}
+          aspect={1}
           dataTest="submit-app-icon"
           id="iconImage"
           labelText="Upload Image"
           name="iconImageUrl"
           required={true}
+          resizeDimensions={
+            Object {
+              "height": 96,
+              "width": 96,
+            }
+          }
         />
       </div>
     </Component>
@@ -39,11 +46,18 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
         </label>
         <Component
           allowClear={true}
+          aspect={2.22972972972973}
           dataTest="submit-app-screenshot1"
           id="screenshot1"
           labelText="Upload Image"
           name="screen1ImageUrl"
           required={true}
+          resizeDimensions={
+            Object {
+              "height": 222,
+              "width": 495,
+            }
+          }
         />
       </div>
     </Component>
@@ -58,10 +72,17 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
         </label>
         <Component
           allowClear={true}
+          aspect={1.3085339168490153}
           dataTest="submit-app-screenshot2"
           id="screenshot2"
           labelText="Upload Image"
           name="screen2ImageUrl"
+          resizeDimensions={
+            Object {
+              "height": 457,
+              "width": 598,
+            }
+          }
         />
       </div>
     </Component>
@@ -76,10 +97,17 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
         </label>
         <Component
           allowClear={true}
+          aspect={1.3085339168490153}
           dataTest="submit-app-screenshot3"
           id="screenshot3"
           labelText="Upload Image"
           name="screen3ImageUrl"
+          resizeDimensions={
+            Object {
+              "height": 457,
+              "width": 598,
+            }
+          }
         />
       </div>
     </Component>
@@ -94,10 +122,17 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
         </label>
         <Component
           allowClear={true}
+          aspect={1.3085339168490153}
           dataTest="submit-app-screenshot4"
           id="screenshot4"
           labelText="Upload Image"
           name="screen4ImageUrl"
+          resizeDimensions={
+            Object {
+              "height": 457,
+              "width": 598,
+            }
+          }
         />
       </div>
     </Component>
@@ -112,10 +147,17 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
         </label>
         <Component
           allowClear={true}
+          aspect={1.3085339168490153}
           dataTest="submit-app-screenshot5"
           id="screenshot5"
           labelText="Upload Image"
           name="screen5ImageUrl"
+          resizeDimensions={
+            Object {
+              "height": 457,
+              "width": 598,
+            }
+          }
         />
       </div>
     </Component>

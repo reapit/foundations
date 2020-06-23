@@ -6,7 +6,7 @@ import { Button } from '../Button'
 import { Form, Formik } from 'formik'
 
 storiesOf('ImageCropper', module)
-  .add('Pre-integrated ImageInput', () => {
+  .add('Pre-integrated ImageInput with fixed ratio', () => {
     return (
       <section className="section">
         <Formik
@@ -27,10 +27,36 @@ storiesOf('ImageCropper', module)
       </section>
     )
   })
+  .add('With fixed ratio, resize after crop', () => {
+    return (
+      <section className="section">
+        <Formik
+          initialValues={{ imageInput: '' }}
+          onSubmit={values => {
+            action('Form values')(values)
+          }}
+        >
+          {() => (
+            <Form>
+              <ImageCropperWithInput
+                name="imageInput"
+                labelText="IMAGE CROPPER"
+                aspect={16 / 9}
+                resizeDimensions={{ width: 900, height: 450 }}
+              />
+              <Button type="submit" variant="primary">
+                Submit
+              </Button>
+            </Form>
+          )}
+        </Formik>
+      </section>
+    )
+  })
   .add('Custom input', () => {
     const [upImg, setUpImg] = React.useState<string>('')
     const [visible, setVisible] = React.useState<boolean>(false)
-    const [croppedImage, setCroppedImage] = React.useState<string>('')
+    const [croppedImage, setCroppedImage] = React.useState<string | null>(null)
 
     return (
       <div>

@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { generateBase64FromCanvas } from './utils'
-import { CompletedCrop, OnCropClick, Crop } from './types'
+import { generateBase64FromCanvas, calculateOutputDimensions } from './utils'
+import { CompletedCrop, OnCropClick, Crop, ResizeDimensions } from './types'
 
 const DEFAULT_CANVAS_AXIS_COORDINATE = 0
 
@@ -9,10 +9,12 @@ export const drawCanvasAfterCrop = ({
   completedCrop: crop,
   previewCanvasRef,
   imgRef,
+  resizeDimensions,
 }: {
   completedCrop: CompletedCrop
   previewCanvasRef: React.RefObject<HTMLCanvasElement>
   imgRef: React.RefObject<HTMLImageElement>
+  resizeDimensions?: ResizeDimensions
 }) => () => {
   if (!crop || !previewCanvasRef.current || !imgRef.current) {
     return
@@ -29,17 +31,12 @@ export const drawCanvasAfterCrop = ({
 
   const cropRatio = crop.width / crop.height
 
-  let outputWidth
-  let outputHeight
-
-  // get width or height, based on ratio
-  if (cropRatio > 1) {
-    outputWidth = originWidth
-    outputHeight = outputWidth / cropRatio
-  } else {
-    outputHeight = originHeight
-    outputWidth = outputHeight * cropRatio
-  }
+  const { outputWidth, outputHeight } = calculateOutputDimensions({
+    cropRatio,
+    resizeDimensions,
+    originHeight,
+    originWidth,
+  })
 
   const ctx = canvas.getContext('2d')
 
@@ -98,7 +95,7 @@ export const onCloseHandler = ({
 }: {
   setVisible: React.Dispatch<boolean>
   setUpImg: React.Dispatch<string>
-  setCroppedImage: React.Dispatch<string>
+  setCroppedImage: React.Dispatch<string | null>
 }) => () => {
   setUpImg('')
   setCroppedImage('')
@@ -109,7 +106,7 @@ export const onCropClick = ({
   setCroppedImage,
   setVisible,
 }: {
-  setCroppedImage: React.Dispatch<string>
+  setCroppedImage: React.Dispatch<string | null>
   setVisible: React.Dispatch<boolean>
 }) => ({ previewCanvasRef, completedCrop }) => {
   const base64Data = generateBase64FromCanvas(previewCanvasRef.current, completedCrop)

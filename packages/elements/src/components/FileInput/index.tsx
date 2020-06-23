@@ -25,7 +25,7 @@ export interface FileInputProps {
   onFilenameClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
   // to integrate with other components
   afterLoadedImage?: (base64: string) => any
-  croppedImage?: string
+  croppedImage?: string | null
 }
 
 export const handleChangeCroppedImage = ({
@@ -35,17 +35,23 @@ export const handleChangeCroppedImage = ({
   inputFile,
 }: {
   field: FieldInputProps<string>
-  croppedImage?: string
+  croppedImage?: string | null
   setFileName: React.Dispatch<string>
   inputFile: React.RefObject<HTMLInputElement>
 }) => () => {
-  field.onChange({ target: { value: croppedImage ?? '', name: field.name } })
+  // when croppedImage is not set or when first mount
+  if (croppedImage === undefined || croppedImage === null) {
+    return
+  }
+
   if (croppedImage === '') {
     setFileName('')
   }
   if (inputFile.current && croppedImage === '') {
     inputFile.current.value = ''
   }
+
+  field.onChange({ target: { value: croppedImage ?? '', name: field.name } })
 }
 
 export const FileInput = ({
@@ -97,7 +103,15 @@ export const FileInput = ({
           }
         }
 
-        React.useEffect(handleChangeCroppedImage({ inputFile, setFileName, croppedImage, field }), [croppedImage])
+        React.useEffect(
+          handleChangeCroppedImage({
+            inputFile,
+            setFileName,
+            croppedImage,
+            field,
+          }),
+          [croppedImage],
+        )
 
         return (
           <React.Fragment>

@@ -1,8 +1,12 @@
 // TODO: Will move all developerSelector to here for reusable
 import { ReduxState, FormState } from '@/types/core'
-import { AppSummaryModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
-import { Billing, MonthlyBilling, WebhookPingTestStatus } from '@/reducers/developer'
-import { SubscriptionsListResult } from '@/services/subscriptions'
+import {
+  BillingBreakdownForMonthV2Model,
+  BillingOverviewForPeriodV2Model,
+  AppSummaryModel,
+  DeveloperModel,
+} from '@reapit/foundations-ts-definitions'
+import { WebhookPingTestStatus } from '@/reducers/developer'
 
 export const selectDeveloperId = (state: ReduxState) => {
   return state.auth.loginSession?.loginIdentity.developerId
@@ -28,7 +32,7 @@ export const selectMyIdentity = (state: ReduxState): DeveloperModel => {
   return state.developer?.myIdentity || {}
 }
 
-export const selectBilling = (state: ReduxState): Billing | null => {
+export const selectBilling = (state: ReduxState): BillingOverviewForPeriodV2Model | null => {
   return state.developer?.billing || null
 }
 
@@ -40,8 +44,8 @@ export const selectIsServiceChartLoading = (state: ReduxState): boolean => {
   return state.developer?.isServiceChartLoading
 }
 
-export const selectMonthlyBilling = (state: ReduxState): MonthlyBilling | null => {
-  return state.developer?.monthlyBilling
+export const selectMonthlyBilling = (state: ReduxState): BillingBreakdownForMonthV2Model => {
+  return state.developer?.monthlyBilling || {}
 }
 
 export const selectMonthlyBillingLoading = (state: ReduxState): boolean => {
@@ -54,12 +58,4 @@ export const selectWebhookTestStatus = (state: ReduxState): WebhookPingTestStatu
 
 export const selectDeveloperFormState = (state: ReduxState): FormState => {
   return state.developer?.formState
-}
-
-export const selectSubscriptions = (state: ReduxState): SubscriptionsListResult => {
-  return state.developer?.subscriptions?.data || ({} as SubscriptionsListResult)
-}
-
-export const selectSubscriptionsLoading = (state: ReduxState): boolean => {
-  return state.developer?.subscriptions?.loading
 }

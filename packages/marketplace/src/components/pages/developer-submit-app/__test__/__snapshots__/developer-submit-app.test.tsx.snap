@@ -109,6 +109,74 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                   }
                   onSubmit={[Function]}
                   validate={[Function]}
+                  validationSchema={
+                    ObjectSchema {
+                      "_blacklist": RefSet {
+                        "list": Set {},
+                        "refs": Map {},
+                      },
+                      "_conditions": Array [],
+                      "_defaultDefault": [Function],
+                      "_deps": Array [],
+                      "_excludedEdges": Array [],
+                      "_exclusive": Object {},
+                      "_mutate": undefined,
+                      "_nodes": Array [
+                        "name",
+                      ],
+                      "_options": Object {
+                        "abortEarly": true,
+                        "recursive": true,
+                      },
+                      "_type": "object",
+                      "_typeError": [Function],
+                      "_whitelist": RefSet {
+                        "list": Set {},
+                        "refs": Map {},
+                      },
+                      "fields": Object {
+                        "name": StringSchema {
+                          "_blacklist": RefSet {
+                            "list": Set {},
+                            "refs": Map {},
+                          },
+                          "_conditions": Array [],
+                          "_deps": Array [],
+                          "_exclusive": Object {
+                            "matches": false,
+                            "required": true,
+                            "trim": false,
+                          },
+                          "_mutate": undefined,
+                          "_options": Object {
+                            "abortEarly": true,
+                            "recursive": true,
+                          },
+                          "_type": "string",
+                          "_typeError": [Function],
+                          "_whitelist": RefSet {
+                            "list": Set {},
+                            "refs": Map {},
+                          },
+                          "tests": Array [
+                            [Function],
+                            [Function],
+                            [Function],
+                          ],
+                          "transforms": Array [
+                            [Function],
+                            [Function],
+                          ],
+                          "type": "string",
+                        },
+                      },
+                      "tests": Array [],
+                      "transforms": Array [
+                        [Function],
+                      ],
+                      "type": "object",
+                    }
+                  }
                 >
                   <Form
                     noValidate={true}
@@ -671,7 +739,6 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                     "zIndex": 999,
                                                   }
                                                 }
-                                                getPopupContainer={[Function]}
                                                 id="desktopIntegrationTypeIds"
                                                 mode="multiple"
                                                 onBlur={[Function]}
@@ -687,7 +754,6 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                       "zIndex": 999,
                                                     }
                                                   }
-                                                  getPopupContainer={[Function]}
                                                   id="desktopIntegrationTypeIds"
                                                   mode="multiple"
                                                   onBlur={[Function]}
@@ -712,7 +778,6 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                         }
                                                       }
                                                       empty={true}
-                                                      getPopupContainer={[Function]}
                                                       getTriggerDOMNode={[Function]}
                                                       popupElement={
                                                         <OptionList
@@ -806,7 +871,6 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                         focusDelay={0}
                                                         getDocument={[Function]}
                                                         getPopupClassNameFromAlign={[Function]}
-                                                        getPopupContainer={[Function]}
                                                         getTriggerDOMNode={[Function]}
                                                         hideAction={Array []}
                                                         mask={false}
@@ -899,7 +963,6 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                               "zIndex": 999,
                                                             }
                                                           }
-                                                          getPopupContainer={[Function]}
                                                           id="desktopIntegrationTypeIds"
                                                           inputElement={null}
                                                           key="trigger"
@@ -972,7 +1035,6 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                                   "zIndex": 999,
                                                                 }
                                                               }
-                                                              getPopupContainer={[Function]}
                                                               id="desktopIntegrationTypeIds"
                                                               inputElement={null}
                                                               inputRef={
@@ -1625,51 +1687,92 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                       </label>
                                       <Component
                                         allowClear={true}
+                                        aspect={1}
                                         dataTest="submit-app-icon"
                                         id="iconImage"
                                         labelText="Upload Image"
                                         name="iconImageUrl"
                                         required={true}
+                                        resizeDimensions={
+                                          Object {
+                                            "height": 96,
+                                            "width": 96,
+                                          }
+                                        }
                                       >
                                         <Component
-                                          accept="image/*"
-                                          allowClear={true}
-                                          dataTest="submit-app-icon"
-                                          id="iconImage"
-                                          labelText="Upload Image"
-                                          name="iconImageUrl"
+                                          aspect={1}
+                                          croppedImage={null}
+                                          onClose={[Function]}
+                                          onCropClick={[Function]}
+                                          resizeDimensions={
+                                            Object {
+                                              "height": 96,
+                                              "width": 96,
+                                            }
+                                          }
+                                          setCroppedImage={[Function]}
+                                          setUpImg={[Function]}
+                                          setVisible={[Function]}
+                                          upImg=""
+                                          visible={false}
                                         >
-                                          <Field
-                                            name="iconImageUrl"
-                                          >
-                                            <div
-                                              className="file is-primary  field pb-2"
+                                          <div>
+                                            <Component
+                                              afterLoadedImage={[Function]}
+                                              allowClear={true}
+                                              croppedImage={null}
+                                              dataTest="submit-app-icon"
+                                              id="iconImage"
+                                              key=".0"
+                                              labelText="Upload Image"
+                                              name="iconImageUrl"
+                                              required={true}
                                             >
-                                              <div
-                                                className=""
+                                              <Component
+                                                accept="image/*"
+                                                afterLoadedImage={[Function]}
+                                                allowClear={true}
+                                                croppedImage={null}
+                                                dataTest="submit-app-icon"
+                                                id="iconImage"
+                                                labelText="Upload Image"
+                                                name="iconImageUrl"
                                               >
-                                                <label
-                                                  className="file-label"
-                                                  data-test="file-input-label"
-                                                  htmlFor="iconImage"
+                                                <Field
+                                                  name="iconImageUrl"
                                                 >
-                                                  <input
-                                                    accept="image/*"
-                                                    className="file-input"
-                                                    data-test="submit-app-icon"
-                                                    id="iconImage"
-                                                    onChange={[Function]}
-                                                    type="file"
-                                                  />
-                                                  <span
-                                                    className="file-cta "
+                                                  <div
+                                                    className="file is-primary  field pb-2"
                                                   >
-                                                    Upload Image
-                                                  </span>
-                                                </label>
-                                              </div>
-                                            </div>
-                                          </Field>
+                                                    <div
+                                                      className=""
+                                                    >
+                                                      <label
+                                                        className="file-label"
+                                                        data-test="file-input-label"
+                                                        htmlFor="iconImage"
+                                                      >
+                                                        <input
+                                                          accept="image/*"
+                                                          className="file-input"
+                                                          data-test="submit-app-icon"
+                                                          id="iconImage"
+                                                          onChange={[Function]}
+                                                          type="file"
+                                                        />
+                                                        <span
+                                                          className="file-cta "
+                                                        >
+                                                          Upload Image
+                                                        </span>
+                                                      </label>
+                                                    </div>
+                                                  </div>
+                                                </Field>
+                                              </Component>
+                                            </Component>
+                                          </div>
                                         </Component>
                                       </Component>
                                     </div>
@@ -1690,51 +1793,92 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                       </label>
                                       <Component
                                         allowClear={true}
+                                        aspect={2.22972972972973}
                                         dataTest="submit-app-screenshot1"
                                         id="screenshot1"
                                         labelText="Upload Image"
                                         name="screen1ImageUrl"
                                         required={true}
+                                        resizeDimensions={
+                                          Object {
+                                            "height": 222,
+                                            "width": 495,
+                                          }
+                                        }
                                       >
                                         <Component
-                                          accept="image/*"
-                                          allowClear={true}
-                                          dataTest="submit-app-screenshot1"
-                                          id="screenshot1"
-                                          labelText="Upload Image"
-                                          name="screen1ImageUrl"
+                                          aspect={2.22972972972973}
+                                          croppedImage={null}
+                                          onClose={[Function]}
+                                          onCropClick={[Function]}
+                                          resizeDimensions={
+                                            Object {
+                                              "height": 222,
+                                              "width": 495,
+                                            }
+                                          }
+                                          setCroppedImage={[Function]}
+                                          setUpImg={[Function]}
+                                          setVisible={[Function]}
+                                          upImg=""
+                                          visible={false}
                                         >
-                                          <Field
-                                            name="screen1ImageUrl"
-                                          >
-                                            <div
-                                              className="file is-primary  field pb-2"
+                                          <div>
+                                            <Component
+                                              afterLoadedImage={[Function]}
+                                              allowClear={true}
+                                              croppedImage={null}
+                                              dataTest="submit-app-screenshot1"
+                                              id="screenshot1"
+                                              key=".0"
+                                              labelText="Upload Image"
+                                              name="screen1ImageUrl"
+                                              required={true}
                                             >
-                                              <div
-                                                className=""
+                                              <Component
+                                                accept="image/*"
+                                                afterLoadedImage={[Function]}
+                                                allowClear={true}
+                                                croppedImage={null}
+                                                dataTest="submit-app-screenshot1"
+                                                id="screenshot1"
+                                                labelText="Upload Image"
+                                                name="screen1ImageUrl"
                                               >
-                                                <label
-                                                  className="file-label"
-                                                  data-test="file-input-label"
-                                                  htmlFor="screenshot1"
+                                                <Field
+                                                  name="screen1ImageUrl"
                                                 >
-                                                  <input
-                                                    accept="image/*"
-                                                    className="file-input"
-                                                    data-test="submit-app-screenshot1"
-                                                    id="screenshot1"
-                                                    onChange={[Function]}
-                                                    type="file"
-                                                  />
-                                                  <span
-                                                    className="file-cta "
+                                                  <div
+                                                    className="file is-primary  field pb-2"
                                                   >
-                                                    Upload Image
-                                                  </span>
-                                                </label>
-                                              </div>
-                                            </div>
-                                          </Field>
+                                                    <div
+                                                      className=""
+                                                    >
+                                                      <label
+                                                        className="file-label"
+                                                        data-test="file-input-label"
+                                                        htmlFor="screenshot1"
+                                                      >
+                                                        <input
+                                                          accept="image/*"
+                                                          className="file-input"
+                                                          data-test="submit-app-screenshot1"
+                                                          id="screenshot1"
+                                                          onChange={[Function]}
+                                                          type="file"
+                                                        />
+                                                        <span
+                                                          className="file-cta "
+                                                        >
+                                                          Upload Image
+                                                        </span>
+                                                      </label>
+                                                    </div>
+                                                  </div>
+                                                </Field>
+                                              </Component>
+                                            </Component>
+                                          </div>
                                         </Component>
                                       </Component>
                                     </div>
@@ -1755,50 +1899,90 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                       </label>
                                       <Component
                                         allowClear={true}
+                                        aspect={1.3085339168490153}
                                         dataTest="submit-app-screenshot2"
                                         id="screenshot2"
                                         labelText="Upload Image"
                                         name="screen2ImageUrl"
+                                        resizeDimensions={
+                                          Object {
+                                            "height": 457,
+                                            "width": 598,
+                                          }
+                                        }
                                       >
                                         <Component
-                                          accept="image/*"
-                                          allowClear={true}
-                                          dataTest="submit-app-screenshot2"
-                                          id="screenshot2"
-                                          labelText="Upload Image"
-                                          name="screen2ImageUrl"
+                                          aspect={1.3085339168490153}
+                                          croppedImage={null}
+                                          onClose={[Function]}
+                                          onCropClick={[Function]}
+                                          resizeDimensions={
+                                            Object {
+                                              "height": 457,
+                                              "width": 598,
+                                            }
+                                          }
+                                          setCroppedImage={[Function]}
+                                          setUpImg={[Function]}
+                                          setVisible={[Function]}
+                                          upImg=""
+                                          visible={false}
                                         >
-                                          <Field
-                                            name="screen2ImageUrl"
-                                          >
-                                            <div
-                                              className="file is-primary  field pb-2"
+                                          <div>
+                                            <Component
+                                              afterLoadedImage={[Function]}
+                                              allowClear={true}
+                                              croppedImage={null}
+                                              dataTest="submit-app-screenshot2"
+                                              id="screenshot2"
+                                              key=".0"
+                                              labelText="Upload Image"
+                                              name="screen2ImageUrl"
                                             >
-                                              <div
-                                                className=""
+                                              <Component
+                                                accept="image/*"
+                                                afterLoadedImage={[Function]}
+                                                allowClear={true}
+                                                croppedImage={null}
+                                                dataTest="submit-app-screenshot2"
+                                                id="screenshot2"
+                                                labelText="Upload Image"
+                                                name="screen2ImageUrl"
                                               >
-                                                <label
-                                                  className="file-label"
-                                                  data-test="file-input-label"
-                                                  htmlFor="screenshot2"
+                                                <Field
+                                                  name="screen2ImageUrl"
                                                 >
-                                                  <input
-                                                    accept="image/*"
-                                                    className="file-input"
-                                                    data-test="submit-app-screenshot2"
-                                                    id="screenshot2"
-                                                    onChange={[Function]}
-                                                    type="file"
-                                                  />
-                                                  <span
-                                                    className="file-cta "
+                                                  <div
+                                                    className="file is-primary  field pb-2"
                                                   >
-                                                    Upload Image
-                                                  </span>
-                                                </label>
-                                              </div>
-                                            </div>
-                                          </Field>
+                                                    <div
+                                                      className=""
+                                                    >
+                                                      <label
+                                                        className="file-label"
+                                                        data-test="file-input-label"
+                                                        htmlFor="screenshot2"
+                                                      >
+                                                        <input
+                                                          accept="image/*"
+                                                          className="file-input"
+                                                          data-test="submit-app-screenshot2"
+                                                          id="screenshot2"
+                                                          onChange={[Function]}
+                                                          type="file"
+                                                        />
+                                                        <span
+                                                          className="file-cta "
+                                                        >
+                                                          Upload Image
+                                                        </span>
+                                                      </label>
+                                                    </div>
+                                                  </div>
+                                                </Field>
+                                              </Component>
+                                            </Component>
+                                          </div>
                                         </Component>
                                       </Component>
                                     </div>
@@ -1819,50 +2003,90 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                       </label>
                                       <Component
                                         allowClear={true}
+                                        aspect={1.3085339168490153}
                                         dataTest="submit-app-screenshot3"
                                         id="screenshot3"
                                         labelText="Upload Image"
                                         name="screen3ImageUrl"
+                                        resizeDimensions={
+                                          Object {
+                                            "height": 457,
+                                            "width": 598,
+                                          }
+                                        }
                                       >
                                         <Component
-                                          accept="image/*"
-                                          allowClear={true}
-                                          dataTest="submit-app-screenshot3"
-                                          id="screenshot3"
-                                          labelText="Upload Image"
-                                          name="screen3ImageUrl"
+                                          aspect={1.3085339168490153}
+                                          croppedImage={null}
+                                          onClose={[Function]}
+                                          onCropClick={[Function]}
+                                          resizeDimensions={
+                                            Object {
+                                              "height": 457,
+                                              "width": 598,
+                                            }
+                                          }
+                                          setCroppedImage={[Function]}
+                                          setUpImg={[Function]}
+                                          setVisible={[Function]}
+                                          upImg=""
+                                          visible={false}
                                         >
-                                          <Field
-                                            name="screen3ImageUrl"
-                                          >
-                                            <div
-                                              className="file is-primary  field pb-2"
+                                          <div>
+                                            <Component
+                                              afterLoadedImage={[Function]}
+                                              allowClear={true}
+                                              croppedImage={null}
+                                              dataTest="submit-app-screenshot3"
+                                              id="screenshot3"
+                                              key=".0"
+                                              labelText="Upload Image"
+                                              name="screen3ImageUrl"
                                             >
-                                              <div
-                                                className=""
+                                              <Component
+                                                accept="image/*"
+                                                afterLoadedImage={[Function]}
+                                                allowClear={true}
+                                                croppedImage={null}
+                                                dataTest="submit-app-screenshot3"
+                                                id="screenshot3"
+                                                labelText="Upload Image"
+                                                name="screen3ImageUrl"
                                               >
-                                                <label
-                                                  className="file-label"
-                                                  data-test="file-input-label"
-                                                  htmlFor="screenshot3"
+                                                <Field
+                                                  name="screen3ImageUrl"
                                                 >
-                                                  <input
-                                                    accept="image/*"
-                                                    className="file-input"
-                                                    data-test="submit-app-screenshot3"
-                                                    id="screenshot3"
-                                                    onChange={[Function]}
-                                                    type="file"
-                                                  />
-                                                  <span
-                                                    className="file-cta "
+                                                  <div
+                                                    className="file is-primary  field pb-2"
                                                   >
-                                                    Upload Image
-                                                  </span>
-                                                </label>
-                                              </div>
-                                            </div>
-                                          </Field>
+                                                    <div
+                                                      className=""
+                                                    >
+                                                      <label
+                                                        className="file-label"
+                                                        data-test="file-input-label"
+                                                        htmlFor="screenshot3"
+                                                      >
+                                                        <input
+                                                          accept="image/*"
+                                                          className="file-input"
+                                                          data-test="submit-app-screenshot3"
+                                                          id="screenshot3"
+                                                          onChange={[Function]}
+                                                          type="file"
+                                                        />
+                                                        <span
+                                                          className="file-cta "
+                                                        >
+                                                          Upload Image
+                                                        </span>
+                                                      </label>
+                                                    </div>
+                                                  </div>
+                                                </Field>
+                                              </Component>
+                                            </Component>
+                                          </div>
                                         </Component>
                                       </Component>
                                     </div>
@@ -1883,50 +2107,90 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                       </label>
                                       <Component
                                         allowClear={true}
+                                        aspect={1.3085339168490153}
                                         dataTest="submit-app-screenshot4"
                                         id="screenshot4"
                                         labelText="Upload Image"
                                         name="screen4ImageUrl"
+                                        resizeDimensions={
+                                          Object {
+                                            "height": 457,
+                                            "width": 598,
+                                          }
+                                        }
                                       >
                                         <Component
-                                          accept="image/*"
-                                          allowClear={true}
-                                          dataTest="submit-app-screenshot4"
-                                          id="screenshot4"
-                                          labelText="Upload Image"
-                                          name="screen4ImageUrl"
+                                          aspect={1.3085339168490153}
+                                          croppedImage={null}
+                                          onClose={[Function]}
+                                          onCropClick={[Function]}
+                                          resizeDimensions={
+                                            Object {
+                                              "height": 457,
+                                              "width": 598,
+                                            }
+                                          }
+                                          setCroppedImage={[Function]}
+                                          setUpImg={[Function]}
+                                          setVisible={[Function]}
+                                          upImg=""
+                                          visible={false}
                                         >
-                                          <Field
-                                            name="screen4ImageUrl"
-                                          >
-                                            <div
-                                              className="file is-primary  field pb-2"
+                                          <div>
+                                            <Component
+                                              afterLoadedImage={[Function]}
+                                              allowClear={true}
+                                              croppedImage={null}
+                                              dataTest="submit-app-screenshot4"
+                                              id="screenshot4"
+                                              key=".0"
+                                              labelText="Upload Image"
+                                              name="screen4ImageUrl"
                                             >
-                                              <div
-                                                className=""
+                                              <Component
+                                                accept="image/*"
+                                                afterLoadedImage={[Function]}
+                                                allowClear={true}
+                                                croppedImage={null}
+                                                dataTest="submit-app-screenshot4"
+                                                id="screenshot4"
+                                                labelText="Upload Image"
+                                                name="screen4ImageUrl"
                                               >
-                                                <label
-                                                  className="file-label"
-                                                  data-test="file-input-label"
-                                                  htmlFor="screenshot4"
+                                                <Field
+                                                  name="screen4ImageUrl"
                                                 >
-                                                  <input
-                                                    accept="image/*"
-                                                    className="file-input"
-                                                    data-test="submit-app-screenshot4"
-                                                    id="screenshot4"
-                                                    onChange={[Function]}
-                                                    type="file"
-                                                  />
-                                                  <span
-                                                    className="file-cta "
+                                                  <div
+                                                    className="file is-primary  field pb-2"
                                                   >
-                                                    Upload Image
-                                                  </span>
-                                                </label>
-                                              </div>
-                                            </div>
-                                          </Field>
+                                                    <div
+                                                      className=""
+                                                    >
+                                                      <label
+                                                        className="file-label"
+                                                        data-test="file-input-label"
+                                                        htmlFor="screenshot4"
+                                                      >
+                                                        <input
+                                                          accept="image/*"
+                                                          className="file-input"
+                                                          data-test="submit-app-screenshot4"
+                                                          id="screenshot4"
+                                                          onChange={[Function]}
+                                                          type="file"
+                                                        />
+                                                        <span
+                                                          className="file-cta "
+                                                        >
+                                                          Upload Image
+                                                        </span>
+                                                      </label>
+                                                    </div>
+                                                  </div>
+                                                </Field>
+                                              </Component>
+                                            </Component>
+                                          </div>
                                         </Component>
                                       </Component>
                                     </div>
@@ -1947,50 +2211,90 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                       </label>
                                       <Component
                                         allowClear={true}
+                                        aspect={1.3085339168490153}
                                         dataTest="submit-app-screenshot5"
                                         id="screenshot5"
                                         labelText="Upload Image"
                                         name="screen5ImageUrl"
+                                        resizeDimensions={
+                                          Object {
+                                            "height": 457,
+                                            "width": 598,
+                                          }
+                                        }
                                       >
                                         <Component
-                                          accept="image/*"
-                                          allowClear={true}
-                                          dataTest="submit-app-screenshot5"
-                                          id="screenshot5"
-                                          labelText="Upload Image"
-                                          name="screen5ImageUrl"
+                                          aspect={1.3085339168490153}
+                                          croppedImage={null}
+                                          onClose={[Function]}
+                                          onCropClick={[Function]}
+                                          resizeDimensions={
+                                            Object {
+                                              "height": 457,
+                                              "width": 598,
+                                            }
+                                          }
+                                          setCroppedImage={[Function]}
+                                          setUpImg={[Function]}
+                                          setVisible={[Function]}
+                                          upImg=""
+                                          visible={false}
                                         >
-                                          <Field
-                                            name="screen5ImageUrl"
-                                          >
-                                            <div
-                                              className="file is-primary  field pb-2"
+                                          <div>
+                                            <Component
+                                              afterLoadedImage={[Function]}
+                                              allowClear={true}
+                                              croppedImage={null}
+                                              dataTest="submit-app-screenshot5"
+                                              id="screenshot5"
+                                              key=".0"
+                                              labelText="Upload Image"
+                                              name="screen5ImageUrl"
                                             >
-                                              <div
-                                                className=""
+                                              <Component
+                                                accept="image/*"
+                                                afterLoadedImage={[Function]}
+                                                allowClear={true}
+                                                croppedImage={null}
+                                                dataTest="submit-app-screenshot5"
+                                                id="screenshot5"
+                                                labelText="Upload Image"
+                                                name="screen5ImageUrl"
                                               >
-                                                <label
-                                                  className="file-label"
-                                                  data-test="file-input-label"
-                                                  htmlFor="screenshot5"
+                                                <Field
+                                                  name="screen5ImageUrl"
                                                 >
-                                                  <input
-                                                    accept="image/*"
-                                                    className="file-input"
-                                                    data-test="submit-app-screenshot5"
-                                                    id="screenshot5"
-                                                    onChange={[Function]}
-                                                    type="file"
-                                                  />
-                                                  <span
-                                                    className="file-cta "
+                                                  <div
+                                                    className="file is-primary  field pb-2"
                                                   >
-                                                    Upload Image
-                                                  </span>
-                                                </label>
-                                              </div>
-                                            </div>
-                                          </Field>
+                                                    <div
+                                                      className=""
+                                                    >
+                                                      <label
+                                                        className="file-label"
+                                                        data-test="file-input-label"
+                                                        htmlFor="screenshot5"
+                                                      >
+                                                        <input
+                                                          accept="image/*"
+                                                          className="file-input"
+                                                          data-test="submit-app-screenshot5"
+                                                          id="screenshot5"
+                                                          onChange={[Function]}
+                                                          type="file"
+                                                        />
+                                                        <span
+                                                          className="file-cta "
+                                                        >
+                                                          Upload Image
+                                                        </span>
+                                                      </label>
+                                                    </div>
+                                                  </div>
+                                                </Field>
+                                              </Component>
+                                            </Component>
+                                          </div>
                                         </Component>
                                       </Component>
                                     </div>

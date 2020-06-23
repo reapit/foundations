@@ -1868,11 +1868,4 @@ exports[`TimeCell should match snapshot 1`] = `
 </p>
 `;
 
-exports[`genarateTableData should match snapshot 1`] = `
-<a
-  data-test="button-cancel"
-  onClick={[Function]}
->
-  Cancel
-</a>
-`;
+exports[`genarateTableData should match snapshot 1`] = `false`;
