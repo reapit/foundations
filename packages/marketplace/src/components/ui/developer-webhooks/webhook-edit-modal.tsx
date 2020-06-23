@@ -35,6 +35,8 @@ import { selectTopics, selectWebhookData, selectLoading, selectCustomers } from 
 import { validationSchema } from './validation-schema'
 import { formFields } from './form-fields'
 
+const { activeField, topicIdsField, webhookUrlField, customerIdsField } = formFields
+
 const CREATE_MODAL = {
   title: 'Add New Webhook',
   submit: 'Create',
@@ -180,35 +182,31 @@ export const WebhookEditModal: React.FunctionComponent<WebhookEditProps> = ({
                         </p>
                       </Content>
                       <Input
-                        id={formFields.webhookUrlField.name}
+                        id={webhookUrlField.name}
                         type="text"
-                        placeholder={formFields.webhookUrlField.placeHolder}
-                        name={formFields.webhookUrlField.name}
-                        labelText={formFields.webhookUrlField.label as string}
+                        placeholder={webhookUrlField.placeHolder}
+                        name={webhookUrlField.name}
+                        labelText={webhookUrlField.label as string}
                         required
                       />
                       <DropdownSelect
-                        id={formFields.topicIdsField.name}
-                        placeholder={formFields.topicIdsField.placeHolder}
-                        name={formFields.topicIdsField.name}
-                        labelText={formFields.topicIdsField.label as string}
+                        id={topicIdsField.name}
+                        placeholder={topicIdsField.placeHolder}
+                        name={topicIdsField.name}
+                        labelText={topicIdsField.label as string}
                         options={topicOptions}
                         dropdownStyle={{ zIndex: 41 }}
                         required
                       />
                       <DropdownSelect
-                        id={formFields.customerIdsField.name}
-                        placeholder={formFields.customerIdsField.placeHolder}
-                        name={formFields.customerIdsField.name}
-                        labelText={formFields.customerIdsField.label as string}
+                        id={customerIdsField.name}
+                        placeholder={customerIdsField.placeHolder}
+                        name={customerIdsField.name}
+                        labelText={customerIdsField.label as string}
                         options={customerOptions}
                         dropdownStyle={{ zIndex: 41 }}
                       />
-                      <Checkbox
-                        id={formFields.activeField.name}
-                        name={formFields.activeField.name}
-                        labelText={formFields.activeField.label as string}
-                      />
+                      <Checkbox id={activeField.name} name={activeField.name} labelText={activeField.label as string} />
                     </Form>
                   }
                 />
