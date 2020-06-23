@@ -5,6 +5,7 @@ import { VerticalTimeline } from './vertical-timeline'
 import { SubTitleH6, H3 } from '../Typography'
 import { isMobile } from '../../utils/device-detection/device-detection'
 import { HorizontalTimeline } from './horizontal-timeline'
+import Fade, { FADE_TIMEOUT } from './fade'
 
 export interface HelpGuideProps {
   children: React.ReactElement<HelpGuideStepProps> | React.ReactElement<HelpGuideStepProps>[]
@@ -26,22 +27,32 @@ export interface NavigationProps {
   isLast?: boolean
   currentStep?: number
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>
+  setIsExit: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const handleGoNext = ({ isLast, setCurrentStep, currentStep = 0 }: NavigationProps) => () => {
+export const handleGoNext = ({ isLast, setCurrentStep, currentStep = 0, setIsExit }: NavigationProps) => () => {
   if (!isLast) {
-    setCurrentStep(currentStep + 1)
+    setIsExit(true)
+    setTimeout(() => {
+      setCurrentStep(currentStep + 1)
+    }, 0.5 * FADE_TIMEOUT)
   }
 }
 
-export const handleGoPrev = ({ setCurrentStep, isFirst, currentStep = 0 }: NavigationProps) => () => {
+export const handleGoPrev = ({ setCurrentStep, isFirst, currentStep = 0, setIsExit }: NavigationProps) => () => {
   if (!isFirst) {
-    setCurrentStep(currentStep - 1)
+    setIsExit(true)
+    setTimeout(() => {
+      setCurrentStep(currentStep - 1)
+    }, 0.5 * FADE_TIMEOUT)
   }
 }
 
-export const handleGoTo = ({ setCurrentStep }: NavigationProps) => (stepIndex: number) => {
-  setCurrentStep(stepIndex)
+export const handleGoTo = ({ setCurrentStep, setIsExit }: NavigationProps) => (stepIndex: number) => {
+  setIsExit(true)
+  setTimeout(() => {
+    setCurrentStep(stepIndex)
+  }, 0.5 * FADE_TIMEOUT)
 }
 
 export const renderTimeline = ({ total, currentStep, isMobileScreen, goTo }) => {
@@ -54,19 +65,28 @@ export const renderTimeline = ({ total, currentStep, isMobileScreen, goTo }) => 
 export const HelpGuide = ({ children, current = 0, isLoading = false }: HelpGuideProps) => {
   const isMobileScreen = isMobile()
   const [currentStep, setCurrentStep] = React.useState<number>(current)
+  const [isExit, setIsExit] = React.useState<boolean>(false)
   const total = (children as React.ReactNode[]).length
   const isFirst = currentStep === 0
   const isLast = currentStep === total - 1
-  const goTo = handleGoTo({ setCurrentStep })
+  const goTo = handleGoTo({ setCurrentStep, setIsExit })
 
   const value: HelpGuideContextValues = {
     current: currentStep,
-    goNext: handleGoNext({ currentStep, isLast, setCurrentStep }),
-    goPrev: handleGoPrev({ currentStep, isFirst, setCurrentStep }),
+    goNext: handleGoNext({ currentStep, isLast, setCurrentStep, setIsExit }),
+    goPrev: handleGoPrev({ currentStep, isFirst, setCurrentStep, setIsExit }),
     isFirst,
     isLast,
     isLoading,
   }
+
+  React.useEffect(() => {
+    if (isExit) {
+      setTimeout(() => {
+        setIsExit(false)
+      }, 0.5 * FADE_TIMEOUT)
+    }
+  }, [isExit])
 
   return (
     <HelpGuideContextProvider value={value}>
@@ -74,7 +94,11 @@ export const HelpGuide = ({ children, current = 0, isLoading = false }: HelpGuid
         {renderTimeline({ total, currentStep, isMobileScreen, goTo })}
         <div className="helpguide">
           <div className="helpguide-wrapper">
-            <div className="helpguide-steps">{children[currentStep]}</div>
+            <div className="helpguide-steps">
+              <Fade in={!isExit} timeout={300} unmountOnExit>
+                <>{children[currentStep]}</>
+              </Fade>
+            </div>
           </div>
         </div>
       </FlexContainerBasic>
