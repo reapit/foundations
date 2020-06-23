@@ -305,11 +305,11 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                         data-test=""
                       >
                         <Component
-                          className="is-narrow"
+                          className=""
                           key="0"
                         >
                           <div
-                            className="column  is-narrow"
+                            className="column  "
                             data-test=""
                           >
                             <div
@@ -335,11 +335,11 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                           </div>
                         </Component>
                         <Component
-                          className="is-narrow"
+                          className=""
                           key="1"
                         >
                           <div
-                            className="column  is-narrow"
+                            className="column  "
                             data-test=""
                           >
                             <div
@@ -365,11 +365,11 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                           </div>
                         </Component>
                         <Component
-                          className="is-narrow"
+                          className=""
                           key="2"
                         >
                           <div
-                            className="column  is-narrow"
+                            className="column  "
                             data-test=""
                           >
                             <div
@@ -395,11 +395,11 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                           </div>
                         </Component>
                         <Component
-                          className="is-narrow"
+                          className=""
                           key="3"
                         >
                           <div
-                            className="column  is-narrow"
+                            className="column  "
                             data-test=""
                           >
                             <div
@@ -490,11 +490,11 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                         data-test=""
                       >
                         <Component
-                          className="is-narrow"
+                          className=""
                           key="0"
                         >
                           <div
-                            className="column  is-narrow"
+                            className="column  "
                             data-test=""
                           >
                             <div
@@ -520,11 +520,11 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                           </div>
                         </Component>
                         <Component
-                          className="is-narrow"
+                          className=""
                           key="1"
                         >
                           <div
-                            className="column  is-narrow"
+                            className="column  "
                             data-test=""
                           >
                             <div
@@ -550,11 +550,11 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                           </div>
                         </Component>
                         <Component
-                          className="is-narrow"
+                          className=""
                           key="2"
                         >
                           <div
-                            className="column  is-narrow"
+                            className="column  "
                             data-test=""
                           >
                             <div
@@ -580,11 +580,11 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                           </div>
                         </Component>
                         <Component
-                          className="is-narrow"
+                          className=""
                           key="3"
                         >
                           <div
-                            className="column  is-narrow"
+                            className="column  "
                             data-test=""
                           >
                             <div
