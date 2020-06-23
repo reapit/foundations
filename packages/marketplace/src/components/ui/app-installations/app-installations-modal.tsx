@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { ModalProps, Modal } from '@reapit/elements'
 import { InstallationModel } from '@reapit/foundations-ts-definitions'
-import Installations from './installations'
 import ConfirmUninstall from './confirm-uninstall'
 
 interface AppInstallationsModalInnerProps {
@@ -41,18 +40,12 @@ export const AppInstallationsModal: React.FC<AppInstallationsModalProps> = ({
   return (
     <Modal visible={visible} afterClose={afterClose} renderChildren>
       <>
-        {uninstallApp ? (
+        {uninstallApp && (
           <ConfirmUninstall
             appName={appName}
             installationDetail={uninstallApp}
             onUninstallSuccess={onUninstallSuccess}
             afterClose={handleAfterClose({ setUninstallApp, afterClose })}
-          />
-        ) : (
-          <Installations
-            appId={appId}
-            afterClose={handleAfterClose({ setUninstallApp, afterClose })}
-            onUninstall={handleUninstall(setUninstallApp)}
           />
         )}
       </>
