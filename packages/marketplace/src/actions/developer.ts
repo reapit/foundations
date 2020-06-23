@@ -6,10 +6,13 @@ import {
   DeveloperItem,
   DeveloperRequestParams,
   Billing,
-  MonthlyBilling,
   WebhookPingTestStatus,
 } from '@/reducers/developer'
-import { CreateDeveloperModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
+import {
+  CreateDeveloperModel,
+  DeveloperModel,
+  BillingBreakdownForMonthV2Model,
+} from '@reapit/foundations-ts-definitions'
 import { FormState } from '@/types/core'
 import { FetchBillingsParams, FetchBillingsByMonthParams } from '@/services/traffic-events'
 import { PingWebhooksByIdParams } from '@/services/webhooks'
@@ -38,7 +41,7 @@ export const fetchBillingFailure = actionCreator<unknown>(ActionTypes.DEVELOPER_
 export const fetchMonthlyBilling = actionCreator<FetchBillingsByMonthParams>(
   ActionTypes.DEVELOPER_FETCH_MONTHLY_BILLING,
 )
-export const fetchMonthlyBillingSuccess = actionCreator<MonthlyBilling>(
+export const fetchMonthlyBillingSuccess = actionCreator<BillingBreakdownForMonthV2Model>(
   ActionTypes.DEVELOPER_FETCH_MONTHLY_BILLING_SUCCESS,
 )
 export const fetchMonthlyBillingFailure = actionCreator<unknown>(ActionTypes.DEVELOPER_FETCH_MONTHLY_BILLING_FAILED)

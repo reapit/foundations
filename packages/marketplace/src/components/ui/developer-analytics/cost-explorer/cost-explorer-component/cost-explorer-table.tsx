@@ -3,47 +3,23 @@ import { formatNumber, formatCurrency } from '@/utils/number-formatter'
 import { Table, Loader } from '@reapit/elements'
 import { useSelector } from 'react-redux'
 import { selectMonthlyBilling, selectMonthlyBillingLoading } from '@/selector/developer'
-import { EndpointBilling, MonthlyBilling } from '@/reducers/developer'
+import { BillingBreakdownForMonthV2Model, ServiceItemBillingV2Model } from '@reapit/foundations-ts-definitions'
 
-export type CostExplorerTableProps = {}
+export const prepareTableData = (data: ServiceItemBillingV2Model[]) => {
+  if (!data || !data.length) return []
 
-export type TableRow = {
-  resource: string
-  endpoints: number
-  apiCalls: number
-  cost: number
-  subRows?: TableRow[]
-}
-
-export const prepareTableData = data => {
-  if (!data) {
-    return []
-  }
-  const preparedData = data.map(({ requestsByEndpoint, ...row }) => {
-    const subRows = requestsByEndpoint.map((request: EndpointBilling) => {
-      return {
-        serviceName: request.endpoint,
-        requestCount: request.requestCount,
-        cost: request.cost,
-      }
-    })
-    return { ...row, subRows }
+  return data.map(({ items = [], ...row }) => {
+    return { ...row, subRows: prepareTableData(items) }
   })
-  return preparedData
 }
 
-interface PrepareTableColumns {
-  totalCost: number
-  totalEndpoints: number
-  totalRequests: number
-}
-
-export const prepareTableColumns = (monthlyBilling?: MonthlyBilling | null) => {
+export const prepareTableColumns = (monthlyBilling?: BillingBreakdownForMonthV2Model | null) => {
   const totalCost = monthlyBilling?.totalCost || 0
+
   return [
     {
       Header: 'Services',
-      accessor: 'serviceName',
+      accessor: 'name',
       columnProps: {
         className: 'capitalize',
         width: 200,
@@ -53,13 +29,13 @@ export const prepareTableColumns = (monthlyBilling?: MonthlyBilling | null) => {
     {
       Header: 'Endpoints',
       accessor: row => {
-        return row.endpointCount && formatNumber(row.endpointCount)
+        return row.itemCount && formatNumber(row.itemCount)
       },
     },
     {
       Header: 'Amount',
       accessor: row => {
-        return row.requestCount && formatNumber(row.requestCount)
+        return row.amount && formatNumber(row.amount)
       },
     },
     {
@@ -72,14 +48,16 @@ export const prepareTableColumns = (monthlyBilling?: MonthlyBilling | null) => {
   ]
 }
 
-const CostExplorerTable: React.FC<CostExplorerTableProps> = () => {
+const CostExplorerTable: React.FC = () => {
   const monthlyBilling = useSelector(selectMonthlyBilling)
   const isLoading = useSelector(selectMonthlyBillingLoading)
 
   if (isLoading) return <Loader />
 
+  const { services = [] } = monthlyBilling
+
   const columns = prepareTableColumns(monthlyBilling)
-  const tableData = prepareTableData(monthlyBilling?.requestsByService)
+  const tableData = prepareTableData(services)
 
   return (
     <>
