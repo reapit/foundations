@@ -10,8 +10,9 @@ import { selectClientId, selectFeaturedApps, selectDeveloperEditionId } from '@/
 import { selectCategories } from '@/selector/app-categories'
 import { ClientAppSummary, ClientAppSummaryParams } from '@/reducers/client/app-summary'
 import { logger } from '@reapit/utils'
-import { fetchAppsList } from '@/services/apps'
+import { fetchAppsList, fetchAppById } from '@/services/apps'
 import { fetchCategoriesList } from '@/services/categories'
+import { AppSummaryModel, AppDetailModel } from '@reapit/foundations-ts-definitions'
 
 const DEFAULT_CATEGORY_LENGTH = 1
 
@@ -47,7 +48,10 @@ export const clientDataFetch = function*({ data }) {
         : call(fetchAppsList, { clientId, pageNumber: 1, pageSize: FEATURED_APPS, isFeatured: true }),
       currentCategories.length > DEFAULT_CATEGORY_LENGTH ? currentCategories : call(fetchCategoriesList, {}),
     ])
-    const clientItem: ClientAppSummary = { apps: apps, featuredApps: featuredApps?.data }
+    const featuredAppsDetail: AppDetailModel[] | null = (featuredApps?.data as AppSummaryModel[])
+      ? yield all(featuredApps.data.map((app: AppSummaryModel) => call(fetchAppById, { clientId, id: app.id ?? '' })))
+      : null
+    const clientItem: ClientAppSummary = { apps: apps, featuredApps: featuredAppsDetail }
     yield put(clientFetchAppSummarySuccess(clientItem))
     yield put(categoriesReceiveData(categories))
   } catch (err) {

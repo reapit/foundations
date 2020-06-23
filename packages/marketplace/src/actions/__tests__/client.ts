@@ -9,7 +9,9 @@ import {
   clientFetchNegotiatorsSuccess,
 } from '../client'
 import ActionTypes from '../../constants/action-types'
-import { appsDataStub, featuredAppsDataStub } from '../../sagas/__stubs__/apps'
+import { appsDataStub } from '../../sagas/__stubs__/apps'
+import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
+import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 
 describe('client actions', () => {
   it('should create a clientFetchAppSummary action', () => {
@@ -19,9 +21,10 @@ describe('client actions', () => {
   it('should create a clientFetchAppSummarySuccess action', () => {
     expect(clientFetchAppSummarySuccess.type).toEqual(ActionTypes.CLIENT_FETCH_APP_SUMMARY_SUCCESS)
     expect(
-      clientFetchAppSummarySuccess({ featuredApps: featuredAppsDataStub.data.data, apps: appsDataStub.data }).data,
+      clientFetchAppSummarySuccess({ featuredApps: [appDetailDataStub as AppDetailModel], apps: appsDataStub.data })
+        .data,
     ).toEqual({
-      featuredApps: featuredAppsDataStub.data.data,
+      featuredApps: [appDetailDataStub as AppDetailModel],
       apps: appsDataStub.data,
     })
   })

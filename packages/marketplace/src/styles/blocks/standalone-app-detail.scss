@@ -14,21 +14,12 @@
   color: $reapit-green;
 }
 
-.elipsis {
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: right;
-}
-
 .tag {
   display: inline-block;
   padding: 0.5rem 1rem;
   background: $grey-light;
   margin: 1rem 1rem 0 0;
 }
-
 
 .appIconContainer {
   max-width: 96px;
