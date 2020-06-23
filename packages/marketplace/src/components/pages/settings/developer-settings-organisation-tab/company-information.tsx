@@ -61,7 +61,7 @@ export const CompanyInformation = () => {
 
               <Grid>
                 <GridItem>
-                  <TextArea className={styles.aboutField} id="about" labelText="About" name="about" />
+                  <TextArea id="about" labelText="About" name="about" />
                 </GridItem>
                 <GridItem>
                   <div className="control">

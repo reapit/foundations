@@ -1,21 +1,3 @@
 .buttonSave {
   margin-top: 2rem;
 }
-
-.aboutField {
-  &,
-  & > div {
-    height: 100%;
-  }
-
-  & > div {
-    display: flex;
-    flex-direction: column;
-
-    & > textarea {
-      flex: 1;
-      margin-bottom: 0.75rem;
-      box-sizing: content-box;
-    }
-  }
-}

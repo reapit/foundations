@@ -1,11 +1,9 @@
 import * as React from 'react'
-import cx from 'classnames'
 import { Field, FieldProps } from 'formik'
 import { cx } from 'linaria'
 import { checkError } from '../../utils/form'
-import { LayoutProps } from '../Layout'
 
-export type TextAreaProps = {
+export interface TextAreaProps {
   placeholder?: string
   id: string
   labelText?: string
@@ -13,7 +11,7 @@ export type TextAreaProps = {
   dataTest?: string
   validate?: (value: string) => string | null
   required?: boolean
-} & LayoutProps
+}
 
 export const textareaPrimary = 'textarea is-primary'
 export const textareaError = 'textarea is-danger'
@@ -33,7 +31,7 @@ export const TextArea = ({
       const className = cx(hasError ? textareaError : textareaPrimary)
       const labelClassname = cx('label', required && 'required-label')
       return (
-        <div className={cx('field', className)}>
+        <div className="field">
           <div className="control">
             {labelText && (
               <label className={labelClassname} htmlFor={id}>
