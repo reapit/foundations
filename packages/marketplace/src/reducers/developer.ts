@@ -23,6 +23,7 @@ import {
   DeveloperModel,
   AppDetailModel,
   BillingBreakdownForMonthV2Model,
+  BillingOverviewForPeriodV2Model,
 } from '@reapit/foundations-ts-definitions'
 import { developerAppShowModal } from '@/actions/developer-app-modal'
 
@@ -63,7 +64,7 @@ export interface DeveloperState {
   formState: FormState
   isVisible: boolean
   myIdentity: DeveloperModel | null
-  billing: Billing | null
+  billing: BillingOverviewForPeriodV2Model | null
   isServiceChartLoading: boolean
   error: unknown
   isMonthlyBillingLoading: boolean
