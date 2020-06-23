@@ -105,12 +105,12 @@ export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps>
   const loginIdentity = useSelector(selectLoginIdentity)
   const revisionsData = revisions?.data
   const latestAppRevisionId = revisionsData && revisionsData[0].id
-  const { declineFormState } = revisionDetailState
+  const { declineFormState, revisionDetailData } = revisionDetailState
 
   const isDeclining = declineFormState === 'SUBMITTING'
   const isDeclinedSuccessfully = declineFormState === 'SUCCESS'
   let hasRevisionDetailData = false
-  if (revisionDetailState) {
+  if (revisionDetailData) {
     hasRevisionDetailData = true
   }
 
