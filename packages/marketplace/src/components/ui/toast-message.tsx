@@ -1,27 +1,31 @@
-import { connect } from 'react-redux'
+import * as React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Dispatch } from 'redux'
-import { ToastMessage, ToastVariant } from '@reapit/elements'
-import { ReduxState } from '../../types/core'
-import { hideNotificationMessage } from '../../actions/notification-message'
+import { ToastMessage as ToastMessageElement } from '@reapit/elements'
+import { hideNotificationMessage } from '@/actions/notification-message'
+import { selectNotificationMessageState } from '@/selector/notification-message'
 
-interface ToastMessageMappedActions {
-  onCloseToast: () => void
+export type ToastMessageProps = {}
+
+export const handleOnCloseToast = (dispatch: Dispatch) => {
+  return () => {
+    dispatch(hideNotificationMessage(null))
+  }
 }
 
-interface ToastMessageMappedProps {
-  visible: boolean
-  variant: ToastVariant
-  message: string
+const ToastMessage: React.FC<ToastMessageProps> = () => {
+  const dispatch = useDispatch()
+  const { message, variant, visible } = useSelector(selectNotificationMessageState)
+  const onCloseToast = React.useCallback(handleOnCloseToast(dispatch), [dispatch])
+
+  return (
+    <ToastMessageElement
+      visible={visible}
+      message={message}
+      variant={variant || 'primary'}
+      onCloseToast={onCloseToast}
+    />
+  )
 }
 
-const mapStateToProps = (state: ReduxState): ToastMessageMappedProps => ({
-  visible: state.noticationMessage.visible,
-  variant: state.noticationMessage.variant || 'primary',
-  message: state.noticationMessage.message,
-})
-
-const mapDispatchToProps = (dispatch: Dispatch): ToastMessageMappedActions => ({
-  onCloseToast: () => dispatch(hideNotificationMessage(null)),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(ToastMessage)
+export default ToastMessage

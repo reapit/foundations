@@ -4,6 +4,8 @@ import appState from '@/reducers/__stubs__/app-state'
 import configureStore from 'redux-mock-store'
 import { mount } from 'enzyme'
 import { WebComponentConfig } from '../client-web-component-config'
+import Routes from '@/constants/routes'
+import { MemoryRouter } from 'react-router'
 
 describe('WebComponentConfig', () => {
   const extendStore = {
@@ -19,7 +21,9 @@ describe('WebComponentConfig', () => {
     expect(
       mount(
         <Provider store={store}>
-          <WebComponentConfig />
+          <MemoryRouter initialEntries={[{ pathname: Routes.CLIENT_APP_DETAIL, key: 'appDetailsRoute' }]}>
+            <WebComponentConfig />
+          </MemoryRouter>
         </Provider>,
       ),
     ).toMatchSnapshot()

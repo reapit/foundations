@@ -1,12 +1,12 @@
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
 import {
-  clientOpenWebComponentConfig,
-  clientCloseWebComponentConfig,
   clientFetchWebComponentConfig,
-  clientPutWebComponentConfig,
+  clientUpdateWebComponentConfig,
   clientFetchWebComponentConfigSuccess,
   clientFetchNegotiatorsSuccess,
+  clientFetchWebComponentConfigFailed,
+  clientUpdateWebComponentConfigFailed,
 } from '@/actions/client'
 import { WebComponentConfigResult } from '@/services/web-component'
 import { NegotiatorsResult } from '@/services/negotiators'
@@ -27,27 +27,13 @@ export const defaultState: WebComponentState = {
 }
 
 const webComponentReducer = (state: WebComponentState = defaultState, action: Action<any>): WebComponentState => {
-  if (isType(action, clientOpenWebComponentConfig)) {
-    return {
-      ...state,
-      isShowModal: true,
-      loading: true,
-    }
-  }
-  if (isType(action, clientCloseWebComponentConfig)) {
-    return {
-      ...state,
-      isShowModal: false,
-    }
-  }
-
   if (isType(action, clientFetchWebComponentConfig)) {
     return {
       ...state,
       loading: true,
     }
   }
-  if (isType(action, clientPutWebComponentConfig)) {
+  if (isType(action, clientUpdateWebComponentConfig)) {
     return {
       ...state,
       updating: true,
@@ -58,6 +44,21 @@ const webComponentReducer = (state: WebComponentState = defaultState, action: Ac
       ...state,
       data: action.data,
       loading: false,
+      updating: false,
+    }
+  }
+
+  if (isType(action, clientFetchWebComponentConfigFailed)) {
+    return {
+      ...state,
+      data: null,
+      loading: false,
+    }
+  }
+
+  if (isType(action, clientUpdateWebComponentConfigFailed)) {
+    return {
+      ...state,
       updating: false,
     }
   }

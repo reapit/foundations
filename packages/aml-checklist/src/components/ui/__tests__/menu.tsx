@@ -1,51 +1,42 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { getMockRouterProps } from '@/helper/mock-router'
-import { Menu, mapStateToProps, mapDispatchToProps } from '../menu'
-import { LoginMode } from '@reapit/cognito-auth'
-import { ReduxState } from '@/types/core'
+import { Menu, logout } from '../menu'
+import configureStore from 'redux-mock-store'
+import { Provider } from 'react-redux'
+
+jest.mock('react-router', () => ({
+  ...jest.requireActual('react-router'),
+  useLocation: jest.fn(() => ({
+    location: 'location',
+  })),
+}))
 
 describe('Menu', () => {
+  let store
+  beforeEach(() => {
+    const mockStore = configureStore()
+    store = mockStore({})
+  })
+
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
   it('should match snapshot', () => {
-    const mockProps = {
-      ...getMockRouterProps({} as any),
-      logout: jest.fn(),
-      mode: 'WEB' as LoginMode,
-    }
-    const wrapper = shallow(<Menu {...mockProps} />)
+    const wrapper = shallow(
+      <Provider store={store}>
+        <Menu />
+      </Provider>,
+    )
     expect(wrapper).toMatchSnapshot()
   })
 
-  describe('mapStateToProps', () => {
-    it('should run correctly', () => {
-      // @ts-ignore: only pick necessary props
-      const mockState = {
-        auth: {
-          refreshSession: {
-            mode: 'WEB',
-          },
-        },
-      } as ReduxState
-      const result = mapStateToProps(mockState)
-      expect(result).toEqual({
-        mode: 'WEB',
-      })
-    })
-    it('should run correctly', () => {
-      const mockState = {} as ReduxState
-      const result = mapStateToProps(mockState)
-      expect(result).toEqual({
-        mode: 'WEB',
-      })
-    })
-  })
-
-  describe('mapDispatchToProps', () => {
-    it('should render correctly', () => {
+  describe('logout', () => {
+    it('should call functions', () => {
       const mockDispatch = jest.fn()
-      const { logout } = mapDispatchToProps(mockDispatch)
-      logout()
-      expect(mockDispatch).toBeCalled()
+      const mockAuthLogout = jest.fn(() => 'logout') as any
+      const fn = logout({ dispatch: mockDispatch, authLogout: mockAuthLogout })
+      fn()
+      expect(mockDispatch).toHaveBeenCalledWith('logout')
     })
   })
 })

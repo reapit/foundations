@@ -5,6 +5,13 @@ import { Menu, MenuProps, generateMenuConfig, callbackAppClick } from '@/compone
 import { AuthContext } from '@/context'
 import { mockContext } from '@/context/__mocks__/mock-context'
 
+jest.mock('react-router', () => ({
+  ...jest.requireActual('react-router'),
+  useLocation: jest.fn(() => ({
+    location: 'location',
+  })),
+}))
+
 describe('Menu', () => {
   it('should match a snapshot', () => {
     const props = {
@@ -20,11 +27,16 @@ describe('Menu', () => {
 
   describe('generateMenuConfig', () => {
     it('should return config', () => {
-      const props = {
-        ...getMockRouterProps({ params: {}, search: '' }),
-      } as MenuProps
-      const logoutCallback = jest.fn()
-      const result = generateMenuConfig(logoutCallback, props.location, 'WEB')
+      const location = {
+        hash: 'mockHash',
+        key: 'mockKey',
+        pathname: 'mockPathname',
+        search: '',
+        state: {},
+      }
+
+      const logout = jest.fn()
+      const result = generateMenuConfig(logout, location)
       expect(result).toBeDefined()
     })
   })

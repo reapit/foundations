@@ -17,7 +17,7 @@ export interface ClientWelcomeMappedActions {}
 export type ClientWelcomeMessageProps = ClientWelcomeMappedActions
 
 export const Welcome = () => {
-  const { goNext } = useHelpGuideContext()
+  const { goNext, goPrev } = useHelpGuideContext()
   return (
     <div>
       <p className="mb-5">
@@ -28,6 +28,9 @@ export const Welcome = () => {
         Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
         PageMaker including versions of Lorem Ipsum.
       </p>
+      <Button type="button" variant="primary" onClick={handleChangeSteps(goPrev)}>
+        Prev
+      </Button>
       <Button type="button" variant="primary" onClick={handleChangeSteps(goNext)}>
         Next
       </Button>

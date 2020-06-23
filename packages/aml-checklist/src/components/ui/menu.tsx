@@ -1,23 +1,17 @@
 import * as React from 'react'
-import { withRouter, RouteComponentProps } from 'react-router'
-import { connect } from 'react-redux'
+import { useLocation } from 'react-router'
+import { useDispatch } from 'react-redux'
 import { Dispatch } from 'redux'
 import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
-import { LoginMode } from '@reapit/cognito-auth'
 import Routes from '@/constants/routes'
 import { authLogout } from '@/actions/auth'
+import { ActionCreator } from '@/types/core'
 import { Location } from 'history'
-import { ReduxState } from '@/types/core'
 import { FaCloud, FaSignOutAlt, FaSearch, FaList } from 'react-icons/fa'
 
-export const generateMenuConfig = (
-  logoutCallback: () => void,
-  location: Location<any>,
-  mode: LoginMode,
-): MenuConfig => {
+export const generateMenuConfig = (logoutCallback: () => void, location: Location<any>): MenuConfig => {
   return {
     defaultActiveKey: 'CLIENT_SEARCH',
-    mode,
     location,
     menu: [
       {
@@ -61,30 +55,16 @@ export const generateMenuConfig = (
   }
 }
 
-export type MenuProps = RouteComponentProps & {
-  logout: () => void
-  mode: LoginMode
-}
+export type MenuProps = {}
 
-export const Menu: React.FunctionComponent<MenuProps> = ({ location, logout, mode }) => {
-  const menuConfigs = generateMenuConfig(logout, location, mode)
+export const logout = ({ dispatch, authLogout }: { dispatch: Dispatch; authLogout: ActionCreator<void> }) => () =>
+  dispatch(authLogout())
+
+export const Menu: React.FunctionComponent<MenuProps> = () => {
+  const location = useLocation()
+  const dispatch = useDispatch()
+  const menuConfigs = generateMenuConfig(logout({ dispatch, authLogout }), location)
   return <Sidebar {...menuConfigs} location={location} />
 }
 
-export const mapDispatchToProps = (dispatch: Dispatch) => {
-  return {
-    logout: () => dispatch(authLogout()),
-  }
-}
-
-export const mapStateToProps = (state: ReduxState) => ({
-  mode: state?.auth?.refreshSession?.mode || 'WEB',
-})
-
-export const MenuWithRedux = connect(mapStateToProps, mapDispatchToProps)(Menu)
-MenuWithRedux.displayName = 'MenuWithRedux'
-
-export const MenuWithRouter = withRouter(MenuWithRedux)
-MenuWithRouter.displayName = 'MenuWithRouter'
-
-export default MenuWithRouter
+export default Menu
