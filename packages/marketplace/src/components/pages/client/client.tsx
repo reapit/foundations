@@ -1,17 +1,29 @@
 import * as React from 'react'
 import { History } from 'history'
 import { useSelector } from 'react-redux'
-import { Loader } from '@reapit/elements'
+import {
+  Loader,
+  FlexContainerBasic,
+  H3,
+  GridThreeColItem,
+  Grid,
+  Content,
+  FlexContainerResponsive,
+  Pagination,
+} from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { useHistory, useLocation } from 'react-router'
 import AppList from '@/components/ui/app-list'
-import AppSidebar from '@/components/ui/app-sidebar'
+// Commenting out as we are disabling for launch because there are too few apps
+// import AppSidebar from '@/components/ui/app-sidebar'
 import { AppDetailState } from '@/reducers/app-detail'
 import { selectAppSummary } from '@/selector/client'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import styles from '@/styles/pages/client.scss?mod'
 import { addQuery, hasFilterParams } from '@/utils/client-url-params'
 import Routes from '@/constants/routes'
+import { MEDIA_INDEX } from '@/constants/media'
+import featureImagePlaceHolder from '@/assets/images/default-feature-image.jpg'
+import { Link } from 'react-router-dom'
 
 export const handleAfterClose = ({ setVisible }) => () => setVisible(false)
 export const handleOnChange = history => (page: number) => {
@@ -47,41 +59,51 @@ export const Client: React.FunctionComponent = () => {
 
   return (
     <ErrorBoundary>
-      <div id="page-client-apps-container" className={styles.clientContainer}>
-        <AppSidebar />
+      <FlexContainerBasic hasPadding flexColumn dataTest="page-client-apps-container">
+        {/* <AppSidebar /> */}
         {unfetched || loading ? (
           <Loader />
         ) : (
-          <div className={styles.clientContent}>
+          <FlexContainerResponsive className="flex-grow-0" flexColumn>
+            <FlexContainerBasic className="mb-4" hasPadding hasBackground>
+              <H3 className="mb-0">Browse Apps</H3>
+            </FlexContainerBasic>
             {!hasParams && featuredApps.length > 0 && (
-              <>
-                <AppList
-                  list={featuredApps}
-                  title="Featured Apps"
-                  loading={loading}
-                  onCardClick={handleOnCardClick(history)}
-                  infoType="CLIENT_APPS_EMPTY"
-                  numOfColumn={3}
-                />
-                <div className={styles.divider} />
-              </>
+              <Content className="bb pb-3 mb-4">
+                <Grid isMultiLine>
+                  {featuredApps.map(app => {
+                    const featureImageSrc = app?.media?.[MEDIA_INDEX.FEATURE_IMAGE]?.uri || featureImagePlaceHolder
+                    return (
+                      <GridThreeColItem key={app.id}>
+                        <Link to={`${Routes.CLIENT}/${app.id}`}>
+                          <img key={app.id} src={featureImageSrc} />
+                        </Link>
+                      </GridThreeColItem>
+                    )
+                  })}
+                </Grid>
+              </Content>
             )}
             <AppList
               list={apps}
               loading={loading}
               onCardClick={handleOnCardClick(history)}
               infoType={page > 1 || hasParams ? '' : 'CLIENT_APPS_EMPTY'}
-              pagination={{
-                totalCount,
-                pageSize,
-                pageNumber: page,
-                onChange: handleOnChange(history),
-              }}
               numOfColumn={3}
             />
-          </div>
+            <FlexContainerBasic className="justify-center" hasBackground hasPadding>
+              <Pagination
+                {...{
+                  totalCount,
+                  pageSize,
+                  pageNumber: page,
+                  onChange: handleOnChange(history),
+                }}
+              />
+            </FlexContainerBasic>
+          </FlexContainerResponsive>
         )}
-      </div>
+      </FlexContainerBasic>
     </ErrorBoundary>
   )
 }

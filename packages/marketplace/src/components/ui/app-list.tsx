@@ -8,7 +8,6 @@ import {
   InfoType,
   GridFourCol,
   PaginationProps,
-  Section,
   Pagination,
   GridThreeColItem,
   FlexContainerBasic,
@@ -26,7 +25,6 @@ export type AppListProps = {
   onSettingsClick?: (app: AppSummaryModel) => void
   title?: string
   infoType: InfoType
-  pagination?: PaginationProps
   numOfColumn?: number
   hasSubmitButton?: boolean
 }
@@ -70,14 +68,13 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
   onSettingsClick,
   title,
   infoType,
-  pagination,
   numOfColumn = 4,
   hasSubmitButton = false,
 }) => {
   const WrapperContainer = numOfColumn === 4 ? GridFourColItem : GridThreeColItem
 
   return (
-    <FlexContainerBasic hasPadding flexColumn>
+    <FlexContainerBasic className="mb-4" flexColumn>
       {renderHeader({ hasSubmitButton, title })}
       {!list.length && !loading ? (
         <Helper variant="info">
@@ -117,13 +114,7 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
           </GridFourCol>
         </div>
       )}
-
       {loading && <Loader body />}
-      {pagination && (
-        <Section>
-          <Pagination {...pagination} />
-        </Section>
-      )}
     </FlexContainerBasic>
   )
 }
