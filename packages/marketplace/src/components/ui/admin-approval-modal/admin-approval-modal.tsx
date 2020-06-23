@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { Modal, ModalProps, Loader, Button, ModalHeader, ModalFooter, ModalBody, Alert } from '@reapit/elements'
 import ApproveRevisionModal from './approve-revision-modal'
 import DeclineRevisionModal from './decline-revision-modal'
-import AppRevisionComparison from './app-revision-comparison/app-revision-comparison'
+import AppRevisionComparison from '../app-revision-comparison/app-revision-comparison'
 import { selectAppRevisionDetail } from '@/selector/app-revisions'
 import { selectAppDetailState } from '@/selector/app-detail'
 
