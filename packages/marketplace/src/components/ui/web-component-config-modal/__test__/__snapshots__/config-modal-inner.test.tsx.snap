@@ -308,19 +308,19 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                           Select a time between each appointment
                         </label>
                         <Component
-                          className="is-gapless"
+                          className=""
                           isMultiLine={true}
                         >
                           <div
-                            className="columns is-multiline is-gapless"
+                            className="columns is-multiline "
                             data-test=""
                           >
                             <Component
-                              className="is-full"
+                              className=""
                               key="0"
                             >
                               <div
-                                className="column  is-full"
+                                className="column  "
                                 data-test=""
                               >
                                 <div
@@ -346,11 +346,11 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                               </div>
                             </Component>
                             <Component
-                              className="is-full"
+                              className=""
                               key="1"
                             >
                               <div
-                                className="column  is-full"
+                                className="column  "
                                 data-test=""
                               >
                                 <div
@@ -376,11 +376,11 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                               </div>
                             </Component>
                             <Component
-                              className="is-full"
+                              className=""
                               key="2"
                             >
                               <div
-                                className="column  is-full"
+                                className="column  "
                                 data-test=""
                               >
                                 <div
@@ -406,11 +406,11 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                               </div>
                             </Component>
                             <Component
-                              className="is-full"
+                              className=""
                               key="3"
                             >
                               <div
-                                className="column  is-full"
+                                className="column  "
                                 data-test=""
                               >
                                 <div
@@ -492,19 +492,19 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                           Select a length of appointments
                         </label>
                         <Component
-                          className="is-gapless"
+                          className=""
                           isMultiLine={true}
                         >
                           <div
-                            className="columns is-multiline is-gapless"
+                            className="columns is-multiline "
                             data-test=""
                           >
                             <Component
-                              className="is-full"
+                              className=""
                               key="0"
                             >
                               <div
-                                className="column  is-full"
+                                className="column  "
                                 data-test=""
                               >
                                 <div
@@ -530,11 +530,11 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                               </div>
                             </Component>
                             <Component
-                              className="is-full"
+                              className=""
                               key="1"
                             >
                               <div
-                                className="column  is-full"
+                                className="column  "
                                 data-test=""
                               >
                                 <div
@@ -560,11 +560,11 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                               </div>
                             </Component>
                             <Component
-                              className="is-full"
+                              className=""
                               key="2"
                             >
                               <div
-                                className="column  is-full"
+                                className="column  "
                                 data-test=""
                               >
                                 <div
@@ -590,11 +590,11 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                               </div>
                             </Component>
                             <Component
-                              className="is-full"
+                              className=""
                               key="3"
                             >
                               <div
-                                className="column  is-full"
+                                className="column  "
                                 data-test=""
                               >
                                 <div

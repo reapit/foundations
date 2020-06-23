@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Field, FieldProps } from 'formik'
+import { cx } from 'linaria'
 import { checkError } from '../../utils/form'
 
 export interface TextAreaProps {
@@ -27,12 +28,13 @@ export const TextArea = ({
   <Field name={name} validate={required ? validate : null}>
     {({ field, meta }: FieldProps<string>) => {
       const hasError = checkError(meta)
-      const className = hasError ? textareaError : textareaPrimary
+      const className = cx(hasError ? textareaError : textareaPrimary)
+      const labelClassname = cx('label', required && 'required-label')
       return (
         <div className="field">
           <div className="control">
             {labelText && (
-              <label className={`label ${required ? 'required-label' : ''}`} htmlFor={id}>
+              <label className={labelClassname} htmlFor={id}>
                 {labelText}
               </label>
             )}

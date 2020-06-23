@@ -1,5 +1,5 @@
 import React from 'react'
-import classnames from 'classnames'
+import { cx } from 'linaria'
 import { Field, FieldProps } from 'formik'
 import { checkError } from '../../utils/form'
 import { Grid, GridItem } from '../Layout'
@@ -36,13 +36,8 @@ export const RadioSelect: React.FC<RadioSelectProps> = ({
   isHorizontal = false,
   className = '',
 }) => {
-  const radioGridClassName = classnames({
-    'is-gapless': !isHorizontal,
-  })
-  const radioGridItemClassName = classnames({
-    'is-full': !isHorizontal,
-    'is-narrow': isHorizontal,
-  })
+  const radioGridClassName = cx(!isHorizontal && 'is-gapless')
+  const radioGridItemClassName = cx(isHorizontal ? 'is-narrow' : 'is-full')
 
   return (
     <Field type="radio" name={name}>

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Field, FieldProps, FieldInputProps } from 'formik'
 import { isBase64 } from '../../utils/is-base64'
 import { checkError } from '../../utils/form'
-import classnames from 'classnames'
+import { cx } from 'linaria'
 
 const { useState } = React
 
@@ -65,11 +65,7 @@ export const FileInput = ({
 }: FileInputProps) => {
   const [fileUrl, setFileName] = useState<string>()
   const inputFile = React.useRef<HTMLInputElement>(null)
-  const fileInputContainerClassName = classnames({
-    control: true,
-    'file-input-container': true,
-    'is-full-width': !isNarrowWidth,
-  })
+  const fileInputContainerClassName = cx('control', 'file-input-container', !isNarrowWidth && 'is-full-width')
 
   return (
     <Field name={name}>
