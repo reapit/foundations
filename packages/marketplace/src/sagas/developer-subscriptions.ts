@@ -11,13 +11,13 @@ import {
   developerFetchSubscriptionsSuccess,
   developerCreateSubscriptionSuccess,
   developerCreateSubscriptionFalure,
+  CreateSubscriptionParams,
 } from '@/actions/developer-subscriptions'
 import {
   createDeveloperSubscription,
   fetchSubscriptionsList,
   FetchSubscriptionsListParams,
   deleteSubscription,
-  CreateSubscriptionModel,
 } from '@/services/developer-subscriptions'
 
 export const developerFetchSubcriptionsList = function*({ data }: Action<FetchSubscriptionsListParams>) {
@@ -39,15 +39,17 @@ export const developerFetchSubcriptionsList = function*({ data }: Action<FetchSu
   }
 }
 
-export const developerCreateSubscription = function*({ data }) {
+export const developerCreateSubscription = function*({ data }: Action<CreateSubscriptionParams>) {
   try {
-    const response = yield call(createDeveloperSubscription, data)
+    const response = yield call(createDeveloperSubscription, data.params)
     if (response) {
       yield put(developerCreateSubscriptionSuccess(response))
     } else {
       yield put(developerCreateSubscriptionFalure())
     }
+    data.onCreated()
   } catch (err) {
+    data.onCreated()
     logger(err)
     yield put(
       errorThrownServer({
@@ -82,7 +84,7 @@ export const developerFetchSubcriptionsListListen = function*() {
 }
 
 export const developerCreateSubcriptionListen = function*() {
-  yield takeLatest<Action<CreateSubscriptionModel>>(
+  yield takeLatest<Action<CreateSubscriptionParams>>(
     ActionTypes.DEVELOPER_SUBSCRIPTION_CREATE,
     developerCreateSubscription,
   )

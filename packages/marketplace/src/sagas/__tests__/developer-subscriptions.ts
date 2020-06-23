@@ -13,7 +13,6 @@ import {
   FetchSubscriptionsListParams,
   fetchSubscriptionsList,
   PagedResultSubscriptionModel_,
-  CreateSubscriptionModel,
   deleteSubscription,
   createDeveloperSubscription,
 } from '@/services/developer-subscriptions'
@@ -22,6 +21,7 @@ import {
   developerFetchSubscriptionsSuccess,
   developerFetchSubscriptions,
   developerCreateSubscriptionSuccess,
+  CreateSubscriptionParams,
 } from '@/actions/developer-subscriptions'
 
 jest.mock('@reapit/elements')
@@ -58,15 +58,22 @@ describe('developerSubscriptionsSagas', () => {
   })
 
   describe('developerCreateSubcriptionListen', () => {
-    const params: CreateSubscriptionModel = {
-      developerId: '123',
-      applicationId: '123',
-      user: 'tester@reapit.com',
-      type: 'developerEdition',
+    const actionData: CreateSubscriptionParams = {
+      params: {
+        developerId: '123',
+        applicationId: '123',
+        user: 'tester@reapit.com',
+        type: 'developerEdition',
+      },
+      onCreated: jest.fn(),
     }
-    const gen = cloneableGenerator(developerCreateSubscription)({ data: params })
+    const params: Action<CreateSubscriptionParams> = {
+      data: actionData,
+      type: 'DEVELOPER_SUBSCRIPTION_CREATE',
+    }
+    const gen = cloneableGenerator(developerCreateSubscription)(params)
 
-    expect(gen.next().value).toEqual(call(createDeveloperSubscription, params))
+    expect(gen.next().value).toEqual(call(createDeveloperSubscription, params.data.params))
 
     test('api call success', () => {
       const clone = gen.clone()

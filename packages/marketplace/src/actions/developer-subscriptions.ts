@@ -15,7 +15,12 @@ export const developerFetchSubscriptionsSuccess = actionCreator<PagedResultSubsc
 )
 export const developerDeleteSubscription = actionCreator<string>(ActionTypes.DEVELOPER_DELETE_SUBSCRIPTION)
 
-export const developerCreateSubscription = actionCreator<CreateSubscriptionModel>(
+export interface CreateSubscriptionParams {
+  params: CreateSubscriptionModel
+  onCreated: () => void
+}
+
+export const developerCreateSubscription = actionCreator<CreateSubscriptionParams>(
   ActionTypes.DEVELOPER_SUBSCRIPTION_CREATE,
 )
 export const developerCreateSubscriptionSuccess = actionCreator<SubscriptionModel>(

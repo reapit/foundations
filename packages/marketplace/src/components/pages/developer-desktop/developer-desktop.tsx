@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { FlexContainerBasic, FlexContainerResponsive, H3, LevelRight, Button } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
@@ -8,7 +8,6 @@ import styles from '@/styles/pages/developer-desktop.scss?mod'
 import DeveloperEditonModal from '@/components/ui/developer-edition-modal'
 import DeveloperConfirmSubscription from '@/components/ui/developer-confirm-subscription'
 import { developerCreateSubscription } from '@/actions/developer-subscriptions'
-import { selectCreatedDeveloperSubscription } from '@/selector/developer-subscriptions'
 
 const DISPLAY_MODAL_TIMEOUT = 300
 
@@ -31,26 +30,25 @@ export const confirmSubscription = (
   }, DISPLAY_MODAL_TIMEOUT)
 }
 
-export const handleCreateSubscription = (dispatch: Dispatch) => (developer: DeveloperModel) => {
-  dispatch(
-    developerCreateSubscription({
-      developerId: developer.id || '',
-      user: developer.email || '',
-      applicationId: '', // TBC
-      type: 'developerEdition',
-    }),
-  )
-}
-
-export const handleAfterCreateSubscription = (
-  subscription,
+export const handleCreateSubscription = (
+  dispatch: Dispatch,
   setConfirmSubscriptionModalOpen: React.Dispatch<boolean>,
   setSelectedDevelopers: React.Dispatch<DeveloperModel[]>,
-) => () => {
-  if (subscription) {
-    setConfirmSubscriptionModalOpen(false)
-    setSelectedDevelopers([])
-  }
+) => (developer: DeveloperModel) => {
+  dispatch(
+    developerCreateSubscription({
+      params: {
+        developerId: developer.id || '',
+        user: developer.email || '',
+        applicationId: '', // TBC
+        type: 'developerEdition',
+      },
+      onCreated: () => {
+        setConfirmSubscriptionModalOpen(false)
+        setSelectedDevelopers([])
+      },
+    }),
+  )
 }
 
 export const DeveloperDesktopPage: React.FC<DeveloperDesktopPageProps> = () => {
@@ -58,14 +56,9 @@ export const DeveloperDesktopPage: React.FC<DeveloperDesktopPageProps> = () => {
   const [isConfirmSubscriptionModalOpen, setConfirmSubscriptionModalOpen] = React.useState<boolean>(false)
   const [selectedDevelopers, setSelectedDevelopers] = React.useState<DeveloperModel[]>([])
   const dispatch = useDispatch()
-  const subscription = useSelector(selectCreatedDeveloperSubscription)
   // For now just support 1 developer
   // We will support multiple developers after finish "organisations" feature
   const developer = selectedDevelopers.length > 0 ? selectedDevelopers[0] : undefined
-
-  React.useEffect(handleAfterCreateSubscription(subscription, setConfirmSubscriptionModalOpen, setSelectedDevelopers), [
-    subscription,
-  ])
 
   return (
     <ErrorBoundary>
@@ -96,7 +89,11 @@ export const DeveloperDesktopPage: React.FC<DeveloperDesktopPageProps> = () => {
       <DeveloperConfirmSubscription
         visible={isConfirmSubscriptionModalOpen}
         developer={developer}
-        handleCreateSubscription={handleCreateSubscription(dispatch)}
+        handleCreateSubscription={handleCreateSubscription(
+          dispatch,
+          setConfirmSubscriptionModalOpen,
+          setSelectedDevelopers,
+        )}
       />
     </ErrorBoundary>
   )

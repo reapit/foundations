@@ -5,9 +5,10 @@ import {
   developerCreateSubscription,
   developerCreateSubscriptionFalure,
   developerCreateSubscriptionSuccess,
+  CreateSubscriptionParams,
 } from '../developer-subscriptions'
 import ActionTypes from '../../constants/action-types'
-import { FetchSubscriptionsListParams, CreateSubscriptionModel } from '@/services/developer-subscriptions'
+import { FetchSubscriptionsListParams } from '@/services/developer-subscriptions'
 import { subscriptionModelStub, listSubscriptionsStub } from '../../sagas/__stubs__/developer-subscriptions'
 
 describe('DeveloperSubscriptions actions', () => {
@@ -26,11 +27,14 @@ describe('DeveloperSubscriptions actions', () => {
   })
 
   it('should create a developerCreateSubscription action', () => {
-    const params: CreateSubscriptionModel = {
-      developerId: '123',
-      applicationId: '123',
-      user: 'tester@reapit.com',
-      type: 'developerEdition',
+    const params: CreateSubscriptionParams = {
+      params: {
+        developerId: '123',
+        applicationId: '123',
+        user: 'tester@reapit.com',
+        type: 'developerEdition',
+      },
+      onCreated: jest.fn(),
     }
     expect(developerCreateSubscription.type).toEqual(ActionTypes.DEVELOPER_SUBSCRIPTION_CREATE)
     expect(developerCreateSubscription(params).data).toEqual(params)

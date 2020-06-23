@@ -7,7 +7,7 @@ import {
   developerCreateSubscriptionSuccess,
   developerCreateSubscriptionFalure,
 } from '@/actions/developer-subscriptions'
-import { PagedResultSubscriptionModel_, SubscriptionModel } from '@/services/developer-subscriptions'
+import { PagedResultSubscriptionModel_ } from '@/services/developer-subscriptions'
 
 export type DeveloperSubscriptionsState = {
   create: CreateDeveloperSubscriptionsState
@@ -16,7 +16,6 @@ export type DeveloperSubscriptionsState = {
 
 export type CreateDeveloperSubscriptionsState = {
   loading: boolean
-  subscription?: SubscriptionModel
 }
 
 export type ListDeveloperSubscriptionsState = {
@@ -52,7 +51,6 @@ const developerSubscriptionsReducer = (
       ...state,
       create: {
         loading: false,
-        subscription: action.data,
       },
     }
   }

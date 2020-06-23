@@ -7,12 +7,9 @@ import {
   DeveloperDesktopPage,
   confirmSubscription,
   handleToggleVisibleModal,
-  handleAfterCreateSubscription,
   handleCreateSubscription,
 } from '../developer-desktop'
-import { subscriptionModelStub } from '@/sagas/__stubs__/developer-subscriptions'
 import { developerStub } from '@/sagas/__stubs__/developer'
-import { developerCreateSubscription } from '@/actions/developer-subscriptions'
 
 describe('DeveloperDesktopPage', () => {
   let store
@@ -62,31 +59,13 @@ describe('confirmSubscription', () => {
   })
 })
 
-describe('handleAfterCreateSubscription', () => {
-  it('should run correctly', () => {
-    const setConfirmSubscriptionModalOpen = jest.fn()
-    const setSelectedDevelopers = jest.fn()
-    const subscription = subscriptionModelStub
-    handleAfterCreateSubscription(subscription, setConfirmSubscriptionModalOpen, setSelectedDevelopers)()
-    expect(setConfirmSubscriptionModalOpen).toBeCalled()
-    expect(setSelectedDevelopers).toBeCalled()
-    expect(setSelectedDevelopers).toBeCalledWith([])
-  })
-})
-
 describe('handleCreateSubscription', () => {
   it('should run correctly', () => {
     const dispatch = jest.fn()
+    const setConfirmSubscriptionModalOpen = jest.fn()
+    const setSelectedDevelopers = jest.fn()
     const developer = developerStub
-    handleCreateSubscription(dispatch)(developer)
+    handleCreateSubscription(dispatch, setConfirmSubscriptionModalOpen, setSelectedDevelopers)(developer)
     expect(dispatch).toBeCalled()
-    expect(dispatch).toBeCalledWith(
-      developerCreateSubscription({
-        developerId: developer.id || '',
-        user: developer.email || '',
-        applicationId: '', // TBC
-        type: 'developerEdition',
-      }),
-    )
   })
 })
