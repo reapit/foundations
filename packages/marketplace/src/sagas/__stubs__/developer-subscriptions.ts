@@ -1,4 +1,4 @@
-import { SubscriptionModel, PagedResultSubscriptionModel_ } from '@/services/developer-subscriptions'
+import { SubscriptionModel, PagedResultSubscriptionModel_ } from '@reapit/foundations-ts-definitions'
 
 export const subscriptionModelStub: SubscriptionModel = {
   id: '123',
@@ -11,7 +11,7 @@ export const subscriptionModelStub: SubscriptionModel = {
   type: 'developerEdition',
   summary: 'summary',
   cost: 123,
-  frequency: 1,
+  frequency: '1',
 }
 
 export const listSubscriptionsStub: PagedResultSubscriptionModel_ = {

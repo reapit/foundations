@@ -12,10 +12,10 @@ import {
 import {
   FetchSubscriptionsListParams,
   fetchSubscriptionsList,
-  PagedResultSubscriptionModel_,
   deleteSubscription,
   createDeveloperSubscription,
 } from '@/services/developer-subscriptions'
+import { PagedResultSubscriptionModel_ } from '@reapit/foundations-ts-definitions'
 import { subscriptionModelStub } from '@/sagas/__stubs__/developer-subscriptions'
 import {
   developerFetchSubscriptionsSuccess,

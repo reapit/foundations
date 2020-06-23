@@ -1,5 +1,5 @@
 import { ReduxState } from '@/types/core'
-import { PagedResultSubscriptionModel_ } from '@/services/developer-subscriptions'
+import { PagedResultSubscriptionModel_ } from '@reapit/foundations-ts-definitions'
 
 export const selectCreateDeveloperSubscriptionLoading = (state: ReduxState): boolean => {
   return state.developerSubscriptions.create.loading

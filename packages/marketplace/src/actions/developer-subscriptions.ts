@@ -1,11 +1,11 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
+import { FetchSubscriptionsListParams } from '@/services/developer-subscriptions'
 import {
+  SubscriptionModel,
   CreateSubscriptionModel,
-  FetchSubscriptionsListParams,
   PagedResultSubscriptionModel_,
-} from '@/services/developer-subscriptions'
-import { SubscriptionModel } from '@/services/developer-subscriptions'
+} from '@reapit/foundations-ts-definitions'
 
 export const developerFetchSubscriptions = actionCreator<FetchSubscriptionsListParams>(
   ActionTypes.DEVELOPER_FETCH_SUBSCRIPTIONS,

@@ -7,7 +7,7 @@ import {
   developerCreateSubscriptionSuccess,
   developerCreateSubscriptionFalure,
 } from '@/actions/developer-subscriptions'
-import { PagedResultSubscriptionModel_ } from '@/services/developer-subscriptions'
+import { PagedResultSubscriptionModel_ } from '@reapit/foundations-ts-definitions'
 
 export type DeveloperSubscriptionsState = {
   create: CreateDeveloperSubscriptionsState

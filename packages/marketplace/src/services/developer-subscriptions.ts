@@ -1,40 +1,14 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
-import { LinkModel } from '@reapit/foundations-ts-definitions'
+import {
+  SubscriptionModel,
+  PagedResultSubscriptionModel_,
+  CreateSubscriptionModel,
+} from '@reapit/foundations-ts-definitions'
 import { stringify } from 'query-string'
 import { URLS } from './constants'
 import { generateHeader } from './utils'
 import { logger } from '@reapit/utils'
 import { FetchListCommonParams } from './types'
-
-export type SubscriptionModel = {
-  id?: string
-  created?: string
-  cancelled?: string
-  renews?: string
-  developerId?: string
-  applicationId?: string
-  user?: string
-  type?: string
-  summary?: string
-  cost?: number
-  frequency?: number
-  readonly links?: LinkModel[]
-}
-
-export type PagedResultSubscriptionModel_ = {
-  data: SubscriptionModel[]
-  pageNumber?: number
-  pageSize?: number
-  pageCount?: number
-  totalCount?: number
-}
-
-export type CreateSubscriptionModel = {
-  developerId?: string
-  applicationId?: string
-  user?: string
-  type?: 'applicationListing' | 'developerRegistration' | 'developerEdition'
-}
 
 export type FetchSubscriptionsListParams = FetchListCommonParams & {
   developerId: string
@@ -50,7 +24,7 @@ export const fetchSubscriptionsList = async (
 ): Promise<PagedResultSubscriptionModel_> => {
   try {
     const response = await fetcher({
-      url: `${URLS.subscriptions}?${stringify(params)}`,
+      url: `${URLS.developerSubscriptions}?${stringify(params)}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
@@ -82,7 +56,7 @@ export const deleteSubscription = async (params: DeleteSubscriptionParams) => {
   const { id } = params
   try {
     const response = await fetcher({
-      url: `${URLS.subscriptions}/${id}`,
+      url: `${URLS.developerSubscriptions}/${id}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'DELETE',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),

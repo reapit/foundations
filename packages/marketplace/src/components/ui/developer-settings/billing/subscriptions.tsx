@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { developerFetchSubscriptions, developerDeleteSubscription } from '@/actions/developer-subscriptions'
 import { selectSubscriptions, selectSubscriptionsLoading } from '@/selector/developer-subscriptions'
 import styles from '@/styles/elements/link.scss?mod'
-import { SubscriptionModel } from '@/services/developer-subscriptions'
+import { SubscriptionModel } from '@reapit/foundations-ts-definitions'
 import { Dispatch } from 'redux'
 import ConfirmModal from './delete-confirm'
 

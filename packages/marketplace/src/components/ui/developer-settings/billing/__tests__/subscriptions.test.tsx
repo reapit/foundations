@@ -6,7 +6,7 @@ import {
   Subcriptions,
   handleCloseConfirmModal,
 } from '../subscriptions'
-import { SubscriptionModel } from '@/services/developer-subscriptions'
+import { SubscriptionModel } from '@reapit/foundations-ts-definitions'
 import { developerFetchSubscriptions, developerDeleteSubscription } from '@/actions/developer-subscriptions'
 import * as ReactRedux from 'react-redux'
 import configureStore from 'redux-mock-store'
