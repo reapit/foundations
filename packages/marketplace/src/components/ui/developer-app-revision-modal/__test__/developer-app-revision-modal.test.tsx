@@ -1,6 +1,9 @@
 import * as React from 'react'
 import { AppDetailState } from '@/reducers/app-detail'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
+import * as ReactRedux from 'react-redux'
+import configureStore from 'redux-mock-store'
+import appState from '@/reducers/__stubs__/app-state'
 
 import {
   DeveloperAppRevisionModal,
@@ -12,10 +15,10 @@ import {
   backToAppDetailsModal,
 } from '../developer-app-revision-modal'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
-import { revisionDetailDataStub } from '@/sagas/__stubs__/revision-detail'
-import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
-import { revisionsDataStub } from '@/sagas/__stubs__/revisions'
-import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
+import { revisionDetailRequestData, revisionDetailClearData, declineRevision } from '@/actions/revision-detail'
+import { revisionsRequestData, revisionsClearData } from '@/actions/revisions'
+import { appDetailRequestData } from '@/actions/app-detail'
+import { LoginIdentity } from '@reapit/cognito-auth'
 
 const props: DeveloperAppRevisionModalProps = {
   appId: '1',
@@ -30,106 +33,99 @@ const props: DeveloperAppRevisionModalProps = {
     },
     isStale: false,
   },
-  revisionDetailState: {
-    loading: false,
-    error: false,
-    revisionDetailData: {
-      data: revisionDetailDataStub.data,
-      scopes: appPermissionStub,
-      desktopIntegrationTypes: integrationTypesStub,
-    },
-    approveFormState: 'PENDING',
-    declineFormState: 'PENDING',
-  },
-  revisionsState: {
-    loading: false,
-    revisions: revisionsDataStub,
-  },
   afterClose: jest.fn(),
-  clearAppRevisionDetail: jest.fn(),
-  clearAppRevisions: jest.fn(),
-  declineAppRevision: jest.fn(),
-  fetchAppDetail: jest.fn(),
-  fetchAppRevisionDetail: jest.fn(),
-  fetchAppRevisions: jest.fn(),
-  loginIdentity: {
-    adminId: '1',
-    clientId: '2',
-    developerId: '3',
-    email: 'mock@test.com',
-    name: 'mock user',
-    userCode: 'mockUserCode',
-    isAdmin: false,
-    userTel: '123',
-  },
 }
 
 describe('DeveloperAppRevisionModal', () => {
+  let store
+  let spyDispatch
+  beforeEach(() => {
+    /* mocking store */
+    const mockStore = configureStore()
+    store = mockStore(appState)
+    spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
+  })
+
   it('should match a snapshot', () => {
-    expect(shallow(<DeveloperAppRevisionModal {...props} />)).toMatchSnapshot()
+    expect(
+      mount(
+        <ReactRedux.Provider store={store}>
+          <DeveloperAppRevisionModal {...props} />
+        </ReactRedux.Provider>,
+      ),
+    ).toMatchSnapshot()
   })
   describe('handleUseEffectToFetchAppRevisionDetail', () => {
     it('should run correctly', () => {
-      const { appId, appDetailState, fetchAppRevisionDetail, visible } = props
+      const { appId, appDetailState, visible } = props
       const { appDetailData } = appDetailState as AppDetailState
       const appRevisionId = appDetailData?.data.id || ''
-      const fn = handleUseEffectToFetchAppRevisionDetail(appId, appRevisionId, fetchAppRevisionDetail, visible)
+      const fn = handleUseEffectToFetchAppRevisionDetail(appId, spyDispatch, visible, appRevisionId)
       fn()
-      expect(fetchAppRevisionDetail).toBeCalledWith({
-        appId,
-        appRevisionId,
-      })
+      expect(spyDispatch).toBeCalledWith(
+        revisionDetailRequestData({
+          appId,
+          appRevisionId,
+        }),
+      )
     })
   })
   describe('handleUseEffectToFetchAppRevisions', () => {
     it('should run correctly', () => {
-      const { appId, fetchAppRevisions, visible } = props
-      const fn = handleUseEffectToFetchAppRevisions(appId, fetchAppRevisions, visible)
+      const { appId, visible } = props
+      const fn = handleUseEffectToFetchAppRevisions(appId, spyDispatch, visible)
       fn()
-      expect(fetchAppRevisions).toBeCalledWith(appId)
+      expect(spyDispatch).toBeCalledWith(revisionsRequestData({ appId }))
     })
   })
   describe('handelePendingRevisionsModalAfterClose', () => {
     it('should run correctly', () => {
-      const { afterClose, clearAppRevisions, clearAppRevisionDetail } = props
-      const fn = handelePendingRevisionsModalAfterClose(afterClose, clearAppRevisions, clearAppRevisionDetail)
+      const { afterClose } = props
+      const fn = handelePendingRevisionsModalAfterClose(afterClose, spyDispatch)
       fn()
       expect(afterClose).toBeCalled()
-      expect(clearAppRevisions).toBeCalled()
-      expect(clearAppRevisionDetail).toBeCalled()
+      expect(spyDispatch).toBeCalledWith(revisionsClearData(null))
+      expect(spyDispatch).toBeCalledWith(revisionDetailClearData(null))
     })
   })
   describe('handleCancelPendingRevisionsButtonClick', () => {
     it('should run correctly', () => {
-      const {
-        declineAppRevision,
-        appId,
-        revisionDetailState: { revisionDetailData },
-        loginIdentity,
-      } = props
-      const appRevisionId = revisionDetailData?.data.id || ''
-      const fn = handleCancelPendingRevisionsButtonClick(declineAppRevision, appId, appRevisionId, loginIdentity)
+      const { appId } = props
+      const appRevisionId = 'test'
+      const loginIdentity: LoginIdentity = {
+        adminId: '1',
+        clientId: '2',
+        developerId: '3',
+        email: 'mock@test.com',
+        name: 'mock user',
+        userCode: 'mockUserCode',
+        isAdmin: false,
+        userTel: '123',
+      }
+      const fn = handleCancelPendingRevisionsButtonClick(spyDispatch, appId, appRevisionId, loginIdentity)
       fn()
       if (!appRevisionId || !loginIdentity) {
         expect(handleCancelPendingRevisionsButtonClick).toReturn()
       }
-      expect(declineAppRevision).toBeCalledWith({
-        appId,
-        appRevisionId,
-        name: loginIdentity?.name,
-        email: loginIdentity?.email,
-        rejectionReason: 'Developer Cancelled',
-      })
+      expect(spyDispatch).toBeCalledWith(
+        declineRevision({
+          appId,
+          appRevisionId,
+          name: loginIdentity?.name,
+          email: loginIdentity?.email,
+          rejectionReason: 'Developer Cancelled',
+        }),
+      )
     })
   })
   describe('backToAppDetailsModal', () => {
     it('should run correctly', () => {
-      const { clearAppRevisions, clearAppRevisionDetail, fetchAppDetail, appId } = props
-      const fn = backToAppDetailsModal(fetchAppDetail, clearAppRevisions, clearAppRevisionDetail, appId)
+      const { appId } = props
+      const fn = backToAppDetailsModal(appId, spyDispatch)
       fn()
-      expect(clearAppRevisions).toBeCalled()
-      expect(clearAppRevisionDetail).toBeCalled()
-      expect(fetchAppDetail).toBeCalledWith(appId)
+      expect(spyDispatch).toBeCalledWith(revisionsClearData(null))
+      expect(spyDispatch).toBeCalledWith(revisionDetailClearData(null))
+      expect(spyDispatch).toBeCalledWith(appDetailRequestData({ id: appId }))
     })
   })
 })
