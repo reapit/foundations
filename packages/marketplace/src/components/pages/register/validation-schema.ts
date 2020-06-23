@@ -3,24 +3,25 @@ import { formFields } from './form-fields'
 import errorMessages from '@/constants/error-messages'
 import { personNameRegex, telephoneRegex, emailRegex } from '@reapit/utils'
 
+const { nameField, companyNameField, emailField, telephoneField } = formFields
+
 export const validationSchema = Yup.object().shape({
-  [formFields.nameField.name]: Yup.string()
+  [nameField.name]: Yup.string()
     .trim()
     .required(errorMessages.FIELD_REQUIRED)
     .matches(personNameRegex, errorMessages.FIELD_INVALID_NAME),
 
-  [formFields.companyNameField.name]: Yup.string()
+  [companyNameField.name]: Yup.string()
     .trim()
     .required(errorMessages.FIELD_REQUIRED),
 
-  [formFields.emailField.name]: Yup.string()
+  [emailField.name]: Yup.string()
     .trim()
     .required(errorMessages.FIELD_REQUIRED)
     .matches(emailRegex, errorMessages.FIELD_WRONG_EMAIL_FORMAT),
 
-  [formFields.telephoneField.name]: Yup.string()
+  [telephoneField.name]: Yup.string()
     .trim()
     .required(errorMessages.FIELD_REQUIRED)
     .matches(telephoneRegex, errorMessages.FIELD_PHONE_NUMER),
 })
-
