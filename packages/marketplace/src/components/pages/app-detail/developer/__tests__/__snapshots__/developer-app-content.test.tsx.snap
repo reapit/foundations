@@ -563,7 +563,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -633,7 +633,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -698,7 +698,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                   "subRows": Array [],
                                   "toggleRowExpanded": [Function],
                                   "values": Object {
-                                    "Date Installed": "03/12/2019",
+                                    "Date Installed": "03 Dec 2019",
                                     "Uninstall": undefined,
                                     "client": "DXX",
                                   },
@@ -914,7 +914,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -1016,7 +1016,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -1081,7 +1081,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                   "subRows": Array [],
                                   "toggleRowExpanded": [Function],
                                   "values": Object {
-                                    "Date Installed": "03/12/2019",
+                                    "Date Installed": "03 Dec 2019",
                                     "Uninstall": undefined,
                                     "client": "DXX",
                                   },
@@ -1241,7 +1241,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -1343,7 +1343,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -1408,7 +1408,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                   "subRows": Array [],
                                   "toggleRowExpanded": [Function],
                                   "values": Object {
-                                    "Date Installed": "03/12/2019",
+                                    "Date Installed": "03 Dec 2019",
                                     "Uninstall": undefined,
                                     "client": "DXX",
                                   },
@@ -1765,7 +1765,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -1867,7 +1867,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -1932,7 +1932,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                   "subRows": Array [],
                                   "toggleRowExpanded": [Function],
                                   "values": Object {
-                                    "Date Installed": "03/12/2019",
+                                    "Date Installed": "03 Dec 2019",
                                     "Uninstall": undefined,
                                     "client": "DXX",
                                   },
@@ -2007,7 +2007,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                     "getCellProps": [Function],
                                     "render": [Function],
                                     "row": [Circular],
-                                    "value": "03/12/2019",
+                                    "value": "03 Dec 2019",
                                   },
                                   Object {
                                     "column": Object {
@@ -2109,7 +2109,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                     "getCellProps": [Function],
                                     "render": [Function],
                                     "row": [Circular],
-                                    "value": "03/12/2019",
+                                    "value": "03 Dec 2019",
                                   },
                                   Object {
                                     "column": Object {
@@ -2174,7 +2174,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                 "subRows": Array [],
                                 "toggleRowExpanded": [Function],
                                 "values": Object {
-                                  "Date Installed": "03/12/2019",
+                                  "Date Installed": "03 Dec 2019",
                                   "Uninstall": undefined,
                                   "client": "DXX",
                                 },
@@ -2248,7 +2248,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -2350,7 +2350,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -2415,7 +2415,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                   "subRows": Array [],
                                   "toggleRowExpanded": [Function],
                                   "values": Object {
-                                    "Date Installed": "03/12/2019",
+                                    "Date Installed": "03 Dec 2019",
                                     "Uninstall": undefined,
                                     "client": "DXX",
                                   },
@@ -2490,7 +2490,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -2592,7 +2592,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -2657,7 +2657,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                   "subRows": Array [],
                                   "toggleRowExpanded": [Function],
                                   "values": Object {
-                                    "Date Installed": "03/12/2019",
+                                    "Date Installed": "03 Dec 2019",
                                     "Uninstall": undefined,
                                     "client": "DXX",
                                   },
@@ -3061,12 +3061,12 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                   "subRows": Array [],
                                   "toggleRowExpanded": [Function],
                                   "values": Object {
-                                    "Date Installed": "03/12/2019",
+                                    "Date Installed": "03 Dec 2019",
                                     "Uninstall": undefined,
                                     "client": "DXX",
                                   },
                                 },
-                                "value": "03/12/2019",
+                                "value": "03 Dec 2019",
                               }
                             }
                             column={
@@ -3277,7 +3277,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -3379,7 +3379,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -3444,7 +3444,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                   "subRows": Array [],
                                   "toggleRowExpanded": [Function],
                                   "values": Object {
-                                    "Date Installed": "03/12/2019",
+                                    "Date Installed": "03 Dec 2019",
                                     "Uninstall": undefined,
                                     "client": "DXX",
                                   },
@@ -3604,7 +3604,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -3706,7 +3706,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -3771,7 +3771,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                   "subRows": Array [],
                                   "toggleRowExpanded": [Function],
                                   "values": Object {
-                                    "Date Installed": "03/12/2019",
+                                    "Date Installed": "03 Dec 2019",
                                     "Uninstall": undefined,
                                     "client": "DXX",
                                   },
@@ -4128,7 +4128,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -4230,7 +4230,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -4295,7 +4295,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                   "subRows": Array [],
                                   "toggleRowExpanded": [Function],
                                   "values": Object {
-                                    "Date Installed": "03/12/2019",
+                                    "Date Installed": "03 Dec 2019",
                                     "Uninstall": undefined,
                                     "client": "DXX",
                                   },
@@ -4370,7 +4370,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                     "getCellProps": [Function],
                                     "render": [Function],
                                     "row": [Circular],
-                                    "value": "03/12/2019",
+                                    "value": "03 Dec 2019",
                                   },
                                   Object {
                                     "column": Object {
@@ -4472,7 +4472,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                     "getCellProps": [Function],
                                     "render": [Function],
                                     "row": [Circular],
-                                    "value": "03/12/2019",
+                                    "value": "03 Dec 2019",
                                   },
                                   Object {
                                     "column": Object {
@@ -4537,7 +4537,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                 "subRows": Array [],
                                 "toggleRowExpanded": [Function],
                                 "values": Object {
-                                  "Date Installed": "03/12/2019",
+                                  "Date Installed": "03 Dec 2019",
                                   "Uninstall": undefined,
                                   "client": "DXX",
                                 },
@@ -4611,7 +4611,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -4713,7 +4713,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -4778,7 +4778,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                   "subRows": Array [],
                                   "toggleRowExpanded": [Function],
                                   "values": Object {
-                                    "Date Installed": "03/12/2019",
+                                    "Date Installed": "03 Dec 2019",
                                     "Uninstall": undefined,
                                     "client": "DXX",
                                   },
@@ -4853,7 +4853,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -4955,7 +4955,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -5020,7 +5020,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                   "subRows": Array [],
                                   "toggleRowExpanded": [Function],
                                   "values": Object {
-                                    "Date Installed": "03/12/2019",
+                                    "Date Installed": "03 Dec 2019",
                                     "Uninstall": undefined,
                                     "client": "DXX",
                                   },
@@ -5043,7 +5043,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                             totalColumnsMinWidth={0}
                             totalColumnsWidth={450}
                             useControlledState={[Function]}
-                            value="03/12/2019"
+                            value="03 Dec 2019"
                             visibleColumns={
                               Array [
                                 Object {
@@ -5130,7 +5130,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                               ]
                             }
                           >
-                            03/12/2019
+                            03 Dec 2019
                           </Cell>
                         </td>
                         <td
@@ -5321,7 +5321,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     [Circular],
                                   ],
@@ -5391,7 +5391,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     [Circular],
                                   ],
@@ -5424,7 +5424,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                   "subRows": Array [],
                                   "toggleRowExpanded": [Function],
                                   "values": Object {
-                                    "Date Installed": "03/12/2019",
+                                    "Date Installed": "03 Dec 2019",
                                     "Uninstall": undefined,
                                     "client": "DXX",
                                   },
@@ -5640,7 +5640,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -5742,7 +5742,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -5807,7 +5807,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                   "subRows": Array [],
                                   "toggleRowExpanded": [Function],
                                   "values": Object {
-                                    "Date Installed": "03/12/2019",
+                                    "Date Installed": "03 Dec 2019",
                                     "Uninstall": undefined,
                                     "client": "DXX",
                                   },
@@ -5967,7 +5967,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -6069,7 +6069,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -6134,7 +6134,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                   "subRows": Array [],
                                   "toggleRowExpanded": [Function],
                                   "values": Object {
-                                    "Date Installed": "03/12/2019",
+                                    "Date Installed": "03 Dec 2019",
                                     "Uninstall": undefined,
                                     "client": "DXX",
                                   },
@@ -6491,7 +6491,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -6593,7 +6593,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -6658,7 +6658,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                   "subRows": Array [],
                                   "toggleRowExpanded": [Function],
                                   "values": Object {
-                                    "Date Installed": "03/12/2019",
+                                    "Date Installed": "03 Dec 2019",
                                     "Uninstall": undefined,
                                     "client": "DXX",
                                   },
@@ -6733,7 +6733,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                     "getCellProps": [Function],
                                     "render": [Function],
                                     "row": [Circular],
-                                    "value": "03/12/2019",
+                                    "value": "03 Dec 2019",
                                   },
                                   Object {
                                     "column": Object {
@@ -6835,7 +6835,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                     "getCellProps": [Function],
                                     "render": [Function],
                                     "row": [Circular],
-                                    "value": "03/12/2019",
+                                    "value": "03 Dec 2019",
                                   },
                                   Object {
                                     "column": Object {
@@ -6900,7 +6900,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                 "subRows": Array [],
                                 "toggleRowExpanded": [Function],
                                 "values": Object {
-                                  "Date Installed": "03/12/2019",
+                                  "Date Installed": "03 Dec 2019",
                                   "Uninstall": undefined,
                                   "client": "DXX",
                                 },
@@ -6974,7 +6974,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -7076,7 +7076,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -7141,7 +7141,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                   "subRows": Array [],
                                   "toggleRowExpanded": [Function],
                                   "values": Object {
-                                    "Date Installed": "03/12/2019",
+                                    "Date Installed": "03 Dec 2019",
                                     "Uninstall": undefined,
                                     "client": "DXX",
                                   },
@@ -7216,7 +7216,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -7318,7 +7318,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                       "getCellProps": [Function],
                                       "render": [Function],
                                       "row": [Circular],
-                                      "value": "03/12/2019",
+                                      "value": "03 Dec 2019",
                                     },
                                     Object {
                                       "column": Object {
@@ -7383,7 +7383,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                                   "subRows": Array [],
                                   "toggleRowExpanded": [Function],
                                   "values": Object {
-                                    "Date Installed": "03/12/2019",
+                                    "Date Installed": "03 Dec 2019",
                                     "Uninstall": undefined,
                                     "client": "DXX",
                                   },

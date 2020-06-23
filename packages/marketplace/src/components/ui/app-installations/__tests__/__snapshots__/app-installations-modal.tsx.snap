@@ -5,11 +5,5 @@ exports[`AppInstallationsModal should match a snapshot 1`] = `
   afterClose={[MockFunction]}
   renderChildren={true}
   visible={true}
->
-  <Connect(Component)
-    afterClose={[Function]}
-    appId="1"
-    onUninstall={[Function]}
-  />
-</Component>
+/>
 `;

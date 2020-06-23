@@ -4,7 +4,11 @@ import { installationsStub } from '@/sagas/__stubs__/installations'
 import { mount } from 'enzyme'
 import { appInstallationsRequestData } from '@/actions/app-installations'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
-import AppContent, { handleUninstallSuccess, handleOpenAppPreview } from '../developer-app-content'
+import AppContent, {
+  handleUninstallSuccess,
+  handleOpenAppPreview,
+  generateInstallationTableColumns,
+} from '../developer-app-content'
 import { Provider } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import configureStore from 'redux-mock-store'
@@ -71,6 +75,13 @@ describe('AppContent', () => {
       const fn = handleOpenAppPreview(appId)
       fn()
       expect(spyOpenUrl).toBeCalledWith('developer/apps/appId/preview', '_blank')
+    })
+  })
+
+  describe('generateInstallationTableColumns', () => {
+    it('should run correctly', () => {
+      const result = generateInstallationTableColumns(jest.fn())()
+      expect(result).toHaveLength(3)
     })
   })
 })
