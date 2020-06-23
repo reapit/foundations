@@ -29,7 +29,6 @@ export const handleUninstall = (setUninstallApp: (app: InstallationModel) => voi
 }
 
 export const AppInstallationsModal: React.FC<AppInstallationsModalProps> = ({
-  appId,
   appName,
   visible,
   afterClose,
