@@ -32,7 +32,8 @@ import {
 } from '@/actions/webhook-edit-modal'
 import { CustomerItem, TopicItem } from '@/reducers/webhook-edit-modal'
 import { selectTopics, selectWebhookData, selectLoading, selectCustomers } from '@/selector/webhook-edit'
-import { isValidHttpsUrl } from '@/utils/validate'
+import { validationSchema } from './validation-schema'
+import { formFields } from './form-fields'
 
 const CREATE_MODAL = {
   title: 'Add New Webhook',
@@ -109,10 +110,6 @@ export const onEdit = (dispatch: Dispatch, webhookId: string, appId: string) => 
   dispatch(editWebhook(params))
 }
 
-export const validateURL = (value: string): string | null => {
-  return isValidHttpsUrl(value) ? null : 'The value must be a valid and secure URI'
-}
-
 export const WebhookEditModal: React.FunctionComponent<WebhookEditProps> = ({
   isUpdate = false,
   appId,
@@ -162,7 +159,7 @@ export const WebhookEditModal: React.FunctionComponent<WebhookEditProps> = ({
       {loading ? (
         <Loader />
       ) : (
-        <Formik initialValues={initFormValues} onSubmit={onSubmit}>
+        <Formik initialValues={initFormValues} onSubmit={onSubmit} validationSchema={validationSchema}>
           {({ handleSubmit }) => {
             return (
               <>
@@ -183,32 +180,35 @@ export const WebhookEditModal: React.FunctionComponent<WebhookEditProps> = ({
                         </p>
                       </Content>
                       <Input
-                        id="url"
+                        id={formFields.webhookUrlField.name}
                         type="text"
-                        placeholder="Enter a secure URL (https://)"
-                        name="url"
-                        labelText="Webhook URL"
+                        placeholder={formFields.webhookUrlField.placeHolder}
+                        name={formFields.webhookUrlField.name}
+                        labelText={formFields.webhookUrlField.label as string}
                         required
-                        validate={validateURL}
                       />
                       <DropdownSelect
-                        id="topicIds"
-                        placeholder="Please select"
-                        name="topicIds"
-                        labelText="Subscription Topics"
+                        id={formFields.topicIdsField.name}
+                        placeholder={formFields.topicIdsField.placeHolder}
+                        name={formFields.topicIdsField.name}
+                        labelText={formFields.topicIdsField.label as string}
                         options={topicOptions}
                         dropdownStyle={{ zIndex: 41 }}
                         required
                       />
                       <DropdownSelect
-                        id="customerIds"
-                        placeholder="All Customers who have installed your application (default)"
-                        name="customerIds"
-                        labelText="Subscription Customers"
+                        id={formFields.customerIdsField.name}
+                        placeholder={formFields.customerIdsField.placeHolder}
+                        name={formFields.customerIdsField.name}
+                        labelText={formFields.customerIdsField.label as string}
                         options={customerOptions}
                         dropdownStyle={{ zIndex: 41 }}
                       />
-                      <Checkbox id="active" name="active" labelText="Active" />
+                      <Checkbox
+                        id={formFields.activeField.name}
+                        name={formFields.activeField.name}
+                        labelText={formFields.activeField.label as string}
+                      />
                     </Form>
                   }
                 />
