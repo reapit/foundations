@@ -1,37 +1,43 @@
 import * as React from 'react'
 import dayjs from 'dayjs'
-import { connect } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { InstallationModel, PagedResultInstallationModel_ } from '@reapit/foundations-ts-definitions'
 import { Button, Table, ModalHeader, ModalBody, Pagination, Alert, Loader } from '@reapit/elements'
 import { InstallationParams, appInstallationsRequestData } from '@/actions/app-installations'
 import { ReduxState } from '@/types/core'
+import { selectInstallationAppData, selectInstallAppLoading } from '@/selector/installations'
+import { Dispatch } from 'redux'
 
-export interface InstallationsInnerProps {
+// export interface InstallationsInnerProps {
+//   appId: string
+//   onUninstall: (app: InstallationModel) => () => void
+//   afterClose?: () => void
+// }
+
+// export interface InstallationsMappedProps {
+//   installationsData: PagedResultInstallationModel_ | null
+//   loading: boolean
+// }
+// export interface InstallationsMappedActions {
+//   fetchInstallationsApp: (params: InstallationParams) => () => void
+// }
+
+// export const mapStateToProps = (state: ReduxState): InstallationsMappedProps => ({
+//   installationsData: state.installations.installationsAppData,
+//   loading: state.installations.loading,
+// })
+
+// export const mapDispatchToProps = (dispatch: any): InstallationsMappedActions => ({
+//   fetchInstallationsApp: (params: InstallationParams) => () => {
+//     dispatch(appInstallationsRequestData(params))
+//   },
+// })
+
+export type InstallationsProps = {
   appId: string
   onUninstall: (app: InstallationModel) => () => void
   afterClose?: () => void
 }
-
-export interface InstallationsMappedProps {
-  installationsData: PagedResultInstallationModel_ | null
-  loading: boolean
-}
-export interface InstallationsMappedActions {
-  fetchInstallationsApp: (params: InstallationParams) => () => void
-}
-
-export const mapStateToProps = (state: ReduxState): InstallationsMappedProps => ({
-  installationsData: state.installations.installationsAppData,
-  loading: state.installations.loading,
-})
-
-export const mapDispatchToProps = (dispatch: any): InstallationsMappedActions => ({
-  fetchInstallationsApp: (params: InstallationParams) => () => {
-    dispatch(appInstallationsRequestData(params))
-  },
-})
-
-export type InstallationsProps = InstallationsInnerProps & InstallationsMappedProps & InstallationsMappedActions
 
 export type CustomUninstallCell = React.FC<{
   onClick: () => void
@@ -69,19 +75,37 @@ export const generateColumns = (
   ]
 }
 
-export const Installations: React.FC<InstallationsProps> = ({
-  appId,
-  loading,
-  installationsData,
-  onUninstall,
-  afterClose,
-  fetchInstallationsApp,
-}) => {
+export const handleFetchInstallationsApp = (
+  appId: string,
+  pageNumber: number,
+  pageSize: number,
+  dispatch: Dispatch,
+) => {
+  return () => {
+    const params: InstallationParams = {
+      appId: [appId],
+      isInstalled: true,
+      pageNumber,
+      pageSize,
+    }
+    dispatch(appInstallationsRequestData(params))
+  }
+}
+
+export const Installations: React.FC<InstallationsProps> = ({ appId, onUninstall, afterClose }) => {
+  const dispatch = useDispatch()
   const [pageNumber, setPageNumber] = React.useState<number>(1)
-  const { data = [], pageSize, totalCount } = installationsData || {}
+  const installationsData = useSelector(selectInstallationAppData)
+  const loading = useSelector(selectInstallAppLoading)
+  const { data = [], pageSize = 1, totalCount } = installationsData || {}
   const columns = React.useMemo(generateColumns(onUninstall), [installationsData])
 
-  React.useEffect(fetchInstallationsApp({ appId: [appId], isInstalled: true, pageNumber, pageSize }), [appId])
+  React.useEffect(handleFetchInstallationsApp(appId, pageNumber, pageSize, dispatch), [
+    appId,
+    pageNumber,
+    pageSize,
+    dispatch,
+  ])
 
   return (
     <>
@@ -115,4 +139,4 @@ export const Installations: React.FC<InstallationsProps> = ({
   )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Installations)
+export default Installations
