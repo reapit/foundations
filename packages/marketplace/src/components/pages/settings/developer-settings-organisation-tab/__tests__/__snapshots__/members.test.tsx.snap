@@ -48,7 +48,7 @@ exports[`Members should match a snapshot when no error 1`] = `
               "id": "status",
             },
             Object {
-              "accessor": "setAsAdmin",
+              "accessor": "action",
               "columnProps": Object {
                 "style": Object {
                   "minWidth": "105px",
@@ -60,18 +60,31 @@ exports[`Members should match a snapshot when no error 1`] = `
         data={
           Array [
             Object {
-              "email": "johnsmith@proptech.com",
-              "name": "John smith",
-              "setAsAdmin": <a
-                data-test="button-cancel"
-                onClick={[Function]}
+              "action": <Unknown
+                centerContent={true}
+                flexColumn={true}
               >
-                Set as Admin
-              </a>,
-              "status": "",
-              "tel": "07896 765",
-              "title": "CTO",
-              "userAccount": "Admin",
+                <a
+                  onClick={[Function]}
+                >
+                  Disable
+                </a>
+                <a
+                  data-test="button-cancel"
+                  onClick={[Function]}
+                >
+                  Set as Admin
+                </a>
+              </Unknown>,
+              "company": "Dwarves Foundation",
+              "created": "2019-11-21T08:46:41",
+              "email": "tanphamhaiduong@gmail.com",
+              "externalId": "6447271a-0268-4546-b628-878308d091eb",
+              "id": "7a96e6b2-3778-4118-9c9b-6450851e5608",
+              "isInactive": false,
+              "jobTitle": "Software Engineer",
+              "name": "Duong Pham",
+              "telephone": "0978100461",
             },
           ]
         }
@@ -80,6 +93,12 @@ exports[`Members should match a snapshot when no error 1`] = `
       />
     </Component>
   </Component>
+  <SetMemberStatusModal
+    developer={null}
+    onCancel={[Function]}
+    onSuccess={[Function]}
+    visible={false}
+  />
   <Component
     afterClose={[Function]}
     visible={false}
