@@ -119,11 +119,9 @@ export const ConsumptionCostMethodologyTable = () => (
       <u>Calculation of Total Consumption Cost - Methodology:</u>
       <FlexContainerBasic>
         <Grid className="is-vcentered">
-          <GridItem className="is-one-is-one-quarter">(On last day of monthly billing period)</GridItem>
+          <GridItem>(On last day of monthly billing period)</GridItem>
         </Grid>
-        <div className="table-container">
-          <Table columns={consumptionCostMethodologyColumns} data={consumptionCostsMethodology} />
-        </div>
+        <Table columns={consumptionCostMethodologyColumns} data={consumptionCostsMethodology} scrollable />
       </FlexContainerBasic>
     </div>
   </div>

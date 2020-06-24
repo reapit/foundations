@@ -77,7 +77,7 @@ exports[`Subcriptions should match snapshot 1`] = `
         scrollable={true}
       >
         <div
-          className="table-responsive"
+          className="table-container"
         >
           <div
             style={
