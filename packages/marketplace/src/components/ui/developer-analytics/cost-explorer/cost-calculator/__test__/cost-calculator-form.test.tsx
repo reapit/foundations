@@ -1,11 +1,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 
-import CostCalculatorForm, {
-  CostCalculatorFormProps,
-  renderEndpointsUsedOptions,
-  validate,
-} from '../cost-calculator-form'
+import CostCalculatorForm, { CostCalculatorFormProps, renderEndpointsUsedOptions } from '../cost-calculator-form'
 import { endpointsUsedRange } from '../cost-calculator'
 
 const mockProps: CostCalculatorFormProps = {
@@ -59,46 +55,6 @@ describe('CostCalculator', () => {
           label: '50+',
         },
       ])
-    })
-  })
-  describe('validate', () => {
-    it('should run correctly when all fields are valid', () => {
-      const mockFormValues = {
-        endpointsUsed: 'tier1',
-        apiCalls: '12000',
-      }
-      const result = validate(mockFormValues)
-      expect(result).toEqual({})
-    })
-    it('should run correctly when endpointsUsed is empty', () => {
-      const mockFormValues = {
-        endpointsUsed: '',
-        apiCalls: '12000',
-      }
-      const result = validate(mockFormValues)
-      expect(result).toEqual({
-        endpointsUsed: 'Endpoints Used is required',
-      })
-    })
-    it('should run correctly when apiCalls is empty', () => {
-      const mockFormValues = {
-        endpointsUsed: 'tier1',
-        apiCalls: '',
-      }
-      const result = validate(mockFormValues)
-      expect(result).toEqual({
-        apiCalls: 'Invalid Monthly API calls',
-      })
-    })
-    it('should run correctly when apiCalls is not a number', () => {
-      const mockFormValues = {
-        endpointsUsed: 'tier1',
-        apiCalls: '21000d',
-      }
-      const result = validate(mockFormValues)
-      expect(result).toEqual({
-        apiCalls: 'Invalid Monthly API calls',
-      })
     })
   })
 })

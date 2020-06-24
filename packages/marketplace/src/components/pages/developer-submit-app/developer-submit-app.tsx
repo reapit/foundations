@@ -399,6 +399,7 @@ export const DeveloperSubmitApp: React.FC<DeveloperSubmitAppProps> = () => {
           {isSubmitApp ? <H3>Submit App</H3> : <H3>Edit App</H3>}
           <Formik
             validationSchema={submitAppValidationSchema}
+            // TODO: change to Yup schema to validate after split Submit/Edit App
             validate={handleBeforeSubmit(validate, setIsSubmitModalOpen)}
             initialValues={initialValues}
             onSubmit={handleSubmitApp(appId, dispatch)}
