@@ -121,22 +121,29 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
                   "totalCount": 6,
                 }
               }
-              title="Installed Apps"
             >
               <Component
                 flexColumn={true}
-                hasPadding={true}
               >
                 <div
-                  className=" container-flex is-column   has-padding  "
+                  className=" container-flex is-column     "
                 >
                   <Component>
-                    <h3
-                      className="title is-3  "
-                      id=""
+                    <section
+                      className=""
+                      data-test=""
                     >
-                      Installed Apps
-                    </h3>
+                      <Component
+                        className="mb-0"
+                      >
+                        <h3
+                          className="title is-3 mb-0 "
+                          id=""
+                        >
+                          Installed Apps
+                        </h3>
+                      </Component>
+                    </section>
                   </Component>
                   <Component
                     list={
@@ -277,28 +284,25 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
                                           className="media-content"
                                         >
                                           <Component
-                                            className="text-ellipisis"
+                                            className="text-ellipsis-7"
                                           >
                                             <h4
-                                              className="title is-4 text-ellipisis "
+                                              className="title is-4 text-ellipsis-7 "
                                               id=""
                                             >
                                               test
                                             </h4>
                                           </Component>
                                           <Component
-                                            className="text-ellipisis mb-3"
+                                            className="text-ellipsis-5 mb-3"
                                           >
                                             <h6
-                                              className="subtitle is-6 text-ellipisis mb-3 "
+                                              className="subtitle is-6 text-ellipsis-5 mb-3 "
                                               id=""
                                             >
                                               Pete's Proptech World Ltd
                                             </h6>
                                           </Component>
-                                          <p>
-                                            nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz
-                                          </p>
                                         </div>
                                       </div>
                                     </div>
@@ -387,28 +391,25 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
                                           className="media-content"
                                         >
                                           <Component
-                                            className="text-ellipisis"
+                                            className="text-ellipsis-7"
                                           >
                                             <h4
-                                              className="title is-4 text-ellipisis "
+                                              className="title is-4 text-ellipsis-7 "
                                               id=""
                                             >
                                               asd
                                             </h4>
                                           </Component>
                                           <Component
-                                            className="text-ellipisis mb-3"
+                                            className="text-ellipsis-5 mb-3"
                                           >
                                             <h6
-                                              className="subtitle is-6 text-ellipisis mb-3 "
+                                              className="subtitle is-6 text-ellipsis-5 mb-3 "
                                               id=""
                                             >
                                               Pete's Proptech World Ltd
                                             </h6>
                                           </Component>
-                                          <p>
-                                            asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2
-                                          </p>
                                         </div>
                                       </div>
                                     </div>
@@ -421,78 +422,77 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
                       </div>
                     </Component>
                   </Component>
-                  <Component>
-                    <div
-                      className="section "
-                      data-test=""
+                  <Component
+                    onChange={[Function]}
+                    pageNumber={1}
+                    pageSize={2}
+                    totalCount={6}
+                  >
+                    <Component
+                      isCentered={true}
+                      isFlex={true}
                     >
-                      <Component
-                        onChange={[Function]}
-                        pageNumber={1}
-                        pageSize={2}
-                        totalCount={6}
+                      <section
+                        className=""
+                        data-test=""
                       >
-                        <div
-                          className="flex justify-center"
+                        <nav
+                          aria-label="pagination"
+                          className="pagination is-centered"
+                          role="navigation"
                         >
-                          <nav
-                            aria-label="pagination"
-                            className="pagination is-centered"
-                            role="navigation"
+                          <a
+                            className="pagination-previous pagination-disabled"
+                            onClick={[Function]}
                           >
-                            <a
-                              className="pagination-previous pagination-disabled"
-                              onClick={[Function]}
+                            Previous
+                          </a>
+                          <a
+                            className="pagination-next  "
+                            onClick={[Function]}
+                          >
+                            Next page
+                          </a>
+                          <ul
+                            className="pagination-list"
+                          >
+                            <li
+                              key="0"
                             >
-                              Previous
-                            </a>
-                            <a
-                              className="pagination-next  "
-                              onClick={[Function]}
+                              <a
+                                aria-label="Goto page 1"
+                                className="pagination-link is-current"
+                                onClick={[Function]}
+                              >
+                                1
+                              </a>
+                            </li>
+                            <li
+                              key="1"
                             >
-                              Next page
-                            </a>
-                            <ul
-                              className="pagination-list"
+                              <a
+                                aria-label="Goto page 2"
+                                className="pagination-link"
+                                onClick={[Function]}
+                              >
+                                2
+                              </a>
+                            </li>
+                            <li
+                              key="2"
                             >
-                              <li
-                                key="0"
+                              <a
+                                aria-label="Goto page 3"
+                                className="pagination-link"
+                                onClick={[Function]}
                               >
-                                <a
-                                  aria-label="Goto page 1"
-                                  className="pagination-link is-current"
-                                  onClick={[Function]}
-                                >
-                                  1
-                                </a>
-                              </li>
-                              <li
-                                key="1"
-                              >
-                                <a
-                                  aria-label="Goto page 2"
-                                  className="pagination-link"
-                                  onClick={[Function]}
-                                >
-                                  2
-                                </a>
-                              </li>
-                              <li
-                                key="2"
-                              >
-                                <a
-                                  aria-label="Goto page 3"
-                                  className="pagination-link"
-                                  onClick={[Function]}
-                                >
-                                  3
-                                </a>
-                              </li>
-                            </ul>
-                          </nav>
-                        </div>
-                      </Component>
-                    </div>
+                                3
+                              </a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </section>
+                    </Component>
                   </Component>
                 </div>
               </Component>

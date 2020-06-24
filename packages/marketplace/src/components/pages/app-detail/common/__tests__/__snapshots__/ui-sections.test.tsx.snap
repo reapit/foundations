@@ -100,13 +100,8 @@ exports[`CategorySection should match a snapshot where category undefined and no
 
 exports[`DescriptionSection should match a snapshot 1`] = `
 <Component
-  headerText="Description"
-  isSidebar={true}
->
-  <Component
-    html="Lorem ipsum"
-  />
-</Component>
+  html="Lorem ipsum"
+/>
 `;
 
 exports[`DesktopIntegrationSection should match a snapshot where desktopIntegrationTypes empty and not sidebar 1`] = `
@@ -308,14 +303,27 @@ exports[`InstallationsTableSection should render a table and match a snapshot wh
             ]
           }
           loading={false}
+          scrollable={true}
         >
-          <table
-            className="table is-striped is-fullwidth "
-            role="table"
+          <div
+            className="table-responsive"
           >
-            <thead />
-            <tbody />
-          </table>
+            <div
+              style={
+                Object {
+                  "maxHeight": undefined,
+                }
+              }
+            >
+              <table
+                className="table is-striped is-fullwidth "
+                role="table"
+              >
+                <thead />
+                <tbody />
+              </table>
+            </div>
+          </div>
         </Component>
       </div>
     </Component>
@@ -418,7 +426,9 @@ exports[`StatusSection should match a snapshot where isListed true and is sideba
 `;
 
 exports[`SummarySection should match a snapshot 1`] = `
-<Component>
+<Component
+  className="is-italic"
+>
   Lorem ipsum
 </Component>
 `;

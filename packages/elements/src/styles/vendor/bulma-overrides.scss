@@ -6,11 +6,7 @@ html {
 }
 
 .media-content {
-  & > .text-ellipsis {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
+  min-width: 0;
   overflow: hidden;
 }
 
@@ -22,6 +18,12 @@ html {
 
   &.is-success {
     color: $white;
+  }
+}
+
+.title, .subtitle {
+  &.mb-2 {
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -327,4 +329,38 @@ a {
 
 span.number.token {
   all: unset;
+}
+
+.section {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: $white;
+  width: 100%;
+
+  &.is-flex {
+    display: flex;
+  }
+
+  &.is-centered {
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    text-align: center;
+  }
+
+  &.is-aligned-start {
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-self: flex-start;
+  }
+
+  &.is-aligned-end {
+    justify-content: flex-end;
+    align-items: flex-end;
+    align-self: flex-end;
+  }
+
+  &.is-flex-column {
+    flex-direction: column;
+  }
 }

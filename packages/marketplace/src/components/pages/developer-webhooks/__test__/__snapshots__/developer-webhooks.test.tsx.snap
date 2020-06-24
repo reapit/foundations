@@ -178,8 +178,8 @@ exports[`DeveloperWebHooks should match a snapshot 1`] = `
                   </Form>
                 </Formik>
                 <Component>
-                  <div
-                    className="section "
+                  <section
+                    className=""
                     data-test=""
                   >
                     <Component>
@@ -188,7 +188,7 @@ exports[`DeveloperWebHooks should match a snapshot 1`] = `
                         data-test=""
                       />
                     </Component>
-                  </div>
+                  </section>
                 </Component>
                 <Component>
                   <div

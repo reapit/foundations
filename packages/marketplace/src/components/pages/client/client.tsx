@@ -1,16 +1,7 @@
 import * as React from 'react'
 import { History } from 'history'
 import { useSelector } from 'react-redux'
-import {
-  Loader,
-  FlexContainerBasic,
-  H3,
-  GridThreeColItem,
-  Grid,
-  Content,
-  FlexContainerResponsive,
-  Pagination,
-} from '@reapit/elements'
+import { Loader, FlexContainerBasic, H3, GridThreeColItem, Grid, Pagination, Section } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { useHistory, useLocation } from 'react-router'
 import AppList from '@/components/ui/app-list'
@@ -59,49 +50,48 @@ export const Client: React.FunctionComponent = () => {
 
   return (
     <ErrorBoundary>
-      <FlexContainerBasic hasPadding flexColumn dataTest="page-client-apps-container">
+      <FlexContainerBasic flexColumn dataTest="page-client-apps-container">
         {/* <AppSidebar /> */}
         {unfetched || loading ? (
           <Loader />
         ) : (
-          <FlexContainerResponsive className="flex-grow-0" flexColumn>
-            <FlexContainerBasic className="mb-4" hasPadding hasBackground>
+          <>
+            <Section>
               <H3 className="mb-0">Browse Apps</H3>
-            </FlexContainerBasic>
+            </Section>
             {!hasParams && featuredApps.length > 0 && (
-              <Content className="bb pb-3 mb-4">
+              <div className="pb-4 bb mb-4">
                 <Grid isMultiLine>
                   {featuredApps.map(app => {
                     const featureImageSrc = app?.media?.[MEDIA_INDEX.FEATURE_IMAGE]?.uri || featureImagePlaceHolder
                     return (
-                      <GridThreeColItem key={app.id}>
-                        <Link to={`${Routes.CLIENT}/${app.id}`}>
-                          <img key={app.id} src={featureImageSrc} />
-                        </Link>
+                      <GridThreeColItem className="" key={app.id}>
+                        <div className="card">
+                          <div className="card-image">
+                            <Link className="image" to={`${Routes.CLIENT}/${app.id}`}>
+                              <img key={app.id} src={featureImageSrc} />
+                            </Link>
+                          </div>
+                        </div>
                       </GridThreeColItem>
                     )
                   })}
                 </Grid>
-              </Content>
+              </div>
             )}
             <AppList
               list={apps}
               loading={loading}
               onCardClick={handleOnCardClick(history)}
               infoType={page > 1 || hasParams ? '' : 'CLIENT_APPS_EMPTY'}
-              numOfColumn={3}
             />
-            <FlexContainerBasic className="justify-center" hasBackground hasPadding>
-              <Pagination
-                {...{
-                  totalCount,
-                  pageSize,
-                  pageNumber: page,
-                  onChange: handleOnChange(history),
-                }}
-              />
-            </FlexContainerBasic>
-          </FlexContainerResponsive>
+            <Pagination
+              totalCount={totalCount}
+              pageSize={pageSize}
+              pageNumber={page}
+              onChange={handleOnChange(history)}
+            />
+          </>
         )}
       </FlexContainerBasic>
     </ErrorBoundary>

@@ -14,12 +14,6 @@ const props: AppListProps = {
   onSettingsClick: jest.fn(),
   title: 'Title',
   infoType: 'CLIENT_APPS_EMPTY',
-  pagination: {
-    pageNumber: 2,
-    pageSize: 20,
-    totalCount: 200,
-    onChange: jest.fn(),
-  },
 }
 
 describe('AppList', () => {
@@ -66,7 +60,7 @@ describe('AppList', () => {
   })
 
   it('should contain GridThreeColItem', () => {
-    const wrapper = shallow(<AppList numOfColumn={3} {...props} />)
+    const wrapper = shallow(<AppList {...props} />)
     expect(wrapper.find(GridThreeColItem).length).toBeGreaterThan(0)
   })
 

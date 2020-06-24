@@ -21,7 +21,6 @@ export type InstalledAppListProps = {
   list: AppSummaryModel[]
   loading: boolean
   onCardClick?: (app: AppSummaryModel) => void
-  title?: string
   infoType: InfoType
   pagination?: PaginationProps
 }
@@ -65,13 +64,14 @@ export const InstalledAppList: React.FC<InstalledAppListProps> = ({
   list,
   loading,
   onCardClick,
-  title,
   infoType,
   pagination,
 }) => {
   return (
-    <FlexContainerBasic hasPadding flexColumn>
-      {title && <H3>{title}</H3>}
+    <FlexContainerBasic flexColumn>
+      <Section>
+        <H3 className="mb-0">Installed Apps</H3>
+      </Section>
       {!list.length && !loading ? (
         <Helper variant="info">
           {infoType ? infoText(infoType) : 'UNFORTUNATELY, YOUR SEARCH RETURNED NO RESULTS'}
@@ -82,11 +82,7 @@ export const InstalledAppList: React.FC<InstalledAppListProps> = ({
         <ListDesktopScreen list={list} loading={loading} onCardClick={onCardClick} />
       )}
       {loading && <Loader body />}
-      {pagination && (
-        <Section>
-          <Pagination {...pagination} />
-        </Section>
-      )}
+      {pagination && <Pagination {...pagination} />}
     </FlexContainerBasic>
   )
 }

@@ -2,20 +2,7 @@ import * as React from 'react'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import AppCard from './app-card'
 import styles from '@/styles/blocks/app-list.scss?mod'
-import {
-  Loader,
-  H3,
-  InfoType,
-  GridFourCol,
-  PaginationProps,
-  Pagination,
-  GridThreeColItem,
-  FlexContainerBasic,
-  GridFourColItem,
-  Helper,
-  infoText,
-  Button,
-} from '@reapit/elements'
+import { Loader, H3, InfoType, GridFourCol, GridThreeColItem, Helper, infoText, Button } from '@reapit/elements'
 import { SubmitAppWizardModal } from '../ui/submit-app-wizard'
 
 export type AppListProps = {
@@ -25,7 +12,6 @@ export type AppListProps = {
   onSettingsClick?: (app: AppSummaryModel) => void
   title?: string
   infoType: InfoType
-  numOfColumn?: number
   hasSubmitButton?: boolean
 }
 
@@ -68,13 +54,10 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
   onSettingsClick,
   title,
   infoType,
-  numOfColumn = 4,
   hasSubmitButton = false,
 }) => {
-  const WrapperContainer = numOfColumn === 4 ? GridFourColItem : GridThreeColItem
-
   return (
-    <FlexContainerBasic className="mb-4" flexColumn>
+    <div className="mb-4">
       {renderHeader({ hasSubmitButton, title })}
       {!list.length && !loading ? (
         <Helper variant="info">
@@ -83,39 +66,34 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
             : 'We are unable to find any Apps that match your search criteria. Please try again.'}
         </Helper>
       ) : (
-        <div>
-          <GridFourCol
-            className={`${styles.flexGrow} ${loading ? styles.contentIsLoading : ''}`}
-            data-test="app-list-container"
-          >
-            {list.map(app => (
-              <WrapperContainer key={app.id}>
-                <AppCard
-                  app={app}
-                  onClick={
-                    onCardClick
-                      ? (event: React.MouseEvent) => {
-                          event.stopPropagation()
-                          onCardClick(app)
-                        }
-                      : undefined
-                  }
-                  onSettingsClick={
-                    onSettingsClick
-                      ? (event: React.MouseEvent) => {
-                          event.stopPropagation()
-                          onSettingsClick(app)
-                        }
-                      : undefined
-                  }
-                />
-              </WrapperContainer>
-            ))}
-          </GridFourCol>
-        </div>
+        <GridFourCol className={` ${loading ? styles.contentIsLoading : ''}`} data-test="app-list-container">
+          {list.map(app => (
+            <GridThreeColItem key={app.id}>
+              <AppCard
+                app={app}
+                onClick={
+                  onCardClick
+                    ? (event: React.MouseEvent) => {
+                        event.stopPropagation()
+                        onCardClick(app)
+                      }
+                    : undefined
+                }
+                onSettingsClick={
+                  onSettingsClick
+                    ? (event: React.MouseEvent) => {
+                        event.stopPropagation()
+                        onSettingsClick(app)
+                      }
+                    : undefined
+                }
+              />
+            </GridThreeColItem>
+          ))}
+        </GridFourCol>
       )}
       {loading && <Loader body />}
-    </FlexContainerBasic>
+    </div>
   )
 }
 
