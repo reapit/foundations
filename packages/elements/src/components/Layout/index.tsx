@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { cx } from 'linaria'
 
 export interface LayoutProps {
   className?: string
@@ -16,6 +17,14 @@ export interface FlexContainerProps extends LayoutProps {
 
 export interface GridProps extends LayoutProps {
   isMultiLine?: boolean
+}
+
+export interface SectionProps extends LayoutProps {
+  isFlex?: boolean
+  isCentered?: boolean
+  isAlignedEnd?: boolean
+  isAlignedStart?: boolean
+  isFlexColumn?: boolean
 }
 
 export const FlexContainerResponsive: React.SFC<FlexContainerProps> = ({
@@ -82,10 +91,7 @@ export const GridFourColItem: React.SFC<LayoutProps> = ({ children, className = 
 )
 
 export const GridThreeColItem: React.SFC<LayoutProps> = ({ children, className = '', dataTest = '' }) => (
-  <div
-    className={`column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen ${className}`}
-    data-test={dataTest}
-  >
+  <div className={`column is-multiline is-half-tablet is-one-third-widescreen ${className}`} data-test={dataTest}>
     {children}
   </div>
 )
@@ -126,10 +132,30 @@ export const LevelItem: React.SFC<LayoutProps> = ({ children, className = '', da
   </div>
 )
 
-export const Section: React.SFC<LayoutProps> = ({ children, className = '', dataTest = '' }) => (
-  <div className={`section ${className}`} data-test={dataTest}>
+export const Section: React.SFC<SectionProps> = ({
+  isFlex,
+  isCentered,
+  isAlignedEnd,
+  isAlignedStart,
+  isFlexColumn,
+  children,
+  className = '',
+  dataTest = '',
+}) => (
+  <section
+    className={cx(
+      'section',
+      className,
+      isFlex && 'is-flex',
+      isCentered && 'is-centered',
+      isAlignedEnd && 'is-aligned-end',
+      isAlignedStart && 'is-aligned-start',
+      isFlexColumn && 'is-flex-column',
+    )}
+    data-test={dataTest}
+  >
     {children}
-  </div>
+  </section>
 )
 
 export const Content: React.SFC<LayoutProps> = ({ children, className = '', dataTest = '' }) => (

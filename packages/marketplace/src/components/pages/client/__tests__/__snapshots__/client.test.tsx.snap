@@ -61,15 +61,19 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
             componentError={null}
             errorThrownComponent={[Function]}
           >
-            <div
-              id="page-client-apps-container"
+            <Component
+              dataTest="page-client-apps-container"
+              flexColumn={true}
             >
-              <Component>
-                <div>
-                  <Component
-                    flexColumn={true}
-                    hasPadding={true}
+              <div
+                className=" container-flex is-column     "
+              >
+                <Component>
+                  <div
+                    className="loader-spinner body"
+                    data-test=""
                   >
+<<<<<<< HEAD
                     <div
                       className=" container-flex is-column   has-padding  "
                     >
@@ -519,6 +523,16 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
                 </div>
               </Component>
             </div>
+=======
+                    <div />
+                    <div />
+                    <div />
+                    <div />
+                  </div>
+                </Component>
+              </div>
+            </Component>
+>>>>>>> 4697c09a... feat: more styles fixed, restructured app containers, fixed flexbox bugs
           </ErrorBoundary>
         </Connect(ErrorBoundary)>
       </Component>
@@ -588,15 +602,19 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
             componentError={null}
             errorThrownComponent={[Function]}
           >
-            <div
-              id="page-client-apps-container"
+            <Component
+              dataTest="page-client-apps-container"
+              flexColumn={true}
             >
-              <Component>
-                <div>
-                  <Component
-                    flexColumn={true}
-                    hasPadding={true}
+              <div
+                className=" container-flex is-column     "
+              >
+                <Component>
+                  <div
+                    className="loader-spinner body"
+                    data-test=""
                   >
+<<<<<<< HEAD
                     <div
                       className=" container-flex is-column   has-padding  "
                     >
@@ -1046,6 +1064,16 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                 </div>
               </Component>
             </div>
+=======
+                    <div />
+                    <div />
+                    <div />
+                    <div />
+                  </div>
+                </Component>
+              </div>
+            </Component>
+>>>>>>> 4697c09a... feat: more styles fixed, restructured app containers, fixed flexbox bugs
           </ErrorBoundary>
         </Connect(ErrorBoundary)>
       </Component>
@@ -1115,18 +1143,22 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
             componentError={null}
             errorThrownComponent={[Function]}
           >
-            <div
-              id="page-client-apps-container"
+            <Component
+              dataTest="page-client-apps-container"
+              flexColumn={true}
             >
-              <Component>
-                <div>
-                  <Component
-                    flexColumn={true}
-                    hasPadding={true}
+              <div
+                className=" container-flex is-column     "
+              >
+                <Component>
+                  <section
+                    className=""
+                    data-test=""
                   >
-                    <div
-                      className=" container-flex is-column   has-padding  "
+                    <Component
+                      className="mb-0"
                     >
+<<<<<<< HEAD
                       <div>
                         <Component>
                           <h5
@@ -1562,6 +1594,17 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
                 </div>
               </Component>
               <div>
+=======
+                      <h3
+                        className="title is-3 mb-0 "
+                        id=""
+                      >
+                        Browse Apps
+                      </h3>
+                    </Component>
+                  </section>
+                </Component>
+>>>>>>> 4697c09a... feat: more styles fixed, restructured app containers, fixed flexbox bugs
                 <Component
                   infoType="CLIENT_APPS_EMPTY"
                   list={
@@ -1619,49 +1662,28 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
                     }
                   }
                   loading={false}
-                  numOfColumn={3}
                   onCardClick={[Function]}
-                  pagination={
-                    Object {
-                      "onChange": [Function],
-                      "pageNumber": 1,
-                      "pageSize": undefined,
-                      "totalCount": undefined,
-                    }
-                  }
                 >
-                  <Component
-                    flexColumn={true}
-                    hasPadding={true}
+                  <div
+                    className="mb-4"
                   >
-                    <div
-                      className=" container-flex is-column   has-padding  "
+                    <Component
+                      variant="info"
                     >
-                      <Component
-                        variant="info"
+                      <div
+                        className="notification helper-wrap helper-info"
                       >
-                        <div
-                          className="notification helper-wrap helper-info"
-                        >
-                          We are sorry, there are no apps listed compatible with your account
-                        </div>
-                      </Component>
-                      <Component>
-                        <div
-                          className="section "
-                          data-test=""
-                        >
-                          <Component
-                            onChange={[Function]}
-                            pageNumber={1}
-                          />
-                        </div>
-                      </Component>
-                    </div>
-                  </Component>
+                        We are sorry, there are no apps listed compatible with your account
+                      </div>
+                    </Component>
+                  </div>
                 </Component>
+                <Component
+                  onChange={[Function]}
+                  pageNumber={1}
+                />
               </div>
-            </div>
+            </Component>
           </ErrorBoundary>
         </Connect(ErrorBoundary)>
       </Component>
@@ -1670,7 +1692,7 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
 </Provider>
 `;
 
-exports[`Client should match a snapshot when featured apps is undefined 1`] = `
+exports[`Client should match a snapshot when featured apps is null 1`] = `
 <Provider
   store={
     Object {
@@ -1731,18 +1753,22 @@ exports[`Client should match a snapshot when featured apps is undefined 1`] = `
             componentError={null}
             errorThrownComponent={[Function]}
           >
-            <div
-              id="page-client-apps-container"
+            <Component
+              dataTest="page-client-apps-container"
+              flexColumn={true}
             >
-              <Component>
-                <div>
-                  <Component
-                    flexColumn={true}
-                    hasPadding={true}
+              <div
+                className=" container-flex is-column     "
+              >
+                <Component>
+                  <section
+                    className=""
+                    data-test=""
                   >
-                    <div
-                      className=" container-flex is-column   has-padding  "
+                    <Component
+                      className="mb-0"
                     >
+<<<<<<< HEAD
                       <div>
                         <Component>
                           <h5
@@ -2178,6 +2204,17 @@ exports[`Client should match a snapshot when featured apps is undefined 1`] = `
                 </div>
               </Component>
               <div>
+=======
+                      <h3
+                        className="title is-3 mb-0 "
+                        id=""
+                      >
+                        Browse Apps
+                      </h3>
+                    </Component>
+                  </section>
+                </Component>
+>>>>>>> 4697c09a... feat: more styles fixed, restructured app containers, fixed flexbox bugs
                 <Component
                   infoType="CLIENT_APPS_EMPTY"
                   list={
@@ -2235,49 +2272,28 @@ exports[`Client should match a snapshot when featured apps is undefined 1`] = `
                     }
                   }
                   loading={false}
-                  numOfColumn={3}
                   onCardClick={[Function]}
-                  pagination={
-                    Object {
-                      "onChange": [Function],
-                      "pageNumber": 1,
-                      "pageSize": undefined,
-                      "totalCount": undefined,
-                    }
-                  }
                 >
-                  <Component
-                    flexColumn={true}
-                    hasPadding={true}
+                  <div
+                    className="mb-4"
                   >
-                    <div
-                      className=" container-flex is-column   has-padding  "
+                    <Component
+                      variant="info"
                     >
-                      <Component
-                        variant="info"
+                      <div
+                        className="notification helper-wrap helper-info"
                       >
-                        <div
-                          className="notification helper-wrap helper-info"
-                        >
-                          We are sorry, there are no apps listed compatible with your account
-                        </div>
-                      </Component>
-                      <Component>
-                        <div
-                          className="section "
-                          data-test=""
-                        >
-                          <Component
-                            onChange={[Function]}
-                            pageNumber={1}
-                          />
-                        </div>
-                      </Component>
-                    </div>
-                  </Component>
+                        We are sorry, there are no apps listed compatible with your account
+                      </div>
+                    </Component>
+                  </div>
                 </Component>
+                <Component
+                  onChange={[Function]}
+                  pageNumber={1}
+                />
               </div>
-            </div>
+            </Component>
           </ErrorBoundary>
         </Connect(ErrorBoundary)>
       </Component>

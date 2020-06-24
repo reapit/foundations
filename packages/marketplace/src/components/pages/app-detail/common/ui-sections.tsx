@@ -19,7 +19,7 @@ import {
   GridFourCol,
   GridFourColItem,
   HTMLRender,
-  H5,
+  Content,
 } from '@reapit/elements'
 import AuthFlow from '@/constants/app-auth-flow'
 import AppAuthenticationDetail from '@/components/ui/app-authentication-detail'
@@ -85,7 +85,7 @@ interface PermissionSectionProps {
   permissions: ScopeModel[]
 }
 
-interface DescriptionSectionProps extends IsSidebar {
+interface DescriptionSectionProps {
   description: string
 }
 
@@ -177,7 +177,9 @@ export const AuthenticationSection: React.FC<AuthenticationSectionProps> = ({
   </AppDetailSection>
 )
 
-export const SummarySection: React.FC<SummarySectionProps> = ({ summary }) => <H5>{summary}</H5>
+export const SummarySection: React.FC<SummarySectionProps> = ({ summary }) => (
+  <Content className="is-italic">{summary}</Content>
+)
 
 export const InstallationsTableSection: React.FC<InstallationsTableSectionProps> = ({
   data,
@@ -190,7 +192,7 @@ export const InstallationsTableSection: React.FC<InstallationsTableSectionProps>
       {!data.length ? (
         <p>Currently, there are no installations for your app</p>
       ) : (
-        <Table data={data} columns={columns} loading={false} />
+        <Table data={data} scrollable columns={columns} loading={false} />
       )}
     </AppDetailSection>
   )
@@ -240,8 +242,6 @@ export const PermissionsSection: React.FC<PermissionSectionProps> = ({ permissio
   </AppDetailSection>
 )
 
-export const DescriptionSection: React.FC<DescriptionSectionProps> = ({ description, isSidebar = false }) => (
-  <AppDetailSection headerText="Description" isSidebar={isSidebar}>
-    <HTMLRender html={description} />
-  </AppDetailSection>
+export const DescriptionSection: React.FC<DescriptionSectionProps> = ({ description }) => (
+  <HTMLRender html={description} />
 )

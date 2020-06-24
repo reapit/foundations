@@ -2,7 +2,7 @@ import * as React from 'react'
 // import ClientWelcomeMessageModal from '@/components/ui/client-welcome-message'
 import { useSelector, useDispatch } from 'react-redux'
 import Menu from '@/components/ui/menu'
-import { Loader, Section, FlexContainerBasic, AppNavContainer } from '@reapit/elements'
+import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements'
 import { getTokenFromQueryString, redirectToOAuth } from '@reapit/cognito-auth'
 import { Dispatch } from 'redux'
 import { Redirect, useLocation } from 'react-router'
@@ -20,6 +20,8 @@ import {
 } from '@/utils/cookie'
 import { selectLoginSession, selectRefreshSession, selectLoginType } from '@/selector/auth'
 import { ActionCreator } from '@/types/core'
+import { Link } from 'react-router-dom'
+import Routes from '@/constants/routes'
 
 const { Suspense } = React
 
@@ -119,16 +121,18 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
             />
       )}
         */}
-      <FlexContainerBasic isScrollable flexColumn>
-        <Suspense
-          fallback={
-            <Section>
-              <Loader />
-            </Section>
-          }
-        >
-          {children}
-        </Suspense>
+      <FlexContainerBasic flexColumn isScrollable>
+        <FlexContainerResponsive hasPadding flexColumn>
+          <Suspense
+            fallback={
+              <Section>
+                <Loader />
+              </Section>
+            }
+          >
+            {children}
+          </Suspense>
+        </FlexContainerResponsive>
       </FlexContainerBasic>
     </AppNavContainer>
   )

@@ -67,54 +67,34 @@ exports[`MyApps should match a snapshot when LOADING false 1`] = `
               loading={false}
               onCardClick={[Function]}
               onSettingsClick={[Function]}
-              pagination={
-                Object {
-                  "onChange": [Function],
-                  "pageNumber": 1,
-                  "pageSize": undefined,
-                  "totalCount": undefined,
-                }
-              }
               title="Manage Apps"
             >
-              <Component
-                flexColumn={true}
-                hasPadding={true}
+              <div
+                className="mb-4"
               >
-                <div
-                  className=" container-flex is-column   has-padding  "
-                >
-                  <Component>
-                    <h3
-                      className="title is-3  "
-                      id=""
-                    >
-                      Manage Apps
-                    </h3>
-                  </Component>
-                  <Component
-                    variant="info"
+                <Component>
+                  <h3
+                    className="title is-3  "
+                    id=""
                   >
-                    <div
-                      className="notification helper-wrap helper-info"
-                    >
-                      It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.
-                    </div>
-                  </Component>
-                  <Component>
-                    <div
-                      className="section "
-                      data-test=""
-                    >
-                      <Component
-                        onChange={[Function]}
-                        pageNumber={1}
-                      />
-                    </div>
-                  </Component>
-                </div>
-              </Component>
+                    Manage Apps
+                  </h3>
+                </Component>
+                <Component
+                  variant="info"
+                >
+                  <div
+                    className="notification helper-wrap helper-info"
+                  >
+                    It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.
+                  </div>
+                </Component>
+              </div>
             </Component>
+            <Component
+              onChange={[Function]}
+              pageNumber={1}
+            />
           </ErrorBoundary>
         </Connect(ErrorBoundary)>
       </Component>

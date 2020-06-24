@@ -2958,54 +2958,60 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                 pageSize={0}
                 totalCount={0}
               >
-                <div
-                  className="flex justify-center"
+                <Component
+                  isCentered={true}
+                  isFlex={true}
                 >
-                  <nav
-                    aria-label="pagination"
-                    className="pagination is-centered"
-                    role="navigation"
+                  <section
+                    className=""
+                    data-test=""
                   >
-                    <a
-                      className="pagination-previous pagination-disabled"
-                      onClick={[Function]}
+                    <nav
+                      aria-label="pagination"
+                      className="pagination is-centered"
+                      role="navigation"
                     >
-                      Previous
-                    </a>
-                    <a
-                      className="pagination-next  "
-                      onClick={[Function]}
-                    >
-                      Next page
-                    </a>
-                    <ul
-                      className="pagination-list"
-                    >
-                      <li
-                        key="0"
+                      <a
+                        className="pagination-previous pagination-disabled"
+                        onClick={[Function]}
                       >
-                        <a
-                          aria-label="Goto page 1"
-                          className="pagination-link is-current"
-                          onClick={[Function]}
-                        >
-                          1
-                        </a>
-                      </li>
-                      <li
-                        key="1"
+                        Previous
+                      </a>
+                      <a
+                        className="pagination-next  "
+                        onClick={[Function]}
                       >
-                        <a
-                          aria-label="Goto page NaN"
-                          className="pagination-link"
-                          onClick={[Function]}
+                        Next page
+                      </a>
+                      <ul
+                        className="pagination-list"
+                      >
+                        <li
+                          key="0"
                         >
-                          NaN
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
+                          <a
+                            aria-label="Goto page 1"
+                            className="pagination-link is-current"
+                            onClick={[Function]}
+                          >
+                            1
+                          </a>
+                        </li>
+                        <li
+                          key="1"
+                        >
+                          <a
+                            aria-label="Goto page NaN"
+                            className="pagination-link"
+                            onClick={[Function]}
+                          >
+                            NaN
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </section>
+                </Component>
               </Component>
             </div>
           </Component>

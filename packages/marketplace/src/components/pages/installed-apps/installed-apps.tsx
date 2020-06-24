@@ -42,7 +42,6 @@ export const InstalledApps: React.FC = () => {
     <ErrorBoundary>
       <InstalledAppList
         list={list}
-        title="Installed Apps"
         loading={loading}
         onCardClick={handleOnCardClick}
         infoType="INSTALLED_APPS_EMPTY"

@@ -1,6 +1,5 @@
 import * as React from 'react'
-import useReactResponsive from '@/components/hooks/use-react-responsive'
-import { H3, Content, Grid, GridItem, Tile } from '@reapit/elements'
+import { H3, Grid, GridItem, SubTitleH6 } from '@reapit/elements'
 import { FaCheck } from 'react-icons/fa'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import styles from '@/styles/blocks/standalone-app-detail.scss?mod'
@@ -17,7 +16,6 @@ export type AppHeaderProps = {
 }
 
 const AppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup }) => {
-  const { isMobile } = useReactResponsive()
   const { media } = appDetailData
   const appIcon = media?.filter(({ type }) => type === 'icon')[MEDIA_INDEX.ICON]
   const featureImageSrc = appDetailData?.media?.[MEDIA_INDEX.FEATURE_IMAGE]?.uri
@@ -26,17 +24,19 @@ const AppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup }) => 
   return (
     <Grid className={cx('flex', 'items-center', 'mb-4', containerOuterHeader, 'flex-col-min-height')}>
       <GridItem>
-        <Tile
-          heading={<H3 className="text-ellipsis">{appDetailData.name || ''}</H3>}
-          subHeading={
-            <div className={cx(isMobile && 'flex justify-center')}>
+        <div className={containerHeader}>
+          <div className={appIconContainer}>
+            <img className="image is-96x96" src={appIcon?.uri || ImagePlaceHolder} alt={appDetailData.name} />
+          </div>
+          <div className={headerContent}>
+            <H3 className="text-ellipsis-9">{appDetailData.name || ''}</H3>
+            <SubTitleH6 className="text-ellipsis-7">
               Verified by Reapit <FaCheck className={check} />
-            </div>
-          }
-          image={<img className="image" src={appIcon?.uri || ImagePlaceHolder} alt={appDetailData.name} />}
-        >
-          {buttonGroup && buttonGroup}
-        </Tile>
+            </SubTitleH6>
+
+            {buttonGroup && buttonGroup}
+          </div>
+        </div>
       </GridItem>
       <GridItem className="flex items-center">
         <img src={featureImageSrc || featureImagePlaceHolder} alt="Featured Image" />

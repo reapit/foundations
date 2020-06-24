@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useHistory } from 'react-router'
 import { useSelector } from 'react-redux'
 import { History } from 'history'
-import { Loader } from '@reapit/elements'
+import { Loader, Pagination } from '@reapit/elements'
 import { selectDeveloper } from '@/selector'
 import AppList from '@/components/ui/app-list'
 import ErrorBoundary from '@/components/hocs/error-boundary'
@@ -52,13 +52,13 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = () => {
           loading={loading}
           onCardClick={handleOnCardClick(history)}
           infoType="DEVELOPER_APPS_EMPTY"
-          pagination={{
-            totalCount,
-            pageSize,
-            pageNumber,
-            onChange: handleOnChange(history),
-          }}
         />
+        <Pagination
+          totalCount={totalCount}
+          pageSize={pageSize}
+          pageNumber={pageNumber}
+          onChange={handleOnChange(history)}
+        ></Pagination>
         <SandboxPopUp loading={loading} />
       </div>
     </ErrorBoundary>

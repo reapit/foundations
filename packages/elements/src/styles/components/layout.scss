@@ -15,9 +15,9 @@
 
 .container-flex {
   display: flex;
-  flex-grow: 1;
   margin: 0 auto;
   width: 100%;
+  flex: 1 0;
 
   &.is-column {
     flex-direction: column;
@@ -49,3 +49,4 @@
     flex-wrap: wrap;
   }
 }
+
