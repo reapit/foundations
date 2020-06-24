@@ -17,7 +17,7 @@ export const formFields: Record<FieldKey, FormFieldInfo> = {
   },
   developerInviteMessageField: {
     name: 'developerInviteMessage',
-    label: 'Message (Optinal)',
+    label: 'Message (Optional)',
     placeHolder: 'Message',
   },
 }
