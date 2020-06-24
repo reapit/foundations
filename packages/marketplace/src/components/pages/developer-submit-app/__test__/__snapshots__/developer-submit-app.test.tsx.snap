@@ -122,6 +122,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                       "_exclusive": Object {},
                       "_mutate": undefined,
                       "_nodes": Array [
+                        "telephone",
                         "name",
                       ],
                       "_options": Object {
@@ -144,6 +145,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                           "_deps": Array [],
                           "_exclusive": Object {
                             "matches": false,
+                            "max": true,
                             "required": true,
                             "trim": false,
                           },
@@ -159,6 +161,43 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                             "refs": Map {},
                           },
                           "tests": Array [
+                            [Function],
+                            [Function],
+                            [Function],
+                            [Function],
+                          ],
+                          "transforms": Array [
+                            [Function],
+                            [Function],
+                          ],
+                          "type": "string",
+                        },
+                        "telephone": StringSchema {
+                          "_blacklist": RefSet {
+                            "list": Set {},
+                            "refs": Map {},
+                          },
+                          "_conditions": Array [],
+                          "_deps": Array [],
+                          "_exclusive": Object {
+                            "matches": false,
+                            "max": true,
+                            "required": true,
+                            "trim": false,
+                          },
+                          "_mutate": undefined,
+                          "_options": Object {
+                            "abortEarly": true,
+                            "recursive": true,
+                          },
+                          "_type": "string",
+                          "_typeError": [Function],
+                          "_whitelist": RefSet {
+                            "list": Set {},
+                            "refs": Map {},
+                          },
+                          "tests": Array [
+                            [Function],
                             [Function],
                             [Function],
                             [Function],
@@ -563,13 +602,13 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             className="control"
                                           >
                                             <label
-                                              className="label required-label"
+                                              className=""
                                               htmlFor="summary"
                                             >
                                               Summary
                                             </label>
                                             <textarea
-                                              className="textarea is-primary"
+                                              className=""
                                               data-test="submit-app-summary"
                                               id="summary"
                                               name="summary"
@@ -1255,19 +1294,19 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                               htmlFor="authFlow"
                                             />
                                             <Component
-                                              className="is-gapless"
+                                              className=""
                                               isMultiLine={true}
                                             >
                                               <div
-                                                className="columns is-multiline is-gapless"
+                                                className="columns is-multiline "
                                                 data-test=""
                                               >
                                                 <Component
-                                                  className="is-full"
+                                                  className=""
                                                   key="0"
                                                 >
                                                   <div
-                                                    className="column  is-full"
+                                                    className="column  "
                                                     data-test=""
                                                   >
                                                     <div
@@ -1293,11 +1332,11 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                   </div>
                                                 </Component>
                                                 <Component
-                                                  className="is-full"
+                                                  className=""
                                                   key="1"
                                                 >
                                                   <div
-                                                    className="column  is-full"
+                                                    className="column  "
                                                     data-test=""
                                                   >
                                                     <div
@@ -1527,19 +1566,19 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                               htmlFor="isPrivateApp"
                                             />
                                             <Component
-                                              className="is-gapless"
+                                              className=""
                                               isMultiLine={true}
                                             >
                                               <div
-                                                className="columns is-multiline is-gapless"
+                                                className="columns is-multiline "
                                                 data-test=""
                                               >
                                                 <Component
-                                                  className="is-full"
+                                                  className=""
                                                   key="0"
                                                 >
                                                   <div
-                                                    className="column  is-full"
+                                                    className="column  "
                                                     data-test=""
                                                   >
                                                     <div
@@ -1565,11 +1604,11 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                   </div>
                                                 </Component>
                                                 <Component
-                                                  className="is-full"
+                                                  className=""
                                                   key="1"
                                                 >
                                                   <div
-                                                    className="column  is-full"
+                                                    className="column  "
                                                     data-test=""
                                                   >
                                                     <div
@@ -1748,7 +1787,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                     className="file is-primary  field pb-2"
                                                   >
                                                     <div
-                                                      className="control file-input-container is-full-width"
+                                                      className=""
                                                     >
                                                       <label
                                                         className="file-label"
@@ -1856,7 +1895,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                     className="file is-primary  field pb-2"
                                                   >
                                                     <div
-                                                      className="control file-input-container is-full-width"
+                                                      className=""
                                                     >
                                                       <label
                                                         className="file-label"
@@ -1962,7 +2001,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                     className="file is-primary  field pb-2"
                                                   >
                                                     <div
-                                                      className="control file-input-container is-full-width"
+                                                      className=""
                                                     >
                                                       <label
                                                         className="file-label"
@@ -2068,7 +2107,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                     className="file is-primary  field pb-2"
                                                   >
                                                     <div
-                                                      className="control file-input-container is-full-width"
+                                                      className=""
                                                     >
                                                       <label
                                                         className="file-label"
@@ -2174,7 +2213,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                     className="file is-primary  field pb-2"
                                                   >
                                                     <div
-                                                      className="control file-input-container is-full-width"
+                                                      className=""
                                                     >
                                                       <label
                                                         className="file-label"
@@ -2280,7 +2319,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                     className="file is-primary  field pb-2"
                                                   >
                                                     <div
-                                                      className="control file-input-container is-full-width"
+                                                      className=""
                                                     >
                                                       <label
                                                         className="file-label"

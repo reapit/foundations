@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Members CellName should match snapshots 1`] = `
+<Component
+  centerContent={true}
+  flexColumn={true}
+>
+  <div />
+  <div />
+</Component>
+`;
+
+exports[`Members should match a snapshot when no error 1`] = `
+<Component
+  flexColumn={true}
+  hasPadding={true}
+>
+  <Component>
+    <Component
+      flexColumn={true}
+      hasBackground={true}
+      hasPadding={true}
+    >
+      <Component>
+        Members
+      </Component>
+      <Component
+        columns={
+          Array [
+            Object {
+              "Cell": [Function],
+              "Header": "Name",
+            },
+            Object {
+              "Header": "Email",
+              "accessor": "email",
+            },
+            Object {
+              "Header": "Tel",
+              "accessor": "tel",
+            },
+            Object {
+              "Header": "User Account",
+              "accessor": "userAccount",
+            },
+            Object {
+              "Header": "Status",
+              "id": "status",
+            },
+          ]
+        }
+        data={
+          Array [
+            Object {
+              "email": "johnsmith@proptech.com",
+              "name": "John smith",
+              "status": "",
+              "tel": "07896 765",
+              "title": "CTO",
+              "userAccount": "Admin",
+            },
+          ]
+        }
+        loading={false}
+        scrollable={true}
+      />
+    </Component>
+  </Component>
+</Component>
+`;

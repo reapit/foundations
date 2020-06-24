@@ -12,13 +12,11 @@ import { selectInstallAppLoading } from '@/selector/installations'
 import { Loader, FlexContainerResponsive, FlexContainerBasic, Grid, GridItem } from '@reapit/elements'
 import AppHeader from '@/components/pages/app-detail/common/ui-app-header'
 import styles from '@/styles/blocks/standalone-app-detail.scss?mod'
-import AppInstallations from '@/components/ui/app-installations/app-installations-modal'
 import routes from '@/constants/routes'
 import { getDesktopIntegrationTypes } from '@/utils/get-desktop-integration-types'
 import useReactResponsive from '@/components/hooks/use-react-responsive'
 import { BackToAppsSection } from '../common/ui-sections'
 import AppContent from './developer-app-content'
-import AppRevisionModal from './developer-app-revision-modal'
 
 export type DeveloperAppDetailProps = {}
 
@@ -46,8 +44,6 @@ export const onBackToAppsButtonClick = (history: History) => () => {
 
 const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
   const history = useHistory()
-  const [isInstallationsModalOpen, setIsInstallationsModalOpen] = React.useState(false)
-  const [isAppRevisionComparisonModalOpen, setIsAppRevisionComparisonModalOpen] = React.useState(false)
   const { isMobile } = useReactResponsive()
 
   const appDetailState = useSelector(selectAppDetailState)
@@ -57,7 +53,6 @@ const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
   const desktopIntegrationTypes = useSelector(selectIntegrationTypes) as DesktopIntegrationTypeModel[]
   const installationsData = useSelector(selectInstallationAppData) as PagedResultInstallationModel_
   const unfetch = !appDetailState?.data || !installationsData?.data
-  const { id = '', name = '' } = appDetailData
   const userDesktopIntegrationTypes = getDesktopIntegrationTypes(
     appDetailData.desktopIntegrationTypeIds || [],
     desktopIntegrationTypes,
@@ -80,23 +75,6 @@ const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
             {!isMobile && <BackToAppsSection onClick={onBackToAppsButtonClick(history)} />}
           </FlexContainerBasic>
         </GridItem>
-        {isInstallationsModalOpen && (
-          <AppInstallations
-            appId={id}
-            appName={name}
-            visible={isInstallationsModalOpen}
-            afterClose={closeInstallationsModal(setIsInstallationsModalOpen)}
-            onUninstallSuccess={closeInstallationsModal(setIsInstallationsModalOpen)}
-          />
-        )}
-        {isAppRevisionComparisonModalOpen && (
-          <AppRevisionModal
-            visible={isAppRevisionComparisonModalOpen}
-            appId={id}
-            appDetailState={appDetailState}
-            afterClose={closeAppRevisionComparisonModal(setIsAppRevisionComparisonModalOpen)}
-          />
-        )}
       </Grid>
     </FlexContainerResponsive>
   )

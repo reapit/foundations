@@ -624,6 +624,7 @@ export interface Applicants {
   lastCallTo?: string
   nextCallFrom?: string
   nextCallTo?: string
+  metadata?: string[]
 }
 /**
  * An appointment attendee
@@ -10287,6 +10288,7 @@ export interface Tenancies {
   createdTo?: string
   modifiedFrom?: string
   modifiedTo?: string
+  metadata?: string[]
 }
 /**
  * Representation of a tenancy check - a process that needs to happen before a tenancy can commence or ends

@@ -29,6 +29,7 @@ const formFields: Record<Field, FormFieldInfo> = {
   telephone: {
     name: 'telephone',
     label: 'TELEPHONE',
+    errorMessage: 'Invalid mobile phone format',
   },
   homePage: {
     name: 'homePage',
