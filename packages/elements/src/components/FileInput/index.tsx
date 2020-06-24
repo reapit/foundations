@@ -26,6 +26,7 @@ export interface FileInputProps {
   // to integrate with other components
   afterLoadedImage?: (base64: string) => any
   croppedImage?: string | null
+  validate?: (value: string) => string
 }
 
 export const handleChangeCroppedImage = ({
@@ -68,6 +69,7 @@ export const FileInput = ({
   onFilenameClick,
   croppedImage,
   afterLoadedImage,
+  validate,
 }: FileInputProps) => {
   const [fileUrl, setFileName] = useState<string>()
   const inputFile = React.useRef<HTMLInputElement>(null)
@@ -78,8 +80,8 @@ export const FileInput = ({
   })
 
   return (
-    <Field name={name}>
-      {({ field, meta }: FieldProps<string>) => {
+    <Field name={name} validate={validate}>
+      {({ field, meta, form }: FieldProps<string>) => {
         const hasError = checkError(meta)
         const hasFile = fileUrl || field.value
         const containerClassName = `file ${hasError ? 'is-danger' : 'is-primary'} ${hasFile ? 'has-name' : ''}`
@@ -88,6 +90,9 @@ export const FileInput = ({
           if (e.target && e.target.files && e.target.files[0]) {
             const file = e.target.files[0]
             setFileName(file.name)
+
+            form.setFieldTouched(name)
+            form.validateField(name)
 
             let reader = new FileReader()
             reader.readAsDataURL(file)
@@ -133,7 +138,7 @@ export const FileInput = ({
                     accept={accept}
                   />
                   <span className={`file-cta ${required && !hasFile ? 'required-label' : ''}`}>{labelText}</span>
-                  {hasFile && (
+                  {hasFile && !hasError && (
                     <span data-test="fileUploadFileName" className="file-name">
                       {!isBase64(field.value) ? (
                         <a onClick={onFilenameClick} href={field.value} target="_blank" rel="noopener noreferrer">
@@ -144,7 +149,7 @@ export const FileInput = ({
                       )}
                     </span>
                   )}
-                  {hasFile && allowClear && (
+                  {hasFile && !hasError && allowClear && (
                     <a
                       className="delete is-large"
                       onClick={e => {

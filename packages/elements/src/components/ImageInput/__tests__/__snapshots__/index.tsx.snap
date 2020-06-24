@@ -6,5 +6,6 @@ exports[`ImageInput should match a snapshot 1`] = `
   id="test"
   labelText="test"
   name="test"
+  validate={[Function]}
 />
 `;

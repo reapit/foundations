@@ -1,4 +1,4 @@
-import { isTextAndNumberOnly } from '../validate-text-and-number'
+import { isTextAndNumberOnly, isImageType } from '../validate-text-and-number'
 
 interface ValueTypes {
   validEmail: string
@@ -34,5 +34,14 @@ describe('validate-number', () => {
       const result = isTextAndNumberOnly(input)
       expect(result).toEqual(output)
     })
+  })
+})
+
+describe('isImageType', () => {
+  it('should return true', () => {
+    const input = 'image/jpeg'
+    const output = true
+    const result = isImageType(input)
+    expect(result).toEqual(output)
   })
 })

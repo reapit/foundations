@@ -1738,9 +1738,11 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                 id="iconImage"
                                                 labelText="Upload Image"
                                                 name="iconImageUrl"
+                                                validate={[Function]}
                                               >
                                                 <Field
                                                   name="iconImageUrl"
+                                                  validate={[Function]}
                                                 >
                                                   <div
                                                     className="file is-primary  field pb-2"
@@ -1844,9 +1846,11 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                 id="screenshot1"
                                                 labelText="Upload Image"
                                                 name="screen1ImageUrl"
+                                                validate={[Function]}
                                               >
                                                 <Field
                                                   name="screen1ImageUrl"
+                                                  validate={[Function]}
                                                 >
                                                   <div
                                                     className="file is-primary  field pb-2"
@@ -1948,9 +1952,11 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                 id="screenshot2"
                                                 labelText="Upload Image"
                                                 name="screen2ImageUrl"
+                                                validate={[Function]}
                                               >
                                                 <Field
                                                   name="screen2ImageUrl"
+                                                  validate={[Function]}
                                                 >
                                                   <div
                                                     className="file is-primary  field pb-2"
@@ -2052,9 +2058,11 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                 id="screenshot3"
                                                 labelText="Upload Image"
                                                 name="screen3ImageUrl"
+                                                validate={[Function]}
                                               >
                                                 <Field
                                                   name="screen3ImageUrl"
+                                                  validate={[Function]}
                                                 >
                                                   <div
                                                     className="file is-primary  field pb-2"
@@ -2156,9 +2164,11 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                 id="screenshot4"
                                                 labelText="Upload Image"
                                                 name="screen4ImageUrl"
+                                                validate={[Function]}
                                               >
                                                 <Field
                                                   name="screen4ImageUrl"
+                                                  validate={[Function]}
                                                 >
                                                   <div
                                                     className="file is-primary  field pb-2"
@@ -2260,9 +2270,11 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                 id="screenshot5"
                                                 labelText="Upload Image"
                                                 name="screen5ImageUrl"
+                                                validate={[Function]}
                                               >
                                                 <Field
                                                   name="screen5ImageUrl"
+                                                  validate={[Function]}
                                                 >
                                                   <div
                                                     className="file is-primary  field pb-2"
