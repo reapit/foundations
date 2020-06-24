@@ -22,13 +22,6 @@ exports[`DeveloperOrganisationTabPage should match snapshot when isAdmin = false
         <Component />
         <Component />
         <Component>
-          <a
-            onClick={[Function]}
-          >
-            Set as Admin
-          </a>
-        </Component>
-        <Component>
           <Component
             onClick={[Function]}
             type="button"
@@ -42,11 +35,6 @@ exports[`DeveloperOrganisationTabPage should match snapshot when isAdmin = false
   </Component>
   <Component
     afterClose={[Function]}
-    visible={false}
-  />
-  <Component
-    afterClose={[Function]}
-    username="TEST"
     visible={false}
   />
 </Fragment>

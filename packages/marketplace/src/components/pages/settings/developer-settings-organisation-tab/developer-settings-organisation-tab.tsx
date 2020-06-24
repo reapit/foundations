@@ -2,7 +2,6 @@ import * as React from 'react'
 import { FlexContainerResponsive, Content, FlexContainerBasic, Button, LevelRight } from '@reapit/elements'
 import { Tabs } from '../tabs'
 import DeveloperInviteModal from '@/components/ui/developer-invite-member-modal'
-import SetAsAdminModal from '@/components/ui/developer-settings/set-as-admin-modal'
 import { selectIsAdmin } from '@/selector/auth'
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
@@ -14,7 +13,6 @@ export const handleToggleVisibleModal = (setModalOpen: React.Dispatch<boolean>, 
 
 const DevelperSettingsOrganisationTabPage: React.FC = () => {
   const [isInviteModalOpen, setIsInviteModalOpen] = React.useState<boolean>(false)
-  const [isSetAdminModalOpen, setIsSetAdminModalOpen] = React.useState<boolean>(false)
   const isAdmin = useSelector(selectIsAdmin)
 
   if (!isAdmin) {
@@ -57,11 +55,6 @@ const DevelperSettingsOrganisationTabPage: React.FC = () => {
       <DeveloperInviteModal
         visible={isInviteModalOpen}
         afterClose={handleToggleVisibleModal(setIsInviteModalOpen, false)}
-      />
-      <SetAsAdminModal
-        visible={isSetAdminModalOpen}
-        afterClose={handleToggleVisibleModal(setIsSetAdminModalOpen, false)}
-        username="TEST"
       />
     </>
   )
