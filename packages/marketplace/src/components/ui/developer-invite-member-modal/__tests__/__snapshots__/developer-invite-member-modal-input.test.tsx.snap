@@ -20,7 +20,7 @@ exports[`DeveloperInviteMemberModalInput should match snapshot 1`] = `
   />
   <Component
     id="developerInviteMessage"
-    labelText="Message (Optinal)"
+    labelText="Message (Optional)"
     name="developerInviteMessage"
     placeholder="Message"
   />
