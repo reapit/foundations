@@ -1,4 +1,4 @@
-import { isBase64, getTypeFromBase64 } from '../.'
+import { isBase64 } from '../.'
 
 describe('isBase64', () => {
   it('should return false', () => {
@@ -29,14 +29,5 @@ describe('isBase64', () => {
     const input = null
     const result = isBase64(input)
     expect(result).toEqual(false)
-  })
-})
-
-describe('getTypeFromBase64', () => {
-  it('should return correctly', () => {
-    const base64 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA'
-
-    const result = getTypeFromBase64(base64)
-    expect(result).toEqual('image/png')
   })
 })

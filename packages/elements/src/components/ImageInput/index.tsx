@@ -1,7 +1,6 @@
 import React from 'react'
 import { FileInput, FileInputProps } from '../FileInput'
-import { isImageType } from '../../utils/validators/validate-text-and-number'
-import { getTypeFromBase64 } from '../../utils/is-base64'
+import { isImageType, getTypeFromBase64 } from '@reapit/utils'
 
 export const ImageInput = (props: FileInputProps) => (
   <FileInput

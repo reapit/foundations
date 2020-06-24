@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { isImageType } from '../../../../utils/validators/validate-text-and-number'
-import { getTypeFromBase64 } from '../../../../utils/is-base64'
+import { isImageType, getTypeFromBase64 } from '@reapit/utils'
 
 /**
  * To integrate with other components
