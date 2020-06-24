@@ -33,23 +33,10 @@ jest.mock('@reapit/elements')
 export const params: Action<SubmitAppArgs> = { data: appSubmitStubWithActions.data, type: 'DEVELOPER_SUBMIT_APP' }
 
 describe('submit-app post data', () => {
-  const imageUploaderRequests = Array(6).fill(undefined)
-  const updatedData = {
-    ...appSubmitStub.data,
-    iconImageUrl: '',
-    screen1ImageUrl: '',
-    screen2ImageUrl: '',
-    screen3ImageUrl: '',
-    screen4ImageUrl: '',
-    screen5ImageUrl: '',
-  }
-
   const gen = cloneableGenerator(submitAppSaga)(params)
 
   expect(gen.next().value).toEqual(put(submitAppSetFormState('SUBMITTING')))
-  expect(gen.next().value).toEqual(all(imageUploaderRequests))
-
-  expect(gen.next(imageUploaderRequests).value).toEqual(call(createApp, { ...updatedData, categoryId: undefined }))
+  expect(gen.next().value).toEqual(call(createApp, appSubmitStub.data))
 
   test('api call success', () => {
     const clone = gen.clone()
@@ -81,7 +68,7 @@ describe('submit-app post data', () => {
       },
     }
     if (!clone.throw) throw new Error('Generator object cannot throw')
-    expect(clone.throw(err).value).toEqual(call(params.data.actions.setErrors, { [FIELD_ERROR_DESCRIPTION]: 'test' }))
+    expect(clone.throw(err).value).toEqual(call(params.data.setErrors, { [FIELD_ERROR_DESCRIPTION]: 'test' }))
     expect(clone.next().value).toEqual(put(submitAppSetFormState('ERROR')))
     expect(clone.next().value).toEqual(
       put(

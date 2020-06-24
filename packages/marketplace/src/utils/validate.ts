@@ -38,6 +38,10 @@ export function checkValidCustomScheme(url: string): boolean {
 }
 
 export function isValidUrlWithCustomScheme(urls: string): boolean {
+  if (!urls) {
+    return false
+  }
+
   // remove all white-space and filter all empty urls
   return urls
     .replace(/\s/g, '')

@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StepInputAuthenticationUris should match snapshot 1`] = `
+<Fragment>
+  <Component
+    body={
+      <div>
+        <p
+          className="mb-3"
+        >
+           
+          Please now register one or more Redirect URLs and a Sign Out URL to allow Reapit - Connect to direct traffic back to your application in a secure way.
+        </p>
+        <Unknown
+          helperText="Please enter a Redirect URI(s) to define the route Reapit Connect is permitted to redirect to after a successful authentication. The following formats are supported: https://, http:// (for localhost only) or your own custom URI schemes such as myapp://login. For multiple URI’s, separate using a comma."
+          id="redirectUris"
+          labelText="Redirect URI(s)"
+          name="redirectUris"
+          placeholder="Please enter your Redirect URI(s)"
+          type="text"
+        />
+        <Unknown
+          helperText="Please enter a Sign Out URI(s) to define the route Reapit Connect is permitted to redirect to after successfully logging out. The following formats are supported: https://, http:// (for localhost only) or your own custom URI schemes such as myapp://login. For multiple URI’s, separate using a comma."
+          id="signoutUris"
+          labelText="Sign Out URI(s)"
+          name="signoutUris"
+          placeholder="Please enter your Sign Out URI(s)"
+          type="text"
+        />
+      </div>
+    }
+  />
+  <Component
+    footerItems={
+      <React.Fragment>
+        <Unknown
+          onClick={[Function]}
+        >
+          Back
+        </Unknown>
+        <Unknown
+          disabled={false}
+          onClick={[Function]}
+          type="submit"
+        >
+          Next
+        </Unknown>
+      </React.Fragment>
+    }
+  />
+</Fragment>
+`;

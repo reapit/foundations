@@ -1,3 +1,5 @@
+// @ts-nocheck
+// TODO: remove developer standalone submit app code #1824
 import errorMessages from '@/constants/error-messages'
 import { validate } from '../submit-app'
 import { CustomCreateAppModel } from '@/actions/submit-app'

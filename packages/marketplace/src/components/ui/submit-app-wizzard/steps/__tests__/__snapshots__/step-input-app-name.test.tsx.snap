@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StepGrantPermissions should match snapshot 1`] = `
+<Fragment>
+  <Component
+    body={
+      <div>
+        <p
+          className="mb-2"
+        >
+          Your app name as it will display to users
+        </p>
+        <Unknown
+          id="name"
+          name="name"
+          placeholder="Please enter an app name"
+          type="text"
+        />
+      </div>
+    }
+  />
+  <Component
+    footerItems={
+      <React.Fragment>
+        <Unknown
+          onClick={[Function]}
+        >
+          Back
+        </Unknown>
+        <Unknown
+          disabled={false}
+          onClick={[Function]}
+        >
+          Next
+        </Unknown>
+      </React.Fragment>
+    }
+  />
+</Fragment>
+`;

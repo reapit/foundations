@@ -3,6 +3,8 @@ import { isType } from '../utils/actions'
 import { submitAppSetFormState, submitAppLoading, submitAppReceiveData } from '../actions/submit-app'
 import { ScopeModel } from '@reapit/foundations-ts-definitions'
 
+export type FormStep = 'BEFORE_YOU_START' | 'INPUT_APP_NAME'
+
 export interface SubmitAppState {
   loading: boolean
   formState: FormState

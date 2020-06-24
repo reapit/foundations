@@ -1,6 +1,11 @@
-import { FetchError } from '@reapit/elements'
+import { FetchError, FormikErrors } from '@reapit/elements'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
-import { submitAppSetFormState, submitAppLoading, submitAppReceiveData } from '../actions/submit-app'
+import {
+  submitAppSetFormState,
+  submitAppLoading,
+  submitAppReceiveData,
+  CustomCreateAppModel,
+} from '../actions/submit-app'
 import { categoriesReceiveData } from '../actions/app-categories'
 import { integrationTypesReceiveData } from '@/actions/app-integration-types'
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
@@ -11,56 +16,17 @@ import { SubmitAppArgs } from '@/actions/submit-app'
 import errorMessages from '../constants/error-messages'
 import { getApiErrorsFromResponse, ApiFormErrorsResponse } from '@/utils/form/errors'
 import { logger } from '@reapit/utils'
-import { imageUploaderHelper } from '@/services/upload'
 import { fetchScopesList } from '@/services/scopes'
 import { createApp } from '@/services/apps'
 import { fetchCategoriesList } from '@/services/categories'
 import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
 
 export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
-  const { actions, ...values } = data
-  actions.setStatus(undefined)
+  const { setErrors, ...values } = data
 
   yield put(submitAppSetFormState('SUBMITTING'))
   try {
-    const {
-      name,
-      iconImageUrl,
-      screen1ImageUrl,
-      screen2ImageUrl,
-      screen3ImageUrl,
-      screen4ImageUrl,
-      screen5ImageUrl,
-      categoryId,
-    } = values
-
-    const formatedName = name ? name.replace(/\s+/g, '-') : ''
-    const imageUploaderReqs = [
-      imageUploaderHelper({ name: `${formatedName}-icon`, imageData: iconImageUrl }),
-      imageUploaderHelper({ name: `${formatedName}-screen1ImageUrl`, imageData: screen1ImageUrl }),
-      imageUploaderHelper({ name: `${formatedName}-screen2ImageUrl`, imageData: screen2ImageUrl }),
-      imageUploaderHelper({ name: `${formatedName}-screen3ImageUrl`, imageData: screen3ImageUrl }),
-      imageUploaderHelper({ name: `${formatedName}-screen4ImageUrl`, imageData: screen4ImageUrl }),
-      imageUploaderHelper({ name: `${formatedName}-screen5ImageUrl`, imageData: screen5ImageUrl }),
-    ]
-
-    const imageUploaderResults = yield all(imageUploaderReqs)
-    const updatedValues = {
-      ...values,
-      iconImageUrl: imageUploaderResults[0] ? imageUploaderResults[0].Url : '',
-      screen1ImageUrl: imageUploaderResults[1] ? imageUploaderResults[1].Url : '',
-      screen2ImageUrl: imageUploaderResults[2] ? imageUploaderResults[2].Url : '',
-      screen3ImageUrl: imageUploaderResults[3] ? imageUploaderResults[3].Url : '',
-      screen4ImageUrl: imageUploaderResults[4] ? imageUploaderResults[4].Url : '',
-      screen5ImageUrl: imageUploaderResults[5] ? imageUploaderResults[5].Url : '',
-    }
-
-    const updatedValuesAfterValidatingCategoryId = {
-      ...updatedValues,
-      categoryId: categoryId === '' ? undefined : categoryId,
-    }
-
-    yield call(createApp, updatedValuesAfterValidatingCategoryId)
+    yield call(createApp, values)
 
     yield put(submitAppSetFormState('SUCCESS'))
   } catch (err) {
@@ -79,7 +45,7 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
     }
 
     if (formErrors && Object.keys(formErrors).length > 0) {
-      yield call(actions.setErrors, formErrors)
+      yield call(setErrors, formErrors as FormikErrors<CustomCreateAppModel>)
     }
 
     yield put(submitAppSetFormState('ERROR'))
