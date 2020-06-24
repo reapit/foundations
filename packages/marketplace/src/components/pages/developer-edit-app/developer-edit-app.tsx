@@ -238,20 +238,6 @@ export const handleDeclineTerms = (setIsAgreedTerms, setTermModalIsOpen) => () =
   setTermModalIsOpen(false)
 }
 
-/**
- * Before submit, run this to check first submit,
- * and validate all fields
- */
-export const handleBeforeSubmit = (validateFunction, setIsSubmitModalOpen) => (values: CustomCreateAppModel) => {
-  const firstSubmitCookie = getCookieString(COOKIE_FIRST_SUBMIT)
-  if (!firstSubmitCookie) {
-    setIsSubmitModalOpen(true)
-    // return FormikErrors-like object to prevent formik from submit data
-    return { message: 'firstSubmit' }
-  }
-  return validateFunction(values)
-}
-
 export const handleSubmitModalContinue = setIsSubmitModalOpen => () => {
   setIsSubmitModalOpen(false)
   setCookieString(COOKIE_FIRST_SUBMIT, dayjs().format(DAY_FORMATS.YYYY_MM_DD), COOKIE_MAX_AGE_INFINITY)
@@ -323,8 +309,6 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
   const submitRevisionState = useSelector(selectSubmitAppRevisionState)
   const appCategories = useSelector(selectCategories)
 
-  const [isSubmitModalOpen, setIsSubmitModalOpen] = React.useState<boolean>(!getCookieString(COOKIE_FIRST_SUBMIT))
-
   const goBackToApps = React.useCallback(handleGoBackToApps(history), [history])
 
   const isPendingRevisionsExist = appDetailState.appDetailData?.data?.pendingRevisions
@@ -375,7 +359,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
           <Formik
             validationSchema={submitAppValidationSchema}
             // TODO: change to Yup schema to validate after split Submit/Edit App
-            validate={handleBeforeSubmit(validate, setIsSubmitModalOpen)}
+            validate={validate}
             initialValues={initialValues}
             onSubmit={handleSubmitApp({ appId, dispatch })}
           >
@@ -435,11 +419,6 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
           </Formik>
         </FlexContainerResponsive>
       </FlexContainerBasic>
-      <SubmitAppReadDocModal
-        visible={isSubmitModalOpen}
-        onContinueClick={handleSubmitModalContinue(setIsSubmitModalOpen)}
-        onViewDocClick={handleSubmitModalViewDocs}
-      />
     </>
   )
 }
