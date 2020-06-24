@@ -1,25 +1,18 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
-import { connect } from 'react-redux'
-import { ReduxState } from '@/types/core'
+import { useSelector, useDispatch } from 'react-redux'
 import { appDetailRequestData } from '@/actions/app-detail'
-import {
-  revisionDetailRequestData,
-  RevisionDetailRequestParams,
-  declineRevision,
-  RevisionDeclineRequestParams,
-  revisionDetailClearData,
-} from '@/actions/revision-detail'
+import { revisionDetailRequestData, declineRevision, revisionDetailClearData } from '@/actions/revision-detail'
 import { revisionsRequestData, revisionsClearData } from '@/actions/revisions'
 import { AppDetailState } from '@/reducers/app-detail'
-import { RevisionsState } from '@/reducers/revisions'
-import { RevisionDetailState } from '@/reducers/revision-detail'
 import { LoginIdentity } from '@reapit/cognito-auth'
 
 import { Modal, Loader, Button } from '@reapit/elements'
 import AppRevisionComparison from '../app-revision-comparison/app-revision-comparison'
 import CallToAction from '@/components/ui/call-to-action'
 import { DeveloperAppDetailState } from '@/reducers/developer'
+import { selectAppRevisions, selectAppRevisionDetail } from '@/selector/app-revisions'
+import { selectLoginIdentity } from '@/selector/auth'
 
 export interface OwnProps {
   visible: boolean
@@ -29,25 +22,16 @@ export interface OwnProps {
   onCancelSuccess?: () => void
 }
 
-export interface DeveloperAppModalMappedProps {
-  revisionsState: RevisionsState
-  revisionDetailState: RevisionDetailState
-  loginIdentity?: LoginIdentity
+export type DeveloperAppRevisionModalProps = {
+  visible: boolean
+  appId: string
+  appDetailState: DeveloperAppDetailState | AppDetailState
+  afterClose: () => void
+  onCancelSuccess?: () => void
 }
-
-export interface DeveloperAppModalMappedAction {
-  fetchAppDetail: (id: string) => void
-  fetchAppRevisions: (appId: string) => void
-  fetchAppRevisionDetail: (params: RevisionDetailRequestParams) => void
-  declineAppRevision: (params: RevisionDeclineRequestParams) => void
-  clearAppRevisionDetail: () => void
-  clearAppRevisions: () => void
-}
-
-export type DeveloperAppRevisionModalProps = OwnProps & DeveloperAppModalMappedProps & DeveloperAppModalMappedAction
 
 export const handleCancelPendingRevisionsButtonClick = (
-  declineAppRevision: (params: RevisionDeclineRequestParams) => void,
+  dispatch: Dispatch,
   appId: string,
   appRevisionId?: string,
   loginIdentity?: LoginIdentity,
@@ -58,45 +42,52 @@ export const handleCancelPendingRevisionsButtonClick = (
       return
     }
     const { name, email } = loginIdentity
-    declineAppRevision({
-      appId,
-      appRevisionId,
-      name,
-      email,
-      rejectionReason: 'Developer Cancelled',
-      callback: onCancelSuccess,
-    })
+    dispatch(
+      declineRevision({
+        appId,
+        appRevisionId,
+        name,
+        email,
+        rejectionReason: 'Developer Cancelled',
+        callback: onCancelSuccess,
+      }),
+    )
   }
 }
 
-export const handelePendingRevisionsModalAfterClose = (afterClose, clearAppRevisions, clearAppRevisionDetail) => {
+export const handelePendingRevisionsModalAfterClose = (afterClose: () => void, dispatch: Dispatch) => {
   return () => {
     afterClose()
-    clearAppRevisions()
-    clearAppRevisionDetail()
+    dispatch(revisionsClearData(null))
+    dispatch(revisionDetailClearData(null))
   }
 }
 
-export const backToAppDetailsModal = (fetchAppDetail, clearAppRevisions, clearAppRevisionDetail, appId) => {
+export const backToAppDetailsModal = (appId: string, dispatch: Dispatch) => {
   return () => {
-    clearAppRevisions()
-    clearAppRevisionDetail()
-    fetchAppDetail(appId)
+    dispatch(revisionsClearData(null))
+    dispatch(revisionDetailClearData(null))
+    dispatch(appDetailRequestData({ id: appId }))
   }
 }
 
-export const handleUseEffectToFetchAppRevisions = (appId, fetchAppRevisions, visible) => {
+export const handleUseEffectToFetchAppRevisions = (appId: string, dispatch: Dispatch, visible: boolean) => {
   return () => {
     if (appId && visible) {
-      fetchAppRevisions(appId)
+      dispatch(revisionsRequestData({ appId }))
     }
   }
 }
 
-export const handleUseEffectToFetchAppRevisionDetail = (appId, appRevisionId, fetchAppRevisionDetail, visible) => {
+export const handleUseEffectToFetchAppRevisionDetail = (
+  appId: string,
+  dispatch: Dispatch,
+  visible: boolean,
+  appRevisionId?: string,
+) => {
   return () => {
     if (appId && appRevisionId && visible) {
-      fetchAppRevisionDetail({ appId, appRevisionId })
+      dispatch(revisionDetailRequestData({ appId, appRevisionId }))
     }
   }
 }
@@ -104,20 +95,14 @@ export const handleUseEffectToFetchAppRevisionDetail = (appId, appRevisionId, fe
 export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps> = ({
   visible,
   appId,
-  revisionDetailState,
-  revisionsState,
   appDetailState,
-  loginIdentity,
-  fetchAppDetail,
-  fetchAppRevisions,
-  fetchAppRevisionDetail,
-  declineAppRevision,
-  clearAppRevisionDetail,
-  clearAppRevisions,
   afterClose,
   onCancelSuccess,
 }) => {
-  const { revisions } = revisionsState
+  const dispatch = useDispatch()
+  const revisions = useSelector(selectAppRevisions)
+  const revisionDetailState = useSelector(selectAppRevisionDetail)
+  const loginIdentity = useSelector(selectLoginIdentity)
   const revisionsData = revisions?.data
   const latestAppRevisionId = revisionsData && revisionsData[0].id
   const { declineFormState, revisionDetailData } = revisionDetailState
@@ -131,22 +116,20 @@ export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps>
 
   const [isConfirmationModalVisible, setIsConfirmationModalVisible] = React.useState(false)
 
-  React.useEffect(handleUseEffectToFetchAppRevisions(appId, fetchAppRevisions, visible), [
+  React.useEffect(handleUseEffectToFetchAppRevisions(appId, dispatch, visible), [appId, dispatch, visible])
+
+  React.useEffect(handleUseEffectToFetchAppRevisionDetail(appId, dispatch, visible, latestAppRevisionId), [
     appId,
-    fetchAppRevisions,
+    latestAppRevisionId,
+    dispatch,
     visible,
   ])
-
-  React.useEffect(
-    handleUseEffectToFetchAppRevisionDetail(appId, latestAppRevisionId, fetchAppRevisionDetail, visible),
-    [appId, latestAppRevisionId, fetchAppRevisionDetail, visible],
-  )
 
   return (
     <Modal
       visible={visible}
       title="Pending Revisions"
-      afterClose={handelePendingRevisionsModalAfterClose(afterClose, clearAppRevisions, clearAppRevisionDetail)}
+      afterClose={handelePendingRevisionsModalAfterClose(afterClose, dispatch)}
       footerItems={
         <Button
           disabled={!hasRevisionDetailData}
@@ -176,7 +159,7 @@ export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps>
                 type="button"
                 loading={isDeclining}
                 onClick={handleCancelPendingRevisionsButtonClick(
-                  declineAppRevision,
+                  dispatch,
                   appId,
                   latestAppRevisionId,
                   loginIdentity,
@@ -194,15 +177,12 @@ export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps>
           <p>Are you sure you wish to cancel any pending revisions for this App?</p>
         </Modal>
 
-        <Modal
-          visible={isDeclinedSuccessfully}
-          afterClose={backToAppDetailsModal(fetchAppDetail, clearAppRevisions, clearAppRevisionDetail, appId)}
-        >
+        <Modal visible={isDeclinedSuccessfully} afterClose={backToAppDetailsModal(appId, dispatch)}>
           <CallToAction
             title="SUCCESS"
             type="success"
             buttonText="BACK TO APP"
-            onButtonClick={backToAppDetailsModal(fetchAppDetail, clearAppRevisions, clearAppRevisionDetail, appId)}
+            onButtonClick={backToAppDetailsModal(appId, dispatch)}
             isCenter
           >
             All pending revisions for this app have been cancelled. You can now use the ‘Edit Detail’ option to make any
@@ -214,19 +194,4 @@ export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps>
   )
 }
 
-const mapStateToProps = (state: ReduxState) => ({
-  revisionsState: state.revisions,
-  revisionDetailState: state.revisionDetail,
-  loginIdentity: state.auth.loginSession?.loginIdentity,
-})
-
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  fetchAppDetail: (id: string) => dispatch(appDetailRequestData({ id })),
-  fetchAppRevisions: (appId: string) => dispatch(revisionsRequestData({ appId })),
-  fetchAppRevisionDetail: param => dispatch(revisionDetailRequestData(param)),
-  declineAppRevision: params => dispatch(declineRevision(params)),
-  clearAppRevisionDetail: () => dispatch(revisionDetailClearData(null)),
-  clearAppRevisions: () => dispatch(revisionsClearData(null)),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(DeveloperAppRevisionModal)
+export default DeveloperAppRevisionModal
