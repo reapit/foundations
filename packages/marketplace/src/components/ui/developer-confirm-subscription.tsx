@@ -31,7 +31,7 @@ const DeveloperConfirmSubscription: React.FC<DeveloperConfirmSubscriptionProps> 
     >
       <>
         <SubTitleH6>
-          You have successfully subscribed 1 Agency Cloud user licences and an email has been sent to the following
+          You have successfully subscribed 1 Agency Cloud user licence and an email has been sent to the following
           members of your organisation with instructions on how to get started.
         </SubTitleH6>
         <SubTitleH6>
