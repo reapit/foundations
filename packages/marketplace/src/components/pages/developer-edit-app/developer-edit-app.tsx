@@ -27,7 +27,6 @@ import { submitApp, submitAppSetFormState, CustomCreateAppModel } from '@/action
 import { CreateAppModel, AppDetailModel } from '@reapit/foundations-ts-definitions'
 import Routes from '@/constants/routes'
 import { submitRevisionSetFormState, submitRevision } from '@/actions/submit-revision'
-import DeveloperSubmitAppSuccessfully from '@/components/pages/developer-submit-app-successfully'
 import { getCookieString, setCookieString, COOKIE_FIRST_SUBMIT, COOKIE_MAX_AGE_INFINITY } from '@/utils/cookie'
 import { SubmitAppReadDocModal } from '@/components/ui/submit-app-read-doc-modal'
 import dayjs from 'dayjs'
@@ -190,7 +189,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
   return initialValues
 }
 
-export const handleSubmitApp = (appId: string, dispatch: Dispatch) => (
+export const handleSubmitApp = ({ appId, dispatch }: { appId?: string; dispatch: Dispatch }) => (
   appModel: CustomCreateAppModel,
   actions: FormikHelpers<CustomCreateAppModel>,
 ) => {
@@ -293,7 +292,6 @@ export const handleOpenAppPreview = ({
   categories,
   appId = 'submit-app',
 }: HandleOpenAppPreview) => () => {
-  const isSubmitApp = appId === 'submit-app'
   const { iconImageUrl, screen1ImageUrl, screen2ImageUrl, screen3ImageUrl, screen4ImageUrl, screen5ImageUrl } = values
 
   const media = [iconImageUrl, screen1ImageUrl, screen2ImageUrl, screen3ImageUrl, screen4ImageUrl, screen5ImageUrl]
@@ -301,7 +299,7 @@ export const handleOpenAppPreview = ({
     .map(image => ({ uri: image, type: image === iconImageUrl ? 'icon' : 'image' }))
 
   const appDetailState = {
-    ...(isSubmitApp ? {} : appDetails),
+    ...appDetails,
     ...values,
     scopes: scopes.filter(scope => values.scopes.includes(scope.name)),
     category: categories.find(category => values.categoryId === category.id),
@@ -313,10 +311,9 @@ export const handleOpenAppPreview = ({
   window.open(url, '_blank')
 }
 
-export const DeveloperSubmitApp: React.FC<DeveloperSubmitAppProps> = () => {
+export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
   let initialValues
   let formState
-  let appId
   const dispatch = useDispatch()
   const history = useHistory()
   const { appid } = useParams()
@@ -329,58 +326,36 @@ export const DeveloperSubmitApp: React.FC<DeveloperSubmitAppProps> = () => {
   const [isSubmitModalOpen, setIsSubmitModalOpen] = React.useState<boolean>(!getCookieString(COOKIE_FIRST_SUBMIT))
 
   const goBackToApps = React.useCallback(handleGoBackToApps(history), [history])
-  const onSubmitAnotherApp = React.useCallback(handleOnSubmitAnotherApp(dispatch), [dispatch])
-
-  const isSubmitRevision = appid ? true : false
-  const isSubmitApp = !isSubmitRevision
 
   const isPendingRevisionsExist = appDetailState.appDetailData?.data?.pendingRevisions
   if (isPendingRevisionsExist) {
     return <Redirect to={`${Routes.DEVELOPER_MY_APPS}/${appid}`} />
   }
 
-  if (isSubmitApp) {
-    const { loading } = submitAppState
-    formState = submitAppState.formState
+  const { loading, error, appDetailData } = appDetailState
+  formState = submitRevisionState.formState
 
-    if (loading) {
-      return <Loader />
-    }
-
-    initialValues = generateInitialValues(null, developerId)
+  if (loading) {
+    return <Loader />
   }
 
-  if (isSubmitRevision) {
-    const { loading, error, appDetailData } = appDetailState
-    formState = submitRevisionState.formState
-
-    if (loading) {
-      return <Loader />
-    }
-
-    if (error) {
-      return <Alert type="danger" message="Failed to fetch. Please try later." />
-    }
-
-    if (!appDetailData) {
-      return null
-    }
-
-    appId = appDetailData.data.id
-    initialValues = generateInitialValues(appDetailData.data, developerId)
+  if (error) {
+    return <Alert type="danger" message="Failed to fetch. Please try later." />
   }
+
+  if (!appDetailData) {
+    return null
+  }
+
+  const appId = appDetailData.data.id
+  initialValues = generateInitialValues(appDetailData.data, developerId)
 
   const scopes = (submitAppState.submitAppData && submitAppState.submitAppData.scopes) || []
 
   const isSubmitting = formState === 'SUBMITTING'
   const isSuccessed = formState === 'SUCCESS'
 
-  const submitAppSuccessfully = !isSubmitRevision && isSuccessed
-  const submitRevisionSuccessfully = isSubmitRevision && isSuccessed
-
-  if (submitAppSuccessfully) {
-    return <DeveloperSubmitAppSuccessfully onGoBackToApps={goBackToApps} onSubmitAnotherApp={onSubmitAnotherApp} />
-  }
+  const submitRevisionSuccessfully = isSuccessed
 
   if (submitRevisionSuccessfully) {
     dispatch(submitRevisionSetFormState('PENDING'))
@@ -396,13 +371,13 @@ export const DeveloperSubmitApp: React.FC<DeveloperSubmitAppProps> = () => {
         data-test="app-input-form"
       >
         <FlexContainerResponsive flexColumn hasBackground hasPadding>
-          {isSubmitApp ? <H3>Submit App</H3> : <H3>Edit App</H3>}
+          <H3>Edit App</H3>
           <Formik
             validationSchema={submitAppValidationSchema}
             // TODO: change to Yup schema to validate after split Submit/Edit App
             validate={handleBeforeSubmit(validate, setIsSubmitModalOpen)}
             initialValues={initialValues}
-            onSubmit={handleSubmitApp(appId, dispatch)}
+            onSubmit={handleSubmitApp({ appId, dispatch })}
           >
             {({ setFieldValue, values, errors }) => {
               const { authFlow, isPrivateApp } = values
@@ -410,14 +385,10 @@ export const DeveloperSubmitApp: React.FC<DeveloperSubmitAppProps> = () => {
                 <Form noValidate={true}>
                   <GeneralInformationSection />
                   <AgencyCloudIntegrationSection />
-                  <AuthenticationFlowSection
-                    authFlow={authFlow}
-                    isSubmitApp={isSubmitApp}
-                    setFieldValue={setFieldValue}
-                  />
+                  <AuthenticationFlowSection authFlow={authFlow} setFieldValue={setFieldValue} />
                   <RedirectUriSection authFlow={authFlow} isPrivateApp={isPrivateApp} setFieldValue={setFieldValue} />
                   <UploadImageSection />
-                  <MarketplaceStatusSection isSubmitRevision={isSubmitRevision} />
+                  <MarketplaceStatusSection />
                   <PermissionSection scopes={scopes} errors={errors} />
                   <FormSection>
                     {renderErrors((errors as unknown) as Record<string, string | string[]>)}
@@ -436,11 +407,9 @@ export const DeveloperSubmitApp: React.FC<DeveloperSubmitAppProps> = () => {
                         >
                           Preview
                         </Button>
-                        {!isSubmitApp && (
-                          <Button onClick={goBackToApps} variant="primary" type="button">
-                            Back To Apps
-                          </Button>
-                        )}
+                        <Button onClick={goBackToApps} variant="primary" type="button">
+                          Back To Apps
+                        </Button>
                         <Button
                           type="submit"
                           dataTest="submit-app-button"
@@ -475,4 +444,4 @@ export const DeveloperSubmitApp: React.FC<DeveloperSubmitAppProps> = () => {
   )
 }
 
-export default DeveloperSubmitApp
+export default DeveloperEditApp

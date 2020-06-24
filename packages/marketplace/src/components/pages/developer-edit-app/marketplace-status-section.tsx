@@ -1,11 +1,9 @@
 import * as React from 'react'
 import { FormSection, Grid, GridItem, Checkbox, FormSubHeading, FormHeading } from '@reapit/elements'
 
-export type MarketplaceStatusSectionProps = {
-  isSubmitRevision: boolean
-}
+export type MarketplaceStatusSectionProps = {}
 
-const MarketplaceStatusSection: React.FC<MarketplaceStatusSectionProps> = ({ isSubmitRevision }) => {
+const MarketplaceStatusSection: React.FC<MarketplaceStatusSectionProps> = () => {
   return (
     <FormSection>
       <FormHeading>Marketplace Status</FormHeading>
@@ -22,11 +20,9 @@ const MarketplaceStatusSection: React.FC<MarketplaceStatusSectionProps> = ({ isS
         <GridItem>
           <Checkbox name="isDirectApi" labelText="Direct API" id="isDirectApi" />
         </GridItem>
-        {isSubmitRevision && (
-          <GridItem>
-            <Checkbox name="isListed" labelText="Is Listed" id="isListed" />
-          </GridItem>
-        )}
+        <GridItem>
+          <Checkbox name="isListed" labelText="Is Listed" id="isListed" />
+        </GridItem>
       </Grid>
     </FormSection>
   )

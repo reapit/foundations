@@ -1,2 +1,1 @@
-import DeveloperSubmitApp from './developer-submit-app'
-export default DeveloperSubmitApp
+export { default } from './developer-edit-app'

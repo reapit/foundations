@@ -5,15 +5,10 @@ import linkStyles from '@/styles/elements/link.scss?mod'
 
 export type AuthenticationFlowSectionProps = {
   authFlow?: string
-  isSubmitApp: boolean
   setFieldValue: (field: string, value: any, shouldValidate?: boolean | undefined) => void
 }
 
-const AuthenticationFlowSection: React.FC<AuthenticationFlowSectionProps> = ({
-  setFieldValue,
-  authFlow,
-  isSubmitApp,
-}) => {
+const AuthenticationFlowSection: React.FC<AuthenticationFlowSectionProps> = ({ setFieldValue, authFlow }) => {
   return (
     <FormSection>
       <FormHeading>AUTHENTICATION FLOW *</FormHeading>
@@ -41,7 +36,7 @@ const AuthenticationFlowSection: React.FC<AuthenticationFlowSectionProps> = ({
           <RadioSelect
             setFieldValue={setFieldValue}
             state={authFlow}
-            disabled={!isSubmitApp}
+            disabled
             options={[
               { label: 'AUTHORIZATION CODE (Reapit Connect)', value: 'authorisationCode' },
               { label: 'CLIENT CREDENTIALS', value: 'clientCredentials' },
