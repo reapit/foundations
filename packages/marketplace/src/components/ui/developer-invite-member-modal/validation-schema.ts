@@ -10,12 +10,12 @@ export const validationSchema = Yup.object().shape({
   [developerInviteNameField.name]: Yup.string()
     .trim()
     .required(errorMessages.FIELD_REQUIRED)
-    .matches(personNameRegex, errorMessages.FIELD_INVALID_NAME),
+    .matches(personNameRegex, developerInviteNameField.errorMessage),
 
   [developerInviteEmailField.name]: Yup.string()
     .trim()
     .required(errorMessages.FIELD_REQUIRED)
-    .matches(emailRegex, errorMessages.FIELD_WRONG_EMAIL_FORMAT),
+    .matches(emailRegex, developerInviteEmailField.errorMessage),
 
   [developerInviteMessageField.name]: Yup.string()
     .trim()

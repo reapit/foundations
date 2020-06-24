@@ -7,11 +7,13 @@ export const formFields: Record<FieldKey, FormFieldInfo> = {
     name: 'developerInviteName',
     label: 'Name',
     placeHolder: 'Name',
+    errorMessage: 'Invalid Name',
   },
   developerInviteEmailField: {
     name: 'developerInviteEmail',
     label: 'Email',
     placeHolder: 'Email',
+    errorMessage: 'Invalid Email',
   },
   developerInviteMessageField: {
     name: 'developerInviteMessage',

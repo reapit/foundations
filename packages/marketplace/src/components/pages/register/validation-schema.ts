@@ -9,7 +9,7 @@ export const validationSchema = Yup.object().shape({
   [nameField.name]: Yup.string()
     .trim()
     .required(errorMessages.FIELD_REQUIRED)
-    .matches(personNameRegex, errorMessages.FIELD_INVALID_NAME),
+    .matches(personNameRegex, nameField.errorMessage),
 
   [companyNameField.name]: Yup.string()
     .trim()
@@ -18,10 +18,10 @@ export const validationSchema = Yup.object().shape({
   [emailField.name]: Yup.string()
     .trim()
     .required(errorMessages.FIELD_REQUIRED)
-    .matches(emailRegex, errorMessages.FIELD_WRONG_EMAIL_FORMAT),
+    .matches(emailRegex, emailField.errorMessage),
 
   [telephoneField.name]: Yup.string()
     .trim()
     .required(errorMessages.FIELD_REQUIRED)
-    .matches(telephoneRegex, errorMessages.FIELD_PHONE_NUMER),
+    .matches(telephoneRegex, telephoneField.errorMessage),
 })
