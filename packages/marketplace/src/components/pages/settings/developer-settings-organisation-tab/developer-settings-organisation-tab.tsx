@@ -8,8 +8,8 @@ import { Redirect } from 'react-router-dom'
 import { CompanyInformation } from './company-information'
 import { Members } from './members'
 
-export const handleToggleVisibleModal = (setIsInviteModalOpen: React.Dispatch<boolean>, isVisible: boolean) => () =>
-  setIsInviteModalOpen(isVisible)
+export const handleToggleVisibleModal = (setModalOpen: React.Dispatch<boolean>, isVisible: boolean) => () =>
+  setModalOpen(isVisible)
 
 const DevelperSettingsOrganisationTabPage: React.FC = () => {
   const [isInviteModalOpen, setIsInviteModalOpen] = React.useState<boolean>(false)
@@ -35,6 +35,12 @@ const DevelperSettingsOrganisationTabPage: React.FC = () => {
         <Content>
           <FlexContainerResponsive flexColumn hasBackground hasPadding>
             <Tabs />
+            {/* <LevelRight>
+              <a className={styles.hyperlinked} onClick={handleToggleVisibleModal(setIsSetAdminModalOpen, true)}>
+                Set as Admin
+              </a>
+            </LevelRight> */}
+
             <CompanyInformation />
             <Members />
             <LevelRight>
