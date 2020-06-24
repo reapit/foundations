@@ -23,6 +23,7 @@ const Register = React.lazy(() => catchChunkError(() => import('../components/pa
 const DeveloperHome = React.lazy(() => catchChunkError(() => import('../components/pages/developer-home')))
 const DeveloperAppDetail = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail/developer')))
 const DeveloperSubmitApp = React.lazy(() => catchChunkError(() => import('../components/pages/developer-submit-app')))
+const DeveloperEditApp = React.lazy(() => catchChunkError(() => import('../components/pages/developer-edit-app')))
 const AdminApprovalsPage = React.lazy(() => catchChunkError(() => import('../components/pages/admin-approvals')))
 const AdminDevManagementPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/admin-dev-management')),
@@ -120,6 +121,13 @@ const Router = () => {
                   allow="DEVELOPER"
                   path={Routes.DEVELOPER_MY_APPS_EDIT}
                   component={DeveloperSubmitApp}
+                  exact
+                  fetcher
+                />
+                <PrivateRoute
+                  allow="DEVELOPER"
+                  path={Routes.DEVELOPER_MY_APPS_EDIT}
+                  component={DeveloperEditApp}
                   exact
                   fetcher
                 />
