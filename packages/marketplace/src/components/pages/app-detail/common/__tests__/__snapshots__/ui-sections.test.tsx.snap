@@ -306,7 +306,7 @@ exports[`InstallationsTableSection should render a table and match a snapshot wh
           scrollable={true}
         >
           <div
-            className="table-responsive"
+            className="table-container"
           >
             <div
               style={
