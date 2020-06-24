@@ -6,10 +6,9 @@ import CostCalculatorForm, {
   renderEndpointsUsedOptions,
   validate,
 } from '../cost-calculator-form'
-import { endpointsUsedRange } from '../cost-calculator'
+import { endpointsUsedRange } from '../use-foundation-cost-table'
 
 const mockProps: CostCalculatorFormProps = {
-  endpointsUsedRange: endpointsUsedRange,
   initialValues: {
     apiCalls: '',
     endpointsUsed: '',
@@ -24,7 +23,7 @@ describe('CostCalculator', () => {
   })
   describe('renderEndpointsUsedOptions', () => {
     it('should run correctly', () => {
-      const result = renderEndpointsUsedOptions(mockProps.endpointsUsedRange)
+      const result = renderEndpointsUsedOptions(endpointsUsedRange)
       expect(result).toEqual([
         {
           value: '',
