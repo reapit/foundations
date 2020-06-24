@@ -47,6 +47,7 @@ import PermissionSection from './permission-section'
 import styles from '@/styles/pages/developer-submit-app.scss?mod'
 import { ScopeModel, CategoryModel } from '@/types/marketplace-api-schema'
 import { selectCategories } from '@/selector/app-categories'
+import submitAppValidationSchema from './form-schema/validation-schema'
 
 export type DeveloperSubmitAppProps = {}
 
@@ -397,6 +398,7 @@ export const DeveloperSubmitApp: React.FC<DeveloperSubmitAppProps> = () => {
         <FlexContainerResponsive flexColumn hasBackground hasPadding>
           {isSubmitApp ? <H3>Submit App</H3> : <H3>Edit App</H3>}
           <Formik
+            validationSchema={submitAppValidationSchema}
             validate={handleBeforeSubmit(validate, setIsSubmitModalOpen)}
             initialValues={initialValues}
             onSubmit={handleSubmitApp(appId, dispatch)}

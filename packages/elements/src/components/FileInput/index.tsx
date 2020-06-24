@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { Field, FieldProps } from 'formik'
+import { Field, FieldProps, FieldInputProps } from 'formik'
 import { isBase64 } from '../../utils/is-base64'
 import { checkError } from '../../utils/form'
-import classnames from 'classnames'
+import { cx } from 'linaria'
 
 const { useState } = React
 
@@ -23,6 +23,35 @@ export interface FileInputProps {
   inputProps?: Record<string, any>
   required?: boolean
   onFilenameClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
+  // to integrate with other components
+  afterLoadedImage?: (base64: string) => any
+  croppedImage?: string | null
+}
+
+export const handleChangeCroppedImage = ({
+  field,
+  croppedImage,
+  setFileName,
+  inputFile,
+}: {
+  field: FieldInputProps<string>
+  croppedImage?: string | null
+  setFileName: React.Dispatch<string>
+  inputFile: React.RefObject<HTMLInputElement>
+}) => () => {
+  // when croppedImage is not set or when first mount
+  if (croppedImage === undefined || croppedImage === null) {
+    return
+  }
+
+  if (croppedImage === '') {
+    setFileName('')
+  }
+  if (inputFile.current && croppedImage === '') {
+    inputFile.current.value = ''
+  }
+
+  field.onChange({ target: { value: croppedImage ?? '', name: field.name } })
 }
 
 export const FileInput = ({
@@ -37,14 +66,12 @@ export const FileInput = ({
   required = false,
   isNarrowWidth = false,
   onFilenameClick,
+  croppedImage,
+  afterLoadedImage,
 }: FileInputProps) => {
   const [fileUrl, setFileName] = useState<string>()
   const inputFile = React.useRef<HTMLInputElement>(null)
-  const fileInputContainerClassName = classnames({
-    control: true,
-    'file-input-container': true,
-    'is-full-width': !isNarrowWidth,
-  })
+  const fileInputContainerClassName = cx('control', 'file-input-container', !isNarrowWidth && 'is-full-width')
 
   return (
     <Field name={name}>
@@ -62,6 +89,9 @@ export const FileInput = ({
             reader.readAsDataURL(file)
             reader.onload = function() {
               const base64 = reader.result
+              if (typeof afterLoadedImage === 'function' && typeof base64 === 'string') {
+                afterLoadedImage(base64)
+              }
               field.onChange({ target: { value: base64, name: field.name } })
               if (testProps) {
                 testProps.waitUntilDataReaderLoadResolver()
@@ -72,6 +102,17 @@ export const FileInput = ({
             }
           }
         }
+
+        React.useEffect(
+          handleChangeCroppedImage({
+            inputFile,
+            setFileName,
+            croppedImage,
+            field,
+          }),
+          [croppedImage],
+        )
+
         return (
           <React.Fragment>
             <div className={`${containerClassName} field pb-2`}>

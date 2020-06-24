@@ -3,11 +3,9 @@ import {
   clientFetchAppSummarySuccess,
   clientFetchAppSummaryFailed,
   clientClearAppSummary,
-  clientOpenWebComponentConfig,
-  clientCloseWebComponentConfig,
   clientFetchWebComponentConfig,
   clientFetchWebComponentConfigSuccess,
-  clientPutWebComponentConfig,
+  clientUpdateWebComponentConfig,
   clientFetchNegotiatorsSuccess,
 } from '../client'
 import ActionTypes from '../../constants/action-types'
@@ -35,21 +33,18 @@ describe('client actions', () => {
     expect(clientClearAppSummary.type).toEqual(ActionTypes.CLIENT_CLEAR_APP_SUMMARY)
     expect(clientClearAppSummary(null).data).toEqual(null)
   })
-  it('should create a clientOpenWebComponentConfig action', () => {
-    expect(clientOpenWebComponentConfig.type).toEqual(ActionTypes.CLIENT_WEB_COMPONENT_CONFIG_OPEN)
-  })
-  it('should create a clientCloseWebComponentConfig action', () => {
-    expect(clientCloseWebComponentConfig.type).toEqual(ActionTypes.CLIENT_WEB_COMPONENT_CONFIG_CLOSE)
-  })
   it('should create a clientFetchWebComponentConfig action', () => {
     expect(clientFetchWebComponentConfig.type).toEqual(ActionTypes.CLIENT_FETCH_WEB_COMPONENT_CONFIG)
-    expect(clientFetchWebComponentConfig({ customerId: 'DXX' }).data).toEqual({ customerId: 'DXX' })
+    expect(clientFetchWebComponentConfig({ customerId: 'DXX', applicationId: 'applicationId' }).data).toEqual({
+      customerId: 'DXX',
+      applicationId: 'applicationId',
+    })
   })
   it('should create a clientFetchWebComponentConfigSuccess action', () => {
     expect(clientFetchWebComponentConfigSuccess.type).toEqual(ActionTypes.CLIENT_FETCH_WEB_COMPONENT_CONFIG_SUCCESS)
   })
   it('should create a clientPutWebComponentConfig action', () => {
-    expect(clientPutWebComponentConfig.type).toEqual(ActionTypes.CLIENT_PUT_WEB_COMPONENT_CONFIG)
+    expect(clientUpdateWebComponentConfig.type).toEqual(ActionTypes.CLIENT_UPDATE_WEB_COMPONENT_CONFIG)
   })
   it('should create a clientPutWebComponentConfig action', () => {
     expect(clientFetchNegotiatorsSuccess.type).toEqual(ActionTypes.CLIENT_FETCH_NEGOTIATORS_SUCCESS)

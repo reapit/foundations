@@ -38,32 +38,12 @@ exports[`HelpGuide should match a snapshot 1`] = `
 <ContextProvider
   value={
     Object {
-      "current": "step-1",
-      "currentIndex": 0,
+      "current": 0,
       "goNext": [Function],
       "goPrev": [Function],
-      "goTo": [Function],
       "isFirst": true,
       "isLast": false,
       "isLoading": false,
-      "steps": Array [
-        Object {
-          "component": [Function],
-          "id": "step-1",
-        },
-        Object {
-          "component": [Function],
-          "id": "step-2",
-        },
-        Object {
-          "component": [Function],
-          "id": "step-3",
-        },
-        Object {
-          "component": [Function],
-          "id": "step-4",
-        },
-      ],
     }
   }
 >
@@ -84,43 +64,17 @@ exports[`HelpGuide should match a snapshot 1`] = `
       >
         <div
           className="helpguide-steps"
-          key="helper-guide-child-0"
         >
-          <HelpGuideStep
-            component={[Function]}
-            id="step-1"
-            key=".0"
-          />
-        </div>
-        <div
-          className="helpguide-steps"
-          key="helper-guide-child-1"
-        >
-          <HelpGuideStep
-            component={[Function]}
-            id="step-2"
-            key=".1"
-          />
-        </div>
-        <div
-          className="helpguide-steps"
-          key="helper-guide-child-2"
-        >
-          <HelpGuideStep
-            component={[Function]}
-            id="step-3"
-            key=".2"
-          />
-        </div>
-        <div
-          className="helpguide-steps"
-          key="helper-guide-child-3"
-        >
-          <HelpGuideStep
-            component={[Function]}
-            id="step-4"
-            key=".3"
-          />
+          <Component
+            in={true}
+            timeout={300}
+            unmountOnExit={true}
+          >
+            <HelpGuideStep
+              component={[Function]}
+              id="step-1"
+            />
+          </Component>
         </div>
       </div>
     </div>

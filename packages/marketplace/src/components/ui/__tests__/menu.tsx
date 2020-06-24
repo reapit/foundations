@@ -1,52 +1,59 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { Menu, MenuProps, mapStateToProps, mapDispatchToProps, generateMenuConfig } from '../menu'
-import { ReduxState } from '@/types/core'
+import { Menu, logout, generateMenuConfig } from '../menu'
+import configureStore from 'redux-mock-store'
+import { Provider } from 'react-redux'
 
-const props: MenuProps = {
-  loginType: 'CLIENT',
-  logout: jest.fn(),
-  // @ts-ignore: ignore to fullfil the definition of RouteComponentProps
-  location: {
-    pathname: '/client',
-  },
-}
+jest.mock('react-router', () => ({
+  ...jest.requireActual('react-router'),
+  useLocation: jest.fn(() => ({
+    location: 'location',
+  })),
+}))
 
 describe('Menu', () => {
+  let store
+  beforeEach(() => {
+    const mockStore = configureStore()
+    store = mockStore({})
+  })
+
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+
   it('should match a snapshot', () => {
-    expect(shallow(<Menu {...props} />)).toMatchSnapshot()
-  })
-
-  describe('mapStateToProps', () => {
-    it('should return loginType', () => {
-      const input = {
-        auth: {
-          loginType: 'ADMIN',
-          refreshSession: {
-            mode: 'WEB',
-          },
-        },
-      } as ReduxState
-      const output = { loginType: 'ADMIN', mode: 'WEB', isAdmin: false }
-      const result = mapStateToProps(input)
-      expect(output).toEqual(result)
-    })
-  })
-
-  describe('mapDispatchToProps', () => {
-    it('should return loginType', () => {
-      const dispatch = jest.fn()
-      const fn = mapDispatchToProps(dispatch)
-      fn.logout()
-      expect(dispatch).toBeCalled()
-    })
+    expect(
+      shallow(
+        <Provider store={store}>
+          <Menu />
+        </Provider>,
+      ),
+    ).toMatchSnapshot()
   })
 
   describe('generateMenuConfig', () => {
     it('should return config', () => {
-      const logoutCallback = jest.fn()
-      const result = generateMenuConfig(logoutCallback, props.location, 'WEB', false)
+      const location = {
+        hash: 'mockHash',
+        key: 'mockKey',
+        pathname: 'mockPathname',
+        search: '',
+        state: {},
+      }
+      const logout = jest.fn()
+      const result = generateMenuConfig(logout, location, false)
       expect(result).toBeDefined()
+    })
+  })
+
+  describe('logout', () => {
+    it('should call functions', () => {
+      const mockDispatch = jest.fn()
+      const mockAuthLogout = jest.fn(() => 'logout') as any
+      const fn = logout({ dispatch: mockDispatch, authLogout: mockAuthLogout })
+      fn()
+      expect(mockDispatch).toHaveBeenCalledWith('logout')
     })
   })
 })

@@ -24,7 +24,11 @@
     "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
-    "apollo-server-lambda": "^2.10.1",
+    "@reapit/elements": "^0.5.60",
+    "@reapit/foundations-ts-definitions": "2020-03-04",
+    "@reapit/cognito-auth": "^2.1.7",
+    "@reapit/utils": "^0.0.1",
+    "apollo-server-lambda": "2.10.1",
     "axios": "^0.19.2",
     "cookie": "0.4.1",
     "dataloader": "^2.0.0",
@@ -39,10 +43,7 @@
     "tslib": "2.0.0",
     "uuid": "^3.3.3",
     "winston": "^3.2.1",
-    "snyk": "^1.335.0",
-    "@reapit/foundations-ts-definitions": "2020-03-04",
-    "@reapit/cognito-auth": "^2.0.19",
-    "@reapit/utils": "^0.0.1"
+    "snyk": "^1.341.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

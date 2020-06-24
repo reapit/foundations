@@ -129,64 +129,28 @@ exports[`admin-approvals AdminApprovals should match a snapshot 1`] = `
               deps={Array []}
               visible={false}
             />
-            <Connect(Component)
+            <Component
               afterClose={[Function]}
               onApproveSuccess={[Function]}
               visible={false}
             >
               <Component
                 afterClose={[Function]}
-                email="test@reapit.com"
-                name="Test User"
-                onApproveSuccess={[Function]}
-                revisionDetail={
-                  Object {
-                    "approveFormState": "PENDING",
-                    "declineFormState": "PENDING",
-                    "error": false,
-                    "loading": false,
-                    "revisionDetailData": null,
-                  }
-                }
-                submitApproveRevision={[Function]}
+                renderChildren={true}
                 visible={false}
-              >
-                <Component
-                  afterClose={[Function]}
-                  renderChildren={true}
-                  visible={false}
-                />
-              </Component>
-            </Connect(Component)>
-            <Connect(Component)
+              />
+            </Component>
+            <Component
               afterClose={[Function]}
               onDeclineSuccess={[Function]}
               visible={false}
             >
               <Component
                 afterClose={[Function]}
-                email="test@reapit.com"
-                name="Test User"
-                onDeclineSuccess={[Function]}
-                revisionDetail={
-                  Object {
-                    "approveFormState": "PENDING",
-                    "declineFormState": "PENDING",
-                    "error": false,
-                    "loading": false,
-                    "revisionDetailData": null,
-                  }
-                }
-                submitDeclineRevision={[Function]}
+                renderChildren={true}
                 visible={false}
-              >
-                <Component
-                  afterClose={[Function]}
-                  renderChildren={true}
-                  visible={false}
-                />
-              </Component>
-            </Connect(Component)>
+              />
+            </Component>
           </Component>
         </div>
       </Component>

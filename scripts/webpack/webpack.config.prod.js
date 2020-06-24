@@ -103,9 +103,6 @@ const webpackConfig = {
       {
         test: /\.(css)$/,
         use: [
-          {
-            loader: 'style-loader',
-          },
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
@@ -113,6 +110,7 @@ const webpackConfig = {
               importLoaders: 1,
             },
           },
+          'postcss-loader',
         ],
       },
       {
@@ -132,6 +130,7 @@ const webpackConfig = {
                   localsConvention: 'camelCase',
                 },
               },
+              'postcss-loader',
               {
                 loader: 'sass-loader',
                 options: {
@@ -149,6 +148,7 @@ const webpackConfig = {
                   importLoaders: 1,
                 },
               },
+              'postcss-loader',
               {
                 loader: 'sass-loader',
                 options: {

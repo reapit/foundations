@@ -19,6 +19,8 @@ exports[`DeveloperOrganisationTabPage should match snapshot when isAdmin = false
         hasPadding={true}
       >
         <Component />
+        <Component />
+        <Component />
         <Component>
           <a
             onClick={[Function]}

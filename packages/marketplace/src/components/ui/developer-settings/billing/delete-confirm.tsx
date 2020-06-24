@@ -26,10 +26,10 @@ export const ConfirmModal: React.FC<ConfirmModalProps> = ({
           footerItems={
             <>
               <Button className="mr-2" type="button" onClick={onCancel} variant="danger" fullWidth={true}>
-                CANCEL
+                Cancel
               </Button>
               <Button variant="primary" type="submit" fullWidth={true} onClick={onConfirm}>
-                OK
+                Confirm
               </Button>
             </>
           }

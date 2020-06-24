@@ -41,9 +41,9 @@ if (Cypress.env('PACKAGE_NAME') === 'all' || Cypress.env('PACKAGE_NAME') === 'we
         })
       })
     })
-    it('user should able to call web-components-config-server /v1/web-components-config/<customer_id>', () => {
+    it('user should able to call web-components-config-server /v1/web-components-config/<customer_id>/<app_id>', () => {
       cy.request({
-        url: `${WEB_COMPONENTS_CONFIG_API_URL}/v1/web-components-config/ZZA`,
+        url: `${WEB_COMPONENTS_CONFIG_API_URL}/v1/web-components-config/TEST/1`,
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

@@ -4,22 +4,12 @@ exports[`DeveloperWelcomeMessage Documentation step should match a snapshot 1`] 
 <ContextProvider
   value={
     Object {
-      "current": "step",
-      "currentIndex": 0,
+      "current": 0,
       "goNext": [Function],
       "goPrev": [Function],
-      "goTo": [Function],
       "isFirst": true,
-      "isLast": true,
+      "isLast": false,
       "isLoading": false,
-      "steps": Array [
-        Object {
-          "component": [Function],
-          "heading": "Test",
-          "id": "step",
-          "subHeading": "Test",
-        },
-      ],
     }
   }
 >
@@ -30,7 +20,6 @@ exports[`DeveloperWelcomeMessage Documentation step should match a snapshot 1`] 
     <Component
       currentIndex={0}
       onSelect={[Function]}
-      total={1}
     />
     <div
       className="helpguide"
@@ -40,14 +29,11 @@ exports[`DeveloperWelcomeMessage Documentation step should match a snapshot 1`] 
       >
         <div
           className="helpguide-steps"
-          key="helper-guide-child-0"
         >
-          <HelpGuideStep
-            component={[Function]}
-            heading="Test"
-            id="step"
-            key=".0"
-            subHeading="Test"
+          <Component
+            in={true}
+            timeout={300}
+            unmountOnExit={true}
           />
         </div>
       </div>
@@ -60,22 +46,12 @@ exports[`DeveloperWelcomeMessage Managing step should match a snapshot 1`] = `
 <ContextProvider
   value={
     Object {
-      "current": "step",
-      "currentIndex": 0,
+      "current": 0,
       "goNext": [Function],
       "goPrev": [Function],
-      "goTo": [Function],
       "isFirst": true,
-      "isLast": true,
+      "isLast": false,
       "isLoading": false,
-      "steps": Array [
-        Object {
-          "component": [Function],
-          "heading": "Test",
-          "id": "step",
-          "subHeading": "Test",
-        },
-      ],
     }
   }
 >
@@ -86,7 +62,6 @@ exports[`DeveloperWelcomeMessage Managing step should match a snapshot 1`] = `
     <Component
       currentIndex={0}
       onSelect={[Function]}
-      total={1}
     />
     <div
       className="helpguide"
@@ -96,14 +71,11 @@ exports[`DeveloperWelcomeMessage Managing step should match a snapshot 1`] = `
       >
         <div
           className="helpguide-steps"
-          key="helper-guide-child-0"
         >
-          <HelpGuideStep
-            component={[Function]}
-            heading="Test"
-            id="step"
-            key=".0"
-            subHeading="Test"
+          <Component
+            in={true}
+            timeout={300}
+            unmountOnExit={true}
           />
         </div>
       </div>
@@ -116,22 +88,12 @@ exports[`DeveloperWelcomeMessage Submitting step should match a snapshot 1`] = `
 <ContextProvider
   value={
     Object {
-      "current": "step",
-      "currentIndex": 0,
+      "current": 0,
       "goNext": [Function],
       "goPrev": [Function],
-      "goTo": [Function],
       "isFirst": true,
-      "isLast": true,
+      "isLast": false,
       "isLoading": false,
-      "steps": Array [
-        Object {
-          "component": [Function],
-          "heading": "Test",
-          "id": "step",
-          "subHeading": "Test",
-        },
-      ],
     }
   }
 >
@@ -142,7 +104,6 @@ exports[`DeveloperWelcomeMessage Submitting step should match a snapshot 1`] = `
     <Component
       currentIndex={0}
       onSelect={[Function]}
-      total={1}
     />
     <div
       className="helpguide"
@@ -152,14 +113,11 @@ exports[`DeveloperWelcomeMessage Submitting step should match a snapshot 1`] = `
       >
         <div
           className="helpguide-steps"
-          key="helper-guide-child-0"
         >
-          <HelpGuideStep
-            component={[Function]}
-            heading="Test"
-            id="step"
-            key=".0"
-            subHeading="Test"
+          <Component
+            in={true}
+            timeout={300}
+            unmountOnExit={true}
           />
         </div>
       </div>
@@ -172,22 +130,12 @@ exports[`DeveloperWelcomeMessage Support step should match a snapshot 1`] = `
 <ContextProvider
   value={
     Object {
-      "current": "step",
-      "currentIndex": 0,
+      "current": 0,
       "goNext": [Function],
       "goPrev": [Function],
-      "goTo": [Function],
       "isFirst": true,
-      "isLast": true,
+      "isLast": false,
       "isLoading": false,
-      "steps": Array [
-        Object {
-          "component": [Function],
-          "heading": "Test",
-          "id": "step",
-          "subHeading": "Test",
-        },
-      ],
     }
   }
 >
@@ -198,7 +146,6 @@ exports[`DeveloperWelcomeMessage Support step should match a snapshot 1`] = `
     <Component
       currentIndex={0}
       onSelect={[Function]}
-      total={1}
     />
     <div
       className="helpguide"
@@ -208,14 +155,11 @@ exports[`DeveloperWelcomeMessage Support step should match a snapshot 1`] = `
       >
         <div
           className="helpguide-steps"
-          key="helper-guide-child-0"
         >
-          <HelpGuideStep
-            component={[Function]}
-            heading="Test"
-            id="step"
-            key=".0"
-            subHeading="Test"
+          <Component
+            in={true}
+            timeout={300}
+            unmountOnExit={true}
           />
         </div>
       </div>
@@ -228,22 +172,12 @@ exports[`DeveloperWelcomeMessage Welcome step should match a snapshot 1`] = `
 <ContextProvider
   value={
     Object {
-      "current": "step",
-      "currentIndex": 0,
+      "current": 0,
       "goNext": [Function],
       "goPrev": [Function],
-      "goTo": [Function],
       "isFirst": true,
-      "isLast": true,
+      "isLast": false,
       "isLoading": false,
-      "steps": Array [
-        Object {
-          "component": [Function],
-          "heading": "Test",
-          "id": "step",
-          "subHeading": "Test",
-        },
-      ],
     }
   }
 >
@@ -254,7 +188,6 @@ exports[`DeveloperWelcomeMessage Welcome step should match a snapshot 1`] = `
     <Component
       currentIndex={0}
       onSelect={[Function]}
-      total={1}
     />
     <div
       className="helpguide"
@@ -264,14 +197,11 @@ exports[`DeveloperWelcomeMessage Welcome step should match a snapshot 1`] = `
       >
         <div
           className="helpguide-steps"
-          key="helper-guide-child-0"
         >
-          <HelpGuideStep
-            component={[Function]}
-            heading="Test"
-            id="step"
-            key=".0"
-            subHeading="Test"
+          <Component
+            in={true}
+            timeout={300}
+            unmountOnExit={true}
           />
         </div>
       </div>

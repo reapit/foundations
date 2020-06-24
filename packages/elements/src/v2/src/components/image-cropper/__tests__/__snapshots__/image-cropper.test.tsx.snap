@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageCropper should match snapshots with multiple conditions 1`] = `
+<Fragment>
+  <div
+    className=""
+  >
+    <div
+      className=""
+    >
+      <div
+        className=""
+      >
+        <div
+          className=""
+        >
+          <Component
+            isCentered={true}
+          >
+            Crop Image
+          </Component>
+          <s
+            circularCrop={false}
+            className=""
+            crop={
+              Object {
+                "aspect": 1.7777777777777777,
+                "height": undefined,
+                "unit": "%",
+                "width": 50,
+              }
+            }
+            disabled={false}
+            imageAlt=""
+            keepSelection={false}
+            locked={false}
+            minHeight={0}
+            minWidth={0}
+            onChange={[Function]}
+            onComplete={[Function]}
+            onDragEnd={[Function]}
+            onDragStart={[Function]}
+            onImageError={[Function]}
+            onImageLoaded={[Function]}
+            ruleOfThirds={true}
+            src=""
+          />
+        </div>
+        <div
+          className=""
+        >
+          <Component
+            isCentered={true}
+          >
+            Preview
+          </Component>
+        </div>
+      </div>
+      <div
+        className=""
+      >
+        <Component
+          onClick={[MockFunction]}
+          type="button"
+          variant="secondary"
+        >
+          Cancel
+        </Component>
+        <Component
+          disabled={true}
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Crop
+        </Component>
+      </div>
+    </div>
+  </div>
+</Fragment>
+`;
+
+exports[`ImageCropper should match snapshots with multiple conditions 2`] = `
+<Fragment>
+  <div>
+    <div
+      afterLoadedImage={[Function]}
+      croppedImage=""
+      key=".0"
+    >
+      value
+    </div>
+  </div>
+</Fragment>
+`;
+
+exports[`ImageCropperWithInput should match snapshots with multiple conditions 1`] = `
+<Component
+  aspect={1.7777777777777777}
+  croppedImage={null}
+  onClose={[Function]}
+  onCropClick={[Function]}
+  setCroppedImage={[Function]}
+  setUpImg={[Function]}
+  setVisible={[Function]}
+  upImg=""
+  visible={false}
+>
+  <Component
+    labelText="input image"
+    name="inputImage"
+  />
+</Component>
+`;
+
+exports[`ImageCropperWithInput should match snapshots with multiple conditions 2`] = `
+<Component
+  croppedImage={null}
+  onClose={[Function]}
+  onCropClick={[Function]}
+  setCroppedImage={[Function]}
+  setUpImg={[Function]}
+  setVisible={[Function]}
+  upImg=""
+  visible={false}
+>
+  <Component
+    labelText="input image"
+    name="inputImage"
+  />
+</Component>
+`;
+
+exports[`renderChildrenWithProps should match snapshots with multiple conditions 1`] = `
+<div>
+  <div>
+    <div
+      key=".$1"
+      value="value"
+    >
+      1
+    </div>
+    <div
+      key=".$2"
+      value="value"
+    >
+      2
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renderChildrenWithProps should match snapshots with multiple conditions 2`] = `<div />`;

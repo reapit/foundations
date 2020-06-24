@@ -28,6 +28,7 @@ describe('CostExplorerTable', () => {
 
 describe('prepareTableData', () => {
   it('should run correctly', () => {
-    expect(prepareTableData(monthlyBillingData.requestsByService)).toEqual(tableData)
+    const { services = [] } = monthlyBillingData
+    expect(prepareTableData(services)).toEqual(tableData)
   })
 })

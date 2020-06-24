@@ -57,9 +57,21 @@ export interface ApplicantContactModel {
    */
   id?: string
   /**
-   * The name of the contact or company
+   * The complete name of the contact or company
    */
   name?: string
+  /**
+   * The title of the contact (Available when 'type' is 'contact')
+   */
+  title?: string
+  /**
+   * The forename of the contact (Available when 'type' is 'contact')
+   */
+  forename?: string
+  /**
+   * The surname of the the contact (Available when 'type' is 'contact')
+   */
+  surname?: string
   /**
    * The type of the contact (company/contact)
    */
@@ -409,9 +421,21 @@ export interface ApplicantModel {
      */
     id?: string
     /**
-     * The name of the contact or company
+     * The complete name of the contact or company
      */
     name?: string
+    /**
+     * The title of the contact (Available when 'type' is 'contact')
+     */
+    title?: string
+    /**
+     * The forename of the contact (Available when 'type' is 'contact')
+     */
+    forename?: string
+    /**
+     * The surname of the the contact (Available when 'type' is 'contact')
+     */
+    surname?: string
     /**
      * The type of the contact (company/contact)
      */
@@ -600,6 +624,7 @@ export interface Applicants {
   lastCallTo?: string
   nextCallFrom?: string
   nextCallTo?: string
+  metadata?: string[]
 }
 /**
  * An appointment attendee
@@ -4782,9 +4807,21 @@ export interface LandlordContactModel {
    */
   id?: string
   /**
-   * The name of the contact
+   * The complete name of the contact or company
    */
   name?: string
+  /**
+   * The title of the contact (Available when 'type' is 'contact')
+   */
+  title?: string
+  /**
+   * The forename of the contact (Available when 'type' is 'contact')
+   */
+  forename?: string
+  /**
+   * The surname of the the contact (Available when 'type' is 'contact')
+   */
+  surname?: string
   /**
    * The type of the contact (contact/company)
    */
@@ -4942,9 +4979,21 @@ export interface LandlordModel {
      */
     id?: string
     /**
-     * The name of the contact
+     * The complete name of the contact or company
      */
     name?: string
+    /**
+     * The title of the contact (Available when 'type' is 'contact')
+     */
+    title?: string
+    /**
+     * The forename of the contact (Available when 'type' is 'contact')
+     */
+    forename?: string
+    /**
+     * The surname of the the contact (Available when 'type' is 'contact')
+     */
+    surname?: string
     /**
      * The type of the contact (contact/company)
      */
@@ -5185,9 +5234,21 @@ export interface OfferContactModel {
    */
   id?: string
   /**
-   * The name of the contact
+   * The complete name of the contact or company
    */
   name?: string
+  /**
+   * The title of the contact (Available when 'type' is 'contact')
+   */
+  title?: string
+  /**
+   * The forename of the contact (Available when 'type' is 'contact')
+   */
+  forename?: string
+  /**
+   * The surname of the the contact (Available when 'type' is 'contact')
+   */
+  surname?: string
   /**
    * The type of the contact (contact/company)
    */
@@ -5317,9 +5378,21 @@ export interface OfferModel {
      */
     id?: string
     /**
-     * The name of the contact
+     * The complete name of the contact or company
      */
     name?: string
+    /**
+     * The title of the contact (Available when 'type' is 'contact')
+     */
+    title?: string
+    /**
+     * The forename of the contact (Available when 'type' is 'contact')
+     */
+    forename?: string
+    /**
+     * The surname of the the contact (Available when 'type' is 'contact')
+     */
+    surname?: string
     /**
      * The type of the contact (contact/company)
      */
@@ -5818,9 +5891,21 @@ export interface PagedResultApplicantModel_ {
        */
       id?: string
       /**
-       * The name of the contact or company
+       * The complete name of the contact or company
        */
       name?: string
+      /**
+       * The title of the contact (Available when 'type' is 'contact')
+       */
+      title?: string
+      /**
+       * The forename of the contact (Available when 'type' is 'contact')
+       */
+      forename?: string
+      /**
+       * The surname of the the contact (Available when 'type' is 'contact')
+       */
+      surname?: string
       /**
        * The type of the contact (company/contact)
        */
@@ -7393,9 +7478,21 @@ export interface PagedResultLandlordModel_ {
        */
       id?: string
       /**
-       * The name of the contact
+       * The complete name of the contact or company
        */
       name?: string
+      /**
+       * The title of the contact (Available when 'type' is 'contact')
+       */
+      title?: string
+      /**
+       * The forename of the contact (Available when 'type' is 'contact')
+       */
+      forename?: string
+      /**
+       * The surname of the the contact (Available when 'type' is 'contact')
+       */
+      surname?: string
       /**
        * The type of the contact (contact/company)
        */
@@ -7627,9 +7724,21 @@ export interface PagedResultOfferModel_ {
        */
       id?: string
       /**
-       * The name of the contact
+       * The complete name of the contact or company
        */
       name?: string
+      /**
+       * The title of the contact (Available when 'type' is 'contact')
+       */
+      title?: string
+      /**
+       * The forename of the contact (Available when 'type' is 'contact')
+       */
+      forename?: string
+      /**
+       * The surname of the the contact (Available when 'type' is 'contact')
+       */
+      surname?: string
       /**
        * The type of the contact (contact/company)
        */
@@ -8604,9 +8713,21 @@ export interface PagedResultTenancyModel_ {
        */
       id?: string
       /**
-       * The name of the contact or company
+       * The complete name of the contact or company
        */
       name?: string
+      /**
+       * The title of the contact (Available when 'type' is 'contact')
+       */
+      title?: string
+      /**
+       * The forename of the contact (Available when 'type' is 'contact')
+       */
+      forename?: string
+      /**
+       * The surname of the the contact (Available when 'type' is 'contact')
+       */
+      surname?: string
       /**
        * The type of the contact (company/contact)
        */
@@ -8809,9 +8930,21 @@ export interface PagedResultVendorModel_ {
        */
       id?: string
       /**
-       * The name of the contact or company
+       * The complete name of the contact or company
        */
       name?: string
+      /**
+       * The title of the contact (Available when 'type' is 'contact')
+       */
+      title?: string
+      /**
+       * The forename of the contact (Available when 'type' is 'contact')
+       */
+      forename?: string
+      /**
+       * The surname of the the contact (Available when 'type' is 'contact')
+       */
+      surname?: string
       /**
        * The type of the contact (company/contact)
        */
@@ -10155,6 +10288,7 @@ export interface Tenancies {
   createdTo?: string
   modifiedFrom?: string
   modifiedTo?: string
+  metadata?: string[]
 }
 /**
  * Representation of a tenancy check - a process that needs to happen before a tenancy can commence or ends
@@ -10251,9 +10385,21 @@ export interface TenancyContactModel {
    */
   id?: string
   /**
-   * The name of the contact or company
+   * The complete name of the contact or company
    */
   name?: string
+  /**
+   * The title of the contact (Available when 'type' is 'contact')
+   */
+  title?: string
+  /**
+   * The forename of the contact (Available when 'type' is 'contact')
+   */
+  forename?: string
+  /**
+   * The surname of the the contact (Available when 'type' is 'contact')
+   */
+  surname?: string
   /**
    * The type of the contact (company/contact)
    */
@@ -10449,9 +10595,21 @@ export interface TenancyModel {
      */
     id?: string
     /**
-     * The name of the contact or company
+     * The complete name of the contact or company
      */
     name?: string
+    /**
+     * The title of the contact (Available when 'type' is 'contact')
+     */
+    title?: string
+    /**
+     * The forename of the contact (Available when 'type' is 'contact')
+     */
+    forename?: string
+    /**
+     * The surname of the the contact (Available when 'type' is 'contact')
+     */
+    surname?: string
     /**
      * The type of the contact (company/contact)
      */
@@ -12766,9 +12924,21 @@ export interface VendorContactModel {
    */
   id?: string
   /**
-   * The name of the contact or company
+   * The complete name of the contact or company
    */
   name?: string
+  /**
+   * The title of the contact (Available when 'type' is 'contact')
+   */
+  title?: string
+  /**
+   * The forename of the contact (Available when 'type' is 'contact')
+   */
+  forename?: string
+  /**
+   * The surname of the the contact (Available when 'type' is 'contact')
+   */
+  surname?: string
   /**
    * The type of the contact (company/contact)
    */
@@ -12942,9 +13112,21 @@ export interface VendorModel {
      */
     id?: string
     /**
-     * The name of the contact or company
+     * The complete name of the contact or company
      */
     name?: string
+    /**
+     * The title of the contact (Available when 'type' is 'contact')
+     */
+    title?: string
+    /**
+     * The forename of the contact (Available when 'type' is 'contact')
+     */
+    forename?: string
+    /**
+     * The surname of the the contact (Available when 'type' is 'contact')
+     */
+    surname?: string
     /**
      * The type of the contact (company/contact)
      */

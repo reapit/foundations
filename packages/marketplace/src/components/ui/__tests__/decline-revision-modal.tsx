@@ -1,79 +1,95 @@
 import * as React from 'react'
+import * as ReactRedux from 'react-redux'
 import { shallow } from 'enzyme'
+import configureStore from 'redux-mock-store'
 
 import {
   DeclineRevisionModal,
   DeclineRevisionModalProps,
   handleAfterClose,
   handleOnSubmit,
+  onCancelButtonClick,
 } from '../decline-revision-modal'
-import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
-import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
+import appState from '@/reducers/__stubs__/app-state'
+import { declineRevision } from '@/actions/revision-detail'
 
 const props: DeclineRevisionModalProps = {
   onDeclineSuccess: jest.fn(),
-  email: 'email',
-  name: 'name',
-  submitDeclineRevision: jest.fn(),
   visible: true,
-  // @ts-ignore: only pick necessary props to test
-  revisionDetail: {
-    revisionDetailData: {
-      data: {
-        appId: 'appIDd',
-        id: 'revisionID',
-      },
-      scopes: appPermissionStub,
-      desktopIntegrationTypes: integrationTypesStub,
-    },
-    approveFormState: 'PENDING',
-  },
 }
 
 describe('DeclineRevisionModal', () => {
-  it('should match a snapshot', () => {
-    expect(shallow(<DeclineRevisionModal {...props} />)).toMatchSnapshot()
+  let store
+  let spyDispatch
+  beforeEach(() => {
+    /* mocking store */
+    const mockStore = configureStore()
+    store = mockStore(appState)
+    spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
   })
 
   afterEach(() => {
     jest.resetAllMocks()
   })
-})
 
-describe('handleAfterClose', () => {
-  it('should call afterClose', () => {
-    const mockProps = {
-      isSuccessed: false,
-      onDeclineSuccess: jest.fn(),
-      isLoading: false,
-      afterClose: jest.fn(),
-    }
-    const fn = handleAfterClose(mockProps)
-    fn()
-    expect(mockProps.afterClose).toBeCalled()
-  })
-  it('should call onDeclineSuccess', () => {
-    const mockProps = {
-      isSuccessed: true,
-      onDeclineSuccess: jest.fn(),
-      isLoading: true,
-      afterClose: jest.fn(),
-    }
-    const fn = handleAfterClose(mockProps)
-    fn()
-    expect(mockProps.onDeclineSuccess).toBeCalled()
+  it('should match a snapshot', () => {
+    expect(
+      shallow(
+        <ReactRedux.Provider store={store}>
+          <DeclineRevisionModal {...props} />
+        </ReactRedux.Provider>,
+      ),
+    ).toMatchSnapshot()
   })
 
-  it('handleOnSubmit', () => {
-    const mockProps = {
-      appId: '123',
-      appRevisionId: '123',
-      setRejectionReason: jest.fn(),
-      submitDeclineRevision: jest.fn(),
-    }
-    const fn = handleOnSubmit(mockProps)
-    fn({})
-    expect(mockProps.setRejectionReason).toBeCalled()
-    expect(mockProps.submitDeclineRevision).toBeCalled()
+  describe('handleAfterClose', () => {
+    it('should call afterClose', () => {
+      const mockProps = {
+        isSuccessed: false,
+        onDeclineSuccess: jest.fn(),
+        isLoading: false,
+        afterClose: jest.fn(),
+      }
+      const fn = handleAfterClose(mockProps)
+      fn()
+      expect(mockProps.afterClose).toBeCalled()
+    })
+    it('should call onDeclineSuccess', () => {
+      const mockProps = {
+        isSuccessed: true,
+        onDeclineSuccess: jest.fn(),
+        isLoading: true,
+        afterClose: jest.fn(),
+      }
+      const fn = handleAfterClose(mockProps)
+      fn()
+      expect(mockProps.onDeclineSuccess).toBeCalled()
+    })
+
+    it('handleOnSubmit', () => {
+      const mockSetRejectionReason = jest.fn()
+      const mockAppId = '123'
+      const mockAppRevisionId = '123'
+      const mockFormValues = {
+        email: 'test@asd.com',
+        name: 'test',
+        rejectionReason: 'test',
+      }
+      const fn = handleOnSubmit(mockSetRejectionReason, spyDispatch, mockAppId, mockAppRevisionId)
+      fn(mockFormValues)
+      expect(mockSetRejectionReason).toBeCalled()
+      expect(spyDispatch).toBeCalledWith(
+        declineRevision({ appId: mockAppId, appRevisionId: mockAppRevisionId, ...mockFormValues }),
+      )
+    })
+  })
+
+  describe('onCancelButtonClick', () => {
+    it('should run directly', () => {
+      const mockAfterClose = jest.fn()
+      const fn = onCancelButtonClick(mockAfterClose)
+      fn()
+      expect(mockAfterClose).toBeCalled()
+    })
   })
 })

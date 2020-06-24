@@ -759,7 +759,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                 />
               </div>
             </Component>
-            <Connect(Component)
+            <Component
               afterClose={[Function]}
               developer={Object {}}
               onSuccess={[Function]}
@@ -767,20 +767,10 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
             >
               <Component
                 afterClose={[Function]}
-                developer={Object {}}
-                developerSetStatusRequest={[Function]}
-                formState="PENDING"
-                onSuccess={[Function]}
-                resetDeveloperSetStatusReducer={[Function]}
+                renderChildren={true}
                 visible={false}
-              >
-                <Component
-                  afterClose={[Function]}
-                  renderChildren={true}
-                  visible={false}
-                />
-              </Component>
-            </Connect(Component)>
+              />
+            </Component>
           </ErrorBoundary>
         </Connect(ErrorBoundary)>
       </Component>

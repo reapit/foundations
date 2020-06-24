@@ -1,15 +1,15 @@
 import webComponentSagas, {
-  putWebComponentConfigListen,
+  updateWebComponentConfigListen,
   fetchWebComponentConfigListen,
-  putWebComponentConfigSaga,
+  updateWebComponentConfigSaga,
   fetchWebComponentConfigSaga,
 } from '../web-component'
 import { call, put, all, fork, takeLatest } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
 import {
-  PutWebComponentConfigParams,
+  UpdateWebComponentConfigParams,
   FetchWebComponentConfigParams,
-  putWebComponentConfig,
+  updateWebComponentConfig,
   fetchWebComponentConfig,
   WebComponentConfigResult,
 } from '@/services/web-component'
@@ -17,8 +17,9 @@ import ActionTypes from '@/constants/action-types'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import {
   clientFetchWebComponentConfigSuccess,
-  clientCloseWebComponentConfig,
   clientFetchNegotiatorsSuccess,
+  clientFetchWebComponentConfigFailed,
+  clientUpdateWebComponentConfigFailed,
 } from '@/actions/client'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '../../../../elements/src/utils/validators/error-messages'
@@ -29,19 +30,19 @@ describe('webComponentSagas', () => {
   it('should listen request data', () => {
     const gen = webComponentSagas()
 
-    expect(gen.next().value).toEqual(all([fork(fetchWebComponentConfigListen), fork(putWebComponentConfigListen)]))
+    expect(gen.next().value).toEqual(all([fork(fetchWebComponentConfigListen), fork(updateWebComponentConfigListen)]))
 
     expect(gen.next().done).toBe(true)
   })
 })
 
-describe('putWebComponentConfigListen', () => {
+describe('updateWebComponentConfigListen', () => {
   it('should editWebhook when called', () => {
-    const gen = putWebComponentConfigListen()
+    const gen = updateWebComponentConfigListen()
     expect(gen.next().value).toEqual(
-      takeLatest<Action<PutWebComponentConfigParams>>(
-        ActionTypes.CLIENT_PUT_WEB_COMPONENT_CONFIG,
-        putWebComponentConfigSaga,
+      takeLatest<Action<UpdateWebComponentConfigParams>>(
+        ActionTypes.CLIENT_UPDATE_WEB_COMPONENT_CONFIG,
+        updateWebComponentConfigSaga,
       ),
     )
     expect(gen.next().done).toBe(true)
@@ -68,10 +69,11 @@ describe('putWebComponentConfigSaga', () => {
     customerId: 'string',
     daysOfWeek: ['1'],
     negotiatorIds: ['1'],
-  } as PutWebComponentConfigParams
+    appId: 'appId',
+  } as UpdateWebComponentConfigParams
 
-  const gen = cloneableGenerator(putWebComponentConfigSaga as any)({ data: params })
-  expect(gen.next().value).toEqual(call(putWebComponentConfig, params))
+  const gen = cloneableGenerator(updateWebComponentConfigSaga as any)({ data: params })
+  expect(gen.next().value).toEqual(call(updateWebComponentConfig, params))
 
   it('api call success', () => {
     const clone = gen.clone()
@@ -82,7 +84,8 @@ describe('putWebComponentConfigSaga', () => {
   test('api call fail', () => {
     const clone = gen.clone()
     if (!clone.throw) throw new Error('Generator object cannot throw')
-    expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(
+    expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(clientUpdateWebComponentConfigFailed()))
+    expect(clone.next().value).toEqual(
       put(
         errorThrownServer({
           type: 'SERVER',
@@ -144,15 +147,7 @@ describe('fetchWebComponentConfigSaga', () => {
   test('api call fail', () => {
     const clone = gen.clone()
     if (!clone.throw) throw new Error('Generator object cannot throw')
-    expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(clientCloseWebComponentConfig()))
-    expect(clone.next().value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR,
-        }),
-      ),
-    )
+    expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(clientFetchWebComponentConfigFailed()))
     expect(clone.next().done).toBe(true)
   })
 })

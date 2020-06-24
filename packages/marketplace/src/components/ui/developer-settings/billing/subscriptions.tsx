@@ -2,10 +2,10 @@ import React, { useState, SetStateAction } from 'react'
 import { H3, Table, getDate, Loader } from '@reapit/elements'
 import { selectDeveloperId } from '@/selector/auth'
 import { useSelector, useDispatch } from 'react-redux'
-import { developerFetchSubscriptions, developerDeleteSubscription } from '@/actions/developer'
-import { selectSubscriptions, selectSubscriptionsLoading } from '@/selector'
+import { developerFetchSubscriptions, developerDeleteSubscription } from '@/actions/developer-subscriptions'
+import { selectSubscriptions, selectSubscriptionsLoading } from '@/selector/developer-subscriptions'
 import styles from '@/styles/elements/link.scss?mod'
-import { SubscriptionModel } from '@/services/subscriptions'
+import { SubscriptionModel } from '@reapit/foundations-ts-definitions'
 import { Dispatch } from 'redux'
 import ConfirmModal from './delete-confirm'
 
@@ -116,8 +116,8 @@ export const Subcriptions: React.FC = () => {
       {loading ? <Loader /> : <Table scrollable columns={columns} data={subscriptionsData} loading={false} bordered />}
       <ConfirmModal
         visible={isConfirmModalOpen}
-        title="Cancel Confirm"
-        subtitle="Are you sure to cancel this subscription?"
+        title="Confirm Cancellation"
+        subtitle="Are you sure you want to cancel this subscription?"
         onCancel={handleCloseModal}
         onConfirm={handleDeleteSubscription(dispatch, subscriptionIdToCancel, handleCloseModal)}
       />

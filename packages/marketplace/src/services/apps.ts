@@ -192,7 +192,6 @@ export const createAppRevision = async (params: CreateAppRevisionParams) => {
 export const fetchAppRevisionsById = async (params: FetchAppRevisionsByIdParams): Promise<AppRevisionModel> => {
   try {
     const { id, revisionId } = params
-    console.log(revisionId)
     const response = await fetcher({
       url: `${URLS.apps}/${id}/revisions/${revisionId}`,
       api: window.reapit.config.marketplaceApiUrl,

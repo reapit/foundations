@@ -1,4 +1,5 @@
 export const API_VERSION = '2020-01-31'
+export const MARKETPLACE_API_VERSION = '2'
 
 export const URLS = {
   developers: '/developers',
@@ -19,5 +20,5 @@ export const URLS = {
   trafficEventStatistics: '/trafficevents/trafficStatistics',
   negotiators: '/negotiators',
   webComponentConfig: '/v1/web-components-config',
-  subscriptions: '/subscriptions',
+  developerSubscriptions: '/marketplace/subscriptions',
 }

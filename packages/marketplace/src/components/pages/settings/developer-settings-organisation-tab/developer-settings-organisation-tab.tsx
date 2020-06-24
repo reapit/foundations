@@ -1,12 +1,13 @@
 import * as React from 'react'
 import { FlexContainerResponsive, Content, FlexContainerBasic, Button, LevelRight } from '@reapit/elements'
 import { Tabs } from '../tabs'
-import styles from '@/styles/elements/link.scss?mod'
 import DeveloperInviteModal from '@/components/ui/developer-invite-member-modal'
 import SetAsAdminModal from '@/components/ui/developer-settings/set-as-admin-modal'
 import { selectIsAdmin } from '@/selector/auth'
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
+import { CompanyInformation } from './company-information'
+import { Members } from './members'
 
 export const handleToggleVisibleModal = (setModalOpen: React.Dispatch<boolean>, isVisible: boolean) => () =>
   setModalOpen(isVisible)
@@ -36,19 +37,14 @@ const DevelperSettingsOrganisationTabPage: React.FC = () => {
         <Content>
           <FlexContainerResponsive flexColumn hasBackground hasPadding>
             <Tabs />
-            {/* 
-              Add this link to preview the Set as Admin modal.
-
-              TODO
-                Will move to the user list when below task completed
-                https://github.com/reapit/foundations/issues/1342 
-            */}
-            <LevelRight>
+            {/* <LevelRight>
               <a className={styles.hyperlinked} onClick={handleToggleVisibleModal(setIsSetAdminModalOpen, true)}>
                 Set as Admin
               </a>
-            </LevelRight>
+            </LevelRight> */}
 
+            <CompanyInformation />
+            <Members />
             <LevelRight>
               <Button type="button" variant="primary" onClick={handleToggleVisibleModal(setIsInviteModalOpen, true)}>
                 Invite New Member

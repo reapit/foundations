@@ -399,13 +399,13 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                               className="control"
                             >
                               <label
-                                className="label required-label"
+                                className=""
                                 htmlFor="summary"
                               >
                                 Summary
                               </label>
                               <textarea
-                                className="textarea is-primary"
+                                className=""
                                 data-test="submit-app-summary"
                                 id="summary"
                                 name="summary"

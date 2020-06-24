@@ -1,39 +1,25 @@
-import { MonthlyBilling } from '@/reducers/developer'
+import { BillingBreakdownForMonthV2Model, ServiceItemBillingV2Model } from '@reapit/foundations-ts-definitions'
 
-export const monthlyBillingData: MonthlyBilling = {
-  period: '2020-05',
-  requestsByService: [
+export const monthlyBillingData: BillingBreakdownForMonthV2Model = {
+  period: '2020-06',
+  services: [
     {
-      cost: 0.05,
-      endpointCount: 1,
-      requestCount: 4,
-      requestsByEndpoint: [
-        {
-          cost: 0.05,
-          endpoint: 2,
-          requestCount: 4,
-        },
-      ],
-      serviceName: 'offices',
+      cost: 7.975,
+      itemCount: 7,
+      amount: 638,
+      items: [{ name: 'contacts', amount: 157, cost: 1.9625, itemCount: 2 }],
+      name: 'API Requests',
     },
-  ],
-  totalCost: 0.05,
-  totalEndpoints: 1,
-  totalRequests: 4,
+  ] as ServiceItemBillingV2Model[],
+  totalCost: 9.57,
 }
 
 export const tableData = [
   {
-    cost: 0.05,
-    endpointCount: 1,
-    requestCount: 4,
-    subRows: [
-      {
-        cost: 0.05,
-        serviceName: 2,
-        requestCount: 4,
-      },
-    ],
-    serviceName: 'offices',
+    amount: 638,
+    cost: 7.975,
+    itemCount: 7,
+    name: 'API Requests',
+    subRows: [{ name: 'contacts', amount: 157, cost: 1.9625, itemCount: 2, subRows: [] }],
   },
 ]

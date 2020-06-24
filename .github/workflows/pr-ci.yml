@@ -42,8 +42,7 @@ jobs:
           yarn config set workspaces-experimental true
 
       - name: Install dependencies
-        run: |
-          yarn
+        run: yarn install --frozen-lockfile
 
       # Currently, actions/caches does not support multiple paths https://github.com/actions/cache/issues/16
       # Looks like they're working on it, let's keep an eye on it

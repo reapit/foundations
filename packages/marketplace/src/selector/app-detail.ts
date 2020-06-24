@@ -16,3 +16,10 @@ export const selectAppDetailInstallationId = (state: ReduxState) => {
 export const selectApp = (state: ReduxState): AppDetailModel => {
   return state?.appDetail?.appDetailData?.data || {}
 }
+
+export const selectAppAuthenticationLoading = (state: ReduxState): boolean => {
+  return state.appDetail?.authentication.loading
+}
+export const selectAppAuthenticationCode = (state: ReduxState): string => {
+  return state.appDetail?.authentication.code
+}

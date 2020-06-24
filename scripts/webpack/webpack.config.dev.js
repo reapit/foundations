@@ -1,6 +1,5 @@
 const path = require('path')
 const ForkTsCheckerNotifierWebpackPlugin = require('fork-ts-checker-notifier-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
@@ -65,9 +64,6 @@ const webpackConfig = {
       inject: true,
       template: PATHS.template,
     }),
-    new MiniCssExtractPlugin({
-      filename: 'styles.css',
-    }),
     new FaviconsWebpackPlugin({
       logo: PATHS.logo,
       emitStats: false,
@@ -104,10 +100,18 @@ const webpackConfig = {
       {
         test: /\.js$/,
         exclude: generateRegexExcludePackages(),
-        use: {
-          loader: 'babel-loader',
-          options: babelLoaderOptions,
-        },
+        use: [
+          {
+            loader: 'babel-loader',
+            options: babelLoaderOptions,
+          },
+          {
+            loader: 'linaria/loader',
+            options: {
+              sourceMap: process.env.NODE_ENV !== 'production',
+            },
+          },
+        ],
       },
       {
         test: /.tsx?$/,
@@ -137,16 +141,7 @@ const webpackConfig = {
       },
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: process.env.NODE_ENV !== 'production',
-            },
-          },
-          'css-loader',
-        ],
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.(sass|scss)$/,
@@ -166,6 +161,7 @@ const webpackConfig = {
                   localsConvention: 'camelCase',
                 },
               },
+              'postcss-loader',
               {
                 loader: 'sass-loader',
                 options: {
@@ -183,6 +179,7 @@ const webpackConfig = {
               {
                 loader: 'css-loader',
               },
+              'postcss-loader',
               {
                 loader: 'sass-loader',
                 options: {

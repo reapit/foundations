@@ -15,7 +15,7 @@ exports[`App should match a snapshot 1`] = `
   <Component>
     <Component />
   </Component>
-  <Connect(Component) />
-  <Connect(Component) />
+  <Toast />
+  <ToastMessage />
 </Provider>
 `;
