@@ -1,13 +1,12 @@
 import * as React from 'react'
 import { Form, Formik } from 'formik'
-import { EndpointsUsedRange } from './cost-calculator'
 import { Grid, GridItem, SelectBox, Input, FlexContainerResponsive, Button } from '@reapit/elements'
 import styles from '@/styles/pages/developer-analytics.scss?mod'
 import { validationSchema } from './validation-schema'
+import { EndpointsUsedRange, endpointsUsedRange } from './use-foundation-cost-table'
 
 export type CostCalculatorFormProps = {
   initialValues: CostCalculatorFormValues
-  endpointsUsedRange: EndpointsUsedRange
   onSubmit: (values: CostCalculatorFormValues) => void
   onClear: () => void
 }
@@ -33,12 +32,7 @@ export const renderEndpointsUsedOptions = (endpointsUsedRange: EndpointsUsedRang
   ]
 }
 
-const CostCalculatorForm: React.FC<CostCalculatorFormProps> = ({
-  initialValues,
-  endpointsUsedRange,
-  onSubmit,
-  onClear,
-}) => {
+const CostCalculatorForm: React.FC<CostCalculatorFormProps> = ({ initialValues, onSubmit, onClear }) => {
   return (
     <div className={styles.costCalculatorFormContainer}>
       <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit} enableReinitialize>
