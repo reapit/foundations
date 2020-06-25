@@ -88,7 +88,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                       "categoryId": "",
                       "description": "",
                       "desktopIntegrationTypeIds": "",
-                      "developerId": null,
+                      "developerId": "",
                       "homePage": "",
                       "iconImageUrl": "",
                       "launchUri": "",

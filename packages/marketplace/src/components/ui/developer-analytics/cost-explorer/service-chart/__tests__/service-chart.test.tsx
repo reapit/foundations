@@ -15,8 +15,10 @@ import { developerState } from '@/sagas/__stubs__/developer'
 import { fetchBilling } from '@/actions/developer'
 import { ChartData } from 'react-chartjs-2'
 import { billing } from '../__mocks__/billing'
+import appState from '@/reducers/__stubs__/app-state'
 
 const mockState = {
+  ...appState,
   developer: developerState,
 } as ReduxState
 
@@ -43,7 +45,7 @@ describe('ServiceChart', () => {
   describe('handleFetchAppUsageStatsDataUseCallback', () => {
     it('should call billing API correctly', () => {
       const mockParams = {
-        myAppIds: ['123', '456'],
+        developerId: 'developerId',
         dateFrom: '2020-01',
         dateTo: '2020-05',
         dispatch: spyDispatch,
@@ -51,21 +53,21 @@ describe('ServiceChart', () => {
       const fn = handleUseEffect(mockParams)
       fn()
       expect(spyDispatch).toBeCalledWith(
-        fetchBilling({ applicationId: mockParams.myAppIds, dateFrom: mockParams.dateFrom, dateTo: mockParams.dateTo }),
+        fetchBilling({ developerId: mockParams.developerId, dateFrom: mockParams.dateFrom, dateTo: mockParams.dateTo }),
       )
     })
 
     it('should not call fetch billing data', () => {
       const mockParams = {
-        myAppIds: [],
+        developerId: 'developerId',
         dateFrom: '2020-01',
         dateTo: '2020-05',
         dispatch: spyDispatch,
       } as HandleUseEffectParams
       const fn = handleUseEffect(mockParams)
       fn()
-      expect(spyDispatch).not.toBeCalledWith(
-        fetchBilling({ applicationId: mockParams.myAppIds, dateFrom: mockParams.dateFrom, dateTo: mockParams.dateTo }),
+      expect(spyDispatch).toBeCalledWith(
+        fetchBilling({ developerId: mockParams.developerId, dateFrom: mockParams.dateFrom, dateTo: mockParams.dateTo }),
       )
     })
   })
