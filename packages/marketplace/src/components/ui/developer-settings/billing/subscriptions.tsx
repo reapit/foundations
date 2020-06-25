@@ -8,6 +8,7 @@ import styles from '@/styles/elements/link.scss?mod'
 import { SubscriptionModel } from '@reapit/foundations-ts-definitions'
 import { Dispatch } from 'redux'
 import ConfirmModal from './delete-confirm'
+import { formatCurrency } from '@/utils/number-formatter'
 
 export const TimeCell = ({ cell: { value } }) => <p>{getDate(value)}</p>
 export const StatusCell = ({ cell: { value } }) => <p>{value ? 'Cancelled' : 'Active'}</p>
@@ -15,13 +16,6 @@ export const StatusCell = ({ cell: { value } }) => <p>{value ? 'Cancelled' : 'Ac
 export const columns = [
   {
     Header: 'Type',
-    accessor: 'type',
-    columnProps: {
-      className: 'capitalize',
-    },
-  },
-  {
-    Header: 'Summary',
     accessor: 'summary',
   },
   {
@@ -43,7 +37,7 @@ export const columns = [
   },
   {
     Header: 'Cost',
-    accessor: 'cost',
+    accessor: row => formatCurrency(row.cost),
   },
   {
     Header: 'Status',
