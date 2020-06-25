@@ -8,7 +8,7 @@ import {
 } from '../actions/submit-app'
 import { categoriesReceiveData } from '../actions/app-categories'
 import { integrationTypesReceiveData } from '@/actions/app-integration-types'
-import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
+import { put, fork, all, call, takeLatest, select } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { Action } from '../types/core'
 import { errorThrownServer } from '../actions/error'
@@ -20,13 +20,19 @@ import { fetchScopesList } from '@/services/scopes'
 import { createApp } from '@/services/apps'
 import { fetchCategoriesList } from '@/services/categories'
 import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
+import { selectDeveloperId } from '@/selector/auth'
 
 export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
   const { setErrors, ...values } = data
 
   yield put(submitAppSetFormState('SUBMITTING'))
   try {
-    yield call(createApp, values)
+    const developerId = yield select(selectDeveloperId)
+
+    if (typeof developerId !== 'string') {
+      throw new Error('Cant select developer id')
+    }
+    yield call(createApp, { ...values, developerId })
 
     yield put(submitAppSetFormState('SUCCESS'))
   } catch (err) {

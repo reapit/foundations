@@ -5,18 +5,16 @@ exports[`StepGrantPermissions should match snapshot 1`] = `
   <Component
     body={
       <div>
-        <Unknown>
-          What type of data are you interested in?
-        </Unknown>
-        <p>
-          Please select specific the entities you need access to on a read or write basis. You can select multiple options below:
+        <p
+          className="mb-2"
+        >
+          Your app name as it will display to users
         </p>
         <Unknown
-          fixedPosition={true}
-          id="scopes"
-          mode="multiple"
-          name="scopes"
-          options={Array []}
+          id="name"
+          name="name"
+          placeholder="Please enter an app name"
+          type="text"
         />
       </div>
     }
@@ -30,7 +28,7 @@ exports[`StepGrantPermissions should match snapshot 1`] = `
           Back
         </Unknown>
         <Unknown
-          disabled={false}
+          disabled={true}
           onClick={[Function]}
         >
           Next

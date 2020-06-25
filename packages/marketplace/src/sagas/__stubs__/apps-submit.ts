@@ -3,7 +3,6 @@ import { SubmitAppArgs } from '@/actions/submit-app'
 
 export const appSubmitStub: { data: CreateAppModel } = {
   data: {
-    developerId: '0ba39c29-5e3a-45a7-9a7c-e9f9b53fb189',
     categoryId: '',
     description: 'Lorem ipsum',
     homePage: 'https://reapit.com',

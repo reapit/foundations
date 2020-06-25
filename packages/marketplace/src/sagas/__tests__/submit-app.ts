@@ -8,7 +8,7 @@ import {
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
 import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'
-import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
+import { put, fork, all, call, takeLatest, select } from '@redux-saga/core/effects'
 import { submitAppSetFormState, SubmitAppArgs, submitAppLoading, submitAppReceiveData } from '@/actions/submit-app'
 import { categoriesReceiveData } from '@/actions/app-categories'
 import { integrationTypesReceiveData, PagedResultDesktopIntegrationTypeModel_ } from '@/actions/app-integration-types'
@@ -22,6 +22,7 @@ import { fetchScopesList } from '@/services/scopes'
 import { createApp } from '@/services/apps'
 import { fetchCategoriesList } from '@/services/categories'
 import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
+import { selectDeveloperId } from '@/selector/auth'
 
 jest.mock('@/services/upload')
 jest.mock('@/services/scopes')
@@ -36,7 +37,25 @@ describe('submit-app post data', () => {
   const gen = cloneableGenerator(submitAppSaga)(params)
 
   expect(gen.next().value).toEqual(put(submitAppSetFormState('SUBMITTING')))
-  expect(gen.next().value).toEqual(call(createApp, appSubmitStub.data))
+  expect(gen.next().value).toEqual(select(selectDeveloperId))
+  expect(gen.next('id').value).toEqual(call(createApp, { ...appSubmitStub.data, developerId: 'id' }))
+
+  test('api call fail if cant select developer id', () => {
+    const internalGen = cloneableGenerator(submitAppSaga)(params)
+
+    expect(internalGen.next().value).toEqual(put(submitAppSetFormState('SUBMITTING')))
+    expect(internalGen.next().value).toEqual(select(selectDeveloperId))
+    expect(internalGen.next().value).toEqual(put(submitAppSetFormState('ERROR')))
+    expect(internalGen.next().value).toEqual(
+      put(
+        errorThrownServer({
+          type: 'SERVER',
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
+    )
+    expect(internalGen.next().done).toBe(true)
+  })
 
   test('api call success', () => {
     const clone = gen.clone()

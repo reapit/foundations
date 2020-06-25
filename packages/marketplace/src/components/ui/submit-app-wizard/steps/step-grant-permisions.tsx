@@ -1,22 +1,18 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { ModalBody, Button, DropdownSelect, ModalFooter, H4 } from '@reapit/elements'
-import { WizzardStepComponent, SetWizzardStep } from '../types'
+import { WizardStepComponent, SetWizardStep } from '../types'
 import { formFields } from '../form-fields'
 import { useFormikContext } from 'formik'
 import { selectSubmitAppScopes } from '@/selector/submit-app'
 
 const { scopesField } = formFields
 
-export const onNext = (setWizzardStep: SetWizzardStep, handleUpdateFormState: Function, values) => () => {
-  handleUpdateFormState(values)
-
-  // change step will render a different step -> lead to input unmount and its state = ""
-  // save snapshot of current state before navigating to other step making inputs in this step un-mount
-  setWizzardStep('SUBMIT_APP_SUCCESS')
+export const onNext = (setWizardStep: SetWizardStep) => () => {
+  setWizardStep('SUBMIT_APP_SUCCESS')
 }
-export const onPrev = (setWizzardStep: SetWizzardStep) => () => {
-  setWizzardStep('BEFORE_YOU_START')
+export const onPrev = (setWizardStep: SetWizardStep) => () => {
+  setWizardStep('BEFORE_YOU_START')
 }
 
 export const preprareScopeOptions = scopes => {
@@ -30,9 +26,8 @@ export const preprareScopeOptions = scopes => {
   })
 }
 
-export const StepGrantPermissions: WizzardStepComponent = ({ setWizzardStep, handleUpdateFormState }) => {
-  const { values, errors } = useFormikContext()
-  const isDataInvalid = Boolean(errors[scopesField.name])
+export const StepGrantPermissions: WizardStepComponent = ({ setWizardStep }) => {
+  const { isValid } = useFormikContext()
 
   const scopes = useSelector(selectSubmitAppScopes)
 
@@ -61,8 +56,8 @@ export const StepGrantPermissions: WizzardStepComponent = ({ setWizzardStep, han
       <ModalFooter
         footerItems={
           <>
-            <Button onClick={onPrev(setWizzardStep)}>Back</Button>
-            <Button disabled={isDataInvalid} onClick={onNext(setWizzardStep, handleUpdateFormState, values)}>
+            <Button onClick={onPrev(setWizardStep)}>Back</Button>
+            <Button disabled={!isValid} onClick={onNext(setWizardStep)}>
               Next
             </Button>
           </>

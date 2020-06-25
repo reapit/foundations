@@ -6,9 +6,7 @@ import { shallow } from 'enzyme'
 
 describe('StepBeforeYouStart', () => {
   it('should match snapshot', () => {
-    const wrapper = shallow(
-      <StepBeforeYouStart handleUpdateFormState={jest.fn} afterClose={jest.fn()} setWizzardStep={jest.fn()} />,
-    )
+    const wrapper = shallow(<StepBeforeYouStart afterClose={jest.fn()} setWizardStep={jest.fn()} />)
     expect(wrapper).toMatchSnapshot()
   })
   test('onViewDocs should run correctly', () => {
@@ -17,8 +15,8 @@ describe('StepBeforeYouStart', () => {
     expect(history.push).toBeCalledWith(`${Routes.DEVELOPER_API_DOCS}/developer-portal`)
   })
   test('onCreateNewApp should run correctly', () => {
-    const setWizzardStep = jest.fn()
-    onCreateNewApp(setWizzardStep)()
-    expect(setWizzardStep).toBeCalledWith('INPUT_APP_NAME')
+    const setWizardStep = jest.fn()
+    onCreateNewApp(setWizardStep)()
+    expect(setWizardStep).toBeCalledWith('INPUT_APP_NAME')
   })
 })

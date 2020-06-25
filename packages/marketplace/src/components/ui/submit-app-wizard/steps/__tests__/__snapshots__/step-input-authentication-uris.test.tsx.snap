@@ -38,7 +38,7 @@ exports[`StepInputAuthenticationUris should match snapshot 1`] = `
           Back
         </Unknown>
         <Unknown
-          disabled={false}
+          disabled={true}
           onClick={[Function]}
           type="submit"
         >

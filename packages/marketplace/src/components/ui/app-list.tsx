@@ -17,7 +17,7 @@ import {
   infoText,
   Button,
 } from '@reapit/elements'
-import { SubmitAppWizzard } from '../ui/submit-app-wizzard/index'
+import { SubmitAppWizardModal } from '../ui/submit-app-wizard'
 
 export type AppListProps = {
   list: AppSummaryModel[]
@@ -54,7 +54,7 @@ export const renderHeader = ({ hasSubmitButton, title }: { hasSubmitButton: bool
         <Button onClick={onShowSubmitAppModal(setSubmitAppModalVisible)} type="button" variant="primary">
           Create new app
         </Button>
-        <SubmitAppWizzard
+        <SubmitAppWizardModal
           visible={submitAppModalVisible}
           afterClose={onCloseSubmitAppModal(setSubmitAppModalVisible)}
         />

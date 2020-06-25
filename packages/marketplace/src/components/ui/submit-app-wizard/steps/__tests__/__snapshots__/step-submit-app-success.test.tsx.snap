@@ -41,7 +41,6 @@ exports[`StepInputAuthenticationUris should match snapshot 1`] = `
   <Component
     footerItems={
       <Unknown
-        onClick={[Function]}
         type="submit"
       >
         Finish

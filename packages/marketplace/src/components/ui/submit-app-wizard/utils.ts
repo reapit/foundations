@@ -11,7 +11,8 @@ export const handleUseEffectValidateOnMount = (validateForm: any) => () => {
 /* istanbul ignore next */
 export const ValidateFormikOnMount = () => {
   // formik innerRef is really un-stable to use
-  const { validateForm } = useFormikContext()
+  const { validateForm, values } = useFormikContext()
+  console.log(values)
 
   React.useEffect(handleUseEffectValidateOnMount(validateForm), [])
   return null

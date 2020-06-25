@@ -13,21 +13,19 @@ const { authFlowField } = formFields
 
 describe('StepCreateNewApp', () => {
   it('should match snapshot', () => {
-    const wrapper = shallow(
-      <StepCreateNewApp handleUpdateFormState={jest.fn} afterClose={jest.fn()} setWizzardStep={jest.fn()} />,
-    )
+    const wrapper = shallow(<StepCreateNewApp afterClose={jest.fn()} setWizardStep={jest.fn()} />)
     expect(wrapper).toMatchSnapshot()
   })
   test('onLauchWithinAgencyCloud should run correctly', () => {
-    const setWizzardStep = jest.fn()
+    const setWizardStep = jest.fn()
     const setFieldValue = jest.fn()
-    onLauchWithinAgencyCloud(setWizzardStep, setFieldValue)()
+    onLauchWithinAgencyCloud(setWizardStep, setFieldValue)()
     expect(setFieldValue).toBeCalledWith(authFlowField.name, 'Authorisation Code')
-    expect(setWizzardStep).toBeCalledWith('INPUT_AUTHENTICATION_URIS')
+    expect(setWizardStep).toBeCalledWith('INPUT_AUTHENTICATION_URIS')
   })
   test('onPrev should run correctly', () => {
-    const setWizzardStep = jest.fn()
-    onPrev(setWizzardStep)()
-    expect(setWizzardStep).toBeCalledWith('INPUT_APP_NAME')
+    const setWizardStep = jest.fn()
+    onPrev(setWizardStep)()
+    expect(setWizardStep).toBeCalledWith('INPUT_APP_NAME')
   })
 })

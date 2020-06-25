@@ -1,23 +1,20 @@
 import React from 'react'
 import { ModalBody, Button, Input, ModalFooter } from '@reapit/elements'
-import { WizzardStepComponent, SetWizzardStep } from '../types'
+import { WizardStepComponent, SetWizardStep } from '../types'
 import { formFields } from '../form-fields'
 import { useFormikContext } from 'formik'
 
 const { redirectUrisField, signoutUrisField } = formFields
 
-export const onNext = (setWizzardStep: SetWizzardStep, handleUpdateFormState: Function, values) => () => {
-  handleUpdateFormState(values)
-  setWizzardStep('GRANT_PERMISSION')
+export const onNext = (setWizardStep: SetWizardStep) => () => {
+  setWizardStep('GRANT_PERMISSION')
 }
-export const onPrev = (setWizzardStep: SetWizzardStep) => () => {
-  setWizzardStep('CREATE_NEW_APP')
+export const onPrev = (setWizardStep: SetWizardStep) => () => {
+  setWizardStep('CREATE_NEW_APP')
 }
 
-export const StepInputAuthenticationUris: WizzardStepComponent = ({ setWizzardStep, handleUpdateFormState }) => {
-  const { values, errors } = useFormikContext()
-
-  const isDataInvalid = Boolean(errors[redirectUrisField.name] || errors[signoutUrisField.name])
+export const StepInputAuthenticationUris: WizardStepComponent = ({ setWizardStep }) => {
+  const { isValid } = useFormikContext()
 
   return (
     <>
@@ -50,12 +47,8 @@ export const StepInputAuthenticationUris: WizzardStepComponent = ({ setWizzardSt
       <ModalFooter
         footerItems={
           <>
-            <Button onClick={onPrev(setWizzardStep)}>Back</Button>
-            <Button
-              type="submit"
-              disabled={isDataInvalid}
-              onClick={onNext(setWizzardStep, handleUpdateFormState, values)}
-            >
+            <Button onClick={onPrev(setWizardStep)}>Back</Button>
+            <Button type="submit" disabled={!isValid} onClick={onNext(setWizardStep)}>
               Next
             </Button>
           </>
