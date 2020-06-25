@@ -5,7 +5,7 @@ describe('passedFunctions', () => {
     const setVisible = jest.fn()
     const setCroppedImage = jest.fn()
     const setUpImg = jest.fn()
-    const base64 = 'base64'
+    const base64 = 'base64:image/jpeg;'
     const fn = passedFunctions.afterLoadedImage({ setUpImg, setCroppedImage, setVisible })
     fn(base64)
     expect(setUpImg).toHaveBeenCalledWith(base64)

@@ -1770,13 +1770,14 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             >
                                               <Component
                                                 accept="image/*"
-                                                afterLoadedImage={[Function]}
+                                                afterLoadedFile={[Function]}
                                                 allowClear={true}
                                                 croppedImage={null}
                                                 dataTest="submit-app-icon"
                                                 id="iconImage"
                                                 labelText="Upload Image"
                                                 name="iconImageUrl"
+                                                required={true}
                                               >
                                                 <Field
                                                   name="iconImageUrl"
@@ -1801,7 +1802,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                           type="file"
                                                         />
                                                         <span
-                                                          className="file-cta "
+                                                          className="file-cta required-label"
                                                         >
                                                           Upload Image
                                                         </span>
@@ -1876,13 +1877,14 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             >
                                               <Component
                                                 accept="image/*"
-                                                afterLoadedImage={[Function]}
+                                                afterLoadedFile={[Function]}
                                                 allowClear={true}
                                                 croppedImage={null}
                                                 dataTest="submit-app-screenshot1"
                                                 id="screenshot1"
                                                 labelText="Upload Image"
                                                 name="screen1ImageUrl"
+                                                required={true}
                                               >
                                                 <Field
                                                   name="screen1ImageUrl"
@@ -1907,7 +1909,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                                           type="file"
                                                         />
                                                         <span
-                                                          className="file-cta "
+                                                          className="file-cta required-label"
                                                         >
                                                           Upload Image
                                                         </span>
@@ -1980,7 +1982,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             >
                                               <Component
                                                 accept="image/*"
-                                                afterLoadedImage={[Function]}
+                                                afterLoadedFile={[Function]}
                                                 allowClear={true}
                                                 croppedImage={null}
                                                 dataTest="submit-app-screenshot2"
@@ -2084,7 +2086,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             >
                                               <Component
                                                 accept="image/*"
-                                                afterLoadedImage={[Function]}
+                                                afterLoadedFile={[Function]}
                                                 allowClear={true}
                                                 croppedImage={null}
                                                 dataTest="submit-app-screenshot3"
@@ -2188,7 +2190,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             >
                                               <Component
                                                 accept="image/*"
-                                                afterLoadedImage={[Function]}
+                                                afterLoadedFile={[Function]}
                                                 allowClear={true}
                                                 croppedImage={null}
                                                 dataTest="submit-app-screenshot4"
@@ -2292,7 +2294,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = fals
                                             >
                                               <Component
                                                 accept="image/*"
-                                                afterLoadedImage={[Function]}
+                                                afterLoadedFile={[Function]}
                                                 allowClear={true}
                                                 croppedImage={null}
                                                 dataTest="submit-app-screenshot5"

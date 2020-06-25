@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow, mount } from 'enzyme'
-import { FileInput, FileInputProps, handleChangeCroppedImage } from '../index'
+import { FileInput, FileInputProps, handleChangeCroppedImage, clearFile } from '../index'
 import { Formik, Form } from 'formik'
 import toJson from 'enzyme-to-json'
 import { act } from 'react-dom/test-utils'
@@ -251,5 +251,20 @@ describe('handleChangeCroppedImage', () => {
     })
     const result = fn()
     expect(result).toBeUndefined()
+  })
+})
+
+describe('clearFile', () => {
+  it('should run correctly', () => {
+    const onChange = jest.fn()
+    const setFieldName = jest.fn()
+    const field = {
+      onChange,
+    }
+    const inputFile = 'test'
+    const fn = clearFile(field, setFieldName, inputFile)
+    fn()
+    expect(onChange).toBeCalled()
+    expect(setFieldName).toBeCalledWith('')
   })
 })

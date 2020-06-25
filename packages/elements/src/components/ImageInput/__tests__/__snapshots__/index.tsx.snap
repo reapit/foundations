@@ -1,10 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ImageInput should match a snapshot 1`] = `
-<Component
-  accept="image/*"
-  id="test"
-  labelText="test"
-  name="test"
-/>
+<Fragment>
+  <Component
+    accept="image/*"
+    afterLoadedFile={[Function]}
+    id="test"
+    labelText="test"
+    name="test"
+  />
+</Fragment>
 `;
