@@ -5,6 +5,10 @@ export const selectCreateDeveloperSubscriptionLoading = (state: ReduxState): boo
   return state.developerSubscriptions.create.loading
 }
 
+export const selectCreateDeveloperSubscriptionError = (state: ReduxState): boolean => {
+  return state.developerSubscriptions.create.error
+}
+
 export const selectSubscriptions = (state: ReduxState): PagedResultSubscriptionModel_ => {
   return state.developerSubscriptions?.list?.data || ({} as PagedResultSubscriptionModel_)
 }

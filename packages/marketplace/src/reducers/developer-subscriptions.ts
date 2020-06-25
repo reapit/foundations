@@ -6,6 +6,7 @@ import {
   developerCreateSubscription,
   developerCreateSubscriptionSuccess,
   developerCreateSubscriptionFalure,
+  developerCreateSubscriptionClearError,
 } from '@/actions/developer-subscriptions'
 import { PagedResultSubscriptionModel_ } from '@reapit/foundations-ts-definitions'
 
@@ -16,6 +17,7 @@ export type DeveloperSubscriptionsState = {
 
 export type CreateDeveloperSubscriptionsState = {
   loading: boolean
+  error: boolean
 }
 
 export type ListDeveloperSubscriptionsState = {
@@ -26,6 +28,7 @@ export type ListDeveloperSubscriptionsState = {
 export const defaultState: DeveloperSubscriptionsState = {
   create: {
     loading: false,
+    error: false,
   },
   list: {
     loading: false,
@@ -42,6 +45,7 @@ const developerSubscriptionsReducer = (
       ...state,
       create: {
         loading: true,
+        error: false,
       },
     }
   }
@@ -51,6 +55,7 @@ const developerSubscriptionsReducer = (
       ...state,
       create: {
         loading: false,
+        error: false,
       },
     }
   }
@@ -60,6 +65,17 @@ const developerSubscriptionsReducer = (
       ...state,
       create: {
         loading: false,
+        error: true,
+      },
+    }
+  }
+
+  if (isType(action, developerCreateSubscriptionClearError)) {
+    return {
+      ...state,
+      create: {
+        ...state.create,
+        error: false,
       },
     }
   }
