@@ -25,7 +25,6 @@ export const StepInputAuthenticationUris: WizzardStepComponent = ({ setWizzardSt
         body={
           <div>
             <p className="mb-3">
-              {' '}
               Please now register one or more Redirect URLs and a Sign Out URL to allow Reapit - Connect to direct
               traffic back to your application in a secure way.
             </p>

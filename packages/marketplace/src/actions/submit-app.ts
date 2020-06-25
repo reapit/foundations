@@ -27,6 +27,3 @@ export const submitAppSetFormState = actionCreator<FormState>(ActionTypes.DEVELO
 export const submitAppLoading = actionCreator<boolean>(ActionTypes.DEVELOPER_SUBMIT_APP_LOADING)
 export const submitAppRequestData = actionCreator<void>(ActionTypes.DEVELOPER_SUBMIT_APP_REQUEST_DATA)
 export const submitAppReceiveData = actionCreator<ScopeModel[]>(ActionTypes.DEVELOPER_SUBMIT_APP_RECEIVE_DATA)
-export const submitAppWizzardChangeStep = actionCreator<WizzardChangeStepModel>(
-  ActionTypes.DEVELOPER_SUBMIT_APP_WIZZARD_CHANGE_STEP,
-)

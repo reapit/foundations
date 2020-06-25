@@ -7,7 +7,7 @@ import { StepCreateNewApp } from './steps/step-create-new-app'
 import { StepInputAuthenticationUris } from './steps/step-input-authentication-uris'
 import { StepGrantPermissions } from './steps/step-grant-permisions'
 import { StepSubmitAppSuccess } from './steps/step-submit-app-success'
-import { ModalProps, ModalHeader, Formik } from '@reapit/elements'
+import { ModalProps, ModalHeader, Formik, Loader } from '@reapit/elements'
 import { Modal, Form } from '@reapit/elements'
 import { WizzardStep, WizzardStepComponent } from './types'
 import { formFields } from './form-fields'
@@ -56,7 +56,7 @@ export const SubmitAppWizzard: React.FC<ModalProps> = ({ visible, afterClose }) 
 
   const CurrentStepComponent = componentMap[currentWizzardStep as WizzardStep]
   if (isSubmitAppLoading) {
-    return null
+    return <Loader />
   }
 
   if (!CurrentStepComponent) {

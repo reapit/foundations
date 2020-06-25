@@ -11,8 +11,8 @@ const { scopesField } = formFields
 export const onNext = (setWizzardStep: SetWizzardStep, handleUpdateFormState: Function, values) => () => {
   handleUpdateFormState(values)
 
-  // change step will render a difference step -> lead to input unmount and its state = ""
-  // happen before submitForm
+  // change step will render a different step -> lead to input unmount and its state = ""
+  // save snapshot of current state before navigating to other step making inputs in this step un-mount
   setWizzardStep('SUBMIT_APP_SUCCESS')
 }
 export const onPrev = (setWizzardStep: SetWizzardStep) => () => {
