@@ -1,17 +1,9 @@
 import * as React from 'react'
 import { Form, Formik } from 'formik'
 import { EndpointsUsedRange } from './cost-calculator'
-import {
-  Grid,
-  GridItem,
-  SelectBox,
-  Input,
-  FlexContainerResponsive,
-  Button,
-  FormikErrors,
-  isNumberOnly,
-} from '@reapit/elements'
+import { Grid, GridItem, SelectBox, Input, FlexContainerResponsive, Button } from '@reapit/elements'
 import styles from '@/styles/pages/developer-analytics.scss?mod'
+import { validationSchema } from './validation-schema'
 
 export type CostCalculatorFormProps = {
   initialValues: CostCalculatorFormValues
@@ -41,18 +33,6 @@ export const renderEndpointsUsedOptions = (endpointsUsedRange: EndpointsUsedRang
   ]
 }
 
-export const validate = (values: CostCalculatorFormValues): FormikErrors<CostCalculatorFormValues> => {
-  const errors = {} as FormikErrors<CostCalculatorFormValues>
-  if (!values.endpointsUsed) {
-    errors.endpointsUsed = 'Endpoints Used is required'
-  }
-
-  if (!isNumberOnly(values.apiCalls)) {
-    errors.apiCalls = 'Invalid Monthly API calls'
-  }
-  return errors
-}
-
 const CostCalculatorForm: React.FC<CostCalculatorFormProps> = ({
   initialValues,
   endpointsUsedRange,
@@ -61,7 +41,7 @@ const CostCalculatorForm: React.FC<CostCalculatorFormProps> = ({
 }) => {
   return (
     <div className={styles.costCalculatorFormContainer}>
-      <Formik initialValues={initialValues} validate={validate} onSubmit={onSubmit} enableReinitialize>
+      <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit} enableReinitialize>
         <Form>
           <Grid>
             <GridItem className="is-one-quarter">

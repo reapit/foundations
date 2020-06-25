@@ -47,6 +47,14 @@ exports[`Members should match a snapshot when no error 1`] = `
               "Header": "Status",
               "id": "status",
             },
+            Object {
+              "accessor": "setAsAdmin",
+              "columnProps": Object {
+                "style": Object {
+                  "minWidth": "105px",
+                },
+              },
+            },
           ]
         }
         data={
@@ -54,6 +62,12 @@ exports[`Members should match a snapshot when no error 1`] = `
             Object {
               "email": "johnsmith@proptech.com",
               "name": "John smith",
+              "setAsAdmin": <a
+                data-test="button-cancel"
+                onClick={[Function]}
+              >
+                Set as Admin
+              </a>,
               "status": "",
               "tel": "07896 765",
               "title": "CTO",
@@ -66,5 +80,9 @@ exports[`Members should match a snapshot when no error 1`] = `
       />
     </Component>
   </Component>
+  <Component
+    afterClose={[Function]}
+    visible={false}
+  />
 </Component>
 `;

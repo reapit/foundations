@@ -3,11 +3,14 @@ import { Dispatch } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
 import { RejectRevisionModel } from '@reapit/foundations-ts-definitions'
 import { Button, TextArea, Modal, ModalProps, ModalFooter, ModalBody, Form, Formik } from '@reapit/elements'
-import { validate } from '@/utils/form/reject-revision'
 import { declineRevision } from '@/actions/revision-detail'
-import CallToAction from './call-to-action'
+import CallToAction from '../call-to-action'
 import { selectAppRevisionDetail } from '@/selector/app-revisions'
 import { selectLoginIdentity } from '@/selector/auth'
+import { validationSchemaDeclineModal as validationSchema } from './validation-schema'
+import { formFieldsDeclineModal as formFields } from './form-fields'
+
+const { rejectionReasonField } = formFields
 
 export type DeclineRevisionModalProps = Pick<ModalProps, 'visible' | 'afterClose'> & {
   onDeclineSuccess: () => void
@@ -65,7 +68,7 @@ export const DeclineRevisionModal: React.FunctionComponent<DeclineRevisionModalP
       <Formik
         initialValues={{ email, name, rejectionReason } as RejectRevisionModel}
         data-test="revision-decline-form"
-        validate={validate}
+        validationSchema={validationSchema}
         onSubmit={handleOnSubmit(setRejectionReason, dispatch, appId, appRevisionId)}
       >
         {isSuccessed ? (
@@ -84,9 +87,9 @@ export const DeclineRevisionModal: React.FunctionComponent<DeclineRevisionModalP
             <ModalBody
               body={
                 <TextArea
-                  name="rejectionReason"
-                  id="rejectionReason"
-                  labelText="Rejection reason"
+                  name={rejectionReasonField.name}
+                  id={rejectionReasonField.name}
+                  labelText={rejectionReasonField.label as string}
                   dataTest="revision-rejection-reason"
                 />
               }
