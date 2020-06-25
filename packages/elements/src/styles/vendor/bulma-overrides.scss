@@ -25,6 +25,10 @@ html {
   &.mb-2 {
     margin-bottom: 0.5rem;
   }
+
+  &.mb-0 {
+    margin-bottom: 0;
+  }
 }
 
 .card {
@@ -249,6 +253,7 @@ a {
 
 .container {
   display: flex;
+  width: 100%;
 
   &.is-column {
     flex-direction: column;

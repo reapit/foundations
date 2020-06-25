@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useHistory } from 'react-router'
 import { useSelector } from 'react-redux'
 import { History } from 'history'
-import { Loader, Pagination } from '@reapit/elements'
+import { Loader, Pagination, Section, H3, Button } from '@reapit/elements'
 import { selectDeveloper } from '@/selector'
 import AppList from '@/components/ui/app-list'
 import ErrorBoundary from '@/components/hocs/error-boundary'
@@ -17,6 +17,10 @@ export const handleOnCardClick = (history: History) => (app: AppSummaryModel) =>
 
 export const handleOnChange = (history: History) => (page: number) =>
   history.push(`${Routes.DEVELOPER_MY_APPS}?page=${page}`)
+
+export const handleNewAppPage = (history: History) => () => {
+  history.push(Routes.SUBMIT_APP)
+}
 
 export type DeveloperProps = {}
 
@@ -45,10 +49,14 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = () => {
   return (
     <ErrorBoundary>
       <div id="page-developer-home-container">
+        <Section className="justify-between items-center" isFlex>
+          <H3 className="mb-0">My Apps</H3>
+          <Button onClick={handleNewAppPage(history)} type="button" variant="primary">
+            Create new app
+          </Button>
+        </Section>
         <AppList
           list={list}
-          hasSubmitButton
-          title="My Apps"
           loading={loading}
           onCardClick={handleOnCardClick(history)}
           infoType="DEVELOPER_APPS_EMPTY"

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useSelector } from 'react-redux'
 import { useLocation, useHistory } from 'react-router'
 import { History } from 'history'
-import { Loader, Info, Pagination } from '@reapit/elements'
+import { Loader, Info, Pagination, Section, H3 } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import routes from '@/constants/routes'
 import AppList from '@/components/ui/app-list'
@@ -40,9 +40,11 @@ export const ClientAppsManagement: React.FunctionComponent = () => {
 
   return (
     <ErrorBoundary>
+      <Section>
+        <H3 className="mb-0">Manage Apps</H3>
+      </Section>
       <AppList
         list={list}
-        title="Manage Apps"
         loading={loading}
         onCardClick={(app: AppSummaryModel) => handleLaunchApp(app)}
         onSettingsClick={handleOnSettingClick(history)}

@@ -1,6 +1,7 @@
 import { LoginType } from '@reapit/cognito-auth'
 import Routes from '../constants/routes'
 import { match } from 'react-router'
+import { getMarketplaceGlobalsByKey } from '@reapit/elements'
 
 export function getAuthRouteByLoginType(loginType: LoginType) {
   switch (loginType) {
@@ -30,7 +31,7 @@ export function getDefaultRouteByLoginType({
         ? `${window.location.origin}${Routes.DEVELOPER_WELCOME}`
         : `${window.location.origin}${Routes.DEVELOPER_MY_APPS}`
     default:
-      return !isClientFirstTimeLoginComplete
+      return !isClientFirstTimeLoginComplete && !getMarketplaceGlobalsByKey()
         ? `${window.location.origin}${Routes.CLIENT_WELCOME}`
         : `${window.location.origin}${Routes.INSTALLED_APPS}`
   }

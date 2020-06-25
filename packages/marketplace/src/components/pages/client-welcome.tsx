@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FlexContainerResponsive, useHelpGuideContext, HelpGuide, Button, Loader } from '@reapit/elements'
+import { useHelpGuideContext, HelpGuide, Button, Loader } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { history } from '@/core/router'
 import styles from '@/styles/pages/developer-welcome.scss?mod'
@@ -150,7 +150,7 @@ export const ClientWelcomeMessage: React.FC<ClientWelcomeMessageProps> = () => {
   const loginSession = useSelector(selectLoginSession)
   const WELCOME_GIUDE = isAdmin ? WELCOME_GUIDE_ADMIN : WELCOME_GUIDE_USER
 
-  const giudeList = WELCOME_GIUDE.map(step => {
+  const guideList = WELCOME_GIUDE.map(step => {
     return (
       <HelpGuide.Step
         key={step.id}
@@ -164,11 +164,7 @@ export const ClientWelcomeMessage: React.FC<ClientWelcomeMessageProps> = () => {
   })
 
   if (!loginSession) return <Loader />
-  return (
-    <FlexContainerResponsive className={styles.container} flexColumn hasBackground hasPadding>
-      <HelpGuide>{giudeList}</HelpGuide>
-    </FlexContainerResponsive>
-  )
+  return <HelpGuide>{guideList}</HelpGuide>
 }
 
 export default ClientWelcomeMessage

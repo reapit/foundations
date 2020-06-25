@@ -2,7 +2,7 @@ import * as React from 'react'
 import { FaCaretDown, FaCaretUp } from 'react-icons/fa'
 import { CostCalculatorFormValues } from './cost-calculator-form'
 import { formatCurrency, formatNumber } from '@/utils/number-formatter'
-import { Table, Grid, GridItem, H6, H5, Button } from '@reapit/elements'
+import { Table, Grid, GridItem, H6, H5, Button, Section } from '@reapit/elements'
 import useFoundationCostTable, { endpointsUsedRange } from './use-foundation-cost-table'
 import styles from '@/styles/pages/developer-analytics.scss?mod'
 
@@ -26,7 +26,7 @@ const TotalCostTable: React.FC<TotalCostTableProps> = ({ formValues: { endpoints
   const { tableColumns, tableData, totalMonthlyCost } = useFoundationCostTable(endpointsUsed, apiCalls)
 
   return (
-    <div className="mt-5">
+    <Section>
       <Grid>
         <GridItem className="is-half-desktop has-text-right">
           <H6>{endpointsUsedRange[endpointsUsed]} Endpoints Used</H6>
@@ -51,7 +51,7 @@ const TotalCostTable: React.FC<TotalCostTableProps> = ({ formValues: { endpoints
           </GridItem>
         </Grid>
       )}
-    </div>
+    </Section>
   )
 }
 

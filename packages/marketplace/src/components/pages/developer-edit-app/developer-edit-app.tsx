@@ -9,14 +9,12 @@ import {
   Alert,
   H3,
   Grid,
-  FlexContainerBasic,
-  FormSection,
   LevelRight,
   Formik,
   Form,
   H6,
-  FlexContainerResponsive,
   FormikValues,
+  Section,
 } from '@reapit/elements'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
 
@@ -314,11 +312,14 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
 
   return (
     <>
-      <FlexContainerBasic
-        hasPadding
-        flexColumn
-        className={`${isSubmitting ? 'disabled' : ''} ${styles.container}`}
-        data-test="app-input-form"
+      <Section>{isSubmitApp ? <H3 className="mb-0">Submit App</H3> : <H3 className="mb-0">Edit App</H3>}</Section>
+
+      <Formik
+        validationSchema={submitAppValidationSchema}
+        // TODO: change to Yup schema to validate after split Submit/Edit App
+        validate={handleBeforeSubmit(validate, setIsSubmitModalOpen)}
+        initialValues={initialValues}
+        onSubmit={handleSubmitApp(appId, dispatch)}
       >
         <FlexContainerResponsive flexColumn hasBackground hasPadding>
           <H3>Edit App</H3>

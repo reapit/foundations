@@ -69,7 +69,7 @@
   .checkbox-error[type='radio'] {
     & + label:before {
       background: white;
-      border: 1px solid red;
+      border: 1px solid $reapit-red;
     }
   }
 

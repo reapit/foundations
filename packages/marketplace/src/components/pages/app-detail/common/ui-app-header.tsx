@@ -30,7 +30,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup }) => 
           </div>
           <div className={headerContent}>
             <H3 className="text-ellipsis-9">{appDetailData.name || ''}</H3>
-            <SubTitleH6 className="text-ellipsis-7">
+            <SubTitleH6>
               Verified by Reapit <FaCheck className={check} />
             </SubTitleH6>
 

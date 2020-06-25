@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Table, H5, Loader, toLocalTime, Pagination, Grid, GridItem } from '@reapit/elements'
+import { Table, H5, Loader, toLocalTime, Pagination, Grid, GridItem, Section } from '@reapit/elements'
 import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { AppInstallationsState } from '@/reducers/app-installations'
 import { DeveloperState } from '@/reducers/developer'
@@ -131,12 +131,12 @@ export const InstallationAppSection: React.FC<{
   )
 
   return (
-    <div>
+    <Section>
       {loading ? (
         <Loader />
       ) : (
         <>
-          <Grid isMultiLine className="mt-5">
+          <Grid isMultiLine>
             <GridItem className="is-half">
               <DeveloperInstallationsChart data={installationFilterAppDataArrayWithName} />
             </GridItem>
@@ -157,7 +157,6 @@ export const InstallationAppSection: React.FC<{
             </GridItem>
           </Grid>
           <Table bordered scrollable columns={installationTableColumn} data={memoizedData} loading={false} />
-          <br />
           <Pagination
             pageNumber={pageNumber}
             onChange={handleSetPageNumber(setPageNumber)}
@@ -166,7 +165,7 @@ export const InstallationAppSection: React.FC<{
           />
         </>
       )}
-    </div>
+    </Section>
   )
 }
 

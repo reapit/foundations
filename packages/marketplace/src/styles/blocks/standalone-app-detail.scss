@@ -21,8 +21,6 @@
   margin: 0.5rem 0.5rem 0 0;
 }
 
-
-
 .container {
   height: 100%;
   margin-bottom: auto;
@@ -32,7 +30,7 @@
   }
   @include for-ie-only {
     min-width: 1024px;
-  } 
+  }
 }
 
 .containerHeader {
@@ -50,16 +48,16 @@
 }
 
 .headerContent {
-  width: calc(100% - 96px);
   display: flex;
   flex-direction: column;
   padding: 1rem;
   align-items: center;
   text-align: center;
 
-   @include for-desktop-only  {
-     align-items: flex-end;
-     text-align: flex-end;
+  @include for-desktop-only {
+    width: calc(100% - 96px);
+    align-items: flex-end;
+    text-align: flex-end;
   }
 }
 
