@@ -16,7 +16,7 @@ export const ImageInput = (props: ImageInputProps) => {
       return
     }
     setMessage('')
-    props && props.afterLoadedImage && props.afterLoadedImage(base64)
+    props.afterLoadedImage && props.afterLoadedImage(base64)
   }
 
   return (
@@ -39,6 +39,5 @@ export const ImageInput = (props: ImageInputProps) => {
 
 export const validateType = (value: string): boolean => {
   const fileType = getTypeFromBase64(value)
-  if (!isImageType(fileType)) return false
-  return true
+  return isImageType(fileType)
 }
