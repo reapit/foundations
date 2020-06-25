@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 
-import { AppList, AppListProps } from '../app-list'
+import { AppList, AppListProps, onCloseSubmitAppModal, onShowSubmitAppModal } from '../app-list'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { Loader, GridFourColItem, GridThreeColItem, Helper } from '@reapit/elements'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
@@ -23,6 +23,16 @@ const props: AppListProps = {
 }
 
 describe('AppList', () => {
+  test('onShowSubmitAppModal should run correctly', () => {
+    const setSubmitAppModalVisible = jest.fn()
+    onShowSubmitAppModal(setSubmitAppModalVisible)()
+    expect(setSubmitAppModalVisible).toHaveBeenCalledWith(true)
+  })
+  test('onCloseSubmitAppModal should run correctly', () => {
+    const setSubmitAppModalVisible = jest.fn()
+    onCloseSubmitAppModal(setSubmitAppModalVisible)()
+    expect(setSubmitAppModalVisible).toHaveBeenCalledWith(false)
+  })
   it('should match a snapshot', () => {
     expect(shallow(<AppList {...props} />)).toMatchSnapshot()
   })

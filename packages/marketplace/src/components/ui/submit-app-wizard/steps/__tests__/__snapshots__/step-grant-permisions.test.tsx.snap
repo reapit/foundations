@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StepGrantPermissions should match snapshot 1`] = `
+<Fragment>
+  <Component
+    body={
+      <div>
+        <Unknown>
+          What type of data are you interested in?
+        </Unknown>
+        <p>
+          Please select specific the entities you need access to on a read or write basis. You can select multiple options below:
+        </p>
+        <Unknown
+          fixedPosition={true}
+          id="scopes"
+          mode="multiple"
+          name="scopes"
+          options={Array []}
+        />
+      </div>
+    }
+  />
+  <Component
+    footerItems={
+      <React.Fragment>
+        <Unknown
+          onClick={[Function]}
+        >
+          Back
+        </Unknown>
+        <Unknown
+          disabled={true}
+          onClick={[Function]}
+        >
+          Next
+        </Unknown>
+      </React.Fragment>
+    }
+  />
+</Fragment>
+`;

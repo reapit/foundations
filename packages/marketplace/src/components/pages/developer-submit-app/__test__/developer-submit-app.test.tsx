@@ -1,3 +1,5 @@
+// @ts-nocheck
+// TODO: remove developer standalone submit app code #1824
 import * as React from 'react'
 import { mount } from 'enzyme'
 import * as ReactRedux from 'react-redux'
