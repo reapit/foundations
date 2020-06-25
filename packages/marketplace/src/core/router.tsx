@@ -120,17 +120,17 @@ const Router = () => {
                 <PrivateRoute
                   allow="DEVELOPER"
                   path={Routes.DEVELOPER_MY_APPS_EDIT}
-                  component={DeveloperSubmitApp}
-                  exact
-                  fetcher
-                />
-                <PrivateRoute
-                  allow="DEVELOPER"
-                  path={Routes.DEVELOPER_MY_APPS_EDIT}
                   component={DeveloperEditApp}
                   exact
                   fetcher
                 />
+                {/* <PrivateRoute
+                  allow="DEVELOPER"
+                  path={Routes.DEVELOPER_MY_APPS_EDIT}
+                  component={DeveloperSubmitApp}
+                  exact
+                  fetcher
+                /> */}
                 <PrivateRoute allow="DEVELOPER" path={Routes.SUBMIT_APP} fetcher component={DeveloperSubmitApp} />
                 <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_API_DOCS} component={ApiDocsPage} />
                 <PrivateRoute

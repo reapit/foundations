@@ -14,7 +14,6 @@ import {
   LevelRight,
   Formik,
   Form,
-  FormikHelpers,
   H6,
   FlexContainerResponsive,
   FormikValues,
@@ -23,14 +22,10 @@ import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
 
 import { validate } from '@/utils/form/submit-app'
 import { useDispatch, useSelector } from 'react-redux'
-import { submitApp, submitAppSetFormState, CustomCreateAppModel } from '@/actions/submit-app'
-import { CreateAppModel, AppDetailModel } from '@reapit/foundations-ts-definitions'
+import { submitAppSetFormState } from '@/actions/submit-app'
+import { CreateAppRevisionModel, AppDetailModel } from '@reapit/foundations-ts-definitions'
 import Routes from '@/constants/routes'
 import { submitRevisionSetFormState, submitRevision } from '@/actions/submit-revision'
-import { setCookieString, COOKIE_FIRST_SUBMIT, COOKIE_MAX_AGE_INFINITY } from '@/utils/cookie'
-import dayjs from 'dayjs'
-import DOCS_LINKS from '@/constants/docs-links'
-import DAY_FORMATS from '@/constants/date-formats'
 import { selectSubmitAppState, selectSubmitAppRevisionState } from '@/selector/submit-app'
 import { selectDeveloperId } from '@/selector/auth'
 import { selectAppDetailState } from '@/selector/app-detail'
@@ -45,9 +40,17 @@ import PermissionSection from './permission-section'
 import styles from '@/styles/pages/developer-submit-app.scss?mod'
 import { ScopeModel, CategoryModel } from '@/types/marketplace-api-schema'
 import { selectCategories } from '@/selector/app-categories'
-import submitAppValidationSchema from './form-schema/validation-schema'
+import { validationSchemaSubmitRevision } from './form-schema/validation-schema'
+import { formFields } from './form-schema/form-fields'
 
 export type DeveloperSubmitAppProps = {}
+export type CustomCreateRevisionModal = CreateAppRevisionModel & {
+  isPrivateApp?: string
+  limitToClientIds?: string
+  redirectUris?: string
+  signoutUris?: string
+  authFlow?: string
+}
 
 export const labelTextOfField = {
   name: 'Name',
@@ -188,66 +191,32 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
   return initialValues
 }
 
-export const handleSubmitApp = ({ appId, dispatch }: { appId?: string; dispatch: Dispatch }) => (
-  appModel: CustomCreateAppModel,
-  actions: FormikHelpers<CustomCreateAppModel>,
+export const handleSubmitApp = ({ appId, dispatch }: { appId: string; dispatch: Dispatch }) => (
+  appModel: CustomCreateRevisionModal,
 ) => {
-  const { redirectUris, signoutUris, limitToClientIds, ...otherData } = appModel
-  let appToSubmit: CreateAppModel
-  if (appModel.authFlow === 'clientCredentials') {
-    appToSubmit = otherData
-  } else {
-    appToSubmit = {
-      ...otherData,
-      redirectUris: redirectUris ? redirectUris.split(',') : [],
-      signoutUris: signoutUris ? signoutUris.split(',') : [],
-    }
-  }
+  const appPreFormat = { ...appModel }
+  delete appPreFormat.authFlow
+  const { limitToClientIds, redirectUris, signoutUris } = appPreFormat
+  const appToSubmit = {
+    ...appPreFormat,
+
+    redirectUris: redirectUris ? redirectUris.split(',') : [],
+    signoutUris: signoutUris ? signoutUris.split(',') : [],
+  } as CreateAppRevisionModel
+
   if (appModel.isPrivateApp === 'yes') {
     appToSubmit.limitToClientIds = limitToClientIds ? limitToClientIds.replace(/ /g, '').split(',') : []
   }
 
-  if (!appId) {
-    dispatch(submitApp({ ...appToSubmit, actions }))
-  } else {
-    if (appToSubmit.authFlow) {
-      delete appToSubmit.authFlow
-    }
-    if (appModel.isPrivateApp === 'no') {
-      appToSubmit.limitToClientIds = []
-    }
-    dispatch(submitRevision({ ...appToSubmit, id: appId }))
+  if (appModel.isPrivateApp === 'no') {
+    appToSubmit.limitToClientIds = []
   }
+  dispatch(submitRevision({ ...appToSubmit, id: appId }))
 }
 
 export const handleClickOpenModal = setTermModalIsOpen => event => {
   event.preventDefault()
   setTermModalIsOpen(true)
-}
-export const handleCloseModal = setTermModalIsOpen => () => {
-  setTermModalIsOpen(false)
-}
-
-export const handleAcceptTerms = (setIsAgreedTerms, setTermModalIsOpen) => () => {
-  setIsAgreedTerms(true)
-  setTermModalIsOpen(false)
-}
-export const handleDeclineTerms = (setIsAgreedTerms, setTermModalIsOpen) => () => {
-  setIsAgreedTerms(false)
-  setTermModalIsOpen(false)
-}
-
-export const handleSubmitModalContinue = setIsSubmitModalOpen => () => {
-  setIsSubmitModalOpen(false)
-  setCookieString(COOKIE_FIRST_SUBMIT, dayjs().format(DAY_FORMATS.YYYY_MM_DD), COOKIE_MAX_AGE_INFINITY)
-}
-
-export const handleSubmitModalViewDocs = () => {
-  const newTab = window.open(DOCS_LINKS.DEVELOPER_PORTAL, '_blank')
-
-  if (newTab) {
-    newTab.focus()
-  }
 }
 
 export const handleGoBackToApps = (history: History) => {
@@ -297,8 +266,6 @@ export const handleOpenAppPreview = ({
 }
 
 export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
-  let initialValues
-  let formState
   const dispatch = useDispatch()
   const history = useHistory()
   const { appid } = useParams()
@@ -316,7 +283,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
   }
 
   const { loading, error, appDetailData } = appDetailState
-  formState = submitRevisionState.formState
+  const formState = submitRevisionState.formState
 
   if (loading) {
     return <Loader />
@@ -330,17 +297,16 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
     return null
   }
 
-  const appId = appDetailData.data.id
-  initialValues = generateInitialValues(appDetailData.data, developerId)
+  const appId = appDetailData.data.id ?? ''
+  const initialValues = generateInitialValues(appDetailData.data, developerId)
 
   const scopes = (submitAppState.submitAppData && submitAppState.submitAppData.scopes) || []
 
   const isSubmitting = formState === 'SUBMITTING'
-  const isSuccessed = formState === 'SUCCESS'
 
-  const submitRevisionSuccessfully = isSuccessed
+  const isSubmitRevisionSuccess = formState === 'SUCCESS'
 
-  if (submitRevisionSuccessfully) {
+  if (isSubmitRevisionSuccess) {
     dispatch(submitRevisionSetFormState('PENDING'))
     history.push(Routes.DEVELOPER_MY_APPS)
   }
@@ -356,7 +322,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
         <FlexContainerResponsive flexColumn hasBackground hasPadding>
           <H3>Edit App</H3>
           <Formik
-            validationSchema={submitAppValidationSchema}
+            validationSchema={validationSchemaSubmitRevision}
             initialValues={initialValues}
             onSubmit={handleSubmitApp({ appId, dispatch })}
           >
@@ -406,9 +372,9 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
                   <Input
                     dataTest="submit-app-developer-id"
                     type="hidden"
-                    labelText="Developer ID"
-                    id="developerId"
-                    name="developerId"
+                    labelText={formFields.developerId.label as string}
+                    id={formFields.developerId.name}
+                    name={formFields.developerId.name}
                   />
                 </Form>
               )

@@ -24,6 +24,7 @@ type Field =
   | 'isDirectApi'
   | 'isListed'
   | 'isPrivateApp'
+  | 'developerId'
 
 export const formFields: Record<Field, FormFieldInfo> = {
   name: {
@@ -45,17 +46,19 @@ export const formFields: Record<Field, FormFieldInfo> = {
     name: 'telephone',
     label: 'Telephone',
     placeHolder: 'Should one of our developers need to contact you about your app',
-    errorMessage: 'Invalid mobile phone format',
+    errorMessage: 'Invalid Telephone number',
   },
   homePage: {
     name: 'homePage',
     label: 'Home page',
     placeHolder: 'Your company homepage. HTTP:// or HTTPS://',
+    errorMessage: 'Invalid Home Page URL',
   },
   launchUri: {
     name: 'launchUri',
     label: 'Launch URI',
     placeHolder: 'The launch page for your app. HTTPS only other than for http://localhost',
+    errorMessage: 'Invalid Launch URI',
   },
   summary: {
     name: 'summary',
@@ -77,11 +80,13 @@ export const formFields: Record<Field, FormFieldInfo> = {
     name: 'redirectUris',
     label: 'Redirect URI(s)',
     placeHolder: 'Enter your Redirect URI(s)',
+    errorMessage: 'Invalid redirect uri(s)',
   },
   signoutUris: {
     name: 'signoutUris',
     label: 'Sign Out URI(s)',
     placeHolder: 'Enter your Sign Out URI(s)',
+    errorMessage: 'Invalid sign out uri(s)',
   },
   iconImageUrl: {
     name: 'iconImageUrl',
@@ -109,10 +114,12 @@ export const formFields: Record<Field, FormFieldInfo> = {
   },
   scopes: {
     name: 'scopes',
+    errorMessage: 'At least one Permission is required',
   },
   limitToClientIds: {
     name: 'limitToClientIds',
     placeHolder: 'Please enter the Customer ID. For multiple Customer ID’s, please separate using a comma',
+    errorMessage: 'Invalid Customer ID(s). Each Customer ID should consist of 3 characters.',
   },
   desktopIntegrationTypeIds: {
     name: 'desktopIntegrationTypeIds',
@@ -130,6 +137,10 @@ export const formFields: Record<Field, FormFieldInfo> = {
   isPrivateApp: {
     name: 'isPrivateApp',
     label: 'Private Apps',
+  },
+  developerId: {
+    name: 'developerId',
+    label: 'Developer ID',
   },
 }
 

@@ -4,6 +4,7 @@ import errorMessages from '@/constants/error-messages'
 import authFlows from '@/constants/app-auth-flow'
 import { letterNumberSpaceRegex, telephoneRegex, emailRegex } from '@reapit/utils'
 
+const { USER_SESSION, CLIENT_SECRET } = authFlows
 const { FIELD_REQUIRED, MAXIMUM_CHARACTER_LENGTH, FIELD_WRONG_EMAIL_FORMAT } = errorMessages
 
 const {
@@ -17,6 +18,9 @@ const {
   summary,
   screen1ImageUrl,
   authFlow,
+  scopes,
+  redirectUris,
+  signoutUris,
 } = formFields
 
 const MIN_DESCRIPTION_LENGTH = 150
@@ -24,7 +28,7 @@ const MAX_DESCRIPTION_LENGTH = 1000
 const MIN_SUMMARY_LENGTH = 50
 const MAX_SUMMARY_LENGTH = 150
 
-const submitAppValidationSchema = Yup.object().shape({
+export const validationSchemaSubmitRevision = Yup.object().shape({
   [name.name]: Yup.string()
     .trim()
     .required(FIELD_REQUIRED)
@@ -42,10 +46,37 @@ const submitAppValidationSchema = Yup.object().shape({
     .required(FIELD_REQUIRED)
     .matches(emailRegex, FIELD_WRONG_EMAIL_FORMAT),
 
+  [launchUri.name]: Yup.string()
+    .trim()
+    .required(FIELD_REQUIRED),
+
+  [iconImageUrl.name]: Yup.string().required(FIELD_REQUIRED),
+
+  [homePage.name]: Yup.string()
+    .trim()
+    .required(FIELD_REQUIRED),
+
+  [description.name]: Yup.string()
+    .trim()
+    .required(FIELD_REQUIRED),
+
+  [summary.name]: Yup.string()
+    .trim()
+    .required(FIELD_REQUIRED),
+
+  [screen1ImageUrl.name]: Yup.string().required(FIELD_REQUIRED),
+
   [authFlow.name]: Yup.string()
     .trim()
     .required(FIELD_REQUIRED)
-    .oneOf(authFlows.USER_SESSION, authFlows.CLIENT_SECRET),
+    .oneOf([USER_SESSION, CLIENT_SECRET]),
+
+  [scopes.name]: Yup.array().when(authFlow.name, (authFlow, schema) => {
+    if (authFlow === CLIENT_SECRET) {
+      return schema.required(scopes.errorMessage)
+    }
+    return schema
+  }),
 })
 
-export default submitAppValidationSchema
+export default validationSchemaSubmitRevision
