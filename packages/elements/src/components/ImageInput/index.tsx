@@ -1,23 +1,44 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FileInput, FileInputProps } from '../FileInput'
 import { isImageType, getTypeFromBase64 } from '@reapit/utils'
 
-export const ImageInput = (props: FileInputProps) => (
-  <FileInput
-    dataTest={props.dataTest}
-    name={props.name}
-    labelText={props.labelText}
-    id={props.id}
-    allowClear={props.allowClear}
-    accept="image/*"
-    afterLoadedImage={props.afterLoadedImage}
-    croppedImage={props.croppedImage}
-    validate={validateType}
-  />
-)
+export interface ImageInputProps extends FileInputProps {
+  afterLoadedImage?: (base64: string) => any
+}
 
-export const validateType = (value: string): string => {
+export const ImageInput = (props: ImageInputProps) => {
+  const [message, setMessage] = useState<string>('')
+
+  const afterLoadedImage = (base64, handleClearFile) => {
+    if (!validateType(base64)) {
+      setMessage('You must select the image file!')
+      handleClearFile()
+      return
+    }
+    setMessage('')
+    props && props.afterLoadedImage && props.afterLoadedImage(base64)
+  }
+
+  return (
+    <>
+      <FileInput
+        dataTest={props.dataTest}
+        name={props.name}
+        labelText={props.labelText}
+        id={props.id}
+        allowClear={props.allowClear}
+        accept="image/*"
+        afterLoadedFile={afterLoadedImage}
+        croppedImage={props.croppedImage}
+        required={props.required}
+      />
+      {message && <p className="has-text-danger">{message}</p>}
+    </>
+  )
+}
+
+export const validateType = (value: string): boolean => {
   const fileType = getTypeFromBase64(value)
-  if (!isImageType(fileType)) return 'You must select the image file!'
-  return ''
+  if (!isImageType(fileType)) return false
+  return true
 }

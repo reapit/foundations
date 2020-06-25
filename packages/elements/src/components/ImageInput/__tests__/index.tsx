@@ -23,12 +23,12 @@ describe('validateType', () => {
   it('should return ""', () => {
     const base64 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA'
     const result = validateType(base64)
-    expect(result).toBe('')
+    expect(result).toBe(true)
   })
 
   it('should return error', () => {
     const base64 = 'data:video/png;base64,iVBORw0KGgoAAAANSUhEUgAA'
     const result = validateType(base64)
-    expect(result).toBe('You must select the image file!')
+    expect(result).toBe(false)
   })
 })

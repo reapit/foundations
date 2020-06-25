@@ -24,9 +24,8 @@ export interface FileInputProps {
   required?: boolean
   onFilenameClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
   // to integrate with other components
-  afterLoadedImage?: (base64: string) => any
+  afterLoadedFile?: (base64: string, handleClearFile: () => void) => any
   croppedImage?: string | null
-  validate?: (value: string) => string
 }
 
 export const handleChangeCroppedImage = ({
@@ -55,6 +54,15 @@ export const handleChangeCroppedImage = ({
   field.onChange({ target: { value: croppedImage ?? '', name: field.name } })
 }
 
+export const clearFile = (field, setFileName, inputFile) => (evt?: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  evt && evt.preventDefault()
+  field.onChange({ target: { value: '', name: field.name } })
+  setFileName('')
+  if (inputFile.current) {
+    inputFile.current.value = ''
+  }
+}
+
 export const FileInput = ({
   name,
   labelText,
@@ -68,36 +76,35 @@ export const FileInput = ({
   isNarrowWidth = false,
   onFilenameClick,
   croppedImage,
-  afterLoadedImage,
-  validate,
+  afterLoadedFile,
 }: FileInputProps) => {
   const [fileUrl, setFileName] = useState<string>()
   const inputFile = React.useRef<HTMLInputElement>(null)
   const fileInputContainerClassName = cx('control', 'file-input-container', !isNarrowWidth && 'is-full-width')
 
   return (
-    <Field name={name} validate={validate}>
-      {({ field, meta, form }: FieldProps<string>) => {
+    <Field name={name}>
+      {({ field, meta }: FieldProps<string>) => {
         const hasError = checkError(meta)
         const hasFile = fileUrl || field.value
         const containerClassName = `file ${hasError ? 'is-danger' : 'is-primary'} ${hasFile ? 'has-name' : ''}`
+
+        const handleClearFile = clearFile(field, setFileName, inputFile)
 
         const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
           if (e.target && e.target.files && e.target.files[0]) {
             const file = e.target.files[0]
             setFileName(file.name)
 
-            form.setFieldTouched(name)
-            form.validateField(name)
-
             let reader = new FileReader()
             reader.readAsDataURL(file)
             reader.onload = function() {
               const base64 = reader.result
-              if (typeof afterLoadedImage === 'function' && typeof base64 === 'string') {
-                afterLoadedImage(base64)
-              }
               field.onChange({ target: { value: base64, name: field.name } })
+
+              if (typeof afterLoadedFile === 'function' && typeof base64 === 'string') {
+                afterLoadedFile(base64, handleClearFile)
+              }
               if (testProps) {
                 testProps.waitUntilDataReaderLoadResolver()
               }
@@ -134,7 +141,7 @@ export const FileInput = ({
                     accept={accept}
                   />
                   <span className={`file-cta ${required && !hasFile ? 'required-label' : ''}`}>{labelText}</span>
-                  {hasFile && !hasError && (
+                  {hasFile && (
                     <span data-test="fileUploadFileName" className="file-name">
                       {!isBase64(field.value) ? (
                         <a onClick={onFilenameClick} href={field.value} target="_blank" rel="noopener noreferrer">
@@ -145,19 +152,7 @@ export const FileInput = ({
                       )}
                     </span>
                   )}
-                  {hasFile && !hasError && allowClear && (
-                    <a
-                      className="delete is-large"
-                      onClick={e => {
-                        e.preventDefault()
-                        field.onChange({ target: { value: '', name: field.name } })
-                        setFileName('')
-                        if (inputFile.current) {
-                          inputFile.current.value = ''
-                        }
-                      }}
-                    />
-                  )}
+                  {hasFile && allowClear && <a className="delete is-large" onClick={handleClearFile} />}
                 </label>
               </div>
             </div>

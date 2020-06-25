@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { isImageType, getTypeFromBase64 } from '@reapit/utils'
 
 /**
  * To integrate with other components
@@ -18,12 +17,6 @@ export const passedFunctions = {
   }) => (base64: string) => {
     setUpImg(base64)
     setCroppedImage(base64)
-
-    const fileType = getTypeFromBase64(base64)
-    if (!isImageType(fileType)) {
-      setVisible(false)
-      return
-    }
     setVisible(true)
   },
 }
