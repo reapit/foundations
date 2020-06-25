@@ -1,10 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { ModalBody, Button, DropdownSelect, ModalFooter, H4 } from '@reapit/elements'
+import { ModalBody, Button, DropdownSelect, ModalFooter, H4, SelectOption } from '@reapit/elements'
 import { WizardStepComponent, SetWizardStep } from '../types'
 import { formFields } from '../form-fields'
 import { useFormikContext } from 'formik'
 import { selectSubmitAppScopes } from '@/selector/submit-app'
+import { ScopeModel } from '@/types/marketplace-api-schema'
 
 const { scopesField } = formFields
 
@@ -15,16 +16,15 @@ export const onPrev = (setWizardStep: SetWizardStep) => () => {
   setWizardStep('BEFORE_YOU_START')
 }
 
-export const preprareScopeOptions = scopes => {
-  return scopes.map(scope => {
+export const preprareScopeOptions: (scopes: ScopeModel[]) => SelectOption[] = scopes =>
+  scopes.map(scope => {
     const { name, description } = scope
 
     return {
       label: description,
       value: name,
-    }
+    } as SelectOption
   })
-}
 
 export const StepGrantPermissions: WizardStepComponent = ({ setWizardStep }) => {
   const { isValid } = useFormikContext()
