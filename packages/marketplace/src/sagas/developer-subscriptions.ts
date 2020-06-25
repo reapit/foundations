@@ -44,19 +44,13 @@ export const developerCreateSubscription = function*({ data }: Action<CreateSubs
     const response = yield call(createDeveloperSubscription, data.params)
     if (response) {
       yield put(developerCreateSubscriptionSuccess(response))
+      data.onCreated()
     } else {
       yield put(developerCreateSubscriptionFalure())
     }
-    data.onCreated()
   } catch (err) {
-    data.onCreated()
     logger(err)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    yield put(developerCreateSubscriptionFalure())
   }
 }
 

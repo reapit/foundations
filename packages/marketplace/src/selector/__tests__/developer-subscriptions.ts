@@ -1,7 +1,8 @@
 import { ReduxState } from '@/types/core'
-import { subscriptionModelStub, listSubscriptionsStub } from '@/sagas/__stubs__/developer-subscriptions'
+import { listSubscriptionsStub } from '@/sagas/__stubs__/developer-subscriptions'
 import {
   selectCreateDeveloperSubscriptionLoading,
+  selectCreateDeveloperSubscriptionError,
   selectSubscriptions,
   selectSubscriptionsLoading,
 } from '../developer-subscriptions'
@@ -13,7 +14,7 @@ describe('DeveloperSubscription', () => {
     developerSubscriptions: {
       create: {
         loading: false,
-        subscription: subscriptionModelStub,
+        error: false,
       },
       list: {
         loading: false,
@@ -26,6 +27,13 @@ describe('DeveloperSubscription', () => {
     it('should run correctly', () => {
       const output = selectCreateDeveloperSubscriptionLoading(mockState)
       expect(output).toEqual(mockState.developerSubscriptions.create.loading)
+    })
+  })
+
+  describe('selectCreateDeveloperSubscriptionError', () => {
+    it('should run correctly', () => {
+      const output = selectCreateDeveloperSubscriptionError(mockState)
+      expect(output).toEqual(mockState.developerSubscriptions.create.error)
     })
   })
 

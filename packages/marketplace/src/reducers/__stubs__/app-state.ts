@@ -225,6 +225,7 @@ const appState: ReduxState = {
   developerSubscriptions: {
     create: {
       loading: false,
+      error: false,
     },
     list: {
       loading: false,

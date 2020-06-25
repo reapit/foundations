@@ -46,7 +46,7 @@ exports[`DeveloperConfirmSubscription should match snapshot when not visible 1`]
         "telephone": "0978100461",
       }
     }
-    handleCreateSubscription={[MockFunction]}
+    onDone={[MockFunction]}
     visible={false}
   />
 </ContextProvider>
@@ -79,10 +79,11 @@ exports[`DeveloperConfirmSubscription should match snapshot when visible 1`] = `
         "telephone": "0978100461",
       }
     }
-    handleCreateSubscription={[MockFunction]}
+    onDone={[MockFunction]}
     visible={true}
   >
     <Component
+      afterClose={[Function]}
       footerItems={
         <Unknown
           loading={[MockFunction]}
