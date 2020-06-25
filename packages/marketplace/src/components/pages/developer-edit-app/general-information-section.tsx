@@ -18,6 +18,9 @@ import { useSelector } from 'react-redux'
 import { selectCategories } from '@/selector/app-categories'
 import { CategoryModel } from '@reapit/foundations-ts-definitions'
 import styles from '@/styles/pages/developer-submit-app.scss?mod'
+import { formFields } from './form-schema/form-fields'
+
+const { name, categoryId, supportEmail, telephone, homePage, launchUri, summary, description } = formFields
 
 export type GeneralInformationSectionProps = {}
 
@@ -58,15 +61,20 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = () =
           <Input
             dataTest="submit-app-name"
             type="text"
-            labelText="Name"
-            id="name"
-            name="name"
-            placeholder="The name of your app as it will appear to users"
+            labelText={name.label as string}
+            id={name.name}
+            name={name.name}
+            placeholder={name.placeHolder}
             required
           />
         </GridItem>
         <GridItem>
-          <SelectBox id="categoryId" name="categoryId" options={categoryOptions} labelText="Category" />
+          <SelectBox
+            id={categoryId.name}
+            name={categoryId.name}
+            options={categoryOptions}
+            labelText={categoryId.label as string}
+          />
         </GridItem>
       </Grid>
       <Grid>
@@ -74,10 +82,10 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = () =
           <Input
             dataTest="submit-app-support-email"
             type="email"
-            labelText="Support email"
-            id="supportEmail"
-            name="supportEmail"
-            placeholder="The contact to your support team if your users have a problem"
+            labelText={supportEmail.label as string}
+            id={supportEmail.name}
+            name={supportEmail.name}
+            placeholder={supportEmail.placeHolder}
             required
           />
         </GridItem>
@@ -85,10 +93,10 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = () =
           <Input
             dataTest="submit-app-phone"
             type="tel"
-            labelText="Telephone"
-            id="phone"
-            name="telephone"
-            placeholder="Should one of our developers need to contact you about your app"
+            labelText={telephone.label as string}
+            id={telephone.name}
+            name={telephone.name}
+            placeholder={telephone.placeHolder}
             required
           />
         </GridItem>
@@ -98,10 +106,10 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = () =
           <Input
             dataTest="submit-app-home-page"
             type="text"
-            labelText="Home page"
-            id="homePage"
-            name="homePage"
-            placeholder="Your company homepage. HTTP:// or HTTPS://"
+            labelText={homePage.label as string}
+            id={homePage.name}
+            name={homePage.name}
+            placeholder={homePage.placeHolder}
             required
           />
         </GridItem>
@@ -109,10 +117,10 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = () =
           <Input
             dataTest="submit-app-launch-uri"
             type="text"
-            labelText="Launch URI"
-            id="launch Url"
-            name="launchUri"
-            placeholder="The launch page for your app. HTTPS only other than for http://localhost"
+            labelText={launchUri.label as string}
+            id={launchUri.name}
+            name={launchUri.name}
+            placeholder={launchUri.placeHolder}
             required
           />
         </GridItem>
@@ -122,9 +130,9 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = () =
           <TextArea
             id="summary"
             dataTest="submit-app-summary"
-            labelText="Summary"
-            name="summary"
-            placeholder={'A short strapline summary for your app listing. Must be between 50 and 150 characters'}
+            labelText={summary.label as string}
+            name={summary.name}
+            placeholder={summary.placeHolder}
             required
           />
         </GridItem>
@@ -147,12 +155,9 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = () =
               },
             ]}
             dataTest="submit-app-description"
-            labelText="Description"
-            name="description"
-            placeholder={
-              // eslint-disable-next-line max-len
-              'A detailed description for your app listing. Must be between 150 and 1000 characters. Please note: As this field supports HTML, special characters will be included in the character count'
-            }
+            labelText={description.label as string}
+            name={description.name}
+            placeholder={description.placeHolder}
             required
           />
         </GridItem>

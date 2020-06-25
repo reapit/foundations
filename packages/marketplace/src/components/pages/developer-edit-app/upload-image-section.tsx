@@ -8,6 +8,9 @@ import {
   ImageCropperWithInput,
   ResizeDimensions,
 } from '@reapit/elements'
+import { formFields } from './form-schema/form-fields'
+
+const { screen1ImageUrl, screen2ImageUrl, screen3ImageUrl, screen4ImageUrl, screen5ImageUrl, iconImageUrl } = formFields
 
 export type UploadImageSectionProps = {}
 
@@ -49,10 +52,10 @@ const UploadImageSection: React.FC<UploadImageSectionProps> = () => {
           <div className="control">
             <label className="label">Icon *</label>
             <ImageCropperWithInput
-              id="iconImage"
+              id={iconImageUrl.name}
               dataTest="submit-app-icon"
-              labelText="Upload Image"
-              name="iconImageUrl"
+              labelText={iconImageUrl.label as string}
+              name={iconImageUrl.name}
               allowClear
               required
               aspect={ICON_RATIO}
@@ -64,10 +67,10 @@ const UploadImageSection: React.FC<UploadImageSectionProps> = () => {
           <div className="control mb-4">
             <label className="label">Screenshot 1 *</label>
             <ImageCropperWithInput
-              id="screenshot1"
+              id={screen1ImageUrl.name}
               dataTest="submit-app-screenshot1"
-              labelText="Upload Image"
-              name="screen1ImageUrl"
+              labelText={screen1ImageUrl.label as string}
+              name={screen1ImageUrl.name}
               allowClear
               required
               aspect={FEATURE_RATIO}
@@ -79,10 +82,10 @@ const UploadImageSection: React.FC<UploadImageSectionProps> = () => {
           <div className="control mb-4">
             <label className="label">Screenshot 2</label>
             <ImageCropperWithInput
-              id="screenshot2"
+              id={screen2ImageUrl.name}
               dataTest="submit-app-screenshot2"
-              labelText="Upload Image"
-              name="screen2ImageUrl"
+              labelText={screen2ImageUrl.label as string}
+              name={screen2ImageUrl.name}
               allowClear
               aspect={SCREENSHOT_RATIO}
               resizeDimensions={SCREENSHOT_DIMENSIONS}
@@ -93,10 +96,10 @@ const UploadImageSection: React.FC<UploadImageSectionProps> = () => {
           <div className="control mb-4">
             <label className="label">Screenshot 3</label>
             <ImageCropperWithInput
-              id="screenshot3"
+              id={screen3ImageUrl.name}
               dataTest="submit-app-screenshot3"
-              labelText="Upload Image"
-              name="screen3ImageUrl"
+              labelText={screen3ImageUrl.label as string}
+              name={screen3ImageUrl.name}
               allowClear
               aspect={SCREENSHOT_RATIO}
               resizeDimensions={SCREENSHOT_DIMENSIONS}
@@ -107,10 +110,10 @@ const UploadImageSection: React.FC<UploadImageSectionProps> = () => {
           <div className="control mb-4">
             <label className="label">Screenshot 4</label>
             <ImageCropperWithInput
-              id="screenshot4"
+              id={screen4ImageUrl.name}
               dataTest="submit-app-screenshot4"
-              labelText="Upload Image"
-              name="screen4ImageUrl"
+              labelText={screen4ImageUrl.label as string}
+              name={screen4ImageUrl.name}
               allowClear
               aspect={SCREENSHOT_RATIO}
               resizeDimensions={SCREENSHOT_DIMENSIONS}
@@ -121,10 +124,10 @@ const UploadImageSection: React.FC<UploadImageSectionProps> = () => {
           <div className="control mb-4">
             <label className="label">Screenshot 5</label>
             <ImageCropperWithInput
-              id="screenshot5"
+              id={screen5ImageUrl.name}
               dataTest="submit-app-screenshot5"
-              labelText="Upload Image"
-              name="screen5ImageUrl"
+              labelText={screen5ImageUrl.label as string}
+              name={screen5ImageUrl.name}
               allowClear
               aspect={SCREENSHOT_RATIO}
               resizeDimensions={SCREENSHOT_DIMENSIONS}

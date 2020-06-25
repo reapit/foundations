@@ -1,5 +1,8 @@
 import * as React from 'react'
 import { FormSection, Grid, GridItem, Checkbox, FormSubHeading, FormHeading } from '@reapit/elements'
+import { formFields } from './form-schema/form-fields'
+
+const { isDirectApi, isListed } = formFields
 
 export type MarketplaceStatusSectionProps = {}
 
@@ -18,10 +21,10 @@ const MarketplaceStatusSection: React.FC<MarketplaceStatusSectionProps> = () => 
       </FormSubHeading>
       <Grid>
         <GridItem>
-          <Checkbox name="isDirectApi" labelText="Direct API" id="isDirectApi" />
+          <Checkbox name={isDirectApi.name} labelText={isDirectApi.label as string} id={isDirectApi.name} />
         </GridItem>
         <GridItem>
-          <Checkbox name="isListed" labelText="Is Listed" id="isListed" />
+          <Checkbox name={isListed.name} labelText={isListed.label as string} id={isListed.name} />
         </GridItem>
       </Grid>
     </FormSection>

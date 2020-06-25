@@ -27,8 +27,7 @@ import { submitApp, submitAppSetFormState, CustomCreateAppModel } from '@/action
 import { CreateAppModel, AppDetailModel } from '@reapit/foundations-ts-definitions'
 import Routes from '@/constants/routes'
 import { submitRevisionSetFormState, submitRevision } from '@/actions/submit-revision'
-import { getCookieString, setCookieString, COOKIE_FIRST_SUBMIT, COOKIE_MAX_AGE_INFINITY } from '@/utils/cookie'
-import { SubmitAppReadDocModal } from '@/components/ui/submit-app-read-doc-modal'
+import { setCookieString, COOKIE_FIRST_SUBMIT, COOKIE_MAX_AGE_INFINITY } from '@/utils/cookie'
 import dayjs from 'dayjs'
 import DOCS_LINKS from '@/constants/docs-links'
 import DAY_FORMATS from '@/constants/date-formats'
@@ -358,8 +357,6 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
           <H3>Edit App</H3>
           <Formik
             validationSchema={submitAppValidationSchema}
-            // TODO: change to Yup schema to validate after split Submit/Edit App
-            validate={validate}
             initialValues={initialValues}
             onSubmit={handleSubmitApp({ appId, dispatch })}
           >
