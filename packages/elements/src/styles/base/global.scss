@@ -9,6 +9,10 @@
 html {
   font-size: 16px !important;
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
+
+  &.is-desktop {
+    font-size: 14px !important;
+  }
 }
 
 body {

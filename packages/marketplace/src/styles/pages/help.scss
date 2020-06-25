@@ -1,10 +1,6 @@
 @import '../base/colors.scss';
 @import '../base/browser.scss';
 
-.wrapHelp {
-  background-color: $white;
-  padding: 1rem;
-}
 .wrapListItems {
   padding: 1rem;
   @include for-ie-only {

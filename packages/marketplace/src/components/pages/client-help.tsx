@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { history } from '@/core/router'
-import { H3, FlexContainerResponsive, FlexContainerBasic } from '@reapit/elements'
+import { H3, Section } from '@reapit/elements'
 import Routes from '@/constants/routes'
-import styles from '@/styles/pages/help.scss?mod'
 import welcomeImg from '@/assets/images/help/welcome-guide.jpg'
 import liveChatImg from '@/assets/images/help/live-chat.jpg'
 import { HelpItem, HelpItemList } from '@/components/ui/help-item-list'
@@ -32,14 +31,14 @@ export const helpItems: HelpItem[] = [
 
 export const ClientHelpPage: React.FC = () => {
   return (
-    <FlexContainerBasic hasPadding>
-      <FlexContainerResponsive flexColumn hasBackground hasPadding>
-        <div className={styles.wrapHelp}>
-          <H3>Help</H3>
-          <HelpItemList items={helpItems} />
-        </div>
-      </FlexContainerResponsive>
-    </FlexContainerBasic>
+    <>
+      <Section>
+        <H3 className="mb-0">Help</H3>
+      </Section>
+      <Section>
+        <HelpItemList items={helpItems} />
+      </Section>
+    </>
   )
 }
 

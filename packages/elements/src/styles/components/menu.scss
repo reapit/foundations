@@ -98,8 +98,27 @@ $nav-dimensions: 66px;
       height: 42px;
     }
   }
+}
 
-  &.is-desktop {
-    display: none;
+.nav-bar.is-desktop {
+  background-color: $grey-light;
+
+  li {
+    border: $grey-light 3px solid;
+    color: $grey;
+  }
+
+  li.is-active,
+  :hover {
+    color: $black;
+  }
+
+  li.is-active {
+    border-bottom: $black 3px solid;
+
+    @media screen and (min-width: 768px) {
+      border-bottom: $grey-light 3px solid;
+      border-left: $black 3px solid;
+    }
   }
 }

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { H5, GridItem, Grid } from '@reapit/elements'
+import { H5, GridItem, Grid, Section } from '@reapit/elements'
 import CostCalculatorForm, { CostCalculatorFormValues } from './cost-calculator-form'
 import TotalCostTable from './total-cost-table'
 
@@ -43,7 +43,7 @@ const CostCalculator: React.FC<CostCalculatorProps> = () => {
   const onClear = React.useCallback(handleOnClear(setEndpointsUsed, setApiCalls), [])
 
   return (
-    <>
+    <Section>
       <H5>Cost Calculator</H5>
       <Grid>
         <GridItem className="is-half-desktop">
@@ -66,7 +66,7 @@ const CostCalculator: React.FC<CostCalculatorProps> = () => {
         </GridItem>
       </Grid>
       <TotalCostTable formValues={formValues} />
-    </>
+    </Section>
   )
 }
 

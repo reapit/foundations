@@ -3,7 +3,7 @@ import dayjs from 'dayjs'
 import DefaultFilterGroup from './default-filter-group'
 import FilterForm from './filter-form'
 import { PagedResultAppSummaryModel_, AppSummaryModel, InstallationModel } from '@reapit/foundations-ts-definitions'
-import { DATE_TIME_FORMAT } from '@reapit/elements'
+import { DATE_TIME_FORMAT, Content } from '@reapit/elements'
 import { SANDBOX_CLIENT_ID } from '../../../../../constants/api'
 
 export type FilterBarProps = {
@@ -75,7 +75,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({ developerAppsData, install
   const clientIds = prepareClientIds(installationAppDataArray)
 
   return (
-    <>
+    <Content>
       <DefaultFilterGroup
         appIds={developerAppIds}
         clientIds={clientIds}
@@ -83,7 +83,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({ developerAppsData, install
         setDateTo={setDateTo}
       />
       <FilterForm initialValues={initialValues} developerApps={developerApps} clientIds={clientIds} />
-    </>
+    </Content>
   )
 }
 

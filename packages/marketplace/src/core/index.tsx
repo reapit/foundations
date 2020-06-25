@@ -9,6 +9,7 @@ import { getSessionCookie } from '@reapit/cognito-auth'
 import { COOKIE_SESSION_KEY_MARKETPLACE } from '../constants/api'
 import store from './store'
 import { authSetRefreshSession } from '../actions/auth'
+import { getMarketplaceGlobalsByKey } from '@reapit/elements'
 
 // Init global config
 window.reapit = {
@@ -36,7 +37,12 @@ window.reapit = {
 
 export const renderApp = (Component: React.ComponentType) => {
   const rootElement = document.querySelector('#root') as Element
+  const isDesktop = getMarketplaceGlobalsByKey()
+  const html = document.querySelector('html')
   const refreshSessionFromCookie = getSessionCookie(COOKIE_SESSION_KEY_MARKETPLACE, window.reapit.config.appEnv)
+  if (isDesktop && html) {
+    html.classList.add('is-desktop')
+  }
   if (refreshSessionFromCookie) {
     store.dispatch(authSetRefreshSession(refreshSessionFromCookie))
   }

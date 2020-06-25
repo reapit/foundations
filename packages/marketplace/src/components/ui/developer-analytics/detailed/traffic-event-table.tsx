@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Table, H5 } from '@reapit/elements'
+import { Table, H5, Section } from '@reapit/elements'
 import { TrafficEventsModel } from '@/reducers/app-http-traffic-event'
 
 export type TrafficEventTableProps = {
@@ -35,7 +35,7 @@ export const TrafficEventTable: React.FC<TrafficEventTableProps> = ({ trafficEve
   const trafficEventTableColumn = React.useMemo(prepareColumnsData(trafficEvents), [trafficEvents])
 
   return (
-    <>
+    <Section>
       <H5>Hits By Resource</H5>
       <p className="is-italic mb-4">
         A breakdown of the endpoints that your application(s) have sent requests to (grouped by resource)
@@ -48,7 +48,7 @@ export const TrafficEventTable: React.FC<TrafficEventTableProps> = ({ trafficEve
         loading={loading}
         maxHeight={450}
       />
-    </>
+    </Section>
   )
 }
 

@@ -10,7 +10,6 @@ export type AppListProps = {
   loading: boolean
   onCardClick?: (app: AppSummaryModel) => void
   onSettingsClick?: (app: AppSummaryModel) => void
-  title?: string
   infoType: InfoType
   hasSubmitButton?: boolean
 }
@@ -52,13 +51,10 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
   loading,
   onCardClick,
   onSettingsClick,
-  title,
   infoType,
-  hasSubmitButton = false,
 }) => {
   return (
     <div className="mb-4">
-      {renderHeader({ hasSubmitButton, title })}
       {!list.length && !loading ? (
         <Helper variant="info">
           {infoType

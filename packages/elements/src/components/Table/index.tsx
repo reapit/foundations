@@ -145,7 +145,7 @@ export const Table: React.FC<TableProps> = ({
 
   if (scrollable) {
     return (
-      <div className="table-container">
+      <div className="mb-4">
         <div style={{ maxHeight: maxHeight }}>{renderTable()}</div>
       </div>
     )

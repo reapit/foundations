@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { useHistory } from 'react-router'
-import { FlexContainerBasic } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { UnsupportBrowserPopUp } from '@/components/ui/unsupport-browser-pop-up'
 import { IFRAME_URLS } from '../../constants/iframe-urls'
@@ -17,18 +16,14 @@ const ApiDocsPage: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <FlexContainerBasic flexColumn hasPadding className="is-full-height">
-        <FlexContainerBasic className="container is-full-height">
-          {!isIE() && (
-            <iframe
-              style={{ border: 'none' }}
-              src={`${IFRAME_URLS.documentation}${parseIframeUrl(location.pathname, location.hash)}`}
-              width="100%"
-              height="100%"
-            />
-          )}
-        </FlexContainerBasic>
-      </FlexContainerBasic>
+      {!isIE() && (
+        <iframe
+          style={{ border: 'none', flexGrow: 1 }}
+          src={`${IFRAME_URLS.documentation}${parseIframeUrl(location.pathname, location.hash)}`}
+          width="100%"
+          height="100%"
+        />
+      )}
       <UnsupportBrowserPopUp
         unsupported={isIE()}
         // eslint-disable-next-line
