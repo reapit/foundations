@@ -911,6 +911,7 @@ export interface Appointments {
   end?: string
   includeCancelled?: boolean
   includeUnconfirmed?: boolean
+  metadata?: string[]
 }
 /**
  * Representation of an area that properties reside in, or applicants are looking to buy/rent in
@@ -991,6 +992,7 @@ export interface Companies {
   typeId?: string
   createdFrom?: string
   createdTo?: string
+  metadata?: string[]
 }
 /**
  * Representation of the physical address of a building or premise
@@ -1529,6 +1531,7 @@ export interface Contacts {
   active?: boolean
   createdFrom?: string
   createdTo?: string
+  metadata?: string[]
 }
 export interface Conveyancing {
   pageSize?: number
@@ -4312,6 +4315,7 @@ export interface Documents {
     | 'worksOrder'
   )[]
   typeId?: string[]
+  metadata?: string[]
 }
 export interface Enquiries {
   pageSize?: number
@@ -4626,6 +4630,7 @@ export interface IdentityChecks {
   checkDateTo?: string
   createdFrom?: string
   createdTo?: string
+  metadata?: string[]
 }
 /**
  * Representation of a single identity document that was provided as part of a contact identity check (eg. passport)
@@ -5095,6 +5100,7 @@ export interface Landlords {
   name?: string
   createdFrom?: string
   createdTo?: string
+  metadata?: string[]
 }
 export interface LinkModel {
   href?: string
@@ -5187,6 +5193,7 @@ export interface Negotiators {
   id?: string[]
   officeId?: string[]
   name?: string
+  metadata?: string[]
 }
 /**
  * Representation of the physical address of a building or premise
@@ -5485,6 +5492,7 @@ export interface Offers {
   amountTo?: number
   dateFrom?: string
   dateTo?: string
+  metadata?: string[]
 }
 /**
  * Representation of the physical address of a building or premise
@@ -5623,6 +5631,7 @@ export interface Offices {
   id?: string[]
   address?: string
   name?: string
+  metadata?: string[]
 }
 export interface PagedResultApplicantContactRelationshipModel_ {
   _embedded?: {
@@ -9392,6 +9401,7 @@ export interface Properties {
   internetAdvertising?: boolean
   modifiedFrom?: string
   modifiedTo?: string
+  metadata?: string[]
 }
 /**
  * Representation of the physical address of a building or premise
@@ -9559,6 +9569,7 @@ export interface PropertyImages {
   embed?: 'property'[]
   propertyId?: string[]
   type?: ('photograph' | 'map' | 'floorPlan' | 'epc')[]
+  metadata?: string[]
 }
 /**
  * Representation of the internal dimensions of a property
@@ -10273,6 +10284,7 @@ export interface Tasks {
   activatesTo?: string
   createdFrom?: string
   createdTo?: string
+  metadata?: string[]
 }
 export interface Tenancies {
   pageSize?: number
@@ -13254,6 +13266,7 @@ export interface Vendors {
   lastCallTo?: string
   nextCallFrom?: string
   nextCallTo?: string
+  metadata?: string[]
 }
 /**
  * Representation of a works order item
@@ -13512,4 +13525,5 @@ export interface WorksOrders {
   createdTo?: string
   requiredFrom?: string
   requiredTo?: string
+  metadata?: string[]
 }
