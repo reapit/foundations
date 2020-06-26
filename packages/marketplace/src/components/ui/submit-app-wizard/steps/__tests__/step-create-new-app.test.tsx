@@ -9,18 +9,20 @@ jest.mock('formik', () => ({
 
 import { formFields } from '../../form-fields'
 
-const { authFlowField } = formFields
+const { authFlowField, directApiField } = formFields
 
 describe('StepCreateNewApp', () => {
   it('should match snapshot', () => {
-    const wrapper = shallow(<StepCreateNewApp afterClose={jest.fn()} setWizardStep={jest.fn()} />)
+    const wrapper = shallow(<StepCreateNewApp setWizardStep={jest.fn()} />)
     expect(wrapper).toMatchSnapshot()
   })
   test('onLauchWithinAgencyCloud should run correctly', () => {
     const setWizardStep = jest.fn()
     const setFieldValue = jest.fn()
     onLauchWithinAgencyCloud(setWizardStep, setFieldValue)()
-    expect(setFieldValue).toBeCalledWith(authFlowField.name, 'Authorisation Code')
+
+    expect(setFieldValue).toHaveBeenNthCalledWith(1, authFlowField.name, 'authorisationCode')
+    expect(setFieldValue).toHaveBeenNthCalledWith(2, directApiField.name, false)
     expect(setWizardStep).toBeCalledWith('INPUT_AUTHENTICATION_URIS')
   })
   test('onPrev should run correctly', () => {

@@ -1,8 +1,92 @@
-import { fetcher, FetchError, fetcherWithBlob } from '../fetcher'
+import { fetcher, FetchError, fetcherWithBlob, fetcherWithReturnHeader, fetcherWithRawlUrl } from '../fetcher'
 
 const stub = {
   name: 'bob',
 }
+
+describe('fetcherWithRawlUrl', () => {
+  it('fetches and returns data if status code is less than 400', async () => {
+    window.fetch = jest.fn().mockReturnValue({
+      status: 200,
+      blob: () => stub,
+      headers: { key: 'val' },
+    })
+
+    const params = {
+      url: 'some-url',
+      method: 'GET' as any,
+      headers: {},
+    }
+    const response = await fetcherWithRawlUrl(params)
+
+    expect(response).toEqual({ key: 'val' })
+  })
+
+  it('fetches and catches an error if status code is over 400', async () => {
+    ;(console.error as any) = jest.fn()
+    window.fetch = jest.fn().mockReturnValue({
+      status: 400,
+    })
+
+    const params = {
+      url: 'some-url',
+      method: 'GET' as any,
+      headers: {},
+    }
+
+    try {
+      const response = await fetcherWithRawlUrl(params)
+      expect(response).toBeUndefined()
+    } catch (err) {
+      expect(err).toBeInstanceOf(FetchError)
+    }
+
+    expect(console.error).toHaveBeenCalledWith(`ERROR FETCHING ${params.method} ${params.url} {"status":400}`)
+  })
+})
+
+describe('fetcherWithReturnHeader', () => {
+  it('fetches and returns data if status code is less than 400', async () => {
+    window.fetch = jest.fn().mockReturnValue({
+      status: 200,
+      blob: () => stub,
+      headers: { key: 'val' },
+    })
+
+    const fetcherWithReturnHeaderParams = {
+      api: 'http://some-api/',
+      url: 'some-url',
+      method: 'GET' as any,
+      headers: {},
+    }
+    const response = await fetcherWithReturnHeader(fetcherWithReturnHeaderParams)
+
+    expect(response).toEqual({ key: 'val' })
+  })
+
+  it('fetches and catches an error if status code is over 400', async () => {
+    ;(console.error as any) = jest.fn()
+    window.fetch = jest.fn().mockReturnValue({
+      status: 400,
+    })
+
+    const url = '/some-url'
+    const api = 'http://some-api/'
+    try {
+      const response = await fetcherWithReturnHeader({
+        api,
+        url,
+        method: 'GET',
+        headers: {},
+      })
+      expect(response).toBeUndefined()
+    } catch (err) {
+      expect(err).toBeInstanceOf(FetchError)
+    }
+
+    expect(console.error).toHaveBeenCalledWith(`ERROR FETCHING GET ${api}${url} {"status":400}`)
+  })
+})
 
 describe('fetcherWithBob', () => {
   it('fetches and returns data if status code is less than 400', async () => {

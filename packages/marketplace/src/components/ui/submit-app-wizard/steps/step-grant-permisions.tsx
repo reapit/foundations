@@ -1,19 +1,26 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { ModalBody, Button, DropdownSelect, ModalFooter, H4, SelectOption } from '@reapit/elements'
-import { WizardStepComponent, SetWizardStep } from '../types'
+import { WizardStepComponent, SetWizardStep, AuthFlow } from '../types'
 import { formFields } from '../form-fields'
 import { useFormikContext } from 'formik'
-import { selectSubmitAppScopes } from '@/selector/submit-app'
+import { selectSubmitAppScopes, selectSubmitAppFormState } from '@/selector/submit-app'
 import { ScopeModel } from '@/types/marketplace-api-schema'
+import { CustomCreateAppModel } from '@/actions/submit-app'
+import { ValidateFormikOnMount } from '../utils'
 
-const { scopesField } = formFields
+const { scopesField, authFlowField } = formFields
 
-export const onNext = (setWizardStep: SetWizardStep) => () => {
-  setWizardStep('SUBMIT_APP_SUCCESS')
-}
-export const onPrev = (setWizardStep: SetWizardStep) => () => {
-  setWizardStep('BEFORE_YOU_START')
+export const onPrev = (setWizardStep: SetWizardStep, authFlow: AuthFlow) => () => {
+  // flow 3: step 5 - https://github.com/reapit/foundations/issues/1785
+  if (authFlow === 'clientCredentials') {
+    setWizardStep('INPUT_ATHENTICATION_TYPE')
+    return
+  }
+
+  // flow 1 - step 6: https://github.com/reapit/foundations/issues/1799
+  // flow 2 step 5: https://github.com/reapit/foundations/issues/1799
+  setWizardStep('INPUT_AUTHENTICATION_URIS')
 }
 
 export const preprareScopeOptions: (scopes: ScopeModel[]) => SelectOption[] = scopes =>
@@ -27,14 +34,19 @@ export const preprareScopeOptions: (scopes: ScopeModel[]) => SelectOption[] = sc
   })
 
 export const StepGrantPermissions: WizardStepComponent = ({ setWizardStep }) => {
-  const { isValid } = useFormikContext()
+  const { values } = useFormikContext<CustomCreateAppModel>()
+  const formState = useSelector(selectSubmitAppFormState)
+  const authFlow = values[authFlowField.name] as AuthFlow
 
   const scopes = useSelector(selectSubmitAppScopes)
 
   const scopeOptions = preprareScopeOptions(scopes)
 
+  const isSubmitting = formState === 'SUBMITTING'
+
   return (
     <>
+      <ValidateFormikOnMount />
       <ModalBody
         body={
           <div>
@@ -56,8 +68,10 @@ export const StepGrantPermissions: WizardStepComponent = ({ setWizardStep }) => 
       <ModalFooter
         footerItems={
           <>
-            <Button onClick={onPrev(setWizardStep)}>Back</Button>
-            <Button disabled={!isValid} onClick={onNext(setWizardStep)}>
+            <Button disabled={isSubmitting} onClick={onPrev(setWizardStep, authFlow)}>
+              Back
+            </Button>
+            <Button loading={isSubmitting} disabled={isSubmitting} type="submit">
               Next
             </Button>
           </>

@@ -16,13 +16,18 @@ import { errorThrownServer } from '@/actions/error'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { appSubmitStubWithActions, appSubmitStub } from '../__stubs__/apps-submit'
+import { appDetailDataStub } from '../__stubs__/app-detail'
 import { appCategorieStub } from '../__stubs__/app-categories'
 import { ScopeModel, PagedResultCategoryModel_ } from '@reapit/foundations-ts-definitions'
 import { fetchScopesList } from '@/services/scopes'
-import { createApp } from '@/services/apps'
+import { createApp, fetchAppByIdByRawUrl } from '@/services/apps'
 import { fetchCategoriesList } from '@/services/categories'
 import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
 import { selectDeveloperId } from '@/selector/auth'
+import { Saga } from 'redux-saga'
+import { formFields } from '@/components/ui/submit-app-wizard/form-fields'
+
+const { externalIdFields } = formFields
 
 jest.mock('@/services/upload')
 jest.mock('@/services/scopes')
@@ -31,17 +36,21 @@ jest.mock('@/services/categories')
 jest.mock('@/services/desktop-integration-types')
 jest.mock('@reapit/elements')
 
-export const params: Action<SubmitAppArgs> = { data: appSubmitStubWithActions.data, type: 'DEVELOPER_SUBMIT_APP' }
+export const params: Action<SubmitAppArgs> = {
+  data: appSubmitStubWithActions.data,
+  type: 'DEVELOPER_SUBMIT_APP',
+}
 
+const castSagas = (submitAppSaga as unknown) as Saga<any>
 describe('submit-app post data', () => {
-  const gen = cloneableGenerator(submitAppSaga)(params)
+  const gen = cloneableGenerator(castSagas)(params)
 
   expect(gen.next().value).toEqual(put(submitAppSetFormState('SUBMITTING')))
   expect(gen.next().value).toEqual(select(selectDeveloperId))
   expect(gen.next('id').value).toEqual(call(createApp, { ...appSubmitStub.data, developerId: 'id' }))
 
   test('api call fail if cant select developer id', () => {
-    const internalGen = cloneableGenerator(submitAppSaga)(params)
+    const internalGen = cloneableGenerator(castSagas)(params)
 
     expect(internalGen.next().value).toEqual(put(submitAppSetFormState('SUBMITTING')))
     expect(internalGen.next().value).toEqual(select(selectDeveloperId))
@@ -59,6 +68,15 @@ describe('submit-app post data', () => {
 
   test('api call success', () => {
     const clone = gen.clone()
+    const mockLocationHeader = 'url'
+    const mockHeaders = { get: (param: string) => param }
+
+    expect(clone.next(mockHeaders).value).toEqual(call(mockHeaders.get, 'location'))
+    expect(clone.next(mockLocationHeader).value).toEqual(call(fetchAppByIdByRawUrl, mockLocationHeader))
+    expect(clone.next(appDetailDataStub.data).value).toEqual(
+      call(params.data.setFieldValue, externalIdFields.name, appDetailDataStub.data.externalId),
+    )
+    expect(clone.next().value).toEqual(call(params.data.setWizardStep, 'SUBMIT_APP_SUCCESS'))
     expect(clone.next().value).toEqual(put(submitAppSetFormState('SUCCESS')))
     expect(clone.next().done).toBe(true)
   })
@@ -67,6 +85,40 @@ describe('submit-app post data', () => {
     const clone = gen.clone()
     if (!clone.throw) throw new Error('Generator object cannot throw')
     expect(clone.throw('Call API Failed').value).toEqual(put(submitAppSetFormState('ERROR')))
+    expect(clone.next().value).toEqual(
+      put(
+        errorThrownServer({
+          type: 'SERVER',
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
+    )
+    expect(clone.next().done).toBe(true)
+  })
+
+  test('api call fail when create app response header not contain location field', () => {
+    const clone = gen.clone()
+    const mockHeaders = { get: (param: string) => param }
+
+    expect(clone.next(mockHeaders).value).toEqual(call(mockHeaders.get, 'location'))
+    expect(clone.next().value).toEqual(put(submitAppSetFormState('ERROR')))
+    expect(clone.next().value).toEqual(
+      put(
+        errorThrownServer({
+          type: 'SERVER',
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
+    )
+  })
+  test('api call fail when fetch detail app response is empty', () => {
+    const clone = gen.clone()
+    const mockLocationHeader = 'url'
+    const mockHeaders = { get: (param: string) => param }
+
+    expect(clone.next(mockHeaders).value).toEqual(call(mockHeaders.get, 'location'))
+    expect(clone.next(mockLocationHeader).value).toEqual(call(fetchAppByIdByRawUrl, mockLocationHeader))
+    expect(clone.next().value).toEqual(put(submitAppSetFormState('ERROR')))
     expect(clone.next().value).toEqual(
       put(
         errorThrownServer({

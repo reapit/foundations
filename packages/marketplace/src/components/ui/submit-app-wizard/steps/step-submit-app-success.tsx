@@ -3,9 +3,20 @@ import { CustomCreateAppModel } from '@/actions/submit-app'
 import { ModalBody, Button, ModalFooter, H4, H5 } from '@reapit/elements'
 import { WizardStepComponent } from '../types'
 import { useFormikContext } from 'formik'
+import { Dispatch } from 'redux'
+import { useDispatch } from 'react-redux'
+import { developerRequestData } from '@/actions/developer'
+
+export const onFinnish = (dispatch: Dispatch) => () => {
+  // refetch developer-app-detail
+  const queryParams = new URLSearchParams(window.location.search)
+  const page = queryParams.get('page') ? Number(queryParams.get('page')) : 1
+  dispatch(developerRequestData({ page }))
+}
 
 export const StepSubmitAppSuccess: WizardStepComponent = () => {
   const { values } = useFormikContext<CustomCreateAppModel>()
+  const dispatch = useDispatch()
 
   return (
     <>
@@ -29,7 +40,7 @@ export const StepSubmitAppSuccess: WizardStepComponent = () => {
           </div>
         }
       />
-      <ModalFooter footerItems={<Button type="submit">Finish</Button>} />
+      <ModalFooter footerItems={<Button onClick={onFinnish(dispatch)}>Finish</Button>} />
     </>
   )
 }

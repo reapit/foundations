@@ -6,7 +6,7 @@ import { shallow } from 'enzyme'
 
 describe('StepBeforeYouStart', () => {
   it('should match snapshot', () => {
-    const wrapper = shallow(<StepBeforeYouStart afterClose={jest.fn()} setWizardStep={jest.fn()} />)
+    const wrapper = shallow(<StepBeforeYouStart setWizardStep={jest.fn()} />)
     expect(wrapper).toMatchSnapshot()
   })
   test('onViewDocs should run correctly', () => {

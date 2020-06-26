@@ -1,4 +1,5 @@
 import React from 'react'
+import { ValidateFormikOnMount } from '../utils'
 import { ModalBody, Button, Input, ModalFooter } from '@reapit/elements'
 import { WizardStepComponent, SetWizardStep } from '../types'
 import { formFields } from '../form-fields'
@@ -18,6 +19,7 @@ export const StepInputAppName: WizardStepComponent = ({ setWizardStep }) => {
 
   return (
     <>
+      <ValidateFormikOnMount />
       <ModalBody
         body={
           <div>
