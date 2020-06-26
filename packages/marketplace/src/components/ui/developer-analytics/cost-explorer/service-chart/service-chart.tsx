@@ -4,18 +4,13 @@ import { H4, FlexContainerResponsive, DATE_TIME_FORMAT, Loader } from '@reapit/e
 import { AppSummaryModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
 import styles from '@/styles/pages/developer-analytics.scss?mod'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-  selectDeveloperApps,
-  selectMyIdentity,
-  selectBilling,
-  selectDeveloperLoading,
-  selectIsServiceChartLoading,
-} from '@/selector'
+import { selectMyIdentity, selectBilling, selectDeveloperLoading, selectIsServiceChartLoading } from '@/selector'
 import { fetchBilling } from '@/actions/developer'
 import dayjs from 'dayjs'
 import { Billing } from '@/reducers/developer'
 import { Dispatch } from 'redux'
 import { BillingOverviewForPeriodV2Model } from '@reapit/foundations-ts-definitions'
+import { selectDeveloperId } from '@/selector/auth'
 
 export const datasets = [
   {
@@ -88,17 +83,14 @@ export type StateProps = {
 }
 
 export type HandleUseEffectParams = {
-  myAppIds: string[]
+  developerId: string
   dateFrom: string
   dateTo: string
   dispatch: Dispatch
 }
 
-export const handleUseEffect = ({ myAppIds, dateFrom, dateTo, dispatch }: HandleUseEffectParams) => () => {
-  const isHaveDeveloperApps = myAppIds.length > 0
-  if (isHaveDeveloperApps) {
-    dispatch(fetchBilling({ applicationId: myAppIds, dateFrom: dateFrom, dateTo: dateTo }))
-  }
+export const handleUseEffect = ({ developerId, dateFrom, dateTo, dispatch }: HandleUseEffectParams) => () => {
+  dispatch(fetchBilling({ developerId, dateFrom: dateFrom, dateTo: dateTo }))
 }
 
 export const renderChart = (isLoading: boolean, datasets: ChartData<any>) => {
@@ -129,16 +121,15 @@ export const renderChart = (isLoading: boolean, datasets: ChartData<any>) => {
 
 export const ServiceChart: React.FC = () => {
   const dispatch = useDispatch()
-  const myApps = useSelector(selectDeveloperApps)
   const myIdentity = useSelector(selectMyIdentity)
   const billing = useSelector(selectBilling)
   const loading = useSelector(selectDeveloperLoading)
   const isServiceChartLoading = useSelector(selectIsServiceChartLoading)
+  const developerId = useSelector(selectDeveloperId)
 
-  const myAppIds = myApps.map((item: AppSummaryModel) => item.id) as string[]
   const dateFrom = dayjs(myIdentity.created).format(DATE_TIME_FORMAT.YYYY_MM) as string
   const dateTo = dayjs().format(DATE_TIME_FORMAT.YYYY_MM)
-  React.useEffect(handleUseEffect({ myAppIds, dateFrom, dateTo, dispatch }), [myIdentity.id, myApps.length])
+  React.useEffect(handleUseEffect({ developerId, dateFrom, dateTo, dispatch }), [myIdentity.id, developerId])
   const datasets = mapServiceChartDataSet(billing)
   const isLoading = loading || isServiceChartLoading
   return (

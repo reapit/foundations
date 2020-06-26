@@ -6,8 +6,7 @@ import CostExplorerTable from './cost-explorer-table'
 import { useDispatch, useSelector } from 'react-redux'
 import { Dispatch } from 'redux'
 import { fetchMonthlyBilling } from '@/actions/developer'
-import { selectDeveloperApps } from '@/selector/developer'
-import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
+import { selectDeveloperId } from '@/selector/auth'
 
 export type CostExplorerProps = {}
 
@@ -26,44 +25,38 @@ export const prepareFilterFormInitialValues = (createdMonth: string) => {
 interface HandleOnSave {
   setCreatedMonth: (createdMonth: string) => void
   dispatch: Dispatch
-  myAppIds: string[]
+  developerId: string
 }
 
-export const handleOnSave = ({ setCreatedMonth, dispatch, myAppIds }: HandleOnSave) => {
+export const handleOnSave = ({ setCreatedMonth, dispatch, developerId }: HandleOnSave) => {
   return (values: CostFilterFormValues) => {
     const { createdMonth } = values
     setCreatedMonth(createdMonth)
     const month = dayjs(createdMonth).format(DATE_TIME_FORMAT.YYYY_MM)
-    dispatch(fetchMonthlyBilling({ month, applicationId: myAppIds }))
+    dispatch(fetchMonthlyBilling({ month, developerId }))
   }
 }
 
 interface HandleFetchMonthlyBilling {
   month: string
-  applicationIds: string[]
+  developerId: string
   dispatch: Dispatch
 }
 
-export const handleFetchMonthlyBilling = ({ dispatch, month, applicationIds }: HandleFetchMonthlyBilling) => () => {
-  const isHaveDeveloperApps = applicationIds.length > 0
-  if (isHaveDeveloperApps) {
-    dispatch(fetchMonthlyBilling({ month, applicationId: applicationIds }))
-  }
+export const handleFetchMonthlyBilling = ({ dispatch, month, developerId }: HandleFetchMonthlyBilling) => () => {
+  dispatch(fetchMonthlyBilling({ month, developerId }))
 }
 
 const CostExplorer: React.FC<CostExplorerProps> = () => {
   const dispatch = useDispatch()
-  const myApps = useSelector(selectDeveloperApps)
-  const myAppIds = myApps.map((item: AppSummaryModel) => item.id) as string[]
+  const developerId = useSelector(selectDeveloperId)
 
   const [createdMonth, setCreatedMonth] = React.useState(dayjs().format(DATE_TIME_FORMAT.YYYY_MM))
   const initialValues = React.useMemo(prepareFilterFormInitialValues(createdMonth), [createdMonth])
 
-  React.useEffect(handleFetchMonthlyBilling({ month: createdMonth, applicationIds: myAppIds, dispatch }), [
-    myApps.length,
-  ])
+  React.useEffect(handleFetchMonthlyBilling({ month: createdMonth, developerId, dispatch }), [developerId])
 
-  const onSave = React.useCallback(handleOnSave({ setCreatedMonth, dispatch, myAppIds }), [myAppIds, dispatch])
+  const onSave = React.useCallback(handleOnSave({ setCreatedMonth, dispatch, developerId }), [developerId, dispatch])
 
   return (
     <>

@@ -65,10 +65,10 @@ describe('developer actions', () => {
 
   it('should create a fetchBilling action', () => {
     expect(fetchBilling.type).toEqual(ActionTypes.DEVELOPER_FETCH_BILLING)
-    expect(fetchBilling({ dateFrom: '2020-01', dateTo: '2020-05', applicationId: ['123'] }).data).toEqual({
+    expect(fetchBilling({ dateFrom: '2020-01', dateTo: '2020-05', developerId: 'developerId' }).data).toEqual({
       dateFrom: '2020-01',
       dateTo: '2020-05',
-      applicationId: ['123'],
+      developerId: 'developerId',
     })
   })
 

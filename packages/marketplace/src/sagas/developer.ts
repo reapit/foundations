@@ -125,7 +125,7 @@ export const fetchBillingSagas = function*({ data }: Action<FetchBillingsParams>
 
 export const fetchMonthlyBillingSagas = function*({ data }: Action<FetchBillingsByMonthParams>) {
   try {
-    const billingResponse = yield call(fetchBillingsByMonth, { ...data, applicationId: data.applicationId })
+    const billingResponse = yield call(fetchBillingsByMonth, data)
     yield put(fetchMonthlyBillingSuccess(billingResponse))
   } catch (err) {
     logger(err)
