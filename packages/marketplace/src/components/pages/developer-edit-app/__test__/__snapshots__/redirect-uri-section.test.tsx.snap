@@ -5,7 +5,8 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
   <Component>
     <Component>
       <Component>
-        Redirect URI(s) 
+        Redirect URI(s)
+         
         *
       </Component>
       <Component>
@@ -25,7 +26,8 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
   <Component>
     <Component>
       <Component>
-        Sign Out URI(s) 
+        Sign Out URI(s)
+         
         *
       </Component>
       <Component>

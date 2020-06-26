@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { FormSection, FormHeading, FormSubHeading, Grid, GridItem, Input, RadioSelect } from '@reapit/elements'
 import { formFields } from './form-schema/form-fields'
-import { sortAppByDateInstalled } from '@/components/ui/developer-analytics/detailed/installation-app-section'
 
 const { redirectUris, signoutUris, limitToClientIds, isPrivateApp: isPrivateAppForm } = formFields
 

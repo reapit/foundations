@@ -16,6 +16,13 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
         name="isDirectApi"
       />
     </Component>
+    <Component>
+      <Component
+        id="isListed"
+        labelText="Is Listed"
+        name="isListed"
+      />
+    </Component>
   </Component>
 </Component>
 `;

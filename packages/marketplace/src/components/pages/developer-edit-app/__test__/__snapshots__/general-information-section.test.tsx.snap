@@ -225,7 +225,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                     >
                       <Component
                         dataTest="submit-app-phone"
-                        id="phone"
+                        id="telephone"
                         labelText="Telephone"
                         name="telephone"
                         placeholder="Should one of our developers need to contact you about your app"
@@ -244,7 +244,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                             >
                               <label
                                 className="label inline-block required-label"
-                                htmlFor="phone"
+                                htmlFor="telephone"
                               >
                                 Telephone
                               </label>
@@ -252,7 +252,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                                 className="input is-primary"
                                 data-test="submit-app-phone"
                                 disabled={false}
-                                id="phone"
+                                id="telephone"
                                 name="telephone"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -328,7 +328,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                     >
                       <Component
                         dataTest="submit-app-launch-uri"
-                        id="launch Url"
+                        id="launchUri"
                         labelText="Launch URI"
                         name="launchUri"
                         placeholder="The launch page for your app. HTTPS only other than for http://localhost"
@@ -347,7 +347,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                             >
                               <label
                                 className="label inline-block required-label"
-                                htmlFor="launch Url"
+                                htmlFor="launchUri"
                               >
                                 Launch URI
                               </label>
@@ -355,7 +355,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                                 className="input is-primary"
                                 data-test="submit-app-launch-uri"
                                 disabled={false}
-                                id="launch Url"
+                                id="launchUri"
                                 name="launchUri"
                                 onBlur={[Function]}
                                 onChange={[Function]}
