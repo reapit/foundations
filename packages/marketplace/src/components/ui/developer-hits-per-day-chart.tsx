@@ -14,7 +14,7 @@ export const renderChart = appHttpTrafficPerDayChartData => {
   const chartData = getChartConfig(labels, data)
   const chartOptions = getChartOptions(chartDataStats)
   return (
-    <Section>
+    <Section hasMargin={false}>
       <H5>Hits Per Day</H5>
       <Line data={chartData} options={chartOptions} />
     </Section>

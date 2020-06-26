@@ -51,16 +51,14 @@ exports[`ContactInformationForm should match snapshot 1`] = `
         />
       </Component>
     </Component>
-    <Component>
-      <Component
-        dataTest="save-changes"
-        disabled={true}
-        loading={false}
-        type="submit"
-        variant="primary"
-      >
-        Save Changes
-      </Component>
+    <Component
+      dataTest="save-changes"
+      disabled={true}
+      loading={false}
+      type="submit"
+      variant="primary"
+    >
+      Save Changes
     </Component>
   </Form>
 </Component>
@@ -117,16 +115,14 @@ exports[`ContactInformationForm should match snapshot 2`] = `
         />
       </Component>
     </Component>
-    <Component>
-      <Component
-        dataTest="save-changes"
-        disabled={true}
-        loading={true}
-        type="submit"
-        variant="primary"
-      >
-        Save Changes
-      </Component>
+    <Component
+      dataTest="save-changes"
+      disabled={true}
+      loading={true}
+      type="submit"
+      variant="primary"
+    >
+      Save Changes
     </Component>
   </Form>
 </Component>

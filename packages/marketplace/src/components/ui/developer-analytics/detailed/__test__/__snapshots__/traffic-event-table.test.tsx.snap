@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TrafficEventTable should match snapshot 1`] = `
-<Component>
+<Component
+  hasMargin={false}
+>
   <Component>
     Hits By Resource
   </Component>
@@ -48,7 +50,9 @@ exports[`TrafficEventTable should match snapshot 1`] = `
 `;
 
 exports[`TrafficEventTable should match snapshot if data is empty 1`] = `
-<Component>
+<Component
+  hasMargin={false}
+>
   <Component>
     Hits By Resource
   </Component>
@@ -84,7 +88,9 @@ exports[`TrafficEventTable should match snapshot if data is empty 1`] = `
 `;
 
 exports[`TrafficEventTable should match snapshot when loading 1`] = `
-<Component>
+<Component
+  hasMargin={false}
+>
   <Component>
     Hits By Resource
   </Component>

@@ -80,8 +80,8 @@ export const DeveloperAnalyticsPage: React.FC<DeveloperAnalyticsPageProps> = () 
       </Section>
       <Section>
         <Tabs tabConfigs={tabConfigs({ currentTab, history })} />
-        <div>{renderTabContent(currentTab)}</div>
       </Section>
+      {renderTabContent(currentTab)}
     </ErrorBoundary>
   )
 }

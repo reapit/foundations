@@ -12,7 +12,7 @@ import { getAppUsageStats, getAppHttpTraffic } from '@/selector/analytics'
 import { selectDeveloper } from '@/selector/developer'
 import { getInstallations } from '@/selector/installations'
 
-import { Grid, GridItem, DATE_TIME_FORMAT } from '@reapit/elements'
+import { Grid, GridItem, DATE_TIME_FORMAT, Section } from '@reapit/elements'
 import DeveloperHitsPerDayChart from '@/components/ui/developer-hits-per-day-chart'
 import InstallationAppSection, { InstallationModelWithAppName } from './installation-app-section'
 import FilterBar from './filter-bar'
@@ -163,7 +163,9 @@ export const DetailedTab: React.FC<DetailedTabProps> = () => {
 
   return (
     <ErrorBoundary>
-      <FilterBar developerAppsData={developerAppsData} installationAppDataArray={installationAppDataArray || []} />
+      <Section>
+        <FilterBar developerAppsData={developerAppsData} installationAppDataArray={installationAppDataArray || []} />
+      </Section>
       <Grid className="mb-4" isMultiLine>
         <GridItem className="is-half">
           <DeveloperHitsPerDayChart stats={appHttpTrafficPerDayData} loading={appHttpTrafficPerDayLoading} />

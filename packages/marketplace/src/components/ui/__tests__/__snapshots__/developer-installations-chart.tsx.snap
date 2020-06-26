@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DeveloperInstallationsChart should match a snapshot 1`] = `
-<Component>
+<Component
+  hasMargin={false}
+>
   <Component>
-    Installations
+    Installations By Day
   </Component>
   <Line
     data={

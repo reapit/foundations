@@ -11,7 +11,7 @@ export type CostExplorerTabProps = {}
 export const CostExplorerTab: React.FC<CostExplorerTabProps> = () => {
   return (
     <ErrorBoundary>
-      <Grid isMultiLine className="is-variable is-8">
+      <Grid isMultiLine>
         <GridItem className="is-half">
           <ServiceChart />
         </GridItem>

@@ -110,7 +110,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                       >
                         <Component>
                           <div
-                            className="form-section mb-4 "
+                            className="form-section "
                           >
                             <Component>
                               <div

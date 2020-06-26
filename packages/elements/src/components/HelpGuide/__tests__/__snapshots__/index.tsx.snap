@@ -2,9 +2,16 @@
 
 exports[`HelpGuide HelpGuide.Step should match a snapshot 1`] = `
 <Fragment>
-  <Component />
-  <Component />
-  <Component>
+  <Component
+    hasMargin={false}
+  >
+    <Component />
+    <Component />
+  </Component>
+  <Component
+    hasMargin={false}
+    isFlex={true}
+  >
     <component />
   </Component>
 </Fragment>
@@ -41,6 +48,7 @@ exports[`HelpGuide should match a snapshot 1`] = `
 >
   <Component
     className=""
+    hasMargin={false}
     isFlex={true}
     isFlexColumn={false}
   >

@@ -42,7 +42,7 @@ export const SelectBox = ({
                   {labelText}
                 </label>
               )}
-              {helpText && <i>{helpText}</i>}
+              {helpText && <i className="mb-2 inline-block">{helpText}</i>}
               <select data-test={dataTest} className={calculatedClassName} {...field} value={field.value || ''}>
                 {options.map(({ label, value }) => (
                   <option key={value} value={value}>

@@ -101,10 +101,11 @@ $nav-dimensions: 66px;
 }
 
 .nav-bar.is-desktop {
-  background-color: $grey-light;
+  background-color: $grey-lightest;
+  border-right: 2px $grey-light solid;
 
   li {
-    border: $grey-light 3px solid;
+    border: $grey-lightest 3px solid;
     color: $grey;
   }
 
@@ -117,7 +118,7 @@ $nav-dimensions: 66px;
     border-bottom: $black 3px solid;
 
     @media screen and (min-width: 768px) {
-      border-bottom: $grey-light 3px solid;
+      border-bottom: $grey-lightest 3px solid;
       border-left: $black 3px solid;
     }
   }

@@ -134,10 +134,10 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
                       data-test=""
                     >
                       <Component
-                        className="mb-0"
+                        className=""
                       >
                         <h3
-                          className="title is-3 mb-0 "
+                          className="title is-3  "
                           id=""
                         >
                           Installed Apps

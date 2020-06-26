@@ -16,6 +16,7 @@ import {
   Helper,
   infoText,
 } from '@reapit/elements'
+import { cx } from 'linaria'
 
 export type InstalledAppListProps = {
   list: AppSummaryModel[]
@@ -70,7 +71,7 @@ export const InstalledAppList: React.FC<InstalledAppListProps> = ({
   return (
     <FlexContainerBasic flexColumn>
       <Section>
-        <H3 className="mb-0">Installed Apps</H3>
+        <H3 className={cx('mb-0', isMobile() && 'text-center')}>Installed Apps</H3>
       </Section>
       {!list.length && !loading ? (
         <Helper variant="info">

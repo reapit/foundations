@@ -40,9 +40,7 @@ exports[`AnalyticsPage should match a snapshot 1`] = `
         ]
       }
     />
-    <div>
-      <Component />
-    </div>
   </Component>
+  <Component />
 </Connect(ErrorBoundary)>
 `;

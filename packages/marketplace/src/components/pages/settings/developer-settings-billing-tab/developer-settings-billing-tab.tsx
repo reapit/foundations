@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FlexContainerResponsive, Content, FlexContainerBasic, H3 } from '@reapit/elements'
+import { Section } from '@reapit/elements'
 import { Tabs } from '../tabs'
 import AccountsInformationForm from './accounts-information-form'
 import { Redirect } from 'react-router-dom'
@@ -25,22 +25,15 @@ const DevelperSettingsBillingTabPage: React.FC<{}> = () => {
   }
 
   return (
-    <FlexContainerBasic flexColumn hasPadding>
-      <Content>
-        <FlexContainerResponsive flexColumn hasBackground hasPadding>
-          <Tabs />
-          <Content>
-            <FlexContainerResponsive flexColumn hasBackground hasPadding>
-              <H3>Accounts Information</H3>
-              <AccountsInformationForm />
-            </FlexContainerResponsive>
-            <FlexContainerResponsive flexColumn hasBackground hasPadding>
-              <Subcriptions />
-            </FlexContainerResponsive>
-          </Content>
-        </FlexContainerResponsive>
-      </Content>
-    </FlexContainerBasic>
+    <>
+      <Section>
+        <Tabs />
+        <AccountsInformationForm />
+      </Section>
+      <Section>
+        <Subcriptions />
+      </Section>
+    </>
   )
 }
 

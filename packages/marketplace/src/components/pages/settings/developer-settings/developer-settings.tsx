@@ -1,17 +1,19 @@
 import * as React from 'react'
 import { selectIsAdmin, selectLoginIdentity } from '@/selector/auth'
 import { useSelector } from 'react-redux'
-import { Loader, FlexContainerResponsive, Content, FlexContainerBasic } from '@reapit/elements'
+import { Loader, Section } from '@reapit/elements'
 import { Forms } from './forms/forms'
 import { Tabs } from '../tabs'
 
 export const renderPageContent = ({ isProd, isAdmin }: { isProd: Boolean; isAdmin: Boolean }) => {
   if (isAdmin && !isProd) {
     return (
-      <div>
-        <Tabs />
+      <>
+        <Section>
+          <Tabs />
+        </Section>
         <Forms />
-      </div>
+      </>
     )
   }
 
@@ -35,15 +37,7 @@ const DevelperSettingsPage: React.FC = () => {
     return <Loader />
   }
 
-  return (
-    <FlexContainerBasic flexColumn hasPadding>
-      <Content>
-        <FlexContainerResponsive flexColumn hasBackground hasPadding>
-          {renderPageContent({ isAdmin, isProd })}
-        </FlexContainerResponsive>
-      </Content>
-    </FlexContainerBasic>
-  )
+  return renderPageContent({ isAdmin, isProd })
 }
 
 export default DevelperSettingsPage

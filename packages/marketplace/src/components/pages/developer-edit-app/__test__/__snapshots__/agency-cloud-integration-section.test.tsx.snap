@@ -26,7 +26,7 @@ exports[`AgencyCloudIntegrationSection should match a snapshot 1`] = `
         <AgencyCloudIntegrationSection>
           <Component>
             <div
-              className="form-section mb-4 "
+              className="form-section "
             >
               <Component>
                 <div

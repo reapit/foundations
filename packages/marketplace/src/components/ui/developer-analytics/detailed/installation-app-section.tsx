@@ -131,7 +131,7 @@ export const InstallationAppSection: React.FC<{
   )
 
   return (
-    <Section>
+    <>
       {loading ? (
         <Loader />
       ) : (
@@ -141,31 +141,36 @@ export const InstallationAppSection: React.FC<{
               <DeveloperInstallationsChart data={installationFilterAppDataArrayWithName} />
             </GridItem>
             <GridItem className="is-half">
-              <H5>Current Installations</H5>
-              <p className="is-italic">
-                The installations table below shows the individual installations per client with a total number of
-                installations per app
-              </p>
-              <br />
-              <Table
-                bordered
-                scrollable
-                columns={currentInstallationTableColumn}
-                data={currentInstallationApps}
-                loading={false}
-              />
+              <Section hasMargin={false}>
+                <H5>Current Installations</H5>
+                <p className="is-italic">
+                  The installations table below shows the individual installations per client with a total number of
+                  installations per app
+                </p>
+                <br />
+                <Table
+                  bordered
+                  scrollable
+                  columns={currentInstallationTableColumn}
+                  data={currentInstallationApps}
+                  loading={false}
+                />
+              </Section>
             </GridItem>
           </Grid>
-          <Table bordered scrollable columns={installationTableColumn} data={memoizedData} loading={false} />
-          <Pagination
-            pageNumber={pageNumber}
-            onChange={handleSetPageNumber(setPageNumber)}
-            pageSize={INSTALLATIONS_PER_PAGE}
-            totalCount={installations?.installationsFilteredAppData?.totalCount ?? 0}
-          />
+          <Section hasMargin={false}>
+            <H5>Installation Details</H5>
+            <Table bordered scrollable columns={installationTableColumn} data={memoizedData} loading={false} />
+            <Pagination
+              pageNumber={pageNumber}
+              onChange={handleSetPageNumber(setPageNumber)}
+              pageSize={INSTALLATIONS_PER_PAGE}
+              totalCount={installations?.installationsFilteredAppData?.totalCount ?? 0}
+            />
+          </Section>
         </>
       )}
-    </Section>
+    </>
   )
 }
 

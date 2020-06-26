@@ -199,7 +199,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                     >
                       <Component>
                         <div
-                          className="form-section mb-4 "
+                          className="form-section "
                         >
                           <Component>
                             <div

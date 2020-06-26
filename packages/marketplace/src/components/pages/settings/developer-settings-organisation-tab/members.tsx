@@ -1,5 +1,5 @@
 import React from 'react'
-import { H3, FlexContainerResponsive, Content, FlexContainerBasic, Table } from '@reapit/elements'
+import { FlexContainerBasic, Table, Section, H5 } from '@reapit/elements'
 import SetAsAdminModal from '@/components/ui/developer-settings/set-as-admin-modal'
 import SetMemberStatusModal from '@/components/ui/organisation-set-member-status-modal'
 import styles from '@/styles/elements/link.scss?mod'
@@ -110,13 +110,10 @@ export const Members: React.FC = () => {
   const data = prepareData(mockData, handleOpenSetAdminModal, setSelectedUser, setEditStatusModalVisible)
 
   return (
-    <FlexContainerBasic flexColumn hasPadding>
-      <Content>
-        <FlexContainerResponsive flexColumn hasBackground hasPadding>
-          <H3>Members</H3>
-          <Table scrollable={true} loading={false} data={data} columns={columns} />
-        </FlexContainerResponsive>
-      </Content>
+    <Section>
+      <H5>Members</H5>
+      <Table scrollable={true} loading={false} data={data} columns={columns} />
+
       <SetMemberStatusModal
         visible={editStatusModalVisible}
         developer={selectedUser}
@@ -128,6 +125,6 @@ export const Members: React.FC = () => {
         afterClose={handleCloseSetAdminModal}
         username={selectedUser?.name}
       />
-    </FlexContainerBasic>
+    </Section>
   )
 }

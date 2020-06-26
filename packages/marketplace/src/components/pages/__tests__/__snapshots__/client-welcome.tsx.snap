@@ -15,6 +15,7 @@ exports[`ClientWelcomeMessage Documentation step should match a snapshot 1`] = `
 >
   <Component
     className=""
+    hasMargin={false}
     isFlex={true}
     isFlexColumn={false}
   >
@@ -46,6 +47,7 @@ exports[`ClientWelcomeMessage Support step should match a snapshot 1`] = `
 >
   <Component
     className=""
+    hasMargin={false}
     isFlex={true}
     isFlexColumn={false}
   >
@@ -77,6 +79,7 @@ exports[`ClientWelcomeMessage Welcome step should match a snapshot 1`] = `
 >
   <Component
     className=""
+    hasMargin={false}
     isFlex={true}
     isFlexColumn={false}
   >
@@ -112,6 +115,7 @@ exports[`ClientWelcomeMessage should match a snapshot 1`] = `
     <Component>
       <Component
         className=""
+        hasMargin={false}
         isFlex={true}
         isFlexColumn={false}
       >
@@ -174,20 +178,26 @@ exports[`ClientWelcomeMessage should match a snapshot 1`] = `
                 nodeRef={
                   Object {
                     "current": <div>
-                      <h3
-                        class="title is-3  "
-                        id=""
+                      <section
+                        class=""
+                        data-test=""
                       >
-                        Welcome Admin
-                      </h3>
-                      <h6
-                        class="subtitle is-6  "
-                        id=""
-                      >
-                        What is Lorem Ipsum?
-                      </h6>
-                      <div
-                        class="container      "
+                        <h3
+                          class="title is-3  "
+                          id=""
+                        >
+                          Welcome Admin
+                        </h3>
+                        <h6
+                          class="subtitle is-6  "
+                          id=""
+                        >
+                          What is Lorem Ipsum?
+                        </h6>
+                      </section>
+                      <section
+                        class=""
+                        data-test=""
                       >
                         <div>
                           <p
@@ -218,7 +228,7 @@ exports[`ClientWelcomeMessage should match a snapshot 1`] = `
                             src=""
                           />
                         </div>
-                      </div>
+                      </section>
                     </div>,
                   }
                 }
@@ -234,20 +244,26 @@ exports[`ClientWelcomeMessage should match a snapshot 1`] = `
                   nodeRef={
                     Object {
                       "current": <div>
-                        <h3
-                          class="title is-3  "
-                          id=""
+                        <section
+                          class=""
+                          data-test=""
                         >
-                          Welcome Admin
-                        </h3>
-                        <h6
-                          class="subtitle is-6  "
-                          id=""
-                        >
-                          What is Lorem Ipsum?
-                        </h6>
-                        <div
-                          class="container      "
+                          <h3
+                            class="title is-3  "
+                            id=""
+                          >
+                            Welcome Admin
+                          </h3>
+                          <h6
+                            class="subtitle is-6  "
+                            id=""
+                          >
+                            What is Lorem Ipsum?
+                          </h6>
+                        </section>
+                        <section
+                          class=""
+                          data-test=""
                         >
                           <div>
                             <p
@@ -278,7 +294,7 @@ exports[`ClientWelcomeMessage should match a snapshot 1`] = `
                               src=""
                             />
                           </div>
-                        </div>
+                        </section>
                       </div>,
                     }
                   }
@@ -305,25 +321,38 @@ exports[`ClientWelcomeMessage should match a snapshot 1`] = `
                       key="step-1"
                       subHeading="What is Lorem Ipsum?"
                     >
-                      <Component>
-                        <h3
-                          className="title is-3  "
-                          id=""
+                      <Component
+                        hasMargin={false}
+                      >
+                        <section
+                          className=""
+                          data-test=""
                         >
-                          Welcome Admin
-                        </h3>
+                          <Component>
+                            <h3
+                              className="title is-3  "
+                              id=""
+                            >
+                              Welcome Admin
+                            </h3>
+                          </Component>
+                          <Component>
+                            <h6
+                              className="subtitle is-6  "
+                              id=""
+                            >
+                              What is Lorem Ipsum?
+                            </h6>
+                          </Component>
+                        </section>
                       </Component>
-                      <Component>
-                        <h6
-                          className="subtitle is-6  "
-                          id=""
-                        >
-                          What is Lorem Ipsum?
-                        </h6>
-                      </Component>
-                      <Component>
-                        <div
-                          className="container      "
+                      <Component
+                        hasMargin={false}
+                        isFlex={true}
+                      >
+                        <section
+                          className=""
+                          data-test=""
                         >
                           <Component>
                             <div>
@@ -372,7 +401,7 @@ exports[`ClientWelcomeMessage should match a snapshot 1`] = `
                               src=""
                             />
                           </div>
-                        </div>
+                        </section>
                       </Component>
                     </HelpGuideStep>
                   </div>

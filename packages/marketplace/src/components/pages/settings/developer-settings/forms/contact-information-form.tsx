@@ -1,10 +1,9 @@
 import React from 'react'
 import { compose } from 'redux'
 import {
-  FlexContainerResponsive,
   GridItem,
   FormSection,
-  FormHeading,
+  H5,
   FormSubHeading,
   Grid,
   Input,
@@ -30,7 +29,7 @@ export const ContactInformationForm: React.FC<ContactInformationFormProps> = ({
   return (
     <FormSection>
       <Form>
-        <FormHeading>Contact Information</FormHeading>
+        <H5>Contact Information</H5>
         <FormSubHeading>
           Please use the fields below to edit your contact information
           <br />
@@ -52,17 +51,16 @@ export const ContactInformationForm: React.FC<ContactInformationFormProps> = ({
             <Input dataTest="telephone" type="tel" labelText="Telephone" id="phone" name="telephone" />
           </GridItem>
         </Grid>
-        <FlexContainerResponsive>
-          <Button
-            dataTest="save-changes"
-            disabled={!isEnable}
-            loading={isSubmitting || isValidating}
-            variant="primary"
-            type="submit"
-          >
-            Save Changes
-          </Button>
-        </FlexContainerResponsive>
+
+        <Button
+          dataTest="save-changes"
+          disabled={!isEnable}
+          loading={isSubmitting || isValidating}
+          variant="primary"
+          type="submit"
+        >
+          Save Changes
+        </Button>
       </Form>
     </FormSection>
   )
