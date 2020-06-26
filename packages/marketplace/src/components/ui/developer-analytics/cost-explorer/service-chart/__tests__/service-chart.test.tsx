@@ -127,11 +127,11 @@ describe('ServiceChart', () => {
         ],
         datasets: [
           // API calls
-          { ...datasets[0], data: [1, 0, 0, 0, 0, 0.3, 0.594] },
+          { ...datasets[0], data: [1, 0, 0, 0, 0, 0.3, 0.5], totalCost: 1.8 },
           // App Listing
-          { ...datasets[1], data: [1, 0, 0, 0, 0, 0, 0] },
+          { ...datasets[1], data: [1, 0, 0, 0, 0, 0, 0], totalCost: 1 },
           // Developer Edition
-          { ...datasets[2], data: [1, 0, 0, 0, 0, 0, 0] },
+          { ...datasets[2], data: [1, 0, 0, 0, 0, 0, 0], totalCost: 1 },
         ],
       }
 

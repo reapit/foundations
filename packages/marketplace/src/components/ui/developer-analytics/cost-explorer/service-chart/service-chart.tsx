@@ -12,6 +12,12 @@ import { Dispatch } from 'redux'
 import { BillingOverviewForPeriodV2Model } from '@reapit/foundations-ts-definitions'
 import { selectDeveloperId } from '@/selector/auth'
 
+const API_CALL_INDEX = 0
+const APP_LISTING_INDEX = 1
+const DEVELOPER_EDITTION_INDEX = 2
+const REAPIT_CONNECT_INDEX = 3
+const DEVELOPER_REGISTRATION_INDEX = 4
+
 export const datasets = [
   {
     label: 'API Calls',
@@ -21,6 +27,7 @@ export const datasets = [
     hoverBackgroundColor: 'rgba(255,99,132,0.4)',
     hoverBorderColor: 'rgba(255,99,132,1)',
     data: [] as number[],
+    totalCost: 0,
   },
   {
     label: 'App Listing',
@@ -30,6 +37,7 @@ export const datasets = [
     hoverBackgroundColor: 'rgba(81, 74, 177,0.4)',
     hoverBorderColor: 'rgba(81, 74, 177,1)',
     data: [] as number[],
+    totalCost: 0,
   },
   {
     label: 'Developer Edition',
@@ -39,6 +47,27 @@ export const datasets = [
     hoverBackgroundColor: 'rgba(103, 195, 6,0.4)',
     hoverBorderColor: 'rgba(103, 195, 6,1)',
     data: [] as number[],
+    totalCost: 0,
+  },
+  {
+    label: 'Reapit Connect',
+    backgroundColor: 'rgba(247, 144, 120, 0.2)',
+    borderColor: 'rgba(247, 144, 120, 1)',
+    borderWidth: 1,
+    hoverBackgroundColor: 'rgba(247, 144, 120, 0.4)',
+    hoverBorderColor: 'rgba(247, 144, 120, 1)',
+    data: [] as number[],
+    totalCost: 0,
+  },
+  {
+    label: 'Developer Registration',
+    backgroundColor: 'rgba(241, 139, 254, 0.2)',
+    borderColor: 'rgba(241, 139, 254, 1)',
+    borderWidth: 1,
+    hoverBackgroundColor: 'rgba(241, 139, 254, 0.4)',
+    hoverBorderColor: 'rgba(241, 139, 254, 1)',
+    data: [] as number[],
+    totalCost: 0,
   },
 ]
 
@@ -59,18 +88,27 @@ export const mapServiceChartDataSet = (billing: BillingOverviewForPeriodV2Model 
     const apiCallsData = services.find(service => service.name === 'API Requests')?.cost || 0
     const developerEditionData = services.find(service => service.name === 'Developer Edition')?.cost || 0
     const appListingData = services.find(service => service.name === 'Application Listing')?.cost || 0
+    const reapitConnectData = services.find(service => service.name === 'Reapit Connect')?.cost || 0
+    const developerRegistrationData = services.find(service => service.name === 'Developer Registration')?.cost || 0
 
-    // api calls
-    clonedDataSet[0].data.push(apiCallsData)
-    // app listing
-    clonedDataSet[1].data.push(appListingData)
-    // developer edition
-    clonedDataSet[2].data.push(developerEditionData)
+    clonedDataSet[API_CALL_INDEX].totalCost += apiCallsData
+    clonedDataSet[APP_LISTING_INDEX].totalCost += appListingData
+    clonedDataSet[DEVELOPER_EDITTION_INDEX].totalCost += developerEditionData
+    clonedDataSet[REAPIT_CONNECT_INDEX].totalCost += reapitConnectData
+    clonedDataSet[DEVELOPER_REGISTRATION_INDEX].totalCost += developerRegistrationData
+
+    clonedDataSet[API_CALL_INDEX].data.push(apiCallsData)
+    clonedDataSet[APP_LISTING_INDEX].data.push(appListingData)
+    clonedDataSet[DEVELOPER_EDITTION_INDEX].data.push(developerEditionData)
+    clonedDataSet[REAPIT_CONNECT_INDEX].data.push(reapitConnectData)
+    clonedDataSet[DEVELOPER_REGISTRATION_INDEX].data.push(developerRegistrationData)
   })
+
+  const sevicesHasCost = clonedDataSet.filter(dataset => dataset.totalCost)
 
   return {
     labels,
-    datasets: clonedDataSet,
+    datasets: sevicesHasCost,
   }
 }
 
