@@ -20,8 +20,6 @@ import {
 } from '@/utils/cookie'
 import { selectLoginSession, selectRefreshSession, selectLoginType } from '@/selector/auth'
 import { ActionCreator } from '@/types/core'
-import { Link } from 'react-router-dom'
-import Routes from '@/constants/routes'
 
 const { Suspense } = React
 
