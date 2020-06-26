@@ -96,16 +96,12 @@ export const SubmitAppWizard: React.FC<Pick<ModalProps, 'afterClose'>> = ({ afte
         onSubmit={handleSubmit({ afterClose, setWizardStep, dispatch })}
         validationSchema={validationSchemas[currentWizardStep]}
       >
-        {({ values }) => {
-          // console.log({ values })
-
-          return (
-            <Form>
-              <ModalHeader title={titleMap[currentWizardStep]} afterClose={afterClose} />
-              <CurrentStepComponent setWizardStep={setWizardStep} />
-            </Form>
-          )
-        }}
+        return (
+        <Form>
+          <ModalHeader title={titleMap[currentWizardStep]} afterClose={afterClose} />
+          <CurrentStepComponent setWizardStep={setWizardStep} />
+        </Form>
+        )
       </Formik>
     </div>
   )
