@@ -20,7 +20,6 @@ import {
 } from '@reapit/elements'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
 
-import { validate } from '@/utils/form/submit-app'
 import { useDispatch, useSelector } from 'react-redux'
 import { submitAppSetFormState } from '@/actions/submit-app'
 import { CreateAppRevisionModel, AppDetailModel } from '@reapit/foundations-ts-definitions'
@@ -42,6 +41,9 @@ import { ScopeModel, CategoryModel } from '@/types/marketplace-api-schema'
 import { selectCategories } from '@/selector/app-categories'
 import { validationSchemaSubmitRevision } from './form-schema/validation-schema'
 import { formFields } from './form-schema/form-fields'
+import authFlows from '@/constants/app-auth-flow'
+
+const { CLIENT_SECRET } = authFlows
 
 export type DeveloperSubmitAppProps = {}
 export type CustomCreateRevisionModal = CreateAppRevisionModel & {
@@ -196,13 +198,17 @@ export const handleSubmitApp = ({ appId, dispatch }: { appId: string; dispatch: 
 ) => {
   const appPreFormat = { ...appModel }
   delete appPreFormat.authFlow
-  const { limitToClientIds, redirectUris, signoutUris } = appPreFormat
-  const appToSubmit = {
-    ...appPreFormat,
-
-    redirectUris: redirectUris ? redirectUris.split(',') : [],
-    signoutUris: signoutUris ? signoutUris.split(',') : [],
-  } as CreateAppRevisionModel
+  const { limitToClientIds, redirectUris, signoutUris, ...otherData } = appPreFormat
+  let appToSubmit: CreateAppRevisionModel
+  if (appModel.authFlow === CLIENT_SECRET) {
+    appToSubmit = otherData
+  } else {
+    appToSubmit = {
+      ...otherData,
+      redirectUris: redirectUris ? redirectUris.split(',') : [],
+      signoutUris: signoutUris ? signoutUris.split(',') : [],
+    }
+  }
 
   if (appModel.isPrivateApp === 'yes') {
     appToSubmit.limitToClientIds = limitToClientIds ? limitToClientIds.replace(/ /g, '').split(',') : []
