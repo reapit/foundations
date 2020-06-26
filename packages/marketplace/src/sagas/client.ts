@@ -6,7 +6,7 @@ import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { APPS_PER_PAGE, FEATURED_APPS } from '@/constants/paginator'
 import { Action } from '@/types/core'
-import { selectClientId, selectFeaturedApps } from '@/selector/client'
+import { selectClientId, selectFeaturedApps, selectDeveloperId } from '@/selector/client'
 import { selectCategories } from '@/selector/app-categories'
 import { ClientAppSummary, ClientAppSummaryParams } from '@/reducers/client/app-summary'
 import { logger } from '@reapit/utils'
@@ -24,6 +24,7 @@ export const clientDataFetch = function*({ data }) {
     }
     const currentCategories = yield select(selectCategories)
     const currentFeaturedApps = yield select(selectFeaturedApps)
+    const developerId = yield select(selectDeveloperId)
 
     // because the https://dev.platformmarketplace.reapit.net/categories endpoint does not return a filter for Direct API so
     // we will have to manually check it here
@@ -33,6 +34,7 @@ export const clientDataFetch = function*({ data }) {
     const [apps, featuredApps, categories] = yield all([
       call(fetchAppsList, {
         clientId,
+        developerId: developerId ? [developerId] : [],
         category: isFilteringForDirectApiApps ? undefined : category,
         [searchBy]: search,
         pageNumber: page,

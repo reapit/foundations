@@ -66,6 +66,7 @@ const appState: ReduxState = {
         adminId: null,
         userCode: 'testUserCode',
         userTel: '123',
+        groups: ['AgencyCloudDeveloperEdition'],
       },
     },
     isTermAccepted: false,

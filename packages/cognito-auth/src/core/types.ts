@@ -52,6 +52,7 @@ export interface LoginIdentity {
   userCode: string | null
   isAdmin?: boolean
   userTel: string
+  groups: string[]
 }
 
 export interface LoginSession {

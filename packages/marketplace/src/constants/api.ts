@@ -8,3 +8,5 @@ export const COGNITO_HEADERS = {
 } as StringMap
 
 export const SANDBOX_CLIENT_ID = 'SBOX'
+
+export const COGNITO_GROUP_DEVELOPER_EDITION = 'AgencyCloudDeveloperEdition'
