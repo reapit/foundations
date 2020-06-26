@@ -180,6 +180,7 @@ describe('Session utils', () => {
         name: 'SOME_NAME',
         userCode: 'SOME_USER_CODE',
         isAdmin: true,
+        groups: ['CustomerAdministrators'],
       })
     })
 
@@ -192,6 +193,7 @@ describe('Session utils', () => {
         name: undefined,
         userCode: null,
         isAdmin: false,
+        groups: [],
       })
     })
   })

@@ -9,7 +9,7 @@ import { APPS_PER_PAGE } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
-import { selectClientId, selectFeaturedApps } from '@/selector/client'
+import { selectClientId, selectFeaturedApps, selectDeveloperEditionId } from '@/selector/client'
 import { selectCategories } from '@/selector/app-categories'
 import {
   PagedResultCategoryModel_,
@@ -25,6 +25,7 @@ jest.mock('@reapit/elements')
 
 const params = { data: { page: 1, search: 'app1', category: 'category1', searchBy: 'appName' } }
 const clientId = 'DXX'
+const developerId = '1234'
 
 describe('clientDataFetch', () => {
   const gen = cloneableGenerator(clientDataFetch as any)(params)
@@ -34,11 +35,14 @@ describe('clientDataFetch', () => {
     expect(clone.next().value).toEqual(select(selectClientId))
     expect(clone.next(clientId).value).toEqual(select(selectCategories))
     expect(clone.next(appCategorieStub.data).value).toEqual(select(selectFeaturedApps))
+    expect(clone.next(featuredAppsDataStub.data).value).toEqual(select(selectDeveloperEditionId))
+
     const response = [appsDataStub.data, featuredAppsDataStub.data, appCategorieStub]
-    expect(clone.next(featuredAppsDataStub.data).value).toEqual(
+    expect(clone.next(developerId).value).toEqual(
       all([
         call(fetchAppsList, {
           clientId,
+          developerId: [developerId],
           category: params.data.category as any,
           appName: params.data.search,
           pageNumber: params.data.page,

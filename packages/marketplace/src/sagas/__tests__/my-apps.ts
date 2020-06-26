@@ -7,7 +7,7 @@ import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import errorMessages from '@/constants/error-messages'
-import { selectClientId } from '@/selector/client'
+import { selectClientId, selectDeveloperEditionId } from '@/selector/client'
 import { errorThrownServer } from '@/actions/error'
 import { fetchAppsList } from '@/services/apps'
 
@@ -18,11 +18,19 @@ const params = { data: 1 }
 describe('my-apps fetch data', () => {
   const gen = cloneableGenerator(myAppsDataFetch)(params)
   const clientId = 'DAC'
+  const developerId = '1234'
 
   expect(gen.next().value).toEqual(put(myAppsLoading(true)))
   expect(gen.next().value).toEqual(select(selectClientId))
-  expect(gen.next(clientId).value).toEqual(
-    call(fetchAppsList, { clientId, onlyInstalled: true, pageNumber: params.data, pageSize: APPS_PER_PAGE }),
+  expect(gen.next(clientId).value).toEqual(select(selectDeveloperEditionId))
+  expect(gen.next(developerId).value).toEqual(
+    call(fetchAppsList, {
+      clientId,
+      developerId: [developerId],
+      onlyInstalled: true,
+      pageNumber: params.data,
+      pageSize: APPS_PER_PAGE,
+    }),
   )
 
   test('api call success', () => {

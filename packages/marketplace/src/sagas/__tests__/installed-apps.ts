@@ -11,7 +11,7 @@ import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
-import { selectClientId } from '@/selector/client'
+import { selectClientId, selectDeveloperEditionId } from '@/selector/client'
 import { fetchAppsList } from '@/services/apps'
 import { INSTALLED_APPS_PERPAGE } from '@/constants/paginator'
 
@@ -23,12 +23,15 @@ const params = { data: 1 }
 describe('installed-apps fetch data', () => {
   const gen = cloneableGenerator(installedAppsDataFetch)(params)
   const clientId = 'DAC'
+  const developerId = '1234'
 
   expect(gen.next().value).toEqual(put(installedAppsLoading(true)))
   expect(gen.next().value).toEqual(select(selectClientId))
-  expect(gen.next(clientId).value).toEqual(
+  expect(gen.next(clientId).value).toEqual(select(selectDeveloperEditionId))
+  expect(gen.next(developerId).value).toEqual(
     call(fetchAppsList, {
       clientId,
+      developerId: [developerId],
       pageNumber: params.data,
       pageSize: INSTALLED_APPS_PERPAGE,
       onlyInstalled: true,
