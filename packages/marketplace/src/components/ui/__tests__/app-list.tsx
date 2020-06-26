@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 
 import { AppList, AppListProps } from '../app-list'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
-import { Loader, GridFourColItem, GridThreeColItem, Helper } from '@reapit/elements'
+import { Loader, GridThreeColItem, Helper } from '@reapit/elements'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import AppCard from '../app-card'
 
@@ -37,11 +37,6 @@ describe('AppList', () => {
       .simulate('click', { stopPropagation: jest.fn() })
     expect(props.onCardClick).toHaveBeenCalledTimes(1)
     expect(props.onCardClick).toHaveBeenCalledWith(appsDataStub?.data?.data?.[0])
-  })
-
-  it('should default contain GridFourColItem', () => {
-    const wrapper = shallow(<AppList {...props} />)
-    expect(wrapper.find(GridFourColItem).length).toBeGreaterThan(0)
   })
 
   it('should contain GridThreeColItem', () => {

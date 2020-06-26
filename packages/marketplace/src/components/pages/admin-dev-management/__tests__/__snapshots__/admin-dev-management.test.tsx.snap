@@ -670,7 +670,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                       scrollable={true}
                     >
                       <div
-                        className="table-container"
+                        className="mb-4"
                       >
                         <div
                           style={

@@ -373,7 +373,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                   scrollable={true}
                 >
                   <div
-                    className="table-container"
+                    className="mb-4"
                   >
                     <div
                       style={

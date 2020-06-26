@@ -5,7 +5,12 @@ import { mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import Routes from '@/constants/routes'
-import DeveloperHome, { handleOnCardClick, handleOnChange, onShowSubmitAppModal } from '../developer-home'
+import DeveloperHome, {
+  handleOnCardClick,
+  handleOnChange,
+  onShowSubmitAppModal,
+  onCloseSubmitAppModal,
+} from '../developer-home'
 import { AppSummaryModel } from '@/types/marketplace-api-schema'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import routes from '@/constants/routes'
@@ -61,7 +66,7 @@ describe('Login', () => {
   describe('onCloseSubmitAppModal', () => {
     it('should set visible to false', () => {
       const setSubmitAppModalVisible = jest.fn()
-      onShowSubmitAppModal(setSubmitAppModalVisible)()
+      onCloseSubmitAppModal(setSubmitAppModalVisible)()
       expect(setSubmitAppModalVisible).toHaveBeenCalledWith(false)
     })
   })

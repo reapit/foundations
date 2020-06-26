@@ -61,25 +61,33 @@ exports[`MyApps should match a snapshot when LOADING false 1`] = `
             componentError={null}
             errorThrownComponent={[Function]}
           >
+            <Component>
+              <section
+                className=""
+                data-test=""
+              >
+                <Component
+                  className="mb-0"
+                >
+                  <h3
+                    className="title is-3 mb-0 "
+                    id=""
+                  >
+                    Manage Apps
+                  </h3>
+                </Component>
+              </section>
+            </Component>
             <Component
               infoType="INSTALLED_APPS_EMPTY"
               list={Array []}
               loading={false}
               onCardClick={[Function]}
               onSettingsClick={[Function]}
-              title="Manage Apps"
             >
               <div
                 className="mb-4"
               >
-                <Component>
-                  <h3
-                    className="title is-3  "
-                    id=""
-                  >
-                    Manage Apps
-                  </h3>
-                </Component>
                 <Component
                   variant="info"
                 >
