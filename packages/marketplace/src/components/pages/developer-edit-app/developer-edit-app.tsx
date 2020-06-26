@@ -220,11 +220,6 @@ export const handleSubmitApp = ({ appId, dispatch }: { appId: string; dispatch: 
   dispatch(submitRevision({ ...appToSubmit, id: appId }))
 }
 
-export const handleClickOpenModal = setTermModalIsOpen => event => {
-  event.preventDefault()
-  setTermModalIsOpen(true)
-}
-
 export const handleGoBackToApps = (history: History) => {
   return () => {
     history.push(Routes.DEVELOPER_MY_APPS)
