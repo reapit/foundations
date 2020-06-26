@@ -7,12 +7,13 @@ jest.mock('formik', () => ({
     validateForm: jest.fn(),
     handleSubmit: jest.fn(),
     errors: {},
+    values: {},
   }),
 }))
 
 describe('StepInputAuthenticationUris', () => {
   it('should match snapshot', () => {
-    const wrapper = shallow(<StepInputAuthenticationUris afterClose={jest.fn()} setWizardStep={jest.fn()} />)
+    const wrapper = shallow(<StepInputAuthenticationUris setWizardStep={jest.fn()} />)
     expect(wrapper).toMatchSnapshot()
   })
   test('onNext should run correctly', () => {
@@ -20,9 +21,14 @@ describe('StepInputAuthenticationUris', () => {
     onNext(setWizardStep)()
     expect(setWizardStep).toBeCalledWith('GRANT_PERMISSION')
   })
-  test('onPrev should run correctly', () => {
+  test('onPrev should run correctly when isDirectApi = false', () => {
     const setWizardStep = jest.fn()
-    onPrev(setWizardStep)()
+    onPrev(setWizardStep, false)()
     expect(setWizardStep).toBeCalledWith('CREATE_NEW_APP')
+  })
+  test('onPrev should run correctly when isDirectApi = true', () => {
+    const setWizardStep = jest.fn()
+    onPrev(setWizardStep, true)()
+    expect(setWizardStep).toBeCalledWith('INPUT_ATHENTICATION_TYPE')
   })
 })

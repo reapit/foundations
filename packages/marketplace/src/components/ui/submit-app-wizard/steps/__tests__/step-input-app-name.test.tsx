@@ -12,7 +12,7 @@ jest.mock('formik', () => ({
 
 describe('StepGrantPermissions', () => {
   it('should match snapshot', () => {
-    const wrapper = shallow(<StepInputAppName afterClose={jest.fn()} setWizardStep={jest.fn()} />)
+    const wrapper = shallow(<StepInputAppName setWizardStep={jest.fn()} />)
     expect(wrapper).toMatchSnapshot()
   })
   test('onNext should run correctly', () => {

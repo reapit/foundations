@@ -4,14 +4,20 @@ import { WizardStepComponent, SetWizardStep } from '../types'
 import { useFormikContext } from 'formik'
 import { formFields } from '../form-fields'
 
-const { authFlowField } = formFields
+const { authFlowField, directApiField } = formFields
 
 export const onPrev = (setWizardStep: SetWizardStep) => () => {
   setWizardStep('INPUT_APP_NAME')
 }
 
+export const onLauchWithoutAgencyCloud = (setWizardStep: SetWizardStep, setFieldValue) => () => {
+  setFieldValue(directApiField.name, true)
+  setWizardStep('INPUT_ATHENTICATION_TYPE')
+}
+
 export const onLauchWithinAgencyCloud = (setWizardStep: SetWizardStep, setFieldValue) => () => {
-  setFieldValue(authFlowField.name, 'Authorisation Code')
+  setFieldValue(authFlowField.name, 'authorisationCode')
+  setFieldValue(directApiField.name, false)
   setWizardStep('INPUT_AUTHENTICATION_URIS')
 }
 
@@ -36,8 +42,7 @@ export const StepCreateNewApp: WizardStepComponent = ({ setWizardStep }) => {
           <FlexContainerBasic>
             <div>
               <Button onClick={onLauchWithinAgencyCloud(setWizardStep, setFieldValue)}>Yes</Button>
-              {/* TBC flow 2 */}
-              <Button>No</Button>
+              <Button onClick={onLauchWithoutAgencyCloud(setWizardStep, setFieldValue)}>No</Button>
             </div>
             <div className="ml-auto">
               <Button onClick={onPrev(setWizardStep)}>Back</Button>
