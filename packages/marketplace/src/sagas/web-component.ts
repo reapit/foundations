@@ -16,13 +16,12 @@ import {
   clientUpdateWebComponentConfigFailed,
 } from '@/actions/client'
 import { fetchNegotiators } from '@/services/negotiators'
-import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 
 export const fetchWebComponentConfigSaga = function*({ data }: Action<FetchWebComponentConfigParams>) {
   try {
     const [webComponentConfig, negotiators] = yield all([
       call(fetchWebComponentConfig, data),
-      call(fetchNegotiators, { pageSize: GET_ALL_PAGE_SIZE }),
+      call(fetchNegotiators, {}),
     ])
     if (webComponentConfig.message) throw Error(webComponentConfig.message)
     yield put(clientFetchWebComponentConfigSuccess(webComponentConfig))
