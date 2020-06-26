@@ -24,7 +24,6 @@ import {
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '../../../../elements/src/utils/validators/error-messages'
 import { fetchNegotiators, NegotiatorsResult } from '@/services/negotiators'
-import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 
 describe('webComponentSagas', () => {
   it('should listen request data', () => {
@@ -133,9 +132,7 @@ describe('fetchWebComponentConfigSaga', () => {
   } as NegotiatorsResult
 
   const gen = cloneableGenerator(fetchWebComponentConfigSaga as any)({ data: params })
-  expect(gen.next().value).toEqual(
-    all([call(fetchWebComponentConfig, params), call(fetchNegotiators, { pageSize: GET_ALL_PAGE_SIZE })]),
-  )
+  expect(gen.next().value).toEqual(all([call(fetchWebComponentConfig, params), call(fetchNegotiators, {})]))
 
   it('api call success', () => {
     const clone = gen.clone()
