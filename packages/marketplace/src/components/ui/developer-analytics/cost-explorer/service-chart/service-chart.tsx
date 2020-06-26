@@ -4,13 +4,7 @@ import { H4, FlexContainerResponsive, DATE_TIME_FORMAT, Loader } from '@reapit/e
 import { AppSummaryModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
 import styles from '@/styles/pages/developer-analytics.scss?mod'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-  selectDeveloperApps,
-  selectMyIdentity,
-  selectBilling,
-  selectDeveloperLoading,
-  selectIsServiceChartLoading,
-} from '@/selector'
+import { selectMyIdentity, selectBilling, selectDeveloperLoading, selectIsServiceChartLoading } from '@/selector'
 import { fetchBilling } from '@/actions/developer'
 import dayjs from 'dayjs'
 import { Billing } from '@/reducers/developer'
