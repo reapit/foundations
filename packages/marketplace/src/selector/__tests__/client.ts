@@ -1,7 +1,7 @@
 import { ReduxState } from '@/types/core'
 import {
   selectClientId,
-  selectDeveloperId,
+  selectDeveloperEditionId,
   selectLoggedUserEmail,
   selectFeaturedApps,
   selectWebComponentOpen,
@@ -38,7 +38,7 @@ describe('selectClientId', () => {
   })
 })
 
-describe('selectDeveloperId', () => {
+describe('selectDeveloperEditionId', () => {
   it('should run correctly when user in AgencyCloudDeveloperEdition group', () => {
     const input = {
       auth: {
@@ -52,7 +52,7 @@ describe('selectDeveloperId', () => {
         },
       },
     } as ReduxState
-    const result = selectDeveloperId(input)
+    const result = selectDeveloperEditionId(input)
     expect(result).toEqual('1234')
   })
 
@@ -69,7 +69,7 @@ describe('selectDeveloperId', () => {
         },
       },
     } as ReduxState
-    const result = selectDeveloperId(input)
+    const result = selectDeveloperEditionId(input)
     expect(result).toEqual(null)
   })
 })

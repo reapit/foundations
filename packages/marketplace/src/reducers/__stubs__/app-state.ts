@@ -1,4 +1,5 @@
 import { ReduxState } from '@/types/core'
+import { COGNITO_GROUP_DEVELOPER_EDITION } from '@/constants/api'
 
 const appState: ReduxState = {
   client: {
@@ -66,7 +67,7 @@ const appState: ReduxState = {
         adminId: null,
         userCode: 'testUserCode',
         userTel: '123',
-        groups: ['AgencyCloudDeveloperEdition'],
+        groups: [COGNITO_GROUP_DEVELOPER_EDITION],
       },
     },
     isTermAccepted: false,

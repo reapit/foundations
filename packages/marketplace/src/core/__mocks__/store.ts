@@ -1,4 +1,5 @@
 import { RefreshParams, LoginSession } from '@reapit/cognito-auth'
+import { COGNITO_GROUP_DEVELOPER_EDITION } from '@/constants/api'
 
 export const mockLoginSession: LoginSession = {
   userName: 'bob@acme.com',
@@ -19,7 +20,7 @@ export const mockLoginSession: LoginSession = {
     userCode: 'SOME_USER_CODE',
     isAdmin: false,
     userTel: '123',
-    groups: ['AgencyCloudDeveloperEdition'],
+    groups: [COGNITO_GROUP_DEVELOPER_EDITION],
   },
 }
 

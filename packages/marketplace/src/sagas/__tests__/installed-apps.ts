@@ -11,7 +11,7 @@ import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
-import { selectClientId, selectDeveloperId } from '@/selector/client'
+import { selectClientId, selectDeveloperEditionId } from '@/selector/client'
 import { fetchAppsList } from '@/services/apps'
 import { INSTALLED_APPS_PERPAGE } from '@/constants/paginator'
 
@@ -27,7 +27,7 @@ describe('installed-apps fetch data', () => {
 
   expect(gen.next().value).toEqual(put(installedAppsLoading(true)))
   expect(gen.next().value).toEqual(select(selectClientId))
-  expect(gen.next(clientId).value).toEqual(select(selectDeveloperId))
+  expect(gen.next(clientId).value).toEqual(select(selectDeveloperEditionId))
   expect(gen.next(developerId).value).toEqual(
     call(fetchAppsList, {
       clientId,

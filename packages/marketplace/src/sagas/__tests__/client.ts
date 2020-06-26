@@ -9,7 +9,7 @@ import { APPS_PER_PAGE } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
-import { selectClientId, selectFeaturedApps, selectDeveloperId } from '@/selector/client'
+import { selectClientId, selectFeaturedApps, selectDeveloperEditionId } from '@/selector/client'
 import { selectCategories } from '@/selector/app-categories'
 import {
   PagedResultCategoryModel_,
@@ -35,7 +35,7 @@ describe('clientDataFetch', () => {
     expect(clone.next().value).toEqual(select(selectClientId))
     expect(clone.next(clientId).value).toEqual(select(selectCategories))
     expect(clone.next(appCategorieStub.data).value).toEqual(select(selectFeaturedApps))
-    expect(clone.next(featuredAppsDataStub.data).value).toEqual(select(selectDeveloperId))
+    expect(clone.next(featuredAppsDataStub.data).value).toEqual(select(selectDeveloperEditionId))
 
     const response = [appsDataStub.data, featuredAppsDataStub.data, appCategorieStub]
     expect(clone.next(developerId).value).toEqual(

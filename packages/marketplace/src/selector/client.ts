@@ -18,7 +18,7 @@ export const selectClientId = (state: ReduxState) => {
  * AgencyCloudDeveloperEdition group, if not just return null
  * refer to this ticket https://github.com/reapit/foundations/issues/1848
  */
-export const selectDeveloperId = (state: ReduxState) => {
+export const selectDeveloperEditionId = (state: ReduxState) => {
   const loginIdentity = selectLoginIdentity(state)
   if (loginIdentity?.groups.includes(COGNITO_GROUP_DEVELOPER_EDITION)) {
     return state?.auth?.loginSession?.loginIdentity?.developerId || ''

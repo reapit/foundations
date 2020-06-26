@@ -9,7 +9,7 @@ import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { Action } from '@/types/core'
 import { INSTALLED_APPS_PERPAGE } from '@/constants/paginator'
-import { selectClientId, selectDeveloperId } from '@/selector/client'
+import { selectClientId, selectDeveloperEditionId } from '@/selector/client'
 import { logger } from '@reapit/utils'
 import { fetchAppsList } from '@/services/apps'
 
@@ -21,7 +21,7 @@ export const installedAppsDataFetch = function*({ data: page }) {
     if (!clientId) {
       return
     }
-    const developerId = yield select(selectDeveloperId)
+    const developerId = yield select(selectDeveloperEditionId)
     const response = yield call(fetchAppsList, {
       clientId,
       developerId: developerId ? [developerId] : [],
