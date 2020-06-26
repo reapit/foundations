@@ -15,9 +15,8 @@ exports[`DeveloperWelcomeMessage Documentation step should match a snapshot 1`] 
 >
   <Component
     className=""
-    flexColumn={false}
-    hasBackground={true}
-    hasPadding={true}
+    isFlex={true}
+    isFlexColumn={false}
   >
     <Component
       currentIndex={0}
@@ -47,9 +46,8 @@ exports[`DeveloperWelcomeMessage Managing step should match a snapshot 1`] = `
 >
   <Component
     className=""
-    flexColumn={false}
-    hasBackground={true}
-    hasPadding={true}
+    isFlex={true}
+    isFlexColumn={false}
   >
     <Component
       currentIndex={0}
@@ -79,9 +77,8 @@ exports[`DeveloperWelcomeMessage Submitting step should match a snapshot 1`] = `
 >
   <Component
     className=""
-    flexColumn={false}
-    hasBackground={true}
-    hasPadding={true}
+    isFlex={true}
+    isFlexColumn={false}
   >
     <Component
       currentIndex={0}
@@ -111,9 +108,8 @@ exports[`DeveloperWelcomeMessage Support step should match a snapshot 1`] = `
 >
   <Component
     className=""
-    flexColumn={false}
-    hasBackground={true}
-    hasPadding={true}
+    isFlex={true}
+    isFlexColumn={false}
   >
     <Component
       currentIndex={0}
@@ -143,9 +139,8 @@ exports[`DeveloperWelcomeMessage Welcome step should match a snapshot 1`] = `
 >
   <Component
     className=""
-    flexColumn={false}
-    hasBackground={true}
-    hasPadding={true}
+    isFlex={true}
+    isFlexColumn={false}
   >
     <Component
       currentIndex={0}

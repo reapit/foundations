@@ -56,87 +56,69 @@ exports[`ClientSettingsPage should match snapshot 1`] = `
       }
     >
       <Component>
-        <Component
-          flexColumn={true}
-          hasPadding={true}
-        >
-          <div
-            className=" container-flex is-column   has-padding  "
+        <Component>
+          <section
+            className=""
+            data-test=""
+          >
+            <Component>
+              <h3
+                className="title is-3  "
+                id=""
+              >
+                Settings
+              </h3>
+            </Component>
+          </section>
+        </Component>
+        <Component>
+          <section
+            className=""
+            data-test=""
           >
             <Component>
               <div
-                className="content "
+                className="form-heading mb-1 "
+              >
+                Customer ID: 
+                <strong>
+                  testClientId
+                </strong>
+              </div>
+            </Component>
+            <Component>
+              <div
+                className="form-subheading mb-6 "
+              >
+                This is your Customer ID which you will need for use with Private Apps and Web Components.
+              </div>
+            </Component>
+            <Component
+              className="bt pt-4"
+            >
+              <div
+                className="level-right bt pt-4"
                 data-test=""
               >
                 <Component
-                  flexColumn={true}
-                  hasBackground={true}
-                  hasPadding={true}
+                  dataTest="logout-btn"
+                  onClick={[Function]}
+                  type="button"
+                  variant="primary"
                 >
-                  <div
-                    className="container is-column  has-background has-padding  "
+                  <button
+                    className="button  is-primary  "
+                    data-test="logout-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
                   >
-                    <Component>
-                      <h3
-                        className="title is-3  "
-                        id=""
-                      >
-                        Settings
-                      </h3>
-                    </Component>
-                    <div>
-                      <Component>
-                        <div
-                          className="form-heading mb-1 "
-                        >
-                          Customer ID: 
-                          <strong>
-                            testClientId
-                          </strong>
-                        </div>
-                      </Component>
-                      <Component>
-                        <div
-                          className="form-subheading mb-6 "
-                        >
-                          This is your Customer ID which you will need for use with Private Apps and Web Components.
-                        </div>
-                      </Component>
-                    </div>
-                    <Component>
-                      <div
-                        className="form-section mb-4 "
-                      >
-                        <Component>
-                          <div
-                            className="level-right "
-                            data-test=""
-                          >
-                            <Component
-                              dataTest="logout-btn"
-                              onClick={[Function]}
-                              type="button"
-                              variant="primary"
-                            >
-                              <button
-                                className="button  is-primary  "
-                                data-test="logout-btn"
-                                disabled={false}
-                                onClick={[Function]}
-                                type="button"
-                              >
-                                Logout
-                              </button>
-                            </Component>
-                          </div>
-                        </Component>
-                      </div>
-                    </Component>
-                  </div>
+                    Logout
+                  </button>
                 </Component>
               </div>
             </Component>
-          </div>
+          </section>
         </Component>
       </Component>
     </Router>

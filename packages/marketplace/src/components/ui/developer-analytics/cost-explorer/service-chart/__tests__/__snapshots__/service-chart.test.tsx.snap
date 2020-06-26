@@ -69,18 +69,19 @@ exports[`ServiceChart should match a snapshot 1`] = `
 >
   <Component>
     <Component>
-      <div
-        className="container      "
+      <section
+        className=""
+        data-test=""
       >
+        <Component>
+          <h5
+            className="title is-5  "
+            id=""
+          >
+            Services
+          </h5>
+        </Component>
         <div>
-          <Component>
-            <h5
-              className="title is-5  "
-              id=""
-            >
-              Services
-            </h5>
-          </Component>
           <Bar
             data={
               Object {
@@ -202,7 +203,7 @@ exports[`ServiceChart should match a snapshot 1`] = `
             </ChartComponent>
           </Bar>
         </div>
-      </div>
+      </section>
     </Component>
   </Component>
 </Provider>

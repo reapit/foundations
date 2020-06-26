@@ -29,7 +29,7 @@ Object {
               </div>
             </div>
             <div
-              class="table-container"
+              class="mb-4"
             >
               <div>
                 <table
@@ -481,7 +481,7 @@ Object {
             </div>
           </div>
           <div
-            class="table-container"
+            class="mb-4"
           >
             <div>
               <table

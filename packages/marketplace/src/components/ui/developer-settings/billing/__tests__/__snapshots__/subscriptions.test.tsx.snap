@@ -25,7 +25,7 @@ exports[`Subcriptions should match snapshot 1`] = `
       </Component>
       <Component>
         <div
-          className="form-section mb-4 "
+          className="mb-4"
         >
           <Component>
             <div

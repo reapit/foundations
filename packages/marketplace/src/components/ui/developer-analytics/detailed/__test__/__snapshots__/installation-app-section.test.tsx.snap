@@ -1,9 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InstallationTable should match snapshot 1`] = `
-<div>
+<Component>
   <Component
-    className="mt-5"
     isMultiLine={true}
   >
     <Component
@@ -105,20 +104,18 @@ exports[`InstallationTable should match snapshot 1`] = `
     loading={false}
     scrollable={true}
   />
-  <br />
   <Component
     onChange={[Function]}
     pageNumber={1}
     pageSize={5}
     totalCount={0}
   />
-</div>
+</Component>
 `;
 
 exports[`InstallationTable should match with null developerData 1`] = `
-<div>
+<Component>
   <Component
-    className="mt-5"
     isMultiLine={true}
   >
     <Component
@@ -209,20 +206,18 @@ exports[`InstallationTable should match with null developerData 1`] = `
     loading={false}
     scrollable={true}
   />
-  <br />
   <Component
     onChange={[Function]}
     pageNumber={1}
     pageSize={5}
     totalCount={0}
   />
-</div>
+</Component>
 `;
 
 exports[`InstallationTable should match with null installationsAppData 1`] = `
-<div>
+<Component>
   <Component
-    className="mt-5"
     isMultiLine={true}
   >
     <Component
@@ -324,12 +319,11 @@ exports[`InstallationTable should match with null installationsAppData 1`] = `
     loading={false}
     scrollable={true}
   />
-  <br />
   <Component
     onChange={[Function]}
     pageNumber={1}
     pageSize={5}
     totalCount={0}
   />
-</div>
+</Component>
 `;

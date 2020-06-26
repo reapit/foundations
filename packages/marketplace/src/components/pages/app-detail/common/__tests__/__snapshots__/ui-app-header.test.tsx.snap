@@ -19,9 +19,7 @@ exports[`AppHeader should match a snapshot 1`] = `
         >
           Peter's Properties
         </Component>
-        <Component
-          className="text-ellipsis-7"
-        >
+        <Component>
           Verified by Reapit 
           <FaCheck />
         </Component>

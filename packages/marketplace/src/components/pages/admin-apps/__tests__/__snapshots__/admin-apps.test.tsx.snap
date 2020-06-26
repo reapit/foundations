@@ -851,7 +851,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                     scrollable={true}
                   >
                     <div
-                      className="table-container"
+                      className="mb-4"
                     >
                       <div
                         style={

@@ -1,39 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ClientHelpPage should match a snapshot 1`] = `
-<Component
-  hasPadding={true}
->
-  <Component
-    flexColumn={true}
-    hasBackground={true}
-    hasPadding={true}
-  >
-    <div>
-      <Component>
-        Help
-      </Component>
-      <Component
-        items={
-          Array [
-            Object {
-              "buttonOnClick": [Function],
-              "buttonText": "VIEW",
-              "header": "Welcome Guide",
-              "imgSrc": "",
-              "text": "Lorem ipsum dolor. Sit illum optio suscipit quas pariatur illo reprehenderit assumenda.",
-            },
-            Object {
-              "buttonOnClick": [Function],
-              "buttonText": "SUPPORT",
-              "header": "Need Help?",
-              "imgSrc": "",
-              "text": "Lorem ipsum dolor. Sit illum optio suscipit quas pariatur illo reprehenderit assumenda.",
-            },
-          ]
-        }
-      />
-    </div>
+<Fragment>
+  <Component>
+    <Component
+      className="mb-0"
+    >
+      Help
+    </Component>
   </Component>
-</Component>
+  <Component>
+    <Component
+      items={
+        Array [
+          Object {
+            "buttonOnClick": [Function],
+            "buttonText": "VIEW",
+            "header": "Welcome Guide",
+            "imgSrc": "",
+            "text": "Lorem ipsum dolor. Sit illum optio suscipit quas pariatur illo reprehenderit assumenda.",
+          },
+          Object {
+            "buttonOnClick": [Function],
+            "buttonText": "SUPPORT",
+            "header": "Need Help?",
+            "imgSrc": "",
+            "text": "Lorem ipsum dolor. Sit illum optio suscipit quas pariatur illo reprehenderit assumenda.",
+          },
+        ]
+      }
+    />
+  </Component>
+</Fragment>
 `;
