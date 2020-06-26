@@ -21,6 +21,7 @@ export const datasets = [
     hoverBackgroundColor: 'rgba(255,99,132,0.4)',
     hoverBorderColor: 'rgba(255,99,132,1)',
     data: [] as number[],
+    totalCost: 0,
   },
   {
     label: 'App Listing',
@@ -30,6 +31,7 @@ export const datasets = [
     hoverBackgroundColor: 'rgba(81, 74, 177,0.4)',
     hoverBorderColor: 'rgba(81, 74, 177,1)',
     data: [] as number[],
+    totalCost: 0,
   },
   {
     label: 'Developer Edition',
@@ -39,6 +41,27 @@ export const datasets = [
     hoverBackgroundColor: 'rgba(103, 195, 6,0.4)',
     hoverBorderColor: 'rgba(103, 195, 6,1)',
     data: [] as number[],
+    totalCost: 0,
+  },
+  {
+    label: 'Reapit Connect',
+    backgroundColor: 'rgba(247, 144, 120, 0.2)',
+    borderColor: 'rgba(247, 144, 120, 1)',
+    borderWidth: 1,
+    hoverBackgroundColor: 'rgba(247, 144, 120, 0.4)',
+    hoverBorderColor: 'rgba(247, 144, 120, 1)',
+    data: [] as number[],
+    totalCost: 0,
+  },
+  {
+    label: 'Developer Registration',
+    backgroundColor: 'rgba(241, 139, 254, 0.2)',
+    borderColor: 'rgba(241, 139, 254, 1)',
+    borderWidth: 1,
+    hoverBackgroundColor: 'rgba(241, 139, 254, 0.4)',
+    hoverBorderColor: 'rgba(241, 139, 254, 1)',
+    data: [] as number[],
+    totalCost: 0,
   },
 ]
 
@@ -59,6 +82,14 @@ export const mapServiceChartDataSet = (billing: BillingOverviewForPeriodV2Model 
     const apiCallsData = services.find(service => service.name === 'API Requests')?.cost || 0
     const developerEditionData = services.find(service => service.name === 'Developer Edition')?.cost || 0
     const appListingData = services.find(service => service.name === 'Application Listing')?.cost || 0
+    const reapitConnectData = services.find(service => service.name === 'Reapit Connect')?.cost || 0
+    const developerRegistrationData = services.find(service => service.name === 'Developer Registration')?.cost || 0
+
+    clonedDataSet[0].totalCost += apiCallsData
+    clonedDataSet[1].totalCost += appListingData
+    clonedDataSet[2].totalCost += developerEditionData
+    clonedDataSet[3].totalCost += reapitConnectData
+    clonedDataSet[4].totalCost += developerRegistrationData
 
     // api calls
     clonedDataSet[0].data.push(apiCallsData)
@@ -66,11 +97,17 @@ export const mapServiceChartDataSet = (billing: BillingOverviewForPeriodV2Model 
     clonedDataSet[1].data.push(appListingData)
     // developer edition
     clonedDataSet[2].data.push(developerEditionData)
+    //Reapit Connect
+    clonedDataSet[3].data.push(reapitConnectData)
+    //Developer Registration'
+    clonedDataSet[4].data.push(developerRegistrationData)
   })
+
+  const sevicesHasCost = clonedDataSet.filter(dataset => dataset.totalCost)
 
   return {
     labels,
-    datasets: clonedDataSet,
+    datasets: sevicesHasCost,
   }
 }
 

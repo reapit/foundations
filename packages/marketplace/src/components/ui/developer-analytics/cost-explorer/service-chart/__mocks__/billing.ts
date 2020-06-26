@@ -93,11 +93,11 @@ export const billing = {
       periodStart: '2020-05-01',
       periodEnd: '2020-05-31',
       periodName: 'May 2020',
-      cost: 0.594,
+      cost: 0.5,
       services: [
         {
           name: 'API Requests',
-          cost: 0.594,
+          cost: 0.5,
         },
       ],
     },
