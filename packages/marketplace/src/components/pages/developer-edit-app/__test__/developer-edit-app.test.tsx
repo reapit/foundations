@@ -1,5 +1,3 @@
-// @ts-nocheck
-// TODO: remove developer standalone submit app code #1824
 import * as React from 'react'
 import { mount } from 'enzyme'
 import * as ReactRedux from 'react-redux'
@@ -7,30 +5,20 @@ import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import { MemoryRouter } from 'react-router'
 import Routes from '@/constants/routes'
-import MockDate from 'mockdate'
 import DeveloperSubmitApp, {
   labelTextOfField,
   renderErrors,
   handleSubmitApp,
-  handleClickOpenModal,
-  handleCloseModal,
-  handleSubmitModalViewDocs,
-  handleBeforeSubmit,
-  handleAcceptTerms,
-  handleDeclineTerms,
-  handleSubmitModalContinue,
   handleGoBackToApps,
   handleOnSubmitAnotherApp,
   generateInitialValues,
   handleOpenAppPreview,
-} from '../developer-submit-app'
+} from '../developer-edit-app'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
-import { CustomCreateAppModel, submitApp, SubmitAppFormikActions, submitAppSetFormState } from '@/actions/submit-app'
+import { submitAppSetFormState } from '@/actions/submit-app'
 import { CreateAppModel } from '@/types/marketplace-api-schema'
 import { submitRevision } from '@/actions/submit-revision'
-import DOCS_LINKS from '@/constants/docs-links'
-import { getCookieString, setCookieString, COOKIE_FIRST_SUBMIT, COOKIE_MAX_AGE_INFINITY } from '@/utils/cookie'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 
 jest.mock('@/utils/cookie', () => ({
@@ -124,22 +112,10 @@ describe('DeveloperSubmitApp', () => {
 
   describe('handleSubmitApp', () => {
     const appModel = { redirectUris: '' } as CreateAppModel
-    const actions = {} as SubmitAppFormikActions
     afterEach(() => jest.clearAllMocks())
-    it('should call submitApp when dont have appId', () => {
-      const fn = handleSubmitApp('', spyDispatch)
-      fn(appModel, actions)
-      expect(spyDispatch).toBeCalledWith(
-        submitApp({
-          redirectUris: [],
-          signoutUris: [],
-          actions,
-        }),
-      )
-    })
     it('should call submitRevision when have appId', () => {
-      const fn = handleSubmitApp('testAppId', spyDispatch)
-      fn(appModel, actions)
+      const fn = handleSubmitApp({ appId: 'testAppId', dispatch: spyDispatch })
+      fn(appModel)
       expect(spyDispatch).toBeCalledWith(
         submitRevision({
           redirectUris: [],
@@ -150,99 +126,6 @@ describe('DeveloperSubmitApp', () => {
     })
   })
 
-  describe('handleClickOpenModal', () => {
-    it('should call preventDefault and setTermModalIsOpen', () => {
-      const eventMock = {
-        preventDefault: jest.fn(),
-      }
-      const setTermModalIsOpen = jest.fn()
-      const spy = jest.spyOn(eventMock, 'preventDefault')
-      handleClickOpenModal(setTermModalIsOpen)(eventMock)
-      expect(spy).toHaveBeenCalledTimes(1)
-      expect(setTermModalIsOpen).toHaveBeenCalledWith(true)
-    })
-  })
-  describe('handleCloseModal', () => {
-    it('should call setTermModalIsOpen', () => {
-      const setTermModalIsOpen = jest.fn()
-      handleCloseModal(setTermModalIsOpen)()
-      expect(setTermModalIsOpen).toHaveBeenCalledWith(false)
-    })
-  })
-
-  describe('handleSubmitModalContinue', () => {
-    const mockDateString = '2020-02-18'
-
-    beforeAll(() => {
-      MockDate.set(new Date(mockDateString))
-    })
-    afterAll(() => {
-      MockDate.reset()
-    })
-    it('should call setIsSubmitModalOpen & setCookieString', () => {
-      const setIsSubmitModalOpen = jest.fn()
-      const fn = handleSubmitModalContinue(setIsSubmitModalOpen)
-      fn()
-      expect(setIsSubmitModalOpen).toHaveBeenCalledWith(false)
-      expect(setCookieString).toHaveBeenCalledWith(COOKIE_FIRST_SUBMIT, mockDateString, COOKIE_MAX_AGE_INFINITY)
-    })
-  })
-
-  describe('handleSubmitModalViewDocs', () => {
-    const { location } = window
-
-    beforeAll(() => {
-      delete window.location
-      window.location = { assign: jest.fn() } as any
-    })
-
-    afterAll(() => {
-      window.location = location
-    })
-    it('should call window.location.assign', () => {
-      const spy = jest.spyOn(window, 'open')
-      handleSubmitModalViewDocs()
-      expect(spy).toHaveBeenCalledWith(DOCS_LINKS.DEVELOPER_PORTAL, '_blank')
-    })
-  })
-
-  describe('handleBeforeSubmit', () => {
-    it('should call setIsSubmitModalOpen when !firstSubmitCookie', () => {
-      ;(getCookieString as any).mockImplementation(() => null)
-      const validateFunction = jest.fn()
-      const setIsSubmitModalOpen = jest.fn()
-      const fn = handleBeforeSubmit(validateFunction, setIsSubmitModalOpen)
-      const result = fn({ key: 'val' } as CustomCreateAppModel)
-      expect(result).toEqual({ message: 'firstSubmit' })
-    })
-    it('should return validateFunc when firstSubmitCookie', () => {
-      ;(getCookieString as any).mockImplementation(() => '2020-01-01')
-      const validateFunction = jest.fn()
-      const setIsSubmitModalOpen = jest.fn()
-      const fn = handleBeforeSubmit(validateFunction, setIsSubmitModalOpen)
-      const result = fn({ key: 'val' } as CustomCreateAppModel)
-      expect(result).toEqual(validateFunction({ key: 'val' }))
-    })
-  })
-
-  describe('handleAcceptTerms', () => {
-    it('should call setIsAgreedTerms and setTermModalIsOpen', () => {
-      const setTermModalIsOpen = jest.fn()
-      const setIsAgreedTerms = jest.fn()
-      handleAcceptTerms(setIsAgreedTerms, setTermModalIsOpen)()
-      expect(setIsAgreedTerms).toHaveBeenCalledWith(true)
-      expect(setTermModalIsOpen).toHaveBeenCalledWith(false)
-    })
-  })
-  describe('handleDeclineTerms', () => {
-    it('should call preventDefault and setTermModalIsOpen', () => {
-      const setTermModalIsOpen = jest.fn()
-      const setIsAgreedTerms = jest.fn()
-      handleDeclineTerms(setIsAgreedTerms, setTermModalIsOpen)()
-      expect(setIsAgreedTerms).toHaveBeenCalledWith(false)
-      expect(setTermModalIsOpen).toHaveBeenCalledWith(false)
-    })
-  })
   describe('handleGoBackToApps', () => {
     it('should run correctly', () => {
       const fn = handleGoBackToApps(history)

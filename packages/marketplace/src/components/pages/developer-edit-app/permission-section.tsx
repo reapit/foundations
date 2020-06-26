@@ -11,6 +11,7 @@ import {
 import { ScopeModel } from '@reapit/foundations-ts-definitions'
 import styles from '@/styles/pages/developer-submit-app.scss?mod'
 import { CustomCreateAppModel } from '@/actions/submit-app'
+import { formFields } from './form-schema/form-fields'
 
 export type PermissionSectionProps = {
   scopes: ScopeModel[]
@@ -28,7 +29,12 @@ export const renderScopesCheckbox = (scopes: ScopeModel[] = [], errorScope?: str
       ) {
         return (
           <GridFourColItem key={item.name}>
-            <Checkbox name="scopes" labelText={item.description || ''} id={item.name || ''} value={item.name} />
+            <Checkbox
+              name={formFields.scopes.name}
+              labelText={item.description || ''}
+              id={item.name || ''}
+              value={item.name}
+            />
           </GridFourColItem>
         )
       }

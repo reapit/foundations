@@ -6,6 +6,7 @@ const errorMessages = {
   FIELD_WRONG_URI_FORMAT: 'Invalid uri format',
   MINIMUM_CHARACTER_LENGTH: (min: number) => `The minimum length is ${min} characters`,
   MAXIMUM_CHARACTER_LENGTH: (max: number) => `The maximum length is ${max} characters`,
+  BETWEEN_MIN_MAX_CHARACTER_LENGTH: (min: number, max: number) => `Must be between ${min} and ${max} characters`,
   FIELD_INVALID_PASSWORD:
     'Your Password should be a minimum of 8 characters; must contain at ' +
     'least one lowercase letter, one uppercase letter and one number.',
