@@ -14,30 +14,20 @@ exports[`ClientWelcomeMessage Documentation step should match a snapshot 1`] = `
   }
 >
   <Component
+    className=""
     flexColumn={false}
+    hasBackground={true}
     hasPadding={true}
   >
     <Component
       currentIndex={0}
       onSelect={[Function]}
     />
-    <div
-      className="helpguide"
-    >
-      <div
-        className="helpguide-wrapper"
-      >
-        <div
-          className="helpguide-steps"
-        >
-          <Component
-            in={true}
-            timeout={300}
-            unmountOnExit={true}
-          />
-        </div>
-      </div>
-    </div>
+    <Component
+      in={true}
+      timeout={300}
+      unmountOnExit={true}
+    />
   </Component>
 </ContextProvider>
 `;
@@ -56,30 +46,20 @@ exports[`ClientWelcomeMessage Support step should match a snapshot 1`] = `
   }
 >
   <Component
+    className=""
     flexColumn={false}
+    hasBackground={true}
     hasPadding={true}
   >
     <Component
       currentIndex={0}
       onSelect={[Function]}
     />
-    <div
-      className="helpguide"
-    >
-      <div
-        className="helpguide-wrapper"
-      >
-        <div
-          className="helpguide-steps"
-        >
-          <Component
-            in={true}
-            timeout={300}
-            unmountOnExit={true}
-          />
-        </div>
-      </div>
-    </div>
+    <Component
+      in={true}
+      timeout={300}
+      unmountOnExit={true}
+    />
   </Component>
 </ContextProvider>
 `;
@@ -98,30 +78,20 @@ exports[`ClientWelcomeMessage Welcome step should match a snapshot 1`] = `
   }
 >
   <Component
+    className=""
     flexColumn={false}
+    hasBackground={true}
     hasPadding={true}
   >
     <Component
       currentIndex={0}
       onSelect={[Function]}
     />
-    <div
-      className="helpguide"
-    >
-      <div
-        className="helpguide-wrapper"
-      >
-        <div
-          className="helpguide-steps"
-        >
-          <Component
-            in={true}
-            timeout={300}
-            unmountOnExit={true}
-          />
-        </div>
-      </div>
-    </div>
+    <Component
+      in={true}
+      timeout={300}
+      unmountOnExit={true}
+    />
   </Component>
 </ContextProvider>
 `;
@@ -142,339 +112,306 @@ exports[`ClientWelcomeMessage should match a snapshot 1`] = `
   <Component
     userAcceptTermAndCondition={[MockFunction]}
   >
-    <div
-      id="developer-welcome"
+    <Component
+      flexColumn={true}
+      hasBackground={true}
+      hasPadding={true}
     >
-      <Component
-        className="welcome-container"
-        flexColumn={true}
-        hasBackground={true}
-        hasPadding={true}
+      <div
+        className="container is-column  has-background has-padding  "
       >
-        <div
-          className="container is-column  has-background has-padding  welcome-container"
-        >
-          <Component>
-            <Component
-              flexColumn={false}
-              hasPadding={true}
+        <Component>
+          <Component
+            className=""
+            flexColumn={false}
+            hasBackground={true}
+            hasPadding={true}
+          >
+            <div
+              className=" container-flex   has-background has-padding  "
             >
-              <div
-                className=" container-flex    has-padding  "
+              <Component
+                currentIndex={0}
+                onSelect={[Function]}
+                total={5}
               >
-                <Component
-                  currentIndex={0}
-                  onSelect={[Function]}
-                  total={5}
-                >
-                  <ul
-                    className="vertical-timeline"
-                  >
-                    <div
-                      className="circle-active"
-                    />
-                    <div
-                      className="line-active"
-                    />
-                    <li
-                      className="active "
-                      key="0"
-                      onClick={[Function]}
-                    />
-                    <li
-                      className=" "
-                      key="1"
-                      onClick={[Function]}
-                    />
-                    <li
-                      className=" "
-                      key="2"
-                      onClick={[Function]}
-                    />
-                    <li
-                      className=" "
-                      key="3"
-                      onClick={[Function]}
-                    />
-                    <li
-                      className=" "
-                      key="4"
-                      onClick={[Function]}
-                    />
-                  </ul>
-                </Component>
-                <div
-                  className="helpguide"
+                <ul
+                  className="vertical-timeline"
                 >
                   <div
-                    className="helpguide-wrapper"
-                  >
-                    <div
-                      className="helpguide-steps"
-                    >
-                      <Component
-                        in={true}
-                        timeout={300}
-                        unmountOnExit={true}
-                      >
-                        <div
-                          className=""
-                        >
-                          <CSSTransition
-                            classNames="fade"
-                            in={true}
-                            nodeRef={
-                              Object {
-                                "current": <div>
-                                  <div
-                                    class="helpguide-content"
-                                  >
-                                    <h3
-                                      class="title is-3  "
-                                      id=""
-                                    >
-                                      Welcome Admin
-                                    </h3>
-                                    <h6
-                                      class="subtitle is-6  "
-                                      id=""
-                                    >
-                                      What is Lorem Ipsum?
-                                    </h6>
-                                    <div
-                                      class="is-flex relative"
-                                    >
-                                      <div
-                                        class="helpguide-component"
-                                      >
-                                        <div>
-                                          <p
-                                            class="mb-5"
-                                          >
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                                          </p>
-                                          <button
-                                            class="button  is-primary  "
-                                            data-test=""
-                                            type="button"
-                                          >
-                                            Prev
-                                          </button>
-                                          <button
-                                            class="button  is-primary  "
-                                            data-test=""
-                                            type="button"
-                                          >
-                                            Next
-                                          </button>
-                                        </div>
-                                      </div>
-                                      <div
-                                        class="helpguide-wrapper-graphic"
-                                      >
-                                        <div
-                                          class="helpguide-graphic"
-                                        >
-                                          <img
-                                            alt="step-1"
-                                            src=""
-                                          />
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>,
-                              }
-                            }
-                            timeout={300}
-                            unmountOnExit={true}
+                    className="circle-active"
+                  />
+                  <div
+                    className="line-active"
+                  />
+                  <li
+                    className="active "
+                    key="0"
+                    onClick={[Function]}
+                  />
+                  <li
+                    className=" "
+                    key="1"
+                    onClick={[Function]}
+                  />
+                  <li
+                    className=" "
+                    key="2"
+                    onClick={[Function]}
+                  />
+                  <li
+                    className=" "
+                    key="3"
+                    onClick={[Function]}
+                  />
+                  <li
+                    className=" "
+                    key="4"
+                    onClick={[Function]}
+                  />
+                </ul>
+              </Component>
+              <Component
+                in={true}
+                timeout={300}
+                unmountOnExit={true}
+              >
+                <div
+                  className=""
+                >
+                  <CSSTransition
+                    classNames="fade"
+                    in={true}
+                    nodeRef={
+                      Object {
+                        "current": <div>
+                          <div
+                            class="container is-column     "
                           >
-                            <Transition
-                              appear={false}
-                              enter={true}
-                              exit={true}
-                              in={true}
-                              mountOnEnter={false}
-                              nodeRef={
-                                Object {
-                                  "current": <div>
-                                    <div
-                                      class="helpguide-content"
-                                    >
-                                      <h3
-                                        class="title is-3  "
-                                        id=""
-                                      >
-                                        Welcome Admin
-                                      </h3>
-                                      <h6
-                                        class="subtitle is-6  "
-                                        id=""
-                                      >
-                                        What is Lorem Ipsum?
-                                      </h6>
-                                      <div
-                                        class="is-flex relative"
-                                      >
-                                        <div
-                                          class="helpguide-component"
-                                        >
-                                          <div>
-                                            <p
-                                              class="mb-5"
-                                            >
-                                              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                                            </p>
-                                            <button
-                                              class="button  is-primary  "
-                                              data-test=""
-                                              type="button"
-                                            >
-                                              Prev
-                                            </button>
-                                            <button
-                                              class="button  is-primary  "
-                                              data-test=""
-                                              type="button"
-                                            >
-                                              Next
-                                            </button>
-                                          </div>
-                                        </div>
-                                        <div
-                                          class="helpguide-wrapper-graphic"
-                                        >
-                                          <div
-                                            class="helpguide-graphic"
-                                          >
-                                            <img
-                                              alt="step-1"
-                                              src=""
-                                            />
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>,
-                                }
-                              }
-                              onEnter={[Function]}
-                              onEntered={[Function]}
-                              onEntering={[Function]}
-                              onExit={[Function]}
-                              onExited={[Function]}
-                              onExiting={[Function]}
-                              timeout={300}
-                              unmountOnExit={true}
+                            <h3
+                              class="title is-3  "
+                              id=""
+                            >
+                              Welcome Admin
+                            </h3>
+                            <h6
+                              class="subtitle is-6  "
+                              id=""
+                            >
+                              What is Lorem Ipsum?
+                            </h6>
+                            <div
+                              class="container      "
                             >
                               <div>
-                                <HelpGuideStep
-                                  component={[Function]}
-                                  graphic={
+                                <p
+                                  class="mb-5"
+                                >
+                                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                </p>
+                                <button
+                                  class="button  is-primary  "
+                                  data-test=""
+                                  type="button"
+                                >
+                                  Prev
+                                </button>
+                                <button
+                                  class="button  is-primary  "
+                                  data-test=""
+                                  type="button"
+                                >
+                                  Next
+                                </button>
+                              </div>
+                              <div
+                                class=""
+                              >
+                                <img
+                                  alt="step-1"
+                                  src=""
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>,
+                      }
+                    }
+                    timeout={300}
+                    unmountOnExit={true}
+                  >
+                    <Transition
+                      appear={false}
+                      enter={true}
+                      exit={true}
+                      in={true}
+                      mountOnEnter={false}
+                      nodeRef={
+                        Object {
+                          "current": <div>
+                            <div
+                              class="container is-column     "
+                            >
+                              <h3
+                                class="title is-3  "
+                                id=""
+                              >
+                                Welcome Admin
+                              </h3>
+                              <h6
+                                class="subtitle is-6  "
+                                id=""
+                              >
+                                What is Lorem Ipsum?
+                              </h6>
+                              <div
+                                class="container      "
+                              >
+                                <div>
+                                  <p
+                                    class="mb-5"
+                                  >
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                  </p>
+                                  <button
+                                    class="button  is-primary  "
+                                    data-test=""
+                                    type="button"
+                                  >
+                                    Prev
+                                  </button>
+                                  <button
+                                    class="button  is-primary  "
+                                    data-test=""
+                                    type="button"
+                                  >
+                                    Next
+                                  </button>
+                                </div>
+                                <div
+                                  class=""
+                                >
+                                  <img
+                                    alt="step-1"
+                                    src=""
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>,
+                        }
+                      }
+                      onEnter={[Function]}
+                      onEntered={[Function]}
+                      onEntering={[Function]}
+                      onExit={[Function]}
+                      onExited={[Function]}
+                      onExiting={[Function]}
+                      timeout={300}
+                      unmountOnExit={true}
+                    >
+                      <div>
+                        <HelpGuideStep
+                          component={[Function]}
+                          graphic={
+                            <img
+                              alt="step-1"
+                              src=""
+                            />
+                          }
+                          heading="Welcome Admin"
+                          id="step-1"
+                          key="step-1"
+                          subHeading="What is Lorem Ipsum?"
+                        >
+                          <Component
+                            flexColumn={true}
+                          >
+                            <div
+                              className="container is-column     "
+                            >
+                              <Component>
+                                <h3
+                                  className="title is-3  "
+                                  id=""
+                                >
+                                  Welcome Admin
+                                </h3>
+                              </Component>
+                              <Component>
+                                <h6
+                                  className="subtitle is-6  "
+                                  id=""
+                                >
+                                  What is Lorem Ipsum?
+                                </h6>
+                              </Component>
+                              <Component>
+                                <div
+                                  className="container      "
+                                >
+                                  <Component>
+                                    <div>
+                                      <p
+                                        className="mb-5"
+                                      >
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                      </p>
+                                      <Component
+                                        onClick={[Function]}
+                                        type="button"
+                                        variant="primary"
+                                      >
+                                        <button
+                                          className="button  is-primary  "
+                                          data-test=""
+                                          disabled={false}
+                                          onClick={[Function]}
+                                          type="button"
+                                        >
+                                          Prev
+                                        </button>
+                                      </Component>
+                                      <Component
+                                        onClick={[Function]}
+                                        type="button"
+                                        variant="primary"
+                                      >
+                                        <button
+                                          className="button  is-primary  "
+                                          data-test=""
+                                          disabled={false}
+                                          onClick={[Function]}
+                                          type="button"
+                                        >
+                                          Next
+                                        </button>
+                                      </Component>
+                                    </div>
+                                  </Component>
+                                  <div
+                                    className=""
+                                  >
                                     <img
                                       alt="step-1"
                                       src=""
                                     />
-                                  }
-                                  heading="Welcome Admin"
-                                  id="step-1"
-                                  key="step-1"
-                                  subHeading="What is Lorem Ipsum?"
-                                >
-                                  <div
-                                    className="helpguide-content"
-                                  >
-                                    <Component>
-                                      <h3
-                                        className="title is-3  "
-                                        id=""
-                                      >
-                                        Welcome Admin
-                                      </h3>
-                                    </Component>
-                                    <Component>
-                                      <h6
-                                        className="subtitle is-6  "
-                                        id=""
-                                      >
-                                        What is Lorem Ipsum?
-                                      </h6>
-                                    </Component>
-                                    <div
-                                      className="is-flex relative"
-                                    >
-                                      <div
-                                        className="helpguide-component"
-                                      >
-                                        <Component>
-                                          <div>
-                                            <p
-                                              className="mb-5"
-                                            >
-                                              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                                            </p>
-                                            <Component
-                                              onClick={[Function]}
-                                              type="button"
-                                              variant="primary"
-                                            >
-                                              <button
-                                                className="button  is-primary  "
-                                                data-test=""
-                                                disabled={false}
-                                                onClick={[Function]}
-                                                type="button"
-                                              >
-                                                Prev
-                                              </button>
-                                            </Component>
-                                            <Component
-                                              onClick={[Function]}
-                                              type="button"
-                                              variant="primary"
-                                            >
-                                              <button
-                                                className="button  is-primary  "
-                                                data-test=""
-                                                disabled={false}
-                                                onClick={[Function]}
-                                                type="button"
-                                              >
-                                                Next
-                                              </button>
-                                            </Component>
-                                          </div>
-                                        </Component>
-                                      </div>
-                                      <div
-                                        className="helpguide-wrapper-graphic"
-                                      >
-                                        <div
-                                          className="helpguide-graphic"
-                                        >
-                                          <img
-                                            alt="step-1"
-                                            src=""
-                                          />
-                                        </div>
-                                      </div>
-                                    </div>
                                   </div>
-                                </HelpGuideStep>
-                              </div>
-                            </Transition>
-                          </CSSTransition>
-                        </div>
-                      </Component>
-                    </div>
-                  </div>
+                                </div>
+                              </Component>
+                            </div>
+                          </Component>
+                        </HelpGuideStep>
+                      </div>
+                    </Transition>
+                  </CSSTransition>
                 </div>
-              </div>
-            </Component>
+              </Component>
+            </div>
           </Component>
-        </div>
-      </Component>
-    </div>
+        </Component>
+      </div>
+    </Component>
   </Component>
 </Provider>
 `;

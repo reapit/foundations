@@ -19,7 +19,7 @@ export type ClientWelcomeMessageProps = ClientWelcomeMappedActions
 export const Welcome = () => {
   const { goNext, goPrev } = useHelpGuideContext()
   return (
-    <div>
+    <div className={styles.content}>
       <p className="mb-5">
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
         industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
@@ -41,7 +41,7 @@ export const Welcome = () => {
 export const Support = () => {
   const { goPrev } = useHelpGuideContext()
   return (
-    <div>
+    <div className={styles.content}>
       <p className="mb-5">
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
         industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
@@ -143,7 +143,6 @@ export const handleUserAccept = history => () => {
 
 export const handleChangeSteps = (goTo: () => void) => () => {
   goTo()
-  document.getElementById('developer-welcome')?.scrollIntoView({ behavior: 'smooth' })
 }
 
 export const ClientWelcomeMessage: React.FC<ClientWelcomeMessageProps> = () => {
@@ -166,11 +165,9 @@ export const ClientWelcomeMessage: React.FC<ClientWelcomeMessageProps> = () => {
 
   if (!loginSession) return <Loader />
   return (
-    <div id="developer-welcome" className={styles.container}>
-      <FlexContainerResponsive className="welcome-container" flexColumn hasBackground hasPadding>
-        <HelpGuide>{giudeList}</HelpGuide>
-      </FlexContainerResponsive>
-    </div>
+    <FlexContainerResponsive className={styles.container} flexColumn hasBackground hasPadding>
+      <HelpGuide>{giudeList}</HelpGuide>
+    </FlexContainerResponsive>
   )
 }
 

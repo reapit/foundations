@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FlexContainerResponsive, useHelpGuideContext, HelpGuide, Button } from '@reapit/elements'
+import { useHelpGuideContext, HelpGuide, Button } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { history } from '@/core/router'
 import styles from '@/styles/pages/developer-welcome.scss?mod'
@@ -182,52 +182,47 @@ export const handleUserAccept = history => () => {
 
 export const handleChangeSteps = (goTo: () => void) => () => {
   goTo()
-  document.getElementById('developer-welcome')?.scrollIntoView({ behavior: 'smooth' })
 }
 
 export const DeveloperWelcomeMessage: React.FC<DeveloperWelcomeMessageProps> = () => {
   return (
-    <div id="developer-welcome" className={styles.container}>
-      <FlexContainerResponsive className="welcome-container" flexColumn hasBackground hasPadding>
-        <HelpGuide>
-          <HelpGuide.Step
-            id="step-1"
-            component={Welcome}
-            heading="Welcome to Reapit Foundations"
-            subHeading="Let’s get started."
-            graphic={<img className={styles.graphic} alt="step-1" src={Step1} />}
-          />
-          <HelpGuide.Step
-            id="step-2"
-            component={Documentation}
-            heading="Documentation"
-            subHeading="We’ve got you covered."
-            graphic={<img className={styles.graphic} alt="step-2" src={Step2} />}
-          />
-          <HelpGuide.Step
-            id="step-3"
-            component={Submitting}
-            heading="Submitting an App"
-            subHeading="Nearly there."
-            graphic={<img className={styles.graphic} alt="step-3" src={Step3} />}
-          />
-          <HelpGuide.Step
-            id="step-4"
-            component={Managing}
-            heading="Managing your App"
-            subHeading="Installations and changes."
-            graphic={<img className={styles.graphic} alt="step-4" src={Step4} />}
-          />
-          <HelpGuide.Step
-            id="step-5"
-            render={<Support />}
-            heading="On going support"
-            subHeading="We’re here to help."
-            graphic={<img className={styles.graphic} alt="step-5" src={Step5} />}
-          />
-        </HelpGuide>
-      </FlexContainerResponsive>
-    </div>
+    <HelpGuide>
+      <HelpGuide.Step
+        id="step-1"
+        component={Welcome}
+        heading="Welcome to Reapit Foundations"
+        subHeading="Let’s get started."
+        graphic={<img className={styles.graphic} alt="step-1" src={Step1} />}
+      />
+      <HelpGuide.Step
+        id="step-2"
+        component={Documentation}
+        heading="Documentation"
+        subHeading="We’ve got you covered."
+        graphic={<img className={styles.graphic} alt="step-2" src={Step2} />}
+      />
+      <HelpGuide.Step
+        id="step-3"
+        component={Submitting}
+        heading="Submitting an App"
+        subHeading="Nearly there."
+        graphic={<img className={styles.graphic} alt="step-3" src={Step3} />}
+      />
+      <HelpGuide.Step
+        id="step-4"
+        component={Managing}
+        heading="Managing your App"
+        subHeading="Installations and changes."
+        graphic={<img className={styles.graphic} alt="step-4" src={Step4} />}
+      />
+      <HelpGuide.Step
+        id="step-5"
+        component={Support}
+        heading="On going support"
+        subHeading="We’re here to help."
+        graphic={<img className={styles.graphic} alt="step-5" src={Step5} />}
+      />
+    </HelpGuide>
   )
 }
 
