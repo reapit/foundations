@@ -312,78 +312,67 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
 
   return (
     <>
-      <Section>{isSubmitApp ? <H3 className="mb-0">Submit App</H3> : <H3 className="mb-0">Edit App</H3>}</Section>
-
+      <Section>
+        <H3 className="mb-0">Edit App</H3>
+      </Section>
       <Formik
-        validationSchema={submitAppValidationSchema}
-        // TODO: change to Yup schema to validate after split Submit/Edit App
-        validate={handleBeforeSubmit(validate, setIsSubmitModalOpen)}
+        validationSchema={validationSchemaSubmitRevision}
         initialValues={initialValues}
-        onSubmit={handleSubmitApp(appId, dispatch)}
+        onSubmit={handleSubmitApp({ appId, dispatch })}
       >
-        <FlexContainerResponsive flexColumn hasBackground hasPadding>
-          <H3>Edit App</H3>
-          <Formik
-            validationSchema={validationSchemaSubmitRevision}
-            initialValues={initialValues}
-            onSubmit={handleSubmitApp({ appId, dispatch })}
-          >
-            {({ setFieldValue, values, errors }) => {
-              const { authFlow, isPrivateApp } = values
-              return (
-                <Form noValidate={true}>
-                  <GeneralInformationSection />
-                  <AgencyCloudIntegrationSection />
-                  <AuthenticationFlowSection authFlow={authFlow} setFieldValue={setFieldValue} />
-                  <RedirectUriSection authFlow={authFlow} isPrivateApp={isPrivateApp} setFieldValue={setFieldValue} />
-                  <UploadImageSection />
-                  <MarketplaceStatusSection />
-                  <PermissionSection scopes={scopes} errors={errors} />
-                  <FormSection>
-                    {renderErrors((errors as unknown) as Record<string, string | string[]>)}
-                    <LevelRight>
-                      <Grid className={styles.footerButtons}>
-                        <Button
-                          onClick={handleOpenAppPreview({
-                            appDetails: appDetailState?.appDetailData?.data,
-                            values,
-                            scopes,
-                            categories: appCategories,
-                            appId: appid,
-                          })}
-                          variant="primary"
-                          type="button"
-                        >
-                          Preview
-                        </Button>
-                        <Button onClick={goBackToApps} variant="primary" type="button">
-                          Back To Apps
-                        </Button>
-                        <Button
-                          type="submit"
-                          dataTest="submit-app-button"
-                          variant="primary"
-                          loading={Boolean(isSubmitting)}
-                          disabled={Boolean(isSubmitting)}
-                        >
-                          Submit App
-                        </Button>
-                      </Grid>
-                    </LevelRight>
-                  </FormSection>
-                  <Input
-                    dataTest="submit-app-developer-id"
-                    type="hidden"
-                    labelText={formFields.developerId.label as string}
-                    id={formFields.developerId.name}
-                    name={formFields.developerId.name}
-                  />
-                </Form>
-              )
-            }}
-          </Formik>
-        </FlexContainerResponsive>
-      </FlexContainerBasic>
+        {({ setFieldValue, values, errors }) => {
+          const { authFlow, isPrivateApp } = values
+          return (
+            <Form noValidate={true}>
+              <GeneralInformationSection />
+              <AgencyCloudIntegrationSection />
+              <AuthenticationFlowSection authFlow={authFlow} setFieldValue={setFieldValue} />
+              <RedirectUriSection authFlow={authFlow} isPrivateApp={isPrivateApp} setFieldValue={setFieldValue} />
+              <UploadImageSection />
+              <MarketplaceStatusSection />
+              <PermissionSection scopes={scopes} errors={errors} />
+
+              {renderErrors((errors as unknown) as Record<string, string | string[]>)}
+              <LevelRight>
+                <Grid className={styles.footerButtons}>
+                  <Button
+                    onClick={handleOpenAppPreview({
+                      appDetails: appDetailState?.appDetailData?.data,
+                      values,
+                      scopes,
+                      categories: appCategories,
+                      appId: appid,
+                    })}
+                    variant="primary"
+                    type="button"
+                  >
+                    Preview
+                  </Button>
+                  <Button onClick={goBackToApps} variant="primary" type="button">
+                    Back To Apps
+                  </Button>
+                  <Button
+                    type="submit"
+                    dataTest="submit-app-button"
+                    variant="primary"
+                    loading={Boolean(isSubmitting)}
+                    disabled={Boolean(isSubmitting)}
+                  >
+                    Submit App
+                  </Button>
+                </Grid>
+              </LevelRight>
+              <Input
+                dataTest="submit-app-developer-id"
+                type="hidden"
+                labelText={formFields.developerId.label as string}
+                id={formFields.developerId.name}
+                name={formFields.developerId.name}
+              />
+            </Form>
+          )
+        }}
+      </Formik>
     </>
   )
 }
