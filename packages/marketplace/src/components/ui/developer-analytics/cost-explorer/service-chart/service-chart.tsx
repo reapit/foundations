@@ -12,6 +12,12 @@ import { Dispatch } from 'redux'
 import { BillingOverviewForPeriodV2Model } from '@reapit/foundations-ts-definitions'
 import { selectDeveloperId } from '@/selector/auth'
 
+const API_CALL_INDEX = 0
+const APP_LISTING_INDEX = 1
+const DEVELOPER_EDITTION_INDEX = 2
+const REAPIT_CONNECT_INDEX = 3
+const DEVELOPER_REGISTRATION_INDEX = 4
+
 export const datasets = [
   {
     label: 'API Calls',
@@ -85,22 +91,17 @@ export const mapServiceChartDataSet = (billing: BillingOverviewForPeriodV2Model 
     const reapitConnectData = services.find(service => service.name === 'Reapit Connect')?.cost || 0
     const developerRegistrationData = services.find(service => service.name === 'Developer Registration')?.cost || 0
 
-    clonedDataSet[0].totalCost += apiCallsData
-    clonedDataSet[1].totalCost += appListingData
-    clonedDataSet[2].totalCost += developerEditionData
-    clonedDataSet[3].totalCost += reapitConnectData
-    clonedDataSet[4].totalCost += developerRegistrationData
+    clonedDataSet[API_CALL_INDEX].totalCost += apiCallsData
+    clonedDataSet[APP_LISTING_INDEX].totalCost += appListingData
+    clonedDataSet[DEVELOPER_EDITTION_INDEX].totalCost += developerEditionData
+    clonedDataSet[REAPIT_CONNECT_INDEX].totalCost += reapitConnectData
+    clonedDataSet[DEVELOPER_REGISTRATION_INDEX].totalCost += developerRegistrationData
 
-    // api calls
-    clonedDataSet[0].data.push(apiCallsData)
-    // app listing
-    clonedDataSet[1].data.push(appListingData)
-    // developer edition
-    clonedDataSet[2].data.push(developerEditionData)
-    //Reapit Connect
-    clonedDataSet[3].data.push(reapitConnectData)
-    //Developer Registration'
-    clonedDataSet[4].data.push(developerRegistrationData)
+    clonedDataSet[API_CALL_INDEX].data.push(apiCallsData)
+    clonedDataSet[APP_LISTING_INDEX].data.push(appListingData)
+    clonedDataSet[DEVELOPER_EDITTION_INDEX].data.push(developerEditionData)
+    clonedDataSet[REAPIT_CONNECT_INDEX].data.push(reapitConnectData)
+    clonedDataSet[DEVELOPER_REGISTRATION_INDEX].data.push(developerRegistrationData)
   })
 
   const sevicesHasCost = clonedDataSet.filter(dataset => dataset.totalCost)
