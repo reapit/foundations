@@ -59,7 +59,7 @@ const CostExplorer: React.FC<CostExplorerProps> = () => {
   const onSave = React.useCallback(handleOnSave({ setCreatedMonth, dispatch, developerId }), [developerId, dispatch])
 
   return (
-    <Section>
+    <Section hasMargin={false}>
       <H5>Cost Explorer: Cost & Usage</H5>
       <Grid>
         <GridItem className="is-half-desktop">

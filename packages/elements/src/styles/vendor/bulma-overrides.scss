@@ -21,7 +21,8 @@ html {
   }
 }
 
-.title, .subtitle {
+.title,
+.subtitle {
   &.mb-2 {
     margin-bottom: 0.5rem;
   }
@@ -337,10 +338,9 @@ span.number.token {
 }
 
 .section {
-  padding: 1rem;
-  margin-bottom: 1rem;
-  background: $white;
   width: 100%;
+  padding: 0;
+  margin: 0;
 
   &.is-flex {
     display: flex;
@@ -367,5 +367,17 @@ span.number.token {
 
   &.is-flex-column {
     flex-direction: column;
+  }
+
+  &.has-background {
+    background: $white;
+  }
+
+  &.has-margin {
+    margin-bottom: 1rem;
+  }
+
+  &.has-padding {
+    padding: 1rem;
   }
 }

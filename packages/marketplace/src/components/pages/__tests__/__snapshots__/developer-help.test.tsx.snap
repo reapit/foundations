@@ -14,445 +14,441 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
   }
 >
   <Component>
-    <Component
-      hasPadding={true}
-    >
-      <div
-        className=" container-flex    has-padding  "
+    <Component>
+      <section
+        className=""
+        data-test=""
       >
         <Component
-          flexColumn={true}
-          hasBackground={true}
-          hasPadding={true}
+          className="mb-0"
         >
-          <div
-            className="container is-column  has-background has-padding  "
+          <h3
+            className="title is-3 mb-0 "
+            id=""
           >
-            <div>
-              <Component>
-                <h3
-                  className="title is-3  "
-                  id=""
+            Help
+          </h3>
+        </Component>
+      </section>
+    </Component>
+    <Component>
+      <section
+        className=""
+        data-test=""
+      >
+        <Component
+          items={
+            Array [
+              Object {
+                "buttonOnClick": [Function],
+                "buttonText": "VIEW",
+                "header": "Welcome Guide",
+                "imgSrc": "",
+                "text": "Need a little help? Have a look through the Welcome Guide, which we’ve put
+      together to help you navigate through your Developer portal.",
+              },
+              Object {
+                "buttonOnClick": [Function],
+                "buttonText": "REQUEST",
+                "header": "Request a Feature",
+                "imgSrc": "",
+                "text": "Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will
+      look at all requests carefully however, we cannot guarantee all will be implemented.",
+              },
+              Object {
+                "buttonOnClick": [Function],
+                "buttonText": "REPORT",
+                "header": "Report a Bug",
+                "imgSrc": "",
+                "text": "Please report details of any bugs in relation to the Reapit Developer portal or Reapit Foundations API here. ",
+              },
+              Object {
+                "buttonOnClick": [Function],
+                "buttonText": "VIEW",
+                "header": "Roadmap",
+                "imgSrc": "",
+                "text": "Want to see what we are building or check on the progress of your feature requests?
+      You can see our product roadmap milestones here. ",
+              },
+              Object {
+                "buttonOnClick": [Function],
+                "buttonText": "START CHAT",
+                "header": "Need Help?",
+                "imgSrc": "",
+                "text": "If you need any support, we are here to help. Why not talk to one of our Developers or Product Owners directly.",
+              },
+              Object {
+                "buttonOnClick": [Function],
+                "buttonText": "VIEW",
+                "header": "What’s New",
+                "imgSrc": "",
+                "text": "We are constantly working to improve your experience with the Foundations Platform. Have a look to see what
+      new features and fixes have been released.",
+              },
+            ]
+          }
+        >
+          <Component>
+            <div
+              className="columns is-multiline "
+              data-test=""
+            >
+              <Component
+                key="Welcome Guide"
+              >
+                <div
+                  className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                  data-test=""
                 >
-                  Help
-                </h3>
+                  <Component
+                    centerContent={true}
+                    flexColumn={true}
+                    hasPadding={true}
+                  >
+                    <div
+                      className=" container-flex is-column is-centered  has-padding  "
+                    >
+                      <div>
+                        <img
+                          alt="Welcome Guide"
+                          src=""
+                        />
+                      </div>
+                      <Component
+                        isCentered={true}
+                      >
+                        <h4
+                          className="title is-4  has-text-centered"
+                          id=""
+                        >
+                          Welcome Guide
+                        </h4>
+                      </Component>
+                      <p>
+                        Need a little help? Have a look through the Welcome Guide, which we’ve put
+      together to help you navigate through your Developer portal.
+                      </p>
+                      <p>
+                        <Component
+                          disabled={false}
+                          fullWidth={false}
+                          loading={false}
+                          onClick={[Function]}
+                          type="button"
+                          variant="primary"
+                        >
+                          <button
+                            className="button  is-primary  "
+                            data-test=""
+                            disabled={false}
+                            onClick={[Function]}
+                            type="button"
+                          >
+                            VIEW
+                          </button>
+                        </Component>
+                      </p>
+                    </div>
+                  </Component>
+                </div>
               </Component>
               <Component
-                items={
-                  Array [
-                    Object {
-                      "buttonOnClick": [Function],
-                      "buttonText": "VIEW",
-                      "header": "Welcome Guide",
-                      "imgSrc": "",
-                      "text": "Need a little help? Have a look through the Welcome Guide, which we’ve put
-      together to help you navigate through your Developer portal.",
-                    },
-                    Object {
-                      "buttonOnClick": [Function],
-                      "buttonText": "REQUEST",
-                      "header": "Request a Feature",
-                      "imgSrc": "",
-                      "text": "Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will
-      look at all requests carefully however, we cannot guarantee all will be implemented.",
-                    },
-                    Object {
-                      "buttonOnClick": [Function],
-                      "buttonText": "REPORT",
-                      "header": "Report a Bug",
-                      "imgSrc": "",
-                      "text": "Please report details of any bugs in relation to the Reapit Developer portal or Reapit Foundations API here. ",
-                    },
-                    Object {
-                      "buttonOnClick": [Function],
-                      "buttonText": "VIEW",
-                      "header": "Roadmap",
-                      "imgSrc": "",
-                      "text": "Want to see what we are building or check on the progress of your feature requests?
-      You can see our product roadmap milestones here. ",
-                    },
-                    Object {
-                      "buttonOnClick": [Function],
-                      "buttonText": "START CHAT",
-                      "header": "Need Help?",
-                      "imgSrc": "",
-                      "text": "If you need any support, we are here to help. Why not talk to one of our Developers or Product Owners directly.",
-                    },
-                    Object {
-                      "buttonOnClick": [Function],
-                      "buttonText": "VIEW",
-                      "header": "What’s New",
-                      "imgSrc": "",
-                      "text": "We are constantly working to improve your experience with the Foundations Platform. Have a look to see what
-      new features and fixes have been released.",
-                    },
-                  ]
-                }
+                key="Request a Feature"
               >
-                <Component>
-                  <div
-                    className="columns is-multiline "
-                    data-test=""
+                <div
+                  className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                  data-test=""
+                >
+                  <Component
+                    centerContent={true}
+                    flexColumn={true}
+                    hasPadding={true}
                   >
-                    <Component
-                      key="Welcome Guide"
+                    <div
+                      className=" container-flex is-column is-centered  has-padding  "
                     >
-                      <div
-                        className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
-                        data-test=""
-                      >
-                        <Component
-                          centerContent={true}
-                          flexColumn={true}
-                          hasPadding={true}
-                        >
-                          <div
-                            className=" container-flex is-column is-centered  has-padding  "
-                          >
-                            <div>
-                              <img
-                                alt="Welcome Guide"
-                                src=""
-                              />
-                            </div>
-                            <Component
-                              isCentered={true}
-                            >
-                              <h4
-                                className="title is-4  has-text-centered"
-                                id=""
-                              >
-                                Welcome Guide
-                              </h4>
-                            </Component>
-                            <p>
-                              Need a little help? Have a look through the Welcome Guide, which we’ve put
-      together to help you navigate through your Developer portal.
-                            </p>
-                            <p>
-                              <Component
-                                disabled={false}
-                                fullWidth={false}
-                                loading={false}
-                                onClick={[Function]}
-                                type="button"
-                                variant="primary"
-                              >
-                                <button
-                                  className="button  is-primary  "
-                                  data-test=""
-                                  disabled={false}
-                                  onClick={[Function]}
-                                  type="button"
-                                >
-                                  VIEW
-                                </button>
-                              </Component>
-                            </p>
-                          </div>
-                        </Component>
+                      <div>
+                        <img
+                          alt="Request a Feature"
+                          src=""
+                        />
                       </div>
-                    </Component>
-                    <Component
-                      key="Request a Feature"
-                    >
-                      <div
-                        className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
-                        data-test=""
+                      <Component
+                        isCentered={true}
                       >
-                        <Component
-                          centerContent={true}
-                          flexColumn={true}
-                          hasPadding={true}
+                        <h4
+                          className="title is-4  has-text-centered"
+                          id=""
                         >
-                          <div
-                            className=" container-flex is-column is-centered  has-padding  "
-                          >
-                            <div>
-                              <img
-                                alt="Request a Feature"
-                                src=""
-                              />
-                            </div>
-                            <Component
-                              isCentered={true}
-                            >
-                              <h4
-                                className="title is-4  has-text-centered"
-                                id=""
-                              >
-                                Request a Feature
-                              </h4>
-                            </Component>
-                            <p>
-                              Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will
+                          Request a Feature
+                        </h4>
+                      </Component>
+                      <p>
+                        Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will
       look at all requests carefully however, we cannot guarantee all will be implemented.
-                            </p>
-                            <p>
-                              <Component
-                                disabled={false}
-                                fullWidth={false}
-                                loading={false}
-                                onClick={[Function]}
-                                type="button"
-                                variant="primary"
-                              >
-                                <button
-                                  className="button  is-primary  "
-                                  data-test=""
-                                  disabled={false}
-                                  onClick={[Function]}
-                                  type="button"
-                                >
-                                  REQUEST
-                                </button>
-                              </Component>
-                            </p>
-                          </div>
-                        </Component>
-                      </div>
-                    </Component>
-                    <Component
-                      key="Report a Bug"
-                    >
-                      <div
-                        className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
-                        data-test=""
-                      >
+                      </p>
+                      <p>
                         <Component
-                          centerContent={true}
-                          flexColumn={true}
-                          hasPadding={true}
+                          disabled={false}
+                          fullWidth={false}
+                          loading={false}
+                          onClick={[Function]}
+                          type="button"
+                          variant="primary"
                         >
-                          <div
-                            className=" container-flex is-column is-centered  has-padding  "
+                          <button
+                            className="button  is-primary  "
+                            data-test=""
+                            disabled={false}
+                            onClick={[Function]}
+                            type="button"
                           >
-                            <div>
-                              <img
-                                alt="Report a Bug"
-                                src=""
-                              />
-                            </div>
-                            <Component
-                              isCentered={true}
-                            >
-                              <h4
-                                className="title is-4  has-text-centered"
-                                id=""
-                              >
-                                Report a Bug
-                              </h4>
-                            </Component>
-                            <p>
-                              Please report details of any bugs in relation to the Reapit Developer portal or Reapit Foundations API here. 
-                            </p>
-                            <p>
-                              <Component
-                                disabled={false}
-                                fullWidth={false}
-                                loading={false}
-                                onClick={[Function]}
-                                type="button"
-                                variant="primary"
-                              >
-                                <button
-                                  className="button  is-primary  "
-                                  data-test=""
-                                  disabled={false}
-                                  onClick={[Function]}
-                                  type="button"
-                                >
-                                  REPORT
-                                </button>
-                              </Component>
-                            </p>
-                          </div>
+                            REQUEST
+                          </button>
                         </Component>
-                      </div>
-                    </Component>
-                    <Component
-                      key="Roadmap"
+                      </p>
+                    </div>
+                  </Component>
+                </div>
+              </Component>
+              <Component
+                key="Report a Bug"
+              >
+                <div
+                  className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                  data-test=""
+                >
+                  <Component
+                    centerContent={true}
+                    flexColumn={true}
+                    hasPadding={true}
+                  >
+                    <div
+                      className=" container-flex is-column is-centered  has-padding  "
                     >
-                      <div
-                        className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
-                        data-test=""
+                      <div>
+                        <img
+                          alt="Report a Bug"
+                          src=""
+                        />
+                      </div>
+                      <Component
+                        isCentered={true}
                       >
-                        <Component
-                          centerContent={true}
-                          flexColumn={true}
-                          hasPadding={true}
+                        <h4
+                          className="title is-4  has-text-centered"
+                          id=""
                         >
-                          <div
-                            className=" container-flex is-column is-centered  has-padding  "
+                          Report a Bug
+                        </h4>
+                      </Component>
+                      <p>
+                        Please report details of any bugs in relation to the Reapit Developer portal or Reapit Foundations API here. 
+                      </p>
+                      <p>
+                        <Component
+                          disabled={false}
+                          fullWidth={false}
+                          loading={false}
+                          onClick={[Function]}
+                          type="button"
+                          variant="primary"
+                        >
+                          <button
+                            className="button  is-primary  "
+                            data-test=""
+                            disabled={false}
+                            onClick={[Function]}
+                            type="button"
                           >
-                            <div>
-                              <img
-                                alt="Roadmap"
-                                src=""
-                              />
-                            </div>
-                            <Component
-                              isCentered={true}
-                            >
-                              <h4
-                                className="title is-4  has-text-centered"
-                                id=""
-                              >
-                                Roadmap
-                              </h4>
-                            </Component>
-                            <p>
-                              Want to see what we are building or check on the progress of your feature requests?
+                            REPORT
+                          </button>
+                        </Component>
+                      </p>
+                    </div>
+                  </Component>
+                </div>
+              </Component>
+              <Component
+                key="Roadmap"
+              >
+                <div
+                  className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                  data-test=""
+                >
+                  <Component
+                    centerContent={true}
+                    flexColumn={true}
+                    hasPadding={true}
+                  >
+                    <div
+                      className=" container-flex is-column is-centered  has-padding  "
+                    >
+                      <div>
+                        <img
+                          alt="Roadmap"
+                          src=""
+                        />
+                      </div>
+                      <Component
+                        isCentered={true}
+                      >
+                        <h4
+                          className="title is-4  has-text-centered"
+                          id=""
+                        >
+                          Roadmap
+                        </h4>
+                      </Component>
+                      <p>
+                        Want to see what we are building or check on the progress of your feature requests?
       You can see our product roadmap milestones here. 
-                            </p>
-                            <p>
-                              <Component
-                                disabled={false}
-                                fullWidth={false}
-                                loading={false}
-                                onClick={[Function]}
-                                type="button"
-                                variant="primary"
-                              >
-                                <button
-                                  className="button  is-primary  "
-                                  data-test=""
-                                  disabled={false}
-                                  onClick={[Function]}
-                                  type="button"
-                                >
-                                  VIEW
-                                </button>
-                              </Component>
-                            </p>
-                          </div>
-                        </Component>
-                      </div>
-                    </Component>
-                    <Component
-                      key="Need Help?"
-                    >
-                      <div
-                        className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
-                        data-test=""
-                      >
+                      </p>
+                      <p>
                         <Component
-                          centerContent={true}
-                          flexColumn={true}
-                          hasPadding={true}
+                          disabled={false}
+                          fullWidth={false}
+                          loading={false}
+                          onClick={[Function]}
+                          type="button"
+                          variant="primary"
                         >
-                          <div
-                            className=" container-flex is-column is-centered  has-padding  "
+                          <button
+                            className="button  is-primary  "
+                            data-test=""
+                            disabled={false}
+                            onClick={[Function]}
+                            type="button"
                           >
-                            <div>
-                              <img
-                                alt="Need Help?"
-                                src=""
-                              />
-                            </div>
-                            <Component
-                              isCentered={true}
-                            >
-                              <h4
-                                className="title is-4  has-text-centered"
-                                id=""
-                              >
-                                Need Help?
-                              </h4>
-                            </Component>
-                            <p>
-                              If you need any support, we are here to help. Why not talk to one of our Developers or Product Owners directly.
-                            </p>
-                            <p>
-                              <Component
-                                disabled={false}
-                                fullWidth={false}
-                                loading={false}
-                                onClick={[Function]}
-                                type="button"
-                                variant="primary"
-                              >
-                                <button
-                                  className="button  is-primary  "
-                                  data-test=""
-                                  disabled={false}
-                                  onClick={[Function]}
-                                  type="button"
-                                >
-                                  START CHAT
-                                </button>
-                              </Component>
-                            </p>
-                          </div>
+                            VIEW
+                          </button>
                         </Component>
-                      </div>
-                    </Component>
-                    <Component
-                      key="What’s New"
+                      </p>
+                    </div>
+                  </Component>
+                </div>
+              </Component>
+              <Component
+                key="Need Help?"
+              >
+                <div
+                  className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                  data-test=""
+                >
+                  <Component
+                    centerContent={true}
+                    flexColumn={true}
+                    hasPadding={true}
+                  >
+                    <div
+                      className=" container-flex is-column is-centered  has-padding  "
                     >
-                      <div
-                        className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
-                        data-test=""
+                      <div>
+                        <img
+                          alt="Need Help?"
+                          src=""
+                        />
+                      </div>
+                      <Component
+                        isCentered={true}
                       >
-                        <Component
-                          centerContent={true}
-                          flexColumn={true}
-                          hasPadding={true}
+                        <h4
+                          className="title is-4  has-text-centered"
+                          id=""
                         >
-                          <div
-                            className=" container-flex is-column is-centered  has-padding  "
+                          Need Help?
+                        </h4>
+                      </Component>
+                      <p>
+                        If you need any support, we are here to help. Why not talk to one of our Developers or Product Owners directly.
+                      </p>
+                      <p>
+                        <Component
+                          disabled={false}
+                          fullWidth={false}
+                          loading={false}
+                          onClick={[Function]}
+                          type="button"
+                          variant="primary"
+                        >
+                          <button
+                            className="button  is-primary  "
+                            data-test=""
+                            disabled={false}
+                            onClick={[Function]}
+                            type="button"
                           >
-                            <div>
-                              <img
-                                alt="What’s New"
-                                src=""
-                              />
-                            </div>
-                            <Component
-                              isCentered={true}
-                            >
-                              <h4
-                                className="title is-4  has-text-centered"
-                                id=""
-                              >
-                                What’s New
-                              </h4>
-                            </Component>
-                            <p>
-                              We are constantly working to improve your experience with the Foundations Platform. Have a look to see what
+                            START CHAT
+                          </button>
+                        </Component>
+                      </p>
+                    </div>
+                  </Component>
+                </div>
+              </Component>
+              <Component
+                key="What’s New"
+              >
+                <div
+                  className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                  data-test=""
+                >
+                  <Component
+                    centerContent={true}
+                    flexColumn={true}
+                    hasPadding={true}
+                  >
+                    <div
+                      className=" container-flex is-column is-centered  has-padding  "
+                    >
+                      <div>
+                        <img
+                          alt="What’s New"
+                          src=""
+                        />
+                      </div>
+                      <Component
+                        isCentered={true}
+                      >
+                        <h4
+                          className="title is-4  has-text-centered"
+                          id=""
+                        >
+                          What’s New
+                        </h4>
+                      </Component>
+                      <p>
+                        We are constantly working to improve your experience with the Foundations Platform. Have a look to see what
       new features and fixes have been released.
-                            </p>
-                            <p>
-                              <Component
-                                disabled={false}
-                                fullWidth={false}
-                                loading={false}
-                                onClick={[Function]}
-                                type="button"
-                                variant="primary"
-                              >
-                                <button
-                                  className="button  is-primary  "
-                                  data-test=""
-                                  disabled={false}
-                                  onClick={[Function]}
-                                  type="button"
-                                >
-                                  VIEW
-                                </button>
-                              </Component>
-                            </p>
-                          </div>
+                      </p>
+                      <p>
+                        <Component
+                          disabled={false}
+                          fullWidth={false}
+                          loading={false}
+                          onClick={[Function]}
+                          type="button"
+                          variant="primary"
+                        >
+                          <button
+                            className="button  is-primary  "
+                            data-test=""
+                            disabled={false}
+                            onClick={[Function]}
+                            type="button"
+                          >
+                            VIEW
+                          </button>
                         </Component>
-                      </div>
-                    </Component>
-                  </div>
-                </Component>
+                      </p>
+                    </div>
+                  </Component>
+                </div>
               </Component>
             </div>
-          </div>
+          </Component>
         </Component>
-      </div>
+      </section>
     </Component>
   </Component>
 </Provider>

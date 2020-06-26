@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FormSection, Form, Grid, GridItem, Formik, LevelRight, Button } from '@reapit/elements'
+import { FormSection, Form, Grid, GridItem, Formik, LevelRight, Button, H5 } from '@reapit/elements'
 import ReapitReferenceSection from './reapit-reference-section'
 import DirectDebitSection from './direct-debit-section'
 import ContactInformationSection from './contact-information-section'
@@ -40,6 +40,7 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
         return (
           <Form>
             <FormSection>
+              <H5>Accounts Information</H5>
               <Grid>
                 <GridItem>
                   <ContactInformationSection />

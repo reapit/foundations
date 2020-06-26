@@ -1,6 +1,6 @@
 import * as React from 'react'
 import dayjs from 'dayjs'
-import { Button, ButtonGroup, H6, DATE_TIME_FORMAT, Content, FlexContainerBasic } from '@reapit/elements'
+import { Button, ButtonGroup, H6, DATE_TIME_FORMAT, Section } from '@reapit/elements'
 
 export type DefaultFilterGroupProps = {
   appIds: string[]
@@ -131,24 +131,22 @@ export const DefaultFilterGroup: React.FC<DefaultFilterGroupProps> = ({ setDateF
   const onFilterButtonClick = React.useCallback(handleFilterButtonClick, [])
 
   return (
-    <Content>
-      <FlexContainerBasic className="items-start" flexColumn>
-        <H6 className="mb-2">Filter by</H6>
-        <ButtonGroup>
-          {filterButtons.map(button => {
-            return renderFiterButtons(
-              button.text,
-              button.filterType,
-              isActive,
-              onFilterButtonClick,
-              setDateFrom,
-              setDateTo,
-              setIsActive,
-            )
-          })}
-        </ButtonGroup>
-      </FlexContainerBasic>
-    </Content>
+    <Section className="items-start" isFlex isFlexColumn hasBackground={false} hasPadding={false}>
+      <H6 className="mb-2">Filter by</H6>
+      <ButtonGroup>
+        {filterButtons.map(button => {
+          return renderFiterButtons(
+            button.text,
+            button.filterType,
+            isActive,
+            onFilterButtonClick,
+            setDateFrom,
+            setDateTo,
+            setIsActive,
+          )
+        })}
+      </ButtonGroup>
+    </Section>
   )
 }
 

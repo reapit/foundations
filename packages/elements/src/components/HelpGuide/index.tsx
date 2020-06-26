@@ -1,6 +1,6 @@
 import React from 'react'
 import { HelpGuideContextValues, HelpGuideContextProvider } from './context'
-import { Section, FlexContainerResponsive } from '../Layout'
+import { Section } from '../Layout'
 import { VerticalTimeline } from './vertical-timeline'
 import { SubTitleH6, H3 } from '../Typography'
 import { isMobile } from '../../utils/device-detection/device-detection'
@@ -90,7 +90,7 @@ export const HelpGuide = ({ children, current = 0, isLoading = false }: HelpGuid
 
   return (
     <HelpGuideContextProvider value={value}>
-      <Section className={helpGuide} isFlex isFlexColumn={isMobileScreen}>
+      <Section className={helpGuide} hasMargin={false} isFlex isFlexColumn={isMobileScreen}>
         {renderTimeline({ total, currentStep, isMobileScreen, goTo })}
         <Fade in={!isExit} timeout={300} unmountOnExit>
           <>{children[currentStep]}</>
@@ -103,12 +103,14 @@ export const HelpGuide = ({ children, current = 0, isLoading = false }: HelpGuid
 function HelpGuideStep({ component: Component, heading, subHeading, graphic }: HelpGuideStepProps) {
   return (
     <>
-      <H3>{heading}</H3>
-      <SubTitleH6>{subHeading}</SubTitleH6>
-      <FlexContainerResponsive>
+      <Section hasMargin={false}>
+        <H3>{heading}</H3>
+        <SubTitleH6>{subHeading}</SubTitleH6>
+      </Section>
+      <Section isFlex hasMargin={false}>
         {Component ? <Component /> : null}
         {!isMobile() && graphic && <div className={helpGuideImage}>{graphic}</div>}
-      </FlexContainerResponsive>
+      </Section>
     </>
   )
 }

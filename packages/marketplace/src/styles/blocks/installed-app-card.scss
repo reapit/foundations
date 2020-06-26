@@ -19,7 +19,6 @@ $icon-height: 80px;
   width: $icon-width;
   height: $icon-height;
   cursor: pointer;
-  border-radius: 15px;
   background-color: #ffffff;
   display: flex;
   justify-content: center;
@@ -50,5 +49,5 @@ $icon-height: 80px;
   max-width: 700px;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 72px;
+  height: 4.5rem;
 }

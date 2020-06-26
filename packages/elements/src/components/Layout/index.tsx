@@ -25,6 +25,9 @@ export interface SectionProps extends LayoutProps {
   isAlignedEnd?: boolean
   isAlignedStart?: boolean
   isFlexColumn?: boolean
+  hasPadding?: boolean
+  hasMargin?: boolean
+  hasBackground?: boolean
 }
 
 export const FlexContainerResponsive: React.SFC<FlexContainerProps> = ({
@@ -141,6 +144,9 @@ export const Section: React.SFC<SectionProps> = ({
   children,
   className = '',
   dataTest = '',
+  hasPadding = true,
+  hasMargin = true,
+  hasBackground = true,
 }) => (
   <section
     className={cx(
@@ -151,6 +157,9 @@ export const Section: React.SFC<SectionProps> = ({
       isAlignedEnd && 'is-aligned-end',
       isAlignedStart && 'is-aligned-start',
       isFlexColumn && 'is-flex-column',
+      hasPadding && 'has-padding',
+      hasMargin && 'has-margin',
+      hasBackground && 'has-background',
     )}
     data-test={dataTest}
   >

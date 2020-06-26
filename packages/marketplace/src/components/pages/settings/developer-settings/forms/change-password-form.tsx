@@ -4,7 +4,7 @@ import {
   FlexContainerResponsive,
   GridItem,
   FormSection,
-  FormHeading,
+  H5,
   FormSubHeading,
   Grid,
   Input,
@@ -29,7 +29,7 @@ export const ChangePasswordForm: React.FC<ChangePasswordFormProps> = ({
   return (
     <FormSection>
       <Form>
-        <FormHeading>Change password</FormHeading>
+        <H5>Change password</H5>
         <FormSubHeading>
           Please complete the following fields to change your password. You will be automatically logged out for the
           changes to be applied

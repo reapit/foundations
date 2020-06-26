@@ -28,7 +28,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
             data-test="submit-app-form"
           >
             <div
-              className="form-section mb-4 "
+              className="form-section "
             >
               <Component>
                 <div

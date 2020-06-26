@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InstallationTable should match snapshot 1`] = `
-<Component>
+<Fragment>
   <Component
     isMultiLine={true}
   >
@@ -15,106 +15,117 @@ exports[`InstallationTable should match snapshot 1`] = `
     <Component
       className="is-half"
     >
-      <Component>
-        Current Installations
-      </Component>
-      <p
-        className="is-italic"
-      >
-        The installations table below shows the individual installations per client with a total number of installations per app
-      </p>
-      <br />
       <Component
-        bordered={true}
-        columns={
-          Array [
-            Object {
-              "Header": "App Name",
-              "accessor": "appName",
-            },
-            Object {
-              "Header": "Installations",
-              "accessor": "installation",
-            },
-          ]
-        }
-        data={
-          Array [
-            Object {
-              "appName": "test",
-              "installation": 0,
-            },
-            Object {
-              "appName": "asd",
-              "installation": 0,
-            },
-          ]
-        }
-        loading={false}
-        scrollable={true}
-      />
+        hasMargin={false}
+      >
+        <Component>
+          Current Installations
+        </Component>
+        <p
+          className="is-italic"
+        >
+          The installations table below shows the individual installations per client with a total number of installations per app
+        </p>
+        <br />
+        <Component
+          bordered={true}
+          columns={
+            Array [
+              Object {
+                "Header": "App Name",
+                "accessor": "appName",
+              },
+              Object {
+                "Header": "Installations",
+                "accessor": "installation",
+              },
+            ]
+          }
+          data={
+            Array [
+              Object {
+                "appName": "test",
+                "installation": 0,
+              },
+              Object {
+                "appName": "asd",
+                "installation": 0,
+              },
+            ]
+          }
+          loading={false}
+          scrollable={true}
+        />
+      </Component>
     </Component>
   </Component>
   <Component
-    bordered={true}
-    columns={
-      Array [
-        Object {
-          "Header": "App Name",
-          "accessor": "appName",
-        },
-        Object {
-          "Header": "Client",
-          "accessor": "client",
-        },
-        Object {
-          "Header": "Date of installation",
-          "accessor": [Function],
-        },
-        Object {
-          "Header": "Date of Uninstallation",
-          "accessor": [Function],
-        },
-      ]
-    }
-    data={
-      Array [
-        Object {
-          "appId": "062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
-          "appName": undefined,
-          "client": "DXX",
-          "created": "2019-12-03T05:33:20",
-          "id": "b3c2f644-3241-4298-b320-b0398ff492f9",
-          "links": Array [
-            Object {
-              "action": "GET",
-              "href": "http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9",
-              "rel": "self",
-            },
-            Object {
-              "action": "GET",
-              "href": "http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
-              "rel": "app",
-            },
-          ],
-          "status": "Active",
-        },
-      ]
-    }
-    loading={false}
-    scrollable={true}
-  />
-  <Component
-    onChange={[Function]}
-    pageNumber={1}
-    pageSize={5}
-    totalCount={0}
-  />
-</Component>
+    hasMargin={false}
+  >
+    <Component>
+      Installation Details
+    </Component>
+    <Component
+      bordered={true}
+      columns={
+        Array [
+          Object {
+            "Header": "App Name",
+            "accessor": "appName",
+          },
+          Object {
+            "Header": "Client",
+            "accessor": "client",
+          },
+          Object {
+            "Header": "Date of installation",
+            "accessor": [Function],
+          },
+          Object {
+            "Header": "Date of Uninstallation",
+            "accessor": [Function],
+          },
+        ]
+      }
+      data={
+        Array [
+          Object {
+            "appId": "062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
+            "appName": undefined,
+            "client": "DXX",
+            "created": "2019-12-03T05:33:20",
+            "id": "b3c2f644-3241-4298-b320-b0398ff492f9",
+            "links": Array [
+              Object {
+                "action": "GET",
+                "href": "http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9",
+                "rel": "self",
+              },
+              Object {
+                "action": "GET",
+                "href": "http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
+                "rel": "app",
+              },
+            ],
+            "status": "Active",
+          },
+        ]
+      }
+      loading={false}
+      scrollable={true}
+    />
+    <Component
+      onChange={[Function]}
+      pageNumber={1}
+      pageSize={5}
+      totalCount={0}
+    />
+  </Component>
+</Fragment>
 `;
 
 exports[`InstallationTable should match with null developerData 1`] = `
-<Component>
+<Fragment>
   <Component
     isMultiLine={true}
   >
@@ -128,95 +139,106 @@ exports[`InstallationTable should match with null developerData 1`] = `
     <Component
       className="is-half"
     >
-      <Component>
-        Current Installations
-      </Component>
-      <p
-        className="is-italic"
-      >
-        The installations table below shows the individual installations per client with a total number of installations per app
-      </p>
-      <br />
       <Component
-        bordered={true}
-        columns={
-          Array [
-            Object {
-              "Header": "App Name",
-              "accessor": "appName",
-            },
-            Object {
-              "Header": "Installations",
-              "accessor": "installation",
-            },
-          ]
-        }
-        data={Array []}
-        loading={false}
-        scrollable={true}
-      />
+        hasMargin={false}
+      >
+        <Component>
+          Current Installations
+        </Component>
+        <p
+          className="is-italic"
+        >
+          The installations table below shows the individual installations per client with a total number of installations per app
+        </p>
+        <br />
+        <Component
+          bordered={true}
+          columns={
+            Array [
+              Object {
+                "Header": "App Name",
+                "accessor": "appName",
+              },
+              Object {
+                "Header": "Installations",
+                "accessor": "installation",
+              },
+            ]
+          }
+          data={Array []}
+          loading={false}
+          scrollable={true}
+        />
+      </Component>
     </Component>
   </Component>
   <Component
-    bordered={true}
-    columns={
-      Array [
-        Object {
-          "Header": "App Name",
-          "accessor": "appName",
-        },
-        Object {
-          "Header": "Client",
-          "accessor": "client",
-        },
-        Object {
-          "Header": "Date of installation",
-          "accessor": [Function],
-        },
-        Object {
-          "Header": "Date of Uninstallation",
-          "accessor": [Function],
-        },
-      ]
-    }
-    data={
-      Array [
-        Object {
-          "appId": "062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
-          "appName": undefined,
-          "client": "DXX",
-          "created": "2019-12-03T05:33:20",
-          "id": "b3c2f644-3241-4298-b320-b0398ff492f9",
-          "links": Array [
-            Object {
-              "action": "GET",
-              "href": "http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9",
-              "rel": "self",
-            },
-            Object {
-              "action": "GET",
-              "href": "http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
-              "rel": "app",
-            },
-          ],
-          "status": "Active",
-        },
-      ]
-    }
-    loading={false}
-    scrollable={true}
-  />
-  <Component
-    onChange={[Function]}
-    pageNumber={1}
-    pageSize={5}
-    totalCount={0}
-  />
-</Component>
+    hasMargin={false}
+  >
+    <Component>
+      Installation Details
+    </Component>
+    <Component
+      bordered={true}
+      columns={
+        Array [
+          Object {
+            "Header": "App Name",
+            "accessor": "appName",
+          },
+          Object {
+            "Header": "Client",
+            "accessor": "client",
+          },
+          Object {
+            "Header": "Date of installation",
+            "accessor": [Function],
+          },
+          Object {
+            "Header": "Date of Uninstallation",
+            "accessor": [Function],
+          },
+        ]
+      }
+      data={
+        Array [
+          Object {
+            "appId": "062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
+            "appName": undefined,
+            "client": "DXX",
+            "created": "2019-12-03T05:33:20",
+            "id": "b3c2f644-3241-4298-b320-b0398ff492f9",
+            "links": Array [
+              Object {
+                "action": "GET",
+                "href": "http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9",
+                "rel": "self",
+              },
+              Object {
+                "action": "GET",
+                "href": "http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
+                "rel": "app",
+              },
+            ],
+            "status": "Active",
+          },
+        ]
+      }
+      loading={false}
+      scrollable={true}
+    />
+    <Component
+      onChange={[Function]}
+      pageNumber={1}
+      pageSize={5}
+      totalCount={0}
+    />
+  </Component>
+</Fragment>
 `;
 
 exports[`InstallationTable should match with null installationsAppData 1`] = `
-<Component>
+<Fragment>
   <Component
     isMultiLine={true}
   >
@@ -230,100 +252,111 @@ exports[`InstallationTable should match with null installationsAppData 1`] = `
     <Component
       className="is-half"
     >
-      <Component>
-        Current Installations
-      </Component>
-      <p
-        className="is-italic"
-      >
-        The installations table below shows the individual installations per client with a total number of installations per app
-      </p>
-      <br />
       <Component
-        bordered={true}
-        columns={
-          Array [
-            Object {
-              "Header": "App Name",
-              "accessor": "appName",
-            },
-            Object {
-              "Header": "Installations",
-              "accessor": "installation",
-            },
-          ]
-        }
-        data={
-          Array [
-            Object {
-              "appName": "test",
-              "installation": 0,
-            },
-            Object {
-              "appName": "asd",
-              "installation": 0,
-            },
-          ]
-        }
-        loading={false}
-        scrollable={true}
-      />
+        hasMargin={false}
+      >
+        <Component>
+          Current Installations
+        </Component>
+        <p
+          className="is-italic"
+        >
+          The installations table below shows the individual installations per client with a total number of installations per app
+        </p>
+        <br />
+        <Component
+          bordered={true}
+          columns={
+            Array [
+              Object {
+                "Header": "App Name",
+                "accessor": "appName",
+              },
+              Object {
+                "Header": "Installations",
+                "accessor": "installation",
+              },
+            ]
+          }
+          data={
+            Array [
+              Object {
+                "appName": "test",
+                "installation": 0,
+              },
+              Object {
+                "appName": "asd",
+                "installation": 0,
+              },
+            ]
+          }
+          loading={false}
+          scrollable={true}
+        />
+      </Component>
     </Component>
   </Component>
   <Component
-    bordered={true}
-    columns={
-      Array [
-        Object {
-          "Header": "App Name",
-          "accessor": "appName",
-        },
-        Object {
-          "Header": "Client",
-          "accessor": "client",
-        },
-        Object {
-          "Header": "Date of installation",
-          "accessor": [Function],
-        },
-        Object {
-          "Header": "Date of Uninstallation",
-          "accessor": [Function],
-        },
-      ]
-    }
-    data={
-      Array [
-        Object {
-          "appId": "062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
-          "appName": undefined,
-          "client": "DXX",
-          "created": "2019-12-03T05:33:20",
-          "id": "b3c2f644-3241-4298-b320-b0398ff492f9",
-          "links": Array [
-            Object {
-              "action": "GET",
-              "href": "http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9",
-              "rel": "self",
-            },
-            Object {
-              "action": "GET",
-              "href": "http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
-              "rel": "app",
-            },
-          ],
-          "status": "Active",
-        },
-      ]
-    }
-    loading={false}
-    scrollable={true}
-  />
-  <Component
-    onChange={[Function]}
-    pageNumber={1}
-    pageSize={5}
-    totalCount={0}
-  />
-</Component>
+    hasMargin={false}
+  >
+    <Component>
+      Installation Details
+    </Component>
+    <Component
+      bordered={true}
+      columns={
+        Array [
+          Object {
+            "Header": "App Name",
+            "accessor": "appName",
+          },
+          Object {
+            "Header": "Client",
+            "accessor": "client",
+          },
+          Object {
+            "Header": "Date of installation",
+            "accessor": [Function],
+          },
+          Object {
+            "Header": "Date of Uninstallation",
+            "accessor": [Function],
+          },
+        ]
+      }
+      data={
+        Array [
+          Object {
+            "appId": "062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
+            "appName": undefined,
+            "client": "DXX",
+            "created": "2019-12-03T05:33:20",
+            "id": "b3c2f644-3241-4298-b320-b0398ff492f9",
+            "links": Array [
+              Object {
+                "action": "GET",
+                "href": "http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9",
+                "rel": "self",
+              },
+              Object {
+                "action": "GET",
+                "href": "http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
+                "rel": "app",
+              },
+            ],
+            "status": "Active",
+          },
+        ]
+      }
+      loading={false}
+      scrollable={true}
+    />
+    <Component
+      onChange={[Function]}
+      pageNumber={1}
+      pageSize={5}
+      totalCount={0}
+    />
+  </Component>
+</Fragment>
 `;

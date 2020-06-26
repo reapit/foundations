@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { selectLoginIdentity } from '@/selector/auth'
 import { useSelector } from 'react-redux'
-import { Loader, FlexContainerResponsive, Content, FlexContainerBasic } from '@reapit/elements'
+import { Loader, Section } from '@reapit/elements'
 import { Forms } from './forms/forms'
 import { Tabs } from '../tabs'
 
@@ -20,14 +20,12 @@ const DevelperSettingsPage: React.FC = () => {
   }
 
   return (
-    <FlexContainerBasic flexColumn hasPadding>
-      <Content>
-        <FlexContainerResponsive flexColumn hasBackground hasPadding>
-          <Tabs />
-          <Forms />
-        </FlexContainerResponsive>
-      </Content>
-    </FlexContainerBasic>
+    <>
+      <Section>
+        <Tabs />
+      </Section>
+      <Forms />
+    </>
   )
 }
 

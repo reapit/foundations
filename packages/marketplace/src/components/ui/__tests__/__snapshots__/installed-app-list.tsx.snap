@@ -141,7 +141,7 @@ exports[`InstalledAppList should match a snapshot 1`] = `
 >
   <Component>
     <Component
-      className="mb-0"
+      className=""
     >
       Installed Apps
     </Component>
@@ -213,7 +213,7 @@ exports[`InstalledAppList should match a snapshot when use empty infoType 1`] = 
 >
   <Component>
     <Component
-      className="mb-0"
+      className=""
     >
       Installed Apps
     </Component>
