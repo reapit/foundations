@@ -196,6 +196,10 @@ exports[`AppList should match a snapshot when use has header button 1`] = `
     >
       Create new app
     </Component>
+    <Component
+      afterClose={[Function]}
+      visible={false}
+    />
   </div>
   <div>
     <Component

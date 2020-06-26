@@ -7,9 +7,8 @@ import {
   DeveloperDesktopPage,
   confirmSubscription,
   handleToggleVisibleModal,
-  handleCreateSubscription,
+  handleCloseConfirmSubscriptionModal,
 } from '../developer-desktop'
-import { developerStub } from '@/sagas/__stubs__/developer'
 
 describe('DeveloperDesktopPage', () => {
   let store
@@ -59,13 +58,12 @@ describe('confirmSubscription', () => {
   })
 })
 
-describe('handleCreateSubscription', () => {
+describe('handleCloseConfirmSubscriptionModal', () => {
   it('should run correctly', () => {
-    const dispatch = jest.fn()
     const setConfirmSubscriptionModalOpen = jest.fn()
     const setSelectedDevelopers = jest.fn()
-    const developer = developerStub
-    handleCreateSubscription(dispatch, setConfirmSubscriptionModalOpen, setSelectedDevelopers)(developer)
-    expect(dispatch).toBeCalled()
+    handleCloseConfirmSubscriptionModal(setSelectedDevelopers, setConfirmSubscriptionModalOpen)()
+    expect(setSelectedDevelopers).toBeCalled()
+    expect(setConfirmSubscriptionModalOpen).toBeCalled()
   })
 })

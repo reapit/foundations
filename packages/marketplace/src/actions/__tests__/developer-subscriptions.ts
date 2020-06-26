@@ -5,6 +5,7 @@ import {
   developerCreateSubscription,
   developerCreateSubscriptionFalure,
   developerCreateSubscriptionSuccess,
+  developerCreateSubscriptionClearError,
   CreateSubscriptionParams,
 } from '../developer-subscriptions'
 import ActionTypes from '../../constants/action-types'
@@ -47,6 +48,10 @@ describe('DeveloperSubscriptions actions', () => {
 
   it('should create a developerCreateSubscriptionFalure action', () => {
     expect(developerCreateSubscriptionFalure.type).toEqual(ActionTypes.DEVELOPER_SUBSCRIPTION_CREATE_FAILURE)
+  })
+
+  it('should create a developerCreateSubscriptionClearError action', () => {
+    expect(developerCreateSubscriptionClearError.type).toEqual(ActionTypes.DEVELOPER_SUBSCRIPTION_CLEAR_CREATE_ERROR)
   })
 
   it('should create a developerDeleteSubscription action', () => {

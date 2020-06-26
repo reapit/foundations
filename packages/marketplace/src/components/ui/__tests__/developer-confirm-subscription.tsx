@@ -1,11 +1,16 @@
 import * as React from 'react'
+import * as ReactRedux from 'react-redux'
 import { mount, shallow } from 'enzyme'
 import appState from '@/reducers/__stubs__/app-state'
-import DeveloperConfirmSubscription from '../developer-confirm-subscription'
+import DeveloperConfirmSubscription, {
+  handleAfterCloseModal,
+  handleCreateSubscription,
+} from '../developer-confirm-subscription'
 import { Provider, useSelector } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import { selectCreateDeveloperSubscriptionLoading } from '@/selector/developer-subscriptions'
 import { developerStub } from '@/sagas/__stubs__/developer'
+import { developerCreateSubscriptionClearError } from '@/actions/developer-subscriptions'
 
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
@@ -14,9 +19,11 @@ jest.mock('react-redux', () => ({
 
 describe('DeveloperConfirmSubscription', () => {
   let store
+  let spyDispatch
   beforeEach(() => {
     const mockStore = configureStore()
     store = mockStore(appState)
+    spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
   })
 
   afterEach(() => {
@@ -26,7 +33,7 @@ describe('DeveloperConfirmSubscription', () => {
   it('should match snapshot when visible', () => {
     const wrapper = mount(
       <Provider store={store}>
-        <DeveloperConfirmSubscription developer={developerStub} visible={true} handleCreateSubscription={jest.fn()} />
+        <DeveloperConfirmSubscription developer={developerStub} visible={true} onDone={jest.fn()} />
       </Provider>,
     )
     expect(wrapper).toMatchSnapshot()
@@ -35,7 +42,7 @@ describe('DeveloperConfirmSubscription', () => {
   it('should match snapshot when not visible', () => {
     const wrapper = shallow(
       <Provider store={store}>
-        <DeveloperConfirmSubscription developer={developerStub} visible={false} handleCreateSubscription={jest.fn()} />
+        <DeveloperConfirmSubscription developer={developerStub} visible={false} onDone={jest.fn()} />
       </Provider>,
     )
     expect(wrapper).toMatchSnapshot()
@@ -46,10 +53,29 @@ describe('DeveloperConfirmSubscription', () => {
 
     mount(
       <Provider store={store}>
-        <DeveloperConfirmSubscription developer={developerStub} visible={true} handleCreateSubscription={jest.fn()} />
+        <DeveloperConfirmSubscription developer={developerStub} visible={true} onDone={jest.fn()} />
       </Provider>,
     )
 
     expect(useSelector).toHaveBeenCalledWith(selectCreateDeveloperSubscriptionLoading)
+  })
+
+  describe('handleAfterCloseModal', () => {
+    it('should run correctly', () => {
+      const onDone = jest.fn()
+      const fn = handleAfterCloseModal(spyDispatch, onDone)
+      fn()
+      expect(spyDispatch).toBeCalledWith(developerCreateSubscriptionClearError())
+      expect(onDone).toBeCalled()
+    })
+  })
+
+  describe('handleCreateSubscription', () => {
+    it('should run correctly', () => {
+      const onDone = jest.fn()
+      const fn = handleCreateSubscription(spyDispatch, developerStub, onDone)
+      fn()
+      expect(spyDispatch).toBeCalled()
+    })
   })
 })

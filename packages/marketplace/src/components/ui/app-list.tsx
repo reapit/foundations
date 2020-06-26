@@ -17,8 +17,7 @@ import {
   infoText,
   Button,
 } from '@reapit/elements'
-import { history } from '@/core/router'
-import Routes from '@/constants/routes'
+import { SubmitAppWizardModal } from '../ui/submit-app-wizard'
 
 export type AppListProps = {
   list: AppSummaryModel[]
@@ -32,10 +31,19 @@ export type AppListProps = {
   hasSubmitButton?: boolean
 }
 
+export const onShowSubmitAppModal = (setSubmitAppModalVisible: React.Dispatch<React.SetStateAction<boolean>>) => () => {
+  setSubmitAppModalVisible(true)
+}
+
+export const onCloseSubmitAppModal = (
+  setSubmitAppModalVisible: React.Dispatch<React.SetStateAction<boolean>>,
+) => () => {
+  setSubmitAppModalVisible(false)
+}
+
 export const renderHeader = ({ hasSubmitButton, title }: { hasSubmitButton: boolean; title: string | undefined }) => {
-  const goToNewAppPage = () => {
-    history.push(Routes.SUBMIT_APP)
-  }
+  const [submitAppModalVisible, setSubmitAppModalVisible] = React.useState<boolean>(false)
+
   if (!title) return null
   if (!hasSubmitButton) {
     return <H3>{title}</H3>
@@ -43,9 +51,13 @@ export const renderHeader = ({ hasSubmitButton, title }: { hasSubmitButton: bool
     return (
       <div className={styles.headerHasButton}>
         <H3>{title}</H3>
-        <Button onClick={goToNewAppPage} type="button" variant="primary">
+        <Button onClick={onShowSubmitAppModal(setSubmitAppModalVisible)} type="button" variant="primary">
           Create new app
         </Button>
+        <SubmitAppWizardModal
+          visible={submitAppModalVisible}
+          afterClose={onCloseSubmitAppModal(setSubmitAppModalVisible)}
+        />
       </div>
     )
   }

@@ -8,6 +8,7 @@ export interface InputProps {
   placeholder?: string
   id: string
   labelText?: string
+  helperText?: string
   name: string
   dataTest?: string
   rightIcon?: React.ReactNode
@@ -29,6 +30,7 @@ export const Input = ({
   disabled = false,
   maxLength,
   validate = fieldValidateRequire,
+  helperText,
 }: InputProps) => (
   <Field name={name} validate={required ? validate : null}>
     {({ field, meta }: FieldProps<string | number>) => {
@@ -43,6 +45,9 @@ export const Input = ({
                 {labelText}
               </label>
             )}
+
+            {helperText && <p className="mb-3">{helperText}</p>}
+
             <input
               disabled={disabled}
               data-test={dataTest}

@@ -21,6 +21,7 @@ import {
   developerFetchSubscriptionsSuccess,
   developerFetchSubscriptions,
   developerCreateSubscriptionSuccess,
+  developerCreateSubscriptionFalure,
   CreateSubscriptionParams,
 } from '@/actions/developer-subscriptions'
 
@@ -86,14 +87,7 @@ describe('developerSubscriptionsSagas', () => {
     test('api call error', () => {
       const clone = gen.clone()
       if (!clone.throw) throw new Error('Generator object cannot throw')
-      expect(clone.throw('error').value).toEqual(
-        put(
-          errorThrownServer({
-            type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR,
-          }),
-        ),
-      )
+      expect(clone.throw('error').value).toEqual(put(developerCreateSubscriptionFalure()))
     })
   })
 

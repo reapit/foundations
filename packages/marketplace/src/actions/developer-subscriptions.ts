@@ -27,3 +27,6 @@ export const developerCreateSubscriptionSuccess = actionCreator<SubscriptionMode
   ActionTypes.DEVELOPER_SUBSCRIPTION_CREATE_SUCCESS,
 )
 export const developerCreateSubscriptionFalure = actionCreator<void>(ActionTypes.DEVELOPER_SUBSCRIPTION_CREATE_FAILURE)
+export const developerCreateSubscriptionClearError = actionCreator<void>(
+  ActionTypes.DEVELOPER_SUBSCRIPTION_CLEAR_CREATE_ERROR,
+)

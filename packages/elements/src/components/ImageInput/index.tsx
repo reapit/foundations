@@ -11,7 +11,7 @@ export const ImageInput = (props: ImageInputProps) => {
 
   const afterLoadedImage = (base64, handleClearFile) => {
     if (!validateType(base64)) {
-      setMessage('You must select the image file!')
+      setMessage('Invalid file type, please upload an image')
       handleClearFile()
       return
     }
