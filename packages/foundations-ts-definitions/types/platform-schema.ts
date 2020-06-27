@@ -1540,6 +1540,7 @@ export interface Conveyancing {
   id?: string[]
   propertyId?: string[]
   embed?: ('buyerSolicitor' | 'offer' | 'property' | 'vendor' | 'vendorSolicitor')[]
+  metadata?: string[]
 }
 /**
  * Representation of an offers sales progression information

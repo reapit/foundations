@@ -303,36 +303,6 @@ export interface AppSummaryModel {
   readonly links?: LinkModel[]
 }
 /**
- * Representation of app usage for a specific day
- */
-export interface AppUsageStatsByDateModel {
-  /**
-   * The date the usage is recorded for
-   */
-  date?: string // date-time
-  /**
-   * The number of requests made by this app on this day
-   */
-  requests?: number // int64
-}
-/**
- * Representation of a specific apps usage
- */
-export interface AppUsageStatsModel {
-  /**
-   * The unique app identifier
-   */
-  appId?: string // uuid
-  /**
-   * The total number of requests from this app over the period given
-   */
-  requestsForPeriod?: number // int64
-  /**
-   * Daily breakdown of requests made by this app
-   */
-  usage?: AppUsageStatsByDateModel[]
-}
-/**
  * Approval representation
  */
 export interface ApprovalModel {
@@ -1118,25 +1088,4 @@ export interface UpdateDeveloperModel {
    * Sets the flag specifying if the developer is inactive
    */
   isInactive?: boolean
-}
-/**
- * Representations of an apps statistics
- */
-export interface UsageStatsModel {
-  /**
-   * The date to retrieve app statistics from
-   */
-  dateFrom?: string // date-time
-  /**
-   * The date to retrieve app statistics until
-   */
-  dateTo?: string // date-time
-  /**
-   * The total number of requests across all apps given
-   */
-  totalRequestsForPeriod?: number // int64
-  /**
-   * Breakdown of the individual apps usage
-   */
-  appUsage?: AppUsageStatsModel[]
 }
