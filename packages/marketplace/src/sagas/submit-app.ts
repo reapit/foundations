@@ -24,7 +24,7 @@ import { selectDeveloperId } from '@/selector/auth'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { formFields } from '@/components/ui/submit-app-wizard/form-fields'
 
-const { externalIdFields } = formFields
+const { externalIdField, appIdField } = formFields
 
 export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
   const { setErrors, setFieldValue, setWizardStep, ...values } = data
@@ -36,7 +36,9 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
     }
     const headers: Headers = yield call(createApp, { ...values, developerId })
 
-    const locationHeader = yield call(headers.get, 'location')
+    // const locationHeader = yield call(headers.get, 'location')
+    // ^ got Illegal invocation
+    const locationHeader = headers.get('location')
 
     if (typeof locationHeader !== 'string') {
       throw new Error("Location header is not returned from Create App API's response")
@@ -46,8 +48,9 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
     if (!appDetail) {
       throw new Error('app detail response is undefined')
     }
-    // external id to display in success step
-    yield call(setFieldValue, externalIdFields.name, appDetail.externalId)
+
+    yield call(setFieldValue, externalIdField.name, appDetail.externalId)
+    yield call(setFieldValue, appIdField.name, appDetail.id)
     yield call(setWizardStep, 'SUBMIT_APP_SUCCESS')
     yield put(submitAppSetFormState('SUCCESS'))
   } catch (err) {

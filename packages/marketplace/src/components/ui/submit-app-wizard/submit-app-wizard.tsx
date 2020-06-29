@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import AuthFlow from '@/constants/app-auth-flow'
 import { selectSubmitAppLoadingState } from '@/selector/submit-app'
 import { useSelector } from 'react-redux'
 import { Dispatch } from 'redux'
@@ -50,10 +51,29 @@ export const handleSubmit = ({ dispatch, setWizardStep, afterClose }: HandleSubm
   actions: FormikHelpers<CustomCreateAppModel>,
 ) => {
   const { redirectUris, signoutUris, ...otherData } = values
+
   const appToSubmit = {
     ...otherData,
-    redirectUris: redirectUris ? redirectUris.split(',') : [],
-    signoutUris: signoutUris ? signoutUris.split(',') : [],
+    redirectUris: redirectUris
+      ? redirectUris
+          .split(',')
+          // trim empty spaces
+          .map(url => url.trim())
+          // filter empty urls
+          .filter(url => url)
+      : [],
+    signoutUris: signoutUris
+      ? signoutUris
+          // ^ be transformed same as redirectUris
+          .split(',')
+          .map(url => url.trim())
+          .filter(url => url)
+      : [],
+  }
+
+  if (appToSubmit.authFlow === AuthFlow.CLIENT_SECRET) {
+    delete appToSubmit[redirectUrisField.name]
+    delete appToSubmit[signoutUrisField.name]
   }
 
   dispatch(
@@ -75,7 +95,7 @@ const initialFormValues = {
 }
 
 export const SubmitAppWizard: React.FC<Pick<ModalProps, 'afterClose'>> = ({ afterClose }) => {
-  const [currentWizardStep, setWizardStep] = useState<WizardStep>('BEFORE_YOU_START')
+  const [currentWizardStep, setWizardStep] = useState<WizardStep>('INPUT_APP_NAME')
   const dispatch = useDispatch()
   const isSubmitAppLoading = useSelector(selectSubmitAppLoadingState)
 
@@ -96,12 +116,10 @@ export const SubmitAppWizard: React.FC<Pick<ModalProps, 'afterClose'>> = ({ afte
         onSubmit={handleSubmit({ afterClose, setWizardStep, dispatch })}
         validationSchema={validationSchemas[currentWizardStep]}
       >
-        return (
         <Form>
           <ModalHeader title={titleMap[currentWizardStep]} afterClose={afterClose} />
           <CurrentStepComponent setWizardStep={setWizardStep} />
         </Form>
-        )
       </Formik>
     </div>
   )

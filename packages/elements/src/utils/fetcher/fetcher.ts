@@ -17,6 +17,9 @@ export class FetchError extends Error {
   }
 }
 
+/**
+ * allow fetch from raw url string (instead of api - base domal, url - path)
+ */
 export const fetcherWithRawlUrl = async <T, B>({
   url,
   method,
@@ -30,7 +33,7 @@ export const fetcherWithRawlUrl = async <T, B>({
   } as RequestInit)
 
   if (res.status < 400) {
-    return res.headers
+    return res.json()
   }
 
   const error = new FetchError(`ERROR FETCHING ${method} ${url} ${JSON.stringify(res)}`, res)
@@ -43,6 +46,9 @@ export const fetcherWithRawlUrl = async <T, B>({
   throw error
 }
 
+/**
+ * return headers of responose
+ */
 export const fetcherWithReturnHeader = async <T, B>({
   api,
   url,
