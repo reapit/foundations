@@ -358,7 +358,7 @@ Object {
           </ul>
         </nav>
         <div
-          class=" container-flex is-column    is-scrollable "
+          class=""
         />
       </div>
     </div>
@@ -717,7 +717,7 @@ Object {
         </ul>
       </nav>
       <div
-        class=" container-flex is-column    is-scrollable "
+        class=""
       />
     </div>
   </div>,

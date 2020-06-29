@@ -40,14 +40,19 @@ export const FlexContainerResponsive: React.SFC<FlexContainerProps> = ({
   isScrollable = false,
   hasBackground = false,
   isPageContainer = false,
-  className = '',
+  className,
 }) => (
   <div
-    className={`container ${flexColumn ? 'is-column' : ''} ${centerContent ? 'is-centered' : ''} ${
-      hasBackground ? 'has-background' : ''
-    } ${hasPadding ? 'has-padding' : ''} ${isScrollable ? 'is-scrollable' : ''} ${
-      isPageContainer ? 'is-page-container' : ''
-    } ${className}`}
+    className={cx(
+      'container',
+      flexColumn && 'is-column',
+      centerContent && 'is-centered',
+      hasBackground && 'has-background',
+      hasPadding && 'has-padding',
+      isScrollable && 'is-scrollable',
+      isPageContainer && 'is-page-container',
+      className && className,
+    )}
   >
     {children}
   </div>
@@ -60,15 +65,20 @@ export const FlexContainerBasic: React.SFC<FlexContainerProps> = ({
   hasPadding = false,
   isScrollable = false,
   hasBackground = false,
-  className = '',
+  className,
   isFullHeight = false,
 }) => (
   <div
-    className={`${isFullHeight ? 'is-full-height' : ''} container-flex ${flexColumn ? 'is-column' : ''} ${
-      centerContent ? 'is-centered' : ''
-    } ${hasBackground ? 'has-background' : ''} ${hasPadding ? 'has-padding' : ''} ${
-      isScrollable ? 'is-scrollable' : ''
-    } ${className}`}
+    className={cx(
+      'container-flex',
+      isFullHeight && 'is-full-height',
+      flexColumn && 'is-column',
+      centerContent && 'is-centered',
+      hasBackground && 'has-background',
+      hasPadding && 'has-padding',
+      isScrollable && 'is-scrollable',
+      className && className,
+    )}
   >
     {children}
   </div>

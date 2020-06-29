@@ -22,7 +22,7 @@ exports[`LayoutComponents FormSection should match snapshot 1`] = `
 
 exports[`LayoutComponents FormSubHeading should match snapshot 1`] = `
 <div
-  className="form-subheading mb-6 mockClassName"
+  className="form-subheading mb-4 mockClassName"
 >
   <div>
     mockChildren

@@ -62,7 +62,7 @@ exports[`Register should match a snapshot 1`] = `
               isCentered={true}
             >
               <h1
-                className="title is-1  has-text-centered"
+                className=""
                 id=""
               >
                 Register
@@ -280,7 +280,7 @@ exports[`Register should match a snapshot 1`] = `
                       </Component>
                       <Component>
                         <div
-                          className="form-subheading mb-6 "
+                          className="form-subheading mb-4 "
                         >
                           By registering for the Foundations platform, you will get access to the Reapit developer portal and sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward to seeing what you build!
                         </div>
@@ -298,7 +298,7 @@ exports[`Register should match a snapshot 1`] = `
                           validate={null}
                         >
                           <div
-                            className="field pb-4"
+                            className="field"
                           >
                             <div
                               className="control "
@@ -338,7 +338,7 @@ exports[`Register should match a snapshot 1`] = `
                           validate={null}
                         >
                           <div
-                            className="field pb-4"
+                            className="field"
                           >
                             <div
                               className="control "
@@ -378,7 +378,7 @@ exports[`Register should match a snapshot 1`] = `
                           validate={null}
                         >
                           <div
-                            className="field pb-4"
+                            className="field"
                           >
                             <div
                               className="control "
@@ -418,7 +418,7 @@ exports[`Register should match a snapshot 1`] = `
                           validate={null}
                         >
                           <div
-                            className="field pb-4"
+                            className="field"
                           >
                             <div
                               className="control "

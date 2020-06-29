@@ -21,7 +21,7 @@ exports[`DeveloperWebHooks should match a snapshot 1`] = `
       >
         <Component>
           <h3
-            className="title is-3  "
+            className=""
             id=""
           >
             Manage Webhook Subscriptions
@@ -35,14 +35,14 @@ exports[`DeveloperWebHooks should match a snapshot 1`] = `
       >
         <Component>
           <div
-            className="form-subheading mb-6 "
+            className="form-subheading mb-4 "
           >
             Our webhooks system allows your application to directly subscribe to events happening in our customers data. Rather than needing to make API calls to poll for new information, a webhook subscription can be created to allow Reapit Foundations to send a HTTP request directly to your endpoints that you configure here.
           </div>
         </Component>
         <Component>
           <div
-            className="form-subheading mb-6 "
+            className="form-subheading mb-4 "
           >
             This system is designed to flexibly work with how your application is built and deployed. If you wish, you can set up a single endpoint to catch all topics for all customers. Alternatively, you may wish to set up a different webhook subscription per topic or per customer. For more information about Webhooks, please see our
             <a
@@ -176,18 +176,6 @@ exports[`DeveloperWebHooks should match a snapshot 1`] = `
             </form>
           </Form>
         </Formik>
-        <Component>
-          <div
-            className="form-section "
-          >
-            <Component>
-              <div
-                className="level-right "
-                data-test=""
-              />
-            </Component>
-          </div>
-        </Component>
         <Component>
           <div
             className="loader-spinner body"

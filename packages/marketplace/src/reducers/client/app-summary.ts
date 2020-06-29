@@ -6,11 +6,11 @@ import {
   clientClearAppSummary,
   clientFetchAppSummaryFailed,
 } from '@/actions/client'
-import { PagedResultAppSummaryModel_, AppDetailModel } from '@reapit/foundations-ts-definitions'
+import { PagedResultAppSummaryModel_, AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
 export interface ClientAppSummary {
   apps: PagedResultAppSummaryModel_
-  featuredApps: AppDetailModel[] | null
+  featuredApps: AppSummaryModel[] | null
 }
 
 export interface ClientAppSummaryParams {

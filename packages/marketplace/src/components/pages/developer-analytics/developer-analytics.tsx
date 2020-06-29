@@ -75,9 +75,7 @@ export const DeveloperAnalyticsPage: React.FC<DeveloperAnalyticsPageProps> = () 
 
   return (
     <ErrorBoundary>
-      <Section>
-        <H3 className="mb-0">Dashboard</H3>
-      </Section>
+      <H3 isHeadingSection>Dashboard</H3>
       <Section>
         <Tabs tabConfigs={tabConfigs({ currentTab, history })} />
       </Section>

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { history } from '@/core/router'
-import { H3, Section } from '@reapit/elements'
+import { H3 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import welcomeImg from '@/assets/images/help/welcome-guide.jpg'
 import liveChatImg from '@/assets/images/help/live-chat.jpg'
@@ -32,9 +32,7 @@ export const helpItems: HelpItem[] = [
 export const ClientHelpPage: React.FC = () => {
   return (
     <>
-      <Section>
-        <H3 className="mb-0">Help</H3>
-      </Section>
+      <H3 isHeadingSection>Help</H3>
       <HelpItemList items={helpItems} />
     </>
   )

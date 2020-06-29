@@ -10,9 +10,8 @@ import { selectClientId, selectFeaturedApps, selectDeveloperEditionId } from '@/
 import { selectCategories } from '@/selector/app-categories'
 import { ClientAppSummary, ClientAppSummaryParams } from '@/reducers/client/app-summary'
 import { logger } from '@reapit/utils'
-import { fetchAppsList, fetchAppById } from '@/services/apps'
+import { fetchAppsList } from '@/services/apps'
 import { fetchCategoriesList } from '@/services/categories'
-import { AppSummaryModel, AppDetailModel } from '@reapit/foundations-ts-definitions'
 
 const DEFAULT_CATEGORY_LENGTH = 1
 
@@ -54,12 +53,7 @@ export const clientDataFetch = function*({ data }) {
           }),
       currentCategories.length > DEFAULT_CATEGORY_LENGTH ? currentCategories : call(fetchCategoriesList, {}),
     ])
-    // TODO - need to remove this when the AppsSummary model includes the featured images. Currently
-    // need to fetch app detail for featured apps to render the hero images
-    const featuredAppsDetail: AppDetailModel[] | null = (featuredApps?.data as AppSummaryModel[])
-      ? yield all(featuredApps.data.map((app: AppSummaryModel) => call(fetchAppById, { clientId, id: app.id ?? '' })))
-      : null
-    const clientItem: ClientAppSummary = { apps: apps, featuredApps: featuredAppsDetail }
+    const clientItem: ClientAppSummary = { apps: apps, featuredApps: featuredApps?.data }
     yield put(clientFetchAppSummarySuccess(clientItem))
     yield put(categoriesReceiveData(categories))
   } catch (err) {

@@ -99,7 +99,7 @@ exports[`sortTags should match a snapshot and be of correct type for the returne
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag h1 1`] = `
 <h4
-  className="title is-4  "
+  className=""
   id=""
 >
   Test Text
@@ -108,7 +108,7 @@ exports[`sortTags should match a snapshot and be of correct type for the returne
 
 exports[`sortTags should match a snapshot and be of correct type for the returned component from domTag h2 1`] = `
 <h5
-  className="title is-5  "
+  className=""
   id=""
 >
   Test Text

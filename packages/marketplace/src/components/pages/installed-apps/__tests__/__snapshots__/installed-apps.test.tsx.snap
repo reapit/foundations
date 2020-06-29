@@ -126,7 +126,7 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
                 flexColumn={true}
               >
                 <div
-                  className=" container-flex is-column     "
+                  className=""
                 >
                   <Component>
                     <section
@@ -137,7 +137,7 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
                         className=""
                       >
                         <h3
-                          className="title is-3  "
+                          className=""
                           id=""
                         >
                           Installed Apps
@@ -287,7 +287,7 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
                                             className="text-ellipsis-7"
                                           >
                                             <h4
-                                              className="title is-4 text-ellipsis-7 "
+                                              className=""
                                               id=""
                                             >
                                               test
@@ -297,7 +297,7 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
                                             className="text-ellipsis-5 mb-3"
                                           >
                                             <h6
-                                              className="subtitle is-6 text-ellipsis-5 mb-3 "
+                                              className=""
                                               id=""
                                             >
                                               Pete's Proptech World Ltd
@@ -394,7 +394,7 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
                                             className="text-ellipsis-7"
                                           >
                                             <h4
-                                              className="title is-4 text-ellipsis-7 "
+                                              className=""
                                               id=""
                                             >
                                               asd
@@ -404,7 +404,7 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
                                             className="text-ellipsis-5 mb-3"
                                           >
                                             <h6
-                                              className="subtitle is-6 text-ellipsis-5 mb-3 "
+                                              className=""
                                               id=""
                                             >
                                               Pete's Proptech World Ltd

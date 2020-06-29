@@ -7,7 +7,7 @@ Object {
     <div>
       <div>
         <h4
-          class="title is-4  "
+          class=""
           id=""
         >
           SCHEDULE 1 – APPLICATION USER TERM PRINCIPLES
@@ -19,7 +19,7 @@ Object {
             class="undefined undefined"
           >
             <h6
-              class="title is-6  "
+              class=""
               id=""
             >
               GENERAL
@@ -94,7 +94,7 @@ Object {
             class="undefined undefined"
           >
             <h6
-              class="title is-6  "
+              class=""
               id=""
             >
               DATA PROTECTION
@@ -163,7 +163,7 @@ Object {
   "container": <div>
     <div>
       <h4
-        class="title is-4  "
+        class=""
         id=""
       >
         SCHEDULE 1 – APPLICATION USER TERM PRINCIPLES
@@ -175,7 +175,7 @@ Object {
           class="undefined undefined"
         >
           <h6
-            class="title is-6  "
+            class=""
             id=""
           >
             GENERAL
@@ -250,7 +250,7 @@ Object {
           class="undefined undefined"
         >
           <h6
-            class="title is-6  "
+            class=""
             id=""
           >
             DATA PROTECTION

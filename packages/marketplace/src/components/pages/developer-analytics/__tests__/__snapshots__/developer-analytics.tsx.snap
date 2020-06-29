@@ -14,12 +14,10 @@ exports[`AnalyticsPage renderTabContent should render Detailed Tab 1`] = `
 
 exports[`AnalyticsPage should match a snapshot 1`] = `
 <Connect(ErrorBoundary)>
-  <Component>
-    <Component
-      className="mb-0"
-    >
-      Dashboard
-    </Component>
+  <Component
+    isHeadingSection={true}
+  >
+    Dashboard
   </Component>
   <Component>
     <Component

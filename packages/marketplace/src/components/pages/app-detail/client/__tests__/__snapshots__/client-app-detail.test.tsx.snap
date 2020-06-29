@@ -83,7 +83,7 @@ exports[`ClientAppDetail should match a snapshot 1`] = `
           hasPadding={true}
         >
           <div
-            className="container    has-padding  "
+            className=""
           >
             <Component>
               <div
@@ -245,7 +245,7 @@ exports[`ClientAppDetail should render loader when client.appDetail.data is an e
           hasPadding={true}
         >
           <div
-            className="container    has-padding  "
+            className=""
           >
             <Component>
               <div
@@ -407,7 +407,7 @@ exports[`ClientAppDetail should render loader when isLoadingAppDetail = true 1`]
           hasPadding={true}
         >
           <div
-            className="container    has-padding  "
+            className=""
           >
             <Component>
               <div

@@ -25,7 +25,7 @@ exports[`AppAuthenticationDetail should match a snapshot 1`] = `
       >
         <Component>
           <h5
-            className="title is-5  "
+            className=""
             id=""
           >
             Authentication:

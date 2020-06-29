@@ -106,7 +106,7 @@ exports[`Login should match a snapshot 1`] = `
               className="pt-8"
             >
               <div
-                className=" container-flex  is-centered    pt-8"
+                className=""
               />
             </Component>
           </div>

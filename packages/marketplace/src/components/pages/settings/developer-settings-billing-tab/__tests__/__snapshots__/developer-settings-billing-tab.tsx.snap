@@ -10,10 +10,8 @@ exports[`DeveloperBillingTabPage should match snapshot when isAdmin = false 2`] 
 <Fragment>
   <Component>
     <Component />
-    <AccountsInformationForm />
   </Component>
-  <Component>
-    <Component />
-  </Component>
+  <AccountsInformationForm />
+  <Component />
 </Fragment>
 `;

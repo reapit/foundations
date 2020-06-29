@@ -61,22 +61,15 @@ exports[`MyApps should match a snapshot when LOADING false 1`] = `
             componentError={null}
             errorThrownComponent={[Function]}
           >
-            <Component>
-              <section
+            <Component
+              isHeadingSection={true}
+            >
+              <h3
                 className=""
-                data-test=""
+                id=""
               >
-                <Component
-                  className="mb-0"
-                >
-                  <h3
-                    className="title is-3 mb-0 "
-                    id=""
-                  >
-                    Manage Apps
-                  </h3>
-                </Component>
-              </section>
+                Manage Apps
+              </h3>
             </Component>
             <Component
               infoType="INSTALLED_APPS_EMPTY"

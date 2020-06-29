@@ -99,7 +99,7 @@ Object {
             </button>
           </div>
           <div
-            class=" container-flex  is-centered    pt-8"
+            class=""
           />
         </div>
         <div
@@ -147,7 +147,7 @@ Object {
           </button>
         </div>
         <div
-          class=" container-flex  is-centered    pt-8"
+          class=""
         />
       </div>
       <div

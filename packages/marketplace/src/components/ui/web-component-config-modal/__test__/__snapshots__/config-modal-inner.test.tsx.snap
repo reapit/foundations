@@ -642,7 +642,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                     value="1"
                   >
                     <div
-                      className="field pb-4 mr-5"
+                      className="field mr-5"
                     >
                       <div
                         className="control"
@@ -682,7 +682,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                     value="2"
                   >
                     <div
-                      className="field pb-4 mr-5"
+                      className="field mr-5"
                     >
                       <div
                         className="control"
@@ -722,7 +722,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                     value="3"
                   >
                     <div
-                      className="field pb-4 mr-5"
+                      className="field mr-5"
                     >
                       <div
                         className="control"
@@ -762,7 +762,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                     value="4"
                   >
                     <div
-                      className="field pb-4 mr-5"
+                      className="field mr-5"
                     >
                       <div
                         className="control"
@@ -802,7 +802,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                     value="5"
                   >
                     <div
-                      className="field pb-4 mr-5"
+                      className="field mr-5"
                     >
                       <div
                         className="control"
@@ -842,7 +842,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                     value="6"
                   >
                     <div
-                      className="field pb-4 mr-5"
+                      className="field mr-5"
                     >
                       <div
                         className="control"
@@ -881,7 +881,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                     value="0"
                   >
                     <div
-                      className="field pb-4 "
+                      className="field "
                     >
                       <div
                         className="control"
@@ -929,7 +929,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
               subText="Select which negotiators will be avaiable to attend appointments"
             >
               <div
-                className="field pb-4"
+                className="field"
               >
                 <div
                   className="control"

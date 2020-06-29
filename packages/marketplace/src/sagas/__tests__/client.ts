@@ -15,12 +15,9 @@ import {
   PagedResultCategoryModel_,
   PagedResultAppSummaryModel_,
   AppSummaryModel,
-  AppDetailModel,
 } from '@reapit/foundations-ts-definitions'
 import { appCategorieStub } from '../__stubs__/app-categories'
-import { fetchAppsList, fetchAppById } from '@/services/apps'
-import { appDetailDataStub } from '../__stubs__/app-detail'
-import { CallEffect } from 'redux-saga/effects'
+import { fetchAppsList } from '@/services/apps'
 
 jest.mock('@/services/apps')
 jest.mock('@/services/categories')
@@ -57,17 +54,11 @@ describe('clientDataFetch', () => {
         appCategorieStub.data,
       ]),
     )
-    const featuredApps = featuredAppsDataStub.data?.data?.map((app: AppSummaryModel) =>
-      call(fetchAppById, { clientId, id: app.id ?? '' }),
-    ) as CallEffect<AppDetailModel>[]
-
-    expect(clone.next(response).value).toEqual(all(featuredApps))
-
-    expect(clone.next([appDetailDataStub.data]).value).toEqual(
+    expect(clone.next(response).value).toEqual(
       put(
         clientFetchAppSummarySuccess({
           apps: response[0] as PagedResultAppSummaryModel_,
-          featuredApps: [appDetailDataStub.data],
+          featuredApps: response[1].data as AppSummaryModel[],
         }),
       ),
     )

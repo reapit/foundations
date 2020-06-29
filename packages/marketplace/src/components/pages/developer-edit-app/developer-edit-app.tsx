@@ -299,9 +299,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
 
   return (
     <>
-      <Section>
-        <H3 className="mb-0">Edit App</H3>
-      </Section>
+      <H3 isHeadingSection>Edit App</H3>
       <Formik
         validationSchema={validationSchemaSubmitRevision}
         initialValues={initialValues}

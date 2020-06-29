@@ -8,28 +8,19 @@ exports[`DeveloperOrganisationTabPage should match snapshot when isAdmin = false
 
 exports[`DeveloperOrganisationTabPage should match snapshot when isAdmin = false 2`] = `
 <Fragment>
-  <Component
-    flexColumn={true}
-    hasPadding={true}
-  >
+  <Component>
+    <Component />
+  </Component>
+  <Component />
+  <Component />
+  <Component>
     <Component>
       <Component
-        flexColumn={true}
-        hasBackground={true}
-        hasPadding={true}
+        onClick={[Function]}
+        type="button"
+        variant="primary"
       >
-        <Component />
-        <Component />
-        <Component />
-        <Component>
-          <Component
-            onClick={[Function]}
-            type="button"
-            variant="primary"
-          >
-            Invite New Member
-          </Component>
-        </Component>
+        Invite New Member
       </Component>
     </Component>
   </Component>

@@ -11,7 +11,6 @@ import {
   Form,
   LevelRight,
   FormSection,
-  Section,
   H3,
 } from '@reapit/elements'
 import { companyInformationFormSchema } from './validation-schema'
@@ -28,9 +27,7 @@ export const CompanyInformation = () => {
         }}
       >
         <Form>
-          <Section>
-            <H3 className="mb-0">Company Information</H3>
-          </Section>
+          <H3 isHeadingSection>Company Information</H3>
           <FormSection>
             <Grid>
               <GridItem>

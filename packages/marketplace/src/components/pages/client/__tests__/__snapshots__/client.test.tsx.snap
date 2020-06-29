@@ -66,7 +66,7 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
               flexColumn={true}
             >
               <div
-                className=" container-flex is-column     "
+                className=""
               >
                 <Component>
                   <div
@@ -155,7 +155,7 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
               flexColumn={true}
             >
               <div
-                className=" container-flex is-column     "
+                className=""
               >
                 <Component>
                   <div
@@ -244,24 +244,17 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
               flexColumn={true}
             >
               <div
-                className=" container-flex is-column     "
+                className=""
               >
-                <Component>
-                  <section
+                <Component
+                  isHeadingSection={true}
+                >
+                  <h3
                     className=""
-                    data-test=""
+                    id=""
                   >
-                    <Component
-                      className="mb-0"
-                    >
-                      <h3
-                        className="title is-3 mb-0 "
-                        id=""
-                      >
-                        Browse Apps
-                      </h3>
-                    </Component>
-                  </section>
+                    Browse Apps
+                  </h3>
                 </Component>
                 <Component
                   infoType="CLIENT_APPS_EMPTY"
@@ -416,24 +409,17 @@ exports[`Client should match a snapshot when featured apps is null 1`] = `
               flexColumn={true}
             >
               <div
-                className=" container-flex is-column     "
+                className=""
               >
-                <Component>
-                  <section
+                <Component
+                  isHeadingSection={true}
+                >
+                  <h3
                     className=""
-                    data-test=""
+                    id=""
                   >
-                    <Component
-                      className="mb-0"
-                    >
-                      <h3
-                        className="title is-3 mb-0 "
-                        id=""
-                      >
-                        Browse Apps
-                      </h3>
-                    </Component>
-                  </section>
+                    Browse Apps
+                  </h3>
                 </Component>
                 <Component
                   infoType="CLIENT_APPS_EMPTY"

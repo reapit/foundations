@@ -3,7 +3,7 @@
 exports[`CostCalculator should match a snapshot 1`] = `
 <Component>
   <Component>
-    Cost Calculator
+    API Cost Calculator
   </Component>
   <Component>
     <Component

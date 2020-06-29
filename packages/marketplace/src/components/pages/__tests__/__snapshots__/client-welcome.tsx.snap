@@ -183,13 +183,13 @@ exports[`ClientWelcomeMessage should match a snapshot 1`] = `
                         data-test=""
                       >
                         <h3
-                          class="title is-3  "
+                          class=""
                           id=""
                         >
                           Welcome Admin
                         </h3>
                         <h6
-                          class="subtitle is-6  "
+                          class=""
                           id=""
                         >
                           What is Lorem Ipsum?
@@ -249,13 +249,13 @@ exports[`ClientWelcomeMessage should match a snapshot 1`] = `
                           data-test=""
                         >
                           <h3
-                            class="title is-3  "
+                            class=""
                             id=""
                           >
                             Welcome Admin
                           </h3>
                           <h6
-                            class="subtitle is-6  "
+                            class=""
                             id=""
                           >
                             What is Lorem Ipsum?
@@ -330,7 +330,7 @@ exports[`ClientWelcomeMessage should match a snapshot 1`] = `
                         >
                           <Component>
                             <h3
-                              className="title is-3  "
+                              className=""
                               id=""
                             >
                               Welcome Admin
@@ -338,7 +338,7 @@ exports[`ClientWelcomeMessage should match a snapshot 1`] = `
                           </Component>
                           <Component>
                             <h6
-                              className="subtitle is-6  "
+                              className=""
                               id=""
                             >
                               What is Lorem Ipsum?

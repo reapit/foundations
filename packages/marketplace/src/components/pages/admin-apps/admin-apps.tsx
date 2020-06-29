@@ -268,26 +268,20 @@ export const AdminApps: React.FC = () => {
 
   return (
     <>
-      <Section>
-        <H3 className="mb-0">App Management</H3>
-      </Section>
+      <H3 isHeadingSection>App Management</H3>
       <Formik initialValues={formInitValues} onSubmit={handleOnSubmit(history)} onReset={refreshForm(history)}>
         {renderForm}
       </Formik>
-
       <Section>
         <span>Total apps: {adminAppsData?.totalCount || 0}</span>
       </Section>
-
       <Section>{renderContent({ adminAppsData, columns })}</Section>
-
       <Pagination
         onChange={handleChangePage(history)}
         totalCount={adminAppsData?.totalCount || 0}
         pageSize={adminAppsData?.pageSize || 0}
         pageNumber={page}
       />
-
       <AppDeleteModal
         appId={deleteModalData.appId}
         appName={deleteModalData.appName}

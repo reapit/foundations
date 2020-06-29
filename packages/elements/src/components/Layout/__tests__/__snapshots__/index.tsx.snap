@@ -24,7 +24,7 @@ exports[`LayoutComponents should match a snapshot for Content 1`] = `
 
 exports[`LayoutComponents should match a snapshot for FlexContainerBasic 1`] = `
 <div
-  className=" container-flex      "
+  className=""
 >
   <Component
     text="FlexContainerBasic"
@@ -34,7 +34,7 @@ exports[`LayoutComponents should match a snapshot for FlexContainerBasic 1`] = `
 
 exports[`LayoutComponents should match a snapshot for FlexContainerResponsive 1`] = `
 <div
-  className="container      "
+  className=""
 >
   <Component
     text="FlexContainerResponsive"

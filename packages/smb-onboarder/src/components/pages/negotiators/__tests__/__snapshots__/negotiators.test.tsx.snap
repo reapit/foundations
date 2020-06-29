@@ -63912,7 +63912,7 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
             hasPadding={true}
           >
             <div
-              className=" container-flex   has-background has-padding  "
+              className=""
             >
               <Component
                 flexColumn={true}
@@ -63920,11 +63920,11 @@ query GET_OFFICES($id: [String!], $name: String, $address: String, $pageSize: In
                 hasPadding={true}
               >
                 <div
-                  className="container is-column  has-background has-padding  "
+                  className=""
                 >
                   <Component>
                     <h3
-                      className="title is-3  "
+                      className=""
                       id=""
                     >
                       Users

@@ -54,9 +54,7 @@ export const AdminStats: React.FC = () => {
 
   return (
     <>
-      <Section>
-        <H3 className="mb-0">Stats</H3>
-      </Section>
+      <H3 isHeadingSection>Stats</H3>
       <Section>
         <H6>Please select an area:</H6>
         <ButtonGroup>

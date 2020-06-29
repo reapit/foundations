@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useSelector } from 'react-redux'
 import initChatBot from '../../scripts/chat-bot'
 import { history } from '@/core/router'
-import { H3, Section } from '@reapit/elements'
+import { H3 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { HelpLinks } from '@/constants/developer-help-links'
 import welcomeImg from '@/assets/images/help/welcome-guide.jpg'
@@ -97,9 +97,7 @@ export const DeveloperHelpPage: React.FC<DeveloperHelpPageProps> = () => {
   const loginIdentity = useSelector(selectLoginIdentity)
   return (
     <>
-      <Section>
-        <H3 className="mb-0">Help</H3>
-      </Section>
+      <H3 isHeadingSection>Help</H3>
       <HelpItemList items={helpItems(loginIdentity)} />
     </>
   )

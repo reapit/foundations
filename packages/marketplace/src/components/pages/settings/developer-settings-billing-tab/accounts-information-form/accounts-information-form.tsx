@@ -9,6 +9,7 @@ import {
   Button,
   FormHeading,
   FormSubHeading,
+  H3,
 } from '@reapit/elements'
 import ReapitReferenceSection from './reapit-reference-section'
 import DirectDebitSection from './direct-debit-section'
@@ -49,6 +50,7 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
 
         return (
           <Form>
+            <H3 isHeadingSection>Billing</H3>
             <FormSection>
               <FormHeading>Accounts Information</FormHeading>
               <FormSubHeading>

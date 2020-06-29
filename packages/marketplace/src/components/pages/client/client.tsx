@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { History } from 'history'
 import { useSelector } from 'react-redux'
-import { Loader, FlexContainerBasic, H3, GridThreeColItem, Grid, Pagination, Section } from '@reapit/elements'
+import { Loader, FlexContainerBasic, H3, GridThreeColItem, Grid, Pagination } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { useHistory, useLocation } from 'react-router'
 import AppList from '@/components/ui/app-list'
@@ -12,7 +12,6 @@ import { selectAppSummary } from '@/selector/client'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { addQuery, hasFilterParams } from '@/utils/client-url-params'
 import Routes from '@/constants/routes'
-import { MEDIA_INDEX } from '@/constants/media'
 import featureImagePlaceHolder from '@/assets/images/default-feature-image.jpg'
 import { Link } from 'react-router-dom'
 
@@ -56,14 +55,12 @@ export const Client: React.FunctionComponent = () => {
           <Loader />
         ) : (
           <>
-            <Section>
-              <H3 className="mb-0">Browse Apps</H3>
-            </Section>
+            <H3 isHeadingSection>Browse Apps</H3>
             {!hasParams && featuredApps.length > 0 && (
               <div className="pb-4 bb mb-4">
                 <Grid isMultiLine>
                   {featuredApps.map(app => {
-                    const featureImageSrc = app?.media?.[MEDIA_INDEX.FEATURE_IMAGE]?.uri || featureImagePlaceHolder
+                    const featureImageSrc = app.featuredImageUri || featureImagePlaceHolder
                     return (
                       <GridThreeColItem className="" key={app.id}>
                         <div className="card">

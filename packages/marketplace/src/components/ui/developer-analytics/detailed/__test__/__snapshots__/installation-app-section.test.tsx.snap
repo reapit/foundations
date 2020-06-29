@@ -59,9 +59,7 @@ exports[`InstallationTable should match snapshot 1`] = `
       </Component>
     </Component>
   </Component>
-  <Component
-    hasMargin={false}
-  >
+  <Component>
     <Component>
       Installation Details
     </Component>
@@ -114,13 +112,13 @@ exports[`InstallationTable should match snapshot 1`] = `
       loading={false}
       scrollable={true}
     />
-    <Component
-      onChange={[Function]}
-      pageNumber={1}
-      pageSize={5}
-      totalCount={0}
-    />
   </Component>
+  <Component
+    onChange={[Function]}
+    pageNumber={1}
+    pageSize={5}
+    totalCount={0}
+  />
 </Fragment>
 `;
 
@@ -172,9 +170,7 @@ exports[`InstallationTable should match with null developerData 1`] = `
       </Component>
     </Component>
   </Component>
-  <Component
-    hasMargin={false}
-  >
+  <Component>
     <Component>
       Installation Details
     </Component>
@@ -227,13 +223,13 @@ exports[`InstallationTable should match with null developerData 1`] = `
       loading={false}
       scrollable={true}
     />
-    <Component
-      onChange={[Function]}
-      pageNumber={1}
-      pageSize={5}
-      totalCount={0}
-    />
   </Component>
+  <Component
+    onChange={[Function]}
+    pageNumber={1}
+    pageSize={5}
+    totalCount={0}
+  />
 </Fragment>
 `;
 
@@ -296,9 +292,7 @@ exports[`InstallationTable should match with null installationsAppData 1`] = `
       </Component>
     </Component>
   </Component>
-  <Component
-    hasMargin={false}
-  >
+  <Component>
     <Component>
       Installation Details
     </Component>
@@ -351,12 +345,12 @@ exports[`InstallationTable should match with null installationsAppData 1`] = `
       loading={false}
       scrollable={true}
     />
-    <Component
-      onChange={[Function]}
-      pageNumber={1}
-      pageSize={5}
-      totalCount={0}
-    />
   </Component>
+  <Component
+    onChange={[Function]}
+    pageNumber={1}
+    pageSize={5}
+    totalCount={0}
+  />
 </Fragment>
 `;

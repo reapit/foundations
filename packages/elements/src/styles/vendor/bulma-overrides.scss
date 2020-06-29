@@ -30,6 +30,11 @@ html {
   &.mb-0 {
     margin-bottom: 0;
   }
+
+  &.is-heading-section {
+    padding: 1rem;
+    background: $white;
+  }
 }
 
 .card {
@@ -349,53 +354,4 @@ a {
 
 span.number.token {
   all: unset;
-}
-
-.section {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-
-  &.is-flex {
-    display: flex;
-  }
-
-  &.is-centered {
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    text-align: center;
-  }
-
-  &.is-aligned-start {
-    justify-content: flex-start;
-    align-items: flex-start;
-    align-self: flex-start;
-  }
-
-  &.is-aligned-end {
-    justify-content: flex-end;
-    align-items: flex-end;
-    align-self: flex-end;
-  }
-
-  &.is-flex-column {
-    flex-direction: column;
-  }
-
-  &.has-background {
-    background: $white;
-  }
-
-  &.has-margin {
-    margin-bottom: 1rem;
-  }
-
-  &.has-padding {
-    padding: 1rem;
-  }
-
-  &.is-full-height {
-    height: 100%;
-  }
 }
