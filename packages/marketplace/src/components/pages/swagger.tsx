@@ -17,7 +17,7 @@ export const handleOnComplete = setLoading => () => {
   // dynamically changing link text for visibility
   const linkElement = document.querySelector('a[href="https://dev.platform.reapit.cloud/docs"]')
   if (linkElement) {
-    linkElement.innerHTML = 'OpenAPI Specification'
+    linkElement.innerHTML = '<span class="url">OpenAPI Specification</span>'
   }
   setLoading(false)
 }
