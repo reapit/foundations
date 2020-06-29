@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeveloperEditionContent should match snapshot 1`] = `
+<Fragment>
+  <Component
+    title="Agency Cloud Developer Edition"
+  />
+  <Component
+    body={
+      <React.Fragment>
+        <Unknown>
+          The Agency Cloud Developer Edition is used for testing your application and is a licenced product. The cost per licence is £300.00 (plus VAT) per month. It will be automatically added to your monthly billing and will auto renew until you cancel.
+          <br />
+          <br />
+          There will be no charge for the licence during the Beta phase. For more information regarding the Developer Edition please refer to your Developer Registration
+           
+          <a
+            href=""
+            rel="noreferrer"
+            target="_blank"
+          >
+            Terms and Conditions
+          </a>
+        </Unknown>
+        <Formik
+          initialValues={
+            Object {
+              "developerList": Array [
+                "value",
+              ],
+            }
+          }
+          onSubmit={[MockFunction]}
+          validate={[Function]}
+        >
+          <Form
+            className="form"
+          >
+            <Unknown
+              fixedPosition={true}
+              hasLabel={false}
+              id="developerList"
+              mode="multiple"
+              name="developerList"
+              options={
+                Array [
+                  Object {
+                    "description": "description",
+                    "label": "label",
+                    "value": "value",
+                  },
+                ]
+              }
+              placeholder="Developer List"
+            />
+            <Unknown>
+              <Unknown
+                fullWidth={true}
+                variant="secondary"
+              >
+                Cancel
+              </Unknown>
+              <Unknown
+                fullWidth={true}
+                loading={false}
+                type="submit"
+                variant="primary"
+              >
+                Confirm Subscription
+              </Unknown>
+            </Unknown>
+          </Form>
+        </Formik>
+      </React.Fragment>
+    }
+  />
+</Fragment>
+`;

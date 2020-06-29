@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SuccessContent should match snapshot 1`] = `
+<Fragment>
+  <Component
+    title="Success"
+  />
+  <Component
+    body={
+      <React.Fragment>
+        <Unknown>
+          You have successfully subscribed 1 Agency Cloud user licence and an email has been sent to the following members of your organisation with instructions on how to get started.
+        </Unknown>
+        <Unknown>
+          Duong Pham
+           -
+           
+          <a
+            className={[Function]}
+            href="mailto:tanphamhaiduong@gmail.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            tanphamhaiduong@gmail.com
+          </a>
+        </Unknown>
+        <Unknown>
+          We have added your subscription to your monthly billing. To manage your subscriptions please visit the 'Billing' tab.
+        </Unknown>
+        <Unknown>
+          Reminder: There is no charge for the Developer Edition Licence during the Beta Phase.
+        </Unknown>
+      </React.Fragment>
+    }
+  />
+  <Component
+    footerItems={
+      <Unknown
+        onClick={[MockFunction]}
+        type="button"
+        variant="primary"
+      >
+        CLOSE
+      </Unknown>
+    }
+  />
+</Fragment>
+`;

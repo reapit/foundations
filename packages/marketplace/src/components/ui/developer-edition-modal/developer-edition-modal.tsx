@@ -1,33 +1,63 @@
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import * as React from 'react'
-import { useSelector } from 'react-redux'
-import { Modal, ModalProps, Form, SelectOption } from '@reapit/elements'
-import { Formik } from 'formik'
+import { Dispatch } from 'redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { Modal, ModalProps, SelectOption } from '@reapit/elements'
 import { selectLoginIdentity } from '@/selector/auth'
-import DeveloperEditionModalSubTitle from './developer-edition-modal-sub-title'
-import DeveloperEditionModalFormContent from './developer-edition-modal-form-content'
+import {
+  selectCreateDeveloperSubscriptionLoading,
+  selectCreateDeveloperSubscriptionError,
+} from '@/selector/developer-subscriptions'
+import { developerCreateSubscription, developerCreateSubscriptionClearError } from '@/actions/developer-subscriptions'
 import { FormValues } from './form-fields'
+import DeveloperEditionContent from './developer-edition-content'
+import SuccessContent from './success-content'
+import ErrorContent from './error-content'
 
-export type HandleSubmitFunctionType = (values: Partial<DeveloperModel>[]) => void
+export type DeveloperEditionModalProps = Pick<ModalProps, 'afterClose' | 'visible'>
 
-export type DeveloperEditionModalProps = Pick<ModalProps, 'afterClose'> & {
-  visible?: boolean
-  confirmSubscription: HandleSubmitFunctionType
+export const handleOnCreated = (
+  setSelectedDeveloper: React.Dispatch<React.SetStateAction<DeveloperModel | undefined>>,
+  setSuccess: React.Dispatch<React.SetStateAction<boolean>>,
+) => developer => () => {
+  setSelectedDeveloper(developer)
+  setSuccess(true)
 }
 
-const handleFormSubmit = (developerLists: Partial<DeveloperModel>[], confirmSubscription: HandleSubmitFunctionType) => (
-  values: FormValues,
-) => {
+export const handleFormSubmit = (
+  developerLists: Partial<DeveloperModel>[],
+  dispatch: Dispatch,
+  onCreated: (developer: DeveloperModel) => () => void,
+) => (values: FormValues) => {
   const selectedDeveloperIds = values.developerList
   const selectedDevelopers = developerLists.filter(developer => selectedDeveloperIds.includes(developer.id || ''))
-  confirmSubscription(selectedDevelopers)
+  // For now just call api with one developer
+  const developer = selectedDevelopers[0]
+
+  dispatch(
+    developerCreateSubscription({
+      params: {
+        developerId: developer.id || '',
+        user: developer.email || '',
+        applicationId: '', // TBC
+        type: 'developerEdition',
+      },
+      onCreated: onCreated(developer),
+    }),
+  )
 }
 
-export const DeveloperEditionModal: React.FC<DeveloperEditionModalProps> = ({
-  visible = false,
-  confirmSubscription,
-  afterClose,
-}) => {
+export const handleAfterClose = (
+  setSuccess: React.Dispatch<React.SetStateAction<boolean>>,
+  dispatch: Dispatch,
+  afterClose: (() => void) | undefined,
+) => () => {
+  setSuccess(false)
+  dispatch(developerCreateSubscriptionClearError())
+  afterClose && afterClose()
+}
+
+export const DeveloperEditionModal: React.FC<DeveloperEditionModalProps> = ({ visible = false, afterClose }) => {
   const loginIdentity = useSelector(selectLoginIdentity)
   // For now just have 1 item: the current developer
   // Need to change to list of developer in organisation after finish "organisation" feature
@@ -42,24 +72,34 @@ export const DeveloperEditionModal: React.FC<DeveloperEditionModalProps> = ({
     description: name,
   }))
 
-  const initialValues: FormValues = {
-    developerList: dropdownOptions.map(({ value }) => value),
-  }
+  const [isSuccess, setSuccess] = React.useState<boolean>(false)
+  const [selectedDeveloper, setSelectedDeveloper] = React.useState<DeveloperModel | undefined>()
+  const dispatch = useDispatch()
+  const loading = useSelector(selectCreateDeveloperSubscriptionLoading)
+  const hasError = useSelector(selectCreateDeveloperSubscriptionError)
 
-  if (!visible) {
-    return null
+  let content
+
+  if (isSuccess) {
+    content = (
+      <SuccessContent developer={selectedDeveloper} afterClose={handleAfterClose(setSuccess, dispatch, afterClose)} />
+    )
+  } else if (hasError) {
+    content = <ErrorContent afterClose={handleAfterClose(setSuccess, dispatch, afterClose)} />
+  } else {
+    content = (
+      <DeveloperEditionContent
+        dropdownOptions={dropdownOptions}
+        loading={loading}
+        afterClose={handleAfterClose(setSuccess, dispatch, afterClose)}
+        onFormSubmit={handleFormSubmit(developerLists, dispatch, handleOnCreated(setSelectedDeveloper, setSuccess))}
+      />
+    )
   }
 
   return (
-    <Modal visible={visible} afterClose={afterClose} title="Agency Cloud Developer Edition">
-      <>
-        <DeveloperEditionModalSubTitle />
-        <Formik initialValues={initialValues} onSubmit={handleFormSubmit(developerLists, confirmSubscription)}>
-          <Form className="form">
-            <DeveloperEditionModalFormContent dropdownOptions={dropdownOptions} afterClose={afterClose} />
-          </Form>
-        </Formik>
-      </>
+    <Modal visible={visible} afterClose={handleAfterClose(setSuccess, dispatch, afterClose)} renderChildren>
+      {content}
     </Modal>
   )
 }
