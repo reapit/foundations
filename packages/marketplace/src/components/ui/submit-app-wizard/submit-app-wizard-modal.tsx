@@ -9,7 +9,7 @@ export const SubmitAppWizardModal: React.FC<ModalProps> = ({ visible, afterClose
   }
 
   return (
-    <Modal afterClose={afterClose} renderChildren visible={true}>
+    <Modal afterClose={afterClose} renderChildren visible={visible}>
       <SubmitAppWizard afterClose={afterClose} />
     </Modal>
   )

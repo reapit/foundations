@@ -35,6 +35,7 @@ export const preprareScopeOptions: (scopes: ScopeModel[]) => SelectOption[] = sc
 
 export const StepGrantPermissions: WizardStepComponent = ({ setWizardStep }) => {
   const { values } = useFormikContext<CustomCreateAppModel>()
+
   const formState = useSelector(selectSubmitAppFormState)
   const authFlow = values[authFlowField.name] as AuthFlow
 

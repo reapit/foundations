@@ -7,7 +7,8 @@ export type Field =
   | 'authFlowField'
   | 'scopesField'
   | 'directApiField'
-  | 'externalIdFields'
+  | 'externalIdField'
+  | 'appIdField'
 
 export const formFields: Record<Field, FormFieldInfo> = {
   nameField: {
@@ -28,13 +29,16 @@ export const formFields: Record<Field, FormFieldInfo> = {
   authFlowField: {
     name: 'authFlow',
   },
+  appIdField: {
+    name: 'id',
+  },
   scopesField: {
     name: 'scopes',
   },
   directApiField: {
     name: 'isDirectApi',
   },
-  externalIdFields: {
+  externalIdField: {
     name: 'externalId',
   },
 }

@@ -27,7 +27,7 @@ import { selectDeveloperId } from '@/selector/auth'
 import { Saga } from 'redux-saga'
 import { formFields } from '@/components/ui/submit-app-wizard/form-fields'
 
-const { externalIdFields } = formFields
+const { externalIdField, appIdField } = formFields
 
 jest.mock('@/services/upload')
 jest.mock('@/services/scopes')
@@ -68,14 +68,13 @@ describe('submit-app post data', () => {
 
   test('api call success', () => {
     const clone = gen.clone()
-    const mockLocationHeader = 'url'
+    const mockLocationHeader = 'location'
     const mockHeaders = { get: (param: string) => param }
-
-    expect(clone.next(mockHeaders).value).toEqual(call(mockHeaders.get, 'location'))
-    expect(clone.next(mockLocationHeader).value).toEqual(call(fetchAppByIdByRawUrl, mockLocationHeader))
+    expect(clone.next(mockHeaders).value).toEqual(call(fetchAppByIdByRawUrl, mockLocationHeader))
     expect(clone.next(appDetailDataStub.data).value).toEqual(
-      call(params.data.setFieldValue, externalIdFields.name, appDetailDataStub.data.externalId),
+      call(params.data.setFieldValue, externalIdField.name, appDetailDataStub.data.externalId),
     )
+    expect(clone.next().value).toEqual(call(params.data.setFieldValue, appIdField.name, appDetailDataStub.data.id))
     expect(clone.next().value).toEqual(call(params.data.setWizardStep, 'SUBMIT_APP_SUCCESS'))
     expect(clone.next().value).toEqual(put(submitAppSetFormState('SUCCESS')))
     expect(clone.next().done).toBe(true)
@@ -98,9 +97,6 @@ describe('submit-app post data', () => {
 
   test('api call fail when create app response header not contain location field', () => {
     const clone = gen.clone()
-    const mockHeaders = { get: (param: string) => param }
-
-    expect(clone.next(mockHeaders).value).toEqual(call(mockHeaders.get, 'location'))
     expect(clone.next().value).toEqual(put(submitAppSetFormState('ERROR')))
     expect(clone.next().value).toEqual(
       put(
@@ -113,11 +109,10 @@ describe('submit-app post data', () => {
   })
   test('api call fail when fetch detail app response is empty', () => {
     const clone = gen.clone()
-    const mockLocationHeader = 'url'
+    const mockLocationHeader = 'location'
     const mockHeaders = { get: (param: string) => param }
 
-    expect(clone.next(mockHeaders).value).toEqual(call(mockHeaders.get, 'location'))
-    expect(clone.next(mockLocationHeader).value).toEqual(call(fetchAppByIdByRawUrl, mockLocationHeader))
+    expect(clone.next(mockHeaders).value).toEqual(call(fetchAppByIdByRawUrl, mockLocationHeader))
     expect(clone.next().value).toEqual(put(submitAppSetFormState('ERROR')))
     expect(clone.next().value).toEqual(
       put(

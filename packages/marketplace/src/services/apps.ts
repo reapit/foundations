@@ -81,6 +81,7 @@ export const fetchAppByIdByRawUrl = async (url: string): Promise<AppDetailModel>
       method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
     })
+
     return response
   } catch (error) {
     logger(error)

@@ -1,5 +1,5 @@
 import React from 'react'
-import { StepSubmitAppSuccess, onFinnish } from '../step-submit-app-success'
+import { StepSubmitAppSuccess, onFinish } from '../step-submit-app-success'
 import { shallow } from 'enzyme'
 import { developerRequestData } from '@/actions/developer'
 
@@ -18,7 +18,7 @@ jest.mock('formik', () => ({
 describe('StepInputAuthenticationUris', () => {
   test('onFinish should run correctly', () => {
     const dispatch = jest.fn()
-    onFinnish(dispatch)()
+    onFinish(dispatch)()
     expect(dispatch).toHaveBeenCalledWith(developerRequestData({ page: 1 }))
   })
   it('should match snapshot', () => {

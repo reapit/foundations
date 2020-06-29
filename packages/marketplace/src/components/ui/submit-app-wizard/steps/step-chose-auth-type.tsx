@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '@/styles/blocks/submit-app-wizzard.scss?mod'
+import styles from '@/styles/blocks/submit-app-wizard.scss?mod'
 import { ModalBody, Button, ModalFooter, H4 } from '@reapit/elements'
 import { WizardStepComponent, SetWizardStep } from '../types'
 import { formFields } from '../form-fields'

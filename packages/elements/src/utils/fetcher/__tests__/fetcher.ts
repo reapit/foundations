@@ -8,7 +8,7 @@ describe('fetcherWithRawlUrl', () => {
   it('fetches and returns data if status code is less than 400', async () => {
     window.fetch = jest.fn().mockReturnValue({
       status: 200,
-      blob: () => stub,
+      json: () => stub,
       headers: { key: 'val' },
     })
 
@@ -19,7 +19,7 @@ describe('fetcherWithRawlUrl', () => {
     }
     const response = await fetcherWithRawlUrl(params)
 
-    expect(response).toEqual({ key: 'val' })
+    expect(response).toEqual(stub)
   })
 
   it('fetches and catches an error if status code is over 400', async () => {
