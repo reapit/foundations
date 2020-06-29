@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { FlexContainerBasic, DropdownSelect, Button, LevelRight, SelectOption, ModalProps } from '@reapit/elements'
+import { DropdownSelect, Button, LevelRight, SelectOption, ModalProps } from '@reapit/elements'
 import { formFields } from './form-fields'
 
 const { developerList } = formFields
@@ -14,7 +14,7 @@ export const DeveloperEditionModalFormContent: React.FC<DeveloperEditionModalFor
   afterClose,
 }) => {
   return (
-    <FlexContainerBasic hasBackground hasPadding flexColumn>
+    <div>
       <DropdownSelect
         mode="multiple"
         options={dropdownOptions}
@@ -32,7 +32,7 @@ export const DeveloperEditionModalFormContent: React.FC<DeveloperEditionModalFor
           Confirm Subscription
         </Button>
       </LevelRight>
-    </FlexContainerBasic>
+    </div>
   )
 }
 

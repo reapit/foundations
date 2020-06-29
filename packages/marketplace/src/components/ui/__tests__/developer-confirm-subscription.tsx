@@ -62,18 +62,20 @@ describe('DeveloperConfirmSubscription', () => {
 
   describe('handleAfterCloseModal', () => {
     it('should run correctly', () => {
+      const setSuccess = jest.fn()
       const onDone = jest.fn()
-      const fn = handleAfterCloseModal(spyDispatch, onDone)
+      const fn = handleAfterCloseModal(onDone, spyDispatch, setSuccess)
       fn()
       expect(spyDispatch).toBeCalledWith(developerCreateSubscriptionClearError())
       expect(onDone).toBeCalled()
+      expect(setSuccess).toBeCalled()
     })
   })
 
   describe('handleCreateSubscription', () => {
     it('should run correctly', () => {
-      const onDone = jest.fn()
-      const fn = handleCreateSubscription(spyDispatch, developerStub, onDone)
+      const setSuccess = jest.fn()
+      const fn = handleCreateSubscription(spyDispatch, developerStub, setSuccess)
       fn()
       expect(spyDispatch).toBeCalled()
     })

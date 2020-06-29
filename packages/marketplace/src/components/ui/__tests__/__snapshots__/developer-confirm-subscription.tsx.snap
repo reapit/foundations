@@ -84,17 +84,7 @@ exports[`DeveloperConfirmSubscription should match snapshot when visible 1`] = `
   >
     <Component
       afterClose={[Function]}
-      footerItems={
-        <Unknown
-          loading={[MockFunction]}
-          onClick={[Function]}
-          type="button"
-          variant="primary"
-        >
-          CLOSE
-        </Unknown>
-      }
-      title="Success"
+      renderChildren={true}
       visible={true}
     />
   </DeveloperConfirmSubscription>

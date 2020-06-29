@@ -1,11 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DeveloperInviteMemberModalFooter should match snapshot 1`] = `
-<Component
-  flexColumn={true}
-  hasBackground={true}
-  hasPadding={true}
->
+<div>
   <Component
     fixedPosition={true}
     hasLabel={false}
@@ -36,5 +32,5 @@ exports[`DeveloperInviteMemberModalFooter should match snapshot 1`] = `
       Confirm Subscription
     </Component>
   </Component>
-</Component>
+</div>
 `;
