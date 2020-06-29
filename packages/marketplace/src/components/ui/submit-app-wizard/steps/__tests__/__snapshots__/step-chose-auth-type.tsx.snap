@@ -42,13 +42,11 @@ exports[`StepInputAuthenticationUris should match snapshot 1`] = `
   />
   <Component
     footerItems={
-      <React.Fragment>
-        <Unknown
-          onClick={[Function]}
-        >
-          Back
-        </Unknown>
-      </React.Fragment>
+      <Unknown
+        onClick={[Function]}
+      >
+        Back
+      </Unknown>
     }
   />
 </Fragment>

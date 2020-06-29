@@ -57,13 +57,7 @@ export const StepChoseAuthType: WizardStepComponent = ({ setWizardStep }) => {
           </div>
         }
       />
-      <ModalFooter
-        footerItems={
-          <>
-            <Button onClick={onPrev(setWizardStep)}>Back</Button>
-          </>
-        }
-      />
+      <ModalFooter footerItems={<Button onClick={onPrev(setWizardStep)}>Back</Button>} />
     </>
   )
 }
