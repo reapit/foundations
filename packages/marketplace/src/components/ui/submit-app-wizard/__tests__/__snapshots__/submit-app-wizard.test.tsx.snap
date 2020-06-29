@@ -83,9 +83,6 @@ exports[`SubmitAppWizard should match snapshot when visible = true 1`] = `
       }
     }
   >
-<<<<<<< HEAD
-    <Component />
-=======
     <Form>
       <Component
         afterClose={[Function]}
@@ -95,7 +92,6 @@ exports[`SubmitAppWizard should match snapshot when visible = true 1`] = `
         setWizardStep={[Function]}
       />
     </Form>
->>>>>>> feat: #1799 fix typos, remove uris on clientCred, add secret to step success
   </Formik>
 </div>
 `;
