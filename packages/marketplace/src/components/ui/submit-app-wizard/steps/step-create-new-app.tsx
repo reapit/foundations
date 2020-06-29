@@ -10,7 +10,7 @@ export const onPrev = (setWizardStep: SetWizardStep) => () => {
   setWizardStep('INPUT_APP_NAME')
 }
 
-export const onLauchWithoutAgencyCloud = (setWizardStep: SetWizardStep, setFieldValue) => () => {
+export const onLaunch = (setWizardStep: SetWizardStep, setFieldValue) => () => {
   setFieldValue(directApiField.name, true)
   setWizardStep('INPUT_ATHENTICATION_TYPE')
 }
@@ -42,7 +42,7 @@ export const StepCreateNewApp: WizardStepComponent = ({ setWizardStep }) => {
           <FlexContainerBasic>
             <div>
               <Button onClick={onLauchWithinAgencyCloud(setWizardStep, setFieldValue)}>Yes</Button>
-              <Button onClick={onLauchWithoutAgencyCloud(setWizardStep, setFieldValue)}>No</Button>
+              <Button onClick={onLaunch(setWizardStep, setFieldValue)}>No</Button>
             </div>
             <div className="ml-auto">
               <Button onClick={onPrev(setWizardStep)}>Back</Button>

@@ -9,13 +9,13 @@ import { Dispatch } from 'redux'
 import { useDispatch } from 'react-redux'
 import { developerRequestData } from '@/actions/developer'
 import { formFields } from '../form-fields'
+import qs from 'query-string'
 
 const { nameField, externalIdField, authFlowField, appIdField } = formFields
 
 export const onFinish = (dispatch: Dispatch) => () => {
   // refetch developer-app-detail
-  const queryParams = new URLSearchParams(window.location.search)
-  const page = queryParams.get('page') ? Number(queryParams.get('page')) : 1
+  const page = qs.parse(location.search)?.page || 1
   dispatch(developerRequestData({ page }))
 }
 
