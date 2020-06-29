@@ -1,5 +1,6 @@
 import React from 'react'
 import { onPrev, onLauchWithinAgencyCloud, StepCreateNewApp } from '../step-create-new-app'
+
 import { shallow } from 'enzyme'
 jest.mock('formik', () => ({
   useFormikContext: () => ({
@@ -8,6 +9,8 @@ jest.mock('formik', () => ({
 }))
 
 import { formFields } from '../../form-fields'
+import { wizzardSteps } from '../../constant'
+import AuthFlow from '@/constants/app-auth-flow'
 
 const { authFlowField, directApiField } = formFields
 
@@ -21,13 +24,13 @@ describe('StepCreateNewApp', () => {
     const setFieldValue = jest.fn()
     onLauchWithinAgencyCloud(setWizardStep, setFieldValue)()
 
-    expect(setFieldValue).toHaveBeenNthCalledWith(1, authFlowField.name, 'authorisationCode')
+    expect(setFieldValue).toHaveBeenNthCalledWith(1, authFlowField.name, AuthFlow.USER_SESSION)
     expect(setFieldValue).toHaveBeenNthCalledWith(2, directApiField.name, false)
-    expect(setWizardStep).toBeCalledWith('INPUT_AUTHENTICATION_URIS')
+    expect(setWizardStep).toBeCalledWith(wizzardSteps.INPUT_AUTHENTICATION_URIS)
   })
   test('onPrev should run correctly', () => {
     const setWizardStep = jest.fn()
     onPrev(setWizardStep)()
-    expect(setWizardStep).toBeCalledWith('INPUT_APP_NAME')
+    expect(setWizardStep).toBeCalledWith(wizzardSteps.INPUT_APP_NAME)
   })
 })

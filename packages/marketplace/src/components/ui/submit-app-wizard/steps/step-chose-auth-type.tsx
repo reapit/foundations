@@ -4,21 +4,23 @@ import { ModalBody, Button, ModalFooter, H4 } from '@reapit/elements'
 import { WizardStepComponent, SetWizardStep } from '../types'
 import { formFields } from '../form-fields'
 import { useFormikContext } from 'formik'
+import { wizzardSteps } from '../constant'
+import authFlows from '@/constants/app-auth-flow'
 
 const { authFlowField } = formFields
 
 export const onClientSide = (setWizardStep: SetWizardStep, setFieldValue) => () => {
-  setFieldValue(authFlowField.name, 'authorisationCode')
-  setWizardStep('INPUT_AUTHENTICATION_URIS')
+  setFieldValue(authFlowField.name, authFlows.USER_SESSION)
+  setWizardStep(wizzardSteps.INPUT_AUTHENTICATION_URIS)
 }
 
 export const onServerSide = (setWizardStep: SetWizardStep, setFieldValue) => () => {
-  setFieldValue(authFlowField.name, 'clientCredentials')
-  setWizardStep('GRANT_PERMISSION')
+  setFieldValue(authFlowField.name, authFlows.CLIENT_SECRET)
+  setWizardStep(wizzardSteps.GRANT_PERMISSION)
 }
 
 export const onPrev = (setWizardStep: SetWizardStep) => () => {
-  setWizardStep('CREATE_NEW_APP')
+  setWizardStep(wizzardSteps.CREATE_NEW_APP)
 }
 
 export const StepChoseAuthType: WizardStepComponent = ({ setWizardStep }) => {

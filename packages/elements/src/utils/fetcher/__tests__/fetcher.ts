@@ -1,10 +1,10 @@
-import { fetcher, FetchError, fetcherWithBlob, fetcherWithReturnHeader, fetcherWithRawlUrl } from '../fetcher'
+import { fetcher, FetchError, fetcherWithBlob, fetcherWithReturnHeader, fetcherWithRawUrl } from '../fetcher'
 
 const stub = {
   name: 'bob',
 }
 
-describe('fetcherWithRawlUrl', () => {
+describe('fetcherWithRawUrl', () => {
   it('fetches and returns data if status code is less than 400', async () => {
     window.fetch = jest.fn().mockReturnValue({
       status: 200,
@@ -17,7 +17,7 @@ describe('fetcherWithRawlUrl', () => {
       method: 'GET' as any,
       headers: {},
     }
-    const response = await fetcherWithRawlUrl(params)
+    const response = await fetcherWithRawUrl(params)
 
     expect(response).toEqual(stub)
   })
@@ -35,7 +35,7 @@ describe('fetcherWithRawlUrl', () => {
     }
 
     try {
-      const response = await fetcherWithRawlUrl(params)
+      const response = await fetcherWithRawUrl(params)
       expect(response).toBeUndefined()
     } catch (err) {
       expect(err).toBeInstanceOf(FetchError)

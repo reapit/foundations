@@ -1,6 +1,7 @@
 import React from 'react'
 import { onPrev, StepGrantPermissions } from '../step-grant-permisions'
 import { shallow } from 'enzyme'
+import { wizzardSteps } from '../../constant'
 
 jest.mock('formik', () => ({
   useFormikContext: () => ({
@@ -23,11 +24,11 @@ describe('StepGrantPermissions', () => {
   test('onPrev should run correctly when authFlow = "clientCredentials"', () => {
     const setWizardStep = jest.fn()
     onPrev(setWizardStep, 'clientCredentials')()
-    expect(setWizardStep).toBeCalledWith('INPUT_ATHENTICATION_TYPE')
+    expect(setWizardStep).toBeCalledWith(wizzardSteps.INPUT_ATHENTICATION_TYPE)
   })
   test('onPrev should run correctly when authFlow = "authorisationCode"', () => {
     const setWizardStep = jest.fn()
     onPrev(setWizardStep, 'authorisationCode')()
-    expect(setWizardStep).toBeCalledWith('INPUT_AUTHENTICATION_URIS')
+    expect(setWizardStep).toBeCalledWith(wizzardSteps.INPUT_AUTHENTICATION_URIS)
   })
 })

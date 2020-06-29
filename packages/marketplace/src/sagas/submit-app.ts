@@ -23,6 +23,7 @@ import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration
 import { selectDeveloperId } from '@/selector/auth'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { formFields } from '@/components/ui/submit-app-wizard/form-fields'
+import { wizzardSteps } from '@/components/ui/submit-app-wizard/constant'
 
 const { externalIdField, appIdField } = formFields
 
@@ -51,7 +52,7 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
 
     yield call(setFieldValue, externalIdField.name, appDetail.externalId)
     yield call(setFieldValue, appIdField.name, appDetail.id)
-    yield call(setWizardStep, 'SUBMIT_APP_SUCCESS')
+    yield call(setWizardStep, wizzardSteps.SUBMIT_APP_SUCCESS)
     yield put(submitAppSetFormState('SUCCESS'))
   } catch (err) {
     logger(err)
