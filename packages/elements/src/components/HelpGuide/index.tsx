@@ -1,6 +1,6 @@
 import React from 'react'
 import { HelpGuideContextValues, HelpGuideContextProvider } from './context'
-import { FlexContainerBasic, FlexContainerResponsive } from '../Layout'
+import { FlexContainerResponsive, FlexContainerBasic } from '../Layout'
 import { VerticalTimeline } from './vertical-timeline'
 import { SubTitleH6, H3 } from '../Typography'
 import { isMobile } from '../../utils/device-detection/device-detection'
