@@ -28,6 +28,7 @@ window.reapit = {
     marketplaceUrl: '',
     platformApiUrl: '',
     webComponentConfigApiUrl: '',
+    developerEditionDownloadUrl: '',
   },
 }
 

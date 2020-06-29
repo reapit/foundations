@@ -26,6 +26,7 @@ const { Suspense } = React
 export type PrivateRouteWrapperProps = {
   children?: React.ReactNode
   path: string
+  showMenu?: boolean
 }
 
 /* export const handleOnAcceptClientWelcome = ({
@@ -49,7 +50,10 @@ export const handleSetTermsAcceptFromCookie = ({
   dispatch(setInitDeveloperTermsAcceptedStateFromCookie())
 }
 
-export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children }) => {
+export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({
+  children,
+  showMenu = true,
+}) => {
   const dispatch = useDispatch()
 
   React.useEffect(
@@ -109,7 +113,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
   return (
     <AppNavContainer>
-      <Menu />
+      {showMenu && <Menu />}
       {/* Temporary comment due to https://github.com/reapit/foundations/issues/1055 */}
       {/*
         {loginType === 'CLIENT' && (
