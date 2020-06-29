@@ -1,41 +1,16 @@
 @import '../base/colors.scss';
 @import '../base/browser.scss';
 
-.wrapListItems {
-  padding: 1rem;
-  @include for-ie-only {
-    background-color: $white;
-  }
-}
-.item {
-  padding: 1.5rem;
-}
 .wrapBoxContent {
   height: 100%;
-  border: 1px solid transparentize(#95aac9, 0.7);
+  border: 2px solid $grey-light;
 }
-.wrapImage {
-  width: 100%;
-  margin-bottom: 2rem;
-  @include for-ie-only {
-    min-height: 218px;
-  }
-}
+
 .image {
   width: 100%;
   height: auto;
 }
-.text {
-  flex-grow: 1;
-  margin-bottom: 1.5rem;
-  @include for-ie-only {
-    width: 100%;
-  }
-}
-.wrapButton {
-  width: 100%;
-  text-align: right;
-}
+
 .button {
   min-width: 8rem;
   width: 35%;

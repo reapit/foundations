@@ -35,9 +35,7 @@ export const ClientHelpPage: React.FC = () => {
       <Section>
         <H3 className="mb-0">Help</H3>
       </Section>
-      <Section>
-        <HelpItemList items={helpItems} />
-      </Section>
+      <HelpItemList items={helpItems} />
     </>
   )
 }

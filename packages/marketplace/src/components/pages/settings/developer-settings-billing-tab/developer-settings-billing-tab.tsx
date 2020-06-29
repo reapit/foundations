@@ -12,12 +12,10 @@ const DevelperSettingsBillingTabPage: React.FC<{}> = () => {
     <>
       <Section>
         <Tabs />
-        {// FEATURE FLAG
-        !isProd && <AccountsInformationForm />}
       </Section>
-      <Section>
-        <Subcriptions />
-      </Section>
+      {// Feature flag
+      !isProd && <AccountsInformationForm />}
+      <Subcriptions />
     </>
   )
 }

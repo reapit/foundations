@@ -100,9 +100,7 @@ export const DeveloperHelpPage: React.FC<DeveloperHelpPageProps> = () => {
       <Section>
         <H3 className="mb-0">Help</H3>
       </Section>
-      <Section>
-        <HelpItemList items={helpItems(loginIdentity)} />
-      </Section>
+      <HelpItemList items={helpItems(loginIdentity)} />
     </>
   )
 }

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { selectDeveloperEmail } from '@/selector/developer'
-import { H3, GridItem, Grid, Button, LevelRight, Loader, Section } from '@reapit/elements'
+import { H3, Button, Loader, Section } from '@reapit/elements'
 import EnhanceContactInformation, { ContactInformationValues } from './contact-information-form'
 import EnhanceChangePasswordForm, { ChangePasswordValues } from './change-password-form'
 import { useSelector, useDispatch } from 'react-redux'
@@ -45,28 +45,18 @@ export const Forms: React.FC = () => {
 
   return (
     <>
-      <Section>
+      <Section isFlex className="justify-between items-center">
         <H3 className="mb-0">Settings</H3>
+        <Button dataTest="logout-btn" variant="primary" type="button" onClick={logout}>
+          Logout
+        </Button>
       </Section>
-      <Section hasPadding={false}>
-        <Grid>
-          <GridItem>
-            <EnhanceContactInformation
-              developerInformation={developerInfo}
-              updateDeveloperInformation={updateDeveloperInformation}
-            />
-          </GridItem>
-          <GridItem>
-            <EnhanceChangePasswordForm email={email} changePassword={changePassword} />
-          </GridItem>
-        </Grid>
-      </Section>
-      <Section>
-        <LevelRight>
-          <Button dataTest="logout-btn" variant="primary" type="button" onClick={logout}>
-            Logout
-          </Button>
-        </LevelRight>
+      <Section hasPadding={false} hasBackground={false}>
+        <EnhanceContactInformation
+          developerInformation={developerInfo}
+          updateDeveloperInformation={updateDeveloperInformation}
+        />
+        <EnhanceChangePasswordForm email={email} changePassword={changePassword} />
       </Section>
     </>
   )

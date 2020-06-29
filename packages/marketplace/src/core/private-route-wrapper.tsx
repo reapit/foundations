@@ -20,6 +20,7 @@ import {
 } from '@/utils/cookie'
 import { selectLoginSession, selectRefreshSession, selectLoginType } from '@/selector/auth'
 import { ActionCreator } from '@/types/core'
+import Routes from '@/constants/routes'
 
 const { Suspense } = React
 
@@ -124,7 +125,13 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
       )}
         */}
       <FlexContainerBasic flexColumn isScrollable>
-        <FlexContainerResponsive hasPadding flexColumn>
+        <FlexContainerResponsive
+          hasPadding
+          flexColumn
+          // I want to allow scrolling beyond the end of the page to allow for the toast notification
+          // except on the Gitbook page because the iframe handles it's own scrolling
+          isPageContainer={location.pathname !== Routes.DEVELOPER_API_DOCS}
+        >
           <Suspense
             fallback={
               <Section>

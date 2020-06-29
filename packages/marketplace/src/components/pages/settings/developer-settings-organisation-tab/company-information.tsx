@@ -10,8 +10,9 @@ import {
   SelectBox,
   Form,
   LevelRight,
-  H5,
   FormSection,
+  Section,
+  H3,
 } from '@reapit/elements'
 import { companyInformationFormSchema } from './validation-schema'
 
@@ -27,8 +28,10 @@ export const CompanyInformation = () => {
         }}
       >
         <Form>
+          <Section>
+            <H3 className="mb-0">Company Information</H3>
+          </Section>
           <FormSection>
-            <H5>Company Information</H5>
             <Grid>
               <GridItem>
                 <Input type="text" labelText="Company Name" id="companyName" name="companyName" />
@@ -66,25 +69,22 @@ export const CompanyInformation = () => {
                 </div>
               </GridItem>
             </Grid>
-          </FormSection>
 
-          <FormSection>
-            <H5>Company Address</H5>
             <Grid>
               <GridItem>
-                <Input type="text" labelText="Line 1*" id="line1" name="line1" />
+                <Input type="text" labelText="Address Line 1*" id="line1" name="line1" />
               </GridItem>
               <GridItem>
-                <Input type="text" labelText="Line 2" id="line2" name="line2" />
+                <Input type="text" labelText="Address Line 2" id="line2" name="line2" />
               </GridItem>
             </Grid>
 
             <Grid>
               <GridItem>
-                <Input type="text" labelText="Line 3" id="line3" name="line3" />
+                <Input type="text" labelText="Address Line 3" id="line3" name="line3" />
               </GridItem>
               <GridItem>
-                <Input type="text" labelText="Line 4" id="line4" name="line4" />
+                <Input type="text" labelText="Address Line 4" id="line4" name="line4" />
               </GridItem>
             </Grid>
 
@@ -97,7 +97,7 @@ export const CompanyInformation = () => {
               </GridItem>
             </Grid>
             <LevelRight>
-              <Button className="mt-8" type="submit" variant="primary">
+              <Button type="submit" variant="primary">
                 Save
               </Button>
             </LevelRight>

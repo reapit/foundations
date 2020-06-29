@@ -24,7 +24,7 @@ export const renderChart = appHttpTrafficPerDayChartData => {
 export const DeveloperHitsPerDay: React.FC<DeveloperHitsPerDayProps> = ({ stats, loading }) => {
   const appHttpTrafficPerDayChartData = getAppHttpTrafficPerDayChartData(stats)
 
-  return <div>{loading ? <Loader /> : renderChart(appHttpTrafficPerDayChartData)}</div>
+  return loading ? <Loader /> : renderChart(appHttpTrafficPerDayChartData)
 }
 
 export default DeveloperHitsPerDay

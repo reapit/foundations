@@ -1,7 +1,9 @@
 import { css } from 'linaria'
 
-export const helpGuildeContent = css`
+export const helpGuideContent = css`
   padding: 3rem 0;
+  width: 100%;
+
   .fade-enter {
     opacity: 0;
     transform: scale(0.9);

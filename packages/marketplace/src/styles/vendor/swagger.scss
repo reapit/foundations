@@ -18,6 +18,7 @@
     .info,
     .markdown {
       font-family: $font-family-roboto;
+      font-size: 1rem;
     }
 
     h1,
@@ -33,6 +34,11 @@
 
     .info a {
       color: $reapit-mid-blue;
+    }
+
+    .info table {
+      font-family: $font-family-roboto;
+      font-size: 1rem;
     }
 
     a {
@@ -61,6 +67,7 @@
 
     code, .prop-format {
       font-family: $font-family-monospace;
+      font-size: 1rem;
       color: $grey;
     }
 
@@ -86,7 +93,7 @@
         }
 
         .url {
-          font-size: 14px;
+          font-size: 1rem;
         }
       }
 
@@ -127,6 +134,11 @@
 
       .markdown p {
         margin: 0;
+      }
+
+      small {
+        font-size: 1rem;
+        font-family: $font-family-roboto;
       }
     }
 

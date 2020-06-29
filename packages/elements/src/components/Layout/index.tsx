@@ -13,6 +13,7 @@ export interface FlexContainerProps extends LayoutProps {
   isScrollable?: boolean
   hasBackground?: boolean
   isFullHeight?: boolean
+  isPageContainer?: boolean
 }
 
 export interface GridProps extends LayoutProps {
@@ -28,6 +29,7 @@ export interface SectionProps extends LayoutProps {
   hasPadding?: boolean
   hasMargin?: boolean
   hasBackground?: boolean
+  isFullHeight?: boolean
 }
 
 export const FlexContainerResponsive: React.SFC<FlexContainerProps> = ({
@@ -37,12 +39,15 @@ export const FlexContainerResponsive: React.SFC<FlexContainerProps> = ({
   hasPadding = false,
   isScrollable = false,
   hasBackground = false,
+  isPageContainer = false,
   className = '',
 }) => (
   <div
     className={`container ${flexColumn ? 'is-column' : ''} ${centerContent ? 'is-centered' : ''} ${
       hasBackground ? 'has-background' : ''
-    } ${hasPadding ? 'has-padding' : ''} ${isScrollable ? 'is-scrollable' : ''} ${className}`}
+    } ${hasPadding ? 'has-padding' : ''} ${isScrollable ? 'is-scrollable' : ''} ${
+      isPageContainer ? 'is-page-container' : ''
+    } ${className}`}
   >
     {children}
   </div>
@@ -147,6 +152,7 @@ export const Section: React.SFC<SectionProps> = ({
   hasPadding = true,
   hasMargin = true,
   hasBackground = true,
+  isFullHeight,
 }) => (
   <section
     className={cx(
@@ -160,6 +166,7 @@ export const Section: React.SFC<SectionProps> = ({
       hasPadding && 'has-padding',
       hasMargin && 'has-margin',
       hasBackground && 'has-background',
+      isFullHeight && 'is-full-height',
     )}
     data-test={dataTest}
   >

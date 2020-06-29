@@ -158,16 +158,16 @@ export const InstallationAppSection: React.FC<{
               </Section>
             </GridItem>
           </Grid>
-          <Section hasMargin={false}>
+          <Section>
             <H5>Installation Details</H5>
             <Table bordered scrollable columns={installationTableColumn} data={memoizedData} loading={false} />
-            <Pagination
-              pageNumber={pageNumber}
-              onChange={handleSetPageNumber(setPageNumber)}
-              pageSize={INSTALLATIONS_PER_PAGE}
-              totalCount={installations?.installationsFilteredAppData?.totalCount ?? 0}
-            />
           </Section>
+          <Pagination
+            pageNumber={pageNumber}
+            onChange={handleSetPageNumber(setPageNumber)}
+            pageSize={INSTALLATIONS_PER_PAGE}
+            totalCount={installations?.installationsFilteredAppData?.totalCount ?? 0}
+          />
         </>
       )}
     </>

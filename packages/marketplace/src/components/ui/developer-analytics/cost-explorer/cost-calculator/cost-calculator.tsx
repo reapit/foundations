@@ -44,7 +44,7 @@ const CostCalculator: React.FC<CostCalculatorProps> = () => {
 
   return (
     <Section>
-      <H5>Cost Calculator</H5>
+      <H5>API Cost Calculator</H5>
       <Grid>
         <GridItem className="is-half-desktop">
           <p className="is-italic">

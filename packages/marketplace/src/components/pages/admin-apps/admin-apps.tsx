@@ -17,17 +17,15 @@ import {
   FormSection,
   FormHeading,
   FormSubHeading,
-  Content,
-  FlexContainerBasic,
   DatePicker,
   toLocalTime,
   isEmptyObject,
+  Section,
 } from '@reapit/elements'
 import { selectAdminAppsData, selectAdminAppsLoading } from '@/selector/admin'
 import { adminAppsRequestFeatured } from '@/actions/admin-apps'
 import AppDeleteModal from '@/components/ui/app-delete'
 import { addQuery, stringifyObjectIntoQueryString, getParamsFromPath } from '@/utils/client-url-params'
-import styles from '@/styles/pages/admin-apps.scss?mod'
 import { cleanObject } from '@reapit/utils'
 import Routes from '@/constants/routes'
 import { FaCheck } from 'react-icons/fa'
@@ -147,57 +145,55 @@ export const renderForm = ({ values, status }) => {
   return (
     <Form>
       <FormSection>
-        <Content className={styles.contentBlock}>
-          <FormHeading>Admin Apps Filter Form</FormHeading>
-          <FormSubHeading>Filter the result by App, Developer and Company</FormSubHeading>
-          <Grid>
-            <GridItem>
-              <Input type="text" name="appName" id="appName" labelText="App Name" maxLength={256} />
-            </GridItem>
-            <GridItem>
-              <Input type="text" name="developerName" id="developerName" labelText="Developer Name" maxLength={256} />
-            </GridItem>
-            <GridItem>
-              <Input type="text" name="companyName" id="companyName" labelText="Company Name" maxLength={256} />
-            </GridItem>
-          </Grid>
-          <Grid>
-            <GridItem>
-              <DatePicker
-                name="registeredFrom"
-                labelText="Registered From"
-                id="registeredFrom"
-                reactDatePickerProps={{
-                  selectsStart: true,
-                  startDate,
-                  endDate,
-                }}
-              />
-            </GridItem>
-            <GridItem>
-              <DatePicker
-                name="registeredTo"
-                labelText="Registered To"
-                id="registeredTo"
-                reactDatePickerProps={{
-                  selectsEnd: true,
-                  startDate,
-                  endDate,
-                  minDate: startDate,
-                }}
-              />
-            </GridItem>
-            <GridItem className={styles.filterButton}>
-              <Button type="submit" variant="primary">
-                Search
-              </Button>
-              <Button type="reset" variant="primary">
-                Refresh
-              </Button>
-            </GridItem>
-          </Grid>
-          {status && <p className="has-text-danger">{status}</p>}
-        </Content>
+        <FormHeading>Admin Apps Filter Form</FormHeading>
+        <FormSubHeading>Filter the result by App, Developer and Company</FormSubHeading>
+        <Grid>
+          <GridItem>
+            <Input type="text" name="appName" id="appName" labelText="App Name" maxLength={256} />
+          </GridItem>
+          <GridItem>
+            <Input type="text" name="developerName" id="developerName" labelText="Developer Name" maxLength={256} />
+          </GridItem>
+          <GridItem>
+            <Input type="text" name="companyName" id="companyName" labelText="Company Name" maxLength={256} />
+          </GridItem>
+        </Grid>
+        <Grid>
+          <GridItem>
+            <DatePicker
+              name="registeredFrom"
+              labelText="Registered From"
+              id="registeredFrom"
+              reactDatePickerProps={{
+                selectsStart: true,
+                startDate,
+                endDate,
+              }}
+            />
+          </GridItem>
+          <GridItem>
+            <DatePicker
+              name="registeredTo"
+              labelText="Registered To"
+              id="registeredTo"
+              reactDatePickerProps={{
+                selectsEnd: true,
+                startDate,
+                endDate,
+                minDate: startDate,
+              }}
+            />
+          </GridItem>
+          <GridItem>
+            <Button type="submit" variant="primary">
+              Search
+            </Button>
+            <Button type="reset" variant="primary">
+              Refresh
+            </Button>
+          </GridItem>
+        </Grid>
+        {status && <p className="has-text-danger">{status}</p>}
       </FormSection>
     </Form>
   )
@@ -271,27 +267,27 @@ export const AdminApps: React.FC = () => {
   }
 
   return (
-    <div>
-      <FlexContainerBasic hasPadding flexColumn hasBackground data-test="revision-list-container">
-        <div className="mb-5">
-          <H3>App Management</H3>
-          <Formik initialValues={formInitValues} onSubmit={handleOnSubmit(history)} onReset={refreshForm(history)}>
-            {renderForm}
-          </Formik>
-        </div>
-        <div className={styles.contentBlock}>
-          <FlexContainerBasic hasPadding>
-            <span>Total apps: {adminAppsData?.totalCount || 0}</span>
-          </FlexContainerBasic>
-          {renderContent({ adminAppsData, columns })}
-        </div>
-        <Pagination
-          onChange={handleChangePage(history)}
-          totalCount={adminAppsData?.totalCount || 0}
-          pageSize={adminAppsData?.pageSize || 0}
-          pageNumber={page}
-        />
-      </FlexContainerBasic>
+    <>
+      <Section>
+        <H3 className="mb-0">App Management</H3>
+      </Section>
+      <Formik initialValues={formInitValues} onSubmit={handleOnSubmit(history)} onReset={refreshForm(history)}>
+        {renderForm}
+      </Formik>
+
+      <Section>
+        <span>Total apps: {adminAppsData?.totalCount || 0}</span>
+      </Section>
+
+      <Section>{renderContent({ adminAppsData, columns })}</Section>
+
+      <Pagination
+        onChange={handleChangePage(history)}
+        totalCount={adminAppsData?.totalCount || 0}
+        pageSize={adminAppsData?.pageSize || 0}
+        pageNumber={page}
+      />
+
       <AppDeleteModal
         appId={deleteModalData.appId}
         appName={deleteModalData.appName}
@@ -299,7 +295,7 @@ export const AdminApps: React.FC = () => {
         visible={deleteModalData.visible}
         onDeleteSuccess={handleCloseAppDeleteModal({ setDataDeleteModal })}
       />
-    </div>
+    </>
   )
 }
 

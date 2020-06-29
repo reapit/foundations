@@ -171,7 +171,7 @@ export const ServiceChart: React.FC = () => {
   const datasets = mapServiceChartDataSet(billing)
   const isLoading = loading || isServiceChartLoading
   return (
-    <Section>
+    <Section hasMargin={false}>
       <H5>Services</H5>
       <div className={styles.barChartContainer}>{renderChart(isLoading, datasets)}</div>
     </Section>

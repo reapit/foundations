@@ -2,16 +2,7 @@ import * as React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Dispatch } from 'redux'
 import { useHistory, useLocation } from 'react-router'
-import {
-  Loader,
-  Pagination,
-  Table,
-  Button,
-  FlexContainerResponsive,
-  Helper,
-  infoText,
-  FlexContainerBasic,
-} from '@reapit/elements'
+import { Loader, Pagination, Table, Button, Helper, infoText, Section, H3 } from '@reapit/elements'
 import { revisionDetailRequestData } from '@/actions/revision-detail'
 import routes from '@/constants/routes'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
@@ -50,18 +41,10 @@ export const Content = ({
   }
 
   if (!loading && !waitingApprovalList.length) {
-    return (
-      <FlexContainerBasic hasPadding flexColumn>
-        <Helper variant="info">{infoText('ADMIN_APPROVALS_EMPTY')}</Helper>
-      </FlexContainerBasic>
-    )
+    return <Helper variant="info">{infoText('ADMIN_APPROVALS_EMPTY')}</Helper>
   }
 
-  return (
-    <div>
-      <Table scrollable={true} loading={false} data={waitingApprovalList} columns={tableColumns} />
-    </div>
-  )
+  return <Table scrollable={true} loading={false} data={waitingApprovalList} columns={tableColumns} />
 }
 
 export type RenderIdParams = {
@@ -189,8 +172,11 @@ export const AdminApprovals: React.FC = () => {
   const isLoading = approvalsState.loading
 
   return (
-    <div id="page-admin-approvals-container">
-      <FlexContainerResponsive data-test="revision-list-container">
+    <>
+      <Section>
+        <H3>App Revision Approvals</H3>
+      </Section>
+      <Section>
         <Content
           loading={isLoading}
           waitingApprovalList={waitingApprovalListData.data || []}
@@ -202,15 +188,15 @@ export const AdminApprovals: React.FC = () => {
             setIsModalOpen,
           })}
         />
-        <Pagination
-          onChange={handleOnPageChange(history)}
-          totalCount={waitingApprovalListData.totalCount}
-          pageSize={waitingApprovalListData.pageSize}
-          pageNumber={Number(page)}
-        />
-      </FlexContainerResponsive>
+      </Section>
+      <Pagination
+        onChange={handleOnPageChange(history)}
+        totalCount={waitingApprovalListData.totalCount}
+        pageSize={waitingApprovalListData.pageSize}
+        pageNumber={Number(page)}
+      />
       <AdminApprovalModal visible={isModalOpen} afterClose={handleCloseModal({ setIsModalOpen })} />
-    </div>
+    </>
   )
 }
 

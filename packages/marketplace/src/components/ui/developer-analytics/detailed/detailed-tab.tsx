@@ -166,7 +166,7 @@ export const DetailedTab: React.FC<DetailedTabProps> = () => {
       <Section>
         <FilterBar developerAppsData={developerAppsData} installationAppDataArray={installationAppDataArray || []} />
       </Section>
-      <Grid className="mb-4" isMultiLine>
+      <Grid isMultiLine>
         <GridItem className="is-half">
           <DeveloperHitsPerDayChart stats={appHttpTrafficPerDayData} loading={appHttpTrafficPerDayLoading} />
         </GridItem>

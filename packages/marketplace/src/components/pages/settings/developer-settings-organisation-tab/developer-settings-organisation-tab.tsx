@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FlexContainerResponsive, Content, FlexContainerBasic, Button, LevelRight } from '@reapit/elements'
+import { Button, LevelRight, Section } from '@reapit/elements'
 import { Tabs } from '../tabs'
 import DeveloperInviteModal from '@/components/ui/developer-invite-member-modal'
 import { selectIsAdmin } from '@/selector/auth'
@@ -31,26 +31,24 @@ const DevelperSettingsOrganisationTabPage: React.FC = () => {
 
   return (
     <>
-      <FlexContainerBasic flexColumn hasPadding>
-        <Content>
-          <FlexContainerResponsive flexColumn hasBackground hasPadding>
-            <Tabs />
-            {/* <LevelRight>
+      <Section>
+        <Tabs />
+      </Section>
+      {/* <LevelRight>
               <a className={styles.hyperlinked} onClick={handleToggleVisibleModal(setIsSetAdminModalOpen, true)}>
                 Set as Admin
               </a>
             </LevelRight> */}
 
-            <CompanyInformation />
-            <Members />
-            <LevelRight>
-              <Button type="button" variant="primary" onClick={handleToggleVisibleModal(setIsInviteModalOpen, true)}>
-                Invite New Member
-              </Button>
-            </LevelRight>
-          </FlexContainerResponsive>
-        </Content>
-      </FlexContainerBasic>
+      <CompanyInformation />
+      <Members />
+      <Section>
+        <LevelRight>
+          <Button type="button" variant="primary" onClick={handleToggleVisibleModal(setIsInviteModalOpen, true)}>
+            Invite New Member
+          </Button>
+        </LevelRight>
+      </Section>
 
       <DeveloperInviteModal
         visible={isInviteModalOpen}

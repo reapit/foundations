@@ -172,7 +172,7 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = () => {
   }
 
   return (
-    <Section>
+    <Section hasMargin={false}>
       <H5>Transaction History</H5>
       {currentPage === 1
         ? renderFirstPage({ developerAppIds, previousTransactionDates })

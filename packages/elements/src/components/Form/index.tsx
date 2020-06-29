@@ -6,7 +6,7 @@ export const FormHeading: React.SFC<LayoutProps> = ({ children, className = '' }
 )
 
 export const FormSubHeading: React.SFC<LayoutProps> = ({ children, className = '' }) => (
-  <div className={`form-subheading mb-6 ${className}`}>{children}</div>
+  <div className={`form-subheading mb-4 ${className}`}>{children}</div>
 )
 
 export const FormSection: React.SFC<LayoutProps> = ({ children, className = '' }) => (

@@ -226,15 +226,13 @@ export const DeveloperWebhooks = () => {
             </Form>
           )}
         </Formik>
-        <FormSection>
+        {applicationId && (
           <LevelRight>
-            {applicationId && (
-              <Button dataTest="logout-btn" variant="primary" type="button" onClick={handleOpenCreateModal}>
-                Add New Webhook
-              </Button>
-            )}
+            <Button dataTest="logout-btn" variant="primary" type="button" onClick={handleOpenCreateModal}>
+              Add New Webhook
+            </Button>
           </LevelRight>
-        </FormSection>
+        )}
         {unfetched || loading || subscriptionsLoading ? (
           <Loader />
         ) : subscriptions.length ? (

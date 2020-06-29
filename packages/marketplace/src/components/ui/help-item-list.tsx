@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from '@/styles/pages/help.scss?mod'
-import { Button, GridFourCol, GridFourColItem, H4, FlexContainerBasic } from '@reapit/elements'
+import { Button, GridFourCol, GridThreeColItem, H5, Section, LevelRight, Content } from '@reapit/elements'
 
 export interface HelpItem {
   imgSrc: string
@@ -11,30 +11,32 @@ export interface HelpItem {
 }
 
 export const HelpItemList = ({ items }: { items: HelpItem[] }) => (
-  <GridFourCol className={styles.wrapListItems}>
+  <GridFourCol>
     {items.map(({ imgSrc, header, text, buttonText, buttonOnClick }) => (
-      <GridFourColItem className={styles.item} key={header}>
-        <FlexContainerBasic className={styles.wrapBoxContent} flexColumn centerContent hasPadding>
-          <div className={styles.wrapImage}>
-            <img className={styles.image} src={imgSrc} alt={header} />
-          </div>
-          <H4 isCentered>{header}</H4>
-          <p className={styles.text}>{text}</p>
-          <p className={styles.wrapButton}>
-            <Button
-              className={styles.button}
-              type="button"
-              variant="primary"
-              onClick={buttonOnClick}
-              disabled={false}
-              loading={false}
-              fullWidth={false}
-            >
-              {buttonText}
-            </Button>
-          </p>
-        </FlexContainerBasic>
-      </GridFourColItem>
+      <GridThreeColItem key={header}>
+        <Section isFullHeight isFlex>
+          <Section className={styles.wrapBoxContent} isFlex isFlexColumn>
+            <Section>
+              <img className={styles.image} src={imgSrc} alt={header} />
+            </Section>
+            <H5 isCentered>{header}</H5>
+            <Content className="flex-grow-1">{text}</Content>
+            <LevelRight className="text-end">
+              <Button
+                className={styles.button}
+                type="button"
+                variant="primary"
+                onClick={buttonOnClick}
+                disabled={false}
+                loading={false}
+                fullWidth={false}
+              >
+                {buttonText}
+              </Button>
+            </LevelRight>
+          </Section>
+        </Section>
+      </GridThreeColItem>
     ))}
   </GridFourCol>
 )

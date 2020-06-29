@@ -1,18 +1,18 @@
 import React from 'react'
 import { compose } from 'redux'
 import {
-  FlexContainerResponsive,
-  GridItem,
   FormSection,
-  H5,
   FormSubHeading,
-  Grid,
   Input,
   Button,
   Form,
   withFormik,
   FormikProps,
   FormikBag,
+  FormHeading,
+  LevelRight,
+  Grid,
+  GridItem,
 } from '@reapit/elements'
 import { validate } from '@/utils/form/change-password'
 
@@ -29,7 +29,7 @@ export const ChangePasswordForm: React.FC<ChangePasswordFormProps> = ({
   return (
     <FormSection>
       <Form>
-        <H5>Change password</H5>
+        <FormHeading>Change password</FormHeading>
         <FormSubHeading>
           Please complete the following fields to change your password. You will be automatically logged out for the
           changes to be applied
@@ -44,12 +44,12 @@ export const ChangePasswordForm: React.FC<ChangePasswordFormProps> = ({
               name="currentPassword"
             />
           </GridItem>
-        </Grid>
-        <Grid>
           <GridItem>
             <Input dataTest="password" type="password" labelText="Password" id="password" name="password" />
           </GridItem>
-          <GridItem>
+        </Grid>
+        <Grid>
+          <GridItem className="is-half">
             <Input
               dataTest="confirmPassword"
               type="password"
@@ -59,7 +59,7 @@ export const ChangePasswordForm: React.FC<ChangePasswordFormProps> = ({
             />
           </GridItem>
         </Grid>
-        <FlexContainerResponsive>
+        <LevelRight>
           <Button
             dataTest="button-change-password"
             disabled={!isEnable}
@@ -69,7 +69,7 @@ export const ChangePasswordForm: React.FC<ChangePasswordFormProps> = ({
           >
             Change Password
           </Button>
-        </FlexContainerResponsive>
+        </LevelRight>
       </Form>
     </FormSection>
   )

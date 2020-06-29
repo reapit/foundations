@@ -2,21 +2,7 @@ import * as React from 'react'
 import { Redirect } from 'react-router-dom'
 import { History } from 'history'
 import { useHistory, useParams } from 'react-router'
-import {
-  Input,
-  Button,
-  Loader,
-  Alert,
-  H3,
-  Grid,
-  LevelRight,
-  Formik,
-  Form,
-  H6,
-  FormikValues,
-  Section,
-  FormSection,
-} from '@reapit/elements'
+import { Input, Button, Loader, Alert, H3, LevelRight, Formik, Form, H6, FormikValues } from '@reapit/elements'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -35,12 +21,12 @@ import RedirectUriSection from './redirect-uri-section'
 import UploadImageSection from './upload-image-section'
 import MarketplaceStatusSection from './marketplace-status-section'
 import PermissionSection from './permission-section'
-import styles from '@/styles/pages/developer-submit-app.scss?mod'
 import { ScopeModel, CategoryModel } from '@/types/marketplace-api-schema'
 import { selectCategories } from '@/selector/app-categories'
 import { validationSchemaSubmitRevision } from './form-schema/validation-schema'
 import { formFields } from './form-schema/form-fields'
 import authFlows from '@/constants/app-auth-flow'
+import { Section } from '@reapit/elements'
 
 const { CLIENT_SECRET } = authFlows
 
@@ -332,38 +318,36 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
               <UploadImageSection />
               <MarketplaceStatusSection />
               <PermissionSection scopes={scopes} errors={errors} />
-              <FormSection>
+              <Section>
                 {renderErrors((errors as unknown) as Record<string, string | string[]>)}
                 <LevelRight>
-                  <Grid className={styles.footerButtons}>
-                    <Button
-                      onClick={handleOpenAppPreview({
-                        appDetails: appDetailState?.appDetailData?.data,
-                        values,
-                        scopes,
-                        categories: appCategories,
-                        appId: appid,
-                      })}
-                      variant="primary"
-                      type="button"
-                    >
-                      Preview
-                    </Button>
-                    <Button onClick={goBackToApps} variant="primary" type="button">
-                      Back To Apps
-                    </Button>
-                    <Button
-                      type="submit"
-                      dataTest="submit-app-button"
-                      variant="primary"
-                      loading={Boolean(isSubmitting)}
-                      disabled={Boolean(isSubmitting)}
-                    >
-                      Submit App
-                    </Button>
-                  </Grid>
+                  <Button
+                    onClick={handleOpenAppPreview({
+                      appDetails: appDetailState?.appDetailData?.data,
+                      values,
+                      scopes,
+                      categories: appCategories,
+                      appId: appid,
+                    })}
+                    variant="primary"
+                    type="button"
+                  >
+                    Preview
+                  </Button>
+                  <Button onClick={goBackToApps} variant="primary" type="button">
+                    Back To Apps
+                  </Button>
+                  <Button
+                    type="submit"
+                    dataTest="submit-app-button"
+                    variant="primary"
+                    loading={Boolean(isSubmitting)}
+                    disabled={Boolean(isSubmitting)}
+                  >
+                    Submit App
+                  </Button>
                 </LevelRight>
-              </FormSection>
+              </Section>
               <Input
                 dataTest="submit-app-developer-id"
                 type="hidden"

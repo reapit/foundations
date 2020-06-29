@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { GridItem, FormHeading, FormSubHeading, RadioSelect, Input } from '@reapit/elements'
+import { FormHeading, FormSubHeading, RadioSelect, Input } from '@reapit/elements'
 import { AccountsInformationFormValues } from './accounts-information-form'
 import formFields from './form-schema/form-fields'
 
@@ -19,7 +19,7 @@ const ReapitReferenceSection: React.FC<ReapitReferenceSectionProps> = ({ setFiel
   const { hasReapitAccountsRef } = values
   const hasReapitAccountsRefFieldDisabled = hasReapitAccountsRef === 'no'
   return (
-    <GridItem>
+    <>
       <FormHeading>{hasReapitAccountsRefField.heading}</FormHeading>
       <FormSubHeading>{hasReapitAccountsRefField.subHeading}</FormSubHeading>
       <RadioSelect
@@ -39,7 +39,7 @@ const ReapitReferenceSection: React.FC<ReapitReferenceSectionProps> = ({ setFiel
         placeholder={reapitAccountsRefField.placeHolder}
         disabled={hasReapitAccountsRefFieldDisabled}
       />
-    </GridItem>
+    </>
   )
 }
 

@@ -1,17 +1,18 @@
 import React from 'react'
 import { compose } from 'redux'
 import {
-  GridItem,
   FormSection,
-  H5,
+  FormHeading,
   FormSubHeading,
-  Grid,
   Input,
   Button,
   Form,
   withFormik,
   FormikProps,
   FormikBag,
+  LevelRight,
+  Grid,
+  GridItem,
 } from '@reapit/elements'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { validate } from '@/utils/form/developer-settings-contact-information'
@@ -29,12 +30,8 @@ export const ContactInformationForm: React.FC<ContactInformationFormProps> = ({
   return (
     <FormSection>
       <Form>
-        <H5>Contact Information</H5>
-        <FormSubHeading>
-          Please use the fields below to edit your contact information
-          <br />
-          <br />
-        </FormSubHeading>
+        <FormHeading>Contact Information</FormHeading>
+        <FormSubHeading>Please use the fields below to edit your contact information</FormSubHeading>
         <Grid>
           <GridItem>
             <Input dataTest="company-name" type="text" labelText="Company Name" id="companyName" name="companyName" />
@@ -51,16 +48,17 @@ export const ContactInformationForm: React.FC<ContactInformationFormProps> = ({
             <Input dataTest="telephone" type="tel" labelText="Telephone" id="phone" name="telephone" />
           </GridItem>
         </Grid>
-
-        <Button
-          dataTest="save-changes"
-          disabled={!isEnable}
-          loading={isSubmitting || isValidating}
-          variant="primary"
-          type="submit"
-        >
-          Save Changes
-        </Button>
+        <LevelRight>
+          <Button
+            dataTest="save-changes"
+            disabled={!isEnable}
+            loading={isSubmitting || isValidating}
+            variant="primary"
+            type="submit"
+          >
+            Save Changes
+          </Button>
+        </LevelRight>
       </Form>
     </FormSection>
   )
