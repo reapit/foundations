@@ -4,7 +4,6 @@ import { useAuth } from '@/hooks/use-auth'
 import getClient from '@/graphql/client'
 import { AuthContext } from '@/context'
 import Router from './router'
-
 import '@/styles/index.scss'
 
 const App = () => {

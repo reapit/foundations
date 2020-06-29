@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Redirect } from 'react-router-dom'
 
-import Routes from '@/constants/routes'
+import { ROUTES } from '@/core/router'
 import { Button, Level } from '@reapit/elements'
 import loginStyles from '@/styles/pages/login.scss?mod'
 
@@ -15,13 +15,13 @@ export const redirectToLoginPage = () => {
   redirectToLogin(cognitoClientId, `${window.location.origin}`)
 }
 
-export const Login: React.FunctionComponent = () => {
+export const Login: React.FC = () => {
   const loginHandler = React.useCallback(redirectToLoginPage, [])
   const { wrapper, container, image } = loginStyles
   const { loginSession } = React.useContext(AuthContext)
 
   if (loginSession) {
-    return <Redirect to={Routes.HOME} />
+    return <Redirect to={ROUTES.HOME} />
   }
 
   return (

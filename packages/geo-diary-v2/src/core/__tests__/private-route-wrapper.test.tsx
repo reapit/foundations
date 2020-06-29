@@ -47,7 +47,9 @@ describe('PrivateRouter', () => {
       <AuthContext.Provider value={mockContext}>
         <Router history={history}>
           <Route>
-            <PrivateRouteWrapper {...props} />
+            <PrivateRouteWrapper {...props}>
+              <div>mock children</div>
+            </PrivateRouteWrapper>
           </Route>
         </Router>
       </AuthContext.Provider>,
@@ -61,7 +63,9 @@ describe('PrivateRouter', () => {
     }
     const wrapper = render(
       <AuthContext.Provider value={{} as AuthHook}>
-        <PrivateRouteWrapper {...props} />
+        <PrivateRouteWrapper {...props}>
+          <div>mock children</div>
+        </PrivateRouteWrapper>
       </AuthContext.Provider>,
     )
     expect(wrapper).toMatchSnapshot()

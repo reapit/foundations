@@ -1,17 +1,15 @@
 import * as React from 'react'
-import { withRouter, RouteComponentProps } from 'react-router-dom'
 import Menu from '@/components/ui/menu'
 import { Loader, AppNavContainer, Section } from '@reapit/elements'
 import { redirectToOAuth } from '@reapit/cognito-auth'
 import { AuthContext } from '@/context'
+import ErrorBoundary from './error-boundary'
 
 const { Suspense } = React
 
-export type PrivateRouteWrapperProps = RouteComponentProps & {
-  path: string
-}
+export type PrivateRouteWrapperProps = {}
 
-export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children }) => {
+export const PrivateRouteWrapper: React.FC<PrivateRouteWrapperProps> = ({ children }) => {
   const { loginSession, refreshParams, getLoginSession, isFetchSession } = React.useContext(AuthContext)
 
   if (!loginSession && !refreshParams) {
@@ -45,10 +43,10 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
           </Section>
         }
       >
-        {children}
+        <ErrorBoundary>{children}</ErrorBoundary>
       </Suspense>
     </AppNavContainer>
   )
 }
 
-export default withRouter(PrivateRouteWrapper)
+export default PrivateRouteWrapper

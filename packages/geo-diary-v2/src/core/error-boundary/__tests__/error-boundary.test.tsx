@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
 import { ErrorBoundary } from '../error-boundary'
 
 const Component: React.FC = () => <div>I am a component!</div>
@@ -12,15 +11,16 @@ const props = {
 
 describe('ErrorBoundary', () => {
   it('should match a snapshot when no error', () => {
-    expect(toJson(shallow(<ErrorBoundary {...props} />))).toMatchSnapshot()
+    const wrapper = shallow(<ErrorBoundary {...props} />)
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('should match a snapshot when has an error', () => {
-    const component = shallow(<ErrorBoundary {...props} />)
-    component.setState({
+    const wrapper = shallow(<ErrorBoundary {...props} />)
+    wrapper.setState({
       hasFailed: true,
     })
-    expect(toJson(component)).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   afterEach(() => {
