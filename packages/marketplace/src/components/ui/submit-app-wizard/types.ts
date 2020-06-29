@@ -12,6 +12,8 @@ export type WizardStep =
   | 'INPUT_ATHENTICATION_TYPE'
 
 export type SetWizardStep = React.Dispatch<React.SetStateAction<WizardStep>>
+export type SetAuthFlow = (field: string, authFlow: AuthFlow) => void
+export type SetDirectApi = (field: string, value: boolean) => void
 
 export type WizardStepComponentProps = {
   setWizardStep: React.Dispatch<React.SetStateAction<WizardStep>>

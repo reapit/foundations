@@ -5,21 +5,22 @@ import { formFields } from '../form-fields'
 import { useFormikContext } from 'formik'
 import { CustomCreateAppModel } from '@/actions/submit-app'
 import { ValidateFormikOnMount } from '../utils'
+import { wizzardSteps } from '../constant'
 
 const { redirectUrisField, signoutUrisField, directApiField } = formFields
 
 export const onNext = (setWizardStep: SetWizardStep) => () => {
-  setWizardStep('GRANT_PERMISSION')
+  setWizardStep(wizzardSteps.GRANT_PERMISSION)
 }
 export const onPrev = (setWizardStep: SetWizardStep, isDirectApi: boolean) => () => {
   // flow 2, 3
   if (!isDirectApi) {
-    setWizardStep('CREATE_NEW_APP')
+    setWizardStep(wizzardSteps.CREATE_NEW_APP)
     return
   }
 
   // flow 1, step 4: https://github.com/reapit/foundations/issues/1785
-  setWizardStep('INPUT_ATHENTICATION_TYPE')
+  setWizardStep(wizzardSteps.INPUT_ATHENTICATION_TYPE)
 }
 
 export const StepInputAuthenticationUris: WizardStepComponent = ({ setWizardStep }) => {

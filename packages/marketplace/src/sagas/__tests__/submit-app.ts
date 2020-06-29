@@ -26,6 +26,7 @@ import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration
 import { selectDeveloperId } from '@/selector/auth'
 import { Saga } from 'redux-saga'
 import { formFields } from '@/components/ui/submit-app-wizard/form-fields'
+import { wizzardSteps } from '@/components/ui/submit-app-wizard/constant'
 
 const { externalIdField, appIdField } = formFields
 
@@ -75,7 +76,7 @@ describe('submit-app post data', () => {
       call(params.data.setFieldValue, externalIdField.name, appDetailDataStub.data.externalId),
     )
     expect(clone.next().value).toEqual(call(params.data.setFieldValue, appIdField.name, appDetailDataStub.data.id))
-    expect(clone.next().value).toEqual(call(params.data.setWizardStep, 'SUBMIT_APP_SUCCESS'))
+    expect(clone.next().value).toEqual(call(params.data.setWizardStep, wizzardSteps.SUBMIT_APP_SUCCESS))
     expect(clone.next().value).toEqual(put(submitAppSetFormState('SUCCESS')))
     expect(clone.next().done).toBe(true)
   })

@@ -3,6 +3,7 @@ import Routes from '@/constants/routes'
 import { History } from 'history'
 import { onViewDocs, onCreateNewApp, StepBeforeYouStart } from '../step-before-you-start'
 import { shallow } from 'enzyme'
+import { wizzardSteps } from '../../constant'
 
 describe('StepBeforeYouStart', () => {
   it('should match snapshot', () => {
@@ -17,6 +18,6 @@ describe('StepBeforeYouStart', () => {
   test('onCreateNewApp should run correctly', () => {
     const setWizardStep = jest.fn()
     onCreateNewApp(setWizardStep)()
-    expect(setWizardStep).toBeCalledWith('INPUT_APP_NAME')
+    expect(setWizardStep).toBeCalledWith(wizzardSteps.INPUT_APP_NAME)
   })
 })

@@ -20,7 +20,7 @@ export class FetchError extends Error {
 /**
  * allow fetch from raw url string (instead of api - base domal, url - path)
  */
-export const fetcherWithRawlUrl = async <T, B>({
+export const fetcherWithRawUrl = async <T, B>({
   url,
   method,
   body,
@@ -63,8 +63,6 @@ export const fetcherWithReturnHeader = async <T, B>({
     method,
     body: JSON.stringify(body),
   } as RequestInit)
-
-  // console.log(res)
 
   if (res.status < 400) {
     return res.headers

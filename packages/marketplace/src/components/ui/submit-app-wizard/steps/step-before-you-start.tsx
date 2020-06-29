@@ -4,12 +4,13 @@ import { useHistory } from 'react-router'
 import { History } from 'history'
 import Routes from '@/constants/routes'
 import { WizardStepComponent, SetWizardStep } from '../types'
+import { wizzardSteps } from '../constant'
 
 export const onViewDocs = (history: History<unknown>) => () =>
   history.push(`${Routes.DEVELOPER_API_DOCS}/developer-portal`)
 
 export const onCreateNewApp = (setWizardStep: SetWizardStep) => () => {
-  setWizardStep('INPUT_APP_NAME')
+  setWizardStep(wizzardSteps.INPUT_APP_NAME)
 }
 
 export const StepBeforeYouStart: WizardStepComponent = ({ setWizardStep }) => {

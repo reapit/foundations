@@ -8,19 +8,21 @@ import { selectSubmitAppScopes, selectSubmitAppFormState } from '@/selector/subm
 import { ScopeModel } from '@/types/marketplace-api-schema'
 import { CustomCreateAppModel } from '@/actions/submit-app'
 import { ValidateFormikOnMount } from '../utils'
+import authFlows from '@/constants/app-auth-flow'
+import { wizzardSteps } from '../constant'
 
 const { scopesField, authFlowField } = formFields
 
 export const onPrev = (setWizardStep: SetWizardStep, authFlow: AuthFlow) => () => {
   // flow 3: step 5 - https://github.com/reapit/foundations/issues/1785
-  if (authFlow === 'clientCredentials') {
-    setWizardStep('INPUT_ATHENTICATION_TYPE')
+  if (authFlow === authFlows.CLIENT_SECRET) {
+    setWizardStep(wizzardSteps.INPUT_ATHENTICATION_TYPE)
     return
   }
 
   // flow 1 - step 6: https://github.com/reapit/foundations/issues/1799
   // flow 2 step 5: https://github.com/reapit/foundations/issues/1799
-  setWizardStep('INPUT_AUTHENTICATION_URIS')
+  setWizardStep(wizzardSteps.INPUT_AUTHENTICATION_URIS)
 }
 
 export const preprareScopeOptions: (scopes: ScopeModel[]) => SelectOption[] = scopes =>

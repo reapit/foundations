@@ -9,7 +9,7 @@ import {
   RejectRevisionModel,
   AppClientSecretModel,
 } from '@reapit/foundations-ts-definitions'
-import { fetcher, fetcherWithReturnHeader, fetcherWithRawlUrl, setQueryParams } from '@reapit/elements'
+import { fetcher, fetcherWithReturnHeader, fetcherWithRawUrl, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
 import { generateHeader } from './utils'
 import { logger } from '@reapit/utils'
@@ -76,7 +76,7 @@ export const fetchAppsList = async (params: FetchAppsListParams): Promise<PagedR
 
 export const fetchAppByIdByRawUrl = async (url: string): Promise<AppDetailModel> => {
   try {
-    const response = await fetcherWithRawlUrl({
+    const response = await fetcherWithRawUrl({
       url,
       method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
