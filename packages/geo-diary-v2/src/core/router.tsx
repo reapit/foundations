@@ -1,27 +1,32 @@
 import * as React from 'react'
 import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
+import { Loader } from '@reapit/elements'
 import { catchChunkError } from '@reapit/utils'
-import Routes from '../constants/routes'
 import PrivateRoute from './private-route'
 import PrivateRouteWrapper from './private-route-wrapper'
 
 export const history = createBrowserHistory()
 
 const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
-const AuthenticatedPage = React.lazy(() => catchChunkError(() => import('../components/pages/authenticated')))
+const Appointment = React.lazy(() => catchChunkError(() => import('../components/pages/appointment')))
+
+export const ROUTES = {
+  HOME: '/',
+  LOGIN: '/login',
+}
 
 const Router = () => (
   <BrowserRouter history={history}>
-    <React.Suspense fallback={null}>
+    <React.Suspense fallback={<Loader />}>
       <Switch>
-        <Route path={Routes.LOGIN} component={LoginPage} />
-        <PrivateRouteWrapper path="/">
+        <Route path={ROUTES.LOGIN} component={LoginPage} />
+        <PrivateRouteWrapper>
           <Switch>
-            <PrivateRoute allow="CLIENT" path={Routes.HOME} fetcher component={AuthenticatedPage} />
+            <PrivateRoute allow="CLIENT" path={ROUTES.HOME} component={Appointment} />
           </Switch>
         </PrivateRouteWrapper>
-        <Redirect to={Routes.LOGIN} />
+        <Redirect to={ROUTES.LOGIN} />
       </Switch>
     </React.Suspense>
   </BrowserRouter>

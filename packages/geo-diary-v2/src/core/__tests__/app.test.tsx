@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
 import App from '../app'
 import { render, unmountComponentAtNode } from 'react-dom'
 
@@ -14,6 +13,7 @@ describe('App', () => {
   })
 
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<App />))).toMatchSnapshot()
+    const wrapper = shallow(<App />)
+    expect(wrapper).toMatchSnapshot()
   })
 })

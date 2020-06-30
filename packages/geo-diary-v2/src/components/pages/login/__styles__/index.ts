@@ -1,21 +1,22 @@
-@import '../base/colors.scss';
+import { css } from 'linaria'
+import { white } from '@/core/__styles__'
 
-.container {
+export const loginPageContainer = css`
   min-width: 100vw;
   min-height: 100vh;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   flex-direction: row;
-  background-color: $white;
+  background-color: ${white};
 
   @media screen and (max-width: 900px) {
     flex-direction: column-reverse;
   }
-}
+`
 
-.wrapper {
-  background-color: $white;
+export const loginPageFormContainer = css`
+  background-color: ${white};
   width: 33.33%;
   padding: 1rem;
   pointer-events: auto;
@@ -25,7 +26,8 @@
   }
 
   h1,
-  p, img {
+  p,
+  img {
     text-align: center;
   }
 
@@ -47,9 +49,9 @@
   @media screen and (min-width: 1200px) {
     padding: 0 3rem;
   }
-}
+`
 
-.image {
+export const loginPageImageContainer = css`
   background-color: $white;
   width: 66.66%;
   height: 100vh;
@@ -65,4 +67,4 @@
     width: 100%;
     height: 300px;
   }
-}
+`

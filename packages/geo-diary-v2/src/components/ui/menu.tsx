@@ -41,7 +41,7 @@ export const callbackAppClick = () =>
 
 export type MenuProps = {}
 
-export const Menu: React.FunctionComponent<MenuProps> = () => {
+export const Menu: React.FC<MenuProps> = () => {
   const location = useLocation()
   const { logout } = React.useContext(AuthContext)
 

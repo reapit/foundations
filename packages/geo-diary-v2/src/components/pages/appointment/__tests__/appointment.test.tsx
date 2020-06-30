@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import Router from '../router'
+import Appointment from '../appointment'
 
-describe('Router', () => {
+describe('Appointment', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<Router />)
+    const wrapper = shallow(<Appointment />)
     expect(wrapper).toMatchSnapshot()
   })
 })
