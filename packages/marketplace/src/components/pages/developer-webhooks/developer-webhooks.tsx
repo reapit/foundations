@@ -6,7 +6,6 @@ import {
   H3,
   FlexContainerBasic,
   FormSection,
-  FormSubHeading,
   FlexContainerResponsive,
   LevelRight,
   Button,
@@ -201,12 +200,12 @@ export const DeveloperWebhooks = () => {
       <FlexContainerResponsive flexColumn hasBackground hasPadding>
         <H3>Manage Webhook Subscriptions</H3>
         <FormSection>
-          <FormSubHeading>
+          <p className="is-italic mb-4">
             Our webhooks system allows your application to directly subscribe to events happening in our customers data.
             Rather than needing to make API calls to poll for new information, a webhook subscription can be created to
             allow Reapit Foundations to send a HTTP request directly to your endpoints that you configure here.
-          </FormSubHeading>
-          <FormSubHeading>
+          </p>
+          <p className="is-italic mb-4">
             This system is designed to flexibly work with how your application is built and deployed. If you wish, you
             can set up a single endpoint to catch all topics for all customers. Alternatively, you may wish to set up a
             different webhook subscription per topic or per customer. For more information about Webhooks, please see
@@ -219,7 +218,7 @@ export const DeveloperWebhooks = () => {
             >
               webhooks documentation
             </a>
-          </FormSubHeading>
+          </p>
 
           <Formik initialValues={webhooksFormInitialValues} enableReinitialize={true} onSubmit={() => {}}>
             {() => (
