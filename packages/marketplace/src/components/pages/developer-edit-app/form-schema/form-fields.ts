@@ -30,7 +30,7 @@ export const formFields: Record<Field, FormFieldInfo> = {
   name: {
     name: 'name',
     label: 'Name',
-    errorMessage: 'Name only contain letters and numbers',
+    errorMessage: 'Only contain letters and numbers',
     placeHolder: 'The name of your app as it will appear to users',
   },
   categoryId: {
