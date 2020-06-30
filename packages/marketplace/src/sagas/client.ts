@@ -44,7 +44,13 @@ export const clientDataFetch = function*({ data }) {
       }),
       !!search || !!category
         ? currentFeaturedApps
-        : call(fetchAppsList, { clientId, pageNumber: 1, pageSize: FEATURED_APPS, isFeatured: true }),
+        : call(fetchAppsList, {
+            clientId,
+            developerId: developerId ? [developerId] : [],
+            pageNumber: 1,
+            pageSize: FEATURED_APPS,
+            isFeatured: true,
+          }),
       currentCategories.length > DEFAULT_CATEGORY_LENGTH ? currentCategories : call(fetchCategoriesList, {}),
     ])
     const clientItem: ClientAppSummary = { apps: apps, featuredApps: featuredApps?.data }
