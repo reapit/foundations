@@ -1,11 +1,22 @@
 import React, { useState } from 'react'
 import { Modal, Button } from '@reapit/elements'
 
-interface DeveloperEditionDownloadProps {
-  handleDownload: () => void
+export const onDownload = (setIsCompleted: React.Dispatch<boolean>) => (): void => {
+  setIsCompleted(true)
+  window.open(window.reapit.config.developerEditionDownloadUrl, '_self')
 }
 
-export const DeveloperEditionDownload: React.FC<DeveloperEditionDownloadProps> = ({ handleDownload }) => {
+export const DeveloperEditionDownload: React.FC = () => {
+  const [isCompleted, setIsCompleted] = useState<boolean>(false)
+  const handleDownload = onDownload(setIsCompleted)
+
+  if (isCompleted)
+    return (
+      <Modal visible title="Download Complete">
+        <p>The download of the Developer Edition of Agency Cloud has been completed.</p>
+      </Modal>
+    )
+
   return (
     <Modal visible title="Agency Cloud Developer Edition">
       <>
@@ -22,25 +33,4 @@ export const DeveloperEditionDownload: React.FC<DeveloperEditionDownloadProps> =
   )
 }
 
-export const DeveloperDownloadCompleted: React.FC = () => {
-  return (
-    <Modal visible title="Download Complete">
-      <p>The download of the Developer Edition of Agency Cloud has been completed.</p>
-    </Modal>
-  )
-}
-
-export const onDownload = (setIsCompleted: React.Dispatch<boolean>) => (): void => {
-  setIsCompleted(true)
-  window.open(window.reapit.config.developerEditionDownloadUrl, '_self')
-}
-
-export const DeveloperEdition: React.FC = () => {
-  const [isCompleted, setIsCompleted] = useState<boolean>(false)
-  const handleDownload = onDownload(setIsCompleted)
-
-  if (isCompleted) return <DeveloperDownloadCompleted />
-  return <DeveloperEditionDownload handleDownload={handleDownload} />
-}
-
-export default DeveloperEdition
+export default DeveloperEditionDownload

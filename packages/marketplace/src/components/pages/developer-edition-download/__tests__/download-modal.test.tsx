@@ -1,23 +1,16 @@
 import React from 'react'
-import { DeveloperEditionDownload, DeveloperDownloadCompleted, onDownload, DeveloperEdition } from '../download-modal'
+import { DeveloperEditionDownload, onDownload } from '../download-modal'
 import { shallow } from 'enzyme'
 
 describe('DeveloperEditionDownload', () => {
   it('should match snapshot', () => {
-    const handleDownload = jest.fn()
-    expect(shallow(<DeveloperEditionDownload handleDownload={handleDownload} />)).toMatchSnapshot()
-  })
-})
+    const wrapper = shallow(<DeveloperEditionDownload />)
+    expect(wrapper).toMatchSnapshot()
 
-describe('DeveloperDownloadCompleted', () => {
-  it('should match snapshot', () => {
-    expect(shallow(<DeveloperDownloadCompleted />)).toMatchSnapshot()
-  })
-})
+    const button = wrapper.find('.is-pulled-right.mt-5')
 
-describe('DeveloperEdition', () => {
-  it('should match snapshot', () => {
-    expect(shallow(<DeveloperEdition />)).toMatchSnapshot()
+    button.simulate('click')
+    expect(wrapper).toMatchSnapshot()
   })
 })
 

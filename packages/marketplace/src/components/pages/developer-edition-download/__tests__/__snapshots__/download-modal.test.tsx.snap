@@ -1,22 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DeveloperDownloadCompleted should match snapshot 1`] = `
-<Component
-  title="Download Complete"
-  visible={true}
->
-  <p>
-    The download of the Developer Edition of Agency Cloud has been completed.
-  </p>
-</Component>
-`;
-
-exports[`DeveloperEdition should match snapshot 1`] = `
-<Component
-  handleDownload={[Function]}
-/>
-`;
-
 exports[`DeveloperEditionDownload should match snapshot 1`] = `
 <Component
   title="Agency Cloud Developer Edition"
@@ -30,9 +13,20 @@ exports[`DeveloperEditionDownload should match snapshot 1`] = `
   </p>
   <Component
     className="is-pulled-right mt-5"
-    onClick={[MockFunction]}
+    onClick={[Function]}
   >
     START DOWNLOAD
   </Component>
+</Component>
+`;
+
+exports[`DeveloperEditionDownload should match snapshot 2`] = `
+<Component
+  title="Download Complete"
+  visible={true}
+>
+  <p>
+    The download of the Developer Edition of Agency Cloud has been completed.
+  </p>
 </Component>
 `;

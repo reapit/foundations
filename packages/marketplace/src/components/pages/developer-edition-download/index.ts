@@ -1,1 +1,1 @@
-export { DeveloperEdition as default } from './download-modal'
+export { DeveloperEditionDownload as default } from './download-modal'
