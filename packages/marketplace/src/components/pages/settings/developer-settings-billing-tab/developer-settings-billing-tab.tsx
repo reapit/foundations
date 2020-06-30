@@ -9,6 +9,8 @@ import Subcriptions from '@/components/ui/developer-settings/billing/subscriptio
 
 const DevelperSettingsBillingTabPage: React.FC<{}> = () => {
   const isAdmin = useSelector(selectIsAdmin)
+  // FEATURE FLAG
+  const isProd = window.reapit.config.appEnv === 'production'
 
   if (!isAdmin) {
     /**
@@ -30,10 +32,13 @@ const DevelperSettingsBillingTabPage: React.FC<{}> = () => {
         <FlexContainerResponsive flexColumn hasBackground hasPadding>
           <Tabs />
           <Content>
-            <FlexContainerResponsive flexColumn hasBackground hasPadding>
-              <H3>Accounts Information</H3>
-              <AccountsInformationForm />
-            </FlexContainerResponsive>
+            {// FEATURE FLAG
+            !isProd && (
+              <FlexContainerResponsive flexColumn hasBackground hasPadding>
+                <H3>Accounts Information</H3>
+                <AccountsInformationForm />
+              </FlexContainerResponsive>
+            )}
             <FlexContainerResponsive flexColumn hasBackground hasPadding>
               <Subcriptions />
             </FlexContainerResponsive>

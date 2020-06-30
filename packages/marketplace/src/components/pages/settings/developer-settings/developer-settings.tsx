@@ -25,6 +25,7 @@ export const renderPageContent = ({ isProd, isAdmin }: { isProd: Boolean; isAdmi
  */
 const DevelperSettingsPage: React.FC = () => {
   const isAdmin = useSelector(selectIsAdmin)
+  // FEATURE FLAG
   const isProd = window.reapit.config.appEnv === 'production'
 
   // it take a while to 'AUTH_LOGIN_SUCCESS' to fire. If you user is admin, they may exerience a flash
