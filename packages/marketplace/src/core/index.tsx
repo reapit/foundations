@@ -29,6 +29,8 @@ window.reapit = {
     platformApiUrl: '',
     webComponentConfigApiUrl: '',
     developerEditionDownloadUrl: '',
+    urlSchemeUrl: '',
+    apiDocDesktop: '',
   },
 }
 

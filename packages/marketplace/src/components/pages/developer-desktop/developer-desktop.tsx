@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
-import { FlexContainerBasic, FlexContainerResponsive, H3, LevelRight, Button } from '@reapit/elements'
+import { FlexContainerBasic, FlexContainerResponsive, H3, Button } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import styles from '@/styles/pages/developer-desktop.scss?mod'
 import DeveloperEditonModal from '@/components/ui/developer-edition-modal'
+import { DeveloperDesktopContentPartOne, DeveloperDesktopContentPartTwo } from './developer-desktop-content'
 
 export type DeveloperDesktopPageProps = {}
 
@@ -20,7 +21,8 @@ export const DeveloperDesktopPage: React.FC<DeveloperDesktopPageProps> = () => {
       <FlexContainerBasic hasPadding flexColumn>
         <FlexContainerResponsive className={styles.wrapDesktopPage} flexColumn hasBackground hasPadding>
           <H3>Desktop</H3>
-          <LevelRight>
+          <DeveloperDesktopContentPartOne />
+          <div className="has-text-centered">
             <Button
               type="button"
               variant="primary"
@@ -28,7 +30,8 @@ export const DeveloperDesktopPage: React.FC<DeveloperDesktopPageProps> = () => {
             >
               Developer Edition
             </Button>
-          </LevelRight>
+          </div>
+          <DeveloperDesktopContentPartTwo />
         </FlexContainerResponsive>
       </FlexContainerBasic>
 
