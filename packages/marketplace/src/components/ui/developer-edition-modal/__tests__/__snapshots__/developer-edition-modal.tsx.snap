@@ -1,17 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DeveloperEditionModal should match snapshot when not visible 1`] = `""`;
-
-exports[`DeveloperEditionModal should match snapshot when visible 1`] = `
-<Component
-  afterClose={[MockFunction]}
-  confirmSubscription={[MockFunction]}
-  visible={true}
+exports[`DeveloperEditionModal should match snapshot when not visible 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
 >
   <Component
     afterClose={[MockFunction]}
-    title="Agency Cloud Developer Edition"
+    visible={false}
+  >
+    <Component
+      afterClose={[Function]}
+      renderChildren={true}
+      visible={false}
+    />
+  </Component>
+</Provider>
+`;
+
+exports[`DeveloperEditionModal should match snapshot when visible 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Component
+    afterClose={[MockFunction]}
     visible={true}
-  />
-</Component>
+  >
+    <Component
+      afterClose={[Function]}
+      renderChildren={true}
+      visible={true}
+    />
+  </Component>
+</Provider>
 `;
