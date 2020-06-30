@@ -278,6 +278,10 @@ export interface AppSummaryModel {
    */
   iconUri?: string
   /**
+   * Gets the public Url for accessing this app's featured image
+   */
+  featuredImageUri?: string
+  /**
    * Gets the desktop integration types of this app
    */
   desktopIntegrationTypeIds?: string[]
