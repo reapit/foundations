@@ -10,7 +10,7 @@ import { PagedResultAppSummaryModel_, AppSummaryModel } from '@reapit/foundation
 
 export interface ClientAppSummary {
   apps: PagedResultAppSummaryModel_
-  featuredApps?: AppSummaryModel[]
+  featuredApps: AppSummaryModel[] | null
 }
 
 export interface ClientAppSummaryParams {

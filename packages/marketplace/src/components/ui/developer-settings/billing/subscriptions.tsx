@@ -1,5 +1,5 @@
 import React, { useState, SetStateAction } from 'react'
-import { H3, Table, getDate, Loader } from '@reapit/elements'
+import { H5, Table, getDate, Loader, Section } from '@reapit/elements'
 import { selectDeveloperId } from '@/selector/auth'
 import { useSelector, useDispatch } from 'react-redux'
 import { developerFetchSubscriptions, developerDeleteSubscription } from '@/actions/developer-subscriptions'
@@ -105,9 +105,19 @@ export const Subcriptions: React.FC = () => {
   )
 
   return (
-    <div>
-      <H3>Subscriptions</H3>
-      {loading ? <Loader /> : <Table scrollable columns={columns} data={subscriptionsData} loading={false} bordered />}
+    <>
+      {loading ? (
+        <Loader />
+      ) : (
+        <Section>
+          <H5>Subscriptions</H5>
+          <p className="is-italic">
+            The subscriptions table below is just for reference whilst we are in Beta. When we move out of the Beta
+            Phase you can use the table below to view and manage your Developer Portal Subscriptions.
+          </p>
+          <Table scrollable columns={columns} data={subscriptionsData} loading={false} bordered />
+        </Section>
+      )}
       <ConfirmModal
         visible={isConfirmModalOpen}
         title="Confirm Cancellation"
@@ -115,7 +125,7 @@ export const Subcriptions: React.FC = () => {
         onCancel={handleCloseModal}
         onConfirm={handleDeleteSubscription(dispatch, subscriptionIdToCancel, handleCloseModal)}
       />
-    </div>
+    </>
   )
 }
 

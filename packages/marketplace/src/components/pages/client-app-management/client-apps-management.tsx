@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useSelector } from 'react-redux'
 import { useLocation, useHistory } from 'react-router'
 import { History } from 'history'
-import { Loader, Info } from '@reapit/elements'
+import { Loader, Info, Pagination, H3 } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import routes from '@/constants/routes'
 import AppList from '@/components/ui/app-list'
@@ -40,19 +40,19 @@ export const ClientAppsManagement: React.FunctionComponent = () => {
 
   return (
     <ErrorBoundary>
+      <H3 isHeadingSection>Manage Apps</H3>
       <AppList
         list={list}
-        title="Manage Apps"
         loading={loading}
         onCardClick={(app: AppSummaryModel) => handleLaunchApp(app)}
         onSettingsClick={handleOnSettingClick(history)}
         infoType="INSTALLED_APPS_EMPTY"
-        pagination={{
-          totalCount,
-          pageSize,
-          pageNumber,
-          onChange: handleOnChange(history),
-        }}
+      />
+      <Pagination
+        totalCount={totalCount}
+        pageSize={pageSize}
+        pageNumber={pageNumber}
+        onChange={handleOnChange(history)}
       />
     </ErrorBoundary>
   )

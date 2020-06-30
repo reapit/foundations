@@ -2,65 +2,14 @@ import * as React from 'react'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import AppCard from './app-card'
 import styles from '@/styles/blocks/app-list.scss?mod'
-import {
-  Loader,
-  H3,
-  InfoType,
-  GridFourCol,
-  PaginationProps,
-  Section,
-  Pagination,
-  GridThreeColItem,
-  FlexContainerBasic,
-  GridFourColItem,
-  Helper,
-  infoText,
-  Button,
-} from '@reapit/elements'
-import { SubmitAppWizardModal } from '../ui/submit-app-wizard'
+import { Loader, InfoType, GridFourCol, GridThreeColItem, Helper, infoText } from '@reapit/elements'
 
 export type AppListProps = {
   list: AppSummaryModel[]
   loading: boolean
   onCardClick?: (app: AppSummaryModel) => void
   onSettingsClick?: (app: AppSummaryModel) => void
-  title?: string
   infoType: InfoType
-  pagination?: PaginationProps
-  numOfColumn?: number
-  hasSubmitButton?: boolean
-}
-
-export const onShowSubmitAppModal = (setSubmitAppModalVisible: React.Dispatch<React.SetStateAction<boolean>>) => () => {
-  setSubmitAppModalVisible(true)
-}
-
-export const onCloseSubmitAppModal = (
-  setSubmitAppModalVisible: React.Dispatch<React.SetStateAction<boolean>>,
-) => () => {
-  setSubmitAppModalVisible(false)
-}
-
-export const renderHeader = ({ hasSubmitButton, title }: { hasSubmitButton: boolean; title: string | undefined }) => {
-  const [submitAppModalVisible, setSubmitAppModalVisible] = React.useState<boolean>(false)
-
-  if (!title) return null
-  if (!hasSubmitButton) {
-    return <H3>{title}</H3>
-  } else {
-    return (
-      <div className={styles.headerHasButton}>
-        <H3>{title}</H3>
-        <Button onClick={onShowSubmitAppModal(setSubmitAppModalVisible)} type="button" variant="primary">
-          Create new app
-        </Button>
-        <SubmitAppWizardModal
-          visible={submitAppModalVisible}
-          afterClose={onCloseSubmitAppModal(setSubmitAppModalVisible)}
-        />
-      </div>
-    )
-  }
 }
 
 export const AppList: React.FunctionComponent<AppListProps> = ({
@@ -68,17 +17,10 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
   loading,
   onCardClick,
   onSettingsClick,
-  title,
   infoType,
-  pagination,
-  numOfColumn = 4,
-  hasSubmitButton = false,
 }) => {
-  const WrapperContainer = numOfColumn === 4 ? GridFourColItem : GridThreeColItem
-
   return (
-    <FlexContainerBasic hasPadding flexColumn>
-      {renderHeader({ hasSubmitButton, title })}
+    <div className="mb-4">
       {!list.length && !loading ? (
         <Helper variant="info">
           {infoType
@@ -86,45 +28,34 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
             : 'We are unable to find any Apps that match your search criteria. Please try again.'}
         </Helper>
       ) : (
-        <div>
-          <GridFourCol
-            className={`${styles.flexGrow} ${loading ? styles.contentIsLoading : ''}`}
-            data-test="app-list-container"
-          >
-            {list.map(app => (
-              <WrapperContainer key={app.id}>
-                <AppCard
-                  app={app}
-                  onClick={
-                    onCardClick
-                      ? (event: React.MouseEvent) => {
-                          event.stopPropagation()
-                          onCardClick(app)
-                        }
-                      : undefined
-                  }
-                  onSettingsClick={
-                    onSettingsClick
-                      ? (event: React.MouseEvent) => {
-                          event.stopPropagation()
-                          onSettingsClick(app)
-                        }
-                      : undefined
-                  }
-                />
-              </WrapperContainer>
-            ))}
-          </GridFourCol>
-        </div>
+        <GridFourCol className={` ${loading ? styles.contentIsLoading : ''}`} data-test="app-list-container">
+          {list.map(app => (
+            <GridThreeColItem key={app.id}>
+              <AppCard
+                app={app}
+                onClick={
+                  onCardClick
+                    ? (event: React.MouseEvent) => {
+                        event.stopPropagation()
+                        onCardClick(app)
+                      }
+                    : undefined
+                }
+                onSettingsClick={
+                  onSettingsClick
+                    ? (event: React.MouseEvent) => {
+                        event.stopPropagation()
+                        onSettingsClick(app)
+                      }
+                    : undefined
+                }
+              />
+            </GridThreeColItem>
+          ))}
+        </GridFourCol>
       )}
-
       {loading && <Loader body />}
-      {pagination && (
-        <Section>
-          <Pagination {...pagination} />
-        </Section>
-      )}
-    </FlexContainerBasic>
+    </div>
   )
 }
 

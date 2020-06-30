@@ -17,7 +17,8 @@
     a,
     .info,
     .markdown {
-      font-family: $font-family-museo-bold;
+      font-family: $font-family-roboto;
+      font-size: 1rem;
     }
 
     h1,
@@ -35,6 +36,11 @@
       color: $reapit-mid-blue;
     }
 
+    .info table {
+      font-family: $font-family-roboto;
+      font-size: 1rem;
+    }
+
     a {
       color: $reapit-mid-blue;
     }
@@ -50,7 +56,7 @@
     }
 
     h2, .info h2 {
-      font-family: $font-family-museo-bold;
+      font-family: $font-family-roboto;
       font-size: 2rem;
       font-weight: bold;
     }
@@ -61,7 +67,8 @@
 
     code, .prop-format {
       font-family: $font-family-monospace;
-      color: $grey-dark;
+      font-size: 1rem;
+      color: $grey;
     }
 
     .auth-wrapper {
@@ -86,7 +93,7 @@
         }
 
         .url {
-          font-size: 14px;
+          font-size: 1rem;
         }
       }
 
@@ -101,7 +108,7 @@
       border-radius: none;
 
       .model-container {
-        background: $grey-lightest;
+        background: $grey-light;
         margin: 1rem 0;
       }
     }
@@ -112,13 +119,13 @@
       }
 
       .prop-type {
-        color: $grey-dark;
+        color: $grey;
       }
     }
 
     .opblock-tag,
     .opblock-summary-path {
-      font-size: 14px;
+      font-size: 1rem;
       font-weight: bold;
     }
 
@@ -128,13 +135,18 @@
       .markdown p {
         margin: 0;
       }
+
+      small {
+        font-size: 1rem;
+        font-family: $font-family-roboto;
+      }
     }
 
     p,
     .markdown,
     .opblock-summary-description {
       font-family: $font-family-roboto;
-      color: $grey-dark;
+      color: $grey;
     }
   }
 }

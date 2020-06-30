@@ -73,7 +73,7 @@ Object {
           class="sc-AxirZ hoJedb"
         >
           <div
-            class="level "
+            class=""
             data-test=""
           >
             <img
@@ -87,7 +87,7 @@ Object {
             Welcome to SMB
           </p>
           <div
-            class="level "
+            class=""
             data-test=""
           >
             <button
@@ -99,7 +99,7 @@ Object {
             </button>
           </div>
           <div
-            class=" container-flex  is-centered    pt-8"
+            class=""
           />
         </div>
         <div
@@ -121,7 +121,7 @@ Object {
         class="sc-AxirZ hoJedb"
       >
         <div
-          class="level "
+          class=""
           data-test=""
         >
           <img
@@ -135,7 +135,7 @@ Object {
           Welcome to SMB
         </p>
         <div
-          class="level "
+          class=""
           data-test=""
         >
           <button
@@ -147,7 +147,7 @@ Object {
           </button>
         </div>
         <div
-          class=" container-flex  is-centered    pt-8"
+          class=""
         />
       </div>
       <div

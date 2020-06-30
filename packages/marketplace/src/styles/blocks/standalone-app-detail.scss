@@ -14,25 +14,11 @@
   color: $reapit-green;
 }
 
-.elipsis {
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: right;
-}
-
 .tag {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background: $grey-lighter;
-  margin: 1rem 1rem 0 0;
-}
-
-
-.appIconContainer {
-  max-width: 96px;
-  margin: 0 auto;
+  background: $grey-light;
+  margin: 0.5rem 0.5rem 0 0;
 }
 
 .container {
@@ -44,19 +30,34 @@
   }
   @include for-ie-only {
     min-width: 1024px;
-  } 
-}
-
-.flexContainer {
-  @include for-ie-only {
-    align-self: center;
   }
 }
 
 .containerHeader {
+  display: flex;
   align-items: center;
   @include for-mobile-only {
     flex-direction: column;
+  }
+}
+
+.appIconContainer {
+  width: 96px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.headerContent {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  align-items: center;
+  text-align: center;
+
+  @include for-desktop-only {
+    width: calc(100% - 96px);
+    align-items: flex-end;
+    text-align: flex-end;
   }
 }
 
@@ -64,13 +65,6 @@
   @include for-tablet-and-below {
     flex-direction: column;
   }
-}
-
-.headerContent {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  flex-direction: column;
 }
 
 .buttonGroup {

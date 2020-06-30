@@ -14,6 +14,9 @@ export type Config = {
   marketplaceUrl: string
   platformApiUrl: string
   webComponentConfigApiUrl: string
+  developerEditionDownloadUrl: string
+  urlSchemeUrl: string
+  apiDocDesktop: string
 }
 
 declare global {

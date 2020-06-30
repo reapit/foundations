@@ -2,7 +2,7 @@
 
 exports[`LayoutComponents should match a snapshot for AppNavContainer 1`] = `
 <div
-  className="app-nav-container "
+  className=""
   data-test=""
 >
   <Component
@@ -13,7 +13,7 @@ exports[`LayoutComponents should match a snapshot for AppNavContainer 1`] = `
 
 exports[`LayoutComponents should match a snapshot for Content 1`] = `
 <div
-  className="content "
+  className=""
   data-test=""
 >
   <Component
@@ -24,7 +24,7 @@ exports[`LayoutComponents should match a snapshot for Content 1`] = `
 
 exports[`LayoutComponents should match a snapshot for FlexContainerBasic 1`] = `
 <div
-  className=" container-flex      "
+  className=""
 >
   <Component
     text="FlexContainerBasic"
@@ -34,7 +34,7 @@ exports[`LayoutComponents should match a snapshot for FlexContainerBasic 1`] = `
 
 exports[`LayoutComponents should match a snapshot for FlexContainerResponsive 1`] = `
 <div
-  className="container      "
+  className=""
 >
   <Component
     text="FlexContainerResponsive"
@@ -44,7 +44,7 @@ exports[`LayoutComponents should match a snapshot for FlexContainerResponsive 1`
 
 exports[`LayoutComponents should match a snapshot for Grid 1`] = `
 <div
-  className="columns  "
+  className=""
   data-test=""
 >
   <Component
@@ -55,7 +55,7 @@ exports[`LayoutComponents should match a snapshot for Grid 1`] = `
 
 exports[`LayoutComponents should match a snapshot for GridFourCol 1`] = `
 <div
-  className="columns is-multiline "
+  className=""
   data-test=""
 >
   <Component
@@ -66,7 +66,7 @@ exports[`LayoutComponents should match a snapshot for GridFourCol 1`] = `
 
 exports[`LayoutComponents should match a snapshot for GridFourColItem 1`] = `
 <div
-  className="column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+  className=""
   data-test=""
 >
   <Component
@@ -77,7 +77,7 @@ exports[`LayoutComponents should match a snapshot for GridFourColItem 1`] = `
 
 exports[`LayoutComponents should match a snapshot for GridItem 1`] = `
 <div
-  className="column  "
+  className=""
   data-test=""
 >
   <Component
@@ -88,7 +88,7 @@ exports[`LayoutComponents should match a snapshot for GridItem 1`] = `
 
 exports[`LayoutComponents should match a snapshot for GridThreeColItem 1`] = `
 <div
-  className="column is-multiline is-half-tablet is-one-third-widescreen "
+  className=""
   data-test=""
 >
   <Component
@@ -99,7 +99,7 @@ exports[`LayoutComponents should match a snapshot for GridThreeColItem 1`] = `
 
 exports[`LayoutComponents should match a snapshot for Level 1`] = `
 <div
-  className="level "
+  className=""
   data-test=""
 >
   <Component
@@ -110,7 +110,7 @@ exports[`LayoutComponents should match a snapshot for Level 1`] = `
 
 exports[`LayoutComponents should match a snapshot for LevelItem 1`] = `
 <div
-  className="level-item "
+  className=""
   data-test=""
 >
   <Component
@@ -121,7 +121,7 @@ exports[`LayoutComponents should match a snapshot for LevelItem 1`] = `
 
 exports[`LayoutComponents should match a snapshot for LevelLeft 1`] = `
 <div
-  className="level-left "
+  className=""
   data-test=""
 >
   <Component
@@ -132,7 +132,7 @@ exports[`LayoutComponents should match a snapshot for LevelLeft 1`] = `
 
 exports[`LayoutComponents should match a snapshot for LevelRight 1`] = `
 <div
-  className="level-right "
+  className=""
   data-test=""
 >
   <Component
@@ -142,12 +142,12 @@ exports[`LayoutComponents should match a snapshot for LevelRight 1`] = `
 `;
 
 exports[`LayoutComponents should match a snapshot for Section 1`] = `
-<div
-  className="section "
+<section
+  className=""
   data-test=""
 >
   <Component
     text="Section"
   />
-</div>
+</section>
 `;

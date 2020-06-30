@@ -251,7 +251,7 @@ exports[`Page Offices Component Offices should match a snapshot 1`] = `
             hasPadding={true}
           >
             <div
-              className=" container-flex   has-background has-padding  "
+              className=""
             >
               <Component
                 flexColumn={true}
@@ -259,11 +259,11 @@ exports[`Page Offices Component Offices should match a snapshot 1`] = `
                 hasPadding={true}
               >
                 <div
-                  className="container is-column  has-background has-padding  "
+                  className=""
                 >
                   <Component>
                     <h3
-                      className="title is-3  "
+                      className=""
                       id=""
                     />
                   </Component>

@@ -1,17 +1,19 @@
 import * as React from 'react'
 import { History } from 'history'
 import { useSelector } from 'react-redux'
-import { Loader } from '@reapit/elements'
+import { Loader, FlexContainerBasic, H3, GridThreeColItem, Grid, Pagination } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { useHistory, useLocation } from 'react-router'
 import AppList from '@/components/ui/app-list'
-import AppSidebar from '@/components/ui/app-sidebar'
+// Commenting out as we are disabling for launch because there are too few apps
+// import AppSidebar from '@/components/ui/app-sidebar'
 import { AppDetailState } from '@/reducers/app-detail'
 import { selectAppSummary } from '@/selector/client'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import styles from '@/styles/pages/client.scss?mod'
 import { addQuery, hasFilterParams } from '@/utils/client-url-params'
 import Routes from '@/constants/routes'
+import featureImagePlaceHolder from '@/assets/images/default-feature-image.jpg'
+import { Link } from 'react-router-dom'
 
 export const handleAfterClose = ({ setVisible }) => () => setVisible(false)
 export const handleOnChange = history => (page: number) => {
@@ -47,41 +49,48 @@ export const Client: React.FunctionComponent = () => {
 
   return (
     <ErrorBoundary>
-      <div id="page-client-apps-container" className={styles.clientContainer}>
-        <AppSidebar />
+      <FlexContainerBasic flexColumn dataTest="page-client-apps-container">
+        {/* <AppSidebar /> */}
         {unfetched || loading ? (
           <Loader />
         ) : (
-          <div className={styles.clientContent}>
+          <>
+            <H3 isHeadingSection>Browse Apps</H3>
             {!hasParams && featuredApps.length > 0 && (
-              <>
-                <AppList
-                  list={featuredApps}
-                  title="Featured Apps"
-                  loading={loading}
-                  onCardClick={handleOnCardClick(history)}
-                  infoType="CLIENT_APPS_EMPTY"
-                  numOfColumn={3}
-                />
-                <div className={styles.divider} />
-              </>
+              <div className="pb-4 bb mb-4">
+                <Grid isMultiLine>
+                  {featuredApps.map(app => {
+                    const featureImageSrc = app.featuredImageUri || featureImagePlaceHolder
+                    return (
+                      <GridThreeColItem className="" key={app.id}>
+                        <div className="card">
+                          <div className="card-image">
+                            <Link className="image" to={`${Routes.CLIENT}/${app.id}`}>
+                              <img key={app.id} src={featureImageSrc} />
+                            </Link>
+                          </div>
+                        </div>
+                      </GridThreeColItem>
+                    )
+                  })}
+                </Grid>
+              </div>
             )}
             <AppList
               list={apps}
               loading={loading}
               onCardClick={handleOnCardClick(history)}
               infoType={page > 1 || hasParams ? '' : 'CLIENT_APPS_EMPTY'}
-              pagination={{
-                totalCount,
-                pageSize,
-                pageNumber: page,
-                onChange: handleOnChange(history),
-              }}
-              numOfColumn={3}
             />
-          </div>
+            <Pagination
+              totalCount={totalCount}
+              pageSize={pageSize}
+              pageNumber={page}
+              onChange={handleOnChange(history)}
+            />
+          </>
         )}
-      </div>
+      </FlexContainerBasic>
     </ErrorBoundary>
   )
 }

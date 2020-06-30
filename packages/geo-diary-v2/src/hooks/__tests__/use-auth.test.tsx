@@ -56,6 +56,7 @@ describe('use-auth (pure)', () => {
       expect(result.current.loginSession).toEqual(session)
     })
   })
+
   describe('logout', () => {
     it('should remove session', async () => {
       const { result } = renderHook<{}, AuthHook>(() => useAuth())
@@ -65,13 +66,16 @@ describe('use-auth (pure)', () => {
       expect(result.current.loginSession).toEqual(null)
     })
   })
+
   describe('useAuth Hook', () => {
     let setupComponent
     let hook
+
     beforeEach(() => {
       setupComponent = mountReactHook(useAuth) // Mount a Component with our hook
       hook = setupComponent.componentHook
     })
+
     it('should have login Session', async done => {
       await act(async () => {
         await hook.getLoginSession(refreshParams)

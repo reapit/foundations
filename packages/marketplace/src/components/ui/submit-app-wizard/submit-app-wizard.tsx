@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
+import AuthFlow from '@/constants/app-auth-flow'
 import { selectSubmitAppLoadingState } from '@/selector/submit-app'
 import { useSelector } from 'react-redux'
 import { Dispatch } from 'redux'
 import { submitApp, CustomCreateAppModel } from '@/actions/submit-app'
 import { useDispatch } from 'react-redux'
-import { ValidateFormikOnMount } from './utils'
 import { StepBeforeYouStart } from './steps/step-before-you-start'
 import { StepInputAppName } from './steps/step-input-app-name'
 import { StepCreateNewApp } from './steps/step-create-new-app'
 import { StepInputAuthenticationUris } from './steps/step-input-authentication-uris'
 import { StepGrantPermissions } from './steps/step-grant-permisions'
 import { StepSubmitAppSuccess } from './steps/step-submit-app-success'
+import { StepChoseAuthType } from './steps/step-chose-auth-type'
 import { Loader, ModalHeader, Formik, FormikHelpers, ModalProps } from '@reapit/elements'
 import { Form } from '@reapit/elements'
 import { WizardStep, WizardStepComponent, SetWizardStep } from './types'
@@ -24,6 +25,7 @@ const componentMap: Record<WizardStep, WizardStepComponent> = {
   INPUT_AUTHENTICATION_URIS: StepInputAuthenticationUris,
   GRANT_PERMISSION: StepGrantPermissions,
   SUBMIT_APP_SUCCESS: StepSubmitAppSuccess,
+  INPUT_ATHENTICATION_TYPE: StepChoseAuthType,
 }
 
 const titleMap: Record<WizardStep, string> = {
@@ -33,6 +35,7 @@ const titleMap: Record<WizardStep, string> = {
   INPUT_AUTHENTICATION_URIS: 'Authentication',
   GRANT_PERMISSION: 'Permissions',
   SUBMIT_APP_SUCCESS: 'Success',
+  INPUT_ATHENTICATION_TYPE: 'Authentication',
 }
 
 const { nameField, redirectUrisField, signoutUrisField, scopesField } = formFields
@@ -48,13 +51,40 @@ export const handleSubmit = ({ dispatch, setWizardStep, afterClose }: HandleSubm
   actions: FormikHelpers<CustomCreateAppModel>,
 ) => {
   const { redirectUris, signoutUris, ...otherData } = values
+
   const appToSubmit = {
     ...otherData,
-    redirectUris: redirectUris ? redirectUris.split(',') : [],
-    signoutUris: signoutUris ? signoutUris.split(',') : [],
+    redirectUris: redirectUris
+      ? redirectUris
+          .split(',')
+          // trim empty spaces
+          .map(url => url.trim())
+          // filter empty urls
+          .filter(url => url)
+      : [],
+    signoutUris: signoutUris
+      ? signoutUris
+          // ^ be transformed same as redirectUris
+          .split(',')
+          .map(url => url.trim())
+          .filter(url => url)
+      : [],
   }
 
-  dispatch(submitApp({ ...appToSubmit, setErrors: actions.setErrors, setWizardStep, afterClose }))
+  if (appToSubmit.authFlow === AuthFlow.CLIENT_SECRET) {
+    delete appToSubmit[redirectUrisField.name]
+    delete appToSubmit[signoutUrisField.name]
+  }
+
+  dispatch(
+    submitApp({
+      ...appToSubmit,
+      setFieldValue: actions.setFieldValue,
+      setErrors: actions.setErrors,
+      setWizardStep,
+      afterClose,
+    }),
+  )
 }
 
 const initialFormValues = {
@@ -87,9 +117,8 @@ export const SubmitAppWizard: React.FC<Pick<ModalProps, 'afterClose'>> = ({ afte
         validationSchema={validationSchemas[currentWizardStep]}
       >
         <Form>
-          <ValidateFormikOnMount />
           <ModalHeader title={titleMap[currentWizardStep]} afterClose={afterClose} />
-          <CurrentStepComponent afterClose={afterClose} setWizardStep={setWizardStep} />
+          <CurrentStepComponent setWizardStep={setWizardStep} />
         </Form>
       </Formik>
     </div>

@@ -1,12 +1,12 @@
 import * as React from 'react'
-import useReactResponsive from '@/components/hooks/use-react-responsive'
-import { H3, Content, Grid, GridItem } from '@reapit/elements'
+import { H3, Grid, GridItem, SubTitleH6 } from '@reapit/elements'
 import { FaCheck } from 'react-icons/fa'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import styles from '@/styles/blocks/standalone-app-detail.scss?mod'
 import { MEDIA_INDEX } from '@/constants/media'
 import ImagePlaceHolder from '@/assets/images/default-app-icon.jpg'
-import FeatureImagePlaceHolder from '@/assets/images/default-feature-image.jpg'
+import featureImagePlaceHolder from '@/assets/images/default-feature-image.jpg'
+import { cx } from 'linaria'
 
 export type AppHeaderProps = {
   appDetailData: AppDetailModel & {
@@ -16,32 +16,30 @@ export type AppHeaderProps = {
 }
 
 const AppHeader: React.FC<AppHeaderProps> = ({ appDetailData, buttonGroup }) => {
-  const { isMobile } = useReactResponsive()
   const { media } = appDetailData
   const appIcon = media?.filter(({ type }) => type === 'icon')[MEDIA_INDEX.ICON]
   const featureImageSrc = appDetailData?.media?.[MEDIA_INDEX.FEATURE_IMAGE]?.uri
-  const { containerOuterHeader, headerContent, containerHeader, check, appIconContainer, elipsis } = styles
+  const { containerOuterHeader, headerContent, containerHeader, check, appIconContainer } = styles
 
   return (
-    <Grid className={`flex items-center mb-4 ${containerOuterHeader} flex-col-min-height`}>
+    <Grid className={cx('flex', 'items-center', 'mb-4', containerOuterHeader, 'flex-col-min-height')}>
       <GridItem>
-        <Grid className={`flex items-center ${containerHeader}`}>
-          <GridItem className={`is-one-third-desktop ${appIconContainer}`}>
-            <img src={appIcon?.uri || ImagePlaceHolder} alt="App Icon" />
-          </GridItem>
-          <GridItem className={`is-two-thirds-desktop  ${headerContent}`}>
-            <H3 className={elipsis} isCentered>
-              {appDetailData.name}
-            </H3>
-            <Content className={`${isMobile ? 'flex justify-center ' : ''}`}>
+        <div className={containerHeader}>
+          <div className={appIconContainer}>
+            <img className="image is-96x96" src={appIcon?.uri || ImagePlaceHolder} alt={appDetailData.name} />
+          </div>
+          <div className={headerContent}>
+            <H3 className="text-ellipsis-9">{appDetailData.name || ''}</H3>
+            <SubTitleH6>
               Verified by Reapit <FaCheck className={check} />
-            </Content>
-            {buttonGroup}
-          </GridItem>
-        </Grid>
+            </SubTitleH6>
+
+            {buttonGroup && buttonGroup}
+          </div>
+        </div>
       </GridItem>
       <GridItem className="flex items-center">
-        <img src={featureImageSrc || FeatureImagePlaceHolder} alt="Featured Image" />
+        <img src={featureImageSrc || featureImagePlaceHolder} alt="Featured Image" />
       </GridItem>
     </Grid>
   )

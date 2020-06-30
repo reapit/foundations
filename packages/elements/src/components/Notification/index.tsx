@@ -172,7 +172,7 @@ function getRCNoticeProps(args: ArgsProps) {
   }
 }
 
-const api = {
+const notification = {
   open: (args: ArgsProps) => {
     getNotificationInstance(args, ({ instance }) => {
       instance.notice(getRCNoticeProps(args))
@@ -197,8 +197,8 @@ const api = {
   useNotification: createUseNotification(getNotificationInstance, getRCNoticeProps),
 }
 ;['success', 'info', 'error', 'warn'].forEach(type => {
-  api[type] = (args: ArgsProps) =>
-    api.open({
+  notification[type] = (args: ArgsProps) =>
+    notification.open({
       ...args,
       type: type as NotificationType,
     })
@@ -219,4 +219,4 @@ export interface NotificationApi extends NotificationInstance {
   useNotification: () => [NotificationInstance, React.ReactElement]
 }
 
-export default api as NotificationApi
+export default notification as NotificationApi

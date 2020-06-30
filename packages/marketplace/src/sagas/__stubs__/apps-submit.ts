@@ -24,6 +24,8 @@ export const appSubmitStubWithActions: { data: SubmitAppArgs } = {
   data: ({
     ...appSubmitStub.data,
     setErrors: errors => errors,
+    setWizardStep: jest.fn(),
+    setFieldValue: jest.fn(),
   } as unknown) as SubmitAppArgs,
 }
 

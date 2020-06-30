@@ -15,11 +15,17 @@ exports[`StepInputAuthenticationUris should match snapshot 1`] = `
         >
           Authentication
         </Unknown>
-        <p
+        <div
           className="mb-3"
         >
-          Client ID: 
-        </p>
+          <b>
+            Client ID: 
+             
+          </b>
+        </div>
+        <div
+          className="mb-3"
+        />
         <p
           className="mb-3"
         >
@@ -41,7 +47,7 @@ exports[`StepInputAuthenticationUris should match snapshot 1`] = `
   <Component
     footerItems={
       <Unknown
-        type="submit"
+        onClick={[Function]}
       >
         Finish
       </Unknown>

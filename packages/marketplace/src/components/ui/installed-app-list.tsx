@@ -7,7 +7,6 @@ import {
   H3,
   InfoType,
   PaginationProps,
-  Section,
   Pagination,
   FlexContainerBasic,
   isMobile,
@@ -16,12 +15,12 @@ import {
   Helper,
   infoText,
 } from '@reapit/elements'
+import { cx } from 'linaria'
 
 export type InstalledAppListProps = {
   list: AppSummaryModel[]
   loading: boolean
   onCardClick?: (app: AppSummaryModel) => void
-  title?: string
   infoType: InfoType
   pagination?: PaginationProps
 }
@@ -65,13 +64,14 @@ export const InstalledAppList: React.FC<InstalledAppListProps> = ({
   list,
   loading,
   onCardClick,
-  title,
   infoType,
   pagination,
 }) => {
   return (
-    <FlexContainerBasic hasPadding flexColumn>
-      {title && <H3>{title}</H3>}
+    <FlexContainerBasic flexColumn>
+      <H3 className={cx(isMobile() && 'text-center')} isHeadingSection>
+        Installed Apps
+      </H3>
       {!list.length && !loading ? (
         <Helper variant="info">
           {infoType ? infoText(infoType) : 'UNFORTUNATELY, YOUR SEARCH RETURNED NO RESULTS'}
@@ -82,11 +82,7 @@ export const InstalledAppList: React.FC<InstalledAppListProps> = ({
         <ListDesktopScreen list={list} loading={loading} onCardClick={onCardClick} />
       )}
       {loading && <Loader body />}
-      {pagination && (
-        <Section>
-          <Pagination {...pagination} />
-        </Section>
-      )}
+      {pagination && <Pagination {...pagination} />}
     </FlexContainerBasic>
   )
 }

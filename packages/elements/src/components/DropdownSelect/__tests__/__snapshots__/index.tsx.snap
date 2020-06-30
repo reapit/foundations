@@ -3,7 +3,7 @@
 exports[`Dropdown-select should match a snapshot 1`] = `
 <Fragment>
   <div
-    className="field pb-4"
+    className="field"
   >
     <div
       className="control"

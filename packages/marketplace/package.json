@@ -39,7 +39,7 @@
     "snyk": "^1.341.1"
   },
   "devDependencies": {
-    "@reapit/foundations-ts-definitions": "0.0.81",
+    "@reapit/foundations-ts-definitions": "0.0.85",
     "@types/nanoid": "^2.1.0",
     "redux-mock-store": "^1.5.4"
   },

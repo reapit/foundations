@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Line } from 'react-chartjs-2'
-import { H4, Loader } from '@reapit/elements'
+import { Loader, H5, Section } from '@reapit/elements'
 import { InstallationModelWithAppName } from '@/components/ui/developer-analytics/detailed/installation-app-section'
 import { groupInstalledAppsByDate, getChartData, groupAppsByNameAndCount } from '@/utils/developer-analytics'
 
@@ -59,16 +59,16 @@ const DeveloperInstallationsChart = ({ data, loading }: DeveloperInstallationsCh
   }
 
   return (
-    <div>
+    <Section hasMargin={false}>
       {loading ? (
         <Loader />
       ) : (
         <>
-          <H4>Installations</H4>
+          <H5>Installations By Day</H5>
           <Line data={chartData} options={getChartOptions(grouppedAppsByDate)} />
         </>
       )}
-    </div>
+    </Section>
   )
 }
 

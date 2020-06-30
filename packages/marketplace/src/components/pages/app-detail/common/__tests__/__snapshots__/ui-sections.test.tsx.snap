@@ -100,13 +100,8 @@ exports[`CategorySection should match a snapshot where category undefined and no
 
 exports[`DescriptionSection should match a snapshot 1`] = `
 <Component
-  headerText="Description"
-  isSidebar={true}
->
-  <Component
-    html="Lorem ipsum"
-  />
-</Component>
+  html="Lorem ipsum"
+/>
 `;
 
 exports[`DesktopIntegrationSection should match a snapshot where desktopIntegrationTypes empty and not sidebar 1`] = `
@@ -211,14 +206,14 @@ exports[`InstallationsTableSection should not render a table when has no data 1`
       dataTest="render-installations-table-empty-text"
     >
       <div
-        className="content "
+        className=""
         data-test="render-installations-table-empty-text"
       >
         <Component
           className=""
         >
           <h5
-            className="title is-5  "
+            className=""
             id=""
           >
             Installations
@@ -269,14 +264,14 @@ exports[`InstallationsTableSection should render a table and match a snapshot wh
       dataTest="render-installations-table"
     >
       <div
-        className="content "
+        className=""
         data-test="render-installations-table"
       >
         <Component
           className=""
         >
           <h5
-            className="title is-5  "
+            className=""
             id=""
           >
             Installations
@@ -308,14 +303,24 @@ exports[`InstallationsTableSection should render a table and match a snapshot wh
             ]
           }
           loading={false}
+          scrollable={true}
         >
-          <table
-            className="table is-striped is-fullwidth "
-            role="table"
+          <div
+            style={
+              Object {
+                "maxHeight": undefined,
+                "overflow": "scroll",
+              }
+            }
           >
-            <thead />
-            <tbody />
-          </table>
+            <table
+              className="table is-striped is-fullwidth "
+              role="table"
+            >
+              <thead />
+              <tbody />
+            </table>
+          </div>
         </Component>
       </div>
     </Component>
@@ -418,7 +423,9 @@ exports[`StatusSection should match a snapshot where isListed true and is sideba
 `;
 
 exports[`SummarySection should match a snapshot 1`] = `
-<Component>
+<Component
+  className="is-italic"
+>
   Lorem ipsum
 </Component>
 `;

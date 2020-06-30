@@ -17,6 +17,67 @@ export class FetchError extends Error {
   }
 }
 
+/**
+ * allow fetch from raw url string (instead of api - base domal, url - path)
+ */
+export const fetcherWithRawUrl = async <T, B>({
+  url,
+  method,
+  body,
+  headers,
+}: Omit<FetcherParams<B>, 'api'>): Promise<any | FetchError> => {
+  const res = await fetch(url, {
+    headers,
+    method,
+    body: JSON.stringify(body),
+  } as RequestInit)
+
+  if (res.status < 400) {
+    return res.json()
+  }
+
+  const error = new FetchError(`ERROR FETCHING ${method} ${url} ${JSON.stringify(res)}`, res)
+  console.error(error.message)
+  try {
+    error.response = await res.json()
+  } catch (err) {
+    error.response = res
+  }
+  throw error
+}
+
+/**
+ * return headers of responose
+ */
+export const fetcherWithReturnHeader = async <T, B>({
+  api,
+  url,
+  method,
+  body,
+  headers,
+}: FetcherParams<B>): Promise<Headers | FetchError> => {
+  const path = `${api}${url}`
+
+  const res = await fetch(path, {
+    headers,
+    method,
+    body: JSON.stringify(body),
+  } as RequestInit)
+
+  if (res.status < 400) {
+    return res.headers
+  }
+
+  const error = new FetchError(`ERROR FETCHING ${method} ${path} ${JSON.stringify(res)}`, res)
+  console.error(error.message)
+  try {
+    error.response = await res.json()
+  } catch (err) {
+    error.response = res
+  }
+  throw error
+}
+
 export const fetcherWithBlob = async <T, B>({
   api,
   url,

@@ -15,9 +15,9 @@
 
 .container-flex {
   display: flex;
-  flex-grow: 1;
   margin: 0 auto;
   width: 100%;
+  flex: 1 0;
 
   &.is-column {
     flex-direction: column;
@@ -47,5 +47,54 @@
 
   &.flex-wrap {
     flex-wrap: wrap;
+  }
+}
+
+.section {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+
+  &.is-flex {
+    display: flex;
+  }
+
+  &.is-centered {
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    text-align: center;
+  }
+
+  &.is-aligned-start {
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-self: flex-start;
+  }
+
+  &.is-aligned-end {
+    justify-content: flex-end;
+    align-items: flex-end;
+    align-self: flex-end;
+  }
+
+  &.is-flex-column {
+    flex-direction: column;
+  }
+
+  &.has-background {
+    background: $white;
+  }
+
+  &.has-margin {
+    margin-bottom: 1rem;
+  }
+
+  &.has-padding {
+    padding: 1rem;
+  }
+
+  &.is-full-height {
+    height: 100%;
   }
 }

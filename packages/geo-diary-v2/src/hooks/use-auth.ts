@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { COOKIE_SESSION_KEY as COGNITIO_COOKIE_SESSION_KEY } from '@reapit/cognito-auth'
 import {
   LoginSession,
   RefreshParams,
@@ -8,7 +9,8 @@ import {
   getTokenFromQueryString,
   getSessionCookie,
 } from '@reapit/cognito-auth'
-import { COOKIE_SESSION_KEY } from '../constants/api'
+
+export const COOKIE_SESSION_KEY = `${COGNITIO_COOKIE_SESSION_KEY}-geo-diary-v2`
 
 export type AuthHook = {
   loginSession?: LoginSession | null
@@ -50,8 +52,8 @@ export const useAuth = (): AuthHook => {
   return {
     refreshParams,
     loginSession,
-    logout,
     getLoginSession,
+    logout,
     isFetchSession,
   }
 }

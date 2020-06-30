@@ -1,17 +1,6 @@
 import * as React from 'react'
 import { selectDeveloperEmail } from '@/selector/developer'
-import {
-  H3,
-  FlexContainerResponsive,
-  Content,
-  FlexContainerBasic,
-  GridItem,
-  Grid,
-  FormSection,
-  Button,
-  LevelRight,
-  Loader,
-} from '@reapit/elements'
+import { H3, Button, Loader, Section } from '@reapit/elements'
 import EnhanceContactInformation, { ContactInformationValues } from './contact-information-form'
 import EnhanceChangePasswordForm, { ChangePasswordValues } from './change-password-form'
 import { useSelector, useDispatch } from 'react-redux'
@@ -55,30 +44,20 @@ export const Forms: React.FC = () => {
   }
 
   return (
-    <FlexContainerBasic flexColumn hasPadding>
-      <Content>
-        <FlexContainerResponsive flexColumn hasBackground hasPadding>
-          <H3>Settings</H3>
-          <Grid>
-            <GridItem>
-              <EnhanceContactInformation
-                developerInformation={developerInfo}
-                updateDeveloperInformation={updateDeveloperInformation}
-              />
-            </GridItem>
-            <GridItem>
-              <EnhanceChangePasswordForm email={email} changePassword={changePassword} />
-            </GridItem>
-          </Grid>
-          <FormSection>
-            <LevelRight>
-              <Button dataTest="logout-btn" variant="primary" type="button" onClick={logout}>
-                Logout
-              </Button>
-            </LevelRight>
-          </FormSection>
-        </FlexContainerResponsive>
-      </Content>
-    </FlexContainerBasic>
+    <>
+      <Section isFlex className="justify-between items-center">
+        <H3 className="mb-0">Settings</H3>
+        <Button dataTest="logout-btn" variant="primary" type="button" onClick={logout}>
+          Logout
+        </Button>
+      </Section>
+      <Section hasPadding={false} hasBackground={false}>
+        <EnhanceContactInformation
+          developerInformation={developerInfo}
+          updateDeveloperInformation={updateDeveloperInformation}
+        />
+        <EnhanceChangePasswordForm email={email} changePassword={changePassword} />
+      </Section>
+    </>
   )
 }

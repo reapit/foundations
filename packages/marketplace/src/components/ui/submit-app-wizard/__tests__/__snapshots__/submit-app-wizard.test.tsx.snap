@@ -84,13 +84,11 @@ exports[`SubmitAppWizard should match snapshot when visible = true 1`] = `
     }
   >
     <Form>
-      <Component />
       <Component
         afterClose={[Function]}
         title="App Name"
       />
       <Component
-        afterClose={[Function]}
         setWizardStep={[Function]}
       />
     </Form>

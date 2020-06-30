@@ -2,6 +2,7 @@
 
 exports[`StepGrantPermissions should match snapshot 1`] = `
 <Fragment>
+  <Component />
   <Component
     body={
       <div>
@@ -25,13 +26,15 @@ exports[`StepGrantPermissions should match snapshot 1`] = `
     footerItems={
       <React.Fragment>
         <Unknown
+          disabled={false}
           onClick={[Function]}
         >
           Back
         </Unknown>
         <Unknown
-          disabled={true}
-          onClick={[Function]}
+          disabled={false}
+          loading={false}
+          type="submit"
         >
           Next
         </Unknown>

@@ -195,6 +195,6 @@ describe('PermissionsSection', () => {
 
 describe('DescriptionSection', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<DescriptionSection description="Lorem ipsum" isSidebar />)).toMatchSnapshot()
+    expect(shallow(<DescriptionSection description="Lorem ipsum" />)).toMatchSnapshot()
   })
 })

@@ -1,37 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AdminBilling should match a snapshot when no error 1`] = `
-<div>
+<Fragment>
   <Component
-    data-test="revision-list-container"
-    flexColumn={true}
-    hasBackground={true}
-    hasPadding={true}
+    isHeadingSection={true}
   >
-    <div
-      className="mb-5"
-    >
-      <Component>
-        Billing
-      </Component>
-      <Component
-        columns={
-          Array [
-            Object {
-              "Header": "Billing Period",
-              "accessor": "billingPeriod",
-            },
-            Object {
-              "Header": "File",
-              "accessor": "file",
-            },
-          ]
-        }
-        data={Array []}
-        loading={false}
-        scrollable={true}
-      />
-    </div>
+    Billing
   </Component>
-</div>
+  <Component>
+    <Component
+      columns={
+        Array [
+          Object {
+            "Header": "Billing Period",
+            "accessor": "billingPeriod",
+          },
+          Object {
+            "Header": "File",
+            "accessor": "file",
+          },
+        ]
+      }
+      data={Array []}
+      loading={false}
+      scrollable={true}
+    />
+  </Component>
+</Fragment>
 `;

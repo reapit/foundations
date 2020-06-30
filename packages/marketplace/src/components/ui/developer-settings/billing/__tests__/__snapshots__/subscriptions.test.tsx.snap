@@ -14,68 +14,75 @@ exports[`Subcriptions should match snapshot 1`] = `
   }
 >
   <Component>
-    <div>
-      <Component>
-        <h3
-          className="title is-3  "
-          id=""
-        >
-          Subscriptions
-        </h3>
-      </Component>
-      <Component
-        bordered={true}
-        columns={
-          Array [
-            Object {
-              "Header": "Type",
-              "accessor": "summary",
-            },
-            Object {
-              "Cell": [Function],
-              "Header": "Start Date",
-              "accessor": "created",
-            },
-            Object {
-              "Cell": [Function],
-              "Header": "Renewal Date",
-              "accessor": "renews",
-            },
-            Object {
-              "Header": "Frequency",
-              "accessor": "frequency",
-              "columnProps": Object {
-                "className": "capitalize",
-              },
-            },
-            Object {
-              "Header": "Cost",
-              "accessor": [Function],
-            },
-            Object {
-              "Cell": [Function],
-              "Header": "Status",
-              "accessor": "cancelled",
-            },
-            Object {
-              "accessor": "cancel",
-              "columnProps": Object {
-                "width": "60px",
-              },
-            },
-          ]
-        }
-        data={Array []}
-        loading={false}
-        scrollable={true}
+    <Component>
+      <section
+        className=""
+        data-test=""
       >
-        <div
-          className="table-container"
+        <Component>
+          <h5
+            className=""
+            id=""
+          >
+            Subscriptions
+          </h5>
+        </Component>
+        <p
+          className="is-italic"
+        >
+          The subscriptions table below is just for reference whilst we are in Beta. When we move out of the Beta Phase you can use the table below to view and manage your Developer Portal Subscriptions.
+        </p>
+        <Component
+          bordered={true}
+          columns={
+            Array [
+              Object {
+                "Header": "Type",
+                "accessor": "summary",
+              },
+              Object {
+                "Cell": [Function],
+                "Header": "Start Date",
+                "accessor": "created",
+              },
+              Object {
+                "Cell": [Function],
+                "Header": "Renewal Date",
+                "accessor": "renews",
+              },
+              Object {
+                "Header": "Frequency",
+                "accessor": "frequency",
+                "columnProps": Object {
+                  "className": "capitalize",
+                },
+              },
+              Object {
+                "Header": "Cost",
+                "accessor": [Function],
+              },
+              Object {
+                "Cell": [Function],
+                "Header": "Status",
+                "accessor": "cancelled",
+              },
+              Object {
+                "accessor": "cancel",
+                "columnProps": Object {
+                  "width": "60px",
+                },
+              },
+            ]
+          }
+          data={Array []}
+          loading={false}
+          scrollable={true}
         >
           <div
             style={
               Object {
                 "maxHeight": undefined,
+                "overflow": "scroll",
               }
             }
           >
@@ -1624,16 +1631,16 @@ exports[`Subcriptions should match snapshot 1`] = `
               <tbody />
             </table>
           </div>
-        </div>
-      </Component>
-      <Component
-        onCancel={[Function]}
-        onConfirm={[Function]}
-        subtitle="Are you sure you want to cancel this subscription?"
-        title="Confirm Cancellation"
-        visible={false}
-      />
-    </div>
+        </Component>
+      </section>
+    </Component>
+    <Component
+      onCancel={[Function]}
+      onConfirm={[Function]}
+      subtitle="Are you sure you want to cancel this subscription?"
+      title="Confirm Cancellation"
+      visible={false}
+    />
   </Component>
 </Provider>
 `;

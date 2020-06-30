@@ -21,7 +21,6 @@ const props: InstalledAppListProps = {
   list: appsDataStub.data.data as AppSummaryModel[],
   loading: false,
   onCardClick: jest.fn(),
-  title: 'Title',
   infoType: 'CLIENT_APPS_EMPTY',
   pagination: {
     pageNumber: 2,
@@ -44,7 +43,7 @@ describe('InstalledAppList', () => {
   })
 
   it('should match a snapshot when use empty infoType', () => {
-    expect(shallow(<InstalledAppList infoType={''} {...props} />)).toMatchSnapshot()
+    expect(shallow(<InstalledAppList {...props} />)).toMatchSnapshot()
   })
 
   it('should match a snappshot ListMobileScreen', () => {

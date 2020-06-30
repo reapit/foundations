@@ -6,220 +6,268 @@ exports[`HelpItemList should match a snapshot 1`] = `
     key="Welcome Guide"
   >
     <Component
-      centerContent={true}
-      flexColumn={true}
-      hasPadding={true}
+      isFlex={true}
+      isFullHeight={true}
     >
-      <div>
-        <img
-          alt="Welcome Guide"
-          src=""
-        />
-      </div>
       <Component
-        isCentered={true}
+        isFlex={true}
+        isFlexColumn={true}
       >
-        Welcome Guide
-      </Component>
-      <p>
-        Need a little help? Have a look through the Welcome Guide, which we’ve put
-      together to help you navigate through your Developer portal.
-      </p>
-      <p>
-        <Component
-          disabled={false}
-          fullWidth={false}
-          loading={false}
-          onClick={[Function]}
-          type="button"
-          variant="primary"
-        >
-          VIEW
+        <Component>
+          <img
+            alt="Welcome Guide"
+            src=""
+          />
         </Component>
-      </p>
+        <Component
+          isCentered={true}
+        >
+          Welcome Guide
+        </Component>
+        <Component
+          className="flex-grow-1"
+        >
+          Need a little help? Have a look through the Welcome Guide, which we’ve put
+      together to help you navigate through your Developer portal.
+        </Component>
+        <Component
+          className="text-end"
+        >
+          <Component
+            disabled={false}
+            fullWidth={false}
+            loading={false}
+            onClick={[Function]}
+            type="button"
+            variant="primary"
+          >
+            VIEW
+          </Component>
+        </Component>
+      </Component>
     </Component>
   </Component>
   <Component
     key="Request a Feature"
   >
     <Component
-      centerContent={true}
-      flexColumn={true}
-      hasPadding={true}
+      isFlex={true}
+      isFullHeight={true}
     >
-      <div>
-        <img
-          alt="Request a Feature"
-          src=""
-        />
-      </div>
       <Component
-        isCentered={true}
+        isFlex={true}
+        isFlexColumn={true}
       >
-        Request a Feature
-      </Component>
-      <p>
-        Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will
-      look at all requests carefully however, we cannot guarantee all will be implemented.
-      </p>
-      <p>
-        <Component
-          disabled={false}
-          fullWidth={false}
-          loading={false}
-          onClick={[Function]}
-          type="button"
-          variant="primary"
-        >
-          REQUEST
+        <Component>
+          <img
+            alt="Request a Feature"
+            src=""
+          />
         </Component>
-      </p>
+        <Component
+          isCentered={true}
+        >
+          Request a Feature
+        </Component>
+        <Component
+          className="flex-grow-1"
+        >
+          Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will
+      look at all requests carefully however, we cannot guarantee all will be implemented.
+        </Component>
+        <Component
+          className="text-end"
+        >
+          <Component
+            disabled={false}
+            fullWidth={false}
+            loading={false}
+            onClick={[Function]}
+            type="button"
+            variant="primary"
+          >
+            REQUEST
+          </Component>
+        </Component>
+      </Component>
     </Component>
   </Component>
   <Component
     key="Report a Bug"
   >
     <Component
-      centerContent={true}
-      flexColumn={true}
-      hasPadding={true}
+      isFlex={true}
+      isFullHeight={true}
     >
-      <div>
-        <img
-          alt="Report a Bug"
-          src=""
-        />
-      </div>
       <Component
-        isCentered={true}
+        isFlex={true}
+        isFlexColumn={true}
       >
-        Report a Bug
-      </Component>
-      <p>
-        Please report details of any bugs in relation to the Reapit Developer portal or Reapit Foundations API here. 
-      </p>
-      <p>
-        <Component
-          disabled={false}
-          fullWidth={false}
-          loading={false}
-          onClick={[Function]}
-          type="button"
-          variant="primary"
-        >
-          REPORT
+        <Component>
+          <img
+            alt="Report a Bug"
+            src=""
+          />
         </Component>
-      </p>
+        <Component
+          isCentered={true}
+        >
+          Report a Bug
+        </Component>
+        <Component
+          className="flex-grow-1"
+        >
+          Please report details of any bugs in relation to the Reapit Developer portal or Reapit Foundations API here. 
+        </Component>
+        <Component
+          className="text-end"
+        >
+          <Component
+            disabled={false}
+            fullWidth={false}
+            loading={false}
+            onClick={[Function]}
+            type="button"
+            variant="primary"
+          >
+            REPORT
+          </Component>
+        </Component>
+      </Component>
     </Component>
   </Component>
   <Component
     key="Roadmap"
   >
     <Component
-      centerContent={true}
-      flexColumn={true}
-      hasPadding={true}
+      isFlex={true}
+      isFullHeight={true}
     >
-      <div>
-        <img
-          alt="Roadmap"
-          src=""
-        />
-      </div>
       <Component
-        isCentered={true}
+        isFlex={true}
+        isFlexColumn={true}
       >
-        Roadmap
-      </Component>
-      <p>
-        Want to see what we are building or check on the progress of your feature requests?
-      You can see our product roadmap milestones here. 
-      </p>
-      <p>
-        <Component
-          disabled={false}
-          fullWidth={false}
-          loading={false}
-          onClick={[Function]}
-          type="button"
-          variant="primary"
-        >
-          VIEW
+        <Component>
+          <img
+            alt="Roadmap"
+            src=""
+          />
         </Component>
-      </p>
+        <Component
+          isCentered={true}
+        >
+          Roadmap
+        </Component>
+        <Component
+          className="flex-grow-1"
+        >
+          Want to see what we are building or check on the progress of your feature requests?
+      You can see our product roadmap milestones here. 
+        </Component>
+        <Component
+          className="text-end"
+        >
+          <Component
+            disabled={false}
+            fullWidth={false}
+            loading={false}
+            onClick={[Function]}
+            type="button"
+            variant="primary"
+          >
+            VIEW
+          </Component>
+        </Component>
+      </Component>
     </Component>
   </Component>
   <Component
     key="Need Help?"
   >
     <Component
-      centerContent={true}
-      flexColumn={true}
-      hasPadding={true}
+      isFlex={true}
+      isFullHeight={true}
     >
-      <div>
-        <img
-          alt="Need Help?"
-          src=""
-        />
-      </div>
       <Component
-        isCentered={true}
+        isFlex={true}
+        isFlexColumn={true}
       >
-        Need Help?
-      </Component>
-      <p>
-        If you need any support, we are here to help. Why not talk to one of our Developers or Product Owners directly.
-      </p>
-      <p>
-        <Component
-          disabled={false}
-          fullWidth={false}
-          loading={false}
-          onClick={[Function]}
-          type="button"
-          variant="primary"
-        >
-          START CHAT
+        <Component>
+          <img
+            alt="Need Help?"
+            src=""
+          />
         </Component>
-      </p>
+        <Component
+          isCentered={true}
+        >
+          Need Help?
+        </Component>
+        <Component
+          className="flex-grow-1"
+        >
+          If you need any support, we are here to help. Why not talk to one of our Developers or Product Owners directly.
+        </Component>
+        <Component
+          className="text-end"
+        >
+          <Component
+            disabled={false}
+            fullWidth={false}
+            loading={false}
+            onClick={[Function]}
+            type="button"
+            variant="primary"
+          >
+            START CHAT
+          </Component>
+        </Component>
+      </Component>
     </Component>
   </Component>
   <Component
     key="What’s New"
   >
     <Component
-      centerContent={true}
-      flexColumn={true}
-      hasPadding={true}
+      isFlex={true}
+      isFullHeight={true}
     >
-      <div>
-        <img
-          alt="What’s New"
-          src=""
-        />
-      </div>
       <Component
-        isCentered={true}
+        isFlex={true}
+        isFlexColumn={true}
       >
-        What’s New
-      </Component>
-      <p>
-        We are constantly working to improve your experience with the Foundations Platform. Have a look to see what
-      new features and fixes have been released.
-      </p>
-      <p>
-        <Component
-          disabled={false}
-          fullWidth={false}
-          loading={false}
-          onClick={[Function]}
-          type="button"
-          variant="primary"
-        >
-          VIEW
+        <Component>
+          <img
+            alt="What’s New"
+            src=""
+          />
         </Component>
-      </p>
+        <Component
+          isCentered={true}
+        >
+          What’s New
+        </Component>
+        <Component
+          className="flex-grow-1"
+        >
+          We are constantly working to improve your experience with the Foundations Platform. Have a look to see what
+      new features and fixes have been released.
+        </Component>
+        <Component
+          className="text-end"
+        >
+          <Component
+            disabled={false}
+            fullWidth={false}
+            loading={false}
+            onClick={[Function]}
+            type="button"
+            variant="primary"
+          >
+            VIEW
+          </Component>
+        </Component>
+      </Component>
     </Component>
   </Component>
 </Component>

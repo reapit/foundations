@@ -102,7 +102,7 @@ exports[`ManageApp should match snapshot 1`] = `
       >
         <Component>
           <div
-            className="content "
+            className=""
             data-test=""
           >
             <Component

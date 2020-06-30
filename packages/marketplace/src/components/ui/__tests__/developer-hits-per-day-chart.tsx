@@ -2,7 +2,7 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import DeveloperHitsPerDay, { DeveloperHitsPerDayProps } from '../developer-hits-per-day-chart'
 import { httpTrafficPerDayStub } from '@/sagas/__stubs__/app-http-traffic-event'
-import { H4 } from '@reapit/elements'
+import { H5 } from '@reapit/elements'
 import { Line } from 'react-chartjs-2'
 
 const props: DeveloperHitsPerDayProps = {
@@ -19,7 +19,7 @@ describe('DeveloperHitsPerDay', () => {
   })
   it('renders Child component', () => {
     const wrapper = shallow(<DeveloperHitsPerDay {...props} />)
-    expect(wrapper.containsMatchingElement(<H4>Hits Per Day</H4>)).toEqual(true)
+    expect(wrapper.containsMatchingElement(<H5>Hits Per Day</H5>)).toEqual(true)
     expect(wrapper.find(Line)).toHaveLength(1)
   })
 })

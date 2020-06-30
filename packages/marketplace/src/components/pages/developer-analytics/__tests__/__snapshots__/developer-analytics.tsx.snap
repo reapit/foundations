@@ -15,41 +15,30 @@ exports[`AnalyticsPage renderTabContent should render Detailed Tab 1`] = `
 exports[`AnalyticsPage should match a snapshot 1`] = `
 <Connect(ErrorBoundary)>
   <Component
-    flexColumn={true}
-    hasPadding={true}
+    isHeadingSection={true}
   >
-    <Component
-      flexColumn={true}
-      hasBackground={true}
-      hasPadding={true}
-    >
-      <Component>
-        Dashboard
-      </Component>
-      <div>
-        <Component
-          tabConfigs={
-            Array [
-              Object {
-                "active": true,
-                "displayText": "DETAILED",
-                "onTabClick": [Function],
-                "tabIdentifier": "detailed",
-              },
-              Object {
-                "active": false,
-                "displayText": "Cost Explorer",
-                "onTabClick": [Function],
-                "tabIdentifier": "costexplorer",
-              },
-            ]
-          }
-        />
-      </div>
-      <div>
-        <Component />
-      </div>
-    </Component>
+    Dashboard
   </Component>
+  <Component>
+    <Component
+      tabConfigs={
+        Array [
+          Object {
+            "active": true,
+            "displayText": "DETAILED",
+            "onTabClick": [Function],
+            "tabIdentifier": "detailed",
+          },
+          Object {
+            "active": false,
+            "displayText": "Cost Explorer",
+            "onTabClick": [Function],
+            "tabIdentifier": "costexplorer",
+          },
+        ]
+      }
+    />
+  </Component>
+  <Component />
 </Connect(ErrorBoundary)>
 `;

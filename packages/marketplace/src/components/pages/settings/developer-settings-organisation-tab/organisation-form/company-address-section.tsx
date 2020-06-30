@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { H3, Grid, Input, GridItem, SelectBox } from '@reapit/elements'
+import { Grid, Input, GridItem, SelectBox } from '@reapit/elements'
 import { formFields } from './form-schema/form-fields'
 
 export type CompanyAddressSectionProps = {}
@@ -9,7 +9,6 @@ const { line1Field, line2Field, line3Field, line4Field, countryIdField, postCode
 const CompanyAddressSection: React.FC<CompanyAddressSectionProps> = () => {
   return (
     <>
-      <H3>Company Address</H3>
       <Grid>
         <GridItem>
           <Input type="text" labelText={line1Field.label} id={line1Field.name} name={line1Field.name} />

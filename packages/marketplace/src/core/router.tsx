@@ -51,6 +51,9 @@ const DeveloperSettingsBillingTabPage = React.lazy(() =>
 )
 
 const DeveloperAdminBillingPage = React.lazy(() => catchChunkError(() => import('../components/pages/admin-billing')))
+const DeveloperEditionDownloadPage = React.lazy(() =>
+  catchChunkError(() => import('../components/pages/developer-edition-download')),
+)
 
 const Router = () => {
   const isProduction = window.reapit.config.appEnv === 'production'
@@ -67,6 +70,11 @@ const Router = () => {
             <Route allow="DEVELOPER" path={Routes.REGISTER} render={() => <Register />} />
             <Route path={Routes.REGISTER_CONFIRM} exact component={RegisterConfirm} />
             <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
+
+            <PrivateRouteWrapper path={Routes.DEVELOPER_EDITION_DOWNLOAD} showMenu={false}>
+              <PrivateRoute allow="DEVELOPER" path="/" component={DeveloperEditionDownloadPage} />
+            </PrivateRouteWrapper>
+
             <PrivateRouteWrapper path="/">
               <Switch>
                 <PrivateRoute
