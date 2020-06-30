@@ -33,7 +33,7 @@
 
     // Box focus
     label:before {
-      box-shadow: 0 0 0 1px $grey-dark;
+      box-shadow: 0 0 0 1px $grey;
     }
 
     // Box checked
@@ -56,8 +56,8 @@
     &:checked + label:after {
       content: '';
       position: absolute;
-      left: 6px;
-      top: 9px;
+      left: 8px;
+      top: 11px;
       background: white;
       width: 2px;
       height: 2px;
@@ -69,7 +69,7 @@
   .checkbox-error[type='radio'] {
     & + label:before {
       background: white;
-      border: 1px solid red;
+      border: 1px solid $reapit-red;
     }
   }
 

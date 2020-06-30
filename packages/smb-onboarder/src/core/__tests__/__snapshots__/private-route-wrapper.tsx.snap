@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="app-nav-container "
+        class=""
         data-test=""
       >
         <nav
@@ -358,14 +358,14 @@ Object {
           </ul>
         </nav>
         <div
-          class=" container-flex is-column    is-scrollable "
+          class=""
         />
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="app-nav-container "
+      class=""
       data-test=""
     >
       <nav
@@ -717,7 +717,7 @@ Object {
         </ul>
       </nav>
       <div
-        class=" container-flex is-column    is-scrollable "
+        class=""
       />
     </div>
   </div>,

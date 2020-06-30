@@ -43,8 +43,8 @@ export const Tile: React.FC<TileProps> = ({
             </div>
           ) : null}
           <div className="media-content">
-            <H4 className="text-ellipisis">{heading}</H4>
-            <SubTitleH6 className="text-ellipisis">{subHeading}</SubTitleH6>
+            {typeof heading === 'string' ? <H4 className="text-ellipsis-7">{heading}</H4> : heading}
+            <SubTitleH6 className="text-ellipsis-5 mb-3">{subHeading}</SubTitleH6>
             {children}
           </div>
           {menu && <div className="media-right">{menu}</div>}

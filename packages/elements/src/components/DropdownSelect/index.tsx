@@ -68,7 +68,7 @@ export const DropdownSelect: React.FC<DropdownSelectProps> = ({
 
   return (
     <>
-      <div className="field pb-4">
+      <div className="field">
         <div className="control">
           <Field name={name} validate={required ? dropdownSelectFieldValidateRequire : null}>
             {({ field, meta, form }: FieldProps<string | string[]>) => {

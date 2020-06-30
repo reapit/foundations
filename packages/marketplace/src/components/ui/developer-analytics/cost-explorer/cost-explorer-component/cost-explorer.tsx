@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { H4, Grid, H6, GridItem, DATE_TIME_FORMAT } from '@reapit/elements'
+import { H5, Grid, H6, GridItem, DATE_TIME_FORMAT, Section } from '@reapit/elements'
 import CostFilterForm from './cost-filter-form'
 import dayjs from 'dayjs'
 import CostExplorerTable from './cost-explorer-table'
@@ -59,8 +59,8 @@ const CostExplorer: React.FC<CostExplorerProps> = () => {
   const onSave = React.useCallback(handleOnSave({ setCreatedMonth, dispatch, developerId }), [developerId, dispatch])
 
   return (
-    <>
-      <H4>Cost Explorer: Cost & Usage</H4>
+    <Section hasMargin={false}>
+      <H5>Cost Explorer: Cost & Usage</H5>
       <Grid>
         <GridItem className="is-half-desktop">
           <Grid>
@@ -78,7 +78,7 @@ const CostExplorer: React.FC<CostExplorerProps> = () => {
           <CostExplorerTable />
         </GridItem>
       </Grid>
-    </>
+    </Section>
   )
 }
 export default CostExplorer

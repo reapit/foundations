@@ -301,7 +301,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                       isMultiLine={true}
                     >
                       <div
-                        className="columns is-multiline "
+                        className=""
                         data-test=""
                       >
                         <Component
@@ -309,7 +309,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                           key="0"
                         >
                           <div
-                            className="column  "
+                            className=""
                             data-test=""
                           >
                             <div
@@ -339,7 +339,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                           key="1"
                         >
                           <div
-                            className="column  "
+                            className=""
                             data-test=""
                           >
                             <div
@@ -369,7 +369,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                           key="2"
                         >
                           <div
-                            className="column  "
+                            className=""
                             data-test=""
                           >
                             <div
@@ -399,7 +399,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                           key="3"
                         >
                           <div
-                            className="column  "
+                            className=""
                             data-test=""
                           >
                             <div
@@ -486,7 +486,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                       isMultiLine={true}
                     >
                       <div
-                        className="columns is-multiline "
+                        className=""
                         data-test=""
                       >
                         <Component
@@ -494,7 +494,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                           key="0"
                         >
                           <div
-                            className="column  "
+                            className=""
                             data-test=""
                           >
                             <div
@@ -524,7 +524,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                           key="1"
                         >
                           <div
-                            className="column  "
+                            className=""
                             data-test=""
                           >
                             <div
@@ -554,7 +554,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                           key="2"
                         >
                           <div
-                            className="column  "
+                            className=""
                             data-test=""
                           >
                             <div
@@ -584,7 +584,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                           key="3"
                         >
                           <div
-                            className="column  "
+                            className=""
                             data-test=""
                           >
                             <div
@@ -642,7 +642,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                     value="1"
                   >
                     <div
-                      className="field pb-4 mr-5"
+                      className="field mr-5"
                     >
                       <div
                         className="control"
@@ -682,7 +682,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                     value="2"
                   >
                     <div
-                      className="field pb-4 mr-5"
+                      className="field mr-5"
                     >
                       <div
                         className="control"
@@ -722,7 +722,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                     value="3"
                   >
                     <div
-                      className="field pb-4 mr-5"
+                      className="field mr-5"
                     >
                       <div
                         className="control"
@@ -762,7 +762,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                     value="4"
                   >
                     <div
-                      className="field pb-4 mr-5"
+                      className="field mr-5"
                     >
                       <div
                         className="control"
@@ -802,7 +802,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                     value="5"
                   >
                     <div
-                      className="field pb-4 mr-5"
+                      className="field mr-5"
                     >
                       <div
                         className="control"
@@ -842,7 +842,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                     value="6"
                   >
                     <div
-                      className="field pb-4 mr-5"
+                      className="field mr-5"
                     >
                       <div
                         className="control"
@@ -881,7 +881,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                     value="0"
                   >
                     <div
-                      className="field pb-4 "
+                      className="field "
                     >
                       <div
                         className="control"
@@ -929,7 +929,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
               subText="Select which negotiators will be avaiable to attend appointments"
             >
               <div
-                className="field pb-4"
+                className="field"
               >
                 <div
                   className="control"

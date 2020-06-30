@@ -1,8 +1,8 @@
 @import '../base/colors';
 
 .container {
-  background-color: $grey-lightest;
-  border: 1px solid $grey-lighter;
+  background-color: $grey-light;
+  border: 1px solid $grey-light;
   border-radius: 3px;
   padding: 10px;
   color: $black;
@@ -26,7 +26,7 @@
 }
 
 .grey {
-  background-color: $grey-lighter;
+  background-color: $grey-light;
 }
 
 .block {

@@ -20,12 +20,12 @@ exports[`AppAuthenticationDetail should match a snapshot 1`] = `
       data-test="app-authentication-detail"
     >
       <div
-        className="content "
+        className=""
         data-test=""
       >
         <Component>
           <h5
-            className="title is-5  "
+            className=""
             id=""
           >
             Authentication:

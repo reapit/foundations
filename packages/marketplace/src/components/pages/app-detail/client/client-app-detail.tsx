@@ -10,7 +10,7 @@ import { selectAppDetailData, selectAppDetailLoading, selectAppDetailError } fro
 import { selectLoginType, selectIsAdmin } from '@/selector/auth'
 import { canGoBack } from '@/utils/router-helper'
 import AppContent from './client-app-content'
-import { Loader, Alert, GridItem, FlexContainerResponsive, Grid, FlexContainerBasic } from '@reapit/elements'
+import { Loader, Alert, GridItem, Grid, FlexContainerBasic } from '@reapit/elements'
 import styles from '@/styles/blocks/standalone-app-detail.scss?mod'
 import ClientAppInstallConfirmation from '@/components/pages/app-detail/client/client-app-install-confirmation'
 import { ClientAside } from './client-aside'
@@ -151,49 +151,47 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   if (error) return <Alert message={error} type="danger"></Alert>
 
   return (
-    <FlexContainerResponsive hasPadding dataTest="client-app-detail-container" className={styles.flexContainer}>
-      <Grid className={styles.container}>
-        {isLoadingAppDetail || unfetched ? (
-          <Loader dataTest="client-app-detail-loader" />
-        ) : (
-          <>
-            <GridItem className="is-one-quarter">
-              <ClientAside appDetailData={appDetailData} desktopIntegrationTypes={userDesktopIntegrationTypes} />
-            </GridItem>
-            <GridItem className="is-three-quarters">
-              <FlexContainerBasic flexColumn hasPadding hasBackground isFullHeight>
-                <AppHeader
-                  appDetailData={appDetailData}
-                  buttonGroup={renderAppHeaderButtonGroup(
-                    id,
-                    installedOn,
-                    onInstallConfirmationModal,
-                    onUninstsallConfirmationModal,
-                    isInstallBtnHidden,
-                    loginType,
-                  )}
-                />
-                <AppContent appDetailData={appDetailData} />
-                {!isMobile && loginType !== 'DEVELOPER' && (
-                  <BackToAppsSection onClick={onBackToAppsButtonClick(history)} />
+    <Grid className={styles.container} dataTest="client-app-detail-container">
+      {isLoadingAppDetail || unfetched ? (
+        <Loader dataTest="client-app-detail-loader" />
+      ) : (
+        <>
+          <GridItem className="is-one-quarter">
+            <ClientAside appDetailData={appDetailData} desktopIntegrationTypes={userDesktopIntegrationTypes} />
+          </GridItem>
+          <GridItem className="is-three-quarters">
+            <FlexContainerBasic flexColumn hasPadding hasBackground isFullHeight>
+              <AppHeader
+                appDetailData={appDetailData}
+                buttonGroup={renderAppHeaderButtonGroup(
+                  id,
+                  installedOn,
+                  onInstallConfirmationModal,
+                  onUninstsallConfirmationModal,
+                  isInstallBtnHidden,
+                  loginType,
                 )}
-              </FlexContainerBasic>
-            </GridItem>
-          </>
-        )}
-        <ClientAppUninstallConfirmation
-          visible={isVisibleUninstallConfirmation}
-          appDetailData={appDetailData}
-          closeUninstallConfirmationModal={closeUninstallConfirmationModal}
-        />
+              />
+              <AppContent appDetailData={appDetailData} />
+              {!isMobile && loginType !== 'DEVELOPER' && (
+                <BackToAppsSection onClick={onBackToAppsButtonClick(history)} />
+              )}
+            </FlexContainerBasic>
+          </GridItem>
+        </>
+      )}
+      <ClientAppUninstallConfirmation
+        visible={isVisibleUninstallConfirmation}
+        appDetailData={appDetailData}
+        closeUninstallConfirmationModal={closeUninstallConfirmationModal}
+      />
 
-        <ClientAppInstallConfirmation
-          visible={isVisibleInstallConfirmation}
-          appDetailData={appDetailData}
-          closeInstallConfirmationModal={closeInstallConfirmationModal}
-        />
-      </Grid>
-    </FlexContainerResponsive>
+      <ClientAppInstallConfirmation
+        visible={isVisibleInstallConfirmation}
+        appDetailData={appDetailData}
+        closeInstallConfirmationModal={closeInstallConfirmationModal}
+      />
+    </Grid>
   )
 }
 

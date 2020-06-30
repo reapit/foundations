@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
-import { H4, Grid, GridItem, H6, fetcherWithBlob, Loader, setQueryParams } from '@reapit/elements'
+import { H5, Grid, GridItem, H6, fetcherWithBlob, Loader, setQueryParams, Section, Content } from '@reapit/elements'
 import styles from '@/styles/pages/developer-analytics.scss?mod'
 import { selectDeveloperApps } from '@/selector/developer'
 import { ReduxState } from '@/types/core'
@@ -121,11 +121,11 @@ export const renderFirstPage = ({
 
   return (
     <>
-      <div className={styles.transactionSection}>
+      <Content>
         <H6>This Months Transactions To Date</H6>
         {renderTransactionHistoryItem({ date: today, developerAppIds })}
-      </div>
-      <div>
+      </Content>
+      <Content>
         <H6>Previous Transactions</H6>
         {renderPreviousTransactionHistoryList({
           dates: previousTransactionDates,
@@ -133,7 +133,7 @@ export const renderFirstPage = ({
           startIndex: 0,
           endIndex: MAX_NUMBER_TRANSACTION_FIRST_PAGE,
         })}
-      </div>
+      </Content>
     </>
   )
 }
@@ -172,10 +172,8 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = () => {
   }
 
   return (
-    <div>
-      <div className={styles.transactionTitle}>
-        <H4>Transaction History</H4>
-      </div>
+    <Section hasMargin={false}>
+      <H5>Transaction History</H5>
       {currentPage === 1
         ? renderFirstPage({ developerAppIds, previousTransactionDates })
         : renderPreviousTransactionHistoryList({
@@ -212,7 +210,7 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = () => {
           )}
         </GridItem>
       </Grid>
-    </div>
+    </Section>
   )
 }
 

@@ -7,13 +7,19 @@ exports[`PrivateRouteWrapper should match snapshot 1`] = `
     flexColumn={true}
     isScrollable={true}
   >
-    <Suspense
-      fallback={
-        <Unknown>
-          <Unknown />
-        </Unknown>
-      }
-    />
+    <Component
+      flexColumn={true}
+      hasPadding={true}
+      isPageContainer={true}
+    >
+      <Suspense
+        fallback={
+          <Unknown>
+            <Unknown />
+          </Unknown>
+        }
+      />
+    </Component>
   </Component>
 </Component>
 `;

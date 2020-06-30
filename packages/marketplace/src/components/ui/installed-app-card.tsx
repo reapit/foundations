@@ -31,9 +31,7 @@ const InstalledAppCard: React.FC<InstalledAppCardProps> = ({ app, onClick }: Ins
         image={
           <img className="image" src={app.iconUri || 'https://bulma.io/images/placeholders/48x48.png'} alt={app.name} />
         }
-      >
-        <p className={installedAppCardStyles.content}>{app.summary}</p>
-      </Tile>
+      />
     </div>
   )
 }

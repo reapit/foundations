@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CostCalculator should match a snapshot 1`] = `
-<Fragment>
+<Component>
   <Component>
-    Cost Calculator
+    API Cost Calculator
   </Component>
   <Component>
     <Component
@@ -48,5 +48,5 @@ exports[`CostCalculator should match a snapshot 1`] = `
       }
     }
   />
-</Fragment>
+</Component>
 `;

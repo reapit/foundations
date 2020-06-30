@@ -73,7 +73,7 @@ Object {
           class=""
         >
           <div
-            class="level "
+            class=""
             data-test=""
           >
             <img
@@ -87,7 +87,7 @@ Object {
             Welcome to geo-diary-v2
           </p>
           <div
-            class="level "
+            class=""
             data-test=""
           >
             <button
@@ -118,7 +118,7 @@ Object {
         class=""
       >
         <div
-          class="level "
+          class=""
           data-test=""
         >
           <img
@@ -132,7 +132,7 @@ Object {
           Welcome to geo-diary-v2
         </p>
         <div
-          class="level "
+          class=""
           data-test=""
         >
           <button

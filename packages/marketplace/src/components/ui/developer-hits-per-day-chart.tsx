@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { H4, Loader } from '@reapit/elements'
+import { H5, Loader, Section } from '@reapit/elements'
 import { Line } from 'react-chartjs-2'
 import { RequestByDateModel } from '@/reducers/app-http-traffic-event'
 import { getAppHttpTrafficPerDayChartData, getChartConfig, getChartOptions } from '@/utils/app-http-traffic.ts'
@@ -14,17 +14,17 @@ export const renderChart = appHttpTrafficPerDayChartData => {
   const chartData = getChartConfig(labels, data)
   const chartOptions = getChartOptions(chartDataStats)
   return (
-    <>
-      <H4>Hits Per Day</H4>
+    <Section hasMargin={false}>
+      <H5>Hits Per Day</H5>
       <Line data={chartData} options={chartOptions} />
-    </>
+    </Section>
   )
 }
 
 export const DeveloperHitsPerDay: React.FC<DeveloperHitsPerDayProps> = ({ stats, loading }) => {
   const appHttpTrafficPerDayChartData = getAppHttpTrafficPerDayChartData(stats)
 
-  return <div>{loading ? <Loader /> : renderChart(appHttpTrafficPerDayChartData)}</div>
+  return loading ? <Loader /> : renderChart(appHttpTrafficPerDayChartData)
 }
 
 export default DeveloperHitsPerDay

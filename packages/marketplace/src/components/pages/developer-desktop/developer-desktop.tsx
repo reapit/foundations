@@ -1,8 +1,6 @@
 import * as React from 'react'
-import { Dispatch } from 'redux'
-import { FlexContainerBasic, FlexContainerResponsive, H3, Button } from '@reapit/elements'
+import { H3, Button, Section } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import styles from '@/styles/pages/developer-desktop.scss?mod'
 import DeveloperEditonModal from '@/components/ui/developer-edition-modal'
 import { DeveloperDesktopContentPartOne, DeveloperDesktopContentPartTwo } from './developer-desktop-content'
 
@@ -18,23 +16,22 @@ export const DeveloperDesktopPage: React.FC<DeveloperDesktopPageProps> = () => {
 
   return (
     <ErrorBoundary>
-      <FlexContainerBasic hasPadding flexColumn>
-        <FlexContainerResponsive className={styles.wrapDesktopPage} flexColumn hasBackground hasPadding>
-          <H3>Desktop</H3>
-          <DeveloperDesktopContentPartOne />
-          <div className="has-text-centered">
-            <Button
-              type="button"
-              variant="primary"
-              onClick={handleToggleVisibleModal(setIsDeveloperEditionModalOpen, true)}
-            >
-              Developer Edition
-            </Button>
-          </div>
-          <DeveloperDesktopContentPartTwo />
-        </FlexContainerResponsive>
-      </FlexContainerBasic>
-
+      <Section className="justify-between items-center" isFlex>
+        <H3 className="mb-0">Desktop</H3>
+        <Button
+          type="button"
+          variant="primary"
+          onClick={handleToggleVisibleModal(setIsDeveloperEditionModalOpen, true)}
+        >
+          Developer Edition
+        </Button>
+      </Section>
+      <Section>
+        <DeveloperDesktopContentPartOne />
+      </Section>
+      <Section>
+        <DeveloperDesktopContentPartTwo />
+      </Section>
       <DeveloperEditonModal
         visible={isDeveloperEditionModalOpen}
         afterClose={handleToggleVisibleModal(setIsDeveloperEditionModalOpen, false)}

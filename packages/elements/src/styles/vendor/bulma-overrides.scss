@@ -6,11 +6,7 @@ html {
 }
 
 .media-content {
-  & > .text-ellipisis {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
+  min-width: 0;
   overflow: hidden;
 }
 
@@ -22,6 +18,23 @@ html {
 
   &.is-success {
     color: $white;
+  }
+}
+
+.title,
+.subtitle {
+  &.mb-2 {
+    margin-bottom: 0.5rem;
+  }
+
+  &.mb-0 {
+    margin-bottom: 0;
+  }
+
+  &.is-heading-section {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: $white;
   }
 }
 
@@ -52,8 +65,8 @@ html {
   }
 
   .media-image {
-    height: 3.5rem;
-    width: 3.5rem;
+    height: 4.5rem;
+    width: 4.5rem;
 
     .image {
       height: 100%;
@@ -99,6 +112,10 @@ html {
   }
 }
 
+.field, .field:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
+
 .file-label {
   align-items: center;
 
@@ -133,6 +150,12 @@ html {
     margin-left: auto;
     margin-right: 0;
   }
+
+  @media screen and (max-width: 425px) {
+    .button {
+      width: 100%;
+    }
+  }
 }
 
 .subtitle,
@@ -145,8 +168,8 @@ html {
 }
 
 .control {
-  .label {
-    color: $grey-dark;
+  .label, i {
+    color: $grey;
   }
   &.has-icons-right,
   &.has-icons-left {
@@ -241,6 +264,7 @@ a {
 
 .container {
   display: flex;
+  width: 100%;
 
   &.is-column {
     flex-direction: column;
@@ -257,6 +281,12 @@ a {
 
   &.has-background {
     background-color: $white;
+  }
+
+  &.is-page-container {
+    // to allow scroll past end of content, allowing for toast popup and 
+    // increase readability, especially in mobile
+    margin-bottom: 6rem;
   }
 }
 
@@ -303,6 +333,10 @@ a {
     flex-direction: column-reverse;
     display: flex;
   }
+}
+
+.columns:not(:last-child) {
+  margin-bottom: 0.5rem;
 }
 
 .content {

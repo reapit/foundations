@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DeveloperHitsPerDay should match a snapshot 1`] = `
-<div>
+<Component
+  hasMargin={false}
+>
   <Component>
     Hits Per Day
   </Component>
@@ -54,11 +56,7 @@ exports[`DeveloperHitsPerDay should match a snapshot 1`] = `
       }
     }
   />
-</div>
+</Component>
 `;
 
-exports[`DeveloperHitsPerDay should match a snapshot when loading 1`] = `
-<div>
-  <Component />
-</div>
-`;
+exports[`DeveloperHitsPerDay should match a snapshot when loading 1`] = `<Component />`;

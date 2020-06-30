@@ -13,11 +13,10 @@ import {
   Loader,
   setQueryParams,
   Helper,
-  FlexContainerBasic,
   H3,
-  Content,
   toLocalTime,
   isEmptyObject,
+  Section,
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import AdminDevManagementFilterForm, {
@@ -27,7 +26,6 @@ import AdminSetDeveloperStatusModal from '@/components/ui/developer-set-status'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { adminDevManagementRequestData, AdminDevManagementRequestDataValues } from '@/actions/admin-dev-management'
 import qs from 'querystring'
-import styles from '@/styles/pages/admin-apps.scss?mod'
 import { selectAdminDevManagement } from '@/selector/admin'
 import { Dispatch } from 'redux'
 import { cleanObject } from '@reapit/utils'
@@ -175,21 +173,22 @@ export const AdminDevManagement: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <FlexContainerBasic flexColumn hasBackground hasPadding>
+      <Section className="mb-0">
         <H3>Developer Management</H3>
-        <AdminDevManagementFilterForm filterValues={filterValues} onSearch={onSearch} />
-        <Content className={styles.contentBlock}>
-          <Table scrollable={true} loading={false} data={data.data || []} columns={columns} />
-          <div className={styles.totalRecordLabel}>Total: {data.totalCount}</div>
-        </Content>
-        <Pagination
-          onChange={onPageChange}
-          totalCount={data.totalCount}
-          pageSize={data.pageSize}
-          pageNumber={data.pageNumber}
-        />
-      </FlexContainerBasic>
-
+      </Section>
+      <AdminDevManagementFilterForm filterValues={filterValues} onSearch={onSearch} />
+      <Section>
+        <Table scrollable={true} loading={false} data={data.data || []} columns={columns} />
+      </Section>
+      <Section>
+        <div>Total: {data.totalCount}</div>
+      </Section>
+      <Pagination
+        onChange={onPageChange}
+        totalCount={data.totalCount}
+        pageSize={data.pageSize}
+        pageNumber={data.pageNumber}
+      />
       <AdminSetDeveloperStatusModal
         visible={isSetStatusModalOpen}
         afterClose={resetModal(false)}

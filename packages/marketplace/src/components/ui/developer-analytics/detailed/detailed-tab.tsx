@@ -12,13 +12,12 @@ import { getAppUsageStats, getAppHttpTraffic } from '@/selector/analytics'
 import { selectDeveloper } from '@/selector/developer'
 import { getInstallations } from '@/selector/installations'
 
-import { FlexContainerBasic, Grid, GridItem, FlexContainerResponsive, DATE_TIME_FORMAT } from '@reapit/elements'
+import { Grid, GridItem, DATE_TIME_FORMAT, Section } from '@reapit/elements'
 import DeveloperHitsPerDayChart from '@/components/ui/developer-hits-per-day-chart'
 import InstallationAppSection, { InstallationModelWithAppName } from './installation-app-section'
 import FilterBar from './filter-bar'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
-import styles from '@/styles/pages/developer-analytics.scss?mod'
 import { AppInstallationsState } from '@/reducers/app-installations'
 import { DeveloperState } from '@/reducers/developer'
 import { AppUsageStatsState } from '@/reducers/app-usage-stats'
@@ -164,26 +163,24 @@ export const DetailedTab: React.FC<DetailedTabProps> = () => {
 
   return (
     <ErrorBoundary>
-      <FlexContainerBasic hasPadding flexColumn>
-        <FlexContainerResponsive flexColumn hasBackground hasPadding className={styles.wrapAnalytics}>
-          <FilterBar developerAppsData={developerAppsData} installationAppDataArray={installationAppDataArray || []} />
-          <Grid isMultiLine className="mt-5">
-            <GridItem className="is-half">
-              <DeveloperHitsPerDayChart stats={appHttpTrafficPerDayData} loading={appHttpTrafficPerDayLoading} />
-            </GridItem>
-            <GridItem className="is-half">
-              <TrafficEventTable trafficEvents={trafficEvents} loading={appHttpTrafficPerDayLoading} />
-            </GridItem>
-          </Grid>
-          <InstallationAppSection
-            installedApps={installationAppDataArrayWithName}
-            filteredInstalledApps={installationFilterAppDataArrayWithName}
-            installations={installations}
-            developer={developer}
-            loading={installationsAppLoading}
-          />
-        </FlexContainerResponsive>
-      </FlexContainerBasic>
+      <Section>
+        <FilterBar developerAppsData={developerAppsData} installationAppDataArray={installationAppDataArray || []} />
+      </Section>
+      <Grid isMultiLine>
+        <GridItem className="is-half">
+          <DeveloperHitsPerDayChart stats={appHttpTrafficPerDayData} loading={appHttpTrafficPerDayLoading} />
+        </GridItem>
+        <GridItem className="is-half">
+          <TrafficEventTable trafficEvents={trafficEvents} loading={appHttpTrafficPerDayLoading} />
+        </GridItem>
+      </Grid>
+      <InstallationAppSection
+        installedApps={installationAppDataArrayWithName}
+        filteredInstalledApps={installationFilterAppDataArrayWithName}
+        installations={installations}
+        developer={developer}
+        loading={installationsAppLoading}
+      />
     </ErrorBoundary>
   )
 }

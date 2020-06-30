@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DirectDebitSection should match snapshot 1`] = `
-<Component>
+<Fragment>
   <Component>
     Reapit Reference
   </Component>
@@ -37,5 +37,5 @@ exports[`DirectDebitSection should match snapshot 1`] = `
     placeholder="Please enter reference"
     type="text"
   />
-</Component>
+</Fragment>
 `;

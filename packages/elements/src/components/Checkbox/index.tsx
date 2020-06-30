@@ -33,7 +33,7 @@ export const handleOnCheckboxChange = ({ field, value }: HandleCheckboxOnChangeP
 
 export const Checkbox = ({ name, labelText, id, dataTest = '', value = '', className = '' }: CheckboxProps) => {
   return (
-    <div className={`field pb-4 ${className}`}>
+    <div className={`field ${className}`}>
       <div className="control">
         <Field type="checkbox" name={name}>
           {({ field }: FieldProps<string | string[]>) => {

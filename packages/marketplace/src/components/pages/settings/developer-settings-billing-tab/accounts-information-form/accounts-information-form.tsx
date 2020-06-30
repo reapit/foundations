@@ -1,5 +1,16 @@
 import * as React from 'react'
-import { FormSection, Form, Grid, GridItem, Formik, LevelRight, Button } from '@reapit/elements'
+import {
+  FormSection,
+  Form,
+  Grid,
+  GridItem,
+  Formik,
+  LevelRight,
+  Button,
+  FormHeading,
+  FormSubHeading,
+  H3,
+} from '@reapit/elements'
 import ReapitReferenceSection from './reapit-reference-section'
 import DirectDebitSection from './direct-debit-section'
 import ContactInformationSection from './contact-information-section'
@@ -39,7 +50,12 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
 
         return (
           <Form>
+            <H3 isHeadingSection>Billing</H3>
             <FormSection>
+              <FormHeading>Accounts Information</FormHeading>
+              <FormSubHeading>
+                Information required by our accounts team to verify your billing information
+              </FormSubHeading>
               <Grid>
                 <GridItem>
                   <ContactInformationSection />
@@ -49,8 +65,6 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
                   <DirectDebitSection setFieldValue={setFieldValue} values={values} />
                 </GridItem>
               </Grid>
-            </FormSection>
-            <FormSection>
               <LevelRight>
                 <Button dataTest="save-btn" type="submit" disabled={!isEnableSaveBtn}>
                   Save

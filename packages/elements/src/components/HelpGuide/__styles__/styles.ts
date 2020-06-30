@@ -1,7 +1,9 @@
 import { css } from 'linaria'
 
-export const helpGuildeContent = css`
+export const helpGuideContent = css`
   padding: 3rem 0;
+  width: 100%;
+
   .fade-enter {
     opacity: 0;
     transform: scale(0.9);
@@ -29,10 +31,10 @@ export const helpGuideImage = css`
 `
 
 export const helpGuide = css`
-  flex-grow: 0;
-  width: 80%;
+  flex-grow: 1;
+  justify-content: space-between;
+  width: 100%;
   @media (max-width: 769px) {
-    width: 100%;
-    min-height: 50%;
+    justify-content: flex-start;
   }
 `

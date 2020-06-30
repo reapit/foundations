@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TransactionHistory should match a snapshot 1`] = `
-<div>
-  <div>
-    <Component>
-      Transaction History
-    </Component>
-  </div>
-  <div>
+<Component
+  hasMargin={false}
+>
+  <Component>
+    Transaction History
+  </Component>
+  <Component>
     <Component>
       This Months Transactions To Date
     </Component>
@@ -28,17 +28,17 @@ exports[`TransactionHistory should match a snapshot 1`] = `
         </a>
       </Component>
     </Component>
-  </div>
-  <div>
+  </Component>
+  <Component>
     <Component>
       Previous Transactions
     </Component>
     <p>
       No previous transactions in the past
     </p>
-  </div>
+  </Component>
   <Component>
     <Component />
   </Component>
-</div>
+</Component>
 `;

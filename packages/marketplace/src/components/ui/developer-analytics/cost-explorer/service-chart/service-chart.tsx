@@ -1,6 +1,6 @@
 import React from 'react'
 import { Bar, ChartData } from 'react-chartjs-2'
-import { H4, FlexContainerResponsive, DATE_TIME_FORMAT, Loader } from '@reapit/elements'
+import { H5, DATE_TIME_FORMAT, Loader, Section } from '@reapit/elements'
 import { AppSummaryModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
 import styles from '@/styles/pages/developer-analytics.scss?mod'
 import { useDispatch, useSelector } from 'react-redux'
@@ -171,12 +171,10 @@ export const ServiceChart: React.FC = () => {
   const datasets = mapServiceChartDataSet(billing)
   const isLoading = loading || isServiceChartLoading
   return (
-    <FlexContainerResponsive className={styles.serviceChart}>
-      <div className={styles.barChartContainer}>
-        <H4>Services</H4>
-        {renderChart(isLoading, datasets)}
-      </div>
-    </FlexContainerResponsive>
+    <Section hasMargin={false}>
+      <H5>Services</H5>
+      <div className={styles.barChartContainer}>{renderChart(isLoading, datasets)}</div>
+    </Section>
   )
 }
 

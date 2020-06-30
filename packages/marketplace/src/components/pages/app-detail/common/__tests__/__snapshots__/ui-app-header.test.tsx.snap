@@ -2,36 +2,29 @@
 
 exports[`AppHeader should match a snapshot 1`] = `
 <Component
-  className="flex items-center mb-4 undefined flex-col-min-height"
+  className=""
 >
   <Component>
-    <Component
-      className="flex items-center undefined"
-    >
-      <Component
-        className="is-one-third-desktop undefined"
-      >
+    <div>
+      <div>
         <img
-          alt="App Icon"
+          alt="Peter's Properties"
+          className="image is-96x96"
           src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg"
         />
-      </Component>
-      <Component
-        className="is-two-thirds-desktop  undefined"
-      >
+      </div>
+      <div>
         <Component
-          isCentered={true}
+          className="text-ellipsis-9"
         >
           Peter's Properties
         </Component>
-        <Component
-          className=""
-        >
+        <Component>
           Verified by Reapit 
           <FaCheck />
         </Component>
-      </Component>
-    </Component>
+      </div>
+    </div>
   </Component>
   <Component
     className="flex items-center"

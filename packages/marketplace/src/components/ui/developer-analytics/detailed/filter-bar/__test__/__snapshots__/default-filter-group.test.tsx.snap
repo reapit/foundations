@@ -1,58 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FilterBar should match a snapshot 1`] = `
-<Fragment>
+<Component
+  className="items-start"
+  hasBackground={false}
+  hasPadding={false}
+  isFlex={true}
+  isFlexColumn={true}
+>
   <Component
-    className="is-vcentered is-mobile"
-    isMultiLine={true}
+    className="mb-2"
   >
+    Filter by
+  </Component>
+  <Component>
     <Component
-      className="is-narrow"
+      className="false"
+      fullWidth={false}
+      key="Yesterday"
+      onClick={[Function]}
+      type="button"
+      variant="secondary"
     >
-      <h6
-        className="title is-6"
-      >
-        Filter by: 
-      </h6>
+      Yesterday
     </Component>
     <Component
-      className="is-narrow"
+      className="is-info"
+      fullWidth={false}
+      key="Last Week"
+      onClick={[Function]}
+      type="button"
+      variant="secondary"
     >
-      <Component
-        className="are-small"
-      >
-        <Component
-          className="false"
-          fullWidth={false}
-          key="Yesterday"
-          onClick={[Function]}
-          type="button"
-          variant="secondary"
-        >
-          Yesterday
-        </Component>
-        <Component
-          className="is-info"
-          fullWidth={false}
-          key="Last Week"
-          onClick={[Function]}
-          type="button"
-          variant="secondary"
-        >
-          Last Week
-        </Component>
-        <Component
-          className="false"
-          fullWidth={false}
-          key="Last Month"
-          onClick={[Function]}
-          type="button"
-          variant="secondary"
-        >
-          Last Month
-        </Component>
-      </Component>
+      Last Week
+    </Component>
+    <Component
+      className="false"
+      fullWidth={false}
+      key="Last Month"
+      onClick={[Function]}
+      type="button"
+      variant="secondary"
+    >
+      Last Month
     </Component>
   </Component>
-</Fragment>
+</Component>
 `;

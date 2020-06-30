@@ -1,5 +1,5 @@
 import React from 'react'
-import { H3, FlexContainerBasic, Table } from '@reapit/elements'
+import { H3, Table, Section } from '@reapit/elements'
 
 export const columns = [
   {
@@ -14,14 +14,12 @@ export const columns = [
 
 export const AdminBilling: React.FC = () => {
   return (
-    <div>
-      <FlexContainerBasic hasPadding flexColumn hasBackground data-test="revision-list-container">
-        <div className="mb-5">
-          <H3>Billing</H3>
-          <Table scrollable={true} loading={false} data={[]} columns={columns} />
-        </div>
-      </FlexContainerBasic>
-    </div>
+    <>
+      <H3 isHeadingSection>Billing</H3>
+      <Section>
+        <Table scrollable={true} loading={false} data={[]} columns={columns} />
+      </Section>
+    </>
   )
 }
 

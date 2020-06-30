@@ -138,10 +138,12 @@ exports[`InstalledAppList should match a snappshot ListMobileScreen 1`] = `
 exports[`InstalledAppList should match a snapshot 1`] = `
 <Component
   flexColumn={true}
-  hasPadding={true}
 >
-  <Component>
-    Title
+  <Component
+    className=""
+    isHeadingSection={true}
+  >
+    Installed Apps
   </Component>
   <Component
     list={
@@ -195,24 +197,24 @@ exports[`InstalledAppList should match a snapshot 1`] = `
     loading={false}
     onCardClick={[MockFunction]}
   />
-  <Component>
-    <Component
-      onChange={[MockFunction]}
-      pageNumber={2}
-      pageSize={20}
-      totalCount={200}
-    />
-  </Component>
+  <Component
+    onChange={[MockFunction]}
+    pageNumber={2}
+    pageSize={20}
+    totalCount={200}
+  />
 </Component>
 `;
 
 exports[`InstalledAppList should match a snapshot when use empty infoType 1`] = `
 <Component
   flexColumn={true}
-  hasPadding={true}
 >
-  <Component>
-    Title
+  <Component
+    className=""
+    isHeadingSection={true}
+  >
+    Installed Apps
   </Component>
   <Component
     list={
@@ -266,13 +268,11 @@ exports[`InstalledAppList should match a snapshot when use empty infoType 1`] = 
     loading={false}
     onCardClick={[MockFunction]}
   />
-  <Component>
-    <Component
-      onChange={[MockFunction]}
-      pageNumber={2}
-      pageSize={20}
-      totalCount={200}
-    />
-  </Component>
+  <Component
+    onChange={[MockFunction]}
+    pageNumber={2}
+    pageSize={20}
+    totalCount={200}
+  />
 </Component>
 `;

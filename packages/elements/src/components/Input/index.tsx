@@ -38,7 +38,7 @@ export const Input = ({
       const className = hasError ? 'input is-danger' : 'input is-primary'
       const defaultValue = ''
       return (
-        <div className="field pb-4">
+        <div className="field">
           <div className={`control ${rightIcon ? 'has-icons-right' : ''}`}>
             {type !== 'hidden' && !rightIcon && labelText && (
               <label className={`label inline-block ${required ? 'required-label' : ''}`} htmlFor={id}>

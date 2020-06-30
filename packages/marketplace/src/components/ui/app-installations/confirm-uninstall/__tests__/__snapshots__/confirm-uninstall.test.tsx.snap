@@ -166,7 +166,7 @@ exports[`ConfirmUninstall should match a snapshot 1`] = `
             >
               <Component>
                 <h6
-                  className="subtitle is-6  "
+                  className=""
                   id=""
                 >
                   Are you sure you wish to uninstall ‘
@@ -178,7 +178,7 @@ exports[`ConfirmUninstall should match a snapshot 1`] = `
               </Component>
               <Component>
                 <h6
-                  className="subtitle is-6  "
+                  className=""
                   id=""
                 >
                   *Please confirm reason for uninstalling

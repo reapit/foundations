@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Pagination render test Should match a snapshot 1`] = `
-<div
-  className="flex justify-center"
+<Component
+  isCentered={true}
+  isFlex={true}
 >
   <nav
     aria-label="pagination"
@@ -112,5 +113,5 @@ exports[`Pagination render test Should match a snapshot 1`] = `
       </li>
     </ul>
   </nav>
-</div>
+</Component>
 `;

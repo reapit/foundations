@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Section } from '../Layout'
 
 export interface PaginationProps {
   pageNumber?: number
@@ -37,7 +38,7 @@ export const Pagination = ({ onChange, pageNumber = 1, pageSize = 1, totalCount 
   const paginator = generatePagination(pageNumber, maxPage)
 
   return (
-    <div className="flex justify-center">
+    <Section isFlex isCentered>
       <nav className="pagination is-centered" role="navigation" aria-label="pagination">
         {
           <a
@@ -94,6 +95,6 @@ export const Pagination = ({ onChange, pageNumber = 1, pageSize = 1, totalCount 
           })}
         </ul>
       </nav>
-    </div>
+    </Section>
   )
 }

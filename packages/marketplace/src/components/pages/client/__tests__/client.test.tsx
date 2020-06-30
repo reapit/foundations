@@ -88,11 +88,11 @@ describe('Client', () => {
     ).toMatchSnapshot()
   })
 
-  it('should match a snapshot when featured apps is undefined', () => {
+  it('should match a snapshot when featured apps is null', () => {
     const appSummaryState = {
       isAppSummaryLoading: false,
       data: {
-        featuredApps: undefined,
+        featuredApps: null,
         apps: appsDataStub,
       } as ClientAppSummary,
     }

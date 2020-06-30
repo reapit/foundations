@@ -7,11 +7,12 @@
 
 .form-section {
   padding: 1rem;
-  border-top: 1px solid $grey;
+  margin-bottom: 1rem;
+  background: $white;
 
   .form-heading,
   .form-subheading {
-    color: $grey-dark;
+    color: $grey;
   }
 
   .form-heading {
@@ -21,5 +22,6 @@
 
   .form-subheading {
     font-style: italic;
+    margin-bottom: 1.5rem;
   }
 }
