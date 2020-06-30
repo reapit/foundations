@@ -13,7 +13,14 @@ export type InterceptorParams = {
   headers: StringMap
 }
 
-export const handleOnComplete = setLoading => () => setLoading(false)
+export const handleOnComplete = setLoading => () => {
+  // dynamically changing link text for visibility
+  const linkElement = document.querySelector('a[href="https://dev.platform.reapit.cloud/docs"]')
+  if (linkElement) {
+    linkElement.innerHTML = '<span class="url">OpenAPI Specification</span>'
+  }
+  setLoading(false)
+}
 
 export const fetchAccessToken = async (setAccessToken: React.Dispatch<React.SetStateAction<null | string>>) => {
   const fetchedAccessToken = await getAccessToken()

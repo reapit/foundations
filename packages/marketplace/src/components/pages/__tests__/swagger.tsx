@@ -47,9 +47,14 @@ describe('Swagger', () => {
   })
 
   it('handles onComplete', () => {
+    ;(global as any).document.querySelector = jest.fn(() => ({
+      innerHTML: '<span>text</span>',
+    }))
     const setLoading = jest.fn()
     const fn = handleOnComplete(setLoading)
     fn()
+    const spy = jest.spyOn(document, 'querySelector')
+    expect(spy).toBeCalledWith('a[href="https://dev.platform.reapit.cloud/docs"]')
     expect(setLoading).toBeCalledWith(false)
   })
 
