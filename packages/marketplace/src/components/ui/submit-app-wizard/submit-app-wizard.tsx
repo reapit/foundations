@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { submitAppSetFormState } from '@/actions/submit-app'
 import AuthFlow from '@/constants/app-auth-flow'
 import { selectSubmitAppLoadingState } from '@/selector/submit-app'
 import { useSelector } from 'react-redux'
@@ -12,11 +13,11 @@ import { StepInputAuthenticationUris } from './steps/step-input-authentication-u
 import { StepGrantPermissions } from './steps/step-grant-permisions'
 import { StepSubmitAppSuccess } from './steps/step-submit-app-success'
 import { StepChoseAuthType } from './steps/step-chose-auth-type'
-import { Loader, ModalHeader, Formik, FormikHelpers, ModalProps } from '@reapit/elements'
-import { Form } from '@reapit/elements'
+import { Loader, ModalHeader, Formik, FormikHelpers, ModalProps, Form } from '@reapit/elements'
 import { WizardStep, WizardStepComponent, SetWizardStep } from './types'
 import { formFields } from './form-fields'
 import { validationSchemas } from './validation-schema'
+import { wizzardSteps } from './constant'
 
 const componentMap: Record<WizardStep, WizardStepComponent> = {
   BEFORE_YOU_START: StepBeforeYouStart,
@@ -43,10 +44,9 @@ const { nameField, redirectUrisField, signoutUrisField, scopesField } = formFiel
 export type HandleSubmitParams = {
   dispatch: Dispatch
   setWizardStep: SetWizardStep
-  afterClose: (() => void) | undefined
 }
 
-export const handleSubmit = ({ dispatch, setWizardStep, afterClose }: HandleSubmitParams) => (
+export const handleSubmit = ({ dispatch, setWizardStep }: HandleSubmitParams) => (
   values: CustomCreateAppModel,
   actions: FormikHelpers<CustomCreateAppModel>,
 ) => {
@@ -82,7 +82,6 @@ export const handleSubmit = ({ dispatch, setWizardStep, afterClose }: HandleSubm
       setFieldValue: actions.setFieldValue,
       setErrors: actions.setErrors,
       setWizardStep,
-      afterClose,
     }),
   )
 }
@@ -94,12 +93,17 @@ const initialFormValues = {
   [scopesField.name]: [],
 }
 
+export const handleUseEffect = (dispatch: Dispatch) => () => {
+  dispatch(submitAppSetFormState('PENDING'))
+}
+
 export const SubmitAppWizard: React.FC<Pick<ModalProps, 'afterClose'>> = ({ afterClose }) => {
-  const [currentWizardStep, setWizardStep] = useState<WizardStep>('INPUT_APP_NAME')
+  const [currentWizardStep, setWizardStep] = useState<WizardStep>(wizzardSteps.BEFORE_YOU_START)
   const dispatch = useDispatch()
   const isSubmitAppLoading = useSelector(selectSubmitAppLoadingState)
 
   const CurrentStepComponent = componentMap[currentWizardStep as WizardStep]
+  useEffect(handleUseEffect(dispatch), [])
 
   if (isSubmitAppLoading) {
     return <Loader />
@@ -113,7 +117,7 @@ export const SubmitAppWizard: React.FC<Pick<ModalProps, 'afterClose'>> = ({ afte
     <div>
       <Formik
         initialValues={initialFormValues}
-        onSubmit={handleSubmit({ afterClose, setWizardStep, dispatch })}
+        onSubmit={handleSubmit({ setWizardStep, dispatch })}
         validationSchema={validationSchemas[currentWizardStep]}
       >
         <Form>

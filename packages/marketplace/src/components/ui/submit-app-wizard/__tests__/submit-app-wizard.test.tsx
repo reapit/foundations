@@ -14,27 +14,26 @@ describe('SubmitAppWizard', () => {
   test('handleSubmit should run correctly when authFlow = clientCredentials', () => {
     const dispatch = jest.fn()
     const setWizardStep = jest.fn()
-    const afterClose = jest.fn()
     const values = {
-      // should be trimem, and empty value should be removed
+      // should be trimmed, and empty value should be removed
       redirectUris: 'link1 , link2 ,',
       signoutUris: 'link1 , link2 ,',
       authFlow: AuthFlow.CLIENT_SECRET,
     }
     const actions = {
       setErrors: jest.fn(),
+      setFieldValue: jest.fn(),
     }
     handleSubmit({
       dispatch,
       setWizardStep,
-      afterClose,
     })(values, (actions as unknown) as FormikHelpers<CustomCreateAppModel>)
     expect(dispatch).toHaveBeenCalledWith({
       data: {
         setErrors: actions.setErrors,
         setWizardStep,
-        afterClose,
         authFlow: values.authFlow,
+        setFieldValue: actions.setFieldValue,
       },
       type: 'DEVELOPER_SUBMIT_APP',
     })
@@ -42,7 +41,6 @@ describe('SubmitAppWizard', () => {
   test('handleSubmit should run correctly when authFlow = authorisationCode', () => {
     const dispatch = jest.fn()
     const setWizardStep = jest.fn()
-    const afterClose = jest.fn()
     const values = {
       // should be trimem, and empty value should be removed
       redirectUris: 'link1 , link2 ,',
@@ -50,12 +48,12 @@ describe('SubmitAppWizard', () => {
       authFlow: AuthFlow.USER_SESSION,
     }
     const actions = {
+      setFieldValue: jest.fn(),
       setErrors: jest.fn(),
     }
     handleSubmit({
       dispatch,
       setWizardStep,
-      afterClose,
     })(values, (actions as unknown) as FormikHelpers<CustomCreateAppModel>)
     expect(dispatch).toHaveBeenCalledWith({
       data: {
@@ -63,8 +61,8 @@ describe('SubmitAppWizard', () => {
         signoutUris: ['link1', 'link2'],
         authFlow: AuthFlow.USER_SESSION,
         setErrors: actions.setErrors,
+        setFieldValue: actions.setFieldValue,
         setWizardStep,
-        afterClose,
       },
       type: 'DEVELOPER_SUBMIT_APP',
     })
