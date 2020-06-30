@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { submitAppSetFormState } from '@/actions/submit-app'
 import AuthFlow from '@/constants/app-auth-flow'
 import { selectSubmitAppLoadingState } from '@/selector/submit-app'
 import { useSelector } from 'react-redux'
@@ -92,12 +93,17 @@ const initialFormValues = {
   [scopesField.name]: [],
 }
 
+export const handleUseEffect = (dispatch: Dispatch) => () => {
+  dispatch(submitAppSetFormState('PENDING'))
+}
+
 export const SubmitAppWizard: React.FC<Pick<ModalProps, 'afterClose'>> = ({ afterClose }) => {
   const [currentWizardStep, setWizardStep] = useState<WizardStep>(wizzardSteps.BEFORE_YOU_START)
   const dispatch = useDispatch()
   const isSubmitAppLoading = useSelector(selectSubmitAppLoadingState)
 
   const CurrentStepComponent = componentMap[currentWizardStep as WizardStep]
+  useEffect(handleUseEffect(dispatch), [])
 
   if (isSubmitAppLoading) {
     return <Loader />
