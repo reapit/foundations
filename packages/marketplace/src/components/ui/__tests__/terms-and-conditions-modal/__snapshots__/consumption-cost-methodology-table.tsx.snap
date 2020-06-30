@@ -18,17 +18,19 @@ Object {
             class=""
           >
             <div
-              class="columns  is-vcentered"
+              class=""
               data-test=""
             >
               <div
-                class="column  "
+                class=""
                 data-test=""
               >
                 (On last day of monthly billing period)
               </div>
             </div>
-            <div>
+            <div
+              style="overflow: scroll;"
+            >
               <table
                 class="table is-striped is-fullwidth "
                 role="table"
@@ -466,17 +468,19 @@ Object {
           class=""
         >
           <div
-            class="columns  is-vcentered"
+            class=""
             data-test=""
           >
             <div
-              class="column  "
+              class=""
               data-test=""
             >
               (On last day of monthly billing period)
             </div>
           </div>
-          <div>
+          <div
+            style="overflow: scroll;"
+          >
             <table
               class="table is-striped is-fullwidth "
               role="table"

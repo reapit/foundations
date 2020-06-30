@@ -164,17 +164,19 @@ Object {
               class=""
             >
               <div
-                class="columns  is-vcentered"
+                class=""
                 data-test=""
               >
                 <div
-                  class="column  "
+                  class=""
                   data-test=""
                 >
                   (On last day of monthly billing period)
                 </div>
               </div>
-              <div>
+              <div
+                style="overflow: scroll;"
+              >
                 <table
                   class="table is-striped is-fullwidth "
                   role="table"
@@ -607,11 +609,11 @@ Object {
             </u>
           </div>
           <div
-            class="columns  is-vcentered is-mobile"
+            class=""
             data-test=""
           >
             <div
-              class="column  is-one-quarter-tablet is-half-mobile"
+              class=""
               data-test=""
             >
               <h6
@@ -622,18 +624,18 @@ Object {
               </h6>
             </div>
             <div
-              class="column  "
+              class=""
               data-test=""
             >
               21-30
             </div>
           </div>
           <div
-            class="columns  is-vcentered is-mobile"
+            class=""
             data-test=""
           >
             <div
-              class="column  is-one-quarter-tablet is-half-mobile"
+              class=""
               data-test=""
             >
               <h6
@@ -644,13 +646,15 @@ Object {
               </h6>
             </div>
             <div
-              class="column  is-half-mobile"
+              class=""
               data-test=""
             >
               100,000
             </div>
           </div>
-          <div>
+          <div
+            style="overflow: scroll;"
+          >
             <table
               class="table is-striped is-fullwidth is-bordered"
               role="table"
@@ -1006,17 +1010,19 @@ Object {
             class=""
           >
             <div
-              class="columns  is-vcentered"
+              class=""
               data-test=""
             >
               <div
-                class="column  "
+                class=""
                 data-test=""
               >
                 (On last day of monthly billing period)
               </div>
             </div>
-            <div>
+            <div
+              style="overflow: scroll;"
+            >
               <table
                 class="table is-striped is-fullwidth "
                 role="table"
@@ -1449,11 +1455,11 @@ Object {
           </u>
         </div>
         <div
-          class="columns  is-vcentered is-mobile"
+          class=""
           data-test=""
         >
           <div
-            class="column  is-one-quarter-tablet is-half-mobile"
+            class=""
             data-test=""
           >
             <h6
@@ -1464,18 +1470,18 @@ Object {
             </h6>
           </div>
           <div
-            class="column  "
+            class=""
             data-test=""
           >
             21-30
           </div>
         </div>
         <div
-          class="columns  is-vcentered is-mobile"
+          class=""
           data-test=""
         >
           <div
-            class="column  is-one-quarter-tablet is-half-mobile"
+            class=""
             data-test=""
           >
             <h6
@@ -1486,13 +1492,15 @@ Object {
             </h6>
           </div>
           <div
-            class="column  is-half-mobile"
+            class=""
             data-test=""
           >
             100,000
           </div>
         </div>
-        <div>
+        <div
+          style="overflow: scroll;"
+        >
           <table
             class="table is-striped is-fullwidth is-bordered"
             role="table"
