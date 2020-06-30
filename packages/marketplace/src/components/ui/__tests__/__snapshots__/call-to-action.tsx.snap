@@ -16,7 +16,9 @@ exports[`CallToAction should match a snapshot 1`] = `
     hasPadding={true}
   >
     <p />
-    <Component>
+    <div
+      className="has-text-right"
+    >
       <Component
         dataTest=""
         type="button"
@@ -24,7 +26,7 @@ exports[`CallToAction should match a snapshot 1`] = `
       >
         My button
       </Component>
-    </Component>
+    </div>
   </Component>
 </div>
 `;
@@ -45,7 +47,9 @@ exports[`CallToAction should match snapshot with footerItems 1`] = `
     hasPadding={true}
   >
     <p />
-    <Component>
+    <div
+      className="has-text-right"
+    >
       <Component
         onClick={[MockFunction]}
         type="button"
@@ -60,7 +64,7 @@ exports[`CallToAction should match snapshot with footerItems 1`] = `
       >
         Submit another app
       </Component>
-    </Component>
+    </div>
   </Component>
 </div>
 `;
