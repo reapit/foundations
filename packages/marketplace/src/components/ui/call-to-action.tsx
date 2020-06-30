@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Alert, FlexContainerBasic, LevelRight } from '@reapit/elements'
+import { Button, Alert, FlexContainerBasic } from '@reapit/elements'
 
 type CTAType = 'success' | 'danger'
 
@@ -31,7 +31,7 @@ const CallToAction: React.FunctionComponent<CallToActionCardProps> = ({
     <Alert className="mb-0" type={type} message={title} />
     <FlexContainerBasic hasPadding hasBackground flexColumn>
       <p>{children}</p>
-      <LevelRight>
+      <div className="has-text-right">
         {footerItems ? (
           footerItems
         ) : (
@@ -39,7 +39,7 @@ const CallToAction: React.FunctionComponent<CallToActionCardProps> = ({
             {buttonText}
           </Button>
         )}
-      </LevelRight>
+      </div>
     </FlexContainerBasic>
   </div>
 )
