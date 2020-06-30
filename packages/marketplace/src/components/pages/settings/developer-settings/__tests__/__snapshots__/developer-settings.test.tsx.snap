@@ -1,11 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DeveloperSettingsPage renderPageContent should match snaphsot 1`] = `
-<div>
-  <Component />
-</div>
-`;
-
 exports[`DeveloperSettingsPage should match snapshot 1`] = `
 <ContextProvider
   value={

@@ -1,28 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tabs should match a snapshot 1`] = `
-<Component
-  tabConfigs={
-    Array [
-      Object {
-        "active": false,
-        "displayText": "Profile",
-        "onTabClick": [Function],
-        "tabIdentifier": "/developer/settings/",
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
       },
-      Object {
-        "active": false,
-        "displayText": "Organisation",
-        "onTabClick": [Function],
-        "tabIdentifier": "/developer/settings/organisation",
+      "subscription": Subscription {
+        "handleChangeWrapper": [Function],
+        "listeners": Object {
+          "notify": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+        "unsubscribe": null,
       },
-      Object {
-        "active": false,
-        "displayText": "Billing",
-        "onTabClick": [Function],
-        "tabIdentifier": "/developer/settings/billing",
-      },
-    ]
+    }
   }
-/>
+>
+  <Component />
+</ContextProvider>
 `;
