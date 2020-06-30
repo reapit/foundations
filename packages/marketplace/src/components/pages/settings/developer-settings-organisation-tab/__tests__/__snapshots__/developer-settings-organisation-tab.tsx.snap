@@ -19,7 +19,7 @@ exports[`DeveloperOrganisationTabPage should match snapshot when isAdmin = false
         hasPadding={true}
       >
         <Component />
-        <Component />
+        <OrganisationForm />
         <Component />
         <Component>
           <Component

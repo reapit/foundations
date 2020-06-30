@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { H3, Grid, Input, GridItem, TextArea, ImageInput, Checkbox } from '@reapit/elements'
-import { formFields } from './form-schema/form-fields'
-import { OrganisationFormValues } from './organisation-form'
+import { formFields, OrganisationFormValues } from './form-schema/form-fields'
 
 export type CompanyInformationSectionProps = {
   formValues: OrganisationFormValues
@@ -23,8 +22,8 @@ const {
 
 const CompanyInformationSection: React.FC<CompanyInformationSectionProps> = ({ formValues }) => {
   const { noVatNumber, noReg } = formValues
-  const isVATNumberFieldDisabled = Boolean(noVatNumber)
-  const isRegFieldDisabled = Boolean(noReg)
+  const isVATNumberFieldDisabled = noVatNumber
+  const isRegFieldDisabled = noReg
   const isNationalInsuranceNumberFieldVisible = isVATNumberFieldDisabled || isRegFieldDisabled
 
   return (

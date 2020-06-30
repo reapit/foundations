@@ -9,52 +9,28 @@ import {
   LevelRight,
 } from '@reapit/elements'
 import { companyInformationFormSchema } from './form-schema/validation-schema'
-import { formFields } from './form-schema/form-fields'
+import { OrganisationFormValues } from './form-schema/form-fields'
 import CompanyInformationSection from './company-information-section'
 import CompanyAddressSection from './company-address-section'
 
-const {
-  aboutField,
-  countryIdField,
-  companyNameField,
-  iconImageUrlField,
-  line1Field,
-  line2Field,
-  line3Field,
-  line4Field,
-  vatNumberField,
-  noVatNumberField,
-  officeEmailField,
-  postCodeField,
-  regField,
-  noRegField,
-  telField,
-  websiteField,
-  nationalInsuranceNumberField,
-} = formFields
-
-export type OrganisationFormValues = {
-  [x: string]: string | boolean
-}
-
-const initialValues: OrganisationFormValues = {
-  [aboutField.name]: '',
-  [countryIdField.name]: '',
-  [companyNameField.name]: '',
-  [iconImageUrlField.name]: '',
-  [line1Field.name]: '',
-  [line2Field.name]: '',
-  [line3Field.name]: '',
-  [line4Field.name]: '',
-  [vatNumberField.name]: '',
-  [noVatNumberField.name]: false,
-  [officeEmailField.name]: '',
-  [postCodeField.name]: '',
-  [regField.name]: '',
-  [noRegField.name]: false,
-  [telField.name]: '',
-  [websiteField.name]: '',
-  [nationalInsuranceNumberField.name]: '',
+export const initialValues: OrganisationFormValues = {
+  about: '',
+  countryId: '',
+  companyName: '',
+  iconImageUrl: '',
+  line1: '',
+  line2: '',
+  line3: '',
+  line4: '',
+  vatNumber: '',
+  noVatNumber: false,
+  officeEmail: '',
+  postCode: '',
+  reg: '',
+  noReg: false,
+  tel: '',
+  website: '',
+  nationalInsuranceNumber: '',
 }
 
 export type OrganisationFormProps = {}

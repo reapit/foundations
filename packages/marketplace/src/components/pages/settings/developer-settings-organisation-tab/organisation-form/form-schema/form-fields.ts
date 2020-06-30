@@ -20,6 +20,26 @@ export type FieldKeys =
   | 'postCodeField'
 export type FormFields = Partial<Record<FieldKeys, string>>
 
+export type OrganisationFormValues = {
+  vatNumber: string
+  noVatNumber: boolean
+  nationalInsuranceNumber: string
+  officeEmail: string
+  about: string
+  companyName: string
+  countryId: string
+  iconImageUrl: string
+  line1: string
+  line2: string
+  line3: string
+  line4: string
+  postCode: string
+  reg: string
+  noReg: boolean
+  tel: string
+  website: string
+}
+
 export const formFields: Record<FieldKeys, FormFieldInfo> = {
   vatNumberField: {
     name: 'vatNumber',
