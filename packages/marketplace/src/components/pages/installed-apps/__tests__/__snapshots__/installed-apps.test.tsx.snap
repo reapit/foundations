@@ -128,22 +128,16 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
                 <div
                   className=""
                 >
-                  <Component>
-                    <section
+                  <Component
+                    className=""
+                    isHeadingSection={true}
+                  >
+                    <h3
                       className=""
-                      data-test=""
+                      id=""
                     >
-                      <Component
-                        className=""
-                      >
-                        <h3
-                          className=""
-                          id=""
-                        >
-                          Installed Apps
-                        </h3>
-                      </Component>
-                    </section>
+                      Installed Apps
+                    </h3>
                   </Component>
                   <Component
                     list={
@@ -202,14 +196,14 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
                       data-test="app-list-container"
                     >
                       <div
-                        className="columns is-multiline  "
+                        className=""
                         data-test=""
                       >
                         <Component
                           key="09043eb8-9e5e-4650-b7f1-f0cb62699027"
                         >
                           <div
-                            className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                            className=""
                             data-test=""
                           >
                             <InstalledAppCard
@@ -316,7 +310,7 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
                           key="261da083-cee2-4f5c-a18f-8f9375f1f5af"
                         >
                           <div
-                            className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                            className=""
                             data-test=""
                           >
                             <InstalledAppCard

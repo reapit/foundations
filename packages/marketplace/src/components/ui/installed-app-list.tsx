@@ -7,7 +7,6 @@ import {
   H3,
   InfoType,
   PaginationProps,
-  Section,
   Pagination,
   FlexContainerBasic,
   isMobile,
@@ -70,9 +69,9 @@ export const InstalledAppList: React.FC<InstalledAppListProps> = ({
 }) => {
   return (
     <FlexContainerBasic flexColumn>
-      <Section>
-        <H3 className={cx('mb-0', isMobile() && 'text-center')}>Installed Apps</H3>
-      </Section>
+      <H3 className={cx(isMobile() && 'text-center')} isHeadingSection>
+        Installed Apps
+      </H3>
       {!list.length && !loading ? (
         <Helper variant="info">
           {infoType ? infoText(infoType) : 'UNFORTUNATELY, YOUR SEARCH RETURNED NO RESULTS'}

@@ -269,18 +269,18 @@ exports[`Register should match a snapshot 1`] = `
                 >
                   <Component>
                     <div
-                      className="form-section "
+                      className=""
                     >
                       <Component>
                         <div
-                          className="form-heading mb-1 "
+                          className=""
                         >
                           Register for Foundations
                         </div>
                       </Component>
                       <Component>
                         <div
-                          className="form-subheading mb-4 "
+                          className=""
                         >
                           By registering for the Foundations platform, you will get access to the Reapit developer portal and sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward to seeing what you build!
                         </div>
@@ -449,11 +449,11 @@ exports[`Register should match a snapshot 1`] = `
                   </Component>
                   <Component>
                     <div
-                      className="form-section "
+                      className=""
                     >
                       <Component>
                         <div
-                          className="level "
+                          className=""
                           data-test=""
                         >
                           <Component

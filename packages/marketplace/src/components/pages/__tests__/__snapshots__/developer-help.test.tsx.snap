@@ -78,14 +78,14 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
     >
       <Component>
         <div
-          className="columns is-multiline "
+          className=""
           data-test=""
         >
           <Component
             key="Welcome Guide"
           >
             <div
-              className="column is-multiline is-half-tablet is-one-third-widescreen "
+              className=""
               data-test=""
             >
               <Component
@@ -129,7 +129,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                         className="flex-grow-1"
                       >
                         <div
-                          className="content flex-grow-1"
+                          className=""
                           data-test=""
                         >
                           Need a little help? Have a look through the Welcome Guide, which we’ve put
@@ -140,7 +140,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                         className="text-end"
                       >
                         <div
-                          className="level-right text-end"
+                          className=""
                           data-test=""
                         >
                           <Component
@@ -173,7 +173,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
             key="Request a Feature"
           >
             <div
-              className="column is-multiline is-half-tablet is-one-third-widescreen "
+              className=""
               data-test=""
             >
               <Component
@@ -217,7 +217,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                         className="flex-grow-1"
                       >
                         <div
-                          className="content flex-grow-1"
+                          className=""
                           data-test=""
                         >
                           Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will
@@ -228,7 +228,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                         className="text-end"
                       >
                         <div
-                          className="level-right text-end"
+                          className=""
                           data-test=""
                         >
                           <Component
@@ -261,7 +261,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
             key="Report a Bug"
           >
             <div
-              className="column is-multiline is-half-tablet is-one-third-widescreen "
+              className=""
               data-test=""
             >
               <Component
@@ -305,7 +305,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                         className="flex-grow-1"
                       >
                         <div
-                          className="content flex-grow-1"
+                          className=""
                           data-test=""
                         >
                           Please report details of any bugs in relation to the Reapit Developer portal or Reapit Foundations API here. 
@@ -315,7 +315,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                         className="text-end"
                       >
                         <div
-                          className="level-right text-end"
+                          className=""
                           data-test=""
                         >
                           <Component
@@ -348,7 +348,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
             key="Roadmap"
           >
             <div
-              className="column is-multiline is-half-tablet is-one-third-widescreen "
+              className=""
               data-test=""
             >
               <Component
@@ -392,7 +392,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                         className="flex-grow-1"
                       >
                         <div
-                          className="content flex-grow-1"
+                          className=""
                           data-test=""
                         >
                           Want to see what we are building or check on the progress of your feature requests?
@@ -403,7 +403,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                         className="text-end"
                       >
                         <div
-                          className="level-right text-end"
+                          className=""
                           data-test=""
                         >
                           <Component
@@ -436,7 +436,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
             key="Need Help?"
           >
             <div
-              className="column is-multiline is-half-tablet is-one-third-widescreen "
+              className=""
               data-test=""
             >
               <Component
@@ -480,7 +480,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                         className="flex-grow-1"
                       >
                         <div
-                          className="content flex-grow-1"
+                          className=""
                           data-test=""
                         >
                           If you need any support, we are here to help. Why not talk to one of our Developers or Product Owners directly.
@@ -490,7 +490,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                         className="text-end"
                       >
                         <div
-                          className="level-right text-end"
+                          className=""
                           data-test=""
                         >
                           <Component
@@ -523,7 +523,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
             key="What’s New"
           >
             <div
-              className="column is-multiline is-half-tablet is-one-third-widescreen "
+              className=""
               data-test=""
             >
               <Component
@@ -567,7 +567,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                         className="flex-grow-1"
                       >
                         <div
-                          className="content flex-grow-1"
+                          className=""
                           data-test=""
                         >
                           We are constantly working to improve your experience with the Foundations Platform. Have a look to see what
@@ -578,7 +578,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                         className="text-end"
                       >
                         <div
-                          className="level-right text-end"
+                          className=""
                           data-test=""
                         >
                           <Component

@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux'
 import { History } from 'history'
 import { selectAppDetailState, selectAppDetailData, selectAppDetailLoading } from '@/selector/developer-app-detail'
 import { selectInstallAppLoading } from '@/selector/installations'
-import { Loader, FlexContainerBasic, Grid, GridItem, FlexContainerResponsive } from '@reapit/elements'
+import { Loader, FlexContainerBasic, Grid, GridItem } from '@reapit/elements'
 import AppHeader from '@/components/pages/app-detail/common/ui-app-header'
 import styles from '@/styles/blocks/standalone-app-detail.scss?mod'
 import routes from '@/constants/routes'
@@ -63,20 +63,18 @@ const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
   }
 
   return (
-    <FlexContainerResponsive hasPadding className={styles.flexContainer}>
-      <Grid className={styles.container}>
-        <GridItem className="is-one-quarter">
-          <DeveloperAside desktopIntegrationTypes={userDesktopIntegrationTypes} appDetailState={appDetailState} />
-        </GridItem>
-        <GridItem className="is-three-quarters">
-          <FlexContainerBasic flexColumn hasPadding hasBackground isFullHeight>
-            <AppHeader appDetailData={appDetailData} />
-            <AppContent appDetailState={appDetailState} />
-            {!isMobile && <BackToAppsSection onClick={onBackToAppsButtonClick(history)} />}
-          </FlexContainerBasic>
-        </GridItem>
-      </Grid>
-    </FlexContainerResponsive>
+    <Grid className={styles.container}>
+      <GridItem className="is-one-quarter">
+        <DeveloperAside desktopIntegrationTypes={userDesktopIntegrationTypes} appDetailState={appDetailState} />
+      </GridItem>
+      <GridItem className="is-three-quarters">
+        <FlexContainerBasic flexColumn hasPadding hasBackground isFullHeight>
+          <AppHeader appDetailData={appDetailData} />
+          <AppContent appDetailState={appDetailState} />
+          {!isMobile && <BackToAppsSection onClick={onBackToAppsButtonClick(history)} />}
+        </FlexContainerBasic>
+      </GridItem>
+    </Grid>
   )
 }
 

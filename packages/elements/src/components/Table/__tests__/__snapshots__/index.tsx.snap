@@ -6843,6 +6843,7 @@ exports[`Table should match a snapshot when table is scrollable 1`] = `
   style={
     Object {
       "maxHeight": undefined,
+      "overflow": "scroll",
     }
   }
 >

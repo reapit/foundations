@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="app-nav-container "
+        class=""
         data-test=""
       >
         <nav
@@ -365,7 +365,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="app-nav-container "
+      class=""
       data-test=""
     >
       <nav

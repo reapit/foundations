@@ -69,7 +69,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
             className="is-italic"
           >
             <div
-              className="content is-italic"
+              className=""
               data-test=""
             >
               vitae elementum curabitur vitae
@@ -102,7 +102,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
               dataTest=""
             >
               <div
-                className="content "
+                className=""
                 data-test=""
               >
                 <Component
@@ -174,7 +174,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
               dataTest=""
             >
               <div
-                className="content "
+                className=""
                 data-test=""
               >
                 <Component
@@ -222,7 +222,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
               dataTest=""
             >
               <div
-                className="content "
+                className=""
                 data-test=""
               >
                 <Component
@@ -237,14 +237,14 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                 </Component>
                 <Component>
                   <div
-                    className="columns is-multiline "
+                    className=""
                     data-test=""
                   >
                     <Component
                       key="Marketplace/developers.read"
                     >
                       <div
-                        className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                        className=""
                         data-test=""
                       >
                         Read data about developers
@@ -254,7 +254,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                       key="Marketplace/developers.write"
                     >
                       <div
-                        className="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+                        className=""
                         data-test=""
                       >
                         Write data about developers
@@ -316,7 +316,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
               dataTest="render-installations-table"
             >
               <div
-                className="content "
+                className=""
                 data-test="render-installations-table"
               >
                 <Component
@@ -376,6 +376,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
                     style={
                       Object {
                         "maxHeight": undefined,
+                        "overflow": "scroll",
                       }
                     }
                   >

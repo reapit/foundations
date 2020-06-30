@@ -139,12 +139,11 @@ exports[`InstalledAppList should match a snapshot 1`] = `
 <Component
   flexColumn={true}
 >
-  <Component>
-    <Component
-      className=""
-    >
-      Installed Apps
-    </Component>
+  <Component
+    className=""
+    isHeadingSection={true}
+  >
+    Installed Apps
   </Component>
   <Component
     list={
@@ -211,12 +210,11 @@ exports[`InstalledAppList should match a snapshot when use empty infoType 1`] = 
 <Component
   flexColumn={true}
 >
-  <Component>
-    <Component
-      className=""
-    >
-      Installed Apps
-    </Component>
+  <Component
+    className=""
+    isHeadingSection={true}
+  >
+    Installed Apps
   </Component>
   <Component
     list={

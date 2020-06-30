@@ -60,7 +60,7 @@ exports[`Login should match a snapshot 1`] = `
           <div>
             <Component>
               <div
-                className="level "
+                className=""
                 data-test=""
               >
                 <img
@@ -77,7 +77,7 @@ exports[`Login should match a snapshot 1`] = `
             </p>
             <Component>
               <div
-                className="level "
+                className=""
                 data-test=""
               >
                 <Component

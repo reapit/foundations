@@ -28,7 +28,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
             data-test="submit-app-form"
           >
             <div
-              className="form-section "
+              className=""
             >
               <Component>
                 <div
@@ -47,14 +47,14 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
               </Component>
               <Component>
                 <div
-                  className="form-heading mb-1 "
+                  className=""
                 >
                   App Listing
                 </div>
               </Component>
               <Component>
                 <div
-                  className="form-subheading mb-4 "
+                  className=""
                 >
                   The section below relates to the fields that comprise the listing of your application as it will appear to a user in the Marketplace. It also includes details we will use to enable us to contact you about your submitted application, how best to make your app discoverable to users and to determine where to launch it from the marketplace.
                 </div>
@@ -63,12 +63,12 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                 isMultiLine={true}
               >
                 <div
-                  className="columns is-multiline "
+                  className=""
                   data-test=""
                 >
                   <Component>
                     <div
-                      className="column  "
+                      className=""
                       data-test=""
                     >
                       <Component
@@ -116,7 +116,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                   </Component>
                   <Component>
                     <div
-                      className="column  "
+                      className=""
                       data-test=""
                     >
                       <Component
@@ -167,12 +167,12 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
               </Component>
               <Component>
                 <div
-                  className="columns  "
+                  className=""
                   data-test=""
                 >
                   <Component>
                     <div
-                      className="column  "
+                      className=""
                       data-test=""
                     >
                       <Component
@@ -220,7 +220,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                   </Component>
                   <Component>
                     <div
-                      className="column  "
+                      className=""
                       data-test=""
                     >
                       <Component
@@ -270,12 +270,12 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
               </Component>
               <Component>
                 <div
-                  className="columns  "
+                  className=""
                   data-test=""
                 >
                   <Component>
                     <div
-                      className="column  "
+                      className=""
                       data-test=""
                     >
                       <Component
@@ -323,7 +323,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                   </Component>
                   <Component>
                     <div
-                      className="column  "
+                      className=""
                       data-test=""
                     >
                       <Component
@@ -373,12 +373,12 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
               </Component>
               <Component>
                 <div
-                  className="columns  "
+                  className=""
                   data-test=""
                 >
                   <Component>
                     <div
-                      className="column  "
+                      className=""
                       data-test=""
                     >
                       <Component
@@ -421,7 +421,7 @@ exports[`GeneralInformationSection should match a snapshot 1`] = `
                   </Component>
                   <Component>
                     <div
-                      className="column  "
+                      className=""
                       data-test=""
                     >
                       <Component

@@ -78,7 +78,7 @@ exports[`ClientSettingsPage should match snapshot 1`] = `
           >
             <Component>
               <div
-                className="form-heading mb-1 "
+                className=""
               >
                 Customer ID: 
                 <strong>
@@ -88,7 +88,7 @@ exports[`ClientSettingsPage should match snapshot 1`] = `
             </Component>
             <Component>
               <div
-                className="form-subheading mb-4 "
+                className=""
               >
                 This is your Customer ID which you will need for use with Private Apps and Web Components.
               </div>
@@ -97,7 +97,7 @@ exports[`ClientSettingsPage should match snapshot 1`] = `
               className="bt pt-4"
             >
               <div
-                className="level-right bt pt-4"
+                className=""
                 data-test=""
               >
                 <Component

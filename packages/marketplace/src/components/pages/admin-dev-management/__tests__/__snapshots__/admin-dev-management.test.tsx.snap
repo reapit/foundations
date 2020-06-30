@@ -111,18 +111,18 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                   >
                     <Component>
                       <div
-                        className="form-section "
+                        className=""
                       >
                         <Component>
                           <div
-                            className="form-heading mb-1 "
+                            className=""
                           >
                             Developer Management Filter Form
                           </div>
                         </Component>
                         <Component>
                           <div
-                            className="form-subheading mb-4 "
+                            className=""
                           >
                             Filter the result by Name and Company
                           </div>
@@ -131,12 +131,12 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                           className="items-center"
                         >
                           <div
-                            className="columns  items-center"
+                            className=""
                             data-test=""
                           >
                             <Component>
                               <div
-                                className="column  "
+                                className=""
                                 data-test=""
                               >
                                 <Component
@@ -183,7 +183,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                             </Component>
                             <Component>
                               <div
-                                className="column  "
+                                className=""
                                 data-test=""
                               >
                                 <Component
@@ -230,7 +230,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                             </Component>
                             <Component>
                               <div
-                                className="column  "
+                                className=""
                                 data-test=""
                               >
                                 <Component
@@ -407,7 +407,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                             </Component>
                             <Component>
                               <div
-                                className="column  "
+                                className=""
                                 data-test=""
                               >
                                 <Component
@@ -588,7 +588,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                               className="mt-4"
                             >
                               <div
-                                className="column  mt-4"
+                                className=""
                                 data-test=""
                               >
                                 <Component
@@ -667,6 +667,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                     style={
                       Object {
                         "maxHeight": undefined,
+                        "overflow": "scroll",
                       }
                     }
                   >

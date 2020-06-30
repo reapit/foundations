@@ -188,30 +188,30 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
             >
               <Component>
                 <div
-                  className="form-section "
+                  className=""
                 >
                   <Component>
                     <div
-                      className="form-heading mb-1 "
+                      className=""
                     >
                       Admin Apps Filter Form
                     </div>
                   </Component>
                   <Component>
                     <div
-                      className="form-subheading mb-4 "
+                      className=""
                     >
                       Filter the result by App, Developer and Company
                     </div>
                   </Component>
                   <Component>
                     <div
-                      className="columns  "
+                      className=""
                       data-test=""
                     >
                       <Component>
                         <div
-                          className="column  "
+                          className=""
                           data-test=""
                         >
                           <Component
@@ -258,7 +258,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                       </Component>
                       <Component>
                         <div
-                          className="column  "
+                          className=""
                           data-test=""
                         >
                           <Component
@@ -305,7 +305,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                       </Component>
                       <Component>
                         <div
-                          className="column  "
+                          className=""
                           data-test=""
                         >
                           <Component
@@ -354,12 +354,12 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                   </Component>
                   <Component>
                     <div
-                      className="columns  "
+                      className=""
                       data-test=""
                     >
                       <Component>
                         <div
-                          className="column  "
+                          className=""
                           data-test=""
                         >
                           <Component
@@ -540,7 +540,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                       </Component>
                       <Component>
                         <div
-                          className="column  "
+                          className=""
                           data-test=""
                         >
                           <Component
@@ -723,7 +723,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                       </Component>
                       <Component>
                         <div
-                          className="column  "
+                          className=""
                           data-test=""
                         >
                           <Component
@@ -838,6 +838,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                   style={
                     Object {
                       "maxHeight": undefined,
+                      "overflow": "scroll",
                     }
                   }
                 >

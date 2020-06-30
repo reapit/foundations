@@ -1,5 +1,6 @@
 @import '../base/colors.scss';
 @import '../base/fonts.scss';
+@import '../base/media.scss';
 
 $nav-dimensions: 66px;
 
@@ -14,7 +15,7 @@ $nav-dimensions: 66px;
   top: 0;
   z-index: 1;
 
-  @media screen and (min-width: 768px) {
+  @include for-tablet-and-desktop {
     height: 100%;
     width: $nav-dimensions;
     overflow: hidden;
@@ -30,7 +31,7 @@ $nav-dimensions: 66px;
     height: $nav-dimensions;
     -ms-overflow-style: -ms-autohiding-scrollbar;
 
-    @media screen and (min-width: 768px) {
+    @include for-tablet-and-desktop {
       height: 100%;
       flex-direction: column;
       overflow-x: hidden;
@@ -47,7 +48,7 @@ $nav-dimensions: 66px;
     object-fit: contain;
     color: $reapit-lightest-blue-lightened;
 
-    @media screen and (min-width: 768px) {
+    @include for-tablet-and-desktop {
       width: $nav-dimensions;
     }
   }
@@ -61,7 +62,7 @@ $nav-dimensions: 66px;
   li.is-active {
     border-bottom: $white 3px solid;
 
-    @media screen and (min-width: 768px) {
+    @include for-tablet-and-desktop {
       border-bottom: $reapit-dark-blue-darkened 3px solid;
       border-left: $white 3px solid;
     }
@@ -73,7 +74,7 @@ $nav-dimensions: 66px;
     &.is-secondary {
       margin-left: auto;
 
-      @media screen and (min-width: 768px) {
+      @include for-tablet-and-desktop {
         margin-top: auto;
         margin-left: 0;
       }
@@ -117,7 +118,7 @@ $nav-dimensions: 66px;
   li.is-active {
     border-bottom: $black 3px solid;
 
-    @media screen and (min-width: 768px) {
+    @include for-tablet-and-desktop {
       border-bottom: $grey-lightest 3px solid;
       border-left: $black 3px solid;
     }

@@ -112,7 +112,7 @@ export const Members: React.FC = () => {
   return (
     <Section>
       <H5>Members</H5>
-      <Table scrollable={true} loading={false} data={data} columns={columns} />
+      <Table scrollable loading={false} data={data} columns={columns} />
 
       <SetMemberStatusModal
         visible={editStatusModalVisible}
