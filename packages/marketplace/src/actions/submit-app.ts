@@ -4,7 +4,6 @@ import ActionTypes from '../constants/action-types'
 import { CreateAppModel, ScopeModel } from '@reapit/foundations-ts-definitions'
 import { FormState } from '@/types/core'
 import { FormStep } from '@/reducers/submit-app'
-import { FormikErrors } from '@reapit/elements'
 import { HandleSubmitParams } from '@/components/ui/submit-app-wizard/submit-app-wizard'
 
 export type SubmitAppFormikActions = FormikHelpers<CustomCreateAppModel>
@@ -14,9 +13,8 @@ export type CustomCreateAppModel = Pick<CreateAppModel, 'name' | 'authFlow' | 's
   signoutUris?: string
 }
 export type SubmitAppArgs = CreateAppModel &
-  Pick<HandleSubmitParams, 'setWizardStep' | 'afterClose'> & {
-    setErrors: (errors: FormikErrors<CustomCreateAppModel>) => void
-  }
+  Pick<HandleSubmitParams, 'setWizardStep' | 'afterClose'> &
+  Pick<FormikHelpers<CustomCreateAppModel>, 'setErrors' | 'setFieldValue'>
 
 export type WizardChangeStepModel = {
   formStep: FormStep

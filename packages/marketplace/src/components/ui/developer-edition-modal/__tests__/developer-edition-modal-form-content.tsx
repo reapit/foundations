@@ -5,9 +5,7 @@ import { DeveloperEditionModalFormContent } from '../developer-edition-modal-for
 const dropdownOptions = [{ value: 'value', label: 'label', description: 'description' }]
 describe('DeveloperInviteMemberModalFooter', () => {
   it('should match snapshot', () => {
-    const wrapper = shallow(
-      <DeveloperEditionModalFormContent dropdownOptions={dropdownOptions} afterClose={jest.fn()} />,
-    )
+    const wrapper = shallow(<DeveloperEditionModalFormContent dropdownOptions={dropdownOptions} />)
     expect(wrapper).toMatchSnapshot()
   })
 })

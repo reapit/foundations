@@ -1,16 +1,18 @@
 import React from 'react'
+import { ValidateFormikOnMount } from '../utils'
 import { ModalBody, Button, Input, ModalFooter } from '@reapit/elements'
 import { WizardStepComponent, SetWizardStep } from '../types'
 import { formFields } from '../form-fields'
 import { useFormikContext } from 'formik'
+import { wizzardSteps } from '../constant'
 
 const { nameField } = formFields
 
 export const onNext = (setWizardStep: SetWizardStep) => () => {
-  setWizardStep('CREATE_NEW_APP')
+  setWizardStep(wizzardSteps.CREATE_NEW_APP)
 }
 export const onPrev = (setWizardStep: SetWizardStep) => () => {
-  setWizardStep('BEFORE_YOU_START')
+  setWizardStep(wizzardSteps.BEFORE_YOU_START)
 }
 
 export const StepInputAppName: WizardStepComponent = ({ setWizardStep }) => {
@@ -18,6 +20,7 @@ export const StepInputAppName: WizardStepComponent = ({ setWizardStep }) => {
 
   return (
     <>
+      <ValidateFormikOnMount />
       <ModalBody
         body={
           <div>

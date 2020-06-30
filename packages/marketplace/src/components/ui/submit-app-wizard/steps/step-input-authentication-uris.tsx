@@ -3,21 +3,33 @@ import { ModalBody, Button, Input, ModalFooter } from '@reapit/elements'
 import { WizardStepComponent, SetWizardStep } from '../types'
 import { formFields } from '../form-fields'
 import { useFormikContext } from 'formik'
+import { CustomCreateAppModel } from '@/actions/submit-app'
+import { ValidateFormikOnMount } from '../utils'
+import { wizzardSteps } from '../constant'
 
-const { redirectUrisField, signoutUrisField } = formFields
+const { redirectUrisField, signoutUrisField, directApiField } = formFields
 
 export const onNext = (setWizardStep: SetWizardStep) => () => {
-  setWizardStep('GRANT_PERMISSION')
+  setWizardStep(wizzardSteps.GRANT_PERMISSION)
 }
-export const onPrev = (setWizardStep: SetWizardStep) => () => {
-  setWizardStep('CREATE_NEW_APP')
+export const onPrev = (setWizardStep: SetWizardStep, isDirectApi: boolean) => () => {
+  // flow 2, 3
+  if (!isDirectApi) {
+    setWizardStep(wizzardSteps.CREATE_NEW_APP)
+    return
+  }
+
+  // flow 1, step 4: https://github.com/reapit/foundations/issues/1785
+  setWizardStep(wizzardSteps.INPUT_ATHENTICATION_TYPE)
 }
 
 export const StepInputAuthenticationUris: WizardStepComponent = ({ setWizardStep }) => {
-  const { isValid } = useFormikContext()
+  const { isValid, values } = useFormikContext<CustomCreateAppModel>()
+  const isDirectApi = Boolean(values[directApiField.name])
 
   return (
     <>
+      <ValidateFormikOnMount />
       <ModalBody
         body={
           <div>
@@ -47,7 +59,7 @@ export const StepInputAuthenticationUris: WizardStepComponent = ({ setWizardStep
       <ModalFooter
         footerItems={
           <>
-            <Button onClick={onPrev(setWizardStep)}>Back</Button>
+            <Button onClick={onPrev(setWizardStep, isDirectApi)}>Back</Button>
             <Button type="submit" disabled={!isValid} onClick={onNext(setWizardStep)}>
               Next
             </Button>

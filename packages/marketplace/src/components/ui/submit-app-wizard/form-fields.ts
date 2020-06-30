@@ -1,6 +1,14 @@
 import { FormFieldInfo } from '@reapit/elements'
 
-export type Field = 'nameField' | 'redirectUrisField' | 'signoutUrisField' | 'authFlowField' | 'scopesField'
+export type Field =
+  | 'nameField'
+  | 'redirectUrisField'
+  | 'signoutUrisField'
+  | 'authFlowField'
+  | 'scopesField'
+  | 'directApiField'
+  | 'externalIdField'
+  | 'appIdField'
 
 export const formFields: Record<Field, FormFieldInfo> = {
   nameField: {
@@ -21,7 +29,16 @@ export const formFields: Record<Field, FormFieldInfo> = {
   authFlowField: {
     name: 'authFlow',
   },
+  appIdField: {
+    name: 'id',
+  },
   scopesField: {
     name: 'scopes',
+  },
+  directApiField: {
+    name: 'isDirectApi',
+  },
+  externalIdField: {
+    name: 'externalId',
   },
 }

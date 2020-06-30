@@ -2,6 +2,7 @@
 
 exports[`StepInputAuthenticationUris should match snapshot 1`] = `
 <Fragment>
+  <Component />
   <Component
     body={
       <div>
