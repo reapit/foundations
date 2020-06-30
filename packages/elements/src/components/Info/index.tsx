@@ -27,8 +27,8 @@ export const infoText = (infoType: InfoType) => {
       )
     case 'DEVELOPER_APPS_EMPTY':
       return (
-        'It looks like you haven’t submitted an App yet . When you’re ready, click on ‘Submit’ ' +
-        'from the menu to get started.'
+        'It looks like you haven’t submitted an App yet. When you’re ready, ' +
+        'click on ‘Create New App’ to get started.'
       )
     case 'ADMIN_APPROVALS_EMPTY':
       return 'There are no updates that require approval'

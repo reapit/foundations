@@ -30,7 +30,7 @@ exports[`Info should match a snapshot for variant CLIENT_APPS_EMPTY 1`] = `
 
 exports[`Info should match a snapshot for variant DEVELOPER_APPS_EMPTY 1`] = `
 <Component
-  message="It looks like you haven’t submitted an App yet . When you’re ready, click on ‘Submit’ from the menu to get started."
+  message="It looks like you haven’t submitted an App yet. When you’re ready, click on ‘Create New App’ to get started."
   type="info"
 />
 `;
