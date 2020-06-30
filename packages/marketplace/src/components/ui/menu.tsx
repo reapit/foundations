@@ -26,6 +26,7 @@ import { selectIsAdmin, selectLoginType } from '@/selector/auth'
 import { ActionCreator } from '@/types/core'
 import { LoginType } from '@reapit/cognito-auth'
 import { Dispatch } from 'redux'
+import { selectDeveloperEditionId } from '@/selector/client'
 
 export const generateMenuConfig = (
   logoutCallback: () => void,
@@ -220,8 +221,10 @@ export const logout = ({ dispatch, authLogout }: { dispatch: Dispatch; authLogou
 export const Menu: React.FunctionComponent<MenuProps> = () => {
   const location = useLocation()
   const dispatch = useDispatch()
-  const isAdmin = useSelector(selectIsAdmin)
+  const isDesktopAdmin = useSelector(selectIsAdmin)
+  const isDeveloperEdition = Boolean(useSelector(selectDeveloperEditionId))
   const loginType = useSelector(selectLoginType)
+  const isAdmin = isDesktopAdmin || isDeveloperEdition
 
   const menuConfigs = generateMenuConfig(logout({ dispatch, authLogout }), location, isAdmin)
   return <Sidebar {...menuConfigs[loginType]} location={location} />

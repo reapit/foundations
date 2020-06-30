@@ -23,6 +23,7 @@ const createStore = (loading, isAdmin) => {
       loginSession: {
         loginIdentity: {
           isAdmin,
+          groups: [] as string[],
         },
       },
     },

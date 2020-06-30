@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux'
 import { History } from 'history'
 import { selectAppDetailState, selectAppDetailData, selectAppDetailLoading } from '@/selector/developer-app-detail'
 import { selectInstallAppLoading } from '@/selector/installations'
-import { Loader, FlexContainerBasic, Grid, GridItem } from '@reapit/elements'
+import { Loader, Grid, GridItem, Section } from '@reapit/elements'
 import AppHeader from '@/components/pages/app-detail/common/ui-app-header'
 import styles from '@/styles/blocks/standalone-app-detail.scss?mod'
 import routes from '@/constants/routes'
@@ -68,11 +68,11 @@ const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
         <DeveloperAside desktopIntegrationTypes={userDesktopIntegrationTypes} appDetailState={appDetailState} />
       </GridItem>
       <GridItem className="is-three-quarters">
-        <FlexContainerBasic flexColumn hasPadding hasBackground isFullHeight>
+        <Section isFlex isFlexColumn hasBackground isFullHeight>
           <AppHeader appDetailData={appDetailData} />
           <AppContent appDetailState={appDetailState} />
           {!isMobile && <BackToAppsSection onClick={onBackToAppsButtonClick(history)} />}
-        </FlexContainerBasic>
+        </Section>
       </GridItem>
     </Grid>
   )

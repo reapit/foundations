@@ -7,7 +7,7 @@ import { authChangeLoginType } from '@/actions/auth'
 import { showNotificationMessage } from '@/actions/notification-message'
 import { selectLoginSession, selectRefreshSession, selectLoginType, selectIsDesktopMode } from '@/selector/auth'
 import { LoginType, redirectToLogin } from '@reapit/cognito-auth'
-import { Button, Level, FlexContainerBasic } from '@reapit/elements'
+import { Button, Level, FlexContainerBasic, Section } from '@reapit/elements'
 import { getLoginTypeByPath, getDefaultPathByLoginType, getDefaultRouteByLoginType } from '@/utils/auth-route'
 import Routes from '@/constants/routes'
 import messages from '@/constants/messages'
@@ -101,7 +101,9 @@ export const Login: React.FunctionComponent<LoginProps> = () => {
         <Level>
           <img src={connectImage} alt="Reapit Connect Graphic" />
         </Level>
-        <p className="pb-8">Welcome to Reapit {`${loginType === 'CLIENT' ? 'Marketplace' : 'Foundations'}`}</p>
+        <Section>
+          <p>Welcome to Reapit {`${loginType === 'CLIENT' ? 'Marketplace' : 'Foundations'}`}</p>
+        </Section>
         <Level className={registerLevel}>
           <Button
             className={loginButton}
