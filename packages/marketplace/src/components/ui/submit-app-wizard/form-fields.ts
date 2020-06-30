@@ -14,7 +14,7 @@ export const formFields: Record<Field, FormFieldInfo> = {
   nameField: {
     name: 'name',
     placeHolder: 'Please enter an app name',
-    errorMessage: 'Only contain letters and numbers',
+    errorMessage: 'Should only contain letters and number',
   },
   redirectUrisField: {
     name: 'redirectUris',
