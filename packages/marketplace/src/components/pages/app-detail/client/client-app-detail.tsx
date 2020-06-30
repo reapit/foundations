@@ -10,7 +10,7 @@ import { selectAppDetailData, selectAppDetailLoading, selectAppDetailError } fro
 import { selectLoginType, selectIsAdmin } from '@/selector/auth'
 import { canGoBack } from '@/utils/router-helper'
 import AppContent from './client-app-content'
-import { Loader, Alert, GridItem, Grid, FlexContainerBasic } from '@reapit/elements'
+import { Loader, Alert, GridItem, Grid, Section } from '@reapit/elements'
 import styles from '@/styles/blocks/standalone-app-detail.scss?mod'
 import ClientAppInstallConfirmation from '@/components/pages/app-detail/client/client-app-install-confirmation'
 import { ClientAside } from './client-aside'
@@ -25,6 +25,7 @@ import useReactResponsive from '@/components/hooks/use-react-responsive'
 import AppHeader from '../common/ui-app-header'
 import { BackToAppsSection } from '../common/ui-sections'
 import { ClientAppDetailButtonGroup } from './client-app-detail-button-group'
+import { selectDeveloperEditionId } from '@/selector/client'
 
 export type ClientAppDetailProps = {}
 
@@ -139,9 +140,11 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
 
   const isLoadingAppDetail = useSelector(selectAppDetailLoading)
   const loginType = useSelector(selectLoginType)
-  const isAdmin = useSelector(selectIsAdmin)
+  const isDesktopAdmin = useSelector(selectIsAdmin)
+  const isDeveloperEdition = Boolean(useSelector(selectDeveloperEditionId))
   const error = useSelector(selectAppDetailError)
 
+  const isAdmin = isDesktopAdmin || isDeveloperEdition
   const isInstallBtnHidden = loginType === 'CLIENT' && !isAdmin
   // selector selectAppDetailData return {} if not data
   const unfetched = Object.keys(appDetailData).length === 0
@@ -160,7 +163,7 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
             <ClientAside appDetailData={appDetailData} desktopIntegrationTypes={userDesktopIntegrationTypes} />
           </GridItem>
           <GridItem className="is-three-quarters">
-            <FlexContainerBasic flexColumn hasPadding hasBackground isFullHeight>
+            <Section isFlex isFlexColumn isFullHeight>
               <AppHeader
                 appDetailData={appDetailData}
                 buttonGroup={renderAppHeaderButtonGroup(
@@ -176,7 +179,7 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
               {!isMobile && loginType !== 'DEVELOPER' && (
                 <BackToAppsSection onClick={onBackToAppsButtonClick(history)} />
               )}
-            </FlexContainerBasic>
+            </Section>
           </GridItem>
         </>
       )}

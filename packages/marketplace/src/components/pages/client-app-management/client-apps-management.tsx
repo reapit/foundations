@@ -6,7 +6,7 @@ import { Loader, Info, Pagination, H3 } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import routes from '@/constants/routes'
 import AppList from '@/components/ui/app-list'
-import { selectMyApps } from '@/selector/client'
+import { selectMyApps, selectDeveloperEditionId } from '@/selector/client'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { handleLaunchApp } from '@/utils/launch-app'
 import { selectIsAdmin } from '@/selector/auth'
@@ -24,7 +24,9 @@ export const ClientAppsManagement: React.FunctionComponent = () => {
   const location = useLocation()
 
   const myAppsState = useSelector(selectMyApps)
-  const isAdmin = useSelector(selectIsAdmin)
+  const isDesktopAdmin = useSelector(selectIsAdmin)
+  const isDeveloperEdition = Boolean(useSelector(selectDeveloperEditionId))
+  const isAdmin = isDesktopAdmin || isDeveloperEdition
   const queryParams = getParamsFromPath(location.search)
   const { page: pageNumber = 1 } = queryParams
 

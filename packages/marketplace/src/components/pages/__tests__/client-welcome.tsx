@@ -22,6 +22,7 @@ const mockState = {
     loginSession: {
       loginIdentity: {
         isAdmin: true,
+        groups: [] as string[],
       },
     },
   },

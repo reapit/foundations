@@ -69,12 +69,17 @@ exports[`Login should match a snapshot 1`] = `
                 />
               </div>
             </Component>
-            <p
-              className="pb-8"
-            >
-              Welcome to Reapit 
-              Foundations
-            </p>
+            <Component>
+              <section
+                className=""
+                data-test=""
+              >
+                <p>
+                  Welcome to Reapit 
+                  Foundations
+                </p>
+              </section>
+            </Component>
             <Component>
               <div
                 className=""

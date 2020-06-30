@@ -11,6 +11,7 @@ import Step5 from '@/assets/images/step-5.png'
 import { setCookieString, COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE, COOKIE_MAX_AGE_INFINITY } from '@/utils/cookie'
 import { useSelector } from 'react-redux'
 import { selectIsAdmin, selectLoginSession } from '@/selector/auth'
+import { selectDeveloperEditionId } from '@/selector/client'
 
 export interface ClientWelcomeMappedActions {}
 
@@ -146,8 +147,10 @@ export const handleChangeSteps = (goTo: () => void) => () => {
 }
 
 export const ClientWelcomeMessage: React.FC<ClientWelcomeMessageProps> = () => {
-  const isAdmin = useSelector(selectIsAdmin)
+  const isDesktopAdmin = useSelector(selectIsAdmin)
+  const isDeveloperEdition = Boolean(useSelector(selectDeveloperEditionId))
   const loginSession = useSelector(selectLoginSession)
+  const isAdmin = isDesktopAdmin || isDeveloperEdition
   const WELCOME_GIUDE = isAdmin ? WELCOME_GUIDE_ADMIN : WELCOME_GUIDE_USER
 
   const guideList = WELCOME_GIUDE.map(step => {
