@@ -28,6 +28,7 @@ const Routes = {
   SUBMIT_APP: '/developer/submit-app',
   DEVELOPER_HELP: '/developer/help',
   DEVELOPER_APP_PREVIEW: '/developer/apps/:appId/preview',
+  DEVELOPER_EDITION_DOWNLOAD: '/developer/edition-download',
   CLIENT_HELP: '/client/help',
   REGISTER: '/register',
   REGISTER_CONFIRM: '/register/confirm',
