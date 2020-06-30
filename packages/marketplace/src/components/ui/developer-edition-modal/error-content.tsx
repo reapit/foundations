@@ -16,11 +16,11 @@ export const ErrorContent: React.FC<ErrorContentProps> = ({ afterClose }) => {
           <SubTitleH6 className={developerEditionStyles.subTitle}>
             It looks as though you already have a subscription in place for the Developer Edition of Agency Cloud. If
             you have not received your email with instructions on how to download, please let us know using the live
-            chat feature on the{' '}
+            chat feature on the&nbsp;
             <a className={linkStyles.link} target="_blank" rel="noopener noreferrer" href={HELP_PAGE_LINK}>
               &apos;Help&apos;
-            </a>{' '}
-            page.
+            </a>
+            &nbsp;page.
           </SubTitleH6>
         }
       />

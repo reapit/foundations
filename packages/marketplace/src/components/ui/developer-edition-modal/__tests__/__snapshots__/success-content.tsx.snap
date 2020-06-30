@@ -13,8 +13,7 @@ exports[`SuccessContent should match snapshot 1`] = `
         </Unknown>
         <Unknown>
           Duong Pham
-           -
-           
+           - 
           <a
             className={[Function]}
             href="mailto:tanphamhaiduong@gmail.com"

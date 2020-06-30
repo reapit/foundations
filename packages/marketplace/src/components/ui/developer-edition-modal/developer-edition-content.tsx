@@ -15,7 +15,7 @@ import developerEditionStyles from '@/styles/blocks/developer-edition-modal.scss
 import { FormValues } from './form-fields'
 import pdfLink from '@/assets/files/reapit-foundations-developer-agreement.pdf'
 import { formFields } from './form-fields'
-import { validate } from '@/utils/form/developer-edition-subscription'
+import validationSchema from './validation-schema'
 
 const { developerList } = formFields
 
@@ -48,12 +48,12 @@ export const DeveloperEditionContent: React.FC<DeveloperEditionContentProps> = (
               <br />
               <br />
               There will be no charge for the licence during the Beta phase. For more information regarding the
-              Developer Edition please refer to your Developer Registration{' '}
+              Developer Edition please refer to your Developer Registration&nbsp;
               <a href={pdfLink} rel="noreferrer" target="_blank">
                 Terms and Conditions
               </a>
             </SubTitleH6>
-            <Formik initialValues={initialValues} onSubmit={onFormSubmit} validate={validate}>
+            <Formik initialValues={initialValues} onSubmit={onFormSubmit} validationSchema={validationSchema}>
               <Form className="form">
                 <DropdownSelect
                   mode="multiple"

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { mount, shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import appState from '@/reducers/__stubs__/app-state'
 import { DeveloperEditionModal, handleAfterClose, handleFormSubmit, handleOnCreated } from '../developer-edition-modal'
 import { Provider, useSelector } from 'react-redux'
@@ -34,7 +34,7 @@ describe('DeveloperEditionModal', () => {
   })
 
   it('should match snapshot when not visible', () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <Provider store={store}>
         <DeveloperEditionModal visible={false} afterClose={jest.fn()} />
       </Provider>,

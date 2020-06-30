@@ -12,8 +12,7 @@ exports[`DeveloperEditionContent should match snapshot 1`] = `
           The Agency Cloud Developer Edition is used for testing your application and is a licenced product. The cost per licence is £300.00 (plus VAT) per month. It will be automatically added to your monthly billing and will auto renew until you cancel.
           <br />
           <br />
-          There will be no charge for the licence during the Beta phase. For more information regarding the Developer Edition please refer to your Developer Registration
-           
+          There will be no charge for the licence during the Beta phase. For more information regarding the Developer Edition please refer to your Developer Registration 
           <a
             href=""
             rel="noreferrer"
@@ -31,7 +30,69 @@ exports[`DeveloperEditionContent should match snapshot 1`] = `
             }
           }
           onSubmit={[MockFunction]}
-          validate={[Function]}
+          validationSchema={
+            ObjectSchema {
+              "_blacklist": RefSet {
+                "list": Set {},
+                "refs": Map {},
+              },
+              "_conditions": Array [],
+              "_defaultDefault": [Function],
+              "_deps": Array [],
+              "_excludedEdges": Array [],
+              "_exclusive": Object {},
+              "_mutate": undefined,
+              "_nodes": Array [
+                "developerList",
+              ],
+              "_options": Object {
+                "abortEarly": true,
+                "recursive": true,
+              },
+              "_type": "object",
+              "_typeError": [Function],
+              "_whitelist": RefSet {
+                "list": Set {},
+                "refs": Map {},
+              },
+              "fields": Object {
+                "developerList": StringSchema {
+                  "_blacklist": RefSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_conditions": Array [],
+                  "_deps": Array [],
+                  "_exclusive": Object {
+                    "required": true,
+                  },
+                  "_mutate": undefined,
+                  "_options": Object {
+                    "abortEarly": true,
+                    "recursive": true,
+                  },
+                  "_type": "string",
+                  "_typeError": [Function],
+                  "_whitelist": RefSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "tests": Array [
+                    [Function],
+                  ],
+                  "transforms": Array [
+                    [Function],
+                  ],
+                  "type": "string",
+                },
+              },
+              "tests": Array [],
+              "transforms": Array [
+                [Function],
+              ],
+              "type": "object",
+            }
+          }
         >
           <Form
             className="form"

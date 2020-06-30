@@ -22,7 +22,7 @@ export const SuccessContent: React.FC<SuccessContentProps> = ({ developer, after
               members of your organisation with instructions on how to get started.
             </SubTitleH6>
             <SubTitleH6 className={developerEditionStyles.subTitle}>
-              {developer.name} -{' '}
+              {developer.name} -&nbsp;
               <a
                 className={linkStyles.link}
                 target="_blank"
