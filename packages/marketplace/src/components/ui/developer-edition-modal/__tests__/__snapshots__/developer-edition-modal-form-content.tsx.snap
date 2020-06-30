@@ -25,7 +25,6 @@ exports[`DeveloperInviteMemberModalFooter should match snapshot 1`] = `
   />
   <Component>
     <Component
-      onClick={[MockFunction]}
       variant="secondary"
     >
       Cancel

@@ -1,18 +1,26 @@
 import React from 'react'
 import { ModalBody, Button, H4, ModalFooter, FlexContainerBasic } from '@reapit/elements'
-import { WizardStepComponent, SetWizardStep } from '../types'
+import { WizardStepComponent, SetWizardStep, SetDirectApi } from '../types'
 import { useFormikContext } from 'formik'
 import { formFields } from '../form-fields'
+import { wizzardSteps } from '../constant'
+import authFlows from '@/constants/app-auth-flow'
 
-const { authFlowField } = formFields
+const { authFlowField, directApiField } = formFields
 
 export const onPrev = (setWizardStep: SetWizardStep) => () => {
-  setWizardStep('INPUT_APP_NAME')
+  setWizardStep(wizzardSteps.INPUT_APP_NAME)
+}
+
+export const onLaunchWithoutAgencyCloud = (setWizardStep: SetWizardStep, setFieldValue: SetDirectApi) => () => {
+  setFieldValue(directApiField.name, true)
+  setWizardStep(wizzardSteps.INPUT_ATHENTICATION_TYPE)
 }
 
 export const onLauchWithinAgencyCloud = (setWizardStep: SetWizardStep, setFieldValue) => () => {
-  setFieldValue(authFlowField.name, 'Authorisation Code')
-  setWizardStep('INPUT_AUTHENTICATION_URIS')
+  setFieldValue(authFlowField.name, authFlows.USER_SESSION)
+  setFieldValue(directApiField.name, false)
+  setWizardStep(wizzardSteps.INPUT_AUTHENTICATION_URIS)
 }
 
 export const StepCreateNewApp: WizardStepComponent = ({ setWizardStep }) => {
@@ -36,8 +44,7 @@ export const StepCreateNewApp: WizardStepComponent = ({ setWizardStep }) => {
           <FlexContainerBasic>
             <div>
               <Button onClick={onLauchWithinAgencyCloud(setWizardStep, setFieldValue)}>Yes</Button>
-              {/* TBC flow 2 */}
-              <Button>No</Button>
+              <Button onClick={onLaunchWithoutAgencyCloud(setWizardStep, setFieldValue)}>No</Button>
             </div>
             <div className="ml-auto">
               <Button onClick={onPrev(setWizardStep)}>Back</Button>

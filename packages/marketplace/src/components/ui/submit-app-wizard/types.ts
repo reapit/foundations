@@ -1,5 +1,7 @@
 import React from 'react'
 
+export type AuthFlow = 'authorisationCode' | 'clientCredentials'
+
 export type WizardStep =
   | 'BEFORE_YOU_START'
   | 'INPUT_APP_NAME'
@@ -7,10 +9,14 @@ export type WizardStep =
   | 'INPUT_AUTHENTICATION_URIS'
   | 'GRANT_PERMISSION'
   | 'SUBMIT_APP_SUCCESS'
+  | 'INPUT_ATHENTICATION_TYPE'
 
 export type SetWizardStep = React.Dispatch<React.SetStateAction<WizardStep>>
+export type SetAuthFlow = (field: string, authFlow: AuthFlow) => void
+export type SetDirectApi = (field: string, value: boolean) => void
 
-export type WizardStepComponent = React.FC<{
+export type WizardStepComponentProps = {
   setWizardStep: React.Dispatch<React.SetStateAction<WizardStep>>
-  afterClose: (() => void) | undefined
-}>
+}
+
+export type WizardStepComponent = React.FC<WizardStepComponentProps>

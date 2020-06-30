@@ -9,7 +9,7 @@ import {
   RejectRevisionModel,
   AppClientSecretModel,
 } from '@reapit/foundations-ts-definitions'
-import { fetcher, setQueryParams } from '@reapit/elements'
+import { fetcher, fetcherWithReturnHeader, fetcherWithRawUrl, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
 import { generateHeader } from './utils'
 import { logger } from '@reapit/utils'
@@ -74,6 +74,21 @@ export const fetchAppsList = async (params: FetchAppsListParams): Promise<PagedR
   }
 }
 
+export const fetchAppByIdByRawUrl = async (url: string): Promise<AppDetailModel> => {
+  try {
+    const response = await fetcherWithRawUrl({
+      url,
+      method: 'GET',
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+    })
+
+    return response
+  } catch (error) {
+    logger(error)
+    throw new Error(error)
+  }
+}
+
 export const fetchAppById = async (params: FetchAppByIdParams): Promise<AppDetailModel> => {
   try {
     const { id, clientId } = params
@@ -92,14 +107,14 @@ export const fetchAppById = async (params: FetchAppByIdParams): Promise<AppDetai
 
 export const createApp = async (params: CreateAppParams) => {
   try {
-    const response = await fetcher({
+    const headers = await fetcherWithReturnHeader({
       url: URLS.apps,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'POST',
       body: params,
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
     })
-    return response
+    return headers
   } catch (error) {
     logger(error)
     throw error

@@ -24,7 +24,9 @@ exports[`StepCreateNewApp should match snapshot 1`] = `
           >
             Yes
           </Unknown>
-          <Unknown>
+          <Unknown
+            onClick={[Function]}
+          >
             No
           </Unknown>
         </div>
