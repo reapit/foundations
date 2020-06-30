@@ -23,10 +23,8 @@ const DevelperSettingsPage: React.FC = () => {
     <FlexContainerBasic flexColumn hasPadding>
       <Content>
         <FlexContainerResponsive flexColumn hasBackground hasPadding>
-          <div>
-            <Tabs />
-            <Forms />
-          </div>
+          <Tabs />
+          <Forms />
         </FlexContainerResponsive>
       </Content>
     </FlexContainerBasic>

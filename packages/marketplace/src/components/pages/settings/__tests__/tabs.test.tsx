@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import { ReduxState } from '@/types/core'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
@@ -30,7 +30,7 @@ describe('Tabs', () => {
     const store = mockStore(mockState)
 
     expect(
-      shallow(
+      mount(
         <Provider store={store}>
           <Tabs />
         </Provider>,

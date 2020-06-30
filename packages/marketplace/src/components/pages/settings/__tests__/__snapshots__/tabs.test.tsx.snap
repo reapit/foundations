@@ -1,37 +1,93 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tabs should match a snapshot 1`] = `
-<ContextProvider
-  value={
+<Provider
+  store={
     Object {
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "subscription": Subscription {
-        "handleChangeWrapper": [Function],
-        "listeners": Object {
-          "notify": [Function],
-        },
-        "onStateChange": [Function],
-        "parentSub": undefined,
-        "store": Object {
-          "clearActions": [Function],
-          "dispatch": [Function],
-          "getActions": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-        },
-        "unsubscribe": null,
-      },
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
     }
   }
 >
-  <Component />
-</ContextProvider>
+  <Component>
+    <Component
+      tabConfigs={
+        Array [
+          Object {
+            "active": false,
+            "displayText": "Profile",
+            "onTabClick": [Function],
+            "tabIdentifier": "/developer/settings/",
+          },
+          Object {
+            "active": false,
+            "displayText": "Organisation",
+            "onTabClick": [Function],
+            "tabIdentifier": "/developer/settings/organisation",
+          },
+          Object {
+            "active": false,
+            "displayText": "Billing",
+            "onTabClick": [Function],
+            "tabIdentifier": "/developer/settings/billing",
+          },
+        ]
+      }
+    >
+      <div
+        className="tabs is-fullwidth"
+        role="tablist"
+      >
+        <ul>
+          <li
+            className=""
+            key="/developer/settings/"
+          >
+            <a
+              aria-controls="/developer/settings/"
+              aria-selected={false}
+              id="/developer/settings/"
+              onClick={[Function]}
+              role="tab"
+            >
+              Profile
+            </a>
+          </li>
+          <li
+            className=""
+            key="/developer/settings/organisation"
+          >
+            <a
+              aria-controls="/developer/settings/organisation"
+              aria-selected={false}
+              id="/developer/settings/organisation"
+              onClick={[Function]}
+              role="tab"
+            >
+              Organisation
+            </a>
+          </li>
+          <li
+            className=""
+            key="/developer/settings/billing"
+          >
+            <a
+              aria-controls="/developer/settings/billing"
+              aria-selected={false}
+              id="/developer/settings/billing"
+              onClick={[Function]}
+              role="tab"
+            >
+              Billing
+            </a>
+          </li>
+        </ul>
+      </div>
+    </Component>
+  </Component>
+</Provider>
 `;
