@@ -37,8 +37,7 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
     }
     const headers: Headers = yield call(createApp, { ...values, developerId })
 
-    // const locationHeader = yield call(headers.get, 'location')
-    // ^ got Illegal invocation
+    // ^ got Illegal invocation when: const locationHeader = yield call(headers.get, 'location')
     const locationHeader = headers.get('location')
 
     if (typeof locationHeader !== 'string') {
