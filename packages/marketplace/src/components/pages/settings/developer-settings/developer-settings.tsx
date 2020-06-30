@@ -1,22 +1,9 @@
 import * as React from 'react'
-import { selectIsAdmin, selectLoginIdentity } from '@/selector/auth'
+import { selectLoginIdentity } from '@/selector/auth'
 import { useSelector } from 'react-redux'
 import { Loader, FlexContainerResponsive, Content, FlexContainerBasic } from '@reapit/elements'
 import { Forms } from './forms/forms'
 import { Tabs } from '../tabs'
-
-export const renderPageContent = ({ isProd, isAdmin }: { isProd: Boolean; isAdmin: Boolean }) => {
-  if (isAdmin && !isProd) {
-    return (
-      <div>
-        <Tabs />
-        <Forms />
-      </div>
-    )
-  }
-
-  return <Forms />
-}
 
 /**
  * render one of:
@@ -24,10 +11,6 @@ export const renderPageContent = ({ isProd, isAdmin }: { isProd: Boolean; isAdmi
  * ^ they both sit on "/developer/settings" route which is so confusing atm
  */
 const DevelperSettingsPage: React.FC = () => {
-  const isAdmin = useSelector(selectIsAdmin)
-  // FEATURE FLAG
-  const isProd = window.reapit.config.appEnv === 'production'
-
   // it take a while to 'AUTH_LOGIN_SUCCESS' to fire. If you user is admin, they may exerience a flash
   // this make sure settings page don't render until 'loginIdentity' is availabe
   const loginIdentity = useSelector(selectLoginIdentity)
@@ -40,7 +23,8 @@ const DevelperSettingsPage: React.FC = () => {
     <FlexContainerBasic flexColumn hasPadding>
       <Content>
         <FlexContainerResponsive flexColumn hasBackground hasPadding>
-          {renderPageContent({ isAdmin, isProd })}
+          <Tabs />
+          <Forms />
         </FlexContainerResponsive>
       </Content>
     </FlexContainerBasic>
