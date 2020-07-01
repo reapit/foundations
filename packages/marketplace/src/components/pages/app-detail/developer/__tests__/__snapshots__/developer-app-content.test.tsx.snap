@@ -57,10 +57,14 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
     }
   >
     <Component
-      flexColumn={true}
+      hasMargin={false}
+      hasPadding={false}
+      isFlex={true}
+      isFlexColumn={true}
     >
-      <div
+      <section
         className=""
+        data-test=""
       >
         <Component
           summary="vitae elementum curabitur vitae"
@@ -7523,7 +7527,7 @@ exports[`AppContent AppContent - should match snapshoot 1`] = `
             </Component>
           </Component>
         </Component>
-      </div>
+      </section>
     </Component>
   </AppContent>
 </Provider>

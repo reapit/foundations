@@ -62,11 +62,15 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
             errorThrownComponent={[Function]}
           >
             <Component
-              dataTest="page-client-apps-container"
-              flexColumn={true}
+              hasBackground={false}
+              hasMargin={false}
+              hasPadding={false}
+              isFlex={true}
+              isFlexColumn={true}
             >
-              <div
+              <section
                 className=""
+                data-test=""
               >
                 <Component>
                   <div
@@ -79,7 +83,7 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
                     <div />
                   </div>
                 </Component>
-              </div>
+              </section>
             </Component>
           </ErrorBoundary>
         </Connect(ErrorBoundary)>
@@ -151,11 +155,15 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
             errorThrownComponent={[Function]}
           >
             <Component
-              dataTest="page-client-apps-container"
-              flexColumn={true}
+              hasBackground={false}
+              hasMargin={false}
+              hasPadding={false}
+              isFlex={true}
+              isFlexColumn={true}
             >
-              <div
+              <section
                 className=""
+                data-test=""
               >
                 <Component>
                   <div
@@ -168,7 +176,7 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                     <div />
                   </div>
                 </Component>
-              </div>
+              </section>
             </Component>
           </ErrorBoundary>
         </Connect(ErrorBoundary)>
@@ -240,11 +248,15 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
             errorThrownComponent={[Function]}
           >
             <Component
-              dataTest="page-client-apps-container"
-              flexColumn={true}
+              hasBackground={false}
+              hasMargin={false}
+              hasPadding={false}
+              isFlex={true}
+              isFlexColumn={true}
             >
-              <div
+              <section
                 className=""
+                data-test=""
               >
                 <Component
                   isHeadingSection={true}
@@ -333,7 +345,7 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
                   onChange={[Function]}
                   pageNumber={1}
                 />
-              </div>
+              </section>
             </Component>
           </ErrorBoundary>
         </Connect(ErrorBoundary)>
@@ -405,11 +417,15 @@ exports[`Client should match a snapshot when featured apps is null 1`] = `
             errorThrownComponent={[Function]}
           >
             <Component
-              dataTest="page-client-apps-container"
-              flexColumn={true}
+              hasBackground={false}
+              hasMargin={false}
+              hasPadding={false}
+              isFlex={true}
+              isFlexColumn={true}
             >
-              <div
+              <section
                 className=""
+                data-test=""
               >
                 <Component
                   isHeadingSection={true}
@@ -498,7 +514,7 @@ exports[`Client should match a snapshot when featured apps is null 1`] = `
                   onChange={[Function]}
                   pageNumber={1}
                 />
-              </div>
+              </section>
             </Component>
           </ErrorBoundary>
         </Connect(ErrorBoundary)>

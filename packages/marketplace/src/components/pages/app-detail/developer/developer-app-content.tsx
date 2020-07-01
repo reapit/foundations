@@ -4,7 +4,7 @@ import { Dispatch } from 'redux'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { appInstallationsRequestData } from '@/actions/app-installations'
 import { selectDeveloperId } from '@/selector'
-import { FlexContainerBasic, Button, DATE_TIME_FORMAT } from '@reapit/elements'
+import { Button, DATE_TIME_FORMAT, Section } from '@reapit/elements'
 import ConfirmUninstall from '@/components/ui/app-installations/confirm-uninstall'
 import { PagedResultInstallationModel_, InstallationModel } from '@reapit/foundations-ts-definitions'
 import { handleUninstall, handleAfterClose } from '@/components/ui/app-installations/app-installations-modal'
@@ -111,7 +111,7 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailState }) => {
   const isVisibleUninstallModal = Boolean(uninstallApp)
 
   return (
-    <FlexContainerBasic flexColumn>
+    <Section isFlex isFlexColumn hasPadding={false} hasMargin={false}>
       {isVisibleUninstallModal && (
         <Modal renderChildren visible={isVisibleUninstallModal} afterClose={handleAfterClose({ setUninstallApp })}>
           <ConfirmUninstall
@@ -134,7 +134,7 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailState }) => {
       <AuthenticationSection id={id} authFlow={authFlow} externalId={externalId} />
       <PermissionsSection permissions={scopes} />
       <InstallationsTableSection columns={installationTableColumns} data={data} />
-    </FlexContainerBasic>
+    </Section>
   )
 }
 
