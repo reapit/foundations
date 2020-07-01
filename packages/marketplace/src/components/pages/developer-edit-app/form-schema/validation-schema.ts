@@ -61,6 +61,8 @@ export const validationSchemaSubmitRevision = Yup.object().shape({
 
   [iconImageUrl.name]: Yup.string().required(FIELD_REQUIRED),
 
+  [screen1ImageUrl.name]: Yup.string().required(FIELD_REQUIRED),
+
   [homePage.name]: Yup.string()
     .trim()
     .required(FIELD_REQUIRED)
@@ -81,8 +83,6 @@ export const validationSchemaSubmitRevision = Yup.object().shape({
     .required(FIELD_REQUIRED)
     .min(50, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(50, 150))
     .max(150, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(50, 150)),
-
-  [screen1ImageUrl.name]: Yup.string().required(FIELD_REQUIRED),
 
   [authFlow.name]: Yup.string()
     .trim()

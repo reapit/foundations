@@ -65,7 +65,7 @@ const UploadImageSection: React.FC<UploadImageSectionProps> = () => {
         </GridFourColItem>
         <GridFourColItem>
           <div className="control mb-4">
-            <label className="label">Screenshot 1 *</label>
+            <label className="label">Feature Image *</label>
             <ImageCropperWithInput
               id={screen1ImageUrl.name}
               dataTest="submit-app-screenshot1"
@@ -80,7 +80,7 @@ const UploadImageSection: React.FC<UploadImageSectionProps> = () => {
         </GridFourColItem>
         <GridFourColItem>
           <div className="control mb-4">
-            <label className="label">Screenshot 2</label>
+            <label className="label">Screenshot 1</label>
             <ImageCropperWithInput
               id={screen2ImageUrl.name}
               dataTest="submit-app-screenshot2"
@@ -94,7 +94,7 @@ const UploadImageSection: React.FC<UploadImageSectionProps> = () => {
         </GridFourColItem>
         <GridFourColItem>
           <div className="control mb-4">
-            <label className="label">Screenshot 3</label>
+            <label className="label">Screenshot 2</label>
             <ImageCropperWithInput
               id={screen3ImageUrl.name}
               dataTest="submit-app-screenshot3"
@@ -108,7 +108,7 @@ const UploadImageSection: React.FC<UploadImageSectionProps> = () => {
         </GridFourColItem>
         <GridFourColItem>
           <div className="control mb-4">
-            <label className="label">Screenshot 4</label>
+            <label className="label">Screenshot 3</label>
             <ImageCropperWithInput
               id={screen4ImageUrl.name}
               dataTest="submit-app-screenshot4"
@@ -122,7 +122,7 @@ const UploadImageSection: React.FC<UploadImageSectionProps> = () => {
         </GridFourColItem>
         <GridFourColItem>
           <div className="control mb-4">
-            <label className="label">Screenshot 5</label>
+            <label className="label">Screenshot 4</label>
             <ImageCropperWithInput
               id={screen5ImageUrl.name}
               dataTest="submit-app-screenshot5"
