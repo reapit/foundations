@@ -55,12 +55,14 @@ export const renderClientModal = (history, dispatch) => {
       <p>
         <span>
           To access the Reapit Marketplace, you will need to have an Agency Cloud User License. To obtain a license,
-          please visit the{' '}
+          please visit the&nbsp;
         </span>
         <span>
           <Link to={Routes.DEVELOPER_DESKTOP}>Desktop</Link>
         </span>
-        <span> page within the Developers Portal, where you can subscribe to a Developer Edition of Agency Cloud.</span>
+        <span>
+          &nbsp;page within the Developers Portal, where you can subscribe to a Developer Edition of Agency Cloud.
+        </span>
       </p>
     </Modal>
   )
