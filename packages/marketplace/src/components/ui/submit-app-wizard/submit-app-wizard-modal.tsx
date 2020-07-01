@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
+import { developerRequestData } from '@/actions/developer'
+import qs from 'query-string'
 import { Modal } from '@reapit/elements'
 import { SubmitAppWizard } from './submit-app-wizard'
 import { ModalProps } from '@/types/core'
 import { Dispatch } from 'redux'
 import { ReduxState } from '@/types/core'
 import { selectSubmitAppFormState } from '@/selector/submit-app'
-import { onFinish } from './steps/step-submit-app-success'
 import { useDispatch } from 'react-redux'
 import reduxStore from '@/core/store'
 import { submitAppSetFormState } from '@/actions/submit-app'
@@ -29,8 +30,8 @@ export const customAfterClose = ({
   const submitAppFormState = selectSubmitAppFormState(getReduxState())
 
   if (submitAppFormState === 'SUCCESS') {
-    // refetch developer app detail page
-    onFinish(dispatch)()
+    const page = qs.parse(location.search)?.page || 1
+    dispatch(developerRequestData({ page }))
   }
 
   afterClose()

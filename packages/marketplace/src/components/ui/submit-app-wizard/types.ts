@@ -1,4 +1,5 @@
 import React from 'react'
+import { ModalProps } from '@/types/core'
 
 export type AuthFlow = 'authorisationCode' | 'clientCredentials'
 
@@ -17,6 +18,6 @@ export type SetDirectApi = (field: string, value: boolean) => void
 
 export type WizardStepComponentProps = {
   setWizardStep: React.Dispatch<React.SetStateAction<WizardStep>>
-}
+} & Partial<Pick<ModalProps, 'afterClose'>>
 
 export type WizardStepComponent = React.FC<WizardStepComponentProps>
