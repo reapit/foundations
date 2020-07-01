@@ -8,7 +8,6 @@ import { ResultState } from '@/reducers/result'
 import { Pagination, Table, Button, H3, Info, H6, Section } from '@reapit/elements'
 import { resultRequestData, ContactsParams, SearchParams } from '@/actions/result'
 import Routes from '@/constants/routes'
-import styles from '@/styles/pages/results.scss?mod'
 
 export interface ResultMappedActions {
   fetchContacts: (params: ContactsParams) => void
@@ -46,7 +45,7 @@ export const generateColumns = history => () => {
   const StatusCell = ({ row }) => {
     return (
       <div>
-        <span className={styles.columnText}>{row.original.identityCheck}</span>
+        <span className="capitalize">{row.original.identityCheck}</span>
       </div>
     )
   }
@@ -113,19 +112,17 @@ export const fnFetchContacts = (
 }
 
 export const renderEmptyResult = () => (
-  <Section hasPadding={false} hasMargin={false}>
+  <Section hasPadding={false} hasMargin={false} isCentered>
     <div>
       <Info infoType="">
         <H6>No Results found</H6>
       </Info>
     </div>
-    <div className={styles.buttonNewSearchContainer}>
-      <Link to={Routes.HOME}>
-        <Button variant="info" type="button">
-          New Search{' '}
-        </Button>
-      </Link>
-    </div>
+    <Link to={Routes.HOME} className="inline-block mt-4">
+      <Button variant="info" type="button">
+        New Search
+      </Button>
+    </Link>
   </Section>
 )
 
@@ -149,9 +146,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetc
       ) : (
         <Section hasPadding>
           {search && <H3>Showing Results for &lsquo;{searchTitle}&rsquo;</H3>}
-          <div className={styles.tableWrap}>
-            <Table scrollable data={_embedded} columns={columns} loading={loading} />
-          </div>
+          <Table scrollable data={_embedded} columns={columns} loading={loading} />
           <Section>
             <Pagination
               pageNumber={pageNumber}
