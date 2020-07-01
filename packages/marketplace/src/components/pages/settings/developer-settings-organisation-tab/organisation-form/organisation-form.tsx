@@ -45,9 +45,7 @@ const OrganisationForm: React.FC<OrganisationFormProps> = () => {
               <CompanyInformationSection formValues={values} />
               <CompanyAddressSection />
               <LevelRight>
-                <Button className="mt-8" type="submit">
-                  Save
-                </Button>
+                <Button type="submit">Save</Button>
               </LevelRight>
             </FormSection>
           </Form>

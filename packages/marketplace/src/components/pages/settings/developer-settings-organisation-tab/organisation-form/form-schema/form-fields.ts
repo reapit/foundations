@@ -75,19 +75,19 @@ export const formFields: Record<FieldKeys, FormFieldInfo> = {
   },
   line1Field: {
     name: 'line1',
-    label: 'Line 1*',
+    label: 'Address Line 1*',
   },
   line2Field: {
     name: 'line2',
-    label: 'Line 2',
+    label: 'Address Line 2',
   },
   line3Field: {
     name: 'line3',
-    label: 'Line 3',
+    label: 'Address Line 3',
   },
   line4Field: {
     name: 'line4',
-    label: 'Line 4',
+    label: 'Address Line 4',
   },
   postCodeField: {
     name: 'postCode',

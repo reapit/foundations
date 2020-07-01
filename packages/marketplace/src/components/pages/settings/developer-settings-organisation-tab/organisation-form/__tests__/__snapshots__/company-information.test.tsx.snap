@@ -6,7 +6,7 @@ exports[`OrganisationForm CompanyAddressSection should match a snapshot when no 
     <Component>
       <Component
         id="line1"
-        labelText="Line 1*"
+        labelText="Address Line 1*"
         name="line1"
         type="text"
       />
@@ -14,7 +14,7 @@ exports[`OrganisationForm CompanyAddressSection should match a snapshot when no 
     <Component>
       <Component
         id="line2"
-        labelText="Line 2"
+        labelText="Address Line 2"
         name="line2"
         type="text"
       />
@@ -24,7 +24,7 @@ exports[`OrganisationForm CompanyAddressSection should match a snapshot when no 
     <Component>
       <Component
         id="line3"
-        labelText="Line 3"
+        labelText="Address Line 3"
         name="line3"
         type="text"
       />
@@ -32,7 +32,7 @@ exports[`OrganisationForm CompanyAddressSection should match a snapshot when no 
     <Component>
       <Component
         id="line4"
-        labelText="Line 4"
+        labelText="Address Line 4"
         name="line4"
         type="text"
       />
