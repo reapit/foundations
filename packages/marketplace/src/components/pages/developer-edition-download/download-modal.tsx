@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Modal, Button } from '@reapit/elements'
+import developerEditionGuide from '@/assets/files/developer-edition-guide.pdf'
 
 export const onDownload = (setIsCompleted: React.Dispatch<boolean>) => (): void => {
   setIsCompleted(true)
@@ -23,7 +24,10 @@ export const DeveloperEditionDownload: React.FC = () => {
         <p>
           To start the download, please click ‘Start Download’ below. It will automatically download an application file
           which you will need to run and install the required document files. For more information or support using the
-          Developer Edition, please <a>click here</a>
+          Developer Edition, please{' '}
+          <a href={developerEditionGuide} target="_blank" rel="noopener noreferrer">
+            click here
+          </a>
         </p>
         <Button className="is-pulled-right mt-5" onClick={handleDownload}>
           START DOWNLOAD
