@@ -1,11 +1,12 @@
 import React from 'react'
 import styles from '@/styles/blocks/submit-app-wizard.scss?mod'
-import { ModalBody, Button, ModalFooter, H4 } from '@reapit/elements'
+import { ModalBody, Button, ModalFooter, H4, FlexContainerBasic } from '@reapit/elements'
 import { WizardStepComponent, SetWizardStep } from '../types'
 import { formFields } from '../form-fields'
 import { useFormikContext } from 'formik'
 import { wizzardSteps } from '../constant'
 import authFlows from '@/constants/app-auth-flow'
+import { cx } from 'linaria'
 
 const { authFlowField } = formFields
 
@@ -32,10 +33,10 @@ export const StepChoseAuthType: WizardStepComponent = ({ setWizardStep }) => {
           <div>
             <H4>How do you intend to authenticate your app?</H4>
             <p className="mb-2">Please select</p>
-            <div>
+            <FlexContainerBasic className="justify-start">
               <Button
                 variant="secondary"
-                className={styles.btnChooseAuthType}
+                className={cx(styles.btnChooseAuthType, 'ml-0')}
                 onClick={onClientSide(setWizardStep, setFieldValue)}
               >
                 <b>Client Side</b>
@@ -55,7 +56,7 @@ export const StepChoseAuthType: WizardStepComponent = ({ setWizardStep }) => {
                   application
                 </p>
               </Button>
-            </div>
+            </FlexContainerBasic>
           </div>
         }
       />

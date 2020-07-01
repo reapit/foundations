@@ -13,8 +13,11 @@ exports[`StepInputAuthenticationUris should match snapshot 1`] = `
         >
           Please select
         </p>
-        <div>
+        <Unknown
+          className="justify-start"
+        >
           <Unknown
+            className=""
             onClick={[Function]}
             variant="secondary"
           >
@@ -36,7 +39,7 @@ exports[`StepInputAuthenticationUris should match snapshot 1`] = `
               Authenticate using a REST service on the server, typically you are pulling data into an existing application
             </p>
           </Unknown>
-        </div>
+        </Unknown>
       </div>
     }
   />
