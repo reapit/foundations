@@ -5,7 +5,7 @@ import { withRouter, RouteComponentProps } from 'react-router'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { ReduxState } from '@/types/core'
 import { ResultState } from '@/reducers/result'
-import { Pagination, Table, Button, H3, Info, H6, FlexContainerBasic, Section } from '@reapit/elements'
+import { Pagination, Table, Button, H3, Info, H6, Section } from '@reapit/elements'
 import { resultRequestData, ContactsParams, SearchParams } from '@/actions/result'
 import Routes from '@/constants/routes'
 import styles from '@/styles/pages/results.scss?mod'
@@ -113,7 +113,7 @@ export const fnFetchContacts = (
 }
 
 export const renderEmptyResult = () => (
-  <FlexContainerBasic hasBackground flexColumn>
+  <Section hasPadding={false} hasMargin={false}>
     <div>
       <Info infoType="">
         <H6>No Results found</H6>
@@ -126,7 +126,7 @@ export const renderEmptyResult = () => (
         </Button>
       </Link>
     </div>
-  </FlexContainerBasic>
+  </Section>
 )
 
 export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetchContacts, history }) => {
@@ -147,22 +147,20 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetc
       {!search || Number(totalCount) === 0 ? (
         renderEmptyResult()
       ) : (
-        <FlexContainerBasic hasPadding flexColumn>
-          <FlexContainerBasic hasBackground flexColumn hasPadding isScrollable>
-            {search && <H3>Showing Results for &lsquo;{searchTitle}&rsquo;</H3>}
-            <div className={styles.tableWrap}>
-              <Table scrollable data={_embedded} columns={columns} loading={loading} />
-            </div>
-            <Section>
-              <Pagination
-                pageNumber={pageNumber}
-                pageSize={pageSize}
-                totalCount={totalCount}
-                onChange={handleChangePage}
-              />
-            </Section>
-          </FlexContainerBasic>
-        </FlexContainerBasic>
+        <Section hasPadding>
+          {search && <H3>Showing Results for &lsquo;{searchTitle}&rsquo;</H3>}
+          <div className={styles.tableWrap}>
+            <Table scrollable data={_embedded} columns={columns} loading={loading} />
+          </div>
+          <Section>
+            <Pagination
+              pageNumber={pageNumber}
+              pageSize={pageSize}
+              totalCount={totalCount}
+              onChange={handleChangePage}
+            />
+          </Section>
+        </Section>
       )}
     </ErrorBoundary>
   )
