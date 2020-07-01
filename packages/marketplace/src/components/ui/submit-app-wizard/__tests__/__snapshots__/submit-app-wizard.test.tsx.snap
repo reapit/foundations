@@ -19,6 +19,7 @@ exports[`SubmitAppWizard should match snapshot when visible = true 1`] = `
         title="Before you start"
       />
       <Component
+        afterClose={[Function]}
         setWizardStep={[Function]}
       />
     </Form>

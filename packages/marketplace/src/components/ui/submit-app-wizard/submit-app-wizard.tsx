@@ -116,7 +116,7 @@ export const SubmitAppWizard: React.FC<Pick<ModalProps, 'afterClose'>> = ({ afte
       >
         <Form>
           <ModalHeader title={titleMap[currentWizardStep]} afterClose={afterClose} />
-          <CurrentStepComponent setWizardStep={setWizardStep} />
+          <CurrentStepComponent afterClose={afterClose} setWizardStep={setWizardStep} />
         </Form>
       </Formik>
     </div>

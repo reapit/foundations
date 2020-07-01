@@ -5,25 +5,14 @@ import { CustomCreateAppModel } from '@/actions/submit-app'
 import { ModalBody, Button, ModalFooter, H4, H5 } from '@reapit/elements'
 import { WizardStepComponent } from '../types'
 import { useFormikContext } from 'formik'
-import { Dispatch } from 'redux'
-import { useDispatch } from 'react-redux'
-import { developerRequestData } from '@/actions/developer'
 import { formFields } from '../form-fields'
-import qs from 'query-string'
 
 const { nameField, externalIdField, authFlowField, appIdField } = formFields
 
-export const onFinish = (dispatch: Dispatch) => () => {
-  // refetch developer-app-detail
-  const page = qs.parse(location.search)?.page || 1
-  dispatch(developerRequestData({ page }))
-}
-
-export const StepSubmitAppSuccess: WizardStepComponent = () => {
+export const StepSubmitAppSuccess: WizardStepComponent = ({ afterClose }) => {
   const { values } = useFormikContext<CustomCreateAppModel>()
   const authFlow = values[authFlowField.name]
   const id = values[appIdField.name]
-  const dispatch = useDispatch()
 
   return (
     <>
@@ -52,7 +41,7 @@ export const StepSubmitAppSuccess: WizardStepComponent = () => {
           </div>
         }
       />
-      <ModalFooter footerItems={<Button onClick={onFinish(dispatch)}>Finish</Button>} />
+      <ModalFooter footerItems={<Button onClick={afterClose}>Finish</Button>} />
     </>
   )
 }
