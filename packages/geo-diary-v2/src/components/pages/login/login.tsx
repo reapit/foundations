@@ -18,7 +18,7 @@ export const Login: React.FC = () => {
   const { loginSession } = React.useContext(AuthContext)
 
   if (loginSession) {
-    return <Redirect to={ROUTES.HOME} />
+    return <Redirect to={ROUTES.APPOINTMENT} />
   }
 
   return (
