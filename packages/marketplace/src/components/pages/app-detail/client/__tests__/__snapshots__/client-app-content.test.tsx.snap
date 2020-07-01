@@ -2,7 +2,10 @@
 
 exports[`ClientAppContent ClientAppContent - should match snapshot 1`] = `
 <Component
-  flexColumn={true}
+  hasMargin={false}
+  hasPadding={false}
+  isFlex={true}
+  isFlexColumn={true}
 >
   <Component
     summary=""

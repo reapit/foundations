@@ -289,7 +289,11 @@ a {
   &.is-page-container {
     // to allow scroll past end of content, allowing for toast popup and
     // increase readability, especially in mobile
-    margin-bottom: 6rem;
+    // Need to use "padding-bottom" here because "margin-bottom" doesn't work on IE
+    padding-bottom: 6rem;
+    // Fix IE flex columns height bug
+    // https://stackoverflow.com/a/36900208
+      flex-shrink: 0;
   }
 }
 
