@@ -61,6 +61,8 @@ export const validationSchemaSubmitRevision = Yup.object().shape({
 
   [iconImageUrl.name]: Yup.string().required(FIELD_REQUIRED),
 
+  [screen1ImageUrl.name]: Yup.string().required(FIELD_REQUIRED),
+
   [homePage.name]: Yup.string()
     .trim()
     .required(FIELD_REQUIRED)

@@ -254,7 +254,7 @@ export const handleOpenAppPreview = ({
 export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
   const dispatch = useDispatch()
   const history = useHistory()
-  const { appid } = useParams()
+  const { appid } = useParams<{ appid: string }>()
   const developerId = useSelector(selectDeveloperId)
   const appDetailState = useSelector(selectAppDetailState)
   const submitAppState = useSelector(selectSubmitAppState)
