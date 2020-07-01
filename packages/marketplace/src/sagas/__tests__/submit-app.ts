@@ -1,3 +1,4 @@
+import { notification } from '@reapit/elements'
 import {
   submitApp as submitAppSaga,
   submitAppDataListen,
@@ -57,12 +58,11 @@ describe('submit-app post data', () => {
     expect(internalGen.next().value).toEqual(select(selectDeveloperId))
     expect(internalGen.next().value).toEqual(put(submitAppSetFormState('ERROR')))
     expect(internalGen.next().value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR,
-        }),
-      ),
+      call(notification.error, {
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+        placement: 'bottomRight',
+        duration: 0,
+      }),
     )
     expect(internalGen.next().done).toBe(true)
   })
@@ -86,12 +86,11 @@ describe('submit-app post data', () => {
     if (!clone.throw) throw new Error('Generator object cannot throw')
     expect(clone.throw('Call API Failed').value).toEqual(put(submitAppSetFormState('ERROR')))
     expect(clone.next().value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR,
-        }),
-      ),
+      call(notification.error, {
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+        placement: 'bottomRight',
+        duration: 0,
+      }),
     )
     expect(clone.next().done).toBe(true)
   })
@@ -100,12 +99,11 @@ describe('submit-app post data', () => {
     const clone = gen.clone()
     expect(clone.next().value).toEqual(put(submitAppSetFormState('ERROR')))
     expect(clone.next().value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR,
-        }),
-      ),
+      call(notification.error, {
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+        placement: 'bottomRight',
+        duration: 0,
+      }),
     )
   })
   test('api call fail when fetch detail app response is empty', () => {
@@ -116,12 +114,11 @@ describe('submit-app post data', () => {
     expect(clone.next(mockHeaders).value).toEqual(call(fetchAppByIdByRawUrl, mockLocationHeader))
     expect(clone.next().value).toEqual(put(submitAppSetFormState('ERROR')))
     expect(clone.next().value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR,
-        }),
-      ),
+      call(notification.error, {
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+        placement: 'bottomRight',
+        duration: 0,
+      }),
     )
     expect(clone.next().done).toBe(true)
   })
@@ -138,12 +135,11 @@ describe('submit-app post data', () => {
     expect(clone.throw(err).value).toEqual(call(params.data.setErrors, { [FIELD_ERROR_DESCRIPTION]: 'test' }))
     expect(clone.next().value).toEqual(put(submitAppSetFormState('ERROR')))
     expect(clone.next().value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: 'test',
-        }),
-      ),
+      call(notification.error, {
+        message: 'test',
+        placement: 'bottomRight',
+        duration: 0,
+      }),
     )
     expect(clone.next().done).toBe(true)
   })
