@@ -9,8 +9,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { submitAppSetFormState } from '@/actions/submit-app'
 import { CreateAppRevisionModel, AppDetailModel } from '@reapit/foundations-ts-definitions'
 import Routes from '@/constants/routes'
-import { submitRevisionSetFormState, submitRevision } from '@/actions/submit-revision'
-import { selectSubmitAppState, selectSubmitAppRevisionState } from '@/selector/submit-app'
+import { submitRevision } from '@/actions/submit-revision'
+import { selectSubmitAppState } from '@/selector/submit-app'
 import { selectDeveloperId } from '@/selector/auth'
 import { selectAppDetailState } from '@/selector/app-detail'
 import { Dispatch } from 'redux'
@@ -178,9 +178,21 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
   return initialValues
 }
 
-export const handleSubmitApp = ({ appId, dispatch }: { appId: string; dispatch: Dispatch }) => (
-  appModel: CustomCreateRevisionModal,
-) => {
+export const handleSubmitApp = ({
+  appId,
+  dispatch,
+  setSubmitting,
+  onSuccess,
+  onError,
+}: {
+  appId: string
+  dispatch: Dispatch
+  setSubmitting: React.Dispatch<React.SetStateAction<boolean>>
+  onSuccess: () => void
+  onError: () => void
+}) => (appModel: CustomCreateRevisionModal) => {
+  setSubmitting(true)
+
   const appPreFormat = { ...appModel }
   delete appPreFormat.authFlow
   const { limitToClientIds, redirectUris, signoutUris, ...otherData } = appPreFormat
@@ -202,7 +214,19 @@ export const handleSubmitApp = ({ appId, dispatch }: { appId: string; dispatch: 
   if (appModel.isPrivateApp === 'no') {
     appToSubmit.limitToClientIds = []
   }
-  dispatch(submitRevision({ ...appToSubmit, id: appId }))
+  dispatch(submitRevision({ params: { ...appToSubmit, id: appId }, onSuccess, onError }))
+}
+
+export const handleSubmitAppSuccess = (
+  setSubmitting: React.Dispatch<React.SetStateAction<boolean>>,
+  history: History,
+) => () => {
+  setSubmitting(false)
+  history.push(Routes.DEVELOPER_MY_APPS)
+}
+
+export const handleSubmitAppError = (setSubmitting: React.Dispatch<React.SetStateAction<boolean>>) => () => {
+  setSubmitting(false)
 }
 
 export const handleGoBackToApps = (history: History) => {
@@ -252,25 +276,18 @@ export const handleOpenAppPreview = ({
 }
 
 export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
+  const [submitting, setSubmitting] = React.useState<boolean>(false)
   const dispatch = useDispatch()
   const history = useHistory()
   const { appid } = useParams<{ appid: string }>()
   const developerId = useSelector(selectDeveloperId)
   const appDetailState = useSelector(selectAppDetailState)
   const submitAppState = useSelector(selectSubmitAppState)
-  const submitRevisionState = useSelector(selectSubmitAppRevisionState)
   const appCategories = useSelector(selectCategories)
 
   const goBackToApps = React.useCallback(handleGoBackToApps(history), [history])
 
-  const isPendingRevisionsExist = appDetailState.appDetailData?.data?.pendingRevisions
-  if (isPendingRevisionsExist) {
-    return <Redirect to={`${Routes.DEVELOPER_MY_APPS}/${appid}`} />
-  }
-
   const { loading, error, appDetailData } = appDetailState
-  const formState = submitRevisionState.formState
-
   if (loading) {
     return <Loader />
   }
@@ -283,27 +300,35 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
     return null
   }
 
+  const isPendingRevisionsExist = appDetailState.appDetailData?.data?.pendingRevisions
+  /**
+   * When navigate to edit page, we still may have appDetailState data of previous editted app in redux
+   * store so we need to check the current app and the old app must have same id. If not don't redirect
+   * to DEVELOPER_MY_APPS route.
+   */
+  const hasOldAppDetailData =
+    appDetailState.appDetailData?.data?.id !== null && appid !== appDetailState.appDetailData?.data?.id
+  if (isPendingRevisionsExist && !hasOldAppDetailData) {
+    return <Redirect to={`${Routes.DEVELOPER_MY_APPS}/${appid}`} />
+  }
+
   const appId = appDetailData.data.id ?? ''
   const initialValues = generateInitialValues(appDetailData.data, developerId)
 
   const scopes = (submitAppState.submitAppData && submitAppState.submitAppData.scopes) || []
-
-  const isSubmitting = formState === 'SUBMITTING'
-
-  const isSubmitRevisionSuccess = formState === 'SUCCESS'
-
-  if (isSubmitRevisionSuccess) {
-    dispatch(submitRevisionSetFormState('PENDING'))
-    history.push(Routes.DEVELOPER_MY_APPS)
-  }
-
   return (
     <>
       <H3 isHeadingSection>Edit App</H3>
       <Formik
         validationSchema={validationSchemaSubmitRevision}
         initialValues={initialValues}
-        onSubmit={handleSubmitApp({ appId, dispatch })}
+        onSubmit={handleSubmitApp({
+          appId,
+          dispatch,
+          setSubmitting,
+          onSuccess: handleSubmitAppSuccess(setSubmitting, history),
+          onError: handleSubmitAppError(setSubmitting),
+        })}
       >
         {({ setFieldValue, values, errors }) => {
           const { authFlow, isPrivateApp } = values
@@ -339,8 +364,8 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
                     type="submit"
                     dataTest="submit-app-button"
                     variant="primary"
-                    loading={Boolean(isSubmitting)}
-                    disabled={Boolean(isSubmitting)}
+                    loading={submitting}
+                    disabled={submitting}
                   >
                     Submit App
                   </Button>

@@ -13,6 +13,8 @@ import DeveloperSubmitApp, {
   handleOnSubmitAnotherApp,
   generateInitialValues,
   handleOpenAppPreview,
+  handleSubmitAppSuccess,
+  handleSubmitAppError,
 } from '../developer-edit-app'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
@@ -114,13 +116,25 @@ describe('DeveloperSubmitApp', () => {
     const appModel = { redirectUris: '' } as CreateAppModel
     afterEach(() => jest.clearAllMocks())
     it('should call submitRevision when have appId', () => {
-      const fn = handleSubmitApp({ appId: 'testAppId', dispatch: spyDispatch })
+      const onSuccess = jest.fn()
+      const onError = jest.fn()
+      const fn = handleSubmitApp({
+        appId: 'testAppId',
+        dispatch: spyDispatch,
+        setSubmitting: jest.fn(),
+        onSuccess: onSuccess,
+        onError: onError,
+      })
       fn(appModel)
       expect(spyDispatch).toBeCalledWith(
         submitRevision({
-          redirectUris: [],
-          signoutUris: [],
-          id: 'testAppId',
+          params: {
+            redirectUris: [],
+            signoutUris: [],
+            id: 'testAppId',
+          },
+          onSuccess: onSuccess,
+          onError: onError,
         }),
       )
     })
@@ -209,5 +223,22 @@ describe('DeveloperSubmitApp', () => {
       expect(spyLocalStorageSetItem).toBeCalledWith('developer-preview-app', expected)
       expect(spyOpenUrl).toBeCalledWith('developer/apps/appId/preview', '_blank')
     })
+  })
+
+  describe('handleSubmitAppSuccess', () => {
+    const setSubmitting = jest.fn()
+    const { history } = getMockRouterProps({})
+    const fn = handleSubmitAppSuccess(setSubmitting, history)
+    fn()
+    expect(setSubmitting).toBeCalled()
+    expect(history.push).toBeCalledWith(Routes.DEVELOPER_MY_APPS)
+  })
+
+  describe('handleSubmitAppError', () => {
+    const setSubmitting = jest.fn()
+    const fn = handleSubmitAppError(setSubmitting)
+    fn()
+    expect(setSubmitting).toBeCalled()
+    expect(setSubmitting).toBeCalledWith(false)
   })
 })
