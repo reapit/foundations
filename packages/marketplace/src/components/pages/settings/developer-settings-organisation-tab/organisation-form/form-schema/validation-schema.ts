@@ -4,10 +4,10 @@ import errorMessages from '@/constants/error-messages'
 
 const { FIELD_REQUIRED } = errorMessages
 
-const { name, officeEmail } = formFields
+const { vatNumberField, officeEmailField } = formFields
 export const companyInformationFormSchema = Yup.object().shape({
-  [name.name]: Yup.string()
+  [vatNumberField.name]: Yup.string()
     .trim()
     .required(FIELD_REQUIRED),
-  [officeEmail.name]: Yup.string().email(),
+  [officeEmailField.name]: Yup.string().email(),
 })

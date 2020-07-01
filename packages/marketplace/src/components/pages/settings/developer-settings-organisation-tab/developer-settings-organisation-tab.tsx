@@ -5,8 +5,8 @@ import DeveloperInviteModal from '@/components/ui/developer-invite-member-modal'
 import { selectIsAdmin } from '@/selector/auth'
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { CompanyInformation } from './company-information'
 import { Members } from './members'
+import OrganisationForm from './organisation-form'
 
 export const handleToggleVisibleModal = (setModalOpen: React.Dispatch<boolean>, isVisible: boolean) => () =>
   setModalOpen(isVisible)
@@ -34,13 +34,7 @@ const DevelperSettingsOrganisationTabPage: React.FC = () => {
       <Section>
         <Tabs />
       </Section>
-      {/* <LevelRight>
-              <a className={styles.hyperlinked} onClick={handleToggleVisibleModal(setIsSetAdminModalOpen, true)}>
-                Set as Admin
-              </a>
-            </LevelRight> */}
-
-      <CompanyInformation />
+      <OrganisationForm />
       <Members />
       <Section>
         <LevelRight>
