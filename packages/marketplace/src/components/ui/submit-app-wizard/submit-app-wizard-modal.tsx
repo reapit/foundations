@@ -56,7 +56,14 @@ export const SubmitAppWizardModal: React.FC<ModalProps> = ({ visible, afterClose
       renderChildren
       visible={visible}
     >
-      <SubmitAppWizard afterClose={afterClose} />
+      <SubmitAppWizard
+        afterClose={customAfterClose({
+          dispatch,
+          getReduxState: reduxStore.reduxStore.getState,
+          afterClose,
+          selectSubmitAppFormState,
+        })}
+      />
     </Modal>
   )
 }
