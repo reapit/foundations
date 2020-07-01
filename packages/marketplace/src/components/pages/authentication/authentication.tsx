@@ -42,7 +42,7 @@ export const onLogoutButtonClick = (dispatch: Dispatch) => {
 export const renderClientModal = (history, dispatch) => {
   return (
     <Modal
-      title="Agency Cloud User Licence?"
+      title="Agency Cloud User License?"
       visible={true}
       tapOutsideToDissmiss={false}
       footerItems={
@@ -54,7 +54,7 @@ export const renderClientModal = (history, dispatch) => {
     >
       <p>
         <span>
-          To access the Reapit Marketplace, you will need to have an Agency Cloud User Licence. To obtain a licence,
+          To access the Reapit Marketplace, you will need to have an Agency Cloud User License. To obtain a license,
           please visit the{' '}
         </span>
         <span>
