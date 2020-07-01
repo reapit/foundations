@@ -42,7 +42,7 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
         <label
           className="label"
         >
-          Screenshot 1 *
+          Feature Image *
         </label>
         <Component
           allowClear={true}
@@ -68,7 +68,7 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
         <label
           className="label"
         >
-          Screenshot 2
+          Screenshot 1
         </label>
         <Component
           allowClear={true}
@@ -93,7 +93,7 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
         <label
           className="label"
         >
-          Screenshot 3
+          Screenshot 2
         </label>
         <Component
           allowClear={true}
@@ -118,7 +118,7 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
         <label
           className="label"
         >
-          Screenshot 4
+          Screenshot 3
         </label>
         <Component
           allowClear={true}
@@ -143,7 +143,7 @@ exports[`MarketplaceStatusSection should match a snapshot 1`] = `
         <label
           className="label"
         >
-          Screenshot 5
+          Screenshot 4
         </label>
         <Component
           allowClear={true}
