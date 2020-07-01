@@ -23,18 +23,18 @@ exports[`Authentication renderClientModal should match snapshot 1`] = `
   >
     <p>
       <span>
-        You do not currently have an Agency Cloud User License so you can't visit the Reapit Marketplace,
-           if you would like more information on Agency Cloud please visit 
+        To access the Reapit Marketplace, you will need to have an Agency Cloud User Licence. To obtain a licence, please visit the
+         
       </span>
       <span>
-        <a
-          href="https://www.reapit.com/agency-cloud/"
+        <Link
+          to="/developer/desktop"
         >
-          our public site. 
-        </a>
+          Desktop
+        </Link>
       </span>
       <span>
-        Alternatively, if you are a developer on the Reapit Platfom, one of your clients may be willing to sponsor with a paid user license.
+         page within the Developers Portal, where you can subscribe to a Developer Edition of Agency Cloud.
       </span>
     </p>
   </Component>

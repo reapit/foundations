@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Dispatch } from 'redux'
 import { History } from 'history'
 import { useHistory, useParams } from 'react-router'
+import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { Modal, Button } from '@reapit/elements'
 import Routes from '@/constants/routes'
@@ -16,7 +17,7 @@ export interface AuthenticationParamTypes {
 
 export const onDevelopersButtonClick = (history: History) => {
   return () => {
-    history.replace(Routes.DEVELOPER_MY_APPS)
+    history.replace(Routes.DEVELOPER_DESKTOP)
   }
 }
 
@@ -53,16 +54,13 @@ export const renderClientModal = (history, dispatch) => {
     >
       <p>
         <span>
-          {`You do not currently have an Agency Cloud User License so you can't visit the Reapit Marketplace,
-           if you would like more information on Agency Cloud please visit `}
+          To access the Reapit Marketplace, you will need to have an Agency Cloud User Licence. To obtain a licence,
+          please visit the{' '}
         </span>
         <span>
-          <a href="https://www.reapit.com/agency-cloud/">our public site. </a>
+          <Link to={Routes.DEVELOPER_DESKTOP}>Desktop</Link>
         </span>
-        <span>
-          Alternatively, if you are a developer on the Reapit Platfom, one of your clients may be willing to sponsor
-          with a paid user license.
-        </span>
+        <span> page within the Developers Portal, where you can subscribe to a Developer Edition of Agency Cloud.</span>
       </p>
     </Modal>
   )
