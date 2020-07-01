@@ -1,10 +1,9 @@
 import { submitRevision as submitRevisionSaga, submitRevisionDataListen, submitRevisionSagas } from '../submit-revision'
 import ActionTypes from '@/constants/action-types'
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
-import { submitRevisionSetFormState } from '@/actions/submit-revision'
+import { SubmitRevisionParams } from '@/actions/submit-revision'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { CreateAppRevisionModel } from '@reapit/foundations-ts-definitions'
 import { revisionSubmitStub } from '../__stubs__/revision-submit'
 import { appDetailRequestData } from '@/actions/app-detail'
 import { createAppRevision } from '@/services/apps'
@@ -12,8 +11,8 @@ import { createAppRevision } from '@/services/apps'
 jest.mock('@/services/apps')
 jest.mock('@reapit/elements')
 
-const params: Action<CreateAppRevisionModel & { id: string }> = {
-  data: { ...revisionSubmitStub.data, id: '1' },
+const params: Action<SubmitRevisionParams> = {
+  data: { params: { ...revisionSubmitStub.data, id: '1' }, onSuccess: jest.fn(), onError: jest.fn() },
   type: 'DEVELOPER_SUBMIT_REVISION',
 }
 
@@ -47,9 +46,8 @@ describe('submit-revision post data', () => {
   }
 
   const gen = cloneableGenerator(submitRevisionSaga)(params)
-  const { id } = params.data
+  const { id } = params.data.params
 
-  expect(gen.next().value).toEqual(put(submitRevisionSetFormState('SUBMITTING')))
   expect(gen.next().value).toEqual(all(imageUploaderRequests))
   expect(gen.next(imageUploaderResults).value).toEqual(
     call(createAppRevision, { id, ...updatedData, categoryId: undefined }),
@@ -58,13 +56,11 @@ describe('submit-revision post data', () => {
   test('api call success', () => {
     const clone = gen.clone()
     expect(clone.next({}).value).toEqual(put(appDetailRequestData({ id })))
-    expect(clone.next().value).toEqual(put(submitRevisionSetFormState('SUCCESS')))
     expect(clone.next().done).toBe(true)
   })
 
   test('api call fail', () => {
     const clone = gen.clone()
-    expect(clone.next(undefined).value).toEqual(put(submitRevisionSetFormState('ERROR')))
     expect(clone.next().done).toBe(true)
   })
 })
@@ -74,10 +70,7 @@ describe('submit-revision thunks', () => {
     it('should submit data when called', () => {
       const gen = submitRevisionDataListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<CreateAppRevisionModel & { id: string }>>(
-          ActionTypes.DEVELOPER_SUBMIT_REVISION,
-          submitRevisionSaga,
-        ),
+        takeLatest<Action<SubmitRevisionParams>>(ActionTypes.DEVELOPER_SUBMIT_REVISION, submitRevisionSaga),
       )
       expect(gen.next().done).toBe(true)
     })
