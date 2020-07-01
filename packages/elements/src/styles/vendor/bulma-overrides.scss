@@ -293,7 +293,7 @@ a {
     padding-bottom: 6rem;
     // Fix IE flex columns height bug
     // https://stackoverflow.com/a/36900208
-      flex-shrink: 0;
+    flex-shrink: 0;
   }
 }
 
