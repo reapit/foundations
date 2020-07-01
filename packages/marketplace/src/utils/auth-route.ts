@@ -26,10 +26,14 @@ export function getDefaultRouteByLoginType({
   switch (loginType) {
     case 'ADMIN':
       return `${window.location.origin}${Routes.ADMIN_APPROVALS}`
-    case 'DEVELOPER':
+    case 'DEVELOPER': {
+      if (window.location.pathname === Routes.DEVELOPER_EDITION_DOWNLOAD) {
+        return `${window.location.origin}${Routes.DEVELOPER_EDITION_DOWNLOAD}`
+      }
       return !isDeveloperFirstTimeLoginComplete
         ? `${window.location.origin}${Routes.DEVELOPER_WELCOME}`
         : `${window.location.origin}${Routes.DEVELOPER_MY_APPS}`
+    }
     default:
       return !isClientFirstTimeLoginComplete && !getMarketplaceGlobalsByKey()
         ? `${window.location.origin}${Routes.CLIENT_WELCOME}`
