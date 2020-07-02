@@ -727,30 +727,38 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                           data-test=""
                         >
                           <Component
-                            type="submit"
-                            variant="primary"
+                            className="mt-5 pt-2"
                           >
-                            <button
-                              className="button  is-primary  "
-                              data-test=""
-                              disabled={false}
-                              type="submit"
+                            <div
+                              className=""
                             >
-                              Search
-                            </button>
-                          </Component>
-                          <Component
-                            type="reset"
-                            variant="primary"
-                          >
-                            <button
-                              className="button  is-primary  "
-                              data-test=""
-                              disabled={false}
-                              type="reset"
-                            >
-                              Refresh
-                            </button>
+                              <Component
+                                type="submit"
+                                variant="primary"
+                              >
+                                <button
+                                  className="button  is-primary  "
+                                  data-test=""
+                                  disabled={false}
+                                  type="submit"
+                                >
+                                  Search
+                                </button>
+                              </Component>
+                              <Component
+                                type="reset"
+                                variant="primary"
+                              >
+                                <button
+                                  className="button  is-primary  "
+                                  data-test=""
+                                  disabled={false}
+                                  type="reset"
+                                >
+                                  Refresh
+                                </button>
+                              </Component>
+                            </div>
                           </Component>
                         </div>
                       </Component>
@@ -3147,16 +3155,20 @@ exports[`admin-apps renderForm should return correctly 1`] = `
       </Unknown>
       <Unknown>
         <Unknown
-          type="submit"
-          variant="primary"
+          className="mt-5 pt-2"
         >
-          Search
-        </Unknown>
-        <Unknown
-          type="reset"
-          variant="primary"
-        >
-          Refresh
+          <Unknown
+            type="submit"
+            variant="primary"
+          >
+            Search
+          </Unknown>
+          <Unknown
+            type="reset"
+            variant="primary"
+          >
+            Refresh
+          </Unknown>
         </Unknown>
       </Unknown>
     </Unknown>

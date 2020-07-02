@@ -21,6 +21,7 @@ import {
   toLocalTime,
   isEmptyObject,
   Section,
+  FlexContainerBasic,
 } from '@reapit/elements'
 import { selectAdminAppsData, selectAdminAppsLoading } from '@/selector/admin'
 import { adminAppsRequestFeatured } from '@/actions/admin-apps'
@@ -185,12 +186,14 @@ export const renderForm = ({ values, status }) => {
             />
           </GridItem>
           <GridItem>
-            <Button type="submit" variant="primary">
-              Search
-            </Button>
-            <Button type="reset" variant="primary">
-              Refresh
-            </Button>
+            <FlexContainerBasic className="mt-5 pt-2">
+              <Button type="submit" variant="primary">
+                Search
+              </Button>
+              <Button type="reset" variant="primary">
+                Refresh
+              </Button>
+            </FlexContainerBasic>
           </GridItem>
         </Grid>
         {status && <p className="has-text-danger">{status}</p>}
