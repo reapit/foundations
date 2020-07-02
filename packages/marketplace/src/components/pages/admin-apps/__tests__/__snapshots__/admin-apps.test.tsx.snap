@@ -731,6 +731,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                           >
                             <div
                               className=""
+                              data-test=""
                             >
                               <Component
                                 type="submit"
