@@ -13,7 +13,9 @@ exports[`HelpItemList should match a snapshot 1`] = `
         isFlex={true}
         isFlexColumn={true}
       >
-        <Component>
+        <Component
+          className="flex-shrink-0"
+        >
           <img
             alt="Welcome Guide"
             src=""
@@ -58,7 +60,9 @@ exports[`HelpItemList should match a snapshot 1`] = `
         isFlex={true}
         isFlexColumn={true}
       >
-        <Component>
+        <Component
+          className="flex-shrink-0"
+        >
           <img
             alt="Request a Feature"
             src=""
@@ -103,7 +107,9 @@ exports[`HelpItemList should match a snapshot 1`] = `
         isFlex={true}
         isFlexColumn={true}
       >
-        <Component>
+        <Component
+          className="flex-shrink-0"
+        >
           <img
             alt="Report a Bug"
             src=""
@@ -147,7 +153,9 @@ exports[`HelpItemList should match a snapshot 1`] = `
         isFlex={true}
         isFlexColumn={true}
       >
-        <Component>
+        <Component
+          className="flex-shrink-0"
+        >
           <img
             alt="Roadmap"
             src=""
@@ -192,7 +200,9 @@ exports[`HelpItemList should match a snapshot 1`] = `
         isFlex={true}
         isFlexColumn={true}
       >
-        <Component>
+        <Component
+          className="flex-shrink-0"
+        >
           <img
             alt="Need Help?"
             src=""
@@ -236,7 +246,9 @@ exports[`HelpItemList should match a snapshot 1`] = `
         isFlex={true}
         isFlexColumn={true}
       >
-        <Component>
+        <Component
+          className="flex-shrink-0"
+        >
           <img
             alt="What’s New"
             src=""

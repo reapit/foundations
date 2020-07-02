@@ -7,6 +7,10 @@ $units: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
     flex-grow: $unit;
   }
 
+  .flex-shrink-#{$unit} {
+    flex-shrink: $unit;
+  }
+
   .text-ellipsis-#{$unit} {
     display: -webkit-box;
     -webkit-line-clamp: 1;

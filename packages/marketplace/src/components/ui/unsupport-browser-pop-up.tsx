@@ -30,7 +30,13 @@ export const UnsupportBrowserPopUp = ({ unsupported = false, message = '' }) => 
 
   return (
     <div className={`${styles['wrap-pop-up']} ${isDesktopMode ? styles['wrap-pop-up-desktop'] : ''}`}>
-      <ToastMessage visible={isOpen} message={message} variant="info" onCloseToast={handleCloseToast(setIsOpen)} />
+      <ToastMessage
+        preventClose
+        visible={isOpen}
+        message={message}
+        variant="info"
+        onCloseToast={handleCloseToast(setIsOpen)}
+      />
     </div>
   )
 }
