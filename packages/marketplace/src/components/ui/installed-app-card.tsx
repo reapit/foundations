@@ -2,11 +2,15 @@ import * as React from 'react'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import installedAppCardStyles from '@/styles/blocks/installed-app-card.scss?mod'
 import { isMobile, Tile } from '@reapit/elements'
+import defaultAppIcon from '@/assets/images/default-app-icon.jpg'
 
 export interface InstalledAppCardProps {
   app: AppSummaryModel
   onClick?: (event: React.MouseEvent) => void
 }
+
+export const onImageError = (event: React.SyntheticEvent<HTMLImageElement>) =>
+  (event.currentTarget.src = defaultAppIcon)
 
 const InstalledAppCard: React.FC<InstalledAppCardProps> = ({ app, onClick }: InstalledAppCardProps) => {
   if (isMobile()) {
@@ -28,9 +32,7 @@ const InstalledAppCard: React.FC<InstalledAppCardProps> = ({ app, onClick }: Ins
         onClick={onClick as () => void}
         heading={app.name || ''}
         subHeading={app.developer || ''}
-        image={
-          <img className="image" src={app.iconUri || 'https://bulma.io/images/placeholders/48x48.png'} alt={app.name} />
-        }
+        image={<img className="image" src={app.iconUri || defaultAppIcon} alt={app.name} onError={onImageError} />}
       />
     </div>
   )
