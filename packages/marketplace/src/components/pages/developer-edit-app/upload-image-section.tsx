@@ -12,7 +12,9 @@ import { formFields } from './form-schema/form-fields'
 
 const { screen1ImageUrl, screen2ImageUrl, screen3ImageUrl, screen4ImageUrl, screen5ImageUrl, iconImageUrl } = formFields
 
-export type UploadImageSectionProps = {}
+export type UploadImageSectionProps = {
+  isListed: boolean
+}
 
 const UPLOAD_IMAGE_DIMENSIONS: Record<string, ResizeDimensions> = {
   icon: {
@@ -38,7 +40,7 @@ const FEATURE_RATIO = FEATURE_DIMENSIONS.width / FEATURE_DIMENSIONS.height
 const SCREENSHOT_DIMENSIONS = UPLOAD_IMAGE_DIMENSIONS.screenshot
 const SCREENSHOT_RATIO = SCREENSHOT_DIMENSIONS.width / SCREENSHOT_DIMENSIONS.height
 
-const UploadImageSection: React.FC<UploadImageSectionProps> = () => {
+const UploadImageSection: React.FC<UploadImageSectionProps> = ({ isListed }) => {
   return (
     <FormSection>
       <FormHeading>Images</FormHeading>
@@ -50,14 +52,14 @@ const UploadImageSection: React.FC<UploadImageSectionProps> = () => {
       <GridFourCol>
         <GridFourColItem>
           <div className="control">
-            <label className="label">Icon *</label>
+            <label className="label">Icon {isListed && '*'}</label>
             <ImageCropperWithInput
               id={iconImageUrl.name}
               dataTest="submit-app-icon"
               labelText={iconImageUrl.label as string}
               name={iconImageUrl.name}
               allowClear
-              required
+              required={isListed}
               aspect={ICON_RATIO}
               resizeDimensions={ICON_DIMENSIONS}
             />
@@ -65,14 +67,14 @@ const UploadImageSection: React.FC<UploadImageSectionProps> = () => {
         </GridFourColItem>
         <GridFourColItem>
           <div className="control mb-4">
-            <label className="label">Feature Image *</label>
+            <label className="label">Feature Image {isListed && '*'}</label>
             <ImageCropperWithInput
               id={screen1ImageUrl.name}
               dataTest="submit-app-screenshot1"
               labelText={screen1ImageUrl.label as string}
               name={screen1ImageUrl.name}
               allowClear
-              required
+              required={isListed}
               aspect={FEATURE_RATIO}
               resizeDimensions={FEATURE_DIMENSIONS}
             />
