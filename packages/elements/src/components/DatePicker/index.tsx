@@ -181,7 +181,7 @@ export const DatePicker = ({
         const className = hasError ? 'input is-danger' : 'input is-primary'
 
         return (
-          <div className="field pb-2">
+          <div className="field">
             <div className="control">
               {labelText && (
                 <label className={`label ${required ? 'required-label' : ''}`} htmlFor={id}>
