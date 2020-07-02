@@ -6,7 +6,7 @@ export const handleLaunchApp = (app: AppSummaryModel) => {
       if (store?.default?.state?.auth?.refreshSession?.mode === 'DESKTOP') {
         window.location.href = `agencycloud://app?id=${app.id}&launchUri=${app.homePage}`
       } else {
-        window.location.href = app.homePage
+        window.location.href = app.launchUri || window.location.href
       }
     }
   })

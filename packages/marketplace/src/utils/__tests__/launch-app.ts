@@ -6,7 +6,7 @@ jest.mock('../../core/store')
 describe('handleLaunchApp', () => {
   it('should run correctly', () => {
     const mockApp = {
-      homePage: '',
+      launchUri: '',
       id: '123',
     } as AppSummaryModel
     handleLaunchApp(mockApp)
