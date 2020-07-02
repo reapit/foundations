@@ -56,7 +56,6 @@ import webhookSubscriptionsSagas from '@/sagas/webhook-subscriptions'
 import { injectSwitchModeToWindow } from '@reapit/elements'
 import webhookEditSagas from '../sagas/webhook-edit-modal'
 import webComponentSagas from '../sagas/web-component'
-import subscriptionsSagas from '../sagas/developer-subscriptions'
 import developerSubscriptionsSagas from '../sagas/developer-subscriptions'
 
 export class Store {
@@ -131,7 +130,6 @@ export class Store {
       fork(webhookEditSagas),
       fork(webhookSubscriptionsSagas),
       fork(webComponentSagas),
-      fork(subscriptionsSagas),
       fork(developerSubscriptionsSagas),
     ])
   }
