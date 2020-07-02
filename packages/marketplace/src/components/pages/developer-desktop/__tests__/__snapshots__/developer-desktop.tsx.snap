@@ -1,37 +1,214 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DeveloperDesktopPage should match snapshot 1`] = `
-<ContextProvider
-  value={
+<Provider
+  store={
     Object {
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "subscription": Subscription {
-        "handleChangeWrapper": [Function],
-        "listeners": Object {
-          "notify": [Function],
-        },
-        "onStateChange": [Function],
-        "parentSub": undefined,
-        "store": Object {
-          "clearActions": [Function],
-          "dispatch": [Function],
-          "getActions": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-        },
-        "unsubscribe": null,
-      },
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
     }
   }
 >
-  <Component />
-</ContextProvider>
+  <Component>
+    <Connect(ErrorBoundary)>
+      <ErrorBoundary
+        componentError={null}
+        errorThrownComponent={[Function]}
+      >
+        <Component
+          isHeadingSection={true}
+        >
+          <h3
+            className=""
+            id=""
+          >
+            Desktop
+          </h3>
+        </Component>
+        <Component>
+          <section
+            className=""
+            data-test=""
+          >
+            <Component>
+              <Component>
+                <div
+                  className=""
+                  data-test=""
+                >
+                  <p>
+                    Reapit's Agency Cloud is a desktop application that offers estate agencies a comprehensive range of market leading agency products, including a Sales CRM, Lettings CRM, Client Accounts, Property Management and real-time Analytics.
+                  </p>
+                  <p>
+                    Developers that would like to integrate with or extend the functionality of Agency Cloud can use the Foundations Desktop API to build web applications for Reapit's app Marketplace that trigger events in the Agency Cloud desktop application, as well as associating their apps with common actions in Agency Cloud to replace default behaviours and screens.
+                  </p>
+                  <p>
+                    For example, a developer building a Marketplace app that provides AML and ID checking, can use the Desktop API to associate their app with the default ID checking screen in Agency Cloud. When a customer clicks the default button to launch the ID check screen, the developer's associated app would be presented instead.
+                  </p>
+                  <p>
+                    To learn more about what’s possible with the Desktop API, please visit the
+                     
+                    <a
+                      href="/developer/api-docs/api/desktop-api"
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      documentation.
+                    </a>
+                  </p>
+                </div>
+              </Component>
+            </Component>
+          </section>
+        </Component>
+        <Component>
+          <section
+            className=""
+            data-test=""
+          >
+            <Component>
+              <Component>
+                <div
+                  className=""
+                  data-test=""
+                >
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component>
+                        <div
+                          className=""
+                          data-test=""
+                        >
+                          <Component>
+                            <h5
+                              className=""
+                              id=""
+                            >
+                              Developer Edition
+                            </h5>
+                          </Component>
+                          <p>
+                            The Developer Edition of Agency Cloud allows developers using the Desktop API to test their apps within the desktop application using sandbox data.
+                          </p>
+                          <p>
+                            There is no charge for the Developer Edition licence during the Beta phase, however, developers are required to confirm the subscription to proceed. When the Beta phase comes to an end, we will automatically cancel all subscriptions, and developers will need to sign-up again should they wish to subscribe and pay for a Developer Edition license.
+                          </p>
+                          <p>
+                            The application is licenced per user/developer of an organisation and will require a Windows machine to install it.
+                          </p>
+                        </div>
+                      </Component>
+                      <Component>
+                        <div
+                          className=""
+                          data-test=""
+                        >
+                          <div
+                            className=""
+                          >
+                            <div
+                              className="desktop-inner-container"
+                            >
+                              <div
+                                className="modal-card-head"
+                              >
+                                <Component
+                                  className="mb-0"
+                                  isCentered={true}
+                                >
+                                  <h5
+                                    className=""
+                                    id=""
+                                  >
+                                    Developer Edition
+                                  </h5>
+                                </Component>
+                              </div>
+                              <div
+                                className="justify-center items-center is-flex py-2"
+                              >
+                                <span
+                                  className="desktop-price"
+                                >
+                                  £0
+                                </span>
+                                 
+                                <span
+                                  className="desktop-price-period"
+                                >
+                                  / Beta phase
+                                </span>
+                              </div>
+                              <div
+                                className="text-center px-2 py-1"
+                              >
+                                Become familiar with our CRM software using sandbox data
+                              </div>
+                              <div
+                                className="text-center px-2 py-1"
+                              >
+                                Test your Marketplace application inside Agency Cloud
+                              </div>
+                              <div
+                                className="text-center px-2 py-1"
+                              >
+                                Understand how customers will interact with your application
+                              </div>
+                              <Component
+                                hasMargin={false}
+                              >
+                                <section
+                                  className=""
+                                  data-test=""
+                                >
+                                  <Component
+                                    fullWidth={true}
+                                    onClick={[Function]}
+                                    type="button"
+                                    variant="primary"
+                                  >
+                                    <button
+                                      className="button  is-primary is-fullwidth "
+                                      data-test=""
+                                      disabled={false}
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      Subscribe now
+                                    </button>
+                                  </Component>
+                                </section>
+                              </Component>
+                            </div>
+                          </div>
+                        </div>
+                      </Component>
+                    </div>
+                  </Component>
+                  <Component
+                    afterClose={[Function]}
+                    visible={false}
+                  >
+                    <Component
+                      afterClose={[Function]}
+                      renderChildren={true}
+                      visible={false}
+                    />
+                  </Component>
+                </div>
+              </Component>
+            </Component>
+          </section>
+        </Component>
+      </ErrorBoundary>
+    </Connect(ErrorBoundary)>
+  </Component>
+</Provider>
 `;
