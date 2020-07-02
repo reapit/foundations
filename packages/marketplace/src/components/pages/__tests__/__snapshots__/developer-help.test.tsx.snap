@@ -104,7 +104,9 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                       className=""
                       data-test=""
                     >
-                      <Component>
+                      <Component
+                        className="flex-shrink-0"
+                      >
                         <section
                           className=""
                           data-test=""
@@ -192,7 +194,9 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                       className=""
                       data-test=""
                     >
-                      <Component>
+                      <Component
+                        className="flex-shrink-0"
+                      >
                         <section
                           className=""
                           data-test=""
@@ -280,7 +284,9 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                       className=""
                       data-test=""
                     >
-                      <Component>
+                      <Component
+                        className="flex-shrink-0"
+                      >
                         <section
                           className=""
                           data-test=""
@@ -367,7 +373,9 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                       className=""
                       data-test=""
                     >
-                      <Component>
+                      <Component
+                        className="flex-shrink-0"
+                      >
                         <section
                           className=""
                           data-test=""
@@ -455,7 +463,9 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                       className=""
                       data-test=""
                     >
-                      <Component>
+                      <Component
+                        className="flex-shrink-0"
+                      >
                         <section
                           className=""
                           data-test=""
@@ -542,7 +552,9 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                       className=""
                       data-test=""
                     >
-                      <Component>
+                      <Component
+                        className="flex-shrink-0"
+                      >
                         <section
                           className=""
                           data-test=""
