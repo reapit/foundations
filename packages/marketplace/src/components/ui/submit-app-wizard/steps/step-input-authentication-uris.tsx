@@ -1,5 +1,5 @@
 import React from 'react'
-import { ModalBody, Button, Input, ModalFooter, FlexContainerBasic } from '@reapit/elements'
+import { ModalBody, Button, Input, ModalFooter, FlexContainerBasic, Content } from '@reapit/elements'
 import { WizardStepComponent, SetWizardStep } from '../types'
 import { formFields } from '../form-fields'
 import { useFormikContext } from 'formik'
@@ -33,17 +33,31 @@ export const StepInputAuthenticationUris: WizardStepComponent = ({ setWizardStep
       <ModalBody
         body={
           <div>
-            <p className="mb-3">
-              Please now register one or more Redirect URIs and a Sign Out URI to allow Reapit - Connect to direct
-              traffic back to your application in a secure way.
-            </p>
+            <Content>
+              <p>
+                Please now register one or more Redirect URIs and a Sign Out URI to allow Reapit - Connect to direct
+                traffic back to your application in a secure way.
+              </p>
+              <p>
+                For the fields below, the following formats are supported: https://, http:// (for localhost only) or
+                your own custom URI schemes such as myapp://login.
+              </p>
+            </Content>
+            <p className="mb-3">For multiple URI’s, separate using a comma.</p>
             <Input
               type="text"
               id={redirectUrisField.name}
               placeholder={redirectUrisField.placeHolder}
               name={redirectUrisField.name}
               labelText={redirectUrisField.label}
-              helperText="Please enter a Redirect URI(s) to define the route Reapit Connect is permitted to redirect to after a successful authentication. The following formats are supported: https://, http:// (for localhost only) or your own custom URI schemes such as myapp://login. For multiple URI’s, separate using a comma."
+              helperText={
+                <Content>
+                  <p>
+                    Please enter a Redirect URI(s) to define the route Reapit Connect is permitted to redirect to after
+                    a successful authentication.
+                  </p>
+                </Content>
+              }
             />
             <Input
               type="text"
@@ -51,7 +65,14 @@ export const StepInputAuthenticationUris: WizardStepComponent = ({ setWizardStep
               placeholder={signoutUrisField.placeHolder}
               name={signoutUrisField.name}
               labelText={signoutUrisField.label}
-              helperText="Please enter a Sign Out URI(s) to define the route Reapit Connect is permitted to redirect to after successfully logging out. The following formats are supported: https://, http:// (for localhost only) or your own custom URI schemes such as myapp://login. For multiple URI’s, separate using a comma."
+              helperText={
+                <Content>
+                  <p>
+                    Please enter a Sign Out URI(s) to define the route Reapit Connect is permitted to redirect to after
+                    successfully logging out.
+                  </p>
+                </Content>
+              }
             />
           </div>
         }

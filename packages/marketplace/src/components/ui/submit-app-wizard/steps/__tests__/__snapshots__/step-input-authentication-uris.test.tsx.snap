@@ -6,13 +6,27 @@ exports[`StepInputAuthenticationUris should match snapshot 1`] = `
   <Component
     body={
       <div>
+        <Unknown>
+          <p>
+            Please now register one or more Redirect URIs and a Sign Out URI to allow Reapit - Connect to direct traffic back to your application in a secure way.
+          </p>
+          <p>
+            For the fields below, the following formats are supported: https://, http:// (for localhost only) or your own custom URI schemes such as myapp://login.
+          </p>
+        </Unknown>
         <p
           className="mb-3"
         >
-          Please now register one or more Redirect URIs and a Sign Out URI to allow Reapit - Connect to direct traffic back to your application in a secure way.
+          For multiple URI’s, separate using a comma.
         </p>
         <Unknown
-          helperText="Please enter a Redirect URI(s) to define the route Reapit Connect is permitted to redirect to after a successful authentication. The following formats are supported: https://, http:// (for localhost only) or your own custom URI schemes such as myapp://login. For multiple URI’s, separate using a comma."
+          helperText={
+            <Unknown>
+              <p>
+                Please enter a Redirect URI(s) to define the route Reapit Connect is permitted to redirect to after a successful authentication.
+              </p>
+            </Unknown>
+          }
           id="redirectUris"
           labelText="Redirect URI(s)"
           name="redirectUris"
@@ -20,7 +34,13 @@ exports[`StepInputAuthenticationUris should match snapshot 1`] = `
           type="text"
         />
         <Unknown
-          helperText="Please enter a Sign Out URI(s) to define the route Reapit Connect is permitted to redirect to after successfully logging out. The following formats are supported: https://, http:// (for localhost only) or your own custom URI schemes such as myapp://login. For multiple URI’s, separate using a comma."
+          helperText={
+            <Unknown>
+              <p>
+                Please enter a Sign Out URI(s) to define the route Reapit Connect is permitted to redirect to after successfully logging out.
+              </p>
+            </Unknown>
+          }
           id="signoutUris"
           labelText="Sign Out URI(s)"
           name="signoutUris"
