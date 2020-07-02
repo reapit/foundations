@@ -379,7 +379,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                               validate={null}
                             >
                               <div
-                                className="field pb-2"
+                                className="field"
                               >
                                 <div
                                   className="control"
@@ -561,7 +561,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                               validate={null}
                             >
                               <div
-                                className="field pb-2"
+                                className="field"
                               >
                                 <div
                                   className="control"
