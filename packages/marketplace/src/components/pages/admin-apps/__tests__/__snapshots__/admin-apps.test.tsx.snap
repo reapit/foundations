@@ -2619,6 +2619,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
                                 },
                               ]
                             }
+                            initialRows={Array []}
                             initialState={Object {}}
                             isAllRowsExpanded={false}
                             plugins={
