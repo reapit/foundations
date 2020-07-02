@@ -34,7 +34,8 @@ export const StepCreateNewApp: WizardStepComponent = ({ setWizardStep }) => {
             <p>
               If you want your application to be launched within the Desktop CRM you will need to adhere to our branding
               guidelines. The easiest way to do this is to use Elements our UI Library or style sheet. You will also be
-              required to use Reapit Connect, our single sign on solution. For more information please click here{' '}
+              required to use Reapit Connect, our single sign on solution.
+              {/* Comment out for now as no downloadable link: For more information please click here{' '} */}
             </p>
           </div>
         }
