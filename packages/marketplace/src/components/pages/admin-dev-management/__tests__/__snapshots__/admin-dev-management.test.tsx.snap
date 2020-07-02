@@ -239,7 +239,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                   name="registeredFrom"
                                   reactDatePickerProps={
                                     Object {
-                                      "maxDate": 2019-10-09T22:39:51.389Z,
+                                      "maxDate": 2019-10-10T22:39:51.389Z,
                                     }
                                   }
                                 >
@@ -277,7 +277,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                           excludeScrollbar={true}
                                           id="registeredFrom"
                                           inlineFocusSelectedMonth={false}
-                                          maxDate={2019-10-09T22:39:51.389Z}
+                                          maxDate={2019-10-10T22:39:51.389Z}
                                           monthsShown={1}
                                           name="registeredFrom"
                                           nextMonthButtonLabel="Next Month"
@@ -416,7 +416,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                   name="registeredTo"
                                   reactDatePickerProps={
                                     Object {
-                                      "maxDate": 2019-10-09T22:39:51.389Z,
+                                      "maxDate": 2019-10-10T22:39:51.389Z,
                                       "minDate": Date { NaN },
                                     }
                                   }
@@ -455,7 +455,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                           excludeScrollbar={true}
                                           id="registeredTo"
                                           inlineFocusSelectedMonth={false}
-                                          maxDate={2019-10-09T22:39:51.389Z}
+                                          maxDate={2019-10-10T22:39:51.389Z}
                                           minDate={Date { NaN }}
                                           monthsShown={1}
                                           name="registeredTo"
