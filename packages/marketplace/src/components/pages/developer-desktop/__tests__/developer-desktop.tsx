@@ -3,7 +3,12 @@ import { shallow } from 'enzyme'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
-import { DeveloperDesktopPage, handleToggleVisibleModal } from '../developer-desktop'
+import {
+  DeveloperDesktopPage,
+  handleToggleVisibleModal,
+  DeveloperDesktopContentPartOne,
+  DeveloperDesktopContentPartTwo,
+} from '../developer-desktop'
 
 describe('DeveloperDesktopPage', () => {
   let store
@@ -16,10 +21,28 @@ describe('DeveloperDesktopPage', () => {
     jest.clearAllMocks()
   })
 
-  it('should match snapshot', () => {
+  it('should match snapshot for the main page', () => {
     const wrapper = shallow(
       <Provider store={store}>
         <DeveloperDesktopPage />
+      </Provider>,
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should match snapshot for content section 1', () => {
+    const wrapper = shallow(
+      <Provider store={store}>
+        <DeveloperDesktopContentPartOne />
+      </Provider>,
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should match snapshot for content section 2', () => {
+    const wrapper = shallow(
+      <Provider store={store}>
+        <DeveloperDesktopContentPartTwo />
       </Provider>,
     )
     expect(wrapper).toMatchSnapshot()
