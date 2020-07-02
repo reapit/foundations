@@ -12,7 +12,6 @@ import {
   SubTitleH5,
   FlexContainerBasic,
 } from '@reapit/elements'
-import styles from '@/styles/ui/aml-progressbar.scss?mod'
 import { SectionsStatus } from '@/reducers/checklist-detail'
 import { IdentityCheckModel, ContactModel } from '@reapit/foundations-ts-definitions'
 import { LoginMode } from '@reapit/cognito-auth'
@@ -74,7 +73,7 @@ export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({ contact, idCheck
             </LevelRight>
           </Level>
           <ProgressBar percentage={progress.percentage} />
-          <div className={styles.progress}>
+          <div className="text-right">
             {progress.completed}/{progress.total} <span>Completed</span>
           </div>
         </div>
