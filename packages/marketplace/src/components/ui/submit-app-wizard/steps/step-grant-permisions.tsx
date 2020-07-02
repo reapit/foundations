@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { ModalBody, Button, DropdownSelect, ModalFooter, H4, SelectOption } from '@reapit/elements'
+import { ModalBody, Button, DropdownSelect, ModalFooter, H5, SelectOption, FlexContainerBasic } from '@reapit/elements'
 import { WizardStepComponent, SetWizardStep, AuthFlow } from '../types'
 import { formFields } from '../form-fields'
 import { useFormikContext } from 'formik'
@@ -53,7 +53,7 @@ export const StepGrantPermissions: WizardStepComponent = ({ setWizardStep }) => 
       <ModalBody
         body={
           <div>
-            <H4>What type of data are you interested in?</H4>
+            <H5>What type of data are you interested in?</H5>
             <p>
               Please select specific the entities you need access to on a read or write basis. You can select multiple
               options below:
@@ -63,21 +63,26 @@ export const StepGrantPermissions: WizardStepComponent = ({ setWizardStep }) => 
               options={scopeOptions}
               name={scopesField.name}
               id={scopesField.name}
-              fixedPosition
+              fixedPosition={false}
             />
           </div>
         }
       />
       <ModalFooter
         footerItems={
-          <>
-            <Button disabled={isSubmitting} onClick={onPrev(setWizardStep, authFlow)}>
+          <FlexContainerBasic>
+            <Button
+              variant="secondary"
+              className="ml-0"
+              disabled={isSubmitting}
+              onClick={onPrev(setWizardStep, authFlow)}
+            >
               Back
             </Button>
-            <Button loading={isSubmitting} disabled={isSubmitting} type="submit">
+            <Button className="ml-auto" loading={isSubmitting} disabled={isSubmitting} type="submit">
               Next
             </Button>
-          </>
+          </FlexContainerBasic>
         }
       />
     </>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { ModalBody, Button, Input, ModalFooter } from '@reapit/elements'
+import { ModalBody, Button, Input, ModalFooter, FlexContainerBasic } from '@reapit/elements'
 import { WizardStepComponent, SetWizardStep } from '../types'
 import { formFields } from '../form-fields'
 import { useFormikContext } from 'formik'
@@ -34,7 +34,7 @@ export const StepInputAuthenticationUris: WizardStepComponent = ({ setWizardStep
         body={
           <div>
             <p className="mb-3">
-              Please now register one or more Redirect URLs and a Sign Out URL to allow Reapit - Connect to direct
+              Please now register one or more Redirect URIs and a Sign Out URI to allow Reapit - Connect to direct
               traffic back to your application in a secure way.
             </p>
             <Input
@@ -58,12 +58,14 @@ export const StepInputAuthenticationUris: WizardStepComponent = ({ setWizardStep
       />
       <ModalFooter
         footerItems={
-          <>
-            <Button onClick={onPrev(setWizardStep, isDirectApi)}>Back</Button>
-            <Button type="submit" disabled={!isValid} onClick={onNext(setWizardStep)}>
+          <FlexContainerBasic>
+            <Button className="ml-0" variant="secondary" onClick={onPrev(setWizardStep, isDirectApi)}>
+              Back
+            </Button>
+            <Button className="ml-auto" type="submit" disabled={!isValid} onClick={onNext(setWizardStep)}>
               Next
             </Button>
-          </>
+          </FlexContainerBasic>
         }
       />
     </>

@@ -1,6 +1,5 @@
 import React from 'react'
-import { ModalBody, ModalFooter, H4, Button } from '@reapit/elements'
-import { useHistory } from 'react-router'
+import { ModalBody, ModalFooter, H5, Button } from '@reapit/elements'
 import { History } from 'history'
 import Routes from '@/constants/routes'
 import { WizardStepComponent, SetWizardStep } from '../types'
@@ -14,14 +13,12 @@ export const onCreateNewApp = (setWizardStep: SetWizardStep) => () => {
 }
 
 export const StepBeforeYouStart: WizardStepComponent = ({ setWizardStep }) => {
-  const history = useHistory()
-
   return (
     <>
       <ModalBody
         body={
           <div>
-            <H4>Have you had a look at the documentation?</H4>
+            <H5>Have you had a look at the documentation?</H5>
             <p>
               Before continuing with registering your app, we strongly advise that you read the &quot;Step-by-step&quot;
               guide on how best to complete the following form.
@@ -32,7 +29,14 @@ export const StepBeforeYouStart: WizardStepComponent = ({ setWizardStep }) => {
       <ModalFooter
         footerItems={
           <>
-            <Button onClick={onViewDocs(history)}>View Docs</Button>
+            <a
+              className="button is-white is-primary"
+              href={`${Routes.DEVELOPER_API_DOCS}/developer-portal`}
+              rel="noreferrer"
+              target="_blank"
+            >
+              View Docs
+            </a>
             <Button onClick={onCreateNewApp(setWizardStep)}>Create New App</Button>
           </>
         }

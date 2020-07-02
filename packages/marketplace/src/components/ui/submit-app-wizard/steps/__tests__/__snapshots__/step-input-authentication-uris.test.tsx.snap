@@ -9,7 +9,7 @@ exports[`StepInputAuthenticationUris should match snapshot 1`] = `
         <p
           className="mb-3"
         >
-          Please now register one or more Redirect URLs and a Sign Out URL to allow Reapit - Connect to direct traffic back to your application in a secure way.
+          Please now register one or more Redirect URIs and a Sign Out URI to allow Reapit - Connect to direct traffic back to your application in a secure way.
         </p>
         <Unknown
           helperText="Please enter a Redirect URI(s) to define the route Reapit Connect is permitted to redirect to after a successful authentication. The following formats are supported: https://, http:// (for localhost only) or your own custom URI schemes such as myapp://login. For multiple URI’s, separate using a comma."
@@ -32,20 +32,23 @@ exports[`StepInputAuthenticationUris should match snapshot 1`] = `
   />
   <Component
     footerItems={
-      <React.Fragment>
+      <Unknown>
         <Unknown
+          className="ml-0"
           onClick={[Function]}
+          variant="secondary"
         >
           Back
         </Unknown>
         <Unknown
+          className="ml-auto"
           disabled={true}
           onClick={[Function]}
           type="submit"
         >
           Next
         </Unknown>
-      </React.Fragment>
+      </Unknown>
     }
   />
 </Fragment>

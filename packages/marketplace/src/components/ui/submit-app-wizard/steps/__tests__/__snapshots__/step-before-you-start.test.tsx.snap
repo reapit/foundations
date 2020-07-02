@@ -17,11 +17,14 @@ exports[`StepBeforeYouStart should match snapshot 1`] = `
   <Component
     footerItems={
       <React.Fragment>
-        <Unknown
-          onClick={[Function]}
+        <a
+          className="button is-white is-primary"
+          href="/developer/api-docs/developer-portal"
+          rel="noreferrer"
+          target="_blank"
         >
           View Docs
-        </Unknown>
+        </a>
         <Unknown
           onClick={[Function]}
         >
