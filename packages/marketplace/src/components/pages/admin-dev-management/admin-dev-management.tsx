@@ -48,8 +48,6 @@ export const buildFilterValues = (queryParams: URLSearchParams): AdminDevManagem
   const company = queryParams.get('company') || ''
   const registeredFrom = queryParams.get('registeredFrom') || ''
   const registeredTo = queryParams.get('registeredTo') || ''
-  console.log('from', registeredFrom)
-  console.log('to', registeredTo)
   return { name, company, registeredFrom, registeredTo } as AdminDevManagementFilterFormValues
 }
 
