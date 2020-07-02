@@ -178,6 +178,29 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
   return initialValues
 }
 
+export const sanitizeAppData = (appData: CreateAppRevisionModel): CreateAppRevisionModel => {
+  const sanitizedAppData = appData
+  if (!sanitizedAppData.description) {
+    delete sanitizedAppData.description
+  }
+  if (!sanitizedAppData.summary) {
+    delete sanitizedAppData.summary
+  }
+  if (!sanitizedAppData.supportEmail) {
+    delete sanitizedAppData.supportEmail
+  }
+  if (!sanitizedAppData.telephone) {
+    delete sanitizedAppData.telephone
+  }
+  if (!sanitizedAppData.homePage) {
+    delete sanitizedAppData.homePage
+  }
+  if (!sanitizedAppData.launchUri) {
+    delete sanitizedAppData.launchUri
+  }
+  return sanitizedAppData
+}
+
 export const handleSubmitApp = ({
   appId,
   dispatch,
@@ -214,7 +237,7 @@ export const handleSubmitApp = ({
   if (appModel.isPrivateApp === 'no') {
     appToSubmit.limitToClientIds = []
   }
-  dispatch(submitRevision({ params: { ...appToSubmit, id: appId }, onSuccess, onError }))
+  dispatch(submitRevision({ params: { ...sanitizeAppData(appToSubmit), id: appId }, onSuccess, onError }))
 }
 
 export const handleSubmitAppSuccess = (
@@ -332,13 +355,14 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
       >
         {({ setFieldValue, values, errors }) => {
           const { authFlow, isPrivateApp } = values
+          const isListed = values.isListed
           return (
             <Form noValidate={true}>
-              <GeneralInformationSection />
+              <GeneralInformationSection isListed={!!isListed} />
               <AgencyCloudIntegrationSection />
               <AuthenticationFlowSection authFlow={authFlow} setFieldValue={setFieldValue} />
               <RedirectUriSection authFlow={authFlow} isPrivateApp={isPrivateApp} setFieldValue={setFieldValue} />
-              <UploadImageSection />
+              <UploadImageSection isListed={!!isListed} />
               <MarketplaceStatusSection />
               <PermissionSection scopes={scopes} errors={errors} />
               <Section>

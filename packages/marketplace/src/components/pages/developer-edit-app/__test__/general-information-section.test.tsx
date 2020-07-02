@@ -15,13 +15,27 @@ describe('GeneralInformationSection', () => {
     store = mockStore(appState)
   })
 
-  it('should match a snapshot', () => {
+  it('should match a snapshot when isListed equal to true', () => {
     expect(
       mount(
         <ReactRedux.Provider store={store}>
           <Formik initialValues={{}} onSubmit={() => {}}>
             <Form>
-              <GeneralInformationSection />
+              <GeneralInformationSection isListed={true} />
+            </Form>
+          </Formik>
+        </ReactRedux.Provider>,
+      ),
+    ).toMatchSnapshot()
+  })
+
+  it('should match a snapshot when isListed equal to false', () => {
+    expect(
+      mount(
+        <ReactRedux.Provider store={store}>
+          <Formik initialValues={{}} onSubmit={() => {}}>
+            <Form>
+              <GeneralInformationSection isListed={false} />
             </Form>
           </Formik>
         </ReactRedux.Provider>,

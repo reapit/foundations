@@ -30,6 +30,7 @@ const {
   redirectUris,
   signoutUris,
   limitToClientIds,
+  isListed,
 } = formFields
 
 export const validationSchemaSubmitRevision = Yup.object().shape({
@@ -39,48 +40,100 @@ export const validationSchemaSubmitRevision = Yup.object().shape({
     .matches(letterNumberSpaceRegex, name.errorMessage)
     .max(100, MAXIMUM_CHARACTER_LENGTH(100)),
 
+  [isListed.name]: Yup.boolean(),
+
   [telephone.name]: Yup.string()
-    .trim()
-    .required(FIELD_REQUIRED)
+    .when(isListed.name, {
+      is: true,
+      then: Yup.string()
+        .trim()
+        .required(FIELD_REQUIRED),
+      otherwise: Yup.string().notRequired(),
+    })
     .matches(telephoneRegex, telephone.errorMessage)
     .max(20, MAXIMUM_CHARACTER_LENGTH(20)),
 
   [supportEmail.name]: Yup.string()
     .trim()
-    .required(FIELD_REQUIRED)
+    .when(isListed.name, {
+      is: true,
+      then: Yup.string()
+        .trim()
+        .required(FIELD_REQUIRED),
+      otherwise: Yup.string().notRequired(),
+    })
     .matches(emailRegex, FIELD_WRONG_EMAIL_FORMAT),
 
   [launchUri.name]: Yup.string()
     .trim()
-    .required(FIELD_REQUIRED)
+    .when(isListed.name, {
+      is: true,
+      then: Yup.string()
+        .trim()
+        .required(FIELD_REQUIRED),
+      otherwise: Yup.string().notRequired(),
+    })
     .test({
       name: 'isValidLaunchUri',
       message: launchUri.errorMessage,
-      test: whiteListLocalhostAndIsValidUrl,
+      test: (value: string) => {
+        console.log({ value })
+        if (!value) return true
+        return whiteListLocalhostAndIsValidUrl(value)
+      },
     }),
 
-  [iconImageUrl.name]: Yup.string().required(FIELD_REQUIRED),
+  [iconImageUrl.name]: Yup.string().when(isListed.name, {
+    is: true,
+    then: Yup.string().required(FIELD_REQUIRED),
+    otherwise: Yup.string().notRequired(),
+  }),
 
-  [screen1ImageUrl.name]: Yup.string().required(FIELD_REQUIRED),
+  [screen1ImageUrl.name]: Yup.string().when(isListed.name, {
+    is: true,
+    then: Yup.string().required(FIELD_REQUIRED),
+    otherwise: Yup.string().notRequired(),
+  }),
 
   [homePage.name]: Yup.string()
     .trim()
-    .required(FIELD_REQUIRED)
+    .when(isListed.name, {
+      is: true,
+      then: Yup.string()
+        .trim()
+        .required(FIELD_REQUIRED),
+      otherwise: Yup.string().notRequired(),
+    })
     .test({
       name: 'isValidHomePage',
       message: homePage.errorMessage,
-      test: value => whiteListLocalhostAndIsValidUrl(value) || isValidHttpUrl(value),
+      test: value => {
+        if (!value) return true
+        return whiteListLocalhostAndIsValidUrl(value) || isValidHttpUrl(value)
+      },
     }),
 
   [description.name]: Yup.string()
     .trim()
-    .required(FIELD_REQUIRED)
+    .when(isListed.name, {
+      is: true,
+      then: Yup.string()
+        .trim()
+        .required(FIELD_REQUIRED),
+      otherwise: Yup.string().notRequired(),
+    })
     .min(150, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(150, 1000))
     .max(1000, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(150, 1000)),
 
   [summary.name]: Yup.string()
     .trim()
-    .required(FIELD_REQUIRED)
+    .when(isListed.name, {
+      is: true,
+      then: Yup.string()
+        .trim()
+        .required(FIELD_REQUIRED),
+      otherwise: Yup.string().notRequired(),
+    })
     .min(50, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(50, 150))
     .max(150, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(50, 150)),
 

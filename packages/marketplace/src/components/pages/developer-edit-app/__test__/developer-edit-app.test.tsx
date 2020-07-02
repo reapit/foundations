@@ -15,6 +15,7 @@ import DeveloperSubmitApp, {
   handleOpenAppPreview,
   handleSubmitAppSuccess,
   handleSubmitAppError,
+  sanitizeAppData,
 } from '../developer-edit-app'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
@@ -240,5 +241,44 @@ describe('DeveloperSubmitApp', () => {
     fn()
     expect(setSubmitting).toBeCalled()
     expect(setSubmitting).toBeCalledWith(false)
+  })
+
+  describe('sanitizeAppData', () => {
+    it('should run correctly', () => {
+      const input = {
+        description: '',
+        developerId: '7a96e6b2-3778-4118-9c9b-6450851e5608',
+        homePage: '',
+        telephone: '',
+        supportEmail: '',
+        summary: '',
+        launchUri: '',
+        isListed: false,
+        isDirectApi: false,
+        scopes: ['agencyCloud/applicants.read'],
+        isPrivateApp: 'no',
+        desktopIntegrationTypeIds: [],
+        redirectUris: ['http://localhost:8080'],
+        signoutUris: ['http://localhost:8080/login'],
+        limitToClientIds: [],
+        iconImageUrl: '',
+        name: 'Test new App',
+      }
+      const output = {
+        developerId: '7a96e6b2-3778-4118-9c9b-6450851e5608',
+        isListed: false,
+        isDirectApi: false,
+        scopes: ['agencyCloud/applicants.read'],
+        isPrivateApp: 'no',
+        desktopIntegrationTypeIds: [],
+        redirectUris: ['http://localhost:8080'],
+        signoutUris: ['http://localhost:8080/login'],
+        limitToClientIds: [],
+        name: 'Test new App',
+        iconImageUrl: '',
+      }
+      const result = sanitizeAppData(input)
+      expect(result).toEqual(output)
+    })
   })
 })
