@@ -7,6 +7,7 @@
   & td {
     word-break: normal;
     max-width: 300px;
+    overflow-wrap: break-word;
   }
   tr {
     &.is-expanded {
