@@ -18,7 +18,16 @@ exports[`StepCreateNewApp should match snapshot 1`] = `
   <Component
     footerItems={
       <Unknown>
-        <div>
+        <Unknown
+          className="ml-0"
+          onClick={[Function]}
+          variant="secondary"
+        >
+          Back
+        </Unknown>
+        <div
+          className="ml-auto"
+        >
           <Unknown
             onClick={[Function]}
           >
@@ -28,15 +37,6 @@ exports[`StepCreateNewApp should match snapshot 1`] = `
             onClick={[Function]}
           >
             No
-          </Unknown>
-        </div>
-        <div
-          className="ml-auto"
-        >
-          <Unknown
-            onClick={[Function]}
-          >
-            Back
           </Unknown>
         </div>
       </Unknown>

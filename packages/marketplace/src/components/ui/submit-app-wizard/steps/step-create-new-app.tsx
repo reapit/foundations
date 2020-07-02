@@ -1,5 +1,5 @@
 import React from 'react'
-import { ModalBody, Button, H4, ModalFooter, FlexContainerBasic } from '@reapit/elements'
+import { ModalBody, Button, H5, ModalFooter, FlexContainerBasic } from '@reapit/elements'
 import { WizardStepComponent, SetWizardStep, SetDirectApi } from '../types'
 import { useFormikContext } from 'formik'
 import { formFields } from '../form-fields'
@@ -30,7 +30,7 @@ export const StepCreateNewApp: WizardStepComponent = ({ setWizardStep }) => {
       <ModalBody
         body={
           <div>
-            <H4>Do you intend for your app to be launched within Agency Cloud?</H4>
+            <H5>Do you intend for your app to be launched within Agency Cloud?</H5>
             <p>
               If you want your application to be launched within the Desktop CRM you will need to adhere to our branding
               guidelines. The easiest way to do this is to use Elements our UI Library or style sheet. You will also be
@@ -42,12 +42,12 @@ export const StepCreateNewApp: WizardStepComponent = ({ setWizardStep }) => {
       <ModalFooter
         footerItems={
           <FlexContainerBasic>
-            <div>
+            <Button className="ml-0" variant="secondary" onClick={onPrev(setWizardStep)}>
+              Back
+            </Button>
+            <div className="ml-auto">
               <Button onClick={onLauchWithinAgencyCloud(setWizardStep, setFieldValue)}>Yes</Button>
               <Button onClick={onLaunchWithoutAgencyCloud(setWizardStep, setFieldValue)}>No</Button>
-            </div>
-            <div className="ml-auto">
-              <Button onClick={onPrev(setWizardStep)}>Back</Button>
             </div>
           </FlexContainerBasic>
         }
