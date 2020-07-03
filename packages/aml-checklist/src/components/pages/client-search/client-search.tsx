@@ -35,7 +35,6 @@ const identityCheckList = [
 export const renderForm = ({ loginMode }) => ({ values }) => {
   return (
     <Section>
-      {/* <FlexContainerResponsive hasBackground flexColumn hasPadding> */}
       <H3>Client Search</H3>
       <Form className="mb-8">
         <Input
@@ -83,7 +82,6 @@ export const renderForm = ({ loginMode }) => ({ values }) => {
           </AcButton>
         )}
       </Form>
-      {/* </FlexContainerResponsive> */}
     </Section>
   )
 }
