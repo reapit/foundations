@@ -114,7 +114,17 @@ export const SubmitAppWizard: React.FC<Pick<ModalProps, 'afterClose'>> = ({ afte
         onSubmit={handleSubmit({ setWizardStep, dispatch })}
         validationSchema={validationSchemas[currentWizardStep]}
       >
-        <Form>
+        <Form
+          onKeyPress={e => {
+            const key = e.charCode || e.keyCode || 0
+            // prevent submit form using enter
+            // not handle yet
+            const enterKeyCode = 13
+            if (key === enterKeyCode) {
+              e.preventDefault()
+            }
+          }}
+        >
           <ModalHeader title={titleMap[currentWizardStep]} afterClose={afterClose} />
           <CurrentStepComponent afterClose={afterClose} setWizardStep={setWizardStep} />
         </Form>

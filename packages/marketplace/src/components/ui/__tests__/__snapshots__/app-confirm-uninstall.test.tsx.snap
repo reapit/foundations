@@ -34,6 +34,7 @@ exports[`AppConfirmUninstall render correctly 1`] = `
           className="delete"
           data-test="modal-close-button"
           onClick={[Function]}
+          type="button"
         />
       </header>
     </Component>
