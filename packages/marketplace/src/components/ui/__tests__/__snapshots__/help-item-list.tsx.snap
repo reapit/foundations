@@ -216,7 +216,7 @@ exports[`HelpItemList should match a snapshot 1`] = `
         <Component
           className="flex-grow-1"
         >
-          If you need any support, we are here to help. Why not talk to one of our Developers or Product Owners directly. If you have a question that is not covered in the documentation you can ask here. Please note we don’t provide chat support for Agency Cloud Developer Edition.
+          If you have a question that is not covered in the documentation you can ask here. Please note we don’t provide chat support for Agency Cloud Developer Edition.
         </Component>
         <Component
           className="text-end"
