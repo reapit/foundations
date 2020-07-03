@@ -13,7 +13,9 @@ exports[`SubmitAppWizard should match snapshot when visible = true 1`] = `
     }
     onSubmit={[Function]}
   >
-    <Form>
+    <Form
+      onKeyPress={[Function]}
+    >
       <Component
         afterClose={[Function]}
         title="Before you start"

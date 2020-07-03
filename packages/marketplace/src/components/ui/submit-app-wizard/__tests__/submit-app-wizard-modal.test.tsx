@@ -41,6 +41,7 @@ describe('SubmitAppWizardModal', () => {
         getReduxState: (getReduxState as unknown) as () => ReduxState,
         selectSubmitAppFormState: () => 'PENDING',
       })()
+      expect(afterClose).toHaveBeenCalled()
     })
   })
   test('handleUseEffect should run correctly', () => {
