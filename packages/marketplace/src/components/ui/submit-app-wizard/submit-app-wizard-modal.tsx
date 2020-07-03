@@ -28,13 +28,11 @@ export const customAfterClose = ({
   // Has to access redux state of formState manually because it will lead to <Modal/> and result many weird bugs
   // E.g: Formik state reset, wizzard step state reset
   const submitAppFormState = selectSubmitAppFormState(getReduxState())
-
   if (submitAppFormState === 'SUCCESS') {
     const page = qs.parse(location.search)?.page || 1
     dispatch(developerRequestData({ page }))
+    afterClose()
   }
-
-  afterClose()
 }
 
 export const handleUseEffect = (dispatch: Dispatch) => () => {
