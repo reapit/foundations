@@ -37,7 +37,7 @@
     "cors": "^2.8.5",
     "hardtack": "^4.1.2",
     "jsonwebtoken": "^8.5.1",
-    "snyk": "^1.335.0"
+    "snyk": "^1.360.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.2",
