@@ -43,7 +43,7 @@
     "tslib": "2.0.0",
     "uuid": "^3.3.3",
     "winston": "^3.2.1",
-    "snyk": "^1.341.1"
+    "snyk": "^1.360.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
