@@ -63,7 +63,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
             "buttonText": "START CHAT",
             "header": "Need Help?",
             "imgSrc": "",
-            "text": "If you need any support, we are here to help. Why not talk to one of our Developers or Product Owners directly.",
+            "text": "If you have a question that is not covered in the documentation you can ask here. Please note we don’t provide chat support for Agency Cloud Developer Edition.",
           },
           Object {
             "buttonOnClick": [Function],
@@ -104,7 +104,9 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                       className=""
                       data-test=""
                     >
-                      <Component>
+                      <Component
+                        className="flex-shrink-0"
+                      >
                         <section
                           className=""
                           data-test=""
@@ -192,7 +194,9 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                       className=""
                       data-test=""
                     >
-                      <Component>
+                      <Component
+                        className="flex-shrink-0"
+                      >
                         <section
                           className=""
                           data-test=""
@@ -280,7 +284,9 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                       className=""
                       data-test=""
                     >
-                      <Component>
+                      <Component
+                        className="flex-shrink-0"
+                      >
                         <section
                           className=""
                           data-test=""
@@ -367,7 +373,9 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                       className=""
                       data-test=""
                     >
-                      <Component>
+                      <Component
+                        className="flex-shrink-0"
+                      >
                         <section
                           className=""
                           data-test=""
@@ -455,7 +463,9 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                       className=""
                       data-test=""
                     >
-                      <Component>
+                      <Component
+                        className="flex-shrink-0"
+                      >
                         <section
                           className=""
                           data-test=""
@@ -483,7 +493,7 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                           className=""
                           data-test=""
                         >
-                          If you need any support, we are here to help. Why not talk to one of our Developers or Product Owners directly.
+                          If you have a question that is not covered in the documentation you can ask here. Please note we don’t provide chat support for Agency Cloud Developer Edition.
                         </div>
                       </Component>
                       <Component
@@ -542,7 +552,9 @@ exports[`DeveloperHelpPage should match a snapshot 1`] = `
                       className=""
                       data-test=""
                     >
-                      <Component>
+                      <Component
+                        className="flex-shrink-0"
+                      >
                         <section
                           className=""
                           data-test=""

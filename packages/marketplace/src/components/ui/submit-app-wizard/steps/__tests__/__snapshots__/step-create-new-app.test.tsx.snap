@@ -9,8 +9,7 @@ exports[`StepCreateNewApp should match snapshot 1`] = `
           Do you intend for your app to be launched within Agency Cloud?
         </Unknown>
         <p>
-          If you want your application to be launched within the Desktop CRM you will need to adhere to our branding guidelines. The easiest way to do this is to use Elements our UI Library or style sheet. You will also be required to use Reapit Connect, our single sign on solution. For more information please click here
-           
+          If you want your application to be launched within the Desktop CRM you will need to adhere to our branding guidelines. The easiest way to do this is to use Elements our UI Library or style sheet. You will also be required to use Reapit Connect, our single sign on solution.
         </p>
       </div>
     }
@@ -18,7 +17,16 @@ exports[`StepCreateNewApp should match snapshot 1`] = `
   <Component
     footerItems={
       <Unknown>
-        <div>
+        <Unknown
+          className="ml-0"
+          onClick={[Function]}
+          variant="secondary"
+        >
+          Back
+        </Unknown>
+        <div
+          className="ml-auto"
+        >
           <Unknown
             onClick={[Function]}
           >
@@ -28,15 +36,6 @@ exports[`StepCreateNewApp should match snapshot 1`] = `
             onClick={[Function]}
           >
             No
-          </Unknown>
-        </div>
-        <div
-          className="ml-auto"
-        >
-          <Unknown
-            onClick={[Function]}
-          >
-            Back
           </Unknown>
         </div>
       </Unknown>

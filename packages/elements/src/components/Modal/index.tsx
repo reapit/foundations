@@ -39,6 +39,7 @@ export const ModalHeader: React.SFC<ModalHeaderProps> = ({ title, afterClose }) 
         className="delete"
         aria-label="close"
         data-test="modal-close-button"
+        type="button"
         onClick={event => {
           event.preventDefault()
           afterClose && afterClose()

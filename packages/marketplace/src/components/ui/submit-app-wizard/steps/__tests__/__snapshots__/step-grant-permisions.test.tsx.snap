@@ -13,7 +13,7 @@ exports[`StepGrantPermissions should match snapshot 1`] = `
           Please select specific the entities you need access to on a read or write basis. You can select multiple options below:
         </p>
         <Unknown
-          fixedPosition={true}
+          fixedPosition={false}
           id="scopes"
           mode="multiple"
           name="scopes"
@@ -24,21 +24,24 @@ exports[`StepGrantPermissions should match snapshot 1`] = `
   />
   <Component
     footerItems={
-      <React.Fragment>
+      <Unknown>
         <Unknown
+          className="ml-0"
           disabled={false}
           onClick={[Function]}
+          variant="secondary"
         >
           Back
         </Unknown>
         <Unknown
+          className="ml-auto"
           disabled={false}
           loading={false}
           type="submit"
         >
           Next
         </Unknown>
-      </React.Fragment>
+      </Unknown>
     }
   />
 </Fragment>

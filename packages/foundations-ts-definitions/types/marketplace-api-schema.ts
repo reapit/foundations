@@ -370,6 +370,80 @@ export interface CategoryModel {
   readonly links?: LinkModel[]
 }
 /**
+ * Model to expose company address info
+ */
+export interface CompanyAddressModel {
+  /**
+   * The building name
+   */
+  buildingName?: string
+  /**
+   * The building number
+   */
+  buildingNumber?: string
+  /**
+   * The first line of the address
+   */
+  line1?: string
+  /**
+   * The second line of the address
+   */
+  line2?: string
+  /**
+   * The third line of the address
+   */
+  line3?: string
+  /**
+   * The fourth line of the address
+   */
+  line4?: string
+  /**
+   * The postcode
+   */
+  postcode?: string
+  /**
+   * The ISO-3166 country code that the address resides within
+   */
+  countryId?: string
+}
+/**
+ * Request body used to set the address details
+ */
+export interface CreateAddressModel {
+  /**
+   * The building name
+   */
+  buildingName?: string
+  /**
+   * The building number
+   */
+  buildingNumber?: string
+  /**
+   * The first line of the address
+   */
+  line1?: string
+  /**
+   * The second line of the address
+   */
+  line2?: string
+  /**
+   * The third line of the address
+   */
+  line3?: string
+  /**
+   * The fourth line of the address
+   */
+  line4?: string
+  /**
+   * The postcode
+   */
+  postcode?: string
+  /**
+   * The ISO-3166 country code that the address resides within
+   */
+  countryId?: string
+}
+/**
  * The model responsible for creation of an app definition
  */
 export interface CreateAppModel {
@@ -629,7 +703,27 @@ export interface CreateDeveloperModel {
   /**
    * Sets the date the developer agreed to the terms
    */
-  readonly agreedTerms?: string // date-time
+  agreedTerms?: string // date-time
+  /**
+   * Sets a brief description for the developers organisation
+   */
+  about?: string
+  /**
+   * Sets the website  of the developers organisation
+   */
+  website?: string
+  /**
+   * Sets the tax number of the developers organisation
+   */
+  taxNumber?: string
+  /**
+   * Sets the registration number of the developers organisation
+   */
+  registrationNumber?: string
+  /**
+   * Sets the address of the developers organisation
+   */
+  companyAddress?: CreateAddressModel
 }
 /**
  * The model responsible for creation of an installation between a specific client and app
@@ -703,49 +797,85 @@ export interface DesktopIntegrationTypeModel {
  */
 export interface DeveloperModel {
   /**
-   * Gets the id of this developer
+   * The id of this developer
    */
-  readonly id?: string // uuid
+  id?: string // uuid
   /**
-   * Gets the id of this developer held in the gateway
+   * The id of this developer held in the gateway
    */
-  readonly externalId?: string
+  externalId?: string
   /**
-   * Gets the full name of this developer
+   * The full name of this developer
    */
-  readonly name?: string
+  name?: string
   /**
-   * Gets the company to which this developer is acting on behalf of
+   * The company to which this developer is acting on behalf of
    */
-  readonly company?: string
+  company?: string
   /**
-   * Gets the job title for this developer
+   * The job title for this developer
    */
-  readonly jobTitle?: string
+  jobTitle?: string
   /**
-   * Gets the email address of the developer
+   * The email address of the developer
    */
-  readonly email?: string
+  email?: string
   /**
-   * Gets the telephone number of the developer
+   * The telephone number of the developer
    */
-  readonly telephone?: string
+  telephone?: string
   /**
-   * Gets the date the developer agreed to the terms
+   * The date the developer agreed to the terms
    */
-  readonly agreedTerms?: string // date-time
+  agreedTerms?: string // date-time
   /**
-   * Gets the flag determining if the developer is inactive
+   * The flag determining if the developer is inactive
    */
   isInactive?: boolean
   /**
-   * Gets the timestamp of entity creation
+   * A brief description of the developers organisation
    */
-  readonly created?: string // date-time
+  about?: string
   /**
-   * Gets the timestamp of entity modification
+   * The website for the developers organisation
    */
-  readonly modified?: string // date-time
+  website?: string
+  /**
+   * The tax number of the developers organisation
+   */
+  taxNumber?: string
+  /**
+   * The registration number of the developers organisation
+   */
+  registrationNumber?: string
+  /**
+   * The email of the accounts department for the developer
+   */
+  billingEmail?: string
+  /**
+   * The telephone number for the accounts department for the developer
+   */
+  billingTelephone?: string
+  /**
+   * The name of the member of staff dealing with billing
+   */
+  billingKeyContact?: string
+  /**
+   * The reapit account reference used for this company
+   */
+  reapitReference?: string
+  /**
+   * The timestamp of entity creation
+   */
+  created?: string // date-time
+  /**
+   * The timestamp of entity modification
+   */
+  modified?: string // date-time
+  /**
+   * The address of the developers organisation
+   */
+  companyAddress?: CompanyAddressModel
   /**
    * Gets the links associated to this model
    */
@@ -1048,6 +1178,43 @@ export interface TerminateInstallationModel {
   terminatesOn?: string // date-time
 }
 /**
+ * Request body used to set the address details
+ */
+export interface UpdateAddressModel {
+  /**
+   * The building name
+   */
+  buildingName?: string
+  /**
+   * The building number
+   */
+  buildingNumber?: string
+  /**
+   * The first line of the address
+   */
+  line1?: string
+  /**
+   * The second line of the address
+   */
+  line2?: string
+  /**
+   * The third line of the address
+   */
+  line3?: string
+  /**
+   * The fourth line of the address
+   */
+  line4?: string
+  /**
+   * The postcode
+   */
+  postcode?: string
+  /**
+   * The ISO-3166 country code that the address resides within
+   */
+  countryId?: string
+}
+/**
  * The model responsible for updating a desktop integration type
  */
 export interface UpdateDesktopIntegrationTypeModel {
@@ -1092,4 +1259,40 @@ export interface UpdateDeveloperModel {
    * Sets the flag specifying if the developer is inactive
    */
   isInactive?: boolean
+  /**
+   * Sets a brief description for the developers organisation
+   */
+  about?: string
+  /**
+   * Sets the website  of the developers organisation
+   */
+  website?: string
+  /**
+   * Sets the tax number of the developers organisation
+   */
+  taxNumber?: string
+  /**
+   * Sets the registration number of the developers organisation
+   */
+  registrationNumber?: string
+  /**
+   * Sets the email of the accounts department for the developer
+   */
+  billingEmail?: string
+  /**
+   * Sets the telephone number for the accounts department for the developer
+   */
+  billingTelephone?: string
+  /**
+   * Sets the name of the member of staff dealing with billing
+   */
+  billingKeyContact?: string
+  /**
+   * Sets reapits account reference used for this company
+   */
+  reapitReference?: string
+  /**
+   * Sets the address of the developers organisation
+   */
+  companyAddress?: UpdateAddressModel
 }

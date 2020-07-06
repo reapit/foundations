@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { History } from 'history'
 import { useSelector } from 'react-redux'
-import { Loader, FlexContainerBasic, H3, GridThreeColItem, Grid, Pagination } from '@reapit/elements'
+import { Loader, Section, H3, GridThreeColItem, Grid, Pagination } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { useHistory, useLocation } from 'react-router'
 import AppList from '@/components/ui/app-list'
@@ -49,7 +49,7 @@ export const Client: React.FunctionComponent = () => {
 
   return (
     <ErrorBoundary>
-      <FlexContainerBasic flexColumn dataTest="page-client-apps-container">
+      <Section isFlex isFlexColumn hasPadding={false} hasMargin={false} hasBackground={false}>
         {/* <AppSidebar /> */}
         {unfetched || loading ? (
           <Loader />
@@ -90,7 +90,7 @@ export const Client: React.FunctionComponent = () => {
             />
           </>
         )}
-      </FlexContainerBasic>
+      </Section>
     </ErrorBoundary>
   )
 }

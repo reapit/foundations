@@ -6,8 +6,13 @@ exports[`DeveloperEditionDownload should match snapshot 1`] = `
   visible={true}
 >
   <p>
-    To start the download, please click ‘Start Download’ below. It will automatically download an application file which you will need to run and install the required document files. For more information or support using the Developer Edition, please 
-    <a>
+    To start the download, please click ‘Start Download’ below. It will automatically download an application file which you will need to run and install the required document files. For more information or support using the Developer Edition, please
+     
+    <a
+      href=""
+      rel="noopener noreferrer"
+      target="_blank"
+    >
       click here
     </a>
   </p>

@@ -16,7 +16,7 @@ export const HelpItemList = ({ items }: { items: HelpItem[] }) => (
       <GridThreeColItem key={header}>
         <Section isFullHeight isFlex>
           <Section className={styles.wrapBoxContent} isFlex isFlexColumn>
-            <Section>
+            <Section className="flex-shrink-0">
               <img className={styles.image} src={imgSrc} alt={header} />
             </Section>
             <H5 isCentered>{header}</H5>

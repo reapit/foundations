@@ -1,4 +1,5 @@
 import { FetchError, FormikErrors } from '@reapit/elements'
+import { notification } from '@reapit/elements'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
 import {
   submitAppSetFormState,
@@ -69,12 +70,11 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
       yield call(setErrors, formErrors as FormikErrors<CustomCreateAppModel>)
     }
     yield put(submitAppSetFormState('ERROR'))
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: err?.response?.description || errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    yield call(notification.error, {
+      message: err?.response?.description || errorMessages.DEFAULT_SERVER_ERROR,
+      placement: 'bottomRight',
+      duration: 0,
+    })
   }
 }
 

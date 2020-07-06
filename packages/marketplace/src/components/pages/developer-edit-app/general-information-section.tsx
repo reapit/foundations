@@ -22,7 +22,9 @@ import { formFields } from './form-schema/form-fields'
 
 const { name, categoryId, supportEmail, telephone, homePage, launchUri, summary, description } = formFields
 
-export type GeneralInformationSectionProps = {}
+export type GeneralInformationSectionProps = {
+  isListed: boolean
+}
 
 export const prepareCategoryOptions = (categories: CategoryModel[]) => {
   return categories.map(category => ({
@@ -31,7 +33,7 @@ export const prepareCategoryOptions = (categories: CategoryModel[]) => {
   }))
 }
 
-const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = () => {
+const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = ({ isListed }) => {
   const categories = useSelector(selectCategories)
 
   const categoryOptions: SelectBoxOptions[] = prepareCategoryOptions(categories)
@@ -86,7 +88,7 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = () =
             id={supportEmail.name}
             name={supportEmail.name}
             placeholder={supportEmail.placeHolder}
-            required
+            required={isListed}
           />
         </GridItem>
         <GridItem>
@@ -97,7 +99,7 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = () =
             id={telephone.name}
             name={telephone.name}
             placeholder={telephone.placeHolder}
-            required
+            required={isListed}
           />
         </GridItem>
       </Grid>
@@ -110,7 +112,7 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = () =
             id={homePage.name}
             name={homePage.name}
             placeholder={homePage.placeHolder}
-            required
+            required={isListed}
           />
         </GridItem>
         <GridItem>
@@ -121,7 +123,7 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = () =
             id={launchUri.name}
             name={launchUri.name}
             placeholder={launchUri.placeHolder}
-            required
+            required={isListed}
           />
         </GridItem>
       </Grid>
@@ -133,7 +135,7 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = () =
             labelText={summary.label as string}
             name={summary.name}
             placeholder={summary.placeHolder}
-            required
+            required={isListed}
           />
         </GridItem>
         <GridItem className={styles.gridMaxHalfWidth}>
@@ -158,7 +160,7 @@ const GeneralInformationSection: React.FC<GeneralInformationSectionProps> = () =
             labelText={description.label as string}
             name={description.name}
             placeholder={description.placeHolder}
-            required
+            required={isListed}
           />
         </GridItem>
       </Grid>

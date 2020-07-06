@@ -13,7 +13,7 @@ export type CustomCreateAppModel = Pick<CreateAppModel, 'name' | 'authFlow' | 's
   signoutUris?: string
 }
 export type SubmitAppArgs = CreateAppModel &
-  Pick<HandleSubmitParams, 'setWizardStep' | 'afterClose'> &
+  Pick<HandleSubmitParams, 'setWizardStep'> &
   Pick<FormikHelpers<CustomCreateAppModel>, 'setErrors' | 'setFieldValue'>
 
 export type WizardChangeStepModel = {

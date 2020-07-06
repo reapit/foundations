@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { appDeleteSetInitFormState } from '@/actions/app-delete'
 import { useDispatch, useSelector } from 'react-redux'
 import { appDeleteRequest } from '@/actions/app-delete'
 import { Button, ModalProps, Modal, ModalBody, ModalHeader, ModalFooter } from '@reapit/elements'
@@ -28,8 +29,13 @@ export const onDeleteButtonClick = (appId: string, dispatch: Dispatch) => {
   }
 }
 
+export const handleUseEffect = (dispatch: Dispatch) => () => {
+  dispatch(appDeleteSetInitFormState())
+}
+
 export const DeleteAppModal: React.FC<AppDeleteProps> = ({ appId, appName, afterClose, visible, onDeleteSuccess }) => {
   const dispatch = useDispatch()
+  React.useEffect(handleUseEffect(dispatch), [])
   const formState = useSelector(selectAppDeleteFormState)
 
   const isLoading = formState === 'SUBMITTING'

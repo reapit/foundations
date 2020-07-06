@@ -46,6 +46,9 @@ export const renderApp = (Component: React.ComponentType) => {
   if (refreshSessionFromCookie) {
     store.dispatch(authSetRefreshSession(refreshSessionFromCookie))
   }
+  if (window.location.href.includes('developer')) {
+    document.title = 'Developers'
+  }
   if (rootElement) {
     render(<Component />, rootElement)
   }

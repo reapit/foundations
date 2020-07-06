@@ -49,9 +49,7 @@ export const AdminDevManagementFilterForm: React.FC<AdminDevManagementFilterForm
                   labelText="Registered From"
                   id="registeredFrom"
                   reactDatePickerProps={{
-                    maxDate: dayjs()
-                      .subtract(1, 'day')
-                      .toDate(),
+                    maxDate: dayjs().toDate(),
                   }}
                 />
               </GridItem>
@@ -61,12 +59,8 @@ export const AdminDevManagementFilterForm: React.FC<AdminDevManagementFilterForm
                   labelText="Registered To"
                   id="registeredTo"
                   reactDatePickerProps={{
-                    minDate: dayjs(registeredFrom)
-                      .add(1, 'day')
-                      .toDate(),
-                    maxDate: dayjs()
-                      .subtract(1, 'day')
-                      .toDate(),
+                    minDate: dayjs(registeredFrom).toDate(),
+                    maxDate: dayjs().toDate(),
                   }}
                 />
               </GridItem>

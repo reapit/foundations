@@ -1,5 +1,4 @@
 import { css } from 'linaria'
-import { white } from '@/core/__styles__'
 
 export const loginPageContainer = css`
   min-width: 100vw;
@@ -8,7 +7,6 @@ export const loginPageContainer = css`
   justify-content: flex-end;
   align-items: center;
   flex-direction: row;
-  background-color: ${white};
 
   @media screen and (max-width: 900px) {
     flex-direction: column-reverse;
@@ -16,7 +14,6 @@ export const loginPageContainer = css`
 `
 
 export const loginPageFormContainer = css`
-  background-color: ${white};
   width: 33.33%;
   padding: 1rem;
   pointer-events: auto;

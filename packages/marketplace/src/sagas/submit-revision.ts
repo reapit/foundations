@@ -1,20 +1,18 @@
 import { imageUploaderHelper } from '@/services/upload'
-import { submitRevisionSetFormState } from '../actions/submit-revision'
+import { SubmitRevisionParams } from '../actions/submit-revision'
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { Action } from '../types/core'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
-import { CreateAppRevisionModel } from '@reapit/foundations-ts-definitions'
 import { appDetailRequestData } from '@/actions/app-detail'
 import { logger } from '@reapit/utils'
 import { createAppRevision } from '@/services/apps'
 
-export const submitRevision = function*({ data }: Action<CreateAppRevisionModel & { id: string }>) {
-  yield put(submitRevisionSetFormState('SUBMITTING'))
-
+export const submitRevision = function*({ data }: Action<SubmitRevisionParams>) {
   // TODO: for this situation we need check the value of imageData
   // upload and also update into imageUrl as new property from backend
+  const { params, onSuccess, onError } = data
   try {
     const {
       id,
@@ -27,7 +25,7 @@ export const submitRevision = function*({ data }: Action<CreateAppRevisionModel 
       screen5ImageUrl,
       categoryId,
       ...body
-    } = data
+    } = params
 
     const formatedName = name ? name.replace(/\s+/g, '-') : ''
     const imageUploaderReqs = [
@@ -64,9 +62,10 @@ export const submitRevision = function*({ data }: Action<CreateAppRevisionModel 
     const status = regResponse ? 'SUCCESS' : 'ERROR'
     if (status === 'SUCCESS') {
       yield put(appDetailRequestData({ id }))
+      onSuccess()
+    } else {
+      onError()
     }
-
-    yield put(submitRevisionSetFormState(status))
   } catch (err) {
     logger(err)
     yield put(
@@ -75,15 +74,12 @@ export const submitRevision = function*({ data }: Action<CreateAppRevisionModel 
         message: errorMessages.DEFAULT_SERVER_ERROR,
       }),
     )
-    yield put(submitRevisionSetFormState('ERROR'))
+    onError()
   }
 }
 
 export const submitRevisionDataListen = function*() {
-  yield takeLatest<Action<CreateAppRevisionModel & { id: string }>>(
-    ActionTypes.DEVELOPER_SUBMIT_REVISION,
-    submitRevision,
-  )
+  yield takeLatest<Action<SubmitRevisionParams>>(ActionTypes.DEVELOPER_SUBMIT_REVISION, submitRevision)
 }
 
 export const submitRevisionSagas = function*() {

@@ -42,16 +42,15 @@ export const DeveloperEditionContent: React.FC<DeveloperEditionContentProps> = (
         body={
           <>
             <SubTitleH6 className={developerEditionStyles.subTitle}>
-              The Agency Cloud Developer Edition is used for testing your application and is a licenced product. The
-              cost per licence is £300.00 (plus VAT) per month. It will be automatically added to your monthly billing
-              and will auto renew until you cancel.
-              <br />
-              <br />
-              There will be no charge for the licence during the Beta phase. For more information regarding the
-              Developer Edition please refer to your Developer Registration&nbsp;
+              The Agency Cloud Developer Edition is a licensed product. However, there will be no charge for the licence
+              during the Beta phase. For more information regarding the Developer Edition licence please refer to your
+              Developer Registration&nbsp;
               <a href={pdfLink} rel="noreferrer" target="_blank">
                 Terms and Conditions
               </a>
+              <br />
+              <br />
+              To proceed, please confirm your subscription below
             </SubTitleH6>
             <Formik initialValues={initialValues} onSubmit={onFormSubmit} validationSchema={validationSchema}>
               <Form className="form">

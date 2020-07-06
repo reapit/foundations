@@ -77,7 +77,8 @@ export const helpItems = (loginIdentity?: LoginIdentity): HelpItem[] => [
     imgSrc: liveChatImg,
     header: 'Need Help?',
     text:
-      'If you need any support, we are here to help. Why not talk to one of our Developers or Product Owners directly.',
+      'If you have a question that is not covered in the documentation you can ask here. Please note ' +
+      'we don’t provide chat support for Agency Cloud Developer Edition.',
     buttonText: 'START CHAT',
     buttonOnClick: () => handleFaq(loginIdentity),
   },

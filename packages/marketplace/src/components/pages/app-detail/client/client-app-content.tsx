@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FlexContainerBasic } from '@reapit/elements'
+import { Section } from '@reapit/elements'
 import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
 import { SummarySection, AdditionalImagesSection, PermissionsSection, DescriptionSection } from '../common/ui-sections'
 
@@ -11,13 +11,13 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailData }) => {
   const { summary = '', description = '', scopes = [], media = [] } = appDetailData
 
   return (
-    <FlexContainerBasic flexColumn>
+    <Section isFlex isFlexColumn hasPadding={false} hasMargin={false}>
       <SummarySection summary={summary} />
       <AdditionalImagesSection images={media} splitIndex={1} numberImages={2} />
       <DescriptionSection description={description} />
       <AdditionalImagesSection images={media} splitIndex={3} numberImages={2} />
       <PermissionsSection permissions={scopes} />
-    </FlexContainerBasic>
+    </Section>
   )
 }
 

@@ -2,24 +2,26 @@
 
 exports[`SubmitAppWizardModal should match snapshot when visible = true 1`] = `
 <Component
-  afterClose={[MockFunction]}
+  afterClose={[Function]}
+  deps={Array []}
   renderChildren={true}
   visible={true}
 >
   <Component
-    afterClose={[MockFunction]}
+    afterClose={[Function]}
   />
 </Component>
 `;
 
 exports[`SubmitAppWizardModal should match snapshot when visible = true 2`] = `
 <Component
-  afterClose={[MockFunction]}
+  afterClose={[Function]}
+  deps={Array []}
   renderChildren={true}
   visible={false}
 >
   <Component
-    afterClose={[MockFunction]}
+    afterClose={[Function]}
   />
 </Component>
 `;

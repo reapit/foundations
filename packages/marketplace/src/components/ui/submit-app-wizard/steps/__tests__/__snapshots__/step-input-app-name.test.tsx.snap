@@ -22,19 +22,22 @@ exports[`StepGrantPermissions should match snapshot 1`] = `
   />
   <Component
     footerItems={
-      <React.Fragment>
+      <Unknown>
         <Unknown
+          className="ml-0"
           onClick={[Function]}
+          variant="secondary"
         >
           Back
         </Unknown>
         <Unknown
+          className="ml-auto"
           disabled={true}
           onClick={[Function]}
         >
           Next
         </Unknown>
-      </React.Fragment>
+      </Unknown>
     }
   />
 </Fragment>

@@ -112,7 +112,8 @@ html {
   }
 }
 
-.field, .field:not(:last-child) {
+.field,
+.field:not(:last-child) {
   margin-bottom: 0.75rem;
 }
 
@@ -168,9 +169,11 @@ html {
 }
 
 .control {
-  .label, i {
+  .label,
+  i {
     color: $grey;
   }
+
   &.has-icons-right,
   &.has-icons-left {
     .icon {
@@ -284,9 +287,13 @@ a {
   }
 
   &.is-page-container {
-    // to allow scroll past end of content, allowing for toast popup and 
+    // to allow scroll past end of content, allowing for toast popup and
     // increase readability, especially in mobile
-    margin-bottom: 6rem;
+    // Need to use "padding-bottom" here because "margin-bottom" doesn't work on IE
+    padding-bottom: 6rem;
+    // Fix IE flex columns height bug
+    // https://stackoverflow.com/a/36900208
+    flex-shrink: 0;
   }
 }
 
@@ -294,9 +301,14 @@ a {
   font-family: $title-family;
 }
 
+.modal-card {
+  overflow: auto;
+}
+
 .modal-card,
 .modal-content {
   margin: 0 auto;
+
   .modal-card {
     @media screen and (max-width: 768px) {
       max-height: calc(100vh - 160px);

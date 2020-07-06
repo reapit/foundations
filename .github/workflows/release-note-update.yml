@@ -21,6 +21,8 @@ jobs:
     steps:
       - name: checks out repository to $GITHUB_WORKSPACE
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Setup NodeJS
         uses: actions/setup-node@v1
@@ -48,6 +50,7 @@ jobs:
         with:
           repository: ${{ env.DOC_REPO }}
           path: ${{ env.DOC_CLONE_PATH }}
+          fetch-depth: 0
 
       - name: Run update doc script
         run: |

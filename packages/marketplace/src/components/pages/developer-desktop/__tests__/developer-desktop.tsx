@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
@@ -17,7 +17,7 @@ describe('DeveloperDesktopPage', () => {
   })
 
   it('should match snapshot', () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <Provider store={store}>
         <DeveloperDesktopPage />
       </Provider>,

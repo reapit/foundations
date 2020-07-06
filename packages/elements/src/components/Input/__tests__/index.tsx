@@ -30,6 +30,14 @@ const requiredInputProps: InputProps = {
   required: true,
 }
 
+const helperTextComponentInputProps: InputProps = {
+  id: 'username',
+  name: 'username',
+  labelText: 'User name',
+  type: 'text',
+  helperText: <b>Helper text</b>,
+}
+
 describe('Input', () => {
   it('should match a snapshot', () => {
     expect(toJson(shallow(<Input {...props} />))).toMatchSnapshot()
@@ -41,6 +49,10 @@ describe('Input', () => {
 
   it('should match a snapshot if field is required', () => {
     expect(toJson(shallow(<Input {...requiredInputProps} />))).toMatchSnapshot()
+  })
+
+  it('should match a snapshot if helperText is a component', () => {
+    expect(toJson(shallow(<Input {...helperTextComponentInputProps} />))).toMatchSnapshot()
   })
 
   it('should work when integrating with Formik', async () => {
