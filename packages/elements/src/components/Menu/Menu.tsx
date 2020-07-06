@@ -73,6 +73,7 @@ export const LinkItem: React.SFC<{
 
 const MenuComponent: React.FC<MenuConfig> = ({ menu, location, mode: modeProp, defaultActiveKey }) => {
   const ownMode = getMarketplaceGlobalsByKey() ? 'DESKTOP' : 'WEB'
+
   // if pass mode, take that value
   // otherwise auto-detect
   const mode = modeProp ?? ownMode
