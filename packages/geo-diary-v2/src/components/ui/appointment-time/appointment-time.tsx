@@ -1,16 +1,13 @@
 import * as React from 'react'
 import { ButtonGroup, Button } from '@reapit/elements'
+import { History } from 'history'
 import qs from 'query-string'
 import { ROUTES } from '@/core/router'
-
-export type AppointmentTime = 'Today' | 'Tomorrow' | 'Week View'
 
 export type HandleChangeTravelModeParams = {
   time: 'today' | 'tomorrow' | 'week_view'
   queryParams: qs.ParsedQuery<string>
-  history: {
-    push: (queryString: string) => void
-  }
+  history: History
 }
 
 export const handleChangeTravelMode = ({ history, time, queryParams }: HandleChangeTravelModeParams) => () => {
@@ -20,9 +17,7 @@ export const handleChangeTravelMode = ({ history, time, queryParams }: HandleCha
 
 export interface AppointmentTimeProps {
   queryParams: qs.ParsedQuery<string>
-  history: {
-    push: (queryString: string) => void
-  }
+  history: History
 }
 
 export const AppointmentTime = ({ queryParams, history }: AppointmentTimeProps) => (

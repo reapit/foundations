@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { ButtonGroup, Button } from '@reapit/elements'
+import { History } from 'history'
 import { cx } from 'linaria'
 import qs from 'query-string'
 import { ROUTES } from '@/core/router'
@@ -9,9 +10,7 @@ export type TravelMode = 'DRIVING' | 'WALKING'
 export type HandleChangeTravelModeParams = {
   travelMode: string
   queryParams: qs.ParsedQuery<string>
-  history: {
-    push: (queryString: string) => void
-  }
+  history: History
 }
 
 export const handleChangeTravelMode = ({ history, travelMode, queryParams }: HandleChangeTravelModeParams) => () => {
@@ -21,9 +20,7 @@ export const handleChangeTravelMode = ({ history, travelMode, queryParams }: Han
 
 export type TravelModeProps = {
   queryParams: qs.ParsedQuery<string>
-  history: {
-    push: (queryString: string) => void
-  }
+  history: History
 }
 
 export const TravelMode: React.FC<TravelModeProps> = ({ queryParams, history }) => {

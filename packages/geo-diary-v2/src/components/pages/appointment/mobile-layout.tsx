@@ -1,18 +1,19 @@
 import React from 'react'
 import { useLocation, useHistory } from 'react-router'
 import qs from 'query-string'
+import { History } from 'history'
 import { TabConfig, Tabs } from '@reapit/elements'
-import { TravelMode } from './travel-mode'
+import { AppointmentModel } from '@reapit/foundations-ts-definitions'
 import { ROUTES } from '@/core/router'
-import { AppointmentTime } from './appointment-time'
-import AppointmentMap from './map'
+import TravelMode from '@/components/ui/travel-mode'
+import AppointmentTime from '@/components/ui/appointment-time'
+import AppointmentMap from '@/components/ui/map'
+import AppointmentList from '@/components/ui/appointment-list'
 
 export type HandleChangeTabParams = {
   tabName: string
   queryParams: qs.ParsedQuery<string>
-  history: {
-    push: (queryString: string) => void
-  }
+  history: History
 }
 
 export const handleChangeTab = ({ history, tabName, queryParams }: HandleChangeTabParams) => () => {
@@ -22,9 +23,7 @@ export const handleChangeTab = ({ history, tabName, queryParams }: HandleChangeT
 
 export type GenerateTabConfigParams = {
   queryParams: qs.ParsedQuery<string>
-  history: {
-    push: (queryString: string) => void
-  }
+  history: History
 }
 
 export const generateTabConfig = ({ queryParams, history }): TabConfig[] => [
@@ -42,7 +41,11 @@ export const generateTabConfig = ({ queryParams, history }): TabConfig[] => [
   },
 ]
 
-export const MobileLayout: React.FC = () => {
+export type MobileLayoutProps = {
+  appointments: AppointmentModel[]
+}
+
+export const MobileLayout: React.FC<MobileLayoutProps> = ({ appointments }) => {
   const location = useLocation()
   const history = useHistory()
   const queryParams = qs.parse(location.search)
@@ -53,9 +56,10 @@ export const MobileLayout: React.FC = () => {
         <>
           <AppointmentTime queryParams={queryParams} history={history} />
           <TravelMode queryParams={queryParams} history={history} />
+          <AppointmentList appointments={appointments} />
         </>
       )}
-      {queryParams.tab === 'map' && <AppointmentMap appointments={[]} />}
+      {queryParams.tab === 'map' && <AppointmentMap appointments={appointments} />}
     </>
   )
 }
