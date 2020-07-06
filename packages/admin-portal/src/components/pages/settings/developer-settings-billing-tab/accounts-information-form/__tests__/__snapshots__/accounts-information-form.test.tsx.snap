@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountsInformationForm should match snapshot 1`] = `
+<Formik
+  initialValues={
+    Object {
+      "contact": "",
+      "email": "",
+      "hasDirectDebit": "yes",
+      "hasReapitAccountsRef": "",
+      "phoneNumber": "",
+      "reapitAccountsRef": "",
+    }
+  }
+  onSubmit={[Function]}
+>
+  <Component />
+</Formik>
+`;

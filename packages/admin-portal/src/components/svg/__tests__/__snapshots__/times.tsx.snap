@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Times should match snapshot 1`] = `
+<svg
+  fill="currentColor"
+  height="1em"
+  stroke="currentColor"
+  strokeWidth="0"
+  viewBox="0 0 24 24"
+  width="1em"
+>
+  <path
+    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+  />
+</svg>
+`;

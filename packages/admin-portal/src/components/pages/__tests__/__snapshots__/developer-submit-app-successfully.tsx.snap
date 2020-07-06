@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeveloperSubmitAppSuccessfully renders correctly 1`] = `
+<Component
+  centerContent={true}
+  flexColumn={true}
+  hasPadding={true}
+>
+  <Component
+    flexColumn={true}
+    hasBackground={true}
+    hasPadding={true}
+  >
+    <CallToAction
+      className="container-footer"
+      dataTest="submit-success-section"
+      footerItems={
+        <React.Fragment>
+          <Unknown
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            My Apps
+          </Unknown>
+          <Unknown
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            Submit another app
+          </Unknown>
+        </React.Fragment>
+      }
+      isCard={true}
+      title="Success"
+    >
+      <p>
+        Your App has now been registered and can be accessed by clicking on ‘My Apps’ below.
+      </p>
+      <br />
+      <p>
+        You will be directed to the ‘My Apps’ page where you will be able to access the ‘Client ID’ of your App (required for authentication) and or make any changes to your App by clicking ‘Edit Details’.
+      </p>
+      <br />
+      <p>
+        <strong>
+          Currently, your App is only visible to you
+        </strong>
+         and will not be available in the Marketplace until you have made it ‘Listed’. When you are ready to do this, click on ‘Edit Detail’ and tick the ‘Is Listed’ check box located in the ‘Marketplace Status’ section.
+      </p>
+      <br />
+      <p>
+        <strong>
+          Please note:
+        </strong>
+         Any changes you make now to your App (including making it ‘Listed’) will require approval. These are called ‘Revisions’. All revisions will be sent to our Admin department and whilst your App is being reviewed, you will not be able to make any further changes and the App will be marked as ‘Pending Revision’.
+      </p>
+      <br />
+      <p>
+        Once you have ‘Listed’ your application, and any revisions have been approved, your app will be live in the Marketplace and available for install by customers.
+      </p>
+      <br />
+      <p>
+        For any issues or support, please visit the 
+        <Link
+          to="/developer/help"
+        >
+          ‘Help’
+        </Link>
+         page.
+      </p>
+      <br />
+    </CallToAction>
+  </Component>
+</Component>
+`;

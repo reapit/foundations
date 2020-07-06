@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeveloperEditionDownload should match snapshot 1`] = `
+<Component
+  title="Agency Cloud Developer Edition"
+  visible={true}
+>
+  <p>
+    To start the download, please click ‘Start Download’ below. It will automatically download an application file which you will need to run and install the required document files. For more information or support using the Developer Edition, please
+     
+    <a
+      href=""
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      click here
+    </a>
+  </p>
+  <Component
+    className="is-pulled-right mt-5"
+    onClick={[Function]}
+  >
+    START DOWNLOAD
+  </Component>
+</Component>
+`;
+
+exports[`DeveloperEditionDownload should match snapshot 2`] = `
+<Component
+  title="Download Complete"
+  visible={true}
+>
+  <p>
+    The download of the Developer Edition of Agency Cloud has been completed.
+  </p>
+</Component>
+`;

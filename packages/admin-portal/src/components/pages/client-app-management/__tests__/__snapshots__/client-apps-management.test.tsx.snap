@@ -1,0 +1,256 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyApps should match a snapshot when LOADING false 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "clientManageRoute",
+          "pathname": "/client/manage",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "clientManageRoute",
+              "pathname": "/client/manage",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "clientManageRoute",
+            "pathname": "/client/manage",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Component>
+        <Connect(ErrorBoundary)>
+          <ErrorBoundary
+            componentError={null}
+            errorThrownComponent={[Function]}
+          >
+            <Component
+              isHeadingSection={true}
+            >
+              <h3
+                className=""
+                id=""
+              >
+                Manage Apps
+              </h3>
+            </Component>
+            <Component
+              infoType="INSTALLED_APPS_EMPTY"
+              list={Array []}
+              loading={false}
+              onCardClick={[Function]}
+              onSettingsClick={[Function]}
+            >
+              <div
+                className="mb-4"
+              >
+                <Component
+                  variant="info"
+                >
+                  <div
+                    className="notification helper-wrap helper-info"
+                  >
+                    It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.
+                  </div>
+                </Component>
+              </div>
+            </Component>
+            <Component
+              onChange={[Function]}
+              pageNumber={1}
+            />
+          </ErrorBoundary>
+        </Connect(ErrorBoundary)>
+      </Component>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;
+
+exports[`MyApps should match a snapshot when LOADING true 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "clientManageRoute",
+          "pathname": "/client/manage",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "clientManageRoute",
+              "pathname": "/client/manage",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "clientManageRoute",
+            "pathname": "/client/manage",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Component>
+        <Component>
+          <div
+            className="loader-spinner body"
+            data-test=""
+          >
+            <div />
+            <div />
+            <div />
+            <div />
+          </div>
+        </Component>
+      </Component>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;
+
+exports[`MyApps should match a snapshot when isAdmin false 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "clientManageRoute",
+          "pathname": "/client/manage",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "clientManageRoute",
+              "pathname": "/client/manage",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "clientManageRoute",
+            "pathname": "/client/manage",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Component>
+        <Component
+          infoType="404"
+        >
+          <Component
+            message="Page not found"
+            type="danger"
+          >
+            <div
+              className="notification is-danger "
+              data-test=""
+              role="alert"
+            >
+              Page not found
+            </div>
+          </Component>
+        </Component>
+      </Component>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;

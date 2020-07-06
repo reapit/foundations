@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`app-delete should match snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Component
+    afterClose={[MockFunction]}
+    appId="test"
+    appName="test"
+    closeModal={[MockFunction]}
+    onDeleteSuccess={[MockFunction]}
+    visible={true}
+  >
+    <Component
+      afterClose={[Function]}
+      renderChildren={true}
+      visible={true}
+    />
+  </Component>
+</Provider>
+`;
