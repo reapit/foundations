@@ -1,0 +1,17 @@
+.parent {
+  counter-reset: schedule1-item;
+}
+
+.parent > .child {
+  counter-increment: schedule1-item;
+
+  &:before {
+    content: counters(schedule1-item, '.');
+  }
+}
+
+.child .parent > .child {
+  &:before {
+    content: counters(schedule1-item, '.') ' ';
+  }
+}
