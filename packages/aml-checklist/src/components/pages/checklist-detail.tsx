@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { Loader, FlexContainerResponsive, Tile, Button, FlexContainerBasic } from '@reapit/elements'
+import { Loader, Tile, Button, Section } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { withRouter, RouteComponentProps } from 'react-router'
@@ -10,7 +10,6 @@ import { Dispatch } from 'redux'
 import { checklistDetailHideModal, checklistDetailShowModal } from '@/actions/checklist-detail'
 import { ContactModel } from '@reapit/foundations-ts-definitions'
 import { STEPS } from '../ui/modal/modal'
-import checkListDetailStyles from '@/styles/pages/checklist-detail.scss?mod'
 import styles from '@/styles/ui/section.scss?mod'
 import { SectionsStatus } from '@/reducers/checklist-detail'
 import { defaultStatus } from '@/constants/section-status'
@@ -128,16 +127,10 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
   const sections = React.useMemo(() => generateSection(status, showModal), [status])
   return (
     <ErrorBoundary>
-      <FlexContainerBasic isScrollable>
-        <div className={checkListDetailStyles.detailContent}>
-          <FlexContainerResponsive hasPadding flexColumn>
-            <>
-              <AMLProgressBar />
-              {renderSections(sections)}
-            </>
-          </FlexContainerResponsive>
-        </div>
-      </FlexContainerBasic>
+      <Section hasPadding={false} hasBackground={false}>
+        <AMLProgressBar />
+        {renderSections(sections)}
+      </Section>
       <Modal id={id} visible={isModalVisible} afterClose={hideModal} modalContentType={modalContentType} />
     </ErrorBoundary>
   )
