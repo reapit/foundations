@@ -1,6 +1,24 @@
 import React, { useState } from 'react'
 import { FileInput, FileInputProps } from '../FileInput'
-import { isImageType, getTypeFromBase64 } from '@reapit/utils'
+
+/*
+  import { isImageType, getTypeFromBase64 } from '@reapit/utils'
+  due to configuration issues ^ don't work
+  TODO: fix in element v2 next mile stone
+*/
+export const isImageType = (type: string) => {
+  const regex = /^image\//
+  return regex.test(type)
+}
+
+export const getTypeFromBase64 = (base64: string): string => {
+  try {
+    const type = base64.split(';')[0].split(':')[1]
+    return type
+  } catch (error) {
+    return ''
+  }
+}
 
 export interface ImageInputProps extends FileInputProps {
   afterLoadedImage?: (base64: string) => any
