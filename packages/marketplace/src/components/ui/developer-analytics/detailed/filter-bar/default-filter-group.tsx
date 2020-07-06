@@ -10,9 +10,9 @@ export type DefaultFilterGroupProps = {
 }
 
 export enum FilterType {
-  YESTERDAY = 0,
-  LAST_WEEK = 1,
-  LAST_MONTH = 2,
+  TODAY = 0,
+  LAST_7_DAYS = 1,
+  LAST_30_DAYS = 2,
 }
 
 export type DateParams = {
@@ -22,54 +22,40 @@ export type DateParams = {
 
 export const filterButtons = [
   {
-    text: 'Yesterday',
-    filterType: FilterType.YESTERDAY,
+    text: 'Today',
+    filterType: FilterType.TODAY,
   },
   {
-    text: 'Last Week',
-    filterType: FilterType.LAST_WEEK,
+    text: 'Last 7 days ',
+    filterType: FilterType.LAST_7_DAYS,
   },
   {
-    text: 'Last Month',
-    filterType: FilterType.LAST_MONTH,
+    text: 'Last 30 days ',
+    filterType: FilterType.LAST_30_DAYS,
   },
 ]
 
 export const prepareDefaultFilterDateParams = () => {
-  const yesterday = dayjs()
-    .subtract(1, 'day')
-    .startOf('day')
-    .format(DATE_TIME_FORMAT.YYYY_MM_DD)
-  const yesterdayParams = {
-    dateFrom: yesterday,
-    dateTo: yesterday,
+  const dayjsToday = dayjs().startOf('day')
+  const today = dayjsToday.format(DATE_TIME_FORMAT.YYYY_MM_DD)
+  const todayParams = {
+    dateFrom: today,
+    dateTo: today,
   }
 
-  const lastWeek = dayjs().subtract(1, 'week')
-  const lastMonday = lastWeek
-    .startOf('week')
-    .add(1, 'day')
-    .format(DATE_TIME_FORMAT.YYYY_MM_DD)
-  const lastSunday = lastWeek
-    .endOf('week')
-    .add(1, 'day')
-    .format(DATE_TIME_FORMAT.YYYY_MM_DD)
-  const lastWeekParams = {
-    dateFrom: lastMonday,
-    dateTo: lastSunday,
+  const last7DaysParams = {
+    dateTo: today,
+    dateFrom: dayjsToday.subtract(6, 'day').format(DATE_TIME_FORMAT.YYYY_MM_DD),
   }
 
-  const lastMonth = dayjs().subtract(1, 'month')
-  const firstDayInMonth = lastMonth.startOf('month').format(DATE_TIME_FORMAT.YYYY_MM_DD)
-  const lastDayInMonth = lastMonth.endOf('month').format(DATE_TIME_FORMAT.YYYY_MM_DD)
-  const lastMonthParams = {
-    dateFrom: firstDayInMonth,
-    dateTo: lastDayInMonth,
+  const last30DaysParams = {
+    dateTo: today,
+    dateFrom: dayjsToday.subtract(29, 'day').format(DATE_TIME_FORMAT.YYYY_MM_DD),
   }
   return {
-    yesterdayParams,
-    lastWeekParams,
-    lastMonthParams,
+    todayParams,
+    last7DaysParams,
+    last30DaysParams,
   }
 }
 
@@ -85,16 +71,16 @@ export const handleFilter = (
 
 export const handleFilterButtonClick = (filterType, setDateFrom, setDateTo, setIsActive) => {
   return () => {
-    const { yesterdayParams, lastWeekParams, lastMonthParams } = prepareDefaultFilterDateParams()
+    const { todayParams, last7DaysParams, last30DaysParams } = prepareDefaultFilterDateParams()
     switch (filterType) {
-      case FilterType.YESTERDAY:
-        handleFilter(yesterdayParams, setDateFrom, setDateTo)
+      case FilterType.TODAY:
+        handleFilter(todayParams, setDateFrom, setDateTo)
         break
-      case FilterType.LAST_WEEK:
-        handleFilter(lastWeekParams, setDateFrom, setDateTo)
+      case FilterType.LAST_7_DAYS:
+        handleFilter(last7DaysParams, setDateFrom, setDateTo)
         break
-      case FilterType.LAST_MONTH:
-        handleFilter(lastMonthParams, setDateFrom, setDateTo)
+      case FilterType.LAST_30_DAYS:
+        handleFilter(last30DaysParams, setDateFrom, setDateTo)
         break
       default:
         break
@@ -127,7 +113,7 @@ export const renderFiterButtons = (
 }
 
 export const DefaultFilterGroup: React.FC<DefaultFilterGroupProps> = ({ setDateFrom, setDateTo }) => {
-  const [isActive, setIsActive] = React.useState(FilterType.LAST_WEEK)
+  const [isActive, setIsActive] = React.useState(FilterType.LAST_7_DAYS)
   const onFilterButtonClick = React.useCallback(handleFilterButtonClick, [])
 
   return (

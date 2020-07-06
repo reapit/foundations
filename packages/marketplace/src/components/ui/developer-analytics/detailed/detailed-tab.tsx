@@ -22,6 +22,7 @@ import { AppInstallationsState } from '@/reducers/app-installations'
 import { DeveloperState } from '@/reducers/developer'
 import { AppUsageStatsState } from '@/reducers/app-usage-stats'
 import TrafficEventTable from './traffic-event-table'
+import { prepareDefaultFilterDateParams } from './filter-bar/default-filter-group'
 
 export type DetailedTabProps = {}
 
@@ -61,13 +62,14 @@ export const handleDefaultFilter = (developerAppDataArray: AppSummaryModel[]) =>
   }
 }
 
-export const handleFetchAppUsageStatsDataUseCallback = (developerAppDataArray: AppSummaryModel[] = [], dispatch) => {
+export const handleFetchAppUsageStatsDataUseCallback = dispatch => {
   return () => {
-    const { lastMonday, lastSunday } = handleDefaultFilter(developerAppDataArray)
+    const { last7DaysParams } = prepareDefaultFilterDateParams()
+
     dispatch(
       appInstallationsFilterRequestData({
-        installedDateFrom: lastMonday,
-        installedDateTo: lastSunday,
+        installedDateFrom: last7DaysParams.dateFrom,
+        installedDateTo: last7DaysParams.dateTo,
         pageSize: GET_ALL_PAGE_SIZE,
       }),
     )
@@ -89,14 +91,15 @@ export const handleFetchHttpTrafficPerDayDataUseCallback = (
   developerAppDataArray: AppSummaryModel[] = [],
   dispatch,
 ) => () => {
-  const { lastMonday, lastSunday, appIds } = handleDefaultFilter(developerAppDataArray)
+  const { appIds } = handleDefaultFilter(developerAppDataArray)
+  const { last7DaysParams } = prepareDefaultFilterDateParams()
 
   if (appIds.length) {
     dispatch(
       httpTrafficPerDayRequestData({
         applicationId: appIds,
-        dateFrom: lastMonday,
-        dateTo: lastSunday,
+        dateFrom: last7DaysParams.dateFrom,
+        dateTo: last7DaysParams.dateTo,
       }),
     )
   }
@@ -140,10 +143,9 @@ export const DetailedTab: React.FC<DetailedTabProps> = () => {
     [installationFilterAppDataArray, developerDataArray],
   )
 
-  const fetchAppUsageStatsData = React.useCallback(
-    handleFetchAppUsageStatsDataUseCallback(developerDataArray, dispatch),
-    [developerDataArray],
-  )
+  const fetchAppUsageStatsData = React.useCallback(handleFetchAppUsageStatsDataUseCallback(dispatch), [
+    developerDataArray,
+  ])
 
   const fetchHttpTrafficPerDayData = React.useCallback(
     handleFetchHttpTrafficPerDayDataUseCallback(developerDataArray, dispatch),

@@ -54,10 +54,21 @@ describe('OverviewPage', () => {
     /* mocking store */
     const mockStore = configureStore()
     store = mockStore(mockState)
+
+    jest.resetAllMocks()
     /* mocking useSelector on our mock store */
     spySelector = jest.spyOn(ReactRedux, 'useSelector').mockImplementation(() => mapState(mockState))
     /* mocking useDispatch on our mock store  */
     spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
+  })
+
+  beforeAll(() => {
+    const mockDateString = '2020-07-06'
+    MockDate.set(new Date(mockDateString))
+  })
+
+  afterAll(() => {
+    MockDate.reset()
   })
 
   it('should match snapshot', () => {
@@ -83,13 +94,13 @@ describe('OverviewPage', () => {
 
   describe('handleFetchAppUsageStatsDataUseCallback', () => {
     it('should run correctly', () => {
-      const developerAppData = appsDataStub.data.data || []
-      const fn = handleFetchAppUsageStatsDataUseCallback(developerAppData, spyDispatch)
+      const fn = handleFetchAppUsageStatsDataUseCallback(spyDispatch)
       fn()
       expect(spyDispatch).toBeCalledWith(
         appInstallationsFilterRequestData({
-          installedDateFrom: '2019-09-30',
-          installedDateTo: '2019-10-06',
+          // default is last 7 days
+          installedDateFrom: '2020-06-30',
+          installedDateTo: '2020-07-06',
           pageSize: 9999,
         }),
       )
@@ -109,8 +120,9 @@ describe('OverviewPage', () => {
       expect(spyDispatch).toBeCalledWith(
         httpTrafficPerDayRequestData({
           applicationId: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
-          dateFrom: '2019-09-30',
-          dateTo: '2019-10-06',
+          // default is last 7 days
+          dateFrom: '2020-06-30',
+          dateTo: '2020-07-06',
         }),
       )
     })
@@ -124,24 +136,17 @@ describe('OverviewPage', () => {
   })
 })
 
-describe('handleDefaultFilter', () => {
-  const mockDateString = '2020-04-01'
-  beforeEach(() => {
-    MockDate.set(new Date(mockDateString))
-  })
-  afterEach(() => {
-    MockDate.reset()
-  })
-  it('should run correctly', () => {
-    const developerAppData = appsDataStub.data.data || []
-    const result = handleDefaultFilter(developerAppData)
-    expect(result).toEqual({
-      lastMonday: '2020-03-23',
-      lastSunday: '2020-03-29',
-      appIds: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
-    })
-  })
-})
+// describe('handleDefaultFilter', () => {
+//   it('should run correctly', () => {
+//     const developerAppData = appsDataStub.data.data || []
+//     const result = handleDefaultFilter(developerAppData)
+//     expect(result).toEqual({
+//       lastMonday: '2020-03-23',
+//       lastSunday: '2020-03-29',
+//       appIds: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
+//     })
+//   })
+// })
 
 describe('handleFetchAppUsageStatsDataUseEffect', () => {
   it('should run correctly', () => {
