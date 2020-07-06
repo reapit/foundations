@@ -15,6 +15,7 @@ window.reapit = {
     cognitoOAuthUrl: '',
     cognitoUserPoolId: '',
     graphqlUri: '',
+    googleMapApiKey: '',
   },
 }
 

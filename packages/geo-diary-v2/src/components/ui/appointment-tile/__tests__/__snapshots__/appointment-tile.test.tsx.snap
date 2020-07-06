@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`appointment-list AppointmentTile should match snapshot 1`] = `
+<Component
+  footerItems={
+    Array [
+      <React.Fragment>
+        <Unknown
+          disabled={false}
+          fullWidth={false}
+          loading={false}
+          onClick={[Function]}
+          type="submit"
+        >
+          Details
+        </Unknown>
+        <Unknown
+          disabled={false}
+          fullWidth={false}
+          loading={false}
+          onClick={[Function]}
+          type="submit"
+        >
+          Directions
+        </Unknown>
+      </React.Fragment>,
+    ]
+  }
+  heading="56 High Street"
+  hightlight={false}
+  key="NEP1600290"
+>
+  <Component
+    items={
+      Array [
+        Object {
+          "icon": <FaAddressCard
+            className="icon-list-icon"
+          />,
+          "text": "The Stables Old Haversham Milton Keynes MK19 7DZ",
+        },
+        Object {
+          "icon": <FaClock
+            className="icon-list-icon"
+          />,
+          "text": "Appointment cancelled",
+        },
+      ]
+    }
+  />
+</Component>
+`;
+
+exports[`appointment-list renderFooterItems should match snapshot 1`] = `
+<div>
+  <Component
+    disabled={false}
+    fullWidth={false}
+    loading={false}
+    onClick={[Function]}
+    type="submit"
+  >
+    Details
+  </Component>
+  <Component
+    disabled={false}
+    fullWidth={false}
+    loading={false}
+    onClick={[Function]}
+    type="submit"
+  >
+    Directions
+  </Component>
+</div>
+`;
+
+exports[`appointment-list renderIconItems should match snapshot 1`] = `
+<div>
+  <Component />
+  <Component />
+</div>
+`;
