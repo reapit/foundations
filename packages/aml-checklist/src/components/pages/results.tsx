@@ -22,11 +22,7 @@ export type ResultProps = ResultMappedActions & ResultMappedProps & RouteCompone
 export const generateColumns = history => () => {
   const PostCodeCell = ({ row }) => {
     const postcode = row.original.primaryAddress?.postcode
-    return (
-      <div>
-        <span>{postcode}</span>
-      </div>
-    )
+    return <span>{postcode}</span>
   }
   const AddressCell = ({ row }) => {
     const primaryAddress = row.original.primaryAddress || {}
@@ -36,18 +32,10 @@ export const generateColumns = history => () => {
       .map(([, value]) => value)
       .join(', ')
 
-    return (
-      <div>
-        <span>{filteredAddressEntries}</span>
-      </div>
-    )
+    return <span>{filteredAddressEntries}</span>
   }
   const StatusCell = ({ row }) => {
-    return (
-      <div>
-        <span className="capitalize">{row.original.identityCheck}</span>
-      </div>
-    )
+    return <span className="capitalize">{row.original.identityCheck}</span>
   }
   const ButtonCell = ({ row }) => {
     return (
@@ -113,12 +101,10 @@ export const fnFetchContacts = (
 
 export const renderEmptyResult = () => (
   <Section hasPadding={false} hasMargin={false} isCentered>
-    <div>
-      <Info infoType="">
-        <H6>No Results found</H6>
-      </Info>
-    </div>
-    <Link to={Routes.HOME} className="inline-block mt-4">
+    <Info infoType="">
+      <H6>No Results found</H6>
+    </Info>
+    <Link to={Routes.HOME} className="inline-block">
       <Button variant="info" type="button">
         New Search
       </Button>

@@ -6,17 +6,15 @@ exports[`Result renderEmptyResult should run correctly 1`] = `
   hasPadding={false}
   isCentered={true}
 >
-  <div>
-    <Unknown
-      infoType=""
-    >
-      <Unknown>
-        No Results found
-      </Unknown>
+  <Unknown
+    infoType=""
+  >
+    <Unknown>
+      No Results found
     </Unknown>
-  </div>
+  </Unknown>
   <Link
-    className="inline-block mt-4"
+    className="inline-block"
     to="/"
   >
     <Unknown

@@ -73,7 +73,7 @@ export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({ contact, idCheck
             </LevelRight>
           </Level>
           <ProgressBar percentage={progress.percentage} />
-          <div className="text-right">
+          <div className="has-text-right">
             {progress.completed}/{progress.total} <span>Completed</span>
           </div>
         </div>
