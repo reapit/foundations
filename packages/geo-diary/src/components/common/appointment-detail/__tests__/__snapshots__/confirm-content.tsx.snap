@@ -5,7 +5,11 @@ exports[`confirm-content it should match snapshot 1`] = `
   <Component>
     Are you sure you want to cancel this appointment?
   </Component>
-  <Component>
+  <Component
+    hasMargin={false}
+    hasPadding={false}
+    isFlex={true}
+  >
     <Component
       loading={false}
       onClick={[MockFunction]}
@@ -31,7 +35,11 @@ exports[`confirm-content it should match snapshot when isSubmitting equal to tru
   <Component>
     Are you sure you want to cancel this appointment?
   </Component>
-  <Component>
+  <Component
+    hasMargin={false}
+    hasPadding={false}
+    isFlex={true}
+  >
     <Component
       loading={true}
       onClick={[MockFunction]}

@@ -15,9 +15,11 @@ import {
   EntityType,
   SubTitleH5,
   H6,
-  H4,
+  H5,
   Button,
-  FlexContainerResponsive,
+  Grid,
+  GridItem,
+  Section,
 } from '@reapit/elements'
 import {
   ListItemModel,
@@ -28,14 +30,11 @@ import {
 } from '@reapit/foundations-ts-definitions'
 import { ReduxState, ExtendedAppointmentModel } from '@/types/core'
 import { appointmentDetailHideModal, showHideConfirmModal } from '@/actions/appointment-detail'
-import styles from '@/styles/ui/appoinments-detail.scss?mod'
 import { capitalizeFirstLetter } from '@/utils/capitalize-first-letter'
 import { getAttendeeEntityType } from '@/utils/get-attendee-entity-type'
 import ConfirmContent from './confirm-content'
 import { LoginMode } from '@reapit/cognito-auth'
 import { IconListItem } from '../../../../../elements/src/components/IconList/index'
-
-const { appointmentDetailTextContainer } = styles
 
 export type AppointmentModalProps = StateProps &
   DispatchProps & {
@@ -105,36 +104,50 @@ export const renderAddress = (
   const addressParts = [buildingName, buildingNumber, line1, line2, line3, line4, postcode, country]
 
   return (
-    <div className={appointmentDetailTextContainer}>
-      <div className={styles.appointmentDetailIconContainer}>
-        <FaHome />
-        <H6>Property:</H6>
-      </div>
-      <AcLink
-        dynamicLinkParams={{
-          appMode: loginMode,
-          entityType: EntityType.PROPERTY,
-          entityCode: propertyId,
-        }}
-      >
-        {addressParts.filter(p => p).join(', ')}
-      </AcLink>
-    </div>
+    <Grid>
+      <GridItem className="is-one-third horizontal">
+        <Grid className="is-vcentered">
+          <GridItem className="is-narrow">
+            <FaHome />
+          </GridItem>
+          <GridItem>
+            <H6>Property:</H6>
+          </GridItem>
+        </Grid>
+      </GridItem>
+      <GridItem>
+        <AcLink
+          dynamicLinkParams={{
+            appMode: loginMode,
+            entityType: EntityType.PROPERTY,
+            entityCode: propertyId,
+          }}
+        >
+          {addressParts.filter(p => p).join(', ')}
+        </AcLink>
+      </GridItem>
+    </Grid>
   )
 }
 
 export const renderDateTime = (appointment: ExtendedAppointmentModel) => {
   return (
-    <div className={appointmentDetailTextContainer}>
-      <div className={styles.appointmentDetailIconContainer}>
-        <FaClock />
-        <H6>Time:</H6>
-      </div>
-      <div>
+    <Grid>
+      <GridItem className="is-one-third horizontal">
+        <Grid className="is-vcentered">
+          <GridItem className="is-narrow">
+            <FaClock className="vertical-align-text-top" />
+          </GridItem>
+          <GridItem>
+            <H6 className="inline-block">Time:</H6>
+          </GridItem>
+        </Grid>
+      </GridItem>
+      <GridItem>
         <p>{renderStartAndEndDate(appointment.start || '', appointment.end || '')}</p>
         {appointment.recurring && <p className="is-size-7 is-italic">This is a recurring appointment</p>}
-      </div>
-    </div>
+      </GridItem>
+    </Grid>
   )
 }
 
@@ -144,19 +157,25 @@ export const renderNegotiators = (negotiators: NegotiatorModel[]) => {
   }
 
   return (
-    <div className={appointmentDetailTextContainer}>
-      <div className={styles.appointmentDetailIconContainer}>
-        <FaMale />
-        <H6>Negotiators:</H6>
-      </div>
-      <div>
+    <Grid>
+      <GridItem className="is-one-third horizontal">
+        <Grid className="is-vcentered">
+          <GridItem className="is-narrow">
+            <FaMale />
+          </GridItem>
+          <GridItem>
+            <H6>Negotiators:</H6>
+          </GridItem>
+        </Grid>
+      </GridItem>
+      <GridItem>
         {negotiators.map((negotiator: NegotiatorModel, index: number) => (
           <div key={index}>
             <p>{negotiator.name}</p>
           </div>
         ))}
-      </div>
-    </div>
+      </GridItem>
+    </Grid>
   )
 }
 
@@ -166,12 +185,18 @@ export const renderOffices = (offices: OfficeModel[], loginMode: LoginMode) => {
   }
 
   return (
-    <div className={appointmentDetailTextContainer}>
-      <div className={styles.appointmentDetailIconContainer}>
-        <FaBuilding />
-        <H6>Offices:</H6>
-      </div>
-      <div>
+    <Grid>
+      <GridItem className="is-one-third horizontal">
+        <Grid className="is-vcentered">
+          <GridItem className="is-narrow">
+            <FaBuilding />
+          </GridItem>
+          <GridItem>
+            <H6>Offices:</H6>
+          </GridItem>
+        </Grid>
+      </GridItem>
+      <GridItem>
         {offices.map((office: OfficeModel, index: number) => (
           <div key={index}>
             <AcLink
@@ -185,8 +210,8 @@ export const renderOffices = (offices: OfficeModel[], loginMode: LoginMode) => {
             </AcLink>
           </div>
         ))}
-      </div>
-    </div>
+      </GridItem>
+    </Grid>
   )
 }
 
@@ -199,12 +224,18 @@ export const renderAttendee = (attendee: AppointmentAttendeeModel, loginMode: Lo
     <React.Fragment>
       {attendee?.contacts?.map((contact: AppointmentContactModel, index: number) => {
         return (
-          <div key={index} className={appointmentDetailTextContainer}>
-            <div className={styles.appointmentDetailIconContainer}>
-              <FaMale />
-              <H6>{capitalizeFirstLetter(attendee?.type || '')}:</H6>
-            </div>
-            <div>
+          <Grid key={index}>
+            <GridItem className="is-one-third horizontal">
+              <Grid className="is-vcentered">
+                <GridItem className="is-narrow">
+                  <FaMale />
+                </GridItem>
+                <GridItem>
+                  <H6>{capitalizeFirstLetter(attendee?.type || '')}:</H6>
+                </GridItem>
+              </Grid>
+            </GridItem>
+            <GridItem>
               <div className="mb-2">
                 <AcLink
                   dynamicLinkParams={{
@@ -217,8 +248,8 @@ export const renderAttendee = (attendee: AppointmentAttendeeModel, loginMode: Lo
                 </AcLink>
               </div>
               {renderCommunicationDetail(contact)}
-            </div>
-          </div>
+            </GridItem>
+          </Grid>
         )
       })}
     </React.Fragment>
@@ -230,13 +261,21 @@ export const renderNotes = (description: string | undefined) => {
     return null
   }
   return (
-    <div className={appointmentDetailTextContainer}>
-      <div className={styles.appointmentDetailIconContainer}>
-        <FaStickyNote />
-        <H6>Entry Notes:</H6>
-      </div>
-      <p>{description}</p>
-    </div>
+    <Grid>
+      <GridItem className="is-one-third horizontal">
+        <Grid className="is-vcentered">
+          <GridItem className="is-narrow">
+            <FaStickyNote />
+          </GridItem>
+          <GridItem>
+            <H6>Entry Notes:</H6>
+          </GridItem>
+        </Grid>
+      </GridItem>
+      <GridItem>
+        <p>{description}</p>
+      </GridItem>
+    </Grid>
   )
 }
 
@@ -245,22 +284,30 @@ export const renderArrangements = (arrangements: string | undefined) => {
     return null
   }
   return (
-    <div className={appointmentDetailTextContainer}>
-      <div className={styles.appointmentDetailIconContainer}>
-        <FaHandshake />
-        <H6>Arrangements:</H6>
-      </div>
-      <p>{arrangements}</p>
-    </div>
+    <Grid>
+      <GridItem className="is-one-third horizontal">
+        <Grid className="is-vcentered">
+          <GridItem className="is-narrow">
+            <FaHandshake />
+          </GridItem>
+          <GridItem>
+            <H6>Arrangements:</H6>
+          </GridItem>
+        </Grid>
+      </GridItem>
+      <GridItem>
+        <p>{arrangements}</p>
+      </GridItem>
+    </Grid>
   )
 }
 
 export const getModalHeader = ({ basicAddress, afterClose, type }: GetHeaderParams) => {
   const ModalHeader: React.SFC = () => (
     <header className="modal-card-head">
-      <div className={`${styles.appoinmentDetailHeaderText} modal-card-title`}>
-        <H4>{basicAddress}</H4>
-        <SubTitleH5>{type && type.value}</SubTitleH5>
+      <div className="modal-card-title">
+        {basicAddress && <H5>{basicAddress}</H5>}
+        {type && <SubTitleH5 className="mb-0">{type.value}</SubTitleH5>}
       </div>
       <button
         className="delete"
@@ -326,11 +373,11 @@ export const renderModalContent = ({
       {renderAddress(loginMode, address, propertyId)}
       {renderNotes(appointment.description)}
       {renderArrangements(appointment?.property?.viewingArrangements || '')}
-      <FlexContainerResponsive>
+      <Section isFlex hasPadding={false} hasMargin={false}>
         <Button disabled={isCancelledAppointment} onClick={handleCancelAppointment} type="button" variant="primary">
           {isCancelledAppointment ? 'Cancelled' : 'Cancel Appointment'}
         </Button>
-      </FlexContainerResponsive>
+      </Section>
     </React.Fragment>
   )
 }
@@ -359,7 +406,6 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({
     <React.Fragment>
       <Modal
         HeaderComponent={getModalHeader({ basicAddress, afterClose, type })}
-        className={styles.appoinmentDetailModal}
         visible={visible}
         afterClose={afterClose}
       >
