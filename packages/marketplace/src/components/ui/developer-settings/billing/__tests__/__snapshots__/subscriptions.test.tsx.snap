@@ -1395,6 +1395,7 @@ exports[`Subcriptions should match snapshot 1`] = `
                           },
                         ]
                       }
+                      initialRows={Array []}
                       initialState={Object {}}
                       isAllRowsExpanded={false}
                       plugins={
