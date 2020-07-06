@@ -1,0 +1,287 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfirmUninstall should match a snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Component
+    afterClose={[MockFunction]}
+    appName="1"
+    installationDetail={
+      Object {
+        "appId": "062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
+        "client": "DXX",
+        "created": "2019-12-03T05:33:20",
+        "id": "b3c2f644-3241-4298-b320-b0398ff492f9",
+        "links": Array [
+          Object {
+            "action": "GET",
+            "href": "http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9",
+            "rel": "self",
+          },
+          Object {
+            "action": "GET",
+            "href": "http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
+            "rel": "app",
+          },
+        ],
+        "status": "Active",
+      }
+    }
+    onUninstallSuccess={[MockFunction]}
+  >
+    <Formik
+      initialValues={
+        Object {
+          "terminatedReason": "",
+        }
+      }
+      onSubmit={[Function]}
+      validationSchema={
+        ObjectSchema {
+          "_blacklist": RefSet {
+            "list": Set {},
+            "refs": Map {},
+          },
+          "_conditions": Array [],
+          "_defaultDefault": [Function],
+          "_deps": Array [],
+          "_excludedEdges": Array [],
+          "_exclusive": Object {},
+          "_mutate": undefined,
+          "_nodes": Array [
+            "terminatedReason",
+          ],
+          "_options": Object {
+            "abortEarly": true,
+            "recursive": true,
+          },
+          "_type": "object",
+          "_typeError": [Function],
+          "_whitelist": RefSet {
+            "list": Set {},
+            "refs": Map {},
+          },
+          "fields": Object {
+            "terminatedReason": StringSchema {
+              "_blacklist": RefSet {
+                "list": Set {},
+                "refs": Map {},
+              },
+              "_conditions": Array [],
+              "_deps": Array [],
+              "_exclusive": Object {
+                "min": true,
+                "required": true,
+                "trim": false,
+              },
+              "_mutate": undefined,
+              "_options": Object {
+                "abortEarly": true,
+                "recursive": true,
+              },
+              "_type": "string",
+              "_typeError": [Function],
+              "_whitelist": RefSet {
+                "list": Set {},
+                "refs": Map {},
+              },
+              "tests": Array [
+                [Function],
+                [Function],
+                [Function],
+              ],
+              "transforms": Array [
+                [Function],
+                [Function],
+              ],
+              "type": "string",
+            },
+          },
+          "tests": Array [],
+          "transforms": Array [
+            [Function],
+          ],
+          "type": "object",
+        }
+      }
+    >
+      <Form>
+        <form
+          action="#"
+          onReset={[Function]}
+          onSubmit={[Function]}
+        >
+          <Component
+            afterClose={[MockFunction]}
+            title="Confirm Uninstall"
+          >
+            <header
+              className="modal-card-head"
+            >
+              <h4
+                className="modal-card-title is-4"
+              >
+                Confirm Uninstall
+              </h4>
+              <button
+                aria-label="close"
+                className="delete"
+                data-test="modal-close-button"
+                onClick={[Function]}
+                type="button"
+              />
+            </header>
+          </Component>
+          <Component
+            body={
+              <React.Fragment>
+                <Unknown>
+                  Are you sure you wish to uninstall ‘
+                  1
+                  ’ from ‘
+                  DXX
+                  ’?
+                </Unknown>
+                <Unknown>
+                  *Please confirm reason for uninstalling
+                </Unknown>
+                <Unknown
+                  id="terminatedReason"
+                  name="terminatedReason"
+                />
+              </React.Fragment>
+            }
+          >
+            <section
+              className="modal-card-body"
+            >
+              <Component>
+                <h6
+                  className=""
+                  id=""
+                >
+                  Are you sure you wish to uninstall ‘
+                  1
+                  ’ from ‘
+                  DXX
+                  ’?
+                </h6>
+              </Component>
+              <Component>
+                <h6
+                  className=""
+                  id=""
+                >
+                  *Please confirm reason for uninstalling
+                </h6>
+              </Component>
+              <Component
+                id="terminatedReason"
+                name="terminatedReason"
+              >
+                <Field
+                  name="terminatedReason"
+                  validate={null}
+                >
+                  <div
+                    className="field"
+                  >
+                    <div
+                      className="control"
+                    >
+                      <textarea
+                        className=""
+                        data-test=""
+                        id="terminatedReason"
+                        name="terminatedReason"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        placeholder=""
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </Field>
+              </Component>
+            </section>
+          </Component>
+          <Component
+            footerItems={
+              <React.Fragment>
+                <Unknown
+                  className="mx-4"
+                  disabled={false}
+                  fullWidth={true}
+                  loading={false}
+                  type="submit"
+                >
+                  Yes, Uninstall
+                </Unknown>
+                <Unknown
+                  className="mx-4"
+                  disabled={false}
+                  fullWidth={true}
+                  onClick={[MockFunction]}
+                  type="button"
+                  variant="danger"
+                >
+                  Cancel
+                </Unknown>
+              </React.Fragment>
+            }
+          >
+            <footer
+              className="modal-card-foot"
+            >
+              <Component
+                className="mx-4"
+                disabled={false}
+                fullWidth={true}
+                loading={false}
+                type="submit"
+              >
+                <button
+                  className="button mx-4 is-primary is-fullwidth "
+                  data-test=""
+                  disabled={false}
+                  type="submit"
+                >
+                  Yes, Uninstall
+                </button>
+              </Component>
+              <Component
+                className="mx-4"
+                disabled={false}
+                fullWidth={true}
+                onClick={[MockFunction]}
+                type="button"
+                variant="danger"
+              >
+                <button
+                  className="button mx-4 is-danger is-fullwidth "
+                  data-test=""
+                  disabled={false}
+                  onClick={[MockFunction]}
+                  type="button"
+                >
+                  Cancel
+                </button>
+              </Component>
+            </footer>
+          </Component>
+        </form>
+      </Form>
+    </Formik>
+  </Component>
+</Provider>
+`;

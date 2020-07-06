@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorContent should match snapshot 1`] = `
+<Fragment>
+  <Component
+    title="Existing Subscription"
+  />
+  <Component
+    body={
+      <Unknown>
+        It looks as though you already have a subscription in place for the Developer Edition of Agency Cloud. If you have not received your email with instructions on how to download, please let us know using the live chat feature on the 
+        <a
+          className={[Function]}
+          href="https://marketplace.reapit.cloud/developer/help"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          'Help'
+        </a>
+         page.
+      </Unknown>
+    }
+  />
+  <Component
+    footerItems={
+      <Unknown
+        onClick={[MockFunction]}
+        type="button"
+        variant="primary"
+      >
+        CLOSE
+      </Unknown>
+    }
+  />
+</Fragment>
+`;

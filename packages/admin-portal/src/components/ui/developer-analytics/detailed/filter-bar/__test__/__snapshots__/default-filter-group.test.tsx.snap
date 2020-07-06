@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterBar should match a snapshot 1`] = `
+<Component
+  className="items-start"
+  hasBackground={false}
+  hasPadding={false}
+  isFlex={true}
+  isFlexColumn={true}
+>
+  <Component
+    className="mb-2"
+  >
+    Filter by
+  </Component>
+  <Component>
+    <Component
+      className="false"
+      fullWidth={false}
+      key="Yesterday"
+      onClick={[Function]}
+      type="button"
+      variant="secondary"
+    >
+      Yesterday
+    </Component>
+    <Component
+      className="is-info"
+      fullWidth={false}
+      key="Last Week"
+      onClick={[Function]}
+      type="button"
+      variant="secondary"
+    >
+      Last Week
+    </Component>
+    <Component
+      className="false"
+      fullWidth={false}
+      key="Last Month"
+      onClick={[Function]}
+      type="button"
+      variant="secondary"
+    >
+      Last Month
+    </Component>
+  </Component>
+</Component>
+`;

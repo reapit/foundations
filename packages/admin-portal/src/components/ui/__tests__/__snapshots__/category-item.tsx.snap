@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CategoryItem should match a snapshot 1`] = `
+<li
+  className="undefined false"
+>
+  <a
+    data-test-category-id="3"
+    href="#"
+    onClick={[Function]}
+  >
+    Game
+  </a>
+</li>
+`;
