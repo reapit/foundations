@@ -12,14 +12,8 @@
   "private": true,
   "scripts": {
     <% if (isFoundation) { %>
-    <% if (stylesSolution === 'styledComponents') { %>
-    "build:prod": "node '../../scripts/webpack/webpack-styled-components-prod.js'",
-    <%
-      } else { %>
-    "build:prod": "node '../../scripts/webpack/webpack-sass-prod/index.js'",
-    <%
-      } %>
     "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ../../scripts/webpack/webpack.config.dev.js",
+      "build:prod": "rimraf public/dist && webpack --config ../../scripts/webpack/webpack.config.prod.js",
       "release:dev": "node ../../scripts/release/release-dev.js <%= name %> reapit-<%= name %>-dev",
     <%
     } else { %>

@@ -95,10 +95,6 @@ module.exports = class extends Generator {
         name,
       })
 
-      this.fs.copyTpl(this.templatePath('_jest.config.js'), this.destinationPath('./jest.config.js'), {
-        name,
-      })
-
       this.fs.copyTpl(this.templatePath('_gitignore'), this.destinationPath('./.gitignore'), {
         name,
       })

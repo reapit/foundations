@@ -13,7 +13,7 @@ export interface AuthenticatedMappedProps {
 
 export type AuthenticatedProps = AuthenticatedMappedActions & AuthenticatedMappedProps
 
-export const Authenticated: React.FunctionComponent<AuthenticatedProps> = ({ authenticatedState }) => {
+export const Authenticated: React.FunctionComponent<AuthenticatedProps> = () => {
   return (
     <ErrorBoundary>
       <FlexContainerBasic hasPadding>
