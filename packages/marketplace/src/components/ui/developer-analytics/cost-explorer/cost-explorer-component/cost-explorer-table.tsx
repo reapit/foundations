@@ -21,7 +21,6 @@ export const prepareTableColumns = (monthlyBilling?: BillingBreakdownForMonthV2M
       Header: 'Services',
       accessor: 'name',
       columnProps: {
-        className: 'capitalize',
         width: 200,
       },
       Footer: 'Total',
