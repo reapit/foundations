@@ -1,0 +1,205 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CostCalculator should match a snapshot 1`] = `
+<Formik
+  enableReinitialize={true}
+  initialValues={
+    Object {
+      "apiCalls": "",
+      "endpointsUsed": "",
+    }
+  }
+  onSubmit={[Function]}
+  validationSchema={
+    ObjectSchema {
+      "_blacklist": RefSet {
+        "list": Set {},
+        "refs": Map {},
+      },
+      "_conditions": Array [],
+      "_defaultDefault": [Function],
+      "_deps": Array [],
+      "_excludedEdges": Array [],
+      "_exclusive": Object {},
+      "_mutate": undefined,
+      "_nodes": Array [
+        "apiCalls",
+        "endpointsUsed",
+      ],
+      "_options": Object {
+        "abortEarly": true,
+        "recursive": true,
+      },
+      "_type": "object",
+      "_typeError": [Function],
+      "_whitelist": RefSet {
+        "list": Set {},
+        "refs": Map {},
+      },
+      "fields": Object {
+        "apiCalls": StringSchema {
+          "_blacklist": RefSet {
+            "list": Set {},
+            "refs": Map {},
+          },
+          "_conditions": Array [],
+          "_deps": Array [],
+          "_exclusive": Object {
+            "matches": false,
+            "required": true,
+            "trim": false,
+          },
+          "_mutate": undefined,
+          "_options": Object {
+            "abortEarly": true,
+            "recursive": true,
+          },
+          "_type": "string",
+          "_typeError": [Function],
+          "_whitelist": RefSet {
+            "list": Set {},
+            "refs": Map {},
+          },
+          "tests": Array [
+            [Function],
+            [Function],
+            [Function],
+          ],
+          "transforms": Array [
+            [Function],
+            [Function],
+          ],
+          "type": "string",
+        },
+        "endpointsUsed": StringSchema {
+          "_blacklist": RefSet {
+            "list": Set {},
+            "refs": Map {},
+          },
+          "_conditions": Array [],
+          "_deps": Array [],
+          "_exclusive": Object {
+            "required": true,
+            "trim": false,
+          },
+          "_mutate": undefined,
+          "_options": Object {
+            "abortEarly": true,
+            "recursive": true,
+          },
+          "_type": "string",
+          "_typeError": [Function],
+          "_whitelist": RefSet {
+            "list": Set {},
+            "refs": Map {},
+          },
+          "tests": Array [
+            [Function],
+            [Function],
+          ],
+          "transforms": Array [
+            [Function],
+            [Function],
+          ],
+          "type": "string",
+        },
+      },
+      "tests": Array [],
+      "transforms": Array [
+        [Function],
+      ],
+      "type": "object",
+    }
+  }
+>
+  <Form>
+    <Component>
+      <Component
+        className="is-one-quarter"
+      >
+        <h6
+          className="title is-6"
+        >
+          Endpoints Used
+        </h6>
+      </Component>
+      <Component>
+        <Component
+          id="endpointsUsed"
+          name="endpointsUsed"
+          options={
+            Array [
+              Object {
+                "label": "Please select",
+                "value": "",
+              },
+              Object {
+                "label": "1-5",
+                "value": "tier1",
+              },
+              Object {
+                "label": "6-10",
+                "value": "tier2",
+              },
+              Object {
+                "label": "11-20",
+                "value": "tier3",
+              },
+              Object {
+                "label": "21-30",
+                "value": "tier4",
+              },
+              Object {
+                "label": "31-40",
+                "value": "tier5",
+              },
+              Object {
+                "label": "41-50",
+                "value": "tier6",
+              },
+              Object {
+                "label": "50+",
+                "value": "tier7",
+              },
+            ]
+          }
+        />
+      </Component>
+    </Component>
+    <Component>
+      <Component
+        className="is-one-quarter"
+      >
+        <h6
+          className="title is-6"
+        >
+          Monthly API Calls
+        </h6>
+      </Component>
+      <Component>
+        <Component
+          id="apiCalls"
+          name="apiCalls"
+          placeholder="Please enter a number"
+          type="text"
+        />
+      </Component>
+    </Component>
+    <Component>
+      <Component
+        onClick={[Function]}
+        type="button"
+        variant="danger"
+      >
+        clear
+      </Component>
+      <Component
+        type="submit"
+        variant="primary"
+      >
+        Calculate
+      </Component>
+    </Component>
+  </Form>
+</Formik>
+`;

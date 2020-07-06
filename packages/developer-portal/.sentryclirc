@@ -1,0 +1,6 @@
+[defaults]
+project=marketplace
+org=reapit-ltd
+
+[http]
+keepalive=false

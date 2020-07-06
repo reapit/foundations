@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CategoriesList should match a snapshot 1`] = `
+<ul>
+  <CategoryItem
+    onSelectCategory={[MockFunction]}
+    selected={true}
+  />
+  <CategoryItem
+    category={
+      Object {
+        "description": "apps for game",
+        "id": "3",
+        "name": "Game",
+      }
+    }
+    key="3"
+    onSelectCategory={[MockFunction]}
+    selected={false}
+  />
+  <CategoryItem
+    category={
+      Object {
+        "description": "apps for entertainment",
+        "id": "2",
+        "name": "entertainment",
+      }
+    }
+    key="2"
+    onSelectCategory={[MockFunction]}
+    selected={false}
+  />
+  <CategoryItem
+    category={
+      Object {
+        "description": "apps for education",
+        "id": "1",
+        "name": "education",
+      }
+    }
+    key="1"
+    onSelectCategory={[MockFunction]}
+    selected={false}
+  />
+</ul>
+`;

@@ -1,0 +1,52 @@
+@import '../base/colors';
+
+.container {
+  background-color: $grey-light;
+  border: 1px solid $grey-light;
+  border-radius: 3px;
+  padding: 10px;
+  color: $black;
+  display: flex;
+  align-items: center;
+
+  & a {
+    color: $reapit-mid-blue;
+    font-weight: bold;
+  }
+
+  & ul,
+  & ol {
+    margin-top: 0;
+    margin-left: 0;
+    list-style-position: inside;
+
+    & li div {
+      display: inline-block;
+    }
+  }
+
+  & p {
+    margin: 1rem 0;
+  }
+}
+
+.green {
+  background-color: $green-lighter;
+}
+
+.red {
+  background-color: $red-lighter;
+}
+
+.arrow {
+  font-size: 18px;
+  color: $grey;
+}
+
+.diff-render-block {
+  overflow-wrap: break-word;
+  border-radius: 4px;
+  // 4% space for arrow
+  width: 48%;
+}
+

@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StepBeforeYouStart should match snapshot 1`] = `
+<Fragment>
+  <Component
+    body={
+      <div>
+        <Unknown>
+          Have you had a look at the documentation?
+        </Unknown>
+        <p>
+          Before continuing with registering your app, we strongly advise that you read the "Step-by-step" guide on how best to complete the following form.
+        </p>
+      </div>
+    }
+  />
+  <Component
+    footerItems={
+      <React.Fragment>
+        <a
+          className="button is-white is-primary"
+          href="/developer/api-docs/developer-portal"
+          rel="noreferrer"
+          target="_blank"
+        >
+          View Docs
+        </a>
+        <Unknown
+          onClick={[Function]}
+        >
+          Create New App
+        </Unknown>
+      </React.Fragment>
+    }
+  />
+</Fragment>
+`;
