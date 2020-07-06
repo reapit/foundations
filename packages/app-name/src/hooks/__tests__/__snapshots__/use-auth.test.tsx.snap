@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`use-auth (pure) useAuth Hook should match snapshot 1`] = `
+Object {
+  "componentHook": Object {
+    "getLoginSession": [Function],
+    "loginSession": Object {
+      "accessToken": "123",
+      "accessTokenExpiry": 1583492838,
+      "cognitoClientId": "ue1e0vujti1p9f133ckfkbkdh",
+      "idToken": "123",
+      "idTokenExpiry": 1583492838,
+      "loginIdentity": Object {
+        "adminId": "1",
+        "clientId": "DXX",
+        "developerId": "909dcdc1-6657-4a37-a5cc-05acd79d6a47",
+        "email": "cbryan@reapit.com",
+        "name": "Craig Bryan",
+        "userCode": "LJW",
+      },
+      "loginType": "CLIENT",
+      "mode": "WEB",
+      "refreshToken": "123",
+      "userName": "cbryan@reapit.com",
+    },
+    "logout": [Function],
+    "refreshParams": Object {
+      "accessToken": "123",
+      "accessTokenExpiry": 1583492838,
+      "cognitoClientId": "ue1e0vujti1p9f133ckfkbkdh",
+      "idToken": "123",
+      "idTokenExpiry": 1583492838,
+      "loginIdentity": Object {
+        "adminId": "1",
+        "clientId": "DXX",
+        "developerId": "909dcdc1-6657-4a37-a5cc-05acd79d6a47",
+        "email": "cbryan@reapit.com",
+        "name": "Craig Bryan",
+        "userCode": "LJW",
+      },
+      "loginType": "CLIENT",
+      "mode": "WEB",
+      "refreshToken": "123",
+      "userName": "cbryan@reapit.com",
+    },
+  },
+  "componentMount": "",
+}
+`;
