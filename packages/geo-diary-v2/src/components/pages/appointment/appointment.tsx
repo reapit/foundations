@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/react-hooks'
 import dayjs from 'dayjs'
 import qs from 'query-string'
 import { Loader } from '@reapit/elements'
-import { AppointmentModel } from '@reapit/foundations-ts-definitions'
+import { ExtendedAppointmentModel } from '@/types/global'
 import GET_APPOINTMENTS from './get-appointments.graphql'
 import { MobileLayout } from './mobile-layout'
 import { useLocation } from 'react-router-dom'
@@ -18,7 +18,7 @@ export type AppointmentListQueryData = {
     pageCount: number
     totalCount: number
     _links: string
-    _embedded: AppointmentModel[]
+    _embedded: ExtendedAppointmentModel[]
   }
 }
 

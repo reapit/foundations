@@ -5,6 +5,10 @@ export const appointment = {
   start: '2019-05-11T17:30:00',
   end: '2019-05-11T18:00:00',
   typeId: 'VW',
+  appointmentType: {
+    id: 'VW',
+    value: 'Viewing',
+  },
   recurring: false,
   cancelled: true,
   property: {

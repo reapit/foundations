@@ -17,12 +17,20 @@ export type AppointmentTypeQueryVariables = {
 }
 
 export const AppointmentList: React.FC<AppointmentListProps> = ({ appointments }: AppointmentListProps) => {
+  if (appointments.length === 0) {
+    return <div className="py-8 px-4 text-center">No appointments</div>
+  }
+
   return (
-    <>
+    <div className="py8 px-4">
       {appointments?.map((appointment: ExtendedAppointmentModel) => {
-        return <AppointmentTile key={appointment.id} appointment={appointment} />
+        return (
+          <div className="mb-4" key={appointment.id}>
+            <AppointmentTile appointment={appointment} />
+          </div>
+        )
       })}
-    </>
+    </div>
   )
 }
 
