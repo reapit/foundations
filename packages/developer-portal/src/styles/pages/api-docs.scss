@@ -1,0 +1,9 @@
+@import "../base/colors.scss";
+
+.apiDocs {
+  pre {
+    code {
+      color: $reapit-red;
+    }
+  }
+}

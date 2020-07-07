@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StepInputAuthenticationUris should match snapshot 1`] = `
+<Fragment>
+  <Component
+    body={
+      <div>
+        <Unknown>
+          You have successfully added '
+          name
+          '
+        </Unknown>
+        <b
+          className="mb-1"
+        >
+          Authentication
+        </b>
+        <div
+          className="mb-3"
+        >
+          <b>
+            Client ID:
+          </b>
+           
+        </div>
+        <div
+          className="mb-3"
+        />
+        <p
+          className="mb-3"
+        >
+          Please click on 'Finish' below to view your app and edit any details.
+        </p>
+        <p
+          className="mb-3"
+        >
+          You can also use the listing preview to see how your app will display in the Marketplace to potential clients.
+        </p>
+        <p
+          className="mb-3"
+        >
+          When you are ready to publish your app you will need to add some additional information such as a Summary, Description & Images and you will also need to make it 'Listed' so it is visible in the Marketplace. It will then be sent to our Admin Team for approval.
+        </p>
+      </div>
+    }
+  />
+  <Component
+    footerItems={
+      <Unknown>
+        Finish
+      </Unknown>
+    }
+  />
+</Fragment>
+`;

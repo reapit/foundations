@@ -1,0 +1,64 @@
+{
+  "name": "developer-portal",
+  "version": "1.0.0",
+  "description": "Developer Portal for PAAS platform",
+  "main": "./src/index.ts",
+  "repository": "git@github.com:reapit/app-store.git",
+  "author": "Will McVay <wmcvay@reapit.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build:prod": "rimraf public/dist && webpack --config ../../scripts/webpack/webpack.config.prod.js",
+    "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ../../scripts/webpack/webpack.config.dev.js",
+    "start:prod": "serve public/dist -s -l 8080",
+    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
+    "test:dev": "cross-env TZ=UTC jest --watch --verbose",
+    "release:dev": "node ../../scripts/release/release-dev.js developer-portal reapit-developer-portal-dev",
+    "test-e2e:dev": "cypress open --project './src/tests'",
+    "cypress:ci": "cypress run --project \"./src/tests\"",
+    "test-e2e:ci": "start-server-and-test start:prod http://localhost:8080 cypress:ci",
+    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
+    "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src\"",
+    "lint:fix": "eslint --cache --ext=ts,tsx src --fix",
+    "fetch-config": "yarn config-manager fetchConfig developer-portal",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "dependencies": {
+    "@reapit/cognito-auth": "^2.1.7",
+    "@reapit/elements": "^0.5.60",
+    "@reapit/utils": "^0.0.1",
+    "chart.js": "^2.9.3",
+    "diff": "^4.0.1",
+    "lodash.isequal": "^4.5.0",
+    "lodash.orderby": "^4.6.0",
+    "react-chartjs-2": "^2.8.0",
+    "react-copy-to-clipboard": "^5.0.2",
+    "swagger-ui-react": "3.24.3",
+    "react-responsive": "8.1.0",
+    "snyk": "^1.341.1"
+  },
+  "devDependencies": {
+    "@reapit/foundations-ts-definitions": "0.0.85",
+    "@types/nanoid": "^2.1.0",
+    "redux-mock-store": "^1.5.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn test --ci --no-color"
+    }
+  },
+  "lint-staged": {
+    "!(**/cypress/**/*.{ts,tsx})/**/src/**/*.{ts,tsx}": [
+      "yarn lint:src",
+      "git add"
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 10"
+  ],
+  "snyk": true
+}

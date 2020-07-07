@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AnalyticsPage renderTabContent should render Billing Tab 1`] = `
+<div>
+  <Component />
+</div>
+`;
+
+exports[`AnalyticsPage renderTabContent should render Detailed Tab 1`] = `
+<div>
+  <Component />
+</div>
+`;
+
+exports[`AnalyticsPage should match a snapshot 1`] = `
+<Connect(ErrorBoundary)>
+  <Component
+    isHeadingSection={true}
+  >
+    Dashboard
+  </Component>
+  <Component>
+    <Component
+      tabConfigs={
+        Array [
+          Object {
+            "active": true,
+            "displayText": "DETAILED",
+            "onTabClick": [Function],
+            "tabIdentifier": "detailed",
+          },
+          Object {
+            "active": false,
+            "displayText": "Cost Explorer",
+            "onTabClick": [Function],
+            "tabIdentifier": "costexplorer",
+          },
+        ]
+      }
+    />
+  </Component>
+  <Component />
+</Connect(ErrorBoundary)>
+`;

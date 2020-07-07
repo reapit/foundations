@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CostCalculator should match a snapshot 1`] = `
+<Component>
+  <Component>
+    API Cost Calculator
+  </Component>
+  <Component>
+    <Component
+      className="is-half-desktop"
+    >
+      <p
+        className="is-italic"
+      >
+        You can calculate the estimated monthly cost below using our Cost Calculator. Just select the number of endpoints and enter the amount of API calls below. To see the full Foundations Pricing, please click
+         
+        <a
+          href=""
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          here
+        </a>
+      </p>
+    </Component>
+  </Component>
+  <Component>
+    <Component
+      className="is-half-desktop"
+    >
+      <CostCalculatorForm
+        initialValues={
+          Object {
+            "apiCalls": "",
+            "endpointsUsed": "",
+          }
+        }
+        onClear={[Function]}
+        onSubmit={[Function]}
+      />
+    </Component>
+  </Component>
+  <TotalCostTable
+    formValues={
+      Object {
+        "apiCalls": "",
+        "endpointsUsed": "",
+      }
+    }
+  />
+</Component>
+`;

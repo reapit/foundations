@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubmitAppWizardModal should match snapshot when visible = true 1`] = `
+<Component
+  afterClose={[Function]}
+  deps={Array []}
+  renderChildren={true}
+  visible={true}
+>
+  <Component
+    afterClose={[Function]}
+  />
+</Component>
+`;
+
+exports[`SubmitAppWizardModal should match snapshot when visible = true 2`] = `
+<Component
+  afterClose={[Function]}
+  deps={Array []}
+  renderChildren={true}
+  visible={false}
+>
+  <Component
+    afterClose={[Function]}
+  />
+</Component>
+`;
