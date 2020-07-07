@@ -105,6 +105,17 @@ module.exports = class extends Generator {
     }
   }
 
+  _addStyleSolution() {
+    const { sass, name, isFoundation } = this.answers
+
+
+    if (sass) {
+      this.fs.copyTpl(this.templatePath('./base-is-sass/**/*'), this.destinationPath('./'), { isFoundation })
+    } else {
+      this.fs.copyTpl(this.templatePath('./base-is-linaria/**/*'), this.destinationPath('./'), { isFoundation })
+    }
+  }
+
   constructor(args, opts) {
     super(args, opts)
     this.log(yosay('Welcome to Reapit App Scaffolder!'))
@@ -192,8 +203,9 @@ module.exports = class extends Generator {
       })
 
       this.fs.commit([], () => {
-        this._addPackageJson(),
-        this._addAzure()
+        this._addStyleSolution(),
+          this._addPackageJson(),
+          this._addAzure()
         this.fs.commit([], () => {
           this._installAndExport()
             .then(resolve)
@@ -240,6 +252,12 @@ module.exports = class extends Generator {
         name: 'isFoundation',
         message: 'Is this project for internal use (mono-repo)',
         default: true,
+      },
+      {
+        name: 'sass',
+        message: 'Would you like to use Sass?',
+        type: 'confirm',
+        default: false,
       },
       {
         type: 'list',
