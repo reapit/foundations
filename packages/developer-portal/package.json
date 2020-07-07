@@ -13,7 +13,7 @@
     "start:prod": "serve public/dist -s -l 8080",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
-    "release:dev": "node ../../scripts/release/release-dev.js reapit-developer-portal-dev reapit-app-store",
+    "release:dev": "node ../../scripts/release/release-dev.js developer-portal reapit-developer-portal-dev",
     "test-e2e:dev": "cypress open --project './src/tests'",
     "cypress:ci": "cypress run --project \"./src/tests\"",
     "test-e2e:ci": "start-server-and-test start:prod http://localhost:8080 cypress:ci",
