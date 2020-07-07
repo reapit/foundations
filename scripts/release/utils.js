@@ -292,6 +292,7 @@ const BUCKET_NAMES = {
 }
 
 const WEB_APPS = [
+  'admin-portal',
   'aml-checklist',
   'demo-site',
   'elements',
