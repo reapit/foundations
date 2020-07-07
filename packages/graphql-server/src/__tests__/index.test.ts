@@ -49,6 +49,7 @@ describe('index.js', () => {
         },
         event: mockParams.event,
         context: mockParams.context,
+        dataLoader: expect.any(Object),
       })
     })
   })
