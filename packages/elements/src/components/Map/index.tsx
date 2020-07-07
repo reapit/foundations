@@ -499,7 +499,7 @@ export const Map: React.FC<MapProps<any>> = ({
       markerCallBack,
       destinationAddress,
     }),
-    [coordinates, destinationPoint],
+    [coordinates, destinationPoint, googleMapsRef?.current, mapRef?.current],
   )
   return (
     <ReactGoogleMapLoader
