@@ -5,11 +5,19 @@ import { useSelector } from 'react-redux'
 import { selectMonthlyBilling, selectMonthlyBillingLoading } from '@/selector/developer'
 import { BillingBreakdownForMonthV2Model, ServiceItemBillingV2Model } from '@reapit/foundations-ts-definitions'
 
-export const prepareTableData = (data: ServiceItemBillingV2Model[]) => {
+export const prepareTableData = (data: ServiceItemBillingV2Model[], serviceName?: string) => {
   if (!data || !data.length) return []
 
-  return data.map(({ items = [], ...row }) => {
-    return { ...row, subRows: prepareTableData(items) }
+  return data.map(({ items = [], itemCount, ...row }) => {
+    const service = serviceName || row.name
+    const isApiRequests = service === 'API Requests'
+
+    const rowData = {
+      ...row,
+      itemCount: isApiRequests && itemCount ? itemCount : null,
+      subRows: prepareTableData(items, service),
+    }
+    return rowData
   })
 }
 

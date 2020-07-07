@@ -31,4 +31,37 @@ describe('prepareTableData', () => {
     const { services = [] } = monthlyBillingData
     expect(prepareTableData(services)).toEqual(tableData)
   })
+
+  it('should return correct data', () => {
+    const { services = [] } = monthlyBillingData
+    const input = [
+      ...services,
+      {
+        cost: 7.975,
+        itemCount: 7,
+        amount: 638,
+        items: [{ name: 'contacts', amount: 157, cost: 1.9625, itemCount: 2 }],
+        name: 'TEST',
+      },
+    ]
+
+    const expected = [
+      {
+        amount: 638,
+        cost: 7.975,
+        itemCount: 7,
+        name: 'API Requests',
+        subRows: [{ name: 'contacts', amount: 157, cost: 1.9625, itemCount: 2, subRows: [] }],
+      },
+      {
+        cost: 7.975,
+        itemCount: null,
+        amount: 638,
+        subRows: [{ name: 'contacts', amount: 157, cost: 1.9625, itemCount: null, subRows: [] }],
+        name: 'TEST',
+      },
+    ]
+
+    expect(prepareTableData(input)).toEqual(expected)
+  })
 })
