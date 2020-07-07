@@ -36,11 +36,17 @@ resources:
           Statement:
             - Sid: PublicReadGetObject
               Effect: Allow
-              Principal: '*'
+              Principal: "*"
               Action:
-                - s3:GetObject
+              - s3:GetObject
               Resource:
-                Fn::Join: ['', ['arn:aws:s3:::', { 'Ref': 'WebAppS3Bucket' }, '/*']]
+                Fn::Join: [
+                  "", [
+                    "arn:aws:s3:::",
+                    { "Ref": "WebAppS3Bucket" },
+                    "/*"
+                  ]
+                ]
 
     ## Specifying the CloudFront Distribution to server your Web Application
     WebAppCloudFrontDistribution:
@@ -49,7 +55,12 @@ resources:
         DistributionConfig:
           Origins:
             - DomainName:
-                Fn::Join: ['', [{ 'Ref': 'WebAppS3Bucket' }, '.s3.amazonaws.com']]
+                Fn::Join: [
+                  "", [
+                    { "Ref": "WebAppS3Bucket" },
+                    ".s3.amazonaws.com"
+                  ]
+                ]
               Id: S3-${self:custom.s3Bucket}
               CustomOriginConfig:
                 HTTPPort: 80
@@ -63,9 +74,9 @@ resources:
           # Aliases:
           #   If: '"${opt:stage, 'dev'}" == "dev"'
           #   Set:
-          #     - dev.marketplace.reapit.cloud
+          #     - dev.admin-portal.reapit.cloud
           #   ElseSet:
-          #     - marketplace.reapit.cloud
+          #     - admin-portal.reapit.cloud
           DefaultRootObject: index.html
           CustomErrorResponses:
             - ErrorCode: 404
@@ -97,4 +108,4 @@ resources:
   Outputs:
     WebAppCloudFrontDistributionOutput:
       Value:
-        'Fn::GetAtt': [WebAppCloudFrontDistribution, DomainName]
+        'Fn::GetAtt': [ WebAppCloudFrontDistribution, DomainName ]
