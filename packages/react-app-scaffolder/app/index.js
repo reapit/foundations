@@ -193,7 +193,6 @@ module.exports = class extends Generator {
 
       this.fs.commit([], () => {
         this._addPackageJson(),
-        this._addStyleSolution()
         this._addAzure()
         this.fs.commit([], () => {
           this._installAndExport()
