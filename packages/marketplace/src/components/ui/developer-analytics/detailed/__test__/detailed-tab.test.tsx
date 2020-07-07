@@ -11,7 +11,6 @@ import {
   mapState,
   MapState,
   handleFetchHttpTrafficPerDayDataUseCallback,
-  handleDefaultFilter,
   handleFetchHttpTrafficPerDayDataUseEffect,
 } from '../detailed-tab'
 import { usageStatsDataStub } from '@/sagas/__stubs__/app-usage-stats'
