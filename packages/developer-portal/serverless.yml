@@ -1,12 +1,12 @@
 # https://www.npmjs.com/package/serverless-single-page-app-plugin
-service: marketplace
+service: developer-portal
 
 plugins:
   - serverless-single-page-app-plugin
   - serverless-plugin-ifelse
 
 custom:
-  s3Bucket: reapit-marketplace-${self:provider.stage}
+  s3Bucket: reapit-developer-portal-${self:provider.stage}
 
 provider:
   name: aws
@@ -74,9 +74,9 @@ resources:
           # Aliases:
           #   If: '"${opt:stage, 'dev'}" == "dev"'
           #   Set:
-          #     - dev.marketplace.reapit.cloud
+          #     - dev.developer-portal.reapit.cloud
           #   ElseSet:
-          #     - marketplace.reapit.cloud
+          #     - developer-portal.reapit.cloud
           DefaultRootObject: index.html
           CustomErrorResponses:
             - ErrorCode: 404
