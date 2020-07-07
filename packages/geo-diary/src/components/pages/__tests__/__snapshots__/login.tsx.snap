@@ -1,7 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Login should match a snapshot 1`] = `
-<div>
+<Component
+  hasMargin={false}
+  hasPadding={false}
+  isFlex={true}
+>
   <div>
     <Component>
       <img
@@ -37,7 +41,7 @@ exports[`Login should match a snapshot 1`] = `
       src=""
     />
   </div>
-</div>
+</Component>
 `;
 
 exports[`Login should match a snapshot 2`] = `
