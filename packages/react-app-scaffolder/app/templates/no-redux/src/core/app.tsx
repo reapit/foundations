@@ -3,6 +3,9 @@ import Router from './router'
 
 import { useAuth } from '@/hooks/use-auth'
 import { AuthContext } from '@/context'
+import { injectSwitchModeToWindow } from '@reapit/elements'
+
+injectSwitchModeToWindow()
 
 import '@/styles/index.scss'
 
