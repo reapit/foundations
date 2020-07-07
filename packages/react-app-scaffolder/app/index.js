@@ -57,16 +57,26 @@ module.exports = class extends Generator {
     return true
   }
 
-  _addStyleSolution() {
-    const { stylesSolution, name, isFoundation } = this.answers
+  _addPackageJson() {
+    const { isFoundation, name, author, repo, description } = this.answers
 
+    if (isFoundation) {
+      return
+    }
 
-    if (stylesSolution === 'sass') {
-      this.fs.copy(this.templatePath('./base-is-sass/**/*'), this.destinationPath('./'))
-    } else {
-      this.fs.copy(this.templatePath('./base-is-not-sass/**/*'), this.destinationPath('./'))
+    if (this.redux) {
+      this.fs.copyTpl(this.templatePath('./is-foundation-redux/**/*'), this.destinationPath('./'), {
+        name, author, repo, description
+      })
+    }
+
+    if (!this.redux) {
+      this.fs.copyTpl(this.templatePath('./is-foundation-no-redux/**/*'), this.destinationPath('./'), {
+        name, author, repo, description
+      })
     }
   }
+
 
   _addAzure() {
     const { name, azure } = this.answers
@@ -124,17 +134,6 @@ module.exports = class extends Generator {
         isFoundation
       })
 
-      this.fs.copyTpl(this.templatePath('_package.json'), this.destinationPath('package.json'), {
-        name,
-        redux,
-        graphql,
-        stylesSolution,
-        description,
-        repo,
-        author,
-        isFoundation,
-      })
-
       if (isFoundation) {
         // Any any additional base files specialized for non-foundation project will need to uncomment this like
         // Select recursively dot files
@@ -173,7 +172,7 @@ module.exports = class extends Generator {
       })
 
       this.fs.commit([], () => {
-        this._addStyleSolution()
+        this._addPackageJson(),
         this._addAzure()
         this.fs.commit([], () => {
           this._installAndExport()
@@ -221,12 +220,6 @@ module.exports = class extends Generator {
         name: 'isFoundation',
         message: 'Is this project for internal use (mono-repo)',
         default: true,
-      },
-      {
-        type: 'list',
-        name: 'stylesSolution',
-        message: 'Pick project styles solution',
-        choices: ['Styled Components', 'Sass/CSS'],
       },
       {
         type: 'list',

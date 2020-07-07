@@ -6,8 +6,7 @@ import { ReduxState } from '@/types/core'
 import Routes from '@/constants/routes'
 import { Button, Level } from '@reapit/elements'
 import connectImage from '@/assets/images/reapit-connect.png'
-<% if (stylesSolution == 'sass') { %>import loginStyles from '@/styles/pages/login.scss?mod'<%}%>
-<% if (stylesSolution == 'styledComponents') { %>import { Container, Wrapper, ImageContainer } from './__styles__/login'<%}%>
+import loginStyles from '@/styles/pages/login.scss?mod'
 
 import { redirectToLogin } from '@reapit/cognito-auth'
 
@@ -20,7 +19,7 @@ export interface LoginProps {
 const loginHandler = () => redirectToLogin(window.reapit.config.cognitoClientId, `${window.location.origin}`)
 
 export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {
-  <% if (stylesSolution == 'sass') { %>const { wrapper, container, image } = loginStyles<%}%>
+  const { wrapper, container, image } = loginStyles
 
   const { hasSession } = props
 
@@ -29,42 +28,24 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   }
 
   return (
-    <% if (stylesSolution == 'sass') { %><div className={container}>
+    <div className={container}>
       <div className={wrapper}>
         <Level>
           <img src={connectImage} alt="Reapit Connect Graphic" />
         </Level>
-        <p className="pb-8">Welcome to <%= name %></p><%}%>
+        <p className="pb-8">Welcome to app-name</p>
 
-    <% if (stylesSolution == 'styledComponents') { %><Container>
-      <Wrapper>
-        <Level>
-          <img src={connectImage} alt="Reapit Connect Graphic" />
-        </Level>
-        <p className="pb-8">Welcome to <%= name %></p><%}%>
         <Level>
           <Button type="button" onClick={loginHandler} loading={false} variant="primary" disabled={false} fullWidth>
             Login
           </Button>
         </Level>
+      </div>
 
-              <% if (stylesSolution == 'sass') { %>
-                </div>
-
-              <div className={image}>
-                <img src={logoImage} alt="Reapit Graphic" />
-              </div>
-            </div>
-              <%}%>
-              <% if (stylesSolution == 'styledComponents') { %>
-                </Wrapper>
-
-                <ImageContainer>
-                  <img src={logoImage} alt="Reapit Graphic" />
-                </ImageContainer>
-              </Container>
-              <%}%>
-
+      <div className={image}>
+        <img src={logoImage} alt="Reapit Graphic" />
+      </div>
+    </div>
   )
 }
 
