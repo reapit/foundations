@@ -1,0 +1,47 @@
+{
+  "name": "elements-next",
+  "version": "0.0.1",
+  "description": "Next generation of elements",
+  "scripts": {
+    "test": "",
+    "build:prod": "rollup -c && docz build",
+    "start:dev": "docz dev",
+    "start:prod": "docz build && docz serve"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/elements.cjs.js",
+  "module": "dist/elements.esm.js",
+  "author": "",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.10.4",
+    "@babel/runtime": "^7.10.4",
+    "@rollup/plugin-babel": "^5.0.4",
+    "@rollup/plugin-commonjs": "^13.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^8.1.0",
+    "babel-preset-gatsby": "^0.5.1",
+    "css-loader": "^3.6.0",
+    "dashify": "^2.0.0",
+    "docz": "^2.3.1",
+    "gatsby-plugin-linaria": "^2.0.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "prism-react-renderer": "^1.1.1",
+    "rollup": "^2.18.2",
+    "rollup-plugin-scss": "^2.5.0",
+    "rollup-plugin-terser": "^6.1.0",
+    "rollup-plugin-typescript2": "^0.27.1"
+  },
+  "dependencies": {
+    "linaria": "1.4.0-beta.10"
+  }
+}

@@ -134,7 +134,7 @@
     "husky": "^4.2.3",
     "isomorphic-fetch": "^2.2.1",
     "jest": "^25.1.0",
-    "jest-config": "^25.1.0",
+    "jest-config": "^26.1.0",
     "jest-coverage-badges": "^1.1.2",
     "jest-fetch-mock": "^2.1.2",
     "jest-transform-graphql": "^2.1.0",
