@@ -3,12 +3,13 @@ import { RouteComponentProps } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import { ReduxState } from '@/types/core'
-import { Loader, AppNavContainer } from '@reapit/elements'
+import { Loader, AppNavContainer, FlexContainerBasic, FlexContainerResponsive } from '@reapit/elements'
 import { RefreshParams, getTokenFromQueryString, redirectToOAuth } from '@reapit/cognito-auth'
 import Menu from '@/components/ui/menu'
 import { selectUserLoginStatus } from '@/selectors/auth'
 import { Dispatch } from 'redux'
 import { authSetRefreshSession } from '../actions/auth'
+import Routes from '@/constants/routes'
 
 const { Suspense } = React
 
@@ -44,10 +45,16 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     return null
   }
 
+  const hasBackground = location.pathname == Routes.RESULTS
+
   return (
     <AppNavContainer>
       <Menu />
-      <Suspense fallback={<Loader body />}>{children}</Suspense>
+      <FlexContainerBasic hasPadding flexColumn isScrollable>
+        <FlexContainerResponsive flexColumn hasBackground={hasBackground}>
+          <Suspense fallback={<Loader body />}>{children}</Suspense>
+        </FlexContainerResponsive>
+      </FlexContainerBasic>
     </AppNavContainer>
   )
 }

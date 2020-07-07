@@ -5,12 +5,23 @@ exports[`PrivateRouter should match a snapshot 1`] = `""`;
 exports[`PrivateRouter should match a snapshot for desktop login 1`] = `
 <Component>
   <Component />
-  <Suspense
-    fallback={
-      <Unknown
-        body={true}
+  <Component
+    flexColumn={true}
+    hasPadding={true}
+    isScrollable={true}
+  >
+    <Component
+      flexColumn={true}
+      hasBackground={false}
+    >
+      <Suspense
+        fallback={
+          <Unknown
+            body={true}
+          />
+        }
       />
-    }
-  />
+    </Component>
+  </Component>
 </Component>
 `;

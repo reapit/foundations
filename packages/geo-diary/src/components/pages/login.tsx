@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { ReduxState } from '@/types/core'
 import Routes from '@/constants/routes'
-import { Level, Button, FlexContainerBasic } from '@reapit/elements'
+import { Level, Button, FlexContainerBasic, Section } from '@reapit/elements'
 import { redirectToLogin } from '@reapit/cognito-auth'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
@@ -24,7 +24,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   }
 
   return (
-    <div className={container}>
+    <Section isFlex className={container} hasMargin={false} hasPadding={false}>
       <div className={wrapper}>
         <Level>
           <img src={connectImage} alt="Reapit Connect Graphic" />
@@ -43,7 +43,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
       <div className={image}>
         <img src={logoImage} alt="Reapit Graphic" />
       </div>
-    </div>
+    </Section>
   )
 }
 

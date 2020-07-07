@@ -11,33 +11,15 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    <% if (isFoundation) { %>
-    <% if (stylesSolution === 'styledComponents') { %>
-    "build:prod": "node '../../scripts/webpack/webpack-styled-components-prod.js'",
-    "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ../../scripts/webpack/webpack.sass.dev.js",
-    <% } else { %>
-    "build:prod": "node '../../scripts/webpack/webpack-sass-prod/index.js'",
-    "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ../../scripts/webpack/webpack.sass.dev.js",
-    <% } %>
-
-    "release:dev": "node ../../scripts/release/release-dev.js <%= name %> reapit-<%= name %>-dev",
-    <% } else { %>
     "build:prod": "webpack --color --mode production --config './src/scripts/webpack-prod.js'",
     "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ./src/scripts/webpack-dev.js",
     "lint": "eslint --ext=jsx,ts,tsx src --fix",
-  <% } %>
     "start:prod": "serve public/dist -s -l 8080",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
-    "fetch-config": "yarn config-manager fetchConfig <%= name %>"
+    "fetch-config": "yarn config-manager fetchConfig app-name"
   },
-  <% if (isFoundation) { %>
-  "dependencies": {},
-  "devDependencies": {
-    "@reapit/foundations-ts-definitions": "2020-02-13"
-  }
-  <% } else { %>
   "dependencies": {
     "offline-plugin": "^5.0.7",
     "@reapit/cognito-auth": "latest",
@@ -49,19 +31,10 @@
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "@sentry/browser": "^5.11.1",
-    "react-ga": "^2.7.0"
-
-    <% if (redux) { %>
-    ,"react-redux": "^7.1.3",
+    "react-ga": "^2.7.0",
+    "react-redux": "^7.1.3",
     "redux": "^4.0.4",
     "redux-saga": "^1.1.3"
-    <% } else { %>
-    ,"@testing-library/react": "^10.0.1"
-    <% } %>
-
-    <% if (stylesSolution === 'styledComponents') { %>
-    ,"styled-components": "^4.3.2"
-    <% } %>
   },
   "devDependencies": {
     "babel-loader": "^8.0.6",
@@ -118,20 +91,8 @@
     "node-sass": "^4.12.0",
     "copy-webpack-plugin": "5.1.1",
     "style-loader": "^1.1.3",
-    "css-loader": "^3.5.1"
-    <% if (stylesSolution === 'sass') { %>
-      ,"loader-utils": "^1.2.3",
-      "mini-css-extract-plugin": "^0.7.0",
-      "purgecss": "^1.3.0",
-      "purgecss-whitelister": "^2.4.0"
-    <% } %>
-    <% if (redux) { %>
-    ,"@redux-saga/testing-utils": "^1.0.5",
+    "css-loader": "^3.5.1",
+    "@redux-saga/testing-utils": "^1.0.5",
     "@types/react-redux": "^7.0.9"
-    <% } %>
-    <% if (stylesSolution === 'styledComponents') { %>
-    ,"@types/styled-components": "^4.1.18"
-    <% } %>
   }
-  <% } %>
 }

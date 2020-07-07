@@ -5,12 +5,14 @@ exports[`AppointmentModal AppointmentModal should render a header correctly 1`] 
   className="modal-card-head"
 >
   <div
-    className="undefined modal-card-title"
+    className="modal-card-title"
   >
     <Component>
       Some address
     </Component>
-    <Component>
+    <Component
+      className="mb-0"
+    >
       Some type
     </Component>
   </div>
@@ -30,61 +32,123 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
     afterClose={[MockFunction]}
     visible={true}
   >
-    <div>
-      <div>
-        <FaClock />
-        <Component>
-          Time:
+    <Component>
+      <Component
+        className="is-one-third horizontal"
+      >
+        <Component
+          className="is-vcentered"
+        >
+          <Component
+            className="is-narrow"
+          >
+            <FaClock
+              className="vertical-align-text-top"
+            />
+          </Component>
+          <Component>
+            <Component
+              className="inline-block"
+            >
+              Time:
+            </Component>
+          </Component>
         </Component>
-      </div>
-      <div>
+      </Component>
+      <Component>
         <p>
           10 Jan 2020 10:27 AM - 10:40 AM
         </p>
-      </div>
-    </div>
-    <div>
-      <div>
-        <FaHome />
-        <Component>
-          Property:
-        </Component>
-      </div>
-      <Component
-        dynamicLinkParams={
-          Object {
-            "appMode": "DESKTOP",
-            "entityCode": "BED140946",
-            "entityType": "properties",
-          }
-        }
-      >
-        42, Mill Road, Sharnbrook, Bedford, Bedfordshire, MK44 1NX
       </Component>
-    </div>
-    <div>
-      <div>
-        <FaStickyNote />
-        <Component>
-          Entry Notes:
-        </Component>
-      </div>
-      <p>
-        It has windows, a roof and doors - it's basically a house.
-      </p>
-    </div>
-    <div>
-      <div>
-        <FaHandshake />
-        <Component>
-          Arrangements:
-        </Component>
-      </div>
-      <p>
-        Don't let the cat in
-      </p>
-    </div>
+    </Component>
     <Component>
+      <Component
+        className="is-one-third horizontal"
+      >
+        <Component
+          className="is-vcentered"
+        >
+          <Component
+            className="is-narrow"
+          >
+            <FaHome />
+          </Component>
+          <Component>
+            <Component>
+              Property:
+            </Component>
+          </Component>
+        </Component>
+      </Component>
+      <Component>
+        <Component
+          dynamicLinkParams={
+            Object {
+              "appMode": "DESKTOP",
+              "entityCode": "BED140946",
+              "entityType": "properties",
+            }
+          }
+        >
+          42, Mill Road, Sharnbrook, Bedford, Bedfordshire, MK44 1NX
+        </Component>
+      </Component>
+    </Component>
+    <Component>
+      <Component
+        className="is-one-third horizontal"
+      >
+        <Component
+          className="is-vcentered"
+        >
+          <Component
+            className="is-narrow"
+          >
+            <FaStickyNote />
+          </Component>
+          <Component>
+            <Component>
+              Entry Notes:
+            </Component>
+          </Component>
+        </Component>
+      </Component>
+      <Component>
+        <p>
+          It has windows, a roof and doors - it's basically a house.
+        </p>
+      </Component>
+    </Component>
+    <Component>
+      <Component
+        className="is-one-third horizontal"
+      >
+        <Component
+          className="is-vcentered"
+        >
+          <Component
+            className="is-narrow"
+          >
+            <FaHandshake />
+          </Component>
+          <Component>
+            <Component>
+              Arrangements:
+            </Component>
+          </Component>
+        </Component>
+      </Component>
+      <Component>
+        <p>
+          Don't let the cat in
+        </p>
+      </Component>
+    </Component>
+    <Component
+      hasMargin={false}
+      hasPadding={false}
+      isFlex={true}
+    >
       <Component
         disabled={false}
         onClick={[MockFunction]}
@@ -124,25 +188,39 @@ exports[`AppointmentModal AppointmentModal should render correctly when loading 
 
 exports[`AppointmentModal renderAddress should matchSnapshot 1`] = `
 <div>
-  <div>
-    <div>
-      <FaHome />
-      <Component>
-        Property:
-      </Component>
-    </div>
+  <Component>
     <Component
-      dynamicLinkParams={
-        Object {
-          "appMode": "DESKTOP",
-          "entityCode": "SOME_ID",
-          "entityType": "properties",
-        }
-      }
+      className="is-one-third horizontal"
     >
-      65, Lindsey Close, Great Denham, Bedford, Bedfordshire, MK40 4GT
+      <Component
+        className="is-vcentered"
+      >
+        <Component
+          className="is-narrow"
+        >
+          <FaHome />
+        </Component>
+        <Component>
+          <Component>
+            Property:
+          </Component>
+        </Component>
+      </Component>
     </Component>
-  </div>
+    <Component>
+      <Component
+        dynamicLinkParams={
+          Object {
+            "appMode": "DESKTOP",
+            "entityCode": "SOME_ID",
+            "entityType": "properties",
+          }
+        }
+      >
+        65, Lindsey Close, Great Denham, Bedford, Bedfordshire, MK40 4GT
+      </Component>
+    </Component>
+  </Component>
 </div>
 `;
 
@@ -212,17 +290,36 @@ exports[`AppointmentModal renderCommunicationDetail should match snapshot for em
 `;
 
 exports[`AppointmentModal renderTime should match snapshot 1`] = `
-<div>
-  <div>
-    <FaClock />
-    <Component>
-      Time:
+<div
+  className=""
+  data-test=""
+>
+  <Component
+    className="is-one-third horizontal"
+  >
+    <Component
+      className="is-vcentered"
+    >
+      <Component
+        className="is-narrow"
+      >
+        <FaClock
+          className="vertical-align-text-top"
+        />
+      </Component>
+      <Component>
+        <Component
+          className="inline-block"
+        >
+          Time:
+        </Component>
+      </Component>
     </Component>
-  </div>
-  <div>
+  </Component>
+  <Component>
     <p>
       18 Dec 2016 04:30 PM - 05:30 PM
     </p>
-  </div>
+  </Component>
 </div>
 `;

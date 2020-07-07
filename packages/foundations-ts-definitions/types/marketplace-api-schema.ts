@@ -801,6 +801,14 @@ export interface DeveloperModel {
    */
   id?: string // uuid
   /**
+   * The timestamp of entity creation
+   */
+  created?: string // date-time
+  /**
+   * The timestamp of entity modification
+   */
+  modified?: string // date-time
+  /**
    * The id of this developer held in the gateway
    */
   externalId?: string
@@ -865,13 +873,17 @@ export interface DeveloperModel {
    */
   reapitReference?: string
   /**
-   * The timestamp of entity creation
+   * A flag specifying if the developer has registered tax
    */
-  created?: string // date-time
+  noTaxRegistration?: boolean
   /**
-   * The timestamp of entity modification
+   * The developers national insurance
    */
-  modified?: string // date-time
+  nationalInsurance?: string
+  /**
+   * The status of the developer (incomplete/pending/confirmed/underReview/removed)
+   */
+  status?: string
   /**
    * The address of the developers organisation
    */
@@ -1291,6 +1303,18 @@ export interface UpdateDeveloperModel {
    * Sets reapits account reference used for this company
    */
   reapitReference?: string
+  /**
+   * Sets a flag specifying if the developer has registered tax
+   */
+  noTaxRegistration?: boolean
+  /**
+   * Sets the developers national insurance
+   */
+  nationalInsurance?: string
+  /**
+   * Sets the status of the developer
+   */
+  status?: string
   /**
    * Sets the address of the developers organisation
    */

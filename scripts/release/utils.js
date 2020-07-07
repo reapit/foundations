@@ -266,6 +266,8 @@ const getCommitLog = ({ currentTag, previousTag, packageName }) => {
 
 const BUCKET_NAMES = {
   production: {
+    'admin-portal': 'reapit-admin-portal-prod',
+    'developer-portal': 'reapit-developer-portal-prod',
     'aml-checklist': 'reapit-aml-checklist-prod',
     'demo-site': 'reapit-demo-site-prod',
     elements: 'reapit-elements-prod',
@@ -278,6 +280,8 @@ const BUCKET_NAMES = {
     'web-components': 'reapit-web-components-prod',
   },
   development: {
+    'admin-portal': 'reapit-admin-portal-dev',
+    'developer-portal': 'reapit-developer-portal-dev',
     'aml-checklist': 'reapit-aml-checklist-dev',
     'demo-site': 'reapit-demo-site',
     elements: 'reapit-elements-dev',
@@ -292,6 +296,8 @@ const BUCKET_NAMES = {
 }
 
 const WEB_APPS = [
+  'admin-portal',
+  'developer-portal',
   'aml-checklist',
   'demo-site',
   'elements',

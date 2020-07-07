@@ -7,7 +7,6 @@ import ViewDetailButton from '../container/view-detail-button'
 import ETAButton from './eta-button'
 import { NextAppointment } from '@/reducers/next-appointment'
 import containerStyle from '@/styles/pages/page-container.scss?mod'
-import appointmentListStyles from '@/styles/ui/appointment-list.scss?mod'
 import { FaClock, FaStreetView, FaAddressCard } from 'react-icons/fa'
 
 export interface AppointmentListProps {
@@ -141,7 +140,7 @@ export const AppointmentListComponent = ({
               key={item.id}
               heading={heading}
               footerItems={[
-                <div key={item.id} className={appointmentListStyles.tileFooter}>
+                <div key={item.id}>
                   <ViewDetailButton id={item.id} />
 
                   {lat && lng ? <ViewDirectionButton appointment={item} /> : null}

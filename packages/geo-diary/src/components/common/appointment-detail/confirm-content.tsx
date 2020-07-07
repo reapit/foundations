@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, H5, FlexContainerResponsive } from '@reapit/elements'
+import { Button, H5, Section } from '@reapit/elements'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { ReduxState } from '@/types/core'
@@ -11,14 +11,14 @@ export const ConfirmContent: React.FC<ConfirmContentProps> = ({ handleCancel, ha
   return (
     <React.Fragment>
       <H5>Are you sure you want to cancel this appointment?</H5>
-      <FlexContainerResponsive>
+      <Section isFlex hasPadding={false} hasMargin={false}>
         <Button loading={isSubmitting} onClick={handleConfirm} type="button" variant="primary">
           Yes
         </Button>
         <Button disabled={isSubmitting} onClick={handleCancel} type="button" variant="primary">
           No
         </Button>
-      </FlexContainerResponsive>
+      </Section>
     </React.Fragment>
   )
 }
