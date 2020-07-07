@@ -7,12 +7,11 @@ import {
   prepareAppDeveloperAppData,
   prepareClientIds,
   handleUseCallbackToPrepareFilterFormInitialValues,
-  lastMonday,
-  lastSunday,
 } from '../filter-bar'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { installationsStub } from '@/sagas/__stubs__/installations'
 import { SANDBOX_CLIENT_ID } from '../../../../../../constants/api'
+import { prepareDefaultFilterDateParams } from '../default-filter-group'
 
 const mockProps: FilterBarProps = {
   developerAppsData: appsDataStub.data,
@@ -40,11 +39,12 @@ describe('FilterBar', () => {
   })
   describe('handleUseCallbackToPrepareFilterFormInitialValues', () => {
     it('should run correctly', () => {
-      const fn = handleUseCallbackToPrepareFilterFormInitialValues(lastMonday, lastSunday)
+      const { defaultParams } = prepareDefaultFilterDateParams()
+      const fn = handleUseCallbackToPrepareFilterFormInitialValues(defaultParams.dateFrom, defaultParams.dateFrom)
       const initialValues = fn()
       expect(initialValues).toEqual({
-        dateFrom: lastMonday,
-        dateTo: lastSunday,
+        dateFrom: defaultParams.dateFrom,
+        dateTo: defaultParams.dateFrom,
         clientId: '',
         appId: '',
       })

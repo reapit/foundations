@@ -52,10 +52,14 @@ export const prepareDefaultFilterDateParams = () => {
     dateTo: today,
     dateFrom: dayjsToday.subtract(29, 'day').format(DATE_TIME_FORMAT.YYYY_MM_DD),
   }
+
+  const defaultParams = last7DaysParams
+
   return {
     todayParams,
     last7DaysParams,
     last30DaysParams,
+    defaultParams,
   }
 }
 

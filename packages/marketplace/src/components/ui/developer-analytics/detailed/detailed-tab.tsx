@@ -64,12 +64,12 @@ export const handleDefaultFilter = (developerAppDataArray: AppSummaryModel[]) =>
 
 export const handleFetchAppUsageStatsDataUseCallback = dispatch => {
   return () => {
-    const { last7DaysParams } = prepareDefaultFilterDateParams()
+    const { defaultParams } = prepareDefaultFilterDateParams()
 
     dispatch(
       appInstallationsFilterRequestData({
-        installedDateFrom: last7DaysParams.dateFrom,
-        installedDateTo: last7DaysParams.dateTo,
+        installedDateFrom: defaultParams.dateFrom,
+        installedDateTo: defaultParams.dateTo,
         pageSize: GET_ALL_PAGE_SIZE,
       }),
     )
@@ -92,14 +92,14 @@ export const handleFetchHttpTrafficPerDayDataUseCallback = (
   dispatch,
 ) => () => {
   const { appIds } = handleDefaultFilter(developerAppDataArray)
-  const { last7DaysParams } = prepareDefaultFilterDateParams()
+  const { defaultParams } = prepareDefaultFilterDateParams()
 
   if (appIds.length) {
     dispatch(
       httpTrafficPerDayRequestData({
         applicationId: appIds,
-        dateFrom: last7DaysParams.dateFrom,
-        dateTo: last7DaysParams.dateTo,
+        dateFrom: defaultParams.dateFrom,
+        dateTo: defaultParams.dateTo,
       }),
     )
   }

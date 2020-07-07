@@ -78,9 +78,13 @@ describe('FilterBar', () => {
       MockDate.reset()
     })
     it('should run correctly', () => {
-      const { last30DaysParams, last7DaysParams, todayParams } = prepareDefaultFilterDateParams()
+      const { last30DaysParams, last7DaysParams, todayParams, defaultParams } = prepareDefaultFilterDateParams()
       expect(last30DaysParams).toEqual({
         dateFrom: '2020-06-07',
+        dateTo: '2020-07-06',
+      })
+      expect(defaultParams).toEqual({
+        dateFrom: '2020-06-30',
         dateTo: '2020-07-06',
       })
       expect(last7DaysParams).toEqual({
