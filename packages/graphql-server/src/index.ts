@@ -7,6 +7,9 @@ import resolvers from './resolvers'
 import depthLimit from 'graphql-depth-limit'
 import logger from './logger'
 import * as Sentry from '@sentry/node'
+import { generateConfigurationLoader } from './resolvers/configurations/dataloader'
+import { generatePropertyLoader } from './resolvers/properties/dataloader'
+import DataLoader from 'dataloader'
 
 if (process.env.NODE_ENV !== 'development') {
   Sentry.init({
@@ -16,23 +19,35 @@ if (process.env.NODE_ENV !== 'development') {
   })
 }
 
-export type ServerContext = Context<{ traceId: string; authorization: string }>
+export type ServerDataLoader = {
+  configurationLoader: DataLoader<string, any, string>
+  propertyLoader: DataLoader<string, any, string>
+}
+
+export type ServerContext = Context<{ traceId: string; authorization: string; dataLoader: ServerDataLoader }>
 
 const typeDefs = importSchema('./src/schema.graphql')
+
 export const handleContext = ({ event, context }) => {
   const traceId = uuidv4()
   const isProductionEnv = process.env.NODE_ENV === 'production'
   if (isProductionEnv) {
     logger.info('handleContext', { traceId, event })
   }
-  return {
+  let newContext = {
     traceId: traceId,
     headers: event.headers,
     authorization: event?.headers?.Authorization || '',
     functionName: context.functionName,
     event,
     context,
-  }
+  } as any
+  const dataLoader = {
+    configurationLoader: generateConfigurationLoader(newContext),
+    propertyLoader: generatePropertyLoader(newContext),
+  } as ServerDataLoader
+  newContext.dataLoader = dataLoader
+  return newContext
 }
 
 export const formatError = (error: GraphQLError): GraphQLFormattedError => {
