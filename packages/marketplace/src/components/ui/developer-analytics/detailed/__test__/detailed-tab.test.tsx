@@ -12,6 +12,7 @@ import {
   MapState,
   handleFetchHttpTrafficPerDayDataUseCallback,
   handleFetchHttpTrafficPerDayDataUseEffect,
+  handleDefaultFilter,
 } from '../detailed-tab'
 import { usageStatsDataStub } from '@/sagas/__stubs__/app-usage-stats'
 import { installationsStub } from '@/sagas/__stubs__/installations'
@@ -135,17 +136,15 @@ describe('OverviewPage', () => {
   })
 })
 
-// describe('handleDefaultFilter', () => {
-//   it('should run correctly', () => {
-//     const developerAppData = appsDataStub.data.data || []
-//     const result = handleDefaultFilter(developerAppData)
-//     expect(result).toEqual({
-//       lastMonday: '2020-03-23',
-//       lastSunday: '2020-03-29',
-//       appIds: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
-//     })
-//   })
-// })
+describe('handleDefaultFilter', () => {
+  it('should run correctly', () => {
+    const developerAppData = appsDataStub.data.data || []
+    const result = handleDefaultFilter(developerAppData)
+    expect(result).toEqual({
+      appIds: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
+    })
+  })
+})
 
 describe('handleFetchAppUsageStatsDataUseEffect', () => {
   it('should run correctly', () => {

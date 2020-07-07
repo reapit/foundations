@@ -1,6 +1,5 @@
 import * as React from 'react'
 import orderBy from 'lodash.orderby'
-import dayjs from 'dayjs'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { ReduxState } from '@/types/core'
@@ -12,7 +11,7 @@ import { getAppUsageStats, getAppHttpTraffic } from '@/selector/analytics'
 import { selectDeveloper } from '@/selector/developer'
 import { getInstallations } from '@/selector/installations'
 
-import { Grid, GridItem, DATE_TIME_FORMAT, Section } from '@reapit/elements'
+import { Grid, GridItem, Section } from '@reapit/elements'
 import DeveloperHitsPerDayChart from '@/components/ui/developer-hits-per-day-chart'
 import InstallationAppSection, { InstallationModelWithAppName } from './installation-app-section'
 import FilterBar from './filter-bar'
@@ -45,19 +44,7 @@ export const handleDefaultFilter = (developerAppDataArray: AppSummaryModel[]) =>
     return app.id
   })
 
-  const lastWeek = dayjs().subtract(1, 'week')
-  const lastMonday = lastWeek
-    .startOf('week')
-    .add(1, 'day')
-    .format(DATE_TIME_FORMAT.YYYY_MM_DD)
-  const lastSunday = lastWeek
-    .endOf('week')
-    .add(1, 'day')
-    .format(DATE_TIME_FORMAT.YYYY_MM_DD)
-
   return {
-    lastMonday,
-    lastSunday,
     appIds,
   }
 }
