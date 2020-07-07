@@ -1,0 +1,6 @@
+[defaults]
+project=admin-portal
+org=reapit-ltd
+
+[http]
+keepalive=false

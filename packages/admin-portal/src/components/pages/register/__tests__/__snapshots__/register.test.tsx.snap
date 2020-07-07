@@ -1,0 +1,544 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Register should match a snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "registerRoute",
+          "pathname": "/register",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "registerRoute",
+              "pathname": "/register",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "registerRoute",
+            "pathname": "/register",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Component>
+        <div>
+          <div>
+            <Component
+              isCentered={true}
+            >
+              <h1
+                className=""
+                id=""
+              >
+                Register
+              </h1>
+            </Component>
+            <p
+              className="pb-8"
+            >
+              Reapit Foundations developers
+            </p>
+            <Formik
+              initialValues={
+                Object {
+                  "agreedTerms": "",
+                  "companyName": "",
+                  "email": "",
+                  "name": "",
+                  "telephone": "",
+                }
+              }
+              onSubmit={[Function]}
+              validationSchema={
+                ObjectSchema {
+                  "_blacklist": RefSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_conditions": Array [],
+                  "_defaultDefault": [Function],
+                  "_deps": Array [],
+                  "_excludedEdges": Array [],
+                  "_exclusive": Object {},
+                  "_mutate": undefined,
+                  "_nodes": Array [
+                    "telephone",
+                    "email",
+                    "companyName",
+                    "name",
+                  ],
+                  "_options": Object {
+                    "abortEarly": true,
+                    "recursive": true,
+                  },
+                  "_type": "object",
+                  "_typeError": [Function],
+                  "_whitelist": RefSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "fields": Object {
+                    "companyName": StringSchema {
+                      "_blacklist": RefSet {
+                        "list": Set {},
+                        "refs": Map {},
+                      },
+                      "_conditions": Array [],
+                      "_deps": Array [],
+                      "_exclusive": Object {
+                        "required": true,
+                        "trim": false,
+                      },
+                      "_mutate": undefined,
+                      "_options": Object {
+                        "abortEarly": true,
+                        "recursive": true,
+                      },
+                      "_type": "string",
+                      "_typeError": [Function],
+                      "_whitelist": RefSet {
+                        "list": Set {},
+                        "refs": Map {},
+                      },
+                      "tests": Array [
+                        [Function],
+                        [Function],
+                      ],
+                      "transforms": Array [
+                        [Function],
+                        [Function],
+                      ],
+                      "type": "string",
+                    },
+                    "email": StringSchema {
+                      "_blacklist": RefSet {
+                        "list": Set {},
+                        "refs": Map {},
+                      },
+                      "_conditions": Array [],
+                      "_deps": Array [],
+                      "_exclusive": Object {
+                        "matches": false,
+                        "required": true,
+                        "trim": false,
+                      },
+                      "_mutate": undefined,
+                      "_options": Object {
+                        "abortEarly": true,
+                        "recursive": true,
+                      },
+                      "_type": "string",
+                      "_typeError": [Function],
+                      "_whitelist": RefSet {
+                        "list": Set {},
+                        "refs": Map {},
+                      },
+                      "tests": Array [
+                        [Function],
+                        [Function],
+                        [Function],
+                      ],
+                      "transforms": Array [
+                        [Function],
+                        [Function],
+                      ],
+                      "type": "string",
+                    },
+                    "name": StringSchema {
+                      "_blacklist": RefSet {
+                        "list": Set {},
+                        "refs": Map {},
+                      },
+                      "_conditions": Array [],
+                      "_deps": Array [],
+                      "_exclusive": Object {
+                        "matches": false,
+                        "required": true,
+                        "trim": false,
+                      },
+                      "_mutate": undefined,
+                      "_options": Object {
+                        "abortEarly": true,
+                        "recursive": true,
+                      },
+                      "_type": "string",
+                      "_typeError": [Function],
+                      "_whitelist": RefSet {
+                        "list": Set {},
+                        "refs": Map {},
+                      },
+                      "tests": Array [
+                        [Function],
+                        [Function],
+                        [Function],
+                      ],
+                      "transforms": Array [
+                        [Function],
+                        [Function],
+                      ],
+                      "type": "string",
+                    },
+                    "telephone": StringSchema {
+                      "_blacklist": RefSet {
+                        "list": Set {},
+                        "refs": Map {},
+                      },
+                      "_conditions": Array [],
+                      "_deps": Array [],
+                      "_exclusive": Object {
+                        "matches": false,
+                        "required": true,
+                        "trim": false,
+                      },
+                      "_mutate": undefined,
+                      "_options": Object {
+                        "abortEarly": true,
+                        "recursive": true,
+                      },
+                      "_type": "string",
+                      "_typeError": [Function],
+                      "_whitelist": RefSet {
+                        "list": Set {},
+                        "refs": Map {},
+                      },
+                      "tests": Array [
+                        [Function],
+                        [Function],
+                        [Function],
+                      ],
+                      "transforms": Array [
+                        [Function],
+                        [Function],
+                      ],
+                      "type": "string",
+                    },
+                  },
+                  "tests": Array [],
+                  "transforms": Array [
+                    [Function],
+                  ],
+                  "type": "object",
+                }
+              }
+            >
+              <Form
+                data-test="register-form"
+                noValidate={true}
+              >
+                <form
+                  action="#"
+                  data-test="register-form"
+                  noValidate={true}
+                  onReset={[Function]}
+                  onSubmit={[Function]}
+                >
+                  <Component>
+                    <div
+                      className=""
+                    >
+                      <Component>
+                        <div
+                          className=""
+                        >
+                          Register for Foundations
+                        </div>
+                      </Component>
+                      <Component>
+                        <div
+                          className=""
+                        >
+                          By registering for the Foundations platform, you will get access to the Reapit developer portal and sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward to seeing what you build!
+                        </div>
+                      </Component>
+                      <Component
+                        dataTest="register-name"
+                        id="name"
+                        labelText="Full name"
+                        name="name"
+                        placeholder="Joe Developer"
+                        type="text"
+                      >
+                        <Field
+                          name="name"
+                          validate={null}
+                        >
+                          <div
+                            className="field"
+                          >
+                            <div
+                              className="control "
+                            >
+                              <label
+                                className="label inline-block "
+                                htmlFor="name"
+                              >
+                                Full name
+                              </label>
+                              <input
+                                className="input is-primary"
+                                data-test="register-name"
+                                disabled={false}
+                                id="name"
+                                name="name"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="Joe Developer"
+                                type="text"
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </Field>
+                      </Component>
+                      <Component
+                        dataTest="register-company-name"
+                        id="companyName"
+                        labelText="Company name"
+                        name="companyName"
+                        placeholder="Acme Industries Ltd"
+                        type="text"
+                      >
+                        <Field
+                          name="companyName"
+                          validate={null}
+                        >
+                          <div
+                            className="field"
+                          >
+                            <div
+                              className="control "
+                            >
+                              <label
+                                className="label inline-block "
+                                htmlFor="companyName"
+                              >
+                                Company name
+                              </label>
+                              <input
+                                className="input is-primary"
+                                data-test="register-company-name"
+                                disabled={false}
+                                id="companyName"
+                                name="companyName"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="Acme Industries Ltd"
+                                type="text"
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </Field>
+                      </Component>
+                      <Component
+                        dataTest="register-email"
+                        id="email"
+                        labelText="Email"
+                        name="email"
+                        placeholder="name@address.com"
+                        type="email"
+                      >
+                        <Field
+                          name="email"
+                          validate={null}
+                        >
+                          <div
+                            className="field"
+                          >
+                            <div
+                              className="control "
+                            >
+                              <label
+                                className="label inline-block "
+                                htmlFor="email"
+                              >
+                                Email
+                              </label>
+                              <input
+                                className="input is-primary"
+                                data-test="register-email"
+                                disabled={false}
+                                id="email"
+                                name="email"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="name@address.com"
+                                type="email"
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </Field>
+                      </Component>
+                      <Component
+                        dataTest="register-telephone"
+                        id="telephone"
+                        labelText="Telephone"
+                        name="telephone"
+                        placeholder="0800 800 800"
+                        type="tel"
+                      >
+                        <Field
+                          name="telephone"
+                          validate={null}
+                        >
+                          <div
+                            className="field"
+                          >
+                            <div
+                              className="control "
+                            >
+                              <label
+                                className="label inline-block "
+                                htmlFor="telephone"
+                              >
+                                Telephone
+                              </label>
+                              <input
+                                className="input is-primary"
+                                data-test="register-telephone"
+                                disabled={false}
+                                id="telephone"
+                                name="telephone"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="0800 800 800"
+                                type="tel"
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </Field>
+                      </Component>
+                    </div>
+                  </Component>
+                  <Component>
+                    <div
+                      className=""
+                    >
+                      <Component>
+                        <div
+                          className=""
+                          data-test=""
+                        >
+                          <Component
+                            afterClose={[Function]}
+                            isSubmitting={false}
+                            onAccept={[Function]}
+                            onDecline={[Function]}
+                            visible={false}
+                          >
+                            <Component
+                              afterClose={[Function]}
+                              footerItems={
+                                <React.Fragment>
+                                  <Unknown
+                                    onClick={[Function]}
+                                    type="button"
+                                    variant="secondary"
+                                  >
+                                    Decline
+                                  </Unknown>
+                                  <Unknown
+                                    dataTest="buttonAcceptTermsAndConditions"
+                                    loading={false}
+                                    onClick={[Function]}
+                                  >
+                                    Accept
+                                  </Unknown>
+                                </React.Fragment>
+                              }
+                              size="medium"
+                              tapOutsideToDissmiss={true}
+                              title="Terms and Conditions"
+                              visible={false}
+                            />
+                          </Component>
+                          <Component
+                            dataTest="button-register"
+                            fullWidth={true}
+                            onClick={[Function]}
+                          >
+                            <button
+                              className="button  is-primary is-fullwidth "
+                              data-test="button-register"
+                              disabled={false}
+                              onClick={[Function]}
+                              type="button"
+                            >
+                              Register
+                            </button>
+                          </Component>
+                        </div>
+                      </Component>
+                      <Link
+                        className="is-pulled-right"
+                        to="/client/apps"
+                      >
+                        <LinkAnchor
+                          className="is-pulled-right"
+                          href="/client/apps"
+                          navigate={[Function]}
+                        >
+                          <a
+                            className="is-pulled-right"
+                            href="/client/apps"
+                            onClick={[Function]}
+                          >
+                            Back to home
+                          </a>
+                        </LinkAnchor>
+                      </Link>
+                    </div>
+                  </Component>
+                </form>
+              </Form>
+            </Formik>
+          </div>
+          <div>
+            <img
+              alt="Reapit graphic"
+              src=""
+            />
+          </div>
+        </div>
+      </Component>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;

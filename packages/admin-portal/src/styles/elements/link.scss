@@ -1,0 +1,11 @@
+@import '../../styles/base/colors.scss';
+
+.link {
+  color: $reapit-mid-blue;
+  font-weight: bold;
+}
+.hyperlinked {
+  color: $reapit-mid-blue;
+  text-decoration: underline;
+  font-weight: bold;
+}
