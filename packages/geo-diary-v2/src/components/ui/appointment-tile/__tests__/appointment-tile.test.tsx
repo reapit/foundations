@@ -8,7 +8,6 @@ describe('appointment-list', () => {
     it('should match snapshot', () => {
       const mockProps = {
         appointment: appointment,
-        appointmentTypes: [],
       }
       const wrapper = shallow(<AppointmentTile {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
@@ -24,7 +23,6 @@ describe('appointment-list', () => {
     it('should match snapshot', () => {
       const mockParams = {
         appointment: appointment,
-        appointmentTypes: [],
       }
       const wrapper = shallow(<div>{renderIconItems(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
