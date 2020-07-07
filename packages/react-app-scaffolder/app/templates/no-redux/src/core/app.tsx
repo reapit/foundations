@@ -7,7 +7,11 @@ import { injectSwitchModeToWindow } from '@reapit/elements'
 
 injectSwitchModeToWindow()
 
+<% if(sass){ %>
 import '@/styles/index.scss'
+<% } else { %>
+import '@/styles/index.css'
+ <% } %>
 
 const App = () => {
   const { loginSession, refreshParams, getLoginSession, isFetchSession, ...rest } = useAuth()

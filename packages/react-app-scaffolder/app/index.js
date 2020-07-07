@@ -123,7 +123,7 @@ module.exports = class extends Generator {
 
   async writeBaseFiles() {
     return new Promise((resolve, reject) => {
-      const { name, repo, description, author, isFoundation, stylesSolution, clientId } = this.answers
+      const { name, repo, description, author, isFoundation, stylesSolution, clientId, sass } = this.answers
       const { redux, graphql } = this
 
       /**
@@ -200,6 +200,7 @@ module.exports = class extends Generator {
         stylesSolution,
         graphql,
         stylesSolution,
+        sass
       })
 
       this.fs.commit([], () => {

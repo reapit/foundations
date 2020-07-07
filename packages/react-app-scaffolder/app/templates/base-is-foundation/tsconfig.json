@@ -3,12 +3,31 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"],
-      "@reapit/cognito-auth": ["../cognito-auth/src"],
-      "@reapit/elements": ["../elements/src"],
-      "@reapit/elements/*": ["../elements/src/*"]
+      "@/*": [
+        "src/*"
+      ],
+      "@reapit/cognito-auth": [
+        "../cognito-auth/src"
+      ],
+      "@reapit/elements": [
+        "../elements/src"
+      ],
+      "@reapit/elements/*": [
+        "../elements/src/*"
+      ],
+      "@styles-variable": [
+        "./src/core/__styles__/index.ts"
+      ]
     }
   },
-  "include": ["src"],
-  "exclude": ["public", "dist", "./webpack.config.js", "node_modules", "src/tests/coverage"]
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "public",
+    "dist",
+    "./webpack.config.js",
+    "node_modules",
+    "src/tests/coverage"
+  ]
 }

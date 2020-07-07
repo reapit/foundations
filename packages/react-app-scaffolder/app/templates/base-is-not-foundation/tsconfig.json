@@ -3,7 +3,18 @@
     "allowJs": true,
     "esModuleInterop": true,
     "jsx": "react",
-    "lib": ["dom", "es2015", "es2017", "es2018", "es2019", "es2020", "es5", "es6", "es7", "esnext"],
+    "lib": [
+      "dom",
+      "es2015",
+      "es2017",
+      "es2018",
+      "es2019",
+      "es2020",
+      "es5",
+      "es6",
+      "es7",
+      "esnext"
+    ],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -12,19 +23,28 @@
     "outDir": "dist",
     "strict": true,
     "target": "es2020",
-    "typeRoots": ["./node_modules/@types"],
-    "types": ["jest", "node", "react"],
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "types": [
+      "jest",
+      "node",
+      "react"
+    ],
     "baseUrl": "./",
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "@styles-variable": [
+        "./src/core/__styles__/index.ts"
       ]
     }
   },
   "exclude": [
     "public",
     "dist",
-    "scripts",
+    "src/scriptsipts/scripts",
     "node_modules",
     "coverage",
     "public",
@@ -33,5 +53,10 @@
     "node_modules",
     "src/tests/coverage"
   ],
-  "include": ["src"]
+  "include": [
+    "src",
+    "../base/src/scripts/constants.js",
+    "scripts",
+    "scripts"
+  ]
 }
