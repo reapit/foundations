@@ -57,17 +57,6 @@ module.exports = class extends Generator {
     return true
   }
 
-  _addStyleSolution() {
-    const { stylesSolution, name, isFoundation } = this.answers
-
-
-    if (stylesSolution === 'sass') {
-      this.fs.copy(this.templatePath('./base-is-sass/**/*'), this.destinationPath('./'))
-    } else {
-      this.fs.copy(this.templatePath('./base-is-not-sass/**/*'), this.destinationPath('./'))
-    }
-  }
-
   _addPackageJson() {
     const { isFoundation, name, author, repo, description } = this.answers
 
@@ -184,7 +173,6 @@ module.exports = class extends Generator {
 
       this.fs.commit([], () => {
         this._addPackageJson(),
-        this._addStyleSolution()
         this._addAzure()
         this.fs.commit([], () => {
           this._installAndExport()
