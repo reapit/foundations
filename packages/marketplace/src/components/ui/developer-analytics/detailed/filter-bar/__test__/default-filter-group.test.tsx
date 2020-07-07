@@ -39,38 +39,38 @@ describe('FilterBar', () => {
   })
 
   describe('handleFilterButtonClick', () => {
-    const { yesterdayParams, lastWeekParams, lastMonthParams } = prepareDefaultFilterDateParams()
+    const { last30DaysParams, todayParams, last7DaysParams } = prepareDefaultFilterDateParams()
     const { appIds, clientIds, setDateFrom, setDateTo } = mockProps
     const mockSetIsActive = jest.fn()
     const mockDispatch = jest.fn()
     const mockHandleFilter = jest.fn()
-    it('should run correctly when filter type is yesterday', () => {
-      const fn = handleFilterButtonClick(FilterType.YESTERDAY, setDateFrom, setDateTo, mockSetIsActive)
+    it('should run correctly when filter type is last 7 days', () => {
+      const fn = handleFilterButtonClick(FilterType.LAST_7_DAYS, setDateFrom, setDateTo, mockSetIsActive)
       fn()
       expect(mockSetIsActive).toBeCalled()
-      mockHandleFilter(yesterdayParams, setDateFrom, setDateTo)
-      expect(mockHandleFilter).toBeCalledWith(yesterdayParams, setDateFrom, setDateTo)
+      mockHandleFilter(last7DaysParams, setDateFrom, setDateTo)
+      expect(mockHandleFilter).toBeCalledWith(last7DaysParams, setDateFrom, setDateTo)
     })
 
-    it('should run correctly when filter type is last week', () => {
-      const fn = handleFilterButtonClick(FilterType.LAST_WEEK, setDateFrom, setDateTo, mockSetIsActive)
+    it('should run correctly when filter type is last 30 days', () => {
+      const fn = handleFilterButtonClick(FilterType.LAST_30_DAYS, setDateFrom, setDateTo, mockSetIsActive)
       fn()
       expect(mockSetIsActive).toBeCalled()
-      mockHandleFilter(lastWeekParams, appIds, clientIds, setDateFrom, setDateTo, mockDispatch)
-      expect(mockHandleFilter).toBeCalledWith(lastWeekParams, appIds, clientIds, setDateFrom, setDateTo, mockDispatch)
+      mockHandleFilter(last30DaysParams, appIds, clientIds, setDateFrom, setDateTo, mockDispatch)
+      expect(mockHandleFilter).toBeCalledWith(last30DaysParams, appIds, clientIds, setDateFrom, setDateTo, mockDispatch)
     })
 
     it('should run correctly when filter type is last month', () => {
-      const fn = handleFilterButtonClick(FilterType.LAST_MONTH, setDateFrom, setDateTo, mockSetIsActive)
+      const fn = handleFilterButtonClick(FilterType.TODAY, setDateFrom, setDateTo, mockSetIsActive)
       fn()
       expect(mockSetIsActive).toBeCalled()
-      mockHandleFilter(lastMonthParams, appIds, clientIds, setDateFrom, setDateTo, mockDispatch)
-      expect(mockHandleFilter).toBeCalledWith(lastMonthParams, appIds, clientIds, setDateFrom, setDateTo, mockDispatch)
+      mockHandleFilter(todayParams, appIds, clientIds, setDateFrom, setDateTo, mockDispatch)
+      expect(mockHandleFilter).toBeCalledWith(todayParams, appIds, clientIds, setDateFrom, setDateTo, mockDispatch)
     })
   })
 
   describe('prepareDefaultFilterDateParams', () => {
-    const mockDateString = '2020-04-01'
+    const mockDateString = '2020-07-06'
     beforeEach(() => {
       MockDate.set(new Date(mockDateString))
     })
@@ -78,18 +78,22 @@ describe('FilterBar', () => {
       MockDate.reset()
     })
     it('should run correctly', () => {
-      const { yesterdayParams, lastWeekParams, lastMonthParams } = prepareDefaultFilterDateParams()
-      expect(yesterdayParams).toEqual({
-        dateFrom: '2020-03-31',
-        dateTo: '2020-03-31',
+      const { last30DaysParams, last7DaysParams, todayParams, defaultParams } = prepareDefaultFilterDateParams()
+      expect(last30DaysParams).toEqual({
+        dateFrom: '2020-06-07',
+        dateTo: '2020-07-06',
       })
-      expect(lastWeekParams).toEqual({
-        dateFrom: '2020-03-23',
-        dateTo: '2020-03-29',
+      expect(defaultParams).toEqual({
+        dateFrom: '2020-06-30',
+        dateTo: '2020-07-06',
       })
-      expect(lastMonthParams).toEqual({
-        dateFrom: '2020-03-01',
-        dateTo: '2020-03-31',
+      expect(last7DaysParams).toEqual({
+        dateFrom: '2020-06-30',
+        dateTo: '2020-07-06',
+      })
+      expect(todayParams).toEqual({
+        dateFrom: '2020-07-06',
+        dateTo: '2020-07-06',
       })
     })
   })
@@ -102,7 +106,7 @@ describe('FilterBar', () => {
         return renderFiterButtons(
           button.text,
           button.filterType,
-          FilterType.LAST_WEEK,
+          FilterType.TODAY,
           jest.fn(),
           setDateFrom,
           setDateTo,
