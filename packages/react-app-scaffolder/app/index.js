@@ -77,6 +77,26 @@ module.exports = class extends Generator {
     }
   }
 
+  _addPackageJson() {
+    const { isFoundation, name, author, repo, description } = this.answers
+
+    if (isFoundation) {
+      return
+    }
+
+    if (this.redux) {
+      this.fs.copyTpl(this.templatePath('./is-foundation-redux/**/*'), this.destinationPath('./'), {
+        name, author, repo, description
+      })
+    }
+
+    if (!this.redux) {
+      this.fs.copyTpl(this.templatePath('./is-foundation-no-redux/**/*'), this.destinationPath('./'), {
+        name, author, repo, description
+      })
+    }
+  }
+
 
   _addAzure() {
     const { name, azure } = this.answers
@@ -173,6 +193,7 @@ module.exports = class extends Generator {
 
       this.fs.commit([], () => {
         this._addPackageJson(),
+        this._addStyleSolution()
         this._addAzure()
         this.fs.commit([], () => {
           this._installAndExport()
