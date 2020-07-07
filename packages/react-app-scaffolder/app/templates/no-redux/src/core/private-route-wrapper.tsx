@@ -1,7 +1,7 @@
 import * as React from 'react'
+import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements'
 import { withRouter, RouteComponentProps } from 'react-router-dom'
 import Menu from '@/components/ui/menu'
-import { Loader, AppNavContainer, Section } from '@reapit/elements'
 import { redirectToOAuth } from '@reapit/cognito-auth'
 import { AuthContext } from '@/context'
 
@@ -38,15 +38,19 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   return (
     <AppNavContainer>
       <Menu />
-      <Suspense
-        fallback={
-          <Section>
-            <Loader />
-          </Section>
-        }
-      >
-        {children}
-      </Suspense>
+      <FlexContainerBasic flexColumn isScrollable>
+        <FlexContainerResponsive hasPadding flexColumn>
+          <Suspense
+            fallback={
+              <Section>
+                <Loader />
+              </Section>
+            }
+          >
+            {children}
+          </Suspense>
+        </FlexContainerResponsive>
+      </FlexContainerBasic>
     </AppNavContainer>
   )
 }

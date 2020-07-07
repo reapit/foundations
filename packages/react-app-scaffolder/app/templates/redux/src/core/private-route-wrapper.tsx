@@ -3,7 +3,7 @@ import { RouteComponentProps } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { ReduxState } from 'src/types/core'
 import Menu from '@/components/ui/menu'
-import { Loader, AppNavContainer, Section } from '@reapit/elements'
+import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements'
 import { RefreshParams, getTokenFromQueryString } from '@reapit/cognito-auth'
 import { authSetRefreshSession } from '../actions/auth'
 import { Dispatch } from 'redux'
@@ -49,15 +49,19 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   return (
     <AppNavContainer>
       <Menu />
-      <Suspense
-        fallback={
-          <Section>
-            <Loader />
-          </Section>
-        }
-      >
-        {children}
-      </Suspense>
+      <FlexContainerBasic flexColumn isScrollable>
+        <FlexContainerResponsive hasPadding flexColumn>
+          <Suspense
+            fallback={
+              <Section>
+                <Loader />
+              </Section>
+            }
+          >
+            {children}
+          </Suspense>
+        </FlexContainerResponsive>
+      </FlexContainerBasic>
     </AppNavContainer>
   )
 }

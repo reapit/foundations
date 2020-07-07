@@ -4,6 +4,7 @@ import { render } from 'react-dom'
 import ReactGA from 'react-ga'
 import { Config } from '@/types/global'
 import App from './app'
+import { getMarketplaceGlobalsByKey } from '@reapit/elements'
 
 // Init global config
 window.reapit = {
@@ -19,6 +20,12 @@ window.reapit = {
 
 export const renderApp = (Component: React.ComponentType) => {
   const rootElement = document.querySelector('#root') as Element
+  const isDesktop = getMarketplaceGlobalsByKey()
+  const html = document.querySelector('html')
+  if (isDesktop && html) {
+    html.classList.add('is-desktop')
+  }
+
   if (rootElement) {
     render(<Component />, rootElement)
   }
