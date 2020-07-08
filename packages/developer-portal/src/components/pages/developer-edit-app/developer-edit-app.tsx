@@ -245,7 +245,7 @@ export const handleSubmitAppSuccess = (
   history: History,
 ) => () => {
   setSubmitting(false)
-  history.push(Routes.DEVELOPER_MY_APPS)
+  history.push(Routes.APPS)
 }
 
 export const handleSubmitAppError = (setSubmitting: React.Dispatch<React.SetStateAction<boolean>>) => () => {
@@ -254,7 +254,7 @@ export const handleSubmitAppError = (setSubmitting: React.Dispatch<React.SetStat
 
 export const handleGoBackToApps = (history: History) => {
   return () => {
-    history.push(Routes.DEVELOPER_MY_APPS)
+    history.push(Routes.APPS)
   }
 }
 
@@ -327,12 +327,12 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
   /**
    * When navigate to edit page, we still may have appDetailState data of previous editted app in redux
    * store so we need to check the current app and the old app must have same id. If not don't redirect
-   * to DEVELOPER_MY_APPS route.
+   * to APPS route.
    */
   const hasOldAppDetailData =
     appDetailState.appDetailData?.data?.id !== null && appid !== appDetailState.appDetailData?.data?.id
   if (isPendingRevisionsExist && !hasOldAppDetailData) {
-    return <Redirect to={`${Routes.DEVELOPER_MY_APPS}/${appid}`} />
+    return <Redirect to={`${Routes.APPS}/${appid}`} />
   }
 
   const appId = appDetailData.data.id ?? ''

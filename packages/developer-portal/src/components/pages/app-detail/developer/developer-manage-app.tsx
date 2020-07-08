@@ -23,7 +23,7 @@ export const onAppDeleteModalAfterClose = (setVisible: (value: boolean) => void)
 }
 
 export const onDeleteSuccess = (history: History) => () => {
-  history.push(routes.DEVELOPER_MY_APPS)
+  history.push(routes.APPS)
 }
 
 export const onCancelSuccess = ({
@@ -47,7 +47,7 @@ export const onPendingRevisionButtonClick = (setVisible: (value: boolean) => voi
 }
 
 export const onEditDetailButtonClick = (history: History, id: string) => () => {
-  history.push(`${routes.DEVELOPER_MY_APPS}/${id}/edit`)
+  history.push(`${routes.APPS}/${id}/edit`)
 }
 
 export const onDeleteAppButtonClick = (setVisible: (value: boolean) => void) => () => {

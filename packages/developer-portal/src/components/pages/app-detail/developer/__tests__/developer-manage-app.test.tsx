@@ -68,7 +68,7 @@ describe('ManageApp', () => {
     it('should be called correctly', () => {
       const fn = onDeleteSuccess(history)
       fn()
-      expect(history.push).toBeCalledWith(Routes.DEVELOPER_MY_APPS)
+      expect(history.push).toBeCalledWith(Routes.APPS)
     })
   })
 
@@ -95,7 +95,7 @@ describe('ManageApp', () => {
       const mockAppId = '1'
       const fn = onEditDetailButtonClick(history, mockAppId)
       fn()
-      expect(history.push).toBeCalledWith(`${Routes.DEVELOPER_MY_APPS}/${mockAppId}/edit`)
+      expect(history.push).toBeCalledWith(`${Routes.APPS}/${mockAppId}/edit`)
     })
   })
 

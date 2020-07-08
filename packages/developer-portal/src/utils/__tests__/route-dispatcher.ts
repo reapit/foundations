@@ -34,7 +34,7 @@ describe('routeDispatcher', () => {
   })
 
   it('should dispatch to developerRequestData for the developer route', async () => {
-    await routeDispatcher(Routes.DEVELOPER_MY_APPS as RouteValue)
+    await routeDispatcher(Routes.APPS as RouteValue)
     expect(store.dispatch).toHaveBeenCalledWith(developerRequestData({ page: 1 }))
   })
 

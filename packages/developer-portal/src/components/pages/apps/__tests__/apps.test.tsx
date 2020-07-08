@@ -5,12 +5,7 @@ import { mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import Routes from '@/constants/routes'
-import DeveloperHome, {
-  handleOnCardClick,
-  handleOnChange,
-  onShowSubmitAppModal,
-  onCloseSubmitAppModal,
-} from '../developer-home'
+import DeveloperHome, { handleOnCardClick, handleOnChange, onShowSubmitAppModal, onCloseSubmitAppModal } from '../apps'
 import { AppSummaryModel } from '@/types/marketplace-api-schema'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import routes from '@/constants/routes'
@@ -28,7 +23,7 @@ describe('Login', () => {
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.DEVELOPER_MY_APPS, key: 'developerHomeRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.APPS, key: 'developerHomeRoute' }]}>
             <DeveloperHome />
           </MemoryRouter>
         </ReactRedux.Provider>,
@@ -43,7 +38,7 @@ describe('Login', () => {
       }
       const fn = handleOnCardClick(history)
       fn(mockAppSummary)
-      expect(history.push).toBeCalledWith(`${Routes.DEVELOPER_MY_APPS}/${mockAppSummary.id}`)
+      expect(history.push).toBeCalledWith(`${Routes.APPS}/${mockAppSummary.id}`)
     })
   })
 
@@ -51,7 +46,7 @@ describe('Login', () => {
     it('should run correctly', () => {
       const fn = handleOnChange(history)
       fn(1)
-      expect(history.push).toBeCalledWith(`${routes.DEVELOPER_MY_APPS}?page=${1}`)
+      expect(history.push).toBeCalledWith(`${routes.APPS}?page=${1}`)
     })
   })
 

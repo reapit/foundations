@@ -21,7 +21,7 @@ import AppContent from './developer-app-content'
 export type DeveloperAppDetailProps = {}
 
 export const handleOnDeleteAppSuccess = (history: History) => () => {
-  history.replace(routes.DEVELOPER_MY_APPS)
+  history.replace(routes.APPS)
 }
 
 export const closeInstallationsModal = (setIsInstallationsModalOpen: (isVisible: boolean) => void) => () => {
@@ -39,7 +39,7 @@ export const closeDeleteAppModal = (setIsDeleteModalOpen: (isVisible: boolean) =
 }
 
 export const onBackToAppsButtonClick = (history: History) => () => {
-  history.push(routes.DEVELOPER_MY_APPS)
+  history.push(routes.APPS)
 }
 
 const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {

@@ -20,7 +20,7 @@ const ClientAppsManagement = React.lazy(() =>
   catchChunkError(() => import('../components/pages/client-app-management')),
 )
 const Register = React.lazy(() => catchChunkError(() => import('../components/pages/register')))
-const DeveloperHome = React.lazy(() => catchChunkError(() => import('../components/pages/developer-home')))
+const Apps = React.lazy(() => catchChunkError(() => import('../components/pages/apps')))
 const DeveloperAppDetail = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail/developer')))
 const DeveloperEditApp = React.lazy(() => catchChunkError(() => import('../components/pages/developer-edit-app')))
 const AdminApprovalsPage = React.lazy(() => catchChunkError(() => import('../components/pages/admin-approvals')))
@@ -110,13 +110,7 @@ const Router = () => {
                 <PrivateRoute allow="CLIENT" path={Routes.CLIENT_HELP} exact fetcher component={ClientHelpPage} />
                 <PrivateRoute allow="CLIENT" path={Routes.CLIENT_SETTINGS} exact fetcher component={ClientSetting} />
 
-                <PrivateRoute
-                  allow="DEVELOPER"
-                  path={Routes.DEVELOPER_MY_APPS}
-                  component={DeveloperHome}
-                  exact
-                  fetcher
-                />
+                <PrivateRoute allow="DEVELOPER" path={Routes.APPS} component={Apps} exact fetcher />
                 <PrivateRoute
                   allow="DEVELOPER"
                   path={Routes.DEVELOPER_APP_DETAIL}
@@ -124,13 +118,7 @@ const Router = () => {
                   exact
                   fetcher
                 />
-                <PrivateRoute
-                  allow="DEVELOPER"
-                  path={Routes.DEVELOPER_MY_APPS_EDIT}
-                  component={DeveloperEditApp}
-                  exact
-                  fetcher
-                />
+                <PrivateRoute allow="DEVELOPER" path={Routes.APPS_EDIT} component={DeveloperEditApp} exact fetcher />
                 <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_API_DOCS} component={ApiDocsPage} />
                 <PrivateRoute
                   allow="DEVELOPER"
