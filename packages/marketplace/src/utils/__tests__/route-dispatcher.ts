@@ -17,8 +17,6 @@ jest.mock('../../core/store')
 jest.mock('../../sagas/client')
 jest.mock('../../sagas/developer')
 
-console.log({ store })
-
 describe('routeDispatcher', () => {
   it('should dispatch to clientFetchAppSummaryclientFetchAppSummary for the client route', async () => {
     await routeDispatcher(Routes.CLIENT as RouteValue)
