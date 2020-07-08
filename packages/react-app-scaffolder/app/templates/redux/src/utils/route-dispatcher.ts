@@ -1,6 +1,6 @@
 import { RouteValue } from '@/types/core'
 import { getAccessToken } from '@/utils/session'
-import store from '../core/store'
+import store from '@/core/store'
 import Routes from '@/constants/routes'
 import { authenticatedRequestData } from '@/actions/authenticated'
 
