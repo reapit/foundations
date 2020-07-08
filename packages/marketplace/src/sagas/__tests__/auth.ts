@@ -97,11 +97,7 @@ describe('auth thunks', () => {
       const gen = doLogout()
       expect(gen.next().value).toEqual(call(removeSession, COOKIE_SESSION_KEY_MARKETPLACE, 'development'))
       expect(gen.next().value).toEqual(
-        call(
-          redirectToLogout,
-          window.reapit.config.marketplaceApiUrl,
-          `${window.location.origin}${Routes.CLIENT_LOGIN}`,
-        ),
+        call(redirectToLogout, window.reapit.config.marketplaceApiUrl, `${window.location.origin}${Routes.LOGIN}`),
       )
       expect(gen.next().done).toBe(true)
     })

@@ -2,7 +2,7 @@ import Routes from '../constants/routes'
 import { getMarketplaceGlobalsByKey } from '@reapit/elements'
 
 export function getAuthRoute() {
-  return Routes.CLIENT_LOGIN
+  return Routes.LOGIN
 }
 
 export function getDefaultRoute({ isFirstTimeLoginComplete }) {

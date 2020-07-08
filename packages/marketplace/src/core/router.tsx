@@ -62,7 +62,7 @@ const Router = () => {
       <React.Suspense fallback={null}>
         <PortalProvider>
           <Switch>
-            <Route path={isProduction ? Routes.CLIENT_LOGIN : []} exact render={() => <Login />} />
+            <Route path={isProduction ? Routes.LOGIN : []} exact render={() => <Login />} />
             <Route allow="DEVELOPER" path={Routes.REGISTER} render={() => <Register />} />
             <Route path={Routes.REGISTER_CONFIRM} exact component={RegisterConfirm} />
             <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
@@ -202,7 +202,7 @@ const Router = () => {
                 <Route render={() => <Info infoType="404" />} />
               </Switch>
             </PrivateRouteWrapper>
-            <Redirect to={Routes.CLIENT_LOGIN} />
+            <Redirect to={Routes.LOGIN} />
           </Switch>
         </PortalProvider>
       </React.Suspense>

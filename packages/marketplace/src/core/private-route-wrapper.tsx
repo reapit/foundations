@@ -61,7 +61,6 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const hasSession = !!loginSession || !!refreshSession
 
   const location = useLocation()
-  const type = 'CLIENT'
 
   const isFirstTimeLoginComplete = Boolean(getCookieString(COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE))
 
@@ -70,7 +69,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   })
 
   const cognitoClientId = window.reapit.config.cognitoClientId
-  const refreshParams = getTokenFromQueryString(location.search, cognitoClientId, type, route)
+  const refreshParams = getTokenFromQueryString(location.search, cognitoClientId, 'CLIENT', route)
 
   if (refreshParams && !hasSession) {
     dispatch(authSetRefreshSession(refreshParams))

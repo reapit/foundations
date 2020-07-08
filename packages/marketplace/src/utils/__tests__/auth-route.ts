@@ -3,7 +3,7 @@ import Routes from '../../constants/routes'
 
 describe('getAuthRoute', () => {
   it('should return correct route', () => {
-    expect(getAuthRoute()).toEqual(Routes.CLIENT_LOGIN)
+    expect(getAuthRoute()).toEqual(Routes.LOGIN)
   })
 })
 
