@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
 import { getMockRouterProps } from '@/core/__mocks__/mock-router'
 import { AuthContext } from '@/context'
 import { mockContext } from '@/context/__mocks__/mock-context'
@@ -32,9 +31,9 @@ describe('Menu', () => {
 
   describe('callbackAppClick', () => {
     it('should run correcly', () => {
+      window.location.href = 'dev'
       const fn = callbackAppClick()
       expect(fn).toEqual('https://dev.marketplace.reapit.cloud/client/installed')
     })
   })
-
 })

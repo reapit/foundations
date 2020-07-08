@@ -16,6 +16,7 @@ export const mockContext = {
       adminId: 'mockAdminID',
       userCode: 'mockUserCode',
       userTel: 'mockUserTel',
+      groups: []
     },
     loginType: 'CLIENT',
     cognitoClientId: '123',
@@ -25,4 +26,4 @@ export const mockContext = {
   logout: jest.fn(),
   getLoginSession: jest.fn(),
   refreshParams: null,
-} as AuthHook
+} as  AuthHook

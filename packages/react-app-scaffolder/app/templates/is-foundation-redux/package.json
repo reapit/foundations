@@ -13,7 +13,8 @@
   "scripts": {
     "build:prod": "webpack --color --mode production --config './src/scripts/webpack-prod.js'",
     "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ./src/scripts/webpack-dev.js",
-    "lint": "eslint --ext=jsx,ts,tsx src --fix",
+    "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src\"",
+    "lint:fix": "eslint --cache --ext=ts,tsx src --fix",
     "start:prod": "serve public/dist -s -l 8080",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
