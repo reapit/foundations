@@ -1,5 +1,5 @@
 import routeDispatcher from '../route-dispatcher'
-import store from '../../core/store'
+import store from '@/core/store'
 import Routes from '../../constants/routes'
 import { GET_ALL_PAGE_SIZE } from '../../constants/paginator'
 import { RouteValue } from '../../types/core'
@@ -16,6 +16,8 @@ jest.mock('@/utils/session')
 jest.mock('../../core/store')
 jest.mock('../../sagas/client')
 jest.mock('../../sagas/developer')
+
+console.log({ store })
 
 describe('routeDispatcher', () => {
   it('should dispatch to clientFetchAppSummaryclientFetchAppSummary for the client route', async () => {

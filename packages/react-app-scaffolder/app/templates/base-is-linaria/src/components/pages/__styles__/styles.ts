@@ -30,7 +30,7 @@ export const wrapper = css`
     text-align: center;
   }
 
-  img {
+  div > img {
     margin: 0 auto;
     max-width: 200px;
     display: block;
