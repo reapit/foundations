@@ -1,47 +1,34 @@
-export const clipboardCopy = async (text: string) => {
-  // Use the Async Clipboard API when available. Requires a secure browsing
-  // context (i.e. HTTPS)
-  if (navigator.clipboard) {
-    try {
-      navigator.clipboard.writeText(text)
+export const clipboardCopy = (content: string): boolean => {
+  try {
+    // Use the Async Clipboard API when available.
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(content)
       return true
-    } catch (err) {
-      return false
     }
+
+    // Otherwise, use document.execCommand() fallback
+    const span = document.createElement('span')
+    span.textContent = content
+    span.style.whiteSpace = 'pre'
+    document.body.appendChild(span)
+
+    // Make a selection object representing the range of text selected by the user
+    const selection = window.getSelection()
+    const range = window.document.createRange()
+
+    if (selection) {
+      selection.removeAllRanges()
+      range.selectNode(span)
+      selection.addRange(range)
+      window.document.execCommand('copy')
+      selection.removeAllRanges()
+      window.document.body.removeChild(span)
+      return true
+    }
+  } catch (err) {
+    console.error('Clipboard copy error', err.message)
+    return false
   }
 
-  // ...Otherwise, use document.execCommand() fallback
-
-  // Put the text to copy into a <span>
-  let span = document.createElement('span')
-  span.textContent = text
-
-  // Preserve consecutive spaces and newlines
-  span.style.whiteSpace = 'pre'
-
-  // Add the <span> to the page
-  document.body.appendChild(span)
-
-  // Make a selection object representing the range of text selected by the user
-  const selection = window.getSelection()
-  const range = window.document.createRange()
-  let success = false
-
-  if (selection) {
-    selection.removeAllRanges()
-    range.selectNode(span)
-    selection.addRange(range)
-
-    // Copy text to the clipboard
-    try {
-      success = window.document.execCommand('copy')
-    } catch (err) {
-      console.log('error', err)
-    }
-    // Cleanup
-    selection.removeAllRanges()
-    window.document.body.removeChild(span)
-  }
-
-  return success
+  return false
 }

@@ -1,4 +1,4 @@
-export enum Layout {
+export enum layoutSizes {
   base = '1rem',
   half = '0.5rem',
   quarter = '0.25rem',

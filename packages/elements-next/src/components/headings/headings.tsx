@@ -2,6 +2,7 @@ import React from 'react'
 import { cx } from 'linaria'
 import { elHeadingMain } from './__styles__/headings-styles'
 import { elIsTextCentered } from '@/styles/typography'
+import { elMB } from '@/styles/margins'
 
 interface HeadingProps {
   /**
@@ -15,7 +16,7 @@ interface HeadingProps {
 }
 
 export const HeadingMain: React.FC<HeadingProps> = ({ children, isTextCentered, className }) => (
-  <h1 className={cx(elHeadingMain, isTextCentered && elIsTextCentered, className)}>{children}</h1>
+  <h1 className={cx(elHeadingMain, elMB, isTextCentered && elIsTextCentered, className)}>{children}</h1>
 )
 
 export const SubHeadingMain: React.FC<HeadingProps> = ({ children, isTextCentered, className }) => (

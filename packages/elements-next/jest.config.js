@@ -5,8 +5,8 @@ module.exports = {
   testPathIgnorePatterns: ['<rootDir>/src/tests/'],
   collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/src/**/*.tsx'],
   coveragePathIgnorePatterns: [
-    '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts|src/helpers|src/stylesq)[/\\\\]',
-    '.stories.tsx',
+    '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts|src/helpers|src/styles|src/utils)[/\\\\]',
+    '__styles__',
     'src/index.tsx',
     'index.ts'
   ],
