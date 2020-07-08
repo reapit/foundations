@@ -1,5 +1,6 @@
 import React from 'react'
-import { Map, CoordinateProps } from '@reapit/elements'
+import { Map } from '@reapit/elements'
+import { CoordinateProps } from '@reapit/elements/src/components/Map'
 import { useLocation, useHistory } from 'react-router-dom'
 import qs from 'query-string'
 import { ExtendedAppointmentModel } from '@/types/global'
