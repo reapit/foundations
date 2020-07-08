@@ -50,6 +50,7 @@
     "linaria": "^1.4.0-beta.10",
     "papaparse": "^5.1.1",
     "pell": "^1.0.6",
+    "rc-dialog": "^8.0.1",
     "prop-types": "^15.7.2",
     "rc-notification": "^4.0.0",
     "rc-select": "^10.1.8",

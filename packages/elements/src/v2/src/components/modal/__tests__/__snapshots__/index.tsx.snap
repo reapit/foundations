@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`modal Modal should match snapshot 1`] = `
+<Component
+  visible={true}
+>
+  <div>
+    children
+  </div>
+</Component>
+`;
