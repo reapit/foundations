@@ -4,7 +4,6 @@ import * as ReactRedux from 'react-redux'
 import configureStore from 'redux-mock-store'
 import { Register, onSubmit, onRegisterButtonClick, onDeclineTermsAndConditions, onLoginButtonClick } from '../register'
 import { developerCreate } from '@/actions/developer'
-import { authLogout } from '@/actions/auth'
 import { DATE_TIME_FORMAT } from '@reapit/elements'
 import MockDate from 'mockdate'
 import appState from '@/reducers/__stubs__/app-state'
@@ -87,14 +86,8 @@ describe('Register', () => {
   })
   describe('onLoginButtonClick', () => {
     it('should redirect to developer login page', () => {
-      const fn = onLoginButtonClick(history, spyDispatch, '')
+      const fn = onLoginButtonClick(history)
       fn()
-      expect(history.replace).toBeCalledWith(`${Routes.LOGIN}`)
-    })
-    it('should run dispatch logout first and then redirect to developer login page', () => {
-      const fn = onLoginButtonClick(history, spyDispatch, 'testClientId')
-      fn()
-      expect(spyDispatch).toBeCalledWith(authLogout())
       expect(history.replace).toBeCalledWith(`${Routes.LOGIN}`)
     })
   })
