@@ -57,16 +57,12 @@ const DeveloperEditionDownloadPage = React.lazy(() =>
 
 const Router = () => {
   const isProduction = window.reapit.config.appEnv === 'production'
-  const paths = [Routes.DEVELOPER_LOGIN, Routes.ADMIN_LOGIN]
-  if (!isProduction) {
-    paths.push(Routes.CLIENT_LOGIN)
-  }
   return (
     <BrowserRouter history={history}>
       <React.Suspense fallback={null}>
         <PortalProvider>
           <Switch>
-            <Route path={paths} exact render={() => <Login />} />
+            <Route path={isProduction ? Routes.CLIENT_LOGIN : []} exact render={() => <Login />} />
             <Route allow="DEVELOPER" path={Routes.REGISTER} render={() => <Register />} />
             <Route path={Routes.REGISTER_CONFIRM} exact component={RegisterConfirm} />
             <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />

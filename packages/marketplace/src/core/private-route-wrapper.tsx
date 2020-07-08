@@ -6,19 +6,11 @@ import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContaine
 import { getTokenFromQueryString, redirectToOAuth } from '@reapit/cognito-auth'
 import { Dispatch } from 'redux'
 import { Redirect, useLocation } from 'react-router'
-import { getDefaultRouteByLoginType, getAuthRouteByLoginType } from '@/utils/auth-route'
-import {
-  authSetRefreshSession,
-  setInitDeveloperTermsAcceptedStateFromCookie,
-  setInitClientTermsAcceptedStateFromCookie,
-} from '@/actions/auth'
+import { getAuthRoute, getDefaultRoute } from '@/utils/auth-route'
+import { authSetRefreshSession, setInitClientTermsAcceptedStateFromCookie } from '@/actions/auth'
 
-import {
-  getCookieString,
-  COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE,
-  COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE,
-} from '@/utils/cookie'
-import { selectLoginSession, selectRefreshSession, selectLoginType } from '@/selector/auth'
+import { getCookieString, COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE } from '@/utils/cookie'
+import { selectLoginSession, selectRefreshSession } from '@/selector/auth'
 import { ActionCreator } from '@/types/core'
 import Routes from '@/constants/routes'
 
@@ -41,14 +33,11 @@ export type PrivateRouteWrapperProps = {
 export const handleSetTermsAcceptFromCookie = ({
   dispatch,
   setInitClientTermsAcceptedStateFromCookie,
-  setInitDeveloperTermsAcceptedStateFromCookie,
 }: {
   dispatch: Dispatch
   setInitClientTermsAcceptedStateFromCookie: ActionCreator<void>
-  setInitDeveloperTermsAcceptedStateFromCookie: ActionCreator<void>
 }) => () => {
   dispatch(setInitClientTermsAcceptedStateFromCookie())
-  dispatch(setInitDeveloperTermsAcceptedStateFromCookie())
 }
 
 export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({
@@ -60,7 +49,6 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   React.useEffect(
     handleSetTermsAcceptFromCookie({
       dispatch,
-      setInitDeveloperTermsAcceptedStateFromCookie,
       setInitClientTermsAcceptedStateFromCookie,
     }),
     [],
@@ -68,30 +56,17 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
   const loginSession = useSelector(selectLoginSession)
   const refreshSession = useSelector(selectRefreshSession)
-  const loginType = useSelector(selectLoginType)
   // const isTermAccepted = useSelector(selectIsTermAccepted)
 
   const hasSession = !!loginSession || !!refreshSession
 
   const location = useLocation()
-  const params = new URLSearchParams(location.search)
-  const state = params.get('state')
-  const type = state && state.includes('ADMIN') ? 'ADMIN' : state && state.includes('CLIENT') ? 'CLIENT' : loginType
+  const type = 'CLIENT'
 
-  const isDeveloperFirstTimeLoginComplete = Boolean(getCookieString(COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE))
-  const isClientFirstTimeLoginComplete = Boolean(getCookieString(COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE))
+  const isFirstTimeLoginComplete = Boolean(getCookieString(COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE))
 
-  const route = getDefaultRouteByLoginType({
-    isClientFirstTimeLoginComplete,
-    isDeveloperFirstTimeLoginComplete,
-    /**
-     * loginType default in reducer = DEVELOPER
-     * when redirecting back to app after login
-     *   -> use state in url param (this was setted by cognito)
-     *   -> save the valid type to logintype
-     * further works will use loginType in reducer if param state isn't specificied in url param
-     */
-    loginType: type || loginType,
+  const route = getDefaultRoute({
+    isFirstTimeLoginComplete,
   })
 
   const cognitoClientId = window.reapit.config.cognitoClientId
@@ -102,13 +77,13 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     return null
   }
 
-  if (type && location.pathname === '/') {
-    const path = getAuthRouteByLoginType(type || loginType)
+  if (location.pathname === '/') {
+    const path = getAuthRoute()
     return <Redirect to={path} />
   }
 
   if (!hasSession) {
-    redirectToOAuth(cognitoClientId, route, type)
+    redirectToOAuth(cognitoClientId, route)
     return null
   }
 

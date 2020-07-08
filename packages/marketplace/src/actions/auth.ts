@@ -11,13 +11,6 @@ export const authSetRefreshSession = actionCreator<RefreshParams>(ActionTypes.AU
 export const authChangeLoginType = actionCreator<LoginType>(ActionTypes.AUTH_CHANGE_LOGIN_TYPE)
 export const authClear = actionCreator<void>(ActionTypes.AUTH_CLEAR)
 
-export const setInitDeveloperTermsAcceptedStateFromCookie = actionCreator<void>(
-  ActionTypes.SET_INIT_DEVELOPER_TERMS_ACCEPTED_STATE_FROM_COOKIE,
-)
-export const setDeveloperTermAcceptedCookieAndState = actionCreator<boolean>(
-  ActionTypes.SET_DEVELOPER_TERM_ACCEPTED_COOKIE_AND_STATE,
-)
-
 export const setInitClientTermsAcceptedStateFromCookie = actionCreator<void>(
   ActionTypes.SET_INIT_CLIENT_TERMS_ACCEPTED_STATE_FROM_COOKIE,
 )

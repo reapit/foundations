@@ -5,19 +5,11 @@ import { shallow, mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import { PrivateRouteWrapper, handleSetTermsAcceptFromCookie } from '../private-route-wrapper'
-import { selectLoginSession, selectRefreshSession, selectLoginType } from '@/selector/auth'
+import { selectLoginSession, selectRefreshSession } from '@/selector/auth'
 import { getTokenFromQueryString, redirectToOAuth, RefreshParams } from '@reapit/cognito-auth'
-import { getAuthRouteByLoginType } from '@/utils/auth-route'
-import {
-  getCookieString,
-  COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE,
-  COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE,
-} from '@/utils/cookie'
-import {
-  authSetRefreshSession,
-  setInitDeveloperTermsAcceptedStateFromCookie,
-  setInitClientTermsAcceptedStateFromCookie,
-} from '@/actions/auth'
+import { getAuthRoute } from '@/utils/auth-route'
+import { getCookieString, COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE } from '@/utils/cookie'
+import { authSetRefreshSession, setInitClientTermsAcceptedStateFromCookie } from '@/actions/auth'
 
 const locationMock = { search: '?state=CLIENT', pathname: '/test' }
 const refreshParams = appState.auth.refreshSession as RefreshParams
@@ -41,8 +33,8 @@ jest.mock('@reapit/cognito-auth', () => ({
 }))
 
 jest.mock('@/utils/auth-route', () => ({
-  getDefaultRouteByLoginType: jest.fn(() => 'login-type-route'),
-  getAuthRouteByLoginType: jest.fn(() => 'auth-route'),
+  getDefaultRoute: jest.fn(() => 'login-type-route'),
+  getAuthRoute: jest.fn(() => 'auth-route'),
 }))
 
 jest.mock('@/utils/cookie', () => ({
@@ -82,9 +74,7 @@ describe('PrivateRouteWrapper', () => {
     expect(useDispatch).toHaveBeenCalled()
     expect(useSelector).toHaveBeenCalledWith(selectLoginSession)
     expect(useSelector).toHaveBeenCalledWith(selectRefreshSession)
-    expect(useSelector).toHaveBeenCalledWith(selectLoginType)
     expect(useLocation).toHaveBeenCalled()
-    expect(getCookieString).toHaveBeenCalledWith(COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE)
     expect(getCookieString).toHaveBeenCalledWith(COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE)
     expect(getTokenFromQueryString).toHaveBeenCalledWith(
       locationMock.search,
@@ -120,7 +110,7 @@ describe('PrivateRouteWrapper', () => {
         </MemoryRouter>
       </Provider>,
     )
-    expect(getAuthRouteByLoginType).toHaveBeenCalledWith('CLIENT')
+    expect(getAuthRoute).toHaveBeenCalled()
   })
 
   it('should call correct functions with !hasSession case', () => {
@@ -136,7 +126,7 @@ describe('PrivateRouteWrapper', () => {
           </MemoryRouter>
         </Provider>,
       )
-    expect(redirectToOAuth).toHaveBeenCalledWith(window.reapit.config.cognitoClientId, 'login-type-route', 'CLIENT')
+    expect(redirectToOAuth).toHaveBeenCalledWith(window.reapit.config.cognitoClientId, 'login-type-route')
   })
 })
 
@@ -145,10 +135,8 @@ describe('handleSetTermsAcceptFromCookie', () => {
     const fn = handleSetTermsAcceptFromCookie({
       dispatch,
       setInitClientTermsAcceptedStateFromCookie,
-      setInitDeveloperTermsAcceptedStateFromCookie,
     })
     fn()
     expect(dispatch).toHaveBeenCalledWith(setInitClientTermsAcceptedStateFromCookie())
-    expect(dispatch).toHaveBeenCalledWith(setInitDeveloperTermsAcceptedStateFromCookie())
   })
 })

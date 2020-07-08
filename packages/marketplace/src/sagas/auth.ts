@@ -1,19 +1,11 @@
-import { takeLatest, put, call, all, fork, select } from '@redux-saga/core/effects'
+import { takeLatest, put, call, all, fork } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { authLoginSuccess, authLoginFailure, authLogoutSuccess, setTermsAcceptedState } from '../actions/auth'
 import { Action } from '@/types/core.ts'
 import { LoginSession, LoginParams, setUserSession, removeSession, redirectToLogout } from '@reapit/cognito-auth'
-import store from '../core/store'
-import { getAuthRouteByLoginType } from '@/utils/auth-route'
-import {
-  getCookieString,
-  setCookieString,
-  COOKIE_DEVELOPER_TERMS_ACCEPTED,
-  COOKIE_CLIENT_TERMS_ACCEPTED,
-  COOKIE_MAX_AGE_INFINITY,
-} from '@/utils/cookie'
+import { getAuthRoute } from '@/utils/auth-route'
+import { getCookieString, setCookieString, COOKIE_CLIENT_TERMS_ACCEPTED, COOKIE_MAX_AGE_INFINITY } from '@/utils/cookie'
 import { COOKIE_SESSION_KEY_MARKETPLACE } from '../constants/api'
-import { selectLoginType } from '@/selector/auth'
 import { logger } from '@reapit/utils'
 
 export const doLogin = function*({ data }: Action<LoginParams>) {
@@ -32,8 +24,7 @@ export const doLogin = function*({ data }: Action<LoginParams>) {
 
 export const doLogout = function*() {
   try {
-    const loginType = store?.state?.auth?.loginSession?.loginType || 'CLIENT'
-    const authRoute = getAuthRouteByLoginType(loginType)
+    const authRoute = getAuthRoute()
 
     yield call(removeSession, COOKIE_SESSION_KEY_MARKETPLACE, window.reapit.config.appEnv)
     yield call(redirectToLogout, window.reapit.config.cognitoClientId, `${window.location.origin}${authRoute}`)
@@ -51,29 +42,9 @@ export const clearAuth = function*() {
   }
 }
 
-export const setInitDeveloperTermsAcceptedStateFromCookie = function*() {
-  const loginType = yield select(selectLoginType)
-
-  if (loginType === 'DEVELOPER') {
-    const isTermAccepted = yield call(getCookieString, COOKIE_DEVELOPER_TERMS_ACCEPTED)
-    yield put(setTermsAcceptedState(!!isTermAccepted))
-  }
-}
-
-export const setDeveloperTermAcceptedCookieAndState = function*({ data: isAccepted }) {
-  if (isAccepted) {
-    yield call(setCookieString, COOKIE_DEVELOPER_TERMS_ACCEPTED, new Date(), COOKIE_MAX_AGE_INFINITY)
-  }
-  yield put(setTermsAcceptedState(isAccepted))
-}
-
 export const setInitClientTermsAcceptedStateFromCookie = function*() {
-  const loginType = yield select(selectLoginType)
-  // for now only check when login as developer
-  if (loginType === 'CLIENT') {
-    const isTermAccepted = yield call(getCookieString, COOKIE_CLIENT_TERMS_ACCEPTED)
-    yield put(setTermsAcceptedState(!!isTermAccepted))
-  }
+  const isTermAccepted = yield call(getCookieString, COOKIE_CLIENT_TERMS_ACCEPTED)
+  yield put(setTermsAcceptedState(!!isTermAccepted))
 }
 
 export const setClientTermAcceptedCookieAndState = function*({ data: isAccepted }) {
@@ -95,20 +66,6 @@ export const clearAuthListen = function*() {
   yield takeLatest(ActionTypes.AUTH_CLEAR, clearAuth)
 }
 
-export const setInitDeveloperTermsAcceptedStateFromCookieListen = function*() {
-  yield takeLatest(
-    ActionTypes.SET_INIT_DEVELOPER_TERMS_ACCEPTED_STATE_FROM_COOKIE,
-    setInitDeveloperTermsAcceptedStateFromCookie,
-  )
-}
-
-export const setDeveloperTermAcceptedCookieAndStateListen = function*() {
-  yield takeLatest<Action<boolean>>(
-    ActionTypes.SET_DEVELOPER_TERM_ACCEPTED_COOKIE_AND_STATE,
-    setDeveloperTermAcceptedCookieAndState,
-  )
-}
-
 export const setInitClientTermsAcceptedStateFromCookieListen = function*() {
   yield takeLatest(
     ActionTypes.SET_INIT_CLIENT_TERMS_ACCEPTED_STATE_FROM_COOKIE,
@@ -128,8 +85,6 @@ const authSaga = function*() {
     fork(loginListen),
     fork(logoutListen),
     fork(clearAuthListen),
-    fork(setInitDeveloperTermsAcceptedStateFromCookieListen),
-    fork(setDeveloperTermAcceptedCookieAndStateListen),
     fork(setInitClientTermsAcceptedStateFromCookieListen),
     fork(setClientTermAcceptedCookieAndStateListen),
   ])

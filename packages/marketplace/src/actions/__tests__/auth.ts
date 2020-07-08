@@ -7,8 +7,6 @@ import {
   authChangeLoginType,
   authSetRefreshSession,
   authClear,
-  setInitDeveloperTermsAcceptedStateFromCookie,
-  setDeveloperTermAcceptedCookieAndState,
   setInitClientTermsAcceptedStateFromCookie,
   setClientTermAcceptedCookieAndState,
 } from '../auth'
@@ -30,18 +28,6 @@ describe('auth actions', () => {
     } as LoginSession
     expect(authLoginSuccess.type).toEqual(ActionTypes.AUTH_LOGIN_SUCCESS)
     expect(authLoginSuccess(loginSession).data).toEqual(loginSession)
-  })
-
-  it('should create a setInitDeveloperTermsAcceptedStateFromCookie action', () => {
-    expect(setInitDeveloperTermsAcceptedStateFromCookie.type).toEqual(
-      ActionTypes.SET_INIT_DEVELOPER_TERMS_ACCEPTED_STATE_FROM_COOKIE,
-    )
-  })
-
-  it('should create a setDeveloperTermAcceptedCookieAndState action', () => {
-    expect(setDeveloperTermAcceptedCookieAndState.type).toEqual(
-      ActionTypes.SET_DEVELOPER_TERM_ACCEPTED_COOKIE_AND_STATE,
-    )
   })
 
   it('should create a setInitClientTermsAcceptedStateFromCookie action', () => {
