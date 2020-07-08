@@ -1,23 +1,18 @@
 import * as React from 'react'
-// import ClientWelcomeMessageModal from '@/components/ui/client-welcome-message'
 import { useSelector, useDispatch } from 'react-redux'
 import Menu from '@/components/ui/menu'
 import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements'
 import { getTokenFromQueryString, redirectToOAuth } from '@reapit/cognito-auth'
 import { Dispatch } from 'redux'
 import { Redirect, useLocation } from 'react-router'
-import { getDefaultRouteByLoginType, getAuthRouteByLoginType } from '@/utils/auth-route'
+import { getDefaultRoute } from '@/utils/auth-route'
 import {
   authSetRefreshSession,
   setInitDeveloperTermsAcceptedStateFromCookie,
   setInitClientTermsAcceptedStateFromCookie,
 } from '@/actions/auth'
 
-import {
-  getCookieString,
-  COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE,
-  COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE,
-} from '@/utils/cookie'
+import { getCookieString, COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE } from '@/utils/cookie'
 import { selectLoginSession, selectRefreshSession, selectLoginType } from '@/selector/auth'
 import { ActionCreator } from '@/types/core'
 import Routes from '@/constants/routes'
@@ -78,21 +73,9 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const state = params.get('state')
   const type = state && state.includes('ADMIN') ? 'ADMIN' : state && state.includes('CLIENT') ? 'CLIENT' : loginType
 
-  const isDeveloperFirstTimeLoginComplete = Boolean(getCookieString(COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE))
-  const isClientFirstTimeLoginComplete = Boolean(getCookieString(COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE))
+  const isFirstTimeLogin = Boolean(getCookieString(COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE))
 
-  const route = getDefaultRouteByLoginType({
-    isClientFirstTimeLoginComplete,
-    isDeveloperFirstTimeLoginComplete,
-    /**
-     * loginType default in reducer = DEVELOPER
-     * when redirecting back to app after login
-     *   -> use state in url param (this was setted by cognito)
-     *   -> save the valid type to logintype
-     * further works will use loginType in reducer if param state isn't specificied in url param
-     */
-    loginType: type || loginType,
-  })
+  const route = getDefaultRoute(isFirstTimeLogin)
 
   const cognitoClientId = window.reapit.config.cognitoClientId
   const refreshParams = getTokenFromQueryString(location.search, cognitoClientId, type, route)
@@ -103,8 +86,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   }
 
   if (type && location.pathname === '/') {
-    const path = getAuthRouteByLoginType(type || loginType)
-    return <Redirect to={path} />
+    return <Redirect to={Routes.LOGIN} />
   }
 
   if (!hasSession) {
@@ -115,15 +97,6 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   return (
     <AppNavContainer>
       {showMenu && <Menu />}
-      {/* Temporary comment due to https://github.com/reapit/foundations/issues/1055 */}
-      {/*
-        {loginType === 'CLIENT' && (
-          <ClientWelcomeMessageModal
-            visible={!isTermAccepted}
-            onAccept={handleOnAcceptClientWelcome({ dispatch, setClientTermAcceptedCookieAndState })}
-            />
-      )}
-        */}
       <FlexContainerBasic flexColumn isScrollable>
         <FlexContainerResponsive
           hasPadding

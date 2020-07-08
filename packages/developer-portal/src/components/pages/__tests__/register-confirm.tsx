@@ -35,7 +35,7 @@ describe('register-confirm', () => {
       fn()
       /* hack to flush promise https://github.com/facebook/jest/issues/2157 */
       await new Promise(resolve => setImmediate(resolve))
-      expect(replaceSpy).toHaveBeenCalledWith(`${Routes.DEVELOPER_LOGIN}?isSuccess=1`)
+      expect(replaceSpy).toHaveBeenCalledWith(`${Routes.LOGIN}?isSuccess=1`)
     })
 
     it('should call replace on fail with correct params', async () => {
@@ -43,7 +43,7 @@ describe('register-confirm', () => {
       const fn = handleUseEffect(mockParams)
       fn()
       await new Promise(resolve => setImmediate(resolve))
-      expect(replaceSpy).toHaveBeenCalledWith(`${Routes.DEVELOPER_LOGIN}?confirmError=1`)
+      expect(replaceSpy).toHaveBeenCalledWith(`${Routes.LOGIN}?confirmError=1`)
     })
   })
 })

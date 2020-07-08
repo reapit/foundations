@@ -17,8 +17,8 @@ exports[`Login should match a snapshot 1`] = `
     initialEntries={
       Array [
         Object {
-          "key": "clientLoginRoute",
-          "pathname": "/client/login",
+          "key": "loginRoute",
+          "pathname": "/developer/login",
         },
       ]
     }
@@ -33,8 +33,8 @@ exports[`Login should match a snapshot 1`] = `
           "entries": Array [
             Object {
               "hash": "",
-              "key": "clientLoginRoute",
-              "pathname": "/client/login",
+              "key": "loginRoute",
+              "pathname": "/developer/login",
               "search": "",
             },
           ],
@@ -46,8 +46,8 @@ exports[`Login should match a snapshot 1`] = `
           "listen": [Function],
           "location": Object {
             "hash": "",
-            "key": "clientLoginRoute",
-            "pathname": "/client/login",
+            "key": "loginRoute",
+            "pathname": "/developer/login",
             "search": "",
           },
           "push": [Function],
@@ -75,8 +75,7 @@ exports[`Login should match a snapshot 1`] = `
                 data-test=""
               >
                 <p>
-                  Welcome to Reapit 
-                  Foundations
+                  Welcome to Reapit Foundations
                 </p>
               </section>
             </Component>
@@ -87,12 +86,8 @@ exports[`Login should match a snapshot 1`] = `
               >
                 <Component
                   dataTest="login-button"
-                  disabled={false}
                   fullWidth={true}
-                  loading={false}
                   onClick={[Function]}
-                  type="button"
-                  variant="primary"
                 >
                   <button
                     className="button  is-primary is-fullwidth "
@@ -104,6 +99,24 @@ exports[`Login should match a snapshot 1`] = `
                     Login
                   </button>
                 </Component>
+                <div>
+                  Don't have an account yet? 
+                  <Link
+                    to="/register"
+                  >
+                    <LinkAnchor
+                      href="/register"
+                      navigate={[Function]}
+                    >
+                      <a
+                        href="/register"
+                        onClick={[Function]}
+                      >
+                        Register
+                      </a>
+                    </LinkAnchor>
+                  </Link>
+                </div>
               </div>
             </Component>
             <Component

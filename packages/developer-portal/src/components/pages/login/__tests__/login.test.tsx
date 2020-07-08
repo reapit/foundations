@@ -3,11 +3,9 @@ import { MemoryRouter } from 'react-router'
 import * as ReactRedux from 'react-redux'
 import { mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
-import { Login, handleShowNotificationAfterPasswordChanged, handleChangeLoginType, onLoginButtonClick } from '../login'
+import { Login, handleShowNotificationAfterPasswordChanged, onLoginButtonClick } from '../login'
 import appState from '@/reducers/__stubs__/app-state'
 import { showNotificationMessage } from '@/actions/notification-message'
-import { authChangeLoginType } from '@/actions/auth'
-import { LoginType } from '@reapit/cognito-auth'
 import * as cognito from '@reapit/cognito-auth'
 import messages from '@/constants/messages'
 import Routes from '@/constants/routes'
@@ -38,7 +36,7 @@ describe('Login', () => {
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.CLIENT_LOGIN, key: 'clientLoginRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.LOGIN, key: 'loginRoute' }]}>
             <Login />
           </MemoryRouter>
         </ReactRedux.Provider>,
@@ -56,25 +54,11 @@ describe('Login', () => {
       expect(spyLocalStorageRemoveItem).toBeCalledWith('isPasswordChanged')
     })
   })
-  describe('handleChangeLoginType', () => {
-    it('should run correctly', () => {
-      const mockLoginType: LoginType = 'CLIENT'
-      const fn = handleChangeLoginType(spyDispatch, mockLoginType)
-      fn()
-      expect(spyDispatch).toBeCalledWith(authChangeLoginType(mockLoginType))
-    })
-  })
   describe('onLoginButtonClick', () => {
     it('should run correctly', () => {
       const spyRedirectToLogin = jest.spyOn(cognito, 'redirectToLogin')
-      const mockLoginType: LoginType = 'CLIENT'
-      const mockIsDeveloperFirstTimeLoginComplete = true
-      const mockIsClientFirstTimeLoginComplete = true
-      const fn = onLoginButtonClick(
-        mockLoginType,
-        mockIsDeveloperFirstTimeLoginComplete,
-        mockIsClientFirstTimeLoginComplete,
-      )
+      const mockIsFirstTimeLogin = true
+      const fn = onLoginButtonClick(mockIsFirstTimeLogin)
       fn()
       expect(spyRedirectToLogin).toBeCalled()
     })

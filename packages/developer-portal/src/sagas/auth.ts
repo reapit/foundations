@@ -3,8 +3,6 @@ import ActionTypes from '../constants/action-types'
 import { authLoginSuccess, authLoginFailure, authLogoutSuccess, setTermsAcceptedState } from '../actions/auth'
 import { Action } from '@/types/core.ts'
 import { LoginSession, LoginParams, setUserSession, removeSession, redirectToLogout } from '@reapit/cognito-auth'
-import store from '../core/store'
-import { getAuthRouteByLoginType } from '@/utils/auth-route'
 import {
   getCookieString,
   setCookieString,
@@ -15,6 +13,7 @@ import {
 import { COOKIE_SESSION_KEY_MARKETPLACE } from '../constants/api'
 import { selectLoginType } from '@/selector/auth'
 import { logger } from '@reapit/utils'
+import Routes from '@/constants/routes'
 
 export const doLogin = function*({ data }: Action<LoginParams>) {
   try {
@@ -32,11 +31,8 @@ export const doLogin = function*({ data }: Action<LoginParams>) {
 
 export const doLogout = function*() {
   try {
-    const loginType = store?.state?.auth?.loginSession?.loginType || 'CLIENT'
-    const authRoute = getAuthRouteByLoginType(loginType)
-
     yield call(removeSession, COOKIE_SESSION_KEY_MARKETPLACE, window.reapit.config.appEnv)
-    yield call(redirectToLogout, window.reapit.config.cognitoClientId, `${window.location.origin}${authRoute}`)
+    yield call(redirectToLogout, window.reapit.config.cognitoClientId, `${window.location.origin}${Routes.LOGIN}`)
   } catch (err) {
     logger(err)
   }
