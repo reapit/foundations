@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Router from './router'
+import ErrorBoundary from '@/components/hocs/error-boundary'
 
 import { useAuth } from '@/hooks/use-auth'
 import { AuthContext } from '@/context'
@@ -7,7 +8,7 @@ import { injectSwitchModeToWindow } from '@reapit/elements'
 
 injectSwitchModeToWindow()
 
-<% if(sass){ %>
+  <% if (sass) { %>
 import '@/styles/index.scss'
 <% } else { %>
 import '@/styles/index.css'
@@ -21,7 +22,9 @@ const App = () => {
 
   return (
     <AuthContext.Provider value={{ loginSession, refreshParams, getLoginSession, isFetchSession, ...rest }}>
-      <Router />
+      <ErrorBoundary>
+        <Router />
+      </ErrorBoundary>
     </AuthContext.Provider>
   )
 }
