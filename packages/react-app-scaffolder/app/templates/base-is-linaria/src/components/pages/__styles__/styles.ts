@@ -1,5 +1,4 @@
 import { css } from 'linaria'
-import { white } from '@styles-variable'
 
 export const container = css`
   min-width: 100vw;
@@ -8,7 +7,7 @@ export const container = css`
   justify-content: flex-end;
   align-items: center;
   flex-direction: row;
-  background-color: ${white};
+  background-color: #fff;
 
   @media screen and (max-width: 900px) {
     flex-direction: column-reverse;
@@ -16,7 +15,7 @@ export const container = css`
 `
 
 export const wrapper = css`
-  background-color: ${white};
+  background-color: #fff;
   width: 33.33%;
   padding: 1rem;
   pointer-events: auto;

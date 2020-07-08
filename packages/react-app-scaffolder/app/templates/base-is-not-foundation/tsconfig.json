@@ -35,9 +35,6 @@
     "paths": {
       "@/*": [
         "./src/*"
-      ],
-      "@styles-variable": [
-        "./src/core/__styles__/index.ts"
       ]
     }
   },
