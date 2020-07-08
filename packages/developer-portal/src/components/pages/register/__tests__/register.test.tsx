@@ -89,13 +89,13 @@ describe('Register', () => {
     it('should redirect to developer login page', () => {
       const fn = onLoginButtonClick(history, spyDispatch, '')
       fn()
-      expect(history.replace).toBeCalledWith(`${Routes.DEVELOPER_LOGIN}`)
+      expect(history.replace).toBeCalledWith(`${Routes.LOGIN}`)
     })
     it('should run dispatch logout first and then redirect to developer login page', () => {
       const fn = onLoginButtonClick(history, spyDispatch, 'testClientId')
       fn()
       expect(spyDispatch).toBeCalledWith(authLogout())
-      expect(history.replace).toBeCalledWith(`${Routes.DEVELOPER_LOGIN}`)
+      expect(history.replace).toBeCalledWith(`${Routes.LOGIN}`)
     })
   })
 })

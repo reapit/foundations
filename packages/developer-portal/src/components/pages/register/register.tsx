@@ -88,7 +88,7 @@ export const onLoginButtonClick = (history: History, dispatch: Dispatch, clientI
     if (clientId) {
       dispatch(authLogout())
     }
-    history.replace(Routes.DEVELOPER_LOGIN)
+    history.replace(Routes.LOGIN)
   }
 }
 
@@ -189,7 +189,7 @@ export const Register: React.FunctionComponent<RegisterProps> = () => {
                         </Link>
                       ) : (
                         <Level>
-                          Already have an account?<Link to={Routes.DEVELOPER_LOGIN}>Login</Link>
+                          Already have an account?<Link to={Routes.LOGIN}>Login</Link>
                         </Level>
                       )}
                       {formState === 'ERROR' && (

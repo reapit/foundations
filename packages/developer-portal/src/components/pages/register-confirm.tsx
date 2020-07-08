@@ -10,11 +10,11 @@ export const handleUseEffect = ({ userName, verificationCode, replace }) => () =
     cognitoClientId: window.reapit.config.cognitoClientId,
   })
     .then(() => {
-      replace(`${Routes.DEVELOPER_LOGIN}?isSuccess=1`)
+      replace(`${Routes.LOGIN}?isSuccess=1`)
     })
     .catch(error => {
       console.log(error)
-      replace(`${Routes.DEVELOPER_LOGIN}?confirmError=1`)
+      replace(`${Routes.LOGIN}?confirmError=1`)
     })
 }
 

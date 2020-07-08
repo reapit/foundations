@@ -57,7 +57,7 @@ const DeveloperEditionDownloadPage = React.lazy(() =>
 
 const Router = () => {
   const isProduction = window.reapit.config.appEnv === 'production'
-  const paths = [Routes.DEVELOPER_LOGIN, Routes.ADMIN_LOGIN]
+  const paths = [Routes.LOGIN, Routes.ADMIN_LOGIN]
   if (!isProduction) {
     paths.push(Routes.CLIENT_LOGIN)
   }

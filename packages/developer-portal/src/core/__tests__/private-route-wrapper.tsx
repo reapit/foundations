@@ -7,12 +7,7 @@ import appState from '@/reducers/__stubs__/app-state'
 import { PrivateRouteWrapper, handleSetTermsAcceptFromCookie } from '../private-route-wrapper'
 import { selectLoginSession, selectRefreshSession, selectLoginType } from '@/selector/auth'
 import { getTokenFromQueryString, redirectToOAuth, RefreshParams } from '@reapit/cognito-auth'
-import { getAuthRouteByLoginType } from '@/utils/auth-route'
-import {
-  getCookieString,
-  COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE,
-  COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE,
-} from '@/utils/cookie'
+import { getCookieString, COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE } from '@/utils/cookie'
 import {
   authSetRefreshSession,
   setInitDeveloperTermsAcceptedStateFromCookie,
@@ -41,8 +36,7 @@ jest.mock('@reapit/cognito-auth', () => ({
 }))
 
 jest.mock('@/utils/auth-route', () => ({
-  getDefaultRouteByLoginType: jest.fn(() => 'login-type-route'),
-  getAuthRouteByLoginType: jest.fn(() => 'auth-route'),
+  getDefaultRoute: jest.fn(() => 'login-type-route'),
 }))
 
 jest.mock('@/utils/cookie', () => ({
@@ -85,7 +79,6 @@ describe('PrivateRouteWrapper', () => {
     expect(useSelector).toHaveBeenCalledWith(selectLoginType)
     expect(useLocation).toHaveBeenCalled()
     expect(getCookieString).toHaveBeenCalledWith(COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE)
-    expect(getCookieString).toHaveBeenCalledWith(COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE)
     expect(getTokenFromQueryString).toHaveBeenCalledWith(
       locationMock.search,
       window.reapit.config.cognitoClientId,
@@ -106,21 +99,6 @@ describe('PrivateRouteWrapper', () => {
       </Provider>,
     )
     expect(dispatch).toHaveBeenCalledWith(authSetRefreshSession(refreshParams))
-  })
-
-  it('should call correct functions with type && location.pathname ===  / case', () => {
-    // mock useSelector to return loginSession & refreshSession
-    ;(useLocation as jest.Mocked<any>).mockImplementationOnce(() => ({ ...locationMock, pathname: '/' }))
-    ;(useSelector as jest.Mocked<any>).mockImplementationOnce(() => appState.auth.loginSession)
-    ;(useSelector as jest.Mocked<any>).mockImplementationOnce(() => appState.auth.refreshSession)
-    mount(
-      <Provider store={store}>
-        <MemoryRouter>
-          <PrivateRouteWrapper path="/" />
-        </MemoryRouter>
-      </Provider>,
-    )
-    expect(getAuthRouteByLoginType).toHaveBeenCalledWith('CLIENT')
   })
 
   it('should call correct functions with !hasSession case', () => {

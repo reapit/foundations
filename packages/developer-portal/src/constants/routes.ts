@@ -40,7 +40,7 @@ const Routes = {
   ADMIN_STATS: '/admin/stats',
   ADMIN_BILLING: '/admin/billing',
   CLIENT_LOGIN: '/client/login',
-  DEVELOPER_LOGIN: '/developer/login',
+  LOGIN: '/developer/login',
   FOUR_O_FOUR: '/404',
   FORGOT_PASSWORD: '/developer/forgot-password',
 }
