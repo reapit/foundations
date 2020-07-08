@@ -2,11 +2,11 @@ import { getDefaultRoute, getDefaultPath } from '../auth-route'
 import Routes from '@/constants/routes'
 
 describe('getDefaultRoute', () => {
-  it('should return origin url + Routes.DEVELOPER_MY_APPS if loginType = DEVELOPER and isDeveloperFirstTimeLoginComplete is true', () => {
+  it('should return origin url + Routes.DEVELOPER_MY_APPS', () => {
     expect(getDefaultRoute(true)).toEqual(`${window.location.origin}${Routes.DEVELOPER_MY_APPS}`)
   })
 
-  it('should return origin url + Routes.DEVELOPER_WELCOME if loginType = DEVELOPER and isDeveloperFirstTimeLoginComplete is false', () => {
+  it('should return origin url + Routes.DEVELOPER_WELCOME', () => {
     expect(getDefaultRoute(false)).toEqual(`${window.location.origin}${Routes.DEVELOPER_WELCOME}`)
   })
 })

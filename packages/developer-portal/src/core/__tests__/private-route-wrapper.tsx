@@ -7,11 +7,7 @@ import appState from '@/reducers/__stubs__/app-state'
 import { PrivateRouteWrapper, handleSetTermsAcceptFromCookie } from '../private-route-wrapper'
 import { selectLoginSession, selectRefreshSession, selectLoginType } from '@/selector/auth'
 import { getTokenFromQueryString, redirectToOAuth, RefreshParams } from '@reapit/cognito-auth'
-import {
-  getCookieString,
-  COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE,
-  COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE,
-} from '@/utils/cookie'
+import { getCookieString, COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE } from '@/utils/cookie'
 import {
   authSetRefreshSession,
   setInitDeveloperTermsAcceptedStateFromCookie,
