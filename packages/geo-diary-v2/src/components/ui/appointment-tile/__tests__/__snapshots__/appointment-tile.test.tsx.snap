@@ -40,6 +40,12 @@ exports[`appointment-list AppointmentTile should match snapshot 1`] = `
           "text": "The Stables Old Haversham Milton Keynes MK19 7DZ",
         },
         Object {
+          "icon": <FaStreetView
+            className="icon-list-icon"
+          />,
+          "text": "Viewing",
+        },
+        Object {
           "icon": <FaClock
             className="icon-list-icon"
           />,
@@ -56,6 +62,7 @@ exports[`appointment-list renderFooterItems should match snapshot 1`] = `
   <Component
     disabled={false}
     fullWidth={false}
+    key="viewDetails"
     loading={false}
     onClick={[Function]}
     type="submit"
@@ -65,6 +72,7 @@ exports[`appointment-list renderFooterItems should match snapshot 1`] = `
   <Component
     disabled={false}
     fullWidth={false}
+    key="viewDirection"
     loading={false}
     onClick={[Function]}
     type="submit"
@@ -76,6 +84,7 @@ exports[`appointment-list renderFooterItems should match snapshot 1`] = `
 
 exports[`appointment-list renderIconItems should match snapshot 1`] = `
 <div>
+  <Component />
   <Component />
   <Component />
 </div>

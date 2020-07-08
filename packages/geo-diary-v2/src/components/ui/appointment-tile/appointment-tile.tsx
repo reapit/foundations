@@ -1,38 +1,45 @@
 import React from 'react'
-import { Tile, IconList } from '@reapit/elements'
-import { getTime, Button } from '@reapit/elements'
-import { ExtendedAppointmentModel } from '@/types/global'
-import { ListItemModel } from '@reapit/foundations-ts-definitions'
+import { Tile, IconList, getTime, Button } from '@reapit/elements'
+import qs from 'query-string'
+import { useLocation, useHistory } from 'react-router-dom'
+import { History } from 'history'
 import { FaClock, FaStreetView, FaAddressCard } from 'react-icons/fa'
+import { ExtendedAppointmentModel } from '@/types/global'
+import { ROUTES } from '@/core/router'
+
+const locationMock = { search: '?state=CLIENT', pathname: '/test' }
+
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useLocation: jest.fn(() => locationMock),
+}))
 
 export type RenderIconItemsParams = {
   appointment: ExtendedAppointmentModel
-  appointmentTypes: ListItemModel[]
 }
 
-export const renderIconItems = ({ appointment, appointmentTypes }: RenderIconItemsParams) => {
+export const renderIconItems = ({ appointment }: RenderIconItemsParams) => {
   const line2 = appointment?.property?.address?.line2 ?? ''
   const line3 = appointment?.property?.address?.line3 ?? ''
   const line4 = appointment?.property?.address?.line4 ?? ''
-  const typeId = appointment?.typeId ?? ''
   const postcode = appointment?.property?.address?.postcode ?? ''
   const address = `${line2} ${line3} ${line4} ${postcode}`
   const start = getTime(appointment?.start || '')
   const end = getTime(appointment?.end || '')
-  const type = appointmentTypes.find(appointmentType => appointmentType.id === typeId)
+  const appointmentType = appointment.appointmentType
 
   const iconItems: Array<{ icon: React.ReactElement; text: string }> = []
-  if (address) {
+  if (address.trim()) {
     iconItems.push({
       icon: <FaAddressCard className="icon-list-icon" />,
       text: address,
     })
   }
 
-  if (type && type.value) {
+  if (appointmentType && appointmentType.value) {
     iconItems.push({
       icon: <FaStreetView className="icon-list-icon" />,
-      text: type.value,
+      text: appointmentType.value,
     })
   }
 
@@ -43,31 +50,70 @@ export const renderIconItems = ({ appointment, appointmentTypes }: RenderIconIte
   return iconItems
 }
 
-export const renderFooterItems = () => [
-  <>
-    <Button type="submit" onClick={() => null} disabled={false} loading={false} fullWidth={false}>
+export type HandleDirectionOnClickParams = {
+  appointment: ExtendedAppointmentModel
+  queryParams: qs.ParsedQuery<string>
+  history: History
+}
+
+export const handleDirectionOnClick = ({ appointment, queryParams, history }: HandleDirectionOnClickParams) => () => {
+  const lat = appointment?.property?.address?.geolocation?.latitude
+  const lng = appointment?.property?.address?.geolocation?.longitude
+  const queryString = qs.stringify({ ...queryParams, destinationLat: lat, destinationLng: lng, tab: 'map' })
+  history.push(`${ROUTES.APPOINTMENT}?${queryString}`)
+}
+
+export type RenderFooterItemsParams = {
+  appointment: ExtendedAppointmentModel
+  queryParams: qs.ParsedQuery<string>
+  history: History
+}
+
+export const renderFooterItems = ({ appointment, queryParams, history }) => {
+  const lat = appointment?.property?.address?.geolocation?.latitude
+  const lng = appointment?.property?.address?.geolocation?.longitude
+  let buttons = [
+    <Button key="viewDetails" type="submit" onClick={() => null} disabled={false} loading={false} fullWidth={false}>
       Details
-    </Button>
-    <Button type="submit" onClick={() => null} disabled={false} loading={false} fullWidth={false}>
-      Directions
-    </Button>
-  </>,
-]
+    </Button>,
+  ] as JSX.Element[]
+  if (!!lat && !!lng) {
+    buttons.push(
+      <Button
+        key="viewDirection"
+        type="submit"
+        onClick={handleDirectionOnClick({ appointment, queryParams, history })}
+        disabled={false}
+        loading={false}
+        fullWidth={false}
+      >
+        Directions
+      </Button>,
+    )
+  }
+  return [<>{buttons}</>]
+}
 
 export type AppointmentTileProps = {
   appointment: ExtendedAppointmentModel
-  appointmentTypes: ListItemModel[]
 }
 
-export const AppointmentTile: React.FC<AppointmentTileProps> = ({ appointment, appointmentTypes }) => {
+export const AppointmentTile: React.FC<AppointmentTileProps> = ({ appointment }) => {
+  const location = useLocation()
+  const history = useHistory()
+  const queryParams = qs.parse(location.search)
   const line1 = appointment?.property?.address?.line1 ?? ''
   const buildingName = appointment?.property?.address?.buildingName ?? ''
   const buildingNumber = appointment?.property?.address?.buildingNumber ?? ''
   const heading = `${buildingNumber || buildingName || ''} ${line1 || ''}`
-
   return (
-    <Tile hightlight={false} key={appointment.id} heading={heading} footerItems={renderFooterItems()}>
-      <IconList items={renderIconItems({ appointment, appointmentTypes: appointmentTypes })} />
+    <Tile
+      hightlight={false}
+      key={appointment.id}
+      heading={heading}
+      footerItems={renderFooterItems({ appointment, queryParams, history })}
+    >
+      <IconList items={renderIconItems({ appointment })} />
     </Tile>
   )
 }

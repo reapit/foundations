@@ -1,4 +1,10 @@
-import { AppointmentModel, OfficeModel, PropertyModel, NegotiatorModel } from '@reapit/foundations-ts-definitions'
+import {
+  AppointmentModel,
+  OfficeModel,
+  PropertyModel,
+  NegotiatorModel,
+  ListItemModel,
+} from '@reapit/foundations-ts-definitions'
 
 export type Config = {
   appEnv: 'local' | 'development' | 'production'
@@ -23,4 +29,5 @@ export type ExtendedAppointmentModel = AppointmentModel & {
   offices?: OfficeModel[]
   property?: PropertyModel
   negotiators?: NegotiatorModel[]
+  appointmentType: ListItemModel
 }

@@ -3,9 +3,10 @@ import { ButtonGroup, Button } from '@reapit/elements'
 import { History } from 'history'
 import qs from 'query-string'
 import { ROUTES } from '@/core/router'
+import { timeButtonGroupContainer } from './__styles__'
 
 export type HandleChangeTravelModeParams = {
-  time: 'today' | 'tomorrow' | 'week_view'
+  time: 'today' | 'tomorrow' | 'weekView'
   queryParams: qs.ParsedQuery<string>
   history: History
 }
@@ -21,7 +22,7 @@ export interface AppointmentTimeProps {
 }
 
 export const AppointmentTime = ({ queryParams, history }: AppointmentTimeProps) => (
-  <ButtonGroup>
+  <ButtonGroup className={timeButtonGroupContainer}>
     <Button
       type="button"
       variant="secondary"
@@ -41,8 +42,8 @@ export const AppointmentTime = ({ queryParams, history }: AppointmentTimeProps) 
     <Button
       type="button"
       variant="secondary"
-      className={queryParams.time === 'week_view' ? 'is-selected is-info' : ''}
-      onClick={handleChangeTravelMode({ queryParams, history, time: 'week_view' })}
+      className={queryParams.time === 'weekView' ? 'is-selected is-info' : ''}
+      onClick={handleChangeTravelMode({ queryParams, history, time: 'weekView' })}
     >
       WEEK VIEW
     </Button>

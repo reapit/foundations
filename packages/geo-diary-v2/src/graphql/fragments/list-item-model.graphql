@@ -1,0 +1,4 @@
+fragment ListItemModel on ListItemModel {
+  id
+  value
+}

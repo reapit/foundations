@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`appointment-time AppointmentTime should match snapshot 1`] = `
-<Component>
+<Component
+  className=""
+>
   <Component
     className=""
     onClick={[Function]}

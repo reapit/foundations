@@ -4,6 +4,8 @@ import { CoordinateProps } from '@reapit/elements/src/components/Map'
 import { useLocation, useHistory } from 'react-router-dom'
 import qs from 'query-string'
 import { ExtendedAppointmentModel } from '@/types/global'
+import { ROUTES } from '@/core/router'
+import MapPanel from '../map-pannel'
 
 export const UNDEFINED_LATLNG_NUMBER = 9999
 export const UNDEFINED_NULL_STRING = Math.random()
@@ -35,10 +37,16 @@ export type AppointmentMapProps = {
   destinationAddress?: string
 }
 
+export type RouteInformation = {
+  duration: { text: string; value: number } | null
+  distance: { text: string; value: number } | null
+}
+
 export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments, destinationAddress }) => {
   const location = useLocation()
   const history = useHistory()
   const queryParams = qs.parse(location.search)
+  const [routeInformation, setRouteInformation] = React.useState<RouteInformation>({ duration: null, distance: null })
   React.useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
@@ -47,7 +55,7 @@ export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments, de
           currentLat: position.coords.latitude,
           currentLng: position.coords.longitude,
         })
-        history.push(`?${queryString}`)
+        history.push(`${ROUTES.APPOINTMENT}?${queryString}`)
       })
     }
   }, [])
@@ -71,31 +79,40 @@ export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments, de
           },
         ),
       ),
-    [appointments],
+    [],
   )
 
   const onLoadedDirection = React.useCallback(
     res => {
       const { duration, distance } = res.routes[0].legs[0]
-      console.log(duration, distance)
+      setRouteInformation({ duration, distance })
     },
-    [queryParams.currentLat, queryParams.currentLng],
+    [queryParams.destinationLat, queryParams.destinationLng],
   )
 
+  const destinationPoint = React.useMemo(() => {
+    return { lat: queryParams.destinationLat, lng: queryParams.destinationLng }
+  }, [queryParams.destinationLat, queryParams.destinationLng])
+
+  console.log(destinationPoint)
+
   return (
-    <Map
-      autoFitBounds={true}
-      apiKey={window.reapit.config.googleMapApiKey}
-      coordinates={coordinates}
-      // markerCallBack={handleOnClick}
-      onLoadedDirection={onLoadedDirection}
-      destinationPoint={{ lat: queryParams.currentLat, lng: queryParams.currentLng }}
-      destinationAddress={destinationAddress}
-      travelMode={queryParams.travelMode}
-      mapContainerStyles={{ height: '100%' }}
-      styles={{} /* See import for explanation mapStyles */}
-    />
+    <>
+      <Map
+        autoFitBounds={true}
+        apiKey={window.reapit.config.googleMapApiKey}
+        coordinates={coordinates}
+        // markerCallBack={handleOnClick}
+        onLoadedDirection={onLoadedDirection}
+        destinationPoint={destinationPoint}
+        destinationAddress={destinationAddress}
+        travelMode={queryParams.travelMode}
+        mapContainerStyles={{ height: '100%' }}
+        styles={{} /* See import for explanation mapStyles */}
+      />
+      <MapPanel routeInformation={routeInformation} />
+    </>
   )
 }
 
-export default AppointmentMap
+export default React.memo(AppointmentMap)

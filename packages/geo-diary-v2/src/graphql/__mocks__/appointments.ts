@@ -7,6 +7,10 @@ export const appointments = {
       start: '2019-05-11T17:30:00',
       end: '2019-05-11T18:00:00',
       typeId: 'VW',
+      appointmentType: {
+        id: 'VW',
+        value: 'Viewing',
+      },
       recurring: false,
       cancelled: true,
       property: {
@@ -45,6 +49,10 @@ export const appointments = {
       start: '2019-10-10T22:45:00',
       end: '2019-05-09T14:00:00',
       typeId: 'VW',
+      appointmentType: {
+        id: 'VW',
+        value: 'Viewing',
+      },
       recurring: false,
       cancelled: false,
       property: {
@@ -83,6 +91,10 @@ export const appointments = {
       start: '2019-05-09T14:15:00',
       end: '2019-05-09T14:45:00',
       typeId: 'VW',
+      appointmentType: {
+        id: 'VW',
+        value: 'Viewing',
+      },
       recurring: false,
       cancelled: false,
       property: {
@@ -121,6 +133,10 @@ export const appointments = {
       start: '2019-05-09T13:30:00',
       end: '2019-05-09T14:15:00',
       typeId: 'VW',
+      appointmentType: {
+        id: 'VW',
+        value: 'Viewing',
+      },
       recurring: false,
       cancelled: false,
       property: {
@@ -159,6 +175,10 @@ export const appointments = {
       start: '2019-05-09T11:15:00',
       end: '2019-05-09T11:45:00',
       typeId: 'VW',
+      appointmentType: {
+        id: 'VW',
+        value: 'Viewing',
+      },
       recurring: false,
       cancelled: false,
       organiserId: 'BED160186',
@@ -182,6 +202,10 @@ export const appointments = {
       start: '2019-05-10T15:15:00',
       end: '2019-05-10T16:00:00',
       typeId: 'VW',
+      appointmentType: {
+        id: 'VW',
+        value: 'Viewing',
+      },
       recurring: false,
       cancelled: false,
       organiserId: 'BED160186',
@@ -205,6 +229,10 @@ export const appointments = {
       start: '2019-05-09T16:30:00',
       end: '2019-05-09T17:00:00',
       typeId: 'VW',
+      appointmentType: {
+        id: 'VW',
+        value: 'Viewing',
+      },
       recurring: false,
       cancelled: true,
       property: {
@@ -243,6 +271,10 @@ export const appointments = {
       start: '2019-05-08T18:00:00',
       end: '2019-05-08T18:30:00',
       typeId: 'VW',
+      appointmentType: {
+        id: 'VW',
+        value: 'Viewing',
+      },
       recurring: false,
       cancelled: false,
       organiserId: 'BED160186',
@@ -266,6 +298,10 @@ export const appointments = {
       start: '2019-05-12T17:30:00',
       end: '2019-05-12T18:00:00',
       typeId: 'VW',
+      appointmentType: {
+        id: 'VW',
+        value: 'Viewing',
+      },
       recurring: false,
       cancelled: true,
       organiserId: 'BED160186',
@@ -289,6 +325,10 @@ export const appointments = {
       start: '2019-05-09T15:15:00',
       end: '2019-05-09T16:15:00',
       typeId: 'VW',
+      appointmentType: {
+        id: 'VW',
+        value: 'Viewing',
+      },
       recurring: false,
       cancelled: false,
       property: {
@@ -327,6 +367,10 @@ export const appointments = {
       start: '2019-05-10T14:00:00',
       end: '2019-05-10T14:30:00',
       typeId: 'VW',
+      appointmentType: {
+        id: 'VW',
+        value: 'Viewing',
+      },
       recurring: false,
       cancelled: false,
       organiserId: 'BED160186',
@@ -350,6 +394,10 @@ export const appointments = {
       start: '2019-05-11T15:30:00',
       end: '2019-05-11T16:30:00',
       typeId: 'VL',
+      appointmentType: {
+        id: 'VW',
+        value: 'Viewing',
+      },
       recurring: false,
       cancelled: false,
       property: {
@@ -388,6 +436,10 @@ export const appointments = {
       start: '2019-05-09T16:30:00',
       end: '2019-05-09T17:00:00',
       typeId: 'VW',
+      appointmentType: {
+        id: 'VW',
+        value: 'Viewing',
+      },
       recurring: false,
       cancelled: false,
       property: {
@@ -426,6 +478,10 @@ export const appointments = {
       start: '2019-05-11T15:00:00',
       end: '2019-05-11T17:00:00',
       typeId: 'VW',
+      appointmentType: {
+        id: 'VW',
+        value: 'Viewing',
+      },
       recurring: false,
       cancelled: false,
       property: {
@@ -464,6 +520,10 @@ export const appointments = {
       start: '2019-05-09T13:00:00',
       end: '2019-05-09T13:30:00',
       typeId: 'VW',
+      appointmentType: {
+        id: 'VW',
+        value: 'Viewing',
+      },
       recurring: false,
       cancelled: false,
       property: {
@@ -502,6 +562,10 @@ export const appointments = {
       start: '2019-05-09T13:30:00',
       end: '2019-05-09T14:00:00',
       typeId: 'VW',
+      appointmentType: {
+        id: 'VW',
+        value: 'Viewing',
+      },
       recurring: false,
       cancelled: false,
       property: {
@@ -540,6 +604,10 @@ export const appointments = {
       start: '2019-05-09T11:00:00',
       end: '2019-05-09T12:00:00',
       typeId: 'VW',
+      appointmentType: {
+        id: 'VW',
+        value: 'Viewing',
+      },
       recurring: false,
       cancelled: false,
       property: {
@@ -578,6 +646,10 @@ export const appointments = {
       start: '2019-05-11T11:15:00',
       end: '2019-05-11T11:30:00',
       typeId: 'VW',
+      appointmentType: {
+        id: 'VW',
+        value: 'Viewing',
+      },
       recurring: false,
       cancelled: false,
       property: {
@@ -616,6 +688,10 @@ export const appointments = {
       start: '2019-05-09T14:00:00',
       end: '2019-05-09T14:30:00',
       typeId: 'VW',
+      appointmentType: {
+        id: 'VW',
+        value: 'Viewing',
+      },
       recurring: false,
       cancelled: true,
       organiserId: 'BED160186',
