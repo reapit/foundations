@@ -1,15 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`appointment-list AppointmentList should match snapshot 1`] = `
-<div
-  className="py8 px-4"
->
-  <div
-    className="mb-4"
-    key="NEP1600290"
-  >
-    <Component
-      appointment={
+exports[`mobile-layout MobileLayout should render correctly 1`] = `
+<Fragment>
+  <Component
+    className=""
+    tabConfigs={
+      Array [
+        Object {
+          "active": false,
+          "displayText": "list",
+          "onTabClick": [Function],
+          "tabIdentifier": "list",
+        },
+        Object {
+          "active": false,
+          "displayText": "map",
+          "onTabClick": [Function],
+          "tabIdentifier": "map",
+        },
+      ]
+    }
+  />
+  <Memo()
+    queryParams={
+      Object {
+        "state": "CLIENT",
+      }
+    }
+  />
+  <Memo()
+    queryParams={
+      Object {
+        "state": "CLIENT",
+      }
+    }
+  />
+  <Component
+    appointments={
+      Array [
         Object {
           "_eTag": "\\"CB9E584CE62E60C463C142EDCB433608\\"",
           "appointmentType": Object {
@@ -181,9 +209,9 @@ exports[`appointment-list AppointmentList should match snapshot 1`] = `
           "recurring": false,
           "start": "2019-05-11T17:30:00",
           "typeId": "VW",
-        }
-      }
-    />
-  </div>
-</div>
+        },
+      ]
+    }
+  />
+</Fragment>
 `;

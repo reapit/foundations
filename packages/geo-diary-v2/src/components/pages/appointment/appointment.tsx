@@ -81,4 +81,4 @@ export const Appointment: React.FC<AppointmentProps> = () => {
   return <MobileLayout appointments={data?.GetAppointments?._embedded || []} />
 }
 
-export default Appointment
+export default React.memo(Appointment)

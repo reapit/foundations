@@ -1,0 +1,5 @@
+fragment AppointmentModelFollowUp on AppointmentModelFollowUp {
+  due
+  responseId
+  notes
+}

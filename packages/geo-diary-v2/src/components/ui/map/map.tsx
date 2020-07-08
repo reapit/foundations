@@ -1,6 +1,7 @@
 import React from 'react'
 import { Map } from '@reapit/elements'
 import { CoordinateProps } from '@reapit/elements/src/components/Map'
+import { History } from 'history'
 import { useLocation, useHistory } from 'react-router-dom'
 import qs from 'query-string'
 import { ExtendedAppointmentModel } from '@/types/global'
@@ -42,45 +43,55 @@ export type RouteInformation = {
   distance: { text: string; value: number } | null
 }
 
+export type HandleUseEffectParams = {
+  queryParams: qs.ParsedQuery<string>
+  history: History
+}
+
+export const handleUseEffect = ({ queryParams, history }: HandleUseEffectParams) => () => {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(position => {
+      const queryString = qs.stringify({
+        ...queryParams,
+        currentLat: position.coords.latitude,
+        currentLng: position.coords.longitude,
+      })
+      history.push(`${ROUTES.APPOINTMENT}?${queryString}`)
+    })
+  }
+}
+
+export const handleFilterInvalidMarker = (appointments: ExtendedAppointmentModel[]) => () =>
+  filterInvalidMarker(
+    appointments.map(
+      (appointment: ExtendedAppointmentModel): Coordinate => {
+        const lat = appointment?.property?.address?.geolocation?.latitude || UNDEFINED_LATLNG_NUMBER
+        const lng = appointment?.property?.address?.geolocation?.longitude || UNDEFINED_LATLNG_NUMBER
+        const id = appointment?.id || UNDEFINED_NULL_STRING
+        const address = appointment?.property?.address || {}
+        return {
+          id,
+          address,
+          position: {
+            lat,
+            lng,
+          },
+        }
+      },
+    ),
+  )
+
+export const getDestinationPoint = (queryParams: qs.ParsedQuery<string>) => () => {
+  return { lat: queryParams.destinationLat, lng: queryParams.destinationLng }
+}
+
 export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments, destinationAddress }) => {
   const location = useLocation()
   const history = useHistory()
   const queryParams = qs.parse(location.search)
   const [routeInformation, setRouteInformation] = React.useState<RouteInformation>({ duration: null, distance: null })
-  React.useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(position => {
-        const queryString = qs.stringify({
-          ...queryParams,
-          currentLat: position.coords.latitude,
-          currentLng: position.coords.longitude,
-        })
-        history.push(`${ROUTES.APPOINTMENT}?${queryString}`)
-      })
-    }
-  }, [])
-  const coordinates: CoordinateProps<any> = React.useMemo(
-    () =>
-      filterInvalidMarker(
-        appointments.map(
-          (appointment: ExtendedAppointmentModel): Coordinate => {
-            const lat = appointment?.property?.address?.geolocation?.latitude || UNDEFINED_LATLNG_NUMBER
-            const lng = appointment?.property?.address?.geolocation?.longitude || UNDEFINED_LATLNG_NUMBER
-            const id = appointment?.id || UNDEFINED_NULL_STRING
-            const address = appointment?.property?.address || {}
-            return {
-              id,
-              address,
-              position: {
-                lat,
-                lng,
-              },
-            }
-          },
-        ),
-      ),
-    [],
-  )
+  React.useEffect(handleUseEffect({ queryParams, history }), [])
+  const coordinates: CoordinateProps<any> = React.useMemo(handleFilterInvalidMarker(appointments), [])
 
   const onLoadedDirection = React.useCallback(
     res => {
@@ -90,11 +101,10 @@ export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments, de
     [queryParams.destinationLat, queryParams.destinationLng],
   )
 
-  const destinationPoint = React.useMemo(() => {
-    return { lat: queryParams.destinationLat, lng: queryParams.destinationLng }
-  }, [queryParams.destinationLat, queryParams.destinationLng])
-
-  console.log(destinationPoint)
+  const destinationPoint = React.useMemo(getDestinationPoint(queryParams), [
+    queryParams.destinationLat,
+    queryParams.destinationLng,
+  ])
 
   return (
     <>

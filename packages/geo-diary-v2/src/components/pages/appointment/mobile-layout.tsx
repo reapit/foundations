@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation, useHistory } from 'react-router'
+import { useLocation, useHistory } from 'react-router-dom'
 import qs from 'query-string'
 import { History } from 'history'
 import { TabConfig, Tabs } from '@reapit/elements'

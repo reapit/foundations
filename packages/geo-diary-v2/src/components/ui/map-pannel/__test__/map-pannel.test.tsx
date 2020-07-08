@@ -4,7 +4,7 @@ import MapPanel, { handleChangeTab, getMapUrl, handleOpenNativeMap } from '../ma
 import { RouteInformation, UNDEFINED_LATLNG_NUMBER } from '../../map/map'
 import { getMockRouterProps } from '@/core/__mocks__/mock-router'
 
-const locationMock = { search: '?state=CLIENT', pathname: '/test' }
+const locationMock = { search: '?state=CLIENT&destinationLat=123&destinationLng=123', pathname: '/test' }
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
