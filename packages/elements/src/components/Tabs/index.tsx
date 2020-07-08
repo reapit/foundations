@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { cx } from 'linaria'
 
 export interface TabConfig {
   tabIdentifier: string
@@ -9,6 +10,7 @@ export interface TabConfig {
 
 export interface TabsProps {
   tabConfigs: TabConfig[]
+  className?: string
 }
 
 export const selectTab = (event: React.SyntheticEvent, tabConfig: TabConfig) => {
@@ -16,11 +18,11 @@ export const selectTab = (event: React.SyntheticEvent, tabConfig: TabConfig) => 
   tabConfig.onTabClick(tabConfig.tabIdentifier)
 }
 
-export const Tabs: React.FunctionComponent<TabsProps> = ({ tabConfigs }) => (
-  <div className="tabs is-fullwidth" role="tablist">
+export const Tabs: React.FunctionComponent<TabsProps> = ({ tabConfigs, className }) => (
+  <div className={cx('tabs', 'is-fullwidth', className)} role="tablist">
     <ul>
       {tabConfigs.map(tabConfig => (
-        <li className={`${tabConfig.active ? 'is-active' : ''}`} key={tabConfig.tabIdentifier}>
+        <li className={cx(tabConfig.active && 'is-active')} key={tabConfig.tabIdentifier}>
           <a
             id={tabConfig.tabIdentifier}
             role="tab"
