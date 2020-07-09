@@ -12,6 +12,8 @@ export type FieldKeys =
   | 'noRegField'
   | 'aboutField'
   | 'iconImageUrlField'
+  | 'buildingNameField'
+  | 'buildingNumberField'
   | 'line1Field'
   | 'line2Field'
   | 'line3Field'
@@ -47,7 +49,7 @@ export const formFields: Record<FieldKeys, FormFieldInfo> = {
   },
   noVatNumberField: {
     name: 'noVatNumber',
-    label: 'No VAT Number',
+    label: 'Not VAT Registered',
   },
   nationalInsuranceNumberField: {
     name: 'nationalInsuranceNumber',
@@ -72,6 +74,14 @@ export const formFields: Record<FieldKeys, FormFieldInfo> = {
   iconImageUrlField: {
     name: 'iconImageUrl',
     label: 'Upload Logo',
+  },
+  buildingNameField: {
+    name: 'buildingName',
+    label: 'Building Name',
+  },
+  buildingNumberField: {
+    name: 'buildingNumber',
+    label: 'Building Number',
   },
   line1Field: {
     name: 'line1',

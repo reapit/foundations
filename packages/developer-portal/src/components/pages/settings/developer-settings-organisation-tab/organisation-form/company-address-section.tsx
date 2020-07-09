@@ -1,14 +1,42 @@
 import * as React from 'react'
 import { Grid, Input, GridItem, SelectBox } from '@reapit/elements'
 import { formFields } from './form-schema/form-fields'
+import { COUNTRY_OPTIONS } from './country-options-list'
 
 export type CompanyAddressSectionProps = {}
 
-const { line1Field, line2Field, line3Field, line4Field, countryIdField, postCodeField } = formFields
+const {
+  buildingNameField,
+  buildingNumberField,
+  line1Field,
+  line2Field,
+  line3Field,
+  line4Field,
+  countryIdField,
+  postCodeField,
+} = formFields
 
 const CompanyAddressSection: React.FC<CompanyAddressSectionProps> = () => {
   return (
     <>
+      <Grid>
+        <GridItem>
+          <Input
+            type="text"
+            labelText={buildingNameField.label}
+            id={buildingNameField.name}
+            name={buildingNameField.name}
+          />
+        </GridItem>
+        <GridItem>
+          <Input
+            type="text"
+            labelText={buildingNumberField.label}
+            id={buildingNumberField.name}
+            name={buildingNumberField.name}
+          />
+        </GridItem>
+      </Grid>
       <Grid>
         <GridItem>
           <Input type="text" labelText={line1Field.label} id={line1Field.name} name={line1Field.name} />
@@ -27,15 +55,15 @@ const CompanyAddressSection: React.FC<CompanyAddressSectionProps> = () => {
       </Grid>
       <Grid>
         <GridItem>
+          <Input type="text" labelText={postCodeField.label} id={postCodeField.name} name={postCodeField.name} />
+        </GridItem>
+        <GridItem>
           <SelectBox
             id={countryIdField.name}
             name={countryIdField.name}
-            options={[]}
+            options={COUNTRY_OPTIONS}
             labelText={countryIdField.label}
           />
-        </GridItem>
-        <GridItem>
-          <Input type="text" labelText={postCodeField.label} id={postCodeField.name} name={postCodeField.name} />
         </GridItem>
       </Grid>
     </>
