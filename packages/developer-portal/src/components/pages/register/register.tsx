@@ -27,8 +27,6 @@ import TermsAndConditionsModal from '@/components/ui/terms-and-conditions-modal'
 import Routes from '@/constants/routes'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
-import { selectClientId } from '@/selector/auth'
-import { authLogout } from '@/actions/auth'
 import { formFields } from './form-fields'
 import { validationSchema } from './validation-schema'
 
@@ -83,11 +81,8 @@ export const onDeclineTermsAndConditions = (setTermsAndConditionsModalVisible: (
   }
 }
 
-export const onLoginButtonClick = (history: History, dispatch: Dispatch, clientId: string) => {
+export const onLoginButtonClick = (history: History) => {
   return () => {
-    if (clientId) {
-      dispatch(authLogout())
-    }
     history.replace(Routes.LOGIN)
   }
 }
@@ -97,7 +92,6 @@ export const Register: React.FunctionComponent<RegisterProps> = () => {
   const dispatch = useDispatch()
   const [visible, setVisible] = React.useState<boolean>(false)
   const formState = useSelector(selectDeveloperFormState)
-  const clientId = useSelector(selectClientId) || ''
   const isSubmitting = formState === 'SUBMITTING'
 
   return (
@@ -110,7 +104,7 @@ export const Register: React.FunctionComponent<RegisterProps> = () => {
             title="Success!"
             buttonText="Login"
             dataTest="register-success-message"
-            onButtonClick={onLoginButtonClick(history, dispatch, clientId)}
+            onButtonClick={onLoginButtonClick(history)}
             isCenter
           >
             <div className="mb-3">Check your email to confirm your account</div>
@@ -183,15 +177,9 @@ export const Register: React.FunctionComponent<RegisterProps> = () => {
                           Register
                         </Button>
                       </Level>
-                      {clientId ? (
-                        <Link className="is-pulled-right" to={Routes.CLIENT}>
-                          Back to home
-                        </Link>
-                      ) : (
-                        <Level>
-                          Already have an account?<Link to={Routes.LOGIN}>Login</Link>
-                        </Level>
-                      )}
+                      <Level>
+                        Already have an account?<Link to={Routes.LOGIN}>Login</Link>
+                      </Level>
                       {formState === 'ERROR' && (
                         <Alert message="Failed to register" type="danger" dataTest="register-error-message" />
                       )}
