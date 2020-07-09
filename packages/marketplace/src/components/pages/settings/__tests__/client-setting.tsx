@@ -16,7 +16,7 @@ describe('ClientSettingsPage', () => {
     expect(
       mount(
         <Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.CLIENT_SETTINGS, key: 'clientSettingsRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.SETTINGS, key: 'clientSettingsRoute' }]}>
             <ClientSettingsPage />
           </MemoryRouter>
         </Provider>,
