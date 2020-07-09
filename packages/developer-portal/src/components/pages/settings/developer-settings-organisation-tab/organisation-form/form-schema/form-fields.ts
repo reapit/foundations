@@ -31,6 +31,8 @@ export type OrganisationFormValues = {
   companyName: string
   countryId: string
   iconImageUrl: string
+  buildingName: string
+  buildingNumber: string
   line1: string
   line2: string
   line3: string

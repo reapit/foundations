@@ -1,4 +1,6 @@
-export const COUNTRY_OPTIONS = [
+import { SelectBoxOptions } from '@reapit/elements'
+
+export const COUNTRY_OPTIONS: SelectBoxOptions[] = [
   { value: 'GB', label: 'United Kingdom' },
   { value: 'AF', label: 'Afghanistan' },
   { value: 'AX', label: 'Åland Islands' },
@@ -234,7 +236,6 @@ export const COUNTRY_OPTIONS = [
   { value: 'UG', label: 'Uganda' },
   { value: 'UA', label: 'Ukraine' },
   { value: 'AE', label: 'United Arab Emirates' },
-  { value: 'GB', label: 'United Kingdom' },
   { value: 'US', label: 'United States' },
   { value: 'UM', label: 'United States Minor Outlying Islands' },
   { value: 'UY', label: 'Uruguay' },
