@@ -17,7 +17,7 @@ describe('combineAddress', () => {
       },
     }
     const result = combineAddress(address)
-    const expected = '65 123 Lindsey Close Great Denham Bedford Bedfordshire MK40 4GT'
+    const expected = '65 123 Lindsey Close Great Denham Bedford Bedfordshire MK40 4GT GB'
     expect(result).toEqual(expected)
   })
 
@@ -36,7 +36,7 @@ describe('combineAddress', () => {
       },
     }
     const result = combineAddress(address)
-    const expected = '65 Lindsey Close Great Denham Bedford Bedfordshire MK40 4GT'
+    const expected = '65 Lindsey Close Great Denham Bedford Bedfordshire MK40 4GT GB'
     expect(result).toEqual(expected)
   })
 
@@ -55,7 +55,7 @@ describe('combineAddress', () => {
       },
     }
     const result = combineAddress(address)
-    const expected = ' 123 Lindsey Close Great Denham Bedford Bedfordshire MK40 4GT'
+    const expected = ' 123 Lindsey Close Great Denham Bedford Bedfordshire MK40 4GT GB'
     expect(result).toEqual(expected)
   })
 
@@ -74,7 +74,7 @@ describe('combineAddress', () => {
       },
     }
     const result = combineAddress(address)
-    const expected = '65 123 Great Denham Bedford Bedfordshire MK40 4GT'
+    const expected = '65 123 Great Denham Bedford Bedfordshire MK40 4GT GB'
     expect(result).toEqual(expected)
   })
 
@@ -93,7 +93,7 @@ describe('combineAddress', () => {
       },
     }
     const result = combineAddress(address)
-    const expected = '65 123 Lindsey Close Bedford Bedfordshire MK40 4GT'
+    const expected = '65 123 Lindsey Close Bedford Bedfordshire MK40 4GT GB'
     expect(result).toEqual(expected)
   })
 
@@ -112,7 +112,7 @@ describe('combineAddress', () => {
       },
     }
     const result = combineAddress(address)
-    const expected = '65 123 Lindsey Close Great Denham Bedfordshire MK40 4GT'
+    const expected = '65 123 Lindsey Close Great Denham Bedfordshire MK40 4GT GB'
     expect(result).toEqual(expected)
   })
 
@@ -131,7 +131,7 @@ describe('combineAddress', () => {
       },
     }
     const result = combineAddress(address)
-    const expected = '65 123 Lindsey Close Great Denham Bedford MK40 4GT'
+    const expected = '65 123 Lindsey Close Great Denham Bedford MK40 4GT GB'
     expect(result).toEqual(expected)
   })
 
@@ -150,7 +150,7 @@ describe('combineAddress', () => {
       },
     }
     const result = combineAddress(address)
-    const expected = '65 123 Lindsey Close Great Denham Bedford Bedfordshire'
+    const expected = '65 123 Lindsey Close Great Denham Bedford Bedfordshire GB'
     expect(result).toEqual(expected)
   })
 

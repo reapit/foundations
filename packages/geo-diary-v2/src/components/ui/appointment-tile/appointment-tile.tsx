@@ -114,6 +114,10 @@ export const renderModalTitle = ({ appointmentType, heading }) => {
   )
 }
 
+export const handleModalClose = (setShowDetail: React.Dispatch<React.SetStateAction<boolean>>) => () => {
+  setShowDetail(false)
+}
+
 export const AppointmentTile: React.FC<AppointmentTileProps> = ({ appointment }) => {
   const location = useLocation()
   const history = useHistory()
@@ -137,9 +141,7 @@ export const AppointmentTile: React.FC<AppointmentTileProps> = ({ appointment })
         title={renderModalTitle({ heading, appointmentType: appointment?.appointmentType })}
         appointment={appointment}
         visible={isShowDetail}
-        onClose={() => {
-          setShowDetail(false)
-        }}
+        onClose={handleModalClose(setShowDetail)}
       />
     </>
   )

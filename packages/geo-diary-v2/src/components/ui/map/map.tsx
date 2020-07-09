@@ -1,5 +1,5 @@
 import React from 'react'
-import { Map } from '@reapit/elements'
+import { Map, H5, SubTitleH5 } from '@reapit/elements'
 import { CoordinateProps } from '@reapit/elements/src/components/Map'
 import { History } from 'history'
 import { useLocation, useHistory } from 'react-router-dom'
@@ -7,6 +7,8 @@ import qs from 'query-string'
 import { ExtendedAppointmentModel } from '@/types/global'
 import { ROUTES } from '@/core/router'
 import MapPanel from '../map-pannel'
+import { ListItemModel } from '@reapit/foundations-ts-definitions'
+import { AppointmentDetailModal } from '../appointment-detail-modal/appointment-detail-modal'
 
 export const UNDEFINED_LATLNG_NUMBER = 9999
 export const UNDEFINED_NULL_STRING = Math.random()
@@ -81,11 +83,41 @@ export const handleFilterInvalidMarker = (appointments: ExtendedAppointmentModel
     ),
   )
 
+export type RenderModalTitleParams = {
+  appointmentType?: ListItemModel
+  heading: string
+}
+export const renderModalTitle = ({ appointmentType, heading }) => {
+  return (
+    <>
+      {heading && <H5>{heading}</H5>}
+      {appointmentType && <SubTitleH5 className="mb-0">{appointmentType?.value}</SubTitleH5>}
+    </>
+  )
+}
+
 export const getDestinationPoint = (queryParams: qs.ParsedQuery<string>) => () => {
   return { lat: queryParams.destinationLat, lng: queryParams.destinationLng }
 }
 
+export const handleMarkerOnClick = (
+  appointments: ExtendedAppointmentModel[],
+  setAppoinment: React.Dispatch<React.SetStateAction<ExtendedAppointmentModel | null>>,
+) => (id: string) => () => {
+  const appoinment = appointments.find(item => item.id === id)
+  if (appoinment) {
+    setAppoinment(appoinment)
+  }
+}
+
+export const handleModalClose = (
+  setAppoinment: React.Dispatch<React.SetStateAction<ExtendedAppointmentModel | null>>,
+) => () => {
+  setAppoinment(null)
+}
+
 export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments, destinationAddress }) => {
+  const [appointment, setAppoinment] = React.useState<ExtendedAppointmentModel | null>(null)
   const location = useLocation()
   const history = useHistory()
   const queryParams = qs.parse(location.search)
@@ -106,13 +138,18 @@ export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments, de
     queryParams.destinationLng,
   ])
 
+  const line1 = appointment?.property?.address?.line1 ?? ''
+  const buildingName = appointment?.property?.address?.buildingName ?? ''
+  const buildingNumber = appointment?.property?.address?.buildingNumber ?? ''
+  const heading = `${buildingNumber || buildingName || ''} ${line1 || ''}`
+
   return (
     <>
       <Map
         autoFitBounds={true}
         apiKey={window.reapit.config.googleMapApiKey}
         coordinates={coordinates}
-        // markerCallBack={handleOnClick}
+        markerCallBack={handleMarkerOnClick(appointments, setAppoinment)}
         onLoadedDirection={onLoadedDirection}
         destinationPoint={destinationPoint}
         destinationAddress={destinationAddress}
@@ -121,6 +158,13 @@ export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments, de
         styles={{} /* See import for explanation mapStyles */}
       />
       <MapPanel routeInformation={routeInformation} />
+      <AppointmentDetailModal
+        title={renderModalTitle({ heading, appointmentType: appointment?.appointmentType })}
+        appointment={appointment || ({} as ExtendedAppointmentModel)}
+        visible={!!appointment}
+        destroyOnClose={true}
+        onClose={handleModalClose(setAppoinment)}
+      />
     </>
   )
 }

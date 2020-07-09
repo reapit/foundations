@@ -14,9 +14,9 @@ import {
   IconList,
   combineAddress,
   ModalV2,
-  ModalV2Props,
   H5,
 } from '@reapit/elements'
+import { ModalProps } from '@reapit/elements/src/v2/src/components/modal'
 import { useMutation } from '@apollo/react-hooks'
 import dayjs from 'dayjs'
 import {
@@ -294,7 +294,7 @@ export const renderDateTime = (appointment: ExtendedAppointmentModel) => {
   )
 }
 
-export type AppointmentDetailModalProps = ModalV2Props & {
+export type AppointmentDetailModalProps = ModalProps & {
   appointment: ExtendedAppointmentModel
 }
 

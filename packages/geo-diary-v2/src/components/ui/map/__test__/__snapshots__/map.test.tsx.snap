@@ -41,6 +41,7 @@ exports[`map AppointmentMap should match snapshot 1`] = `
         "height": "100%",
       }
     }
+    markerCallBack={[Function]}
     onLoadedDirection={[Function]}
     styles={Object {}}
   />
@@ -51,6 +52,19 @@ exports[`map AppointmentMap should match snapshot 1`] = `
         "duration": null,
       }
     }
+  />
+  <Component
+    appointment={Object {}}
+    destroyOnClose={true}
+    onClose={[Function]}
+    title={
+      <React.Fragment>
+        <Unknown>
+           
+        </Unknown>
+      </React.Fragment>
+    }
+    visible={false}
   />
 </Fragment>
 `;

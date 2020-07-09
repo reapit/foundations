@@ -7,6 +7,7 @@ import {
   renderIconItems,
   handleDirectionOnClick,
   renderModalTitle,
+  handleModalClose,
 } from '../appointment-tile'
 import { getMockRouterProps } from '@/core/__mocks__/mock-router'
 
@@ -95,6 +96,15 @@ describe('appointment-tile', () => {
       }
       const wrapper = shallow(<div>{renderModalTitle(mockParams)}</div>)
       expect(wrapper).toMatchSnapshot()
+    })
+  })
+
+  describe('handleModalClose', () => {
+    it('should run correctly', () => {
+      const setShowDetail = jest.fn()
+      const fn = handleModalClose(setShowDetail)
+      fn()
+      expect(setShowDetail).toBeCalledWith(false)
     })
   })
 })

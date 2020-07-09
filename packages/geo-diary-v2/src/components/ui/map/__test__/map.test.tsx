@@ -9,6 +9,8 @@ import {
   handleUseEffect,
   getDestinationPoint,
   handleFilterInvalidMarker,
+  handleMarkerOnClick,
+  handleModalClose,
 } from '../map'
 import { getMockRouterProps } from '@/core/__mocks__/mock-router'
 
@@ -92,6 +94,31 @@ describe('map', () => {
           },
         },
       ])
+    })
+  })
+
+  describe('handleMarkerOnClick', () => {
+    it('should run correctly', () => {
+      const setAppoinment = jest.fn()
+      const fn = handleMarkerOnClick([appointment], setAppoinment)
+      fn('NEP1600290')()
+      expect(setAppoinment).toBeCalledWith(appointment)
+    })
+
+    it('should run correctly and not call setAppoinment', () => {
+      const setAppoinment = jest.fn()
+      const fn = handleMarkerOnClick([appointment], setAppoinment)
+      fn('1')()
+      expect(setAppoinment).not.toBeCalledWith(appointment)
+    })
+  })
+
+  describe('handleModalClose', () => {
+    it('should run correctly', () => {
+      const setAppoinment = jest.fn()
+      const fn = handleModalClose(setAppoinment)
+      fn()
+      expect(setAppoinment).toBeCalledWith(null)
     })
   })
 })
