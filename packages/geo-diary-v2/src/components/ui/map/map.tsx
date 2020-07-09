@@ -1,5 +1,5 @@
 import React from 'react'
-import { Map, H5, SubTitleH5 } from '@reapit/elements'
+import { Map, H5, SubTitleH5, combineAddress } from '@reapit/elements'
 import { CoordinateProps } from '@reapit/elements/src/components/Map'
 import { History } from 'history'
 import { useLocation, useHistory } from 'react-router-dom'
@@ -37,7 +37,6 @@ export const filterInvalidMarker = (markers: Coordinate[]) => {
 
 export type AppointmentMapProps = {
   appointments: ExtendedAppointmentModel[]
-  destinationAddress?: string
 }
 
 export type RouteInformation = {
@@ -116,14 +115,14 @@ export const handleModalClose = (
   setAppoinment(null)
 }
 
-export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments, destinationAddress }) => {
+export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments }) => {
   const [appointment, setAppoinment] = React.useState<ExtendedAppointmentModel | null>(null)
   const location = useLocation()
   const history = useHistory()
   const queryParams = qs.parse(location.search)
   const [routeInformation, setRouteInformation] = React.useState<RouteInformation>({ duration: null, distance: null })
   React.useEffect(handleUseEffect({ queryParams, history }), [])
-  const coordinates: CoordinateProps<any> = React.useMemo(handleFilterInvalidMarker(appointments), [])
+  const coordinates: CoordinateProps<any> = React.useMemo(handleFilterInvalidMarker(appointments), [appointments])
 
   const onLoadedDirection = React.useCallback(
     res => {
@@ -152,12 +151,12 @@ export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments, de
         markerCallBack={handleMarkerOnClick(appointments, setAppoinment)}
         onLoadedDirection={onLoadedDirection}
         destinationPoint={destinationPoint}
-        destinationAddress={destinationAddress}
+        destinationAddress={combineAddress(appointment?.property?.address)}
         travelMode={queryParams.travelMode}
         mapContainerStyles={{ height: '100%' }}
         styles={{} /* See import for explanation mapStyles */}
       />
-      <MapPanel routeInformation={routeInformation} />
+      <MapPanel routeInformation={routeInformation} appointments={appointments} />
       <AppointmentDetailModal
         title={renderModalTitle({ heading, appointmentType: appointment?.appointmentType })}
         appointment={appointment || ({} as ExtendedAppointmentModel)}

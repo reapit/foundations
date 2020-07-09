@@ -54,7 +54,13 @@ export type HandleDirectionOnClickParams = {
 export const handleDirectionOnClick = ({ appointment, queryParams, history }: HandleDirectionOnClickParams) => () => {
   const lat = appointment?.property?.address?.geolocation?.latitude
   const lng = appointment?.property?.address?.geolocation?.longitude
-  const queryString = qs.stringify({ ...queryParams, destinationLat: lat, destinationLng: lng, tab: 'map' })
+  const queryString = qs.stringify({
+    ...queryParams,
+    destinationLat: lat,
+    destinationLng: lng,
+    tab: 'map',
+    appointmentId: appointment.id,
+  })
   history.push(`${ROUTES.APPOINTMENT}?${queryString}`)
 }
 
@@ -65,11 +71,12 @@ export type RenderFooterItemsParams = {
   setShowDetail: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const renderFooterItems = ({ appointment, queryParams, history, setShowDetail }) => {
+export const renderFooterItems = ({ appointment, queryParams, history, setShowDetail }: RenderFooterItemsParams) => {
   const lat = appointment?.property?.address?.geolocation?.latitude
   const lng = appointment?.property?.address?.geolocation?.longitude
   let buttons = [
     <Button
+      className="is-info"
       key="viewDetails"
       type="submit"
       onClick={() => setShowDetail(true)}
@@ -83,6 +90,7 @@ export const renderFooterItems = ({ appointment, queryParams, history, setShowDe
   if (!!lat && !!lng) {
     buttons.push(
       <Button
+        className="is-info"
         key="viewDirection"
         type="submit"
         onClick={handleDirectionOnClick({ appointment, queryParams, history })}

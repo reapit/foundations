@@ -58,7 +58,9 @@ describe('appointment-tile', () => {
       }
       const fn = handleDirectionOnClick(mockParams)
       fn()
-      expect(mockParams.history.push).toBeCalledWith('/?destinationLat=52.079532&destinationLng=-0.790871&tab=map')
+      expect(mockParams.history.push).toBeCalledWith(
+        '/?appointmentId=NEP1600290&destinationLat=52.079532&destinationLng=-0.790871&tab=map',
+      )
     })
   })
   describe('renderModalTitle', () => {

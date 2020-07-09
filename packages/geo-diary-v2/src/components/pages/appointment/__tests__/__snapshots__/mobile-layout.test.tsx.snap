@@ -2,23 +2,11 @@
 
 exports[`mobile-layout MobileLayout should render correctly 1`] = `
 <Fragment>
-  <Component
-    className=""
-    tabConfigs={
-      Array [
-        Object {
-          "active": false,
-          "displayText": "list",
-          "onTabClick": [Function],
-          "tabIdentifier": "list",
-        },
-        Object {
-          "active": false,
-          "displayText": "map",
-          "onTabClick": [Function],
-          "tabIdentifier": "map",
-        },
-      ]
+  <Memo()
+    queryParams={
+      Object {
+        "state": "CLIENT",
+      }
     }
   />
   <Memo()

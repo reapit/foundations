@@ -26,7 +26,6 @@ describe('map', () => {
     it('should match snapshot', () => {
       const mockProps = {
         appointments: [appointment],
-        destinationAddress: 'mock Address',
       }
       const wrapper = shallow(<AppointmentMap {...mockProps} />)
       expect(wrapper).toMatchSnapshot()

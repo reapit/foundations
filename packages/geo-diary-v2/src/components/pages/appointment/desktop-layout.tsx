@@ -7,32 +7,31 @@ import AppointmentTime from '@/components/ui/appointment-time'
 import AppointmentMap from '@/components/ui/map'
 import AppointmentList from '@/components/ui/appointment-list'
 import { ExtendedAppointmentModel } from '@/types/global'
-import ListAndMapTab from '@/components/ui/list-and-map-tab'
+import { mapContainer, appoinmentContainer } from './__styles__'
 
 export type GenerateTabConfigParams = {
   queryParams: qs.ParsedQuery<string>
   history: History
 }
 
-export type MobileLayoutProps = {
+export type DesktopLayoutProps = {
   appointments: ExtendedAppointmentModel[]
 }
 
-export const MobileLayout: React.FC<MobileLayoutProps> = ({ appointments }) => {
+export const DesktopLayout: React.FC<DesktopLayoutProps> = ({ appointments }) => {
   const location = useLocation()
   const history = useHistory()
   const queryParams = qs.parse(location.search)
   return (
     <>
-      <ListAndMapTab queryParams={queryParams} history={history} />
-      {queryParams.tab !== 'map' && (
-        <>
-          <AppointmentTime queryParams={queryParams} history={history} />
-          <TravelMode queryParams={queryParams} history={history} />
-          <AppointmentList appointments={appointments} />
-        </>
-      )}
-      {queryParams.tab === 'map' && <AppointmentMap appointments={appointments} />}
+      <div className={appoinmentContainer}>
+        <AppointmentTime queryParams={queryParams} history={history} />
+        <TravelMode queryParams={queryParams} history={history} />
+        <AppointmentList appointments={appointments} />
+      </div>
+      <div className={mapContainer}>
+        <AppointmentMap appointments={appointments} />
+      </div>
     </>
   )
 }

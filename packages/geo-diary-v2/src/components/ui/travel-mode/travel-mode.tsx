@@ -4,6 +4,7 @@ import { History } from 'history'
 import { cx } from 'linaria'
 import qs from 'query-string'
 import { ROUTES } from '@/core/router'
+import { travelModeButtonContainer } from './__styles__'
 
 export type TravelMode = 'DRIVING' | 'WALKING'
 
@@ -25,7 +26,7 @@ export type TravelModeProps = {
 
 export const TravelMode: React.FC<TravelModeProps> = ({ queryParams, history }) => {
   return (
-    <ButtonGroup>
+    <ButtonGroup className={travelModeButtonContainer}>
       <Button
         type="button"
         variant="secondary"
