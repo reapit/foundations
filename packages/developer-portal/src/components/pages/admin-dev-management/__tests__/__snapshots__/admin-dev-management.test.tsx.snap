@@ -1,0 +1,922 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "adminDevManagementRoute",
+          "pathname": "/admin/dev-management",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "adminDevManagementRoute",
+              "pathname": "/admin/dev-management",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "adminDevManagementRoute",
+            "pathname": "/admin/dev-management",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Component>
+        <Connect(ErrorBoundary)>
+          <ErrorBoundary
+            componentError={null}
+            errorThrownComponent={[Function]}
+          >
+            <Component
+              className="mb-0"
+            >
+              <section
+                className=""
+                data-test=""
+              >
+                <Component>
+                  <h3
+                    className=""
+                    id=""
+                  >
+                    Developer Management
+                  </h3>
+                </Component>
+              </section>
+            </Component>
+            <Component
+              filterValues={
+                Object {
+                  "company": "",
+                  "name": "",
+                  "registeredFrom": "",
+                  "registeredTo": "",
+                }
+              }
+              onSearch={[Function]}
+            >
+              <Formik
+                initialValues={
+                  Object {
+                    "company": "",
+                    "name": "",
+                    "registeredFrom": "",
+                    "registeredTo": "",
+                  }
+                }
+                onSubmit={[Function]}
+              >
+                <Form
+                  noValidate={true}
+                >
+                  <form
+                    action="#"
+                    noValidate={true}
+                    onReset={[Function]}
+                    onSubmit={[Function]}
+                  >
+                    <Component>
+                      <div
+                        className=""
+                      >
+                        <Component>
+                          <div
+                            className=""
+                          >
+                            Developer Management Filter Form
+                          </div>
+                        </Component>
+                        <Component>
+                          <div
+                            className=""
+                          >
+                            Filter the result by Name and Company
+                          </div>
+                        </Component>
+                        <Component
+                          className="items-center"
+                        >
+                          <div
+                            className=""
+                            data-test=""
+                          >
+                            <Component>
+                              <div
+                                className=""
+                                data-test=""
+                              >
+                                <Component
+                                  id="name"
+                                  labelText="Name"
+                                  maxLength={256}
+                                  name="name"
+                                  type="text"
+                                >
+                                  <Field
+                                    name="name"
+                                    validate={null}
+                                  >
+                                    <div
+                                      className="field"
+                                    >
+                                      <div
+                                        className="control "
+                                      >
+                                        <label
+                                          className="label inline-block "
+                                          htmlFor="name"
+                                        >
+                                          Name
+                                        </label>
+                                        <input
+                                          className="input is-primary"
+                                          data-test=""
+                                          disabled={false}
+                                          id="name"
+                                          maxLength={256}
+                                          name="name"
+                                          onBlur={[Function]}
+                                          onChange={[Function]}
+                                          placeholder=""
+                                          type="text"
+                                          value=""
+                                        />
+                                      </div>
+                                    </div>
+                                  </Field>
+                                </Component>
+                              </div>
+                            </Component>
+                            <Component>
+                              <div
+                                className=""
+                                data-test=""
+                              >
+                                <Component
+                                  id="company"
+                                  labelText="Company"
+                                  maxLength={256}
+                                  name="company"
+                                  type="text"
+                                >
+                                  <Field
+                                    name="company"
+                                    validate={null}
+                                  >
+                                    <div
+                                      className="field"
+                                    >
+                                      <div
+                                        className="control "
+                                      >
+                                        <label
+                                          className="label inline-block "
+                                          htmlFor="company"
+                                        >
+                                          Company
+                                        </label>
+                                        <input
+                                          className="input is-primary"
+                                          data-test=""
+                                          disabled={false}
+                                          id="company"
+                                          maxLength={256}
+                                          name="company"
+                                          onBlur={[Function]}
+                                          onChange={[Function]}
+                                          placeholder=""
+                                          type="text"
+                                          value=""
+                                        />
+                                      </div>
+                                    </div>
+                                  </Field>
+                                </Component>
+                              </div>
+                            </Component>
+                            <Component>
+                              <div
+                                className=""
+                                data-test=""
+                              >
+                                <Component
+                                  id="registeredFrom"
+                                  labelText="Registered From"
+                                  name="registeredFrom"
+                                  reactDatePickerProps={
+                                    Object {
+                                      "maxDate": 2019-10-10T22:39:51.389Z,
+                                    }
+                                  }
+                                >
+                                  <Field
+                                    name="registeredFrom"
+                                    validate={null}
+                                  >
+                                    <div
+                                      className="field"
+                                    >
+                                      <div
+                                        className="control"
+                                      >
+                                        <label
+                                          className="label "
+                                          htmlFor="registeredFrom"
+                                        >
+                                          Registered From
+                                        </label>
+                                        <o
+                                          allowSameDay={false}
+                                          className="input is-primary"
+                                          customInput={
+                                            <CustomInput
+                                              className="input is-primary"
+                                            />
+                                          }
+                                          customTimeInput={null}
+                                          dateFormat="MM/dd/yyyy"
+                                          dateFormatCalendar="LLLL yyyy"
+                                          disabled={false}
+                                          disabledKeyboardNavigation={false}
+                                          dropdownMode="scroll"
+                                          enableTabLoop={true}
+                                          excludeScrollbar={true}
+                                          id="registeredFrom"
+                                          inlineFocusSelectedMonth={false}
+                                          maxDate={2019-10-10T22:39:51.389Z}
+                                          monthsShown={1}
+                                          name="registeredFrom"
+                                          nextMonthButtonLabel="Next Month"
+                                          nextYearButtonLabel="Next Year"
+                                          onBlur={[Function]}
+                                          onCalendarClose={[Function]}
+                                          onCalendarOpen={[Function]}
+                                          onChange={[Function]}
+                                          onClickOutside={[Function]}
+                                          onFocus={[Function]}
+                                          onInputClick={[Function]}
+                                          onInputError={[Function]}
+                                          onKeyDown={[Function]}
+                                          onMonthChange={[Function]}
+                                          onSelect={[Function]}
+                                          onYearChange={[Function]}
+                                          preventOpenOnFocus={false}
+                                          previousMonthButtonLabel="Previous Month"
+                                          previousYearButtonLabel="Previous Year"
+                                          readOnly={false}
+                                          renderDayContents={[Function]}
+                                          shouldCloseOnSelect={true}
+                                          showFullMonthYearPicker={false}
+                                          showMonthYearPicker={false}
+                                          showPopperArrow={true}
+                                          showPreviousMonths={false}
+                                          showQuarterYearPicker={false}
+                                          showTimeInput={false}
+                                          showTimeSelect={false}
+                                          showYearPicker={false}
+                                          strictParsing={false}
+                                          timeCaption="Time"
+                                          timeInputLabel="Time"
+                                          timeIntervals={30}
+                                          value=""
+                                          withPortal={false}
+                                        >
+                                          <a
+                                            enableTabLoop={true}
+                                            hidePopper={true}
+                                            popperComponent={null}
+                                            popperModifiers={
+                                              Object {
+                                                "preventOverflow": Object {
+                                                  "boundariesElement": "viewport",
+                                                  "enabled": true,
+                                                  "escapeWithReference": true,
+                                                },
+                                              }
+                                            }
+                                            popperOnKeyDown={[Function]}
+                                            popperPlacement="bottom-start"
+                                            popperProps={Object {}}
+                                            targetComponent={
+                                              <div
+                                                className="react-datepicker__input-container"
+                                              >
+                                                <CustomInput
+                                                  className="input is-primary input is-primary"
+                                                  disabled={false}
+                                                  id="registeredFrom"
+                                                  name="registeredFrom"
+                                                  onBlur={[Function]}
+                                                  onChange={[Function]}
+                                                  onClick={[Function]}
+                                                  onFocus={[Function]}
+                                                  onKeyDown={[Function]}
+                                                  readOnly={false}
+                                                  value=""
+                                                />
+                                              </div>
+                                            }
+                                          >
+                                            <Manager
+                                              className="react-datepicker-manager"
+                                            >
+                                              <Reference>
+                                                <InnerReference
+                                                  setReferenceNode={[Function]}
+                                                >
+                                                  <div
+                                                    className="react-datepicker-wrapper"
+                                                  >
+                                                    <div
+                                                      className="react-datepicker__input-container"
+                                                    >
+                                                      <CustomInput
+                                                        className="input is-primary input is-primary"
+                                                        disabled={false}
+                                                        id="registeredFrom"
+                                                        name="registeredFrom"
+                                                        onBlur={[Function]}
+                                                        onChange={[Function]}
+                                                        onClick={[Function]}
+                                                        onFocus={[Function]}
+                                                        onKeyDown={[Function]}
+                                                        readOnly={false}
+                                                        value=""
+                                                      >
+                                                        <input
+                                                          className="input is-primary input is-primary"
+                                                          disabled={false}
+                                                          id="registeredFrom"
+                                                          name="registeredFrom"
+                                                          onBlur={[Function]}
+                                                          onChange={[Function]}
+                                                          onClick={[Function]}
+                                                          onFocus={[Function]}
+                                                          onKeyDown={[Function]}
+                                                          readOnly={false}
+                                                          type="input"
+                                                          value=""
+                                                        />
+                                                      </CustomInput>
+                                                    </div>
+                                                  </div>
+                                                </InnerReference>
+                                              </Reference>
+                                            </Manager>
+                                          </a>
+                                        </o>
+                                      </div>
+                                    </div>
+                                  </Field>
+                                </Component>
+                              </div>
+                            </Component>
+                            <Component>
+                              <div
+                                className=""
+                                data-test=""
+                              >
+                                <Component
+                                  id="registeredTo"
+                                  labelText="Registered To"
+                                  name="registeredTo"
+                                  reactDatePickerProps={
+                                    Object {
+                                      "maxDate": 2019-10-10T22:39:51.389Z,
+                                      "minDate": Date { NaN },
+                                    }
+                                  }
+                                >
+                                  <Field
+                                    name="registeredTo"
+                                    validate={null}
+                                  >
+                                    <div
+                                      className="field"
+                                    >
+                                      <div
+                                        className="control"
+                                      >
+                                        <label
+                                          className="label "
+                                          htmlFor="registeredTo"
+                                        >
+                                          Registered To
+                                        </label>
+                                        <o
+                                          allowSameDay={false}
+                                          className="input is-primary"
+                                          customInput={
+                                            <CustomInput
+                                              className="input is-primary"
+                                            />
+                                          }
+                                          customTimeInput={null}
+                                          dateFormat="MM/dd/yyyy"
+                                          dateFormatCalendar="LLLL yyyy"
+                                          disabled={false}
+                                          disabledKeyboardNavigation={false}
+                                          dropdownMode="scroll"
+                                          enableTabLoop={true}
+                                          excludeScrollbar={true}
+                                          id="registeredTo"
+                                          inlineFocusSelectedMonth={false}
+                                          maxDate={2019-10-10T22:39:51.389Z}
+                                          minDate={Date { NaN }}
+                                          monthsShown={1}
+                                          name="registeredTo"
+                                          nextMonthButtonLabel="Next Month"
+                                          nextYearButtonLabel="Next Year"
+                                          onBlur={[Function]}
+                                          onCalendarClose={[Function]}
+                                          onCalendarOpen={[Function]}
+                                          onChange={[Function]}
+                                          onClickOutside={[Function]}
+                                          onFocus={[Function]}
+                                          onInputClick={[Function]}
+                                          onInputError={[Function]}
+                                          onKeyDown={[Function]}
+                                          onMonthChange={[Function]}
+                                          onSelect={[Function]}
+                                          onYearChange={[Function]}
+                                          preventOpenOnFocus={false}
+                                          previousMonthButtonLabel="Previous Month"
+                                          previousYearButtonLabel="Previous Year"
+                                          readOnly={false}
+                                          renderDayContents={[Function]}
+                                          shouldCloseOnSelect={true}
+                                          showFullMonthYearPicker={false}
+                                          showMonthYearPicker={false}
+                                          showPopperArrow={true}
+                                          showPreviousMonths={false}
+                                          showQuarterYearPicker={false}
+                                          showTimeInput={false}
+                                          showTimeSelect={false}
+                                          showYearPicker={false}
+                                          strictParsing={false}
+                                          timeCaption="Time"
+                                          timeInputLabel="Time"
+                                          timeIntervals={30}
+                                          value=""
+                                          withPortal={false}
+                                        >
+                                          <a
+                                            enableTabLoop={true}
+                                            hidePopper={true}
+                                            popperComponent={null}
+                                            popperModifiers={
+                                              Object {
+                                                "preventOverflow": Object {
+                                                  "boundariesElement": "viewport",
+                                                  "enabled": true,
+                                                  "escapeWithReference": true,
+                                                },
+                                              }
+                                            }
+                                            popperOnKeyDown={[Function]}
+                                            popperPlacement="bottom-start"
+                                            popperProps={Object {}}
+                                            targetComponent={
+                                              <div
+                                                className="react-datepicker__input-container"
+                                              >
+                                                <CustomInput
+                                                  className="input is-primary input is-primary"
+                                                  disabled={false}
+                                                  id="registeredTo"
+                                                  name="registeredTo"
+                                                  onBlur={[Function]}
+                                                  onChange={[Function]}
+                                                  onClick={[Function]}
+                                                  onFocus={[Function]}
+                                                  onKeyDown={[Function]}
+                                                  readOnly={false}
+                                                  value=""
+                                                />
+                                              </div>
+                                            }
+                                          >
+                                            <Manager
+                                              className="react-datepicker-manager"
+                                            >
+                                              <Reference>
+                                                <InnerReference
+                                                  setReferenceNode={[Function]}
+                                                >
+                                                  <div
+                                                    className="react-datepicker-wrapper"
+                                                  >
+                                                    <div
+                                                      className="react-datepicker__input-container"
+                                                    >
+                                                      <CustomInput
+                                                        className="input is-primary input is-primary"
+                                                        disabled={false}
+                                                        id="registeredTo"
+                                                        name="registeredTo"
+                                                        onBlur={[Function]}
+                                                        onChange={[Function]}
+                                                        onClick={[Function]}
+                                                        onFocus={[Function]}
+                                                        onKeyDown={[Function]}
+                                                        readOnly={false}
+                                                        value=""
+                                                      >
+                                                        <input
+                                                          className="input is-primary input is-primary"
+                                                          disabled={false}
+                                                          id="registeredTo"
+                                                          name="registeredTo"
+                                                          onBlur={[Function]}
+                                                          onChange={[Function]}
+                                                          onClick={[Function]}
+                                                          onFocus={[Function]}
+                                                          onKeyDown={[Function]}
+                                                          readOnly={false}
+                                                          type="input"
+                                                          value=""
+                                                        />
+                                                      </CustomInput>
+                                                    </div>
+                                                  </div>
+                                                </InnerReference>
+                                              </Reference>
+                                            </Manager>
+                                          </a>
+                                        </o>
+                                      </div>
+                                    </div>
+                                  </Field>
+                                </Component>
+                              </div>
+                            </Component>
+                            <Component
+                              className="mt-4"
+                            >
+                              <div
+                                className=""
+                                data-test=""
+                              >
+                                <Component
+                                  type="submit"
+                                  variant="primary"
+                                >
+                                  <button
+                                    className="button  is-primary  "
+                                    data-test=""
+                                    disabled={false}
+                                    type="submit"
+                                  >
+                                    Search
+                                  </button>
+                                </Component>
+                              </div>
+                            </Component>
+                          </div>
+                        </Component>
+                      </div>
+                    </Component>
+                  </form>
+                </Form>
+              </Formik>
+            </Component>
+            <Component>
+              <section
+                className=""
+                data-test=""
+              >
+                <Component
+                  columns={
+                    Array [
+                      Object {
+                        "Cell": [Function],
+                        "Header": "#",
+                        "id": "id",
+                      },
+                      Object {
+                        "Header": "Name",
+                        "accessor": "name",
+                      },
+                      Object {
+                        "Header": "Company",
+                        "accessor": "company",
+                      },
+                      Object {
+                        "Header": "Job Title",
+                        "accessor": "jobTitle",
+                      },
+                      Object {
+                        "Header": "Email",
+                        "accessor": "email",
+                      },
+                      Object {
+                        "Header": "Phone",
+                        "accessor": "telephone",
+                      },
+                      Object {
+                        "Cell": [Function],
+                        "Header": "Created",
+                        "accessor": "created",
+                      },
+                      Object {
+                        "Cell": [Function],
+                        "Header": "",
+                        "id": "buttonColumn",
+                      },
+                    ]
+                  }
+                  data={Array []}
+                  loading={false}
+                  scrollable={true}
+                >
+                  <div
+                    style={
+                      Object {
+                        "maxHeight": undefined,
+                        "overflow": "scroll",
+                      }
+                    }
+                  >
+                    <table
+                      className="table is-striped is-fullwidth "
+                      role="table"
+                    >
+                      <thead>
+                        <tr
+                          key="headerGroup_0"
+                          role="row"
+                        >
+                          <th
+                            colSpan={1}
+                            key="header_id"
+                            role="columnheader"
+                          >
+                            #
+                          </th>
+                          <th
+                            colSpan={1}
+                            key="header_name"
+                            role="columnheader"
+                          >
+                            Name
+                          </th>
+                          <th
+                            colSpan={1}
+                            key="header_company"
+                            role="columnheader"
+                          >
+                            Company
+                          </th>
+                          <th
+                            colSpan={1}
+                            key="header_jobTitle"
+                            role="columnheader"
+                          >
+                            Job Title
+                          </th>
+                          <th
+                            colSpan={1}
+                            key="header_email"
+                            role="columnheader"
+                          >
+                            Email
+                          </th>
+                          <th
+                            colSpan={1}
+                            key="header_telephone"
+                            role="columnheader"
+                          >
+                            Phone
+                          </th>
+                          <th
+                            colSpan={1}
+                            key="header_created"
+                            role="columnheader"
+                          >
+                            Created
+                          </th>
+                          <th
+                            colSpan={1}
+                            key="header_buttonColumn"
+                            role="columnheader"
+                          />
+                        </tr>
+                      </thead>
+                      <tbody />
+                    </table>
+                  </div>
+                </Component>
+              </section>
+            </Component>
+            <Component>
+              <section
+                className=""
+                data-test=""
+              >
+                <div>
+                  Total: 
+                </div>
+              </section>
+            </Component>
+            <Component
+              onChange={[Function]}
+            />
+            <Component
+              afterClose={[Function]}
+              developer={Object {}}
+              onSuccess={[Function]}
+              visible={false}
+            >
+              <Component
+                afterClose={[Function]}
+                renderChildren={true}
+                visible={false}
+              />
+            </Component>
+          </ErrorBoundary>
+        </Connect(ErrorBoundary)>
+      </Component>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;
+
+exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "adminDevManagementRoute",
+          "pathname": "/admin/dev-management",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "adminDevManagementRoute",
+              "pathname": "/admin/dev-management",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "adminDevManagementRoute",
+            "pathname": "/admin/dev-management",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Component>
+        <Component>
+          <div
+            className="loader-spinner body"
+            data-test=""
+          >
+            <div />
+            <div />
+            <div />
+            <div />
+          </div>
+        </Component>
+      </Component>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;
+
+exports[`AdminDevManagement should show loader when LOADING true 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "adminDevManagementRoute",
+          "pathname": "/admin/dev-management",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "adminDevManagementRoute",
+              "pathname": "/admin/dev-management",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "adminDevManagementRoute",
+            "pathname": "/admin/dev-management",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Component>
+        <Component>
+          <div
+            className="loader-spinner body"
+            data-test=""
+          >
+            <div />
+            <div />
+            <div />
+            <div />
+          </div>
+        </Component>
+      </Component>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DiffRenderHTML should match a snapshot 1`] = `
+<div>
+  <Component
+    className="undefined undefined"
+    html="abc"
+  />
+  <span>
+    →
+  </span>
+  <Component
+    className="undefined undefined"
+    html="<b>axxxxxxxxxxxbc<b>"
+  />
+</div>
+`;

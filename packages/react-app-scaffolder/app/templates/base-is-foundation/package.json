@@ -1,0 +1,27 @@
+{
+  "name": "<%= name %>",
+  "version": "0.0.1",
+  "description": "<%= description %>",
+  "main": "./src/index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+<%= repo %>"
+  },
+  "author": "<%= author %>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build:prod": "rimraf public/dist && webpack --config ../../scripts/webpack/webpack.config.prod.js",
+    "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ../../scripts/webpack/webpack.config.dev.js",
+    "lint": "eslint --ext=jsx,ts,tsx src --fix",
+    "start:prod": "serve public/dist -s -l 8080",
+    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
+    "test:dev": "cross-env TZ=UTC jest --watch --verbose",
+    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
+    "fetch-config": "yarn config-manager fetchConfig app-name"
+  },
+  "dependencies": {
+    "@reapit/foundations-ts-definitions": "2020-02-13"
+  },
+  "devDependencies": {}
+}

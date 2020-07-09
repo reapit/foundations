@@ -1,0 +1,907 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Admin Stats setArea APPS should match snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "adminStats",
+          "pathname": "/admin/stats",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "adminStats",
+              "pathname": "/admin/stats",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "adminStats",
+            "pathname": "/admin/stats",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Component>
+        <Component
+          isHeadingSection={true}
+        >
+          <h3
+            className=""
+            id=""
+          >
+            Stats
+          </h3>
+        </Component>
+        <Component>
+          <section
+            className=""
+            data-test=""
+          >
+            <Component>
+              <h6
+                className=""
+                id=""
+              >
+                Please select an area:
+              </h6>
+            </Component>
+            <Component>
+              <div
+                className="is-centered buttons has-addons "
+              >
+                <Component
+                  className="ml-0"
+                  dataTest="area-apps-btn"
+                  onClick={[Function]}
+                  type="button"
+                  variant="primary"
+                >
+                  <button
+                    className="button ml-0 is-primary  "
+                    data-test="area-apps-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Apps
+                  </button>
+                </Component>
+                <Component
+                  dataTest="area-developers-btn"
+                  onClick={[Function]}
+                  type="button"
+                  variant="secondary"
+                >
+                  <button
+                    className="button  is-secondary  "
+                    data-test="area-developers-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Developers
+                  </button>
+                </Component>
+                <Component
+                  dataTest="area-installations-btn"
+                  onClick={[Function]}
+                  type="button"
+                  variant="secondary"
+                >
+                  <button
+                    className="button  is-secondary  "
+                    data-test="area-installations-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Installations
+                  </button>
+                </Component>
+              </div>
+            </Component>
+            <Component>
+              <h6
+                className=""
+                id=""
+              >
+                Please select a time range:
+              </h6>
+            </Component>
+            <Component>
+              <div
+                className="is-centered buttons has-addons "
+              >
+                <Component
+                  className="ml-0"
+                  dataTest="range-week-btn"
+                  onClick={[Function]}
+                  type="button"
+                  variant="primary"
+                >
+                  <button
+                    className="button ml-0 is-primary  "
+                    data-test="range-week-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Last week
+                  </button>
+                </Component>
+                <Component
+                  dataTest="range-month-btn"
+                  onClick={[Function]}
+                  type="button"
+                  variant="secondary"
+                >
+                  <button
+                    className="button  is-secondary  "
+                    data-test="range-month-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Last Month
+                  </button>
+                </Component>
+                <Component
+                  dataTest="range-all-btn"
+                  onClick={[Function]}
+                  type="button"
+                  variant="secondary"
+                >
+                  <button
+                    className="button  is-secondary  "
+                    data-test="range-all-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    All time
+                  </button>
+                </Component>
+              </div>
+            </Component>
+            <Component>
+              <h6
+                className=""
+                id=""
+              >
+                Showing results for ‘
+                APPS
+                ’ and ‘
+                Last Week
+                ’
+              </h6>
+            </Component>
+          </section>
+        </Component>
+        <Component>
+          <section
+            className=""
+            data-test=""
+          >
+            <Line
+              data={
+                Object {
+                  "datasets": Array [
+                    Object {
+                      "backgroundColor": "rgba(75,192,192,0.4)",
+                      "borderCapStyle": "butt",
+                      "borderColor": "rgba(75,192,192,1)",
+                      "borderDash": Array [],
+                      "borderDashOffset": 0,
+                      "borderJoinStyle": "miter",
+                      "data": Array [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                      ],
+                      "fill": false,
+                      "label": "Apps",
+                      "lineTension": 0.1,
+                      "pointBackgroundColor": "#fff",
+                      "pointBorderColor": "rgba(75,192,192,1)",
+                      "pointBorderWidth": 1,
+                      "pointHitRadius": 10,
+                      "pointHoverBackgroundColor": "rgba(75,192,192,1)",
+                      "pointHoverBorderColor": "rgba(220,220,220,1)",
+                      "pointHoverBorderWidth": 2,
+                      "pointHoverRadius": 5,
+                      "pointRadius": 1,
+                    },
+                  ],
+                  "labels": Array [
+                    "03/10/2019",
+                    "04/10/2019",
+                    "05/10/2019",
+                    "06/10/2019",
+                    "07/10/2019",
+                    "08/10/2019",
+                    "09/10/2019",
+                    "10/10/2019",
+                  ],
+                }
+              }
+            >
+              <ChartComponent
+                data={
+                  Object {
+                    "datasets": Array [
+                      Object {
+                        "backgroundColor": "rgba(75,192,192,0.4)",
+                        "borderCapStyle": "butt",
+                        "borderColor": "rgba(75,192,192,1)",
+                        "borderDash": Array [],
+                        "borderDashOffset": 0,
+                        "borderJoinStyle": "miter",
+                        "data": Array [
+                          0,
+                          0,
+                          0,
+                          0,
+                          0,
+                          0,
+                          0,
+                          0,
+                        ],
+                        "fill": false,
+                        "label": "Apps",
+                        "lineTension": 0.1,
+                        "pointBackgroundColor": "#fff",
+                        "pointBorderColor": "rgba(75,192,192,1)",
+                        "pointBorderWidth": 1,
+                        "pointHitRadius": 10,
+                        "pointHoverBackgroundColor": "rgba(75,192,192,1)",
+                        "pointHoverBorderColor": "rgba(220,220,220,1)",
+                        "pointHoverBorderWidth": 2,
+                        "pointHoverRadius": 5,
+                        "pointRadius": 1,
+                      },
+                    ],
+                    "labels": Array [
+                      "03/10/2019",
+                      "04/10/2019",
+                      "05/10/2019",
+                      "06/10/2019",
+                      "07/10/2019",
+                      "08/10/2019",
+                      "09/10/2019",
+                      "10/10/2019",
+                    ],
+                  }
+                }
+                datasetKeyProvider={[Function]}
+                height={150}
+                legend={
+                  Object {
+                    "display": true,
+                    "position": "bottom",
+                  }
+                }
+                options={Object {}}
+                redraw={false}
+                type="line"
+                width={300}
+              >
+                <canvas
+                  height={150}
+                  onClick={[Function]}
+                  width={300}
+                />
+              </ChartComponent>
+            </Line>
+          </section>
+        </Component>
+      </Component>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;
+
+exports[`Admin Stats should match snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "adminStats",
+          "pathname": "/admin/stats",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "adminStats",
+              "pathname": "/admin/stats",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "adminStats",
+            "pathname": "/admin/stats",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Component>
+        <Component
+          isHeadingSection={true}
+        >
+          <h3
+            className=""
+            id=""
+          >
+            Stats
+          </h3>
+        </Component>
+        <Component>
+          <section
+            className=""
+            data-test=""
+          >
+            <Component>
+              <h6
+                className=""
+                id=""
+              >
+                Please select an area:
+              </h6>
+            </Component>
+            <Component>
+              <div
+                className="is-centered buttons has-addons "
+              >
+                <Component
+                  className="ml-0"
+                  dataTest="area-apps-btn"
+                  onClick={[Function]}
+                  type="button"
+                  variant="primary"
+                >
+                  <button
+                    className="button ml-0 is-primary  "
+                    data-test="area-apps-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Apps
+                  </button>
+                </Component>
+                <Component
+                  dataTest="area-developers-btn"
+                  onClick={[Function]}
+                  type="button"
+                  variant="secondary"
+                >
+                  <button
+                    className="button  is-secondary  "
+                    data-test="area-developers-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Developers
+                  </button>
+                </Component>
+                <Component
+                  dataTest="area-installations-btn"
+                  onClick={[Function]}
+                  type="button"
+                  variant="secondary"
+                >
+                  <button
+                    className="button  is-secondary  "
+                    data-test="area-installations-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Installations
+                  </button>
+                </Component>
+              </div>
+            </Component>
+            <Component>
+              <h6
+                className=""
+                id=""
+              >
+                Please select a time range:
+              </h6>
+            </Component>
+            <Component>
+              <div
+                className="is-centered buttons has-addons "
+              >
+                <Component
+                  className="ml-0"
+                  dataTest="range-week-btn"
+                  onClick={[Function]}
+                  type="button"
+                  variant="primary"
+                >
+                  <button
+                    className="button ml-0 is-primary  "
+                    data-test="range-week-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Last week
+                  </button>
+                </Component>
+                <Component
+                  dataTest="range-month-btn"
+                  onClick={[Function]}
+                  type="button"
+                  variant="secondary"
+                >
+                  <button
+                    className="button  is-secondary  "
+                    data-test="range-month-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Last Month
+                  </button>
+                </Component>
+                <Component
+                  dataTest="range-all-btn"
+                  onClick={[Function]}
+                  type="button"
+                  variant="secondary"
+                >
+                  <button
+                    className="button  is-secondary  "
+                    data-test="range-all-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    All time
+                  </button>
+                </Component>
+              </div>
+            </Component>
+            <Component>
+              <h6
+                className=""
+                id=""
+              >
+                Showing results for ‘
+                APPS
+                ’ and ‘
+                Last Week
+                ’
+              </h6>
+            </Component>
+          </section>
+        </Component>
+        <Component>
+          <section
+            className=""
+            data-test=""
+          >
+            <Line
+              data={
+                Object {
+                  "datasets": Array [
+                    Object {
+                      "backgroundColor": "rgba(75,192,192,0.4)",
+                      "borderCapStyle": "butt",
+                      "borderColor": "rgba(75,192,192,1)",
+                      "borderDash": Array [],
+                      "borderDashOffset": 0,
+                      "borderJoinStyle": "miter",
+                      "data": Array [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                      ],
+                      "fill": false,
+                      "label": "Apps",
+                      "lineTension": 0.1,
+                      "pointBackgroundColor": "#fff",
+                      "pointBorderColor": "rgba(75,192,192,1)",
+                      "pointBorderWidth": 1,
+                      "pointHitRadius": 10,
+                      "pointHoverBackgroundColor": "rgba(75,192,192,1)",
+                      "pointHoverBorderColor": "rgba(220,220,220,1)",
+                      "pointHoverBorderWidth": 2,
+                      "pointHoverRadius": 5,
+                      "pointRadius": 1,
+                    },
+                  ],
+                  "labels": Array [
+                    "03/10/2019",
+                    "04/10/2019",
+                    "05/10/2019",
+                    "06/10/2019",
+                    "07/10/2019",
+                    "08/10/2019",
+                    "09/10/2019",
+                    "10/10/2019",
+                  ],
+                }
+              }
+            >
+              <ChartComponent
+                data={
+                  Object {
+                    "datasets": Array [
+                      Object {
+                        "backgroundColor": "rgba(75,192,192,0.4)",
+                        "borderCapStyle": "butt",
+                        "borderColor": "rgba(75,192,192,1)",
+                        "borderDash": Array [],
+                        "borderDashOffset": 0,
+                        "borderJoinStyle": "miter",
+                        "data": Array [
+                          0,
+                          0,
+                          0,
+                          0,
+                          0,
+                          0,
+                          0,
+                          0,
+                        ],
+                        "fill": false,
+                        "label": "Apps",
+                        "lineTension": 0.1,
+                        "pointBackgroundColor": "#fff",
+                        "pointBorderColor": "rgba(75,192,192,1)",
+                        "pointBorderWidth": 1,
+                        "pointHitRadius": 10,
+                        "pointHoverBackgroundColor": "rgba(75,192,192,1)",
+                        "pointHoverBorderColor": "rgba(220,220,220,1)",
+                        "pointHoverBorderWidth": 2,
+                        "pointHoverRadius": 5,
+                        "pointRadius": 1,
+                      },
+                    ],
+                    "labels": Array [
+                      "03/10/2019",
+                      "04/10/2019",
+                      "05/10/2019",
+                      "06/10/2019",
+                      "07/10/2019",
+                      "08/10/2019",
+                      "09/10/2019",
+                      "10/10/2019",
+                    ],
+                  }
+                }
+                datasetKeyProvider={[Function]}
+                height={150}
+                legend={
+                  Object {
+                    "display": true,
+                    "position": "bottom",
+                  }
+                }
+                options={Object {}}
+                redraw={false}
+                type="line"
+                width={300}
+              >
+                <canvas
+                  height={150}
+                  onClick={[Function]}
+                  width={300}
+                />
+              </ChartComponent>
+            </Line>
+          </section>
+        </Component>
+      </Component>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;
+
+exports[`Admin Stats should show loading 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "adminStats",
+          "pathname": "/admin/stats",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "adminStats",
+              "pathname": "/admin/stats",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "adminStats",
+            "pathname": "/admin/stats",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Component>
+        <Component
+          isHeadingSection={true}
+        >
+          <h3
+            className=""
+            id=""
+          >
+            Stats
+          </h3>
+        </Component>
+        <Component>
+          <section
+            className=""
+            data-test=""
+          >
+            <Component>
+              <h6
+                className=""
+                id=""
+              >
+                Please select an area:
+              </h6>
+            </Component>
+            <Component>
+              <div
+                className="is-centered buttons has-addons "
+              >
+                <Component
+                  className="ml-0"
+                  dataTest="area-apps-btn"
+                  onClick={[Function]}
+                  type="button"
+                  variant="primary"
+                >
+                  <button
+                    className="button ml-0 is-primary  "
+                    data-test="area-apps-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Apps
+                  </button>
+                </Component>
+                <Component
+                  dataTest="area-developers-btn"
+                  onClick={[Function]}
+                  type="button"
+                  variant="secondary"
+                >
+                  <button
+                    className="button  is-secondary  "
+                    data-test="area-developers-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Developers
+                  </button>
+                </Component>
+                <Component
+                  dataTest="area-installations-btn"
+                  onClick={[Function]}
+                  type="button"
+                  variant="secondary"
+                >
+                  <button
+                    className="button  is-secondary  "
+                    data-test="area-installations-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Installations
+                  </button>
+                </Component>
+              </div>
+            </Component>
+            <Component>
+              <h6
+                className=""
+                id=""
+              >
+                Please select a time range:
+              </h6>
+            </Component>
+            <Component>
+              <div
+                className="is-centered buttons has-addons "
+              >
+                <Component
+                  className="ml-0"
+                  dataTest="range-week-btn"
+                  onClick={[Function]}
+                  type="button"
+                  variant="primary"
+                >
+                  <button
+                    className="button ml-0 is-primary  "
+                    data-test="range-week-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Last week
+                  </button>
+                </Component>
+                <Component
+                  dataTest="range-month-btn"
+                  onClick={[Function]}
+                  type="button"
+                  variant="secondary"
+                >
+                  <button
+                    className="button  is-secondary  "
+                    data-test="range-month-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Last Month
+                  </button>
+                </Component>
+                <Component
+                  dataTest="range-all-btn"
+                  onClick={[Function]}
+                  type="button"
+                  variant="secondary"
+                >
+                  <button
+                    className="button  is-secondary  "
+                    data-test="range-all-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    All time
+                  </button>
+                </Component>
+              </div>
+            </Component>
+            <Component>
+              <h6
+                className=""
+                id=""
+              >
+                Showing results for ‘
+                APPS
+                ’ and ‘
+                Last Week
+                ’
+              </h6>
+            </Component>
+          </section>
+        </Component>
+        <Component>
+          <div
+            className="loader-spinner body"
+            data-test=""
+          >
+            <div />
+            <div />
+            <div />
+            <div />
+          </div>
+        </Component>
+      </Component>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;

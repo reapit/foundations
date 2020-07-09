@@ -13,6 +13,7 @@ import {
   MutationCreateAppointmentReturn,
   MutationUpdateAppointmentReturn,
 } from './appointments'
+import { AppointmentModel } from '@/types'
 
 export const queryGetAppointmentById = (
   _: any,
@@ -70,6 +71,14 @@ export const mutationUpdateAppointment = (
   return appointmentServices.updateAppointment(args, context)
 }
 
+export const queryConfigurations = (appointment: AppointmentModel, _, context: ServerContext) => {
+  return context.dataLoader.configurationLoader.load(appointment.typeId)
+}
+
+export const queryProperties = (appointment: AppointmentModel, _, context: ServerContext) => {
+  return context.dataLoader.propertyLoader.load(appointment.propertyId)
+}
+
 export default {
   Query: {
     GetAppointmentById: queryGetAppointmentById,
@@ -78,5 +87,9 @@ export default {
   Mutation: {
     CreateAppointment: mutationCreateAppointment,
     UpdateAppointment: mutationUpdateAppointment,
+  },
+  AppointmentModel: {
+    property: queryProperties,
+    appointmentType: queryConfigurations,
   },
 }

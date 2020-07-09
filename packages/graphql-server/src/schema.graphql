@@ -22,11 +22,13 @@ type AppointmentModel {
   start: String
   end: String
   typeId: String
+  appointmentType: ListItemModel
   description: String
   recurring: Boolean
   cancelled: Boolean
   followUp: AppointmentModelFollowUp
   propertyId: String
+  property: PropertyModel
   organiserId: String
   negotiatorIds: [String!]
   officeIds: [String!]

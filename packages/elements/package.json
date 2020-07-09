@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "0.5.60",
+  "version": "0.5.61",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "homepage": "https://github.com/reapit/foundations#readme",
   "bugs": {
@@ -50,6 +50,7 @@
     "linaria": "^1.4.0-beta.10",
     "papaparse": "^5.1.1",
     "pell": "^1.0.6",
+    "rc-dialog": "^8.0.1",
     "prop-types": "^15.7.2",
     "rc-notification": "^4.0.0",
     "rc-select": "^10.1.8",
@@ -60,7 +61,7 @@
     "react-google-maps-loader": "4.2.5",
     "react-icons": "^3.7.0",
     "react-image-crop": "8.6.4",
-    "react-table": "7.1.0",
+    "react-table": "7.2.0",
     "react-transition-group": "^4.4.0",
     "styled-components": "^4.4.1",
     "snyk": "^1.338.0"

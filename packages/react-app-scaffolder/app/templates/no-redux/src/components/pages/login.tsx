@@ -3,8 +3,8 @@ import { Redirect } from 'react-router-dom'
 
 import Routes from '@/constants/routes'
 import { Button, Level } from '@reapit/elements'
-<% if (stylesSolution == 'sass') { %>import loginStyles from '@/styles/pages/login.scss?mod'<%}%>
-<% if (stylesSolution == 'styledComponents') { %>import { Container, Wrapper, ImageContainer } from './__styles__/login'<%}%>
+import loginStyles from '@/styles/pages/login.scss?mod'
+
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 import connectImage from '@/assets/images/reapit-connect.png'
 import { AuthContext } from '@/context'
@@ -18,7 +18,7 @@ export const redirectToLoginPage = () => {
 export const Login: React.FunctionComponent = () => {
   const loginHandler = React.useCallback(redirectToLoginPage, [])
 
-  <% if (stylesSolution == 'sass') { %>const { wrapper, container, image } = loginStyles<%}%>
+  const { wrapper, container, image } = loginStyles
 
   const { loginSession } = React.useContext(AuthContext)
 
@@ -27,42 +27,24 @@ export const Login: React.FunctionComponent = () => {
   }
 
   return (
-    <% if (stylesSolution == 'sass') { %><div className={container}>
+    <div className={container}>
       <div className={wrapper}>
         <Level>
           <img src={connectImage} alt="Reapit Connect Graphic" />
         </Level>
-        <p className="pb-8">Welcome to <%= name %></p><%}%>
-
-    <% if (stylesSolution == 'styledComponents') { %><Container>
-      <Wrapper>
-        <Level>
-          <img src={connectImage} alt="Reapit Connect Graphic" />
-        </Level>
-        <p className="pb-8">Welcome to <%= name %></p><%}%>
+        <p className="pb-8">Welcome to app-name</p>
 
         <Level>
           <Button fullWidth type="submit" variant="primary" onClick={loginHandler}>
             Login
           </Button>
         </Level>
-
-        <% if (stylesSolution == 'sass') { %>
-          </div>
-
-        <div className={image}>
-          <img src={logoImage} alt="Reapit Graphic" />
-        </div>
       </div>
-        <%}%>
-        <% if (stylesSolution == 'styledComponents') { %>
-          </Wrapper>
 
-          <ImageContainer>
-            <img src={logoImage} alt="Reapit Graphic" />
-          </ImageContainer>
-        </Container>
-        <%}%>
+      <div className={image}>
+        <img src={logoImage} alt="Reapit Graphic" />
+      </div>
+    </div>
   )
 }
 

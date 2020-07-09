@@ -12,7 +12,7 @@ const LoginPage = React.lazy(() => catchChunkError(() => import('../components/p
 const Appointment = React.lazy(() => catchChunkError(() => import('../components/pages/appointment')))
 
 export const ROUTES = {
-  HOME: '/',
+  APPOINTMENT: '/',
   LOGIN: '/login',
 }
 
@@ -23,7 +23,7 @@ const Router = () => (
         <Route path={ROUTES.LOGIN} component={LoginPage} />
         <PrivateRouteWrapper>
           <Switch>
-            <PrivateRoute allow="CLIENT" path={ROUTES.HOME} component={Appointment} />
+            <PrivateRoute allow="CLIENT" path={ROUTES.APPOINTMENT} component={Appointment} />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={ROUTES.LOGIN} />

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ClientAppContent ClientAppContent - should match snapshot 1`] = `
+<Component
+  hasMargin={false}
+  hasPadding={false}
+  isFlex={true}
+  isFlexColumn={true}
+>
+  <Component
+    summary=""
+  />
+  <Component
+    images={Array []}
+    numberImages={2}
+    splitIndex={1}
+  />
+  <Component
+    description=""
+  />
+  <Component
+    images={Array []}
+    numberImages={2}
+    splitIndex={3}
+  />
+  <Component
+    permissions={Array []}
+  />
+</Component>
+`;

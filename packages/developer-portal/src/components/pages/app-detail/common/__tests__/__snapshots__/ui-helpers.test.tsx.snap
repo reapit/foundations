@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Ui Sections <AppDetailSection /> should match snapshot 1`] = `
+<Component
+  dataTest="some-test-id"
+>
+  <Component
+    className="mb-2"
+  >
+    test
+  </Component>
+  some text
+</Component>
+`;
+
+exports[`Ui Sections <ImageSection /> should match snapshot for has image 1`] = `
+<Component
+  className="flex justify-center items-center"
+>
+  <img
+    alt="some image"
+    src="https://image.com"
+  />
+</Component>
+`;
+
+exports[`Ui Sections <ImageSection /> should match snapshot for no images 1`] = `""`;
+
+exports[`Ui Sections <Tag /> should match snapshot 1`] = `
+<div>
+  Test
+</div>
+`;

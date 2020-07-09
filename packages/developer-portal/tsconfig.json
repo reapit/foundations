@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "sourceRoot": "/",
+    "paths": {
+      "@/*": ["src/*"],
+      "@reapit/elements": ["../elements/src"],
+      "@reapit/cognito-auth": ["../cognito-auth/src"],
+      "@reapit/utils": ["../utils/index.ts"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["public", "dist", "node_modules", "src/tests/coverage", "src/tests/cypress"]
+}

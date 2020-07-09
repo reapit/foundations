@@ -1,0 +1,1020 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GeneralInformationSection should match a snapshot when isListed equal to false 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Formik
+    initialValues={Object {}}
+    onSubmit={[Function]}
+  >
+    <Form>
+      <form
+        action="#"
+        onReset={[Function]}
+        onSubmit={[Function]}
+      >
+        <GeneralInformationSection
+          isListed={false}
+        >
+          <Component
+            data-test="submit-app-form"
+          >
+            <div
+              className=""
+            >
+              <Component>
+                <div
+                  className="notification helper-wrap helper-info"
+                >
+                  For more information on how to complete this form, please view our "Step-by-step" guide 
+                  <a
+                    className={[Function]}
+                    href="https://foundations-documentation.reapit.cloud/developer-portal"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    here
+                  </a>
+                </div>
+              </Component>
+              <Component>
+                <div
+                  className=""
+                >
+                  App Listing
+                </div>
+              </Component>
+              <Component>
+                <div
+                  className=""
+                >
+                  The section below relates to the fields that comprise the listing of your application as it will appear to a user in the Marketplace. It also includes details we will use to enable us to contact you about your submitted application, how best to make your app discoverable to users and to determine where to launch it from the marketplace.
+                </div>
+              </Component>
+              <Component
+                isMultiLine={true}
+              >
+                <div
+                  className=""
+                  data-test=""
+                >
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component
+                        dataTest="submit-app-name"
+                        id="name"
+                        labelText="Name"
+                        name="name"
+                        placeholder="The name of your app as it will appear to users"
+                        required={true}
+                        type="text"
+                      >
+                        <Field
+                          name="name"
+                          validate={[Function]}
+                        >
+                          <div
+                            className="field"
+                          >
+                            <div
+                              className="control "
+                            >
+                              <label
+                                className="label inline-block required-label"
+                                htmlFor="name"
+                              >
+                                Name
+                              </label>
+                              <input
+                                className="input is-primary"
+                                data-test="submit-app-name"
+                                disabled={false}
+                                id="name"
+                                name="name"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="The name of your app as it will appear to users"
+                                type="text"
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </Field>
+                      </Component>
+                    </div>
+                  </Component>
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component
+                        id="categoryId"
+                        labelText="Category"
+                        name="categoryId"
+                        options={Array []}
+                      >
+                        <Field
+                          name="categoryId"
+                          validate={null}
+                        >
+                          <div
+                            className="field pb-2"
+                          >
+                            <div
+                              className="control"
+                            >
+                              <label
+                                className="label "
+                                htmlFor="categoryId"
+                              >
+                                Category
+                              </label>
+                              <select
+                                className="input is-primary "
+                                data-test=""
+                                name="categoryId"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                value=""
+                              >
+                                <option
+                                  disabled={true}
+                                  hidden={true}
+                                  value=""
+                                >
+                                  Please select
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                        </Field>
+                      </Component>
+                    </div>
+                  </Component>
+                </div>
+              </Component>
+              <Component>
+                <div
+                  className=""
+                  data-test=""
+                >
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component
+                        dataTest="submit-app-support-email"
+                        id="supportEmail"
+                        labelText="Support email"
+                        name="supportEmail"
+                        placeholder="The contact to your support team if your users have a problem"
+                        required={false}
+                        type="email"
+                      >
+                        <Field
+                          name="supportEmail"
+                          validate={null}
+                        >
+                          <div
+                            className="field"
+                          >
+                            <div
+                              className="control "
+                            >
+                              <label
+                                className="label inline-block "
+                                htmlFor="supportEmail"
+                              >
+                                Support email
+                              </label>
+                              <input
+                                className="input is-primary"
+                                data-test="submit-app-support-email"
+                                disabled={false}
+                                id="supportEmail"
+                                name="supportEmail"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="The contact to your support team if your users have a problem"
+                                type="email"
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </Field>
+                      </Component>
+                    </div>
+                  </Component>
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component
+                        dataTest="submit-app-phone"
+                        id="telephone"
+                        labelText="Telephone"
+                        name="telephone"
+                        placeholder="Should one of our developers need to contact you about your app"
+                        required={false}
+                        type="tel"
+                      >
+                        <Field
+                          name="telephone"
+                          validate={null}
+                        >
+                          <div
+                            className="field"
+                          >
+                            <div
+                              className="control "
+                            >
+                              <label
+                                className="label inline-block "
+                                htmlFor="telephone"
+                              >
+                                Telephone
+                              </label>
+                              <input
+                                className="input is-primary"
+                                data-test="submit-app-phone"
+                                disabled={false}
+                                id="telephone"
+                                name="telephone"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="Should one of our developers need to contact you about your app"
+                                type="tel"
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </Field>
+                      </Component>
+                    </div>
+                  </Component>
+                </div>
+              </Component>
+              <Component>
+                <div
+                  className=""
+                  data-test=""
+                >
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component
+                        dataTest="submit-app-home-page"
+                        id="homePage"
+                        labelText="Home page"
+                        name="homePage"
+                        placeholder="Your company homepage. HTTP:// or HTTPS://"
+                        required={false}
+                        type="text"
+                      >
+                        <Field
+                          name="homePage"
+                          validate={null}
+                        >
+                          <div
+                            className="field"
+                          >
+                            <div
+                              className="control "
+                            >
+                              <label
+                                className="label inline-block "
+                                htmlFor="homePage"
+                              >
+                                Home page
+                              </label>
+                              <input
+                                className="input is-primary"
+                                data-test="submit-app-home-page"
+                                disabled={false}
+                                id="homePage"
+                                name="homePage"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="Your company homepage. HTTP:// or HTTPS://"
+                                type="text"
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </Field>
+                      </Component>
+                    </div>
+                  </Component>
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component
+                        dataTest="submit-app-launch-uri"
+                        id="launchUri"
+                        labelText="Launch URI"
+                        name="launchUri"
+                        placeholder="The launch page for your app. HTTPS only other than for http://localhost"
+                        required={false}
+                        type="text"
+                      >
+                        <Field
+                          name="launchUri"
+                          validate={null}
+                        >
+                          <div
+                            className="field"
+                          >
+                            <div
+                              className="control "
+                            >
+                              <label
+                                className="label inline-block "
+                                htmlFor="launchUri"
+                              >
+                                Launch URI
+                              </label>
+                              <input
+                                className="input is-primary"
+                                data-test="submit-app-launch-uri"
+                                disabled={false}
+                                id="launchUri"
+                                name="launchUri"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="The launch page for your app. HTTPS only other than for http://localhost"
+                                type="text"
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </Field>
+                      </Component>
+                    </div>
+                  </Component>
+                </div>
+              </Component>
+              <Component>
+                <div
+                  className=""
+                  data-test=""
+                >
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component
+                        dataTest="submit-app-summary"
+                        id="summary"
+                        labelText="Summary"
+                        name="summary"
+                        placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
+                        required={false}
+                      >
+                        <Field
+                          name="summary"
+                          validate={null}
+                        >
+                          <div
+                            className="field"
+                          >
+                            <div
+                              className="control"
+                            >
+                              <label
+                                className=""
+                                htmlFor="summary"
+                              >
+                                Summary
+                              </label>
+                              <textarea
+                                className=""
+                                data-test="submit-app-summary"
+                                id="summary"
+                                name="summary"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
+                              />
+                            </div>
+                          </div>
+                        </Field>
+                      </Component>
+                    </div>
+                  </Component>
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component
+                        actions={
+                          Array [
+                            "bold",
+                            "italic",
+                            "paragraph",
+                            "olist",
+                            "ulist",
+                            "link",
+                            Object {
+                              "icon": "<b>H<sub>5</sub></b>",
+                              "name": "test",
+                              "result": [Function],
+                              "title": "Add heading 5",
+                            },
+                          ]
+                        }
+                        dataTest="submit-app-description"
+                        id="description"
+                        labelText="Description"
+                        name="description"
+                        placeholder="A detailed description for your app listing. Must be between 150 and 1000 characters. Please note: As this field supports HTML, special characters will be included in the character count"
+                        required={false}
+                      >
+                        <div
+                          className="field pb-2"
+                        >
+                          <div
+                            className="control"
+                          >
+                            <label
+                              className="label "
+                              htmlFor="description"
+                            >
+                              Description
+                            </label>
+                            <Component
+                              actions={
+                                Array [
+                                  "bold",
+                                  "italic",
+                                  "paragraph",
+                                  "olist",
+                                  "ulist",
+                                  "link",
+                                  Object {
+                                    "icon": "<b>H<sub>5</sub></b>",
+                                    "name": "test",
+                                    "result": [Function],
+                                    "title": "Add heading 5",
+                                  },
+                                ]
+                              }
+                              dataTest="submit-app-description"
+                              hasError={false}
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              onPaste={[Function]}
+                              placeholder="A detailed description for your app listing. Must be between 150 and 1000 characters. Please note: As this field supports HTML, special characters will be included in the character count"
+                            >
+                              <div
+                                className="pell false "
+                                data-test="submit-app-description"
+                                onBlur={[Function]}
+                                onPaste={[Function]}
+                              />
+                            </Component>
+                          </div>
+                        </div>
+                      </Component>
+                    </div>
+                  </Component>
+                </div>
+              </Component>
+            </div>
+          </Component>
+        </GeneralInformationSection>
+      </form>
+    </Form>
+  </Formik>
+</Provider>
+`;
+
+exports[`GeneralInformationSection should match a snapshot when isListed equal to true 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Formik
+    initialValues={Object {}}
+    onSubmit={[Function]}
+  >
+    <Form>
+      <form
+        action="#"
+        onReset={[Function]}
+        onSubmit={[Function]}
+      >
+        <GeneralInformationSection
+          isListed={true}
+        >
+          <Component
+            data-test="submit-app-form"
+          >
+            <div
+              className=""
+            >
+              <Component>
+                <div
+                  className="notification helper-wrap helper-info"
+                >
+                  For more information on how to complete this form, please view our "Step-by-step" guide 
+                  <a
+                    className={[Function]}
+                    href="https://foundations-documentation.reapit.cloud/developer-portal"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    here
+                  </a>
+                </div>
+              </Component>
+              <Component>
+                <div
+                  className=""
+                >
+                  App Listing
+                </div>
+              </Component>
+              <Component>
+                <div
+                  className=""
+                >
+                  The section below relates to the fields that comprise the listing of your application as it will appear to a user in the Marketplace. It also includes details we will use to enable us to contact you about your submitted application, how best to make your app discoverable to users and to determine where to launch it from the marketplace.
+                </div>
+              </Component>
+              <Component
+                isMultiLine={true}
+              >
+                <div
+                  className=""
+                  data-test=""
+                >
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component
+                        dataTest="submit-app-name"
+                        id="name"
+                        labelText="Name"
+                        name="name"
+                        placeholder="The name of your app as it will appear to users"
+                        required={true}
+                        type="text"
+                      >
+                        <Field
+                          name="name"
+                          validate={[Function]}
+                        >
+                          <div
+                            className="field"
+                          >
+                            <div
+                              className="control "
+                            >
+                              <label
+                                className="label inline-block required-label"
+                                htmlFor="name"
+                              >
+                                Name
+                              </label>
+                              <input
+                                className="input is-primary"
+                                data-test="submit-app-name"
+                                disabled={false}
+                                id="name"
+                                name="name"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="The name of your app as it will appear to users"
+                                type="text"
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </Field>
+                      </Component>
+                    </div>
+                  </Component>
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component
+                        id="categoryId"
+                        labelText="Category"
+                        name="categoryId"
+                        options={Array []}
+                      >
+                        <Field
+                          name="categoryId"
+                          validate={null}
+                        >
+                          <div
+                            className="field pb-2"
+                          >
+                            <div
+                              className="control"
+                            >
+                              <label
+                                className="label "
+                                htmlFor="categoryId"
+                              >
+                                Category
+                              </label>
+                              <select
+                                className="input is-primary "
+                                data-test=""
+                                name="categoryId"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                value=""
+                              >
+                                <option
+                                  disabled={true}
+                                  hidden={true}
+                                  value=""
+                                >
+                                  Please select
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                        </Field>
+                      </Component>
+                    </div>
+                  </Component>
+                </div>
+              </Component>
+              <Component>
+                <div
+                  className=""
+                  data-test=""
+                >
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component
+                        dataTest="submit-app-support-email"
+                        id="supportEmail"
+                        labelText="Support email"
+                        name="supportEmail"
+                        placeholder="The contact to your support team if your users have a problem"
+                        required={true}
+                        type="email"
+                      >
+                        <Field
+                          name="supportEmail"
+                          validate={[Function]}
+                        >
+                          <div
+                            className="field"
+                          >
+                            <div
+                              className="control "
+                            >
+                              <label
+                                className="label inline-block required-label"
+                                htmlFor="supportEmail"
+                              >
+                                Support email
+                              </label>
+                              <input
+                                className="input is-primary"
+                                data-test="submit-app-support-email"
+                                disabled={false}
+                                id="supportEmail"
+                                name="supportEmail"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="The contact to your support team if your users have a problem"
+                                type="email"
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </Field>
+                      </Component>
+                    </div>
+                  </Component>
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component
+                        dataTest="submit-app-phone"
+                        id="telephone"
+                        labelText="Telephone"
+                        name="telephone"
+                        placeholder="Should one of our developers need to contact you about your app"
+                        required={true}
+                        type="tel"
+                      >
+                        <Field
+                          name="telephone"
+                          validate={[Function]}
+                        >
+                          <div
+                            className="field"
+                          >
+                            <div
+                              className="control "
+                            >
+                              <label
+                                className="label inline-block required-label"
+                                htmlFor="telephone"
+                              >
+                                Telephone
+                              </label>
+                              <input
+                                className="input is-primary"
+                                data-test="submit-app-phone"
+                                disabled={false}
+                                id="telephone"
+                                name="telephone"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="Should one of our developers need to contact you about your app"
+                                type="tel"
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </Field>
+                      </Component>
+                    </div>
+                  </Component>
+                </div>
+              </Component>
+              <Component>
+                <div
+                  className=""
+                  data-test=""
+                >
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component
+                        dataTest="submit-app-home-page"
+                        id="homePage"
+                        labelText="Home page"
+                        name="homePage"
+                        placeholder="Your company homepage. HTTP:// or HTTPS://"
+                        required={true}
+                        type="text"
+                      >
+                        <Field
+                          name="homePage"
+                          validate={[Function]}
+                        >
+                          <div
+                            className="field"
+                          >
+                            <div
+                              className="control "
+                            >
+                              <label
+                                className="label inline-block required-label"
+                                htmlFor="homePage"
+                              >
+                                Home page
+                              </label>
+                              <input
+                                className="input is-primary"
+                                data-test="submit-app-home-page"
+                                disabled={false}
+                                id="homePage"
+                                name="homePage"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="Your company homepage. HTTP:// or HTTPS://"
+                                type="text"
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </Field>
+                      </Component>
+                    </div>
+                  </Component>
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component
+                        dataTest="submit-app-launch-uri"
+                        id="launchUri"
+                        labelText="Launch URI"
+                        name="launchUri"
+                        placeholder="The launch page for your app. HTTPS only other than for http://localhost"
+                        required={true}
+                        type="text"
+                      >
+                        <Field
+                          name="launchUri"
+                          validate={[Function]}
+                        >
+                          <div
+                            className="field"
+                          >
+                            <div
+                              className="control "
+                            >
+                              <label
+                                className="label inline-block required-label"
+                                htmlFor="launchUri"
+                              >
+                                Launch URI
+                              </label>
+                              <input
+                                className="input is-primary"
+                                data-test="submit-app-launch-uri"
+                                disabled={false}
+                                id="launchUri"
+                                name="launchUri"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="The launch page for your app. HTTPS only other than for http://localhost"
+                                type="text"
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </Field>
+                      </Component>
+                    </div>
+                  </Component>
+                </div>
+              </Component>
+              <Component>
+                <div
+                  className=""
+                  data-test=""
+                >
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component
+                        dataTest="submit-app-summary"
+                        id="summary"
+                        labelText="Summary"
+                        name="summary"
+                        placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
+                        required={true}
+                      >
+                        <Field
+                          name="summary"
+                        >
+                          <div
+                            className="field"
+                          >
+                            <div
+                              className="control"
+                            >
+                              <label
+                                className=""
+                                htmlFor="summary"
+                              >
+                                Summary
+                              </label>
+                              <textarea
+                                className=""
+                                data-test="submit-app-summary"
+                                id="summary"
+                                name="summary"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
+                              />
+                            </div>
+                          </div>
+                        </Field>
+                      </Component>
+                    </div>
+                  </Component>
+                  <Component>
+                    <div
+                      className=""
+                      data-test=""
+                    >
+                      <Component
+                        actions={
+                          Array [
+                            "bold",
+                            "italic",
+                            "paragraph",
+                            "olist",
+                            "ulist",
+                            "link",
+                            Object {
+                              "icon": "<b>H<sub>5</sub></b>",
+                              "name": "test",
+                              "result": [Function],
+                              "title": "Add heading 5",
+                            },
+                          ]
+                        }
+                        dataTest="submit-app-description"
+                        id="description"
+                        labelText="Description"
+                        name="description"
+                        placeholder="A detailed description for your app listing. Must be between 150 and 1000 characters. Please note: As this field supports HTML, special characters will be included in the character count"
+                        required={true}
+                      >
+                        <div
+                          className="field pb-2"
+                        >
+                          <div
+                            className="control"
+                          >
+                            <label
+                              className="label required-label"
+                              htmlFor="description"
+                            >
+                              Description
+                            </label>
+                            <Component
+                              actions={
+                                Array [
+                                  "bold",
+                                  "italic",
+                                  "paragraph",
+                                  "olist",
+                                  "ulist",
+                                  "link",
+                                  Object {
+                                    "icon": "<b>H<sub>5</sub></b>",
+                                    "name": "test",
+                                    "result": [Function],
+                                    "title": "Add heading 5",
+                                  },
+                                ]
+                              }
+                              dataTest="submit-app-description"
+                              hasError={false}
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              onPaste={[Function]}
+                              placeholder="A detailed description for your app listing. Must be between 150 and 1000 characters. Please note: As this field supports HTML, special characters will be included in the character count"
+                            >
+                              <div
+                                className="pell false "
+                                data-test="submit-app-description"
+                                onBlur={[Function]}
+                                onPaste={[Function]}
+                              />
+                            </Component>
+                          </div>
+                        </div>
+                      </Component>
+                    </div>
+                  </Component>
+                </div>
+              </Component>
+            </div>
+          </Component>
+        </GeneralInformationSection>
+      </form>
+    </Form>
+  </Formik>
+</Provider>
+`;

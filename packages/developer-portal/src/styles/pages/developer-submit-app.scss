@@ -1,0 +1,33 @@
+@import '../base/screen-size.scss';
+
+.terms-submit-app {
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  font-weight: bold;
+
+  @media screen and (min-width: 768px) {
+    white-space: nowrap;
+  }
+}
+.label-terms {
+  cursor: pointer;
+}
+.terms-link {
+  text-decoration: underline;
+}
+
+.container {
+  flex-shrink: 0;
+}
+
+.errorScope {
+  width: 100%;
+}
+
+.gridMaxHalfWidth {
+  @include for-tablet-and-desktop {
+    max-width: 50%;
+  }
+  max-width: 100%;
+}

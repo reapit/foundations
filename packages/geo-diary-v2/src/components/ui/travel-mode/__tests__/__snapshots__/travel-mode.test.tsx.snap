@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`travel-mode TravelMode should match snapshot 1`] = `
+<Component>
+  <Component
+    className=""
+    onClick={[Function]}
+    type="button"
+    variant="secondary"
+  >
+    Car
+  </Component>
+  <Component
+    className=""
+    onClick={[Function]}
+    type="button"
+    variant="secondary"
+  >
+    Walk
+  </Component>
+</Component>
+`;

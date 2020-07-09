@@ -209,208 +209,202 @@ exports[`checklist-detail ChecklistDetail should match snapshot when loading 1`]
 exports[`checklist-detail ChecklistDetail should match snapshot when not loading 1`] = `
 <Connect(ErrorBoundary)>
   <Component
-    isScrollable={true}
+    hasBackground={false}
+    hasPadding={false}
   >
-    <div>
+    <Connect(Component) />
+    <div
+      className="pb-4"
+      key="0"
+    >
       <Component
-        flexColumn={true}
-        hasPadding={true}
+        heading="Personal Details"
+        menu={
+          <div>
+            <div
+              className="undefined undefined"
+            >
+              <FaCheck />
+              <span>
+                Completed
+              </span>
+            </div>
+            <Unknown
+              type="button"
+              variant="primary"
+            >
+              Edit
+            </Unknown>
+          </div>
+        }
       >
-        <Connect(Component) />
         <div
-          className="pb-4"
-          key="0"
+          className="undefined undefined"
         >
-          <Component
-            heading="Personal Details"
-            menu={
-              <div>
-                <div
-                  className="undefined undefined"
-                >
-                  <FaCheck />
-                  <span>
-                    Completed
-                  </span>
-                </div>
-                <Unknown
-                  type="button"
-                  variant="primary"
-                >
-                  Edit
-                </Unknown>
-              </div>
-            }
-          >
-            <div
-              className="undefined undefined"
-            >
-              <FaCheck />
-              <span>
-                Completed
-              </span>
-            </div>
-          </Component>
-        </div>
-        <div
-          className="pb-4"
-          key="1"
-        >
-          <Component
-            heading="Primary ID"
-            menu={
-              <div>
-                <div
-                  className="undefined undefined"
-                >
-                  <FaTimes />
-                  <span>
-                    Incomplete
-                  </span>
-                </div>
-                <Unknown
-                  type="button"
-                  variant="primary"
-                >
-                  Edit
-                </Unknown>
-              </div>
-            }
-          >
-            <div
-              className="undefined undefined"
-            >
-              <FaTimes />
-              <span>
-                Incomplete
-              </span>
-            </div>
-          </Component>
-        </div>
-        <div
-          className="pb-4"
-          key="2"
-        >
-          <Component
-            heading="Secondary ID"
-            menu={
-              <div>
-                <div
-                  className="undefined undefined"
-                >
-                  <FaCheck />
-                  <span>
-                    Completed
-                  </span>
-                </div>
-                <Unknown
-                  type="button"
-                  variant="primary"
-                >
-                  Edit
-                </Unknown>
-              </div>
-            }
-          >
-            <div
-              className="undefined undefined"
-            >
-              <FaCheck />
-              <span>
-                Completed
-              </span>
-            </div>
-          </Component>
-        </div>
-        <div
-          className="pb-4"
-          key="3"
-        >
-          <Component
-            heading="Address Information"
-            menu={
-              <div>
-                <div
-                  className="undefined undefined"
-                >
-                  <FaTimes />
-                  <span>
-                    Incomplete
-                  </span>
-                </div>
-                <Unknown
-                  type="button"
-                  variant="primary"
-                >
-                  Edit
-                </Unknown>
-              </div>
-            }
-          >
-            <div
-              className="undefined undefined"
-            >
-              <FaTimes />
-              <span>
-                Incomplete
-              </span>
-            </div>
-          </Component>
-        </div>
-        <div
-          className="pb-4"
-          key="4"
-        >
-          <Component
-            heading="Declaration Risk Management"
-            menu={
-              <div>
-                <div
-                  className="undefined undefined"
-                >
-                  <FaTimes />
-                  <span>
-                    Incomplete
-                  </span>
-                </div>
-                <Unknown
-                  type="button"
-                  variant="primary"
-                >
-                  Edit
-                </Unknown>
-              </div>
-            }
-          >
-            <div
-              className="undefined undefined"
-            >
-              <FaTimes />
-              <span>
-                Incomplete
-              </span>
-            </div>
-          </Component>
-        </div>
-        <div
-          className="pb-4"
-          key="5"
-        >
-          <Component
-            heading="Report"
-            menu={
-              <div>
-                <Unknown
-                  type="button"
-                  variant="primary"
-                >
-                  View
-                </Unknown>
-              </div>
-            }
-          />
+          <FaCheck />
+          <span>
+            Completed
+          </span>
         </div>
       </Component>
+    </div>
+    <div
+      className="pb-4"
+      key="1"
+    >
+      <Component
+        heading="Primary ID"
+        menu={
+          <div>
+            <div
+              className="undefined undefined"
+            >
+              <FaTimes />
+              <span>
+                Incomplete
+              </span>
+            </div>
+            <Unknown
+              type="button"
+              variant="primary"
+            >
+              Edit
+            </Unknown>
+          </div>
+        }
+      >
+        <div
+          className="undefined undefined"
+        >
+          <FaTimes />
+          <span>
+            Incomplete
+          </span>
+        </div>
+      </Component>
+    </div>
+    <div
+      className="pb-4"
+      key="2"
+    >
+      <Component
+        heading="Secondary ID"
+        menu={
+          <div>
+            <div
+              className="undefined undefined"
+            >
+              <FaCheck />
+              <span>
+                Completed
+              </span>
+            </div>
+            <Unknown
+              type="button"
+              variant="primary"
+            >
+              Edit
+            </Unknown>
+          </div>
+        }
+      >
+        <div
+          className="undefined undefined"
+        >
+          <FaCheck />
+          <span>
+            Completed
+          </span>
+        </div>
+      </Component>
+    </div>
+    <div
+      className="pb-4"
+      key="3"
+    >
+      <Component
+        heading="Address Information"
+        menu={
+          <div>
+            <div
+              className="undefined undefined"
+            >
+              <FaTimes />
+              <span>
+                Incomplete
+              </span>
+            </div>
+            <Unknown
+              type="button"
+              variant="primary"
+            >
+              Edit
+            </Unknown>
+          </div>
+        }
+      >
+        <div
+          className="undefined undefined"
+        >
+          <FaTimes />
+          <span>
+            Incomplete
+          </span>
+        </div>
+      </Component>
+    </div>
+    <div
+      className="pb-4"
+      key="4"
+    >
+      <Component
+        heading="Declaration Risk Management"
+        menu={
+          <div>
+            <div
+              className="undefined undefined"
+            >
+              <FaTimes />
+              <span>
+                Incomplete
+              </span>
+            </div>
+            <Unknown
+              type="button"
+              variant="primary"
+            >
+              Edit
+            </Unknown>
+          </div>
+        }
+      >
+        <div
+          className="undefined undefined"
+        >
+          <FaTimes />
+          <span>
+            Incomplete
+          </span>
+        </div>
+      </Component>
+    </div>
+    <div
+      className="pb-4"
+      key="5"
+    >
+      <Component
+        heading="Report"
+        menu={
+          <div>
+            <Unknown
+              type="button"
+              variant="primary"
+            >
+              View
+            </Unknown>
+          </div>
+        }
+      />
     </div>
   </Component>
   <Component

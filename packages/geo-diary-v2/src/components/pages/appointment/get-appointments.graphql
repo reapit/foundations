@@ -1,0 +1,22 @@
+#import "../../../graphql/fragments/appointment-model.graphql"
+#import "../../../graphql/fragments/property-model.graphql"
+#import "../../../graphql/fragments/list-item-model.graphql"
+
+query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!, $includeCancelled: Boolean, $includeUnconfirmed: Boolean) {
+  GetAppointments(negotiatorId: $negotiatorId, start: $start, end: $end, includeCancelled: $includeCancelled, includeUnconfirmed: $includeUnconfirmed) {
+    pageNumber
+    pageSize
+    pageCount
+    totalCount
+    _links
+    _embedded {
+      ...AppointmentModel
+      property{
+        ...PropertyModel
+      }
+      appointmentType {
+        ...ListItemModel
+      }
+    }
+  }
+}

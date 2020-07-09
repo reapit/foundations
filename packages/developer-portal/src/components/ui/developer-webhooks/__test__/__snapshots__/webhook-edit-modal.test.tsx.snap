@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WebhookEditModal should match a snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Memo()
+    afterClose={[MockFunction]}
+    appId=""
+    closeModal={[MockFunction]}
+    isUpdate={true}
+    visible={true}
+    webhookId="testWebhookId"
+  >
+    <Component
+      afterClose={[MockFunction]}
+      renderChildren={true}
+      visible={true}
+    />
+  </Memo()>
+</Provider>
+`;

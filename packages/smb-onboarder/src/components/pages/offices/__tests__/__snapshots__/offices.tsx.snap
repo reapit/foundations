@@ -306,7 +306,7 @@ exports[`Page Offices Component Offices should match a snapshot 1`] = `
                     }
                   >
                     <div
-                      className="tabs is-fullwidth"
+                      className=""
                       role="tablist"
                     >
                       <ul>

@@ -1,3 +1,4 @@
+import { injectSwitchModeToWindow } from '@reapit/elements'
 import {
   createStore,
   applyMiddleware,
@@ -51,6 +52,7 @@ export class Store {
   reduxStore: ReduxStore<ReduxState>
 
   constructor() {
+    injectSwitchModeToWindow()
     const composed = Store.composeEnhancers(applyMiddleware(Store.sagaMiddleware))
 
     this.reduxStore = createStore(Store.reducers, composed)

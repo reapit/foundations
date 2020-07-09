@@ -49,7 +49,9 @@ exports[`AMLProgressBar AMLProgressBar should match snapshot 1`] = `
       <ProgressBar
         percentage={40}
       />
-      <div>
+      <div
+        className="has-text-right"
+      >
         2
         /
         5

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { CoordinateProps, Coords, Map, combineAddress } from '@reapit/elements'
+import { Map, combineAddress } from '@reapit/elements'
 import { connect } from 'react-redux'
 import { ReduxState, ExtendedAppointmentModel } from '@/types/core'
 import invalidValues from '@/constants/invalid-values'
@@ -7,6 +7,7 @@ import styles from '@/styles/pages/map.scss?mod'
 import MapPanel from '../ui/map-panel'
 import { appointmentDetailRequestData } from '@/actions/appointment-detail'
 import { Dispatch } from 'redux'
+import { CoordinateProps, Coords } from '@reapit/elements/src/components/Map'
 // TODO - Commenting out for demo as need better resolution on projector
 // import { mapStyles } from './map-styles'
 
