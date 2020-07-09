@@ -7,7 +7,7 @@ export function getAuthRoute() {
 
 export function getDefaultRoute({ isFirstTimeLoginComplete }) {
   return !isFirstTimeLoginComplete && !getMarketplaceGlobalsByKey()
-    ? `${window.location.origin}${Routes.CLIENT_WELCOME}`
+    ? `${window.location.origin}${Routes.WELCOME}`
     : `${window.location.origin}${Routes.INSTALLED_APPS}`
 }
 
@@ -21,5 +21,5 @@ export function getDefaultPath({
   if (isDesktopMode) {
     return Routes.INSTALLED_APPS
   }
-  return !isFirstTimeLoginComplete ? Routes.CLIENT_WELCOME : Routes.INSTALLED_APPS
+  return !isFirstTimeLoginComplete ? Routes.WELCOME : Routes.INSTALLED_APPS
 }

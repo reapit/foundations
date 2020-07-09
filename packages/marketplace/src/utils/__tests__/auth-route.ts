@@ -23,6 +23,6 @@ describe('getDefaultPath', () => {
     expect(getDefaultPath({ isDesktopMode: false, isFirstTimeLoginComplete: true })).toEqual(Routes.INSTALLED_APPS)
   })
   it('should return INSTALLED_APPS ', () => {
-    expect(getDefaultPath({ isDesktopMode: false, isFirstTimeLoginComplete: false })).toEqual(Routes.CLIENT_WELCOME)
+    expect(getDefaultPath({ isDesktopMode: false, isFirstTimeLoginComplete: false })).toEqual(Routes.WELCOME)
   })
 })

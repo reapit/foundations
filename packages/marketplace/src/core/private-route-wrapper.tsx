@@ -12,7 +12,6 @@ import { authSetRefreshSession, setInitClientTermsAcceptedStateFromCookie } from
 import { getCookieString, COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE } from '@/utils/cookie'
 import { selectLoginSession, selectRefreshSession } from '@/selector/auth'
 import { ActionCreator } from '@/types/core'
-import Routes from '@/constants/routes'
 
 const { Suspense } = React
 
@@ -104,7 +103,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
           flexColumn
           // I want to allow scrolling beyond the end of the page to allow for the toast notification
           // except on the Gitbook page because the iframe handles it's own scrolling
-          isPageContainer={location.pathname !== Routes.DEVELOPER_API_DOCS}
+          isPageContainer
         >
           <Suspense
             fallback={
