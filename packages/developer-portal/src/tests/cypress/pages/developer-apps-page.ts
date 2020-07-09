@@ -4,7 +4,7 @@ import apiRoutes from '../fixtures/routes'
 import developerSubmitAppPage from '../pages/developer-submit-app-page'
 
 const developerAppsPageMetadata = {
-  url: webRoutes.DEVELOPER_MY_APPS,
+  url: webRoutes.APPS,
   selectors: {
     container: '#page-developer-apps-container',
     buttonEditDetails: 'button[data-test="detail-modal-edit-button"]',

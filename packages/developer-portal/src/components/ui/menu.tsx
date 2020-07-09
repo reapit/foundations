@@ -99,7 +99,7 @@ export const generateMenuConfig = (
         {
           title: 'Apps',
           key: 'MANAGE_APPS',
-          url: Routes.DEVELOPER_MY_APPS,
+          url: Routes.APPS,
           type: 'PRIMARY',
           icon: <FaCloud className="nav-item-icon" />,
         },

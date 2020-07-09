@@ -145,7 +145,7 @@ describe('DeveloperSubmitApp', () => {
     it('should run correctly', () => {
       const fn = handleGoBackToApps(history)
       fn()
-      expect(history.push).toBeCalledWith(Routes.DEVELOPER_MY_APPS)
+      expect(history.push).toBeCalledWith(Routes.APPS)
     })
   })
   describe('handleOnSubmitAnotherApp', () => {
@@ -232,7 +232,7 @@ describe('DeveloperSubmitApp', () => {
     const fn = handleSubmitAppSuccess(setSubmitting, history)
     fn()
     expect(setSubmitting).toBeCalled()
-    expect(history.push).toBeCalledWith(Routes.DEVELOPER_MY_APPS)
+    expect(history.push).toBeCalledWith(Routes.APPS)
   })
 
   describe('handleSubmitAppError', () => {

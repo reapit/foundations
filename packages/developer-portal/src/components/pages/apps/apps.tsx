@@ -10,14 +10,13 @@ import { SandboxPopUp } from '@/components/ui/sandbox-pop-up'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { getParamValueFromPath } from '@/utils/client-url-params'
 import Routes from '@/constants/routes'
-import { SubmitAppWizardModal } from '../ui/submit-app-wizard'
+import { SubmitAppWizardModal } from '@/components/ui/submit-app-wizard'
 
 export const handleOnCardClick = (history: History) => (app: AppSummaryModel) => {
-  history.push(`${Routes.DEVELOPER_MY_APPS}/${app.id}`)
+  history.push(`${Routes.APPS}/${app.id}`)
 }
 
-export const handleOnChange = (history: History) => (page: number) =>
-  history.push(`${Routes.DEVELOPER_MY_APPS}?page=${page}`)
+export const handleOnChange = (history: History) => (page: number) => history.push(`${Routes.APPS}?page=${page}`)
 
 export const onShowSubmitAppModal = (setSubmitAppModalVisible: React.Dispatch<React.SetStateAction<boolean>>) => () =>
   setSubmitAppModalVisible(true)
@@ -25,7 +24,7 @@ export const onShowSubmitAppModal = (setSubmitAppModalVisible: React.Dispatch<Re
 export const onCloseSubmitAppModal = (setSubmitAppModalVisible: React.Dispatch<React.SetStateAction<boolean>>) => () =>
   setSubmitAppModalVisible(false)
 
-export const DeveloperHome: React.FC = () => {
+export const Apps: React.FC = () => {
   const history = useHistory()
   const developerState = useSelector(selectDeveloper)
   const [submitAppModalVisible, setSubmitAppModalVisible] = React.useState<boolean>(false)
@@ -72,4 +71,4 @@ export const DeveloperHome: React.FC = () => {
   )
 }
 
-export default DeveloperHome
+export default Apps

@@ -50,7 +50,7 @@ describe('DeveloperAppDetail', () => {
       } as any
       const fn = handleOnDeleteAppSuccess(history)
       fn()
-      expect(history.replace).toBeCalledWith(routes.DEVELOPER_MY_APPS)
+      expect(history.replace).toBeCalledWith(routes.APPS)
     })
   })
 
@@ -84,7 +84,7 @@ describe('DeveloperAppDetail', () => {
     it('should be called correctly', () => {
       const fn = onBackToAppsButtonClick(history)
       fn()
-      expect(history.push).toBeCalledWith(Routes.DEVELOPER_MY_APPS)
+      expect(history.push).toBeCalledWith(Routes.APPS)
     })
   })
 })

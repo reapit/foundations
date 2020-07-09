@@ -26,7 +26,7 @@ describe('DeveloperAside', () => {
     it('should run correctly', () => {
       const fn = onBackToAppsButtonClick(history)
       fn()
-      expect(history.push).toBeCalledWith(Routes.DEVELOPER_MY_APPS)
+      expect(history.push).toBeCalledWith(Routes.APPS)
     })
   })
 })

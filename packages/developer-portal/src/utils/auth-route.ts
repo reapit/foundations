@@ -6,12 +6,12 @@ export function getDefaultRoute(isFirtTimeLogin: boolean) {
   }
   return !isFirtTimeLogin
     ? `${window.location.origin}${Routes.DEVELOPER_WELCOME}`
-    : `${window.location.origin}${Routes.DEVELOPER_MY_APPS}`
+    : `${window.location.origin}${Routes.APPS}`
 }
 
 export function getDefaultPath(isDesktopMode: boolean, isFirtTimeLogin: boolean) {
   if (isDesktopMode) {
-    return Routes.DEVELOPER_MY_APPS
+    return Routes.APPS
   }
-  return !isFirtTimeLogin ? Routes.DEVELOPER_WELCOME : Routes.DEVELOPER_MY_APPS
+  return !isFirtTimeLogin ? Routes.DEVELOPER_WELCOME : Routes.APPS
 }

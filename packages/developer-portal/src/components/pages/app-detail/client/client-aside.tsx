@@ -24,7 +24,7 @@ interface AsideProps {
 
 export const onBackToAppsButtonClick = (history: History) => {
   return () => {
-    history.push(routes.DEVELOPER_MY_APPS)
+    history.push(routes.APPS)
   }
 }
 

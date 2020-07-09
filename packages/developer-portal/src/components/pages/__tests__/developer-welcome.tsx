@@ -92,13 +92,13 @@ describe('DeveloperWelcomeMessage', () => {
         COOKIE_MAX_AGE_INFINITY,
       )
     })
-    it('should redirect to DEVELOPER_MY_APPS', () => {
+    it('should redirect to APPS', () => {
       const mockHistory = {
         push: jest.fn(),
       }
       const fn = handleUserAccept(mockHistory)
       fn()
-      expect(mockHistory.push).toBeCalledWith(routes.DEVELOPER_MY_APPS)
+      expect(mockHistory.push).toBeCalledWith(routes.APPS)
     })
   })
 })

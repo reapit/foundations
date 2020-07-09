@@ -2,8 +2,8 @@ import { getDefaultRoute, getDefaultPath } from '../auth-route'
 import Routes from '@/constants/routes'
 
 describe('getDefaultRoute', () => {
-  it('should return origin url + Routes.DEVELOPER_MY_APPS', () => {
-    expect(getDefaultRoute(true)).toEqual(`${window.location.origin}${Routes.DEVELOPER_MY_APPS}`)
+  it('should return origin url + Routes.APPS', () => {
+    expect(getDefaultRoute(true)).toEqual(`${window.location.origin}${Routes.APPS}`)
   })
 
   it('should return origin url + Routes.DEVELOPER_WELCOME', () => {
@@ -12,12 +12,12 @@ describe('getDefaultRoute', () => {
 })
 
 describe('getDefaultPathByLoginType', () => {
-  it('should return Routes.DEVELOPER_MY_APPS', () => {
-    expect(getDefaultPath(true, true)).toEqual(Routes.DEVELOPER_MY_APPS)
+  it('should return Routes.APPS', () => {
+    expect(getDefaultPath(true, true)).toEqual(Routes.APPS)
   })
 
-  it('should return Routes.DEVELOPER_MY_APPS', () => {
-    expect(getDefaultPath(false, true)).toEqual(Routes.DEVELOPER_MY_APPS)
+  it('should return Routes.APPS', () => {
+    expect(getDefaultPath(false, true)).toEqual(Routes.APPS)
   })
 
   it('should return Routes.DEVELOPER_WELCOME', () => {
