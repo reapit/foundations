@@ -2,7 +2,7 @@
 
 exports[`ViewDetailButton ViewDetailButton should match snapshot 1`] = `
 <Component
-  className="is-centered"
+  className="is-centered mr-2"
   onClick={[MockFunction]}
   type="button"
   variant="info"
