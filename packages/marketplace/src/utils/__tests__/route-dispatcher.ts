@@ -1,5 +1,5 @@
 import routeDispatcher from '../route-dispatcher'
-import store from '../../core/store'
+import store from '@/core/store'
 import Routes from '../../constants/routes'
 import { RouteValue } from '../../types/core'
 import { clientFetchAppSummary } from '@/actions/client'

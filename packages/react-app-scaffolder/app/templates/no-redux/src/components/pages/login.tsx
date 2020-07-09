@@ -3,7 +3,12 @@ import { Redirect } from 'react-router-dom'
 
 import Routes from '@/constants/routes'
 import { Button, Level } from '@reapit/elements'
+
+<% if(sass){ %>
 import loginStyles from '@/styles/pages/login.scss?mod'
+<% } else { %>
+import * as loginStyles from './__styles__/styles'
+ <% } %>
 
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 import connectImage from '@/assets/images/reapit-connect.png'
