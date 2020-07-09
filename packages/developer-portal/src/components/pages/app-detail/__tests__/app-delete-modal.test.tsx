@@ -3,7 +3,13 @@ import * as ReactRedux from 'react-redux'
 import { mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
-import { DeleteAppModal, AppDeleteProps, handleAfterClose, onDeleteButtonClick, handleUseEffect } from '../app-delete'
+import {
+  DeleteAppModal,
+  AppDeleteProps,
+  handleAfterClose,
+  onDeleteButtonClick,
+  handleUseEffect,
+} from '../app-delete-modal'
 import { appDeleteRequest } from '@/actions/app-delete'
 import { appDeleteSetInitFormState } from '@/actions/app-delete'
 

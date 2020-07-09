@@ -13,7 +13,7 @@ import { DeveloperAppDetailState } from '@/reducers/developer'
 import {
   onAppDeleteModalAfterClose,
   onDeleteSuccess,
-  onDeveloperAppRevisionModalAfterClose,
+  onAppRevisionModalAfterClose,
   onPendingRevisionButtonClick,
   onEditDetailButtonClick,
   onDeleteAppButtonClick,
@@ -72,10 +72,10 @@ describe('ManageApp', () => {
     })
   })
 
-  describe('onDeveloperAppRevisionModalAfterClose', () => {
+  describe('onAppRevisionModalAfterClose', () => {
     it('should be called correctly', () => {
       const mockFunction = jest.fn()
-      const fn = onDeveloperAppRevisionModalAfterClose(mockFunction)
+      const fn = onAppRevisionModalAfterClose(mockFunction)
       fn()
       expect(mockFunction).toBeCalledWith(false)
     })

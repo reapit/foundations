@@ -2,8 +2,8 @@ import React from 'react'
 import { DeveloperAppDetailState } from '@/reducers/developer'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectClientId } from '@/selector/client'
-import DeveloperAppRevisionModal from './app-revision-modal'
-import AppDelete from '@/components/pages/app-detail/app-delete'
+import AppRevisionModal from './app-revision-modal'
+import AppDeleteModal from '@/components/pages/app-detail/app-delete-modal'
 import { Content, Button } from '@reapit/elements'
 import { useHistory } from 'react-router'
 import routes from '@/constants/routes'
@@ -12,7 +12,7 @@ import { Dispatch } from 'redux'
 import { developerFetchAppDetail } from '@/actions/developer'
 import styles from '@/styles/blocks/standalone-app-detail.scss?mod'
 
-interface ManageAppProps {
+interface AppManagementProps {
   pendingRevisions: boolean
   appDetailState: DeveloperAppDetailState
   id: string
@@ -38,7 +38,7 @@ export const onCancelSuccess = ({
   dispatch(developerFetchAppDetail({ id, clientId }))
 }
 
-export const onDeveloperAppRevisionModalAfterClose = (setVisible: (value: boolean) => void) => () => {
+export const onAppRevisionModalAfterClose = (setVisible: (value: boolean) => void) => () => {
   setVisible(false)
 }
 
@@ -54,7 +54,7 @@ export const onDeleteAppButtonClick = (setVisible: (value: boolean) => void) => 
   setVisible(true)
 }
 
-export const ManageApp: React.FC<ManageAppProps> = ({ pendingRevisions, id, appDetailState }) => {
+export const AppManagement: React.FC<AppManagementProps> = ({ pendingRevisions, id, appDetailState }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false)
   const [isAppRevisionComparisonModalOpen, setIsAppRevisionComparisonModalOpen] = React.useState(false)
   const { buttonGroup } = styles
@@ -66,7 +66,7 @@ export const ManageApp: React.FC<ManageAppProps> = ({ pendingRevisions, id, appD
   return (
     <Content className={buttonGroup}>
       {isDeleteModalOpen && (
-        <AppDelete
+        <AppDeleteModal
           appId={id || ''}
           appName={appDetailState?.data?.name || ''}
           afterClose={onAppDeleteModalAfterClose(setIsDeleteModalOpen)}
@@ -76,7 +76,7 @@ export const ManageApp: React.FC<ManageAppProps> = ({ pendingRevisions, id, appD
       )}
 
       {isAppRevisionComparisonModalOpen && (
-        <DeveloperAppRevisionModal
+        <AppRevisionModal
           onCancelSuccess={onCancelSuccess({
             dispatch,
             clientId,
@@ -85,7 +85,7 @@ export const ManageApp: React.FC<ManageAppProps> = ({ pendingRevisions, id, appD
           appDetailState={appDetailState}
           visible={isAppRevisionComparisonModalOpen}
           appId={id || ''}
-          afterClose={onDeveloperAppRevisionModalAfterClose(setIsAppRevisionComparisonModalOpen)}
+          afterClose={onAppRevisionModalAfterClose(setIsAppRevisionComparisonModalOpen)}
         />
       )}
 
@@ -120,4 +120,4 @@ export const ManageApp: React.FC<ManageAppProps> = ({ pendingRevisions, id, appD
   )
 }
 
-export default ManageApp
+export default AppManagement
