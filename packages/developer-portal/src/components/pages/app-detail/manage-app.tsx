@@ -54,7 +54,7 @@ export const onDeleteAppButtonClick = (setVisible: (value: boolean) => void) => 
   setVisible(true)
 }
 
-export const DeveloperManageApp: React.FC<ManageAppProps> = ({ pendingRevisions, id, appDetailState }) => {
+export const ManageApp: React.FC<ManageAppProps> = ({ pendingRevisions, id, appDetailState }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false)
   const [isAppRevisionComparisonModalOpen, setIsAppRevisionComparisonModalOpen] = React.useState(false)
   const { buttonGroup } = styles
@@ -120,4 +120,4 @@ export const DeveloperManageApp: React.FC<ManageAppProps> = ({ pendingRevisions,
   )
 }
 
-export default DeveloperManageApp
+export default ManageApp

@@ -6,7 +6,7 @@ import {
   MediaModel,
   ScopeModel,
 } from '@reapit/foundations-ts-definitions'
-import { AppDetailSection, Tag, ImageSection } from './ui-helpers'
+import { AppDetailSection, Tag, ImageSection } from './helpers'
 import { convertBooleanToYesNoString } from '@/utils/boolean-to-yes-no-string'
 import { FaCheck, FaExternalLinkAlt } from 'react-icons/fa'
 import styles from '@/styles/blocks/standalone-app-detail.scss?mod'

@@ -20,7 +20,7 @@ const ClientAppsManagement = React.lazy(() =>
 )
 const Register = React.lazy(() => catchChunkError(() => import('../components/pages/register')))
 const Apps = React.lazy(() => catchChunkError(() => import('../components/pages/apps')))
-const DeveloperAppDetail = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail/developer')))
+const DeveloperAppDetail = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail')))
 const DeveloperEditApp = React.lazy(() => catchChunkError(() => import('../components/pages/developer-edit-app')))
 const AdminApprovalsPage = React.lazy(() => catchChunkError(() => import('../components/pages/admin-approvals')))
 const AdminDevManagementPage = React.lazy(() =>

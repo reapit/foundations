@@ -15,7 +15,7 @@ import {
   DirectApiSection,
   StatusSection,
   BackToAppsSection,
-} from '../common/ui-sections'
+} from './app-sections'
 
 interface AsideProps {
   appDetailState: DeveloperAppDetailState

@@ -19,7 +19,7 @@ import {
   SummarySection,
   InstallationsTableSection,
   PermissionsSection,
-} from '../common/ui-sections'
+} from './app-sections'
 
 export type AppContentProps = {
   appDetailState: DeveloperAppDetailState

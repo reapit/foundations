@@ -13,7 +13,7 @@ import {
   DeveloperSection,
   DeveloperAboutSection,
   AdditionalImagesSection,
-} from '../ui-sections'
+} from '../app-sections'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
 import {
@@ -23,7 +23,7 @@ import {
   ScopeModel,
 } from '@reapit/foundations-ts-definitions'
 import { Button } from '@reapit/elements'
-import { InstallationsTableSection, PermissionsSection, DescriptionSection } from '../ui-sections'
+import { InstallationsTableSection, PermissionsSection, DescriptionSection } from '../app-sections'
 import { installationsStub } from '@/sagas/__stubs__/installations'
 
 describe('CategorySection', () => {
