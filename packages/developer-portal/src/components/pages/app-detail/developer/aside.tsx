@@ -7,7 +7,7 @@ import { DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
 import { DeveloperAppDetailState } from '@/reducers/developer'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import useReactResponsive from '@/components/hooks/use-react-responsive'
-import DeveloperManageApp from './developer-manage-app'
+import DeveloperManageApp from './manage-app'
 import {
   CategorySection,
   DesktopIntegrationSection,

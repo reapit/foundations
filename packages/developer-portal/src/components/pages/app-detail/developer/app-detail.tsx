@@ -4,7 +4,7 @@ import { selectIntegrationTypes } from '@/selector/integration-types'
 import { DesktopIntegrationTypeModel } from '@/actions/app-integration-types'
 import { selectInstallationAppData } from '@/selector/installations'
 import { PagedResultInstallationModel_ } from '@reapit/foundations-ts-definitions'
-import { DeveloperAside } from './developer-aside'
+import { DeveloperAside } from './aside'
 import { useSelector } from 'react-redux'
 import { History } from 'history'
 import { selectAppDetailState, selectAppDetailData, selectAppDetailLoading } from '@/selector/developer-app-detail'
@@ -16,7 +16,7 @@ import routes from '@/constants/routes'
 import { getDesktopIntegrationTypes } from '@/utils/get-desktop-integration-types'
 import useReactResponsive from '@/components/hooks/use-react-responsive'
 import { BackToAppsSection } from '../common/ui-sections'
-import AppContent from './developer-app-content'
+import AppContent from './app-content'
 
 export type DeveloperAppDetailProps = {}
 

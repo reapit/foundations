@@ -7,7 +7,7 @@ import { MemoryRouter } from 'react-router'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import configureStore from 'redux-mock-store'
 import Routes from '@/constants/routes'
-import DeveloperManageApp from '../developer-manage-app'
+import DeveloperManageApp from '../manage-app'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { DeveloperAppDetailState } from '@/reducers/developer'
 import {
@@ -17,7 +17,7 @@ import {
   onPendingRevisionButtonClick,
   onEditDetailButtonClick,
   onDeleteAppButtonClick,
-} from '../developer-manage-app'
+} from '../manage-app'
 
 const mockState = {
   ...appState,

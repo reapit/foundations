@@ -8,7 +8,7 @@ import AppContent, {
   handleUninstallSuccess,
   handleOpenAppPreview,
   generateInstallationTableColumns,
-} from '../developer-app-content'
+} from '../app-content'
 import { Provider } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import configureStore from 'redux-mock-store'

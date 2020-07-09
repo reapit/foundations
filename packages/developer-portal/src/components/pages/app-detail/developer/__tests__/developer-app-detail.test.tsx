@@ -11,7 +11,7 @@ import DeveloperAppDetail, {
   closeAppRevisionComparisonModal,
   closeDeleteAppModal,
   onBackToAppsButtonClick,
-} from '../developer-app-detail'
+} from '../app-detail'
 import routes from '@/constants/routes'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'

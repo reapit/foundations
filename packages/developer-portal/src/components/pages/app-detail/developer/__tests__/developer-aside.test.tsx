@@ -1,6 +1,6 @@
 import React from 'react'
 import { DeveloperAppDetailState } from '@/reducers/developer'
-import { DeveloperAside, onBackToAppsButtonClick } from '../developer-aside'
+import { DeveloperAside, onBackToAppsButtonClick } from '../aside'
 import { shallow } from 'enzyme'
 import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'

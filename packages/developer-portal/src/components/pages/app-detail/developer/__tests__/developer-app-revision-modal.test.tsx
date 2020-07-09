@@ -9,7 +9,7 @@ import AppRevisionModal, {
   handleUseEffectToFetchAppRevisions,
   handleUseEffectToFetchAppRevisionDetail,
   handleCancelPendingRevisionsSuccessCallback,
-} from '../developer-app-revision-modal'
+} from '../app-revision-modal'
 import { revisionsRequestData } from '@/actions/revisions'
 import { revisionDetailRequestData } from '@/actions/revision-detail'
 import { developerFetchAppDetail } from '@/actions/developer'
