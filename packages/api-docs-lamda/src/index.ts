@@ -3,7 +3,7 @@ import axios from 'axios'
 export const API_DOCS_URL = 'https://foundations-documentation.reapit.cloud'
 // List of domains I allow to load in an iframe
 export const CONTENT_SECURITY_WHITELIST =
-  'http://localhost:8080 https://marketplace.reapit.cloud https://dev.marketplace.reapit.cloud'
+  'http://localhost:8080 https://marketplace.reapit.cloud https://dev.marketplace.reapit.cloud https://dev.developers.reapit.cloud https://developers.reapit.cloud'
 
 export const apiDocsHandler = async () => {
   try {
