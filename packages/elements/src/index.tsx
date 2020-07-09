@@ -1,5 +1,4 @@
 import './styles/index.scss'
-import * as v2 from './v2'
 // Hooks
 export * from './hooks/UsePortal'
 
@@ -11,6 +10,7 @@ export * from './components/Pagination'
 export * from './components/Menu'
 export * from './components/Tile'
 export { default as Map } from './components/Map'
+export * from './components/Map'
 export * from './components/DatePicker'
 export * from './components/Table'
 export * from './components/CameraImageInput'
@@ -29,7 +29,6 @@ export * from './components/Loader'
 export * from './components/Tabs'
 export * from './components/Toast'
 export * from './components/Modal'
-export { default as ModalV2 } from './v2/src/components/modal'
 export * from './components/Typography'
 export * from './components/Info'
 export * from './components/Layout'
@@ -64,8 +63,5 @@ export * from './utils/device-detection/device-detection'
 
 export * from './types/core'
 
-const elements = {
-  v2: v2,
-}
-
-export default elements
+export { default as ModalV2 } from './v2/src/components/modal'
+export { ModalProps as ModalPropsV2 } from './v2/src'

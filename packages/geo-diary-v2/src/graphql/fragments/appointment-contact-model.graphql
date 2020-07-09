@@ -1,0 +1,8 @@
+fragment AppointmentContactModel on AppointmentContactModel {
+  id
+  name
+  homePhone
+  workPhone
+  mobilePhone
+  email
+}

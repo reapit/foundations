@@ -1,11 +1,14 @@
 import React from 'react'
-import { Map } from '@reapit/elements'
+import { Map, H5, SubTitleH5, combineAddress } from '@reapit/elements'
 import { CoordinateProps } from '@reapit/elements/src/components/Map'
+import { History } from 'history'
 import { useLocation, useHistory } from 'react-router-dom'
 import qs from 'query-string'
 import { ExtendedAppointmentModel } from '@/types/global'
 import { ROUTES } from '@/core/router'
 import MapPanel from '../map-pannel'
+import { ListItemModel } from '@reapit/foundations-ts-definitions'
+import { AppointmentDetailModal } from '../appointment-detail-modal/appointment-detail-modal'
 
 export const UNDEFINED_LATLNG_NUMBER = 9999
 export const UNDEFINED_NULL_STRING = Math.random()
@@ -34,7 +37,6 @@ export const filterInvalidMarker = (markers: Coordinate[]) => {
 
 export type AppointmentMapProps = {
   appointments: ExtendedAppointmentModel[]
-  destinationAddress?: string
 }
 
 export type RouteInformation = {
@@ -42,45 +44,85 @@ export type RouteInformation = {
   distance: { text: string; value: number } | null
 }
 
-export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments, destinationAddress }) => {
+export type HandleUseEffectParams = {
+  queryParams: qs.ParsedQuery<string>
+  history: History
+}
+
+export const handleUseEffect = ({ queryParams, history }: HandleUseEffectParams) => () => {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(position => {
+      const queryString = qs.stringify({
+        ...queryParams,
+        currentLat: position.coords.latitude,
+        currentLng: position.coords.longitude,
+      })
+      history.push(`${ROUTES.APPOINTMENT}?${queryString}`)
+    })
+  }
+}
+
+export const handleFilterInvalidMarker = (appointments: ExtendedAppointmentModel[]) => () =>
+  filterInvalidMarker(
+    appointments.map(
+      (appointment: ExtendedAppointmentModel): Coordinate => {
+        const lat = appointment?.property?.address?.geolocation?.latitude || UNDEFINED_LATLNG_NUMBER
+        const lng = appointment?.property?.address?.geolocation?.longitude || UNDEFINED_LATLNG_NUMBER
+        const id = appointment?.id || UNDEFINED_NULL_STRING
+        const address = appointment?.property?.address || {}
+        return {
+          id,
+          address,
+          position: {
+            lat,
+            lng,
+          },
+        }
+      },
+    ),
+  )
+
+export type RenderModalTitleParams = {
+  appointmentType?: ListItemModel
+  heading: string
+}
+export const renderModalTitle = ({ appointmentType, heading }) => {
+  return (
+    <>
+      {heading && <H5>{heading}</H5>}
+      {appointmentType && <SubTitleH5 className="mb-0">{appointmentType?.value}</SubTitleH5>}
+    </>
+  )
+}
+
+export const getDestinationPoint = (queryParams: qs.ParsedQuery<string>) => () => {
+  return { lat: queryParams.destinationLat, lng: queryParams.destinationLng }
+}
+
+export const handleMarkerOnClick = (
+  appointments: ExtendedAppointmentModel[],
+  setAppoinment: React.Dispatch<React.SetStateAction<ExtendedAppointmentModel | null>>,
+) => (id: string) => () => {
+  const appoinment = appointments.find(item => item.id === id)
+  if (appoinment) {
+    setAppoinment(appoinment)
+  }
+}
+
+export const handleModalClose = (
+  setAppoinment: React.Dispatch<React.SetStateAction<ExtendedAppointmentModel | null>>,
+) => () => {
+  setAppoinment(null)
+}
+
+export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments }) => {
+  const [appointment, setAppoinment] = React.useState<ExtendedAppointmentModel | null>(null)
   const location = useLocation()
   const history = useHistory()
   const queryParams = qs.parse(location.search)
   const [routeInformation, setRouteInformation] = React.useState<RouteInformation>({ duration: null, distance: null })
-  React.useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(position => {
-        const queryString = qs.stringify({
-          ...queryParams,
-          currentLat: position.coords.latitude,
-          currentLng: position.coords.longitude,
-        })
-        history.push(`${ROUTES.APPOINTMENT}?${queryString}`)
-      })
-    }
-  }, [])
-  const coordinates: CoordinateProps<any> = React.useMemo(
-    () =>
-      filterInvalidMarker(
-        appointments.map(
-          (appointment: ExtendedAppointmentModel): Coordinate => {
-            const lat = appointment?.property?.address?.geolocation?.latitude || UNDEFINED_LATLNG_NUMBER
-            const lng = appointment?.property?.address?.geolocation?.longitude || UNDEFINED_LATLNG_NUMBER
-            const id = appointment?.id || UNDEFINED_NULL_STRING
-            const address = appointment?.property?.address || {}
-            return {
-              id,
-              address,
-              position: {
-                lat,
-                lng,
-              },
-            }
-          },
-        ),
-      ),
-    [],
-  )
+  React.useEffect(handleUseEffect({ queryParams, history }), [])
+  const coordinates: CoordinateProps<any> = React.useMemo(handleFilterInvalidMarker(appointments), [appointments])
 
   const onLoadedDirection = React.useCallback(
     res => {
@@ -90,11 +132,15 @@ export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments, de
     [queryParams.destinationLat, queryParams.destinationLng],
   )
 
-  const destinationPoint = React.useMemo(() => {
-    return { lat: queryParams.destinationLat, lng: queryParams.destinationLng }
-  }, [queryParams.destinationLat, queryParams.destinationLng])
+  const destinationPoint = React.useMemo(getDestinationPoint(queryParams), [
+    queryParams.destinationLat,
+    queryParams.destinationLng,
+  ])
 
-  console.log(destinationPoint)
+  const line1 = appointment?.property?.address?.line1 ?? ''
+  const buildingName = appointment?.property?.address?.buildingName ?? ''
+  const buildingNumber = appointment?.property?.address?.buildingNumber ?? ''
+  const heading = `${buildingNumber || buildingName || ''} ${line1 || ''}`
 
   return (
     <>
@@ -102,15 +148,22 @@ export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments, de
         autoFitBounds={true}
         apiKey={window.reapit.config.googleMapApiKey}
         coordinates={coordinates}
-        // markerCallBack={handleOnClick}
+        markerCallBack={handleMarkerOnClick(appointments, setAppoinment)}
         onLoadedDirection={onLoadedDirection}
         destinationPoint={destinationPoint}
-        destinationAddress={destinationAddress}
+        destinationAddress={combineAddress(appointment?.property?.address)}
         travelMode={queryParams.travelMode}
         mapContainerStyles={{ height: '100%' }}
         styles={{} /* See import for explanation mapStyles */}
       />
-      <MapPanel routeInformation={routeInformation} />
+      <MapPanel routeInformation={routeInformation} appointments={appointments} />
+      <AppointmentDetailModal
+        title={renderModalTitle({ heading, appointmentType: appointment?.appointmentType })}
+        appointment={appointment || ({} as ExtendedAppointmentModel)}
+        visible={!!appointment}
+        destroyOnClose={true}
+        onClose={handleModalClose(setAppoinment)}
+      />
     </>
   )
 }

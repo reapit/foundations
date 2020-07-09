@@ -41,5 +41,8 @@ export const combineAddress = (address: AddressModel | undefined): string => {
   if (address.postcode) {
     addressCombined = addressCombined.concat(` ${address.postcode}`)
   }
+  if (address.country) {
+    addressCombined = addressCombined.concat(` ${address.country}`)
+  }
   return addressCombined
 }

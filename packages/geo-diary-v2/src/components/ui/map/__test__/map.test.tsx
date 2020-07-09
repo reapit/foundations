@@ -1,7 +1,18 @@
 import React from 'react'
-import { appointments } from '@/graphql/__mocks__/appointments'
+import { appointment } from '@/graphql/__mocks__/appointment'
 import { shallow } from 'enzyme'
-import AppointmentMap, { UNDEFINED_LATLNG_NUMBER, Coordinate, filterInvalidMarker } from '../map'
+import {
+  AppointmentMap,
+  UNDEFINED_LATLNG_NUMBER,
+  Coordinate,
+  filterInvalidMarker,
+  handleUseEffect,
+  getDestinationPoint,
+  handleFilterInvalidMarker,
+  handleMarkerOnClick,
+  handleModalClose,
+} from '../map'
+import { getMockRouterProps } from '@/core/__mocks__/mock-router'
 
 const locationMock = { search: '?state=CLIENT', pathname: '/test' }
 
@@ -14,8 +25,7 @@ describe('map', () => {
   describe('AppointmentMap', () => {
     it('should match snapshot', () => {
       const mockProps = {
-        appointments: appointments._embedded,
-        destinationAddress: 'mock Address',
+        appointments: [appointment],
       }
       const wrapper = shallow(<AppointmentMap {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
@@ -36,5 +46,78 @@ describe('map', () => {
     const expected = [{ position: { id: '123', lat: 0, lng: 0 } }, { position: { id: '3245', lat: 0, lng: 0 } }]
     const result = filterInvalidMarker(markers)
     expect(result).toEqual(expected)
+  })
+
+  describe('handleUseEffect', () => {
+    it('should run correctly', () => {
+      const mockProps = {
+        queryParams: {},
+        history: getMockRouterProps({ params: '', search: '' }).history,
+      }
+      const fn = handleUseEffect(mockProps)
+      fn()
+      expect(mockProps.history.push).not.toBeCalled()
+    })
+  })
+  describe('getDestinationPoint', () => {
+    it('should run correctly', () => {
+      const fn = getDestinationPoint({ destinationLat: '123', destinationLng: '123' })
+      const result = fn()
+      expect(result).toEqual({ lat: '123', lng: '123' })
+    })
+  })
+  describe('handleFilterInvalidMarker', () => {
+    it('should run correctly', () => {
+      const appointments = [appointment]
+      const fn = handleFilterInvalidMarker(appointments)
+      const result = fn()
+      expect(result).toEqual([
+        {
+          address: {
+            buildingName: '',
+            buildingNumber: '56',
+            geolocation: {
+              latitude: 52.079532,
+              longitude: -0.790871,
+            },
+            line1: 'High Street',
+            line2: 'The Stables',
+            line3: 'Old Haversham',
+            line4: 'Milton Keynes',
+            postcode: 'MK19 7DZ',
+          },
+          id: 'NEP1600290',
+          position: {
+            lat: 52.079532,
+            lng: -0.790871,
+          },
+        },
+      ])
+    })
+  })
+
+  describe('handleMarkerOnClick', () => {
+    it('should run correctly', () => {
+      const setAppoinment = jest.fn()
+      const fn = handleMarkerOnClick([appointment], setAppoinment)
+      fn('NEP1600290')()
+      expect(setAppoinment).toBeCalledWith(appointment)
+    })
+
+    it('should run correctly and not call setAppoinment', () => {
+      const setAppoinment = jest.fn()
+      const fn = handleMarkerOnClick([appointment], setAppoinment)
+      fn('1')()
+      expect(setAppoinment).not.toBeCalledWith(appointment)
+    })
+  })
+
+  describe('handleModalClose', () => {
+    it('should run correctly', () => {
+      const setAppoinment = jest.fn()
+      const fn = handleModalClose(setAppoinment)
+      fn()
+      expect(setAppoinment).toBeCalledWith(null)
+    })
   })
 })

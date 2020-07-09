@@ -1,6 +1,7 @@
 import React from 'react'
 import { ExtendedAppointmentModel } from '@/types/global'
 import AppointmentTile from '../appointment-tile'
+
 export type AppointmentListProps = {
   appointments: ExtendedAppointmentModel[]
 }

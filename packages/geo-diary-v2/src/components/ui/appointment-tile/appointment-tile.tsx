@@ -1,18 +1,13 @@
 import React from 'react'
-import { Tile, IconList, getTime, Button } from '@reapit/elements'
+import { Tile, IconList, getTime, Button, H5, SubTitleH5 } from '@reapit/elements'
 import qs from 'query-string'
 import { useLocation, useHistory } from 'react-router-dom'
 import { History } from 'history'
 import { FaClock, FaStreetView, FaAddressCard } from 'react-icons/fa'
 import { ExtendedAppointmentModel } from '@/types/global'
 import { ROUTES } from '@/core/router'
-
-const locationMock = { search: '?state=CLIENT', pathname: '/test' }
-
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useLocation: jest.fn(() => locationMock),
-}))
+import AppointmentDetailModal from '../appointment-detail-modal'
+import { ListItemModel } from '@reapit/foundations-ts-definitions'
 
 export type RenderIconItemsParams = {
   appointment: ExtendedAppointmentModel
@@ -59,7 +54,13 @@ export type HandleDirectionOnClickParams = {
 export const handleDirectionOnClick = ({ appointment, queryParams, history }: HandleDirectionOnClickParams) => () => {
   const lat = appointment?.property?.address?.geolocation?.latitude
   const lng = appointment?.property?.address?.geolocation?.longitude
-  const queryString = qs.stringify({ ...queryParams, destinationLat: lat, destinationLng: lng, tab: 'map' })
+  const queryString = qs.stringify({
+    ...queryParams,
+    destinationLat: lat,
+    destinationLng: lng,
+    tab: 'map',
+    appointmentId: appointment.id,
+  })
   history.push(`${ROUTES.APPOINTMENT}?${queryString}`)
 }
 
@@ -67,19 +68,29 @@ export type RenderFooterItemsParams = {
   appointment: ExtendedAppointmentModel
   queryParams: qs.ParsedQuery<string>
   history: History
+  setShowDetail: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const renderFooterItems = ({ appointment, queryParams, history }) => {
+export const renderFooterItems = ({ appointment, queryParams, history, setShowDetail }: RenderFooterItemsParams) => {
   const lat = appointment?.property?.address?.geolocation?.latitude
   const lng = appointment?.property?.address?.geolocation?.longitude
   let buttons = [
-    <Button key="viewDetails" type="submit" onClick={() => null} disabled={false} loading={false} fullWidth={false}>
+    <Button
+      className="is-info"
+      key="viewDetails"
+      type="submit"
+      onClick={() => setShowDetail(true)}
+      disabled={false}
+      loading={false}
+      fullWidth={false}
+    >
       Details
     </Button>,
   ] as JSX.Element[]
   if (!!lat && !!lng) {
     buttons.push(
       <Button
+        className="is-info"
         key="viewDirection"
         type="submit"
         onClick={handleDirectionOnClick({ appointment, queryParams, history })}
@@ -98,6 +109,23 @@ export type AppointmentTileProps = {
   appointment: ExtendedAppointmentModel
 }
 
+export type RenderModalTitleParams = {
+  appointmentType?: ListItemModel
+  heading: string
+}
+export const renderModalTitle = ({ appointmentType, heading }) => {
+  return (
+    <>
+      {heading && <H5>{heading}</H5>}
+      {appointmentType && <SubTitleH5 className="mb-0">{appointmentType?.value}</SubTitleH5>}
+    </>
+  )
+}
+
+export const handleModalClose = (setShowDetail: React.Dispatch<React.SetStateAction<boolean>>) => () => {
+  setShowDetail(false)
+}
+
 export const AppointmentTile: React.FC<AppointmentTileProps> = ({ appointment }) => {
   const location = useLocation()
   const history = useHistory()
@@ -106,15 +134,24 @@ export const AppointmentTile: React.FC<AppointmentTileProps> = ({ appointment })
   const buildingName = appointment?.property?.address?.buildingName ?? ''
   const buildingNumber = appointment?.property?.address?.buildingNumber ?? ''
   const heading = `${buildingNumber || buildingName || ''} ${line1 || ''}`
+  const [isShowDetail, setShowDetail] = React.useState<boolean>(false)
   return (
-    <Tile
-      hightlight={false}
-      key={appointment.id}
-      heading={heading}
-      footerItems={renderFooterItems({ appointment, queryParams, history })}
-    >
-      <IconList items={renderIconItems({ appointment })} />
-    </Tile>
+    <>
+      <Tile
+        hightlight={false}
+        key={appointment.id}
+        heading={heading}
+        footerItems={renderFooterItems({ appointment, queryParams, history, setShowDetail })}
+      >
+        <IconList items={renderIconItems({ appointment })} />
+      </Tile>
+      <AppointmentDetailModal
+        title={renderModalTitle({ heading, appointmentType: appointment?.appointmentType })}
+        appointment={appointment}
+        visible={isShowDetail}
+        onClose={handleModalClose(setShowDetail)}
+      />
+    </>
   )
 }
 
