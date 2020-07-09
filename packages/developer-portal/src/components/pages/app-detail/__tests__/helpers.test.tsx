@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tag, AppDetailSection, ImageSection } from '../helpers'
+import { Tag, AppDetailSection, ImageSection } from '../app-ui-helpers'
 import { shallow } from 'enzyme'
 
 describe('Ui Sections', () => {

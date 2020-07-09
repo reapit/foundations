@@ -25,7 +25,7 @@ import {
 } from '@reapit/elements'
 import { selectAdminAppsData, selectAdminAppsLoading } from '@/selector/admin'
 import { adminAppsRequestFeatured } from '@/actions/admin-apps'
-import AppDeleteModal from '@/components/ui/app-delete'
+import AppDeleteModal from '@/components/pages/app-detail/app-delete'
 import { addQuery, stringifyObjectIntoQueryString, getParamsFromPath } from '@/utils/client-url-params'
 import { cleanObject } from '@reapit/utils'
 import Routes from '@/constants/routes'

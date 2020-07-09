@@ -6,7 +6,7 @@ import {
   MediaModel,
   ScopeModel,
 } from '@reapit/foundations-ts-definitions'
-import { AppDetailSection, Tag, ImageSection } from './helpers'
+import { AppDetailSection, Tag, ImageSection } from './app-ui-helpers'
 import { convertBooleanToYesNoString } from '@/utils/boolean-to-yes-no-string'
 import { FaCheck, FaExternalLinkAlt } from 'react-icons/fa'
 import styles from '@/styles/blocks/standalone-app-detail.scss?mod'
@@ -22,7 +22,7 @@ import {
   Content,
 } from '@reapit/elements'
 import AuthFlow from '@/constants/app-auth-flow'
-import AppAuthenticationDetail from '@/components/ui/app-authentication-detail'
+import AppAuthenticationDetail from '@/components/pages/app-detail/app-authentication-detail'
 
 interface IsSidebar {
   isSidebar?: boolean
