@@ -75,8 +75,7 @@ exports[`Login should match a snapshot 1`] = `
                 data-test=""
               >
                 <p>
-                  Welcome to Reapit 
-                  Foundations
+                  Welcome to Reapit Marketplace
                 </p>
               </section>
             </Component>
