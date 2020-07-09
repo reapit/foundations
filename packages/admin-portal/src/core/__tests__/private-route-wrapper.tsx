@@ -4,22 +4,13 @@ import { Provider, useDispatch, useSelector } from 'react-redux'
 import { shallow, mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
-import { PrivateRouteWrapper, handleSetTermsAcceptFromCookie } from '../private-route-wrapper'
+import { PrivateRouteWrapper } from '../private-route-wrapper'
 import { selectLoginSession, selectRefreshSession, selectLoginType } from '@/selector/auth'
 import { getTokenFromQueryString, redirectToOAuth, RefreshParams } from '@reapit/cognito-auth'
-import { getAuthRouteByLoginType } from '@/utils/auth-route'
-import {
-  getCookieString,
-  COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE,
-  COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE,
-} from '@/utils/cookie'
-import {
-  authSetRefreshSession,
-  setInitDeveloperTermsAcceptedStateFromCookie,
-  setInitClientTermsAcceptedStateFromCookie,
-} from '@/actions/auth'
+import { authSetRefreshSession } from '@/actions/auth'
+import Routes from '@/constants/routes'
 
-const locationMock = { search: '?state=CLIENT', pathname: '/test' }
+const locationMock = { search: '?state=ADMIN', pathname: '/test' }
 const refreshParams = appState.auth.refreshSession as RefreshParams
 const dispatch = jest.fn()
 
@@ -84,13 +75,11 @@ describe('PrivateRouteWrapper', () => {
     expect(useSelector).toHaveBeenCalledWith(selectRefreshSession)
     expect(useSelector).toHaveBeenCalledWith(selectLoginType)
     expect(useLocation).toHaveBeenCalled()
-    expect(getCookieString).toHaveBeenCalledWith(COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE)
-    expect(getCookieString).toHaveBeenCalledWith(COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE)
     expect(getTokenFromQueryString).toHaveBeenCalledWith(
       locationMock.search,
       window.reapit.config.cognitoClientId,
-      'CLIENT',
-      'login-type-route',
+      'ADMIN',
+      `${window.location.origin}${Routes.ADMIN_APPROVALS}`,
     )
   })
 
@@ -108,23 +97,7 @@ describe('PrivateRouteWrapper', () => {
     expect(dispatch).toHaveBeenCalledWith(authSetRefreshSession(refreshParams))
   })
 
-  it('should call correct functions with type && location.pathname ===  / case', () => {
-    // mock useSelector to return loginSession & refreshSession
-    ;(useLocation as jest.Mocked<any>).mockImplementationOnce(() => ({ ...locationMock, pathname: '/' }))
-    ;(useSelector as jest.Mocked<any>).mockImplementationOnce(() => appState.auth.loginSession)
-    ;(useSelector as jest.Mocked<any>).mockImplementationOnce(() => appState.auth.refreshSession)
-    mount(
-      <Provider store={store}>
-        <MemoryRouter>
-          <PrivateRouteWrapper path="/" />
-        </MemoryRouter>
-      </Provider>,
-    )
-    expect(getAuthRouteByLoginType).toHaveBeenCalledWith('CLIENT')
-  })
-
   it('should call correct functions with !hasSession case', () => {
-    // mock useSelector to return loginSession & refreshSession as null
     ;(useLocation as jest.Mocked<any>).mockImplementationOnce(() => ({ ...locationMock, pathname: '/test' }))
     ;(useSelector as jest.Mocked<any>).mockImplementationOnce(() => null)
     ;(useSelector as jest.Mocked<any>).mockImplementationOnce(() => null)
@@ -136,19 +109,10 @@ describe('PrivateRouteWrapper', () => {
           </MemoryRouter>
         </Provider>,
       )
-    expect(redirectToOAuth).toHaveBeenCalledWith(window.reapit.config.cognitoClientId, 'login-type-route', 'CLIENT')
-  })
-})
-
-describe('handleSetTermsAcceptFromCookie', () => {
-  it('should call 2 dispatch with correct params', () => {
-    const fn = handleSetTermsAcceptFromCookie({
-      dispatch,
-      setInitClientTermsAcceptedStateFromCookie,
-      setInitDeveloperTermsAcceptedStateFromCookie,
-    })
-    fn()
-    expect(dispatch).toHaveBeenCalledWith(setInitClientTermsAcceptedStateFromCookie())
-    expect(dispatch).toHaveBeenCalledWith(setInitDeveloperTermsAcceptedStateFromCookie())
+    expect(redirectToOAuth).toHaveBeenCalledWith(
+      window.reapit.config.cognitoClientId,
+      `${window.location.origin}${Routes.ADMIN_APPROVALS}`,
+      'ADMIN',
+    )
   })
 })
