@@ -1,11 +1,9 @@
 import React from 'react'
 import { Map, H5, SubTitleH5, combineAddress } from '@reapit/elements'
 import { CoordinateProps } from '@reapit/elements/src/components/Map'
-import { History } from 'history'
-import { useLocation, useHistory } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import qs from 'query-string'
 import { ExtendedAppointmentModel } from '@/types/global'
-import { ROUTES } from '@/core/router'
 import MapPanel from '../map-pannel'
 import { ListItemModel } from '@reapit/foundations-ts-definitions'
 import { AppointmentDetailModal } from '../appointment-detail-modal/appointment-detail-modal'
@@ -42,24 +40,6 @@ export type AppointmentMapProps = {
 export type RouteInformation = {
   duration: { text: string; value: number } | null
   distance: { text: string; value: number } | null
-}
-
-export type HandleUseEffectParams = {
-  queryParams: qs.ParsedQuery<string>
-  history: History
-}
-
-export const handleUseEffect = ({ queryParams, history }: HandleUseEffectParams) => () => {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(position => {
-      const queryString = qs.stringify({
-        ...queryParams,
-        currentLat: position.coords.latitude,
-        currentLng: position.coords.longitude,
-      })
-      history.push(`${ROUTES.APPOINTMENT}?${queryString}`)
-    })
-  }
 }
 
 export const handleFilterInvalidMarker = (appointments: ExtendedAppointmentModel[]) => () =>
@@ -118,10 +98,8 @@ export const handleModalClose = (
 export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments }) => {
   const [appointment, setAppoinment] = React.useState<ExtendedAppointmentModel | null>(null)
   const location = useLocation()
-  const history = useHistory()
   const queryParams = qs.parse(location.search)
   const [routeInformation, setRouteInformation] = React.useState<RouteInformation>({ duration: null, distance: null })
-  React.useEffect(handleUseEffect({ queryParams, history }), [])
   const coordinates: CoordinateProps<any> = React.useMemo(handleFilterInvalidMarker(appointments), [appointments])
 
   const onLoadedDirection = React.useCallback(
@@ -156,7 +134,7 @@ export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments }) 
         mapContainerStyles={{ height: '100%' }}
         styles={{} /* See import for explanation mapStyles */}
       />
-      <MapPanel routeInformation={routeInformation} appointments={appointments} />
+      <MapPanel routeInformation={routeInformation} />
       <AppointmentDetailModal
         title={renderModalTitle({ heading, appointmentType: appointment?.appointmentType })}
         appointment={appointment || ({} as ExtendedAppointmentModel)}

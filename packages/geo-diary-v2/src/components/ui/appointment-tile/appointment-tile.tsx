@@ -8,6 +8,7 @@ import { ExtendedAppointmentModel } from '@/types/global'
 import { ROUTES } from '@/core/router'
 import AppointmentDetailModal from '../appointment-detail-modal'
 import { ListItemModel } from '@reapit/foundations-ts-definitions'
+import { ETAButton } from '../eta-button/eta-button'
 
 export type RenderIconItemsParams = {
   appointment: ExtendedAppointmentModel
@@ -59,7 +60,6 @@ export const handleDirectionOnClick = ({ appointment, queryParams, history }: Ha
     destinationLat: lat,
     destinationLng: lng,
     tab: 'map',
-    appointmentId: appointment.id,
   })
   history.push(`${ROUTES.APPOINTMENT}?${queryString}`)
 }
@@ -69,14 +69,21 @@ export type RenderFooterItemsParams = {
   queryParams: qs.ParsedQuery<string>
   history: History
   setShowDetail: React.Dispatch<React.SetStateAction<boolean>>
+  nextAppointment?: ExtendedAppointmentModel
 }
 
-export const renderFooterItems = ({ appointment, queryParams, history, setShowDetail }: RenderFooterItemsParams) => {
+export const renderFooterItems = ({
+  appointment,
+  queryParams,
+  history,
+  setShowDetail,
+  nextAppointment,
+}: RenderFooterItemsParams) => {
   const lat = appointment?.property?.address?.geolocation?.latitude
   const lng = appointment?.property?.address?.geolocation?.longitude
   let buttons = [
     <Button
-      className="is-info"
+      variant="info"
       key="viewDetails"
       type="submit"
       onClick={() => setShowDetail(true)}
@@ -87,10 +94,13 @@ export const renderFooterItems = ({ appointment, queryParams, history, setShowDe
       Details
     </Button>,
   ] as JSX.Element[]
+  if (!!nextAppointment?.id && nextAppointment?.id == appointment?.id) {
+    buttons.unshift(<ETAButton key="etaButton" appointment={appointment} queryParams={queryParams} />)
+  }
   if (!!lat && !!lng) {
     buttons.push(
       <Button
-        className="is-info"
+        variant="info"
         key="viewDirection"
         type="submit"
         onClick={handleDirectionOnClick({ appointment, queryParams, history })}
@@ -107,6 +117,7 @@ export const renderFooterItems = ({ appointment, queryParams, history, setShowDe
 
 export type AppointmentTileProps = {
   appointment: ExtendedAppointmentModel
+  nextAppointment?: ExtendedAppointmentModel
 }
 
 export type RenderModalTitleParams = {
@@ -126,7 +137,7 @@ export const handleModalClose = (setShowDetail: React.Dispatch<React.SetStateAct
   setShowDetail(false)
 }
 
-export const AppointmentTile: React.FC<AppointmentTileProps> = ({ appointment }) => {
+export const AppointmentTile: React.FC<AppointmentTileProps> = ({ appointment, nextAppointment }) => {
   const location = useLocation()
   const history = useHistory()
   const queryParams = qs.parse(location.search)
@@ -141,7 +152,7 @@ export const AppointmentTile: React.FC<AppointmentTileProps> = ({ appointment })
         hightlight={false}
         key={appointment.id}
         heading={heading}
-        footerItems={renderFooterItems({ appointment, queryParams, history, setShowDetail })}
+        footerItems={renderFooterItems({ appointment, queryParams, history, setShowDetail, nextAppointment })}
       >
         <IconList items={renderIconItems({ appointment })} />
       </Tile>

@@ -1,3 +1,4 @@
+import '@types/googlemaps'
 import {
   AppointmentModel,
   OfficeModel,
@@ -19,6 +20,7 @@ export type Config = {
 
 declare global {
   interface Window {
+    google: typeof google
     reapit: {
       config: Config
     }

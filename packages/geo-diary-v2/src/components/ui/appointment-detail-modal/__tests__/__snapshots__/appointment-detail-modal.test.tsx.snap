@@ -8,7 +8,7 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 1
       disabled={true}
       onClick={[Function]}
       type="button"
-      variant="primary"
+      variant="info"
     >
       Cancelled
     </Unknown>
@@ -352,7 +352,7 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 2
       disabled={true}
       onClick={[Function]}
       type="button"
-      variant="primary"
+      variant="info"
     >
       Cancelled
     </Unknown>
@@ -9226,14 +9226,14 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                 data-test=""
                               >
                                 <button
-                                  class="button  is-primary  "
+                                  class="button  is-info  "
                                   data-test=""
                                   type="button"
                                 >
                                   Yes
                                 </button>
                                 <button
-                                  class="button  is-primary  "
+                                  class="button  is-info  "
                                   data-test=""
                                   type="button"
                                 >
@@ -9382,10 +9382,10 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                         loading={false}
                                         onClick={[Function]}
                                         type="button"
-                                        variant="primary"
+                                        variant="info"
                                       >
                                         <button
-                                          className="button  is-primary  "
+                                          className="button  is-info  "
                                           data-test=""
                                           disabled={false}
                                           onClick={[Function]}
@@ -9398,10 +9398,10 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                         disabled={false}
                                         onClick={[Function]}
                                         type="button"
-                                        variant="primary"
+                                        variant="info"
                                       >
                                         <button
-                                          className="button  is-primary  "
+                                          className="button  is-info  "
                                           data-test=""
                                           disabled={false}
                                           onClick={[Function]}
@@ -9911,14 +9911,14 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                                 data-test=""
                               >
                                 <button
-                                  class="button  is-primary  "
+                                  class="button  is-info  "
                                   data-test=""
                                   type="button"
                                 >
                                   Yes
                                 </button>
                                 <button
-                                  class="button  is-primary  "
+                                  class="button  is-info  "
                                   data-test=""
                                   type="button"
                                 >
@@ -10067,10 +10067,10 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                                         loading={false}
                                         onClick={[Function]}
                                         type="button"
-                                        variant="primary"
+                                        variant="info"
                                       >
                                         <button
-                                          className="button  is-primary  "
+                                          className="button  is-info  "
                                           data-test=""
                                           disabled={false}
                                           onClick={[Function]}
@@ -10083,10 +10083,10 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                                         disabled={false}
                                         onClick={[Function]}
                                         type="button"
-                                        variant="primary"
+                                        variant="info"
                                       >
                                         <button
-                                          className="button  is-primary  "
+                                          className="button  is-info  "
                                           data-test=""
                                           disabled={false}
                                           onClick={[Function]}

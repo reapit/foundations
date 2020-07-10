@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ETAButton Should match snapshot 1`] = `
+exports[`eta-button ETAButton Should match snapshot 1`] = `
 <a
-  className=""
+  className="button is-info"
   data-test="eta-button"
-  href="sms:99999999"
+  href="sms:undefined?&body=Hi , I am on my way to you. I will be with you in approximately undefined."
 >
   ETA Text
 </a>

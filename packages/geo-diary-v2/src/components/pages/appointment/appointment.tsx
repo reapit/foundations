@@ -1,14 +1,16 @@
 import * as React from 'react'
 import { useQuery } from '@apollo/react-hooks'
+import { History } from 'history'
 import dayjs from 'dayjs'
 import qs from 'query-string'
 import { Loader, isMobile } from '@reapit/elements'
 import { ExtendedAppointmentModel } from '@/types/global'
 import GET_APPOINTMENTS from './get-appointments.graphql'
 import { MobileLayout } from './mobile-layout'
-import { useLocation } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import { AuthContext } from '@/context'
 import { DesktopLayout } from './desktop-layout'
+import { ROUTES } from '@/core/router'
 
 export type AppointmentProps = {}
 
@@ -60,11 +62,51 @@ export const startAndEndTime = {
   },
 }
 
+export const sortAppoinmentsByStartTime = (
+  appointments: ExtendedAppointmentModel[],
+) => (): ExtendedAppointmentModel[] => {
+  const sortedAppoinments = appointments.sort((a, b) => {
+    const aStart = dayjs(a.start)
+    const bStart = dayjs(b.start)
+
+    if (aStart.isBefore(bStart)) {
+      return -1
+    }
+
+    if (aStart.isAfter(bStart)) {
+      return 1
+    }
+
+    return 0
+  })
+
+  return sortedAppoinments
+}
+
+export type HandleUseEffectParams = {
+  queryParams: qs.ParsedQuery<string>
+  history: History
+}
+
+export const handleUseEffect = ({ queryParams, history }: HandleUseEffectParams) => () => {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(position => {
+      const queryString = qs.stringify({
+        ...queryParams,
+        currentLat: position.coords.latitude,
+        currentLng: position.coords.longitude,
+      })
+      history.push(`${ROUTES.APPOINTMENT}?${queryString}`)
+    })
+  }
+}
+
 export const Appointment: React.FC<AppointmentProps> = () => {
   const isMobileView = isMobile()
   const { loginSession } = React.useContext(AuthContext)
   const userCode = loginSession?.loginIdentity?.userCode || ''
   const location = useLocation()
+  const history = useHistory()
   const queryParams = qs.parse(location.search)
   const time = queryParams.time || 'today'
   const { start, end } = startAndEndTime[time]
@@ -77,13 +119,17 @@ export const Appointment: React.FC<AppointmentProps> = () => {
       includeConfirm: true,
     },
   })
+  React.useEffect(handleUseEffect({ queryParams, history }), [])
+  const appointmentSorted = React.useMemo(sortAppoinmentsByStartTime(data?.GetAppointments?._embedded || []), [
+    data?.GetAppointments?._embedded,
+  ])
   if (loading) {
     return <Loader />
   }
   if (isMobileView) {
-    return <MobileLayout appointments={data?.GetAppointments?._embedded || []} />
+    return <MobileLayout appointments={appointmentSorted} />
   }
-  return <DesktopLayout appointments={data?.GetAppointments?._embedded || []} />
+  return <DesktopLayout appointments={appointmentSorted} />
 }
 
 export default React.memo(Appointment)

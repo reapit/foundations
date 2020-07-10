@@ -6,13 +6,11 @@ import {
   UNDEFINED_LATLNG_NUMBER,
   Coordinate,
   filterInvalidMarker,
-  handleUseEffect,
   getDestinationPoint,
   handleFilterInvalidMarker,
   handleMarkerOnClick,
   handleModalClose,
 } from '../map'
-import { getMockRouterProps } from '@/core/__mocks__/mock-router'
 
 const locationMock = { search: '?state=CLIENT', pathname: '/test' }
 
@@ -48,17 +46,6 @@ describe('map', () => {
     expect(result).toEqual(expected)
   })
 
-  describe('handleUseEffect', () => {
-    it('should run correctly', () => {
-      const mockProps = {
-        queryParams: {},
-        history: getMockRouterProps({ params: '', search: '' }).history,
-      }
-      const fn = handleUseEffect(mockProps)
-      fn()
-      expect(mockProps.history.push).not.toBeCalled()
-    })
-  })
   describe('getDestinationPoint', () => {
     it('should run correctly', () => {
       const fn = getDestinationPoint({ destinationLat: '123', destinationLng: '123' })

@@ -18,7 +18,7 @@ describe('travel-mode', () => {
     it('should run correctly', () => {
       const mockParams = {
         queryParams: {},
-        travelMode: 'DRIVING',
+        travelMode: 'DRIVING' as any,
         history: getMockRouterProps({ params: {}, search: '' }).history,
       }
       const fn = handleChangeTravelMode(mockParams)
