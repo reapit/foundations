@@ -5,19 +5,19 @@ import { MemoryRouter } from 'react-router'
 import { mount, shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import { getMockRouterProps } from '@/utils/mock-helper'
-import ClientAppDetail, {
+import AppDetail, {
   handleCloseInstallConfirmationModal,
   handleInstallAppButtonClick,
   renderAppHeaderButtonGroup,
   handleCloseUnInstallConfirmationModal,
   handleUnInstallAppButtonClick,
   onBackToAppsButtonClick,
-} from '../client-app-detail'
+} from '../app-detail'
 import { Button } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
 
-describe('ClientAppDetail', () => {
+describe('AppDetail', () => {
   const { history } = getMockRouterProps({})
   let store
   beforeEach(() => {
@@ -49,7 +49,7 @@ describe('ClientAppDetail', () => {
     const wrapper = mount(
       <ReactRedux.Provider store={customStore}>
         <MemoryRouter initialEntries={[{ pathname: Routes.APP_DETAIL, key: 'clientAppDetailRoute' }]}>
-          <ClientAppDetail />
+          <AppDetail />
         </MemoryRouter>
       </ReactRedux.Provider>,
     )
@@ -74,7 +74,7 @@ describe('ClientAppDetail', () => {
     const wrapper = mount(
       <ReactRedux.Provider store={customStore}>
         <MemoryRouter initialEntries={[{ pathname: Routes.APP_DETAIL, key: 'clientAppDetailRoute' }]}>
-          <ClientAppDetail />
+          <AppDetail />
         </MemoryRouter>
       </ReactRedux.Provider>,
     )
@@ -89,7 +89,7 @@ describe('ClientAppDetail', () => {
       mount(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.APP_DETAIL, key: 'clientAppDetailRoute' }]}>
-            <ClientAppDetail />
+            <AppDetail />
           </MemoryRouter>
         </ReactRedux.Provider>,
       ),

@@ -55,7 +55,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
         }
       }
     >
-      <ClientAppInstallConfirmation
+      <AppInstallConfirmation
         appDetailData={
           Object {
             "description": "enim facilisis",
@@ -125,7 +125,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
           title="Confirm Peter's Properties installation"
           visible={true}
         />
-      </ClientAppInstallConfirmation>
+      </AppInstallConfirmation>
     </Router>
   </MemoryRouter>
 </Provider>

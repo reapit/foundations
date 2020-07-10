@@ -1,14 +1,14 @@
 import * as React from 'react'
 import { Button } from '@reapit/elements'
 
-interface ClientAppDetailButtonGroupProps {
+interface AppDetailButtonGroupProps {
   installedOn: string
   onInstallConfirmationModal: () => void
   onUninstallConfirmationModal: () => void
   isInstallBtnHidden: boolean
 }
 
-export const ClientAppDetailButtonGroup: React.FC<ClientAppDetailButtonGroupProps> = ({
+export const AppDetailButtonGroup: React.FC<AppDetailButtonGroupProps> = ({
   installedOn,
   onInstallConfirmationModal,
   onUninstallConfirmationModal,

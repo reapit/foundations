@@ -16,7 +16,7 @@ import { selectIsDesktopMode } from '@/selector/auth'
 import { DESKTOP_REFRESH_URL } from '@/constants/desktop-urls'
 import { canGoBack } from '@/utils/router-helper'
 
-export type ClientAppInstallConfirmationProps = {
+export type AppInstallConfirmationProps = {
   appDetailData?: AppDetailModel
   visible: boolean
   closeInstallConfirmationModal: () => void
@@ -76,7 +76,7 @@ export const handleSuccessAlertMessageAfterClose = (
   }
 }
 
-const ClientAppInstallConfirmation: React.FC<ClientAppInstallConfirmationProps> = ({
+const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
   appDetailData,
   visible,
   closeInstallConfirmationModal,
@@ -169,4 +169,4 @@ const ClientAppInstallConfirmation: React.FC<ClientAppInstallConfirmationProps> 
   )
 }
 
-export default ClientAppInstallConfirmation
+export default AppInstallConfirmation

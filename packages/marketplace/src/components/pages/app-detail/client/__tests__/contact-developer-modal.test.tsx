@@ -4,7 +4,7 @@ import {
   ContactDeveloperSectionType,
   openContactModal,
   closeContactModal,
-} from '../client-contact-developer-modal'
+} from '../contact-developer-modal'
 import { shallow } from 'enzyme'
 
 const props: ContactDeveloperSectionType = {

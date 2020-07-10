@@ -4,20 +4,20 @@ import { mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { MemoryRouter } from 'react-router'
-import ClientAppInstallConfirmation, {
-  ClientAppInstallConfirmationProps,
+import AppInstallConfirmation, {
+  AppInstallConfirmationProps,
   handleInstallButtonClick,
   handleInstallAppSuccessCallback,
   handleSuccessAlertButtonClick,
   handleSuccessAlertMessageAfterClose,
-} from '../client-app-install-confirmation'
+} from '../app-install-confirmation'
 import { appInstallationsRequestInstall } from '@/actions/app-installations'
 import { clientFetchAppDetail } from '@/actions/client'
 import routes from '@/constants/routes'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
 
-const mockProps: ClientAppInstallConfirmationProps = {
+const mockProps: AppInstallConfirmationProps = {
   appDetailData: appDetailDataStub.data,
   visible: true,
   closeInstallConfirmationModal: jest.fn(),
@@ -42,7 +42,7 @@ describe('ClientAppInstallConfirmation', () => {
       mount(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.APP_DETAIL, key: 'clientAppDetailRoute' }]}>
-            <ClientAppInstallConfirmation {...mockProps} />
+            <AppInstallConfirmation {...mockProps} />
           </MemoryRouter>
         </ReactRedux.Provider>,
       ),

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { History } from 'history'
 import { useHistory } from 'react-router'
-import ClientAppUninstallConfirmation from '@/components/pages/app-detail/client/client-app-uninstall-confirmation'
+import AppUninstallConfirmation from '@/components/pages/app-detail/client/app-uninstall-confirmation'
 import { DesktopIntegrationTypeModel } from '@/actions/app-integration-types'
 import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
 import { selectIntegrationTypes } from '@/selector/integration-types'
@@ -9,18 +9,18 @@ import { useSelector } from 'react-redux'
 import { selectAppDetailData, selectAppDetailLoading } from '@/selector/client-app-detail'
 import { selectLoginType, selectIsAdmin } from '@/selector/auth'
 import { canGoBack } from '@/utils/router-helper'
-import AppContent from './client-app-content'
+import AppContent from './app-content'
 import { Loader, GridItem, Grid, Section } from '@reapit/elements'
 import styles from '@/styles/blocks/standalone-app-detail.scss?mod'
-import ClientAppInstallConfirmation from '@/components/pages/app-detail/client/client-app-install-confirmation'
-import { ClientAside } from './client-aside'
+import AppInstallConfirmation from '@/components/pages/app-detail/client/app-install-confirmation'
+import { Aside } from './aside'
 import { getDesktopIntegrationTypes } from '@/utils/get-desktop-integration-types'
 import Routes from '@/constants/routes'
 import { LoginType } from '@reapit/cognito-auth'
 import useReactResponsive from '@/components/hooks/use-react-responsive'
 import AppHeader from '../common/ui-app-header'
 import { BackToAppsSection } from '../common/ui-sections'
-import { ClientAppDetailButtonGroup } from './client-app-detail-button-group'
+import { AppDetailButtonGroup } from './app-detail-button-group'
 import { selectDeveloperEditionId } from '@/selector/client'
 
 export type ClientAppDetailProps = {}
@@ -63,7 +63,7 @@ export const renderAppHeaderButtonGroup = (
   loginType: LoginType,
 ) => {
   return id && loginType !== 'DEVELOPER' ? (
-    <ClientAppDetailButtonGroup
+    <AppDetailButtonGroup
       installedOn={installedOn}
       onInstallConfirmationModal={onInstallConfirmationModal}
       onUninstallConfirmationModal={onUninstallConfirmationModal}
@@ -72,7 +72,7 @@ export const renderAppHeaderButtonGroup = (
   ) : null
 }
 
-const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
+const AppDetail: React.FC = () => {
   const history = useHistory()
 
   const [isVisibleInstallConfirmation, setIsVisibleInstallConfirmation] = React.useState(false)
@@ -118,7 +118,7 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
       ) : (
         <>
           <GridItem className="is-one-quarter">
-            <ClientAside appDetailData={appDetailData} desktopIntegrationTypes={userDesktopIntegrationTypes} />
+            <Aside appDetailData={appDetailData} desktopIntegrationTypes={userDesktopIntegrationTypes} />
           </GridItem>
           <GridItem className="is-three-quarters">
             <Section isFlex isFlexColumn isFullHeight>
@@ -141,13 +141,13 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
           </GridItem>
         </>
       )}
-      <ClientAppUninstallConfirmation
+      <AppUninstallConfirmation
         visible={isVisibleUninstallConfirmation}
         appDetailData={appDetailData}
         closeUninstallConfirmationModal={closeUninstallConfirmationModal}
       />
 
-      <ClientAppInstallConfirmation
+      <AppInstallConfirmation
         visible={isVisibleInstallConfirmation}
         appDetailData={appDetailData}
         closeInstallConfirmationModal={closeInstallConfirmationModal}
@@ -156,4 +156,4 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   )
 }
 
-export default ClientAppDetail
+export default AppDetail

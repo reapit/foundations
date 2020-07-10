@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ClientAppDetail renderAppHeaderButtonGroup should match snapshot 1`] = `
+exports[`AppDetail renderAppHeaderButtonGroup should match snapshot 1`] = `
 <div>
   <Component
     installedOn="2020-2-20"
@@ -11,7 +11,7 @@ exports[`ClientAppDetail renderAppHeaderButtonGroup should match snapshot 1`] = 
 </div>
 `;
 
-exports[`ClientAppDetail renderAppHeaderButtonGroup should match snapshot 2`] = `
+exports[`AppDetail renderAppHeaderButtonGroup should match snapshot 2`] = `
 <div>
   <Component
     installedOn="2020-2-20"
@@ -22,7 +22,7 @@ exports[`ClientAppDetail renderAppHeaderButtonGroup should match snapshot 2`] = 
 </div>
 `;
 
-exports[`ClientAppDetail should match a snapshot 1`] = `
+exports[`AppDetail should match a snapshot 1`] = `
 <Provider
   store={
     Object {
@@ -77,7 +77,7 @@ exports[`ClientAppDetail should match a snapshot 1`] = `
         }
       }
     >
-      <ClientAppDetail>
+      <AppDetail>
         <Component
           dataTest="client-app-detail-container"
         >
@@ -98,7 +98,7 @@ exports[`ClientAppDetail should match a snapshot 1`] = `
                 <div />
               </div>
             </Component>
-            <ClientAppUninstallConfirmation
+            <AppUninstallConfirmation
               appDetailData={Object {}}
               closeUninstallConfirmationModal={[Function]}
               visible={false}
@@ -135,8 +135,8 @@ exports[`ClientAppDetail should match a snapshot 1`] = `
                 afterClose={[Function]}
                 visible={false}
               />
-            </ClientAppUninstallConfirmation>
-            <ClientAppInstallConfirmation
+            </AppUninstallConfirmation>
+            <AppInstallConfirmation
               appDetailData={Object {}}
               closeInstallConfirmationModal={[Function]}
               visible={false}
@@ -168,16 +168,16 @@ exports[`ClientAppDetail should match a snapshot 1`] = `
                 title="Confirm undefined installation"
                 visible={false}
               />
-            </ClientAppInstallConfirmation>
+            </AppInstallConfirmation>
           </div>
         </Component>
-      </ClientAppDetail>
+      </AppDetail>
     </Router>
   </MemoryRouter>
 </Provider>
 `;
 
-exports[`ClientAppDetail should render loader when client.appDetail.data is an empty object 1`] = `
+exports[`AppDetail should render loader when client.appDetail.data is an empty object 1`] = `
 <Provider
   store={
     Object {
@@ -232,7 +232,7 @@ exports[`ClientAppDetail should render loader when client.appDetail.data is an e
         }
       }
     >
-      <ClientAppDetail>
+      <AppDetail>
         <Component
           dataTest="client-app-detail-container"
         >
@@ -253,7 +253,7 @@ exports[`ClientAppDetail should render loader when client.appDetail.data is an e
                 <div />
               </div>
             </Component>
-            <ClientAppUninstallConfirmation
+            <AppUninstallConfirmation
               appDetailData={Object {}}
               closeUninstallConfirmationModal={[Function]}
               visible={false}
@@ -290,8 +290,8 @@ exports[`ClientAppDetail should render loader when client.appDetail.data is an e
                 afterClose={[Function]}
                 visible={false}
               />
-            </ClientAppUninstallConfirmation>
-            <ClientAppInstallConfirmation
+            </AppUninstallConfirmation>
+            <AppInstallConfirmation
               appDetailData={Object {}}
               closeInstallConfirmationModal={[Function]}
               visible={false}
@@ -323,16 +323,16 @@ exports[`ClientAppDetail should render loader when client.appDetail.data is an e
                 title="Confirm undefined installation"
                 visible={false}
               />
-            </ClientAppInstallConfirmation>
+            </AppInstallConfirmation>
           </div>
         </Component>
-      </ClientAppDetail>
+      </AppDetail>
     </Router>
   </MemoryRouter>
 </Provider>
 `;
 
-exports[`ClientAppDetail should render loader when isLoadingAppDetail = true 1`] = `
+exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
 <Provider
   store={
     Object {
@@ -387,7 +387,7 @@ exports[`ClientAppDetail should render loader when isLoadingAppDetail = true 1`]
         }
       }
     >
-      <ClientAppDetail>
+      <AppDetail>
         <Component
           dataTest="client-app-detail-container"
         >
@@ -408,7 +408,7 @@ exports[`ClientAppDetail should render loader when isLoadingAppDetail = true 1`]
                 <div />
               </div>
             </Component>
-            <ClientAppUninstallConfirmation
+            <AppUninstallConfirmation
               appDetailData={Object {}}
               closeUninstallConfirmationModal={[Function]}
               visible={false}
@@ -445,8 +445,8 @@ exports[`ClientAppDetail should render loader when isLoadingAppDetail = true 1`]
                 afterClose={[Function]}
                 visible={false}
               />
-            </ClientAppUninstallConfirmation>
-            <ClientAppInstallConfirmation
+            </AppUninstallConfirmation>
+            <AppInstallConfirmation
               appDetailData={Object {}}
               closeInstallConfirmationModal={[Function]}
               visible={false}
@@ -478,10 +478,10 @@ exports[`ClientAppDetail should render loader when isLoadingAppDetail = true 1`]
                 title="Confirm undefined installation"
                 visible={false}
               />
-            </ClientAppInstallConfirmation>
+            </AppInstallConfirmation>
           </div>
         </Component>
-      </ClientAppDetail>
+      </AppDetail>
     </Router>
   </MemoryRouter>
 </Provider>

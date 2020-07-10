@@ -78,7 +78,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
         }
       }
     >
-      <ClientAppUninstallConfirmation
+      <AppUninstallConfirmation
         appDetailData={
           Object {
             "description": "enim facilisis",
@@ -153,7 +153,7 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
           afterClose={[Function]}
           visible={false}
         />
-      </ClientAppUninstallConfirmation>
+      </AppUninstallConfirmation>
     </Router>
   </MemoryRouter>
 </Provider>

@@ -2,7 +2,7 @@ import React from 'react'
 import { DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
 import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
 import { FlexContainerBasic } from '@reapit/elements'
-import { ContactDeveloperSection } from './client-contact-developer-modal'
+import { ContactDeveloperSection } from './contact-developer-modal'
 import useReactResponsive from '@/components/hooks/use-react-responsive'
 import { History } from 'history'
 import routes from '@/constants/routes'
@@ -28,7 +28,7 @@ export const onBackToAppsButtonClick = (history: History) => {
   }
 }
 
-export const ClientAside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetailData }) => {
+export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetailData }) => {
   const { category, developer, telephone, supportEmail, homePage, isDirectApi, isWebComponent } = appDetailData
   const { isMobile } = useReactResponsive()
   const history = useHistory()

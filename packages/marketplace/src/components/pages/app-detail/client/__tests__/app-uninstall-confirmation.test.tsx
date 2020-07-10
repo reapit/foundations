@@ -7,17 +7,17 @@ import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { appInstallationsRequestUninstall } from '@/actions/app-installations'
 import { clientFetchAppDetail } from '@/actions/client'
 import ClientAppUninstallConfirmation, {
-  ClientAppUninstallConfirmationProps,
+  AppUninstallConfirmationProps,
   onUninstallButtonClick,
   handleUninstallAppSuccessCallback,
   handleSuccessAlertButtonClick,
   handleSuccessAlertMessageAfterClose,
   renderUninstallConfirmationModalFooter,
-} from '../client-app-uninstall-confirmation'
+} from '../app-uninstall-confirmation'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
 
-const mockProps: ClientAppUninstallConfirmationProps = {
+const mockProps: AppUninstallConfirmationProps = {
   appDetailData: appDetailDataStub.data,
   visible: true,
   closeUninstallConfirmationModal: jest.fn(),

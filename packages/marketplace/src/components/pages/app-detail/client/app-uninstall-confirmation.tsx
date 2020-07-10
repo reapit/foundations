@@ -16,7 +16,7 @@ import { selectIsDesktopMode } from '@/selector/auth'
 import { DESKTOP_REFRESH_URL } from '@/constants/desktop-urls'
 import { canGoBack } from '@/utils/router-helper'
 
-export type ClientAppUninstallConfirmationProps = {
+export type AppUninstallConfirmationProps = {
   appDetailData?: AppDetailModel
   visible: boolean
   closeUninstallConfirmationModal: () => void
@@ -132,7 +132,7 @@ export const renderUninstallConfirmationModalFooter = (
   )
 }
 
-const ClientAppUninstallConfirmation: React.FC<ClientAppUninstallConfirmationProps> = ({
+const AppUninstallConfirmation: React.FC<AppUninstallConfirmationProps> = ({
   appDetailData,
   visible,
   closeUninstallConfirmationModal,
@@ -186,4 +186,4 @@ const ClientAppUninstallConfirmation: React.FC<ClientAppUninstallConfirmationPro
   )
 }
 
-export default ClientAppUninstallConfirmation
+export default AppUninstallConfirmation

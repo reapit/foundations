@@ -1,5 +1,5 @@
 import React from 'react'
-import { ClientAside } from '../client-aside'
+import { Aside } from '../aside'
 import { shallow } from 'enzyme'
 import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
@@ -10,7 +10,7 @@ describe('ClientAside', () => {
   test('ClientAside - should match snapshot', () => {
     expect(
       shallow(
-        <ClientAside
+        <Aside
           appDetailData={appDetailDataStub as AppDetailDataNotNull}
           desktopIntegrationTypes={integrationTypesStub.data as DesktopIntegrationTypeModel[]}
         />,
