@@ -1,7 +1,7 @@
 import { generatePropertyBatchLoaderFn, generatePropertyLoader } from '../dataloader'
 import { propertyMock } from '../__mocks__/property'
 import { propertiesMock } from '../__mocks__/properties'
-import { ServerContext } from '../../../index'
+import { mockContext } from '../../../__mocks__/context'
 
 jest.mock('../services', () => ({
   getPropertyById: jest.fn(() => propertyMock),
@@ -13,14 +13,6 @@ jest.mock('../services', () => ({
 describe('property-dataloader', () => {
   describe('generatePropertyBatchLoaderFn', () => {
     it('should run correctly', () => {
-      const mockContext = {
-        traceId: 'mockTraceID',
-        authorization: 'mockAuthorization',
-        dataLoader: {
-          configurationLoader: jest.fn() as any,
-          propertyLoader: jest.fn() as any,
-        },
-      } as ServerContext
       const fn = generatePropertyBatchLoaderFn(mockContext)
       const mockKeys = ['AP']
       const result = fn(mockKeys)
@@ -28,14 +20,6 @@ describe('property-dataloader', () => {
     })
 
     it('should run correctly without keys', () => {
-      const mockContext = {
-        traceId: 'mockTraceID',
-        authorization: 'mockAuthorization',
-        dataLoader: {
-          configurationLoader: jest.fn() as any,
-          propertyLoader: jest.fn() as any,
-        },
-      } as ServerContext
       const fn = generatePropertyBatchLoaderFn(mockContext)
       const mockKeys = []
       const result = fn(mockKeys)
@@ -45,14 +29,6 @@ describe('property-dataloader', () => {
 
   describe('generatePropertyLoader', () => {
     it('should return correctly', () => {
-      const mockContext = {
-        traceId: 'mockTraceID',
-        authorization: 'mockAuthorization',
-        dataLoader: {
-          configurationLoader: jest.fn() as any,
-          propertyLoader: jest.fn() as any,
-        },
-      } as ServerContext
       const result = generatePropertyLoader(mockContext)
       expect(result).toEqual(expect.any(Object))
     })

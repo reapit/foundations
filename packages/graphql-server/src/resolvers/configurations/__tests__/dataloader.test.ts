@@ -17,6 +17,8 @@ describe('configuration-dataloader', () => {
         dataLoader: {
           configurationLoader: jest.fn() as any,
           propertyLoader: jest.fn() as any,
+          officeLoader: jest.fn() as any,
+          negotiatorLoader: jest.fn() as any,
         },
       } as ServerContext
       const fn = generateConfigurationBatchLoaderFn(mockContext)
@@ -32,6 +34,8 @@ describe('configuration-dataloader', () => {
         dataLoader: {
           configurationLoader: jest.fn() as any,
           propertyLoader: jest.fn() as any,
+          officeLoader: jest.fn() as any,
+          negotiatorLoader: jest.fn() as any,
         },
       } as ServerContext
       const fn = generateConfigurationBatchLoaderFn(mockContext)
@@ -48,6 +52,8 @@ describe('configuration-dataloader', () => {
         dataLoader: {
           configurationLoader: jest.fn() as any,
           propertyLoader: jest.fn() as any,
+          officeLoader: jest.fn() as any,
+          negotiatorLoader: jest.fn() as any,
         },
       } as ServerContext
       const result = generateConfigurationLoader(mockContext)

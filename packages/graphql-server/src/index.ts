@@ -10,6 +10,8 @@ import * as Sentry from '@sentry/node'
 import { generateConfigurationLoader } from './resolvers/configurations/dataloader'
 import { generatePropertyLoader } from './resolvers/properties/dataloader'
 import DataLoader from 'dataloader'
+import { generateOfficeLoader } from './resolvers/offices/dataloader'
+import { generateNegotiatorLoader } from './resolvers/negotiators/dataloader'
 
 if (process.env.NODE_ENV !== 'development') {
   Sentry.init({
@@ -22,6 +24,8 @@ if (process.env.NODE_ENV !== 'development') {
 export type ServerDataLoader = {
   configurationLoader: DataLoader<string, any, string>
   propertyLoader: DataLoader<string, any, string>
+  officeLoader: DataLoader<string, any, string>
+  negotiatorLoader: DataLoader<string, any, string>
 }
 
 export type ServerContext = Context<{ traceId: string; authorization: string; dataLoader: ServerDataLoader }>
@@ -45,6 +49,8 @@ export const handleContext = ({ event, context }) => {
   const dataLoader = {
     configurationLoader: generateConfigurationLoader(newContext),
     propertyLoader: generatePropertyLoader(newContext),
+    officeLoader: generateOfficeLoader(newContext),
+    negotiatorLoader: generateNegotiatorLoader(newContext),
   } as ServerDataLoader
   newContext.dataLoader = dataLoader
   return newContext
