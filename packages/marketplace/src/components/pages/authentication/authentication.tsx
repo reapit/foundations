@@ -1,11 +1,8 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
-import { History } from 'history'
-import { useHistory } from 'react-router'
-import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { Modal, Button } from '@reapit/elements'
-import Routes from '@/constants/routes'
+import { developerRoutes } from '@/constants/routes'
 import { authLogout } from '@/actions/auth'
 import { LoginType } from '@reapit/cognito-auth'
 
@@ -15,22 +12,8 @@ export interface AuthenticationParamTypes {
   loginType: LoginType
 }
 
-export const onDevelopersButtonClick = (history: History) => {
-  return () => {
-    history.replace(Routes.DEVELOPER_DESKTOP)
-  }
-}
-
-export const onRegisterButtonClick = (history: History) => {
-  return () => {
-    history.replace(Routes.REGISTER)
-  }
-}
-
-export const onMarketplaceButtonClick = (history: History) => {
-  return () => {
-    history.replace(Routes.APPS)
-  }
+export const onDevelopersButtonClick = (developerPortalURL: string) => () => {
+  window.open(developerPortalURL, '_self')
 }
 
 export const onLogoutButtonClick = (dispatch: Dispatch) => {
@@ -39,7 +22,7 @@ export const onLogoutButtonClick = (dispatch: Dispatch) => {
   }
 }
 
-export const renderModal = (history, dispatch) => {
+export const renderModal = (dispatch: Dispatch, developerPortalURL: string) => {
   return (
     <Modal
       title="Agency Cloud User License?"
@@ -47,7 +30,7 @@ export const renderModal = (history, dispatch) => {
       tapOutsideToDissmiss={false}
       footerItems={
         <>
-          <Button onClick={onDevelopersButtonClick(history)}>Developers</Button>
+          <Button onClick={onDevelopersButtonClick(developerPortalURL)}>Developers</Button>
           <Button onClick={onLogoutButtonClick(dispatch)}>Logout</Button>
         </>
       }
@@ -58,7 +41,7 @@ export const renderModal = (history, dispatch) => {
           please visit the&nbsp;
         </span>
         <span>
-          <Link to={Routes.DEVELOPER_DESKTOP}>Desktop</Link>
+          <a href={developerPortalURL + developerRoutes.DESKTOP}>Desktop</a>
         </span>
         <span>
           &nbsp;page within the Developers Portal, where you can subscribe to a Developer Edition of Agency Cloud.
@@ -69,10 +52,11 @@ export const renderModal = (history, dispatch) => {
 }
 
 const Authentication: React.FC<AuthenticationProps> = () => {
-  const history = useHistory()
   const dispatch = useDispatch()
+  const isProd = window.reapit.config.appEnv === 'production'
+  const developerPortalURL = isProd ? developerRoutes.PROD : developerRoutes.DEV
 
-  return <>{renderModal(history, dispatch)}</>
+  return <>{renderModal(dispatch, developerPortalURL)}</>
 }
 
 export default Authentication

@@ -5,18 +5,10 @@ import configureStore from 'redux-mock-store'
 import { MemoryRouter } from 'react-router'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
-import Authentication, {
-  renderModal,
-  onLogoutButtonClick,
-  onMarketplaceButtonClick,
-  onRegisterButtonClick,
-  onDevelopersButtonClick,
-} from '../authentication'
+import Authentication, { renderModal, onLogoutButtonClick, onDevelopersButtonClick } from '../authentication'
 import { authLogout } from '@/actions/auth'
-import { getMockRouterProps } from '@/utils/mock-helper'
 
 describe('Authentication', () => {
-  const { history } = getMockRouterProps({})
   let store
   let spyDispatch
   beforeEach(() => {
@@ -38,7 +30,8 @@ describe('Authentication', () => {
   })
   describe('renderModal', () => {
     it('should match snapshot', () => {
-      const wrapper = shallow(<div>{renderModal(history, spyDispatch)}</div>)
+      const DEVELOPER_PORTAL = 'DEVELOPER_PORTAL'
+      const wrapper = shallow(<div>{renderModal(spyDispatch, DEVELOPER_PORTAL)}</div>)
       expect(wrapper).toMatchSnapshot()
     })
   })
@@ -49,25 +42,13 @@ describe('Authentication', () => {
       expect(spyDispatch).toBeCalledWith(authLogout())
     })
   })
-  describe('onMarketplaceButtonClick', () => {
-    it('should run correctly', () => {
-      const fn = onMarketplaceButtonClick(history)
-      fn()
-      expect(history.replace).toBeCalledWith(Routes.APPS)
-    })
-  })
-  describe('onRegisterButtonClick', () => {
-    it('should run correctly', () => {
-      const fn = onRegisterButtonClick(history)
-      fn()
-      expect(history.replace).toBeCalledWith(Routes.REGISTER)
-    })
-  })
   describe('onDevelopersButtonClick', () => {
     it('should run correctly', () => {
-      const fn = onDevelopersButtonClick(history)
+      const DEVELOPER_PORTAL = 'DEVELOPER_PORTAL'
+      const fn = onDevelopersButtonClick(DEVELOPER_PORTAL)
+      window.open = jest.fn()
       fn()
-      expect(history.replace).toBeCalledWith(Routes.DEVELOPER_DESKTOP)
+      expect(window.open).toBeCalledWith(DEVELOPER_PORTAL, '_self')
     })
   })
 })

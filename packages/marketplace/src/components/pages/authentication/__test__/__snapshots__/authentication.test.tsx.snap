@@ -26,11 +26,11 @@ exports[`Authentication renderModal should match snapshot 1`] = `
         To access the Reapit Marketplace, you will need to have an Agency Cloud User License. To obtain a license, please visit the 
       </span>
       <span>
-        <Link
-          to="/developer/desktop"
+        <a
+          href="DEVELOPER_PORTAL/desktop"
         >
           Desktop
-        </Link>
+        </a>
       </span>
       <span>
          page within the Developers Portal, where you can subscribe to a Developer Edition of Agency Cloud.

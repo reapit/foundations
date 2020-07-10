@@ -13,9 +13,12 @@ const Routes = {
   HELP: '/client/help',
   LOGIN: '/client/login',
   FOUR_O_FOUR: '/404',
+}
 
-  DEVELOPER_DESKTOP: '/developer/desktop',
-  REGISTER: '/register',
+export const developerRoutes = {
+  DEV: 'https://dev.developers.reapit.cloud',
+  PROD: 'https://developers.reapit.cloud',
+  DESKTOP: '/desktop',
 }
 
 export default Routes
