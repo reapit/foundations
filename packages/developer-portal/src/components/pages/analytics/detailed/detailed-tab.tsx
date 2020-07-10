@@ -13,7 +13,7 @@ import { selectDeveloper } from '@/selector/developer'
 import { getInstallations } from '@/selector/installations'
 
 import { Grid, GridItem, DATE_TIME_FORMAT, Section } from '@reapit/elements'
-import DeveloperHitsPerDayChart from '@/components/ui/developer-hits-per-day-chart'
+import DeveloperHitsPerDayChart from './developer-hits-per-day-chart'
 import InstallationAppSection, { InstallationModelWithAppName } from './installation-app-section'
 import FilterBar from './filter-bar'
 import ErrorBoundary from '@/components/hocs/error-boundary'
