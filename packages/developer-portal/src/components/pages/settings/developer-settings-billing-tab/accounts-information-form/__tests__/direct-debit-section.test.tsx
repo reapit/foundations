@@ -6,12 +6,8 @@ describe('DirectDebitSection', () => {
   const mockProps: DirectDebitSectionProps = {
     setFieldValue: jest.fn(),
     values: {
-      contact: '',
-      email: '',
       hasDirectDebit: 'yes',
       hasReapitAccountsRef: 'yes',
-      phoneNumber: '',
-      reapitAccountsRef: '123456',
     },
   }
   it('should match snapshot', () => {

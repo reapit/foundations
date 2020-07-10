@@ -1,15 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DirectDebitSection should match snapshot 1`] = `
-<Component>
-  <Component>
-    Direct Debit
-  </Component>
-  <Component>
-    As you are providing a Reapit Reference, we will need to validate your account with our Accounts Department. Once confirmed, any subscriptions will be added to your existing monthly Direct Debit. Please now click ‘Save’ to submit your account information
-  </Component>
-</Component>
-`;
+exports[`DirectDebitSection should match snapshot 1`] = `""`;
 
 exports[`DirectDebitSection should match snapshot 2`] = `
 <Component>

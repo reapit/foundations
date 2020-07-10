@@ -1,4 +1,5 @@
 import { put, fork, all, call, takeLatest, select } from '@redux-saga/core/effects'
+import { selectMyIdentity } from '@/selector'
 import settingsSagas, {
   developerInformationFetchListen,
   developerInformationFetch,
@@ -20,7 +21,7 @@ import { developerStub } from '../__stubs__/developer'
 import { removeSession, changePassword } from '@reapit/cognito-auth'
 import { authLogout } from '@/actions/auth'
 import { showNotificationMessage } from '@/actions/notification-message'
-import { fetchDeveloperById, updateDeveloperById } from '@/services/developers'
+import { fetchDeveloperById, updateDeveloperById, UpdateDeveloperByIdParams } from '@/services/developers'
 
 jest.mock('@/services/developers')
 jest.mock('@reapit/elements')
@@ -72,7 +73,17 @@ describe('settings', () => {
     expect(gen.next().value).toEqual(select(selectDeveloperId))
     it('should call api success', () => {
       const clone = gen.clone()
-      expect(clone.next('123').value).toEqual(call(updateDeveloperById, { id: '123', companyName: '123' }))
+      const id = 'id'
+      const currentData = { currentData: 'value' }
+      expect(clone.next(id).value).toEqual(select(selectMyIdentity))
+      expect(clone.next(currentData).value).toEqual(
+        call(updateDeveloperById, ({
+          ...currentData,
+          companyName: '123',
+          company: '123',
+          id,
+        } as unknown) as UpdateDeveloperByIdParams),
+      )
       expect(clone.next({ message: 'SUCCESS' }).value).toEqual(
         put(
           showNotificationMessage({
@@ -81,7 +92,7 @@ describe('settings', () => {
           }),
         ),
       )
-      expect(clone.next({ message: 'SUCCESS' }).value).toEqual(call(fetchDeveloperById, { id: '123' }))
+      expect(clone.next({ message: 'SUCCESS' }).value).toEqual(call(fetchDeveloperById, { id }))
       expect(clone.next(developerStub).value).toEqual(put(requestDeveloperDataSuccess(developerStub)))
     })
 

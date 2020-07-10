@@ -1,8 +1,11 @@
 import * as React from 'react'
+import { selectSettingsPageIsLoading } from '@/selector/settings'
+import { selectMyIdentity } from '@/selector'
 import { Dispatch } from 'redux'
 import { fetchMyIdentity } from '@/actions/developer'
 import { Loader } from '@reapit/elements'
 import { useDispatch, useSelector } from 'react-redux'
+import { updateDeveloperData } from '@/actions/settings'
 import { selectDeveloperLoading } from '@/selector'
 import {
   FormSection,
@@ -19,31 +22,24 @@ import {
 import ReapitReferenceSection from './reapit-reference-section'
 import DirectDebitSection from './direct-debit-section'
 import ContactInformationSection from './contact-information-section'
+import { UpdateDeveloperModel } from '@reapit/foundations-ts-definitions'
 
 export type AccountsInformationFormProps = {}
 
 export type AccountsInformationFormValues = {
-  email: string
   hasReapitAccountsRef: string
-  reapitAccountsRef: string
-  phoneNumber: string
   hasDirectDebit: string
-  contact: string
-}
+} & Pick<UpdateDeveloperModel, 'billingEmail' | 'billingKeyContact' | 'billingTelephone' | 'reapitReference'>
 
 export const initialValues: AccountsInformationFormValues = {
-  email: '',
-  contact: '',
   hasDirectDebit: 'yes',
-  reapitAccountsRef: '',
   hasReapitAccountsRef: '',
-  phoneNumber: '',
 }
 
 export const ACCOUNT_REF_MIN_LENGTH = 6
 
-export const onSubmit = (values: AccountsInformationFormValues) => {
-  console.log(values)
+export const onSubmit = (dispatch: Dispatch) => (values: AccountsInformationFormValues) => {
+  dispatch(updateDeveloperData(values))
 }
 
 export type HandleUseEffectParams = {
@@ -60,19 +56,23 @@ export const handleUseEffect = ({ dispatch, isProd }: HandleUseEffectParams) => 
 const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
   const isProd = window.reapit.config.appEnv === 'production'
   const isLoading = useSelector(selectDeveloperLoading)
+  const myIdentity = useSelector(selectMyIdentity)
+  const isSubmitting = useSelector(selectSettingsPageIsLoading)
+  const unfetched = !myIdentity || Object.keys(myIdentity).length === 0
 
   const dispatch = useDispatch()
   React.useEffect(handleUseEffect({ dispatch, isProd }), [])
 
-  if (isLoading && !isProd) {
+  const isShowLoader = (isLoading || unfetched) && !isProd
+  if (isShowLoader) {
     return <Loader />
   }
 
   return (
-    <Formik initialValues={initialValues} onSubmit={onSubmit}>
+    <Formik initialValues={myIdentity as AccountsInformationFormValues} onSubmit={onSubmit(dispatch)}>
       {({ setFieldValue, values }) => {
-        const { reapitAccountsRef, hasReapitAccountsRef } = values
-        const isEnableSaveBtn = hasReapitAccountsRef === 'yes' && reapitAccountsRef.length >= ACCOUNT_REF_MIN_LENGTH
+        const { hasReapitAccountsRef } = values
+        const isEnableSaveBtn = hasReapitAccountsRef === 'yes'
 
         return (
           <Form>
@@ -92,7 +92,7 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
                 </GridItem>
               </Grid>
               <LevelRight>
-                <Button dataTest="save-btn" type="submit" disabled={!isEnableSaveBtn}>
+                <Button loading={isSubmitting} dataTest="save-btn" type="submit" disabled={!isEnableSaveBtn}>
                   Save
                 </Button>
               </LevelRight>

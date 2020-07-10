@@ -10,8 +10,8 @@ exports[`AccountsInformationForm should match snapshot 1`] = `
   </Component>
   <Component
     dataTest="email"
-    id="email"
-    name="email"
+    id="billingEmail"
+    name="billingEmail"
     placeholder="Please enter email address"
     type="email"
   />
@@ -23,8 +23,8 @@ exports[`AccountsInformationForm should match snapshot 1`] = `
   </Component>
   <Component
     dataTest="phoneNumber"
-    id="phoneNumber"
-    name="phoneNumber"
+    id="billingTelephone"
+    name="billingTelephone"
     placeholder="Please enter telephone number"
     type="text"
   />
@@ -36,8 +36,8 @@ exports[`AccountsInformationForm should match snapshot 1`] = `
   </Component>
   <Component
     dataTest="contact"
-    id="contact"
-    name="contact"
+    id="billingKeyContact"
+    name="billingKeyContact"
     placeholder="Please enter contact"
     type="text"
   />

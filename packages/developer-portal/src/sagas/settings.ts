@@ -1,4 +1,5 @@
 import { put, fork, all, call, takeLatest, select } from '@redux-saga/core/effects'
+import { selectMyIdentity } from '@/selector'
 import { removeSession, changePassword } from '@reapit/cognito-auth'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
@@ -49,8 +50,12 @@ export const developerInfomationChange = function*({ data }: Action<DeveloperMod
     if (!developerId) {
       return
     }
-    const { company: companyName, ...rest } = data
-    const response = yield call(updateDeveloperById, { id: developerId, companyName, ...rest })
+
+    // merge input data with current data. Input data could may not have required attirbutes. (require)
+    const currentData = yield select(selectMyIdentity)
+    const inputApiData = { ...currentData, id: developerId, ...data, companyName: data.company || currentData.company }
+
+    const response = yield call(updateDeveloperById, inputApiData)
     if (response) {
       yield put(
         showNotificationMessage({

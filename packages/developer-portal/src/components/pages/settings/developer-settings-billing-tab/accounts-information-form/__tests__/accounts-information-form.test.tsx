@@ -1,6 +1,12 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import AccountsInformationForm, { handleUseEffect } from '../accounts-information-form'
+import AccountsInformationForm, {
+  handleUseEffect,
+  onSubmit,
+  AccountsInformationFormValues,
+} from '../accounts-information-form'
+import { updateDeveloperData } from '@/actions/settings'
+import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
@@ -9,6 +15,13 @@ jest.mock('react-redux', () => ({
 }))
 
 describe('AccountsInformationForm', () => {
+  test('onSubmit should run correctly', () => {
+    const dispatch = jest.fn()
+    const value = ('value' as unknown) as DeveloperModel
+    onSubmit(dispatch)(value as AccountsInformationFormValues)
+    expect(dispatch).toHaveBeenCalledWith(updateDeveloperData(value))
+  })
+
   describe('handleUseEffect', () => {
     it("shouldn't dispatch(fetchMyIdentity()) when prod", () => {
       const dispatch = jest.fn()
