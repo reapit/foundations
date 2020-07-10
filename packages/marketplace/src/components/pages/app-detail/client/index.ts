@@ -1,3 +1,1 @@
-import ClientAppDetail from './client-app-detail'
-
-export default ClientAppDetail
+export { default } from './app-detail'

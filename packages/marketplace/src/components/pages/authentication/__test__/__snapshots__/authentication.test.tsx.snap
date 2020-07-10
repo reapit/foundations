@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Authentication renderClientModal should match snapshot 1`] = `
+exports[`Authentication renderModal should match snapshot 1`] = `
 <div>
   <Component
     footerItems={
@@ -26,54 +26,14 @@ exports[`Authentication renderClientModal should match snapshot 1`] = `
         To access the Reapit Marketplace, you will need to have an Agency Cloud User License. To obtain a license, please visit the 
       </span>
       <span>
-        <Link
-          to="/developer/desktop"
+        <a
+          href="DEVELOPER_PORTAL/desktop"
         >
           Desktop
-        </Link>
+        </a>
       </span>
       <span>
          page within the Developers Portal, where you can subscribe to a Developer Edition of Agency Cloud.
-      </span>
-    </p>
-  </Component>
-</div>
-`;
-
-exports[`Authentication renderDeveloperModal should match snapshot 1`] = `
-<div>
-  <Component
-    footerItems={
-      <React.Fragment>
-        <Unknown
-          onClick={[Function]}
-        >
-          Register
-        </Unknown>
-        <Unknown
-          onClick={[Function]}
-        >
-          Marketplace
-        </Unknown>
-        <Unknown
-          onClick={[Function]}
-        >
-          Logout
-        </Unknown>
-      </React.Fragment>
-    }
-    tapOutsideToDissmiss={false}
-    title="Register as a Developer?"
-    visible={true}
-  >
-    <p>
-      You are not currently registered as a Reapit Developer, if you would like to register please visit
-      <span>
-        <a
-          onClick={[Function]}
-        >
-           our registration page
-        </a>
       </span>
     </p>
   </Component>
@@ -135,7 +95,27 @@ exports[`Authentication should match a snapshot 1`] = `
         }
       }
     >
-      <Authentication />
+      <Authentication>
+        <Component
+          footerItems={
+            <React.Fragment>
+              <Unknown
+                onClick={[Function]}
+              >
+                Developers
+              </Unknown>
+              <Unknown
+                onClick={[Function]}
+              >
+                Logout
+              </Unknown>
+            </React.Fragment>
+          }
+          tapOutsideToDissmiss={false}
+          title="Agency Cloud User License?"
+          visible={true}
+        />
+      </Authentication>
     </Router>
   </MemoryRouter>
 </Provider>
