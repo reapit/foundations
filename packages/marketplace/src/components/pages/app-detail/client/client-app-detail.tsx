@@ -5,19 +5,15 @@ import ClientAppUninstallConfirmation from '@/components/pages/app-detail/client
 import { DesktopIntegrationTypeModel } from '@/actions/app-integration-types'
 import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
 import { selectIntegrationTypes } from '@/selector/integration-types'
-import { useSelector, useDispatch } from 'react-redux'
-import { selectAppDetailData, selectAppDetailLoading, selectAppDetailError } from '@/selector/client-app-detail'
+import { useSelector } from 'react-redux'
+import { selectAppDetailData, selectAppDetailLoading } from '@/selector/client-app-detail'
 import { selectLoginType, selectIsAdmin } from '@/selector/auth'
 import { canGoBack } from '@/utils/router-helper'
 import AppContent from './client-app-content'
-import { Loader, Alert, GridItem, Grid, Section } from '@reapit/elements'
+import { Loader, GridItem, Grid, Section } from '@reapit/elements'
 import styles from '@/styles/blocks/standalone-app-detail.scss?mod'
 import ClientAppInstallConfirmation from '@/components/pages/app-detail/client/client-app-install-confirmation'
 import { ClientAside } from './client-aside'
-import { clientFetchAppDetail, clientFetchAppDetailFailed } from '@/actions/client'
-import { developerApplyAppDetails } from '@/actions/developer'
-import { useParams } from 'react-router'
-import { Dispatch } from 'redux'
 import { getDesktopIntegrationTypes } from '@/utils/get-desktop-integration-types'
 import Routes from '@/constants/routes'
 import { LoginType } from '@reapit/cognito-auth'
@@ -58,38 +54,6 @@ export const onBackToAppsButtonClick = (history: History) => () => {
   history.push(Routes.CLIENT)
 }
 
-export const handleApplyAppDetailsFromLocalStorage = (
-  dispatch: Dispatch,
-  loginType: LoginType,
-  appId?: string,
-) => () => {
-  if (loginType !== 'DEVELOPER' || !appId) return
-
-  if (appId === 'submit-app') {
-    try {
-      const appDataString = localStorage.getItem('developer-preview-app')
-      if (!appDataString) throw 'No preview data'
-      const appData = JSON.parse(appDataString)
-      if (appData.id) throw 'No preview data'
-      dispatch(developerApplyAppDetails(appData))
-    } catch (err) {
-      dispatch(clientFetchAppDetailFailed(err))
-    }
-    return
-  }
-
-  try {
-    const appDataString = localStorage.getItem('developer-preview-app')
-    if (!appDataString) throw 'No preview data'
-    const appData = JSON.parse(appDataString)
-    if (appData.id !== appId) throw 'Preview data not match appId'
-
-    dispatch(developerApplyAppDetails(appData))
-  } catch (err) {
-    dispatch(clientFetchAppDetail({ id: appId }))
-  }
-}
-
 export const renderAppHeaderButtonGroup = (
   id: string,
   installedOn: string,
@@ -109,9 +73,7 @@ export const renderAppHeaderButtonGroup = (
 }
 
 const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
-  const dispatch = useDispatch()
   const history = useHistory()
-  const { appId } = useParams()
 
   const [isVisibleInstallConfirmation, setIsVisibleInstallConfirmation] = React.useState(false)
   const [isVisibleUninstallConfirmation, setIsVisibleUninstallConfirmation] = React.useState(false)
@@ -142,16 +104,12 @@ const ClientAppDetail: React.FC<ClientAppDetailProps> = () => {
   const loginType = useSelector(selectLoginType)
   const isDesktopAdmin = useSelector(selectIsAdmin)
   const isDeveloperEdition = Boolean(useSelector(selectDeveloperEditionId))
-  const error = useSelector(selectAppDetailError)
 
   const isAdmin = isDesktopAdmin || isDeveloperEdition
   const isInstallBtnHidden = loginType === 'CLIENT' && !isAdmin
   // selector selectAppDetailData return {} if not data
   const unfetched = Object.keys(appDetailData).length === 0
   const { id = '', installedOn = '' } = appDetailData
-
-  React.useEffect(handleApplyAppDetailsFromLocalStorage(dispatch, loginType, appId), [dispatch])
-  if (error) return <Alert message={error} type="danger"></Alert>
 
   return (
     <Grid className={styles.container} dataTest="client-app-detail-container">
