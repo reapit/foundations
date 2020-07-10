@@ -1,4 +1,5 @@
 import './styles/index.scss'
+import '../../../node_modules/rc-dialog/assets/index.css'
 // Hooks
 export * from './hooks/UsePortal'
 
