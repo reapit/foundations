@@ -20,7 +20,7 @@
   ],
   "main": "index.js",
   "scripts": {
-    "scaffold": "yo ./src --force"
+    "scaffold": "yo ./app --force"
   },
   "dependencies": {
     "change-case": "^4.1.1",

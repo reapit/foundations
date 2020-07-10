@@ -102,21 +102,31 @@ module.exports = class extends Generator {
         name,
       })
 
-      if (!isFoundations) {
-        this.fs.copyTpl(this.templatePath('_prettierrc.js'), this.destinationPath('./.prettierrc.js'))
-        this.fs.copyTpl(this.templatePath('_eslintrc.js'), this.destinationPath('./.eslintrc.js'))
-        this.fs.copyTpl(this.templatePath('_gitignore'), this.destinationPath('./.gitignore'))
-      }
-
       this.fs.copyTpl(this.templatePath(this.projectPath), this.destinationPath('./'))
 
       this.fs.commit([], () => {
-        this._addPackageJson()
+
+        if (!isFoundations) {
+          this.fs.copyTpl(this.templatePath('_prettierrc.js'), this.destinationPath('./.prettierrc.js'))
+          this.fs.copyTpl(this.templatePath('_eslintrc.js'), this.destinationPath('./.eslintrc.js'))
+          this.fs.copyTpl(this.templatePath('_gitignore'), this.destinationPath('./.gitignore'))
+        } else {
+          this.fs.delete(this.destinationPath('./tsconfig.json'))
+          this.fs.delete(this.destinationPath('./jest.config.js'))
+          this.fs.commit([], () => {
+            this.fs.copyTpl(this.templatePath('./_tsconfig.internal.json'), this.destinationPath('./tsconfig.json'))
+            this.fs.copyTpl(this.templatePath('./_jest.config.internal.js'), this.destinationPath('./jest.config.js'))
+          })
+        }
 
         this.fs.commit([], () => {
-          this._installAndExport()
-            .then(resolve)
-            .catch(reject)
+          this._addPackageJson()
+
+          this.fs.commit([], () => {
+            this._installAndExport()
+              .then(resolve)
+              .catch(reject)
+          })
         })
       })
     })
@@ -209,7 +219,5 @@ module.exports = class extends Generator {
       process.chdir(this.packagePath)
       this.destinationRoot(this.packagePath)
     }
-    
-    this.sourceRoot(path.resolve(__dirname, '..', 'templates'))
   }
 }
