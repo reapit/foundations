@@ -35,7 +35,7 @@ const AnalyticsPage = React.lazy(() => catchChunkError(() => import('@/component
 const AdminAppsPage = React.lazy(() => catchChunkError(() => import('../components/pages/admin-apps')))
 const RegisterConfirm = React.lazy(() => catchChunkError(() => import('../components/pages/register-confirm')))
 const AdminStats = React.lazy(() => catchChunkError(() => import('../components/pages/admin-stats')))
-const DeveloperWebhooksPage = React.lazy(() => catchChunkError(() => import('../components/pages/developer-webhooks')))
+const WebhooksPage = React.lazy(() => catchChunkError(() => import('../components/pages/webhooks')))
 const DeveloperSettingsPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/settings/developer-settings')),
 )
@@ -104,12 +104,7 @@ const Router = () => {
                 />
                 <PrivateRoute allow="DEVELOPER" path={Routes.APPS_EDIT} component={DeveloperEditApp} exact fetcher />
                 <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_API_DOCS} component={ApiDocsPage} />
-                <PrivateRoute
-                  allow="DEVELOPER"
-                  path={Routes.DEVELOPER_WEBHOOKS}
-                  fetcher
-                  component={DeveloperWebhooksPage}
-                />
+                <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_WEBHOOKS} fetcher component={WebhooksPage} />
                 <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_SWAGGER} exact component={SwaggerPage} />
                 <PrivateRoute
                   allow="DEVELOPER"
