@@ -4,10 +4,9 @@ import configureStore from 'redux-mock-store'
 import * as ReactRedux from 'react-redux'
 import { MemoryRouter } from 'react-router'
 import { approvalsStub } from '@/sagas/__stubs__/approvals'
-import routes from '@/constants/routes'
+import Routes from '@/constants/routes'
 import { revisionDetailDataStub } from '@/sagas/__stubs__/revision-detail'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
-import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
 import {
   AdminApprovals,
@@ -38,7 +37,7 @@ describe('admin-approvals', () => {
       }
       const fn = handleOnPageChange(mockHistory)
       fn(1)
-      expect(mockHistory.push).toBeCalledWith(`${routes.ADMIN_APPROVALS}?page=1`)
+      expect(mockHistory.push).toBeCalledWith(`${Routes.ADMIN_APPROVALS}?page=1`)
     })
   })
 

@@ -63,7 +63,7 @@ export const onPageChangeHandler = (history: History<any>, queryParams: AdminDev
   if (query && query !== '') {
     queryString = queryString.concat(`&${query}`)
   }
-  return history.push(`${Routes.ADMIN_DEV_MANAGEMENT}${queryString}`)
+  return history.push(`${Routes.DEV_MANAGEMENT}${queryString}`)
 }
 
 export const onSearchHandler = (history: History<any>) => (
@@ -79,7 +79,7 @@ export const onSearchHandler = (history: History<any>) => (
   const query = setQueryParams(cleanedValues)
   if (query && query !== '') {
     const queryString = `?page=1&${query}`
-    history.push(`${Routes.ADMIN_DEV_MANAGEMENT}${queryString}`)
+    history.push(`${Routes.DEV_MANAGEMENT}${queryString}`)
   }
 }
 

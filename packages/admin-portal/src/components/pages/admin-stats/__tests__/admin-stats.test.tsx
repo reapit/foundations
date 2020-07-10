@@ -13,7 +13,7 @@ describe('Admin Stats', () => {
     const store = mockStore(appState)
     const wrapper = mount(
       <ReactRedux.Provider store={store}>
-        <MemoryRouter initialEntries={[{ pathname: Routes.ADMIN_STATS, key: 'adminStats' }]}>
+        <MemoryRouter initialEntries={[{ pathname: Routes.STATS, key: 'adminStats' }]}>
           <AdminStats />
         </MemoryRouter>
       </ReactRedux.Provider>,
@@ -26,7 +26,7 @@ describe('Admin Stats', () => {
     const store = mockStore(appState)
     const wrapper = mount(
       <ReactRedux.Provider store={store}>
-        <MemoryRouter initialEntries={[{ pathname: Routes.ADMIN_STATS, key: 'adminStats' }]}>
+        <MemoryRouter initialEntries={[{ pathname: Routes.STATS, key: 'adminStats' }]}>
           <AdminStats />
         </MemoryRouter>
       </ReactRedux.Provider>,
@@ -56,7 +56,7 @@ describe('Admin Stats', () => {
     const store = mockStore(loadingState)
     const wrapper = mount(
       <ReactRedux.Provider store={store}>
-        <MemoryRouter initialEntries={[{ pathname: Routes.ADMIN_STATS, key: 'adminStats' }]}>
+        <MemoryRouter initialEntries={[{ pathname: Routes.STATS, key: 'adminStats' }]}>
           <AdminStats />
         </MemoryRouter>
       </ReactRedux.Provider>,

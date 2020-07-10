@@ -4,7 +4,7 @@ import { Dispatch } from 'redux'
 import { useHistory, useLocation } from 'react-router'
 import { Loader, Pagination, Table, Button, Helper, infoText, Section, H3 } from '@reapit/elements'
 import { revisionDetailRequestData } from '@/actions/revision-detail'
-import routes from '@/constants/routes'
+import Routes from '@/constants/routes'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
 import { appDetailRequestData } from '@/actions/app-detail'
 import { ApprovalModel, AppRevisionModel } from '@reapit/foundations-ts-definitions'
@@ -21,7 +21,7 @@ export type HandleCloseModalParams = {
 export const handleCloseModal = ({ setIsModalOpen }: HandleCloseModalParams) => () => setIsModalOpen(false)
 
 export const handleOnPageChange = (history: { push: (path: string) => void }) => (page: number) =>
-  history.push(`${routes.ADMIN_APPROVALS}?page=${page}`)
+  history.push(`${Routes.ADMIN_APPROVALS}?page=${page}`)
 
 export const Content = ({
   loading,

@@ -18,7 +18,7 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
       Array [
         Object {
           "key": "adminStats",
-          "pathname": "/admin/stats",
+          "pathname": "/stats",
         },
       ]
     }
@@ -34,7 +34,7 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
             Object {
               "hash": "",
               "key": "adminStats",
-              "pathname": "/admin/stats",
+              "pathname": "/stats",
               "search": "",
             },
           ],
@@ -47,7 +47,7 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
           "location": Object {
             "hash": "",
             "key": "adminStats",
-            "pathname": "/admin/stats",
+            "pathname": "/stats",
             "search": "",
           },
           "push": [Function],
@@ -357,7 +357,7 @@ exports[`Admin Stats should match snapshot 1`] = `
       Array [
         Object {
           "key": "adminStats",
-          "pathname": "/admin/stats",
+          "pathname": "/stats",
         },
       ]
     }
@@ -373,7 +373,7 @@ exports[`Admin Stats should match snapshot 1`] = `
             Object {
               "hash": "",
               "key": "adminStats",
-              "pathname": "/admin/stats",
+              "pathname": "/stats",
               "search": "",
             },
           ],
@@ -386,7 +386,7 @@ exports[`Admin Stats should match snapshot 1`] = `
           "location": Object {
             "hash": "",
             "key": "adminStats",
-            "pathname": "/admin/stats",
+            "pathname": "/stats",
             "search": "",
           },
           "push": [Function],
@@ -696,7 +696,7 @@ exports[`Admin Stats should show loading 1`] = `
       Array [
         Object {
           "key": "adminStats",
-          "pathname": "/admin/stats",
+          "pathname": "/stats",
         },
       ]
     }
@@ -712,7 +712,7 @@ exports[`Admin Stats should show loading 1`] = `
             Object {
               "hash": "",
               "key": "adminStats",
-              "pathname": "/admin/stats",
+              "pathname": "/stats",
               "search": "",
             },
           ],
@@ -725,7 +725,7 @@ exports[`Admin Stats should show loading 1`] = `
           "location": Object {
             "hash": "",
             "key": "adminStats",
-            "pathname": "/admin/stats",
+            "pathname": "/stats",
             "search": "",
           },
           "push": [Function],

@@ -1,8 +1,8 @@
-import routes from '@/constants/routes'
+import Routes from '@/constants/routes'
 import api from '../fixtures/routes'
 
 const adminAppMetaData = {
-  url: routes.ADMIN_APPS,
+  url: Routes.APPS,
   selectors: {
     listAppTr: 'table>tbody>tr',
     buttonSubmit: 'button[type=submit]',

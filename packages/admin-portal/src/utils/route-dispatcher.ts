@@ -15,12 +15,12 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
     case Routes.ADMIN_APPROVALS:
       store.dispatch(adminApprovalsRequestData(Number(page)))
       break
-    case Routes.ADMIN_DEV_MANAGEMENT:
+    case Routes.DEV_MANAGEMENT:
       store.dispatch(
         adminDevManagementRequestData({ page, queryString: search } as AdminDevManagementRequestDataValues),
       )
       break
-    case Routes.ADMIN_APPS:
+    case Routes.APPS:
       store.dispatch(adminAppsRequestData(getParamsFromPath(search || '')))
       break
     default:

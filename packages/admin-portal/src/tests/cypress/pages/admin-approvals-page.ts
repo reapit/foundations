@@ -1,8 +1,8 @@
-import routes from '@/constants/routes'
+import Routes from '@/constants/routes'
 import apiRoutes from '../fixtures/routes'
 
 const adminApprovalsPageMetaData = {
-  url: routes.ADMIN_APPROVALS,
+  url: Routes.ADMIN_APPROVALS,
   selectors: {
     container: '#page-admin-approvals-container',
     buttonApprove: 'button[data-test="revision-approve-button"]',

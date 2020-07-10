@@ -28,7 +28,7 @@ const Router = () => {
             <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
             <PrivateRouteWrapper path="/">
               <Switch>
-                <PrivateRoute allow="ADMIN" path={Routes.ADMIN_BILLING} component={DeveloperAdminBillingPage} exact />
+                <PrivateRoute allow="ADMIN" path={Routes.BILLING} component={DeveloperAdminBillingPage} exact />
                 <PrivateRoute
                   allow="ADMIN"
                   path={Routes.ADMIN_APPROVALS}
@@ -36,15 +36,15 @@ const Router = () => {
                   exact
                   fetcher
                 />
-                <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPS} component={AdminAppsPage} fetcher exact />
+                <PrivateRoute allow="ADMIN" path={Routes.APPS} component={AdminAppsPage} fetcher exact />
                 <PrivateRoute
                   allow="ADMIN"
-                  path={Routes.ADMIN_DEV_MANAGEMENT}
+                  path={Routes.DEV_MANAGEMENT}
                   component={AdminDevManagementPage}
                   exact
                   fetcher
                 />
-                <PrivateRoute allow="ADMIN" path={Routes.ADMIN_STATS} component={AdminStats} exact />
+                <PrivateRoute allow="ADMIN" path={Routes.STATS} component={AdminStats} exact />
                 <Route render={() => <Info infoType="404" />} />
               </Switch>
             </PrivateRouteWrapper>

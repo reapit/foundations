@@ -31,7 +31,7 @@ describe('AdminDevManagement', () => {
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.ADMIN_DEV_MANAGEMENT, key: 'adminDevManagementRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.DEV_MANAGEMENT, key: 'adminDevManagementRoute' }]}>
             <AdminDevManagement />
           </MemoryRouter>
         </ReactRedux.Provider>,
@@ -44,7 +44,7 @@ describe('AdminDevManagement', () => {
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.ADMIN_DEV_MANAGEMENT, key: 'adminDevManagementRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.DEV_MANAGEMENT, key: 'adminDevManagementRoute' }]}>
             <AdminDevManagement />
           </MemoryRouter>
         </ReactRedux.Provider>,
@@ -57,7 +57,7 @@ describe('AdminDevManagement', () => {
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.ADMIN_DEV_MANAGEMENT, key: 'adminDevManagementRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.DEV_MANAGEMENT, key: 'adminDevManagementRoute' }]}>
             <AdminDevManagement />
           </MemoryRouter>
         </ReactRedux.Provider>,

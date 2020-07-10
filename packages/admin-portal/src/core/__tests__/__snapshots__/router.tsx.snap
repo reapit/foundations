@@ -52,7 +52,7 @@ exports[`Router should match a snapshot 1`] = `
                 }
               }
               exact={true}
-              path="/admin/billing"
+              path="/billing"
             />
             <Component
               allow="ADMIN"
@@ -80,7 +80,7 @@ exports[`Router should match a snapshot 1`] = `
               }
               exact={true}
               fetcher={true}
-              path="/admin/apps"
+              path="/apps"
             />
             <Component
               allow="ADMIN"
@@ -94,7 +94,7 @@ exports[`Router should match a snapshot 1`] = `
               }
               exact={true}
               fetcher={true}
-              path="/admin/dev-management"
+              path="/dev-management"
             />
             <Component
               allow="ADMIN"
@@ -107,7 +107,7 @@ exports[`Router should match a snapshot 1`] = `
                 }
               }
               exact={true}
-              path="/admin/stats"
+              path="/stats"
             />
             <Route
               render={[Function]}
