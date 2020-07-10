@@ -11,7 +11,6 @@ jest.mock('@reapit/elements')
 jest.mock('@/utils/session')
 jest.mock('../../core/store')
 jest.mock('../../sagas/client')
-jest.mock('../../sagas/developer')
 
 describe('routeDispatcher', () => {
   it('should dispatch to clientFetchAppSummaryclientFetchAppSummary for the client route', async () => {
