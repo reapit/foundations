@@ -22,3 +22,5 @@ public/dist
 src/tests
 
 .jest-cache
+.linaria-cache
+.webpack-cache

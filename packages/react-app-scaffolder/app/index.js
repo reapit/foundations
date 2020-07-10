@@ -163,7 +163,7 @@ module.exports = class extends Generator {
       {
         type: 'list',
         name: 'stateManagementStyle',
-        message: 'Pick project type',
+        message: 'How do you want to manage state?',
         choices: ['Redux', 'React Hooks & Context'],
       },
       {
