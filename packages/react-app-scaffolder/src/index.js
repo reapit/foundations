@@ -21,9 +21,8 @@ module.exports = class extends Generator {
         await exec(`yarn`)
       }
 
-      // const prettierConfigPath = path.resolve(__dirname, '../../../.prettierrc.js')
-      // await exec(`yarn prettier --write ./package.json`)
-      // await exec(`yarn prettier "**/*.ts" "**/*.tsx" --write`)
+      await exec(`yarn prettier --write ./package.json`)
+
       this.log(yosay('App installed successfully!'))
 
       this._pushToGithub()
@@ -62,26 +61,27 @@ module.exports = class extends Generator {
     const { isFoundations, name, author, repo, description } = this.answers
 
     const local = require('./templates/_package.json')
-    const base = require(isFoundations ? './templates/_config.internal.json' : './templates/_config.external.json')
-    const remote = JSON.stringify({})
+    const base = require(this.destinationPath('./package.json'))
 
-    const merged = mergePackageJson(JSON.stringify(local), JSON.stringify(base), remote);
+    const merged = {
+      ...local,
+      ...base,
+    }
 
-    this.fs.write(this.destinationPath('./package.json'), merged)
-
-    // if (isFoundations) {
-    //   return
-    // }
-
-    // if (this.redux) {
-    // this.fs.copyTpl(this.templatePath('./is-foundation-redux/**/*'), this.destinationPath('./'))
-    // }
-
-    // if (!this.redux) {
-    //   this.fs.copyTpl(this.templatePath('./is-foundation-no-redux/**/*'), this.destinationPath('./'), {
-    //     name, author, repo, description
-    //   })
-    // }
+    this.fs.delete(this.destinationPath('./package.json'))
+    this.fs.commit([], () => {
+      this.fs.write(this.destinationPath('./temp.package.json'), JSON.stringify(merged))
+      this.fs.commit([], () => {
+        this.fs.copyTpl(this.destinationPath('./temp.package.json'), this.destinationPath('./package.json'), {
+          name,
+          author,
+          repo,
+          description,
+        })
+        this.fs.delete(this.destinationPath('./temp.package.json'))
+        this.fs.commit([], () => {})
+      })
+    })
   }
 
   constructor(args, opts) {
@@ -91,76 +91,29 @@ module.exports = class extends Generator {
 
   async writeBaseFiles() {
     return new Promise((resolve, reject) => {
-      const { name, repo, description, author, isFoundations, stylesSolution, clientId, sass } = this.answers
-      const { redux, graphql } = this
+      const { name, isFoundations, clientId } = this.answers
+      const configPath = isFoundations ? './_config.internal.json' : './_config.external.json'
 
-      /**
-       * settings destination path
-       * for non isFoundations: it will be the folder where the scaffolder is executed
-       * for isFoundations: we have to deter
-       */
+      this.fs.copyTpl(this.templatePath(configPath), this.destinationPath('./config.json'), {
+        clientId,
+      })
 
       this.fs.copyTpl(this.templatePath('_README.md'), this.destinationPath('./README.md'), {
         name,
       })
 
-      // this.fs.copyTpl(this.templatePath('_prettierrc.js'), this.destinationPath('./.prettierrc.js'), {
-      //   name,
-      // })
-
-      this.fs.copyTpl(this.templatePath(isFoundations ? './_config.internal.json' : './_config.external.json'), this.destinationPath('./config.json'), {
-        clientId,
-      })
-
-      // this.fs.copyTpl(this.templatePath('_config.example.json'), this.destinationPath('./config.example.json'), {
-      //   clientId,
-      // })
+      if (!isFoundations) {
+        this.fs.copyTpl(this.templatePath('_prettierrc.js'), this.destinationPath('./.prettierrc.js'))
+        this.fs.copyTpl(this.templatePath('_eslintrc.js'), this.destinationPath('./.eslintrc.js'))
+        this.fs.copyTpl(this.templatePath('_gitignore'), this.destinationPath('./.gitignore'))
+      }
 
       this.fs.copyTpl(this.templatePath(this.projectPath), this.destinationPath('./'))
 
-      // if (isFoundations) {
-      //   // Any any additional base files specialized for non-foundation project will need to uncomment this like
-      //   // Select recursively dot files
-      //   // glob isn't really smart at the moment. In the future, when need to add non dot files, uncomment this
-      //   // this.fs.copyTpl(this.templatePath('./base-is-foundation/**/.*'), this.destinationPath('./'), {
-      //   //   name,
-      //   //   repo,
-      //   //   description,
-      //   //   author,
-      //   // })
-      //   this.fs.copyTpl(this.templatePath('./base-is-foundation/*'), this.destinationPath('./'), {
-      //     name,
-      //     repo,
-      //     description,
-      //     author,
-      //   })
-      // } else {
-      //   this.fs.copyTpl(this.templatePath('./base-is-not-foundation/**/*'), this.destinationPath('./'), {
-      //     name,
-      //     nameInConstantCase: constantCase(name),
-      //     repo,
-      //     description,
-      //     author,
-      //     clientId,
-      //   })
-      // }
-
-      // this.fs.copyTpl(this.templatePath(this.projectPath), this.destinationPath('./'), {
-      //   name,
-      //   nameInConstantCase: constantCase(name),
-      //   redux,
-      //   graphql,
-      //   stylesSolution,
-      //   graphql,
-      //   stylesSolution,
-      //   sass
-      // })
-
       this.fs.commit([], () => {
-
         this._addPackageJson()
 
-        this.fs.commit([], () => {  
+        this.fs.commit([], () => {
           this._installAndExport()
             .then(resolve)
             .catch(reject)
@@ -244,7 +197,6 @@ module.exports = class extends Generator {
      */
     if (isFoundations) {
       this.packagePath = path.resolve(__dirname, '../..', this.answers.name)
-
     } else {
       this.packagePath = path.resolve(__dirname, './', this.answers.name)
     }
