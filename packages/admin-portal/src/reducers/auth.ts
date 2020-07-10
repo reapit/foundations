@@ -6,7 +6,6 @@ import {
   authLoginSuccess,
   authLogoutSuccess,
   authSetRefreshSession,
-  authChangeLoginType,
   setTermsAcceptedState,
 } from '../actions/auth'
 import { LoginSession, RefreshParams, LoginType } from '@reapit/cognito-auth'
@@ -70,13 +69,6 @@ const authReducer = (state: AuthState = defaultState, action: Action<any>): Auth
       ...state,
       loginType: action.data.loginType,
       refreshSession: action.data,
-    }
-  }
-
-  if (isType(action, authChangeLoginType)) {
-    return {
-      ...state,
-      loginType: action.data,
     }
   }
 
