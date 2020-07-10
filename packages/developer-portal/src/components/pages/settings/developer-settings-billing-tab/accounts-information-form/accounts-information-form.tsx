@@ -3,7 +3,7 @@ import { selectSettingsPageIsLoading } from '@/selector/settings'
 import { selectMyIdentity } from '@/selector'
 import { Dispatch } from 'redux'
 import { fetchMyIdentity } from '@/actions/developer'
-import { Loader } from '@reapit/elements'
+import { Loader, Content } from '@reapit/elements'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateDeveloperData } from '@/actions/settings'
 import { selectDeveloperLoading } from '@/selector'
@@ -61,6 +61,7 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
   const myIdentity = useSelector(selectMyIdentity)
   const isSubmitting = useSelector(selectSettingsPageIsLoading)
   const unfetched = !myIdentity || Object.keys(myIdentity).length === 0
+  const isPendingSubmission = myIdentity?.status === 'incomplete'
 
   const dispatch = useDispatch()
   React.useEffect(handleUseEffect({ dispatch, isProd }), [])
@@ -79,7 +80,7 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
       {({ setFieldValue, values, isValid }) => {
         const { hasReapitAccountsRef } = values
         // no error and tick "YES" to DO YOU HAVE A REAPIT ACCOUNTS REF?
-        const isEnableSaveBtn = hasReapitAccountsRef === 'yes' && isValid
+        const isEnableSaveBtn = hasReapitAccountsRef === 'yes' && isValid && !isPendingSubmission
 
         return (
           <Form>
@@ -99,9 +100,24 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
                 </GridItem>
               </Grid>
               <LevelRight>
-                <Button loading={isSubmitting} dataTest="save-btn" type="submit" disabled={!isEnableSaveBtn}>
-                  Save
-                </Button>
+                <div>
+                  <LevelRight>
+                    <Button
+                      className="mb-3"
+                      loading={isSubmitting}
+                      dataTest="save-btn"
+                      type="submit"
+                      disabled={!isEnableSaveBtn}
+                    >
+                      Save
+                    </Button>
+                  </LevelRight>
+                  {isPendingSubmission && (
+                    <Content>
+                      <b>ACCOUNT STATUS :</b> <i>Pending</i>
+                    </Content>
+                  )}
+                </div>
               </LevelRight>
             </FormSection>
           </Form>
