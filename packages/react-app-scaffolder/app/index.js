@@ -60,7 +60,7 @@ module.exports = class extends Generator {
   _addPackageJson() {
     const { isFoundations, name, author, repo, description } = this.answers
 
-    const local = require('./templates/_package.json')
+    const local = require(this.templatePath('./_package.json'))
     const base = require(this.destinationPath('./package.json'))
 
     const merged = {
@@ -197,20 +197,19 @@ module.exports = class extends Generator {
      */
     if (isFoundations) {
       this.packagePath = path.resolve(__dirname, '../..', this.answers.name)
-    } else {
-      this.packagePath = path.resolve(__dirname, './', this.answers.name)
+      /**
+       * create directory if not
+       */
+      if (!fs.existsSync(this.packagePath)) {
+        fs.mkdirSync(this.packagePath)
+      }
+      /**
+       * change destination path, cwd to package path
+       */
+      process.chdir(this.packagePath)
+      this.destinationRoot(this.packagePath)
     }
-
-    /**
-     * create directory if not
-     */
-    if (!fs.existsSync(this.packagePath)) {
-      fs.mkdirSync(this.packagePath)
-    }
-    /**
-     * change destination path, cwd to package path
-     */
-    process.chdir(this.packagePath)
-    this.destinationRoot(this.packagePath)
+    
+    this.sourceRoot(path.resolve(__dirname, '..', 'templates'))
   }
 }
