@@ -4,7 +4,7 @@ import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-defin
 import { AppInstallationsState } from '@/reducers/app-installations'
 import { DeveloperState } from '@/reducers/developer'
 import { INSTALLATIONS_PER_PAGE } from '@/constants/paginator'
-import DeveloperInstallationsChart from '@/components/ui/developer-installations-chart'
+import DeveloperInstallationsChart from '@/components/pages/analytics/detailed/installations-chart'
 import { handleMapAppNameToInstallation } from '@/components/pages/analytics/detailed/detailed-tab'
 
 export interface InstallationModelWithAppName extends InstallationModel {

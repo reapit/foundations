@@ -1,10 +1,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import DeveloperInstallationsChart, {
-  DeveloperInstallationsChartProps,
-  getChartOptions,
-} from '../developer-installations-chart'
-import { installedAppsStub } from '../__stubs__/developer-installations-chart-data'
+import DeveloperInstallationsChart, { DeveloperInstallationsChartProps, getChartOptions } from '../installations-chart'
+import { installedAppsStub } from '../../../../ui/__stubs__/developer-installations-chart-data'
 import { groupInstalledAppsByDate } from '@/utils/developer-analytics'
 
 const props: DeveloperInstallationsChartProps = {
