@@ -1,6 +1,6 @@
 import React from 'react'
 import AuthFlow from '@/constants/app-auth-flow'
-import AppAuthenticationDetail from '@/components/ui/app-authentication-detail'
+import AppAuthenticationDetail from '@/components/pages/app-detail/app-authentication-detail'
 import { CustomCreateAppModel } from '@/actions/submit-app'
 import { ModalBody, Button, ModalFooter, H5 } from '@reapit/elements'
 import { WizardStepComponent } from '../types'
