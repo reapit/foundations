@@ -41,7 +41,7 @@ describe('ClientAppInstallConfirmation', () => {
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.CLIENT_APP_DETAIL, key: 'clientAppDetailRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.APP_DETAIL, key: 'clientAppDetailRoute' }]}>
             <ClientAppInstallConfirmation {...mockProps} />
           </MemoryRouter>
         </ReactRedux.Provider>,
@@ -102,6 +102,6 @@ describe('ClientAppInstallConfirmation', () => {
     } as any
     const fn = handleSuccessAlertButtonClick(history)
     fn()
-    expect(history.replace).toBeCalledWith(routes.CLIENT)
+    expect(history.replace).toBeCalledWith(routes.APPS)
   })
 })

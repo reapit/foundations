@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import { ClientSettingsPage, handleLogout } from '../client-setting'
+import { ClientSettingsPage, handleLogout } from '../setting'
 import { authLogout } from '@/actions/auth'
 import { Provider } from 'react-redux'
 import { MemoryRouter } from 'react-router'

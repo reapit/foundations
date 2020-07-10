@@ -21,7 +21,7 @@ describe('WebComponentConfig', () => {
     expect(
       mount(
         <Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.CLIENT_APP_DETAIL, key: 'appDetailsRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.APP_DETAIL, key: 'appDetailsRoute' }]}>
             <WebComponentConfig />
           </MemoryRouter>
         </Provider>,

@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { ClientHelpPage, handleGotoWelcomeGuide } from '../client-help'
+import { Help, handleGotoWelcomeGuide } from '../help'
 import Routes from '@/constants/routes'
 import { history } from '@/core/router'
 
-jest.mock('../../../core/router', () => ({
+jest.mock('../../../../core/router', () => ({
   history: {
     push: jest.fn(),
   },
@@ -12,7 +12,7 @@ jest.mock('../../../core/router', () => ({
 
 describe('ClientHelpPage', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<ClientHelpPage />)).toMatchSnapshot()
+    expect(shallow(<Help />)).toMatchSnapshot()
   })
 })
 
@@ -20,6 +20,6 @@ describe('handleGotoWelcomeGuide', () => {
   it('should called with correct props', () => {
     const spy = jest.spyOn(history, 'push')
     handleGotoWelcomeGuide()
-    expect(spy).toHaveBeenCalledWith(Routes.CLIENT_WELCOME)
+    expect(spy).toHaveBeenCalledWith(Routes.WELCOME)
   })
 })

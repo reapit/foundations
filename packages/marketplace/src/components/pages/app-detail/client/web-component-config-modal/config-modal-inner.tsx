@@ -13,7 +13,6 @@ import {
   SelectOption,
   FormikProps,
 } from '@reapit/elements'
-import styles from '@/styles/elements/radioselect.scss?mod'
 import { useDispatch, useSelector } from 'react-redux'
 import { clientUpdateWebComponentConfig } from '@/actions/client'
 import {
@@ -89,7 +88,7 @@ export const WebComponentConfigModalBody = ({ subtext, formikProps }: WebCompone
         <div className="control">
           <label className="label">Days of the week</label>
           <label className="subtext mb-5">Select which days of the week you would like to display</label>
-          <div className={`container-flex flex-wrap ${styles.radioselect}`}>
+          <div className="container-flex flex-wrap">
             <Checkbox name="daysOfWeek" id="Monday" labelText="Monday" value="1" className="mr-5" />
             <Checkbox name="daysOfWeek" id="Tuesday" labelText="Tuesday" value="2" className="mr-5" />
             <Checkbox name="daysOfWeek" id="Wednesday" labelText="Wednesday" value="3" className="mr-5" />

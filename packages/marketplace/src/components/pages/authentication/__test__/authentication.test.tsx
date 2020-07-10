@@ -6,7 +6,6 @@ import { MemoryRouter } from 'react-router'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
 import Authentication, {
-  renderDeveloperModal,
   renderClientModal,
   onLogoutButtonClick,
   onMarketplaceButtonClick,
@@ -37,12 +36,6 @@ describe('Authentication', () => {
       ),
     ).toMatchSnapshot()
   })
-  describe('renderDeveloperModal', () => {
-    it('should match snapshot', () => {
-      const wrapper = shallow(<div>{renderDeveloperModal(history, spyDispatch)}</div>)
-      expect(wrapper).toMatchSnapshot()
-    })
-  })
   describe('renderClientModal', () => {
     it('should match snapshot', () => {
       const wrapper = shallow(<div>{renderClientModal(history, spyDispatch)}</div>)
@@ -60,7 +53,7 @@ describe('Authentication', () => {
     it('should run correctly', () => {
       const fn = onMarketplaceButtonClick(history)
       fn()
-      expect(history.replace).toBeCalledWith(Routes.CLIENT)
+      expect(history.replace).toBeCalledWith(Routes.APPS)
     })
   })
   describe('onRegisterButtonClick', () => {

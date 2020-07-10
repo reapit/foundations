@@ -15,7 +15,7 @@ import {
   BackToAppsSection,
 } from '../common/ui-sections'
 import { useHistory } from 'react-router'
-import { WebComponentConfig } from './client-web-component-config'
+import WebComponentConfig from './web-component-config-modal'
 
 interface AsideProps {
   appDetailData: AppDetailDataNotNull
@@ -24,7 +24,7 @@ interface AsideProps {
 
 export const onBackToAppsButtonClick = (history: History) => {
   return () => {
-    history.push(routes.DEVELOPER_MY_APPS)
+    history.push(routes.APPS)
   }
 }
 

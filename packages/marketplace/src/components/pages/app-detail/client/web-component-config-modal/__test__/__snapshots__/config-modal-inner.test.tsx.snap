@@ -632,7 +632,7 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                   Select which days of the week you would like to display
                 </label>
                 <div
-                  className="container-flex flex-wrap undefined"
+                  className="container-flex flex-wrap"
                 >
                   <Component
                     className="mr-5"

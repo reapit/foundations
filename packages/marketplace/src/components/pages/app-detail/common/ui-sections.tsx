@@ -22,7 +22,7 @@ import {
   Content,
 } from '@reapit/elements'
 import AuthFlow from '@/constants/app-auth-flow'
-import AppAuthenticationDetail from '@/components/ui/app-authentication-detail'
+import AppAuthenticationDetail from '@/components/pages/app-detail/common/app-authentication-detail'
 
 interface IsSidebar {
   isSidebar?: boolean

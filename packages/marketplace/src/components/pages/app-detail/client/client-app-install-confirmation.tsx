@@ -56,7 +56,7 @@ export const handleSuccessAlertButtonClick = (history: History) => () => {
   if (canGoBack(history)) {
     history.goBack()
   }
-  history.replace(routes.CLIENT)
+  history.replace(routes.APPS)
 }
 
 export const handleSuccessAlertMessageAfterClose = (

@@ -51,7 +51,7 @@ export const onBackToAppsButtonClick = (history: History) => () => {
   if (canGoBack(history)) {
     history.goBack()
   }
-  history.push(Routes.CLIENT)
+  history.push(Routes.APPS)
 }
 
 export const renderAppHeaderButtonGroup = (

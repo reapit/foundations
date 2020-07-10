@@ -4,7 +4,7 @@ import { Redirect, useHistory, useLocation } from 'react-router'
 import { Loader } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import routes from '@/constants/routes'
-import InstalledAppList from '@/components/ui/installed-app-list'
+import InstalledAppList from '@/components/pages/installed-apps/installed-app-list'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { handleLaunchApp } from '@/utils/launch-app'
 import { getParamsFromPath } from '@/utils/client-url-params'
@@ -35,7 +35,7 @@ export const InstalledApps: React.FC = () => {
 
   // redirect to browser app page if no app installed and come from login page
   if (code && state && !list.length) {
-    return <Redirect to={Routes.CLIENT} />
+    return <Redirect to={Routes.APPS} />
   }
 
   return (

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
 import { History } from 'history'
-import { useHistory, useParams } from 'react-router'
+import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { Modal, Button } from '@reapit/elements'
@@ -29,7 +29,7 @@ export const onRegisterButtonClick = (history: History) => {
 
 export const onMarketplaceButtonClick = (history: History) => {
   return () => {
-    history.replace(Routes.CLIENT)
+    history.replace(Routes.APPS)
   }
 }
 
@@ -68,42 +68,11 @@ export const renderClientModal = (history, dispatch) => {
   )
 }
 
-export const renderDeveloperModal = (history, dispatch) => {
-  return (
-    <Modal
-      title="Register as a Developer?"
-      visible={true}
-      tapOutsideToDissmiss={false}
-      footerItems={
-        <>
-          <Button onClick={onRegisterButtonClick(history)}>Register</Button>
-          <Button onClick={onMarketplaceButtonClick(history)}>Marketplace</Button>
-          <Button onClick={onLogoutButtonClick(dispatch)}>Logout</Button>
-        </>
-      }
-    >
-      <p>
-        You are not currently registered as a Reapit Developer, if you would like to register please visit
-        <span>
-          <a onClick={onRegisterButtonClick(history)}> our registration page</a>
-        </span>
-      </p>
-    </Modal>
-  )
-}
-
 const Authentication: React.FC<AuthenticationProps> = () => {
   const history = useHistory()
-  const params = useParams<AuthenticationParamTypes>()
-  const loginType = params.loginType?.toUpperCase() as LoginType
   const dispatch = useDispatch()
 
-  return (
-    <>
-      {loginType === 'CLIENT' && renderClientModal(history, dispatch)}
-      {loginType === 'DEVELOPER' && renderDeveloperModal(history, dispatch)}
-    </>
-  )
+  return <>{renderClientModal(history, dispatch)}</>
 }
 
 export default Authentication

@@ -6,7 +6,6 @@ import { MemoryRouter } from 'react-router'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { appInstallationsRequestUninstall } from '@/actions/app-installations'
 import { clientFetchAppDetail } from '@/actions/client'
-import routes from '@/constants/routes'
 import ClientAppUninstallConfirmation, {
   ClientAppUninstallConfirmationProps,
   onUninstallButtonClick,
@@ -43,7 +42,7 @@ describe('ClientAppUninstallConfirmation', () => {
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.CLIENT_APP_DETAIL, key: 'clientAppDetailRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.APP_DETAIL, key: 'clientAppDetailRoute' }]}>
             <ClientAppUninstallConfirmation {...mockProps} />
           </MemoryRouter>
         </ReactRedux.Provider>,
@@ -91,7 +90,7 @@ describe('ClientAppUninstallConfirmation', () => {
     } as any
     const fn = handleSuccessAlertButtonClick(history)
     fn()
-    expect(history.replace).toBeCalledWith(routes.CLIENT)
+    expect(history.replace).toBeCalledWith(Routes.APPS)
   })
 
   describe('handleSuccessAlertMessageAfterClose', () => {

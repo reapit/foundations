@@ -48,7 +48,7 @@ describe('ClientAppDetail', () => {
 
     const wrapper = mount(
       <ReactRedux.Provider store={customStore}>
-        <MemoryRouter initialEntries={[{ pathname: Routes.CLIENT_APP_DETAIL, key: 'clientAppDetailRoute' }]}>
+        <MemoryRouter initialEntries={[{ pathname: Routes.APP_DETAIL, key: 'clientAppDetailRoute' }]}>
           <ClientAppDetail />
         </MemoryRouter>
       </ReactRedux.Provider>,
@@ -73,7 +73,7 @@ describe('ClientAppDetail', () => {
 
     const wrapper = mount(
       <ReactRedux.Provider store={customStore}>
-        <MemoryRouter initialEntries={[{ pathname: Routes.CLIENT_APP_DETAIL, key: 'clientAppDetailRoute' }]}>
+        <MemoryRouter initialEntries={[{ pathname: Routes.APP_DETAIL, key: 'clientAppDetailRoute' }]}>
           <ClientAppDetail />
         </MemoryRouter>
       </ReactRedux.Provider>,
@@ -88,7 +88,7 @@ describe('ClientAppDetail', () => {
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.CLIENT_APP_DETAIL, key: 'clientAppDetailRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.APP_DETAIL, key: 'clientAppDetailRoute' }]}>
             <ClientAppDetail />
           </MemoryRouter>
         </ReactRedux.Provider>,
@@ -184,7 +184,7 @@ describe('ClientAppDetail', () => {
     it('should run correctly', () => {
       const fn = onBackToAppsButtonClick(history)
       fn()
-      expect(history.push).toBeCalledWith(Routes.CLIENT)
+      expect(history.push).toBeCalledWith(Routes.APPS)
     })
   })
 })

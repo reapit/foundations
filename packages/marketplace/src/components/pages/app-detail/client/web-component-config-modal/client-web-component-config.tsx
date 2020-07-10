@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { selectWebComponentData } from '@/selector/client'
 import { clientFetchWebComponentConfig } from '@/actions/client'
 import { Dispatch } from 'redux'
-import WebComponentModal from '@/components/ui/web-component-config-modal'
-import { AppDetailSection } from '../common/ui-helpers'
+import WebComponentModal from '@/components/pages/app-detail/client/web-component-config-modal/config-modal'
+import { AppDetailSection } from '../../common/ui-helpers'
 import { selectClientId } from '@/selector/auth'
 import { useParams } from 'react-router-dom'
 
@@ -47,3 +47,5 @@ export const WebComponentConfig: React.FC = () => {
     </AppDetailSection>
   )
 }
+
+export default WebComponentConfig

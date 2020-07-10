@@ -29,7 +29,7 @@ export interface onCardClickParams {
 }
 
 export const handleOnCardClick = (history: History) => (app: AppSummaryModel) => {
-  history.push(`${Routes.CLIENT}/${app.id}`)
+  history.push(`${Routes.APPS}/${app.id}`)
 }
 
 export const Client: React.FunctionComponent = () => {
@@ -65,7 +65,7 @@ export const Client: React.FunctionComponent = () => {
                       <GridThreeColItem className="" key={app.id}>
                         <div className="card">
                           <div className="card-image">
-                            <Link className="image" to={`${Routes.CLIENT}/${app.id}`}>
+                            <Link className="image" to={`${Routes.APPS}/${app.id}`}>
                               <img key={app.id} src={featureImageSrc} />
                             </Link>
                           </div>

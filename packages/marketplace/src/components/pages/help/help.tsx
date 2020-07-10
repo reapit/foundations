@@ -4,10 +4,10 @@ import { H3 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import welcomeImg from '@/assets/images/help/welcome-guide.jpg'
 import liveChatImg from '@/assets/images/help/live-chat.jpg'
-import { HelpItem, HelpItemList } from '@/components/ui/help-item-list'
+import { HelpItem, HelpItemList } from '@/components/pages/help/help-item-list'
 
 export const handleGotoWelcomeGuide = () => {
-  history.push(Routes.CLIENT_WELCOME)
+  history.push(Routes.WELCOME)
 }
 
 export const helpItems: HelpItem[] = [
@@ -29,7 +29,7 @@ export const helpItems: HelpItem[] = [
   },
 ]
 
-export const ClientHelpPage: React.FC = () => {
+export const Help: React.FC = () => {
   return (
     <>
       <H3 isHeadingSection>Help</H3>
@@ -38,4 +38,4 @@ export const ClientHelpPage: React.FC = () => {
   )
 }
 
-export default ClientHelpPage
+export default Help

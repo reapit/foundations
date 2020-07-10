@@ -42,7 +42,7 @@ describe('Client', () => {
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.CLIENT, key: 'clientRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.APPS, key: 'clientRoute' }]}>
             <Client />
           </MemoryRouter>
         </ReactRedux.Provider>,
@@ -59,7 +59,7 @@ describe('Client', () => {
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.CLIENT, key: 'clientRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.APPS, key: 'clientRoute' }]}>
             <Client />
           </MemoryRouter>
         </ReactRedux.Provider>,
@@ -80,7 +80,7 @@ describe('Client', () => {
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.CLIENT, key: 'clientRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.APPS, key: 'clientRoute' }]}>
             <Client />
           </MemoryRouter>
         </ReactRedux.Provider>,
@@ -101,7 +101,7 @@ describe('Client', () => {
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.CLIENT, key: 'clientRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.APPS, key: 'clientRoute' }]}>
             <Client />
           </MemoryRouter>
         </ReactRedux.Provider>,
@@ -131,7 +131,7 @@ describe('Client', () => {
       }
       const fn = handleOnCardClick(history)
       fn(mockAppSummary)
-      expect(history.push).toBeCalledWith(`${Routes.CLIENT}/${mockAppSummary.id}`)
+      expect(history.push).toBeCalledWith(`${Routes.APPS}/${mockAppSummary.id}`)
     })
   })
 

@@ -88,7 +88,7 @@ describe('MyApps', () => {
       }
       const fn = handleOnSettingClick(history)
       fn(mockAppSummary)
-      expect(history.push).toBeCalledWith(`${Routes.CLIENT}/${mockAppSummary.id}/manage`)
+      expect(history.push).toBeCalledWith(`${Routes.APPS}/${mockAppSummary.id}/manage`)
     })
   })
 })

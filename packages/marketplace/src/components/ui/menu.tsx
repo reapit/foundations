@@ -31,7 +31,7 @@ export const generateMenuConfig = (
         {
           title: 'Browse',
           key: 'BROWSE_APPS',
-          url: Routes.CLIENT,
+          url: Routes.APPS,
           type: 'PRIMARY',
           icon: <FaCloud className="nav-item-icon" />,
         },

@@ -40,46 +40,6 @@ exports[`Authentication renderClientModal should match snapshot 1`] = `
 </div>
 `;
 
-exports[`Authentication renderDeveloperModal should match snapshot 1`] = `
-<div>
-  <Component
-    footerItems={
-      <React.Fragment>
-        <Unknown
-          onClick={[Function]}
-        >
-          Register
-        </Unknown>
-        <Unknown
-          onClick={[Function]}
-        >
-          Marketplace
-        </Unknown>
-        <Unknown
-          onClick={[Function]}
-        >
-          Logout
-        </Unknown>
-      </React.Fragment>
-    }
-    tapOutsideToDissmiss={false}
-    title="Register as a Developer?"
-    visible={true}
-  >
-    <p>
-      You are not currently registered as a Reapit Developer, if you would like to register please visit
-      <span>
-        <a
-          onClick={[Function]}
-        >
-           our registration page
-        </a>
-      </span>
-    </p>
-  </Component>
-</div>
-`;
-
 exports[`Authentication should match a snapshot 1`] = `
 <Provider
   store={
@@ -135,7 +95,27 @@ exports[`Authentication should match a snapshot 1`] = `
         }
       }
     >
-      <Authentication />
+      <Authentication>
+        <Component
+          footerItems={
+            <React.Fragment>
+              <Unknown
+                onClick={[Function]}
+              >
+                Developers
+              </Unknown>
+              <Unknown
+                onClick={[Function]}
+              >
+                Logout
+              </Unknown>
+            </React.Fragment>
+          }
+          tapOutsideToDissmiss={false}
+          title="Agency Cloud User License?"
+          visible={true}
+        />
+      </Authentication>
     </Router>
   </MemoryRouter>
 </Provider>
