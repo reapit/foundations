@@ -5,12 +5,12 @@ import AccountsInformationForm, { handleUseEffect } from '../accounts-informatio
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
   useSelector: jest.fn(),
-  useDispatch: jest.fn()
+  useDispatch: jest.fn(),
 }))
 
 describe('AccountsInformationForm', () => {
   describe('handleUseEffect', () => {
-    it('shouldn\'t dispatch(fetchMyIdentity()) when prod', () => {
+    it("shouldn't dispatch(fetchMyIdentity()) when prod", () => {
       const dispatch = jest.fn()
       handleUseEffect({ dispatch, isProd: true })()
       expect(dispatch).toHaveBeenCalledTimes(0)

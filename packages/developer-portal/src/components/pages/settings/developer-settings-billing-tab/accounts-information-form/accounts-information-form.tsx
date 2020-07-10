@@ -46,15 +46,13 @@ export const onSubmit = (values: AccountsInformationFormValues) => {
   console.log(values)
 }
 
-
 export type HandleUseEffectParams = {
-  dispatch: Dispatch,
+  dispatch: Dispatch
   isProd: boolean
 }
 
 export const handleUseEffect = ({ dispatch, isProd }: HandleUseEffectParams) => () => {
   if (!isProd) {
-
     dispatch(fetchMyIdentity())
   }
 }

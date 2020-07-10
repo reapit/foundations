@@ -1,6 +1,6 @@
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
-import { UsageStatsModel } from '@reapit/foundations-ts-definitions'
+// import { UsageStatsModel } from '@reapit/foundations-ts-definitions'
 import {
   appUsageStatsRequestData,
   appUsageStatsReceiveData,
@@ -9,7 +9,10 @@ import {
 
 export interface AppUsageStatsState {
   loading: boolean
-  appUsageStatsData: UsageStatsModel | null
+  // UsageStatsModel is deprecated
+  // Not sure if this code is still used
+  // TODO: investigate
+  appUsageStatsData: any | null
 }
 
 export const defaultState: AppUsageStatsState = {
