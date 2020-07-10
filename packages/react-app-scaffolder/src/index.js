@@ -61,11 +61,11 @@ module.exports = class extends Generator {
   _addPackageJson() {
     const { isFoundations, name, author, repo, description } = this.answers
 
-    const local = require(`${this.projectPath}/package.json`)
-    const base = require(isFoundations ? './_config.internal.json' : './_config.external.json')
+    const local = require('./templates/_package.json')
+    const base = require(isFoundations ? './templates/_config.internal.json' : './templates/_config.external.json')
     const remote = JSON.stringify({})
 
-    const merged = mergePackageJson(local, base, remote);
+    const merged = mergePackageJson(JSON.stringify(local), JSON.stringify(base), remote);
 
     this.fs.write(this.destinationPath('./package.json'), merged)
 
@@ -108,7 +108,7 @@ module.exports = class extends Generator {
       //   name,
       // })
 
-      this.fs.copyTpl(this.templatePath('_config.json'), this.destinationPath('./config.json'), {
+      this.fs.copyTpl(this.templatePath(isFoundations ? './_config.internal.json' : './_config.external.json'), this.destinationPath('./config.json'), {
         clientId,
       })
 

@@ -23,10 +23,11 @@
     "scaffold": "yo ./src --force"
   },
   "dependencies": {
+    "change-case": "^4.1.1",
+    "merge-package.json": "^3.1.8",
     "yeoman-generator": "^4.11.0",
     "yo": "^3.1.1",
-    "yosay": "^2.0.2",
-    "change-case": "^4.1.1"
+    "yosay": "^2.0.2"
   },
   "devDependencies": {
     "raw-loader": "^4.0.1"
