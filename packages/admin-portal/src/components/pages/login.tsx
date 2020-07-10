@@ -14,6 +14,7 @@ const { wrapper, container, image, registerLevel, loginButton } = loginStyles
 export type LoginProps = {}
 
 export const onLoginButtonClick = () => {
+  //TODO use Routes.APPROVALS instead
   const redirectRoute = `${window.location.origin}${Routes.ADMIN_APPROVALS}`
   redirectToLogin(window.reapit.config.cognitoClientId, redirectRoute, 'ADMIN')
 }

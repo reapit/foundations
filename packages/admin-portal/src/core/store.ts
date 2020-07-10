@@ -39,7 +39,7 @@ import appUsageStatsSagas from '@/sagas/app-usage-stats'
 import appHttpTrafficEventSagas from '@/sagas/app-http-trafic-event'
 import myAppsSagas from '@/sagas/my-apps'
 import developerSagas from '@/sagas/developer'
-import submitAppSagas from '@/sagas/submit-app'
+// import submitAppSagas from '@/sagas/submit-app'
 import submitRevisionSagas from '@/sagas/submit-revision'
 import adminApprovalSagas from '@/sagas/admin-approvals'
 import adminDevManagementSagas from '@/sagas/admin-dev-management'
@@ -114,7 +114,7 @@ export class Store {
       fork(myAppsSagas),
       fork(developerSagas),
       fork(appDetailSagas),
-      fork(submitAppSagas),
+      // fork(submitAppSagas),
       fork(submitRevisionSagas),
       fork(adminApprovalSagas),
       fork(adminDevManagementSagas),

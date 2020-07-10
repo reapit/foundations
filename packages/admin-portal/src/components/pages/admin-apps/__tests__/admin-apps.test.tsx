@@ -108,7 +108,7 @@ describe('admin-apps', () => {
       }
       const fn = refreshForm(history)
       fn()
-      expect(history.push).toBeCalledWith(Routes.ADMIN_APPS)
+      expect(history.push).toBeCalledWith(Routes.APPS)
     })
   })
 

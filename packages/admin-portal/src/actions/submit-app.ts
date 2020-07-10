@@ -1,10 +1,26 @@
 import { FormikHelpers } from '@reapit/elements'
+import { Dispatch } from 'redux'
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
 import { CreateAppModel, ScopeModel } from '@reapit/foundations-ts-definitions'
 import { FormState } from '@/types/core'
 import { FormStep } from '@/reducers/submit-app'
-import { HandleSubmitParams } from '@/components/ui/submit-app-wizard/submit-app-wizard'
+
+export type WizardStep =
+  | 'BEFORE_YOU_START'
+  | 'INPUT_APP_NAME'
+  | 'CREATE_NEW_APP'
+  | 'INPUT_AUTHENTICATION_URIS'
+  | 'GRANT_PERMISSION'
+  | 'SUBMIT_APP_SUCCESS'
+  | 'INPUT_ATHENTICATION_TYPE'
+
+export type SetWizardStep = React.Dispatch<React.SetStateAction<WizardStep>>
+
+export type HandleSubmitParams = {
+  dispatch: Dispatch
+  setWizardStep: SetWizardStep
+}
 
 export type SubmitAppFormikActions = FormikHelpers<CustomCreateAppModel>
 

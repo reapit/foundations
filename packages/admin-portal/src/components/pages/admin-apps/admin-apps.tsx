@@ -136,7 +136,7 @@ export const generateColumns = ({ dispatch, setDataDeleteModal, deleteModalData 
 }
 
 export const refreshForm = history => () => {
-  history.push(Routes.ADMIN_APPS)
+  history.push(Routes.APPS)
 }
 
 export const renderForm = ({ values, status }) => {
@@ -223,7 +223,7 @@ export const handleOnSubmit = history => (formValues: FormValues, { setStatus })
   }
 
   const queryString = stringifyObjectIntoQueryString({ ...cleanedValues, page: 1 })
-  history.push(`${Routes.ADMIN_APPS}?${queryString}`)
+  history.push(`${Routes.APPS}?${queryString}`)
 }
 
 export const handleChangePage = history => (page: number) => {

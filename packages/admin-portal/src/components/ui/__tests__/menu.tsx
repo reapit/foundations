@@ -42,7 +42,7 @@ describe('Menu', () => {
         state: {},
       }
       const logout = jest.fn()
-      const result = generateMenuConfig(logout, location, false)
+      const result = generateMenuConfig(logout, location)
       expect(result).toBeDefined()
     })
   })

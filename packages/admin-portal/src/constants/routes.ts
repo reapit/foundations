@@ -1,4 +1,11 @@
 const Routes = {
+  LOGIN: '/login',
+  APPROVALS: '/approvals',
+  BILLING: '/billing',
+  APPS: '/apps',
+  DEV_MANAGEMENT: '/dev-management',
+  STATS: '/stats',
+
   AUTHENTICATION: '/authentication',
   AUTHENTICATION_LOGIN_TYPE: '/authentication/:loginType',
   CLIENT: '/client/apps',
@@ -37,7 +44,6 @@ const Routes = {
   ADMIN_APPROVALS: '/admin/approvals',
   ADMIN_DEV_MANAGEMENT: '/admin/dev-management',
   ADMIN_LOGIN: '/admin/login',
-  LOGIN: '/login',
   ADMIN_STATS: '/admin/stats',
   ADMIN_BILLING: '/admin/billing',
   CLIENT_LOGIN: '/client/login',

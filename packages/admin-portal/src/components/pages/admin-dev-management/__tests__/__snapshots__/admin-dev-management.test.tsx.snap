@@ -18,7 +18,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
       Array [
         Object {
           "key": "adminDevManagementRoute",
-          "pathname": "/admin/dev-management",
+          "pathname": "/dev-management",
         },
       ]
     }
@@ -34,7 +34,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
             Object {
               "hash": "",
               "key": "adminDevManagementRoute",
-              "pathname": "/admin/dev-management",
+              "pathname": "/dev-management",
               "search": "",
             },
           ],
@@ -47,7 +47,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
           "location": Object {
             "hash": "",
             "key": "adminDevManagementRoute",
-            "pathname": "/admin/dev-management",
+            "pathname": "/dev-management",
             "search": "",
           },
           "push": [Function],
@@ -793,7 +793,7 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
       Array [
         Object {
           "key": "adminDevManagementRoute",
-          "pathname": "/admin/dev-management",
+          "pathname": "/dev-management",
         },
       ]
     }
@@ -809,7 +809,7 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
             Object {
               "hash": "",
               "key": "adminDevManagementRoute",
-              "pathname": "/admin/dev-management",
+              "pathname": "/dev-management",
               "search": "",
             },
           ],
@@ -822,7 +822,7 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
           "location": Object {
             "hash": "",
             "key": "adminDevManagementRoute",
-            "pathname": "/admin/dev-management",
+            "pathname": "/dev-management",
             "search": "",
           },
           "push": [Function],
@@ -866,7 +866,7 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
       Array [
         Object {
           "key": "adminDevManagementRoute",
-          "pathname": "/admin/dev-management",
+          "pathname": "/dev-management",
         },
       ]
     }
@@ -882,7 +882,7 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
             Object {
               "hash": "",
               "key": "adminDevManagementRoute",
-              "pathname": "/admin/dev-management",
+              "pathname": "/dev-management",
               "search": "",
             },
           ],
@@ -895,7 +895,7 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
           "location": Object {
             "hash": "",
             "key": "adminDevManagementRoute",
-            "pathname": "/admin/dev-management",
+            "pathname": "/dev-management",
             "search": "",
           },
           "push": [Function],
