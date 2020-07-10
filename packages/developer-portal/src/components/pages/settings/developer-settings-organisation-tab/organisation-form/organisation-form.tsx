@@ -10,6 +10,8 @@ export const initialValues: OrganisationFormValues = {
   countryId: '',
   companyName: '',
   iconImageUrl: '',
+  buildingName: '',
+  buildingNumber: '',
   line1: '',
   line2: '',
   line3: '',

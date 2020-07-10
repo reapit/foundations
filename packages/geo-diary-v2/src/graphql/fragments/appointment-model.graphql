@@ -8,27 +8,10 @@ fragment AppointmentModel on AppointmentModel {
   description
   recurring
   cancelled
-  followUp {
-    due
-    responseId
-    notes
-  }
   propertyId
   organiserId
   negotiatorIds
   officeIds
-  attendee {
-    id
-    type
-    contacts {
-      id
-      name
-      homePhone
-      workPhone
-      mobilePhone
-      email
-    }
-  }
   accompanied
   negotiatorConfirmed
   attendeeConfirmed

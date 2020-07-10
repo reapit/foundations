@@ -71,12 +71,20 @@ export const mutationUpdateAppointment = (
   return appointmentServices.updateAppointment(args, context)
 }
 
-export const queryConfigurations = (appointment: AppointmentModel, _, context: ServerContext) => {
+export const queryConfiguration = (appointment: AppointmentModel, _, context: ServerContext) => {
   return context.dataLoader.configurationLoader.load(appointment.typeId)
 }
 
-export const queryProperties = (appointment: AppointmentModel, _, context: ServerContext) => {
+export const queryProperty = (appointment: AppointmentModel, _, context: ServerContext) => {
   return context.dataLoader.propertyLoader.load(appointment.propertyId)
+}
+
+export const queryNegotiators = (appointment: AppointmentModel, _, context: ServerContext) => {
+  return context.dataLoader.negotiatorLoader.loadMany(appointment.negotiatorIds)
+}
+
+export const queryOffices = (appointment: AppointmentModel, _, context: ServerContext) => {
+  return context.dataLoader.officeLoader.loadMany(appointment.officeIds)
 }
 
 export default {
@@ -89,7 +97,9 @@ export default {
     UpdateAppointment: mutationUpdateAppointment,
   },
   AppointmentModel: {
-    property: queryProperties,
-    appointmentType: queryConfigurations,
+    property: queryProperty,
+    appointmentType: queryConfiguration,
+    offices: queryOffices,
+    negotiators: queryNegotiators,
   },
 }

@@ -2,12 +2,13 @@ import * as React from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import dayjs from 'dayjs'
 import qs from 'query-string'
-import { Loader } from '@reapit/elements'
+import { Loader, isMobile } from '@reapit/elements'
 import { ExtendedAppointmentModel } from '@/types/global'
 import GET_APPOINTMENTS from './get-appointments.graphql'
 import { MobileLayout } from './mobile-layout'
 import { useLocation } from 'react-router-dom'
 import { AuthContext } from '@/context'
+import { DesktopLayout } from './desktop-layout'
 
 export type AppointmentProps = {}
 
@@ -60,6 +61,7 @@ export const startAndEndTime = {
 }
 
 export const Appointment: React.FC<AppointmentProps> = () => {
+  const isMobileView = isMobile()
   const { loginSession } = React.useContext(AuthContext)
   const userCode = loginSession?.loginIdentity?.userCode || ''
   const location = useLocation()
@@ -78,7 +80,10 @@ export const Appointment: React.FC<AppointmentProps> = () => {
   if (loading) {
     return <Loader />
   }
-  return <MobileLayout appointments={data?.GetAppointments?._embedded || []} />
+  if (isMobileView) {
+    return <MobileLayout appointments={data?.GetAppointments?._embedded || []} />
+  }
+  return <DesktopLayout appointments={data?.GetAppointments?._embedded || []} />
 }
 
-export default Appointment
+export default React.memo(Appointment)

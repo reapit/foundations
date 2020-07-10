@@ -77,11 +77,42 @@ module.exports = class extends Generator {
     }
   }
 
+  _addPackageJson() {
+    const { isFoundation, name, author, repo, description } = this.answers
+
+    if (isFoundation) {
+      return
+    }
+
+    if (this.redux) {
+      this.fs.copyTpl(this.templatePath('./is-foundation-redux/**/*'), this.destinationPath('./'), {
+        name, author, repo, description
+      })
+    }
+
+    if (!this.redux) {
+      this.fs.copyTpl(this.templatePath('./is-foundation-no-redux/**/*'), this.destinationPath('./'), {
+        name, author, repo, description
+      })
+    }
+  }
+
 
   _addAzure() {
     const { name, azure } = this.answers
     if (azure) {
       this.fs.copy(this.templatePath('redu'), this.destinationPath(`./azure-pipelines.yml`))
+    }
+  }
+
+  _addStyleSolution() {
+    const { sass, name, isFoundation } = this.answers
+
+
+    if (sass) {
+      this.fs.copyTpl(this.templatePath('./base-is-sass/**/*'), this.destinationPath('./'), { isFoundation })
+    } else {
+      this.fs.copyTpl(this.templatePath('./base-is-linaria/**/*'), this.destinationPath('./'), { isFoundation })
     }
   }
 
@@ -92,7 +123,7 @@ module.exports = class extends Generator {
 
   async writeBaseFiles() {
     return new Promise((resolve, reject) => {
-      const { name, repo, description, author, isFoundation, stylesSolution, clientId } = this.answers
+      const { name, repo, description, author, isFoundation, stylesSolution, clientId, sass } = this.answers
       const { redux, graphql } = this
 
       /**
@@ -169,11 +200,13 @@ module.exports = class extends Generator {
         stylesSolution,
         graphql,
         stylesSolution,
+        sass
       })
 
       this.fs.commit([], () => {
-        this._addPackageJson(),
-        this._addAzure()
+        this._addStyleSolution(),
+          this._addPackageJson(),
+          this._addAzure()
         this.fs.commit([], () => {
           this._installAndExport()
             .then(resolve)
@@ -220,6 +253,12 @@ module.exports = class extends Generator {
         name: 'isFoundation',
         message: 'Is this project for internal use (mono-repo)',
         default: true,
+      },
+      {
+        name: 'sass',
+        message: 'Would you like to use Sass?',
+        type: 'confirm',
+        default: false,
       },
       {
         type: 'list',

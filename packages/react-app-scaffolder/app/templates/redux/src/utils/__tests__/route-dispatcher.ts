@@ -6,6 +6,7 @@ import { authenticatedRequestData } from '../../actions/authenticated'
 
 jest.mock('../../core/store')
 jest.mock('../../sagas/authenticated')
+jest.mock('@/utils/session')
 
 describe('routeDispatcher', () => {
   it('should dispatch to authenticatedRequestData for the home route', async () => {

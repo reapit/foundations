@@ -97,35 +97,11 @@ const appState: ReduxState = {
     componentError: null,
     serverError: null,
   },
-  submitApp: {
-    loading: false,
-    formState: 'PENDING',
-    submitAppData: null,
-  },
   submitRevision: {
     formState: 'PENDING',
   },
-  adminApps: {
-    loading: false,
-    formState: 'PENDING',
-    adminAppsData: null,
-  },
-  adminApprovals: {
-    loading: false,
-    adminApprovalsData: null,
-  },
-  adminDevManagement: {
-    loading: false,
-  },
   developerSetStatus: {
     formState: 'PENDING',
-  },
-  revisionDetail: {
-    loading: false,
-    error: false,
-    revisionDetailData: null,
-    approveFormState: 'PENDING',
-    declineFormState: 'PENDING',
   },
   revisions: {
     loading: false,
@@ -161,13 +137,6 @@ const appState: ReduxState = {
     visible: false,
     variant: '',
     message: '',
-  },
-  adminStats: {
-    loading: false,
-    result: {
-      data: [],
-      totalCount: 0,
-    },
   },
   appHttpTraffic: {
     perDayLoading: false,

@@ -31,7 +31,9 @@ type AppointmentModel {
   property: PropertyModel
   organiserId: String
   negotiatorIds: [String!]
+  negotiators: [NegotiatorModel]
   officeIds: [String!]
+  offices: [OfficeModel]
   attendee: AppointmentAttendeeModel
   accompanied: Boolean
   negotiatorConfirmed: Boolean

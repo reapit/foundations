@@ -1,3 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`map-pannel MapPannel should render correctly 1`] = `""`;
+exports[`map-pannel MapPannel should render correctly 1`] = `
+<div
+  className=""
+>
+  <div>
+    <p
+      className="is-size-4"
+    >
+      mocktext
+    </p>
+    <p>
+      mocktext
+    </p>
+  </div>
+  <div>
+    <Component
+      className="is-medium"
+      onClick={[Function]}
+      type="button"
+      variant="info"
+    >
+      Start Journey
+    </Component>
+  </div>
+  <div>
+    <Component
+      className="is-medium"
+      onClick={[Function]}
+      type="button"
+      variant="info"
+    >
+      Today
+    </Component>
+  </div>
+</div>
+`;

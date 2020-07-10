@@ -1,4 +1,3 @@
-import { AdminDevManamgenetState } from './../reducers/admin-dev-management'
 import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
 import { InstalledAppsState } from '../reducers/installed-apps'
@@ -7,19 +6,14 @@ import { DeveloperState } from '../reducers/developer'
 import { AuthState } from '../reducers/auth'
 import { AppDetailState } from '../reducers/app-detail'
 import { ErrorState } from '../reducers/error'
-import { SubmitAppState } from '../reducers/submit-app'
 import { SubmitRevisionState } from '@/reducers/submit-revision'
-import { AdminApprovalsState } from '@/reducers/admin-approvals'
-import { RevisionDetailState } from '@/reducers/revision-detail'
 import { RevisionsState } from '@/reducers/revisions'
 import { AppDetailModalState } from '@/reducers/app-detail-modal'
 import { AppCategoriesState } from '@/reducers/app-categories'
 import { SettingsState } from '@/reducers/settings'
-import { AdminAppsState } from '@/reducers/admin-apps'
 import { AppInstallationsState } from '@/reducers/app-installations'
 import { AppUsageStatsState } from '@/reducers/app-usage-stats'
 import { NotificationMessageState } from '@/reducers/notification-message'
-import { AdminStatsState } from '@/reducers/admin-stats'
 import { AppHttpTrafficEventState } from '@/reducers/app-http-traffic-event'
 import { IntegrationTypeState } from '@/reducers/app-integration-types'
 import { WebhookEditState } from '@/reducers/webhook-edit-modal'
@@ -72,13 +66,8 @@ export interface ReduxState {
   developer: DeveloperState
   auth: AuthState
   error: ErrorState
-  submitApp: SubmitAppState
   submitRevision: SubmitRevisionState
-  adminApps: AdminAppsState
-  adminApprovals: AdminApprovalsState
-  adminDevManagement: AdminDevManamgenetState
   developerSetStatus: RequestState
-  revisionDetail: RevisionDetailState
   revisions: RevisionsState
   appDetailModal: AppDetailModalState
   appDelete: RequestState
@@ -87,7 +76,6 @@ export interface ReduxState {
   installations: AppInstallationsState
   appUsageStats: AppUsageStatsState
   noticationMessage: NotificationMessageState
-  adminStats: AdminStatsState
   appHttpTraffic: AppHttpTrafficEventState
   desktopIntegrationTypes: IntegrationTypeState
   webhookEdit: WebhookEditState

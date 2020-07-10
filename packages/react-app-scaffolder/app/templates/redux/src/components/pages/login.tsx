@@ -6,7 +6,12 @@ import { ReduxState } from '@/types/core'
 import Routes from '@/constants/routes'
 import { Button, Level } from '@reapit/elements'
 import connectImage from '@/assets/images/reapit-connect.png'
+
+<% if(sass){ %>
 import loginStyles from '@/styles/pages/login.scss?mod'
+<% } else { %>
+import * as loginStyles from './__styles__/styles'
+ <% } %>
 
 import { redirectToLogin } from '@reapit/cognito-auth'
 

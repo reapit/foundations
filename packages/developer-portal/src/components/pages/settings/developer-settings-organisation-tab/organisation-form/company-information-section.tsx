@@ -24,7 +24,7 @@ const CompanyInformationSection: React.FC<CompanyInformationSectionProps> = ({ f
   const { noVatNumber, noReg } = formValues
   const isVATNumberFieldDisabled = noVatNumber
   const isRegFieldDisabled = noReg
-  const isNationalInsuranceNumberFieldVisible = isVATNumberFieldDisabled || isRegFieldDisabled
+  const isNationalInsuranceNumberFieldVisible = isRegFieldDisabled
 
   return (
     <>

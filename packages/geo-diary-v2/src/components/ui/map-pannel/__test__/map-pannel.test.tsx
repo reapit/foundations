@@ -3,8 +3,9 @@ import { shallow } from 'enzyme'
 import MapPanel, { handleChangeTab, getMapUrl, handleOpenNativeMap } from '../map-pannel'
 import { RouteInformation, UNDEFINED_LATLNG_NUMBER } from '../../map/map'
 import { getMockRouterProps } from '@/core/__mocks__/mock-router'
+import { appointment } from '@/graphql/__mocks__/appointment'
 
-const locationMock = { search: '?state=CLIENT', pathname: '/test' }
+const locationMock = { search: '?state=CLIENT&destinationLat=123&destinationLng=123', pathname: '/test' }
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
@@ -19,6 +20,7 @@ describe('map-pannel', () => {
           duration: { text: 'mocktext', value: 19 },
           distance: { text: 'mocktext', value: 11 },
         } as RouteInformation,
+        appointments: [appointment],
       }
       const wrapper = shallow(<MapPanel {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
@@ -49,7 +51,7 @@ describe('map-pannel', () => {
             currentLng: 1,
             destinationLat: 1,
             destinationLng: 1,
-          }
+          },
         }
         const output = `maps://maps.google.com/maps?saddr=${input.queryParams.currentLat},${input.queryParams.currentLng}&daddr=${input.queryParams.destinationLat},${input.queryParams.destinationLng}`
         expect(getMapUrl(input)).toBe(output)

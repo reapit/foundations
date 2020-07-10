@@ -1,0 +1,4 @@
+fragment AppointmentAttendeeModel on AppointmentAttendeeModel {
+  id
+  type
+}

@@ -9,20 +9,14 @@ import myApps from '@/reducers/my-apps'
 import developer from '@/reducers/developer'
 import appDetail from '@/reducers/app-detail'
 import error from '@/reducers/error'
-import submitApp from '@/reducers/submit-app'
 import submitRevision from '@/reducers/submit-revision'
-import adminApprovals from '@/reducers/admin-approvals'
-import adminDevManagement from '@/reducers/admin-dev-management'
 import developerSetStatus from '@/reducers/developer-set-status'
-import revisionDetail from '@/reducers/revision-detail'
 import appDetailModal from '@/reducers/app-detail-modal'
 import appDeleteReducer from '@/reducers/app-delete'
 import appCategories from '@/reducers/app-categories'
 import settingsReducer from '@/reducers/settings'
-import adminApps from '@/reducers/admin-apps'
 import appInstallationsReducer from '@/reducers/app-installations'
 import appUsageStatsReducer from '@/reducers/app-usage-stats'
-import adminStatsReducer from '@/reducers/admin-stats'
 import revisionsReducer from '@/reducers/revisions'
 import appHttpTrafficEventReducer from '@/reducers/app-http-traffic-event'
 import integrationTypes from '@/reducers/app-integration-types'
@@ -39,19 +33,12 @@ import appUsageStatsSagas from '@/sagas/app-usage-stats'
 import appHttpTrafficEventSagas from '@/sagas/app-http-trafic-event'
 import myAppsSagas from '@/sagas/my-apps'
 import developerSagas from '@/sagas/developer'
-import submitAppSagas from '@/sagas/submit-app'
 import submitRevisionSagas from '@/sagas/submit-revision'
-import adminApprovalSagas from '@/sagas/admin-approvals'
-import adminDevManagementSagas from '@/sagas/admin-dev-management'
 import developerSetStatusSagas from '@/sagas/developer-set-status'
-import revisionDetailSagas from '@/sagas/revision-detail'
 import revisionsSagas from '@/sagas/revisions'
-import appDeleteSagas from '@/sagas/app-delete'
 import settingSagas from '@/sagas/settings'
-import adminAppsSagas from '@/sagas/admin-apps'
 import appInstallationsSagas from '@/sagas/app-installations'
 import noticationMessage from '@/reducers/notification-message'
-import adminStatsSaga from '@/sagas/admin-stats'
 import webhookSubscriptionsSagas from '@/sagas/webhook-subscriptions'
 import { injectSwitchModeToWindow } from '@reapit/elements'
 import webhookEditSagas from '../sagas/webhook-edit-modal'
@@ -81,13 +68,8 @@ export class Store {
     auth,
     appDetail,
     error,
-    submitApp,
     submitRevision,
-    adminApps,
-    adminApprovals,
-    adminDevManagement,
     developerSetStatus,
-    revisionDetail,
     revisions: revisionsReducer,
     appDetailModal,
     appDelete: appDeleteReducer,
@@ -96,7 +78,6 @@ export class Store {
     installations: appInstallationsReducer,
     appUsageStats: appUsageStatsReducer,
     noticationMessage,
-    adminStats: adminStatsReducer,
     appHttpTraffic: appHttpTrafficEventReducer,
     desktopIntegrationTypes: integrationTypes,
     webhookEdit: webhookEditReducer,
@@ -114,18 +95,11 @@ export class Store {
       fork(myAppsSagas),
       fork(developerSagas),
       fork(appDetailSagas),
-      fork(submitAppSagas),
       fork(submitRevisionSagas),
-      fork(adminApprovalSagas),
-      fork(adminDevManagementSagas),
       fork(developerSetStatusSagas),
-      fork(revisionDetailSagas),
       fork(revisionsSagas),
-      fork(appDeleteSagas),
       fork(settingSagas),
-      fork(adminAppsSagas),
       fork(appInstallationsSagas),
-      fork(adminStatsSaga),
       fork(appHttpTrafficEventSagas),
       fork(webhookEditSagas),
       fork(webhookSubscriptionsSagas),

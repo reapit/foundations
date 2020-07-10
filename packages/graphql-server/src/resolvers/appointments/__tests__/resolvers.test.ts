@@ -6,6 +6,10 @@ import {
   queryGetAppointments,
   mutationCreateAppointment,
   mutationUpdateAppointment,
+  queryConfiguration,
+  queryProperty,
+  queryNegotiators,
+  queryOffices,
 } from '../resolvers'
 import { createAppointmentArgsMock } from '../__mocks__/create-appointment'
 import { updateAppointmentArgsMock } from '../__mocks__/update-appointment'
@@ -84,5 +88,33 @@ describe('mutationUpdateAppointment', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
     const result = mutationUpdateAppointment(null, updateAppointmentArgsMock, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
+  })
+})
+
+describe('queryConfiguration', () => {
+  it('should run correctly', () => {
+    const result = queryConfiguration(appointmentMock, undefined, mockContext)
+    expect(result).toEqual(expect.any(Object))
+  })
+})
+
+describe('queryProperty', () => {
+  it('should run correctly', () => {
+    const result = queryProperty(appointmentMock, undefined, mockContext)
+    expect(result).toEqual(expect.any(Object))
+  })
+})
+
+describe('queryNegotiators', () => {
+  it('should run correctly', () => {
+    const result = queryNegotiators(appointmentMock, undefined, mockContext)
+    expect(result).toEqual(expect.any(Object))
+  })
+})
+
+describe('queryOffices', () => {
+  it('should run correctly', () => {
+    const result = queryOffices(appointmentMock, undefined, mockContext)
+    expect(result).toEqual(expect.any(Object))
   })
 })

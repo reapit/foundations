@@ -2,7 +2,9 @@
 
 exports[`modal Modal should match snapshot 1`] = `
 <Component
+  className=""
   visible={true}
+  wrapClassName=""
 >
   <div>
     children

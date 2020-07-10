@@ -29,31 +29,8 @@ exports[`Router should match a snapshot 1`] = `
       <Switch>
         <Route
           exact={true}
-          path={
-            Array [
-              "/developer/login",
-              "/admin/login",
-              "/client/login",
-            ]
-          }
+          path="/login"
           render={[Function]}
-        />
-        <Route
-          allow="DEVELOPER"
-          path="/register"
-          render={[Function]}
-        />
-        <Route
-          component={
-            Object {
-              "$$typeof": Symbol(react.lazy),
-              "_ctor": [Function],
-              "_result": null,
-              "_status": -1,
-            }
-          }
-          exact={true}
-          path="/register/confirm"
         />
         <Route
           exact={true}
@@ -61,43 +38,9 @@ exports[`Router should match a snapshot 1`] = `
           render={[Function]}
         />
         <Component
-          path="/developer/edition-download"
-          showMenu={false}
-        >
-          <Component
-            allow="DEVELOPER"
-            component={
-              Object {
-                "$$typeof": Symbol(react.lazy),
-                "_ctor": [Function],
-                "_result": null,
-                "_status": -1,
-              }
-            }
-            path="/"
-          />
-        </Component>
-        <Component
           path="/"
         >
           <Switch>
-            <Component
-              allow={
-                Array [
-                  "CLIENT",
-                  "DEVELOPER",
-                ]
-              }
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              path="/authentication/:loginType"
-            />
             <Component
               allow="ADMIN"
               component={
@@ -109,306 +52,7 @@ exports[`Router should match a snapshot 1`] = `
                 }
               }
               exact={true}
-              fetcher={true}
               path="/admin/billing"
-            />
-            <Component
-              allow="CLIENT"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
-              fetcher={true}
-              path="/client/installed"
-            />
-            <Component
-              allow="CLIENT"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
-              fetcher={true}
-              path="/client/manage"
-            />
-            <Component
-              allow="CLIENT"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
-              fetcher={true}
-              path="/client/apps"
-            />
-            <Component
-              allow="CLIENT"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
-              fetcher={true}
-              path="/client/apps/:appid"
-            />
-            <Component
-              allow="CLIENT"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
-              fetcher={true}
-              path="/client/apps/:appid/manage"
-            />
-            <Component
-              allow="CLIENT"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
-              path="/client/welcome"
-            />
-            <Component
-              allow="CLIENT"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
-              fetcher={true}
-              path="/client/help"
-            />
-            <Component
-              allow="CLIENT"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
-              fetcher={true}
-              path="/client/settings"
-            />
-            <Component
-              allow="DEVELOPER"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
-              fetcher={true}
-              path="/developer/apps"
-            />
-            <Component
-              allow="DEVELOPER"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
-              fetcher={true}
-              path="/developer/apps/:appid"
-            />
-            <Component
-              allow="DEVELOPER"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
-              fetcher={true}
-              path="/developer/apps/:appid/edit"
-            />
-            <Component
-              allow="DEVELOPER"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              path="/developer/api-docs"
-            />
-            <Component
-              allow="DEVELOPER"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              fetcher={true}
-              path="/developer/webhooks"
-            />
-            <Component
-              allow="DEVELOPER"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
-              path="/developer/swagger"
-            />
-            <Component
-              allow="DEVELOPER"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
-              path="/developer/desktop"
-            />
-            <Component
-              allow="DEVELOPER"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
-              fetcher={true}
-              path="/developer/analytics/:activeTab?"
-            />
-            <Component
-              allow="DEVELOPER"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
-              fetcher={true}
-              path="/developer/settings/"
-            />
-            <Component
-              allow="DEVELOPER"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              fetcher={true}
-              path="/developer/settings/billing"
-            />
-            <Component
-              allow="DEVELOPER"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              fetcher={true}
-              path="/developer/settings/organisation"
-            />
-            <Component
-              allow="DEVELOPER"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
-              path="/developer/welcome"
-            />
-            <Component
-              allow="DEVELOPER"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
-              fetcher={true}
-              path="/developer/help"
-            />
-            <Component
-              allow="DEVELOPER"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
-              path="/developer/apps/:appId/preview"
             />
             <Component
               allow="ADMIN"
@@ -463,7 +107,6 @@ exports[`Router should match a snapshot 1`] = `
                 }
               }
               exact={true}
-              fetcher={true}
               path="/admin/stats"
             />
             <Route
@@ -472,7 +115,7 @@ exports[`Router should match a snapshot 1`] = `
           </Switch>
         </Component>
         <Redirect
-          to="/client/login"
+          to="/login"
         />
       </Switch>
     </Component>
