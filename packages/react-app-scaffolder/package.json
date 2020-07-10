@@ -1,6 +1,6 @@
 {
   "name": "@reapit/generator-react-app-scaffolder",
-  "version": "0.0.32",
+  "version": "1.0.0-alpha.1",
   "description": "An opinionated gnerator for scaffolding TypeScript React Redux apps",
   "keywords": [
     "yeoman-generator"
@@ -20,15 +20,15 @@
   ],
   "main": "index.js",
   "scripts": {
-    "scaffold": "yo ./app --force"
+    "scaffold": "yo ./src --force"
   },
   "dependencies": {
-    "yeoman-generator": "^4.0.1",
+    "yeoman-generator": "^4.11.0",
     "yo": "^3.1.1",
     "yosay": "^2.0.2",
     "change-case": "^4.1.1"
   },
   "devDependencies": {
-    "raw-loader": "^3.1.0"
+    "raw-loader": "^4.0.1"
   }
 }
