@@ -1,5 +1,5 @@
 {
-  "extends": "../../../../../tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
@@ -7,13 +7,13 @@
         "src/*"
       ],
       "@reapit/cognito-auth": [
-        "../../../../cognito-auth/src"
+        "../cognito-auth/src"
       ],
       "@reapit/elements": [
-        "../../../../elements/src"
+        "../elements/src"
       ],
       "@reapit/elements/*": [
-        "../../../../elements/src/*"
+        "../elements/src/*"
       ]
     }
   },

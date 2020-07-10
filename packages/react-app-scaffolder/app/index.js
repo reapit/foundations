@@ -3,12 +3,9 @@ const { promisify } = require('util')
 const process = require('process')
 const exec = promisify(require('child_process').exec)
 const spawn = require('cross-spawn')
-const { execSync } = require('child_process')
 const path = require('path')
 const fs = require('fs')
 const yosay = require('yosay')
-const { constantCase } = require('change-case')
-const mergePackageJson = require('merge-package.json')
 
 module.exports = class extends Generator {
   _installAndExport() {
@@ -110,13 +107,6 @@ module.exports = class extends Generator {
           this.fs.copyTpl(this.templatePath('_prettierrc.js'), this.destinationPath('./.prettierrc.js'))
           this.fs.copyTpl(this.templatePath('_eslintrc.js'), this.destinationPath('./.eslintrc.js'))
           this.fs.copyTpl(this.templatePath('_gitignore'), this.destinationPath('./.gitignore'))
-        } else {
-          this.fs.delete(this.destinationPath('./tsconfig.json'))
-          this.fs.delete(this.destinationPath('./jest.config.js'))
-          this.fs.commit([], () => {
-            this.fs.copyTpl(this.templatePath('./_tsconfig.internal.json'), this.destinationPath('./tsconfig.json'))
-            this.fs.copyTpl(this.templatePath('./_jest.config.internal.js'), this.destinationPath('./jest.config.js'))
-          })
         }
 
         this.fs.commit([], () => {

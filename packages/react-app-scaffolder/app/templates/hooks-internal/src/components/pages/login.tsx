@@ -33,8 +33,6 @@ export const Login: React.FunctionComponent = () => {
         <Level>
           <img src={connectImage} alt="Reapit Connect Graphic" />
         </Level>
-        <p className="pb-8">Welcome to app-name</p>
-
         <Level>
           <Button fullWidth type="submit" variant="primary" onClick={loginHandler}>
             Login
