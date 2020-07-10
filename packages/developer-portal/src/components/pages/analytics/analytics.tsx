@@ -2,8 +2,8 @@ import * as React from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import { Tabs, H3, TabConfig, Section } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import DetailedTab from '@/components/ui/developer-analytics/detailed'
-import CostExplorerTab from '@/components/ui/developer-analytics/cost-explorer'
+import DetailedTab from './detailed'
+import CostExplorerTab from './cost-explorer'
 import Routes from '@/constants/routes'
 
 export type DeveloperAnalyticsPageProps = {}
@@ -24,7 +24,7 @@ export const tabConfigs = ({ currentTab, history }: TabConfigsProps): TabConfig[
       tabIdentifier: AnalyticsTab.DETAILED,
       displayText: 'DETAILED',
       onTabClick: () => {
-        history.push(Routes.DEVELOPER_ANALYTICS)
+        history.push(Routes.ANALYTICS)
       },
       active: currentTab === AnalyticsTab.DETAILED,
     },
@@ -32,7 +32,7 @@ export const tabConfigs = ({ currentTab, history }: TabConfigsProps): TabConfig[
       tabIdentifier: AnalyticsTab.COST_EXPLORER,
       displayText: 'Cost Explorer',
       onTabClick: () => {
-        history.push(`${Routes.DEVELOPER_ANALYTICS}/${AnalyticsTab.COST_EXPLORER}`)
+        history.push(`${Routes.ANALYTICS}/${AnalyticsTab.COST_EXPLORER}`)
       },
       active: currentTab === AnalyticsTab.COST_EXPLORER,
     },

@@ -53,7 +53,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(submitAppRequestData())
       store.dispatch(developerRequestData({ page }))
       break
-    case Routes.DEVELOPER_ANALYTICS_TAB: {
+    case Routes.ANALYTICS_TAB: {
       // Fetch all apps to map app name to installations
       store.dispatch(fetchMyIdentity())
       store.dispatch(developerRequestData({ page: 1, appsPerPage: GET_ALL_PAGE_SIZE }))

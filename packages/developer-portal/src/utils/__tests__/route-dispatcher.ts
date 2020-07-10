@@ -49,7 +49,7 @@ describe('routeDispatcher', () => {
   })
 
   it('should dispatch to appInstallationsRequestData & developerRequestData for the analytics route', async () => {
-    await routeDispatcher(Routes.DEVELOPER_ANALYTICS_TAB as RouteValue)
+    await routeDispatcher(Routes.ANALYTICS_TAB as RouteValue)
     expect(store.dispatch).toHaveBeenCalledWith(developerRequestData({ appsPerPage: GET_ALL_PAGE_SIZE, page: 1 }))
     expect(store.dispatch).toHaveBeenCalledWith(fetchMyIdentity())
   })

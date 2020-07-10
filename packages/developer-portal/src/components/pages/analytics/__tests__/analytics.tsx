@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 
-import { AnalyticsTab, handleUseEffectToSetCurrentTab, renderTabContent, tabConfigs } from '../developer-analytics'
-import AnalyticsPage from '../developer-analytics'
+import { AnalyticsTab, handleUseEffectToSetCurrentTab, renderTabContent, tabConfigs } from '../analytics'
+import AnalyticsPage from '../analytics'
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'), // use actual for all non-hook parts

@@ -1,9 +1,10 @@
 import React from 'react'
 import { Table, Grid, GridItem, H6 } from '@reapit/elements'
-import { CostCalculatorFormValues } from '../developer-analytics/cost-explorer/cost-calculator/cost-calculator-form'
+// eslint-disable-next-line max-len
+import { CostCalculatorFormValues } from '@/components/pages/analytics/cost-explorer/cost-calculator/cost-calculator-form'
 import useFoundationCostTable, {
   endpointsUsedRange,
-} from '../developer-analytics/cost-explorer/cost-calculator/use-foundation-cost-table'
+} from '@/components/pages/analytics/cost-explorer/cost-calculator/use-foundation-cost-table'
 import { formatNumber } from '@/utils/number-formatter'
 
 const totalCostFormValues: CostCalculatorFormValues = {

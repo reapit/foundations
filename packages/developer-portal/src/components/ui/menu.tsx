@@ -106,7 +106,7 @@ export const generateMenuConfig = (
         {
           title: 'Analytics',
           key: 'DEVELOPER_ANALYTICS',
-          url: Routes.DEVELOPER_ANALYTICS,
+          url: Routes.ANALYTICS,
           type: 'PRIMARY',
           icon: <FaChartBar className="nav-item-icon" />,
         },

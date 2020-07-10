@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import DeveloperHitsPerDay, { DeveloperHitsPerDayProps } from '../developer-hits-per-day-chart'
+import DeveloperHitsPerDay, { DeveloperHitsPerDayProps } from '../hits-per-day-chart'
 import { httpTrafficPerDayStub } from '@/sagas/__stubs__/app-http-traffic-event'
 import { H5 } from '@reapit/elements'
 import { Line } from 'react-chartjs-2'
