@@ -23,6 +23,7 @@ import ReapitReferenceSection from './reapit-reference-section'
 import DirectDebitSection from './direct-debit-section'
 import ContactInformationSection from './contact-information-section'
 import { UpdateDeveloperModel } from '@reapit/foundations-ts-definitions'
+import { validationSchema } from './form-schema/validation-schema'
 
 export type AccountsInformationFormProps = {}
 
@@ -31,10 +32,11 @@ export type AccountsInformationFormValues = {
   hasDirectDebit: string
 } & Pick<UpdateDeveloperModel, 'billingEmail' | 'billingKeyContact' | 'billingTelephone' | 'reapitReference'>
 
-export const initialValues: AccountsInformationFormValues = {
-  hasDirectDebit: 'yes',
-  hasReapitAccountsRef: '',
-}
+export const getInitialValues = (initialValues: AccountsInformationFormValues) => ({
+  ...initialValues,
+  hasReapitAccountsRef: initialValues.reapitReference ? 'yes' : '',
+  hasDirectDebit: '',
+})
 
 export const ACCOUNT_REF_MIN_LENGTH = 6
 
@@ -69,10 +71,15 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
   }
 
   return (
-    <Formik initialValues={myIdentity as AccountsInformationFormValues} onSubmit={onSubmit(dispatch)}>
-      {({ setFieldValue, values }) => {
+    <Formik
+      validationSchema={validationSchema}
+      initialValues={getInitialValues(myIdentity as AccountsInformationFormValues)}
+      onSubmit={onSubmit(dispatch)}
+    >
+      {({ setFieldValue, values, isValid }) => {
         const { hasReapitAccountsRef } = values
-        const isEnableSaveBtn = hasReapitAccountsRef === 'yes'
+        // no error and tick "YES" to DO YOU HAVE A REAPIT ACCOUNTS REF?
+        const isEnableSaveBtn = hasReapitAccountsRef === 'yes' && isValid
 
         return (
           <Form>
