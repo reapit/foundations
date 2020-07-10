@@ -39,7 +39,7 @@ export const onLogoutButtonClick = (dispatch: Dispatch) => {
   }
 }
 
-export const renderClientModal = (history, dispatch) => {
+export const renderModal = (history, dispatch) => {
   return (
     <Modal
       title="Agency Cloud User License?"
@@ -72,7 +72,7 @@ const Authentication: React.FC<AuthenticationProps> = () => {
   const history = useHistory()
   const dispatch = useDispatch()
 
-  return <>{renderClientModal(history, dispatch)}</>
+  return <>{renderModal(history, dispatch)}</>
 }
 
 export default Authentication

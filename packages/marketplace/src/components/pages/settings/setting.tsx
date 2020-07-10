@@ -9,7 +9,7 @@ export const handleLogout = (dispatch: Dispatch) => () => {
   dispatch(authLogout())
 }
 
-export const ClientSettingsPage: React.FC = () => {
+export const Settings: React.FC = () => {
   const dispatch = useDispatch()
   const customerId = useSelector(selectClientId)
 
@@ -36,4 +36,4 @@ export const ClientSettingsPage: React.FC = () => {
   )
 }
 
-export default ClientSettingsPage
+export default Settings

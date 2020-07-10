@@ -13,10 +13,6 @@ import { useSelector } from 'react-redux'
 import { selectIsAdmin, selectLoginSession } from '@/selector/auth'
 import { selectDeveloperEditionId } from '@/selector/client'
 
-export interface ClientWelcomeMappedActions {}
-
-export type ClientWelcomeMessageProps = ClientWelcomeMappedActions
-
 export const Welcome = () => {
   const { goNext, goPrev } = useHelpGuideContext()
   return (
@@ -146,7 +142,7 @@ export const handleChangeSteps = (goTo: () => void) => () => {
   goTo()
 }
 
-export const ClientWelcomeMessage: React.FC<ClientWelcomeMessageProps> = () => {
+export const WelcomeMessage: React.FC = () => {
   const isDesktopAdmin = useSelector(selectIsAdmin)
   const isDeveloperEdition = Boolean(useSelector(selectDeveloperEditionId))
   const loginSession = useSelector(selectLoginSession)
@@ -170,4 +166,4 @@ export const ClientWelcomeMessage: React.FC<ClientWelcomeMessageProps> = () => {
   return <HelpGuide>{guideList}</HelpGuide>
 }
 
-export default ClientWelcomeMessage
+export default WelcomeMessage

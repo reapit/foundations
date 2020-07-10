@@ -32,7 +32,7 @@ export const handleOnCardClick = (history: History) => (app: AppSummaryModel) =>
   history.push(`${Routes.APPS}/${app.id}`)
 }
 
-export const Client: React.FunctionComponent = () => {
+export const Apps: React.FunctionComponent = () => {
   const history = useHistory()
   const location = useLocation()
 
@@ -95,4 +95,4 @@ export const Client: React.FunctionComponent = () => {
   )
 }
 
-export default Client
+export default Apps

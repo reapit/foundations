@@ -19,7 +19,7 @@ export const handleOnSettingClick = (history: History) => (app: AppSummaryModel)
   history.push(`${Routes.APPS}/${app.id}/manage`)
 }
 
-export const ClientAppsManagement: React.FunctionComponent = () => {
+export const AppsManagement: React.FunctionComponent = () => {
   const history = useHistory()
   const location = useLocation()
 
@@ -60,4 +60,4 @@ export const ClientAppsManagement: React.FunctionComponent = () => {
   )
 }
 
-export default ClientAppsManagement
+export default AppsManagement

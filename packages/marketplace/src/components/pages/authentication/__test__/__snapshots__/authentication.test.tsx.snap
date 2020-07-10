@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Authentication renderClientModal should match snapshot 1`] = `
+exports[`Authentication renderModal should match snapshot 1`] = `
 <div>
   <Component
     footerItems={

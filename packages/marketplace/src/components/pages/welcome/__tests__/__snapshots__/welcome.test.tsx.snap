@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ClientWelcomeMessage Documentation step should match a snapshot 1`] = `
+exports[`WelcomeMessage Documentation step should match a snapshot 1`] = `
 <ContextProvider
   value={
     Object {
@@ -32,7 +32,7 @@ exports[`ClientWelcomeMessage Documentation step should match a snapshot 1`] = `
 </ContextProvider>
 `;
 
-exports[`ClientWelcomeMessage Support step should match a snapshot 1`] = `
+exports[`WelcomeMessage Support step should match a snapshot 1`] = `
 <ContextProvider
   value={
     Object {
@@ -64,7 +64,7 @@ exports[`ClientWelcomeMessage Support step should match a snapshot 1`] = `
 </ContextProvider>
 `;
 
-exports[`ClientWelcomeMessage Welcome step should match a snapshot 1`] = `
+exports[`WelcomeMessage Welcome step should match a snapshot 1`] = `
 <ContextProvider
   value={
     Object {
@@ -96,7 +96,7 @@ exports[`ClientWelcomeMessage Welcome step should match a snapshot 1`] = `
 </ContextProvider>
 `;
 
-exports[`ClientWelcomeMessage should match a snapshot 1`] = `
+exports[`WelcomeMessage should match a snapshot 1`] = `
 <Provider
   store={
     Object {
@@ -109,9 +109,7 @@ exports[`ClientWelcomeMessage should match a snapshot 1`] = `
     }
   }
 >
-  <Component
-    userAcceptTermAndCondition={[MockFunction]}
-  >
+  <Component>
     <Component>
       <Component
         className=""

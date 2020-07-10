@@ -4,17 +4,13 @@ import * as React from 'react'
 import { setCookieString, COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE, COOKIE_MAX_AGE_INFINITY } from '@/utils/cookie'
 import MockDate from 'mockdate'
 import { shallow, mount } from 'enzyme'
-import { ClientWelcomeMessage, ClientWelcomeMessageProps, handleUserAccept, Support, Welcome } from '../welcome'
+import { WelcomeMessage, handleUserAccept, Support, Welcome } from '../welcome'
 import routes from '@/constants/routes'
 import { HelpGuide } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import configureStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
 import appState from '@/reducers/__stubs__/app-state'
-
-const mockProps: ClientWelcomeMessageProps = {
-  userAcceptTermAndCondition: jest.fn(),
-}
 
 const mockState = {
   ...appState,
@@ -28,7 +24,7 @@ const mockState = {
   },
 } as ReduxState
 
-describe('ClientWelcomeMessage', () => {
+describe('WelcomeMessage', () => {
   let store
   it('should match a snapshot', () => {
     const mockStore = configureStore()
@@ -37,7 +33,7 @@ describe('ClientWelcomeMessage', () => {
     expect(
       mount(
         <Provider store={store}>
-          <ClientWelcomeMessage {...mockProps} />
+          <WelcomeMessage />
         </Provider>,
       ),
     ).toMatchSnapshot()

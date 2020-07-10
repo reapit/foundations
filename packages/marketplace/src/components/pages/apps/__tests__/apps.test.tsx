@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import { mount } from 'enzyme'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { ClientAppSummary } from '@/reducers/client/app-summary'
-import { Client, handleAfterClose, handleOnChange, handleOnCardClick } from '../client'
+import { Apps, handleAfterClose, handleOnChange, handleOnCardClick } from '../apps'
 import { addQuery } from '@/utils/client-url-params'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import ClientWelcomeMessageModal from '@/components/ui/client-welcome-message'
@@ -43,7 +43,7 @@ describe('Client', () => {
       mount(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.APPS, key: 'clientRoute' }]}>
-            <Client />
+            <Apps />
           </MemoryRouter>
         </ReactRedux.Provider>,
       ),
@@ -60,7 +60,7 @@ describe('Client', () => {
       mount(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.APPS, key: 'clientRoute' }]}>
-            <Client />
+            <Apps />
           </MemoryRouter>
         </ReactRedux.Provider>,
       ),
@@ -81,7 +81,7 @@ describe('Client', () => {
       mount(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.APPS, key: 'clientRoute' }]}>
-            <Client />
+            <Apps />
           </MemoryRouter>
         </ReactRedux.Provider>,
       ),
@@ -102,7 +102,7 @@ describe('Client', () => {
       mount(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.APPS, key: 'clientRoute' }]}>
-            <Client />
+            <Apps />
           </MemoryRouter>
         </ReactRedux.Provider>,
       ),
@@ -149,7 +149,7 @@ describe('Client', () => {
       const wrapper = mount(
         <Provider store={store}>
           <Router>
-            <Client />
+            <Apps />
           </Router>
         </Provider>,
       )
