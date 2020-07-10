@@ -12,7 +12,6 @@ export const history = createBrowserHistory()
 const Authentication = React.lazy(() => catchChunkError(() => import('../components/pages/authentication')))
 const Login = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 const Client = React.lazy(() => catchChunkError(() => import('../components/pages/client')))
-const ClientAppDetail = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail/client')))
 const ClientWelcomePage = React.lazy(() => catchChunkError(() => import('../components/pages/client-welcome')))
 const InstalledApps = React.lazy(() => catchChunkError(() => import('../components/pages/installed-apps')))
 const ClientSetting = React.lazy(() => catchChunkError(() => import('../components/pages/settings/client-setting')))
@@ -21,9 +20,8 @@ const ClientAppsManagement = React.lazy(() =>
 )
 const Register = React.lazy(() => catchChunkError(() => import('../components/pages/register')))
 const Apps = React.lazy(() => catchChunkError(() => import('../components/pages/apps')))
-const DeveloperAppDetail = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail/developer')))
+const DeveloperAppDetail = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail')))
 const DeveloperEditApp = React.lazy(() => catchChunkError(() => import('../components/pages/developer-edit-app')))
-const AdminApprovalsPage = React.lazy(() => catchChunkError(() => import('../components/pages/admin-approvals')))
 const AdminDevManagementPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/admin-dev-management')),
 )
@@ -92,20 +90,6 @@ const Router = () => {
                 <PrivateRoute allow="CLIENT" path={Routes.INSTALLED_APPS} component={InstalledApps} fetcher exact />
                 <PrivateRoute allow="CLIENT" path={Routes.MY_APPS} component={ClientAppsManagement} fetcher exact />
                 <PrivateRoute allow="CLIENT" path={Routes.CLIENT} component={Client} exact fetcher />
-                <PrivateRoute
-                  allow="CLIENT"
-                  path={Routes.CLIENT_APP_DETAIL}
-                  component={ClientAppDetail}
-                  exact
-                  fetcher
-                />
-                <PrivateRoute
-                  allow="CLIENT"
-                  path={Routes.CLIENT_APP_DETAIL_MANAGE}
-                  component={ClientAppDetail}
-                  exact
-                  fetcher
-                />
                 <PrivateRoute allow="CLIENT" path={Routes.CLIENT_WELCOME} component={ClientWelcomePage} exact />
                 <PrivateRoute allow="CLIENT" path={Routes.CLIENT_HELP} exact fetcher component={ClientHelpPage} />
                 <PrivateRoute allow="CLIENT" path={Routes.CLIENT_SETTINGS} exact fetcher component={ClientSetting} />
@@ -172,15 +156,6 @@ const Router = () => {
                   exact
                   fetcher
                   component={DeveloperHelpPage}
-                />
-                <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_APP_PREVIEW} exact component={ClientAppDetail} />
-
-                <PrivateRoute
-                  allow="ADMIN"
-                  path={Routes.ADMIN_APPROVALS}
-                  component={AdminApprovalsPage}
-                  exact
-                  fetcher
                 />
                 <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPS} component={AdminAppsPage} fetcher exact />
                 <PrivateRoute
