@@ -1,4 +1,12 @@
 import * as React from 'react'
+import { selectSettingsPageIsLoading } from '@/selector/settings'
+import { selectMyIdentity } from '@/selector'
+import { Dispatch } from 'redux'
+import { fetchMyIdentity } from '@/actions/developer'
+import { Loader, Content } from '@reapit/elements'
+import { useDispatch, useSelector } from 'react-redux'
+import { updateDeveloperData } from '@/actions/settings'
+import { selectDeveloperLoading } from '@/selector'
 import {
   FormSection,
   Form,
@@ -14,39 +22,65 @@ import {
 import ReapitReferenceSection from './reapit-reference-section'
 import DirectDebitSection from './direct-debit-section'
 import ContactInformationSection from './contact-information-section'
+import { UpdateDeveloperModel } from '@reapit/foundations-ts-definitions'
+import { validationSchema } from './form-schema/validation-schema'
 
 export type AccountsInformationFormProps = {}
 
 export type AccountsInformationFormValues = {
-  email: string
   hasReapitAccountsRef: string
-  reapitAccountsRef: string
-  phoneNumber: string
   hasDirectDebit: string
-  contact: string
-}
+} & Pick<UpdateDeveloperModel, 'billingEmail' | 'billingKeyContact' | 'billingTelephone' | 'reapitReference'>
 
-export const initialValues: AccountsInformationFormValues = {
-  email: '',
-  contact: '',
-  hasDirectDebit: 'yes',
-  reapitAccountsRef: '',
-  hasReapitAccountsRef: '',
-  phoneNumber: '',
-}
+export const getInitialValues = (initialValues: AccountsInformationFormValues) => ({
+  ...initialValues,
+  hasReapitAccountsRef: initialValues.reapitReference ? 'yes' : '',
+  hasDirectDebit: '',
+})
 
 export const ACCOUNT_REF_MIN_LENGTH = 6
 
-export const onSubmit = (values: AccountsInformationFormValues) => {
-  console.log(values)
+export const onSubmit = (dispatch: Dispatch) => (values: AccountsInformationFormValues) => {
+  dispatch(updateDeveloperData(values))
+}
+
+export type HandleUseEffectParams = {
+  dispatch: Dispatch
+  isProd: boolean
+}
+
+export const handleUseEffect = ({ dispatch, isProd }: HandleUseEffectParams) => () => {
+  if (!isProd) {
+    dispatch(fetchMyIdentity())
+  }
 }
 
 const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
+  const isProd = window.reapit.config.appEnv === 'production'
+  const isLoading = useSelector(selectDeveloperLoading)
+  const myIdentity = useSelector(selectMyIdentity)
+  const isSubmitting = useSelector(selectSettingsPageIsLoading)
+  const unfetched = !myIdentity || Object.keys(myIdentity).length === 0
+  const isPendingSubmission = myIdentity?.status === 'incomplete'
+
+  const dispatch = useDispatch()
+  React.useEffect(handleUseEffect({ dispatch, isProd }), [])
+
+  const isShowLoader = (isLoading || unfetched) && !isProd
+  if (isShowLoader) {
+    return <Loader />
+  }
+
   return (
-    <Formik initialValues={initialValues} onSubmit={onSubmit}>
-      {({ setFieldValue, values }) => {
-        const { reapitAccountsRef, hasReapitAccountsRef } = values
-        const isEnableSaveBtn = hasReapitAccountsRef === 'yes' && reapitAccountsRef.length >= ACCOUNT_REF_MIN_LENGTH
+    <Formik
+      validationSchema={validationSchema}
+      initialValues={getInitialValues(myIdentity as AccountsInformationFormValues)}
+      onSubmit={onSubmit(dispatch)}
+    >
+      {({ setFieldValue, values, isValid }) => {
+        const { hasReapitAccountsRef } = values
+        // no error and tick "YES" to DO YOU HAVE A REAPIT ACCOUNTS REF?
+        const isEnableSaveBtn = hasReapitAccountsRef === 'yes' && isValid && !isPendingSubmission
 
         return (
           <Form>
@@ -66,9 +100,24 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
                 </GridItem>
               </Grid>
               <LevelRight>
-                <Button dataTest="save-btn" type="submit" disabled={!isEnableSaveBtn}>
-                  Save
-                </Button>
+                <div>
+                  <LevelRight>
+                    <Button
+                      className="mb-3"
+                      loading={isSubmitting}
+                      dataTest="save-btn"
+                      type="submit"
+                      disabled={!isEnableSaveBtn}
+                    >
+                      Save
+                    </Button>
+                  </LevelRight>
+                  {isPendingSubmission && (
+                    <Content>
+                      <b>ACCOUNT STATUS :</b> <i>Pending</i>
+                    </Content>
+                  )}
+                </div>
               </LevelRight>
             </FormSection>
           </Form>

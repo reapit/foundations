@@ -1,6 +1,7 @@
-import { UsageStatsModel } from '@reapit/foundations-ts-definitions'
-
-export const usageStatsDataStub: UsageStatsModel = {
+// UsageStatsModel is depprecated
+// Not sure if this code is still used
+// TODO: investigate
+export const usageStatsDataStub: any = {
   dateFrom: '2019-11-09T00:00:00+00:00',
   dateTo: '2020-02-07T00:00:00+00:00',
   totalRequestsForPeriod: 5,
@@ -18,7 +19,7 @@ export const usageStatsDataStub: UsageStatsModel = {
   ],
 }
 
-export const usageStatsForMultipleAppsDataStub: UsageStatsModel = {
+export const usageStatsForMultipleAppsDataStub: any = {
   dateFrom: '2020-02-09T09:18:23.957Z',
   dateTo: '2020-02-09T09:18:23.957Z',
   totalRequestsForPeriod: 13,

@@ -1,4 +1,3 @@
-import { UsageStatsModel } from '@reapit/foundations-ts-definitions'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
 import { generateHeader } from './utils'
@@ -10,7 +9,10 @@ export type FetchStatisticsListParams = {
   dateTo?: string
 }
 
-export const fetchStatisticsList = async (params: FetchStatisticsListParams): Promise<UsageStatsModel> => {
+// UsageStatsModel is deprecated
+// this endpoint is obsolete
+// TODO: investigate, remove this code
+export const fetchStatisticsList = async (params: FetchStatisticsListParams): Promise<any> => {
   try {
     const response = await fetcher({
       url: `${URLS.statistics}?${setQueryParams(params)}`,

@@ -8,9 +8,10 @@ export type DirectDebitSectionProps = {
 }
 
 const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({ values }) => {
-  const { hasReapitAccountsRef, reapitAccountsRef } = values
+  const { hasReapitAccountsRef, reapitReference } = values
 
-  const isShowDirectDebitWithRef = hasReapitAccountsRef === 'yes' && reapitAccountsRef.length >= ACCOUNT_REF_MIN_LENGTH
+  const isShowDirectDebitWithRef =
+    hasReapitAccountsRef === 'yes' && (reapitReference || '').length >= ACCOUNT_REF_MIN_LENGTH
   const isShowDirectDebitWithoutRef = hasReapitAccountsRef === 'no'
 
   if (isShowDirectDebitWithRef)
