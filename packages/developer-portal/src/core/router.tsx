@@ -33,7 +33,7 @@ const DeveloperDesktopPage = React.lazy(() => catchChunkError(() => import('../c
 const DeveloperWelcomePage = React.lazy(() => catchChunkError(() => import('../components/pages/developer-welcome')))
 const DeveloperHelpPage = React.lazy(() => catchChunkError(() => import('../components/pages/developer-help')))
 const ClientHelpPage = React.lazy(() => catchChunkError(() => import('../components/pages/client-help')))
-const AnalyticsPage = React.lazy(() => catchChunkError(() => import('@/components/pages/developer-analytics')))
+const AnalyticsPage = React.lazy(() => catchChunkError(() => import('@/components/pages/analytics')))
 const AdminAppsPage = React.lazy(() => catchChunkError(() => import('../components/pages/admin-apps')))
 const RegisterConfirm = React.lazy(() => catchChunkError(() => import('../components/pages/register-confirm')))
 const AdminStats = React.lazy(() => catchChunkError(() => import('../components/pages/admin-stats')))
@@ -133,13 +133,7 @@ const Router = () => {
                   exact
                   component={DeveloperDesktopPage}
                 />
-                <PrivateRoute
-                  allow="DEVELOPER"
-                  path={Routes.DEVELOPER_ANALYTICS_TAB}
-                  fetcher
-                  exact
-                  component={AnalyticsPage}
-                />
+                <PrivateRoute allow="DEVELOPER" path={Routes.ANALYTICS_TAB} fetcher exact component={AnalyticsPage} />
 
                 <PrivateRoute
                   allow="DEVELOPER"

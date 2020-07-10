@@ -24,7 +24,7 @@ export const tabConfigs = ({ currentTab, history }: TabConfigsProps): TabConfig[
       tabIdentifier: AnalyticsTab.DETAILED,
       displayText: 'DETAILED',
       onTabClick: () => {
-        history.push(Routes.DEVELOPER_ANALYTICS)
+        history.push(Routes.ANALYTICS)
       },
       active: currentTab === AnalyticsTab.DETAILED,
     },
@@ -32,7 +32,7 @@ export const tabConfigs = ({ currentTab, history }: TabConfigsProps): TabConfig[
       tabIdentifier: AnalyticsTab.COST_EXPLORER,
       displayText: 'Cost Explorer',
       onTabClick: () => {
-        history.push(`${Routes.DEVELOPER_ANALYTICS}/${AnalyticsTab.COST_EXPLORER}`)
+        history.push(`${Routes.ANALYTICS}/${AnalyticsTab.COST_EXPLORER}`)
       },
       active: currentTab === AnalyticsTab.COST_EXPLORER,
     },

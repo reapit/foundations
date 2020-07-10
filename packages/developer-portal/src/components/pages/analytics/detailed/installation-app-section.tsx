@@ -5,7 +5,7 @@ import { AppInstallationsState } from '@/reducers/app-installations'
 import { DeveloperState } from '@/reducers/developer'
 import { INSTALLATIONS_PER_PAGE } from '@/constants/paginator'
 import DeveloperInstallationsChart from '@/components/ui/developer-installations-chart'
-import { handleMapAppNameToInstallation } from '@/components/pages/developer-analytics/detailed/detailed-tab'
+import { handleMapAppNameToInstallation } from '@/components/pages/analytics/detailed/detailed-tab'
 
 export interface InstallationModelWithAppName extends InstallationModel {
   appName?: string

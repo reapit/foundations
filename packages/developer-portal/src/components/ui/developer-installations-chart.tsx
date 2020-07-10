@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Line } from 'react-chartjs-2'
 import { Loader, H5, Section } from '@reapit/elements'
-import { InstallationModelWithAppName } from '@/components/pages/developer-analytics/detailed/installation-app-section'
+import { InstallationModelWithAppName } from '@/components/pages/analytics/detailed/installation-app-section'
 import { groupInstalledAppsByDate, getChartData, groupAppsByNameAndCount } from '@/utils/developer-analytics'
 
 export interface DeveloperInstallationsChartProps {
