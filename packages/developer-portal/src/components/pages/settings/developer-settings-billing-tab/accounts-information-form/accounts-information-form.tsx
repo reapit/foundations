@@ -1,4 +1,9 @@
 import * as React from 'react'
+import { Dispatch } from 'redux'
+import { fetchMyIdentity } from '@/actions/developer'
+import { Loader } from '@reapit/elements'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectDeveloperLoading } from '@/selector'
 import {
   FormSection,
   Form,
@@ -41,7 +46,30 @@ export const onSubmit = (values: AccountsInformationFormValues) => {
   console.log(values)
 }
 
+
+export type HandleUseEffectParams = {
+  dispatch: Dispatch,
+  isProd: boolean
+}
+
+export const handleUseEffect = ({ dispatch, isProd }: HandleUseEffectParams) => () => {
+  if (!isProd) {
+
+    dispatch(fetchMyIdentity())
+  }
+}
+
 const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
+  const isProd = window.reapit.config.appEnv === 'production'
+  const isLoading = useSelector(selectDeveloperLoading)
+
+  const dispatch = useDispatch()
+  React.useEffect(handleUseEffect({ dispatch, isProd }), [])
+
+  if (isLoading && !isProd) {
+    return <Loader />
+  }
+
   return (
     <Formik initialValues={initialValues} onSubmit={onSubmit}>
       {({ setFieldValue, values }) => {
