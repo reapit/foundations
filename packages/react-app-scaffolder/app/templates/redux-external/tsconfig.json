@@ -20,8 +20,10 @@
     "noEmit": true,
     "noImplicitAny": false,
     "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
     "outDir": "dist",
     "strict": true,
+    "resolveJsonModule": true,
     "target": "es2020",
     "typeRoots": [
       "./node_modules/@types"

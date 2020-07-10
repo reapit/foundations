@@ -7,7 +7,7 @@ module.exports = {
   preset: 'ts-jest',
   testPathIgnorePatterns: ['<rootDir>/src/tests/'],
   setupFiles: ['<rootDir>/src/scripts/jest/jest-setup.js'],
-  collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/src/**/*.tsx', '!<rootDir>/src/**/*.worker.ts'],
+  collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/src/**/*.tsx'],
   coverageDirectory: './src/tests/coverage',
   coveragePathIgnorePatterns: [
     '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]',
@@ -21,7 +21,7 @@ module.exports = {
       prefix: '<rootDir>/',
     }),
   },
-  moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx', 'graphql', 'gql'],
+  moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   verbose: false,
   projects: ['<rootDir>/jest.config.js'],
@@ -31,10 +31,10 @@ module.exports = {
   globalSetup: '<rootDir>/src/scripts/jest/jest-global.js',
   coverageThreshold: {
     global: {
-      branches: 30,
-      functions: 60,
-      lines: 70,
-      statements: 70,
+      branches: 65,
+      functions: 55,
+      lines: 85,
+      statements: 85,
     },
   },
   coverageReporters: ['json-summary', 'text', 'lcov'],

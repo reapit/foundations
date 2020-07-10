@@ -16,3 +16,9 @@ yarn-error.log*
 *.log
 
 .cache/
+yarn.lock
+
+public/dist
+src/tests
+
+.jest-cache

@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
-const CopyPlugin = require('copy-webpack-plugin')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 const { SourceMapDevToolPlugin, HashedModuleIdsPlugin } = require('webpack')
 const { PATHS } = require('./constants')
@@ -107,57 +106,6 @@ const webpackConfig = {
         ],
       },
       {
-        test: /\.(sass|scss)$/,
-        oneOf: [
-          {
-            resourceQuery: /\?mod$/,
-            use: [
-              MiniCssExtractPlugin.loader,
-              {
-                loader: 'css-loader',
-                options: {
-                  importLoaders: 1,
-                  modules: {
-                    localIdentName: '[hash:base64:5]',
-                  },
-                  localsConvention: 'camelCase',
-                },
-              },
-              'postcss-loader',
-              {
-                loader: 'sass-loader',
-                options: {
-                  sourceMap: false,
-                },
-              },
-            ],
-          },
-          {
-            use: [
-              MiniCssExtractPlugin.loader,
-              {
-                loader: 'css-loader',
-                options: {
-                  importLoaders: 1,
-                },
-              },
-              'postcss-loader',
-              {
-                loader: 'sass-loader',
-                options: {
-                  sourceMap: false,
-                },
-              },
-            ],
-          },
-        ],
-      },
-      {
-        test: /\.(graphql|gql)$/,
-        exclude: /node_modules/,
-        use: 'graphql-tag/loader',
-      },
-      {
         test: /\.(woff(2)?|ttf|eot|svg|png|jpg|jpeg|gif|pdf)$/,
         use: [
           {
@@ -192,7 +140,6 @@ const webpackConfig = {
     new SourceMapDevToolPlugin({
       filename: '[file].map',
     }),
-    new CopyPlugin([{ from: 'config.json', to: PATHS.output }]),
     new HtmlWebpackPlugin({
       hash: true,
       inject: true,

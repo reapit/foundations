@@ -1,8 +1,8 @@
+export type AppEnv = 'local' | 'development' | 'production'
+
 export type Config = {
-  appEnv: 'local' | 'development' | 'production'
-  sentryDns: string
+  appEnv: AppEnv
   cognitoClientId: string
-  googleAnalyticsKey: string
   cognitoOAuthUrl: string
   cognitoUserPoolId: string
 }
@@ -12,6 +12,5 @@ declare global {
     reapit: {
       config: Config
     }
-    __REDUX_DEVTOOLS_EXTENSION__?: Function
   }
 }

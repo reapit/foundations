@@ -137,59 +137,6 @@ const webpackConfig = {
         use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
       {
-        test: /\.(sass|scss)$/,
-        oneOf: [
-          {
-            resourceQuery: /\?mod$/,
-            use: [
-              {
-                loader: 'style-loader',
-              },
-              {
-                loader: 'css-loader',
-                options: {
-                  modules: {
-                    localIdentName: '[name]-[local]-[hash:base64:5]',
-                  },
-                  localsConvention: 'camelCase',
-                },
-              },
-              'postcss-loader',
-              {
-                loader: 'sass-loader',
-                options: {
-                  sourceMap: true,
-                  includePaths: ['node_modules'],
-                },
-              },
-            ],
-          },
-          {
-            use: [
-              {
-                loader: 'style-loader',
-              },
-              {
-                loader: 'css-loader',
-              },
-              'postcss-loader',
-              {
-                loader: 'sass-loader',
-                options: {
-                  sourceMap: true,
-                  includePaths: ['node_modules'],
-                },
-              },
-            ],
-          },
-        ],
-      },
-      {
-        test: /\.(graphql|gql)$/,
-        exclude: /node_modules/,
-        use: 'graphql-tag/loader',
-      },
-      {
         test: /\.(woff(2)?|ttf|eot|svg|png|jpg|jpeg|gif|pdf)$/,
         use: {
           loader: 'file-loader',
