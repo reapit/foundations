@@ -1,3 +1,3 @@
-import DeveloperAnalytics from './developer-analytics'
+import DeveloperAnalytics from './analytics'
 
 export default DeveloperAnalytics

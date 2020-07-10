@@ -2,8 +2,8 @@ import * as React from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import { Tabs, H3, TabConfig, Section } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import DetailedTab from '@/components/ui/developer-analytics/detailed'
-import CostExplorerTab from '@/components/ui/developer-analytics/cost-explorer'
+import DetailedTab from './detailed'
+import CostExplorerTab from './cost-explorer'
 import Routes from '@/constants/routes'
 
 export type DeveloperAnalyticsPageProps = {}
