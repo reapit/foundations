@@ -162,7 +162,7 @@ export const AdminDevManagement: React.FC = () => {
         <Helper variant="info">
           Unfortunately, there are no results that match your search criteria, please try again
         </Helper>
-        <Link className="text-center" to="/admin/dev-management">
+        <Link className="text-center" to={Routes.DEV_MANAGEMENT}>
           <Button variant="primary" type="button">
             New Search
           </Button>

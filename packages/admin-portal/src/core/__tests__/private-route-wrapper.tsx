@@ -31,11 +31,6 @@ jest.mock('@reapit/cognito-auth', () => ({
   redirectToOAuth: jest.fn(),
 }))
 
-jest.mock('@/utils/auth-route', () => ({
-  getDefaultRouteByLoginType: jest.fn(() => 'login-type-route'),
-  getAuthRouteByLoginType: jest.fn(() => 'auth-route'),
-}))
-
 jest.mock('@/utils/cookie', () => ({
   ...jest.requireActual('@/utils/cookie'),
   getCookieString: jest.fn(() => 'cookie-string'),
