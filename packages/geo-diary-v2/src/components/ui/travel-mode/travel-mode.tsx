@@ -6,10 +6,8 @@ import qs from 'query-string'
 import { ROUTES } from '@/core/router'
 import { travelModeButtonContainer } from './__styles__'
 
-export type TravelMode = 'DRIVING' | 'WALKING'
-
 export type HandleChangeTravelModeParams = {
-  travelMode: string
+  travelMode: 'DRIVING' | 'WALKING'
   queryParams: qs.ParsedQuery<string>
   history: History
 }

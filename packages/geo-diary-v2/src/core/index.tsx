@@ -1,4 +1,6 @@
 import * as Sentry from '@sentry/browser'
+import load from 'little-loader'
+import qs from 'query-string'
 import React from 'react'
 import { render } from 'react-dom'
 import ReactGA from 'react-ga'
@@ -29,6 +31,8 @@ export const renderApp = (Component: React.ComponentType) => {
   }
 }
 
+const GOOGLE_MAP_PLACES_API = 'https://maps.googleapis.com/maps/api/js'
+
 const run = async () => {
   await fetch('config.json')
     .then(response => response.json())
@@ -46,7 +50,13 @@ const run = async () => {
         ReactGA.initialize(config.googleAnalyticsKey)
         ReactGA.pageview(window.location.pathname + window.location.search)
       }
-      renderApp(App)
+      const params = {
+        key: config.googleMapApiKey,
+        libraries: '',
+      }
+      load(`${GOOGLE_MAP_PLACES_API}?${qs.stringify(params)}`, () => {
+        renderApp(App)
+      })
     })
     .catch(error => {
       console.error('Cannot fetch config', error)

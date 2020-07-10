@@ -3,7 +3,6 @@ import { shallow } from 'enzyme'
 import MapPanel, { handleChangeTab, getMapUrl, handleOpenNativeMap } from '../map-pannel'
 import { RouteInformation, UNDEFINED_LATLNG_NUMBER } from '../../map/map'
 import { getMockRouterProps } from '@/core/__mocks__/mock-router'
-import { appointment } from '@/graphql/__mocks__/appointment'
 
 const locationMock = { search: '?state=CLIENT&destinationLat=123&destinationLng=123', pathname: '/test' }
 
@@ -20,7 +19,6 @@ describe('map-pannel', () => {
           duration: { text: 'mocktext', value: 19 },
           distance: { text: 'mocktext', value: 11 },
         } as RouteInformation,
-        appointments: [appointment],
       }
       const wrapper = shallow(<MapPanel {...mockProps} />)
       expect(wrapper).toMatchSnapshot()

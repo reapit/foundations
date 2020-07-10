@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Appointment should match snapshot 1`] = `
+exports[`appointment Apppointment should match snapshot 1`] = `
 <MockedProvider
   addTypename={false}
   mocks={Array []}
@@ -25369,7 +25369,7 @@ query GET_APPOINTMENTS($negotiatorId: [String!], $start: String!, $end: String!,
 </MockedProvider>
 `;
 
-exports[`Appointment should match snapshot 2`] = `
+exports[`appointment Apppointment should match snapshot 2`] = `
 <MockedProvider
   addTypename={false}
   mocks={

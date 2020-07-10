@@ -349,18 +349,18 @@ export const CancelConfirmModal: React.FC<CancelConfirmModalProps> = ({
         <H5>Are you sure you want to cancel this appointment?</H5>
         <Section isFlex hasPadding={false} hasMargin={false}>
           <Button
+            variant="info"
             loading={loading}
             onClick={handleUpdateAppointment({ updateAppointment, appointment })}
             type="button"
-            variant="primary"
           >
             Yes
           </Button>
           <Button
+            variant="info"
             disabled={loading}
             onClick={handleHideConfirmModal(setIsShowConfirmModal)}
             type="button"
-            variant="primary"
           >
             No
           </Button>
@@ -380,10 +380,10 @@ export const AppointmentDetailModal: React.FC<AppointmentDetailModalProps> = ({ 
       destroyOnClose={true}
       footer={
         <Button
+          variant="info"
           disabled={appointment?.cancelled}
           onClick={handleShowConfirmModal(setIsShowConfirmModal)}
           type="button"
-          variant="primary"
         >
           {appointment?.cancelled ? 'Cancelled' : 'Cancel Appointment'}
         </Button>
