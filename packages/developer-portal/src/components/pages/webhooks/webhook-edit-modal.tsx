@@ -32,8 +32,8 @@ import {
 } from '@/actions/webhook-edit-modal'
 import { CustomerItem, TopicItem } from '@/reducers/webhook-edit-modal'
 import { selectTopics, selectWebhookData, selectLoading, selectCustomers } from '@/selector/webhook-edit'
-import { validationSchema } from './validation-schema'
-import { formFields } from './form-fields'
+import { validationSchema } from './form-schema/validation-schema'
+import { formFields } from './form-schema/form-fields'
 
 const { activeField, topicIdsField, webhookUrlField, customerIdsField } = formFields
 

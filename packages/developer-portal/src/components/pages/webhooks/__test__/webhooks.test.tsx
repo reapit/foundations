@@ -11,7 +11,7 @@ import {
   MODAL_TYPE,
   openCreateModal,
   openTestModal,
-} from '../developer-webhooks'
+} from '../webhooks'
 import { mount } from 'enzyme'
 import { TopicModel } from '@/reducers/webhook-subscriptions'
 
