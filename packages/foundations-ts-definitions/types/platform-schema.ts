@@ -3624,6 +3624,10 @@ export interface CreatePropertyModel {
      */
     status?: string
     /**
+     * The method used to sell the property (auction/confidential/tender/offersInvited/privateTreaty)
+     */
+    disposal?: string
+    /**
      * The date the property sale was completed
      * example:
      * 2019-08-14
@@ -3797,6 +3801,10 @@ export interface CreatePropertySellingModel {
    * The current status of the sale (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
    */
   status?: string
+  /**
+   * The method used to sell the property (auction/confidential/tender/offersInvited/privateTreaty)
+   */
+  disposal?: string
   /**
    * The date the property sale was completed
    * example:
@@ -8211,6 +8219,10 @@ export interface PagedResultPropertyModel_ {
        */
       status?: string
       /**
+       * The method used to sell the property (auction/confidential/tender/offersInvited/privateTreaty)
+       */
+      disposal?: string
+      /**
        * The date the property sale was completed
        * example:
        * 2019-08-14
@@ -9856,6 +9868,10 @@ export interface PropertyModel {
      */
     status?: string
     /**
+     * The method used to sell the property (auction/confidential/tender/offersInvited/privateTreaty)
+     */
+    disposal?: string
+    /**
      * The date the property sale was completed
      * example:
      * 2019-08-14
@@ -10041,6 +10057,10 @@ export interface PropertySellingModel {
    * The current status of the sale (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
    */
   status?: string
+  /**
+   * The method used to sell the property (auction/confidential/tender/offersInvited/privateTreaty)
+   */
+  disposal?: string
   /**
    * The date the property sale was completed
    * example:
@@ -12466,6 +12486,10 @@ export interface UpdatePropertyModel {
      */
     status?: string
     /**
+     * The method used to sell the property (auction/confidential/tender/offersInvited/privateTreaty)
+     */
+    disposal?: string
+    /**
      * The date the property sale was completed
      * example:
      * 2019-08-14
@@ -12605,6 +12629,10 @@ export interface UpdatePropertySellingModel {
    * The current status of the sale (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
    */
   status?: string
+  /**
+   * The method used to sell the property (auction/confidential/tender/offersInvited/privateTreaty)
+   */
+  disposal?: string
   /**
    * The date the property sale was completed
    * example:
