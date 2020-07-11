@@ -23,6 +23,7 @@
     "price": 540000,
     "qualifier": "offersInRegion",
     "status": "completed",
+    "disposal": "privateTreaty",
     "completed": "2015-12-11",
     "exchanged": "2019-02-26",
     "tenure": null,
