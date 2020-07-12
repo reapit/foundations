@@ -16,15 +16,15 @@ export const initialValues: OrganisationFormValues = {
   line2: '',
   line3: '',
   line4: '',
-  vatNumber: '',
-  noVatNumber: false,
-  officeEmail: '',
-  postCode: '',
-  reg: '',
-  noReg: false,
-  tel: '',
+  taxNumber: '',
+  noTaxRegistration: false,
+  email: '',
+  postcode: '',
+  registrationNumber: '',
+  noRegistrationNumber: false,
+  telephone: '',
   website: '',
-  nationalInsuranceNumber: '',
+  nationalInsurance: '',
 }
 
 export type OrganisationFormProps = {}
