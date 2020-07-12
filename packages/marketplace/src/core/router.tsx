@@ -18,6 +18,7 @@ const InstalledApps = React.lazy(() => catchChunkError(() => import('../componen
 const Setting = React.lazy(() => catchChunkError(() => import('../components/pages/settings')))
 const AppsManagement = React.lazy(() => catchChunkError(() => import('../components/pages/app-management')))
 const Help = React.lazy(() => catchChunkError(() => import('../components/pages/help')))
+const HandleLegacyRoutes = React.lazy(() => catchChunkError(() => import('../components/pages/handle-legacy-routes')))
 
 const Router = () => {
   return (
@@ -27,6 +28,14 @@ const Router = () => {
           <Switch>
             <Route path={Routes.LOGIN} exact render={() => <Login />} />
             <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
+
+            <PrivateRouteWrapper showMenu={false} path="/client">
+              <PrivateRoute allow="CLIENT" path="*" component={HandleLegacyRoutes} />
+            </PrivateRouteWrapper>
+
+            <PrivateRouteWrapper showMenu={false} path="/developer">
+              <PrivateRoute allow="DEVELOPER" path="*" component={HandleLegacyRoutes} />
+            </PrivateRouteWrapper>
 
             <PrivateRouteWrapper path="/">
               <Switch>

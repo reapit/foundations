@@ -13,6 +13,7 @@ const Routes = {
   HELP: '/help',
   LOGIN: '/login',
   FOUR_O_FOUR: '/404',
+  DEVELOPER_ROUTES: '/developer/*',
 }
 
 export const developerRoutes = {
