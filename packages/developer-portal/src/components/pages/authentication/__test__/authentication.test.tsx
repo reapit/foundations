@@ -58,9 +58,10 @@ describe('Authentication', () => {
   })
   describe('onMarketplaceButtonClick', () => {
     it('should run correctly', () => {
-      const fn = onMarketplaceButtonClick(history)
-      fn()
-      expect(history.replace).toBeCalledWith(Routes.DEVELOPER)
+      jest.spyOn(window, 'open')
+      onMarketplaceButtonClick()
+      expect(window.open).toBeCalledWith(window.reapit.config.marketplaceUrl, '_self')
+      ;(window.open as jest.Mock).mockReset()
     })
   })
   describe('onRegisterButtonClick', () => {
