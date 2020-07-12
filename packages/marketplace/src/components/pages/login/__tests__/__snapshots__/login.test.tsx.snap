@@ -18,7 +18,7 @@ exports[`Login should match a snapshot 1`] = `
       Array [
         Object {
           "key": "clientLoginRoute",
-          "pathname": "/client/login",
+          "pathname": "/login",
         },
       ]
     }
@@ -34,7 +34,7 @@ exports[`Login should match a snapshot 1`] = `
             Object {
               "hash": "",
               "key": "clientLoginRoute",
-              "pathname": "/client/login",
+              "pathname": "/login",
               "search": "",
             },
           ],
@@ -47,7 +47,7 @@ exports[`Login should match a snapshot 1`] = `
           "location": Object {
             "hash": "",
             "key": "clientLoginRoute",
-            "pathname": "/client/login",
+            "pathname": "/login",
             "search": "",
           },
           "push": [Function],

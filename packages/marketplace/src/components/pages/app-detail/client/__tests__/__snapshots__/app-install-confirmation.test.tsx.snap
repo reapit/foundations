@@ -18,7 +18,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
       Array [
         Object {
           "key": "clientAppDetailRoute",
-          "pathname": "/client/apps/:appid",
+          "pathname": "/apps/:appid",
         },
       ]
     }
@@ -34,7 +34,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
             Object {
               "hash": "",
               "key": "clientAppDetailRoute",
-              "pathname": "/client/apps/:appid",
+              "pathname": "/apps/:appid",
               "search": "",
             },
           ],
@@ -47,7 +47,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
           "location": Object {
             "hash": "",
             "key": "clientAppDetailRoute",
-            "pathname": "/client/apps/:appid",
+            "pathname": "/apps/:appid",
             "search": "",
           },
           "push": [Function],
