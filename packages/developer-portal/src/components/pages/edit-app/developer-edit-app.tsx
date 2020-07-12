@@ -1,4 +1,5 @@
 import * as React from 'react'
+import routes from '@/constants/routes'
 import { Redirect } from 'react-router-dom'
 import { History } from 'history'
 import { useHistory, useParams } from 'react-router'
@@ -293,7 +294,7 @@ export const handleOpenAppPreview = ({
     media,
   }
 
-  const url = `developer/apps/${appId}/preview`
+  const url = routes.DEVELOPER_APP_PREVIEW.replace(':appId', appId)
   localStorage.setItem('developer-preview-app', JSON.stringify(appDetailState))
   window.open(url, '_blank')
 }

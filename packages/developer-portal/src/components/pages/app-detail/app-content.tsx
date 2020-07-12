@@ -1,4 +1,5 @@
 import * as React from 'react'
+import routes from '@/constants/routes'
 import dayjs from 'dayjs'
 import { Dispatch } from 'redux'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
@@ -54,7 +55,7 @@ export const handleUninstallSuccess = ({
 }
 
 export const handleOpenAppPreview = (appId: string) => () => {
-  const url = `developer/apps/${appId}/preview`
+  const url = routes.DEVELOPER_APP_PREVIEW.replace(':appId', appId)
   window.open(url, '_blank')
 }
 

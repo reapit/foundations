@@ -21,19 +21,19 @@ exports[`Tabs should match a snapshot 1`] = `
             "active": false,
             "displayText": "Profile",
             "onTabClick": [Function],
-            "tabIdentifier": "/developer/settings/",
+            "tabIdentifier": "/settings/",
           },
           Object {
             "active": false,
             "displayText": "Organisation",
             "onTabClick": [Function],
-            "tabIdentifier": "/developer/settings/organisation",
+            "tabIdentifier": "/settings/organisation",
           },
           Object {
             "active": false,
             "displayText": "Billing",
             "onTabClick": [Function],
-            "tabIdentifier": "/developer/settings/billing",
+            "tabIdentifier": "/settings/billing",
           },
         ]
       }
@@ -45,12 +45,12 @@ exports[`Tabs should match a snapshot 1`] = `
         <ul>
           <li
             className=""
-            key="/developer/settings/"
+            key="/settings/"
           >
             <a
-              aria-controls="/developer/settings/"
+              aria-controls="/settings/"
               aria-selected={false}
-              id="/developer/settings/"
+              id="/settings/"
               onClick={[Function]}
               role="tab"
             >
@@ -59,12 +59,12 @@ exports[`Tabs should match a snapshot 1`] = `
           </li>
           <li
             className=""
-            key="/developer/settings/organisation"
+            key="/settings/organisation"
           >
             <a
-              aria-controls="/developer/settings/organisation"
+              aria-controls="/settings/organisation"
               aria-selected={false}
-              id="/developer/settings/organisation"
+              id="/settings/organisation"
               onClick={[Function]}
               role="tab"
             >
@@ -73,12 +73,12 @@ exports[`Tabs should match a snapshot 1`] = `
           </li>
           <li
             className=""
-            key="/developer/settings/billing"
+            key="/settings/billing"
           >
             <a
-              aria-controls="/developer/settings/billing"
+              aria-controls="/settings/billing"
               aria-selected={false}
-              id="/developer/settings/billing"
+              id="/settings/billing"
               onClick={[Function]}
               role="tab"
             >

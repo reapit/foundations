@@ -29,7 +29,17 @@ exports[`Router should match a snapshot 1`] = `
       <Switch>
         <Route
           exact={true}
+<<<<<<< HEAD
           path="/developer/login"
+=======
+          path={
+            Array [
+              "/login",
+              "/admin/login",
+              "/client/login",
+            ]
+          }
+>>>>>>> chore: #1997 remove /developer prefix in developer-portal routes
           render={[Function]}
         />
         <Route
@@ -54,6 +64,23 @@ exports[`Router should match a snapshot 1`] = `
           path="/404"
           render={[Function]}
         />
+        <Component
+          path="/edition-download"
+          showMenu={false}
+        >
+          <Component
+            allow="DEVELOPER"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            path="/"
+          />
+        </Component>
         <Component
           path="/"
         >
@@ -100,7 +127,7 @@ exports[`Router should match a snapshot 1`] = `
               }
               exact={true}
               fetcher={true}
-              path="/developer/apps/:appid"
+              path="/apps"
             />
             <Component
               allow="DEVELOPER"
@@ -114,58 +141,7 @@ exports[`Router should match a snapshot 1`] = `
               }
               exact={true}
               fetcher={true}
-              path="/developer/apps/:appid/edit"
-            />
-            <Component
-              allow="DEVELOPER"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              path="/developer/api-docs"
-            />
-            <Component
-              allow="DEVELOPER"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              fetcher={true}
-              path="/developer/webhooks"
-            />
-            <Component
-              allow="DEVELOPER"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
-              path="/developer/swagger"
-            />
-            <Component
-              allow="DEVELOPER"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
-              path="/developer/desktop"
+              path="/apps/:appid"
             />
             <Component
               allow="DEVELOPER"
@@ -179,7 +155,58 @@ exports[`Router should match a snapshot 1`] = `
               }
               exact={true}
               fetcher={true}
-              path="/developer/analytics/:activeTab?"
+              path="/apps/:appid/edit"
+            />
+            <Component
+              allow="DEVELOPER"
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_ctor": [Function],
+                  "_result": null,
+                  "_status": -1,
+                }
+              }
+              path="/api-docs"
+            />
+            <Component
+              allow="DEVELOPER"
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_ctor": [Function],
+                  "_result": null,
+                  "_status": -1,
+                }
+              }
+              fetcher={true}
+              path="/webhooks"
+            />
+            <Component
+              allow="DEVELOPER"
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_ctor": [Function],
+                  "_result": null,
+                  "_status": -1,
+                }
+              }
+              exact={true}
+              path="/swagger"
+            />
+            <Component
+              allow="DEVELOPER"
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_ctor": [Function],
+                  "_result": null,
+                  "_status": -1,
+                }
+              }
+              exact={true}
+              path="/desktop"
             />
             <Component
               allow="DEVELOPER"
@@ -193,7 +220,37 @@ exports[`Router should match a snapshot 1`] = `
               }
               exact={true}
               fetcher={true}
-              path="/developer/settings/"
+              path="/analytics/:activeTab?"
+            />
+            <Component
+              allow="DEVELOPER"
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_ctor": [Function],
+                  "_result": null,
+                  "_status": -1,
+                }
+              }
+<<<<<<< HEAD
+=======
+              exact={true}
+              fetcher={true}
+              path="/settings/"
+            />
+            <Component
+              allow="DEVELOPER"
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_ctor": [Function],
+                  "_result": null,
+                  "_status": -1,
+                }
+              }
+>>>>>>> chore: #1997 remove /developer prefix in developer-portal routes
+              fetcher={true}
+              path="/settings/billing"
             />
             <Component
               allow="DEVELOPER"
@@ -206,20 +263,7 @@ exports[`Router should match a snapshot 1`] = `
                 }
               }
               fetcher={true}
-              path="/developer/settings/billing"
-            />
-            <Component
-              allow="DEVELOPER"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              fetcher={true}
-              path="/developer/settings/organisation"
+              path="/settings/organisation"
             />
             <Component
               allow="DEVELOPER"
@@ -232,7 +276,7 @@ exports[`Router should match a snapshot 1`] = `
                 }
               }
               exact={true}
-              path="/developer/welcome"
+              path="/welcome"
             />
             <Component
               allow="DEVELOPER"
@@ -246,7 +290,7 @@ exports[`Router should match a snapshot 1`] = `
               }
               exact={true}
               fetcher={true}
-              path="/developer/help"
+              path="/help"
             />
             <Component
               allow="DEVELOPER"
