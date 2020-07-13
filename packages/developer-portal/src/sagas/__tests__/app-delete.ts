@@ -6,7 +6,7 @@ import { put, takeLatest, call } from '@redux-saga/core/effects'
 import { appDeleteRequestSuccess, appDeleteRequestLoading, appDeleteRequestFailure } from '@/actions/app-delete'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { deleteAppById, fetchAppsList } from '@/services/apps'
+import { deleteAppById } from '@/services/apps'
 
 jest.mock('@/services/apps')
 jest.mock('@reapit/elements')

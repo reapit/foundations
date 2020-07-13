@@ -1,6 +1,6 @@
 import { actionCreator, isType } from '../actions'
 import ActionTypes from '../../constants/action-types'
-import { developerRequestData, developerReceiveData } from '../../actions/developer'
+import { developerRequestData } from '../../actions/developer'
 import { Action } from '../../types/core'
 import { DeveloperRequestParams } from '@/reducers/developer'
 

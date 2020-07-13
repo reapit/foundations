@@ -98,11 +98,11 @@ describe('revision-detail thunks', () => {
   describe('revision decline submmit', () => {
     const gen = cloneableGenerator(declineRevision as any)(declineSubmitParams)
     const { appId, appRevisionId, ...body } = declineSubmitParams.data
+    expect(gen.next('SUBMITTING').value).toEqual(put(declineRevisionSetFormState('SUBMITTING')))
     expect(gen.next().value).toEqual(call(rejectAppRevisionById, { id: appId, revisionId: appRevisionId, ...body }))
 
     test('api call success', () => {
       const clone = gen.clone()
-      expect(clone.next({}).value).toBeCalled()
       expect(clone.next('SUCCESS').value).toEqual(put(declineRevisionSetFormState('SUCCESS')))
       expect(clone.next().done).toBe(true)
     })
