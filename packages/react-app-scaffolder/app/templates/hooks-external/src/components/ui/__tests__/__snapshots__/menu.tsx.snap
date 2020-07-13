@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu should match a snapshot 1`] = `
+<Component
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [MockFunction],
+      "goBack": [MockFunction],
+      "goForward": [MockFunction],
+      "length": 2,
+      "listen": [Function],
+      "location": Object {
+        "hash": "mockHash",
+        "key": "mockKey",
+        "pathname": "mockPathname",
+        "search": "",
+        "state": Object {},
+      },
+      "push": [MockFunction],
+      "replace": [MockFunction],
+    }
+  }
+  location={
+    Object {
+      "hash": "mockHash",
+      "key": "mockKey",
+      "pathname": "mockPathname",
+      "search": "",
+      "state": Object {},
+    }
+  }
+  match={
+    Object {
+      "isExact": true,
+      "params": Object {},
+      "path": "/mockPathname",
+      "url": "/mockPathname",
+    }
+  }
+  staticContext={Object {}}
+/>
+`;

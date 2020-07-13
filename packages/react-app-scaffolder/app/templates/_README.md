@@ -1,12 +1,5 @@
 # <%= name %>
 
-<%= name %> for Reapit PAAS platform. Initial scaffold from [React App Boilerplate](https://github.com/reapit/react-app)
+<%= name %> an app built for Reapit Marketplace.
 
-## Read on:
-
-- [Getting Started](./src/docs/GETTING_STARTED.md)
-- [Api Platform](./src/docs/API_PLATFORM.md)
-- [Code Style](./src/docs/CODE_STYLE.md)
-- [Version Control](./VERSION_CONTROL.md)
-- [Definition of Done](./src/docs/DEFINITION_OF_DONE.md)
-- [Deployment](./src/docs/DEPLOYMENT.md)
+Initial scaffold using the steps from [here](https://foundations-documentation.reapit.cloud/developer-portal), using [Reapit React App Scaffolder](https://www.npmjs.com/package/@reapit/generator-react-app-scaffolder)
