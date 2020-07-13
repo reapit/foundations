@@ -202,7 +202,7 @@ export const DeveloperWebhooks = () => {
           different webhook subscription per topic or per customer. For more information about Webhooks, please see our
           <a
             className={linkStyles.link}
-            href={`${Routes.DEVELOPER_API_DOCS}/api/webhooks`}
+            href={`${Routes.API_DOCS}/api/webhooks`}
             target="_blank"
             rel="noopener noreferrer"
           >

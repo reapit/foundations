@@ -1,7 +1,7 @@
 import Routes from '@/constants/routes'
 import api from '../fixtures/routes'
 
-const developerSettingsMetaData = {
+const SettingsMetaData = {
   url: Routes.SETTINGS,
   selectors: {
     companyName: 'input[data-test="company-name"]',
@@ -13,8 +13,8 @@ const developerSettingsMetaData = {
   apiRoute: `${api.developers}/**`,
 }
 
-const developerSettingsAppPage = {
-  ...developerSettingsMetaData,
+const SettingsAppPage = {
+  ...SettingsMetaData,
 }
 
-export default developerSettingsAppPage
+export default SettingsAppPage

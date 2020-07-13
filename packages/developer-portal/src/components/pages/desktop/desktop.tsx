@@ -31,7 +31,7 @@ export const DeveloperDesktopContentPartOne: React.FC = () => {
       </p>
       <p>
         To learn more about what’s possible with the Desktop API, please visit the{' '}
-        <a target="_blank" rel="noreferrer" href={`${Routes.DEVELOPER_API_DOCS}/api/desktop-api`}>
+        <a target="_blank" rel="noreferrer" href={`${Routes.API_DOCS}/api/desktop-api`}>
           documentation.
         </a>
       </p>

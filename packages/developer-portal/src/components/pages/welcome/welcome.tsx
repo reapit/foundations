@@ -48,7 +48,7 @@ export const Documentation = () => {
       <div className="mb-5">
         <p>
           <strong>
-            <a className={linkStyles.link} href={Routes.DEVELOPER_SWAGGER}>
+            <a className={linkStyles.link} href={Routes.SWAGGER}>
               APIs
             </a>
           </strong>
@@ -56,7 +56,7 @@ export const Documentation = () => {
         Our interactive documentation allows you to easily experiment with our APIs with a &lsquo;Try it now&rsquo;
         function to quickly build requests and inspect responses. To try it yourself and to see what data is available,
         click{' '}
-        <a className={linkStyles.link} href={Routes.DEVELOPER_SWAGGER}>
+        <a className={linkStyles.link} href={Routes.SWAGGER}>
           here
         </a>
         .
@@ -156,7 +156,7 @@ export const Support = () => {
         You are currently logged into our alpha release of Reapit Foundations and we are continuing to update, add
         additional features and address any issues that may appear. In the meantime, if you would like to request a
         feature or report a bug, this can be done from the{' '}
-        <a className={linkStyles.link} href={Routes.DEVELOPER_HELP}>
+        <a className={linkStyles.link} href={Routes.HELP}>
           ‘Help’
         </a>{' '}
         section on the left.

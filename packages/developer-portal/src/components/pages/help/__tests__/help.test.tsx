@@ -1,5 +1,5 @@
 import * as React from 'react'
-import initChatBot from '../../../scripts/chat-bot'
+import initChatBot from '../../../../scripts/chat-bot'
 import { mount } from 'enzyme'
 import * as ReactRedux from 'react-redux'
 import {
@@ -10,17 +10,17 @@ import {
   handleFaq,
   handleViewRoadmap,
   handleWhatsNew,
-} from '../developer-help'
+} from '../help'
 import Routes from '@/constants/routes'
 import configureStore from 'redux-mock-store'
 import { history } from '@/core/router'
 import { HelpLinks } from '@/constants/developer-help-links'
-import { mockLoginSession } from '../../../sagas/__tests__/auth'
 import appState from '@/reducers/__stubs__/app-state'
+import { mockLoginSession } from '@/sagas/__tests__/auth'
 
-jest.mock('../../../scripts/chat-bot')
+jest.mock('../../../../scripts/chat-bot')
 
-jest.mock('../../../core/router', () => ({
+jest.mock('../../../../core/router', () => ({
   history: {
     push: jest.fn(),
   },
@@ -53,7 +53,7 @@ describe('handleGotoWelcomeGuide', () => {
   it('should called with correct props', () => {
     const spy = jest.spyOn(history, 'push')
     handleGotoWelcomeGuide()
-    expect(spy).toHaveBeenCalledWith(Routes.DEVELOPER_WELCOME)
+    expect(spy).toHaveBeenCalledWith(Routes.WELCOME)
   })
 })
 

@@ -20,7 +20,7 @@ describe('ApiDocs', () => {
 
   describe('parseIframeUrl', () => {
     it('should run correctly', () => {
-      const pathname = `${Routes.DEVELOPER_API_DOCS}/platform-glossary`
+      const pathname = `${Routes.API_DOCS}/platform-glossary`
       const hash = '#company'
       const result = parseIframeUrl(pathname, hash)
       expect(result).toEqual('/platform-glossary#company')

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
-import initChatBot from '../../scripts/chat-bot'
+import initChatBot from '../../../scripts/chat-bot'
 import { history } from '@/core/router'
 import { H3 } from '@reapit/elements'
 import Routes from '@/constants/routes'
@@ -17,7 +17,7 @@ import { LoginIdentity } from '@reapit/cognito-auth'
 import { selectLoginIdentity } from '@/selector/auth'
 
 export const handleGotoWelcomeGuide = () => {
-  history.push(Routes.DEVELOPER_WELCOME)
+  history.push(Routes.WELCOME)
 }
 
 export const handleReportBug = () => {

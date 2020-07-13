@@ -9,7 +9,7 @@ import {
   Managing,
   Support,
   Welcome,
-} from '../developer-welcome'
+} from '../welcome'
 import routes from '@/constants/routes'
 import { HelpGuide } from '@reapit/elements'
 
