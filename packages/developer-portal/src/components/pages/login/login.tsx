@@ -33,8 +33,8 @@ export const handleShowNotificationAfterPasswordChanged = (
 
 export const onLoginButtonClick = (isFirtTimeLogin: boolean) => {
   return () => {
-    // const redirectRoute = getDefaultRoute(isFirtTimeLogin)
-    redirectToLogin(window.reapit.config.cognitoClientId, 'http://localhost:8080/developer/apps', 'DEVELOPER')
+    const redirectRoute = getDefaultRoute(isFirtTimeLogin)
+    redirectToLogin(window.reapit.config.cognitoClientId, redirectRoute, 'DEVELOPER')
   }
 }
 
