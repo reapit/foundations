@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import DeveloperSettingsPage from '../settings'
+import SettingsPage from '../settings'
 import { ReduxState } from '@/types/core'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
@@ -17,14 +17,14 @@ const mockState = {
   },
 } as ReduxState
 
-describe('DeveloperSettingsPage', () => {
+describe('SettingsPage', () => {
   it('should match snapshot', () => {
     const mockStore = configureStore()
     const store = mockStore(mockState)
 
     const wrapper = shallow(
       <Provider store={store}>
-        <DeveloperSettingsPage />
+        <SettingsPage />
       </Provider>,
     )
     expect(wrapper).toMatchSnapshot()

@@ -94,7 +94,7 @@ export const WebhookTestModalBody: React.FunctionComponent<WebhookTestModalBodyP
               topic will be sent to the configured URL. For more information, please{' '}
               <a
                 className={linkStyles.link}
-                href={`${Routes.DEVELOPER_API_DOCS}/api/webhooks#testing`}
+                href={`${Routes.API_DOCS}/api/webhooks#testing`}
                 target="_blank"
                 rel="noopener noreferrer"
               >

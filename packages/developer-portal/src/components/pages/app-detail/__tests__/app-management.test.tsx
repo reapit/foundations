@@ -43,7 +43,7 @@ describe('ManageApp', () => {
     expect(
       mount(
         <Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.DEVELOPER_APP_DETAIL, key: 'developerAppDetailRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.APP_DETAIL, key: 'developerAppDetailRoute' }]}>
             <DeveloperManageApp
               id="test"
               pendingRevisions={false}

@@ -35,7 +35,7 @@ describe('DeveloperAppDetail', () => {
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.DEVELOPER_APP_DETAIL, key: 'developerAppDetailRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.APP_DETAIL, key: 'developerAppDetailRoute' }]}>
             <DeveloperAppDetail />
           </MemoryRouter>
         </ReactRedux.Provider>,

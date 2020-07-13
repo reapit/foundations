@@ -17,7 +17,7 @@ import { LoginIdentity } from '@reapit/cognito-auth'
 import { selectLoginIdentity } from '@/selector/auth'
 
 export const handleGotoWelcomeGuide = () => {
-  history.push(Routes.DEVELOPER_WELCOME)
+  history.push(Routes.WELCOME)
 }
 
 export const handleReportBug = () => {

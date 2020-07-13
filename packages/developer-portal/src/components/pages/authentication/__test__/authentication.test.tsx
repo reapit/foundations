@@ -74,7 +74,7 @@ describe('Authentication', () => {
     it('should run correctly', () => {
       const fn = onDevelopersButtonClick(history)
       fn()
-      expect(history.replace).toBeCalledWith(Routes.DEVELOPER_DESKTOP)
+      expect(history.replace).toBeCalledWith(Routes.DESKTOP)
     })
   })
 })

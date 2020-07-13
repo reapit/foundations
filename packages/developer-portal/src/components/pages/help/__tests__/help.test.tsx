@@ -53,7 +53,7 @@ describe('handleGotoWelcomeGuide', () => {
   it('should called with correct props', () => {
     const spy = jest.spyOn(history, 'push')
     handleGotoWelcomeGuide()
-    expect(spy).toHaveBeenCalledWith(Routes.DEVELOPER_WELCOME)
+    expect(spy).toHaveBeenCalledWith(Routes.WELCOME)
   })
 })
 

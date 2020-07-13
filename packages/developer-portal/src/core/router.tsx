@@ -85,18 +85,12 @@ const Router = () => {
                 <PrivateRoute allow="CLIENT" path={Routes.CLIENT_HELP} exact fetcher component={ClientHelpPage} />
 
                 <PrivateRoute allow="DEVELOPER" path={Routes.APPS} component={Apps} exact fetcher />
-                <PrivateRoute
-                  allow="DEVELOPER"
-                  path={Routes.DEVELOPER_APP_DETAIL}
-                  component={AppDetail}
-                  exact
-                  fetcher
-                />
+                <PrivateRoute allow="DEVELOPER" path={Routes.APP_DETAIL} component={AppDetail} exact fetcher />
                 <PrivateRoute allow="DEVELOPER" path={Routes.APPS_EDIT} component={EditApp} exact fetcher />
-                <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_API_DOCS} component={ApiDocsPage} />
-                <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_WEBHOOKS} fetcher component={WebhooksPage} />
-                <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_SWAGGER} exact component={SwaggerPage} />
-                <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_DESKTOP} exact component={DesktopPage} />
+                <PrivateRoute allow="DEVELOPER" path={Routes.API_DOCS} component={ApiDocsPage} />
+                <PrivateRoute allow="DEVELOPER" path={Routes.WEBHOOKS} fetcher component={WebhooksPage} />
+                <PrivateRoute allow="DEVELOPER" path={Routes.SWAGGER} exact component={SwaggerPage} />
+                <PrivateRoute allow="DEVELOPER" path={Routes.DESKTOP} exact component={DesktopPage} />
                 <PrivateRoute allow="DEVELOPER" path={Routes.ANALYTICS_TAB} fetcher exact component={AnalyticsPage} />
 
                 <PrivateRoute allow="DEVELOPER" path={Routes.SETTINGS} fetcher exact component={SettingsPage} />
@@ -113,8 +107,8 @@ const Router = () => {
                   fetcher
                   component={SettingsOrganisationTabPage}
                 />
-                <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_WELCOME} exact component={WelcomePage} />
-                <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_HELP} exact fetcher component={HelpPage} />
+                <PrivateRoute allow="DEVELOPER" path={Routes.WELCOME} exact component={WelcomePage} />
+                <PrivateRoute allow="DEVELOPER" path={Routes.HELP} exact fetcher component={HelpPage} />
                 <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPS} component={AdminAppsPage} fetcher exact />
                 <PrivateRoute
                   allow="ADMIN"

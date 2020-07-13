@@ -17,7 +17,7 @@ export interface AuthenticationParamTypes {
 
 export const onDevelopersButtonClick = (history: History) => {
   return () => {
-    history.replace(Routes.DEVELOPER_DESKTOP)
+    history.replace(Routes.DESKTOP)
   }
 }
 
@@ -58,7 +58,7 @@ export const renderClientModal = (history, dispatch) => {
           please visit the&nbsp;
         </span>
         <span>
-          <Link to={Routes.DEVELOPER_DESKTOP}>Desktop</Link>
+          <Link to={Routes.DESKTOP}>Desktop</Link>
         </span>
         <span>
           &nbsp;page within the Developers Portal, where you can subscribe to a Developer Edition of Agency Cloud.

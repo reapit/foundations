@@ -6,8 +6,8 @@ describe('getDefaultRoute', () => {
     expect(getDefaultRoute(true)).toEqual(`${window.location.origin}${Routes.APPS}`)
   })
 
-  it('should return origin url + Routes.DEVELOPER_WELCOME', () => {
-    expect(getDefaultRoute(false)).toEqual(`${window.location.origin}${Routes.DEVELOPER_WELCOME}`)
+  it('should return origin url + Routes.WELCOME', () => {
+    expect(getDefaultRoute(false)).toEqual(`${window.location.origin}${Routes.WELCOME}`)
   })
 })
 
@@ -20,7 +20,7 @@ describe('getDefaultPathByLoginType', () => {
     expect(getDefaultPath(false, true)).toEqual(Routes.APPS)
   })
 
-  it('should return Routes.DEVELOPER_WELCOME', () => {
-    expect(getDefaultPath(false, false)).toEqual(Routes.DEVELOPER_WELCOME)
+  it('should return Routes.WELCOME', () => {
+    expect(getDefaultPath(false, false)).toEqual(Routes.WELCOME)
   })
 })

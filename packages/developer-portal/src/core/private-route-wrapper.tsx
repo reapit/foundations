@@ -103,7 +103,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
           flexColumn
           // I want to allow scrolling beyond the end of the page to allow for the toast notification
           // except on the Gitbook page because the iframe handles it's own scrolling
-          isPageContainer={location.pathname !== Routes.DEVELOPER_API_DOCS}
+          isPageContainer={location.pathname !== Routes.API_DOCS}
         >
           <Suspense
             fallback={

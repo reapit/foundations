@@ -7,7 +7,7 @@ import Routes from '@/constants/routes'
 import { IFRAME_URLS } from '@/constants/iframe-urls'
 
 export const parseIframeUrl = (pathname: string, hash: string): string => {
-  const path = pathname.split(Routes.DEVELOPER_API_DOCS)[1]
+  const path = pathname.split(Routes.API_DOCS)[1]
   return `${path}${hash}`
 }
 

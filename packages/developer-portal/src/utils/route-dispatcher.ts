@@ -63,7 +63,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       }
       break
     }
-    case Routes.DEVELOPER_APP_DETAIL: {
+    case Routes.APP_DETAIL: {
       if (id) {
         const clientId = selectClientId(store.state)
         const developerId = selectDeveloperId(store.state) || ''
@@ -101,10 +101,10 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
     case Routes.SETTINGS:
       store.dispatch(requestDeveloperData())
       break
-    case Routes.DEVELOPER_WEBHOOKS:
+    case Routes.WEBHOOKS:
       store.dispatch(developerRequestData({ page: 1, appsPerPage: GET_ALL_PAGE_SIZE } as DeveloperRequestParams))
       break
-    case Routes.DEVELOPER_HELP:
+    case Routes.HELP:
       // Need the fetcher to have retrieved the login session only.
       break
     default:

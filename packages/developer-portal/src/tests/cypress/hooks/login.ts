@@ -76,7 +76,7 @@ export const loginDeveloperHook = () => {
     userName: developerUserName,
     password: developerPassword,
     loginType: 'DEVELOPER',
-    loginRoute: ROUTES.DEVELOPER_LOGIN,
+    loginRoute: Routes.LOGIN,
     beforeLogin: () => {
       cy.setCookie(`${env}-${COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE}`, new Date().toString())
       cy.setCookie(`${env}-${COOKIE_DEVELOPER_TERMS_ACCEPTED}`, new Date().toString())
