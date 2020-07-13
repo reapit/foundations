@@ -53,7 +53,12 @@ export const developerInfomationChange = function*({ data }: Action<DeveloperMod
 
     // merge input data with current data. Input data could may not have required attirbutes. (require)
     const currentData = yield select(selectMyIdentity)
-    const inputApiData = { ...currentData, id: developerId, ...data, companyName: data.company || currentData.company }
+    const inputApiData = {
+      ...currentData,
+      id: developerId,
+      ...data,
+      companyName: data.companyName || currentData.company,
+    }
 
     const response = yield call(updateDeveloperById, inputApiData)
     if (response) {

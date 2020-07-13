@@ -1,12 +1,13 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Button, Formik, Form, LevelRight, H3, FormSection, Loader } from '@reapit/elements'
 import { companyInformationFormSchema } from './form-schema/validation-schema'
 import { OrganisationFormValues } from './form-schema/form-fields'
 import CompanyInformationSection from './company-information-section'
 import CompanyAddressSection from './company-address-section'
-import { DeveloperModel } from '@reapit/foundations-ts-definitions'
+import { DeveloperModel, UpdateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { selectSettingsPageDeveloperInformation, selectSettingsPageIsLoading } from '@/selector/settings'
+import { updateDeveloperData } from '@/actions/settings'
 
 export const defaultInitialValues: OrganisationFormValues = {
   about: '',
@@ -53,13 +54,13 @@ export const generateInitialValues = ({
   } = companyAddress
   const {
     about = '',
-    companyName = '',
-    iconImageUrl = '',
+    company: companyName = '',
+    // iconImageUrl = '',
     taxNumber = '',
     noTaxRegistration = false,
     email = '',
     registrationNumber = '',
-    noRegistrationNumber = false,
+    // noRegistrationNumber = false,
     telephone = '',
     website = '',
     nationalInsurance = '',
@@ -68,7 +69,8 @@ export const generateInitialValues = ({
     about,
     countryId,
     companyName,
-    iconImageUrl,
+    // TBC
+    iconImageUrl: '',
     buildingName,
     buildingNumber,
     line1,
@@ -80,7 +82,7 @@ export const generateInitialValues = ({
     email,
     postcode,
     registrationNumber,
-    noRegistrationNumber,
+    noRegistrationNumber: !registrationNumber,
     telephone,
     website,
     nationalInsurance,
@@ -89,7 +91,32 @@ export const generateInitialValues = ({
 
 export type OrganisationFormProps = {}
 
+export const handleSubmit = updateDeveloperDataDispatch => (values: OrganisationFormValues) => {
+  console.log('orig', values)
+  const { line1, line2, line3, line4, buildingName, buildingNumber, postcode, countryId, ...otherData } = values
+  const companyAddress = {
+    line1,
+    line2,
+    line3,
+    line4,
+    buildingName,
+    buildingNumber,
+    postcode,
+    countryId,
+  }
+  // TBC, exclude for now
+  delete otherData.iconImageUrl
+  const dataToSubmit: UpdateDeveloperModel = {
+    ...otherData,
+    ...companyAddress,
+  }
+  console.log('final', dataToSubmit)
+  updateDeveloperDataDispatch(dataToSubmit)
+}
+
 const OrganisationForm: React.FC<OrganisationFormProps> = () => {
+  const dispatch = useDispatch()
+  const updateDeveloperDataDispatch = values => dispatch(updateDeveloperData(values))
   const isLoading: boolean = useSelector(selectSettingsPageIsLoading)
   const developerInfo: DeveloperModel | null = useSelector(selectSettingsPageDeveloperInformation)
 
@@ -101,10 +128,7 @@ const OrganisationForm: React.FC<OrganisationFormProps> = () => {
     <Formik
       initialValues={generateInitialValues({ developerInfo, defaultInitialValues })}
       validationSchema={companyInformationFormSchema}
-      onSubmit={values => {
-        // TBC
-        console.log(values)
-      }}
+      onSubmit={handleSubmit(updateDeveloperDataDispatch)}
     >
       {({ values }) => {
         return (
