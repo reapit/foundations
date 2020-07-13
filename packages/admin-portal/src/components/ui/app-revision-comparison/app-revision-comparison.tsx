@@ -1,14 +1,13 @@
 import * as React from 'react'
-import { AppDetailState } from '@/reducers/app-detail'
+import { AppDetailState, DeveloperAppDetailState } from '@/reducers/app-detail'
 import { RevisionDetailState } from '@/reducers/revision-detail'
 import { AppRevisionModel, MediaModel, ScopeModel } from '@reapit/foundations-ts-definitions'
 import DiffMedia from '@/components/ui/diff-media'
 import { AppDetailModel } from '@/types/marketplace-api-schema'
-import { DesktopIntegrationTypeModel, PagedResultDesktopIntegrationTypeModel_ } from '@/actions/app-integration-types'
 import DiffCheckbox from '../diff-checkbox'
 import DiffViewer from '../diff-viewer'
 import DiffRenderHTML from '../diff-render-html'
-import { DeveloperAppDetailState } from '@/reducers/developer'
+import { DesktopIntegrationTypeModel, PagedResultDesktopIntegrationTypeModel_ } from '@/types/desktop-integration-types'
 
 export type AppRevisionComparisonProps = {
   revisionDetailState: RevisionDetailState
