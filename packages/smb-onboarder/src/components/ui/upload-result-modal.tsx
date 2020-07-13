@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { Modal, H4, Button } from '@reapit/elements'
 import { UploadResults } from '@/reducers/update-provider'
-import styled from 'styled-components'
+import { css } from 'linaria'
 
-export const TD = styled.td`
+export const columnContainer = css`
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
@@ -44,7 +44,9 @@ export const UploadResultModal: React.FC<UploadResultModalProp> = ({ visible, re
                       <tbody>
                         <tr>
                           {rowData.map((item, index) => (
-                            <TD key={`row-item-${index}`}>{item.value}</TD>
+                            <td className={columnContainer} key={`row-item-${index}`}>
+                              {item.value}
+                            </td>
                           ))}
                         </tr>
                       </tbody>

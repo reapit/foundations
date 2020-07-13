@@ -1,13 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UploadResultModal TD should match a snapshot 1`] = `
-<styled.td>
-  <td
-    className="sc-AxjAm kyVrxE"
-  />
-</styled.td>
-`;
-
 exports[`UploadResultModal UploadResultModal should match a snapshot 1`] = `
 <Component
   onCloseClick={[MockFunction]}

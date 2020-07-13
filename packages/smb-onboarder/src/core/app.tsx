@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { createGlobalStyle } from 'styled-components'
+import { css } from 'linaria'
 import { PortalProvider } from '@reapit/elements'
 import { ApolloProvider } from '@apollo/react-hooks'
 import { useAuth } from '@/hooks/use-auth'
@@ -8,12 +8,14 @@ import getClient from '@/graphql/client'
 import Router from './router'
 import UploadProvider from '@/components/providers/upload-provider'
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    background-color: unset;
-  }
-  td.hidden-cell {
-    display: none;
+export const globals = css`
+  :global() {
+    body {
+      background-color: unset;
+    }
+    td.hidden-cell {
+      display: none;
+    }
   }
 `
 
@@ -33,7 +35,6 @@ const App = () => {
             <Router />
           </UploadProvider>
         </PortalProvider>
-        <GlobalStyle />
       </ApolloProvider>
     </AuthContext.Provider>
   )
