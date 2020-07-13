@@ -1,5 +1,4 @@
 import { put, fork, all, call, takeLatest, select } from '@redux-saga/core/effects'
-import { selectMyIdentity } from '@/selector'
 import { removeSession, changePassword } from '@reapit/cognito-auth'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
@@ -8,8 +7,9 @@ import messages from '@/constants/messages'
 import { settingShowLoading, requestDeveloperDataSuccess, ChangePasswordParams } from '@/actions/settings'
 import { errorThrownServer } from '@/actions/error'
 import { showNotificationMessage } from '@/actions/notification-message'
-import { DeveloperModel } from '@reapit/foundations-ts-definitions'
+import { UpdateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { selectDeveloperId, selectDeveloperEmail } from '@/selector/developer'
+import { selectSettingsPageDeveloperInformation } from '@/selector/settings'
 import { authLogout } from '@/actions/auth'
 import { logger } from '@reapit/utils'
 import { fetchDeveloperById, updateDeveloperById } from '@/services/developers'
@@ -40,10 +40,10 @@ export const developerInformationFetch = function*() {
 
 export type UpdateDeveloperInfoParams = {
   developerId: string
-  values: DeveloperModel
+  values: UpdateDeveloperModel
 }
 
-export const developerInfomationChange = function*({ data }: Action<DeveloperModel>) {
+export const developerInfomationChange = function*({ data }: Action<UpdateDeveloperModel>) {
   yield put(settingShowLoading(true))
   try {
     const developerId = yield select(selectDeveloperId)
@@ -52,8 +52,13 @@ export const developerInfomationChange = function*({ data }: Action<DeveloperMod
     }
 
     // merge input data with current data. Input data could may not have required attirbutes. (require)
-    const currentData = yield select(selectMyIdentity)
-    const inputApiData = { ...currentData, id: developerId, ...data, companyName: data.company || currentData.company }
+    const currentData = yield select(selectSettingsPageDeveloperInformation)
+    const inputApiData = {
+      ...currentData,
+      id: developerId,
+      ...data,
+      companyName: data.companyName || currentData.company,
+    }
 
     const response = yield call(updateDeveloperById, inputApiData)
     if (response) {
@@ -122,7 +127,7 @@ export const developerInformationFetchListen = function*() {
 }
 
 export const developerInformationChangeListen = function*() {
-  yield takeLatest<Action<DeveloperModel>>(ActionTypes.SETTING_UPDATE_DEVELOPER, developerInfomationChange)
+  yield takeLatest<Action<UpdateDeveloperModel>>(ActionTypes.SETTING_UPDATE_DEVELOPER, developerInfomationChange)
 }
 
 export const developerPasswordChangeListen = function*() {
