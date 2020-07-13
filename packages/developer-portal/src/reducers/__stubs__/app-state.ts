@@ -2,10 +2,6 @@ import { ReduxState } from '@/types/core'
 import { COGNITO_GROUP_DEVELOPER_EDITION } from '@/constants/api'
 
 const appState: ReduxState = {
-  myApps: {
-    loading: false,
-    myAppsData: null,
-  },
   developer: {
     loading: false,
     developerAppDetail: {

@@ -3,7 +3,6 @@ import createSagaMiddleware from 'redux-saga'
 import { fork, all } from '@redux-saga/core/effects'
 import { ReduxState } from '../types/core'
 import auth from '@/reducers/auth'
-import myApps from '@/reducers/my-apps'
 import developer from '@/reducers/developer'
 import appDetail from '@/reducers/app-detail'
 import error from '@/reducers/error'
@@ -29,7 +28,6 @@ import appsSaga from '@/sagas/apps/apps'
 import appDetailSagas from '@/sagas/app-detail'
 import appUsageStatsSagas from '@/sagas/app-usage-stats'
 import appHttpTrafficEventSagas from '@/sagas/app-http-trafic-event'
-import myAppsSagas from '@/sagas/my-apps'
 import developerSagas from '@/sagas/developer'
 import submitAppSagas from '@/sagas/submit-app'
 import submitRevisionSagas from '@/sagas/submit-revision'
@@ -61,7 +59,6 @@ export class Store {
   static sagaMiddleware = createSagaMiddleware()
 
   static reducers = combineReducers<ReduxState>({
-    myApps,
     developer,
     auth,
     appDetail,
@@ -90,7 +87,6 @@ export class Store {
       fork(authSagas),
       fork(appsSaga),
       fork(appUsageStatsSagas),
-      fork(myAppsSagas),
       fork(developerSagas),
       fork(appDetailSagas),
       fork(submitAppSagas),
