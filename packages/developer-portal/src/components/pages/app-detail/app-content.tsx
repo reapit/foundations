@@ -55,7 +55,7 @@ export const handleUninstallSuccess = ({
 }
 
 export const handleOpenAppPreview = (appId: string) => () => {
-  const url = routes.DEVELOPER_APP_PREVIEW.replace(':appId', appId)
+  const url = routes.APP_PREVIEW.replace(':appId', appId)
   window.open(url, '_blank')
 }
 

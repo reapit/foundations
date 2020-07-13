@@ -1,7 +1,7 @@
 import routes from '@/constants/routes'
 
 export const HelpLinks = {
-  WHATS_NEW: `${routes.DEVELOPER_API_DOCS}/whats-new`,
+  WHATS_NEW: `${routes.API_DOCS}/whats-new`,
   BUG_REPORT:
     'https://github.com/reapit/foundations/issues/new?assignees=&labels=bug%2C+needs-triage&template=bug_report.md&title=',
   API_REQUEST:

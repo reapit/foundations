@@ -294,7 +294,7 @@ export const handleOpenAppPreview = ({
     media,
   }
 
-  const url = routes.DEVELOPER_APP_PREVIEW.replace(':appId', appId)
+  const url = routes.APP_PREVIEW.replace(':appId', appId)
   localStorage.setItem('developer-preview-app', JSON.stringify(appDetailState))
   window.open(url, '_blank')
 }
