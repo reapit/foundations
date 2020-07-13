@@ -724,7 +724,6 @@
         "furnishing": [],
         "term": "",
         "status": "tenancyFinished",
-        "disposal": "privateTreaty",
         "agentRole": "",
         "landlordId": "RPT160002"
       },
@@ -986,7 +985,7 @@
         "price": 425000,
         "qualifier": "guidePrice",
         "status": "forSale",
-        "disposal": "privateTreaty",
+        "disposal": "auction",
         "completed": null,
         "exchanged": null,
         "tenure": {
