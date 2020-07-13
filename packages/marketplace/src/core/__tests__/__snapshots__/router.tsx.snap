@@ -43,7 +43,7 @@ exports[`Router should match a snapshot 1`] = `
         >
           <Switch>
             <Component
-              allow="CLIENT"
+              allow="ADMIN"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -62,7 +62,7 @@ exports[`Router should match a snapshot 1`] = `
         >
           <Switch>
             <Component
-              allow="CLIENT"
+              allow="DEVELOPER"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),

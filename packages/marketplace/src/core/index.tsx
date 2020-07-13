@@ -33,6 +33,7 @@ window.reapit = {
     urlSchemeUrl: '',
     apiDocDesktop: '',
     developerPortalUrl: '',
+    adminPortalUrl: '',
   },
 }
 

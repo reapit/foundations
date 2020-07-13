@@ -21,6 +21,9 @@ const Help = React.lazy(() => catchChunkError(() => import('../components/pages/
 const HandleLegacyDeveloperRoutesModal = React.lazy(() =>
   catchChunkError(() => import('../components/pages/handle-legacy-routes/handle-legacy-developer-routes-modal')),
 )
+const HandleLegacyAdminRoutesModal = React.lazy(() =>
+  catchChunkError(() => import('../components/pages/handle-legacy-routes/handle-legacy-admin-routes-modal')),
+)
 
 const Router = () => {
   return (
@@ -33,13 +36,13 @@ const Router = () => {
 
             <PrivateRouteWrapper showMenu={false} path="/admin">
               <Switch>
-                <PrivateRoute allow="CLIENT" path="/*" component={HandleLegacyDeveloperRoutesModal} />
+                <PrivateRoute allow="ADMIN" path="/*" component={HandleLegacyAdminRoutesModal} />
               </Switch>
             </PrivateRouteWrapper>
 
             <PrivateRouteWrapper showMenu={false} path="/developer">
               <Switch>
-                <PrivateRoute allow="CLIENT" path="/*" component={HandleLegacyDeveloperRoutesModal} />
+                <PrivateRoute allow="DEVELOPER" path="/*" component={HandleLegacyDeveloperRoutesModal} />
               </Switch>
             </PrivateRouteWrapper>
 
