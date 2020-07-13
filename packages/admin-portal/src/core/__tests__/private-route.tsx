@@ -157,5 +157,15 @@ describe('PrivateRouter', () => {
       fn()
       expect(history.replace).toBeCalledWith(`${Routes.AUTHENTICATION}/${mockAllow.toLowerCase()}`)
     })
+
+    it('should redirect to 404 page if land on admin page, and is not admin', () => {
+      const mockLoginIdentity = {
+        clientId: 'testClientId',
+      } as LoginIdentity
+      const mockAllow = 'ADMIN'
+      const fn = handleRedirectToAuthenticationPage(mockAllow, history, mockLoginIdentity)
+      fn()
+      expect(history.replace).toBeCalledWith(Routes.FOUR_O_FOUR)
+    })
   })
 })
