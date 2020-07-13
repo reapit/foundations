@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppContent AppContent - should match snapshoot 1`] = `
+<HandleLegacyRoutesModal>
+  <Component
+    footerItems={
+      <React.Fragment>
+        <Unknown
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Go there now
+        </Unknown>
+        <Unknown
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Back to Marketplace
+        </Unknown>
+      </React.Fragment>
+    }
+    tapOutsideToDissmiss={false}
+    title="Looking for the developer portal?"
+    visible={true}
+  />
+</HandleLegacyRoutesModal>
+`;

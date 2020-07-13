@@ -29,8 +29,12 @@ const Router = () => {
             <Route path={Routes.LOGIN} exact render={() => <Login />} />
             <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
 
-            <PrivateRouteWrapper showMenu={false} path="/client">
-              <PrivateRoute allow="CLIENT" path="*" component={HandleLegacyRoutes} />
+            <PrivateRouteWrapper showMenu={false} path="/admin">
+              <PrivateRoute allow="ADMIN" path="/*" component={HandleLegacyRoutes} />
+            </PrivateRouteWrapper>
+
+            <PrivateRouteWrapper showMenu={false} path="/cient">
+              <PrivateRoute allow="CLIENT" path="/*" component={HandleLegacyRoutes} />
             </PrivateRouteWrapper>
 
             <PrivateRouteWrapper showMenu={false} path="/developer">
