@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login should match a snapshot 1`] = `
+<div
+  className=""
+>
+  <div
+    className=""
+  >
+    <Level>
+      <img
+        alt="Reapit Connect Graphic"
+        src=""
+      />
+    </Level>
+    <Level>
+      <Button
+        disabled={false}
+        fullWidth={true}
+        loading={false}
+        onClick={[Function]}
+        type="button"
+        variant="primary"
+      >
+        Login
+      </Button>
+    </Level>
+  </div>
+  <div
+    className=""
+  >
+    <img
+      alt="Reapit Graphic"
+      src=""
+    />
+  </div>
+</div>
+`;
+
+exports[`Login should match a snapshot when hasSession 1`] = `
+<Redirect
+  to="/"
+/>
+`;
