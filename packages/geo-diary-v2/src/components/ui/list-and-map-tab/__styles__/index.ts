@@ -1,5 +1,5 @@
 import { css } from 'linaria'
 
 export const listAndMapTabContainer = css`
-  overflow: unset;
+  overflow: unset !important;
 `
