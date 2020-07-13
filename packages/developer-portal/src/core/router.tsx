@@ -20,36 +20,34 @@ const ClientAppsManagement = React.lazy(() =>
 )
 const Register = React.lazy(() => catchChunkError(() => import('../components/pages/register')))
 const Apps = React.lazy(() => catchChunkError(() => import('../components/pages/apps')))
-const DeveloperAppDetail = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail')))
-const DeveloperEditApp = React.lazy(() => catchChunkError(() => import('../components/pages/developer-edit-app')))
+const AppDetail = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail')))
+const EditApp = React.lazy(() => catchChunkError(() => import('../components/pages/edit-app')))
 const AdminDevManagementPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/admin-dev-management')),
 )
 const ApiDocsPage = React.lazy(() => catchChunkError(() => import('../components/pages/api-docs')))
 const SwaggerPage = React.lazy(() => catchChunkError(() => import('../components/pages/swagger')))
-const DeveloperDesktopPage = React.lazy(() => catchChunkError(() => import('../components/pages/developer-desktop')))
-const DeveloperWelcomePage = React.lazy(() => catchChunkError(() => import('../components/pages/developer-welcome')))
-const DeveloperHelpPage = React.lazy(() => catchChunkError(() => import('../components/pages/developer-help')))
+const DesktopPage = React.lazy(() => catchChunkError(() => import('../components/pages/desktop')))
+const WelcomePage = React.lazy(() => catchChunkError(() => import('../components/pages/welcome')))
+const HelpPage = React.lazy(() => catchChunkError(() => import('../components/pages/help')))
 const ClientHelpPage = React.lazy(() => catchChunkError(() => import('../components/pages/client-help')))
 const AnalyticsPage = React.lazy(() => catchChunkError(() => import('@/components/pages/analytics')))
 const AdminAppsPage = React.lazy(() => catchChunkError(() => import('../components/pages/admin-apps')))
 const RegisterConfirm = React.lazy(() => catchChunkError(() => import('../components/pages/register-confirm')))
 const AdminStats = React.lazy(() => catchChunkError(() => import('../components/pages/admin-stats')))
 const WebhooksPage = React.lazy(() => catchChunkError(() => import('../components/pages/webhooks')))
-const DeveloperSettingsPage = React.lazy(() =>
-  catchChunkError(() => import('../components/pages/settings/developer-settings')),
-)
+const SettingsPage = React.lazy(() => catchChunkError(() => import('../components/pages/settings/developer-settings')))
 
-const DeveloperSettingsOrganisationTabPage = React.lazy(() =>
+const SettingsOrganisationTabPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/settings/developer-settings-organisation-tab')),
 )
 
-const DeveloperSettingsBillingTabPage = React.lazy(() =>
+const SettingsBillingTabPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/settings/developer-settings-billing-tab')),
 )
 
-const DeveloperAdminBillingPage = React.lazy(() => catchChunkError(() => import('../components/pages/admin-billing')))
-const DeveloperEditionDownloadPage = React.lazy(() =>
+const AdminBillingPage = React.lazy(() => catchChunkError(() => import('../components/pages/admin-billing')))
+const EditionDownloadPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/developer-edition-download')),
 )
 
@@ -70,7 +68,7 @@ const Router = () => {
             <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
 
             <PrivateRouteWrapper path={Routes.DEVELOPER_EDITION_DOWNLOAD} showMenu={false}>
-              <PrivateRoute allow="DEVELOPER" path="/" component={DeveloperEditionDownloadPage} />
+              <PrivateRoute allow="DEVELOPER" path="/" component={EditionDownloadPage} />
             </PrivateRouteWrapper>
 
             <PrivateRouteWrapper path="/">
@@ -80,13 +78,7 @@ const Router = () => {
                   path={Routes.AUTHENTICATION_LOGIN_TYPE}
                   component={Authentication}
                 />
-                <PrivateRoute
-                  allow="ADMIN"
-                  path={Routes.ADMIN_BILLING}
-                  component={DeveloperAdminBillingPage}
-                  fetcher
-                  exact
-                />
+                <PrivateRoute allow="ADMIN" path={Routes.ADMIN_BILLING} component={AdminBillingPage} fetcher exact />
                 <PrivateRoute allow="CLIENT" path={Routes.INSTALLED_APPS} component={InstalledApps} fetcher exact />
                 <PrivateRoute allow="CLIENT" path={Routes.MY_APPS} component={ClientAppsManagement} fetcher exact />
                 <PrivateRoute allow="CLIENT" path={Routes.CLIENT} component={Client} exact fetcher />
@@ -98,20 +90,15 @@ const Router = () => {
                 <PrivateRoute
                   allow="DEVELOPER"
                   path={Routes.DEVELOPER_APP_DETAIL}
-                  component={DeveloperAppDetail}
+                  component={AppDetail}
                   exact
                   fetcher
                 />
-                <PrivateRoute allow="DEVELOPER" path={Routes.APPS_EDIT} component={DeveloperEditApp} exact fetcher />
+                <PrivateRoute allow="DEVELOPER" path={Routes.APPS_EDIT} component={EditApp} exact fetcher />
                 <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_API_DOCS} component={ApiDocsPage} />
                 <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_WEBHOOKS} fetcher component={WebhooksPage} />
                 <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_SWAGGER} exact component={SwaggerPage} />
-                <PrivateRoute
-                  allow="DEVELOPER"
-                  path={Routes.DEVELOPER_DESKTOP}
-                  exact
-                  component={DeveloperDesktopPage}
-                />
+                <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_DESKTOP} exact component={DesktopPage} />
                 <PrivateRoute allow="DEVELOPER" path={Routes.ANALYTICS_TAB} fetcher exact component={AnalyticsPage} />
 
                 <PrivateRoute
@@ -119,33 +106,22 @@ const Router = () => {
                   path={Routes.DEVELOPER_SETTINGS}
                   fetcher
                   exact
-                  component={DeveloperSettingsPage}
+                  component={SettingsPage}
                 />
                 <PrivateRoute
                   allow="DEVELOPER"
                   path={Routes.DEVELOPER_SETTINGS_BILLING_TAB}
                   fetcher
-                  component={DeveloperSettingsBillingTabPage}
+                  component={SettingsBillingTabPage}
                 />
                 <PrivateRoute
                   allow="DEVELOPER"
                   path={Routes.DEVELOPER_SETTINGS_ORGANISATION_TAB}
                   fetcher
-                  component={DeveloperSettingsOrganisationTabPage}
+                  component={SettingsOrganisationTabPage}
                 />
-                <PrivateRoute
-                  allow="DEVELOPER"
-                  path={Routes.DEVELOPER_WELCOME}
-                  exact
-                  component={DeveloperWelcomePage}
-                />
-                <PrivateRoute
-                  allow="DEVELOPER"
-                  path={Routes.DEVELOPER_HELP}
-                  exact
-                  fetcher
-                  component={DeveloperHelpPage}
-                />
+                <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_WELCOME} exact component={WelcomePage} />
+                <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_HELP} exact fetcher component={HelpPage} />
                 <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPS} component={AdminAppsPage} fetcher exact />
                 <PrivateRoute
                   allow="ADMIN"

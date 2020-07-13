@@ -4,7 +4,7 @@ import { getAccessToken } from '@/utils/session'
 
 import Swagger, { handleOnComplete, fetchInterceptor, fetchAccessToken, InterceptorParams } from '../swagger'
 
-jest.mock('../../../core/store')
+jest.mock('../../../../core/store')
 jest.mock('@/utils/session')
 
 describe('Swagger', () => {

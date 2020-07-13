@@ -3,7 +3,7 @@ import { mount } from 'enzyme'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
-import { DeveloperDesktopPage, handleToggleVisibleModal } from '../developer-desktop'
+import { DeveloperDesktopPage, handleToggleVisibleModal } from '../desktop'
 
 describe('DeveloperDesktopPage', () => {
   let store

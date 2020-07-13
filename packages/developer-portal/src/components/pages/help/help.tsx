@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
-import initChatBot from '../../scripts/chat-bot'
+import initChatBot from '../../../scripts/chat-bot'
 import { history } from '@/core/router'
 import { H3 } from '@reapit/elements'
 import Routes from '@/constants/routes'
