@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Authenticated should match a snapshot 1`] = `
+<Section>
+  <H3>
+    Welcome To Reapit Foundations
+  </H3>
+  <SubTitleH5>
+    You are now authenticated against our sandbox data
+  </SubTitleH5>
+</Section>
+`;

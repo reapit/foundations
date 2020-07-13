@@ -60,7 +60,7 @@ describe('Authentication', () => {
     it('should run correctly', () => {
       const fn = onMarketplaceButtonClick(history)
       fn()
-      expect(history.replace).toBeCalledWith(Routes.CLIENT)
+      expect(history.replace).toBeCalledWith(Routes.DEVELOPER)
     })
   })
   describe('onRegisterButtonClick', () => {
@@ -74,7 +74,7 @@ describe('Authentication', () => {
     it('should run correctly', () => {
       const fn = onDevelopersButtonClick(history)
       fn()
-      expect(history.replace).toBeCalledWith(Routes.DEVELOPER_DESKTOP)
+      expect(history.replace).toBeCalledWith(Routes.DESKTOP)
     })
   })
 })

@@ -8,6 +8,10 @@ export type SuccessContentProps = Pick<ModalProps, 'afterClose'> & {
   developer?: DeveloperModel
 }
 
+export const handleDownload = () => {
+  window.open(window.reapit.config.developerEditionDownloadUrl, '_self')
+}
+
 export const SuccessContent: React.FC<SuccessContentProps> = ({ developer, afterClose }) => {
   if (!developer) return null
 
@@ -44,9 +48,14 @@ export const SuccessContent: React.FC<SuccessContentProps> = ({ developer, after
       />
       <ModalFooter
         footerItems={
-          <Button variant="primary" type="button" onClick={afterClose}>
-            CLOSE
-          </Button>
+          <>
+            <Button variant="primary" type="button" onClick={afterClose}>
+              CLOSE
+            </Button>
+            <Button variant="primary" type="button" onClick={handleDownload}>
+              DOWNLOAD NOW
+            </Button>
+          </>
         }
       />
     </>

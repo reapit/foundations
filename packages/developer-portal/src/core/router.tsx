@@ -13,17 +13,17 @@ const Authentication = React.lazy(() => catchChunkError(() => import('../compone
 const Login = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 const Register = React.lazy(() => catchChunkError(() => import('../components/pages/register')))
 const Apps = React.lazy(() => catchChunkError(() => import('../components/pages/apps')))
-const DeveloperAppDetail = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail')))
-const DeveloperEditApp = React.lazy(() => catchChunkError(() => import('../components/pages/developer-edit-app')))
+const AppDetail = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail')))
+const EditApp = React.lazy(() => catchChunkError(() => import('../components/pages/edit-app')))
 const ApiDocsPage = React.lazy(() => catchChunkError(() => import('../components/pages/api-docs')))
 const SwaggerPage = React.lazy(() => catchChunkError(() => import('../components/pages/swagger')))
-const DeveloperDesktopPage = React.lazy(() => catchChunkError(() => import('../components/pages/developer-desktop')))
-const DeveloperWelcomePage = React.lazy(() => catchChunkError(() => import('../components/pages/developer-welcome')))
-const DeveloperHelpPage = React.lazy(() => catchChunkError(() => import('../components/pages/developer-help')))
+const DesktopPage = React.lazy(() => catchChunkError(() => import('../components/pages/desktop')))
+const WelcomePage = React.lazy(() => catchChunkError(() => import('../components/pages/welcome')))
+const HelpPage = React.lazy(() => catchChunkError(() => import('../components/pages/help')))
 const AnalyticsPage = React.lazy(() => catchChunkError(() => import('@/components/pages/analytics')))
 const RegisterConfirm = React.lazy(() => catchChunkError(() => import('../components/pages/register-confirm')))
 const WebhooksPage = React.lazy(() => catchChunkError(() => import('../components/pages/webhooks')))
-const SettingsPage = React.lazy(() => catchChunkError(() => import('../components/pages/settings/settings')))
+const SettingsPage = React.lazy(() => catchChunkError(() => import('../components/pages/settings/')))
 
 const SettingsOrganisationTabPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/settings/settings-organisation-tab')),
@@ -33,7 +33,7 @@ const SettingsBillingTabPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/settings/settings-billing-tab')),
 )
 
-const DeveloperEditionDownloadPage = React.lazy(() =>
+const EditionDownloadPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/developer-edition-download')),
 )
 
@@ -49,7 +49,7 @@ const Router = () => {
             <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
 
             <PrivateRouteWrapper path={Routes.DEVELOPER_EDITION_DOWNLOAD} showMenu={false}>
-              <PrivateRoute allow="DEVELOPER" path="/" component={DeveloperEditionDownloadPage} />
+              <PrivateRoute allow="DEVELOPER" path="/" component={EditionDownloadPage} />
             </PrivateRouteWrapper>
 
             <PrivateRouteWrapper path="/">
@@ -60,25 +60,15 @@ const Router = () => {
                   component={Authentication}
                 />
                 <PrivateRoute allow="DEVELOPER" path={Routes.APPS} component={Apps} exact fetcher />
-                <PrivateRoute
-                  allow="DEVELOPER"
-                  path={Routes.DEVELOPER_APP_DETAIL}
-                  component={DeveloperAppDetail}
-                  exact
-                  fetcher
-                />
-                <PrivateRoute allow="DEVELOPER" path={Routes.APPS_EDIT} component={DeveloperEditApp} exact fetcher />
-                <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_API_DOCS} component={ApiDocsPage} />
-                <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_WEBHOOKS} fetcher component={WebhooksPage} />
-                <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_SWAGGER} exact component={SwaggerPage} />
-                <PrivateRoute
-                  allow="DEVELOPER"
-                  path={Routes.DEVELOPER_DESKTOP}
-                  exact
-                  component={DeveloperDesktopPage}
-                />
+                <PrivateRoute allow="DEVELOPER" path={Routes.APP_DETAIL} component={AppDetail} exact fetcher />
+                <PrivateRoute allow="DEVELOPER" path={Routes.APPS_EDIT} component={EditApp} exact fetcher />
+                <PrivateRoute allow="DEVELOPER" path={Routes.API_DOCS} component={ApiDocsPage} />
+                <PrivateRoute allow="DEVELOPER" path={Routes.WEBHOOKS} fetcher component={WebhooksPage} />
+                <PrivateRoute allow="DEVELOPER" path={Routes.SWAGGER} exact component={SwaggerPage} />
+                <PrivateRoute allow="DEVELOPER" path={Routes.DESKTOP} exact component={DesktopPage} />
                 <PrivateRoute allow="DEVELOPER" path={Routes.ANALYTICS_TAB} fetcher exact component={AnalyticsPage} />
 
+                <PrivateRoute allow="DEVELOPER" path={Routes.SETTINGS} fetcher exact component={SettingsPage} />
                 <PrivateRoute allow="DEVELOPER" path={Routes.SETTINGS} fetcher exact component={SettingsPage} />
                 <PrivateRoute
                   allow="DEVELOPER"
@@ -92,19 +82,8 @@ const Router = () => {
                   fetcher
                   component={SettingsOrganisationTabPage}
                 />
-                <PrivateRoute
-                  allow="DEVELOPER"
-                  path={Routes.DEVELOPER_WELCOME}
-                  exact
-                  component={DeveloperWelcomePage}
-                />
-                <PrivateRoute
-                  allow="DEVELOPER"
-                  path={Routes.DEVELOPER_HELP}
-                  exact
-                  fetcher
-                  component={DeveloperHelpPage}
-                />
+                <PrivateRoute allow="DEVELOPER" path={Routes.WELCOME} exact component={WelcomePage} />
+                <PrivateRoute allow="DEVELOPER" path={Routes.HELP} exact fetcher component={HelpPage} />
 
                 <Route render={() => <Info infoType="404" />} />
               </Switch>

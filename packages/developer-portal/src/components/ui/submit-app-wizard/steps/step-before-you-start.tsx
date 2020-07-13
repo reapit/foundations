@@ -5,8 +5,7 @@ import Routes from '@/constants/routes'
 import { WizardStepComponent, SetWizardStep } from '../types'
 import { wizzardSteps } from '../constant'
 
-export const onViewDocs = (history: History<unknown>) => () =>
-  history.push(`${Routes.DEVELOPER_API_DOCS}/developer-portal`)
+export const onViewDocs = (history: History<unknown>) => () => history.push(`${Routes.API_DOCS}/developer-portal`)
 
 export const onCreateNewApp = (setWizardStep: SetWizardStep) => () => {
   setWizardStep(wizzardSteps.INPUT_APP_NAME)
@@ -31,7 +30,7 @@ export const StepBeforeYouStart: WizardStepComponent = ({ setWizardStep }) => {
           <>
             <a
               className="button is-white is-primary"
-              href={`${Routes.DEVELOPER_API_DOCS}/developer-portal`}
+              href={`${Routes.API_DOCS}/developer-portal`}
               rel="noreferrer"
               target="_blank"
             >

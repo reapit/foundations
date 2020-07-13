@@ -1,4 +1,5 @@
 import * as Sentry from '@sentry/browser'
+import { injectSwitchModeToWindow } from '@reapit/elements'
 import load from 'little-loader'
 import qs from 'query-string'
 import React from 'react'
@@ -6,7 +7,7 @@ import { render } from 'react-dom'
 import ReactGA from 'react-ga'
 import { Config } from '@/types/global'
 import App from './app'
-import { injectSwitchModeToWindow } from '@reapit/elements'
+import * as serviceWorker from './service-worker'
 
 injectSwitchModeToWindow()
 
@@ -71,3 +72,10 @@ if (module['hot']) {
 }
 
 run()
+if (process.env.NODE_ENV === 'development') {
+  serviceWorker.unregister()
+  console.info(`UnRegister-${process.env.APP_VERSION}`)
+} else {
+  serviceWorker.register()
+  console.info(`Register-${process.env.APP_VERSION}`)
+}

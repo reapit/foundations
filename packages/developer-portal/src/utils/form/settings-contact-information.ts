@@ -2,10 +2,10 @@ import { ContactInformationValues } from '@/components/pages/settings/forms/cont
 import ErrorMessages from '@/constants/error-messages'
 import { isValidPersonName, isValidTelephone } from '@/utils/validate'
 
-export type DeveloperSettingsContactInformationErrorKeys = Partial<ContactInformationValues>
+export type SettingsContactInformationErrorKeys = Partial<ContactInformationValues>
 
 export const validate = (values: ContactInformationValues) => {
-  let errors: DeveloperSettingsContactInformationErrorKeys = {}
+  let errors: SettingsContactInformationErrorKeys = {}
 
   if (values.telephone && !isValidTelephone(values.telephone)) {
     errors.telephone = ErrorMessages.FIELD_PHONE_NUMER

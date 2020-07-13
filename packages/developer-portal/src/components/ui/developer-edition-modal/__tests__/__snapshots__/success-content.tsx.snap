@@ -34,13 +34,22 @@ exports[`SuccessContent should match snapshot 1`] = `
   />
   <Component
     footerItems={
-      <Unknown
-        onClick={[MockFunction]}
-        type="button"
-        variant="primary"
-      >
-        CLOSE
-      </Unknown>
+      <React.Fragment>
+        <Unknown
+          onClick={[MockFunction]}
+          type="button"
+          variant="primary"
+        >
+          CLOSE
+        </Unknown>
+        <Unknown
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          DOWNLOAD NOW
+        </Unknown>
+      </React.Fragment>
     }
   />
 </Fragment>
