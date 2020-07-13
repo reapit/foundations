@@ -122,7 +122,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
       Array [
         Object {
           "key": "adminApps",
-          "pathname": "/admin/approvals",
+          "pathname": "/approvals",
         },
       ]
     }
@@ -138,7 +138,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
             Object {
               "hash": "",
               "key": "adminApps",
-              "pathname": "/admin/approvals",
+              "pathname": "/approvals",
               "search": "",
             },
           ],
@@ -151,7 +151,7 @@ exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
           "location": Object {
             "hash": "",
             "key": "adminApps",
-            "pathname": "/admin/approvals",
+            "pathname": "/approvals",
             "search": "",
           },
           "push": [Function],
