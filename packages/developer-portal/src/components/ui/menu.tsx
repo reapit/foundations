@@ -29,7 +29,7 @@ export const generateMenuConfig = (location: Location<any>): MenuConfig => {
       },
       {
         title: 'Analytics',
-        key: 'DEVELOPER_ANALYTICS',
+        key: 'ANALYTICS',
         url: Routes.ANALYTICS,
         type: 'PRIMARY',
         icon: <FaChartBar className="nav-item-icon" />,
@@ -97,7 +97,7 @@ export const logout = ({ dispatch, authLogout }: { dispatch: Dispatch; authLogou
 export const Menu: React.FunctionComponent<MenuProps> = () => {
   const location = useLocation()
   const menuConfigs = generateMenuConfig(location)
-  return <Sidebar {...menuConfigs['DEVELOPER']} location={location} />
+  return <Sidebar {...menuConfigs} location={location} />
 }
 
 export default Menu
