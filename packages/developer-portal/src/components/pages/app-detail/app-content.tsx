@@ -11,7 +11,6 @@ import { PagedResultInstallationModel_, InstallationModel } from '@reapit/founda
 import { useSelector, useDispatch } from 'react-redux'
 import { selectInstallationAppData } from '@/selector/installations'
 import { Modal } from '@reapit/elements'
-import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
 import { DeveloperAppDetailState } from '@/reducers/developer'
 import {
   ListingPreviewSection,
@@ -96,7 +95,7 @@ export const generateInstallationTableColumns = (
 }
 
 const AppContent: React.FC<AppContentProps> = ({ appDetailState }) => {
-  const appDetailData = appDetailState.data as AppDetailDataNotNull
+  const appDetailData = appDetailState.data || {}
   const { summary = '', authFlow = '', externalId = '', id = '', name = '', scopes = [] } = appDetailData
   const installationsData = useSelector(selectInstallationAppData) as PagedResultInstallationModel_
   const { data = [] } = installationsData

@@ -1,21 +1,13 @@
-import { AdminDevManagementRequestDataValues } from './../actions/admin-dev-management'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { selectDeveloperId } from '@/selector'
 import { appDetailRequestData } from './../actions/app-detail'
 import { RouteValue, StringMap } from '../types/core'
 import Routes from '../constants/routes'
 import store from '../core/store'
-import { clientFetchAppSummary, clientFetchAppDetail } from '../actions/client'
-import { myAppsRequestData } from '../actions/my-apps'
-import { installedAppsRequestData } from '../actions/installed-apps'
 import { developerRequestData, fetchMyIdentity, developerFetchAppDetail } from '@/actions/developer'
-import { adminApprovalsRequestData } from '../actions/admin-approvals'
-import { adminDevManagementRequestData } from '../actions/admin-dev-management'
 import { appInstallationsRequestData } from '../actions/app-installations'
 import { submitAppRequestData } from '../actions/submit-app'
 import { requestDeveloperData } from '@/actions/settings'
-import { getParamsFromPath } from '@/utils/client-url-params'
-import { adminAppsRequestData } from '@/actions/admin-apps'
 import { selectClientId } from '@/selector/client'
 import { DeveloperRequestParams } from '@/reducers/developer'
 
@@ -26,29 +18,6 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
   const page = queryParams.get('page') ? Number(queryParams.get('page')) : 1
 
   switch (route) {
-    case Routes.CLIENT:
-      store.dispatch(clientFetchAppSummary(getParamsFromPath(search || '')))
-      break
-    case Routes.CLIENT_APP_DETAIL: {
-      if (id) {
-        const clientId = selectClientId(store.state)
-        store.dispatch(clientFetchAppDetail({ id, clientId }))
-      }
-      break
-    }
-    case Routes.CLIENT_APP_DETAIL_MANAGE: {
-      if (id) {
-        const clientId = selectClientId(store.state)
-        store.dispatch(clientFetchAppDetail({ id, clientId }))
-      }
-      break
-    }
-    case Routes.INSTALLED_APPS:
-      store.dispatch(installedAppsRequestData(page))
-      break
-    case Routes.MY_APPS:
-      store.dispatch(myAppsRequestData(page))
-      break
     case Routes.APPS:
       store.dispatch(submitAppRequestData())
       store.dispatch(developerRequestData({ page }))
@@ -84,19 +53,8 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(submitAppRequestData())
       store.dispatch(appDetailRequestData({ id }))
       break
-    case Routes.ADMIN_APPROVALS:
-      store.dispatch(adminApprovalsRequestData(Number(page)))
-      break
-    case Routes.ADMIN_DEV_MANAGEMENT:
-      store.dispatch(
-        adminDevManagementRequestData({ page, queryString: search } as AdminDevManagementRequestDataValues),
-      )
-      break
     case Routes.SUBMIT_APP:
       store.dispatch(submitAppRequestData())
-      break
-    case Routes.ADMIN_APPS:
-      store.dispatch(adminAppsRequestData(getParamsFromPath(search || '')))
       break
     case Routes.SETTINGS:
       store.dispatch(requestDeveloperData())

@@ -5,21 +5,7 @@ import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
 import { authLogout } from '@/actions/auth'
 import Routes from '../../constants/routes'
 import { Location } from 'history'
-import {
-  FaCheck,
-  FaSignOutAlt,
-  FaCloud,
-  FaReadme,
-  FaCloudDownloadAlt,
-  FaCog,
-  FaClipboardList,
-  FaPortrait,
-  FaTable,
-  FaChartBar,
-  FaBolt,
-  FaFileInvoice,
-  FaDesktop,
-} from 'react-icons/fa'
+import { FaSignOutAlt, FaCloud, FaReadme, FaCog, FaChartBar, FaBolt, FaDesktop } from 'react-icons/fa'
 import { MdHelp } from 'react-icons/md'
 import { GoDatabase } from 'react-icons/go'
 import { selectIsAdmin, selectLoginType } from '@/selector/auth'
@@ -43,41 +29,7 @@ export const generateMenuConfig = (
           icon: <ReapitLogo className="nav-item-icon" />,
           type: 'LOGO',
         },
-        {
-          title: 'Approvals',
-          key: 'APPROVALS',
-          url: Routes.ADMIN_APPROVALS,
-          icon: <FaCheck className="nav-item-icon" />,
-          type: 'PRIMARY',
-        },
-        {
-          title: 'Apps',
-          key: 'APPS',
-          url: Routes.ADMIN_APPS,
-          icon: <FaClipboardList className="nav-item-icon" />,
-          type: 'PRIMARY',
-        },
-        {
-          title: 'Developers',
-          key: 'DEV_MANAGEMENT',
-          url: Routes.ADMIN_DEV_MANAGEMENT,
-          icon: <FaPortrait className="nav-item-icon" />,
-          type: 'PRIMARY',
-        },
-        {
-          title: 'Stats',
-          key: 'STATS',
-          url: Routes.ADMIN_STATS,
-          icon: <FaTable className="nav-item-icon" />,
-          type: 'PRIMARY',
-        },
-        {
-          title: 'Billing',
-          key: 'BILLINGS',
-          url: Routes.ADMIN_BILLING,
-          icon: <FaFileInvoice className="nav-item-icon" />,
-          type: 'PRIMARY',
-        },
+
         {
           title: 'Logout',
           key: 'LOGOUT',
@@ -162,42 +114,6 @@ export const generateMenuConfig = (
           key: 'LOGO',
           icon: <ReapitLogo className="nav-item-icon" />,
           type: 'LOGO',
-        },
-        {
-          title: 'Browse',
-          key: 'BROWSE_APPS',
-          url: Routes.CLIENT,
-          type: 'PRIMARY',
-          icon: <FaCloud className="nav-item-icon" />,
-        },
-        {
-          title: 'Installed',
-          key: 'INSTALLED',
-          url: Routes.INSTALLED_APPS,
-          type: 'PRIMARY',
-          icon: <FaCloudDownloadAlt className="nav-item-icon" />,
-        },
-        {
-          title: 'Manage',
-          key: 'MY_APPS',
-          url: Routes.MY_APPS,
-          type: 'PRIMARY',
-          icon: <FaClipboardList className="nav-item-icon" />,
-          disabled: !isAdmin,
-        },
-        {
-          title: 'Help',
-          key: 'HELP',
-          url: Routes.CLIENT_HELP,
-          type: 'PRIMARY',
-          icon: <MdHelp className="nav-item-icon" />,
-        },
-        {
-          title: 'Settings',
-          key: 'SETTINGS',
-          url: Routes.CLIENT_SETTINGS,
-          icon: <FaCog className="nav-item-icon" />,
-          type: 'SECONDARY',
         },
       ],
     },

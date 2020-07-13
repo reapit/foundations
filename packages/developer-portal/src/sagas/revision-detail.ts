@@ -3,21 +3,17 @@ import {
   revisionDetailReceiveData,
   revisionDetailFailure,
   RevisionDetailRequestParams,
-  RevisionApproveRequestParams,
-  approveRevisionSetFormState,
-  RevisionDeclineRequestParams,
-  declineRevisionSetFormState,
 } from '../actions/revision-detail'
-import { put, call, fork, takeLatest, all, select } from '@redux-saga/core/effects'
+import { put, call, takeLatest, all } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
-import { Action, ReduxState } from '@/types/core'
-import { adminApprovalsDataFetch } from './admin-approvals'
+import { Action } from '@/types/core'
 import { logger } from '@reapit/utils'
-import { fetchAppRevisionsById, approveAppRevisionById, rejectAppRevisionById } from '@/services/apps'
+import { fetchAppRevisionsById } from '@/services/apps'
 import { fetchScopesList } from '@/services/scopes'
 import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
+import { fork } from 'redux-saga/effects'
 
 export const revisionDetailDataFetch = function*({
   data: { appId, appRevisionId },
@@ -53,71 +49,8 @@ export const revisionDetailDataListen = function*() {
   )
 }
 
-export const getApprovalPageNumber = (state: ReduxState) => ({
-  pageNumber: state?.adminApprovals?.adminApprovalsData?.data?.pageNumber || 1,
-})
-
-export const approveRevision = function*({ data: params }: Action<RevisionApproveRequestParams>) {
-  const { pageNumber } = yield select(getApprovalPageNumber)
-  yield put(approveRevisionSetFormState('SUBMITTING'))
-  const { appId, appRevisionId, ...body } = params
-  try {
-    const response = yield call(approveAppRevisionById, { id: appId, revisionId: appRevisionId, ...body })
-
-    const status = response ? 'SUCCESS' : 'ERROR'
-    if (status === 'SUCCESS') {
-      yield call(adminApprovalsDataFetch, { data: pageNumber })
-    }
-    yield put(approveRevisionSetFormState(status))
-  } catch (err) {
-    logger(err)
-    yield put(approveRevisionSetFormState('ERROR'))
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
-  }
-}
-
-export const approveRevisionListen = function*() {
-  yield takeLatest<Action<RevisionApproveRequestParams>>(ActionTypes.REVISION_SUBMIT_APPROVE, approveRevision)
-}
-
-export const declineRevision = function*({ data: params }: Action<RevisionDeclineRequestParams>) {
-  const { pageNumber } = yield select(getApprovalPageNumber)
-  yield put(declineRevisionSetFormState('SUBMITTING'))
-  const { appId, appRevisionId, callback, ...body } = params
-  try {
-    const response = yield call(rejectAppRevisionById, { id: appId, revisionId: appRevisionId, ...body })
-
-    const status = response ? 'SUCCESS' : 'ERROR'
-    if (status === 'SUCCESS') {
-      yield call(adminApprovalsDataFetch, { data: pageNumber })
-      if (callback) {
-        callback()
-      }
-    }
-    yield put(declineRevisionSetFormState(status))
-  } catch (err) {
-    logger(err)
-    yield put(declineRevisionSetFormState('ERROR'))
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
-  }
-}
-
-export const declineRevisionListen = function*() {
-  yield takeLatest<Action<RevisionDeclineRequestParams>>(ActionTypes.REVISION_SUBMIT_DECLINE, declineRevision)
-}
-
 const revisionDetailSagas = function*() {
-  yield all([fork(revisionDetailDataListen), fork(approveRevisionListen), fork(declineRevisionListen)])
+  yield all([fork(revisionDetailDataListen)])
 }
 
 export default revisionDetailSagas
