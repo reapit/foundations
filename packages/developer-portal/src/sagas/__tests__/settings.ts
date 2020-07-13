@@ -1,5 +1,4 @@
 import { put, fork, all, call, takeLatest, select } from '@redux-saga/core/effects'
-import { selectMyIdentity } from '@/selector'
 import settingsSagas, {
   developerInformationFetchListen,
   developerInformationFetch,
@@ -15,6 +14,7 @@ import { ChangePasswordParams, settingShowLoading, requestDeveloperDataSuccess }
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { selectDeveloperId, selectDeveloperEmail } from '@/selector/developer'
 import { errorThrownServer } from '@/actions/error'
+
 import errorMessages from '@/constants/error-messages'
 import messages from '@/constants/messages'
 import { developerStub } from '../__stubs__/developer'
@@ -22,6 +22,7 @@ import { removeSession, changePassword } from '@reapit/cognito-auth'
 import { authLogout } from '@/actions/auth'
 import { showNotificationMessage } from '@/actions/notification-message'
 import { fetchDeveloperById, updateDeveloperById, UpdateDeveloperByIdParams } from '@/services/developers'
+import { selectSettingsPageDeveloperInformation } from '@/selector/settings'
 
 jest.mock('@/services/developers')
 jest.mock('@reapit/elements')
@@ -67,7 +68,7 @@ describe('settings', () => {
   describe('developerInfomationChange', () => {
     const gen = cloneableGenerator(developerInfomationChange)({
       type: 'SETTING_UPDATE_DEVELOPER',
-      data: { company: '123' },
+      data: { companyName: '123' },
     })
     expect(gen.next().value).toEqual(put(settingShowLoading(true)))
     expect(gen.next().value).toEqual(select(selectDeveloperId))
@@ -75,12 +76,11 @@ describe('settings', () => {
       const clone = gen.clone()
       const id = 'id'
       const currentData = { currentData: 'value' }
-      expect(clone.next(id).value).toEqual(select(selectMyIdentity))
+      expect(clone.next(id).value).toEqual(select(selectSettingsPageDeveloperInformation))
       expect(clone.next(currentData).value).toEqual(
         call(updateDeveloperById, ({
           ...currentData,
           companyName: '123',
-          company: '123',
           id,
         } as unknown) as UpdateDeveloperByIdParams),
       )

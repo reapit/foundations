@@ -55,12 +55,10 @@ export const generateInitialValues = ({
   const {
     about = '',
     company: companyName = '',
-    // iconImageUrl = '',
     taxNumber = '',
     noTaxRegistration = false,
     email = '',
     registrationNumber = '',
-    // noRegistrationNumber = false,
     telephone = '',
     website = '',
     nationalInsurance = '',
@@ -92,7 +90,6 @@ export const generateInitialValues = ({
 export type OrganisationFormProps = {}
 
 export const handleSubmit = updateDeveloperDataDispatch => (values: OrganisationFormValues) => {
-  console.log('orig', values)
   const { line1, line2, line3, line4, buildingName, buildingNumber, postcode, countryId, ...otherData } = values
   const companyAddress = {
     line1,
@@ -108,9 +105,8 @@ export const handleSubmit = updateDeveloperDataDispatch => (values: Organisation
   delete otherData.iconImageUrl
   const dataToSubmit: UpdateDeveloperModel = {
     ...otherData,
-    ...companyAddress,
+    companyAddress,
   }
-  console.log('final', dataToSubmit)
   updateDeveloperDataDispatch(dataToSubmit)
 }
 
