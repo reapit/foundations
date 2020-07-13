@@ -18,7 +18,9 @@ const InstalledApps = React.lazy(() => catchChunkError(() => import('../componen
 const Setting = React.lazy(() => catchChunkError(() => import('../components/pages/settings')))
 const AppsManagement = React.lazy(() => catchChunkError(() => import('../components/pages/app-management')))
 const Help = React.lazy(() => catchChunkError(() => import('../components/pages/help')))
-const HandleLegacyRoutes = React.lazy(() => catchChunkError(() => import('../components/pages/handle-legacy-routes')))
+const HandleLegacyDeveloperRoutesModal = React.lazy(() =>
+  catchChunkError(() => import('../components/pages/handle-legacy-routes/handle-legacy-developer-routes-modal')),
+)
 
 const Router = () => {
   return (
@@ -30,15 +32,15 @@ const Router = () => {
             <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
 
             <PrivateRouteWrapper showMenu={false} path="/admin">
-              <PrivateRoute allow="ADMIN" path="/*" component={HandleLegacyRoutes} />
-            </PrivateRouteWrapper>
-
-            <PrivateRouteWrapper showMenu={false} path="/cient">
-              <PrivateRoute allow="CLIENT" path="/*" component={HandleLegacyRoutes} />
+              <Switch>
+                <PrivateRoute allow="CLIENT" path="/*" component={HandleLegacyDeveloperRoutesModal} />
+              </Switch>
             </PrivateRouteWrapper>
 
             <PrivateRouteWrapper showMenu={false} path="/developer">
-              <PrivateRoute allow="DEVELOPER" path="*" component={HandleLegacyRoutes} />
+              <Switch>
+                <PrivateRoute allow="CLIENT" path="/*" component={HandleLegacyDeveloperRoutesModal} />
+              </Switch>
             </PrivateRouteWrapper>
 
             <PrivateRouteWrapper path="/">

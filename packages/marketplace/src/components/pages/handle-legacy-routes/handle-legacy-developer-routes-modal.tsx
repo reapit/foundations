@@ -7,13 +7,11 @@ export const handleBtnBackToMarketplace = () => {
   history.push(routes.APPS)
 }
 
-export const handleBtnGoTherNow = () => {
-  console.log(window.reapit.config.developerPortalUrl)
-
+export const handleBtnGoThereNow = () => {
   window.open(window.reapit.config.developerPortalUrl, '_self')
 }
 
-const HandleLegacyRoutesModal: React.FC<{}> = () => {
+const HandleLegacyDeveloperRoutesModal: React.FC<{}> = () => {
   return (
     <Modal
       visible
@@ -21,7 +19,7 @@ const HandleLegacyRoutesModal: React.FC<{}> = () => {
       title="Looking for the developer portal?"
       footerItems={
         <>
-          <Button type="button" variant="primary" onClick={handleBtnGoTherNow}>
+          <Button type="button" variant="primary" onClick={handleBtnGoThereNow}>
             Go there now
           </Button>
           <Button type="button" variant="primary" onClick={handleBtnBackToMarketplace}>
@@ -39,4 +37,4 @@ const HandleLegacyRoutesModal: React.FC<{}> = () => {
   )
 }
 
-export default HandleLegacyRoutesModal
+export default HandleLegacyDeveloperRoutesModal
