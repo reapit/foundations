@@ -15,7 +15,7 @@ import {
   GridItem,
 } from '@reapit/elements'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
-import { validate } from '@/utils/form/developer-settings-contact-information'
+import { validate } from '@/utils/form/settings-contact-information'
 
 export type ContactInformationFormProps = FormikProps<ContactInformationValues>
 

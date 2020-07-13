@@ -1,4 +1,4 @@
-import { ChangePasswordValues } from '@/components/pages/settings/developer-settings/forms/change-password-form'
+import { ChangePasswordValues } from '@/components/pages/settings/forms/change-password-form'
 import { validateRequire, validatePassword } from '@reapit/elements'
 
 export type ChangePasswordFormErrorKeys = keyof ChangePasswordValues

@@ -15,32 +15,32 @@ export type TabConfigsProps = {
 export const tabConfigs = ({ currentUrl, history, isAdmin, isProd }: TabConfigsProps): TabConfig[] => {
   const tabs = [
     {
-      tabIdentifier: Routes.DEVELOPER_SETTINGS,
+      tabIdentifier: Routes.SETTINGS,
       displayText: 'Profile',
       onTabClick: () => {
-        history.push(Routes.DEVELOPER_SETTINGS)
+        history.push(Routes.SETTINGS)
       },
-      active: currentUrl === Routes.DEVELOPER_SETTINGS,
+      active: currentUrl === Routes.SETTINGS,
     },
     {
-      tabIdentifier: Routes.DEVELOPER_SETTINGS_BILLING_TAB,
+      tabIdentifier: Routes.SETTINGS_BILLING_TAB,
       displayText: 'Billing',
       onTabClick: () => {
-        history.push(Routes.DEVELOPER_SETTINGS_BILLING_TAB)
+        history.push(Routes.SETTINGS_BILLING_TAB)
       },
-      active: currentUrl === Routes.DEVELOPER_SETTINGS_BILLING_TAB,
+      active: currentUrl === Routes.SETTINGS_BILLING_TAB,
     },
   ]
 
   if (isAdmin && !isProd) {
     // Use splice to make sure ORGANISATION_TAB is second tab
     tabs.splice(1, 0, {
-      tabIdentifier: Routes.DEVELOPER_SETTINGS_ORGANISATION_TAB,
+      tabIdentifier: Routes.SETTINGS_ORGANISATION_TAB,
       displayText: 'Organisation',
       onTabClick: () => {
-        history.push(Routes.DEVELOPER_SETTINGS_ORGANISATION_TAB)
+        history.push(Routes.SETTINGS_ORGANISATION_TAB)
       },
-      active: currentUrl === Routes.DEVELOPER_SETTINGS_ORGANISATION_TAB,
+      active: currentUrl === Routes.SETTINGS_ORGANISATION_TAB,
     })
   }
 

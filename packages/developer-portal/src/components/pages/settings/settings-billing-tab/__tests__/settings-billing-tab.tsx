@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import DeveloperBillingTabPage from '../developer-settings-billing-tab'
+import DeveloperBillingTabPage from '../settings-billing-tab'
 
 describe('DeveloperBillingTabPage', () => {
   it('should match snapshot', () => {

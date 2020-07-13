@@ -32,6 +32,6 @@ exports[`DeveloperSettingsPage should match snapshot 1`] = `
     }
   }
 >
-  <DevelperSettingsPage />
+  <SettingsPage />
 </ContextProvider>
 `;
