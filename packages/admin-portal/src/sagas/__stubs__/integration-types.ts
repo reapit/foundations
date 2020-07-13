@@ -1,4 +1,4 @@
-import { PagedResultDesktopIntegrationTypeModel_ } from '@/actions/app-integration-types'
+import { PagedResultDesktopIntegrationTypeModel_ } from '@/types/desktop-integration-types'
 
 export const integrationTypesStub: PagedResultDesktopIntegrationTypeModel_ = {
   data: [
@@ -18,7 +18,7 @@ export const integrationTypesStub: PagedResultDesktopIntegrationTypeModel_ = {
       id: 'VendorMarketing',
       name: 'Vendor Marketing Report',
       description: 'Replaces the vendor marketing report',
-      url: 'https://foundations-documentation.reapit.cloud/api/desktop-api#vendor-marketing-report',
+      url: 'https://foundations-adocumentation.reapit.cloud/api/desktop-api#vendor-marketing-report',
     },
     {
       id: 'PrintWizard',

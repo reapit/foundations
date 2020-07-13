@@ -9,7 +9,7 @@ import {
   approveRevisionSetFormState,
   declineRevisionSetFormState,
 } from '../actions/revision-detail'
-import { PagedResultDesktopIntegrationTypeModel_ } from '@/actions/app-integration-types'
+import { PagedResultDesktopIntegrationTypeModel_ } from '@/types/desktop-integration-types'
 
 export interface RevisionDetailItem {
   data: AppRevisionModel
