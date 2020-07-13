@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { GridItem, FormHeading, FormSubHeading, Button } from '@reapit/elements'
 import { AccountsInformationFormValues, ACCOUNT_REF_MIN_LENGTH } from './accounts-information-form'
+import { DirectDebitModal } from './direct-debit-modal'
 
 export type DirectDebitSectionProps = {
   setFieldValue: (field: string, value: any, shouldValidate?: boolean | undefined) => void
@@ -8,6 +9,8 @@ export type DirectDebitSectionProps = {
 }
 
 const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({ values }) => {
+  const [isOpenDirectDebitModal, setIsOpenDirectDebitModal] = React.useState<boolean>(false)
+
   const { hasReapitAccountsRef, reapitReference } = values
 
   const isShowDirectDebitWithRef =
@@ -28,15 +31,18 @@ const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({ values }) => {
 
   if (isShowDirectDebitWithoutRef)
     return (
-      <GridItem>
-        <FormHeading>Direct Debit</FormHeading>
-        <FormSubHeading>
-          You will need to setup a Direct Debit before you can make any subscriptions within the Developers Portal, this
-          includes submitting an app for approval and listing an app within the Marketplace. Once completed your account
-          will be verified by our Account Department.
-        </FormSubHeading>
-        <Button>Setup Direct Debit</Button>
-      </GridItem>
+      <>
+        <GridItem>
+          <FormHeading>Direct Debit</FormHeading>
+          <FormSubHeading>
+            You will need to setup a Direct Debit before you can make any subscriptions within the Developers Portal,
+            this includes submitting an app for approval and listing an app within the Marketplace. Once completed your
+            account will be verified by our Account Department.
+          </FormSubHeading>
+          <Button onClick={() => setIsOpenDirectDebitModal(true)}>Setup Direct Debit</Button>
+        </GridItem>
+        <DirectDebitModal visible={isOpenDirectDebitModal} onClose={() => setIsOpenDirectDebitModal(false)} />
+      </>
     )
 
   return null
