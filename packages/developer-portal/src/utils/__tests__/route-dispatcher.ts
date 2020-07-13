@@ -44,7 +44,7 @@ describe('routeDispatcher', () => {
   })
 
   it('should dispatch to requestDeveloperData for the admin approvals paginate route', async () => {
-    await routeDispatcher(Routes.DEVELOPER_SETTINGS as RouteValue, { page: '2' })
+    await routeDispatcher(Routes.SETTINGS as RouteValue, { page: '2' })
     expect(store.dispatch).toHaveBeenCalledWith(requestDeveloperData())
   })
 

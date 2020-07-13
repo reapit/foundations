@@ -1,6 +1,6 @@
 import React from 'react'
 import { FlexContainerBasic, Table, Section, H5 } from '@reapit/elements'
-import SetAsAdminModal from '@/components/ui/developer-settings/set-as-admin-modal'
+import SetAsAdminModal from '@/components/pages/settings/set-as-admin-modal'
 import SetMemberStatusModal from '@/components/ui/organisation-set-member-status-modal'
 import styles from '@/styles/elements/link.scss?mod'
 import { developerStub } from '@/sagas/__stubs__/developer'

@@ -1,5 +1,5 @@
-import { validate } from '../developer-settings-contact-information'
-import { ContactInformationValues } from '@/components/pages/settings/developer-settings/forms/contact-information-form'
+import { validate } from '../settings-contact-information'
+import { ContactInformationValues } from '@/components/pages/settings/forms/contact-information-form'
 import errorMessages from '@/constants/error-messages'
 
 describe('ContactInformationValues validation', () => {

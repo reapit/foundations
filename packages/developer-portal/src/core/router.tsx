@@ -14,7 +14,6 @@ const Login = React.lazy(() => catchChunkError(() => import('../components/pages
 const Client = React.lazy(() => catchChunkError(() => import('../components/pages/client')))
 const ClientWelcomePage = React.lazy(() => catchChunkError(() => import('../components/pages/client-welcome')))
 const InstalledApps = React.lazy(() => catchChunkError(() => import('../components/pages/installed-apps')))
-const ClientSetting = React.lazy(() => catchChunkError(() => import('../components/pages/settings/client-setting')))
 const ClientAppsManagement = React.lazy(() =>
   catchChunkError(() => import('../components/pages/client-app-management')),
 )
@@ -36,16 +35,14 @@ const AdminAppsPage = React.lazy(() => catchChunkError(() => import('../componen
 const RegisterConfirm = React.lazy(() => catchChunkError(() => import('../components/pages/register-confirm')))
 const AdminStats = React.lazy(() => catchChunkError(() => import('../components/pages/admin-stats')))
 const WebhooksPage = React.lazy(() => catchChunkError(() => import('../components/pages/webhooks')))
-const DeveloperSettingsPage = React.lazy(() =>
-  catchChunkError(() => import('../components/pages/settings/developer-settings')),
+const SettingsPage = React.lazy(() => catchChunkError(() => import('../components/pages/settings/settings')))
+
+const SettingsOrganisationTabPage = React.lazy(() =>
+  catchChunkError(() => import('../components/pages/settings/settings-organisation-tab')),
 )
 
-const DeveloperSettingsOrganisationTabPage = React.lazy(() =>
-  catchChunkError(() => import('../components/pages/settings/developer-settings-organisation-tab')),
-)
-
-const DeveloperSettingsBillingTabPage = React.lazy(() =>
-  catchChunkError(() => import('../components/pages/settings/developer-settings-billing-tab')),
+const SettingsBillingTabPage = React.lazy(() =>
+  catchChunkError(() => import('../components/pages/settings/settings-billing-tab')),
 )
 
 const DeveloperAdminBillingPage = React.lazy(() => catchChunkError(() => import('../components/pages/admin-billing')))
@@ -92,7 +89,6 @@ const Router = () => {
                 <PrivateRoute allow="CLIENT" path={Routes.CLIENT} component={Client} exact fetcher />
                 <PrivateRoute allow="CLIENT" path={Routes.CLIENT_WELCOME} component={ClientWelcomePage} exact />
                 <PrivateRoute allow="CLIENT" path={Routes.CLIENT_HELP} exact fetcher component={ClientHelpPage} />
-                <PrivateRoute allow="CLIENT" path={Routes.CLIENT_SETTINGS} exact fetcher component={ClientSetting} />
 
                 <PrivateRoute allow="DEVELOPER" path={Routes.APPS} component={Apps} exact fetcher />
                 <PrivateRoute
@@ -114,24 +110,18 @@ const Router = () => {
                 />
                 <PrivateRoute allow="DEVELOPER" path={Routes.ANALYTICS_TAB} fetcher exact component={AnalyticsPage} />
 
+                <PrivateRoute allow="DEVELOPER" path={Routes.SETTINGS} fetcher exact component={SettingsPage} />
                 <PrivateRoute
                   allow="DEVELOPER"
-                  path={Routes.DEVELOPER_SETTINGS}
+                  path={Routes.SETTINGS_BILLING_TAB}
                   fetcher
-                  exact
-                  component={DeveloperSettingsPage}
+                  component={SettingsBillingTabPage}
                 />
                 <PrivateRoute
                   allow="DEVELOPER"
-                  path={Routes.DEVELOPER_SETTINGS_BILLING_TAB}
+                  path={Routes.SETTINGS_ORGANISATION_TAB}
                   fetcher
-                  component={DeveloperSettingsBillingTabPage}
-                />
-                <PrivateRoute
-                  allow="DEVELOPER"
-                  path={Routes.DEVELOPER_SETTINGS_ORGANISATION_TAB}
-                  fetcher
-                  component={DeveloperSettingsOrganisationTabPage}
+                  component={SettingsOrganisationTabPage}
                 />
                 <PrivateRoute
                   allow="DEVELOPER"
