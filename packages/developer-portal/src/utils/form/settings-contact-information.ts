@@ -1,4 +1,4 @@
-import { ContactInformationValues } from '@/components/pages/settings/developer-settings/forms/contact-information-form'
+import { ContactInformationValues } from '@/components/pages/settings/forms/contact-information-form'
 import ErrorMessages from '@/constants/error-messages'
 import { isValidPersonName, isValidTelephone } from '@/utils/validate'
 

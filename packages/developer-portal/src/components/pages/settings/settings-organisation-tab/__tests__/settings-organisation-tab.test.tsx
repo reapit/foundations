@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import DeveloperOrganisationTabPage, { handleToggleVisibleModal } from '../developer-settings-organisation-tab'
+import DeveloperOrganisationTabPage, { handleToggleVisibleModal } from '../settings-organisation-tab'
 import * as ReactRedux from 'react-redux'
 
 describe('DeveloperOrganisationTabPage', () => {

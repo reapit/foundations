@@ -2,7 +2,7 @@ import webRoutes from '@/constants/routes'
 import apiRoutes from '../fixtures/routes'
 
 const settingsPageMetaData = {
-  url: webRoutes.DEVELOPER_SETTINGS,
+  url: webRoutes.SETTINGS,
   selectors: {
     textBoxCurrentPassword: 'input#currentPassword',
     textBoxPassword: 'input#password',

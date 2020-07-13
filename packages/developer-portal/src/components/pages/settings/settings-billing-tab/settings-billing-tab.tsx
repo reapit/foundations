@@ -2,9 +2,9 @@ import * as React from 'react'
 import { Section } from '@reapit/elements'
 import { Tabs } from '../tabs'
 import AccountsInformationForm from './accounts-information-form'
-import Subcriptions from '@/components/ui/developer-settings/billing/subscriptions'
+import Subcriptions from '@/components/pages/settings/billing/subscriptions'
 
-const DevelperSettingsBillingTabPage: React.FC<{}> = () => {
+const SettingsBillingTabPage: React.FC<{}> = () => {
   // FEATURE FLAG
   const isProd = window.reapit.config.appEnv === 'production'
 
@@ -20,4 +20,4 @@ const DevelperSettingsBillingTabPage: React.FC<{}> = () => {
   )
 }
 
-export default DevelperSettingsBillingTabPage
+export default SettingsBillingTabPage
