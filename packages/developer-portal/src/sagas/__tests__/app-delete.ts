@@ -25,8 +25,7 @@ describe('app-delete sagas', () => {
 
     test('api call success', () => {
       const clone = gen.clone()
-      expect(clone.next(true).value).toEqual(call(fetchAppsList, {}))
-      expect(clone.next().value).toEqual(put(appDeleteRequestSuccess()))
+      expect(clone.next(true).value).toEqual(put(appDeleteRequestSuccess()))
       expect(clone.next().done).toEqual(true)
     })
 

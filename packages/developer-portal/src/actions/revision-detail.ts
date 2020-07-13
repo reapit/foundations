@@ -27,8 +27,5 @@ export const revisionDetailReceiveData = actionCreator<RevisionReceiveDataParams
 export const revisionDetailFailure = actionCreator<void>(ActionTypes.REVISION_DETAIL_REQUEST_DATA__FAILURE)
 export const revisionDetailClearData = actionCreator<null>(ActionTypes.REVISION_DETAIL_CLEAR_DATA)
 
-export const approveRevision = actionCreator<RevisionApproveRequestParams>(ActionTypes.REVISION_SUBMIT_APPROVE)
-export const approveRevisionSetFormState = actionCreator<FormState>(ActionTypes.REVISION_APPROVE_SET_FORM_STATE)
-
 export const declineRevision = actionCreator<RevisionDeclineRequestParams>(ActionTypes.REVISION_SUBMIT_DECLINE)
 export const declineRevisionSetFormState = actionCreator<FormState>(ActionTypes.REVISION_DECLINE_SET_FORM_STATE)

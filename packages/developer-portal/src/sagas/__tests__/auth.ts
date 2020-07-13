@@ -21,9 +21,7 @@ import authSagas, {
   setInitDeveloperTermsAcceptedStateFromCookieListen,
   setDeveloperTermAcceptedCookieAndStateListen,
   setClientTermAcceptedCookieAndState,
-  setInitClientTermsAcceptedStateFromCookieListen,
   setInitClientTermsAcceptedStateFromCookie,
-  setClientTermAcceptedCookieAndStateListen,
 } from '../auth'
 import ActionTypes from '../../constants/action-types'
 import { authLoginSuccess, authLogoutSuccess, authLoginFailure, setTermsAcceptedState } from '../../actions/auth'
@@ -152,8 +150,6 @@ describe('auth thunks', () => {
           fork(clearAuthListen),
           fork(setInitDeveloperTermsAcceptedStateFromCookieListen),
           fork(setDeveloperTermAcceptedCookieAndStateListen),
-          fork(setInitClientTermsAcceptedStateFromCookieListen),
-          fork(setClientTermAcceptedCookieAndStateListen),
         ]),
       )
       expect(gen.next().done).toBe(true)

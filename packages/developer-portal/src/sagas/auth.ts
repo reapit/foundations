@@ -105,20 +105,6 @@ export const setDeveloperTermAcceptedCookieAndStateListen = function*() {
   )
 }
 
-export const setInitClientTermsAcceptedStateFromCookieListen = function*() {
-  yield takeLatest(
-    ActionTypes.SET_INIT_CLIENT_TERMS_ACCEPTED_STATE_FROM_COOKIE,
-    setInitClientTermsAcceptedStateFromCookie,
-  )
-}
-
-export const setClientTermAcceptedCookieAndStateListen = function*() {
-  yield takeLatest<Action<boolean>>(
-    ActionTypes.SET_CLIENT_TERM_ACCEPTED_COOKIE_AND_STATE,
-    setClientTermAcceptedCookieAndState,
-  )
-}
-
 const authSaga = function*() {
   yield all([
     fork(loginListen),
@@ -126,8 +112,6 @@ const authSaga = function*() {
     fork(clearAuthListen),
     fork(setInitDeveloperTermsAcceptedStateFromCookieListen),
     fork(setDeveloperTermAcceptedCookieAndStateListen),
-    fork(setInitClientTermsAcceptedStateFromCookieListen),
-    fork(setClientTermAcceptedCookieAndStateListen),
   ])
 }
 

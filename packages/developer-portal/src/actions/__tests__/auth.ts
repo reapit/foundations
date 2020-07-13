@@ -9,8 +9,6 @@ import {
   authClear,
   setInitDeveloperTermsAcceptedStateFromCookie,
   setDeveloperTermAcceptedCookieAndState,
-  setInitClientTermsAcceptedStateFromCookie,
-  setClientTermAcceptedCookieAndState,
 } from '../auth'
 import ActionTypes from '../../constants/action-types'
 import { LoginType, LoginSession, LoginMode } from '@reapit/cognito-auth'
@@ -42,16 +40,6 @@ describe('auth actions', () => {
     expect(setDeveloperTermAcceptedCookieAndState.type).toEqual(
       ActionTypes.SET_DEVELOPER_TERM_ACCEPTED_COOKIE_AND_STATE,
     )
-  })
-
-  it('should create a setInitClientTermsAcceptedStateFromCookie action', () => {
-    expect(setInitClientTermsAcceptedStateFromCookie.type).toEqual(
-      ActionTypes.SET_INIT_CLIENT_TERMS_ACCEPTED_STATE_FROM_COOKIE,
-    )
-  })
-
-  it('should create a setClientTermAcceptedCookieAndState action', () => {
-    expect(setClientTermAcceptedCookieAndState.type).toEqual(ActionTypes.SET_CLIENT_TERM_ACCEPTED_COOKIE_AND_STATE)
   })
 
   it('should create a authLoginFailure action', () => {

@@ -85,7 +85,6 @@ const appState: ReduxState = {
     loading: false,
     error: false,
     revisionDetailData: null,
-    approveFormState: 'PENDING',
     declineFormState: 'PENDING',
   },
   revisions: {

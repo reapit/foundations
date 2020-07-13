@@ -12,7 +12,7 @@ describe('actions utils', () => {
       }
       const action = { data: actionData, type: 'DEVELOPER_REQUEST_DATA' }
       expect(
-        actionCreator<DeveloperRequestParams>(ActionTypes.CLIENT_FETCH_APP_SUMMARY)({
+        actionCreator<DeveloperRequestParams>(ActionTypes.DEVELOPER_REQUEST_DATA)({
           page: 1,
         }),
       ).toEqual(action)
@@ -30,7 +30,7 @@ describe('actions utils', () => {
 
     it('should return false if actions are not equal', () => {
       const anotherAction: Action<any> = { data: true, type: 'DEVELOPER_RECEIVE_DATA' }
-      expect(isType(anotherAction, developerReceiveData)).toBe(false)
+      expect(isType(anotherAction, developerRequestData)).toBe(false)
     })
   })
 })

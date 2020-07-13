@@ -16,12 +16,12 @@ jest.mock('@reapit/elements')
 
 const paramsClientId: Action<FetchAppByIdParams> = {
   data: { id: '9b6fd5f7-2c15-483d-b925-01b650538e52', clientId: 'DAC' },
-  type: 'CLIENT_FETCH_APP_DETAIL',
+  type: 'DEVELOPER_FETCH_APP_DETAIL',
 }
 
 const params: Action<FetchAppByIdParams> = {
   data: { id: '9b6fd5f7-2c15-483d-b925-01b650538e52' },
-  type: 'CLIENT_FETCH_APP_DETAIL',
+  type: 'DEVELOPER_FETCH_APP_DETAIL',
 }
 
 describe('fetch developer app detail with clientId', () => {
