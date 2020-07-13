@@ -66,10 +66,6 @@ const Router = () => {
             <Route path={Routes.REGISTER_CONFIRM} exact component={RegisterConfirm} />
             <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
 
-            <PrivateRouteWrapper path={Routes.DEVELOPER_EDITION_DOWNLOAD} showMenu={false}>
-              <PrivateRoute allow="DEVELOPER" path="/" component={EditionDownloadPage} />
-            </PrivateRouteWrapper>
-
             <PrivateRouteWrapper path="/">
               <Switch>
                 <PrivateRoute
@@ -109,6 +105,11 @@ const Router = () => {
                 />
                 <PrivateRoute allow="DEVELOPER" path={Routes.WELCOME} exact component={WelcomePage} />
                 <PrivateRoute allow="DEVELOPER" path={Routes.HELP} exact fetcher component={HelpPage} />
+                <PrivateRoute
+                  allow="DEVELOPER"
+                  path={Routes.DEVELOPER_EDITION_DOWNLOAD}
+                  component={EditionDownloadPage}
+                />
                 <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPS} component={AdminAppsPage} fetcher exact />
                 <PrivateRoute
                   allow="ADMIN"
