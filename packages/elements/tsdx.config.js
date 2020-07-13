@@ -66,7 +66,6 @@ module.exports = {
         ...config.output,
         globals: {
           ...config.output.globals,
-          'styled-components': 'styled-components',
           'react-dom': 'react-dom',
           formik: 'formik',
           'react-router-dom': 'react-router-dom',

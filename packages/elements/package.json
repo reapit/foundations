@@ -63,7 +63,6 @@
     "react-image-crop": "8.6.4",
     "react-table": "7.2.0",
     "react-transition-group": "^4.4.0",
-    "styled-components": "^4.4.1",
     "snyk": "^1.338.0"
   },
   "devDependencies": {

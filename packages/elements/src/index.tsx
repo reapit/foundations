@@ -49,8 +49,8 @@ export * from './components/HelpGuide/context'
 export { default as notification } from './components/Notification'
 export * from './components/UploadProgress'
 export * from './components/DropdownSelect'
-export * from './components/Breadcrumb'
-export * from './components/ImageCropper'
+export * from './components/BreadcrumbV2'
+export * from './components/ImageCropperV2'
 
 // Utils
 export * from './utils/validators'
@@ -64,5 +64,5 @@ export * from './utils/device-detection/device-detection'
 
 export * from './types/core'
 
-export { default as ModalV2 } from './v2/src/components/modal'
-export { ModalProps as ModalPropsV2 } from './v2/src'
+export { default as ModalV2 } from './components/ModalV2'
+export { ModalProps as ModalPropsV2 } from './components/ModalV2'
