@@ -12,7 +12,9 @@ import {
   imageCropperActionWrapper,
 } from './__styles__/styles'
 import { cx } from 'linaria'
-import { Button, H5, ImageInput } from '../../../../index'
+import { Button } from '../Button'
+import { H5 } from '../Typography'
+import { ImageInput } from '../ImageInput'
 import {
   drawCanvasAfterCrop,
   onLoadHandler,
