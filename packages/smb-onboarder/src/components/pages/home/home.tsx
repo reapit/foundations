@@ -1,9 +1,18 @@
 import * as React from 'react'
-import { H3, Button, GridFourCol, GridFourColItem, H4, FlexContainerResponsive, H6 } from '@reapit/elements'
+import {
+  H3,
+  Button,
+  GridFourCol,
+  GridFourColItem,
+  H4,
+  FlexContainerResponsive,
+  H6,
+  FlexContainerBasic,
+} from '@reapit/elements'
 import getStartedImg from '@/assets/images/get-started.png'
 import installImg from '@/assets/images/install.png'
 import supportImg from '@/assets/images/support.png'
-import { WrapperAction, WrapperContent } from './__styles__/styles'
+import { buttonContainer, contentContainer } from './__styles__'
 import { history } from '@/core/router'
 import Routes from '@/constants/routes'
 
@@ -54,19 +63,19 @@ export const Home: React.FC = () => {
       <GridFourCol>
         {items.map(({ imgSrc, header, text, buttonText, buttonOnClick }) => (
           <GridFourColItem key={header}>
-            <WrapperContent flexColumn centerContent hasPadding>
+            <FlexContainerBasic className={contentContainer} flexColumn centerContent hasPadding>
               <div>
                 <img src={imgSrc} alt={header} />
               </div>
               <H4 isCentered>{header}</H4>
               <p>{text}</p>
 
-              <WrapperAction>
+              <div className={buttonContainer}>
                 <Button type="button" variant="primary" onClick={buttonOnClick}>
                   {buttonText}
                 </Button>
-              </WrapperAction>
-            </WrapperContent>
+              </div>
+            </FlexContainerBasic>
           </GridFourColItem>
         ))}
       </GridFourCol>

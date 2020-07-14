@@ -16,8 +16,9 @@ exports[`Home Home should match a snapshot 1`] = `
     <Component
       key="Get Started"
     >
-      <Styled(Component)
+      <Component
         centerContent={true}
+        className=""
         flexColumn={true}
         hasPadding={true}
       >
@@ -36,7 +37,9 @@ exports[`Home Home should match a snapshot 1`] = `
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus minima inventore quidem sequirerum
      exercitationem quaerat consequuntur porro iure possimus.
         </p>
-        <styled.div>
+        <div
+          className=""
+        >
           <Component
             onClick={[Function]}
             type="button"
@@ -44,14 +47,15 @@ exports[`Home Home should match a snapshot 1`] = `
           >
             Read More
           </Component>
-        </styled.div>
-      </Styled(Component)>
+        </div>
+      </Component>
     </Component>
     <Component
       key="Install Agency Cloud"
     >
-      <Styled(Component)
+      <Component
         centerContent={true}
+        className=""
         flexColumn={true}
         hasPadding={true}
       >
@@ -70,7 +74,9 @@ exports[`Home Home should match a snapshot 1`] = `
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus minima inventore quidem sequirerum
      exercitationem quaerat consequuntur porro iure possimus.
         </p>
-        <styled.div>
+        <div
+          className=""
+        >
           <Component
             onClick={[Function]}
             type="button"
@@ -78,14 +84,15 @@ exports[`Home Home should match a snapshot 1`] = `
           >
             Install
           </Component>
-        </styled.div>
-      </Styled(Component)>
+        </div>
+      </Component>
     </Component>
     <Component
       key="Support"
     >
-      <Styled(Component)
+      <Component
         centerContent={true}
+        className=""
         flexColumn={true}
         hasPadding={true}
       >
@@ -104,7 +111,9 @@ exports[`Home Home should match a snapshot 1`] = `
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus minima inventore quidem sequirerum
      exercitationem quaerat consequuntur porro iure possimus.
         </p>
-        <styled.div>
+        <div
+          className=""
+        >
           <Component
             onClick={[Function]}
             type="button"
@@ -112,8 +121,8 @@ exports[`Home Home should match a snapshot 1`] = `
           >
             Contact
           </Component>
-        </styled.div>
-      </Styled(Component)>
+        </div>
+      </Component>
     </Component>
   </Component>
 </Component>
