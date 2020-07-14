@@ -10,13 +10,13 @@ import { PortalProvider } from '@reapit/elements'
 
 export const history = createBrowserHistory()
 const Login = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
-const AdminApprovalsPage = React.lazy(() => catchChunkError(() => import('../components/pages/approvals')))
+const ApprovalsPage = React.lazy(() => catchChunkError(() => import('../components/pages/approvals')))
 const AdminDevManagementPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/admin-dev-management')),
 )
 const AdminAppsPage = React.lazy(() => catchChunkError(() => import('../components/pages/admin-apps')))
 const AdminStats = React.lazy(() => catchChunkError(() => import('../components/pages/admin-stats')))
-const DeveloperAdminBillingPage = React.lazy(() => catchChunkError(() => import('../components/pages/admin-billing')))
+const BillingPage = React.lazy(() => catchChunkError(() => import('../components/pages/billing')))
 
 const Router = () => {
   return (
@@ -28,14 +28,8 @@ const Router = () => {
             <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
             <PrivateRouteWrapper path="/">
               <Switch>
-                <PrivateRoute allow="ADMIN" path={Routes.BILLING} component={DeveloperAdminBillingPage} exact />
-                <PrivateRoute
-                  allow="ADMIN"
-                  path={Routes.ADMIN_APPROVALS}
-                  component={AdminApprovalsPage}
-                  exact
-                  fetcher
-                />
+                <PrivateRoute allow="ADMIN" path={Routes.BILLING} component={BillingPage} exact />
+                <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS} component={ApprovalsPage} exact fetcher />
                 <PrivateRoute allow="ADMIN" path={Routes.APPS} component={AdminAppsPage} fetcher exact />
                 <PrivateRoute
                   allow="ADMIN"
