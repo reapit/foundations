@@ -11,7 +11,7 @@ import developerSetStatus from '@/reducers/developer-set-status'
 import revisionDetail from '@/reducers/revision-detail'
 import appDeleteReducer from '@/reducers/app-delete'
 import adminApps from '@/reducers/admin-apps'
-import adminStatsReducer from '@/reducers/admin-stats'
+import statisticsReducer from '@/reducers/statistics'
 import revisionsReducer from '@/reducers/revisions'
 
 import authSagas from '@/sagas/auth'
@@ -24,7 +24,7 @@ import revisionsSagas from '@/sagas/revisions'
 import appDeleteSagas from '@/sagas/app-delete'
 import adminAppsSagas from '@/sagas/admin-apps'
 import noticationMessage from '@/reducers/notification-message'
-import adminStatsSaga from '@/sagas/admin-stats'
+import statisticsSagas from '@/sagas/statistics'
 import { injectSwitchModeToWindow } from '@reapit/elements'
 
 export class Store {
@@ -54,7 +54,7 @@ export class Store {
     revisions: revisionsReducer,
     appDelete: appDeleteReducer,
     noticationMessage,
-    adminStats: adminStatsReducer,
+    statistics: statisticsReducer,
   })
 
   static sagas = function*() {
@@ -68,7 +68,7 @@ export class Store {
       fork(revisionsSagas),
       fork(appDeleteSagas),
       fork(adminAppsSagas),
-      fork(adminStatsSaga),
+      fork(statisticsSagas),
     ])
   }
 

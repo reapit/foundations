@@ -1,5 +1,5 @@
 import dayjs from 'dayjs'
-import { Area, Range } from '../components/pages/admin-stats/admin-stats'
+import { Area, Range } from '../components/pages/statistics/statistics'
 
 export type DateRange = {
   from: Date

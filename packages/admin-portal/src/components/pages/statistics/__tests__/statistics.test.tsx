@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import { AdminStats } from '../admin-stats'
+import { Statistics } from '../statistics'
 import appState from '@/reducers/__stubs__/app-state'
 import configureStore from 'redux-mock-store'
 import * as ReactRedux from 'react-redux'
@@ -14,7 +14,7 @@ describe('Admin Stats', () => {
     const wrapper = mount(
       <ReactRedux.Provider store={store}>
         <MemoryRouter initialEntries={[{ pathname: Routes.STATS, key: 'adminStats' }]}>
-          <AdminStats />
+          <Statistics />
         </MemoryRouter>
       </ReactRedux.Provider>,
     )
@@ -27,7 +27,7 @@ describe('Admin Stats', () => {
     const wrapper = mount(
       <ReactRedux.Provider store={store}>
         <MemoryRouter initialEntries={[{ pathname: Routes.STATS, key: 'adminStats' }]}>
-          <AdminStats />
+          <Statistics />
         </MemoryRouter>
       </ReactRedux.Provider>,
     )
@@ -49,7 +49,7 @@ describe('Admin Stats', () => {
     const loadingState = {
       ...appState,
       adminStats: {
-        ...appState.adminStats,
+        ...appState.statistics,
         loading: true,
       },
     }
@@ -57,7 +57,7 @@ describe('Admin Stats', () => {
     const wrapper = mount(
       <ReactRedux.Provider store={store}>
         <MemoryRouter initialEntries={[{ pathname: Routes.STATS, key: 'adminStats' }]}>
-          <AdminStats />
+          <Statistics />
         </MemoryRouter>
       </ReactRedux.Provider>,
     )

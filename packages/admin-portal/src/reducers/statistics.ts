@@ -1,31 +1,31 @@
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
-import { adminStatsRequestData, adminStatsReceiveData, adminStatsRequestFailure } from '@/actions/admin-stats'
+import { statisticsRequestData, statisticsReceiveData, statisticsRequestFailure } from '@/actions/statistics'
 import {
   PagedResultAppSummaryModel_,
   PagedResultDeveloperModel_,
   PagedResultInstallationModel_,
 } from '@reapit/foundations-ts-definitions'
 
-export interface AdminStatsState {
+export interface StatisticsState {
   loading: boolean
   result: PagedResultAppSummaryModel_ | PagedResultDeveloperModel_ | PagedResultInstallationModel_
 }
 
-export const defaultState: AdminStatsState = {
+export const defaultState: StatisticsState = {
   loading: false,
   result: { data: [], totalCount: 0 },
 }
 
-const adminStatsReducer = (state: AdminStatsState = defaultState, action: Action<any>): AdminStatsState => {
-  if (isType(action, adminStatsRequestData)) {
+const statisticsReducer = (state: StatisticsState = defaultState, action: Action<any>): StatisticsState => {
+  if (isType(action, statisticsRequestData)) {
     return {
       ...state,
       loading: true,
     }
   }
 
-  if (isType(action, adminStatsReceiveData)) {
+  if (isType(action, statisticsReceiveData)) {
     return {
       ...state,
       loading: false,
@@ -33,7 +33,7 @@ const adminStatsReducer = (state: AdminStatsState = defaultState, action: Action
     }
   }
 
-  if (isType(action, adminStatsRequestFailure)) {
+  if (isType(action, statisticsRequestFailure)) {
     return {
       ...state,
       loading: false,
@@ -43,4 +43,4 @@ const adminStatsReducer = (state: AdminStatsState = defaultState, action: Action
   return state
 }
 
-export default adminStatsReducer
+export default statisticsReducer

@@ -4,7 +4,7 @@ import { PagedResultApprovalModel_ } from '@reapit/foundations-ts-definitions'
 import { AdminDevManamgenetState } from '@/reducers/admin-dev-management'
 import { AdminAppsState } from '@/reducers/admin-apps'
 import { PagedResultAppSummaryModel_ } from '@/types/marketplace-api-schema'
-import { AdminStatsState } from '@/reducers/admin-stats'
+import { StatisticsState } from '@/reducers/statistics'
 
 export const selectAdminAppsState = (state: ReduxState): AdminAppsState => {
   return state?.adminApps || {}
@@ -26,8 +26,8 @@ export const selectWaitingApprovalData = (state: ReduxState): PagedResultApprova
   return state?.approvals?.approvalsData?.data || {}
 }
 
-export const selectAdminStats = (state: ReduxState): AdminStatsState => {
-  return state.adminStats
+export const selectAdminStats = (state: ReduxState): StatisticsState => {
+  return state.statistics
 }
 
 export const selectAdminDevManagement = (state: ReduxState): AdminDevManamgenetState => {

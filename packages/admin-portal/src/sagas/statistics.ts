@@ -1,4 +1,4 @@
-import { adminStatsReceiveData, adminStatsRequestFailure, AdminStatsRequestParams } from '../actions/admin-stats'
+import { statisticsReceiveData, statisticsRequestFailure, StatisticsRequestParams } from '../actions/statistics'
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import dayjs from 'dayjs'
 import ActionTypes from '../constants/action-types'
@@ -14,7 +14,7 @@ import { fetchInstallationsList } from '@/services/installations'
 
 export const MARKETPLACE_GOLIVE_DATE = '2020-02-14'
 
-export const adminStatsDataFetch = function*({ data }) {
+export const statisticsDataFetch = function*({ data }) {
   try {
     const { area, range } = data
     let queryParams = {} as any
@@ -40,13 +40,13 @@ export const adminStatsDataFetch = function*({ data }) {
     const response = yield call(servicesToCall[area], { pageSize: GET_ALL_PAGE_SIZE, ...queryParams })
 
     if (response) {
-      yield put(adminStatsReceiveData({ data: response.data, totalCount: response.totalCount }))
+      yield put(statisticsReceiveData({ data: response.data, totalCount: response.totalCount }))
     } else {
-      yield put(adminStatsRequestFailure())
+      yield put(statisticsRequestFailure())
     }
   } catch (err) {
     logger(err)
-    yield put(adminStatsRequestFailure())
+    yield put(statisticsRequestFailure())
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -56,12 +56,12 @@ export const adminStatsDataFetch = function*({ data }) {
   }
 }
 
-export const adminStatsDataListen = function*() {
-  yield takeLatest<Action<AdminStatsRequestParams>>(ActionTypes.ADMIN_STATS_REQUEST_DATA, adminStatsDataFetch)
+export const statisticsDataListen = function*() {
+  yield takeLatest<Action<StatisticsRequestParams>>(ActionTypes.STATISTICS_REQUEST_DATA, statisticsDataFetch)
 }
 
-const adminStatsSagas = function*() {
-  yield all([fork(adminStatsDataListen)])
+const statisticsSagas = function*() {
+  yield all([fork(statisticsDataListen)])
 }
 
-export default adminStatsSagas
+export default statisticsSagas

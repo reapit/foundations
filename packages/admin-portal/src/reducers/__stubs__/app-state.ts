@@ -86,7 +86,7 @@ const appState: ReduxState = {
     variant: '',
     message: '',
   },
-  adminStats: {
+  statistics: {
     loading: false,
     result: {
       data: [],

@@ -15,7 +15,7 @@ const AdminDevManagementPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/admin-dev-management')),
 )
 const AdminAppsPage = React.lazy(() => catchChunkError(() => import('../components/pages/admin-apps')))
-const AdminStats = React.lazy(() => catchChunkError(() => import('../components/pages/admin-stats')))
+const Statistics = React.lazy(() => catchChunkError(() => import('../components/pages/statistics')))
 const BillingPage = React.lazy(() => catchChunkError(() => import('../components/pages/billing')))
 
 const Router = () => {
@@ -38,7 +38,7 @@ const Router = () => {
                   exact
                   fetcher
                 />
-                <PrivateRoute allow="ADMIN" path={Routes.STATS} component={AdminStats} exact />
+                <PrivateRoute allow="ADMIN" path={Routes.STATS} component={Statistics} exact />
                 <Route render={() => <Info infoType="404" />} />
               </Switch>
             </PrivateRouteWrapper>

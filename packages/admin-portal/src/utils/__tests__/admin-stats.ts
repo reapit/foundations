@@ -1,5 +1,5 @@
 import MockDate from 'mockdate'
-import { Range } from '@/components/pages/admin-stats/admin-stats'
+import { Range } from '@/components/pages/statistics/statistics'
 import { getDateRange, getDataLabel, getChartConfig, numOfObjectCreatedInDate, getRangeName } from '../admin-stats'
 
 beforeEach(() => {

@@ -1,4 +1,4 @@
-import adminStatsSagas, { adminStatsDataListen, adminStatsDataFetch } from '../admin-stats'
+import statisticsSagas, { statisticsDataListen, statisticsDataFetch } from '../statistics'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
@@ -6,16 +6,16 @@ import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
-import { adminStatsReceiveData, adminStatsRequestFailure, AdminStatsRequestParams } from '@/actions/admin-stats'
+import { statisticsReceiveData, statisticsRequestFailure, StatisticsRequestParams } from '@/actions/statistics'
 import { getDateRange } from '@/utils/admin-stats'
 import { fetchAppsList } from '@/services/apps'
 
 jest.mock('@reapit/elements')
 jest.mock('@/services/apps')
 
-describe('adminStatsFetch', () => {
-  const params: AdminStatsRequestParams = { area: 'APPS', range: 'WEEK' }
-  const gen = cloneableGenerator(adminStatsDataFetch)({ data: params })
+describe('statisticsDataFetch', () => {
+  const params: StatisticsRequestParams = { area: 'APPS', range: 'WEEK' }
+  const gen = cloneableGenerator(statisticsDataFetch)({ data: params })
   let queryParams = {} as any
   if (params.range !== 'ALL') {
     const dateRange = getDateRange(params.range)
@@ -28,14 +28,14 @@ describe('adminStatsFetch', () => {
   test('api call success', () => {
     const clone = gen.clone()
     const response = { data: [], totalCount: 0 }
-    expect(clone.next(response).value).toEqual(put(adminStatsReceiveData(response)))
+    expect(clone.next(response).value).toEqual(put(statisticsReceiveData(response)))
     expect(clone.next().done).toBe(true)
   })
 
   test('api call fail', () => {
     const clone = gen.clone()
     if (clone.throw) {
-      expect(clone.throw('SOME ERROR').value).toEqual(put(adminStatsRequestFailure()))
+      expect(clone.throw('SOME ERROR').value).toEqual(put(statisticsRequestFailure()))
       expect(clone.next().value).toEqual(
         put(
           errorThrownServer({
@@ -49,12 +49,12 @@ describe('adminStatsFetch', () => {
   })
 })
 
-describe('adminStatsSagas thunks', () => {
-  describe('adminStatsDataListen', () => {
+describe('statisticsSagas thunks', () => {
+  describe('statisticsDataListen', () => {
     it('should request data when called', () => {
-      const gen = adminStatsDataListen()
+      const gen = statisticsDataListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<AdminStatsRequestParams>>(ActionTypes.ADMIN_STATS_REQUEST_DATA, adminStatsDataFetch),
+        takeLatest<Action<StatisticsRequestParams>>(ActionTypes.STATISTICS_REQUEST_DATA, statisticsDataFetch),
       )
       expect(gen.next().done).toBe(true)
     })
@@ -62,9 +62,9 @@ describe('adminStatsSagas thunks', () => {
 
   describe('adminStatsSagas', () => {
     it('should listen data request', () => {
-      const gen = adminStatsSagas()
+      const gen = statisticsSagas()
 
-      expect(gen.next().value).toEqual(all([fork(adminStatsDataListen)]))
+      expect(gen.next().value).toEqual(all([fork(statisticsDataListen)]))
       expect(gen.next().done).toBe(true)
     })
   })

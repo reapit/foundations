@@ -9,7 +9,7 @@ import { RevisionDetailState } from '@/reducers/revision-detail'
 import { RevisionsState } from '@/reducers/revisions'
 import { AdminAppsState } from '@/reducers/admin-apps'
 import { NotificationMessageState } from '@/reducers/notification-message'
-import { AdminStatsState } from '@/reducers/admin-stats'
+import { StatisticsState } from '@/reducers/statistics'
 
 export type ModalProps = { visible: boolean; afterClose: () => void }
 
@@ -60,5 +60,5 @@ export interface ReduxState {
   revisions: RevisionsState
   appDelete: RequestState
   noticationMessage: NotificationMessageState
-  adminStats: AdminStatsState
+  statistics: StatisticsState
 }

@@ -75,7 +75,7 @@ describe('admin', () => {
   describe('selectAdminStats', () => {
     it('should run correctly', () => {
       const result = selectAdminStats(mockState)
-      expect(result).toEqual(mockState.adminStats)
+      expect(result).toEqual(mockState.statistics)
     })
   })
 

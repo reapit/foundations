@@ -2,7 +2,7 @@ import React, { useEffect, useMemo } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Dispatch } from 'redux'
 import { H3, ButtonGroup, Button, H6, Loader, Section } from '@reapit/elements'
-import { AdminStatsRequestParams, adminStatsRequestData } from '@/actions/admin-stats'
+import { StatisticsRequestParams, statisticsRequestData } from '@/actions/statistics'
 import { Line } from 'react-chartjs-2'
 import { getChartData, getChartConfig, getRangeName } from '@/utils/admin-stats'
 import { selectAdminStats } from '@/selector/admin'
@@ -10,11 +10,11 @@ import { selectAdminStats } from '@/selector/admin'
 export type Area = 'APPS' | 'DEVELOPERS' | 'INSTALLATIONS'
 export type Range = 'WEEK' | 'MONTH' | 'ALL'
 
-export const handleLoadStats = (dispatch: Dispatch) => (params: AdminStatsRequestParams) => {
-  dispatch(adminStatsRequestData(params))
+export const handleLoadStats = (dispatch: Dispatch) => (params: StatisticsRequestParams) => {
+  dispatch(statisticsRequestData(params))
 }
 
-export const AdminStats: React.FC = () => {
+export const Statistics: React.FC = () => {
   const dispatch = useDispatch()
   const adminStats = useSelector(selectAdminStats)
 
@@ -122,4 +122,4 @@ export const AdminStats: React.FC = () => {
   )
 }
 
-export default AdminStats
+export default Statistics
