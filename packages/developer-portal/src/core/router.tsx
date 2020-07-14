@@ -79,6 +79,11 @@ const Router = () => {
                 />
                 <PrivateRoute allow="DEVELOPER" path={Routes.WELCOME} exact component={WelcomePage} />
                 <PrivateRoute allow="DEVELOPER" path={Routes.HELP} exact fetcher component={HelpPage} />
+                <PrivateRoute
+                  allow="DEVELOPER"
+                  path={Routes.DEVELOPER_EDITION_DOWNLOAD}
+                  component={EditionDownloadPage}
+                />
                 <Route render={() => <Info infoType="404" />} />
               </Switch>
             </PrivateRouteWrapper>
