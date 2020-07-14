@@ -59,6 +59,9 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
     case Routes.SETTINGS:
       store.dispatch(requestDeveloperData())
       break
+    case Routes.SETTINGS_ORGANISATION_TAB:
+      store.dispatch(requestDeveloperData())
+      break
     case Routes.WEBHOOKS:
       store.dispatch(developerRequestData({ page: 1, appsPerPage: GET_ALL_PAGE_SIZE } as DeveloperRequestParams))
       break

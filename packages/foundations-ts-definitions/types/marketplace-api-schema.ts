@@ -981,6 +981,59 @@ export interface MediaModel {
   readonly links?: LinkModel[]
 }
 /**
+ * Model that represents a member of a developer organisation
+ */
+export interface MemberModel {
+  /**
+   * The id of this member
+   */
+  id?: string
+  /**
+   * The timestamp of entity creation
+   */
+  created?: string // date-time
+  /**
+   * The timestamp of entity modification
+   */
+  modified?: string // date-time
+  /**
+   * The email address of the member
+   */
+  email?: string
+  /**
+   * The full name of this member
+   */
+  name?: string
+  /**
+   * The job title for this member
+   */
+  jobTitle?: string
+  /**
+   * The status of the member (active/inactive/pending/rejected)
+   */
+  status?: string
+  /**
+   * The role of the member (active/inactive/pending/rejected)
+   */
+  role?: string
+  /**
+   * The date the member agreed to the terms
+   */
+  agreedTerms?: string // date-time
+  /**
+   * The id of the developer the member is associated to
+   */
+  developerId?: string // uuid
+  /**
+   * A flag specifying if the member has access to agency cloud
+   */
+  agencyCloudAccess?: boolean
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
+}
+/**
  * Model to handle paged data and information
  */
 export interface PagedResultAppRevisionModel_ {

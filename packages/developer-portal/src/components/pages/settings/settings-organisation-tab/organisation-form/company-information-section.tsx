@@ -10,20 +10,20 @@ const {
   aboutField,
   companyNameField,
   iconImageUrlField,
-  vatNumberField,
-  noVatNumberField,
-  officeEmailField,
-  regField,
-  noRegField,
-  telField,
+  taxNumberField,
+  noTaxRegistrationField,
+  emailField,
+  registrationNumberField,
+  noRegistrationNumberField,
+  telephoneField,
   websiteField,
-  nationalInsuranceNumberField,
+  nationalInsuranceField,
 } = formFields
 
 const CompanyInformationSection: React.FC<CompanyInformationSectionProps> = ({ formValues }) => {
-  const { noVatNumber, noReg } = formValues
-  const isVATNumberFieldDisabled = noVatNumber
-  const isRegFieldDisabled = noReg
+  const { noTaxRegistration, noRegistrationNumber } = formValues
+  const isVATNumberFieldDisabled = noTaxRegistration
+  const isRegFieldDisabled = noRegistrationNumber
   const isNationalInsuranceNumberFieldVisible = isRegFieldDisabled
 
   return (
@@ -38,7 +38,7 @@ const CompanyInformationSection: React.FC<CompanyInformationSectionProps> = ({ f
           />
         </GridItem>
         <GridItem>
-          <Input type="text" labelText={telField.label} id={telField.name} name={telField.name} />
+          <Input type="text" labelText={telephoneField.label} id={telephoneField.name} name={telephoneField.name} />
         </GridItem>
       </Grid>
       <Grid>
@@ -46,34 +46,37 @@ const CompanyInformationSection: React.FC<CompanyInformationSectionProps> = ({ f
           <Input type="text" labelText={websiteField.label} id={websiteField.name} name={websiteField.name} />
         </GridItem>
         <GridItem>
-          <Input
-            type="text"
-            labelText={officeEmailField.label}
-            id={officeEmailField.name}
-            name={officeEmailField.name}
-          />
+          <Input type="text" labelText={emailField.label} id={emailField.name} name={emailField.name} />
         </GridItem>
       </Grid>
       <Grid>
         <GridItem>
           <Input
             type="text"
-            labelText={vatNumberField.label}
-            id={vatNumberField.name}
-            name={vatNumberField.name}
+            labelText={taxNumberField.label}
+            id={taxNumberField.name}
+            name={taxNumberField.name}
             disabled={isVATNumberFieldDisabled}
           />
-          <Checkbox name={noVatNumberField.name} id={noVatNumberField.name} labelText={noVatNumberField.label || ''} />
+          <Checkbox
+            name={noTaxRegistrationField.name}
+            id={noTaxRegistrationField.name}
+            labelText={noTaxRegistrationField.label || ''}
+          />
         </GridItem>
         <GridItem>
           <Input
             type="text"
-            labelText={regField.label}
-            id={regField.name}
-            name={regField.name}
+            labelText={registrationNumberField.label}
+            id={registrationNumberField.name}
+            name={registrationNumberField.name}
             disabled={isRegFieldDisabled}
           />
-          <Checkbox name={noRegField.name} id={noRegField.name} labelText={noRegField.label || ''} />
+          <Checkbox
+            name={noRegistrationNumberField.name}
+            id={noRegistrationNumberField.name}
+            labelText={noRegistrationNumberField.label || ''}
+          />
         </GridItem>
       </Grid>
       {isNationalInsuranceNumberFieldVisible && (
@@ -81,9 +84,9 @@ const CompanyInformationSection: React.FC<CompanyInformationSectionProps> = ({ f
           <GridItem className="is-half">
             <Input
               type="text"
-              labelText={nationalInsuranceNumberField.label}
-              id={nationalInsuranceNumberField.name}
-              name={nationalInsuranceNumberField.name}
+              labelText={nationalInsuranceField.label}
+              id={nationalInsuranceField.name}
+              name={nationalInsuranceField.name}
             />
           </GridItem>
         </Grid>

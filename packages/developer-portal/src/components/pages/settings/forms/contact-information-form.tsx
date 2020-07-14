@@ -23,10 +23,7 @@ export const ContactInformationForm: React.FC<ContactInformationFormProps> = ({
   isSubmitting,
   isValidating,
   isValid,
-  touched,
 }) => {
-  const isEnable =
-    isValid && Boolean(touched) && (touched.companyName || touched.jobTitle || touched.name || touched.telephone)
   return (
     <FormSection>
       <Form>
@@ -51,7 +48,7 @@ export const ContactInformationForm: React.FC<ContactInformationFormProps> = ({
         <LevelRight>
           <Button
             dataTest="save-changes"
-            disabled={!isEnable}
+            disabled={!isValid}
             loading={isSubmitting || isValidating}
             variant="primary"
             type="submit"

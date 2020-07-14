@@ -43,6 +43,14 @@ export const defaultState: AppDetailState = {
   isStale: true,
 }
 
+export type AppDetailData = (AppDetailModel & { apiKey?: string }) | null
+
+export interface DeveloperAppDetailState {
+  data: AppDetailData
+  isAppDetailLoading: boolean
+  error?: string | null
+}
+
 const appDetailReducer = (state: AppDetailState = defaultState, action: Action<any>): AppDetailState => {
   if (isType(action, setAppDetailStale)) {
     return {

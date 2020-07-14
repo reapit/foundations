@@ -1,11 +1,15 @@
 import React from 'react'
-import { Button, Formik, Form, LevelRight, H3, FormSection } from '@reapit/elements'
+import { useSelector, useDispatch } from 'react-redux'
+import { Button, Formik, Form, LevelRight, H3, FormSection, Loader } from '@reapit/elements'
 import { companyInformationFormSchema } from './form-schema/validation-schema'
 import { OrganisationFormValues } from './form-schema/form-fields'
 import CompanyInformationSection from './company-information-section'
 import CompanyAddressSection from './company-address-section'
+import { DeveloperModel, UpdateDeveloperModel } from '@reapit/foundations-ts-definitions'
+import { selectSettingsPageDeveloperInformation, selectSettingsPageIsLoading } from '@/selector/settings'
+import { updateDeveloperData } from '@/actions/settings'
 
-export const initialValues: OrganisationFormValues = {
+export const defaultInitialValues: OrganisationFormValues = {
   about: '',
   countryId: '',
   companyName: '',
@@ -16,28 +20,111 @@ export const initialValues: OrganisationFormValues = {
   line2: '',
   line3: '',
   line4: '',
-  vatNumber: '',
-  noVatNumber: false,
-  officeEmail: '',
-  postCode: '',
-  reg: '',
-  noReg: false,
-  tel: '',
+  taxNumber: '',
+  noTaxRegistration: false,
+  email: '',
+  postcode: '',
+  registrationNumber: '',
+  noRegistrationNumber: false,
+  telephone: '',
   website: '',
-  nationalInsuranceNumber: '',
+  nationalInsurance: '',
+}
+
+export const generateInitialValues = ({
+  developerInfo,
+  defaultInitialValues,
+}: {
+  developerInfo: DeveloperModel | null
+  defaultInitialValues: OrganisationFormValues
+}): OrganisationFormValues => {
+  if (!developerInfo) {
+    return defaultInitialValues
+  }
+  const { companyAddress = {}, ...otherData } = developerInfo
+  const {
+    line1 = '',
+    line2 = '',
+    line3 = '',
+    line4 = '',
+    buildingName = '',
+    buildingNumber = '',
+    postcode = '',
+    countryId = '',
+  } = companyAddress
+  const {
+    about = '',
+    company: companyName = '',
+    taxNumber = '',
+    noTaxRegistration = false,
+    email = '',
+    registrationNumber = '',
+    telephone = '',
+    website = '',
+    nationalInsurance = '',
+  } = otherData
+  return {
+    about,
+    countryId,
+    companyName,
+    // TBC
+    iconImageUrl: '',
+    buildingName,
+    buildingNumber,
+    line1,
+    line2,
+    line3,
+    line4,
+    taxNumber,
+    noTaxRegistration,
+    email,
+    postcode,
+    registrationNumber,
+    noRegistrationNumber: !registrationNumber,
+    telephone,
+    website,
+    nationalInsurance,
+  }
 }
 
 export type OrganisationFormProps = {}
 
+export const handleSubmit = updateDeveloperDataDispatch => (values: OrganisationFormValues) => {
+  const { line1, line2, line3, line4, buildingName, buildingNumber, postcode, countryId, ...otherData } = values
+  const companyAddress = {
+    line1,
+    line2,
+    line3,
+    line4,
+    buildingName,
+    buildingNumber,
+    postcode,
+    countryId,
+  }
+  // TBC, exclude for now
+  delete otherData.iconImageUrl
+  const dataToSubmit: UpdateDeveloperModel = {
+    ...otherData,
+    companyAddress,
+  }
+  updateDeveloperDataDispatch(dataToSubmit)
+}
+
 const OrganisationForm: React.FC<OrganisationFormProps> = () => {
+  const dispatch = useDispatch()
+  const updateDeveloperDataDispatch = values => dispatch(updateDeveloperData(values))
+  const isLoading: boolean = useSelector(selectSettingsPageIsLoading)
+  const developerInfo: DeveloperModel | null = useSelector(selectSettingsPageDeveloperInformation)
+
+  if (isLoading) {
+    return <Loader />
+  }
+
   return (
     <Formik
-      initialValues={initialValues}
+      initialValues={generateInitialValues({ developerInfo, defaultInitialValues })}
       validationSchema={companyInformationFormSchema}
-      onSubmit={values => {
-        // TBC
-        console.log(values)
-      }}
+      onSubmit={handleSubmit(updateDeveloperDataDispatch)}
     >
       {({ values }) => {
         return (

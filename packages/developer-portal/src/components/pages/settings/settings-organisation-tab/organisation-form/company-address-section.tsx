@@ -13,7 +13,7 @@ const {
   line3Field,
   line4Field,
   countryIdField,
-  postCodeField,
+  postcodeField,
 } = formFields
 
 const CompanyAddressSection: React.FC<CompanyAddressSectionProps> = () => {
@@ -55,7 +55,7 @@ const CompanyAddressSection: React.FC<CompanyAddressSectionProps> = () => {
       </Grid>
       <Grid>
         <GridItem>
-          <Input type="text" labelText={postCodeField.label} id={postCodeField.name} name={postCodeField.name} />
+          <Input type="text" labelText={postcodeField.label} id={postcodeField.name} name={postcodeField.name} />
         </GridItem>
         <GridItem>
           <SelectBox

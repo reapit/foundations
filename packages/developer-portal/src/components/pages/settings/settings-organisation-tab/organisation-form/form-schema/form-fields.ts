@@ -1,15 +1,15 @@
 import { FormFieldInfo } from '@reapit/elements'
 
 export type FieldKeys =
-  | 'vatNumberField'
-  | 'noVatNumberField'
-  | 'nationalInsuranceNumberField'
-  | 'officeEmailField'
+  | 'taxNumberField'
+  | 'noTaxRegistrationField'
+  | 'nationalInsuranceField'
+  | 'emailField'
   | 'companyNameField'
-  | 'telField'
+  | 'telephoneField'
   | 'websiteField'
-  | 'regField'
-  | 'noRegField'
+  | 'registrationNumberField'
+  | 'noRegistrationNumberField'
   | 'aboutField'
   | 'iconImageUrlField'
   | 'buildingNameField'
@@ -19,14 +19,14 @@ export type FieldKeys =
   | 'line3Field'
   | 'line4Field'
   | 'countryIdField'
-  | 'postCodeField'
+  | 'postcodeField'
 export type FormFields = Partial<Record<FieldKeys, string>>
 
 export type OrganisationFormValues = {
-  vatNumber: string
-  noVatNumber: boolean
-  nationalInsuranceNumber: string
-  officeEmail: string
+  taxNumber: string
+  noTaxRegistration: boolean
+  nationalInsurance: string
+  email: string
   about: string
   companyName: string
   countryId: string
@@ -37,28 +37,28 @@ export type OrganisationFormValues = {
   line2: string
   line3: string
   line4: string
-  postCode: string
-  reg: string
-  noReg: boolean
-  tel: string
+  postcode: string
+  registrationNumber: string
+  noRegistrationNumber: boolean
+  telephone: string
   website: string
 }
 
 export const formFields: Record<FieldKeys, FormFieldInfo> = {
-  vatNumberField: {
-    name: 'vatNumber',
+  taxNumberField: {
+    name: 'taxNumber',
     label: 'VAT Number',
   },
-  noVatNumberField: {
-    name: 'noVatNumber',
+  noTaxRegistrationField: {
+    name: 'noTaxRegistration',
     label: 'Not VAT Registered',
   },
-  nationalInsuranceNumberField: {
-    name: 'nationalInsuranceNumber',
+  nationalInsuranceField: {
+    name: 'nationalInsurance',
     label: 'National Insurance Number',
   },
-  officeEmailField: {
-    name: 'officeEmail',
+  emailField: {
+    name: 'email',
     label: 'Office Email',
   },
   aboutField: {
@@ -101,20 +101,20 @@ export const formFields: Record<FieldKeys, FormFieldInfo> = {
     name: 'line4',
     label: 'Address Line 4',
   },
-  postCodeField: {
-    name: 'postCode',
+  postcodeField: {
+    name: 'postcode',
     label: 'Postcode',
   },
-  regField: {
-    name: 'reg',
+  registrationNumberField: {
+    name: 'registrationNumber',
     label: 'Company registration number',
   },
-  noRegField: {
-    name: 'noReg',
+  noRegistrationNumberField: {
+    name: 'noRegistrationNumber',
     label: 'No Company registration number',
   },
-  telField: {
-    name: 'tel',
+  telephoneField: {
+    name: 'telephone',
     label: 'Telephone',
   },
   websiteField: {

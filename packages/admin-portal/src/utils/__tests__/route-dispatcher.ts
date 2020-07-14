@@ -7,8 +7,6 @@ import { adminApprovalsRequestData } from '@/actions/admin-approvals'
 jest.mock('@reapit/elements')
 jest.mock('@/utils/session')
 jest.mock('../../core/store')
-jest.mock('../../sagas/client')
-jest.mock('../../sagas/developer')
 
 describe('routeDispatcher', () => {
   it('should dispatch to adminApprovalsRequestData for the admin approvals data route', async () => {

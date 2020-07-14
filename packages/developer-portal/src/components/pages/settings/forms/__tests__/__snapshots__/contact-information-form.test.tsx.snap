@@ -52,7 +52,7 @@ exports[`ContactInformationForm should match snapshot 1`] = `
     <Component>
       <Component
         dataTest="save-changes"
-        disabled={true}
+        disabled={false}
         loading={false}
         type="submit"
         variant="primary"

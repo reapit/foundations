@@ -28,7 +28,7 @@ export const TravelMode: React.FC<TravelModeProps> = ({ queryParams, history }) 
       <Button
         type="button"
         variant="secondary"
-        className={cx(queryParams.travelMode === 'DRIVING' && 'is-selected is-info')}
+        className={cx(queryParams.travelMode !== 'WALKING' && 'is-selected is-info')}
         onClick={handleChangeTravelMode({ queryParams, travelMode: 'DRIVING', history })}
       >
         Car
