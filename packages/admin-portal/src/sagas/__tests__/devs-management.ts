@@ -1,4 +1,4 @@
-import { devsManagementRequestDataHandler } from '../admin-dev-management'
+import { devsManagementRequestDataHandler } from '../devs-management'
 import { put, call } from '@redux-saga/core/effects'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { devsManagementLoading, devsManagementReceiveData } from '@/actions/devs-management'

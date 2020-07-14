@@ -6,7 +6,6 @@ import { AppDetailState } from '../reducers/app-detail'
 import { ErrorState } from '../reducers/error'
 import { ApprovalsState } from '@/reducers/approvals'
 import { RevisionDetailState } from '@/reducers/revision-detail'
-import { RevisionsState } from '@/reducers/revisions'
 import { AppsManagementState } from '@/reducers/apps-management'
 import { NotificationMessageState } from '@/reducers/notification-message'
 import { StatisticsState } from '@/reducers/statistics'
@@ -57,7 +56,6 @@ export interface ReduxState {
   devsManagement: DevsManagementState
   developerSetStatus: RequestState
   revisionDetail: RevisionDetailState
-  revisions: RevisionsState
   appDelete: RequestState
   noticationMessage: NotificationMessageState
   statistics: StatisticsState

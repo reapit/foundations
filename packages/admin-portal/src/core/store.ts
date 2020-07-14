@@ -12,15 +12,13 @@ import revisionDetail from '@/reducers/revision-detail'
 import appDeleteReducer from '@/reducers/app-delete'
 import adminApps from '@/reducers/apps-management'
 import statisticsReducer from '@/reducers/statistics'
-import revisionsReducer from '@/reducers/revisions'
 
 import authSagas from '@/sagas/auth'
 import appDetailSagas from '@/sagas/app-detail'
 import approvalsSagas from '@/sagas/approvals'
-import adminDevManagementSagas from '@/sagas/admin-dev-management'
+import devsManagementSagas from '@/sagas/devs-management'
 import developerSetStatusSagas from '@/sagas/developer-set-status'
 import revisionDetailSagas from '@/sagas/revision-detail'
-import revisionsSagas from '@/sagas/revisions'
 import appDeleteSagas from '@/sagas/app-delete'
 import appsManagementSagas from '@/sagas/apps-management'
 import noticationMessage from '@/reducers/notification-message'
@@ -51,7 +49,6 @@ export class Store {
     devsManagement,
     developerSetStatus,
     revisionDetail,
-    revisions: revisionsReducer,
     appDelete: appDeleteReducer,
     noticationMessage,
     statistics: statisticsReducer,
@@ -62,10 +59,9 @@ export class Store {
       fork(authSagas),
       fork(appDetailSagas),
       fork(approvalsSagas),
-      fork(adminDevManagementSagas),
+      fork(devsManagementSagas),
       fork(developerSetStatusSagas),
       fork(revisionDetailSagas),
-      fork(revisionsSagas),
       fork(appDeleteSagas),
       fork(appsManagementSagas),
       fork(statisticsSagas),

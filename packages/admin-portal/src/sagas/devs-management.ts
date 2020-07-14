@@ -60,8 +60,8 @@ export const devsManagementRequestDataListen = function*() {
   )
 }
 
-const adminDevManagementSagas = function*() {
+const devsManagementSagas = function*() {
   yield all([fork(devsManagementRequestDataListen)])
 }
 
-export default adminDevManagementSagas
+export default devsManagementSagas

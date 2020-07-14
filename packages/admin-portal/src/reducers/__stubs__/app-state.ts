@@ -42,10 +42,6 @@ const appState: ReduxState = {
     loading: false,
     error: false,
     appDetailData: null,
-    authentication: {
-      loading: false,
-      code: '',
-    },
     isStale: true,
   },
   error: {
@@ -73,10 +69,6 @@ const appState: ReduxState = {
     revisionDetailData: null,
     approveFormState: 'PENDING',
     declineFormState: 'PENDING',
-  },
-  revisions: {
-    loading: false,
-    revisions: null,
   },
   appDelete: {
     formState: 'PENDING',

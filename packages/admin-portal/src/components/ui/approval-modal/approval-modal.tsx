@@ -7,12 +7,12 @@ import AppRevisionComparison from '../app-revision-comparison/app-revision-compa
 import { selectAppRevisionDetail } from '@/selector/app-revisions'
 import { selectAppDetailState } from '@/selector/app-detail'
 
-export type AdminApprovalModalInnerProps = {
+export type ApprovalModalInnerProps = {
   closeParentModal?: () => void
   onApprovalClick: () => void
   onDeclineClick: () => void
 }
-export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalModalInnerProps> = ({
+export const ApprovalModalInner: React.FunctionComponent<ApprovalModalInnerProps> = ({
   closeParentModal,
   onApprovalClick,
   onDeclineClick,
@@ -104,18 +104,15 @@ export const handleSetIsDeclineModal = ({
   setIsDeclineModalOpen(isDeclineModalOpen)
 }
 
-export type AdminApprovalModalProps = Pick<ModalProps, 'visible' | 'afterClose'>
+export type ApprovalModalProps = Pick<ModalProps, 'visible' | 'afterClose'>
 
-export const AdminApprovalModal: React.FunctionComponent<AdminApprovalModalProps> = ({
-  visible = true,
-  afterClose,
-}) => {
+export const ApprovalModal: React.FunctionComponent<ApprovalModalProps> = ({ visible = true, afterClose }) => {
   const [isApproveModalOpen, setIsApproveModalOpen] = React.useState(false)
   const [isDeclineModalOpen, setIsDeclineModalOpen] = React.useState(false)
   return (
     <React.Fragment>
       <Modal visible={visible} afterClose={afterClose} deps={[]}>
-        <AdminApprovalModalInner
+        <ApprovalModalInner
           onApprovalClick={handleSetIsApproveModal({ setIsApproveModalOpen, isApproveModalOpen: true, afterClose })}
           onDeclineClick={handleSetIsDeclineModal({ setIsDeclineModalOpen, isDeclineModalOpen: true, afterClose })}
           closeParentModal={afterClose}
@@ -138,4 +135,4 @@ export const AdminApprovalModal: React.FunctionComponent<AdminApprovalModalProps
   )
 }
 
-export default AdminApprovalModal
+export default ApprovalModal

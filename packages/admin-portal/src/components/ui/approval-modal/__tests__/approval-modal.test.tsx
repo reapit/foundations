@@ -4,15 +4,15 @@ import { mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import {
-  AdminApprovalModalInner,
-  AdminApprovalModalInnerProps,
+  ApprovalModalInner,
+  ApprovalModalInnerProps,
   handleOnApproveSuccess,
   handleOnDeclineSuccess,
   handleSetIsDeclineModal,
   handleSetIsApproveModal,
-} from '../admin-approval-modal'
+} from '../approval-modal'
 
-const props: AdminApprovalModalInnerProps = {
+const props: ApprovalModalInnerProps = {
   onApprovalClick: jest.fn(),
   onDeclineClick: jest.fn(),
 }
@@ -28,7 +28,7 @@ describe('AdminRevisionModalInner', () => {
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <AdminApprovalModalInner {...props} />
+          <ApprovalModalInner {...props} />
         </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()

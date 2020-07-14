@@ -11,7 +11,7 @@ import { ApprovalModel, AppRevisionModel } from '@reapit/foundations-ts-definiti
 import { AppDetailModel } from '@/types/marketplace-api-schema'
 import { selectApp } from '@/selector/app-detail'
 import { selectAppRevision } from '@/selector/app-revisions'
-import AdminApprovalModal from '@/components/ui/admin-approval-modal'
+import ApprovalModal from '@/components/ui/approval-modal'
 import { selectApprovalsState, selectWaitingApprovalData } from '@/selector/admin'
 
 export type HandleCloseModalParams = {
@@ -195,7 +195,7 @@ export const AdminApprovals: React.FC = () => {
         pageSize={waitingApprovalListData.pageSize}
         pageNumber={Number(page)}
       />
-      <AdminApprovalModal visible={isModalOpen} afterClose={handleCloseModal({ setIsModalOpen })} />
+      <ApprovalModal visible={isModalOpen} afterClose={handleCloseModal({ setIsModalOpen })} />
     </>
   )
 }
