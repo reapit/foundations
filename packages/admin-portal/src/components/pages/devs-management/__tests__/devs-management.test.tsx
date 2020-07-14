@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { mount } from 'enzyme'
-import { AdminDevManagement, onPageChangeHandler, onSearchHandler, handleFetchData } from '../admin-dev-management'
-import { AdminDevManagementFilterFormValues } from '@/components/ui/admin-dev-management-filter-form'
+import { DevsManagement, onPageChangeHandler, onSearchHandler, handleFetchData } from '../devs-management'
+import { DevsManagementFilterFormValues } from '@/components/ui/devs-management-filter-form'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import { MemoryRouter } from 'react-router'
 import configureStore from 'redux-mock-store'
@@ -9,7 +9,7 @@ import * as ReactRedux from 'react-redux'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
 import { PagedResultDeveloperModel_ } from '@reapit/foundations-ts-definitions'
-import { adminDevManagementRequestData } from '@/actions/admin-dev-management'
+import { devsManagementRequestData } from '@/actions/devs-management'
 
 const createStore = (loading: boolean, data?: PagedResultDeveloperModel_) => {
   return {
@@ -32,7 +32,7 @@ describe('AdminDevManagement', () => {
       mount(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.DEV_MANAGEMENT, key: 'adminDevManagementRoute' }]}>
-            <AdminDevManagement />
+            <DevsManagement />
           </MemoryRouter>
         </ReactRedux.Provider>,
       ),
@@ -45,7 +45,7 @@ describe('AdminDevManagement', () => {
       mount(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.DEV_MANAGEMENT, key: 'adminDevManagementRoute' }]}>
-            <AdminDevManagement />
+            <DevsManagement />
           </MemoryRouter>
         </ReactRedux.Provider>,
       ),
@@ -58,7 +58,7 @@ describe('AdminDevManagement', () => {
       mount(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.DEV_MANAGEMENT, key: 'adminDevManagementRoute' }]}>
-            <AdminDevManagement />
+            <DevsManagement />
           </MemoryRouter>
         </ReactRedux.Provider>,
       ),
@@ -73,7 +73,7 @@ describe('onPageChangeHandler', () => {
     const onPageChangeHandlerFn = onPageChangeHandler(mockRouterProps.history, {
       name: '',
       company: '',
-    } as AdminDevManagementFilterFormValues)
+    } as DevsManagementFilterFormValues)
     expect(onPageChangeHandlerFn).toBeDefined()
 
     onPageChangeHandlerFn(2)
@@ -90,7 +90,7 @@ describe('onSearchHandler', () => {
       {
         name: '',
         company: '',
-      } as AdminDevManagementFilterFormValues,
+      } as DevsManagementFilterFormValues,
       {
         setStatus: jest.fn(),
       },
@@ -108,6 +108,6 @@ describe('handleFetchData', () => {
     }
     const fn = handleFetchData(dispatch)
     fn(params)
-    expect(dispatch).toBeCalledWith(adminDevManagementRequestData(params))
+    expect(dispatch).toBeCalledWith(devsManagementRequestData(params))
   })
 })

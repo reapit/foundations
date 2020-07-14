@@ -1,7 +1,7 @@
-import { adminDevManagementRequestDataHandler } from '../admin-dev-management'
+import { devsManagementRequestDataHandler } from '../admin-dev-management'
 import { put, call } from '@redux-saga/core/effects'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { adminDevManagementLoading, adminDevManagementReceiveData } from '@/actions/admin-dev-management'
+import { devsManagementLoading, devsManagementReceiveData } from '@/actions/devs-management'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
 import { PagedResultDeveloperModel_ } from '@reapit/foundations-ts-definitions'
 import { fetchDevelopersList } from '@/services/developers'
@@ -16,10 +16,10 @@ const params = {
   },
 }
 
-describe('adminDevManagementRequestDataHandler', () => {
-  const gen = cloneableGenerator(adminDevManagementRequestDataHandler)(params)
+describe('devsManagementRequestDataHandler', () => {
+  const gen = cloneableGenerator(devsManagementRequestDataHandler)(params)
 
-  expect(gen.next().value).toEqual(put(adminDevManagementLoading(true)))
+  expect(gen.next().value).toEqual(put(devsManagementLoading(true)))
   expect(gen.next().value).toEqual(
     call(fetchDevelopersList, {
       pageSize: REVISIONS_PER_PAGE,
@@ -34,7 +34,7 @@ describe('adminDevManagementRequestDataHandler', () => {
   test('api call success', () => {
     const clone = gen.clone()
 
-    expect(clone.next(fakeResponse).value).toEqual(put(adminDevManagementReceiveData(fakeResponse)))
+    expect(clone.next(fakeResponse).value).toEqual(put(devsManagementReceiveData(fakeResponse)))
     expect(clone.next().done).toBe(true)
   })
 })

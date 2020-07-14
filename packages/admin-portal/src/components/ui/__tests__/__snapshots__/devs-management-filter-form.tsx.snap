@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AdminDevManagementFilterForm should match a snapshot 1`] = `
+exports[`DevsManagementFilterForm should match a snapshot 1`] = `
 <Formik
   initialValues={
     Object {

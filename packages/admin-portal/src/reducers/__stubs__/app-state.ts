@@ -61,7 +61,7 @@ const appState: ReduxState = {
     loading: false,
     approvalsData: null,
   },
-  adminDevManagement: {
+  devsManagement: {
     loading: false,
   },
   developerSetStatus: {

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { useHistory, useLocation } from 'react-router'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
-import { AdminDevManamgenetState } from '@/reducers/admin-dev-management'
+// import { DevsManagementState } from '@/reducers/devs-management'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import {
   Pagination,
@@ -19,43 +19,41 @@ import {
   Section,
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
-import AdminDevManagementFilterForm, {
-  AdminDevManagementFilterFormValues,
-} from '@/components/ui/admin-dev-management-filter-form'
-import AdminSetDeveloperStatusModal from '@/components/ui/developer-set-status'
+import DevsManagementFilterForm, { DevsManagementFilterFormValues } from '@/components/ui/devs-management-filter-form'
+import SetDeveloperStatusModal from '@/components/ui/developer-set-status'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
-import { adminDevManagementRequestData, AdminDevManagementRequestDataValues } from '@/actions/admin-dev-management'
+import { devsManagementRequestData, DevsManagementRequestDataValues } from '@/actions/devs-management'
 import qs from 'querystring'
-import { selectAdminDevManagement } from '@/selector/admin'
+import { selectDevsManagement } from '@/selector/admin'
 import { Dispatch } from 'redux'
 import { cleanObject } from '@reapit/utils'
 
-export interface AdminDevManagementMappedActions {
-  fetchData: (requestdata: AdminDevManagementRequestDataValues) => void
-}
+// export interface DevsManagementMappedActions {
+//   fetchData: (requestdata: DevsManagementRequestDataValues) => void
+// }
 
-export interface AdminDevManagementMappedProps {
-  adminDevManagementState: AdminDevManamgenetState
-  filterValues: AdminDevManagementFilterFormValues
-  onPageChange: any
-  onSearch: any
-}
+// export interface DevsManagementMappedProps {
+//   devsManagementState: DevsManagementState
+//   filterValues: DevsManagementFilterFormValues
+//   onPageChange: any
+//   onSearch: any
+// }
 
-export type AdminDevManagementProps = AdminDevManagementMappedActions & AdminDevManagementMappedProps
+// export type DevsManagementProps = DevsManagementMappedActions & DevsManagementMappedProps
 
-export const buildFilterValues = (queryParams: URLSearchParams): AdminDevManagementFilterFormValues => {
+export const buildFilterValues = (queryParams: URLSearchParams): DevsManagementFilterFormValues => {
   const name = queryParams.get('name') || ''
   const company = queryParams.get('company') || ''
   const registeredFrom = queryParams.get('registeredFrom') || ''
   const registeredTo = queryParams.get('registeredTo') || ''
-  return { name, company, registeredFrom, registeredTo } as AdminDevManagementFilterFormValues
+  return { name, company, registeredFrom, registeredTo } as DevsManagementFilterFormValues
 }
 
-export const handleFetchData = (dispatch: Dispatch) => (requestData: AdminDevManagementRequestDataValues) => {
-  dispatch(adminDevManagementRequestData(requestData))
+export const handleFetchData = (dispatch: Dispatch) => (requestData: DevsManagementRequestDataValues) => {
+  dispatch(devsManagementRequestData(requestData))
 }
 
-export const onPageChangeHandler = (history: History<any>, queryParams: AdminDevManagementFilterFormValues) => (
+export const onPageChangeHandler = (history: History<any>, queryParams: DevsManagementFilterFormValues) => (
   page: number,
 ) => {
   const query = setQueryParams(queryParams)
@@ -67,7 +65,7 @@ export const onPageChangeHandler = (history: History<any>, queryParams: AdminDev
 }
 
 export const onSearchHandler = (history: History<any>) => (
-  queryParams: AdminDevManagementFilterFormValues,
+  queryParams: DevsManagementFilterFormValues,
   { setStatus },
 ) => {
   const cleanedValues = cleanObject(queryParams)
@@ -83,7 +81,7 @@ export const onSearchHandler = (history: History<any>) => (
   }
 }
 
-export const AdminDevManagement: React.FC = () => {
+export const DevsManagement: React.FC = () => {
   const dispatch = useDispatch()
   const history = useHistory()
   const location = useLocation()
@@ -95,8 +93,8 @@ export const AdminDevManagement: React.FC = () => {
   const [isSetStatusModalOpen, setIsSetStatusModalOpen] = React.useState(false)
   const [developer, setDeveloper] = React.useState({} as DeveloperModel)
 
-  const adminDevManagementState = useSelector(selectAdminDevManagement)
-  const { loading, data } = adminDevManagementState
+  const devsManagementState = useSelector(selectDevsManagement)
+  const { loading, data } = devsManagementState
   const pageNumber = data?.pageNumber || 1
 
   const resetModal = succeed => () => {
@@ -176,7 +174,7 @@ export const AdminDevManagement: React.FC = () => {
       <Section className="mb-0">
         <H3>Developer Management</H3>
       </Section>
-      <AdminDevManagementFilterForm filterValues={filterValues} onSearch={onSearch} />
+      <DevsManagementFilterForm filterValues={filterValues} onSearch={onSearch} />
       <Section>
         <Table scrollable={true} loading={false} data={data.data || []} columns={columns} />
       </Section>
@@ -189,7 +187,7 @@ export const AdminDevManagement: React.FC = () => {
         pageSize={data.pageSize}
         pageNumber={data.pageNumber}
       />
-      <AdminSetDeveloperStatusModal
+      <SetDeveloperStatusModal
         visible={isSetStatusModalOpen}
         afterClose={resetModal(false)}
         onSuccess={resetModal(true)}
@@ -199,4 +197,4 @@ export const AdminDevManagement: React.FC = () => {
   )
 }
 
-export default AdminDevManagement
+export default DevsManagement

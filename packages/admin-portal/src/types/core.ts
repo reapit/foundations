@@ -1,4 +1,4 @@
-import { AdminDevManamgenetState } from './../reducers/admin-dev-management'
+import { DevsManagementState } from './../reducers/devs-management'
 import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
 import { AuthState } from '../reducers/auth'
@@ -54,7 +54,7 @@ export interface ReduxState {
   error: ErrorState
   appsManagement: AppsManagementState
   approvals: ApprovalsState
-  adminDevManagement: AdminDevManamgenetState
+  devsManagement: DevsManagementState
   developerSetStatus: RequestState
   revisionDetail: RevisionDetailState
   revisions: RevisionsState

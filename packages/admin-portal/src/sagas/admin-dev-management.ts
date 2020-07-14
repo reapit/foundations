@@ -1,10 +1,10 @@
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import {
-  adminDevManagementLoading,
-  adminDevManagementReceiveData,
-  adminDevManagementRequestDataFailure,
-  AdminDevManagementRequestDataValues,
-} from '@/actions/admin-dev-management'
+  devsManagementLoading,
+  devsManagementReceiveData,
+  devsManagementRequestDataFailure,
+  DevsManagementRequestDataValues,
+} from '@/actions/devs-management'
 import { errorThrownServer } from '@/actions/error'
 import { DATE_TIME_FORMAT } from '@reapit/elements'
 import { Action } from '@/types/core'
@@ -15,8 +15,8 @@ import { logger } from '@reapit/utils'
 import dayjs from 'dayjs'
 import { fetchDevelopersList } from '@/services/developers'
 
-export const adminDevManagementRequestDataHandler = function*({ data: { page, queryString } }) {
-  yield put(adminDevManagementLoading(true))
+export const devsManagementRequestDataHandler = function*({ data: { page, queryString } }) {
+  yield put(devsManagementLoading(true))
 
   try {
     const queryParams = new URLSearchParams(queryString)
@@ -37,13 +37,13 @@ export const adminDevManagementRequestDataHandler = function*({ data: { page, qu
     })
 
     if (response) {
-      yield put(adminDevManagementReceiveData(response))
+      yield put(devsManagementReceiveData(response))
     } else {
-      yield put(adminDevManagementRequestDataFailure())
+      yield put(devsManagementRequestDataFailure())
     }
   } catch (err) {
     logger(err)
-    yield put(adminDevManagementRequestDataFailure(err.message))
+    yield put(devsManagementRequestDataFailure(err.message))
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -53,15 +53,15 @@ export const adminDevManagementRequestDataHandler = function*({ data: { page, qu
   }
 }
 
-export const adminDevManagementRequestDataListen = function*() {
-  yield takeLatest<Action<AdminDevManagementRequestDataValues>>(
-    ActionTypes.ADMIN_DEV_MANAGEMENT_REQUEST_DATA,
-    adminDevManagementRequestDataHandler,
+export const devsManagementRequestDataListen = function*() {
+  yield takeLatest<Action<DevsManagementRequestDataValues>>(
+    ActionTypes.DEVS_MANAGEMENT_REQUEST_DATA,
+    devsManagementRequestDataHandler,
   )
 }
 
 const adminDevManagementSagas = function*() {
-  yield all([fork(adminDevManagementRequestDataListen)])
+  yield all([fork(devsManagementRequestDataListen)])
 }
 
 export default adminDevManagementSagas

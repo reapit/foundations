@@ -1,9 +1,9 @@
-import { AdminDevManagementRequestDataValues } from './../actions/admin-dev-management'
+import { DevsManagementRequestDataValues } from './../actions/devs-management'
 import { RouteValue, StringMap } from '../types/core'
 import Routes from '../constants/routes'
 import store from '../core/store'
 import { approvalsRequestData } from '../actions/approvals'
-import { adminDevManagementRequestData } from '../actions/admin-dev-management'
+import { devsManagementRequestData } from '../actions/devs-management'
 import { getParamsFromPath } from '@/utils/client-url-params'
 import { appsRequestData } from '@/actions/apps-management'
 
@@ -16,9 +16,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(approvalsRequestData(Number(page)))
       break
     case Routes.DEV_MANAGEMENT:
-      store.dispatch(
-        adminDevManagementRequestData({ page, queryString: search } as AdminDevManagementRequestDataValues),
-      )
+      store.dispatch(devsManagementRequestData({ page, queryString: search } as DevsManagementRequestDataValues))
       break
     case Routes.APPS:
       store.dispatch(appsRequestData(getParamsFromPath(search || '')))

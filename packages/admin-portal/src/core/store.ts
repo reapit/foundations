@@ -6,7 +6,7 @@ import auth from '@/reducers/auth'
 import appDetail from '@/reducers/app-detail'
 import error from '@/reducers/error'
 import approvals from '@/reducers/approvals'
-import adminDevManagement from '@/reducers/admin-dev-management'
+import devsManagement from '@/reducers/devs-management'
 import developerSetStatus from '@/reducers/developer-set-status'
 import revisionDetail from '@/reducers/revision-detail'
 import appDeleteReducer from '@/reducers/app-delete'
@@ -48,7 +48,7 @@ export class Store {
     error,
     appsManagement: adminApps,
     approvals,
-    adminDevManagement,
+    devsManagement,
     developerSetStatus,
     revisionDetail,
     revisions: revisionsReducer,

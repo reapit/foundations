@@ -5,7 +5,7 @@ import { H3, ButtonGroup, Button, H6, Loader, Section } from '@reapit/elements'
 import { StatisticsRequestParams, statisticsRequestData } from '@/actions/statistics'
 import { Line } from 'react-chartjs-2'
 import { getChartData, getChartConfig, getRangeName } from '@/utils/admin-stats'
-import { selectAdminStats } from '@/selector/admin'
+import { selectStatistics } from '@/selector/admin'
 
 export type Area = 'APPS' | 'DEVELOPERS' | 'INSTALLATIONS'
 export type Range = 'WEEK' | 'MONTH' | 'ALL'
@@ -16,7 +16,7 @@ export const handleLoadStats = (dispatch: Dispatch) => (params: StatisticsReques
 
 export const Statistics: React.FC = () => {
   const dispatch = useDispatch()
-  const adminStats = useSelector(selectAdminStats)
+  const adminStats = useSelector(selectStatistics)
 
   const {
     loading,

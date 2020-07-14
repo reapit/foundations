@@ -11,9 +11,7 @@ import { PortalProvider } from '@reapit/elements'
 export const history = createBrowserHistory()
 const Login = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 const ApprovalsPage = React.lazy(() => catchChunkError(() => import('../components/pages/approvals')))
-const AdminDevManagementPage = React.lazy(() =>
-  catchChunkError(() => import('../components/pages/admin-dev-management')),
-)
+const DevsManagementPage = React.lazy(() => catchChunkError(() => import('../components/pages/devs-management')))
 const AppsManagementPage = React.lazy(() => catchChunkError(() => import('../components/pages/apps-management')))
 const Statistics = React.lazy(() => catchChunkError(() => import('../components/pages/statistics')))
 const BillingPage = React.lazy(() => catchChunkError(() => import('../components/pages/billing')))
@@ -31,13 +29,7 @@ const Router = () => {
                 <PrivateRoute allow="ADMIN" path={Routes.BILLING} component={BillingPage} exact />
                 <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS} component={ApprovalsPage} exact fetcher />
                 <PrivateRoute allow="ADMIN" path={Routes.APPS} component={AppsManagementPage} fetcher exact />
-                <PrivateRoute
-                  allow="ADMIN"
-                  path={Routes.DEV_MANAGEMENT}
-                  component={AdminDevManagementPage}
-                  exact
-                  fetcher
-                />
+                <PrivateRoute allow="ADMIN" path={Routes.DEV_MANAGEMENT} component={DevsManagementPage} exact fetcher />
                 <PrivateRoute allow="ADMIN" path={Routes.STATS} component={Statistics} exact />
                 <Route render={() => <Info infoType="404" />} />
               </Switch>

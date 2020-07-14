@@ -13,22 +13,19 @@ import {
   DatePicker,
 } from '@reapit/elements'
 
-export interface AdminDevManagementFilterFormValues {
+export interface DevsManagementFilterFormValues {
   name: string
   company: string
   registeredFrom: string
   registeredTo: string
 }
 
-export interface AdminDevManagementFilterFormProps {
-  filterValues: AdminDevManagementFilterFormValues
+export interface DevsManagementFilterFormProps {
+  filterValues: DevsManagementFilterFormValues
   onSearch: any
 }
 
-export const AdminDevManagementFilterForm: React.FC<AdminDevManagementFilterFormProps> = ({
-  filterValues,
-  onSearch,
-}) => (
+export const DevsManagementFilterForm: React.FC<DevsManagementFilterFormProps> = ({ filterValues, onSearch }) => (
   <Formik initialValues={filterValues} onSubmit={onSearch}>
     {({ values: { registeredFrom }, status }) => {
       return (
@@ -78,4 +75,4 @@ export const AdminDevManagementFilterForm: React.FC<AdminDevManagementFilterForm
   </Formik>
 )
 
-export default AdminDevManagementFilterForm
+export default DevsManagementFilterForm
