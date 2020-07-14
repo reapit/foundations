@@ -18,12 +18,4 @@ export const setDeveloperTermAcceptedCookieAndState = actionCreator<boolean>(
   ActionTypes.SET_DEVELOPER_TERM_ACCEPTED_COOKIE_AND_STATE,
 )
 
-export const setInitClientTermsAcceptedStateFromCookie = actionCreator<void>(
-  ActionTypes.SET_INIT_CLIENT_TERMS_ACCEPTED_STATE_FROM_COOKIE,
-)
-
-export const setClientTermAcceptedCookieAndState = actionCreator<boolean>(
-  ActionTypes.SET_CLIENT_TERM_ACCEPTED_COOKIE_AND_STATE,
-)
-
 export const setTermsAcceptedState = actionCreator<boolean>(ActionTypes.SET_TERMS_ACCEPTED_STATE)

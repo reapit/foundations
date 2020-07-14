@@ -5,16 +5,12 @@ import { shallow, mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import { PrivateRouteWrapper, handleSetTermsAcceptFromCookie } from '../private-route-wrapper'
-import { selectLoginSession, selectRefreshSession, selectLoginType } from '@/selector/auth'
+import { selectLoginSession, selectRefreshSession } from '@/selector/auth'
 import { getTokenFromQueryString, redirectToOAuth, RefreshParams } from '@reapit/cognito-auth'
 import { getCookieString, COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE } from '@/utils/cookie'
-import {
-  authSetRefreshSession,
-  setInitDeveloperTermsAcceptedStateFromCookie,
-  setInitClientTermsAcceptedStateFromCookie,
-} from '@/actions/auth'
+import { authSetRefreshSession, setInitDeveloperTermsAcceptedStateFromCookie } from '@/actions/auth'
 
-const locationMock = { search: '?state=CLIENT', pathname: '/test' }
+const locationMock = { search: '', pathname: '/test' }
 const refreshParams = appState.auth.refreshSession as RefreshParams
 const dispatch = jest.fn()
 
@@ -76,13 +72,12 @@ describe('PrivateRouteWrapper', () => {
     expect(useDispatch).toHaveBeenCalled()
     expect(useSelector).toHaveBeenCalledWith(selectLoginSession)
     expect(useSelector).toHaveBeenCalledWith(selectRefreshSession)
-    expect(useSelector).toHaveBeenCalledWith(selectLoginType)
     expect(useLocation).toHaveBeenCalled()
     expect(getCookieString).toHaveBeenCalledWith(COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE)
     expect(getTokenFromQueryString).toHaveBeenCalledWith(
       locationMock.search,
       window.reapit.config.cognitoClientId,
-      'CLIENT',
+      'DEVELOPER',
       'login-type-route',
     )
   })
@@ -114,7 +109,7 @@ describe('PrivateRouteWrapper', () => {
           </MemoryRouter>
         </Provider>,
       )
-    expect(redirectToOAuth).toHaveBeenCalledWith(window.reapit.config.cognitoClientId, 'login-type-route', 'CLIENT')
+    expect(redirectToOAuth).toHaveBeenCalledWith(window.reapit.config.cognitoClientId, 'login-type-route', 'DEVELOPER')
   })
 })
 
@@ -122,11 +117,9 @@ describe('handleSetTermsAcceptFromCookie', () => {
   it('should call 2 dispatch with correct params', () => {
     const fn = handleSetTermsAcceptFromCookie({
       dispatch,
-      setInitClientTermsAcceptedStateFromCookie,
       setInitDeveloperTermsAcceptedStateFromCookie,
     })
     fn()
-    expect(dispatch).toHaveBeenCalledWith(setInitClientTermsAcceptedStateFromCookie())
     expect(dispatch).toHaveBeenCalledWith(setInitDeveloperTermsAcceptedStateFromCookie())
   })
 })

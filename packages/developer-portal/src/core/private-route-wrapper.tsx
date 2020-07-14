@@ -6,14 +6,10 @@ import { getTokenFromQueryString, redirectToOAuth } from '@reapit/cognito-auth'
 import { Dispatch } from 'redux'
 import { Redirect, useLocation } from 'react-router'
 import { getDefaultRoute } from '@/utils/auth-route'
-import {
-  authSetRefreshSession,
-  setInitDeveloperTermsAcceptedStateFromCookie,
-  setInitClientTermsAcceptedStateFromCookie,
-} from '@/actions/auth'
+import { authSetRefreshSession, setInitDeveloperTermsAcceptedStateFromCookie } from '@/actions/auth'
 
 import { getCookieString, COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE } from '@/utils/cookie'
-import { selectLoginSession, selectRefreshSession, selectLoginType } from '@/selector/auth'
+import { selectLoginSession, selectRefreshSession } from '@/selector/auth'
 import { ActionCreator } from '@/types/core'
 import Routes from '@/constants/routes'
 
@@ -35,14 +31,11 @@ export type PrivateRouteWrapperProps = {
 
 export const handleSetTermsAcceptFromCookie = ({
   dispatch,
-  setInitClientTermsAcceptedStateFromCookie,
   setInitDeveloperTermsAcceptedStateFromCookie,
 }: {
   dispatch: Dispatch
-  setInitClientTermsAcceptedStateFromCookie: ActionCreator<void>
   setInitDeveloperTermsAcceptedStateFromCookie: ActionCreator<void>
 }) => () => {
-  dispatch(setInitClientTermsAcceptedStateFromCookie())
   dispatch(setInitDeveloperTermsAcceptedStateFromCookie())
 }
 
@@ -56,41 +49,36 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     handleSetTermsAcceptFromCookie({
       dispatch,
       setInitDeveloperTermsAcceptedStateFromCookie,
-      setInitClientTermsAcceptedStateFromCookie,
     }),
     [],
   )
 
   const loginSession = useSelector(selectLoginSession)
   const refreshSession = useSelector(selectRefreshSession)
-  const loginType = useSelector(selectLoginType)
   // const isTermAccepted = useSelector(selectIsTermAccepted)
 
   const hasSession = !!loginSession || !!refreshSession
 
   const location = useLocation()
-  const params = new URLSearchParams(location.search)
-  const state = params.get('state')
-  const type = state && state.includes('ADMIN') ? 'ADMIN' : state && state.includes('CLIENT') ? 'CLIENT' : loginType
 
   const isFirstTimeLogin = Boolean(getCookieString(COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE))
 
   const route = getDefaultRoute(isFirstTimeLogin)
 
   const cognitoClientId = window.reapit.config.cognitoClientId
-  const refreshParams = getTokenFromQueryString(location.search, cognitoClientId, type, route)
+  const refreshParams = getTokenFromQueryString(location.search, cognitoClientId, 'DEVELOPER', route)
 
   if (refreshParams && !hasSession) {
     dispatch(authSetRefreshSession(refreshParams))
     return null
   }
 
-  if (type && location.pathname === '/') {
+  if (location.pathname === '/') {
     return <Redirect to={Routes.LOGIN} />
   }
 
   if (!hasSession) {
-    redirectToOAuth(cognitoClientId, route, type)
+    redirectToOAuth(cognitoClientId, route, 'DEVELOPER')
     return null
   }
 

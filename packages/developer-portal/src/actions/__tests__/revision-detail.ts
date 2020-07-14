@@ -3,9 +3,7 @@ import {
   revisionDetailReceiveData,
   revisionDetailRequestData,
   revisionDetailClearData,
-  approveRevision,
   declineRevision,
-  approveRevisionSetFormState,
   declineRevisionSetFormState,
   RevisionDetailRequestParams,
 } from '../revision-detail'
@@ -36,14 +34,6 @@ describe('revisionDetail actions', () => {
   it('should create a revisionDetailClearData action', () => {
     expect(revisionDetailClearData.type).toEqual(ActionTypes.REVISION_DETAIL_CLEAR_DATA)
     expect(revisionDetailClearData(null).data).toEqual(null)
-  })
-
-  it('should create a approveRevision action', () => {
-    expect(approveRevision.type).toEqual(ActionTypes.REVISION_SUBMIT_APPROVE)
-  })
-
-  it('should create a approveRevisionSetFormState action', () => {
-    expect(approveRevisionSetFormState.type).toEqual(ActionTypes.REVISION_APPROVE_SET_FORM_STATE)
   })
 
   it('should create a declineRevision action', () => {

@@ -6,7 +6,6 @@ import {
   revisionDetailReceiveData,
   revisionDetailClearData,
   revisionDetailFailure,
-  approveRevisionSetFormState,
   declineRevisionSetFormState,
 } from '../actions/revision-detail'
 import { PagedResultDesktopIntegrationTypeModel_ } from '@/actions/app-integration-types'
@@ -21,7 +20,6 @@ export interface RevisionDetailState {
   loading: boolean
   error: boolean
   revisionDetailData: RevisionDetailItem | null
-  approveFormState: FormState
   declineFormState: FormState
 }
 
@@ -29,7 +27,6 @@ export const defaultState: RevisionDetailState = {
   loading: false,
   error: false,
   revisionDetailData: null,
-  approveFormState: 'PENDING',
   declineFormState: 'PENDING',
 }
 
@@ -38,7 +35,6 @@ const revisionDetailReducer = (state: RevisionDetailState = defaultState, action
     return {
       ...state,
       error: false,
-      approveFormState: 'PENDING',
       declineFormState: 'PENDING',
       loading: action.data,
     }
@@ -59,7 +55,6 @@ const revisionDetailReducer = (state: RevisionDetailState = defaultState, action
       loading: false,
       error: false,
       revisionDetailData: action.data,
-      approveFormState: 'PENDING',
       declineFormState: 'PENDING',
     }
   }
@@ -69,13 +64,6 @@ const revisionDetailReducer = (state: RevisionDetailState = defaultState, action
       ...state,
       loading: false,
       error: true,
-    }
-  }
-
-  if (isType(action, approveRevisionSetFormState)) {
-    return {
-      ...state,
-      approveFormState: action.data,
     }
   }
 

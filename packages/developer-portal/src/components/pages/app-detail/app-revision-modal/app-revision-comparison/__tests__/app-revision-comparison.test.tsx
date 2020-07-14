@@ -33,7 +33,6 @@ const props = (loading: boolean, error: boolean): AppRevisionComparisonProps => 
       scopes: appPermissionStub,
       desktopIntegrationTypes: integrationTypesStub,
     },
-    approveFormState: 'PENDING',
     declineFormState: 'PENDING',
   },
 })

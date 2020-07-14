@@ -29,7 +29,7 @@ export const onRegisterButtonClick = (history: History) => {
 
 export const onMarketplaceButtonClick = (history: History) => {
   return () => {
-    history.replace(Routes.CLIENT)
+    history.replace(Routes.DEVELOPER)
   }
 }
 

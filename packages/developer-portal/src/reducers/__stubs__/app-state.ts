@@ -2,33 +2,6 @@ import { ReduxState } from '@/types/core'
 import { COGNITO_GROUP_DEVELOPER_EDITION } from '@/constants/api'
 
 const appState: ReduxState = {
-  client: {
-    appSummary: {
-      isAppSummaryLoading: false,
-      data: null,
-      error: null,
-    },
-    appDetail: {
-      error: null,
-      data: null,
-      isAppDetailLoading: false,
-    },
-    webComponent: {
-      isShowModal: false,
-      data: null,
-      updating: false,
-      loading: false,
-      negotiators: null,
-    },
-  },
-  installedApps: {
-    loading: false,
-    installedAppsData: null,
-  },
-  myApps: {
-    loading: false,
-    myAppsData: null,
-  },
   developer: {
     loading: false,
     developerAppDetail: {
@@ -105,18 +78,6 @@ const appState: ReduxState = {
   submitRevision: {
     formState: 'PENDING',
   },
-  adminApps: {
-    loading: false,
-    formState: 'PENDING',
-    adminAppsData: null,
-  },
-  adminApprovals: {
-    loading: false,
-    adminApprovalsData: null,
-  },
-  adminDevManagement: {
-    loading: false,
-  },
   developerSetStatus: {
     formState: 'PENDING',
   },
@@ -124,7 +85,6 @@ const appState: ReduxState = {
     loading: false,
     error: false,
     revisionDetailData: null,
-    approveFormState: 'PENDING',
     declineFormState: 'PENDING',
   },
   revisions: {
@@ -193,13 +153,6 @@ const appState: ReduxState = {
     visible: false,
     variant: '',
     message: '',
-  },
-  adminStats: {
-    loading: false,
-    result: {
-      data: [],
-      totalCount: 0,
-    },
   },
   appHttpTraffic: {
     perDayLoading: false,

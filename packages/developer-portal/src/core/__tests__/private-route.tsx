@@ -41,7 +41,7 @@ describe('PrivateRouter', () => {
     expect(
       mount(
         <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.CLIENT, key: 'clientAppsRoute' }]}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.DEVELOPER, key: 'developerAppsRoute' }]}>
             <PrivateRoute allow="CLIENT" component={() => null} />
           </MemoryRouter>
         </ReactRedux.Provider>,
