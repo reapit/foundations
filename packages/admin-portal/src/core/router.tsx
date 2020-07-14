@@ -27,7 +27,7 @@ const Router = () => {
             <PrivateRouteWrapper path="/">
               <Switch>
                 <PrivateRoute allow="ADMIN" path={Routes.BILLING} component={BillingPage} exact />
-                <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS} component={ApprovalsPage} exact fetcher />
+                <PrivateRoute allow="ADMIN" path={Routes.APPROVALS} component={ApprovalsPage} exact fetcher />
                 <PrivateRoute allow="ADMIN" path={Routes.APPS} component={AppsManagementPage} fetcher exact />
                 <PrivateRoute allow="ADMIN" path={Routes.DEV_MANAGEMENT} component={DevsManagementPage} exact fetcher />
                 <PrivateRoute allow="ADMIN" path={Routes.STATS} component={Statistics} exact />

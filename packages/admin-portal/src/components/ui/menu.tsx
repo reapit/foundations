@@ -28,7 +28,7 @@ export const generateMenuConfig = (
         {
           title: 'Approvals',
           key: 'APPROVALS',
-          url: Routes.ADMIN_APPROVALS,
+          url: Routes.APPROVALS,
           icon: <FaCheck className="nav-item-icon" />,
           type: 'PRIMARY',
         },

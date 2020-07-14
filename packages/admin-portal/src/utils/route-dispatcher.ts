@@ -12,7 +12,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
   const page = queryParams.get('page') ? Number(queryParams.get('page')) : 1
 
   switch (route) {
-    case Routes.ADMIN_APPROVALS:
+    case Routes.APPROVALS:
       store.dispatch(approvalsRequestData(Number(page)))
       break
     case Routes.DEV_MANAGEMENT:

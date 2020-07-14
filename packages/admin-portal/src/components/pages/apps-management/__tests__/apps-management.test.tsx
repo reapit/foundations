@@ -207,7 +207,7 @@ describe('admin-apps', () => {
       expect(
         mount(
           <ReactRedux.Provider store={store}>
-            <MemoryRouter initialEntries={[{ pathname: Routes.ADMIN_APPROVALS, key: 'adminApps' }]}>
+            <MemoryRouter initialEntries={[{ pathname: Routes.APPROVALS, key: 'adminApps' }]}>
               <AppsManagement />
             </MemoryRouter>
           </ReactRedux.Provider>,

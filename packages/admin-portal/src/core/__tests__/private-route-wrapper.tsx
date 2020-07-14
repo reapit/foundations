@@ -74,7 +74,7 @@ describe('PrivateRouteWrapper', () => {
       locationMock.search,
       window.reapit.config.cognitoClientId,
       'ADMIN',
-      `${window.location.origin}${Routes.ADMIN_APPROVALS}`,
+      `${window.location.origin}${Routes.APPROVALS}`,
     )
   })
 
@@ -106,7 +106,7 @@ describe('PrivateRouteWrapper', () => {
       )
     expect(redirectToOAuth).toHaveBeenCalledWith(
       window.reapit.config.cognitoClientId,
-      `${window.location.origin}${Routes.ADMIN_APPROVALS}`,
+      `${window.location.origin}${Routes.APPROVALS}`,
       'ADMIN',
     )
   })

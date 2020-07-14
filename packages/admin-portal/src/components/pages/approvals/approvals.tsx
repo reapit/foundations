@@ -21,7 +21,7 @@ export type HandleCloseModalParams = {
 export const handleCloseModal = ({ setIsModalOpen }: HandleCloseModalParams) => () => setIsModalOpen(false)
 
 export const handleOnPageChange = (history: { push: (path: string) => void }) => (page: number) =>
-  history.push(`${Routes.ADMIN_APPROVALS}?page=${page}`)
+  history.push(`${Routes.APPROVALS}?page=${page}`)
 
 export const Content = ({
   loading,

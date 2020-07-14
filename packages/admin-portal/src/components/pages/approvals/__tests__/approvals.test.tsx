@@ -37,7 +37,7 @@ describe('admin-approvals', () => {
       }
       const fn = handleOnPageChange(mockHistory)
       fn(1)
-      expect(mockHistory.push).toBeCalledWith(`${Routes.ADMIN_APPROVALS}?page=1`)
+      expect(mockHistory.push).toBeCalledWith(`${Routes.APPROVALS}?page=1`)
     })
   })
 
@@ -123,7 +123,7 @@ describe('admin-approvals', () => {
       expect(
         mount(
           <ReactRedux.Provider store={store}>
-            <MemoryRouter initialEntries={[{ pathname: Routes.ADMIN_APPROVALS, key: 'adminApprovalRoute' }]}>
+            <MemoryRouter initialEntries={[{ pathname: Routes.APPROVALS, key: 'adminApprovalRoute' }]}>
               <AdminApprovals />
             </MemoryRouter>
           </ReactRedux.Provider>,
