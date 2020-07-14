@@ -68,9 +68,13 @@ export const handleRedirectToAuthenticationPage = (
     if (!loginIdentity || isFetchingAccessToken) {
       return
     }
-    const { clientId, developerId } = loginIdentity
+    const { clientId, developerId, adminId } = loginIdentity
     if ((allow === 'CLIENT' && !clientId) || (allow === 'DEVELOPER' && !developerId)) {
       history.replace(`${Routes.AUTHENTICATION}/${allow.toLowerCase()}`)
+    }
+
+    if (allow === 'ADMIN' && !adminId) {
+      history.replace(Routes.FOUR_O_FOUR)
     }
   }
 }
