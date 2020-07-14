@@ -29,17 +29,7 @@ exports[`Router should match a snapshot 1`] = `
       <Switch>
         <Route
           exact={true}
-<<<<<<< HEAD
-          path="/developer/login"
-=======
-          path={
-            Array [
-              "/login",
-              "/admin/login",
-              "/client/login",
-            ]
-          }
->>>>>>> chore: #1997 remove /developer prefix in developer-portal routes
+          path="/login"
           render={[Function]}
         />
         <Route
@@ -215,23 +205,6 @@ exports[`Router should match a snapshot 1`] = `
                   "_status": -1,
                 }
               }
-<<<<<<< HEAD
-=======
-              exact={true}
-              fetcher={true}
-              path="/settings/"
-            />
-            <Component
-              allow="DEVELOPER"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
->>>>>>> chore: #1997 remove /developer prefix in developer-portal routes
               fetcher={true}
               path="/settings/billing"
             />
