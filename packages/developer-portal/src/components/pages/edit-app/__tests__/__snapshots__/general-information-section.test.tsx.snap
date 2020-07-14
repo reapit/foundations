@@ -87,7 +87,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={[Function]}
                         >
                           <div
-                            className="field"
+                            className="field "
                           >
                             <div
                               className="control "
@@ -191,7 +191,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={null}
                         >
                           <div
-                            className="field"
+                            className="field "
                           >
                             <div
                               className="control "
@@ -239,7 +239,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={null}
                         >
                           <div
-                            className="field"
+                            className="field "
                           >
                             <div
                               className="control "
@@ -294,7 +294,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={null}
                         >
                           <div
-                            className="field"
+                            className="field "
                           >
                             <div
                               className="control "
@@ -342,7 +342,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={null}
                         >
                           <div
-                            className="field"
+                            className="field "
                           >
                             <div
                               className="control "
@@ -597,7 +597,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={[Function]}
                         >
                           <div
-                            className="field"
+                            className="field "
                           >
                             <div
                               className="control "
@@ -701,7 +701,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={[Function]}
                         >
                           <div
-                            className="field"
+                            className="field "
                           >
                             <div
                               className="control "
@@ -749,7 +749,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={[Function]}
                         >
                           <div
-                            className="field"
+                            className="field "
                           >
                             <div
                               className="control "
@@ -804,7 +804,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={[Function]}
                         >
                           <div
-                            className="field"
+                            className="field "
                           >
                             <div
                               className="control "
@@ -852,7 +852,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={[Function]}
                         >
                           <div
-                            className="field"
+                            className="field "
                           >
                             <div
                               className="control "

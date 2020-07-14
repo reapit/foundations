@@ -20,13 +20,14 @@ import {
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import DevsManagementFilterForm, { DevsManagementFilterFormValues } from '@/components/ui/devs-management-filter-form'
-import SetDeveloperStatusModal from '@/components/ui/developer-set-status'
+// import SetDeveloperStatusModal from '@/components/ui/developer-set-status'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { devsManagementRequestData, DevsManagementRequestDataValues } from '@/actions/devs-management'
 import qs from 'querystring'
 import { selectDevsManagement } from '@/selector/admin'
 import { Dispatch } from 'redux'
 import { cleanObject } from '@reapit/utils'
+import StatusModal from './set-status-modal/status-modal'
 
 // export interface DevsManagementMappedActions {
 //   fetchData: (requestdata: DevsManagementRequestDataValues) => void
@@ -107,25 +108,43 @@ export const DevsManagement: React.FC = () => {
   const pageNo = pageNumber - 1
   const pageNoTimesRevsions = pageNo * REVISIONS_PER_PAGE
   const HeaderCell = ({ row: { index } }) => <div style={{ width: 'auto' }}>{pageNoTimesRevsions + index + 1}</div>
-  const ButtonCell = ({ row: { original } }) => {
-    const { id, isInactive } = original as DeveloperModel
 
+  // Note: Comment because not use in the moment
+
+  // const ButtonCell = ({ row: { original } }) => {
+  //   const { id, isInactive } = original as DeveloperModel
+
+  //   return (
+  //     <Button
+  //       type="button"
+  //       variant="primary"
+  //       onClick={() => {
+  //         if (id) {
+  //           setDeveloper({ ...original, isInactive: isInactive! })
+  //           setIsSetStatusModalOpen(true)
+  //         }
+  //       }}
+  //     >
+  //       {isInactive ? 'Enable' : 'Deactive'}
+  //     </Button>
+  //   )
+  // }
+
+  const CreatedCell = ({ cell: { value } }) => <p>{toLocalTime(value)}</p>
+  const StatusBtnCell = ({ row: { original } }) => {
     return (
       <Button
         type="button"
         variant="primary"
         onClick={() => {
-          if (id) {
-            setDeveloper({ ...original, isInactive: isInactive! })
-            setIsSetStatusModalOpen(true)
-          }
+          setDeveloper({ ...original })
+          setIsSetStatusModalOpen(true)
         }}
       >
-        {isInactive ? 'Enable' : 'Deactive'}
+        Status
       </Button>
     )
   }
-  const CreatedCell = ({ cell: { value } }) => <p>{toLocalTime(value)}</p>
 
   const columns = [
     {
@@ -144,15 +163,18 @@ export const DevsManagement: React.FC = () => {
       Cell: CreatedCell,
     },
     {
+      Header: 'Status',
+      accessor: 'status',
+      columnProps: {
+        className: 'capitalize',
+      },
+    },
+    {
       Header: '',
       id: 'buttonColumn',
-      Cell: ButtonCell,
+      Cell: StatusBtnCell,
     },
   ]
-
-  if (loading || !data) {
-    return <Loader />
-  }
 
   if (!loading && data?.data?.length === 0) {
     return (
@@ -175,24 +197,31 @@ export const DevsManagement: React.FC = () => {
         <H3>Developer Management</H3>
       </Section>
       <DevsManagementFilterForm filterValues={filterValues} onSearch={onSearch} />
-      <Section>
-        <Table scrollable={true} loading={false} data={data.data || []} columns={columns} />
-      </Section>
-      <Section>
-        <div>Total: {data.totalCount}</div>
-      </Section>
-      <Pagination
-        onChange={onPageChange}
-        totalCount={data.totalCount}
-        pageSize={data.pageSize}
-        pageNumber={data.pageNumber}
-      />
-      <SetDeveloperStatusModal
+      {loading || !data ? (
+        <Loader />
+      ) : (
+        <>
+          <Section>
+            <Table scrollable={true} loading={false} data={data.data || []} columns={columns} />
+          </Section>
+          <Section>
+            <div>Total: {data.totalCount}</div>
+          </Section>
+          <Pagination
+            onChange={onPageChange}
+            totalCount={data.totalCount}
+            pageSize={data.pageSize}
+            pageNumber={data.pageNumber}
+          />
+          {/* <SetDeveloperStatusModal
         visible={isSetStatusModalOpen}
         afterClose={resetModal(false)}
         onSuccess={resetModal(true)}
         developer={developer}
-      />
+      />  */}
+          <StatusModal visible={isSetStatusModalOpen} developer={developer} resetModal={resetModal} />
+        </>
+      )}
     </ErrorBoundary>
   )
 }

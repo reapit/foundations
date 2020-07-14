@@ -1,0 +1,852 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<div>
+  <Component
+    className="mt-2"
+    id="reapitReference"
+    labelText="Reapit Ref"
+    name="reapitReference"
+    placeholder="Please enter reference"
+    type="text"
+  />
+</div>
+`;
+
+exports[`StatusModal should match snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Component
+    developer={Object {}}
+    resetModal={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            true,
+          ],
+          Array [
+            false,
+          ],
+          Array [
+            false,
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    visible={true}
+  >
+    <Formik
+      initialValues={
+        Object {
+          "reapitReference": undefined,
+          "status": undefined,
+        }
+      }
+      onSubmit={[Function]}
+      validationSchema={
+        ObjectSchema {
+          "_blacklist": RefSet {
+            "list": Set {},
+            "refs": Map {},
+          },
+          "_conditions": Array [],
+          "_defaultDefault": [Function],
+          "_deps": Array [],
+          "_excludedEdges": Array [],
+          "_exclusive": Object {},
+          "_mutate": undefined,
+          "_nodes": Array [
+            "status",
+            "reapitReference",
+          ],
+          "_options": Object {
+            "abortEarly": true,
+            "recursive": true,
+          },
+          "_type": "object",
+          "_typeError": [Function],
+          "_whitelist": RefSet {
+            "list": Set {},
+            "refs": Map {},
+          },
+          "fields": Object {
+            "reapitReference": StringSchema {
+              "_blacklist": RefSet {
+                "list": Set {},
+                "refs": Map {},
+              },
+              "_conditions": Array [
+                Condition {
+                  "fn": [Function],
+                  "refs": Array [
+                    Reference {
+                      "getter": [Function],
+                      "isContext": false,
+                      "isSibling": true,
+                      "isValue": false,
+                      "key": "status",
+                      "map": undefined,
+                      "path": "status",
+                    },
+                  ],
+                },
+              ],
+              "_deps": Array [
+                "status",
+              ],
+              "_exclusive": Object {
+                "trim": false,
+              },
+              "_mutate": undefined,
+              "_options": Object {
+                "abortEarly": true,
+                "recursive": true,
+              },
+              "_type": "string",
+              "_typeError": [Function],
+              "_whitelist": RefSet {
+                "list": Set {},
+                "refs": Map {},
+              },
+              "tests": Array [
+                [Function],
+              ],
+              "transforms": Array [
+                [Function],
+                [Function],
+              ],
+              "type": "string",
+            },
+            "status": StringSchema {
+              "_blacklist": RefSet {
+                "list": Set {},
+                "refs": Map {},
+              },
+              "_conditions": Array [],
+              "_deps": Array [],
+              "_exclusive": Object {
+                "required": true,
+                "trim": false,
+              },
+              "_mutate": undefined,
+              "_options": Object {
+                "abortEarly": true,
+                "recursive": true,
+              },
+              "_type": "string",
+              "_typeError": [Function],
+              "_whitelist": RefSet {
+                "list": Set {},
+                "refs": Map {},
+              },
+              "tests": Array [
+                [Function],
+                [Function],
+              ],
+              "transforms": Array [
+                [Function],
+                [Function],
+              ],
+              "type": "string",
+            },
+          },
+          "tests": Array [],
+          "transforms": Array [
+            [Function],
+          ],
+          "type": "object",
+        }
+      }
+    >
+      <Memo()
+        destroyOnClose={true}
+        footer={
+          Array [
+            <Unknown
+              className="mr-2"
+              type="button"
+              variant="danger"
+            >
+              CANCEL
+            </Unknown>,
+            <Unknown
+              loading={false}
+              onClick={[Function]}
+              type="submit"
+              variant="primary"
+            >
+              SAVE
+            </Unknown>,
+          ]
+        }
+        isCentered={true}
+        visible={true}
+      >
+        <Component
+          className=""
+          destroyOnClose={true}
+          footer={
+            Array [
+              <Unknown
+                className="mr-2"
+                type="button"
+                variant="danger"
+              >
+                CANCEL
+              </Unknown>,
+              <Unknown
+                loading={false}
+                onClick={[Function]}
+                type="submit"
+                variant="primary"
+              >
+                SAVE
+              </Unknown>,
+            ]
+          }
+          visible={true}
+          wrapClassName=""
+        >
+          <PortalWrapper
+            visible={true}
+          >
+            <Portal
+              getContainer={[Function]}
+            >
+              <Portal
+                containerInfo={
+                  <div>
+                    <div
+                      class="rc-dialog-root"
+                    >
+                      <div
+                        class="rc-dialog-mask"
+                      />
+                      <div
+                        class="rc-dialog-wrap "
+                        role="dialog"
+                        tabindex="-1"
+                      >
+                        <div
+                          class="rc-dialog "
+                          role="document"
+                        >
+                          <div
+                            aria-hidden="true"
+                            style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                            tabindex="0"
+                          />
+                          <div
+                            class="rc-dialog-content"
+                          >
+                            <button
+                              aria-label="Close"
+                              class="rc-dialog-close"
+                              type="button"
+                            >
+                              <span
+                                class="rc-dialog-close-x"
+                              />
+                            </button>
+                            <div
+                              class="rc-dialog-body"
+                            >
+                              <p
+                                class="label"
+                              >
+                                Status
+                              </p>
+                              <form
+                                action="#"
+                              >
+                                <div
+                                  class="field pb-2 "
+                                >
+                                  <div
+                                    class="control"
+                                  >
+                                    <label
+                                      class="label"
+                                      for="status"
+                                    />
+                                    <div
+                                      class=""
+                                      data-test=""
+                                    >
+                                      <div
+                                        class=""
+                                        data-test=""
+                                      >
+                                        <div
+                                          class="radio-wrap"
+                                        >
+                                          <input
+                                            class="checkbox "
+                                            id="statusIncomplete"
+                                            name="status"
+                                            type="radio"
+                                            value="incomplete"
+                                          />
+                                          <label
+                                            for="statusIncomplete"
+                                          >
+                                            Incomplete
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div
+                                        class=""
+                                        data-test=""
+                                      >
+                                        <div
+                                          class="radio-wrap"
+                                        >
+                                          <input
+                                            class="checkbox "
+                                            id="statusPending"
+                                            name="status"
+                                            type="radio"
+                                            value="pending"
+                                          />
+                                          <label
+                                            for="statusPending"
+                                          >
+                                            Pending
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div
+                                        class=""
+                                        data-test=""
+                                      >
+                                        <div
+                                          class="radio-wrap"
+                                        >
+                                          <input
+                                            class="checkbox "
+                                            id="statusConfirmed"
+                                            name="status"
+                                            type="radio"
+                                            value="confirmed"
+                                          />
+                                          <label
+                                            for="statusConfirmed"
+                                          >
+                                            Confirmed
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div
+                                        class=""
+                                        data-test=""
+                                      >
+                                        <div
+                                          class="radio-wrap"
+                                        >
+                                          <input
+                                            class="checkbox "
+                                            id="statusUnder Review"
+                                            name="status"
+                                            type="radio"
+                                            value="underReview"
+                                          />
+                                          <label
+                                            for="statusUnder Review"
+                                          >
+                                            Under Review
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div
+                                        class=""
+                                        data-test=""
+                                      >
+                                        <div
+                                          class="radio-wrap"
+                                        >
+                                          <input
+                                            class="checkbox "
+                                            id="statusRemoved"
+                                            name="status"
+                                            type="radio"
+                                            value="removed"
+                                          />
+                                          <label
+                                            for="statusRemoved"
+                                          >
+                                            Removed
+                                          </label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                            <div
+                              class="rc-dialog-footer"
+                            >
+                              <button
+                                class="button mr-2 is-danger  "
+                                data-test=""
+                                type="button"
+                              >
+                                CANCEL
+                              </button>
+                              <button
+                                class="button  is-primary  "
+                                data-test=""
+                                type="submit"
+                              >
+                                SAVE
+                              </button>
+                            </div>
+                          </div>
+                          <div
+                            aria-hidden="true"
+                            style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                            tabindex="0"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                }
+              >
+                <Dialog
+                  className=""
+                  closable={true}
+                  destroyOnClose={true}
+                  focusTriggerAfterClose={true}
+                  footer={
+                    Array [
+                      <Unknown
+                        className="mr-2"
+                        type="button"
+                        variant="danger"
+                      >
+                        CANCEL
+                      </Unknown>,
+                      <Unknown
+                        loading={false}
+                        onClick={[Function]}
+                        type="submit"
+                        variant="primary"
+                      >
+                        SAVE
+                      </Unknown>,
+                    ]
+                  }
+                  getContainer={[Function]}
+                  getOpenCount={[Function]}
+                  keyboard={true}
+                  mask={true}
+                  maskClosable={true}
+                  prefixCls="rc-dialog"
+                  switchScrollingEffect={[Function]}
+                  visible={true}
+                  wrapClassName=""
+                >
+                  <div
+                    className="rc-dialog-root"
+                  >
+                    <LazyRenderBox
+                      className="rc-dialog-mask"
+                      hiddenClassName="rc-dialog-mask-hidden"
+                      key="mask"
+                      style={Object {}}
+                      visible={true}
+                    >
+                      <div
+                        className="rc-dialog-mask"
+                        style={Object {}}
+                      />
+                    </LazyRenderBox>
+                    <div
+                      aria-labelledby={null}
+                      className="rc-dialog-wrap "
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      onMouseUp={[Function]}
+                      role="dialog"
+                      style={
+                        Object {
+                          "display": null,
+                        }
+                      }
+                      tabIndex={-1}
+                    >
+                      <Animate
+                        animation={Object {}}
+                        component=""
+                        componentProps={Object {}}
+                        key="dialog"
+                        onAppear={[Function]}
+                        onEnd={[Function]}
+                        onEnter={[Function]}
+                        onLeave={[Function]}
+                        showProp="visible"
+                        transitionAppear={true}
+                        transitionEnter={true}
+                        transitionLeave={true}
+                      >
+                        <AnimateChild
+                          animation={Object {}}
+                          key="dialog-element"
+                          transitionAppear={true}
+                          transitionEnter={true}
+                          transitionLeave={true}
+                        >
+                          <LazyRenderBox
+                            className="rc-dialog "
+                            key="dialog-element"
+                            onMouseDown={[Function]}
+                            role="document"
+                            style={Object {}}
+                            visible={true}
+                          >
+                            <div
+                              className="rc-dialog "
+                              onMouseDown={[Function]}
+                              role="document"
+                              style={Object {}}
+                            >
+                              <div
+                                aria-hidden="true"
+                                style={
+                                  Object {
+                                    "height": 0,
+                                    "outline": "none",
+                                    "overflow": "hidden",
+                                    "width": 0,
+                                  }
+                                }
+                                tabIndex={0}
+                              />
+                              <div
+                                className="rc-dialog-content"
+                              >
+                                <button
+                                  aria-label="Close"
+                                  className="rc-dialog-close"
+                                  onClick={[Function]}
+                                  type="button"
+                                >
+                                  <span
+                                    className="rc-dialog-close-x"
+                                  />
+                                </button>
+                                <div
+                                  className="rc-dialog-body"
+                                >
+                                  <p
+                                    className="label"
+                                  >
+                                    Status
+                                  </p>
+                                  <Form>
+                                    <form
+                                      action="#"
+                                      onReset={[Function]}
+                                      onSubmit={[Function]}
+                                    >
+                                      <Component
+                                        id="status"
+                                        name="status"
+                                        options={
+                                          Array [
+                                            Object {
+                                              "label": "Incomplete",
+                                              "value": "incomplete",
+                                            },
+                                            Object {
+                                              "label": "Pending",
+                                              "value": "pending",
+                                            },
+                                            Object {
+                                              "additionalField": [Function],
+                                              "label": "Confirmed",
+                                              "value": "confirmed",
+                                            },
+                                            Object {
+                                              "label": "Under Review",
+                                              "value": "underReview",
+                                            },
+                                            Object {
+                                              "label": "Removed",
+                                              "value": "removed",
+                                            },
+                                          ]
+                                        }
+                                        setFieldValue={[Function]}
+                                      >
+                                        <Field
+                                          name="status"
+                                          type="radio"
+                                        >
+                                          <div
+                                            className="field pb-2 "
+                                          >
+                                            <div
+                                              className="control"
+                                            >
+                                              <label
+                                                className="label"
+                                                htmlFor="status"
+                                              />
+                                              <Component
+                                                className=""
+                                                isMultiLine={true}
+                                              >
+                                                <div
+                                                  className=""
+                                                  data-test=""
+                                                >
+                                                  <Component
+                                                    className=""
+                                                    key="0"
+                                                  >
+                                                    <div
+                                                      className=""
+                                                      data-test=""
+                                                    >
+                                                      <div
+                                                        className="radio-wrap"
+                                                      >
+                                                        <input
+                                                          checked={false}
+                                                          className="checkbox "
+                                                          disabled={false}
+                                                          id="statusIncomplete"
+                                                          key="incomplete"
+                                                          name="status"
+                                                          onChange={[Function]}
+                                                          type="radio"
+                                                          value="incomplete"
+                                                        />
+                                                        <label
+                                                          htmlFor="statusIncomplete"
+                                                        >
+                                                          Incomplete
+                                                        </label>
+                                                      </div>
+                                                    </div>
+                                                  </Component>
+                                                  <Component
+                                                    className=""
+                                                    key="1"
+                                                  >
+                                                    <div
+                                                      className=""
+                                                      data-test=""
+                                                    >
+                                                      <div
+                                                        className="radio-wrap"
+                                                      >
+                                                        <input
+                                                          checked={false}
+                                                          className="checkbox "
+                                                          disabled={false}
+                                                          id="statusPending"
+                                                          key="pending"
+                                                          name="status"
+                                                          onChange={[Function]}
+                                                          type="radio"
+                                                          value="pending"
+                                                        />
+                                                        <label
+                                                          htmlFor="statusPending"
+                                                        >
+                                                          Pending
+                                                        </label>
+                                                      </div>
+                                                    </div>
+                                                  </Component>
+                                                  <Component
+                                                    className=""
+                                                    key="2"
+                                                  >
+                                                    <div
+                                                      className=""
+                                                      data-test=""
+                                                    >
+                                                      <div
+                                                        className="radio-wrap"
+                                                      >
+                                                        <input
+                                                          checked={false}
+                                                          className="checkbox "
+                                                          disabled={false}
+                                                          id="statusConfirmed"
+                                                          key="confirmed"
+                                                          name="status"
+                                                          onChange={[Function]}
+                                                          type="radio"
+                                                          value="confirmed"
+                                                        />
+                                                        <label
+                                                          htmlFor="statusConfirmed"
+                                                        >
+                                                          Confirmed
+                                                        </label>
+                                                      </div>
+                                                    </div>
+                                                  </Component>
+                                                  <Component
+                                                    className=""
+                                                    key="3"
+                                                  >
+                                                    <div
+                                                      className=""
+                                                      data-test=""
+                                                    >
+                                                      <div
+                                                        className="radio-wrap"
+                                                      >
+                                                        <input
+                                                          checked={false}
+                                                          className="checkbox "
+                                                          disabled={false}
+                                                          id="statusUnder Review"
+                                                          key="underReview"
+                                                          name="status"
+                                                          onChange={[Function]}
+                                                          type="radio"
+                                                          value="underReview"
+                                                        />
+                                                        <label
+                                                          htmlFor="statusUnder Review"
+                                                        >
+                                                          Under Review
+                                                        </label>
+                                                      </div>
+                                                    </div>
+                                                  </Component>
+                                                  <Component
+                                                    className=""
+                                                    key="4"
+                                                  >
+                                                    <div
+                                                      className=""
+                                                      data-test=""
+                                                    >
+                                                      <div
+                                                        className="radio-wrap"
+                                                      >
+                                                        <input
+                                                          checked={false}
+                                                          className="checkbox "
+                                                          disabled={false}
+                                                          id="statusRemoved"
+                                                          key="removed"
+                                                          name="status"
+                                                          onChange={[Function]}
+                                                          type="radio"
+                                                          value="removed"
+                                                        />
+                                                        <label
+                                                          htmlFor="statusRemoved"
+                                                        >
+                                                          Removed
+                                                        </label>
+                                                      </div>
+                                                    </div>
+                                                  </Component>
+                                                </div>
+                                              </Component>
+                                            </div>
+                                          </div>
+                                        </Field>
+                                      </Component>
+                                    </form>
+                                  </Form>
+                                </div>
+                                <div
+                                  className="rc-dialog-footer"
+                                >
+                                  <Component
+                                    className="mr-2"
+                                    key="close"
+                                    type="button"
+                                    variant="danger"
+                                  >
+                                    <button
+                                      className="button mr-2 is-danger  "
+                                      data-test=""
+                                      disabled={false}
+                                      type="button"
+                                    >
+                                      CANCEL
+                                    </button>
+                                  </Component>
+                                  <Component
+                                    key="submit"
+                                    loading={false}
+                                    onClick={[Function]}
+                                    type="submit"
+                                    variant="primary"
+                                  >
+                                    <button
+                                      className="button  is-primary  "
+                                      data-test=""
+                                      disabled={false}
+                                      onClick={[Function]}
+                                      type="submit"
+                                    >
+                                      SAVE
+                                    </button>
+                                  </Component>
+                                </div>
+                              </div>
+                              <div
+                                aria-hidden="true"
+                                style={
+                                  Object {
+                                    "height": 0,
+                                    "outline": "none",
+                                    "overflow": "hidden",
+                                    "width": 0,
+                                  }
+                                }
+                                tabIndex={0}
+                              />
+                            </div>
+                          </LazyRenderBox>
+                        </AnimateChild>
+                      </Animate>
+                    </div>
+                  </div>
+                </Dialog>
+              </Portal>
+            </Portal>
+          </PortalWrapper>
+        </Component>
+      </Memo()>
+    </Formik>
+  </Component>
+</Provider>
+`;

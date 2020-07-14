@@ -16,6 +16,7 @@ export interface InputProps {
   disabled?: boolean
   validate?: (value: string) => string | null
   maxLength?: number
+  className?: string
 }
 
 export const Input = ({
@@ -31,14 +32,15 @@ export const Input = ({
   maxLength,
   validate = fieldValidateRequire,
   helperText,
+  className = '',
 }: InputProps) => (
   <Field name={name} validate={required ? validate : null}>
     {({ field, meta }: FieldProps<string | number>) => {
       const hasError = checkError(meta)
-      const className = hasError ? 'input is-danger' : 'input is-primary'
+      const inputClassName = hasError ? 'input is-danger' : 'input is-primary'
       const defaultValue = ''
       return (
-        <div className="field">
+        <div className={`field ${className}`}>
           <div className={`control ${rightIcon ? 'has-icons-right' : ''}`}>
             {type !== 'hidden' && !rightIcon && labelText && (
               <label className={`label inline-block ${required ? 'required-label' : ''}`} htmlFor={id}>
@@ -54,7 +56,7 @@ export const Input = ({
               type={type}
               id={id}
               placeholder={placeholder}
-              className={className}
+              className={inputClassName}
               {...field}
               value={field.value || defaultValue}
               maxLength={maxLength}
