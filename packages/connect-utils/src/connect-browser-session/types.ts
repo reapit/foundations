@@ -1,8 +1,14 @@
 export interface ReapitConnectBrowserSessionInitializers {
   connectOAuthUrl: string
   connectClientId: string
-  connectUserPoolId: string
-  loginUri: string
+  connectLoginRedirectUri: string
+  connectLogoutRedirectUri: string
+}
+
+export interface ConnectSession {
+  accessToken: string
+  refreshToken: string
+  loginIdentity: LoginIdentity
 }
 
 export interface LoginIdentity {
@@ -13,10 +19,6 @@ export interface LoginIdentity {
   adminId: string | null
   userCode: string | null
   groups: string[]
-}
-
-export interface LoginAccess {
-  expiry: number
 }
 
 export interface CoginitoIdentity {

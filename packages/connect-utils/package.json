@@ -1,7 +1,7 @@
 {
-  "name": "@reapit/cognito-auth",
-  "version": "2.1.8",
-  "description": "Simple wrapper around AWS Cognito for basic authentication flow",
+  "name": "@reapit/connect-utils",
+  "version": "1.0.0-alpha.1",
+  "description": "OAuth Flow for Reapit Connect",
   "keywords": [],
   "homepage": "https://github.com/reapit/foundations#readme",
   "bugs": {
@@ -17,10 +17,10 @@
     "dist"
   ],
   "main": "dist/index.js",
-  "umd:main": "dist/cognito-auth.umd.production.js",
-  "module": "dist/cognito-auth.esm.js",
-  "typings": "dist/cognito-auth/src/index.d.ts",
-  "types": "dist/cognito-auth/src/index.d.ts",
+  "umd:main": "dist/connect-utils.umd.production.js",
+  "module": "dist/connect-utils.esm.js",
+  "typings": "dist/connect-utils/src/index.d.ts",
+  "types": "dist/connect-utils/src/index.d.ts",
   "scripts": {
     "build:prod": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
@@ -32,19 +32,12 @@
     "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
-    "@reapit/elements": "^0.5.60",
-    "amazon-cognito-identity-js": "~3.0.13",
-    "cors": "^2.8.5",
-    "hardtack": "^4.1.2",
+    "isomorphic-fetch": "^2.2.1",
     "jsonwebtoken": "^8.5.1",
     "snyk": "^1.335.0"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^11.0.2",
-    "@rollup/plugin-node-resolve": "^7.1.1",
-    "@types/jsonwebtoken": "^8.3.5",
-    "compare-versions": "^3.5.1",
-    "rollup-plugin-scss": "^1.0.2"
+    "@types/jsonwebtoken": "^8.3.5"
   },
   "snyk": true
 }

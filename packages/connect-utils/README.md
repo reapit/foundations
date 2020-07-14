@@ -8,3 +8,19 @@ A thin wrapper around the AWS SDK and OAuth flow to take the pain out of authent
 - **Cloud Services**: NPM, AWS Cognito
 - **Production**: https://www.npmjs.com/package/@reapit/cognito-auth
 
+```ts
+  import { ReapitConnectBrowserSession } from '@reapit/connect-utils'
+
+  const reapitConnectBrowserSession = new ReapitConnectBrowserSession({
+    connectClientId: window.reapit.config.cognitoClientId,
+    connectOAuthUrl: window.reapit.config.cognitoOAuthUrl,
+    connectLoginRedirectUri: '/',
+    connectLogoutRedirectUri: '/login',
+  })
+
+  export default reapitConnectBrowserSession
+```
+
+```ts
+import('./auth')
+```
