@@ -1,8 +1,4 @@
-import {
-  adminApprovalsLoading,
-  adminApprovalsReceiveData,
-  adminApprovalsRequestDataFailure,
-} from '../actions/admin-approvals'
+import { approvalsLoading, approvalsReceiveData, approvalsRequestDataFailure } from '../actions/approvals'
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
@@ -11,15 +7,15 @@ import { Action } from '@/types/core'
 import { logger } from '@reapit/utils'
 import { fetchApprovalsList } from '@/services/approvals'
 
-export const adminApprovalsDataFetch = function*({ data: page }) {
-  yield put(adminApprovalsLoading(true))
+export const approvalsDataFetch = function*({ data: page }) {
+  yield put(approvalsLoading(true))
 
   try {
     const response = yield call(fetchApprovalsList, { pageNumber: page })
     if (response) {
-      yield put(adminApprovalsReceiveData({ data: response }))
+      yield put(approvalsReceiveData({ data: response }))
     } else {
-      yield put(adminApprovalsRequestDataFailure())
+      yield put(approvalsRequestDataFailure())
     }
   } catch (err) {
     logger(err)
@@ -32,12 +28,12 @@ export const adminApprovalsDataFetch = function*({ data: page }) {
   }
 }
 
-export const adminApprovalsDataListen = function*() {
-  yield takeLatest<Action<number>>(ActionTypes.ADMIN_APPROVALS_REQUEST_DATA, adminApprovalsDataFetch)
+export const approvalsDataListen = function*() {
+  yield takeLatest<Action<number>>(ActionTypes.APPROVALS_REQUEST_DATA, approvalsDataFetch)
 }
 
-const adminApprovalsSagas = function*() {
-  yield all([fork(adminApprovalsDataListen)])
+const approvalsSagas = function*() {
+  yield all([fork(approvalsDataListen)])
 }
 
-export default adminApprovalsSagas
+export default approvalsSagas

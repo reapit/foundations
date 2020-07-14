@@ -13,7 +13,7 @@ import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { Action, ReduxState } from '@/types/core'
-import { adminApprovalsDataFetch } from './admin-approvals'
+import { approvalsDataFetch } from './approvals'
 import { logger } from '@reapit/utils'
 import { fetchAppRevisionsById, approveAppRevisionById, rejectAppRevisionById } from '@/services/apps'
 import { fetchScopesList } from '@/services/scopes'
@@ -52,9 +52,9 @@ export const revisionDetailDataListen = function*() {
     revisionDetailDataFetch,
   )
 }
-
+// TODO move to selector
 export const getApprovalPageNumber = (state: ReduxState) => ({
-  pageNumber: state?.adminApprovals?.adminApprovalsData?.data?.pageNumber || 1,
+  pageNumber: state?.approvals?.approvalsData?.data?.pageNumber || 1,
 })
 
 export const approveRevision = function*({ data: params }: Action<RevisionApproveRequestParams>) {
@@ -66,7 +66,7 @@ export const approveRevision = function*({ data: params }: Action<RevisionApprov
 
     const status = response ? 'SUCCESS' : 'ERROR'
     if (status === 'SUCCESS') {
-      yield call(adminApprovalsDataFetch, { data: pageNumber })
+      yield call(approvalsDataFetch, { data: pageNumber })
     }
     yield put(approveRevisionSetFormState(status))
   } catch (err) {
@@ -94,7 +94,7 @@ export const declineRevision = function*({ data: params }: Action<RevisionDeclin
 
     const status = response ? 'SUCCESS' : 'ERROR'
     if (status === 'SUCCESS') {
-      yield call(adminApprovalsDataFetch, { data: pageNumber })
+      yield call(approvalsDataFetch, { data: pageNumber })
       if (callback) {
         callback()
       }

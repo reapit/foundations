@@ -2,7 +2,7 @@ import { ReduxState } from '@/types/core'
 import {
   selectAdminAppsState,
   selectAdminAppsData,
-  selectAdminApprovalsState,
+  selectApprovalsState,
   selectWaitingApprovalData,
   selectAdminStats,
   selectAdminDevManagement,
@@ -18,9 +18,9 @@ describe('admin', () => {
       adminAppsData: appsDataStub.data,
       loading: false,
     },
-    adminApprovals: {
+    approvals: {
       loading: false,
-      adminApprovalsData: approvalsStub,
+      approvalsData: approvalsStub,
     },
   } as ReduxState
 
@@ -49,14 +49,14 @@ describe('admin', () => {
     })
   })
 
-  describe('selectAdminApprovalsState', () => {
+  describe('selectApprovalsState', () => {
     it('should run correctly', () => {
-      const result = selectAdminApprovalsState(mockState)
-      expect(result).toEqual(mockState.adminApprovals)
+      const result = selectApprovalsState(mockState)
+      expect(result).toEqual(mockState.approvals)
     })
     it('should run correctly and return undefined', () => {
       const input = {} as ReduxState
-      const result = selectAdminApprovalsState(input)
+      const result = selectApprovalsState(input)
       expect(result).toEqual(undefined)
     })
   })
@@ -64,7 +64,7 @@ describe('admin', () => {
   describe('selectWaitingApprovalData', () => {
     it('should run correctly', () => {
       const result = selectWaitingApprovalData(mockState)
-      expect(result).toEqual(mockState.adminApprovals.adminApprovalsData?.data)
+      expect(result).toEqual(mockState.approvals.approvalsData?.data)
     })
     it('should run correctly and return {}', () => {
       const input = {} as ReduxState

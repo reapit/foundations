@@ -5,7 +5,7 @@ import { ReduxState } from '../types/core'
 import auth from '@/reducers/auth'
 import appDetail from '@/reducers/app-detail'
 import error from '@/reducers/error'
-import adminApprovals from '@/reducers/admin-approvals'
+import approvals from '@/reducers/approvals'
 import adminDevManagement from '@/reducers/admin-dev-management'
 import developerSetStatus from '@/reducers/developer-set-status'
 import revisionDetail from '@/reducers/revision-detail'
@@ -16,7 +16,7 @@ import revisionsReducer from '@/reducers/revisions'
 
 import authSagas from '@/sagas/auth'
 import appDetailSagas from '@/sagas/app-detail'
-import adminApprovalSagas from '@/sagas/admin-approvals'
+import approvalsSagas from '@/sagas/approvals'
 import adminDevManagementSagas from '@/sagas/admin-dev-management'
 import developerSetStatusSagas from '@/sagas/developer-set-status'
 import revisionDetailSagas from '@/sagas/revision-detail'
@@ -47,7 +47,7 @@ export class Store {
     appDetail,
     error,
     adminApps,
-    adminApprovals,
+    approvals,
     adminDevManagement,
     developerSetStatus,
     revisionDetail,
@@ -61,7 +61,7 @@ export class Store {
     yield all([
       fork(authSagas),
       fork(appDetailSagas),
-      fork(adminApprovalSagas),
+      fork(approvalsSagas),
       fork(adminDevManagementSagas),
       fork(developerSetStatusSagas),
       fork(revisionDetailSagas),

@@ -10,7 +10,7 @@ import { PortalProvider } from '@reapit/elements'
 
 export const history = createBrowserHistory()
 const Login = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
-const AdminApprovalsPage = React.lazy(() => catchChunkError(() => import('../components/pages/admin-approvals')))
+const AdminApprovalsPage = React.lazy(() => catchChunkError(() => import('../components/pages/approvals')))
 const AdminDevManagementPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/admin-dev-management')),
 )

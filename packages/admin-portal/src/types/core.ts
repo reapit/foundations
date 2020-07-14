@@ -4,7 +4,7 @@ import ActionTypes from '../constants/action-types'
 import { AuthState } from '../reducers/auth'
 import { AppDetailState } from '../reducers/app-detail'
 import { ErrorState } from '../reducers/error'
-import { AdminApprovalsState } from '@/reducers/admin-approvals'
+import { ApprovalsState } from '@/reducers/approvals'
 import { RevisionDetailState } from '@/reducers/revision-detail'
 import { RevisionsState } from '@/reducers/revisions'
 import { AdminAppsState } from '@/reducers/admin-apps'
@@ -53,7 +53,7 @@ export interface ReduxState {
   auth: AuthState
   error: ErrorState
   adminApps: AdminAppsState
-  adminApprovals: AdminApprovalsState
+  approvals: ApprovalsState
   adminDevManagement: AdminDevManamgenetState
   developerSetStatus: RequestState
   revisionDetail: RevisionDetailState

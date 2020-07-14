@@ -18,7 +18,7 @@ import {
   generateTableColumn,
   handleViewDetailOnClick,
   HandleViewDetailOnClickParams,
-} from '../admin-approvals'
+} from '../approvals'
 
 describe('admin-approvals', () => {
   describe('handleCloseModal', () => {

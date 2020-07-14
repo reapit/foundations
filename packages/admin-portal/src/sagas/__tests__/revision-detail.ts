@@ -22,7 +22,7 @@ import {
 } from '@/actions/revision-detail'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { adminApprovalsDataFetch } from '../admin-approvals'
+import { approvalsDataFetch } from '../approvals'
 import { fetchAppRevisionsById, approveAppRevisionById, rejectAppRevisionById } from '@/services/apps'
 import { fetchScopesList } from '@/services/scopes'
 import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
@@ -88,7 +88,7 @@ describe('revision approve submmit', () => {
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next({}).value).toEqual(call(adminApprovalsDataFetch, { data: pageNumber }))
+    expect(clone.next({}).value).toEqual(call(approvalsDataFetch, { data: pageNumber }))
     expect(clone.next('SUCCESS').value).toEqual(put(approveRevisionSetFormState('SUCCESS')))
     expect(clone.next().done).toBe(true)
   })
@@ -120,7 +120,7 @@ describe('revision decline submmit', () => {
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next({}).value).toEqual(call(adminApprovalsDataFetch, { data: pageNumber }))
+    expect(clone.next({}).value).toEqual(call(approvalsDataFetch, { data: pageNumber }))
     expect(clone.next('SUCCESS').value).toEqual(put(declineRevisionSetFormState('SUCCESS')))
     expect(clone.next().done).toBe(true)
   })

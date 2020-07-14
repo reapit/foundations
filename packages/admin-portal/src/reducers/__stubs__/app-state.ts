@@ -57,9 +57,9 @@ const appState: ReduxState = {
     formState: 'PENDING',
     adminAppsData: null,
   },
-  adminApprovals: {
+  approvals: {
     loading: false,
-    adminApprovalsData: null,
+    approvalsData: null,
   },
   adminDevManagement: {
     loading: false,
