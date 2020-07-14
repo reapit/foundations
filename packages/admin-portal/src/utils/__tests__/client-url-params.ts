@@ -1,12 +1,5 @@
 import { history } from '@/core/router'
-import {
-  addQuery,
-  removeQuery,
-  getParamsFromPath,
-  getParamValueFromPath,
-  hasFilterParams,
-  stringifyObjectIntoQueryString,
-} from '../client-url-params'
+import { addQuery, removeQuery, getParamsFromPath, stringifyObjectIntoQueryString } from '../client-url-params'
 
 describe('addQuery', () => {
   it('should return correct route path', () => {
@@ -47,28 +40,5 @@ describe('getParamsFromPath', () => {
       search: 'google',
       category: '1',
     })
-  })
-})
-
-describe('getParamValueFromPath', () => {
-  it('should run correctly', () => {
-    const search = 'page=1&search=google&category=1'
-    const param = 'category'
-    expect(getParamValueFromPath(search, param)).toEqual('1')
-  })
-
-  it('should return empty', () => {
-    const search = 'page=1&search=google&category=1'
-    const param = 'asd'
-    expect(getParamValueFromPath(search, param)).toEqual('')
-  })
-})
-
-describe('hasFilterParams', () => {
-  it('should run correctly', () => {
-    const search1 = 'page=1&search=google&category=1'
-    const search2 = 'page=1'
-    expect(hasFilterParams(search1)).toEqual(true)
-    expect(hasFilterParams(search2)).toEqual(false)
   })
 })

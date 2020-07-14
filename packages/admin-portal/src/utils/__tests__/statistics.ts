@@ -1,6 +1,6 @@
 import MockDate from 'mockdate'
 import { Range } from '@/components/pages/statistics/statistics'
-import { getDateRange, getDataLabel, getChartConfig, numOfObjectCreatedInDate, getRangeName } from '../admin-stats'
+import { getDateRange, getDataLabel, getChartConfig, numOfObjectCreatedInDate, getRangeName } from '../statistics'
 
 beforeEach(() => {
   MockDate.set(new Date(2020, 1, 21))

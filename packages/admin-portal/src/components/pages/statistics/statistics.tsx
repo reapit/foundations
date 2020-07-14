@@ -4,7 +4,7 @@ import { Dispatch } from 'redux'
 import { H3, ButtonGroup, Button, H6, Loader, Section } from '@reapit/elements'
 import { StatisticsRequestParams, statisticsRequestData } from '@/actions/statistics'
 import { Line } from 'react-chartjs-2'
-import { getChartData, getChartConfig, getRangeName } from '@/utils/admin-stats'
+import { getChartData, getChartConfig, getRangeName } from '@/utils/statistics'
 import { selectStatistics } from '@/selector/admin'
 
 export type Area = 'APPS' | 'DEVELOPERS' | 'INSTALLATIONS'

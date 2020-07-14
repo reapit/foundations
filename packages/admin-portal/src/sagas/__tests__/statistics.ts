@@ -7,7 +7,7 @@ import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { statisticsReceiveData, statisticsRequestFailure, StatisticsRequestParams } from '@/actions/statistics'
-import { getDateRange } from '@/utils/admin-stats'
+import { getDateRange } from '@/utils/statistics'
 import { fetchAppsList } from '@/services/apps'
 
 jest.mock('@reapit/elements')
