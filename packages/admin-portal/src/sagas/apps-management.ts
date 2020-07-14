@@ -3,26 +3,21 @@ import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { Action } from '@/types/core'
-import {
-  adminAppsReceiveData,
-  adminAppsRequestFailure,
-  AdminAppsFeaturedParams,
-  adminAppsSetFormState,
-} from '@/actions/admin-apps'
-import { selectAdminAppsData } from '@/selector/admin'
+import { appsReceiveData, appsRequestFailure, AppsFeaturedParams, appsSetFormState } from '@/actions/apps-management'
+import { selectAppsData } from '@/selector/admin'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { logger } from '@reapit/utils'
 import { featureAppById, unfeatureAppById, fetchAppsList } from '@/services/apps'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 
-export const adminAppsFetch = function*({ data }) {
+export const appsManagementFetch = function*({ data }) {
   try {
     const response = yield call(fetchAppsList, { ...data, pageSize: APPS_PER_PAGE, pageNumber: data.page })
 
-    yield put(adminAppsReceiveData(response))
+    yield put(appsReceiveData(response))
   } catch (err) {
     logger(err)
-    yield put(adminAppsRequestFailure())
+    yield put(appsRequestFailure())
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -32,9 +27,9 @@ export const adminAppsFetch = function*({ data }) {
   }
 }
 
-export const adminAppsFeatured = function*({ data: { id, isFeatured } }) {
-  yield put(adminAppsSetFormState('SUBMITTING'))
-  const { data, ...rest } = yield select(selectAdminAppsData)
+export const appsManagementFeatured = function*({ data: { id, isFeatured } }) {
+  yield put(appsSetFormState('SUBMITTING'))
+  const { data, ...rest } = yield select(selectAppsData)
   try {
     const featuredCount = data.filter((item: AppDetailModel) => item.isFeatured).length
     if (isFeatured && featuredCount === 3) {
@@ -49,7 +44,7 @@ export const adminAppsFeatured = function*({ data: { id, isFeatured } }) {
 
     // update store first after changing isFeatured field
     const newData = data.map(d => ({ ...d, isFeatured: d.id === id ? isFeatured : d.isFeatured }))
-    yield put(adminAppsReceiveData({ ...rest, data: newData }))
+    yield put(appsReceiveData({ ...rest, data: newData }))
 
     if (isFeatured) {
       yield call(featureAppById, { id })
@@ -57,10 +52,10 @@ export const adminAppsFeatured = function*({ data: { id, isFeatured } }) {
       yield call(unfeatureAppById, { id })
     }
 
-    yield put(adminAppsSetFormState('SUCCESS'))
+    yield put(appsSetFormState('SUCCESS'))
   } catch (err) {
     logger(err)
-    yield put(adminAppsSetFormState('ERROR'))
+    yield put(appsSetFormState('ERROR'))
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -68,17 +63,17 @@ export const adminAppsFeatured = function*({ data: { id, isFeatured } }) {
       }),
     )
     // if error revert back the old store
-    yield put(adminAppsReceiveData({ ...rest, data }))
+    yield put(appsReceiveData({ ...rest, data }))
   }
 }
 
-export const adminAppsListen = function*() {
-  yield takeLatest<Action<void>>(ActionTypes.ADMIN_APPS_REQUEST_DATA, adminAppsFetch)
-  yield takeLatest<Action<AdminAppsFeaturedParams>>(ActionTypes.ADMIN_APPS_REQUEST_FEATURED, adminAppsFeatured)
+export const appsManagementListen = function*() {
+  yield takeLatest<Action<void>>(ActionTypes.APPS_REQUEST_DATA, appsManagementFetch)
+  yield takeLatest<Action<AppsFeaturedParams>>(ActionTypes.APPS_REQUEST_FEATURED, appsManagementFeatured)
 }
 
-const adminAppsSagas = function*() {
-  yield all([fork(adminAppsListen)])
+const appsManagementSagas = function*() {
+  yield all([fork(appsManagementListen)])
 }
 
-export default adminAppsSagas
+export default appsManagementSagas

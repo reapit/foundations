@@ -5,7 +5,7 @@ import store from '../core/store'
 import { approvalsRequestData } from '../actions/approvals'
 import { adminDevManagementRequestData } from '../actions/admin-dev-management'
 import { getParamsFromPath } from '@/utils/client-url-params'
-import { adminAppsRequestData } from '@/actions/admin-apps'
+import { appsRequestData } from '@/actions/apps-management'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
   const queryParams = new URLSearchParams(search)
@@ -21,7 +21,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       )
       break
     case Routes.APPS:
-      store.dispatch(adminAppsRequestData(getParamsFromPath(search || '')))
+      store.dispatch(appsRequestData(getParamsFromPath(search || '')))
       break
     default:
       console.error('Route not found, nothing to fetch')

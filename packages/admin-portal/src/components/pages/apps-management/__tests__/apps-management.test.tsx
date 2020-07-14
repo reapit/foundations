@@ -16,9 +16,9 @@ import {
   handleOnSubmit,
   handleChangePage,
   renderContent,
-  AdminApps,
+  AppsManagement,
   renderChecked,
-} from '../admin-apps'
+} from '../apps-management'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
 
@@ -208,7 +208,7 @@ describe('admin-apps', () => {
         mount(
           <ReactRedux.Provider store={store}>
             <MemoryRouter initialEntries={[{ pathname: Routes.ADMIN_APPROVALS, key: 'adminApps' }]}>
-              <AdminApps />
+              <AppsManagement />
             </MemoryRouter>
           </ReactRedux.Provider>,
         ),

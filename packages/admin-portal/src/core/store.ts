@@ -10,7 +10,7 @@ import adminDevManagement from '@/reducers/admin-dev-management'
 import developerSetStatus from '@/reducers/developer-set-status'
 import revisionDetail from '@/reducers/revision-detail'
 import appDeleteReducer from '@/reducers/app-delete'
-import adminApps from '@/reducers/admin-apps'
+import adminApps from '@/reducers/apps-management'
 import statisticsReducer from '@/reducers/statistics'
 import revisionsReducer from '@/reducers/revisions'
 
@@ -22,7 +22,7 @@ import developerSetStatusSagas from '@/sagas/developer-set-status'
 import revisionDetailSagas from '@/sagas/revision-detail'
 import revisionsSagas from '@/sagas/revisions'
 import appDeleteSagas from '@/sagas/app-delete'
-import adminAppsSagas from '@/sagas/admin-apps'
+import appsManagementSagas from '@/sagas/apps-management'
 import noticationMessage from '@/reducers/notification-message'
 import statisticsSagas from '@/sagas/statistics'
 import { injectSwitchModeToWindow } from '@reapit/elements'
@@ -46,7 +46,7 @@ export class Store {
     auth,
     appDetail,
     error,
-    adminApps,
+    appsManagement: adminApps,
     approvals,
     adminDevManagement,
     developerSetStatus,
@@ -67,7 +67,7 @@ export class Store {
       fork(revisionDetailSagas),
       fork(revisionsSagas),
       fork(appDeleteSagas),
-      fork(adminAppsSagas),
+      fork(appsManagementSagas),
       fork(statisticsSagas),
     ])
   }

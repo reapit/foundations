@@ -52,10 +52,10 @@ const appState: ReduxState = {
     componentError: null,
     serverError: null,
   },
-  adminApps: {
+  appsManagement: {
     loading: false,
     formState: 'PENDING',
-    adminAppsData: null,
+    appsData: null,
   },
   approvals: {
     loading: false,

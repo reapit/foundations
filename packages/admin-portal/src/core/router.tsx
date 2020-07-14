@@ -14,7 +14,7 @@ const ApprovalsPage = React.lazy(() => catchChunkError(() => import('../componen
 const AdminDevManagementPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/admin-dev-management')),
 )
-const AdminAppsPage = React.lazy(() => catchChunkError(() => import('../components/pages/admin-apps')))
+const AppsManagementPage = React.lazy(() => catchChunkError(() => import('../components/pages/apps-management')))
 const Statistics = React.lazy(() => catchChunkError(() => import('../components/pages/statistics')))
 const BillingPage = React.lazy(() => catchChunkError(() => import('../components/pages/billing')))
 
@@ -30,7 +30,7 @@ const Router = () => {
               <Switch>
                 <PrivateRoute allow="ADMIN" path={Routes.BILLING} component={BillingPage} exact />
                 <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS} component={ApprovalsPage} exact fetcher />
-                <PrivateRoute allow="ADMIN" path={Routes.APPS} component={AdminAppsPage} fetcher exact />
+                <PrivateRoute allow="ADMIN" path={Routes.APPS} component={AppsManagementPage} fetcher exact />
                 <PrivateRoute
                   allow="ADMIN"
                   path={Routes.DEV_MANAGEMENT}

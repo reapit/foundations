@@ -23,8 +23,8 @@ import {
   Section,
   LevelRight,
 } from '@reapit/elements'
-import { selectAdminAppsData, selectAdminAppsLoading } from '@/selector/admin'
-import { adminAppsRequestFeatured } from '@/actions/admin-apps'
+import { selectAppsData, selectAppsLoading } from '@/selector/admin'
+import { appsRequestFeatured } from '@/actions/apps-management'
 import AppDeleteModal from '@/components/ui/app-delete'
 import { addQuery, stringifyObjectIntoQueryString, getParamsFromPath } from '@/utils/client-url-params'
 import { cleanObject } from '@reapit/utils'
@@ -49,7 +49,7 @@ export const renderIsFeature = (dispatch: Dispatch<any>) => ({ row, cell }) => {
         id={id}
         name={id}
         checked={value}
-        onChange={evt => dispatch(adminAppsRequestFeatured({ id, isFeatured: evt.target.checked }))}
+        onChange={evt => dispatch(appsRequestFeatured({ id, isFeatured: evt.target.checked }))}
       />
       <label className="label" htmlFor={id}></label>
     </div>
@@ -241,7 +241,7 @@ export const renderContent = ({ adminAppsData, columns }) => {
   )
 }
 
-export const AdminApps: React.FC = () => {
+export const AppsManagement: React.FC = () => {
   const [deleteModalData, setDataDeleteModal] = React.useState<DeleteModalData>({
     visible: false,
     appId: '',
@@ -251,8 +251,8 @@ export const AdminApps: React.FC = () => {
   const history = useHistory()
   const location = useLocation()
   const dispatch = useDispatch()
-  const loading = useSelector(selectAdminAppsLoading)
-  const adminAppsData = useSelector(selectAdminAppsData)
+  const loading = useSelector(selectAppsLoading)
+  const adminAppsData = useSelector(selectAppsData)
   const { page = 1, ...queryParams } = getParamsFromPath(location.search) as any
 
   const columns = React.useMemo(generateColumns({ dispatch, setDataDeleteModal, deleteModalData }), [
@@ -296,4 +296,4 @@ export const AdminApps: React.FC = () => {
   )
 }
 
-export default AdminApps
+export default AppsManagement

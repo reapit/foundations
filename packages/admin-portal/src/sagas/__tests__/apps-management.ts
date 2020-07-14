@@ -1,4 +1,8 @@
-import adminAppsSagas, { adminAppsFeatured, adminAppsFetch, adminAppsListen } from '../admin-apps'
+import appsManagementSagas, {
+  appsManagementFeatured,
+  appsManagementFetch,
+  appsManagementListen,
+} from '../apps-management'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
 import { appsDataStub, featuredAppsDataStub } from '../__stubs__/apps'
@@ -6,13 +10,8 @@ import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
-import {
-  adminAppsReceiveData,
-  adminAppsRequestFailure,
-  AdminAppsFeaturedParams,
-  adminAppsSetFormState,
-} from '@/actions/admin-apps'
-import { selectAdminAppsData } from '@/selector/admin'
+import { appsReceiveData, appsRequestFailure, AppsFeaturedParams, appsSetFormState } from '@/actions/apps-management'
+import { selectAppsData } from '@/selector/admin'
 import { featureAppById, fetchAppsList } from '@/services/apps'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 
@@ -21,8 +20,8 @@ jest.mock('@reapit/elements')
 
 const data = { pageNumber: 1, page: 1 }
 
-describe('adminAppsFetch', () => {
-  const gen = cloneableGenerator(adminAppsFetch)({ data })
+describe('appsManagementFetch', () => {
+  const gen = cloneableGenerator(appsManagementFetch)({ data })
   expect(gen.next().value).toEqual(
     call(fetchAppsList, {
       ...data,
@@ -32,14 +31,14 @@ describe('adminAppsFetch', () => {
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(appsDataStub.data).value).toEqual(put(adminAppsReceiveData(appsDataStub.data)))
+    expect(clone.next(appsDataStub.data).value).toEqual(put(appsReceiveData(appsDataStub.data)))
     expect(clone.next().done).toBe(true)
   })
 
   test('api call fail', () => {
     const clone = gen.clone()
     if (clone.throw) {
-      expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(adminAppsRequestFailure()))
+      expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(appsRequestFailure()))
       expect(clone.next().value).toEqual(
         put(
           errorThrownServer({
@@ -57,33 +56,33 @@ const featuredParams = {
   data: {
     id: '1',
     isFeatured: true,
-  } as AdminAppsFeaturedParams,
+  } as AppsFeaturedParams,
 }
 
-describe('adminAppsFeatured', () => {
-  const gen = cloneableGenerator(adminAppsFeatured as any)(featuredParams)
+describe('appsManagementFeatured', () => {
+  const gen = cloneableGenerator(appsManagementFeatured as any)(featuredParams)
   const data = featuredAppsDataStub.data
-  expect(gen.next().value).toEqual(put(adminAppsSetFormState('SUBMITTING')))
-  expect(gen.next().value).toEqual(select(selectAdminAppsData))
+  expect(gen.next().value).toEqual(put(appsSetFormState('SUBMITTING')))
+  expect(gen.next().value).toEqual(select(selectAppsData))
   const newData = data.data?.map(d => ({
     ...d,
     isFeatured: d.id === featuredParams.data.id ? !d.isFeatured : d.isFeatured,
   }))
   // expect equal store
-  expect(gen.next({ ...data, data: newData }).value).toEqual(put(adminAppsReceiveData({ ...data, data: newData })))
+  expect(gen.next({ ...data, data: newData }).value).toEqual(put(appsReceiveData({ ...data, data: newData })))
 
   expect(gen.next(appsDataStub.data).value).toEqual(call(featureAppById, { id: '1' }))
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(true).value).toEqual(put(adminAppsSetFormState('SUCCESS')))
+    expect(clone.next(true).value).toEqual(put(appsSetFormState('SUCCESS')))
     expect(clone.next().done).toBe(true)
   })
 
   test('api call fail', () => {
     const clone = gen.clone()
     if (clone.throw) {
-      expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(adminAppsSetFormState('ERROR')))
+      expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(appsSetFormState('ERROR')))
       expect(clone.next().value).toEqual(
         put(
           errorThrownServer({
@@ -93,30 +92,30 @@ describe('adminAppsFeatured', () => {
         ),
       )
       // expect store to be reverted back
-      expect(clone.next().value).toEqual(put(adminAppsReceiveData(featuredAppsDataStub.data)))
+      expect(clone.next().value).toEqual(put(appsReceiveData(featuredAppsDataStub.data)))
       expect(clone.next().done).toBe(true)
     }
   })
 })
 
-describe('adminAppsSagas thunks', () => {
-  describe('adminAppsListen', () => {
+describe('appsManagementSagas thunks', () => {
+  describe('appsManagementListen', () => {
     it('should request data when called', () => {
-      const gen = adminAppsListen()
+      const gen = appsManagementListen()
 
-      expect(gen.next().value).toEqual(takeLatest<Action<void>>(ActionTypes.ADMIN_APPS_REQUEST_DATA, adminAppsFetch))
+      expect(gen.next().value).toEqual(takeLatest<Action<void>>(ActionTypes.APPS_REQUEST_DATA, appsManagementFetch))
       expect(gen.next().value).toEqual(
-        takeLatest<Action<AdminAppsFeaturedParams>>(ActionTypes.ADMIN_APPS_REQUEST_FEATURED, adminAppsFeatured),
+        takeLatest<Action<AppsFeaturedParams>>(ActionTypes.APPS_REQUEST_FEATURED, appsManagementFeatured),
       )
       expect(gen.next().done).toBe(true)
     })
   })
 
-  describe('adminAppsSagas', () => {
+  describe('appsManagementSagas', () => {
     it('should listen data request', () => {
-      const gen = adminAppsSagas()
+      const gen = appsManagementSagas()
 
-      expect(gen.next().value).toEqual(all([fork(adminAppsListen)]))
+      expect(gen.next().value).toEqual(all([fork(appsManagementListen)]))
       expect(gen.next().done).toBe(true)
     })
   })
