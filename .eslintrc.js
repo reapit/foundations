@@ -66,7 +66,7 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
-    'max-len': ['error', { code: 120, ignoreUrls: true }],
+    'max-len': ['error', { code: 120, ignoreUrls: true, ignoreTemplateLiterals: true, ignoreStrings: true }],
     'no-confusing-arrow': ['error', { allowParens: false }],
     'no-mixed-operators': [
       'error',
