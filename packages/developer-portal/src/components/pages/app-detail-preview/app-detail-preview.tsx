@@ -7,33 +7,45 @@ import { AppDetailData } from '@/reducers/developer'
 import { Grid, Loader, GridItem, Section } from '@reapit/elements'
 import { BackToAppsSection } from '../app-detail/app-sections'
 import useReactResponsive from '@/components/hooks/use-react-responsive'
+import { Dispatch } from 'redux'
+import { showNotificationMessage } from '@/actions/notification-message'
+import { useDispatch } from 'react-redux'
 
 export type AppDetailPreviewProps = {}
 
 export const loadAppDetailPreviewDataFromLocalStorage = (
   appId: string,
   setAppDetailPreviewData: React.Dispatch<React.SetStateAction<AppDetailPreviewProps | null>>,
+  dispatch: Dispatch,
 ) => () => {
   try {
     const appDataString = localStorage.getItem('developer-preview-app')
     if (!appDataString) {
-      throw 'No app preview'
+      throw new Error('No app preview')
     }
 
     const appData = JSON.parse(appDataString) as AppDetailData
     if (appData?.id !== appId) {
-      throw 'No app preview'
+      throw new Error('No app preview')
     }
     setAppDetailPreviewData(appData)
-  } catch (err) {}
+  } catch (err) {
+    dispatch(
+      showNotificationMessage({
+        message: err.message,
+        variant: 'danger',
+      }),
+    )
+  }
 }
 
 const AppDetailPreview: React.FC<AppDetailPreviewProps> = () => {
+  const dispatch = useDispatch()
   const { isMobile } = useReactResponsive()
   const [appDetailPreviewData, setAppDetailPreviewData] = React.useState<AppDetailPreviewProps | null>(null)
   const { appId } = useParams()
 
-  React.useEffect(loadAppDetailPreviewDataFromLocalStorage(appId, setAppDetailPreviewData), [appId])
+  React.useEffect(loadAppDetailPreviewDataFromLocalStorage(appId, setAppDetailPreviewData, dispatch), [appId, dispatch])
 
   return (
     <Grid dataTest="client-app-detail-container">

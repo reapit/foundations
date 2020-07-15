@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`WebComponentConfig Should match snapshot 1`] = `
+exports[`AppDetailPreview should match a snapshot 1`] = `
 <Provider
   store={
     Object {
@@ -17,8 +17,8 @@ exports[`WebComponentConfig Should match snapshot 1`] = `
     initialEntries={
       Array [
         Object {
-          "key": "appDetailsRoute",
-          "pathname": "/client/apps/:appid",
+          "key": "clientAppDetailPreviewRoute",
+          "pathname": "/developer/apps/:appid",
         },
       ]
     }
@@ -33,8 +33,8 @@ exports[`WebComponentConfig Should match snapshot 1`] = `
           "entries": Array [
             Object {
               "hash": "",
-              "key": "appDetailsRoute",
-              "pathname": "/client/apps/:appid",
+              "key": "clientAppDetailPreviewRoute",
+              "pathname": "/developer/apps/:appid",
               "search": "",
             },
           ],
@@ -46,8 +46,8 @@ exports[`WebComponentConfig Should match snapshot 1`] = `
           "listen": [Function],
           "location": Object {
             "hash": "",
-            "key": "appDetailsRoute",
-            "pathname": "/client/apps/:appid",
+            "key": "clientAppDetailPreviewRoute",
+            "pathname": "/developer/apps/:appid",
             "search": "",
           },
           "push": [Function],
@@ -55,7 +55,30 @@ exports[`WebComponentConfig Should match snapshot 1`] = `
         }
       }
     >
-      <Component />
+      <AppDetailPreview>
+        <Component
+          dataTest="client-app-detail-container"
+        >
+          <div
+            className=""
+            data-test="client-app-detail-container"
+          >
+            <Component
+              dataTest="client-app-detail-loader"
+            >
+              <div
+                className="loader-spinner body"
+                data-test="client-app-detail-loader"
+              >
+                <div />
+                <div />
+                <div />
+                <div />
+              </div>
+            </Component>
+          </div>
+        </Component>
+      </AppDetailPreview>
     </Router>
   </MemoryRouter>
 </Provider>
