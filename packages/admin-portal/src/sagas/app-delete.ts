@@ -4,7 +4,7 @@ import ActionTypes from '../constants/action-types'
 import { Action } from '../types/core'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
-import { adminAppsReceiveData } from '@/actions/admin-apps'
+import { appsReceiveData } from '@/actions/apps-management'
 import { getParamsFromPath } from '@/utils/client-url-params'
 import { logger } from '@reapit/utils'
 import { deleteAppById, fetchAppsList } from '@/services/apps'
@@ -16,7 +16,7 @@ export const appDeleteRequestSaga = function*({ data: appId }: Action<string>) {
     if (response) {
       const params = getParamsFromPath(window.location.search)
       const adminAppsResponse = yield call(fetchAppsList, { ...params })
-      yield put(adminAppsReceiveData(adminAppsResponse))
+      yield put(appsReceiveData(adminAppsResponse))
     }
     yield put(appDeleteRequestSuccess())
   } catch (err) {

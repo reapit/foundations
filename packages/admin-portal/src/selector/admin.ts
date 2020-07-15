@@ -1,35 +1,35 @@
 import { ReduxState } from '@/types/core'
-import { AdminApprovalsState } from '@/reducers/admin-approvals'
+import { ApprovalsState } from '@/reducers/approvals'
 import { PagedResultApprovalModel_ } from '@reapit/foundations-ts-definitions'
-import { AdminDevManamgenetState } from '@/reducers/admin-dev-management'
-import { AdminAppsState } from '@/reducers/admin-apps'
+import { DevsManagementState } from '@/reducers/devs-management'
+import { AppsManagementState } from '@/reducers/apps-management'
 import { PagedResultAppSummaryModel_ } from '@/types/marketplace-api-schema'
-import { AdminStatsState } from '@/reducers/admin-stats'
+import { StatisticsState } from '@/reducers/statistics'
 
-export const selectAdminAppsState = (state: ReduxState): AdminAppsState => {
-  return state?.adminApps || {}
+export const selectAppsManagementState = (state: ReduxState): AppsManagementState => {
+  return state?.appsManagement || {}
 }
 
-export const selectAdminAppsLoading = (state: ReduxState): boolean => {
-  return !!state?.adminApps?.loading
+export const selectAppsLoading = (state: ReduxState): boolean => {
+  return !!state?.appsManagement?.loading
 }
 
-export const selectAdminAppsData = (state: ReduxState): PagedResultAppSummaryModel_ | null => {
-  return state.adminApps.adminAppsData
+export const selectAppsData = (state: ReduxState): PagedResultAppSummaryModel_ | null => {
+  return state.appsManagement.appsData
 }
 
-export const selectAdminApprovalsState = (state: ReduxState): AdminApprovalsState => {
-  return state.adminApprovals
+export const selectApprovalsState = (state: ReduxState): ApprovalsState => {
+  return state.approvals
 }
 
 export const selectWaitingApprovalData = (state: ReduxState): PagedResultApprovalModel_ => {
-  return state?.adminApprovals?.adminApprovalsData?.data || {}
+  return state?.approvals?.approvalsData?.data || {}
 }
 
-export const selectAdminStats = (state: ReduxState): AdminStatsState => {
-  return state.adminStats
+export const selectStatistics = (state: ReduxState): StatisticsState => {
+  return state.statistics
 }
 
-export const selectAdminDevManagement = (state: ReduxState): AdminDevManamgenetState => {
-  return state.adminDevManagement
+export const selectDevsManagement = (state: ReduxState): DevsManagementState => {
+  return state.devsManagement
 }

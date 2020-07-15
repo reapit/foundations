@@ -11,7 +11,7 @@ const appState: ReduxState = {
       idTokenExpiry: 1234428260,
       refreshToken: 'testRefreshToken',
       cognitoClientId: 'testCognitoClientId',
-      loginType: 'CLIENT',
+      loginType: 'ADMIN',
       userName: 'test@reapit.com',
       mode: 'WEB',
       loginIdentity: {
@@ -25,11 +25,10 @@ const appState: ReduxState = {
         groups: [COGNITO_GROUP_DEVELOPER_EDITION],
       },
     },
-    isTermAccepted: false,
-    loginType: 'CLIENT',
+    loginType: 'ADMIN',
     refreshSession: {
       refreshToken: 'testRefreshToken',
-      loginType: 'CLIENT',
+      loginType: 'ADMIN',
       userName: 'test@reapit.com',
       mode: 'WEB',
       cognitoClientId: 'testCognitoClientId',
@@ -42,26 +41,22 @@ const appState: ReduxState = {
     loading: false,
     error: false,
     appDetailData: null,
-    authentication: {
-      loading: false,
-      code: '',
-    },
     isStale: true,
   },
   error: {
     componentError: null,
     serverError: null,
   },
-  adminApps: {
+  appsManagement: {
     loading: false,
     formState: 'PENDING',
-    adminAppsData: null,
+    appsData: null,
   },
-  adminApprovals: {
+  approvals: {
     loading: false,
-    adminApprovalsData: null,
+    approvalsData: null,
   },
-  adminDevManagement: {
+  devsManagement: {
     loading: false,
   },
   developerSetStatus: {
@@ -74,10 +69,6 @@ const appState: ReduxState = {
     approveFormState: 'PENDING',
     declineFormState: 'PENDING',
   },
-  revisions: {
-    loading: false,
-    revisions: null,
-  },
   appDelete: {
     formState: 'PENDING',
   },
@@ -86,7 +77,7 @@ const appState: ReduxState = {
     variant: '',
     message: '',
   },
-  adminStats: {
+  statistics: {
     loading: false,
     result: {
       data: [],

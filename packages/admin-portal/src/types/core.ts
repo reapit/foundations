@@ -1,15 +1,14 @@
-import { AdminDevManamgenetState } from './../reducers/admin-dev-management'
+import { DevsManagementState } from './../reducers/devs-management'
 import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
 import { AuthState } from '../reducers/auth'
 import { AppDetailState } from '../reducers/app-detail'
 import { ErrorState } from '../reducers/error'
-import { AdminApprovalsState } from '@/reducers/admin-approvals'
+import { ApprovalsState } from '@/reducers/approvals'
 import { RevisionDetailState } from '@/reducers/revision-detail'
-import { RevisionsState } from '@/reducers/revisions'
-import { AdminAppsState } from '@/reducers/admin-apps'
+import { AppsManagementState } from '@/reducers/apps-management'
 import { NotificationMessageState } from '@/reducers/notification-message'
-import { AdminStatsState } from '@/reducers/admin-stats'
+import { StatisticsState } from '@/reducers/statistics'
 
 export type ModalProps = { visible: boolean; afterClose: () => void }
 
@@ -52,13 +51,12 @@ export interface ReduxState {
   appDetail: AppDetailState
   auth: AuthState
   error: ErrorState
-  adminApps: AdminAppsState
-  adminApprovals: AdminApprovalsState
-  adminDevManagement: AdminDevManamgenetState
+  appsManagement: AppsManagementState
+  approvals: ApprovalsState
+  devsManagement: DevsManagementState
   developerSetStatus: RequestState
   revisionDetail: RevisionDetailState
-  revisions: RevisionsState
   appDelete: RequestState
   noticationMessage: NotificationMessageState
-  adminStats: AdminStatsState
+  statistics: StatisticsState
 }

@@ -5,26 +5,24 @@ import { ReduxState } from '../types/core'
 import auth from '@/reducers/auth'
 import appDetail from '@/reducers/app-detail'
 import error from '@/reducers/error'
-import adminApprovals from '@/reducers/admin-approvals'
-import adminDevManagement from '@/reducers/admin-dev-management'
+import approvals from '@/reducers/approvals'
+import devsManagement from '@/reducers/devs-management'
 import developerSetStatus from '@/reducers/developer-set-status'
 import revisionDetail from '@/reducers/revision-detail'
 import appDeleteReducer from '@/reducers/app-delete'
-import adminApps from '@/reducers/admin-apps'
-import adminStatsReducer from '@/reducers/admin-stats'
-import revisionsReducer from '@/reducers/revisions'
+import adminApps from '@/reducers/apps-management'
+import statisticsReducer from '@/reducers/statistics'
 
 import authSagas from '@/sagas/auth'
 import appDetailSagas from '@/sagas/app-detail'
-import adminApprovalSagas from '@/sagas/admin-approvals'
-import adminDevManagementSagas from '@/sagas/admin-dev-management'
+import approvalsSagas from '@/sagas/approvals'
+import devsManagementSagas from '@/sagas/devs-management'
 import developerSetStatusSagas from '@/sagas/developer-set-status'
 import revisionDetailSagas from '@/sagas/revision-detail'
-import revisionsSagas from '@/sagas/revisions'
 import appDeleteSagas from '@/sagas/app-delete'
-import adminAppsSagas from '@/sagas/admin-apps'
+import appsManagementSagas from '@/sagas/apps-management'
 import noticationMessage from '@/reducers/notification-message'
-import adminStatsSaga from '@/sagas/admin-stats'
+import statisticsSagas from '@/sagas/statistics'
 import { injectSwitchModeToWindow } from '@reapit/elements'
 
 export class Store {
@@ -46,29 +44,27 @@ export class Store {
     auth,
     appDetail,
     error,
-    adminApps,
-    adminApprovals,
-    adminDevManagement,
+    appsManagement: adminApps,
+    approvals,
+    devsManagement,
     developerSetStatus,
     revisionDetail,
-    revisions: revisionsReducer,
     appDelete: appDeleteReducer,
     noticationMessage,
-    adminStats: adminStatsReducer,
+    statistics: statisticsReducer,
   })
 
   static sagas = function*() {
     yield all([
       fork(authSagas),
       fork(appDetailSagas),
-      fork(adminApprovalSagas),
-      fork(adminDevManagementSagas),
+      fork(approvalsSagas),
+      fork(devsManagementSagas),
       fork(developerSetStatusSagas),
       fork(revisionDetailSagas),
-      fork(revisionsSagas),
       fork(appDeleteSagas),
-      fork(adminAppsSagas),
-      fork(adminStatsSaga),
+      fork(appsManagementSagas),
+      fork(statisticsSagas),
     ])
   }
 

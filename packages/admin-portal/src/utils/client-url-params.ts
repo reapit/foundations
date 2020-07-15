@@ -48,17 +48,3 @@ export const getParamsFromPath = (search: string) => {
 
   return output
 }
-
-export const getParamValueFromPath = (search: string, paramName: string): string => {
-  const params = new URLSearchParams(search)
-  if (params.has(paramName)) {
-    return params.get(paramName) || ''
-  }
-
-  return ''
-}
-
-export const hasFilterParams = (search: string): boolean => {
-  const params = new URLSearchParams(search)
-  return params.has('search') || params.has('category')
-}

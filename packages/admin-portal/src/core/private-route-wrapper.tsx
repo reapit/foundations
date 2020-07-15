@@ -29,7 +29,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
   const location = useLocation()
 
-  const route = `${window.location.origin}${Routes.ADMIN_APPROVALS}`
+  const route = `${window.location.origin}${Routes.APPROVALS}`
 
   const cognitoClientId = window.reapit.config.cognitoClientId
   const refreshParams = getTokenFromQueryString(location.search, cognitoClientId, 'ADMIN', route)
