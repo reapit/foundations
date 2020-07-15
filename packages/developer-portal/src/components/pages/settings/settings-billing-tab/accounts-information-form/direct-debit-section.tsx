@@ -1,14 +1,69 @@
 import * as React from 'react'
-import { GridItem, FormHeading, FormSubHeading, Button } from '@reapit/elements'
+import {
+  GridItem,
+  FormHeading,
+  FormSubHeading,
+  Button,
+  ModalV2,
+  ModalPropsV2,
+  H4,
+  H6,
+  Button,
+  FlexContainerResponsive,
+  Input,
+} from '@reapit/elements'
 import { AccountsInformationFormValues, ACCOUNT_REF_MIN_LENGTH } from './accounts-information-form'
-import { DirectDebitModal } from './direct-debit-modal'
+import formFields from './form-schema/form-fields'
+
+const { statusField, hasDirectDebitField } = formFields
 
 export type DirectDebitSectionProps = {
   setFieldValue: (field: string, value: any, shouldValidate?: boolean | undefined) => void
   values: AccountsInformationFormValues
 }
 
-const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({ values }) => {
+type DirectDebitModalProps = Pick<ModalPropsV2, 'onClose' | 'visible'> & {}
+
+export const handleCloseModal = (setIsOpenDirectDebitModal: React.Dispatch<boolean>) => () =>
+  setIsOpenDirectDebitModal(false)
+
+export const handleFinish = ({
+  setIsOpenDirectDebitModal,
+  setFieldValue,
+}: {
+  setIsOpenDirectDebitModal: React.Dispatch<boolean>
+  setFieldValue: DirectDebitSectionProps['setFieldValue']
+}) => () => {
+  setIsOpenDirectDebitModal(false)
+  setFieldValue(statusField.name, 'pending')
+  setFieldValue(hasDirectDebitField.name, 'yes')
+}
+
+export const DirectDebitModal: React.FC<DirectDebitModalProps> = ({ onClose, visible, onFinish }) => {
+  return (
+    <ModalV2
+      title={<H4>Foundations Direct Debit</H4>}
+      visible={visible}
+      onClose={onClose}
+      footer={
+        <FlexContainerResponsive centerContent isFullHeight={false}>
+          <H6 className="mb-0 mr-4">Once you have completed this form, please click here to continue</H6>
+          <Button onClick={onFinish}>Finish</Button>
+        </FlexContainerResponsive>
+      }
+    >
+      <iframe
+        src={`https://reapit.na1.echosign.com/public/esignWidget?wid=${window.reapit.config.debitApiKey}*&hosted=false`}
+        width="100%"
+        height="100%"
+        frameBorder="0"
+        style={{ border: 0, overflow: 'hidden', minHeight: 500 }}
+      />
+    </ModalV2>
+  )
+}
+
+const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({ values, setFieldValue }) => {
   const [isOpenDirectDebitModal, setIsOpenDirectDebitModal] = React.useState<boolean>(false)
 
   const { hasReapitAccountsRef, reapitReference } = values
@@ -40,8 +95,13 @@ const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({ values }) => {
             account will be verified by our Account Department.
           </FormSubHeading>
           <Button onClick={() => setIsOpenDirectDebitModal(true)}>Setup Direct Debit</Button>
+          <Input type="hidden" name={hasDirectDebitField.name} />
         </GridItem>
-        <DirectDebitModal visible={isOpenDirectDebitModal} onClose={() => setIsOpenDirectDebitModal(false)} />
+        <DirectDebitModal
+          visible={isOpenDirectDebitModal}
+          onClose={handleCloseModal(setIsOpenDirectDebitModal)}
+          onFinish={handleFinish({ setIsOpenDirectDebitModal, setFieldValue })}
+        />
       </>
     )
 

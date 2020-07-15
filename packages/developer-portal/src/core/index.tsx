@@ -32,6 +32,7 @@ window.reapit = {
     developerEditionDownloadUrl: '',
     urlSchemeUrl: '',
     apiDocDesktop: '',
+    debitApiKey: '',
   },
 }
 

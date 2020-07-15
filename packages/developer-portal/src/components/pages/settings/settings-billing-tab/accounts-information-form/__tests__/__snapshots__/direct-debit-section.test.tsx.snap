@@ -3,15 +3,23 @@
 exports[`DirectDebitSection should match snapshot 1`] = `""`;
 
 exports[`DirectDebitSection should match snapshot 2`] = `
-<Component>
+<Fragment>
   <Component>
-    Direct Debit
+    <Component>
+      Direct Debit
+    </Component>
+    <Component>
+      You will need to setup a Direct Debit before you can make any subscriptions within the Developers Portal, this includes submitting an app for approval and listing an app within the Marketplace. Once completed your account will be verified by our Account Department.
+    </Component>
+    <Component
+      onClick={[Function]}
+    >
+      Setup Direct Debit
+    </Component>
   </Component>
-  <Component>
-    You will need to setup a Direct Debit before you can make any subscriptions within the Developers Portal, this includes submitting an app for approval and listing an app within the Marketplace. Once completed your account will be verified by our Account Department.
-  </Component>
-  <Component>
-    Setup Direct Debit
-  </Component>
-</Component>
+  <Component
+    onClose={[Function]}
+    visible={false}
+  />
+</Fragment>
 `;

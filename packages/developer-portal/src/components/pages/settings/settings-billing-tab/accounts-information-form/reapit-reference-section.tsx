@@ -8,7 +8,7 @@ export type ReapitReferenceSectionProps = {
   values: AccountsInformationFormValues
 }
 
-const { hasReapitAccountsRefField, reapitAccountsRefField } = formFields
+const { hasReapitAccountsRefField, reapitReferenceField } = formFields
 
 const hasReapitAccountsRefRadioOptions = [
   { label: 'Yes', value: 'yes' },
@@ -34,9 +34,9 @@ const ReapitReferenceSection: React.FC<ReapitReferenceSectionProps> = ({ setFiel
       <Input
         dataTest="reapitAccountsRef"
         type="text"
-        id={reapitAccountsRefField.name}
-        name={reapitAccountsRefField.name}
-        placeholder={reapitAccountsRefField.placeHolder}
+        id={reapitReferenceField.name}
+        name={reapitReferenceField.name}
+        placeholder={reapitReferenceField.placeHolder}
         disabled={hasReapitAccountsRefFieldDisabled}
       />
     </>

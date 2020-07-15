@@ -4,9 +4,9 @@ import { cx } from 'linaria'
 import IDialogPropTypes from 'rc-dialog/lib/IDialogPropTypes'
 import { modalContainer } from './__styles__'
 
-export interface ModalProps extends IDialogPropTypes {}
+export interface ModalPropsV2 extends IDialogPropTypes {}
 
-export const Modal: React.FC<IDialogPropTypes> = ({
+export const ModalV2: React.FC<IDialogPropTypes> = ({
   children,
   className,
   wrapClassName,
@@ -25,4 +25,4 @@ export const Modal: React.FC<IDialogPropTypes> = ({
   )
 }
 
-export default React.memo(Modal)
+export default React.memo(ModalV2)
