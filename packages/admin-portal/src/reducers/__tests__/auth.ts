@@ -17,7 +17,7 @@ describe('auth reducer', () => {
 
   it('should set isLogin to true when AUTH_LOGIN_SUCCESS action is called', () => {
     const data = {
-      loginType: 'CLIENT' as LoginType,
+      loginType: 'ADMIN' as LoginType,
       userName: 'bob@acme.com',
       accessToken: '',
       refreshToken: '',
@@ -40,38 +40,14 @@ describe('auth reducer', () => {
     expect(newState).toEqual(expected)
   })
 
-  it('should update the loginType state when the AUTH_CHANGE_LOGIN_TYPE action is called', () => {
-    const newState = authReducer(undefined, {
-      type: ActionTypes.AUTH_CHANGE_LOGIN_TYPE as ActionType,
-      data: 'DEVELOPER',
-    })
-    const expected = {
-      ...defaultState,
-      loginType: 'DEVELOPER',
-    }
-    expect(newState).toEqual(expected)
-  })
-
   it('should set the desktopSession state when the AUTH_SET_REFRESH_SESSION is called', () => {
     const data = {
-      loginType: 'CLIENT' as LoginType,
+      loginType: 'ADMIN' as LoginType,
       refreshToken: 'REFRESH_TOKEN',
       userName: 'bob@acme.com',
       mode: 'DESKTOP',
     }
     const newState = authReducer(undefined, { type: ActionTypes.AUTH_SET_REFRESH_SESSION as ActionType, data })
     expect(newState.refreshSession).toEqual(data)
-  })
-
-  it('should set isTermAccepted state when SET_TERMS_ACCEPTED_STATE is called ', () => {
-    const newState = authReducer(undefined, {
-      type: ActionTypes.SET_TERMS_ACCEPTED_STATE as ActionType,
-      data: true,
-    })
-    const expected = {
-      ...defaultState,
-      isTermAccepted: true,
-    }
-    expect(newState).toEqual(expected)
   })
 })

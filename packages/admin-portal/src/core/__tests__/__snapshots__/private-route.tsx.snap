@@ -17,7 +17,7 @@ exports[`PrivateRouter should match a snapshot 1`] = `
     initialEntries={
       Array [
         Object {
-          "key": "adminAppsRoute",
+          "key": "appsManagementRoute",
           "pathname": "/login",
         },
       ]
@@ -33,7 +33,7 @@ exports[`PrivateRouter should match a snapshot 1`] = `
           "entries": Array [
             Object {
               "hash": "",
-              "key": "adminAppsRoute",
+              "key": "appsManagementRoute",
               "pathname": "/login",
               "search": "",
             },
@@ -46,7 +46,7 @@ exports[`PrivateRouter should match a snapshot 1`] = `
           "listen": [Function],
           "location": Object {
             "hash": "",
-            "key": "adminAppsRoute",
+            "key": "appsManagementRoute",
             "pathname": "/login",
             "search": "",
           },
@@ -56,7 +56,6 @@ exports[`PrivateRouter should match a snapshot 1`] = `
       }
     >
       <Component
-        allow="CLIENT"
         component={[Function]}
       />
     </Router>

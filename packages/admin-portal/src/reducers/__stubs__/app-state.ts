@@ -11,7 +11,7 @@ const appState: ReduxState = {
       idTokenExpiry: 1234428260,
       refreshToken: 'testRefreshToken',
       cognitoClientId: 'testCognitoClientId',
-      loginType: 'CLIENT',
+      loginType: 'ADMIN',
       userName: 'test@reapit.com',
       mode: 'WEB',
       loginIdentity: {
@@ -25,11 +25,10 @@ const appState: ReduxState = {
         groups: [COGNITO_GROUP_DEVELOPER_EDITION],
       },
     },
-    isTermAccepted: false,
-    loginType: 'CLIENT',
+    loginType: 'ADMIN',
     refreshSession: {
       refreshToken: 'testRefreshToken',
-      loginType: 'CLIENT',
+      loginType: 'ADMIN',
       userName: 'test@reapit.com',
       mode: 'WEB',
       cognitoClientId: 'testCognitoClientId',

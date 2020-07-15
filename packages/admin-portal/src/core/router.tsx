@@ -26,11 +26,11 @@ const Router = () => {
             <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
             <PrivateRouteWrapper path="/">
               <Switch>
-                <PrivateRoute allow="ADMIN" path={Routes.BILLING} component={BillingPage} exact />
-                <PrivateRoute allow="ADMIN" path={Routes.APPROVALS} component={ApprovalsPage} exact fetcher />
-                <PrivateRoute allow="ADMIN" path={Routes.APPS} component={AppsManagementPage} fetcher exact />
-                <PrivateRoute allow="ADMIN" path={Routes.DEV_MANAGEMENT} component={DevsManagementPage} exact fetcher />
-                <PrivateRoute allow="ADMIN" path={Routes.STATS} component={Statistics} exact />
+                <PrivateRoute path={Routes.BILLING} component={BillingPage} exact />
+                <PrivateRoute path={Routes.APPROVALS} component={ApprovalsPage} exact fetcher />
+                <PrivateRoute path={Routes.APPS} component={AppsManagementPage} fetcher exact />
+                <PrivateRoute path={Routes.DEV_MANAGEMENT} component={DevsManagementPage} exact fetcher />
+                <PrivateRoute path={Routes.STATS} component={Statistics} exact />
                 <Route render={() => <Info infoType="404" />} />
               </Switch>
             </PrivateRouteWrapper>
