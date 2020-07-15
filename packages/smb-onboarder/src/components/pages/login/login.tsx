@@ -6,7 +6,7 @@ import Routes from '@/constants/routes'
 import connectImage from '@/assets/images/reapit-connect.png'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 import { AuthContext } from '@/context'
-import { Container, Wrapper, ImageContainer } from './__styles__/styles'
+import { loginFormContainer, imageContainer, loginPageContainer } from './__styles__'
 
 export const redirectToLoginPage = () => {
   const cognitoClientId = window.reapit.config.cognitoClientId
@@ -22,8 +22,8 @@ export const Login: React.FC = () => {
   }
 
   return (
-    <Container>
-      <Wrapper>
+    <div className={loginPageContainer}>
+      <div className={loginFormContainer}>
         <Level>
           <img src={connectImage} alt="Reapit Connect Graphic" />
         </Level>
@@ -37,12 +37,12 @@ export const Login: React.FC = () => {
         <FlexContainerBasic className="pt-8" centerContent>
           {process.env.APP_VERSION}
         </FlexContainerBasic>
-      </Wrapper>
+      </div>
 
-      <ImageContainer>
+      <div className={imageContainer}>
         <img src={logoImage} alt="Reapit Graphic" />
-      </ImageContainer>
-    </Container>
+      </div>
+    </div>
   )
 }
 

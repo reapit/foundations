@@ -1,4 +1,17 @@
 /**
+ * The model responsible for accepting an invite
+ */
+export interface AcceptInviteModel {
+  /**
+   * The full name of this member
+   */
+  name?: string
+  /**
+   * The job title for this member
+   */
+  jobTitle?: string
+}
+/**
  * App secret representation
  */
 export interface AppClientSecretModel {
@@ -935,6 +948,31 @@ export interface InstallationModel {
   readonly links?: LinkModel[]
 }
 /**
+ * The model responsible for inviting a recipient to a developer organisation
+ */
+export interface InviteMemberModel {
+  /**
+   * The email address of the recipient
+   */
+  email?: string
+  /**
+   * The full name of the recipient
+   */
+  name?: string
+  /**
+   * The job title of the recipient
+   */
+  jobTitle?: string
+  /**
+   * The name of the user whos sent the invite
+   */
+  sender?: string
+  /**
+   * The message to send to the recipient
+   */
+  message?: string
+}
+/**
  * Represents a HyperMedia Link
  */
 export interface LinkModel {
@@ -1372,4 +1410,25 @@ export interface UpdateDeveloperModel {
    * Sets the address of the developers organisation
    */
   companyAddress?: UpdateAddressModel
+}
+/**
+ * The model responsible for updating a member
+ */
+export interface UpdateMemberModel {
+  /**
+   * The full name of this member
+   */
+  name?: string
+  /**
+   * The job title for this member
+   */
+  jobTitle?: string
+  /**
+   * The date the terms were agreed
+   */
+  agreedTerms?: string // date-time
+  /**
+   * The members role (admin/user)
+   */
+  role?: string
 }

@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import { css } from 'linaria'
 
-export const Container = styled.div`
+export const loginPageContainer = css`
   min-width: 100vw;
   min-height: 100vh;
   display: flex;
@@ -14,13 +14,10 @@ export const Container = styled.div`
   }
 `
 
-export const Wrapper = styled.div<{ disabled?: boolean }>`
+export const loginFormContainer = css`
   background-color: #fff;
   width: 33.33%;
   padding: 1rem;
-  pointer-events: ${props => {
-    return props.disabled ? 'none' : 'auto'
-  }};
 
   h1,
   p,
@@ -48,7 +45,7 @@ export const Wrapper = styled.div<{ disabled?: boolean }>`
   }
 `
 
-export const ImageContainer = styled.div`
+export const imageContainer = css`
   background-color: #fff;
   width: 66.66%;
   height: 100vh;

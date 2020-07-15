@@ -1986,7 +1986,6 @@ input OfficeModelAddressInput {
         <Component />
       </UploadProvider>
     </Component>
-    <Memo(GlobalStyleComponent) />
   </ApolloProvider>
 </ContextProvider>
 `;

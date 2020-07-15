@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GetStated AddingSourcesAndReferrals step should match a snapshot 1`] = `
-<styled.div>
+<div
+  className=""
+>
   <p
     className="mb-5"
   >
@@ -21,11 +23,13 @@ exports[`GetStated AddingSourcesAndReferrals step should match a snapshot 1`] = 
   >
     Next
   </Component>
-</styled.div>
+</div>
 `;
 
 exports[`GetStated AddingUsers step should match a snapshot 1`] = `
-<styled.div>
+<div
+  className=""
+>
   <p
     className="mb-5"
   >
@@ -45,11 +49,13 @@ exports[`GetStated AddingUsers step should match a snapshot 1`] = `
   >
     Next
   </Component>
-</styled.div>
+</div>
 `;
 
 exports[`GetStated Branding step should match a snapshot 1`] = `
-<styled.div>
+<div
+  className=""
+>
   <p
     className="mb-5"
   >
@@ -69,11 +75,13 @@ exports[`GetStated Branding step should match a snapshot 1`] = `
   >
     Next
   </Component>
-</styled.div>
+</div>
 `;
 
 exports[`GetStated LetGetStated step should match a snapshot 1`] = `
-<styled.div>
+<div
+  className=""
+>
   <p
     className="mb-5"
   >
@@ -93,11 +101,13 @@ exports[`GetStated LetGetStated step should match a snapshot 1`] = `
   >
     Start Setup
   </Component>
-</styled.div>
+</div>
 `;
 
 exports[`GetStated Setting step should match a snapshot 1`] = `
-<styled.div>
+<div
+  className=""
+>
   <p
     className="mb-5"
   >
@@ -110,11 +120,12 @@ exports[`GetStated Setting step should match a snapshot 1`] = `
   >
     Next
   </Component>
-</styled.div>
+</div>
 `;
 
 exports[`GetStated should match a snapshot 1`] = `
-<styled.div
+<div
+  className=""
   id="get-started"
 >
   <Component
@@ -150,5 +161,5 @@ exports[`GetStated should match a snapshot 1`] = `
       />
     </Component>
   </Component>
-</styled.div>
+</div>
 `;

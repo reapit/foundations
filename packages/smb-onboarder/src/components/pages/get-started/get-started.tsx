@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { FlexContainerResponsive, useHelpGuideContext, HelpGuide, Button } from '@reapit/elements'
-import { Container, WrapperStep } from './__styles__/styles'
+import { getStartedContainer, stepContainer } from './__styles__'
 
 export const Setting = () => {
   const { goNext } = useHelpGuideContext()
   return (
-    <WrapperStep>
+    <div className={stepContainer}>
       <p className="mb-5">
         Setup your office and additional offices in your company by accessing &lsquo;Offices&rsquo;. Here you can set
         your &lsquo;Global Settings&rsquo;, configure your &lsquo;Areas&rsquo; and third-party software
@@ -14,7 +14,7 @@ export const Setting = () => {
       <Button type="button" variant="primary" onClick={handleChangeSteps(goNext)}>
         Next
       </Button>
-    </WrapperStep>
+    </div>
   )
 }
 
@@ -22,7 +22,7 @@ export const AddingUsers = () => {
   const { goNext, goPrev } = useHelpGuideContext()
 
   return (
-    <WrapperStep>
+    <div className={stepContainer}>
       <p className="mb-5">
         Add your Negotiators, Property Managers and Admin access through &lsquo;Users&rsquo;. You can add, delete or
         transfer users between Offices. You’ll need to setup at least 1 admin user before installing the software.
@@ -33,14 +33,14 @@ export const AddingUsers = () => {
       <Button type="button" variant="primary" onClick={handleChangeSteps(goNext)}>
         Next
       </Button>
-    </WrapperStep>
+    </div>
   )
 }
 
 export const AddingSourcesAndReferrals = () => {
   const { goNext, goPrev } = useHelpGuideContext()
   return (
-    <WrapperStep>
+    <div className={stepContainer}>
       <p className="mb-5">
         Configure your Lead Sources, Advertising Publishers and add third party Referrals from the &lsquo;Sources&rsquo;
         tab. You can come back any time and add new sources when you need to.
@@ -51,14 +51,14 @@ export const AddingSourcesAndReferrals = () => {
       <Button type="button" variant="primary" onClick={handleChangeSteps(goNext)}>
         Next
       </Button>
-    </WrapperStep>
+    </div>
   )
 }
 
 export const Branding = () => {
   const { goNext, goPrev } = useHelpGuideContext()
   return (
-    <WrapperStep>
+    <div className={stepContainer}>
       <p className="mb-5">
         Personalise your templates & brand your brochures. From the &lsquo;Marketing&rsquo; tab you can set your set
         your company colours, upload your logo and choose which Portals you want to send to.
@@ -69,14 +69,14 @@ export const Branding = () => {
       <Button type="button" variant="primary" onClick={handleChangeSteps(goNext)}>
         Next
       </Button>
-    </WrapperStep>
+    </div>
   )
 }
 
 export const LetGetStated = () => {
   const { goPrev } = useHelpGuideContext()
   return (
-    <WrapperStep>
+    <div className={stepContainer}>
       <p className="mb-5">
         You can now start the wizard by clicking on &lsquo;Start Setup&rsquo; below. We will walk you through the steps
         and in no time at all, you&rsquo;ll be ready to install the latest version of Agency Cloud.
@@ -87,7 +87,7 @@ export const LetGetStated = () => {
       <Button variant="primary" type="button" onClick={handleStartSetup()}>
         Start Setup
       </Button>
-    </WrapperStep>
+    </div>
   )
 }
 
@@ -100,7 +100,7 @@ export const handleChangeSteps = (goTo: () => void) => () => {
 
 export const GetStated: React.FC = () => {
   return (
-    <Container id="get-started">
+    <div className={getStartedContainer} id="get-started">
       <FlexContainerResponsive flexColumn hasBackground hasPadding>
         <HelpGuide>
           <HelpGuide.Step id="step-1" component={Setting} heading="Setting up your Office(s)." />
@@ -114,7 +114,7 @@ export const GetStated: React.FC = () => {
           <HelpGuide.Step id="step-5" component={LetGetStated} heading="That’s it! Let’s get started." />
         </HelpGuide>
       </FlexContainerResponsive>
-    </Container>
+    </div>
   )
 }
 

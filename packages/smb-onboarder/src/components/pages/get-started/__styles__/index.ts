@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import { css } from 'linaria'
 
-export const Container = styled.div`
+export const getStartedContainer = css`
   display: flex;
   margin: 0 auto;
   width: 100%;
@@ -9,7 +9,7 @@ export const Container = styled.div`
   }
 `
 
-export const WrapperStep = styled.div`
+export const stepContainer = css`
   @media (min-width: 769px) {
     max-width: 500px;
   }
