@@ -17,6 +17,8 @@ export type Config = {
   developerEditionDownloadUrl: string
   urlSchemeUrl: string
   apiDocDesktop: string
+  developerPortalUrl: string
+  adminPortalUrl: string
 }
 
 declare global {

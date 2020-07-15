@@ -20,7 +20,7 @@ export interface MenuItem {
   disabled?: boolean
 }
 
-export const getActiveItemKey = (menu: MenuItem[], location?: Location<any>): string | null => {
+export const getActiveItemKey = (menu: MenuItem[] = [], location?: Location<any>): string | null => {
   if (location && location.pathname) {
     const activeItem = menu.find(item => {
       const isExactRoot = location.pathname === '/' && item.url === '/'

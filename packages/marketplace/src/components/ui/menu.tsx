@@ -89,9 +89,17 @@ export const Menu: React.FunctionComponent<MenuProps> = () => {
   const isDesktopAdmin = useSelector(selectIsAdmin)
   const isDeveloperEdition = Boolean(useSelector(selectDeveloperEditionId))
   const loginType = useSelector(selectLoginType)
+
   const isAdmin = isDesktopAdmin || isDeveloperEdition
 
   const menuConfigs = generateMenuConfig(logout({ dispatch, authLogout }), location, isAdmin)
+  const menuConfig = menuConfigs[loginType]
+
+  // invalid login type. E.g. admin view marketplace apps
+  if (!menuConfig) {
+    return null
+  }
+
   return <Sidebar {...menuConfigs[loginType]} location={location} />
 }
 

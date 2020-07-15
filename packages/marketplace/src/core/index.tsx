@@ -32,6 +32,8 @@ window.reapit = {
     developerEditionDownloadUrl: '',
     urlSchemeUrl: '',
     apiDocDesktop: '',
+    developerPortalUrl: '',
+    adminPortalUrl: '',
   },
 }
 

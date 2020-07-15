@@ -18,7 +18,7 @@ exports[`Settings should match snapshot 1`] = `
       Array [
         Object {
           "key": "clientSettingsRoute",
-          "pathname": "/client/settings",
+          "pathname": "/settings",
         },
       ]
     }
@@ -34,7 +34,7 @@ exports[`Settings should match snapshot 1`] = `
             Object {
               "hash": "",
               "key": "clientSettingsRoute",
-              "pathname": "/client/settings",
+              "pathname": "/settings",
               "search": "",
             },
           ],
@@ -47,7 +47,7 @@ exports[`Settings should match snapshot 1`] = `
           "location": Object {
             "hash": "",
             "key": "clientSettingsRoute",
-            "pathname": "/client/settings",
+            "pathname": "/settings",
             "search": "",
           },
           "push": [Function],
