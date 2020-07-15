@@ -6,7 +6,7 @@ import { fontFamilies } from './fonts'
 
 export const globalStyles = css`
   :global() {
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Source+Code+Pro&display=swap');
+    /* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Source+Code+Pro&display=swap'); */
 
     html {
       box-sizing: border-box;

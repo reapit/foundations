@@ -31,6 +31,7 @@
     "@rollup/plugin-node-resolve": "^8.1.0",
     "@types/react-copy-to-clipboard": "^4.3.0",
     "babel-preset-gatsby": "^0.5.1",
+    "babel-plugin-module-resolver": "^4.0.0",
     "css-loader": "^3.6.0",
     "dashify": "^2.0.0",
     "docz": "^2.3.1",

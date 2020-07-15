@@ -7,19 +7,10 @@ import scss from 'rollup-plugin-scss'
 import linaria from 'linaria/rollup'
 import typescript from 'rollup-plugin-typescript2'
 
-const EXCLUDE_PACKAGES = ['linaria']
-
-const generateRegexExcludePackages = () => {
-  const listPackagesString = EXCLUDE_PACKAGES.join('|')
-  return new RegExp(`node_modules/(?!(${listPackagesString})/).*`)
-}
-
 const globals = {
+  react: 'react',
   'react-dom': 'react-dom',
   'react-router-dom': 'react-router-dom',
-  'react-google-map': 'react-google-map',
-  linaria: 'linaria',
-  react: 'react',
 }
 
 export default {
@@ -45,6 +36,20 @@ export default {
     commonjs(),
     json(),
     typescript(),
+    babel({
+      exclude: /node_modules/,
+      extensions: ['.ts', '.tsx'],
+      babelHelpers: 'bundled',
+      plugins: [
+        ['module-resolver',
+          {
+            alias: {
+              '@': './src',
+            }
+          }
+        ]
+      ],
+    }),
     linaria(),
     scss({
       output: 'dist/index.css',
@@ -61,8 +66,11 @@ export default {
             corejs: 3,
           },
         ],
+        '@babel/preset-react',
+        'linaria/babel'
       ],
-      exclude: generateRegexExcludePackages(),
+      exclude: /node_modules/,
+      include: /node_modules\/(linaria)/,
       extensions: ['.js', '.jsx'],
       babelHelpers: 'runtime',
       plugins: ['@babel/plugin-transform-runtime'],
