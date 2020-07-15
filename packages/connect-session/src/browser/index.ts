@@ -2,11 +2,11 @@ import 'isomorphic-fetch'
 import jwt from 'jsonwebtoken'
 import {
   ReapitConnectBrowserSessionInitializers,
-  ConnectSession,
+  ReapitConnectSession,
   LoginIdentity,
   CoginitoIdentity,
   CoginitoAccess,
-} from './types'
+} from '../types'
 
 export class ReapitConnectBrowserSession {
   static TOKEN_EXPIRY = Math.round(new Date().getTime() / 1000) + 300 // 5 minutes from now
@@ -14,21 +14,23 @@ export class ReapitConnectBrowserSession {
   private connectOAuthUrl: string
   private connectClientId: string
   private userName: string | null
-  private session: ConnectSession | null
-  private connectLoginRedirectUri: string
-  private connectLogoutRedirectUri: string
+  private session: ReapitConnectSession | null
+  private connectLoginRedirectPath: string
+  private connectLogoutRedirectPath: string
+  private fetching: boolean
 
   constructor({
     connectClientId,
     connectOAuthUrl,
-    connectLoginRedirectUri,
-    connectLogoutRedirectUri,
+    connectLoginRedirectPath,
+    connectLogoutRedirectPath,
   }: ReapitConnectBrowserSessionInitializers) {
     this.connectOAuthUrl = connectOAuthUrl
     this.connectClientId = connectClientId
-    this.connectLoginRedirectUri = connectLoginRedirectUri
-    this.connectLogoutRedirectUri = connectLogoutRedirectUri
+    this.connectLoginRedirectPath = connectLoginRedirectPath
+    this.connectLogoutRedirectPath = connectLogoutRedirectPath
     this.userName = this.connectStoredLoginUser
+    this.fetching = false
     this.session =
       this.connectStoredAccessToken && this.connectStoredRefreshToken && this.connectStoredIdToken
         ? {
@@ -41,7 +43,7 @@ export class ReapitConnectBrowserSession {
   }
 
   private connectStartSesssion() {
-    return this.connectSession
+    return this.connectSession()
   }
 
   private get connectStoredLoginUser(): string | null {
@@ -67,11 +69,11 @@ export class ReapitConnectBrowserSession {
   }
 
   private get tokenRefreshEndpoint() {
-    return `${this.connectOAuthUrl}/token?grant_type=refresh_token&client_id=${this.connectClientId}&refresh_token=${this.session?.refreshToken}&redirect_uri=${this.connectLoginRedirectUri}`
+    return `${this.connectOAuthUrl}/token?grant_type=refresh_token&client_id=${this.connectClientId}&refresh_token=${this.session?.refreshToken}&redirect_uri=${this.connectLoginRedirectPath}`
   }
 
   private get tokenCodeEndpoint(): string {
-    return `${this.connectOAuthUrl}/token?grant_type=authorization_code&client_id=${this.connectClientId}&code=${this.authCode}&redirect_uri=${this.connectLoginRedirectUri}`
+    return `${this.connectOAuthUrl}/token?grant_type=authorization_code&client_id=${this.connectClientId}&code=${this.authCode}&redirect_uri=${this.connectLoginRedirectPath}`
   }
 
   private get sessionExpired() {
@@ -106,7 +108,7 @@ export class ReapitConnectBrowserSession {
     }
   }
 
-  private async connectGetSession(url: string): Promise<ConnectSession | void> {
+  private async connectGetSession(url: string): Promise<ReapitConnectSession | void> {
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -130,30 +132,42 @@ export class ReapitConnectBrowserSession {
     }
   }
 
-  public connectAuthorizeRedirect(redirectUri: string = this.connectLoginRedirectUri): void {
-    window.location.href = `${this.connectOAuthUrl}/authorize?response_type=code&client_id=${this.connectClientId}&redirect_uri=${redirectUri}`
+  public connectAuthorizeRedirect(redirectUri: string = this.connectLoginRedirectPath): void {
+    window.location.href = `${this.connectOAuthUrl}/authorize?response_type=code&client_id=${this.connectClientId}&redirect_uri=${window.location.origin}${redirectUri}`
   }
 
-  public connectLoginRedirect(redirectUri: string = this.connectLoginRedirectUri): void {
-    window.location.href = `${this.connectOAuthUrl}/login?response_type=code&client_id=${this.connectClientId}&redirect_uri=${redirectUri}`
+  public connectLoginRedirect(redirectUri: string = this.connectLoginRedirectPath): void {
+    window.location.href = `${this.connectOAuthUrl}/login?response_type=code&client_id=${this.connectClientId}&redirect_uri=${window.location.origin}${redirectUri}`
   }
 
-  public connectLogoutRedirect(redirectUri: string = this.connectLogoutRedirectUri): void {
-    window.location.href = `${this.connectOAuthUrl}/logout?client_id=${this.connectClientId}&logout_uri=${redirectUri}`
+  public connectLogoutRedirect(redirectUri: string = this.connectLogoutRedirectPath): void {
+    window.location.href = `${this.connectOAuthUrl}/logout?client_id=${this.connectClientId}&logout_uri=${window.location.origin}${redirectUri}`
   }
 
-  public get connectSession(): Promise<ConnectSession | void> {
+  public connectSession(): Promise<ReapitConnectSession | void> {
     return new Promise(resolve => {
       if (this.session && !this.sessionExpired) {
         return resolve(this.session)
       }
 
+      if (this.fetching) {
+        return resolve()
+      }
+
       if (this.session) {
-        return this.connectGetSession(this.tokenRefreshEndpoint).then(session => resolve(session))
+        this.fetching = true
+        return this.connectGetSession(this.tokenRefreshEndpoint).then(session => {
+          this.fetching = false
+          resolve(session)
+        })
       }
 
       if (this.authCode) {
-        return this.connectGetSession(this.tokenCodeEndpoint).then(session => resolve(session))
+        this.fetching = true
+        return this.connectGetSession(this.tokenCodeEndpoint).then(session => {
+          this.fetching = false
+          resolve(session)
+        })
       }
 
       return resolve(this.connectAuthorizeRedirect())

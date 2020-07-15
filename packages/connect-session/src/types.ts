@@ -1,11 +1,11 @@
 export interface ReapitConnectBrowserSessionInitializers {
   connectOAuthUrl: string
   connectClientId: string
-  connectLoginRedirectUri: string
-  connectLogoutRedirectUri: string
+  connectLoginRedirectPath: string
+  connectLogoutRedirectPath: string
 }
 
-export interface ConnectSession {
+export interface ReapitConnectSession {
   accessToken: string
   refreshToken: string
   loginIdentity: LoginIdentity
@@ -55,4 +55,11 @@ export interface CoginitoAccess {
   jti: string
   client_id: string
   username: string
+}
+
+export type ReapitConnectHook = {
+  connectSession: ReapitConnectSession | null
+  connectAuthorizeRedirect: (redirectUri: string) => void
+  connectLoginRedirect: (redirectUri: string) => void
+  connectLogoutRedirect: (redirectUri: string) => void
 }
