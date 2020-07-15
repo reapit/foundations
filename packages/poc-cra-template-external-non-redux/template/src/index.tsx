@@ -1,5 +1,10 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
+import { css } from 'linaria'
+
+const red = css`
+  color: red;
+`
 
 export interface HelloProps {
   compiler: string
@@ -11,11 +16,11 @@ export interface HelloProps {
 export class Hello extends React.Component<HelloProps, {}> {
   render() {
     return (
-      <h1>
+      <h1 className={red}>
         Hello from {this.props.compiler} and {this.props.framework}!
       </h1>
     )
   }
 }
 
-ReactDOM.render(<Hello compiler="TypeScript" framework="React" />, document.getElementById('example'))
+ReactDOM.render(<Hello compiler="TypeScript" framework="React" />, document.getElementById('root'))
