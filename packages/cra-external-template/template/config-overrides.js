@@ -30,17 +30,17 @@ function transformLoader(loader) {
   }
 }
 
-const addLinariaLoader = (config) => {
+const addLinariaLoader = config => {
   /**
    * cra scripts rules atm (version 3)
    * https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/config/webpack.config.js
    */
-  const ruleWithOneOf = config.module.rules.find((rule) => rule.oneOf)
+  const ruleWithOneOf = config.module.rules.find(rule => rule.oneOf)
   if (ruleWithOneOf === null) {
     throw Error('Cant find webpack rule with oneOf')
   }
 
-  let subRuleWithTsxIndex = ruleWithOneOf.oneOf.findIndex((rule) => rule.test.toString().includes('tsx'))
+  let subRuleWithTsxIndex = ruleWithOneOf.oneOf.findIndex(rule => rule.test.toString().includes('tsx'))
   if (subRuleWithTsxIndex === -1) {
     throw Error('Cant find rule match ts/tsx')
   }
