@@ -1,5 +1,5 @@
 {
-  "name": "@reapit/cra-template-external-non-redux",
+  "name": "@reapit/cra-template",
   "version": "0.1.0",
   "private": true,
   "main": "./template.json"
