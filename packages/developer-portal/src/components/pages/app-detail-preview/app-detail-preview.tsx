@@ -1,3 +1,5 @@
+// The UI of this page should be the same as the Standalone App Detail page in Marketplace portal
+// Make sure to always update the UI in both places if needed
 import * as React from 'react'
 import AppContent from './client/app-content'
 import { Aside as AppAside } from './client/aside'
@@ -5,8 +7,6 @@ import AppHeader from './common/ui-app-header'
 import { useParams } from 'react-router'
 import { AppDetailData } from '@/reducers/developer'
 import { Grid, Loader, GridItem, Section } from '@reapit/elements'
-import { BackToAppsSection } from '../app-detail/app-sections'
-import useReactResponsive from '@/components/hooks/use-react-responsive'
 import { Dispatch } from 'redux'
 import { showNotificationMessage } from '@/actions/notification-message'
 import { useDispatch } from 'react-redux'
@@ -41,7 +41,6 @@ export const loadAppDetailPreviewDataFromLocalStorage = (
 
 const AppDetailPreview: React.FC<AppDetailPreviewProps> = () => {
   const dispatch = useDispatch()
-  const { isMobile } = useReactResponsive()
   const [appDetailPreviewData, setAppDetailPreviewData] = React.useState<AppDetailPreviewProps | null>(null)
   const { appId } = useParams()
 
@@ -60,7 +59,6 @@ const AppDetailPreview: React.FC<AppDetailPreviewProps> = () => {
             <Section isFlex isFlexColumn isFullHeight>
               <AppHeader appDetailData={appDetailPreviewData} />
               <AppContent appDetailData={appDetailPreviewData} />
-              {!isMobile && <BackToAppsSection onClick={() => {}} />}
             </Section>
           </GridItem>
         </>
