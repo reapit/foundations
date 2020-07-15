@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import DirectDebitSection, { DirectDebitSectionProps, handleFinish, handleCloseModal } from '../direct-debit-section'
+import DirectDebitSection, { DirectDebitSectionProps, handleFinish, handleToggleModal } from '../direct-debit-section'
 import formFields from '../form-schema/form-fields'
 
 const { statusField, hasDirectDebitField } = formFields
@@ -51,13 +51,13 @@ describe('handleFinish', () => {
   })
 })
 
-describe('handleCloseModal', () => {
+describe('handleToggleModal', () => {
   it('should run correctly', () => {
     const setIsOpenDirectDebitModal = jest.fn()
 
-    const fn = handleCloseModal(setIsOpenDirectDebitModal)
+    const fn = handleToggleModal(setIsOpenDirectDebitModal, true)
 
     fn()
-    expect(setIsOpenDirectDebitModal).toHaveBeenCalledWith(false)
+    expect(setIsOpenDirectDebitModal).toHaveBeenCalledWith(true)
   })
 })

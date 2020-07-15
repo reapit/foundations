@@ -26,8 +26,8 @@ type DirectDebitModalProps = Pick<ModalPropsV2, 'onClose' | 'visible'> & {
   onFinish: () => any
 }
 
-export const handleCloseModal = (setIsOpenDirectDebitModal: React.Dispatch<boolean>) => () =>
-  setIsOpenDirectDebitModal(false)
+export const handleToggleModal = (setIsOpenDirectDebitModal: React.Dispatch<boolean>, state: boolean) => () =>
+  setIsOpenDirectDebitModal(state)
 
 export const handleFinish = ({
   setIsOpenDirectDebitModal,
@@ -99,12 +99,12 @@ const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({ values, setFiel
             this includes submitting an app for approval and listing an app within the Marketplace. Once completed your
             account will be verified by our Account Department.
           </FormSubHeading>
-          <Button onClick={() => setIsOpenDirectDebitModal(true)}>Setup Direct Debit</Button>
+          <Button onClick={handleToggleModal(setIsOpenDirectDebitModal, true)}>Setup Direct Debit</Button>
           <Input id={hasDirectDebitField.name} type="hidden" name={hasDirectDebitField.name} />
         </GridItem>
         <DirectDebitModal
           visible={isOpenDirectDebitModal}
-          onClose={handleCloseModal(setIsOpenDirectDebitModal)}
+          onClose={handleToggleModal(setIsOpenDirectDebitModal, false)}
           onFinish={handleFinish({ setIsOpenDirectDebitModal, setFieldValue, setIsSubmittedDebit })}
         />
       </>
