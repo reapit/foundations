@@ -1,4 +1,5 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "allowJs": true,
     "esModuleInterop": true,
@@ -15,7 +16,7 @@
     "module": "ESNEXT",
     "jsx": "react",
     "moduleResolution": "node",
-    "typeRoots": ["./node_modules/@types"],
+    "typeRoots": ["../../node_modules/@types"],
     "types": ["jest", "node", "react"],
     "lib": ["dom", "es2015", "es2017", "es2018", "es2019", "es2020", "es5", "es6", "es7", "esnext"],
     "baseUrl": "./",

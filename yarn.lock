@@ -3062,6 +3062,39 @@
     slash "^3.0.0"
     strip-ansi "^6.0.0"
 
+"@jest/core@^26.1.0":
+  version "26.1.0"
+  resolved "https://registry.yarnpkg.com/@jest/core/-/core-26.1.0.tgz#4580555b522de412a7998b3938c851e4f9da1c18"
+  integrity sha512-zyizYmDJOOVke4OO/De//aiv8b07OwZzL2cfsvWF3q9YssfpcKfcnZAwDY8f+A76xXSMMYe8i/f/LPocLlByfw==
+  dependencies:
+    "@jest/console" "^26.1.0"
+    "@jest/reporters" "^26.1.0"
+    "@jest/test-result" "^26.1.0"
+    "@jest/transform" "^26.1.0"
+    "@jest/types" "^26.1.0"
+    ansi-escapes "^4.2.1"
+    chalk "^4.0.0"
+    exit "^0.1.2"
+    graceful-fs "^4.2.4"
+    jest-changed-files "^26.1.0"
+    jest-config "^26.1.0"
+    jest-haste-map "^26.1.0"
+    jest-message-util "^26.1.0"
+    jest-regex-util "^26.0.0"
+    jest-resolve "^26.1.0"
+    jest-resolve-dependencies "^26.1.0"
+    jest-runner "^26.1.0"
+    jest-runtime "^26.1.0"
+    jest-snapshot "^26.1.0"
+    jest-util "^26.1.0"
+    jest-validate "^26.1.0"
+    jest-watcher "^26.1.0"
+    micromatch "^4.0.2"
+    p-each-series "^2.1.0"
+    rimraf "^3.0.0"
+    slash "^3.0.0"
+    strip-ansi "^6.0.0"
+
 "@jest/environment@^24.9.0":
   version "24.9.0"
   resolved "https://registry.yarnpkg.com/@jest/environment/-/environment-24.9.0.tgz#21e3afa2d65c0586cbd6cbefe208bafade44ab18"
@@ -3251,6 +3284,38 @@
     jest-resolve "^26.0.1"
     jest-util "^26.0.1"
     jest-worker "^26.0.0"
+    slash "^3.0.0"
+    source-map "^0.6.0"
+    string-length "^4.0.1"
+    terminal-link "^2.0.0"
+    v8-to-istanbul "^4.1.3"
+  optionalDependencies:
+    node-notifier "^7.0.0"
+
+"@jest/reporters@^26.1.0":
+  version "26.1.0"
+  resolved "https://registry.yarnpkg.com/@jest/reporters/-/reporters-26.1.0.tgz#08952e90c90282e14ff49e927bdf1873617dae78"
+  integrity sha512-SVAysur9FOIojJbF4wLP0TybmqwDkdnFxHSPzHMMIYyBtldCW9gG+Q5xWjpMFyErDiwlRuPyMSJSU64A67Pazg==
+  dependencies:
+    "@bcoe/v8-coverage" "^0.2.3"
+    "@jest/console" "^26.1.0"
+    "@jest/test-result" "^26.1.0"
+    "@jest/transform" "^26.1.0"
+    "@jest/types" "^26.1.0"
+    chalk "^4.0.0"
+    collect-v8-coverage "^1.0.0"
+    exit "^0.1.2"
+    glob "^7.1.2"
+    graceful-fs "^4.2.4"
+    istanbul-lib-coverage "^3.0.0"
+    istanbul-lib-instrument "^4.0.3"
+    istanbul-lib-report "^3.0.0"
+    istanbul-lib-source-maps "^4.0.0"
+    istanbul-reports "^3.0.2"
+    jest-haste-map "^26.1.0"
+    jest-resolve "^26.1.0"
+    jest-util "^26.1.0"
+    jest-worker "^26.1.0"
     slash "^3.0.0"
     source-map "^0.6.0"
     string-length "^4.0.1"
@@ -17986,6 +18051,11 @@ hardtack@^4.1.0, hardtack@^4.1.2:
   resolved "https://registry.yarnpkg.com/hardtack/-/hardtack-4.1.2.tgz#e1084ae9fbb8a479d86888d607d2a71fc7444d9a"
   integrity sha512-WR1Ch+BlmLsTECRQemRtskQX60JJkIKwelctq/ON1XZEVtXwHpqvZjWmqB/2zCdX161o3cRO3Yvyc/s6enOmOA==
 
+harmony-reflect@^1.4.6:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/harmony-reflect/-/harmony-reflect-1.6.1.tgz#c108d4f2bb451efef7a37861fdbdae72c9bdefa9"
+  integrity sha512-WJTeyp0JzGtHcuMsi7rw2VwtkvLa+JyfEKJCFyfcS0+CDkjQ5lHPu7zEhFZP+PDSRrEgXa5Ah0l1MbgbE41XjA==
+
 has-ansi@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/has-ansi/-/has-ansi-2.0.0.tgz#34f5049ce1ecdf2b0649af3ef24e45ed35416d91"
@@ -18668,6 +18738,13 @@ icss-utils@^4.0.0, icss-utils@^4.1.1:
   integrity sha512-4aFq7wvWyMHKgxsH8QQtGpvbASCf+eM3wPRLI6R+MgAnTCZ6STYsRvttLvRWK0Nfif5piF394St3HeJDaljGPA==
   dependencies:
     postcss "^7.0.14"
+
+identity-obj-proxy@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/identity-obj-proxy/-/identity-obj-proxy-3.0.0.tgz#94d2bda96084453ef36fbc5aaec37e0f79f1fc14"
+  integrity sha1-lNK9qWCERT7zb7xarsN+D3nx/BQ=
+  dependencies:
+    harmony-reflect "^1.4.6"
 
 ieee754@1.1.13, ieee754@^1.1.13, ieee754@^1.1.4, ieee754@^1.1.8:
   version "1.1.13"
@@ -19904,7 +19981,7 @@ istanbul-lib-instrument@^3.0.1, istanbul-lib-instrument@^3.3.0:
     istanbul-lib-coverage "^2.0.5"
     semver "^6.0.0"
 
-istanbul-lib-instrument@^4.0.0:
+istanbul-lib-instrument@^4.0.0, istanbul-lib-instrument@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/istanbul-lib-instrument/-/istanbul-lib-instrument-4.0.3.tgz#873c6fff897450118222774696a3f28902d77c1d"
   integrity sha512-BXgQl9kf4WTCPCCpmFGoJkz/+uhvm7h7PFKUYxh7qarQd3ER33vHG//qaE8eN25l07YqZPpHXU9I09l/RD5aGQ==
@@ -20044,6 +20121,15 @@ jest-changed-files@^26.0.1:
     execa "^4.0.0"
     throat "^5.0.0"
 
+jest-changed-files@^26.1.0:
+  version "26.1.0"
+  resolved "https://registry.yarnpkg.com/jest-changed-files/-/jest-changed-files-26.1.0.tgz#de66b0f30453bca2aff98e9400f75905da495305"
+  integrity sha512-HS5MIJp3B8t0NRKGMCZkcDUZo36mVRvrDETl81aqljT1S9tqiHRSpyoOvWg9ZilzZG9TDisDNaN1IXm54fLRZw==
+  dependencies:
+    "@jest/types" "^26.1.0"
+    execa "^4.0.0"
+    throat "^5.0.0"
+
 jest-cli@^24.9.0:
   version "24.9.0"
   resolved "https://registry.yarnpkg.com/jest-cli/-/jest-cli-24.9.0.tgz#ad2de62d07472d419c6abc301fc432b98b10d2af"
@@ -20099,6 +20185,25 @@ jest-cli@^26.0.1:
     jest-config "^26.0.1"
     jest-util "^26.0.1"
     jest-validate "^26.0.1"
+    prompts "^2.0.1"
+    yargs "^15.3.1"
+
+jest-cli@^26.1.0:
+  version "26.1.0"
+  resolved "https://registry.yarnpkg.com/jest-cli/-/jest-cli-26.1.0.tgz#eb9ec8a18cf3b6aa556d9deaa9e24be12b43ad87"
+  integrity sha512-Imumvjgi3rU7stq6SJ1JUEMaV5aAgJYXIs0jPqdUnF47N/Tk83EXfmtvNKQ+SnFVI6t6mDOvfM3aA9Sg6kQPSw==
+  dependencies:
+    "@jest/core" "^26.1.0"
+    "@jest/test-result" "^26.1.0"
+    "@jest/types" "^26.1.0"
+    chalk "^4.0.0"
+    exit "^0.1.2"
+    graceful-fs "^4.2.4"
+    import-local "^3.0.2"
+    is-ci "^2.0.0"
+    jest-config "^26.1.0"
+    jest-util "^26.1.0"
+    jest-validate "^26.1.0"
     prompts "^2.0.1"
     yargs "^15.3.1"
 
@@ -20809,6 +20914,15 @@ jest-resolve-dependencies@^26.0.1:
     jest-regex-util "^26.0.0"
     jest-snapshot "^26.0.1"
 
+jest-resolve-dependencies@^26.1.0:
+  version "26.1.0"
+  resolved "https://registry.yarnpkg.com/jest-resolve-dependencies/-/jest-resolve-dependencies-26.1.0.tgz#1ce36472f864a5dadf7dc82fa158e1c77955691b"
+  integrity sha512-fQVEPHHQ1JjHRDxzlLU/buuQ9om+hqW6Vo928aa4b4yvq4ZHBtRSDsLdKQLuCqn5CkTVpYZ7ARh2fbA8WkRE6g==
+  dependencies:
+    "@jest/types" "^26.1.0"
+    jest-regex-util "^26.0.0"
+    jest-snapshot "^26.1.0"
+
 jest-resolve@^24.9.0:
   version "24.9.0"
   resolved "https://registry.yarnpkg.com/jest-resolve/-/jest-resolve-24.9.0.tgz#dff04c7687af34c4dd7e524892d9cf77e5d17321"
@@ -21357,6 +21471,18 @@ jest-watcher@^26.0.1:
     jest-util "^26.0.1"
     string-length "^4.0.1"
 
+jest-watcher@^26.1.0:
+  version "26.1.0"
+  resolved "https://registry.yarnpkg.com/jest-watcher/-/jest-watcher-26.1.0.tgz#99812a0cd931f0cb3d153180426135ab83e4d8f2"
+  integrity sha512-ffEOhJl2EvAIki613oPsSG11usqnGUzIiK7MMX6hE4422aXOcVEG3ySCTDFLn1+LZNXGPE8tuJxhp8OBJ1pgzQ==
+  dependencies:
+    "@jest/test-result" "^26.1.0"
+    "@jest/types" "^26.1.0"
+    ansi-escapes "^4.2.1"
+    chalk "^4.0.0"
+    jest-util "^26.1.0"
+    string-length "^4.0.1"
+
 jest-worker@^24.6.0, jest-worker@^24.9.0:
   version "24.9.0"
   resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-24.9.0.tgz#5dbfdb5b2d322e98567898238a9697bcce67b3e5"
@@ -21414,6 +21540,15 @@ jest@^26.0.1:
     "@jest/core" "^26.0.1"
     import-local "^3.0.2"
     jest-cli "^26.0.1"
+
+jest@^26.1.0:
+  version "26.1.0"
+  resolved "https://registry.yarnpkg.com/jest/-/jest-26.1.0.tgz#2f3aa7bcffb9bfd025473f83bbbf46a3af026263"
+  integrity sha512-LIti8jppw5BcQvmNJe4w2g1N/3V68HUfAv9zDVm7v+VAtQulGhH0LnmmiVkbNE4M4I43Bj2fXPiBGKt26k9tHw==
+  dependencies:
+    "@jest/core" "^26.1.0"
+    import-local "^3.0.2"
+    jest-cli "^26.1.0"
 
 jimp@^0.10.3:
   version "0.10.3"

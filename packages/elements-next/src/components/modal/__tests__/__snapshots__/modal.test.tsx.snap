@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`modal Modal should match snapshot 1`] = `
+<Component
+  className=""
+  visible={true}
+  wrapClassName=""
+>
+  <div>
+    children
+  </div>
+</Component>
+`;
+
+exports[`modal Modal should match snapshot when isCentered 1`] = `
+<Component
+  className=""
+  visible={true}
+  wrapClassName=""
+>
+  <div>
+    children
+  </div>
+</Component>
+`;
+
+exports[`modal Modal should match snapshot when not show modal 1`] = `
+<Component
+  className=""
+  visible={false}
+  wrapClassName=""
+>
+  <div>
+    children
+  </div>
+</Component>
+`;
