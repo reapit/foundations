@@ -36,6 +36,7 @@ export default {
     commonjs(),
     json(),
     typescript(),
+    // use Babel here to transpile @ alias from the styles and components which linaria cannot understanding the alias
     babel({
       exclude: /node_modules/,
       extensions: ['.ts', '.tsx'],
