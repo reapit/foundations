@@ -19,24 +19,26 @@ const { statusField, hasDirectDebitField } = formFields
 export type DirectDebitSectionProps = {
   setFieldValue: (field: string, value: any, shouldValidate?: boolean | undefined) => void
   values: AccountsInformationFormValues
-  setIsSubmittedDebit: React.Dispatch<boolean>
+  setIsSubmittedDebit: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 type DirectDebitModalProps = Pick<ModalPropsV2, 'onClose' | 'visible'> & {
   onFinish: () => any
 }
 
-export const handleToggleModal = (setIsOpenDirectDebitModal: React.Dispatch<boolean>, state: boolean) => () =>
-  setIsOpenDirectDebitModal(state)
+export const handleToggleModal = (
+  setIsOpenDirectDebitModal: React.Dispatch<React.SetStateAction<boolean>>,
+  state: boolean,
+) => () => setIsOpenDirectDebitModal(state)
 
 export const handleFinish = ({
   setIsOpenDirectDebitModal,
   setFieldValue,
   setIsSubmittedDebit,
 }: {
-  setIsOpenDirectDebitModal: React.Dispatch<boolean>
+  setIsOpenDirectDebitModal: React.Dispatch<React.SetStateAction<boolean>>
   setFieldValue: DirectDebitSectionProps['setFieldValue']
-  setIsSubmittedDebit: React.Dispatch<boolean>
+  setIsSubmittedDebit: React.Dispatch<React.SetStateAction<boolean>>
 }) => () => {
   setIsOpenDirectDebitModal(false)
   setFieldValue(statusField.name, 'pending')
