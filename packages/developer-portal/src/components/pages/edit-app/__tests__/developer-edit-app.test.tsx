@@ -222,7 +222,7 @@ describe('DeveloperSubmitApp', () => {
       const fn = handleOpenAppPreview(params)
       fn()
       expect(spyLocalStorageSetItem).toBeCalledWith('developer-preview-app', expected)
-      expect(spyOpenUrl).toBeCalledWith('developer/apps/appId/preview', '_blank')
+      expect(spyOpenUrl).toBeCalledWith('/apps/appId/preview', '_blank')
     })
   })
 

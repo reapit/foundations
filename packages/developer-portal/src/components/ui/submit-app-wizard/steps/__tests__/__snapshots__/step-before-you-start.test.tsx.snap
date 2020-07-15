@@ -19,7 +19,7 @@ exports[`StepBeforeYouStart should match snapshot 1`] = `
       <React.Fragment>
         <a
           className="button is-white is-primary"
-          href="/developer/api-docs/developer-portal"
+          href="/api-docs/developer-portal"
           rel="noreferrer"
           target="_blank"
         >
