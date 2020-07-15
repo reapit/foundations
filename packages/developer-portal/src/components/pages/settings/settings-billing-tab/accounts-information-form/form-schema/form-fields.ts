@@ -35,7 +35,7 @@ const formFields: Record<Field, FormFieldInfo> = {
     subHeading: `If you have an existing Direct Debit setup, please select Yes below.
     If not, please select No and complete a Direct Debit form below:`,
     placeHolder: '',
-    errorMessage: 'Please finish Setting Up Direct Debit',
+    errorMessage: 'Please finish setting up Direct Debit',
   },
   hasReapitAccountsRefField: {
     name: 'hasReapitAccountsRef',

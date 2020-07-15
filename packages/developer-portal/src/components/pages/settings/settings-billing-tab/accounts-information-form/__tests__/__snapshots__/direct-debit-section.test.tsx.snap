@@ -16,9 +16,15 @@ exports[`DirectDebitSection should match snapshot 2`] = `
     >
       Setup Direct Debit
     </Component>
+    <Component
+      id="hasDirectDebit"
+      name="hasDirectDebit"
+      type="hidden"
+    />
   </Component>
   <Component
     onClose={[Function]}
+    onFinish={[Function]}
     visible={false}
   />
 </Fragment>

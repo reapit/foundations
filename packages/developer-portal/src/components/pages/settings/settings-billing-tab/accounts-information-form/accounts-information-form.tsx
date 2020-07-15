@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
-import { Loader, Content, Input } from '@reapit/elements'
+import { Loader } from '@reapit/elements'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateDeveloperData } from '@/actions/settings'
 import { selectSettingsPageDeveloperInformation, selectSettingsPageIsLoading } from '@/selector/settings'
@@ -20,7 +20,7 @@ import ReapitReferenceSection from './reapit-reference-section'
 import DirectDebitSection from './direct-debit-section'
 import ContactInformationSection from './contact-information-section'
 import AccountStatusSection from './account-status-section'
-import { UpdateDeveloperModel } from '@reapit/foundations-ts-definitions'
+import { UpdateDeveloperModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { validationSchema } from './form-schema/validation-schema'
 
 export type AccountsInformationFormProps = {}
@@ -52,7 +52,7 @@ export const generateInitialValues = ({
   }
   const { billingEmail, billingTelephone, billingKeyContact, reapitReference, status } = developerInfo
   const hasReapitAccountsRef = reapitReference ? 'yes' : 'no'
-  // if a developer is in "pending" status and has no REAPIT ACCOUNTS REF, it means has direct debit
+  // if a developer is in "pending" status and has no REAPIT ACCOUNTS REF, it means it has direct debit
   const hasDirectDebit = hasReapitAccountsRef === 'no' && status === 'pending' ? 'yes' : 'no'
 
   return {
@@ -71,6 +71,7 @@ export const onSubmit = (dispatch: Dispatch) => (values: AccountsInformationForm
   const { status, billingEmail, reapitReference, billingTelephone, billingKeyContact, hasReapitAccountsRef } = values
   const dataToSubmit: UpdateDeveloperModel = {
     status,
+    // if user select "NO" in "DO YOU HAVE A REAPIT ACCOUNTS REF?", empty the value
     reapitReference: hasReapitAccountsRef === 'yes' ? reapitReference : '',
     billingEmail,
     billingKeyContact,
@@ -92,6 +93,7 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
   const dispatch = useDispatch()
 
   const isShowLoader = isLoading && !isProd
+  const [isSubmittedDebit, setIsSubmittedDebit] = React.useState<boolean>(false)
 
   if (isShowLoader) {
     return <Loader />
@@ -102,8 +104,6 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
   return (
     <Formik validationSchema={validationSchema} initialValues={initialValues} onSubmit={onSubmit(dispatch)}>
       {({ setFieldValue, values }) => {
-        const isPending = initialValues.status === 'pending'
-
         return (
           <Form>
             <H3 isHeadingSection>Billing</H3>
@@ -118,10 +118,14 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
                 </GridItem>
                 <GridItem>
                   <ReapitReferenceSection setFieldValue={setFieldValue} values={values} />
-                  <DirectDebitSection setFieldValue={setFieldValue} values={values} />
+                  <DirectDebitSection
+                    setIsSubmittedDebit={setIsSubmittedDebit}
+                    setFieldValue={setFieldValue}
+                    values={values}
+                  />
                   <AccountStatusSection
                     hasReapitAccountsRef={values.hasReapitAccountsRef}
-                    isPending={isPending}
+                    isSubmittedDebit={isSubmittedDebit}
                     status={initialValues.status}
                   />
                 </GridItem>

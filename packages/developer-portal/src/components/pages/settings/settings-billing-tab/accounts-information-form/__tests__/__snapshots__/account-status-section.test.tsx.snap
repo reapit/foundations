@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountStatusSection should match snapshot 1`] = `
+<Component>
+  <Component
+    id="status"
+    name="status"
+    type="hidden"
+  />
+  <Component>
+    <b>
+      ACCOUNT STATUS:
+    </b>
+     
+    <i>
+      pending
+    </i>
+  </Component>
+</Component>
+`;
+
+exports[`AccountStatusSection should match snapshot with hasReapitAccountsRef is no 1`] = `
+<Component>
+  <Component
+    id="status"
+    name="status"
+    type="hidden"
+  />
+  <Component>
+    <b>
+      ACCOUNT STATUS:
+    </b>
+     
+    <i>
+      pending
+    </i>
+  </Component>
+</Component>
+`;
+
+exports[`AccountStatusSection should match snapshot with status !== pending 1`] = `
+<Component>
+  <Component
+    id="status"
+    name="status"
+    type="hidden"
+  />
+</Component>
+`;

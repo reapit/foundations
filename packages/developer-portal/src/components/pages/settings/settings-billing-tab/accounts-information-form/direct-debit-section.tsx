@@ -8,7 +8,6 @@ import {
   ModalPropsV2,
   H4,
   H6,
-  Button,
   FlexContainerResponsive,
   Input,
 } from '@reapit/elements'
@@ -20,9 +19,12 @@ const { statusField, hasDirectDebitField } = formFields
 export type DirectDebitSectionProps = {
   setFieldValue: (field: string, value: any, shouldValidate?: boolean | undefined) => void
   values: AccountsInformationFormValues
+  setIsSubmittedDebit: React.Dispatch<boolean>
 }
 
-type DirectDebitModalProps = Pick<ModalPropsV2, 'onClose' | 'visible'> & {}
+type DirectDebitModalProps = Pick<ModalPropsV2, 'onClose' | 'visible'> & {
+  onFinish: () => any
+}
 
 export const handleCloseModal = (setIsOpenDirectDebitModal: React.Dispatch<boolean>) => () =>
   setIsOpenDirectDebitModal(false)
@@ -30,13 +32,16 @@ export const handleCloseModal = (setIsOpenDirectDebitModal: React.Dispatch<boole
 export const handleFinish = ({
   setIsOpenDirectDebitModal,
   setFieldValue,
+  setIsSubmittedDebit,
 }: {
   setIsOpenDirectDebitModal: React.Dispatch<boolean>
   setFieldValue: DirectDebitSectionProps['setFieldValue']
+  setIsSubmittedDebit: React.Dispatch<boolean>
 }) => () => {
   setIsOpenDirectDebitModal(false)
   setFieldValue(statusField.name, 'pending')
   setFieldValue(hasDirectDebitField.name, 'yes')
+  setIsSubmittedDebit(true)
 }
 
 export const DirectDebitModal: React.FC<DirectDebitModalProps> = ({ onClose, visible, onFinish }) => {
@@ -63,7 +68,7 @@ export const DirectDebitModal: React.FC<DirectDebitModalProps> = ({ onClose, vis
   )
 }
 
-const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({ values, setFieldValue }) => {
+const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({ values, setFieldValue, setIsSubmittedDebit }) => {
   const [isOpenDirectDebitModal, setIsOpenDirectDebitModal] = React.useState<boolean>(false)
 
   const { hasReapitAccountsRef, reapitReference } = values
@@ -95,12 +100,12 @@ const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({ values, setFiel
             account will be verified by our Account Department.
           </FormSubHeading>
           <Button onClick={() => setIsOpenDirectDebitModal(true)}>Setup Direct Debit</Button>
-          <Input type="hidden" name={hasDirectDebitField.name} />
+          <Input id={hasDirectDebitField.name} type="hidden" name={hasDirectDebitField.name} />
         </GridItem>
         <DirectDebitModal
           visible={isOpenDirectDebitModal}
           onClose={handleCloseModal(setIsOpenDirectDebitModal)}
-          onFinish={handleFinish({ setIsOpenDirectDebitModal, setFieldValue })}
+          onFinish={handleFinish({ setIsOpenDirectDebitModal, setFieldValue, setIsSubmittedDebit })}
         />
       </>
     )

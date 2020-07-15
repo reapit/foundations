@@ -122,7 +122,7 @@ const appState: ReduxState = {
       billingEmail: '',
       billingTelephone: '',
       billingKeyContact: '',
-      reapitReference: '',
+      reapitReference: 'aaa111',
       noTaxRegistration: false,
       nationalInsurance: '010212',
       status: 'incomplete',
