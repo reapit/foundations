@@ -35,8 +35,6 @@ export const ContactDeveloperSection = ({
         visible={visible}
         title={'Contact Details'}
         onClose={closeContactModal(setVisible)}
-        animation="slide"
-        maskAnimation="fade"
         footer={
           <Button
             dataTest="btn-close-modal"

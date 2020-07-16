@@ -12,7 +12,6 @@ exports[`ContactDeveloperSection should match snapshot with gutter 1`] = `
     NEED HELP?
   </Component>
   <Memo()
-    animation="slide"
     footer={
       <Unknown
         dataTest="btn-close-modal"
@@ -24,7 +23,6 @@ exports[`ContactDeveloperSection should match snapshot with gutter 1`] = `
         Close
       </Unknown>
     }
-    maskAnimation="fade"
     onClose={[Function]}
     title="Contact Details"
     visible={false}
@@ -109,7 +107,6 @@ exports[`ContactDeveloperSection should match snapshot without gutter 1`] = `
     NEED HELP?
   </Component>
   <Memo()
-    animation="slide"
     footer={
       <Unknown
         dataTest="btn-close-modal"
@@ -121,7 +118,6 @@ exports[`ContactDeveloperSection should match snapshot without gutter 1`] = `
         Close
       </Unknown>
     }
-    maskAnimation="fade"
     onClose={[Function]}
     title="Contact Details"
     visible={false}
