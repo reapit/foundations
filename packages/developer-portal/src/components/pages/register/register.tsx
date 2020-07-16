@@ -21,7 +21,7 @@ import {
 } from '@reapit/elements'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { selectDeveloperFormState } from '@/selector'
-import { developerCreate } from '@/actions/developer'
+import { developerCreate, developerSetFormState } from '@/actions/developer'
 import CallToAction from '@/components/ui/call-to-action'
 import TermsAndConditionsModal from '@/components/ui/terms-and-conditions-modal'
 import Routes from '@/constants/routes'
@@ -87,10 +87,15 @@ export const onLoginButtonClick = (history: History) => {
   }
 }
 
+export const handleSetFormDefault = (dispatch: Dispatch) => () => {
+  dispatch(developerSetFormState('PENDING'))
+}
+
 export const Register: React.FunctionComponent<RegisterProps> = () => {
   const history = useHistory()
   const dispatch = useDispatch()
   const [visible, setVisible] = React.useState<boolean>(false)
+  React.useEffect(handleSetFormDefault(dispatch), [history.location.pathname])
   const formState = useSelector(selectDeveloperFormState)
   const isSubmitting = formState === 'SUBMITTING'
 
