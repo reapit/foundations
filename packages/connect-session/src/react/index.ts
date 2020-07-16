@@ -28,11 +28,14 @@ export const useReapitConnect = (reapitConnectBrowserSession: ReapitConnectBrows
     reapitConnectBrowserSession.connectLogoutRedirect()
   }, [])
 
+  const connectIsDesktop = reapitConnectBrowserSession.connectIsDesktop
+
   return {
     connectSession,
     connectAuthorizeRedirect,
     connectLoginRedirect,
     connectLogoutRedirect,
+    connectIsDesktop,
   }
 }
 

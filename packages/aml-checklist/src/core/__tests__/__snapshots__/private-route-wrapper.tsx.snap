@@ -1,27 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PrivateRouter should match a snapshot 1`] = `""`;
-
-exports[`PrivateRouter should match a snapshot for desktop login 1`] = `
-<Component>
-  <Component />
-  <Component
-    flexColumn={true}
-    hasPadding={true}
-    isScrollable={true}
-  >
+exports[`PrivateRouter should match a snapshot 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "connectAuthorizeRedirect": [Function],
+      "connectIsDesktop": false,
+      "connectLoginRedirect": [Function],
+      "connectLogoutRedirect": [Function],
+      "connectSession": null,
+    }
+  }
+>
+  <Component>
+    <Component />
     <Component
       flexColumn={true}
-      hasBackground={false}
+      hasPadding={true}
+      isScrollable={true}
     >
-      <Suspense
-        fallback={
-          <Unknown
-            body={true}
-          />
-        }
-      />
+      <Component
+        flexColumn={true}
+        hasBackground={false}
+      >
+        <Suspense
+          fallback={
+            <Unknown
+              body={true}
+            />
+          }
+        />
+      </Component>
     </Component>
   </Component>
-</Component>
+</ContextProvider>
 `;

@@ -2,7 +2,6 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { AMLProgressBar, calculateProgress, mapStateToProps, mapDispatchToProps } from '../aml-progressbar'
 import { sectionsStatus } from '@/sagas/__stubs__/status'
-import { LoginMode } from '@reapit/cognito-auth'
 import { contact } from '@/sagas/__stubs__/contact'
 import { ReduxState } from '@/types/core'
 import { STEPS } from '../modal/modal'
@@ -16,7 +15,7 @@ describe('AMLProgressBar', () => {
         contact: contact,
         status: sectionsStatus,
         id: 'AYL19000002',
-        loginMode: 'WEB' as LoginMode,
+        loginMode: 'WEB',
         showModal: jest.fn(),
         idCheck: {},
       }
@@ -32,13 +31,7 @@ describe('AMLProgressBar', () => {
 
   describe('mapStateToProps', () => {
     it('should run correctly', () => {
-      // @ts-ignore: only pick necessary props
       const mockState = {
-        auth: {
-          refreshSession: {
-            mode: 'WEB',
-          },
-        },
         checklistDetail: {
           checklistDetailData: {
             contact,
@@ -49,7 +42,6 @@ describe('AMLProgressBar', () => {
       } as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
-        loginMode: 'WEB',
         contact,
         idCheck,
         status: sectionsStatus,
@@ -59,7 +51,6 @@ describe('AMLProgressBar', () => {
       const mockState = {} as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
-        loginMode: 'WEB',
         contact: null,
         idCheck: null,
         status: defaultStatus,

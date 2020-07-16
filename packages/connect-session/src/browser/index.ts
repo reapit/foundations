@@ -10,6 +10,7 @@ import {
 
 export class ReapitConnectBrowserSession {
   static TOKEN_EXPIRY = Math.round(new Date().getTime() / 1000) + 300 // 5 minutes from now
+  static GLOBAL_KEY = '__REAPIT_MARKETPLACE_GLOBALS__'
 
   private connectOAuthUrl: string
   private connectClientId: string
@@ -40,7 +41,15 @@ export class ReapitConnectBrowserSession {
             loginIdentity: this.deserializeIdToken(this.connectStoredIdToken),
           }
         : null
+    this.connectBindPublicMethods()
     this.connectStartSesssion()
+  }
+
+  private connectBindPublicMethods() {
+    this.connectSession = this.connectSession.bind(this)
+    this.connectAuthorizeRedirect = this.connectAuthorizeRedirect.bind(this)
+    this.connectLoginRedirect = this.connectLoginRedirect.bind(this)
+    this.connectLogoutRedirect = this.connectLogoutRedirect.bind(this)
   }
 
   private connectStartSesssion() {
@@ -161,6 +170,10 @@ export class ReapitConnectBrowserSession {
     }
   }
 
+  public get connectIsDesktop() {
+    return Boolean(window[ReapitConnectBrowserSession.GLOBAL_KEY])
+  }
+
   public connectAuthorizeRedirect(redirectUri: string = this.connectLoginRedirectPath): void {
     window.location.href = `${this.connectOAuthUrl}/authorize?response_type=code&client_id=${this.connectClientId}&redirect_uri=${redirectUri}`
   }
@@ -185,7 +198,7 @@ export class ReapitConnectBrowserSession {
     try {
       const endpoint = this.session ? this.tokenRefreshEndpoint : this.authCode ? this.tokenCodeEndpoint : null
 
-      if (!endpoint || this.fetching) return
+      if (!endpoint) return
 
       this.fetching = true
 

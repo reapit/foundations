@@ -2,29 +2,30 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { Button, DynamicLinkParams, AcButton, EntityType } from '@reapit/elements'
-import { LoginMode } from '@reapit/cognito-auth'
 import { ReduxState } from '@/types/core'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { checkListDetailIdentityCheckUpdateData } from '@/actions/checklist-detail'
 import { ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
 import { selectCheckListDetailContact, selectCheckListDetailStatus } from '@/selectors/checklist-detail'
-import { selectLoginMode } from '@/selectors/auth'
 import Routes from '@/constants/routes'
 import { SectionsStatus } from '@/reducers/checklist-detail'
 import { calculateProgress } from '../aml-progressbar'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export type UpdateStatusProps = StateProps & DispatchProps
 
 export const UpdateStatus: React.FC<UpdateStatusProps> = ({
   contact,
   status,
-  loginMode,
   isSubmitting,
   updateIdentityCheckStatus,
 }) => {
   const { id, title, forename, surname } = contact || {}
 
   const name = React.useMemo(() => `${title} ${forename} ${surname}`.trim(), [contact])
+  const { connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
+  const loginMode = connectIsDesktop ? 'DESKTOP' : 'WEB'
 
   const progress = React.useMemo(() => calculateProgress(status), [status])
 
@@ -81,14 +82,12 @@ export const UpdateStatus: React.FC<UpdateStatusProps> = ({
 export type StateProps = {
   isSubmitting: boolean
   contact: ContactModel | null
-  loginMode: LoginMode
   status: SectionsStatus
 }
 
 export const mapStateToProps = (state: ReduxState) => {
   return {
     contact: selectCheckListDetailContact(state),
-    loginMode: selectLoginMode(state),
     status: selectCheckListDetailStatus(state),
     isSubmitting: state?.checklistDetail?.isSubmitting || false,
   }

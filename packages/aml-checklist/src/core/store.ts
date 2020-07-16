@@ -13,14 +13,12 @@ import { ReduxState, Action } from '../types/core'
 import createSagaMiddleware from 'redux-saga'
 import { all, fork } from '@redux-saga/core/effects'
 
-import auth from '@/reducers/auth'
 import checklistDetail from '@/reducers/checklist-detail'
 import error from '@/reducers/error'
 import result from '@/reducers/result'
 import identityTypes from '@/reducers/identity-types'
 
 import resultSagas from '@/sagas/result'
-import authSagas from '@/sagas/auth'
 import checklistDetailSagas from '@/sagas/checklist-detail'
 import identityTypesSagas from '@/sagas/identity-types'
 import { injectSwitchModeToWindow } from '@reapit/elements'
@@ -41,7 +39,6 @@ export class Store {
   static sagaMiddleware = createSagaMiddleware()
 
   static reducers = combineReducers({
-    auth,
     error,
     result,
     checklistDetail,
@@ -49,7 +46,7 @@ export class Store {
   }) as Reducer<CombinedState<ReduxState>, Action<any> | AnyAction>
 
   static sagas = function*() {
-    yield all([fork(authSagas), fork(checklistDetailSagas), fork(resultSagas), fork(identityTypesSagas)])
+    yield all([fork(checklistDetailSagas), fork(resultSagas), fork(identityTypesSagas)])
   }
 
   static composeEnhancers =

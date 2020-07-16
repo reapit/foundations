@@ -9,17 +9,12 @@ exports[`Login should match a snapshot 1`] = `
         src=""
       />
     </Component>
-    <p
-      className="pb-8"
-    >
-      Welcome to Reapit Online Check List
-    </p>
     <Component>
       <Component
         disabled={false}
         fullWidth={true}
         loading={false}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
         variant="primary"
       >
@@ -38,10 +33,4 @@ exports[`Login should match a snapshot 1`] = `
     />
   </div>
 </div>
-`;
-
-exports[`Login should match a snapshot when hasSession 1`] = `
-<Redirect
-  to="/"
-/>
 `;

@@ -2,23 +2,19 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { Button, Input, SelectBox, H3, AcButton, EntityType, AppParams, Form, Formik, Section } from '@reapit/elements'
-import { LoginMode } from '@reapit/cognito-auth'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import Routes from '@/constants/routes'
 import { SearchParams, resultSetSearchParams } from '@/actions/result'
-import { ReduxState } from '@/types/core'
 import clientSearchValidationSchema from './form-schema/validation-schema'
 import formFields from './form-schema/form-fields'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export interface ClientSearchMappedActions {
   setSearchParams: (params: SearchParams) => void
 }
 
-export interface ClientSearchMappedState {
-  loginMode: LoginMode
-}
-
-export type ClientSearchProps = ClientSearchMappedActions & ClientSearchMappedState & RouteComponentProps
+export type ClientSearchProps = ClientSearchMappedActions & RouteComponentProps
 
 const { nameField, addressField, identityCheckField } = formFields
 
@@ -32,7 +28,7 @@ const identityCheckList = [
   { label: 'Unchecked', value: 'Unchecked' },
 ]
 
-export const renderForm = ({ loginMode }) => ({ values }) => {
+export const renderForm = ({ connectIsDesktop }) => ({ values }) => {
   return (
     <Section>
       <H3>Client Search</H3>
@@ -60,7 +56,7 @@ export const renderForm = ({ loginMode }) => ({ values }) => {
         <Button className="is-right" type="submit" variant="primary">
           Search
         </Button>
-        {loginMode === 'DESKTOP' && (
+        {connectIsDesktop && (
           <AcButton
             dynamicLinkParams={{
               entityType: EntityType.CONTACT,
@@ -70,7 +66,7 @@ export const renderForm = ({ loginMode }) => ({ values }) => {
                 appId: window.reapit.config.appId,
                 appParam: AppParams.CONTACT_CODE,
               },
-              appMode: loginMode,
+              appMode: connectIsDesktop ? 'DESKTOP' : 'WEB',
             }}
             buttonProps={{
               type: 'button',
@@ -91,7 +87,8 @@ export const searchContacts = ({ setSearchParams, history }) => (values: any) =>
   history.push(Routes.RESULTS)
 }
 
-export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ setSearchParams, history, loginMode }) => {
+export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ setSearchParams, history }) => {
+  const { connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   return (
     <ErrorBoundary>
       <Formik
@@ -99,7 +96,7 @@ export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ setSe
         onSubmit={searchContacts({ setSearchParams, history })}
         validationSchema={clientSearchValidationSchema}
       >
-        {renderForm({ loginMode })}
+        {renderForm({ connectIsDesktop })}
       </Formik>
     </ErrorBoundary>
   )
@@ -109,8 +106,4 @@ export const mapDispatchToProps = (dispatch: any): ClientSearchMappedActions => 
   setSearchParams: (params: SearchParams) => dispatch(resultSetSearchParams(params)),
 })
 
-export const mapStateToProps = (state: ReduxState): ClientSearchMappedState => ({
-  loginMode: state?.auth?.refreshSession?.mode || 'WEB',
-})
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ClientSearch))
+export default withRouter(connect(null, mapDispatchToProps)(ClientSearch))
