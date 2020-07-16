@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import RadioSelect from '../index'
-import { Formik, Form, FormikValues } from 'formik'
+import RadioSelect, { renderAdditionalField } from '../index'
+import { Formik, Form, FormikValues, FormikProps } from 'formik'
 
 describe('RadioSelect', () => {
   it('should match snapshot', () => {
@@ -41,5 +41,14 @@ describe('RadioSelect', () => {
     )
     expect(wrapper.find('label')).toHaveLength(3)
     expect(wrapper.find('input')).toHaveLength(2)
+  })
+})
+
+describe('renderAdditionalField', () => {
+  it('should run correctly', () => {
+    const additionalField = jest.fn()
+    const form = {} as FormikProps<any>
+    renderAdditionalField(additionalField, form)
+    expect(additionalField).toBeCalledWith(form)
   })
 })

@@ -87,7 +87,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={[Function]}
                         >
                           <div
-                            className="field"
+                            className=""
                           >
                             <div
                               className="control "
@@ -99,7 +99,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 Name
                               </label>
                               <input
-                                className="input is-primary"
+                                className=""
                                 data-test="submit-app-name"
                                 disabled={false}
                                 id="name"
@@ -191,7 +191,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={null}
                         >
                           <div
-                            className="field"
+                            className=""
                           >
                             <div
                               className="control "
@@ -203,7 +203,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 Support email
                               </label>
                               <input
-                                className="input is-primary"
+                                className=""
                                 data-test="submit-app-support-email"
                                 disabled={false}
                                 id="supportEmail"
@@ -239,7 +239,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={null}
                         >
                           <div
-                            className="field"
+                            className=""
                           >
                             <div
                               className="control "
@@ -251,7 +251,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 Telephone
                               </label>
                               <input
-                                className="input is-primary"
+                                className=""
                                 data-test="submit-app-phone"
                                 disabled={false}
                                 id="telephone"
@@ -294,7 +294,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={null}
                         >
                           <div
-                            className="field"
+                            className=""
                           >
                             <div
                               className="control "
@@ -306,7 +306,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 Home page
                               </label>
                               <input
-                                className="input is-primary"
+                                className=""
                                 data-test="submit-app-home-page"
                                 disabled={false}
                                 id="homePage"
@@ -342,7 +342,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={null}
                         >
                           <div
-                            className="field"
+                            className=""
                           >
                             <div
                               className="control "
@@ -354,7 +354,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 Launch URI
                               </label>
                               <input
-                                className="input is-primary"
+                                className=""
                                 data-test="submit-app-launch-uri"
                                 disabled={false}
                                 id="launchUri"
@@ -597,7 +597,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={[Function]}
                         >
                           <div
-                            className="field"
+                            className=""
                           >
                             <div
                               className="control "
@@ -609,7 +609,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 Name
                               </label>
                               <input
-                                className="input is-primary"
+                                className=""
                                 data-test="submit-app-name"
                                 disabled={false}
                                 id="name"
@@ -701,7 +701,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={[Function]}
                         >
                           <div
-                            className="field"
+                            className=""
                           >
                             <div
                               className="control "
@@ -713,7 +713,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 Support email
                               </label>
                               <input
-                                className="input is-primary"
+                                className=""
                                 data-test="submit-app-support-email"
                                 disabled={false}
                                 id="supportEmail"
@@ -749,7 +749,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={[Function]}
                         >
                           <div
-                            className="field"
+                            className=""
                           >
                             <div
                               className="control "
@@ -761,7 +761,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 Telephone
                               </label>
                               <input
-                                className="input is-primary"
+                                className=""
                                 data-test="submit-app-phone"
                                 disabled={false}
                                 id="telephone"
@@ -804,7 +804,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={[Function]}
                         >
                           <div
-                            className="field"
+                            className=""
                           >
                             <div
                               className="control "
@@ -816,7 +816,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 Home page
                               </label>
                               <input
-                                className="input is-primary"
+                                className=""
                                 data-test="submit-app-home-page"
                                 disabled={false}
                                 id="homePage"
@@ -852,7 +852,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                           validate={[Function]}
                         >
                           <div
-                            className="field"
+                            className=""
                           >
                             <div
                               className="control "
@@ -864,7 +864,7 @@ exports[`GeneralInformationSection should match a snapshot when isListed equal t
                                 Launch URI
                               </label>
                               <input
-                                className="input is-primary"
+                                className=""
                                 data-test="submit-app-launch-uri"
                                 disabled={false}
                                 id="launchUri"

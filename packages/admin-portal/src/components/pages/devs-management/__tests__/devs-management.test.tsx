@@ -1,7 +1,12 @@
 import * as React from 'react'
 import { mount } from 'enzyme'
-import { DevsManagement, onPageChangeHandler, onSearchHandler, handleFetchData } from '../devs-management'
-import { DevsManagementFilterFormValues } from '@/components/ui/devs-management-filter-form'
+import {
+  DevsManagement,
+  onPageChangeHandler,
+  onSearchHandler,
+  handleFetchData,
+  onClickStatusButton,
+} from '../devs-management'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import { MemoryRouter } from 'react-router'
 import configureStore from 'redux-mock-store'
@@ -10,6 +15,7 @@ import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
 import { PagedResultDeveloperModel_ } from '@reapit/foundations-ts-definitions'
 import { devsManagementRequestData } from '@/actions/devs-management'
+import { DevsManagementFilterFormValues } from '@/components/ui/devs-management-filter-form'
 
 const createStore = (loading: boolean, data?: PagedResultDeveloperModel_) => {
   return {
@@ -109,5 +115,17 @@ describe('handleFetchData', () => {
     const fn = handleFetchData(dispatch)
     fn(params)
     expect(dispatch).toBeCalledWith(devsManagementRequestData(params))
+  })
+})
+
+describe('onClickStatusButton', () => {
+  it('should run correctly', () => {
+    const setDeveloper = jest.fn()
+    const setIsSetStatusModalOpen = jest.fn()
+    const developerData = {}
+    const fn = onClickStatusButton(setDeveloper, setIsSetStatusModalOpen, developerData)
+    fn()
+    expect(setDeveloper).toBeCalledWith({ ...developerData })
+    expect(setIsSetStatusModalOpen).toBeCalledWith(true)
   })
 })

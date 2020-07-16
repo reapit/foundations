@@ -1,12 +1,13 @@
 import React from 'react'
 import { cx } from 'linaria'
-import { Field, FieldProps } from 'formik'
+import { Field, FieldProps, FormikProps } from 'formik'
 import { checkError } from '../../utils/form'
 import { Grid, GridItem } from '../Layout'
 
 export type RadioSelectOption = {
   label: string | number
   value: string | number
+  additionalField?: (form: FormikProps<any>) => any | React.ReactElement
 }
 
 export type RadioSelectProps = {
@@ -21,6 +22,12 @@ export type RadioSelectProps = {
   disabled?: boolean
   className?: string
   isHorizontal?: boolean
+}
+
+export const renderAdditionalField = (additionalField, form: FormikProps<any>) => {
+  if (!additionalField) return null
+  if (typeof additionalField === 'function') return additionalField(form)
+  return additionalField
 }
 
 export const RadioSelect: React.FC<RadioSelectProps> = ({
@@ -41,7 +48,7 @@ export const RadioSelect: React.FC<RadioSelectProps> = ({
 
   return (
     <Field type="radio" name={name}>
-      {({ meta }: FieldProps<string>) => {
+      {({ meta, form }: FieldProps<string>) => {
         const hasError = checkError(meta)
         return (
           <div className={`field pb-2 ${className}`}>
@@ -51,7 +58,7 @@ export const RadioSelect: React.FC<RadioSelectProps> = ({
               </label>
               {subText && <label className="subtext mb-2">{subText}</label>}
               <Grid className={radioGridClassName} isMultiLine>
-                {options.map(({ label, value }: RadioSelectOption, index: number) => {
+                {options.map(({ label, value, additionalField }: RadioSelectOption, index: number) => {
                   return (
                     <GridItem key={index} className={radioGridItemClassName}>
                       <div data-test={dataTest} className="radio-wrap">
@@ -68,6 +75,7 @@ export const RadioSelect: React.FC<RadioSelectProps> = ({
                         />
                         <label htmlFor={`${name}${label}`}>{label}</label>
                       </div>
+                      {renderAdditionalField(additionalField, form)}
                     </GridItem>
                   )
                 })}
