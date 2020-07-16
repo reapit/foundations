@@ -14,8 +14,7 @@ const { wrapper, container, image, registerLevel, loginButton } = loginStyles
 export type LoginProps = {}
 
 export const onLoginButtonClick = () => {
-  //TODO use Routes.APPROVALS instead
-  const redirectRoute = `${window.location.origin}${Routes.ADMIN_APPROVALS}`
+  const redirectRoute = `${window.location.origin}${Routes.APPROVALS}`
   redirectToLogin(window.reapit.config.cognitoClientId, redirectRoute, 'ADMIN')
 }
 
@@ -26,7 +25,7 @@ export const Login: React.FunctionComponent<LoginProps> = () => {
   const hasSession = !!loginSession || !!refreshSession
 
   if (hasSession) {
-    return <Redirect to={Routes.ADMIN_APPROVALS} />
+    return <Redirect to={Routes.APPROVALS} />
   }
 
   return (

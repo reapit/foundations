@@ -27,10 +27,8 @@ export const onRegisterButtonClick = (history: History) => {
   }
 }
 
-export const onMarketplaceButtonClick = (history: History) => {
-  return () => {
-    history.replace(Routes.DEVELOPER)
-  }
+export const onMarketplaceButtonClick = () => {
+  window.open(window.reapit.config.marketplaceUrl, '_self')
 }
 
 export const onLogoutButtonClick = (dispatch: Dispatch) => {
@@ -77,7 +75,7 @@ export const renderDeveloperModal = (history, dispatch) => {
       footerItems={
         <>
           <Button onClick={onRegisterButtonClick(history)}>Register</Button>
-          <Button onClick={onMarketplaceButtonClick(history)}>Marketplace</Button>
+          <Button onClick={onMarketplaceButtonClick}>Marketplace</Button>
           <Button onClick={onLogoutButtonClick(dispatch)}>Logout</Button>
         </>
       }

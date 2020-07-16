@@ -29,7 +29,7 @@ exports[`Router should match a snapshot 1`] = `
       <Switch>
         <Route
           exact={true}
-          path="/client/login"
+          path="/login"
           render={[Function]}
         />
         <Route
@@ -37,6 +37,44 @@ exports[`Router should match a snapshot 1`] = `
           path="/404"
           render={[Function]}
         />
+        <Component
+          path="/admin"
+          showMenu={false}
+        >
+          <Switch>
+            <Component
+              allow="ADMIN"
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_ctor": [Function],
+                  "_result": null,
+                  "_status": -1,
+                }
+              }
+              path="/*"
+            />
+          </Switch>
+        </Component>
+        <Component
+          path="/developer"
+          showMenu={false}
+        >
+          <Switch>
+            <Component
+              allow="DEVELOPER"
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_ctor": [Function],
+                  "_result": null,
+                  "_status": -1,
+                }
+              }
+              path="/*"
+            />
+          </Switch>
+        </Component>
         <Component
           path="/"
         >
@@ -65,7 +103,7 @@ exports[`Router should match a snapshot 1`] = `
               }
               exact={true}
               fetcher={true}
-              path="/client/installed"
+              path="/installed"
             />
             <Component
               allow="CLIENT"
@@ -79,7 +117,7 @@ exports[`Router should match a snapshot 1`] = `
               }
               exact={true}
               fetcher={true}
-              path="/client/manage"
+              path="/manage"
             />
             <Component
               allow="CLIENT"
@@ -93,7 +131,7 @@ exports[`Router should match a snapshot 1`] = `
               }
               exact={true}
               fetcher={true}
-              path="/client/apps"
+              path="/apps"
             />
             <Component
               allow="CLIENT"
@@ -107,7 +145,7 @@ exports[`Router should match a snapshot 1`] = `
               }
               exact={true}
               fetcher={true}
-              path="/client/apps/:appid"
+              path="/apps/:appid"
             />
             <Component
               allow="CLIENT"
@@ -121,7 +159,7 @@ exports[`Router should match a snapshot 1`] = `
               }
               exact={true}
               fetcher={true}
-              path="/client/apps/:appid/manage"
+              path="/apps/:appid/manage"
             />
             <Component
               allow="CLIENT"
@@ -134,21 +172,7 @@ exports[`Router should match a snapshot 1`] = `
                 }
               }
               exact={true}
-              path="/client/welcome"
-            />
-            <Component
-              allow="CLIENT"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
-              fetcher={true}
-              path="/client/help"
+              path="/welcome"
             />
             <Component
               allow="CLIENT"
@@ -162,7 +186,21 @@ exports[`Router should match a snapshot 1`] = `
               }
               exact={true}
               fetcher={true}
-              path="/client/settings"
+              path="/help"
+            />
+            <Component
+              allow="CLIENT"
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_ctor": [Function],
+                  "_result": null,
+                  "_status": -1,
+                }
+              }
+              exact={true}
+              fetcher={true}
+              path="/settings"
             />
             <Route
               render={[Function]}
@@ -170,7 +208,7 @@ exports[`Router should match a snapshot 1`] = `
           </Switch>
         </Component>
         <Redirect
-          to="/client/login"
+          to="/login"
         />
       </Switch>
     </Component>

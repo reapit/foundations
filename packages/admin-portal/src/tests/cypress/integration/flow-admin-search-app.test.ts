@@ -1,4 +1,4 @@
-import adminAppPage from '../pages/admin-apps-page'
+import adminAppPage from '../pages/apps-management-page'
 import parseXhrBodyToJson from '../utils/parse-xhr-body-to-json'
 import { loginAdminHook } from '../hooks/login'
 

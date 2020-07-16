@@ -74,7 +74,7 @@ describe('AppContent', () => {
       const spyOpenUrl = jest.spyOn(window, 'open')
       const fn = handleOpenAppPreview(appId)
       fn()
-      expect(spyOpenUrl).toBeCalledWith('developer/apps/appId/preview', '_blank')
+      expect(spyOpenUrl).toBeCalledWith('/apps/appId/preview', '_blank')
     })
   })
 

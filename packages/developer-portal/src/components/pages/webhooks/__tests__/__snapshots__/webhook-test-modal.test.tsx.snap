@@ -60,7 +60,7 @@ exports[`WebhookTestModalBody WebhookTestModalBody should match snapshot 1`] = `
            
           <a
             className={[Function]}
-            href="/developer/api-docs/api/webhooks#testing"
+            href="/api-docs/api/webhooks#testing"
             rel="noopener noreferrer"
             target="_blank"
           >

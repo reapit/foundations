@@ -27,7 +27,7 @@ exports[`Authentication renderClientModal should match snapshot 1`] = `
       </span>
       <span>
         <Link
-          to="/developer/desktop"
+          to="/desktop"
         >
           Desktop
         </Link>

@@ -6,31 +6,21 @@ import {
   authLoginSuccess,
   authLogoutSuccess,
   authSetRefreshSession,
-  setTermsAcceptedState,
 } from '../actions/auth'
 import { LoginSession, RefreshParams, LoginType } from '@reapit/cognito-auth'
 
 export interface AuthState {
   error: boolean
-
   firstLogin?: boolean
-
   loginType: LoginType
   loginSession: LoginSession | null
   refreshSession: RefreshParams | null
-
-  /**
-   * state for
-   * developer, client welcome modal
-   */
-  isTermAccepted: boolean
 }
 
 export const defaultState: AuthState = {
   error: false,
   loginSession: null,
-  isTermAccepted: false,
-  loginType: 'DEVELOPER' as LoginType,
+  loginType: 'ADMIN' as LoginType,
   refreshSession: null,
 }
 
@@ -72,12 +62,6 @@ const authReducer = (state: AuthState = defaultState, action: Action<any>): Auth
     }
   }
 
-  if (isType(action, setTermsAcceptedState)) {
-    return {
-      ...state,
-      isTermAccepted: action.data,
-    }
-  }
   return state
 }
 

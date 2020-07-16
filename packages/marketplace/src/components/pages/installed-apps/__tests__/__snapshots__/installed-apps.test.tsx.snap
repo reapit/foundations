@@ -18,7 +18,7 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
       Array [
         Object {
           "key": "installedAppsRoute",
-          "pathname": "/client/installed",
+          "pathname": "/installed",
         },
       ]
     }
@@ -34,7 +34,7 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
             Object {
               "hash": "",
               "key": "installedAppsRoute",
-              "pathname": "/client/installed",
+              "pathname": "/installed",
               "search": "",
             },
           ],
@@ -47,7 +47,7 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
           "location": Object {
             "hash": "",
             "key": "installedAppsRoute",
-            "pathname": "/client/installed",
+            "pathname": "/installed",
             "search": "",
           },
           "push": [Function],
@@ -521,7 +521,7 @@ exports[`InstalledApps should match a snapshot when LOADING true 1`] = `
       Array [
         Object {
           "key": "installedAppsRoute",
-          "pathname": "/client/installed",
+          "pathname": "/installed",
         },
       ]
     }
@@ -537,7 +537,7 @@ exports[`InstalledApps should match a snapshot when LOADING true 1`] = `
             Object {
               "hash": "",
               "key": "installedAppsRoute",
-              "pathname": "/client/installed",
+              "pathname": "/installed",
               "search": "",
             },
           ],
@@ -550,7 +550,7 @@ exports[`InstalledApps should match a snapshot when LOADING true 1`] = `
           "location": Object {
             "hash": "",
             "key": "installedAppsRoute",
-            "pathname": "/client/installed",
+            "pathname": "/installed",
             "search": "",
           },
           "push": [Function],

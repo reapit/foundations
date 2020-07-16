@@ -17,15 +17,15 @@ describe('addQuery', () => {
 
 describe('removeQuery', () => {
   beforeAll(() => {
-    history.push('/client/apps?search=hello')
+    history.push('/apps?search=hello')
   })
   it('should remove correct param', () => {
     const query = ['search']
-    expect(removeQuery(query)).toEqual('/client/apps?')
+    expect(removeQuery(query)).toEqual('/apps?')
   })
   it("do nothing if url doesn't contain param", () => {
     const query = ['otherParam']
-    expect(removeQuery(query)).toEqual('/client/apps?search=hello')
+    expect(removeQuery(query)).toEqual('/apps?search=hello')
   })
 })
 

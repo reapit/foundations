@@ -84,3 +84,5 @@ credentials.json
 # May need to include globally if other people experienece installing issues
 .yarnrc
 .yarn
+
+.docz/

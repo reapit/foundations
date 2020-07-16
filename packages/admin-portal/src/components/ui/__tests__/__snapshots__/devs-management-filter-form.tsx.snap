@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DevsManagementFilterForm should match a snapshot 1`] = `
+<Formik
+  initialValues={
+    Object {
+      "company": "company",
+      "name": "name",
+      "registeredFrom": "2020/04/03",
+      "registeredTo": "2020/04/04",
+    }
+  }
+  onSubmit={[MockFunction]}
+>
+  <Component />
+</Formik>
+`;

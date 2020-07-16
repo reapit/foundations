@@ -95,7 +95,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = true
           "entries": Array [
             Object {
               "hash": "",
-              "pathname": "/developer/apps/undefined",
+              "pathname": "/apps/undefined",
               "search": "",
               "state": undefined,
             },
@@ -108,7 +108,7 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = true
           "listen": [Function],
           "location": Object {
             "hash": "",
-            "pathname": "/developer/apps/undefined",
+            "pathname": "/apps/undefined",
             "search": "",
             "state": undefined,
           },
@@ -119,12 +119,12 @@ exports[`DeveloperSubmitApp should match a snapshot when pendingRevisions = true
     >
       <Component>
         <Redirect
-          to="/developer/apps/undefined"
+          to="/apps/undefined"
         >
           <Lifecycle
             onMount={[Function]}
             onUpdate={[Function]}
-            to="/developer/apps/undefined"
+            to="/apps/undefined"
           />
         </Redirect>
       </Component>

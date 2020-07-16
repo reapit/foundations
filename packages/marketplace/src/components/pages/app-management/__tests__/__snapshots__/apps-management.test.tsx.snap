@@ -18,7 +18,7 @@ exports[`MyApps should match a snapshot when LOADING false 1`] = `
       Array [
         Object {
           "key": "clientManageRoute",
-          "pathname": "/client/manage",
+          "pathname": "/manage",
         },
       ]
     }
@@ -34,7 +34,7 @@ exports[`MyApps should match a snapshot when LOADING false 1`] = `
             Object {
               "hash": "",
               "key": "clientManageRoute",
-              "pathname": "/client/manage",
+              "pathname": "/manage",
               "search": "",
             },
           ],
@@ -47,7 +47,7 @@ exports[`MyApps should match a snapshot when LOADING false 1`] = `
           "location": Object {
             "hash": "",
             "key": "clientManageRoute",
-            "pathname": "/client/manage",
+            "pathname": "/manage",
             "search": "",
           },
           "push": [Function],
@@ -122,7 +122,7 @@ exports[`MyApps should match a snapshot when LOADING true 1`] = `
       Array [
         Object {
           "key": "clientManageRoute",
-          "pathname": "/client/manage",
+          "pathname": "/manage",
         },
       ]
     }
@@ -138,7 +138,7 @@ exports[`MyApps should match a snapshot when LOADING true 1`] = `
             Object {
               "hash": "",
               "key": "clientManageRoute",
-              "pathname": "/client/manage",
+              "pathname": "/manage",
               "search": "",
             },
           ],
@@ -151,7 +151,7 @@ exports[`MyApps should match a snapshot when LOADING true 1`] = `
           "location": Object {
             "hash": "",
             "key": "clientManageRoute",
-            "pathname": "/client/manage",
+            "pathname": "/manage",
             "search": "",
           },
           "push": [Function],
@@ -195,7 +195,7 @@ exports[`MyApps should match a snapshot when isAdmin false 1`] = `
       Array [
         Object {
           "key": "clientManageRoute",
-          "pathname": "/client/manage",
+          "pathname": "/manage",
         },
       ]
     }
@@ -211,7 +211,7 @@ exports[`MyApps should match a snapshot when isAdmin false 1`] = `
             Object {
               "hash": "",
               "key": "clientManageRoute",
-              "pathname": "/client/manage",
+              "pathname": "/manage",
               "search": "",
             },
           ],
@@ -224,7 +224,7 @@ exports[`MyApps should match a snapshot when isAdmin false 1`] = `
           "location": Object {
             "hash": "",
             "key": "clientManageRoute",
-            "pathname": "/client/manage",
+            "pathname": "/manage",
             "search": "",
           },
           "push": [Function],

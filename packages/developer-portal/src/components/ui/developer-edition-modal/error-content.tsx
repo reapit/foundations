@@ -2,8 +2,7 @@ import * as React from 'react'
 import { Button, SubTitleH6, ModalHeader, ModalBody, ModalFooter, ModalProps } from '@reapit/elements'
 import linkStyles from '@/styles/elements/link.scss?mod'
 import developerEditionStyles from '@/styles/blocks/developer-edition-modal.scss?mod'
-
-const HELP_PAGE_LINK = 'https://marketplace.reapit.cloud/developer/help'
+import routes from '@/constants/routes'
 
 export type ErrorContentProps = Pick<ModalProps, 'afterClose'>
 
@@ -17,7 +16,7 @@ export const ErrorContent: React.FC<ErrorContentProps> = ({ afterClose }) => {
             It looks as though you already have a subscription in place for the Developer Edition of Agency Cloud. If
             you have not received your email with instructions on how to download, please let us know using the live
             chat feature on the&nbsp;
-            <a className={linkStyles.link} target="_blank" rel="noopener noreferrer" href={HELP_PAGE_LINK}>
+            <a className={linkStyles.link} target="_blank" rel="noopener noreferrer" href={routes.HELP}>
               &apos;Help&apos;
             </a>
             &nbsp;page.

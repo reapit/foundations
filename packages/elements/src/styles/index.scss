@@ -2,9 +2,6 @@
 @import './vendor/normalize.scss';
 @import './base/global.scss';
 
-// Utility Classes
-@import './base/utilities.scss';
-
 // Vendor and Bulma styles
 @import './vendor/bulma.scss';
 @import './vendor/bulma-overrides.scss';
@@ -33,3 +30,6 @@
 @import './components/upload-progress.scss';
 @import './components/dropdown-select.scss';
 @import './components/html-render.scss';
+
+// Utility Classes
+@import './base/utilities.scss';

@@ -513,14 +513,14 @@ exports[`Register should match a snapshot 1`] = `
                         >
                           Already have an account?
                           <Link
-                            to="/developer/login"
+                            to="/login"
                           >
                             <LinkAnchor
-                              href="/developer/login"
+                              href="/login"
                               navigate={[Function]}
                             >
                               <a
-                                href="/developer/login"
+                                href="/login"
                                 onClick={[Function]}
                               >
                                 Login

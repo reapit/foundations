@@ -53,7 +53,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                     To learn more about what’s possible with the Desktop API, please visit the
                      
                     <a
-                      href="/developer/api-docs/api/desktop-api"
+                      href="/api-docs/api/desktop-api"
                       rel="noreferrer"
                       target="_blank"
                     >

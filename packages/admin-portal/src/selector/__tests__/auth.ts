@@ -5,7 +5,6 @@ import {
   selectLoginSession,
   selectClientId,
   selectRefreshSession,
-  selectIsTermAccepted,
   selectIsDesktopMode,
 } from '../auth'
 import appState from '@/reducers/__stubs__/app-state'
@@ -50,13 +49,6 @@ describe('selectRefreshSession', () => {
   it('should run correctly', () => {
     const result = selectRefreshSession(appState)
     expect(result).toEqual(appState.auth.refreshSession)
-  })
-})
-
-describe('selectIsTermAccepted', () => {
-  it('should run correctly', () => {
-    const result = selectIsTermAccepted(appState)
-    expect(result).toEqual(appState.auth.isTermAccepted)
   })
 })
 

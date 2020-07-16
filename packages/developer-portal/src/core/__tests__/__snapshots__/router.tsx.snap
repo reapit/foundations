@@ -29,7 +29,7 @@ exports[`Router should match a snapshot 1`] = `
       <Switch>
         <Route
           exact={true}
-          path="/developer/login"
+          path="/login"
           render={[Function]}
         />
         <Route
@@ -86,7 +86,7 @@ exports[`Router should match a snapshot 1`] = `
               }
               exact={true}
               fetcher={true}
-              path="/developer/apps"
+              path="/apps"
             />
             <Component
               allow="DEVELOPER"
@@ -100,7 +100,7 @@ exports[`Router should match a snapshot 1`] = `
               }
               exact={true}
               fetcher={true}
-              path="/developer/apps/:appid"
+              path="/apps/:appid"
             />
             <Component
               allow="DEVELOPER"
@@ -114,7 +114,7 @@ exports[`Router should match a snapshot 1`] = `
               }
               exact={true}
               fetcher={true}
-              path="/developer/apps/:appid/edit"
+              path="/apps/:appid/edit"
             />
             <Component
               allow="DEVELOPER"
@@ -126,7 +126,7 @@ exports[`Router should match a snapshot 1`] = `
                   "_status": -1,
                 }
               }
-              path="/developer/api-docs"
+              path="/api-docs"
             />
             <Component
               allow="DEVELOPER"
@@ -139,7 +139,7 @@ exports[`Router should match a snapshot 1`] = `
                 }
               }
               fetcher={true}
-              path="/developer/webhooks"
+              path="/webhooks"
             />
             <Component
               allow="DEVELOPER"
@@ -152,7 +152,7 @@ exports[`Router should match a snapshot 1`] = `
                 }
               }
               exact={true}
-              path="/developer/swagger"
+              path="/swagger"
             />
             <Component
               allow="DEVELOPER"
@@ -165,21 +165,7 @@ exports[`Router should match a snapshot 1`] = `
                 }
               }
               exact={true}
-              path="/developer/desktop"
-            />
-            <Component
-              allow="DEVELOPER"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
-              fetcher={true}
-              path="/developer/analytics/:activeTab?"
+              path="/desktop"
             />
             <Component
               allow="DEVELOPER"
@@ -193,46 +179,7 @@ exports[`Router should match a snapshot 1`] = `
               }
               exact={true}
               fetcher={true}
-              path="/developer/settings/"
-            />
-            <Component
-              allow="DEVELOPER"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              fetcher={true}
-              path="/developer/settings/billing"
-            />
-            <Component
-              allow="DEVELOPER"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              fetcher={true}
-              path="/developer/settings/organisation"
-            />
-            <Component
-              allow="DEVELOPER"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
-              path="/developer/welcome"
+              path="/analytics/:activeTab?"
             />
             <Component
               allow="DEVELOPER"
@@ -246,7 +193,7 @@ exports[`Router should match a snapshot 1`] = `
               }
               exact={true}
               fetcher={true}
-              path="/developer/help"
+              path="/settings/"
             />
             <Component
               allow="DEVELOPER"
@@ -258,7 +205,60 @@ exports[`Router should match a snapshot 1`] = `
                   "_status": -1,
                 }
               }
-              path="/developer/edition-download"
+              fetcher={true}
+              path="/settings/billing"
+            />
+            <Component
+              allow="DEVELOPER"
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_ctor": [Function],
+                  "_result": null,
+                  "_status": -1,
+                }
+              }
+              fetcher={true}
+              path="/settings/organisation"
+            />
+            <Component
+              allow="DEVELOPER"
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_ctor": [Function],
+                  "_result": null,
+                  "_status": -1,
+                }
+              }
+              exact={true}
+              path="/welcome"
+            />
+            <Component
+              allow="DEVELOPER"
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_ctor": [Function],
+                  "_result": null,
+                  "_status": -1,
+                }
+              }
+              exact={true}
+              fetcher={true}
+              path="/help"
+            />
+            <Component
+              allow="DEVELOPER"
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_ctor": [Function],
+                  "_result": null,
+                  "_status": -1,
+                }
+              }
+              path="/edition-download"
             />
             <Component
               allow="DEVELOPER"

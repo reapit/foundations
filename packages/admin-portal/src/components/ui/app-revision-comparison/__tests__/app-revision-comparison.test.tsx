@@ -19,10 +19,6 @@ const props = (loading: boolean, error: boolean): AppRevisionComparisonProps => 
     loading,
     error,
     appDetailData: { data: appDetailDataStub.data },
-    authentication: {
-      loading: false,
-      code: '',
-    },
     isStale: false,
   },
   revisionDetailState: {
