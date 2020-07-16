@@ -33,6 +33,7 @@
       "typescript": "^3.9.6",
       "serve": "^11.3.2",
       "dayjs": "^1.8.29",
+      "mockdate": "^3.0.2"
     },
     "scripts": {
       "start": "react-app-rewired start",

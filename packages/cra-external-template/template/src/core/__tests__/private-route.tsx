@@ -1,49 +1,49 @@
-import * as React from 'react'
-import { shallow, mount } from 'enzyme'
-import toJson from 'enzyme-to-json'
-import { MemoryRouter, Route } from 'react-router'
-import { PrivateRoute } from '../private-route'
+import React from 'react'
+import { createBrowserHistory } from 'history'
+import { Route, Router } from 'react-router-dom'
+import { render } from '@testing-library/react'
+import { AuthContext } from '../../context'
+import { mockContext } from '../../context/__mocks__/mock-context'
+import { AuthHook } from '../../hooks/use-auth'
+import { PrivateRouteWrapper, PrivateRouteWrapperProps } from '../private-route-wrapper'
+import { getMockRouterProps } from '../__mocks__/mock-router'
+
+jest.mock('@reapit/cognito-auth', () => ({
+  redirectToLogin: jest.fn(),
+  getSessionCookie: jest.fn(),
+  getTokenFromQueryString: jest.fn(),
+  redirectToOAuth: jest.fn(),
+  getSession: jest.fn(() => require('../__mocks__/session').session),
+}))
 
 describe('PrivateRouter', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<PrivateRoute allow="CLIENT" loginType="CLIENT" component={() => null} />))).toMatchSnapshot()
-  })
-
-  it('should redirect to /404 page if isLogin is false', () => {
-    const wrapper = mount(
-      <MemoryRouter initialEntries={['/my-path']}>
-        <PrivateRoute allow="CLIENT" loginType="DEVELOPER" component={() => null} path="/my-path" />
-        <Route path="/404" render={() => <div className="not-found" />} />
-      </MemoryRouter>,
+    const props: PrivateRouteWrapperProps = {
+      path: '/client/apps',
+      ...getMockRouterProps({ params: {}, search: '?username=wmcvay@reapit.com&desktopToken=TOKEN' }),
+    }
+    const history = createBrowserHistory()
+    const wrapper = render(
+      <AuthContext.Provider value={mockContext}>
+        <Router history={history}>
+          <Route>
+            <PrivateRouteWrapper {...props} />
+          </Route>
+        </Router>
+      </AuthContext.Provider>,
     )
-    expect(wrapper.find('.not-found')).toHaveLength(1)
+    expect(wrapper).toMatchSnapshot()
   })
-
-  it('should return render component if loginType matches allow is true', () => {
-    const wrapper = mount(
-      <MemoryRouter initialEntries={['/client']}>
-        <PrivateRoute
-          loginType="CLIENT"
-          allow="CLIENT"
-          component={() => <div className="render-class" />}
-          path="/client"
-        />
-      </MemoryRouter>,
+  it('should match a snapshot', () => {
+    const props: PrivateRouteWrapperProps = {
+      path: '/client/apps',
+      ...getMockRouterProps({ params: {}, search: '?username=wmcvay@reapit.com&desktopToken=TOKEN' }),
+    }
+    const wrapper = render(
+      <AuthContext.Provider value={{} as AuthHook}>
+        <PrivateRouteWrapper {...props} />
+      </AuthContext.Provider>,
     )
-    expect(wrapper.find('.render-class')).toHaveLength(1)
-  })
-
-  it('should return render component if loginType is included in allow array is true', () => {
-    const wrapper = mount(
-      <MemoryRouter initialEntries={['/developer/my-apps']}>
-        <PrivateRoute
-          allow={['CLIENT', 'DEVELOPER']}
-          loginType="DEVELOPER"
-          component={() => <div className="render-class" />}
-          path="/developer/my-apps"
-        />
-      </MemoryRouter>,
-    )
-    expect(wrapper.find('.render-class')).toHaveLength(1)
+    expect(wrapper).toMatchSnapshot()
   })
 })

@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { getMockRouterProps } from '../core/__mocks__/mock-router'
-import { AuthContext } from '../context'
-import { mockContext } from '../context/__mocks__/mock-context'
+import { getMockRouterProps } from '../../../core/__mocks__/mock-router'
+import { AuthContext } from '../../../context'
+import { mockContext } from '../../../context/__mocks__/mock-context'
 import { Menu, MenuProps, generateMenuConfig, callbackAppClick } from '../menu'
 
 describe('Menu', () => {

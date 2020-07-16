@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
 import { createBrowserHistory } from 'history'
-import { AuthContext } from '../context'
-import { mockContext } from '../context/__mocks__/mock-context'
-import { AuthHook } from '../hooks/use-auth'
+import { AuthContext } from '../../../context'
+import { mockContext } from '../../../context/__mocks__/mock-context'
+import { AuthHook } from '../../../hooks/use-auth'
 import * as cognito from '@reapit/cognito-auth'
-import { redirectToLoginPage, Login } from '../components/pages/login'
+import { redirectToLoginPage, Login } from '../login'
 import { Router, Route } from 'react-router-dom'
 
 jest.mock('@reapit/cognito-auth', () => ({
