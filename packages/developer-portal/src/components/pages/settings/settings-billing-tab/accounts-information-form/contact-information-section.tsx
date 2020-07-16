@@ -4,37 +4,37 @@ import formFields from './form-schema/form-fields'
 
 export type ContactInformationSectionProps = {}
 
-const { emailField, phoneNumberField, contactField } = formFields
+const { billingEmailField, billingTelephoneField, billingKeyContactField } = formFields
 
 const ContactInformationSection: React.FC<ContactInformationSectionProps> = () => {
   return (
     <>
-      <FormHeading>{emailField.heading}</FormHeading>
-      <FormSubHeading>{emailField.subHeading}</FormSubHeading>
+      <FormHeading>{billingEmailField.heading}</FormHeading>
+      <FormSubHeading>{billingEmailField.subHeading}</FormSubHeading>
       <Input
         dataTest="email"
         type="email"
-        id={emailField.name}
-        name={emailField.name}
-        placeholder={emailField.placeHolder}
+        id={billingEmailField.name}
+        name={billingEmailField.name}
+        placeholder={billingEmailField.placeHolder}
       />
-      <FormHeading>{phoneNumberField.heading}</FormHeading>
-      <FormSubHeading>{phoneNumberField.subHeading}</FormSubHeading>
+      <FormHeading>{billingTelephoneField.heading}</FormHeading>
+      <FormSubHeading>{billingTelephoneField.subHeading}</FormSubHeading>
       <Input
         dataTest="phoneNumber"
         type="text"
-        id={phoneNumberField.name}
-        name={phoneNumberField.name}
-        placeholder={phoneNumberField.placeHolder}
+        id={billingTelephoneField.name}
+        name={billingTelephoneField.name}
+        placeholder={billingTelephoneField.placeHolder}
       />
-      <FormHeading>{contactField.heading}</FormHeading>
-      <FormSubHeading>{contactField.subHeading}</FormSubHeading>
+      <FormHeading>{billingKeyContactField.heading}</FormHeading>
+      <FormSubHeading>{billingKeyContactField.subHeading}</FormSubHeading>
       <Input
         dataTest="contact"
         type="text"
-        id={contactField.name}
-        name={contactField.name}
-        placeholder={contactField.placeHolder}
+        id={billingKeyContactField.name}
+        name={billingKeyContactField.name}
+        placeholder={billingKeyContactField.placeHolder}
       />
     </>
   )

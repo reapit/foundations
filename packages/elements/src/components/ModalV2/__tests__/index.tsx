@@ -1,14 +1,14 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { Modal } from '../index'
+import { ModalV2 } from '../index'
 
 describe('modal', () => {
   describe('Modal', () => {
     it('should match snapshot', () => {
       const wrapper = shallow(
-        <Modal visible={true}>
+        <ModalV2 visible={true}>
           <div>children</div>
-        </Modal>,
+        </ModalV2>,
       )
       expect(wrapper).toMatchSnapshot()
     })

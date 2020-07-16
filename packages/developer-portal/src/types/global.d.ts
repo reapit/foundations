@@ -17,6 +17,7 @@ export type Config = {
   developerEditionDownloadUrl: string
   urlSchemeUrl: string
   apiDocDesktop: string
+  debitApiKey: string
 }
 
 declare global {

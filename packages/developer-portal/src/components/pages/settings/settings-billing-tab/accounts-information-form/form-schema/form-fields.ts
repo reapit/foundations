@@ -1,27 +1,29 @@
 import { FormFieldInfo } from '@reapit/elements'
 
 type Field =
-  | 'emailField'
+  | 'billingEmailField'
+  | 'billingTelephoneField'
+  | 'billingKeyContactField'
+  | 'reapitReferenceField'
+  | 'statusField'
   | 'hasReapitAccountsRefField'
-  | 'reapitAccountsRefField'
-  | 'phoneNumberField'
   | 'hasDirectDebitField'
-  | 'contactField'
 
 const formFields: Record<Field, FormFieldInfo> = {
-  emailField: {
+  billingEmailField: {
     name: 'billingEmail',
     heading: 'Accounts Email',
     subHeading: 'This email will be used by our Accounts Department to send any account related correspondence',
     placeHolder: 'Please enter email address',
   },
-  phoneNumberField: {
+  billingTelephoneField: {
     name: 'billingTelephone',
     heading: 'Accounts Telephone',
     subHeading: 'If you have a specific telephone number for your accounts department, please enter here',
     placeHolder: 'Please enter telephone number',
+    errorMessage: 'Invalid Telephone number',
   },
-  contactField: {
+  billingKeyContactField: {
     name: 'billingKeyContact',
     heading: 'Accounts Contact',
     subHeading: 'If you have a key contact in your Accounts Department, please enter here',
@@ -33,6 +35,7 @@ const formFields: Record<Field, FormFieldInfo> = {
     subHeading: `If you have an existing Direct Debit setup, please select Yes below.
     If not, please select No and complete a Direct Debit form below:`,
     placeHolder: '',
+    errorMessage: 'Please finish setting up Direct Debit',
   },
   hasReapitAccountsRefField: {
     name: 'hasReapitAccountsRef',
@@ -40,10 +43,14 @@ const formFields: Record<Field, FormFieldInfo> = {
     heading: 'Reapit Reference',
     subHeading: `If you have an existing account with Reapit you will be able to find your
       Reapit reference on previous correspondence`,
+    errorMessage: 'Please select one',
   },
-  reapitAccountsRefField: {
+  reapitReferenceField: {
     name: 'reapitReference',
     placeHolder: 'Please enter reference',
+  },
+  statusField: {
+    name: 'status',
   },
 }
 

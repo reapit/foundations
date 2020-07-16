@@ -64,5 +64,4 @@ export * from './utils/device-detection/device-detection'
 
 export * from './types/core'
 
-export { default as ModalV2 } from './components/ModalV2'
-export { ModalProps as ModalPropsV2 } from './components/ModalV2'
+export * from './components/ModalV2'
