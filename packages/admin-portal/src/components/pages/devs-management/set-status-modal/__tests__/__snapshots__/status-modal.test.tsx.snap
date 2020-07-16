@@ -182,7 +182,7 @@ exports[`StatusModal should match snapshot 1`] = `
         }
       }
     >
-      <Memo()
+      <Component
         destroyOnClose={true}
         footer={
           Array [
@@ -845,7 +845,7 @@ exports[`StatusModal should match snapshot 1`] = `
             </Portal>
           </PortalWrapper>
         </Component>
-      </Memo()>
+      </Component>
     </Formik>
   </Component>
 </Provider>
