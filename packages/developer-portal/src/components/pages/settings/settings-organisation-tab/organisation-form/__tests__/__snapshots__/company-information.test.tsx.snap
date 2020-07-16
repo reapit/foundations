@@ -31,6 +31,7 @@ exports[`CompanyInformationSection should match a snapshot when no error 1`] = `
     </Component>
     <Component>
       <Component
+        disabled={true}
         id="email"
         labelText="Office Email"
         name="email"
