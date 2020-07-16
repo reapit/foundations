@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Field, FieldProps } from 'formik'
 import { checkError } from '../../utils/form'
 import { fieldValidateRequire } from '../../utils/validators'
+import { cx } from 'linaria'
 
 export interface InputProps {
   type: 'text' | 'password' | 'email' | 'tel' | 'hidden' | 'time'
@@ -40,7 +41,7 @@ export const Input = ({
       const inputClassName = hasError ? 'input is-danger' : 'input is-primary'
       const defaultValue = ''
       return (
-        <div className={`field ${className}`}>
+        <div className={cx('field', className)}>
           <div className={`control ${rightIcon ? 'has-icons-right' : ''}`}>
             {type !== 'hidden' && !rightIcon && labelText && (
               <label className={`label inline-block ${required ? 'required-label' : ''}`} htmlFor={id}>
@@ -56,7 +57,7 @@ export const Input = ({
               type={type}
               id={id}
               placeholder={placeholder}
-              className={inputClassName}
+              className={cx(inputClassName)}
               {...field}
               value={field.value || defaultValue}
               maxLength={maxLength}

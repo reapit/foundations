@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { History } from 'history'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -82,6 +82,15 @@ export const onSearchHandler = (history: History<any>) => (
   }
 }
 
+export const onClickStatusButton = (
+  setDeveloper: React.Dispatch<DeveloperModel>,
+  setIsSetStatusModalOpen: React.Dispatch<boolean>,
+  developerData,
+) => () => {
+  setDeveloper({ ...developerData })
+  setIsSetStatusModalOpen(true)
+}
+
 export const DevsManagement: React.FC = () => {
   const dispatch = useDispatch()
   const history = useHistory()
@@ -92,7 +101,7 @@ export const DevsManagement: React.FC = () => {
   const onPageChange = React.useCallback(onPageChangeHandler(history, filterValues), [history, filterValues])
   const onSearch = React.useCallback(onSearchHandler(history), [history])
   const [isSetStatusModalOpen, setIsSetStatusModalOpen] = React.useState(false)
-  const [developer, setDeveloper] = React.useState({} as DeveloperModel)
+  const [developer, setDeveloper] = React.useState<DeveloperModel>({} as DeveloperModel)
 
   const devsManagementState = useSelector(selectDevsManagement)
   const { loading, data } = devsManagementState
@@ -105,6 +114,7 @@ export const DevsManagement: React.FC = () => {
       fetchData({ page: pageNumber, queryString: qs.stringify(filterValues as { name: string; company: string }) })
     }
   }
+
   const pageNo = pageNumber - 1
   const pageNoTimesRevsions = pageNo * REVISIONS_PER_PAGE
   const HeaderCell = ({ row: { index } }) => <div style={{ width: 'auto' }}>{pageNoTimesRevsions + index + 1}</div>
@@ -136,10 +146,7 @@ export const DevsManagement: React.FC = () => {
       <Button
         type="button"
         variant="primary"
-        onClick={() => {
-          setDeveloper({ ...original })
-          setIsSetStatusModalOpen(true)
-        }}
+        onClick={onClickStatusButton(setDeveloper, setIsSetStatusModalOpen, original)}
       >
         Status
       </Button>

@@ -298,7 +298,7 @@ exports[`Register should match a snapshot 1`] = `
                           validate={null}
                         >
                           <div
-                            className="field "
+                            className=""
                           >
                             <div
                               className="control "
@@ -310,7 +310,7 @@ exports[`Register should match a snapshot 1`] = `
                                 Full name
                               </label>
                               <input
-                                className="input is-primary"
+                                className=""
                                 data-test="register-name"
                                 disabled={false}
                                 id="name"
@@ -338,7 +338,7 @@ exports[`Register should match a snapshot 1`] = `
                           validate={null}
                         >
                           <div
-                            className="field "
+                            className=""
                           >
                             <div
                               className="control "
@@ -350,7 +350,7 @@ exports[`Register should match a snapshot 1`] = `
                                 Company name
                               </label>
                               <input
-                                className="input is-primary"
+                                className=""
                                 data-test="register-company-name"
                                 disabled={false}
                                 id="companyName"
@@ -378,7 +378,7 @@ exports[`Register should match a snapshot 1`] = `
                           validate={null}
                         >
                           <div
-                            className="field "
+                            className=""
                           >
                             <div
                               className="control "
@@ -390,7 +390,7 @@ exports[`Register should match a snapshot 1`] = `
                                 Email
                               </label>
                               <input
-                                className="input is-primary"
+                                className=""
                                 data-test="register-email"
                                 disabled={false}
                                 id="email"
@@ -418,7 +418,7 @@ exports[`Register should match a snapshot 1`] = `
                           validate={null}
                         >
                           <div
-                            className="field "
+                            className=""
                           >
                             <div
                               className="control "
@@ -430,7 +430,7 @@ exports[`Register should match a snapshot 1`] = `
                                 Telephone
                               </label>
                               <input
-                                className="input is-primary"
+                                className=""
                                 data-test="register-telephone"
                                 disabled={false}
                                 id="telephone"
