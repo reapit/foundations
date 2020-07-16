@@ -24,6 +24,7 @@ const AnalyticsPage = React.lazy(() => catchChunkError(() => import('@/component
 const RegisterConfirm = React.lazy(() => catchChunkError(() => import('../components/pages/register-confirm')))
 const WebhooksPage = React.lazy(() => catchChunkError(() => import('../components/pages/webhooks')))
 const SettingsPage = React.lazy(() => catchChunkError(() => import('../components/pages/settings/')))
+const AppDetailPreview = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail-preview')))
 
 const SettingsOrganisationTabPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/settings/settings-organisation-tab')),
@@ -84,6 +85,7 @@ const Router = () => {
                   path={Routes.DEVELOPER_EDITION_DOWNLOAD}
                   component={EditionDownloadPage}
                 />
+                <PrivateRoute allow="DEVELOPER" path={Routes.APP_PREVIEW} exact component={AppDetailPreview} />
                 <Route render={() => <Info infoType="404" />} />
               </Switch>
             </PrivateRouteWrapper>

@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppDetailPreview should match a snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "clientAppDetailPreviewRoute",
+          "pathname": "/apps/:appid",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "clientAppDetailPreviewRoute",
+              "pathname": "/apps/:appid",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "clientAppDetailPreviewRoute",
+            "pathname": "/apps/:appid",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <AppDetailPreview>
+        <Component
+          dataTest="client-app-detail-container"
+        >
+          <div
+            className=""
+            data-test="client-app-detail-container"
+          >
+            <Component>
+              <div
+                className=""
+                data-test=""
+              >
+                <Component
+                  message="There is no preview app"
+                  type="danger"
+                >
+                  <div
+                    className="notification is-danger "
+                    data-test=""
+                    role="alert"
+                  >
+                    There is no preview app
+                  </div>
+                </Component>
+              </div>
+            </Component>
+          </div>
+        </Component>
+      </AppDetailPreview>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;

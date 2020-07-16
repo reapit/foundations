@@ -1,3 +1,5 @@
+// The UI of this page should be the same as the App Detail Preview page in Developer portal
+// Make sure to always update the UI in both places if needed
 import * as React from 'react'
 import { History } from 'history'
 import { useHistory } from 'react-router'
