@@ -59,7 +59,7 @@ describe('customMailer', () => {
         emailMessage: await forgotPasswordTemplate({
           verificationCode: event.request?.codeParameter as string,
           userName: event.request?.userAttributes.email as string,
-          url: 'SOME_URL/developer/reset-password',
+          url: 'SOME_URL/reset-password',
         }),
       })
       expect(callback).toHaveBeenCalledWith(null, event)
@@ -114,7 +114,7 @@ describe('customMailer', () => {
       emailSubject: 'Welcome to Reapit Foundations',
       emailMessage: await adminUserInviteTemplate({
         userName: event.request?.userAttributes.email as string,
-        url: 'SOME_URL/developer/login',
+        url: 'SOME_URL/login',
       }),
     })
     expect(callback).toHaveBeenCalledWith(null, event)
