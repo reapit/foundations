@@ -1,5 +1,6 @@
 // TODO - a start on theming - needs some work - ideally, should look like Elements itself
 export default {
+  dest: '/public/dist',
   typescript: true,
   showDarkModeSwitch: false,
   themeConfig: {

@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`modal Modal should match snapshot 1`] = `
+<Component
+  bodyStyle={Object {}}
+  className=""
+  closable={true}
+  destroyOnClose={false}
+  focusTriggerAfterClose={true}
+  forceRender={false}
+  keyboard={true}
+  mask={true}
+  maskClosable={true}
+  maskStyle={Object {}}
+  prefixCls="rc-dialog"
+  style={Object {}}
+  visible={true}
+  wrapClassName=""
+>
+  <div>
+    children
+  </div>
+</Component>
+`;
+
+exports[`modal Modal should match snapshot when isCentered 1`] = `
+<Component
+  bodyStyle={Object {}}
+  className=""
+  closable={true}
+  destroyOnClose={false}
+  focusTriggerAfterClose={true}
+  forceRender={false}
+  keyboard={true}
+  mask={true}
+  maskClosable={true}
+  maskStyle={Object {}}
+  prefixCls="rc-dialog"
+  style={Object {}}
+  visible={true}
+  wrapClassName=""
+>
+  <div>
+    children
+  </div>
+</Component>
+`;
+
+exports[`modal Modal should match snapshot when not show modal 1`] = `
+<Component
+  bodyStyle={Object {}}
+  className=""
+  closable={true}
+  destroyOnClose={false}
+  focusTriggerAfterClose={true}
+  forceRender={false}
+  keyboard={true}
+  mask={true}
+  maskClosable={true}
+  maskStyle={Object {}}
+  prefixCls="rc-dialog"
+  style={Object {}}
+  visible={false}
+  wrapClassName=""
+>
+  <div>
+    children
+  </div>
+</Component>
+`;
