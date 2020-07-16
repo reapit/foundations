@@ -3,6 +3,7 @@ import Router from './router'
 import ErrorBoundary from '../components/hocs/error-boundary'
 
 import { useAuth } from '../hooks/use-auth'
+
 import { AuthContext } from '../context'
 import { injectSwitchModeToWindow } from '@reapit/elements'
 import '../styles/index.css'

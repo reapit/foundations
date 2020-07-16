@@ -1,9 +1,54 @@
 const { override, addBabelPreset } = require('customize-cra')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const paths = require.resolve('react-scripts/config/paths')
+const typescriptFormatter = require('react-dev-utils/typescriptFormatter')
+const resolve = require('resolve')
+
+/**
+ *
+ * https://github.com/TypeStrong/fork-ts-checker-webpack-plugin/issues/211
+ * https://github.com/facebook/create-react-app/issues/8707#issuecomment-624284347
+ * disable useTypescriptIncrementalApi of react-scripts ForkTsCheckerWebpackPlugin
+ * Fix Hanging at 'Files successfully emitted, waiting for typecheck results...' when yarnn start on the first time
+ */
+const removeOriginalForkTsCheckerWebpackPlugin = config => {
+  config.plugins = config.plugins.filter(plugin => {
+    return plugin.constructor.name !== 'ForkTsCheckerWebpackPlugin'
+  })
+
+  return config
+}
+
+const patchForkTsCheckerWebpackPlugin = (config, env) => {
+  const isEnvDevelopment = env === 'development'
+  const isEnvProduction = env === 'production'
+
+  config.plugins.push(
+    // original ForkTsCheckerWebpackPlugin config with useTypescriptIncrementalApi disable
+    new ForkTsCheckerWebpackPlugin({
+      typescript: resolve.sync('typescript', {
+        basedir: paths.appNodeModules,
+      }),
+      async: isEnvDevelopment,
+      useTypescriptIncrementalApi: false,
+      checkSyntacticErrors: true,
+      resolveModuleNameModule: process.versions.pnp ? `${__dirname}/pnpTs.js` : undefined,
+      resolveTypeReferenceDirectiveModule: process.versions.pnp ? `${__dirname}/pnpTs.js` : undefined,
+      tsconfig: paths.appTsConfig,
+      reportFiles: ['**', '!**/__tests__/**', '!**/?(*.)(spec|test).*', '!**/src/setupProxy.*', '!**/src/setupTests.*'],
+      silent: true,
+      // The formatter is invoked directly in WebpackDevServerUtils during development
+      formatter: isEnvProduction ? typescriptFormatter : undefined,
+    }),
+  )
+
+  return config
+}
 
 /**
  * Add linaria loader after babel loader
  */
-function transformLoader(loader) {
+const transformLoader = loader => {
   const options = loader.options || {}
   const presets = options.presets || []
   options.presets = presets
@@ -50,4 +95,13 @@ const addLinariaLoader = config => {
   return config
 }
 
-module.exports = override(addBabelPreset('linaria/babel'), addLinariaLoader)
+// react-rewired configuration https://github.com/timarney/react-app-rewired
+module.exports = {
+  // The Webpack config to use when compiling your react app for development or production.
+  webpack: function(config, env) {
+    return {
+      ...override(addBabelPreset('linaria/babel'), addLinariaLoader, removeOriginalForkTsCheckerWebpackPlugin),
+      ...patchForkTsCheckerWebpackPlugin(config, env),
+    }
+  },
+}
