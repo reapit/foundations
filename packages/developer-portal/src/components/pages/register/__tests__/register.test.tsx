@@ -2,7 +2,14 @@ import * as React from 'react'
 import { mount } from 'enzyme'
 import * as ReactRedux from 'react-redux'
 import configureStore from 'redux-mock-store'
-import { Register, onSubmit, onRegisterButtonClick, onDeclineTermsAndConditions, onLoginButtonClick } from '../register'
+import {
+  Register,
+  onSubmit,
+  onRegisterButtonClick,
+  onDeclineTermsAndConditions,
+  onLoginButtonClick,
+  handleSetFormDefault,
+} from '../register'
 import { developerCreate } from '@/actions/developer'
 import { DATE_TIME_FORMAT } from '@reapit/elements'
 import MockDate from 'mockdate'
@@ -89,6 +96,14 @@ describe('Register', () => {
       const fn = onLoginButtonClick(history)
       fn()
       expect(history.replace).toBeCalledWith(`${Routes.LOGIN}`)
+    })
+  })
+  describe('handleSetFormDefault', () => {
+    it('should run correctly', () => {
+      const dispatch = jest.fn()
+      const fn = handleSetFormDefault(dispatch)
+      fn()
+      expect(dispatch).toBeCalled()
     })
   })
 })
