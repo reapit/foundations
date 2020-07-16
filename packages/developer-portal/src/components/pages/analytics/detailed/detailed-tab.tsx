@@ -1,7 +1,5 @@
 import * as React from 'react'
 import orderBy from 'lodash.orderby'
-import dayjs from 'dayjs'
-
 import { useDispatch, useSelector } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { AppHttpTrafficEventState } from '@/reducers/app-http-traffic-event'
@@ -12,7 +10,7 @@ import { getAppUsageStats, getAppHttpTraffic } from '@/selector/analytics'
 import { selectDeveloper } from '@/selector/developer'
 import { getInstallations } from '@/selector/installations'
 
-import { Grid, GridItem, DATE_TIME_FORMAT, Section } from '@reapit/elements'
+import { Grid, GridItem, Section } from '@reapit/elements'
 import DeveloperHitsPerDayChart from './hits-per-day-chart'
 import InstallationAppSection, { InstallationModelWithAppName } from './installation-app-section'
 import FilterBar from './filter-bar'
@@ -22,6 +20,7 @@ import { AppInstallationsState } from '@/reducers/app-installations'
 import { DeveloperState } from '@/reducers/developer'
 import { AppUsageStatsState } from '@/reducers/app-usage-stats'
 import TrafficEventTable from './traffic-event-table'
+import { prepareDefaultFilterDateParams } from './filter-bar/default-filter-group'
 
 export type DetailedTabProps = {}
 
@@ -44,30 +43,19 @@ export const handleDefaultFilter = (developerAppDataArray: AppSummaryModel[]) =>
     return app.id
   })
 
-  const lastWeek = dayjs().subtract(1, 'week')
-  const lastMonday = lastWeek
-    .startOf('week')
-    .add(1, 'day')
-    .format(DATE_TIME_FORMAT.YYYY_MM_DD)
-  const lastSunday = lastWeek
-    .endOf('week')
-    .add(1, 'day')
-    .format(DATE_TIME_FORMAT.YYYY_MM_DD)
-
   return {
-    lastMonday,
-    lastSunday,
     appIds,
   }
 }
 
-export const handleFetchAppUsageStatsDataUseCallback = (developerAppDataArray: AppSummaryModel[] = [], dispatch) => {
+export const handleFetchAppUsageStatsDataUseCallback = dispatch => {
   return () => {
-    const { lastMonday, lastSunday } = handleDefaultFilter(developerAppDataArray)
+    const { defaultParams } = prepareDefaultFilterDateParams()
+
     dispatch(
       appInstallationsFilterRequestData({
-        installedDateFrom: lastMonday,
-        installedDateTo: lastSunday,
+        installedDateFrom: defaultParams.dateFrom,
+        installedDateTo: defaultParams.dateTo,
         pageSize: GET_ALL_PAGE_SIZE,
       }),
     )
@@ -89,14 +77,15 @@ export const handleFetchHttpTrafficPerDayDataUseCallback = (
   developerAppDataArray: AppSummaryModel[] = [],
   dispatch,
 ) => () => {
-  const { lastMonday, lastSunday, appIds } = handleDefaultFilter(developerAppDataArray)
+  const { appIds } = handleDefaultFilter(developerAppDataArray)
+  const { defaultParams } = prepareDefaultFilterDateParams()
 
   if (appIds.length) {
     dispatch(
       httpTrafficPerDayRequestData({
         applicationId: appIds,
-        dateFrom: lastMonday,
-        dateTo: lastSunday,
+        dateFrom: defaultParams.dateFrom,
+        dateTo: defaultParams.dateTo,
       }),
     )
   }
@@ -140,10 +129,9 @@ export const DetailedTab: React.FC<DetailedTabProps> = () => {
     [installationFilterAppDataArray, developerDataArray],
   )
 
-  const fetchAppUsageStatsData = React.useCallback(
-    handleFetchAppUsageStatsDataUseCallback(developerDataArray, dispatch),
-    [developerDataArray],
-  )
+  const fetchAppUsageStatsData = React.useCallback(handleFetchAppUsageStatsDataUseCallback(dispatch), [
+    developerDataArray,
+  ])
 
   const fetchHttpTrafficPerDayData = React.useCallback(
     handleFetchHttpTrafficPerDayDataUseCallback(developerDataArray, dispatch),
