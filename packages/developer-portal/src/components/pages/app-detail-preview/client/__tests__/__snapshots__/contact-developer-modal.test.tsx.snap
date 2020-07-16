@@ -11,7 +11,7 @@ exports[`ContactDeveloperSection should match snapshot with gutter 1`] = `
   >
     NEED HELP?
   </Component>
-  <Memo()
+  <Component
     footer={
       <Unknown
         dataTest="btn-close-modal"
@@ -91,7 +91,7 @@ exports[`ContactDeveloperSection should match snapshot with gutter 1`] = `
         </Component>
       </Component>
     </Component>
-  </Memo()>
+  </Component>
 </Fragment>
 `;
 
@@ -106,7 +106,7 @@ exports[`ContactDeveloperSection should match snapshot without gutter 1`] = `
   >
     NEED HELP?
   </Component>
-  <Memo()
+  <Component
     footer={
       <Unknown
         dataTest="btn-close-modal"
@@ -186,6 +186,6 @@ exports[`ContactDeveloperSection should match snapshot without gutter 1`] = `
         </Component>
       </Component>
     </Component>
-  </Memo()>
+  </Component>
 </Fragment>
 `;
