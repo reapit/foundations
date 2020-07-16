@@ -1,19 +1,22 @@
 ---
-name: Headings
+name: Heading
 route: /headings
 ---
 
 import { Playground, Props } from 'docz'
-import { HeadingMain } from './headings'
+import { Heading } from './headings'
 import { DocsWrapper } from '@/utils/docs-wrapper'
 
-# Headings
+# Heading
 
-<Props of={HeadingMain} />
+<Props of={Heading.Main} />
 
 <Playground>
   <DocsWrapper>
-    <HeadingMain>Heading Main</HeadingMain>
+    <Heading.Main>Heading Main</Heading.Main>
+    <Heading.SubMain>SubHeading Main</Heading.SubMain>
+    <Heading.Secondary>Heading Secondary</Heading.Secondary>
+    <Heading.SubSecondary>SubHeading Secondary</Heading.SubSecondary>
   </DocsWrapper>
 </Playground>
 

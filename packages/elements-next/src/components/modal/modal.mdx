@@ -8,11 +8,18 @@ import { Modal } from './modal'
 import { DocsWrapper } from '@/utils/docs-wrapper'
 
 # Modal
-
+## Document
 <Props of={Modal} />
 
+## Usage
 <Playground>
-  <DocsWrapper>
-    <Modal title="example">Heading Main</Modal>
-  </DocsWrapper>
+  {() => {
+    const [isShowModal, setIsShowModal] = React.useState(false)
+    return (
+      <DocsWrapper>
+        <Modal visible={isShowModal} isCentered={true} title="example" destroyOnClose={true} onClose={() => setIsShowModal(false)}>Heading Main</Modal>
+        <button onClick={() => setIsShowModal(true)}>Show Modal</button>
+      </DocsWrapper>
+    )
+  }}
 </Playground>

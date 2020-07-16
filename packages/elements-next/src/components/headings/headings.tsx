@@ -30,3 +30,12 @@ export const HeadingSecondary: React.FC<HeadingProps> = ({ children, isTextCente
 export const SubHeadingSecondary: React.FC<HeadingProps> = ({ children, isTextCentered, className }) => (
   <h6 className={cx(elHeadingMain, isTextCentered && elIsTextCentered, className)}>{children}</h6>
 )
+
+export const Heading = {
+  Main: HeadingMain,
+  SubMain: SubHeadingMain,
+  Secondary: HeadingSecondary,
+  SubSecondary: SubHeadingSecondary,
+} as { [key: string]: React.ReactNode }
+
+export default Heading
