@@ -3,6 +3,7 @@
 exports[`modal Modal should match snapshot 1`] = `
 <Component
   className=""
+  destroyOnClose={true}
   visible={true}
   wrapClassName=""
 >

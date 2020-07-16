@@ -6,9 +6,20 @@ import { modalContainer } from './__styles__'
 
 export interface ModalProps extends IDialogPropTypes {}
 
-export const Modal: React.FC<IDialogPropTypes> = ({ children, className, wrapClassName, ...restProps }) => {
+export const Modal: React.FC<IDialogPropTypes> = ({
+  children,
+  className,
+  wrapClassName,
+  destroyOnClose = true,
+  ...restProps
+}) => {
   return (
-    <Dialog {...restProps} className={cx(modalContainer, className)} wrapClassName={cx(wrapClassName)}>
+    <Dialog
+      {...restProps}
+      destroyOnClose={destroyOnClose}
+      className={cx(modalContainer, className)}
+      wrapClassName={cx(wrapClassName)}
+    >
       {children}
     </Dialog>
   )
