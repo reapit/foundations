@@ -4,10 +4,10 @@ import { createBrowserHistory } from 'history'
 import { catchChunkError } from '@reapit/utils'
 import Routes from '../constants/routes'
 import PrivateRoute from './private-route'
-import PrivateRouteWrapper from './private-route-wrapper'
 
 export const history = createBrowserHistory()
 
+const PrivateRouteWrapper = React.lazy(() => catchChunkError(() => import('./private-route-wrapper')))
 const Login = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 const ChecklistDetail = React.lazy(() => catchChunkError(() => import('../components/pages/checklist-detail')))
 const ClientSearch = React.lazy(() => catchChunkError(() => import('../components/pages/client-search')))
@@ -18,11 +18,11 @@ const Router = () => (
     <React.Suspense fallback={null}>
       <Switch>
         <Route path={Routes.LOGIN} exact render={() => <Login />} />
-        <PrivateRouteWrapper path="/">
+        <PrivateRouteWrapper>
           <Switch>
-            <PrivateRoute allow="CLIENT" path={Routes.CHECKLIST_DETAIL} component={ChecklistDetail} fetcher />
-            <PrivateRoute allow="CLIENT" exact path={Routes.HOME} component={ClientSearch} />
-            <PrivateRoute allow="CLIENT" path={Routes.RESULTS} component={Results} />
+            <PrivateRoute path={Routes.CHECKLIST_DETAIL} component={ChecklistDetail} fetcher />
+            <PrivateRoute exact path={Routes.HOME} component={ClientSearch} />
+            <PrivateRoute path={Routes.RESULTS} component={Results} />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />

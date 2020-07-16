@@ -1,13 +1,14 @@
 export interface ReapitConnectBrowserSessionInitializers {
   connectOAuthUrl: string
   connectClientId: string
-  connectLoginRedirectPath: string
-  connectLogoutRedirectPath: string
+  connectLoginRedirectPath?: string
+  connectLogoutRedirectPath?: string
 }
 
 export interface ReapitConnectSession {
   accessToken: string
   refreshToken: string
+  idToken: string
   loginIdentity: LoginIdentity
 }
 

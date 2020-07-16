@@ -27,8 +27,8 @@ export class ReapitConnectBrowserSession {
   }: ReapitConnectBrowserSessionInitializers) {
     this.connectOAuthUrl = connectOAuthUrl
     this.connectClientId = connectClientId
-    this.connectLoginRedirectPath = connectLoginRedirectPath
-    this.connectLogoutRedirectPath = connectLogoutRedirectPath
+    this.connectLoginRedirectPath = `${window.location.origin}${connectLoginRedirectPath || ''}`
+    this.connectLogoutRedirectPath = `${window.location.origin}${connectLogoutRedirectPath || '/login'}`
     this.userName = this.connectStoredLoginUser
     this.fetching = false
     this.session =
@@ -36,6 +36,7 @@ export class ReapitConnectBrowserSession {
         ? {
             accessToken: this.connectStoredAccessToken,
             refreshToken: this.connectStoredRefreshToken,
+            idToken: this.connectStoredIdToken,
             loginIdentity: this.deserializeIdToken(this.connectStoredIdToken),
           }
         : null
@@ -66,6 +67,31 @@ export class ReapitConnectBrowserSession {
     return window.localStorage.getItem(
       `CognitoIdentityServiceProvider.${this.connectClientId}.${this.userName}.refreshToken`,
     )
+  }
+
+  private setLocalStorageSession(): void {
+    if (this.session) {
+      const { idToken, accessToken, refreshToken, loginIdentity } = this.session
+      window.localStorage.setItem(
+        `CognitoIdentityServiceProvider.${this.connectClientId}.${this.userName}.accessToken`,
+        accessToken,
+      )
+
+      window.localStorage.setItem(
+        `CognitoIdentityServiceProvider.${this.connectClientId}.${this.userName}.idToken`,
+        idToken,
+      )
+
+      window.localStorage.setItem(
+        `CognitoIdentityServiceProvider.${this.connectClientId}.${this.userName}.refreshToken`,
+        refreshToken,
+      )
+
+      window.localStorage.setItem(
+        `CognitoIdentityServiceProvider.${this.connectClientId}.LastAuthUser`,
+        loginIdentity.email,
+      )
+    }
   }
 
   private get tokenRefreshEndpoint() {
@@ -118,59 +144,65 @@ export class ReapitConnectBrowserSession {
       } as RequestInit)
 
       const session = await response.json()
-
+      if (session.error) {
+        throw new Error(session.error)
+      }
       if (session) {
         const { access_token, refresh_token, id_token } = session
         return {
           accessToken: access_token,
           refreshToken: refresh_token,
+          idToken: id_token,
           loginIdentity: this.deserializeIdToken(id_token),
         }
       }
     } catch (err) {
-      console.error('Reapit Connect Token Error', JSON.stringify(err))
+      console.error('Reapit Connect Token Error', err.message)
     }
   }
 
   public connectAuthorizeRedirect(redirectUri: string = this.connectLoginRedirectPath): void {
-    window.location.href = `${this.connectOAuthUrl}/authorize?response_type=code&client_id=${this.connectClientId}&redirect_uri=${window.location.origin}${redirectUri}`
+    window.location.href = `${this.connectOAuthUrl}/authorize?response_type=code&client_id=${this.connectClientId}&redirect_uri=${redirectUri}`
   }
 
   public connectLoginRedirect(redirectUri: string = this.connectLoginRedirectPath): void {
-    window.location.href = `${this.connectOAuthUrl}/login?response_type=code&client_id=${this.connectClientId}&redirect_uri=${window.location.origin}${redirectUri}`
+    window.location.href = `${this.connectOAuthUrl}/login?response_type=code&client_id=${this.connectClientId}&redirect_uri=${redirectUri}`
   }
 
   public connectLogoutRedirect(redirectUri: string = this.connectLogoutRedirectPath): void {
-    window.location.href = `${this.connectOAuthUrl}/logout?client_id=${this.connectClientId}&logout_uri=${window.location.origin}${redirectUri}`
+    window.location.href = `${this.connectOAuthUrl}/logout?client_id=${this.connectClientId}&logout_uri=${redirectUri}`
   }
 
-  public connectSession(): Promise<ReapitConnectSession | void> {
-    return new Promise(resolve => {
-      if (this.session && !this.sessionExpired) {
-        return resolve(this.session)
+  public async connectSession(): Promise<ReapitConnectSession | void> {
+    if (this.session && !this.sessionExpired) {
+      return this.session
+    }
+
+    if (this.fetching) {
+      return
+    }
+
+    try {
+      const endpoint = this.session ? this.tokenRefreshEndpoint : this.authCode ? this.tokenCodeEndpoint : null
+
+      if (!endpoint || this.fetching) return
+
+      this.fetching = true
+
+      const session = await this.connectGetSession(endpoint)
+
+      this.fetching = false
+
+      if (session) {
+        this.session = session
+        this.setLocalStorageSession()
+        return this.session
       }
 
-      if (this.fetching) {
-        return resolve()
-      }
-
-      if (this.session) {
-        this.fetching = true
-        return this.connectGetSession(this.tokenRefreshEndpoint).then(session => {
-          this.fetching = false
-          resolve(session)
-        })
-      }
-
-      if (this.authCode) {
-        this.fetching = true
-        return this.connectGetSession(this.tokenCodeEndpoint).then(session => {
-          this.fetching = false
-          resolve(session)
-        })
-      }
-
-      return resolve(this.connectAuthorizeRedirect())
-    })
+      this.connectAuthorizeRedirect()
+    } catch (err) {
+      console.log('Reapit Connect Session error', err.message)
+      this.connectAuthorizeRedirect()
+    }
   }
 }
