@@ -17,32 +17,32 @@ exports[`FilterBar should match a snapshot 1`] = `
     <Component
       className="false"
       fullWidth={false}
-      key="Yesterday"
+      key="Today"
       onClick={[Function]}
       type="button"
       variant="secondary"
     >
-      Yesterday
+      Today
     </Component>
     <Component
       className="is-info"
       fullWidth={false}
-      key="Last Week"
+      key="Last 7 days "
       onClick={[Function]}
       type="button"
       variant="secondary"
     >
-      Last Week
+      Last 7 days 
     </Component>
     <Component
       className="false"
       fullWidth={false}
-      key="Last Month"
+      key="Last 30 days "
       onClick={[Function]}
       type="button"
       variant="secondary"
     >
-      Last Month
+      Last 30 days 
     </Component>
   </Component>
 </Component>

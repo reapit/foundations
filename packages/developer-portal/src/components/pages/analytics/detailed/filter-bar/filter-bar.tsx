@@ -1,9 +1,8 @@
 import * as React from 'react'
-import dayjs from 'dayjs'
-import DefaultFilterGroup from './default-filter-group'
+import DefaultFilterGroup, { prepareDefaultFilterDateParams } from './default-filter-group'
 import FilterForm from './filter-form'
 import { PagedResultAppSummaryModel_, AppSummaryModel, InstallationModel } from '@reapit/foundations-ts-definitions'
-import { DATE_TIME_FORMAT, Content } from '@reapit/elements'
+import { Content } from '@reapit/elements'
 import { SANDBOX_CLIENT_ID } from '../../../../../constants/api'
 
 export type FilterBarProps = {
@@ -18,17 +17,7 @@ export type FilterFormInitialValues = {
   appId?: string
 }
 
-const lastWeek = dayjs()
-  .utc()
-  .subtract(1, 'week')
-export const lastMonday = lastWeek
-  .startOf('week')
-  .add(1, 'day')
-  .format(DATE_TIME_FORMAT.YYYY_MM_DD)
-export const lastSunday = lastWeek
-  .endOf('week')
-  .add(1, 'day')
-  .format(DATE_TIME_FORMAT.YYYY_MM_DD)
+const { defaultParams } = prepareDefaultFilterDateParams()
 
 export const prepareAppDeveloperAppData = developerAppsData => {
   const developerApps = developerAppsData.data || []
@@ -62,8 +51,8 @@ export const handleUseCallbackToPrepareFilterFormInitialValues = (dateFrom, date
 }
 
 export const FilterBar: React.FC<FilterBarProps> = ({ developerAppsData, installationAppDataArray }) => {
-  const [dateFrom, setDateFrom] = React.useState(lastMonday)
-  const [dateTo, setDateTo] = React.useState(lastSunday)
+  const [dateFrom, setDateFrom] = React.useState(defaultParams.dateFrom)
+  const [dateTo, setDateTo] = React.useState(defaultParams.dateTo)
 
   const prepareFilterFormInitialValues = React.useCallback(
     handleUseCallbackToPrepareFilterFormInitialValues(dateFrom, dateTo),

@@ -77,8 +77,8 @@ exports[`FilterBar should match a snapshot 1`] = `
       Object {
         "appId": "",
         "clientId": "",
-        "dateFrom": "2019-09-30",
-        "dateTo": "2019-10-06",
+        "dateFrom": "2019-10-04",
+        "dateTo": "2019-10-10",
       }
     }
   />

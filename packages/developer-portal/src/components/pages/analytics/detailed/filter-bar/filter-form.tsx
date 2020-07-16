@@ -114,9 +114,7 @@ export const FilterForm: React.FC<FilterFormProps> = ({ initialValues, developer
                     minDate: dayjs(dateFrom)
                       .add(1, 'day')
                       .toDate(),
-                    maxDate: dayjs()
-                      .subtract(1, 'day')
-                      .toDate(),
+                    maxDate: dayjs().toDate(),
                   }}
                 />
               </GridFourColItem>
