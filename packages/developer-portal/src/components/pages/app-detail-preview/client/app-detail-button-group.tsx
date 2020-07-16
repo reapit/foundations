@@ -14,31 +14,33 @@ export const AppDetailButtonGroup: React.FC<AppDetailButtonGroupProps> = ({
   onUninstallConfirmationModal,
   isInstallBtnHidden,
 }) => {
+  if (installedOn) {
+    return (
+      <Button
+        onClick={onUninstallConfirmationModal}
+        dataTest="detail-modal-uninstall-button"
+        type="button"
+        variant="primary"
+        className="ml-0"
+      >
+        Uninstall App
+      </Button>
+    )
+  }
+
+  if (isInstallBtnHidden) {
+    return null
+  }
+
   return (
-    <>
-      {installedOn ? (
-        <Button
-          onClick={onUninstallConfirmationModal}
-          dataTest="detail-modal-uninstall-button"
-          type="button"
-          variant="primary"
-          className="ml-0"
-        >
-          Uninstall App
-        </Button>
-      ) : (
-        isInstallBtnHidden || (
-          <Button
-            dataTest="detail-modal-install-button"
-            type="button"
-            variant="primary"
-            className="ml-0"
-            onClick={onInstallConfirmationModal}
-          >
-            Install App
-          </Button>
-        )
-      )}
-    </>
+    <Button
+      dataTest="detail-modal-install-button"
+      type="button"
+      variant="primary"
+      className="ml-0"
+      onClick={onInstallConfirmationModal}
+    >
+      Install App
+    </Button>
   )
 }

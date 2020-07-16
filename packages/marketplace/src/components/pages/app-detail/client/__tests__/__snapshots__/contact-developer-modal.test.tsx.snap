@@ -11,9 +11,9 @@ exports[`ContactDeveloperSection should match snapshot with gutter 1`] = `
   >
     NEED HELP?
   </Component>
-  <Component
-    afterClose={[Function]}
-    footerItems={
+  <Memo()
+    animation="slide"
+    footer={
       <Unknown
         dataTest="btn-close-modal"
         disabled={false}
@@ -24,6 +24,8 @@ exports[`ContactDeveloperSection should match snapshot with gutter 1`] = `
         Close
       </Unknown>
     }
+    maskAnimation="fade"
+    onClose={[Function]}
     title="Contact Details"
     visible={false}
   >
@@ -91,7 +93,7 @@ exports[`ContactDeveloperSection should match snapshot with gutter 1`] = `
         </Component>
       </Component>
     </Component>
-  </Component>
+  </Memo()>
 </Fragment>
 `;
 
@@ -106,9 +108,9 @@ exports[`ContactDeveloperSection should match snapshot without gutter 1`] = `
   >
     NEED HELP?
   </Component>
-  <Component
-    afterClose={[Function]}
-    footerItems={
+  <Memo()
+    animation="slide"
+    footer={
       <Unknown
         dataTest="btn-close-modal"
         disabled={false}
@@ -119,6 +121,8 @@ exports[`ContactDeveloperSection should match snapshot without gutter 1`] = `
         Close
       </Unknown>
     }
+    maskAnimation="fade"
+    onClose={[Function]}
     title="Contact Details"
     visible={false}
   >
@@ -186,6 +190,6 @@ exports[`ContactDeveloperSection should match snapshot without gutter 1`] = `
         </Component>
       </Component>
     </Component>
-  </Component>
+  </Memo()>
 </Fragment>
 `;

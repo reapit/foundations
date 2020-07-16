@@ -18,7 +18,7 @@ exports[`AppDetailPreview should match a snapshot 1`] = `
       Array [
         Object {
           "key": "clientAppDetailPreviewRoute",
-          "pathname": "/developer/apps/:appid",
+          "pathname": "/apps/:appid",
         },
       ]
     }
@@ -34,7 +34,7 @@ exports[`AppDetailPreview should match a snapshot 1`] = `
             Object {
               "hash": "",
               "key": "clientAppDetailPreviewRoute",
-              "pathname": "/developer/apps/:appid",
+              "pathname": "/apps/:appid",
               "search": "",
             },
           ],
@@ -47,7 +47,7 @@ exports[`AppDetailPreview should match a snapshot 1`] = `
           "location": Object {
             "hash": "",
             "key": "clientAppDetailPreviewRoute",
-            "pathname": "/developer/apps/:appid",
+            "pathname": "/apps/:appid",
             "search": "",
           },
           "push": [Function],
@@ -63,17 +63,23 @@ exports[`AppDetailPreview should match a snapshot 1`] = `
             className=""
             data-test="client-app-detail-container"
           >
-            <Component
-              dataTest="client-app-detail-loader"
-            >
+            <Component>
               <div
-                className="loader-spinner body"
-                data-test="client-app-detail-loader"
+                className=""
+                data-test=""
               >
-                <div />
-                <div />
-                <div />
-                <div />
+                <Component
+                  message="There is no preview app"
+                  type="danger"
+                >
+                  <div
+                    className="notification is-danger "
+                    data-test=""
+                    role="alert"
+                  >
+                    There is no preview app
+                  </div>
+                </Component>
               </div>
             </Component>
           </div>

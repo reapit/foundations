@@ -6,7 +6,7 @@ import { Aside as AppAside } from './client/aside'
 import AppHeader from './common/ui-app-header'
 import { useParams } from 'react-router'
 import { AppDetailData } from '@/reducers/developer'
-import { Grid, Loader, GridItem, Section } from '@reapit/elements'
+import { Grid, GridItem, Section, Alert } from '@reapit/elements'
 import { Dispatch } from 'redux'
 import { showNotificationMessage } from '@/actions/notification-message'
 import { useDispatch } from 'react-redux'
@@ -49,7 +49,9 @@ const AppDetailPreview: React.FC<AppDetailPreviewProps> = () => {
   return (
     <Grid dataTest="client-app-detail-container">
       {!appDetailPreviewData ? (
-        <Loader dataTest="client-app-detail-loader" />
+        <GridItem>
+          <Alert type="danger" message="There is no preview app" />
+        </GridItem>
       ) : (
         <>
           <GridItem className="is-one-quarter">

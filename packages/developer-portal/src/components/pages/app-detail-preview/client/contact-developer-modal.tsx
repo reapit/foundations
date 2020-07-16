@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Grid, GridItem, SubTitleH6, Modal, Content } from '@reapit/elements'
+import { Button, Grid, GridItem, SubTitleH6, Content, ModalV2 } from '@reapit/elements'
 import linkStyles from '@/styles/elements/link.scss?mod'
 
 export type ContactDeveloperSectionType = {
@@ -31,11 +31,13 @@ export const ContactDeveloperSection = ({
         NEED HELP?
       </Button>
 
-      <Modal
+      <ModalV2
         visible={visible}
         title={'Contact Details'}
-        afterClose={closeContactModal(setVisible)}
-        footerItems={
+        onClose={closeContactModal(setVisible)}
+        animation="slide"
+        maskAnimation="fade"
+        footer={
           <Button
             dataTest="btn-close-modal"
             disabled={false}
@@ -94,7 +96,7 @@ export const ContactDeveloperSection = ({
             </GridItem>
           </Grid>
         </Content>
-      </Modal>
+      </ModalV2>
     </>
   )
 }
