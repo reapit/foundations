@@ -278,6 +278,7 @@ const BUCKET_NAMES = {
     'site-builder': 'reapit-site-builder-prod',
     'smb-onboarder': 'reapit-smb-prod',
     'web-components': 'reapit-web-components-prod',
+    'elements-next': 'reapit-elements-next-prod',
   },
   development: {
     'admin-portal': 'reapit-admin-portal-dev',
@@ -292,6 +293,7 @@ const BUCKET_NAMES = {
     'site-builder': 'reapit-site-builder-dev',
     'smb-onboarder': 'reapit-smb-prod',
     'web-components': 'reapit-web-components',
+    'elements-next': 'reapit-elements-next-dev',
   },
 }
 
@@ -308,6 +310,7 @@ const WEB_APPS = [
   'site-builder',
   'smb-onboarder',
   'web-components',
+  'elements-next',
 ]
 
 const WEB_COMPONENTS_SERVERLESS_APPS = ['search-widget', 'appointment-planner-component']
@@ -327,6 +330,7 @@ const NPM_APPS = [
   'foundations-ts-definitions',
   'react-app-scaffolder',
   'web-components',
+  'elements-next',
 ]
 
 module.exports = {

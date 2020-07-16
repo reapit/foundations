@@ -2,13 +2,13 @@ const baseConfig = require('../../scripts/jest/jest.config')
 
 module.exports = {
   ...baseConfig,
-  testPathIgnorePatterns: ['<rootDir>/src/tests/'],
+  testPathIgnorePatterns: ['<rootDir>/src/tests/', 'dist', '.docz', 'config'],
   collectCoverageFrom: [
     "src/**/*.{js,jsx,ts,tsx}",
     "!src/**/*.d.ts"
   ],
   coveragePathIgnorePatterns: [
-    '<rootDir>[/\\\\](node_modules|src/tests)[/\\\\]',
+    '<rootDir>[/\\\\](node_modules|src/tests|dist|.docz|config)[/\\\\]',
     'src/index.tsx',
     'index.ts'
   ],
