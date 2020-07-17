@@ -8,6 +8,11 @@ exports[`AccountStatusSection should match snapshot 1`] = `
     type="hidden"
   />
   <Component>
+    <p
+      className="mb-2"
+    >
+      We are currently verifying your information with our Accounts Department
+    </p>
     <b>
       ACCOUNT STATUS:
     </b>
@@ -37,6 +42,11 @@ exports[`AccountStatusSection should match snapshot with hasReapitAccountsRef is
     type="hidden"
   />
   <Component>
+    <p
+      className="mb-2"
+    >
+      We are currently verifying your information with our Accounts Department
+    </p>
     <b>
       ACCOUNT STATUS:
     </b>
