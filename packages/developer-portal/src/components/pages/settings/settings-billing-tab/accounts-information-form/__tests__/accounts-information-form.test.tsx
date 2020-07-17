@@ -21,6 +21,7 @@ jest.mock('react-redux', () => ({
 describe('onSubmit', () => {
   it('onSubmit should run correctly', () => {
     const dispatch = jest.fn()
+    const setIsSubmittedDebit = jest.fn()
     const values: AccountsInformationFormValues = {
       hasDirectDebit: 'yes',
       hasReapitAccountsRef: 'yes',
@@ -37,12 +38,14 @@ describe('onSubmit', () => {
       billingKeyContact: 'name',
       billingEmail: 'a@gmail.com',
     }
-    onSubmit(dispatch)(values)
+    onSubmit({ dispatch, setIsSubmittedDebit })(values)
     expect(dispatch).toHaveBeenCalledWith(updateDeveloperData(expectedData))
+    expect(setIsSubmittedDebit).toHaveBeenCalledWith(false)
   })
 
   it('onSubmit should run correctly when hasReapitAccountsRef is no', () => {
     const dispatch = jest.fn()
+    const setIsSubmittedDebit = jest.fn()
     const values: AccountsInformationFormValues = {
       hasDirectDebit: 'yes',
       hasReapitAccountsRef: 'no',
@@ -59,7 +62,7 @@ describe('onSubmit', () => {
       billingKeyContact: 'name',
       billingEmail: 'a@gmail.com',
     }
-    onSubmit(dispatch)(values)
+    onSubmit({ dispatch, setIsSubmittedDebit })(values)
     expect(dispatch).toHaveBeenCalledWith(updateDeveloperData(expectedData))
   })
 })
