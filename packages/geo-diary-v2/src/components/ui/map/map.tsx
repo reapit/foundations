@@ -108,12 +108,13 @@ export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments }) 
       const { duration, distance } = res.routes[0].legs[0]
       setRouteInformation({ duration, distance })
     },
-    [queryParams.destinationLat, queryParams.destinationLng],
+    [queryParams.destinationLat, queryParams.destinationLng, queryParams.travelMode],
   )
 
   const destinationPoint = React.useMemo(getDestinationPoint(queryParams), [
     queryParams.destinationLat,
     queryParams.destinationLng,
+    queryParams.travelMode,
   ])
 
   const line1 = appointment?.property?.address?.line1 ?? ''
@@ -135,7 +136,7 @@ export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments }) 
         mapContainerStyles={{ height: '100%' }}
         styles={{} /* See import for explanation mapStyles */}
       />
-      {!!appointment?.property?.address && <MapPanel routeInformation={routeInformation} />}
+      {!appointment?.property?.address && <MapPanel routeInformation={routeInformation} />}
       <AppointmentDetailModal
         title={renderModalTitle({ heading, appointmentType: appointment?.appointmentType })}
         appointment={appointment || ({} as ExtendedAppointmentModel)}

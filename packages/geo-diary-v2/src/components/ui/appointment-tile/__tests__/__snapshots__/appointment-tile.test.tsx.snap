@@ -5,7 +5,29 @@ exports[`appointment-tile AppointmentTile should match snapshot 1`] = `
   <Component
     footerItems={
       Array [
-        <React.Fragment>
+        <div>
+          <Unknown
+            className="is-centered mr-2 mb-2"
+            disabled={false}
+            fullWidth={false}
+            loading={false}
+            onClick={[Function]}
+            type="submit"
+            variant="info"
+          >
+            Details
+          </Unknown>
+          <Unknown
+            className="is-centered mr-2 mb-2"
+            disabled={false}
+            fullWidth={false}
+            loading={false}
+            onClick={[Function]}
+            type="submit"
+            variant="info"
+          >
+            Directions
+          </Unknown>
           <Unknown
             appointment={
               Object {
@@ -187,27 +209,7 @@ exports[`appointment-tile AppointmentTile should match snapshot 1`] = `
               }
             }
           />
-          <Unknown
-            disabled={false}
-            fullWidth={false}
-            loading={false}
-            onClick={[Function]}
-            type="submit"
-            variant="info"
-          >
-            Details
-          </Unknown>
-          <Unknown
-            disabled={false}
-            fullWidth={false}
-            loading={false}
-            onClick={[Function]}
-            type="submit"
-            variant="info"
-          >
-            Directions
-          </Unknown>
-        </React.Fragment>,
+        </div>,
       ]
     }
     heading="56 High Street"
@@ -435,6 +437,7 @@ exports[`appointment-tile AppointmentTile should match snapshot 1`] = `
 exports[`appointment-tile renderFooterItems should match snapshot 1`] = `
 <div>
   <Component
+    className="is-centered mr-2 mb-2"
     disabled={false}
     fullWidth={false}
     key="viewDetails"
@@ -446,6 +449,7 @@ exports[`appointment-tile renderFooterItems should match snapshot 1`] = `
     Details
   </Component>
   <Component
+    className="is-centered mr-2 mb-2"
     disabled={false}
     fullWidth={false}
     key="viewDirection"
