@@ -7,7 +7,9 @@ exports[`AccountStatusSection should match snapshot 1`] = `
     name="status"
     type="hidden"
   />
-  <Component>
+  <Component
+    className="form-subheading"
+  >
     <p
       className="mb-1"
     >
@@ -41,7 +43,9 @@ exports[`AccountStatusSection should match snapshot with hasReapitAccountsRef is
     name="status"
     type="hidden"
   />
-  <Component>
+  <Component
+    className="form-subheading"
+  >
     <p
       className="mb-1"
     >
