@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HandleLegacyAdminRoutesModal HandleLegacyAdminRoutesModal - should match snapshoot 1`] = `
+<HandleLegacyAdminRoutesModal>
+  <Component
+    footerItems={
+      <React.Fragment>
+        <Unknown
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Go there now
+        </Unknown>
+        <Unknown
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Back to Marketplace
+        </Unknown>
+      </React.Fragment>
+    }
+    tapOutsideToDissmiss={false}
+    title="Looking for the admin portal?"
+    visible={true}
+  />
+</HandleLegacyAdminRoutesModal>
+`;
