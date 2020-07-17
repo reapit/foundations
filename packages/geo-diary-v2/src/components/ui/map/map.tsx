@@ -135,7 +135,7 @@ export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments }) 
         mapContainerStyles={{ height: '100%' }}
         styles={{} /* See import for explanation mapStyles */}
       />
-      <MapPanel routeInformation={routeInformation} />
+      {!!appointment?.property?.address && <MapPanel routeInformation={routeInformation} />}
       <AppointmentDetailModal
         title={renderModalTitle({ heading, appointmentType: appointment?.appointmentType })}
         appointment={appointment || ({} as ExtendedAppointmentModel)}

@@ -86,7 +86,7 @@ export const handleRequestDirectionServiceResponse = ({
   destinationAddress,
 }) => (response, status) => {
   if (status === 'OK') {
-    currentLocation?.setMap(null)
+    currentLocation.setMap(null)
     onLoadedDirection && onLoadedDirection(response)
   }
   if (destinationAddress && status === 'OK') {
@@ -96,7 +96,7 @@ export const handleRequestDirectionServiceResponse = ({
       })
     })
   }
-  directionsRenderer?.setDirections(response)
+  directionsRenderer?.setDirections && directionsRenderer.setDirections(response)
   if (status !== 'OK') {
     window.alert('Directions request failed due to ' + status)
   }
@@ -274,8 +274,8 @@ export type MarkerContentProps = {
 }
 
 export const clearMap = ({ directionsRendererRef, markersRef }) => () => {
-  directionsRendererRef?.current?.setMap(null)
-  markersRef?.current?.forEach(marker => marker?.setMap(null))
+  directionsRendererRef?.current?.setMap && directionsRendererRef?.current?.setMap(null)
+  markersRef?.current?.forEach(marker => marker && marker?.setMap(null))
 }
 
 export const handleUseEffect = ({
