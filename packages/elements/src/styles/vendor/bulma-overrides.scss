@@ -151,10 +151,11 @@ html {
     margin-left: auto;
     margin-right: 0;
   }
-
-  @media screen and (max-width: 425px) {
-    .button {
-      width: 100%;
+  &:not(.is-narrow) {
+    @media screen and (max-width: 425px) {
+      .button {
+        width: 100%;
+      }
     }
   }
 }

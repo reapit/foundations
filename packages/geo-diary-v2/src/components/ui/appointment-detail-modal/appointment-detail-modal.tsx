@@ -87,9 +87,9 @@ export const renderNotes = (description: string | undefined) => {
     return null
   }
   return (
-    <Grid>
-      <GridItem className="is-one-third horizontal">
-        <Grid className="is-vcentered">
+    <Grid className="is-mobile">
+      <GridItem className="is-one-third-desktop is-half-mobible horizontal">
+        <Grid className="is-vcentered is-mobile">
           <GridItem className="is-narrow">
             <FaStickyNote />
           </GridItem>
@@ -110,9 +110,9 @@ export const renderArrangements = (arrangements: string | undefined) => {
     return null
   }
   return (
-    <Grid>
-      <GridItem className="is-one-third horizontal">
-        <Grid className="is-vcentered">
+    <Grid className="is-mobile">
+      <GridItem className="is-one-third-desktop is-half-mobible horizontal">
+        <Grid className="is-vcentered is-mobile">
           <GridItem className="is-narrow">
             <FaHandshake />
           </GridItem>
@@ -137,9 +137,9 @@ export const renderAttendee = (attendee: AppointmentAttendeeModel, loginMode: Lo
     <React.Fragment>
       {attendee?.contacts?.map((contact: AppointmentContactModel, index: number) => {
         return (
-          <Grid key={index}>
-            <GridItem className="is-one-third horizontal">
-              <Grid className="is-vcentered">
+          <Grid key={index} className="is-mobile">
+            <GridItem className="is-one-third-desktop is-half-mobible horizontal">
+              <Grid className="is-vcentered is-mobile">
                 <GridItem className="is-narrow">
                   <FaMale />
                 </GridItem>
@@ -174,9 +174,9 @@ export const renderAddress = (property: PropertyModel, loginMode: LoginMode) => 
     return null
   }
   return (
-    <Grid>
-      <GridItem className="is-one-third horizontal">
-        <Grid className="is-vcentered">
+    <Grid className="is-mobile">
+      <GridItem className="is-one-third-desktop is-half-mobible horizontal">
+        <Grid className="is-vcentered is-mobile">
           <GridItem className="is-narrow">
             <FaHome />
           </GridItem>
@@ -206,9 +206,9 @@ export const renderOffices = (offices: OfficeModel[], loginMode: LoginMode) => {
   }
 
   return (
-    <Grid>
-      <GridItem className="is-one-third horizontal">
-        <Grid className="is-vcentered">
+    <Grid className="is-mobile">
+      <GridItem className="is-one-third-desktop is-half-mobible horizontal">
+        <Grid className="is-vcentered is-mobile">
           <GridItem className="is-narrow">
             <FaBuilding />
           </GridItem>
@@ -242,9 +242,9 @@ export const renderNegotiators = (negotiators: NegotiatorModel[]) => {
   }
 
   return (
-    <Grid>
-      <GridItem className="is-one-third horizontal">
-        <Grid className="is-vcentered">
+    <Grid className="is-mobile">
+      <GridItem className="is-one-third-desktop is-half-mobible horizontal">
+        <Grid className="is-vcentered is-mobile">
           <GridItem className="is-narrow">
             <FaMale />
           </GridItem>
@@ -275,9 +275,9 @@ export const renderStartAndEndDate = (startTime: string, endTime: string) => {
 
 export const renderDateTime = (appointment: ExtendedAppointmentModel) => {
   return (
-    <Grid>
-      <GridItem className="is-one-third horizontal">
-        <Grid className="is-vcentered">
+    <Grid className="is-mobile">
+      <GridItem className="is-one-third-desktop is-half-mobible horizontal">
+        <Grid className="is-vcentered is-mobile">
           <GridItem className="is-narrow">
             <FaClock className="vertical-align-text-top" />
           </GridItem>

@@ -14,12 +14,14 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 1
     </Unknown>
   }
 >
-  <Component>
+  <Component
+    className="is-mobile"
+  >
     <Component
-      className="is-one-third horizontal"
+      className="is-one-third-desktop is-half-mobible horizontal"
     >
       <Component
-        className="is-vcentered"
+        className="is-vcentered is-mobile"
       >
         <Component
           className="is-narrow"
@@ -43,12 +45,14 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 1
       </p>
     </Component>
   </Component>
-  <Component>
+  <Component
+    className="is-mobile"
+  >
     <Component
-      className="is-one-third horizontal"
+      className="is-one-third-desktop is-half-mobible horizontal"
     >
       <Component
-        className="is-vcentered"
+        className="is-vcentered is-mobile"
       >
         <Component
           className="is-narrow"
@@ -93,12 +97,14 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 1
       </div>
     </Component>
   </Component>
-  <Component>
+  <Component
+    className="is-mobile"
+  >
     <Component
-      className="is-one-third horizontal"
+      className="is-one-third-desktop is-half-mobible horizontal"
     >
       <Component
-        className="is-vcentered"
+        className="is-vcentered is-mobile"
       >
         <Component
           className="is-narrow"
@@ -130,12 +136,14 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 1
       </div>
     </Component>
   </Component>
-  <Component>
+  <Component
+    className="is-mobile"
+  >
     <Component
-      className="is-one-third horizontal"
+      className="is-one-third-desktop is-half-mobible horizontal"
     >
       <Component
-        className="is-vcentered"
+        className="is-vcentered is-mobile"
       >
         <Component
           className="is-narrow"
@@ -358,12 +366,14 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 2
     </Unknown>
   }
 >
-  <Component>
+  <Component
+    className="is-mobile"
+  >
     <Component
-      className="is-one-third horizontal"
+      className="is-one-third-desktop is-half-mobible horizontal"
     >
       <Component
-        className="is-vcentered"
+        className="is-vcentered is-mobile"
       >
         <Component
           className="is-narrow"
@@ -387,12 +397,14 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 2
       </p>
     </Component>
   </Component>
-  <Component>
+  <Component
+    className="is-mobile"
+  >
     <Component
-      className="is-one-third horizontal"
+      className="is-one-third-desktop is-half-mobible horizontal"
     >
       <Component
-        className="is-vcentered"
+        className="is-vcentered is-mobile"
       >
         <Component
           className="is-narrow"
@@ -437,12 +449,14 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 2
       </div>
     </Component>
   </Component>
-  <Component>
+  <Component
+    className="is-mobile"
+  >
     <Component
-      className="is-one-third horizontal"
+      className="is-one-third-desktop is-half-mobible horizontal"
     >
       <Component
-        className="is-vcentered"
+        className="is-vcentered is-mobile"
       >
         <Component
           className="is-narrow"
@@ -474,12 +488,14 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 2
       </div>
     </Component>
   </Component>
-  <Component>
+  <Component
+    className="is-mobile"
+  >
     <Component
-      className="is-one-third horizontal"
+      className="is-one-third-desktop is-half-mobible horizontal"
     >
       <Component
-        className="is-vcentered"
+        className="is-vcentered is-mobile"
       >
         <Component
           className="is-narrow"
@@ -19046,12 +19062,14 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 4`] =
 
 exports[`appointment-detail-modal renderAddress should match snapshot for commuication details 1`] = `
 <div>
-  <Component>
+  <Component
+    className="is-mobile"
+  >
     <Component
-      className="is-one-third horizontal"
+      className="is-one-third-desktop is-half-mobible horizontal"
     >
       <Component
-        className="is-vcentered"
+        className="is-vcentered is-mobile"
       >
         <Component
           className="is-narrow"
@@ -19084,12 +19102,14 @@ exports[`appointment-detail-modal renderAddress should match snapshot for commui
 
 exports[`appointment-detail-modal renderAddress should match snapshot for empty commuication details 1`] = `
 <div>
-  <Component>
+  <Component
+    className="is-mobile"
+  >
     <Component
-      className="is-one-third horizontal"
+      className="is-one-third-desktop is-half-mobible horizontal"
     >
       <Component
-        className="is-vcentered"
+        className="is-vcentered is-mobile"
       >
         <Component
           className="is-narrow"
@@ -19122,12 +19142,14 @@ exports[`appointment-detail-modal renderAddress should match snapshot for empty 
 
 exports[`appointment-detail-modal renderArrangements should match snapshot for commuication details 1`] = `
 <div>
-  <Component>
+  <Component
+    className="is-mobile"
+  >
     <Component
-      className="is-one-third horizontal"
+      className="is-one-third-desktop is-half-mobible horizontal"
     >
       <Component
-        className="is-vcentered"
+        className="is-vcentered is-mobile"
       >
         <Component
           className="is-narrow"
@@ -19217,12 +19239,14 @@ exports[`appointment-detail-modal renderCommunicationDetail should match snapsho
 
 exports[`appointment-detail-modal renderDateTime should match snapshot 1`] = `
 <div>
-  <Component>
+  <Component
+    className="is-mobile"
+  >
     <Component
-      className="is-one-third horizontal"
+      className="is-one-third-desktop is-half-mobible horizontal"
     >
       <Component
-        className="is-vcentered"
+        className="is-vcentered is-mobile"
       >
         <Component
           className="is-narrow"
@@ -19251,12 +19275,14 @@ exports[`appointment-detail-modal renderDateTime should match snapshot 1`] = `
 
 exports[`appointment-detail-modal renderNegotiators should render correctly 1`] = `
 <div>
-  <Component>
+  <Component
+    className="is-mobile"
+  >
     <Component
-      className="is-one-third horizontal"
+      className="is-one-third-desktop is-half-mobible horizontal"
     >
       <Component
-        className="is-vcentered"
+        className="is-vcentered is-mobile"
       >
         <Component
           className="is-narrow"
@@ -19308,12 +19334,14 @@ exports[`appointment-detail-modal renderNegotiators should render correctly 2`] 
 
 exports[`appointment-detail-modal renderNotes should match snapshot for commuication details 1`] = `
 <div>
-  <Component>
+  <Component
+    className="is-mobile"
+  >
     <Component
-      className="is-one-third horizontal"
+      className="is-one-third-desktop is-half-mobible horizontal"
     >
       <Component
-        className="is-vcentered"
+        className="is-vcentered is-mobile"
       >
         <Component
           className="is-narrow"
@@ -19340,12 +19368,14 @@ exports[`appointment-detail-modal renderNotes should match snapshot for empty co
 
 exports[`appointment-detail-modal renderOffices should render correctly 1`] = `
 <div>
-  <Component>
+  <Component
+    className="is-mobile"
+  >
     <Component
-      className="is-one-third horizontal"
+      className="is-one-third-desktop is-half-mobible horizontal"
     >
       <Component
-        className="is-vcentered"
+        className="is-vcentered is-mobile"
       >
         <Component
           className="is-narrow"
@@ -19382,12 +19412,14 @@ exports[`appointment-detail-modal renderOffices should render correctly 1`] = `
 
 exports[`appointment-detail-modal renderOffices should render correctly 2`] = `
 <div>
-  <Component>
+  <Component
+    className="is-mobile"
+  >
     <Component
-      className="is-one-third horizontal"
+      className="is-one-third-desktop is-half-mobible horizontal"
     >
       <Component
-        className="is-vcentered"
+        className="is-vcentered is-mobile"
       >
         <Component
           className="is-narrow"
