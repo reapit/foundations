@@ -46,7 +46,7 @@ const CompanyInformationSection: React.FC<CompanyInformationSectionProps> = ({ f
           <Input type="text" labelText={websiteField.label} id={websiteField.name} name={websiteField.name} />
         </GridItem>
         <GridItem>
-          <Input type="text" labelText={emailField.label} id={emailField.name} name={emailField.name} />
+          <Input disabled type="text" labelText={emailField.label} id={emailField.name} name={emailField.name} />
         </GridItem>
       </Grid>
       <Grid>

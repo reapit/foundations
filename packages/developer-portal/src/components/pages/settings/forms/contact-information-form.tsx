@@ -1,5 +1,4 @@
 import React from 'react'
-import { compose } from 'redux'
 import {
   FormSection,
   FormHeading,
@@ -7,59 +6,17 @@ import {
   Input,
   Button,
   Form,
-  withFormik,
-  FormikProps,
-  FormikBag,
   LevelRight,
   Grid,
   GridItem,
+  Formik,
+  FormikHelpers,
 } from '@reapit/elements'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
-import { validate } from '@/utils/form/settings-contact-information'
+import { validationSchema } from './form-schema/validation-schema'
+import { formFieldsContactInfomation } from './form-schema/form-fields'
 
-export type ContactInformationFormProps = FormikProps<ContactInformationValues>
-
-export const ContactInformationForm: React.FC<ContactInformationFormProps> = ({
-  isSubmitting,
-  isValidating,
-  isValid,
-}) => {
-  return (
-    <FormSection>
-      <Form>
-        <FormHeading>Contact Information</FormHeading>
-        <FormSubHeading>Please use the fields below to edit your contact information</FormSubHeading>
-        <Grid>
-          <GridItem>
-            <Input dataTest="company-name" type="text" labelText="Company Name" id="companyName" name="companyName" />
-          </GridItem>
-          <GridItem>
-            <Input dataTest="name" type="text" labelText="Full Name" id="name" name="name" />
-          </GridItem>
-        </Grid>
-        <Grid>
-          <GridItem>
-            <Input dataTest="job-title" type="text" labelText="Job Title" id="jobTitle" name="jobTitle" />
-          </GridItem>
-          <GridItem>
-            <Input dataTest="telephone" type="tel" labelText="Telephone" id="phone" name="telephone" />
-          </GridItem>
-        </Grid>
-        <LevelRight>
-          <Button
-            dataTest="save-changes"
-            disabled={!isValid}
-            loading={isSubmitting || isValidating}
-            variant="primary"
-            type="submit"
-          >
-            Save Changes
-          </Button>
-        </LevelRight>
-      </Form>
-    </FormSection>
-  )
-}
+const { nameField, jobTitleField, telephoneField, companyNameField } = formFieldsContactInfomation
 
 export type ContactInformationValues = {
   companyName: string
@@ -68,38 +25,121 @@ export type ContactInformationValues = {
   telephone: string
 }
 
-export const mapPropsContactInformation = ({ developerInformation }: EnhanceContactInformationProps) => {
-  return {
-    jobTitle: developerInformation?.jobTitle || '',
-    telephone: developerInformation?.telephone || '',
-    companyName: developerInformation?.company || '',
-    name: developerInformation?.name || '',
-  }
-}
-
-export type EnhanceContactInformationProps = {
+export type ContactInformationFormProps = {
   developerInformation: DeveloperModel | null
   updateDeveloperInformation: (values: ContactInformationValues) => void
 }
 
-export const handleSubmitContactInformation = async (
-  values: ContactInformationValues,
-  { setSubmitting, props }: FormikBag<EnhanceContactInformationProps, ContactInformationValues>,
-) => {
-  setSubmitting(true)
-  props.updateDeveloperInformation(values)
+export const defaultInitialValues: ContactInformationValues = {
+  name: '',
+  companyName: '',
+  telephone: '',
+  jobTitle: '',
 }
 
-export const withContactInformationForm = withFormik({
-  displayName: 'WithContactInformationForm',
-  mapPropsToValues: mapPropsContactInformation,
-  handleSubmit: handleSubmitContactInformation,
-  validate,
-})
+export const generateInitialValues = ({
+  defaultInitialValues,
+  developerInfo,
+}: {
+  defaultInitialValues: ContactInformationValues
+  developerInfo: DeveloperModel | null
+}): ContactInformationValues => {
+  if (!developerInfo) {
+    return defaultInitialValues
+  }
 
-const EnhanceContactInformation = compose<React.FC<EnhanceContactInformationProps>>(withContactInformationForm)(
-  ContactInformationForm,
-)
-EnhanceContactInformation.displayName = 'EnhanceContactInformation'
+  const { name = '', company: companyName = '', telephone = '', jobTitle = '' } = developerInfo
 
-export default EnhanceContactInformation
+  return {
+    name,
+    companyName,
+    telephone,
+    jobTitle,
+  }
+}
+
+export const ContactInformationForm: React.FC<ContactInformationFormProps> = ({
+  developerInformation,
+  updateDeveloperInformation,
+}) => {
+  const initialValues = generateInitialValues({ defaultInitialValues, developerInfo: developerInformation })
+
+  return (
+    <Formik
+      validationSchema={validationSchema}
+      initialValues={initialValues}
+      onSubmit={handleSubmitContactInformation(updateDeveloperInformation)}
+    >
+      {({ isSubmitting, isValidating, isValid }) => {
+        return (
+          <FormSection>
+            <Form>
+              <FormHeading>Contact Information</FormHeading>
+              <FormSubHeading>Please use the fields below to edit your contact information</FormSubHeading>
+              <Grid>
+                <GridItem>
+                  <Input
+                    dataTest="company-name"
+                    type="text"
+                    labelText={companyNameField.label as string}
+                    id={companyNameField.name}
+                    name={companyNameField.name}
+                  />
+                </GridItem>
+                <GridItem>
+                  <Input
+                    dataTest="name"
+                    type="text"
+                    labelText={nameField.label as string}
+                    id={nameField.name}
+                    name={nameField.name}
+                  />
+                </GridItem>
+              </Grid>
+              <Grid>
+                <GridItem>
+                  <Input
+                    dataTest="job-title"
+                    type="text"
+                    labelText={jobTitleField.label as string}
+                    id={jobTitleField.name}
+                    name={jobTitleField.name}
+                  />
+                </GridItem>
+                <GridItem>
+                  <Input
+                    dataTest="telephone"
+                    type="tel"
+                    labelText={telephoneField.label as string}
+                    id={telephoneField.name}
+                    name={telephoneField.name}
+                  />
+                </GridItem>
+              </Grid>
+              <LevelRight>
+                <Button
+                  dataTest="save-changes"
+                  disabled={!isValid}
+                  loading={isSubmitting || isValidating}
+                  variant="primary"
+                  type="submit"
+                >
+                  Save Changes
+                </Button>
+              </LevelRight>
+            </Form>
+          </FormSection>
+        )
+      }}
+    </Formik>
+  )
+}
+
+export const handleSubmitContactInformation = (
+  updateDeveloperInformation: (values: ContactInformationValues) => void,
+) => (values: ContactInformationValues, { setSubmitting }: FormikHelpers<ContactInformationValues>) => {
+  setSubmitting(true)
+  updateDeveloperInformation(values)
+}
+
+export default ContactInformationForm
