@@ -52,6 +52,7 @@ export const generateInitialValues = ({
   }
   const { billingEmail, billingTelephone, billingKeyContact, reapitReference, status } = developerInfo
   const hasReapitAccountsRef = reapitReference ? 'yes' : 'no'
+  // currently the iframe form doesn't connect to the API, need to guess this based on another field
   // if a developer is in "pending" status and has no REAPIT ACCOUNTS REF, it means it has direct debit
   const hasDirectDebit = hasReapitAccountsRef === 'no' && status === 'pending' ? 'yes' : 'no'
 
@@ -67,7 +68,13 @@ export const generateInitialValues = ({
 }
 export const ACCOUNT_REF_MIN_LENGTH = 6
 
-export const onSubmit = (dispatch: Dispatch) => (values: AccountsInformationFormValues) => {
+export const onSubmit = ({
+  dispatch,
+  setIsSubmittedDebit,
+}: {
+  dispatch: Dispatch
+  setIsSubmittedDebit: React.Dispatch<React.SetStateAction<boolean>>
+}) => (values: AccountsInformationFormValues) => {
   const { status, billingEmail, reapitReference, billingTelephone, billingKeyContact, hasReapitAccountsRef } = values
   const dataToSubmit: UpdateDeveloperModel = {
     status,
@@ -77,6 +84,7 @@ export const onSubmit = (dispatch: Dispatch) => (values: AccountsInformationForm
     billingKeyContact,
     billingTelephone,
   }
+  setIsSubmittedDebit(false)
   dispatch(updateDeveloperData(dataToSubmit))
 }
 
@@ -102,7 +110,11 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
   const initialValues = generateInitialValues({ developerInfo, defaultInitialValues })
 
   return (
-    <Formik validationSchema={validationSchema} initialValues={initialValues} onSubmit={onSubmit(dispatch)}>
+    <Formik
+      validationSchema={validationSchema}
+      initialValues={initialValues}
+      onSubmit={onSubmit({ dispatch, setIsSubmittedDebit })}
+    >
       {({ setFieldValue, values }) => {
         return (
           <Form>
@@ -119,6 +131,8 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
                 <GridItem>
                   <ReapitReferenceSection setFieldValue={setFieldValue} values={values} />
                   <DirectDebitSection
+                    initialStatus={initialValues.status}
+                    isSubmittedDebit={isSubmittedDebit}
                     setIsSubmittedDebit={setIsSubmittedDebit}
                     setFieldValue={setFieldValue}
                     values={values}
@@ -126,7 +140,7 @@ const AccountsInformationForm: React.FC<AccountsInformationFormProps> = () => {
                   <AccountStatusSection
                     hasReapitAccountsRef={values.hasReapitAccountsRef}
                     isSubmittedDebit={isSubmittedDebit}
-                    status={initialValues.status}
+                    initialStatus={initialValues.status}
                   />
                 </GridItem>
               </Grid>

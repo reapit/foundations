@@ -61,12 +61,5 @@ export const validationSchema = Yup.object().shape({
     otherwise: Yup.string().notRequired(),
   }),
 
-  [hasDirectDebitField.name]: Yup.string().when(hasReapitAccountsRefField.name, {
-    is: 'no',
-    then: Yup.string()
-      .trim()
-      .required(FIELD_REQUIRED)
-      .oneOf(['yes'], hasDirectDebitField.errorMessage),
-    otherwise: Yup.string().notRequired(),
-  }),
+  [hasDirectDebitField.name]: Yup.string(),
 })
