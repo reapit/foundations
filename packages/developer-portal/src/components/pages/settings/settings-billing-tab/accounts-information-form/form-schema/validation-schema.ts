@@ -16,7 +16,7 @@ const {
 const { FIELD_REQUIRED, MAXIMUM_CHARACTER_LENGTH, MINIMUM_CHARACTER_LENGTH } = errorMessages
 
 const internalErrorMessages = {
-  REAPIT_REFERENCE_FIELD_WRONG_FORMAT: 'Should consit of 3 characters, 3 numbers',
+  REAPIT_REFERENCE_FIELD_WRONG_FORMAT: 'Should consist of 3 characters, 3 numbers',
 }
 
 // 3 characers consecutive, 3 numbers consecutive
