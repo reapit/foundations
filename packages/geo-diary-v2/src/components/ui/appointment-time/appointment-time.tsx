@@ -13,7 +13,7 @@ export type HandleChangeTravelModeParams = {
 }
 
 export const handleChangeTravelMode = ({ history, time, queryParams }: HandleChangeTravelModeParams) => () => {
-  const queryString = qs.stringify({ ...queryParams, time: time })
+  const queryString = qs.stringify({ ...queryParams, time: time, destinationLat: undefined, destinationLng: undefined })
   history.push(`${ROUTES.APPOINTMENT}?${queryString}`)
 }
 

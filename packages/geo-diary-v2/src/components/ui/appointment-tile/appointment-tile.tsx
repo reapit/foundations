@@ -83,6 +83,7 @@ export const renderFooterItems = ({
   const lng = appointment?.property?.address?.geolocation?.longitude
   let buttons = [
     <Button
+      className="is-centered mr-2 mb-2"
       variant="info"
       key="viewDetails"
       type="submit"
@@ -94,12 +95,10 @@ export const renderFooterItems = ({
       Details
     </Button>,
   ] as JSX.Element[]
-  if (!!nextAppointment?.id && nextAppointment?.id == appointment?.id) {
-    buttons.unshift(<ETAButton key="etaButton" appointment={appointment} queryParams={queryParams} />)
-  }
   if (!!lat && !!lng) {
     buttons.push(
       <Button
+        className="is-centered mr-2 mb-2"
         variant="info"
         key="viewDirection"
         type="submit"
@@ -112,7 +111,10 @@ export const renderFooterItems = ({
       </Button>,
     )
   }
-  return [<>{buttons}</>]
+  if (!!nextAppointment?.id && nextAppointment?.id == appointment?.id) {
+    buttons.push(<ETAButton key="etaButton" appointment={appointment} queryParams={queryParams} />)
+  }
+  return buttons
 }
 
 export type AppointmentTileProps = {
@@ -152,7 +154,11 @@ export const AppointmentTile: React.FC<AppointmentTileProps> = ({ appointment, n
         hightlight={false}
         key={appointment.id}
         heading={heading}
-        footerItems={renderFooterItems({ appointment, queryParams, history, setShowDetail, nextAppointment })}
+        footerItems={[
+          <div key={appointment.id}>
+            {renderFooterItems({ appointment, queryParams, history, setShowDetail, nextAppointment })}
+          </div>,
+        ]}
       >
         <IconList items={renderIconItems({ appointment })} />
       </Tile>
