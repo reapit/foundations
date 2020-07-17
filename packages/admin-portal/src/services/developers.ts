@@ -4,7 +4,7 @@ import {
   PagedResultDeveloperModel_,
   DeveloperModel,
 } from '@reapit/foundations-ts-definitions'
-import { fetcher, setQueryParams } from '@reapit/elements'
+import { fetcher, setQueryParams, fetcherWithBlob } from '@reapit/elements'
 import { URLS } from './constants'
 import { generateHeader } from './utils'
 import { logger } from '@reapit/utils'
@@ -23,6 +23,10 @@ export type CreateDeveloperParams = CreateDeveloperModel
 export type FetchDeveloperByIdParams = FetchByIdCommonParams
 
 export type UpdateDeveloperByIdParams = FetchByIdCommonParams & UpdateDeveloperModel
+
+export type FetchDeveloperBillingPeriod = {
+  period: string
+}
 
 export const fetchDevelopersList = async (params: FetchDevelopersListParams): Promise<PagedResultDeveloperModel_> => {
   try {
@@ -79,6 +83,22 @@ export const updateDeveloperById = async (params: UpdateDeveloperByIdParams) => 
       api: window.reapit.config.marketplaceApiUrl,
       method: 'PUT',
       body: rest,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+    })
+    return response
+  } catch (error) {
+    logger(error)
+    throw new Error(error)
+  }
+}
+
+export const fetchDeveloperBillingPeriod = async (params: FetchDeveloperBillingPeriod) => {
+  try {
+    const { period } = params
+    const response = await fetcherWithBlob({
+      url: `${URLS.developers}/costs/${period}`,
+      api: window.reapit.config.marketplaceApiUrl,
+      method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response

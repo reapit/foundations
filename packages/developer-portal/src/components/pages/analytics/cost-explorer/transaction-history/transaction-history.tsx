@@ -15,7 +15,7 @@ import {
 import dayjs, { Dayjs } from 'dayjs'
 import { URLS } from '@/services/constants'
 import { generateHeader } from '@/services/utils'
-import { isIE } from '@/utils/browser'
+import FileSaver from 'file-saver'
 
 export type TransactionHistoryProps = {}
 
@@ -56,18 +56,7 @@ export const createHandleDownLoadButtonOnClickFn = ({
     headers: generateHeader(window.reapit.config.marketplaceApiKey),
   })
   const fileName = `reapit-billing-data-${month}.csv`
-  if (isIE()) {
-    window.navigator.msSaveBlob(blob, fileName)
-    return
-  }
-  //https://stackoverflow.com/questions/32545632/how-can-i-download-a-file-using-window-fetch
-  let url = window.URL.createObjectURL(blob)
-  let a = document.createElement('a')
-  a.href = url
-  a.download = fileName
-  document.body.appendChild(a) // we need to append the element to the dom -> otherwise it will not work in firefox
-  a.click()
-  a.remove() //afterwards we remove the element again
+  FileSaver.saveAs(blob, fileName)
 }
 
 export const renderTransactionHistoryItem = ({ date, developerAppIds }: { date: Dayjs; developerAppIds: string[] }) => {
