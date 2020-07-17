@@ -5,11 +5,10 @@ import AdminBilling, {
   renderDownloadCell,
   genarateYearsListOptions,
   handleChangePeriod,
-} from '../admin-billing'
+} from '../billing'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
-// import * as ReapitElements from '../admin-billing'
 import * as developerServices from '@/services/developers'
 
 const spyFetcher = jest.spyOn(developerServices, 'fetchDeveloperBillingPeriod').mockImplementation(
