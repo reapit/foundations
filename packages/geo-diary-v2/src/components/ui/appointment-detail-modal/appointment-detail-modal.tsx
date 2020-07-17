@@ -148,7 +148,7 @@ export const renderAttendee = (attendee: AppointmentAttendeeModel, loginMode: Lo
                 </GridItem>
               </Grid>
             </GridItem>
-            <GridItem>
+            <GridItem className="text-ellipsis">
               <div className="mb-2">
                 <AcLink
                   dynamicLinkParams={{

@@ -11,6 +11,12 @@ $units: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
     flex-shrink: $unit;
   }
 
+  .text-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   .text-ellipsis-#{$unit} {
     display: -webkit-box;
     -webkit-line-clamp: 1;
