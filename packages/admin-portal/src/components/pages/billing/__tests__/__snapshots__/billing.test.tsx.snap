@@ -368,8 +368,7 @@ exports[`AdminBilling should match a snapshot 1`] = `
 exports[`renderDownloadCell should run correctly 1`] = `
 <div>
   <a
-    download="Billing_Period_2020-02.csv"
-    href="test"
+    onClick={[Function]}
   >
     Download
   </a>

@@ -6,12 +6,14 @@ import AdminBilling, {
   genarateYearsListOptions,
   genarateMonthsListOptions,
   handleChangePeriod,
+  handleSaveFile,
 } from '../billing'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import * as developerServices from '@/services/developers'
 import { MONTHS } from '@/constants/datetime'
+import FileSaver from 'file-saver'
 
 const spyFetcher = jest.spyOn(developerServices, 'fetchDeveloperBillingPeriod').mockImplementation(
   () =>
@@ -153,5 +155,15 @@ describe('handleChangePeriod', () => {
     const fn = handleChangePeriod(setMonth, setYear)
     fn(event)
     expect(setYear).toBeCalledWith(event.nativeEvent.target.value)
+  })
+})
+
+describe('handleSaveFile', () => {
+  const spySaveAsFunc = jest.spyOn(FileSaver, 'saveAs')
+  it('should run correctly', () => {
+    const blob = new Blob([JSON.stringify({}, null, 2)], { type: 'application/json' })
+    const fn = handleSaveFile(blob, 'test')
+    fn()
+    expect(spySaveAsFunc).toBeCalledWith(blob, 'test')
   })
 })

@@ -16,17 +16,16 @@ import { fetchDeveloperBillingPeriod } from '@/services/developers'
 import dayjs from 'dayjs'
 import { MONTHS } from '@/constants/datetime'
 import errorMessages from '@/constants/error-messages'
+import FileSaver from 'file-saver'
+
+export const handleSaveFile = (fileBlob: Blob, filename: string) => () => {
+  FileSaver.saveAs(fileBlob, filename)
+}
 
 export const renderDownloadCell = ({ row: { original } }) => {
-  const { proiod, fileBlob } = original
-  const url = window.URL.createObjectURL(fileBlob)
-  const filename = `Billing_Period_${proiod}.csv`
-
-  return (
-    <a href={url} download={filename}>
-      Download
-    </a>
-  )
+  const { period, fileBlob } = original
+  const filename = `billing_period_${period}.csv`
+  return <a onClick={handleSaveFile(fileBlob, filename)}>Download</a>
 }
 
 export const columns = [
