@@ -3,7 +3,6 @@ import { render } from 'react-dom'
 import { Config } from './types/global'
 import App from './core/app'
 import { getMarketplaceGlobalsByKey } from '@reapit/elements'
-import config from './config.json'
 
 // Init global config
 window.reapit = {
@@ -28,9 +27,16 @@ export const renderApp = (Component: React.ComponentType) => {
   }
 }
 
-const run = () => {
-  window.reapit.config = config as Config
-  renderApp(App)
+const run = async () => {
+  await fetch('config.json')
+    .then(response => response.json())
+    .then((config: Config) => {
+      window.reapit.config = config
+      renderApp(App)
+    })
+    .catch(error => {
+      console.error('Cannot fetch config', error)
+    })
 }
 
 run()

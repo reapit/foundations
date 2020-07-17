@@ -100,7 +100,7 @@ module.exports = {
   // The Webpack config to use when compiling your react app for development or production.
   webpack: function(config, env) {
     return {
-      ...override(addBabelPreset('linaria/babel'), addLinariaLoader, removeOriginalForkTsCheckerWebpackPlugin),
+      ...override(addBabelPreset('linaria/babel'), addLinariaLoader, removeOriginalForkTsCheckerWebpackPlugin)(config),
       ...patchForkTsCheckerWebpackPlugin(config, env),
     }
   },
