@@ -233,50 +233,7 @@ exports[`AdminBilling should match a snapshot 1`] = `
                         id="year"
                         labelText="Year"
                         name="year"
-                        options={
-                          Array [
-                            Object {
-                              "label": "2010",
-                              "value": "2010",
-                            },
-                            Object {
-                              "label": "2011",
-                              "value": "2011",
-                            },
-                            Object {
-                              "label": "2012",
-                              "value": "2012",
-                            },
-                            Object {
-                              "label": "2013",
-                              "value": "2013",
-                            },
-                            Object {
-                              "label": "2014",
-                              "value": "2014",
-                            },
-                            Object {
-                              "label": "2015",
-                              "value": "2015",
-                            },
-                            Object {
-                              "label": "2016",
-                              "value": "2016",
-                            },
-                            Object {
-                              "label": "2017",
-                              "value": "2017",
-                            },
-                            Object {
-                              "label": "2018",
-                              "value": "2018",
-                            },
-                            Object {
-                              "label": "2019",
-                              "value": "2019",
-                            },
-                          ]
-                        }
+                        options={Array []}
                       >
                         <Field
                           name="year"
@@ -302,66 +259,6 @@ exports[`AdminBilling should match a snapshot 1`] = `
                                 onChange={[Function]}
                                 value="2019"
                               >
-                                <option
-                                  key="2010"
-                                  value="2010"
-                                >
-                                  2010
-                                </option>
-                                <option
-                                  key="2011"
-                                  value="2011"
-                                >
-                                  2011
-                                </option>
-                                <option
-                                  key="2012"
-                                  value="2012"
-                                >
-                                  2012
-                                </option>
-                                <option
-                                  key="2013"
-                                  value="2013"
-                                >
-                                  2013
-                                </option>
-                                <option
-                                  key="2014"
-                                  value="2014"
-                                >
-                                  2014
-                                </option>
-                                <option
-                                  key="2015"
-                                  value="2015"
-                                >
-                                  2015
-                                </option>
-                                <option
-                                  key="2016"
-                                  value="2016"
-                                >
-                                  2016
-                                </option>
-                                <option
-                                  key="2017"
-                                  value="2017"
-                                >
-                                  2017
-                                </option>
-                                <option
-                                  key="2018"
-                                  value="2018"
-                                >
-                                  2018
-                                </option>
-                                <option
-                                  key="2019"
-                                  value="2019"
-                                >
-                                  2019
-                                </option>
                                 <option
                                   disabled={true}
                                   hidden={true}
