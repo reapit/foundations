@@ -4,12 +4,14 @@ import AdminBilling, {
   handleDownloadBillingPeriod,
   renderDownloadCell,
   genarateYearsListOptions,
+  genarateMonthsListOptions,
   handleChangePeriod,
 } from '../billing'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import * as developerServices from '@/services/developers'
+import { MONTHS } from '@/constants/datetime'
 
 const spyFetcher = jest.spyOn(developerServices, 'fetchDeveloperBillingPeriod').mockImplementation(
   () =>
@@ -37,6 +39,63 @@ describe('genarateYearsListOptions', () => {
     const yearFrom = 2019
     const result = genarateYearsListOptions(yearFrom)
     expect(result).toEqual([{ value: '2019', label: '2019' }])
+  })
+})
+
+describe('genarateMonthsListOptions', () => {
+  it('should run correctly', () => {
+    const result = genarateMonthsListOptions(MONTHS)
+    const expected = [
+      {
+        label: 'January',
+        value: '01',
+      },
+      {
+        label: 'February',
+        value: '02',
+      },
+      {
+        label: 'March',
+        value: '03',
+      },
+      {
+        label: 'April',
+        value: '04',
+      },
+      {
+        label: 'May',
+        value: '05',
+      },
+      {
+        label: 'June',
+        value: '06',
+      },
+      {
+        label: 'July',
+        value: '07',
+      },
+      {
+        label: 'August',
+        value: '08',
+      },
+      {
+        label: 'September',
+        value: '09',
+      },
+      {
+        label: 'October',
+        value: '10',
+      },
+      {
+        label: 'November',
+        value: '11',
+      },
+      {
+        label: 'December',
+        value: '12',
+      },
+    ]
+    expect(result).toEqual(expected)
   })
 })
 
