@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Map Map should match snapshot 1`] = `
+<div
+  style={
+    Object {
+      "height": "90vh",
+    }
+  }
+>
+  <t
+    autoFitBounds={false}
+    boundsOffset={0.002}
+    center={Object {}}
+    coordinates={Array []}
+    onLoaded={[Function]}
+    zoom={10}
+  />
+</div>
+`;

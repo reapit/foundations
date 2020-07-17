@@ -1,5 +1,6 @@
 import React from 'react'
-import { Map, H5, SubTitleH5, combineAddress } from '@reapit/elements'
+import { H5, SubTitleH5, combineAddress } from '@reapit/elements'
+import Gmaps from './gmaps'
 import { CoordinateProps } from '@reapit/elements/src/components/Map'
 import { useLocation } from 'react-router-dom'
 import qs from 'query-string'
@@ -122,7 +123,7 @@ export const AppointmentMap: React.FC<AppointmentMapProps> = ({ appointments }) 
 
   return (
     <>
-      <Map
+      <Gmaps
         autoFitBounds={true}
         apiKey={window.reapit.config.googleMapApiKey}
         coordinates={coordinates}
