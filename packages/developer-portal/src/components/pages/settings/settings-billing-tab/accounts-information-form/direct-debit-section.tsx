@@ -83,10 +83,13 @@ const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({
 
   const { hasReapitAccountsRef, reapitReference } = values
 
+  // after submit debit, hide this section
+  // when status is pending and hasReapitAccountRef is no -> mean that user already set up debit -> hide this section
   const shouldHideDebitSection = (initialStatus === 'pending' && hasReapitAccountsRef === 'no') || isSubmittedDebit
 
   const isShowDirectDebitWithRef =
     hasReapitAccountsRef === 'yes' && (reapitReference || '').length >= ACCOUNT_REF_MIN_LENGTH
+
   const isShowDirectDebitWithoutRef = hasReapitAccountsRef === 'no'
 
   if (shouldHideDebitSection) {

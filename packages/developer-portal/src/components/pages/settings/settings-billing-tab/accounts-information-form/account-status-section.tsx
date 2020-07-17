@@ -16,7 +16,11 @@ const AccountStatusSection: React.FC<AccountStatusSectionProps> = ({
   hasReapitAccountsRef,
 }) => {
   const isPending = initialStatus === 'pending'
+
+  // when get data from server, if status is pending and REAPIT ACCOUNTS REF is no, show general thank message
   const shouldThankInGeneral = isPending && hasReapitAccountsRef === 'no'
+
+  // when user submit debit info in iframe -> show thank for setting up debit message
   const shouldThankSettingDebit = hasReapitAccountsRef === 'no' && isSubmittedDebit
 
   return (

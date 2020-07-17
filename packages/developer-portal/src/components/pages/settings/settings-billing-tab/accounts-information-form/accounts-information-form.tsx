@@ -52,6 +52,7 @@ export const generateInitialValues = ({
   }
   const { billingEmail, billingTelephone, billingKeyContact, reapitReference, status } = developerInfo
   const hasReapitAccountsRef = reapitReference ? 'yes' : 'no'
+  // currently the iframe form doesn't connect to the API, need to guess this based on another field
   // if a developer is in "pending" status and has no REAPIT ACCOUNTS REF, it means it has direct debit
   const hasDirectDebit = hasReapitAccountsRef === 'no' && status === 'pending' ? 'yes' : 'no'
 
