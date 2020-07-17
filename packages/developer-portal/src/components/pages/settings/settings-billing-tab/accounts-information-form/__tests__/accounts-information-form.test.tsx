@@ -5,6 +5,7 @@ import AccountsInformationForm, {
   AccountsInformationFormValues,
   generateInitialValues,
   defaultInitialValues,
+  getInitHasReapitAccountsRef,
 } from '../accounts-information-form'
 import { updateDeveloperData } from '@/actions/settings'
 import appState from '@/reducers/__stubs__/app-state'
@@ -17,6 +18,18 @@ jest.mock('react-redux', () => ({
   useSelector: jest.fn(),
   useDispatch: jest.fn(),
 }))
+
+describe('getInitHasReapitAccountsRef', () => {
+  test('developer status is incomplete', () => {
+    expect(getInitHasReapitAccountsRef({ status: 'incomplete' })).toBe('')
+  })
+  test('has reapitReference', () => {
+    expect(getInitHasReapitAccountsRef({ reapitReference: 'ref' })).toBe('yes')
+  })
+  test('developer status is incomplete', () => {
+    expect(getInitHasReapitAccountsRef({})).toBe('no')
+  })
+})
 
 describe('onSubmit', () => {
   it('onSubmit should run correctly', () => {
@@ -83,7 +96,7 @@ describe('generateInitialValues', () => {
       billingKeyContact,
       reapitReference,
       status,
-      hasReapitAccountsRef: 'yes',
+      hasReapitAccountsRef: '',
       hasDirectDebit: 'no',
     }
     expect(result).toEqual(expectedResult)
