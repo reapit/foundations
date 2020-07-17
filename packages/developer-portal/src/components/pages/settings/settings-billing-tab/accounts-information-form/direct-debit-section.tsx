@@ -20,6 +20,8 @@ export type DirectDebitSectionProps = {
   setFieldValue: (field: string, value: any, shouldValidate?: boolean | undefined) => void
   values: AccountsInformationFormValues
   setIsSubmittedDebit: React.Dispatch<React.SetStateAction<boolean>>
+  initialStatus?: string
+  isSubmittedDebit: boolean
 }
 
 type DirectDebitModalProps = Pick<ModalPropsV2, 'onClose' | 'visible'> & {
@@ -70,14 +72,29 @@ export const DirectDebitModal: React.FC<DirectDebitModalProps> = ({ onClose, vis
   )
 }
 
-const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({ values, setFieldValue, setIsSubmittedDebit }) => {
+const DirectDebitSection: React.FC<DirectDebitSectionProps> = ({
+  values,
+  setFieldValue,
+  setIsSubmittedDebit,
+  isSubmittedDebit,
+  initialStatus,
+}) => {
   const [isOpenDirectDebitModal, setIsOpenDirectDebitModal] = React.useState<boolean>(false)
 
   const { hasReapitAccountsRef, reapitReference } = values
 
+  // after submit debit, hide this section
+  // when status is pending and hasReapitAccountRef is no -> mean that user already set up debit -> hide this section
+  const shouldHideDebitSection = (initialStatus === 'pending' && hasReapitAccountsRef === 'no') || isSubmittedDebit
+
   const isShowDirectDebitWithRef =
     hasReapitAccountsRef === 'yes' && (reapitReference || '').length >= ACCOUNT_REF_MIN_LENGTH
+
   const isShowDirectDebitWithoutRef = hasReapitAccountsRef === 'no'
+
+  if (shouldHideDebitSection) {
+    return null
+  }
 
   if (isShowDirectDebitWithRef)
     return (

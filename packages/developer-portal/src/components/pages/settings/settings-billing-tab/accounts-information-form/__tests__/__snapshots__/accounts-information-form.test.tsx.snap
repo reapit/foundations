@@ -27,8 +27,8 @@ exports[`AccountsInformationForm should match snapshot 1`] = `
       "_exclusive": Object {},
       "_mutate": undefined,
       "_nodes": Array [
-        "hasReapitAccountsRef",
         "hasDirectDebit",
+        "hasReapitAccountsRef",
         "reapitReference",
         "status",
         "billingKeyContact",
@@ -153,25 +153,8 @@ exports[`AccountsInformationForm should match snapshot 1`] = `
             "list": Set {},
             "refs": Map {},
           },
-          "_conditions": Array [
-            Condition {
-              "fn": [Function],
-              "refs": Array [
-                Reference {
-                  "getter": [Function],
-                  "isContext": false,
-                  "isSibling": true,
-                  "isValue": false,
-                  "key": "hasReapitAccountsRef",
-                  "map": undefined,
-                  "path": "hasReapitAccountsRef",
-                },
-              ],
-            },
-          ],
-          "_deps": Array [
-            "hasReapitAccountsRef",
-          ],
+          "_conditions": Array [],
+          "_deps": Array [],
           "_exclusive": Object {},
           "_mutate": undefined,
           "_options": Object {

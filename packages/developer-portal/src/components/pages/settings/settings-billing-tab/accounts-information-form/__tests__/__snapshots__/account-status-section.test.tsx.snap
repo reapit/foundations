@@ -22,6 +22,16 @@ exports[`AccountStatusSection should match snapshot 1`] = `
 exports[`AccountStatusSection should match snapshot with hasReapitAccountsRef is no 1`] = `
 <Component>
   <Component
+    className="is-italic"
+  >
+    Thank you for submitting your Account Information and setting up a Direct Debit, we just need to validate your information with our Accounts Department. One this has been completed your account will be set to ‘Active’ and you can procced with any subscriptions.
+  </Component>
+  <Component
+    className="is-italic"
+  >
+    Thank you for setting up a Direct Debit, to continue please click ‘Save’ below
+  </Component>
+  <Component
     id="status"
     name="status"
     type="hidden"
@@ -45,5 +55,14 @@ exports[`AccountStatusSection should match snapshot with status !== pending 1`] 
     name="status"
     type="hidden"
   />
+  <Component>
+    <b>
+      ACCOUNT STATUS:
+    </b>
+     
+    <i>
+      incomplete
+    </i>
+  </Component>
 </Component>
 `;

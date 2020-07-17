@@ -13,6 +13,8 @@ describe('DirectDebitSection', () => {
       hasReapitAccountsRef: 'yes',
     },
     setIsSubmittedDebit: jest.fn(),
+    initialStatus: 'pending',
+    isSubmittedDebit: true,
   }
   it('should match snapshot', () => {
     const wrapper = shallow(<DirectDebitSection {...mockProps} />)

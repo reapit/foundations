@@ -170,7 +170,7 @@ export const renderAttendee = (attendee: AppointmentAttendeeModel, loginMode: Lo
 }
 
 export const renderAddress = (property: PropertyModel, loginMode: LoginMode) => {
-  if (!property) {
+  if (!property?.address) {
     return null
   }
   return (

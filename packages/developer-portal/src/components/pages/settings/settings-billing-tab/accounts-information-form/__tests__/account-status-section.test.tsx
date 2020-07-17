@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import AccountStatusSection from '../account-status-section'
 
 const defaultProps = {
-  status: 'pending',
+  initialStatus: 'pending',
   isSubmittedDebit: true,
   hasReapitAccountsRef: 'yes',
 }
@@ -14,12 +14,12 @@ describe('AccountStatusSection', () => {
   })
 
   it('should match snapshot with status !== pending', () => {
-    const wrapper = shallow(<AccountStatusSection {...defaultProps} status="incomplete" />)
+    const wrapper = shallow(<AccountStatusSection {...defaultProps} initialStatus="incomplete" />)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should match snapshot with hasReapitAccountsRef is no', () => {
-    const wrapper = shallow(<AccountStatusSection {...defaultProps} hasReapitAccountsRef="n" />)
+    const wrapper = shallow(<AccountStatusSection {...defaultProps} hasReapitAccountsRef="no" />)
     expect(wrapper).toMatchSnapshot()
   })
 })
