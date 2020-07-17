@@ -18,13 +18,13 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 1
     className="is-mobile"
   >
     <Component
-      className="is-one-third-desktop is-half-mobible horizontal"
+      className="is-one-third-desktop is-5-mobile horizontal"
     >
       <Component
         className="is-vcentered is-mobile"
       >
         <Component
-          className="is-narrow"
+          className="is-narrow px-0"
         >
           <FaClock
             className="vertical-align-text-top"
@@ -49,13 +49,13 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 1
     className="is-mobile"
   >
     <Component
-      className="is-one-third-desktop is-half-mobible horizontal"
+      className="is-one-third-desktop is-5-mobile horizontal"
     >
       <Component
         className="is-vcentered is-mobile"
       >
         <Component
-          className="is-narrow"
+          className="is-narrow px-0"
         >
           <FaMale />
         </Component>
@@ -101,13 +101,13 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 1
     className="is-mobile"
   >
     <Component
-      className="is-one-third-desktop is-half-mobible horizontal"
+      className="is-one-third-desktop is-5-mobile horizontal"
     >
       <Component
         className="is-vcentered is-mobile"
       >
         <Component
-          className="is-narrow"
+          className="is-narrow px-0"
         >
           <FaBuilding />
         </Component>
@@ -140,13 +140,13 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 1
     className="is-mobile"
   >
     <Component
-      className="is-one-third-desktop is-half-mobible horizontal"
+      className="is-one-third-desktop is-5-mobile horizontal"
     >
       <Component
         className="is-vcentered is-mobile"
       >
         <Component
-          className="is-narrow"
+          className="is-narrow px-0"
         >
           <FaHome />
         </Component>
@@ -370,13 +370,13 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 2
     className="is-mobile"
   >
     <Component
-      className="is-one-third-desktop is-half-mobible horizontal"
+      className="is-one-third-desktop is-5-mobile horizontal"
     >
       <Component
         className="is-vcentered is-mobile"
       >
         <Component
-          className="is-narrow"
+          className="is-narrow px-0"
         >
           <FaClock
             className="vertical-align-text-top"
@@ -401,13 +401,13 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 2
     className="is-mobile"
   >
     <Component
-      className="is-one-third-desktop is-half-mobible horizontal"
+      className="is-one-third-desktop is-5-mobile horizontal"
     >
       <Component
         className="is-vcentered is-mobile"
       >
         <Component
-          className="is-narrow"
+          className="is-narrow px-0"
         >
           <FaMale />
         </Component>
@@ -453,13 +453,13 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 2
     className="is-mobile"
   >
     <Component
-      className="is-one-third-desktop is-half-mobible horizontal"
+      className="is-one-third-desktop is-5-mobile horizontal"
     >
       <Component
         className="is-vcentered is-mobile"
       >
         <Component
-          className="is-narrow"
+          className="is-narrow px-0"
         >
           <FaBuilding />
         </Component>
@@ -492,13 +492,13 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 2
     className="is-mobile"
   >
     <Component
-      className="is-one-third-desktop is-half-mobible horizontal"
+      className="is-one-third-desktop is-5-mobile horizontal"
     >
       <Component
         className="is-vcentered is-mobile"
       >
         <Component
-          className="is-narrow"
+          className="is-narrow px-0"
         >
           <FaHome />
         </Component>
@@ -19066,13 +19066,13 @@ exports[`appointment-detail-modal renderAddress should match snapshot for commui
     className="is-mobile"
   >
     <Component
-      className="is-one-third-desktop is-half-mobible horizontal"
+      className="is-one-third-desktop is-5-mobile horizontal"
     >
       <Component
         className="is-vcentered is-mobile"
       >
         <Component
-          className="is-narrow"
+          className="is-narrow px-0"
         >
           <FaHome />
         </Component>
@@ -19106,13 +19106,13 @@ exports[`appointment-detail-modal renderAddress should match snapshot for empty 
     className="is-mobile"
   >
     <Component
-      className="is-one-third-desktop is-half-mobible horizontal"
+      className="is-one-third-desktop is-5-mobile horizontal"
     >
       <Component
         className="is-vcentered is-mobile"
       >
         <Component
-          className="is-narrow"
+          className="is-narrow px-0"
         >
           <FaHome />
         </Component>
@@ -19146,13 +19146,13 @@ exports[`appointment-detail-modal renderArrangements should match snapshot for c
     className="is-mobile"
   >
     <Component
-      className="is-one-third-desktop is-half-mobible horizontal"
+      className="is-one-third-desktop is-5-mobile horizontal"
     >
       <Component
         className="is-vcentered is-mobile"
       >
         <Component
-          className="is-narrow"
+          className="is-narrow px-0"
         >
           <FaHandshake />
         </Component>
@@ -19243,13 +19243,13 @@ exports[`appointment-detail-modal renderDateTime should match snapshot 1`] = `
     className="is-mobile"
   >
     <Component
-      className="is-one-third-desktop is-half-mobible horizontal"
+      className="is-one-third-desktop is-5-mobile horizontal"
     >
       <Component
         className="is-vcentered is-mobile"
       >
         <Component
-          className="is-narrow"
+          className="is-narrow px-0"
         >
           <FaClock
             className="vertical-align-text-top"
@@ -19279,13 +19279,13 @@ exports[`appointment-detail-modal renderNegotiators should render correctly 1`] 
     className="is-mobile"
   >
     <Component
-      className="is-one-third-desktop is-half-mobible horizontal"
+      className="is-one-third-desktop is-5-mobile horizontal"
     >
       <Component
         className="is-vcentered is-mobile"
       >
         <Component
-          className="is-narrow"
+          className="is-narrow px-0"
         >
           <FaMale />
         </Component>
@@ -19338,13 +19338,13 @@ exports[`appointment-detail-modal renderNotes should match snapshot for commuica
     className="is-mobile"
   >
     <Component
-      className="is-one-third-desktop is-half-mobible horizontal"
+      className="is-one-third-desktop is-5-mobile horizontal"
     >
       <Component
         className="is-vcentered is-mobile"
       >
         <Component
-          className="is-narrow"
+          className="is-narrow px-0"
         >
           <FaStickyNote />
         </Component>
@@ -19372,13 +19372,13 @@ exports[`appointment-detail-modal renderOffices should render correctly 1`] = `
     className="is-mobile"
   >
     <Component
-      className="is-one-third-desktop is-half-mobible horizontal"
+      className="is-one-third-desktop is-5-mobile horizontal"
     >
       <Component
         className="is-vcentered is-mobile"
       >
         <Component
-          className="is-narrow"
+          className="is-narrow px-0"
         >
           <FaBuilding />
         </Component>
@@ -19416,13 +19416,13 @@ exports[`appointment-detail-modal renderOffices should render correctly 2`] = `
     className="is-mobile"
   >
     <Component
-      className="is-one-third-desktop is-half-mobible horizontal"
+      className="is-one-third-desktop is-5-mobile horizontal"
     >
       <Component
         className="is-vcentered is-mobile"
       >
         <Component
-          className="is-narrow"
+          className="is-narrow px-0"
         >
           <FaBuilding />
         </Component>
