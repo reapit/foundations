@@ -4,7 +4,7 @@ import { History } from 'history'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
-import { Button, Modal, ModalV2, GridFourCol, GridFourColItem, Content, ModalPropsV2 } from '@reapit/elements'
+import { Button, ModalV2, GridFourCol, GridFourColItem, Content, ModalPropsV2 } from '@reapit/elements'
 import { appInstallationsRequestInstall } from '@/actions/app-installations'
 import { clientFetchAppDetail } from '@/actions/client'
 import { Dispatch } from 'redux'
@@ -119,9 +119,9 @@ export const InstallDirectApiAppSucesfullyModal = ({
         onButtonClick={onSuccessAlertButtonClick}
         isCenter
       >
-        <p className="mb-2">{name} has been successfully installed.</p>
+        <p className="mb-5">{name} has been successfully installed.</p>
 
-        <p className="mb-2">
+        <p className="mb-5">
           To launch, please use <a href={launchUri}>{launchUri}</a>
         </p>
 
@@ -158,12 +158,13 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
   // TODO: WIP: update AppInstallConfirmation to use Modal V2
   return (
     <>
-      <Modal
+      <ModalV2
         visible={visible}
         title={`Confirm ${name} installation`}
-        afterClose={closeInstallConfirmationModal}
-        footerItems={
-          <>
+        onClose={closeInstallConfirmationModal}
+        isCentered
+        footer={
+          <div className="flex">
             <Button
               dataTest="agree-btn"
               loading={isSubmitting}
@@ -191,7 +192,7 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
             >
               Cancel
             </Button>
-          </>
+          </div>
         }
       >
         <>
@@ -209,7 +210,7 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
             <p>This action will install the app for ALL platform users.</p>
           )}
         </>
-      </Modal>
+      </ModalV2>
       <InstallDirectApiAppSucesfullyModal
         visible={shouldRenderDirectApiAppInstallSuccessfullyModal}
         afterClose={handleSuccessAlertMessageAfterClose(id, clientId, setIsSuccessAlertVisible, dispatch)}

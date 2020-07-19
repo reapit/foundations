@@ -99,9 +99,10 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
         visible={true}
       >
         <Component
-          afterClose={[MockFunction]}
-          footerItems={
-            <React.Fragment>
+          footer={
+            <div
+              className="flex"
+            >
               <Unknown
                 dataTest="agree-btn"
                 loading={false}
@@ -120,11 +121,416 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
               >
                 Cancel
               </Unknown>
-            </React.Fragment>
+            </div>
           }
+          isCentered={true}
+          onClose={[MockFunction]}
           title="Confirm Peter's Properties installation"
           visible={true}
-        />
+        >
+          <Component
+            className=""
+            destroyOnClose={true}
+            footer={
+              <div
+                className="flex"
+              >
+                <Unknown
+                  dataTest="agree-btn"
+                  loading={false}
+                  onClick={[Function]}
+                  type="button"
+                  variant="primary"
+                >
+                  Confirm
+                </Unknown>
+                <Unknown
+                  dataTest="disagree-btn"
+                  disabled={false}
+                  onClick={[MockFunction]}
+                  type="button"
+                  variant="danger"
+                >
+                  Cancel
+                </Unknown>
+              </div>
+            }
+            onClose={[MockFunction]}
+            title="Confirm Peter's Properties installation"
+            visible={true}
+            wrapClassName=""
+          >
+            <PortalWrapper
+              visible={true}
+            >
+              <Portal
+                getContainer={[Function]}
+              >
+                <Portal
+                  containerInfo={
+                    <div>
+                      <div
+                        class="rc-dialog-root"
+                      >
+                        <div
+                          class="rc-dialog-mask"
+                        />
+                        <div
+                          aria-labelledby="rcDialogTitle2"
+                          class="rc-dialog-wrap "
+                          role="dialog"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="rc-dialog "
+                            role="document"
+                          >
+                            <div
+                              aria-hidden="true"
+                              style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                              tabindex="0"
+                            />
+                            <div
+                              class="rc-dialog-content"
+                            >
+                              <button
+                                aria-label="Close"
+                                class="rc-dialog-close"
+                                type="button"
+                              >
+                                <span
+                                  class="rc-dialog-close-x"
+                                />
+                              </button>
+                              <div
+                                class="rc-dialog-header"
+                              >
+                                <div
+                                  class="rc-dialog-title"
+                                  id="rcDialogTitle2"
+                                >
+                                  Confirm Peter's Properties installation
+                                </div>
+                              </div>
+                              <div
+                                class="rc-dialog-body"
+                              >
+                                <div
+                                  class=""
+                                  data-test=""
+                                >
+                                  <p>
+                                    This action will install the app for ALL platform users.
+                                  </p>
+                                  <p>
+                                    Peter's Properties
+                                     requires the permissions below. By installing you are granting permission to your data.
+                                  </p>
+                                  <div
+                                    class=""
+                                    data-test=""
+                                  >
+                                    <div
+                                      class=""
+                                      data-test=""
+                                    >
+                                      Read data about developers
+                                    </div>
+                                    <div
+                                      class=""
+                                      data-test=""
+                                    >
+                                      Write data about developers
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                class="rc-dialog-footer"
+                              >
+                                <div
+                                  class="flex"
+                                >
+                                  <button
+                                    class="button  is-primary  "
+                                    data-test="agree-btn"
+                                    type="button"
+                                  >
+                                    Confirm
+                                  </button>
+                                  <button
+                                    class="button  is-danger  "
+                                    data-test="disagree-btn"
+                                    type="button"
+                                  >
+                                    Cancel
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              aria-hidden="true"
+                              style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                              tabindex="0"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  }
+                >
+                  <Dialog
+                    className=""
+                    closable={true}
+                    destroyOnClose={true}
+                    focusTriggerAfterClose={true}
+                    footer={
+                      <div
+                        className="flex"
+                      >
+                        <Unknown
+                          dataTest="agree-btn"
+                          loading={false}
+                          onClick={[Function]}
+                          type="button"
+                          variant="primary"
+                        >
+                          Confirm
+                        </Unknown>
+                        <Unknown
+                          dataTest="disagree-btn"
+                          disabled={false}
+                          onClick={[MockFunction]}
+                          type="button"
+                          variant="danger"
+                        >
+                          Cancel
+                        </Unknown>
+                      </div>
+                    }
+                    getContainer={[Function]}
+                    getOpenCount={[Function]}
+                    keyboard={true}
+                    mask={true}
+                    maskClosable={true}
+                    onClose={[MockFunction]}
+                    prefixCls="rc-dialog"
+                    switchScrollingEffect={[Function]}
+                    title="Confirm Peter's Properties installation"
+                    visible={true}
+                    wrapClassName=""
+                  >
+                    <div
+                      className="rc-dialog-root"
+                    >
+                      <LazyRenderBox
+                        className="rc-dialog-mask"
+                        hiddenClassName="rc-dialog-mask-hidden"
+                        key="mask"
+                        style={Object {}}
+                        visible={true}
+                      >
+                        <div
+                          className="rc-dialog-mask"
+                          style={Object {}}
+                        />
+                      </LazyRenderBox>
+                      <div
+                        aria-labelledby="rcDialogTitle2"
+                        className="rc-dialog-wrap "
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        onMouseUp={[Function]}
+                        role="dialog"
+                        style={
+                          Object {
+                            "display": null,
+                          }
+                        }
+                        tabIndex={-1}
+                      >
+                        <Animate
+                          animation={Object {}}
+                          component=""
+                          componentProps={Object {}}
+                          key="dialog"
+                          onAppear={[Function]}
+                          onEnd={[Function]}
+                          onEnter={[Function]}
+                          onLeave={[Function]}
+                          showProp="visible"
+                          transitionAppear={true}
+                          transitionEnter={true}
+                          transitionLeave={true}
+                        >
+                          <AnimateChild
+                            animation={Object {}}
+                            key="dialog-element"
+                            transitionAppear={true}
+                            transitionEnter={true}
+                            transitionLeave={true}
+                          >
+                            <LazyRenderBox
+                              className="rc-dialog "
+                              key="dialog-element"
+                              onMouseDown={[Function]}
+                              role="document"
+                              style={Object {}}
+                              visible={true}
+                            >
+                              <div
+                                className="rc-dialog "
+                                onMouseDown={[Function]}
+                                role="document"
+                                style={Object {}}
+                              >
+                                <div
+                                  aria-hidden="true"
+                                  style={
+                                    Object {
+                                      "height": 0,
+                                      "outline": "none",
+                                      "overflow": "hidden",
+                                      "width": 0,
+                                    }
+                                  }
+                                  tabIndex={0}
+                                />
+                                <div
+                                  className="rc-dialog-content"
+                                >
+                                  <button
+                                    aria-label="Close"
+                                    className="rc-dialog-close"
+                                    onClick={[Function]}
+                                    type="button"
+                                  >
+                                    <span
+                                      className="rc-dialog-close-x"
+                                    />
+                                  </button>
+                                  <div
+                                    className="rc-dialog-header"
+                                  >
+                                    <div
+                                      className="rc-dialog-title"
+                                      id="rcDialogTitle2"
+                                    >
+                                      Confirm Peter's Properties installation
+                                    </div>
+                                  </div>
+                                  <div
+                                    className="rc-dialog-body"
+                                  >
+                                    <Component>
+                                      <div
+                                        className=""
+                                        data-test=""
+                                      >
+                                        <p>
+                                          This action will install the app for ALL platform users.
+                                        </p>
+                                        <p>
+                                          Peter's Properties
+                                           requires the permissions below. By installing you are granting permission to your data.
+                                        </p>
+                                        <Component>
+                                          <div
+                                            className=""
+                                            data-test=""
+                                          >
+                                            <Component
+                                              key="Marketplace/developers.read"
+                                            >
+                                              <div
+                                                className=""
+                                                data-test=""
+                                              >
+                                                Read data about developers
+                                              </div>
+                                            </Component>
+                                            <Component
+                                              key="Marketplace/developers.write"
+                                            >
+                                              <div
+                                                className=""
+                                                data-test=""
+                                              >
+                                                Write data about developers
+                                              </div>
+                                            </Component>
+                                          </div>
+                                        </Component>
+                                      </div>
+                                    </Component>
+                                  </div>
+                                  <div
+                                    className="rc-dialog-footer"
+                                  >
+                                    <div
+                                      className="flex"
+                                    >
+                                      <Component
+                                        dataTest="agree-btn"
+                                        loading={false}
+                                        onClick={[Function]}
+                                        type="button"
+                                        variant="primary"
+                                      >
+                                        <button
+                                          className="button  is-primary  "
+                                          data-test="agree-btn"
+                                          disabled={false}
+                                          onClick={[Function]}
+                                          type="button"
+                                        >
+                                          Confirm
+                                        </button>
+                                      </Component>
+                                      <Component
+                                        dataTest="disagree-btn"
+                                        disabled={false}
+                                        onClick={[MockFunction]}
+                                        type="button"
+                                        variant="danger"
+                                      >
+                                        <button
+                                          className="button  is-danger  "
+                                          data-test="disagree-btn"
+                                          disabled={false}
+                                          onClick={[MockFunction]}
+                                          type="button"
+                                        >
+                                          Cancel
+                                        </button>
+                                      </Component>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div
+                                  aria-hidden="true"
+                                  style={
+                                    Object {
+                                      "height": 0,
+                                      "outline": "none",
+                                      "overflow": "hidden",
+                                      "width": 0,
+                                    }
+                                  }
+                                  tabIndex={0}
+                                />
+                              </div>
+                            </LazyRenderBox>
+                          </AnimateChild>
+                        </Animate>
+                      </div>
+                    </div>
+                  </Dialog>
+                </Portal>
+              </Portal>
+            </PortalWrapper>
+          </Component>
+        </Component>
         <Component
           afterClose={[Function]}
           appDetailData={
@@ -258,6 +664,380 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
 `;
 
 exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
+<Component
+  afterClose={[MockFunction]}
+  appDetailData={
+    Object {
+      "description": "enim facilisis",
+      "developer": "Pete's Proptech World Ltd",
+      "homePage": "http://myawesomeproptechproduct.io",
+      "id": "9b6fd5f7-2c15-483d-b925-01b650538e52",
+      "media": Array [
+        Object {
+          "description": "Application Icon",
+          "type": "icon",
+          "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg",
+        },
+        Object {
+          "description": "Application Image",
+          "type": "image",
+          "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png",
+        },
+        Object {
+          "description": "Application Image",
+          "type": "image",
+          "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png",
+        },
+      ],
+      "name": "Peter's Properties",
+      "scopes": Array [
+        Object {
+          "description": "Read data about developers",
+          "name": "Marketplace/developers.read",
+        },
+        Object {
+          "description": "Write data about developers",
+          "name": "Marketplace/developers.write",
+        },
+      ],
+      "summary": "vitae elementum curabitur vitae",
+      "supportEmail": "support@reapit.com",
+      "telephone": "0113 288 2900",
+    }
+  }
+  onSuccessAlertButtonClick={[MockFunction]}
+  visible={true}
+>
+  <Component
+    isCentered={true}
+    isPadding={false}
+    onClose={[MockFunction]}
+    visible={true}
+  >
+    <Component
+      className=""
+      destroyOnClose={true}
+      onClose={[MockFunction]}
+      visible={true}
+      wrapClassName=""
+    >
+      <PortalWrapper
+        visible={true}
+      >
+        <Portal
+          getContainer={[Function]}
+        >
+          <Portal
+            containerInfo={
+              <div>
+                <div
+                  class="rc-dialog-root"
+                >
+                  <div
+                    class="rc-dialog-mask"
+                  />
+                  <div
+                    class="rc-dialog-wrap "
+                    role="dialog"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="rc-dialog "
+                      role="document"
+                    >
+                      <div
+                        aria-hidden="true"
+                        style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                        tabindex="0"
+                      />
+                      <div
+                        class="rc-dialog-content"
+                      >
+                        <button
+                          aria-label="Close"
+                          class="rc-dialog-close"
+                          type="button"
+                        >
+                          <span
+                            class="rc-dialog-close-x"
+                          />
+                        </button>
+                        <div
+                          class="rc-dialog-body"
+                        >
+                          <div
+                            class=""
+                            data-test="installations-success-message"
+                          >
+                            <div
+                              class="notification is-success mb-0"
+                              data-test=""
+                              role="alert"
+                            >
+                              Success
+                            </div>
+                            <div
+                              class=""
+                            >
+                              <p>
+                                <p
+                                  class="mb-5"
+                                >
+                                  Peter's Properties
+                                   has been successfully installed.
+                                </p>
+                                <p
+                                  class="mb-5"
+                                >
+                                  To launch, please use 
+                                  <a />
+                                </p>
+                                <p>
+                                  If there are any additional setup requirements, a member of 
+                                  Pete's Proptech World Ltd
+                                   will be in touch to help you through the process.
+                                </p>
+                              </p>
+                              <div
+                                class="has-text-right"
+                              >
+                                <button
+                                  class="button  is-primary  "
+                                  data-test="installations-success-button"
+                                  type="button"
+                                >
+                                  Back to List
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        aria-hidden="true"
+                        style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                        tabindex="0"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            }
+          >
+            <Dialog
+              className=""
+              closable={true}
+              destroyOnClose={true}
+              focusTriggerAfterClose={true}
+              getContainer={[Function]}
+              getOpenCount={[Function]}
+              keyboard={true}
+              mask={true}
+              maskClosable={true}
+              onClose={[MockFunction]}
+              prefixCls="rc-dialog"
+              switchScrollingEffect={[Function]}
+              visible={true}
+              wrapClassName=""
+            >
+              <div
+                className="rc-dialog-root"
+              >
+                <LazyRenderBox
+                  className="rc-dialog-mask"
+                  hiddenClassName="rc-dialog-mask-hidden"
+                  key="mask"
+                  style={Object {}}
+                  visible={true}
+                >
+                  <div
+                    className="rc-dialog-mask"
+                    style={Object {}}
+                  />
+                </LazyRenderBox>
+                <div
+                  aria-labelledby={null}
+                  className="rc-dialog-wrap "
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseUp={[Function]}
+                  role="dialog"
+                  style={
+                    Object {
+                      "display": null,
+                    }
+                  }
+                  tabIndex={-1}
+                >
+                  <Animate
+                    animation={Object {}}
+                    component=""
+                    componentProps={Object {}}
+                    key="dialog"
+                    onAppear={[Function]}
+                    onEnd={[Function]}
+                    onEnter={[Function]}
+                    onLeave={[Function]}
+                    showProp="visible"
+                    transitionAppear={true}
+                    transitionEnter={true}
+                    transitionLeave={true}
+                  >
+                    <AnimateChild
+                      animation={Object {}}
+                      key="dialog-element"
+                      transitionAppear={true}
+                      transitionEnter={true}
+                      transitionLeave={true}
+                    >
+                      <LazyRenderBox
+                        className="rc-dialog "
+                        key="dialog-element"
+                        onMouseDown={[Function]}
+                        role="document"
+                        style={Object {}}
+                        visible={true}
+                      >
+                        <div
+                          className="rc-dialog "
+                          onMouseDown={[Function]}
+                          role="document"
+                          style={Object {}}
+                        >
+                          <div
+                            aria-hidden="true"
+                            style={
+                              Object {
+                                "height": 0,
+                                "outline": "none",
+                                "overflow": "hidden",
+                                "width": 0,
+                              }
+                            }
+                            tabIndex={0}
+                          />
+                          <div
+                            className="rc-dialog-content"
+                          >
+                            <button
+                              aria-label="Close"
+                              className="rc-dialog-close"
+                              onClick={[Function]}
+                              type="button"
+                            >
+                              <span
+                                className="rc-dialog-close-x"
+                              />
+                            </button>
+                            <div
+                              className="rc-dialog-body"
+                            >
+                              <CallToAction
+                                buttonDataTest="installations-success-button"
+                                buttonText="Back to List"
+                                dataTest="installations-success-message"
+                                isCenter={true}
+                                onButtonClick={[MockFunction]}
+                                title="Success"
+                              >
+                                <div
+                                  className=""
+                                  data-test="installations-success-message"
+                                >
+                                  <Component
+                                    className="mb-0"
+                                    message="Success"
+                                    type="success"
+                                  >
+                                    <div
+                                      className="notification is-success mb-0"
+                                      data-test=""
+                                      role="alert"
+                                    >
+                                      Success
+                                    </div>
+                                  </Component>
+                                  <Component
+                                    flexColumn={true}
+                                    hasBackground={true}
+                                    hasPadding={true}
+                                  >
+                                    <div
+                                      className=""
+                                    >
+                                      <p>
+                                        <p
+                                          className="mb-5"
+                                        >
+                                          Peter's Properties
+                                           has been successfully installed.
+                                        </p>
+                                        <p
+                                          className="mb-5"
+                                        >
+                                          To launch, please use 
+                                          <a />
+                                        </p>
+                                        <p>
+                                          If there are any additional setup requirements, a member of 
+                                          Pete's Proptech World Ltd
+                                           will be in touch to help you through the process.
+                                        </p>
+                                      </p>
+                                      <div
+                                        className="has-text-right"
+                                      >
+                                        <Component
+                                          dataTest="installations-success-button"
+                                          onClick={[MockFunction]}
+                                          type="button"
+                                          variant="primary"
+                                        >
+                                          <button
+                                            className="button  is-primary  "
+                                            data-test="installations-success-button"
+                                            disabled={false}
+                                            onClick={[MockFunction]}
+                                            type="button"
+                                          >
+                                            Back to List
+                                          </button>
+                                        </Component>
+                                      </div>
+                                    </div>
+                                  </Component>
+                                </div>
+                              </CallToAction>
+                            </div>
+                          </div>
+                          <div
+                            aria-hidden="true"
+                            style={
+                              Object {
+                                "height": 0,
+                                "outline": "none",
+                                "overflow": "hidden",
+                                "width": 0,
+                              }
+                            }
+                            tabIndex={0}
+                          />
+                        </div>
+                      </LazyRenderBox>
+                    </AnimateChild>
+                  </Animate>
+                </div>
+              </div>
+            </Dialog>
+          </Portal>
+        </Portal>
+      </PortalWrapper>
+    </Component>
+  </Component>
+</Component>
+`;
+
+exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
 <Component
   afterClose={[MockFunction]}
   appDetailData={
@@ -547,380 +1327,6 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                       <p>
                                         Peter's Properties
                                          has been successfully installed
-                                      </p>
-                                      <div
-                                        className="has-text-right"
-                                      >
-                                        <Component
-                                          dataTest="installations-success-button"
-                                          onClick={[MockFunction]}
-                                          type="button"
-                                          variant="primary"
-                                        >
-                                          <button
-                                            className="button  is-primary  "
-                                            data-test="installations-success-button"
-                                            disabled={false}
-                                            onClick={[MockFunction]}
-                                            type="button"
-                                          >
-                                            Back to List
-                                          </button>
-                                        </Component>
-                                      </div>
-                                    </div>
-                                  </Component>
-                                </div>
-                              </CallToAction>
-                            </div>
-                          </div>
-                          <div
-                            aria-hidden="true"
-                            style={
-                              Object {
-                                "height": 0,
-                                "outline": "none",
-                                "overflow": "hidden",
-                                "width": 0,
-                              }
-                            }
-                            tabIndex={0}
-                          />
-                        </div>
-                      </LazyRenderBox>
-                    </AnimateChild>
-                  </Animate>
-                </div>
-              </div>
-            </Dialog>
-          </Portal>
-        </Portal>
-      </PortalWrapper>
-    </Component>
-  </Component>
-</Component>
-`;
-
-exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 2`] = `
-<Component
-  afterClose={[MockFunction]}
-  appDetailData={
-    Object {
-      "description": "enim facilisis",
-      "developer": "Pete's Proptech World Ltd",
-      "homePage": "http://myawesomeproptechproduct.io",
-      "id": "9b6fd5f7-2c15-483d-b925-01b650538e52",
-      "media": Array [
-        Object {
-          "description": "Application Icon",
-          "type": "icon",
-          "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg",
-        },
-        Object {
-          "description": "Application Image",
-          "type": "image",
-          "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png",
-        },
-        Object {
-          "description": "Application Image",
-          "type": "image",
-          "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png",
-        },
-      ],
-      "name": "Peter's Properties",
-      "scopes": Array [
-        Object {
-          "description": "Read data about developers",
-          "name": "Marketplace/developers.read",
-        },
-        Object {
-          "description": "Write data about developers",
-          "name": "Marketplace/developers.write",
-        },
-      ],
-      "summary": "vitae elementum curabitur vitae",
-      "supportEmail": "support@reapit.com",
-      "telephone": "0113 288 2900",
-    }
-  }
-  onSuccessAlertButtonClick={[MockFunction]}
-  visible={true}
->
-  <Component
-    isCentered={true}
-    isPadding={false}
-    onClose={[MockFunction]}
-    visible={true}
-  >
-    <Component
-      className=""
-      destroyOnClose={true}
-      onClose={[MockFunction]}
-      visible={true}
-      wrapClassName=""
-    >
-      <PortalWrapper
-        visible={true}
-      >
-        <Portal
-          getContainer={[Function]}
-        >
-          <Portal
-            containerInfo={
-              <div>
-                <div
-                  class="rc-dialog-root"
-                >
-                  <div
-                    class="rc-dialog-mask"
-                  />
-                  <div
-                    class="rc-dialog-wrap "
-                    role="dialog"
-                    tabindex="-1"
-                  >
-                    <div
-                      class="rc-dialog "
-                      role="document"
-                    >
-                      <div
-                        aria-hidden="true"
-                        style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-                        tabindex="0"
-                      />
-                      <div
-                        class="rc-dialog-content"
-                      >
-                        <button
-                          aria-label="Close"
-                          class="rc-dialog-close"
-                          type="button"
-                        >
-                          <span
-                            class="rc-dialog-close-x"
-                          />
-                        </button>
-                        <div
-                          class="rc-dialog-body"
-                        >
-                          <div
-                            class=""
-                            data-test="installations-success-message"
-                          >
-                            <div
-                              class="notification is-success mb-0"
-                              data-test=""
-                              role="alert"
-                            >
-                              Success
-                            </div>
-                            <div
-                              class=""
-                            >
-                              <p>
-                                <p
-                                  class="mb-2"
-                                >
-                                  Peter's Properties
-                                   has been successfully installed.
-                                </p>
-                                <p
-                                  class="mb-2"
-                                >
-                                  To launch, please use 
-                                  <a />
-                                </p>
-                                <p>
-                                  If there are any additional setup requirements, a member of 
-                                  Pete's Proptech World Ltd
-                                   will be in touch to help you through the process.
-                                </p>
-                              </p>
-                              <div
-                                class="has-text-right"
-                              >
-                                <button
-                                  class="button  is-primary  "
-                                  data-test="installations-success-button"
-                                  type="button"
-                                >
-                                  Back to List
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        aria-hidden="true"
-                        style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-                        tabindex="0"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            }
-          >
-            <Dialog
-              className=""
-              closable={true}
-              destroyOnClose={true}
-              focusTriggerAfterClose={true}
-              getContainer={[Function]}
-              getOpenCount={[Function]}
-              keyboard={true}
-              mask={true}
-              maskClosable={true}
-              onClose={[MockFunction]}
-              prefixCls="rc-dialog"
-              switchScrollingEffect={[Function]}
-              visible={true}
-              wrapClassName=""
-            >
-              <div
-                className="rc-dialog-root"
-              >
-                <LazyRenderBox
-                  className="rc-dialog-mask"
-                  hiddenClassName="rc-dialog-mask-hidden"
-                  key="mask"
-                  style={Object {}}
-                  visible={true}
-                >
-                  <div
-                    className="rc-dialog-mask"
-                    style={Object {}}
-                  />
-                </LazyRenderBox>
-                <div
-                  aria-labelledby={null}
-                  className="rc-dialog-wrap "
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onMouseUp={[Function]}
-                  role="dialog"
-                  style={
-                    Object {
-                      "display": null,
-                    }
-                  }
-                  tabIndex={-1}
-                >
-                  <Animate
-                    animation={Object {}}
-                    component=""
-                    componentProps={Object {}}
-                    key="dialog"
-                    onAppear={[Function]}
-                    onEnd={[Function]}
-                    onEnter={[Function]}
-                    onLeave={[Function]}
-                    showProp="visible"
-                    transitionAppear={true}
-                    transitionEnter={true}
-                    transitionLeave={true}
-                  >
-                    <AnimateChild
-                      animation={Object {}}
-                      key="dialog-element"
-                      transitionAppear={true}
-                      transitionEnter={true}
-                      transitionLeave={true}
-                    >
-                      <LazyRenderBox
-                        className="rc-dialog "
-                        key="dialog-element"
-                        onMouseDown={[Function]}
-                        role="document"
-                        style={Object {}}
-                        visible={true}
-                      >
-                        <div
-                          className="rc-dialog "
-                          onMouseDown={[Function]}
-                          role="document"
-                          style={Object {}}
-                        >
-                          <div
-                            aria-hidden="true"
-                            style={
-                              Object {
-                                "height": 0,
-                                "outline": "none",
-                                "overflow": "hidden",
-                                "width": 0,
-                              }
-                            }
-                            tabIndex={0}
-                          />
-                          <div
-                            className="rc-dialog-content"
-                          >
-                            <button
-                              aria-label="Close"
-                              className="rc-dialog-close"
-                              onClick={[Function]}
-                              type="button"
-                            >
-                              <span
-                                className="rc-dialog-close-x"
-                              />
-                            </button>
-                            <div
-                              className="rc-dialog-body"
-                            >
-                              <CallToAction
-                                buttonDataTest="installations-success-button"
-                                buttonText="Back to List"
-                                dataTest="installations-success-message"
-                                isCenter={true}
-                                onButtonClick={[MockFunction]}
-                                title="Success"
-                              >
-                                <div
-                                  className=""
-                                  data-test="installations-success-message"
-                                >
-                                  <Component
-                                    className="mb-0"
-                                    message="Success"
-                                    type="success"
-                                  >
-                                    <div
-                                      className="notification is-success mb-0"
-                                      data-test=""
-                                      role="alert"
-                                    >
-                                      Success
-                                    </div>
-                                  </Component>
-                                  <Component
-                                    flexColumn={true}
-                                    hasBackground={true}
-                                    hasPadding={true}
-                                  >
-                                    <div
-                                      className=""
-                                    >
-                                      <p>
-                                        <p
-                                          className="mb-2"
-                                        >
-                                          Peter's Properties
-                                           has been successfully installed.
-                                        </p>
-                                        <p
-                                          className="mb-2"
-                                        >
-                                          To launch, please use 
-                                          <a />
-                                        </p>
-                                        <p>
-                                          If there are any additional setup requirements, a member of 
-                                          Pete's Proptech World Ltd
-                                           will be in touch to help you through the process.
-                                        </p>
                                       </p>
                                       <div
                                         className="has-text-right"
