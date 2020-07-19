@@ -12,19 +12,32 @@ import AppInstallConfirmation, {
   handleSuccessAlertMessageAfterClose,
   InstallDirectApiAppSucesfullyModal,
   InstallAppSucesfullyModalParams,
+  InstallNonDirectApiAppSucesfullyModal,
 } from '../app-install-confirmation'
 import { appInstallationsRequestInstall } from '@/actions/app-installations'
 import { clientFetchAppDetail } from '@/actions/client'
 import routes from '@/constants/routes'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
-// TODO: WIP InstallDirectApiAppSucesfullyModal - snapshoots
 
 const mockProps: AppInstallConfirmationProps = {
   appDetailData: appDetailDataStub.data,
   visible: true,
   closeInstallConfirmationModal: jest.fn(),
 }
+
+describe('InstallNonDirectApiAppSucesfullyModal', () => {
+  it(' should match a snapshot', () => {
+    const props: InstallAppSucesfullyModalParams = {
+      visible: true,
+      onSuccessAlertButtonClick: jest.fn(),
+      afterClose: jest.fn(),
+      appDetailData: appDetailDataStub.data,
+    }
+
+    expect(mount(<InstallNonDirectApiAppSucesfullyModal {...props} />)).toMatchSnapshot()
+  })
+})
 
 describe('InstallDirectApiAppSucesfullyModal', () => {
   it(' should match a snapshot', () => {
@@ -52,8 +65,6 @@ describe('ClientAppInstallConfirmation', () => {
     /* mocking useDispatch on our mock store  */
     spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
   })
-
-  // describe
 
   it('should match a snapshot', () => {
     expect(

@@ -79,8 +79,28 @@ export const handleSuccessAlertMessageAfterClose = (
 export type InstallAppSucesfullyModalParams = Pick<ModalPropsV2, 'afterClose' | 'visible'> &
   Pick<AppInstallConfirmationProps, 'appDetailData'> & { onSuccessAlertButtonClick: () => void }
 
-// TODO: clone bellow
-// replcae children
+export const InstallNonDirectApiAppSucesfullyModal = ({
+  afterClose,
+  appDetailData,
+  onSuccessAlertButtonClick,
+  visible,
+}: InstallAppSucesfullyModalParams) => {
+  const { name } = appDetailData || {}
+  return (
+    <ModalV2 isCentered isPadding={false} visible={Boolean(visible)} onClose={afterClose}>
+      <CallToAction
+        title="Success"
+        buttonText="Back to List"
+        dataTest="installations-success-message"
+        buttonDataTest="installations-success-button"
+        onButtonClick={onSuccessAlertButtonClick}
+        isCenter
+      >
+        {name} has been successfully installed
+      </CallToAction>
+    </ModalV2>
+  )
+}
 
 export const InstallDirectApiAppSucesfullyModal = ({
   afterClose,
@@ -131,16 +151,11 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
   const dispatch = useDispatch()
   const onSuccessAlertButtonClick = React.useCallback(handleSuccessAlertButtonClick(history), [history])
 
-  {
-    /* TODO: declare isSuccess && isDirectApi - shouldRenderDirectApiAppInstallSuccessfullyModal */
-  }
   const isDirectApi = appDetailData?.isDirectApi
   const shouldRenderDirectApiAppInstallSuccessfullyModal = isSuccessAlertVisible && isDirectApi
-  {
-    /* TODO: declare isSuccess && !isDirectApi - shouldRenderNonDirectApiAppInstallSuccessfullyModal */
-  }
   const shouldRenderInstallNonDirectApiAppSuccessfullyModal = isSuccessAlertVisible && !isDirectApi
 
+  // TODO: WIP: update AppInstallConfirmation to use Modal V2
   return (
     <>
       <Modal
@@ -195,7 +210,6 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
           )}
         </>
       </Modal>
-      {/* TODO: WIP replace modal with modal v2 */}
       <InstallDirectApiAppSucesfullyModal
         visible={shouldRenderDirectApiAppInstallSuccessfullyModal}
         afterClose={handleSuccessAlertMessageAfterClose(id, clientId, setIsSuccessAlertVisible, dispatch)}
@@ -203,27 +217,12 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
         onSuccessAlertButtonClick={onSuccessAlertButtonClick}
       />
 
-      {/* TODO: add other if clause to render isSuccess && !isDirectApi - shouldRenderNonDirectApiAppInstallSuccessfullyModal */}
-      {/* TODO: Remove check when render modal */}
-      {/* TODO: WIP Extract model */}
-      {/* {isSuccessAlertVisible && (
-        <Modal
-          visible={isSuccessAlertVisible}
-          afterClose={handleSuccessAlertMessageAfterClose(id, clientId, setIsSuccessAlertVisible, dispatch)}
-          HeaderComponent={() => (
-            <CallToAction
-              title="Success"
-              buttonText="Back to List"
-              dataTest="installations-success-message"
-              buttonDataTest="installations-success-button"
-              onButtonClick={onSuccessAlertButtonClick}
-              isCenter
-            >
-              {name} has been successfully installed
-            </CallToAction>
-          )}
-        />
-      )} */}
+      <InstallNonDirectApiAppSucesfullyModal
+        visible={shouldRenderInstallNonDirectApiAppSuccessfullyModal}
+        afterClose={handleSuccessAlertMessageAfterClose(id, clientId, setIsSuccessAlertVisible, dispatch)}
+        appDetailData={appDetailData}
+        onSuccessAlertButtonClick={onSuccessAlertButtonClick}
+      />
     </>
   )
 }
