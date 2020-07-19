@@ -32,3 +32,9 @@ export const modalResponsiveContainer = css`
     width: 1344px;
   }
 `
+
+export const modalNoPadding = css`
+  .rc-dialog-body {
+    padding: 0;
+  }
+`

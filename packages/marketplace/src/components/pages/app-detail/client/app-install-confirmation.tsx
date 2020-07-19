@@ -4,7 +4,7 @@ import { History } from 'history'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
-import { Button, Modal, GridFourCol, GridFourColItem, Content } from '@reapit/elements'
+import { Button, Modal, ModalV2, GridFourCol, GridFourColItem, Content, ModalPropsV2 } from '@reapit/elements'
 import { appInstallationsRequestInstall } from '@/actions/app-installations'
 import { clientFetchAppDetail } from '@/actions/client'
 import { Dispatch } from 'redux'
@@ -76,6 +76,44 @@ export const handleSuccessAlertMessageAfterClose = (
   }
 }
 
+export type InstallAppSucesfullyModalParams = Pick<ModalPropsV2, 'afterClose' | 'visible'> &
+  Pick<AppInstallConfirmationProps, 'appDetailData'> & { onSuccessAlertButtonClick: () => void }
+
+// TODO: clone bellow
+// replcae children
+
+export const InstallDirectApiAppSucesfullyModal = ({
+  afterClose,
+  appDetailData,
+  onSuccessAlertButtonClick,
+  visible,
+}: InstallAppSucesfullyModalParams) => {
+  const { name, launchUri, developer } = appDetailData || {}
+  return (
+    <ModalV2 isCentered isPadding={false} visible={Boolean(visible)} onClose={afterClose}>
+      <CallToAction
+        title="Success"
+        buttonText="Back to List"
+        dataTest="installations-success-message"
+        buttonDataTest="installations-success-button"
+        onButtonClick={onSuccessAlertButtonClick}
+        isCenter
+      >
+        <p className="mb-2">{name} has been successfully installed.</p>
+
+        <p className="mb-2">
+          To launch, please use <a href={launchUri}>{launchUri}</a>
+        </p>
+
+        <p>
+          If there are any additional setup requirements, a member of {developer} will be in touch to help you through
+          the process.
+        </p>
+      </CallToAction>
+    </ModalV2>
+  )
+}
+
 const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
   appDetailData,
   visible,
@@ -92,6 +130,16 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
 
   const dispatch = useDispatch()
   const onSuccessAlertButtonClick = React.useCallback(handleSuccessAlertButtonClick(history), [history])
+
+  {
+    /* TODO: declare isSuccess && isDirectApi - shouldRenderDirectApiAppInstallSuccessfullyModal */
+  }
+  const isDirectApi = appDetailData?.isDirectApi
+  const shouldRenderDirectApiAppInstallSuccessfullyModal = isSuccessAlertVisible && isDirectApi
+  {
+    /* TODO: declare isSuccess && !isDirectApi - shouldRenderNonDirectApiAppInstallSuccessfullyModal */
+  }
+  const shouldRenderInstallNonDirectApiAppSuccessfullyModal = isSuccessAlertVisible && !isDirectApi
 
   return (
     <>
@@ -147,7 +195,18 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
           )}
         </>
       </Modal>
-      {isSuccessAlertVisible && (
+      {/* TODO: WIP replace modal with modal v2 */}
+      <InstallDirectApiAppSucesfullyModal
+        visible={shouldRenderDirectApiAppInstallSuccessfullyModal}
+        afterClose={handleSuccessAlertMessageAfterClose(id, clientId, setIsSuccessAlertVisible, dispatch)}
+        appDetailData={appDetailData}
+        onSuccessAlertButtonClick={onSuccessAlertButtonClick}
+      />
+
+      {/* TODO: add other if clause to render isSuccess && !isDirectApi - shouldRenderNonDirectApiAppInstallSuccessfullyModal */}
+      {/* TODO: Remove check when render modal */}
+      {/* TODO: WIP Extract model */}
+      {/* {isSuccessAlertVisible && (
         <Modal
           visible={isSuccessAlertVisible}
           afterClose={handleSuccessAlertMessageAfterClose(id, clientId, setIsSuccessAlertVisible, dispatch)}
@@ -164,7 +223,7 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
             </CallToAction>
           )}
         />
-      )}
+      )} */}
     </>
   )
 }

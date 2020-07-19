@@ -168,6 +168,31 @@ exports[`AppDetail should match a snapshot 1`] = `
                 title="Confirm undefined installation"
                 visible={false}
               />
+              <Component
+                afterClose={[Function]}
+                appDetailData={Object {}}
+                onSuccessAlertButtonClick={[Function]}
+                visible={false}
+              >
+                <Component
+                  isCentered={true}
+                  isPadding={false}
+                  onClose={[Function]}
+                  visible={false}
+                >
+                  <Component
+                    className=""
+                    destroyOnClose={true}
+                    onClose={[Function]}
+                    visible={false}
+                    wrapClassName=""
+                  >
+                    <PortalWrapper
+                      visible={false}
+                    />
+                  </Component>
+                </Component>
+              </Component>
             </AppInstallConfirmation>
           </div>
         </Component>
@@ -323,6 +348,31 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                 title="Confirm undefined installation"
                 visible={false}
               />
+              <Component
+                afterClose={[Function]}
+                appDetailData={Object {}}
+                onSuccessAlertButtonClick={[Function]}
+                visible={false}
+              >
+                <Component
+                  isCentered={true}
+                  isPadding={false}
+                  onClose={[Function]}
+                  visible={false}
+                >
+                  <Component
+                    className=""
+                    destroyOnClose={true}
+                    onClose={[Function]}
+                    visible={false}
+                    wrapClassName=""
+                  >
+                    <PortalWrapper
+                      visible={false}
+                    />
+                  </Component>
+                </Component>
+              </Component>
             </AppInstallConfirmation>
           </div>
         </Component>
@@ -478,6 +528,31 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                 title="Confirm undefined installation"
                 visible={false}
               />
+              <Component
+                afterClose={[Function]}
+                appDetailData={Object {}}
+                onSuccessAlertButtonClick={[Function]}
+                visible={false}
+              >
+                <Component
+                  isCentered={true}
+                  isPadding={false}
+                  onClose={[Function]}
+                  visible={false}
+                >
+                  <Component
+                    className=""
+                    destroyOnClose={true}
+                    onClose={[Function]}
+                    visible={false}
+                    wrapClassName=""
+                  >
+                    <PortalWrapper
+                      visible={false}
+                    />
+                  </Component>
+                </Component>
+              </Component>
             </AppInstallConfirmation>
           </div>
         </Component>
