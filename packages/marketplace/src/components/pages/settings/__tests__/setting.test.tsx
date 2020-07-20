@@ -24,6 +24,30 @@ describe('Settings', () => {
     ).toMatchSnapshot()
   })
 
+  it('should match snapshot in desktop mode', () => {
+    const mockStore = configureStore()
+    const store = mockStore({
+      ...appState,
+      auth: {
+        ...appState.auth,
+        refreshSession: {
+          ...appState.auth.refreshSession,
+          mode: 'DESKTOP',
+        },
+      },
+    })
+
+    expect(
+      mount(
+        <Provider store={store}>
+          <MemoryRouter initialEntries={[{ pathname: Routes.SETTINGS, key: 'clientSettingsRoute' }]}>
+            <Settings />
+          </MemoryRouter>
+        </Provider>,
+      ),
+    ).toMatchSnapshot()
+  })
+
   it('should handleLogout run correctly', () => {
     const dispatch = jest.fn()
     const fn = handleLogout(dispatch)
