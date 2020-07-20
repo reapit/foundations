@@ -8,7 +8,7 @@ import { selectDeveloperId } from '@/selector'
 import { Button, DATE_TIME_FORMAT, Section } from '@reapit/elements'
 import ConfirmUninstall from './app-uninstall-modal/confirm-uninstall'
 import { handleUninstall, handleAfterClose } from './app-uninstall-modal/app-uninstall-modal'
-import { PagedResultInstallationModel_, InstallationModel } from '@reapit/foundations-ts-definitions'
+import { PagedResultInstallationModel_, InstallationModel, AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectInstallationAppData } from '@/selector/installations'
 import { Modal } from '@reapit/elements'
@@ -54,8 +54,9 @@ export const handleUninstallSuccess = ({
   )
 }
 
-export const handleOpenAppPreview = (appId: string) => () => {
+export const handleOpenAppPreview = (appId: string, appDetailState: AppDetailModel) => () => {
   const url = routes.APP_PREVIEW.replace(':appId', appId)
+  localStorage.setItem('developer-preview-app', JSON.stringify(appDetailState))
   window.open(url, '_blank')
 }
 
@@ -130,7 +131,7 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailState }) => {
         </Modal>
       )}
       <SummarySection summary={summary} />
-      <ListingPreviewSection onClick={handleOpenAppPreview(id)} />
+      <ListingPreviewSection onClick={handleOpenAppPreview(id, appDetailData)} />
       <AuthenticationSection id={id} authFlow={authFlow} externalId={externalId} />
       <PermissionsSection permissions={scopes} />
       <InstallationsTableSection columns={installationTableColumns} data={data} />
