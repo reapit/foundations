@@ -17,7 +17,10 @@ const hasReapitAccountsRefRadioOptions = [
 
 const ReapitReferenceSection: React.FC<ReapitReferenceSectionProps> = ({ setFieldValue, values }) => {
   const { hasReapitAccountsRef } = values
-  const hasReapitAccountsRefFieldDisabled = hasReapitAccountsRef === 'no'
+
+  const pending = values?.status === 'pending'
+  const hasReapitAccountsRefFieldDisabled = hasReapitAccountsRef === 'no' || pending
+
   return (
     <>
       <FormHeading>{hasReapitAccountsRefField.heading}</FormHeading>
@@ -30,6 +33,7 @@ const ReapitReferenceSection: React.FC<ReapitReferenceSectionProps> = ({ setFiel
         options={hasReapitAccountsRefRadioOptions}
         name={hasReapitAccountsRefField.name}
         id={hasReapitAccountsRefField.name}
+        disabled={pending}
       />
       <Input
         dataTest="reapitAccountsRef"
