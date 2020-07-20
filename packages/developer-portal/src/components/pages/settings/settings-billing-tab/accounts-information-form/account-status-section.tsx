@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { GridItem, Input, Content } from '@reapit/elements'
 import formFields from './form-schema/form-fields'
+import { statusText } from './__styles__/account-status-section'
 
 const { statusField } = formFields
 
@@ -42,7 +43,7 @@ const AccountStatusSection: React.FC<AccountStatusSectionProps> = ({
       {/* hidden input to store "initialStatus" field */}
       <Input type="hidden" id={statusField.name} name={statusField.name} />
 
-      <Content>
+      <Content className={statusText}>
         {status === 'pending' && (
           <p className="mb-1">We are currently verifying your information with our Accounts Department</p>
         )}
