@@ -1,6 +1,6 @@
 import React from 'react'
-import { Bar, ChartData } from 'react-chartjs-2'
-import { H5, DATE_TIME_FORMAT, Loader, Section } from '@reapit/elements'
+import ChartComponent, { Bar, ChartData, ChartComponentProps } from 'react-chartjs-2'
+import { H5, DATE_TIME_FORMAT, Loader, Section, Grid, GridItem } from '@reapit/elements'
 import { AppSummaryModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
 import styles from '@/styles/pages/developer-analytics.scss?mod'
 import { useDispatch, useSelector } from 'react-redux'
@@ -17,6 +17,14 @@ const APP_LISTING_INDEX = 1
 const DEVELOPER_EDITTION_INDEX = 2
 const REAPIT_CONNECT_INDEX = 3
 const DEVELOPER_REGISTRATION_INDEX = 4
+
+type ChartLegendItem = {
+  text: string
+  fillStyle: string
+  strokeStyle: string
+  datasetIndex: number
+  hidden: boolean
+}
 
 export const datasets = [
   {
@@ -132,9 +140,9 @@ export const handleUseEffect = ({ developerId, dateFrom, dateTo, dispatch }: Han
 }
 
 export const renderChart = (isLoading: boolean, datasets: ChartData<any>, chartRef: any) => {
-  if (isLoading) {
-    return <Loader />
-  }
+  // if (isLoading) {
+  //   return <Loader />
+  // }
   return (
     <Bar
       ref={chartRef}
@@ -142,9 +150,8 @@ export const renderChart = (isLoading: boolean, datasets: ChartData<any>, chartR
       width={50}
       height={50}
       options={{
-        legendCallback: chart => {
-          console.log('renderChart -> chart', chart)
-          return <h1>Legend here</h1>
+        legend: {
+          display: false,
         },
         maintainAspectRatio: false,
         scales: {
@@ -163,8 +170,8 @@ export const renderChart = (isLoading: boolean, datasets: ChartData<any>, chartR
 }
 
 export const ServiceChart: React.FC = () => {
-  const chartRef = React.useRef(null)
-  console.log('ServiceChart:React.FC -> chartRef', JSON.stringify(chartRef))
+  const chartRef = React.useRef<ChartComponent<any>>(null)
+  const [chartLegendItems, setChartLegendItems] = React.useState<ChartLegendItem[]>()
   const dispatch = useDispatch()
   const myIdentity = useSelector(selectMyIdentity)
   const billing = useSelector(selectBilling)
@@ -175,14 +182,63 @@ export const ServiceChart: React.FC = () => {
   const dateFrom = dayjs(myIdentity.created).format(DATE_TIME_FORMAT.YYYY_MM) as string
   const dateTo = dayjs().format(DATE_TIME_FORMAT.YYYY_MM)
   React.useEffect(handleUseEffect({ developerId, dateFrom, dateTo, dispatch }), [myIdentity.id, developerId])
+  React.useEffect(() => {
+    const chartComponent = chartRef.current
+    if (chartComponent) {
+      const {
+        chartInstance: {
+          legend: { legendItems },
+        },
+      } = chartComponent
+      console.log('ServiceChart:React.FC -> legendItems', legendItems)
+      setChartLegendItems(legendItems)
+    }
+  }, [chartRef.current])
   const datasets = mapServiceChartDataSet(billing)
   const isLoading = loading || isServiceChartLoading
-  if (chartRef.current) {
-    chartRef.current?.chartInstance.generateLegend()
-  }
   return (
     <Section hasMargin={false}>
       <H5>Services</H5>
+      <Grid isMultiLine>
+        {chartLegendItems &&
+          chartLegendItems.map(legendItem => {
+            const { text, fillStyle, strokeStyle, datasetIndex, hidden } = legendItem
+            return (
+              <div
+                key={datasetIndex}
+                onClick={() => {
+                  var index = legendItem.datasetIndex
+                  var meta = chartRef.current?.chartInstance.getDatasetMeta(index)
+
+                  // See controller.isDatasetVisible comment
+                  meta.hidden =
+                    meta.hidden === null ? !chartRef.current?.chartInstance.data.datasets[index].hidden : null
+
+                  // We hid a dataset ... rerender the chart
+                  chartRef.current?.chartInstance.update()
+                }}
+              >
+                <GridItem className="is-half">
+                  <Grid>
+                    <GridItem className="is-one-quarter">
+                      <div
+                        style={{
+                          width: 30,
+                          height: 10,
+                          backgroundColor: fillStyle,
+                          border: `1px solid ${strokeStyle}`,
+                        }}
+                      ></div>
+                    </GridItem>
+                    <GridItem>
+                      <p style={{ fontSize: 12, textDecoration: hidden ? 'line-through' : '' }}>{text}</p>
+                    </GridItem>
+                  </Grid>
+                </GridItem>
+              </div>
+            )
+          })}
+      </Grid>
       <div className={styles.barChartContainer}>{renderChart(isLoading, datasets, chartRef)}</div>
     </Section>
   )
