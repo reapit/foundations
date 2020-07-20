@@ -7,14 +7,7 @@ exports[`AccountStatusSection should match snapshot 1`] = `
     name="status"
     type="hidden"
   />
-  <Component
-    className="form-subheading"
-  >
-    <p
-      className="mb-1"
-    >
-      We are currently verifying your information with our Accounts Department
-    </p>
+  <Component>
     <b>
       ACCOUNT STATUS:
     </b>
@@ -43,14 +36,7 @@ exports[`AccountStatusSection should match snapshot with hasReapitAccountsRef is
     name="status"
     type="hidden"
   />
-  <Component
-    className="form-subheading"
-  >
-    <p
-      className="mb-1"
-    >
-      We are currently verifying your information with our Accounts Department
-    </p>
+  <Component>
     <b>
       ACCOUNT STATUS:
     </b>
