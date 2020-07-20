@@ -25,7 +25,7 @@ export const columns = [
   },
   {
     Header: 'Status',
-    id: 'status',
+    accessor: 'status',
   },
   {
     accessor: 'action',

@@ -224,7 +224,7 @@ const appState: ReduxState = {
   developers: {
     members: {
       loading: false,
-      data: {
+      pagedResult: {
         data: [],
       },
     },
