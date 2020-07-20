@@ -198,20 +198,23 @@ export class ReapitConnectBrowserSession {
 
   // Handles redirect to authorization endpoint - in most cases, I don't need to call in my app
   // but made public if I want to override the redirect URI I specified in the constructor
-  public connectAuthorizeRedirect(redirectUri: string = this.connectLoginRedirectPath): void {
-    window.location.href = `${this.connectOAuthUrl}/authorize?response_type=code&client_id=${this.connectClientId}&redirect_uri=${redirectUri}`
+  public connectAuthorizeRedirect(redirectUri?: string): void {
+    const authRedirectUri = redirectUri || this.connectLoginRedirectPath
+    window.location.href = `${this.connectOAuthUrl}/authorize?response_type=code&client_id=${this.connectClientId}&redirect_uri=${authRedirectUri}`
   }
 
   // Handles redirect to login - defaults to constructor redirect uri but I can override if I like.
   // Used as handler for login page button
-  public connectLoginRedirect(redirectUri: string = this.connectLoginRedirectPath): void {
-    window.location.href = `${this.connectOAuthUrl}/login?response_type=code&client_id=${this.connectClientId}&redirect_uri=${redirectUri}`
+  public connectLoginRedirect(redirectUri?: string): void {
+    const loginRedirectUri = redirectUri || this.connectLoginRedirectPath
+    window.location.href = `${this.connectOAuthUrl}/login?response_type=code&client_id=${this.connectClientId}&redirect_uri=${loginRedirectUri}`
   }
 
   // Handles redirect to logout - defaults to constructor login uri but I can override if I like.
   // Used as handler for logout menu button
-  public connectLogoutRedirect(redirectUri: string = this.connectLogoutRedirectPath): void {
-    window.location.href = `${this.connectOAuthUrl}/logout?client_id=${this.connectClientId}&logout_uri=${redirectUri}`
+  public connectLogoutRedirect(redirectUri?: string): void {
+    const logoutRedirectUri = redirectUri || this.connectLogoutRedirectPath
+    window.location.href = `${this.connectOAuthUrl}/logout?client_id=${this.connectClientId}&logout_uri=${logoutRedirectUri}`
   }
 
   // The main method for fetching a session in an app.

@@ -60,8 +60,8 @@ export interface CoginitoAccess {
 
 export type ReapitConnectHook = {
   connectSession: ReapitConnectSession | null
-  connectAuthorizeRedirect: (redirectUri: string) => void
-  connectLoginRedirect: (redirectUri: string) => void
-  connectLogoutRedirect: (redirectUri: string) => void
+  connectAuthorizeRedirect: (redirectUri?: string) => void
+  connectLoginRedirect: (redirectUri?: string) => void
+  connectLogoutRedirect: (redirectUri?: string) => void
   connectIsDesktop: boolean
 }

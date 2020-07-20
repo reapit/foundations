@@ -5,6 +5,8 @@ import logoImage from '@/assets/images/reapit-graphic.jpg'
 import connectImage from '@/assets/images/reapit-connect.png'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 
+const handleLogin = () => reapitConnectBrowserSession.connectLoginRedirect()
+
 export const Login: React.FC = () => {
   const { wrapper, container, image } = loginStyles
 
@@ -15,14 +17,7 @@ export const Login: React.FC = () => {
           <img src={connectImage} alt="Reapit Connect Graphic" />
         </Level>
         <Level>
-          <Button
-            type="button"
-            onClick={reapitConnectBrowserSession.connectLoginRedirect}
-            loading={false}
-            variant="primary"
-            disabled={false}
-            fullWidth
-          >
+          <Button type="button" onClick={handleLogin} loading={false} variant="primary" disabled={false} fullWidth>
             Login
           </Button>
         </Level>

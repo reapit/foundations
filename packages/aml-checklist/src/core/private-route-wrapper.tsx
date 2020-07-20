@@ -11,7 +11,7 @@ export const PrivateRouteWrapper: React.FC = ({ children }) => {
   const session = useReapitConnect(reapitConnectBrowserSession)
   const hasBackground = location.pathname === Routes.RESULTS
 
-  if (!session) {
+  if (!session.connectSession) {
     return null
   }
   return (

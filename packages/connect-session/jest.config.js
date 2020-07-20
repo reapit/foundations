@@ -4,6 +4,7 @@ const baseConfig = require('../../scripts/jest/jest.config')
 
 module.exports = {
   ...baseConfig,
+  modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|public|dist)[/\\\\]'],
   moduleNameMapper: {
     ...pathsToModuleNameMapper(compilerOptions.paths, {
       prefix: '<rootDir>/',

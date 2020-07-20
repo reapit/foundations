@@ -56,7 +56,7 @@ export const generateMenuConfig = (logoutCallback: () => void, location: Locatio
 export const Menu: React.FC = () => {
   const location = useLocation()
   const { connectLogoutRedirect } = useReapitConnect(reapitConnectBrowserSession)
-  const menuConfigs = generateMenuConfig(connectLogoutRedirect as () => void, location)
+  const menuConfigs = generateMenuConfig(() => connectLogoutRedirect(), location)
   return <Sidebar {...menuConfigs} location={location} />
 }
 

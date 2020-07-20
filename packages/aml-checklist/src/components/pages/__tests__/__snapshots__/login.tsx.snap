@@ -14,7 +14,7 @@ exports[`Login should match a snapshot 1`] = `
         disabled={false}
         fullWidth={true}
         loading={false}
-        onClick={[MockFunction]}
+        onClick={[Function]}
         type="button"
         variant="primary"
       >
