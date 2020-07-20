@@ -21,7 +21,7 @@ const getSession = () =>
   })
 
 describe('ReapitConnectBrowserSession', () => {
-  it('should coreectly insantiate the class', () => {
+  it('should correctly insantiate the class', () => {
     const session = getSession()
     expect(session instanceof ReapitConnectBrowserSession).toBe(true)
     expect(session.connectAuthorizeRedirect).toBeDefined()

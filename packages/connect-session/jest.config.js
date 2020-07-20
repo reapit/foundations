@@ -10,15 +10,11 @@ module.exports = {
     }),
   },
   coveragePathIgnorePatterns: [
-    "<rootDir>[/\\\\](node_modules|src/core)[/\\\\]",
-    "<rootDir>/src/app.ts",
-    "<rootDir>/src/app.dev.ts",
+    "<rootDir>[/\\\\](node_modules|src/tests|src/__mocks__)[/\\\\]",
+    "<rootDir>/src/types.ts",
     "<rootDir>/src/index.ts",
     ".d.ts"
   ],
-  moduleNameMapper: {
-    '\\.(css|less|scss|sass)$': '<rootDir>/src/scripts/style-mock.js'
-  },
   coverageThreshold: {
     global: {
       branches: 70,
