@@ -138,6 +138,62 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 1
   </Component>
   <Component
     className="is-mobile"
+    key="0"
+  >
+    <Component
+      className="is-one-third-desktop is-5-mobile horizontal"
+    >
+      <Component
+        className="is-vcentered is-mobile"
+      >
+        <Component
+          className="is-narrow px-0"
+        >
+          <FaMale />
+        </Component>
+        <Component>
+          <Component>
+            :
+          </Component>
+        </Component>
+      </Component>
+    </Component>
+    <Component
+      className="text-ellipsis"
+    >
+      <div
+        className="mb-2"
+      >
+        <Component
+          dynamicLinkParams={
+            Object {
+              "appMode": "WEB",
+              "entityCode": undefined,
+              "entityType": "contacts",
+            }
+          }
+        />
+      </div>
+      <Component
+        items={
+          Array [
+            Object {
+              "icon": <TiDevicePhone
+                className="icon-list-icon"
+              />,
+              "text": <a
+                href="tel:0123456789"
+              >
+                0123456789
+              </a>,
+            },
+          ]
+        }
+      />
+    </Component>
+  </Component>
+  <Component
+    className="is-mobile"
   >
     <Component
       className="is-one-third-desktop is-5-mobile horizontal"
@@ -493,6 +549,62 @@ exports[`appointment-detail-modal AppointmentDetailModal should match snapshot 2
           Stoke Mandeville
         </Component>
       </div>
+    </Component>
+  </Component>
+  <Component
+    className="is-mobile"
+    key="0"
+  >
+    <Component
+      className="is-one-third-desktop is-5-mobile horizontal"
+    >
+      <Component
+        className="is-vcentered is-mobile"
+      >
+        <Component
+          className="is-narrow px-0"
+        >
+          <FaMale />
+        </Component>
+        <Component>
+          <Component>
+            :
+          </Component>
+        </Component>
+      </Component>
+    </Component>
+    <Component
+      className="text-ellipsis"
+    >
+      <div
+        className="mb-2"
+      >
+        <Component
+          dynamicLinkParams={
+            Object {
+              "appMode": "WEB",
+              "entityCode": undefined,
+              "entityType": "contacts",
+            }
+          }
+        />
+      </div>
+      <Component
+        items={
+          Array [
+            Object {
+              "icon": <TiDevicePhone
+                className="icon-list-icon"
+              />,
+              "text": <a
+                href="tel:0123456789"
+              >
+                0123456789
+              </a>,
+            },
+          ]
+        }
+      />
     </Component>
   </Component>
   <Component
