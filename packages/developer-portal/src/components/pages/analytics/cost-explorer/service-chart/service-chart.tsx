@@ -131,16 +131,21 @@ export const handleUseEffect = ({ developerId, dateFrom, dateTo, dispatch }: Han
   dispatch(fetchBilling({ developerId, dateFrom: dateFrom, dateTo: dateTo }))
 }
 
-export const renderChart = (isLoading: boolean, datasets: ChartData<any>) => {
+export const renderChart = (isLoading: boolean, datasets: ChartData<any>, chartRef: any) => {
   if (isLoading) {
     return <Loader />
   }
   return (
     <Bar
+      ref={chartRef}
       data={datasets}
       width={50}
       height={50}
       options={{
+        legendCallback: chart => {
+          console.log('renderChart -> chart', chart)
+          return <h1>Legend here</h1>
+        },
         maintainAspectRatio: false,
         scales: {
           yAxes: [
@@ -158,6 +163,8 @@ export const renderChart = (isLoading: boolean, datasets: ChartData<any>) => {
 }
 
 export const ServiceChart: React.FC = () => {
+  const chartRef = React.useRef(null)
+  console.log('ServiceChart:React.FC -> chartRef', JSON.stringify(chartRef))
   const dispatch = useDispatch()
   const myIdentity = useSelector(selectMyIdentity)
   const billing = useSelector(selectBilling)
@@ -170,10 +177,13 @@ export const ServiceChart: React.FC = () => {
   React.useEffect(handleUseEffect({ developerId, dateFrom, dateTo, dispatch }), [myIdentity.id, developerId])
   const datasets = mapServiceChartDataSet(billing)
   const isLoading = loading || isServiceChartLoading
+  if (chartRef.current) {
+    chartRef.current?.chartInstance.generateLegend()
+  }
   return (
     <Section hasMargin={false}>
       <H5>Services</H5>
-      <div className={styles.barChartContainer}>{renderChart(isLoading, datasets)}</div>
+      <div className={styles.barChartContainer}>{renderChart(isLoading, datasets, chartRef)}</div>
     </Section>
   )
 }
