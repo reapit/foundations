@@ -1,0 +1,8 @@
+{
+  "appEnv": "local",
+  "sentryDns": "",
+  "platformApiUrl": "",
+  "uploadApiUrl": "",
+  "cognitoClientId": "",
+  "googleAnalyticsKey": ""
+}

@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "sourceRoot": "/",
+    "paths": {
+      "@/*": ["src/*"],
+      "@reapit/elements": ["../elements/src"]
+    }
+  },
+  "include": ["src"]
+}
