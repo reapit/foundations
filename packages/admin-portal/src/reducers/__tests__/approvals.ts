@@ -1,7 +1,7 @@
 import approvalsReducer, { defaultState } from '../approvals'
 import { ActionType } from '../../types/core'
 import ActionTypes from '../../constants/action-types'
-import { approvalsStub } from '../../sagas/__stubs__/approvals'
+import { approvalsStub } from '@/sagas/approvals/__stubs__/approvals'
 
 describe('Approvals reducer', () => {
   it('should return default state if action not matched', () => {

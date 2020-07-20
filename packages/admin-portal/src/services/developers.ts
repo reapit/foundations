@@ -1,9 +1,4 @@
-import {
-  CreateDeveloperModel,
-  UpdateDeveloperModel,
-  PagedResultDeveloperModel_,
-  DeveloperModel,
-} from '@reapit/foundations-ts-definitions'
+import { UpdateDeveloperModel, PagedResultDeveloperModel_ } from '@reapit/foundations-ts-definitions'
 import { fetcher, setQueryParams, fetcherWithBlob } from '@reapit/elements'
 import { URLS } from './constants'
 import { generateHeader } from './utils'
@@ -18,10 +13,6 @@ export type FetchDevelopersListParams = FetchListCommonParams & {
   registeredTo?: string
 }
 
-export type CreateDeveloperParams = CreateDeveloperModel
-
-export type FetchDeveloperByIdParams = FetchByIdCommonParams
-
 export type UpdateDeveloperByIdParams = FetchByIdCommonParams & UpdateDeveloperModel
 
 export type FetchDeveloperBillingPeriod = {
@@ -32,38 +23,6 @@ export const fetchDevelopersList = async (params: FetchDevelopersListParams): Pr
   try {
     const response = await fetcher({
       url: `${URLS.developers}?${setQueryParams(params)}`,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    })
-    return response
-  } catch (error) {
-    logger(error)
-    throw new Error(error)
-  }
-}
-
-export const createDeveloper = async (params: CreateDeveloperParams) => {
-  try {
-    const response = await fetcher({
-      url: `${URLS.developers}`,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'POST',
-      body: params,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    })
-    return response
-  } catch (error) {
-    logger(error)
-    throw error
-  }
-}
-
-export const fetchDeveloperById = async (params: FetchDeveloperByIdParams): Promise<DeveloperModel> => {
-  try {
-    const { id } = params
-    const response = await fetcher({
-      url: `${URLS.developers}/${id}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),

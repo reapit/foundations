@@ -9,10 +9,10 @@ import {
   getChangedMediaList,
   mapIntegrationIdArrayToNameArray,
 } from '../app-revision-comparison'
-import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
-import { revisionDetailDataStub } from '@/sagas/__stubs__/revision-detail'
-import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
-import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
+import { appDetailDataStub } from '@/sagas/apps/__stubs__/app-detail'
+import { revisionDetailDataStub } from '@/sagas/apps/__stubs__/revision-detail'
+import { appPermissionStub } from '@/sagas/apps/__stubs__/app-permission'
+import { integrationTypesStub } from '@/sagas/apps/__stubs__/integration-types'
 
 const props = (loading: boolean, error: boolean): AppRevisionComparisonProps => ({
   appDetailState: {

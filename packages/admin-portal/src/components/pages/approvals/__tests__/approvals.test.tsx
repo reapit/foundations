@@ -3,10 +3,10 @@ import { shallow, mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import * as ReactRedux from 'react-redux'
 import { MemoryRouter } from 'react-router'
-import { approvalsStub } from '@/sagas/__stubs__/approvals'
+import { approvalsStub } from '@/sagas/approvals/__stubs__/approvals'
 import Routes from '@/constants/routes'
-import { revisionDetailDataStub } from '@/sagas/__stubs__/revision-detail'
-import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
+import { appDetailDataStub } from '@/sagas/apps/__stubs__/app-detail'
+import { revisionDetailDataStub } from '@/sagas/apps/__stubs__/revision-detail'
 import appState from '@/reducers/__stubs__/app-state'
 import {
   AdminApprovals,

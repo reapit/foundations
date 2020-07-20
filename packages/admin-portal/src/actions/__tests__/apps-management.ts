@@ -1,6 +1,6 @@
 import { appsReceiveData, appsRequestData, appsRequestFailure } from '../apps-management'
 import ActionTypes from '../../constants/action-types'
-import { appsDataStub } from '../../sagas/__stubs__/apps'
+import { appsDataStub } from '@/sagas/apps/__stubs__/apps'
 
 describe('adminApps actions', () => {
   it('should create a appsReceiveData action', () => {
