@@ -10,7 +10,7 @@ import { submitAppRequestData } from '../actions/submit-app'
 import { requestDeveloperData } from '@/actions/settings'
 import { selectClientId } from '@/selector/client'
 import { DeveloperRequestParams } from '@/reducers/developer'
-import { fetchOrganisationMembers } from '@/actions/developer'
+import { fetchOrganisationMembers } from '@/actions/developers'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
   const id = params && params.appid ? params.appid : ''

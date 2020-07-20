@@ -1,6 +1,6 @@
-import { ActionType } from '../../types/core'
-import ActionTypes from '../../constants/action-types'
 import membersReducer, { defaultState } from '../members'
+import { ActionType } from '@/types/core'
+import ActionTypes from '@/constants/action-types'
 
 describe('members reducer', () => {
   it('should return default state', () => {

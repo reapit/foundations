@@ -1,7 +1,7 @@
 import { all, fork, call, put, takeLatest } from 'redux-saga/effects'
 import { Action } from '@/types/core'
 import { fetchOrganisationMembers, FetchOrganisationMembers } from '@/services/developers'
-import { fetchOrganisationMembersSuccess, fetchOrganisationMembersFailed } from '@/actions/developer'
+import { fetchOrganisationMembersSuccess, fetchOrganisationMembersFailed } from '@/actions/developers'
 import { logger } from '@reapit/utils'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'

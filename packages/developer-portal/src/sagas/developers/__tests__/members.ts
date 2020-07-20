@@ -5,7 +5,7 @@ import errorMessages from '@/constants/error-messages'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { organisationFetchMembers, organisationFetchMembersListen, organisationMembersListSagas } from '../members'
 import { FetchOrganisationMembers, fetchOrganisationMembers, PagedResultMembersModel_ } from '@/services/developers'
-import { fetchOrganisationMembersSuccess, fetchOrganisationMembersFailed } from '@/actions/developer'
+import { fetchOrganisationMembersSuccess, fetchOrganisationMembersFailed } from '@/actions/developers'
 import ActionTypes from '@/constants/action-types'
 
 describe('organisationMembersSagas', () => {

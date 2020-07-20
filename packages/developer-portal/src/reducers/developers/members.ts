@@ -1,10 +1,10 @@
-import { Action } from '../types/core'
-import { isType } from '../utils/actions'
+import { Action } from '../../types/core'
+import { isType } from '../../utils/actions'
 import {
   fetchOrganisationMembers,
   fetchOrganisationMembersSuccess,
   fetchOrganisationMembersFailed,
-} from '@/actions/developer'
+} from '@/actions/developers'
 import { PagedResultMembersModel_ } from '@/services/developers'
 
 export interface MembersState {

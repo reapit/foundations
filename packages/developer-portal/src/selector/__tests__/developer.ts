@@ -11,10 +11,7 @@ import {
   selectMonthlyBilling,
   selectMonthlyBillingLoading,
   selectWebhookTestStatus,
-  selectOrganisationMembers,
-  selectOrganisationMembersLoading,
 } from '../developer'
-import appState from '@/reducers/__stubs__/app-state'
 
 describe('selectDeveloperId', () => {
   it('should run correctly', () => {
@@ -222,17 +219,5 @@ describe('selectWebhookTestStatus', () => {
     } as ReduxState
     const result = selectWebhookTestStatus(input)
     expect(result).toEqual('SUCCESS')
-  })
-})
-
-describe('member selectors', () => {
-  it('should return correct data', () => {
-    const data = selectOrganisationMembers(appState)
-    expect(data).toEqual([])
-  })
-
-  it('should return correct data', () => {
-    const data = selectOrganisationMembersLoading(appState)
-    expect(data).toEqual(false)
   })
 })

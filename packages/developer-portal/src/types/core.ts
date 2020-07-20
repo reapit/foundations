@@ -19,7 +19,7 @@ import { IntegrationTypeState } from '@/reducers/app-integration-types'
 import { WebhookEditState } from '@/reducers/webhook-edit-modal'
 import { WebhookState } from '@/reducers/webhook-subscriptions'
 import { DeveloperSubscriptionsState } from '@/reducers/developer-subscriptions'
-import { MembersState } from '@/reducers/members'
+import { DevelopersRootState } from '@/reducers/developers'
 
 export type ModalProps = { visible: boolean; afterClose: () => void }
 
@@ -80,5 +80,5 @@ export interface ReduxState {
   webhookEdit: WebhookEditState
   webhooks: WebhookState
   developerSubscriptions: DeveloperSubscriptionsState
-  members: MembersState
+  developers: DevelopersRootState
 }

@@ -59,11 +59,3 @@ export const selectWebhookTestStatus = (state: ReduxState): WebhookPingTestStatu
 export const selectDeveloperFormState = (state: ReduxState): FormState => {
   return state.developer?.formState
 }
-
-export const selectOrganisationMembers = (state: ReduxState) => {
-  return state.members?.data?.data || []
-}
-
-export const selectOrganisationMembersLoading = (state: ReduxState) => {
-  return state.members?.loading
-}

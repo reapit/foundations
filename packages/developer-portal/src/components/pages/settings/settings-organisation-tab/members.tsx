@@ -4,7 +4,7 @@ import SetAsAdminModal from '@/components/pages/settings/set-as-admin-modal'
 import SetMemberStatusModal from '@/components/ui/organisation-set-member-status-modal'
 import styles from '@/styles/elements/link.scss?mod'
 import { useSelector } from 'react-redux'
-import { selectOrganisationMembers, selectOrganisationMembersLoading } from '@/selector/developer'
+import { selectOrganisationMembers, selectOrganisationMembersLoading } from '@/selector/developers'
 
 export const columns = [
   {
