@@ -2,10 +2,11 @@ import React from 'react'
 import Dialog from 'rc-dialog'
 import { cx } from 'linaria'
 import IDialogPropTypes from 'rc-dialog/lib/IDialogPropTypes'
-import { modalContainer, modalCentered } from './__styles__'
+import { modalContainer, modalCentered, modalResponsiveContainer } from './__styles__'
 
 export interface ModalPropsV2 extends IDialogPropTypes {
   isCentered?: boolean
+  isResponsive?: boolean
 }
 
 export const ModalV2: React.FC<ModalPropsV2> = ({
@@ -14,13 +15,14 @@ export const ModalV2: React.FC<ModalPropsV2> = ({
   wrapClassName,
   destroyOnClose = true,
   isCentered = false,
+  isResponsive = false,
   ...restProps
 }) => {
   return (
     <Dialog
       {...restProps}
       destroyOnClose={destroyOnClose}
-      className={cx(modalContainer, className)}
+      className={cx(modalContainer, isResponsive && modalResponsiveContainer, className)}
       wrapClassName={cx(isCentered && modalCentered, wrapClassName)}
     >
       {children}
