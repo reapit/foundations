@@ -9,12 +9,12 @@ import { PagedResultMembersModel_ } from '@/services/developers'
 
 export interface MembersState {
   loading: boolean
-  data: PagedResultMembersModel_ | null
+  pagedResult: PagedResultMembersModel_ | null
 }
 
 export const defaultState: MembersState = {
   loading: false,
-  data: null,
+  pagedResult: null,
 }
 
 const membersReducer = (state: MembersState = defaultState, action: Action<any>): MembersState => {
@@ -27,7 +27,7 @@ const membersReducer = (state: MembersState = defaultState, action: Action<any>)
   if (isType(action, fetchOrganisationMembersSuccess)) {
     return {
       ...state,
-      data: action.data,
+      pagedResult: action.data,
       loading: false,
     }
   }

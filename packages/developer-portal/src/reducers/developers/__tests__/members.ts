@@ -19,13 +19,13 @@ describe('members reducer', () => {
       type: ActionTypes.ORGANISATION_FETCH_MEMBERS_SUCCESS as ActionType,
       data: {},
     })
-    expect(newState).toEqual({ ...defaultState, loading: false, data: {} })
+    expect(newState).toEqual({ ...defaultState, loading: false, pagedResult: {} })
   })
   it('should return state with loading is false, data is {}', () => {
     const newState = membersReducer(undefined, {
       type: ActionTypes.ORGANISATION_FETCH_MEMBERS_FAILED as ActionType,
       data: {},
     })
-    expect(newState).toEqual({ ...defaultState, loading: false, data: null })
+    expect(newState).toEqual({ ...defaultState, loading: false, pagedResult: null })
   })
 })

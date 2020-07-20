@@ -5,11 +5,12 @@ import {
   DeveloperModel,
   MemberModel,
 } from '@reapit/foundations-ts-definitions'
-import { fetcher, setQueryParams } from '@reapit/elements'
+import { fetcher } from '@reapit/elements'
 import { URLS } from './constants'
 import { generateHeader } from './utils'
 import { logger } from '@reapit/utils'
 import { FetchListCommonParams, FetchByIdCommonParams } from './types'
+import { stringify } from 'query-string'
 
 export type FetchDevelopersListParams = FetchListCommonParams & {
   name?: string
@@ -41,7 +42,7 @@ export interface PagedResultMembersModel_ {
 export const fetchDevelopersList = async (params: FetchDevelopersListParams): Promise<PagedResultDeveloperModel_> => {
   try {
     const response = await fetcher({
-      url: `${URLS.developers}?${setQueryParams(params)}`,
+      url: `${URLS.developers}?${stringify(params)}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
@@ -106,7 +107,7 @@ export const fetchOrganisationMembers = async (params: FetchOrganisationMembers)
   try {
     const { id, ...restParams } = params
     const response = await fetcher({
-      url: `${URLS.developers}/${id}/members?${setQueryParams(restParams)}`,
+      url: `${URLS.developers}/${id}/members?${stringify(restParams)}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
