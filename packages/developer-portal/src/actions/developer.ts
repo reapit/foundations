@@ -12,6 +12,7 @@ import { FormState } from '@/types/core'
 import { FetchBillingsParams, FetchBillingsByMonthParams } from '@/services/traffic-events'
 import { PingWebhooksByIdParams } from '@/services/webhooks'
 import { FetchAppByIdParams } from '@/services/apps'
+import { FetchOrganisationMembers, PagedResultMembersModel_ } from '@/services/developers'
 
 // Developer App Detail
 export const developerFetchAppDetail = actionCreator<FetchAppByIdParams>(ActionTypes.DEVELOPER_FETCH_APP_DETAIL)
@@ -46,3 +47,9 @@ export const developerSetWebhookPingStatus = actionCreator<WebhookPingTestStatus
   ActionTypes.DEVELOPER_SET_PING_WEBHOOK_STATUS,
 )
 export const developerApplyAppDetails = actionCreator<AppDetailData>(ActionTypes.DEVELOPER_APPLY_APP_DETAIL)
+
+export const fetchOrganisationMembers = actionCreator<FetchOrganisationMembers>(ActionTypes.ORGANISATION_FETCH_MEMBERS)
+export const fetchOrganisationMembersSuccess = actionCreator<PagedResultMembersModel_>(
+  ActionTypes.ORGANISATION_FETCH_MEMBERS_SUCCESS,
+)
+export const fetchOrganisationMembersFailed = actionCreator<void>(ActionTypes.ORGANISATION_FETCH_MEMBERS_FAILED)

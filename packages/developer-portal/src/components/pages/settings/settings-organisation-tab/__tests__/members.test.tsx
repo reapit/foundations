@@ -1,25 +1,22 @@
 import React from 'react'
-import { Members, CellName, closeSetMemberStatusModal, openSetMemberStatusModal } from '../members'
-import { shallow } from 'enzyme'
+import { Members, closeSetMemberStatusModal, openSetMemberStatusModal } from '../members'
 import { developerStub } from '@/sagas/__stubs__/developer'
+import * as ReactRedux from 'react-redux'
+import appState from '@/reducers/__stubs__/app-state'
+import { mount } from 'enzyme'
+import configureStore from 'redux-mock-store'
 
 describe('Members', () => {
-  test('CellName should match snapshots', () => {
+  const mockStore = configureStore()
+  const store = mockStore(appState)
+  it('should match a snapshot when no error', () => {
     expect(
-      shallow(
-        <CellName
-          row={{
-            original: {
-              email: '',
-              title: '',
-            },
-          }}
-        />,
+      mount(
+        <ReactRedux.Provider store={store}>
+          <Members />
+        </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()
-  })
-  it('should match a snapshot when no error', () => {
-    expect(shallow(<Members />)).toMatchSnapshot()
   })
 
   describe('openSetMemberStatusModal', () => {

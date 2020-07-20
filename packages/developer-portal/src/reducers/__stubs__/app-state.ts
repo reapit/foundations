@@ -221,6 +221,12 @@ const appState: ReduxState = {
       },
     },
   },
+  members: {
+    loading: false,
+    data: {
+      data: [],
+    },
+  },
 }
 
 export default appState

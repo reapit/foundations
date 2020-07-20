@@ -22,6 +22,7 @@ import integrationTypes from '@/reducers/app-integration-types'
 import webhookEditReducer from '../reducers/webhook-edit-modal'
 import webhookSubscriptions from '@/reducers/webhook-subscriptions'
 import developerSubscriptions from '@/reducers/developer-subscriptions'
+import membersReducer from '@/reducers/members'
 
 import authSagas from '@/sagas/auth'
 import appsSaga from '@/sagas/apps/apps'
@@ -42,6 +43,7 @@ import webhookSubscriptionsSagas from '@/sagas/webhook-subscriptions'
 import { injectSwitchModeToWindow } from '@reapit/elements'
 import webhookEditSagas from '../sagas/webhook-edit-modal'
 import developerSubscriptionsSagas from '../sagas/developer-subscriptions'
+import membersSagas from '../sagas/developers/members'
 
 export class Store {
   static _instance: Store
@@ -80,6 +82,7 @@ export class Store {
     webhookEdit: webhookEditReducer,
     webhooks: webhookSubscriptions,
     developerSubscriptions,
+    members: membersReducer,
   })
 
   static sagas = function*() {
@@ -101,6 +104,7 @@ export class Store {
       fork(webhookEditSagas),
       fork(webhookSubscriptionsSagas),
       fork(developerSubscriptionsSagas),
+      fork(membersSagas),
     ])
   }
 

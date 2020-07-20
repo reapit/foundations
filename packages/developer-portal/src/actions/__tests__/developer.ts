@@ -14,6 +14,9 @@ import {
   developerWebhookPing,
   developerSetWebhookPingStatus,
   developerApplyAppDetails,
+  fetchOrganisationMembers,
+  fetchOrganisationMembersSuccess,
+  fetchOrganisationMembersFailed,
 } from '../developer'
 import ActionTypes from '../../constants/action-types'
 import { appsDataStub } from '../../sagas/__stubs__/apps'
@@ -22,6 +25,7 @@ import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
 import { billing } from '@/sagas/__stubs__/billing'
 import { monthlyBillingData } from '@/sagas/__stubs__/monthly-billing'
 import { PingWebhooksByIdParams } from '@/services/webhooks'
+import { FetchOrganisationMembers, PagedResultMembersModel_ } from '@/services/developers'
 
 describe('developer actions', () => {
   it('should create a developerLoading action', () => {
@@ -116,5 +120,30 @@ describe('developer actions', () => {
   it('should create a developerApplyAppDetails action', () => {
     expect(developerApplyAppDetails.type).toEqual(ActionTypes.DEVELOPER_APPLY_APP_DETAIL)
     expect(developerApplyAppDetails({}).data).toEqual({})
+  })
+
+  describe('member action', () => {
+    it('should create a fetchOrganisationMembers action', () => {
+      const params: FetchOrganisationMembers = {
+        id: '123',
+      }
+      expect(fetchOrganisationMembers.type).toEqual(ActionTypes.ORGANISATION_FETCH_MEMBERS)
+      expect(fetchOrganisationMembers(params).data).toEqual(params)
+    })
+
+    it('should create a fetchOrganisationMembersSuccess action', () => {
+      const params: PagedResultMembersModel_ = {
+        data: [],
+        pageCount: 1,
+        pageNumber: 20,
+        pageSize: 20,
+      }
+      expect(fetchOrganisationMembersSuccess.type).toEqual(ActionTypes.ORGANISATION_FETCH_MEMBERS_SUCCESS)
+      expect(fetchOrganisationMembersSuccess(params).data).toEqual(params)
+    })
+
+    it('should create a fetchOrganisationMembersFailed action', () => {
+      expect(fetchOrganisationMembersFailed.type).toEqual(ActionTypes.ORGANISATION_FETCH_MEMBERS_FAILED)
+    })
   })
 })

@@ -3,6 +3,7 @@ import {
   UpdateDeveloperModel,
   PagedResultDeveloperModel_,
   DeveloperModel,
+  MemberModel,
 } from '@reapit/foundations-ts-definitions'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
@@ -23,6 +24,19 @@ export type CreateDeveloperParams = CreateDeveloperModel
 export type FetchDeveloperByIdParams = FetchByIdCommonParams
 
 export type UpdateDeveloperByIdParams = FetchByIdCommonParams & UpdateDeveloperModel
+
+export type FetchOrganisationMembers = FetchByIdCommonParams & FetchListCommonParams
+
+export interface PagedResultMembersModel_ {
+  /**
+   * List of paged data
+   */
+  data?: MemberModel[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+}
 
 export const fetchDevelopersList = async (params: FetchDevelopersListParams): Promise<PagedResultDeveloperModel_> => {
   try {
@@ -79,6 +93,22 @@ export const updateDeveloperById = async (params: UpdateDeveloperByIdParams) => 
       api: window.reapit.config.marketplaceApiUrl,
       method: 'PUT',
       body: rest,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+    })
+    return response
+  } catch (error) {
+    logger(error)
+    throw new Error(error)
+  }
+}
+
+export const fetchOrganisationMembers = async (params: FetchOrganisationMembers): Promise<PagedResultMembersModel_> => {
+  try {
+    const { id, ...restParams } = params
+    const response = await fetcher({
+      url: `${URLS.developers}/${id}/members?${setQueryParams(restParams)}`,
+      api: window.reapit.config.marketplaceApiUrl,
+      method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response
