@@ -9,6 +9,9 @@ export const appointment = {
     id: 'VW',
     value: 'Viewing',
   },
+  attendee: {
+    contacts: [{ mobilePhone: '0123456789' }],
+  },
   recurring: false,
   cancelled: true,
   property: {
@@ -47,7 +50,7 @@ export const appointment = {
       id: 'LJW',
       jobTitle: '',
       metadata: {},
-      mobilePhone: '',
+      mobilePhone: '0123456789',
       modified: '2020-07-07T08:14:31Z',
       name: 'Liam Jowett',
       officeId: 'ALB',

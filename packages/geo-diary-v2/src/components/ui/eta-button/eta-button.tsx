@@ -57,6 +57,9 @@ export const ETAButton: React.FC<ETAButtonProps> = ({ appointment, queryParams }
   const href = `sms:${attendeeWithMobile?.mobilePhone}?&body=${`Hi ${name}, ${
     negotiator?.name ? `this is ${negotiator?.name}, ` : ''
   }I am on my way to you. I will be with you in approximately ${duration?.text}.`}`
+  if (!attendeeWithMobile?.mobilePhone) {
+    return null
+  }
   return (
     <a href={href} className="button is-info is-centered mr-2 mb-2" data-test="eta-button">
       ETA Text
