@@ -16,6 +16,13 @@ exports[`appointment-list AppointmentList should match snapshot 1`] = `
             "id": "VW",
             "value": "Viewing",
           },
+          "attendee": Object {
+            "contacts": Array [
+              Object {
+                "mobilePhone": "0123456789",
+              },
+            ],
+          },
           "cancelled": true,
           "created": "2019-05-08T17:07:39",
           "end": "2019-05-11T18:00:00",
@@ -46,7 +53,7 @@ exports[`appointment-list AppointmentList should match snapshot 1`] = `
               "id": "LJW",
               "jobTitle": "",
               "metadata": Object {},
-              "mobilePhone": "",
+              "mobilePhone": "0123456789",
               "modified": "2020-07-07T08:14:31Z",
               "name": "Liam Jowett",
               "officeId": "ALB",

@@ -37,7 +37,7 @@ describe('eta-button', () => {
       )
       const wrapper = shallow(<ETAButton {...mockProps} />)
       expect(wrapper.find('[data-test="eta-button"]').prop('href')).toBe(
-        'sms:undefined?&body=Hi , I am on my way to you. I will be with you in approximately undefined.',
+        'sms:0123456789?&body=Hi , I am on my way to you. I will be with you in approximately undefined.',
       )
     })
   })
@@ -78,7 +78,7 @@ describe('eta-button', () => {
         id: 'LJW',
         jobTitle: '',
         metadata: {},
-        mobilePhone: '',
+        mobilePhone: '0123456789',
         modified: '2020-07-07T08:14:31Z',
         name: 'Liam Jowett',
         officeId: 'ALB',
@@ -99,7 +99,7 @@ describe('eta-button', () => {
     it('should run correctly', () => {
       const fn = getAttendeeHaveMobilePhone(appointment)
       const result = fn()
-      expect(result).toEqual(undefined)
+      expect(result).toEqual({ mobilePhone: '0123456789' })
     })
   })
 })

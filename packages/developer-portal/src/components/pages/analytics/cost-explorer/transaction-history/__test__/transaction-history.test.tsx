@@ -13,6 +13,7 @@ import TransactionHistory, {
 import { developerIdentity } from '@/sagas/__stubs__/developer-identity'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { ReduxState } from '@/types/core'
+import FileSaver from 'file-saver'
 
 const mockState = ({
   developer: {
@@ -43,6 +44,7 @@ describe('TransactionHistory', () => {
   describe('createHandleDownLoadButtonOnClickFn', () => {
     const mockedLinkElem = { href: '', download: '', click: jest.fn(), remove: jest.fn() }
     const mockedAppendChildFn = jest.fn()
+    const spySaveAsFunc = jest.spyOn(FileSaver, 'saveAs')
 
     beforeAll(() => {
       jest.spyOn(document, 'createElement').mockImplementation(() => (mockedLinkElem as unknown) as HTMLAnchorElement)
@@ -70,12 +72,8 @@ describe('TransactionHistory', () => {
       })
       expect(mockEvent.preventDefault).toHaveBeenCalled()
       expect(mockEvent.preventDefault).toHaveBeenCalled()
-      expect(mockedCreateObjectURL).toHaveBeenCalledWith(mockedBlob)
-      expect(mockedAppendChildFn).toHaveBeenCalledWith(mockedLinkElem)
-      expect(mockedLinkElem.href).toBe('mocked url')
-      expect(mockedLinkElem.download).toBe('reapit-billing-data-2020-01.csv')
-      expect(mockedLinkElem.click).toHaveBeenCalled()
-      expect(mockedLinkElem.remove).toHaveBeenCalled()
+
+      expect(spySaveAsFunc).toBeCalledWith(mockedBlob, 'reapit-billing-data-2020-01.csv')
     })
   })
 
