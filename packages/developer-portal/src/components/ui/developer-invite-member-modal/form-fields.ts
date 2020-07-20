@@ -1,22 +1,22 @@
 import { FormFieldInfo } from '@reapit/utils'
 
-export type FieldKey = 'developerInviteNameField' | 'developerInviteEmailField' | 'developerInviteMessageField'
+export type FieldKey = 'inviteNameField' | 'inviteEmailField' | 'inviteMessageField'
 
 export const formFields: Record<FieldKey, FormFieldInfo> = {
-  developerInviteNameField: {
-    name: 'developerInviteName',
+  inviteNameField: {
+    name: 'name',
     label: 'Name',
     placeHolder: 'Name',
     errorMessage: 'Invalid Name',
   },
-  developerInviteEmailField: {
-    name: 'developerInviteEmail',
+  inviteEmailField: {
+    name: 'email',
     label: 'Email',
     placeHolder: 'Email',
     errorMessage: 'Invalid Email',
   },
-  developerInviteMessageField: {
-    name: 'developerInviteMessage',
+  inviteMessageField: {
+    name: 'message',
     label: 'Message (Optional)',
     placeHolder: 'Message',
   },

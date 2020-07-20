@@ -107,3 +107,29 @@ export const fetchOrganisationMembers = async (params: FetchOrganisationMembers)
     throw new Error(error)
   }
 }
+
+export type InviteDeveloperAsOrgMemberParams = {
+  id: string
+  email: string
+  name: string
+  jobTitle: string
+  sender: string
+  message: string
+}
+
+export const inviteDeveloperAsOrgMemberApi = async (params: InviteDeveloperAsOrgMemberParams) => {
+  try {
+    const { id, ...rest } = params
+    const response = await fetcher({
+      url: `${URLS.developers}/${id}/members`,
+      api: window.reapit.config.marketplaceApiUrl,
+      method: 'POST',
+      body: rest,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+    })
+    return response
+  } catch (error) {
+    logger(error)
+    throw new Error(error)
+  }
+}
