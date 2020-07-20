@@ -25,7 +25,7 @@ exports[`DeveloperOrganisationTabPage should match snapshot when isAdmin = false
     </Component>
   </Component>
   <Component
-    afterClose={[Function]}
+    onClose={[Function]}
     visible={false}
   />
 </Fragment>

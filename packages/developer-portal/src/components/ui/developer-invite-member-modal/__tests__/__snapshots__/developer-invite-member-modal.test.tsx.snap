@@ -1,14 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DeveloperInviteMemberModal should match snapshot with default 1`] = `""`;
+exports[`developer-invite-member-modal InviteMemberModal should match snapshot with default 1`] = `""`;
 
-exports[`DeveloperInviteMemberModal should match snapshot with visible true 1`] = `
+exports[`developer-invite-member-modal InviteMemberModal should match snapshot with visible true 1`] = `
 <Component
-  afterClose={[MockFunction]}
+  footer={
+    <React.Fragment>
+      <Unknown
+        type="button"
+        variant="secondary"
+      >
+        Cancel
+      </Unknown>
+      <Unknown
+        type="submit"
+        variant="primary"
+      >
+        Send Invite
+      </Unknown>
+    </React.Fragment>
+  }
   title="Invite New Member"
   visible={true}
 >
-  <Component>
+  <Component
+    className="px-4"
+  >
     Please enter a name and email address below to invite a new member to your organisation:
   </Component>
   <Formik
@@ -160,4 +177,31 @@ exports[`DeveloperInviteMemberModal should match snapshot with visible true 1`] 
     <Component />
   </Formik>
 </Component>
+`;
+
+exports[`developer-invite-member-modal InviteMemberModalInput should match snapshot 1`] = `
+<Fragment>
+  <Component
+    id="developerInviteName"
+    labelText="Name"
+    name="developerInviteName"
+    placeholder="Name"
+    required={true}
+    type="text"
+  />
+  <Component
+    id="developerInviteEmail"
+    labelText="Email"
+    name="developerInviteEmail"
+    placeholder="Email"
+    required={true}
+    type="email"
+  />
+  <Component
+    id="developerInviteMessage"
+    labelText="Message (Optional)"
+    name="developerInviteMessage"
+    placeholder="Message"
+  />
+</Fragment>
 `;

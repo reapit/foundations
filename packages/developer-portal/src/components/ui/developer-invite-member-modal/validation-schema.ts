@@ -2,7 +2,8 @@ import * as Yup from 'yup'
 import { formFields } from './form-fields'
 import errorMessages from '@/constants/error-messages'
 import { personNameRegex, emailRegex } from '@reapit/utils'
-import { MAX_MESSAGE_LENGTH } from './constants'
+
+export const MAX_MESSAGE_LENGTH = 150
 
 const { developerInviteNameField, developerInviteEmailField, developerInviteMessageField } = formFields
 
