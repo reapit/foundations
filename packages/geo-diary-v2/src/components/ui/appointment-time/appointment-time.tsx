@@ -23,7 +23,7 @@ export interface AppointmentTimeProps {
 }
 
 export const AppointmentTime = ({ queryParams, history }: AppointmentTimeProps) => (
-  <ButtonGroup className={timeButtonGroupContainer}>
+  <ButtonGroup className={cx(timeButtonGroupContainer, 'is-narrow')}>
     <Button
       type="button"
       variant="secondary"

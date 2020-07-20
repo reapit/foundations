@@ -87,10 +87,10 @@ export const renderNotes = (description: string | undefined) => {
     return null
   }
   return (
-    <Grid>
-      <GridItem className="is-one-third horizontal">
-        <Grid className="is-vcentered">
-          <GridItem className="is-narrow">
+    <Grid className="is-mobile">
+      <GridItem className="is-one-third-desktop is-5-mobile horizontal">
+        <Grid className="is-vcentered is-mobile">
+          <GridItem className="is-narrow px-0">
             <FaStickyNote />
           </GridItem>
           <GridItem>
@@ -110,10 +110,10 @@ export const renderArrangements = (arrangements: string | undefined) => {
     return null
   }
   return (
-    <Grid>
-      <GridItem className="is-one-third horizontal">
-        <Grid className="is-vcentered">
-          <GridItem className="is-narrow">
+    <Grid className="is-mobile">
+      <GridItem className="is-one-third-desktop is-5-mobile horizontal">
+        <Grid className="is-vcentered is-mobile">
+          <GridItem className="is-narrow px-0">
             <FaHandshake />
           </GridItem>
           <GridItem>
@@ -137,10 +137,10 @@ export const renderAttendee = (attendee: AppointmentAttendeeModel, loginMode: Lo
     <React.Fragment>
       {attendee?.contacts?.map((contact: AppointmentContactModel, index: number) => {
         return (
-          <Grid key={index}>
-            <GridItem className="is-one-third horizontal">
-              <Grid className="is-vcentered">
-                <GridItem className="is-narrow">
+          <Grid key={index} className="is-mobile">
+            <GridItem className="is-one-third-desktop is-5-mobile horizontal">
+              <Grid className="is-vcentered is-mobile">
+                <GridItem className="is-narrow px-0">
                   <FaMale />
                 </GridItem>
                 <GridItem>
@@ -148,7 +148,7 @@ export const renderAttendee = (attendee: AppointmentAttendeeModel, loginMode: Lo
                 </GridItem>
               </Grid>
             </GridItem>
-            <GridItem>
+            <GridItem className="text-ellipsis">
               <div className="mb-2">
                 <AcLink
                   dynamicLinkParams={{
@@ -174,10 +174,10 @@ export const renderAddress = (property: PropertyModel, loginMode: LoginMode) => 
     return null
   }
   return (
-    <Grid>
-      <GridItem className="is-one-third horizontal">
-        <Grid className="is-vcentered">
-          <GridItem className="is-narrow">
+    <Grid className="is-mobile">
+      <GridItem className="is-one-third-desktop is-5-mobile horizontal">
+        <Grid className="is-vcentered is-mobile">
+          <GridItem className="is-narrow px-0">
             <FaHome />
           </GridItem>
           <GridItem>
@@ -206,10 +206,10 @@ export const renderOffices = (offices: OfficeModel[], loginMode: LoginMode) => {
   }
 
   return (
-    <Grid>
-      <GridItem className="is-one-third horizontal">
-        <Grid className="is-vcentered">
-          <GridItem className="is-narrow">
+    <Grid className="is-mobile">
+      <GridItem className="is-one-third-desktop is-5-mobile horizontal">
+        <Grid className="is-vcentered is-mobile">
+          <GridItem className="is-narrow px-0">
             <FaBuilding />
           </GridItem>
           <GridItem>
@@ -242,10 +242,10 @@ export const renderNegotiators = (negotiators: NegotiatorModel[]) => {
   }
 
   return (
-    <Grid>
-      <GridItem className="is-one-third horizontal">
-        <Grid className="is-vcentered">
-          <GridItem className="is-narrow">
+    <Grid className="is-mobile">
+      <GridItem className="is-one-third-desktop is-5-mobile horizontal">
+        <Grid className="is-vcentered is-mobile">
+          <GridItem className="is-narrow px-0">
             <FaMale />
           </GridItem>
           <GridItem>
@@ -275,10 +275,10 @@ export const renderStartAndEndDate = (startTime: string, endTime: string) => {
 
 export const renderDateTime = (appointment: ExtendedAppointmentModel) => {
   return (
-    <Grid>
-      <GridItem className="is-one-third horizontal">
-        <Grid className="is-vcentered">
-          <GridItem className="is-narrow">
+    <Grid className="is-mobile">
+      <GridItem className="is-one-third-desktop is-5-mobile horizontal">
+        <Grid className="is-vcentered is-mobile">
+          <GridItem className="is-narrow px-0">
             <FaClock className="vertical-align-text-top" />
           </GridItem>
           <GridItem>

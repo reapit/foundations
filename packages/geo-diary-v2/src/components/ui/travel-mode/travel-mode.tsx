@@ -24,7 +24,7 @@ export type TravelModeProps = {
 
 export const TravelMode: React.FC<TravelModeProps> = ({ queryParams, history }) => {
   return (
-    <ButtonGroup className={travelModeButtonContainer}>
+    <ButtonGroup className={cx(travelModeButtonContainer, 'is-narrow')}>
       <Button
         type="button"
         variant="secondary"
