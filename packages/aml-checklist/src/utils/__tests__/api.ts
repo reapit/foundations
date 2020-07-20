@@ -6,7 +6,7 @@ describe('initAuthorizedRequestHeaders', () => {
     const result = await initAuthorizedRequestHeaders()
     expect(result).toEqual({
       'Content-Type': 'application/json',
-      Authorization: 'Bearer null',
+      Authorization: 'Bearer ',
       'api-version': API_VERSION,
     })
   })

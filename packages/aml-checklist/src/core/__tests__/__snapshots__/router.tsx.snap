@@ -31,12 +31,9 @@ exports[`Router should match a snapshot 1`] = `
         path="/login"
         render={[Function]}
       />
-      <withRouter(Connect(Component))
-        path="/"
-      >
+      <lazy>
         <Switch>
-          <Connect(Component)
-            allow="CLIENT"
+          <Component
             component={
               Object {
                 "$$typeof": Symbol(react.lazy),
@@ -48,8 +45,7 @@ exports[`Router should match a snapshot 1`] = `
             fetcher={true}
             path="/checklist-detail/:id"
           />
-          <Connect(Component)
-            allow="CLIENT"
+          <Component
             component={
               Object {
                 "$$typeof": Symbol(react.lazy),
@@ -61,8 +57,7 @@ exports[`Router should match a snapshot 1`] = `
             exact={true}
             path="/"
           />
-          <Connect(Component)
-            allow="CLIENT"
+          <Component
             component={
               Object {
                 "$$typeof": Symbol(react.lazy),
@@ -74,7 +69,7 @@ exports[`Router should match a snapshot 1`] = `
             path="/results"
           />
         </Switch>
-      </withRouter(Connect(Component))>
+      </lazy>
       <Redirect
         to="/login"
       />

@@ -5,10 +5,6 @@ import { render } from 'react-dom'
 import ReactGA from 'react-ga'
 import { Config } from '@/types/global'
 import App from './app'
-import { getSessionCookie } from '@reapit/cognito-auth'
-import { COOKIE_SESSION_KEY_AML_APP } from '../constants/api'
-import store from './store'
-import { authSetRefreshSession } from '../actions/auth'
 import { getMarketplaceGlobalsByKey } from '@reapit/elements'
 
 // Init global config
@@ -22,7 +18,6 @@ window.reapit = {
     cognitoClientId: '',
     googleAnalyticsKey: '',
     cognitoOAuthUrl: '',
-    cognitoUserPoolId: '',
   },
 }
 
@@ -30,14 +25,11 @@ export const renderApp = (Component: React.ComponentType) => {
   const rootElement = document.querySelector('#root') as Element
   const isDesktop = getMarketplaceGlobalsByKey()
   const html = document.querySelector('html')
-  const refreshSessionFromCookie = getSessionCookie(COOKIE_SESSION_KEY_AML_APP, window.reapit.config.appEnv)
 
   if (isDesktop && html) {
     html.classList.add('is-desktop')
   }
-  if (refreshSessionFromCookie) {
-    store.dispatch(authSetRefreshSession(refreshSessionFromCookie))
-  }
+
   if (rootElement) {
     render(<Component />, rootElement)
   }

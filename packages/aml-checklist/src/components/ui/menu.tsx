@@ -1,13 +1,11 @@
 import * as React from 'react'
 import { useLocation } from 'react-router'
-import { useDispatch } from 'react-redux'
-import { Dispatch } from 'redux'
 import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
 import Routes from '@/constants/routes'
-import { authLogout } from '@/actions/auth'
-import { ActionCreator } from '@/types/core'
 import { Location } from 'history'
 import { FaCloud, FaSignOutAlt, FaSearch, FaList } from 'react-icons/fa'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export const generateMenuConfig = (logoutCallback: () => void, location: Location<any>): MenuConfig => {
   return {
@@ -40,8 +38,8 @@ export const generateMenuConfig = (logoutCallback: () => void, location: Locatio
         callback: () =>
           (window.location.href =
             window.location.href.includes('dev') || window.location.href.includes('localhost')
-              ? 'https://dev.marketplace.reapit.cloud/client/installed'
-              : 'https://marketplace.reapit.cloud/client/installed'),
+              ? 'https://dev.marketplace.reapit.cloud/installed'
+              : 'https://marketplace.reapit.cloud/installed'),
         type: 'PRIMARY',
       },
       {
@@ -55,15 +53,10 @@ export const generateMenuConfig = (logoutCallback: () => void, location: Locatio
   }
 }
 
-export type MenuProps = {}
-
-export const logout = ({ dispatch, authLogout }: { dispatch: Dispatch; authLogout: ActionCreator<void> }) => () =>
-  dispatch(authLogout())
-
-export const Menu: React.FunctionComponent<MenuProps> = () => {
+export const Menu: React.FC = () => {
   const location = useLocation()
-  const dispatch = useDispatch()
-  const menuConfigs = generateMenuConfig(logout({ dispatch, authLogout }), location)
+  const { connectLogoutRedirect } = useReapitConnect(reapitConnectBrowserSession)
+  const menuConfigs = generateMenuConfig(() => connectLogoutRedirect(), location)
   return <Sidebar {...menuConfigs} location={location} />
 }
 

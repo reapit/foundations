@@ -1,16 +1,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import {
-  ClientSearch,
-  ClientSearchProps,
-  renderForm,
-  mapStateToProps,
-  mapDispatchToProps,
-  searchContacts,
-} from '../client-search'
-import { LoginMode } from '@reapit/cognito-auth'
-import { ReduxState } from '@/types/core'
+import { ClientSearch, ClientSearchProps, renderForm, mapDispatchToProps, searchContacts } from '../client-search'
 import Routes from '@/constants/routes'
 
 const props: ClientSearchProps = {
@@ -26,7 +17,7 @@ describe('ClientSearch', () => {
 
   it('renderForm should match a snapshot when loginMode is DESKTOP', () => {
     const mockProps = {
-      loginMode: 'DESKTOP' as LoginMode,
+      connectIsDesktop: true,
     }
     const fn = renderForm(mockProps)({ values: {} })
     expect(fn).toMatchSnapshot()
@@ -34,7 +25,7 @@ describe('ClientSearch', () => {
 
   it('renderForm should match a snapshot when loginMode is WEB', () => {
     const mockProps = {
-      loginMode: 'WEB' as LoginMode,
+      connectIsDesktop: false,
     }
     const fn = renderForm(mockProps)({ values: {} })
     expect(fn).toMatchSnapshot()
@@ -52,28 +43,6 @@ describe('ClientSearch', () => {
     fn(mockValues)
     expect(mockProps.setSearchParams).toBeCalledWith(mockValues)
     expect(mockProps.history.push).toBeCalledWith(Routes.RESULTS)
-  })
-
-  describe('mapStateToProps', () => {
-    it('should run correctly', () => {
-      // @ts-ignore: only pick necessary props
-      const mockState = {
-        auth: {
-          refreshSession: {},
-        },
-      } as ReduxState
-      const result = mapStateToProps(mockState)
-      expect(result).toEqual({
-        loginMode: 'WEB',
-      })
-    })
-    it('should run correctly', () => {
-      const mockState = {} as ReduxState
-      const result = mapStateToProps(mockState)
-      expect(result).toEqual({
-        loginMode: 'WEB',
-      })
-    })
   })
 
   describe('mapDispatchToProps', () => {

@@ -14,7 +14,6 @@ import {
 } from '@reapit/elements'
 import { SectionsStatus } from '@/reducers/checklist-detail'
 import { IdentityCheckModel, ContactModel } from '@reapit/foundations-ts-definitions'
-import { LoginMode } from '@reapit/cognito-auth'
 import { Dispatch } from 'redux'
 import { checklistDetailShowModal } from '@/actions/checklist-detail'
 import { ReduxState } from '@/types/core'
@@ -25,6 +24,8 @@ import {
   selectCheckListDetailIdCheck,
 } from '@/selectors/checklist-detail'
 import { ID_STATUS } from './modal/modal'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export type AMLProgressBarProps = AMLProgressBarMappedActions & AMLProgressBarMappedProps
 
@@ -35,8 +36,9 @@ export const calculateProgress = (status: SectionsStatus) => {
   return { percentage: Math.floor((completedCount / count) * 100), completed: completedCount, total: count }
 }
 
-export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({ contact, idCheck, status, loginMode, showModal }) => {
+export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({ contact, idCheck, status, showModal }) => {
   const progress = React.useMemo(() => calculateProgress(status), [status])
+  const { connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
 
   const { id, title, forename, surname } = contact || {}
   const name = `${title || ''} ${forename || ''} ${surname || ''}`.trim()
@@ -52,7 +54,7 @@ export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({ contact, idCheck
                   <H3 className="mb-6">
                     <AcLink
                       dynamicLinkParams={{
-                        appMode: loginMode,
+                        appMode: connectIsDesktop ? 'DESKTOP' : 'WEB',
                         entityType: EntityType.CONTACT,
                         entityCode: id,
                       }}
@@ -86,14 +88,12 @@ export interface AMLProgressBarMappedProps {
   contact: ContactModel | null
   idCheck: IdentityCheckModel | null
   status: SectionsStatus
-  loginMode: LoginMode
 }
 
 export const mapStateToProps = (state: ReduxState): AMLProgressBarMappedProps => ({
   contact: selectCheckListDetailContact(state),
   idCheck: selectCheckListDetailIdCheck(state),
   status: selectCheckListDetailStatus(state),
-  loginMode: state?.auth?.refreshSession?.mode || 'WEB',
 })
 
 export interface AMLProgressBarMappedActions {
