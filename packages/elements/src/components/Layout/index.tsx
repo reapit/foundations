@@ -16,14 +16,14 @@ export interface FlexContainerProps extends LayoutProps {
   isPageContainer?: boolean
 }
 
-export interface GridColumnsProps extends LayoutProps {
+export interface GridProps extends LayoutProps {
   isMultiLine?: boolean
   isVerticalCentered?: boolean
   isMobile?: boolean
   onClick?: () => void
 }
 
-export interface GridColumnProps extends LayoutProps {
+export interface GridItemProps extends LayoutProps {
   isMultiLine?: boolean
   onClick?: () => void
 }
@@ -122,7 +122,7 @@ export const GridThreeColItem: React.FC<LayoutProps> = ({ children, className, d
   </div>
 )
 
-export const Grid: React.FC<GridColumnsProps> = ({
+export const Grid: React.FC<GridProps> = ({
   children,
   isMultiLine = false,
   isVerticalCentered = false,
@@ -146,7 +146,7 @@ export const Grid: React.FC<GridColumnsProps> = ({
   </div>
 )
 
-export const GridItem: React.FC<GridColumnProps> = ({
+export const GridItem: React.FC<GridItemProps> = ({
   children,
   isMultiLine = false,
   className,
