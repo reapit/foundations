@@ -3,12 +3,14 @@ import {
   UpdateDeveloperModel,
   PagedResultDeveloperModel_,
   DeveloperModel,
+  PagedResultMemberModel_,
 } from '@reapit/foundations-ts-definitions'
-import { fetcher, setQueryParams } from '@reapit/elements'
+import { fetcher } from '@reapit/elements'
 import { URLS } from './constants'
 import { generateHeader } from './utils'
 import { logger } from '@reapit/utils'
 import { FetchListCommonParams, FetchByIdCommonParams } from './types'
+import { stringify } from 'query-string'
 
 export type FetchDevelopersListParams = FetchListCommonParams & {
   name?: string
@@ -24,10 +26,12 @@ export type FetchDeveloperByIdParams = FetchByIdCommonParams
 
 export type UpdateDeveloperByIdParams = FetchByIdCommonParams & UpdateDeveloperModel
 
+export type FetchOrganisationMembers = FetchByIdCommonParams & FetchListCommonParams
+
 export const fetchDevelopersList = async (params: FetchDevelopersListParams): Promise<PagedResultDeveloperModel_> => {
   try {
     const response = await fetcher({
-      url: `${URLS.developers}?${setQueryParams(params)}`,
+      url: `${URLS.developers}?${stringify(params)}`,
       api: window.reapit.config.marketplaceApiUrl,
       method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
@@ -79,6 +83,22 @@ export const updateDeveloperById = async (params: UpdateDeveloperByIdParams) => 
       api: window.reapit.config.marketplaceApiUrl,
       method: 'PUT',
       body: rest,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+    })
+    return response
+  } catch (error) {
+    logger(error)
+    throw new Error(error)
+  }
+}
+
+export const fetchOrganisationMembers = async (params: FetchOrganisationMembers): Promise<PagedResultMemberModel_> => {
+  try {
+    const { id, ...restParams } = params
+    const response = await fetcher({
+      url: `${URLS.developers}/${id}/members?${stringify(restParams)}`,
+      api: window.reapit.config.marketplaceApiUrl,
+      method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
     })
     return response

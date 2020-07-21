@@ -10,6 +10,7 @@ import { submitAppRequestData } from '../actions/submit-app'
 import { requestDeveloperData } from '@/actions/settings'
 import { selectClientId } from '@/selector/client'
 import { DeveloperRequestParams } from '@/reducers/developer'
+import { fetchOrganisationMembers } from '@/actions/developers'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
   const id = params && params.appid ? params.appid : ''
@@ -59,9 +60,12 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
     case Routes.SETTINGS:
       store.dispatch(requestDeveloperData())
       break
-    case Routes.SETTINGS_ORGANISATION_TAB:
+    case Routes.SETTINGS_ORGANISATION_TAB: {
+      const developerId = selectDeveloperId(store.state) || ''
       store.dispatch(requestDeveloperData())
+      store.dispatch(fetchOrganisationMembers({ id: developerId }))
       break
+    }
     case Routes.SETTINGS_BILLING_TAB:
       store.dispatch(requestDeveloperData())
       break
