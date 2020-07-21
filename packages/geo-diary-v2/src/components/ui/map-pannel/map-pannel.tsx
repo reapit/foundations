@@ -49,7 +49,12 @@ export const handleOpenNativeMap = ({ queryParams }: HandleOpenNativeMapParams) 
 }
 
 export const handleChangeTab = ({ queryParams, history }) => () => {
-  const queryString = qs.stringify({ ...queryParams, destinationLat: undefined, destinationLng: undefined })
+  const queryString = qs.stringify({
+    ...queryParams,
+    destinationLat: undefined,
+    destinationLng: undefined,
+    appointmentId: undefined,
+  })
   history.push(`${ROUTES.APPOINTMENT}?${queryString}`)
 }
 

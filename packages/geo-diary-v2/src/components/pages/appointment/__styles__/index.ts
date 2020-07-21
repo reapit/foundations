@@ -10,7 +10,7 @@ export const mapContainer = css`
 `
 
 export const appoinmentContainer = css`
-  padding: 1rem 0;
+  padding: 1rem 1rem;
   position: absolute;
   background: #f5f7f9;
   height: 100%;

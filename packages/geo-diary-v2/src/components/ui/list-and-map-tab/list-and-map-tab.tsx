@@ -17,6 +17,7 @@ export const handleChangeTab = ({ history, tabName, queryParams }: HandleChangeT
     tab: tabName,
     destinationLat: undefined,
     destinationLng: undefined,
+    appointmentId: undefined,
   })
   history.push(`${ROUTES.APPOINTMENT}?${queryString}`)
 }
