@@ -61,7 +61,7 @@ export const ETAButton: React.FC<ETAButtonProps> = ({ appointment, queryParams }
     return null
   }
   return (
-    <a href={href} className="button is-info is-centered mr-2 mb-2" data-test="eta-button">
+    <a href={href} className="button is-info is-centered mb-2" data-test="eta-button">
       ETA Text
     </a>
   )

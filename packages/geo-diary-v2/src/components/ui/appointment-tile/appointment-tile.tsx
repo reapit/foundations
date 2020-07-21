@@ -59,6 +59,7 @@ export const handleDirectionOnClick = ({ appointment, queryParams, history }: Ha
     ...queryParams,
     destinationLat: lat,
     destinationLng: lng,
+    appointmentId: appointment.id,
     tab: 'map',
   })
   history.push(`${ROUTES.APPOINTMENT}?${queryString}`)
@@ -151,7 +152,7 @@ export const AppointmentTile: React.FC<AppointmentTileProps> = ({ appointment, n
   return (
     <>
       <Tile
-        hightlight={false}
+        hightlight={queryParams.appointmentId === appointment.id}
         key={appointment.id}
         heading={heading}
         footerItems={[

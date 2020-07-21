@@ -44,14 +44,14 @@ describe('appointment-detail-modal', () => {
         mobilePhone: '070000000',
         email: 'chase.maclean@reapitestates.net',
       }
-      const data = renderCommunicationDetail(input)
+      const data = renderCommunicationDetail(input, false)
       const wrapper = shallow(<div>{data}</div>)
       expect(wrapper).toMatchSnapshot()
     })
 
     it('should match snapshot for empty commuication details', () => {
       const input = {}
-      const data = renderCommunicationDetail(input)
+      const data = renderCommunicationDetail(input, true)
       const wrapper = shallow(<div>{data}</div>)
       expect(wrapper).toMatchSnapshot()
     })
@@ -91,13 +91,25 @@ describe('appointment-detail-modal', () => {
 
   describe('renderAttendee', () => {
     it('should match snapshot for commuication details', () => {
-      const data = renderAttendee({} as AppointmentAttendeeModel, 'DESKTOP')
+      const data = renderAttendee({} as AppointmentAttendeeModel, 'DESKTOP', false)
+      const wrapper = shallow(<div>{data}</div>)
+      expect(wrapper).toMatchSnapshot()
+    })
+
+    it('should match snapshot for commuication details', () => {
+      const data = renderAttendee({} as AppointmentAttendeeModel, 'DESKTOP', true)
       const wrapper = shallow(<div>{data}</div>)
       expect(wrapper).toMatchSnapshot()
     })
 
     it('should match snapshot for empty commuication details', () => {
-      const data = renderAttendee({} as AppointmentAttendeeModel, 'WEB')
+      const data = renderAttendee({} as AppointmentAttendeeModel, 'WEB', true)
+      const wrapper = shallow(<div>{data}</div>)
+      expect(wrapper).toMatchSnapshot()
+    })
+
+    it('should match snapshot for empty commuication details', () => {
+      const data = renderAttendee({} as AppointmentAttendeeModel, 'WEB', false)
       const wrapper = shallow(<div>{data}</div>)
       expect(wrapper).toMatchSnapshot()
     })

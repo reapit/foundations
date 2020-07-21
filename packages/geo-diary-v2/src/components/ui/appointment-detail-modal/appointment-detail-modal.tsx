@@ -16,6 +16,7 @@ import {
   ModalV2,
   ModalPropsV2,
   H5,
+  isMobile,
 } from '@reapit/elements'
 import { useMutation } from '@apollo/react-hooks'
 import dayjs from 'dayjs'
@@ -47,7 +48,7 @@ const attendeeEntityType = {
   applicant: EntityType.APPLICANT,
 }
 
-export const renderCommunicationDetail = (communicationDetails: AppointmentContactModel) => {
+export const renderCommunicationDetail = (communicationDetails: AppointmentContactModel, isMobileView: boolean) => {
   const { homePhone, workPhone, mobilePhone, email } = communicationDetails
   const items: IconListItem[] = []
 
@@ -72,7 +73,22 @@ export const renderCommunicationDetail = (communicationDetails: AppointmentConta
     })
   }
 
-  if (email) {
+  if (email && isMobileView) {
+    // split email to break @xxx.com to new line
+    const splittedEmail = email.split('@')
+    items.push({
+      icon: <TiMail className="icon-list-icon" />,
+      text: (
+        <a href={`mailto:${email}`}>
+          {splittedEmail?.[0]}
+          <br />
+          <span className="ml-5 pl-2">@{splittedEmail?.[1]}</span>
+        </a>
+      ),
+    })
+  }
+
+  if (email && !isMobileView) {
     items.push({
       icon: <TiMail className="icon-list-icon" />,
       text: <a href={`mailto:${email}`}>{email}</a>,
@@ -128,7 +144,7 @@ export const renderArrangements = (arrangements: string | undefined) => {
   )
 }
 
-export const renderAttendee = (attendee: AppointmentAttendeeModel, loginMode: LoginMode) => {
+export const renderAttendee = (attendee: AppointmentAttendeeModel, loginMode: LoginMode, isMobileView: boolean) => {
   if (attendee?.contacts?.length === 0) {
     return null
   }
@@ -160,7 +176,7 @@ export const renderAttendee = (attendee: AppointmentAttendeeModel, loginMode: Lo
                   {contact?.name}
                 </AcLink>
               </div>
-              {renderCommunicationDetail(contact)}
+              {renderCommunicationDetail(contact, isMobileView)}
             </GridItem>
           </Grid>
         )
@@ -374,6 +390,7 @@ export const AppointmentDetailModal: React.FC<AppointmentDetailModalProps> = ({ 
   const { loginSession } = React.useContext(AuthContext)
   const loginMode = loginSession?.mode || 'WEB'
   const [isShowConfirmModal, setIsShowConfirmModal] = React.useState<boolean>(false)
+  const isMobileView = isMobile()
   return (
     <ModalV2
       {...restProps}
@@ -392,7 +409,7 @@ export const AppointmentDetailModal: React.FC<AppointmentDetailModalProps> = ({ 
       {renderDateTime(appointment)}
       {renderNegotiators(appointment?.negotiators || [])}
       {renderOffices(appointment?.offices || [], loginMode)}
-      {renderAttendee(appointment?.attendee || {}, loginMode)}
+      {renderAttendee(appointment?.attendee || {}, loginMode, isMobileView)}
       {renderAddress(appointment?.property || {}, loginMode)}
       {renderNotes(appointment.description)}
       {renderArrangements(appointment?.property?.viewingArrangements || '')}

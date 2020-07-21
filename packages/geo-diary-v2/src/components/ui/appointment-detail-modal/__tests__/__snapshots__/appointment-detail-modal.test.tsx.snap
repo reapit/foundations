@@ -19372,7 +19372,11 @@ exports[`appointment-detail-modal renderArrangements should match snapshot for e
 
 exports[`appointment-detail-modal renderAttendee should match snapshot for commuication details 1`] = `<div />`;
 
+exports[`appointment-detail-modal renderAttendee should match snapshot for commuication details 2`] = `<div />`;
+
 exports[`appointment-detail-modal renderAttendee should match snapshot for empty commuication details 1`] = `<div />`;
+
+exports[`appointment-detail-modal renderAttendee should match snapshot for empty commuication details 2`] = `<div />`;
 
 exports[`appointment-detail-modal renderCommunicationDetail should match snapshot for commuication details 1`] = `
 <div>

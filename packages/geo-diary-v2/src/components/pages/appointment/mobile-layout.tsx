@@ -42,7 +42,7 @@ export const MobileLayout: React.FC<MobileLayoutProps> = ({ appointments }) => {
         <AppointmentTime queryParams={queryParams} history={history} />
         <TravelMode queryParams={queryParams} history={history} />
       </Section>
-      <Section isFlex isFlexColumn>
+      <Section isFlex isFlexColumn hasBackground={false}>
         <AppointmentList appointments={appointments} />
       </Section>
     </>

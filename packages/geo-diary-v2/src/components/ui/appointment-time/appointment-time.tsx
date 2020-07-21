@@ -6,14 +6,20 @@ import qs from 'query-string'
 import { ROUTES } from '@/core/router'
 import { timeButtonGroupContainer } from './__styles__'
 
-export type HandleChangeTravelModeParams = {
+export type HandleChangeTimeParams = {
   time: 'today' | 'tomorrow' | 'weekView'
   queryParams: qs.ParsedQuery<string>
   history: History
 }
 
-export const handleChangeTravelMode = ({ history, time, queryParams }: HandleChangeTravelModeParams) => () => {
-  const queryString = qs.stringify({ ...queryParams, time: time, destinationLat: undefined, destinationLng: undefined })
+export const handleChangeTime = ({ history, time, queryParams }: HandleChangeTimeParams) => () => {
+  const queryString = qs.stringify({
+    ...queryParams,
+    time: time,
+    destinationLat: undefined,
+    destinationLng: undefined,
+    appointmentId: undefined,
+  })
   history.push(`${ROUTES.APPOINTMENT}?${queryString}`)
 }
 
@@ -28,7 +34,7 @@ export const AppointmentTime = ({ queryParams, history }: AppointmentTimeProps) 
       type="button"
       variant="secondary"
       className={cx(queryParams.time !== 'tomorrow' && queryParams.time !== 'weekView' && 'is-selected is-info')}
-      onClick={handleChangeTravelMode({ queryParams, history, time: 'today' })}
+      onClick={handleChangeTime({ queryParams, history, time: 'today' })}
     >
       TODAY
     </Button>
@@ -36,7 +42,7 @@ export const AppointmentTime = ({ queryParams, history }: AppointmentTimeProps) 
       type="button"
       variant="secondary"
       className={cx(queryParams.time === 'tomorrow' && 'is-selected is-info')}
-      onClick={handleChangeTravelMode({ queryParams, history, time: 'tomorrow' })}
+      onClick={handleChangeTime({ queryParams, history, time: 'tomorrow' })}
     >
       TOMORROW
     </Button>
@@ -44,7 +50,7 @@ export const AppointmentTime = ({ queryParams, history }: AppointmentTimeProps) 
       type="button"
       variant="secondary"
       className={cx(queryParams.time === 'weekView' && 'is-selected is-info')}
-      onClick={handleChangeTravelMode({ queryParams, history, time: 'weekView' })}
+      onClick={handleChangeTime({ queryParams, history, time: 'weekView' })}
     >
       WEEK VIEW
     </Button>
