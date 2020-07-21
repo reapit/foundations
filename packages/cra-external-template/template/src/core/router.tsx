@@ -37,19 +37,9 @@ const Router = () => (
     <React.Suspense fallback={null}>
       <Switch>
         <Route path={Routes.LOGIN} component={LoginPage} />
-        {/* FIXME
-
-        remove path
-        make sure correct paths
-        remove allow
-
-        required: t
-
-
-        */}
-        <PrivateRouteWrapper path="/">
+        <PrivateRouteWrapper>
           <Switch>
-            <PrivateRoute allow="CLIENT" path={Routes.HOME} fetcher component={AuthenticatedPage} />
+            <PrivateRoute path={Routes.HOME} fetcher component={AuthenticatedPage} />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />

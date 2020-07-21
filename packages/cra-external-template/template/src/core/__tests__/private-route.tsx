@@ -1,57 +1,19 @@
-import React from 'react'
-import { createBrowserHistory } from 'history'
-import { Route, Router } from 'react-router-dom'
-import { render } from '@testing-library/react'
-import { AuthContext } from '../../context'
-import { mockContext } from '../../context/__mocks__/mock-context'
-import { AuthHook } from '../../hooks/use-auth'
-import { PrivateRouteWrapper } from '../private-route-wrapper'
-import { getMockRouterProps } from '../__mocks__/mock-router'
-
-jest.mock('../../core/connect-session.tsx', () => ({
-  ReapitConnectBrowserSessionInstance: {
-    instance: {
-      connectSession: jest.fn(),
-    },
-  },
-}))
-
-jest.mock('@reapit/cognito-auth', () => ({
-  redirectToLogin: jest.fn(),
-  getSessionCookie: jest.fn(),
-  getTokenFromQueryString: jest.fn(),
-  redirectToOAuth: jest.fn(),
-  getSession: jest.fn(() => require('../__mocks__/session').session),
-}))
+import * as React from 'react'
+import { shallow, mount } from 'enzyme'
+import { MemoryRouter } from 'react-router'
+import { PrivateRoute } from '../private-route'
 
 describe('PrivateRouter', () => {
   it('should match a snapshot', () => {
-    const props: PrivateRouteWrapperProps = {
-      path: '/client/apps',
-      ...getMockRouterProps({ params: {}, search: '?username=wmcvay@reapit.com&desktopToken=TOKEN' }),
-    }
-    const history = createBrowserHistory()
-    const wrapper = render(
-      <AuthContext.Provider value={mockContext}>
-        <Router history={history}>
-          <Route>
-            <PrivateRouteWrapper {...props} />
-          </Route>
-        </Router>
-      </AuthContext.Provider>,
-    )
-    expect(wrapper).toMatchSnapshot()
+    expect(shallow(<PrivateRoute component={() => null} />)).toMatchSnapshot()
   })
-  it('should match a snapshot', () => {
-    const props: PrivateRouteWrapperProps = {
-      path: '/client/apps',
-      ...getMockRouterProps({ params: {}, search: '?username=wmcvay@reapit.com&desktopToken=TOKEN' }),
-    }
-    const wrapper = render(
-      <AuthContext.Provider value={{} as AuthHook}>
-        <PrivateRouteWrapper {...props} />
-      </AuthContext.Provider>,
+
+  it('should return render component', () => {
+    const wrapper = mount(
+      <MemoryRouter initialEntries={['/client']}>
+        <PrivateRoute component={() => <div className="render-class" />} />
+      </MemoryRouter>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.find('.render-class')).toHaveLength(1)
   })
 })

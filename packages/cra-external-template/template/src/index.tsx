@@ -11,7 +11,6 @@ window.reapit = {
     appEnv: 'local',
     cognitoClientId: '',
     cognitoOAuthUrl: '',
-    // FIXME: remove this
     cognitoUserPoolId: '',
   },
 }

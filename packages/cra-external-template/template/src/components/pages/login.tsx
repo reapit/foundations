@@ -1,58 +1,35 @@
 import * as React from 'react'
-import { render } from '@testing-library/react'
-import { shallow } from 'enzyme'
-import { Button } from '@reapit/elements'
-import { ReapitConnectBrowserSessionInstance } from '../../../core/connect-session'
-import { createBrowserHistory } from 'history'
-import { AuthContext } from '../../../context'
-import { mockContext } from '../../../context/__mocks__/mock-context'
-import { AuthHook } from '../../../hooks/use-auth'
-import { Login } from '../login'
-import { Router, Route } from 'react-router-dom'
+import { Button, Level } from '@reapit/elements'
+import * as loginStyles from './__styles__/styles'
 
-jest.mock('../../../core/connect-session', () => ({
-  ReapitConnectBrowserSessionInstance: {
-    instance: {
-      connectLoginRedirect: jest.fn(),
-    },
-  },
-}))
+import logoImage from '../../assets/images/reapit-graphic.jpg'
+import connectImage from '../../assets/images/reapit-connect.png'
+import { ReapitConnectBrowserSessionInstance } from '../../core/connect-session'
 
-describe('Login', () => {
-  it('should match a snapshot', () => {
-    const history = createBrowserHistory()
-    const wrapper = render(
-      <AuthContext.Provider value={mockContext}>
-        <Router history={history}>
-          <Route>
-            <Login />
-          </Route>
-        </Router>
-      </AuthContext.Provider>,
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
+export const loginHandler = () =>
+  ReapitConnectBrowserSessionInstance.instance.connectLoginRedirect(window.location.origin)
 
-  it('should match a snapshot', () => {
-    const wrapper = render(
-      <AuthContext.Provider value={{} as AuthHook}>
-        <Login />
-      </AuthContext.Provider>,
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
-})
+export const Login: React.FunctionComponent = () => {
+  const { wrapper, container, image } = loginStyles
 
-describe('loginHandler', () => {
-  it('should correctly call redirect on click', () => {
-    const wrapper = shallow(<Login />)
+  return (
+    <div className={container}>
+      <div className={wrapper}>
+        <Level>
+          <img src={connectImage} alt="Reapit Connect Graphic" />
+        </Level>
+        <Level>
+          <Button fullWidth type="submit" variant="primary" onClick={loginHandler}>
+            Login
+          </Button>
+        </Level>
+      </div>
 
-    wrapper
-      .find(Button)
-      .first()
-      .simulate('click')
+      <div className={image}>
+        <img src={logoImage} alt="Reapit Graphic" />
+      </div>
+    </div>
+  )
+}
 
-    // FIXME: add check if it call with location.origin
-    expect(ReapitConnectBrowserSessionInstance.instance.connectLoginRedirect).toHaveBeenCalledTimes(1)
-  })
-})
+export default Login
