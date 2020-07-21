@@ -3,6 +3,7 @@ import { render } from 'react-dom'
 import { Config } from './types/global'
 import App from './core/app'
 import { getMarketplaceGlobalsByKey } from '@reapit/elements'
+import { ReapitConnectBrowserSessionInstance } from './core/connect-session'
 
 // Init global config
 window.reapit = {
@@ -10,6 +11,7 @@ window.reapit = {
     appEnv: 'local',
     cognitoClientId: '',
     cognitoOAuthUrl: '',
+    // FIXME: remove this
     cognitoUserPoolId: '',
   },
 }
@@ -31,6 +33,7 @@ const run = async () => {
   await fetch('config.json')
     .then(response => response.json())
     .then((config: Config) => {
+      ReapitConnectBrowserSessionInstance.initInstance(config)
       window.reapit.config = config
       renderApp(App)
     })

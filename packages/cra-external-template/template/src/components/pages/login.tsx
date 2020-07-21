@@ -9,18 +9,10 @@ import * as loginStyles from './__styles__/styles'
 import logoImage from '../../assets/images/reapit-graphic.jpg'
 import connectImage from '../../assets/images/reapit-connect.png'
 import { AuthContext } from '../../context'
-import { redirectToLogin } from '@reapit/cognito-auth'
-
-export const redirectToLoginPage = () => {
-  const cognitoClientId = window.reapit.config.cognitoClientId
-  redirectToLogin(cognitoClientId, `${window.location.origin}`)
-}
+import { ReapitConnectBrowserSessionInstance } from '../../core/connect-session'
 
 export const Login: React.FunctionComponent = () => {
-  const loginHandler = React.useCallback(redirectToLoginPage, [])
-
   const { wrapper, container, image } = loginStyles
-
   const { loginSession } = React.useContext(AuthContext)
 
   if (loginSession) {
@@ -34,7 +26,12 @@ export const Login: React.FunctionComponent = () => {
           <img src={connectImage} alt="Reapit Connect Graphic" />
         </Level>
         <Level>
-          <Button fullWidth type="submit" variant="primary" onClick={loginHandler}>
+          <Button
+            fullWidth
+            type="submit"
+            variant="primary"
+            onClick={ReapitConnectBrowserSessionInstance.instance.connectLoginRedirect}
+          >
             Login
           </Button>
         </Level>

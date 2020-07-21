@@ -12,21 +12,33 @@ export type PrivateRouteWrapperProps = RouteComponentProps & {
 }
 
 export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children }) => {
+  /**
+   * TODO: remove this
+   * required:t
+   *
+   * enter authenticated withou login rdirect login
+   * enter authenticated with code -> (login and close) -> able access
+   * enter authenticaed with normal login, should be eko
+   */
   const { loginSession, refreshParams, getLoginSession, isFetchSession } = React.useContext(AuthContext)
 
+  // TODO: change this
   if (!loginSession && !refreshParams) {
     redirectToOAuth(window.reapit.config.cognitoClientId)
     return null
   }
 
+  // TODO: bin
   if (!loginSession && refreshParams && !isFetchSession) {
     getLoginSession(refreshParams)
   }
 
+  // TODO: bin
   if (!loginSession) {
     return null
   }
 
+  // TODO: bin
   if (isFetchSession) {
     return (
       <Section>
@@ -35,6 +47,9 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     )
   }
 
+  /**
+   * TODO: add provide
+   */
   return (
     <AppNavContainer>
       <Menu />

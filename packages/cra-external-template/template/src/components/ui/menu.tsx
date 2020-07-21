@@ -48,6 +48,11 @@ export const callbackAppClick = () =>
 export type MenuProps = RouteComponentProps
 
 export const Menu: React.FunctionComponent<MenuProps> = ({ location }) => {
+  // FIXME
+  /**
+   *   const { connectLogoutRedirect } = useReapitConnect(reapitConnectBrowserSession)
+      should logout able
+   */
   const { logout, loginSession } = React.useContext(AuthContext)
   const mode = loginSession?.mode || 'WEB'
 

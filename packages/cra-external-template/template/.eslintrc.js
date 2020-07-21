@@ -27,7 +27,8 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'prettier', 'react-hooks' ],
+  plugins: ['react', '@typescript-eslint', 'prettier', 'react-hooks'],
+  // TODO: bin all unused ignore
   ignorePatterns: [
     'node_modules/',
     'setup-tests.ts',
@@ -41,6 +42,7 @@ module.exports = {
     'packages/*/public/dist',
     'chat-bot.js',
   ],
+  // TODO: bin all default rules
   rules: {
     quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: false }],
     semi: ['error', 'never'],
