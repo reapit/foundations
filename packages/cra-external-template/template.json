@@ -40,8 +40,7 @@
       "build": "react-app-rewired build",
       "test": "react-app-rewired test",
       "serve": "serve build -s -l 8080",
-      "lint": "concurrently 'tsc --noEmit' 'eslint --cache --ext=ts,tsx src'",
-      "lint:fix": "concurrently 'tsc --noEmit' 'eslint --fix --cache --ext=ts,tsx src'"
+      "lint": "concurrently 'tsc --noEmit' 'eslint --cache --ext=ts,tsx src'"
     }
   }
 }
