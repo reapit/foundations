@@ -3,7 +3,7 @@ import {
   UpdateDeveloperModel,
   PagedResultDeveloperModel_,
   DeveloperModel,
-  MemberModel,
+  PagedResultMemberModel_,
 } from '@reapit/foundations-ts-definitions'
 import { fetcher } from '@reapit/elements'
 import { URLS } from './constants'
@@ -27,17 +27,6 @@ export type FetchDeveloperByIdParams = FetchByIdCommonParams
 export type UpdateDeveloperByIdParams = FetchByIdCommonParams & UpdateDeveloperModel
 
 export type FetchOrganisationMembers = FetchByIdCommonParams & FetchListCommonParams
-
-export interface PagedResultMembersModel_ {
-  /**
-   * List of paged data
-   */
-  data?: MemberModel[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalCount?: number // int32
-}
 
 export const fetchDevelopersList = async (params: FetchDevelopersListParams): Promise<PagedResultDeveloperModel_> => {
   try {
@@ -103,7 +92,7 @@ export const updateDeveloperById = async (params: UpdateDeveloperByIdParams) => 
   }
 }
 
-export const fetchOrganisationMembers = async (params: FetchOrganisationMembers): Promise<PagedResultMembersModel_> => {
+export const fetchOrganisationMembers = async (params: FetchOrganisationMembers): Promise<PagedResultMemberModel_> => {
   try {
     const { id, ...restParams } = params
     const response = await fetcher({

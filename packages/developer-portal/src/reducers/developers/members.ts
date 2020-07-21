@@ -5,11 +5,11 @@ import {
   fetchOrganisationMembersSuccess,
   fetchOrganisationMembersFailed,
 } from '@/actions/developers'
-import { PagedResultMembersModel_ } from '@/services/developers'
+import { PagedResultMemberModel_ } from '@reapit/foundations-ts-definitions'
 
 export interface MembersState {
   loading: boolean
-  pagedResult: PagedResultMembersModel_ | null
+  pagedResult: PagedResultMemberModel_ | null
 }
 
 export const defaultState: MembersState = {

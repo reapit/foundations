@@ -4,9 +4,10 @@ import { Action } from '@/types/core'
 import errorMessages from '@/constants/error-messages'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { organisationFetchMembers, organisationFetchMembersListen, organisationMembersListSagas } from '../members'
-import { FetchOrganisationMembers, fetchOrganisationMembers, PagedResultMembersModel_ } from '@/services/developers'
+import { FetchOrganisationMembers, fetchOrganisationMembers } from '@/services/developers'
 import { fetchOrganisationMembersSuccess, fetchOrganisationMembersFailed } from '@/actions/developers'
 import ActionTypes from '@/constants/action-types'
+import { PagedResultMemberModel_ } from '@reapit/foundations-ts-definitions'
 
 describe('organisationMembersSagas', () => {
   describe('organisationFetchMembers', () => {
@@ -19,7 +20,7 @@ describe('organisationMembersSagas', () => {
 
     test('api call success', () => {
       const clone = gen.clone()
-      expect(clone.next({}).value).toEqual(put(fetchOrganisationMembersSuccess({} as PagedResultMembersModel_)))
+      expect(clone.next({}).value).toEqual(put(fetchOrganisationMembersSuccess({} as PagedResultMemberModel_)))
       expect(clone.next().done).toBe(true)
     })
 

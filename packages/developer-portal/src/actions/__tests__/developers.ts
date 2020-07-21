@@ -3,8 +3,9 @@ import {
   fetchOrganisationMembersSuccess,
   fetchOrganisationMembersFailed,
 } from '../developers'
-import { FetchOrganisationMembers, PagedResultMembersModel_ } from '@/services/developers'
+import { FetchOrganisationMembers } from '@/services/developers'
 import ActionTypes from '@/constants/action-types'
+import { PagedResultMemberModel_ } from '@reapit/foundations-ts-definitions'
 
 describe('member action', () => {
   it('should create a fetchOrganisationMembers action', () => {
@@ -16,7 +17,7 @@ describe('member action', () => {
   })
 
   it('should create a fetchOrganisationMembersSuccess action', () => {
-    const params: PagedResultMembersModel_ = {
+    const params: PagedResultMemberModel_ = {
       data: [],
       pageCount: 1,
       pageNumber: 20,
