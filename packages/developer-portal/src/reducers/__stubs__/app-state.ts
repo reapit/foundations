@@ -22,9 +22,12 @@ const appState: ReduxState = {
   },
   developers: {
     members: {
+      loading: false,
+      pagedResult: {
+        data: [],
+      },
       inviteMember: {
         loading: false,
-        error: '',
       },
     },
   },
@@ -225,14 +228,6 @@ const appState: ReduxState = {
     list: {
       loading: false,
       data: {
-        data: [],
-      },
-    },
-  },
-  developers: {
-    members: {
-      loading: false,
-      pagedResult: {
         data: [],
       },
     },

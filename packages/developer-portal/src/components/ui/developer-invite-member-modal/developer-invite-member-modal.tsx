@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Dispatch } from 'redux'
 import { inviteDeveloperAsOrgMember } from '@/actions/developers'
 import { selectDeveloperId } from '@/selector/auth'
+import { selectInviteDeveloperAsOrgMemberLoading } from '@/selector/developers'
 
 const { inviteNameField, inviteEmailField, inviteMessageField } = formFields
 
@@ -74,6 +75,7 @@ export const handleSubmit = (dispatch: Dispatch, developerId: string, onClose: (
 export const InviteMemberModal: React.FC<InviteMemberModalProps> = ({ visible = false, onClose }) => {
   const dispatch = useDispatch()
   const developerId = useSelector(selectDeveloperId)
+  const loading = useSelector(selectInviteDeveloperAsOrgMemberLoading)
   if (!visible) {
     return null
   }
@@ -93,10 +95,10 @@ export const InviteMemberModal: React.FC<InviteMemberModalProps> = ({ visible = 
               <FlexContainerBasic hasBackground hasPadding flexColumn>
                 <InviteMemberModalInput />
                 <LevelRight>
-                  <Button variant="secondary" type="button" onClick={onClose as () => void}>
+                  <Button disabled={loading} variant="secondary" type="button" onClick={onClose as () => void}>
                     Cancel
                   </Button>
-                  <Button variant="primary" type="submit">
+                  <Button loading={loading} variant="primary" type="submit">
                     Send Invite
                   </Button>
                 </LevelRight>

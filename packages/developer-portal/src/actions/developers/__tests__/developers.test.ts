@@ -1,5 +1,9 @@
 import ActionTypes from '@/constants/action-types'
-import { inviteDeveloperAsOrgMember, inviteDeveloperAsOrgMemberFailed } from '../developers'
+import {
+  inviteDeveloperAsOrgMember,
+  inviteDeveloperAsOrgMemberFailed,
+  inviteDeveloperAsOrgMemberSuccess,
+} from '../developers'
 
 describe('developers', () => {
   describe('inviteDeveloperAsOrgMember', () => {
@@ -10,6 +14,11 @@ describe('developers', () => {
   describe('inviteDeveloperAsOrgMemberFailed', () => {
     it('should create a inviteDeveloperAsOrgMemberFailed action', () => {
       expect(inviteDeveloperAsOrgMemberFailed.type).toEqual(ActionTypes.INVITE_DEVELOPER_AS_ORG_MEMBER_FAILED)
+    })
+  })
+  describe('inviteDeveloperAsOrgMemberSuccess', () => {
+    it('should ', () => {
+      expect(inviteDeveloperAsOrgMemberSuccess.type).toEqual(ActionTypes.INVITE_DEVELOPER_AS_ORG_MEMBER_SUCCESS)
     })
   })
 })

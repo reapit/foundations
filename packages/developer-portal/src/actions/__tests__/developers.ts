@@ -3,13 +3,13 @@ import {
   fetchOrganisationMembersSuccess,
   fetchOrganisationMembersFailed,
 } from '../developers'
-import { FetchOrganisationMembers } from '@/services/developers'
+import { FetchOrganisationMembersParams } from '@/services/developers'
 import ActionTypes from '@/constants/action-types'
 import { PagedResultMemberModel_ } from '@reapit/foundations-ts-definitions'
 
 describe('member action', () => {
   it('should create a fetchOrganisationMembers action', () => {
-    const params: FetchOrganisationMembers = {
+    const params: FetchOrganisationMembersParams = {
       id: '123',
     }
     expect(fetchOrganisationMembers.type).toEqual(ActionTypes.ORGANISATION_FETCH_MEMBERS)

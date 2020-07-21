@@ -25,7 +25,6 @@ describe('membersReducer', () => {
       ...defaultState,
       inviteMember: {
         loading: true,
-        error: '',
       },
     }
     expect(newState).toEqual(expected)
@@ -34,13 +33,26 @@ describe('membersReducer', () => {
   it('should set state to test when INVITE_DEVELOPER_AS_ORG_MEMBER_FAILED action is called with test', () => {
     const newState = membersReducer(undefined, {
       type: ActionTypes.INVITE_DEVELOPER_AS_ORG_MEMBER_FAILED as ActionType,
-      data: '123',
+      data: undefined,
     })
     const expected = {
       ...defaultState,
       inviteMember: {
         loading: false,
-        error: '123',
+      },
+    }
+    expect(newState).toEqual(expected)
+  })
+
+  it('should set state to test when INVITE_DEVELOPER_AS_ORG_MEMBER_SUCCESS action is called with test', () => {
+    const newState = membersReducer(undefined, {
+      type: ActionTypes.INVITE_DEVELOPER_AS_ORG_MEMBER_SUCCESS as ActionType,
+      data: undefined,
+    })
+    const expected = {
+      ...defaultState,
+      inviteMember: {
+        loading: false,
       },
     }
     expect(newState).toEqual(expected)

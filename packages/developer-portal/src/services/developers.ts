@@ -26,7 +26,7 @@ export type FetchDeveloperByIdParams = FetchByIdCommonParams
 
 export type UpdateDeveloperByIdParams = FetchByIdCommonParams & UpdateDeveloperModel
 
-export type FetchOrganisationMembers = FetchByIdCommonParams & FetchListCommonParams
+export type FetchOrganisationMembersParams = FetchByIdCommonParams & FetchListCommonParams
 
 export const fetchDevelopersList = async (params: FetchDevelopersListParams): Promise<PagedResultDeveloperModel_> => {
   try {
@@ -39,7 +39,7 @@ export const fetchDevelopersList = async (params: FetchDevelopersListParams): Pr
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 
@@ -55,7 +55,7 @@ export const createDeveloper = async (params: CreateDeveloperParams) => {
     return response
   } catch (error) {
     logger(error)
-    throw error
+    throw error?.response
   }
 }
 
@@ -71,7 +71,7 @@ export const fetchDeveloperById = async (params: FetchDeveloperByIdParams): Prom
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 
@@ -88,11 +88,13 @@ export const updateDeveloperById = async (params: UpdateDeveloperByIdParams) => 
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 
-export const fetchOrganisationMembers = async (params: FetchOrganisationMembers): Promise<PagedResultMemberModel_> => {
+export const fetchOrganisationMembers = async (
+  params: FetchOrganisationMembersParams,
+): Promise<PagedResultMemberModel_> => {
   try {
     const { id, ...restParams } = params
     const response = await fetcher({
@@ -104,7 +106,7 @@ export const fetchOrganisationMembers = async (params: FetchOrganisationMembers)
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 
@@ -129,7 +131,8 @@ export const inviteDeveloperAsOrgMemberApi = async (params: InviteDeveloperAsOrg
     })
     return response
   } catch (error) {
+    console.log({ error })
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }

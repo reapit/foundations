@@ -6,14 +6,13 @@ import appState from '@/reducers/__stubs__/app-state'
 import { handleSubmit, InviteMemberModal, InviteMemberModalInput } from '../developer-invite-member-modal'
 import { ReduxState } from '@/types/core'
 
-const createStore = (loading: boolean, data?: string) => {
+const createStore = (loading: boolean) => {
   return {
     ...appState,
     developers: {
       members: {
         inviteMember: {
           loading: loading,
-          error: data,
         },
       },
     },
@@ -27,7 +26,7 @@ describe('developer-invite-member-modal', () => {
   })
   describe('InviteMemberModal', () => {
     it('should match snapshot with default', () => {
-      store = mockStore(createStore(false, ''))
+      store = mockStore(createStore(false))
       const wrapper = mount(
         <ReactRedux.Provider store={store}>
           <InviteMemberModal onClose={jest.fn()} />
@@ -37,7 +36,7 @@ describe('developer-invite-member-modal', () => {
     })
 
     it('should match snapshot with loading true and error', () => {
-      store = mockStore(createStore(true, 'Error'))
+      store = mockStore(createStore(true))
       const wrapper = mount(
         <ReactRedux.Provider store={store}>
           <InviteMemberModal onClose={jest.fn()} />
@@ -47,7 +46,7 @@ describe('developer-invite-member-modal', () => {
     })
 
     it('should match snapshot with visible true', () => {
-      store = mockStore(createStore(false, ''))
+      store = mockStore(createStore(false))
       const wrapper = mount(
         <ReactRedux.Provider store={store}>
           <InviteMemberModal visible={true} onClose={jest.fn()} />
