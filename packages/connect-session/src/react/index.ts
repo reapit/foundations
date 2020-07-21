@@ -1,7 +1,6 @@
 import React from 'react'
 import { ReapitConnectHook, ReapitConnectSession } from '../types'
 import { ReapitConnectBrowserSession } from '../browser'
-;(window as any).a = React.useState
 
 export const useReapitConnect = (reapitConnectBrowserSession: ReapitConnectBrowserSession): ReapitConnectHook => {
   const [connectSession, setConnectSession] = React.useState<ReapitConnectSession | null>(null)
