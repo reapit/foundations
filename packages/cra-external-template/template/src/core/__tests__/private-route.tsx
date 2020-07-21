@@ -5,8 +5,16 @@ import { render } from '@testing-library/react'
 import { AuthContext } from '../../context'
 import { mockContext } from '../../context/__mocks__/mock-context'
 import { AuthHook } from '../../hooks/use-auth'
-import { PrivateRouteWrapper, PrivateRouteWrapperProps } from '../private-route-wrapper'
+import { PrivateRouteWrapper } from '../private-route-wrapper'
 import { getMockRouterProps } from '../__mocks__/mock-router'
+
+jest.mock('../../core/connect-session.tsx', () => ({
+  ReapitConnectBrowserSessionInstance: {
+    instance: {
+      connectSession: jest.fn(),
+    },
+  },
+}))
 
 jest.mock('@reapit/cognito-auth', () => ({
   redirectToLogin: jest.fn(),

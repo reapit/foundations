@@ -39,5 +39,8 @@
   "devDependencies": {
     "@types/jsonwebtoken": "^8.3.5"
   },
+  "peerDependencies": {
+    "react-dom": "^16.11.0"
+  },
   "snyk": true
 }
