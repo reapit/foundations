@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import React from 'react'
 import { render } from 'react-dom'
 import { Config } from '@/types/global'
@@ -8,11 +9,7 @@ window.reapit = {
   config: {
     appId: '',
     appEnv: 'production',
-    sentryDns: '',
-    platformApiUrl: '',
-    uploadApiUrl: '',
     cognitoClientId: '',
-    googleAnalyticsKey: '',
     cognitoOAuthUrl: '',
     cognitoUserPoolId: '',
   },

@@ -1,8 +1,9 @@
 import * as React from 'react'
+import { Section } from '@reapit/elements'
 
 type LoginProps = {}
 export const Login: React.FC<LoginProps> = () => {
-  return <div>Login Page</div>
+  return <Section>Login Page</Section>
 }
 
 export default Login

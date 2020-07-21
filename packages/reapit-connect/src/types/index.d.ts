@@ -1,5 +1,5 @@
 /**
- * Gobal override types to make the compiler happy
+ * Global override types to make the compiler happy
  */
 
 declare namespace yargs {

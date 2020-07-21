@@ -1,10 +1,22 @@
 import * as React from 'react'
 import Router from './router'
-import { global } from '@/styles'
+import { css } from 'linaria'
 
-const App = () => {
+const globalStyles = css`
+  :global() {
+    @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+    #root {
+      height: 100%;
+      background-color: #fff;
+    }
+  }
+`
+
+export const App = () => {
   return (
-    <div className={global}>
+    <div className={globalStyles}>
       <Router />
     </div>
   )

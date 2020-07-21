@@ -16,11 +16,11 @@
     "start:prod": "serve public/dist -s -l 8080",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
-    "release:dev": "node ../../scripts/release/release-dev.js aml-checklist reapit-aml-checklist-dev",
+    "release:dev": "node ../../scripts/release/release-dev.js reapit-connect reapit-reapit-connect-dev",
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
     "lint:fix": "eslint --cache --ext=ts,tsx,js src --fix",
-    "fetch-config": "yarn config-manager fetchConfig aml-checklist",
+    "fetch-config": "yarn config-manager fetchConfig reapit-connect",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect"
   },

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Welcome should match snapshot 1`] = `
+<Component
+  className=""
+>
+  <img
+    alt="logo"
+    src=""
+  />
+  <p>
+    Welcome to Reapit Foundations
+  </p>
+</Component>
+`;
