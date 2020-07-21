@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { storiesOf } from '@storybook/react'
 import { Toast } from '.'
 import { Button } from '../Button'
+import { Section } from '@/components/Layout'
 
 const DEFAULT_SERVER_ERROR = {
   type: 'SERVER',
@@ -28,7 +29,7 @@ const Usage = () => {
   }
 
   return (
-    <section className="section">
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <Button variant="primary" type="button" onClick={() => setErrorServer(DEFAULT_SERVER_ERROR)}>
         Toast error server
       </Button>
@@ -43,7 +44,7 @@ const Usage = () => {
         errorClearedComponent={errorClearedComponent}
         errorClearedServer={errorClearedServer}
       />
-    </section>
+    </Section>
   )
 }
 

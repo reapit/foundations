@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import { storiesOf } from '@storybook/react'
 import { Tabs, TabConfig } from '.'
+import { Section } from '@/components/Layout'
 
 const tabConfigs = ({ tab, handleChangeTab }: any): TabConfig[] => [
   {
@@ -27,11 +28,11 @@ storiesOf('Tabs', module).add('Primary', () => {
   return (
     <Parent>
       {(tab, handleChangeTab) => (
-        <section className="section">
+        <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
           <div className="column is-half-desktop">
             <Tabs tabConfigs={tabConfigs({ tab, handleChangeTab })} />
           </div>
-        </section>
+        </Section>
       )}
     </Parent>
   )

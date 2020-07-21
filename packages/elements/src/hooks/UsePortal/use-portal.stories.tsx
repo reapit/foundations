@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { storiesOf } from '@storybook/react'
 import { Button } from '../../components/Button'
 import { usePortal, PortalProvider } from '.'
+import { Section } from '@/components/Layout'
 
 const UsePortalComponent = () => {
   const [count, setCount] = useState(0)
@@ -28,9 +29,9 @@ const UsePortalComponent = () => {
 const BasicUsage = () => {
   return (
     <PortalProvider>
-      <section className="section">
+      <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
         <UsePortalComponent></UsePortalComponent>
-      </section>
+      </Section>
     </PortalProvider>
   )
 }

@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react'
 import { Modal } from '.'
 import { PortalProvider } from '../../hooks/UsePortal'
 import { Button } from '../Button'
+import { Section } from '@/components/Layout'
 
 const stories = storiesOf('Modal', module)
 
@@ -12,7 +13,7 @@ const BasicUsage = ({ tapOutsideToDissmiss = true }) => {
 
   return (
     <PortalProvider>
-      <section className="section">
+      <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
         <Button variant="primary" type="button" onClick={() => setVisible(true)}>
           Open Modal
         </Button>
@@ -27,7 +28,7 @@ const BasicUsage = ({ tapOutsideToDissmiss = true }) => {
             Vivamus risus orci, efficitur quis nisl nec, porta sollicitudin ante. Nulla facilisi.
           </p>
         </Modal>
-      </section>
+      </Section>
     </PortalProvider>
   )
 }
@@ -37,7 +38,7 @@ const HasFooter = () => {
 
   return (
     <PortalProvider>
-      <section className="section">
+      <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
         <Button variant="primary" type="button" onClick={() => setVisible(true)}>
           Open Modal
         </Button>
@@ -56,7 +57,7 @@ const HasFooter = () => {
             Vivamus risus orci, efficitur quis nisl nec, porta sollicitudin ante. Nulla facilisi.
           </p>
         </Modal>
-      </section>
+      </Section>
     </PortalProvider>
   )
 }
@@ -67,7 +68,7 @@ const NestedModals = () => {
 
   return (
     <PortalProvider>
-      <section className="section">
+      <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
         <Button variant="primary" type="button" onClick={() => setModalOneVisible(true)}>
           Open Modal One
         </Button>
@@ -95,7 +96,7 @@ const NestedModals = () => {
             </Modal>
           </>
         </Modal>
-      </section>
+      </Section>
     </PortalProvider>
   )
 }

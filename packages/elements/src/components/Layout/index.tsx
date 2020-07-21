@@ -38,6 +38,7 @@ export interface SectionProps extends LayoutProps {
   hasMargin?: boolean
   hasBackground?: boolean
   isFullHeight?: boolean
+  style?: React.CSSProperties
 }
 
 export const FlexContainerResponsive: React.FC<FlexContainerProps> = ({
@@ -195,6 +196,7 @@ export const Section: React.FC<SectionProps> = ({
   hasBackground = true,
   isFullHeight,
   className,
+  style,
 }) => (
   <section
     className={cx(
@@ -210,6 +212,7 @@ export const Section: React.FC<SectionProps> = ({
       isFullHeight && 'is-full-height',
       className,
     )}
+    style={style}
     data-test={dataTest}
   >
     {children}

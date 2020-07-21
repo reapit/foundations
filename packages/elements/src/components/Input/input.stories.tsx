@@ -5,9 +5,10 @@ import { action } from '@storybook/addon-actions'
 import { Input } from '.'
 import { Form, Formik } from 'formik'
 import { FaSearch } from 'react-icons/fa'
+import { Section } from '@/components/Layout'
 
 storiesOf('Input', module).add('InputVariants', () => (
-  <section className="section">
+  <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
     <Formik
       initialValues={{ text: '', email: '', password: '', tel: '' }}
       onSubmit={values => {
@@ -26,5 +27,5 @@ storiesOf('Input', module).add('InputVariants', () => (
         </Form>
       )}
     </Formik>
-  </section>
+  </Section>
 ))

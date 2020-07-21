@@ -5,11 +5,12 @@ import { action } from '@storybook/addon-actions'
 import { Form, Formik } from 'formik'
 import { DatePicker } from '../../components/DatePicker'
 import { getTime, getDate, isSameDay, closestTo } from './datetime'
+import { Section } from '@/components/Layout'
 
 storiesOf('Datetime', module).add('Primary', () => {
   const arrDates = ['2019-11-1T00:00:00', '2019-11-06T00:00:00', '2019-11-12T00:00:00']
   return (
-    <section className="section">
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <Formik
         initialValues={{ inputDate: '' }}
         onSubmit={values => {
@@ -33,6 +34,6 @@ storiesOf('Datetime', module).add('Primary', () => {
           )
         }}
       />
-    </section>
+    </Section>
   )
 })

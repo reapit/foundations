@@ -5,10 +5,11 @@ import { action } from '@storybook/addon-actions'
 import { Form, Formik } from 'formik'
 import { Input } from '../../components/Input'
 import { setQueryParams } from './query-params'
+import { Section } from '@/components/Layout'
 
 storiesOf('QueryParams', module).add('Primary', () => {
   return (
-    <section className="section">
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <Formik
         initialValues={{ name: '', address: '', phone: '' }}
         onSubmit={values => {
@@ -30,6 +31,6 @@ storiesOf('QueryParams', module).add('Primary', () => {
           )
         }}
       />
-    </section>
+    </Section>
   )
 })

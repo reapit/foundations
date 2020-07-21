@@ -4,10 +4,11 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { DatePicker } from '.'
 import { Form, Formik } from 'formik'
+import { Section } from '@/components/Layout'
 
 storiesOf('DatePicker', module)
   .add('Primary', () => (
-    <section className="section">
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <Formik
         initialValues={{ demo: new Date() }}
         onSubmit={values => {
@@ -17,15 +18,15 @@ storiesOf('DatePicker', module)
         {() => (
           <Form>
             <div className="column is-half-desktop">
-              <DatePicker name="demo" labelText="demo" id="demo" />
+              <DatePicker name="demo" labelText="demo" id="demo" popperPlacement="top" />
             </div>
           </Form>
         )}
       </Formik>
-    </section>
+    </Section>
   ))
   .add('Date Picker - Empty', () => (
-    <section className="section">
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <Formik
         initialValues={{ demo: '' }}
         onSubmit={values => {
@@ -35,17 +36,17 @@ storiesOf('DatePicker', module)
         {() => (
           <Form>
             <div className="column is-half-desktop">
-              <DatePicker name="demo" labelText="demo" id="demo" />
+              <DatePicker name="demo" labelText="demo" id="demo" popperPlacement="top" />
             </div>
           </Form>
         )}
       </Formik>
-    </section>
+    </Section>
   ))
   .add('Date Picker - Error', () => {
     const Parent = () => {
       return (
-        <section className="section">
+        <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
           <Formik
             initialValues={{ demo: '' }}
             onSubmit={values => {
@@ -60,7 +61,7 @@ storiesOf('DatePicker', module)
               </Form>
             )}
           </Formik>
-        </section>
+        </Section>
       )
     }
 

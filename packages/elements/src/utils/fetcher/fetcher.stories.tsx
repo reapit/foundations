@@ -6,6 +6,7 @@ import { Form, Formik } from 'formik'
 import { Button } from '../../components/Button'
 import { Input } from '../../components/Input'
 import { H1 } from '../../components/Typography'
+import { Section } from '@/components/Layout'
 
 storiesOf('Fetcher', module).add('Primary', () => {
   const [repo, setRepo] = React.useState<any[] | null>(null)
@@ -25,7 +26,7 @@ storiesOf('Fetcher', module).add('Primary', () => {
   }
 
   return (
-    <section className="section">
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <H1>Show Github repositories</H1>
       <Formik
         initialValues={{ username: '' }}
@@ -47,6 +48,6 @@ storiesOf('Fetcher', module).add('Primary', () => {
             </li>
           ))}
       </ul>
-    </section>
+    </Section>
   )
 })

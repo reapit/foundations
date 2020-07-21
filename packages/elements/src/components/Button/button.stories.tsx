@@ -4,9 +4,10 @@ import { storiesOf } from '@storybook/react'
 import { Button } from '.'
 import { action } from '@storybook/addon-actions'
 import { ButtonGroup } from './index'
+import { Section } from '@/components/Layout'
 
 storiesOf('Button', module).add('Primary', () => (
-  <section className="section">
+  <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
     <div className="column is-half-desktop">
       <Button
         type="submit"
@@ -19,11 +20,11 @@ storiesOf('Button', module).add('Primary', () => (
         Primary
       </Button>
     </div>
-  </section>
+  </Section>
 ))
 
 storiesOf('Button', module).add('Primary', () => (
-  <section className="section">
+  <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
     <div className="column is-half-desktop">
       <Button
         type="submit"
@@ -36,11 +37,11 @@ storiesOf('Button', module).add('Primary', () => (
         Primary
       </Button>
     </div>
-  </section>
+  </Section>
 ))
 
 storiesOf('Button', module).add('Info', () => (
-  <section className="section">
+  <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
     <div className="column is-half-desktop">
       <Button
         type="submit"
@@ -53,11 +54,11 @@ storiesOf('Button', module).add('Info', () => (
         Info
       </Button>
     </div>
-  </section>
+  </Section>
 ))
 
 storiesOf('Button', module).add('Danger', () => (
-  <section className="section">
+  <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
     <div className="column is-half-desktop">
       <Button
         type="submit"
@@ -70,11 +71,11 @@ storiesOf('Button', module).add('Danger', () => (
         Danger
       </Button>
     </div>
-  </section>
+  </Section>
 ))
 
 storiesOf('Button', module).add('Disabled', () => (
-  <section className="section">
+  <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
     <div className="column is-half-desktop">
       <Button
         type="submit"
@@ -87,11 +88,11 @@ storiesOf('Button', module).add('Disabled', () => (
         Disabled
       </Button>
     </div>
-  </section>
+  </Section>
 ))
 
 storiesOf('Button', module).add('Loading', () => (
-  <section className="section">
+  <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
     <div className="column is-half-desktop">
       <Button
         type="submit"
@@ -104,11 +105,11 @@ storiesOf('Button', module).add('Loading', () => (
         Loading
       </Button>
     </div>
-  </section>
+  </Section>
 ))
 
 storiesOf('Button', module).add('IsCentered', () => (
-  <section className="section">
+  <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
     <div className="column is-half-desktop">
       <Button
         className="is-centered"
@@ -122,15 +123,15 @@ storiesOf('Button', module).add('IsCentered', () => (
         Centered
       </Button>
     </div>
-  </section>
+  </Section>
 ))
 
 storiesOf('Button', module).add('ButtonGroup', () => {
   const [isActive, setIsActive] = React.useState(0)
   return (
-    <section className="section">
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <div className="column is-half-desktop">
-        <ButtonGroup>
+        <ButtonGroup className="is-block">
           <Button
             type="button"
             className={`${isActive === 0 ? 'is-info' : ''}`}
@@ -166,6 +167,6 @@ storiesOf('Button', module).add('ButtonGroup', () => {
           </Button>
         </ButtonGroup>
       </div>
-    </section>
+    </Section>
   )
 })

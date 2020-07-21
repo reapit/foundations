@@ -87,10 +87,12 @@ export const Wizard = ({
         <div className={`modal ${visible ? 'is-active' : ''}`}>
           <div className="modal-background"></div>
           <div className="modal-card">
-            <header className="modal-card-head">
-              <button className="wizard-close" onClick={close}>
-                <MdClose />
-              </button>
+            <header className="modal-card-head" style={{ display: 'flex', flexDirection: 'row-reverse' }}>
+              <div>
+                <button className="wizard-close" onClick={close}>
+                  <MdClose />
+                </button>
+              </div>
             </header>
             {React.Children.toArray(children).filter(({ props }: any) => props.id === internalCurrent)}
           </div>

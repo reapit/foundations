@@ -1,6 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { HTMLRender } from '.'
+import { Section } from '@/components/Layout'
 
 const html = `
     <h1>heading h1</h1>
@@ -23,7 +24,7 @@ const html = `
 `
 
 storiesOf('HTMLRender', module).add('Usage', () => (
-  <section className="section">
+  <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
     <HTMLRender html={html} />
-  </section>
+  </Section>
 ))

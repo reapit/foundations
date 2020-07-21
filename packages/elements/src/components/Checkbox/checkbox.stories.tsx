@@ -4,10 +4,11 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { Checkbox } from '.'
 import { Form, Formik } from 'formik'
+import { Section } from '@/components/Layout'
 
 storiesOf('Checkbox', module)
   .add('Primary', () => (
-    <section className="section">
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <Formik
         initialValues={{ checked: 0 }}
         onSubmit={values => {
@@ -20,10 +21,10 @@ storiesOf('Checkbox', module)
           </div>
         </Form>
       </Formik>
-    </section>
+    </Section>
   ))
   .add('Use as Group', () => (
-    <section className="section">
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <Formik
         initialValues={{ checkboxGroup: ['checkboxA'] }}
         onSubmit={values => {
@@ -38,5 +39,5 @@ storiesOf('Checkbox', module)
           </div>
         </Form>
       </Formik>
-    </section>
+    </Section>
   ))

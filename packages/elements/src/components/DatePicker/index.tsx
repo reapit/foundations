@@ -152,6 +152,7 @@ export interface DatePickerProps {
   required?: boolean
   reactDatePickerProps?: any
   useCustomInput?: boolean
+  popperPlacement?: string
 }
 
 export const DatePicker = ({
@@ -161,6 +162,7 @@ export const DatePicker = ({
   required = false,
   reactDatePickerProps = {},
   useCustomInput = true,
+  popperPlacement = 'top',
 }: DatePickerProps) => {
   return (
     <Field name={name} validate={required ? fieldValidateRequire : null}>
@@ -189,6 +191,7 @@ export const DatePicker = ({
                 </label>
               )}
               <ReactDatePicker
+                popperPlacement={popperPlacement}
                 className={className}
                 id={id}
                 {...reactDatePickerProps}

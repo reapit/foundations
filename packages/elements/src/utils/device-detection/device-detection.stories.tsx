@@ -2,17 +2,34 @@ import React from 'react'
 
 import { storiesOf } from '@storybook/react'
 import { isAndroid, isIOS, isMacLike, isMobile } from './device-detection'
+import { Section } from '@/components/Layout'
 
 storiesOf('DeviceDetection', module)
   .add('IsAndroid', () => {
-    return <section className="section">Device is Android: {isAndroid() ? 'True' : 'False'}</section>
+    return (
+      <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
+        Device is Android: {isAndroid() ? 'True' : 'False'}
+      </Section>
+    )
   })
   .add('IsIOS', () => {
-    return <section className="section">Device is IOS: {isIOS() ? 'True' : 'False'}</section>
+    return (
+      <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
+        Device is IOS: {isIOS() ? 'True' : 'False'}
+      </Section>
+    )
   })
   .add('IsMac', () => {
-    return <section className="section">Device is Mac: {isMacLike() ? 'True' : 'False'}</section>
+    return (
+      <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
+        Device is Mac: {isMacLike() ? 'True' : 'False'}
+      </Section>
+    )
   })
   .add('IsMobile', () => {
-    return <section className="section">Device is Mobile: {isMobile() ? 'True' : 'False'}</section>
+    return (
+      <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
+        Device is Mobile: {isMobile() ? 'True' : 'False'}
+      </Section>
+    )
   })

@@ -4,6 +4,7 @@ import { SelectBox, SelectBoxOptions, SelectBoxProps } from '../index'
 import { Formik, Form, FormikErrors } from 'formik'
 import toJson from 'enzyme-to-json'
 import { act } from 'react-dom/test-utils'
+import { Section } from '../../Layout'
 
 const mockedOptions: SelectBoxOptions[] = [
   { label: 'a', value: 'a' },
@@ -35,7 +36,7 @@ const createFormikWrapper = () => {
 
 const ErrorFomrikComponent = () => {
   return (
-    <section className="section">
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <Formik
         validate={values => {
           const errors: FormikErrors<any> = {
@@ -58,7 +59,7 @@ const ErrorFomrikComponent = () => {
           </Form>
         )}
       </Formik>
-    </section>
+    </Section>
   )
 }
 

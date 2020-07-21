@@ -6,11 +6,12 @@ import { DropdownSelect } from '.'
 import { action } from '@storybook/addon-actions'
 import { options } from './__stubs__/options'
 import { Button } from '../Button'
+import { Section } from '@/components/Layout'
 
 storiesOf('DropdownSelect', module)
   .add('Mode tags', () => {
     return (
-      <section className="section">
+      <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
         <Formik
           initialValues={{ desktopTypes: [] }}
           onSubmit={values => {
@@ -32,12 +33,12 @@ storiesOf('DropdownSelect', module)
             </Button>
           </Form>
         </Formik>
-      </section>
+      </Section>
     )
   })
   .add('Mode multiple', () => {
     return (
-      <section className="section">
+      <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
         <Formik
           initialValues={{ desktopTypes: [] }}
           onSubmit={values => {
@@ -61,6 +62,6 @@ storiesOf('DropdownSelect', module)
             </Button>
           </Form>
         </Formik>
-      </section>
+      </Section>
     )
   })
