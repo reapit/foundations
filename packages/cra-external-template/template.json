@@ -47,7 +47,7 @@
       "concurrently": "^5.2.0"
     },
     "scripts": {
-      "start": "react-app-rewired start",
+      "start": "PORT=8080 react-app-rewired start",
       "build": "react-app-rewired build",
       "test": "react-app-rewired test",
       "serve": "serve build -s -l 8080",

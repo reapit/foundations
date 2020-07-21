@@ -1,6 +1,6 @@
-import { AuthHook } from '@/hooks/use-auth'
+import { AuthHook } from '../../hooks/use-auth'
 
-export const mockContext = {
+export const mockContext = ({
   loginSession: {
     mode: 'WEB',
     userName: 'mockUsername',
@@ -25,4 +25,4 @@ export const mockContext = {
   logout: jest.fn(),
   getLoginSession: jest.fn(),
   refreshParams: null,
-} as AuthHook
+} as unknown) as AuthHook
