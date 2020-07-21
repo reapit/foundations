@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChartLegend should match a snapshot 1`] = `
+<Fragment>
+  <Component
+    className="is-half cursor-pointer"
+    key="0"
+    onClick={[Function]}
+  >
+    <Component
+      isMobile={true}
+      isVerticalCentered={true}
+    >
+      <Component
+        className="is-one-third-desktop is-half-tablet is-one-third-mobile"
+      >
+        <div
+          className="chartLegendBox"
+          style={
+            Object {
+              "backgroundColor": "rgba(255,99,132,0.2)",
+              "borderColor": "rgba(255,99,132,1)",
+              "borderWidth": 1,
+            }
+          }
+        />
+      </Component>
+      <Component
+        className="px-0"
+      >
+        <p
+          className=""
+        >
+          API Calls
+        </p>
+      </Component>
+    </Component>
+  </Component>
+  <Component
+    className="is-half cursor-pointer"
+    key="1"
+    onClick={[Function]}
+  >
+    <Component
+      isMobile={true}
+      isVerticalCentered={true}
+    >
+      <Component
+        className="is-one-third-desktop is-half-tablet is-one-third-mobile"
+      >
+        <div
+          className="chartLegendBox"
+          style={
+            Object {
+              "backgroundColor": "rgba(81, 74, 177,0.2)",
+              "borderColor": "rgba(81, 74, 177,1)",
+              "borderWidth": 1,
+            }
+          }
+        />
+      </Component>
+      <Component
+        className="px-0"
+      >
+        <p
+          className=""
+        >
+          App Listing
+        </p>
+      </Component>
+    </Component>
+  </Component>
+  <Component
+    className="is-half cursor-pointer"
+    key="2"
+    onClick={[Function]}
+  >
+    <Component
+      isMobile={true}
+      isVerticalCentered={true}
+    >
+      <Component
+        className="is-one-third-desktop is-half-tablet is-one-third-mobile"
+      >
+        <div
+          className="chartLegendBox"
+          style={
+            Object {
+              "backgroundColor": "rgba(103, 195, 6,0.2)",
+              "borderColor": "rgba(103, 195, 6,1)",
+              "borderWidth": 1,
+            }
+          }
+        />
+      </Component>
+      <Component
+        className="px-0"
+      >
+        <p
+          className=""
+        >
+          Developer Edition
+        </p>
+      </Component>
+    </Component>
+  </Component>
+  <Component
+    className="is-half cursor-pointer"
+    key="3"
+    onClick={[Function]}
+  >
+    <Component
+      isMobile={true}
+      isVerticalCentered={true}
+    >
+      <Component
+        className="is-one-third-desktop is-half-tablet is-one-third-mobile"
+      >
+        <div
+          className="chartLegendBox"
+          style={
+            Object {
+              "backgroundColor": "rgba(241, 139, 254, 0.2)",
+              "borderColor": "rgba(241, 139, 254, 1)",
+              "borderWidth": 1,
+            }
+          }
+        />
+      </Component>
+      <Component
+        className="px-0"
+      >
+        <p
+          className=""
+        >
+          Developer Registration
+        </p>
+      </Component>
+    </Component>
+  </Component>
+</Fragment>
+`;

@@ -13,6 +13,10 @@ jest.mock('linaria', () => {
   }
 })
 
+jest.mock('react-chartjs-2', () => ({
+  Bar: () => null,
+}))
+
 /* tslint:disable */
 const createMockFuncsFromArray = (instance, names = []) => {
   names.forEach(name => {

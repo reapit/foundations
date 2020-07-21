@@ -16,8 +16,16 @@ export interface FlexContainerProps extends LayoutProps {
   isPageContainer?: boolean
 }
 
-export interface GridProps extends LayoutProps {
+export interface GridColumnsProps extends LayoutProps {
   isMultiLine?: boolean
+  isVerticalCentered?: boolean
+  isMobile?: boolean
+  onClick?: () => void
+}
+
+export interface GridColumnProps extends LayoutProps {
+  isMultiLine?: boolean
+  onClick?: () => void
 }
 
 export interface SectionProps extends LayoutProps {
@@ -32,7 +40,7 @@ export interface SectionProps extends LayoutProps {
   isFullHeight?: boolean
 }
 
-export const FlexContainerResponsive: React.SFC<FlexContainerProps> = ({
+export const FlexContainerResponsive: React.FC<FlexContainerProps> = ({
   children,
   flexColumn = false,
   centerContent = false,
@@ -58,7 +66,7 @@ export const FlexContainerResponsive: React.SFC<FlexContainerProps> = ({
   </div>
 )
 
-export const FlexContainerBasic: React.SFC<FlexContainerProps> = ({
+export const FlexContainerBasic: React.FC<FlexContainerProps> = ({
   children,
   flexColumn = false,
   centerContent = false,
@@ -84,19 +92,19 @@ export const FlexContainerBasic: React.SFC<FlexContainerProps> = ({
   </div>
 )
 
-export const AppNavContainer: React.SFC<LayoutProps> = ({ children, className, dataTest = '' }) => (
+export const AppNavContainer: React.FC<LayoutProps> = ({ children, className, dataTest = '' }) => (
   <div className={cx('app-nav-container', className)} data-test={dataTest}>
     {children}
   </div>
 )
 
-export const GridFourCol: React.SFC<LayoutProps> = ({ children, className, dataTest = '' }) => (
+export const GridFourCol: React.FC<LayoutProps> = ({ children, className, dataTest = '' }) => (
   <div className={cx('columns is-multiline', className)} data-test={dataTest}>
     {children}
   </div>
 )
 
-export const GridFourColItem: React.SFC<LayoutProps> = ({ children, className, dataTest = '' }) => (
+export const GridFourColItem: React.FC<LayoutProps> = ({ children, className, dataTest = '' }) => (
   <div
     className={cx(
       'column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd',
@@ -108,49 +116,73 @@ export const GridFourColItem: React.SFC<LayoutProps> = ({ children, className, d
   </div>
 )
 
-export const GridThreeColItem: React.SFC<LayoutProps> = ({ children, className, dataTest = '' }) => (
+export const GridThreeColItem: React.FC<LayoutProps> = ({ children, className, dataTest = '' }) => (
   <div className={cx('column is-multiline is-half-tablet is-one-third-widescreen', className)} data-test={dataTest}>
     {children}
   </div>
 )
 
-export const Grid: React.SFC<GridProps> = ({ children, isMultiLine = false, className, dataTest = '' }) => (
-  <div className={cx('columns', isMultiLine && 'is-multiline', className)} data-test={dataTest}>
+export const Grid: React.FC<GridColumnsProps> = ({
+  children,
+  isMultiLine = false,
+  isVerticalCentered = false,
+  isMobile = false,
+  className,
+  dataTest = '',
+  onClick,
+}) => (
+  <div
+    className={cx(
+      'columns',
+      isMultiLine && 'is-multiline',
+      isVerticalCentered && 'is-vcentered',
+      isMobile && 'is-mobile',
+      className,
+    )}
+    data-test={dataTest}
+    onClick={onClick}
+  >
     {children}
   </div>
 )
 
-export const GridItem: React.SFC<GridProps> = ({ children, isMultiLine = false, className, dataTest = '' }) => (
-  <div className={cx('column', isMultiLine && 'is-multiline', className)} data-test={dataTest}>
+export const GridItem: React.FC<GridColumnProps> = ({
+  children,
+  isMultiLine = false,
+  className,
+  dataTest = '',
+  onClick,
+}) => (
+  <div className={cx('column', isMultiLine && 'is-multiline', className)} data-test={dataTest} onClick={onClick}>
     {children}
   </div>
 )
 
-export const Level: React.SFC<LayoutProps> = ({ children, className, dataTest = '' }) => (
+export const Level: React.FC<LayoutProps> = ({ children, className, dataTest = '' }) => (
   <div className={cx('level', className)} data-test={dataTest}>
     {children}
   </div>
 )
 
-export const LevelLeft: React.SFC<LayoutProps> = ({ children, className, dataTest = '' }) => (
+export const LevelLeft: React.FC<LayoutProps> = ({ children, className, dataTest = '' }) => (
   <div className={cx('level-left', className)} data-test={dataTest}>
     {children}
   </div>
 )
 
-export const LevelRight: React.SFC<LayoutProps> = ({ children, className, dataTest = '' }) => (
+export const LevelRight: React.FC<LayoutProps> = ({ children, className, dataTest = '' }) => (
   <div className={cx('level-right', className)} data-test={dataTest}>
     {children}
   </div>
 )
 
-export const LevelItem: React.SFC<LayoutProps> = ({ children, className, dataTest = '' }) => (
+export const LevelItem: React.FC<LayoutProps> = ({ children, className, dataTest = '' }) => (
   <div className={cx('level-item', className)} data-test={dataTest}>
     {children}
   </div>
 )
 
-export const Section: React.SFC<SectionProps> = ({
+export const Section: React.FC<SectionProps> = ({
   isFlex,
   isCentered,
   isAlignedEnd,
@@ -184,7 +216,7 @@ export const Section: React.SFC<SectionProps> = ({
   </section>
 )
 
-export const Content: React.SFC<LayoutProps> = ({ children, className, dataTest = '' }) => (
+export const Content: React.FC<LayoutProps> = ({ children, className, dataTest = '' }) => (
   <div className={cx('content', className)} data-test={dataTest}>
     {children}
   </div>
