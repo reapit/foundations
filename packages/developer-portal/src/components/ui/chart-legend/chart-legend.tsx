@@ -17,7 +17,7 @@ export type ChartLegendProps = {
   chartLegendItems: ChartLegendItem[]
 }
 
-// Follow the default implementation of ChartJS's legeng onClick action
+// Follow the default implementation of ChartJS's legend onClick action
 // https://www.chartjs.org/docs/latest/configuration/legend.html#custom-on-click-actions
 export const onChartLegendItemClick = (chartInstance: Partial<chartjs>, chartLegendItem: ChartLegendItem) => {
   return () => {
