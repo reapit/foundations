@@ -60,6 +60,9 @@ export const InviteMemberModalInput: React.FC = () => {
 }
 
 export const handleSubmit = (dispatch: Dispatch, developerId: string, onClose: () => void) => values => {
+  if (!developerId) {
+    return
+  }
   const params = {
     id: developerId,
     callback: onClose,

@@ -20,6 +20,14 @@ const appState: ReduxState = {
     monthlyBilling: null,
     webhookPingTestStatus: null,
   },
+  developers: {
+    members: {
+      inviteMember: {
+        loading: false,
+        error: '',
+      },
+    },
+  },
   auth: {
     error: false,
     loginSession: {
