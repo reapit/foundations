@@ -1,6 +1,6 @@
 import { FetchMock } from 'jest-fetch-mock'
 import { ReapitConnectBrowserSession } from '../index'
-import { mockTokenResponse } from '../../__mocks__/browser-session'
+import { mockTokenResponse, mockSessionFromLocalStorage } from '../../__mocks__/browser-session'
 import {
   mockBrowserInitializers,
   setMockBrowserSessionToLocalStorage,
@@ -151,10 +151,23 @@ describe('ReapitConnectBrowserSession', () => {
     const mockedLoginEndpoint = jest.spyOn(ReapitConnectBrowserSession.prototype, 'connectLogoutRedirect')
 
     setMockBrowserSessionToLocalStorage()
+    const initialSession = mockSessionFromLocalStorage()
+
+    expect(initialSession.loginUser).toEqual(mockBrowserSession.loginIdentity.email)
+    expect(initialSession.accessToken).toEqual(mockBrowserSession.accessToken)
+    expect(initialSession.idToken).toEqual(mockBrowserSession.idToken)
+    expect(initialSession.refreshToken).toEqual(mockBrowserSession.refreshToken)
+
     const session = getSession()
 
     session.connectLogoutRedirect()
 
+    const cachedSession = mockSessionFromLocalStorage()
+
+    expect(cachedSession.loginUser).toBeUndefined()
+    expect(cachedSession.accessToken).toBeUndefined()
+    expect(cachedSession.idToken).toBeUndefined()
+    expect(cachedSession.refreshToken).toBeUndefined()
     expect(mockedLoginEndpoint).toHaveBeenCalledTimes(1)
   })
 
