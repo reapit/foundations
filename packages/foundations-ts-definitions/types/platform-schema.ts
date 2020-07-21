@@ -5688,6 +5688,7 @@ export interface PagedResultApplicantContactRelationshipModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -6004,6 +6005,7 @@ export interface PagedResultApplicantModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -6191,6 +6193,7 @@ export interface PagedResultAppointmentModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
