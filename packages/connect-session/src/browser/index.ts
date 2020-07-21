@@ -113,6 +113,23 @@ export class ReapitConnectBrowserSession {
     }
   }
 
+  // Clears out local storage for users before re-directing to logout
+  private clearLocalStorageSession(): void {
+    if (this.session) {
+      window.localStorage.removeItem(
+        `CognitoIdentityServiceProvider.${this.connectClientId}.${this.userName}.accessToken`,
+      )
+
+      window.localStorage.removeItem(`CognitoIdentityServiceProvider.${this.connectClientId}.${this.userName}.idToken`)
+
+      window.localStorage.removeItem(
+        `CognitoIdentityServiceProvider.${this.connectClientId}.${this.userName}.refreshToken`,
+      )
+
+      window.localStorage.removeItem(`CognitoIdentityServiceProvider.${this.connectClientId}.LastAuthUser`)
+    }
+  }
+
   // See below, used to refresh session if I have a refresh token in local storage
   private get tokenRefreshEndpoint() {
     return `${this.connectOAuthUrl}/token?grant_type=refresh_token&client_id=${this.connectClientId}&refresh_token=${this.session?.refreshToken}&redirect_uri=${this.connectLoginRedirectPath}`
@@ -214,6 +231,7 @@ export class ReapitConnectBrowserSession {
   // Used as handler for logout menu button
   public connectLogoutRedirect(redirectUri?: string): void {
     const logoutRedirectUri = redirectUri || this.connectLogoutRedirectPath
+    this.clearLocalStorageSession()
     window.location.href = `${this.connectOAuthUrl}/logout?client_id=${this.connectClientId}&logout_uri=${logoutRedirectUri}`
   }
 
