@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import Invite, { FooterModal, FooterModalProps, handleReject, handleSubmit, handleFetchDeveloperData } from '../invite'
+import Invite, { ModalFooter, ModalFooterProps, handleReject, handleSubmit, handleFetchDeveloperData } from '../invite'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import * as ReactRedux from 'react-redux'
@@ -25,14 +25,14 @@ describe('AcceptedModal', () => {
   })
 })
 
-describe('FooterModal', () => {
+describe('ModalFooter', () => {
   it('should match snapshot', () => {
     const props = {
       onConfirm: jest.fn(),
       onReject: jest.fn(),
       inviteStatus: 'PENDING',
-    } as FooterModalProps
-    expect(shallow(<FooterModal {...props} />)).toMatchSnapshot()
+    } as ModalFooterProps
+    expect(shallow(<ModalFooter {...props} />)).toMatchSnapshot()
   })
 })
 

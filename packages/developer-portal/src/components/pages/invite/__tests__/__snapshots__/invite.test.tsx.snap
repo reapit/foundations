@@ -611,7 +611,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
 </Provider>
 `;
 
-exports[`FooterModal should match snapshot 1`] = `
+exports[`ModalFooter should match snapshot 1`] = `
 <Fragment>
   <Component
     className="mr-2"

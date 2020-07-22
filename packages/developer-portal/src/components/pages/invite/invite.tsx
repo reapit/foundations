@@ -39,13 +39,13 @@ export const handleReject = (dispatch: Dispatch, developerId: string, memberId: 
   dispatch(rejectInviteMember(params))
 }
 
-export interface FooterModalProps {
+export interface ModalFooterProps {
   onConfirm: () => void
   onReject: () => void
   inviteStatus: InviteMemberStatus
 }
 
-export const FooterModal: React.FC<FooterModalProps> = ({ onConfirm, onReject, inviteStatus }) => {
+export const ModalFooter: React.FC<ModalFooterProps> = ({ onConfirm, onReject, inviteStatus }) => {
   const isDisabled = inviteStatus == 'REJECTING' || inviteStatus == 'ACCEPTING'
   return (
     <>
@@ -113,7 +113,7 @@ export const Invite: React.FC = () => {
                 title="Reapit Foundations Invitation"
                 visible
                 isCentered
-                footer={<FooterModal onConfirm={handleSubmit} onReject={onReject} inviteStatus={inviteStatus} />}
+                footer={<ModalFooter onConfirm={handleSubmit} onReject={onReject} inviteStatus={inviteStatus} />}
               >
                 <Content>
                   <p>You have been invited to join the &apos;{company}&apos; organisation on Reapit Foundations.</p>
