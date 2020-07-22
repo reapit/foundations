@@ -1,6 +1,6 @@
 import React from 'react'
-import { Bar, ChartData } from 'react-chartjs-2'
-import { H5, DATE_TIME_FORMAT, Loader, Section } from '@reapit/elements'
+import ChartComponent, { Bar, ChartData, ChartComponentProps } from 'react-chartjs-2'
+import { H5, DATE_TIME_FORMAT, Section, Grid, GridItem, Loader } from '@reapit/elements'
 import { AppSummaryModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
 import styles from '@/styles/pages/developer-analytics.scss?mod'
 import { useDispatch, useSelector } from 'react-redux'
@@ -11,6 +11,8 @@ import { Billing } from '@/reducers/developer'
 import { Dispatch } from 'redux'
 import { BillingOverviewForPeriodV2Model } from '@reapit/foundations-ts-definitions'
 import { selectDeveloperId } from '@/selector/auth'
+import ChartLegend from '@/components/ui/chart-legend'
+import { ChartLegendItem } from '@/components/ui/chart-legend/chart-legend'
 
 const API_CALL_INDEX = 0
 const APP_LISTING_INDEX = 1
@@ -78,11 +80,11 @@ export const mapServiceChartDataSet = (billing: BillingOverviewForPeriodV2Model 
   if (!billing?.periods) {
     return {
       labels,
-      datasets: clonedDataSet,
+      datasets: [],
     }
   }
 
-  billing.periods.map(period => {
+  billing.periods.forEach(period => {
     labels.push(period?.periodName || '')
     const services = period?.services || []
     const apiCallsData = services.find(service => service.name === 'API Requests')?.cost || 0
@@ -131,16 +133,22 @@ export const handleUseEffect = ({ developerId, dateFrom, dateTo, dispatch }: Han
   dispatch(fetchBilling({ developerId, dateFrom: dateFrom, dateTo: dateTo }))
 }
 
-export const renderChart = (isLoading: boolean, datasets: ChartData<any>) => {
-  if (isLoading) {
-    return <Loader />
-  }
+export const renderChart = (
+  datasets: ChartData<any>,
+  chartRef: (node: Bar) => void,
+  setChartLegendItems: React.Dispatch<React.SetStateAction<ChartLegendItem[] | undefined>>,
+) => {
   return (
     <Bar
+      ref={chartRef}
       data={datasets}
       width={50}
       height={50}
       options={{
+        legendCallback: handleChartLegendCallback(setChartLegendItems),
+        legend: {
+          display: false,
+        },
         maintainAspectRatio: false,
         scales: {
           yAxes: [
@@ -157,23 +165,70 @@ export const renderChart = (isLoading: boolean, datasets: ChartData<any>) => {
   )
 }
 
+export const handleChartLegendCallback = (
+  setChartLegendItems: React.Dispatch<React.SetStateAction<ChartLegendItem[] | undefined>>,
+) => {
+  return (chart: ChartComponentProps) => {
+    setChartLegendItems(chart.legend.legendItems)
+  }
+}
+
+export const handleCallGenerateChartLegend = (chart?: ChartComponent<any>) => {
+  return () => {
+    // Need to call generateLegend whenever our billings data changed
+    // Because we are using custom legend, and legendCallback is not called automatically
+    // so we must call generateLegend() ourselves in code when creating a legend using this method.
+    // https://www.chartjs.org/docs/latest/configuration/legend.html#html-legends
+    chart?.chartInstance?.generateLegend()
+  }
+}
+
+export const renderChartLegend = (chart?: ChartComponent<any>, chartLegendItems?: ChartLegendItem[]) => {
+  if (!chart || !chartLegendItems) {
+    return null
+  }
+  return <ChartLegend chartInstance={chart.chartInstance} chartLegendItems={chartLegendItems} />
+}
+
+export const handleChartCallbackRef = (setChartElement: React.Dispatch<React.SetStateAction<Bar | undefined>>) => {
+  return (barChartElement: Bar) => {
+    setChartElement(barChartElement)
+  }
+}
+
 export const ServiceChart: React.FC = () => {
+  const [chartElement, setChartElement] = React.useState<Bar | undefined>()
+
+  const [chartLegendItems, setChartLegendItems] = React.useState<ChartLegendItem[]>()
   const dispatch = useDispatch()
   const myIdentity = useSelector(selectMyIdentity)
   const billing = useSelector(selectBilling)
-  const loading = useSelector(selectDeveloperLoading)
-  const isServiceChartLoading = useSelector(selectIsServiceChartLoading)
   const developerId = useSelector(selectDeveloperId)
+  const isDeveloperLoading = useSelector(selectDeveloperLoading)
+  const isServiceChartLoading = useSelector(selectIsServiceChartLoading)
 
   const dateFrom = dayjs(myIdentity.created).format(DATE_TIME_FORMAT.YYYY_MM) as string
   const dateTo = dayjs().format(DATE_TIME_FORMAT.YYYY_MM)
+  const chartRef = React.useCallback(handleChartCallbackRef(setChartElement), [])
   React.useEffect(handleUseEffect({ developerId, dateFrom, dateTo, dispatch }), [myIdentity.id, developerId])
+  React.useEffect(handleCallGenerateChartLegend(chartElement), [billing, chartElement])
   const datasets = mapServiceChartDataSet(billing)
-  const isLoading = loading || isServiceChartLoading
+
+  if (isDeveloperLoading || isServiceChartLoading) {
+    return <Loader />
+  }
+
   return (
     <Section hasMargin={false}>
       <H5>Services</H5>
-      <div className={styles.barChartContainer}>{renderChart(isLoading, datasets)}</div>
+      <Grid>
+        <GridItem className="is-7 is-offset-5">
+          <Grid isMultiLine isMobile>
+            {renderChartLegend(chartElement, chartLegendItems)}
+          </Grid>
+        </GridItem>
+      </Grid>
+      <div className={styles.barChartContainer}>{renderChart(datasets, chartRef, setChartLegendItems)}</div>
     </Section>
   )
 }

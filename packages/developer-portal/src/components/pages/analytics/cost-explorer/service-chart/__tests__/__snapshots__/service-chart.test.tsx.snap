@@ -3,33 +3,14 @@
 exports[`ServiceChart handleUseEffect should render Chart 1`] = `
 <div>
   <Bar
-    data={
-      Object {
-        "datasets": Array [
-          Object {
-            "backgroundColor": "rgba(255,99,132,0.2)",
-            "borderColor": "rgba(255,99,132,1)",
-            "borderWidth": 1,
-            "data": Array [
-              1,
-              2,
-              3,
-            ],
-            "hoverBackgroundColor": "rgba(255,99,132,0.4)",
-            "hoverBorderColor": "rgba(255,99,132,1)",
-            "label": "Resource",
-          },
-        ],
-        "label": Array [
-          "A",
-          "B",
-          "C",
-        ],
-      }
-    }
+    data={false}
     height={50}
     options={
       Object {
+        "legend": Object {
+          "display": false,
+        },
+        "legendCallback": [Function],
         "maintainAspectRatio": false,
         "scales": Object {
           "yAxes": Array [
@@ -50,7 +31,50 @@ exports[`ServiceChart handleUseEffect should render Chart 1`] = `
 
 exports[`ServiceChart handleUseEffect should render Loader 1`] = `
 <div>
-  <Component />
+  <Bar
+    data={true}
+    height={50}
+    options={
+      Object {
+        "legend": Object {
+          "display": false,
+        },
+        "legendCallback": [Function],
+        "maintainAspectRatio": false,
+        "scales": Object {
+          "yAxes": Array [
+            Object {
+              "scaleLabel": Object {
+                "display": true,
+                "labelString": "Total Cost ( £ )",
+              },
+            },
+          ],
+        },
+      }
+    }
+    width={50}
+  />
+</div>
+`;
+
+exports[`ServiceChart renderChartLegend should match snapshot 1`] = `
+<div>
+  <Component
+    chartInstance={Object {}}
+    chartLegendItems={
+      Array [
+        Object {
+          "datasetIndex": 0,
+          "fillStyle": "rgba(255,99,132,0.2)",
+          "hidden": false,
+          "lineWidth": 1,
+          "strokeStyle": "rgba(255,99,132,1)",
+          "text": "API Calls",
+        },
+      ]
+    }
+  />
 </div>
 `;
 
@@ -82,6 +106,31 @@ exports[`ServiceChart should match a snapshot 1`] = `
           >
             Services
           </h5>
+        </Component>
+        <Component>
+          <div
+            className=""
+            data-test=""
+          >
+            <Component
+              className="is-7 is-offset-5"
+            >
+              <div
+                className=""
+                data-test=""
+              >
+                <Component
+                  isMobile={true}
+                  isMultiLine={true}
+                >
+                  <div
+                    className=""
+                    data-test=""
+                  />
+                </Component>
+              </div>
+            </Component>
+          </div>
         </Component>
         <div>
           <Bar
@@ -121,6 +170,10 @@ exports[`ServiceChart should match a snapshot 1`] = `
             height={50}
             options={
               Object {
+                "legend": Object {
+                  "display": false,
+                },
+                "legendCallback": [Function],
                 "maintainAspectRatio": false,
                 "scales": Object {
                   "yAxes": Array [
@@ -135,75 +188,7 @@ exports[`ServiceChart should match a snapshot 1`] = `
               }
             }
             width={50}
-          >
-            <ChartComponent
-              data={
-                Object {
-                  "datasets": Array [
-                    Object {
-                      "backgroundColor": "rgba(255,99,132,0.2)",
-                      "borderColor": "rgba(255,99,132,1)",
-                      "borderWidth": 1,
-                      "data": Array [
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0.3,
-                        0.594,
-                      ],
-                      "hoverBackgroundColor": "rgba(255,99,132,0.4)",
-                      "hoverBorderColor": "rgba(255,99,132,1)",
-                      "label": "API Calls",
-                      "totalCost": 0.8939999999999999,
-                    },
-                  ],
-                  "labels": Array [
-                    "November 2019",
-                    "December 2019",
-                    "January 2020",
-                    "February 2020",
-                    "March 2020",
-                    "April 2020",
-                    "May 2020",
-                  ],
-                }
-              }
-              datasetKeyProvider={[Function]}
-              height={50}
-              legend={
-                Object {
-                  "display": true,
-                  "position": "bottom",
-                }
-              }
-              options={
-                Object {
-                  "maintainAspectRatio": false,
-                  "scales": Object {
-                    "yAxes": Array [
-                      Object {
-                        "scaleLabel": Object {
-                          "display": true,
-                          "labelString": "Total Cost ( £ )",
-                        },
-                      },
-                    ],
-                  },
-                }
-              }
-              redraw={false}
-              type="bar"
-              width={50}
-            >
-              <canvas
-                height={50}
-                onClick={[Function]}
-                width={50}
-              />
-            </ChartComponent>
-          </Bar>
+          />
         </div>
       </section>
     </Component>
