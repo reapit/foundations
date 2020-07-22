@@ -1,9 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Config } from './types/global'
-import App from './core/app'
 import { getMarketplaceGlobalsByKey } from '@reapit/elements'
-import { ReapitConnectBrowserSessionInstance } from './core/connect-session'
 
 // Init global config
 window.reapit = {
@@ -28,16 +26,21 @@ export const renderApp = (Component: React.ComponentType) => {
 }
 
 const run = async () => {
-  await fetch('config.json')
-    .then(response => response.json())
-    .then((config: Config) => {
-      ReapitConnectBrowserSessionInstance.initInstance(config)
-      window.reapit.config = config
-      renderApp(App)
-    })
-    .catch(error => {
-      console.error('Cannot fetch config', error)
-    })
+  try {
+    const configRes = await fetch('config.json')
+    const config = (await configRes.json()) as Config
+
+    // Set the global config
+    window.reapit.config = config
+
+    // I import the app dynamically so that the config is set on window and I avoid any
+    // runtime issues where config is undefined
+    const { default: App } = await import('./core/app')
+
+    renderApp(App)
+  } catch (error) {
+    console.error('Cannot fetch config', error)
+  }
 }
 
 run()
