@@ -84,6 +84,7 @@
     "@storybook/theming": "^5.2.8",
     "@types/googlemaps": "^3.37.5",
     "@types/jsonwebtoken": "^8.3.5",
+    "@types/react-datepicker": "^3.0.3",
     "@types/react-transition-group": "^4.4.0",
     "@types/papaparse": "^5.0.3",
     "@whitespace/storybook-addon-html": "^1.2.1",

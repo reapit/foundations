@@ -5,6 +5,7 @@ import { RadioSelect } from '.'
 import { Formik, Form } from 'formik'
 import { action } from '@storybook/addon-actions'
 import { Button } from '../Button'
+import { Section } from '@/components/Layout'
 
 const mockProps = {
   name: 'mockName',
@@ -20,7 +21,7 @@ const mockProps = {
 storiesOf('RadioSelect', module)
   .add('Primary', () => {
     return (
-      <section className="section">
+      <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
         <Formik
           initialValues={{ [mockProps.name]: '' }}
           onSubmit={values => {
@@ -39,12 +40,12 @@ storiesOf('RadioSelect', module)
             </Form>
           )}
         </Formik>
-      </section>
+      </Section>
     )
   })
   .add('Horizontal layout', () => {
     return (
-      <section className="section">
+      <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
         <Formik
           initialValues={{ [mockProps.name]: '' }}
           onSubmit={values => {
@@ -63,11 +64,11 @@ storiesOf('RadioSelect', module)
             </Form>
           )}
         </Formik>
-      </section>
+      </Section>
     )
   })
   .add('Disabled', () => (
-    <section className="section">
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <Formik
         initialValues={{ [mockProps.name]: '' }}
         onSubmit={values => {
@@ -81,5 +82,5 @@ storiesOf('RadioSelect', module)
           </Form>
         )}
       </Formik>
-    </section>
+    </Section>
   ))

@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { storiesOf } from '@storybook/react'
 import { ToastMessage, ToastVariant } from '.'
 import { Button } from '../Button'
+import { Section } from '@/components/Layout'
 
 const stories = storiesOf('ToastMessage', module)
 
@@ -20,7 +21,7 @@ const Usage = () => {
   }
 
   return (
-    <section className="section">
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <Button
         variant="primary"
         type="button"
@@ -68,7 +69,7 @@ const Usage = () => {
         Info
       </Button>
       <ToastMessage visible={visible} message={longText} variant={variant} onCloseToast={closeToast} />
-    </section>
+    </Section>
   )
 }
 

@@ -4,21 +4,22 @@ import { Link, Router as BrowserRouter } from 'react-router-dom'
 import { FaHome, FaHeart } from 'react-icons/fa'
 import { createBrowserHistory } from 'history'
 import { Breadcrumb, BreadcrumbItem, BreadcrumbSeparator } from './index'
+import { Section } from '@/components/Layout'
 
 export const history = createBrowserHistory()
 
 const routes = [
   {
     path: 'index',
-    breadcrumbName: 'home',
+    breadcrumbName: 'Home',
   },
   {
     path: 'first',
-    breadcrumbName: 'first',
+    breadcrumbName: 'First',
   },
   {
     path: 'second',
-    breadcrumbName: 'second',
+    breadcrumbName: 'Second',
   },
 ]
 const itemRender = (route, params, routes, paths) => {
@@ -28,7 +29,7 @@ const itemRender = (route, params, routes, paths) => {
 
 storiesOf('Breadcrumb', module)
   .add('Basic Usage', () => (
-    <section className="section">
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <Breadcrumb>
         <BreadcrumbItem>
           <a href="#">Reapit</a>
@@ -37,10 +38,10 @@ storiesOf('Breadcrumb', module)
           <a href="#">Component</a>
         </BreadcrumbItem>
       </Breadcrumb>
-    </section>
+    </Section>
   ))
   .add('With An Icon', () => (
-    <section className="section">
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <Breadcrumb>
         <BreadcrumbItem href="#">
           <span style={{ verticalAlign: '-0.15rem', marginRight: '0.5rem' }}>
@@ -56,20 +57,20 @@ storiesOf('Breadcrumb', module)
         </BreadcrumbItem>
         <BreadcrumbItem>Application</BreadcrumbItem>
       </Breadcrumb>
-    </section>
+    </Section>
   ))
   .add('With Config Separator 1', () => (
-    <section className="section">
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <Breadcrumb separator=">">
         <BreadcrumbItem>Home</BreadcrumbItem>
         <BreadcrumbItem href="#">Application Center</BreadcrumbItem>
         <BreadcrumbItem href="#">Application List</BreadcrumbItem>
         <BreadcrumbItem>An Application</BreadcrumbItem>
       </Breadcrumb>
-    </section>
+    </Section>
   ))
   .add('With Config Separator 2', () => (
-    <section className="section">
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <Breadcrumb separator="">
         <BreadcrumbItem>Location</BreadcrumbItem>
         <BreadcrumbSeparator>:</BreadcrumbSeparator>
@@ -79,14 +80,14 @@ storiesOf('Breadcrumb', module)
         <BreadcrumbSeparator />
         <BreadcrumbItem>An Application</BreadcrumbItem>
       </Breadcrumb>
-    </section>
+    </Section>
   ))
   .add('With routes custom renderer', () => {
     return (
       <BrowserRouter history={history}>
-        <section className="section">
+        <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
           <Breadcrumb itemRender={itemRender} routes={routes} />
-        </section>
+        </Section>
       </BrowserRouter>
     )
   })

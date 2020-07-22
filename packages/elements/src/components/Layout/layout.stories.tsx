@@ -29,12 +29,14 @@ export const Placeholder = ({ text }) => (
 storiesOf('Layout', module)
   .addDecorator(story => <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>)
   .add('AppNavContainer', () => (
-    <AppNavContainer>
-      <Menu {...mockMenuProps} />
-      <FlexContainerBasic>
-        <Placeholder text="AppBody FlexContainerBasic NoCenter Padding" />
-      </FlexContainerBasic>
-    </AppNavContainer>
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
+      <AppNavContainer className="is-full-height">
+        <Menu {...mockMenuProps} />
+        <FlexContainerBasic isFullHeight>
+          <Placeholder text="AppBody FlexContainerBasic NoCenter Padding" />
+        </FlexContainerBasic>
+      </AppNavContainer>
+    </Section>
   ))
   .add('FlexContainerBasicRowCenteredPadding', () => (
     <FlexContainerBasic centerContent hasPadding>
@@ -73,60 +75,64 @@ storiesOf('Layout', module)
     </FlexContainerResponsive>
   ))
   .add('GridFourColEightItems', () => (
-    <GridFourCol>
-      <GridFourColItem>
-        <Placeholder text="GridFourColItem1" />
-      </GridFourColItem>
-      <GridFourColItem>
-        <Placeholder text="GridFourColItem2" />
-      </GridFourColItem>
-      <GridFourColItem>
-        <Placeholder text="GridFourColItem3" />
-      </GridFourColItem>
-      <GridFourColItem>
-        <Placeholder text="GridFourColItem4" />
-      </GridFourColItem>
-      <GridFourColItem>
-        <Placeholder text="GridFourColItem5" />
-      </GridFourColItem>
-      <GridFourColItem>
-        <Placeholder text="GridFourColItem6" />
-      </GridFourColItem>
-      <GridFourColItem>
-        <Placeholder text="GridFourColItem7" />
-      </GridFourColItem>
-      <GridFourColItem>
-        <Placeholder text="GridFourColItem8" />
-      </GridFourColItem>
-      <GridFourColItem>
-        <Placeholder text="GridFourColItem9" />
-      </GridFourColItem>
-      <GridFourColItem>
-        <Placeholder text="GridFourColItem10" />
-      </GridFourColItem>
-    </GridFourCol>
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
+      <GridFourCol>
+        <GridFourColItem>
+          <Placeholder text="GridFourColItem1" />
+        </GridFourColItem>
+        <GridFourColItem>
+          <Placeholder text="GridFourColItem2" />
+        </GridFourColItem>
+        <GridFourColItem>
+          <Placeholder text="GridFourColItem3" />
+        </GridFourColItem>
+        <GridFourColItem>
+          <Placeholder text="GridFourColItem4" />
+        </GridFourColItem>
+        <GridFourColItem>
+          <Placeholder text="GridFourColItem5" />
+        </GridFourColItem>
+        <GridFourColItem>
+          <Placeholder text="GridFourColItem6" />
+        </GridFourColItem>
+        <GridFourColItem>
+          <Placeholder text="GridFourColItem7" />
+        </GridFourColItem>
+        <GridFourColItem>
+          <Placeholder text="GridFourColItem8" />
+        </GridFourColItem>
+        <GridFourColItem>
+          <Placeholder text="GridFourColItem9" />
+        </GridFourColItem>
+        <GridFourColItem>
+          <Placeholder text="GridFourColItem10" />
+        </GridFourColItem>
+      </GridFourCol>
+    </Section>
   ))
   .add('GridThreeColsSixItems', () => (
-    <GridFourCol>
-      <GridThreeColItem>
-        <Placeholder text="GridThreeColItem1" />
-      </GridThreeColItem>
-      <GridThreeColItem>
-        <Placeholder text="GridThreeColItem2" />
-      </GridThreeColItem>
-      <GridThreeColItem>
-        <Placeholder text="GridThreeColItem3" />
-      </GridThreeColItem>
-      <GridThreeColItem>
-        <Placeholder text="GridThreeColItem4" />
-      </GridThreeColItem>
-      <GridThreeColItem>
-        <Placeholder text="GridThreeColItem5" />
-      </GridThreeColItem>
-      <GridThreeColItem>
-        <Placeholder text="GridThreeColItem6" />
-      </GridThreeColItem>
-    </GridFourCol>
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
+      <GridFourCol>
+        <GridThreeColItem>
+          <Placeholder text="GridThreeColItem1" />
+        </GridThreeColItem>
+        <GridThreeColItem>
+          <Placeholder text="GridThreeColItem2" />
+        </GridThreeColItem>
+        <GridThreeColItem>
+          <Placeholder text="GridThreeColItem3" />
+        </GridThreeColItem>
+        <GridThreeColItem>
+          <Placeholder text="GridThreeColItem4" />
+        </GridThreeColItem>
+        <GridThreeColItem>
+          <Placeholder text="GridThreeColItem5" />
+        </GridThreeColItem>
+        <GridThreeColItem>
+          <Placeholder text="GridThreeColItem6" />
+        </GridThreeColItem>
+      </GridFourCol>
+    </Section>
   ))
   .add('Grid', () => (
     <Grid>

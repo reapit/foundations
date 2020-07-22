@@ -4,9 +4,10 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { ImageInput } from '.'
 import { Form, Formik } from 'formik'
+import { Section } from '@/components/Layout'
 
 storiesOf('ImageInput', module).add('Primary', () => (
-  <section className="section">
+  <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
     <Formik
       initialValues={{ imageInput: '' }}
       onSubmit={values => {
@@ -21,5 +22,5 @@ storiesOf('ImageInput', module).add('Primary', () => (
         </Form>
       )}
     </Formik>
-  </section>
+  </Section>
 ))

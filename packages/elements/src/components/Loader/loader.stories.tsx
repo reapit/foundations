@@ -2,19 +2,20 @@ import React from 'react'
 
 import { storiesOf } from '@storybook/react'
 import { Loader } from '.'
+import { Section } from '@/components/Layout'
 
 storiesOf('Loader', module).add('Loader', () => (
-  <section className="section">
+  <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
     <div className="column is-half-desktop">
       <Loader body={false} />
     </div>
-  </section>
+  </Section>
 ))
 
 storiesOf('Loader', module).add('LoaderBody', () => (
-  <section className="section">
+  <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
     <div className="column is-half-desktop">
       <Loader />
     </div>
-  </section>
+  </Section>
 ))

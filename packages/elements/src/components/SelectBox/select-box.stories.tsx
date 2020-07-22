@@ -4,6 +4,7 @@ import { Form, Formik } from 'formik'
 import { storiesOf } from '@storybook/react'
 import { SelectBox, SelectBoxOptions } from '.'
 import { action } from '@storybook/addon-actions'
+import { Section } from '@/components/Layout'
 
 storiesOf('SelectBox', module)
   .add('Primary', () => {
@@ -13,7 +14,7 @@ storiesOf('SelectBox', module)
     ]
 
     return (
-      <section className="section">
+      <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
         <Formik
           initialValues={{ demo: null }}
           onSubmit={values => {
@@ -34,7 +35,7 @@ storiesOf('SelectBox', module)
             </Form>
           )}
         </Formik>
-      </section>
+      </Section>
     )
   })
   .add('Required', () => {
@@ -44,7 +45,7 @@ storiesOf('SelectBox', module)
         { label: 'option2', value: 'b' },
       ]
       return (
-        <section className="section">
+        <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
           <Formik
             initialValues={{ demo: '' }}
             onSubmit={values => {
@@ -59,7 +60,7 @@ storiesOf('SelectBox', module)
               </Form>
             )}
           </Formik>
-        </section>
+        </Section>
       )
     }
 

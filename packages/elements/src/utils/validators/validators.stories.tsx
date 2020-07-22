@@ -13,6 +13,7 @@ import {
   validateEmail,
   validatePassword,
 } from './index'
+import { Section } from '@/components/Layout'
 
 const validate = values => {
   let errors = {}
@@ -29,7 +30,7 @@ const validate = values => {
 
 storiesOf('Validators', module).add('Primary', () => {
   return (
-    <section className="section">
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <Formik
         initialValues={{ name: '', email: '', uri: '' }}
         validate={validate}
@@ -53,6 +54,6 @@ storiesOf('Validators', module).add('Primary', () => {
           )
         }}
       />
-    </section>
+    </Section>
   )
 })

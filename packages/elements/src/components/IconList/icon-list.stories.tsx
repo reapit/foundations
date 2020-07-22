@@ -2,6 +2,7 @@ import React from 'react'
 import { FaClock, FaStreetView, FaStickyNote } from 'react-icons/fa'
 import { storiesOf } from '@storybook/react'
 import { IconList } from './index'
+import { Section } from '@/components/Layout'
 
 export const items = [
   {
@@ -20,8 +21,8 @@ export const items = [
 
 storiesOf('IconList', module).add('Primary', () => {
   return (
-    <section className="section">
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <IconList items={items} />
-    </section>
+    </Section>
   )
 })

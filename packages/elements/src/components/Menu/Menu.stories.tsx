@@ -3,16 +3,18 @@ import { storiesOf } from '@storybook/react'
 import { Menu } from '.'
 import { MemoryRouter } from 'react-router'
 import { mockMenuProps } from './__mocks__/menu-props'
-import { AppNavContainer } from '../Layout'
+import { AppNavContainer, Section } from '../Layout'
 import { GLOBAL_KEY } from '../DynamicLinks'
 
 storiesOf('Menu', module)
   .addDecorator(story => <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>)
   .add('Primary', () => {
     return (
-      <AppNavContainer>
-        <Menu {...mockMenuProps} />
-      </AppNavContainer>
+      <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
+        <AppNavContainer>
+          <Menu {...mockMenuProps} />
+        </AppNavContainer>
+      </Section>
     )
   })
   .add('Menu without mode', () => {

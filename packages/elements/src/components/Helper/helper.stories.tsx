@@ -7,6 +7,6 @@ storiesOf('Helper', module)
   .add('Warning', () => <Helper variant="warning">Helper variant warning</Helper>)
   .add('With close button', () => (
     <Helper variant="info" closeButton={true} onCloseClick={() => console.log('clicked')}>
-      Helper with closeButton
+      Helper with close button
     </Helper>
   ))

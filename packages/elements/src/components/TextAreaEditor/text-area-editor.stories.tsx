@@ -5,6 +5,7 @@ import { TextAreaEditor } from '.'
 import { Input } from '../Input'
 import { Form, Formik } from 'formik'
 import { Button } from '../Button'
+import { Section } from '@/components/Layout'
 
 const validate = values => {
   let errors = { description: '', text: '' }
@@ -20,7 +21,7 @@ const validate = values => {
 }
 
 storiesOf('TextAreaEditor', module).add('Sample Form', () => (
-  <section className="section">
+  <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
     <Formik
       initialValues={{ description: '', text: '' }}
       onSubmit={values => {
@@ -40,5 +41,5 @@ storiesOf('TextAreaEditor', module).add('Sample Form', () => (
         </Form>
       )}
     </Formik>
-  </section>
+  </Section>
 ))

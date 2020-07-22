@@ -4,7 +4,8 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { Input } from '../../components/Input'
 import { Form, Formik } from 'formik'
-import { Button } from '../../components/Button'
+import { Button } from '@/components/Button'
+import { Section } from '@/components/Layout'
 import { isBase64 } from '.'
 
 const validate = values => {
@@ -18,7 +19,7 @@ const validate = values => {
 
 storiesOf('IsBase64', module).add('Primary', () => {
   return (
-    <section className="section">
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <Formik
         initialValues={{ pattern: '' }}
         validate={validate}
@@ -36,6 +37,6 @@ storiesOf('IsBase64', module).add('Primary', () => {
           </Form>
         )}
       />
-    </section>
+    </Section>
   )
 })

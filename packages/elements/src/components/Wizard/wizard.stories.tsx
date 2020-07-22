@@ -5,6 +5,7 @@ import { Button } from '../Button'
 import { storiesOf } from '@storybook/react'
 import { Wizard } from '.'
 import { useWizardContext } from './context'
+import { Section } from '@/components/Layout'
 
 ///////////////////////////////////////////////////////////
 // BASIC USAGE
@@ -68,7 +69,7 @@ const WorkWithFormElements = () => {
   const [visible, setVisible] = useState(false)
 
   return (
-    <div>
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <Button onClick={() => setVisible(true)} variant={'primary'} type={'button'}>
         Open
       </Button>
@@ -108,7 +109,7 @@ const WorkWithFormElements = () => {
           }}
         ></Wizard.Step>
       </Wizard>
-    </div>
+    </Section>
   )
 }
 storiesOf('Wizard', module).add('HasForm', () => <WorkWithFormElements />)

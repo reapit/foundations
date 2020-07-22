@@ -4,10 +4,11 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { FileInput } from '.'
 import { Form, Formik } from 'formik'
+import { Section } from '@/components/Layout'
 
 storiesOf('FileInput', module)
   .add('Primary', () => (
-    <section className="section">
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <Formik
         initialValues={{ fileInput: '' }}
         onSubmit={values => {
@@ -22,10 +23,10 @@ storiesOf('FileInput', module)
           </Form>
         )}
       </Formik>
-    </section>
+    </Section>
   ))
   .add('Required', () => (
-    <section className="section">
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <Formik
         initialValues={{ fileInput: '' }}
         onSubmit={values => {
@@ -40,10 +41,10 @@ storiesOf('FileInput', module)
           </Form>
         )}
       </Formik>
-    </section>
+    </Section>
   ))
   .add('Disabled', () => (
-    <section className="section">
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <Formik
         initialValues={{ fileInput: '' }}
         onSubmit={values => {
@@ -64,10 +65,10 @@ storiesOf('FileInput', module)
           </Form>
         )}
       </Formik>
-    </section>
+    </Section>
   ))
   .add('Click on filename', () => (
-    <section className="section">
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <Formik
         initialValues={{ fileInput: 'file-234' }}
         onSubmit={values => {
@@ -91,5 +92,5 @@ storiesOf('FileInput', module)
           </Form>
         )}
       </Formik>
-    </section>
+    </Section>
   ))

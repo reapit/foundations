@@ -294,6 +294,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                           onMonthChange={[Function]}
                                           onSelect={[Function]}
                                           onYearChange={[Function]}
+                                          popperPlacement="top"
                                           preventOpenOnFocus={false}
                                           previousMonthButtonLabel="Previous Month"
                                           previousYearButtonLabel="Previous Year"
@@ -329,7 +330,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                               }
                                             }
                                             popperOnKeyDown={[Function]}
-                                            popperPlacement="bottom-start"
+                                            popperPlacement="top"
                                             popperProps={Object {}}
                                             targetComponent={
                                               <div
@@ -473,6 +474,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                           onMonthChange={[Function]}
                                           onSelect={[Function]}
                                           onYearChange={[Function]}
+                                          popperPlacement="top"
                                           preventOpenOnFocus={false}
                                           previousMonthButtonLabel="Previous Month"
                                           previousYearButtonLabel="Previous Year"
@@ -508,7 +510,7 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
                                               }
                                             }
                                             popperOnKeyDown={[Function]}
-                                            popperPlacement="bottom-start"
+                                            popperPlacement="top"
                                             popperProps={Object {}}
                                             targetComponent={
                                               <div
@@ -927,6 +929,7 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
                                           onMonthChange={[Function]}
                                           onSelect={[Function]}
                                           onYearChange={[Function]}
+                                          popperPlacement="top"
                                           preventOpenOnFocus={false}
                                           previousMonthButtonLabel="Previous Month"
                                           previousYearButtonLabel="Previous Year"
@@ -962,7 +965,7 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
                                               }
                                             }
                                             popperOnKeyDown={[Function]}
-                                            popperPlacement="bottom-start"
+                                            popperPlacement="top"
                                             popperProps={Object {}}
                                             targetComponent={
                                               <div
@@ -1106,6 +1109,7 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
                                           onMonthChange={[Function]}
                                           onSelect={[Function]}
                                           onYearChange={[Function]}
+                                          popperPlacement="top"
                                           preventOpenOnFocus={false}
                                           previousMonthButtonLabel="Previous Month"
                                           previousYearButtonLabel="Previous Year"
@@ -1141,7 +1145,7 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
                                               }
                                             }
                                             popperOnKeyDown={[Function]}
-                                            popperPlacement="bottom-start"
+                                            popperPlacement="top"
                                             popperProps={Object {}}
                                             targetComponent={
                                               <div
@@ -1560,6 +1564,7 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
                                           onMonthChange={[Function]}
                                           onSelect={[Function]}
                                           onYearChange={[Function]}
+                                          popperPlacement="top"
                                           preventOpenOnFocus={false}
                                           previousMonthButtonLabel="Previous Month"
                                           previousYearButtonLabel="Previous Year"
@@ -1595,7 +1600,7 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
                                               }
                                             }
                                             popperOnKeyDown={[Function]}
-                                            popperPlacement="bottom-start"
+                                            popperPlacement="top"
                                             popperProps={Object {}}
                                             targetComponent={
                                               <div
@@ -1739,6 +1744,7 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
                                           onMonthChange={[Function]}
                                           onSelect={[Function]}
                                           onYearChange={[Function]}
+                                          popperPlacement="top"
                                           preventOpenOnFocus={false}
                                           previousMonthButtonLabel="Previous Month"
                                           previousYearButtonLabel="Previous Year"
@@ -1774,7 +1780,7 @@ exports[`AdminDevManagement should show loader when LOADING true 1`] = `
                                               }
                                             }
                                             popperOnKeyDown={[Function]}
-                                            popperPlacement="bottom-start"
+                                            popperPlacement="top"
                                             popperProps={Object {}}
                                             targetComponent={
                                               <div

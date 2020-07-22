@@ -4,9 +4,10 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { TextArea } from '.'
 import { Form, Formik } from 'formik'
+import { Section } from '@/components/Layout'
 
 storiesOf('TextArea', module).add('Primary', () => (
-  <section className="section">
+  <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
     <Formik
       initialValues={{ primary: '', isDanger: '' }}
       onSubmit={values => {
@@ -21,5 +22,5 @@ storiesOf('TextArea', module).add('Primary', () => (
         </Form>
       )}
     </Formik>
-  </section>
+  </Section>
 ))

@@ -208,7 +208,7 @@ export interface NotificationInstance {
   success(args: ArgsProps): void
   error(args: ArgsProps): void
   info(args: ArgsProps): void
-  warm(args: ArgsProps): void
+  warn(args: ArgsProps): void
   open(args: ArgsProps): void
 }
 
