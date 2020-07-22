@@ -1,13 +1,16 @@
 import * as React from 'react'
 import { withRouter, RouteComponentProps } from 'react-router'
-import { ReapitLogo, Menu as Sidebar } from '@reapit/elements'
+import { ReapitLogo, Menu as Sidebar, MenuConfig } from '@reapit/elements'
 import { FaSignOutAlt, FaCloud } from 'react-icons/fa'
-import { LoginMode } from '@reapit/cognito-auth'
 import { ReapitConnectBrowserSessionInstance } from '../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Location } from 'history'
 
-export const generateMenuConfig = (logoutCallback: () => void, location: Location<any>, mode: LoginMode): any => {
+export const generateMenuConfig = (
+  logoutCallback: () => void,
+  location: Location<any>,
+  mode: Pick<MenuConfig, 'mode'>['mode'],
+): any => {
   return {
     defaultActiveKey: 'LOGO',
     mode,
@@ -39,8 +42,8 @@ export const generateMenuConfig = (logoutCallback: () => void, location: Locatio
 export const callbackAppClick = () =>
   (window.location.href =
     window.location.href.includes('dev') || window.location.href.includes('localhost')
-      ? 'https://dev.marketplace.reapit.cloud/client/installed'
-      : 'https://marketplace.reapit.cloud/client/installed')
+      ? 'https://dev.marketplace.reapit.cloud/installed'
+      : 'https://marketplace.reapit.cloud/installed')
 
 export type MenuProps = RouteComponentProps
 

@@ -1,7 +1,7 @@
 {
   "package": {
     "dependencies": {
-      "@reapit/cognito-auth": "^2.1.7",
+      "@reapit/elements": "^0.5.61",
       "@testing-library/react": "~10.0.1",
       "@types/enzyme": "~3.10.3",
       "@types/enzyme-adapter-react-16": "~1.0.5",
