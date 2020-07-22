@@ -9,11 +9,11 @@ import {
 } from '../member-details'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import {
-  FetchMemberDetails,
+  FetchMemberDetailsParams,
+  RejectInviteMemberParams,
+  AcceptInviteMemberParams,
   fetchMemberDetails,
-  AcceptInviteMember,
   acceptInviteMember,
-  RejectInviteMember,
   rejectInviteMember,
 } from '@/services/developers'
 import { Action } from '@/types/core'
@@ -25,7 +25,7 @@ import { errorThrownServer } from '@/actions/error'
 import ActionTypes from '@/constants/action-types'
 
 describe('fetchMemberDetailsSaga', () => {
-  const params: Action<FetchMemberDetails> = {
+  const params: Action<FetchMemberDetailsParams> = {
     data: { developerId: 'developerId', memberId: 'memberId' },
     type: 'FETCH_MEMBER_DETAILS',
   }
@@ -56,7 +56,7 @@ describe('fetchMemberDetailsSaga', () => {
 })
 
 describe('acceptInviteMemberSaga', () => {
-  const params: Action<AcceptInviteMember> = {
+  const params: Action<AcceptInviteMemberParams> = {
     data: { developerId: 'developerId', memberId: 'memberId', name: 'name', jobTitle: 'CTO' },
     type: 'ACCEPT_INVITE_MEMBER',
   }
@@ -88,7 +88,7 @@ describe('acceptInviteMemberSaga', () => {
 })
 
 describe('rejectInviteMemberSaga', () => {
-  const params: Action<RejectInviteMember> = {
+  const params: Action<RejectInviteMemberParams> = {
     data: { developerId: 'developerId', memberId: 'memberId' },
     type: 'REJECT_INVITE_MEMBER',
   }
@@ -124,7 +124,7 @@ describe('fetchMemberDetailsListen', () => {
   it('should trigger saga function when called', () => {
     const gen = fetchMemberDetailsListen()
     expect(gen.next().value).toEqual(
-      takeLatest<Action<FetchMemberDetails>>(ActionTypes.FETCH_MEMBER_DETAILS, fetchMemberDetailsSaga),
+      takeLatest<Action<FetchMemberDetailsParams>>(ActionTypes.FETCH_MEMBER_DETAILS, fetchMemberDetailsSaga),
     )
     expect(gen.next().done).toBe(true)
   })
@@ -134,7 +134,7 @@ describe('acceptInviteMemberListen', () => {
   it('should trigger saga function when called', () => {
     const gen = acceptInviteMemberListen()
     expect(gen.next().value).toEqual(
-      takeLatest<Action<AcceptInviteMember>>(ActionTypes.ACCEPT_INVITE_MEMBER, acceptInviteMemberSaga),
+      takeLatest<Action<AcceptInviteMemberParams>>(ActionTypes.ACCEPT_INVITE_MEMBER, acceptInviteMemberSaga),
     )
     expect(gen.next().done).toBe(true)
   })
@@ -144,7 +144,7 @@ describe('rejectInviteMemberListen', () => {
   it('should trigger saga function when called', () => {
     const gen = rejectInviteMemberListen()
     expect(gen.next().value).toEqual(
-      takeLatest<Action<RejectInviteMember>>(ActionTypes.REJECT_INVITE_MEMBER, rejectInviteMemberSaga),
+      takeLatest<Action<RejectInviteMemberParams>>(ActionTypes.REJECT_INVITE_MEMBER, rejectInviteMemberSaga),
     )
     expect(gen.next().done).toBe(true)
   })

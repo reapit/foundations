@@ -65,334 +65,337 @@ exports[`AcceptedModal should match snapshot 1`] = `
           }
           onSubmit={[Function]}
         >
-          <Form>
-            <form
-              action="#"
-              onReset={[Function]}
-              onSubmit={[Function]}
+          <Component
+            footer={
+              <Unknown
+                inviteStatus="PENDING"
+                onConfirm={[Function]}
+                onReject={[Function]}
+              />
+            }
+            isCentered={true}
+            title="Reapit Foundations Invitation"
+            visible={true}
+          >
+            <Component
+              className=""
+              destroyOnClose={true}
+              footer={
+                <Unknown
+                  inviteStatus="PENDING"
+                  onConfirm={[Function]}
+                  onReject={[Function]}
+                />
+              }
+              title="Reapit Foundations Invitation"
+              visible={true}
+              wrapClassName=""
             >
-              <Component
-                footer={
-                  <Unknown
-                    inviteStatus="PENDING"
-                    onConfirm={[Function]}
-                    onReject={[Function]}
-                  />
-                }
-                isCentered={true}
-                isResponsive={true}
-                title="Reapit Foundations Invitation"
+              <PortalWrapper
                 visible={true}
               >
-                <Component
-                  className=""
-                  destroyOnClose={true}
-                  footer={
-                    <Unknown
-                      inviteStatus="PENDING"
-                      onConfirm={[Function]}
-                      onReject={[Function]}
-                    />
-                  }
-                  title="Reapit Foundations Invitation"
-                  visible={true}
-                  wrapClassName=""
+                <Portal
+                  getContainer={[Function]}
                 >
-                  <PortalWrapper
-                    visible={true}
-                  >
-                    <Portal
-                      getContainer={[Function]}
-                    >
-                      <Portal
-                        containerInfo={
-                          <div>
+                  <Portal
+                    containerInfo={
+                      <div>
+                        <div
+                          class="rc-dialog-root"
+                        >
+                          <div
+                            class="rc-dialog-mask"
+                          />
+                          <div
+                            aria-labelledby="rcDialogTitle0"
+                            class="rc-dialog-wrap "
+                            role="dialog"
+                            tabindex="-1"
+                          >
                             <div
-                              class="rc-dialog-root"
+                              class="rc-dialog "
+                              role="document"
                             >
                               <div
-                                class="rc-dialog-mask"
+                                aria-hidden="true"
+                                style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                tabindex="0"
                               />
                               <div
-                                aria-labelledby="rcDialogTitle0"
-                                class="rc-dialog-wrap "
-                                role="dialog"
-                                tabindex="-1"
+                                class="rc-dialog-content"
+                              >
+                                <button
+                                  aria-label="Close"
+                                  class="rc-dialog-close"
+                                  type="button"
+                                >
+                                  <span
+                                    class="rc-dialog-close-x"
+                                  />
+                                </button>
+                                <div
+                                  class="rc-dialog-header"
+                                >
+                                  <div
+                                    class="rc-dialog-title"
+                                    id="rcDialogTitle0"
+                                  >
+                                    Reapit Foundations Invitation
+                                  </div>
+                                </div>
+                                <div
+                                  class="rc-dialog-body"
+                                >
+                                  <div
+                                    class=""
+                                    data-test=""
+                                  >
+                                    <p>
+                                      You have been invited to join the '
+                                      
+                                      ' organisation on Reapit Foundations.
+                                    </p>
+                                    <p>
+                                      Before confirming your account, please ensure your details are correct below.
+                                    </p>
+                                  </div>
+                                  <form
+                                    action="#"
+                                  >
+                                    <div
+                                      class=""
+                                    >
+                                      <div
+                                        class="control "
+                                      >
+                                        <label
+                                          class="label inline-block required-label"
+                                          for="name"
+                                        >
+                                          Name
+                                        </label>
+                                        <input
+                                          class=""
+                                          data-test=""
+                                          id="name"
+                                          name="name"
+                                          placeholder=""
+                                          type="text"
+                                          value=""
+                                        />
+                                      </div>
+                                    </div>
+                                    <div
+                                      class=""
+                                    >
+                                      <div
+                                        class="control "
+                                      >
+                                        <label
+                                          class="label inline-block required-label"
+                                          for="jobTitle"
+                                        >
+                                          Job Title
+                                        </label>
+                                        <input
+                                          class=""
+                                          data-test=""
+                                          id="jobTitle"
+                                          name="jobTitle"
+                                          placeholder=""
+                                          type="text"
+                                          value=""
+                                        />
+                                      </div>
+                                    </div>
+                                  </form>
+                                  <div
+                                    class=""
+                                    data-test=""
+                                  >
+                                    <p>
+                                      <strong>
+                                        Important: 
+                                      </strong>
+                                      If you already have an account and confirm this invitation, any data on your existing account will no longer be available.
+                                    </p>
+                                  </div>
+                                </div>
+                                <div
+                                  class="rc-dialog-footer"
+                                >
+                                  <button
+                                    class="button mr-2 is-danger  "
+                                    data-test=""
+                                    type="button"
+                                  >
+                                    Decline
+                                  </button>
+                                  <button
+                                    class="button  is-primary  "
+                                    data-test=""
+                                    type="submit"
+                                  >
+                                    Confirm
+                                  </button>
+                                </div>
+                              </div>
+                              <div
+                                aria-hidden="true"
+                                style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                                tabindex="0"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    }
+                  >
+                    <Dialog
+                      className=""
+                      closable={true}
+                      destroyOnClose={true}
+                      focusTriggerAfterClose={true}
+                      footer={
+                        <Unknown
+                          inviteStatus="PENDING"
+                          onConfirm={[Function]}
+                          onReject={[Function]}
+                        />
+                      }
+                      getContainer={[Function]}
+                      getOpenCount={[Function]}
+                      keyboard={true}
+                      mask={true}
+                      maskClosable={true}
+                      prefixCls="rc-dialog"
+                      switchScrollingEffect={[Function]}
+                      title="Reapit Foundations Invitation"
+                      visible={true}
+                      wrapClassName=""
+                    >
+                      <div
+                        className="rc-dialog-root"
+                      >
+                        <LazyRenderBox
+                          className="rc-dialog-mask"
+                          hiddenClassName="rc-dialog-mask-hidden"
+                          key="mask"
+                          style={Object {}}
+                          visible={true}
+                        >
+                          <div
+                            className="rc-dialog-mask"
+                            style={Object {}}
+                          />
+                        </LazyRenderBox>
+                        <div
+                          aria-labelledby="rcDialogTitle0"
+                          className="rc-dialog-wrap "
+                          onClick={[Function]}
+                          onKeyDown={[Function]}
+                          onMouseUp={[Function]}
+                          role="dialog"
+                          style={
+                            Object {
+                              "display": null,
+                            }
+                          }
+                          tabIndex={-1}
+                        >
+                          <Animate
+                            animation={Object {}}
+                            component=""
+                            componentProps={Object {}}
+                            key="dialog"
+                            onAppear={[Function]}
+                            onEnd={[Function]}
+                            onEnter={[Function]}
+                            onLeave={[Function]}
+                            showProp="visible"
+                            transitionAppear={true}
+                            transitionEnter={true}
+                            transitionLeave={true}
+                          >
+                            <AnimateChild
+                              animation={Object {}}
+                              key="dialog-element"
+                              transitionAppear={true}
+                              transitionEnter={true}
+                              transitionLeave={true}
+                            >
+                              <LazyRenderBox
+                                className="rc-dialog "
+                                key="dialog-element"
+                                onMouseDown={[Function]}
+                                role="document"
+                                style={Object {}}
+                                visible={true}
                               >
                                 <div
-                                  class="rc-dialog "
+                                  className="rc-dialog "
+                                  onMouseDown={[Function]}
                                   role="document"
+                                  style={Object {}}
                                 >
                                   <div
                                     aria-hidden="true"
-                                    style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-                                    tabindex="0"
+                                    style={
+                                      Object {
+                                        "height": 0,
+                                        "outline": "none",
+                                        "overflow": "hidden",
+                                        "width": 0,
+                                      }
+                                    }
+                                    tabIndex={0}
                                   />
                                   <div
-                                    class="rc-dialog-content"
+                                    className="rc-dialog-content"
                                   >
                                     <button
                                       aria-label="Close"
-                                      class="rc-dialog-close"
+                                      className="rc-dialog-close"
+                                      onClick={[Function]}
                                       type="button"
                                     >
                                       <span
-                                        class="rc-dialog-close-x"
+                                        className="rc-dialog-close-x"
                                       />
                                     </button>
                                     <div
-                                      class="rc-dialog-header"
+                                      className="rc-dialog-header"
                                     >
                                       <div
-                                        class="rc-dialog-title"
+                                        className="rc-dialog-title"
                                         id="rcDialogTitle0"
                                       >
                                         Reapit Foundations Invitation
                                       </div>
                                     </div>
                                     <div
-                                      class="rc-dialog-body"
+                                      className="rc-dialog-body"
                                     >
-                                      <div
-                                        class=""
-                                        data-test=""
-                                      >
-                                        <p>
-                                          You have been invited to join the '
-                                          
-                                          ' organisation on Reapit Foundations.
-                                        </p>
-                                        <p>
-                                          Before confirming your account, please ensure your details are correct below.
-                                        </p>
-                                      </div>
-                                      <div
-                                        class=""
-                                      >
+                                      <Component>
                                         <div
-                                          class="control "
+                                          className=""
+                                          data-test=""
                                         >
-                                          <label
-                                            class="label inline-block required-label"
-                                            for="name"
-                                          >
-                                            Name
-                                          </label>
-                                          <input
-                                            class=""
-                                            data-test=""
-                                            id="name"
-                                            name="name"
-                                            placeholder=""
-                                            type="text"
-                                            value=""
-                                          />
+                                          <p>
+                                            You have been invited to join the '
+                                            ' organisation on Reapit Foundations.
+                                          </p>
+                                          <p>
+                                            Before confirming your account, please ensure your details are correct below.
+                                          </p>
                                         </div>
-                                      </div>
-                                      <div
-                                        class=""
-                                      >
-                                        <div
-                                          class="control "
+                                      </Component>
+                                      <Form>
+                                        <form
+                                          action="#"
+                                          onReset={[Function]}
+                                          onSubmit={[Function]}
                                         >
-                                          <label
-                                            class="label inline-block required-label"
-                                            for="jobTitle"
-                                          >
-                                            Job Title
-                                          </label>
-                                          <input
-                                            class=""
-                                            data-test=""
-                                            id="jobTitle"
-                                            name="jobTitle"
-                                            placeholder=""
-                                            type="text"
-                                            value=""
-                                          />
-                                        </div>
-                                      </div>
-                                      <div
-                                        class=""
-                                        data-test=""
-                                      >
-                                        <p>
-                                          <strong>
-                                            Important: 
-                                          </strong>
-                                          If you already have an account and confirm this invitation, any data on your existing account will no longer be available.
-                                        </p>
-                                      </div>
-                                    </div>
-                                    <div
-                                      class="rc-dialog-footer"
-                                    >
-                                      <button
-                                        class="button mr-2 is-danger  "
-                                        data-test=""
-                                        type="button"
-                                      >
-                                        Decline
-                                      </button>
-                                      <button
-                                        class="button  is-primary  "
-                                        data-test=""
-                                        type="submit"
-                                      >
-                                        Confirm
-                                      </button>
-                                    </div>
-                                  </div>
-                                  <div
-                                    aria-hidden="true"
-                                    style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-                                    tabindex="0"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        }
-                      >
-                        <Dialog
-                          className=""
-                          closable={true}
-                          destroyOnClose={true}
-                          focusTriggerAfterClose={true}
-                          footer={
-                            <Unknown
-                              inviteStatus="PENDING"
-                              onConfirm={[Function]}
-                              onReject={[Function]}
-                            />
-                          }
-                          getContainer={[Function]}
-                          getOpenCount={[Function]}
-                          keyboard={true}
-                          mask={true}
-                          maskClosable={true}
-                          prefixCls="rc-dialog"
-                          switchScrollingEffect={[Function]}
-                          title="Reapit Foundations Invitation"
-                          visible={true}
-                          wrapClassName=""
-                        >
-                          <div
-                            className="rc-dialog-root"
-                          >
-                            <LazyRenderBox
-                              className="rc-dialog-mask"
-                              hiddenClassName="rc-dialog-mask-hidden"
-                              key="mask"
-                              style={Object {}}
-                              visible={true}
-                            >
-                              <div
-                                className="rc-dialog-mask"
-                                style={Object {}}
-                              />
-                            </LazyRenderBox>
-                            <div
-                              aria-labelledby="rcDialogTitle0"
-                              className="rc-dialog-wrap "
-                              onClick={[Function]}
-                              onKeyDown={[Function]}
-                              onMouseUp={[Function]}
-                              role="dialog"
-                              style={
-                                Object {
-                                  "display": null,
-                                }
-                              }
-                              tabIndex={-1}
-                            >
-                              <Animate
-                                animation={Object {}}
-                                component=""
-                                componentProps={Object {}}
-                                key="dialog"
-                                onAppear={[Function]}
-                                onEnd={[Function]}
-                                onEnter={[Function]}
-                                onLeave={[Function]}
-                                showProp="visible"
-                                transitionAppear={true}
-                                transitionEnter={true}
-                                transitionLeave={true}
-                              >
-                                <AnimateChild
-                                  animation={Object {}}
-                                  key="dialog-element"
-                                  transitionAppear={true}
-                                  transitionEnter={true}
-                                  transitionLeave={true}
-                                >
-                                  <LazyRenderBox
-                                    className="rc-dialog "
-                                    key="dialog-element"
-                                    onMouseDown={[Function]}
-                                    role="document"
-                                    style={Object {}}
-                                    visible={true}
-                                  >
-                                    <div
-                                      className="rc-dialog "
-                                      onMouseDown={[Function]}
-                                      role="document"
-                                      style={Object {}}
-                                    >
-                                      <div
-                                        aria-hidden="true"
-                                        style={
-                                          Object {
-                                            "height": 0,
-                                            "outline": "none",
-                                            "overflow": "hidden",
-                                            "width": 0,
-                                          }
-                                        }
-                                        tabIndex={0}
-                                      />
-                                      <div
-                                        className="rc-dialog-content"
-                                      >
-                                        <button
-                                          aria-label="Close"
-                                          className="rc-dialog-close"
-                                          onClick={[Function]}
-                                          type="button"
-                                        >
-                                          <span
-                                            className="rc-dialog-close-x"
-                                          />
-                                        </button>
-                                        <div
-                                          className="rc-dialog-header"
-                                        >
-                                          <div
-                                            className="rc-dialog-title"
-                                            id="rcDialogTitle0"
-                                          >
-                                            Reapit Foundations Invitation
-                                          </div>
-                                        </div>
-                                        <div
-                                          className="rc-dialog-body"
-                                        >
-                                          <Component>
-                                            <div
-                                              className=""
-                                              data-test=""
-                                            >
-                                              <p>
-                                                You have been invited to join the '
-                                                ' organisation on Reapit Foundations.
-                                              </p>
-                                              <p>
-                                                Before confirming your account, please ensure your details are correct below.
-                                              </p>
-                                            </div>
-                                          </Component>
                                           <Component
                                             id="name"
                                             labelText="Name"
@@ -471,101 +474,100 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                               </div>
                                             </Field>
                                           </Component>
-                                          <Component>
-                                            <div
-                                              className=""
-                                              data-test=""
-                                            >
-                                              <p>
-                                                <strong>
-                                                  Important: 
-                                                </strong>
-                                                If you already have an account and confirm this invitation, any data on your existing account will no longer be available.
-                                              </p>
-                                            </div>
-                                          </Component>
-                                        </div>
+                                        </form>
+                                      </Form>
+                                      <Component>
                                         <div
-                                          className="rc-dialog-footer"
+                                          className=""
+                                          data-test=""
                                         >
-                                          <Component
-                                            inviteStatus="PENDING"
-                                            onConfirm={[Function]}
-                                            onReject={[Function]}
-                                          >
-                                            <Component
-                                              className="mr-2"
-                                              disabled={false}
-                                              key="close"
-                                              loading={false}
-                                              onClick={[Function]}
-                                              type="button"
-                                              variant="danger"
-                                            >
-                                              <button
-                                                className="button mr-2 is-danger  "
-                                                data-test=""
-                                                disabled={false}
-                                                onClick={[Function]}
-                                                type="button"
-                                              >
-                                                Decline
-                                              </button>
-                                            </Component>
-                                            <Component
-                                              disabled={false}
-                                              key="submit"
-                                              loading={false}
-                                              onClick={[Function]}
-                                              type="submit"
-                                              variant="primary"
-                                            >
-                                              <button
-                                                className="button  is-primary  "
-                                                data-test=""
-                                                disabled={false}
-                                                onClick={[Function]}
-                                                type="submit"
-                                              >
-                                                Confirm
-                                              </button>
-                                            </Component>
-                                          </Component>
+                                          <p>
+                                            <strong>
+                                              Important: 
+                                            </strong>
+                                            If you already have an account and confirm this invitation, any data on your existing account will no longer be available.
+                                          </p>
                                         </div>
-                                      </div>
-                                      <div
-                                        aria-hidden="true"
-                                        style={
-                                          Object {
-                                            "height": 0,
-                                            "outline": "none",
-                                            "overflow": "hidden",
-                                            "width": 0,
-                                          }
-                                        }
-                                        tabIndex={0}
-                                      />
+                                      </Component>
                                     </div>
-                                  </LazyRenderBox>
-                                </AnimateChild>
-                              </Animate>
-                            </div>
-                          </div>
-                        </Dialog>
-                      </Portal>
-                    </Portal>
-                  </PortalWrapper>
-                </Component>
-              </Component>
-            </form>
-          </Form>
+                                    <div
+                                      className="rc-dialog-footer"
+                                    >
+                                      <Component
+                                        inviteStatus="PENDING"
+                                        onConfirm={[Function]}
+                                        onReject={[Function]}
+                                      >
+                                        <Component
+                                          className="mr-2"
+                                          disabled={false}
+                                          key="close"
+                                          loading={false}
+                                          onClick={[Function]}
+                                          type="button"
+                                          variant="danger"
+                                        >
+                                          <button
+                                            className="button mr-2 is-danger  "
+                                            data-test=""
+                                            disabled={false}
+                                            onClick={[Function]}
+                                            type="button"
+                                          >
+                                            Decline
+                                          </button>
+                                        </Component>
+                                        <Component
+                                          disabled={false}
+                                          key="submit"
+                                          loading={false}
+                                          onClick={[Function]}
+                                          type="submit"
+                                          variant="primary"
+                                        >
+                                          <button
+                                            className="button  is-primary  "
+                                            data-test=""
+                                            disabled={false}
+                                            onClick={[Function]}
+                                            type="submit"
+                                          >
+                                            Confirm
+                                          </button>
+                                        </Component>
+                                      </Component>
+                                    </div>
+                                  </div>
+                                  <div
+                                    aria-hidden="true"
+                                    style={
+                                      Object {
+                                        "height": 0,
+                                        "outline": "none",
+                                        "overflow": "hidden",
+                                        "width": 0,
+                                      }
+                                    }
+                                    tabIndex={0}
+                                  />
+                                </div>
+                              </LazyRenderBox>
+                            </AnimateChild>
+                          </Animate>
+                        </div>
+                      </div>
+                    </Dialog>
+                  </Portal>
+                </Portal>
+              </PortalWrapper>
+            </Component>
+          </Component>
         </Formik>
         <Component
           visible={false}
         >
           <Component
             isCentered={true}
-            isResponsive={true}
             title="Success"
             visible={false}
           >
@@ -587,7 +589,6 @@ exports[`AcceptedModal should match snapshot 1`] = `
         >
           <Component
             isCentered={true}
-            isResponsive={true}
             title="Invitation Declined"
             visible={false}
           >

@@ -30,7 +30,17 @@ export type UpdateDeveloperByIdParams = FetchByIdCommonParams & UpdateDeveloperM
 
 export type FetchOrganisationMembersParams = FetchByIdCommonParams & FetchListCommonParams
 
-export type RejectInviteMember = {
+export type FetchMemberDetailsParams = {
+  developerId: string
+  memberId: string
+}
+
+export type RejectInviteMemberParams = {
+  developerId: string
+  memberId: string
+}
+
+export type AcceptInviteMemberParams = AcceptInviteModel & {
   developerId: string
   memberId: string
 }
@@ -144,12 +154,7 @@ export const inviteDeveloperAsOrgMemberApi = async (params: InviteDeveloperAsOrg
   }
 }
 
-export type FetchMemberDetails = {
-  developerId: string
-  memberId: string
-}
-
-export const fetchMemberDetails = async (params: FetchMemberDetails): Promise<MemberModel> => {
+export const fetchMemberDetails = async (params: FetchMemberDetailsParams): Promise<MemberModel> => {
   try {
     const { developerId, memberId } = params
     const response = await fetcher({
@@ -165,12 +170,7 @@ export const fetchMemberDetails = async (params: FetchMemberDetails): Promise<Me
   }
 }
 
-export type AcceptInviteMember = AcceptInviteModel & {
-  developerId: string
-  memberId: string
-}
-
-export const acceptInviteMember = async (params: AcceptInviteMember) => {
+export const acceptInviteMember = async (params: AcceptInviteMemberParams) => {
   try {
     const { developerId, memberId, ...restParams } = params
     const response = await fetcher({
@@ -187,7 +187,7 @@ export const acceptInviteMember = async (params: AcceptInviteMember) => {
   }
 }
 
-export const rejectInviteMember = async (params: RejectInviteMember) => {
+export const rejectInviteMember = async (params: RejectInviteMemberParams) => {
   try {
     const { developerId, memberId } = params
     const response = await fetcher({

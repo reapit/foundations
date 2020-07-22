@@ -3,7 +3,6 @@
 exports[`AcceptedModal should match snapshot 1`] = `
 <Component
   isCentered={true}
-  isResponsive={true}
   title="Invitation Declined"
   visible={true}
 >

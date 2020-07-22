@@ -109,28 +109,27 @@ export const Invite: React.FC = () => {
         <Formik initialValues={{ name, jobTitle }} onSubmit={onSubmit}>
           {({ handleSubmit }) => {
             return (
-              <Form>
-                <ModalV2
-                  title="Reapit Foundations Invitation"
-                  visible
-                  isCentered
-                  isResponsive
-                  footer={<FooterModal onConfirm={handleSubmit} onReject={onReject} inviteStatus={inviteStatus} />}
-                >
-                  <Content>
-                    <p>You have been invited to join the &apos;{company}&apos; organisation on Reapit Foundations.</p>
-                    <p>Before confirming your account, please ensure your details are correct below.</p>
-                  </Content>
+              <ModalV2
+                title="Reapit Foundations Invitation"
+                visible
+                isCentered
+                footer={<FooterModal onConfirm={handleSubmit} onReject={onReject} inviteStatus={inviteStatus} />}
+              >
+                <Content>
+                  <p>You have been invited to join the &apos;{company}&apos; organisation on Reapit Foundations.</p>
+                  <p>Before confirming your account, please ensure your details are correct below.</p>
+                </Content>
+                <Form>
                   <Input type="text" name="name" id="name" required labelText="Name"></Input>
                   <Input type="text" name="jobTitle" id="jobTitle" required labelText="Job Title"></Input>
-                  <Content>
-                    <p>
-                      <strong>Important: </strong>If you already have an account and confirm this invitation, any data
-                      on your existing account will no longer be available.
-                    </p>
-                  </Content>
-                </ModalV2>
-              </Form>
+                </Form>
+                <Content>
+                  <p>
+                    <strong>Important: </strong>If you already have an account and confirm this invitation, any data on
+                    your existing account will no longer be available.
+                  </p>
+                </Content>
+              </ModalV2>
             )
           }}
         </Formik>

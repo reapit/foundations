@@ -1,5 +1,5 @@
-import { Action } from '../../types/core'
-import { isType } from '../../utils/actions'
+import { Action } from '@/types/core'
+import { isType } from '@/utils/actions'
 import {
   fetchMemberDetails,
   fetchMemberDetailsSuccess,

@@ -3,7 +3,7 @@ import { ModalV2, Content } from '@reapit/elements'
 
 export const AcceptedModal = ({ visible }: { visible: boolean }) => {
   return (
-    <ModalV2 visible={visible} title="Success" isCentered isResponsive>
+    <ModalV2 visible={visible} title="Success" isCentered>
       <Content>
         <p>Thank you for confirming your invite to Reapit Foundations.</p>
         <p>

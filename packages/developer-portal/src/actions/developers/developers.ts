@@ -2,9 +2,9 @@ import { actionCreator } from '@/utils/actions'
 import ActionTypes from '@/constants/action-types'
 import {
   FetchDeveloperByIdParams,
-  FetchMemberDetails,
-  AcceptInviteMember,
-  RejectInviteMember,
+  FetchMemberDetailsParams,
+  AcceptInviteMemberParams,
+  RejectInviteMemberParams,
   FetchOrganisationMembersParams,
   InviteDeveloperAsOrgMemberParams,
 } from '@/services/developers'
@@ -29,10 +29,10 @@ export const fetchDeveloperDetails = actionCreator<FetchDeveloperByIdParams>(Act
 export const fetchDeveloperDetailsSuccess = actionCreator<DeveloperModel>(ActionTypes.FETCH_DEVELOPER_DETAILS_SUCCESS)
 export const fetchDeveloperDetailsFailed = actionCreator<void>(ActionTypes.FETCH_DEVELOPER_DETAILS_FAILED)
 
-export const fetchMemberDetails = actionCreator<FetchMemberDetails>(ActionTypes.FETCH_MEMBER_DETAILS)
+export const fetchMemberDetails = actionCreator<FetchMemberDetailsParams>(ActionTypes.FETCH_MEMBER_DETAILS)
 export const fetchMemberDetailsSuccess = actionCreator<MemberModel>(ActionTypes.FETCH_MEMBER_DETAILS_SUCCESS)
 export const fetchMemberDetailsFailed = actionCreator<void>(ActionTypes.FETCH_MEMBER_DETAILS_FAILED)
 
-export const acceptInviteMember = actionCreator<AcceptInviteMember>(ActionTypes.ACCEPT_INVITE_MEMBER)
-export const rejectInviteMember = actionCreator<RejectInviteMember>(ActionTypes.REJECT_INVITE_MEMBER)
+export const acceptInviteMember = actionCreator<AcceptInviteMemberParams>(ActionTypes.ACCEPT_INVITE_MEMBER)
+export const rejectInviteMember = actionCreator<RejectInviteMemberParams>(ActionTypes.REJECT_INVITE_MEMBER)
 export const setInviteMemberStatus = actionCreator<InviteMemberStatus>(ActionTypes.SET_INVITE_MEMBER_STATUS)
