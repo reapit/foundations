@@ -1,0 +1,6 @@
+{
+  "name": "@reapit/cra-template-external",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./template.json"
+}
