@@ -334,6 +334,8 @@ const NPM_APPS = [
   'react-app-scaffolder',
   'web-components',
   'elements-next',
+  'connect-session',
+  'cra-external-template',
 ]
 
 module.exports = {
