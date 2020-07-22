@@ -25,6 +25,7 @@ const RegisterConfirm = React.lazy(() => catchChunkError(() => import('../compon
 const WebhooksPage = React.lazy(() => catchChunkError(() => import('../components/pages/webhooks')))
 const SettingsPage = React.lazy(() => catchChunkError(() => import('../components/pages/settings/')))
 const AppDetailPreview = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail-preview')))
+const Invite = React.lazy(() => catchChunkError(() => import('../components/pages/invite')))
 
 const SettingsOrganisationTabPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/settings/settings-organisation-tab')),
@@ -48,6 +49,10 @@ const Router = () => {
             <Route allow="DEVELOPER" path={Routes.REGISTER} render={() => <Register />} />
             <Route path={Routes.REGISTER_CONFIRM} exact component={RegisterConfirm} />
             <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
+
+            <PrivateRouteWrapper path={Routes.INVITE} showMenu={false}>
+              <PrivateRoute allow="DEVELOPER" path="/" component={Invite} />
+            </PrivateRouteWrapper>
 
             <PrivateRouteWrapper path="/">
               <Switch>
