@@ -1,163 +1,748 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DeveloperInviteMemberModal should match snapshot with default 1`] = `""`;
-
-exports[`DeveloperInviteMemberModal should match snapshot with visible true 1`] = `
-<Component
-  afterClose={[MockFunction]}
-  title="Invite New Member"
-  visible={true}
+exports[`developer-invite-member-modal InviteMemberModal should match snapshot with default 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
 >
-  <Component>
-    Please enter a name and email address below to invite a new member to your organisation:
-  </Component>
-  <Formik
-    initialValues={
-      Object {
-        "developerInviteEmail": "",
-        "developerInviteMessage": "",
-        "developerInviteName": "",
-      }
+  <Component
+    onClose={[MockFunction]}
+  />
+</Provider>
+`;
+
+exports[`developer-invite-member-modal InviteMemberModal should match snapshot with loading true and error 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
     }
-    onSubmit={[Function]}
-    validationSchema={
-      ObjectSchema {
-        "_blacklist": RefSet {
-          "list": Set {},
-          "refs": Map {},
-        },
-        "_conditions": Array [],
-        "_defaultDefault": [Function],
-        "_deps": Array [],
-        "_excludedEdges": Array [],
-        "_exclusive": Object {},
-        "_mutate": undefined,
-        "_nodes": Array [
-          "developerInviteMessage",
-          "developerInviteEmail",
-          "developerInviteName",
-        ],
-        "_options": Object {
-          "abortEarly": true,
-          "recursive": true,
-        },
-        "_type": "object",
-        "_typeError": [Function],
-        "_whitelist": RefSet {
-          "list": Set {},
-          "refs": Map {},
-        },
-        "fields": Object {
-          "developerInviteEmail": StringSchema {
-            "_blacklist": RefSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_conditions": Array [],
-            "_deps": Array [],
-            "_exclusive": Object {
-              "matches": false,
-              "required": true,
-              "trim": false,
-            },
-            "_mutate": undefined,
-            "_options": Object {
-              "abortEarly": true,
-              "recursive": true,
-            },
-            "_type": "string",
-            "_typeError": [Function],
-            "_whitelist": RefSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "tests": Array [
-              [Function],
-              [Function],
-              [Function],
-            ],
-            "transforms": Array [
-              [Function],
-              [Function],
-            ],
-            "type": "string",
-          },
-          "developerInviteMessage": StringSchema {
-            "_blacklist": RefSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_conditions": Array [],
-            "_deps": Array [],
-            "_exclusive": Object {
-              "max": true,
-              "trim": false,
-            },
-            "_mutate": undefined,
-            "_options": Object {
-              "abortEarly": true,
-              "recursive": true,
-            },
-            "_type": "string",
-            "_typeError": [Function],
-            "_whitelist": RefSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "tests": Array [
-              [Function],
-              [Function],
-            ],
-            "transforms": Array [
-              [Function],
-              [Function],
-            ],
-            "type": "string",
-          },
-          "developerInviteName": StringSchema {
-            "_blacklist": RefSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_conditions": Array [],
-            "_deps": Array [],
-            "_exclusive": Object {
-              "matches": false,
-              "required": true,
-              "trim": false,
-            },
-            "_mutate": undefined,
-            "_options": Object {
-              "abortEarly": true,
-              "recursive": true,
-            },
-            "_type": "string",
-            "_typeError": [Function],
-            "_whitelist": RefSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "tests": Array [
-              [Function],
-              [Function],
-              [Function],
-            ],
-            "transforms": Array [
-              [Function],
-              [Function],
-            ],
-            "type": "string",
-          },
-        },
-        "tests": Array [],
-        "transforms": Array [
-          [Function],
-        ],
-        "type": "object",
-      }
+  }
+>
+  <Component
+    onClose={[MockFunction]}
+  />
+</Provider>
+`;
+
+exports[`developer-invite-member-modal InviteMemberModal should match snapshot with visible true 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
     }
+  }
+>
+  <Component
+    onClose={[MockFunction]}
+    visible={true}
   >
-    <Component />
-  </Formik>
-</Component>
+    <Component
+      onClose={[MockFunction]}
+      title="Invite New Member"
+      visible={true}
+    >
+      <Component
+        className=""
+        destroyOnClose={true}
+        onClose={[MockFunction]}
+        title="Invite New Member"
+        visible={true}
+        wrapClassName=""
+      >
+        <PortalWrapper
+          visible={true}
+        >
+          <Portal
+            getContainer={[Function]}
+          >
+            <Portal
+              containerInfo={
+                <div>
+                  <div
+                    class="rc-dialog-root"
+                  >
+                    <div
+                      class="rc-dialog-mask"
+                    />
+                    <div
+                      aria-labelledby="rcDialogTitle0"
+                      class="rc-dialog-wrap "
+                      role="dialog"
+                      tabindex="-1"
+                    >
+                      <div
+                        class="rc-dialog "
+                        role="document"
+                      >
+                        <div
+                          aria-hidden="true"
+                          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                          tabindex="0"
+                        />
+                        <div
+                          class="rc-dialog-content"
+                        >
+                          <button
+                            aria-label="Close"
+                            class="rc-dialog-close"
+                            type="button"
+                          >
+                            <span
+                              class="rc-dialog-close-x"
+                            />
+                          </button>
+                          <div
+                            class="rc-dialog-header"
+                          >
+                            <div
+                              class="rc-dialog-title"
+                              id="rcDialogTitle0"
+                            >
+                              Invite New Member
+                            </div>
+                          </div>
+                          <div
+                            class="rc-dialog-body"
+                          >
+                            <h6
+                              class=""
+                              id=""
+                            >
+                              Please enter a name and email address below to invite a new member to your organisation:
+                            </h6>
+                            <form
+                              action="#"
+                              class="form"
+                            >
+                              <div
+                                class=""
+                              >
+                                <div
+                                  class=""
+                                >
+                                  <div
+                                    class="control "
+                                  >
+                                    <label
+                                      class="label inline-block required-label"
+                                      for="name"
+                                    >
+                                      Name
+                                    </label>
+                                    <input
+                                      class=""
+                                      data-test=""
+                                      id="name"
+                                      name="name"
+                                      placeholder="Name"
+                                      type="text"
+                                      value=""
+                                    />
+                                  </div>
+                                </div>
+                                <div
+                                  class=""
+                                >
+                                  <div
+                                    class="control "
+                                  >
+                                    <label
+                                      class="label inline-block required-label"
+                                      for="email"
+                                    >
+                                      Email
+                                    </label>
+                                    <input
+                                      class=""
+                                      data-test=""
+                                      id="email"
+                                      name="email"
+                                      placeholder="Email"
+                                      type="email"
+                                      value=""
+                                    />
+                                  </div>
+                                </div>
+                                <div
+                                  class="field"
+                                >
+                                  <div
+                                    class="control"
+                                  >
+                                    <label
+                                      class=""
+                                      for="message"
+                                    >
+                                      Message (Optional)
+                                    </label>
+                                    <textarea
+                                      class=""
+                                      data-test=""
+                                      id="message"
+                                      name="message"
+                                      placeholder="Message"
+                                    />
+                                  </div>
+                                </div>
+                                <div
+                                  class=""
+                                  data-test=""
+                                >
+                                  <button
+                                    class="button  is-secondary  "
+                                    data-test=""
+                                    type="button"
+                                  >
+                                    Cancel
+                                  </button>
+                                  <button
+                                    class="button  is-primary  "
+                                    data-test=""
+                                    type="submit"
+                                  >
+                                    Send Invite
+                                  </button>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                        <div
+                          aria-hidden="true"
+                          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+                          tabindex="0"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              }
+            >
+              <Dialog
+                className=""
+                closable={true}
+                destroyOnClose={true}
+                focusTriggerAfterClose={true}
+                getContainer={[Function]}
+                getOpenCount={[Function]}
+                keyboard={true}
+                mask={true}
+                maskClosable={true}
+                onClose={[MockFunction]}
+                prefixCls="rc-dialog"
+                switchScrollingEffect={[Function]}
+                title="Invite New Member"
+                visible={true}
+                wrapClassName=""
+              >
+                <div
+                  className="rc-dialog-root"
+                >
+                  <LazyRenderBox
+                    className="rc-dialog-mask"
+                    hiddenClassName="rc-dialog-mask-hidden"
+                    key="mask"
+                    style={Object {}}
+                    visible={true}
+                  >
+                    <div
+                      className="rc-dialog-mask"
+                      style={Object {}}
+                    />
+                  </LazyRenderBox>
+                  <div
+                    aria-labelledby="rcDialogTitle0"
+                    className="rc-dialog-wrap "
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    onMouseUp={[Function]}
+                    role="dialog"
+                    style={
+                      Object {
+                        "display": null,
+                      }
+                    }
+                    tabIndex={-1}
+                  >
+                    <Animate
+                      animation={Object {}}
+                      component=""
+                      componentProps={Object {}}
+                      key="dialog"
+                      onAppear={[Function]}
+                      onEnd={[Function]}
+                      onEnter={[Function]}
+                      onLeave={[Function]}
+                      showProp="visible"
+                      transitionAppear={true}
+                      transitionEnter={true}
+                      transitionLeave={true}
+                    >
+                      <AnimateChild
+                        animation={Object {}}
+                        key="dialog-element"
+                        transitionAppear={true}
+                        transitionEnter={true}
+                        transitionLeave={true}
+                      >
+                        <LazyRenderBox
+                          className="rc-dialog "
+                          key="dialog-element"
+                          onMouseDown={[Function]}
+                          role="document"
+                          style={Object {}}
+                          visible={true}
+                        >
+                          <div
+                            className="rc-dialog "
+                            onMouseDown={[Function]}
+                            role="document"
+                            style={Object {}}
+                          >
+                            <div
+                              aria-hidden="true"
+                              style={
+                                Object {
+                                  "height": 0,
+                                  "outline": "none",
+                                  "overflow": "hidden",
+                                  "width": 0,
+                                }
+                              }
+                              tabIndex={0}
+                            />
+                            <div
+                              className="rc-dialog-content"
+                            >
+                              <button
+                                aria-label="Close"
+                                className="rc-dialog-close"
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                <span
+                                  className="rc-dialog-close-x"
+                                />
+                              </button>
+                              <div
+                                className="rc-dialog-header"
+                              >
+                                <div
+                                  className="rc-dialog-title"
+                                  id="rcDialogTitle0"
+                                >
+                                  Invite New Member
+                                </div>
+                              </div>
+                              <div
+                                className="rc-dialog-body"
+                              >
+                                <Component
+                                  className="px-4"
+                                >
+                                  <h6
+                                    className=""
+                                    id=""
+                                  >
+                                    Please enter a name and email address below to invite a new member to your organisation:
+                                  </h6>
+                                </Component>
+                                <Formik
+                                  initialValues={
+                                    Object {
+                                      "email": "",
+                                      "message": "",
+                                      "name": "",
+                                    }
+                                  }
+                                  onSubmit={[Function]}
+                                  validationSchema={
+                                    ObjectSchema {
+                                      "_blacklist": RefSet {
+                                        "list": Set {},
+                                        "refs": Map {},
+                                      },
+                                      "_conditions": Array [],
+                                      "_defaultDefault": [Function],
+                                      "_deps": Array [],
+                                      "_excludedEdges": Array [],
+                                      "_exclusive": Object {},
+                                      "_mutate": undefined,
+                                      "_nodes": Array [
+                                        "message",
+                                        "email",
+                                        "name",
+                                      ],
+                                      "_options": Object {
+                                        "abortEarly": true,
+                                        "recursive": true,
+                                      },
+                                      "_type": "object",
+                                      "_typeError": [Function],
+                                      "_whitelist": RefSet {
+                                        "list": Set {},
+                                        "refs": Map {},
+                                      },
+                                      "fields": Object {
+                                        "email": StringSchema {
+                                          "_blacklist": RefSet {
+                                            "list": Set {},
+                                            "refs": Map {},
+                                          },
+                                          "_conditions": Array [],
+                                          "_deps": Array [],
+                                          "_exclusive": Object {
+                                            "matches": false,
+                                            "required": true,
+                                            "trim": false,
+                                          },
+                                          "_mutate": undefined,
+                                          "_options": Object {
+                                            "abortEarly": true,
+                                            "recursive": true,
+                                          },
+                                          "_type": "string",
+                                          "_typeError": [Function],
+                                          "_whitelist": RefSet {
+                                            "list": Set {},
+                                            "refs": Map {},
+                                          },
+                                          "tests": Array [
+                                            [Function],
+                                            [Function],
+                                            [Function],
+                                          ],
+                                          "transforms": Array [
+                                            [Function],
+                                            [Function],
+                                          ],
+                                          "type": "string",
+                                        },
+                                        "message": StringSchema {
+                                          "_blacklist": RefSet {
+                                            "list": Set {},
+                                            "refs": Map {},
+                                          },
+                                          "_conditions": Array [],
+                                          "_deps": Array [],
+                                          "_exclusive": Object {
+                                            "max": true,
+                                            "trim": false,
+                                          },
+                                          "_mutate": undefined,
+                                          "_options": Object {
+                                            "abortEarly": true,
+                                            "recursive": true,
+                                          },
+                                          "_type": "string",
+                                          "_typeError": [Function],
+                                          "_whitelist": RefSet {
+                                            "list": Set {},
+                                            "refs": Map {},
+                                          },
+                                          "tests": Array [
+                                            [Function],
+                                            [Function],
+                                          ],
+                                          "transforms": Array [
+                                            [Function],
+                                            [Function],
+                                          ],
+                                          "type": "string",
+                                        },
+                                        "name": StringSchema {
+                                          "_blacklist": RefSet {
+                                            "list": Set {},
+                                            "refs": Map {},
+                                          },
+                                          "_conditions": Array [],
+                                          "_deps": Array [],
+                                          "_exclusive": Object {
+                                            "matches": false,
+                                            "required": true,
+                                            "trim": false,
+                                          },
+                                          "_mutate": undefined,
+                                          "_options": Object {
+                                            "abortEarly": true,
+                                            "recursive": true,
+                                          },
+                                          "_type": "string",
+                                          "_typeError": [Function],
+                                          "_whitelist": RefSet {
+                                            "list": Set {},
+                                            "refs": Map {},
+                                          },
+                                          "tests": Array [
+                                            [Function],
+                                            [Function],
+                                            [Function],
+                                          ],
+                                          "transforms": Array [
+                                            [Function],
+                                            [Function],
+                                          ],
+                                          "type": "string",
+                                        },
+                                      },
+                                      "tests": Array [],
+                                      "transforms": Array [
+                                        [Function],
+                                      ],
+                                      "type": "object",
+                                    }
+                                  }
+                                >
+                                  <Form
+                                    className="form"
+                                    onSubmit={[Function]}
+                                  >
+                                    <form
+                                      action="#"
+                                      className="form"
+                                      onReset={[Function]}
+                                      onSubmit={[Function]}
+                                    >
+                                      <Component
+                                        flexColumn={true}
+                                        hasBackground={true}
+                                        hasPadding={true}
+                                      >
+                                        <div
+                                          className=""
+                                        >
+                                          <Component>
+                                            <Component
+                                              id="name"
+                                              labelText="Name"
+                                              name="name"
+                                              placeholder="Name"
+                                              required={true}
+                                              type="text"
+                                            >
+                                              <Field
+                                                name="name"
+                                                validate={[Function]}
+                                              >
+                                                <div
+                                                  className=""
+                                                >
+                                                  <div
+                                                    className="control "
+                                                  >
+                                                    <label
+                                                      className="label inline-block required-label"
+                                                      htmlFor="name"
+                                                    >
+                                                      Name
+                                                    </label>
+                                                    <input
+                                                      className=""
+                                                      data-test=""
+                                                      disabled={false}
+                                                      id="name"
+                                                      name="name"
+                                                      onBlur={[Function]}
+                                                      onChange={[Function]}
+                                                      placeholder="Name"
+                                                      type="text"
+                                                      value=""
+                                                    />
+                                                  </div>
+                                                </div>
+                                              </Field>
+                                            </Component>
+                                            <Component
+                                              id="email"
+                                              labelText="Email"
+                                              name="email"
+                                              placeholder="Email"
+                                              required={true}
+                                              type="email"
+                                            >
+                                              <Field
+                                                name="email"
+                                                validate={[Function]}
+                                              >
+                                                <div
+                                                  className=""
+                                                >
+                                                  <div
+                                                    className="control "
+                                                  >
+                                                    <label
+                                                      className="label inline-block required-label"
+                                                      htmlFor="email"
+                                                    >
+                                                      Email
+                                                    </label>
+                                                    <input
+                                                      className=""
+                                                      data-test=""
+                                                      disabled={false}
+                                                      id="email"
+                                                      name="email"
+                                                      onBlur={[Function]}
+                                                      onChange={[Function]}
+                                                      placeholder="Email"
+                                                      type="email"
+                                                      value=""
+                                                    />
+                                                  </div>
+                                                </div>
+                                              </Field>
+                                            </Component>
+                                            <Component
+                                              id="message"
+                                              labelText="Message (Optional)"
+                                              name="message"
+                                              placeholder="Message"
+                                            >
+                                              <Field
+                                                name="message"
+                                                validate={null}
+                                              >
+                                                <div
+                                                  className="field"
+                                                >
+                                                  <div
+                                                    className="control"
+                                                  >
+                                                    <label
+                                                      className=""
+                                                      htmlFor="message"
+                                                    >
+                                                      Message (Optional)
+                                                    </label>
+                                                    <textarea
+                                                      className=""
+                                                      data-test=""
+                                                      id="message"
+                                                      name="message"
+                                                      onBlur={[Function]}
+                                                      onChange={[Function]}
+                                                      placeholder="Message"
+                                                      value=""
+                                                    />
+                                                  </div>
+                                                </div>
+                                              </Field>
+                                            </Component>
+                                          </Component>
+                                          <Component>
+                                            <div
+                                              className=""
+                                              data-test=""
+                                            >
+                                              <Component
+                                                disabled={false}
+                                                onClick={[MockFunction]}
+                                                type="button"
+                                                variant="secondary"
+                                              >
+                                                <button
+                                                  className="button  is-secondary  "
+                                                  data-test=""
+                                                  disabled={false}
+                                                  onClick={[MockFunction]}
+                                                  type="button"
+                                                >
+                                                  Cancel
+                                                </button>
+                                              </Component>
+                                              <Component
+                                                loading={false}
+                                                type="submit"
+                                                variant="primary"
+                                              >
+                                                <button
+                                                  className="button  is-primary  "
+                                                  data-test=""
+                                                  disabled={false}
+                                                  type="submit"
+                                                >
+                                                  Send Invite
+                                                </button>
+                                              </Component>
+                                            </div>
+                                          </Component>
+                                        </div>
+                                      </Component>
+                                    </form>
+                                  </Form>
+                                </Formik>
+                              </div>
+                            </div>
+                            <div
+                              aria-hidden="true"
+                              style={
+                                Object {
+                                  "height": 0,
+                                  "outline": "none",
+                                  "overflow": "hidden",
+                                  "width": 0,
+                                }
+                              }
+                              tabIndex={0}
+                            />
+                          </div>
+                        </LazyRenderBox>
+                      </AnimateChild>
+                    </Animate>
+                  </div>
+                </div>
+              </Dialog>
+            </Portal>
+          </Portal>
+        </PortalWrapper>
+      </Component>
+    </Component>
+  </Component>
+</Provider>
+`;
+
+exports[`developer-invite-member-modal InviteMemberModalInput should match snapshot 1`] = `
+<Fragment>
+  <Component
+    id="name"
+    labelText="Name"
+    name="name"
+    placeholder="Name"
+    required={true}
+    type="text"
+  />
+  <Component
+    id="email"
+    labelText="Email"
+    name="email"
+    placeholder="Email"
+    required={true}
+    type="email"
+  />
+  <Component
+    id="message"
+    labelText="Message (Optional)"
+    name="message"
+    placeholder="Message"
+  />
+</Fragment>
 `;

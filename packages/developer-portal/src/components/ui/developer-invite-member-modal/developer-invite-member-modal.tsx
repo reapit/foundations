@@ -1,51 +1,114 @@
 import * as React from 'react'
-import { Modal, ModalProps, SubTitleH6, FlexContainerBasic, Form } from '@reapit/elements'
+import {
+  ModalV2,
+  ModalPropsV2,
+  SubTitleH6,
+  FlexContainerBasic,
+  Form,
+  Button,
+  Input,
+  TextArea,
+  LevelRight,
+} from '@reapit/elements'
 import { Formik } from 'formik'
-import styles from '@/styles/blocks/developer-invite-member.scss?mod'
-import { handleSubmit } from './handlers'
-import DeveloperInviteMemberModalInput from './developer-invite-member-modal-input'
-import DeveloperInviteMemberModalFooter from './developer-invite-member-footer'
 import { validationSchema } from './validation-schema'
 import { formFields } from './form-fields'
+import { useDispatch, useSelector } from 'react-redux'
+import { Dispatch } from 'redux'
+import { inviteDeveloperAsOrgMember } from '@/actions/developers'
+import { selectDeveloperId } from '@/selector/auth'
+import { selectInviteDeveloperAsOrgMemberLoading } from '@/selector/developers'
 
-const { developerInviteNameField, developerInviteEmailField, developerInviteMessageField } = formFields
+const { inviteNameField, inviteEmailField, inviteMessageField } = formFields
 
-export type DeveloperInviteMemberModalProps = Pick<ModalProps, 'afterClose'> & {
+export type InviteMemberModalProps = ModalPropsV2 & {
   visible?: boolean
 }
 
 export const initialValues = {
-  [developerInviteNameField.name]: '',
-  [developerInviteEmailField.name]: '',
-  [developerInviteMessageField.name]: '',
+  [inviteNameField.name]: '',
+  [inviteEmailField.name]: '',
+  [inviteMessageField.name]: '',
 }
 
-export const DeveloperInviteMemberModal: React.FC<DeveloperInviteMemberModalProps> = ({
-  visible = false,
-  afterClose,
-}) => {
+export const InviteMemberModalInput: React.FC = () => {
+  return (
+    <>
+      <Input
+        id={inviteNameField.name}
+        type="text"
+        placeholder={inviteNameField.placeHolder}
+        name={inviteNameField.name}
+        required
+        labelText={inviteNameField.label as string}
+      />
+      <Input
+        id={inviteEmailField.name}
+        type="email"
+        placeholder={inviteEmailField.placeHolder}
+        name={inviteEmailField.name}
+        required
+        labelText={inviteEmailField.label as string}
+      />
+      <TextArea
+        id={inviteMessageField.name}
+        placeholder={inviteMessageField.placeHolder}
+        name={inviteMessageField.name}
+        labelText={inviteMessageField.label as string}
+      />
+    </>
+  )
+}
+
+export const handleSubmit = (dispatch: Dispatch, developerId: string, onClose: () => void) => values => {
+  if (!developerId) {
+    return
+  }
+  const params = {
+    id: developerId,
+    callback: onClose,
+    ...values,
+  }
+  dispatch(inviteDeveloperAsOrgMember(params))
+}
+
+export const InviteMemberModal: React.FC<InviteMemberModalProps> = ({ visible = false, onClose }) => {
+  const dispatch = useDispatch()
+  const developerId = useSelector(selectDeveloperId)
+  const loading = useSelector(selectInviteDeveloperAsOrgMemberLoading)
   if (!visible) {
     return null
   }
   return (
-    <Modal visible={visible} afterClose={afterClose} title="Invite New Member">
+    <ModalV2 visible={visible} onClose={onClose} title="Invite New Member">
       <>
-        <SubTitleH6 className={styles.subTitle}>
+        <SubTitleH6 className="px-4">
           Please enter a name and email address below to invite a new member to your organisation:
         </SubTitleH6>
-        <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validationSchema}>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={handleSubmit(dispatch, developerId, onClose as () => void)}
+          validationSchema={validationSchema}
+        >
           {({ handleSubmit: handleSubmitForm }) => (
             <Form className="form" onSubmit={handleSubmitForm}>
               <FlexContainerBasic hasBackground hasPadding flexColumn>
-                <DeveloperInviteMemberModalInput />
-                <DeveloperInviteMemberModalFooter afterClose={afterClose} />
+                <InviteMemberModalInput />
+                <LevelRight>
+                  <Button disabled={loading} variant="secondary" type="button" onClick={onClose as () => void}>
+                    Cancel
+                  </Button>
+                  <Button loading={loading} variant="primary" type="submit">
+                    Send Invite
+                  </Button>
+                </LevelRight>
               </FlexContainerBasic>
             </Form>
           )}
         </Formik>
       </>
-    </Modal>
+    </ModalV2>
   )
 }
 
-export default DeveloperInviteMemberModal
+export default InviteMemberModal
