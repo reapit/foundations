@@ -1,23 +1,32 @@
-import { Action } from '../../types/core'
-import { isType } from '../../utils/actions'
+import { Action } from '@/types/core'
+import { isType } from '@/utils/actions'
 import {
+  inviteDeveloperAsOrgMember,
+  inviteDeveloperAsOrgMemberFailed,
   fetchOrganisationMembers,
   fetchOrganisationMembersSuccess,
   fetchOrganisationMembersFailed,
+  inviteDeveloperAsOrgMemberSuccess,
 } from '@/actions/developers'
 import { PagedResultMemberModel_ } from '@reapit/foundations-ts-definitions'
 
-export interface MembersState {
+export type MembersState = {
   loading: boolean
   pagedResult: PagedResultMemberModel_ | null
+  inviteMember: {
+    loading: boolean
+  }
 }
 
 export const defaultState: MembersState = {
   loading: false,
   pagedResult: null,
+  inviteMember: {
+    loading: false,
+  },
 }
 
-const membersReducer = (state: MembersState = defaultState, action: Action<any>): MembersState => {
+export const membersReducer = (state: MembersState = defaultState, action: Action<any>): MembersState => {
   if (isType(action, fetchOrganisationMembers)) {
     return {
       ...state,
@@ -27,7 +36,7 @@ const membersReducer = (state: MembersState = defaultState, action: Action<any>)
   if (isType(action, fetchOrganisationMembersSuccess)) {
     return {
       ...state,
-      pagedResult: action.data,
+      pagedResult: action?.data,
       loading: false,
     }
   }
@@ -37,7 +46,32 @@ const membersReducer = (state: MembersState = defaultState, action: Action<any>)
       loading: false,
     }
   }
+  if (isType(action, inviteDeveloperAsOrgMember)) {
+    return {
+      ...state,
+      inviteMember: {
+        loading: true,
+      },
+    }
+  }
 
+  if (isType(action, inviteDeveloperAsOrgMemberFailed)) {
+    return {
+      ...state,
+      inviteMember: {
+        loading: false,
+      },
+    }
+  }
+
+  if (isType(action, inviteDeveloperAsOrgMemberSuccess)) {
+    return {
+      ...state,
+      inviteMember: {
+        loading: false,
+      },
+    }
+  }
   return state
 }
 

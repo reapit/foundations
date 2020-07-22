@@ -46,7 +46,7 @@ const DevelperSettingsOrganisationTabPage: React.FC = () => {
 
       <DeveloperInviteModal
         visible={isInviteModalOpen}
-        afterClose={handleToggleVisibleModal(setIsInviteModalOpen, false)}
+        onClose={handleToggleVisibleModal(setIsInviteModalOpen, false)}
       />
     </>
   )

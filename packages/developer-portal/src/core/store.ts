@@ -43,7 +43,7 @@ import webhookSubscriptionsSagas from '@/sagas/webhook-subscriptions'
 import { injectSwitchModeToWindow } from '@reapit/elements'
 import webhookEditSagas from '../sagas/webhook-edit-modal'
 import developerSubscriptionsSagas from '../sagas/developer-subscriptions'
-import developersSagas from '../sagas/developers'
+import developersSagas from '@/sagas/developers'
 
 export class Store {
   static _instance: Store
