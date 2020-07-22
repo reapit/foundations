@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { TransitionGroup } from 'react-transition-group'
 import { Dispatch } from 'redux'
 import { History } from 'history'
 import { useSelector, useDispatch } from 'react-redux'
@@ -17,7 +18,6 @@ import Routes from '@/constants/routes'
 import InfiniteScroll from 'react-infinite-scroller'
 import { clientFetchAppSummary } from '@/actions/client'
 import styles from '@/styles/pages/apps.scss?mod'
-import { TransitionGroup } from 'react-transition-group'
 
 export const handleAfterClose = ({ setVisible }) => () => setVisible(false)
 export const handleOnChange = history => (page: number) => {
@@ -37,7 +37,6 @@ export const handleOnCardClick = (history: History) => (app: AppSummaryModel) =>
 }
 
 export const handleLoadMore = (dispatch: Dispatch) => (page: number) => {
-  console.log('[handleLoadMore]', page)
   dispatch(clientFetchAppSummary({ page }))
 }
 
@@ -51,9 +50,15 @@ export const Apps: React.FunctionComponent = () => {
   const loading = appSummaryState.isAppSummaryLoading
   const apps = appSummaryState?.data?.apps?.data || []
   const featuredApps = appSummaryState?.data?.featuredApps || []
-  const { totalCount, pageNumber = 1 } = appSummaryState?.data?.apps || {}
+  const { totalCount = 0, pageNumber = 1 } = appSummaryState?.data?.apps || {}
 
-  const hasMore = !apps || apps.length == 0 || loading ? false : pageNumber * 9 < (totalCount || 0)
+  const totalPage = totalCount / pageNumber
+  /**
+   * When apps is empty or when loading app set hasMore = false to prevent trigger load more
+   * Otherwise set hasMore = true when pageNumber (current page ) less then totalPage
+   *
+   */
+  const hasMore = apps.length == 0 || loading ? false : pageNumber < totalPage
 
   return (
     <ErrorBoundary>
@@ -91,6 +96,7 @@ export const Apps: React.FunctionComponent = () => {
                 loading={loading}
                 onCardClick={handleOnCardClick(history)}
                 infoType={pageNumber > 1 || hasParams ? '' : 'CLIENT_APPS_EMPTY'}
+                animated
               />
             </>
           </TransitionGroup>

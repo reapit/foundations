@@ -103,6 +103,7 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
                           </h3>
                         </Component>
                         <Component
+                          animated={true}
                           infoType="CLIENT_APPS_EMPTY"
                           list={Array []}
                           loading={false}
@@ -239,6 +240,7 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                           </h3>
                         </Component>
                         <Component
+                          animated={true}
                           infoType="CLIENT_APPS_EMPTY"
                           list={Array []}
                           loading={true}
@@ -388,6 +390,7 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
                           </h3>
                         </Component>
                         <Component
+                          animated={true}
                           infoType="CLIENT_APPS_EMPTY"
                           list={
                             Object {
@@ -577,6 +580,7 @@ exports[`Client should match a snapshot when featured apps is null 1`] = `
                           </h3>
                         </Component>
                         <Component
+                          animated={true}
                           infoType="CLIENT_APPS_EMPTY"
                           list={
                             Object {

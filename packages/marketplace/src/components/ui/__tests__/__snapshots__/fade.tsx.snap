@@ -1,47 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Fade should match a snapshot 1`] = `
-<div
-  className=""
->
-  <CSSTransition
-    classNames="fade"
-    in={true}
-    nodeRef={
-      Object {
-        "current": null,
-      }
+<CSSTransition
+  classNames="fade"
+  in={true}
+  nodeRef={
+    Object {
+      "current": null,
     }
-    timeout={300}
-  >
+  }
+  timeout={300}
+>
+  <div>
     <div>
-      <div>
-        MockChildren
-      </div>
+      MockChildren
     </div>
-  </CSSTransition>
-</div>
+  </div>
+</CSSTransition>
 `;
 
 exports[`Fade should match a snapshot 2`] = `
-<div
-  className=""
->
-  <CSSTransition
-    classNames="fade"
-    in={false}
-    nodeRef={
-      Object {
-        "current": null,
-      }
+<CSSTransition
+  classNames="fade"
+  in={false}
+  nodeRef={
+    Object {
+      "current": null,
     }
-    timeout={300}
-  >
+  }
+  timeout={300}
+>
+  <div>
     <div>
-      <div>
-        MockChildren
-      </div>
+      MockChildren
     </div>
-  </CSSTransition>
-</div>
+  </div>
+</CSSTransition>
 `;
