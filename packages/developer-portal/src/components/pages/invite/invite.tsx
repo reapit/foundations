@@ -15,13 +15,14 @@ import { acceptInviteMember, rejectInviteMember } from '@/actions/developers'
 import AcceptedModal from './accepted'
 import RejectedModal from './rejected'
 import { InviteMemberStatus } from '@/reducers/developers/member-details'
+import { Dispatch } from 'redux'
 
-const handleFetchDeveloperData = (dispatch, developerId, memberId) => () => {
+export const handleFetchDeveloperData = (dispatch: Dispatch, developerId: string, memberId: string) => () => {
   dispatch(fetchDeveloperDetails({ id: developerId }))
   dispatch(fetchMemberDetails({ memberId, developerId }))
 }
 
-export const handleSubmit = (dispatch, developerId, memberId) => values => {
+export const handleSubmit = (dispatch: Dispatch, developerId: string, memberId: string) => values => {
   const params = {
     developerId,
     memberId,
@@ -30,7 +31,7 @@ export const handleSubmit = (dispatch, developerId, memberId) => values => {
   dispatch(acceptInviteMember(params))
 }
 
-export const handleReject = (dispatch, developerId, memberId) => () => {
+export const handleReject = (dispatch: Dispatch, developerId: string, memberId: string) => () => {
   const params = {
     developerId,
     memberId,
@@ -38,7 +39,7 @@ export const handleReject = (dispatch, developerId, memberId) => () => {
   dispatch(rejectInviteMember(params))
 }
 
-interface FooterModalProps {
+export interface FooterModalProps {
   onConfirm: () => void
   onReject: () => void
   inviteStatus: InviteMemberStatus

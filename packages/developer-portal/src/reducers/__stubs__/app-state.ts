@@ -234,11 +234,11 @@ const appState: ReduxState = {
     },
     developerDetails: {
       loading: false,
-      data: null,
+      data: {},
     },
     memberDetails: {
       loading: false,
-      data: null,
+      data: {},
       inviteStatus: 'PENDING',
     },
   },

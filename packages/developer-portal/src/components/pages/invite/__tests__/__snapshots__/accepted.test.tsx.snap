@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AcceptedModal should match snapshot 1`] = `
+<Component
+  isCentered={true}
+  isResponsive={true}
+  title="Success"
+  visible={true}
+>
+  <Component>
+    <p>
+      Thank you for confirming your invite to Reapit Foundations.
+    </p>
+    <p>
+      If you already had a Developer account, you can use your existing credentials to login to the Developers Portal. If not, you will shortly receive an email with instructions on setting up your login credentials.
+    </p>
+  </Component>
+</Component>
+`;
