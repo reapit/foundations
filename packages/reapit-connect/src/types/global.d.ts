@@ -3,7 +3,6 @@ export type Config = {
   appId?: string
   cognitoClientId: string
   cognitoOAuthUrl: string
-  cognitoUserPoolId: string
 }
 
 declare global {

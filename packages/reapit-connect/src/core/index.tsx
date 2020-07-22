@@ -11,7 +11,6 @@ window.reapit = {
     appEnv: 'production',
     cognitoClientId: '',
     cognitoOAuthUrl: '',
-    cognitoUserPoolId: '',
   },
 }
 
