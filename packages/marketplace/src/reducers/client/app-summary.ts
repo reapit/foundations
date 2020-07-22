@@ -44,7 +44,14 @@ const appSummaryReducer = (state: ClientAppSummaryState = defaultState, action: 
     return {
       ...state,
       isAppSummaryLoading: false,
-      data: action.data || null,
+      data: {
+        apps: {
+          ...state?.data?.apps,
+          ...action.data?.apps,
+          data: [...(state?.data?.apps.data || []), ...(action.data?.apps.data || [])],
+        },
+        featuredApps: action?.data?.featuredApps || null,
+      },
     }
   }
 

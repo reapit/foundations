@@ -1,7 +1,7 @@
 import appSummaryReducer, { defaultState } from '../app-summary'
 import { ActionType } from '../../../types/core'
 import ActionTypes from '../../../constants/action-types'
-import { appsDataStub } from '../../../sagas/__stubs__/apps'
+import { appsDataStub, featuredAppsDataStub } from '../../../sagas/__stubs__/apps'
 
 describe('appsumar reducer', () => {
   it('should return default state if action not matched', () => {
@@ -24,12 +24,18 @@ describe('appsumar reducer', () => {
   it('should set client item data when CLIENT_FETCH_APP_SUMMARY_SUCCESS action is called', () => {
     const newState = appSummaryReducer(undefined, {
       type: ActionTypes.CLIENT_FETCH_APP_SUMMARY_SUCCESS as ActionType,
-      data: appsDataStub,
+      data: {
+        apps: appsDataStub.data,
+        featuredApps: featuredAppsDataStub.data,
+      },
     })
     const expected = {
       ...defaultState,
       isAppSummaryLoading: false,
-      data: appsDataStub,
+      data: {
+        apps: appsDataStub.data,
+        featuredApps: featuredAppsDataStub.data,
+      },
     }
     expect(newState).toEqual(expected)
   })

@@ -3,6 +3,7 @@ import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { Tile } from '@reapit/elements'
 import appCardStyles from '@/styles/blocks/app-card.scss?mod'
 import defaultAppIcon from '@/assets/images/default-app-icon.jpg'
+import Fade from '@/components/ui/fade'
 
 export interface AppCardProps {
   app: AppSummaryModel
@@ -22,22 +23,24 @@ const AppCard: React.FunctionComponent<AppCardProps> = ({ app, onClick, onSettin
   const clickAction = (app.installedOn && onSettingsClick ? onSettingsClick : onClick) as () => void
 
   return (
-    <div data-test-app-id={app.id} data-test-app-name={app.name}>
-      <Tile
-        onClick={clickAction}
-        dataTest={app.installedOn ? `app-settings_${app.id}` : dataTest.join('_')}
-        heading={app.name || ''}
-        subHeading={
-          <>
-            {app.developer}
-            {app.isDirectApi ? <span className={appCardStyles.directAPI}>(Direct API)</span> : ''}
-          </>
-        }
-        image={<img className="image" src={app.iconUri || defaultAppIcon} onError={onImageError} alt={app.name} />}
-      >
-        <p className={appCardStyles.content}>{app.summary}</p>
-      </Tile>
-    </div>
+    <Fade timeout={300} in unmountOnExit>
+      <div data-test-app-id={app.id} data-test-app-name={app.name}>
+        <Tile
+          onClick={clickAction}
+          dataTest={app.installedOn ? `app-settings_${app.id}` : dataTest.join('_')}
+          heading={app.name || ''}
+          subHeading={
+            <>
+              {app.developer}
+              {app.isDirectApi ? <span className={appCardStyles.directAPI}>(Direct API)</span> : ''}
+            </>
+          }
+          image={<img className="image" src={app.iconUri || defaultAppIcon} onError={onImageError} alt={app.name} />}
+        >
+          <p className={appCardStyles.content}>{app.summary}</p>
+        </Tile>
+      </div>
+    </Fade>
   )
 }
 

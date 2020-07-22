@@ -4,7 +4,7 @@ import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effec
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
-import { APPS_PER_PAGE, FEATURED_APPS } from '@/constants/paginator'
+import { BROWSE_APPS_PER_PAGE, FEATURED_APPS } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { selectClientId, selectFeaturedApps, selectDeveloperEditionId } from '@/selector/client'
 import { selectCategories } from '@/selector/app-categories'
@@ -38,7 +38,7 @@ export const clientDataFetch = function*({ data }) {
         category: isFilteringForDirectApiApps ? undefined : category,
         [searchBy]: search,
         pageNumber: page,
-        pageSize: APPS_PER_PAGE,
+        pageSize: BROWSE_APPS_PER_PAGE,
         isFeatured: isFilteringForDirectApiApps ? undefined : false,
         isDirectApi: isFilteringForDirectApiApps ? true : undefined,
       }),
