@@ -6,6 +6,8 @@
   "video": false,
   "chromeWebSecurity": false,
   "env": {
+    "ADMIN_PORTAL_URL_production": "https://developer-admin.reapit.cloud/",
+    "DEVELOPER_PORTAL_URL_production": "https://developers.reapit.cloud/",
     "MARKETPLACE_URL_production": "https://marketplace.reapit.cloud/",
     "AML_CHECKLIST_URL_production": "https://aml-app.reapit.cloud/",
     "GEO_DIARY_URL_production": "https://geo-diary-app.reapit.cloud/",
@@ -14,6 +16,8 @@
     "WEB_COMPONENTS_API_URL_production": "https://b2q5q0tc48.execute-api.eu-west-2.amazonaws.com/dev",
     "WEB_COMPONENTS_CONFIG_API_URL_production": "https://vwvdddbw9k.execute-api.eu-west-2.amazonaws.com/dev",
     "GRAPHQL_SERVER_URL_production": "https://rszshvrapg.execute-api.eu-west-2.amazonaws.com/dev/graphql",
+    "ADMIN_PORTAL_URL_development": "https://dev.developer-admin.reapit.cloud/",
+    "DEVELOPER_PORTAL_URL_development": "https://dev.developers.reapit.cloud/",
     "MARKETPLACE_URL_development": "https://dev.marketplace.reapit.cloud/",
     "AML_CHECKLIST_URL_development": "https://dev.aml-app.reapit.cloud/",
     "GEO_DIARY_URL_development": "https://dev.geo-diary-app.reapit.cloud/",
@@ -23,8 +27,5 @@
     "WEB_COMPONENTS_CONFIG_API_URL_development": "https://vwvdddbw9k.execute-api.eu-west-2.amazonaws.com/dev",
     "GRAPHQL_SERVER_URL_development": "https://rszshvrapg.execute-api.eu-west-2.amazonaws.com/dev/graphql"
   },
-  "ignoreTestFiles": [
-    "**/__snapshots__/*",
-    "**/__image_snapshots__/*"
-  ]
+  "ignoreTestFiles": ["**/__snapshots__/*", "**/__image_snapshots__/*"]
 }
