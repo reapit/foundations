@@ -40,7 +40,6 @@
   },
   "devDependencies": {
     "@reapit/foundations-ts-definitions": "0.0.86",
-    "@types/chart.js": "^2.9.23",
     "@types/nanoid": "^2.1.0",
     "redux-mock-store": "^1.5.4"
   },
