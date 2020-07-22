@@ -11,7 +11,7 @@ import {
   onConfirmButtonClick,
 } from '../developer-set-status'
 import { developerSetStatusSetInitFormState, developerSetStatusRequest } from '@/actions/developer-set-status'
-import { developerStub } from '@/sagas/__stubs__/developer'
+import { developerStub } from '@/sagas/developers/__stubs__/developer'
 
 const props: SetDeveloperStatusProps = {
   developer: { id: '', isInactive: false },

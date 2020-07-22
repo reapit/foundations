@@ -7,8 +7,8 @@ import {
   selectStatistics,
   selectDevsManagement,
 } from '../admin'
-import { appsDataStub } from '@/sagas/__stubs__/apps'
-import { approvalsStub } from '@/sagas/__stubs__/approvals'
+import { appsDataStub } from '@/sagas/apps/__stubs__/apps'
+import { approvalsStub } from '@/sagas/approvals/__stubs__/approvals'
 import appState from '@/reducers/__stubs__/app-state'
 
 describe('admin', () => {

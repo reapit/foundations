@@ -9,10 +9,10 @@ import {
   getChangedMediaList,
   mapIntegrationIdArrayToNameArray,
 } from '../app-revision-comparison'
-import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
-import { revisionDetailDataStub } from '@/sagas/__stubs__/revision-detail'
-import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
-import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
+import { appDetailDataStub } from '@/sagas/apps/__stubs__/app-detail'
+import { revisionDetailDataStub } from '@/sagas/apps/__stubs__/revision-detail'
+import { appPermissionStub } from '@/sagas/apps/__stubs__/app-permission'
+import { integrationTypesStub } from '@/sagas/apps/__stubs__/integration-types'
 
 const props = (loading: boolean, error: boolean): AppRevisionComparisonProps => ({
   appDetailState: {
@@ -115,8 +115,8 @@ describe('getChangedMediaList', () => {
       'Grab Holdings Inc., formerly known as MyTeksi and GrabTaxi, is a Singapore based ridesharing company. ' +
       'In addition to transportation, the company offers food delivery and digital payments services via mobile app. ' +
       'The company was originally founded in Malaysia and later moved its headquarters to Singapore',
-    supportEmail: 'tanphamhaiduong@gmail.com',
-    telephone: '0978100461',
+    supportEmail: 'david90@gmail.com',
+    telephone: '0978000000',
     homePage: 'https://grab.com',
     launchUri: 'https://grab.com',
     isListed: true,
@@ -206,8 +206,8 @@ describe('getChangedMediaList', () => {
       'In addition to transportation, the company offers food delivery and digital payments services via mobile app. ' +
       'The company was originally founded in Malaysia and later moved its headquarters to Singapore',
     developer: 'Dwarves Foundation',
-    supportEmail: 'tanphamhaiduong@gmail.com',
-    telephone: '0978100461',
+    supportEmail: 'david90@gmail.com',
+    telephone: '0978000000',
     homePage: 'https://grab.com',
     launchUri: 'https://grab.com',
     authFlow: 'authorisationCode',

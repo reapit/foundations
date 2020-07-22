@@ -5,8 +5,8 @@ import {
   appDetailClearData,
   appDetailFailure,
 } from '../app-detail'
-import ActionTypes from '../../constants/action-types'
-import { appDetailDataStub } from '../../sagas/__stubs__/app-detail'
+import ActionTypes from '@/constants/action-types'
+import { appDetailDataStub } from '@/sagas/apps/__stubs__/app-detail'
 
 describe('appDetail actions', () => {
   it('should create a appDetailLoading action', () => {

@@ -1,15 +1,11 @@
 import {
-  CreateAppModel,
   PagedResultAppSummaryModel_,
   AppDetailModel,
-  PagedResultAppRevisionModel_,
-  CreateAppRevisionModel,
   AppRevisionModel,
   ApproveModel,
   RejectRevisionModel,
-  AppClientSecretModel,
 } from '@reapit/foundations-ts-definitions'
-import { fetcher, fetcherWithReturnHeader, fetcherWithRawUrl, setQueryParams } from '@reapit/elements'
+import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
 import { generateHeader } from './utils'
 import { logger } from '@reapit/utils'
@@ -35,19 +31,11 @@ export type FetchAppByIdParams = FetchByIdCommonParams & {
   clientId?: string
 }
 
-export type CreateAppParams = CreateAppModel
-
 export type DeleteAppByIdParams = FetchByIdCommonParams
 
 export type FeatureAppByIdParams = FetchByIdCommonParams
 
 export type UnfeatureAppByIdParams = FetchByIdCommonParams
-
-export type FetchAppRevisionsListParams = FetchListCommonParams & {
-  id: string
-}
-
-export type CreateAppRevisionParams = FetchByIdCommonParams & CreateAppRevisionModel
 
 export type FetchAppRevisionsByIdParams = FetchByIdCommonParams & {
   revisionId: string
@@ -57,8 +45,6 @@ export type ApproveAppRevisionByIdParams = FetchByIdCommonParams & { revisionId:
 
 export type RejectAppRevisionByIdParams = FetchByIdCommonParams & { revisionId: string } & RejectRevisionModel
 
-export type FetchAppSecretByIdParams = FetchByIdCommonParams
-
 export const fetchAppsList = async (params: FetchAppsListParams): Promise<PagedResultAppSummaryModel_> => {
   try {
     const response = await fetcher({
@@ -67,21 +53,6 @@ export const fetchAppsList = async (params: FetchAppsListParams): Promise<PagedR
       method: 'GET',
       headers: generateHeader(window.reapit.config.marketplaceApiKey),
     })
-    return response
-  } catch (error) {
-    logger(error)
-    throw new Error(error)
-  }
-}
-
-export const fetchAppByIdByRawUrl = async (url: string): Promise<AppDetailModel> => {
-  try {
-    const response = await fetcherWithRawUrl({
-      url,
-      method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    })
-
     return response
   } catch (error) {
     logger(error)
@@ -102,22 +73,6 @@ export const fetchAppById = async (params: FetchAppByIdParams): Promise<AppDetai
   } catch (error) {
     logger(error)
     throw new Error(error)
-  }
-}
-
-export const createApp = async (params: CreateAppParams) => {
-  try {
-    const headers = await fetcherWithReturnHeader({
-      url: URLS.apps,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'POST',
-      body: params,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    })
-    return headers
-  } catch (error) {
-    logger(error)
-    throw error
   }
 }
 
@@ -166,41 +121,6 @@ export const unfeatureAppById = async (params: UnfeatureAppByIdParams) => {
   } catch (error) {
     logger(error)
     throw new Error(error)
-  }
-}
-
-export const fetchAppRevisionsList = async (
-  params: FetchAppRevisionsListParams,
-): Promise<PagedResultAppRevisionModel_> => {
-  try {
-    const { id, ...rest } = params
-    const response = await fetcher({
-      url: `${URLS.apps}/${id}/revisions?${setQueryParams(rest)}`,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    })
-    return response
-  } catch (error) {
-    logger(error)
-    throw new Error(error)
-  }
-}
-
-export const createAppRevision = async (params: CreateAppRevisionParams) => {
-  try {
-    const { id, ...rest } = params
-    const response = await fetcher({
-      url: `${URLS.apps}/${id}/revisions`,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'POST',
-      body: rest,
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    })
-    return response
-  } catch (error) {
-    logger(error)
-    throw error
   }
 }
 
@@ -254,47 +174,11 @@ export const rejectAppRevisionById = async (params: RejectAppRevisionByIdParams)
   }
 }
 
-export const fetchAppSecretById = async (params: FetchAppSecretByIdParams): Promise<AppClientSecretModel> => {
-  try {
-    const { id } = params
-    const response = await fetcher({
-      url: `${URLS.apps}/${id}/secret`,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    })
-    return response
-  } catch (error) {
-    logger(error)
-    throw new Error(error)
-  }
-}
-
 export const fetchDesktopIntegrationTypes = async () => {
   const response = await fetcher({
     url: URLS.desktopIntegrationTypes,
     method: 'GET',
     api: window.reapit.config.marketplaceApiUrl,
-    headers: generateHeader(window.reapit.config.marketplaceApiKey),
-  })
-  return response
-}
-
-export const fetchAppDetail = async ({ clientId, id }) => {
-  const response = await fetcher({
-    url: clientId ? `${URLS.apps}/${id}?clientId=${clientId}` : `${URLS.apps}/${id}`,
-    api: window.reapit.config.marketplaceApiUrl,
-    method: 'GET',
-    headers: generateHeader(window.reapit.config.marketplaceApiKey),
-  })
-  return response
-}
-
-export const fetchAppApiKey = async ({ installationId }) => {
-  const response = await fetcher({
-    url: `${URLS.installations}/${installationId}/apiKey`,
-    api: window.reapit.config.marketplaceApiUrl,
-    method: 'GET',
     headers: generateHeader(window.reapit.config.marketplaceApiKey),
   })
   return response

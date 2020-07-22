@@ -1,7 +1,7 @@
 import revisionDetailReducer, { defaultState } from '../revision-detail'
 import { ActionType } from '../../types/core'
 import ActionTypes from '../../constants/action-types'
-import { revisionDetailDataStub } from '../../sagas/__stubs__/revision-detail'
+import { revisionDetailDataStub } from '@/sagas/apps/__stubs__/revision-detail'
 
 describe('revision-detail reducer', () => {
   it('should return default state if action not matched', () => {

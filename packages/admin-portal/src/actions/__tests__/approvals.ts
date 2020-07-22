@@ -1,6 +1,6 @@
 import { approvalsLoading, approvalsReceiveData, approvalsRequestData, approvalsClearData } from '../approvals'
 import ActionTypes from '../../constants/action-types'
-import { approvalsStub } from '../../sagas/__stubs__/approvals'
+import { approvalsStub } from '@/sagas/approvals/__stubs__/approvals'
 
 describe('adminApprovals actions', () => {
   it('should create a approvalsLoading action', () => {

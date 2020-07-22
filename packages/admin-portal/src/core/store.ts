@@ -12,17 +12,14 @@ import revisionDetail from '@/reducers/revision-detail'
 import appDeleteReducer from '@/reducers/app-delete'
 import adminApps from '@/reducers/apps-management'
 import statisticsReducer from '@/reducers/statistics'
-
-import authSagas from '@/sagas/auth'
-import appDetailSagas from '@/sagas/app-detail'
-import approvalsSagas from '@/sagas/approvals'
-import devsManagementSagas from '@/sagas/devs-management'
-import developerSetStatusSagas from '@/sagas/developer-set-status'
-import revisionDetailSagas from '@/sagas/revision-detail'
-import appDeleteSagas from '@/sagas/app-delete'
-import appsManagementSagas from '@/sagas/apps-management'
 import noticationMessage from '@/reducers/notification-message'
-import statisticsSagas from '@/sagas/statistics'
+
+import { authSagas } from '@/sagas/auth'
+import { appDetailSagas, revisionDetailSagas, appDeleteSagas, appsManagementSagas } from '@/sagas/apps'
+import { statisticsSagas } from '@/sagas/statistics'
+import { approvalsSagas } from '@/sagas/approvals'
+import { devsManagementSagas, developerSetStatusSagas } from '@/sagas/developers'
+
 import { injectSwitchModeToWindow } from '@reapit/elements'
 
 export class Store {

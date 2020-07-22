@@ -10,7 +10,7 @@ import {
   RevisionDetailRequestParams,
 } from '../revision-detail'
 import ActionTypes from '../../constants/action-types'
-import { revisionDetailDataStub } from '../../sagas/__stubs__/revision-detail'
+import { revisionDetailDataStub } from '@/sagas/apps/__stubs__/revision-detail'
 
 const params: RevisionDetailRequestParams = {
   appId: 's82jds9',

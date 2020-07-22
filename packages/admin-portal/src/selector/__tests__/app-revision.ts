@@ -1,5 +1,5 @@
 import { ReduxState } from '@/types/core'
-import { revisionsDataStub } from '@/sagas/__stubs__/revisions'
+import { revisionsDataStub } from '@/sagas/apps/__stubs__/revisions'
 import { selectAppRevision, selectAppRevisionDetail } from '../app-revisions'
 import appState from '@/reducers/__stubs__/app-state'
 

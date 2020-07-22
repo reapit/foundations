@@ -1,7 +1,7 @@
 import devsManagementReducer, { defaultState } from '../devs-management'
 import { ActionType } from '../../types/core'
 import ActionTypes from '../../constants/action-types'
-import { developerStub } from '../../sagas/__stubs__/developer'
+import { developerStub } from '@/sagas/developers/__stubs__/developer'
 
 describe('admin dev management reducer', () => {
   it('should return default state if action not matched', () => {

@@ -4,7 +4,7 @@ import configureStore from 'redux-mock-store'
 import * as ReactRedux from 'react-redux'
 import { MemoryRouter } from 'react-router'
 import { getMockRouterProps } from '@/utils/mock-helper'
-import { appsDataStub } from '@/sagas/__stubs__/apps'
+import { appsDataStub } from '@/sagas/apps/__stubs__/apps'
 import {
   renderIsFeature,
   renderForm,
