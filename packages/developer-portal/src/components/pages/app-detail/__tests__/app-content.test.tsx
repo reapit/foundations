@@ -72,7 +72,7 @@ describe('AppContent', () => {
     it('should run correctly', () => {
       const appId = 'appId'
       const spyOpenUrl = jest.spyOn(window, 'open')
-      const fn = handleOpenAppPreview(appId)
+      const fn = handleOpenAppPreview(appId, appDetailDataStub.data)
       fn()
       expect(spyOpenUrl).toBeCalledWith('/apps/appId/preview', '_blank')
     })

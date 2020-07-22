@@ -221,6 +221,14 @@ const appState: ReduxState = {
       },
     },
   },
+  developers: {
+    members: {
+      loading: false,
+      pagedResult: {
+        data: [],
+      },
+    },
+  },
 }
 
 export default appState

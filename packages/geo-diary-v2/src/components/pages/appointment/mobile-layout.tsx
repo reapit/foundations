@@ -8,6 +8,7 @@ import AppointmentMap from '@/components/ui/map'
 import AppointmentList from '@/components/ui/appointment-list'
 import { ExtendedAppointmentModel } from '@/types/global'
 import ListAndMapTab from '@/components/ui/list-and-map-tab'
+import { Section } from '@reapit/elements'
 
 export type GenerateTabConfigParams = {
   queryParams: qs.ParsedQuery<string>
@@ -22,17 +23,28 @@ export const MobileLayout: React.FC<MobileLayoutProps> = ({ appointments }) => {
   const location = useLocation()
   const history = useHistory()
   const queryParams = qs.parse(location.search)
+
+  if (queryParams.tab === 'map') {
+    return (
+      <>
+        <Section className="flex-shrink-0" isFlex isFlexColumn hasBackground={false} hasPadding={false}>
+          <ListAndMapTab queryParams={queryParams} history={history} />
+        </Section>
+        <AppointmentMap appointments={appointments} />
+      </>
+    )
+  }
+
   return (
     <>
-      <ListAndMapTab queryParams={queryParams} history={history} />
-      {queryParams.tab !== 'map' && (
-        <>
-          <AppointmentTime queryParams={queryParams} history={history} />
-          <TravelMode queryParams={queryParams} history={history} />
-          <AppointmentList appointments={appointments} />
-        </>
-      )}
-      {queryParams.tab === 'map' && <AppointmentMap appointments={appointments} />}
+      <Section className="flex-shrink-0" isFlex isFlexColumn hasBackground={false} hasPadding={false}>
+        <ListAndMapTab queryParams={queryParams} history={history} />
+        <AppointmentTime queryParams={queryParams} history={history} />
+        <TravelMode queryParams={queryParams} history={history} />
+      </Section>
+      <Section isFlex isFlexColumn hasBackground={false}>
+        <AppointmentList appointments={appointments} />
+      </Section>
     </>
   )
 }

@@ -8,8 +8,8 @@ import {
   ModalPropsV2,
   H4,
   H6,
-  FlexContainerResponsive,
   Input,
+  LevelRight,
 } from '@reapit/elements'
 import { AccountsInformationFormValues, ACCOUNT_REF_MIN_LENGTH } from './accounts-information-form'
 import formFields from './form-schema/form-fields'
@@ -51,14 +51,15 @@ export const handleFinish = ({
 export const DirectDebitModal: React.FC<DirectDebitModalProps> = ({ onClose, visible, onFinish }) => {
   return (
     <ModalV2
+      isResponsive
       title={<H4>Foundations Direct Debit</H4>}
       visible={visible}
       onClose={onClose}
       footer={
-        <FlexContainerResponsive centerContent isFullHeight={false}>
+        <LevelRight className="is-flex">
           <H6 className="mb-0 mr-4">Once you have completed this form, please click here to continue</H6>
           <Button onClick={onFinish}>Finish</Button>
-        </FlexContainerResponsive>
+        </LevelRight>
       }
     >
       <iframe

@@ -3,7 +3,7 @@ import { H3, Button, LevelRight, FormHeading, FormSubHeading, Section } from '@r
 import { Dispatch } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
 import { authLogout } from '@/actions/auth'
-import { selectClientId } from '@/selector/auth'
+import { selectClientId, selectIsDesktopMode } from '@/selector/auth'
 
 export const handleLogout = (dispatch: Dispatch) => () => {
   dispatch(authLogout())
@@ -12,6 +12,7 @@ export const handleLogout = (dispatch: Dispatch) => () => {
 export const Settings: React.FC = () => {
   const dispatch = useDispatch()
   const customerId = useSelector(selectClientId)
+  const isDesktopMode = useSelector(selectIsDesktopMode)
 
   const logout = handleLogout(dispatch)
   return (
@@ -27,9 +28,11 @@ export const Settings: React.FC = () => {
           This is your Customer ID which you will need for use with Private Apps and Web Components.
         </FormSubHeading>
         <LevelRight className="bt pt-4">
-          <Button dataTest="logout-btn" variant="primary" type="button" onClick={logout}>
-            Logout
-          </Button>
+          {!isDesktopMode && (
+            <Button dataTest="logout-btn" variant="primary" type="button" onClick={logout}>
+              Logout
+            </Button>
+          )}
         </LevelRight>
       </Section>
     </>

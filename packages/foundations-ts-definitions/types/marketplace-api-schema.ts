@@ -1051,7 +1051,7 @@ export interface MemberModel {
    */
   status?: string
   /**
-   * The role of the member (active/inactive/pending/rejected)
+   * The role of the member (admin/user)
    */
   role?: string
   /**
@@ -1157,6 +1157,19 @@ export interface PagedResultInstallationModel_ {
    * List of paged data
    */
   data?: InstallationModel[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+}
+/**
+ * Model to handle paged data and information
+ */
+export interface PagedResultMemberModel_ {
+  /**
+   * List of paged data
+   */
+  data?: MemberModel[]
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32

@@ -3,50 +3,29 @@ import { FlexContainerBasic, Table, Section, H5 } from '@reapit/elements'
 import SetAsAdminModal from '@/components/pages/settings/set-as-admin-modal'
 import SetMemberStatusModal from '@/components/ui/organisation-set-member-status-modal'
 import styles from '@/styles/elements/link.scss?mod'
-import { developerStub } from '@/sagas/__stubs__/developer'
-
-interface CellNameProps {
-  row: {
-    original: {
-      email: string
-      title: string
-    }
-  }
-}
-
-export const CellName: React.FC<CellNameProps> = ({
-  row: {
-    original: { email, title },
-  },
-}) => {
-  return (
-    <FlexContainerBasic flexColumn centerContent>
-      <div>{email}</div>
-      <div>{title}</div>
-    </FlexContainerBasic>
-  )
-}
+import { useSelector } from 'react-redux'
+import { selectOrganisationMembers, selectOrganisationMembersLoading } from '@/selector/developers'
 
 export const columns = [
   {
     Header: 'Name',
-    Cell: CellName,
+    accessor: 'name',
+  },
+  {
+    Header: 'Job Title',
+    accessor: 'jobTitle',
   },
   {
     Header: 'Email',
     accessor: 'email',
   },
   {
-    Header: 'Tel',
-    accessor: 'tel',
-  },
-  {
     Header: 'User Account',
-    accessor: 'userAccount',
+    accessor: 'role',
   },
   {
     Header: 'Status',
-    id: 'status',
+    accessor: 'status',
   },
   {
     accessor: 'action',
@@ -55,8 +34,6 @@ export const columns = [
     },
   },
 ]
-
-const mockData = [developerStub]
 
 export const prepareData = (data, handleOpenSetAdminModal, setSelectedUser, setEditStatusModalVisible) => {
   return data.map(user => ({
@@ -107,13 +84,15 @@ export const Members: React.FC = () => {
   const handleOpenSetAdminModal = handleToggleVisibleModal(setIsSetAdminModalOpen, true)
   const handleCloseSetAdminModal = handleToggleVisibleModal(setIsSetAdminModalOpen, false)
 
-  const data = prepareData(mockData, handleOpenSetAdminModal, setSelectedUser, setEditStatusModalVisible)
+  const loading = useSelector(selectOrganisationMembersLoading)
+  const members = useSelector(selectOrganisationMembers)
+
+  const data = prepareData(members, handleOpenSetAdminModal, setSelectedUser, setEditStatusModalVisible)
 
   return (
     <Section>
       <H5>Members</H5>
-      <Table scrollable loading={false} data={data} columns={columns} />
-
+      <Table scrollable loading={loading} data={data} columns={columns} />
       <SetMemberStatusModal
         visible={editStatusModalVisible}
         developer={selectedUser}

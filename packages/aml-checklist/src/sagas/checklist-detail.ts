@@ -19,8 +19,6 @@ import {
 } from '../actions/checklist-detail'
 import errorMessages from '../constants/error-messages'
 import { ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
-import { selectUserCode } from '../selectors/auth'
-import store from '@/core/store'
 import { handlePepSearchStatus } from '@/utils/pep-search'
 import dayjs from 'dayjs'
 import { ID_STATUS } from '@/components/ui/modal/modal'
@@ -30,6 +28,8 @@ import {
   formatDateForContact,
 } from '@/utils/datetime'
 import { logger } from '@reapit/utils'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { ReapitConnectSession } from '@reapit/connect-session'
 
 export const fetchChecklist = async ({ id, headers }) => {
   try {
@@ -420,6 +420,7 @@ export const updatePrimaryId = function*({ data: { nextSection, identityChecks }
       })
     }
     if (!idCheck) {
+      const session: ReapitConnectSession = yield call(reapitConnectBrowserSession.connectSession)
       yield call(createIdentityCheck, {
         headers,
         identityChecks: {
@@ -429,7 +430,7 @@ export const updatePrimaryId = function*({ data: { nextSection, identityChecks }
           checkDate: dayjs()
             .startOf('day')
             .format('YYYY-MM-DDTHH:mm:ss'),
-          negotiatorId: selectUserCode(store.state),
+          negotiatorId: session.loginIdentity.userCode,
         },
       })
     }
@@ -485,6 +486,7 @@ export const updateSecondaryId = function*({
         },
       })
     } else {
+      const session: ReapitConnectSession = yield call(reapitConnectBrowserSession.connectSession)
       yield call(createIdentityCheck, {
         headers,
         identityChecks: {
@@ -494,7 +496,7 @@ export const updateSecondaryId = function*({
           checkDate: dayjs()
             .startOf('day')
             .format('YYYY-MM-DDTHH:mm:ss'),
-          negotiatorId: selectUserCode(store.state),
+          negotiatorId: session.loginIdentity.userCode,
         },
       })
     }

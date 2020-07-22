@@ -5,7 +5,6 @@ import { contact } from '@/sagas/__stubs__/contact'
 import { UpdateStatus, mapStateToProps, mapDispatchToProps } from '../update-status'
 import { sectionsStatus } from '@/sagas/__stubs__/status'
 import { EntityType } from '@reapit/elements'
-import { LoginMode } from '@reapit/cognito-auth'
 import { defaultStatus } from '@/constants/section-status'
 import Routes from '@/constants/routes'
 
@@ -15,7 +14,7 @@ describe('UpdateStatus', () => {
       isSubmitting: false,
       contact,
       status: sectionsStatus,
-      loginMode: 'WEB' as LoginMode,
+      loginMode: 'WEB',
       updateIdentityCheckStatus: jest.fn(),
     }
     const wrapper = shallow(<UpdateStatus {...mockProps} />)
@@ -24,7 +23,6 @@ describe('UpdateStatus', () => {
 
   describe('mapStateToProps', () => {
     it('should run correctly', () => {
-      // @ts-ignore: only pick necessary props
       const mockState = {
         checklistDetail: {
           checklistDetailData: {
@@ -33,18 +31,12 @@ describe('UpdateStatus', () => {
           status: sectionsStatus,
           isSubmitting: false,
         },
-        auth: {
-          refreshSession: {
-            mode: 'WEB',
-          },
-        },
       } as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
         isSubmitting: false,
         contact,
         status: sectionsStatus,
-        loginMode: 'WEB',
       })
     })
     it('should run correctly', () => {
@@ -54,7 +46,6 @@ describe('UpdateStatus', () => {
         isSubmitting: false,
         contact: null,
         status: defaultStatus,
-        loginMode: 'WEB',
       })
     })
   })

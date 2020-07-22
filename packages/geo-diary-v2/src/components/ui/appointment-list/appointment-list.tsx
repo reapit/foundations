@@ -37,7 +37,7 @@ export const AppointmentList: React.FC<AppointmentListProps> = ({ appointments }
   }
 
   return (
-    <div className="py8 px-4">
+    <>
       {appointments?.map((appointment: ExtendedAppointmentModel) => {
         const nextAppointment = getTodayNextAppointment(appointments)
         return (
@@ -46,7 +46,7 @@ export const AppointmentList: React.FC<AppointmentListProps> = ({ appointments }
           </div>
         )
       })}
-    </div>
+    </>
   )
 }
 

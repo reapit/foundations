@@ -10,6 +10,7 @@ exports[`DirectDebitSection should match snapshot 1`] = `
       Reapit reference on previous correspondence
   </Component>
   <Component
+    disabled={false}
     id="hasReapitAccountsRef"
     isHorizontal={true}
     labelText="Do you have a Reapit Accounts Ref?"

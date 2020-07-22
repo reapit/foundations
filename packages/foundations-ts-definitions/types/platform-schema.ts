@@ -5688,6 +5688,7 @@ export interface PagedResultApplicantContactRelationshipModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -6004,6 +6005,7 @@ export interface PagedResultApplicantModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -6191,6 +6193,7 @@ export interface PagedResultAppointmentModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -6256,6 +6259,7 @@ export interface PagedResultAreaModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -6380,6 +6384,7 @@ export interface PagedResultCompanyModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -6429,6 +6434,7 @@ export interface PagedResultCompanyRoleModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -6666,6 +6672,7 @@ export interface PagedResultContactModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -6715,6 +6722,7 @@ export interface PagedResultContactRoleModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -6962,6 +6970,7 @@ export interface PagedResultConveyancingModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -7031,6 +7040,7 @@ export interface PagedResultDepartmentModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -7088,6 +7098,7 @@ export interface PagedResultDocumentModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -7222,6 +7233,7 @@ export interface PagedResultEnquiryModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -7333,6 +7345,7 @@ export interface PagedResultIdentityCheckModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -7384,6 +7397,7 @@ export interface PagedResultJournalEntryModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -7437,6 +7451,7 @@ export interface PagedResultLandlordContactRelationshipModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -7591,6 +7606,7 @@ export interface PagedResultLandlordModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -7666,6 +7682,7 @@ export interface PagedResultNegotiatorModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -7837,6 +7854,7 @@ export interface PagedResultOfferModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -7937,6 +7955,7 @@ export interface PagedResultOfficeModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -7998,6 +8017,7 @@ export interface PagedResultPropertyImageModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -8372,6 +8392,7 @@ export interface PagedResultPropertyModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -8429,6 +8450,7 @@ export interface PagedResultSourceModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -8528,6 +8550,7 @@ export interface PagedResultTaskModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -8585,6 +8608,7 @@ export interface PagedResultTenancyCheckModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -8638,6 +8662,7 @@ export interface PagedResultTenancyContactRelationshipModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -8824,6 +8849,7 @@ export interface PagedResultTenancyModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -8877,6 +8903,7 @@ export interface PagedResultVendorContactRelationshipModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -9055,6 +9082,7 @@ export interface PagedResultVendorModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -9128,6 +9156,7 @@ export interface PagedResultWorksOrderItemModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {
@@ -9302,6 +9331,7 @@ export interface PagedResultWorksOrderModel_ {
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
+  totalPageCount?: number // int32
   totalCount?: number // int32
   _links?: {
     [name: string]: {

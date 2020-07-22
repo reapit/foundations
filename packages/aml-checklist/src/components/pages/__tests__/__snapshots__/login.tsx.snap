@@ -9,11 +9,6 @@ exports[`Login should match a snapshot 1`] = `
         src=""
       />
     </Component>
-    <p
-      className="pb-8"
-    >
-      Welcome to Reapit Online Check List
-    </p>
     <Component>
       <Component
         disabled={false}
@@ -38,10 +33,4 @@ exports[`Login should match a snapshot 1`] = `
     />
   </div>
 </div>
-`;
-
-exports[`Login should match a snapshot when hasSession 1`] = `
-<Redirect
-  to="/"
-/>
 `;

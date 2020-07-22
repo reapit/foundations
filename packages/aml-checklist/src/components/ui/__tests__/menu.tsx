@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { Menu, logout } from '../menu'
+import { Menu } from '../menu'
 import configureStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
 
@@ -28,15 +28,5 @@ describe('Menu', () => {
       </Provider>,
     )
     expect(wrapper).toMatchSnapshot()
-  })
-
-  describe('logout', () => {
-    it('should call functions', () => {
-      const mockDispatch = jest.fn()
-      const mockAuthLogout = jest.fn(() => 'logout') as any
-      const fn = logout({ dispatch: mockDispatch, authLogout: mockAuthLogout })
-      fn()
-      expect(mockDispatch).toHaveBeenCalledWith('logout')
-    })
   })
 })

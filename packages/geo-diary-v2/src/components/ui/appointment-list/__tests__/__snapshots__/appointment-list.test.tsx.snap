@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`appointment-list AppointmentList should match snapshot 1`] = `
-<div
-  className="py8 px-4"
->
+<Fragment>
   <div
     className="mb-4"
     key="NEP1600290"
@@ -192,5 +190,5 @@ exports[`appointment-list AppointmentList should match snapshot 1`] = `
       }
     />
   </div>
-</div>
+</Fragment>
 `;

@@ -1,0 +1,43 @@
+{
+  "name": "@reapit/connect-session",
+  "version": "1.0.0-alpha.1",
+  "description": "OAuth Flow for Reapit Connect",
+  "keywords": [],
+  "homepage": "https://github.com/reapit/foundations#readme",
+  "bugs": {
+    "url": "https://github.com/reapit/foundations/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reapit/foundations.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "umd:main": "dist/connect-session.umd.production.js",
+  "module": "dist/connect-session.esm.js",
+  "typings": "dist/connect-session/src/index.d.ts",
+  "types": "dist/connect-session/src/index.d.ts",
+  "scripts": {
+    "build:prod": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd",
+    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
+    "test:dev": "cross-env TZ=UTC jest --watch --verbose",
+    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
+    "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
+    "lint:fix": "eslint --cache --ext=ts,tsx,js src --fix",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
+    "jsonwebtoken": "^8.5.1",
+    "snyk": "^1.335.0"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^8.3.5"
+  },
+  "snyk": true
+}

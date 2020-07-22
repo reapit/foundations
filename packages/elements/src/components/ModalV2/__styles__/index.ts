@@ -18,3 +18,17 @@ export const modalCentered = css`
   align-items: center;
   justify-content: center;
 `
+// same styles as our .container class
+export const modalResponsiveContainer = css`
+  @media screen and (min-width: 1024px) {
+    width: 960px;
+  }
+
+  @media screen and (min-width: 1216px) {
+    width: 1152px;
+  }
+
+  @media screen and (min-width: 1408px) {
+    width: 1344px;
+  }
+`
