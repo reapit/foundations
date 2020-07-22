@@ -3,6 +3,7 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const paths = require.resolve('react-scripts/config/paths')
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter')
 const resolve = require('resolve')
+const path = require('path')
 
 /**
  *
@@ -75,6 +76,12 @@ const transformLoader = loader => {
   }
 }
 
+const updateJestSetupTestFiles = config => {
+  const setupTestFile = path.resolve(__dirname, './src/setup-tests.js')
+  config.setupFiles.push(setupTestFile)
+  return config
+}
+
 const addLinariaLoader = config => {
   /**
    * cra scripts rules atm (version 3)
@@ -103,5 +110,8 @@ module.exports = {
       ...override(addBabelPreset('linaria/babel'), addLinariaLoader, removeOriginalForkTsCheckerWebpackPlugin)(config),
       ...patchForkTsCheckerWebpackPlugin(config, env),
     }
+  },
+  jest: function(config) {
+    return updateJestSetupTestFiles(config)
   },
 }
