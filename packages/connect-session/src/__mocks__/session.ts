@@ -1,5 +1,5 @@
 import { ReapitConnectSession } from '../index'
-import { ReapitConnectBrowserSessionInitializers } from '../types'
+import { ReapitConnectBrowserSessionInitializers, ReapitConnectServerSessionInitializers } from '../types'
 
 export const mockLoginIdentity = {
   email: 'name@mail.com',
@@ -33,6 +33,12 @@ export const mockBrowserInitializers: ReapitConnectBrowserSessionInitializers = 
   connectOAuthUrl: 'SOME_URL',
   connectLoginRedirectPath: '/some-route',
   connectLogoutRedirectPath: '/some-other-route',
+}
+
+export const mockServerInitializers: ReapitConnectServerSessionInitializers = {
+  connectClientId: 'SOME_CLIENT_ID',
+  connectOAuthUrl: 'SOME_URL',
+  connectClientSecret: 'SOME_SECRET',
 }
 
 export const setMockBrowserSessionToLocalStorage = (session = mockBrowserSession) => {

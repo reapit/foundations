@@ -48,9 +48,6 @@ export class ReapitConnectBrowserSession {
         : null
     // Bind my public methods to the current closure
     this.connectBindPublicMethods()
-    // When I instantiate the class, I call connectSession to trigger a refresh or athorize flow
-    // in the likely case that the retrieved access token has expired
-    // this.connectSession()
   }
 
   // I bind the public methods to the class on instantiation, in the case they are called in a new
