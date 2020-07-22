@@ -27,7 +27,7 @@ describe('Menu', () => {
     it('should run correcly', () => {
       window.location.href = 'dev'
       const fn = callbackAppClick()
-      expect(fn).toEqual('https://dev.marketplace.reapit.cloud/client/installed')
+      expect(fn).toEqual('https://dev.marketplace.reapit.cloud/installed')
     })
   })
 })

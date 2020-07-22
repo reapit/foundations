@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { ReapitConnectContext, useReapitConnect } from '@reapit/connect-session'
 import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements'
-import { withRouter } from 'react-router-dom'
 import Menu from '../components/ui/menu'
 import { ReapitConnectBrowserSessionInstance } from '../core/connect-session'
 
@@ -37,4 +36,4 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   )
 }
 
-export default withRouter(PrivateRouteWrapper)
+export default PrivateRouteWrapper
