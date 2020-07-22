@@ -1,0 +1,33 @@
+{
+  "name": "reapit-connect",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Reapit Connect",
+  "repository": {
+    "type": "git",
+    "url": "git+git@github.com:reapit/foundations.git"
+  },
+  "license": "MIT",
+  "author": "Reapit Ltd",
+  "main": "./src/index.ts",
+  "scripts": {
+    "build:prod": "cross-env IS_RELEASE=false rimraf public/dist && webpack --config ../../scripts/webpack/webpack.config.prod.js",
+    "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ../../scripts/webpack/webpack.config.dev.js",
+    "start:prod": "serve public/dist -s -l 8080",
+    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit --detectOpenHandles --runInBand",
+    "test:dev": "cross-env TZ=UTC jest --watch --verbose",
+    "release:dev": "cross-env IS_RELEASE=false node ../../scripts/release/release-dev.js reapit-connect reapit-reapit-connect-dev",
+    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
+    "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
+    "lint:fix": "eslint --cache --ext=ts,tsx,js src --fix",
+    "fetch-config": "yarn config-manager fetchConfig reapit-connect",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "dependencies": {
+    "@reapit/elements": "^0.5.60",
+    "snyk": "^1.341.1"
+  },
+  "devDependencies": {},
+  "snyk": true
+}

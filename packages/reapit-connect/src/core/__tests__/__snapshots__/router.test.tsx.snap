@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Router should match snapshot 1`] = `
+<ErrorBoundary>
+  <BrowserRouter>
+    <Switch>
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/welcome"
+      />
+      <Route
+        component={[Function]}
+        path="/welcome/login"
+      />
+      <Redirect
+        to="/welcome"
+      />
+    </Switch>
+  </BrowserRouter>
+</ErrorBoundary>
+`;
