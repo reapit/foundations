@@ -41,6 +41,7 @@ export const clientDataFetch = function*({ data }) {
         pageSize: BROWSE_APPS_PER_PAGE,
         isFeatured: isFilteringForDirectApiApps ? undefined : false,
         isDirectApi: isFilteringForDirectApiApps ? true : undefined,
+        clientId: 'DXX',
       }),
       !!search || !!category
         ? currentFeaturedApps
@@ -50,6 +51,7 @@ export const clientDataFetch = function*({ data }) {
             pageNumber: 1,
             pageSize: FEATURED_APPS,
             isFeatured: true,
+            clientId: 'DXX',
           }),
       currentCategories.length > DEFAULT_CATEGORY_LENGTH ? currentCategories : call(fetchCategoriesList, {}),
     ])
