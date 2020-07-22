@@ -12,6 +12,8 @@ export const generateHeaderWithApiV2 = (marketplaceApiKey): StringMap => ({
   'api-version': '2',
 })
 
+// FIXME: remove repait connect
+//
 export const initAuthorizedRequestHeaders = async () => ({
   Authorization: `Bearer ${await getAccessToken()}`,
   'api-version': API_VERSION,

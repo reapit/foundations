@@ -8,6 +8,7 @@ import { LoginType } from '@reapit/cognito-auth'
 
 export type AuthenticationProps = {}
 
+// FIXME: remove this
 export interface AuthenticationParamTypes {
   loginType: LoginType
 }

@@ -42,10 +42,12 @@ export const renderApp = (Component: React.ComponentType) => {
   const rootElement = document.querySelector('#root') as Element
   const isDesktop = getMarketplaceGlobalsByKey()
   const html = document.querySelector('html')
+  // FIXME: REMOVE this
   const refreshSessionFromCookie = getSessionCookie(COOKIE_SESSION_KEY_MARKETPLACE, window.reapit.config.appEnv)
   if (isDesktop && html) {
     html.classList.add('is-desktop')
   }
+  // FIXME: REMOVE this
   if (refreshSessionFromCookie) {
     store.dispatch(authSetRefreshSession(refreshSessionFromCookie))
   }

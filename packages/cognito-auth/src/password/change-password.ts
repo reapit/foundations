@@ -2,6 +2,7 @@ import errorStrings from '../constants/error-strings'
 import { changePasswordService } from '../services/password/change-password'
 import { ChangePasswordParams } from '../core/types'
 
+// FIXME: move this to marketplace
 export const changePassword = async (params: ChangePasswordParams): Promise<string | undefined> => {
   const { userName, password, newPassword, cognitoClientId } = params
   const paramsValid = userName && password && newPassword && cognitoClientId

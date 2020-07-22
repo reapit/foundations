@@ -1,8 +1,12 @@
+// FIXME: remove - required t
 import { getAccessToken } from '../session'
 import { getSession } from '@reapit/cognito-auth'
 import store from '@/core/store'
 import { authSetRefreshSession } from '@/actions/auth'
 
+/**
+ * REMOVE getAccessToken
+ */
 jest.mock('@/core/store', () => ({
   dispatch: jest.fn(),
   state: {

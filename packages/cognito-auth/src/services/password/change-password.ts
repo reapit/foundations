@@ -3,6 +3,7 @@ import { ChangePasswordParams } from '../../core/types'
 import { AuthenticationDetails } from 'amazon-cognito-identity-js'
 import errorStrings from '../../constants/error-strings'
 
+// FIXME: Remove this, move this feature to marketplace
 export const changePasswordService = async ({
   password,
   userName,

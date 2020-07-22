@@ -36,10 +36,12 @@ export const onLoginButtonClick = () => {
 
 export const Login: React.FunctionComponent<LoginProps> = () => {
   const dispatch = useDispatch()
+  // TODO: remove this
   const loginSession = useSelector(selectLoginSession)
   const refreshSession = useSelector(selectRefreshSession)
 
   const isPasswordChanged = localStorage.getItem('isPasswordChanged') === 'true'
+  // TODO: use selector from useReapitConnect
   const hasSession = !!loginSession || !!refreshSession
   React.useEffect(handleShowNotificationAfterPasswordChanged(isPasswordChanged, localStorage, dispatch), [
     isPasswordChanged,
@@ -47,6 +49,7 @@ export const Login: React.FunctionComponent<LoginProps> = () => {
     dispatch,
   ])
 
+  // this shit too
   if (hasSession) {
     const redirectRoute = getDefaultPath()
     return <Redirect to={redirectRoute} />

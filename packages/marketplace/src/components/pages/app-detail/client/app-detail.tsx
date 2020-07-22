@@ -102,6 +102,8 @@ const AppDetail: React.FC = () => {
   )
   const { isMobile } = useReactResponsive()
 
+  // FIXME: Refactor to match login type
+  // developer edition show mange
   const isLoadingAppDetail = useSelector(selectAppDetailLoading)
   const loginType = useSelector(selectLoginType)
   const isDesktopAdmin = useSelector(selectIsAdmin)
@@ -110,6 +112,7 @@ const AppDetail: React.FC = () => {
   const isAdmin = isDesktopAdmin || isDeveloperEdition
   const isInstallBtnHidden = loginType === 'CLIENT' && !isAdmin
   // selector selectAppDetailData return {} if not data
+
   const unfetched = Object.keys(appDetailData).length === 0
   const { id = '', installedOn = '' } = appDetailData
 

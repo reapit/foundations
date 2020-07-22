@@ -52,6 +52,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     [],
   )
 
+  // FIXME: remove this fuck
   const loginSession = useSelector(selectLoginSession)
   const refreshSession = useSelector(selectRefreshSession)
   // const isTermAccepted = useSelector(selectIsTermAccepted)
@@ -65,6 +66,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const cognitoClientId = window.reapit.config.cognitoClientId
   const refreshParams = getTokenFromQueryString(location.search, cognitoClientId, 'CLIENT', route)
 
+  // FIXME: remove this
   if (refreshParams && !hasSession) {
     dispatch(authSetRefreshSession(refreshParams))
     return null
@@ -75,11 +77,13 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     return <Redirect to={path} />
   }
 
+  // FIXME: remove this
   if (!hasSession) {
     redirectToOAuth(cognitoClientId, route)
     return null
   }
 
+  // FIXME: wrap context
   return (
     <AppNavContainer>
       {showMenu && <Menu />}

@@ -32,6 +32,12 @@ export const isNotAllowedToAccess = (allow: LoginType | LoginType[], loginIdenti
   return false
 }
 
+/**
+ * FIXME: remove this
+ * make sure login wont break
+ * developer login marketplace
+ * admin login marketplace
+ */
 export const handleChangeLoginType = (
   loginType: LoginType,
   allow: LoginType | LoginType[],
@@ -58,6 +64,12 @@ export const handleChangeLoginType = (
   }
 }
 
+/**
+ * FIXME: remove this
+ * make sure login wont break
+ * developer login marketplace
+ * admin login marketplace
+ */
 export const handleRedirectToAuthenticationPage = (
   allow: LoginType | LoginType[],
   history: History,
@@ -75,6 +87,7 @@ export const handleRedirectToAuthenticationPage = (
   }
 }
 
+// FIXME: remove this behavior
 export const fetchAccessToken = async () => {
   await getAccessToken()
 }
@@ -92,6 +105,9 @@ export const PrivateRoute = ({ component, allow, fetcher = false, ...rest }: Pri
     })
   }, [])
 
+  /**
+   * FIXME: remove this
+   */
   React.useEffect(handleChangeLoginType(loginType, allow, dispatch, loginIdentity, isFetchingAccessToken), [
     allow,
     dispatch,

@@ -1,3 +1,4 @@
+// FIXME: remove
 import store from '../core/store'
 import { authLoginSuccess, authLogout, authSetRefreshSession } from '../actions/auth'
 import { getSession } from '@reapit/cognito-auth'
