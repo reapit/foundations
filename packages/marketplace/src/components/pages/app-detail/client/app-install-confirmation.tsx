@@ -4,7 +4,7 @@ import { History } from 'history'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
-import { Button, Modal, GridFourCol, GridFourColItem, Content } from '@reapit/elements'
+import { Button, ModalV2, GridFourCol, GridFourColItem, Content, ModalPropsV2 } from '@reapit/elements'
 import { appInstallationsRequestInstall } from '@/actions/app-installations'
 import { clientFetchAppDetail } from '@/actions/client'
 import { Dispatch } from 'redux'
@@ -76,6 +76,64 @@ export const handleSuccessAlertMessageAfterClose = (
   }
 }
 
+export type InstallAppSucesfullyModalParams = Pick<ModalPropsV2, 'afterClose' | 'visible'> &
+  Pick<AppInstallConfirmationProps, 'appDetailData'> & { onSuccessAlertButtonClick: () => void }
+
+export const InstallNonDirectApiAppSucesfullyModal = ({
+  afterClose,
+  appDetailData,
+  onSuccessAlertButtonClick,
+  visible,
+}: InstallAppSucesfullyModalParams) => {
+  const { name } = appDetailData || {}
+  return (
+    <ModalV2 isCentered isPadding={false} visible={Boolean(visible)} onClose={afterClose}>
+      <CallToAction
+        title="Success"
+        buttonText="Back to List"
+        dataTest="installations-success-message"
+        buttonDataTest="installations-success-button"
+        onButtonClick={onSuccessAlertButtonClick}
+        isCenter
+      >
+        {name} has been successfully installed
+      </CallToAction>
+    </ModalV2>
+  )
+}
+
+export const InstallDirectApiAppSucesfullyModal = ({
+  afterClose,
+  appDetailData,
+  onSuccessAlertButtonClick,
+  visible,
+}: InstallAppSucesfullyModalParams) => {
+  const { name, launchUri, developer } = appDetailData || {}
+  return (
+    <ModalV2 isCentered isPadding={false} visible={Boolean(visible)} onClose={afterClose}>
+      <CallToAction
+        title="Success"
+        buttonText="Back to List"
+        dataTest="installations-success-message"
+        buttonDataTest="installations-success-button"
+        onButtonClick={onSuccessAlertButtonClick}
+        isCenter
+      >
+        <p className="mb-5">{name} has been successfully installed.</p>
+
+        <p className="mb-5">
+          To launch, please use <a href={launchUri}>{launchUri}</a>
+        </p>
+
+        <p>
+          If there are any additional setup requirements, a member of {developer} will be in touch to help you through
+          the process.
+        </p>
+      </CallToAction>
+    </ModalV2>
+  )
+}
+
 const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
   appDetailData,
   visible,
@@ -93,14 +151,20 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
   const dispatch = useDispatch()
   const onSuccessAlertButtonClick = React.useCallback(handleSuccessAlertButtonClick(history), [history])
 
+  const isDirectApi = appDetailData?.isDirectApi
+  const shouldRenderDirectApiAppInstallSuccessfullyModal = isSuccessAlertVisible && isDirectApi
+  const shouldRenderInstallNonDirectApiAppSuccessfullyModal = isSuccessAlertVisible && !isDirectApi
+
+  // TODO: WIP: update AppInstallConfirmation to use Modal V2
   return (
     <>
-      <Modal
+      <ModalV2
         visible={visible}
         title={`Confirm ${name} installation`}
-        afterClose={closeInstallConfirmationModal}
-        footerItems={
-          <>
+        onClose={closeInstallConfirmationModal}
+        isCentered
+        footer={
+          <div className="flex">
             <Button
               dataTest="agree-btn"
               loading={isSubmitting}
@@ -128,7 +192,7 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
             >
               Cancel
             </Button>
-          </>
+          </div>
         }
       >
         <>
@@ -146,25 +210,20 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
             <p>This action will install the app for ALL platform users.</p>
           )}
         </>
-      </Modal>
-      {isSuccessAlertVisible && (
-        <Modal
-          visible={isSuccessAlertVisible}
-          afterClose={handleSuccessAlertMessageAfterClose(id, clientId, setIsSuccessAlertVisible, dispatch)}
-          HeaderComponent={() => (
-            <CallToAction
-              title="Success"
-              buttonText="Back to List"
-              dataTest="installations-success-message"
-              buttonDataTest="installations-success-button"
-              onButtonClick={onSuccessAlertButtonClick}
-              isCenter
-            >
-              {name} has been successfully installed
-            </CallToAction>
-          )}
-        />
-      )}
+      </ModalV2>
+      <InstallDirectApiAppSucesfullyModal
+        visible={shouldRenderDirectApiAppInstallSuccessfullyModal}
+        afterClose={handleSuccessAlertMessageAfterClose(id, clientId, setIsSuccessAlertVisible, dispatch)}
+        appDetailData={appDetailData}
+        onSuccessAlertButtonClick={onSuccessAlertButtonClick}
+      />
+
+      <InstallNonDirectApiAppSucesfullyModal
+        visible={shouldRenderInstallNonDirectApiAppSuccessfullyModal}
+        afterClose={handleSuccessAlertMessageAfterClose(id, clientId, setIsSuccessAlertVisible, dispatch)}
+        appDetailData={appDetailData}
+        onSuccessAlertButtonClick={onSuccessAlertButtonClick}
+      />
     </>
   )
 }

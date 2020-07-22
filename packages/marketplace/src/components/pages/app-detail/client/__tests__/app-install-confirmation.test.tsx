@@ -10,6 +10,9 @@ import AppInstallConfirmation, {
   handleInstallAppSuccessCallback,
   handleSuccessAlertButtonClick,
   handleSuccessAlertMessageAfterClose,
+  InstallDirectApiAppSucesfullyModal,
+  InstallAppSucesfullyModalParams,
+  InstallNonDirectApiAppSucesfullyModal,
 } from '../app-install-confirmation'
 import { appInstallationsRequestInstall } from '@/actions/app-installations'
 import { clientFetchAppDetail } from '@/actions/client'
@@ -22,6 +25,32 @@ const mockProps: AppInstallConfirmationProps = {
   visible: true,
   closeInstallConfirmationModal: jest.fn(),
 }
+
+describe('InstallNonDirectApiAppSucesfullyModal', () => {
+  it(' should match a snapshot', () => {
+    const props: InstallAppSucesfullyModalParams = {
+      visible: true,
+      onSuccessAlertButtonClick: jest.fn(),
+      afterClose: jest.fn(),
+      appDetailData: appDetailDataStub.data,
+    }
+
+    expect(mount(<InstallNonDirectApiAppSucesfullyModal {...props} />)).toMatchSnapshot()
+  })
+})
+
+describe('InstallDirectApiAppSucesfullyModal', () => {
+  it(' should match a snapshot', () => {
+    const props: InstallAppSucesfullyModalParams = {
+      visible: true,
+      onSuccessAlertButtonClick: jest.fn(),
+      afterClose: jest.fn(),
+      appDetailData: appDetailDataStub.data,
+    }
+
+    expect(mount(<InstallDirectApiAppSucesfullyModal {...props} />)).toMatchSnapshot()
+  })
+})
 
 describe('ClientAppInstallConfirmation', () => {
   let store
