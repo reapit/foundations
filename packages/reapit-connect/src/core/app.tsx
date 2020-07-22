@@ -2,7 +2,7 @@ import * as React from 'react'
 import Router from './router'
 import { css } from 'linaria'
 
-const globalStyles = css`
+export const globals = css`
   :global() {
     @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
     @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
@@ -15,11 +15,7 @@ const globalStyles = css`
 `
 
 export const App = () => {
-  return (
-    <div className={globalStyles}>
-      <Router />
-    </div>
-  )
+  return <Router />
 }
 
 export default App
