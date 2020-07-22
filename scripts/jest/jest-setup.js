@@ -15,6 +15,7 @@ jest.mock('linaria', () => {
 
 jest.mock('react-chartjs-2', () => ({
   Bar: () => null,
+  Line: () => null,
 }))
 
 /* tslint:disable */

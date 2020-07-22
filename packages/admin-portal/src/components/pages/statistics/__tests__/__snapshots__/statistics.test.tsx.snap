@@ -263,74 +263,7 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
                   ],
                 }
               }
-            >
-              <ChartComponent
-                data={
-                  Object {
-                    "datasets": Array [
-                      Object {
-                        "backgroundColor": "rgba(75,192,192,0.4)",
-                        "borderCapStyle": "butt",
-                        "borderColor": "rgba(75,192,192,1)",
-                        "borderDash": Array [],
-                        "borderDashOffset": 0,
-                        "borderJoinStyle": "miter",
-                        "data": Array [
-                          0,
-                          0,
-                          0,
-                          0,
-                          0,
-                          0,
-                          0,
-                          0,
-                        ],
-                        "fill": false,
-                        "label": "Apps",
-                        "lineTension": 0.1,
-                        "pointBackgroundColor": "#fff",
-                        "pointBorderColor": "rgba(75,192,192,1)",
-                        "pointBorderWidth": 1,
-                        "pointHitRadius": 10,
-                        "pointHoverBackgroundColor": "rgba(75,192,192,1)",
-                        "pointHoverBorderColor": "rgba(220,220,220,1)",
-                        "pointHoverBorderWidth": 2,
-                        "pointHoverRadius": 5,
-                        "pointRadius": 1,
-                      },
-                    ],
-                    "labels": Array [
-                      "03/10/2019",
-                      "04/10/2019",
-                      "05/10/2019",
-                      "06/10/2019",
-                      "07/10/2019",
-                      "08/10/2019",
-                      "09/10/2019",
-                      "10/10/2019",
-                    ],
-                  }
-                }
-                datasetKeyProvider={[Function]}
-                height={150}
-                legend={
-                  Object {
-                    "display": true,
-                    "position": "bottom",
-                  }
-                }
-                options={Object {}}
-                redraw={false}
-                type="line"
-                width={300}
-              >
-                <canvas
-                  height={150}
-                  onClick={[Function]}
-                  width={300}
-                />
-              </ChartComponent>
-            </Line>
+            />
           </section>
         </Component>
       </Component>
@@ -602,74 +535,7 @@ exports[`Admin Stats should match snapshot 1`] = `
                   ],
                 }
               }
-            >
-              <ChartComponent
-                data={
-                  Object {
-                    "datasets": Array [
-                      Object {
-                        "backgroundColor": "rgba(75,192,192,0.4)",
-                        "borderCapStyle": "butt",
-                        "borderColor": "rgba(75,192,192,1)",
-                        "borderDash": Array [],
-                        "borderDashOffset": 0,
-                        "borderJoinStyle": "miter",
-                        "data": Array [
-                          0,
-                          0,
-                          0,
-                          0,
-                          0,
-                          0,
-                          0,
-                          0,
-                        ],
-                        "fill": false,
-                        "label": "Apps",
-                        "lineTension": 0.1,
-                        "pointBackgroundColor": "#fff",
-                        "pointBorderColor": "rgba(75,192,192,1)",
-                        "pointBorderWidth": 1,
-                        "pointHitRadius": 10,
-                        "pointHoverBackgroundColor": "rgba(75,192,192,1)",
-                        "pointHoverBorderColor": "rgba(220,220,220,1)",
-                        "pointHoverBorderWidth": 2,
-                        "pointHoverRadius": 5,
-                        "pointRadius": 1,
-                      },
-                    ],
-                    "labels": Array [
-                      "03/10/2019",
-                      "04/10/2019",
-                      "05/10/2019",
-                      "06/10/2019",
-                      "07/10/2019",
-                      "08/10/2019",
-                      "09/10/2019",
-                      "10/10/2019",
-                    ],
-                  }
-                }
-                datasetKeyProvider={[Function]}
-                height={150}
-                legend={
-                  Object {
-                    "display": true,
-                    "position": "bottom",
-                  }
-                }
-                options={Object {}}
-                redraw={false}
-                type="line"
-                width={300}
-              >
-                <canvas
-                  height={150}
-                  onClick={[Function]}
-                  width={300}
-                />
-              </ChartComponent>
-            </Line>
+            />
           </section>
         </Component>
       </Component>
@@ -941,74 +807,7 @@ exports[`Admin Stats should show loading 1`] = `
                   ],
                 }
               }
-            >
-              <ChartComponent
-                data={
-                  Object {
-                    "datasets": Array [
-                      Object {
-                        "backgroundColor": "rgba(75,192,192,0.4)",
-                        "borderCapStyle": "butt",
-                        "borderColor": "rgba(75,192,192,1)",
-                        "borderDash": Array [],
-                        "borderDashOffset": 0,
-                        "borderJoinStyle": "miter",
-                        "data": Array [
-                          0,
-                          0,
-                          0,
-                          0,
-                          0,
-                          0,
-                          0,
-                          0,
-                        ],
-                        "fill": false,
-                        "label": "Apps",
-                        "lineTension": 0.1,
-                        "pointBackgroundColor": "#fff",
-                        "pointBorderColor": "rgba(75,192,192,1)",
-                        "pointBorderWidth": 1,
-                        "pointHitRadius": 10,
-                        "pointHoverBackgroundColor": "rgba(75,192,192,1)",
-                        "pointHoverBorderColor": "rgba(220,220,220,1)",
-                        "pointHoverBorderWidth": 2,
-                        "pointHoverRadius": 5,
-                        "pointRadius": 1,
-                      },
-                    ],
-                    "labels": Array [
-                      "03/10/2019",
-                      "04/10/2019",
-                      "05/10/2019",
-                      "06/10/2019",
-                      "07/10/2019",
-                      "08/10/2019",
-                      "09/10/2019",
-                      "10/10/2019",
-                    ],
-                  }
-                }
-                datasetKeyProvider={[Function]}
-                height={150}
-                legend={
-                  Object {
-                    "display": true,
-                    "position": "bottom",
-                  }
-                }
-                options={Object {}}
-                redraw={false}
-                type="line"
-                width={300}
-              >
-                <canvas
-                  height={150}
-                  onClick={[Function]}
-                  width={300}
-                />
-              </ChartComponent>
-            </Line>
+            />
           </section>
         </Component>
       </Component>
