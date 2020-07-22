@@ -9,7 +9,6 @@ import { Redirect, useLocation } from 'react-router'
 import { getAuthRoute, getDefaultRoute } from '@/utils/auth-route'
 import { authSetRefreshSession, setInitClientTermsAcceptedStateFromCookie } from '@/actions/auth'
 
-import { getCookieString, COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE } from '@/utils/cookie'
 import { selectLoginSession, selectRefreshSession } from '@/selector/auth'
 import { ActionCreator } from '@/types/core'
 
@@ -61,11 +60,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
   const location = useLocation()
 
-  const isFirstTimeLoginComplete = Boolean(getCookieString(COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE))
-
-  const route = getDefaultRoute({
-    isFirstTimeLoginComplete,
-  })
+  const route = getDefaultRoute()
 
   const cognitoClientId = window.reapit.config.cognitoClientId
   const refreshParams = getTokenFromQueryString(location.search, cognitoClientId, 'CLIENT', route)

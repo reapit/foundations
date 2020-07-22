@@ -13,7 +13,6 @@ const Authentication = React.lazy(() => catchChunkError(() => import('../compone
 const Login = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 const Apps = React.lazy(() => catchChunkError(() => import('../components/pages/apps')))
 const AppDetail = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail/client')))
-const WelcomePage = React.lazy(() => catchChunkError(() => import('../components/pages/welcome')))
 const InstalledApps = React.lazy(() => catchChunkError(() => import('../components/pages/installed-apps')))
 const Setting = React.lazy(() => catchChunkError(() => import('../components/pages/settings')))
 const AppsManagement = React.lazy(() => catchChunkError(() => import('../components/pages/app-management')))
@@ -54,7 +53,6 @@ const Router = () => {
                 <PrivateRoute allow="CLIENT" path={Routes.APPS} component={Apps} exact fetcher />
                 <PrivateRoute allow="CLIENT" path={Routes.APP_DETAIL} component={AppDetail} exact fetcher />
                 <PrivateRoute allow="CLIENT" path={Routes.APP_DETAIL_MANAGE} component={AppDetail} exact fetcher />
-                <PrivateRoute allow="CLIENT" path={Routes.WELCOME} component={WelcomePage} exact />
                 <PrivateRoute allow="CLIENT" path={Routes.HELP} exact fetcher component={Help} />
                 <PrivateRoute allow="CLIENT" path={Routes.SETTINGS} exact fetcher component={Setting} />
                 <Route render={() => <Info infoType="404" />} />

@@ -9,20 +9,12 @@ describe('getAuthRoute', () => {
 
 describe('getDefaultRoute', () => {
   it('should return correct route', () => {
-    expect(getDefaultRoute({ isFirstTimeLoginComplete: true })).toEqual(
-      `${window.location.origin}${Routes.INSTALLED_APPS}`,
-    )
+    expect(getDefaultRoute()).toEqual(`${window.location.origin}${Routes.INSTALLED_APPS}`)
   })
 })
 
 describe('getDefaultPath', () => {
   it('should return INSTALLED_APPS ', () => {
-    expect(getDefaultPath({ isDesktopMode: true, isFirstTimeLoginComplete: false })).toEqual(Routes.INSTALLED_APPS)
-  })
-  it('should return INSTALLED_APPS ', () => {
-    expect(getDefaultPath({ isDesktopMode: false, isFirstTimeLoginComplete: true })).toEqual(Routes.INSTALLED_APPS)
-  })
-  it('should return INSTALLED_APPS ', () => {
-    expect(getDefaultPath({ isDesktopMode: false, isFirstTimeLoginComplete: false })).toEqual(Routes.WELCOME)
+    expect(getDefaultPath()).toEqual(Routes.INSTALLED_APPS)
   })
 })

@@ -3,12 +3,11 @@ import { Redirect } from 'react-router-dom'
 import { Dispatch } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
 import { showNotificationMessage } from '@/actions/notification-message'
-import { selectLoginSession, selectRefreshSession, selectIsDesktopMode } from '@/selector/auth'
+import { selectLoginSession, selectRefreshSession } from '@/selector/auth'
 import { redirectToLogin } from '@reapit/cognito-auth'
 import { Button, Level, FlexContainerBasic, Section } from '@reapit/elements'
 import { getDefaultRoute, getDefaultPath } from '@/utils/auth-route'
 import messages from '@/constants/messages'
-import { getCookieString, COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE } from '@/utils/cookie'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 import connectImage from '@/assets/images/reapit-connect.png'
@@ -30,22 +29,18 @@ export const handleShowNotificationAfterPasswordChanged = (
   }
 }
 
-export const onLoginButtonClick = (isFirstTimeLoginComplete: boolean) => {
-  return () => {
-    const redirectRoute = getDefaultRoute({ isFirstTimeLoginComplete })
-    redirectToLogin(window.reapit.config.cognitoClientId, redirectRoute)
-  }
+export const onLoginButtonClick = () => {
+  const redirectRoute = getDefaultRoute()
+  redirectToLogin(window.reapit.config.cognitoClientId, redirectRoute)
 }
 
 export const Login: React.FunctionComponent<LoginProps> = () => {
   const dispatch = useDispatch()
   const loginSession = useSelector(selectLoginSession)
   const refreshSession = useSelector(selectRefreshSession)
-  const isDesktopMode = useSelector(selectIsDesktopMode)
 
   const isPasswordChanged = localStorage.getItem('isPasswordChanged') === 'true'
   const hasSession = !!loginSession || !!refreshSession
-  const isFirstTimeLoginComplete = Boolean(getCookieString(COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE))
   React.useEffect(handleShowNotificationAfterPasswordChanged(isPasswordChanged, localStorage, dispatch), [
     isPasswordChanged,
     localStorage,
@@ -53,7 +48,7 @@ export const Login: React.FunctionComponent<LoginProps> = () => {
   ])
 
   if (hasSession) {
-    const redirectRoute = getDefaultPath({ isDesktopMode, isFirstTimeLoginComplete })
+    const redirectRoute = getDefaultPath()
     return <Redirect to={redirectRoute} />
   }
 
@@ -70,7 +65,7 @@ export const Login: React.FunctionComponent<LoginProps> = () => {
           <Button
             className={loginButton}
             type="button"
-            onClick={onLoginButtonClick(isFirstTimeLoginComplete)}
+            onClick={onLoginButtonClick}
             loading={false}
             variant="primary"
             disabled={false}

@@ -8,7 +8,6 @@ import { PrivateRouteWrapper, handleSetTermsAcceptFromCookie } from '../private-
 import { selectLoginSession, selectRefreshSession } from '@/selector/auth'
 import { getTokenFromQueryString, redirectToOAuth, RefreshParams } from '@reapit/cognito-auth'
 import { getAuthRoute } from '@/utils/auth-route'
-import { getCookieString, COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE } from '@/utils/cookie'
 import { authSetRefreshSession, setInitClientTermsAcceptedStateFromCookie } from '@/actions/auth'
 
 const locationMock = { search: '?state=CLIENT', pathname: '/test' }
@@ -75,7 +74,7 @@ describe('PrivateRouteWrapper', () => {
     expect(useSelector).toHaveBeenCalledWith(selectLoginSession)
     expect(useSelector).toHaveBeenCalledWith(selectRefreshSession)
     expect(useLocation).toHaveBeenCalled()
-    expect(getCookieString).toHaveBeenCalledWith(COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE)
+    // expect(getCookieString).toHaveBeenCalledWith(COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE)
     expect(getTokenFromQueryString).toHaveBeenCalledWith(
       locationMock.search,
       window.reapit.config.cognitoClientId,
