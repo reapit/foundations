@@ -58,9 +58,7 @@ describe('Login', () => {
   describe('onLoginButtonClick', () => {
     it('should run correctly', () => {
       const spyRedirectToLogin = jest.spyOn(cognito, 'redirectToLogin')
-      const mockIsFirstTimeLoginComplete = true
-      const fn = onLoginButtonClick(mockIsFirstTimeLoginComplete)
-      fn()
+      onLoginButtonClick()
       expect(spyRedirectToLogin).toBeCalled()
     })
   })

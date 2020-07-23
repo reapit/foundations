@@ -12,13 +12,6 @@ exports[`ClientHelpPage should match a snapshot 1`] = `
       Array [
         Object {
           "buttonOnClick": [Function],
-          "buttonText": "VIEW",
-          "header": "Welcome Guide",
-          "imgSrc": "",
-          "text": "Lorem ipsum dolor. Sit illum optio suscipit quas pariatur illo reprehenderit assumenda.",
-        },
-        Object {
-          "buttonOnClick": [Function],
           "buttonText": "SUPPORT",
           "header": "Need Help?",
           "imgSrc": "",
