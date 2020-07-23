@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { css } from 'emotion'
   import { getProperty } from '../api/property'
   import { generateThemeClasses, resetCSS } from '../../../common/styles'

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { onMount, afterUpdate } from 'svelte'
   import searchWidgetStore from '../core/store'
   import { loadMap, centerMapToMarker, fitMapToBounds } from '../utils/map-helpers'

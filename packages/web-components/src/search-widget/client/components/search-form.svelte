@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { slide } from 'svelte/transition'
   import { cubicInOut } from 'svelte/easing'
   import Fa from 'svelte-fa'

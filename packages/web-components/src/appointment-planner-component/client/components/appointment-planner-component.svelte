@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { weekStore } from '../core/store/week-store'
   import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
   import Fa from 'svelte-fa'

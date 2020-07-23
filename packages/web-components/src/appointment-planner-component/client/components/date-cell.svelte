@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import TimeCell from './time-cell.svelte'
 
   export let date

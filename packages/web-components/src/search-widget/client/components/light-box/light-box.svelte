@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Carousel from './carousel.svelte'
   import Widget from './widget.svelte'
 

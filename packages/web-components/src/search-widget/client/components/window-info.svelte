@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { onMount, onDestroy, afterUpdate, createEventDispatcher } from 'svelte'
   import { getInfoWindow } from '../utils/map-helpers'
 

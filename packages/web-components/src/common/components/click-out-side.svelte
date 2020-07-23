@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { createEventDispatcher, onMount, onDestroy } from 'svelte'
 
   let containerElement

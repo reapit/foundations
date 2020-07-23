@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   export let clientId
   export let redirectUri
 </script>

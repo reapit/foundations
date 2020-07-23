@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { derrivedDayOfWeek } from '../core/store/week-store'
   import DateCell from './date-cell.svelte'
 

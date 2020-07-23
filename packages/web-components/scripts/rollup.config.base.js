@@ -3,8 +3,8 @@ import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 import livereload from 'rollup-plugin-livereload'
 import { terser } from 'rollup-plugin-terser'
-import typescript from '@wessberg/rollup-plugin-ts'
 import babel from 'rollup-plugin-babel'
+import typescript from '@rollup/plugin-typescript'
 
 const production = !process.env.ROLLUP_WATCH
 
@@ -15,7 +15,7 @@ export default {
       dedupe: importee => importee === 'svelte' || importee.startsWith('svelte/'),
     }),
     commonjs(),
-    typescript(),
+    typescript({ sourceMap: !production }),
     json(),
     babel({
       extensions: ['.js', '.ts', '.mjs', '.html', '.svelte'],

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Fa from 'svelte-fa'
   import {
     faChevronLeft,

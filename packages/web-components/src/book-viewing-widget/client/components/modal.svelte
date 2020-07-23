@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import ClickOutSide from '../../../common/components/click-out-side.svelte'
   export let isModalOpen
   export let toggleModal

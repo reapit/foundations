@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { generateThemeClasses } from '../../../common/styles'
   import { onMount, afterUpdate } from 'svelte'
   import Fa from 'svelte-fa'
