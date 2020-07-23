@@ -5,7 +5,7 @@ import { clientFetchAppSummarySuccess } from '@/actions/client'
 import { categoriesReceiveData } from '@/actions/app-categories'
 import { featuredAppsDataStub, appsDataStub } from '../__stubs__/apps'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { APPS_PER_PAGE } from '@/constants/paginator'
+import { BROWSE_APPS_PER_PAGE } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
@@ -46,7 +46,7 @@ describe('clientDataFetch', () => {
           category: params.data.category as any,
           appName: params.data.search,
           pageNumber: params.data.page,
-          pageSize: APPS_PER_PAGE,
+          pageSize: BROWSE_APPS_PER_PAGE,
           isFeatured: false,
           isDirectApi: undefined,
         }),

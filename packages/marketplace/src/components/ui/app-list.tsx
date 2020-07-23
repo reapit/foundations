@@ -10,6 +10,7 @@ export type AppListProps = {
   onCardClick?: (app: AppSummaryModel) => void
   onSettingsClick?: (app: AppSummaryModel) => void
   infoType: InfoType
+  animated?: boolean
 }
 
 export const AppList: React.FunctionComponent<AppListProps> = ({
@@ -18,6 +19,7 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
   onCardClick,
   onSettingsClick,
   infoType,
+  animated = false,
 }) => {
   return (
     <div className="mb-4">
@@ -49,6 +51,7 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
                       }
                     : undefined
                 }
+                animated={animated}
               />
             </GridThreeColItem>
           ))}

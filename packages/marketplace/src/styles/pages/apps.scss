@@ -1,0 +1,11 @@
+.app-list {
+  height: 100vh;
+  overflow: auto;
+  /* Hide scrollbar. only show window scrollbar */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.app-list::-webkit-scrollbar {
+  display: none;
+}

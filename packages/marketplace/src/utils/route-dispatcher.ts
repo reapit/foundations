@@ -4,7 +4,6 @@ import store from '@/core/store'
 import { clientFetchAppSummary, clientFetchAppDetail } from '../actions/client'
 import { myAppsRequestData } from '../actions/my-apps'
 import { installedAppsRequestData } from '../actions/installed-apps'
-import { getParamsFromPath } from '@/utils/client-url-params'
 import { selectClientId } from '@/selector/client'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
@@ -14,7 +13,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
 
   switch (route) {
     case Routes.APPS:
-      store.dispatch(clientFetchAppSummary(getParamsFromPath(search || '')))
+      store.dispatch(clientFetchAppSummary({ page: 1 }))
       break
     case Routes.APP_DETAIL: {
       if (id) {

@@ -5,7 +5,6 @@ import { RouteValue } from '../../types/core'
 import { clientFetchAppSummary } from '@/actions/client'
 import { myAppsRequestData } from '@/actions/my-apps'
 import { installedAppsRequestData } from '@/actions/installed-apps'
-import { getParamsFromPath } from '@/utils/client-url-params'
 
 jest.mock('@reapit/elements')
 jest.mock('@/utils/session')
@@ -15,7 +14,7 @@ jest.mock('../../sagas/client')
 describe('routeDispatcher', () => {
   it('should dispatch to clientFetchAppSummaryclientFetchAppSummary for the client route', async () => {
     await routeDispatcher(Routes.APPS as RouteValue)
-    expect(store.dispatch).toHaveBeenCalledWith(clientFetchAppSummary(getParamsFromPath('')))
+    expect(store.dispatch).toHaveBeenCalledWith(clientFetchAppSummary({ page: 1 }))
   })
 
   it('should dispatch to installedAppsRequestData for the installed-apps route', async () => {
