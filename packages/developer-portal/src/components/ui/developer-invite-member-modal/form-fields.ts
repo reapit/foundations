@@ -1,6 +1,6 @@
 import { FormFieldInfo } from '@reapit/utils'
 
-export type FieldKey = 'inviteNameField' | 'inviteEmailField' | 'inviteMessageField'
+export type FieldKey = 'inviteNameField' | 'inviteEmailField' | 'inviteMessageField' | 'inviteJobTitleField'
 
 export const formFields: Record<FieldKey, FormFieldInfo> = {
   inviteNameField: {
@@ -14,6 +14,12 @@ export const formFields: Record<FieldKey, FormFieldInfo> = {
     label: 'Email',
     placeHolder: 'Email',
     errorMessage: 'Invalid Email',
+  },
+  inviteJobTitleField: {
+    name: 'jobTitle',
+    label: 'Job Title',
+    placeHolder: 'Job Title',
+    errorMessage: 'Invalid Job Title',
   },
   inviteMessageField: {
     name: 'message',

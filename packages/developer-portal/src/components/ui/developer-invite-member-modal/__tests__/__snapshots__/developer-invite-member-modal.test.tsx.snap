@@ -183,6 +183,29 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                   </div>
                                 </div>
                                 <div
+                                  class=""
+                                >
+                                  <div
+                                    class="control "
+                                  >
+                                    <label
+                                      class="label inline-block required-label"
+                                      for="jobTitle"
+                                    >
+                                      Job Title
+                                    </label>
+                                    <input
+                                      class=""
+                                      data-test=""
+                                      id="jobTitle"
+                                      name="jobTitle"
+                                      placeholder="Job Title"
+                                      type="text"
+                                      value=""
+                                    />
+                                  </div>
+                                </div>
+                                <div
                                   class="field"
                                 >
                                   <div
@@ -370,6 +393,7 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                   initialValues={
                                     Object {
                                       "email": "",
+                                      "jobTitle": "",
                                       "message": "",
                                       "name": "",
                                     }
@@ -612,6 +636,46 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                               </Field>
                                             </Component>
                                             <Component
+                                              id="jobTitle"
+                                              labelText="Job Title"
+                                              name="jobTitle"
+                                              placeholder="Job Title"
+                                              required={true}
+                                              type="text"
+                                            >
+                                              <Field
+                                                name="jobTitle"
+                                                validate={[Function]}
+                                              >
+                                                <div
+                                                  className=""
+                                                >
+                                                  <div
+                                                    className="control "
+                                                  >
+                                                    <label
+                                                      className="label inline-block required-label"
+                                                      htmlFor="jobTitle"
+                                                    >
+                                                      Job Title
+                                                    </label>
+                                                    <input
+                                                      className=""
+                                                      data-test=""
+                                                      disabled={false}
+                                                      id="jobTitle"
+                                                      name="jobTitle"
+                                                      onBlur={[Function]}
+                                                      onChange={[Function]}
+                                                      placeholder="Job Title"
+                                                      type="text"
+                                                      value=""
+                                                    />
+                                                  </div>
+                                                </div>
+                                              </Field>
+                                            </Component>
+                                            <Component
                                               id="message"
                                               labelText="Message (Optional)"
                                               name="message"
@@ -737,6 +801,14 @@ exports[`developer-invite-member-modal InviteMemberModalInput should match snaps
     placeholder="Email"
     required={true}
     type="email"
+  />
+  <Component
+    id="jobTitle"
+    labelText="Job Title"
+    name="jobTitle"
+    placeholder="Job Title"
+    required={true}
+    type="text"
   />
   <Component
     id="message"

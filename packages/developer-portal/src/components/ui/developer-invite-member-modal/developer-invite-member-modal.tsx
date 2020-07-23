@@ -19,7 +19,7 @@ import { inviteDeveloperAsOrgMember } from '@/actions/developers'
 import { selectDeveloperId } from '@/selector/auth'
 import { selectInviteDeveloperAsOrgMemberLoading } from '@/selector/developers'
 
-const { inviteNameField, inviteEmailField, inviteMessageField } = formFields
+const { inviteNameField, inviteEmailField, inviteMessageField, inviteJobTitleField } = formFields
 
 export type InviteMemberModalProps = ModalPropsV2 & {
   visible?: boolean
@@ -29,6 +29,7 @@ export const initialValues = {
   [inviteNameField.name]: '',
   [inviteEmailField.name]: '',
   [inviteMessageField.name]: '',
+  [inviteJobTitleField.name]: '',
 }
 
 export const InviteMemberModalInput: React.FC = () => {
@@ -40,7 +41,7 @@ export const InviteMemberModalInput: React.FC = () => {
         placeholder={inviteNameField.placeHolder}
         name={inviteNameField.name}
         required
-        labelText={inviteNameField.label as string}
+        labelText={inviteNameField.label}
       />
       <Input
         id={inviteEmailField.name}
@@ -48,13 +49,21 @@ export const InviteMemberModalInput: React.FC = () => {
         placeholder={inviteEmailField.placeHolder}
         name={inviteEmailField.name}
         required
-        labelText={inviteEmailField.label as string}
+        labelText={inviteEmailField.label}
+      />
+      <Input
+        id={inviteJobTitleField.name}
+        type="text"
+        placeholder={inviteJobTitleField.placeHolder}
+        name={inviteJobTitleField.name}
+        required
+        labelText={inviteJobTitleField.label}
       />
       <TextArea
         id={inviteMessageField.name}
         placeholder={inviteMessageField.placeHolder}
         name={inviteMessageField.name}
-        labelText={inviteMessageField.label as string}
+        labelText={inviteMessageField.label}
       />
     </>
   )
