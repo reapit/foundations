@@ -2,7 +2,7 @@ import * as React from 'react'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { ReapitLogo, Menu as Sidebar, MenuConfig } from '@reapit/elements'
 import { FaSignOutAlt, FaCloud } from 'react-icons/fa'
-import { ReapitConnectBrowserSessionInstance } from '../../core/connect-session'
+import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Location } from 'history'
 
@@ -48,7 +48,7 @@ export const callbackAppClick = () =>
 export type MenuProps = RouteComponentProps
 
 export const Menu: React.FunctionComponent<MenuProps> = ({ location }) => {
-  const { connectLogoutRedirect, connectIsDesktop } = useReapitConnect(ReapitConnectBrowserSessionInstance.instance)
+  const { connectLogoutRedirect, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const mode = connectIsDesktop ? 'DESKTOP' : 'WEB'
   const menuConfigs = generateMenuConfig(connectLogoutRedirect, location, mode) || {}
   return <Sidebar {...menuConfigs} location={location} />

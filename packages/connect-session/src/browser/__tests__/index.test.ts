@@ -1,11 +1,11 @@
 import { FetchMock } from 'jest-fetch-mock'
 import { ReapitConnectBrowserSession } from '../index'
-import { mockTokenResponse, mockSessionFromLocalStorage } from '../../__mocks__/browser-session'
+import { mockTokenResponse, mockSessionFromLocalStorage } from '../../__mocks__/session'
 import {
   mockBrowserInitializers,
   setMockBrowserSessionToLocalStorage,
   mockBrowserSession,
-} from '../../__mocks__/browser-session'
+} from '../../__mocks__/session'
 
 jest.mock('jsonwebtoken', () => ({
   decode: (token: string) => {

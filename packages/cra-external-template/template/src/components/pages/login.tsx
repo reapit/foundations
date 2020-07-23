@@ -4,10 +4,9 @@ import * as loginStyles from './__styles__/styles'
 
 import logoImage from '../../assets/images/reapit-graphic.jpg'
 import connectImage from '../../assets/images/reapit-connect.png'
-import { ReapitConnectBrowserSessionInstance } from '../../core/connect-session'
+import { reapitConnectBrowserSession } from '../../core/connect-session'
 
-export const loginHandler = () =>
-  ReapitConnectBrowserSessionInstance.instance.connectLoginRedirect(window.location.origin)
+export const loginHandler = () => reapitConnectBrowserSession.connectLoginRedirect(window.location.origin)
 
 export const Login: React.FunctionComponent = () => {
   const { wrapper, container, image } = loginStyles
