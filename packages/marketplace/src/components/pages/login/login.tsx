@@ -11,6 +11,8 @@ import messages from '@/constants/messages'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 import connectImage from '@/assets/images/reapit-connect.png'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+console.log({ reapitConnectBrowserSession })
 
 const { wrapper, container, image, registerLevel, loginButton } = loginStyles
 
@@ -36,7 +38,8 @@ export const onLoginButtonClick = () => {
 
 export const Login: React.FunctionComponent<LoginProps> = () => {
   const dispatch = useDispatch()
-  // TODO: remove this
+  // TODO(login) remove this, replace with session
+  // TESTME: able to redirect after login
   const loginSession = useSelector(selectLoginSession)
   const refreshSession = useSelector(selectRefreshSession)
 
@@ -49,7 +52,7 @@ export const Login: React.FunctionComponent<LoginProps> = () => {
     dispatch,
   ])
 
-  // this shit too
+  // TODO(login) this shit too
   if (hasSession) {
     const redirectRoute = getDefaultPath()
     return <Redirect to={redirectRoute} />

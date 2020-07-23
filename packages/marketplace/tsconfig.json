@@ -16,8 +16,10 @@
       ],
       "@reapit/utils": [
         "../utils/index.ts"
+      ],
+      "@reapit/connect-session": [
+        "../connect-session/src"
       ]
-      // FIXME: add connection sesion
     }
   },
   "include": [

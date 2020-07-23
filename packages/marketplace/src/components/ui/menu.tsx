@@ -1,57 +1,110 @@
 import * as React from 'react'
-import { withRouter, RouteComponentProps } from 'react-router'
-import { ReapitLogo, Menu as Sidebar, MenuConfig } from '@reapit/elements'
-import { FaSignOutAlt, FaCloud } from 'react-icons/fa'
-import { ReapitConnectBrowserSessionInstance } from '../../core/connect-session'
-import { useReapitConnect } from '@reapit/connect-session'
+import { useDispatch, useSelector } from 'react-redux'
+import { useLocation } from 'react-router'
+import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
+import { authLogout } from '@/actions/auth'
+import Routes from '../../constants/routes'
 import { Location } from 'history'
+import { FaCloud, FaCloudDownloadAlt, FaCog, FaClipboardList } from 'react-icons/fa'
+import { MdHelp } from 'react-icons/md'
+import { selectIsAdmin, selectLoginType } from '@/selector/auth'
+import { ActionCreator } from '@/types/core'
+import { LoginType } from '@reapit/cognito-auth'
+import { Dispatch } from 'redux'
+import { selectDeveloperEditionId } from '@/selector/client'
 
 export const generateMenuConfig = (
   logoutCallback: () => void,
   location: Location<any>,
-  mode: Pick<MenuConfig, 'mode'>['mode'],
-): any => {
+  isAdmin: boolean,
+): { [key: string]: MenuConfig } => {
   return {
-    defaultActiveKey: 'LOGO',
-    mode,
-    location,
-    menu: [
-      {
-        key: 'LOGO',
-        icon: <ReapitLogo className="nav-item-icon" />,
-        type: 'LOGO',
-      },
-      {
-        title: 'Apps',
-        key: 'APPS',
-        icon: <FaCloud className="nav-item-icon" />,
-        callback: callbackAppClick,
-        type: 'PRIMARY',
-      },
-      {
-        title: 'Logout',
-        key: 'LOGOUT',
-        callback: logoutCallback,
-        icon: <FaSignOutAlt className="nav-item-icon" />,
-        type: 'SECONDARY',
-      },
-    ],
+    CLIENT: {
+      defaultActiveKey: 'BROWSE_APPS',
+      location,
+      menu: [
+        {
+          key: 'LOGO',
+          icon: <ReapitLogo className="nav-item-icon" />,
+          type: 'LOGO',
+        },
+        {
+          title: 'Browse',
+          key: 'BROWSE_APPS',
+          url: Routes.APPS,
+          type: 'PRIMARY',
+          icon: <FaCloud className="nav-item-icon" />,
+        },
+        {
+          title: 'Installed',
+          key: 'INSTALLED',
+          url: Routes.INSTALLED_APPS,
+          type: 'PRIMARY',
+          icon: <FaCloudDownloadAlt className="nav-item-icon" />,
+        },
+        {
+          title: 'Manage',
+          key: 'MY_APPS',
+          url: Routes.MY_APPS,
+          type: 'PRIMARY',
+          icon: <FaClipboardList className="nav-item-icon" />,
+          disabled: !isAdmin,
+        },
+        {
+          title: 'Help',
+          key: 'HELP',
+          url: Routes.HELP,
+          type: 'PRIMARY',
+          icon: <MdHelp className="nav-item-icon" />,
+        },
+        {
+          title: 'Settings',
+          key: 'SETTINGS',
+          url: Routes.SETTINGS,
+          icon: <FaCog className="nav-item-icon" />,
+          type: 'SECONDARY',
+        },
+      ],
+    },
   }
 }
 
-export const callbackAppClick = () =>
-  (window.location.href =
-    window.location.href.includes('dev') || window.location.href.includes('localhost')
-      ? 'https://dev.marketplace.reapit.cloud/installed'
-      : 'https://marketplace.reapit.cloud/installed')
-
-export type MenuProps = RouteComponentProps
-
-export const Menu: React.FunctionComponent<MenuProps> = ({ location }) => {
-  const { connectLogoutRedirect, connectIsDesktop } = useReapitConnect(ReapitConnectBrowserSessionInstance.instance)
-  const mode = connectIsDesktop ? 'DESKTOP' : 'WEB'
-  const menuConfigs = generateMenuConfig(connectLogoutRedirect, location, mode) || {}
-  return <Sidebar {...menuConfigs} location={location} />
+export interface MenuMappedProps {
+  loginType: LoginType
+  isAdmin: boolean
 }
 
-export default withRouter(Menu)
+export interface MenuMappedActions {
+  logout: () => void
+}
+
+export type MenuProps = {}
+
+export const logout = ({ dispatch, authLogout }: { dispatch: Dispatch; authLogout: ActionCreator<void> }) => () =>
+  dispatch(authLogout())
+
+export const Menu: React.FunctionComponent<MenuProps> = () => {
+  const location = useLocation()
+  const dispatch = useDispatch()
+  // FIXME(menu) REMOVE
+  const isDesktopAdmin = useSelector(selectIsAdmin)
+  const isDeveloperEdition = Boolean(useSelector(selectDeveloperEditionId))
+  // FIXME(menu) select from hooks session
+  const loginType = useSelector(selectLoginType)
+
+  // FIXME(menu) desk edition only
+  const isAdmin = isDesktopAdmin || isDeveloperEdition
+
+  // TESTME(menu): logout
+  const menuConfigs = generateMenuConfig(logout({ dispatch, authLogout }), location, isAdmin)
+  const menuConfig = menuConfigs[loginType]
+
+  // invalid login type. E.g. admin view marketplace apps
+  if (!menuConfig) {
+    return null
+  }
+
+  return <Sidebar {...menuConfigs[loginType]} location={location} />
+}
+
+export default Menu
