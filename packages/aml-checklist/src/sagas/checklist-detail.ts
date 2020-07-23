@@ -189,7 +189,6 @@ export const onUpdateChecklist = function*({ data: { nextSection, contact } }: O
     if (isEmptyObject(newContact.metadata)) {
       delete newContact.metadata
     }
-    console.log('newContact', newContact)
     const response = yield call(updateChecklist, { contact: newContact, headers })
     if (response) {
       const responseContact = yield call(fetchChecklist, { id: currentContact.id, headers })
