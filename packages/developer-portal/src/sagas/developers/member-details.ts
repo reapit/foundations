@@ -26,7 +26,7 @@ export const fetchMemberDetailsSaga = function*({ data }: Action<FetchMemberDeta
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
+        message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
       }),
     )
   }
@@ -43,7 +43,7 @@ export const acceptInviteMemberSaga = function*({ data }: Action<AcceptInviteMem
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
+        message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
       }),
     )
   }
@@ -60,7 +60,7 @@ export const rejectInviteMemberSaga = function*({ data }: Action<RejectInviteMem
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
+        message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
       }),
     )
   }

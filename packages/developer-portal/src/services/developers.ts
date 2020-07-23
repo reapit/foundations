@@ -148,7 +148,6 @@ export const inviteDeveloperAsOrgMemberApi = async (params: InviteDeveloperAsOrg
     })
     return response
   } catch (error) {
-    console.log({ error })
     logger(error)
     throw error?.response
   }
@@ -166,7 +165,7 @@ export const fetchMemberDetails = async (params: FetchMemberDetailsParams): Prom
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 
@@ -183,7 +182,7 @@ export const acceptInviteMember = async (params: AcceptInviteMemberParams) => {
     return response
   } catch (error) {
     logger(error)
-    throw error?.response || error
+    throw error?.response
   }
 }
 
@@ -199,6 +198,6 @@ export const rejectInviteMember = async (params: RejectInviteMemberParams) => {
     return response
   } catch (error) {
     logger(error)
-    throw error?.response || error
+    throw error?.response
   }
 }

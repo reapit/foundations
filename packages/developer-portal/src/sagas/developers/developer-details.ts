@@ -19,7 +19,7 @@ export const fetchDeveloperDetails = function*({ data }: Action<FetchDeveloperBy
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
+        message: err?.description || errorMessages.DEFAULT_SERVER_ERROR,
       }),
     )
   }
