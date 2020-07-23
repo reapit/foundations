@@ -1,8 +1,8 @@
 import * as React from 'react'
 import Menu from '@/components/ui/menu'
-import { Loader, AppNavContainer, Section } from '@reapit/elements'
-import { redirectToOAuth } from '@reapit/cognito-auth'
-import { AuthContext } from '@/context'
+import { Loader, AppNavContainer } from '@reapit/elements'
+import { ReapitConnectContext, useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from './connect-session'
 import ErrorBoundary from './error-boundary'
 
 const { Suspense } = React
@@ -10,42 +10,20 @@ const { Suspense } = React
 export type PrivateRouteWrapperProps = {}
 
 export const PrivateRouteWrapper: React.FC<PrivateRouteWrapperProps> = ({ children }) => {
-  const { loginSession, refreshParams, getLoginSession, isFetchSession } = React.useContext(AuthContext)
+  const session = useReapitConnect(reapitConnectBrowserSession)
 
-  if (!loginSession && !refreshParams) {
-    redirectToOAuth(window.reapit.config.cognitoClientId)
+  if (!session.connectSession) {
     return null
   }
-
-  if (!loginSession && refreshParams && !isFetchSession) {
-    getLoginSession(refreshParams)
-  }
-
-  if (!loginSession) {
-    return null
-  }
-
-  if (isFetchSession) {
-    return (
-      <Section>
-        <Loader />
-      </Section>
-    )
-  }
-
   return (
-    <AppNavContainer>
-      <Menu />
-      <Suspense
-        fallback={
-          <Section>
-            <Loader />
-          </Section>
-        }
-      >
-        <ErrorBoundary>{children}</ErrorBoundary>
-      </Suspense>
-    </AppNavContainer>
+    <ReapitConnectContext.Provider value={{ ...session }}>
+      <AppNavContainer>
+        <Menu />
+        <Suspense fallback={<Loader body />}>
+          <ErrorBoundary>{children}</ErrorBoundary>
+        </Suspense>
+      </AppNavContainer>
+    </ReapitConnectContext.Provider>
   )
 }
 
