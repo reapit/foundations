@@ -1,0 +1,9 @@
+{
+  "name": "@reapit/cra-template-foundations",
+  "version": "1.0.0-alpha.1",
+  "main": "./template.json",
+  "scripts": {
+    "build:prod": "echo\"not implement\"",
+    "lint:fix": "eslint --cache --ext=ts,tsx,js template --fix"
+  }
+}

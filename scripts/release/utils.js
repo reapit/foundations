@@ -335,7 +335,7 @@ const NPM_APPS = [
   'web-components',
   'elements-next',
   'connect-session',
-  'cra-external-template',
+  'cra-template-foundations',
 ]
 
 module.exports = {
