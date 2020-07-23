@@ -85,8 +85,12 @@ export const onSubmit = ({
   setIsSubmittedDebit: React.Dispatch<React.SetStateAction<boolean>>
 }) => (values: AccountsInformationFormValues) => {
   const { status, billingEmail, reapitReference, billingTelephone, billingKeyContact, hasReapitAccountsRef } = values
+
+  // currently has to manually set the status value
+  const shouldSetStatusToPending = hasReapitAccountsRef === 'yes' && reapitReference
+
   const dataToSubmit: UpdateDeveloperModel = {
-    status,
+    status: shouldSetStatusToPending ? 'pending' : status,
     // if user select "NO" in "DO YOU HAVE A REAPIT ACCOUNTS REF?", empty the value
     reapitReference: hasReapitAccountsRef === 'yes' ? reapitReference : '',
     billingEmail,
