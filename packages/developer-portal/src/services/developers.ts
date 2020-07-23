@@ -4,6 +4,8 @@ import {
   PagedResultDeveloperModel_,
   DeveloperModel,
   PagedResultMemberModel_,
+  MemberModel,
+  AcceptInviteModel,
 } from '@reapit/foundations-ts-definitions'
 import { fetcher } from '@reapit/elements'
 import { URLS } from './constants'
@@ -27,6 +29,21 @@ export type FetchDeveloperByIdParams = FetchByIdCommonParams
 export type UpdateDeveloperByIdParams = FetchByIdCommonParams & UpdateDeveloperModel
 
 export type FetchOrganisationMembersParams = FetchByIdCommonParams & FetchListCommonParams
+
+export type FetchMemberDetailsParams = {
+  developerId: string
+  memberId: string
+}
+
+export type RejectInviteMemberParams = {
+  developerId: string
+  memberId: string
+}
+
+export type AcceptInviteMemberParams = AcceptInviteModel & {
+  developerId: string
+  memberId: string
+}
 
 export const fetchDevelopersList = async (params: FetchDevelopersListParams): Promise<PagedResultDeveloperModel_> => {
   try {
@@ -131,7 +148,55 @@ export const inviteDeveloperAsOrgMemberApi = async (params: InviteDeveloperAsOrg
     })
     return response
   } catch (error) {
-    console.log({ error })
+    logger(error)
+    throw error?.response
+  }
+}
+
+export const fetchMemberDetails = async (params: FetchMemberDetailsParams): Promise<MemberModel> => {
+  try {
+    const { developerId, memberId } = params
+    const response = await fetcher({
+      url: `${URLS.developers}/${developerId}/members/${memberId}`,
+      api: window.reapit.config.marketplaceApiUrl,
+      method: 'GET',
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+    })
+    return response
+  } catch (error) {
+    logger(error)
+    throw error?.response
+  }
+}
+
+export const acceptInviteMember = async (params: AcceptInviteMemberParams) => {
+  try {
+    const { developerId, memberId, ...restParams } = params
+    const response = await fetcher({
+      url: `${URLS.developers}/${developerId}/members/${memberId}/accept`,
+      api: window.reapit.config.marketplaceApiUrl,
+      method: 'POST',
+      body: restParams,
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+    })
+    return response
+  } catch (error) {
+    logger(error)
+    throw error?.response
+  }
+}
+
+export const rejectInviteMember = async (params: RejectInviteMemberParams) => {
+  try {
+    const { developerId, memberId } = params
+    const response = await fetcher({
+      url: `${URLS.developers}/${developerId}/members/${memberId}/reject`,
+      api: window.reapit.config.marketplaceApiUrl,
+      method: 'POST',
+      headers: generateHeader(window.reapit.config.marketplaceApiKey),
+    })
+    return response
+  } catch (error) {
     logger(error)
     throw error?.response
   }

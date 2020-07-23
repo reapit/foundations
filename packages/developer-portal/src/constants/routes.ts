@@ -25,6 +25,7 @@ const Routes = {
   LOGIN: '/login',
   FOUR_O_FOUR: '/404',
   FORGOT_PASSWORD: '/forgot-password',
+  INVITE: '/invite',
 }
 
 export default Routes

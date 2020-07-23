@@ -20,17 +20,7 @@ const appState: ReduxState = {
     monthlyBilling: null,
     webhookPingTestStatus: null,
   },
-  developers: {
-    members: {
-      loading: false,
-      pagedResult: {
-        data: [],
-      },
-      inviteMember: {
-        loading: false,
-      },
-    },
-  },
+
   auth: {
     error: false,
     loginSession: {
@@ -230,6 +220,26 @@ const appState: ReduxState = {
       data: {
         data: [],
       },
+    },
+  },
+  developers: {
+    members: {
+      loading: false,
+      pagedResult: {
+        data: [],
+      },
+      inviteMember: {
+        loading: false,
+      },
+    },
+    developerDetails: {
+      loading: false,
+      data: {},
+    },
+    memberDetails: {
+      loading: false,
+      data: {},
+      inviteStatus: 'PENDING',
     },
   },
 }
