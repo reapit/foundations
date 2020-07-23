@@ -5,6 +5,7 @@ import { render } from 'react-dom'
 import ReactGA from 'react-ga'
 import { Config } from '@/types/global'
 import { getMarketplaceGlobalsByKey } from '@reapit/elements'
+import { logger } from '@reapit/utils'
 
 // Init global config
 window.reapit = {
@@ -61,7 +62,7 @@ const run = async () => {
 
     renderApp(App)
   } catch (error) {
-    console.error('Cannot fetch config', error)
+    logger(error)
   }
 }
 
