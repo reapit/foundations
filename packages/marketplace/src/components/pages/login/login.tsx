@@ -1,18 +1,14 @@
 import * as React from 'react'
-import { Redirect } from 'react-router-dom'
 import { Dispatch } from 'redux'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { showNotificationMessage } from '@/actions/notification-message'
-import { selectLoginSession, selectRefreshSession } from '@/selector/auth'
-import { redirectToLogin } from '@reapit/cognito-auth'
 import { Button, Level, FlexContainerBasic, Section } from '@reapit/elements'
-import { getDefaultRoute, getDefaultPath } from '@/utils/auth-route'
+import { getDefaultRoute } from '@/utils/auth-route'
 import messages from '@/constants/messages'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 import connectImage from '@/assets/images/reapit-connect.png'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-console.log({ reapitConnectBrowserSession })
 
 const { wrapper, container, image, registerLevel, loginButton } = loginStyles
 
@@ -31,32 +27,25 @@ export const handleShowNotificationAfterPasswordChanged = (
   }
 }
 
-export const onLoginButtonClick = () => {
-  const redirectRoute = getDefaultRoute()
-  redirectToLogin(window.reapit.config.cognitoClientId, redirectRoute)
+// FIXME: use cognito func: redirectToLogin
+// required: t
+export const onLoginButtonClick = (isFirstTimeLoginComplete: boolean) => {
+  return () => {
+    const redirectRoute = getDefaultRoute({ isFirstTimeLoginComplete })
+    // accept func
+    reapitConnectBrowserSession.connectLoginRedirect(redirectRoute)
+  }
 }
 
 export const Login: React.FunctionComponent<LoginProps> = () => {
   const dispatch = useDispatch()
-  // TODO(login) remove this, replace with session
-  // TESTME: able to redirect after login
-  const loginSession = useSelector(selectLoginSession)
-  const refreshSession = useSelector(selectRefreshSession)
-
   const isPasswordChanged = localStorage.getItem('isPasswordChanged') === 'true'
-  // TODO: use selector from useReapitConnect
-  const hasSession = !!loginSession || !!refreshSession
+  const isFirstTimeLoginComplete = Boolean(getCookieString(COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE))
   React.useEffect(handleShowNotificationAfterPasswordChanged(isPasswordChanged, localStorage, dispatch), [
     isPasswordChanged,
     localStorage,
     dispatch,
   ])
-
-  // TODO(login) this shit too
-  if (hasSession) {
-    const redirectRoute = getDefaultPath()
-    return <Redirect to={redirectRoute} />
-  }
 
   return (
     <div className={container}>

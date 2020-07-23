@@ -6,7 +6,8 @@ import configureStore from 'redux-mock-store'
 import { Login, handleShowNotificationAfterPasswordChanged, onLoginButtonClick } from '../login'
 import appState from '@/reducers/__stubs__/app-state'
 import { showNotificationMessage } from '@/actions/notification-message'
-import * as cognito from '@reapit/cognito-auth'
+// FIXME(t): spy
+import * as reapitConnectBrowserSessionModule from '@/core/connect-session'
 import messages from '@/constants/messages'
 import Routes from '@/constants/routes'
 import { ReduxState } from '@/types/core'
@@ -45,6 +46,7 @@ describe('Login', () => {
   })
   describe('handleShowNotificationAfterPasswordChanged', () => {
     it('should notify that the password has been changed', () => {
+      // FIXME(t): spy
       const spyLocalStorageRemoveItem = jest.spyOn(window.localStorage, 'removeItem')
       const fn = handleShowNotificationAfterPasswordChanged(true, localStorage, spyDispatch)
       fn()
@@ -57,8 +59,13 @@ describe('Login', () => {
 
   describe('onLoginButtonClick', () => {
     it('should run correctly', () => {
-      const spyRedirectToLogin = jest.spyOn(cognito, 'redirectToLogin')
-      onLoginButtonClick()
+      const spyRedirectToLogin = jest.spyOn(
+        reapitConnectBrowserSessionModule.reapitConnectBrowserSession,
+        'connectLoginRedirect',
+      )
+      const mockIsFirstTimeLoginComplete = true
+      const fn = onLoginButtonClick(mockIsFirstTimeLoginComplete)
+      fn()
       expect(spyRedirectToLogin).toBeCalled()
     })
   })
