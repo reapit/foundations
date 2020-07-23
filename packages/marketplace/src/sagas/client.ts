@@ -4,7 +4,7 @@ import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effec
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
-import { APPS_PER_PAGE, FEATURED_APPS } from '@/constants/paginator'
+import { BROWSE_APPS_PER_PAGE, FEATURED_APPS } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { selectClientId, selectFeaturedApps, selectDeveloperEditionId } from '@/selector/client'
 import { selectCategories } from '@/selector/app-categories'
@@ -31,30 +31,18 @@ export const clientDataFetch = function*({ data }) {
     // we will have to manually check it here
     // TODO: have the endpoint return a category id for Direct API apps as well
     const isFilteringForDirectApiApps = category === 'DIRECT_API_APPS_FILTER'
-    const shouldNotFetchFeatureApp = !!search || !!category
+    const shouldNotFetchFeaturedApps = !!search || !!category
     const shouldNotFetchCategories = currentCategories.length > DEFAULT_CATEGORY_LENGTH
 
-    const appsExternalAppId = isPreview
-      ? [
-          'u78db4v074cd35hfn0o22rjks',
-          '12cpo3fvuf5i64hmh6jtiiikck',
-          '61m5rglg0c7uhcvonits9te748',
-          '3utn4gi7hkhej04nohq4seaker',
-          '1pv68mhk7iggbmefhv7hd9619h',
-          '3qtpkra3ucouh6dnu7e8rjvjmp',
-          '5nclclrns6mfkqu4a3sgihfhp2',
-          '22a8l6mesohb8k6mqe3io483v8',
-          'cro58cpfh7hes4mi03mn1stk',
-          'c8gukq556ibvr0ol15a6i3o9d',
-          '2vats8l69ncaovvg0o8b6nrihd',
-        ]
-      : undefined
+    // PREVIEW APPS FEATURE when ?preview=true
+    const appsExternalAppIds = isPreview ? window.reapit.config.previewExternalAppIds : undefined
+    const featuredAppsExternalAppIds = isPreview ? window.reapit.config.previewFeaturedExternalAppIds : undefined
 
     const appsFetchParams = isPreview
       ? {
           pageNumber: page,
-          pageSize: APPS_PER_PAGE,
-          externalAppId: appsExternalAppId,
+          pageSize: BROWSE_APPS_PER_PAGE,
+          externalAppId: appsExternalAppIds,
         }
       : {
           clientId,
@@ -62,7 +50,7 @@ export const clientDataFetch = function*({ data }) {
           category: isFilteringForDirectApiApps ? undefined : category,
           [searchBy]: search,
           pageNumber: page,
-          pageSize: APPS_PER_PAGE,
+          pageSize: BROWSE_APPS_PER_PAGE,
           isFeatured: isFilteringForDirectApiApps ? undefined : false,
           isDirectApi: isFilteringForDirectApiApps ? true : undefined,
         }
@@ -72,7 +60,7 @@ export const clientDataFetch = function*({ data }) {
           pageNumber: DEFAULT_FEATURED_APP_PAGE_NUMBER,
           pageSize: FEATURED_APPS,
           isFeatured: true,
-          externalAppId: [],
+          externalAppId: featuredAppsExternalAppIds,
         }
       : {
           clientId,
@@ -85,7 +73,7 @@ export const clientDataFetch = function*({ data }) {
     const [apps, featuredApps, categories] = yield all([
       call(fetchAppsList, appsFetchParams),
 
-      shouldNotFetchFeatureApp ? currentFeaturedApps : call(fetchAppsList, featuredAppsFetchParams),
+      shouldNotFetchFeaturedApps ? currentFeaturedApps : call(fetchAppsList, featuredAppsFetchParams),
 
       shouldNotFetchCategories ? currentCategories : call(fetchCategoriesList, {}),
     ])

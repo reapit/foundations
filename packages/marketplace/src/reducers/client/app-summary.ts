@@ -18,6 +18,7 @@ export interface ClientAppSummaryParams {
   search?: string
   searchBy?: string
   category?: string
+  preview?: boolean
 }
 
 export interface ClientAppSummaryState {
