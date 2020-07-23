@@ -2,8 +2,9 @@
   "name": "@reapit/cra-template-foundations",
   "version": "1.0.0-alpha.2",
   "main": "./template.json",
+  "license": "ISC",
   "scripts": {
-    "build:prod": "echo\"not implement\"",
+    "build:prod": "echo \"not implement\"",
     "lint:fix": "eslint --cache --ext=ts,tsx,js template --fix"
   }
 }
