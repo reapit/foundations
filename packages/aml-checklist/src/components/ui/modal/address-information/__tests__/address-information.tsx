@@ -4,11 +4,12 @@ import { ReduxState } from '@/types/core'
 import { contact } from '@/sagas/__stubs__/contact'
 import {
   AddressInformation,
-  renderForm,
   handleMoreThreeYear,
   mapStateToProps,
   mapDispatchToProps,
   AddressInput,
+  renderYearOptions,
+  renderSencondaryAddress,
 } from '../address-information'
 
 describe('AddressInformation', () => {
@@ -24,19 +25,18 @@ describe('AddressInformation', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('renderForm', () => {
-    const mockProps = {
-      primaryAddress: contact.primaryAddress,
-      secondaryAddress: contact.secondaryAddress,
-      isShowMoreThreeYearInput: true,
-      setShowMoreThreeYearInput: jest.fn(),
-      isSubmitting: false,
-      onNextHandler: jest.fn(),
-      onPrevHandler: jest.fn(),
-    }
-    const fn = renderForm(mockProps)
-    const component = fn({ values: {} })
-    expect(component).toBeDefined()
+  describe('renderYearOptions', () => {
+    it('should run correctly', () => {
+      const result = renderYearOptions()
+      expect(result).toHaveLength(100)
+    })
+  })
+
+  describe('renderSencondaryAddress', () => {
+    it('should match snapshot', () => {
+      const wrapper = shallow(renderSencondaryAddress(contact.secondaryAddress, false, jest.fn()))
+      expect(wrapper).toMatchSnapshot()
+    })
   })
 
   it('handleMoreThreeYear', () => {

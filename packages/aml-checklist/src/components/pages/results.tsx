@@ -53,25 +53,24 @@ export const generateColumns = history => () => {
     {
       Header: 'Address',
       id: 'primaryAddress',
-      accessor: d => d,
+      accessor: 'primaryAddress',
       Cell: AddressCell,
     },
     {
       Header: 'Postcode',
       id: 'postcode',
-      accessor: d => d,
+      accessor: 'postcode',
       Cell: PostCodeCell,
     },
     {
       Header: 'Status',
       id: 'identityCheck',
-      accessor: d => d,
+      accessor: 'identityCheck',
       Cell: StatusCell,
     },
     {
       Header: '',
       id: 'action',
-      accessor: d => d,
       Cell: ButtonCell,
     },
   ]

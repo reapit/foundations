@@ -20,55 +20,6 @@ const optionsRiskAssessmentType = [
   { label: RISK_ASSESSMENT_TYPE.ENHANCED, value: RISK_ASSESSMENT_TYPE.ENHANCED },
 ]
 
-export const renderForm = ({ onNextHandler, onPrevHandler, isSubmitting }) => ({ values }) => {
-  return (
-    <Form>
-      <div>
-        <div>
-          <label className="label">Declaration Form</label>
-          <CameraImageInput
-            labelText={declarationFormField.label || ''}
-            id={declarationFormField.name}
-            name={declarationFormField.name}
-            allowClear={true}
-            isNarrowWidth
-          />
-        </div>
-        <SelectBox
-          labelText={typeField.label}
-          id={typeField.name}
-          name={typeField.name}
-          options={optionsRiskAssessmentType}
-          required
-        />
-        <Input type="text" labelText={reasonField.label} id={reasonField.name} name={reasonField.name} required />
-        <div>
-          <label className="label">Risk Assessment Form</label>
-          <CameraImageInput
-            labelText={riskAssessmentFormField.label || ''}
-            id={riskAssessmentFormField.name}
-            name={riskAssessmentFormField.name}
-            allowClear={true}
-            required
-            accept="image/*"
-          />
-        </div>
-      </div>
-      <div className={styles.footerBtn}>
-        <Button loading={isSubmitting} className="mr-2" variant="primary" type="submit">
-          Save
-        </Button>
-        <Button disabled={isSubmitting} className="mr-2" variant="primary" type="button" onClick={onPrevHandler}>
-          Previous
-        </Button>
-        <Button loading={isSubmitting} variant="primary" type="button" onClick={onNextHandler(values)}>
-          Finish
-        </Button>
-      </div>
-    </Form>
-  )
-}
-
 export type DeclarationAndRiskAssessmentProps = StateProps & DispatchProps
 
 export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessmentProps> = ({
@@ -96,12 +47,88 @@ export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessment
 
   return (
     <div>
-      <Formik initialValues={initialValues} onSubmit={onHandleSubmit} validationSchema={validationSchema}>
-        {renderForm({
-          onNextHandler,
-          onPrevHandler,
-          isSubmitting,
-        })}
+      <Formik
+        initialValues={initialValues}
+        validateOnMount
+        onSubmit={onHandleSubmit}
+        validationSchema={validationSchema}
+      >
+        {({ values, isValid }) => {
+          return (
+            <Form>
+              <div>
+                <div>
+                  <label className="label">Declaration Form</label>
+                  <CameraImageInput
+                    labelText={declarationFormField.label || ''}
+                    id={declarationFormField.name}
+                    name={declarationFormField.name}
+                    allowClear={true}
+                    isNarrowWidth
+                  />
+                </div>
+                <SelectBox
+                  labelText={typeField.label}
+                  id={typeField.name}
+                  name={typeField.name}
+                  options={optionsRiskAssessmentType}
+                  required
+                />
+                <Input
+                  type="text"
+                  labelText={reasonField.label}
+                  id={reasonField.name}
+                  name={reasonField.name}
+                  required
+                />
+                <div>
+                  <label className="label">Risk Assessment Form</label>
+                  <CameraImageInput
+                    labelText={riskAssessmentFormField.label || ''}
+                    id={riskAssessmentFormField.name}
+                    name={riskAssessmentFormField.name}
+                    allowClear={true}
+                    required
+                    accept="image/*"
+                  />
+                </div>
+              </div>
+              <div className="field pb-2">
+                <div className={`columns ${styles.reverseColumns}`}>
+                  <div className={`column ${styles.btnContainer}`}>
+                    <Button
+                      loading={isSubmitting}
+                      disabled={isSubmitting || !isValid}
+                      className="mr-2"
+                      variant="primary"
+                      type="submit"
+                    >
+                      Save
+                    </Button>
+                    <Button
+                      disabled={isSubmitting}
+                      className="mr-2"
+                      variant="primary"
+                      type="button"
+                      onClick={onPrevHandler}
+                    >
+                      Previous
+                    </Button>
+                    <Button
+                      loading={isSubmitting}
+                      disabled={isSubmitting || !isValid}
+                      variant="primary"
+                      type="button"
+                      onClick={onNextHandler(values)}
+                    >
+                      Finish
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </Form>
+          )
+        }}
       </Formik>
     </div>
   )

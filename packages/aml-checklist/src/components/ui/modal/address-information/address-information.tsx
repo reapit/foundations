@@ -29,7 +29,7 @@ const optionsMonth = [
 const MIN_NUMBER_OF_YEARS = 1
 const MAX_NUMBER_OF_YEARS = 100
 
-const renderYearOptions = () => {
+export const renderYearOptions = () => {
   let i
   const yearArray: SelectBoxOptions[] = []
   for (i = MIN_NUMBER_OF_YEARS; i <= MAX_NUMBER_OF_YEARS; i++) {
@@ -163,32 +163,6 @@ export const renderSencondaryAddress = (secondaryAddress, isShowMoreThreeYearInp
   )
 }
 
-export const renderForm = ({
-  secondaryAddress,
-  isSubmitting,
-  isShowMoreThreeYearInput,
-  setShowMoreThreeYearInput,
-  onNextHandler,
-  onPrevHandler,
-}) => ({ values }) => (
-  <Form>
-    <AddressInput addressType="primaryAddress" />
-    {renderSencondaryAddress(secondaryAddress, isShowMoreThreeYearInput, setShowMoreThreeYearInput)}
-    <div className={styles.footerBtn}>
-      <Button loading={isSubmitting} className="mr-2" variant="primary" type="submit">
-        Save
-      </Button>
-      <Button disabled={isSubmitting} className="mr-2" variant="primary" type="button" onClick={onPrevHandler}>
-        Previous
-      </Button>
-      <Button disabled={isSubmitting} variant="primary" type="button" onClick={onNextHandler(values)}>
-        Next
-      </Button>
-    </div>
-    <p className="is-size-6">* Indicates fields that are required in order to ‘Complete’ this section.</p>
-  </Form>
-)
-
 export type AddressInformationProps = DispatchProps & StateProps
 
 export const generateMetadata = secondaryAddress => {
@@ -227,6 +201,7 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
   return (
     <div>
       <Formik
+        validateOnMount
         initialValues={{
           primaryAddress,
           secondaryAddress,
@@ -235,14 +210,47 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
         onSubmit={onHandleSubmit}
         validationSchema={validationSchema}
       >
-        {renderForm({
-          secondaryAddress,
-          isShowMoreThreeYearInput,
-          setShowMoreThreeYearInput,
-          onNextHandler,
-          onPrevHandler,
-          isSubmitting,
-        })}
+        {({ values, isValid }) => {
+          return (
+            <Form>
+              <AddressInput addressType="primaryAddress" />
+              {renderSencondaryAddress(secondaryAddress, isShowMoreThreeYearInput, setShowMoreThreeYearInput)}
+              <div className="field pb-2">
+                <div className={`columns ${styles.reverseColumns}`}>
+                  <div className={`column ${styles.btnContainer}`}>
+                    <Button
+                      loading={isSubmitting}
+                      disabled={isSubmitting || !isValid}
+                      className="mr-2"
+                      variant="primary"
+                      type="submit"
+                    >
+                      Save
+                    </Button>
+                    <Button
+                      disabled={isSubmitting}
+                      className="mr-2"
+                      variant="primary"
+                      type="button"
+                      onClick={onPrevHandler}
+                    >
+                      Previous
+                    </Button>
+                    <Button
+                      disabled={isSubmitting || !isValid}
+                      variant="primary"
+                      type="button"
+                      onClick={onNextHandler(values)}
+                    >
+                      Next
+                    </Button>
+                  </div>
+                </div>
+              </div>
+              <p className="is-size-6">* Indicates fields that are required in order to ‘Complete’ this section.</p>
+            </Form>
+          )
+        }}
       </Formik>
     </div>
   )
@@ -269,7 +277,6 @@ export type DispatchProps = {
 export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     onHandleSubmit: (values: any) => {
-      console.log({ values })
       dispatch(updateAddressHistory({ contact: values }))
     },
     onNextHandler: (values: any) => () =>
