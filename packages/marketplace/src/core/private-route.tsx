@@ -9,7 +9,6 @@ import { LoginType, LoginIdentity } from '@reapit/cognito-auth'
 import { selectLoginIdentity, selectLoginType } from '@/selector/auth'
 import { authChangeLoginType } from '@/actions/auth'
 import Routes from '@/constants/routes'
-import { getAccessToken } from '@/utils/session'
 
 export interface PrivateRouteProps {
   allow: LoginType | LoginType[]
@@ -38,6 +37,7 @@ export const isNotAllowedToAccess = (allow: LoginType | LoginType[], loginIdenti
  * developer login marketplace
  * admin login marketplace
  */
+// TODO: remove
 export const handleChangeLoginType = (
   loginType: LoginType,
   allow: LoginType | LoginType[],
@@ -87,11 +87,6 @@ export const handleRedirectToAuthenticationPage = (
   }
 }
 
-// FIXME: remove this behavior
-export const fetchAccessToken = async () => {
-  await getAccessToken()
-}
-
 export const PrivateRoute = ({ component, allow, fetcher = false, ...rest }: PrivateRouteProps & RouteProps) => {
   const [isFetchingAccessToken, setFetchingAccessToken] = React.useState(true)
   const dispatch = useDispatch()
@@ -99,14 +94,8 @@ export const PrivateRoute = ({ component, allow, fetcher = false, ...rest }: Pri
   const loginIdentity = useSelector(selectLoginIdentity)
   const loginType = useSelector(selectLoginType)
 
-  React.useEffect(() => {
-    fetchAccessToken().then(() => {
-      setFetchingAccessToken(false)
-    })
-  }, [])
-
   /**
-   * FIXME: remove this
+   * FIXME(remove connect session): remove this
    */
   React.useEffect(handleChangeLoginType(loginType, allow, dispatch, loginIdentity, isFetchingAccessToken), [
     allow,
@@ -116,6 +105,9 @@ export const PrivateRoute = ({ component, allow, fetcher = false, ...rest }: Pri
     isFetchingAccessToken,
   ])
 
+  /**
+   * FIXME(remove connect session): remove this
+   */
   React.useEffect(handleRedirectToAuthenticationPage(allow, history, loginIdentity, isFetchingAccessToken), [
     loginIdentity,
     allow,
@@ -123,6 +115,7 @@ export const PrivateRoute = ({ component, allow, fetcher = false, ...rest }: Pri
     isFetchingAccessToken,
   ])
 
+  // Remove this
   if (isFetchingAccessToken) {
     return null
   }
@@ -130,6 +123,7 @@ export const PrivateRoute = ({ component, allow, fetcher = false, ...rest }: Pri
     <Route
       {...rest}
       render={props => {
+        // purge this one too
         if (isNotAllowedToAccess(allow, loginIdentity)) {
           return <Redirect to="/404" />
         }

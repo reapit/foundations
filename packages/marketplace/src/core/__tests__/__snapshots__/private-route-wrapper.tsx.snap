@@ -1,5 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+<<<<<<< HEAD
 exports[`PrivateRouteWrapper should match snapshot 1`] = `
 <Component>
   <Component />
@@ -22,3 +23,6 @@ exports[`PrivateRouteWrapper should match snapshot 1`] = `
   </Component>
 </Component>
 `;
+=======
+exports[`PrivateRouteWrapper should match snapshot 1`] = `""`;
+>>>>>>> chore: #2125 remove session utils (wip - no test)
