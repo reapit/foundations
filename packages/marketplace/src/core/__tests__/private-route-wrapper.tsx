@@ -74,7 +74,6 @@ describe('PrivateRouteWrapper', () => {
     expect(useSelector).toHaveBeenCalledWith(selectLoginSession)
     expect(useSelector).toHaveBeenCalledWith(selectRefreshSession)
     expect(useLocation).toHaveBeenCalled()
-    // expect(getCookieString).toHaveBeenCalledWith(COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE)
     expect(getTokenFromQueryString).toHaveBeenCalledWith(
       locationMock.search,
       window.reapit.config.cognitoClientId,
