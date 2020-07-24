@@ -84,7 +84,7 @@ export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessment
                 <div>
                   <label className="label">Risk Assessment Form</label>
                   <CameraImageInput
-                    labelText={riskAssessmentFormField.label || ''}
+                    labelText={riskAssessmentFormField.label}
                     id={riskAssessmentFormField.name}
                     name={riskAssessmentFormField.name}
                     allowClear={true}

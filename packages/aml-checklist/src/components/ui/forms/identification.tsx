@@ -66,7 +66,7 @@ export const Identification: React.FC<IdentificationProps> = ({
             </p>
           )}
           <Form>
-            <SelectIdentity id={typeIdField.name} name={typeIdField.name} labelText={typeIdField.label || ''} />
+            <SelectIdentity id={typeIdField.name} name={typeIdField.name} labelText={typeIdField.label} />
             <Input
               id={detailsField.name}
               name={detailsField.name}
@@ -79,7 +79,7 @@ export const Identification: React.FC<IdentificationProps> = ({
             <CameraImageInput
               id={documentIdField.name}
               name={documentIdField.name}
-              labelText={documentIdField.label || ''}
+              labelText={documentIdField.label}
               allowClear={true}
               inputProps={{ disabled: disabled }}
               required
