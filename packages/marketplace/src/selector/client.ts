@@ -7,6 +7,7 @@ import { InstalledAppsState } from '@/reducers/installed-apps'
 import { ClientAppSummaryState } from '@/reducers/client/app-summary'
 import { selectLoginIdentity } from '@/selector/auth'
 import { COGNITO_GROUP_DEVELOPER_EDITION } from '@/constants/api'
+import { ReapitConnectSession } from '@reapit/connect-session'
 
 // FIXME(selectClientId)Remove this
 export const selectClientId = (state: ReduxState) => {
@@ -20,6 +21,7 @@ export const selectClientId = (state: ReduxState) => {
  */
 
 // update this function to accept
+// FIXME(selectDeveloperEditionId)
 export const selectDeveloperEditionId = (state: ReduxState) => {
   const loginIdentity = selectLoginIdentity(state)
   if (loginIdentity?.groups.includes(COGNITO_GROUP_DEVELOPER_EDITION)) {
@@ -28,8 +30,9 @@ export const selectDeveloperEditionId = (state: ReduxState) => {
   return null
 }
 
-export const selectLoggedUserEmail = (state: ReduxState): string => {
-  return state?.auth?.loginSession?.loginIdentity?.email || ''
+// FIXME(selectLoggedUserEmail)
+export const selectLoggedUserEmail = (state: ReapitConnectSession | null): string => {
+  return state?.loginIdentity?.email || ''
 }
 
 export const selectAppSummary = (state: ReduxState): ClientAppSummaryState => {

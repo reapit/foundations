@@ -9,7 +9,7 @@ import { BROWSE_APPS_PER_PAGE } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
-import { selectClientId, selectFeaturedApps, selectDeveloperEditionId } from '@/selector/client'
+import { selectFeaturedApps, selectDeveloperEditionId } from '@/selector/client'
 import { selectCategories } from '@/selector/app-categories'
 import {
   PagedResultCategoryModel_,
@@ -20,7 +20,7 @@ import { appCategorieStub } from '../__stubs__/app-categories'
 import { fetchAppsList } from '@/services/apps'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { ReapitConnectSession } from '@reapit/connect-session'
-import { selectClientIdFromHook } from '@/selector/auth'
+import { selectClientId } from '@/selector/auth'
 
 jest.mock('@/services/apps')
 jest.mock('@/services/categories')
@@ -39,7 +39,7 @@ describe('clientDataFetch', () => {
 
     expect(clone.next().value).toEqual(call(reapitConnectBrowserSession.connectSession))
     expect(clone.next(connectSession).value).toEqual(
-      call(selectClientIdFromHook, (connectSession as unknown) as ReapitConnectSession),
+      call(selectClientId, (connectSession as unknown) as ReapitConnectSession),
     )
     expect(clone.next(clientId).value).toEqual(select(selectCategories))
 
@@ -122,7 +122,7 @@ describe('client fetch data error', () => {
 
   expect(gen.next().value).toEqual(call(reapitConnectBrowserSession.connectSession))
   expect(gen.next(connectSession).value).toEqual(
-    call(selectClientIdFromHook, (connectSession as unknown) as ReapitConnectSession),
+    call(selectClientId, (connectSession as unknown) as ReapitConnectSession),
   )
 
   if (!gen.throw) throw new Error('Generator object cannot throw')

@@ -4,7 +4,8 @@ import store from '@/core/store'
 import { clientFetchAppSummary, clientFetchAppDetail } from '../actions/client'
 import { myAppsRequestData } from '../actions/my-apps'
 import { installedAppsRequestData } from '../actions/installed-apps'
-import { selectClientId } from '@/selector/client'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { selectClientId } from '@/selector/auth'
 
 // PR
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
@@ -13,16 +14,17 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
   const page = queryParams.get('page') ? Number(queryParams.get('page')) : 1
   // preview apps feature
   const preview = queryParams.get('preview') ? true : false
+  const connectSession = await reapitConnectBrowserSession.connectSession()
+  const clientId = connectSession ? selectClientId(connectSession) : ''
 
   switch (route) {
     case Routes.APPS:
       store.dispatch(clientFetchAppSummary({ page: 1, preview }))
       break
     // FIXME(selectClientId)
-    // should fetch app_detail
+    // should fetch app_detail when install, uninstall
     case Routes.APP_DETAIL: {
       if (id) {
-        const clientId = selectClientId(store.state)
         store.dispatch(clientFetchAppDetail({ id, clientId }))
       }
       break
@@ -31,7 +33,6 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
     // should fetch data of app manage Page detail
     case Routes.APP_DETAIL_MANAGE: {
       if (id) {
-        const clientId = selectClientId(store.state)
         store.dispatch(clientFetchAppDetail({ id, clientId }))
       }
       break

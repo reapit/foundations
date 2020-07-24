@@ -14,7 +14,7 @@ import errorMessages from '@/constants/error-messages'
 import { selectDeveloperEditionId } from '@/selector/client'
 import { fetchAppsList } from '@/services/apps'
 import { INSTALLED_APPS_PERPAGE } from '@/constants/paginator'
-import { selectClientIdFromHook } from '@/selector/auth'
+import { selectClientId } from '@/selector/auth'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { ReapitConnectSession } from '@reapit/connect-session'
 
@@ -33,7 +33,7 @@ describe('installed-apps fetch data', () => {
 
   expect(gen.next().value).toEqual(call(reapitConnectBrowserSession.connectSession))
   expect(gen.next(connectSession).value).toEqual(
-    call(selectClientIdFromHook, (connectSession as unknown) as ReapitConnectSession),
+    call(selectClientId, (connectSession as unknown) as ReapitConnectSession),
   )
 
   expect(gen.next(clientId).value).toEqual(select(selectDeveloperEditionId))
@@ -67,7 +67,7 @@ describe('installed-apps fetch data error', () => {
   expect(gen.next().value).toEqual(put(installedAppsLoading(true)))
   expect(gen.next().value).toEqual(call(reapitConnectBrowserSession.connectSession))
   expect(gen.next(connectSession).value).toEqual(
-    call(selectClientIdFromHook, (connectSession as unknown) as ReapitConnectSession),
+    call(selectClientId, (connectSession as unknown) as ReapitConnectSession),
   )
 
   if (!gen.throw) throw new Error('Generator object cannot throw')

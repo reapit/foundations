@@ -9,12 +9,13 @@ import { Button, Modal } from '@reapit/elements'
 import { clientFetchAppDetail } from '@/actions/client'
 import { appInstallationsRequestUninstall } from '@/actions/app-installations'
 import CallToAction from '../../../ui/call-to-action'
-import { selectClientId } from '@/selector/client'
 import { selectInstallationFormState } from '@/selector/installations'
 import routes from '@/constants/routes'
-import { selectIsDesktopMode } from '@/selector/auth'
+import { selectIsDesktopMode, selectClientId } from '@/selector/auth'
 import { DESKTOP_REFRESH_URL } from '@/constants/desktop-urls'
 import { canGoBack } from '@/utils/router-helper'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export type AppUninstallConfirmationProps = {
   appDetailData?: AppDetailModel
@@ -141,7 +142,8 @@ const AppUninstallConfirmation: React.FC<AppUninstallConfirmationProps> = ({
   const history = useHistory()
   // FIXME(selectClientId)
   // Refetch app after un-install
-  const clientId = useSelector(selectClientId)
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const clientId = selectClientId(connectSession)
   const installationFormState = useSelector(selectInstallationFormState)
   const isDesktopMode = useSelector(selectIsDesktopMode)
   const isSubmitting = installationFormState === 'SUBMITTING'

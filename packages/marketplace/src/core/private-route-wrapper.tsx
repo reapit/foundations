@@ -61,6 +61,8 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
   // FIXME: remove this
 
+  console.log({ nghia: session.connectSession })
+
   if (!session.connectSession) {
     return null
   }

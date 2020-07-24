@@ -3,7 +3,6 @@ import {
   selectIsAdmin,
   selectLoginIdentity,
   selectLoginSession,
-  selectClientId,
   selectRefreshSession,
   selectIsTermAccepted,
   selectIsDesktopMode,
@@ -36,13 +35,6 @@ describe('selectLoginSession', () => {
   it('should run correctly', () => {
     const result = selectLoginSession(appState)
     expect(result).toEqual(appState.auth.loginSession)
-  })
-})
-
-describe('selectClientId', () => {
-  it('should run correctly', () => {
-    const result = selectClientId(appState)
-    expect(result).toEqual(appState.auth.loginSession?.loginIdentity?.clientId)
   })
 })
 

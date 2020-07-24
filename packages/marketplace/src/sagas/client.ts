@@ -14,7 +14,7 @@ import { fetchAppsList } from '@/services/apps'
 import { fetchCategoriesList } from '@/services/categories'
 import { getNumberOfItems } from '@/utils/browse-app'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { selectClientIdFromHook } from '@/selector/auth'
+import { selectClientId } from '@/selector/auth'
 
 const DEFAULT_CATEGORY_LENGTH = 1
 const DEFAULT_FEATURED_APP_PAGE_NUMBER = 1
@@ -24,12 +24,14 @@ export const clientDataFetch = function*({ data }) {
     const { page, search, category, searchBy, preview: isPreview } = data
     const connectSession = yield call(reapitConnectBrowserSession.connectSession)
 
-    const clientId = yield call(selectClientIdFromHook, connectSession)
+    const clientId = yield call(selectClientId, connectSession)
     if (!clientId) {
       return
     }
     const currentCategories = yield select(selectCategories)
     const currentFeaturedApps = yield select(selectFeaturedApps)
+    // FIXME(selectDeveloperEditionId)
+    // !? input dev id on API
     const developerId = yield select(selectDeveloperEditionId)
 
     // because the https://dev.platformmarketplace.reapit.net/categories endpoint does not return a filter for Direct API so

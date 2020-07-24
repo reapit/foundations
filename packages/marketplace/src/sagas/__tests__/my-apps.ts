@@ -11,7 +11,7 @@ import { selectDeveloperEditionId } from '@/selector/client'
 import { errorThrownServer } from '@/actions/error'
 import { fetchAppsList } from '@/services/apps'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { selectClientIdFromHook } from '@/selector/auth'
+import { selectClientId } from '@/selector/auth'
 import { ReapitConnectSession } from '@reapit/connect-session'
 // FIXME: import mock browser session
 // log
@@ -32,7 +32,7 @@ describe('my-apps fetch data', () => {
   //
   expect(gen.next().value).toEqual(call(reapitConnectBrowserSession.connectSession))
   expect(gen.next(connectSession).value).toEqual(
-    call(selectClientIdFromHook, (connectSession as unknown) as ReapitConnectSession),
+    call(selectClientId, (connectSession as unknown) as ReapitConnectSession),
   )
   ///
   expect(gen.next(clientId).value).toEqual(select(selectDeveloperEditionId))
@@ -65,7 +65,7 @@ describe('my-apps fetch data error', () => {
   expect(gen.next().value).toEqual(put(myAppsLoading(true)))
   expect(gen.next().value).toEqual(call(reapitConnectBrowserSession.connectSession))
   expect(gen.next(connectSession).value).toEqual(
-    call(selectClientIdFromHook, (connectSession as unknown) as ReapitConnectSession),
+    call(selectClientId, (connectSession as unknown) as ReapitConnectSession),
   )
 
   expect(gen.next().value).toEqual(

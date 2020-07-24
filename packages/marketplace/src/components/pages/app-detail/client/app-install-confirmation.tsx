@@ -9,12 +9,13 @@ import { appInstallationsRequestInstall } from '@/actions/app-installations'
 import { clientFetchAppDetail } from '@/actions/client'
 import { Dispatch } from 'redux'
 import CallToAction from '../../../ui/call-to-action'
-import { selectClientId } from '@/selector/client'
 import routes from '@/constants/routes'
 import { selectInstallationFormState } from '@/selector/installations'
-import { selectIsDesktopMode } from '@/selector/auth'
+import { selectIsDesktopMode, selectClientId } from '@/selector/auth'
 import { DESKTOP_REFRESH_URL } from '@/constants/desktop-urls'
 import { canGoBack } from '@/utils/router-helper'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export type AppInstallConfirmationProps = {
   appDetailData?: AppDetailModel
@@ -143,7 +144,9 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
   const history = useHistory()
   const [isSuccessAlertVisible, setIsSuccessAlertVisible] = React.useState(false)
   // FIXME(selectClientId):
-  const clientId = useSelector(selectClientId)
+  // able to install show install after install
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const clientId = selectClientId(connectSession)
   const installationFormState = useSelector(selectInstallationFormState)
   // FIXME(selectIsDesktopMode):
   // App refresh correct on desktop mode after install

@@ -9,15 +9,15 @@ export const selectLoginIdentity = (state: ReduxState) => {
   return state.auth.loginSession?.loginIdentity
 }
 
-export const selectClientId = (state: ReduxState) => {
-  return state.auth.loginSession?.loginIdentity.clientId
-}
-
 /**
  * FIXME(u se)
  * selectIsAdmin
  * replace with one later
  * fix test
+ */
+
+/**
+ * TODO: selector
  */
 export const selectIsAdminFromHook = (state: ReapitConnectSession | null) => {
   return Boolean(state?.loginIdentity.adminId) || false
@@ -28,7 +28,7 @@ export const selectIsAdmin = (state: ReduxState) => {
 }
 
 // a: create select developer id
-export const selectClientIdFromHook = (state: ReapitConnectSession | null): string => {
+export const selectClientId = (state: ReapitConnectSession | null): string => {
   return state?.loginIdentity.clientId || ''
 }
 

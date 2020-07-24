@@ -9,12 +9,7 @@ import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
 import { selectIntegrationTypes } from '@/selector/integration-types'
 import { useSelector } from 'react-redux'
 import { selectAppDetailData, selectAppDetailLoading } from '@/selector/client-app-detail'
-import {
-  selectLoginType,
-  selectClientIdFromHook,
-  selectIsAdminFromHook,
-  selectDeveloperIdFromHook,
-} from '@/selector/auth'
+import { selectLoginType, selectClientId, selectIsAdminFromHook, selectDeveloperIdFromHook } from '@/selector/auth'
 import { canGoBack } from '@/utils/router-helper'
 import AppContent from './app-content'
 import { Loader, GridItem, Grid, Section } from '@reapit/elements'
@@ -119,8 +114,8 @@ const AppDetail: React.FC = () => {
   const loginType = useSelector(selectLoginType)
 
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const isClient = Boolean(selectClientId(connectSession))
   const isDeveloperEdition = Boolean(selectDeveloperIdFromHook(connectSession))
-  const isClient = Boolean(selectClientIdFromHook(connectSession))
   const isDesktopAdmin = selectIsAdminFromHook(connectSession)
 
   // TESTME: show btn hidden when not admin

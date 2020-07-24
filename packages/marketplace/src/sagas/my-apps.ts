@@ -9,7 +9,7 @@ import { selectDeveloperEditionId } from '@/selector/client'
 import { logger } from '@reapit/utils'
 import { fetchAppsList } from '@/services/apps'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { selectClientIdFromHook } from '@/selector/auth'
+import { selectClientId } from '@/selector/auth'
 import { CLIENT_ID_NOT_FOUND_ERROR } from '@/constants/errors'
 
 export const myAppsDataFetch = function*({ data: page }) {
@@ -20,11 +20,12 @@ export const myAppsDataFetch = function*({ data: page }) {
     // should fetch data of app manage Page
     // required t
     const connectSession = yield call(reapitConnectBrowserSession.connectSession)
-
-    const clientId = yield call(selectClientIdFromHook, connectSession)
+    const clientId = yield call(selectClientId, connectSession)
     if (!clientId) {
       throw CLIENT_ID_NOT_FOUND_ERROR
     }
+    // FIXME(selectDeveloperEditionId)
+    // !? input dev id on API
     const developerId = yield select(selectDeveloperEditionId)
     const response = yield call(fetchAppsList, {
       clientId,
