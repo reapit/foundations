@@ -6,13 +6,15 @@ import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { FEATURED_APPS } from '@/constants/paginator'
 import { Action } from '@/types/core'
-import { selectClientId, selectFeaturedApps, selectDeveloperEditionId } from '@/selector/client'
+import { selectFeaturedApps, selectDeveloperEditionId } from '@/selector/client'
 import { selectCategories } from '@/selector/app-categories'
 import { ClientAppSummary, ClientAppSummaryParams } from '@/reducers/client/app-summary'
 import { logger } from '@reapit/utils'
 import { fetchAppsList } from '@/services/apps'
 import { fetchCategoriesList } from '@/services/categories'
 import { getNumberOfItems } from '@/utils/browse-app'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { selectClientIdFromHook } from '@/selector/auth'
 
 const DEFAULT_CATEGORY_LENGTH = 1
 const DEFAULT_FEATURED_APP_PAGE_NUMBER = 1
@@ -20,7 +22,9 @@ const DEFAULT_FEATURED_APP_PAGE_NUMBER = 1
 export const clientDataFetch = function*({ data }) {
   try {
     const { page, search, category, searchBy, preview: isPreview } = data
-    const clientId = yield select(selectClientId)
+    const connectSession = yield call(reapitConnectBrowserSession.connectSession)
+
+    const clientId = yield call(selectClientIdFromHook, connectSession)
     if (!clientId) {
       return
     }
