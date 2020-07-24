@@ -60,6 +60,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   const location = useLocation()
 
   // FIXME: remove this
+
   if (!session.connectSession) {
     return null
   }
@@ -69,9 +70,6 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     return <Redirect to={path} />
   }
 
-  // FIXME: remove this
-
-  // FIXME: wrap context
   return (
     <AppNavContainer>
       {showMenu && <Menu />}

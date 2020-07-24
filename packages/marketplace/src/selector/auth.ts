@@ -1,4 +1,5 @@
 import { ReduxState } from '@/types/core'
+import { ReapitConnectSession } from '@reapit/connect-session'
 
 export const selectLoginType = (state: ReduxState) => {
   return state.auth.loginType
@@ -12,8 +13,22 @@ export const selectClientId = (state: ReduxState) => {
   return state.auth.loginSession?.loginIdentity.clientId
 }
 
+/**
+ * FIXME(u se)
+ * selectIsAdmin
+ * replace with one later
+ * fix test
+ */
+export const selectIsAdminFromHook = (state: ReapitConnectSession | null) => {
+  return Boolean(state?.loginIdentity.adminId) || false
+}
+
 export const selectIsAdmin = (state: ReduxState) => {
   return state.auth?.loginSession?.loginIdentity?.isAdmin || false
+}
+
+export const selectDeveloperIdFromHook = (state: ReapitConnectSession | null): string => {
+  return Boolean(state?.loginIdentity.developerId || '')
 }
 
 export const selectDeveloperId = (state: ReduxState): string => {

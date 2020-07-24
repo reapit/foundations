@@ -5,11 +5,13 @@ import { useSelector, useDispatch } from 'react-redux'
 import { authLogout } from '@/actions/auth'
 import { selectClientId, selectIsDesktopMode } from '@/selector/auth'
 
+// clean
 export const handleLogout = (dispatch: Dispatch) => () => {
   dispatch(authLogout())
 }
 
 export const Settings: React.FC = () => {
+  // s get hook
   const dispatch = useDispatch()
   const customerId = useSelector(selectClientId)
   const isDesktopMode = useSelector(selectIsDesktopMode)

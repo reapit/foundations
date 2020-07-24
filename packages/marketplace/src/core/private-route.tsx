@@ -88,7 +88,8 @@ export const handleRedirectToAuthenticationPage = (
 }
 
 export const PrivateRoute = ({ component, allow, fetcher = false, ...rest }: PrivateRouteProps & RouteProps) => {
-  const [isFetchingAccessToken, setFetchingAccessToken] = React.useState(true)
+  // TODO(remove connnect session remove this)
+  const [isFetchingAccessToken] = React.useState(false)
   const dispatch = useDispatch()
   const history = useHistory()
   const loginIdentity = useSelector(selectLoginIdentity)

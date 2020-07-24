@@ -109,6 +109,7 @@ const AppDetail: React.FC = () => {
   const isDesktopAdmin = useSelector(selectIsAdmin)
   const isDeveloperEdition = Boolean(useSelector(selectDeveloperEditionId))
 
+  // TESTME: show btn hidden
   const isAdmin = isDesktopAdmin || isDeveloperEdition
   const isInstallBtnHidden = loginType === 'CLIENT' && !isAdmin
   // selector selectAppDetailData return {} if not data
