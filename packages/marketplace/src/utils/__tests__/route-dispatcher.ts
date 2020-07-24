@@ -14,7 +14,7 @@ jest.mock('../../sagas/client')
 describe('routeDispatcher', () => {
   it('should dispatch to clientFetchAppSummaryclientFetchAppSummary for the client route', async () => {
     await routeDispatcher(Routes.APPS as RouteValue)
-    expect(store.dispatch).toHaveBeenCalledWith(clientFetchAppSummary({ page: 1 }))
+    expect(store.dispatch).toHaveBeenCalledWith(clientFetchAppSummary({ page: 1, preview: false }))
   })
 
   it('should dispatch to installedAppsRequestData for the installed-apps route', async () => {

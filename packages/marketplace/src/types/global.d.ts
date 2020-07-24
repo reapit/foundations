@@ -19,6 +19,8 @@ export type Config = {
   apiDocDesktop: string
   developerPortalUrl: string
   adminPortalUrl: string
+  previewExternalAppIds: string[]
+  previewFeaturedExternalAppIds: string[]
 }
 
 declare global {

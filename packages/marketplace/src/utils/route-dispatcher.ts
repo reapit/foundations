@@ -10,10 +10,12 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
   const id = params && params.appid ? params.appid : ''
   const queryParams = new URLSearchParams(search)
   const page = queryParams.get('page') ? Number(queryParams.get('page')) : 1
+  // preview apps feature
+  const preview = queryParams.get('preview') ? true : false
 
   switch (route) {
     case Routes.APPS:
-      store.dispatch(clientFetchAppSummary({ page: 1 }))
+      store.dispatch(clientFetchAppSummary({ page: 1, preview }))
       break
     case Routes.APP_DETAIL: {
       if (id) {

@@ -34,6 +34,8 @@ window.reapit = {
     apiDocDesktop: '',
     developerPortalUrl: '',
     adminPortalUrl: '',
+    previewExternalAppIds: [],
+    previewFeaturedExternalAppIds: [],
   },
 }
 

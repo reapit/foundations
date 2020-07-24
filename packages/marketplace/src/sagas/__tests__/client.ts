@@ -65,6 +65,47 @@ describe('clientDataFetch', () => {
     expect(clone.next().value).toEqual(put(categoriesReceiveData(response[2] as PagedResultCategoryModel_)))
     expect(clone.next().done).toBe(true)
   })
+
+  it('should work when ?preview=true ', () => {
+    ;(global as any).window.reapit.config = {
+      previewExternalAppIds: ['id1'],
+      previewFeaturedExternalAppIds: ['id2'],
+    }
+    const gen = cloneableGenerator(clientDataFetch as any)({
+      data: {
+        ...params.data,
+        preview: true,
+      },
+    })
+    const clone = gen.clone()
+    expect(clone.next().value).toEqual(select(selectClientId))
+    expect(clone.next(clientId).value).toEqual(select(selectCategories))
+    expect(clone.next(appCategorieStub.data).value).toEqual(select(selectFeaturedApps))
+    expect(clone.next(featuredAppsDataStub.data).value).toEqual(select(selectDeveloperEditionId))
+
+    const response = [appsDataStub.data, featuredAppsDataStub.data, appCategorieStub]
+    expect(clone.next(developerId).value).toEqual(
+      all([
+        call(fetchAppsList, {
+          pageNumber: params.data.page,
+          pageSize: BROWSE_APPS_PER_PAGE,
+          externalAppId: ['id1'],
+        }),
+        featuredAppsDataStub.data,
+        appCategorieStub.data,
+      ]),
+    )
+    expect(clone.next(response).value).toEqual(
+      put(
+        clientFetchAppSummarySuccess({
+          apps: response[0] as PagedResultAppSummaryModel_,
+          featuredApps: response[1].data as AppSummaryModel[],
+        }),
+      ),
+    )
+    expect(clone.next().value).toEqual(put(categoriesReceiveData(response[2] as PagedResultCategoryModel_)))
+    expect(clone.next().done).toBe(true)
+  })
 })
 
 describe('client fetch data error', () => {

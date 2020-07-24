@@ -18,6 +18,7 @@ import Routes from '@/constants/routes'
 import InfiniteScroll from 'react-infinite-scroller'
 import { clientFetchAppSummary } from '@/actions/client'
 import styles from '@/styles/pages/apps.scss?mod'
+import qs from 'query-string'
 
 export const handleAfterClose = ({ setVisible }) => () => setVisible(false)
 export const handleOnChange = history => (page: number) => {
@@ -36,8 +37,8 @@ export const handleOnCardClick = (history: History) => (app: AppSummaryModel) =>
   history.push(`${Routes.APPS}/${app.id}`)
 }
 
-export const handleLoadMore = (dispatch: Dispatch) => (page: number) => {
-  dispatch(clientFetchAppSummary({ page }))
+export const handleLoadMore = ({ dispatch, preview }: { dispatch: Dispatch; preview: boolean }) => (page: number) => {
+  dispatch(clientFetchAppSummary({ page, preview }))
 }
 
 export const Apps: React.FunctionComponent = () => {
@@ -51,6 +52,8 @@ export const Apps: React.FunctionComponent = () => {
   const apps = appSummaryState?.data?.apps?.data || []
   const featuredApps = appSummaryState?.data?.featuredApps || []
   const { totalCount = 0, pageNumber = 1 } = appSummaryState?.data?.apps || {}
+  const { preview: previewString } = qs.parse(location.search)
+  const preview = !!previewString
 
   const totalPage = totalCount / pageNumber
   /**
@@ -73,7 +76,7 @@ export const Apps: React.FunctionComponent = () => {
         <InfiniteScroll
           useWindow={false}
           pageStart={1}
-          loadMore={handleLoadMore(dispatch)}
+          loadMore={handleLoadMore({ dispatch, preview })}
           hasMore={hasMore}
           loader={<Loader key="infiniteScrollLoader" />}
           initialLoad={false}

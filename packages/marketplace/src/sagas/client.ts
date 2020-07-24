@@ -14,10 +14,11 @@ import { fetchAppsList } from '@/services/apps'
 import { fetchCategoriesList } from '@/services/categories'
 
 const DEFAULT_CATEGORY_LENGTH = 1
+const DEFAULT_FEATURED_APP_PAGE_NUMBER = 1
 
 export const clientDataFetch = function*({ data }) {
   try {
-    const { page, search, category, searchBy } = data
+    const { page, search, category, searchBy, preview: isPreview } = data
     const clientId = yield select(selectClientId)
     if (!clientId) {
       return
@@ -30,29 +31,52 @@ export const clientDataFetch = function*({ data }) {
     // we will have to manually check it here
     // TODO: have the endpoint return a category id for Direct API apps as well
     const isFilteringForDirectApiApps = category === 'DIRECT_API_APPS_FILTER'
+    const shouldNotFetchFeaturedApps = !!search || !!category
+    const shouldNotFetchCategories = currentCategories.length > DEFAULT_CATEGORY_LENGTH
+
+    // PREVIEW APPS FEATURE when ?preview=true
+    const appsExternalAppIds = isPreview ? window.reapit.config.previewExternalAppIds : undefined
+    const featuredAppsExternalAppIds = isPreview ? window.reapit.config.previewFeaturedExternalAppIds : undefined
+
+    const appsFetchParams = isPreview
+      ? {
+          pageNumber: page,
+          pageSize: BROWSE_APPS_PER_PAGE,
+          externalAppId: appsExternalAppIds,
+        }
+      : {
+          clientId,
+          developerId: developerId ? [developerId] : [],
+          category: isFilteringForDirectApiApps ? undefined : category,
+          [searchBy]: search,
+          pageNumber: page,
+          pageSize: BROWSE_APPS_PER_PAGE,
+          isFeatured: isFilteringForDirectApiApps ? undefined : false,
+          isDirectApi: isFilteringForDirectApiApps ? true : undefined,
+        }
+
+    const featuredAppsFetchParams = isPreview
+      ? {
+          pageNumber: DEFAULT_FEATURED_APP_PAGE_NUMBER,
+          pageSize: FEATURED_APPS,
+          externalAppId: featuredAppsExternalAppIds,
+        }
+      : {
+          clientId,
+          developerId: developerId ? [developerId] : [],
+          pageNumber: DEFAULT_FEATURED_APP_PAGE_NUMBER,
+          pageSize: FEATURED_APPS,
+          isFeatured: true,
+        }
 
     const [apps, featuredApps, categories] = yield all([
-      call(fetchAppsList, {
-        clientId,
-        developerId: developerId ? [developerId] : [],
-        category: isFilteringForDirectApiApps ? undefined : category,
-        [searchBy]: search,
-        pageNumber: page,
-        pageSize: BROWSE_APPS_PER_PAGE,
-        isFeatured: isFilteringForDirectApiApps ? undefined : false,
-        isDirectApi: isFilteringForDirectApiApps ? true : undefined,
-      }),
-      !!search || !!category
-        ? currentFeaturedApps
-        : call(fetchAppsList, {
-            clientId,
-            developerId: developerId ? [developerId] : [],
-            pageNumber: 1,
-            pageSize: FEATURED_APPS,
-            isFeatured: true,
-          }),
-      currentCategories.length > DEFAULT_CATEGORY_LENGTH ? currentCategories : call(fetchCategoriesList, {}),
+      call(fetchAppsList, appsFetchParams),
+
+      shouldNotFetchFeaturedApps ? currentFeaturedApps : call(fetchAppsList, featuredAppsFetchParams),
+
+      shouldNotFetchCategories ? currentCategories : call(fetchCategoriesList, {}),
     ])
+
     const clientItem: ClientAppSummary = { apps: apps, featuredApps: featuredApps?.data }
     yield put(clientFetchAppSummarySuccess(clientItem))
     yield put(categoriesReceiveData(categories))
