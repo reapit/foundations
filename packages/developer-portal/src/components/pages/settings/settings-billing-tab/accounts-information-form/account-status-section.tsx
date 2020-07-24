@@ -44,7 +44,7 @@ const AccountStatusSection: React.FC<AccountStatusSectionProps> = ({
       <Input type="hidden" id={statusField.name} name={statusField.name} />
 
       <Content className={statusText}>
-        {status === 'pending' && (
+        {initialStatus === 'pending' && (
           <p className="mb-1">We are currently verifying your information with our Accounts Department</p>
         )}
         <b>ACCOUNT STATUS:</b> <i>{initialStatus}</i>
