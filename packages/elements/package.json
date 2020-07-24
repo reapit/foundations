@@ -13,7 +13,8 @@
   "license": "MIT",
   "author": "Will McVay <wmcvay@reapit.com>",
   "files": [
-    "dist"
+    "dist",
+    "src/tests/badges"
   ],
   "main": "dist/index.js",
   "umd:main": "dist/elements.umd.production.js",
