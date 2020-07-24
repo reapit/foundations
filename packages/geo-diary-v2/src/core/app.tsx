@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { ApolloProvider } from '@apollo/react-hooks'
-import { ReapitConnectContext, useReapitConnect } from '@reapit/connect-session'
+import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from './connect-session'
 import getClient from '@/graphql/client'
 import Router from './router'
@@ -14,11 +14,9 @@ const App = () => {
   }
 
   return (
-    <ReapitConnectContext.Provider value={{ ...session }}>
-      <ApolloProvider client={getClient(accessToken, window.reapit.config.graphqlUri)}>
-        <Router />
-      </ApolloProvider>
-    </ReapitConnectContext.Provider>
+    <ApolloProvider client={getClient(accessToken, window.reapit.config.graphqlUri)}>
+      <Router />
+    </ApolloProvider>
   )
 }
 
