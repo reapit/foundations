@@ -8,6 +8,8 @@ import WebComponentModal from '@/components/pages/app-detail/client/web-componen
 import { AppDetailSection } from '../../common/ui-helpers'
 import { selectClientId } from '@/selector/auth'
 import { useParams } from 'react-router-dom'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export const toggleWebComponentModal = (setIsOpenConfigModal, isOpen) => () => {
   setIsOpenConfigModal(isOpen)
@@ -25,7 +27,8 @@ export const WebComponentConfig: React.FC = () => {
   const dispatch = useDispatch()
   const [isOpenConfigModal, setIsOpenConfigModal] = useState(false)
 
-  const clientId = useSelector(selectClientId) || ''
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const clientId = selectClientId(connectSession)
   const webComponentData = useSelector(selectWebComponentData)
   const { appid: applicationId } = useParams()
 

@@ -21,8 +21,8 @@ export const appInstallSaga = function*(options) {
 
     const connectSession = yield call(reapitConnectBrowserSession.connectSession)
 
-    const clientId = yield call(selectClientId, connectSession)
     const email = yield call(selectLoggedUserEmail, connectSession)
+    const clientId = yield call(selectClientId, connectSession)
 
     if (!clientId) {
       throw CLIENT_ID_NOT_FOUND_ERROR

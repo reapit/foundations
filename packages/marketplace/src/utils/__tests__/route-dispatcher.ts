@@ -7,7 +7,6 @@ import { myAppsRequestData } from '@/actions/my-apps'
 import { installedAppsRequestData } from '@/actions/installed-apps'
 
 jest.mock('@reapit/elements')
-jest.mock('@/utils/session')
 jest.mock('../../core/store')
 jest.mock('../../sagas/client')
 

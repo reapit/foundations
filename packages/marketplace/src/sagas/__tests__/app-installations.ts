@@ -6,8 +6,11 @@ import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effec
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { UninstallParams, InstallParams, appInstallationsSetFormState } from '@/actions/app-installations'
-import { selectClientId, selectLoggedUserEmail } from '@/selector/client'
+import { selectLoggedUserEmail } from '@/selector/client'
 import { createInstallation, removeAccessToAppById } from '@/services/installations'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { ReapitConnectSession } from '@reapit/connect-session'
+import { selectClientId } from '@/selector/auth'
 
 jest.mock('@/services/installations')
 jest.mock('@reapit/elements')
@@ -25,12 +28,18 @@ const uninstallParams = {
   },
 }
 
+const connectSession = 'connectSession'
+
 describe('app-installations sagas', () => {
   describe('appInstallSaga', () => {
     const gen = cloneableGenerator(appInstallSaga)(installParams)
     expect(gen.next().value).toEqual(put(appInstallationsSetFormState('SUBMITTING')))
-    expect(gen.next().value).toEqual(select(selectLoggedUserEmail))
-    expect(gen.next('1').value).toEqual(select(selectClientId))
+
+    expect(gen.next().value).toEqual(call(reapitConnectBrowserSession.connectSession))
+    expect(gen.next(connectSession).value).toEqual(
+      call(selectLoggedUserEmail, (connectSession as unknown) as ReapitConnectSession),
+    )
+    expect(gen.next('1').value).toEqual(call(selectClientId, (connectSession as unknown) as ReapitConnectSession))
 
     test('clientId not exist', () => {
       const clone = gen.clone()
@@ -57,7 +66,11 @@ describe('app-installations sagas', () => {
   describe('appUninstallSaga', () => {
     const gen = cloneableGenerator(appUninstallSaga)(uninstallParams)
     expect(gen.next().value).toEqual(put(appInstallationsSetFormState('SUBMITTING')))
-    expect(gen.next().value).toEqual(select(selectLoggedUserEmail))
+
+    expect(gen.next().value).toEqual(call(reapitConnectBrowserSession.connectSession))
+    expect(gen.next(connectSession).value).toEqual(
+      call(selectLoggedUserEmail, (connectSession as unknown) as ReapitConnectSession),
+    )
 
     expect(gen.next('1').value).toEqual(call(removeAccessToAppById, { ...uninstallParams.data, terminatedBy: '1' }))
 

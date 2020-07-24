@@ -21,7 +21,6 @@ import Routes from '../../constants/routes'
 import { ActionType } from '../../types/core'
 import { COOKIE_SESSION_KEY_MARKETPLACE } from '../../constants/api'
 
-jest.mock('../../utils/session')
 jest.mock('../../core/router', () => ({
   history: {
     push: jest.fn(),

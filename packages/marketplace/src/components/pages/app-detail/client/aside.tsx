@@ -30,6 +30,7 @@ export const onBackToAppsButtonClick = (history: History) => {
 
 export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetailData }) => {
   const { category, developer, telephone, supportEmail, homePage, isDirectApi, isWebComponent } = appDetailData
+
   const { isMobile } = useReactResponsive()
   const history = useHistory()
 
