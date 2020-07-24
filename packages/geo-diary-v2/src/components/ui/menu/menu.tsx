@@ -3,7 +3,8 @@ import { useLocation } from 'react-router'
 import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
 import { Location } from 'history'
 import { FaSignOutAlt, FaCloud } from 'react-icons/fa'
-import { AuthContext } from '@/context'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export const generateMenuConfig = (logoutCallback: () => void, location: Location<any>): MenuConfig => {
   return {
@@ -43,10 +44,8 @@ export type MenuProps = {}
 
 export const Menu: React.FC<MenuProps> = () => {
   const location = useLocation()
-  const { logout } = React.useContext(AuthContext)
-
-  const menuConfigs = generateMenuConfig(logout, location)
-
+  const { connectLogoutRedirect } = useReapitConnect(reapitConnectBrowserSession)
+  const menuConfigs = generateMenuConfig(() => connectLogoutRedirect(), location)
   return <Sidebar {...menuConfigs} location={location} />
 }
 

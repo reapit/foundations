@@ -1,24 +1,24 @@
 import * as React from 'react'
 import { ApolloProvider } from '@apollo/react-hooks'
-import { useAuth } from '@/hooks/use-auth'
+import { ReapitConnectContext, useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from './connect-session'
 import getClient from '@/graphql/client'
-import { AuthContext } from '@/context'
 import Router from './router'
 import './__styles__'
 
 const App = () => {
-  const { loginSession, refreshParams, getLoginSession, isFetchSession, ...rest } = useAuth()
-  if (!loginSession && refreshParams && !isFetchSession) {
-    getLoginSession(refreshParams)
+  const session = useReapitConnect(reapitConnectBrowserSession)
+  const accessToken = session.connectSession?.accessToken || ''
+  if (!session.connectSession) {
+    return null
   }
-  const accessToken = loginSession?.accessToken || ''
 
   return (
-    <AuthContext.Provider value={{ loginSession, refreshParams, getLoginSession, isFetchSession, ...rest }}>
+    <ReapitConnectContext.Provider value={{ ...session }}>
       <ApolloProvider client={getClient(accessToken, window.reapit.config.graphqlUri)}>
         <Router />
       </ApolloProvider>
-    </AuthContext.Provider>
+    </ReapitConnectContext.Provider>
   )
 }
 
