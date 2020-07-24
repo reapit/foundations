@@ -59,7 +59,6 @@ export const clientDataFetch = function*({ data }) {
       ? {
           pageNumber: DEFAULT_FEATURED_APP_PAGE_NUMBER,
           pageSize: FEATURED_APPS,
-          isFeatured: true,
           externalAppId: featuredAppsExternalAppIds,
         }
       : {
