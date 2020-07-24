@@ -9,7 +9,12 @@ import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
 import { selectIntegrationTypes } from '@/selector/integration-types'
 import { useSelector } from 'react-redux'
 import { selectAppDetailData, selectAppDetailLoading } from '@/selector/client-app-detail'
-import { selectLoginType, selectIsAdmin } from '@/selector/auth'
+import {
+  selectLoginType,
+  selectClientIdFromHook,
+  selectIsAdminFromHook,
+  selectDeveloperIdFromHook,
+} from '@/selector/auth'
 import { canGoBack } from '@/utils/router-helper'
 import AppContent from './app-content'
 import { Loader, GridItem, Grid, Section } from '@reapit/elements'
@@ -23,7 +28,8 @@ import useReactResponsive from '@/components/hooks/use-react-responsive'
 import AppHeader from '../common/ui-app-header'
 import { BackToAppsSection } from '../common/ui-sections'
 import { AppDetailButtonGroup } from './app-detail-button-group'
-import { selectDeveloperEditionId } from '@/selector/client'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export type ClientAppDetailProps = {}
 
@@ -56,6 +62,11 @@ export const onBackToAppsButtonClick = (history: History) => () => {
   history.push(Routes.APPS)
 }
 
+/**
+ * FIXME: remove this
+ * show install for
+ * - client
+ */
 export const renderAppHeaderButtonGroup = (
   id: string,
   installedOn: string,
@@ -106,16 +117,21 @@ const AppDetail: React.FC = () => {
   // developer edition show mange
   const isLoadingAppDetail = useSelector(selectAppDetailLoading)
   const loginType = useSelector(selectLoginType)
-  const isDesktopAdmin = useSelector(selectIsAdmin)
-  const isDeveloperEdition = Boolean(useSelector(selectDeveloperEditionId))
 
-  // TESTME: show btn hidden
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const isDeveloperEdition = Boolean(selectDeveloperIdFromHook(connectSession))
+  const isClient = Boolean(selectClientIdFromHook(connectSession))
+  const isDesktopAdmin = selectIsAdminFromHook(connectSession)
+
+  // TESTME: show btn hidden when not admin
   const isAdmin = isDesktopAdmin || isDeveloperEdition
-  const isInstallBtnHidden = loginType === 'CLIENT' && !isAdmin
+  // const isInstallBtnHidden = isClient && !isAdmin
+  const isInstallBtnHidden = isClient && !isAdmin
+
   // selector selectAppDetailData return {} if not data
 
   const unfetched = Object.keys(appDetailData).length === 0
-  const { id = '', installedOn = '' } = appDetailData
+  const { installedOn = '' } = appDetailData
 
   return (
     <Grid className={styles.container} dataTest="client-app-detail-container">
@@ -130,14 +146,14 @@ const AppDetail: React.FC = () => {
             <Section isFlex isFlexColumn isFullHeight>
               <AppHeader
                 appDetailData={appDetailData}
-                buttonGroup={renderAppHeaderButtonGroup(
-                  id,
-                  installedOn,
-                  onInstallConfirmationModal,
-                  onUninstsallConfirmationModal,
-                  isInstallBtnHidden,
-                  loginType,
-                )}
+                buttonGroup={
+                  <AppDetailButtonGroup
+                    installedOn={installedOn}
+                    onInstallConfirmationModal={onInstallConfirmationModal}
+                    onUninstallConfirmationModal={onUninstsallConfirmationModal}
+                    isInstallBtnHidden={isInstallBtnHidden}
+                  />
+                }
               />
               <AppContent appDetailData={appDetailData} />
               {!isMobile && loginType !== 'DEVELOPER' && (

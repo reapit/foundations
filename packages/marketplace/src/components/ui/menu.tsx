@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router'
 import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
 import Routes from '../../constants/routes'
@@ -9,7 +8,6 @@ import { FaCloud, FaCloudDownloadAlt, FaCog, FaClipboardList } from 'react-icons
 import { MdHelp } from 'react-icons/md'
 import { selectIsAdminFromHook, selectDeveloperIdFromHook } from '@/selector/auth'
 import { LoginType } from '@reapit/cognito-auth'
-import { selectDeveloperEditionId } from '@/selector/client'
 import { useReapitConnect } from '@reapit/connect-session'
 
 export const generateMenuConfig = (location: Location<any>, isAdmin: boolean): MenuConfig => {

@@ -24,6 +24,8 @@ export const AppsManagement: React.FunctionComponent = () => {
   const location = useLocation()
 
   const myAppsState = useSelector(selectMyApps)
+  // FIXME(selectIsAdmin)
+  // 404
   const isDesktopAdmin = useSelector(selectIsAdmin)
   const isDeveloperEdition = Boolean(useSelector(selectDeveloperEditionId))
   const isAdmin = isDesktopAdmin || isDeveloperEdition

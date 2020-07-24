@@ -151,6 +151,10 @@ export const WelcomeMessage: React.FC = () => {
   const isDesktopAdmin = useSelector(selectIsAdmin)
   const isDeveloperEdition = Boolean(useSelector(selectDeveloperEditionId))
   const loginSession = useSelector(selectLoginSession)
+  // FIXME(isAdmin)
+  // TESTME: render correct
+  // client welcome
+  // admin welcome
   const isAdmin = isDesktopAdmin || isDeveloperEdition
   const WELCOME_GIUDE = isAdmin ? WELCOME_GUIDE_ADMIN : WELCOME_GUIDE_USER
 

@@ -27,8 +27,13 @@ export const selectIsAdmin = (state: ReduxState) => {
   return state.auth?.loginSession?.loginIdentity?.isAdmin || false
 }
 
+// a: create select developer id
+export const selectClientIdFromHook = (state: ReapitConnectSession | null): string => {
+  return state?.loginIdentity.clientId || ''
+}
+
 export const selectDeveloperIdFromHook = (state: ReapitConnectSession | null): string => {
-  return Boolean(state?.loginIdentity.developerId || '')
+  return state?.loginIdentity.developerId || ''
 }
 
 export const selectDeveloperId = (state: ReduxState): string => {
