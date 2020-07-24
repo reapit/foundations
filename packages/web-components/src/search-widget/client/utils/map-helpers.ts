@@ -1,7 +1,8 @@
 import { PickedPropertyModel, PickedPropertyImageModel } from '../../types'
 import { INVALID_BACKGROUND_AS_BASE64, DEFAULT_CENTER, DEFAULT_ZOOM } from '../../../common/utils/constants'
 import { loader } from '../../../common/utils/loader'
-import { generateMapStyles, InitializerTheme, ThemeClasses } from '../../../common/styles/theme'
+import { generateMapStyles } from '../../../common/styles/theme'
+import { ThemeBaseInitializer, ThemeBaseClasses } from '../../../common/styles/types'
 
 export const getLatLng = (property: PickedPropertyModel) => {
   const latitude = property?.address?.geolocation?.latitude ?? DEFAULT_CENTER.lat
@@ -78,7 +79,7 @@ export const fitMapToBounds = (properties: PickedPropertyModel[], map: google.ma
 
 export const loadMap = (
   mapElement: HTMLDivElement,
-  theme: Partial<InitializerTheme>,
+  theme: Partial<ThemeBaseInitializer>,
 ): Promise<void | google.maps.Map> => {
   return new Promise<google.maps.Map>((resolve, reject) => {
     const getMap = () => {
@@ -113,7 +114,7 @@ export const getInfoWindow = (
   selectedProperty: PickedPropertyModel,
   searchType: 'Sale' | 'Rent',
   propertyImages: Record<string, PickedPropertyImageModel[]>,
-  themeClasses: ThemeClasses,
+  themeBaseClasses: ThemeBaseClasses,
 ) => {
   console.log(propertyImages)
   const propertyImage = (selectedProperty?.id && propertyImages
@@ -129,7 +130,7 @@ export const getInfoWindow = (
   }
   const bedrooms = selectedProperty?.bedrooms
   const bathrooms = selectedProperty?.bathrooms
-  const { globalStyles, secondaryHeading, secondaryStrapline, bodyText } = themeClasses
+  const { globalStyles, secondaryHeading, secondaryStrapline, bodyText } = themeBaseClasses
 
   return new google.maps.InfoWindow({
     content: `

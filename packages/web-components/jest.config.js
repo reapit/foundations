@@ -39,7 +39,7 @@ module.exports = {
   },
   transform: {
     '^.+\\.svg$': '<rootDir>/../../scripts/jest/svg-transform.js',
-    '^.+\\.svelte$': 'svelte-jester',
+    '^.+\\.svelte$': ['svelte-jester', { preprocess: true }],
     '^.+\\.js$': 'ts-jest',
   },
   coverageReporters: ['json-summary', 'text', 'lcov'],

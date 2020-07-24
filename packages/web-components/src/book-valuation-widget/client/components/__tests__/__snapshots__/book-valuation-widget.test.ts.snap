@@ -19,7 +19,7 @@ exports[`BookValuationWidget should match snapshot 1`] = `
 <body>
   <div>
     <button
-      class="emotion-0 book-valuation-select-button svelte-aluks"
+      class="emotion-0 book-valuation-select-button svelte-1ntnjt8"
     >
       Book a Valuation
     </button>

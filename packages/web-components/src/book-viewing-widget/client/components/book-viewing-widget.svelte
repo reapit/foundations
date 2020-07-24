@@ -1,7 +1,7 @@
 <script lang="ts">
   import { css } from 'emotion'
   import { getProperty } from '../api/property'
-  import { generateBaseThemeClasses, resetCSS } from '../../../common/styles'
+  import { generateBookingThemeClasses, resetCSS } from '../../../common/styles'
   import { onMount, onDestroy } from 'svelte'
   import Modal from './modal.svelte'
   import Loader from '../../../common/components/loader.svelte'
@@ -10,7 +10,7 @@
   import * as Theme from '../../../common/styles/types'
   import * as Store from '../core/store'
 
-  export let theme: Theme.ThemeBaseInitializer
+  export let theme: Theme.ThemeBookingInitializer
   export let apiKey: string
   export let customerId: string
   export let parentSelector: string
@@ -24,7 +24,7 @@
   let backgroundImage: string
   let correctEmail = true
 
-  const themeClasses = generateBaseThemeClasses(theme, parentSelector)
+  const themeClasses = generateBookingThemeClasses(theme, parentSelector)
 
   const handleToggleModal = () => {
     isModalOpen = !isModalOpen

@@ -1,8 +1,8 @@
 import BookViewingWidget from '../components/book-viewing-widget.svelte'
-import { InitializerTheme } from '../../../common/styles/index'
+import { ThemeBookingInitializer } from '../../../common/styles/types'
 
 export interface BookViewingWidgetInitializers {
-  theme: Partial<InitializerTheme>
+  theme: Partial<ThemeBookingInitializer>
   apiKey: string
   customerId: string
   parentSelector: string

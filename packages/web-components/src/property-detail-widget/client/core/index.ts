@@ -1,8 +1,8 @@
 import PropertyDetailWidget from '../components/property-detail-widget.svelte'
-import { InitializerTheme } from '../../../common/styles'
+import { ThemeBaseInitializer } from '../../../common/styles/types'
 
 export interface PropertyDetailWidgetInitializers {
-  theme: Partial<InitializerTheme>
+  theme: Partial<ThemeBaseInitializer>
   apiKey: string
   customerId: string
   parentSelector: string

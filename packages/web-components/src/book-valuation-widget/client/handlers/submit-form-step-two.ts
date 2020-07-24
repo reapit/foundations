@@ -1,7 +1,7 @@
-import { form2Store as formStore } from '../core/store/form-store'
+import { formTwoStore } from '../core/store/form-store'
 
 export const handleSubmitFormStepTwo = (date: string, time: string, handleNextStep: () => void) => {
-  formStore.update(() => {
+  formTwoStore.update(() => {
     return {
       appointmentDate: {
         value: date,

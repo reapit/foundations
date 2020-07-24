@@ -1,12 +1,12 @@
 import { get } from 'svelte/store'
-import { Form3DataStore as FormDataStore, form3Store as formStore } from '../core/store/form-store'
+import { FormThreeDataStore, formThreeStore } from '../core/store/form-store'
 import { validateRequiredField, validatePhoneNumber } from '../utils/validator'
 
-export const handleSubmitFormStepThree = (handleFormSubmitCallback: (formDataStore: FormDataStore) => void) => {
+export const handleSubmitFormStepThree = (handleFormSubmitCallback: (formDataStore: FormThreeDataStore) => void) => {
   return () => {
-    const formDataStore: FormDataStore = get(formStore)
+    const formDataStore: FormThreeDataStore = get(formThreeStore)
     const validObj = validateFormStepThree(formDataStore)
-    formStore.update((prev: FormDataStore) => {
+    formThreeStore.update((prev: FormThreeDataStore) => {
       const { firstName, surname, address, mobileNumber, ...rest } = prev
       return {
         firstName: { ...firstName, valid: validObj.firstName },
@@ -23,7 +23,7 @@ export const handleSubmitFormStepThree = (handleFormSubmitCallback: (formDataSto
 }
 
 export const validateFormStepThree = (
-  formDataStore: FormDataStore,
+  formDataStore: FormThreeDataStore,
 ): { firstName: boolean; surname: boolean; address: boolean; mobileNumber: boolean } => {
   const firstName = validateRequiredField(formDataStore.firstName.value)
   const surname = validateRequiredField(formDataStore.surname.value)

@@ -189,17 +189,17 @@
     </div>
     <div class="{primaryHeading} property-detail-widget-item-pricing-text">{getPrice(property, searchType)}</div>
     <div class="{secondaryStrapline} property-detail-widget-item-beds-text">{combineNumberBedTypeStyle(property)}</div>
-    <div class="{bodyText} property-detail-widget-item-description-text">{property.description}</div>
+    <div class="{bodyText} property-detail-widget-item-description-text">{property && property.description || ''}</div>
     <div class="{secondaryHeading} property-detail-widget-item-icon-container">
       <div>
         <span class="property-detail-widget-item-icon">
           <Fa icon={faBed} />
         </span>
-        {property.bedrooms || 0}
+        {property && property.bedrooms || 0}
         <span class="property-detail-widget-item-icon">
           <Fa icon={faToilet} />
         </span>
-        {property.bathrooms || 0}
+        {property && property.bathrooms || 0}
       </div>
     </div>
     <div id="appointment-bookings-viewing" />

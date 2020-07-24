@@ -4,12 +4,12 @@ exports[`LoginWithReapit it matches a snapshot 1`] = `
 <body>
   <div>
     <a
-      class="btn--login svelte-qu9wwo"
+      class="btn--login svelte-5m9v13"
       href="https://dev.connect.reapit.cloud/login?response_type=code&client_id=clientId&redirect_uri=redirectUri"
     >
       <svg
+        class="logo-svg svelte-5m9v13"
         height="48px"
-        style="fill: currentcolor;"
         viewBox="0 0 290 48"
         width="290px"
       >

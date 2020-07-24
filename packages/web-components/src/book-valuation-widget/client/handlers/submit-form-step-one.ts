@@ -1,11 +1,11 @@
 import { get } from 'svelte/store'
-import { Form1DataStore as FormDataStore, form1Store as formStore } from '../core/store/form-store'
+import { FormOneDataStore, formOneStore } from '../core/store/form-store'
 import { validateEmail } from '../utils/validator'
 
 export const handleSubmitFormStepOne = (handleNextStep: () => void) => () => {
-  const formDataStore: FormDataStore = get(formStore)
+  const formDataStore: FormOneDataStore = get(formOneStore)
   const validObj = validateFormStepOne(formDataStore)
-  formStore.update((prev: FormDataStore) => {
+  formOneStore.update((prev: FormOneDataStore) => {
     const { lookingFor: prevLookingFor, email: prevEmail, postCode: prevPostCode } = prev
     return {
       lookingFor: { ...prevLookingFor, valid: validObj.lookingFor },
@@ -19,7 +19,7 @@ export const handleSubmitFormStepOne = (handleNextStep: () => void) => () => {
 }
 
 export const validateFormStepOne = (
-  formDataStore: FormDataStore,
+  formDataStore: FormOneDataStore,
 ): { email: boolean; postCode: boolean; lookingFor: boolean } => {
   const email = validateEmail(formDataStore.email.value)
   // TODO PostCode valid format validation

@@ -14,6 +14,7 @@
       "googlemaps"
     ],
     "typeRoots": ["./node_modules/@types", "../../node_modules/@types", "./src/types"],
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {

@@ -197,14 +197,14 @@ exports[`search-widget it matches a snapshot 1`] = `
 <body>
   <div>
     <div
-      class="emotion-8 emotion-7 search-widget svelte-1chupiu"
+      class="emotion-8 emotion-7 search-widget svelte-gxdr06"
     >
       <form>
         <div
-          class="search-form emotion-6 svelte-fvqnzk"
+          class="search-form emotion-6 svelte-1iepkj4"
         >
           <input
-            class="emotion-0 search-form-input svelte-fvqnzk"
+            class="emotion-0 search-form-input svelte-1iepkj4"
             data-testid="search-form-input"
             id="search"
             type="text"
@@ -212,7 +212,7 @@ exports[`search-widget it matches a snapshot 1`] = `
            
            
           <button
-            class="emotion-1 search-form-button svelte-fvqnzk"
+            class="emotion-1 search-form-button svelte-1iepkj4"
             data-testid="btnSearch"
             type="submit"
           >
@@ -220,13 +220,13 @@ exports[`search-widget it matches a snapshot 1`] = `
           </button>
            
           <div
-            class="search-form-control svelte-fvqnzk"
+            class="search-form-control svelte-1iepkj4"
           >
             <label
-              class="emotion-2 search-form-control-radio svelte-fvqnzk"
+              class="emotion-2 search-form-control-radio svelte-1iepkj4"
             >
               <input
-                class="svelte-fvqnzk"
+                class="svelte-1iepkj4"
                 data-testid="sales"
                 name="searchType"
                 type="radio"
@@ -237,10 +237,10 @@ exports[`search-widget it matches a snapshot 1`] = `
             </label>
              
             <label
-              class="emotion-2 search-form-control-radio svelte-fvqnzk"
+              class="emotion-2 search-form-control-radio svelte-1iepkj4"
             >
               <input
-                class="svelte-fvqnzk"
+                class="svelte-1iepkj4"
                 data-testid="lettings"
                 name="searchType"
                 type="radio"
@@ -252,7 +252,7 @@ exports[`search-widget it matches a snapshot 1`] = `
              
             <button
               class="emotion-2
-        emotion-5 search-form-advanced-search svelte-fvqnzk"
+        emotion-5 search-form-advanced-search svelte-1iepkj4"
               data-testid="btnAdvancedSearch"
               type="button"
             >
@@ -289,10 +289,10 @@ exports[`search-widget it matches a snapshot 1`] = `
       </form>
        
       <div
-        class="search-widget-items-container svelte-1chupiu"
+        class="search-widget-items-container svelte-gxdr06"
       >
         <div
-          class="search-widget-items svelte-1chupiu"
+          class="search-widget-items svelte-gxdr06"
         >
            
            
@@ -301,11 +301,11 @@ exports[`search-widget it matches a snapshot 1`] = `
          
         <div
           class="google-map-outer-container 
-  emotion-7 svelte-1t98is9"
+  emotion-7 svelte-ltkgd5"
         >
            
           <div
-            class="google-map-container  svelte-1t98is9"
+            class="google-map-container  svelte-ltkgd5"
           >
              
           </div>

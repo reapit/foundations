@@ -4,10 +4,11 @@ import dayjs from 'dayjs'
 
 describe('createDerivedDayOfWeek', () => {
   it('should call derived with correct parameters', () => {
+    ;(derived as any) = jest.fn(() => 'returned by derived')
     const mockStore = {}
     const returnByCreateDerivedDayOfWeek = createDerivedDayOfWeek(mockStore as WeekStore)
     expect(derived).toHaveBeenCalledWith(mockStore, getDayOfWeek)
-    expect(returnByCreateDerivedDayOfWeek).toBe('return by derrived')
+    expect(returnByCreateDerivedDayOfWeek).toBe('returned by derived')
   })
 })
 
