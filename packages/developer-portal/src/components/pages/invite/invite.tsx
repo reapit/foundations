@@ -110,9 +110,10 @@ export const Invite: React.FC = () => {
           {({ handleSubmit }) => {
             return (
               <ModalV2
-                title="Reapit Foundations Invitation"
+                title={<h4 className="modal-card-title is-4 pt-2 pb-2">Reapit Foundations Invitation</h4>}
                 visible
                 isCentered
+                closable={false}
                 footer={<ModalFooter onConfirm={handleSubmit} onReject={onReject} inviteStatus={inviteStatus} />}
               >
                 <Content>
