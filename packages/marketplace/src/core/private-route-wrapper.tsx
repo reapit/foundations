@@ -93,13 +93,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
       )}
         */}
       <FlexContainerBasic flexColumn isScrollable>
-        <FlexContainerResponsive
-          hasPadding
-          flexColumn
-          // I want to allow scrolling beyond the end of the page to allow for the toast notification
-          // except on the Gitbook page because the iframe handles it's own scrolling
-          isPageContainer
-        >
+        <FlexContainerResponsive hasPadding flexColumn>
           <Suspense
             fallback={
               <Section>
