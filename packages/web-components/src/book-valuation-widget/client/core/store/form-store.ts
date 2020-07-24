@@ -6,24 +6,24 @@ type FormDataStoreValue = {
 }
 
 //Form 1 store
-type Form1DataStoreKey = 'lookingFor' | 'email' | 'postCode'
-export type Form1DataStore = Record<Form1DataStoreKey, FormDataStoreValue>
-export const form1Store = writable<Form1DataStore>({
+type FormOneDataStoreKey = 'lookingFor' | 'email' | 'postCode'
+export type FormOneDataStore = Record<FormOneDataStoreKey, FormDataStoreValue>
+export const formOneStore = writable<FormOneDataStore>({
   lookingFor: { value: 'sell', valid: true },
   email: { value: '', valid: true },
   postCode: { value: '', valid: true },
 })
 
 //Form 2 store
-type Form2DataStoreKey = 'appointmentDate' | 'appointmentTime'
-export type Form2DataStore = Record<Form2DataStoreKey, FormDataStoreValue>
-export const form2Store = writable<Form2DataStore>({
+type FormTwoDataStoreKey = 'appointmentDate' | 'appointmentTime'
+export type FormTwoDataStore = Record<FormTwoDataStoreKey, FormDataStoreValue>
+export const formTwoStore = writable<FormTwoDataStore>({
   appointmentDate: { value: '', valid: true },
   appointmentTime: { value: '', valid: true },
 })
 
 //Form 3 store
-type Form3DataStoreKey =
+type FormThreeDataStoreKey =
   | 'title'
   | 'firstName'
   | 'surname'
@@ -37,8 +37,8 @@ type Form3DataStoreKey =
   | 'lookingToBuy'
   | 'marketingCommunication'
 
-export type Form3DataStore = Record<Form3DataStoreKey, FormDataStoreValue>
-export const form3Store = writable<Form3DataStore>({
+export type FormThreeDataStore = Record<FormThreeDataStoreKey, FormDataStoreValue>
+export const formThreeStore = writable<FormThreeDataStore>({
   title: { value: '', valid: true },
   firstName: { value: '', valid: true },
   surname: { value: '', valid: true },

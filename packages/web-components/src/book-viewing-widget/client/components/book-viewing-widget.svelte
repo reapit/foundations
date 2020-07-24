@@ -1,37 +1,36 @@
 <script lang="ts">
   import { css } from 'emotion'
   import { getProperty } from '../api/property'
-  import { generateThemeClasses, resetCSS } from '../../../common/styles'
+  import { generateBaseThemeClasses, resetCSS } from '../../../common/styles'
   import { onMount, onDestroy } from 'svelte'
   import Modal from './modal.svelte'
   import Loader from '../../../common/components/loader.svelte'
   import viewBookingStore from '../core/store'
   import { validateEmail } from '../../../common/utils/validate'
+  import * as Theme from '../../../common/styles/types'
+  import * as Store from '../core/store'
 
-  export let theme
-  export let apiKey
-  export let customerId
-  export let parentSelector
-  export let submitAction
+  export let theme: Theme.ThemeBaseInitializer
+  export let apiKey: string
+  export let customerId: string
+  export let parentSelector: string
+  export let submitAction: (email: string) => void
 
   let isModalOpen = false
-  let isLoading
-
-  let email
-  let inputValue
-
-  let propertyData
-
-  let backgroundImage
+  let isLoading: boolean
+  let email: string
+  let inputValue: string
+  let propertyData: Store.PropertyData
+  let backgroundImage: string
   let correctEmail = true
 
-  const themeClasses = generateThemeClasses(theme, parentSelector)
+  const themeClasses = generateBaseThemeClasses(theme, parentSelector)
 
-  function handleToggleModal() {
+  const handleToggleModal = () => {
     isModalOpen = !isModalOpen
   }
 
-  function handleInput({ target }) {
+  const handleInput = ({ target }) => {
     inputValue = target.value
     viewBookingStore.update(values => ({
       ...values,
@@ -39,7 +38,7 @@
     }))
   }
 
-  function submitForm() {
+  const submitForm = () => {
     correctEmail = validateEmail(email)
     correctEmail && submitAction && submitAction(email)
   }
@@ -50,11 +49,12 @@
     propertyData = store.propertyData
   })
 
-  function updateImage(propertyData) {
+  const updateImage = (propertyData: Store.PropertyData) => {
     backgroundImage = css`
       background: url(${propertyData && propertyData.image});
     `
   }
+
   $: updateImage(propertyData)
 
   onMount(async () => {
@@ -170,7 +170,7 @@
           on:input={handleInput}
           placeholder="Your e-mail address" />
         {#if !correctEmail}
-          <span class="invalid-email {themeClasses.errorText}">Please enter a valid e-mail address</span>
+          <span class="invalid-email">Please enter a valid e-mail address</span>
         {/if}
       </div>
       <div class="book-viewing-widget-form-submit">

@@ -21,7 +21,7 @@
   let searchError = false
   let currentPage = 1
   let showAdvancedSearch = false
-  let searchType = 'Sale'
+  let searchType = 'Sale' as 'Sale' | 'Rent'
   let minBedroom = 0
   let maxBedroom = 0
   let orderPrice = '-price'

@@ -1,8 +1,12 @@
-import { derived } from 'svelte/store'
-import { WeekStore, weekStore } from './store'
-import dayjs, { Dayjs } from 'dayjs'
+import { writable, Readable, derived } from 'svelte/store'
 import en from 'dayjs/locale/en'
 import weekday from 'dayjs/plugin/weekday'
+import dayjs, { Dayjs } from 'dayjs'
+
+export type WeekStore = {
+  increment: () => void
+  decrement: () => void
+} & Pick<Readable<Dayjs>, 'subscribe'>
 
 /**
  * https://github.com/iamkun/dayjs/issues/215
@@ -14,6 +18,18 @@ dayjs.locale({
 })
 
 dayjs.extend(weekday)
+
+export const createWeekStore = (initialDate: Date = new Date()) => {
+  const { update, subscribe } = writable<Dayjs>(dayjs(initialDate))
+
+  return {
+    subscribe,
+    increment: () => update(store => store.add(1, 'w')),
+    decrement: () => update(store => store.subtract(1, 'w')),
+  }
+}
+
+export const weekStore: WeekStore = createWeekStore()
 
 export const getDayOfWeek = (dayjsInstance: Dayjs) => {
   const daysOfWeek: dayjs.Dayjs[] = []

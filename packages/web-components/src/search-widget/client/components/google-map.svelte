@@ -6,16 +6,18 @@
   import WindowInfo from './window-info.svelte'
   import Fa from 'svelte-fa'
   import { faHome, faMapMarker } from '@fortawesome/free-solid-svg-icons'
+  import * as Theme from '../../../common/styles/types'
 
-  export let theme
+  export let theme: Partial<Theme.ThemeBaseInitializer>
 
-  let map
-  let mapElement
-  let mapContainerElement
+  let map: google.maps.Map
+  let mapElement: HTMLDivElement
+  let mapContainerElement: HTMLDivElement
+  let isVisible: boolean
 
   $: isVisible = false
 
-  const handleMarkerClick = event => {
+  const handleMarkerClick = (event: CustomEvent) => {
     const { selectedProperty, selectedMarker } = event.detail
 
     searchWidgetStore.update(store => ({
@@ -46,14 +48,18 @@
   }
 
   onMount(async () => {
-    mapContainerElement.addEventListener('transitionend', event => {
-      if (event.target.classList.contains('google-map-outer-container')) {
+    mapContainerElement.addEventListener('transitionend', (event: TransitionEvent) => {
+      if ((event.target as HTMLDivElement).classList.contains('google-map-outer-container')) {
         handleMapCenter()
       }
     })
 
-    if (!window.google) {
-      map = await loadMap(mapElement, theme)
+    if (window.google) return
+    
+    const fetchedMap = await loadMap(mapElement, theme)
+
+    if (fetchedMap) {
+      map = fetchedMap
     }
   })
 

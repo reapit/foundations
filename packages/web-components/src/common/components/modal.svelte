@@ -1,7 +1,7 @@
 <script lang="ts">
   import ClickOutSide from './click-out-side.svelte'
-  export let isModalOpen
-  export let toggleModal
+  export let isModalOpen: boolean
+  export let toggleModal: () => void
 </script>
 
 <style>

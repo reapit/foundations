@@ -1,21 +1,16 @@
-<script>
+<script lang="ts">
   import { themeStore } from '../core/store/theme-store'
   import { onMount } from 'svelte'
   import ClickOutSide from '../../../common/components/click-out-side.svelte'
-  import { resetCSS, generateThemeClasses } from '../../../common/styles'
-  import { generateBookValuationWidgetThemeClasses } from '../core/theme'
-  import FormStep1 from './form-step1.svelte'
-  import PlannerStep2 from '../../../appointment-planner-component/client/components/appointment-planner-component.svelte'
-  import BookingConfirmationStep3 from './booking-confirmation-step3.svelte'
-  import { handleSubmitFormStep2 } from '../handlers/submit-form-step2.ts'
+  import { resetCSS, generateBookingThemeClasses } from '../../../common/styles'
+  import FormStepOne from './form-step-one.svelte'
+  import PlannerStepTwo from '../../../appointment-planner-component/client/components/appointment-planner-component.svelte'
+  import BookingConfirmationStepThree from './booking-confirmation-step-three.svelte'
+  import { handleSubmitFormStepTwo } from '../handlers/submit-form-step-two'
+  import * as Theme from '../../../common/styles/types'
 
-  export let theme
-  export let parentSelector
-  // TODO - will need to import later
-  // export let apiKey
-  // export let variant
-  // export let customerId
-  // export let propertyId
+  export let theme: Theme.ThemeBookingInitializer
+  export let parentSelector: string
 
   let isModalOpen = false
   let currentStep = 1
@@ -28,7 +23,7 @@
     currentStep -= 1
   }
 
-  const toggleModal = e => {
+  const toggleModal = (e: Event) => {
     isModalOpen = !isModalOpen
 
     // click event of component 'ClickOutSide' is added before this event buble up -> break toggle behavior
@@ -36,13 +31,10 @@
   }
 
   const onDateCellClick = ({ appointmentDate, appointmentTime }) => {
-    handleSubmitFormStep2(appointmentDate.format('dddd, DD MMMM'), appointmentTime, handleNextStep)
+    handleSubmitFormStepTwo(appointmentDate.format('dddd, DD MMMM'), appointmentTime, handleNextStep)
   }
 
-  const themeClasses = {
-    ...generateThemeClasses(theme, parentSelector),
-    ...generateBookValuationWidgetThemeClasses(theme, parentSelector),
-  }
+  const themeClasses: Theme.ThemeBookingClasses = generateBookingThemeClasses(theme, parentSelector)
 
   onMount(() => {
     themeStore.set(themeClasses)
@@ -76,21 +68,21 @@
   }
 </style>
 
-<button on:click={toggleModal} class="{themeClasses.button} book-valuation-select-button">Book a Valuation</button>
+<button on:click={toggleModal} class="{$themeStore.button} book-valuation-select-button">Book a Valuation</button>
 {#if isModalOpen}
   <div data-testid="book-valuation-modal-wrapper" class="book-valuation-modal-wrapper">
     <ClickOutSide on:click-out-side={toggleModal}>
-      <div class="{resetCSS} {themeClasses.globalStyles} {themeClasses.bodyText} book-valuation-modal-container">
+      <div class="{resetCSS} {$themeStore.globalStyles} {$themeStore.bodyText} book-valuation-modal-container">
         {#if currentStep === 1}
-          <FormStep1 {toggleModal} {handleNextStep} {themeClasses} />
+          <FormStepOne {toggleModal} {handleNextStep} />
         {/if}
 
         {#if currentStep === 2}
-          <PlannerStep2 {themeClasses} {handleNextStep} handleOnClickCell={onDateCellClick} />
+          <PlannerStepTwo {themeClasses} handleOnClickCell={onDateCellClick} />
         {/if}
 
         {#if currentStep === 3}
-          <BookingConfirmationStep3 {themeClasses} {handlePreviousStep} />
+          <BookingConfirmationStepThree {handlePreviousStep} />
         {/if}
       </div>
     </ClickOutSide>

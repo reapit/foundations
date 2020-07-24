@@ -1,49 +1,8 @@
 /* istanbul ignore file */
 import { css } from 'emotion'
+import { ThemeBaseInitializer, ThemeBaseClasses, ThemeBookingInitializer, ThemeBookingClasses } from './types'
 
-export interface InitializerTheme {
-  baseBackgroundColor: string
-  basefontSize: string
-  basefontColor: string
-  inverseFontColor: string
-  secondaryfontColor: string
-  primaryHeadingFontSize: string
-  secondaryHeadingFontSize: string
-  baseFontFamily: string
-  headingFontFamily: string
-  primaryAccentColor: string
-  secondaryAccentColor: string
-  mapAccentColor: string
-  breakPoints: {
-    mobile: string
-    tablet: string
-    laptop: string
-    desktop: string
-  }
-  searchPlaceholder: string
-}
-
-export interface ThemeClasses {
-  featureLabel: string
-  featureButton: string
-  globalStyles: string
-  primaryHeading: string
-  secondaryHeading: string
-  primaryStrapline: string
-  secondaryStrapline: string
-  selectedItem: string
-  bodyText: string
-  button: string
-  input: string
-  resultItem: string
-  searchBox: string
-  offerBanner: string
-  pagination: string
-  paginationActive: string
-  formError: string
-}
-
-export const generateThemeClasses = (
+export const generateBaseThemeClasses = (
   {
     baseBackgroundColor,
     basefontSize,
@@ -57,9 +16,9 @@ export const generateThemeClasses = (
     secondaryfontColor,
     secondaryAccentColor,
     breakPoints,
-  }: Partial<InitializerTheme>,
+  }: Partial<ThemeBaseInitializer>,
   parentSelector: string,
-): ThemeClasses => {
+): ThemeBaseClasses => {
   return {
     globalStyles: css`
       font-size: ${basefontSize || '16px'};
@@ -221,7 +180,127 @@ export const generateThemeClasses = (
   }
 }
 
-export const generateMapStyles = ({ mapAccentColor }: Partial<InitializerTheme>) => {
+export const generateBookingThemeClasses = (
+  initializers: ThemeBookingInitializer,
+  parentSelector: string,
+): ThemeBookingClasses => {
+  const {
+    basefontSize,
+    primaryHeadingFontSize,
+    headingFontFamily,
+    primaryAccentColor,
+    secondaryAccentColor,
+    timeCellBackgroundColorHover,
+    timeCellBackgroundColor,
+    navigateButtonColor,
+    dateCellHeaderBackgroundColor,
+    timeCellsContainerBackgroundColor,
+    formLabelColor,
+    formHrSeparatorFontColor,
+    formButtonFontSize,
+  } = initializers
+  const baseTheme = generateBaseThemeClasses(initializers, parentSelector)
+  return {
+    ...baseTheme,
+    timeCellsContainer: css`
+      ${parentSelector || 'body'} & {
+        background: ${timeCellsContainerBackgroundColor};
+      }
+    `,
+    dateCellHeader: css`
+      ${parentSelector || 'body'} & {
+        padding: 1em;
+        font-weight: bold;
+        background: ${dateCellHeaderBackgroundColor};
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2px;
+        min-height: 2.5em;
+      }
+    `,
+    timeCell: css`
+      ${parentSelector || 'body'} & {
+        background: ${timeCellBackgroundColor};
+        &:hover {
+          background: ${timeCellBackgroundColorHover};
+        }
+      }
+    `,
+    svgNavigation: css`
+      ${parentSelector || 'body'} & {
+        path {
+          fill: ${navigateButtonColor};
+        }
+        width: 1em;
+        height: 1em;
+      }
+    `,
+    formBlock: css`
+      ${parentSelector || 'body'} & {
+        padding: 0.5rem 0;
+        & * {
+          box-sizing: border-box;
+        }
+      }
+    `,
+    formInput: css`
+      ${parentSelector || 'body'} & {
+        padding-left: 5px;
+        height: 27px;
+        font-size: ${basefontSize};
+        &:disabled {
+          cursor: not-allowed;
+        }
+      }
+    `,
+    formHeader: css`
+      ${parentSelector || 'body'} & {
+        font-size: ${primaryHeadingFontSize};
+        font-weight: bold;
+        font-family: ${headingFontFamily};
+      }
+    `,
+
+    formLabel: css`
+      ${parentSelector || 'body'} & {
+        color: ${formLabelColor};
+      }
+    `,
+    formSeparator: css`
+      ${parentSelector || 'body'} & {
+        border: 1px solid ${formHrSeparatorFontColor};
+      }
+    `,
+    formButtonPrimary: css`
+      ${parentSelector || 'body'} & {
+        font-size: ${formButtonFontSize};
+        padding: 0.5rem;
+        background-color: ${primaryAccentColor};
+        color: white;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    `,
+    formButtonSecondary: css`
+      ${parentSelector || 'body'} & {
+        font-size: ${formButtonFontSize};
+        padding: 0.5rem;
+        background-color: ${secondaryAccentColor};
+        color: white;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    `,
+    formError: css`
+      ${parentSelector || 'body'} & {
+        font-size: calc(${basefontSize} * 80 / 100);
+        color: #dd0000;
+      }
+    `,
+  }
+}
+
+export const generateMapStyles = ({ mapAccentColor }: Partial<ThemeBaseInitializer>) => {
   return [
     {
       featureType: 'all',

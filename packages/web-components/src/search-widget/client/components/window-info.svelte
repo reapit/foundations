@@ -1,17 +1,19 @@
 <script lang="ts">
   import { onMount, onDestroy, afterUpdate, createEventDispatcher } from 'svelte'
   import { getInfoWindow } from '../utils/map-helpers'
+  import * as Theme from '../../../common/styles/types'
+  import * as PropertyTypes from '../../types'
 
   const dispatch = createEventDispatcher()
 
-  export let selectedMarker
-  export let propertyImages
-  export let selectedProperty
-  export let searchType
-  export let map
-  export let themeClasses
+  export let selectedMarker: google.maps.Marker
+  export let propertyImages: Record<string, PropertyTypes.PickedPropertyImageModel[]>
+  export let selectedProperty: PropertyTypes.PickedPropertyModel
+  export let searchType: 'Rent' | 'Sale'
+  export let map: google.maps.Map
+  export let themeClasses: Theme.ThemeBaseClasses
 
-  let windowInfo
+  let windowInfo: google.maps.InfoWindow
 
   onMount(() => {
     windowInfo = getInfoWindow(selectedProperty, searchType, propertyImages, themeClasses)

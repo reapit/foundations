@@ -1,11 +1,6 @@
 import BookViewingWidget from '../components/book-viewing-widget.svelte'
 import { InitializerTheme } from '../../../common/styles/index'
 
-export interface PropertyData {
-  image: string
-  address: string
-  price: string
-}
 export interface BookViewingWidgetInitializers {
   theme: Partial<InitializerTheme>
   apiKey: string

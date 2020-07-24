@@ -3,16 +3,16 @@
   import Fa from 'svelte-fa'
   import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
-  export let currentDisplayImageIndex
-  export let imageQuantity
-  export let currentDisplayImage
-  export let isModalOpen
-  export let toggleModal
-  export let widgetNextButton
-  export let widgetPrevButton
+  export let currentDisplayImageIndex: number
+  export let imageQuantity: number
+  export let currentDisplayImage: string
+  export let isModalOpen: boolean
+  export let toggleModal: () => void
+  export let widgetNextButton: () => void
+  export let widgetPrevButton: () => void
 
-  let screenWidth
-  let screenHeight
+  let screenWidth: number
+  let screenHeight: number
 </script>
 
 <style>

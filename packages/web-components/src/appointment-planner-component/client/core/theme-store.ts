@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store'
-import { ThemeBookingClasses } from '../../../../common/styles/types'
+import { ThemeBookingClasses } from '../../../common/styles/types'
 
 export const themeStore = writable<ThemeBookingClasses | null>({
   globalStyles: '',

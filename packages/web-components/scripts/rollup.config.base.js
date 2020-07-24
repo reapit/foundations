@@ -10,15 +10,15 @@ const production = !process.env.ROLLUP_WATCH
 
 export default {
   plugins: [
+    typescript({ sourceMap: !production }),
     resolve({
       browser: true,
       dedupe: importee => importee === 'svelte' || importee.startsWith('svelte/'),
     }),
     commonjs(),
-    typescript({ sourceMap: !production }),
     json(),
     babel({
-      extensions: ['.js', '.ts', '.mjs', '.html', '.svelte'],
+      extensions: ['.js', 'ts', '.mjs', '.html', '.svelte'],
       runtimeHelpers: true,
       include: ['src/**', 'node_modules/svelte/**'],
       presets: [

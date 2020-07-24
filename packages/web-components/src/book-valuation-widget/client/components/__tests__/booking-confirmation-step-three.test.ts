@@ -1,5 +1,5 @@
 import { render } from '@testing-library/svelte'
-import FormStep1 from '../form-step1.svelte'
+import BookingConfirmationStepThree from '../booking-confirmation-step-three.svelte'
 
 const props = {
   themeClasses: {
@@ -13,13 +13,12 @@ const props = {
     formButtonSecondary: 'formButtonSecondary',
     formError: 'formError',
   },
-  handleNextStep: jest.fn(),
-  toggleModal: jest.fn(),
+  handlePreviousStep: jest.fn(),
 }
 
 describe('FormStep1', () => {
   it('should match snapshot', () => {
-    const { container } = render(FormStep1, props)
+    const { container } = render(BookingConfirmationStepThree, props)
     expect(container).toMatchSnapshot()
   })
 })

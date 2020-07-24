@@ -1,6 +1,6 @@
 <script lang="ts">
-  export let clientId
-  export let redirectUri
+  export let clientId: string
+  export let redirectUri: string
 </script>
 
 <style>
@@ -12,12 +12,16 @@
   .btn--login:hover {
     background-color: #23a4de;
   }
+
+  .logo-svg {
+    fill: current-color;
+  }
 </style>
 
 <a
   class="btn--login"
   href={`https://dev.connect.reapit.cloud/login?response_type=code&client_id=${clientId}&redirect_uri=${redirectUri}`}>
-  <svg style="fill: currentcolor" width="290px" height="48px" viewBox="0 0 290 48">
+  <svg class="logo-svg" width="290px" height="48px" viewBox="0 0 290 48">
     <path
       d="M63,29.0354821 C64.5054873,30.5366092 66.5305784,31.360458 68.6282424,31.3251673 C72.0285031,31.3251673
       74.004131,29.0830371 74.004131,26.4160822 C74.004131,21.0585711 66.3310006,21.7902136 66.3310006,18.8164409

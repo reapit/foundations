@@ -1,4 +1,4 @@
-import { handleSubmitFormStep1, validateFormStep1 } from '../submit-form-step1'
+import { handleSubmitFormStepOne, validateFormStepOne } from '../submit-form-step-one'
 import { get } from 'svelte/store'
 
 jest.mock('svelte/store', () => ({
@@ -12,7 +12,7 @@ jest.mock('svelte/store', () => ({
 
 describe('validateFormStep1', () => {
   it('should return correct value', () => {
-    const result = validateFormStep1({
+    const result = validateFormStepOne({
       email: { valid: true, value: 'test@gmail.com' },
       lookingFor: { valid: true, value: 'sell' },
       postCode: { valid: true, value: 'NN1 1DF' },
@@ -25,7 +25,7 @@ describe('validateFormStep1', () => {
   })
 
   it('should return correctly when invalid email', () => {
-    const result = validateFormStep1({
+    const result = validateFormStepOne({
       email: { valid: true, value: 'testgmail.com' },
       lookingFor: { valid: true, value: 'sell' },
       postCode: { valid: true, value: 'NN1 1DF' },
@@ -41,7 +41,7 @@ describe('validateFormStep1', () => {
 describe('handleSubmitFormStep1', () => {
   it('should run correctly', () => {
     const handleNextStep = jest.fn()
-    const fn = handleSubmitFormStep1(handleNextStep)
+    const fn = handleSubmitFormStepOne(handleNextStep)
     fn()
     expect(handleNextStep).toHaveBeenCalled()
   })
@@ -53,7 +53,7 @@ describe('handleSubmitFormStep1', () => {
       postCode: { valid: true, value: 'NN1 1DF' },
     }))
     const handleNextStep = jest.fn()
-    const fn = handleSubmitFormStep1(handleNextStep)
+    const fn = handleSubmitFormStepOne(handleNextStep)
     fn()
     expect(handleNextStep).not.toHaveBeenCalled()
   })

@@ -1,4 +1,4 @@
-import { handleSubmitFormStep2 } from '../submit-form-step2'
+import { handleSubmitFormStepTwo } from '../submit-form-step-two'
 
 const mockFormValues = {
   appointmentDate: { valid: true, value: 'Thursday, 16 April' },
@@ -13,7 +13,7 @@ jest.mock('svelte/store', () => ({
 describe('handleSubmitFormStep2', () => {
   it('should run correctly', () => {
     const handleNextStep = jest.fn()
-    handleSubmitFormStep2(mockFormValues.appointmentDate.value, mockFormValues.appointmentTime.value, handleNextStep)
+    handleSubmitFormStepTwo(mockFormValues.appointmentDate.value, mockFormValues.appointmentTime.value, handleNextStep)
     expect(handleNextStep).toHaveBeenCalled()
   })
 })

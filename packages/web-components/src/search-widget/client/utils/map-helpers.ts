@@ -76,8 +76,11 @@ export const fitMapToBounds = (properties: PickedPropertyModel[], map: google.ma
   map.fitBounds(bounds)
 }
 
-export const loadMap = (mapElement: HTMLDivElement, theme: Partial<InitializerTheme>): Promise<unknown> => {
-  return new Promise((resolve, reject) => {
+export const loadMap = (
+  mapElement: HTMLDivElement,
+  theme: Partial<InitializerTheme>,
+): Promise<void | google.maps.Map> => {
+  return new Promise<google.maps.Map>((resolve, reject) => {
     const getMap = () => {
       const map = new google.maps.Map(mapElement, {
         center: DEFAULT_CENTER,
@@ -109,11 +112,14 @@ export const loadMap = (mapElement: HTMLDivElement, theme: Partial<InitializerTh
 export const getInfoWindow = (
   selectedProperty: PickedPropertyModel,
   searchType: 'Sale' | 'Rent',
-  propertyImages: Record<string, PickedPropertyImageModel>,
+  propertyImages: Record<string, PickedPropertyImageModel[]>,
   themeClasses: ThemeClasses,
 ) => {
-  const propertyImage = selectedProperty?.id && propertyImages ? propertyImages[selectedProperty?.id] : {}
-  const imageUrl = propertyImage?.url ?? INVALID_BACKGROUND_AS_BASE64
+  console.log(propertyImages)
+  const propertyImage = (selectedProperty?.id && propertyImages
+    ? propertyImages[selectedProperty?.id]
+    : {}) as PickedPropertyImageModel
+  const imageUrl: string = propertyImage?.url ?? INVALID_BACKGROUND_AS_BASE64
   const price = getPrice(selectedProperty, searchType)
   const { latitude, longitude } = getLatLng(selectedProperty)
   const marketingMode = selectedProperty && selectedProperty.marketingMode

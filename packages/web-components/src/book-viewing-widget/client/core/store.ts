@@ -1,5 +1,5 @@
 import { writable, Writable } from 'svelte/store'
-import { BookViewingWidgetInitializers, PropertyData } from './index'
+import { BookViewingWidgetInitializers } from './index'
 import { ThemeClasses } from '../../../common/styles'
 
 export interface BookViewingWidgetStore {
@@ -9,6 +9,12 @@ export interface BookViewingWidgetStore {
   email: string
   propertyData: PropertyData
   isLoading: boolean
+}
+
+export interface PropertyData {
+  image: string
+  address: string
+  price: string
 }
 
 const bookViewingWigetStore: Writable<BookViewingWidgetStore> = writable({

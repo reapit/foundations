@@ -6,20 +6,22 @@
   import { combineAddress, getPrice, combineNumberBedTypeStyle } from '../utils/results-helpers'
   import { handleImageError } from '../utils/image-helpers'
   import { INVALID_BACKGROUND_AS_BASE64 } from '../../../common/utils/constants'
+  import * as PropertyTypes from '../../types'
+  import * as Theme from '../../../common/styles/types'
 
-  export let property
+  export let property: PropertyTypes.PickedPropertyModel
 
-  let selectedProperty
-  let searchType
-  let propertyImages
-  let themeClasses = {}
-  let detailPageUrl = ''
-  let propertyImagesByPropertyId
+  let selectedProperty: PropertyTypes.PickedPropertyModel
+  let searchType: 'Sale' | 'Rent'
+  let themeClasses: Theme.ThemeBaseClasses
+  let detailPageUrl: string = ''
+  let propertyImagesByPropertyId: Record<string, PropertyTypes.PickedPropertyImageModel[]>
+  let isSelectedProperty: boolean
 
   const unsubscribeSearchWidgetStore = searchWidgetStore.subscribe(store => {
     selectedProperty = store.selectedProperty
     searchType = store.searchType
-    propertyImages = store.propertyImages
+    propertyImagesByPropertyId = store.propertyImagesByPropertyId
     themeClasses = store.themeClasses
     detailPageUrl = store.initializers.detailPageUrl
     propertyImagesByPropertyId = store.propertyImagesByPropertyId
@@ -36,12 +38,12 @@
   } = themeClasses
 
   const id = (property && property.id) || ''
-  const propertyImage = propertyImages && propertyImages[id]
-  const imageUrl = (propertyImage && propertyImage.url) || INVALID_BACKGROUND_AS_BASE64
+  const propertyImages = propertyImagesByPropertyId && propertyImagesByPropertyId[id]
+  const imageUrl = (propertyImages && propertyImages[0].url) || INVALID_BACKGROUND_AS_BASE64
   const sellingStatus = (property.selling && property.selling.status) || ''
   const lettingStatus = (property.letting && property.letting.status) || ''
 
-  $: isSelectedProperty = property.id === (selectedProperty && selectedProperty.id) || ''
+  $: isSelectedProperty = property.id === (selectedProperty && selectedProperty.id)
 
   const selectProperty = () => {
     searchWidgetStore.update(store => ({
@@ -50,7 +52,7 @@
     }))
   }
 
-  const handleViewDetail = propertyId => {
+  const handleViewDetail = (propertyId: string) => {
     const propertyImages = (propertyImagesByPropertyId && propertyImagesByPropertyId[propertyId]) || []
     const propertyImageUrls = propertyImages.map(propertyImage => propertyImage.url).join(',')
     location.href = `${detailPageUrl}?id=${propertyId}&searchType=${searchType}&propertyImageUrls=${propertyImageUrls}`

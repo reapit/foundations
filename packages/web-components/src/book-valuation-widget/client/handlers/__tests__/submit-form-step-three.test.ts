@@ -1,4 +1,4 @@
-import { handleSubmitFormStep3, validateFormStep3 } from '../submit-form-step3'
+import { handleSubmitFormStepThree, validateFormStepThree } from '../submit-form-step-three'
 import { get } from 'svelte/store'
 
 const mockFormValues = {
@@ -28,14 +28,14 @@ jest.mock('svelte/store', () => ({
   get: jest.fn(() => mockFormValues),
 }))
 
-describe('validateFormStep3', () => {
+describe('validateFormStepThree', () => {
   it('should return correct value', () => {
-    const result = validateFormStep3(mockFormValues)
+    const result = validateFormStepThree(mockFormValues)
     expect(result).toEqual(mockFormValidationResult)
   })
 
   it('should return correctly when first name is empty', () => {
-    const result = validateFormStep3({
+    const result = validateFormStepThree({
       ...mockFormValues,
       firstName: { value: '', valid: true },
     })
@@ -45,7 +45,7 @@ describe('validateFormStep3', () => {
     })
   })
   it('should return correctly when surname is empty', () => {
-    const result = validateFormStep3({
+    const result = validateFormStepThree({
       ...mockFormValues,
       surname: { value: '', valid: true },
     })
@@ -55,7 +55,7 @@ describe('validateFormStep3', () => {
     })
   })
   it('should return correctly when address is empty', () => {
-    const result = validateFormStep3({
+    const result = validateFormStepThree({
       ...mockFormValues,
       address: { value: '', valid: true },
     })
@@ -65,7 +65,7 @@ describe('validateFormStep3', () => {
     })
   })
   it('should return correctly when mobile number is invalid', () => {
-    const result = validateFormStep3({
+    const result = validateFormStepThree({
       ...mockFormValues,
       mobileNumber: { value: '90123a', valid: true },
     })
@@ -76,10 +76,10 @@ describe('validateFormStep3', () => {
   })
 })
 
-describe('handleSubmitFormStep3', () => {
+describe('handleSubmitFormStepThree', () => {
   it('should run correctly', () => {
     const handleFormSubmitCallback = jest.fn()
-    const fn = handleSubmitFormStep3(handleFormSubmitCallback)
+    const fn = handleSubmitFormStepThree(handleFormSubmitCallback)
     fn()
     expect(handleFormSubmitCallback).toHaveBeenCalled()
   })
@@ -90,7 +90,7 @@ describe('handleSubmitFormStep3', () => {
       mobileNumber: { value: '91273a1238911', valid: true },
     }))
     const handleFormSubmitCallback = jest.fn()
-    const fn = handleSubmitFormStep3(handleFormSubmitCallback)
+    const fn = handleSubmitFormStepThree(handleFormSubmitCallback)
     fn()
     expect(handleFormSubmitCallback).not.toHaveBeenCalled()
   })
