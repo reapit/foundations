@@ -2,9 +2,6 @@ import React from 'react'
 import { createBrowserHistory } from 'history'
 import { Route, Router } from 'react-router-dom'
 import { render } from '@testing-library/react'
-import { AuthContext } from '@/context'
-import { mockContext } from '@/context/__mocks__/mock-context'
-import { AuthHook } from '@/hooks/use-auth'
 import { PrivateRouteWrapper, PrivateRouteWrapperProps } from '../private-route-wrapper'
 import { getMockRouterProps } from '../__mocks__/mock-router'
 
@@ -36,6 +33,13 @@ jest.mock('@reapit/cognito-auth', () => ({
   getSession: jest.fn(() => session),
 }))
 
+jest.mock('react-router', () => ({
+  ...jest.requireActual('react-router'),
+  useLocation: jest.fn(() => ({
+    location: 'location',
+  })),
+}))
+
 describe('PrivateRouter', () => {
   it('should match a snapshot', () => {
     const props: PrivateRouteWrapperProps = {
@@ -44,15 +48,13 @@ describe('PrivateRouter', () => {
     }
     const history = createBrowserHistory()
     const wrapper = render(
-      <AuthContext.Provider value={mockContext}>
-        <Router history={history}>
-          <Route>
-            <PrivateRouteWrapper {...props}>
-              <div>mock children</div>
-            </PrivateRouteWrapper>
-          </Route>
-        </Router>
-      </AuthContext.Provider>,
+      <Router history={history}>
+        <Route>
+          <PrivateRouteWrapper {...props}>
+            <div>mock children</div>
+          </PrivateRouteWrapper>
+        </Route>
+      </Router>,
     )
     expect(wrapper).toMatchSnapshot()
   })
@@ -62,11 +64,9 @@ describe('PrivateRouter', () => {
       ...getMockRouterProps({ params: {}, search: '?username=wmcvay@reapit.com&desktopToken=TOKEN' }),
     }
     const wrapper = render(
-      <AuthContext.Provider value={{} as AuthHook}>
-        <PrivateRouteWrapper {...props}>
-          <div>mock children</div>
-        </PrivateRouteWrapper>
-      </AuthContext.Provider>,
+      <PrivateRouteWrapper {...props}>
+        <div>mock children</div>
+      </PrivateRouteWrapper>,
     )
     expect(wrapper).toMatchSnapshot()
   })

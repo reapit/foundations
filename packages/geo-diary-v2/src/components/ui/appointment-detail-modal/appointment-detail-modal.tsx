@@ -31,8 +31,9 @@ import { LoginMode } from '@reapit/cognito-auth'
 import { FaClock, FaMale, FaBuilding, FaHome, FaStickyNote, FaHandshake } from 'react-icons/fa'
 import { TiMail, TiHome, TiPhoneOutline, TiDevicePhone } from 'react-icons/ti'
 import { ExtendedAppointmentModel } from '@/types/global'
-import { AuthContext } from '@/context'
 import UPDATE_APPOINTMENT_BY_ID from './update-appointment-by-id.graphql'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export const capitalizeFirstLetter = (value: string) => {
   if (!value) {
@@ -387,8 +388,8 @@ export const CancelConfirmModal: React.FC<CancelConfirmModalProps> = ({
 }
 
 export const AppointmentDetailModal: React.FC<AppointmentDetailModalProps> = ({ appointment, ...restProps }) => {
-  const { loginSession } = React.useContext(AuthContext)
-  const loginMode = loginSession?.mode || 'WEB'
+  const session = useReapitConnect(reapitConnectBrowserSession)
+  const loginMode = session.connectIsDesktop ? 'DESKTOP' : 'WEB'
   const [isShowConfirmModal, setIsShowConfirmModal] = React.useState<boolean>(false)
   const isMobileView = isMobile()
   return (

@@ -1,7 +1,5 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { AuthContext } from '@/context'
-import { mockContext } from '@/context/__mocks__/mock-context'
 import { Menu, generateMenuConfig, callbackAppClick } from '../menu'
 
 jest.mock('react-router', () => ({
@@ -13,11 +11,7 @@ jest.mock('react-router', () => ({
 
 describe('Menu', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(
-      <AuthContext.Provider value={mockContext}>
-        <Menu />
-      </AuthContext.Provider>,
-    )
+    const wrapper = shallow(<Menu />)
     expect(wrapper).toMatchSnapshot()
   })
 

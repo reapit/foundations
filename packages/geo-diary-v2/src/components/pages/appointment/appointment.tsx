@@ -8,9 +8,10 @@ import { ExtendedAppointmentModel } from '@/types/global'
 import GET_APPOINTMENTS from './get-appointments.graphql'
 import { MobileLayout } from './mobile-layout'
 import { useHistory, useLocation } from 'react-router-dom'
-import { AuthContext } from '@/context'
 import { DesktopLayout } from './desktop-layout'
 import { ROUTES } from '@/core/router'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { useReapitConnect } from '@reapit/connect-session'
 
 export type AppointmentProps = {}
 
@@ -103,8 +104,8 @@ export const handleUseEffect = ({ queryParams, history }: HandleUseEffectParams)
 
 export const Appointment: React.FC<AppointmentProps> = () => {
   const isMobileView = isMobile()
-  const { loginSession } = React.useContext(AuthContext)
-  const userCode = loginSession?.loginIdentity?.userCode || ''
+  const session = useReapitConnect(reapitConnectBrowserSession)
+  const userCode = session.connectSession?.loginIdentity.userCode || ''
   const location = useLocation()
   const history = useHistory()
   const queryParams = qs.parse(location.search)
