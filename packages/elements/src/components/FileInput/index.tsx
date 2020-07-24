@@ -12,7 +12,7 @@ export interface FileInputTestProps {
 
 export interface FileInputProps {
   name: string
-  labelText: string
+  labelText?: string
   id?: string
   dataTest?: string
   accept?: string
@@ -140,7 +140,9 @@ export const FileInput = ({
                     onChange={onChange}
                     accept={accept}
                   />
-                  <span className={`file-cta ${required && !hasFile ? 'required-label' : ''}`}>{labelText}</span>
+                  {labelText && (
+                    <span className={`file-cta ${required && !hasFile ? 'required-label' : ''}`}>{labelText}</span>
+                  )}
                   {hasFile && (
                     <span data-test="fileUploadFileName" className="file-name">
                       {!isBase64(field.value) ? (

@@ -10,6 +10,13 @@ module.exports = {
       prefix: '<rootDir>/',
     }),
   },
+  coveragePathIgnorePatterns: [
+    '<rootDir>/src/helper/mock',
+    '<rootDir>/src/services',
+    '<rootDir>/src/tests',
+    '.d.ts',
+    'index.tsx',
+  ],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   coverageThreshold: {
     global: {

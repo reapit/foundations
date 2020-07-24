@@ -9,7 +9,7 @@ export type StateProps = {
   identityState?: IdentityTypesState
 }
 
-export type SelectIdentityProps = { labelText: string; name: string; id: string } & StateProps
+export type SelectIdentityProps = { labelText?: string; name: string; id: string } & StateProps
 
 export const generateListIdentity = (identityTypes: ListItemModel[]) => () => {
   return identityTypes

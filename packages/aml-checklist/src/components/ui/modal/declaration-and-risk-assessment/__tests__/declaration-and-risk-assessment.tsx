@@ -2,12 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { ReduxState } from '@/types/core'
 import { contact } from '@/sagas/__stubs__/contact'
-import {
-  DeclarationAndRiskAssessment,
-  renderForm,
-  mapStateToProps,
-  mapDispatchToProps,
-} from '../declaration-and-risk-assessment'
+import { DeclarationAndRiskAssessment, mapStateToProps, mapDispatchToProps } from '../declaration-and-risk-assessment'
 
 describe('DeclarationAndRiskAssessment', () => {
   it('should match snapshot', () => {
@@ -20,22 +15,6 @@ describe('DeclarationAndRiskAssessment', () => {
     }
     const wrapper = shallow(<DeclarationAndRiskAssessment {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
-  })
-
-  it('renderForm', () => {
-    const mockProps = {
-      primaryAddress: contact.primaryAddress,
-      secondaryAddress: contact.secondaryAddress,
-      isShowMoreThreeYearInput: true,
-      setShowMoreThreeYearInput: jest.fn(),
-      loading: false,
-      onNextHandler: jest.fn(),
-      onPrevHandler: jest.fn(),
-      isSubmitting: false,
-    }
-    const fn = renderForm(mockProps)
-    const component = fn({ values: {} })
-    expect(component).toBeDefined()
   })
 
   describe('mapStateToProps', () => {

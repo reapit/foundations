@@ -1,42 +1,13 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { contact } from '@/sagas/__stubs__/contact'
-import Identification, { renderFormHandler, onSubmitHandler } from '../identification'
-import { IdentificationProps, IDENTIFICATION_FORM_DEFAULT_VALUES } from '../identification'
+import Identification, { onSubmitHandler, handleFilenameClick, IdentityDocumentForm } from '../identification'
+import { IDENTIFICATION_FORM_DEFAULT_VALUES } from '../identification'
+import { downloadDocument } from '@/services/documents'
+
+jest.mock('@/services/documents')
 
 describe('Identification', () => {
-  describe('renderFormHandler', () => {
-    it('should match snapshot when DISABLED true', () => {
-      const mockProps = {
-        contact: contact,
-        initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES,
-        loading: false,
-        disabled: true,
-        onNextHandler: jest.fn(),
-        onPrevHandler: jest.fn(),
-        onSaveHandler: jest.fn(),
-      } as IdentificationProps
-      const component = renderFormHandler(mockProps)({ values: {} })
-      const wrapper = shallow(<div>{component}</div>)
-      expect(wrapper).toMatchSnapshot()
-    })
-
-    it('should match snapshot when DISABLED false', () => {
-      const mockProps = {
-        contact: contact,
-        initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES,
-        loading: false,
-        disabled: false,
-        onNextHandler: jest.fn(),
-        onPrevHandler: jest.fn(),
-        onSaveHandler: jest.fn(),
-      } as IdentificationProps
-      const component = renderFormHandler(mockProps)({ values: {} })
-      const wrapper = shallow(<div>{component}</div>)
-      expect(wrapper).toMatchSnapshot()
-    })
-  })
-
   describe('onSubmitHandler', () => {
     it('should run correctly', () => {
       const mockOnSaveHandler = jest.fn()
@@ -44,8 +15,21 @@ describe('Identification', () => {
       expect(mockOnSaveHandler).toBeCalledWith(IDENTIFICATION_FORM_DEFAULT_VALUES)
     })
   })
+  describe('handleFilenameClick', () => {
+    it('should run correctly', () => {
+      const mockValues: IdentityDocumentForm = {
+        documentId: 'test',
+      }
+      const mockEvent = {
+        preventDefault: jest.fn(),
+      }
+      handleFilenameClick(mockValues)(mockEvent)
+      expect(mockEvent.preventDefault).toBeCalled()
+      expect(downloadDocument).toBeCalledWith(mockValues.documentId)
+    })
+  })
   describe('Identification', () => {
-    it('should match snapshot', () => {
+    it('should match snapshot when loading is false', () => {
       const mockProps = {
         loading: false,
         contact: contact,
@@ -57,6 +41,33 @@ describe('Identification', () => {
       }
       const wrapper = shallow(<Identification {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
+    })
+    it('should match snapshot when loading is true', () => {
+      const mockProps = {
+        loading: true,
+        contact: contact,
+        identityCheckModel: null,
+        initFormValues: {} as any,
+        onSaveHandler: jest.fn(),
+        onNextHandler: jest.fn(),
+        onPrevHandler: jest.fn(),
+      }
+      const wrapper = shallow(<Identification {...mockProps} />)
+      expect(wrapper).toMatchSnapshot()
+    })
+    it('should show warning about primary id label', () => {
+      const mockProps = {
+        loading: false,
+        contact: contact,
+        identityCheckModel: null,
+        initFormValues: {} as any,
+        onSaveHandler: jest.fn(),
+        onNextHandler: jest.fn(),
+        onPrevHandler: jest.fn(),
+        disabled: true,
+      }
+      const wrapper = shallow(<Identification {...mockProps} />)
+      expect(wrapper.dive().find('p[data-test="primaryIdWarinLabel"]').length).toBe(1)
     })
   })
 })

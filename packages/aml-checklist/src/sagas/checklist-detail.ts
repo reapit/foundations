@@ -1,5 +1,5 @@
 import { selectCheckListDetailContact, selectCheckListDetailIdCheck } from '@/selectors/checklist-detail'
-import { fetcher, ErrorData, isBase64, navigateDynamicApp, DynamicLinkParams } from '@reapit/elements'
+import { fetcher, ErrorData, isBase64, navigateDynamicApp, DynamicLinkParams, isEmptyObject } from '@reapit/elements'
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
@@ -177,17 +177,18 @@ export type OnUpdateChecklistParams = {
   data: UpdateContactParams
 }
 
-export const onUpdateChecklist = function*({
-  data: {
-    nextSection,
-    contact: { metadata, ...rest },
-  },
-}: OnUpdateChecklistParams) {
+export const onUpdateChecklist = function*({ data: { nextSection, contact } }: OnUpdateChecklistParams) {
   yield put(checklistDetailSubmitForm(true))
   const headers = yield call(initAuthorizedRequestHeaders)
   try {
     const currentContact = yield select(selectCheckListDetailContact)
-    const newContact = { ...currentContact, ...rest, metadata: { ...currentContact.metadata, ...metadata } }
+    const newContact: ContactModel = {
+      ...currentContact,
+      ...contact,
+    }
+    if (isEmptyObject(newContact.metadata)) {
+      delete newContact.metadata
+    }
     const response = yield call(updateChecklist, { contact: newContact, headers })
     if (response) {
       const responseContact = yield call(fetchChecklist, { id: currentContact.id, headers })
