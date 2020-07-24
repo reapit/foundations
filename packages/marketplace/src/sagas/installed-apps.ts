@@ -9,9 +9,12 @@ import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { Action } from '@/types/core'
 import { INSTALLED_APPS_PERPAGE } from '@/constants/paginator'
-import { selectClientId, selectDeveloperEditionId } from '@/selector/client'
+import { selectDeveloperEditionId } from '@/selector/client'
 import { logger } from '@reapit/utils'
 import { fetchAppsList } from '@/services/apps'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { selectClientIdFromHook } from '@/selector/auth'
+import { CLIENT_ID_NOT_FOUND_ERROR } from '@/constants/errors'
 
 // FIXME(selectClientId)
 // fetch installed app
@@ -19,9 +22,11 @@ export const installedAppsDataFetch = function*({ data: page }) {
   yield put(installedAppsLoading(true))
 
   try {
-    const clientId = yield select(selectClientId)
+    const connectSession = yield call(reapitConnectBrowserSession.connectSession)
+
+    const clientId = yield call(selectClientIdFromHook, connectSession)
     if (!clientId) {
-      return
+      throw CLIENT_ID_NOT_FOUND_ERROR
     }
     const developerId = yield select(selectDeveloperEditionId)
     const response = yield call(fetchAppsList, {

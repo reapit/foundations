@@ -67,6 +67,7 @@ describe('my-apps fetch data error', () => {
   expect(gen.next(connectSession).value).toEqual(
     call(selectClientIdFromHook, (connectSession as unknown) as ReapitConnectSession),
   )
+
   expect(gen.next().value).toEqual(
     put(
       errorThrownServer({

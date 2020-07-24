@@ -10,6 +10,7 @@ import { logger } from '@reapit/utils'
 import { fetchAppsList } from '@/services/apps'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { selectClientIdFromHook } from '@/selector/auth'
+import { CLIENT_ID_NOT_FOUND_ERROR } from '@/constants/errors'
 
 export const myAppsDataFetch = function*({ data: page }) {
   yield put(myAppsLoading(true))
@@ -22,7 +23,7 @@ export const myAppsDataFetch = function*({ data: page }) {
 
     const clientId = yield call(selectClientIdFromHook, connectSession)
     if (!clientId) {
-      throw new Error('clientId not found')
+      throw CLIENT_ID_NOT_FOUND_ERROR
     }
     const developerId = yield select(selectDeveloperEditionId)
     const response = yield call(fetchAppsList, {

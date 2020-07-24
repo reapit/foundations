@@ -11,14 +11,18 @@ import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
-import { selectClientId, selectDeveloperEditionId } from '@/selector/client'
+import { selectDeveloperEditionId } from '@/selector/client'
 import { fetchAppsList } from '@/services/apps'
 import { INSTALLED_APPS_PERPAGE } from '@/constants/paginator'
+import { selectClientIdFromHook } from '@/selector/auth'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { ReapitConnectSession } from '@reapit/connect-session'
 
 jest.mock('@/services/apps')
 jest.mock('@reapit/elements')
 
 const params = { data: 1 }
+const connectSession = 'connectSession'
 
 describe('installed-apps fetch data', () => {
   const gen = cloneableGenerator(installedAppsDataFetch)(params)
@@ -26,7 +30,12 @@ describe('installed-apps fetch data', () => {
   const developerId = '1234'
 
   expect(gen.next().value).toEqual(put(installedAppsLoading(true)))
-  expect(gen.next().value).toEqual(select(selectClientId))
+
+  expect(gen.next().value).toEqual(call(reapitConnectBrowserSession.connectSession))
+  expect(gen.next(connectSession).value).toEqual(
+    call(selectClientIdFromHook, (connectSession as unknown) as ReapitConnectSession),
+  )
+
   expect(gen.next(clientId).value).toEqual(select(selectDeveloperEditionId))
   expect(gen.next(developerId).value).toEqual(
     call(fetchAppsList, {
@@ -56,7 +65,11 @@ describe('installed-apps fetch data error', () => {
   const gen = cloneableGenerator(installedAppsDataFetch)(params)
 
   expect(gen.next().value).toEqual(put(installedAppsLoading(true)))
-  expect(gen.next().value).toEqual(select(selectClientId))
+  expect(gen.next().value).toEqual(call(reapitConnectBrowserSession.connectSession))
+  expect(gen.next(connectSession).value).toEqual(
+    call(selectClientIdFromHook, (connectSession as unknown) as ReapitConnectSession),
+  )
+
   if (!gen.throw) throw new Error('Generator object cannot throw')
   expect(gen.throw('Client id is not exists').value).toEqual(
     put(
