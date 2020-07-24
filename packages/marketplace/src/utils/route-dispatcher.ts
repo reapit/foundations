@@ -6,6 +6,7 @@ import { myAppsRequestData } from '../actions/my-apps'
 import { installedAppsRequestData } from '../actions/installed-apps'
 import { selectClientId } from '@/selector/client'
 
+// PR
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
   const id = params && params.appid ? params.appid : ''
   const queryParams = new URLSearchParams(search)
@@ -27,7 +28,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       break
     }
     // FIXME(selectClientId)
-    // should fetch data of app manage Page
+    // should fetch data of app manage Page detail
     case Routes.APP_DETAIL_MANAGE: {
       if (id) {
         const clientId = selectClientId(store.state)

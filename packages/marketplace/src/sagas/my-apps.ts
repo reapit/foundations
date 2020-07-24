@@ -5,17 +5,24 @@ import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { Action } from '@/types/core'
 import { APPS_PER_PAGE } from '@/constants/paginator'
-import { selectClientId, selectDeveloperEditionId } from '@/selector/client'
+import { selectDeveloperEditionId } from '@/selector/client'
 import { logger } from '@reapit/utils'
 import { fetchAppsList } from '@/services/apps'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { selectClientIdFromHook } from '@/selector/auth'
 
 export const myAppsDataFetch = function*({ data: page }) {
   yield put(myAppsLoading(true))
 
   try {
-    const clientId = yield select(selectClientId)
+    // FIXME(selectClientId)
+    // should fetch data of app manage Page
+    // required t
+    const connectSession = yield call(reapitConnectBrowserSession.connectSession)
+
+    const clientId = yield call(selectClientIdFromHook, connectSession)
     if (!clientId) {
-      return
+      throw new Error('clientId not found')
     }
     const developerId = yield select(selectDeveloperEditionId)
     const response = yield call(fetchAppsList, {

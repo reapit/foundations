@@ -7,21 +7,34 @@ import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import errorMessages from '@/constants/error-messages'
-import { selectClientId, selectDeveloperEditionId } from '@/selector/client'
+import { selectDeveloperEditionId } from '@/selector/client'
 import { errorThrownServer } from '@/actions/error'
 import { fetchAppsList } from '@/services/apps'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { selectClientIdFromHook } from '@/selector/auth'
+import { ReapitConnectSession } from '@reapit/connect-session'
+// FIXME: import mock browser session
+// log
 
 jest.mock('@/services/apps')
 jest.mock('@reapit/elements')
 const params = { data: 1 }
+const connectSession = 'connectSession'
 
 describe('my-apps fetch data', () => {
   const gen = cloneableGenerator(myAppsDataFetch)(params)
   const clientId = 'DAC'
   const developerId = '1234'
+  // FIXME: mock browser session
+  // test no fail
 
   expect(gen.next().value).toEqual(put(myAppsLoading(true)))
-  expect(gen.next().value).toEqual(select(selectClientId))
+  //
+  expect(gen.next().value).toEqual(call(reapitConnectBrowserSession.connectSession))
+  expect(gen.next(connectSession).value).toEqual(
+    call(selectClientIdFromHook, (connectSession as unknown) as ReapitConnectSession),
+  )
+  ///
   expect(gen.next(clientId).value).toEqual(select(selectDeveloperEditionId))
   expect(gen.next(developerId).value).toEqual(
     call(fetchAppsList, {
@@ -50,10 +63,11 @@ describe('my-apps fetch data error', () => {
   const gen = cloneableGenerator(myAppsDataFetch)(params)
 
   expect(gen.next().value).toEqual(put(myAppsLoading(true)))
-  expect(gen.next().value).toEqual(select(selectClientId))
-
-  if (!gen.throw) throw new Error('Generator object cannot throw')
-  expect(gen.throw('Client id is not exists').value).toEqual(
+  expect(gen.next().value).toEqual(call(reapitConnectBrowserSession.connectSession))
+  expect(gen.next(connectSession).value).toEqual(
+    call(selectClientIdFromHook, (connectSession as unknown) as ReapitConnectSession),
+  )
+  expect(gen.next().value).toEqual(
     put(
       errorThrownServer({
         type: 'SERVER',
