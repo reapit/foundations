@@ -13,6 +13,8 @@ import { selectClientId, selectDeveloperEditionId } from '@/selector/client'
 import { logger } from '@reapit/utils'
 import { fetchAppsList } from '@/services/apps'
 
+// FIXME(selectClientId)
+// fetch installed app
 export const installedAppsDataFetch = function*({ data: page }) {
   yield put(installedAppsLoading(true))
 

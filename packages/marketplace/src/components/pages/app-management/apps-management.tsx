@@ -6,12 +6,14 @@ import { Loader, Info, Pagination, H3 } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import routes from '@/constants/routes'
 import AppList from '@/components/ui/app-list'
-import { selectMyApps, selectDeveloperEditionId } from '@/selector/client'
+import { selectMyApps } from '@/selector/client'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { handleLaunchApp } from '@/utils/launch-app'
-import { selectIsAdmin } from '@/selector/auth'
+import { selectDeveloperIdFromHook, selectIsAdminFromHook } from '@/selector/auth'
 import Routes from '@/constants/routes'
 import { getParamsFromPath } from '@/utils/client-url-params'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export const handleOnChange = history => (page: number) => history.push(`${routes.MY_APPS}?page=${page}`)
 
@@ -25,10 +27,14 @@ export const AppsManagement: React.FunctionComponent = () => {
 
   const myAppsState = useSelector(selectMyApps)
   // FIXME(selectIsAdmin)
-  // 404
-  const isDesktopAdmin = useSelector(selectIsAdmin)
-  const isDeveloperEdition = Boolean(useSelector(selectDeveloperEditionId))
+  // 404 - client
+  // OK - developer
+  // OK - admin
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const isDeveloperEdition = Boolean(selectDeveloperIdFromHook(connectSession))
+  const isDesktopAdmin = selectIsAdminFromHook(connectSession)
   const isAdmin = isDesktopAdmin || isDeveloperEdition
+
   const queryParams = getParamsFromPath(location.search)
   const { page: pageNumber = 1 } = queryParams
 

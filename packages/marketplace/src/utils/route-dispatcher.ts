@@ -17,6 +17,8 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
     case Routes.APPS:
       store.dispatch(clientFetchAppSummary({ page: 1, preview }))
       break
+    // FIXME(selectClientId)
+    // should fetch app_detail
     case Routes.APP_DETAIL: {
       if (id) {
         const clientId = selectClientId(store.state)
@@ -24,6 +26,8 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       }
       break
     }
+    // FIXME(selectClientId)
+    // should fetch data of app manage Page
     case Routes.APP_DETAIL_MANAGE: {
       if (id) {
         const clientId = selectClientId(store.state)

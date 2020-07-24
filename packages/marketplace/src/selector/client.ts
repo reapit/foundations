@@ -8,6 +8,7 @@ import { ClientAppSummaryState } from '@/reducers/client/app-summary'
 import { selectLoginIdentity } from '@/selector/auth'
 import { COGNITO_GROUP_DEVELOPER_EDITION } from '@/constants/api'
 
+// FIXME(selectClientId)Remove this
 export const selectClientId = (state: ReduxState) => {
   return state?.auth?.loginSession?.loginIdentity?.clientId || ''
 }

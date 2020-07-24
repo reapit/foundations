@@ -139,6 +139,8 @@ const AppUninstallConfirmation: React.FC<AppUninstallConfirmationProps> = ({
 }) => {
   const [isSuccessAlertVisible, setIsSuccessAlertVisible] = React.useState(false)
   const history = useHistory()
+  // FIXME(selectClientId)
+  // Refetch app after un-install
   const clientId = useSelector(selectClientId)
   const installationFormState = useSelector(selectInstallationFormState)
   const isDesktopMode = useSelector(selectIsDesktopMode)

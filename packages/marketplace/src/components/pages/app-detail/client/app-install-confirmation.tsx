@@ -28,6 +28,7 @@ export const handleInstallAppSuccessCallback = (
   isDesktopMode: boolean,
 ) => {
   return () => {
+    //
     if (isDesktopMode) {
       window.location.href = DESKTOP_REFRESH_URL
     }
@@ -141,8 +142,11 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
 }) => {
   const history = useHistory()
   const [isSuccessAlertVisible, setIsSuccessAlertVisible] = React.useState(false)
+  // FIXME(selectClientId):
   const clientId = useSelector(selectClientId)
   const installationFormState = useSelector(selectInstallationFormState)
+  // FIXME(selectIsDesktopMode):
+  // App refresh correct on desktop mode after install
   const isDesktopMode = useSelector(selectIsDesktopMode)
   const isSubmitting = installationFormState === 'SUBMITTING'
 
