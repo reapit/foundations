@@ -19,6 +19,7 @@ import InfiniteScroll from 'react-infinite-scroller'
 import { clientFetchAppSummary } from '@/actions/client'
 import styles from '@/styles/pages/apps.scss?mod'
 import qs from 'query-string'
+import { getNumberOfItems } from '@/utils/browse-app'
 
 export const handleAfterClose = ({ setVisible }) => () => setVisible(false)
 export const handleOnChange = history => (page: number) => {
@@ -37,8 +38,16 @@ export const handleOnCardClick = (history: History) => (app: AppSummaryModel) =>
   history.push(`${Routes.APPS}/${app.id}`)
 }
 
-export const handleLoadMore = ({ dispatch, preview }: { dispatch: Dispatch; preview: boolean }) => (page: number) => {
-  dispatch(clientFetchAppSummary({ page, preview }))
+export const handleLoadMore = ({
+  dispatch,
+  preview,
+  loading,
+}: {
+  dispatch: Dispatch
+  preview: boolean
+  loading: boolean
+}) => (page: number) => {
+  !loading && dispatch(clientFetchAppSummary({ page, preview }))
 }
 
 export const Apps: React.FunctionComponent = () => {
@@ -55,7 +64,8 @@ export const Apps: React.FunctionComponent = () => {
   const { preview: previewString } = qs.parse(location.search)
   const preview = !!previewString
 
-  const totalPage = totalCount / pageNumber
+  const numOfItemsPerPage = getNumberOfItems()
+  const totalPage = totalCount / numOfItemsPerPage
   /**
    * When apps is empty or when loading app set hasMore = false to prevent trigger load more
    * Otherwise set hasMore = true when pageNumber (current page ) less then totalPage
@@ -76,7 +86,7 @@ export const Apps: React.FunctionComponent = () => {
         <InfiniteScroll
           useWindow={false}
           pageStart={1}
-          loadMore={handleLoadMore({ dispatch, preview })}
+          loadMore={handleLoadMore({ dispatch, preview, loading })}
           hasMore={hasMore}
           loader={<Loader key="infiniteScrollLoader" />}
           initialLoad={false}

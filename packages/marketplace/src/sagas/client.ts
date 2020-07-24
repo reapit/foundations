@@ -4,7 +4,7 @@ import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effec
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
-import { BROWSE_APPS_PER_PAGE, FEATURED_APPS } from '@/constants/paginator'
+import { FEATURED_APPS } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { selectClientId, selectFeaturedApps, selectDeveloperEditionId } from '@/selector/client'
 import { selectCategories } from '@/selector/app-categories'
@@ -12,6 +12,7 @@ import { ClientAppSummary, ClientAppSummaryParams } from '@/reducers/client/app-
 import { logger } from '@reapit/utils'
 import { fetchAppsList } from '@/services/apps'
 import { fetchCategoriesList } from '@/services/categories'
+import { getNumberOfItems } from '@/utils/browse-app'
 
 const DEFAULT_CATEGORY_LENGTH = 1
 const DEFAULT_FEATURED_APP_PAGE_NUMBER = 1
@@ -38,10 +39,12 @@ export const clientDataFetch = function*({ data }) {
     const appsExternalAppIds = isPreview ? window.reapit.config.previewExternalAppIds : undefined
     const featuredAppsExternalAppIds = isPreview ? window.reapit.config.previewFeaturedExternalAppIds : undefined
 
+    const normalAppsPerPage = getNumberOfItems()
+
     const appsFetchParams = isPreview
       ? {
           pageNumber: page,
-          pageSize: BROWSE_APPS_PER_PAGE,
+          pageSize: normalAppsPerPage,
           externalAppId: appsExternalAppIds,
         }
       : {
@@ -50,7 +53,7 @@ export const clientDataFetch = function*({ data }) {
           category: isFilteringForDirectApiApps ? undefined : category,
           [searchBy]: search,
           pageNumber: page,
-          pageSize: BROWSE_APPS_PER_PAGE,
+          pageSize: normalAppsPerPage,
           isFeatured: isFilteringForDirectApiApps ? undefined : false,
           isDirectApi: isFilteringForDirectApiApps ? true : undefined,
         }
