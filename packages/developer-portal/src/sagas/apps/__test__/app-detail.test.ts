@@ -1,5 +1,5 @@
 import { integrationTypesReceiveData } from '@/actions/app-integration-types'
-import { fetchDeveloperAppDetailSaga } from '../apps'
+import { fetchAppDetailSaga } from '../app-detail'
 import { fetchDesktopIntegrationTypes } from '@/services/apps'
 import { put, call } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
@@ -10,22 +10,22 @@ import { FetchAppByIdParams, fetchAppById } from '@/services/apps'
 import { fetchApiKeyInstallationById } from '@/services/installations'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
-import { developerFetchAppDetailSuccess } from '@/actions/developer'
+import { fetchAppDetailSuccess } from '@/actions/app-detail'
 
 jest.mock('@reapit/elements')
 
 const paramsClientId: Action<FetchAppByIdParams> = {
   data: { id: '9b6fd5f7-2c15-483d-b925-01b650538e52', clientId: 'DAC' },
-  type: 'DEVELOPER_FETCH_APP_DETAIL',
+  type: 'FETCH_APP_DETAIL',
 }
 
 const params: Action<FetchAppByIdParams> = {
   data: { id: '9b6fd5f7-2c15-483d-b925-01b650538e52' },
-  type: 'DEVELOPER_FETCH_APP_DETAIL',
+  type: 'FETCH_APP_DETAIL',
 }
 
 describe('fetch developer app detail with clientId', () => {
-  const gen = cloneableGenerator(fetchDeveloperAppDetailSaga)(paramsClientId)
+  const gen = cloneableGenerator(fetchAppDetailSaga)(paramsClientId)
   expect(gen.next().value).toEqual(
     call(fetchAppById, { id: paramsClientId.data.id, clientId: paramsClientId.data.clientId }),
   )
@@ -34,7 +34,7 @@ describe('fetch developer app detail with clientId', () => {
     const clone = gen.clone()
     expect(clone.next(appDetailDataStub.data).value).toEqual(call(fetchDesktopIntegrationTypes))
     expect(clone.next(integrationTypesStub).value).toEqual(put(integrationTypesReceiveData(integrationTypesStub)))
-    expect(clone.next().value).toEqual(put(developerFetchAppDetailSuccess(appDetailDataStub.data)))
+    expect(clone.next().value).toEqual(put(fetchAppDetailSuccess(appDetailDataStub.data)))
   })
 
   test('api call error', () => {
@@ -52,14 +52,14 @@ describe('fetch developer app detail with clientId', () => {
 })
 
 describe('fetch developer app detail without clientId', () => {
-  const gen = cloneableGenerator(fetchDeveloperAppDetailSaga)(params)
+  const gen = cloneableGenerator(fetchAppDetailSaga)(params)
   expect(gen.next().value).toEqual(call(fetchAppById, { id: paramsClientId.data.id, clientId: undefined }))
 
   test('api call success', () => {
     const clone = gen.clone()
     expect(clone.next(appDetailDataStub.data).value).toEqual(call(fetchDesktopIntegrationTypes))
     expect(clone.next(integrationTypesStub).value).toEqual(put(integrationTypesReceiveData(integrationTypesStub)))
-    expect(clone.next().value).toEqual(put(developerFetchAppDetailSuccess(appDetailDataStub.data)))
+    expect(clone.next().value).toEqual(put(fetchAppDetailSuccess(appDetailDataStub.data)))
   })
 
   test('api call error', () => {
@@ -77,7 +77,7 @@ describe('fetch developer app detail without clientId', () => {
 })
 
 describe('client app detail fetch data and fetch apiKey', () => {
-  const gen = cloneableGenerator(fetchDeveloperAppDetailSaga)(params)
+  const gen = cloneableGenerator(fetchAppDetailSaga)(params)
   expect(gen.next().value).toEqual(call(fetchAppById, { id: params.data.id, clientId: undefined }))
 
   test('api call success', () => {
@@ -98,7 +98,7 @@ describe('client app detail fetch data and fetch apiKey', () => {
     expect(clone.next({ apiKey }).value).toEqual(call(fetchDesktopIntegrationTypes))
     expect(clone.next(integrationTypesStub).value).toEqual(put(integrationTypesReceiveData(integrationTypesStub)))
     expect(clone.next().value).toEqual(
-      put(developerFetchAppDetailSuccess({ ...appDetailDataStub.data, isWebComponent, installationId, apiKey })),
+      put(fetchAppDetailSuccess({ ...appDetailDataStub.data, isWebComponent, installationId, apiKey })),
     )
   })
 

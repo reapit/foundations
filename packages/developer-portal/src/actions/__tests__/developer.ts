@@ -13,7 +13,6 @@ import {
   fetchMonthlyBillingFailure,
   developerWebhookPing,
   developerSetWebhookPingStatus,
-  developerApplyAppDetails,
 } from '../developer'
 import ActionTypes from '../../constants/action-types'
 import { appsDataStub } from '../../sagas/__stubs__/apps'
@@ -112,9 +111,5 @@ describe('developer actions', () => {
   it('should create a developerSetWebhookPingStatus action', () => {
     expect(developerSetWebhookPingStatus.type).toEqual(ActionTypes.DEVELOPER_SET_PING_WEBHOOK_STATUS)
     expect(developerSetWebhookPingStatus('SUCCESS').data).toEqual('SUCCESS')
-  })
-  it('should create a developerApplyAppDetails action', () => {
-    expect(developerApplyAppDetails.type).toEqual(ActionTypes.DEVELOPER_APPLY_APP_DETAIL)
-    expect(developerApplyAppDetails({}).data).toEqual({})
   })
 })

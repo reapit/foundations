@@ -9,7 +9,6 @@ import {
   appInstallationsSetFormState,
 } from '@/actions/app-installations'
 import CallToAction from '@/components/ui/call-to-action'
-import { setAppDetailStale } from '@/actions/app-detail'
 import { selectInstallationFormState } from '@/selector/installations'
 import formFields from './form-schema/form-fields'
 import validationSchema from './form-schema/validation-schema'
@@ -39,9 +38,9 @@ export const handleSuccessUninstall = (
 ) => () => {
   onUninstallSuccess()
   dispatch(appInstallationsSetFormState('PENDING'))
-  if (isSetAppDetailStaleAfterUninstallSuccess) {
-    dispatch(setAppDetailStale(true))
-  }
+  // if (isSetAppDetailStaleAfterUninstallSuccess) {
+  //   dispatch(setAppDetailStale(true))
+  // }
 }
 
 export const handleSubmit = (dispatch: Dispatch, installationDetail?: InstallationModel) => {

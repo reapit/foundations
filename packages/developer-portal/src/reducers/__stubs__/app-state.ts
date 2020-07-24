@@ -4,11 +4,6 @@ import { COGNITO_GROUP_DEVELOPER_EDITION } from '@/constants/api'
 const appState: ReduxState = {
   developer: {
     loading: false,
-    developerAppDetail: {
-      error: null,
-      data: null,
-      isAppDetailLoading: false,
-    },
     developerData: null,
     formState: 'PENDING',
     isVisible: false,
@@ -58,14 +53,13 @@ const appState: ReduxState = {
     },
   },
   appDetail: {
-    loading: false,
-    error: false,
-    appDetailData: null,
-    authentication: {
-      loading: false,
-      code: '',
-    },
-    isStale: true,
+    isLoading: false,
+    errorMessage: '',
+    data: null,
+  },
+  appAuthentication: {
+    code: '',
+    isLoading: false,
   },
   error: {
     componentError: null,

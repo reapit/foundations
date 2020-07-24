@@ -32,7 +32,7 @@ describe('CategorySection', () => {
   })
 
   it('should match a snapshot where category is defined and is sidebar', () => {
-    expect(shallow(<CategorySection category={appDetailDataStub.data.category} isSidebar />)).toMatchSnapshot()
+    expect(shallow(<CategorySection category={appDetailDataStub.data?.category} isSidebar />)).toMatchSnapshot()
   })
 })
 
@@ -168,7 +168,7 @@ describe('AdditionalImagesSection', () => {
     expect(
       shallow(
         <AdditionalImagesSection
-          images={appDetailDataStub.data.media as MediaModel[]}
+          images={appDetailDataStub.data?.media as MediaModel[]}
           splitIndex={0}
           numberImages={2}
         />,
@@ -184,7 +184,7 @@ describe('AdditionalImagesSection', () => {
 describe('PermissionsSection', () => {
   it('should match a snapshot where has permissions', () => {
     expect(
-      shallow(<PermissionsSection permissions={appDetailDataStub.data.scopes as ScopeModel[]} />),
+      shallow(<PermissionsSection permissions={appDetailDataStub.data?.scopes as ScopeModel[]} />),
     ).toMatchSnapshot()
   })
 

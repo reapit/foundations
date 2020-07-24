@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
-import { appDetailRequestData } from '@/actions/app-detail'
+import { fetchAppDetail } from '@/actions/app-detail'
 import { revisionDetailRequestData, declineRevision, revisionDetailClearData } from '@/actions/revision-detail'
 import { revisionsRequestData, revisionsClearData } from '@/actions/revisions'
 import { AppDetailState } from '@/reducers/app-detail'
@@ -10,14 +10,13 @@ import { LoginIdentity } from '@reapit/cognito-auth'
 import { Modal, Loader, Button } from '@reapit/elements'
 import AppRevisionComparison from './app-revision-comparison'
 import CallToAction from '@/components/ui/call-to-action'
-import { DeveloperAppDetailState } from '@/reducers/developer'
 import { selectAppRevisions, selectAppRevisionDetail } from '@/selector/app-revisions'
 import { selectLoginIdentity } from '@/selector/auth'
 
 export interface OwnProps {
   visible: boolean
   appId: string
-  appDetailState: DeveloperAppDetailState | AppDetailState
+  appDetailState: AppDetailState
   afterClose: () => void
   onCancelSuccess?: () => void
 }
@@ -25,7 +24,7 @@ export interface OwnProps {
 export type DeveloperAppRevisionModalProps = {
   visible: boolean
   appId: string
-  appDetailState: DeveloperAppDetailState | AppDetailState
+  appDetailState: AppDetailState
   afterClose: () => void
   onCancelSuccess?: () => void
 }
@@ -67,7 +66,7 @@ export const backToAppDetailsModal = (appId: string, dispatch: Dispatch) => {
   return () => {
     dispatch(revisionsClearData(null))
     dispatch(revisionDetailClearData(null))
-    dispatch(appDetailRequestData({ id: appId }))
+    dispatch(fetchAppDetail({ id: appId }))
   }
 }
 

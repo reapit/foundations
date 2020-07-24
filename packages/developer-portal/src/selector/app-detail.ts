@@ -6,20 +6,17 @@ export const selectAppDetailState = (state: ReduxState) => {
 }
 
 export const selectAppDetailId = (state: ReduxState) => {
-  return state?.appDetail?.appDetailData?.data?.id
+  return state?.appDetail?.data?.id
 }
 
 export const selectAppDetailInstallationId = (state: ReduxState) => {
-  return state?.appDetail?.appDetailData?.data?.installationId
+  return state?.appDetail?.data?.installationId
 }
 
-export const selectApp = (state: ReduxState): AppDetailModel => {
-  return state?.appDetail?.appDetailData?.data || {}
+export const selectAppDetailData = (state: ReduxState): AppDetailModel => {
+  return state?.appDetail?.data || {}
 }
 
-export const selectAppAuthenticationLoading = (state: ReduxState): boolean => {
-  return state.appDetail?.authentication.loading
-}
-export const selectAppAuthenticationCode = (state: ReduxState): string => {
-  return state.appDetail?.authentication.code
+export const selectAppDetailLoading = (state: ReduxState): boolean => {
+  return state?.appDetail?.isLoading
 }

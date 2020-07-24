@@ -24,10 +24,7 @@ const mockState = {
   installations: {
     installationsAppData: installationsStub,
   },
-
-  developer: {
-    developerAppDetail: appDetailDataStub,
-  },
+  appDetail: {},
 } as ReduxState
 
 describe('AppContent', () => {
@@ -38,7 +35,7 @@ describe('AppContent', () => {
     expect(
       mount(
         <Provider store={store}>
-          <AppContent appDetailState={mockState.developer.developerAppDetail} />
+          <AppContent appDetailState={mockState.appDetail} />
         </Provider>,
       ),
     ).toMatchSnapshot()
@@ -72,7 +69,7 @@ describe('AppContent', () => {
     it('should run correctly', () => {
       const appId = 'appId'
       const spyOpenUrl = jest.spyOn(window, 'open')
-      const fn = handleOpenAppPreview(appId, appDetailDataStub.data)
+      const fn = handleOpenAppPreview(appId, appDetailDataStub.data || {})
       fn()
       expect(spyOpenUrl).toBeCalledWith('/apps/appId/preview', '_blank')
     })

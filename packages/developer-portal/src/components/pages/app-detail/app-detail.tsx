@@ -7,7 +7,6 @@ import { PagedResultInstallationModel_ } from '@reapit/foundations-ts-definition
 import { DeveloperAside } from './app-aside'
 import { useSelector } from 'react-redux'
 import { History } from 'history'
-import { selectAppDetailState, selectAppDetailData, selectAppDetailLoading } from '@/selector/developer-app-detail'
 import { selectInstallAppLoading } from '@/selector/installations'
 import { Loader, Grid, GridItem, Section } from '@reapit/elements'
 import AppHeader from '@/components/pages/app-detail/app-header'
@@ -17,6 +16,7 @@ import { getDesktopIntegrationTypes } from '@/utils/get-desktop-integration-type
 import useReactResponsive from '@/components/hooks/use-react-responsive'
 import { BackToAppsSection } from './app-sections'
 import AppContent from './app-content'
+import { selectAppDetailState, selectAppDetailData, selectAppDetailLoading } from '@/selector/app-detail'
 
 export type DeveloperAppDetailProps = {}
 

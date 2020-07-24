@@ -1,10 +1,10 @@
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { selectDeveloperId } from '@/selector'
-import { appDetailRequestData } from './../actions/app-detail'
+import { fetchAppDetail } from './../actions/app-detail'
 import { RouteValue, StringMap } from '../types/core'
 import Routes from '../constants/routes'
 import store from '../core/store'
-import { developerRequestData, fetchMyIdentity, developerFetchAppDetail } from '@/actions/developer'
+import { developerRequestData, fetchMyIdentity } from '@/actions/developer'
 import { appInstallationsRequestData } from '../actions/app-installations'
 import { submitAppRequestData } from '../actions/submit-app'
 import { requestDeveloperData } from '@/actions/settings'
@@ -29,7 +29,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(developerRequestData({ page: 1, appsPerPage: GET_ALL_PAGE_SIZE }))
       if (appId) {
         const clientId = selectClientId(store.state)
-        store.dispatch(appDetailRequestData({ id: appId, clientId }))
+        store.dispatch(fetchAppDetail({ id: appId, clientId }))
       }
       break
     }
@@ -37,7 +37,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       if (id) {
         const clientId = selectClientId(store.state)
         const developerId = selectDeveloperId(store.state) || ''
-        store.dispatch(developerFetchAppDetail({ id, clientId }))
+        store.dispatch(fetchAppDetail({ id, clientId }))
         store.dispatch(
           appInstallationsRequestData({
             appId: [id],
@@ -52,7 +52,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
     }
     case Routes.APPS_EDIT:
       store.dispatch(submitAppRequestData())
-      store.dispatch(appDetailRequestData({ id }))
+      store.dispatch(fetchAppDetail({ id }))
       break
     case Routes.SUBMIT_APP:
       store.dispatch(submitAppRequestData())

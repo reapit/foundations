@@ -1,7 +1,6 @@
 import { DeveloperState } from '@/reducers/developer'
 import { developerIdentity } from './developer-identity'
 import { billing } from './billing'
-import { appDetailDataStub } from './app-detail'
 
 export const developerStub = {
   id: '7a96e6b2-3778-4118-9c9b-6450851e5608',
@@ -18,10 +17,6 @@ export const developerStub = {
 export const developerState: DeveloperState = {
   loading: false,
   error: null,
-  developerAppDetail: {
-    data: appDetailDataStub.data,
-    isAppDetailLoading: false,
-  },
   developerData: {
     data: {
       data: [

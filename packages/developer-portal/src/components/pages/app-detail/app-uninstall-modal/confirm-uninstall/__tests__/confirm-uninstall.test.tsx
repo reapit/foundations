@@ -10,7 +10,6 @@ import {
   UninstallParams,
   appInstallationsRequestUninstall,
 } from '@/actions/app-installations'
-import { setAppDetailStale } from '@/actions/app-detail'
 
 const props: ConfirmUninstallProps = {
   appName: '1',
@@ -47,7 +46,6 @@ describe('ConfirmUninstall', () => {
       fn()
       expect(onUninstallSuccess).toBeCalled()
       expect(spyDispatch).toBeCalledWith(appInstallationsSetFormState('PENDING'))
-      expect(spyDispatch).toBeCalledWith(setAppDetailStale(true))
       spyDispatch.mockClear()
     })
   })
@@ -60,7 +58,6 @@ describe('ConfirmUninstall', () => {
       fn()
       expect(onUninstallSuccess).toBeCalled()
       expect(spyDispatch).toBeCalledWith(appInstallationsSetFormState('PENDING'))
-      expect(spyDispatch).not.toBeCalledWith(setAppDetailStale(true))
     })
   })
 

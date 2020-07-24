@@ -4,8 +4,6 @@ import { useHistory } from 'react-router'
 import { History } from 'history'
 import { FlexContainerBasic } from '@reapit/elements'
 import { DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
-import { DeveloperAppDetailState } from '@/reducers/developer'
-import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import useReactResponsive from '@/components/hooks/use-react-responsive'
 import AppManageMent from './app-management'
 import {
@@ -16,9 +14,10 @@ import {
   StatusSection,
   BackToAppsSection,
 } from './app-sections'
+import { AppDetailState } from '@/reducers/app-detail'
 
 interface AsideProps {
-  appDetailState: DeveloperAppDetailState
+  appDetailState: AppDetailState
   desktopIntegrationTypes: DesktopIntegrationTypeModel[]
 }
 
@@ -32,7 +31,7 @@ export const DeveloperAside: React.FC<AsideProps> = ({ desktopIntegrationTypes, 
   const history = useHistory()
   const { isMobile } = useReactResponsive()
   const { data } = appDetailState
-  const { isDirectApi, category, isListed, pendingRevisions, id = '', limitToClientIds = [] } = data as AppDetailModel
+  const { isDirectApi, category, isListed, pendingRevisions, id = '', limitToClientIds = [] } = data || {}
 
   return (
     <FlexContainerBasic flexColumn hasPadding hasBackground isFullHeight={!isMobile}>

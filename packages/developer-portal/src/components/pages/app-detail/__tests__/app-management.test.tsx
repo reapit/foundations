@@ -9,7 +9,6 @@ import configureStore from 'redux-mock-store'
 import Routes from '@/constants/routes'
 import DeveloperManageApp from '../app-management'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
-import { DeveloperAppDetailState } from '@/reducers/developer'
 import {
   onAppDeleteModalAfterClose,
   onDeleteSuccess,
@@ -44,11 +43,7 @@ describe('ManageApp', () => {
       mount(
         <Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.APP_DETAIL, key: 'developerAppDetailRoute' }]}>
-            <DeveloperManageApp
-              id="test"
-              pendingRevisions={false}
-              appDetailState={appDetailDataStub as DeveloperAppDetailState}
-            />
+            <DeveloperManageApp id="test" pendingRevisions={false} appDetailState={appDetailDataStub} />
           </MemoryRouter>
         </Provider>,
       ),

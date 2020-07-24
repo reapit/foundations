@@ -1,7 +1,7 @@
 // TODO: WILL MOVE ALL DEVELOPER ACTIONS TO HERE
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
-import { AppDetailData, DeveloperItem, DeveloperRequestParams, WebhookPingTestStatus } from '@/reducers/developer'
+import { DeveloperItem, DeveloperRequestParams, WebhookPingTestStatus } from '@/reducers/developer'
 import {
   CreateDeveloperModel,
   DeveloperModel,
@@ -11,15 +11,6 @@ import {
 import { FormState } from '@/types/core'
 import { FetchBillingsParams, FetchBillingsByMonthParams } from '@/services/traffic-events'
 import { PingWebhooksByIdParams } from '@/services/webhooks'
-import { FetchAppByIdParams } from '@/services/apps'
-
-// Developer App Detail
-export const developerFetchAppDetail = actionCreator<FetchAppByIdParams>(ActionTypes.DEVELOPER_FETCH_APP_DETAIL)
-export const developerFetchAppDetailSuccess = actionCreator<AppDetailData>(
-  ActionTypes.DEVELOPER_FETCH_APP_DETAIL_SUCCESS,
-)
-export const developerFetchAppDetailFailed = actionCreator<string>(ActionTypes.DEVELOPER_FETCH_APP_DETAIL_FAILED)
-
 export const developerRequestData = actionCreator<DeveloperRequestParams>(ActionTypes.DEVELOPER_REQUEST_DATA)
 export const developerRequestDataFailure = actionCreator<void>(ActionTypes.DEVELOPER_REQUEST_DATA_FAILURE)
 export const developerLoading = actionCreator<boolean>(ActionTypes.DEVELOPER_LOADING)
@@ -45,4 +36,3 @@ export const developerWebhookPing = actionCreator<PingWebhooksByIdParams>(Action
 export const developerSetWebhookPingStatus = actionCreator<WebhookPingTestStatus>(
   ActionTypes.DEVELOPER_SET_PING_WEBHOOK_STATUS,
 )
-export const developerApplyAppDetails = actionCreator<AppDetailData>(ActionTypes.DEVELOPER_APPLY_APP_DETAIL)
