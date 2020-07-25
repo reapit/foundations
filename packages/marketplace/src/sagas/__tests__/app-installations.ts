@@ -2,7 +2,7 @@ import appInstallationsSagas, { appInstallationsListen, appInstallSaga, appUnins
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import ActionTypes from '@/constants/action-types'
-import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
+import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { UninstallParams, InstallParams, appInstallationsSetFormState } from '@/actions/app-installations'

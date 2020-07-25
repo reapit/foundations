@@ -56,7 +56,6 @@ exports[`PrivateRouter should match a snapshot 1`] = `
       }
     >
       <Component
-        allow="CLIENT"
         component={[Function]}
       >
         <Route

@@ -5,6 +5,12 @@ export const selectLoginType = (state: ReduxState) => {
   return state.auth.loginType
 }
 
+// REMOVE
+// FIXME(selectLoginIdentity)
+export const selectLoginIdentityFromHook = (state: ReapitConnectSession | null) => {
+  return state?.loginIdentity
+}
+
 export const selectLoginIdentity = (state: ReduxState) => {
   return state.auth.loginSession?.loginIdentity
 }
@@ -29,7 +35,7 @@ export const selectIsAdmin = (state: ReduxState) => {
 
 // a: create select developer id
 export const selectClientId = (state: ReapitConnectSession | null): string => {
-  return state?.loginIdentity.clientId || ''
+  return state?.loginIdentity?.clientId || ''
 }
 
 export const selectDeveloperIdFromHook = (state: ReapitConnectSession | null): string => {
