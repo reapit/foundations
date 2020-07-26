@@ -1,12 +1,18 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import { Settings, handleLogout } from '../setting'
-import { authLogout } from '@/actions/auth'
 import { Provider } from 'react-redux'
 import { MemoryRouter } from 'react-router'
 import Routes from '@/constants/routes'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+
+jest.mock('@/core/connect-session', () => ({
+  reapitConnectBrowserSession: {
+    connectLogoutRedirect: jest.fn(),
+  },
+}))
 
 describe('Settings', () => {
   it('should match snapshot', () => {
@@ -25,33 +31,31 @@ describe('Settings', () => {
   })
 
   it('should match snapshot in desktop mode', () => {
-    const mockStore = configureStore()
-    const store = mockStore({
-      ...appState,
-      auth: {
-        ...appState.auth,
-        refreshSession: {
-          ...appState.auth.refreshSession,
-          mode: 'DESKTOP',
-        },
-      },
-    })
-
+    /**
+     * TODO(auth)
+     * remove the store
+     */
+    /**
+     * TODO(auth)
+     * remove the store
+     */
     expect(
       mount(
-        <Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.SETTINGS, key: 'clientSettingsRoute' }]}>
-            <Settings />
-          </MemoryRouter>
-        </Provider>,
+        <MemoryRouter initialEntries={[{ pathname: Routes.SETTINGS, key: 'clientSettingsRoute' }]}>
+          <Settings />
+        </MemoryRouter>,
       ),
     ).toMatchSnapshot()
   })
 
-  it('should handleLogout run correctly', () => {
-    const dispatch = jest.fn()
-    const fn = handleLogout(dispatch)
-    fn()
-    expect(dispatch).toBeCalledWith(authLogout())
+  /**
+   * TODO(auth)
+   * mock like auth page
+   */
+  describe('handleLogout', () => {
+    it('should run correctly', () => {
+      handleLogout()
+      expect(reapitConnectBrowserSession.connectLogoutRedirect).toHaveBeenCalled()
+    })
   })
 })

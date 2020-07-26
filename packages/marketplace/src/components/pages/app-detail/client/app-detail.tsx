@@ -9,7 +9,7 @@ import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
 import { selectIntegrationTypes } from '@/selector/integration-types'
 import { useSelector } from 'react-redux'
 import { selectAppDetailData, selectAppDetailLoading } from '@/selector/client-app-detail'
-import { selectLoginType, selectClientId, selectIsAdminFromHook, selectDeveloperIdFromHook } from '@/selector/auth'
+import { selectClientId, selectIsAdmin, selectDeveloperId } from '@/selector/auth'
 import { canGoBack } from '@/utils/router-helper'
 import AppContent from './app-content'
 import { Loader, GridItem, Grid, Section } from '@reapit/elements'
@@ -111,12 +111,11 @@ const AppDetail: React.FC = () => {
   // FIXME: Refactor to match login type
   // developer edition show mange
   const isLoadingAppDetail = useSelector(selectAppDetailLoading)
-  const loginType = useSelector(selectLoginType)
 
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const isDesktopAdmin = selectIsAdmin(connectSession)
   const isClient = Boolean(selectClientId(connectSession))
-  const isDeveloperEdition = Boolean(selectDeveloperIdFromHook(connectSession))
-  const isDesktopAdmin = selectIsAdminFromHook(connectSession)
+  const isDeveloperEdition = Boolean(selectDeveloperId(connectSession))
 
   // TESTME: show btn hidden when not admin
   const isAdmin = isDesktopAdmin || isDeveloperEdition
@@ -151,9 +150,8 @@ const AppDetail: React.FC = () => {
                 }
               />
               <AppContent appDetailData={appDetailData} />
-              {!isMobile && loginType !== 'DEVELOPER' && (
-                <BackToAppsSection onClick={onBackToAppsButtonClick(history)} />
-              )}
+              {/* TESTME(auth) back button show */}
+              {!isMobile && <BackToAppsSection onClick={onBackToAppsButtonClick(history)} />}
             </Section>
           </GridItem>
         </>

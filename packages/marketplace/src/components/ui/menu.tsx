@@ -6,7 +6,7 @@ import Routes from '../../constants/routes'
 import { Location } from 'history'
 import { FaCloud, FaCloudDownloadAlt, FaCog, FaClipboardList } from 'react-icons/fa'
 import { MdHelp } from 'react-icons/md'
-import { selectIsAdminFromHook, selectDeveloperIdFromHook } from '@/selector/auth'
+import { selectIsAdmin, selectDeveloperId } from '@/selector/auth'
 import { LoginType } from '@reapit/cognito-auth'
 import { useReapitConnect } from '@reapit/connect-session'
 
@@ -76,7 +76,7 @@ export const Menu: React.FunctionComponent<MenuProps> = () => {
   const location = useLocation()
   // FIXME(menu) change selector
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const isDesktopAdmin = selectIsAdminFromHook(connectSession)
+  const isDesktopAdmin = selectIsAdmin(connectSession)
 
   /**
    * testME:
@@ -85,7 +85,7 @@ export const Menu: React.FunctionComponent<MenuProps> = () => {
    * dev with dev edition
    */
   // TODO: developer edition login
-  const isDeveloperEdition = Boolean(selectDeveloperIdFromHook(connectSession))
+  const isDeveloperEdition = Boolean(selectDeveloperId(connectSession))
   // FIXME(menu) select from hooks session
 
   // FIXME(menu) desk edition only

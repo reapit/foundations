@@ -6,4 +6,3 @@ export const reapitConnectBrowserSession = new ReapitConnectBrowserSession({
   connectOAuthUrl: window.reapit.config.cognitoOAuthUrl,
   connectLoginRedirectPath: window.reapit.config.connectLoginRedirectPath,
 })
-console.log({ debug: reapitConnectBrowserSession.connectSession().then(cfg => console.log(cfg)) })

@@ -9,7 +9,7 @@ import AppList from '@/components/ui/app-list'
 import { selectMyApps } from '@/selector/client'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { handleLaunchApp } from '@/utils/launch-app'
-import { selectDeveloperIdFromHook, selectIsAdminFromHook } from '@/selector/auth'
+import { selectDeveloperId, selectIsAdmin } from '@/selector/auth'
 import Routes from '@/constants/routes'
 import { getParamsFromPath } from '@/utils/client-url-params'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -30,9 +30,9 @@ export const AppsManagement: React.FunctionComponent = () => {
   // 404 - client
   // OK - developer
   // OK - admin
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const isDeveloperEdition = Boolean(selectDeveloperIdFromHook(connectSession))
-  const isDesktopAdmin = selectIsAdminFromHook(connectSession)
+  const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
+  const isDeveloperEdition = Boolean(selectDeveloperId(connectSession))
+  const isDesktopAdmin = selectIsAdmin(connectSession)
   const isAdmin = isDesktopAdmin || isDeveloperEdition
 
   const queryParams = getParamsFromPath(location.search)
@@ -54,7 +54,7 @@ export const AppsManagement: React.FunctionComponent = () => {
       <AppList
         list={list}
         loading={loading}
-        onCardClick={(app: AppSummaryModel) => handleLaunchApp(app)}
+        onCardClick={(app: AppSummaryModel) => handleLaunchApp(app, connectIsDesktop)}
         onSettingsClick={handleOnSettingClick(history)}
         infoType="INSTALLED_APPS_EMPTY"
       />

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useHelpGuideContext, HelpGuide, Button, Loader } from '@reapit/elements'
+import { useHelpGuideContext, HelpGuide, Button } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { history } from '@/core/router'
 import styles from '@/styles/pages/welcome.scss?mod'
@@ -10,8 +10,10 @@ import Step4 from '@/assets/images/step-4.png'
 import Step5 from '@/assets/images/step-5.png'
 import { setCookieString, COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE, COOKIE_MAX_AGE_INFINITY } from '@/utils/cookie'
 import { useSelector } from 'react-redux'
-import { selectIsAdmin, selectLoginSession } from '@/selector/auth'
+import { selectIsAdmin } from '@/selector/auth'
 import { selectDeveloperEditionId } from '@/selector/client'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { useReapitConnect } from '@reapit/connect-session'
 
 export const Welcome = () => {
   const { goNext, goPrev } = useHelpGuideContext()
@@ -148,9 +150,15 @@ export const handleChangeSteps = (goTo: () => void) => () => {
  * required: t
  */
 export const WelcomeMessage: React.FC = () => {
-  const isDesktopAdmin = useSelector(selectIsAdmin)
+  // FIXME(selectIsAdmin)
+  // reafctor to use reapit hok
+  // !? developer can't enter marketplace !?
+  // comment
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const isDesktopAdmin = selectIsAdmin(connectSession)
+  // FIXME(selectDeveloperEditionId)
+  // confirm if dev edition able to connect client
   const isDeveloperEdition = Boolean(useSelector(selectDeveloperEditionId))
-  const loginSession = useSelector(selectLoginSession)
   // FIXME(isAdmin)
   // TESTME: render correct
   // client welcome
@@ -171,7 +179,6 @@ export const WelcomeMessage: React.FC = () => {
     )
   })
 
-  if (!loginSession) return <Loader />
   return <HelpGuide>{guideList}</HelpGuide>
 }
 

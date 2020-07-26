@@ -63,8 +63,8 @@ describe('InstalledApps', () => {
   })
 
   it('handleOnCardClick should call handleLaunchApp', () => {
-    handleOnCardClick(appDetailDataStub.data)
+    handleOnCardClick(true)(appDetailDataStub.data)
     expect(handleLaunchApp).toHaveBeenCalledTimes(1)
-    expect(handleLaunchApp).toHaveBeenCalledWith(appDetailDataStub.data)
+    expect(handleLaunchApp).toHaveBeenCalledWith(appDetailDataStub.data, true)
   })
 })

@@ -1,5 +1,5 @@
 import { myAppsLoading, myAppsReceiveData, myAppsRequestDataFailure } from '../actions/my-apps'
-import { put, fork, takeLatest, call, all, select } from '@redux-saga/core/effects'
+import { put, fork, takeLatest, call, all } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
@@ -26,7 +26,7 @@ export const myAppsDataFetch = function*({ data: page }) {
     }
     // FIXME(selectDeveloperEditionId)
     // !? input dev id on API
-    const developerId = yield select(selectDeveloperEditionId)
+    const developerId = yield call(selectDeveloperEditionId, connectSession)
     const response = yield call(fetchAppsList, {
       clientId,
       developerId: developerId ? [developerId] : [],

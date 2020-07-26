@@ -5,8 +5,14 @@ import configureStore from 'redux-mock-store'
 import { MemoryRouter } from 'react-router'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
-import Authentication, { renderModal, onLogoutButtonClick, onDevelopersButtonClick } from '../authentication'
-import { authLogout } from '@/actions/auth'
+import Authentication, { renderModal, handleLogout, onDevelopersButtonClick } from '../authentication'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+
+jest.mock('@/core/connect-session', () => ({
+  reapitConnectBrowserSession: {
+    connectLogoutRedirect: jest.fn(),
+  },
+}))
 
 describe('Authentication', () => {
   let store
@@ -35,11 +41,10 @@ describe('Authentication', () => {
       expect(wrapper).toMatchSnapshot()
     })
   })
-  describe('onLogoutButtonClick', () => {
+  describe('handleLogout', () => {
     it('should run correctly', () => {
-      const fn = onLogoutButtonClick(spyDispatch)
-      fn()
-      expect(spyDispatch).toBeCalledWith(authLogout())
+      handleLogout()
+      expect(reapitConnectBrowserSession.connectLogoutRedirect).toHaveBeenCalled()
     })
   })
   describe('onDevelopersButtonClick', () => {

@@ -80,8 +80,10 @@ exports[`Settings should match snapshot 1`] = `
               <div
                 className=""
               >
+                 
                 Customer ID: 
                 <strong />
+                 
               </div>
             </Component>
             <Component>
@@ -125,108 +127,114 @@ exports[`Settings should match snapshot 1`] = `
 `;
 
 exports[`Settings should match snapshot in desktop mode 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
+<MemoryRouter
+  initialEntries={
+    Array [
+      Object {
+        "key": "clientSettingsRoute",
+        "pathname": "/settings",
+      },
+    ]
   }
 >
-  <MemoryRouter
-    initialEntries={
-      Array [
-        Object {
-          "key": "clientSettingsRoute",
-          "pathname": "/settings",
-        },
-      ]
-    }
-  >
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "canGo": [Function],
-          "createHref": [Function],
-          "entries": Array [
-            Object {
-              "hash": "",
-              "key": "clientSettingsRoute",
-              "pathname": "/settings",
-              "search": "",
-            },
-          ],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "index": 0,
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
             "hash": "",
             "key": "clientSettingsRoute",
             "pathname": "/settings",
             "search": "",
           },
-          "push": [Function],
-          "replace": [Function],
-        }
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "clientSettingsRoute",
+          "pathname": "/settings",
+          "search": "",
+        },
+        "push": [Function],
+        "replace": [Function],
       }
-    >
+    }
+  >
+    <Component>
       <Component>
-        <Component>
-          <section
-            className=""
-            data-test=""
-          >
-            <Component>
-              <h3
-                className=""
-                id=""
-              >
-                Settings
-              </h3>
-            </Component>
-          </section>
-        </Component>
-        <Component>
-          <section
-            className=""
-            data-test=""
-          >
-            <Component>
-              <div
-                className=""
-              >
-                Customer ID: 
-                <strong />
-              </div>
-            </Component>
-            <Component>
-              <div
-                className=""
-              >
-                This is your Customer ID which you will need for use with Private Apps and Web Components.
-              </div>
-            </Component>
-            <Component
-              className="bt pt-4"
+        <section
+          className=""
+          data-test=""
+        >
+          <Component>
+            <h3
+              className=""
+              id=""
             >
-              <div
-                className=""
-                data-test=""
-              />
-            </Component>
-          </section>
-        </Component>
+              Settings
+            </h3>
+          </Component>
+        </section>
       </Component>
-    </Router>
-  </MemoryRouter>
-</Provider>
+      <Component>
+        <section
+          className=""
+          data-test=""
+        >
+          <Component>
+            <div
+              className=""
+            >
+               
+              Customer ID: 
+              <strong />
+               
+            </div>
+          </Component>
+          <Component>
+            <div
+              className=""
+            >
+              This is your Customer ID which you will need for use with Private Apps and Web Components.
+            </div>
+          </Component>
+          <Component
+            className="bt pt-4"
+          >
+            <div
+              className=""
+              data-test=""
+            >
+              <Component
+                dataTest="logout-btn"
+                onClick={[Function]}
+                type="button"
+                variant="primary"
+              >
+                <button
+                  className="button  is-primary  "
+                  data-test="logout-btn"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Logout
+                </button>
+              </Component>
+            </div>
+          </Component>
+        </section>
+      </Component>
+    </Component>
+  </Router>
+</MemoryRouter>
 `;

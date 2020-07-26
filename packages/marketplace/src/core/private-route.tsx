@@ -3,7 +3,7 @@ import { History } from 'history'
 import { Route, RouteProps, useHistory } from 'react-router'
 import RouteFetcher from '../components/hocs/route-fetcher'
 import { LoginIdentity } from '@reapit/connect-session'
-import { selectLoginIdentityFromHook } from '@/selector/auth'
+import { selectLoginIdentity } from '@/selector/auth'
 import Routes from '@/constants/routes'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from './connect-session'
@@ -55,7 +55,7 @@ export const PrivateRoute = ({ component, fetcher = false, ...rest }: PrivateRou
    * Show login shit for admin
    */
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const loginIdentity = selectLoginIdentityFromHook(connectSession)
+  const loginIdentity = selectLoginIdentity(connectSession)
 
   /**
    * FIXME(remove connect session): remove this

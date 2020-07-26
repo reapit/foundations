@@ -4,12 +4,8 @@ import { useReapitConnect } from '@reapit/connect-session'
 // import ClientWelcomeMessageModal from '@/components/ui/client-welcome-message'
 import Menu from '@/components/ui/menu'
 import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements'
-import { Dispatch } from 'redux'
 import { Redirect, useLocation } from 'react-router'
 import { getAuthRoute } from '@/utils/auth-route'
-import { setInitClientTermsAcceptedStateFromCookie } from '@/actions/auth'
-import { useDispatch } from 'react-redux'
-import { ActionCreator } from '@/types/core'
 
 const { Suspense } = React
 
@@ -27,30 +23,11 @@ export type PrivateRouteWrapperProps = {
   setClientTermAcceptedCookieAndState: ActionCreator<boolean>
 }) => () => dispatch(setClientTermAcceptedCookieAndState(true)) */
 
-export const handleSetTermsAcceptFromCookie = ({
-  dispatch,
-  setInitClientTermsAcceptedStateFromCookie,
-}: {
-  dispatch: Dispatch
-  setInitClientTermsAcceptedStateFromCookie: ActionCreator<void>
-}) => () => {
-  dispatch(setInitClientTermsAcceptedStateFromCookie())
-}
-
 export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({
   children,
   showMenu = true,
 }) => {
   const session = useReapitConnect(reapitConnectBrowserSession)
-  const dispatch = useDispatch()
-
-  React.useEffect(
-    handleSetTermsAcceptFromCookie({
-      dispatch,
-      setInitClientTermsAcceptedStateFromCookie,
-    }),
-    [],
-  )
 
   // FIXME: remove this fuck
   // const isTermAccepted = useSelector(selectIsTermAccepted)
@@ -58,10 +35,6 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   // FIXME(auth): use repait
 
   const location = useLocation()
-
-  // FIXME: remove this
-
-  console.log({ nghia: session.connectSession })
 
   if (!session.connectSession) {
     return null

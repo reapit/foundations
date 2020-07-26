@@ -8,6 +8,8 @@ export const useReapitConnect = (reapitConnectBrowserSession: ReapitConnectBrows
   React.useEffect(() => {
     const connectGetSession = async () => {
       const session = await reapitConnectBrowserSession.connectSession()
+      console.log({ fetch: session })
+
       if (session) {
         setConnectSession(session)
       }

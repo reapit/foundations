@@ -11,7 +11,7 @@ import { Dispatch } from 'redux'
 import CallToAction from '../../../ui/call-to-action'
 import routes from '@/constants/routes'
 import { selectInstallationFormState } from '@/selector/installations'
-import { selectIsDesktopMode, selectClientId } from '@/selector/auth'
+import { selectClientId } from '@/selector/auth'
 import { DESKTOP_REFRESH_URL } from '@/constants/desktop-urls'
 import { canGoBack } from '@/utils/router-helper'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -145,12 +145,11 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
   const [isSuccessAlertVisible, setIsSuccessAlertVisible] = React.useState(false)
   // FIXME(selectClientId):
   // able to install show install after install
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = selectClientId(connectSession)
   const installationFormState = useSelector(selectInstallationFormState)
   // FIXME(selectIsDesktopMode):
   // App refresh correct on desktop mode after install
-  const isDesktopMode = useSelector(selectIsDesktopMode)
   const isSubmitting = installationFormState === 'SUBMITTING'
 
   const { name, id = '', scopes = [] } = appDetailData || {}
@@ -184,7 +183,7 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
                 dispatch,
                 setIsSuccessAlertVisible,
                 closeInstallConfirmationModal,
-                isDesktopMode,
+                connectIsDesktop,
               )}
             >
               Confirm

@@ -11,7 +11,7 @@ import { appInstallationsRequestUninstall } from '@/actions/app-installations'
 import CallToAction from '../../../ui/call-to-action'
 import { selectInstallationFormState } from '@/selector/installations'
 import routes from '@/constants/routes'
-import { selectIsDesktopMode, selectClientId } from '@/selector/auth'
+import { selectClientId } from '@/selector/auth'
 import { DESKTOP_REFRESH_URL } from '@/constants/desktop-urls'
 import { canGoBack } from '@/utils/router-helper'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -142,10 +142,19 @@ const AppUninstallConfirmation: React.FC<AppUninstallConfirmationProps> = ({
   const history = useHistory()
   // FIXME(selectClientId)
   // Refetch app after un-install
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = selectClientId(connectSession)
+  //
   const installationFormState = useSelector(selectInstallationFormState)
-  const isDesktopMode = useSelector(selectIsDesktopMode)
+  /**
+   * FIXME(isDesktopMode-)
+   *
+   * TESTME(isDesktopMode-)
+   * if desktop redirect to FIXME
+   *
+   * Redirect if desktop mode
+   * DESKTOP_REFRESH_URL
+   */
   const isSubmitting = installationFormState === 'SUBMITTING'
   const { name, id = '', installationId = '' } = appDetailData || {}
   const dispatch = useDispatch()
@@ -165,7 +174,7 @@ const AppUninstallConfirmation: React.FC<AppUninstallConfirmationProps> = ({
           dispatch,
           setIsSuccessAlertVisible,
           closeUninstallConfirmationModal,
-          isDesktopMode,
+          connectIsDesktop,
         )}
       >
         <>Are you sure you wish to uninstall {name}? This action will uninstall the app for ALL platform users</>
