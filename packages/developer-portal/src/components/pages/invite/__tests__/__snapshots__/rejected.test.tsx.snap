@@ -2,8 +2,15 @@
 
 exports[`AcceptedModal should match snapshot 1`] = `
 <Component
+  closable={false}
   isCentered={true}
-  title="Invitation Declined"
+  title={
+    <Unknown
+      className="pt-2 pb-2"
+    >
+      Invitation Declined
+    </Unknown>
+  }
   visible={true}
 >
   <Component>
