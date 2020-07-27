@@ -1,6 +1,6 @@
 # Connect Session
 
-![lines](./src/tests/badges/badge-lines.svg) ![functions](./src/tests/badges/badge-functions.svg) ![branches](./src/tests/badges/badge-branches.svg) ![statements](./src/tests/badges/badge-statements.svg)
+![lines](/packages/connect-session/src/tests/badges/badge-lines.svg) ![functions](/packages/connect-session/src/tests/badges/badge-functions.svg) ![branches](/packages/connect-session/src/tests/badges/badge-branches.svg) ![statements](/packages/connect-session/src/tests/badges/badge-statements.svg)
 
 A thin wrapper around the Reapit Connect (AWS Congnito) OAuth API. Takes the pain away from managing refreshing sessions and re-directing to the OAuth endpoints. [here](https://foundations-documentation.reapit.cloud/api/web#connect-session) and [here](https://foundations-documentation.reapit.cloud/open-source/packages#connect-session).
 
@@ -15,21 +15,21 @@ For all users, in a file at the root of the source of your project, first instan
 The constructor accepts 4 parameters, of which two are optional, see comments below:
 
 ```ts
-  import { ReapitConnectBrowserSession } from '@reapit/connect-utils'
+import { ReapitConnectBrowserSession } from '@reapit/connect-utils'
 
-  // You should instantiate the class once only as a singleton as the module manages it's own state
-  export const reapitConnectBrowserSession = new ReapitConnectBrowserSession({
-    // The client id of your application, obtained from Reapit Developer Portal
-    connectClientId: 'SOME_CLIENT_ID',
-    // The url to the Reapit Connect instance. While in beta this is the below URL but will need to be context aware in full prod/
-    connectOAuthUrl: 'https://dev.connect.reapit.cloud',
-    // The relative path you want to re-direct in your application after a successful login. You will have supplied this when you registered your app.
-    // Defaults to '' or the route of your project if not supplied
-    connectLoginRedirectPath: '/some-redirect-path',
-    // The relative path you want to re-direct in your application after a successful logout. You will have supplied this when you registered your app.
-    // Defaults to '/login' if not supplied
-    connectLogoutRedirectPath: '/some-login-path',
-  })
+// You should instantiate the class once only as a singleton as the module manages it's own state
+export const reapitConnectBrowserSession = new ReapitConnectBrowserSession({
+  // The client id of your application, obtained from Reapit Developer Portal
+  connectClientId: 'SOME_CLIENT_ID',
+  // The url to the Reapit Connect instance. While in beta this is the below URL but will need to be context aware in full prod/
+  connectOAuthUrl: 'https://dev.connect.reapit.cloud',
+  // The relative path you want to re-direct in your application after a successful login. You will have supplied this when you registered your app.
+  // Defaults to '' or the route of your project if not supplied
+  connectLoginRedirectPath: '/some-redirect-path',
+  // The relative path you want to re-direct in your application after a successful logout. You will have supplied this when you registered your app.
+  // Defaults to '/login' if not supplied
+  connectLogoutRedirectPath: '/some-login-path',
+})
 ```
 
 The instantiated class can then be used in your code. It exports the following methods:
@@ -78,9 +78,9 @@ reapitConnectBrowserSession.connectIsDesktop
 
 In addition to the basic browser API, we export a React Context Provider and Hook to use in your React Components.
 
-To leverage the Hook, first instantiate the class as per above. Then, inject the provider into your Router, wrapped around the Routes you wish to protect with Reapit Connect authentication as below: 
+To leverage the Hook, first instantiate the class as per above. Then, inject the provider into your Router, wrapped around the Routes you wish to protect with Reapit Connect authentication as below:
 
-```ts 
+```ts
 // import the instantiated class, the hook and the provider
 import { ReapitConnectContext, useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from './connect-session'
@@ -103,18 +103,15 @@ export const PrivateRouteWrapper: React.FC = ({ children }) => {
     </ReapitConnectContext.Provider>
   )
 }
-
 ```
 
 Then in my React child components, I have access to the session values and methods eg:
 
 ```ts
-
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from './connect-session'
 
 export const SomeComponent: React.FC = () => {
-
   const { connectSession, connectLogoutRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const handleLogout = () => connectLogoutRedirect('/custom-login-path') // Optional path param
 
@@ -124,7 +121,6 @@ export const SomeComponent: React.FC = () => {
     </CustomFetchComponent>
   )
 }
-
 ```
 
 ## Node Usage
@@ -132,7 +128,6 @@ export const SomeComponent: React.FC = () => {
 For server side usage, we also export a Node module with a stripped down API that simply returns a promise from a connectAccessToken method. For a basic and slightly contrived example, see the simple Express app below:
 
 ```ts
-
 import 'isomorphic-fetch'
 import express, { Router, Request, Response } from 'express'
 import bodyParser from 'body-parser'
@@ -168,8 +163,6 @@ app.use('/', router)
 app.listen('3000', () => {
   console.log('App is listening on 3000')
 })
-
-
 ```
 
 As per the browser usage, you will need to instantiate the class with your initializers, in this case connectClientId, connectOAuthUrl (in the same way as the browser module), but with the addition of the connectClientSecret you obtain from your app listing page.

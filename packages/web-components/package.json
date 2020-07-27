@@ -6,7 +6,8 @@
   "module": "./public/dist-npm/esm/index.js",
   "license": "MIT",
   "files": [
-    "./public/dist-npm"
+    "./public/dist-npm",
+    "src/tests/badges"
   ],
   "typings": "./public/dist-npm/types/index.d.ts",
   "bugs": {
