@@ -1,6 +1,6 @@
 # Reapit Elements
 
-![lines](./src/tests/badges/badge-lines.svg) ![functions](./src/tests/badges/badge-functions.svg) ![branches](./src/tests/badges/badge-branches.svg) ![statements](./src/tests/badges/badge-statements.svg)
+![lines](/packages/elements/src/tests/badges/badge-lines.svg) ![functions](/packages/elements/src/tests/badges/badge-functions.svg) ![branches](/packages/elements/src/tests/badges/badge-branches.svg) ![statements](/packages/elements/src/tests/badges/badge-statements.svg)
 
 A UI toolkit for building web applications in the Reapit Marketplace. Exports a library of React Components, JavaScript and TypeScript utilities and a CSS Stylesheet. For usage visit [here](https://foundations-documentation.reapit.cloud/api/web#elements).
 
