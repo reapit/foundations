@@ -4,10 +4,10 @@ import GalleryPage from '../gallery-page'
 import { AuthContext } from '@/context'
 import { mockContext } from '@/context/__mocks__/mock-context'
 import { Button } from '@reapit/elements'
-import { clipboardCopy } from '@reapit/marketplace/utils/clipboard-copy'
+import { clipboardCopy } from '@/utils/clipboard-copy'
 import { reapitAndSons } from '@/assets/html/reapit-and-sons'
 
-jest.mock('@reapit/marketplace/utils/clipboard-copy')
+jest.mock('@/utils/clipboard-copy')
 jest.mock('@reapit/elements')
 
 describe('GalleryPage', () => {

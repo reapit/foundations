@@ -11,7 +11,7 @@ import {
   Content,
   Button,
 } from '@reapit/elements'
-import { clipboardCopy } from '@reapit/marketplace/utils/clipboard-copy'
+import { clipboardCopy } from '@/utils/clipboard-copy'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import agentImage from '@/assets/images/agent-and-sons-preview.png'
 import { reapitAndSons } from '@/assets/html/reapit-and-sons'
