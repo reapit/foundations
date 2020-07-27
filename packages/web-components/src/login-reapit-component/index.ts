@@ -1,20 +1,40 @@
-import LoginButton from './login-reapit-component.svelte'
+import ReapitConnectButtonComponent from './reapit-connect-component.svelte'
+import { ReapitConnectBrowserSession } from '@reapit/connect-session'
 
-export interface LoginInitializers {
-  clientId: string
-  redirectUri: string
-  containerId: string
+export interface ReapitConnectInitializers {
+  connectClientId: string
+  connectOAuthUrl: string
+  connectLoginRedirectPath: string
+  connectLogoutRedirectPath: string
+  connectContainerId: string
 }
 
-export const LoginReapitComponent = ({ clientId, redirectUri, containerId }: LoginInitializers) =>
-  new LoginButton({
-    target: document.querySelector(containerId) || document.body,
+export const ReapitConnectComponent = function({
+  connectClientId,
+  connectOAuthUrl,
+  connectLoginRedirectPath,
+  connectLogoutRedirectPath,
+  connectContainerId,
+}: ReapitConnectInitializers) {
+  const reapitConnectBrowserSession = new ReapitConnectBrowserSession({
+    connectClientId,
+    connectOAuthUrl,
+    connectLoginRedirectPath,
+    connectLogoutRedirectPath,
+  })
+
+  const component = new ReapitConnectButtonComponent({
+    target: document.querySelector(connectContainerId) || document.body,
     props: {
-      clientId,
-      redirectUri,
+      reapitConnectBrowserSession,
     },
   })
 
-Object.defineProperty(window, 'LoginReapitComponent', {
-  value: LoginReapitComponent,
+  component.reapitConnectBrowserSession = reapitConnectBrowserSession
+
+  return component
+}
+
+Object.defineProperty(window, 'ReapitConnectComponent', {
+  value: ReapitConnectComponent,
 })

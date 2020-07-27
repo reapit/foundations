@@ -42,13 +42,14 @@ export default {
       extensions: ['.ts', '.tsx'],
       babelHelpers: 'bundled',
       plugins: [
-        ['module-resolver',
+        [
+          'module-resolver',
           {
             alias: {
               '@': './src',
-            }
-          }
-        ]
+            },
+          },
+        ],
       ],
     }),
     linaria(),
@@ -68,7 +69,7 @@ export default {
           },
         ],
         '@babel/preset-react',
-        'linaria/babel'
+        'linaria/babel',
       ],
       exclude: /node_modules/,
       include: /node_modules\/(linaria)/,

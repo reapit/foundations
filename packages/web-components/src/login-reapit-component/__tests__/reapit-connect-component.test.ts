@@ -1,14 +1,14 @@
-import LoginButton from '../login-reapit-component.svelte'
+import ReapitConnectComponent from '../reapit-connect-component.svelte'
 import { render } from '@testing-library/svelte'
 
-describe('LoginWithReapit', () => {
+describe('ReapitConnectComponent', () => {
   it('it matches a snapshot', () => {
     const props = {
       clientId: 'clientId',
       redirectUri: 'redirectUri',
     }
 
-    const wrapper = render(LoginButton, props)
+    const wrapper = render(ReapitConnectComponent, props)
     const { container } = wrapper
 
     expect(container).toMatchSnapshot()

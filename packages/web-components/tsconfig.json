@@ -20,6 +20,9 @@
     "paths": {
       "@reapit/node-utils": [
         "../utils/src/node/index.ts"
+      ],
+      "@reapit/connect-session": [
+        "../connect-session/src"
       ]
     }
   }

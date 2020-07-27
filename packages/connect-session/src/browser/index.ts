@@ -88,18 +88,19 @@ export class ReapitConnectBrowserSession {
   private setLocalStorageSession(): void {
     if (this.session) {
       const { idToken, accessToken, refreshToken, loginIdentity } = this.session
+
       window.localStorage.setItem(
-        `CognitoIdentityServiceProvider.${this.connectClientId}.${this.userName}.accessToken`,
+        `CognitoIdentityServiceProvider.${this.connectClientId}.${loginIdentity.email}.accessToken`,
         accessToken,
       )
 
       window.localStorage.setItem(
-        `CognitoIdentityServiceProvider.${this.connectClientId}.${this.userName}.idToken`,
+        `CognitoIdentityServiceProvider.${this.connectClientId}.${loginIdentity.email}.idToken`,
         idToken,
       )
 
       window.localStorage.setItem(
-        `CognitoIdentityServiceProvider.${this.connectClientId}.${this.userName}.refreshToken`,
+        `CognitoIdentityServiceProvider.${this.connectClientId}.${loginIdentity.email}.refreshToken`,
         refreshToken,
       )
 
@@ -210,6 +211,11 @@ export class ReapitConnectBrowserSession {
     return Boolean(window[ReapitConnectBrowserSession.GLOBAL_KEY])
   }
 
+  // A convenience getter to check if my app has a valid session
+  public get connectHasSession() {
+    return Boolean(this.session && !this.sessionExpired)
+  }
+
   // Handles redirect to authorization endpoint - in most cases, I don't need to call in my app
   // but made public if I want to override the redirect URI I specified in the constructor
   public connectAuthorizeRedirect(redirectUri?: string): void {
@@ -235,7 +241,7 @@ export class ReapitConnectBrowserSession {
   // The main method for fetching a session in an app.
   public async connectSession(): Promise<ReapitConnectSession | void> {
     // Ideally, if I have a valid session, just return it
-    if (this.session && !this.sessionExpired) {
+    if (this.connectHasSession) {
       return this.session
     }
 
@@ -271,6 +277,7 @@ export class ReapitConnectBrowserSession {
       if (session) {
         // Cache the session in memory and save to local storage for future use then return it to the user
         this.session = session
+        this.userName = session.loginIdentity.email
         this.setLocalStorageSession()
         return this.session
       }

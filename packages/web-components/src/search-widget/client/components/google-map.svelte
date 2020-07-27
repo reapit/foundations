@@ -11,8 +11,8 @@
   export let theme: Partial<Theme.ThemeBaseInitializer>
 
   let map: google.maps.Map
-  let mapElement: HTMLDivElement
-  let mapContainerElement: HTMLDivElement
+  let mapElement: HTMLElement
+  let mapContainerElement: HTMLElement
   let isVisible: boolean
 
   $: isVisible = false

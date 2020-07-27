@@ -78,7 +78,7 @@ export const fitMapToBounds = (properties: PickedPropertyModel[], map: google.ma
 }
 
 export const loadMap = (
-  mapElement: HTMLDivElement,
+  mapElement: HTMLElement,
   theme: Partial<ThemeBaseInitializer>,
 ): Promise<void | google.maps.Map> => {
   return new Promise<google.maps.Map>((resolve, reject) => {

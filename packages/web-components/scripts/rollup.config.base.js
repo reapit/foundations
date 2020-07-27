@@ -5,18 +5,23 @@ import livereload from 'rollup-plugin-livereload'
 import { terser } from 'rollup-plugin-terser'
 import babel from 'rollup-plugin-babel'
 import typescript from '@rollup/plugin-typescript'
+import builtins from 'rollup-plugin-node-builtins'
+import globals from 'rollup-plugin-node-globals'
 
 const production = !process.env.ROLLUP_WATCH
 
 export default {
   plugins: [
-    typescript({ sourceMap: !production }),
     resolve({
       browser: true,
+      preferBuiltins: true,
       dedupe: importee => importee === 'svelte' || importee.startsWith('svelte/'),
     }),
     commonjs(),
     json(),
+    globals(),
+    builtins(),
+    typescript({ sourceMap: !production }),
     babel({
       extensions: ['.js', 'ts', '.mjs', '.html', '.svelte'],
       runtimeHelpers: true,
