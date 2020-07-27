@@ -4,7 +4,7 @@ export const selectLoginIdentity = (state: ReapitConnectSession | null): LoginId
   return state?.loginIdentity
 }
 
-export const selectIsAdmin = (state: ReapitConnectSession | null): Boolean => {
+export const selectIsAdmin = (state: ReapitConnectSession | null): boolean => {
   return Boolean(state?.loginIdentity.adminId)
 }
 
