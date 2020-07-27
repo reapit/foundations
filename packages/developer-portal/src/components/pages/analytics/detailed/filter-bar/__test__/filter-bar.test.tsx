@@ -14,7 +14,7 @@ import { SANDBOX_CLIENT_ID } from '../../../../../../constants/api'
 import { prepareDefaultFilterDateParams } from '../default-filter-group'
 
 const mockProps: FilterBarProps = {
-  developerAppsData: appsDataStub.data,
+  developerAppsData: appsDataStub.data.data || [],
   installationAppDataArray: installationsStub.data || [],
 }
 
@@ -26,7 +26,7 @@ describe('FilterBar', () => {
     it('should run correctly', () => {
       const { developerAppsData } = mockProps
       const { developerApps, developerAppIds } = prepareAppDeveloperAppData(developerAppsData)
-      expect(developerApps).toEqual(developerAppsData.data)
+      expect(developerApps).toEqual(developerAppsData)
       expect(developerAppIds).toEqual(['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'])
     })
   })

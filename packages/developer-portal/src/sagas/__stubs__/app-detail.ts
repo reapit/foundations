@@ -1,4 +1,4 @@
-import { AppDetailState } from '@/reducers/app-detail'
+import { AppDetailState } from '@/reducers/apps/app-detail'
 import { appPermissionStub } from './app-permission'
 import { AppAuthenticationState } from '@/reducers/app-authentication'
 

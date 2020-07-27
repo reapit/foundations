@@ -1,13 +1,10 @@
 import * as React from 'react'
 import orderBy from 'lodash.orderby'
 import { useDispatch, useSelector } from 'react-redux'
-import { ReduxState } from '@/types/core'
-import { AppHttpTrafficEventState } from '@/reducers/app-http-traffic-event'
 import { httpTrafficPerDayRequestData } from '@/actions/app-http-traffic-event'
 import { appInstallationsRequestData, appInstallationsFilterRequestData } from '@/actions/app-installations'
 import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import { getAppUsageStats, getAppHttpTraffic } from '@/selector/analytics'
-import { selectDeveloper } from '@/selector/developer'
+import { getAppHttpTraffic } from '@/selector/analytics'
 import { getInstallations } from '@/selector/installations'
 
 import { Grid, GridItem, Section } from '@reapit/elements'
@@ -16,11 +13,9 @@ import InstallationAppSection, { InstallationModelWithAppName } from './installa
 import FilterBar from './filter-bar'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
-import { AppInstallationsState } from '@/reducers/app-installations'
-import { DeveloperState } from '@/reducers/developer'
-import { AppUsageStatsState } from '@/reducers/app-usage-stats'
 import TrafficEventTable from './traffic-event-table'
 import { prepareDefaultFilterDateParams } from './filter-bar/default-filter-group'
+import { selectAppListState } from '@/selector/apps/app-list'
 
 export type DetailedTabProps = {}
 
@@ -97,52 +92,36 @@ export const handleFetchHttpTrafficPerDayDataUseEffect = (fetchHttpTrafficPerDay
   }
 }
 
-export type MapState = {
-  installations: AppInstallationsState
-  developer: DeveloperState
-  appUsageStats: AppUsageStatsState
-  appHttpTraffic: AppHttpTrafficEventState
-}
-
-export const mapState = (state: ReduxState): MapState => {
-  return {
-    installations: getInstallations(state),
-    developer: selectDeveloper(state),
-    appUsageStats: getAppUsageStats(state),
-    appHttpTraffic: getAppHttpTraffic(state),
-  }
-}
-
 export const DetailedTab: React.FC<DetailedTabProps> = () => {
   const dispatch = useDispatch()
-  const { developer, installations, appHttpTraffic } = useSelector(mapState)
+
+  const installations = useSelector(getInstallations)
+  const appHttpTraffic = useSelector(getAppHttpTraffic)
+
+  const { data } = useSelector(selectAppListState)
   const installationAppDataArray = installations?.installationsAppData?.data
   const installationFilterAppDataArray = installations?.installationsFilteredAppData?.data
-  const developerDataArray = developer?.developerData?.data?.data
+  const apps = data || []
 
   const installationAppDataArrayWithName = React.useMemo(
-    handleMapAppNameToInstallation(installationAppDataArray, developerDataArray),
-    [installationAppDataArray, developerDataArray],
+    handleMapAppNameToInstallation(installationAppDataArray, apps),
+    [installationAppDataArray, apps],
   )
   const installationFilterAppDataArrayWithName = React.useMemo(
-    handleMapAppNameToInstallation(installationFilterAppDataArray, developerDataArray),
-    [installationFilterAppDataArray, developerDataArray],
+    handleMapAppNameToInstallation(installationFilterAppDataArray, apps),
+    [installationFilterAppDataArray, apps],
   )
 
-  const fetchAppUsageStatsData = React.useCallback(handleFetchAppUsageStatsDataUseCallback(dispatch), [
-    developerDataArray,
+  const fetchAppUsageStatsData = React.useCallback(handleFetchAppUsageStatsDataUseCallback(dispatch), [apps])
+
+  const fetchHttpTrafficPerDayData = React.useCallback(handleFetchHttpTrafficPerDayDataUseCallback(apps, dispatch), [
+    apps,
   ])
-
-  const fetchHttpTrafficPerDayData = React.useCallback(
-    handleFetchHttpTrafficPerDayDataUseCallback(developerDataArray, dispatch),
-    [developerDataArray],
-  )
 
   React.useEffect(handleFetchAppUsageStatsDataUseEffect(fetchAppUsageStatsData), [fetchAppUsageStatsData])
 
   React.useEffect(handleFetchHttpTrafficPerDayDataUseEffect(fetchHttpTrafficPerDayData), [fetchHttpTrafficPerDayData])
 
-  const developerAppsData = developer?.developerData?.data || {}
   const installationsAppLoading = installations?.loading
 
   const appHttpTrafficPerDayLoading = appHttpTraffic?.perDayLoading
@@ -152,7 +131,7 @@ export const DetailedTab: React.FC<DetailedTabProps> = () => {
   return (
     <ErrorBoundary>
       <Section>
-        <FilterBar developerAppsData={developerAppsData} installationAppDataArray={installationAppDataArray || []} />
+        <FilterBar developerAppsData={apps} installationAppDataArray={installationAppDataArray || []} />
       </Section>
       <Grid isMultiLine>
         <GridItem className="is-half">
@@ -166,7 +145,7 @@ export const DetailedTab: React.FC<DetailedTabProps> = () => {
         installedApps={installationAppDataArrayWithName}
         filteredInstalledApps={installationFilterAppDataArrayWithName}
         installations={installations}
-        developer={developer}
+        apps={apps}
         loading={installationsAppLoading}
       />
     </ErrorBoundary>

@@ -22,6 +22,7 @@ import WebhookTestModal from './webhook-test-modal'
 import styles from '@/styles/elements/link.scss?mod'
 import linkStyles from '@/styles/elements/link.scss?mod'
 import Routes from '@/constants/routes'
+import { selectAppListState } from '@/selector/apps/app-list'
 
 export type DeveloperWebhooksProps = {}
 
@@ -171,6 +172,7 @@ export const DeveloperWebhooks = () => {
   const topics = useSelector(selectTopicsData)
   const applicationId = useSelector(selectApplicationId)
   const developerState = useSelector(selectDeveloper)
+  const { data: apps } = useSelector(selectAppListState)
   const modalType = useSelector(selectWebhookEditModalType)
 
   const handleOpenCreateModal = openCreateModal(dispatch)
@@ -179,8 +181,7 @@ export const DeveloperWebhooks = () => {
   const onCloseModal = React.useCallback(handleCloseModal(dispatch), [dispatch])
   const afterClose = React.useCallback(handleAfterClose(dispatch, setWebhookId), [dispatch])
 
-  const apps = developerState?.developerData?.data?.data || []
-  const unfetched = !developerState.developerData
+  const unfetched = !apps
   const loading = developerState.loading
   const isShowDetailModal = modalType === MODAL_TYPE.EDIT || modalType === MODAL_TYPE.CREATE
   const isShowTestModal = modalType === MODAL_TYPE.TEST
@@ -210,7 +211,6 @@ export const DeveloperWebhooks = () => {
             webhooks documentation
           </a>
         </FormSubHeading>
-
         <Formik initialValues={webhooksFormInitialValues} enableReinitialize={true} onSubmit={() => {}}>
           {() => (
             <Form>
@@ -218,7 +218,7 @@ export const DeveloperWebhooks = () => {
                 className="pt-2 pb-2"
                 helpText="Please select an App from the list below to view the associated Webhooks:"
                 name="applicationId"
-                options={mapDeveloperAppsToAppSelectBoxOptions(apps)}
+                options={mapDeveloperAppsToAppSelectBoxOptions(apps || [])}
                 labelText="App"
                 id="subscription"
               />

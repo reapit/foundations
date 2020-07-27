@@ -1,7 +1,7 @@
 // TODO: WILL MOVE ALL DEVELOPER ACTIONS TO HERE
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
-import { DeveloperItem, DeveloperRequestParams, WebhookPingTestStatus } from '@/reducers/developer'
+import { WebhookPingTestStatus } from '@/reducers/developer'
 import {
   CreateDeveloperModel,
   DeveloperModel,
@@ -11,11 +11,6 @@ import {
 import { FormState } from '@/types/core'
 import { FetchBillingsParams, FetchBillingsByMonthParams } from '@/services/traffic-events'
 import { PingWebhooksByIdParams } from '@/services/webhooks'
-export const developerRequestData = actionCreator<DeveloperRequestParams>(ActionTypes.DEVELOPER_REQUEST_DATA)
-export const developerRequestDataFailure = actionCreator<void>(ActionTypes.DEVELOPER_REQUEST_DATA_FAILURE)
-export const developerLoading = actionCreator<boolean>(ActionTypes.DEVELOPER_LOADING)
-export const developerReceiveData = actionCreator<DeveloperItem | undefined>(ActionTypes.DEVELOPER_RECEIVE_DATA)
-export const developerClearData = actionCreator<null>(ActionTypes.DEVELOPER_CLEAR_DATA)
 export const developerCreate = actionCreator<CreateDeveloperModel>(ActionTypes.DEVELOPER_CREATE)
 export const developerSetFormState = actionCreator<FormState>(ActionTypes.DEVELOPER_SET_FORM_STATE)
 export const fetchMyIdentity = actionCreator<void>(ActionTypes.DEVELOPER_FETCH_MY_IDENTITY)

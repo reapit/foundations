@@ -59,7 +59,7 @@ export type RejectAppRevisionByIdParams = FetchByIdCommonParams & { revisionId: 
 
 export type FetchAppSecretByIdParams = FetchByIdCommonParams
 
-export const fetchAppsList = async (params: FetchAppsListParams): Promise<PagedResultAppSummaryModel_> => {
+export const fetchAppsListAPI = async (params: FetchAppsListParams): Promise<PagedResultAppSummaryModel_> => {
   try {
     const response = await fetcher({
       url: `${URLS.apps}?${setQueryParams(params)}`,
@@ -70,7 +70,7 @@ export const fetchAppsList = async (params: FetchAppsListParams): Promise<PagedR
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 

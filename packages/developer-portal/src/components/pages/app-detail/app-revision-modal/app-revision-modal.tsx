@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchAppDetail } from '@/actions/app-detail'
 import { revisionDetailRequestData, declineRevision, revisionDetailClearData } from '@/actions/revision-detail'
 import { revisionsRequestData, revisionsClearData } from '@/actions/revisions'
-import { AppDetailState } from '@/reducers/app-detail'
+import { AppDetailState } from '@/reducers/apps/app-detail'
 import { LoginIdentity } from '@reapit/cognito-auth'
 
 import { Modal, Loader, Button } from '@reapit/elements'

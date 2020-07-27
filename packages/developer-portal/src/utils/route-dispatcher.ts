@@ -4,13 +4,14 @@ import { fetchAppDetail } from './../actions/app-detail'
 import { RouteValue, StringMap } from '../types/core'
 import Routes from '../constants/routes'
 import store from '../core/store'
-import { developerRequestData, fetchMyIdentity } from '@/actions/developer'
+import { fetchAppList } from '@/actions/app-list'
+import { fetchMyIdentity } from '@/actions/developer'
 import { appInstallationsRequestData } from '../actions/app-installations'
 import { submitAppRequestData } from '../actions/submit-app'
 import { requestDeveloperData } from '@/actions/settings'
 import { selectClientId } from '@/selector/client'
-import { DeveloperRequestParams } from '@/reducers/developer'
 import { fetchOrganisationMembers } from '@/actions/developers'
+import { FetchAppListParams } from '@/reducers/apps/app-list'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
   const id = params && params.appid ? params.appid : ''
@@ -21,12 +22,12 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
   switch (route) {
     case Routes.APPS:
       store.dispatch(submitAppRequestData())
-      store.dispatch(developerRequestData({ page }))
+      store.dispatch(fetchAppList({ page }))
       break
     case Routes.ANALYTICS_TAB: {
       // Fetch all apps to map app name to installations
       store.dispatch(fetchMyIdentity())
-      store.dispatch(developerRequestData({ page: 1, appsPerPage: GET_ALL_PAGE_SIZE }))
+      store.dispatch(fetchAppList({ page: 1, appsPerPage: GET_ALL_PAGE_SIZE }))
       if (appId) {
         const clientId = selectClientId(store.state)
         store.dispatch(fetchAppDetail({ id: appId, clientId }))
@@ -70,7 +71,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(requestDeveloperData())
       break
     case Routes.WEBHOOKS:
-      store.dispatch(developerRequestData({ page: 1, appsPerPage: GET_ALL_PAGE_SIZE } as DeveloperRequestParams))
+      store.dispatch(fetchAppList({ page: 1, appsPerPage: GET_ALL_PAGE_SIZE } as FetchAppListParams))
       break
     case Routes.HELP:
       // Need the fetcher to have retrieved the login session only.

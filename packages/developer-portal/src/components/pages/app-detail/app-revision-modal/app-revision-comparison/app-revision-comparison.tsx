@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { AppDetailState } from '@/reducers/app-detail'
+import { AppDetailState } from '@/reducers/apps/app-detail'
 import { RevisionDetailState } from '@/reducers/revision-detail'
 import { AppRevisionModel, MediaModel, ScopeModel } from '@reapit/foundations-ts-definitions'
 import DiffMedia from './diff-media'

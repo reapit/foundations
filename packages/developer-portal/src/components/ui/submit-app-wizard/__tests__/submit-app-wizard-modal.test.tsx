@@ -1,10 +1,10 @@
 import { SubmitAppWizardModal, handleUseEffect, customAfterClose } from '../submit-app-wizard-modal'
-import { developerRequestData } from '@/actions/developer'
 import React from 'react'
 import { shallow } from 'enzyme'
 import { submitAppSetFormState } from '@/actions/submit-app'
 import { Dispatch } from 'redux'
 import { ReduxState } from '@/types/core'
+import { fetchAppList } from '@/actions/app-list'
 jest.mock('../steps/step-submit-app-success', () => ({
   onFinish: jest.fn().mockImplementation(fn => fn),
 }))
@@ -27,7 +27,7 @@ describe('SubmitAppWizardModal', () => {
         getReduxState: (getReduxState as unknown) as () => ReduxState,
         selectSubmitAppFormState: () => 'SUCCESS',
       })()
-      expect(dispatch).toHaveBeenCalledWith(developerRequestData({ page: 1 }))
+      expect(dispatch).toHaveBeenCalledWith(fetchAppList({ page: 1 }))
       expect(afterClose).toHaveBeenCalled()
     })
     test('when formState != "SUCCESS"', () => {

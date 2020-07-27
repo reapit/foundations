@@ -24,7 +24,6 @@ const mockState = {
   installations: {
     installationsAppData: installationsStub,
   },
-  appDetail: {},
 } as ReduxState
 
 describe('AppContent', () => {
@@ -35,7 +34,7 @@ describe('AppContent', () => {
     expect(
       mount(
         <Provider store={store}>
-          <AppContent appDetailState={mockState.appDetail} />
+          <AppContent appDetailState={mockState.apps.detail} />
         </Provider>,
       ),
     ).toMatchSnapshot()

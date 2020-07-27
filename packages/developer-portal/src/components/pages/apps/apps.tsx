@@ -3,7 +3,6 @@ import { useHistory } from 'react-router'
 import { useSelector } from 'react-redux'
 import { History } from 'history'
 import { Loader, Pagination, Section, H3, Button } from '@reapit/elements'
-import { selectDeveloper } from '@/selector'
 import AppList from '@/components/ui/app-list'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { SandboxPopUp } from '@/components/ui/sandbox-pop-up'
@@ -11,6 +10,7 @@ import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { getParamValueFromPath } from '@/utils/client-url-params'
 import Routes from '@/constants/routes'
 import { SubmitAppWizardModal } from '@/components/ui/submit-app-wizard'
+import { selectAppListState } from '@/selector/apps/app-list'
 
 export const handleOnCardClick = (history: History) => (app: AppSummaryModel) => {
   history.push(`${Routes.APPS}/${app.id}`)
@@ -26,7 +26,7 @@ export const onCloseSubmitAppModal = (setSubmitAppModalVisible: React.Dispatch<R
 
 export const Apps: React.FC = () => {
   const history = useHistory()
-  const developerState = useSelector(selectDeveloper)
+  const { isLoading, data = [], totalCount, pageSize } = useSelector(selectAppListState)
   const [submitAppModalVisible, setSubmitAppModalVisible] = React.useState<boolean>(false)
 
   let pageNumber = 1
@@ -38,12 +38,9 @@ export const Apps: React.FC = () => {
     }
   }
 
-  const unfetched = !developerState.developerData
-  const loading = developerState.loading
-  const list = developerState?.developerData?.data?.data || []
-  const { totalCount, pageSize } = developerState?.developerData?.data || {}
+  const unfetched = !data
 
-  if (unfetched || loading) {
+  if (unfetched || isLoading) {
     return <Loader />
   }
 
@@ -59,14 +56,19 @@ export const Apps: React.FC = () => {
           afterClose={onCloseSubmitAppModal(setSubmitAppModalVisible)}
         />
       </Section>
-      <AppList list={list} loading={loading} onCardClick={handleOnCardClick(history)} infoType="DEVELOPER_APPS_EMPTY" />
+      <AppList
+        list={data}
+        loading={isLoading}
+        onCardClick={handleOnCardClick(history)}
+        infoType="DEVELOPER_APPS_EMPTY"
+      />
       <Pagination
         totalCount={totalCount}
         pageSize={pageSize}
         pageNumber={pageNumber}
         onChange={handleOnChange(history)}
       ></Pagination>
-      <SandboxPopUp loading={loading} />
+      <SandboxPopUp loading={isLoading} />
     </ErrorBoundary>
   )
 }

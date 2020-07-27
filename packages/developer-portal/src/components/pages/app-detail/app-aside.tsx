@@ -14,7 +14,7 @@ import {
   StatusSection,
   BackToAppsSection,
 } from './app-sections'
-import { AppDetailState } from '@/reducers/app-detail'
+import { AppDetailState } from '@/reducers/apps/app-detail'
 
 interface AsideProps {
   appDetailState: AppDetailState

@@ -1,9 +1,6 @@
 import { Action, FormState } from '../types/core'
 import { isType } from '../utils/actions'
 import {
-  developerLoading,
-  developerReceiveData,
-  developerClearData,
   developerSetFormState,
   setMyIdentity,
   fetchBilling,
@@ -15,24 +12,12 @@ import {
   developerSetWebhookPingStatus,
 } from '@/actions/developer'
 import {
-  PagedResultAppSummaryModel_,
-  ScopeModel,
   DeveloperModel,
   AppDetailModel,
   BillingBreakdownForMonthV2Model,
   BillingOverviewForPeriodV2Model,
 } from '@reapit/foundations-ts-definitions'
 import { developerAppShowModal } from '@/actions/developer-app-modal'
-
-export interface DeveloperRequestParams {
-  page: number
-  appsPerPage?: number
-}
-
-export interface DeveloperItem {
-  data: PagedResultAppSummaryModel_
-  scopes: ScopeModel[]
-}
 
 export type RequestByPeriod = {
   period: string
@@ -56,7 +41,6 @@ export type WebhookPingTestStatus = 'SUCCESS' | 'FAILED' | 'LOADING' | null
 
 export interface DeveloperState {
   loading: boolean
-  developerData: DeveloperItem | null
   formState: FormState
   isVisible: boolean
   myIdentity: DeveloperModel | null
@@ -72,7 +56,6 @@ export type AppDetailData = (AppDetailModel & { apiKey?: string }) | null
 
 export const defaultState: DeveloperState = {
   loading: false,
-  developerData: null,
   formState: 'PENDING',
   isVisible: false,
   myIdentity: null,
@@ -85,29 +68,6 @@ export const defaultState: DeveloperState = {
 }
 
 const developerReducer = (state: DeveloperState = defaultState, action: Action<any>): DeveloperState => {
-  if (isType(action, developerLoading)) {
-    return {
-      ...state,
-      loading: action.data,
-    }
-  }
-
-  if (isType(action, developerReceiveData)) {
-    return {
-      ...state,
-      loading: false,
-      developerData: action.data || null,
-    }
-  }
-
-  if (isType(action, developerClearData)) {
-    return {
-      ...state,
-      loading: false,
-      developerData: action.data,
-    }
-  }
-
   if (isType(action, developerSetFormState)) {
     return {
       ...state,

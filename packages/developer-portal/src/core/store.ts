@@ -3,8 +3,9 @@ import createSagaMiddleware from 'redux-saga'
 import { fork, all } from '@redux-saga/core/effects'
 import { ReduxState } from '../types/core'
 import auth from '@/reducers/auth'
+import appsReducer from '@/reducers/apps'
+
 import developer from '@/reducers/developer'
-import { appDetailReducer } from '@/reducers/app-detail'
 import { appAuthenticationReducer } from '@/reducers/app-authentication'
 import error from '@/reducers/error'
 import submitApp from '@/reducers/submit-app'
@@ -26,7 +27,7 @@ import developerSubscriptions from '@/reducers/developer-subscriptions'
 import developersReducer from '@/reducers/developers'
 
 import authSagas from '@/sagas/auth'
-import { appDetailSagas } from '@/sagas/apps'
+import { appDetailSagas, appListSagas } from '@/sagas/apps'
 import appUsageStatsSagas from '@/sagas/app-usage-stats'
 import appHttpTrafficEventSagas from '@/sagas/app-http-trafic-event'
 import developerSagas from '@/sagas/developer'
@@ -61,9 +62,9 @@ export class Store {
   static sagaMiddleware = createSagaMiddleware()
 
   static reducers = combineReducers<ReduxState>({
+    apps: appsReducer,
     developer,
     auth,
-    appDetail: appDetailReducer,
     appAuthentication: appAuthenticationReducer,
     error,
     submitApp,
@@ -92,6 +93,7 @@ export class Store {
       fork(appUsageStatsSagas),
       fork(developerSagas),
       fork(appDetailSagas),
+      fork(appListSagas),
       fork(submitAppSagas),
       fork(submitRevisionSagas),
       fork(developerSetStatusSagas),

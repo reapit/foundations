@@ -10,7 +10,7 @@ import { History } from 'history'
 import { Dispatch } from 'redux'
 import styles from '@/styles/blocks/standalone-app-detail.scss?mod'
 import { fetchAppDetail } from '@/actions/app-detail'
-import { AppDetailState } from '@/reducers/app-detail'
+import { AppDetailState } from '@/reducers/apps/app-detail'
 
 interface AppManagementProps {
   pendingRevisions: boolean

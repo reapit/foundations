@@ -1,2 +1,3 @@
 import appDetailSagas from './app-detail'
-export { appDetailSagas }
+import appListSagas from './app-list'
+export { appDetailSagas, appListSagas }

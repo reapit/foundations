@@ -39,7 +39,7 @@ describe('app-detail', () => {
   describe('selectApp', () => {
     it('should run correctly', () => {
       const result = selectAppDetailData(mockState)
-      expect(result).toEqual(mockState.appDetail.data)
+      expect(result).toEqual(mockState.apps.list.data)
     })
     it('should return {}', () => {
       const input = {} as ReduxState

@@ -2,9 +2,18 @@ import { ReduxState } from '@/types/core'
 import { COGNITO_GROUP_DEVELOPER_EDITION } from '@/constants/api'
 
 const appState: ReduxState = {
+  apps: {
+    list: {
+      data: [],
+      isLoading: false,
+    },
+    detail: {
+      data: {},
+      isLoading: false,
+    },
+  },
   developer: {
     loading: false,
-    developerData: null,
     formState: 'PENDING',
     isVisible: false,
     myIdentity: null,
@@ -51,11 +60,6 @@ const appState: ReduxState = {
       redirectUri: '',
       state: null,
     },
-  },
-  appDetail: {
-    isLoading: false,
-    errorMessage: '',
-    data: null,
   },
   appAuthentication: {
     code: '',

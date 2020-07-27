@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { AppDetailState } from '@/reducers/app-detail'
+import { AppDetailState } from '@/reducers/apps/app-detail'
 import { mount } from 'enzyme'
 import * as ReactRedux from 'react-redux'
 import configureStore from 'redux-mock-store'

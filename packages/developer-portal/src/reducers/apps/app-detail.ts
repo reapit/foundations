@@ -6,15 +6,15 @@ import { fetchAppDetail, fetchAppDetailSuccess, fetchAppDetailFailed } from '@/a
 export type AppDetailData = (AppDetailModel & { apiKey?: string }) | null
 
 export interface AppDetailState {
-  isLoading: boolean
   data: AppDetailData
-  errorMessage: string
+  isLoading: boolean
+  errorMessage?: string | null
 }
 
 export const defaultState: AppDetailState = {
   isLoading: false,
   data: null,
-  errorMessage: '',
+  errorMessage: null,
 }
 
 const appDetailReducer = (state: AppDetailState = defaultState, action: Action<any>): AppDetailState => {
