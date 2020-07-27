@@ -19,6 +19,7 @@ import { clientFetchAppSummary } from '@/actions/apps'
 import styles from '@/styles/pages/apps.scss?mod'
 import qs from 'query-string'
 import { getNumberOfItems } from '@/utils/browse-app'
+import ComingSoonApps from './coming-soon'
 
 export const handleAfterClose = ({ setVisible }) => () => setVisible(false)
 export const handleOnChange = history => (page: number) => {
@@ -105,6 +106,7 @@ export const Apps: React.FunctionComponent = () => {
             </>
           </TransitionGroup>
         </InfiniteScroll>
+        <ComingSoonApps />
       </Section>
     </ErrorBoundary>
   )
