@@ -6,7 +6,6 @@ import configureStore from 'redux-mock-store'
 import { Login, handleShowNotificationAfterPasswordChanged, onLoginButtonClick } from '../login'
 import appState from '@/reducers/__stubs__/app-state'
 import { showNotificationMessage } from '@/actions/notification-message'
-// FIXME(t): spy
 import * as reapitConnectBrowserSessionModule from '@/core/connect-session'
 import messages from '@/constants/messages'
 import Routes from '@/constants/routes'
@@ -46,7 +45,6 @@ describe('Login', () => {
   })
   describe('handleShowNotificationAfterPasswordChanged', () => {
     it('should notify that the password has been changed', () => {
-      // FIXME(t): spy
       const spyLocalStorageRemoveItem = jest.spyOn(window.localStorage, 'removeItem')
       const fn = handleShowNotificationAfterPasswordChanged(true, localStorage, spyDispatch)
       fn()

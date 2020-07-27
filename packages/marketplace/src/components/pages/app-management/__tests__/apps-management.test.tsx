@@ -55,10 +55,6 @@ describe('MyApps', () => {
     ).toMatchSnapshot()
   })
   it('should match a snapshot when isAdmin false', () => {
-    /**
-     * FIXME(app-manemn)
-     * remove is admin
-     */
     store = mockStore(createStore(false))
     expect(
       mount(
