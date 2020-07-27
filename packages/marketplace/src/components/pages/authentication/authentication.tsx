@@ -3,7 +3,6 @@ import { Dispatch } from 'redux'
 import { useDispatch } from 'react-redux'
 import { Modal, Button } from '@reapit/elements'
 import { developerRoutes } from '@/constants/routes'
-// import { authLogout } from '@/actions/auth'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export type AuthenticationProps = {}

@@ -31,14 +31,6 @@ describe('Settings', () => {
   })
 
   it('should match snapshot in desktop mode', () => {
-    /**
-     * TODO(auth)
-     * remove the store
-     */
-    /**
-     * TODO(auth)
-     * remove the store
-     */
     expect(
       mount(
         <MemoryRouter initialEntries={[{ pathname: Routes.SETTINGS, key: 'clientSettingsRoute' }]}>
@@ -48,10 +40,6 @@ describe('Settings', () => {
     ).toMatchSnapshot()
   })
 
-  /**
-   * TODO(auth)
-   * mock like auth page
-   */
   describe('handleLogout', () => {
     it('should run correctly', () => {
       handleLogout()

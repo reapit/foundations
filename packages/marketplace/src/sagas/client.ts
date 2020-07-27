@@ -42,7 +42,6 @@ export const clientDataFetch = function*({ data }) {
     // PREVIEW APPS FEATURE when ?preview=true
     const appsExternalAppIds = isPreview ? window.reapit.config.previewExternalAppIds : undefined
     const featuredAppsExternalAppIds = isPreview ? window.reapit.config.previewFeaturedExternalAppIds : undefined
-    //TESTME(review)
 
     const normalAppsPerPage = getNumberOfItems()
 
