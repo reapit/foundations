@@ -140,21 +140,9 @@ const AppUninstallConfirmation: React.FC<AppUninstallConfirmationProps> = ({
 }) => {
   const [isSuccessAlertVisible, setIsSuccessAlertVisible] = React.useState(false)
   const history = useHistory()
-  // FIXME(selectClientId)
-  // Refetch app after un-install
   const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = selectClientId(connectSession)
-  //
   const installationFormState = useSelector(selectInstallationFormState)
-  /**
-   * FIXME(isDesktopMode-)
-   *
-   * TESTME(isDesktopMode-)
-   * if desktop redirect to FIXME
-   *
-   * Redirect if desktop mode
-   * DESKTOP_REFRESH_URL
-   */
   const isSubmitting = installationFormState === 'SUBMITTING'
   const { name, id = '', installationId = '' } = appDetailData || {}
   const dispatch = useDispatch()

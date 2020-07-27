@@ -30,9 +30,7 @@ export const clientDataFetch = function*({ data }) {
     }
     const currentCategories = yield select(selectCategories)
     const currentFeaturedApps = yield select(selectFeaturedApps)
-    // FIXME(selectDeveloperEditionId)
-    // !? input dev id on API
-    const developerId = yield select(selectDeveloperEditionId)
+    const developerId = yield call(selectDeveloperEditionId, connectSession)
 
     // because the https://dev.platformmarketplace.reapit.net/categories endpoint does not return a filter for Direct API so
     // we will have to manually check it here

@@ -1,7 +1,7 @@
 import installedAppsSagas, { installedAppsDataFetch, installedAppsDataListen } from '../installed-apps'
 import { appsDataStub } from '../__stubs__/apps'
 import ActionTypes from '@/constants/action-types'
-import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
+import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
 import {
   installedAppsLoading,
   installedAppsReceiveData,

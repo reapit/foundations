@@ -8,7 +8,6 @@ export const selectIsAdmin = (state: ReapitConnectSession | null) => {
   return Boolean(state?.loginIdentity.adminId) || false
 }
 
-// a: create select developer id
 export const selectClientId = (state: ReapitConnectSession | null): string => {
   return state?.loginIdentity?.clientId || ''
 }

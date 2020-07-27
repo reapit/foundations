@@ -15,25 +15,6 @@ export interface PrivateRouteProps {
   fetcher?: boolean
 }
 
-/**
- * FIXME: remove this
- * make sure login wont break
- * developer login marketplace
- * admin login marketplace
- */
-// TODO: remove
-
-/**
- * FIXME: remove this
- * make sure login wont break
- * developer login marketplace
- * admin login marketplace
- */
-
-/**
- * FIXME(isDeveloperEdition)
- * return null
- */
 export const handleRedirectToAuthenticationPage = (
   history: History,
   loginIdentity: LoginIdentity | null | undefined,
@@ -44,43 +25,26 @@ export const handleRedirectToAuthenticationPage = (
       return
     }
     const { clientId } = loginIdentity
-    // remove dev login
-    if (!clientId || !isDeveloperEdition) {
+    if (!clientId && !isDeveloperEdition) {
       history.replace(Routes.AUTHENTICATION)
     }
   }
 }
 
 export const PrivateRoute = ({ component, fetcher = false, ...rest }: PrivateRouteProps & RouteProps) => {
-  // TODO(remove connnect session remove this)
   const [isFetchingAccessToken] = React.useState(false)
   const history = useHistory()
-  // FIXME(selectLoginIdentity)
-  // TESTME(selectLoginIdentity)
-  /**
-   * Show login shit for dev
-   * Show login shit for admin
-   */
+
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const isDeveloperEdition = Boolean(selectDeveloperEditionId(connectSession))
   const loginIdentity = selectLoginIdentity(connectSession)
 
-  /**
-   * FIXME(remove connect session): remove this
-   */
-
-  /**
-   * FIXME(remove connect session): make sure update to remove/handle
-   *
-   */
   React.useEffect(handleRedirectToAuthenticationPage(history, loginIdentity, isDeveloperEdition), [
     loginIdentity,
-
     history,
     isFetchingAccessToken,
   ])
 
-  // Remove this
   if (isFetchingAccessToken) {
     return null
   }

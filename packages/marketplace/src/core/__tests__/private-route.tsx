@@ -31,14 +31,14 @@ describe('PrivateRouter', () => {
   })
 
   describe('handleRedirectToAuthenticationPage', () => {
-    it('should redirect to authentication page for DEVELOPER EDITION', () => {
+    it('should not redirect to authentication page for DEVELOPER EDITION', () => {
       const mockLoginIdentity = {
         clientId: '',
         developerId: 'testDeveloperId',
       } as LoginIdentity
       const fn = handleRedirectToAuthenticationPage(history, mockLoginIdentity, true)
       fn()
-      expect(history.replace).toBeCalledWith(Routes.AUTHENTICATION)
+      expect(history.replace).toHaveBeenCalledTimes(0)
     })
     it('should redirect to authentication page for CLIENT', () => {
       const mockLoginIdentity = {

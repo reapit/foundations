@@ -15,24 +15,12 @@ export type PrivateRouteWrapperProps = {
   showMenu?: boolean
 }
 
-/* export const handleOnAcceptClientWelcome = ({
-  dispatch,
-  setClientTermAcceptedCookieAndState,
-}: {
-  dispatch: Dispatch
-  setClientTermAcceptedCookieAndState: ActionCreator<boolean>
-}) => () => dispatch(setClientTermAcceptedCookieAndState(true)) */
-
 export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({
   children,
   showMenu = true,
 }) => {
   const session = useReapitConnect(reapitConnectBrowserSession)
-
-  // FIXME: remove this fuck
-  // const isTermAccepted = useSelector(selectIsTermAccepted)
-
-  // FIXME(auth): use repait
+  console.log({ session })
 
   const location = useLocation()
 

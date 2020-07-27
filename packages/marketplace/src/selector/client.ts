@@ -15,18 +15,15 @@ import { ReapitConnectSession } from '@reapit/connect-session'
  * refer to this ticket https://github.com/reapit/foundations/issues/1848
  */
 
-// update this function to accept
-// FIXME(selectDeveloperEditionId)
-// FIXME(selectLoginIdentity)
 export const selectDeveloperEditionId = (state: ReapitConnectSession | null) => {
   const loginIdentity = selectLoginIdentity(state)
+
   if (loginIdentity?.groups.includes(COGNITO_GROUP_DEVELOPER_EDITION)) {
     return state?.loginIdentity?.developerId || ''
   }
   return null
 }
 
-// FIXME(selectLoggedUserEmail)
 export const selectLoggedUserEmail = (state: ReapitConnectSession | null): string => {
   return state?.loginIdentity?.email || ''
 }

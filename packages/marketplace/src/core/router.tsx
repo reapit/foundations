@@ -53,7 +53,6 @@ const Router = () => {
                 <PrivateRoute path={Routes.APPS} component={Apps} exact fetcher />
                 <PrivateRoute path={Routes.APP_DETAIL} component={AppDetail} exact fetcher />
                 <PrivateRoute path={Routes.APP_DETAIL_MANAGE} component={AppDetail} exact fetcher />
-                {/* <PrivateRoute path={Routes.WELCOME} component={WelcomePage} exact /> */}
                 <PrivateRoute path={Routes.HELP} exact fetcher component={Help} />
                 <PrivateRoute path={Routes.SETTINGS} exact fetcher component={Setting} />
                 <Route render={() => <Info infoType="404" />} />

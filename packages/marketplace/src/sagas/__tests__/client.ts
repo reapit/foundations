@@ -44,7 +44,9 @@ describe('clientDataFetch', () => {
     expect(clone.next(clientId).value).toEqual(select(selectCategories))
 
     expect(clone.next(appCategorieStub.data).value).toEqual(select(selectFeaturedApps))
-    expect(clone.next(featuredAppsDataStub.data).value).toEqual(select(selectDeveloperEditionId))
+    expect(clone.next(featuredAppsDataStub.data).value).toEqual(
+      call(selectDeveloperEditionId, (connectSession as unknown) as ReapitConnectSession),
+    )
 
     const response = [appsDataStub.data, featuredAppsDataStub.data, appCategorieStub]
     expect(clone.next(developerId).value).toEqual(
@@ -93,7 +95,9 @@ describe('clientDataFetch', () => {
     )
     expect(clone.next(clientId).value).toEqual(select(selectCategories))
     expect(clone.next(appCategorieStub.data).value).toEqual(select(selectFeaturedApps))
-    expect(clone.next(featuredAppsDataStub.data).value).toEqual(select(selectDeveloperEditionId))
+    expect(clone.next(featuredAppsDataStub.data).value).toEqual(
+      call(selectDeveloperEditionId, (connectSession as unknown) as ReapitConnectSession),
+    )
 
     const response = [appsDataStub.data, featuredAppsDataStub.data, appCategorieStub]
     expect(clone.next(developerId).value).toEqual(

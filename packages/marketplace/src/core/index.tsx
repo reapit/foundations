@@ -49,10 +49,6 @@ export const renderApp = (Component: React.ComponentType) => {
   }
 }
 
-// FIXME(cfg) Import config, import dynamid app
-// TESTME: app run normal
-
-// change to async
 const run = async () => {
   try {
     const configRes = await fetch('config.json')

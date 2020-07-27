@@ -9,7 +9,7 @@ import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
 import { selectIntegrationTypes } from '@/selector/integration-types'
 import { useSelector } from 'react-redux'
 import { selectAppDetailData, selectAppDetailLoading } from '@/selector/client-app-detail'
-import { selectClientId, selectIsAdmin, selectDeveloperId } from '@/selector/auth'
+import { selectClientId, selectIsAdmin } from '@/selector/auth'
 import { canGoBack } from '@/utils/router-helper'
 import AppContent from './app-content'
 import { Loader, GridItem, Grid, Section } from '@reapit/elements'
@@ -124,7 +124,6 @@ const AppDetail: React.FC = () => {
                 }
               />
               <AppContent appDetailData={appDetailData} />
-              {/* TESTME(auth) back button show */}
               {!isMobile && <BackToAppsSection onClick={onBackToAppsButtonClick(history)} />}
             </Section>
           </GridItem>

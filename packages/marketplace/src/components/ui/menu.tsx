@@ -65,38 +65,16 @@ export interface MenuMappedActions {
 
 export type MenuProps = {}
 
-// remove
 export const Menu: React.FunctionComponent<MenuProps> = () => {
   const location = useLocation()
-  // FIXME(menu) change selector
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const isDesktopAdmin = selectIsAdmin(connectSession)
 
-  /**
-   * testME:
-   * admin
-   * client: ok
-   * dev with dev edition
-   */
-  // TODO: developer edition login
   const isDeveloperEdition = Boolean(selectDeveloperId(connectSession))
-  // FIXME(menu) select from hooks session
-
-  // FIXME(menu) desk edition only
-  // Show manage page to developer edition
-  // Show admin page to developer edition
   const isAdmin = isDesktopAdmin || isDeveloperEdition
 
-  // TESTME(menu): logout
-  /**
-   * login as admin -> log to client -> ^ hide manage by clearing cookie property
-   */
   const menuConfigs = generateMenuConfig(location, isAdmin)
 
-  /**
-   * TESTME
-   * Render menu for developer
-   */
   // invalid login type. E.g. admin view marketplace apps
 
   return <Sidebar {...menuConfigs} location={location} />
