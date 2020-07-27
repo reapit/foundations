@@ -5,7 +5,6 @@ import { appDetailRequestData } from '@/actions/app-detail'
 import { revisionDetailRequestData, declineRevision, revisionDetailClearData } from '@/actions/revision-detail'
 import { revisionsRequestData, revisionsClearData } from '@/actions/revisions'
 import { AppDetailState } from '@/reducers/app-detail'
-import { LoginIdentity } from '@reapit/cognito-auth'
 
 import { Modal, Loader, Button } from '@reapit/elements'
 import AppRevisionComparison from './app-revision-comparison'
@@ -13,6 +12,8 @@ import CallToAction from '@/components/ui/call-to-action'
 import { DeveloperAppDetailState } from '@/reducers/developer'
 import { selectAppRevisions, selectAppRevisionDetail } from '@/selector/app-revisions'
 import { selectLoginIdentity } from '@/selector/auth'
+import { useReapitConnect, LoginIdentity } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export interface OwnProps {
   visible: boolean
@@ -102,7 +103,10 @@ export const DeveloperAppRevisionModal: React.FC<DeveloperAppRevisionModalProps>
   const dispatch = useDispatch()
   const revisions = useSelector(selectAppRevisions)
   const revisionDetailState = useSelector(selectAppRevisionDetail)
-  const loginIdentity = useSelector(selectLoginIdentity)
+
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const loginIdentity = selectLoginIdentity(connectSession)
+
   const revisionsData = revisions?.data
   const latestAppRevisionId = revisionsData && revisionsData[0].id
   const { declineFormState, revisionDetailData } = revisionDetailState

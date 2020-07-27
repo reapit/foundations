@@ -1,4 +1,4 @@
-import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
+import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { logger } from '@reapit/utils'
 import {
@@ -19,7 +19,6 @@ import { errorThrownServer } from '@/actions/error'
 import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
-import { selectDeveloperId } from '@/selector'
 import { PingWebhooksByIdParams, pingWebhooksById } from '@/services/webhooks'
 import { fetchAppsList } from '@/services/apps'
 import { fetchScopesList } from '@/services/scopes'
@@ -30,12 +29,13 @@ import {
   FetchBillingsParams,
   FetchBillingsByMonthParams,
 } from '@/services/traffic-events'
+import { getDeveloperId } from '@/utils/session'
 
 export const developerDataFetch = function*({ data }) {
   yield put(developerLoading(true))
 
   try {
-    const developerId = yield select(selectDeveloperId)
+    const developerId = yield call(getDeveloperId)
     if (!developerId) {
       return
     }
@@ -86,10 +86,8 @@ export const developerCreate = function*({ data }: Action<CreateDeveloperModel>)
 export const fetchMyIdentitySagas = function*() {
   try {
     yield put(developerLoading(true))
-    const developerId = yield select(selectDeveloperId)
-    if (!developerId) {
-      return
-    }
+    const developerId = yield call(getDeveloperId)
+    if (!developerId) return
     const developerIdentity = yield call(fetchDeveloperById, { id: developerId })
     if (developerIdentity) {
       yield put(setMyIdentity(developerIdentity))

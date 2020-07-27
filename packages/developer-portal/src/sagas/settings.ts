@@ -8,16 +8,17 @@ import { settingShowLoading, requestDeveloperDataSuccess, ChangePasswordParams }
 import { errorThrownServer } from '@/actions/error'
 import { showNotificationMessage } from '@/actions/notification-message'
 import { UpdateDeveloperModel } from '@reapit/foundations-ts-definitions'
-import { selectDeveloperId, selectDeveloperEmail } from '@/selector/developer'
+import { selectDeveloperEmail } from '@/selector/developer'
 import { selectSettingsPageDeveloperInformation } from '@/selector/settings'
-import { authLogout } from '@/actions/auth'
 import { logger } from '@reapit/utils'
 import { fetchDeveloperById, updateDeveloperById } from '@/services/developers'
+import { getDeveloperId } from '@/utils/session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export const developerInformationFetch = function*() {
   yield put(settingShowLoading(true))
   try {
-    const developerId = yield select(selectDeveloperId)
+    const developerId = yield call(getDeveloperId)
     if (!developerId) {
       return
     }
@@ -46,7 +47,7 @@ export type UpdateDeveloperInfoParams = {
 export const developerInfomationChange = function*({ data }: Action<UpdateDeveloperModel>) {
   yield put(settingShowLoading(true))
   try {
-    const developerId = yield select(selectDeveloperId)
+    const developerId = yield call(getDeveloperId)
     if (!developerId) {
       return
     }
@@ -108,7 +109,7 @@ export const developerPasswordChange = function*({ data }: Action<ChangePassword
     }
     localStorage.setItem('isPasswordChanged', 'true')
     yield call(removeSession)
-    yield put(authLogout())
+    reapitConnectBrowserSession.connectLogoutRedirect()
   } catch (error) {
     logger(error)
     yield put(

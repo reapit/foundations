@@ -1,55 +1,66 @@
-import { getAccessToken } from '../session'
-import { getSession } from '@reapit/cognito-auth'
-import store from '@/core/store'
-import { authSetRefreshSession } from '@/actions/auth'
+import {
+  getAccessToken,
+  getDeveloperIdFromConnectSession,
+  getClientIdFromConnectSession,
+  getDeveloperId,
+  getClientId,
+  getLoggedUserEmail,
+} from '../session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { ReapitConnectSession } from '@reapit/connect-session'
 
-jest.mock('@/core/store', () => ({
-  dispatch: jest.fn(),
-  state: {
-    online: {},
-    auth: {
-      refreshSession: {
-        refreshToken: null,
-        userName: null,
-        cognitoClientId: null,
-      },
-    },
+const mockedConnectSession = {
+  accessToken: 'accessToken',
+  loginIdentity: {
+    clientId: 'clientId',
+    developerId: 'developerId',
+    email: 'email',
   },
-}))
-jest.mock('@reapit/cognito-auth')
+} as ReapitConnectSession
+jest.spyOn(reapitConnectBrowserSession, 'connectSession').mockImplementation(
+  () =>
+    new Promise(resolve => {
+      resolve(mockedConnectSession)
+    }),
+)
 
 describe('getAccessToken', () => {
-  afterEach(() => {
-    jest.clearAllMocks()
-  })
-  it('should correctly return an access token if a valid session exists', async () => {
-    ;(getSession as jest.Mock).mockImplementation(() => ({ accessToken: 'SOME_TOKEN' }))
-    expect(await getAccessToken()).toEqual('SOME_TOKEN')
-  })
-
-  it('should return null if no session exists', async () => {
-    ;(getSession as jest.Mock).mockImplementation(() => null)
-    expect(await getAccessToken()).toEqual(null)
-  })
-
-  it('should dispatch authSetRefreshSession with correct params', async () => {
-    const mockValue = {
-      accessToken: 'accessToken',
-      refreshToken: 'refreshToken',
-      userName: 'name',
-      cognitoClientId: 'clientId',
-      loginType: 'CLIENT' as const,
-      mode: 'WEB' as const,
-    }
-    ;(getSession as jest.Mock).mockImplementation(() => mockValue)
+  it('should correctly return', async () => {
     expect(await getAccessToken()).toEqual('accessToken')
-    expect(store.dispatch).toHaveBeenCalledWith(
-      authSetRefreshSession({
-        ...mockValue,
-        redirectUri: null,
-        state: null,
-        authorizationCode: null,
-      }),
-    )
+  })
+})
+
+describe('getDeveloperIdFromConnectSession', () => {
+  it('should correctly return', async () => {
+    const developerId = getDeveloperIdFromConnectSession(mockedConnectSession)
+    expect(developerId).toEqual('developerId')
+  })
+})
+
+describe('getClientIdFromConnectSession', () => {
+  it('should correctly return', async () => {
+    const clientId = getClientIdFromConnectSession(mockedConnectSession)
+    expect(clientId).toEqual('clientId')
+  })
+})
+
+describe('getDeveloperId', () => {
+  it('should correctly return', async () => {
+    const developerId = await getDeveloperId()
+    expect(developerId).toEqual('developerId')
+  })
+})
+
+describe('getClientId', () => {
+  it('should correctly return', async () => {
+    const clientId = await getClientId()
+    expect(clientId).toEqual('clientId')
+  })
+})
+
+describe('getLoggedUserEmail', () => {
+  it('should correctly return', async () => {
+    const email = await getLoggedUserEmail()
+    expect(email).toEqual('email')
   })
 })

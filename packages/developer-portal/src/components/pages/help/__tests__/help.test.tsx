@@ -16,7 +16,7 @@ import configureStore from 'redux-mock-store'
 import { history } from '@/core/router'
 import { HelpLinks } from '@/constants/developer-help-links'
 import appState from '@/reducers/__stubs__/app-state'
-import { mockLoginSession } from '@/sagas/__tests__/auth'
+import { LoginIdentity } from '../../../../../../connect-session/src/types'
 
 jest.mock('../../../../scripts/chat-bot')
 
@@ -87,8 +87,9 @@ describe('handleWhatsNew', () => {
 
 describe('handleFaq', () => {
   it('should called with correct props', () => {
-    handleFaq(mockLoginSession.loginIdentity)
+    const loginIdentity = {} as LoginIdentity
+    handleFaq(loginIdentity)
     expect(initChatBot).toHaveBeenCalledTimes(1)
-    expect(initChatBot).toHaveBeenCalledWith(mockLoginSession.loginIdentity)
+    expect(initChatBot).toHaveBeenCalledWith(loginIdentity)
   })
 })

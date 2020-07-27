@@ -2,8 +2,6 @@ import { put, takeLatest, all, fork, call } from 'redux-saga/effects'
 import { errorThrownServer } from '@/actions/error'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
-import { select } from 'redux-saga/effects'
-import { selectDeveloperId } from '@/selector/auth'
 import errorMessages from '@/constants/error-messages'
 import { logger } from '@reapit/utils'
 import {
@@ -19,6 +17,7 @@ import {
   FetchSubscriptionsListParams,
   deleteSubscription,
 } from '@/services/developer-subscriptions'
+import { getDeveloperId } from '@/utils/session'
 
 export const developerFetchSubcriptionsList = function*({ data }: Action<FetchSubscriptionsListParams>) {
   try {
@@ -57,7 +56,7 @@ export const developerCreateSubscription = function*({ data }: Action<CreateSubs
 export const developerDeleteSubcription = function*({ data: id }: Action<string>) {
   try {
     yield call(deleteSubscription, { id })
-    const developerId = yield select(selectDeveloperId)
+    const developerId = yield call(getDeveloperId)
     yield put(developerFetchSubscriptions({ developerId }))
   } catch (err) {
     logger(err)

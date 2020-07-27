@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { ToastMessage } from '@reapit/elements'
 import styles from '@/styles/blocks/sandbox-pop-up.scss?mod'
-import { useSelector } from 'react-redux'
-import { selectIsDesktopMode } from '@/selector/auth'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export const TIMEOUT_DURATION = 500
 
@@ -22,7 +21,7 @@ export const handleCloseToast = setIsOpen => () => {
 }
 
 export const UnsupportBrowserPopUp = ({ unsupported = false, message = '' }) => {
-  const isDesktopMode = useSelector(selectIsDesktopMode)
+  const isDesktopMode = reapitConnectBrowserSession.connectIsDesktop
 
   const [isOpen, setIsOpen] = React.useState<boolean>(false)
 

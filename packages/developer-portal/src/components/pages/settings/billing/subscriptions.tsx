@@ -1,6 +1,5 @@
 import React, { useState, SetStateAction } from 'react'
 import { H5, Table, getDate, Loader, Section } from '@reapit/elements'
-import { selectDeveloperId } from '@/selector/auth'
 import { useSelector, useDispatch } from 'react-redux'
 import { developerFetchSubscriptions, developerDeleteSubscription } from '@/actions/developer-subscriptions'
 import { selectSubscriptions, selectSubscriptionsLoading } from '@/selector/developer-subscriptions'
@@ -9,6 +8,9 @@ import { SubscriptionModel } from '@reapit/foundations-ts-definitions'
 import { Dispatch } from 'redux'
 import ConfirmModal from './delete-confirm'
 import { formatCurrency } from '@/utils/number-formatter'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { getDeveloperIdFromConnectSession } from '@/utils/session'
 
 export const TimeCell = ({ cell: { value } }) => <p>{getDate(value)}</p>
 export const StatusCell = ({ cell: { value } }) => <p>{value ? 'Cancelled' : 'Active'}</p>
@@ -94,7 +96,9 @@ export const Subcriptions: React.FC = () => {
 
   const subscriptions = useSelector(selectSubscriptions)
   const loading = useSelector(selectSubscriptionsLoading)
-  const developerId = useSelector(selectDeveloperId) || ''
+
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const developerId = getDeveloperIdFromConnectSession(connectSession)
 
   React.useEffect(handleFetchSubscriptions(dispatch, developerId), [dispatch, developerId])
 

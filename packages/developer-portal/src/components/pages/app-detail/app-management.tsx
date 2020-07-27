@@ -1,7 +1,6 @@
 import React from 'react'
 import { DeveloperAppDetailState } from '@/reducers/developer'
-import { useDispatch, useSelector } from 'react-redux'
-import { selectClientId } from '@/selector/client'
+import { useDispatch } from 'react-redux'
 import AppRevisionModal from './app-revision-modal'
 import AppDeleteModal from '@/components/pages/app-detail/app-delete-modal'
 import { Content, Button } from '@reapit/elements'
@@ -11,6 +10,9 @@ import { History } from 'history'
 import { Dispatch } from 'redux'
 import { developerFetchAppDetail } from '@/actions/developer'
 import styles from '@/styles/blocks/standalone-app-detail.scss?mod'
+import { useReapitConnect } from '../../../../../connect-session/src/react'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { getClientIdFromConnectSession } from '@/utils/session'
 
 interface AppManagementProps {
   pendingRevisions: boolean
@@ -59,7 +61,9 @@ export const AppManagement: React.FC<AppManagementProps> = ({ pendingRevisions, 
   const [isAppRevisionComparisonModalOpen, setIsAppRevisionComparisonModalOpen] = React.useState(false)
   const { buttonGroup } = styles
 
-  const clientId = useSelector(selectClientId)
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const clientId = getClientIdFromConnectSession(connectSession)
+
   const dispatch = useDispatch()
   const history = useHistory()
 

@@ -14,13 +14,6 @@ import { ReduxState } from '@/types/core'
 import configureStore from 'redux-mock-store'
 
 const mockState = {
-  auth: {
-    loginSession: {
-      loginIdentity: {
-        developerId: '1',
-      },
-    },
-  },
   installations: {
     installationsAppData: installationsStub,
   },

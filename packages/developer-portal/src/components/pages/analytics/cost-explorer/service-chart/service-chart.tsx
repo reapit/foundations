@@ -10,9 +10,11 @@ import dayjs from 'dayjs'
 import { Billing } from '@/reducers/developer'
 import { Dispatch } from 'redux'
 import { BillingOverviewForPeriodV2Model } from '@reapit/foundations-ts-definitions'
-import { selectDeveloperId } from '@/selector/auth'
 import ChartLegend from '@/components/ui/chart-legend'
 import { ChartLegendItem } from '@/components/ui/chart-legend/chart-legend'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { getDeveloperIdFromConnectSession } from '@/utils/session'
 
 const API_CALL_INDEX = 0
 const APP_LISTING_INDEX = 1
@@ -130,7 +132,7 @@ export type HandleUseEffectParams = {
 }
 
 export const handleUseEffect = ({ developerId, dateFrom, dateTo, dispatch }: HandleUseEffectParams) => () => {
-  dispatch(fetchBilling({ developerId, dateFrom: dateFrom, dateTo: dateTo }))
+  developerId && dispatch(fetchBilling({ developerId, dateFrom: dateFrom, dateTo: dateTo }))
 }
 
 export const renderChart = (
@@ -203,7 +205,9 @@ export const ServiceChart: React.FC = () => {
   const dispatch = useDispatch()
   const myIdentity = useSelector(selectMyIdentity)
   const billing = useSelector(selectBilling)
-  const developerId = useSelector(selectDeveloperId)
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const developerId = getDeveloperIdFromConnectSession(connectSession)
+
   const isDeveloperLoading = useSelector(selectDeveloperLoading)
   const isServiceChartLoading = useSelector(selectIsServiceChartLoading)
 

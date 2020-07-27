@@ -4,7 +4,6 @@ import dayjs from 'dayjs'
 import { Dispatch } from 'redux'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { appInstallationsRequestData } from '@/actions/app-installations'
-import { selectDeveloperId } from '@/selector'
 import { Button, DATE_TIME_FORMAT, Section } from '@reapit/elements'
 import ConfirmUninstall from './app-uninstall-modal/confirm-uninstall'
 import { handleUninstall, handleAfterClose } from './app-uninstall-modal/app-uninstall-modal'
@@ -20,6 +19,9 @@ import {
   InstallationsTableSection,
   PermissionsSection,
 } from './app-sections'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { getDeveloperIdFromConnectSession } from '@/utils/session'
 
 export type AppContentProps = {
   appDetailState: DeveloperAppDetailState
@@ -102,7 +104,8 @@ const AppContent: React.FC<AppContentProps> = ({ appDetailState }) => {
   const installationsData = useSelector(selectInstallationAppData) as PagedResultInstallationModel_
   const { data = [] } = installationsData
   const dispatch = useDispatch()
-  const developerId = useSelector(selectDeveloperId) || ''
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const developerId = getDeveloperIdFromConnectSession(connectSession)
 
   const [uninstallApp, setUninstallApp] = React.useState<InstallationModel>()
   const installationTableColumns = generateInstallationTableColumns(

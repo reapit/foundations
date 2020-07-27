@@ -1,5 +1,5 @@
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
-import { call, put, takeLatest, all, fork, select } from '@redux-saga/core/effects'
+import { call, put, takeLatest, all, fork } from '@redux-saga/core/effects'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import {
   developerLoading,
@@ -34,7 +34,6 @@ import { appPermissionStub } from '../__stubs__/app-permission'
 import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
-import { selectDeveloperId } from '@/selector/developer'
 import { developerIdentity } from '../__stubs__/developer-identity'
 import { billing } from '../__stubs__/billing'
 import { monthlyBillingData } from '../__stubs__/monthly-billing'
@@ -48,6 +47,7 @@ import {
   FetchBillingsByMonthParams,
   fetchBillingsByMonth,
 } from '@/services/traffic-events'
+import { getDeveloperId } from '@/utils/session'
 
 jest.mock('@/services/apps')
 jest.mock('@/services/scopes')
@@ -63,7 +63,7 @@ describe('developer fetch data', () => {
   const developerId = '72ad4ed6-0df0-4a28-903c-55899cffee85'
 
   expect(gen.next().value).toEqual(put(developerLoading(true)))
-  expect(gen.next().value).toEqual(select(selectDeveloperId))
+  expect(gen.next().value).toEqual(call(getDeveloperId))
   expect(gen.next(developerId).value).toEqual(
     all([
       call(fetchAppsList, { developerId: [developerId], pageNumber: params.data.page, pageSize: APPS_PER_PAGE }),
@@ -140,7 +140,7 @@ describe('fetchMyIdentitySagas', () => {
   const developerId = '1'
   const gen = cloneableGenerator(fetchMyIdentitySagas as any)({ data: params })
   expect(gen.next().value).toEqual(put(developerLoading(true)))
-  expect(gen.next().value).toEqual(select(selectDeveloperId))
+  expect(gen.next().value).toEqual(call(getDeveloperId))
   expect(gen.next(developerId).value).toEqual(call(fetchDeveloperById, { id: developerId }))
   it('api call success', () => {
     const clone = gen.clone()

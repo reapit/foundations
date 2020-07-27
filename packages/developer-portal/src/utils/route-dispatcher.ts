@@ -1,5 +1,4 @@
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
-import { selectDeveloperId } from '@/selector'
 import { appDetailRequestData } from './../actions/app-detail'
 import { RouteValue, StringMap } from '../types/core'
 import Routes from '../constants/routes'
@@ -8,9 +7,9 @@ import { developerRequestData, fetchMyIdentity, developerFetchAppDetail } from '
 import { appInstallationsRequestData } from '../actions/app-installations'
 import { submitAppRequestData } from '../actions/submit-app'
 import { requestDeveloperData } from '@/actions/settings'
-import { selectClientId } from '@/selector/client'
 import { DeveloperRequestParams } from '@/reducers/developer'
 import { fetchOrganisationMembers } from '@/actions/developers'
+import { getDeveloperId, getClientId } from './session'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
   const id = params && params.appid ? params.appid : ''
@@ -25,18 +24,18 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       break
     case Routes.ANALYTICS_TAB: {
       // Fetch all apps to map app name to installations
+      const clientId = await getClientId()
       store.dispatch(fetchMyIdentity())
       store.dispatch(developerRequestData({ page: 1, appsPerPage: GET_ALL_PAGE_SIZE }))
       if (appId) {
-        const clientId = selectClientId(store.state)
         store.dispatch(appDetailRequestData({ id: appId, clientId }))
       }
       break
     }
     case Routes.APP_DETAIL: {
       if (id) {
-        const clientId = selectClientId(store.state)
-        const developerId = selectDeveloperId(store.state) || ''
+        const clientId = await getClientId()
+        const developerId = await getDeveloperId()
         store.dispatch(developerFetchAppDetail({ id, clientId }))
         store.dispatch(
           appInstallationsRequestData({
@@ -61,7 +60,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(requestDeveloperData())
       break
     case Routes.SETTINGS_ORGANISATION_TAB: {
-      const developerId = selectDeveloperId(store.state) || ''
+      const developerId = await getDeveloperId()
       store.dispatch(requestDeveloperData())
       store.dispatch(fetchOrganisationMembers({ id: developerId }))
       break

@@ -1,37 +1,33 @@
-import { ReduxState } from '@/types/core'
+import { ReapitConnectSession, LoginIdentity } from '../../../connect-session/src/types'
 
-export const selectLoginType = (state: ReduxState) => {
-  return state.auth.loginType
+// export const selectLoginType = (state: ReduxState) => {
+//   return state.auth.loginType
+// }
+
+// export const selectLoginIdentity = (state: ReduxState) => {
+//   return state.auth.loginSession?.loginIdentity
+// }
+
+// export const selectClientId = (state: ReduxState) => {
+//   return state.auth.loginSession?.loginIdentity.clientId
+// }
+
+export const selectIsAdmin = (connectSession: ReapitConnectSession | null) => {
+  return Boolean(connectSession?.loginIdentity?.adminId)
 }
 
-export const selectLoginIdentity = (state: ReduxState) => {
-  return state.auth.loginSession?.loginIdentity
-}
+// export const selectDeveloperId = (state: ReduxState): string => {
+//   return state.auth.loginSession?.loginIdentity.developerId || ''
+// }
 
-export const selectClientId = (state: ReduxState) => {
-  return state.auth.loginSession?.loginIdentity.clientId
-}
+// export const selectLoginSession = (state: ReduxState) => {
+//   return state.auth?.loginSession
+// }
 
-export const selectIsAdmin = (state: ReduxState) => {
-  return state.auth?.loginSession?.loginIdentity?.isAdmin || false
-}
+// export const selectIsTermAccepted = (state: ReduxState): boolean => {
+//   return state.auth.isTermAccepted
+// }
 
-export const selectDeveloperId = (state: ReduxState): string => {
-  return state.auth.loginSession?.loginIdentity.developerId || ''
-}
-
-export const selectLoginSession = (state: ReduxState) => {
-  return state.auth?.loginSession
-}
-
-export const selectRefreshSession = (state: ReduxState) => {
-  return state.auth?.refreshSession
-}
-
-export const selectIsTermAccepted = (state: ReduxState): boolean => {
-  return state.auth.isTermAccepted
-}
-
-export const selectIsDesktopMode = (state: ReduxState): boolean => {
-  return state.auth.refreshSession?.mode === 'DESKTOP'
+export const selectLoginIdentity = (connectSession: ReapitConnectSession | null) => {
+  return (connectSession && connectSession?.loginIdentity) || ({} as LoginIdentity)
 }

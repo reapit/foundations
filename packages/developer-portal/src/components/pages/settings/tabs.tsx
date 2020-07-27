@@ -1,9 +1,10 @@
 import * as React from 'react'
 import Routes from '@/constants/routes'
-import { useSelector } from 'react-redux'
 import { selectIsAdmin } from '@/selector/auth'
 import { Tabs as ElementsTabs, TabConfig } from '@reapit/elements'
 import { useHistory, useRouteMatch } from 'react-router-dom'
+import { useReapitConnect } from '../../../../../connect-session/src/react'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export type TabConfigsProps = {
   currentUrl: string
@@ -50,8 +51,8 @@ export const tabConfigs = ({ currentUrl, history, isAdmin, isProd }: TabConfigsP
 export const Tabs = () => {
   const history = useHistory()
   const match = useRouteMatch()
-  const isAdmin = useSelector(selectIsAdmin)
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const isAdmin = selectIsAdmin(connectSession)
   const isProd = window.reapit.config.appEnv === 'production'
-
   return <ElementsTabs tabConfigs={tabConfigs({ currentUrl: match.url, history, isAdmin, isProd })} />
 }

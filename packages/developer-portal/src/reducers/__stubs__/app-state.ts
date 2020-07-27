@@ -1,5 +1,4 @@
 import { ReduxState } from '@/types/core'
-import { COGNITO_GROUP_DEVELOPER_EDITION } from '@/constants/api'
 
 const appState: ReduxState = {
   developer: {
@@ -19,43 +18,6 @@ const appState: ReduxState = {
     isMonthlyBillingLoading: true,
     monthlyBilling: null,
     webhookPingTestStatus: null,
-  },
-
-  auth: {
-    error: false,
-    loginSession: {
-      accessToken: 'testAccessToken',
-      accessTokenExpiry: 1581238260,
-      idToken: 'testIdToken',
-      idTokenExpiry: 1234428260,
-      refreshToken: 'testRefreshToken',
-      cognitoClientId: 'testCognitoClientId',
-      loginType: 'CLIENT',
-      userName: 'test@reapit.com',
-      mode: 'WEB',
-      loginIdentity: {
-        name: 'Test User',
-        email: 'test@reapit.com',
-        developerId: null,
-        clientId: 'testClientId',
-        adminId: null,
-        userCode: 'testUserCode',
-        userTel: '123',
-        groups: [COGNITO_GROUP_DEVELOPER_EDITION],
-      },
-    },
-    isTermAccepted: false,
-    loginType: 'CLIENT',
-    refreshSession: {
-      refreshToken: 'testRefreshToken',
-      loginType: 'CLIENT',
-      userName: 'test@reapit.com',
-      mode: 'WEB',
-      cognitoClientId: 'testCognitoClientId',
-      authorizationCode: '',
-      redirectUri: '',
-      state: null,
-    },
   },
   appDetail: {
     loading: false,

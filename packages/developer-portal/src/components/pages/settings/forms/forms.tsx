@@ -7,8 +7,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Dispatch } from 'redux'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { updateDeveloperData, changePassword } from '@/actions/settings'
-import { authLogout } from '@/actions/auth'
 import { selectSettingsPageIsLoading, selectSettingsPageDeveloperInformation } from '@/selector/settings'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export type CreateDispatchersReturn = {
   updateDeveloperInformation: (values: ContactInformationValues) => void
@@ -20,7 +20,7 @@ export const createDispatchers = (dispatch: Dispatch): CreateDispatchersReturn =
   return {
     updateDeveloperInformation: (values: ContactInformationValues) => dispatch(updateDeveloperData(values)),
     changePassword: (values: ChangePasswordValues) => dispatch(changePassword(values)),
-    logout: () => dispatch(authLogout()),
+    logout: reapitConnectBrowserSession.connectLogoutRedirect,
   }
 }
 

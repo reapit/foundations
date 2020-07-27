@@ -1,7 +1,6 @@
 import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
 import { DeveloperState } from '../reducers/developer'
-import { AuthState } from '../reducers/auth'
 import { AppDetailState } from '../reducers/app-detail'
 import { ErrorState } from '../reducers/error'
 import { SubmitAppState } from '../reducers/submit-app'
@@ -61,7 +60,6 @@ export interface FetcherParams<T> {
 export interface ReduxState {
   appDetail: AppDetailState
   developer: DeveloperState
-  auth: AuthState
   error: ErrorState
   submitApp: SubmitAppState
   submitRevision: SubmitRevisionState
