@@ -3,9 +3,9 @@ import store from '../../core/store'
 
 import Routes from '../../constants/routes'
 import { RouteValue } from '../../types/core'
-import { clientFetchAppSummary } from '@/actions/client'
-import { myAppsRequestData } from '@/actions/my-apps'
-import { installedAppsRequestData } from '@/actions/installed-apps'
+import { clientFetchAppSummary } from '@/actions/apps'
+import { myAppsRequestData } from '@/actions/apps'
+import { installedAppsRequestData } from '@/actions/apps'
 
 jest.mock('@reapit/elements')
 

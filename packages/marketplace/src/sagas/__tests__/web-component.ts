@@ -20,7 +20,7 @@ import {
   clientFetchNegotiatorsSuccess,
   clientFetchWebComponentConfigFailed,
   clientUpdateWebComponentConfigFailed,
-} from '@/actions/client'
+} from '@/actions/apps'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '../../../../elements/src/utils/validators/error-messages'
 import { fetchNegotiators } from '@/services/negotiators'

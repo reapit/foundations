@@ -14,7 +14,7 @@ import {
   clientFetchNegotiatorsSuccess,
   clientFetchWebComponentConfigFailed,
   clientUpdateWebComponentConfigFailed,
-} from '@/actions/client'
+} from '@/actions/apps'
 import { fetchNegotiators } from '@/services/negotiators'
 
 export const fetchWebComponentConfigSaga = function*({ data }: Action<FetchWebComponentConfigParams>) {

@@ -1,4 +1,4 @@
-import { myAppsLoading, myAppsReceiveData, myAppsRequestDataFailure } from '../actions/my-apps'
+import { myAppsLoading, myAppsReceiveData, myAppsRequestDataFailure } from '@/actions/apps'
 import { put, fork, takeLatest, call, all } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'

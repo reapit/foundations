@@ -1,10 +1,9 @@
 import { RouteValue, StringMap } from '../types/core'
 import Routes from '../constants/routes'
-import store from '../core/store'
-
-import { clientFetchAppSummary, clientFetchAppDetail } from '../actions/client'
-import { myAppsRequestData } from '../actions/my-apps'
-import { installedAppsRequestData } from '../actions/installed-apps'
+import store from '@/core/store'
+import { clientFetchAppSummary, clientFetchAppDetail } from '@/actions/apps'
+import { myAppsRequestData } from '@/actions/apps'
+import { installedAppsRequestData } from '@/actions/apps'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { selectClientId } from '@/selector/auth'
 

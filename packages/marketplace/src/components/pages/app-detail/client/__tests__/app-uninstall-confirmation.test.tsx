@@ -4,8 +4,8 @@ import { mount, shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import { MemoryRouter } from 'react-router'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
-import { appInstallationsRequestUninstall } from '@/actions/app-installations'
-import { clientFetchAppDetail } from '@/actions/client'
+import { appInstallationsRequestUninstall } from '@/actions/installations'
+import { clientFetchAppDetail } from '@/actions/apps'
 import ClientAppUninstallConfirmation, {
   AppUninstallConfirmationProps,
   onUninstallButtonClick,

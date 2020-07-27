@@ -7,7 +7,7 @@ import {
   clientFetchNegotiatorsSuccess,
   clientFetchWebComponentConfigFailed,
   clientUpdateWebComponentConfigFailed,
-} from '@/actions/client'
+} from '@/actions/apps'
 import { WebComponentConfigResult } from '@/services/web-component'
 import { PagedResultNegotiatorModel_ } from '@reapit/foundations-ts-definitions'
 

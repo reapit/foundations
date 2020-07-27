@@ -11,7 +11,7 @@ import {
   requestAuthenticationSuccess,
   requestAuthenticationFailure,
   removeAuthenticationCode,
-} from '../actions/app-detail'
+} from '@/actions/apps'
 
 export interface AppDetailItem {
   data: AppDetailModel & { apiKey?: string }

@@ -1,8 +1,4 @@
-import {
-  installedAppsLoading,
-  installedAppsReceiveData,
-  installedAppsRequestDataFailure,
-} from '../actions/installed-apps'
+import { installedAppsLoading, installedAppsReceiveData, installedAppsRequestDataFailure } from '@/actions/apps'
 import { put, fork, takeLatest, call, all } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'

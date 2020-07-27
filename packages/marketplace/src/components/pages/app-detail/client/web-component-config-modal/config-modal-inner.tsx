@@ -15,7 +15,7 @@ import {
 } from '@reapit/elements'
 import { useDispatch, useSelector } from 'react-redux'
 import { NegotiatorModel } from '@reapit/foundations-ts-definitions'
-import { clientUpdateWebComponentConfig } from '@/actions/client'
+import { clientUpdateWebComponentConfig } from '@/actions/apps'
 import {
   selectWebComponentData,
   selectWebComponentLoading,

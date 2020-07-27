@@ -14,8 +14,8 @@ import AppInstallConfirmation, {
   InstallAppSucesfullyModalParams,
   InstallNonDirectApiAppSucesfullyModal,
 } from '../app-install-confirmation'
-import { appInstallationsRequestInstall } from '@/actions/app-installations'
-import { clientFetchAppDetail } from '@/actions/client'
+import { appInstallationsRequestInstall } from '@/actions/installations'
+import { clientFetchAppDetail } from '@/actions/apps'
 import routes from '@/constants/routes'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'

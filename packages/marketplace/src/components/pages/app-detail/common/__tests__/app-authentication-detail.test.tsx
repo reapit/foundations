@@ -11,7 +11,7 @@ import {
   handleShowAuthCode,
   handleMouseLeave,
 } from '../app-authentication-detail'
-import { requestAuthenticationCode } from '@/actions/app-detail'
+import { requestAuthenticationCode } from '@/actions/apps'
 
 const props: AppAuthenticationDetailProps = {
   appId: appDetailDataStub.data.id || '',
