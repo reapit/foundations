@@ -15,7 +15,7 @@ import {
   requestAuthenticationSuccess,
   requestAuthenticationFailure,
   setAppDetailStale,
-} from '@/actions/app-detail'
+} from '@/actions/apps'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { errorThrownServer } from '@/actions/error'

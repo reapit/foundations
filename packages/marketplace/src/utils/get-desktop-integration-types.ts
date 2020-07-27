@@ -1,4 +1,4 @@
-import { DesktopIntegrationTypeModel } from '@/actions/app-integration-types'
+import { DesktopIntegrationTypeModel } from '@/actions/desktop-integration-types'
 
 export const getDesktopIntegrationTypes = (
   desktopIntegrationTypeIds: string[],

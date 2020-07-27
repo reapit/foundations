@@ -1,6 +1,6 @@
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
-import { myAppsLoading, myAppsReceiveData, myAppsClearData, myAppsRequestDataFailure } from '../actions/my-apps'
+import { myAppsLoading, myAppsReceiveData, myAppsClearData, myAppsRequestDataFailure } from '@/actions/apps'
 import { PagedResultAppSummaryModel_ } from '@reapit/foundations-ts-definitions'
 
 export interface MyAppsItem {

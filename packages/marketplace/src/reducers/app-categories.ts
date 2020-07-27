@@ -1,6 +1,6 @@
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
-import { categoriesReceiveData } from '../actions/app-categories'
+import { categoriesReceiveData } from '@/actions/categories'
 import { PagedResultCategoryModel_ } from '@reapit/foundations-ts-definitions'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 

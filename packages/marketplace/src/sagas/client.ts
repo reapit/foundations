@@ -1,5 +1,5 @@
-import { clientFetchAppSummarySuccess } from '../actions/client'
-import { categoriesReceiveData } from '@/actions/app-categories'
+import { clientFetchAppSummarySuccess } from '@/actions/apps'
+import { categoriesReceiveData } from '@/actions/categories'
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'

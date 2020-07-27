@@ -1,6 +1,6 @@
 import { actionCreator, isType } from '../actions'
 import ActionTypes from '../../constants/action-types'
-import { clientFetchAppSummary, clientFetchAppSummarySuccess } from '../../actions/client'
+import { clientFetchAppSummary, clientFetchAppSummarySuccess } from '@/actions/apps'
 import { Action } from '../../types/core'
 import { ClientAppSummaryParams } from '@/reducers/client/app-summary'
 

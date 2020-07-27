@@ -1,5 +1,5 @@
-import { clientFetchAppDetailSuccess } from '@/actions/client'
-import { integrationTypesReceiveData } from '@/actions/app-integration-types'
+import { clientFetchAppDetailSuccess } from '@/actions/apps'
+import { integrationTypesReceiveData } from '@/actions/desktop-integration-types'
 import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 import { errorThrownServer } from '@/actions/error'

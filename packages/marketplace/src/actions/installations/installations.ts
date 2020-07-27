@@ -1,11 +1,11 @@
-import { actionCreator } from '../utils/actions'
-import ActionTypes from '../constants/action-types'
-import { FormState } from '../types/core'
 import {
   PagedResultInstallationModel_,
   TerminateInstallationModel,
   CreateInstallationModel,
 } from '@reapit/foundations-ts-definitions'
+import { actionCreator } from '@/utils/actions'
+import ActionTypes from '@/constants/action-types'
+import { FormState } from '@/types/core'
 
 export interface InstallationParams {
   appId?: string[]

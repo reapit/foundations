@@ -9,7 +9,7 @@ import {
   appInstallationsFilterReceiveData,
   appInstallationsFilterRequestData,
   appInstallationsFilterRequestDataFailure,
-} from '@/actions/app-installations'
+} from '@/actions/installations'
 
 export interface AppInstallationsState {
   formState: FormState

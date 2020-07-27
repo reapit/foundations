@@ -5,7 +5,7 @@ import {
   clientFetchAppSummarySuccess,
   clientClearAppSummary,
   clientFetchAppSummaryFailed,
-} from '@/actions/client'
+} from '@/actions/apps'
 import { PagedResultAppSummaryModel_, AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
 export interface ClientAppSummary {

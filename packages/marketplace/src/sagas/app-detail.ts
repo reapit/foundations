@@ -6,7 +6,7 @@ import {
   requestAuthenticationSuccess,
   requestAuthenticationFailure,
   setAppDetailStale,
-} from '../actions/app-detail'
+} from '@/actions/apps'
 import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'

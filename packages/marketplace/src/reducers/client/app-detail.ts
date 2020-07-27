@@ -1,6 +1,6 @@
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { Action } from '@/types/core'
-import { clientFetchAppDetail, clientFetchAppDetailSuccess, clientFetchAppDetailFailed } from '@/actions/client'
+import { clientFetchAppDetail, clientFetchAppDetailSuccess, clientFetchAppDetailFailed } from '@/actions/apps'
 import { isType } from '@/utils/actions'
 
 export type AppDetailDataNotNull = AppDetailModel & {

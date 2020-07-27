@@ -5,7 +5,7 @@ import {
   installedAppsReceiveData,
   installedAppsClearData,
   installedAppsRequestDataFailure,
-} from '../actions/installed-apps'
+} from '@/actions/apps'
 import { PagedResultAppSummaryModel_ } from '@reapit/foundations-ts-definitions'
 
 export interface InstalledAppsItem {
