@@ -80,7 +80,6 @@ exports[`Settings should match snapshot 1`] = `
               <div
                 className=""
               >
-                 
                 Customer ID: 
                 <strong />
                  
@@ -194,7 +193,6 @@ exports[`Settings should match snapshot in desktop mode 1`] = `
             <div
               className=""
             >
-               
               Customer ID: 
               <strong />
                

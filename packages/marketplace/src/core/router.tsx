@@ -35,7 +35,7 @@ const Router = () => {
 
             <PrivateRouteWrapper showMenu={false} path="/admin">
               <Switch>
-                <PrivateRoute path="/admin/*" component={HandleLegacyAdminRoutesModal} />
+                <PrivateRoute path="/*" component={HandleLegacyAdminRoutesModal} />
               </Switch>
             </PrivateRouteWrapper>
 

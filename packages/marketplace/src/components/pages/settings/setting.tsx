@@ -19,7 +19,6 @@ export const Settings: React.FC = () => {
       </Section>
       <Section>
         <FormHeading>
-          {' '}
           Customer ID: <strong>{customerId}</strong>{' '}
         </FormHeading>
         <FormSubHeading>
