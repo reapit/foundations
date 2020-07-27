@@ -15,7 +15,7 @@ import { ReapitConnectSession } from '@reapit/connect-session'
  * refer to this ticket https://github.com/reapit/foundations/issues/1848
  */
 
-export const selectDeveloperEditionId = (state: ReapitConnectSession | null) => {
+export const selectDeveloperEditionId = (state: ReapitConnectSession | null): string | null => {
   const loginIdentity = selectLoginIdentity(state)
 
   if (loginIdentity?.groups.includes(COGNITO_GROUP_DEVELOPER_EDITION)) {

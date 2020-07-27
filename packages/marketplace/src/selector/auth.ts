@@ -1,11 +1,11 @@
-import { ReapitConnectSession } from '@reapit/connect-session'
+import { ReapitConnectSession, LoginIdentity } from '@reapit/connect-session'
 
-export const selectLoginIdentity = (state: ReapitConnectSession | null) => {
+export const selectLoginIdentity = (state: ReapitConnectSession | null): LoginIdentity | undefined => {
   return state?.loginIdentity
 }
 
-export const selectIsAdmin = (state: ReapitConnectSession | null) => {
-  return Boolean(state?.loginIdentity.adminId) || false
+export const selectIsAdmin = (state: ReapitConnectSession | null): Boolean => {
+  return Boolean(state?.loginIdentity.adminId)
 }
 
 export const selectClientId = (state: ReapitConnectSession | null): string => {
