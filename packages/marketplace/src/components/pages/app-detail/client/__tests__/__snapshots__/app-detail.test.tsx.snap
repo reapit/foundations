@@ -1,27 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AppDetail renderAppHeaderButtonGroup should match snapshot 1`] = `
-<div>
-  <Component
-    installedOn="2020-2-20"
-    isInstallBtnHidden={true}
-    onInstallConfirmationModal={[MockFunction]}
-    onUninstallConfirmationModal={[MockFunction]}
-  />
-</div>
-`;
-
-exports[`AppDetail renderAppHeaderButtonGroup should match snapshot 2`] = `
-<div>
-  <Component
-    installedOn="2020-2-20"
-    isInstallBtnHidden={false}
-    onInstallConfirmationModal={[MockFunction]}
-    onUninstallConfirmationModal={[MockFunction]}
-  />
-</div>
-`;
-
 exports[`AppDetail should match a snapshot 1`] = `
 <Provider
   store={

@@ -7,6 +7,7 @@ import { selectLoginIdentity } from '@/selector/auth'
 import Routes from '@/constants/routes'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from './connect-session'
+import { selectDeveloperEditionId } from '@/selector/client'
 
 export interface PrivateRouteProps {
   component: React.FunctionComponent | React.LazyExoticComponent<any>
@@ -28,9 +29,15 @@ export interface PrivateRouteProps {
  * developer login marketplace
  * admin login marketplace
  */
+
+/**
+ * FIXME(isDeveloperEdition)
+ * return null
+ */
 export const handleRedirectToAuthenticationPage = (
   history: History,
-  loginIdentity?: LoginIdentity | null | undefined,
+  loginIdentity: LoginIdentity | null | undefined,
+  isDeveloperEdition: Boolean,
 ) => {
   return () => {
     if (!loginIdentity) {
@@ -38,7 +45,7 @@ export const handleRedirectToAuthenticationPage = (
     }
     const { clientId } = loginIdentity
     // remove dev login
-    if (!clientId) {
+    if (!clientId || !isDeveloperEdition) {
       history.replace(Routes.AUTHENTICATION)
     }
   }
@@ -55,6 +62,7 @@ export const PrivateRoute = ({ component, fetcher = false, ...rest }: PrivateRou
    * Show login shit for admin
    */
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const isDeveloperEdition = Boolean(selectDeveloperEditionId(connectSession))
   const loginIdentity = selectLoginIdentity(connectSession)
 
   /**
@@ -65,7 +73,7 @@ export const PrivateRoute = ({ component, fetcher = false, ...rest }: PrivateRou
    * FIXME(remove connect session): make sure update to remove/handle
    *
    */
-  React.useEffect(handleRedirectToAuthenticationPage(history, loginIdentity), [
+  React.useEffect(handleRedirectToAuthenticationPage(history, loginIdentity, isDeveloperEdition), [
     loginIdentity,
 
     history,

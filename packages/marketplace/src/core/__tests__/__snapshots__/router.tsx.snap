@@ -51,7 +51,7 @@ exports[`Router should match a snapshot 1`] = `
                   "_status": -1,
                 }
               }
-              path="/*"
+              path="/admin/*"
             />
           </Switch>
         </Component>
@@ -73,9 +73,7 @@ exports[`Router should match a snapshot 1`] = `
             />
           </Switch>
         </Component>
-        <Component
-          path="/"
-        >
+        <Component>
           <Switch>
             <Component
               component={
@@ -163,21 +161,6 @@ exports[`Router should match a snapshot 1`] = `
                 }
               }
               exact={true}
-<<<<<<< HEAD
-=======
-              path="/welcome"
-            />
-            <Component
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
->>>>>>> chore: #2125 update private-route-wrapper and private-route
               fetcher={true}
               path="/help"
             />

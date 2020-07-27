@@ -24,6 +24,7 @@ import { BackToAppsSection } from '../common/ui-sections'
 import { AppDetailButtonGroup } from './app-detail-button-group'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { selectDeveloperEditionId } from '@/selector/client'
 
 export type ClientAppDetailProps = {}
 
@@ -83,14 +84,14 @@ const AppDetail: React.FC = () => {
     desktopIntegrationTypes,
   )
   const { isMobile } = useReactResponsive()
-  console.log({ isMobile })
 
   const isLoadingAppDetail = useSelector(selectAppDetailLoading)
 
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+
   const isDesktopAdmin = selectIsAdmin(connectSession)
   const isClient = Boolean(selectClientId(connectSession))
-  const isDeveloperEdition = Boolean(selectDeveloperId(connectSession))
+  const isDeveloperEdition = Boolean(selectDeveloperEditionId(connectSession))
 
   const isAdmin = isDesktopAdmin || isDeveloperEdition
   const isInstallBtnHidden = isClient && !isAdmin

@@ -31,12 +31,21 @@ describe('PrivateRouter', () => {
   })
 
   describe('handleRedirectToAuthenticationPage', () => {
+    it('should redirect to authentication page for DEVELOPER EDITION', () => {
+      const mockLoginIdentity = {
+        clientId: '',
+        developerId: 'testDeveloperId',
+      } as LoginIdentity
+      const fn = handleRedirectToAuthenticationPage(history, mockLoginIdentity, true)
+      fn()
+      expect(history.replace).toBeCalledWith(Routes.AUTHENTICATION)
+    })
     it('should redirect to authentication page for CLIENT', () => {
       const mockLoginIdentity = {
         clientId: '',
         developerId: 'testDeveloperId',
       } as LoginIdentity
-      const fn = handleRedirectToAuthenticationPage(history, mockLoginIdentity)
+      const fn = handleRedirectToAuthenticationPage(history, mockLoginIdentity, false)
       fn()
       expect(history.replace).toBeCalledWith(Routes.AUTHENTICATION)
     })

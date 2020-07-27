@@ -36,7 +36,9 @@ describe('installed-apps fetch data', () => {
     call(selectClientId, (connectSession as unknown) as ReapitConnectSession),
   )
 
-  expect(gen.next(clientId).value).toEqual(select(selectDeveloperEditionId))
+  expect(gen.next(clientId).value).toEqual(
+    call(selectDeveloperEditionId, (connectSession as unknown) as ReapitConnectSession),
+  )
   expect(gen.next(developerId).value).toEqual(
     call(fetchAppsList, {
       clientId,

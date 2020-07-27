@@ -87,7 +87,10 @@ describe('clientDataFetch', () => {
       },
     })
     const clone = gen.clone()
-    expect(clone.next().value).toEqual(select(selectClientId))
+    expect(clone.next().value).toEqual(call(reapitConnectBrowserSession.connectSession))
+    expect(clone.next(connectSession).value).toEqual(
+      call(selectClientId, (connectSession as unknown) as ReapitConnectSession),
+    )
     expect(clone.next(clientId).value).toEqual(select(selectCategories))
     expect(clone.next(appCategorieStub.data).value).toEqual(select(selectFeaturedApps))
     expect(clone.next(featuredAppsDataStub.data).value).toEqual(select(selectDeveloperEditionId))

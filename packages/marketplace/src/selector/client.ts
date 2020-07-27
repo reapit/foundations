@@ -18,7 +18,7 @@ import { ReapitConnectSession } from '@reapit/connect-session'
 // update this function to accept
 // FIXME(selectDeveloperEditionId)
 // FIXME(selectLoginIdentity)
-export const selectDeveloperEditionId = (state: ReapitConnectSession) => {
+export const selectDeveloperEditionId = (state: ReapitConnectSession | null) => {
   const loginIdentity = selectLoginIdentity(state)
   if (loginIdentity?.groups.includes(COGNITO_GROUP_DEVELOPER_EDITION)) {
     return state?.loginIdentity?.developerId || ''

@@ -1,7 +1,7 @@
 import myAppsSagas, { myAppsDataFetch, myAppsDataListen } from '../my-apps'
 import { appsDataStub } from '../__stubs__/apps'
 import ActionTypes from '@/constants/action-types'
-import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
+import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
 import { myAppsLoading, myAppsReceiveData, myAppsRequestDataFailure } from '@/actions/my-apps'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
@@ -29,7 +29,9 @@ describe('my-apps fetch data', () => {
   expect(gen.next(connectSession).value).toEqual(
     call(selectClientId, (connectSession as unknown) as ReapitConnectSession),
   )
-  expect(gen.next(clientId).value).toEqual(select(selectDeveloperEditionId))
+  expect(gen.next(clientId).value).toEqual(
+    call(selectDeveloperEditionId, (connectSession as unknown) as ReapitConnectSession),
+  )
   expect(gen.next(developerId).value).toEqual(
     call(fetchAppsList, {
       clientId,
