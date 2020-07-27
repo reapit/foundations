@@ -76,11 +76,11 @@ exports[`AcceptedModal should match snapshot 1`] = `
             }
             isCentered={true}
             title={
-              <h4
-                className="modal-card-title is-4 pt-2 pb-2"
+              <Unknown
+                className="pt-2 pb-2"
               >
                 Reapit Foundations Invitation
-              </h4>
+              </Unknown>
             }
             visible={true}
           >
@@ -96,11 +96,11 @@ exports[`AcceptedModal should match snapshot 1`] = `
                 />
               }
               title={
-                <h4
-                  className="modal-card-title is-4 pt-2 pb-2"
+                <Unknown
+                  className="pt-2 pb-2"
                 >
                   Reapit Foundations Invitation
-                </h4>
+                </Unknown>
               }
               visible={true}
               wrapClassName=""
@@ -146,7 +146,8 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                     id="rcDialogTitle0"
                                   >
                                     <h4
-                                      class="modal-card-title is-4 pt-2 pb-2"
+                                      class=""
+                                      id=""
                                     >
                                       Reapit Foundations Invitation
                                     </h4>
@@ -280,11 +281,11 @@ exports[`AcceptedModal should match snapshot 1`] = `
                       prefixCls="rc-dialog"
                       switchScrollingEffect={[Function]}
                       title={
-                        <h4
-                          className="modal-card-title is-4 pt-2 pb-2"
+                        <Unknown
+                          className="pt-2 pb-2"
                         >
                           Reapit Foundations Invitation
-                        </h4>
+                        </Unknown>
                       }
                       visible={true}
                       wrapClassName=""
@@ -375,11 +376,16 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                         className="rc-dialog-title"
                                         id="rcDialogTitle0"
                                       >
-                                        <h4
-                                          className="modal-card-title is-4 pt-2 pb-2"
+                                        <Component
+                                          className="pt-2 pb-2"
                                         >
-                                          Reapit Foundations Invitation
-                                        </h4>
+                                          <h4
+                                            className=""
+                                            id=""
+                                          >
+                                            Reapit Foundations Invitation
+                                          </h4>
+                                        </Component>
                                       </div>
                                     </div>
                                     <div
@@ -579,11 +585,11 @@ exports[`AcceptedModal should match snapshot 1`] = `
             closable={false}
             isCentered={true}
             title={
-              <h4
-                className="modal-card-title is-4 pt-2 pb-2"
+              <Unknown
+                className="pt-2 pb-2"
               >
                 Success
-              </h4>
+              </Unknown>
             }
             visible={false}
           >
@@ -592,11 +598,11 @@ exports[`AcceptedModal should match snapshot 1`] = `
               closable={false}
               destroyOnClose={true}
               title={
-                <h4
-                  className="modal-card-title is-4 pt-2 pb-2"
+                <Unknown
+                  className="pt-2 pb-2"
                 >
                   Success
-                </h4>
+                </Unknown>
               }
               visible={false}
               wrapClassName=""
@@ -614,11 +620,11 @@ exports[`AcceptedModal should match snapshot 1`] = `
             closable={false}
             isCentered={true}
             title={
-              <h4
-                className="modal-card-title is-4 pt-2 pb-2"
+              <Unknown
+                className="pt-2 pb-2"
               >
                 Invitation Declined
-              </h4>
+              </Unknown>
             }
             visible={false}
           >
@@ -627,11 +633,11 @@ exports[`AcceptedModal should match snapshot 1`] = `
               closable={false}
               destroyOnClose={true}
               title={
-                <h4
-                  className="modal-card-title is-4 pt-2 pb-2"
+                <Unknown
+                  className="pt-2 pb-2"
                 >
                   Invitation Declined
-                </h4>
+                </Unknown>
               }
               visible={false}
               wrapClassName=""

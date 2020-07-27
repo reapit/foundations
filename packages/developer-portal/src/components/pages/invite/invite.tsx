@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { ModalV2, Formik, Input, Form, Content, Loader, Button, Info } from '@reapit/elements'
+import { ModalV2, Formik, Input, Form, Content, Loader, Button, Info, H4 } from '@reapit/elements'
 import { getParamsFromPath } from '@/utils/client-url-params'
 import { useLocation } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
@@ -110,7 +110,7 @@ export const Invite: React.FC = () => {
           {({ handleSubmit }) => {
             return (
               <ModalV2
-                title={<h4 className="modal-card-title is-4 pt-2 pb-2">Reapit Foundations Invitation</h4>}
+                title={<H4 className="pt-2 pb-2">Reapit Foundations Invitation</H4>}
                 visible
                 isCentered
                 closable={false}

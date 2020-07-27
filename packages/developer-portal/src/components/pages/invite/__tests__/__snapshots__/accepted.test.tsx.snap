@@ -5,11 +5,11 @@ exports[`AcceptedModal should match snapshot 1`] = `
   closable={false}
   isCentered={true}
   title={
-    <h4
-      className="modal-card-title is-4 pt-2 pb-2"
+    <Unknown
+      className="pt-2 pb-2"
     >
       Success
-    </h4>
+    </Unknown>
   }
   visible={true}
 >
