@@ -18,7 +18,6 @@ window.reapit = {
     sentryDns: '',
     marketplaceApiUrl: '',
     marketplaceApiKey: '',
-    uploadApiUrl: '',
     swaggerUrl: '',
     elementDocumentUrl: '',
     cognitoClientId: '',

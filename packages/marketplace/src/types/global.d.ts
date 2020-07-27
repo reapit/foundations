@@ -3,7 +3,6 @@ export type Config = {
   sentryDns: string
   marketplaceApiUrl: string
   marketplaceApiKey: string
-  uploadApiUrl: string
   swaggerUrl: string
   elementDocumentUrl: string
   cognitoClientId: string

@@ -185,7 +185,7 @@ describe('selectFeaturedApps', () => {
       client: {
         webComponent: {
           updating: true,
-          negotiators: null,
+          negotiators: {},
         },
       },
     } as ReduxState

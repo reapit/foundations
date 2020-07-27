@@ -1,10 +1,9 @@
+import { AppSummaryModel, NegotiatorModel } from '@reapit/foundations-ts-definitions'
 import { ReduxState } from '@/types/core'
 import { MyAppsState } from '@/reducers/my-apps'
 import { AppDetailState } from '@/reducers/app-detail'
-import { NegotiatorItem } from '@/services/negotiators'
 import { WebComponentConfigResult } from '@/services/web-component'
 import { InstalledAppsState } from '@/reducers/installed-apps'
-import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { ClientAppSummaryState } from '@/reducers/client/app-summary'
 import { selectLoginIdentity } from '@/selector/auth'
 import { COGNITO_GROUP_DEVELOPER_EDITION } from '@/constants/api'
@@ -58,7 +57,7 @@ export const selectWebComponentUpdating = (state: ReduxState): boolean => {
   return state?.client.webComponent?.updating
 }
 
-export const selectWebComponentNegotiators = (state: ReduxState): NegotiatorItem[] => {
+export const selectWebComponentNegotiators = (state: ReduxState): NegotiatorModel[] => {
   return state?.client.webComponent?.negotiators?._embedded || []
 }
 
