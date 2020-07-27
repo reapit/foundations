@@ -20,8 +20,6 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   showMenu = true,
 }) => {
   const session = useReapitConnect(reapitConnectBrowserSession)
-  console.log({ session })
-
   const location = useLocation()
 
   if (!session.connectSession) {
