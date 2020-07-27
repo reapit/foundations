@@ -11,10 +11,6 @@ import messages from '@/constants/messages'
 import Routes from '@/constants/routes'
 import { ReduxState } from '@/types/core'
 
-jest.mock('@reapit/cognito-auth', () => ({
-  redirectToLogin: jest.fn(),
-}))
-
 const mockState = {
   ...appState,
   auth: {
