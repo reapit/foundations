@@ -1,6 +1,6 @@
 import appInstallationsReducer, { defaultState } from '@/reducers/app-installations'
-import { ActionType } from '../../types/core'
-import ActionTypes from '../../constants/action-types'
+import { ActionType } from '@/types/core'
+import ActionTypes from '@/constants/action-types'
 import { installationStub } from '@/sagas/__stubs__/installation'
 
 describe('app-installations reducer', () => {

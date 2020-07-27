@@ -2,7 +2,7 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 
 import CategoryItem, { CategoryItemProps } from '../category-item'
-import { appCategorieStub } from '../../../sagas/__stubs__/app-categories'
+import { appCategorieStub } from '@/sagas/__stubs__/app-categories'
 
 const props: CategoryItemProps = {
   category: (appCategorieStub.data || [])[0],

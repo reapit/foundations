@@ -1,6 +1,6 @@
 import webComponentReducer, { defaultState } from '../web-component'
-import { ActionType } from '../../../types/core'
-import ActionTypes from '../../../constants/action-types'
+import { ActionType } from '@/types/core'
+import ActionTypes from '@/constants/action-types'
 
 describe('client app detail reducer', () => {
   it('should return default state if action not matched', () => {

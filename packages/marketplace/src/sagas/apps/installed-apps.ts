@@ -1,8 +1,8 @@
 import { installedAppsLoading, installedAppsReceiveData, installedAppsRequestDataFailure } from '@/actions/apps'
 import { put, fork, takeLatest, call, all } from '@redux-saga/core/effects'
-import ActionTypes from '../constants/action-types'
-import { errorThrownServer } from '../actions/error'
-import errorMessages from '../constants/error-messages'
+import ActionTypes from '@/constants/action-types'
+import { errorThrownServer } from '@/actions/error'
+import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { INSTALLED_APPS_PERPAGE } from '@/constants/paginator'
 import { selectDeveloperEditionId } from '@/selector/client'
@@ -51,7 +51,7 @@ export const installedAppsDataListen = function*() {
   yield takeLatest<Action<number>>(ActionTypes.INSTALLED_APPS_REQUEST_DATA, installedAppsDataFetch)
 }
 
-const installedAppsSagas = function*() {
+export const installedAppsSagas = function*() {
   yield all([fork(installedAppsDataListen)])
 }
 

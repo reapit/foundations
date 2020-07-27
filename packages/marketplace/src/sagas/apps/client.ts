@@ -1,9 +1,9 @@
 import { clientFetchAppSummarySuccess } from '@/actions/apps'
 import { categoriesReceiveData } from '@/actions/categories'
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
-import ActionTypes from '../constants/action-types'
-import { errorThrownServer } from '../actions/error'
-import errorMessages from '../constants/error-messages'
+import ActionTypes from '@/constants/action-types'
+import { errorThrownServer } from '@/actions/error'
+import errorMessages from '@/constants/error-messages'
 import { FEATURED_APPS } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { selectFeaturedApps, selectDeveloperEditionId } from '@/selector/client'
@@ -102,7 +102,7 @@ export const clientDataListen = function*() {
   yield takeLatest<Action<ClientAppSummaryParams>>(ActionTypes.CLIENT_FETCH_APP_SUMMARY, clientDataFetch)
 }
 
-const clientSagas = function*() {
+export const clientSagas = function*() {
   yield all([fork(clientDataListen)])
 }
 

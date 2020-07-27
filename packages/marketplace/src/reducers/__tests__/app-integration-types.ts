@@ -1,6 +1,6 @@
 import integrationTypesReducer, { defaultState } from '../app-integration-types'
-import { ActionType } from '../../types/core'
-import ActionTypes from '../../constants/action-types'
+import { ActionType } from '@/types/core'
+import ActionTypes from '@/constants/action-types'
 import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
 
 describe('integrationTypes reducer', () => {

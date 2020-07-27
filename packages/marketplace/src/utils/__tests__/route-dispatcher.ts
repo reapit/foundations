@@ -1,19 +1,19 @@
 import routeDispatcher from '../route-dispatcher'
-import store from '../../core/store'
+import store from '@/core/store'
 
-import Routes from '../../constants/routes'
-import { RouteValue } from '../../types/core'
+import Routes from '@/constants/routes'
+import { RouteValue } from '@/types/core'
 import { clientFetchAppSummary } from '@/actions/apps'
 import { myAppsRequestData } from '@/actions/apps'
 import { installedAppsRequestData } from '@/actions/apps'
 
 jest.mock('@reapit/elements')
 
-jest.mock('../../core/store', () => ({
+jest.mock('@/core/store', () => ({
   dispatch: jest.fn(),
 }))
 
-jest.mock('../../sagas/client')
+jest.mock('@/sagas/apps')
 
 describe('routeDispatcher', () => {
   it('should dispatch to clientFetchAppSummaryclientFetchAppSummary for the client route', async () => {

@@ -1,5 +1,5 @@
 import { getAuthRoute, getDefaultRoute, getDefaultPath } from '../auth-route'
-import Routes from '../../constants/routes'
+import Routes from '@/constants/routes'
 
 describe('getAuthRoute', () => {
   it('should return correct route', () => {

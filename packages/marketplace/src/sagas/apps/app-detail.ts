@@ -8,9 +8,9 @@ import {
   setAppDetailStale,
 } from '@/actions/apps'
 import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
-import ActionTypes from '../constants/action-types'
-import { errorThrownServer } from '../actions/error'
-import errorMessages from '../constants/error-messages'
+import ActionTypes from '@/constants/action-types'
+import { errorThrownServer } from '@/actions/error'
+import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { logger } from '@reapit/utils'
 import { fetchAppById, fetchAppSecretById } from '@/services/apps'
@@ -81,7 +81,7 @@ export const requestAuthenticationCodeListen = function*() {
   yield takeLatest<Action<string>>(ActionTypes.REQUEST_AUTHENTICATION_CODE, requestAuthCode)
 }
 
-const appDetailSagas = function*() {
+export const appDetailSagas = function*() {
   yield all([fork(appDetailDataListen), fork(requestAuthenticationCodeListen)])
 }
 

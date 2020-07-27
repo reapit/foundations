@@ -4,7 +4,7 @@ import appDetailSagas, {
   requestAuthenticationCodeListen,
   requestAuthCode,
 } from '../app-detail'
-import { appDetailDataStub } from '../__stubs__/app-detail'
+import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
 import {

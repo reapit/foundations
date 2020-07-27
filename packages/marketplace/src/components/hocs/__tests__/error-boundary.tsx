@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { shallow, mount } from 'enzyme'
 import { ErrorBoundary, ErrorState, mapStateToProps, mapDispatchToProps } from '../error-boundary'
-import errorMessages from '../../../constants/error-messages'
-import { ErrorData } from '../../../reducers/error'
+import errorMessages from '@/constants/error-messages'
+import { ErrorData } from '@/reducers/error'
 import { ReduxState } from '@/types/core'
 
-jest.mock('../../../utils/route-dispatcher')
+jest.mock('@/utils/route-dispatcher')
 const Children = () => <div>I am a component!</div>
 const props = {
   children: Children,

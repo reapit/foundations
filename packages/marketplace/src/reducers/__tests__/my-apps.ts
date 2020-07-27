@@ -1,7 +1,7 @@
 import myAppsReducer, { defaultState } from '../my-apps'
-import { ActionType } from '../../types/core'
-import ActionTypes from '../../constants/action-types'
-import { appsDataStub } from '../../sagas/__stubs__/apps'
+import { ActionType } from '@/types/core'
+import ActionTypes from '@/constants/action-types'
+import { appsDataStub } from '@/sagas/__stubs__/apps'
 
 describe('my-apps reducer', () => {
   it('should return default state if action not matched', () => {

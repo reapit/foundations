@@ -1,8 +1,8 @@
 import { myAppsLoading, myAppsReceiveData, myAppsRequestDataFailure } from '@/actions/apps'
 import { put, fork, takeLatest, call, all } from '@redux-saga/core/effects'
-import ActionTypes from '../constants/action-types'
-import { errorThrownServer } from '../actions/error'
-import errorMessages from '../constants/error-messages'
+import ActionTypes from '@/constants/action-types'
+import { errorThrownServer } from '@/actions/error'
+import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { selectDeveloperEditionId } from '@/selector/client'
@@ -49,7 +49,7 @@ export const myAppsDataListen = function*() {
   yield takeLatest<Action<number>>(ActionTypes.MY_APPS_REQUEST_DATA, myAppsDataFetch)
 }
 
-const myAppsSagas = function*() {
+export const myAppsSagas = function*() {
   yield all([fork(myAppsDataListen)])
 }
 
