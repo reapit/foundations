@@ -9,7 +9,7 @@ import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
 import { selectIntegrationTypes } from '@/selector/integration-types'
 import { useSelector } from 'react-redux'
 import { selectAppDetailData, selectAppDetailLoading } from '@/selector/client-app-detail'
-import { selectLoginType, selectIsAdmin } from '@/selector/auth'
+import { selectClientId, selectIsAdmin } from '@/selector/auth'
 import { canGoBack } from '@/utils/router-helper'
 import AppContent from './app-content'
 import { Loader, GridItem, Grid, Section } from '@reapit/elements'
@@ -18,11 +18,12 @@ import AppInstallConfirmation from '@/components/pages/app-detail/client/app-ins
 import { Aside } from './aside'
 import { getDesktopIntegrationTypes } from '@/utils/get-desktop-integration-types'
 import Routes from '@/constants/routes'
-import { LoginType } from '@reapit/cognito-auth'
 import useReactResponsive from '@/components/hooks/use-react-responsive'
 import AppHeader from '../common/ui-app-header'
 import { BackToAppsSection } from '../common/ui-sections'
 import { AppDetailButtonGroup } from './app-detail-button-group'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { selectDeveloperEditionId } from '@/selector/client'
 
 export type ClientAppDetailProps = {}
@@ -56,24 +57,6 @@ export const onBackToAppsButtonClick = (history: History) => () => {
   history.push(Routes.APPS)
 }
 
-export const renderAppHeaderButtonGroup = (
-  id: string,
-  installedOn: string,
-  onInstallConfirmationModal: () => void,
-  onUninstallConfirmationModal: () => void,
-  isInstallBtnHidden: boolean,
-  loginType: LoginType,
-) => {
-  return id && loginType !== 'DEVELOPER' ? (
-    <AppDetailButtonGroup
-      installedOn={installedOn}
-      onInstallConfirmationModal={onInstallConfirmationModal}
-      onUninstallConfirmationModal={onUninstallConfirmationModal}
-      isInstallBtnHidden={isInstallBtnHidden}
-    />
-  ) : null
-}
-
 const AppDetail: React.FC = () => {
   const history = useHistory()
 
@@ -103,15 +86,20 @@ const AppDetail: React.FC = () => {
   const { isMobile } = useReactResponsive()
 
   const isLoadingAppDetail = useSelector(selectAppDetailLoading)
-  const loginType = useSelector(selectLoginType)
-  const isDesktopAdmin = useSelector(selectIsAdmin)
-  const isDeveloperEdition = Boolean(useSelector(selectDeveloperEditionId))
+
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+
+  const isDesktopAdmin = selectIsAdmin(connectSession)
+  const isClient = Boolean(selectClientId(connectSession))
+  const isDeveloperEdition = Boolean(selectDeveloperEditionId(connectSession))
 
   const isAdmin = isDesktopAdmin || isDeveloperEdition
-  const isInstallBtnHidden = loginType === 'CLIENT' && !isAdmin
+  const isInstallBtnHidden = isClient && !isAdmin
+
   // selector selectAppDetailData return {} if not data
+
   const unfetched = Object.keys(appDetailData).length === 0
-  const { id = '', installedOn = '' } = appDetailData
+  const { installedOn = '' } = appDetailData
 
   return (
     <Grid className={styles.container} dataTest="client-app-detail-container">
@@ -126,19 +114,17 @@ const AppDetail: React.FC = () => {
             <Section isFlex isFlexColumn isFullHeight>
               <AppHeader
                 appDetailData={appDetailData}
-                buttonGroup={renderAppHeaderButtonGroup(
-                  id,
-                  installedOn,
-                  onInstallConfirmationModal,
-                  onUninstsallConfirmationModal,
-                  isInstallBtnHidden,
-                  loginType,
-                )}
+                buttonGroup={
+                  <AppDetailButtonGroup
+                    installedOn={installedOn}
+                    onInstallConfirmationModal={onInstallConfirmationModal}
+                    onUninstallConfirmationModal={onUninstsallConfirmationModal}
+                    isInstallBtnHidden={isInstallBtnHidden}
+                  />
+                }
               />
               <AppContent appDetailData={appDetailData} />
-              {!isMobile && loginType !== 'DEVELOPER' && (
-                <BackToAppsSection onClick={onBackToAppsButtonClick(history)} />
-              )}
+              {!isMobile && <BackToAppsSection onClick={onBackToAppsButtonClick(history)} />}
             </Section>
           </GridItem>
         </>

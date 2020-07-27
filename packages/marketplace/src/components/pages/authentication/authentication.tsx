@@ -3,23 +3,16 @@ import { Dispatch } from 'redux'
 import { useDispatch } from 'react-redux'
 import { Modal, Button } from '@reapit/elements'
 import { developerRoutes } from '@/constants/routes'
-import { authLogout } from '@/actions/auth'
-import { LoginType } from '@reapit/cognito-auth'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export type AuthenticationProps = {}
-
-export interface AuthenticationParamTypes {
-  loginType: LoginType
-}
 
 export const onDevelopersButtonClick = (developerPortalURL: string) => () => {
   window.open(developerPortalURL, '_self')
 }
 
-export const onLogoutButtonClick = (dispatch: Dispatch) => {
-  return () => {
-    dispatch(authLogout())
-  }
+export const handleLogout = () => {
+  reapitConnectBrowserSession.connectLogoutRedirect()
 }
 
 export const renderModal = (dispatch: Dispatch, developerPortalURL: string) => {
@@ -31,7 +24,7 @@ export const renderModal = (dispatch: Dispatch, developerPortalURL: string) => {
       footerItems={
         <>
           <Button onClick={onDevelopersButtonClick(developerPortalURL)}>Developers</Button>
-          <Button onClick={onLogoutButtonClick(dispatch)}>Logout</Button>
+          <Button onClick={handleLogout}>Logout</Button>
         </>
       }
     >

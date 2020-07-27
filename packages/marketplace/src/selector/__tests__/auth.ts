@@ -1,81 +1,18 @@
-import {
-  selectLoginType,
-  selectIsAdmin,
-  selectLoginIdentity,
-  selectLoginSession,
-  selectClientId,
-  selectRefreshSession,
-  selectIsTermAccepted,
-  selectIsDesktopMode,
-} from '../auth'
-import appState from '@/reducers/__stubs__/app-state'
-import { ReduxState } from '@/types/core'
+import { selectLoginIdentity, selectIsAdmin, selectClientId, selectDeveloperId } from '../auth'
+import { auth } from '../__mocks__/auth'
 
-describe('selectLoginType', () => {
-  it('should run correctly', () => {
-    const result = selectLoginType(appState)
-    expect(result).toEqual(appState.auth.loginType)
+describe('auth selectors', () => {
+  test('selectLoginIdentity', () => {
+    expect(selectLoginIdentity(auth)).toEqual(auth.loginIdentity)
   })
-})
-
-describe('selectIsAdmin', () => {
-  it('should run correctly', () => {
-    const result = selectIsAdmin(appState)
-    expect(result).toEqual(appState.auth?.loginSession?.loginIdentity.isAdmin || false)
+  test('selectDeveloperId', () => {
+    expect(selectDeveloperId(auth)).toEqual(auth.loginIdentity.developerId)
   })
-})
-
-describe('selectLoginIdentity', () => {
-  it('should run correctly', () => {
-    const result = selectLoginIdentity(appState)
-    expect(result).toEqual(appState.auth.loginSession?.loginIdentity)
+  test('selectClientId', () => {
+    expect(selectClientId(auth)).toEqual(auth.loginIdentity.clientId)
   })
-})
-
-describe('selectLoginSession', () => {
-  it('should run correctly', () => {
-    const result = selectLoginSession(appState)
-    expect(result).toEqual(appState.auth.loginSession)
-  })
-})
-
-describe('selectClientId', () => {
-  it('should run correctly', () => {
-    const result = selectClientId(appState)
-    expect(result).toEqual(appState.auth.loginSession?.loginIdentity?.clientId)
-  })
-})
-
-describe('selectRefreshSession', () => {
-  it('should run correctly', () => {
-    const result = selectRefreshSession(appState)
-    expect(result).toEqual(appState.auth.refreshSession)
-  })
-})
-
-describe('selectIsTermAccepted', () => {
-  it('should run correctly', () => {
-    const result = selectIsTermAccepted(appState)
-    expect(result).toEqual(appState.auth.isTermAccepted)
-  })
-})
-
-describe('selectIsDesktopMode', () => {
-  it('should run return false', () => {
-    const result = selectIsDesktopMode(appState)
-    expect(result).toBeFalsy
-  })
-  it('should run return true', () => {
-    const mockDesktopModeAppState = {
-      ...appState,
-      auth: {
-        refreshSession: {
-          ...appState.auth.refreshSession,
-          mode: 'DESKTOP',
-        },
-      },
-    } as ReduxState
-    const result = selectIsDesktopMode(mockDesktopModeAppState)
-    expect(result).toBeFalsy
+  test('selectLoginIdentity', () => {
+    expect(selectIsAdmin(auth)).toBeTruthy()
+    expect(selectIsAdmin({ ...auth, loginIdentity: { ...auth.loginIdentity, adminId: '' } })).toBeFalsy()
   })
 })

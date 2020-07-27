@@ -1,24 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PrivateRouteWrapper should match snapshot 1`] = `
-<Component>
-  <Component />
-  <Component
-    flexColumn={true}
-    isScrollable={true}
-  >
-    <Component
-      flexColumn={true}
-      hasPadding={true}
-    >
-      <Suspense
-        fallback={
-          <Unknown>
-            <Unknown />
-          </Unknown>
-        }
-      />
-    </Component>
-  </Component>
-</Component>
-`;
+exports[`PrivateRouteWrapper should match snapshot 1`] = `""`;

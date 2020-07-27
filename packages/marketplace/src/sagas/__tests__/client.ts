@@ -9,7 +9,7 @@ import { BROWSE_APPS_PER_PAGE } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
-import { selectClientId, selectFeaturedApps, selectDeveloperEditionId } from '@/selector/client'
+import { selectFeaturedApps, selectDeveloperEditionId } from '@/selector/client'
 import { selectCategories } from '@/selector/app-categories'
 import {
   PagedResultCategoryModel_,
@@ -18,6 +18,9 @@ import {
 } from '@reapit/foundations-ts-definitions'
 import { appCategorieStub } from '../__stubs__/app-categories'
 import { fetchAppsList } from '@/services/apps'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { ReapitConnectSession } from '@reapit/connect-session'
+import { selectClientId } from '@/selector/auth'
 
 jest.mock('@/services/apps')
 jest.mock('@/services/categories')
@@ -26,16 +29,24 @@ jest.mock('@reapit/elements')
 const params = { data: { page: 1, search: 'app1', category: 'category1', searchBy: 'appName' } }
 const clientId = 'DXX'
 const developerId = '1234'
+const connectSession = 'connectSession'
 
 describe('clientDataFetch', () => {
   const gen = cloneableGenerator(clientDataFetch as any)(params)
 
   it('should work in success case', () => {
     const clone = gen.clone()
-    expect(clone.next().value).toEqual(select(selectClientId))
+
+    expect(clone.next().value).toEqual(call(reapitConnectBrowserSession.connectSession))
+    expect(clone.next(connectSession).value).toEqual(
+      call(selectClientId, (connectSession as unknown) as ReapitConnectSession),
+    )
     expect(clone.next(clientId).value).toEqual(select(selectCategories))
+
     expect(clone.next(appCategorieStub.data).value).toEqual(select(selectFeaturedApps))
-    expect(clone.next(featuredAppsDataStub.data).value).toEqual(select(selectDeveloperEditionId))
+    expect(clone.next(featuredAppsDataStub.data).value).toEqual(
+      call(selectDeveloperEditionId, (connectSession as unknown) as ReapitConnectSession),
+    )
 
     const response = [appsDataStub.data, featuredAppsDataStub.data, appCategorieStub]
     expect(clone.next(developerId).value).toEqual(
@@ -78,10 +89,15 @@ describe('clientDataFetch', () => {
       },
     })
     const clone = gen.clone()
-    expect(clone.next().value).toEqual(select(selectClientId))
+    expect(clone.next().value).toEqual(call(reapitConnectBrowserSession.connectSession))
+    expect(clone.next(connectSession).value).toEqual(
+      call(selectClientId, (connectSession as unknown) as ReapitConnectSession),
+    )
     expect(clone.next(clientId).value).toEqual(select(selectCategories))
     expect(clone.next(appCategorieStub.data).value).toEqual(select(selectFeaturedApps))
-    expect(clone.next(featuredAppsDataStub.data).value).toEqual(select(selectDeveloperEditionId))
+    expect(clone.next(featuredAppsDataStub.data).value).toEqual(
+      call(selectDeveloperEditionId, (connectSession as unknown) as ReapitConnectSession),
+    )
 
     const response = [appsDataStub.data, featuredAppsDataStub.data, appCategorieStub]
     expect(clone.next(developerId).value).toEqual(
@@ -111,7 +127,10 @@ describe('clientDataFetch', () => {
 describe('client fetch data error', () => {
   const gen = cloneableGenerator(clientDataFetch as any)(params)
 
-  expect(gen.next('').value).toEqual(select(selectClientId))
+  expect(gen.next().value).toEqual(call(reapitConnectBrowserSession.connectSession))
+  expect(gen.next(connectSession).value).toEqual(
+    call(selectClientId, (connectSession as unknown) as ReapitConnectSession),
+  )
 
   if (!gen.throw) throw new Error('Generator object cannot throw')
   expect(gen.throw('error').value).toEqual(

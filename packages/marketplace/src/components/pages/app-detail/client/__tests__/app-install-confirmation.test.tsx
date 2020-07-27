@@ -52,11 +52,11 @@ describe('InstallDirectApiAppSucesfullyModal', () => {
   })
 })
 
+const clientId = '123'
 describe('ClientAppInstallConfirmation', () => {
   let store
   let spyDispatch
   const appId = mockProps.appDetailData?.id || ''
-  const clientId = appState.auth.loginSession?.loginIdentity.clientId || ''
 
   beforeEach(() => {
     /* mocking store */

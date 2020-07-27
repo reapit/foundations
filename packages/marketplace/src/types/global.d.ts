@@ -20,6 +20,7 @@ export type Config = {
   adminPortalUrl: string
   previewExternalAppIds: string[]
   previewFeaturedExternalAppIds: string[]
+  connectLoginRedirectPath: string
 }
 
 declare global {

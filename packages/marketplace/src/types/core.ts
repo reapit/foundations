@@ -2,7 +2,6 @@ import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
 import { InstalledAppsState } from '../reducers/installed-apps'
 import { MyAppsState } from '../reducers/my-apps'
-import { AuthState } from '../reducers/auth'
 import { AppDetailState } from '../reducers/app-detail'
 import { ErrorState } from '../reducers/error'
 import { AppCategoriesState } from '@/reducers/app-categories'
@@ -53,7 +52,6 @@ export interface ReduxState {
   installedApps: InstalledAppsState
   myApps: MyAppsState
   appDetail: AppDetailState
-  auth: AuthState
   error: ErrorState
   appCategories: AppCategoriesState
   installations: AppInstallationsState

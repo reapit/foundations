@@ -9,12 +9,13 @@ import { appInstallationsRequestInstall } from '@/actions/app-installations'
 import { clientFetchAppDetail } from '@/actions/client'
 import { Dispatch } from 'redux'
 import CallToAction from '../../../ui/call-to-action'
-import { selectClientId } from '@/selector/client'
 import routes from '@/constants/routes'
 import { selectInstallationFormState } from '@/selector/installations'
-import { selectIsDesktopMode } from '@/selector/auth'
+import { selectClientId } from '@/selector/auth'
 import { DESKTOP_REFRESH_URL } from '@/constants/desktop-urls'
 import { canGoBack } from '@/utils/router-helper'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export type AppInstallConfirmationProps = {
   appDetailData?: AppDetailModel
@@ -141,9 +142,9 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
 }) => {
   const history = useHistory()
   const [isSuccessAlertVisible, setIsSuccessAlertVisible] = React.useState(false)
-  const clientId = useSelector(selectClientId)
+  const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
+  const clientId = selectClientId(connectSession)
   const installationFormState = useSelector(selectInstallationFormState)
-  const isDesktopMode = useSelector(selectIsDesktopMode)
   const isSubmitting = installationFormState === 'SUBMITTING'
 
   const { name, id = '', scopes = [] } = appDetailData || {}
@@ -177,7 +178,7 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
                 dispatch,
                 setIsSuccessAlertVisible,
                 closeInstallConfirmationModal,
-                isDesktopMode,
+                connectIsDesktop,
               )}
             >
               Confirm

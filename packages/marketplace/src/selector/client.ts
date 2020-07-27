@@ -7,26 +7,25 @@ import { InstalledAppsState } from '@/reducers/installed-apps'
 import { ClientAppSummaryState } from '@/reducers/client/app-summary'
 import { selectLoginIdentity } from '@/selector/auth'
 import { COGNITO_GROUP_DEVELOPER_EDITION } from '@/constants/api'
-
-export const selectClientId = (state: ReduxState) => {
-  return state?.auth?.loginSession?.loginIdentity?.clientId || ''
-}
+import { ReapitConnectSession } from '@reapit/connect-session'
 
 /**
  * Need get developer id to filter apps list if this user belong to
  * AgencyCloudDeveloperEdition group, if not just return null
  * refer to this ticket https://github.com/reapit/foundations/issues/1848
  */
-export const selectDeveloperEditionId = (state: ReduxState) => {
+
+export const selectDeveloperEditionId = (state: ReapitConnectSession | null): string | null => {
   const loginIdentity = selectLoginIdentity(state)
+
   if (loginIdentity?.groups.includes(COGNITO_GROUP_DEVELOPER_EDITION)) {
-    return state?.auth?.loginSession?.loginIdentity?.developerId || ''
+    return state?.loginIdentity?.developerId || ''
   }
   return null
 }
 
-export const selectLoggedUserEmail = (state: ReduxState): string => {
-  return state?.auth?.loginSession?.loginIdentity?.email || ''
+export const selectLoggedUserEmail = (state: ReapitConnectSession | null): string => {
+  return state?.loginIdentity?.email || ''
 }
 
 export const selectAppSummary = (state: ReduxState): ClientAppSummaryState => {

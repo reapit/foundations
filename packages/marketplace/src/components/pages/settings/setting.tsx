@@ -1,20 +1,17 @@
 import * as React from 'react'
 import { H3, Button, LevelRight, FormHeading, FormSubHeading, Section } from '@reapit/elements'
-import { Dispatch } from 'redux'
-import { useSelector, useDispatch } from 'react-redux'
-import { authLogout } from '@/actions/auth'
-import { selectClientId, selectIsDesktopMode } from '@/selector/auth'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { useReapitConnect } from '@reapit/connect-session'
+import { selectClientId } from '@/selector/auth'
 
-export const handleLogout = (dispatch: Dispatch) => () => {
-  dispatch(authLogout())
+export const handleLogout = () => {
+  reapitConnectBrowserSession.connectLogoutRedirect()
 }
 
 export const Settings: React.FC = () => {
-  const dispatch = useDispatch()
-  const customerId = useSelector(selectClientId)
-  const isDesktopMode = useSelector(selectIsDesktopMode)
+  const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
+  const customerId = selectClientId(connectSession)
 
-  const logout = handleLogout(dispatch)
   return (
     <>
       <Section>
@@ -22,14 +19,14 @@ export const Settings: React.FC = () => {
       </Section>
       <Section>
         <FormHeading>
-          Customer ID: <strong>{customerId}</strong>
+          Customer ID: <strong>{customerId}</strong>{' '}
         </FormHeading>
         <FormSubHeading>
           This is your Customer ID which you will need for use with Private Apps and Web Components.
         </FormSubHeading>
         <LevelRight className="bt pt-4">
-          {!isDesktopMode && (
-            <Button dataTest="logout-btn" variant="primary" type="button" onClick={logout}>
+          {!connectIsDesktop && (
+            <Button dataTest="logout-btn" variant="primary" type="button" onClick={handleLogout}>
               Logout
             </Button>
           )}

@@ -1,6 +1,5 @@
 const Routes = {
   AUTHENTICATION: '/authentication',
-  AUTHENTICATION_LOGIN_TYPE: '/authentication/:loginType',
   APPS: '/apps',
   APP_DETAIL: '/apps/:appid',
   APP_DETAIL_MANAGE: '/apps/:appid/manage',

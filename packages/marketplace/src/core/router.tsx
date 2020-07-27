@@ -35,26 +35,26 @@ const Router = () => {
 
             <PrivateRouteWrapper showMenu={false} path="/admin">
               <Switch>
-                <PrivateRoute allow="ADMIN" path="/*" component={HandleLegacyAdminRoutesModal} />
+                <PrivateRoute path="/*" component={HandleLegacyAdminRoutesModal} />
               </Switch>
             </PrivateRouteWrapper>
 
             <PrivateRouteWrapper showMenu={false} path="/developer">
               <Switch>
-                <PrivateRoute allow="DEVELOPER" path="/*" component={HandleLegacyDeveloperRoutesModal} />
+                <PrivateRoute path="/*" component={HandleLegacyDeveloperRoutesModal} />
               </Switch>
             </PrivateRouteWrapper>
 
-            <PrivateRouteWrapper path="/">
+            <PrivateRouteWrapper>
               <Switch>
-                <PrivateRoute allow="CLIENT" path={Routes.AUTHENTICATION_LOGIN_TYPE} component={Authentication} />
-                <PrivateRoute allow="CLIENT" path={Routes.INSTALLED_APPS} component={InstalledApps} fetcher exact />
-                <PrivateRoute allow="CLIENT" path={Routes.MY_APPS} component={AppsManagement} fetcher exact />
-                <PrivateRoute allow="CLIENT" path={Routes.APPS} component={Apps} exact fetcher />
-                <PrivateRoute allow="CLIENT" path={Routes.APP_DETAIL} component={AppDetail} exact fetcher />
-                <PrivateRoute allow="CLIENT" path={Routes.APP_DETAIL_MANAGE} component={AppDetail} exact fetcher />
-                <PrivateRoute allow="CLIENT" path={Routes.HELP} exact fetcher component={Help} />
-                <PrivateRoute allow="CLIENT" path={Routes.SETTINGS} exact fetcher component={Setting} />
+                <PrivateRoute path={Routes.AUTHENTICATION} component={Authentication} />
+                <PrivateRoute path={Routes.INSTALLED_APPS} component={InstalledApps} fetcher exact />
+                <PrivateRoute path={Routes.MY_APPS} component={AppsManagement} fetcher exact />
+                <PrivateRoute path={Routes.APPS} component={Apps} exact fetcher />
+                <PrivateRoute path={Routes.APP_DETAIL} component={AppDetail} exact fetcher />
+                <PrivateRoute path={Routes.APP_DETAIL_MANAGE} component={AppDetail} exact fetcher />
+                <PrivateRoute path={Routes.HELP} exact fetcher component={Help} />
+                <PrivateRoute path={Routes.SETTINGS} exact fetcher component={Setting} />
                 <Route render={() => <Info infoType="404" />} />
               </Switch>
             </PrivateRouteWrapper>

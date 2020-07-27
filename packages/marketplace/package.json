@@ -25,7 +25,6 @@
     "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
-    "@reapit/cognito-auth": "^2.1.7",
     "@reapit/elements": "^0.5.60",
     "@reapit/utils": "^0.0.1",
     "chart.js": "^2.9.3",
@@ -36,7 +35,8 @@
     "react-infinite-scroller": "^1.2.4",
     "react-responsive": "8.1.0",
     "react-transition-group": "^4.4.1",
-    "snyk": "^1.341.1"
+    "snyk": "^1.341.1",
+    "@reapit/connect-session": "1.0.0-alpha.1"
   },
   "devDependencies": {
     "@reapit/foundations-ts-definitions": "0.0.85",

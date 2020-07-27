@@ -4,11 +4,6 @@ import React from 'react'
 import { render } from 'react-dom'
 import ReactGA from 'react-ga'
 import { Config } from '@/types/global'
-import App from './app'
-import { getSessionCookie } from '@reapit/cognito-auth'
-import { COOKIE_SESSION_KEY_MARKETPLACE } from '../constants/api'
-import store from './store'
-import { authSetRefreshSession } from '../actions/auth'
 import { getMarketplaceGlobalsByKey } from '@reapit/elements'
 
 // Init global config
@@ -35,6 +30,7 @@ window.reapit = {
     adminPortalUrl: '',
     previewExternalAppIds: [],
     previewFeaturedExternalAppIds: [],
+    connectLoginRedirectPath: '',
   },
 }
 
@@ -42,12 +38,8 @@ export const renderApp = (Component: React.ComponentType) => {
   const rootElement = document.querySelector('#root') as Element
   const isDesktop = getMarketplaceGlobalsByKey()
   const html = document.querySelector('html')
-  const refreshSessionFromCookie = getSessionCookie(COOKIE_SESSION_KEY_MARKETPLACE, window.reapit.config.appEnv)
   if (isDesktop && html) {
     html.classList.add('is-desktop')
-  }
-  if (refreshSessionFromCookie) {
-    store.dispatch(authSetRefreshSession(refreshSessionFromCookie))
   }
   if (window.location.href.includes('developer')) {
     document.title = 'Developers'
@@ -58,27 +50,30 @@ export const renderApp = (Component: React.ComponentType) => {
 }
 
 const run = async () => {
-  await fetch('config.json')
-    .then(response => response.json())
-    .then((config: Config) => {
-      window.reapit.config = config
-      const isLocal = config.appEnv === 'local'
-      if (!isLocal && config.sentryDns) {
-        Sentry.init({
-          release: process.env.APP_VERSION,
-          dsn: config.sentryDns,
-          environment: config.appEnv,
-        })
-      }
-      if (!isLocal && config.googleAnalyticsKey) {
-        ReactGA.initialize(config.googleAnalyticsKey)
-        ReactGA.pageview(window.location.pathname + window.location.search)
-      }
-      renderApp(App)
-    })
-    .catch(error => {
-      console.error('Cannot fetch config', error)
-    })
+  try {
+    const configRes = await fetch('config.json')
+    const config = (await configRes.json()) as Config
+    const isLocal = config.appEnv === 'local'
+
+    window.reapit.config = config
+    if (!isLocal && config.sentryDns) {
+      Sentry.init({
+        release: process.env.APP_VERSION,
+        dsn: config.sentryDns,
+        environment: config.appEnv,
+      })
+    }
+    if (!isLocal && config.googleAnalyticsKey) {
+      ReactGA.initialize(config.googleAnalyticsKey)
+      ReactGA.pageview(window.location.pathname + window.location.search)
+    }
+
+    const { default: App } = await import('./app')
+
+    renderApp(App)
+  } catch (err) {
+    console.log('Error during render App', err)
+  }
 }
 
 if (module['hot']) {

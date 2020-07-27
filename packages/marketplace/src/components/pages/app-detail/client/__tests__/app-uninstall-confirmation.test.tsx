@@ -23,12 +23,12 @@ const mockProps: AppUninstallConfirmationProps = {
   closeUninstallConfirmationModal: jest.fn(),
 }
 
+const clientId = '123'
 describe('ClientAppUninstallConfirmation', () => {
   let store
   let spyDispatch
   const appId = mockProps.appDetailData?.id || ''
   const installationId = mockProps.appDetailData?.installationId || ''
-  const clientId = appState.auth.loginSession?.loginIdentity.clientId || ''
 
   beforeEach(() => {
     /* mocking store */

@@ -9,7 +9,7 @@ describe('handleLaunchApp', () => {
       launchUri: '',
       id: '123',
     } as AppSummaryModel
-    handleLaunchApp(mockApp)
+    handleLaunchApp(mockApp, false)
     expect(window.location.href).toEqual('')
   })
 })

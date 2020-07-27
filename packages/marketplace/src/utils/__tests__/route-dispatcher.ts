@@ -1,5 +1,6 @@
 import routeDispatcher from '../route-dispatcher'
-import store from '@/core/store'
+import store from '../../core/store'
+
 import Routes from '../../constants/routes'
 import { RouteValue } from '../../types/core'
 import { clientFetchAppSummary } from '@/actions/client'
@@ -7,8 +8,11 @@ import { myAppsRequestData } from '@/actions/my-apps'
 import { installedAppsRequestData } from '@/actions/installed-apps'
 
 jest.mock('@reapit/elements')
-jest.mock('@/utils/session')
-jest.mock('../../core/store')
+
+jest.mock('../../core/store', () => ({
+  dispatch: jest.fn(),
+}))
+
 jest.mock('../../sagas/client')
 
 describe('routeDispatcher', () => {

@@ -6,14 +6,10 @@ import configureStore from 'redux-mock-store'
 import { Login, handleShowNotificationAfterPasswordChanged, onLoginButtonClick } from '../login'
 import appState from '@/reducers/__stubs__/app-state'
 import { showNotificationMessage } from '@/actions/notification-message'
-import * as cognito from '@reapit/cognito-auth'
+import * as reapitConnectBrowserSessionModule from '@/core/connect-session'
 import messages from '@/constants/messages'
 import Routes from '@/constants/routes'
 import { ReduxState } from '@/types/core'
-
-jest.mock('@reapit/cognito-auth', () => ({
-  redirectToLogin: jest.fn(),
-}))
 
 const mockState = {
   ...appState,
@@ -57,7 +53,10 @@ describe('Login', () => {
 
   describe('onLoginButtonClick', () => {
     it('should run correctly', () => {
-      const spyRedirectToLogin = jest.spyOn(cognito, 'redirectToLogin')
+      const spyRedirectToLogin = jest.spyOn(
+        reapitConnectBrowserSessionModule.reapitConnectBrowserSession,
+        'connectLoginRedirect',
+      )
       onLoginButtonClick()
       expect(spyRedirectToLogin).toBeCalled()
     })

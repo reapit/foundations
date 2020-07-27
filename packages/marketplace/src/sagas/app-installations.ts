@@ -1,23 +1,28 @@
-import { put, fork, all, call, takeLatest, select } from '@redux-saga/core/effects'
+import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { Action } from '../types/core'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { appInstallationsSetFormState, UninstallParams, InstallParams } from '@/actions/app-installations'
-import { selectLoggedUserEmail, selectClientId } from '@/selector/client'
+import { selectLoggedUserEmail } from '@/selector/client'
 import { logger } from '@reapit/utils'
 import { createInstallation, removeAccessToAppById } from '@/services/installations'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { selectClientId } from '@/selector/auth'
+import { CLIENT_ID_NOT_FOUND_ERROR } from '@/constants/errors'
 
 export const appInstallSaga = function*(options) {
   const data: InstallParams = options.data
   try {
     yield put(appInstallationsSetFormState('SUBMITTING'))
 
-    const email = yield select(selectLoggedUserEmail)
-    const clientId = yield select(selectClientId)
+    const connectSession = yield call(reapitConnectBrowserSession.connectSession)
+
+    const email = yield call(selectLoggedUserEmail, connectSession)
+    const clientId = yield call(selectClientId, connectSession)
 
     if (!clientId) {
-      throw new Error('ClientId not exist')
+      throw CLIENT_ID_NOT_FOUND_ERROR
     }
 
     yield call(createInstallation, { ...data, clientId, approvedBy: email })
@@ -41,7 +46,8 @@ export const appUninstallSaga = function*(options) {
   const data: UninstallParams = options.data
   try {
     yield put(appInstallationsSetFormState('SUBMITTING'))
-    const email = yield select(selectLoggedUserEmail)
+    const connectSession = yield call(reapitConnectBrowserSession.connectSession)
+    const email = yield call(selectLoggedUserEmail, connectSession)
 
     yield call(removeAccessToAppById, { ...data, terminatedBy: email })
     if (data.callback) {
