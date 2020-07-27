@@ -7,7 +7,6 @@ import { Location } from 'history'
 import { FaCloud, FaCloudDownloadAlt, FaCog, FaClipboardList } from 'react-icons/fa'
 import { MdHelp } from 'react-icons/md'
 import { selectIsAdmin, selectDeveloperId } from '@/selector/auth'
-import { LoginType } from '@reapit/cognito-auth'
 import { useReapitConnect } from '@reapit/connect-session'
 
 export const generateMenuConfig = (location: Location<any>, isAdmin: boolean): MenuConfig => {
@@ -58,11 +57,6 @@ export const generateMenuConfig = (location: Location<any>, isAdmin: boolean): M
       },
     ],
   }
-}
-
-export interface MenuMappedProps {
-  loginType: LoginType
-  isAdmin: boolean
 }
 
 export interface MenuMappedActions {

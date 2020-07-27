@@ -18,7 +18,6 @@ import AppInstallConfirmation from '@/components/pages/app-detail/client/app-ins
 import { Aside } from './aside'
 import { getDesktopIntegrationTypes } from '@/utils/get-desktop-integration-types'
 import Routes from '@/constants/routes'
-import { LoginType } from '@reapit/cognito-auth'
 import useReactResponsive from '@/components/hooks/use-react-responsive'
 import AppHeader from '../common/ui-app-header'
 import { BackToAppsSection } from '../common/ui-sections'
@@ -61,24 +60,8 @@ export const onBackToAppsButtonClick = (history: History) => () => {
  * FIXME: remove this
  * show install for
  * - client
+ * REMOVE
  */
-export const renderAppHeaderButtonGroup = (
-  id: string,
-  installedOn: string,
-  onInstallConfirmationModal: () => void,
-  onUninstallConfirmationModal: () => void,
-  isInstallBtnHidden: boolean,
-  loginType: LoginType,
-) => {
-  return id && loginType !== 'DEVELOPER' ? (
-    <AppDetailButtonGroup
-      installedOn={installedOn}
-      onInstallConfirmationModal={onInstallConfirmationModal}
-      onUninstallConfirmationModal={onUninstallConfirmationModal}
-      isInstallBtnHidden={isInstallBtnHidden}
-    />
-  ) : null
-}
 
 const AppDetail: React.FC = () => {
   const history = useHistory()

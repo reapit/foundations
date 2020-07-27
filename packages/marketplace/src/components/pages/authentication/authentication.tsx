@@ -4,15 +4,9 @@ import { useDispatch } from 'react-redux'
 import { Modal, Button } from '@reapit/elements'
 import { developerRoutes } from '@/constants/routes'
 // import { authLogout } from '@/actions/auth'
-import { LoginType } from '@reapit/cognito-auth'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export type AuthenticationProps = {}
-
-// FIXME: remove this
-export interface AuthenticationParamTypes {
-  loginType: LoginType
-}
 
 export const onDevelopersButtonClick = (developerPortalURL: string) => () => {
   window.open(developerPortalURL, '_self')

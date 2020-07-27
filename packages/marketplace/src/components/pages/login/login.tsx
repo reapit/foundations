@@ -29,18 +29,15 @@ export const handleShowNotificationAfterPasswordChanged = (
 
 // FIXME: use cognito func: redirectToLogin
 // required: t
-export const onLoginButtonClick = (isFirstTimeLoginComplete: boolean) => {
-  return () => {
-    const redirectRoute = getDefaultRoute({ isFirstTimeLoginComplete })
-    // accept func
-    reapitConnectBrowserSession.connectLoginRedirect(redirectRoute)
-  }
+export const onLoginButtonClick = () => {
+  const redirectRoute = getDefaultRoute()
+  // accept func
+  reapitConnectBrowserSession.connectLoginRedirect(redirectRoute)
 }
 
 export const Login: React.FunctionComponent<LoginProps> = () => {
   const dispatch = useDispatch()
   const isPasswordChanged = localStorage.getItem('isPasswordChanged') === 'true'
-  const isFirstTimeLoginComplete = Boolean(getCookieString(COOKIE_CLIENT_FIRST_TIME_LOGIN_COMPLETE))
   React.useEffect(handleShowNotificationAfterPasswordChanged(isPasswordChanged, localStorage, dispatch), [
     isPasswordChanged,
     localStorage,

@@ -9,7 +9,7 @@ import {
   handleRedirectToAuthenticationPage,
 } from '../private-route'
 import appState from '@/reducers/__stubs__/app-state'
-import { LoginIdentity } from '@reapit/cognito-auth'
+import { LoginIdentity } from '@reapit/connect-session'
 import Routes from '@/constants/routes'
 import { MemoryRouter } from 'react-router'
 import { getMockRouterProps } from '@/utils/mock-helper'
