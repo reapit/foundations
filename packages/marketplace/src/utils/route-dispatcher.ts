@@ -7,7 +7,6 @@ import { installedAppsRequestData } from '../actions/installed-apps'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { selectClientId } from '@/selector/auth'
 
-// PR
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
   const id = params && params.appid ? params.appid : ''
   const queryParams = new URLSearchParams(search)
@@ -21,16 +20,12 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
     case Routes.APPS:
       store.dispatch(clientFetchAppSummary({ page: 1, preview }))
       break
-    // FIXME(selectClientId)
-    // should fetch app_detail when install, uninstall
     case Routes.APP_DETAIL: {
       if (id) {
         store.dispatch(clientFetchAppDetail({ id, clientId }))
       }
       break
     }
-    // FIXME(selectClientId)
-    // should fetch data of app manage Page detail
     case Routes.APP_DETAIL_MANAGE: {
       if (id) {
         store.dispatch(clientFetchAppDetail({ id, clientId }))

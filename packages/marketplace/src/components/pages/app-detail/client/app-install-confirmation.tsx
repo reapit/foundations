@@ -29,7 +29,6 @@ export const handleInstallAppSuccessCallback = (
   isDesktopMode: boolean,
 ) => {
   return () => {
-    //
     if (isDesktopMode) {
       window.location.href = DESKTOP_REFRESH_URL
     }
@@ -143,13 +142,9 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
 }) => {
   const history = useHistory()
   const [isSuccessAlertVisible, setIsSuccessAlertVisible] = React.useState(false)
-  // FIXME(selectClientId):
-  // able to install show install after install
   const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = selectClientId(connectSession)
   const installationFormState = useSelector(selectInstallationFormState)
-  // FIXME(selectIsDesktopMode):
-  // App refresh correct on desktop mode after install
   const isSubmitting = installationFormState === 'SUBMITTING'
 
   const { name, id = '', scopes = [] } = appDetailData || {}

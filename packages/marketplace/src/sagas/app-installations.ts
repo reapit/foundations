@@ -16,9 +16,6 @@ export const appInstallSaga = function*(options) {
   try {
     yield put(appInstallationsSetFormState('SUBMITTING'))
 
-    // FIXME(selectClientId): install
-    // Install-able
-
     const connectSession = yield call(reapitConnectBrowserSession.connectSession)
 
     const email = yield call(selectLoggedUserEmail, connectSession)
@@ -47,8 +44,6 @@ export const appInstallSaga = function*(options) {
 
 export const appUninstallSaga = function*(options) {
   const data: UninstallParams = options.data
-  // FIXME(selectLoggedUserEmail)
-  // uninstallable
   try {
     yield put(appInstallationsSetFormState('SUBMITTING'))
     const connectSession = yield call(reapitConnectBrowserSession.connectSession)

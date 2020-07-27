@@ -63,9 +63,7 @@ describe('Login', () => {
         reapitConnectBrowserSessionModule.reapitConnectBrowserSession,
         'connectLoginRedirect',
       )
-      const mockIsFirstTimeLoginComplete = true
-      const fn = onLoginButtonClick(mockIsFirstTimeLoginComplete)
-      fn()
+      onLoginButtonClick()
       expect(spyRedirectToLogin).toBeCalled()
     })
   })

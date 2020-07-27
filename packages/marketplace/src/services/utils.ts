@@ -1,7 +1,5 @@
 import { StringMap } from '@/types/core'
 import { API_VERSION } from './constants'
-// import { getAccessToken } from '@/utils/session'
-// FIXME(auth): get acces token in auth field, fetch web hook
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export const generateHeader = (marketplaceApiKey): StringMap => ({
@@ -14,10 +12,6 @@ export const generateHeaderWithApiV2 = (marketplaceApiKey): StringMap => ({
   'api-version': '2',
 })
 
-// FIXME: remove repait connect
-// need to access token
-// able to fetch webhook
-
 export const initAuthorizedRequestHeaders = async () => {
   const session = await reapitConnectBrowserSession.connectSession()
   if (session && session.accessToken) {
@@ -25,7 +19,6 @@ export const initAuthorizedRequestHeaders = async () => {
       Authorization: `Bearer ${session.accessToken}`,
       'api-version': API_VERSION,
       'Content-Type': 'application/json',
-      // debug: ,
     }
   }
 

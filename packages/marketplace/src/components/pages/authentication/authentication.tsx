@@ -12,11 +12,6 @@ export const onDevelopersButtonClick = (developerPortalURL: string) => () => {
   window.open(developerPortalURL, '_self')
 }
 
-{
-  /* TESTME(auth) shouldable to lougout - bad login modal */
-}
-
-// accept logout button
 export const handleLogout = () => {
   reapitConnectBrowserSession.connectLogoutRedirect()
 }

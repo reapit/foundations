@@ -16,16 +16,11 @@ export const myAppsDataFetch = function*({ data: page }) {
   yield put(myAppsLoading(true))
 
   try {
-    // FIXME(selectClientId)
-    // should fetch data of app manage Page
-    // required t
     const connectSession = yield call(reapitConnectBrowserSession.connectSession)
     const clientId = yield call(selectClientId, connectSession)
     if (!clientId) {
       throw CLIENT_ID_NOT_FOUND_ERROR
     }
-    // FIXME(selectDeveloperEditionId)
-    // !? input dev id on API
     const developerId = yield call(selectDeveloperEditionId, connectSession)
     const response = yield call(fetchAppsList, {
       clientId,

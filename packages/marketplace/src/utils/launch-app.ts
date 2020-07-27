@@ -1,11 +1,6 @@
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
-/**
- * retest on desktop
- */
 export const handleLaunchApp = (app: AppSummaryModel, connectIsDesktop: Boolean) => {
-  console.log({ app })
-
   if (!app.launchUri || !app.id) {
     return
   }

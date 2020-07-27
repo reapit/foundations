@@ -35,7 +35,7 @@ const Router = () => {
 
             <PrivateRouteWrapper showMenu={false} path="/admin">
               <Switch>
-                <PrivateRoute path="/*" component={HandleLegacyAdminRoutesModal} />
+                <PrivateRoute path="/admin/*" component={HandleLegacyAdminRoutesModal} />
               </Switch>
             </PrivateRouteWrapper>
 
@@ -45,7 +45,7 @@ const Router = () => {
               </Switch>
             </PrivateRouteWrapper>
 
-            <PrivateRouteWrapper path="/">
+            <PrivateRouteWrapper>
               <Switch>
                 <PrivateRoute path={Routes.AUTHENTICATION} component={Authentication} />
                 <PrivateRoute path={Routes.INSTALLED_APPS} component={InstalledApps} fetcher exact />

@@ -11,7 +11,7 @@ const { Suspense } = React
 
 export type PrivateRouteWrapperProps = {
   children?: React.ReactNode
-  path: string
+  path?: string
   showMenu?: boolean
 }
 
@@ -28,7 +28,6 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   showMenu = true,
 }) => {
   const session = useReapitConnect(reapitConnectBrowserSession)
-  console.log({ debug: session })
 
   // FIXME: remove this fuck
   // const isTermAccepted = useSelector(selectIsTermAccepted)

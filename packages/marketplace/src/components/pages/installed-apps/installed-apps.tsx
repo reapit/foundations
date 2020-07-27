@@ -15,7 +15,6 @@ import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export const handleOnChange = history => (page: number) => history.push(`${routes.INSTALLED_APPS}?page=${page}`)
 
-// TESTME: launch app on corect env
 export const handleOnCardClick = (connectIsDesktop: Boolean) => (app: AppSummaryModel) =>
   handleLaunchApp(app, connectIsDesktop)
 

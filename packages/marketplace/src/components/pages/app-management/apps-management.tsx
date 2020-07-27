@@ -26,10 +26,6 @@ export const AppsManagement: React.FunctionComponent = () => {
   const location = useLocation()
 
   const myAppsState = useSelector(selectMyApps)
-  // FIXME(selectIsAdmin)
-  // 404 - client
-  // OK - developer
-  // OK - admin
   const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const isDeveloperEdition = Boolean(selectDeveloperId(connectSession))
   const isDesktopAdmin = selectIsAdmin(connectSession)

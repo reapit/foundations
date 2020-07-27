@@ -56,13 +56,6 @@ export const onBackToAppsButtonClick = (history: History) => () => {
   history.push(Routes.APPS)
 }
 
-/**
- * FIXME: remove this
- * show install for
- * - client
- * REMOVE
- */
-
 const AppDetail: React.FC = () => {
   const history = useHistory()
 
@@ -90,9 +83,8 @@ const AppDetail: React.FC = () => {
     desktopIntegrationTypes,
   )
   const { isMobile } = useReactResponsive()
+  console.log({ isMobile })
 
-  // FIXME: Refactor to match login type
-  // developer edition show mange
   const isLoadingAppDetail = useSelector(selectAppDetailLoading)
 
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
@@ -100,9 +92,7 @@ const AppDetail: React.FC = () => {
   const isClient = Boolean(selectClientId(connectSession))
   const isDeveloperEdition = Boolean(selectDeveloperId(connectSession))
 
-  // TESTME: show btn hidden when not admin
   const isAdmin = isDesktopAdmin || isDeveloperEdition
-  // const isInstallBtnHidden = isClient && !isAdmin
   const isInstallBtnHidden = isClient && !isAdmin
 
   // selector selectAppDetailData return {} if not data

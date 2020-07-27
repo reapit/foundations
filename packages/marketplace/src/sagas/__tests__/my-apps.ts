@@ -13,8 +13,6 @@ import { fetchAppsList } from '@/services/apps'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { selectClientId } from '@/selector/auth'
 import { ReapitConnectSession } from '@reapit/connect-session'
-// FIXME: import mock browser session
-// log
 
 jest.mock('@/services/apps')
 jest.mock('@reapit/elements')
@@ -25,16 +23,12 @@ describe('my-apps fetch data', () => {
   const gen = cloneableGenerator(myAppsDataFetch)(params)
   const clientId = 'DAC'
   const developerId = '1234'
-  // FIXME: mock browser session
-  // test no fail
 
   expect(gen.next().value).toEqual(put(myAppsLoading(true)))
-  //
   expect(gen.next().value).toEqual(call(reapitConnectBrowserSession.connectSession))
   expect(gen.next(connectSession).value).toEqual(
     call(selectClientId, (connectSession as unknown) as ReapitConnectSession),
   )
-  ///
   expect(gen.next(clientId).value).toEqual(select(selectDeveloperEditionId))
   expect(gen.next(developerId).value).toEqual(
     call(fetchAppsList, {

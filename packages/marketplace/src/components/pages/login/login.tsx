@@ -27,11 +27,8 @@ export const handleShowNotificationAfterPasswordChanged = (
   }
 }
 
-// FIXME: use cognito func: redirectToLogin
-// required: t
 export const onLoginButtonClick = () => {
   const redirectRoute = getDefaultRoute()
-  // accept func
   reapitConnectBrowserSession.connectLoginRedirect(redirectRoute)
 }
 
