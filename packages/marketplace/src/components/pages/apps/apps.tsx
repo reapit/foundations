@@ -10,7 +10,6 @@ import AppList from '@/components/ui/app-list'
 import FeaturedApp from '@/components/ui/featured-app'
 // Commenting out as we are disabling for launch because there are too few apps
 // import AppSidebar from '@/components/ui/app-sidebar'
-import { AppDetailState } from '@/reducers/app-detail'
 import { selectAppSummary } from '@/selector/client'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { addQuery, hasFilterParams } from '@/utils/client-url-params'
@@ -24,14 +23,6 @@ import { getNumberOfItems } from '@/utils/browse-app'
 export const handleAfterClose = ({ setVisible }) => () => setVisible(false)
 export const handleOnChange = history => (page: number) => {
   history.push(addQuery({ page }))
-}
-
-export interface onCardClickParams {
-  setVisible: (isVisible: boolean) => void
-  setStateViewBrowse: () => void
-  appDetail: AppDetailState
-  fetchAppDetail: (id: string, client: string) => void
-  clientId: string
 }
 
 export const handleOnCardClick = (history: History) => (app: AppSummaryModel) => {

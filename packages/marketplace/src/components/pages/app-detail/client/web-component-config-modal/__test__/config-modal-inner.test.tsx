@@ -85,7 +85,7 @@ describe('should return correctly', () => {
         officeId: 'string',
         workPhone: 'string',
       },
-    ]
+    ] as any
 
     const result = genarateNegotiatorOptions(list)
     const expected = [{ value: 'string', label: 'string', description: 'string' }]

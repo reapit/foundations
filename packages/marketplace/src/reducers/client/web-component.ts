@@ -9,21 +9,21 @@ import {
   clientUpdateWebComponentConfigFailed,
 } from '@/actions/client'
 import { WebComponentConfigResult } from '@/services/web-component'
-import { NegotiatorsResult } from '@/services/negotiators'
+import { PagedResultNegotiatorModel_ } from '@reapit/foundations-ts-definitions'
 
 export interface WebComponentState {
   isShowModal: boolean
   data: WebComponentConfigResult
   loading: boolean
   updating: boolean
-  negotiators: NegotiatorsResult
+  negotiators: PagedResultNegotiatorModel_
 }
 export const defaultState: WebComponentState = {
   isShowModal: false,
   data: null,
   loading: true,
   updating: false,
-  negotiators: null,
+  negotiators: {},
 }
 
 const webComponentReducer = (state: WebComponentState = defaultState, action: Action<any>): WebComponentState => {
@@ -66,7 +66,7 @@ const webComponentReducer = (state: WebComponentState = defaultState, action: Ac
   if (isType(action, clientFetchNegotiatorsSuccess)) {
     return {
       ...state,
-      negotiators: action.data as NegotiatorsResult,
+      negotiators: action.data as PagedResultNegotiatorModel_,
     }
   }
 

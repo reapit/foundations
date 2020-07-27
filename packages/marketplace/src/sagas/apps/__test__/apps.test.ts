@@ -1,6 +1,6 @@
 import { integrationTypesReceiveData } from '@/actions/app-integration-types'
 import appDetailSagas, { fetchClientAppDetailSaga, clientAppDetailDataListen } from '../apps'
-import { fetchDesktopIntegrationTypes } from '@/services/apps'
+import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
@@ -33,7 +33,7 @@ describe('fetch client app detail with clientId', () => {
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(appDetailDataStub.data).value).toEqual(call(fetchDesktopIntegrationTypes))
+    expect(clone.next(appDetailDataStub.data).value).toEqual(call(fetchDesktopIntegrationTypesList, {}))
     expect(clone.next(integrationTypesStub).value).toEqual(put(integrationTypesReceiveData(integrationTypesStub)))
     expect(clone.next().value).toEqual(put(clientFetchAppDetailSuccess(appDetailDataStub.data)))
   })
@@ -58,7 +58,7 @@ describe('fetch client app detail without clientId', () => {
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(appDetailDataStub.data).value).toEqual(call(fetchDesktopIntegrationTypes))
+    expect(clone.next(appDetailDataStub.data).value).toEqual(call(fetchDesktopIntegrationTypesList, {}))
     expect(clone.next(integrationTypesStub).value).toEqual(put(integrationTypesReceiveData(integrationTypesStub)))
     expect(clone.next().value).toEqual(put(clientFetchAppDetailSuccess(appDetailDataStub.data)))
   })
@@ -93,7 +93,7 @@ describe('client app detail fetch data and fetch apiKey', () => {
         installationId,
       }).value,
     ).toMatchObject(call(fetchApiKeyInstallationById, { installationId }))
-    expect(clone.next({ apiKey }).value).toEqual(call(fetchDesktopIntegrationTypes))
+    expect(clone.next({ apiKey }).value).toEqual(call(fetchDesktopIntegrationTypesList, {}))
     expect(clone.next(integrationTypesStub).value).toMatchObject(put(integrationTypesReceiveData(integrationTypesStub)))
     expect(clone.next().value).toEqual(
       put(

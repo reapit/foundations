@@ -1,3 +1,4 @@
+import { PagedResultNegotiatorModel_ } from '@reapit/foundations-ts-definitions'
 import { actionCreator } from '@/utils/actions'
 import ActionTypes from '@/constants/action-types'
 import { ClientAppSummary, ClientAppSummaryParams } from '@/reducers/client/app-summary'
@@ -8,7 +9,6 @@ import {
   FetchWebComponentConfigParams,
   WebComponentConfigResult,
 } from '@/services/web-component'
-import { NegotiatorsResult } from '@/services/negotiators'
 
 export const clientFetchAppSummary = actionCreator<ClientAppSummaryParams>(ActionTypes.CLIENT_FETCH_APP_SUMMARY)
 export const clientFetchAppSummarySuccess = actionCreator<ClientAppSummary | undefined>(
@@ -38,6 +38,6 @@ export const clientUpdateWebComponentConfigFailed = actionCreator<void>(
   ActionTypes.CLIENT_UPDATE_WEB_COMPONENT_CONFIG_FAILED,
 )
 
-export const clientFetchNegotiatorsSuccess = actionCreator<NegotiatorsResult>(
+export const clientFetchNegotiatorsSuccess = actionCreator<PagedResultNegotiatorModel_>(
   ActionTypes.CLIENT_FETCH_NEGOTIATORS_SUCCESS,
 )

@@ -23,7 +23,7 @@ import {
 } from '@/actions/client'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '../../../../elements/src/utils/validators/error-messages'
-import { fetchNegotiators, NegotiatorsResult } from '@/services/negotiators'
+import { fetchNegotiators } from '@/services/negotiators'
 
 describe('webComponentSagas', () => {
   it('should listen request data', () => {
@@ -114,6 +114,7 @@ describe('fetchWebComponentConfigSaga', () => {
     pageNumber: 99,
     pageSize: 9,
     totalCount: 99,
+    metadata: { '123': '123' },
     _embedded: [
       {
         active: true,
@@ -129,7 +130,7 @@ describe('fetchWebComponentConfigSaga', () => {
         workPhone: 'string',
       },
     ],
-  } as NegotiatorsResult
+  } as any
 
   const gen = cloneableGenerator(fetchWebComponentConfigSaga as any)({ data: params })
   expect(gen.next().value).toEqual(all([call(fetchWebComponentConfig, params), call(fetchNegotiators, {})]))
