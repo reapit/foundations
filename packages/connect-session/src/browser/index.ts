@@ -33,7 +33,9 @@ export class ReapitConnectBrowserSession {
     this.connectOAuthUrl = connectOAuthUrl
     this.connectClientId = connectClientId
     this.connectLoginRedirectPath = `${window.location.origin}${connectLoginRedirectPath || ''}`
-    this.connectLogoutRedirectPath = `${window.location.origin}${connectLogoutRedirectPath || '/login'}`
+    this.connectLogoutRedirectPath = `${window.location.origin}${
+      connectLogoutRedirectPath || connectLogoutRedirectPath === '' ? connectLogoutRedirectPath : '/login'
+    }`
     this.userName = this.connectStoredLoginUser
     this.fetching = false
     // In an ideal world, UI have a complete session in local storage I can reuse
