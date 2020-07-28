@@ -129,6 +129,7 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
                 </InfiniteScroll>
                 <ComingSoonApps>
                   <Component
+                    className="bt pt-4 mt-4"
                     isMultiLine={true}
                   >
                     <div
@@ -488,6 +489,7 @@ exports[`Client should match a snapshot when LOADING false 2`] = `
                 </InfiniteScroll>
                 <ComingSoonApps>
                   <Component
+                    className="bt pt-4 mt-4"
                     isMultiLine={true}
                   >
                     <div
@@ -887,6 +889,7 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
                 </InfiniteScroll>
                 <ComingSoonApps>
                   <Component
+                    className="bt pt-4 mt-4"
                     isMultiLine={true}
                   >
                     <div
@@ -1286,6 +1289,7 @@ exports[`Client should match a snapshot when featured apps is null 1`] = `
                 </InfiniteScroll>
                 <ComingSoonApps>
                   <Component
+                    className="bt pt-4 mt-4"
                     isMultiLine={true}
                   >
                     <div

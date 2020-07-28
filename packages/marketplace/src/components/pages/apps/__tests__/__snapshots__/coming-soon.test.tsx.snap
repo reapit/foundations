@@ -2,10 +2,11 @@
 
 exports[`ComingSoonApps should match a snapshot 1`] = `
 <Component
+  className="bt pt-4 mt-4"
   isMultiLine={true}
 >
   <Component
-    key=""
+    key="placeHolderImage"
   >
     <div
       className="card"
@@ -16,13 +17,13 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
         <img
           className="image"
           onError={[Function]}
-          src=""
+          src="placeHolderImage"
         />
       </div>
     </div>
   </Component>
   <Component
-    key=""
+    key="placeHolderImage"
   >
     <div
       className="card"
@@ -33,13 +34,13 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
         <img
           className="image"
           onError={[Function]}
-          src=""
+          src="placeHolderImage"
         />
       </div>
     </div>
   </Component>
   <Component
-    key=""
+    key="placeHolderImage"
   >
     <div
       className="card"
@@ -50,13 +51,13 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
         <img
           className="image"
           onError={[Function]}
-          src=""
+          src="placeHolderImage"
         />
       </div>
     </div>
   </Component>
   <Component
-    key=""
+    key="placeHolderImage"
   >
     <div
       className="card"
@@ -67,13 +68,13 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
         <img
           className="image"
           onError={[Function]}
-          src=""
+          src="placeHolderImage"
         />
       </div>
     </div>
   </Component>
   <Component
-    key=""
+    key="placeHolderImage"
   >
     <div
       className="card"
@@ -84,13 +85,13 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
         <img
           className="image"
           onError={[Function]}
-          src=""
+          src="placeHolderImage"
         />
       </div>
     </div>
   </Component>
   <Component
-    key=""
+    key="placeHolderImage"
   >
     <div
       className="card"
@@ -101,13 +102,13 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
         <img
           className="image"
           onError={[Function]}
-          src=""
+          src="placeHolderImage"
         />
       </div>
     </div>
   </Component>
   <Component
-    key=""
+    key="placeHolderImage"
   >
     <div
       className="card"
@@ -118,13 +119,13 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
         <img
           className="image"
           onError={[Function]}
-          src=""
+          src="placeHolderImage"
         />
       </div>
     </div>
   </Component>
   <Component
-    key=""
+    key="placeHolderImage"
   >
     <div
       className="card"
@@ -135,13 +136,13 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
         <img
           className="image"
           onError={[Function]}
-          src=""
+          src="placeHolderImage"
         />
       </div>
     </div>
   </Component>
   <Component
-    key=""
+    key="placeHolderImage"
   >
     <div
       className="card"
@@ -152,7 +153,7 @@ exports[`ComingSoonApps should match a snapshot 1`] = `
         <img
           className="image"
           onError={[Function]}
-          src=""
+          src="placeHolderImage"
         />
       </div>
     </div>
