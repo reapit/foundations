@@ -1,6 +1,6 @@
 import { call, put, takeLatest, select, all, fork } from '@redux-saga/core/effects'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { fetchAppListSuccess, fetchAppListFailed, fetchAppList } from '@/actions/apps/app-list'
+import { fetchAppListSuccess, fetchAppList } from '@/actions/apps/app-list'
 import appListSagas, { fetchAppListSaga, fetchAppListListen } from '../app-list'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { appsDataStub } from '@/sagas/__stubs__/apps'

@@ -41,8 +41,7 @@ describe('ConfirmUninstall', () => {
   describe('handleSuccessUninstall', () => {
     it('should run correctly', () => {
       const onUninstallSuccess = jest.fn()
-      const isSetAppDetailStaleAfterUninstallSuccess = true
-      const fn = handleSuccessUninstall(onUninstallSuccess, spyDispatch, isSetAppDetailStaleAfterUninstallSuccess)
+      const fn = handleSuccessUninstall(onUninstallSuccess, spyDispatch)
       fn()
       expect(onUninstallSuccess).toBeCalled()
       expect(spyDispatch).toBeCalledWith(appInstallationsSetFormState('PENDING'))
@@ -53,8 +52,7 @@ describe('ConfirmUninstall', () => {
   describe('handleSuccessUninstall', () => {
     it('should run correctly', () => {
       const onUninstallSuccess = jest.fn()
-      const isSetAppDetailStaleAfterUninstallSuccess = false
-      const fn = handleSuccessUninstall(onUninstallSuccess, spyDispatch, isSetAppDetailStaleAfterUninstallSuccess)
+      const fn = handleSuccessUninstall(onUninstallSuccess, spyDispatch)
       fn()
       expect(onUninstallSuccess).toBeCalled()
       expect(spyDispatch).toBeCalledWith(appInstallationsSetFormState('PENDING'))
