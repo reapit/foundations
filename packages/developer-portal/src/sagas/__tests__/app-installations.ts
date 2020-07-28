@@ -23,8 +23,8 @@ import {
 } from '@/actions/app-installations'
 import { installationsStub } from '../__stubs__/installations'
 import { selectClientId, selectLoggedUserEmail } from '@/selector/client'
-import { selectDeveloperId } from '@/selector/developer'
 import { fetchInstallationsList, createInstallation, removeAccessToAppById } from '@/services/installations'
+import { selectDeveloperId } from '@/selector/auth'
 
 jest.mock('@/services/installations')
 jest.mock('@reapit/elements')

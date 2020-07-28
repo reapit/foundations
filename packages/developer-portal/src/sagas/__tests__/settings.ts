@@ -12,7 +12,7 @@ import ActionTypes from '@/constants/action-types'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { ChangePasswordParams, settingShowLoading, requestDeveloperDataSuccess } from '@/actions/settings'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { selectDeveloperId, selectDeveloperEmail } from '@/selector/developer'
+import { selectDeveloperEmail } from '@/selector/developer'
 import { errorThrownServer } from '@/actions/error'
 
 import errorMessages from '@/constants/error-messages'
@@ -23,6 +23,7 @@ import { authLogout } from '@/actions/auth'
 import { showNotificationMessage } from '@/actions/notification-message'
 import { fetchDeveloperById, updateDeveloperById, UpdateDeveloperByIdParams } from '@/services/developers'
 import { selectSettingsPageDeveloperInformation } from '@/selector/settings'
+import { selectDeveloperId } from '@/selector/auth'
 
 jest.mock('@/services/developers')
 jest.mock('@reapit/elements')

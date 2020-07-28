@@ -1,8 +1,4 @@
 import {
-  developerLoading,
-  developerReceiveData,
-  developerRequestData,
-  developerClearData,
   developerCreate,
   developerSetFormState,
   fetchBilling,
@@ -13,40 +9,14 @@ import {
   fetchMonthlyBillingFailure,
   developerWebhookPing,
   developerSetWebhookPingStatus,
-  developerApplyAppDetails,
 } from '../developer'
 import ActionTypes from '../../constants/action-types'
-import { appsDataStub } from '../../sagas/__stubs__/apps'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
-import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
 import { billing } from '@/sagas/__stubs__/billing'
 import { monthlyBillingData } from '@/sagas/__stubs__/monthly-billing'
 import { PingWebhooksByIdParams } from '@/services/webhooks'
 
 describe('developer actions', () => {
-  it('should create a developerLoading action', () => {
-    expect(developerLoading.type).toEqual(ActionTypes.DEVELOPER_LOADING)
-    expect(developerLoading(true).data).toEqual(true)
-  })
-
-  it('should create a developerReceiveData action', () => {
-    expect(developerReceiveData.type).toEqual(ActionTypes.DEVELOPER_RECEIVE_DATA)
-    expect(developerReceiveData({ ...appsDataStub, scopes: appPermissionStub }).data).toEqual({
-      ...appsDataStub,
-      scopes: appPermissionStub,
-    })
-  })
-
-  it('should create a developerRequestData action', () => {
-    expect(developerRequestData.type).toEqual(ActionTypes.DEVELOPER_REQUEST_DATA)
-    expect(developerRequestData({ page: 1 }).data).toEqual({ page: 1 })
-  })
-
-  it('should create a developerClearData action', () => {
-    expect(developerClearData.type).toEqual(ActionTypes.DEVELOPER_CLEAR_DATA)
-    expect(developerClearData(null).data).toEqual(null)
-  })
-
   it('should create a developerCreate action', () => {
     const newDeveloper: CreateDeveloperModel = {
       name: 'Bob',
@@ -112,9 +82,5 @@ describe('developer actions', () => {
   it('should create a developerSetWebhookPingStatus action', () => {
     expect(developerSetWebhookPingStatus.type).toEqual(ActionTypes.DEVELOPER_SET_PING_WEBHOOK_STATUS)
     expect(developerSetWebhookPingStatus('SUCCESS').data).toEqual('SUCCESS')
-  })
-  it('should create a developerApplyAppDetails action', () => {
-    expect(developerApplyAppDetails.type).toEqual(ActionTypes.DEVELOPER_APPLY_APP_DETAIL)
-    expect(developerApplyAppDetails({}).data).toEqual({})
   })
 })

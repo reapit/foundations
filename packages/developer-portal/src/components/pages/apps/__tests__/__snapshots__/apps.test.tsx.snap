@@ -56,17 +56,118 @@ exports[`Login should match a snapshot 1`] = `
       }
     >
       <Component>
-        <Component>
-          <div
-            className="loader-spinner body"
-            data-test=""
+        <Connect(ErrorBoundary)>
+          <ErrorBoundary
+            componentError={null}
+            errorThrownComponent={[Function]}
           >
-            <div />
-            <div />
-            <div />
-            <div />
-          </div>
-        </Component>
+            <Component
+              className="justify-between items-center"
+              isFlex={true}
+            >
+              <section
+                className=""
+                data-test=""
+              >
+                <Component
+                  className="mb-0"
+                >
+                  <h3
+                    className=""
+                    id=""
+                  >
+                    My Apps
+                  </h3>
+                </Component>
+                <Component
+                  onClick={[Function]}
+                  type="button"
+                  variant="primary"
+                >
+                  <button
+                    className="button  is-primary  "
+                    data-test=""
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Create new app
+                  </button>
+                </Component>
+                <Component
+                  afterClose={[Function]}
+                  visible={false}
+                >
+                  <Component
+                    afterClose={[Function]}
+                    deps={Array []}
+                    renderChildren={true}
+                    visible={false}
+                  />
+                </Component>
+              </section>
+            </Component>
+            <Component
+              infoType="DEVELOPER_APPS_EMPTY"
+              list={Array []}
+              loading={false}
+              onCardClick={[Function]}
+            >
+              <div
+                className="mb-4"
+              >
+                <Component
+                  variant="info"
+                >
+                  <div
+                    className="notification helper-wrap helper-info"
+                  >
+                    It looks like you haven’t submitted an App yet. When you’re ready, click on ‘Create New App’ to get started.
+                  </div>
+                </Component>
+              </div>
+            </Component>
+            <Component
+              onChange={[Function]}
+              pageNumber={1}
+            />
+            <Component
+              loading={false}
+            >
+              <div
+                className="undefined "
+              >
+                <Component
+                  message="This is a sandbox environment, with anonymised test data and isolated from production"
+                  onCloseToast={[Function]}
+                  variant="info"
+                  visible={false}
+                >
+                  <div
+                    className="toast "
+                    data-test="toast-wrapper"
+                    onClick={[Function]}
+                  >
+                    <Component
+                      fullWidth={true}
+                      type="reset"
+                      variant="info"
+                    >
+                      <button
+                        className="button  is-info is-fullwidth "
+                        data-test=""
+                        disabled={false}
+                        type="reset"
+                      >
+                        This is a sandbox environment, with anonymised test data and isolated from production
+                      </button>
+                    </Component>
+                  </div>
+                </Component>
+              </div>
+            </Component>
+          </ErrorBoundary>
+        </Connect(ErrorBoundary)>
       </Component>
     </Router>
   </MemoryRouter>

@@ -73,9 +73,9 @@ describe('submit-app post data', () => {
     const mockHeaders = { get: (param: string) => param }
     expect(clone.next(mockHeaders).value).toEqual(call(fetchAppByIdByRawUrl, mockLocationHeader))
     expect(clone.next(appDetailDataStub.data).value).toEqual(
-      call(params.data.setFieldValue, externalIdField.name, appDetailDataStub.data.externalId),
+      call(params.data.setFieldValue, externalIdField.name, appDetailDataStub.data?.externalId),
     )
-    expect(clone.next().value).toEqual(call(params.data.setFieldValue, appIdField.name, appDetailDataStub.data.id))
+    expect(clone.next().value).toEqual(call(params.data.setFieldValue, appIdField.name, appDetailDataStub.data?.id))
     expect(clone.next().value).toEqual(call(params.data.setWizardStep, wizzardSteps.SUBMIT_APP_SUCCESS))
     expect(clone.next().value).toEqual(put(submitAppSetFormState('SUCCESS')))
     expect(clone.next().done).toBe(true)

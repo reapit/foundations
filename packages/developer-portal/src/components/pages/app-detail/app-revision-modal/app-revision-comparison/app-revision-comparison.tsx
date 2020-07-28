@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { AppDetailState } from '@/reducers/app-detail'
+import { AppDetailState } from '@/reducers/apps/app-detail'
 import { RevisionDetailState } from '@/reducers/revision-detail'
 import { AppRevisionModel, MediaModel, ScopeModel } from '@reapit/foundations-ts-definitions'
 import DiffMedia from './diff-media'
@@ -8,11 +8,10 @@ import { DesktopIntegrationTypeModel, PagedResultDesktopIntegrationTypeModel_ } 
 import DiffCheckbox from './diff-checkbox'
 import DiffViewer from './diff-viewer'
 import DiffRenderHTML from './diff-render-html'
-import { DeveloperAppDetailState } from '@/reducers/developer'
 
 export type AppRevisionComparisonProps = {
   revisionDetailState: RevisionDetailState
-  appDetailState: AppDetailState | DeveloperAppDetailState
+  appDetailState: AppDetailState
 }
 
 export type DiffMediaModel = {
@@ -162,8 +161,7 @@ export const AppRevisionComparison: React.FC<AppRevisionComparisonProps> = ({
   revisionDetailState,
   appDetailState,
 }) => {
-  const app =
-    (appDetailState as AppDetailState)?.appDetailData?.data || (appDetailState as DeveloperAppDetailState)?.data
+  const app = appDetailState.data
   if (!revisionDetailState.revisionDetailData || !app) {
     return null
   }

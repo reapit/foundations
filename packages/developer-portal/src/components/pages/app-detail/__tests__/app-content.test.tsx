@@ -12,8 +12,10 @@ import AppContent, {
 import { Provider } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import configureStore from 'redux-mock-store'
+import appState from '@/reducers/__stubs__/app-state'
 
 const mockState = {
+  ...appState,
   auth: {
     loginSession: {
       loginIdentity: {
@@ -23,10 +25,6 @@ const mockState = {
   },
   installations: {
     installationsAppData: installationsStub,
-  },
-
-  developer: {
-    developerAppDetail: appDetailDataStub,
   },
 } as ReduxState
 
@@ -38,7 +36,7 @@ describe('AppContent', () => {
     expect(
       mount(
         <Provider store={store}>
-          <AppContent appDetailState={mockState.developer.developerAppDetail} />
+          <AppContent appDetailState={mockState.apps.detail} />
         </Provider>,
       ),
     ).toMatchSnapshot()
@@ -72,7 +70,7 @@ describe('AppContent', () => {
     it('should run correctly', () => {
       const appId = 'appId'
       const spyOpenUrl = jest.spyOn(window, 'open')
-      const fn = handleOpenAppPreview(appId, appDetailDataStub.data)
+      const fn = handleOpenAppPreview(appId, appDetailDataStub.data || {})
       fn()
       expect(spyOpenUrl).toBeCalledWith('/apps/appId/preview', '_blank')
     })

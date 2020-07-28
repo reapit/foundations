@@ -9,7 +9,6 @@ import {
   appInstallationsSetFormState,
 } from '@/actions/app-installations'
 import CallToAction from '@/components/ui/call-to-action'
-import { setAppDetailStale } from '@/actions/app-detail'
 import { selectInstallationFormState } from '@/selector/installations'
 import formFields from './form-schema/form-fields'
 import validationSchema from './form-schema/validation-schema'
@@ -32,16 +31,9 @@ export const initialValues: ConfirmUninstallFormValues = {
   terminatedReason: '',
 }
 
-export const handleSuccessUninstall = (
-  onUninstallSuccess: () => void,
-  dispatch: Dispatch,
-  isSetAppDetailStaleAfterUninstallSuccess: boolean,
-) => () => {
+export const handleSuccessUninstall = (onUninstallSuccess: () => void, dispatch: Dispatch) => () => {
   onUninstallSuccess()
   dispatch(appInstallationsSetFormState('PENDING'))
-  if (isSetAppDetailStaleAfterUninstallSuccess) {
-    dispatch(setAppDetailStale(true))
-  }
 }
 
 export const handleSubmit = (dispatch: Dispatch, installationDetail?: InstallationModel) => {
@@ -61,7 +53,6 @@ export const ConfirmUninstall: React.FC<ConfirmUninstallProps> = ({
   afterClose,
   installationDetail,
   onUninstallSuccess,
-  isSetAppDetailStaleAfterUninstallSuccess = true,
 }) => {
   const dispatch = useDispatch()
   const formState = useSelector(selectInstallationFormState)
@@ -74,7 +65,7 @@ export const ConfirmUninstall: React.FC<ConfirmUninstallProps> = ({
         title="Success"
         buttonText="Back to App"
         dataTest="alertUninstallSuccess"
-        onButtonClick={handleSuccessUninstall(onUninstallSuccess, dispatch, isSetAppDetailStaleAfterUninstallSuccess)}
+        onButtonClick={handleSuccessUninstall(onUninstallSuccess, dispatch)}
         isCenter
       >
         <div className="mb-3">

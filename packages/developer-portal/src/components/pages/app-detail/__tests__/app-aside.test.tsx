@@ -1,5 +1,4 @@
 import React from 'react'
-import { DeveloperAppDetailState } from '@/reducers/developer'
 import { DeveloperAside, onBackToAppsButtonClick } from '../app-aside'
 import { shallow } from 'enzyme'
 import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
@@ -15,7 +14,7 @@ describe('DeveloperAside', () => {
     expect(
       shallow(
         <DeveloperAside
-          appDetailState={appDetailDataStub as DeveloperAppDetailState}
+          appDetailState={appDetailDataStub}
           desktopIntegrationTypes={integrationTypesStub.data as DesktopIntegrationTypeModel[]}
         />,
       ),

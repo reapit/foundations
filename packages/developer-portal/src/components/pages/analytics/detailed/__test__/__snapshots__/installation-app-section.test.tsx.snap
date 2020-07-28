@@ -41,18 +41,7 @@ exports[`InstallationTable should match snapshot 1`] = `
               },
             ]
           }
-          data={
-            Array [
-              Object {
-                "appName": "test",
-                "installation": 0,
-              },
-              Object {
-                "appName": "asd",
-                "installation": 0,
-              },
-            ]
-          }
+          data={Array []}
           loading={false}
           scrollable={true}
         />
@@ -274,18 +263,7 @@ exports[`InstallationTable should match with null installationsAppData 1`] = `
               },
             ]
           }
-          data={
-            Array [
-              Object {
-                "appName": "test",
-                "installation": 0,
-              },
-              Object {
-                "appName": "asd",
-                "installation": 0,
-              },
-            ]
-          }
+          data={Array []}
           loading={false}
           scrollable={true}
         />

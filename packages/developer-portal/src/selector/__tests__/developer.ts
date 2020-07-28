@@ -1,9 +1,7 @@
 import { ReduxState } from '@/types/core'
 import {
-  selectDeveloperId,
   selectDeveloperEmail,
   selectDeveloper,
-  selectDeveloperApps,
   selectMyIdentity,
   selectBilling,
   selectDeveloperLoading,
@@ -12,30 +10,6 @@ import {
   selectMonthlyBillingLoading,
   selectWebhookTestStatus,
 } from '../developer'
-
-describe('selectDeveloperId', () => {
-  it('should run correctly', () => {
-    const input = {
-      auth: {
-        loginSession: {
-          loginIdentity: {
-            clientId: '',
-            email: 'abc@gmail.com',
-            developerId: '123',
-          },
-        },
-      },
-    } as ReduxState
-    const result = selectDeveloperId(input)
-    expect(result).toEqual('123')
-  })
-
-  it('should run correctly and return undefined', () => {
-    const input = { auth: {} } as ReduxState
-    const result = selectDeveloperId(input)
-    expect(result).toEqual(undefined)
-  })
-})
 
 describe('selectDeveloperEmail', () => {
   it('should run correctly', () => {
@@ -62,7 +36,6 @@ describe('selectDeveloper', () => {
     const input = {
       developer: {
         isServiceChartLoading: false,
-        developerData: {},
       },
     } as ReduxState
     const result = selectDeveloper(input)
@@ -73,29 +46,6 @@ describe('selectDeveloper', () => {
     const input = {} as ReduxState
     const result = selectDeveloper(input)
     expect(result).toEqual(undefined)
-  })
-})
-
-describe('selectDeveloperApps', () => {
-  it('should run correctly', () => {
-    const input = {
-      developer: {
-        isServiceChartLoading: false,
-        developerData: {
-          data: {
-            data: [{}],
-          },
-        },
-      },
-    } as ReduxState
-    const result = selectDeveloperApps(input)
-    expect(result).toEqual(input.developer.developerData?.data.data)
-  })
-
-  it('should run correctly and return []', () => {
-    const input = {} as ReduxState
-    const result = selectDeveloperApps(input)
-    expect(result).toEqual([])
   })
 })
 

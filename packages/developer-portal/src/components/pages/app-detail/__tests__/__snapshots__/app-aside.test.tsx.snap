@@ -109,6 +109,8 @@ exports[`DeveloperAside should match snapshot 1`] = `
           "supportEmail": "support@reapit.com",
           "telephone": "0113 288 2900",
         },
+        "errorMessage": "",
+        "isLoading": false,
       }
     }
     id="9b6fd5f7-2c15-483d-b925-01b650538e52"

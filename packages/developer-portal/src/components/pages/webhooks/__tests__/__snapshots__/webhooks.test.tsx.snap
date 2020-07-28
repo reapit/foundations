@@ -176,17 +176,6 @@ exports[`DeveloperWebHooks should match a snapshot 1`] = `
             </form>
           </Form>
         </Formik>
-        <Component>
-          <div
-            className="loader-spinner body"
-            data-test=""
-          >
-            <div />
-            <div />
-            <div />
-            <div />
-          </div>
-        </Component>
       </div>
     </Component>
   </Component>

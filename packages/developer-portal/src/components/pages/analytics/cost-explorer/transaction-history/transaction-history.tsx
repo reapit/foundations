@@ -2,7 +2,6 @@ import * as React from 'react'
 import { useSelector } from 'react-redux'
 import { H5, Grid, GridItem, H6, fetcherWithBlob, Loader, setQueryParams, Section, Content } from '@reapit/elements'
 import styles from '@/styles/pages/developer-analytics.scss?mod'
-import { selectDeveloperApps } from '@/selector/developer'
 import { ReduxState } from '@/types/core'
 import lodashIsEqual from 'lodash.isequal'
 import {
@@ -16,6 +15,7 @@ import dayjs, { Dayjs } from 'dayjs'
 import { URLS } from '@/services/constants'
 import { generateHeader } from '@/services/utils'
 import FileSaver from 'file-saver'
+import { selectAppListState } from '@/selector/apps/app-list'
 
 export type TransactionHistoryProps = {}
 
@@ -26,11 +26,9 @@ export type MapState = {
 }
 
 export const selectTransactionHistoryState: (state: ReduxState) => MapState = state => {
-  const developerApps = selectDeveloperApps(state)
+  const { data } = selectAppListState(state)
 
-  const developerAppIds = developerApps
-    .map(developerApp => developerApp.id)
-    .filter(id => typeof id === 'string') as string[]
+  const developerAppIds = data?.map(developerApp => developerApp.id).filter(id => typeof id === 'string') as string[]
 
   return {
     developerCreatedDate: state.developer.myIdentity?.created || '',

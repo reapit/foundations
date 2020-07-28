@@ -4,7 +4,6 @@ import dayjs from 'dayjs'
 import { Dispatch } from 'redux'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { appInstallationsRequestData } from '@/actions/app-installations'
-import { selectDeveloperId } from '@/selector'
 import { Button, DATE_TIME_FORMAT, Section } from '@reapit/elements'
 import ConfirmUninstall from './app-uninstall-modal/confirm-uninstall'
 import { handleUninstall, handleAfterClose } from './app-uninstall-modal/app-uninstall-modal'
@@ -12,7 +11,6 @@ import { PagedResultInstallationModel_, InstallationModel, AppDetailModel } from
 import { useSelector, useDispatch } from 'react-redux'
 import { selectInstallationAppData } from '@/selector/installations'
 import { Modal } from '@reapit/elements'
-import { DeveloperAppDetailState } from '@/reducers/developer'
 import {
   ListingPreviewSection,
   AuthenticationSection,
@@ -20,9 +18,11 @@ import {
   InstallationsTableSection,
   PermissionsSection,
 } from './app-sections'
+import { AppDetailState } from '@/reducers/apps/app-detail'
+import { selectDeveloperId } from '@/selector/auth'
 
 export type AppContentProps = {
-  appDetailState: DeveloperAppDetailState
+  appDetailState: AppDetailState
 }
 
 export type CustomUninstallCell = React.FC<{ onClick: () => void }>

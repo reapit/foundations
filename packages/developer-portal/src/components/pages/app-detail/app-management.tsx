@@ -1,5 +1,4 @@
 import React from 'react'
-import { DeveloperAppDetailState } from '@/reducers/developer'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectClientId } from '@/selector/client'
 import AppRevisionModal from './app-revision-modal'
@@ -9,12 +8,13 @@ import { useHistory } from 'react-router'
 import routes from '@/constants/routes'
 import { History } from 'history'
 import { Dispatch } from 'redux'
-import { developerFetchAppDetail } from '@/actions/developer'
 import styles from '@/styles/blocks/standalone-app-detail.scss?mod'
+import { fetchAppDetail } from '@/actions/apps'
+import { AppDetailState } from '@/reducers/apps/app-detail'
 
 interface AppManagementProps {
   pendingRevisions: boolean
-  appDetailState: DeveloperAppDetailState
+  appDetailState: AppDetailState
   id: string
 }
 
@@ -35,7 +35,7 @@ export const onCancelSuccess = ({
   id: string
   dispatch: Dispatch
 }) => () => {
-  dispatch(developerFetchAppDetail({ id, clientId }))
+  dispatch(fetchAppDetail({ id, clientId }))
 }
 
 export const onAppRevisionModalAfterClose = (setVisible: (value: boolean) => void) => () => {

@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
-import { requestAuthenticationCode } from '@/actions/app-detail'
 import styles from '@/styles/blocks/app-authentication-detail.scss?mod'
 import { Loader, Content, H5 } from '@reapit/elements'
 import { FaCopy } from 'react-icons/fa'
 import CopyToClipboard from 'react-copy-to-clipboard'
-import { selectAppAuthenticationCode, selectAppAuthenticationLoading } from '@/selector/app-detail'
+import { selectAppAuthenticationLoading, selectAppAuthenticationCode } from '@/selector/app-authentication'
+import { fetchtAppAuthentication } from '@/actions/apps'
 
 export type AppAuthenticationDetailProps = {
   appId: string
@@ -22,7 +22,7 @@ export const handleCopyCode = (setTooltipMessage: React.Dispatch<React.SetStateA
 export const handleShowAuthCode = (appId: string, dispatch: Dispatch) => {
   return e => {
     e.preventDefault()
-    dispatch(requestAuthenticationCode(appId))
+    dispatch(fetchtAppAuthentication(appId))
   }
 }
 

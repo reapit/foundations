@@ -2,7 +2,6 @@ import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
 import { DeveloperState } from '../reducers/developer'
 import { AuthState } from '../reducers/auth'
-import { AppDetailState } from '../reducers/app-detail'
 import { ErrorState } from '../reducers/error'
 import { SubmitAppState } from '../reducers/submit-app'
 import { SubmitRevisionState } from '@/reducers/submit-revision'
@@ -20,6 +19,7 @@ import { WebhookEditState } from '@/reducers/webhook-edit-modal'
 import { WebhookState } from '@/reducers/webhook-subscriptions'
 import { DeveloperSubscriptionsState } from '@/reducers/developer-subscriptions'
 import { DevelopersRootState } from '@/reducers/developers'
+import { AppsRootState } from '@/reducers/apps'
 
 export type ModalProps = { visible: boolean; afterClose: () => void }
 
@@ -59,7 +59,7 @@ export interface FetcherParams<T> {
 }
 
 export interface ReduxState {
-  appDetail: AppDetailState
+  apps: AppsRootState
   developer: DeveloperState
   auth: AuthState
   error: ErrorState
