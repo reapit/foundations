@@ -24,13 +24,8 @@ export const ModalV2: React.FC<ModalPropsV2> = ({
     <Dialog
       {...restProps}
       destroyOnClose={destroyOnClose}
-      className={cx(modalContainer, className)}
-      wrapClassName={cx(
-        isCentered && modalCentered,
-        !isPadding && modalNoPadding,
-        isResponsive && modalResponsiveContainer,
-        wrapClassName,
-      )}
+      className={cx(modalContainer, isResponsive && modalResponsiveContainer, className)}
+      wrapClassName={cx(isCentered && modalCentered, !isPadding && modalNoPadding, wrapClassName)}
     >
       {children}
     </Dialog>

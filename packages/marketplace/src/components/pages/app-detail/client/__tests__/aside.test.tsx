@@ -4,7 +4,7 @@ import { shallow } from 'enzyme'
 import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
-import { DesktopIntegrationTypeModel } from '@/actions/app-integration-types'
+import { DesktopIntegrationTypeModel } from '@/actions/desktop-integration-types'
 
 describe('ClientAside', () => {
   test('ClientAside - should match snapshot', () => {

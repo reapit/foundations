@@ -1,6 +1,6 @@
 import appDetailReducer, { defaultState } from '../app-detail'
-import { ActionType } from '../../../types/core'
-import ActionTypes from '../../../constants/action-types'
+import { ActionType } from '@/types/core'
+import ActionTypes from '@/constants/action-types'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 
 describe('client app detail reducer', () => {

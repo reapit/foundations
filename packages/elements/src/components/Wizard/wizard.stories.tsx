@@ -14,12 +14,12 @@ const BasicUsage = () => {
   const [current, setCurrent] = useState('step-1')
   const [visible, setVisible] = useState(false)
   return (
-    <div style={{ padding: 20 }}>
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       {[1, 2, 3, 4].map(index => (
         <Button
           type="button"
           key={index}
-          variant={'secondary'}
+          variant="primary"
           className="mr-2"
           onClick={() => {
             setCurrent(`step-${index}`)
@@ -56,7 +56,7 @@ const BasicUsage = () => {
           onSubmit={({ context }) => context.close()}
         ></Wizard.Step>
       </Wizard>
-    </div>
+    </Section>
   )
 }
 storiesOf('Wizard', module).add('Basic', () => <BasicUsage />)
@@ -121,7 +121,7 @@ const CustomFooterNavigation = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [visible, setVisible] = useState(false)
   return (
-    <div>
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <Button onClick={() => setVisible(true)} variant="primary" type="button">
         Open
       </Button>
@@ -195,7 +195,7 @@ const CustomFooterNavigation = () => {
         ></Wizard.Step>
         <Wizard.Step id="step-2" Component={() => <p>Success message</p>}></Wizard.Step>
       </Wizard>
-    </div>
+    </Section>
   )
 }
 storiesOf('Wizard', module).add('CustomNav', () => <CustomFooterNavigation />)
@@ -241,7 +241,7 @@ const AccessStateUsingHook = () => {
   const [visible, setVisible] = useState(false)
   const close = () => setVisible(false)
   return (
-    <div>
+    <Section hasPadding={true} style={{ background: '#f5f7f9' }}>
       <Button variant="primary" type="button" onClick={() => setVisible(true)}>
         Open
       </Button>
@@ -255,7 +255,7 @@ const AccessStateUsingHook = () => {
         <Wizard.Step onSubmit={close} id="step-3" Component={ComponentThree}></Wizard.Step>
         <Wizard.Step onSubmit={close} id="step-4" Component={ComponentFour}></Wizard.Step>
       </Wizard>
-    </div>
+    </Section>
   )
 }
 storiesOf('Wizard', module).add('HasHook', () => <AccessStateUsingHook />)

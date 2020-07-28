@@ -1,20 +1,24 @@
 import routeDispatcher from '../route-dispatcher'
 import store from '@/core/store'
-import Routes from '../../constants/routes'
-import { RouteValue } from '../../types/core'
-import { clientFetchAppSummary } from '@/actions/client'
-import { myAppsRequestData } from '@/actions/my-apps'
-import { installedAppsRequestData } from '@/actions/installed-apps'
+
+import Routes from '@/constants/routes'
+import { RouteValue } from '@/types/core'
+import { clientFetchAppSummary } from '@/actions/apps'
+import { myAppsRequestData } from '@/actions/apps'
+import { installedAppsRequestData } from '@/actions/apps'
 
 jest.mock('@reapit/elements')
-jest.mock('@/utils/session')
-jest.mock('../../core/store')
-jest.mock('../../sagas/client')
+
+jest.mock('@/core/store', () => ({
+  dispatch: jest.fn(),
+}))
+
+jest.mock('@/sagas/apps')
 
 describe('routeDispatcher', () => {
   it('should dispatch to clientFetchAppSummaryclientFetchAppSummary for the client route', async () => {
     await routeDispatcher(Routes.APPS as RouteValue)
-    expect(store.dispatch).toHaveBeenCalledWith(clientFetchAppSummary({ page: 1 }))
+    expect(store.dispatch).toHaveBeenCalledWith(clientFetchAppSummary({ page: 1, preview: false }))
   })
 
   it('should dispatch to installedAppsRequestData for the installed-apps route', async () => {

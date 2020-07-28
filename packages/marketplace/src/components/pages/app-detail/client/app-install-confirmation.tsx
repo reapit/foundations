@@ -5,16 +5,17 @@ import { useDispatch, useSelector } from 'react-redux'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
 import { Button, ModalV2, GridFourCol, GridFourColItem, Content, ModalPropsV2 } from '@reapit/elements'
-import { appInstallationsRequestInstall } from '@/actions/app-installations'
-import { clientFetchAppDetail } from '@/actions/client'
+import { appInstallationsRequestInstall } from '@/actions/installations'
+import { clientFetchAppDetail } from '@/actions/apps'
 import { Dispatch } from 'redux'
-import CallToAction from '../../../ui/call-to-action'
-import { selectClientId } from '@/selector/client'
+import CallToAction from '@/components/ui/call-to-action'
 import routes from '@/constants/routes'
 import { selectInstallationFormState } from '@/selector/installations'
-import { selectIsDesktopMode } from '@/selector/auth'
+import { selectClientId } from '@/selector/auth'
 import { DESKTOP_REFRESH_URL } from '@/constants/desktop-urls'
 import { canGoBack } from '@/utils/router-helper'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export type AppInstallConfirmationProps = {
   appDetailData?: AppDetailModel
@@ -141,9 +142,9 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
 }) => {
   const history = useHistory()
   const [isSuccessAlertVisible, setIsSuccessAlertVisible] = React.useState(false)
-  const clientId = useSelector(selectClientId)
+  const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
+  const clientId = selectClientId(connectSession)
   const installationFormState = useSelector(selectInstallationFormState)
-  const isDesktopMode = useSelector(selectIsDesktopMode)
   const isSubmitting = installationFormState === 'SUBMITTING'
 
   const { name, id = '', scopes = [] } = appDetailData || {}
@@ -177,7 +178,7 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
                 dispatch,
                 setIsSuccessAlertVisible,
                 closeInstallConfirmationModal,
-                isDesktopMode,
+                connectIsDesktop,
               )}
             >
               Confirm

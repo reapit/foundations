@@ -1,8 +1,9 @@
-import { AuthContext } from '@/context'
+import React from 'react'
+import qs from 'query-string'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { ExtendedAppointmentModel } from '@/types/global'
 import { NegotiatorModel } from '@reapit/foundations-ts-definitions'
-import qs from 'query-string'
-import React from 'react'
 import { fetchDestinationInformation } from './api'
 
 export type Duration = { text: string; value: number }
@@ -44,8 +45,8 @@ export type ETAButtonProps = {
 
 export const ETAButton: React.FC<ETAButtonProps> = ({ appointment, queryParams }) => {
   const [duration, setDuration] = React.useState<Duration | null>(null)
-  const { loginSession } = React.useContext(AuthContext)
-  const userCode = loginSession?.loginIdentity?.userCode || ''
+  const session = useReapitConnect(reapitConnectBrowserSession)
+  const userCode = session.connectSession?.loginIdentity.userCode || ''
   React.useEffect(handleUseEffect({ setDuration, queryParams, appointment }), [
     appointment,
     queryParams.currentLat,

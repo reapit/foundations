@@ -43,7 +43,6 @@ exports[`Router should match a snapshot 1`] = `
         >
           <Switch>
             <Component
-              allow="ADMIN"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -62,7 +61,6 @@ exports[`Router should match a snapshot 1`] = `
         >
           <Switch>
             <Component
-              allow="DEVELOPER"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -75,12 +73,9 @@ exports[`Router should match a snapshot 1`] = `
             />
           </Switch>
         </Component>
-        <Component
-          path="/"
-        >
+        <Component>
           <Switch>
             <Component
-              allow="CLIENT"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -89,10 +84,9 @@ exports[`Router should match a snapshot 1`] = `
                   "_status": -1,
                 }
               }
-              path="/authentication/:loginType"
+              path="/authentication"
             />
             <Component
-              allow="CLIENT"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -106,7 +100,6 @@ exports[`Router should match a snapshot 1`] = `
               path="/installed"
             />
             <Component
-              allow="CLIENT"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -120,7 +113,6 @@ exports[`Router should match a snapshot 1`] = `
               path="/manage"
             />
             <Component
-              allow="CLIENT"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -134,7 +126,6 @@ exports[`Router should match a snapshot 1`] = `
               path="/apps"
             />
             <Component
-              allow="CLIENT"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -148,7 +139,6 @@ exports[`Router should match a snapshot 1`] = `
               path="/apps/:appid"
             />
             <Component
-              allow="CLIENT"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -162,21 +152,6 @@ exports[`Router should match a snapshot 1`] = `
               path="/apps/:appid/manage"
             />
             <Component
-              allow="CLIENT"
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                }
-              }
-              exact={true}
-              fetcher={true}
-              path="/help"
-            />
-            <Component
-              allow="CLIENT"
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),

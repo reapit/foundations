@@ -16,6 +16,7 @@ exports[`DeclarationAndRiskAssessment should match snapshot 1`] = `
       }
     }
     onSubmit={[MockFunction]}
+    validateOnMount={true}
     validationSchema={
       ObjectSchema {
         "_blacklist": RefSet {

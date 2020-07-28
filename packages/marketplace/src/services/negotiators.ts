@@ -1,6 +1,7 @@
-import { fetcher, setQueryParams } from '@reapit/elements'
-import { initAuthorizedRequestHeaders } from './utils'
 import { logger } from '@reapit/utils'
+import { fetcher, setQueryParams } from '@reapit/elements'
+import { PagedResultNegotiatorModel_ } from '@reapit/foundations-ts-definitions'
+import { initAuthorizedRequestHeaders } from './utils'
 import { URLS } from './constants'
 
 export interface FetchNegotiatorsParams {
@@ -13,29 +14,7 @@ export interface FetchNegotiatorsParams {
   name?: string
 }
 
-export type NegotiatorItem = {
-  active: boolean
-  created: string
-  email: string
-  id: string
-  jobTitle: string
-  metadata: any
-  mobilePhone: string
-  modified: string
-  name: string
-  officeId: string
-  workPhone: string
-}
-
-export type NegotiatorsResult = {
-  pageCount: number
-  pageNumber: number
-  pageSize: number
-  totalCount: number
-  _embedded: NegotiatorItem[]
-} | null
-
-export const fetchNegotiators = async (params: FetchNegotiatorsParams): Promise<NegotiatorsResult> => {
+export const fetchNegotiators = async (params: FetchNegotiatorsParams): Promise<PagedResultNegotiatorModel_> => {
   try {
     const headers = await initAuthorizedRequestHeaders()
     const response = await fetcher({

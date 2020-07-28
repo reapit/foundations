@@ -1,7 +1,7 @@
 import { errorClearedComponent, errorClearedServer, errorThrownComponent, errorThrownServer } from '../error'
-import ActionTypes from '../../constants/action-types'
-import { ErrorData } from '../../reducers/error'
-import errorMessages from '../../constants/error-messages'
+import ActionTypes from '@/constants/action-types'
+import { ErrorData } from '@/reducers/error'
+import errorMessages from '@/constants/error-messages'
 
 describe('error actions', () => {
   it('should create a errorClearedComponent action', () => {

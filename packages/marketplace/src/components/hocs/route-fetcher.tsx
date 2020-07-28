@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { RouteComponentProps } from 'react-router-dom'
 import { StaticContext } from 'react-router'
-import routeDispatcher from '../../utils/route-dispatcher'
-import { RouteValue } from '../../types/core'
+import routeDispatcher from '@/utils/route-dispatcher'
+import { RouteValue } from '@/types/core'
 
 interface RouteFetcherProps {
   routerProps: RouteComponentProps<any, StaticContext, any>

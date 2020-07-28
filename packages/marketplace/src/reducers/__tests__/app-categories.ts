@@ -1,7 +1,7 @@
 import appCaregoriesReducer, { defaultState } from '../app-categories'
-import { ActionType } from '../../types/core'
-import ActionTypes from '../../constants/action-types'
-import { appCategorieStub } from '../../sagas/__stubs__/app-categories'
+import { ActionType } from '@/types/core'
+import ActionTypes from '@/constants/action-types'
+import { appCategorieStub } from '@/sagas/__stubs__/app-categories'
 
 describe('appCategories reducer', () => {
   it('should return default state if action not matched', () => {

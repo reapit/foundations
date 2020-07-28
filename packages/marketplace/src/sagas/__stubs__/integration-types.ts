@@ -1,4 +1,4 @@
-import { PagedResultDesktopIntegrationTypeModel_ } from '@/actions/app-integration-types'
+import { PagedResultDesktopIntegrationTypeModel_ } from '@/actions/desktop-integration-types'
 
 export const integrationTypesStub: PagedResultDesktopIntegrationTypeModel_ = {
   data: [

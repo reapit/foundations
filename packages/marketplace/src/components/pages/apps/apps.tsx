@@ -10,34 +10,36 @@ import AppList from '@/components/ui/app-list'
 import FeaturedApp from '@/components/ui/featured-app'
 // Commenting out as we are disabling for launch because there are too few apps
 // import AppSidebar from '@/components/ui/app-sidebar'
-import { AppDetailState } from '@/reducers/app-detail'
-import { selectAppSummary } from '@/selector/client'
+import { selectAppSummary } from '@/selector/apps'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { addQuery, hasFilterParams } from '@/utils/client-url-params'
 import Routes from '@/constants/routes'
 import InfiniteScroll from 'react-infinite-scroller'
-import { clientFetchAppSummary } from '@/actions/client'
+import { clientFetchAppSummary } from '@/actions/apps'
 import styles from '@/styles/pages/apps.scss?mod'
+import qs from 'query-string'
+import { getNumberOfItems } from '@/utils/browse-app'
+import ComingSoonApps from './coming-soon'
 
 export const handleAfterClose = ({ setVisible }) => () => setVisible(false)
 export const handleOnChange = history => (page: number) => {
   history.push(addQuery({ page }))
 }
 
-export interface onCardClickParams {
-  setVisible: (isVisible: boolean) => void
-  setStateViewBrowse: () => void
-  appDetail: AppDetailState
-  fetchAppDetail: (id: string, client: string) => void
-  clientId: string
-}
-
 export const handleOnCardClick = (history: History) => (app: AppSummaryModel) => {
   history.push(`${Routes.APPS}/${app.id}`)
 }
 
-export const handleLoadMore = (dispatch: Dispatch) => (page: number) => {
-  dispatch(clientFetchAppSummary({ page }))
+export const handleLoadMore = ({
+  dispatch,
+  preview,
+  loading,
+}: {
+  dispatch: Dispatch
+  preview: boolean
+  loading: boolean
+}) => (page: number) => {
+  !loading && dispatch(clientFetchAppSummary({ page, preview }))
 }
 
 export const Apps: React.FunctionComponent = () => {
@@ -51,8 +53,11 @@ export const Apps: React.FunctionComponent = () => {
   const apps = appSummaryState?.data?.apps?.data || []
   const featuredApps = appSummaryState?.data?.featuredApps || []
   const { totalCount = 0, pageNumber = 1 } = appSummaryState?.data?.apps || {}
+  const { preview: previewString } = qs.parse(location.search)
+  const preview = !!previewString
 
-  const totalPage = totalCount / pageNumber
+  const numOfItemsPerPage = getNumberOfItems()
+  const totalPage = totalCount / numOfItemsPerPage
   /**
    * When apps is empty or when loading app set hasMore = false to prevent trigger load more
    * Otherwise set hasMore = true when pageNumber (current page ) less then totalPage
@@ -73,7 +78,7 @@ export const Apps: React.FunctionComponent = () => {
         <InfiniteScroll
           useWindow={false}
           pageStart={1}
-          loadMore={handleLoadMore(dispatch)}
+          loadMore={handleLoadMore({ dispatch, preview, loading })}
           hasMore={hasMore}
           loader={<Loader key="infiniteScrollLoader" />}
           initialLoad={false}
@@ -101,6 +106,7 @@ export const Apps: React.FunctionComponent = () => {
             </>
           </TransitionGroup>
         </InfiniteScroll>
+        <ComingSoonApps />
       </Section>
     </ErrorBoundary>
   )

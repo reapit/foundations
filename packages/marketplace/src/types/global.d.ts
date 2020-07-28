@@ -3,7 +3,6 @@ export type Config = {
   sentryDns: string
   marketplaceApiUrl: string
   marketplaceApiKey: string
-  uploadApiUrl: string
   swaggerUrl: string
   elementDocumentUrl: string
   cognitoClientId: string
@@ -19,6 +18,9 @@ export type Config = {
   apiDocDesktop: string
   developerPortalUrl: string
   adminPortalUrl: string
+  previewExternalAppIds: string[]
+  previewFeaturedExternalAppIds: string[]
+  connectLoginRedirectPath: string
 }
 
 declare global {

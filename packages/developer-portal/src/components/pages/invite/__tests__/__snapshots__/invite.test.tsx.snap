@@ -66,6 +66,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
           onSubmit={[Function]}
         >
           <Component
+            closable={false}
             footer={
               <Unknown
                 inviteStatus="PENDING"
@@ -74,11 +75,18 @@ exports[`AcceptedModal should match snapshot 1`] = `
               />
             }
             isCentered={true}
-            title="Reapit Foundations Invitation"
+            title={
+              <Unknown
+                className="pt-2 pb-2"
+              >
+                Reapit Foundations Invitation
+              </Unknown>
+            }
             visible={true}
           >
             <Component
               className=""
+              closable={false}
               destroyOnClose={true}
               footer={
                 <Unknown
@@ -87,7 +95,13 @@ exports[`AcceptedModal should match snapshot 1`] = `
                   onReject={[Function]}
                 />
               }
-              title="Reapit Foundations Invitation"
+              title={
+                <Unknown
+                  className="pt-2 pb-2"
+                >
+                  Reapit Foundations Invitation
+                </Unknown>
+              }
               visible={true}
               wrapClassName=""
             >
@@ -124,15 +138,6 @@ exports[`AcceptedModal should match snapshot 1`] = `
                               <div
                                 class="rc-dialog-content"
                               >
-                                <button
-                                  aria-label="Close"
-                                  class="rc-dialog-close"
-                                  type="button"
-                                >
-                                  <span
-                                    class="rc-dialog-close-x"
-                                  />
-                                </button>
                                 <div
                                   class="rc-dialog-header"
                                 >
@@ -140,7 +145,12 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                     class="rc-dialog-title"
                                     id="rcDialogTitle0"
                                   >
-                                    Reapit Foundations Invitation
+                                    <h4
+                                      class=""
+                                      id=""
+                                    >
+                                      Reapit Foundations Invitation
+                                    </h4>
                                   </div>
                                 </div>
                                 <div
@@ -253,7 +263,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                   >
                     <Dialog
                       className=""
-                      closable={true}
+                      closable={false}
                       destroyOnClose={true}
                       focusTriggerAfterClose={true}
                       footer={
@@ -270,7 +280,13 @@ exports[`AcceptedModal should match snapshot 1`] = `
                       maskClosable={true}
                       prefixCls="rc-dialog"
                       switchScrollingEffect={[Function]}
-                      title="Reapit Foundations Invitation"
+                      title={
+                        <Unknown
+                          className="pt-2 pb-2"
+                        >
+                          Reapit Foundations Invitation
+                        </Unknown>
+                      }
                       visible={true}
                       wrapClassName=""
                     >
@@ -353,16 +369,6 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                   <div
                                     className="rc-dialog-content"
                                   >
-                                    <button
-                                      aria-label="Close"
-                                      className="rc-dialog-close"
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      <span
-                                        className="rc-dialog-close-x"
-                                      />
-                                    </button>
                                     <div
                                       className="rc-dialog-header"
                                     >
@@ -370,7 +376,16 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                         className="rc-dialog-title"
                                         id="rcDialogTitle0"
                                       >
-                                        Reapit Foundations Invitation
+                                        <Component
+                                          className="pt-2 pb-2"
+                                        >
+                                          <h4
+                                            className=""
+                                            id=""
+                                          >
+                                            Reapit Foundations Invitation
+                                          </h4>
+                                        </Component>
                                       </div>
                                     </div>
                                     <div
@@ -567,14 +582,28 @@ exports[`AcceptedModal should match snapshot 1`] = `
           visible={false}
         >
           <Component
+            closable={false}
             isCentered={true}
-            title="Success"
+            title={
+              <Unknown
+                className="pt-2 pb-2"
+              >
+                Success
+              </Unknown>
+            }
             visible={false}
           >
             <Component
               className=""
+              closable={false}
               destroyOnClose={true}
-              title="Success"
+              title={
+                <Unknown
+                  className="pt-2 pb-2"
+                >
+                  Success
+                </Unknown>
+              }
               visible={false}
               wrapClassName=""
             >
@@ -588,14 +617,28 @@ exports[`AcceptedModal should match snapshot 1`] = `
           visible={false}
         >
           <Component
+            closable={false}
             isCentered={true}
-            title="Invitation Declined"
+            title={
+              <Unknown
+                className="pt-2 pb-2"
+              >
+                Invitation Declined
+              </Unknown>
+            }
             visible={false}
           >
             <Component
               className=""
+              closable={false}
               destroyOnClose={true}
-              title="Invitation Declined"
+              title={
+                <Unknown
+                  className="pt-2 pb-2"
+                >
+                  Invitation Declined
+                </Unknown>
+              }
               visible={false}
               wrapClassName=""
             >

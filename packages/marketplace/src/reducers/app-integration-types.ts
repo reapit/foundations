@@ -1,6 +1,9 @@
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
-import { integrationTypesReceiveData, PagedResultDesktopIntegrationTypeModel_ } from '@/actions/app-integration-types'
+import {
+  integrationTypesReceiveData,
+  PagedResultDesktopIntegrationTypeModel_,
+} from '@/actions/desktop-integration-types'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 
 export type IntegrationTypeState = PagedResultDesktopIntegrationTypeModel_

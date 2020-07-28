@@ -9,16 +9,20 @@ import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { handleLaunchApp } from '@/utils/launch-app'
 import { getParamsFromPath } from '@/utils/client-url-params'
 import Routes from '@/constants/routes'
-import { selectInstalledApps } from '@/selector/client'
+import { selectInstalledApps } from '@/selector/apps'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export const handleOnChange = history => (page: number) => history.push(`${routes.INSTALLED_APPS}?page=${page}`)
 
-export const handleOnCardClick = (app: AppSummaryModel) => handleLaunchApp(app)
+export const handleOnCardClick = (connectIsDesktop: Boolean) => (app: AppSummaryModel) =>
+  handleLaunchApp(app, connectIsDesktop)
 
 export const InstalledApps: React.FC = () => {
   const history = useHistory()
   const location = useLocation()
   const installedAppsState = useSelector(selectInstalledApps)
+  const { connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
 
   const queryParams = getParamsFromPath(location.search)
   const { page: pageNumber = 1 } = queryParams
@@ -43,7 +47,7 @@ export const InstalledApps: React.FC = () => {
       <InstalledAppList
         list={list}
         loading={loading}
-        onCardClick={handleOnCardClick}
+        onCardClick={handleOnCardClick(connectIsDesktop)}
         infoType="INSTALLED_APPS_EMPTY"
         pagination={{
           totalCount,

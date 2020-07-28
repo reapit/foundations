@@ -6,15 +6,16 @@ import { useDispatch, useSelector } from 'react-redux'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
 import { Button, Modal } from '@reapit/elements'
-import { clientFetchAppDetail } from '@/actions/client'
-import { appInstallationsRequestUninstall } from '@/actions/app-installations'
-import CallToAction from '../../../ui/call-to-action'
-import { selectClientId } from '@/selector/client'
+import { clientFetchAppDetail } from '@/actions/apps'
+import { appInstallationsRequestUninstall } from '@/actions/installations'
+import CallToAction from '@/components/ui/call-to-action'
 import { selectInstallationFormState } from '@/selector/installations'
 import routes from '@/constants/routes'
-import { selectIsDesktopMode } from '@/selector/auth'
+import { selectClientId } from '@/selector/auth'
 import { DESKTOP_REFRESH_URL } from '@/constants/desktop-urls'
 import { canGoBack } from '@/utils/router-helper'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export type AppUninstallConfirmationProps = {
   appDetailData?: AppDetailModel
@@ -139,9 +140,9 @@ const AppUninstallConfirmation: React.FC<AppUninstallConfirmationProps> = ({
 }) => {
   const [isSuccessAlertVisible, setIsSuccessAlertVisible] = React.useState(false)
   const history = useHistory()
-  const clientId = useSelector(selectClientId)
+  const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
+  const clientId = selectClientId(connectSession)
   const installationFormState = useSelector(selectInstallationFormState)
-  const isDesktopMode = useSelector(selectIsDesktopMode)
   const isSubmitting = installationFormState === 'SUBMITTING'
   const { name, id = '', installationId = '' } = appDetailData || {}
   const dispatch = useDispatch()
@@ -161,7 +162,7 @@ const AppUninstallConfirmation: React.FC<AppUninstallConfirmationProps> = ({
           dispatch,
           setIsSuccessAlertVisible,
           closeUninstallConfirmationModal,
-          isDesktopMode,
+          connectIsDesktop,
         )}
       >
         <>Are you sure you wish to uninstall {name}? This action will uninstall the app for ALL platform users</>

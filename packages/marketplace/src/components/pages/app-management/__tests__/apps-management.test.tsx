@@ -11,21 +11,13 @@ import { ReduxState } from '@/types/core'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
-const createStore = (loading, isAdmin) => {
+const createStore = loading => {
   return {
     ...appState,
     myApps: {
       ...appState.myApps,
       loading,
       myAppsData: {},
-    },
-    auth: {
-      loginSession: {
-        loginIdentity: {
-          isAdmin,
-          groups: [] as string[],
-        },
-      },
     },
   } as ReduxState
 }
@@ -39,7 +31,7 @@ describe('MyApps', () => {
   })
 
   it('should match a snapshot when LOADING false', () => {
-    store = mockStore(createStore(false, true))
+    store = mockStore(createStore(false))
     expect(
       mount(
         <ReactRedux.Provider store={store}>
@@ -51,7 +43,7 @@ describe('MyApps', () => {
     ).toMatchSnapshot()
   })
   it('should match a snapshot when LOADING true', () => {
-    store = mockStore(createStore(true, true))
+    store = mockStore(createStore(true))
     expect(
       mount(
         <ReactRedux.Provider store={store}>
@@ -63,7 +55,7 @@ describe('MyApps', () => {
     ).toMatchSnapshot()
   })
   it('should match a snapshot when isAdmin false', () => {
-    store = mockStore(createStore(false, false))
+    store = mockStore(createStore(false))
     expect(
       mount(
         <ReactRedux.Provider store={store}>

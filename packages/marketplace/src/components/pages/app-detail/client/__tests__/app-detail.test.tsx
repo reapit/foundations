@@ -1,19 +1,16 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
-import TestRenderer from 'react-test-renderer'
 import { MemoryRouter } from 'react-router'
-import { mount, shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import AppDetail, {
   handleCloseInstallConfirmationModal,
   handleInstallAppButtonClick,
-  renderAppHeaderButtonGroup,
   handleCloseUnInstallConfirmationModal,
   handleUnInstallAppButtonClick,
   onBackToAppsButtonClick,
 } from '../app-detail'
-import { Button } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
 
@@ -94,54 +91,6 @@ describe('AppDetail', () => {
         </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()
-  })
-
-  describe('renderAppHeaderButtonGroup', () => {
-    const mockAppId = 'test'
-    const mockInstalledOn = '2020-2-20'
-
-    it('should match snapshot', () => {
-      const wrapperWithIsInstallBtnHiddenTrue = shallow(
-        <div>{renderAppHeaderButtonGroup(mockAppId, mockInstalledOn, jest.fn(), jest.fn(), true, 'CLIENT')}</div>,
-      )
-      expect(wrapperWithIsInstallBtnHiddenTrue).toMatchSnapshot()
-      const wrapperWithIsInstallBtnHiddenFalse = shallow(
-        <div>{renderAppHeaderButtonGroup(mockAppId, mockInstalledOn, jest.fn(), jest.fn(), false, 'CLIENT')}</div>,
-      )
-      expect(wrapperWithIsInstallBtnHiddenFalse).toMatchSnapshot()
-    })
-
-    it('should render header button group when appId is existed', () => {
-      const testRenderer = TestRenderer.create(
-        <div>{renderAppHeaderButtonGroup(mockAppId, mockInstalledOn, jest.fn(), jest.fn(), false, 'CLIENT')}</div>,
-      )
-      const testInstance = testRenderer.root
-      expect(testInstance.children.length).toBe(1)
-    })
-
-    it('should render install app button if installedOn is empty', () => {
-      const testRenderer = TestRenderer.create(
-        <div>{renderAppHeaderButtonGroup(mockAppId, '', jest.fn(), jest.fn(), false, 'CLIENT')}</div>,
-      )
-      const testInstance = testRenderer.root
-      expect(testInstance.findByType(Button).props.children).toBe('Install App')
-    })
-
-    it('should render uninstall app button if installedOn is existed', () => {
-      const testRenderer = TestRenderer.create(
-        <div>{renderAppHeaderButtonGroup(mockAppId, 'exist', jest.fn(), jest.fn(), false, 'CLIENT')}</div>,
-      )
-      const testInstance = testRenderer.root
-      expect(testInstance.findByType(Button).props.children).toBe('Uninstall App')
-    })
-
-    it('should not render header button group when appId is empty', () => {
-      const testRenderer = TestRenderer.create(
-        <div>{renderAppHeaderButtonGroup('', mockInstalledOn, jest.fn(), jest.fn(), false, 'CLIENT')}</div>,
-      )
-      const testInstance = testRenderer.getInstance
-      expect(testInstance).toHaveLength(0)
-    })
   })
 
   describe('handleCloseInstallConfirmationModal', () => {

@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from '@reapit/elements'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectWebComponentData } from '@/selector/client'
-import { clientFetchWebComponentConfig } from '@/actions/client'
+import { selectWebComponentData } from '@/selector/web-components'
+import { clientFetchWebComponentConfig } from '@/actions/apps'
 import { Dispatch } from 'redux'
 import WebComponentModal from '@/components/pages/app-detail/client/web-component-config-modal/config-modal'
-import { AppDetailSection } from '../../common/ui-helpers'
+import { AppDetailSection } from '@/components/pages/app-detail/common/ui-helpers'
 import { selectClientId } from '@/selector/auth'
 import { useParams } from 'react-router-dom'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export const toggleWebComponentModal = (setIsOpenConfigModal, isOpen) => () => {
   setIsOpenConfigModal(isOpen)
@@ -25,9 +27,10 @@ export const WebComponentConfig: React.FC = () => {
   const dispatch = useDispatch()
   const [isOpenConfigModal, setIsOpenConfigModal] = useState(false)
 
-  const clientId = useSelector(selectClientId) || ''
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const clientId = selectClientId(connectSession)
   const webComponentData = useSelector(selectWebComponentData)
-  const { appid: applicationId } = useParams()
+  const { appid: applicationId } = useParams<{ appid: string }>()
 
   const handleToggleWebComponentModal = toggleWebComponentModal(setIsOpenConfigModal, true)
   const handleCloseWebComponentModal = toggleWebComponentModal(setIsOpenConfigModal, false)

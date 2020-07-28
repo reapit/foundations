@@ -1,4 +1,4 @@
-export function isEmptyObject(value: Object): boolean {
+export function isEmptyObject(value?: Object): boolean {
   return (
     value === undefined ||
     value === null ||

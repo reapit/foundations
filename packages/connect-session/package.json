@@ -14,7 +14,8 @@
   "license": "ISC",
   "author": "",
   "files": [
-    "dist"
+    "dist",
+    "src/tests/badges"
   ],
   "main": "dist/index.js",
   "umd:main": "dist/connect-session.umd.production.js",

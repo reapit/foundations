@@ -56,48 +56,22 @@ exports[`MyApps should match a snapshot when LOADING false 1`] = `
       }
     >
       <Component>
-        <Connect(ErrorBoundary)>
-          <ErrorBoundary
-            componentError={null}
-            errorThrownComponent={[Function]}
+        <Component
+          infoType="404"
+        >
+          <Component
+            message="Page not found"
+            type="danger"
           >
-            <Component
-              isHeadingSection={true}
+            <div
+              className="notification is-danger "
+              data-test=""
+              role="alert"
             >
-              <h3
-                className=""
-                id=""
-              >
-                Manage Apps
-              </h3>
-            </Component>
-            <Component
-              infoType="INSTALLED_APPS_EMPTY"
-              list={Array []}
-              loading={false}
-              onCardClick={[Function]}
-              onSettingsClick={[Function]}
-            >
-              <div
-                className="mb-4"
-              >
-                <Component
-                  variant="info"
-                >
-                  <div
-                    className="notification helper-wrap helper-info"
-                  >
-                    It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.
-                  </div>
-                </Component>
-              </div>
-            </Component>
-            <Component
-              onChange={[Function]}
-              pageNumber={1}
-            />
-          </ErrorBoundary>
-        </Connect(ErrorBoundary)>
+              Page not found
+            </div>
+          </Component>
+        </Component>
       </Component>
     </Router>
   </MemoryRouter>

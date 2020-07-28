@@ -1,46 +1,30 @@
 import * as React from 'react'
-import { render } from '@testing-library/react'
-import { createBrowserHistory } from 'history'
-import { AuthContext } from '@/context'
-import { mockContext } from '@/context/__mocks__/mock-context'
-import { AuthHook } from '@/hooks/use-auth'
-import * as cognito from '@reapit/cognito-auth'
-import { redirectToLoginPage, Login } from '../login'
-import { Router, Route } from 'react-router-dom'
+import { shallow } from 'enzyme'
+import Login from '@/components/pages/login'
+import { Button } from '@reapit/elements'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
-jest.mock('@reapit/cognito-auth', () => ({
-  redirectToLogin: jest.fn(),
-  getTokenFromQueryString: jest.fn(),
-  getSessionCookie: jest.fn(),
+jest.mock('@/core/connect-session', () => ({
+  reapitConnectBrowserSession: {
+    connectLoginRedirect: jest.fn(),
+  },
 }))
 
 describe('Login', () => {
   it('should match a snapshot', () => {
-    const history = createBrowserHistory()
-    const wrapper = render(
-      <AuthContext.Provider value={mockContext}>
-        <Router history={history}>
-          <Route>
-            <Login />
-          </Route>
-        </Router>
-      </AuthContext.Provider>,
-    )
-    expect(wrapper).toMatchSnapshot()
+    expect(shallow(<Login />)).toMatchSnapshot()
   })
 
-  it('should match a snapshot', () => {
-    const wrapper = render(
-      <AuthContext.Provider value={{} as AuthHook}>
-        <Login />
-      </AuthContext.Provider>,
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
+  describe('loginHandler', () => {
+    it('should correctly call redirect on click', () => {
+      const wrapper = shallow(<Login />)
 
-  it('should call redirectToLogin a snapshot', () => {
-    const spy = jest.spyOn(cognito, 'redirectToLogin')
-    redirectToLoginPage()
-    expect(spy).toBeCalled()
+      wrapper
+        .find(Button)
+        .first()
+        .simulate('click')
+
+      expect(reapitConnectBrowserSession.connectLoginRedirect).toHaveBeenCalledTimes(1)
+    })
   })
 })

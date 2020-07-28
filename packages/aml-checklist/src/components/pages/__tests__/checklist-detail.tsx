@@ -10,7 +10,7 @@ import {
 } from '../checklist-detail'
 import { ReduxState } from '@/types/core'
 import { contact } from '@/sagas/__stubs__/contact'
-import { getMockRouterProps } from '@/helper/mock-router'
+import { getMockRouterProps } from '@/helper/mock/mock-router'
 import { sectionsStatus } from '@/sagas/__stubs__/status'
 import { defaultStatus } from '@/constants/section-status'
 

@@ -14,23 +14,23 @@ import {
   FormikProps,
 } from '@reapit/elements'
 import { useDispatch, useSelector } from 'react-redux'
-import { clientUpdateWebComponentConfig } from '@/actions/client'
+import { NegotiatorModel } from '@reapit/foundations-ts-definitions'
+import { clientUpdateWebComponentConfig } from '@/actions/apps'
 import {
   selectWebComponentData,
   selectWebComponentLoading,
   selectWebComponentUpdating,
   selectWebComponentNegotiators,
-} from '@/selector/client'
+} from '@/selector/web-components'
 import { UpdateWebComponentConfigParams } from '@/services/web-component'
 import { Dispatch } from 'redux'
-import { NegotiatorItem } from '@/services/negotiators'
-import { selectAppDetailData } from '@/selector/client-app-detail'
+import { selectAppDetailData } from '@/selector/apps'
 
 export const updateWebComponentConfig = (dispatch: Dispatch, appId: string, callback) => (params: FormikValues) => {
   dispatch(clientUpdateWebComponentConfig({ ...params, appId, callback } as UpdateWebComponentConfigParams))
 }
 
-export const genarateNegotiatorOptions = (negotiators: NegotiatorItem[]): SelectOption[] => {
+export const genarateNegotiatorOptions = (negotiators: NegotiatorModel[]): SelectOption[] => {
   return negotiators.map(
     negotiator =>
       ({
