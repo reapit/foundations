@@ -1,4 +1,4 @@
-import { AppDetailItem } from '@/reducers/apps'
+import { AppDetailItem } from '@/reducers/apps/detail'
 import { appPermissionStub } from './app-permission'
 
 export const appDetailDataStub: { data: AppDetailItem } = {

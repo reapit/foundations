@@ -7,11 +7,11 @@ import DiffCheckbox from '../diff-checkbox'
 import DiffViewer from '../diff-viewer'
 import DiffRenderHTML from '../diff-render-html'
 import { DesktopIntegrationTypeModel, PagedResultDesktopIntegrationTypeModel_ } from '@/types/desktop-integration-types'
-import { AppsState } from '@/reducers/apps'
+import { AppDetailState } from '@/reducers/apps/detail'
 
 export type AppRevisionComparisonProps = {
   revisionDetailState: RevisionDetailState
-  appDetailState: AppsState['detail']
+  appDetailState: AppDetailState
 }
 
 export type DiffMediaModel = {

@@ -1,10 +1,10 @@
 import { ReduxState } from '@/types/core'
-import { AppsState } from '@/reducers/apps'
+import { AppDetailState, AppDetailItem } from '@/reducers/apps/detail'
 
-export const selectAppDetailState = (state: ReduxState): AppsState['detail'] => {
+export const selectAppDetailState = (state: ReduxState): AppDetailState => {
   return state?.apps?.detail || {}
 }
 
-export const selectAppDetailData = (state: ReduxState): AppsState['detail']['data'] => {
+export const selectAppDetailData = (state: ReduxState): AppDetailItem => {
   return state?.apps?.detail?.data || {}
 }
