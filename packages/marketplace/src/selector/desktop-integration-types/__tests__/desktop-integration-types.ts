@@ -1,5 +1,5 @@
 import { ReduxState } from '@/types/core'
-import { selectIntegrationTypes } from '../integration-types'
+import { selectIntegrationTypes } from '../desktop-integration-types'
 import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
 
 describe('selectIntegrationTypes', () => {

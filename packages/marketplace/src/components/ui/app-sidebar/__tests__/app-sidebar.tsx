@@ -4,7 +4,7 @@ import { AppSidebar, FilterForm, handleSelectCategory, handleSearchApp } from '.
 import { FormFields, formFields } from '../form-fields'
 import { addQuery, removeQuery } from '@/utils/client-url-params'
 import { appCategorieStub } from '@/sagas/__stubs__/app-categories'
-import { selectCategories } from '@/selector/app-categories'
+import { selectCategories } from '@/selector/categories'
 import { FormikProps } from '@reapit/elements'
 import { useHistory, useLocation } from 'react-router'
 import { useSelector } from 'react-redux'
@@ -12,7 +12,7 @@ import { CategoryModel } from '@reapit/foundations-ts-definitions'
 
 const { search, searchBy } = formFields
 
-jest.mock('@/selector/app-categories', () => ({
+jest.mock('@/selector/categories', () => ({
   selectCategories: jest.fn(() => appCategorieStub.data),
 }))
 jest.mock('@/utils/client-url-params')

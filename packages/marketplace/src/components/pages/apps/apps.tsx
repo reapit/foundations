@@ -10,7 +10,7 @@ import AppList from '@/components/ui/app-list'
 import FeaturedApp from '@/components/ui/featured-app'
 // Commenting out as we are disabling for launch because there are too few apps
 // import AppSidebar from '@/components/ui/app-sidebar'
-import { selectAppSummary } from '@/selector/client'
+import { selectAppSummary } from '@/selector/apps'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { addQuery, hasFilterParams } from '@/utils/client-url-params'
 import Routes from '@/constants/routes'

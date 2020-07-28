@@ -1,52 +1,13 @@
 import { ReduxState } from '@/types/core'
 import {
-  selectFeaturedApps,
   selectWebComponentOpen,
   selectWebComponentData,
   selectWebComponentLoading,
   selectWebComponentUpdating,
   selectWebComponentNegotiators,
-  selectAppDetail,
-  selectMyApps,
-  selectInstalledApps,
-} from '../client'
-import { featuredAppsDataStub } from '@/sagas/__stubs__/apps'
+} from '../web-components'
 
 describe('selectFeaturedApps', () => {
-  it('should run correctly', () => {
-    const input = {
-      client: {
-        appSummary: {
-          data: {
-            featuredApps: featuredAppsDataStub.data,
-          },
-        },
-      },
-    } as ReduxState
-    const result = selectFeaturedApps(input)
-    expect(result).toEqual(featuredAppsDataStub.data)
-  })
-
-  it('should run correctly and return [', () => {
-    const input = {
-      client: {
-        appSummary: {
-          data: null,
-        },
-      },
-    } as ReduxState
-    const result = selectFeaturedApps(input)
-    expect(result).toEqual([])
-  })
-
-  it('should selectInstalledApps run correctly and return true', () => {
-    const input = {
-      installedApps: {},
-    } as ReduxState
-    const result = selectInstalledApps(input)
-    expect(result).toEqual({})
-  })
-
   it('should selectIsWebComponentOpen run correctly and return true', () => {
     const input = {
       client: {
@@ -106,19 +67,5 @@ describe('selectFeaturedApps', () => {
     } as ReduxState
     const result = selectWebComponentNegotiators(input)
     expect(result).toEqual([])
-  })
-  it('should run correctly and return {}', () => {
-    const input = {
-      appDetail: {},
-    } as ReduxState
-    const result = selectAppDetail(input)
-    expect(result).toEqual(input.appDetail)
-  })
-  it('should run correctly and return {}', () => {
-    const input = {
-      myApps: {},
-    } as ReduxState
-    const result = selectMyApps(input)
-    expect(result).toEqual(input.myApps)
   })
 })
