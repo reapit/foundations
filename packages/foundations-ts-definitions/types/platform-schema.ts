@@ -9356,6 +9356,7 @@ export interface Properties {
     | 'negotiator'
     | 'offers'
     | 'offices'
+    | 'tenancies'
     | 'vendor'
   )[]
   id?: string[]
