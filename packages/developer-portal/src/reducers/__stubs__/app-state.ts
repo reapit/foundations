@@ -11,6 +11,10 @@ const appState: ReduxState = {
       data: {},
       isLoading: false,
     },
+    authentication: {
+      code: '',
+      isLoading: false,
+    },
   },
   developer: {
     loading: false,
@@ -60,10 +64,6 @@ const appState: ReduxState = {
       redirectUri: '',
       state: null,
     },
-  },
-  appAuthentication: {
-    code: '',
-    isLoading: false,
   },
   error: {
     componentError: null,

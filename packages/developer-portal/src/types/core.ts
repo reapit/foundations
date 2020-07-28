@@ -19,7 +19,6 @@ import { WebhookEditState } from '@/reducers/webhook-edit-modal'
 import { WebhookState } from '@/reducers/webhook-subscriptions'
 import { DeveloperSubscriptionsState } from '@/reducers/developer-subscriptions'
 import { DevelopersRootState } from '@/reducers/developers'
-import { AppAuthenticationState } from '@/reducers/app-authentication'
 import { AppsRootState } from '@/reducers/apps'
 
 export type ModalProps = { visible: boolean; afterClose: () => void }
@@ -61,7 +60,6 @@ export interface FetcherParams<T> {
 
 export interface ReduxState {
   apps: AppsRootState
-  appAuthentication: AppAuthenticationState
   developer: DeveloperState
   auth: AuthState
   error: ErrorState

@@ -5,7 +5,7 @@ import ActionTypes from '../constants/action-types'
 import { Action } from '../types/core'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
-import { fetchAppDetail } from '@/actions/app-detail'
+import { fetchAppDetail } from '@/actions/apps'
 import { logger } from '@reapit/utils'
 import { createAppRevision } from '@/services/apps'
 

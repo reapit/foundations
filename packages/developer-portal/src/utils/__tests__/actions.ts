@@ -2,7 +2,7 @@ import { actionCreator, isType } from '../actions'
 import ActionTypes from '../../constants/action-types'
 import { Action } from '../../types/core'
 import { FetchAppListParams } from '@/reducers/apps/app-list'
-import { fetchAppList } from '@/actions/app-list'
+import { fetchAppList } from '@/actions/apps'
 
 describe('actions utils', () => {
   describe('actionCreator', () => {

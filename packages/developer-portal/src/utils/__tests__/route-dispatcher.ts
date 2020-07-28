@@ -5,7 +5,7 @@ import { GET_ALL_PAGE_SIZE } from '../../constants/paginator'
 import { RouteValue } from '../../types/core'
 import { fetchMyIdentity } from '@/actions/developer'
 import { requestDeveloperData } from '@/actions/settings'
-import { fetchAppList } from '@/actions/app-list'
+import { fetchAppList } from '@/actions/apps'
 
 jest.mock('@reapit/elements')
 jest.mock('@/utils/session')

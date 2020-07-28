@@ -1,7 +1,7 @@
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
-import { fetchAppDetail, fetchAppDetailSuccess, fetchAppDetailFailed } from '@/actions/app-detail'
+import { fetchAppDetail, fetchAppDetailSuccess, fetchAppDetailFailed } from '@/actions/apps'
 
 export type AppDetailData = (AppDetailModel & { apiKey?: string }) | null
 

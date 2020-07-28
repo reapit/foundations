@@ -4,7 +4,7 @@ import { shallow } from 'enzyme'
 import { submitAppSetFormState } from '@/actions/submit-app'
 import { Dispatch } from 'redux'
 import { ReduxState } from '@/types/core'
-import { fetchAppList } from '@/actions/app-list'
+import { fetchAppList } from '@/actions/apps'
 jest.mock('../steps/step-submit-app-success', () => ({
   onFinish: jest.fn().mockImplementation(fn => fn),
 }))

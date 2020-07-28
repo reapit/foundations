@@ -5,16 +5,18 @@ import {
   fetchtAppAuthenticationSuccess,
   fetchtAppAuthenticationFailed,
   clearAppAuthentication,
-} from '@/actions/app-authentication'
+} from '@/actions/apps'
 
 export type AppAuthenticationState = {
   isLoading: boolean
   code: string
+  errorMessage?: string | null
 }
 
 export const defaultState: AppAuthenticationState = {
   isLoading: false,
   code: '',
+  errorMessage: null,
 }
 
 const appAuthenticationReducer = (
@@ -39,15 +41,15 @@ const appAuthenticationReducer = (
   if (isType(action, fetchtAppAuthenticationFailed)) {
     return {
       ...state,
-      code: '',
       isLoading: false,
+      errorMessage: action.data,
     }
   }
 
   if (isType(action, clearAppAuthentication)) {
     return {
       ...state,
-      code: '',
+      ...defaultState,
     }
   }
 

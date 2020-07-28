@@ -10,7 +10,7 @@ import { FetchAppByIdParams, fetchAppById } from '@/services/apps'
 import { fetchApiKeyInstallationById } from '@/services/installations'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
-import { fetchAppDetailSuccess } from '@/actions/app-detail'
+import { fetchAppDetailSuccess } from '@/actions/apps'
 
 jest.mock('@reapit/elements')
 

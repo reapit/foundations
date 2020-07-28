@@ -1,6 +1,6 @@
 import { AppDetailState } from '@/reducers/apps/app-detail'
 import { appPermissionStub } from './app-permission'
-import { AppAuthenticationState } from '@/reducers/app-authentication'
+import { AppAuthenticationState } from '@/reducers/apps/app-authentication'
 
 export const appDetailDataStub: AppDetailState = {
   isLoading: false,

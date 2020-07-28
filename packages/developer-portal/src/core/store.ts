@@ -6,7 +6,6 @@ import auth from '@/reducers/auth'
 import appsReducer from '@/reducers/apps'
 
 import developer from '@/reducers/developer'
-import { appAuthenticationReducer } from '@/reducers/app-authentication'
 import error from '@/reducers/error'
 import submitApp from '@/reducers/submit-app'
 import submitRevision from '@/reducers/submit-revision'
@@ -27,7 +26,7 @@ import developerSubscriptions from '@/reducers/developer-subscriptions'
 import developersReducer from '@/reducers/developers'
 
 import authSagas from '@/sagas/auth'
-import { appDetailSagas, appListSagas } from '@/sagas/apps'
+import { appDetailSagas, appListSagas, appAuthenticationSagas } from '@/sagas/apps'
 import appUsageStatsSagas from '@/sagas/app-usage-stats'
 import appHttpTrafficEventSagas from '@/sagas/app-http-trafic-event'
 import developerSagas from '@/sagas/developer'
@@ -65,7 +64,6 @@ export class Store {
     apps: appsReducer,
     developer,
     auth,
-    appAuthentication: appAuthenticationReducer,
     error,
     submitApp,
     submitRevision,
@@ -94,6 +92,7 @@ export class Store {
       fork(developerSagas),
       fork(appDetailSagas),
       fork(appListSagas),
+      fork(appAuthenticationSagas),
       fork(submitAppSagas),
       fork(submitRevisionSagas),
       fork(developerSetStatusSagas),

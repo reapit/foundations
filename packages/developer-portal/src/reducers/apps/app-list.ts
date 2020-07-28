@@ -1,6 +1,6 @@
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
-import { fetchAppList, fetchAppListSuccess, fetchAppListFailed, clearAppList } from '@/actions/app-list'
+import { fetchAppList, fetchAppListSuccess, fetchAppListFailed, clearAppList } from '@/actions/apps'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
 export interface FetchAppListParams {

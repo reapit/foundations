@@ -6,5 +6,5 @@ export const fetchtAppAuthentication = actionCreator<string>(ActionTypes.REQUEST
 export const fetchtAppAuthenticationSuccess = actionCreator<AppClientSecretModel>(
   ActionTypes.REQUEST_AUTHENTICATION_CODE_SUCCESS,
 )
-export const fetchtAppAuthenticationFailed = actionCreator<void>(ActionTypes.REQUEST_AUTHENTICATION_CODE_FAILURE)
+export const fetchtAppAuthenticationFailed = actionCreator<string>(ActionTypes.REQUEST_AUTHENTICATION_CODE_FAILURE)
 export const clearAppAuthentication = actionCreator<void>(ActionTypes.REMOVE_AUTHENTICATION_CODE)

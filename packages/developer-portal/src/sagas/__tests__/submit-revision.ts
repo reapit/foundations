@@ -5,7 +5,7 @@ import { SubmitRevisionParams } from '@/actions/submit-revision'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { revisionSubmitStub } from '../__stubs__/revision-submit'
-import { fetchAppDetail } from '@/actions/app-detail'
+import { fetchAppDetail } from '@/actions/apps'
 import { createAppRevision } from '@/services/apps'
 
 jest.mock('@/services/apps')

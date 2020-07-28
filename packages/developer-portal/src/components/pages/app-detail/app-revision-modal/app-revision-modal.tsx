@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchAppDetail } from '@/actions/app-detail'
+import { fetchAppDetail } from '@/actions/apps'
 import { revisionDetailRequestData, declineRevision, revisionDetailClearData } from '@/actions/revision-detail'
 import { revisionsRequestData, revisionsClearData } from '@/actions/revisions'
 import { AppDetailState } from '@/reducers/apps/app-detail'

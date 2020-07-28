@@ -6,7 +6,7 @@ import { Loader, Content, H5 } from '@reapit/elements'
 import { FaCopy } from 'react-icons/fa'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import { selectAppAuthenticationLoading, selectAppAuthenticationCode } from '@/selector/app-authentication'
-import { fetchtAppAuthentication } from '@/actions/app-authentication'
+import { fetchtAppAuthentication } from '@/actions/apps'
 
 export type AppAuthenticationDetailProps = {
   appId: string

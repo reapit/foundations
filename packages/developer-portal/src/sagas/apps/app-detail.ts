@@ -7,7 +7,7 @@ import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { logger } from '@reapit/utils'
 import { fetchAppById, fetchDesktopIntegrationTypes, FetchAppByIdParams } from '@/services/apps'
-import { fetchAppDetailSuccess } from '@/actions/app-detail'
+import { fetchAppDetailSuccess } from '@/actions/apps'
 import { fetchApiKeyInstallationById } from '@/services/installations'
 
 export const fetchAppDetailSaga = function*({ data }: Action<FetchAppByIdParams>) {

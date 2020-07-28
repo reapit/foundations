@@ -1,3 +1,4 @@
 import appDetailSagas from './app-detail'
 import appListSagas from './app-list'
-export { appDetailSagas, appListSagas }
+import appAuthenticationSagas from './app-authentication'
+export { appDetailSagas, appListSagas, appAuthenticationSagas }

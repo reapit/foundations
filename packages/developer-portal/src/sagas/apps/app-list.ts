@@ -1,7 +1,7 @@
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
 import { selectDeveloperId } from '@/selector/auth'
 import { APPS_PER_PAGE } from '@/constants/paginator'
-import { fetchAppList, fetchAppListSuccess, fetchAppListFailed } from '@/actions/app-list'
+import { fetchAppList, fetchAppListSuccess, fetchAppListFailed } from '@/actions/apps'
 import { fetchAppsListAPI } from '@/services/apps'
 import { logger } from '@reapit/utils'
 import { errorThrownServer } from '@/actions/error'

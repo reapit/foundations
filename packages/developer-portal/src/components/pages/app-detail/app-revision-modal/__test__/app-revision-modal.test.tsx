@@ -18,7 +18,7 @@ import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { revisionDetailRequestData, revisionDetailClearData, declineRevision } from '@/actions/revision-detail'
 import { revisionsRequestData, revisionsClearData } from '@/actions/revisions'
 import { LoginIdentity } from '@reapit/cognito-auth'
-import { fetchAppDetail } from '@/actions/app-detail'
+import { fetchAppDetail } from '@/actions/apps'
 
 const props: DeveloperAppRevisionModalProps = {
   appId: '1',
