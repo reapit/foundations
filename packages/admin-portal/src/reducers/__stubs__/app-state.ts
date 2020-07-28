@@ -1,12 +1,6 @@
 import { ReduxState } from '@/types/core'
 
 const appState: ReduxState = {
-  appDetail: {
-    loading: false,
-    error: false,
-    appDetailData: null,
-    isStale: true,
-  },
   error: {
     componentError: null,
     serverError: null,
@@ -47,6 +41,9 @@ const appState: ReduxState = {
       data: [],
       totalCount: 0,
     },
+  },
+  apps: {
+    detail: { isLoading: false, data: null, errorMessage: '' },
   },
 }
 

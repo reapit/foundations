@@ -9,7 +9,7 @@ import { REVISIONS_PER_PAGE } from '@/constants/paginator'
 import { appDetailRequestData } from '@/actions/app-detail'
 import { ApprovalModel, AppRevisionModel } from '@reapit/foundations-ts-definitions'
 import { AppDetailModel } from '@/types/marketplace-api-schema'
-import { selectApp } from '@/selector/app-detail'
+import { selectAppDetailData } from '@/selector/app-detail'
 import { selectAppRevision } from '@/selector/app-revisions'
 import ApprovalModal from '@/components/ui/approval-modal'
 import { selectApprovalsState, selectWaitingApprovalData } from '@/selector/admin'
@@ -161,7 +161,7 @@ export const generateTableColumn = ({
 export const AdminApprovals: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = React.useState(false)
   const dispatch = useDispatch()
-  const appDetail = useSelector(selectApp)
+  const appDetail = useSelector(selectAppDetailData) as AppDetailModel
   const location = useLocation()
   const history = useHistory()
   const revisionDetail = useSelector(selectAppRevision)

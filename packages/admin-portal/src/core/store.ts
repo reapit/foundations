@@ -2,7 +2,12 @@ import { createStore, applyMiddleware, compose, combineReducers, Store as ReduxS
 import createSagaMiddleware from 'redux-saga'
 import { fork, all } from '@redux-saga/core/effects'
 import { ReduxState } from '../types/core'
+<<<<<<< HEAD
 import appDetail from '@/reducers/app-detail'
+=======
+import auth from '@/reducers/auth'
+import apps from '@/reducers/apps'
+>>>>>>> chore: #2099 migrate app-detail reducer to apps reducer
 import error from '@/reducers/error'
 import approvals from '@/reducers/approvals'
 import devsManagement from '@/reducers/devs-management'
@@ -36,7 +41,11 @@ export class Store {
   static sagaMiddleware = createSagaMiddleware()
 
   static reducers = combineReducers<ReduxState>({
+<<<<<<< HEAD
     appDetail,
+=======
+    auth,
+>>>>>>> chore: #2099 migrate app-detail reducer to apps reducer
     error,
     appsManagement: adminApps,
     approvals,
@@ -46,6 +55,7 @@ export class Store {
     appDelete: appDeleteReducer,
     noticationMessage,
     statistics: statisticsReducer,
+    apps,
   })
 
   static sagas = function*() {

@@ -1,13 +1,13 @@
 import { DevsManagementState } from './../reducers/devs-management'
 import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
-import { AppDetailState } from '../reducers/app-detail'
 import { ErrorState } from '../reducers/error'
 import { ApprovalsState } from '@/reducers/approvals'
 import { RevisionDetailState } from '@/reducers/revision-detail'
 import { AppsManagementState } from '@/reducers/apps-management'
 import { NotificationMessageState } from '@/reducers/notification-message'
 import { StatisticsState } from '@/reducers/statistics'
+import { AppsState } from '@/reducers/apps'
 
 export type ModalProps = { visible: boolean; afterClose: () => void }
 
@@ -47,7 +47,6 @@ export interface FetcherParams<T> {
 }
 
 export interface ReduxState {
-  appDetail: AppDetailState
   error: ErrorState
   appsManagement: AppsManagementState
   approvals: ApprovalsState
@@ -57,4 +56,5 @@ export interface ReduxState {
   appDelete: RequestState
   noticationMessage: NotificationMessageState
   statistics: StatisticsState
+  apps: AppsState
 }

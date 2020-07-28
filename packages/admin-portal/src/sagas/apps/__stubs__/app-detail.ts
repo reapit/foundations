@@ -1,7 +1,7 @@
-import { AppDetailItem } from '@/reducers/app-detail'
+import { AppDetailItem } from '@/reducers/apps'
 import { appPermissionStub } from './app-permission'
 
-export const appDetailDataStub: AppDetailItem = {
+export const appDetailDataStub: { data: AppDetailItem } = {
   data: {
     id: '9b6fd5f7-2c15-483d-b925-01b650538e52',
     name: "Peter's Properties",

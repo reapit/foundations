@@ -16,10 +16,9 @@ import { integrationTypesStub } from '@/sagas/apps/__stubs__/integration-types'
 
 const props = (loading: boolean, error: boolean): AppRevisionComparisonProps => ({
   appDetailState: {
-    loading,
-    error,
-    appDetailData: { data: appDetailDataStub.data },
-    isStale: false,
+    isLoading: loading,
+    errorMessage: error ? 'error' : '',
+    data: appDetailDataStub.data,
   },
   revisionDetailState: {
     loading,
