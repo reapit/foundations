@@ -7,7 +7,7 @@ import appState from '@/reducers/__stubs__/app-state'
 import Routes from '@/constants/routes'
 import { MemoryRouter } from 'react-router'
 import { getMockRouterProps } from '@/utils/mock-helper'
-import { LoginIdentity } from '../../../../connect-session/src/types'
+import { LoginIdentity } from '@reapit/connect-session'
 
 jest.mock('@/utils/session')
 

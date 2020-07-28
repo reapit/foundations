@@ -33,7 +33,7 @@ exports[`Login should match a snapshot 1`] = `
           "entries": Array [
             Object {
               "hash": "",
-              "key": "s7kg7f",
+              "key": "jsf57k",
               "pathname": "/welcome",
               "search": "",
               "state": undefined,
@@ -47,7 +47,7 @@ exports[`Login should match a snapshot 1`] = `
           "listen": [Function],
           "location": Object {
             "hash": "",
-            "key": "s7kg7f",
+            "key": "jsf57k",
             "pathname": "/welcome",
             "search": "",
             "state": undefined,
