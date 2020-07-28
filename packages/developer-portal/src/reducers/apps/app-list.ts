@@ -55,10 +55,7 @@ const appListReducer = (state: AppListState = defaultState, action: Action<any>)
   }
 
   if (isType(action, clearAppList)) {
-    return {
-      ...state,
-      ...defaultState,
-    }
+    return defaultState
   }
 
   return state

@@ -3,9 +3,9 @@ import { ActionType } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 
 describe('app-authentication reducer', () => {
-  it('should set loading when REQUEST_AUTHENTICATION_CODE action is called', () => {
+  it('should set loading when FETCH_APP_AUTHENTICATION action is called', () => {
     const newState = appAuthenticationReducer(undefined, {
-      type: ActionTypes.REQUEST_AUTHENTICATION_CODE as ActionType,
+      type: ActionTypes.FETCH_APP_AUTHENTICATION as ActionType,
       data: null,
     })
     const expected: AppAuthenticationState = {
@@ -15,9 +15,9 @@ describe('app-authentication reducer', () => {
     expect(newState).toEqual(expected)
   })
 
-  it('should set auth code when REQUEST_AUTHENTICATION_CODE_SUCCESS action is called', () => {
+  it('should set auth code when FETCH_APP_AUTHENTICATION_SUCCESS action is called', () => {
     const newState = appAuthenticationReducer(undefined, {
-      type: ActionTypes.REQUEST_AUTHENTICATION_CODE_SUCCESS as ActionType,
+      type: ActionTypes.FETCH_APP_AUTHENTICATION_SUCCESS as ActionType,
       data: { clientSecret: 'clientSecret' },
     })
     const expected: AppAuthenticationState = {
@@ -28,9 +28,9 @@ describe('app-authentication reducer', () => {
     expect(newState).toEqual(expected)
   })
 
-  it('should remove auth code when REMOVE_AUTHENTICATION_CODE action is called', () => {
+  it('should remove auth code when CLEAR_APP_AUTHENTICATION action is called', () => {
     const newState = appAuthenticationReducer(undefined, {
-      type: ActionTypes.REMOVE_AUTHENTICATION_CODE as ActionType,
+      type: ActionTypes.CLEAR_APP_AUTHENTICATION as ActionType,
       data: null,
     })
     expect(newState).toEqual(defaultState)

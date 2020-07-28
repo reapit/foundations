@@ -12,7 +12,7 @@ jest.mock('@/services/apps')
 describe('app-detail request auth code', () => {
   const params = {
     data: '45001c67-fd1d-467b-865f-360d5a189e6f',
-    type: ActionTypes.REQUEST_AUTHENTICATION_CODE,
+    type: ActionTypes.FETCH_APP_AUTHENTICATION,
   } as Action<string>
   const response = {
     clientSecret: '45001c67-fd1d-467b-865f-360d5a189e6f',

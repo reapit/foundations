@@ -47,10 +47,7 @@ const appAuthenticationReducer = (
   }
 
   if (isType(action, clearAppAuthentication)) {
-    return {
-      ...state,
-      ...defaultState,
-    }
+    return defaultState
   }
 
   return state

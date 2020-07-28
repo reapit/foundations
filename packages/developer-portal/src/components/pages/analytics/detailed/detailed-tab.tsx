@@ -98,10 +98,9 @@ export const DetailedTab: React.FC<DetailedTabProps> = () => {
   const installations = useSelector(getInstallations)
   const appHttpTraffic = useSelector(getAppHttpTraffic)
 
-  const { data } = useSelector(selectAppListState)
+  const { data: apps = [] } = useSelector(selectAppListState)
   const installationAppDataArray = installations?.installationsAppData?.data
   const installationFilterAppDataArray = installations?.installationsFilteredAppData?.data
-  const apps = data || []
 
   const installationAppDataArrayWithName = React.useMemo(
     handleMapAppNameToInstallation(installationAppDataArray, apps),
