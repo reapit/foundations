@@ -66,11 +66,14 @@ const appState: ReduxState = {
   },
 
   desktopIntegrationTypes: {
-    data: [],
-    pageNumber: 0,
-    pageSize: 0,
-    pageCount: 0,
-    totalCount: 0,
+    list: {
+      data: [],
+      pageSize: 0,
+      pageCount: 0,
+      totalCount: 0,
+      isLoading: false,
+      errorMessage: '',
+    },
   },
 }
 

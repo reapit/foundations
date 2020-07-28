@@ -6,6 +6,7 @@ import { myAppsRequestData } from '@/actions/apps'
 import { installedAppsRequestData } from '@/actions/apps'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { selectClientId } from '@/selector/auth'
+import { fetchDesktopIntegrationTypes } from '@/actions/desktop-integration-types'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
   const id = params && params.appid ? params.appid : ''
@@ -15,6 +16,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
   const preview = queryParams.get('preview') ? true : false
   const connectSession = await reapitConnectBrowserSession.connectSession()
   const clientId = connectSession ? selectClientId(connectSession) : ''
+  store.dispatch(fetchDesktopIntegrationTypes({}))
 
   switch (route) {
     case Routes.APPS:

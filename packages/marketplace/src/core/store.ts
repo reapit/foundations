@@ -1,7 +1,8 @@
 import { createStore, applyMiddleware, compose, combineReducers, Store as ReduxStore, Dispatch } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import { fork, all } from '@redux-saga/core/effects'
-import { ReduxState } from '../types/core'
+import { injectSwitchModeToWindow } from '@reapit/elements'
+import { ReduxState } from '@/types/core'
 import client from '@/reducers/client'
 import installedApps from '@/reducers/installed-apps'
 import myApps from '@/reducers/my-apps'
@@ -9,14 +10,14 @@ import appDetail from '@/reducers/app-detail'
 import error from '@/reducers/error'
 import appCategories from '@/reducers/app-categories'
 import appInstallationsReducer from '@/reducers/app-installations'
-import integrationTypes from '@/reducers/app-integration-types'
+import desktopIntegrationTypes from '@/reducers/desktop-integration-types'
+import noticationMessage from '@/reducers/notification-message'
 
 import appsSaga from '@/sagas/apps/apps'
 import { clientSagas, appDetailSagas, installedAppsSagas, myAppsSagas } from '@/sagas/apps'
 import { appInstallationsSagas } from '@/sagas/installations'
-import noticationMessage from '@/reducers/notification-message'
-import { injectSwitchModeToWindow } from '@reapit/elements'
 import { webComponentSagas } from '@/sagas/web-component'
+import { desktopIntegrationTypesSagas } from '@/sagas/desktop-integration-types'
 
 export class Store {
   static _instance: Store
@@ -42,7 +43,7 @@ export class Store {
     appCategories,
     installations: appInstallationsReducer,
     noticationMessage,
-    desktopIntegrationTypes: integrationTypes,
+    desktopIntegrationTypes: desktopIntegrationTypes,
   })
 
   static sagas = function*() {
@@ -54,6 +55,7 @@ export class Store {
       fork(appDetailSagas),
       fork(appInstallationsSagas),
       fork(webComponentSagas),
+      fork(desktopIntegrationTypesSagas),
     ])
   }
 

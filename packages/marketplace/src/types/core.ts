@@ -7,8 +7,8 @@ import { ErrorState } from '../reducers/error'
 import { AppCategoriesState } from '@/reducers/app-categories'
 import { AppInstallationsState } from '@/reducers/app-installations'
 import { NotificationMessageState } from '@/reducers/notification-message'
-import { IntegrationTypeState } from '@/reducers/app-integration-types'
 import { ClientRootState } from '@/reducers/client'
+import { DesktopIntegrationTypeRootState } from '@/reducers/desktop-integration-types'
 
 export type ModalProps = { visible: boolean; afterClose: () => void }
 
@@ -56,5 +56,5 @@ export interface ReduxState {
   appCategories: AppCategoriesState
   installations: AppInstallationsState
   noticationMessage: NotificationMessageState
-  desktopIntegrationTypes: IntegrationTypeState
+  desktopIntegrationTypes: DesktopIntegrationTypeRootState
 }
