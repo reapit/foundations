@@ -10,11 +10,11 @@ const production = !process.env.ROLLUP_WATCH
 
 export const baseConfigurationWithoutTheme = {
   ...baseConfig,
-  input: 'src/login-reapit-component/index.ts',
+  input: 'src/reapit-connect-component/index.ts',
   output: generateRollupOutput({
     production,
-    fileName: 'login-reapit-component',
-    name: 'loginReapitComponent',
+    fileName: 'reapit-connect-component',
+    name: 'reaptConnectComponent',
   }),
   plugins: [
     replace({

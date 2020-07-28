@@ -5236,6 +5236,15 @@
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
 
+"@reapit/connect-session@1.0.0-alpha.1":
+  version "1.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@reapit/connect-session/-/connect-session-1.0.0-alpha.1.tgz#4c06af14318a8dd355d6a5a233f3f1db0bc26402"
+  integrity sha512-v07IY2skFIz/PZvNsd5ZucVyaEunWMigt/QIBELZdYC4zcphFCQJ4d1PuqYnTqkoc+dxWjXyLV4NVL2qzu/XtQ==
+  dependencies:
+    isomorphic-fetch "^2.2.1"
+    jsonwebtoken "^8.5.1"
+    snyk "^1.335.0"
+
 "@reapit/foundations-ts-definitions@0.0.85":
   version "0.0.85"
   resolved "https://registry.yarnpkg.com/@reapit/foundations-ts-definitions/-/foundations-ts-definitions-0.0.85.tgz#1b06c5e0d76ba4dccb183ef5c5d9e095c8636b69"

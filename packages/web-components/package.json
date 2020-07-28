@@ -1,6 +1,6 @@
 {
   "name": "@reapit/web-components",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "homepage": "https://github.com/reapit/foundations",
   "main": "./public/dist-npm/cjs/index.js",
   "module": "./public/dist-npm/esm/index.js",
@@ -50,6 +50,7 @@
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@reapit/connect-session": "^1.0.0-alpha.2",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dayjs": "^1.8.30",

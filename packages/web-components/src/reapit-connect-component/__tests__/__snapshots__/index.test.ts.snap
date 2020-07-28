@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReapitConnectComponent should match a snapshot 1`] = `
+Reapit_connect_component {
+  "$$": Object {
+    "after_update": Array [],
+    "before_update": Array [],
+    "bound": Object {},
+    "callbacks": Object {},
+    "context": Map {},
+    "ctx": Array [
+      false,
+      false,
+      [Function],
+      ReapitConnectBrowserSession {
+        "connectAuthorizeRedirect": [Function],
+        "connectClientId": "clientId",
+        "connectLoginRedirect": [Function],
+        "connectLoginRedirectPath": "undefined/some-path",
+        "connectLogoutRedirect": [Function],
+        "connectLogoutRedirectPath": "undefined/some-logout-path",
+        "connectOAuthUrl": "https://some-url.com",
+        "connectSession": [Function],
+        "fetching": false,
+        "session": null,
+        "userName": undefined,
+      },
+      [Function],
+    ],
+    "dirty": Array [
+      -1,
+    ],
+    "fragment": Object {
+      "c": [Function],
+      "d": [Function],
+      "i": [Function],
+      "l": [Function],
+      "m": [Function],
+      "o": [Function],
+      "p": [Function],
+    },
+    "not_equal": [Function],
+    "on_destroy": Array [],
+    "on_mount": Array [],
+    "props": Object {
+      "connectHasSessionCallback": 4,
+      "reapitConnectBrowserSession": 3,
+    },
+    "update": [Function],
+  },
+  "$capture_state": [Function],
+  "$inject_state": [Function],
+  "$set": [Function],
+}
+`;

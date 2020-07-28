@@ -241,7 +241,7 @@ export class ReapitConnectBrowserSession {
   // The main method for fetching a session in an app.
   public async connectSession(): Promise<ReapitConnectSession | void> {
     // Ideally, if I have a valid session, just return it
-    if (this.connectHasSession) {
+    if (this.session && !this.sessionExpired) {
       return this.session
     }
 

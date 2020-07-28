@@ -5,12 +5,14 @@
   import { onMount } from 'svelte'
 
   export let reapitConnectBrowserSession: ReapitConnectBrowserSession
+  export let connectHasSessionCallback: (session: ReapitConnectBrowserSession) => any
 
-  let hasSession: boolean 
+  let hasSession: boolean
+  let isFetching: boolean
   let clickHandler: () => void
 
   $: hasSession = reapitConnectBrowserSession.connectHasSession
-
+  $: isFetching = false
 
   const handleLoginClick = () => {
     reapitConnectBrowserSession.connectAuthorizeRedirect()
@@ -26,35 +28,41 @@
     const params = new URLSearchParams(window.location.search)
     const authorizationCode = params.get('code')
     if (authorizationCode) {
+      isFetching = true
+
       const session = await reapitConnectBrowserSession.connectSession()
 
-      if(session) {
+      isFetching = false
+
+      if (session) {
         hasSession = true
+        connectHasSessionCallback(reapitConnectBrowserSession)
       }
     }
   })
-
 </script>
 
 <style>
-  .reapit-connect-login-button {
+  .reapit-connect-component {
     display: inline-block;
     background-color: #0061a8;
     max-height: 48px;
     max-width: 290px;
   }
 
-  .reapit-connect-login-button:hover {
+  .reapit-connect-component:hover {
     background-color: #23a4de;
   }
 </style>
 
 <svelte:options accessors={true} />
-<div class="reapit-connect-login-button" on:click={clickHandler}>
-  {#if hasSession}
-    <SignOutButton />
-  {/if}
-  {#if !hasSession}
-    <SignInButton />
+<div class="reapit-connect-component" on:click={clickHandler}>
+  {#if !isFetching}
+    {#if hasSession}
+      <SignOutButton />
+    {/if}
+    {#if !hasSession}
+      <SignInButton />
+    {/if}
   {/if}
 </div>

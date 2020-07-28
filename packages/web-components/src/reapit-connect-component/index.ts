@@ -7,15 +7,17 @@ export interface ReapitConnectInitializers {
   connectLoginRedirectPath: string
   connectLogoutRedirectPath: string
   connectContainerId: string
+  connectHasSessionCallback: (session: ReapitConnectBrowserSession) => any
 }
 
-export const ReapitConnectComponent = function({
+export const ReapitConnectComponent = ({
   connectClientId,
   connectOAuthUrl,
   connectLoginRedirectPath,
   connectLogoutRedirectPath,
   connectContainerId,
-}: ReapitConnectInitializers) {
+  connectHasSessionCallback,
+}: ReapitConnectInitializers) => {
   const reapitConnectBrowserSession = new ReapitConnectBrowserSession({
     connectClientId,
     connectOAuthUrl,
@@ -23,16 +25,13 @@ export const ReapitConnectComponent = function({
     connectLogoutRedirectPath,
   })
 
-  const component = new ReapitConnectButtonComponent({
+  return new ReapitConnectButtonComponent({
     target: document.querySelector(connectContainerId) || document.body,
     props: {
       reapitConnectBrowserSession,
+      connectHasSessionCallback,
     },
   })
-
-  component.reapitConnectBrowserSession = reapitConnectBrowserSession
-
-  return component
 }
 
 Object.defineProperty(window, 'ReapitConnectComponent', {
