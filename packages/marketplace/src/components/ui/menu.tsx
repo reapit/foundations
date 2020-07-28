@@ -5,7 +5,6 @@ import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { Location } from 'history'
 import { FaCloud, FaCloudDownloadAlt, FaCog, FaClipboardList } from 'react-icons/fa'
-import { MdHelp } from 'react-icons/md'
 import { selectIsAdmin, selectDeveloperId } from '@/selector/auth'
 import { useReapitConnect } from '@reapit/connect-session'
 
@@ -40,13 +39,6 @@ export const generateMenuConfig = (location: Location<any>, isAdmin: boolean): M
         type: 'PRIMARY',
         icon: <FaClipboardList className="nav-item-icon" />,
         disabled: !isAdmin,
-      },
-      {
-        title: 'Help',
-        key: 'HELP',
-        url: Routes.HELP,
-        type: 'PRIMARY',
-        icon: <MdHelp className="nav-item-icon" />,
       },
       {
         title: 'Settings',

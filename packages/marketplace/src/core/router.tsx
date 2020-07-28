@@ -16,7 +16,6 @@ const AppDetail = React.lazy(() => catchChunkError(() => import('../components/p
 const InstalledApps = React.lazy(() => catchChunkError(() => import('../components/pages/installed-apps')))
 const Setting = React.lazy(() => catchChunkError(() => import('../components/pages/settings')))
 const AppsManagement = React.lazy(() => catchChunkError(() => import('../components/pages/app-management')))
-const Help = React.lazy(() => catchChunkError(() => import('../components/pages/help')))
 const HandleLegacyDeveloperRoutesModal = React.lazy(() =>
   catchChunkError(() => import('../components/pages/handle-legacy-routes/handle-legacy-developer-routes-modal')),
 )
@@ -53,7 +52,6 @@ const Router = () => {
                 <PrivateRoute path={Routes.APPS} component={Apps} exact fetcher />
                 <PrivateRoute path={Routes.APP_DETAIL} component={AppDetail} exact fetcher />
                 <PrivateRoute path={Routes.APP_DETAIL_MANAGE} component={AppDetail} exact fetcher />
-                <PrivateRoute path={Routes.HELP} exact fetcher component={Help} />
                 <PrivateRoute path={Routes.SETTINGS} exact fetcher component={Setting} />
                 <Route render={() => <Info infoType="404" />} />
               </Switch>
