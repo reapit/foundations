@@ -3,12 +3,13 @@ import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-d
 import { catchChunkError } from '@reapit/utils'
 import Routes from '../constants/routes'
 import PrivateRoute from './private-route'
-import PrivateRouteWrapper from './private-route-wrapper'
 import { createBrowserHistory } from 'history'
 import { Info } from '@reapit/elements'
 import { PortalProvider } from '@reapit/elements'
 
 export const history = createBrowserHistory()
+
+const PrivateRouteWrapper = React.lazy(() => catchChunkError(() => import('./private-route-wrapper')))
 const Login = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 const ApprovalsPage = React.lazy(() => catchChunkError(() => import('../components/pages/approvals')))
 const DevsManagementPage = React.lazy(() => catchChunkError(() => import('../components/pages/devs-management')))
@@ -24,7 +25,7 @@ const Router = () => {
           <Switch>
             <Route path={Routes.LOGIN} exact render={() => <Login />} />
             <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
-            <PrivateRouteWrapper path="/">
+            <PrivateRouteWrapper>
               <Switch>
                 <PrivateRoute path={Routes.BILLING} component={BillingPage} exact />
                 <PrivateRoute path={Routes.APPROVALS} component={ApprovalsPage} exact fetcher />

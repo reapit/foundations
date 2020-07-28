@@ -1,12 +1,8 @@
 import * as React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
 import Menu from '@/components/ui/menu'
 import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements'
-import { getTokenFromQueryString, redirectToOAuth } from '@reapit/cognito-auth'
-import { Redirect, useLocation } from 'react-router'
-import { authSetRefreshSession } from '@/actions/auth'
-import { selectLoginSession, selectRefreshSession, selectLoginType } from '@/selector/auth'
-import Routes from '@/constants/routes'
+import { ReapitConnectContext, useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from './connect-session'
 
 const { Suspense } = React
 
@@ -20,51 +16,31 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   children,
   showMenu = true,
 }) => {
-  const dispatch = useDispatch()
-  const loginSession = useSelector(selectLoginSession)
-  const refreshSession = useSelector(selectRefreshSession)
-  const loginType = useSelector(selectLoginType)
+  const session = useReapitConnect(reapitConnectBrowserSession)
 
-  const hasSession = !!loginSession || !!refreshSession
-
-  const location = useLocation()
-
-  const route = `${window.location.origin}${Routes.APPROVALS}`
-
-  const cognitoClientId = window.reapit.config.cognitoClientId
-  const refreshParams = getTokenFromQueryString(location.search, cognitoClientId, 'ADMIN', route)
-
-  if (refreshParams && !hasSession) {
-    dispatch(authSetRefreshSession(refreshParams))
-    return null
-  }
-
-  if (loginType && location.pathname === '/') {
-    return <Redirect to={Routes.LOGIN} />
-  }
-
-  if (!hasSession) {
-    redirectToOAuth(cognitoClientId, route, 'ADMIN')
+  if (!session.connectSession) {
     return null
   }
 
   return (
-    <AppNavContainer>
-      {showMenu && <Menu />}
-      <FlexContainerBasic flexColumn isScrollable>
-        <FlexContainerResponsive hasPadding flexColumn isPageContainer>
-          <Suspense
-            fallback={
-              <Section>
-                <Loader />
-              </Section>
-            }
-          >
-            {children}
-          </Suspense>
-        </FlexContainerResponsive>
-      </FlexContainerBasic>
-    </AppNavContainer>
+    <ReapitConnectContext.Provider value={{ ...session }}>
+      <AppNavContainer>
+        {showMenu && <Menu />}
+        <FlexContainerBasic flexColumn isScrollable>
+          <FlexContainerResponsive hasPadding flexColumn isPageContainer>
+            <Suspense
+              fallback={
+                <Section>
+                  <Loader />
+                </Section>
+              }
+            >
+              {children}
+            </Suspense>
+          </FlexContainerResponsive>
+        </FlexContainerBasic>
+      </AppNavContainer>
+    </ReapitConnectContext.Provider>
   )
 }
 

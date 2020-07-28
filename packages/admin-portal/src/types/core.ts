@@ -1,7 +1,6 @@
 import { DevsManagementState } from './../reducers/devs-management'
 import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
-import { AuthState } from '../reducers/auth'
 import { AppDetailState } from '../reducers/app-detail'
 import { ErrorState } from '../reducers/error'
 import { ApprovalsState } from '@/reducers/approvals'
@@ -49,7 +48,6 @@ export interface FetcherParams<T> {
 
 export interface ReduxState {
   appDetail: AppDetailState
-  auth: AuthState
   error: ErrorState
   appsManagement: AppsManagementState
   approvals: ApprovalsState

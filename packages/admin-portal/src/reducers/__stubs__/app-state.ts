@@ -1,42 +1,6 @@
 import { ReduxState } from '@/types/core'
-import { COGNITO_GROUP_DEVELOPER_EDITION } from '@/constants/api'
 
 const appState: ReduxState = {
-  auth: {
-    error: false,
-    loginSession: {
-      accessToken: 'testAccessToken',
-      accessTokenExpiry: 1581238260,
-      idToken: 'testIdToken',
-      idTokenExpiry: 1234428260,
-      refreshToken: 'testRefreshToken',
-      cognitoClientId: 'testCognitoClientId',
-      loginType: 'ADMIN',
-      userName: 'test@reapit.com',
-      mode: 'WEB',
-      loginIdentity: {
-        name: 'Test User',
-        email: 'test@reapit.com',
-        developerId: null,
-        clientId: 'testClientId',
-        adminId: null,
-        userCode: 'testUserCode',
-        userTel: '123',
-        groups: [COGNITO_GROUP_DEVELOPER_EDITION],
-      },
-    },
-    loginType: 'ADMIN',
-    refreshSession: {
-      refreshToken: 'testRefreshToken',
-      loginType: 'ADMIN',
-      userName: 'test@reapit.com',
-      mode: 'WEB',
-      cognitoClientId: 'testCognitoClientId',
-      authorizationCode: '',
-      redirectUri: '',
-      state: null,
-    },
-  },
   appDetail: {
     loading: false,
     error: false,
