@@ -8,7 +8,7 @@ import appPermissionContentStyles from '@/styles/pages/app-permission-content.sc
 import { Button, Modal } from '@reapit/elements'
 import { clientFetchAppDetail } from '@/actions/apps'
 import { appInstallationsRequestUninstall } from '@/actions/installations'
-import CallToAction from '../../../ui/call-to-action'
+import CallToAction from '@/components/ui/call-to-action'
 import { selectInstallationFormState } from '@/selector/installations'
 import routes from '@/constants/routes'
 import { selectClientId } from '@/selector/auth'

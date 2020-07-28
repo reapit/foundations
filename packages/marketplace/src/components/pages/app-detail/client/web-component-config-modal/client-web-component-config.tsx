@@ -5,7 +5,7 @@ import { selectWebComponentData } from '@/selector/client'
 import { clientFetchWebComponentConfig } from '@/actions/apps'
 import { Dispatch } from 'redux'
 import WebComponentModal from '@/components/pages/app-detail/client/web-component-config-modal/config-modal'
-import { AppDetailSection } from '../../common/ui-helpers'
+import { AppDetailSection } from '@/components/pages/app-detail/common/ui-helpers'
 import { selectClientId } from '@/selector/auth'
 import { useParams } from 'react-router-dom'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -30,7 +30,7 @@ export const WebComponentConfig: React.FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = selectClientId(connectSession)
   const webComponentData = useSelector(selectWebComponentData)
-  const { appid: applicationId } = useParams()
+  const { appid: applicationId } = useParams<{ appid: string }>()
 
   const handleToggleWebComponentModal = toggleWebComponentModal(setIsOpenConfigModal, true)
   const handleCloseWebComponentModal = toggleWebComponentModal(setIsOpenConfigModal, false)

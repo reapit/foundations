@@ -3,7 +3,7 @@ import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
 import { clientFetchAppSummarySuccess } from '@/actions/apps'
 import { categoriesReceiveData } from '@/actions/categories'
-import { featuredAppsDataStub, appsDataStub } from '../__stubs__/apps'
+import { featuredAppsDataStub, appsDataStub } from '@/sagas/__stubs__/apps'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { BROWSE_APPS_PER_PAGE } from '@/constants/paginator'
 import { Action } from '@/types/core'
@@ -16,7 +16,7 @@ import {
   PagedResultAppSummaryModel_,
   AppSummaryModel,
 } from '@reapit/foundations-ts-definitions'
-import { appCategorieStub } from '../__stubs__/app-categories'
+import { appCategorieStub } from '@/sagas/__stubs__/app-categories'
 import { fetchAppsList } from '@/services/apps'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { ReapitConnectSession } from '@reapit/connect-session'

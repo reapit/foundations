@@ -1,7 +1,7 @@
 import errorReducer, { defaultState, ErrorData } from '../error'
-import { ActionType } from '../../types/core'
-import ActionTypes from '../../constants/action-types'
-import errorMessages from '../../constants/error-messages'
+import { ActionType } from '@/types/core'
+import ActionTypes from '@/constants/action-types'
+import errorMessages from '@/constants/error-messages'
 
 describe('error reducer', () => {
   it('should return default state if action not matched', () => {

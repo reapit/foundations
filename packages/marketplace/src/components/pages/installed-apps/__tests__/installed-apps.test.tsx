@@ -4,14 +4,14 @@ import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import routes from '@/constants/routes'
 import { InstalledApps, handleOnChange, handleOnCardClick } from '../installed-apps'
-import { handleLaunchApp } from '../../../../utils/launch-app'
+import { handleLaunchApp } from '@/utils/launch-app'
 import configureStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
 import { MemoryRouter } from 'react-router'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
 
-jest.mock('../../../../utils/launch-app')
+jest.mock('@/utils/launch-app')
 
 const createState = loading => {
   return {

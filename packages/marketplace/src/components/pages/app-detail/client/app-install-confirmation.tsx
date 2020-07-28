@@ -8,7 +8,7 @@ import { Button, ModalV2, GridFourCol, GridFourColItem, Content, ModalPropsV2 } 
 import { appInstallationsRequestInstall } from '@/actions/installations'
 import { clientFetchAppDetail } from '@/actions/apps'
 import { Dispatch } from 'redux'
-import CallToAction from '../../../ui/call-to-action'
+import CallToAction from '@/components/ui/call-to-action'
 import routes from '@/constants/routes'
 import { selectInstallationFormState } from '@/selector/installations'
 import { selectClientId } from '@/selector/auth'

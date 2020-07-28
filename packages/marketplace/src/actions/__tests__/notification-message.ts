@@ -1,6 +1,6 @@
 import { showNotificationMessage, hideNotificationMessage } from '../notification-message'
-import ActionTypes from '../../constants/action-types'
-import { NotificationMessageState } from '../../reducers/notification-message'
+import ActionTypes from '@/constants/action-types'
+import { NotificationMessageState } from '@/reducers/notification-message'
 
 describe('notification message actions', () => {
   it('should create a showNotificationMessage action', () => {

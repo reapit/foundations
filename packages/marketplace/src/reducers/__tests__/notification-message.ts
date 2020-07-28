@@ -1,6 +1,6 @@
-import ActionTypes from '../../constants/action-types'
+import ActionTypes from '@/constants/action-types'
 import notificationMessageReducer, { NotificationMessageState, defaultState } from '../notification-message'
-import { ActionType } from '../../types/core'
+import { ActionType } from '@/types/core'
 
 describe('notification message reducer', () => {
   it('should return default state if action not matched', () => {

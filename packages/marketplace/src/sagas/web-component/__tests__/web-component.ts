@@ -22,7 +22,7 @@ import {
   clientUpdateWebComponentConfigFailed,
 } from '@/actions/apps'
 import { errorThrownServer } from '@/actions/error'
-import errorMessages from '../../../../elements/src/utils/validators/error-messages'
+import errorMessages from '@/constants/error-messages'
 import { fetchNegotiators } from '@/services/negotiators'
 
 describe('webComponentSagas', () => {

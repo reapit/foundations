@@ -1,6 +1,6 @@
 import { ReduxState } from '@/types/core'
 import { selectCategories } from '../app-categories'
-import { appCategorieStub } from '../../sagas/__stubs__/app-categories'
+import { appCategorieStub } from '@/sagas/__stubs__/app-categories'
 
 describe('selectCategories', () => {
   it('should run correctly', () => {

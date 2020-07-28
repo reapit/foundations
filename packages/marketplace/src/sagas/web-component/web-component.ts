@@ -1,13 +1,13 @@
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
-import { Action } from '../types/core'
-import ActionTypes from '../constants/action-types'
+import { Action } from '@/types/core'
+import ActionTypes from '@/constants/action-types'
 import {
   fetchWebComponentConfig,
   FetchWebComponentConfigParams,
   UpdateWebComponentConfigParams,
   updateWebComponentConfig,
 } from '@/services/web-component'
-import errorMessages from '../../../elements/src/utils/validators/error-messages'
+import errorMessages from '@/constants/error-messages'
 import { errorThrownServer } from '@/actions/error'
 import {
   clientFetchWebComponentConfigSuccess,
@@ -61,7 +61,7 @@ export const updateWebComponentConfigListen = function*() {
   )
 }
 
-const webComponentSagas = function*() {
+export const webComponentSagas = function*() {
   yield all([fork(fetchWebComponentConfigListen), fork(updateWebComponentConfigListen)])
 }
 

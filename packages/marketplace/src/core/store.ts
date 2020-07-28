@@ -12,14 +12,11 @@ import appInstallationsReducer from '@/reducers/app-installations'
 import integrationTypes from '@/reducers/app-integration-types'
 
 import appsSaga from '@/sagas/apps/apps'
-import clientSagas from '@/sagas/client'
-import appDetailSagas from '@/sagas/app-detail'
-import installedAppsSagas from '@/sagas/installed-apps'
-import myAppsSagas from '@/sagas/my-apps'
-import appInstallationsSagas from '@/sagas/app-installations'
+import { clientSagas, appDetailSagas, installedAppsSagas, myAppsSagas } from '@/sagas/apps'
+import { appInstallationsSagas } from '@/sagas/installations'
 import noticationMessage from '@/reducers/notification-message'
 import { injectSwitchModeToWindow } from '@reapit/elements'
-import webComponentSagas from '../sagas/web-component'
+import { webComponentSagas } from '@/sagas/web-component'
 
 export class Store {
   static _instance: Store

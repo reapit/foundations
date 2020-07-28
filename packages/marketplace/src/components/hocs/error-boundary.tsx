@@ -1,11 +1,11 @@
 import * as React from 'react'
 import * as Sentry from '@sentry/browser'
 import { connect } from 'react-redux'
-import { ReduxState } from '../../types/core'
-import { ErrorData } from '../../reducers/error'
-import { errorThrownComponent } from '../../actions/error'
+import { ReduxState } from '@/types/core'
+import { ErrorData } from '@/reducers/error'
+import { errorThrownComponent } from '@/actions/error'
 import { Dispatch } from 'redux'
-import errorMessages from '../../constants/error-messages'
+import errorMessages from '@/constants/error-messages'
 
 interface ErrorMappedActions {
   errorThrownComponent: (error: ErrorData) => void

@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { shallow, mount } from 'enzyme'
 import RouteFetcher from '../route-fetcher'
-import Routes from '../../../constants/routes'
+import Routes from '@/constants/routes'
 import { RouteComponentProps, StaticContext } from 'react-router'
-import routeDispatcher from '../../../utils/route-dispatcher'
+import routeDispatcher from '@/utils/route-dispatcher'
 
-jest.mock('../../../utils/route-dispatcher')
+jest.mock('@/utils/route-dispatcher')
 
 const Component = () => <div>I am a component!</div>
 const props = {

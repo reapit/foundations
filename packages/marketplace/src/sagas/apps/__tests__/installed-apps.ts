@@ -1,34 +1,37 @@
-import myAppsSagas, { myAppsDataFetch, myAppsDataListen } from '../my-apps'
-import { appsDataStub } from '../__stubs__/apps'
+import installedAppsSagas, { installedAppsDataFetch, installedAppsDataListen } from '../installed-apps'
+import { appsDataStub } from '@/sagas/__stubs__/apps'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
-import { myAppsLoading, myAppsReceiveData, myAppsRequestDataFailure } from '@/actions/apps'
+import { installedAppsLoading, installedAppsReceiveData, installedAppsRequestDataFailure } from '@/actions/apps'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { APPS_PER_PAGE } from '@/constants/paginator'
+import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { selectDeveloperEditionId } from '@/selector/client'
-import { errorThrownServer } from '@/actions/error'
 import { fetchAppsList } from '@/services/apps'
-import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { INSTALLED_APPS_PERPAGE } from '@/constants/paginator'
 import { selectClientId } from '@/selector/auth'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { ReapitConnectSession } from '@reapit/connect-session'
 
 jest.mock('@/services/apps')
 jest.mock('@reapit/elements')
+
 const params = { data: 1 }
 const connectSession = 'connectSession'
 
-describe('my-apps fetch data', () => {
-  const gen = cloneableGenerator(myAppsDataFetch)(params)
+describe('installed-apps fetch data', () => {
+  const gen = cloneableGenerator(installedAppsDataFetch)(params)
   const clientId = 'DAC'
   const developerId = '1234'
 
-  expect(gen.next().value).toEqual(put(myAppsLoading(true)))
+  expect(gen.next().value).toEqual(put(installedAppsLoading(true)))
+
   expect(gen.next().value).toEqual(call(reapitConnectBrowserSession.connectSession))
   expect(gen.next(connectSession).value).toEqual(
     call(selectClientId, (connectSession as unknown) as ReapitConnectSession),
   )
+
   expect(gen.next(clientId).value).toEqual(
     call(selectDeveloperEditionId, (connectSession as unknown) as ReapitConnectSession),
   )
@@ -36,35 +39,37 @@ describe('my-apps fetch data', () => {
     call(fetchAppsList, {
       clientId,
       developerId: [developerId],
-      onlyInstalled: true,
       pageNumber: params.data,
-      pageSize: APPS_PER_PAGE,
+      pageSize: INSTALLED_APPS_PERPAGE,
+      onlyInstalled: true,
+      isDirectApi: false,
     }),
   )
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(appsDataStub.data).value).toEqual(put(myAppsReceiveData(appsDataStub)))
+    expect(clone.next(appsDataStub.data).value).toEqual(put(installedAppsReceiveData(appsDataStub)))
     expect(clone.next().done).toBe(true)
   })
 
   test('api call fail', () => {
     const clone = gen.clone()
-    expect(clone.next(undefined).value).toEqual(put(myAppsRequestDataFailure()))
+    expect(clone.next(undefined).value).toEqual(put(installedAppsRequestDataFailure()))
     expect(clone.next().done).toBe(true)
   })
 })
 
-describe('my-apps fetch data error', () => {
-  const gen = cloneableGenerator(myAppsDataFetch)(params)
+describe('installed-apps fetch data error', () => {
+  const gen = cloneableGenerator(installedAppsDataFetch)(params)
 
-  expect(gen.next().value).toEqual(put(myAppsLoading(true)))
+  expect(gen.next().value).toEqual(put(installedAppsLoading(true)))
   expect(gen.next().value).toEqual(call(reapitConnectBrowserSession.connectSession))
   expect(gen.next(connectSession).value).toEqual(
     call(selectClientId, (connectSession as unknown) as ReapitConnectSession),
   )
 
-  expect(gen.next().value).toEqual(
+  if (!gen.throw) throw new Error('Generator object cannot throw')
+  expect(gen.throw('Client id is not exists').value).toEqual(
     put(
       errorThrownServer({
         type: 'SERVER',
@@ -74,20 +79,22 @@ describe('my-apps fetch data error', () => {
   )
 })
 
-describe('my-apps thunks', () => {
-  describe('myAppsDataListen', () => {
+describe('installed-apps thunks', () => {
+  describe('installedAppsDataListen', () => {
     it('should request data when called', () => {
-      const gen = myAppsDataListen()
-      expect(gen.next().value).toEqual(takeLatest<Action<number>>(ActionTypes.MY_APPS_REQUEST_DATA, myAppsDataFetch))
+      const gen = installedAppsDataListen()
+      expect(gen.next().value).toEqual(
+        takeLatest<Action<number>>(ActionTypes.INSTALLED_APPS_REQUEST_DATA, installedAppsDataFetch),
+      )
       expect(gen.next().done).toBe(true)
     })
   })
 
-  describe('myAppsSagas', () => {
+  describe('installedAppsSagas', () => {
     it('should listen request data', () => {
-      const gen = myAppsSagas()
+      const gen = installedAppsSagas()
 
-      expect(gen.next().value).toEqual(all([fork(myAppsDataListen)]))
+      expect(gen.next().value).toEqual(all([fork(installedAppsDataListen)]))
       expect(gen.next().done).toBe(true)
     })
   })
