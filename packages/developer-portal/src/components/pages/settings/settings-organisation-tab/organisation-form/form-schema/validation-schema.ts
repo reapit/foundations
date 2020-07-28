@@ -1,4 +1,5 @@
 import * as Yup from 'yup'
+import { telephoneRegex, letterNumberSpaceRegex, websiteRegex } from '@reapit/utils'
 import { formFields } from './form-fields'
 import errorMessage from '@/constants/error-messages'
 
@@ -43,6 +44,6 @@ export const companyInformationFormSchema = Yup.object().shape({
   [websiteField.name]: Yup.string()
     .trim()
     .required(FIELD_REQUIRED)
-    .matches(letterNumberSpaceRegex, jobTitleField.errorMessage)
+    .matches(websiteRegex, websiteField.errorMessage)
     .max(256, MAXIMUM_CHARACTER_LENGTH(256)),
 })
