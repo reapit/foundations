@@ -43,12 +43,16 @@ const appState: ReduxState = {
     serverError: null,
   },
 
-  appCategories: {
-    data: [],
-    pageNumber: 1,
-    pageSize: 12,
-    pageCount: 1,
-    totalCount: 0,
+  categories: {
+    list: {
+      data: [],
+      pageNumber: 1,
+      pageSize: 12,
+      pageCount: 1,
+      totalCount: 0,
+      isLoading: false,
+      errorMessage: '',
+    },
   },
 
   installations: {

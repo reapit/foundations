@@ -2,7 +2,6 @@ import clientSagas, { clientDataFetch, clientDataListen } from '../client'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
 import { clientFetchAppSummarySuccess } from '@/actions/apps'
-import { categoriesReceiveData } from '@/actions/categories'
 import { featuredAppsDataStub, appsDataStub } from '@/sagas/__stubs__/apps'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { BROWSE_APPS_PER_PAGE } from '@/constants/paginator'
@@ -11,13 +10,7 @@ import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { selectFeaturedApps } from '@/selector/apps'
 import { selectDeveloperEditionId } from '@/selector/auth'
-import { selectCategories } from '@/selector/categories'
-import {
-  PagedResultCategoryModel_,
-  PagedResultAppSummaryModel_,
-  AppSummaryModel,
-} from '@reapit/foundations-ts-definitions'
-import { appCategorieStub } from '@/sagas/__stubs__/app-categories'
+import { PagedResultAppSummaryModel_, AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { fetchAppsList } from '@/services/apps'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { ReapitConnectSession } from '@reapit/connect-session'
@@ -42,14 +35,12 @@ describe('clientDataFetch', () => {
     expect(clone.next(connectSession).value).toEqual(
       call(selectClientId, (connectSession as unknown) as ReapitConnectSession),
     )
-    expect(clone.next(clientId).value).toEqual(select(selectCategories))
-
-    expect(clone.next(appCategorieStub.data).value).toEqual(select(selectFeaturedApps))
+    expect(clone.next(clientId).value).toEqual(select(selectFeaturedApps))
     expect(clone.next(featuredAppsDataStub.data).value).toEqual(
       call(selectDeveloperEditionId, (connectSession as unknown) as ReapitConnectSession),
     )
 
-    const response = [appsDataStub.data, featuredAppsDataStub.data, appCategorieStub]
+    const response = [appsDataStub.data, featuredAppsDataStub.data]
     expect(clone.next(developerId).value).toEqual(
       all([
         call(fetchAppsList, {
@@ -63,7 +54,6 @@ describe('clientDataFetch', () => {
           isDirectApi: undefined,
         }),
         featuredAppsDataStub.data,
-        appCategorieStub.data,
       ]),
     )
     expect(clone.next(response).value).toEqual(
@@ -74,7 +64,6 @@ describe('clientDataFetch', () => {
         }),
       ),
     )
-    expect(clone.next().value).toEqual(put(categoriesReceiveData(response[2] as PagedResultCategoryModel_)))
     expect(clone.next().done).toBe(true)
   })
 
@@ -94,13 +83,12 @@ describe('clientDataFetch', () => {
     expect(clone.next(connectSession).value).toEqual(
       call(selectClientId, (connectSession as unknown) as ReapitConnectSession),
     )
-    expect(clone.next(clientId).value).toEqual(select(selectCategories))
-    expect(clone.next(appCategorieStub.data).value).toEqual(select(selectFeaturedApps))
+    expect(clone.next(clientId).value).toEqual(select(selectFeaturedApps))
     expect(clone.next(featuredAppsDataStub.data).value).toEqual(
       call(selectDeveloperEditionId, (connectSession as unknown) as ReapitConnectSession),
     )
 
-    const response = [appsDataStub.data, featuredAppsDataStub.data, appCategorieStub]
+    const response = [appsDataStub.data, featuredAppsDataStub.data]
     expect(clone.next(developerId).value).toEqual(
       all([
         call(fetchAppsList, {
@@ -109,7 +97,6 @@ describe('clientDataFetch', () => {
           externalAppId: ['id1'],
         }),
         featuredAppsDataStub.data,
-        appCategorieStub.data,
       ]),
     )
     expect(clone.next(response).value).toEqual(
@@ -120,7 +107,6 @@ describe('clientDataFetch', () => {
         }),
       ),
     )
-    expect(clone.next().value).toEqual(put(categoriesReceiveData(response[2] as PagedResultCategoryModel_)))
     expect(clone.next().done).toBe(true)
   })
 })

@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import { desktopIntegrationTypesListReducer, DesktopIntegrationTypesListState } from './list'
+import { desktopIntegrationTypesReducer, DesktopIntegrationTypesState } from './list'
 
 export type DesktopIntegrationTypeRootState = {
-  list: DesktopIntegrationTypesListState
+  list: DesktopIntegrationTypesState
 }
 
 export default combineReducers<DesktopIntegrationTypeRootState>({
-  list: desktopIntegrationTypesListReducer,
+  list: desktopIntegrationTypesReducer,
 })

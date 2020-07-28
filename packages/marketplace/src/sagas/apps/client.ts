@@ -1,5 +1,4 @@
 import { clientFetchAppSummarySuccess } from '@/actions/apps'
-import { categoriesReceiveData } from '@/actions/categories'
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 import { errorThrownServer } from '@/actions/error'
@@ -8,16 +7,12 @@ import { FEATURED_APPS } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { selectFeaturedApps } from '@/selector/apps'
 import { selectDeveloperEditionId } from '@/selector/auth'
-import { selectCategories } from '@/selector/categories'
 import { ClientAppSummary, ClientAppSummaryParams } from '@/reducers/client/app-summary'
-import { logger } from '@reapit/utils'
 import { fetchAppsList } from '@/services/apps'
-import { fetchCategoriesList } from '@/services/categories'
 import { getNumberOfItems } from '@/utils/browse-app'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { selectClientId } from '@/selector/auth'
 
-const DEFAULT_CATEGORY_LENGTH = 1
 const DEFAULT_FEATURED_APP_PAGE_NUMBER = 1
 
 export const clientDataFetch = function*({ data }) {
@@ -29,7 +24,6 @@ export const clientDataFetch = function*({ data }) {
     if (!clientId) {
       return
     }
-    const currentCategories = yield select(selectCategories)
     const currentFeaturedApps = yield select(selectFeaturedApps)
     const developerId = yield call(selectDeveloperEditionId, connectSession)
 
@@ -38,7 +32,6 @@ export const clientDataFetch = function*({ data }) {
     // TODO: have the endpoint return a category id for Direct API apps as well
     const isFilteringForDirectApiApps = category === 'DIRECT_API_APPS_FILTER'
     const shouldNotFetchFeaturedApps = !!search || !!category
-    const shouldNotFetchCategories = currentCategories.length > DEFAULT_CATEGORY_LENGTH
 
     // PREVIEW APPS FEATURE when ?preview=true
     const appsExternalAppIds = isPreview ? window.reapit.config.previewExternalAppIds : undefined
@@ -77,19 +70,14 @@ export const clientDataFetch = function*({ data }) {
           isFeatured: true,
         }
 
-    const [apps, featuredApps, categories] = yield all([
+    const [apps, featuredApps] = yield all([
       call(fetchAppsList, appsFetchParams),
-
       shouldNotFetchFeaturedApps ? currentFeaturedApps : call(fetchAppsList, featuredAppsFetchParams),
-
-      shouldNotFetchCategories ? currentCategories : call(fetchCategoriesList, {}),
     ])
 
     const clientItem: ClientAppSummary = { apps: apps, featuredApps: featuredApps?.data }
     yield put(clientFetchAppSummarySuccess(clientItem))
-    yield put(categoriesReceiveData(categories))
   } catch (err) {
-    logger(err)
     yield put(
       errorThrownServer({
         type: 'SERVER',

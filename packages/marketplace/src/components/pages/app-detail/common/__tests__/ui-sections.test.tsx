@@ -15,7 +15,7 @@ import {
   AdditionalImagesSection,
 } from '../ui-sections'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
-import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
+import { desktopIntegrationTypesStub } from '@/sagas/__stubs__/desktop-integration-types'
 import {
   DesktopIntegrationTypeModel,
   InstallationModel,
@@ -45,7 +45,7 @@ describe('DesktopIntegrationSection', () => {
     expect(
       shallow(
         <DesktopIntegrationSection
-          desktopIntegrationTypes={integrationTypesStub.data as DesktopIntegrationTypeModel[]}
+          desktopIntegrationTypes={desktopIntegrationTypesStub.data as DesktopIntegrationTypeModel[]}
           isSidebar
         />,
       ),

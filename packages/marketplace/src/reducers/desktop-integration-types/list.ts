@@ -7,12 +7,12 @@ import {
 } from '@/actions/desktop-integration-types'
 import { Action } from '@/types/core'
 
-export type DesktopIntegrationTypesListState = PagedResultDesktopIntegrationTypeModel_ & {
+export type DesktopIntegrationTypesState = PagedResultDesktopIntegrationTypeModel_ & {
   isLoading: boolean
   errorMessage: string
 }
 
-export const defaultDesktopIntegrationTypesState: DesktopIntegrationTypesListState = {
+export const defaultDesktopIntegrationTypesState: DesktopIntegrationTypesState = {
   data: [],
   pageNumber: 0,
   pageSize: 0,
@@ -22,21 +22,23 @@ export const defaultDesktopIntegrationTypesState: DesktopIntegrationTypesListSta
   errorMessage: '',
 }
 
-export const desktopIntegrationTypesListReducer = (
-  state: DesktopIntegrationTypesListState = defaultDesktopIntegrationTypesState,
+export const desktopIntegrationTypesReducer = (
+  state: DesktopIntegrationTypesState = defaultDesktopIntegrationTypesState,
   action: Action<any>,
-): DesktopIntegrationTypesListState => {
+): DesktopIntegrationTypesState => {
   if (isType(action, fetchDesktopIntegrationTypes)) {
     return {
       ...state,
       isLoading: true,
+      errorMessage: '',
     }
   }
   if (isType(action, fetchDesktopIntegrationTypesSuccess)) {
     return {
       ...state,
-      isLoading: false,
       ...action.data,
+      isLoading: false,
+      errorMessage: '',
     }
   }
   if (isType(action, fetchDesktopIntegrationTypesFailure)) {
@@ -48,5 +50,3 @@ export const desktopIntegrationTypesListReducer = (
   }
   return state
 }
-
-export default desktopIntegrationTypesListReducer

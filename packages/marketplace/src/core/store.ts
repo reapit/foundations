@@ -8,7 +8,7 @@ import installedApps from '@/reducers/installed-apps'
 import myApps from '@/reducers/my-apps'
 import appDetail from '@/reducers/app-detail'
 import error from '@/reducers/error'
-import appCategories from '@/reducers/app-categories'
+import categories from '@/reducers/categories'
 import appInstallationsReducer from '@/reducers/app-installations'
 import desktopIntegrationTypes from '@/reducers/desktop-integration-types'
 import noticationMessage from '@/reducers/notification-message'
@@ -18,6 +18,7 @@ import { clientSagas, appDetailSagas, installedAppsSagas, myAppsSagas } from '@/
 import { appInstallationsSagas } from '@/sagas/installations'
 import { webComponentSagas } from '@/sagas/web-component'
 import { desktopIntegrationTypesSagas } from '@/sagas/desktop-integration-types'
+import { categoriesSagas } from '@/sagas/categories'
 
 export class Store {
   static _instance: Store
@@ -40,7 +41,7 @@ export class Store {
     myApps,
     appDetail,
     error,
-    appCategories,
+    categories,
     installations: appInstallationsReducer,
     noticationMessage,
     desktopIntegrationTypes: desktopIntegrationTypes,
@@ -56,6 +57,7 @@ export class Store {
       fork(appInstallationsSagas),
       fork(webComponentSagas),
       fork(desktopIntegrationTypesSagas),
+      fork(categoriesSagas),
     ])
   }
 
