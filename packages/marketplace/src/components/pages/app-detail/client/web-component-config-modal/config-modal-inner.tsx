@@ -21,10 +21,10 @@ import {
   selectWebComponentLoading,
   selectWebComponentUpdating,
   selectWebComponentNegotiators,
-} from '@/selector/client'
+} from '@/selector/web-components'
 import { UpdateWebComponentConfigParams } from '@/services/web-component'
 import { Dispatch } from 'redux'
-import { selectAppDetailData } from '@/selector/client-app-detail'
+import { selectAppDetailData } from '@/selector/apps'
 
 export const updateWebComponentConfig = (dispatch: Dispatch, appId: string, callback) => (params: FormikValues) => {
   dispatch(clientUpdateWebComponentConfig({ ...params, appId, callback } as UpdateWebComponentConfigParams))

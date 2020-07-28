@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from '@reapit/elements'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectWebComponentData } from '@/selector/client'
+import { selectWebComponentData } from '@/selector/web-components'
 import { clientFetchWebComponentConfig } from '@/actions/apps'
 import { Dispatch } from 'redux'
 import WebComponentModal from '@/components/pages/app-detail/client/web-component-config-modal/config-modal'

@@ -6,7 +6,7 @@ import styles from '@/styles/blocks/app-authentication-detail.scss?mod'
 import { Loader, Content, H5 } from '@reapit/elements'
 import { FaCopy } from 'react-icons/fa'
 import CopyToClipboard from 'react-copy-to-clipboard'
-import { selectAppAuthenticationCode, selectAppAuthenticationLoading } from '@/selector/app-detail'
+import { selectAppAuthenticationCode, selectAppAuthenticationLoading } from '@/selector/apps'
 
 export type AppAuthenticationDetailProps = {
   appId: string

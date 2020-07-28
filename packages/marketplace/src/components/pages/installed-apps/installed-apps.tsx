@@ -9,7 +9,7 @@ import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { handleLaunchApp } from '@/utils/launch-app'
 import { getParamsFromPath } from '@/utils/client-url-params'
 import Routes from '@/constants/routes'
-import { selectInstalledApps } from '@/selector/client'
+import { selectInstalledApps } from '@/selector/apps'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 

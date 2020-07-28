@@ -9,8 +9,9 @@ import { BROWSE_APPS_PER_PAGE } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
-import { selectFeaturedApps, selectDeveloperEditionId } from '@/selector/client'
-import { selectCategories } from '@/selector/app-categories'
+import { selectFeaturedApps } from '@/selector/apps'
+import { selectDeveloperEditionId } from '@/selector/auth'
+import { selectCategories } from '@/selector/categories'
 import {
   PagedResultCategoryModel_,
   PagedResultAppSummaryModel_,

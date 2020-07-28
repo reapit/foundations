@@ -7,7 +7,7 @@ import { selectLoginIdentity } from '@/selector/auth'
 import Routes from '@/constants/routes'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from './connect-session'
-import { selectDeveloperEditionId } from '@/selector/client'
+import { selectDeveloperEditionId } from '@/selector/auth'
 
 export interface PrivateRouteProps {
   component: React.FunctionComponent | React.LazyExoticComponent<any>
