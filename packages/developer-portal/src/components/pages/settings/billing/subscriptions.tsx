@@ -66,7 +66,7 @@ export const genarateTableData = (subscriptions: SubscriptionModel[] = [], onCan
 }
 
 export const handleFetchSubscriptions = (dispatch: Dispatch, developerId: string) => () => {
-  dispatch(developerFetchSubscriptions({ developerId }))
+  developerId && dispatch(developerFetchSubscriptions({ developerId }))
 }
 
 export const handleDeleteSubscription = (dispatch: Dispatch, id: string, handleCloseModal: () => void) => () => {

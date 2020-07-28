@@ -20,7 +20,7 @@ export const createDispatchers = (dispatch: Dispatch): CreateDispatchersReturn =
   return {
     updateDeveloperInformation: (values: ContactInformationValues) => dispatch(updateDeveloperData(values)),
     changePassword: (values: ChangePasswordValues) => dispatch(changePassword(values)),
-    logout: reapitConnectBrowserSession.connectLogoutRedirect,
+    logout: () => reapitConnectBrowserSession.connectLogoutRedirect(),
   }
 }
 

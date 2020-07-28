@@ -26,17 +26,16 @@ exports[`Login should match a snapshot 1`] = `
     <Router
       history={
         Object {
-          "action": "REPLACE",
+          "action": "POP",
           "block": [Function],
           "canGo": [Function],
           "createHref": [Function],
           "entries": Array [
             Object {
               "hash": "",
-              "key": "jsf57k",
-              "pathname": "/welcome",
+              "key": "loginRoute",
+              "pathname": "/login",
               "search": "",
-              "state": undefined,
             },
           ],
           "go": [Function],
@@ -47,10 +46,9 @@ exports[`Login should match a snapshot 1`] = `
           "listen": [Function],
           "location": Object {
             "hash": "",
-            "key": "jsf57k",
-            "pathname": "/welcome",
+            "key": "loginRoute",
+            "pathname": "/login",
             "search": "",
-            "state": undefined,
           },
           "push": [Function],
           "replace": [Function],
@@ -58,17 +56,89 @@ exports[`Login should match a snapshot 1`] = `
       }
     >
       <Component>
-        <Redirect
-          to="/welcome"
-        >
-          <Lifecycle
-            onMount={[Function]}
-            onUpdate={[Function]}
-            to="/welcome"
-          />
-        </Redirect>
+        <div>
+          <div>
+            <Component>
+              <div
+                className=""
+                data-test=""
+              >
+                <img
+                  alt="Reapit Connect Graphic"
+                  src=""
+                />
+              </div>
+            </Component>
+            <Component>
+              <section
+                className=""
+                data-test=""
+              >
+                <p>
+                  Welcome to Reapit Foundations
+                </p>
+              </section>
+            </Component>
+            <Component>
+              <div
+                className=""
+                data-test=""
+              >
+                <Component
+                  dataTest="login-button"
+                  fullWidth={true}
+                  onClick={[Function]}
+                >
+                  <button
+                    className="button  is-primary is-fullwidth "
+                    data-test="login-button"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Login
+                  </button>
+                </Component>
+                <div>
+                  Don't have an account yet? 
+                  <Link
+                    to="/register"
+                  >
+                    <LinkAnchor
+                      href="/register"
+                      navigate={[Function]}
+                    >
+                      <a
+                        href="/register"
+                        onClick={[Function]}
+                      >
+                        Register
+                      </a>
+                    </LinkAnchor>
+                  </Link>
+                </div>
+              </div>
+            </Component>
+            <Component
+              centerContent={true}
+              className="pt-8"
+            >
+              <div
+                className=""
+              />
+            </Component>
+          </div>
+          <div>
+            <img
+              alt="Reapit Graphic"
+              src=""
+            />
+          </div>
+        </div>
       </Component>
+      ,
     </Router>
   </MemoryRouter>
+  ,
 </Provider>
 `;

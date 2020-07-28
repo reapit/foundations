@@ -40,7 +40,7 @@ export const onLoginButtonClick = (isFirtTimeLogin: boolean) => {
 
 export const Login: React.FunctionComponent<LoginProps> = () => {
   const dispatch = useDispatch()
-  const session = useReapitConnect(reapitConnectBrowserSession)
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
   const { connectIsDesktop } = reapitConnectBrowserSession
 
@@ -53,7 +53,7 @@ export const Login: React.FunctionComponent<LoginProps> = () => {
     dispatch,
   ])
 
-  if (session) {
+  if (connectSession) {
     const redirectRoute = getDefaultPath(connectIsDesktop, isFirtTimeLogin)
     return <Redirect to={redirectRoute} />
   }
