@@ -14,7 +14,6 @@ import { errorThrownServer } from '@/actions/error'
 import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
-import { selectDeveloperId } from '@/selector'
 import { PingWebhooksByIdParams, pingWebhooksById } from '@/services/webhooks'
 import { createDeveloper, fetchDeveloperById } from '@/services/developers'
 import {
@@ -23,6 +22,7 @@ import {
   FetchBillingsParams,
   FetchBillingsByMonthParams,
 } from '@/services/traffic-events'
+import { selectDeveloperId } from '@/selector/auth'
 
 export const developerCreate = function*({ data }: Action<CreateDeveloperModel>) {
   yield put(developerSetFormState('SUBMITTING'))

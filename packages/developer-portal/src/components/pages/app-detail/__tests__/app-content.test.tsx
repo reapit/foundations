@@ -12,8 +12,10 @@ import AppContent, {
 import { Provider } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import configureStore from 'redux-mock-store'
+import appState from '@/reducers/__stubs__/app-state'
 
 const mockState = {
+  ...appState,
   auth: {
     loginSession: {
       loginIdentity: {

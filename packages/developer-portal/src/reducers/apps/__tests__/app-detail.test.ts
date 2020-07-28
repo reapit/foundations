@@ -13,7 +13,7 @@ describe('app-detail reducer', () => {
     const newState = appDetailReducer(undefined, { type: ActionTypes.FETCH_APP_DETAIL as ActionType, data: true })
     const expected = {
       ...defaultState,
-      loading: true,
+      isLoading: true,
     }
     expect(newState).toEqual(expected)
   })
@@ -21,11 +21,11 @@ describe('app-detail reducer', () => {
   it('should set error to false when APP_DETAIL_REQUEST_DATA_FAILURE action is called', () => {
     const newState = appDetailReducer(undefined, {
       type: ActionTypes.FETCH_APP_DETAIL_FAILED as ActionType,
-      data: true,
+      data: 'test',
     })
     const expected = {
       ...defaultState,
-      error: true,
+      errorMessage: 'test',
     }
     expect(newState).toEqual(expected)
   })

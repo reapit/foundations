@@ -1,5 +1,4 @@
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
-import { selectDeveloperId } from '@/selector'
 import { fetchAppDetail } from '@/actions/apps'
 import { RouteValue, StringMap } from '../types/core'
 import Routes from '../constants/routes'
@@ -12,6 +11,7 @@ import { requestDeveloperData } from '@/actions/settings'
 import { selectClientId } from '@/selector/client'
 import { fetchOrganisationMembers } from '@/actions/developers'
 import { FetchAppListParams } from '@/reducers/apps/app-list'
+import { selectDeveloperId } from '@/selector/auth'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
   const id = params && params.appid ? params.appid : ''

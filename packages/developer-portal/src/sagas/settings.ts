@@ -8,11 +8,12 @@ import { settingShowLoading, requestDeveloperDataSuccess, ChangePasswordParams }
 import { errorThrownServer } from '@/actions/error'
 import { showNotificationMessage } from '@/actions/notification-message'
 import { UpdateDeveloperModel } from '@reapit/foundations-ts-definitions'
-import { selectDeveloperId, selectDeveloperEmail } from '@/selector/developer'
 import { selectSettingsPageDeveloperInformation } from '@/selector/settings'
 import { authLogout } from '@/actions/auth'
 import { logger } from '@reapit/utils'
 import { fetchDeveloperById, updateDeveloperById } from '@/services/developers'
+import { selectDeveloperId } from '@/selector/auth'
+import { selectDeveloperEmail } from '@/selector'
 
 export const developerInformationFetch = function*() {
   yield put(settingShowLoading(true))

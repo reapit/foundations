@@ -23,7 +23,6 @@ export const fetchAppListSaga = function*({ data }) {
     })
     yield put(fetchAppListSuccess(appsData))
   } catch (err) {
-    console.log('err', err?.description)
     yield put(fetchAppListFailed(err))
     logger(err)
     yield put(

@@ -25,7 +25,6 @@ import developerSagas, {
 import ActionTypes from '@/constants/action-types'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
-import { selectDeveloperId } from '@/selector/developer'
 import { developerIdentity } from '../__stubs__/developer-identity'
 import { billing } from '../__stubs__/billing'
 import { monthlyBillingData } from '../__stubs__/monthly-billing'
@@ -37,6 +36,7 @@ import {
   FetchBillingsByMonthParams,
   fetchBillingsByMonth,
 } from '@/services/traffic-events'
+import { selectDeveloperId } from '@/selector/auth'
 
 jest.mock('@/services/apps')
 jest.mock('@/services/scopes')
@@ -81,20 +81,6 @@ describe('fetchMyIdentitySagas', () => {
   it('api call success', () => {
     const clone = gen.clone()
     expect(clone.next(developerIdentity).value).toEqual(put(setMyIdentity(developerIdentity)))
-    expect(clone.next().done).toEqual(true)
-  })
-
-  it('api call error', () => {
-    const clone = gen.clone()
-    if (!clone.throw) throw new Error('Generator object cannot throw')
-    expect(clone.next().value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR,
-        }),
-      ),
-    )
     expect(clone.next().done).toEqual(true)
   })
 })

@@ -4,7 +4,6 @@ import dayjs from 'dayjs'
 import { Dispatch } from 'redux'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { appInstallationsRequestData } from '@/actions/app-installations'
-import { selectDeveloperId } from '@/selector'
 import { Button, DATE_TIME_FORMAT, Section } from '@reapit/elements'
 import ConfirmUninstall from './app-uninstall-modal/confirm-uninstall'
 import { handleUninstall, handleAfterClose } from './app-uninstall-modal/app-uninstall-modal'
@@ -20,6 +19,7 @@ import {
   PermissionsSection,
 } from './app-sections'
 import { AppDetailState } from '@/reducers/apps/app-detail'
+import { selectDeveloperId } from '@/selector/auth'
 
 export type AppContentProps = {
   appDetailState: AppDetailState

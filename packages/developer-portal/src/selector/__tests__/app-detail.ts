@@ -6,8 +6,11 @@ import appState from '@/reducers/__stubs__/app-state'
 describe('app-detail', () => {
   const mockState = {
     ...appState,
-    appDetail: {
-      data: appDetailDataStub.data,
+    apps: {
+      detail: {
+        data: appDetailDataStub.data,
+        isLoading: false,
+      },
     },
   } as ReduxState
   describe('selectAppDetailId', () => {
@@ -39,7 +42,7 @@ describe('app-detail', () => {
   describe('selectApp', () => {
     it('should run correctly', () => {
       const result = selectAppDetailData(mockState)
-      expect(result).toEqual(mockState.apps.list.data)
+      expect(result).toEqual(mockState.apps.detail.data)
     })
     it('should return {}', () => {
       const input = {} as ReduxState

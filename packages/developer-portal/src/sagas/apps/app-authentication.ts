@@ -1,8 +1,4 @@
-import {
-  fetchtAppAuthentication,
-  fetchtAppAuthenticationSuccess,
-  fetchtAppAuthenticationFailed,
-} from '@/actions/apps'
+import { fetchtAppAuthentication, fetchtAppAuthenticationSuccess, fetchtAppAuthenticationFailed } from '@/actions/apps'
 import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'

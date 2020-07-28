@@ -11,17 +11,18 @@ import TransactionHistory, {
   handleEarlierClick,
 } from '../transaction-history'
 import { developerIdentity } from '@/sagas/__stubs__/developer-identity'
-import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { ReduxState } from '@/types/core'
 import FileSaver from 'file-saver'
+import appState from '@/reducers/__stubs__/app-state'
 
-const mockState = ({
+const mockState: ReduxState = {
+  ...appState,
   developer: {
-    developerData: appsDataStub,
+    ...appState.developer,
     myIdentity: developerIdentity,
     loading: false,
   },
-} as unknown) as ReduxState
+}
 
 describe('TransactionHistory', () => {
   let spyFetcher
@@ -80,7 +81,7 @@ describe('TransactionHistory', () => {
   describe('selectTransactionHistoryState', () => {
     it('should return correctly', () => {
       expect(selectTransactionHistoryState(mockState)).toEqual({
-        developerAppIds: ['09043eb8-9e5e-4650-b7f1-f0cb62699027', '261da083-cee2-4f5c-a18f-8f9375f1f5af'],
+        developerAppIds: [],
         developerCreatedDate: '2020-04-30T13:21:20',
         isLoadingDeveloperDetail: false,
       })

@@ -13,10 +13,10 @@ import {
   appInstallationsFilterReceiveData,
   appInstallationsFilterRequestDataFailure,
 } from '@/actions/app-installations'
-import { selectDeveloperId } from '@/selector/developer'
 import { selectLoggedUserEmail, selectClientId } from '@/selector/client'
 import { logger } from '@reapit/utils'
 import { fetchInstallationsList, createInstallation, removeAccessToAppById } from '@/services/installations'
+import { selectDeveloperId } from '@/selector/auth'
 
 export const installationsSaga = function*({ data }) {
   try {
