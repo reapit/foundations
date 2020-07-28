@@ -161,7 +161,7 @@ export const generateTableColumn = ({
 export const AdminApprovals: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = React.useState(false)
   const dispatch = useDispatch()
-  const appDetail = useSelector(selectAppDetailData) as AppDetailModel
+  const appDetail = useSelector(selectAppDetailData)
   const location = useLocation()
   const history = useHistory()
   const revisionDetail = useSelector(selectAppRevision)

@@ -1,14 +1,12 @@
 import { ReduxState } from '@/types/core'
+import { defaultState as defaultAppDetailState } from '@/reducers/apps/detail'
+import { defaultState as defaultAppListState } from '@/reducers/apps/list'
+import { COGNITO_GROUP_DEVELOPER_EDITION } from '@/constants/api'
 
 const appState: ReduxState = {
   error: {
     componentError: null,
     serverError: null,
-  },
-  appsManagement: {
-    loading: false,
-    formState: 'PENDING',
-    appsData: null,
   },
   approvals: {
     loading: false,
@@ -43,7 +41,8 @@ const appState: ReduxState = {
     },
   },
   apps: {
-    detail: { isLoading: false, data: null, errorMessage: '' },
+    detail: defaultAppDetailState,
+    list: defaultAppListState,
   },
 }
 

@@ -4,7 +4,6 @@ import ActionTypes from '../constants/action-types'
 import { ErrorState } from '../reducers/error'
 import { ApprovalsState } from '@/reducers/approvals'
 import { RevisionDetailState } from '@/reducers/revision-detail'
-import { AppsManagementState } from '@/reducers/apps-management'
 import { NotificationMessageState } from '@/reducers/notification-message'
 import { StatisticsState } from '@/reducers/statistics'
 import { AppsState } from '@/reducers/apps'
@@ -48,7 +47,6 @@ export interface FetcherParams<T> {
 
 export interface ReduxState {
   error: ErrorState
-  appsManagement: AppsManagementState
   approvals: ApprovalsState
   devsManagement: DevsManagementState
   developerSetStatus: RequestState

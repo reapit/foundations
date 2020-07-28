@@ -14,7 +14,6 @@ import devsManagement from '@/reducers/devs-management'
 import developerSetStatus from '@/reducers/developer-set-status'
 import revisionDetail from '@/reducers/revision-detail'
 import appDeleteReducer from '@/reducers/app-delete'
-import adminApps from '@/reducers/apps-management'
 import statisticsReducer from '@/reducers/statistics'
 import noticationMessage from '@/reducers/notification-message'
 
@@ -47,7 +46,6 @@ export class Store {
     auth,
 >>>>>>> chore: #2099 migrate app-detail reducer to apps reducer
     error,
-    appsManagement: adminApps,
     approvals,
     devsManagement,
     developerSetStatus,

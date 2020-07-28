@@ -2,20 +2,15 @@ import { ReduxState } from '@/types/core'
 import { ApprovalsState } from '@/reducers/approvals'
 import { PagedResultApprovalModel_ } from '@reapit/foundations-ts-definitions'
 import { DevsManagementState } from '@/reducers/devs-management'
-import { AppsManagementState } from '@/reducers/apps-management'
 import { PagedResultAppSummaryModel_ } from '@/types/marketplace-api-schema'
 import { StatisticsState } from '@/reducers/statistics'
 
-export const selectAppsManagementState = (state: ReduxState): AppsManagementState => {
-  return state?.appsManagement || {}
-}
-
 export const selectAppsLoading = (state: ReduxState): boolean => {
-  return !!state?.appsManagement?.loading
+  return !!state?.apps.list?.isLoading
 }
 
 export const selectAppsData = (state: ReduxState): PagedResultAppSummaryModel_ | null => {
-  return state.appsManagement.appsData
+  return state.apps.list
 }
 
 export const selectApprovalsState = (state: ReduxState): ApprovalsState => {

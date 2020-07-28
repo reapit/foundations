@@ -1,12 +1,5 @@
 import { ReduxState } from '@/types/core'
-import {
-  selectAppsManagementState,
-  selectAppsData,
-  selectApprovalsState,
-  selectWaitingApprovalData,
-  selectStatistics,
-  selectDevsManagement,
-} from '../admin'
+import { selectApprovalsState, selectWaitingApprovalData, selectStatistics, selectDevsManagement } from '../admin'
 import { appsDataStub } from '@/sagas/apps/__stubs__/apps'
 import { approvalsStub } from '@/sagas/approvals/__stubs__/approvals'
 import appState from '@/reducers/__stubs__/app-state'
@@ -23,31 +16,6 @@ describe('admin', () => {
       approvalsData: approvalsStub,
     },
   } as ReduxState
-
-  describe('selectAppsManagementState', () => {
-    it('should run correctly', () => {
-      const result = selectAppsManagementState(mockState)
-      expect(result).toEqual({ appsData: appsDataStub.data, loading: false })
-    })
-
-    it('should run correctly and return {}', () => {
-      const input = {} as ReduxState
-      const result = selectAppsManagementState(input)
-      expect(result).toEqual({})
-    })
-  })
-
-  describe('selectAppsData', () => {
-    it('should run correctly', () => {
-      const result = selectAppsData(mockState)
-      expect(result).toEqual(mockState.appsManagement.appsData)
-    })
-    it('should run correctly and return {}', () => {
-      const input = {} as ReduxState
-      const result = selectAppsManagementState(input)
-      expect(result).toEqual({})
-    })
-  })
 
   describe('selectApprovalsState', () => {
     it('should run correctly', () => {

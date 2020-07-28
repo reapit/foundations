@@ -241,6 +241,7 @@ export const renderContent = ({ adminAppsData, columns }) => {
   )
 }
 
+// render data correct
 export const AppsManagement: React.FC = () => {
   const [deleteModalData, setDataDeleteModal] = React.useState<DeleteModalData>({
     visible: false,
