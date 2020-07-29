@@ -13,7 +13,7 @@ export const approvalsDataFetch = function*({ data: page }) {
   try {
     const response = yield call(fetchApprovalsList, { pageNumber: page })
     if (response) {
-      yield put(approvalsReceiveData({ data: response }))
+      yield put(approvalsReceiveData(response))
     } else {
       yield put(approvalsRequestDataFailure())
     }

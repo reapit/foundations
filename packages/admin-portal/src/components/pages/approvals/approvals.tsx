@@ -12,7 +12,7 @@ import { AppDetailModel } from '@/types/marketplace-api-schema'
 import { selectAppDetailData } from '@/selector/app-detail'
 import { selectAppRevision } from '@/selector/app-revisions'
 import ApprovalModal from '@/components/ui/approval-modal'
-import { selectApprovalsState, selectWaitingApprovalData } from '@/selector/admin'
+import { selectApprovalListState } from '@/selector/admin'
 
 export type HandleCloseModalParams = {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>
@@ -165,11 +165,12 @@ export const AdminApprovals: React.FC = () => {
   const location = useLocation()
   const history = useHistory()
   const revisionDetail = useSelector(selectAppRevision)
-  const approvalsState = useSelector(selectApprovalsState)
-  const waitingApprovalListData = useSelector(selectWaitingApprovalData)
+  const approvalListState = useSelector(selectApprovalListState)
+
+  const waitingApprovalListData = useSelector(selectApprovalListState)
   const urlParams = new URLSearchParams(location.search)
   const page = urlParams.get('page') || 1
-  const isLoading = approvalsState.loading
+  const isLoading = approvalListState.isLoading
 
   return (
     <>

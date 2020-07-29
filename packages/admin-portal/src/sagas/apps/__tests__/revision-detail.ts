@@ -5,8 +5,8 @@ import revisionDetailSagas, {
   declineRevisionListen,
   approveRevision,
   declineRevision,
-  getApprovalPageNumber,
 } from '../revision-detail'
+
 import { revisionDetailDataStub } from '../__stubs__/revision-detail'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
@@ -26,6 +26,7 @@ import { approvalsDataFetch } from '../../approvals/approvals'
 import { fetchAppRevisionsById, approveAppRevisionById, rejectAppRevisionById } from '@/services/apps'
 import { fetchScopesList } from '@/services/scopes'
 import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
+import { selectApprovalListPageNumber } from '@/selector/approvals'
 
 jest.mock('@/services/apps')
 jest.mock('@/services/scopes')
@@ -82,7 +83,7 @@ const approveSubmitParams: Action<RevisionApproveRequestParams> = {
 describe('revision approve submmit', () => {
   const gen = cloneableGenerator(approveRevision as any)(approveSubmitParams)
   const { appId, appRevisionId, ...body } = approveSubmitParams.data
-  expect(gen.next().value).toEqual(select(getApprovalPageNumber))
+  expect(gen.next().value).toEqual(select(selectApprovalListPageNumber))
   expect(gen.next({ pageNumber }).value).toEqual(put(approveRevisionSetFormState('SUBMITTING')))
   expect(gen.next().value).toEqual(call(approveAppRevisionById, { id: appId, revisionId: appRevisionId, ...body }))
 
@@ -114,7 +115,7 @@ const declineSubmitParams: Action<RevisionDeclineRequestParams> = {
 describe('revision decline submmit', () => {
   const gen = cloneableGenerator(declineRevision as any)(declineSubmitParams)
   const { appId, appRevisionId, ...body } = declineSubmitParams.data
-  expect(gen.next().value).toEqual(select(getApprovalPageNumber))
+  expect(gen.next().value).toEqual(select(selectApprovalListPageNumber))
   expect(gen.next({ pageNumber }).value).toEqual(put(declineRevisionSetFormState('SUBMITTING')))
   expect(gen.next().value).toEqual(call(rejectAppRevisionById, { id: appId, revisionId: appRevisionId, ...body }))
 

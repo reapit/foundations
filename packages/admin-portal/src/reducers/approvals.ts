@@ -1,55 +1,36 @@
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
-import {
-  approvalsLoading,
-  approvalsReceiveData,
-  approvalsClearData,
-  approvalsRequestDataFailure,
-} from '../actions/approvals'
+import { approvalsLoading, approvalsReceiveData, approvalsRequestDataFailure } from '../actions/approvals'
 import { PagedResultApprovalModel_ } from '@reapit/foundations-ts-definitions'
+import { FetchDetailResult, getDefaultFetchListValue } from '@reapit/utils'
 
-export interface ApprovalsList {
-  data: PagedResultApprovalModel_
+export type ApprovalList = PagedResultApprovalModel_ & Pick<FetchDetailResult<any>, 'isLoading' | 'errorMessage'>
+
+export type ApprovalsState = {
+  list: ApprovalList
 }
 
-export interface ApprovalsState {
-  loading: boolean
-  approvalsData: ApprovalsList | null
-}
-
-export const defaultState: ApprovalsState = {
-  loading: false,
-  approvalsData: null,
-}
+export const defaultState: ApprovalsState = { list: getDefaultFetchListValue() }
 
 const approvalsReducer = (state: ApprovalsState = defaultState, action: Action<any>): ApprovalsState => {
   if (isType(action, approvalsLoading)) {
     return {
-      ...state,
-      loading: action.data,
+      list: {
+        ...state.list,
+        isLoading: true,
+      },
     }
   }
 
   if (isType(action, approvalsReceiveData)) {
     return {
-      ...state,
-      loading: false,
-      approvalsData: action.data || null,
-    }
-  }
-
-  if (isType(action, approvalsClearData)) {
-    return {
-      ...state,
-      loading: false,
-      approvalsData: action.data,
+      list: { ...state.list, isLoading: false, ...(action.data || {}) },
     }
   }
 
   if (isType(action, approvalsRequestDataFailure)) {
     return {
-      ...state,
-      loading: false,
+      list: { ...state.list, isLoading: false },
     }
   }
 

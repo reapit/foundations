@@ -15,8 +15,10 @@ describe('Approvals reducer', () => {
       data: true,
     })
     const expected = {
-      ...defaultState,
-      loading: true,
+      list: {
+        ...defaultState.list,
+        isLoading: true,
+      },
     }
     expect(newState).toEqual(expected)
   })
@@ -24,23 +26,13 @@ describe('Approvals reducer', () => {
   it('should set approvals list data when APPROVALS_RECEIVE_DATA action is called', () => {
     const newState = approvalsReducer(undefined, {
       type: ActionTypes.APPROVALS_RECEIVE_DATA as ActionType,
-      data: approvalsStub,
+      data: approvalsStub.data,
     })
     const expected = {
-      ...defaultState,
-      approvalsData: approvalsStub,
-    }
-    expect(newState).toEqual(expected)
-  })
-
-  it('should clear approvals list data when APPROVALS_CLEAR_DATA action is called', () => {
-    const newState = approvalsReducer(undefined, {
-      type: ActionTypes.APPROVALS_CLEAR_DATA as ActionType,
-      data: null,
-    })
-    const expected = {
-      ...defaultState,
-      approvalsData: null,
+      list: {
+        ...defaultState.list,
+        ...approvalsStub.data,
+      },
     }
     expect(newState).toEqual(expected)
   })
