@@ -228,11 +228,24 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                   data-test=""
                                 >
                                   <p>
-                                    This action will install the app for ALL platform users.
+                                    You are about to install ‘
+                                    Peter's Properties
+                                    ’ for 
+                                    <b>
+                                      all
+                                    </b>
+                                     members of your organisation.
                                   </p>
                                   <p>
-                                    Peter's Properties
-                                     requires the permissions below. By installing you are granting permission to your data.
+                                    By installing this app, you are granting the following permissions to your data:
+                                  </p>
+                                  <p>
+                                    <b>
+                                      Data Permissions
+                                    </b>
+                                  </p>
+                                  <p>
+                                    Information about your organisation and the names/email addresses of your users
                                   </p>
                                   <div
                                     class=""
@@ -446,11 +459,24 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                         data-test=""
                                       >
                                         <p>
-                                          This action will install the app for ALL platform users.
+                                          You are about to install ‘
+                                          Peter's Properties
+                                          ’ for 
+                                          <b>
+                                            all
+                                          </b>
+                                           members of your organisation.
                                         </p>
                                         <p>
-                                          Peter's Properties
-                                           requires the permissions below. By installing you are granting permission to your data.
+                                          By installing this app, you are granting the following permissions to your data:
+                                        </p>
+                                        <p>
+                                          <b>
+                                            Data Permissions
+                                          </b>
+                                        </p>
+                                        <p>
+                                          Information about your organisation and the names/email addresses of your users
                                         </p>
                                         <Component>
                                           <div

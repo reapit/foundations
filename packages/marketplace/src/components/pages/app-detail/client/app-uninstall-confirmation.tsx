@@ -165,7 +165,10 @@ const AppUninstallConfirmation: React.FC<AppUninstallConfirmationProps> = ({
           connectIsDesktop,
         )}
       >
-        <>Are you sure you wish to uninstall {name}? This action will uninstall the app for ALL platform users</>
+        <>
+          Are you sure you wish to uninstall {name}? This action will uninstall the app for <b>all</b> members of your
+          organisation.
+        </>
       </Modal>
       <Modal
         visible={isSuccessAlertVisible}
