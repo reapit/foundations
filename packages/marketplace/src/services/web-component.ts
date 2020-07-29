@@ -28,7 +28,7 @@ export type WebComponentConfigResult = {
   negotiatorIds: string[]
 } | null
 
-export const fetchWebComponentConfig = async (
+export const fetchWebComponentConfigApi = async (
   params: FetchWebComponentConfigParams,
 ): Promise<WebComponentConfigResult> => {
   try {
@@ -42,11 +42,11 @@ export const fetchWebComponentConfig = async (
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 
-export const updateWebComponentConfig = async (
+export const updateWebComponentConfigApi = async (
   params: UpdateWebComponentConfigParams,
 ): Promise<WebComponentConfigResult> => {
   try {
@@ -61,6 +61,6 @@ export const updateWebComponentConfig = async (
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }

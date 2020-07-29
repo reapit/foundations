@@ -1,15 +1,15 @@
 import { PagedResultCategoryModel_ } from '@reapit/foundations-ts-definitions'
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
-import { fetchCategories, fetchCategoriesFailure, fetchCategoriesSuccess } from '@/actions/categories'
+import { fetchNegotiators, fetchNegotiatorsFailure, fetchNegotiatorsSuccess } from '@/actions/negotiators'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 
-export type CategoriesState = PagedResultCategoryModel_ & {
+export type NegotiatorsState = PagedResultCategoryModel_ & {
   isLoading: boolean
   errorMessage: string
 }
 
-export const defaultCategoriesState: CategoriesState = {
+export const defaultNegotiatorsState: NegotiatorsState = {
   data: [],
   pageNumber: 1,
   pageSize: APPS_PER_PAGE,
@@ -19,11 +19,11 @@ export const defaultCategoriesState: CategoriesState = {
   errorMessage: '',
 }
 
-export const categoriesReducer = (
-  state: CategoriesState = defaultCategoriesState,
+export const negotiatorsReducer = (
+  state: NegotiatorsState = defaultNegotiatorsState,
   action: Action<any>,
-): CategoriesState => {
-  if (isType(action, fetchCategories)) {
+): NegotiatorsState => {
+  if (isType(action, fetchNegotiators)) {
     return {
       ...state,
       isLoading: true,
@@ -31,7 +31,7 @@ export const categoriesReducer = (
     }
   }
 
-  if (isType(action, fetchCategoriesSuccess)) {
+  if (isType(action, fetchNegotiatorsSuccess)) {
     return {
       ...state,
       ...action.data,
@@ -40,7 +40,7 @@ export const categoriesReducer = (
     }
   }
 
-  if (isType(action, fetchCategoriesFailure)) {
+  if (isType(action, fetchNegotiatorsFailure)) {
     return {
       ...state,
       isLoading: false,

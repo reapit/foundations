@@ -1,29 +1,25 @@
 import { ReduxState } from '@/types/core'
-import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import { InstalledAppsState } from '@/reducers/client/installed-apps'
-import { InstalledAppsState as InstalledLaunchAppsState } from '@/reducers/installed-apps'
-import { ClientAppSummaryState } from '@/reducers/client/app-summary'
-
-export const selectAppSummary = (state: ReduxState): ClientAppSummaryState => {
-  return state?.client.appSummary
-}
+import { AppDetailModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
+import { FeatureListState } from '@/reducers/apps/feature-list'
+import { AppsListState } from '@/reducers/apps/list'
 
 export const selectFeaturedApps = (state: ReduxState): AppSummaryModel[] => {
   return state?.client.appSummary.data?.featuredApps || []
 }
 
-export const selectInstalledAppsForLaunch = (state: ReduxState): InstalledLaunchAppsState => {
-  return state?.installedApps
+// App Detail
+export const selectAppDetailData = (state: ReduxState): AppDetailModel => {
+  return state.apps.detail.data || {}
 }
 
-export const selectInstalledApps = (state: ReduxState): InstalledAppsState => {
-  return state?.client.installedApps || {}
+export const selectAppDetailLoading = (state: ReduxState): boolean => {
+  return state.apps.detail.isLoading
 }
 
-export const selectAppDetailData = (state: ReduxState) => {
-  return state.client.appDetail.data || {}
+export const selectFeatureAppsListState = (state: ReduxState): FeatureListState => {
+  return state.apps.featureList
 }
 
-export const selectAppDetailLoading = (state: ReduxState) => {
-  return state.client.appDetail.isAppDetailLoading
+export const selectAppsListState = (state: ReduxState): AppsListState => {
+  return state.apps.list
 }

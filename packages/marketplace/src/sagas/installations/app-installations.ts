@@ -1,8 +1,6 @@
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
-import { errorThrownServer } from '@/actions/error'
-import errorMessages from '@/constants/error-messages'
 import { appInstallationsSetFormState, UninstallParams, InstallParams } from '@/actions/installations'
 import { selectLoggedUserEmail } from '@/selector/auth'
 import { logger } from '@reapit/utils'
@@ -10,6 +8,7 @@ import { createInstallation, removeAccessToAppById } from '@/services/installati
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { selectClientId } from '@/selector/auth'
 import { CLIENT_ID_NOT_FOUND_ERROR } from '@/constants/errors'
+import { notification } from '@reapit/elements'
 
 export const appInstallSaga = function*(options) {
   const data: InstallParams = options.data
@@ -33,12 +32,7 @@ export const appInstallSaga = function*(options) {
   } catch (err) {
     logger(err)
     yield put(appInstallationsSetFormState('ERROR'))
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    notification.error({ message: err.description, placement: 'bottomRight' })
   }
 }
 
@@ -57,12 +51,7 @@ export const appUninstallSaga = function*(options) {
   } catch (err) {
     logger(err)
     yield put(appInstallationsSetFormState('ERROR'))
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    notification.error({ message: err.description, placement: 'bottomRight' })
   }
 }
 

@@ -1,14 +1,14 @@
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
-import { myAppsReceiveData, myAppsRequestData, myAppsRequestDataFailure } from '@/actions/apps'
+import { fetchFeatureApps, fetchFeatureAppsSuccess, fetchFeatureAppsFailed } from '@/actions/apps'
 import { PagedResultAppSummaryModel_ } from '@reapit/foundations-ts-definitions'
 
-export type InstalledAppsState = PagedResultAppSummaryModel_ & {
+export type FeatureListState = PagedResultAppSummaryModel_ & {
   isLoading: boolean
   errorMessage: string
 }
 
-export const defaultInstalledAppsState: InstalledAppsState = {
+export const defaultFeatureAppsListState: FeatureListState = {
   data: [],
   pageNumber: 0,
   pageSize: 0,
@@ -18,11 +18,11 @@ export const defaultInstalledAppsState: InstalledAppsState = {
   errorMessage: '',
 }
 
-export const installedAppReducer = (
-  state: InstalledAppsState = defaultInstalledAppsState,
+export const featureListReducer = (
+  state: FeatureListState = defaultFeatureAppsListState,
   action: Action<any>,
-): InstalledAppsState => {
-  if (isType(action, myAppsRequestData)) {
+): FeatureListState => {
+  if (isType(action, fetchFeatureApps)) {
     return {
       ...state,
       isLoading: true,
@@ -30,7 +30,7 @@ export const installedAppReducer = (
     }
   }
 
-  if (isType(action, myAppsReceiveData)) {
+  if (isType(action, fetchFeatureAppsSuccess)) {
     return {
       ...state,
       ...action.data,
@@ -39,7 +39,7 @@ export const installedAppReducer = (
     }
   }
 
-  if (isType(action, myAppsRequestDataFailure)) {
+  if (isType(action, fetchFeatureAppsFailed)) {
     return {
       ...state,
       isLoading: false,

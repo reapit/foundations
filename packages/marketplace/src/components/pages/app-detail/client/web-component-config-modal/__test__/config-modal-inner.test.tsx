@@ -9,7 +9,7 @@ import { mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
 import { UpdateWebComponentConfigParams } from '@/services/web-component'
-import { clientUpdateWebComponentConfig } from '@/actions/apps'
+import { updateWebComponentConfig } from '@/actions/apps'
 import { webComponentStub } from '../__stubs__/web-component-config'
 import appState from '@/reducers/__stubs__/app-state'
 import { FormikProps } from '@reapit/elements'
@@ -65,7 +65,7 @@ describe('Config-modal-inner', () => {
 
     const fn = updateWebComponentConfig(dispatch, 'appid', closeModal)
     fn(params)
-    expect(dispatch).toBeCalledWith(clientUpdateWebComponentConfig({ ...params, callback: closeModal }))
+    expect(dispatch).toBeCalledWith(updateWebComponentConfig({ ...params, callback: closeModal }))
   })
 })
 

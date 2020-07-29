@@ -1,20 +1,27 @@
 import { actionCreator } from '@/utils/actions'
 import ActionTypes from '@/constants/action-types'
 import { InstalledAppsItem } from '@/reducers/installed-apps'
-import { PagedResultAppSummaryModel_, PagedResultNegotiatorModel_ } from '@reapit/foundations-ts-definitions'
+import {
+  AppDetailModel,
+  PagedResultAppSummaryModel_,
+  PagedResultNegotiatorModel_,
+} from '@reapit/foundations-ts-definitions'
 import { ClientAppSummary, ClientAppSummaryParams } from '@/reducers/client/app-summary'
 import { AppDetailData } from '@/reducers/client/app-detail'
-import { FetchAppByIdParams, FetchAppsListParams } from '@/services/apps'
-import {
-  UpdateWebComponentConfigParams,
-  FetchWebComponentConfigParams,
-  WebComponentConfigResult,
-} from '@/services/web-component'
+import { FetchAppByIdParams, FetchAppsApiParams } from '@/services/apps'
+import { FetchWebComponentConfigParams } from '@/services/web-component'
 
-// Apps
-export const myAppsRequestData = actionCreator<FetchAppsListParams>(ActionTypes.MY_APPS_REQUEST_DATA)
-export const myAppsReceiveData = actionCreator<PagedResultAppSummaryModel_>(ActionTypes.MY_APPS_RECEIVE_DATA)
-export const myAppsRequestDataFailure = actionCreator<string>(ActionTypes.MY_APPS_REQUEST_DATA_FAILURE)
+export const fetchApps = actionCreator<FetchAppsApiParams>(ActionTypes.FETCH_APPS)
+export const fetchAppsSuccess = actionCreator<PagedResultAppSummaryModel_>(ActionTypes.FETCH_APPS_SUCESS)
+export const fetchAppsFailed = actionCreator<string>(ActionTypes.FETCH_APPS_FAILURE)
+
+export const fetchFeatureApps = actionCreator<FetchAppsApiParams>(ActionTypes.FETCH_FEATURE_APPS)
+export const fetchFeatureAppsSuccess = actionCreator<PagedResultAppSummaryModel_>(ActionTypes.FETCH_FEATURE_APPS_SUCESS)
+export const fetchFeatureAppsFailed = actionCreator<string>(ActionTypes.FETCH_FEATURE_APPS_FAILURE)
+
+export const fetchAppDetail = actionCreator<FetchAppByIdParams>(ActionTypes.FETCH_APP_DETAIL)
+export const fetchAppDetailSuccess = actionCreator<AppDetailModel>(ActionTypes.FETCH_APP_DETAIL_SUCCESS)
+export const fetchAppDetailFailure = actionCreator<string>(ActionTypes.FETCH_APP_DETAIL_FAILURE)
 
 // App Detail
 export interface AppDetailParams {
@@ -46,20 +53,4 @@ export const clientFetchAppDetailFailed = actionCreator<string>(ActionTypes.CLIE
 
 export const clientFetchWebComponentConfig = actionCreator<FetchWebComponentConfigParams>(
   ActionTypes.CLIENT_FETCH_WEB_COMPONENT_CONFIG,
-)
-export const clientFetchWebComponentConfigSuccess = actionCreator<WebComponentConfigResult>(
-  ActionTypes.CLIENT_FETCH_WEB_COMPONENT_CONFIG_SUCCESS,
-)
-export const clientFetchWebComponentConfigFailed = actionCreator<void>(
-  ActionTypes.CLIENT_FETCH_WEB_COMPONENT_CONFIG_FAILED,
-)
-export const clientUpdateWebComponentConfig = actionCreator<UpdateWebComponentConfigParams>(
-  ActionTypes.CLIENT_UPDATE_WEB_COMPONENT_CONFIG,
-)
-export const clientUpdateWebComponentConfigFailed = actionCreator<void>(
-  ActionTypes.CLIENT_UPDATE_WEB_COMPONENT_CONFIG_FAILED,
-)
-
-export const clientFetchNegotiatorsSuccess = actionCreator<PagedResultNegotiatorModel_>(
-  ActionTypes.CLIENT_FETCH_NEGOTIATORS_SUCCESS,
 )

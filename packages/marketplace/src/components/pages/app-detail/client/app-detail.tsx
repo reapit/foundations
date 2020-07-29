@@ -3,9 +3,8 @@
 import * as React from 'react'
 import { History } from 'history'
 import { useHistory } from 'react-router'
+import { DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
 import AppUninstallConfirmation from '@/components/pages/app-detail/client/app-uninstall-confirmation'
-import { DesktopIntegrationTypeModel } from '@/actions/desktop-integration-types'
-import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
 import { selectDesktopIntegrationTypes } from '@/selector/desktop-integration-types'
 import { useSelector } from 'react-redux'
 import { selectAppDetailData, selectAppDetailLoading } from '@/selector/apps'
@@ -78,7 +77,7 @@ const AppDetail: React.FC = () => {
   )
 
   const desktopIntegrationTypes = useSelector(selectDesktopIntegrationTypes) as DesktopIntegrationTypeModel[]
-  const appDetailData = useSelector(selectAppDetailData) as AppDetailDataNotNull
+  const appDetailData = useSelector(selectAppDetailData)
   const userDesktopIntegrationTypes = getDesktopIntegrationTypes(
     appDetailData.desktopIntegrationTypeIds || [],
     desktopIntegrationTypes,
