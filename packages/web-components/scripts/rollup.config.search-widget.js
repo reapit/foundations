@@ -5,6 +5,7 @@ import replace from '@rollup/plugin-replace'
 import path from 'path'
 import generateRollupOutput from './generate-rollup-output'
 import generateCssOutput from './generate-css-output'
+import autoPreprocess from 'svelte-preprocess'
 
 const config = require(path.resolve(__dirname, '..', 'config.json'))
 const production = !process.env.ROLLUP_WATCH
@@ -26,6 +27,7 @@ export const baseConfigurationWithoutTheme = {
     svelte({
       dev: !production,
       css: css => generateCssOutput({ css, fileName: 'search-widget.css', production }),
+      preprocess: autoPreprocess(),
     }),
     ...baseConfig.plugins,
   ],

@@ -1,8 +1,8 @@
 import SearchWidget from '../components/search-widget.svelte'
-import { InitializerTheme } from '../../../common/styles/index'
+import { ThemeBaseInitializer } from '../../../common/styles/types'
 
 export interface SearchWidgeInitializers {
-  theme: Partial<InitializerTheme>
+  theme: Partial<ThemeBaseInitializer>
   apiKey: string
   customerId: string
   parentSelector: string

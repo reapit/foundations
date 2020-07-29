@@ -31,15 +31,15 @@ module.exports = {
   moduleFileExtensions: ['js', 'ts', 'svelte'],
   coverageThreshold: {
     global: {
-      branches: 50,
+      branches: 56,
       functions: 80,
-      lines: 80,
-      statements: 80,
+      lines: 88,
+      statements: 84,
     },
   },
   transform: {
     '^.+\\.svg$': '<rootDir>/../../scripts/jest/svg-transform.js',
-    '^.+\\.svelte$': 'svelte-jester',
+    '^.+\\.svelte$': ['svelte-jester', { preprocess: true }],
     '^.+\\.js$': 'ts-jest',
   },
   coverageReporters: ['json-summary', 'text', 'lcov'],

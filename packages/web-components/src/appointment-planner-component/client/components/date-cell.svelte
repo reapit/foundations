@@ -1,13 +1,13 @@
-<script>
+<script lang="ts">
   import TimeCell from './time-cell.svelte'
+  import { Dayjs } from 'dayjs'
+  import { themeStore } from '../core/theme-store'
 
-  export let date
-  export let handleNextStep
-  export let handleOnClickCell
-  export let themeClasses
+  export let date: Dayjs
+  export let handleOnClickCell: ({ appointmentDate: Dayjs, appointmentTime: number }) => void
 
   // generate dummy meeting slots between 00-00 -> 10-00 - duration - on hours
-  export const mockedTimes = []
+  export const mockedTimes: string[] = []
 
   // if not testing
   if (typeof window.process === 'undefined') {
@@ -23,7 +23,7 @@
     }
   }
 
-  export const formatHeader = date => {
+  export const formatHeader = (date: Dayjs) => {
     return date.format('ddd MMM DD')
   }
 </script>
@@ -36,10 +36,10 @@
 </style>
 
 <div class="date-cell-container" title="Click on the cell for more detail">
-  <div class={themeClasses.dateCellHeader}>{formatHeader(date)}</div>
-  <div class={themeClasses.timeCellsContainer}>
+  <div class={$themeStore.dateCellHeader}>{formatHeader(date)}</div>
+  <div class={$themeStore.timeCellsContainer}>
     {#each mockedTimes as startTime}
-      <TimeCell {themeClasses} {date} {startTime} {handleNextStep} {handleOnClickCell} />
+      <TimeCell {date} {startTime} {handleOnClickCell} />
     {/each}
   </div>
 </div>

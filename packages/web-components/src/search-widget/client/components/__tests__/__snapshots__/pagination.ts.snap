@@ -4,10 +4,10 @@ exports[`pagination it matches a snapshot 1`] = `
 <body>
   <div>
     <div
-      class="search-form-pagination svelte-1hi9sva"
+      class="search-form-pagination svelte-109aysm"
     >
       <a
-        class=" svelte-1hi9sva"
+        class=" svelte-109aysm"
         data-testid="first-page"
         href="/"
       >
@@ -15,7 +15,7 @@ exports[`pagination it matches a snapshot 1`] = `
       </a>
        
       <a
-        class=" svelte-1hi9sva"
+        class=" svelte-109aysm"
         data-testid="prev-page"
         href="/"
       >
@@ -23,7 +23,7 @@ exports[`pagination it matches a snapshot 1`] = `
       </a>
        
       <a
-        class=" svelte-1hi9sva"
+        class=" svelte-109aysm"
         data-testid="current-page"
         href="/"
       >
@@ -31,7 +31,7 @@ exports[`pagination it matches a snapshot 1`] = `
       </a>
        
       <a
-        class=" svelte-1hi9sva"
+        class=" svelte-109aysm"
         data-testid="next-page"
         href="/"
       >
@@ -39,7 +39,7 @@ exports[`pagination it matches a snapshot 1`] = `
       </a>
        
       <a
-        class=" svelte-1hi9sva"
+        class=" svelte-109aysm"
         data-testid="last-page"
         href="/"
       >

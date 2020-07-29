@@ -98,6 +98,8 @@ export type GetResultMessageParams = {
   propertyType?: string
   minPrice?: number
   maxPrice?: number
+  orderBy?: string
+  addedIn?: string
 }
 
 export const getResultMessage = ({

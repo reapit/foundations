@@ -4,21 +4,21 @@ exports[`EnlargeImageModal should match snapshot 1`] = `
 <body>
   <div>
     <div
-      class="reapit-modal-wrapper svelte-1w7voj9"
+      class="reapit-modal-wrapper svelte-14cg6lx"
     >
       <div>
         <div
-          class="light-box-enlarge-image-modal svelte-19txmtp"
+          class="light-box-enlarge-image-modal svelte-74n6bx"
           style="width: 819.2px; height: 614.4000000000001px;"
         >
           <img
             alt="Current carousel"
-            class="light-box-enlarge-image svelte-19txmtp"
+            class="light-box-enlarge-image svelte-74n6bx"
             src="current-display-image-url"
           />
            
           <div
-            class="light-box-widget-container svelte-19txmtp"
+            class="light-box-widget-container svelte-74n6bx"
           >
             <div>
               <button
@@ -59,7 +59,7 @@ exports[`EnlargeImageModal should match snapshot 1`] = `
               </span>
                
               <button
-                class="light-box-widget-next-button svelte-19txmtp"
+                class="light-box-widget-next-button svelte-74n6bx"
               >
                 <svg
                   aria-hidden="true"

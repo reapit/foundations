@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { slide } from 'svelte/transition'
   import { cubicInOut } from 'svelte/easing'
   import Fa from 'svelte-fa'
@@ -21,7 +21,7 @@
   let searchError = false
   let currentPage = 1
   let showAdvancedSearch = false
-  let searchType = 'Sale'
+  let searchType = 'Sale' as 'Sale' | 'Rent'
   let minBedroom = 0
   let maxBedroom = 0
   let orderPrice = '-price'

@@ -1,6 +1,6 @@
-import { InitializerTheme } from '../../../../common/styles/theme'
+import { ThemeBaseInitializer, ThemeBookingInitializer } from '../../../../common/styles/types'
 
-export const stubTheme: InitializerTheme = {
+export const stubTheme: ThemeBaseInitializer = {
   baseBackgroundColor: '#fff',
   basefontSize: '18px',
   basefontColor: '#fff',
@@ -13,6 +13,36 @@ export const stubTheme: InitializerTheme = {
   primaryAccentColor: '#fff',
   secondaryAccentColor: '#fff',
   mapAccentColor: 'green',
+  breakPoints: {
+    mobile: '550px',
+    tablet: '790px',
+    laptop: '1000px',
+    desktop: '1300px',
+  },
+  searchPlaceholder: 'e.g. London or EC1N',
+}
+
+export const stubThemeBooking: ThemeBookingInitializer = {
+  baseBackgroundColor: '#fff',
+  basefontSize: '18px',
+  basefontColor: '#fff',
+  inverseFontColor: '#fff',
+  secondaryfontColor: '#fff',
+  primaryHeadingFontSize: '24px',
+  secondaryHeadingFontSize: '22px',
+  baseFontFamily: 'Open Sans',
+  headingFontFamily: 'Open Sans',
+  primaryAccentColor: '#fff',
+  secondaryAccentColor: '#fff',
+  mapAccentColor: 'green',
+  timeCellBackgroundColor: 'green',
+  timeCellBackgroundColorHover: 'red',
+  navigateButtonColor: 'red',
+  dateCellHeaderBackgroundColor: 'red',
+  timeCellsContainerBackgroundColor: 'red',
+  formLabelColor: 'red',
+  formHrSeparatorFontColor: 'red',
+  formButtonFontSize: '14px',
   breakPoints: {
     mobile: '550px',
     tablet: '790px',

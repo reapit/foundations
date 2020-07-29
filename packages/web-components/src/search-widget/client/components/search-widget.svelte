@@ -1,20 +1,21 @@
-<script>
+<script lang="ts">
   import { onMount } from 'svelte'
   import searchWidgetStore from '../core/store'
-  import { generateThemeClasses, resetCSS } from '../../../common/styles'
+  import * as Styles from '../../../common/styles/types'
+  import { generateBaseThemeClasses, resetCSS } from '../../../common/styles'
   import SearchForm from './search-form.svelte'
   import GoogleMap from './google-map.svelte'
   import SearchResult from './search-result.svelte'
   import Loader from '../../../common/components/loader.svelte'
   import Pagination from './pagination.svelte'
 
-  export let theme
-  export let apiKey
-  export let customerId
-  export let parentSelector
-  export let detailPageUrl
+  export let theme: Partial<Styles.ThemeBaseInitializer>
+  export let apiKey: string
+  export let customerId: string
+  export let parentSelector: string
+  export let detailPageUrl: string
 
-  const themeClasses = generateThemeClasses(theme, parentSelector)
+  const themeClasses = generateBaseThemeClasses(theme, parentSelector)
   const { globalStyles, primaryHeading } = themeClasses
 
   onMount(() => {

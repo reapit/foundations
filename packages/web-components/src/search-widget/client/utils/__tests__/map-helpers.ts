@@ -10,7 +10,7 @@ import {
 import { propertyStub } from '../__stubs__/property'
 import { DEFAULT_CENTER } from '../../../../common/utils/constants'
 import createGoogleMapsMock from '../__mocks__/mock-google-map'
-import { generateThemeClasses } from '../../../../common/styles/theme'
+import { generateBaseThemeClasses } from '../../../../common/styles/theme'
 
 describe('map-helper', () => {
   describe('getLatLng', () => {
@@ -78,7 +78,7 @@ describe('map-helper', () => {
 
   describe('getInfoWindow', () => {
     it('runs correctly', () => {
-      const windowInfo = getInfoWindow(propertyStub, 'Rent', {}, generateThemeClasses({}, '#search-widget'))
+      const windowInfo = getInfoWindow(propertyStub, 'Rent', {}, generateBaseThemeClasses({}, '#search-widget'))
       expect(windowInfo).toBeInstanceOf(google.maps.InfoWindow)
     })
   })

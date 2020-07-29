@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
   import searchWidgetStore from '../core/store'
 
-  const handlePageChangeClick = pageNumber => async () => {
+  const handlePageChangeClick = (pageNumber: number) => async () => {
     searchWidgetStore.update(values => ({
       ...values,
       pageNumber: pageNumber,

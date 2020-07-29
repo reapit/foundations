@@ -196,3 +196,36 @@ Object {
   "selectedItem": "css-6jh9tu",
 }
 `;
+
+exports[`styles should generate an object of CSS classes 2`] = `
+Object {
+  "bodyText": "css-11v9sqy",
+  "button": "css-13jw1j0",
+  "dateCellHeader": "css-dkce11",
+  "featureButton": "css-yha5dj",
+  "featureLabel": "css-1hmoo69",
+  "formBlock": "css-izefmf",
+  "formButtonPrimary": "css-1gbfwaq",
+  "formButtonSecondary": "css-1gbfwaq",
+  "formError": "css-76s5ja",
+  "formHeader": "css-16dxd5r",
+  "formInput": "css-wf5pwh",
+  "formLabel": "css-1gepq",
+  "formSeparator": "css-1661bnx",
+  "globalStyles": "css-ya093n",
+  "input": "css-u6oic2",
+  "offerBanner": "css-gl5ek3",
+  "pagination": "css-1mlub6j",
+  "paginationActive": "css-1mlub6j",
+  "primaryHeading": "css-1me750l",
+  "primaryStrapline": "css-i73fze",
+  "resultItem": "css-camhmr",
+  "searchBox": "css-1q88d2c",
+  "secondaryHeading": "css-1at1tp4",
+  "secondaryStrapline": "css-kyb1t1",
+  "selectedItem": "css-6jh9tu",
+  "svgNavigation": "css-9j4x5u",
+  "timeCell": "css-wxb38h",
+  "timeCellsContainer": "css-izab7y",
+}
+`;

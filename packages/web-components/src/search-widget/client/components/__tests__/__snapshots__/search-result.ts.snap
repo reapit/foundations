@@ -5,14 +5,14 @@ exports[`SearchResult it matches a snapshot 1`] = `
   <div>
     <div
       class="search-result-item 
-   svelte-1l1qfnz"
+   svelte-nvrjgv"
       data-testid="select-property"
     >
       <div
-        class="search-result-image-container svelte-1l1qfnz"
+        class="search-result-image-container svelte-nvrjgv"
       >
         <div
-          class="search-result-offer-banner  svelte-1l1qfnz"
+          class="search-result-offer-banner  svelte-nvrjgv"
         >
           Under Offer
         </div>
@@ -20,17 +20,17 @@ exports[`SearchResult it matches a snapshot 1`] = `
          
         <img
           alt="property"
-          class="svelte-1l1qfnz"
+          class="svelte-nvrjgv"
           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88xYAAssB20Ea4T8AAAAASUVORK5CYII="
         />
       </div>
        
       <div>
         <div
-          class=" search-result-item-address-secondary svelte-1l1qfnz"
+          class=" search-result-item-address-secondary svelte-nvrjgv"
         >
           <div
-            class=" search-result-item-address-primary svelte-1l1qfnz"
+            class=" search-result-item-address-primary svelte-nvrjgv"
           >
             Example street
           </div>
@@ -40,29 +40,29 @@ exports[`SearchResult it matches a snapshot 1`] = `
       </div>
        
       <div
-        class=" search-result-item-pricing-text svelte-1l1qfnz"
+        class=" search-result-item-pricing-text svelte-nvrjgv"
       >
         £250,000
       </div>
        
       <div
-        class=" search-result-item-beds-text svelte-1l1qfnz"
+        class=" search-result-item-beds-text svelte-nvrjgv"
       >
         4 Bed Detached House
       </div>
        
       <div
-        class=" search-result-item-description-text svelte-1l1qfnz"
+        class=" search-result-item-description-text svelte-nvrjgv"
       >
         We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.
       </div>
        
       <div
-        class=" search-result-item-icon-container svelte-1l1qfnz"
+        class=" search-result-item-icon-container svelte-nvrjgv"
       >
         <div>
           <span
-            class="search-result-item-icon svelte-1l1qfnz"
+            class="search-result-item-icon svelte-nvrjgv"
           >
             <svg
               aria-hidden="true"
@@ -93,7 +93,7 @@ exports[`SearchResult it matches a snapshot 1`] = `
           4
            
           <span
-            class="search-result-item-icon svelte-1l1qfnz"
+            class="search-result-item-icon svelte-nvrjgv"
           >
             <svg
               aria-hidden="true"
@@ -125,7 +125,7 @@ exports[`SearchResult it matches a snapshot 1`] = `
         </div>
          
         <a
-          class=" search-result-item-address-primary svelte-1l1qfnz"
+          class=" search-result-item-address-primary svelte-nvrjgv"
           href="/"
         >
           View Detail

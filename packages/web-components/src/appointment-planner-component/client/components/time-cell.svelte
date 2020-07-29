@@ -1,8 +1,10 @@
-<script>
-  export let date
-  export let startTime = ''
-  export let handleOnClickCell
-  export let themeClasses
+<script lang="ts">
+  import { Dayjs } from 'dayjs'
+  import { themeStore } from '../core/theme-store'
+
+  export let date: Dayjs
+  export let startTime: string = ''
+  export let handleOnClickCell: ({ appointmentDate: Date, appointmentTime: number }) => void
 
   const handleTimeCellClick = () => {
     handleOnClickCell && handleOnClickCell({ appointmentDate: date, appointmentTime: startTime })
@@ -30,6 +32,6 @@
 <div
   on:click={handleTimeCellClick}
   class="time-cell-container {startTime ? 'time-cell-container-visible' : 'time-cell-container-not-visible'}
-  {themeClasses.timeCell}">
+  {$themeStore.timeCell}">
   <div>{startTime || ''}</div>
 </div>

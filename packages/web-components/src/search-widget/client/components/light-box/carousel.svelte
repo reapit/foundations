@@ -1,13 +1,17 @@
-<script>
+<script lang="ts">
   import { createEventDispatcher } from 'svelte'
   import Fa from 'svelte-fa'
   import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
-  export let images
-  export let currentDisplayImageIndex
-  export let displayItemQuantity
-
+  export let images: string[]
+  export let currentDisplayImageIndex: number
+  export let displayItemQuantity: number
+  
   let currentCarouselPage = 0
+  let maxCarouselPage: number
+  let carouselTranslateOffset: number
+  let imageSize: number
+  let containerWidth: number
 
   $: maxCarouselPage = Math.floor(images.length / displayItemQuantity)
   $: carouselTranslateOffset = -imageSize * (currentCarouselPage * displayItemQuantity)
@@ -41,9 +45,7 @@
 
   const dispatch = createEventDispatcher()
 
-  let containerWidth
-
-  const onImageClick = i => {
+  const onImageClick = (i: number)=> {
     dispatch('image-click', i)
   }
 </script>

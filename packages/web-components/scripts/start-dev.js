@@ -11,7 +11,7 @@ const getMoveHtmlScript = packageName => {
       return 'mkdir -p ./public && cp ./src/search-widget/client/index.html ./public/ && cp ./src/property-detail-widget/client/detail.html ./public/'
     case 'demo-site':
       return ''
-    case 'login-reapit-component':
+    case 'reapit-connect-component':
       return `mkdir -p ./public && cp ./src/${packageName}/index.html ./public/`
     default:
       return `mkdir -p ./public && cp ./src/${packageName}/client/index.html ./public/`
