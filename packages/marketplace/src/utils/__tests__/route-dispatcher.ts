@@ -4,7 +4,7 @@ import store from '@/core/store'
 import Routes from '@/constants/routes'
 import { RouteValue } from '@/types/core'
 import { clientFetchAppSummary } from '@/actions/apps'
-import { myAppsRequestData } from '@/actions/apps'
+import { fetchApps } from '@/actions/apps'
 import { installedAppsRequestData } from '@/actions/apps'
 
 jest.mock('@reapit/elements')
@@ -26,8 +26,8 @@ describe('routeDispatcher', () => {
     expect(store.dispatch).toHaveBeenCalledWith(installedAppsRequestData(1))
   })
 
-  it('should dispatch to myAppsRequestData for the my-apps route', async () => {
+  it('should dispatch to fetchApps for the my-apps route', async () => {
     await routeDispatcher(Routes.MY_APPS as RouteValue)
-    expect(store.dispatch).toHaveBeenCalledWith(myAppsRequestData(1))
+    expect(store.dispatch).toHaveBeenCalledWith(fetchApps(1))
   })
 })

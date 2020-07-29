@@ -1,6 +1,6 @@
 import { ReduxState } from '@/types/core'
 import { featuredAppsDataStub } from '@/sagas/__stubs__/apps'
-import { selectFeaturedApps, selectInstalledApps, selectInstalledAppsForLaunch } from '../app'
+import { selectFeaturedApps } from '../app'
 
 describe('app', () => {
   describe('selectFeaturedApps', () => {
@@ -28,26 +28,6 @@ describe('app', () => {
       } as ReduxState
       const result = selectFeaturedApps(input)
       expect(result).toEqual([])
-    })
-  })
-
-  describe('selectInstalledAppsForLaunch', () => {
-    it('should selectInstalledAppsForLaunch run correctly and return true', () => {
-      const input = {
-        installedApps: {},
-      } as ReduxState
-      const result = selectInstalledAppsForLaunch(input)
-      expect(result).toEqual({})
-    })
-  })
-
-  describe('selectInstalledApps', () => {
-    it('should run correctly and return {}', () => {
-      const input = {
-        myApps: {},
-      } as ReduxState
-      const result = selectInstalledApps(input)
-      expect(result).toEqual(input.myApps)
     })
   })
 })

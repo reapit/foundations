@@ -13,6 +13,7 @@ export const fetchCategories = function*({ data }: Action<FetchCategoriesParams>
     yield put(fetchCategoriesFailure(err.description))
     notification.error({
       message: err.description,
+      placement: 'bottomRight',
     })
   }
 }

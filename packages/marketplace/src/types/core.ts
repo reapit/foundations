@@ -1,12 +1,13 @@
 import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
-import { InstalledAppsState } from '../reducers/installed-apps'
 import { ErrorState } from '../reducers/error'
 import { CategoriesRootState } from '@/reducers/categories'
 import { AppInstallationsState } from '@/reducers/app-installations'
 import { NotificationMessageState } from '@/reducers/notification-message'
-import { ClientRootState } from '@/reducers/client'
 import { DesktopIntegrationTypeRootState } from '@/reducers/desktop-integration-types'
+import { AppsRootState } from '@/reducers/apps'
+import { NegotiatorsRootState } from '@/reducers/negotiators'
+import { WebComponentRootState } from '@/reducers/web-component'
 
 export type ModalProps = { visible: boolean; afterClose: () => void }
 
@@ -46,8 +47,9 @@ export interface FetcherParams<T> {
 }
 
 export type ReduxState = {
-  client: ClientRootState
-  installedApps: InstalledAppsState
+  apps: AppsRootState
+  negotiators: NegotiatorsRootState
+  webComponent: WebComponentRootState
   error: ErrorState
   categories: CategoriesRootState
   installations: AppInstallationsState

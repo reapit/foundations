@@ -39,7 +39,7 @@ export const createInstallation = async (params: CreateInstallationParams) => {
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 
@@ -55,7 +55,7 @@ export const fetchApiKeyInstallationById = async (params: FetchApiKeyInstallatio
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 
@@ -72,6 +72,6 @@ export const removeAccessToAppById = async (params: RemoveAccessToAppByIdParams)
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }

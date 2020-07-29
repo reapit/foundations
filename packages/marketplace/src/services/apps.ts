@@ -1,11 +1,11 @@
-import { PagedResultAppSummaryModel_, AppDetailModel, AppClientSecretModel } from '@reapit/foundations-ts-definitions'
+import { PagedResultAppSummaryModel_, AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from './constants'
 import { generateHeader } from './utils'
 import { logger } from '@reapit/utils'
 import { FetchByIdCommonParams, FetchListCommonParams } from './types'
 
-export type FetchAppsListParams = FetchListCommonParams & {
+export type FetchAppsApiParams = FetchListCommonParams & {
   developerId?: string[]
   clientId?: string
   externalAppId?: string[]
@@ -21,13 +21,7 @@ export type FetchAppsListParams = FetchListCommonParams & {
   registeredTo?: string
 }
 
-export type FetchAppByIdParams = FetchByIdCommonParams & {
-  clientId?: string
-}
-
-export type FetchAppSecretByIdParams = FetchByIdCommonParams
-
-export const fetchAppsList = async (params: FetchAppsListParams): Promise<PagedResultAppSummaryModel_> => {
+export const fetchAppsApi = async (params: FetchAppsApiParams): Promise<PagedResultAppSummaryModel_> => {
   try {
     const response = await fetcher({
       url: `${URLS.apps}?${setQueryParams(params)}`,
@@ -38,11 +32,15 @@ export const fetchAppsList = async (params: FetchAppsListParams): Promise<PagedR
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }
 
-export const fetchAppById = async (params: FetchAppByIdParams): Promise<AppDetailModel> => {
+export type FetchAppByIdParams = FetchByIdCommonParams & {
+  clientId?: string
+}
+
+export const fetchAppByIdApi = async (params: FetchAppByIdParams): Promise<AppDetailModel> => {
   try {
     const { id, clientId } = params
     const response = await fetcher({
@@ -54,22 +52,6 @@ export const fetchAppById = async (params: FetchAppByIdParams): Promise<AppDetai
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
-  }
-}
-
-export const fetchAppSecretById = async (params: FetchAppSecretByIdParams): Promise<AppClientSecretModel> => {
-  try {
-    const { id } = params
-    const response = await fetcher({
-      url: `${URLS.apps}/${id}/secret`,
-      api: window.reapit.config.marketplaceApiUrl,
-      method: 'GET',
-      headers: generateHeader(window.reapit.config.marketplaceApiKey),
-    })
-    return response
-  } catch (error) {
-    logger(error)
-    throw new Error(error)
+    throw error
   }
 }

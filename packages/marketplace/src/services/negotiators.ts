@@ -14,7 +14,7 @@ export interface FetchNegotiatorsParams {
   name?: string
 }
 
-export const fetchNegotiators = async (params: FetchNegotiatorsParams): Promise<PagedResultNegotiatorModel_> => {
+export const fetchNegotiatorsApi = async (params: FetchNegotiatorsParams): Promise<PagedResultNegotiatorModel_> => {
   try {
     const headers = await initAuthorizedRequestHeaders()
     const response = await fetcher({
@@ -26,6 +26,6 @@ export const fetchNegotiators = async (params: FetchNegotiatorsParams): Promise<
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error
   }
 }

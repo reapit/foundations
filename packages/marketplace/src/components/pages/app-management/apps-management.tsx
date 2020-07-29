@@ -6,7 +6,7 @@ import { Loader, Info, Pagination, H3 } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import routes from '@/constants/routes'
 import AppList from '@/components/ui/app-list'
-import { selectInstalledApps } from '@/selector/apps'
+import { selectAppsListState } from '@/selector/apps'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { handleLaunchApp } from '@/utils/launch-app'
 import { selectDeveloperId, selectIsAdmin } from '@/selector/auth'
@@ -25,7 +25,7 @@ export const AppsManagement: React.FunctionComponent = () => {
   const history = useHistory()
   const location = useLocation()
 
-  const installedApps = useSelector(selectInstalledApps)
+  const installedApps = useSelector(selectAppsListState)
   const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const isDeveloperEdition = Boolean(selectDeveloperId(connectSession))
   const isDesktopAdmin = selectIsAdmin(connectSession)

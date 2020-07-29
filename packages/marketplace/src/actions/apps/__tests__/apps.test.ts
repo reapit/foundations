@@ -1,6 +1,5 @@
 import {
-  myAppsReceiveData,
-  myAppsRequestData,
+  fetchApps,
   installedAppsLoading,
   installedAppsReceiveData,
   installedAppsRequestData,
@@ -10,9 +9,6 @@ import {
   clientFetchAppSummaryFailed,
   clientClearAppSummary,
   clientFetchWebComponentConfig,
-  clientFetchWebComponentConfigSuccess,
-  clientUpdateWebComponentConfig,
-  clientFetchNegotiatorsSuccess,
 } from '../apps'
 import ActionTypes from '@/constants/action-types'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
@@ -20,17 +16,17 @@ import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 
 describe('apps', () => {
-  describe('myAppsReceiveData', () => {
-    it('should create a myAppsReceiveData action', () => {
-      expect(myAppsReceiveData.type).toEqual(ActionTypes.MY_APPS_RECEIVE_DATA)
-      expect(myAppsReceiveData(appsDataStub).data).toEqual(appsDataStub)
+  describe('fetchApps', () => {
+    it('should create a fetchApps action', () => {
+      expect(fetchApps.type).toEqual(ActionTypes.FETCH_APPS)
+      expect(fetchApps(appsDataStub).data).toEqual(appsDataStub)
     })
   })
 
-  describe('myAppsRequestData', () => {
-    it('should create a myAppsRequestData action', () => {
-      expect(myAppsRequestData.type).toEqual(ActionTypes.MY_APPS_REQUEST_DATA)
-      expect(myAppsRequestData({ onlyInstalled: true }).data).toEqual(1)
+  describe('fetchApps', () => {
+    it('should create a fetchApps action', () => {
+      expect(fetchApps.type).toEqual(ActionTypes.FETCH_APPS)
+      expect(fetchApps({ onlyInstalled: true }).data).toEqual(1)
     })
   })
 
@@ -109,24 +105,6 @@ describe('apps', () => {
         customerId: 'DXX',
         applicationId: 'applicationId',
       })
-    })
-  })
-
-  describe('clientFetchWebComponentConfigSuccess', () => {
-    it('should create a clientFetchWebComponentConfigSuccess action', () => {
-      expect(clientFetchWebComponentConfigSuccess.type).toEqual(ActionTypes.CLIENT_FETCH_WEB_COMPONENT_CONFIG_SUCCESS)
-    })
-  })
-
-  describe('clientPutWebComponentConfig', () => {
-    it('should create a clientPutWebComponentConfig action', () => {
-      expect(clientUpdateWebComponentConfig.type).toEqual(ActionTypes.CLIENT_UPDATE_WEB_COMPONENT_CONFIG)
-    })
-  })
-
-  describe('clientPutWebComponentConfig', () => {
-    it('should create a clientPutWebComponentConfig action', () => {
-      expect(clientFetchNegotiatorsSuccess.type).toEqual(ActionTypes.CLIENT_FETCH_NEGOTIATORS_SUCCESS)
     })
   })
 })

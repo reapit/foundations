@@ -32,7 +32,6 @@ export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetail
   const { category, developer, telephone, supportEmail, homePage, isDirectApi, isWebComponent } = appDetailData
   const { isMobile } = useReactResponsive()
   const history = useHistory()
-
   return (
     <FlexContainerBasic flexColumn hasPadding hasBackground isFullHeight={!isMobile}>
       {developer && <DeveloperSection developer={developer} isSidebar />}

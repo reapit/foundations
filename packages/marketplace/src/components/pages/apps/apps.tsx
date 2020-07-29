@@ -10,7 +10,7 @@ import AppList from '@/components/ui/app-list'
 import FeaturedApp from '@/components/ui/featured-app'
 // Commenting out as we are disabling for launch because there are too few apps
 // import AppSidebar from '@/components/ui/app-sidebar'
-import { selectAppSummary } from '@/selector/apps'
+import { selectAppsListState, selectFeatureAppsListState } from '@/selector/apps'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { addQuery, hasFilterParams } from '@/utils/client-url-params'
 import Routes from '@/constants/routes'
@@ -47,17 +47,20 @@ export const Apps: React.FunctionComponent = () => {
   const location = useLocation()
   const dispatch = useDispatch()
 
-  const appSummaryState = useSelector(selectAppSummary)
+  const appsListState = useSelector(selectAppsListState)
   const hasParams = hasFilterParams(location.search)
-  const loading = appSummaryState.isAppSummaryLoading
-  const apps = appSummaryState?.data?.apps?.data || []
-  const featuredApps = appSummaryState?.data?.featuredApps || []
-  const { totalCount = 0, pageNumber = 1 } = appSummaryState?.data?.apps || {}
+  const apps = appsListState?.data || []
+  const { totalCount = 0, pageNumber = 1 } = appsListState || {}
+
+  const featureAppsListState = useSelector(selectFeatureAppsListState)
+  const featuredApps = featureAppsListState?.data || []
   const { preview: previewString } = qs.parse(location.search)
   const preview = !!previewString
 
   const numOfItemsPerPage = getNumberOfItems()
   const totalPage = totalCount / numOfItemsPerPage
+
+  const loading = appsListState.isLoading || featureAppsListState.isLoading
   /**
    * When apps is empty or when loading app set hasMore = false to prevent trigger load more
    * Otherwise set hasMore = true when pageNumber (current page ) less then totalPage

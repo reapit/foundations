@@ -16,10 +16,10 @@ import {
 import ActionTypes from '@/constants/action-types'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import {
-  clientFetchWebComponentConfigSuccess,
+  fetchWebComponentConfigSuccess,
   clientFetchNegotiatorsSuccess,
-  clientFetchWebComponentConfigFailed,
-  clientUpdateWebComponentConfigFailed,
+  fetchWebComponentConfigFailed,
+  updateWebComponentConfigFailed,
 } from '@/actions/apps'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
@@ -76,14 +76,14 @@ describe('putWebComponentConfigSaga', () => {
 
   it('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(params as any).value).toEqual(put(clientFetchWebComponentConfigSuccess(params)))
+    expect(clone.next(params as any).value).toEqual(put(fetchWebComponentConfigSuccess(params)))
     expect(clone.next().done).toBe(true)
   })
 
   test('api call fail', () => {
     const clone = gen.clone()
     if (!clone.throw) throw new Error('Generator object cannot throw')
-    expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(clientUpdateWebComponentConfigFailed()))
+    expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(updateWebComponentConfigFailed()))
     expect(clone.next().value).toEqual(
       put(
         errorThrownServer({
@@ -137,7 +137,7 @@ describe('fetchWebComponentConfigSaga', () => {
 
   it('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next([respone, list]).value).toEqual(put(clientFetchWebComponentConfigSuccess(respone)))
+    expect(clone.next([respone, list]).value).toEqual(put(fetchWebComponentConfigSuccess(respone)))
     expect(clone.next().value).toEqual(put(clientFetchNegotiatorsSuccess(list)))
     expect(clone.next().done).toBe(true)
   })
@@ -145,7 +145,7 @@ describe('fetchWebComponentConfigSaga', () => {
   test('api call fail', () => {
     const clone = gen.clone()
     if (!clone.throw) throw new Error('Generator object cannot throw')
-    expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(clientFetchWebComponentConfigFailed()))
+    expect(clone.throw(errorMessages.DEFAULT_SERVER_ERROR).value).toEqual(put(fetchWebComponentConfigFailed()))
     expect(clone.next().done).toBe(true)
   })
 })
