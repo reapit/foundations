@@ -24,6 +24,10 @@
 
   $: clickHandler = hasSession ? handleLogoutClick : handleLoginClick
 
+  $: if (hasSession) {
+    connectHasSessionCallback(reapitConnectBrowserSession)
+  }
+
   onMount(async () => {
     const params = new URLSearchParams(window.location.search)
     const authorizationCode = params.get('code')
@@ -36,7 +40,6 @@
 
       if (session) {
         hasSession = true
-        connectHasSessionCallback(reapitConnectBrowserSession)
       }
     }
   })
