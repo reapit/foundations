@@ -18,11 +18,11 @@ import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { appSubmitStubWithActions, appSubmitStub } from '../__stubs__/apps-submit'
 import { appDetailDataStub } from '../__stubs__/app-detail'
-import { appCategorieStub } from '../__stubs__/app-categories'
+import { categoriesStub } from '../__stubs__/app-categories'
 import { ScopeModel, PagedResultCategoryModel_ } from '@reapit/foundations-ts-definitions'
 import { fetchScopeListAPI } from '@/services/scopes'
 import { createAppAPI, fetchAppByIdByRawUrl } from '@/services/apps'
-import { fetchCategoriesList } from '@/services/categories'
+import { fetchCategoryListAPI } from '@/services/categories'
 import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
 import { selectDeveloperId } from '@/selector/auth'
 import { Saga } from 'redux-saga'
@@ -150,12 +150,12 @@ describe('submit-app fetch data', () => {
 
   expect(gen.next().value).toEqual(put(submitAppLoading(true)))
   expect(gen.next().value).toEqual(
-    all([call(fetchScopeListAPI), call(fetchCategoriesList, {}), call(fetchDesktopIntegrationTypesList, {})]),
+    all([call(fetchScopeListAPI), call(fetchCategoryListAPI, {}), call(fetchDesktopIntegrationTypesList, {})]),
   )
 
   test('api fetch success', () => {
     const clone = gen.clone()
-    const response = [[{ name: '1', description: '1' }], appCategorieStub]
+    const response = [[{ name: '1', description: '1' }], categoriesStub]
     expect(clone.next(response).value).toEqual(put(submitAppLoading(false)))
     expect(clone.next().value).toEqual(put(submitAppReceiveData(response[0] as ScopeModel[])))
     expect(clone.next().value).toEqual(put(categoriesReceiveData(response[1] as PagedResultCategoryModel_)))

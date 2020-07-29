@@ -6,7 +6,7 @@ import { fetchScopeListAPI } from '@/services/scopes'
 import { scopesListStub } from '@/sagas/__stubs__/scopes'
 import { fetchScopeListSuccess, fetchScopeList } from '@/actions/scopes'
 
-jest.mock('@/services/apps')
+jest.mock('@/services/scopes')
 
 jest.mock('@reapit/elements')
 

@@ -25,6 +25,12 @@ const appState: ReduxState = {
       isLoading: false,
     },
   },
+  categories: {
+    list: {
+      data: [],
+      isLoading: false,
+    },
+  },
   developer: {
     loading: false,
     formState: 'PENDING',

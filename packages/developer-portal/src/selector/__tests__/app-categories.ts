@@ -1,14 +1,14 @@
 import { ReduxState } from '@/types/core'
 import { selectCategories } from '../app-categories'
-import { appCategorieStub } from '../../sagas/__stubs__/app-categories'
+import { categoriesStub } from '../../sagas/__stubs__/app-categories'
 
 describe('selectCategories', () => {
   it('should run correctly', () => {
     const input = {
-      appCategories: appCategorieStub,
+      appCategories: categoriesStub,
     } as ReduxState
     const result = selectCategories(input)
-    expect(result).toEqual(appCategorieStub.data)
+    expect(result).toEqual(categoriesStub.data)
   })
 
   it('should run correctly and return []', () => {

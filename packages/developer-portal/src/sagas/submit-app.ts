@@ -19,7 +19,7 @@ import { getApiErrorsFromResponse, ApiFormErrorsResponse } from '@/utils/form/er
 import { logger } from '@reapit/utils'
 import { fetchScopeListAPI } from '@/services/scopes'
 import { createAppAPI, fetchAppByIdByRawUrl } from '@/services/apps'
-import { fetchCategoriesList } from '@/services/categories'
+import { fetchCategoryListAPI } from '@/services/categories'
 import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
 import { selectDeveloperId } from '@/selector/auth'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
@@ -84,7 +84,7 @@ export const submitAppsDataFetch = function*() {
   try {
     const [scopes, categories, integrationTypes] = yield all([
       call(fetchScopeListAPI),
-      call(fetchCategoriesList, {}),
+      call(fetchCategoryListAPI, {}),
       call(fetchDesktopIntegrationTypesList, {}),
     ])
     yield put(submitAppLoading(false))

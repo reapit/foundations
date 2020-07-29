@@ -21,6 +21,7 @@ import { DeveloperSubscriptionsState } from '@/reducers/developer-subscriptions'
 import { DevelopersRootState } from '@/reducers/developers'
 import { AppsRootState } from '@/reducers/apps'
 import { ScopesRootState } from '@/reducers/scopes'
+import { CategoriesRootState } from '@/reducers/categories'
 
 export type ModalProps = { visible: boolean; afterClose: () => void }
 
@@ -62,6 +63,7 @@ export interface FetcherParams<T> {
 export interface ReduxState {
   apps: AppsRootState
   scopes: ScopesRootState
+  categories: CategoriesRootState
   developer: DeveloperState
   auth: AuthState
   error: ErrorState

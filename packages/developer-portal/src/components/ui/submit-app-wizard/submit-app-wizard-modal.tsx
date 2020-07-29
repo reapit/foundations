@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux'
 import reduxStore from '@/core/store'
 import { submitAppSetFormState } from '@/actions/submit-app'
 import { fetchScopeList } from '@/actions/scopes'
+import { fetchCategoryList } from '@/actions/categories'
 
 export type OnCloseSubmitAppModalParams = {
   getReduxState: () => ReduxState
@@ -40,6 +41,7 @@ export const customAfterClose = ({
 
 export const handleUseEffect = (dispatch: Dispatch) => () => {
   dispatch(fetchScopeList())
+  dispatch(fetchCategoryList())
   dispatch(submitAppSetFormState('PENDING'))
 }
 

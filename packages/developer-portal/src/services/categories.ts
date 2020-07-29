@@ -13,7 +13,7 @@ export type FetchCategoryById = FetchByIdCommonParams
 
 export type DeleteCategoryByIdParams = FetchByIdCommonParams
 
-export const fetchCategoriesList = async (params: FetchCategoriesListParams): Promise<PagedResultCategoryModel_> => {
+export const fetchCategoryListAPI = async (params: FetchCategoriesListParams): Promise<PagedResultCategoryModel_> => {
   try {
     const response = await fetcher({
       url: `${URLS.categories}?${setQueryParams(params)}`,
