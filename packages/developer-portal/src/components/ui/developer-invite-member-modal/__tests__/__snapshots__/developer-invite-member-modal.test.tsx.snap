@@ -64,7 +64,11 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
         className=""
         destroyOnClose={true}
         onClose={[MockFunction]}
-        title="Invite New Member"
+        title={
+          <Unknown>
+            Invite New Member
+          </Unknown>
+        }
         visible={true}
         wrapClassName=""
       >
@@ -117,7 +121,11 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                               class="rc-dialog-title"
                               id="rcDialogTitle0"
                             >
-                              Invite New Member
+                              <h4
+                                class="modal-card-title is-4 pt-2 pb-2"
+                              >
+                                Invite New Member
+                              </h4>
                             </div>
                           </div>
                           <div
@@ -273,7 +281,11 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                 onClose={[MockFunction]}
                 prefixCls="rc-dialog"
                 switchScrollingEffect={[Function]}
-                title="Invite New Member"
+                title={
+                  <Unknown>
+                    Invite New Member
+                  </Unknown>
+                }
                 visible={true}
                 wrapClassName=""
               >
@@ -373,7 +385,13 @@ exports[`developer-invite-member-modal InviteMemberModal should match snapshot w
                                   className="rc-dialog-title"
                                   id="rcDialogTitle0"
                                 >
-                                  Invite New Member
+                                  <Component>
+                                    <h4
+                                      className="modal-card-title is-4 pt-2 pb-2"
+                                    >
+                                      Invite New Member
+                                    </h4>
+                                  </Component>
                                 </div>
                               </div>
                               <div

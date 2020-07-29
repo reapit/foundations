@@ -23,6 +23,7 @@ import { submitAppSetFormState } from '@/actions/submit-app'
 import { CreateAppModel } from '@/types/marketplace-api-schema'
 import { submitRevision } from '@/actions/submit-revision'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
+import { ReduxState } from '@/types/core'
 
 jest.mock('@/utils/cookie', () => ({
   getCookieString: jest.fn(),
@@ -41,8 +42,8 @@ describe('DeveloperSubmitApp', () => {
   })
   it('should match a snapshot when pendingRevisions = true', () => {
     const mockStore = configureStore()
-    const clonedAppState = JSON.parse(JSON.stringify(appState))
-    clonedAppState.appDetail.appDetailData = { data: { pendingRevisions: true } }
+    const clonedAppState: ReduxState = JSON.parse(JSON.stringify(appState))
+    clonedAppState.apps.detail.data = { pendingRevisions: true }
     const customStore = mockStore(clonedAppState)
 
     window.reapit.config.appEnv = 'development'

@@ -9338,6 +9338,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
           className=""
           destroyOnClose={true}
           onClose={[Function]}
+          title={<Unknown />}
           visible={true}
           wrapClassName=""
         >
@@ -9357,6 +9358,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                         class="rc-dialog-mask"
                       />
                       <div
+                        aria-labelledby="rcDialogTitle0"
                         class="rc-dialog-wrap "
                         role="dialog"
                         tabindex="-1"
@@ -9382,6 +9384,18 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                 class="rc-dialog-close-x"
                               />
                             </button>
+                            <div
+                              class="rc-dialog-header"
+                            >
+                              <div
+                                class="rc-dialog-title"
+                                id="rcDialogTitle0"
+                              >
+                                <h4
+                                  class="modal-card-title is-4 pt-2 pb-2"
+                                />
+                              </div>
+                            </div>
                             <div
                               class="rc-dialog-body"
                             >
@@ -9436,6 +9450,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                   onClose={[Function]}
                   prefixCls="rc-dialog"
                   switchScrollingEffect={[Function]}
+                  title={<Unknown />}
                   visible={true}
                   wrapClassName=""
                 >
@@ -9455,7 +9470,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                       />
                     </LazyRenderBox>
                     <div
-                      aria-labelledby={null}
+                      aria-labelledby="rcDialogTitle0"
                       className="rc-dialog-wrap "
                       onClick={[Function]}
                       onKeyDown={[Function]}
@@ -9528,6 +9543,20 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
                                     className="rc-dialog-close-x"
                                   />
                                 </button>
+                                <div
+                                  className="rc-dialog-header"
+                                >
+                                  <div
+                                    className="rc-dialog-title"
+                                    id="rcDialogTitle0"
+                                  >
+                                    <Component>
+                                      <h4
+                                        className="modal-card-title is-4 pt-2 pb-2"
+                                      />
+                                    </Component>
+                                  </div>
+                                </div>
                                 <div
                                   className="rc-dialog-body"
                                 >
@@ -10030,6 +10059,7 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
           className=""
           destroyOnClose={true}
           onClose={[Function]}
+          title={<Unknown />}
           visible={true}
           wrapClassName=""
         >
@@ -10049,6 +10079,7 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                         class="rc-dialog-mask"
                       />
                       <div
+                        aria-labelledby="rcDialogTitle1"
                         class="rc-dialog-wrap "
                         role="dialog"
                         tabindex="-1"
@@ -10074,6 +10105,18 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                                 class="rc-dialog-close-x"
                               />
                             </button>
+                            <div
+                              class="rc-dialog-header"
+                            >
+                              <div
+                                class="rc-dialog-title"
+                                id="rcDialogTitle1"
+                              >
+                                <h4
+                                  class="modal-card-title is-4 pt-2 pb-2"
+                                />
+                              </div>
+                            </div>
                             <div
                               class="rc-dialog-body"
                             >
@@ -10128,6 +10171,7 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                   onClose={[Function]}
                   prefixCls="rc-dialog"
                   switchScrollingEffect={[Function]}
+                  title={<Unknown />}
                   visible={true}
                   wrapClassName=""
                 >
@@ -10147,7 +10191,7 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                       />
                     </LazyRenderBox>
                     <div
-                      aria-labelledby={null}
+                      aria-labelledby="rcDialogTitle1"
                       className="rc-dialog-wrap "
                       onClick={[Function]}
                       onKeyDown={[Function]}
@@ -10220,6 +10264,20 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 2`] =
                                     className="rc-dialog-close-x"
                                   />
                                 </button>
+                                <div
+                                  className="rc-dialog-header"
+                                >
+                                  <div
+                                    className="rc-dialog-title"
+                                    id="rcDialogTitle1"
+                                  >
+                                    <Component>
+                                      <h4
+                                        className="modal-card-title is-4 pt-2 pb-2"
+                                      />
+                                    </Component>
+                                  </div>
+                                </div>
                                 <div
                                   className="rc-dialog-body"
                                 >
@@ -18813,6 +18871,7 @@ mutation UPDATE_APPOINTMENT_BY_ID($id: String!, $cancelled: Boolean $_eTag: Stri
           className=""
           destroyOnClose={true}
           onClose={[Function]}
+          title={<Unknown />}
           visible={false}
           wrapClassName=""
         >
@@ -19243,6 +19302,7 @@ exports[`appointment-detail-modal CancelConfirmModal should match snapshot 4`] =
           className=""
           destroyOnClose={true}
           onClose={[Function]}
+          title={<Unknown />}
           visible={false}
           wrapClassName=""
         >

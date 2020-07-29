@@ -1,14 +1,22 @@
 import { ReduxState } from '@/types/core'
 
 const appState: ReduxState = {
+  apps: {
+    list: {
+      data: [],
+      isLoading: false,
+    },
+    detail: {
+      data: {},
+      isLoading: false,
+    },
+    authentication: {
+      code: '',
+      isLoading: false,
+    },
+  },
   developer: {
     loading: false,
-    developerAppDetail: {
-      error: null,
-      data: null,
-      isAppDetailLoading: false,
-    },
-    developerData: null,
     formState: 'PENDING',
     isVisible: false,
     myIdentity: null,
@@ -18,16 +26,6 @@ const appState: ReduxState = {
     isMonthlyBillingLoading: true,
     monthlyBilling: null,
     webhookPingTestStatus: null,
-  },
-  appDetail: {
-    loading: false,
-    error: false,
-    appDetailData: null,
-    authentication: {
-      loading: false,
-      code: '',
-    },
-    isStale: true,
   },
   error: {
     componentError: null,

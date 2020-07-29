@@ -2,7 +2,6 @@ import { ReduxState } from '@/types/core'
 import {
   selectDeveloperEmail,
   selectDeveloper,
-  selectDeveloperApps,
   selectMyIdentity,
   selectBilling,
   selectDeveloperLoading,
@@ -37,7 +36,6 @@ describe('selectDeveloper', () => {
     const input = {
       developer: {
         isServiceChartLoading: false,
-        developerData: {},
       },
     } as ReduxState
     const result = selectDeveloper(input)
@@ -48,29 +46,6 @@ describe('selectDeveloper', () => {
     const input = {} as ReduxState
     const result = selectDeveloper(input)
     expect(result).toEqual(undefined)
-  })
-})
-
-describe('selectDeveloperApps', () => {
-  it('should run correctly', () => {
-    const input = {
-      developer: {
-        isServiceChartLoading: false,
-        developerData: {
-          data: {
-            data: [{}],
-          },
-        },
-      },
-    } as ReduxState
-    const result = selectDeveloperApps(input)
-    expect(result).toEqual(input.developer.developerData?.data.data)
-  })
-
-  it('should run correctly and return []', () => {
-    const input = {} as ReduxState
-    const result = selectDeveloperApps(input)
-    expect(result).toEqual([])
   })
 })
 

@@ -11,10 +11,10 @@ import {
   handleShowAuthCode,
   handleMouseLeave,
 } from '../app-authentication-detail'
-import { requestAuthenticationCode } from '@/actions/app-detail'
+import { fetchtAppAuthentication } from '@/actions/apps'
 
 const props: AppAuthenticationDetailProps = {
-  appId: appDetailDataStub.data.id || '',
+  appId: appDetailDataStub.data?.id || '',
 }
 
 describe('AppAuthenticationDetail', () => {
@@ -50,7 +50,7 @@ describe('AppAuthenticationDetail', () => {
       const fn = handleShowAuthCode(props.appId, spyDispatch)
       fn(mockedEvent)
       expect(mockedEvent.preventDefault).toBeCalled()
-      expect(spyDispatch).toBeCalledWith(requestAuthenticationCode(props.appId))
+      expect(spyDispatch).toBeCalledWith(fetchtAppAuthentication(props.appId))
     })
   })
   describe('handleMouseLeave', () => {

@@ -5,7 +5,7 @@ import ActionTypes from '../constants/action-types'
 import { Action } from '../types/core'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
-import { appDetailRequestData } from '@/actions/app-detail'
+import { fetchAppDetail } from '@/actions/apps'
 import { logger } from '@reapit/utils'
 import { createAppRevision } from '@/services/apps'
 
@@ -61,7 +61,7 @@ export const submitRevision = function*({ data }: Action<SubmitRevisionParams>) 
 
     const status = regResponse ? 'SUCCESS' : 'ERROR'
     if (status === 'SUCCESS') {
-      yield put(appDetailRequestData({ id }))
+      yield put(fetchAppDetail({ id }))
       onSuccess()
     } else {
       onError()

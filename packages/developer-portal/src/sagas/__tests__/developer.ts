@@ -2,9 +2,6 @@ import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { call, put, takeLatest, all, fork } from '@redux-saga/core/effects'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import {
-  developerLoading,
-  developerReceiveData,
-  developerRequestDataFailure,
   developerSetFormState,
   setMyIdentity,
   fetchBillingFailure,
@@ -14,8 +11,6 @@ import {
   developerSetWebhookPingStatus,
 } from '@/actions/developer'
 import developerSagas, {
-  developerDataFetch,
-  developerRequestDataListen,
   developerCreate,
   developerCreateListen,
   fetchMyIdentitySagasListen,
@@ -28,18 +23,12 @@ import developerSagas, {
   developerWebhookPing,
 } from '../developer'
 import ActionTypes from '@/constants/action-types'
-import { APPS_PER_PAGE } from '@/constants/paginator'
-import { appsDataStub } from '../__stubs__/apps'
-import { appPermissionStub } from '../__stubs__/app-permission'
-import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { developerIdentity } from '../__stubs__/developer-identity'
 import { billing } from '../__stubs__/billing'
 import { monthlyBillingData } from '../__stubs__/monthly-billing'
 import { pingWebhooksById, PingWebhooksByIdParams } from '@/services/webhooks'
-import { fetchAppsList } from '@/services/apps'
-import { fetchScopesList } from '@/services/scopes'
 import { createDeveloper, fetchDeveloperById } from '@/services/developers'
 import {
   fetchBillings,
@@ -57,58 +46,6 @@ jest.mock('@/services/traffic-events')
 jest.mock('@reapit/elements')
 
 const params = { data: { page: 1 } }
-
-describe('developer fetch data', () => {
-  const gen = cloneableGenerator(developerDataFetch as any)(params)
-  const developerId = '72ad4ed6-0df0-4a28-903c-55899cffee85'
-
-  expect(gen.next().value).toEqual(put(developerLoading(true)))
-  expect(gen.next().value).toEqual(call(getDeveloperId))
-  expect(gen.next(developerId).value).toEqual(
-    all([
-      call(fetchAppsList, { developerId: [developerId], pageNumber: params.data.page, pageSize: APPS_PER_PAGE }),
-      call(fetchScopesList),
-    ]),
-  )
-
-  it('api call success', () => {
-    const clone = gen.clone()
-    expect(clone.next([appsDataStub.data, appPermissionStub]).value).toEqual(
-      put(developerReceiveData({ ...appsDataStub, scopes: appPermissionStub })),
-    )
-    expect(clone.next().done).toBe(true)
-  })
-
-  it('api call fail when data undefined', () => {
-    const clone = gen.clone()
-    expect(clone.next([undefined, appPermissionStub]).value).toEqual(put(developerRequestDataFailure()))
-    expect(clone.next().done).toBe(true)
-  })
-
-  it('api call fail when scopes undefined', () => {
-    const clone = gen.clone()
-    expect(clone.next([appsDataStub.data, undefined]).value).toEqual(put(developerRequestDataFailure()))
-    expect(clone.next().done).toBe(true)
-  })
-  it('api call fail when all scopes undefined', () => {
-    const clone = gen.clone()
-    expect(clone.next([undefined, undefined]).value).toEqual(put(developerRequestDataFailure()))
-    expect(clone.next().done).toBe(true)
-  })
-
-  test('api call error', () => {
-    const clone = gen.clone()
-    if (!clone.throw) throw new Error('Generator object cannot throw')
-    expect(clone.throw('error').value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR,
-        }),
-      ),
-    )
-  })
-})
 
 describe('developer create', () => {
   const params: CreateDeveloperModel = { name: '123' }
@@ -139,28 +76,11 @@ describe('developer create', () => {
 describe('fetchMyIdentitySagas', () => {
   const developerId = '1'
   const gen = cloneableGenerator(fetchMyIdentitySagas as any)({ data: params })
-  expect(gen.next().value).toEqual(put(developerLoading(true)))
   expect(gen.next().value).toEqual(call(getDeveloperId))
   expect(gen.next(developerId).value).toEqual(call(fetchDeveloperById, { id: developerId }))
   it('api call success', () => {
     const clone = gen.clone()
     expect(clone.next(developerIdentity).value).toEqual(put(setMyIdentity(developerIdentity)))
-    expect(clone.next().value).toEqual(put(developerLoading(false)))
-    expect(clone.next().done).toEqual(true)
-  })
-
-  it('api call error', () => {
-    const clone = gen.clone()
-    if (!clone.throw) throw new Error('Generator object cannot throw')
-    expect(clone.throw('error').value).toEqual(put(developerLoading(false)))
-    expect(clone.next().value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR,
-        }),
-      ),
-    )
     expect(clone.next().done).toEqual(true)
   })
 })
@@ -244,17 +164,6 @@ describe('developerWebhookPing', () => {
 })
 
 describe('developer thunks', () => {
-  describe('developerRequestDataListen', () => {
-    it('should request data listen', () => {
-      const gen = developerRequestDataListen()
-
-      expect(gen.next().value).toEqual(
-        takeLatest<Action<number>>(ActionTypes.DEVELOPER_REQUEST_DATA, developerDataFetch),
-      )
-      expect(gen.next().done).toBe(true)
-    })
-  })
-
   describe('developerCreateListen', () => {
     it('should trigger developerCreact action', () => {
       const gen = fetchMyIdentitySagasListen()
@@ -303,7 +212,6 @@ describe('developer thunks', () => {
 
       expect(gen.next().value).toEqual(
         all([
-          fork(developerRequestDataListen),
           fork(developerCreateListen),
           fork(fetchMyIdentitySagasListen),
           fork(fetchBillingSagasListen),

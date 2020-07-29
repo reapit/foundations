@@ -16,14 +16,9 @@ import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
 
 const props = (loading: boolean, error: boolean): AppRevisionComparisonProps => ({
   appDetailState: {
-    loading,
-    error,
-    appDetailData: { data: appDetailDataStub.data },
-    authentication: {
-      loading: false,
-      code: '',
-    },
-    isStale: false,
+    isLoading: false,
+    data: appDetailDataStub.data,
+    errorMessage: '',
   },
   revisionDetailState: {
     loading,
@@ -88,7 +83,7 @@ describe('renderCheckboxesDiff', () => {
     ]
     const checkboxes = renderCheckboxesDiff({
       scopes,
-      appScopes: appDetailDataStub.data.scopes,
+      appScopes: appDetailDataStub.data?.scopes,
       revisionScopes: scopes,
     })
     expect(checkboxes).toHaveLength(3)

@@ -1,7 +1,6 @@
-import { AppDetailItem, AppAuthDetailState } from '@/reducers/app-detail'
 import { appPermissionStub } from './app-permission'
 
-export const appDetailDataStub: AppDetailItem = {
+export const appDetailDataStub = {
   data: {
     id: '9b6fd5f7-2c15-483d-b925-01b650538e52',
     name: "Peter's Properties",
@@ -30,9 +29,4 @@ export const appDetailDataStub: AppDetailItem = {
     ],
     scopes: appPermissionStub,
   },
-}
-
-export const appAuthenticationStub: AppAuthDetailState = {
-  code: 'test',
-  loading: false,
 }

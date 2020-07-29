@@ -315,33 +315,32 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
 
   const goBackToApps = React.useCallback(handleGoBackToApps(history), [history])
 
-  const { loading, error, appDetailData } = appDetailState
-  if (loading) {
+  const { isLoading, errorMessage, data } = appDetailState
+  if (isLoading) {
     return <Loader />
   }
 
-  if (error) {
+  if (errorMessage) {
     return <Alert type="danger" message="Failed to fetch. Please try later." />
   }
 
-  if (!appDetailData) {
+  if (!data) {
     return null
   }
 
-  const isPendingRevisionsExist = appDetailState.appDetailData?.data?.pendingRevisions
+  const isPendingRevisionsExist = appDetailState.data?.pendingRevisions
   /**
    * When navigate to edit page, we still may have appDetailState data of previous editted app in redux
    * store so we need to check the current app and the old app must have same id. If not don't redirect
    * to APPS route.
    */
-  const hasOldAppDetailData =
-    appDetailState.appDetailData?.data?.id !== null && appid !== appDetailState.appDetailData?.data?.id
+  const hasOldAppDetailData = appDetailState.data?.id !== null && appid !== appDetailState.data?.id
   if (isPendingRevisionsExist && !hasOldAppDetailData) {
     return <Redirect to={`${Routes.APPS}/${appid}`} />
   }
 
-  const appId = appDetailData.data.id ?? ''
-  const initialValues = generateInitialValues(appDetailData.data, developerId)
+  const appId = data.id ?? ''
+  const initialValues = generateInitialValues(data, developerId)
 
   const scopes = (submitAppState.submitAppData && submitAppState.submitAppData.scopes) || []
   return (
@@ -375,7 +374,7 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
                 <LevelRight>
                   <Button
                     onClick={handleOpenAppPreview({
-                      appDetails: appDetailState?.appDetailData?.data,
+                      appDetails: appDetailState.data || {},
                       values,
                       scopes,
                       categories: appCategories,

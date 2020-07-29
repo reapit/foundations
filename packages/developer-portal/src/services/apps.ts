@@ -59,7 +59,7 @@ export type RejectAppRevisionByIdParams = FetchByIdCommonParams & { revisionId: 
 
 export type FetchAppSecretByIdParams = FetchByIdCommonParams
 
-export const fetchAppsList = async (params: FetchAppsListParams): Promise<PagedResultAppSummaryModel_> => {
+export const fetchAppsListAPI = async (params: FetchAppsListParams): Promise<PagedResultAppSummaryModel_> => {
   try {
     const response = await fetcher({
       url: `${URLS.apps}?${setQueryParams(params)}`,
@@ -70,7 +70,7 @@ export const fetchAppsList = async (params: FetchAppsListParams): Promise<PagedR
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 
@@ -254,7 +254,7 @@ export const rejectAppRevisionById = async (params: RejectAppRevisionByIdParams)
   }
 }
 
-export const fetchAppSecretById = async (params: FetchAppSecretByIdParams): Promise<AppClientSecretModel> => {
+export const fetchAppSecretByIdAPI = async (params: FetchAppSecretByIdParams): Promise<AppClientSecretModel> => {
   try {
     const { id } = params
     const response = await fetcher({
@@ -266,7 +266,7 @@ export const fetchAppSecretById = async (params: FetchAppSecretByIdParams): Prom
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }
 

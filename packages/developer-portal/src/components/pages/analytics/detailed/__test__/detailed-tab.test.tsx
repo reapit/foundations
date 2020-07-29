@@ -8,8 +8,6 @@ import {
   handleMapAppNameToInstallation,
   handleFetchAppUsageStatsDataUseCallback,
   handleFetchAppUsageStatsDataUseEffect,
-  mapState,
-  MapState,
   handleFetchHttpTrafficPerDayDataUseCallback,
   handleFetchHttpTrafficPerDayDataUseEffect,
   handleDefaultFilter,
@@ -48,7 +46,6 @@ const mockState = {
 
 describe('OverviewPage', () => {
   let store
-  let spySelector
   let spyDispatch
   beforeEach(() => {
     /* mocking store */
@@ -56,8 +53,6 @@ describe('OverviewPage', () => {
     store = mockStore(mockState)
 
     jest.resetAllMocks()
-    /* mocking useSelector on our mock store */
-    spySelector = jest.spyOn(ReactRedux, 'useSelector').mockImplementation(() => mapState(mockState))
     /* mocking useDispatch on our mock store  */
     spyDispatch = jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => store.dispatch)
   })
@@ -79,17 +74,6 @@ describe('OverviewPage', () => {
         </ReactRedux.Provider>,
       ),
     ).toMatchSnapshot()
-  })
-
-  describe('mapState', () => {
-    it('should run correctly', () => {
-      const mockedUseSelector = spySelector as jest.Mock<MapState>
-      const { appUsageStats, developer, installations, appHttpTraffic } = mockedUseSelector(state => mapState(state))
-      expect(appUsageStats).toEqual(mockState.appUsageStats)
-      expect(developer).toEqual(mockState.developer)
-      expect(installations).toEqual(mockState.installations)
-      expect(appHttpTraffic).toEqual(mockState.appHttpTraffic)
-    })
   })
 
   describe('handleFetchAppUsageStatsDataUseCallback', () => {

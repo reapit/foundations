@@ -11,7 +11,6 @@ import { PagedResultInstallationModel_, InstallationModel, AppDetailModel } from
 import { useSelector, useDispatch } from 'react-redux'
 import { selectInstallationAppData } from '@/selector/installations'
 import { Modal } from '@reapit/elements'
-import { DeveloperAppDetailState } from '@/reducers/developer'
 import {
   ListingPreviewSection,
   AuthenticationSection,
@@ -22,9 +21,10 @@ import {
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { getDeveloperIdFromConnectSession } from '@/utils/session'
+import { AppDetailState } from '@/reducers/apps/app-detail'
 
 export type AppContentProps = {
-  appDetailState: DeveloperAppDetailState
+  appDetailState: AppDetailState
 }
 
 export type CustomUninstallCell = React.FC<{ onClick: () => void }>

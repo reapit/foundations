@@ -6,7 +6,7 @@ import { useHistory } from 'react-router'
 import AppUninstallConfirmation from '@/components/pages/app-detail/client/app-uninstall-confirmation'
 import { DesktopIntegrationTypeModel } from '@/actions/desktop-integration-types'
 import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
-import { selectIntegrationTypes } from '@/selector/desktop-integration-types'
+import { selectDesktopIntegrationTypes } from '@/selector/desktop-integration-types'
 import { useSelector } from 'react-redux'
 import { selectAppDetailData, selectAppDetailLoading } from '@/selector/apps'
 import { selectClientId, selectIsAdmin } from '@/selector/auth'
@@ -77,7 +77,7 @@ const AppDetail: React.FC = () => {
     [],
   )
 
-  const desktopIntegrationTypes = useSelector(selectIntegrationTypes) as DesktopIntegrationTypeModel[]
+  const desktopIntegrationTypes = useSelector(selectDesktopIntegrationTypes) as DesktopIntegrationTypeModel[]
   const appDetailData = useSelector(selectAppDetailData) as AppDetailDataNotNull
   const userDesktopIntegrationTypes = getDesktopIntegrationTypes(
     appDetailData.desktopIntegrationTypeIds || [],

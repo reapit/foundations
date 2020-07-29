@@ -95,6 +95,8 @@ exports[`ManageApp should match snapshot 1`] = `
               "supportEmail": "support@reapit.com",
               "telephone": "0113 288 2900",
             },
+            "errorMessage": "",
+            "isLoading": false,
           }
         }
         id="test"

@@ -21,8 +21,6 @@ import {
   HTMLRender,
   Content,
 } from '@reapit/elements'
-import AuthFlow from '@/constants/app-auth-flow'
-import AppAuthenticationDetail from '@/components/pages/app-detail/common/app-authentication-detail'
 
 interface IsSidebar {
   isSidebar?: boolean
@@ -54,12 +52,6 @@ interface BackToAppsSectionProps {
 
 interface ListingPreviewSectionProps extends IsSidebar {
   onClick: () => void
-}
-
-interface AuthenticationSectionProps extends IsSidebar {
-  authFlow: string
-  id: string
-  externalId: string
 }
 
 interface SummarySectionProps {
@@ -161,21 +153,6 @@ export const ListingPreviewSection: React.FC<ListingPreviewSectionProps> = ({ on
     </AppDetailSection>
   )
 }
-
-export const AuthenticationSection: React.FC<AuthenticationSectionProps> = ({
-  authFlow,
-  id,
-  externalId,
-  isSidebar = false,
-}) => (
-  <AppDetailSection headerText="Authentication" isSidebar={isSidebar}>
-    <div className={authFlow === AuthFlow.CLIENT_SECRET ? 'mb-4' : ''} data-test="authentication-client-id">
-      <b className="mr-2">Client ID:</b>
-      {externalId}
-    </div>
-    {authFlow === AuthFlow.CLIENT_SECRET && <AppAuthenticationDetail withCustomHeader={true} appId={id} />}
-  </AppDetailSection>
-)
 
 export const SummarySection: React.FC<SummarySectionProps> = ({ summary }) => (
   <Content className="is-italic">{summary}</Content>

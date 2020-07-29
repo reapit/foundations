@@ -75,13 +75,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
               />
             }
             isCentered={true}
-            title={
-              <Unknown
-                className="pt-2 pb-2"
-              >
-                Reapit Foundations Invitation
-              </Unknown>
-            }
+            title="Reapit Foundations Invitation"
             visible={true}
           >
             <Component
@@ -96,9 +90,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                 />
               }
               title={
-                <Unknown
-                  className="pt-2 pb-2"
-                >
+                <Unknown>
                   Reapit Foundations Invitation
                 </Unknown>
               }
@@ -146,8 +138,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                     id="rcDialogTitle0"
                                   >
                                     <h4
-                                      class=""
-                                      id=""
+                                      class="modal-card-title is-4 pt-2 pb-2"
                                     >
                                       Reapit Foundations Invitation
                                     </h4>
@@ -281,9 +272,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                       prefixCls="rc-dialog"
                       switchScrollingEffect={[Function]}
                       title={
-                        <Unknown
-                          className="pt-2 pb-2"
-                        >
+                        <Unknown>
                           Reapit Foundations Invitation
                         </Unknown>
                       }
@@ -376,12 +365,9 @@ exports[`AcceptedModal should match snapshot 1`] = `
                                         className="rc-dialog-title"
                                         id="rcDialogTitle0"
                                       >
-                                        <Component
-                                          className="pt-2 pb-2"
-                                        >
+                                        <Component>
                                           <h4
-                                            className=""
-                                            id=""
+                                            className="modal-card-title is-4 pt-2 pb-2"
                                           >
                                             Reapit Foundations Invitation
                                           </h4>
@@ -584,13 +570,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
           <Component
             closable={false}
             isCentered={true}
-            title={
-              <Unknown
-                className="pt-2 pb-2"
-              >
-                Success
-              </Unknown>
-            }
+            title="Success"
             visible={false}
           >
             <Component
@@ -598,9 +578,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
               closable={false}
               destroyOnClose={true}
               title={
-                <Unknown
-                  className="pt-2 pb-2"
-                >
+                <Unknown>
                   Success
                 </Unknown>
               }
@@ -619,13 +597,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
           <Component
             closable={false}
             isCentered={true}
-            title={
-              <Unknown
-                className="pt-2 pb-2"
-              >
-                Invitation Declined
-              </Unknown>
-            }
+            title="Invitation Declined"
             visible={false}
           >
             <Component
@@ -633,9 +605,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
               closable={false}
               destroyOnClose={true}
               title={
-                <Unknown
-                  className="pt-2 pb-2"
-                >
+                <Unknown>
                   Invitation Declined
                 </Unknown>
               }

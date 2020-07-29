@@ -4,6 +4,7 @@ exports[`modal Modal should match snapshot 1`] = `
 <Component
   className=""
   destroyOnClose={true}
+  title={<Unknown />}
   visible={true}
   wrapClassName=""
 >
@@ -11,4 +12,12 @@ exports[`modal Modal should match snapshot 1`] = `
     children
   </div>
 </Component>
+`;
+
+exports[`modal ModalHeaderV2 should match snapshot 1`] = `
+<h4
+  className="modal-card-title is-4 pt-2 pb-2"
+>
+  ModalHeaderV2
+</h4>
 `;

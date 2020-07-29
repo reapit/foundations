@@ -5,10 +5,10 @@ import { URLS } from './constants'
 import { generateHeader } from './utils'
 import { FetchListCommonParams } from './types'
 
-export type FetchDesktopIntegrationTypesListParams = FetchListCommonParams
+export type FetchDesktopIntegrationTypesParams = FetchListCommonParams
 
-export const fetchDesktopIntegrationTypesList = async (
-  params: FetchDesktopIntegrationTypesListParams,
+export const fetchDesktopIntegrationTypesApi = async (
+  params: FetchDesktopIntegrationTypesParams,
 ): Promise<PagedResultDesktopIntegrationTypeModel_> => {
   try {
     const response = await fetcher({
@@ -20,6 +20,6 @@ export const fetchDesktopIntegrationTypesList = async (
     return response
   } catch (error) {
     logger(error)
-    throw new Error(error)
+    throw error?.response
   }
 }

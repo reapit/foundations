@@ -3,7 +3,6 @@ import { ReduxState, FormState } from '@/types/core'
 import {
   BillingBreakdownForMonthV2Model,
   BillingOverviewForPeriodV2Model,
-  AppSummaryModel,
   DeveloperModel,
 } from '@reapit/foundations-ts-definitions'
 import { WebhookPingTestStatus } from '@/reducers/developer'
@@ -18,10 +17,6 @@ export const selectDeveloper = (state: ReduxState) => {
 
 export const selectDeveloperAppModalVisible = (state: ReduxState) => {
   return state.developer.isVisible
-}
-
-export const selectDeveloperApps = (state: ReduxState): AppSummaryModel[] => {
-  return state.developer?.developerData?.data.data || ([] as AppSummaryModel[])
 }
 
 export const selectMyIdentity = (state: ReduxState): DeveloperModel => {

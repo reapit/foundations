@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { AppDetailState } from '@/reducers/app-detail'
+import { AppDetailState } from '@/reducers/apps/app-detail'
 import { mount } from 'enzyme'
 import * as ReactRedux from 'react-redux'
 import configureStore from 'redux-mock-store'
@@ -17,21 +17,16 @@ import {
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { revisionDetailRequestData, revisionDetailClearData, declineRevision } from '@/actions/revision-detail'
 import { revisionsRequestData, revisionsClearData } from '@/actions/revisions'
-import { appDetailRequestData } from '@/actions/app-detail'
 import { LoginIdentity } from '@reapit/connect-session'
+import { fetchAppDetail } from '@/actions/apps'
 
 const props: DeveloperAppRevisionModalProps = {
   appId: '1',
   visible: true,
   appDetailState: {
-    loading: false,
-    error: false,
-    appDetailData: { data: appDetailDataStub.data },
-    authentication: {
-      loading: false,
-      code: '',
-    },
-    isStale: false,
+    isLoading: false,
+    data: appDetailDataStub.data,
+    errorMessage: '',
   },
   afterClose: jest.fn(),
 }
@@ -58,8 +53,8 @@ describe('DeveloperAppRevisionModal', () => {
   describe('handleUseEffectToFetchAppRevisionDetail', () => {
     it('should run correctly', () => {
       const { appId, appDetailState, visible } = props
-      const { appDetailData } = appDetailState as AppDetailState
-      const appRevisionId = appDetailData?.data.id || ''
+      const { data } = appDetailState as AppDetailState
+      const appRevisionId = data?.id || ''
       const fn = handleUseEffectToFetchAppRevisionDetail(appId, spyDispatch, visible, appRevisionId)
       fn()
       expect(spyDispatch).toBeCalledWith(
@@ -124,7 +119,7 @@ describe('DeveloperAppRevisionModal', () => {
       fn()
       expect(spyDispatch).toBeCalledWith(revisionsClearData(null))
       expect(spyDispatch).toBeCalledWith(revisionDetailClearData(null))
-      expect(spyDispatch).toBeCalledWith(appDetailRequestData({ id: appId }))
+      expect(spyDispatch).toBeCalledWith(fetchAppDetail({ id: appId }))
     })
   })
 })

@@ -1,6 +1,4 @@
-import { integrationTypesReceiveData } from '@/actions/desktop-integration-types'
 import appDetailSagas, { fetchClientAppDetailSaga, clientAppDetailDataListen } from '../apps'
-import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
@@ -11,7 +9,6 @@ import { FetchAppByIdParams, fetchAppById } from '@/services/apps'
 import { fetchApiKeyInstallationById } from '@/services/installations'
 import { clientFetchAppDetailSuccess } from '@/actions/apps'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
-import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
 
 jest.mock('@reapit/elements')
 
@@ -33,9 +30,7 @@ describe('fetch client app detail with clientId', () => {
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(appDetailDataStub.data).value).toEqual(call(fetchDesktopIntegrationTypesList, {}))
-    expect(clone.next(integrationTypesStub).value).toEqual(put(integrationTypesReceiveData(integrationTypesStub)))
-    expect(clone.next().value).toEqual(put(clientFetchAppDetailSuccess(appDetailDataStub.data)))
+    expect(clone.next(appDetailDataStub.data).value).toEqual(put(clientFetchAppDetailSuccess(appDetailDataStub.data)))
   })
 
   test('api call error', () => {
@@ -58,9 +53,7 @@ describe('fetch client app detail without clientId', () => {
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(appDetailDataStub.data).value).toEqual(call(fetchDesktopIntegrationTypesList, {}))
-    expect(clone.next(integrationTypesStub).value).toEqual(put(integrationTypesReceiveData(integrationTypesStub)))
-    expect(clone.next().value).toEqual(put(clientFetchAppDetailSuccess(appDetailDataStub.data)))
+    expect(clone.next(appDetailDataStub.data).value).toEqual(put(clientFetchAppDetailSuccess(appDetailDataStub.data)))
   })
 
   test('api call error', () => {
@@ -93,9 +86,7 @@ describe('client app detail fetch data and fetch apiKey', () => {
         installationId,
       }).value,
     ).toMatchObject(call(fetchApiKeyInstallationById, { installationId }))
-    expect(clone.next({ apiKey }).value).toEqual(call(fetchDesktopIntegrationTypesList, {}))
-    expect(clone.next(integrationTypesStub).value).toMatchObject(put(integrationTypesReceiveData(integrationTypesStub)))
-    expect(clone.next().value).toEqual(
+    expect(clone.next({ apiKey }).value).toEqual(
       put(
         clientFetchAppDetailSuccess({
           ...appDetailDataStub.data,

@@ -7,13 +7,13 @@ import { settingShowLoading, requestDeveloperDataSuccess, ChangePasswordParams }
 import { errorThrownServer } from '@/actions/error'
 import { showNotificationMessage } from '@/actions/notification-message'
 import { UpdateDeveloperModel } from '@reapit/foundations-ts-definitions'
-import { selectDeveloperEmail } from '@/selector/developer'
 import { selectSettingsPageDeveloperInformation } from '@/selector/settings'
 import { logger } from '@reapit/utils'
 import { fetchDeveloperById, updateDeveloperById } from '@/services/developers'
 import { getDeveloperId } from '@/utils/session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { changePasswordService } from '@/services/cognito-identity'
+import { selectDeveloperEmail } from '@/selector'
 
 export const developerInformationFetch = function*() {
   yield put(settingShowLoading(true))

@@ -2,7 +2,6 @@ import * as React from 'react'
 import { Table, H5, Loader, toLocalTime, Pagination, Grid, GridItem, Section } from '@reapit/elements'
 import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { AppInstallationsState } from '@/reducers/app-installations'
-import { DeveloperState } from '@/reducers/developer'
 import { INSTALLATIONS_PER_PAGE } from '@/constants/paginator'
 import DeveloperInstallationsChart from '@/components/pages/analytics/detailed/installations-chart'
 import { handleMapAppNameToInstallation } from '@/components/pages/analytics/detailed/detailed-tab'
@@ -107,12 +106,10 @@ export const InstallationAppSection: React.FC<{
   installedApps: InstallationModelWithAppName[]
   filteredInstalledApps: InstallationModelWithAppName[]
   installations?: AppInstallationsState
-  developer?: DeveloperState
+  apps?: AppSummaryModel[]
   loading?: boolean
-}> = ({ installedApps, filteredInstalledApps, installations, developer, loading }) => {
+}> = ({ installedApps, filteredInstalledApps, installations, apps = [], loading }) => {
   const [pageNumber, setPageNumber] = React.useState<number>(1)
-
-  const developerDataArray = developer?.developerData?.data?.data ?? []
   const installationFilterAppDataArray = installations?.installationsFilteredAppData?.data
 
   const memoizedData = React.useMemo(handleUseMemoData(filteredInstalledApps, pageNumber), [
@@ -120,14 +117,14 @@ export const InstallationAppSection: React.FC<{
     pageNumber,
   ])
 
-  const currentInstallationApps = React.useMemo(
-    handleCountCurrentInstallationForEachApp(installedApps, developerDataArray),
-    [installedApps, developerDataArray],
-  )
+  const currentInstallationApps = React.useMemo(handleCountCurrentInstallationForEachApp(installedApps, apps), [
+    installedApps,
+    apps,
+  ])
 
   const installationFilterAppDataArrayWithName = React.useMemo(
-    handleMapAppNameToInstallation(installationFilterAppDataArray, developerDataArray),
-    [installationFilterAppDataArray, developerDataArray],
+    handleMapAppNameToInstallation(installationFilterAppDataArray, apps),
+    [installationFilterAppDataArray, apps],
   )
 
   return (

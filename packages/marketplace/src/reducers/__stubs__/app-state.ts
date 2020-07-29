@@ -28,27 +28,21 @@ const appState: ReduxState = {
     loading: false,
     myAppsData: null,
   },
-  appDetail: {
-    loading: false,
-    error: false,
-    appDetailData: null,
-    authentication: {
-      loading: false,
-      code: '',
-    },
-    isStale: true,
-  },
   error: {
     componentError: null,
     serverError: null,
   },
 
-  appCategories: {
-    data: [],
-    pageNumber: 1,
-    pageSize: 12,
-    pageCount: 1,
-    totalCount: 0,
+  categories: {
+    list: {
+      data: [],
+      pageNumber: 1,
+      pageSize: 12,
+      pageCount: 1,
+      totalCount: 0,
+      isLoading: false,
+      errorMessage: '',
+    },
   },
 
   installations: {
@@ -66,11 +60,14 @@ const appState: ReduxState = {
   },
 
   desktopIntegrationTypes: {
-    data: [],
-    pageNumber: 0,
-    pageSize: 0,
-    pageCount: 0,
-    totalCount: 0,
+    list: {
+      data: [],
+      pageSize: 0,
+      pageCount: 0,
+      totalCount: 0,
+      isLoading: false,
+      errorMessage: '',
+    },
   },
 }
 

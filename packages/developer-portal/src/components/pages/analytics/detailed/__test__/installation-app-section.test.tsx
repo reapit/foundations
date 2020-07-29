@@ -11,7 +11,6 @@ import {
 } from '../installation-app-section'
 import { installationsStub } from '@/sagas/__stubs__/installations'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
-import { DeveloperState } from '@/reducers/developer'
 import { AppInstallationsState } from '@/reducers/app-installations'
 import { handleMapAppNameToInstallation } from '../detailed-tab'
 
@@ -20,11 +19,6 @@ jest.mock('@reapit/elements', () => ({
   toLocalTime: jest.fn().mockReturnValue('localtime'),
 }))
 jest.mock('../../../../../core/store')
-
-const developer = {
-  developerData: appsDataStub,
-  loading: false,
-} as DeveloperState
 
 const installations = {
   loading: false,
@@ -46,7 +40,7 @@ describe('InstallationTable', () => {
           installedApps={installedApps}
           filteredInstalledApps={installedApps}
           installations={installations}
-          developer={developer}
+          apps={[]}
         />,
       ),
     ).toMatchSnapshot()
@@ -60,21 +54,19 @@ describe('InstallationTable', () => {
           installedApps={installedApps}
           filteredInstalledApps={installedApps}
           installations={installationsWithoutData}
-          developer={developer}
+          apps={[]}
         />,
       ),
     ).toMatchSnapshot()
   })
 
   it('should match with null developerData', () => {
-    const developerWithoutData = { ...developer, developerData: null }
     expect(
       shallow(
         <InstallationAppSection
           installedApps={installedApps}
           filteredInstalledApps={installedApps}
           installations={installations}
-          developer={developerWithoutData}
         />,
       ),
     ).toMatchSnapshot()

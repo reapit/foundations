@@ -1,20 +1,22 @@
 import { ReduxState } from '@/types/core'
-import { selectIntegrationTypes } from '../desktop-integration-types'
-import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
+import { selectDesktopIntegrationTypes } from '../desktop-integration-types'
+import { desktopIntegrationTypesStub } from '@/sagas/__stubs__/desktop-integration-types'
 
-describe('selectIntegrationTypes', () => {
+describe('selectDesktopIntegrationTypes', () => {
   it('should run correctly', () => {
     const input = {
-      desktopIntegrationTypes: integrationTypesStub,
+      desktopIntegrationTypes: {
+        list: desktopIntegrationTypesStub,
+      },
     } as ReduxState
-    const result = selectIntegrationTypes(input)
-    expect(result).toEqual(integrationTypesStub.data)
+    const result = selectDesktopIntegrationTypes(input)
+    expect(result).toEqual(desktopIntegrationTypesStub.data)
   })
 
   it('should run correctly and return []', () => {
     const input = {} as ReduxState
     const expected = []
-    const result = selectIntegrationTypes(input)
+    const result = selectDesktopIntegrationTypes(input)
     expect(result).toEqual(expected)
   })
 })

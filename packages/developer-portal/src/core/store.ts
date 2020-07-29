@@ -2,8 +2,8 @@ import { createStore, applyMiddleware, compose, combineReducers, Store as ReduxS
 import createSagaMiddleware from 'redux-saga'
 import { fork, all } from '@redux-saga/core/effects'
 import { ReduxState } from '../types/core'
+import appsReducer from '@/reducers/apps'
 import developer from '@/reducers/developer'
-import appDetail from '@/reducers/app-detail'
 import error from '@/reducers/error'
 import submitApp from '@/reducers/submit-app'
 import submitRevision from '@/reducers/submit-revision'
@@ -22,9 +22,7 @@ import webhookEditReducer from '../reducers/webhook-edit-modal'
 import webhookSubscriptions from '@/reducers/webhook-subscriptions'
 import developerSubscriptions from '@/reducers/developer-subscriptions'
 import developersReducer from '@/reducers/developers'
-
-import appsSaga from '@/sagas/apps/apps'
-import appDetailSagas from '@/sagas/app-detail'
+import { appDetailSagas, appListSagas, appAuthenticationSagas } from '@/sagas/apps'
 import appUsageStatsSagas from '@/sagas/app-usage-stats'
 import appHttpTrafficEventSagas from '@/sagas/app-http-trafic-event'
 import developerSagas from '@/sagas/developer'
@@ -59,8 +57,8 @@ export class Store {
   static sagaMiddleware = createSagaMiddleware()
 
   static reducers = combineReducers<ReduxState>({
+    apps: appsReducer,
     developer,
-    appDetail,
     error,
     submitApp,
     submitRevision,
@@ -84,10 +82,11 @@ export class Store {
 
   static sagas = function*() {
     yield all([
-      fork(appsSaga),
       fork(appUsageStatsSagas),
       fork(developerSagas),
       fork(appDetailSagas),
+      fork(appListSagas),
+      fork(appAuthenticationSagas),
       fork(submitAppSagas),
       fork(submitRevisionSagas),
       fork(developerSetStatusSagas),

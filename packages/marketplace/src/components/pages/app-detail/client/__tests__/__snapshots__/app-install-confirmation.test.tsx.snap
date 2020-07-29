@@ -156,7 +156,11 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
               </div>
             }
             onClose={[MockFunction]}
-            title="Confirm Peter's Properties installation"
+            title={
+              <Unknown>
+                Confirm Peter's Properties installation
+              </Unknown>
+            }
             visible={true}
             wrapClassName=""
           >
@@ -209,7 +213,11 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                   class="rc-dialog-title"
                                   id="rcDialogTitle2"
                                 >
-                                  Confirm Peter's Properties installation
+                                  <h4
+                                    class="modal-card-title is-4 pt-2 pb-2"
+                                  >
+                                    Confirm Peter's Properties installation
+                                  </h4>
                                 </div>
                               </div>
                               <div
@@ -220,11 +228,24 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                   data-test=""
                                 >
                                   <p>
-                                    This action will install the app for ALL platform users.
+                                    You are about to install ‘
+                                    Peter's Properties
+                                    ’ for 
+                                    <b>
+                                      all
+                                    </b>
+                                     members of your organisation.
                                   </p>
                                   <p>
-                                    Peter's Properties
-                                     requires the permissions below. By installing you are granting permission to your data.
+                                    By installing this app, you are granting the following permissions to your data:
+                                  </p>
+                                  <p>
+                                    <b>
+                                      Data Permissions
+                                    </b>
+                                  </p>
+                                  <p>
+                                    Information about your organisation and the names/email addresses of your users
                                   </p>
                                   <div
                                     class=""
@@ -316,7 +337,11 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                     onClose={[MockFunction]}
                     prefixCls="rc-dialog"
                     switchScrollingEffect={[Function]}
-                    title="Confirm Peter's Properties installation"
+                    title={
+                      <Unknown>
+                        Confirm Peter's Properties installation
+                      </Unknown>
+                    }
                     visible={true}
                     wrapClassName=""
                   >
@@ -416,7 +441,13 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                       className="rc-dialog-title"
                                       id="rcDialogTitle2"
                                     >
-                                      Confirm Peter's Properties installation
+                                      <Component>
+                                        <h4
+                                          className="modal-card-title is-4 pt-2 pb-2"
+                                        >
+                                          Confirm Peter's Properties installation
+                                        </h4>
+                                      </Component>
                                     </div>
                                   </div>
                                   <div
@@ -428,11 +459,24 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
                                         data-test=""
                                       >
                                         <p>
-                                          This action will install the app for ALL platform users.
+                                          You are about to install ‘
+                                          Peter's Properties
+                                          ’ for 
+                                          <b>
+                                            all
+                                          </b>
+                                           members of your organisation.
                                         </p>
                                         <p>
-                                          Peter's Properties
-                                           requires the permissions below. By installing you are granting permission to your data.
+                                          By installing this app, you are granting the following permissions to your data:
+                                        </p>
+                                        <p>
+                                          <b>
+                                            Data Permissions
+                                          </b>
+                                        </p>
+                                        <p>
+                                          Information about your organisation and the names/email addresses of your users
                                         </p>
                                         <Component>
                                           <div
@@ -585,6 +629,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
               className=""
               destroyOnClose={true}
               onClose={[Function]}
+              title={<Unknown />}
               visible={false}
               wrapClassName=""
             >
@@ -648,6 +693,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
               className=""
               destroyOnClose={true}
               onClose={[Function]}
+              title={<Unknown />}
               visible={false}
               wrapClassName=""
             >
@@ -718,6 +764,7 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
       className=""
       destroyOnClose={true}
       onClose={[MockFunction]}
+      title={<Unknown />}
       visible={true}
       wrapClassName=""
     >
@@ -737,6 +784,7 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                     class="rc-dialog-mask"
                   />
                   <div
+                    aria-labelledby="rcDialogTitle1"
                     class="rc-dialog-wrap "
                     role="dialog"
                     tabindex="-1"
@@ -762,6 +810,18 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                             class="rc-dialog-close-x"
                           />
                         </button>
+                        <div
+                          class="rc-dialog-header"
+                        >
+                          <div
+                            class="rc-dialog-title"
+                            id="rcDialogTitle1"
+                          >
+                            <h4
+                              class="modal-card-title is-4 pt-2 pb-2"
+                            />
+                          </div>
+                        </div>
                         <div
                           class="rc-dialog-body"
                         >
@@ -837,6 +897,7 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
               onClose={[MockFunction]}
               prefixCls="rc-dialog"
               switchScrollingEffect={[Function]}
+              title={<Unknown />}
               visible={true}
               wrapClassName=""
             >
@@ -856,7 +917,7 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                   />
                 </LazyRenderBox>
                 <div
-                  aria-labelledby={null}
+                  aria-labelledby="rcDialogTitle1"
                   className="rc-dialog-wrap "
                   onClick={[Function]}
                   onKeyDown={[Function]}
@@ -929,6 +990,20 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                 className="rc-dialog-close-x"
                               />
                             </button>
+                            <div
+                              className="rc-dialog-header"
+                            >
+                              <div
+                                className="rc-dialog-title"
+                                id="rcDialogTitle1"
+                              >
+                                <Component>
+                                  <h4
+                                    className="modal-card-title is-4 pt-2 pb-2"
+                                  />
+                                </Component>
+                              </div>
+                            </div>
                             <div
                               className="rc-dialog-body"
                             >
@@ -1092,6 +1167,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
       className=""
       destroyOnClose={true}
       onClose={[MockFunction]}
+      title={<Unknown />}
       visible={true}
       wrapClassName=""
     >
@@ -1111,6 +1187,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                     class="rc-dialog-mask"
                   />
                   <div
+                    aria-labelledby="rcDialogTitle0"
                     class="rc-dialog-wrap "
                     role="dialog"
                     tabindex="-1"
@@ -1136,6 +1213,18 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                             class="rc-dialog-close-x"
                           />
                         </button>
+                        <div
+                          class="rc-dialog-header"
+                        >
+                          <div
+                            class="rc-dialog-title"
+                            id="rcDialogTitle0"
+                          >
+                            <h4
+                              class="modal-card-title is-4 pt-2 pb-2"
+                            />
+                          </div>
+                        </div>
                         <div
                           class="rc-dialog-body"
                         >
@@ -1196,6 +1285,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
               onClose={[MockFunction]}
               prefixCls="rc-dialog"
               switchScrollingEffect={[Function]}
+              title={<Unknown />}
               visible={true}
               wrapClassName=""
             >
@@ -1215,7 +1305,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                   />
                 </LazyRenderBox>
                 <div
-                  aria-labelledby={null}
+                  aria-labelledby="rcDialogTitle0"
                   className="rc-dialog-wrap "
                   onClick={[Function]}
                   onKeyDown={[Function]}
@@ -1288,6 +1378,20 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
                                 className="rc-dialog-close-x"
                               />
                             </button>
+                            <div
+                              className="rc-dialog-header"
+                            >
+                              <div
+                                className="rc-dialog-title"
+                                id="rcDialogTitle0"
+                              >
+                                <Component>
+                                  <h4
+                                    className="modal-card-title is-4 pt-2 pb-2"
+                                  />
+                                </Component>
+                              </div>
+                            </div>
                             <div
                               className="rc-dialog-body"
                             >

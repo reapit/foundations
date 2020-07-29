@@ -1,7 +1,10 @@
-import { AppDetailItem, AppAuthDetailState } from '@/reducers/app-detail'
+import { AppDetailState } from '@/reducers/apps/app-detail'
 import { appPermissionStub } from './app-permission'
+import { AppAuthenticationState } from '@/reducers/apps/app-authentication'
 
-export const appDetailDataStub: AppDetailItem = {
+export const appDetailDataStub: AppDetailState = {
+  isLoading: false,
+  errorMessage: '',
   data: {
     id: '9b6fd5f7-2c15-483d-b925-01b650538e52',
     name: "Peter's Properties",
@@ -32,7 +35,7 @@ export const appDetailDataStub: AppDetailItem = {
   },
 }
 
-export const appAuthenticationStub: AppAuthDetailState = {
+export const appAuthenticationStub: AppAuthenticationState = {
   code: 'test',
-  loading: false,
+  isLoading: false,
 }
