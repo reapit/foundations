@@ -7,10 +7,31 @@
   Some pretty horrible Sass in here however, need to be very specific to override defaults.
 */
 .swagger {
+  // Can't reset the global scrollbar to default styles
+  // Need to write custom styles
+  *::-webkit-scrollbar {
+    display: block;
+    width: 12px;
+    background-color: #f5f5f5;
+  }
+
+  *::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #f5f5f5;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #555;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #828587;
+  }
+
   .swagger-loading {
     display: none;
   }
-
 
   .swagger-ui {
     p,
@@ -45,7 +66,8 @@
       color: $reapit-mid-blue;
     }
 
-    .loading, .scheme-container {
+    .loading,
+    .scheme-container {
       display: none;
     }
 
@@ -55,7 +77,8 @@
       }
     }
 
-    h2, .info h2 {
+    h2,
+    .info h2 {
       font-family: $font-family-roboto;
       font-size: 2rem;
       font-weight: bold;
@@ -65,7 +88,8 @@
       margin-bottom: 1rem;
     }
 
-    code, .prop-format {
+    code,
+    .prop-format {
       font-family: $font-family-monospace;
       font-size: 1rem;
       color: $grey;
@@ -88,7 +112,8 @@
       .info {
         margin: 0;
 
-        .title .version, small {
+        .title .version,
+        small {
           display: none;
         }
 
@@ -114,7 +139,8 @@
     }
 
     .model {
-      td, .prop-type {
+      td,
+      .prop-type {
         font-family: $font-family-monospace;
       }
 
