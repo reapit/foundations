@@ -22,7 +22,10 @@ export const defaultState: InstalledAppsState = {
   installedAppsData: null,
 }
 
-const installedAppsReducer = (state: InstalledAppsState = defaultState, action: Action<any>): InstalledAppsState => {
+export const installedAppsReducer = (
+  state: InstalledAppsState = defaultState,
+  action: Action<any>,
+): InstalledAppsState => {
   if (isType(action, installedAppsLoading)) {
     return {
       ...state,

@@ -9,7 +9,7 @@ import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { handleLaunchApp } from '@/utils/launch-app'
 import { getParamsFromPath } from '@/utils/client-url-params'
 import Routes from '@/constants/routes'
-import { selectInstalledApps } from '@/selector/apps'
+import { selectInstalledAppsForLaunch } from '@/selector/apps'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 
@@ -21,7 +21,7 @@ export const handleOnCardClick = (connectIsDesktop: Boolean) => (app: AppSummary
 export const InstalledApps: React.FC = () => {
   const history = useHistory()
   const location = useLocation()
-  const installedAppsState = useSelector(selectInstalledApps)
+  const installedAppsState = useSelector(selectInstalledAppsForLaunch)
   const { connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
 
   const queryParams = getParamsFromPath(location.search)

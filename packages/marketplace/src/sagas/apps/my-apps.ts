@@ -1,20 +1,16 @@
-import { myAppsLoading, myAppsReceiveData, myAppsRequestDataFailure } from '@/actions/apps'
 import { put, fork, takeLatest, call, all } from '@redux-saga/core/effects'
+import { notification } from '@reapit/elements'
+import { myAppsReceiveData, myAppsRequestDataFailure } from '@/actions/apps'
 import ActionTypes from '@/constants/action-types'
-import { errorThrownServer } from '@/actions/error'
-import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { selectDeveloperEditionId } from '@/selector/auth'
-import { logger } from '@reapit/utils'
 import { fetchAppsList } from '@/services/apps'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { selectClientId } from '@/selector/auth'
 import { CLIENT_ID_NOT_FOUND_ERROR } from '@/constants/errors'
 
 export const myAppsDataFetch = function*({ data: page }) {
-  yield put(myAppsLoading(true))
-
   try {
     const connectSession = yield call(reapitConnectBrowserSession.connectSession)
     const clientId = yield call(selectClientId, connectSession)
@@ -29,19 +25,12 @@ export const myAppsDataFetch = function*({ data: page }) {
       pageNumber: page,
       pageSize: APPS_PER_PAGE,
     })
-    if (response) {
-      yield put(myAppsReceiveData({ data: response }))
-    } else {
-      yield put(myAppsRequestDataFailure())
-    }
+    yield put(myAppsReceiveData(response))
   } catch (err) {
-    logger(err)
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
+    yield put(myAppsRequestDataFailure(err.description))
+    notification.error({
+      message: err.description,
+    })
   }
 }
 

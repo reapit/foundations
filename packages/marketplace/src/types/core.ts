@@ -1,7 +1,6 @@
 import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
 import { InstalledAppsState } from '../reducers/installed-apps'
-import { MyAppsState } from '../reducers/my-apps'
 import { ErrorState } from '../reducers/error'
 import { CategoriesRootState } from '@/reducers/categories'
 import { AppInstallationsState } from '@/reducers/app-installations'
@@ -49,7 +48,6 @@ export interface FetcherParams<T> {
 export type ReduxState = {
   client: ClientRootState
   installedApps: InstalledAppsState
-  myApps: MyAppsState
   error: ErrorState
   categories: CategoriesRootState
   installations: AppInstallationsState
