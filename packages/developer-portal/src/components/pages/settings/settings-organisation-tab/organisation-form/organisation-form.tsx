@@ -90,7 +90,19 @@ export const generateInitialValues = ({
 export type OrganisationFormProps = {}
 
 export const handleSubmit = updateDeveloperDataDispatch => (values: OrganisationFormValues) => {
-  const { line1, line2, line3, line4, buildingName, buildingNumber, postcode, countryId, ...otherData } = values
+  const {
+    line1,
+    line2,
+    line3,
+    line4,
+    buildingName,
+    buildingNumber,
+    postcode,
+    countryId,
+    noRegistrationNumber,
+    ...otherData
+  } = values
+
   const companyAddress = {
     line1,
     line2,
@@ -101,6 +113,20 @@ export const handleSubmit = updateDeveloperDataDispatch => (values: Organisation
     postcode,
     countryId,
   }
+
+  // reset all unncessary fields to '' when checked appropriate checkboxes
+  if (noRegistrationNumber) {
+    otherData.registrationNumber = ''
+  }
+
+  if (!noRegistrationNumber) {
+    otherData.nationalInsurance = ''
+  }
+
+  if (otherData.noTaxRegistration) {
+    otherData.taxNumber = ''
+  }
+
   // TBC, exclude for now
   delete otherData.iconImageUrl
   const dataToSubmit: UpdateDeveloperModel = {
