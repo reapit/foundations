@@ -6,18 +6,6 @@ import { AppDetailState } from '@/reducers/app-detail'
 import { InstalledAppsState } from '@/reducers/installed-apps'
 import { ClientAppSummaryState } from '@/reducers/client/app-summary'
 
-export const selectAppDetailState = (state: ReduxState) => {
-  return state?.appDetail
-}
-
-export const selectAppDetailId = (state: ReduxState) => {
-  return state?.appDetail?.appDetailData?.data?.id
-}
-
-export const selectAppDetailInstallationId = (state: ReduxState) => {
-  return state?.appDetail?.appDetailData?.data?.installationId
-}
-
 export const selectApp = (state: ReduxState): AppDetailModel => {
   return state?.appDetail?.appDetailData?.data || {}
 }
@@ -53,14 +41,6 @@ export const selectAppDetailData = (state: ReduxState) => {
   return state.client.appDetail.data || {}
 }
 
-export const selectAppDetailAuthentication = (state: ReduxState) => {
-  return state.appDetail.authentication
-}
-
 export const selectAppDetailLoading = (state: ReduxState) => {
   return state.client.appDetail.isAppDetailLoading
-}
-
-export const selectAppDetailError = (state: ReduxState): string | null => {
-  return state?.client?.appDetail?.error || null
 }
