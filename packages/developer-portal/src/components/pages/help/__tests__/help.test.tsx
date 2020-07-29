@@ -16,7 +16,7 @@ import configureStore from 'redux-mock-store'
 import { history } from '@/core/router'
 import { HelpLinks } from '@/constants/developer-help-links'
 import appState from '@/reducers/__stubs__/app-state'
-import { LoginIdentity } from '../../../../../../connect-session/src/types'
+import { LoginIdentity } from '@reapit/connect-session'
 
 jest.mock('../../../../scripts/chat-bot')
 

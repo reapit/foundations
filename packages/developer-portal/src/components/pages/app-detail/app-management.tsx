@@ -10,7 +10,7 @@ import { History } from 'history'
 import { Dispatch } from 'redux'
 import { developerFetchAppDetail } from '@/actions/developer'
 import styles from '@/styles/blocks/standalone-app-detail.scss?mod'
-import { useReapitConnect } from '../../../../../connect-session/src/react'
+import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { getClientIdFromConnectSession } from '@/utils/session'
 

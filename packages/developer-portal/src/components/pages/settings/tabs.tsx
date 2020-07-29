@@ -3,7 +3,7 @@ import Routes from '@/constants/routes'
 import { selectIsAdmin } from '@/selector/auth'
 import { Tabs as ElementsTabs, TabConfig } from '@reapit/elements'
 import { useHistory, useRouteMatch } from 'react-router-dom'
-import { useReapitConnect } from '../../../../../connect-session/src/react'
+import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export type TabConfigsProps = {

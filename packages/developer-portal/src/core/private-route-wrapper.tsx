@@ -1,9 +1,7 @@
 import * as React from 'react'
 import Menu from '@/components/ui/menu'
 import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements'
-// import { Dispatch } from 'redux'
 import { Redirect, useLocation } from 'react-router'
-// import { ActionCreator } from '@/types/core'
 import Routes from '@/constants/routes'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
@@ -23,16 +21,6 @@ export type PrivateRouteWrapperProps = {
   dispatch: Dispatch
   setClientTermAcceptedCookieAndState: ActionCreator<boolean>
 }) => () => dispatch(setClientTermAcceptedCookieAndState(true)) */
-
-// export const handleSetTermsAcceptFromCookie = ({
-//   dispatch,
-//   setInitDeveloperTermsAcceptedStateFromCookie,
-// }: {
-//   dispatch: Dispatch
-//   setInitDeveloperTermsAcceptedStateFromCookie: ActionCreator<void>
-// }) => () => {
-//   dispatch(setInitDeveloperTermsAcceptedStateFromCookie())
-// }
 
 export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({
   children,

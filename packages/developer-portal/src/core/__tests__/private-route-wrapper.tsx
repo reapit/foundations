@@ -57,14 +57,3 @@ describe('PrivateRouteWrapper', () => {
     expect(useLocation).toHaveBeenCalled()
   })
 })
-
-// describe('handleSetTermsAcceptFromCookie', () => {
-//   it('should call 2 dispatch with correct params', () => {
-//     const fn = handleSetTermsAcceptFromCookie({
-//       dispatch,
-//       setInitDeveloperTermsAcceptedStateFromCookie,
-//     })
-//     fn()
-//     expect(dispatch).toHaveBeenCalledWith(setInitDeveloperTermsAcceptedStateFromCookie())
-//   })
-// })
