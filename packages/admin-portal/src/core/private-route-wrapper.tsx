@@ -1,8 +1,8 @@
 import * as React from 'react'
 import Menu from '@/components/ui/menu'
+import { useLocation, Redirect } from 'react-router'
 import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements'
-import { ReapitConnectContext, useReapitConnect } from '@reapit/connect-session'
-import { reapitConnectBrowserSession } from './connect-session'
+import Routes from '@/constants/routes'
 
 const { Suspense } = React
 
@@ -16,31 +16,29 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   children,
   showMenu = true,
 }) => {
-  const session = useReapitConnect(reapitConnectBrowserSession)
+  const location = useLocation()
 
-  if (!session.connectSession) {
-    return null
+  if (location.pathname === '/') {
+    return <Redirect to={Routes.APPROVALS} />
   }
 
   return (
-    <ReapitConnectContext.Provider value={{ ...session }}>
-      <AppNavContainer>
-        {showMenu && <Menu />}
-        <FlexContainerBasic flexColumn isScrollable>
-          <FlexContainerResponsive hasPadding flexColumn isPageContainer>
-            <Suspense
-              fallback={
-                <Section>
-                  <Loader />
-                </Section>
-              }
-            >
-              {children}
-            </Suspense>
-          </FlexContainerResponsive>
-        </FlexContainerBasic>
-      </AppNavContainer>
-    </ReapitConnectContext.Provider>
+    <AppNavContainer>
+      {showMenu && <Menu />}
+      <FlexContainerBasic flexColumn isScrollable>
+        <FlexContainerResponsive hasPadding flexColumn isPageContainer>
+          <Suspense
+            fallback={
+              <Section>
+                <Loader />
+              </Section>
+            }
+          >
+            {children}
+          </Suspense>
+        </FlexContainerResponsive>
+      </FlexContainerBasic>
+    </AppNavContainer>
   )
 }
 
