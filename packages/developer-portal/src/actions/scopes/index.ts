@@ -1,1 +1,1 @@
-export * from './scopes'
+export * from './scope-list'

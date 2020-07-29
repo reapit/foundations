@@ -20,7 +20,7 @@ import { appSubmitStubWithActions, appSubmitStub } from '../__stubs__/apps-submi
 import { appDetailDataStub } from '../__stubs__/app-detail'
 import { appCategorieStub } from '../__stubs__/app-categories'
 import { ScopeModel, PagedResultCategoryModel_ } from '@reapit/foundations-ts-definitions'
-import { fetchScopesList } from '@/services/scopes'
+import { fetchScopeListAPI } from '@/services/scopes'
 import { createAppAPI, fetchAppByIdByRawUrl } from '@/services/apps'
 import { fetchCategoriesList } from '@/services/categories'
 import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
@@ -150,7 +150,7 @@ describe('submit-app fetch data', () => {
 
   expect(gen.next().value).toEqual(put(submitAppLoading(true)))
   expect(gen.next().value).toEqual(
-    all([call(fetchScopesList), call(fetchCategoriesList, {}), call(fetchDesktopIntegrationTypesList, {})]),
+    all([call(fetchScopeListAPI), call(fetchCategoriesList, {}), call(fetchDesktopIntegrationTypesList, {})]),
   )
 
   test('api fetch success', () => {

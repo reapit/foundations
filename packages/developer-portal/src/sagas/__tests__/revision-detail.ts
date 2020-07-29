@@ -18,7 +18,7 @@ import {
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { fetchAppRevisionsById, rejectAppRevisionById } from '@/services/apps'
-import { fetchScopesList } from '@/services/scopes'
+import { fetchScopeListAPI } from '@/services/scopes'
 import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
 import { fork } from 'redux-saga/effects'
 
@@ -41,7 +41,7 @@ describe('revision-detail fetch data', () => {
   expect(gen.next().value).toEqual(
     all([
       call(fetchAppRevisionsById, { id: appId, revisionId: appRevisionId }),
-      call(fetchScopesList),
+      call(fetchScopeListAPI),
       call(fetchDesktopIntegrationTypesList, {}),
     ]),
   )
