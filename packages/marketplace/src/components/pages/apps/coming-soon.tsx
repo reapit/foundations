@@ -28,7 +28,7 @@ const comingSoonImagesList = [
 
 const ComingSoonApps: React.FC = () => {
   return (
-    <Grid className="bt pt-4 mt-4" isMultiLine>
+    <Grid isMultiLine>
       {comingSoonImagesList.map(imgSrc => (
         <GridThreeColItem key={imgSrc}>
           <div className="card">
