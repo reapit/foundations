@@ -75,39 +75,38 @@ export const Apps: React.FunctionComponent = () => {
         hasMargin={false}
         hasBackground={false}
       >
-        <div className="bb mb-4">
-          <InfiniteScroll
-            useWindow={false}
-            pageStart={1}
-            loadMore={handleLoadMore({ dispatch, preview, loading })}
-            hasMore={hasMore}
-            loader={<Loader key="infiniteScrollLoader" />}
-            initialLoad={false}
-          >
-            <TransitionGroup>
-              <>
-                {/* <AppSidebar /> */}
-                <H3 isHeadingSection>Browse Apps</H3>
-                {!hasParams && featuredApps.length > 0 && (
-                  <div className="pb-4 bb mb-4">
-                    <Grid isMultiLine>
-                      {featuredApps.map(app => (
-                        <FeaturedApp key={app.id} app={app} />
-                      ))}
-                    </Grid>
-                  </div>
-                )}
-                <AppList
-                  list={apps}
-                  loading={loading}
-                  onCardClick={handleOnCardClick(history)}
-                  infoType={pageNumber > 1 || hasParams ? '' : 'CLIENT_APPS_EMPTY'}
-                  animated
-                />
-              </>
-            </TransitionGroup>
-          </InfiniteScroll>
-        </div>
+        <InfiniteScroll
+          useWindow={false}
+          pageStart={1}
+          loadMore={handleLoadMore({ dispatch, preview, loading })}
+          hasMore={hasMore}
+          loader={<Loader key="infiniteScrollLoader" />}
+          initialLoad={false}
+        >
+          <TransitionGroup>
+            <>
+              {/* <AppSidebar /> */}
+              <H3 isHeadingSection>Browse Apps</H3>
+              {!hasParams && featuredApps.length > 0 && (
+                <div className="pb-4 bb mb-4">
+                  <Grid isMultiLine>
+                    {featuredApps.map(app => (
+                      <FeaturedApp key={app.id} app={app} />
+                    ))}
+                  </Grid>
+                </div>
+              )}
+              <AppList
+                list={apps}
+                loading={loading}
+                onCardClick={handleOnCardClick(history)}
+                infoType={pageNumber > 1 || hasParams ? '' : 'CLIENT_APPS_EMPTY'}
+                animated
+              />
+            </>
+          </TransitionGroup>
+        </InfiniteScroll>
+        <div className="bb mb-4" />
         <ComingSoonApps />
       </Section>
     </ErrorBoundary>
