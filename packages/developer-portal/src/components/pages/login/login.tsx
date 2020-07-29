@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Dispatch } from 'redux'
 import { useDispatch } from 'react-redux'
 import { showNotificationMessage } from '@/actions/notification-message'
 import { Button, Level, FlexContainerBasic, Section } from '@reapit/elements'
-import { getDefaultPath, getDefaultRoute } from '@/utils/auth-route'
+import { getDefaultRoute } from '@/utils/auth-route'
 import Routes from '@/constants/routes'
 import messages from '@/constants/messages'
 import { getCookieString, COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE } from '@/utils/cookie'
@@ -12,7 +12,6 @@ import loginStyles from '@/styles/pages/login.scss?mod'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 import connectImage from '@/assets/images/reapit-connect.png'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { useReapitConnect } from '@reapit/connect-session'
 
 const { wrapper, container, image, register, registerLevel, loginButton } = loginStyles
 
@@ -40,9 +39,6 @@ export const onLoginButtonClick = (isFirtTimeLogin: boolean) => {
 
 export const Login: React.FunctionComponent<LoginProps> = () => {
   const dispatch = useDispatch()
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-
-  const { connectIsDesktop } = reapitConnectBrowserSession
 
   const isPasswordChanged = localStorage.getItem('isPasswordChanged') === 'true'
   const isFirtTimeLogin = Boolean(getCookieString(COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE))
@@ -52,11 +48,6 @@ export const Login: React.FunctionComponent<LoginProps> = () => {
     localStorage,
     dispatch,
   ])
-
-  if (connectSession) {
-    const redirectRoute = getDefaultPath(connectIsDesktop, isFirtTimeLogin)
-    return <Redirect to={redirectRoute} />
-  }
 
   return (
     <div className={container}>
