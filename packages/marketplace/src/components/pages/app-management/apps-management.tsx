@@ -6,7 +6,7 @@ import { Loader, Info, Pagination, H3 } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import routes from '@/constants/routes'
 import AppList from '@/components/ui/app-list'
-import { selectMyApps } from '@/selector/apps'
+import { selectInstalledApps } from '@/selector/apps'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { handleLaunchApp } from '@/utils/launch-app'
 import { selectDeveloperId, selectIsAdmin } from '@/selector/auth'
@@ -25,7 +25,7 @@ export const AppsManagement: React.FunctionComponent = () => {
   const history = useHistory()
   const location = useLocation()
 
-  const myAppsState = useSelector(selectMyApps)
+  const installedApps = useSelector(selectInstalledApps)
   const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const isDeveloperEdition = Boolean(selectDeveloperId(connectSession))
   const isDesktopAdmin = selectIsAdmin(connectSession)
@@ -34,10 +34,10 @@ export const AppsManagement: React.FunctionComponent = () => {
   const queryParams = getParamsFromPath(location.search)
   const { page: pageNumber = 1 } = queryParams
 
-  const unfetched = !myAppsState.myAppsData
-  const loading = myAppsState.loading
-  const list = myAppsState?.myAppsData?.data?.data || []
-  const { totalCount, pageSize } = myAppsState?.myAppsData?.data || {}
+  const unfetched = !installedApps.data
+  const loading = installedApps.isLoading
+  const list = installedApps?.data || []
+  const { totalCount, pageSize } = installedApps || {}
 
   if (unfetched || loading) {
     return <Loader />

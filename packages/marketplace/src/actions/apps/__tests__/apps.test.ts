@@ -1,8 +1,6 @@
 import {
-  myAppsLoading,
   myAppsReceiveData,
   myAppsRequestData,
-  myAppsClearData,
   installedAppsLoading,
   installedAppsReceiveData,
   installedAppsRequestData,
@@ -22,12 +20,6 @@ import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 
 describe('apps', () => {
-  describe('myAppsLoading', () => {
-    it('should create a myAppsLoading action', () => {
-      expect(myAppsLoading.type).toEqual(ActionTypes.MY_APPS_LOADING)
-      expect(myAppsLoading(true).data).toEqual(true)
-    })
-  })
   describe('myAppsReceiveData', () => {
     it('should create a myAppsReceiveData action', () => {
       expect(myAppsReceiveData.type).toEqual(ActionTypes.MY_APPS_RECEIVE_DATA)
@@ -38,14 +30,7 @@ describe('apps', () => {
   describe('myAppsRequestData', () => {
     it('should create a myAppsRequestData action', () => {
       expect(myAppsRequestData.type).toEqual(ActionTypes.MY_APPS_REQUEST_DATA)
-      expect(myAppsRequestData(1).data).toEqual(1)
-    })
-  })
-
-  describe('myAppsClearData', () => {
-    it('should create a myAppsClearData action', () => {
-      expect(myAppsClearData.type).toEqual(ActionTypes.MY_APPS_CLEAR_DATA)
-      expect(myAppsClearData(null).data).toEqual(null)
+      expect(myAppsRequestData({ onlyInstalled: true }).data).toEqual(1)
     })
   })
 
@@ -59,7 +44,7 @@ describe('apps', () => {
   describe('installedAppsReceiveData', () => {
     it('should create a installedAppsReceiveData action', () => {
       expect(installedAppsReceiveData.type).toEqual(ActionTypes.INSTALLED_APPS_RECEIVE_DATA)
-      expect(installedAppsReceiveData(appsDataStub).data).toEqual(appsDataStub)
+      expect(installedAppsReceiveData({ data: appsDataStub }).data).toEqual(appsDataStub)
     })
   })
 
@@ -88,8 +73,7 @@ describe('apps', () => {
     it('should create a clientFetchAppSummarySuccess action', () => {
       expect(clientFetchAppSummarySuccess.type).toEqual(ActionTypes.CLIENT_FETCH_APP_SUMMARY_SUCCESS)
       expect(
-        clientFetchAppSummarySuccess({ featuredApps: [appDetailDataStub as AppDetailModel], apps: appsDataStub.data })
-          .data,
+        clientFetchAppSummarySuccess({ featuredApps: [appDetailDataStub as AppDetailModel], apps: appsDataStub }).data,
       ).toEqual({
         featuredApps: [appDetailDataStub as AppDetailModel],
         apps: appsDataStub.data,

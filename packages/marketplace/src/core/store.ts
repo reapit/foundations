@@ -5,7 +5,6 @@ import { injectSwitchModeToWindow } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import client from '@/reducers/client'
 import installedApps from '@/reducers/installed-apps'
-import myApps from '@/reducers/my-apps'
 import error from '@/reducers/error'
 import categories from '@/reducers/categories'
 import appInstallationsReducer from '@/reducers/app-installations'
@@ -37,7 +36,6 @@ export class Store {
   static reducers = combineReducers<ReduxState>({
     client,
     installedApps,
-    myApps,
     error,
     categories,
     installations: appInstallationsReducer,

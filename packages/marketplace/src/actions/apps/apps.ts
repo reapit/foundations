@@ -1,11 +1,10 @@
 import { actionCreator } from '@/utils/actions'
 import ActionTypes from '@/constants/action-types'
-import { MyAppsItem } from '@/reducers/my-apps'
 import { InstalledAppsItem } from '@/reducers/installed-apps'
-import { PagedResultNegotiatorModel_ } from '@reapit/foundations-ts-definitions'
+import { PagedResultAppSummaryModel_, PagedResultNegotiatorModel_ } from '@reapit/foundations-ts-definitions'
 import { ClientAppSummary, ClientAppSummaryParams } from '@/reducers/client/app-summary'
 import { AppDetailData } from '@/reducers/client/app-detail'
-import { FetchAppByIdParams } from '@/services/apps'
+import { FetchAppByIdParams, FetchAppsListParams } from '@/services/apps'
 import {
   UpdateWebComponentConfigParams,
   FetchWebComponentConfigParams,
@@ -13,11 +12,9 @@ import {
 } from '@/services/web-component'
 
 // Apps
-export const myAppsRequestData = actionCreator<number>(ActionTypes.MY_APPS_REQUEST_DATA)
-export const myAppsRequestDataFailure = actionCreator<void>(ActionTypes.MY_APPS_REQUEST_DATA_FAILURE)
-export const myAppsLoading = actionCreator<boolean>(ActionTypes.MY_APPS_LOADING)
-export const myAppsReceiveData = actionCreator<MyAppsItem | undefined>(ActionTypes.MY_APPS_RECEIVE_DATA)
-export const myAppsClearData = actionCreator<null>(ActionTypes.MY_APPS_CLEAR_DATA)
+export const myAppsRequestData = actionCreator<FetchAppsListParams>(ActionTypes.MY_APPS_REQUEST_DATA)
+export const myAppsReceiveData = actionCreator<PagedResultAppSummaryModel_>(ActionTypes.MY_APPS_RECEIVE_DATA)
+export const myAppsRequestDataFailure = actionCreator<string>(ActionTypes.MY_APPS_REQUEST_DATA_FAILURE)
 
 // App Detail
 export interface AppDetailParams {
