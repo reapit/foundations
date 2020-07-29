@@ -7,6 +7,7 @@ import {
   clientFetchAppSummaryFailed,
 } from '@/actions/apps'
 import { PagedResultAppSummaryModel_, AppSummaryModel } from '@reapit/foundations-ts-definitions'
+import { mergeAppsWithoutDuplicateId } from '@/utils/browse-app'
 
 export interface ClientAppSummary {
   apps: PagedResultAppSummaryModel_
@@ -49,7 +50,7 @@ const appSummaryReducer = (state: ClientAppSummaryState = defaultState, action: 
         apps: {
           ...state?.data?.apps,
           ...action.data?.apps,
-          data: [...(state?.data?.apps.data || []), ...(action.data?.apps.data || [])],
+          data: mergeAppsWithoutDuplicateId(state?.data?.apps.data, action.data?.apps.data),
         },
         featuredApps: action?.data?.featuredApps || null,
       },
