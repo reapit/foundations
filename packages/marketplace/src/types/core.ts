@@ -4,11 +4,11 @@ import { InstalledAppsState } from '../reducers/installed-apps'
 import { MyAppsState } from '../reducers/my-apps'
 import { AppDetailState } from '../reducers/app-detail'
 import { ErrorState } from '../reducers/error'
-import { AppCategoriesState } from '@/reducers/app-categories'
+import { CategoriesRootState } from '@/reducers/categories'
 import { AppInstallationsState } from '@/reducers/app-installations'
 import { NotificationMessageState } from '@/reducers/notification-message'
-import { IntegrationTypeState } from '@/reducers/app-integration-types'
 import { ClientRootState } from '@/reducers/client'
+import { DesktopIntegrationTypeRootState } from '@/reducers/desktop-integration-types'
 
 export type ModalProps = { visible: boolean; afterClose: () => void }
 
@@ -47,14 +47,14 @@ export interface FetcherParams<T> {
   body?: T
 }
 
-export interface ReduxState {
+export type ReduxState = {
   client: ClientRootState
   installedApps: InstalledAppsState
   myApps: MyAppsState
   appDetail: AppDetailState
   error: ErrorState
-  appCategories: AppCategoriesState
+  categories: CategoriesRootState
   installations: AppInstallationsState
   noticationMessage: NotificationMessageState
-  desktopIntegrationTypes: IntegrationTypeState
+  desktopIntegrationTypes: DesktopIntegrationTypeRootState
 }

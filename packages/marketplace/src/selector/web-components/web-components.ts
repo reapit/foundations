@@ -2,10 +2,6 @@ import { NegotiatorModel } from '@reapit/foundations-ts-definitions'
 import { ReduxState } from '@/types/core'
 import { WebComponentConfigResult } from '@/services/web-component'
 
-export const selectWebComponentOpen = (state: ReduxState): boolean => {
-  return state?.client.webComponent?.isShowModal
-}
-
 export const selectWebComponentData = (state: ReduxState): WebComponentConfigResult => {
   return state?.client.webComponent?.data
 }

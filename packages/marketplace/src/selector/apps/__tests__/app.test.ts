@@ -3,8 +3,6 @@ import { ReduxState } from '@/types/core'
 import appState from '@/reducers/__stubs__/app-state'
 import { featuredAppsDataStub } from '@/sagas/__stubs__/apps'
 import {
-  selectAppDetailId,
-  selectAppDetailInstallationId,
   selectApp,
   selectAppAuthenticationLoading,
   selectAppAuthenticationCode,
@@ -22,31 +20,6 @@ describe('app', () => {
       authentication: appAuthenticationStub,
     },
   } as ReduxState
-  describe('selectAppDetailId', () => {
-    it('should run correctly', () => {
-      const result = selectAppDetailId(mockState)
-      expect(result).toEqual(appDetailDataStub.data.id)
-    })
-
-    it('should run correctly and return undefined', () => {
-      const input = {} as ReduxState
-      const result = selectAppDetailId(input)
-      expect(result).toEqual(undefined)
-    })
-  })
-
-  describe('selectAppDetailInstallationId', () => {
-    it('should run correctly', () => {
-      const result = selectAppDetailInstallationId(mockState)
-      expect(result).toEqual(appDetailDataStub.data.installationId)
-    })
-
-    it('should run correctly and return undefined', () => {
-      const input = {} as ReduxState
-      const result = selectAppDetailInstallationId(input)
-      expect(result).toEqual(undefined)
-    })
-  })
 
   describe('selectApp', () => {
     it('should run correctly', () => {

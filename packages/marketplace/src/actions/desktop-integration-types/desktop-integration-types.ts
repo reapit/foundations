@@ -1,5 +1,6 @@
 import { actionCreator } from '@/utils/actions'
 import ActionTypes from '@/constants/action-types'
+import { FetchDesktopIntegrationTypesParams } from '@/services/desktop-integration-types'
 
 export interface DesktopIntegrationTypeModel {
   id?: string
@@ -16,6 +17,14 @@ export interface PagedResultDesktopIntegrationTypeModel_ {
   totalCount?: number
 }
 
-export const integrationTypesReceiveData = actionCreator<PagedResultDesktopIntegrationTypeModel_ | undefined>(
-  ActionTypes.INTEGRATION_TYPES_RECEIVE_DATA,
+export const fetchDesktopIntegrationTypes = actionCreator<FetchDesktopIntegrationTypesParams>(
+  ActionTypes.FETCH_DESKTOP_INTEGRATION_TYPES,
+)
+
+export const fetchDesktopIntegrationTypesSuccess = actionCreator<PagedResultDesktopIntegrationTypeModel_>(
+  ActionTypes.FETCH_DESKTOP_INTEGRATION_TYPES_SUCCESS,
+)
+
+export const fetchDesktopIntegrationTypesFailure = actionCreator<string>(
+  ActionTypes.FETCH_DESKTOP_INTEGRATION_TYPES_FAILURE,
 )

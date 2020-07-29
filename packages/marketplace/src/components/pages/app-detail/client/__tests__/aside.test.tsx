@@ -1,7 +1,7 @@
 import React from 'react'
 import { Aside } from '../aside'
 import { shallow } from 'enzyme'
-import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
+import { desktopIntegrationTypesStub } from '@/sagas/__stubs__/desktop-integration-types'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
 import { DesktopIntegrationTypeModel } from '@/actions/desktop-integration-types'
@@ -12,7 +12,7 @@ describe('ClientAside', () => {
       shallow(
         <Aside
           appDetailData={appDetailDataStub as AppDetailDataNotNull}
-          desktopIntegrationTypes={integrationTypesStub.data as DesktopIntegrationTypeModel[]}
+          desktopIntegrationTypes={desktopIntegrationTypesStub.data as DesktopIntegrationTypeModel[]}
         />,
       ),
     ).toMatchSnapshot()
