@@ -199,8 +199,14 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
         <>
           {scopes.length ? (
             <Content>
-              <p>This action will install the app for ALL platform users.</p>
-              <p>{name} requires the permissions below. By installing you are granting permission to your data.</p>
+              <p>
+                You are about to install ‘{name}’ for <b>all</b> members of your organisation.
+              </p>
+              <p>By installing this app, you are granting the following permissions to your data:</p>
+              <p>
+                <b>Data Permissions</b>
+              </p>
+              <p>Information about your organisation and the names/email addresses of your users</p>
               <GridFourCol>
                 {scopes.map(scope => (
                   <GridFourColItem key={scope.name}>{scope?.description ?? ''}</GridFourColItem>
