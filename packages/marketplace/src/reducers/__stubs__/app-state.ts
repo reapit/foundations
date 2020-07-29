@@ -28,16 +28,6 @@ const appState: ReduxState = {
     loading: false,
     myAppsData: null,
   },
-  appDetail: {
-    loading: false,
-    error: false,
-    appDetailData: null,
-    authentication: {
-      loading: false,
-      code: '',
-    },
-    isStale: true,
-  },
   error: {
     componentError: null,
     serverError: null,

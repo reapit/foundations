@@ -6,7 +6,6 @@ import { ReduxState } from '@/types/core'
 import client from '@/reducers/client'
 import installedApps from '@/reducers/installed-apps'
 import myApps from '@/reducers/my-apps'
-import appDetail from '@/reducers/app-detail'
 import error from '@/reducers/error'
 import categories from '@/reducers/categories'
 import appInstallationsReducer from '@/reducers/app-installations'
@@ -14,7 +13,7 @@ import desktopIntegrationTypes from '@/reducers/desktop-integration-types'
 import noticationMessage from '@/reducers/notification-message'
 
 import appsSaga from '@/sagas/apps/apps'
-import { clientSagas, appDetailSagas, installedAppsSagas, myAppsSagas } from '@/sagas/apps'
+import { clientSagas, installedAppsSagas, myAppsSagas } from '@/sagas/apps'
 import { appInstallationsSagas } from '@/sagas/installations'
 import { webComponentSagas } from '@/sagas/web-component'
 import { desktopIntegrationTypesSagas } from '@/sagas/desktop-integration-types'
@@ -39,7 +38,6 @@ export class Store {
     client,
     installedApps,
     myApps,
-    appDetail,
     error,
     categories,
     installations: appInstallationsReducer,
@@ -53,7 +51,6 @@ export class Store {
       fork(clientSagas),
       fork(installedAppsSagas),
       fork(myAppsSagas),
-      fork(appDetailSagas),
       fork(appInstallationsSagas),
       fork(webComponentSagas),
       fork(desktopIntegrationTypesSagas),
