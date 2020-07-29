@@ -105,7 +105,7 @@ export const fetchAppById = async (params: FetchAppByIdParams): Promise<AppDetai
   }
 }
 
-export const createApp = async (params: CreateAppParams) => {
+export const createAppAPI = async (params: CreateAppParams) => {
   try {
     const headers = await fetcherWithReturnHeader({
       url: URLS.apps,

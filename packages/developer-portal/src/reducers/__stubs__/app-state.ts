@@ -15,6 +15,9 @@ const appState: ReduxState = {
       code: '',
       isLoading: false,
     },
+    createApp: {
+      isLoading: false,
+    },
   },
   developer: {
     loading: false,

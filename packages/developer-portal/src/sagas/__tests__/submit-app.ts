@@ -21,7 +21,7 @@ import { appDetailDataStub } from '../__stubs__/app-detail'
 import { appCategorieStub } from '../__stubs__/app-categories'
 import { ScopeModel, PagedResultCategoryModel_ } from '@reapit/foundations-ts-definitions'
 import { fetchScopesList } from '@/services/scopes'
-import { createApp, fetchAppByIdByRawUrl } from '@/services/apps'
+import { createAppAPI, fetchAppByIdByRawUrl } from '@/services/apps'
 import { fetchCategoriesList } from '@/services/categories'
 import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
 import { selectDeveloperId } from '@/selector/auth'
@@ -49,7 +49,7 @@ describe('submit-app post data', () => {
 
   expect(gen.next().value).toEqual(put(submitAppSetFormState('SUBMITTING')))
   expect(gen.next().value).toEqual(select(selectDeveloperId))
-  expect(gen.next('id').value).toEqual(call(createApp, { ...appSubmitStub.data, developerId: 'id' }))
+  expect(gen.next('id').value).toEqual(call(createAppAPI, { ...appSubmitStub.data, developerId: 'id' }))
 
   test('api call fail if cant select developer id', () => {
     const internalGen = cloneableGenerator(castSagas)(params)

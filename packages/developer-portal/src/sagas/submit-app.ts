@@ -18,7 +18,7 @@ import errorMessages from '../constants/error-messages'
 import { getApiErrorsFromResponse, ApiFormErrorsResponse } from '@/utils/form/errors'
 import { logger } from '@reapit/utils'
 import { fetchScopesList } from '@/services/scopes'
-import { createApp, fetchAppByIdByRawUrl } from '@/services/apps'
+import { createAppAPI, fetchAppByIdByRawUrl } from '@/services/apps'
 import { fetchCategoriesList } from '@/services/categories'
 import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
 import { selectDeveloperId } from '@/selector/auth'
@@ -36,7 +36,7 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
     if (typeof developerId !== 'string') {
       throw new Error('Cant select developer id')
     }
-    const headers: Headers = yield call(createApp, { ...values, developerId })
+    const headers: Headers = yield call(createAppAPI, { ...values, developerId })
 
     // ^ got Illegal invocation when: const locationHeader = yield call(headers.get, 'location')
     const locationHeader = headers.get('location')

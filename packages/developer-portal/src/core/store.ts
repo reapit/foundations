@@ -26,7 +26,7 @@ import developerSubscriptions from '@/reducers/developer-subscriptions'
 import developersReducer from '@/reducers/developers'
 
 import authSagas from '@/sagas/auth'
-import { appDetailSagas, appListSagas, appAuthenticationSagas } from '@/sagas/apps'
+import { appDetailSagas, appListSagas, appAuthenticationSagas, createAppSagas } from '@/sagas/apps'
 import appUsageStatsSagas from '@/sagas/app-usage-stats'
 import appHttpTrafficEventSagas from '@/sagas/app-http-trafic-event'
 import developerSagas from '@/sagas/developer'
@@ -93,6 +93,7 @@ export class Store {
       fork(appDetailSagas),
       fork(appListSagas),
       fork(appAuthenticationSagas),
+      fork(createAppSagas),
       fork(submitAppSagas),
       fork(submitRevisionSagas),
       fork(developerSetStatusSagas),
