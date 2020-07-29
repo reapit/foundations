@@ -8,7 +8,6 @@ import {
   StatusSection,
   BackToAppsSection,
   ListingPreviewSection,
-  AuthenticationSection,
   SummarySection,
   DeveloperSection,
   DeveloperAboutSection,
@@ -25,6 +24,7 @@ import {
 import { Button } from '@reapit/elements'
 import { InstallationsTableSection, PermissionsSection, DescriptionSection } from '../ui-sections'
 import { installationsStub } from '@/sagas/__stubs__/installations'
+import { categoriesStub } from '@/sagas/__stubs__/categories'
 
 describe('CategorySection', () => {
   it('should match a snapshot where category undefined and not sidebar', () => {
@@ -32,7 +32,7 @@ describe('CategorySection', () => {
   })
 
   it('should match a snapshot where category is defined and is sidebar', () => {
-    expect(shallow(<CategorySection category={appDetailDataStub.data.category} isSidebar />)).toMatchSnapshot()
+    expect(shallow(<CategorySection category={categoriesStub.data?.[0]} isSidebar />)).toMatchSnapshot()
   })
 })
 
@@ -112,20 +112,6 @@ describe('ListingPreviewSection', () => {
 
     link.simulate('click')
     expect(onClick).toHaveBeenCalledTimes(1)
-  })
-})
-
-describe('AuthenticationSection', () => {
-  it('should match a snapshot where authFlow is CLIENT_SECRET and not sidebar', () => {
-    expect(
-      shallow(<AuthenticationSection authFlow="CLIENT_SECRET" id="SOME_ID" externalId="SOME_ID" />),
-    ).toMatchSnapshot()
-  })
-
-  it('should match a snapshot where authFlow is USER_SESSION sidebar', () => {
-    expect(
-      shallow(<AuthenticationSection authFlow="USER_SESSION" id="SOME_ID" externalId="SOME_ID" isSidebar />),
-    ).toMatchSnapshot()
   })
 })
 

@@ -1,5 +1,4 @@
 export * from './apps'
-export * from './app-detail'
 export * from './installed-apps'
 export * from './client'
 export * from './my-apps'

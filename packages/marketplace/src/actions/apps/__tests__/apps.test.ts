@@ -3,15 +3,6 @@ import {
   myAppsReceiveData,
   myAppsRequestData,
   myAppsClearData,
-  appDetailLoading,
-  appDetailReceiveData,
-  appDetailRequestData,
-  appDetailClearData,
-  appDetailFailure,
-  requestAuthenticationCode,
-  requestAuthenticationSuccess,
-  requestAuthenticationFailure,
-  removeAuthenticationCode,
   installedAppsLoading,
   installedAppsReceiveData,
   installedAppsRequestData,
@@ -55,64 +46,6 @@ describe('apps', () => {
     it('should create a myAppsClearData action', () => {
       expect(myAppsClearData.type).toEqual(ActionTypes.MY_APPS_CLEAR_DATA)
       expect(myAppsClearData(null).data).toEqual(null)
-    })
-  })
-
-  describe('appDetailLoading', () => {
-    it('should create a appDetailLoading action', () => {
-      expect(appDetailLoading.type).toEqual(ActionTypes.APP_DETAIL_LOADING)
-      expect(appDetailLoading(true).data).toEqual(true)
-    })
-  })
-
-  describe('appDetailReceiveData', () => {
-    it('should create a appDetailReceiveData action', () => {
-      expect(appDetailReceiveData.type).toEqual(ActionTypes.APP_DETAIL_RECEIVE_DATA)
-      expect(appDetailReceiveData(appDetailDataStub).data).toEqual(appDetailDataStub)
-    })
-  })
-
-  describe('appDetailRequestData', () => {
-    it('should create a appDetailRequestData action', () => {
-      expect(appDetailRequestData.type).toEqual(ActionTypes.APP_DETAIL_REQUEST_DATA)
-      expect(appDetailRequestData({ id: '1', clientId: '1' }).data).toEqual({ id: '1', clientId: '1' })
-    })
-  })
-
-  describe('appDetailClearData', () => {
-    it('should create a appDetailClearData action', () => {
-      expect(appDetailClearData.type).toEqual(ActionTypes.APP_DETAIL_CLEAR_DATA)
-      expect(appDetailClearData(null).data).toEqual(null)
-    })
-  })
-
-  describe('appDetailFailure', () => {
-    it('should create a appDetailFailure action', () => {
-      expect(appDetailFailure.type).toEqual(ActionTypes.APP_DETAIL_REQUEST_DATA_FAILURE)
-    })
-  })
-
-  describe('requestAuthenticationCode', () => {
-    it('should create a requestAuthenticationCode action', () => {
-      expect(requestAuthenticationCode.type).toEqual(ActionTypes.REQUEST_AUTHENTICATION_CODE)
-    })
-  })
-
-  describe('requestAuthenticationSuccess', () => {
-    it('should create a requestAuthenticationSuccess action', () => {
-      expect(requestAuthenticationSuccess.type).toEqual(ActionTypes.REQUEST_AUTHENTICATION_CODE_SUCCESS)
-    })
-  })
-
-  describe('requestAuthenticationFailure', () => {
-    it('should create a requestAuthenticationFailure action', () => {
-      expect(requestAuthenticationFailure.type).toEqual(ActionTypes.REQUEST_AUTHENTICATION_CODE_FAILURE)
-    })
-  })
-
-  describe('removeAuthenticationCode', () => {
-    it('should create a removeAuthenticationCode action', () => {
-      expect(removeAuthenticationCode.type).toEqual(ActionTypes.REMOVE_AUTHENTICATION_CODE)
     })
   })
 
