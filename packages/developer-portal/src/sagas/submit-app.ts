@@ -17,7 +17,7 @@ import { SubmitAppArgs } from '@/actions/submit-app'
 import errorMessages from '../constants/error-messages'
 import { getApiErrorsFromResponse, ApiFormErrorsResponse } from '@/utils/form/errors'
 import { logger } from '@reapit/utils'
-import { fetchScopesList } from '@/services/scopes'
+import { fetchScopeListAPI } from '@/services/scopes'
 import { createAppAPI, fetchAppByIdByRawUrl } from '@/services/apps'
 import { fetchCategoriesList } from '@/services/categories'
 import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
@@ -83,7 +83,7 @@ export const submitAppsDataFetch = function*() {
 
   try {
     const [scopes, categories, integrationTypes] = yield all([
-      call(fetchScopesList),
+      call(fetchScopeListAPI),
       call(fetchCategoriesList, {}),
       call(fetchDesktopIntegrationTypesList, {}),
     ])

@@ -4,6 +4,7 @@ import { fork, all } from '@redux-saga/core/effects'
 import { ReduxState } from '../types/core'
 import auth from '@/reducers/auth'
 import appsReducer from '@/reducers/apps'
+import scopesReducer from '@/reducers/scopes'
 
 import developer from '@/reducers/developer'
 import error from '@/reducers/error'
@@ -27,6 +28,7 @@ import developersReducer from '@/reducers/developers'
 
 import authSagas from '@/sagas/auth'
 import { appDetailSagas, appListSagas, appAuthenticationSagas, createAppSagas } from '@/sagas/apps'
+import { scopeListSagas } from '@/sagas/scopes'
 import appUsageStatsSagas from '@/sagas/app-usage-stats'
 import appHttpTrafficEventSagas from '@/sagas/app-http-trafic-event'
 import developerSagas from '@/sagas/developer'
@@ -62,6 +64,7 @@ export class Store {
 
   static reducers = combineReducers<ReduxState>({
     apps: appsReducer,
+    scopes: scopesReducer,
     developer,
     auth,
     error,
@@ -92,6 +95,7 @@ export class Store {
       fork(developerSagas),
       fork(appDetailSagas),
       fork(appListSagas),
+      fork(scopeListSagas),
       fork(appAuthenticationSagas),
       fork(createAppSagas),
       fork(submitAppSagas),

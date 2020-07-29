@@ -19,6 +19,12 @@ const appState: ReduxState = {
       isLoading: false,
     },
   },
+  scopes: {
+    list: {
+      data: [],
+      isLoading: false,
+    },
+  },
   developer: {
     loading: false,
     formState: 'PENDING',

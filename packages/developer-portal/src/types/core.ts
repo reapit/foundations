@@ -20,6 +20,7 @@ import { WebhookState } from '@/reducers/webhook-subscriptions'
 import { DeveloperSubscriptionsState } from '@/reducers/developer-subscriptions'
 import { DevelopersRootState } from '@/reducers/developers'
 import { AppsRootState } from '@/reducers/apps'
+import { ScopesRootState } from '@/reducers/scopes'
 
 export type ModalProps = { visible: boolean; afterClose: () => void }
 
@@ -60,6 +61,7 @@ export interface FetcherParams<T> {
 
 export interface ReduxState {
   apps: AppsRootState
+  scopes: ScopesRootState
   developer: DeveloperState
   auth: AuthState
   error: ErrorState

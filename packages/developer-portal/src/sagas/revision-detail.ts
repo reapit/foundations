@@ -13,7 +13,7 @@ import errorMessages from '../constants/error-messages'
 import { Action } from '@/types/core'
 import { logger } from '@reapit/utils'
 import { fetchAppRevisionsById, rejectAppRevisionById } from '@/services/apps'
-import { fetchScopesList } from '@/services/scopes'
+import { fetchScopeListAPI } from '@/services/scopes'
 import { fetchDesktopIntegrationTypesList } from '@/services/desktop-integration-types'
 import { fork } from 'redux-saga/effects'
 
@@ -24,7 +24,7 @@ export const revisionDetailDataFetch = function*({
   try {
     const [response, scopes, desktopIntegrationTypes] = yield all([
       call(fetchAppRevisionsById, { id: appId, revisionId: appRevisionId }),
-      call(fetchScopesList),
+      call(fetchScopeListAPI),
       call(fetchDesktopIntegrationTypesList, {}),
     ])
 
