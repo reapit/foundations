@@ -3,17 +3,19 @@ import store from '@/core/store'
 import Routes from '@/constants/routes'
 import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { RouteValue } from '@/types/core'
-import { developerRequestData } from '@/actions/developer'
 import { fetchMyIdentity } from '@/actions/developer'
 import { requestDeveloperData } from '@/actions/settings'
 import { fetchAppList } from '@/actions/apps'
 
 jest.mock('@reapit/elements')
-jest.mock('@/utils/session')
 jest.mock('../../core/store')
 jest.mock('../../sagas/developer')
 jest.mock('@/core/store', () => ({
   dispatch: jest.fn(),
+}))
+jest.mock('@/utils/session', () => ({
+  getClientId: jest.fn().mockResolvedValue('clientId'),
+  getDeveloperId: jest.fn().mockResolvedValue('getDeveloperId'),
 }))
 
 describe('routeDispatcher', () => {
@@ -29,10 +31,6 @@ describe('routeDispatcher', () => {
   it('should dispatch to requestDeveloperData for the admin approvals paginate route', async () => {
     await routeDispatcher(Routes.SETTINGS_BILLING_TAB as RouteValue, { page: '2' })
     expect(store.dispatch).toHaveBeenCalledWith(requestDeveloperData())
-  })
-  it('should dispatch to requestDeveloperData for the admin approvals paginate route', async () => {
-    await routeDispatcher(Routes.WEBHOOKS as RouteValue, { page: '2' })
-    expect(store.dispatch).toHaveBeenCalledWith(developerRequestData({ page: 1, appsPerPage: GET_ALL_PAGE_SIZE }))
   })
   it('should dispatch to appInstallationsRequestData & developerRequestData for the analytics route', async () => {
     await routeDispatcher(Routes.ANALYTICS_TAB as RouteValue)
