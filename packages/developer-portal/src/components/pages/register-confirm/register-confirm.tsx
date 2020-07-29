@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLocation, useHistory } from 'react-router-dom'
 import Routes from '@/constants/routes'
-import { confirmRegistration } from '@reapit/cognito-auth'
+import { confirmRegistration } from '@/services/cognito-identity'
 
 export const handleUseEffect = ({ userName, verificationCode, replace }) => () => {
   confirmRegistration({

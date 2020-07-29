@@ -1,5 +1,4 @@
 import { put, fork, all, call, takeLatest, select } from '@redux-saga/core/effects'
-import { removeSession, changePassword } from '@reapit/cognito-auth'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'
@@ -14,6 +13,7 @@ import { logger } from '@reapit/utils'
 import { fetchDeveloperById, updateDeveloperById } from '@/services/developers'
 import { getDeveloperId } from '@/utils/session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { changePasswordService } from '@/services/cognito-identity'
 
 export const developerInformationFetch = function*() {
   yield put(settingShowLoading(true))
@@ -97,7 +97,7 @@ export const developerPasswordChange = function*({ data }: Action<ChangePassword
     /* rename for compatible reason */
     const { currentPassword: password, password: newPassword } = data
     const cognitoClientId = window.reapit.config.cognitoClientId
-    const response = yield call(changePassword, {
+    const response = yield call(changePasswordService, {
       userName: email,
       password,
       newPassword,
@@ -108,7 +108,6 @@ export const developerPasswordChange = function*({ data }: Action<ChangePassword
       throw new Error('Server error')
     }
     localStorage.setItem('isPasswordChanged', 'true')
-    yield call(removeSession)
     reapitConnectBrowserSession.connectLogoutRedirect()
   } catch (error) {
     logger(error)

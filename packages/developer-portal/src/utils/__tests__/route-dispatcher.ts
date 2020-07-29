@@ -1,8 +1,8 @@
 import routeDispatcher from '../route-dispatcher'
-import store from '../../core/store'
-import Routes from '../../constants/routes'
-import { GET_ALL_PAGE_SIZE } from '../../constants/paginator'
-import { RouteValue } from '../../types/core'
+import store from '@/core/store'
+import Routes from '@/constants/routes'
+import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
+import { RouteValue } from '@/types/core'
 import { developerRequestData } from '@/actions/developer'
 import { requestDeveloperData } from '@/actions/settings'
 
@@ -10,6 +10,9 @@ jest.mock('@reapit/elements')
 jest.mock('@/utils/session')
 jest.mock('../../core/store')
 jest.mock('../../sagas/developer')
+jest.mock('@/core/store', () => ({
+  dispatch: jest.fn(),
+}))
 
 describe('routeDispatcher', () => {
   test('should dispatch to developerRequestData for the developer route', async () => {

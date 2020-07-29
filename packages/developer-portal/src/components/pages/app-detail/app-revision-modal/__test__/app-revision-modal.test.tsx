@@ -18,7 +18,7 @@ import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { revisionDetailRequestData, revisionDetailClearData, declineRevision } from '@/actions/revision-detail'
 import { revisionsRequestData, revisionsClearData } from '@/actions/revisions'
 import { appDetailRequestData } from '@/actions/app-detail'
-import { LoginIdentity } from '@reapit/cognito-auth'
+import { LoginIdentity } from '@reapit/connect-session'
 
 const props: DeveloperAppRevisionModalProps = {
   appId: '1',
@@ -99,8 +99,6 @@ describe('DeveloperAppRevisionModal', () => {
         email: 'mock@test.com',
         name: 'mock user',
         userCode: 'mockUserCode',
-        isAdmin: false,
-        userTel: '123',
         groups: [],
       }
       const fn = handleCancelPendingRevisionsButtonClick(spyDispatch, appId, appRevisionId, loginIdentity)
