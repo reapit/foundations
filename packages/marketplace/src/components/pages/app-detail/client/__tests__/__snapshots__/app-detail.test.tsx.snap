@@ -177,7 +177,11 @@ exports[`AppDetail should match a snapshot 1`] = `
                     </div>
                   }
                   onClose={[Function]}
-                  title="Confirm undefined installation"
+                  title={
+                    <Unknown>
+                      Confirm undefined installation
+                    </Unknown>
+                  }
                   visible={false}
                   wrapClassName=""
                 >
@@ -202,6 +206,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                     className=""
                     destroyOnClose={true}
                     onClose={[Function]}
+                    title={<Unknown />}
                     visible={false}
                     wrapClassName=""
                   >
@@ -227,6 +232,7 @@ exports[`AppDetail should match a snapshot 1`] = `
                     className=""
                     destroyOnClose={true}
                     onClose={[Function]}
+                    title={<Unknown />}
                     visible={false}
                     wrapClassName=""
                   >
@@ -422,7 +428,11 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                     </div>
                   }
                   onClose={[Function]}
-                  title="Confirm undefined installation"
+                  title={
+                    <Unknown>
+                      Confirm undefined installation
+                    </Unknown>
+                  }
                   visible={false}
                   wrapClassName=""
                 >
@@ -447,6 +457,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                     className=""
                     destroyOnClose={true}
                     onClose={[Function]}
+                    title={<Unknown />}
                     visible={false}
                     wrapClassName=""
                   >
@@ -472,6 +483,7 @@ exports[`AppDetail should render loader when client.appDetail.data is an empty o
                     className=""
                     destroyOnClose={true}
                     onClose={[Function]}
+                    title={<Unknown />}
                     visible={false}
                     wrapClassName=""
                   >
@@ -667,7 +679,11 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                     </div>
                   }
                   onClose={[Function]}
-                  title="Confirm undefined installation"
+                  title={
+                    <Unknown>
+                      Confirm undefined installation
+                    </Unknown>
+                  }
                   visible={false}
                   wrapClassName=""
                 >
@@ -692,6 +708,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                     className=""
                     destroyOnClose={true}
                     onClose={[Function]}
+                    title={<Unknown />}
                     visible={false}
                     wrapClassName=""
                   >
@@ -717,6 +734,7 @@ exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
                     className=""
                     destroyOnClose={true}
                     onClose={[Function]}
+                    title={<Unknown />}
                     visible={false}
                     wrapClassName=""
                   >
