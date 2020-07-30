@@ -2,8 +2,9 @@ export type AppEnv = 'local' | 'development' | 'production'
 
 export type Config = {
   appEnv: AppEnv
-  cognitoClientId: string
-  cognitoOAuthUrl: string
+  connectClientId: string
+  connectOAuthUrl: string
+  platformApiUrl: string
 }
 
 declare global {
