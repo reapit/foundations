@@ -11,7 +11,7 @@ import {
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
 import { selectDeveloperEditionId } from '@/selector/auth'
-import { fetchAppByIdApi, FetchAppByIdParams, fetchAppsApi, FetchAppsApiParams } from '@/services/apps'
+import { fetchAppByIdApi, FetchAppByIdParams, fetchAppsApi, FetchAppsParams } from '@/services/apps'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { selectClientId } from '@/selector/auth'
 import { CLIENT_ID_NOT_FOUND_ERROR } from '@/constants/errors'
@@ -45,7 +45,7 @@ export const fetchApps = function*({ data }) {
 }
 
 export const fetchAppsListen = function*() {
-  yield takeLatest<Action<FetchAppsApiParams>>(ActionTypes.FETCH_APPS, fetchApps)
+  yield takeLatest<Action<FetchAppsParams>>(ActionTypes.FETCH_APPS, fetchApps)
 }
 
 export const fetchFeatureApps = function*({ data }) {
@@ -77,7 +77,7 @@ export const fetchFeatureApps = function*({ data }) {
 }
 
 export const fetchFeatureAppsListen = function*() {
-  yield takeLatest<Action<FetchAppsApiParams>>(ActionTypes.FETCH_FEATURE_APPS, fetchFeatureApps)
+  yield takeLatest<Action<FetchAppsParams>>(ActionTypes.FETCH_FEATURE_APPS, fetchFeatureApps)
 }
 
 export const fetchAppDetailSagas = function*({ data }: Action<FetchAppByIdParams>) {

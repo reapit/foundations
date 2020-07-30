@@ -1,4 +1,4 @@
-import { DesktopIntegrationTypeModel } from '@/actions/desktop-integration-types'
+import { DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
 
 export const getDesktopIntegrationTypes = (
   desktopIntegrationTypeIds: string[],

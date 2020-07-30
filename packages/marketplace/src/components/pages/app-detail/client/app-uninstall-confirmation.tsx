@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
 import { Button, Modal } from '@reapit/elements'
-import { clientFetchAppDetail } from '@/actions/apps'
+import { fetchAppDetail } from '@/actions/apps'
 import { appInstallationsRequestUninstall } from '@/actions/installations'
 import CallToAction from '@/components/ui/call-to-action'
 import { selectInstallationFormState } from '@/selector/installations'
@@ -79,7 +79,7 @@ export const handleSuccessAlertMessageAfterClose = (
 ) => {
   return () => {
     dispatch(
-      clientFetchAppDetail({
+      fetchAppDetail({
         id: appId,
         clientId,
       }),

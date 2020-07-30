@@ -1,11 +1,7 @@
 import { ReduxState } from '@/types/core'
-import { AppDetailModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
+import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { FeatureListState } from '@/reducers/apps/feature-list'
 import { AppsListState } from '@/reducers/apps/list'
-
-export const selectFeaturedApps = (state: ReduxState): AppSummaryModel[] => {
-  return state?.client.appSummary.data?.featuredApps || []
-}
 
 // App Detail
 export const selectAppDetailData = (state: ReduxState): AppDetailModel => {

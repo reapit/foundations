@@ -1,6 +1,5 @@
 import React from 'react'
-import { DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
-import { AppDetailDataNotNull } from '@/reducers/client/app-detail'
+import { DesktopIntegrationTypeModel, AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { FlexContainerBasic } from '@reapit/elements'
 import { ContactDeveloperSection } from './contact-developer-modal'
 import useReactResponsive from '@/components/hooks/use-react-responsive'
@@ -18,7 +17,7 @@ import { useHistory } from 'react-router'
 import WebComponentConfig from './web-component-config-modal'
 
 interface AsideProps {
-  appDetailData: AppDetailDataNotNull
+  appDetailData: AppDetailModel
   desktopIntegrationTypes: DesktopIntegrationTypeModel[]
 }
 

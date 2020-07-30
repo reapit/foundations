@@ -5,7 +5,7 @@ import configureStore from 'redux-mock-store'
 import { MemoryRouter } from 'react-router'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { appInstallationsRequestUninstall } from '@/actions/installations'
-import { clientFetchAppDetail } from '@/actions/apps'
+import { fetchAppDetail } from '@/actions/apps'
 import ClientAppUninstallConfirmation, {
   AppUninstallConfirmationProps,
   onUninstallButtonClick,
@@ -99,7 +99,7 @@ describe('ClientAppUninstallConfirmation', () => {
       const fn = handleSuccessAlertMessageAfterClose(appId, clientId, mockFunction, spyDispatch)
       fn()
       expect(spyDispatch).toBeCalledWith(
-        clientFetchAppDetail({
+        fetchAppDetail({
           id: appId,
           clientId,
         }),

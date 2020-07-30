@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { TransitionGroup } from 'react-transition-group'
 import { Dispatch } from 'redux'
+import qs from 'query-string'
 import { History } from 'history'
 import { useSelector, useDispatch } from 'react-redux'
 import { Loader, Section, H3, Grid } from '@reapit/elements'
@@ -15,11 +16,10 @@ import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { addQuery, hasFilterParams } from '@/utils/client-url-params'
 import Routes from '@/constants/routes'
 import InfiniteScroll from 'react-infinite-scroller'
-import { clientFetchAppSummary } from '@/actions/apps'
-import styles from '@/styles/pages/apps.scss?mod'
-import qs from 'query-string'
+import { fetchApps } from '@/actions/apps'
 import { getNumberOfItems } from '@/utils/browse-app'
 import ComingSoonApps from './coming-soon'
+import styles from '@/styles/pages/apps.scss?mod'
 
 export const handleAfterClose = ({ setVisible }) => () => setVisible(false)
 export const handleOnChange = history => (page: number) => {
@@ -39,7 +39,7 @@ export const handleLoadMore = ({
   preview: boolean
   loading: boolean
 }) => (page: number) => {
-  !loading && dispatch(clientFetchAppSummary({ page, preview }))
+  !loading && dispatch(fetchApps({ pageNumber: page, preview }))
 }
 
 export const Apps: React.FunctionComponent = () => {

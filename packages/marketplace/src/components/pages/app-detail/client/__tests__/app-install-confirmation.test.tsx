@@ -15,7 +15,7 @@ import AppInstallConfirmation, {
   InstallNonDirectApiAppSucesfullyModal,
 } from '../app-install-confirmation'
 import { appInstallationsRequestInstall } from '@/actions/installations'
-import { clientFetchAppDetail } from '@/actions/apps'
+import { fetchAppDetail } from '@/actions/apps'
 import routes from '@/constants/routes'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
@@ -106,7 +106,7 @@ describe('ClientAppInstallConfirmation', () => {
       fn()
       expect(mockFunction).toBeCalledWith(false)
       expect(spyDispatch).toBeCalledWith(
-        clientFetchAppDetail({
+        fetchAppDetail({
           id: appId,
           clientId,
         }),

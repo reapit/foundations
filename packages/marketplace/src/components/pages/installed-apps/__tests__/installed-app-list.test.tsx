@@ -11,14 +11,14 @@ import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { Loader } from '@reapit/elements'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
-const app = (appsDataStub as { data: { data: AppSummaryModel[] } }).data.data[0]
+const app = appsDataStub.data?.[0] as AppSummaryModel
 
 const event = ({
   stopPropagation: jest.fn(),
 } as unknown) as React.MouseEvent
 
 const props: InstalledAppListProps = {
-  list: appsDataStub.data.data as AppSummaryModel[],
+  list: appsDataStub.data as AppSummaryModel[],
   loading: false,
   onCardClick: jest.fn(),
   infoType: 'CLIENT_APPS_EMPTY',
@@ -31,7 +31,7 @@ const props: InstalledAppListProps = {
 }
 
 const listProps = {
-  list: appsDataStub.data.data as AppSummaryModel[],
+  list: appsDataStub.data as AppSummaryModel[],
   loading: false,
   onCardClick: jest.fn(),
   infoType: 'CLIENT_APPS_EMPTY',

@@ -8,7 +8,7 @@ import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import AppCard from '../app-card'
 
 const props: AppListProps = {
-  list: appsDataStub.data.data as AppSummaryModel[],
+  list: appsDataStub.data as AppSummaryModel[],
   loading: false,
   onCardClick: jest.fn(),
   onSettingsClick: jest.fn(),
@@ -36,7 +36,7 @@ describe('AppList', () => {
       .first()
       .simulate('click', { stopPropagation: jest.fn() })
     expect(props.onCardClick).toHaveBeenCalledTimes(1)
-    expect(props.onCardClick).toHaveBeenCalledWith(appsDataStub?.data?.data?.[0])
+    expect(props.onCardClick).toHaveBeenCalledWith(appsDataStub?.data?.[0])
   })
 
   it('should contain GridThreeColItem', () => {

@@ -8,23 +8,70 @@ exports[`ClientAppContent ClientAppContent - should match snapshot 1`] = `
   isFlexColumn={true}
 >
   <Component
-    summary=""
+    summary="vitae elementum curabitur vitae"
   />
   <Component
-    images={Array []}
+    images={
+      Array [
+        Object {
+          "description": "Application Icon",
+          "type": "icon",
+          "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg",
+        },
+        Object {
+          "description": "Application Image",
+          "type": "image",
+          "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png",
+        },
+        Object {
+          "description": "Application Image",
+          "type": "image",
+          "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png",
+        },
+      ]
+    }
     numberImages={2}
     splitIndex={1}
   />
   <Component
-    description=""
+    description="enim facilisis"
   />
   <Component
-    images={Array []}
+    images={
+      Array [
+        Object {
+          "description": "Application Icon",
+          "type": "icon",
+          "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg",
+        },
+        Object {
+          "description": "Application Image",
+          "type": "image",
+          "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png",
+        },
+        Object {
+          "description": "Application Image",
+          "type": "image",
+          "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png",
+        },
+      ]
+    }
     numberImages={2}
     splitIndex={3}
   />
   <Component
-    permissions={Array []}
+    permissions={
+      Array [
+        Object {
+          "description": "Read data about developers",
+          "name": "Marketplace/developers.read",
+        },
+        Object {
+          "description": "Write data about developers",
+          "name": "Marketplace/developers.write",
+        },
+      ]
+    }
   />
 </Component>
 `;

@@ -1,110 +1,11 @@
-import {
-  fetchApps,
-  installedAppsLoading,
-  installedAppsReceiveData,
-  installedAppsRequestData,
-  installedAppsClearData,
-  clientFetchAppSummary,
-  clientFetchAppSummarySuccess,
-  clientFetchAppSummaryFailed,
-  clientClearAppSummary,
-  clientFetchWebComponentConfig,
-} from '../apps'
+import { fetchApps } from '../apps'
 import ActionTypes from '@/constants/action-types'
-import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
-import { appsDataStub } from '@/sagas/__stubs__/apps'
-import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 
 describe('apps', () => {
   describe('fetchApps', () => {
     it('should create a fetchApps action', () => {
       expect(fetchApps.type).toEqual(ActionTypes.FETCH_APPS)
-      expect(fetchApps(appsDataStub).data).toEqual(appsDataStub)
-    })
-  })
-
-  describe('fetchApps', () => {
-    it('should create a fetchApps action', () => {
-      expect(fetchApps.type).toEqual(ActionTypes.FETCH_APPS)
-      expect(fetchApps({ onlyInstalled: true }).data).toEqual(1)
-    })
-  })
-
-  describe('installedAppsLoading', () => {
-    it('should create a installedAppsLoading action', () => {
-      expect(installedAppsLoading.type).toEqual(ActionTypes.INSTALLED_APPS_LOADING)
-      expect(installedAppsLoading(true).data).toEqual(true)
-    })
-  })
-
-  describe('installedAppsReceiveData', () => {
-    it('should create a installedAppsReceiveData action', () => {
-      expect(installedAppsReceiveData.type).toEqual(ActionTypes.INSTALLED_APPS_RECEIVE_DATA)
-      expect(installedAppsReceiveData({ data: appsDataStub }).data).toEqual(appsDataStub)
-    })
-  })
-
-  describe('installedAppsRequestData', () => {
-    it('should create a installedAppsRequestData action', () => {
-      expect(installedAppsRequestData.type).toEqual(ActionTypes.INSTALLED_APPS_REQUEST_DATA)
-      expect(installedAppsRequestData(1).data).toEqual(1)
-    })
-  })
-
-  describe('installedAppsClearData', () => {
-    it('should create a installedAppsClearData action', () => {
-      expect(installedAppsClearData.type).toEqual(ActionTypes.INSTALLED_APPS_CLEAR_DATA)
-      expect(installedAppsClearData(null).data).toEqual(null)
-    })
-  })
-
-  describe('clientFetchAppSummary', () => {
-    it('should create a clientFetchAppSummary action', () => {
-      expect(clientFetchAppSummary.type).toEqual(ActionTypes.CLIENT_FETCH_APP_SUMMARY)
-      expect(clientFetchAppSummary({ page: 1 }).data).toEqual({ page: 1 })
-    })
-  })
-
-  describe('clientFetchAppSummarySuccess', () => {
-    it('should create a clientFetchAppSummarySuccess action', () => {
-      expect(clientFetchAppSummarySuccess.type).toEqual(ActionTypes.CLIENT_FETCH_APP_SUMMARY_SUCCESS)
-      expect(
-        clientFetchAppSummarySuccess({ featuredApps: [appDetailDataStub as AppDetailModel], apps: appsDataStub }).data,
-      ).toEqual({
-        featuredApps: [appDetailDataStub as AppDetailModel],
-        apps: appsDataStub.data,
-      })
-    })
-  })
-
-  describe('clientFetchAppSummaryFailed', () => {
-    it('should create a clientFetchAppSummaryFailed action', () => {
-      expect(clientFetchAppSummaryFailed.type).toEqual(ActionTypes.CLIENT_FETCH_APP_SUMMARY_FAILED)
-      expect(clientFetchAppSummaryFailed('error').data).toEqual('error')
-    })
-  })
-
-  describe('clientFetchAppSummaryFailed', () => {
-    it('should create a clientFetchAppSummaryFailed action', () => {
-      expect(clientFetchAppSummaryFailed.type).toEqual(ActionTypes.CLIENT_FETCH_APP_SUMMARY_FAILED)
-      expect(clientFetchAppSummaryFailed('error').data).toEqual('error')
-    })
-  })
-
-  describe('clientClearData', () => {
-    it('should create a clientClearData action', () => {
-      expect(clientClearAppSummary.type).toEqual(ActionTypes.CLIENT_CLEAR_APP_SUMMARY)
-      expect(clientClearAppSummary(null).data).toEqual(null)
-    })
-  })
-
-  describe('clientFetchWebComponentConfig', () => {
-    it('should create a clientFetchWebComponentConfig action', () => {
-      expect(clientFetchWebComponentConfig.type).toEqual(ActionTypes.CLIENT_FETCH_WEB_COMPONENT_CONFIG)
-      expect(clientFetchWebComponentConfig({ customerId: 'DXX', applicationId: 'applicationId' }).data).toEqual({
-        customerId: 'DXX',
-        applicationId: 'applicationId',
-      })
+      expect(fetchApps({ onlyInstalled: true }).data).toEqual({ onlyInstalled: true })
     })
   })
 })

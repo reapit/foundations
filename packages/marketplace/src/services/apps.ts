@@ -5,7 +5,7 @@ import { generateHeader } from './utils'
 import { logger } from '@reapit/utils'
 import { FetchByIdCommonParams, FetchListCommonParams } from './types'
 
-export type FetchAppsApiParams = FetchListCommonParams & {
+export type FetchAppsParams = FetchListCommonParams & {
   developerId?: string[]
   clientId?: string
   externalAppId?: string[]
@@ -21,7 +21,7 @@ export type FetchAppsApiParams = FetchListCommonParams & {
   registeredTo?: string
 }
 
-export const fetchAppsApi = async (params: FetchAppsApiParams): Promise<PagedResultAppSummaryModel_> => {
+export const fetchAppsApi = async (params: FetchAppsParams): Promise<PagedResultAppSummaryModel_> => {
   try {
     const response = await fetcher({
       url: `${URLS.apps}?${setQueryParams(params)}`,
