@@ -1,7 +1,7 @@
 import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
 import { notification } from '@reapit/elements'
 import { Action } from '@/types/core'
-import { fetchNegotiatorsFailure, fetchNegotiatorsSuccess } from '@/actions/negotiators'
+import { fetchNegotiatorsFailed, fetchNegotiatorsSuccess } from '@/actions/negotiators'
 import ActionTypes from '@/constants/action-types'
 import { fetchNegotiatorsApi, FetchNegotiatorsParams } from '@/services/negotiators'
 
@@ -10,7 +10,7 @@ export const fetchNegotiators = function*({ data }: Action<FetchNegotiatorsParam
     const negotiators = yield call(fetchNegotiatorsApi, { ...data })
     yield put(fetchNegotiatorsSuccess(negotiators))
   } catch (err) {
-    yield put(fetchNegotiatorsFailure(err.description))
+    yield put(fetchNegotiatorsFailed(err.description))
     notification.error({
       message: err.description,
       placement: 'bottomRight',

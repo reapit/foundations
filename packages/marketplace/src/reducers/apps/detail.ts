@@ -1,6 +1,6 @@
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
-import { fetchAppDetail, fetchAppDetailSuccess, fetchAppDetailFailure } from '@/actions/apps'
+import { fetchAppDetail, fetchAppDetailSuccess, fetchAppDetailFailed } from '@/actions/apps'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 
 export type AppDetailState = {
@@ -35,7 +35,7 @@ export const appDetailReducer = (
     }
   }
 
-  if (isType(action, fetchAppDetailFailure)) {
+  if (isType(action, fetchAppDetailFailed)) {
     return {
       data: {},
       isLoading: false,

@@ -2,7 +2,7 @@ import { isType } from '@/utils/actions'
 import { PagedResultDesktopIntegrationTypeModel_ } from '@reapit/foundations-ts-definitions'
 import {
   fetchDesktopIntegrationTypes,
-  fetchDesktopIntegrationTypesFailure,
+  fetchDesktopIntegrationTypesFailed,
   fetchDesktopIntegrationTypesSuccess,
 } from '@/actions/desktop-integration-types'
 import { Action } from '@/types/core'
@@ -41,7 +41,7 @@ export const desktopIntegrationTypesReducer = (
       errorMessage: '',
     }
   }
-  if (isType(action, fetchDesktopIntegrationTypesFailure)) {
+  if (isType(action, fetchDesktopIntegrationTypesFailed)) {
     return {
       ...state,
       isLoading: false,

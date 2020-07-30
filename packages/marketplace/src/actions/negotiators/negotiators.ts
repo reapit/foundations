@@ -5,6 +5,6 @@ import { PagedResultNegotiatorModel_ } from '@reapit/foundations-ts-definitions'
 
 export const fetchNegotiators = actionCreator<FetchNegotiatorsParams>(ActionTypes.FETCH_NEGOTIATORS)
 
-export const fetchNegotiatorsSuccess = actionCreator<PagedResultNegotiatorModel_>(ActionTypes.FETCH_NEGOTIATORS_SUCESS)
+export const fetchNegotiatorsSuccess = actionCreator<PagedResultNegotiatorModel_>(ActionTypes.FETCH_NEGOTIATORS_SUCCESS)
 
-export const fetchNegotiatorsFailure = actionCreator<string>(ActionTypes.FETCH_NEGOTIATORS_FAILURE)
+export const fetchNegotiatorsFailed = actionCreator<string>(ActionTypes.FETCH_NEGOTIATORS_FAILED)

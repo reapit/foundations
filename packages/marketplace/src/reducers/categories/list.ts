@@ -1,7 +1,7 @@
 import { PagedResultCategoryModel_ } from '@reapit/foundations-ts-definitions'
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
-import { fetchCategories, fetchCategoriesFailure, fetchCategoriesSuccess } from '@/actions/categories'
+import { fetchCategories, fetchCategoriesFailed, fetchCategoriesSuccess } from '@/actions/categories'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 
 export type CategoriesState = PagedResultCategoryModel_ & {
@@ -40,7 +40,7 @@ export const categoriesReducer = (
     }
   }
 
-  if (isType(action, fetchCategoriesFailure)) {
+  if (isType(action, fetchCategoriesFailed)) {
     return {
       ...state,
       isLoading: false,

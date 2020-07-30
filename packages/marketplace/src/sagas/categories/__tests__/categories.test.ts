@@ -4,7 +4,7 @@ import { categoriesSagas, fetchCategories, fetchCategoriesListen } from '@/sagas
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import { fetchCategoriesApi, FetchCategoriesParams } from '@/services/categories'
-import { fetchCategoriesFailure, fetchCategoriesSuccess } from '@/actions/categories'
+import { fetchCategoriesFailed, fetchCategoriesSuccess } from '@/actions/categories'
 import { categoriesStub } from '@/sagas/__stubs__/categories'
 
 describe('categories', () => {
@@ -31,7 +31,7 @@ describe('categories', () => {
       const err = {
         description: 'mockError',
       }
-      expect(clone.throw && clone.throw(err).value).toEqual(put(fetchCategoriesFailure(err.description)))
+      expect(clone.throw && clone.throw(err).value).toEqual(put(fetchCategoriesFailed(err.description)))
       expect(clone.next().done).toBe(true)
     })
   })

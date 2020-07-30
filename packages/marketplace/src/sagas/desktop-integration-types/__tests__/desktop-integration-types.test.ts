@@ -12,7 +12,7 @@ import {
   FetchDesktopIntegrationTypesParams,
 } from '@/services/desktop-integration-types'
 import {
-  fetchDesktopIntegrationTypesFailure,
+  fetchDesktopIntegrationTypesFailed,
   fetchDesktopIntegrationTypesSuccess,
 } from '@/actions/desktop-integration-types'
 import { desktopIntegrationTypesStub } from '@/sagas/__stubs__/desktop-integration-types'
@@ -43,7 +43,7 @@ describe('desktop-integration-types', () => {
       const err = {
         description: 'mockError',
       }
-      expect(clone.throw && clone.throw(err).value).toEqual(put(fetchDesktopIntegrationTypesFailure(err.description)))
+      expect(clone.throw && clone.throw(err).value).toEqual(put(fetchDesktopIntegrationTypesFailed(err.description)))
       expect(clone.next().done).toBe(true)
     })
   })

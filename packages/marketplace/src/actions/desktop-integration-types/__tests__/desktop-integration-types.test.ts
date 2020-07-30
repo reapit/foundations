@@ -2,7 +2,7 @@ import ActionTypes from '@/constants/action-types'
 import {
   fetchDesktopIntegrationTypes,
   fetchDesktopIntegrationTypesSuccess,
-  fetchDesktopIntegrationTypesFailure,
+  fetchDesktopIntegrationTypesFailed,
 } from '../desktop-integration-types'
 
 describe('desktop-integration-types', () => {
@@ -18,9 +18,9 @@ describe('desktop-integration-types', () => {
     })
   })
 
-  describe('fetchDesktopIntegrationTypesFailure', () => {
-    it('should create a fetchDesktopIntegrationTypesFailure action', () => {
-      expect(fetchDesktopIntegrationTypesFailure.type).toEqual(ActionTypes.FETCH_DESKTOP_INTEGRATION_TYPES_FAILURE)
+  describe('fetchDesktopIntegrationTypesFailed', () => {
+    it('should create a fetchDesktopIntegrationTypesFailed action', () => {
+      expect(fetchDesktopIntegrationTypesFailed.type).toEqual(ActionTypes.FETCH_DESKTOP_INTEGRATION_TYPES_FAILURE)
     })
   })
 })

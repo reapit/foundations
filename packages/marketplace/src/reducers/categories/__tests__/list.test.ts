@@ -36,9 +36,9 @@ describe('appCategories reducer', () => {
     expect(newState).toEqual(expected)
   })
 
-  it('should set state to test when FETCH_CATEGORIES_FAILURE action is called with test', () => {
+  it('should set state to test when FETCH_CATEGORIES_FAILED action is called with test', () => {
     const newState = categoriesReducer(undefined, {
-      type: ActionTypes.FETCH_CATEGORIES_FAILURE as ActionType,
+      type: ActionTypes.FETCH_CATEGORIES_FAILED as ActionType,
       data: 'mockError',
     })
     const expected = {
