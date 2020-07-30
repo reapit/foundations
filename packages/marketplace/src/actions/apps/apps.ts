@@ -3,7 +3,12 @@ import ActionTypes from '@/constants/action-types'
 import { AppDetailModel, PagedResultAppSummaryModel_ } from '@reapit/foundations-ts-definitions'
 import { FetchAppByIdParams, FetchAppsParams } from '@/services/apps'
 
-export const fetchApps = actionCreator<FetchAppsParams & { preview?: boolean }>(ActionTypes.FETCH_APPS)
+export const fetchApps = actionCreator<FetchAppsParams & { preview?: boolean; isInfinite?: boolean }>(
+  ActionTypes.FETCH_APPS,
+)
+export const fetchAppsInfiniteSuccess = actionCreator<PagedResultAppSummaryModel_>(
+  ActionTypes.FETCH_APPS_INFINITE_SUCESS,
+)
 export const fetchAppsSuccess = actionCreator<PagedResultAppSummaryModel_>(ActionTypes.FETCH_APPS_SUCESS)
 export const fetchAppsFailed = actionCreator<string>(ActionTypes.FETCH_APPS_FAILED)
 
