@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { useHistory, useLocation } from 'react-router'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
-// import { DevsManagementState } from '@/reducers/devs-management'
+// import { DeveloperListState } from '@/reducers/devs-management'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import {
   Pagination,
@@ -24,7 +24,7 @@ import DevsManagementFilterForm, { DevsManagementFilterFormValues } from '@/comp
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { devsManagementRequestData, DevsManagementRequestDataValues } from '@/actions/devs-management'
 import qs from 'querystring'
-import { selectDevsManagement } from '@/selector/admin'
+import { selectDeveloperListState } from '@/selector/admin'
 import { Dispatch } from 'redux'
 import { cleanObject } from '@reapit/utils'
 import StatusModal from './set-status-modal/status-modal'
@@ -34,7 +34,7 @@ import StatusModal from './set-status-modal/status-modal'
 // }
 
 // export interface DevsManagementMappedProps {
-//   devsManagementState: DevsManagementState
+//   DeveloperListState: DeveloperListState
 //   filterValues: DevsManagementFilterFormValues
 //   onPageChange: any
 //   onSearch: any
@@ -102,10 +102,14 @@ export const DevsManagement: React.FC = () => {
   const onSearch = React.useCallback(onSearchHandler(history), [history])
   const [isSetStatusModalOpen, setIsSetStatusModalOpen] = React.useState(false)
   const [developer, setDeveloper] = React.useState<DeveloperModel>({} as DeveloperModel)
+  /*
+   * TODOME(devsManagementReducer)
+   * - should loading
+   * should display data
+   */
 
-  const devsManagementState = useSelector(selectDevsManagement)
-  const { loading, data } = devsManagementState
-  const pageNumber = data?.pageNumber || 1
+  const DeveloperListState = useSelector(selectDeveloperListState)
+  const { data, totalCount, pageSize, pageNumber = 1, isLoading } = DeveloperListState
 
   const resetModal = succeed => () => {
     setIsSetStatusModalOpen(false)
@@ -183,7 +187,7 @@ export const DevsManagement: React.FC = () => {
     },
   ]
 
-  if (!loading && data?.data?.length === 0) {
+  if (!isLoading && data?.length === 0) {
     return (
       <React.Fragment>
         <Helper variant="info">
@@ -204,22 +208,17 @@ export const DevsManagement: React.FC = () => {
         <H3>Developer Management</H3>
       </Section>
       <DevsManagementFilterForm filterValues={filterValues} onSearch={onSearch} />
-      {loading || !data ? (
+      {isLoading || !data ? (
         <Loader />
       ) : (
         <>
           <Section>
-            <Table scrollable={true} loading={false} data={data.data || []} columns={columns} />
+            <Table scrollable={true} loading={false} data={data || []} columns={columns} />
           </Section>
           <Section>
-            <div>Total: {data.totalCount}</div>
+            <div>Total: {totalCount}</div>
           </Section>
-          <Pagination
-            onChange={onPageChange}
-            totalCount={data.totalCount}
-            pageSize={data.pageSize}
-            pageNumber={data.pageNumber}
-          />
+          <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
           {/* <SetDeveloperStatusModal
         visible={isSetStatusModalOpen}
         afterClose={resetModal(false)}

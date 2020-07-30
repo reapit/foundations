@@ -12,6 +12,7 @@ export type ApprovalsState = {
 
 export const defaultState: ApprovalsState = { list: getDefaultFetchListValue() }
 
+// migrate to approvalListReducer
 const approvalsReducer = (state: ApprovalsState = defaultState, action: Action<any>): ApprovalsState => {
   if (isType(action, approvalsLoading)) {
     return {

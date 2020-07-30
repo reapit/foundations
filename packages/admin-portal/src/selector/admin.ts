@@ -1,6 +1,6 @@
 import { ReduxState } from '@/types/core'
 import { ApprovalList } from '@/reducers/approvals'
-import { DevsManagementState } from '@/reducers/devs-management'
+import { DeveloperListState } from '@/reducers/developers/list'
 import { PagedResultAppSummaryModel_ } from '@/types/marketplace-api-schema'
 import { StatisticsState } from '@/reducers/statistics'
 
@@ -19,7 +19,11 @@ export const selectApprovalListState = (state: ReduxState): ApprovalList => {
 export const selectStatistics = (state: ReduxState): StatisticsState => {
   return state.statistics
 }
+/*
+ * TODOME(devsManagementReducer)
+ * fix iport
+ */
 
-export const selectDevsManagement = (state: ReduxState): DevsManagementState => {
-  return state.devsManagement
+export const selectDeveloperListState = (state: ReduxState): DeveloperListState => {
+  return state.developers.list
 }

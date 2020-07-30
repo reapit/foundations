@@ -10,7 +10,7 @@ import apps from '@/reducers/apps'
 >>>>>>> chore: #2099 migrate app-detail reducer to apps reducer
 import error from '@/reducers/error'
 import approvals from '@/reducers/approvals'
-import devsManagement from '@/reducers/devs-management'
+import developers from '@/reducers/developers'
 import developerSetStatus from '@/reducers/developer-set-status'
 import revisionDetail from '@/reducers/revision-detail'
 import appDeleteReducer from '@/reducers/app-delete'
@@ -47,7 +47,7 @@ export class Store {
 >>>>>>> chore: #2099 migrate app-detail reducer to apps reducer
     error,
     approvals,
-    devsManagement,
+    developers,
     developerSetStatus,
     revisionDetail,
     appDelete: appDeleteReducer,

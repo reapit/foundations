@@ -1,3 +1,4 @@
+// use appMainReducer
 import appListReducer, { defaultState } from '@/reducers/apps/list'
 import { ActionType } from '@/types/core'
 import ActionTypes from '@/constants/action-types'

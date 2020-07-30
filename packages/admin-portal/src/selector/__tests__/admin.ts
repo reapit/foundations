@@ -1,5 +1,5 @@
 import { ReduxState } from '@/types/core'
-import { selectApprovalListState, selectStatistics, selectDevsManagement } from '../admin'
+import { selectApprovalListState, selectStatistics, selectDeveloperListState } from '../admin'
 import { appsDataStub } from '@/sagas/apps/__stubs__/apps'
 import appState from '@/reducers/__stubs__/app-state'
 import { defaultState } from '@/reducers/approvals'
@@ -32,11 +32,15 @@ describe('admin', () => {
       expect(result).toEqual(mockState.statistics)
     })
   })
+  /*
+   * TODOME(developerListReducer)
+   *
+   */
 
-  describe('selectDevsManagement', () => {
+  describe('selectDeveloperListState', () => {
     it('should run correctly', () => {
-      const result = selectDevsManagement(mockState)
-      expect(result).toEqual(appState.devsManagement)
+      const result = selectDeveloperListState(mockState)
+      expect(result).toEqual(appState.developers.list)
     })
   })
 })
