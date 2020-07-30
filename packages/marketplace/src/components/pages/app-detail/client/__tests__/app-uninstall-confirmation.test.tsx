@@ -13,6 +13,8 @@ import ClientAppUninstallConfirmation, {
   handleSuccessAlertButtonClick,
   handleSuccessAlertMessageAfterClose,
   renderUninstallConfirmationModalFooter,
+  UninstallationsSuccessModal,
+  UninstallationsSuccessModalParams,
 } from '../app-uninstall-confirmation'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
@@ -21,6 +23,12 @@ const mockProps: AppUninstallConfirmationProps = {
   appDetailData: appDetailDataStub.data,
   visible: true,
   closeUninstallConfirmationModal: jest.fn(),
+}
+
+const mockUninstallationsSuccessModalProps: UninstallationsSuccessModalParams = {
+  appDetailData: appDetailDataStub.data,
+  visible: true,
+  onSuccessAlertButtonClick: jest.fn(),
 }
 
 const clientId = '123'
@@ -125,6 +133,12 @@ describe('ClientAppUninstallConfirmation', () => {
         </div>,
       )
       expect(wrapper).toMatchSnapshot()
+    })
+  })
+
+  describe('UninstallationsSuccessModal', () => {
+    it('should match a snapshot', () => {
+      expect(mount(<UninstallationsSuccessModal {...mockUninstallationsSuccessModalProps} />)).toMatchSnapshot()
     })
   })
 })
