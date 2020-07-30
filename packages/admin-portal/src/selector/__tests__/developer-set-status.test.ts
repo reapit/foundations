@@ -3,13 +3,13 @@ import { selectDeveloperSetStatusFormState } from '../developer-set-status'
 
 describe('selectAppDeleteFormState', () => {
   it('should run correctly', () => {
-    const input = {
-      developerSetStatus: {
-        formState: 'PENDING',
+    const input = ({
+      developers: {
+        setStatusFormState: 'SUCCESS',
       },
-    } as ReduxState
+    } as unknown) as ReduxState
     const result = selectDeveloperSetStatusFormState(input)
-    expect(result).toEqual('PENDING')
+    expect(result).toEqual('SUCCESS')
   })
 
   it('should run correctly and return []', () => {

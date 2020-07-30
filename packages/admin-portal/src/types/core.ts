@@ -45,9 +45,6 @@ export interface FetcherParams<T> {
 export interface ReduxState {
   error: ErrorState
   developers: DevelopersState
-  developerSetStatus: RequestState
-
-  appDelete: RequestState
   noticationMessage: NotificationMessageState
   apps: AppsState
 }

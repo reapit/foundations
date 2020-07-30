@@ -30,6 +30,7 @@ import { addQuery, stringifyObjectIntoQueryString, getParamsFromPath } from '@/u
 import { cleanObject } from '@reapit/utils'
 import Routes from '@/constants/routes'
 import { FaCheck } from 'react-icons/fa'
+import { appDeleteSetInitFormState } from '@/actions/app-delete'
 
 export type DeleteModalData = {
   visible: boolean
@@ -202,8 +203,15 @@ export const renderForm = ({ values, status }) => {
   )
 }
 
-export const handleCloseAppDeleteModal = ({ setDataDeleteModal }) => () => {
+export const handleCloseAppDeleteModal = ({
+  setDataDeleteModal,
+  dispatch,
+}: {
+  setDataDeleteModal: React.Dispatch<React.SetStateAction<any>>
+  dispatch: Dispatch
+}) => () => {
   setDataDeleteModal({ visible: false, appId: '', appName: '' })
+  dispatch(appDeleteSetInitFormState())
 }
 
 export type FormValues = {
@@ -289,9 +297,9 @@ export const AppsManagement: React.FC = () => {
       <AppDeleteModal
         appId={deleteModalData.appId}
         appName={deleteModalData.appName}
-        afterClose={handleCloseAppDeleteModal({ setDataDeleteModal })}
+        afterClose={handleCloseAppDeleteModal({ setDataDeleteModal, dispatch })}
         visible={deleteModalData.visible}
-        onDeleteSuccess={handleCloseAppDeleteModal({ setDataDeleteModal })}
+        onDeleteSuccess={handleCloseAppDeleteModal({ setDataDeleteModal, dispatch })}
       />
     </>
   )

@@ -24,7 +24,7 @@ export const ApprovalModalInner: React.FunctionComponent<ApprovalModalInnerProps
     return <ModalBody body={<Loader />} />
   }
 
-  if (revisionDetailState.isLoading || appDetailState.errorMessage) {
+  if (appDetailState.errorMessage) {
     return <ModalBody body={<Alert type="danger" message="Failed to fetch. Please try later." />} />
   }
 

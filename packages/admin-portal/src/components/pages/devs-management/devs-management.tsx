@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { useHistory, useLocation } from 'react-router'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
-// import { DeveloperListState } from '@/reducers/devs-management'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import {
   Pagination,

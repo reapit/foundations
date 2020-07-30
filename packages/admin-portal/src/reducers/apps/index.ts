@@ -3,7 +3,9 @@ import appDetailReducer, { AppDetailState, defaultState as defaultAppDetailState
 import approvalsReducer, { ApprovalsState, defaultState as defaultApprovalsState } from './approvals'
 import revisionReducer, { RevisionDetailState, defaultState as defaultRevisionState } from './revisions'
 import statisticsReducer, { StatisticsState, defaultState as defaultStaticsState } from './statistics'
+import deleteFormStateReducer from './delete-form-state'
 import { combineReducers } from 'redux'
+import { FormState } from '@/types/core'
 
 export type AppsState = {
   detail: AppDetailState
@@ -11,6 +13,7 @@ export type AppsState = {
   approvals: ApprovalsState
   revision: RevisionDetailState
   statistics: StatisticsState
+  deleteFormState: FormState
 }
 
 export const defaultState: AppsState = {
@@ -19,6 +22,7 @@ export const defaultState: AppsState = {
   approvals: defaultApprovalsState,
   revision: defaultRevisionState,
   statistics: defaultStaticsState,
+  deleteFormState: 'PENDING',
 }
 
 export default combineReducers<AppsState>({
@@ -27,4 +31,5 @@ export default combineReducers<AppsState>({
   approvals: approvalsReducer,
   revision: revisionReducer,
   statistics: statisticsReducer,
+  deleteFormState: deleteFormStateReducer,
 })

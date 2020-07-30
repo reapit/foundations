@@ -1,31 +1,27 @@
-import { Action, RequestState } from '../types/core'
-import { isType } from '../utils/actions'
+import { Action, FormState } from '../../types/core'
+import { isType } from '../../utils/actions'
 import {
   developerSetStatusSetInitFormState,
   developerSetStatusRequestSuccess,
   developerSetStatusRequestLoading,
   developerSetStatusRequestFailure,
-} from '../actions/developer-set-status'
+} from '../../actions/developer-set-status'
 
-export const defaultState: RequestState = {
-  formState: 'PENDING',
-}
-
-const developerSetStatusReducer = (state: RequestState = defaultState, action: Action<any>): RequestState => {
+const developerSetStatusReducer = (state: FormState = 'PENDING', action: Action<any>): FormState => {
   if (isType(action, developerSetStatusRequestLoading)) {
-    return { formState: 'SUBMITTING' }
+    return 'SUBMITTING'
   }
 
   if (isType(action, developerSetStatusRequestSuccess)) {
-    return { formState: 'SUCCESS' }
+    return 'SUCCESS'
   }
 
   if (isType(action, developerSetStatusRequestFailure)) {
-    return { formState: 'ERROR' }
+    return 'ERROR'
   }
 
   if (isType(action, developerSetStatusSetInitFormState)) {
-    return { formState: 'PENDING' }
+    return 'PENDING'
   }
 
   return state

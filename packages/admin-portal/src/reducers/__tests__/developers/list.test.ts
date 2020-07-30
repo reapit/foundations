@@ -17,6 +17,7 @@ describe('developersReducer reducer', () => {
       data: true,
     })
     const expected = {
+      ...developerReducerDefaultState,
       list: { ...developerListState, isLoading: true },
     }
     expect(newState).toEqual(expected)
@@ -25,6 +26,7 @@ describe('developersReducer reducer', () => {
   it('should set developer list data and loading to false when DEVS_MANAGEMENT_RECEIVE_DATA action is called', () => {
     const newState = developersReducer(
       {
+        ...developerReducerDefaultState,
         list: {
           ...developerListState,
           isLoading: true,
@@ -42,6 +44,7 @@ describe('developersReducer reducer', () => {
       },
     )
     const expected = {
+      ...developerReducerDefaultState,
       list: {
         ...developerListState,
         ...developerStub,
@@ -58,6 +61,7 @@ describe('developersReducer reducer', () => {
   it('should set loading to false when DEVS_MANAGEMENT_REQUEST_FAILURE action is called', () => {
     const newState = developersReducer(
       {
+        ...developerReducerDefaultState,
         list: {
           ...developerListState,
           isLoading: true,
@@ -69,6 +73,7 @@ describe('developersReducer reducer', () => {
       },
     )
     const expected = {
+      ...developerReducerDefaultState,
       list: { ...developerListState, isLoading: false },
     }
     expect(newState).toEqual(expected)
