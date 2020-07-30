@@ -107,6 +107,7 @@ exports[`Login should match a snapshot 1`] = `
                       className=""
                       destroyOnClose={true}
                       onClose={[Function]}
+                      title={<Unknown />}
                       visible={false}
                       wrapClassName=""
                     >

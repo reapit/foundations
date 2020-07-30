@@ -1,20 +1,19 @@
 import { notification } from '@reapit/elements'
-import { put, fork, all, call, takeLatest, select } from '@redux-saga/core/effects'
+import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
 import errorMessages from '@/constants/error-messages'
 import { logger } from '@reapit/utils'
 import { createAppAPI, fetchAppByIdByRawUrl, CreateAppParams } from '@/services/apps'
-import { selectDeveloperId } from '@/selector/auth'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { createAppSuccess, createAppFailed } from '@/actions/apps'
+import { getDeveloperId } from '@/utils/session'
 
-export const submitApp = function*({ data }: Action<CreateAppParams>) {
-  const { successCallback, ...appProps } = data
+export const submitApp = function*({ data: { successCallback, ...appProps } }: Action<CreateAppParams>) {
   try {
-    const developerId = yield select(selectDeveloperId)
-    if (!developerId) {
-      return
+    const developerId = yield call(getDeveloperId)
+    if (typeof developerId !== 'string') {
+      throw new Error('Cant select developer id')
     }
     const headers: Headers = yield call(createAppAPI, { ...appProps, developerId })
     // ^ got Illegal invocation when: const locationHeader = yield call(headers.get, 'location')

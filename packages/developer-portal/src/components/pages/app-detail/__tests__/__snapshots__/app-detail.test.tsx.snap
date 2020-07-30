@@ -55,7 +55,7 @@ exports[`DeveloperAppDetail should match a snapshot 1`] = `
         }
       }
     >
-      <DeveloperAppDetail>
+      <AppDetail>
         <Component>
           <div
             className="loader-spinner body"
@@ -67,7 +67,7 @@ exports[`DeveloperAppDetail should match a snapshot 1`] = `
             <div />
           </div>
         </Component>
-      </DeveloperAppDetail>
+      </AppDetail>
     </Router>
   </MemoryRouter>
 </Provider>

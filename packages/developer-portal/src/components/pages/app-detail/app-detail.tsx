@@ -17,7 +17,7 @@ import { BackToAppsSection } from './app-sections'
 import AppContent from './app-content'
 import { selectAppDetailState, selectAppDetailData, selectAppDetailLoading } from '@/selector/app-detail'
 
-export type DeveloperAppDetailProps = {}
+export type AppDetailProps = {}
 
 export const handleOnDeleteAppSuccess = (history: History) => () => {
   history.replace(routes.APPS)
@@ -41,7 +41,7 @@ export const onBackToAppsButtonClick = (history: History) => () => {
   history.push(routes.APPS)
 }
 
-const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
+const AppDetail: React.FC<AppDetailProps> = () => {
   const history = useHistory()
   const { isMobile } = useReactResponsive()
 
@@ -77,4 +77,4 @@ const DeveloperAppDetail: React.FC<DeveloperAppDetailProps> = () => {
   )
 }
 
-export default DeveloperAppDetail
+export default AppDetail

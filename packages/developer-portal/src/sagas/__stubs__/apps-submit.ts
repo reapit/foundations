@@ -23,7 +23,6 @@ export const appSubmitStub: { data: CreateAppModel } = {
 export const appSubmitStubWithActions: { data: CreateAppParams } = {
   data: ({
     ...appSubmitStub.data,
-    callback: jest.fn(),
   } as unknown) as CreateAppParams,
 }
 
@@ -48,6 +47,5 @@ export const appSubmitStubFailed: { data: CreateAppModel } = {
 export const appSubmitStubFailedWithActions: { data: CreateAppParams } = {
   data: {
     ...appSubmitStubFailed.data,
-    callback: jest.fn(),
   },
 }
