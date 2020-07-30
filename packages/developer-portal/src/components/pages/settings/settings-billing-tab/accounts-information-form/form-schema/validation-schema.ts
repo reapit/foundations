@@ -1,5 +1,5 @@
 import * as Yup from 'yup'
-import { telephoneRegex, emailRegex } from '@reapit/utils'
+import { emailRegex, telephoneRegex } from '@reapit/utils'
 import errorMessages from '@/constants/error-messages'
 import formFields from './form-fields'
 
@@ -29,15 +29,18 @@ export const validationSchema = Yup.object().shape({
     .trim()
     .required(FIELD_REQUIRED)
     .matches(telephoneRegex, billingTelephoneField.errorMessage)
-    .max(20, errorMessages.MAXIMUM_CHARACTER_LENGTH(20)),
+    .max(30, errorMessages.MAXIMUM_CHARACTER_LENGTH(30)),
+
   [billingEmailField.name]: Yup.string()
     .trim()
     .required(FIELD_REQUIRED)
-    .matches(emailRegex, errorMessages.FIELD_WRONG_EMAIL_FORMAT),
+    .matches(emailRegex, billingEmailField.errorMessage)
+    .max(320, errorMessages.MAXIMUM_CHARACTER_LENGTH(320)),
 
   [billingKeyContactField.name]: Yup.string()
     .trim()
-    .required(FIELD_REQUIRED),
+    .required(FIELD_REQUIRED)
+    .max(150, errorMessages.MAXIMUM_CHARACTER_LENGTH(150)),
 
   [statusField.name]: Yup.string()
     .trim()

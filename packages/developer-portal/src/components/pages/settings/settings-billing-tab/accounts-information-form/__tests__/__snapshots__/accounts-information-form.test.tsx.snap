@@ -55,6 +55,7 @@ exports[`AccountsInformationForm should match snapshot 1`] = `
           "_deps": Array [],
           "_exclusive": Object {
             "matches": false,
+            "max": true,
             "required": true,
             "trim": false,
           },
@@ -70,6 +71,7 @@ exports[`AccountsInformationForm should match snapshot 1`] = `
             "refs": Map {},
           },
           "tests": Array [
+            [Function],
             [Function],
             [Function],
             [Function],
@@ -88,6 +90,7 @@ exports[`AccountsInformationForm should match snapshot 1`] = `
           "_conditions": Array [],
           "_deps": Array [],
           "_exclusive": Object {
+            "max": true,
             "required": true,
             "trim": false,
           },
@@ -103,6 +106,7 @@ exports[`AccountsInformationForm should match snapshot 1`] = `
             "refs": Map {},
           },
           "tests": Array [
+            [Function],
             [Function],
             [Function],
           ],

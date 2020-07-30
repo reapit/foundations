@@ -67,7 +67,7 @@ describe('generateInitialValues', () => {
 })
 
 describe('handleSubmit', () => {
-  it('should build data and submit correctly', () => {
+  it('should build data and submit correctly when noRegistrationNumber is false', () => {
     const values = {
       buildingName: 'tes',
       buildingNumber: '1212',
@@ -106,10 +106,107 @@ describe('handleSubmit', () => {
       noTaxRegistration: false,
       email: 'cbryan@reapit.com',
       registrationNumber: '12341',
+      telephone: '08261826162',
+      website: 'https://google.com',
+      nationalInsurance: '',
+    } as UpdateDeveloperModel
+    const updateDispatchMock = jest.fn()
+    const fn = handleSubmit(updateDispatchMock)
+    fn(values)
+    expect(updateDispatchMock).toHaveBeenCalledWith(expectedValues)
+  })
+
+  it('should build data and submit correctly when noRegistrationNumber is true', () => {
+    const values = {
+      buildingName: 'tes',
+      buildingNumber: '1212',
+      line1: '',
+      line2: '',
+      line3: '',
+      line4: '',
+      postcode: '1212',
+      countryId: 'AF',
+      about: '',
+      companyName: 'REAPIT Ltd.2123znww',
+      iconImageUrl: '',
+      taxNumber: '',
+      noTaxRegistration: false,
+      email: 'cbryan@reapit.com',
+      registrationNumber: '12341',
+      noRegistrationNumber: true,
+      telephone: '08261826162',
+      website: 'https://google.com',
+      nationalInsurance: '010212',
+    }
+    const expectedValues = {
+      companyAddress: {
+        buildingName: 'tes',
+        buildingNumber: '1212',
+        line1: '',
+        line2: '',
+        line3: '',
+        line4: '',
+        postcode: '1212',
+        countryId: 'AF',
+      },
+      about: '',
+      companyName: 'REAPIT Ltd.2123znww',
+      taxNumber: '',
+      noTaxRegistration: false,
+      email: 'cbryan@reapit.com',
+      registrationNumber: '',
+      telephone: '08261826162',
+      website: 'https://google.com',
+      nationalInsurance: '010212',
+    } as UpdateDeveloperModel
+    const updateDispatchMock = jest.fn()
+    const fn = handleSubmit(updateDispatchMock)
+    fn(values)
+    expect(updateDispatchMock).toHaveBeenCalledWith(expectedValues)
+  })
+
+  it('should build data and submit correctly when noTaxRegistration is true', () => {
+    const values = {
+      buildingName: 'tes',
+      buildingNumber: '1212',
+      line1: '',
+      line2: '',
+      line3: '',
+      line4: '',
+      postcode: '1212',
+      countryId: 'AF',
+      about: '',
+      companyName: 'REAPIT Ltd.2123znww',
+      iconImageUrl: '',
+      taxNumber: '111',
+      noTaxRegistration: true,
+      email: 'cbryan@reapit.com',
+      registrationNumber: '12341',
       noRegistrationNumber: false,
       telephone: '08261826162',
       website: 'https://google.com',
       nationalInsurance: '010212',
+    }
+    const expectedValues = {
+      companyAddress: {
+        buildingName: 'tes',
+        buildingNumber: '1212',
+        line1: '',
+        line2: '',
+        line3: '',
+        line4: '',
+        postcode: '1212',
+        countryId: 'AF',
+      },
+      about: '',
+      companyName: 'REAPIT Ltd.2123znww',
+      taxNumber: '',
+      noTaxRegistration: true,
+      email: 'cbryan@reapit.com',
+      registrationNumber: '12341',
+      telephone: '08261826162',
+      website: 'https://google.com',
+      nationalInsurance: '',
     } as UpdateDeveloperModel
     const updateDispatchMock = jest.fn()
     const fn = handleSubmit(updateDispatchMock)

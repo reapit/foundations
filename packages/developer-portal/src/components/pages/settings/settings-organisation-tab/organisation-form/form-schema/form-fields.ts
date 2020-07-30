@@ -60,6 +60,7 @@ export const formFields: Record<FieldKeys, FormFieldInfo> = {
   emailField: {
     name: 'email',
     label: 'Office Email',
+    errorMessage: 'Office email is not valid',
   },
   aboutField: {
     name: 'about',
@@ -68,6 +69,7 @@ export const formFields: Record<FieldKeys, FormFieldInfo> = {
   companyNameField: {
     name: 'companyName',
     label: 'Company Name',
+    errorMessage: 'Company name is not valid',
   },
   countryIdField: {
     name: 'countryId',
@@ -120,5 +122,6 @@ export const formFields: Record<FieldKeys, FormFieldInfo> = {
   websiteField: {
     name: 'website',
     label: 'Website',
+    errorMessage: 'Website is not valid',
   },
 }
