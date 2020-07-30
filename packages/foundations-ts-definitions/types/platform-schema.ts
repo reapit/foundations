@@ -9389,6 +9389,7 @@ export interface Properties {
     | 'withdrawn'
   )[]
   locality?: ('rural' | 'village' | 'townCity')[]
+  officeId?: string[]
   parking?: ('residents' | 'offStreet' | 'secure' | 'underground' | 'garage' | 'doubleGarage' | 'tripleGarage')[]
   sellingStatus?: (
     | 'preAppraisal'
