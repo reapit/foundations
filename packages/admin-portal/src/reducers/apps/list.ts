@@ -9,7 +9,6 @@ export type AppListState = PagedResultAppSummaryModel_ & Pick<FetchDetailResult<
 export const defaultState: AppListState = getDefaultFetchListValue()
 
 const appListReducer = (state: AppListState = defaultState, action: Action<any>): AppListState => {
-  // Test TBC
   if (isType(action, appsRequestData)) {
     return {
       ...state,
@@ -18,7 +17,6 @@ const appListReducer = (state: AppListState = defaultState, action: Action<any>)
     }
   }
 
-  // Test TBC
   if (isType(action, appsReceiveData)) {
     return {
       ...state,
@@ -27,7 +25,6 @@ const appListReducer = (state: AppListState = defaultState, action: Action<any>)
     }
   }
 
-  // Test TBC
   if (isType(action, appsRequestFailure)) {
     return {
       ...state,
