@@ -1,4 +1,4 @@
-import appsReducer, { defaultState } from '@/reducers/apps/detail'
+import appsReducer, { defaultState } from '@/reducers/apps'
 import { ActionType } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import { appDetailDataStub } from '@/sagas/apps/__stubs__/app-detail'
@@ -13,7 +13,7 @@ describe('app-detail reducer', () => {
     const newState = appsReducer(undefined, { type: ActionTypes.APP_DETAIL_LOADING as ActionType, data: true })
     const expected = {
       ...defaultState,
-      isLoading: true,
+      detail: { ...defaultState.detail, isLoading: true },
     }
     expect(newState).toEqual(expected)
   })
@@ -25,8 +25,11 @@ describe('app-detail reducer', () => {
     })
     const expected = {
       ...defaultState,
-      isLoading: false,
-      errorMessage: true,
+      detail: {
+        ...defaultState.detail,
+        isLoading: false,
+        errorMessage: true,
+      },
     }
     expect(newState).toEqual(expected)
   })
@@ -38,7 +41,10 @@ describe('app-detail reducer', () => {
     })
     const expected = {
       ...defaultState,
-      data: appDetailDataStub.data,
+      detail: {
+        ...defaultState.detail,
+        data: appDetailDataStub.data,
+      },
     }
     expect(newState).toEqual(expected)
   })

@@ -1,5 +1,5 @@
 // use appMainReducer
-import appListReducer, { defaultState } from '@/reducers/apps/list'
+import appListReducer, { defaultState } from '@/reducers/apps'
 import { ActionType } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import { appsDataStub } from '@/sagas/apps/__stubs__/apps'
@@ -17,7 +17,10 @@ describe('appListReducer reducer', () => {
     })
     const expected = {
       ...defaultState,
-      isLoading: true,
+      list: {
+        ...defaultState.list,
+        isLoading: true,
+      },
     }
     expect(newState).toEqual(expected)
   })
@@ -29,19 +32,10 @@ describe('appListReducer reducer', () => {
     })
     const expected = {
       ...defaultState,
-      ...appsDataStub.data,
-    }
-    expect(newState).toEqual(expected)
-  })
-
-  it('should clear approvals list data when APPS_REQUEST_FAILURE action is called', () => {
-    const newState = appListReducer(undefined, {
-      type: ActionTypes.APPS_REQUEST_FAILURE as ActionType,
-      data: null,
-    })
-    const expected = {
-      ...defaultState,
-      isLoading: false,
+      list: {
+        ...defaultState.list,
+        ...appsDataStub.data,
+      },
     }
     expect(newState).toEqual(expected)
   })

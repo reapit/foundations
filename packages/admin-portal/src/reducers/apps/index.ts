@@ -1,5 +1,5 @@
-import appListReducer, { AppListState } from './list'
-import appDetailReducer, { AppDetailState } from './detail'
+import appListReducer, { AppListState, defaultState as defaultAppListState } from './list'
+import appDetailReducer, { AppDetailState, defaultState as defaultAppDetailState } from './detail'
 import { combineReducers } from 'redux'
 
 export type AppsState = {
@@ -7,7 +7,10 @@ export type AppsState = {
   list: AppListState
 }
 
-// write route section for combine reducer
+export const defaultState: AppsState = {
+  list: defaultAppListState,
+  detail: defaultAppDetailState,
+}
 
 export default combineReducers({
   detail: appDetailReducer,
