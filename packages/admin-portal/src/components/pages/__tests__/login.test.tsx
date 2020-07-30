@@ -1,48 +1,30 @@
 import * as React from 'react'
-import { MemoryRouter } from 'react-router'
-import * as ReactRedux from 'react-redux'
-import { mount } from 'enzyme'
-import configureStore from 'redux-mock-store'
-import { Login, onLoginButtonClick } from '../login'
-import appState from '@/reducers/__stubs__/app-state'
-import * as cognito from '@reapit/cognito-auth'
-import Routes from '@/constants/routes'
-import { ReduxState } from '@/types/core'
+import { shallow } from 'enzyme'
+import { Login } from '../login'
+import { Button } from '@reapit/elements'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
-jest.mock('@reapit/cognito-auth', () => ({
-  redirectToLogin: jest.fn(),
+jest.mock('@/core/connect-session', () => ({
+  reapitConnectBrowserSession: {
+    connectLoginRedirect: jest.fn(),
+  },
 }))
 
-const mockState = {
-  ...appState,
-  auth: {
-    loginSession: null,
-  },
-} as ReduxState
-
 describe('Login', () => {
-  let store
-  beforeEach(() => {
-    const mockStore = configureStore()
-    store = mockStore(mockState)
-  })
   it('should match a snapshot', () => {
-    window.reapit.config.appEnv = 'development'
-    expect(
-      mount(
-        <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.LOGIN, key: 'adminLoginRoute' }]}>
-            <Login />
-          </MemoryRouter>
-        </ReactRedux.Provider>,
-      ),
-    ).toMatchSnapshot()
+    expect(shallow(<Login />)).toMatchSnapshot()
   })
-  describe('onLoginButtonClick', () => {
-    it('should run correctly', () => {
-      const spyRedirectToLogin = jest.spyOn(cognito, 'redirectToLogin')
-      onLoginButtonClick()
-      expect(spyRedirectToLogin).toBeCalled()
+
+  describe('loginHandler', () => {
+    it('should correctly call redirect on click', () => {
+      const wrapper = shallow(<Login />)
+
+      wrapper
+        .find(Button)
+        .first()
+        .simulate('click')
+
+      expect(reapitConnectBrowserSession.connectLoginRedirect).toHaveBeenCalledTimes(1)
     })
   })
 })

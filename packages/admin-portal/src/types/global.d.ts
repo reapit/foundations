@@ -9,7 +9,6 @@ export type Config = {
   cognitoClientId: string
   googleAnalyticsKey: string
   cognitoOAuthUrl: string
-  cognitoUserPoolId: string
   chatbotAppId: string
   marketplaceUrl: string
   platformApiUrl: string

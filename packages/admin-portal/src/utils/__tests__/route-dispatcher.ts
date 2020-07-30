@@ -5,7 +5,6 @@ import { RouteValue } from '../../types/core'
 import { approvalsRequestData } from '@/actions/approvals'
 
 jest.mock('@reapit/elements')
-jest.mock('@/utils/session')
 jest.mock('../../core/store')
 
 describe('routeDispatcher', () => {

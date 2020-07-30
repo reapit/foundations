@@ -6,9 +6,10 @@ import { Button, TextArea, Modal, ModalProps, ModalFooter, ModalBody, Form, Form
 import { declineRevision } from '@/actions/revision-detail'
 import CallToAction from '../call-to-action'
 import { selectAppRevisionDetail } from '@/selector/app-revisions'
-import { selectLoginIdentity } from '@/selector/auth'
 import { validationSchemaDeclineModal as validationSchema } from './validation-schema'
 import { formFieldsDeclineModal as formFields } from './form-fields'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 const { rejectionReasonField } = formFields
 
@@ -49,7 +50,8 @@ export const DeclineRevisionModal: React.FunctionComponent<DeclineRevisionModalP
 }) => {
   const dispatch = useDispatch()
   const revisionDetail = useSelector(selectAppRevisionDetail)
-  const { email, name } = useSelector(selectLoginIdentity) || {}
+  const session = useReapitConnect(reapitConnectBrowserSession)
+  const { email, name } = session?.connectSession?.loginIdentity || {}
 
   const { declineFormState } = revisionDetail
 

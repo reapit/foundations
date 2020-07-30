@@ -5,8 +5,9 @@ import { Button, Modal, ModalProps, ModalBody, SubTitleH6, ModalFooter, Form, Fo
 import { approveRevision } from '@/actions/revision-detail'
 import CallToAction from '../call-to-action'
 import { selectAppRevisionDetail } from '@/selector/app-revisions'
-import { selectLoginIdentity } from '@/selector/auth'
 import { Dispatch } from 'redux'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export type ApproveRevisionModalProps = Pick<ModalProps, 'visible' | 'afterClose'> & {
   onApproveSuccess: () => void
@@ -39,7 +40,8 @@ export const ApproveRevisionModal: React.FunctionComponent<ApproveRevisionModalP
 }) => {
   const dispatch = useDispatch()
   const revisionDetail = useSelector(selectAppRevisionDetail)
-  const { email, name } = useSelector(selectLoginIdentity) || {}
+  const session = useReapitConnect(reapitConnectBrowserSession)
+  const { email, name } = session?.connectSession?.loginIdentity || {}
 
   const { approveFormState } = revisionDetail
 
