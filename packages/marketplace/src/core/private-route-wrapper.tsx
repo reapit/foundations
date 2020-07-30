@@ -5,7 +5,7 @@ import { useReapitConnect } from '@reapit/connect-session'
 import Menu from '@/components/ui/menu'
 import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements'
 import { Redirect, useLocation } from 'react-router'
-import { getAuthRoute } from '@/utils/auth-route'
+import Routes from '@/constants/routes'
 
 const { Suspense } = React
 
@@ -27,8 +27,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   }
 
   if (location.pathname === '/') {
-    const path = getAuthRoute()
-    return <Redirect to={path} />
+    return <Redirect to={Routes.INSTALLED_APPS} />
   }
 
   return (
