@@ -9,10 +9,8 @@ import auth from '@/reducers/auth'
 import apps from '@/reducers/apps'
 >>>>>>> chore: #2099 migrate app-detail reducer to apps reducer
 import error from '@/reducers/error'
-import approvals from '@/reducers/approvals'
 import developers from '@/reducers/developers'
 import developerSetStatus from '@/reducers/developer-set-status'
-import revisionDetail from '@/reducers/revision-detail'
 import appDeleteReducer from '@/reducers/app-delete'
 import statisticsReducer from '@/reducers/statistics'
 import noticationMessage from '@/reducers/notification-message'
@@ -46,10 +44,9 @@ export class Store {
     auth,
 >>>>>>> chore: #2099 migrate app-detail reducer to apps reducer
     error,
-    approvals,
     developers,
     developerSetStatus,
-    revisionDetail,
+
     appDelete: appDeleteReducer,
     noticationMessage,
     statistics: statisticsReducer,

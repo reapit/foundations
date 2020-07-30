@@ -1,8 +1,8 @@
 import { ReduxState } from '@/types/core'
-import { selectApprovalListState, selectStatistics, selectDeveloperListState } from '../admin'
+import { selectApprovals, selectStatistics, selectDeveloperListState } from '../admin'
 import { appsDataStub } from '@/sagas/apps/__stubs__/apps'
 import appState from '@/reducers/__stubs__/app-state'
-import { defaultState } from '@/reducers/approvals'
+import { defaultState } from '@/reducers/apps/approvals'
 
 describe('admin', () => {
   const mockState = {
@@ -14,14 +14,14 @@ describe('admin', () => {
     approvals: defaultState,
   } as ReduxState
 
-  describe('selectApprovalListState', () => {
+  describe('selectApprovals', () => {
     it('should run correctly', () => {
-      const result = selectApprovalListState(mockState)
-      expect(result).toEqual(mockState.approvals.list)
+      const result = selectApprovals(mockState)
+      expect(result).toEqual(mockState.apps.approvals)
     })
     it('should run correctly and return undefined', () => {
       const input = {} as ReduxState
-      const result = selectApprovalListState(input)
+      const result = selectApprovals(input)
       expect(result).toEqual(undefined)
     })
   })

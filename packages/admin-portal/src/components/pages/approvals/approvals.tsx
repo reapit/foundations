@@ -10,9 +10,9 @@ import { appDetailRequestData } from '@/actions/app-detail'
 import { ApprovalModel, AppRevisionModel } from '@reapit/foundations-ts-definitions'
 import { AppDetailModel } from '@/types/marketplace-api-schema'
 import { selectAppDetailData } from '@/selector/app-detail'
-import { selectAppRevision } from '@/selector/app-revisions'
+import { selectAppRevisionDetailData } from '@/selector/app-revisions'
 import ApprovalModal from '@/components/ui/approval-modal'
-import { selectApprovalListState } from '@/selector/admin'
+import { selectApprovals } from '@/selector/admin'
 
 export type HandleCloseModalParams = {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>
@@ -164,10 +164,10 @@ export const AdminApprovals: React.FC = () => {
   const appDetail = useSelector(selectAppDetailData)
   const location = useLocation()
   const history = useHistory()
-  const revisionDetail = useSelector(selectAppRevision)
-  const approvalListState = useSelector(selectApprovalListState)
+  const revisionDetail = useSelector(selectAppRevisionDetailData)
+  const approvalListState = useSelector(selectApprovals)
 
-  const waitingApprovalListData = useSelector(selectApprovalListState)
+  const waitingApprovalListData = useSelector(selectApprovals)
   const urlParams = new URLSearchParams(location.search)
   const page = urlParams.get('page') || 1
   const isLoading = approvalListState.isLoading
@@ -190,12 +190,14 @@ export const AdminApprovals: React.FC = () => {
           })}
         />
       </Section>
-      <Pagination
-        onChange={handleOnPageChange(history)}
-        totalCount={waitingApprovalListData.totalCount}
-        pageSize={waitingApprovalListData.pageSize}
-        pageNumber={Number(page)}
-      />
+      {!isLoading && (
+        <Pagination
+          onChange={handleOnPageChange(history)}
+          totalCount={waitingApprovalListData.totalCount}
+          pageSize={waitingApprovalListData.pageSize}
+          pageNumber={Number(page)}
+        />
+      )}
       <ApprovalModal visible={isModalOpen} afterClose={handleCloseModal({ setIsModalOpen })} />
     </>
   )

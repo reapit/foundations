@@ -19,15 +19,16 @@ export const ApprovalModalInner: React.FunctionComponent<ApprovalModalInnerProps
 }) => {
   const revisionDetailState = useSelector(selectAppRevisionDetail)
   const appDetailState = useSelector(selectAppDetailState)
-  if (revisionDetailState.loading || appDetailState.isLoading) {
+
+  if (!revisionDetailState || appDetailState.isLoading) {
     return <ModalBody body={<Loader />} />
   }
 
-  if (revisionDetailState.error || appDetailState.errorMessage) {
+  if (revisionDetailState.isLoading || appDetailState.errorMessage) {
     return <ModalBody body={<Alert type="danger" message="Failed to fetch. Please try later." />} />
   }
 
-  if (!revisionDetailState.revisionDetailData || !appDetailState.data) {
+  if (!revisionDetailState.data || !appDetailState.data) {
     return null
   }
 

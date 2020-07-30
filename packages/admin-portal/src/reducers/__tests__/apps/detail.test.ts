@@ -3,12 +3,7 @@ import { ActionType } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import { appDetailDataStub } from '@/sagas/apps/__stubs__/app-detail'
 
-describe('app-detail reducer', () => {
-  it('should return default state if action not matched', () => {
-    const newState = appsReducer(undefined, { type: 'UNKNOWN' as ActionType, data: undefined })
-    expect(newState).toEqual(defaultState)
-  })
-
+describe('appsReducer - detail', () => {
   it('should set loading to true when APP_DETAIL_LOADING action is called', () => {
     const newState = appsReducer(undefined, { type: ActionTypes.APP_DETAIL_LOADING as ActionType, data: true })
     const expected = {

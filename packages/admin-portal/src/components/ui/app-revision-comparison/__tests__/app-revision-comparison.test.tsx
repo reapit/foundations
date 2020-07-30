@@ -21,15 +21,14 @@ const props = (loading: boolean, error: boolean): AppRevisionComparisonProps => 
     data: appDetailDataStub.data,
   },
   revisionDetailState: {
-    loading,
-    error,
-    revisionDetailData: {
+    formState: 'PENDING',
+    isLoading: loading,
+    errorMessage: error ? 'error' : '',
+    data: {
       data: revisionDetailDataStub.data,
       scopes: appPermissionStub,
       desktopIntegrationTypes: integrationTypesStub,
     },
-    approveFormState: 'PENDING',
-    declineFormState: 'PENDING',
   },
 })
 

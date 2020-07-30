@@ -1,10 +1,20 @@
-import { ReduxState } from '@/types/core'
+import { ReduxState, FormState } from '@/types/core'
 import { AppRevisionModel } from '@reapit/foundations-ts-definitions'
+import { RevisionDetailState } from '@/reducers/apps/revisions'
 
-export const selectAppRevisionDetail = (state: ReduxState) => {
-  return state?.revisionDetail || {}
+
+
+/ fix the naming)
+ * fix the naming: selectAppRevisionDetail
+ */
+export const selectAppRevisionFormState = (state: ReduxState): FormState => {
+  return state.apps?.revision.formState
 }
 
-export const selectAppRevision = (state: ReduxState): AppRevisionModel => {
-  return state?.revisionDetail?.revisionDetailData?.data || {}
+export const selectAppRevisionDetail = (state: ReduxState): RevisionDetailState => {
+  return state.apps?.revision || {}
+}
+
+export const selectAppRevisionDetailData = (state: ReduxState): AppRevisionModel => {
+  return state?.apps?.revision?.data || {}
 }

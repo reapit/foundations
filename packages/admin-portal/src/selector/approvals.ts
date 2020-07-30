@@ -2,6 +2,6 @@ import { ReduxState } from '@/types/core'
 
 export const selectApprovalListPageNumber = (state: ReduxState) => {
   return {
-    pageNumber: state?.approvals?.list?.pageNumber || 1,
+    pageNumber: state?.apps?.approvals?.pageNumber || 1,
   }
 }

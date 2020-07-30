@@ -4,10 +4,11 @@ import { ApproveModel } from '@reapit/foundations-ts-definitions'
 import { Button, Modal, ModalProps, ModalBody, SubTitleH6, ModalFooter, Form, Formik } from '@reapit/elements'
 import { approveRevision } from '@/actions/revision-detail'
 import CallToAction from '../call-to-action'
-import { selectAppRevisionDetail } from '@/selector/app-revisions'
 import { Dispatch } from 'redux'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { selectAppRevisionDetail, selectAppRevisionFormState } from '@/selector/app-revisions'
+import { AppRevisionModel } from '@/types/marketplace-api-schema'
 
 export type ApproveRevisionModalProps = Pick<ModalProps, 'visible' | 'afterClose'> & {
   onApproveSuccess: () => void
@@ -42,13 +43,11 @@ export const ApproveRevisionModal: React.FunctionComponent<ApproveRevisionModalP
   const revisionDetail = useSelector(selectAppRevisionDetail)
   const session = useReapitConnect(reapitConnectBrowserSession)
   const { email, name } = session?.connectSession?.loginIdentity || {}
+  const formState = useSelector(selectAppRevisionFormState)
+  const { appId, id: appRevisionId } = (revisionDetail?.data?.data || {}) as AppRevisionModel
 
-  const { approveFormState } = revisionDetail
-
-  const { appId, id: appRevisionId } = revisionDetail?.revisionDetailData?.data || {}
-
-  const isLoading = approveFormState === 'SUBMITTING'
-  const isSuccessed = approveFormState === 'SUCCESS'
+  const isLoading = formState === 'SUBMITTING'
+  const isSuccessed = formState === 'SUCCESS'
 
   return (
     <Modal

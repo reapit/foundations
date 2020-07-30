@@ -1,8 +1,6 @@
 import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
 import { ErrorState } from '../reducers/error'
-import { ApprovalsState } from '@/reducers/approvals'
-import { RevisionDetailState } from '@/reducers/revision-detail'
 import { NotificationMessageState } from '@/reducers/notification-message'
 import { StatisticsState } from '@/reducers/statistics'
 import { AppsState } from '@/reducers/apps'
@@ -47,10 +45,9 @@ export interface FetcherParams<T> {
 
 export interface ReduxState {
   error: ErrorState
-  approvals: ApprovalsState
   developers: DevelopersState
   developerSetStatus: RequestState
-  revisionDetail: RevisionDetailState
+
   appDelete: RequestState
   noticationMessage: NotificationMessageState
   statistics: StatisticsState

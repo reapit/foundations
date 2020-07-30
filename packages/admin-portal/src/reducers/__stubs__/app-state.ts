@@ -2,7 +2,8 @@ import { ReduxState } from '@/types/core'
 import { defaultState as defaultAppDetailState } from '@/reducers/apps/detail'
 import { defaultState as defaultAppListState } from '@/reducers/apps/list'
 import { COGNITO_GROUP_DEVELOPER_EDITION } from '@/constants/api'
-import { defaultState as defaultApprovalsState } from '../approvals'
+import { defaultState as defaultApprovalsState } from '../apps/approvals'
+import { defaultState as defaultRevisionState } from '../apps/revisions'
 import { defaultState as defaultDeveloperListState } from '../developers/list'
 
 const appState: ReduxState = {
@@ -10,19 +11,11 @@ const appState: ReduxState = {
     componentError: null,
     serverError: null,
   },
-  approvals: defaultApprovalsState,
   developers: {
     list: defaultDeveloperListState,
   },
   developerSetStatus: {
     formState: 'PENDING',
-  },
-  revisionDetail: {
-    loading: false,
-    error: false,
-    revisionDetailData: null,
-    approveFormState: 'PENDING',
-    declineFormState: 'PENDING',
   },
   appDelete: {
     formState: 'PENDING',
@@ -42,6 +35,8 @@ const appState: ReduxState = {
   apps: {
     detail: defaultAppDetailState,
     list: defaultAppListState,
+    approvals: defaultApprovalsState,
+    revision: defaultRevisionState,
   },
 }
 

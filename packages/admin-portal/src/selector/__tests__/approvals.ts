@@ -1,20 +1,15 @@
 import { ReduxState } from '@/types/core'
 import { selectApprovalListPageNumber } from '../approvals'
-import { appsDataStub } from '@/sagas/apps/__stubs__/apps'
 import appState from '@/reducers/__stubs__/app-state'
-import { defaultState } from '@/reducers/approvals'
+import { defaultState } from '@/reducers/apps/approvals'
 
 describe('approvals', () => {
   const mockState = {
     ...appState,
-    appsManagement: {
-      appsData: appsDataStub.data,
-      loading: false,
-    },
-    approvals: {
-      ...defaultState,
-      list: {
-        ...defaultState.list,
+    apps: {
+      ...appState.apps,
+      approvals: {
+        ...defaultState,
         pageNumber: 10,
       },
     },
