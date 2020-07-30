@@ -3,3 +3,5 @@ export type FetchDetailResult<T> = {
   data: T | null
   errorMessage: string
 }
+
+export type FetchListResult<T> = T & Pick<FetchDetailResult<any>, 'isLoading' | 'errorMessage'>

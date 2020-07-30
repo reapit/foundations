@@ -2,9 +2,9 @@ import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
 import { approvalsLoading, approvalsReceiveData, approvalsRequestDataFailure } from '@/actions/approvals'
 import { PagedResultApprovalModel_ } from '@reapit/foundations-ts-definitions'
-import { FetchDetailResult, getDefaultFetchListValue } from '@reapit/utils'
+import { getDefaultFetchListValue, FetchListResult } from '@reapit/utils'
 
-export type ApprovalList = PagedResultApprovalModel_ & Pick<FetchDetailResult<any>, 'isLoading' | 'errorMessage'>
+export type ApprovalList = FetchListResult<PagedResultApprovalModel_>
 
 export type ApprovalsState = ApprovalList
 

@@ -17,11 +17,9 @@ export const handleLoadStats = (dispatch: Dispatch) => (params: StatisticsReques
 export const Statistics: React.FC = () => {
   const dispatch = useDispatch()
   const adminStats = useSelector(selectStatistics)
+  console.log({ adminStats })
 
-  const {
-    loading,
-    result: { data = [], totalCount = 0 },
-  } = adminStats
+  const { isLoading, data = [], totalCount } = adminStats
 
   const loadStats = handleLoadStats(dispatch)
 
@@ -41,7 +39,7 @@ export const Statistics: React.FC = () => {
   }, [range, area, data, getChartConfig, getChartData])
 
   const renderResult = () => {
-    if (loading) return <Loader />
+    if (isLoading) return <Loader />
     if (range === 'ALL') {
       return <H6>Total: {totalCount}</H6>
     }

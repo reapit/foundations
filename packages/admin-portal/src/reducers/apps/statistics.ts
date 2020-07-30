@@ -1,42 +1,40 @@
-import { Action } from '../types/core'
-import { isType } from '../utils/actions'
+import { Action } from '@/types/core'
+import { isType } from '@/utils/actions'
 import { statisticsRequestData, statisticsReceiveData, statisticsRequestFailure } from '@/actions/statistics'
 import {
   PagedResultAppSummaryModel_,
   PagedResultDeveloperModel_,
   PagedResultInstallationModel_,
 } from '@reapit/foundations-ts-definitions'
+import { getDefaultFetchListValue } from '@reapit/utils'
+import { FetchListResult } from '@reapit/utils'
 
-export interface StatisticsState {
-  loading: boolean
-  result: PagedResultAppSummaryModel_ | PagedResultDeveloperModel_ | PagedResultInstallationModel_
-}
+export type StatisticsState = FetchListResult<
+  PagedResultAppSummaryModel_ | PagedResultDeveloperModel_ | PagedResultInstallationModel_
+>
 
-export const defaultState: StatisticsState = {
-  loading: false,
-  result: { data: [], totalCount: 0 },
-}
+export const defaultState = getDefaultFetchListValue() as StatisticsState
 
 const statisticsReducer = (state: StatisticsState = defaultState, action: Action<any>): StatisticsState => {
   if (isType(action, statisticsRequestData)) {
     return {
       ...state,
-      loading: true,
+      isLoading: true,
     }
   }
 
   if (isType(action, statisticsReceiveData)) {
     return {
       ...state,
-      loading: false,
-      result: action.data,
+      isLoading: false,
+      ...action.data,
     }
   }
 
   if (isType(action, statisticsRequestFailure)) {
     return {
       ...state,
-      loading: false,
+      isLoading: false,
     }
   }
 

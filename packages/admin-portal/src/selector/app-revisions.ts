@@ -2,11 +2,6 @@ import { ReduxState, FormState } from '@/types/core'
 import { AppRevisionModel } from '@reapit/foundations-ts-definitions'
 import { RevisionDetailState } from '@/reducers/apps/revisions'
 
-
-
-/ fix the naming)
- * fix the naming: selectAppRevisionDetail
- */
 export const selectAppRevisionFormState = (state: ReduxState): FormState => {
   return state.apps?.revision.formState
 }

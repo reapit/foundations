@@ -49,7 +49,7 @@ describe('Admin Stats', () => {
     const loadingState = {
       ...appState,
       adminStats: {
-        ...appState.statistics,
+        ...appState.apps.statistics,
         loading: true,
       },
     }

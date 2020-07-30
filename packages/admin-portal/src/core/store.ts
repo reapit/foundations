@@ -12,7 +12,6 @@ import error from '@/reducers/error'
 import developers from '@/reducers/developers'
 import developerSetStatus from '@/reducers/developer-set-status'
 import appDeleteReducer from '@/reducers/app-delete'
-import statisticsReducer from '@/reducers/statistics'
 import noticationMessage from '@/reducers/notification-message'
 
 import { appDetailSagas, revisionDetailSagas, appDeleteSagas, appsManagementSagas } from '@/sagas/apps'
@@ -49,7 +48,6 @@ export class Store {
 
     appDelete: appDeleteReducer,
     noticationMessage,
-    statistics: statisticsReducer,
     apps,
   })
 
