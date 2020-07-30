@@ -1,13 +1,13 @@
-import Routes from '../constants/routes'
-import ActionTypes from '../constants/action-types'
-import { ErrorState } from '../reducers/error'
+import Routes from '@/constants/routes'
+import ActionTypes from '@/constants/action-types'
+import { ErrorState } from '@/reducers/error'
 import { CategoriesRootState } from '@/reducers/categories'
-import { AppInstallationsState } from '@/reducers/app-installations'
 import { NotificationMessageState } from '@/reducers/notification-message'
 import { DesktopIntegrationTypeRootState } from '@/reducers/desktop-integration-types'
 import { AppsRootState } from '@/reducers/apps'
 import { NegotiatorsRootState } from '@/reducers/negotiators'
 import { WebComponentRootState } from '@/reducers/web-component'
+import { InstallationsRootState } from '@/reducers/installations'
 
 export type ModalProps = { visible: boolean; afterClose: () => void }
 
@@ -52,7 +52,7 @@ export type ReduxState = {
   webComponent: WebComponentRootState
   error: ErrorState
   categories: CategoriesRootState
-  installations: AppInstallationsState
+  installations: InstallationsRootState
   noticationMessage: NotificationMessageState
   desktopIntegrationTypes: DesktopIntegrationTypeRootState
 }
