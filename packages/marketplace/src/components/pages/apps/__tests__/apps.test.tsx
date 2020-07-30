@@ -2,7 +2,6 @@ import * as React from 'react'
 import { Provider } from 'react-redux'
 import { mount } from 'enzyme'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
-import { ClientAppSummary } from '@/reducers/client/app-summary'
 import { Apps, handleAfterClose, handleOnChange, handleOnCardClick } from '../apps'
 import { addQuery } from '@/utils/client-url-params'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
@@ -18,9 +17,9 @@ import { getMockRouterProps } from '@/utils/mock-helper'
 const createState = appSummaryState => {
   return {
     ...appState,
-    client: {
-      ...appState.client,
-      appSummary: { ...appState.client, ...appSummaryState },
+    apps: {
+      ...appState.apps,
+      list: { ...appState.apps.list, ...appSummaryState },
     },
   }
 }
@@ -35,7 +34,7 @@ describe('Client', () => {
   })
   it('should match a snapshot when LOADING false', () => {
     const appSummaryState = {
-      isAppSummaryLoading: false,
+      isLoading: false,
     }
     const mockStore = configureStore()
     store = mockStore(createState(appSummaryState))
@@ -52,7 +51,7 @@ describe('Client', () => {
 
   it('should match a snapshot when LOADING false', () => {
     const appSummaryState = {
-      isAppSummaryLoading: true,
+      isLoading: true,
     }
     const mockStore = configureStore()
     store = mockStore(createState(appSummaryState))
@@ -69,11 +68,11 @@ describe('Client', () => {
 
   it('should match a snapshot when featured apps is empty []', () => {
     const appSummaryState = {
-      isAppSummaryLoading: false,
+      isLoading: false,
       data: {
-        featuredApps: [] as AppSummaryModel[],
-        apps: appsDataStub,
-      } as ClientAppSummary,
+        featuredApps: [],
+        list: appsDataStub,
+      },
     }
     const mockStore = configureStore()
     store = mockStore(createState(appSummaryState))
@@ -90,11 +89,11 @@ describe('Client', () => {
 
   it('should match a snapshot when featured apps is null', () => {
     const appSummaryState = {
-      isAppSummaryLoading: false,
+      isLoading: false,
       data: {
-        featuredApps: null,
-        apps: appsDataStub,
-      } as ClientAppSummary,
+        featuredApps: [],
+        list: appsDataStub,
+      },
     }
     const mockStore = configureStore()
     store = mockStore(createState(appSummaryState))
@@ -138,11 +137,11 @@ describe('Client', () => {
   describe('show welcome modal when firstLogin', () => {
     it('should run correctly', () => {
       const appSummaryState = {
-        isAppSummaryLoading: false,
+        isLoading: false,
         data: {
-          featuredApps: [] as AppSummaryModel[],
-          apps: appsDataStub,
-        } as ClientAppSummary,
+          list: [] as AppSummaryModel[],
+          featuredApps: appsDataStub,
+        },
       }
       const mockStore = configureStore()
       store = mockStore(createState(appSummaryState))

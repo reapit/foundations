@@ -14,10 +14,12 @@ import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 const createStore = loading => {
   return {
     ...appState,
-    myApps: {
-      ...appState.myApps,
-      loading,
-      myAppsData: {},
+    apps: {
+      ...appState.apps,
+      list: {
+        ...appState.apps.list,
+        isLoading: loading,
+      },
     },
   } as ReduxState
 }

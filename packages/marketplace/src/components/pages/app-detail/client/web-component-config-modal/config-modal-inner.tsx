@@ -15,7 +15,7 @@ import {
 } from '@reapit/elements'
 import { useDispatch, useSelector } from 'react-redux'
 import { NegotiatorModel } from '@reapit/foundations-ts-definitions'
-import { clientUpdateWebComponentConfig } from '@/actions/apps'
+import { updateWebComponentConfig } from '@/actions/web-component'
 import {
   selectWebComponentData,
   selectWebComponentLoading,
@@ -26,8 +26,10 @@ import { UpdateWebComponentConfigParams } from '@/services/web-component'
 import { Dispatch } from 'redux'
 import { selectAppDetailData } from '@/selector/apps'
 
-export const updateWebComponentConfig = (dispatch: Dispatch, appId: string, callback) => (params: FormikValues) => {
-  dispatch(clientUpdateWebComponentConfig({ ...params, appId, callback } as UpdateWebComponentConfigParams))
+export const handleUpdateWebComponentConfig = (dispatch: Dispatch, appId: string, callback) => (
+  params: FormikValues,
+) => {
+  dispatch(updateWebComponentConfig({ ...params, appId, callback } as UpdateWebComponentConfigParams))
 }
 
 export const genarateNegotiatorOptions = (negotiators: NegotiatorModel[]): SelectOption[] => {
@@ -143,8 +145,6 @@ export const WebComponentConfigModalInner = ({ closeModal }: WebComponentConfigM
   const appDetails = useSelector(selectAppDetailData)
   const { name, id = '' } = appDetails
 
-  const handleUpdateWebComponentConfig = updateWebComponentConfig(dispatch, id, closeModal)
-
   const title = `${name} Configuration`
   const subtext = `Please use the following form to configure your diary settings for your 
                     ‘${name}’ widget on your website`
@@ -157,7 +157,7 @@ export const WebComponentConfigModalInner = ({ closeModal }: WebComponentConfigM
 
   if (loading) return <Loader />
   return (
-    <Formik initialValues={initialFormValues} onSubmit={handleUpdateWebComponentConfig}>
+    <Formik initialValues={initialFormValues} onSubmit={handleUpdateWebComponentConfig(dispatch, id, closeModal)}>
       {formikProps => (
         <>
           <ModalHeader title={title} />

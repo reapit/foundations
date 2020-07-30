@@ -3,21 +3,20 @@ import createSagaMiddleware from 'redux-saga'
 import { fork, all } from '@redux-saga/core/effects'
 import { injectSwitchModeToWindow } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
-import client from '@/reducers/client'
-import installedApps from '@/reducers/installed-apps'
-import myApps from '@/reducers/my-apps'
+import apps from '@/reducers/apps'
+import negotiators from '@/reducers/negotiators'
+import webComponent from '@/reducers/web-component'
 import error from '@/reducers/error'
 import categories from '@/reducers/categories'
 import appInstallationsReducer from '@/reducers/app-installations'
 import desktopIntegrationTypes from '@/reducers/desktop-integration-types'
 import noticationMessage from '@/reducers/notification-message'
-
-import appsSaga from '@/sagas/apps/apps'
-import { clientSagas, installedAppsSagas, myAppsSagas } from '@/sagas/apps'
 import { appInstallationsSagas } from '@/sagas/installations'
 import { webComponentSagas } from '@/sagas/web-component'
 import { desktopIntegrationTypesSagas } from '@/sagas/desktop-integration-types'
 import { categoriesSagas } from '@/sagas/categories'
+import { appsSagas } from '@/sagas/apps'
+import { negotiatorsSagas } from '@/sagas/negotiators'
 
 export class Store {
   static _instance: Store
@@ -35,9 +34,9 @@ export class Store {
   static sagaMiddleware = createSagaMiddleware()
 
   static reducers = combineReducers<ReduxState>({
-    client,
-    installedApps,
-    myApps,
+    apps,
+    negotiators,
+    webComponent,
     error,
     categories,
     installations: appInstallationsReducer,
@@ -47,14 +46,12 @@ export class Store {
 
   static sagas = function*() {
     yield all([
-      fork(appsSaga),
-      fork(clientSagas),
-      fork(installedAppsSagas),
-      fork(myAppsSagas),
       fork(appInstallationsSagas),
       fork(webComponentSagas),
       fork(desktopIntegrationTypesSagas),
       fork(categoriesSagas),
+      fork(appsSagas),
+      fork(negotiatorsSagas),
     ])
   }
 

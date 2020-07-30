@@ -1,4 +1,4 @@
-import { PagedResultDesktopIntegrationTypeModel_ } from '@/actions/desktop-integration-types'
+import { PagedResultDesktopIntegrationTypeModel_ } from '@reapit/foundations-ts-definitions'
 
 export const desktopIntegrationTypesStub: PagedResultDesktopIntegrationTypeModel_ = {
   data: [

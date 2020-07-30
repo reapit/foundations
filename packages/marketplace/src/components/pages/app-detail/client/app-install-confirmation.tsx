@@ -6,7 +6,7 @@ import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
 import { Button, ModalV2, GridFourCol, GridFourColItem, Content, ModalPropsV2 } from '@reapit/elements'
 import { appInstallationsRequestInstall } from '@/actions/installations'
-import { clientFetchAppDetail } from '@/actions/apps'
+import { fetchAppDetail } from '@/actions/apps'
 import { Dispatch } from 'redux'
 import CallToAction from '@/components/ui/call-to-action'
 import routes from '@/constants/routes'
@@ -68,7 +68,7 @@ export const handleSuccessAlertMessageAfterClose = (
 ) => {
   return () => {
     dispatch(
-      clientFetchAppDetail({
+      fetchAppDetail({
         id: appId,
         clientId,
       }),

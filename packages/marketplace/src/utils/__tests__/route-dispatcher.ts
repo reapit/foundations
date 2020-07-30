@@ -3,9 +3,9 @@ import store from '@/core/store'
 
 import Routes from '@/constants/routes'
 import { RouteValue } from '@/types/core'
-import { clientFetchAppSummary } from '@/actions/apps'
-import { myAppsRequestData } from '@/actions/apps'
-import { installedAppsRequestData } from '@/actions/apps'
+import { fetchApps } from '@/actions/apps'
+import { fetchDesktopIntegrationTypes } from '@/actions/desktop-integration-types'
+import { APPS_PER_PAGE } from '@/constants/paginator'
 
 jest.mock('@reapit/elements')
 
@@ -18,16 +18,13 @@ jest.mock('@/sagas/apps')
 describe('routeDispatcher', () => {
   it('should dispatch to clientFetchAppSummaryclientFetchAppSummary for the client route', async () => {
     await routeDispatcher(Routes.APPS as RouteValue)
-    expect(store.dispatch).toHaveBeenCalledWith(clientFetchAppSummary({ page: 1, preview: false }))
+    expect(store.dispatch).toHaveBeenCalledWith(fetchDesktopIntegrationTypes({}))
   })
 
-  it('should dispatch to installedAppsRequestData for the installed-apps route', async () => {
-    await routeDispatcher(Routes.INSTALLED_APPS as RouteValue)
-    expect(store.dispatch).toHaveBeenCalledWith(installedAppsRequestData(1))
-  })
-
-  it('should dispatch to myAppsRequestData for the my-apps route', async () => {
+  it('should dispatch to fetchApps for the my-apps route', async () => {
     await routeDispatcher(Routes.MY_APPS as RouteValue)
-    expect(store.dispatch).toHaveBeenCalledWith(myAppsRequestData(1))
+    expect(store.dispatch).toHaveBeenCalledWith(
+      fetchApps({ onlyInstalled: true, pageNumber: 1, pageSize: APPS_PER_PAGE }),
+    )
   })
 })

@@ -30,7 +30,7 @@ const uninstallParams = {
 
 const connectSession = 'connectSession'
 
-describe('app-installations sagas', () => {
+xdescribe('app-installations sagas', () => {
   describe('appInstallSaga', () => {
     const gen = cloneableGenerator(appInstallSaga)(installParams)
     expect(gen.next().value).toEqual(put(appInstallationsSetFormState('SUBMITTING')))

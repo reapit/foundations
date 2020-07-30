@@ -1,33 +1,6 @@
 import { ReduxState } from '@/types/core'
 
 const appState: ReduxState = {
-  client: {
-    appSummary: {
-      isAppSummaryLoading: false,
-      data: null,
-      error: null,
-    },
-    appDetail: {
-      error: null,
-      data: null,
-      isAppDetailLoading: false,
-    },
-    webComponent: {
-      isShowModal: false,
-      data: null,
-      updating: false,
-      loading: false,
-      negotiators: {},
-    },
-  },
-  installedApps: {
-    loading: false,
-    installedAppsData: null,
-  },
-  myApps: {
-    loading: false,
-    myAppsData: null,
-  },
   error: {
     componentError: null,
     serverError: null,
@@ -40,6 +13,62 @@ const appState: ReduxState = {
       pageSize: 12,
       pageCount: 1,
       totalCount: 0,
+      isLoading: false,
+      errorMessage: '',
+    },
+  },
+  negotiators: {
+    list: {
+      data: [],
+      pageNumber: 1,
+      pageSize: 12,
+      pageCount: 1,
+      totalCount: 0,
+      isLoading: false,
+      errorMessage: '',
+    },
+  },
+
+  apps: {
+    list: {
+      data: [],
+      pageNumber: 1,
+      pageSize: 12,
+      pageCount: 1,
+      totalCount: 0,
+      isLoading: false,
+      errorMessage: '',
+    },
+    detail: {
+      data: {},
+      isLoading: false,
+      errorMessage: '',
+    },
+    featureList: {
+      data: [],
+      pageNumber: 1,
+      pageSize: 12,
+      pageCount: 1,
+      totalCount: 0,
+      isLoading: false,
+      errorMessage: '',
+    },
+  },
+
+  webComponent: {
+    detail: {
+      data: {
+        appointmentLength: 1,
+        appointmentTimeGap: 1,
+        appointmentTypes: 'abc',
+        customerId: 'mockCustomers',
+        negotiatorIds: ['12', '34'],
+        daysOfWeek: ['monday'],
+      },
+      isLoading: false,
+      errorMessage: '',
+    },
+    update: {
       isLoading: false,
       errorMessage: '',
     },

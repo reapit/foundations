@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Button } from '@reapit/elements'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectWebComponentData } from '@/selector/web-components'
-import { clientFetchWebComponentConfig } from '@/actions/apps'
+import { fetchWebComponentConfig } from '@/actions/web-component'
 import { Dispatch } from 'redux'
 import WebComponentModal from '@/components/pages/app-detail/client/web-component-config-modal/config-modal'
 import { AppDetailSection } from '@/components/pages/app-detail/common/ui-helpers'
@@ -20,7 +20,7 @@ export const handleFetchWebComponentConfig = (
   customerId?: string,
   applicationId?: string,
 ) => () => {
-  customerId && applicationId && dispatch(clientFetchWebComponentConfig({ customerId, applicationId }))
+  customerId && applicationId && dispatch(fetchWebComponentConfig({ customerId, applicationId }))
 }
 
 export const WebComponentConfig: React.FC = () => {

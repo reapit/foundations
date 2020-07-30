@@ -63,62 +63,15 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
           >
             <Component
               infoType="INSTALLED_APPS_EMPTY"
-              list={
-                Array [
-                  Object {
-                    "created": "2020-02-02T10:45:57",
-                    "developer": "Pete's Proptech World Ltd",
-                    "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                    "homePage": "http://google.com/abc",
-                    "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png",
-                    "id": "09043eb8-9e5e-4650-b7f1-f0cb62699027",
-                    "links": Array [
-                      Object {
-                        "action": "GET",
-                        "href": "http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027",
-                        "rel": "self",
-                      },
-                      Object {
-                        "action": "GET",
-                        "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                        "rel": "developer",
-                      },
-                    ],
-                    "name": "test",
-                    "summary": "nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz",
-                  },
-                  Object {
-                    "created": "2020-02-02T10:45:57",
-                    "developer": "Pete's Proptech World Ltd",
-                    "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                    "homePage": "http://www.contoso.com/path",
-                    "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/1d38c5ec-e3c0-4138-9fe0-e77bce4034d1.octet-stream",
-                    "id": "261da083-cee2-4f5c-a18f-8f9375f1f5af",
-                    "links": Array [
-                      Object {
-                        "action": "GET",
-                        "href": "http://platformdemo.reapit.net/marketplace/apps/261da083-cee2-4f5c-a18f-8f9375f1f5af",
-                        "rel": "self",
-                      },
-                      Object {
-                        "action": "GET",
-                        "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                        "rel": "developer",
-                      },
-                    ],
-                    "name": "asd",
-                    "summary": "asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2",
-                  },
-                ]
-              }
+              list={Array []}
               loading={false}
               onCardClick={[Function]}
               pagination={
                 Object {
                   "onChange": [Function],
                   "pageNumber": 1,
-                  "pageSize": 2,
-                  "totalCount": 6,
+                  "pageSize": 12,
+                  "totalCount": 0,
                 }
               }
             >
@@ -140,358 +93,20 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
                     </h3>
                   </Component>
                   <Component
-                    list={
-                      Array [
-                        Object {
-                          "created": "2020-02-02T10:45:57",
-                          "developer": "Pete's Proptech World Ltd",
-                          "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                          "homePage": "http://google.com/abc",
-                          "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png",
-                          "id": "09043eb8-9e5e-4650-b7f1-f0cb62699027",
-                          "links": Array [
-                            Object {
-                              "action": "GET",
-                              "href": "http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027",
-                              "rel": "self",
-                            },
-                            Object {
-                              "action": "GET",
-                              "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                              "rel": "developer",
-                            },
-                          ],
-                          "name": "test",
-                          "summary": "nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz",
-                        },
-                        Object {
-                          "created": "2020-02-02T10:45:57",
-                          "developer": "Pete's Proptech World Ltd",
-                          "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                          "homePage": "http://www.contoso.com/path",
-                          "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/1d38c5ec-e3c0-4138-9fe0-e77bce4034d1.octet-stream",
-                          "id": "261da083-cee2-4f5c-a18f-8f9375f1f5af",
-                          "links": Array [
-                            Object {
-                              "action": "GET",
-                              "href": "http://platformdemo.reapit.net/marketplace/apps/261da083-cee2-4f5c-a18f-8f9375f1f5af",
-                              "rel": "self",
-                            },
-                            Object {
-                              "action": "GET",
-                              "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                              "rel": "developer",
-                            },
-                          ],
-                          "name": "asd",
-                          "summary": "asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2",
-                        },
-                      ]
-                    }
-                    loading={false}
-                    onCardClick={[Function]}
+                    variant="info"
                   >
-                    <Component
-                      className=" "
-                      data-test="app-list-container"
+                    <div
+                      className="notification helper-wrap helper-info"
                     >
-                      <div
-                        className=""
-                        data-test=""
-                      >
-                        <Component
-                          key="09043eb8-9e5e-4650-b7f1-f0cb62699027"
-                        >
-                          <div
-                            className=""
-                            data-test=""
-                          >
-                            <InstalledAppCard
-                              app={
-                                Object {
-                                  "created": "2020-02-02T10:45:57",
-                                  "developer": "Pete's Proptech World Ltd",
-                                  "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                                  "homePage": "http://google.com/abc",
-                                  "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png",
-                                  "id": "09043eb8-9e5e-4650-b7f1-f0cb62699027",
-                                  "links": Array [
-                                    Object {
-                                      "action": "GET",
-                                      "href": "http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027",
-                                      "rel": "self",
-                                    },
-                                    Object {
-                                      "action": "GET",
-                                      "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                                      "rel": "developer",
-                                    },
-                                  ],
-                                  "name": "test",
-                                  "summary": "nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz",
-                                }
-                              }
-                              key="09043eb8-9e5e-4650-b7f1-f0cb62699027"
-                              onClick={[Function]}
-                            >
-                              <div
-                                data-test-app-id="09043eb8-9e5e-4650-b7f1-f0cb62699027"
-                                data-test-app-name="test"
-                              >
-                                <Component
-                                  heading="test"
-                                  image={
-                                    <img
-                                      alt="test"
-                                      className="image"
-                                      onError={[Function]}
-                                      src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png"
-                                    />
-                                  }
-                                  onClick={[Function]}
-                                  subHeading="Pete's Proptech World Ltd"
-                                >
-                                  <div
-                                    className="card  is-clickable"
-                                    data-test=""
-                                    onClick={[Function]}
-                                  >
-                                    <div
-                                      className="card-content"
-                                    >
-                                      <div
-                                        className="media"
-                                      >
-                                        <div
-                                          className="media-left"
-                                        >
-                                          <div
-                                            className="media-image"
-                                          >
-                                            <img
-                                              alt="test"
-                                              className="image"
-                                              onError={[Function]}
-                                              src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png"
-                                            />
-                                          </div>
-                                        </div>
-                                        <div
-                                          className="media-content"
-                                        >
-                                          <Component
-                                            className="text-ellipsis-7"
-                                          >
-                                            <h4
-                                              className=""
-                                              id=""
-                                            >
-                                              test
-                                            </h4>
-                                          </Component>
-                                          <Component
-                                            className="text-ellipsis-5 mb-3"
-                                          >
-                                            <h6
-                                              className=""
-                                              id=""
-                                            >
-                                              Pete's Proptech World Ltd
-                                            </h6>
-                                          </Component>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </Component>
-                              </div>
-                            </InstalledAppCard>
-                          </div>
-                        </Component>
-                        <Component
-                          key="261da083-cee2-4f5c-a18f-8f9375f1f5af"
-                        >
-                          <div
-                            className=""
-                            data-test=""
-                          >
-                            <InstalledAppCard
-                              app={
-                                Object {
-                                  "created": "2020-02-02T10:45:57",
-                                  "developer": "Pete's Proptech World Ltd",
-                                  "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                                  "homePage": "http://www.contoso.com/path",
-                                  "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/1d38c5ec-e3c0-4138-9fe0-e77bce4034d1.octet-stream",
-                                  "id": "261da083-cee2-4f5c-a18f-8f9375f1f5af",
-                                  "links": Array [
-                                    Object {
-                                      "action": "GET",
-                                      "href": "http://platformdemo.reapit.net/marketplace/apps/261da083-cee2-4f5c-a18f-8f9375f1f5af",
-                                      "rel": "self",
-                                    },
-                                    Object {
-                                      "action": "GET",
-                                      "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                                      "rel": "developer",
-                                    },
-                                  ],
-                                  "name": "asd",
-                                  "summary": "asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2",
-                                }
-                              }
-                              key="261da083-cee2-4f5c-a18f-8f9375f1f5af"
-                              onClick={[Function]}
-                            >
-                              <div
-                                data-test-app-id="261da083-cee2-4f5c-a18f-8f9375f1f5af"
-                                data-test-app-name="asd"
-                              >
-                                <Component
-                                  heading="asd"
-                                  image={
-                                    <img
-                                      alt="asd"
-                                      className="image"
-                                      onError={[Function]}
-                                      src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/1d38c5ec-e3c0-4138-9fe0-e77bce4034d1.octet-stream"
-                                    />
-                                  }
-                                  onClick={[Function]}
-                                  subHeading="Pete's Proptech World Ltd"
-                                >
-                                  <div
-                                    className="card  is-clickable"
-                                    data-test=""
-                                    onClick={[Function]}
-                                  >
-                                    <div
-                                      className="card-content"
-                                    >
-                                      <div
-                                        className="media"
-                                      >
-                                        <div
-                                          className="media-left"
-                                        >
-                                          <div
-                                            className="media-image"
-                                          >
-                                            <img
-                                              alt="asd"
-                                              className="image"
-                                              onError={[Function]}
-                                              src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/1d38c5ec-e3c0-4138-9fe0-e77bce4034d1.octet-stream"
-                                            />
-                                          </div>
-                                        </div>
-                                        <div
-                                          className="media-content"
-                                        >
-                                          <Component
-                                            className="text-ellipsis-7"
-                                          >
-                                            <h4
-                                              className=""
-                                              id=""
-                                            >
-                                              asd
-                                            </h4>
-                                          </Component>
-                                          <Component
-                                            className="text-ellipsis-5 mb-3"
-                                          >
-                                            <h6
-                                              className=""
-                                              id=""
-                                            >
-                                              Pete's Proptech World Ltd
-                                            </h6>
-                                          </Component>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </Component>
-                              </div>
-                            </InstalledAppCard>
-                          </div>
-                        </Component>
-                      </div>
-                    </Component>
+                      It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.
+                    </div>
                   </Component>
                   <Component
                     onChange={[Function]}
                     pageNumber={1}
-                    pageSize={2}
-                    totalCount={6}
-                  >
-                    <Component
-                      isCentered={true}
-                      isFlex={true}
-                    >
-                      <section
-                        className=""
-                        data-test=""
-                      >
-                        <nav
-                          aria-label="pagination"
-                          className="pagination is-centered"
-                          role="navigation"
-                        >
-                          <a
-                            className="pagination-previous pagination-disabled"
-                            onClick={[Function]}
-                          >
-                            Previous
-                          </a>
-                          <a
-                            className="pagination-next  "
-                            onClick={[Function]}
-                          >
-                            Next page
-                          </a>
-                          <ul
-                            className="pagination-list"
-                          >
-                            <li
-                              key="0"
-                            >
-                              <a
-                                aria-label="Goto page 1"
-                                className="pagination-link is-current"
-                                onClick={[Function]}
-                              >
-                                1
-                              </a>
-                            </li>
-                            <li
-                              key="1"
-                            >
-                              <a
-                                aria-label="Goto page 2"
-                                className="pagination-link"
-                                onClick={[Function]}
-                              >
-                                2
-                              </a>
-                            </li>
-                            <li
-                              key="2"
-                            >
-                              <a
-                                aria-label="Goto page 3"
-                                className="pagination-link"
-                                onClick={[Function]}
-                              >
-                                3
-                              </a>
-                            </li>
-                          </ul>
-                        </nav>
-                      </section>
-                    </Component>
-                  </Component>
+                    pageSize={12}
+                    totalCount={0}
+                  />
                 </div>
               </Component>
             </Component>
@@ -559,17 +174,62 @@ exports[`InstalledApps should match a snapshot when LOADING true 1`] = `
       }
     >
       <Component>
-        <Component>
-          <div
-            className="loader-spinner body"
-            data-test=""
+        <Connect(ErrorBoundary)>
+          <ErrorBoundary
+            componentError={null}
+            errorThrownComponent={[Function]}
           >
-            <div />
-            <div />
-            <div />
-            <div />
-          </div>
-        </Component>
+            <Component
+              infoType="INSTALLED_APPS_EMPTY"
+              list={Array []}
+              loading={false}
+              onCardClick={[Function]}
+              pagination={
+                Object {
+                  "onChange": [Function],
+                  "pageNumber": 1,
+                  "pageSize": 12,
+                  "totalCount": 0,
+                }
+              }
+            >
+              <Component
+                flexColumn={true}
+              >
+                <div
+                  className=""
+                >
+                  <Component
+                    className=""
+                    isHeadingSection={true}
+                  >
+                    <h3
+                      className=""
+                      id=""
+                    >
+                      Installed Apps
+                    </h3>
+                  </Component>
+                  <Component
+                    variant="info"
+                  >
+                    <div
+                      className="notification helper-wrap helper-info"
+                    >
+                      It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.
+                    </div>
+                  </Component>
+                  <Component
+                    onChange={[Function]}
+                    pageNumber={1}
+                    pageSize={12}
+                    totalCount={0}
+                  />
+                </div>
+              </Component>
+            </Component>
+          </ErrorBoundary>
+        </Connect(ErrorBoundary)>
       </Component>
     </Router>
   </MemoryRouter>

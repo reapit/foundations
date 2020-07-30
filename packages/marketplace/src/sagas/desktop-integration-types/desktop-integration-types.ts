@@ -19,6 +19,7 @@ export const fetchDesktopIntegrationTypes = function*({ data }: Action<FetchDesk
     yield put(fetchDesktopIntegrationTypesFailure(err.description))
     notification.error({
       message: err.description,
+      placement: 'bottomRight',
     })
   }
 }

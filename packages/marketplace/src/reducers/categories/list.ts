@@ -13,7 +13,7 @@ export const defaultCategoriesState: CategoriesState = {
   data: [],
   pageNumber: 1,
   pageSize: APPS_PER_PAGE,
-  pageCount: 1,
+  pageCount: 0,
   totalCount: 0,
   isLoading: false,
   errorMessage: '',
