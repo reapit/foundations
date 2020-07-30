@@ -1,33 +1,32 @@
-import store from '../core/store'
-import { authLoginSuccess, authLogout, authSetRefreshSession } from '../actions/auth'
-import { getSession } from '@reapit/cognito-auth'
-import { COOKIE_SESSION_KEY_MARKETPLACE } from '../constants/api'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { ReapitConnectSession } from '@reapit/connect-session'
 
 export const getAccessToken = async (): Promise<string | null> => {
-  const { loginSession, refreshSession } = store.state.auth
+  const connectSession = await reapitConnectBrowserSession.connectSession()
+  return (connectSession && connectSession?.accessToken) || ''
+}
 
-  const session = await getSession(
-    loginSession,
-    refreshSession,
-    COOKIE_SESSION_KEY_MARKETPLACE,
-    window.reapit.config.appEnv,
-  )
+export const getDeveloperIdFromConnectSession = (connectSession: ReapitConnectSession | null): string => {
+  return (connectSession && connectSession?.loginIdentity?.developerId) || ''
+}
 
-  if (session) {
-    store.dispatch(authLoginSuccess(session))
-    const oldRefreshSession = store.state.auth.refreshSession
-    const refreshByTokenParams = ['refreshToken', 'userName', 'cognitoClientId']
-    const isRefreshByToken = refreshByTokenParams.every(key => session[key])
-    const isNeedToUpdate = refreshByTokenParams.some(key => !oldRefreshSession?.[key])
-    // only update if oldRefreshSession refresh type is by authorizationCode,
-    // to prevent "invalid_grant" error when refreshing token
-    // https://docs.aws.amazon.com/cognito/latest/developerguide/token-endpoint.html
-    if (isRefreshByToken && isNeedToUpdate) {
-      store.dispatch(authSetRefreshSession({ ...session, redirectUri: null, state: null, authorizationCode: null }))
-    }
-    return session.accessToken
-  }
+export const getClientIdFromConnectSession = (connectSession: ReapitConnectSession | null): string => {
+  return (connectSession && connectSession?.loginIdentity?.clientId) || ''
+}
 
-  store.dispatch(authLogout())
-  return null
+export async function getDeveloperId() {
+  const connectSession = await reapitConnectBrowserSession.connectSession()
+  if (!connectSession) return ''
+  return getDeveloperIdFromConnectSession(connectSession)
+}
+
+export async function getClientId() {
+  const connectSession = await reapitConnectBrowserSession.connectSession()
+  if (!connectSession) return ''
+  return getClientIdFromConnectSession(connectSession)
+}
+
+export const getLoggedUserEmail = async (): Promise<string> => {
+  const connectSession = await reapitConnectBrowserSession.connectSession()
+  return (connectSession && connectSession?.loginIdentity?.email) || ''
 }

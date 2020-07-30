@@ -1,4 +1,4 @@
-import { put, fork, all, call, takeLatest, select } from '@redux-saga/core/effects'
+import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { Action } from '../types/core'
 import { errorThrownServer } from '../actions/error'
@@ -13,14 +13,13 @@ import {
   appInstallationsFilterReceiveData,
   appInstallationsFilterRequestDataFailure,
 } from '@/actions/app-installations'
-import { selectLoggedUserEmail, selectClientId } from '@/selector/client'
 import { logger } from '@reapit/utils'
 import { fetchInstallationsList, createInstallation, removeAccessToAppById } from '@/services/installations'
-import { selectDeveloperId } from '@/selector/auth'
+import { getDeveloperId, getClientId, getLoggedUserEmail } from '@/utils/session'
 
 export const installationsSaga = function*({ data }) {
   try {
-    const developerId = yield select(selectDeveloperId)
+    const developerId = yield getDeveloperId()
     const response = yield call(fetchInstallationsList, { ...data, developerId })
     yield put(appInstallationsReceiveData(response))
   } catch (err) {
@@ -37,7 +36,7 @@ export const installationsSaga = function*({ data }) {
 
 export const installationsFilterSaga = function*({ data }) {
   try {
-    const developerId = yield select(selectDeveloperId)
+    const developerId = yield getDeveloperId()
     const response = yield call(fetchInstallationsList, { ...data, developerId })
     yield put(appInstallationsFilterReceiveData(response))
   } catch (err) {
@@ -57,8 +56,8 @@ export const appInstallSaga = function*(options) {
   try {
     yield put(appInstallationsSetFormState('SUBMITTING'))
 
-    const email = yield select(selectLoggedUserEmail)
-    const clientId = yield select(selectClientId)
+    const email = yield getLoggedUserEmail()
+    const clientId = yield getClientId()
 
     if (!clientId) {
       throw new Error('ClientId not exist')
@@ -85,7 +84,7 @@ export const appUninstallSaga = function*(options) {
   const data: UninstallParams = options.data
   try {
     yield put(appInstallationsSetFormState('SUBMITTING'))
-    const email = yield select(selectLoggedUserEmail)
+    const email = yield getLoggedUserEmail()
 
     yield call(removeAccessToAppById, { ...data, terminatedBy: email })
     if (data.callback) {

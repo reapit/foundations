@@ -8,7 +8,7 @@ import appInstallationsSagas, {
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import ActionTypes from '@/constants/action-types'
-import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
+import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import {
@@ -22,9 +22,8 @@ import {
   appInstallationsFilterRequestDataFailure,
 } from '@/actions/app-installations'
 import { installationsStub } from '../__stubs__/installations'
-import { selectClientId, selectLoggedUserEmail } from '@/selector/client'
 import { fetchInstallationsList, createInstallation, removeAccessToAppById } from '@/services/installations'
-import { selectDeveloperId } from '@/selector/auth'
+import { getDeveloperId, getLoggedUserEmail } from '@/utils/session'
 
 jest.mock('@/services/installations')
 jest.mock('@reapit/elements')
@@ -51,7 +50,7 @@ const uninstallParams = {
 describe('app-installations sagas', () => {
   describe('installationsFetchData', () => {
     const gen = cloneableGenerator(installationsSaga)(installationsParams)
-    expect(gen.next().value).toEqual(select(selectDeveloperId))
+    expect(gen.next().value).toEqual(getDeveloperId())
     expect(gen.next().value).toEqual(call(fetchInstallationsList, { ...installationsParams.data }))
 
     test('api call success', () => {
@@ -78,7 +77,7 @@ describe('app-installations sagas', () => {
 
   describe('installationsFilterFetchData', () => {
     const gen = cloneableGenerator(installationsFilterSaga)(installationsParams)
-    expect(gen.next().value).toEqual(select(selectDeveloperId))
+    expect(gen.next().value).toEqual(getDeveloperId())
     expect(gen.next().value).toEqual(call(fetchInstallationsList, installationsParams.data))
 
     test('api call success', () => {
@@ -108,8 +107,8 @@ describe('app-installations sagas', () => {
   describe('appInstallSaga', () => {
     const gen = cloneableGenerator(appInstallSaga)(installParams)
     expect(gen.next().value).toEqual(put(appInstallationsSetFormState('SUBMITTING')))
-    expect(gen.next().value).toEqual(select(selectLoggedUserEmail))
-    expect(gen.next('1').value).toEqual(select(selectClientId))
+    expect(gen.next().value).toEqual(getLoggedUserEmail())
+    expect(gen.next('1').value).toEqual(getDeveloperId())
 
     test('clientId not exist', () => {
       const clone = gen.clone()
@@ -136,7 +135,7 @@ describe('app-installations sagas', () => {
   describe('appUninstallSaga', () => {
     const gen = cloneableGenerator(appUninstallSaga)(uninstallParams)
     expect(gen.next().value).toEqual(put(appInstallationsSetFormState('SUBMITTING')))
-    expect(gen.next().value).toEqual(select(selectLoggedUserEmail))
+    expect(gen.next().value).toEqual(getLoggedUserEmail())
 
     expect(gen.next('1').value).toEqual(call(removeAccessToAppById, { ...uninstallParams.data, terminatedBy: '1' }))
 

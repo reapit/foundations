@@ -18,12 +18,11 @@ import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import messages from '@/constants/messages'
 import { developerStub } from '../__stubs__/developer'
-import { removeSession, changePassword } from '@reapit/cognito-auth'
-import { authLogout } from '@/actions/auth'
 import { showNotificationMessage } from '@/actions/notification-message'
 import { fetchDeveloperById, updateDeveloperById, UpdateDeveloperByIdParams } from '@/services/developers'
 import { selectSettingsPageDeveloperInformation } from '@/selector/settings'
-import { selectDeveloperId } from '@/selector/auth'
+import { getDeveloperId } from '@/utils/session'
+import { changePasswordService } from '@/services/cognito-identity'
 
 jest.mock('@/services/developers')
 jest.mock('@reapit/elements')
@@ -33,12 +32,15 @@ jest.mock('../../core/router', () => ({
     replace: jest.fn(),
   },
 }))
+jest.mock('@/services/cognito-identity', () => ({
+  changePasswordService: jest.fn().mockResolvedValue('SUCCESS'),
+}))
 
 describe('settings', () => {
   describe('developerInformationFetch', () => {
     const gen = cloneableGenerator(developerInformationFetch)()
     expect(gen.next().value).toEqual(put(settingShowLoading(true)))
-    expect(gen.next().value).toEqual(select(selectDeveloperId))
+    expect(gen.next().value).toEqual(call(getDeveloperId))
     it('should return', () => {
       const clone = gen.clone()
       expect(clone.next().value).toEqual(put(settingShowLoading(false)))
@@ -72,7 +74,7 @@ describe('settings', () => {
       data: { companyName: '123' },
     })
     expect(gen.next().value).toEqual(put(settingShowLoading(true)))
-    expect(gen.next().value).toEqual(select(selectDeveloperId))
+    expect(gen.next().value).toEqual(call(getDeveloperId))
     it('should call api success', () => {
       const clone = gen.clone()
       const id = 'id'
@@ -131,23 +133,19 @@ describe('settings', () => {
     it('should call API success', () => {
       const clone = gen.clone()
       expect(clone.next('abc@gmail.com').value).toEqual(
-        call(changePassword, {
+        call(changePasswordService, {
           password: '123',
           newPassword: '456',
           userName: 'abc@gmail.com',
           cognitoClientId: window.reapit.config.cognitoClientId || '',
         }),
       )
-      expect(clone.next('SUCCESS').value).toEqual(call(removeSession))
-      expect(clone.next().value).toEqual(put(authLogout()))
-      expect(clone.next().value).toEqual(put(settingShowLoading(false)))
-      expect(clone.next().done).toEqual(true)
     })
 
     it('should fail if API response !== "SUCCESS" ', () => {
       const clone = gen.clone()
       expect(clone.next('abc@gmail.com').value).toEqual(
-        call(changePassword, {
+        call(changePasswordService, {
           password: '123',
           newPassword: '456',
           userName: 'abc@gmail.com',

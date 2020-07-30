@@ -3,10 +3,12 @@ import { H5, Grid, H6, GridItem, DATE_TIME_FORMAT, Section } from '@reapit/eleme
 import CostFilterForm from './cost-filter-form'
 import dayjs from 'dayjs'
 import CostExplorerTable from './cost-explorer-table'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Dispatch } from 'redux'
 import { fetchMonthlyBilling } from '@/actions/developer'
-import { selectDeveloperId } from '@/selector/auth'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { getDeveloperIdFromConnectSession } from '@/utils/session'
 
 export type CostExplorerProps = {}
 
@@ -44,13 +46,13 @@ interface HandleFetchMonthlyBilling {
 }
 
 export const handleFetchMonthlyBilling = ({ dispatch, month, developerId }: HandleFetchMonthlyBilling) => () => {
-  dispatch(fetchMonthlyBilling({ month, developerId }))
+  developerId && month && dispatch(fetchMonthlyBilling({ month, developerId }))
 }
 
 const CostExplorer: React.FC<CostExplorerProps> = () => {
   const dispatch = useDispatch()
-  const developerId = useSelector(selectDeveloperId)
-
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const developerId = getDeveloperIdFromConnectSession(connectSession)
   const [createdMonth, setCreatedMonth] = React.useState(dayjs().format(DATE_TIME_FORMAT.YYYY_MM))
   const initialValues = React.useMemo(prepareFilterFormInitialValues(createdMonth), [createdMonth])
 

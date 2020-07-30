@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { useSelector } from 'react-redux'
 import initChatBot from '../../../scripts/chat-bot'
 import { history } from '@/core/router'
 import { H3 } from '@reapit/elements'
@@ -13,8 +12,9 @@ import roadmapImg from '@/assets/images/help/time-line.jpg'
 import whatNewImg from '@/assets/images/help/what-new.png'
 import { HelpItem, HelpItemList } from '@/components/ui/help-item-list'
 
-import { LoginIdentity } from '@reapit/cognito-auth'
 import { selectLoginIdentity } from '@/selector/auth'
+import { useReapitConnect, LoginIdentity } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export const handleGotoWelcomeGuide = () => {
   history.push(Routes.WELCOME)
@@ -95,7 +95,8 @@ export const helpItems = (loginIdentity?: LoginIdentity): HelpItem[] => [
 export type DeveloperHelpPageProps = {}
 
 export const DeveloperHelpPage: React.FC<DeveloperHelpPageProps> = () => {
-  const loginIdentity = useSelector(selectLoginIdentity)
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const loginIdentity = selectLoginIdentity(connectSession)
   return (
     <>
       <H3 isHeadingSection>Help</H3>

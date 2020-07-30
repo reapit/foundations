@@ -136,7 +136,9 @@ exports[`Login should match a snapshot 1`] = `
           </div>
         </div>
       </Component>
+      ,
     </Router>
   </MemoryRouter>
+  ,
 </Provider>
 `;

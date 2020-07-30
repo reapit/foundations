@@ -10,7 +10,6 @@ import {
   updateDeveloperData as updateDeveloperDataAction,
   changePassword as changePasswordAction,
 } from '@/actions/settings'
-import { authLogout } from '@/actions/auth'
 import appState from '@/reducers/__stubs__/app-state'
 
 describe('ProfileTab', () => {
@@ -55,7 +54,6 @@ describe('ProfileTab', () => {
     expect(mockDispatch).toHaveBeenCalledWith(changePasswordAction(mockChangePasswordParam))
 
     logout()
-    expect(mockDispatch).toHaveBeenCalledWith(authLogout())
 
     const mockUpdateDeveloperInformationParam = {
       companyName: 'a',

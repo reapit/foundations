@@ -1,5 +1,4 @@
-import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
-import { selectDeveloperId } from '@/selector/auth'
+import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { fetchAppList, fetchAppListSuccess, fetchAppListFailed } from '@/actions/apps'
 import { fetchAppsListAPI } from '@/services/apps'
@@ -8,10 +7,11 @@ import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { FetchAppListParams } from '@/reducers/apps/app-list'
 import { Action } from '@/types/core'
+import { getDeveloperId } from '@/utils/session'
 
 export const fetchAppListSaga = function*({ data }) {
   try {
-    const developerId = yield select(selectDeveloperId)
+    const developerId = yield call(getDeveloperId)
     if (!developerId) {
       return
     }

@@ -1,7 +1,5 @@
-import { setUserSession, LoginSession, LoginParams } from '@reapit/cognito-auth'
 import { authLoginSuccess, authSetRefreshSession } from '@/actions/auth'
 import ROUTES from '@/constants/routes'
-import { COOKIE_SESSION_KEY_MARKETPLACE } from '@/constants/api'
 import {
   COOKIE_DEVELOPER_FIRST_TIME_LOGIN_COMPLETE,
   COOKIE_DEVELOPER_TERMS_ACCEPTED,
@@ -12,13 +10,6 @@ import {
 
 const CypressEnv = Cypress.env()
 const env = CypressEnv.appEnv
-
-function login(params: LoginParams): LoginSession {
-  return new Cypress.Promise(async resolve => {
-    const loginSession = await setUserSession(params, COOKIE_SESSION_KEY_MARKETPLACE, env)
-    resolve(loginSession)
-  })
-}
 
 const loginFlow = ({ userName, password, loginType, loginRoute, beforeLogin }) => {
   const { cognitoClientId, cognitoUserPoolId } = CypressEnv

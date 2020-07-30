@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { selectLoginIdentity } from '@/selector/auth'
-import { useSelector } from 'react-redux'
 import { Loader, Section } from '@reapit/elements'
 import { Forms } from './forms/forms'
 import { Tabs } from './tabs'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 /**
  * render one of:
@@ -13,9 +13,9 @@ import { Tabs } from './tabs'
 const SettingsPage: React.FC = () => {
   // it take a while to 'AUTH_LOGIN_SUCCESS' to fire. If you user is admin, they may exerience a flash
   // this make sure settings page don't render until 'loginIdentity' is availabe
-  const loginIdentity = useSelector(selectLoginIdentity)
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
-  if (!loginIdentity) {
+  if (!connectSession || !connectSession.loginIdentity) {
     return <Loader />
   }
 

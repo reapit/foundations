@@ -16,8 +16,10 @@ import { formFields } from './form-fields'
 import { useDispatch, useSelector } from 'react-redux'
 import { Dispatch } from 'redux'
 import { inviteDeveloperAsOrgMember } from '@/actions/developers'
-import { selectDeveloperId } from '@/selector/auth'
 import { selectInviteDeveloperAsOrgMemberLoading } from '@/selector/developers'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { getDeveloperIdFromConnectSession } from '@/utils/session'
 
 const { inviteNameField, inviteEmailField, inviteMessageField, inviteJobTitleField } = formFields
 
@@ -83,7 +85,9 @@ export const handleSubmit = (dispatch: Dispatch, developerId: string, onClose: (
 
 export const InviteMemberModal: React.FC<InviteMemberModalProps> = ({ visible = false, onClose }) => {
   const dispatch = useDispatch()
-  const developerId = useSelector(selectDeveloperId)
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const developerId = getDeveloperIdFromConnectSession(connectSession)
+
   const loading = useSelector(selectInviteDeveloperAsOrgMemberLoading)
   if (!visible) {
     return null

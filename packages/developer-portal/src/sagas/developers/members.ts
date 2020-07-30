@@ -1,4 +1,4 @@
-import { all, fork, call, put, takeLatest, select } from 'redux-saga/effects'
+import { all, fork, call, put, takeLatest } from 'redux-saga/effects'
 import { Action } from '@/types/core'
 import {
   fetchOrganisationMembers,
@@ -15,7 +15,7 @@ import {
 } from '@/actions/developers'
 import { errorThrownServer } from '@/actions/error'
 import ActionTypes from '@/constants/action-types'
-import { selectDeveloperId } from '@/selector/auth'
+import { getDeveloperId } from '@/utils/session'
 
 export const organisationFetchMembers = function*({ data }: Action<FetchOrganisationMembersParams>) {
   try {
@@ -39,7 +39,7 @@ export const inviteDeveloperAsOrgMemberSagas = function*({
     if (response) {
       yield put(inviteDeveloperAsOrgMemberSuccess())
       data.callback()
-      const developerId = yield select(selectDeveloperId)
+      const developerId = yield call(getDeveloperId)
       yield put(fetchOrganisationMembersAction({ id: developerId }))
     }
   } catch (err) {

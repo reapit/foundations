@@ -12,7 +12,6 @@ import { CreateAppRevisionModel, AppDetailModel } from '@reapit/foundations-ts-d
 import Routes from '@/constants/routes'
 import { submitRevision } from '@/actions/submit-revision'
 import { selectSubmitAppState } from '@/selector/submit-app'
-import { selectDeveloperId } from '@/selector/auth'
 import { selectAppDetailState } from '@/selector/app-detail'
 import { Dispatch } from 'redux'
 import GeneralInformationSection from './general-information-section'
@@ -28,6 +27,9 @@ import { validationSchemaSubmitRevision } from './form-schema/validation-schema'
 import { formFields } from './form-schema/form-fields'
 import authFlows from '@/constants/app-auth-flow'
 import { Section } from '@reapit/elements'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { getDeveloperIdFromConnectSession } from '@/utils/session'
 
 const { CLIENT_SECRET } = authFlows
 
@@ -304,10 +306,12 @@ export const DeveloperEditApp: React.FC<DeveloperSubmitAppProps> = () => {
   const dispatch = useDispatch()
   const history = useHistory()
   const { appid } = useParams<{ appid: string }>()
-  const developerId = useSelector(selectDeveloperId)
   const appDetailState = useSelector(selectAppDetailState)
   const submitAppState = useSelector(selectSubmitAppState)
   const appCategories = useSelector(selectCategories)
+
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const developerId = getDeveloperIdFromConnectSession(connectSession)
 
   const goBackToApps = React.useCallback(handleGoBackToApps(history), [history])
 

@@ -13,6 +13,8 @@ import { FormValues } from './form-fields'
 import DeveloperEditionContent from './developer-edition-content'
 import SuccessContent from './success-content'
 import ErrorContent from './error-content'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export type DeveloperEditionModalProps = Pick<ModalProps, 'afterClose' | 'visible'>
 
@@ -58,7 +60,9 @@ export const handleAfterClose = (
 }
 
 export const DeveloperEditionModal: React.FC<DeveloperEditionModalProps> = ({ visible = false, afterClose }) => {
-  const loginIdentity = useSelector(selectLoginIdentity)
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const loginIdentity = selectLoginIdentity(connectSession)
+
   // For now just have 1 item: the current developer
   // Need to change to list of developer in organisation after finish "organisation" feature
   const developerName = loginIdentity?.name
