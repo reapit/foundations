@@ -16,6 +16,7 @@ const approvalsReducer = (state: ApprovalsState = defaultState, action: Action<a
     return {
       ...state,
       isLoading: true,
+      errorMessage: '',
     }
   }
 
