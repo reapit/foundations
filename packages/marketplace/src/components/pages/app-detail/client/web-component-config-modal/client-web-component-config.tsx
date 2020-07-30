@@ -35,7 +35,7 @@ export const WebComponentConfig: React.FC = () => {
   const handleToggleWebComponentModal = toggleWebComponentModal(setIsOpenConfigModal, true)
   const handleCloseWebComponentModal = toggleWebComponentModal(setIsOpenConfigModal, false)
 
-  useEffect(handleFetchWebComponentConfig(dispatch, clientId, applicationId), [])
+  useEffect(handleFetchWebComponentConfig(dispatch, clientId, applicationId), [clientId, applicationId])
 
   if (!webComponentData) return null
 
