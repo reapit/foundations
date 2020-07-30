@@ -1,5 +1,4 @@
 // import { clientFetchAppDetailSuccess } from '@/actions/client'
-import { integrationTypesReceiveData } from '@/actions/app-integration-types'
 import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 import { errorThrownServer } from '@/actions/error'
@@ -9,6 +8,7 @@ import { logger } from '@reapit/utils'
 import { fetchAppById, fetchDesktopIntegrationTypes, FetchAppByIdParams } from '@/services/apps'
 import { fetchAppDetailSuccess } from '@/actions/apps'
 import { fetchApiKeyInstallationById } from '@/services/installations'
+import { fetchDesktopIntegrationTypeListSuccess } from '@/actions/desktop-integration-types'
 
 export const fetchAppDetailSaga = function*({ data }: Action<FetchAppByIdParams>) {
   try {
@@ -20,7 +20,7 @@ export const fetchAppDetailSaga = function*({ data }: Action<FetchAppByIdParams>
       appDetailResponse.apiKey = apiKeyResponse?.apiKey || ''
     }
     const desktopIntegrationTypes = yield call(fetchDesktopIntegrationTypes)
-    yield put(integrationTypesReceiveData(desktopIntegrationTypes))
+    yield put(fetchDesktopIntegrationTypeListSuccess(desktopIntegrationTypes))
     yield put(fetchAppDetailSuccess(appDetailResponse))
   } catch (err) {
     logger(err)

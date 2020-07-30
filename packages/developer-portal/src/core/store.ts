@@ -16,7 +16,6 @@ import developerSetStatus from '@/reducers/developer-set-status'
 import revisionDetail from '@/reducers/revision-detail'
 import appDetailModal from '@/reducers/app-detail-modal'
 import appDeleteReducer from '@/reducers/app-delete'
-import appCategories from '@/reducers/app-categories'
 import settingsReducer from '@/reducers/settings'
 import appInstallationsReducer from '@/reducers/app-installations'
 import appUsageStatsReducer from '@/reducers/app-usage-stats'
@@ -80,7 +79,6 @@ export class Store {
     revisions: revisionsReducer,
     appDetailModal,
     appDelete: appDeleteReducer,
-    appCategories,
     settings: settingsReducer,
     installations: appInstallationsReducer,
     appUsageStats: appUsageStatsReducer,

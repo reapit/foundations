@@ -8,7 +8,6 @@ import { SubmitRevisionState } from '@/reducers/submit-revision'
 import { RevisionDetailState } from '@/reducers/revision-detail'
 import { RevisionsState } from '@/reducers/revisions'
 import { AppDetailModalState } from '@/reducers/app-detail-modal'
-import { AppCategoriesState } from '@/reducers/app-categories'
 import { SettingsState } from '@/reducers/settings'
 import { AppInstallationsState } from '@/reducers/app-installations'
 import { AppUsageStatsState } from '@/reducers/app-usage-stats'
@@ -74,7 +73,6 @@ export interface ReduxState {
   revisions: RevisionsState
   appDetailModal: AppDetailModalState
   appDelete: RequestState
-  appCategories: AppCategoriesState
   settings: SettingsState
   installations: AppInstallationsState
   appUsageStats: AppUsageStatsState

@@ -1,4 +1,3 @@
-import { integrationTypesReceiveData } from '@/actions/app-integration-types'
 import { fetchAppDetailSaga } from '../app-detail'
 import { fetchDesktopIntegrationTypes } from '@/services/apps'
 import { put, call } from '@redux-saga/core/effects'
@@ -11,6 +10,7 @@ import { fetchApiKeyInstallationById } from '@/services/installations'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { integrationTypesStub } from '@/sagas/__stubs__/integration-types'
 import { fetchAppDetailSuccess } from '@/actions/apps'
+import { fetchDesktopIntegrationTypeListSuccess } from '@/actions/desktop-integration-types'
 
 jest.mock('@reapit/elements')
 
@@ -33,7 +33,9 @@ describe('fetch developer app detail with clientId', () => {
   test('api call success', () => {
     const clone = gen.clone()
     expect(clone.next(appDetailDataStub.data).value).toEqual(call(fetchDesktopIntegrationTypes))
-    expect(clone.next(integrationTypesStub).value).toEqual(put(integrationTypesReceiveData(integrationTypesStub)))
+    expect(clone.next(integrationTypesStub).value).toEqual(
+      put(fetchDesktopIntegrationTypeListSuccess(integrationTypesStub)),
+    )
     expect(clone.next().value).toEqual(put(fetchAppDetailSuccess(appDetailDataStub.data)))
   })
 
@@ -58,7 +60,9 @@ describe('fetch developer app detail without clientId', () => {
   test('api call success', () => {
     const clone = gen.clone()
     expect(clone.next(appDetailDataStub.data).value).toEqual(call(fetchDesktopIntegrationTypes))
-    expect(clone.next(integrationTypesStub).value).toEqual(put(integrationTypesReceiveData(integrationTypesStub)))
+    expect(clone.next(integrationTypesStub).value).toEqual(
+      put(fetchDesktopIntegrationTypeListSuccess(integrationTypesStub)),
+    )
     expect(clone.next().value).toEqual(put(fetchAppDetailSuccess(appDetailDataStub.data)))
   })
 
@@ -96,7 +100,9 @@ describe('client app detail fetch data and fetch apiKey', () => {
       ),
     ).toBe(JSON.stringify(call(fetchApiKeyInstallationById, { installationId })))
     expect(clone.next({ apiKey }).value).toEqual(call(fetchDesktopIntegrationTypes))
-    expect(clone.next(integrationTypesStub).value).toEqual(put(integrationTypesReceiveData(integrationTypesStub)))
+    expect(clone.next(integrationTypesStub).value).toEqual(
+      put(fetchDesktopIntegrationTypeListSuccess(integrationTypesStub)),
+    )
     expect(clone.next().value).toEqual(
       put(fetchAppDetailSuccess({ ...appDetailDataStub.data, isWebComponent, installationId, apiKey })),
     )

@@ -1,26 +1,15 @@
 import { FetchError, FormikErrors } from '@reapit/elements'
 import { notification } from '@reapit/elements'
 import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
-import {
-  submitAppSetFormState,
-  submitAppLoading,
-  submitAppReceiveData,
-  CustomCreateAppModel,
-} from '../actions/submit-app'
-import { categoriesReceiveData } from '../actions/app-categories'
-import { integrationTypesReceiveData } from '@/actions/app-integration-types'
+import { submitAppSetFormState, CustomCreateAppModel } from '../actions/submit-app'
 import { put, fork, all, call, takeLatest, select } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { Action } from '../types/core'
-import { errorThrownServer } from '../actions/error'
 import { SubmitAppArgs } from '@/actions/submit-app'
 import errorMessages from '../constants/error-messages'
 import { getApiErrorsFromResponse, ApiFormErrorsResponse } from '@/utils/form/errors'
 import { logger } from '@reapit/utils'
-import { fetchScopeListAPI } from '@/services/scopes'
 import { createAppAPI, fetchAppByIdByRawUrl } from '@/services/apps'
-import { fetchCategoryListAPI } from '@/services/categories'
-import { fetchDesktopIntegrationTypeListAPI } from '@/services/desktop-integration-types'
 import { selectDeveloperId } from '@/selector/auth'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { formFields } from '@/components/ui/submit-app-wizard/form-fields'
@@ -78,41 +67,12 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
   }
 }
 
-export const submitAppsDataFetch = function*() {
-  yield put(submitAppLoading(true))
-
-  try {
-    const [scopes, categories, integrationTypes] = yield all([
-      call(fetchScopeListAPI),
-      call(fetchCategoryListAPI, {}),
-      call(fetchDesktopIntegrationTypeListAPI, {}),
-    ])
-    yield put(submitAppLoading(false))
-    yield put(submitAppReceiveData(scopes))
-    yield put(categoriesReceiveData(categories))
-    yield put(integrationTypesReceiveData(integrationTypes))
-  } catch (err) {
-    logger(err)
-    yield put(submitAppLoading(false))
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
-      }),
-    )
-  }
-}
-
-export const submitAppDataFetchListen = function*() {
-  yield takeLatest<Action<void>>(ActionTypes.DEVELOPER_SUBMIT_APP_REQUEST_DATA, submitAppsDataFetch)
-}
-
 export const submitAppDataListen = function*() {
   yield takeLatest<Action<SubmitAppArgs>>(ActionTypes.DEVELOPER_SUBMIT_APP, submitApp)
 }
 
 export const submitAppSagas = function*() {
-  yield all([fork(submitAppDataListen), fork(submitAppDataFetchListen)])
+  yield all([fork(submitAppDataListen)])
 }
 
 export default submitAppSagas

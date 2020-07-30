@@ -109,13 +109,6 @@ const appState: ReduxState = {
   appDelete: {
     formState: 'PENDING',
   },
-  appCategories: {
-    data: [],
-    pageNumber: 1,
-    pageSize: 12,
-    pageCount: 1,
-    totalCount: 0,
-  },
   settings: {
     loading: true,
     developerInfomation: {

@@ -21,7 +21,6 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
 
   switch (route) {
     case Routes.APPS:
-      store.dispatch(submitAppRequestData())
       store.dispatch(fetchAppList({ page }))
       break
     case Routes.ANALYTICS_TAB: {
