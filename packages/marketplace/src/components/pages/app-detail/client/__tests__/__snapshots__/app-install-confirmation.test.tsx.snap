@@ -620,6 +620,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
           visible={false}
         >
           <Component
+            hasHeader={false}
             isCentered={true}
             isPadding={false}
             onClose={[Function]}
@@ -684,6 +685,7 @@ exports[`ClientAppInstallConfirmation should match a snapshot 1`] = `
           visible={false}
         >
           <Component
+            hasHeader={false}
             isCentered={true}
             isPadding={false}
             onClose={[Function]}
@@ -755,6 +757,7 @@ exports[`InstallDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
   visible={true}
 >
   <Component
+    hasHeader={false}
     isCentered={true}
     isPadding={false}
     onClose={[MockFunction]}
@@ -1158,6 +1161,7 @@ exports[`InstallNonDirectApiAppSucesfullyModal  should match a snapshot 1`] = `
   visible={true}
 >
   <Component
+    hasHeader={false}
     isCentered={true}
     isPadding={false}
     onClose={[MockFunction]}

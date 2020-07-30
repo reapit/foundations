@@ -88,7 +88,7 @@ export const InstallNonDirectApiAppSucesfullyModal = ({
 }: InstallAppSucesfullyModalParams) => {
   const { name } = appDetailData || {}
   return (
-    <ModalV2 isCentered isPadding={false} visible={Boolean(visible)} onClose={afterClose}>
+    <ModalV2 isCentered hasHeader={false} isPadding={false} visible={Boolean(visible)} onClose={afterClose}>
       <CallToAction
         title="Success"
         buttonText="Back to List"
@@ -111,7 +111,7 @@ export const InstallDirectApiAppSucesfullyModal = ({
 }: InstallAppSucesfullyModalParams) => {
   const { name, launchUri, developer } = appDetailData || {}
   return (
-    <ModalV2 isCentered isPadding={false} visible={Boolean(visible)} onClose={afterClose}>
+    <ModalV2 isCentered hasHeader={false} isPadding={false} visible={Boolean(visible)} onClose={afterClose}>
       <CallToAction
         title="Success"
         buttonText="Back to List"

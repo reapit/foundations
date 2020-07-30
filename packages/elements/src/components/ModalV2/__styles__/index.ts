@@ -38,3 +38,10 @@ export const modalNoPadding = css`
     padding: 0;
   }
 `
+
+export const modalNoHeader = css`
+  .rc-dialog-header,
+  .rc-dialog-close {
+    display: none;
+  }
+`
