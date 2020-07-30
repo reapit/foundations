@@ -1,8 +1,3 @@
-/*
- * TODOME(devsManagementReducer)
- * import list
- * export using combine reducer
- */
 import developerListReducer, { DeveloperListState, defaultState as developerListState } from './list'
 import { combineReducers } from 'redux'
 

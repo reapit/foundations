@@ -19,10 +19,6 @@ export const selectApprovalListState = (state: ReduxState): ApprovalList => {
 export const selectStatistics = (state: ReduxState): StatisticsState => {
   return state.statistics
 }
-/*
- * TODOME(devsManagementReducer)
- * fix iport
- */
 
 export const selectDeveloperListState = (state: ReduxState): DeveloperListState => {
   return state.developers.list

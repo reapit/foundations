@@ -5,10 +5,6 @@ import { ActionType } from '../../../types/core'
 import ActionTypes from '../../../constants/action-types'
 import { developerStub } from '@/sagas/developers/__stubs__/developer'
 
-/*
- * TODOME(developerListReducer)
- * rename type
- */
 describe('developersReducer reducer', () => {
   it('should return default state if action not matched', () => {
     const newState = developersReducer(undefined, { type: 'UNKNOWN' as ActionType, data: undefined })

@@ -32,10 +32,6 @@ describe('admin', () => {
       expect(result).toEqual(mockState.statistics)
     })
   })
-  /*
-   * TODOME(developerListReducer)
-   *
-   */
 
   describe('selectDeveloperListState', () => {
     it('should run correctly', () => {

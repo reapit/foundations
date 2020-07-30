@@ -11,17 +11,8 @@ import { FetchDetailResult, getDefaultFetchListValue } from '@reapit/utils'
 export type DeveloperListState = PagedResultDeveloperModel_ & Pick<FetchDetailResult<any>, 'isLoading' | 'errorMessage'>
 
 export const defaultState: DeveloperListState = getDefaultFetchListValue()
-/*
- * TODOME(developerListReducer)
- * rename type
- */
 
 const developerListReducer = (state: DeveloperListState = defaultState, action: Action<any>): DeveloperListState => {
-  /*
-   * TODOME(xinit type)
-   * fix list
-   */
-
   if (isType(action, devsManagementLoading)) {
     return { ...state, isLoading: action.data }
   }

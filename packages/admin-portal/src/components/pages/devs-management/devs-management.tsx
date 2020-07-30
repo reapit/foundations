@@ -102,11 +102,6 @@ export const DevsManagement: React.FC = () => {
   const onSearch = React.useCallback(onSearchHandler(history), [history])
   const [isSetStatusModalOpen, setIsSetStatusModalOpen] = React.useState(false)
   const [developer, setDeveloper] = React.useState<DeveloperModel>({} as DeveloperModel)
-  /*
-   * TODOME(devsManagementReducer)
-   * - should loading
-   * should display data
-   */
 
   const DeveloperListState = useSelector(selectDeveloperListState)
   const { data, totalCount, pageSize, pageNumber = 1, isLoading } = DeveloperListState
