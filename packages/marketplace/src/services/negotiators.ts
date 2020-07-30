@@ -26,6 +26,6 @@ export const fetchNegotiatorsApi = async (params: FetchNegotiatorsParams): Promi
     return response
   } catch (error) {
     logger(error)
-    throw error
+    throw error?.response
   }
 }

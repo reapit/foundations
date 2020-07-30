@@ -16,6 +16,7 @@ export interface UpdateWebComponentConfigParams {
   customerId: string
   daysOfWeek: string[]
   negotiatorIds: string[]
+  // Callback run after update success
   callback?: () => void
 }
 
@@ -42,7 +43,7 @@ export const fetchWebComponentConfigApi = async (
     return response
   } catch (error) {
     logger(error)
-    throw error
+    throw error?.response
   }
 }
 
@@ -61,6 +62,6 @@ export const updateWebComponentConfigApi = async (
     return response
   } catch (error) {
     logger(error)
-    throw error
+    throw error?.response
   }
 }

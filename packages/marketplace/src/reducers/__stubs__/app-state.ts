@@ -1,11 +1,6 @@
 import { ReduxState } from '@/types/core'
 
 const appState: ReduxState = {
-  error: {
-    componentError: null,
-    serverError: null,
-  },
-
   categories: {
     list: {
       data: [],
@@ -13,6 +8,16 @@ const appState: ReduxState = {
       pageSize: 12,
       pageCount: 1,
       totalCount: 0,
+      isLoading: false,
+      errorMessage: '',
+    },
+  },
+  installations: {
+    install: {
+      isLoading: false,
+      errorMessage: '',
+    },
+    uninstall: {
       isLoading: false,
       errorMessage: '',
     },
@@ -72,20 +77,6 @@ const appState: ReduxState = {
       isLoading: false,
       errorMessage: '',
     },
-  },
-
-  installations: {
-    formState: 'PENDING',
-    loading: false,
-    loadingFilter: false,
-    installationsAppData: null,
-    installationsFilteredAppData: null,
-  },
-
-  noticationMessage: {
-    visible: false,
-    variant: '',
-    message: '',
   },
 
   desktopIntegrationTypes: {

@@ -10,9 +10,9 @@ describe('actions utils', () => {
       const actionData: FetchAppsParams = {
         pageNumber: 1,
       }
-      const action = { data: actionData, type: 'CLIENT_FETCH_APP_SUMMARY' }
+      const action = { data: actionData, type: 'FETCH_APPS' }
       expect(
-        actionCreator<FetchAppsParams>(ActionTypes.CLIENT_FETCH_APP_SUMMARY)({
+        actionCreator<FetchAppsParams>(ActionTypes.FETCH_APPS)({
           pageNumber: 1,
         }),
       ).toEqual(action)

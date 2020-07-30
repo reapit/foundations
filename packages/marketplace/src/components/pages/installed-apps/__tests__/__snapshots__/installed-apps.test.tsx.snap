@@ -56,62 +56,57 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
       }
     >
       <Component>
-        <Connect(ErrorBoundary)>
-          <ErrorBoundary
-            componentError={null}
-            errorThrownComponent={[Function]}
+        <ErrorBoundary>
+          <Component
+            infoType="INSTALLED_APPS_EMPTY"
+            list={Array []}
+            loading={false}
+            onCardClick={[Function]}
+            pagination={
+              Object {
+                "onChange": [Function],
+                "pageNumber": 1,
+                "pageSize": 12,
+                "totalCount": 0,
+              }
+            }
           >
             <Component
-              infoType="INSTALLED_APPS_EMPTY"
-              list={Array []}
-              loading={false}
-              onCardClick={[Function]}
-              pagination={
-                Object {
-                  "onChange": [Function],
-                  "pageNumber": 1,
-                  "pageSize": 12,
-                  "totalCount": 0,
-                }
-              }
+              flexColumn={true}
             >
-              <Component
-                flexColumn={true}
+              <div
+                className=""
               >
-                <div
+                <Component
                   className=""
+                  isHeadingSection={true}
                 >
-                  <Component
+                  <h3
                     className=""
-                    isHeadingSection={true}
+                    id=""
                   >
-                    <h3
-                      className=""
-                      id=""
-                    >
-                      Installed Apps
-                    </h3>
-                  </Component>
-                  <Component
-                    variant="info"
+                    Installed Apps
+                  </h3>
+                </Component>
+                <Component
+                  variant="info"
+                >
+                  <div
+                    className="notification helper-wrap helper-info"
                   >
-                    <div
-                      className="notification helper-wrap helper-info"
-                    >
-                      It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.
-                    </div>
-                  </Component>
-                  <Component
-                    onChange={[Function]}
-                    pageNumber={1}
-                    pageSize={12}
-                    totalCount={0}
-                  />
-                </div>
-              </Component>
+                    It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.
+                  </div>
+                </Component>
+                <Component
+                  onChange={[Function]}
+                  pageNumber={1}
+                  pageSize={12}
+                  totalCount={0}
+                />
+              </div>
             </Component>
-          </ErrorBoundary>
-        </Connect(ErrorBoundary)>
+          </Component>
+        </ErrorBoundary>
       </Component>
     </Router>
   </MemoryRouter>
@@ -174,62 +169,57 @@ exports[`InstalledApps should match a snapshot when LOADING true 1`] = `
       }
     >
       <Component>
-        <Connect(ErrorBoundary)>
-          <ErrorBoundary
-            componentError={null}
-            errorThrownComponent={[Function]}
+        <ErrorBoundary>
+          <Component
+            infoType="INSTALLED_APPS_EMPTY"
+            list={Array []}
+            loading={false}
+            onCardClick={[Function]}
+            pagination={
+              Object {
+                "onChange": [Function],
+                "pageNumber": 1,
+                "pageSize": 12,
+                "totalCount": 0,
+              }
+            }
           >
             <Component
-              infoType="INSTALLED_APPS_EMPTY"
-              list={Array []}
-              loading={false}
-              onCardClick={[Function]}
-              pagination={
-                Object {
-                  "onChange": [Function],
-                  "pageNumber": 1,
-                  "pageSize": 12,
-                  "totalCount": 0,
-                }
-              }
+              flexColumn={true}
             >
-              <Component
-                flexColumn={true}
+              <div
+                className=""
               >
-                <div
+                <Component
                   className=""
+                  isHeadingSection={true}
                 >
-                  <Component
+                  <h3
                     className=""
-                    isHeadingSection={true}
+                    id=""
                   >
-                    <h3
-                      className=""
-                      id=""
-                    >
-                      Installed Apps
-                    </h3>
-                  </Component>
-                  <Component
-                    variant="info"
+                    Installed Apps
+                  </h3>
+                </Component>
+                <Component
+                  variant="info"
+                >
+                  <div
+                    className="notification helper-wrap helper-info"
                   >
-                    <div
-                      className="notification helper-wrap helper-info"
-                    >
-                      It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.
-                    </div>
-                  </Component>
-                  <Component
-                    onChange={[Function]}
-                    pageNumber={1}
-                    pageSize={12}
-                    totalCount={0}
-                  />
-                </div>
-              </Component>
+                    It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.
+                  </div>
+                </Component>
+                <Component
+                  onChange={[Function]}
+                  pageNumber={1}
+                  pageSize={12}
+                  totalCount={0}
+                />
+              </div>
             </Component>
-          </ErrorBoundary>
-        </Connect(ErrorBoundary)>
+          </Component>
+        </ErrorBoundary>
       </Component>
     </Router>
   </MemoryRouter>

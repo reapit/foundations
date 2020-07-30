@@ -5,12 +5,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
 import { Button, ModalV2, GridFourCol, GridFourColItem, Content, ModalPropsV2 } from '@reapit/elements'
-import { appInstallationsRequestInstall } from '@/actions/installations'
+import { installApp } from '@/actions/installations'
 import { fetchAppDetail } from '@/actions/apps'
 import { Dispatch } from 'redux'
 import CallToAction from '@/components/ui/call-to-action'
 import routes from '@/constants/routes'
-import { selectInstallationFormState } from '@/selector/installations'
+import { selectInstallAppState } from '@/selector/installations'
 import { selectClientId } from '@/selector/auth'
 import { DESKTOP_REFRESH_URL } from '@/constants/desktop-urls'
 import { canGoBack } from '@/utils/router-helper'
@@ -46,7 +46,7 @@ export const handleInstallButtonClick = (
   isDesktopMode: boolean,
 ) => () => {
   dispatch(
-    appInstallationsRequestInstall({
+    installApp({
       appId,
       callback: handleInstallAppSuccessCallback(setIsSuccessAlertVisible, closeInstallConfirmationModal, isDesktopMode),
     }),
@@ -144,8 +144,8 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
   const [isSuccessAlertVisible, setIsSuccessAlertVisible] = React.useState(false)
   const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = selectClientId(connectSession)
-  const installationFormState = useSelector(selectInstallationFormState)
-  const isSubmitting = installationFormState === 'SUBMITTING'
+  const installationFormState = useSelector(selectInstallAppState)
+  const isLoading = installationFormState?.isLoading
 
   const { name, id = '', scopes = [] } = appDetailData || {}
 
@@ -168,7 +168,7 @@ const AppInstallConfirmation: React.FC<AppInstallConfirmationProps> = ({
           <div className="flex">
             <Button
               dataTest="agree-btn"
-              loading={isSubmitting}
+              loading={isLoading}
               className={appPermissionContentStyles.installButton}
               type="button"
               variant="primary"

@@ -1,1 +1,1 @@
-export * from './app-installations'
+export * from './installations'

@@ -32,7 +32,7 @@ export const fetchAppsApi = async (params: FetchAppsParams): Promise<PagedResult
     return response
   } catch (error) {
     logger(error)
-    throw error
+    throw error?.response
   }
 }
 
@@ -52,6 +52,6 @@ export const fetchAppByIdApi = async (params: FetchAppByIdParams): Promise<AppDe
     return response
   } catch (error) {
     logger(error)
-    throw error
+    throw error?.response
   }
 }

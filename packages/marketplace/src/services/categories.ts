@@ -18,6 +18,6 @@ export const fetchCategoriesApi = async (params: FetchCategoriesParams): Promise
     return response
   } catch (error) {
     logger(error)
-    throw error
+    throw error?.response
   }
 }

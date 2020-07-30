@@ -7,9 +7,9 @@ import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
 import { fetchAppDetail } from '@/actions/apps'
 import { Button, ModalV2, ModalPropsV2 } from '@reapit/elements'
-import { appInstallationsRequestUninstall } from '@/actions/installations'
+import { uninstallApp } from '@/actions/installations'
 import CallToAction from '@/components/ui/call-to-action'
-import { selectInstallationFormState } from '@/selector/installations'
+import { selectUninstallAppState } from '@/selector/installations'
 import routes from '@/constants/routes'
 import { selectClientId } from '@/selector/auth'
 import { DESKTOP_REFRESH_URL } from '@/constants/desktop-urls'
@@ -48,7 +48,7 @@ export const onUninstallButtonClick = (
 ) => {
   return () => {
     dispatch(
-      appInstallationsRequestUninstall({
+      uninstallApp({
         appId,
         installationId,
         terminatedReason: 'User uninstall',
@@ -170,8 +170,8 @@ const AppUninstallConfirmation: React.FC<AppUninstallConfirmationProps> = ({
   const history = useHistory()
   const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = selectClientId(connectSession)
-  const installationFormState = useSelector(selectInstallationFormState)
-  const isSubmitting = installationFormState === 'SUBMITTING'
+  const installationFormState = useSelector(selectUninstallAppState)
+  const isSubmitting = installationFormState?.isLoading
   const { name, id = '', installationId = '' } = appDetailData || {}
   const dispatch = useDispatch()
   const onSuccessAlertButtonClick = React.useCallback(handleSuccessAlertButtonClick(history), [history])

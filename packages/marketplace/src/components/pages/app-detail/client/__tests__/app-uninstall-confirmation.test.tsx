@@ -4,7 +4,7 @@ import { mount, shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import { MemoryRouter } from 'react-router'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
-import { appInstallationsRequestUninstall } from '@/actions/installations'
+import { uninstallApp } from '@/actions/installations'
 import { fetchAppDetail } from '@/actions/apps'
 import ClientAppUninstallConfirmation, {
   AppUninstallConfirmationProps,
@@ -72,7 +72,7 @@ describe('ClientAppUninstallConfirmation', () => {
       )
       fn()
       expect(spyDispatch).toBeCalledWith(
-        appInstallationsRequestUninstall({
+        uninstallApp({
           appId,
           installationId,
           terminatedReason: 'User uninstall',

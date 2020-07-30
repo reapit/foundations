@@ -28,7 +28,7 @@ export const webComponentReducer = (
   }
   if (isType(action, fetchWebComponentConfigSuccess)) {
     return {
-      data: {} as WebComponentConfigResult,
+      data: action.data,
       isLoading: false,
       errorMessage: '',
     }
