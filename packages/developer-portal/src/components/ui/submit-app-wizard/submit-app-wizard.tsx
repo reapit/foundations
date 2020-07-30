@@ -90,7 +90,7 @@ export const handleSubmit = ({ dispatch, setWizardStep }: HandleSubmitParams) =>
           .map(url => url.trim())
           .filter(url => url)
       : [],
-    callback: handleSubmitAppSuccessCallback(actions.setFieldValue, setWizardStep, dispatch),
+    successCallback: handleSubmitAppSuccessCallback(actions.setFieldValue, setWizardStep, dispatch),
   }
 
   if (appToSubmit.authFlow === AuthFlow.CLIENT_SECRET) {

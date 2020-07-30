@@ -18,7 +18,7 @@ describe('SubmitAppWizard', () => {
       redirectUris: 'link1 , link2 ,',
       signoutUris: 'link1 , link2 ,',
       authFlow: AuthFlow.CLIENT_SECRET,
-      callback: expect.any(Function),
+      successCallback: expect.any(Function),
     }
     const actions = {
       setErrors: jest.fn(),
@@ -31,37 +31,39 @@ describe('SubmitAppWizard', () => {
     expect(dispatch).toHaveBeenCalledWith({
       data: {
         authFlow: values.authFlow,
-        callback: expect.any(Function),
+        successCallback: expect.any(Function),
       },
       type: 'CREATE_APP',
     })
   })
-  // test('handleSubmit should run correctly when authFlow = authorisationCode', () => {
-  //   const dispatch = jest.fn()
-  //   const setWizardStep = jest.fn()
-  //   const values = {
-  //     // should be trimem, and empty value should be removed
-  //     redirectUris: 'link1 , link2 ,',
-  //     signoutUris: 'link1 , link2 ,',
-  //     authFlow: AuthFlow.USER_SESSION,
-  //   }
-  //   const actions = {
-  //     setFieldValue: jest.fn(),
-  //     setErrors: jest.fn(),
-  //   }
-  //   handleSubmit({
-  //     dispatch,
-  //     setWizardStep,
-  //   })(values, (actions as unknown) as FormikHelpers<CustomCreateAppModel>)
-  //   expect(dispatch).toHaveBeenCalledWith({
-  //     data: {
-  //       redirectUris: ['link1', 'link2'],
-  //       signoutUris: ['link1', 'link2'],
-  //       authFlow: AuthFlow.USER_SESSION,
-  //     },
-  //     type: 'CREATE_APP',
-  //   })
-  // })
+  test('handleSubmit should run correctly when authFlow = authorisationCode', () => {
+    const dispatch = jest.fn()
+    const setWizardStep = jest.fn()
+    const values = {
+      // should be trimem, and empty value should be removed
+      redirectUris: 'link1 , link2 ,',
+      signoutUris: 'link1 , link2 ,',
+      authFlow: AuthFlow.USER_SESSION,
+      successCallback: expect.any(Function),
+    }
+    const actions = {
+      setFieldValue: jest.fn(),
+      setErrors: jest.fn(),
+    }
+    handleSubmit({
+      dispatch,
+      setWizardStep,
+    })(values, (actions as unknown) as FormikHelpers<CustomCreateAppModel>)
+    expect(dispatch).toHaveBeenCalledWith({
+      data: {
+        redirectUris: ['link1', 'link2'],
+        signoutUris: ['link1', 'link2'],
+        authFlow: AuthFlow.USER_SESSION,
+        successCallback: expect.any(Function),
+      },
+      type: 'CREATE_APP',
+    })
+  })
   it('should match snapshot when visible = true', () => {
     const wrapper = shallow(<SubmitAppWizard afterClose={jest.fn} />)
     expect(wrapper).toMatchSnapshot()

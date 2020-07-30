@@ -36,7 +36,7 @@ export type FetchAppByIdParams = FetchByIdCommonParams & {
 }
 
 export type CreateAppParams = CreateAppModel & {
-  callback?: (appDetail: AppDetailModel) => void
+  successCallback?: (appDetail: AppDetailModel) => void
 }
 
 export type DeleteAppByIdParams = FetchByIdCommonParams
