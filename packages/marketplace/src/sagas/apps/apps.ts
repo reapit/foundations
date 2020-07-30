@@ -6,7 +6,7 @@ import {
   fetchFeatureAppsSuccess,
   fetchFeatureAppsFailed,
   fetchAppDetailSuccess,
-  fetchAppDetailFailure,
+  fetchAppDetailFailed,
 } from '@/actions/apps'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
@@ -91,7 +91,7 @@ export const fetchAppDetailSagas = function*({ data }: Action<FetchAppByIdParams
     }
     yield put(fetchAppDetailSuccess(appDetailResponse))
   } catch (err) {
-    yield put(fetchAppDetailFailure(err.description))
+    yield put(fetchAppDetailFailed(err.description))
     notification.error({
       message: err.description,
       placement: 'bottomRight',

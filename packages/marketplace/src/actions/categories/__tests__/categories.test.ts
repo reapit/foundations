@@ -1,5 +1,5 @@
 import ActionTypes from '@/constants/action-types'
-import { fetchCategories, fetchCategoriesSuccess, fetchCategoriesFailure } from '../categories'
+import { fetchCategories, fetchCategoriesSuccess, fetchCategoriesFailed } from '../categories'
 
 describe('categories', () => {
   describe('fetchCategories', () => {
@@ -14,9 +14,9 @@ describe('categories', () => {
     })
   })
 
-  describe('fetchCategoriesFailure', () => {
-    it('should create a fetchCategoriesFailure action', () => {
-      expect(fetchCategoriesFailure.type).toEqual(ActionTypes.FETCH_CATEGORIES_FAILURE)
+  describe('fetchCategoriesFailed', () => {
+    it('should create a fetchCategoriesFailed action', () => {
+      expect(fetchCategoriesFailed.type).toEqual(ActionTypes.FETCH_CATEGORIES_FAILED)
     })
   })
 })

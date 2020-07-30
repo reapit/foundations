@@ -1,7 +1,7 @@
 import { PagedResultCategoryModel_ } from '@reapit/foundations-ts-definitions'
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
-import { fetchNegotiators, fetchNegotiatorsFailure, fetchNegotiatorsSuccess } from '@/actions/negotiators'
+import { fetchNegotiators, fetchNegotiatorsFailed, fetchNegotiatorsSuccess } from '@/actions/negotiators'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 
 export type NegotiatorsState = PagedResultCategoryModel_ & {
@@ -40,7 +40,7 @@ export const negotiatorsReducer = (
     }
   }
 
-  if (isType(action, fetchNegotiatorsFailure)) {
+  if (isType(action, fetchNegotiatorsFailed)) {
     return {
       ...state,
       isLoading: false,

@@ -9,4 +9,4 @@ export const fetchCategoriesSuccess = actionCreator<PagedResultCategoryModel_ | 
   ActionTypes.FETCH_CATEGORIES_SUCCESS,
 )
 
-export const fetchCategoriesFailure = actionCreator<string>(ActionTypes.FETCH_CATEGORIES_FAILURE)
+export const fetchCategoriesFailed = actionCreator<string>(ActionTypes.FETCH_CATEGORIES_FAILED)

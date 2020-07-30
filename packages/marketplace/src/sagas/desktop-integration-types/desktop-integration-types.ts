@@ -2,7 +2,7 @@ import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
 import { notification } from '@reapit/elements'
 import { Action } from '@/types/core'
 import {
-  fetchDesktopIntegrationTypesFailure,
+  fetchDesktopIntegrationTypesFailed,
   fetchDesktopIntegrationTypesSuccess,
 } from '@/actions/desktop-integration-types'
 import ActionTypes from '@/constants/action-types'
@@ -16,7 +16,7 @@ export const fetchDesktopIntegrationTypes = function*({ data }: Action<FetchDesk
     const desktopIntegrationTypes = yield call(fetchDesktopIntegrationTypesApi, { ...data })
     yield put(fetchDesktopIntegrationTypesSuccess(desktopIntegrationTypes))
   } catch (err) {
-    yield put(fetchDesktopIntegrationTypesFailure(err.description))
+    yield put(fetchDesktopIntegrationTypesFailed(err.description))
     notification.error({
       message: err.description,
       placement: 'bottomRight',

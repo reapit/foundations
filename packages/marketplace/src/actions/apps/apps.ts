@@ -5,12 +5,14 @@ import { FetchAppByIdParams, FetchAppsParams } from '@/services/apps'
 
 export const fetchApps = actionCreator<FetchAppsParams & { preview?: boolean }>(ActionTypes.FETCH_APPS)
 export const fetchAppsSuccess = actionCreator<PagedResultAppSummaryModel_>(ActionTypes.FETCH_APPS_SUCESS)
-export const fetchAppsFailed = actionCreator<string>(ActionTypes.FETCH_APPS_FAILURE)
+export const fetchAppsFailed = actionCreator<string>(ActionTypes.FETCH_APPS_FAILED)
 
 export const fetchFeatureApps = actionCreator<FetchAppsParams>(ActionTypes.FETCH_FEATURE_APPS)
-export const fetchFeatureAppsSuccess = actionCreator<PagedResultAppSummaryModel_>(ActionTypes.FETCH_FEATURE_APPS_SUCESS)
-export const fetchFeatureAppsFailed = actionCreator<string>(ActionTypes.FETCH_FEATURE_APPS_FAILURE)
+export const fetchFeatureAppsSuccess = actionCreator<PagedResultAppSummaryModel_>(
+  ActionTypes.FETCH_FEATURE_APPS_SUCCESS,
+)
+export const fetchFeatureAppsFailed = actionCreator<string>(ActionTypes.FETCH_FEATURE_APPS_FAILED)
 
 export const fetchAppDetail = actionCreator<FetchAppByIdParams>(ActionTypes.FETCH_APP_DETAIL)
 export const fetchAppDetailSuccess = actionCreator<AppDetailModel>(ActionTypes.FETCH_APP_DETAIL_SUCCESS)
-export const fetchAppDetailFailure = actionCreator<string>(ActionTypes.FETCH_APP_DETAIL_FAILURE)
+export const fetchAppDetailFailed = actionCreator<string>(ActionTypes.FETCH_APP_DETAIL_FAILED)
