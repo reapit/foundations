@@ -52,10 +52,6 @@ export const fetchApps = function*({ data }) {
   }
 }
 
-export const fetchAppsListen = function*() {
-  yield takeLatest<Action<FetchAppsParams>>(ActionTypes.FETCH_APPS, fetchApps)
-}
-
 export const fetchFeatureApps = function*({ data }) {
   try {
     const connectSession = yield call(reapitConnectBrowserSession.connectSession)
@@ -84,10 +80,6 @@ export const fetchFeatureApps = function*({ data }) {
   }
 }
 
-export const fetchFeatureAppsListen = function*() {
-  yield takeLatest<Action<FetchAppsParams>>(ActionTypes.FETCH_FEATURE_APPS, fetchFeatureApps)
-}
-
 export const fetchAppDetailSagas = function*({ data }: Action<FetchAppByIdParams>) {
   try {
     const appDetailResponse = yield call(fetchAppByIdApi, { ...data })
@@ -107,10 +99,12 @@ export const fetchAppDetailSagas = function*({ data }: Action<FetchAppByIdParams
   }
 }
 
-export const fetchAppDetailSagasListen = function*() {
+export const appSagasListen = function*() {
   yield takeLatest<Action<FetchAppByIdParams>>(ActionTypes.FETCH_APP_DETAIL, fetchAppDetailSagas)
+  yield takeLatest<Action<FetchAppsParams>>(ActionTypes.FETCH_FEATURE_APPS, fetchFeatureApps)
+  yield takeLatest<Action<FetchAppsParams>>(ActionTypes.FETCH_APPS, fetchApps)
 }
 
 export const appsSagas = function*() {
-  yield all([fork(fetchAppsListen), fork(fetchFeatureAppsListen), fork(fetchAppDetailSagasListen)])
+  yield all([fork(appSagasListen)])
 }

@@ -8,6 +8,8 @@ exports[`ClientAppUninstallConfirmation UninstallationsSuccessModal should match
       "developer": "Pete's Proptech World Ltd",
       "homePage": "http://myawesomeproptechproduct.io",
       "id": "9b6fd5f7-2c15-483d-b925-01b650538e52",
+      "installationId": "123",
+      "isWebComponent": true,
       "media": Array [
         Object {
           "description": "Application Icon",
@@ -459,6 +461,8 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
             "developer": "Pete's Proptech World Ltd",
             "homePage": "http://myawesomeproptechproduct.io",
             "id": "9b6fd5f7-2c15-483d-b925-01b650538e52",
+            "installationId": "123",
+            "isWebComponent": true,
             "media": Array [
               Object {
                 "description": "Application Icon",
@@ -898,6 +902,8 @@ exports[`ClientAppUninstallConfirmation should match a snapshot 1`] = `
               "developer": "Pete's Proptech World Ltd",
               "homePage": "http://myawesomeproptechproduct.io",
               "id": "9b6fd5f7-2c15-483d-b925-01b650538e52",
+              "installationId": "123",
+              "isWebComponent": true,
               "media": Array [
                 Object {
                   "description": "Application Icon",

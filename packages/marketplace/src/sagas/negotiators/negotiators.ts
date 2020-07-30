@@ -19,7 +19,7 @@ export const fetchNegotiators = function*({ data }: Action<FetchNegotiatorsParam
 }
 
 export const fetchNegotiatorsListen = function*() {
-  yield takeLatest<Action<FetchNegotiatorsParams>>(ActionTypes.FETCH_DESKTOP_INTEGRATION_TYPES, fetchNegotiators)
+  yield takeLatest<Action<FetchNegotiatorsParams>>(ActionTypes.FETCH_NEGOTIATORS, fetchNegotiators)
 }
 
 export const negotiatorsSagas = function*() {
