@@ -20,8 +20,8 @@ import {
   selectWebComponentData,
   selectWebComponentLoading,
   selectWebComponentUpdating,
-  selectWebComponentNegotiators,
 } from '@/selector/web-components'
+import { selectNegotiators } from '@/selector/negotiators'
 import { UpdateWebComponentConfigParams } from '@/services/web-component'
 import { Dispatch } from 'redux'
 import { selectAppDetailData } from '@/selector/apps'
@@ -48,7 +48,7 @@ export type WebComponentConfigModalBodyProps = {
 }
 export const WebComponentConfigModalBody = ({ subtext, formikProps }: WebComponentConfigModalBodyProps) => {
   const { values, setFieldValue } = formikProps
-  const negotiators = useSelector(selectWebComponentNegotiators)
+  const negotiators = useSelector(selectNegotiators)
   const negotiatorOptions = genarateNegotiatorOptions(negotiators)
 
   return (

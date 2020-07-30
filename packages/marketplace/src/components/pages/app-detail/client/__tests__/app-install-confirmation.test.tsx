@@ -14,7 +14,7 @@ import AppInstallConfirmation, {
   InstallAppSucesfullyModalParams,
   InstallNonDirectApiAppSucesfullyModal,
 } from '../app-install-confirmation'
-import { appInstallationsRequestInstall } from '@/actions/installations'
+import { installApp } from '@/actions/installations'
 import { fetchAppDetail } from '@/actions/apps'
 import routes from '@/constants/routes'
 import Routes from '@/constants/routes'
@@ -91,7 +91,7 @@ describe('ClientAppInstallConfirmation', () => {
       )
       fn()
       expect(spyDispatch).toBeCalledWith(
-        appInstallationsRequestInstall({
+        installApp({
           appId,
           callback: expect.any(Function),
         }),

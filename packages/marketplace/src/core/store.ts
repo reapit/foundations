@@ -6,12 +6,11 @@ import { ReduxState } from '@/types/core'
 import apps from '@/reducers/apps'
 import negotiators from '@/reducers/negotiators'
 import webComponent from '@/reducers/web-component'
-import error from '@/reducers/error'
 import categories from '@/reducers/categories'
-import appInstallationsReducer from '@/reducers/app-installations'
+import installations from '@/reducers/installations'
 import desktopIntegrationTypes from '@/reducers/desktop-integration-types'
-import noticationMessage from '@/reducers/notification-message'
-import { appInstallationsSagas } from '@/sagas/installations'
+
+import { installationsSagas } from '@/sagas/installations'
 import { webComponentSagas } from '@/sagas/web-component'
 import { desktopIntegrationTypesSagas } from '@/sagas/desktop-integration-types'
 import { categoriesSagas } from '@/sagas/categories'
@@ -35,23 +34,21 @@ export class Store {
 
   static reducers = combineReducers<ReduxState>({
     apps,
-    negotiators,
+    installations,
     webComponent,
-    error,
+    negotiators,
     categories,
-    installations: appInstallationsReducer,
-    noticationMessage,
-    desktopIntegrationTypes: desktopIntegrationTypes,
+    desktopIntegrationTypes,
   })
 
   static sagas = function*() {
     yield all([
-      fork(appInstallationsSagas),
-      fork(webComponentSagas),
-      fork(desktopIntegrationTypesSagas),
-      fork(categoriesSagas),
       fork(appsSagas),
+      fork(installationsSagas),
+      fork(webComponentSagas),
       fork(negotiatorsSagas),
+      fork(categoriesSagas),
+      fork(desktopIntegrationTypesSagas),
     ])
   }
 

@@ -1,8 +1,5 @@
 import * as React from 'react'
-import { Dispatch } from 'redux'
-import { useDispatch } from 'react-redux'
-import { showNotificationMessage } from '@/actions/notification-message'
-import { Button, Level, FlexContainerBasic, Section } from '@reapit/elements'
+import { Button, Level, FlexContainerBasic, Section, notification } from '@reapit/elements'
 import { getDefaultRoute } from '@/utils/auth-route'
 import messages from '@/constants/messages'
 import loginStyles from '@/styles/pages/login.scss?mod'
@@ -14,14 +11,10 @@ const { wrapper, container, image, registerLevel, loginButton } = loginStyles
 
 export type LoginProps = {}
 
-export const handleShowNotificationAfterPasswordChanged = (
-  isPasswordChanged: boolean,
-  localStorage: Storage,
-  dispatch: Dispatch,
-) => {
+export const handleShowNotificationAfterPasswordChanged = (isPasswordChanged: boolean, localStorage: Storage) => {
   return () => {
     if (isPasswordChanged) {
-      dispatch(showNotificationMessage({ variant: 'info', message: messages.PASSWORD_CHANGED_SUCCESSFULLY }))
+      notification.success({ message: messages.PASSWORD_CHANGED_SUCCESSFULLY, placement: 'bottomRight' })
       localStorage.removeItem('isPasswordChanged')
     }
   }
@@ -33,12 +26,10 @@ export const onLoginButtonClick = () => {
 }
 
 export const Login: React.FunctionComponent<LoginProps> = () => {
-  const dispatch = useDispatch()
   const isPasswordChanged = localStorage.getItem('isPasswordChanged') === 'true'
-  React.useEffect(handleShowNotificationAfterPasswordChanged(isPasswordChanged, localStorage, dispatch), [
+  React.useEffect(handleShowNotificationAfterPasswordChanged(isPasswordChanged, localStorage), [
     isPasswordChanged,
     localStorage,
-    dispatch,
   ])
 
   return (

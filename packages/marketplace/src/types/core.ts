@@ -1,8 +1,6 @@
 import Routes from '@/constants/routes'
 import ActionTypes from '@/constants/action-types'
-import { ErrorState } from '@/reducers/error'
 import { CategoriesRootState } from '@/reducers/categories'
-import { NotificationMessageState } from '@/reducers/notification-message'
 import { DesktopIntegrationTypeRootState } from '@/reducers/desktop-integration-types'
 import { AppsRootState } from '@/reducers/apps'
 import { NegotiatorsRootState } from '@/reducers/negotiators'
@@ -50,9 +48,7 @@ export type ReduxState = {
   apps: AppsRootState
   negotiators: NegotiatorsRootState
   webComponent: WebComponentRootState
-  error: ErrorState
   categories: CategoriesRootState
   installations: InstallationsRootState
-  noticationMessage: NotificationMessageState
   desktopIntegrationTypes: DesktopIntegrationTypeRootState
 }
