@@ -32,13 +32,6 @@ const appListReducer = (state: AppListState = defaultState, action: Action<any>)
     }
   }
 
-  // if (isType(action, appsSetFormState)) {
-  //   return {
-  //     ...state,
-  //     formState: action.data,
-  //   }
-  // }
-
   return state
 }
 

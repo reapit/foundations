@@ -21,6 +21,21 @@ describe('appsReducer - list', () => {
 
   it('should set approvals list data when APPS_RECEIVE_DATA action is called', () => {
     const newState = appsReducer(undefined, {
+      type: ActionTypes.APPS_REQUEST_FEATURED as ActionType,
+      data: appsDataStub.data,
+    })
+    const expected = {
+      ...defaultState,
+      list: {
+        ...defaultState.list,
+        isLoading: false,
+      },
+    }
+    expect(newState).toEqual(expected)
+  })
+
+  it('should isLoading to false when APPS_ action is called', () => {
+    const newState = appsReducer(undefined, {
       type: ActionTypes.APPS_RECEIVE_DATA as ActionType,
       data: appsDataStub.data,
     })
